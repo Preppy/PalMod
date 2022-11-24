@@ -38,7 +38,7 @@ const sGame_PaletteDataset AvgrsGS_A_CaptainAmerica_Effects[] =
 {
     { L"Captain America Burned", 0xf23e0, 0xf2400, indexAiGSSprites_CaptainAmerica, 0x00 },
     { L"Captain America Zapped", 0xf2400, 0xf2420, indexAiGSSprites_CaptainAmerica, 0x00 },
-    { L"Captain America Effect 1", 0xf2420, 0xf2440 },
+    { L"Captain America Effect 1", 0xf2420, 0xf2440, indexAiGSSprites_CaptainAmerica, 0x01 },
     { L"Captain America Effect 2", 0xf2440, 0xf2460 },
     { L"Captain America Effect 3", 0xf2460, 0xf2480, indexAiGSSprites_CaptainAmerica, 0x00 },
     { L"Captain America Effect 4", 0xf2480, 0xf24a0 },
@@ -306,7 +306,7 @@ const sGame_PaletteDataset AvgrsGS_A_Assists_Sentry_P2[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Sentry_Effects[] =
 {
-    { L"Sentry Effect", 0xf2f20, 0xf2f40 },
+    { L"Sentry Effect", 0xf2f20, 0xf2f40, indexAiGSSprites_Sentry, 0x01 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_CaptainAtlas_P1[] =

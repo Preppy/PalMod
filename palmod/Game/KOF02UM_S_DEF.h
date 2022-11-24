@@ -59,7 +59,6 @@ const std::vector<uint16_t> KOF02UM_S_IMGIDS_USED =
     indexKOF01Sprites_Benimaru,     // 0x1b1
     indexKOF01Sprites_Chang,        // 0x1b3
     indexKOF01Sprites_Iori,         // 0x1bb
-    indexKOF01Sprites_K9999,        // 0x1be
     indexKOF01Sprites_Kensou,       // 0x1bf
     indexKOF01Sprites_Kula,         // 0x1c2
     indexKOF01Sprites_MayLee,       // 0x1c8

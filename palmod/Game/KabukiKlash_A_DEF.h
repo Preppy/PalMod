@@ -2,72 +2,87 @@
 
 const std::vector<uint16_t> KabukiKlash_A_IMGIDS_USED =
 {
+    indexKabukiKlashSprites_Gokuraku,       // 0x97
+    indexKabukiKlashSprites_Jyashinsai,     // 0x98
+    indexKabukiKlashSprites_Kabuki,         // 0x99
+    indexKabukiKlashSprites_Karakuri,       // 0x9A
+    indexKabukiKlashSprites_Kinu,           // 0x9B
+    indexKabukiKlashSprites_Lucifeller,     // 0x9C
+    indexKabukiKlashSprites_Manjimaru,      // 0x9D
+    indexKabukiKlashSprites_MantoAce,       // 0x9E
+    indexKabukiKlashSprites_Orochimaru,     // 0x9F
+    indexKabukiKlashSprites_Tsunade,        // 0xA0
+    indexKabukiKlashSprites_Yagumo,         // 0xA1
+    indexKabukiKlashSprites_Ziria,          // 0xA2
+    indexKabukiKlashSprites_Bonus,          // 0xA3
+    indexKabukiKlashSprites_Endings,        // 0xA4
+    indexKabukiKlashSprites_Stages,         // 0xA5
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Manjimaru_P1[] =
 {
 //---Manjimaru Sengoku---
 //--P1--
-    { L"Manjimaru P1", 0x1f5de0, 0x1f5e00 },
-    { L"Manjimaru P1 - Zapped", 0x1f5e00, 0x1f5e20 },
-    { L"Manjimaru P1 - Poisoned", 0x1f5e20, 0x1f5e40 },
-    { L"Manjimaru P1 - Weapon 1", 0x1f5e40, 0x1f5e60 },
-    { L"Manjimaru P1 - Weapon 2", 0x1f5e60, 0x1f5e80 },
-    { L"Manjimaru P1 - Thunder Techniques", 0x1f5e80, 0x1f5ea0 },
-    { L"Manjimaru P1 - Manji Kiri", 0x1f5ea0, 0x1f5ec0 },
-    { L"Manjimaru P1 - Freezed Effect", 0x1f5ec0, 0x1f5ee0 },
-    { L"Manjimaru P1 - Zapped/Burned Effect", 0x1f5ee0, 0x1f5f00 },
-    { L"Manjimaru P1 - Weapon Dropped 1P", 0x1f5f00, 0x1f5f20 },
-    { L"Manjimaru P1 - Weapon Dropped 2P", 0x1f5f20, 0x1f5f40 },
-    { L"Manjimaru P1 - Weapon Dropped COM", 0x1f5f40, 0x1f5f60 },
+    { L"Manjimaru P1", 0x1f5de0, 0x1f5e00, indexKabukiKlashSprites_Manjimaru, 0x00, &pairNext3 },
+    { L"Manjimaru P1 - Zapped", 0x1f5e00, 0x1f5e20, indexKabukiKlashSprites_Manjimaru, 0x00, &pairNext2 },
+    { L"Manjimaru P1 - Poisoned", 0x1f5e20, 0x1f5e40, indexKabukiKlashSprites_Manjimaru, 0x00, &pairNext },
+    { L"Manjimaru P1 - Weapon 1", 0x1f5e40, 0x1f5e60, indexKabukiKlashSprites_Manjimaru, 0x01 },
+    { L"Manjimaru P1 - Weapon 2", 0x1f5e60, 0x1f5e80, indexKabukiKlashSprites_Manjimaru, 0x01 },
+    { L"Manjimaru P1 - Thunder Techniques", 0x1f5e80, 0x1f5ea0, indexKabukiKlashSprites_Manjimaru, 0x03 },
+    { L"Manjimaru P1 - Manji Kiri", 0x1f5ea0, 0x1f5ec0, indexKabukiKlashSprites_Manjimaru, 0x02 },
+    { L"Manjimaru P1 - Freezed Effect", 0x1f5ec0, 0x1f5ee0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Manjimaru P1 - Zapped/Burned Effect", 0x1f5ee0, 0x1f5f00, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Manjimaru P1 - Weapon Dropped 1P", 0x1f5f00, 0x1f5f20, indexKabukiKlashSprites_Manjimaru, 0x07 },
+    { L"Manjimaru P1 - Weapon Dropped 2P", 0x1f5f20, 0x1f5f40, indexKabukiKlashSprites_Manjimaru, 0x07 },
+    { L"Manjimaru P1 - Weapon Dropped COM", 0x1f5f40, 0x1f5f60, indexKabukiKlashSprites_Manjimaru, 0x07 },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Manjimaru_P2[] =
 {
     //--P2--
-    { L"Manjimaru P2", 0x1f7160, 0x1f7180 },
-    { L"Manjimaru P2 - Zapped", 0x1f7180, 0x1f71a0 },
-    { L"Manjimaru P2 - Poisoned", 0x1f71a0, 0x1f71c0 },
-    { L"Manjimaru P2 - Weapon 1", 0x1f71c0, 0x1f71e0 },
-    { L"Manjimaru P2 - Weapon 2", 0x1f71e0, 0x1f7200 },
-    { L"Manjimaru P2 - Thunder Techniques", 0x1f7200, 0x1f7220 },
-    { L"Manjimaru P2 - Manji Kiri", 0x1f7220, 0x1f7240 },
-    { L"Manjimaru P2 - Freezed Effect", 0x1f7240, 0x1f7260 },
-    { L"Manjimaru P2 - Zapped/Burned Effect", 0x1f7260, 0x1f7280 },
-    { L"Manjimaru P2 - Weapon Dropped 1P", 0x1f7280, 0x1f72a0 },
-    { L"Manjimaru P2 - Weapon Dropped 2P", 0x1f72a0, 0x1f72c0 },
-    { L"Manjimaru P2 - Weapon Dropped COM", 0x1f72c0, 0x1f72e0 },
+    { L"Manjimaru P2", 0x1f7160, 0x1f7180, indexKabukiKlashSprites_Manjimaru, 0x00, &pairNext3 },
+    { L"Manjimaru P2 - Zapped", 0x1f7180, 0x1f71a0, indexKabukiKlashSprites_Manjimaru, 0x00, &pairNext2 },
+    { L"Manjimaru P2 - Poisoned", 0x1f71a0, 0x1f71c0, indexKabukiKlashSprites_Manjimaru, 0x00, &pairNext },
+    { L"Manjimaru P2 - Weapon 1", 0x1f71c0, 0x1f71e0, indexKabukiKlashSprites_Manjimaru, 0x01 },
+    { L"Manjimaru P2 - Weapon 2", 0x1f71e0, 0x1f7200, indexKabukiKlashSprites_Manjimaru, 0x01 },
+    { L"Manjimaru P2 - Thunder Techniques", 0x1f7200, 0x1f7220, indexKabukiKlashSprites_Manjimaru, 0x03 },
+    { L"Manjimaru P2 - Manji Kiri", 0x1f7220, 0x1f7240, indexKabukiKlashSprites_Manjimaru, 0x02 },
+    { L"Manjimaru P2 - Freezed Effect", 0x1f7240, 0x1f7260, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Manjimaru P2 - Zapped/Burned Effect", 0x1f7260, 0x1f7280, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Manjimaru P2 - Weapon Dropped 1P", 0x1f7280, 0x1f72a0, indexKabukiKlashSprites_Manjimaru, 0x07 },
+    { L"Manjimaru P2 - Weapon Dropped 2P", 0x1f72a0, 0x1f72c0, indexKabukiKlashSprites_Manjimaru, 0x07 },
+    { L"Manjimaru P2 - Weapon Dropped COM", 0x1f72c0, 0x1f72e0 , indexKabukiKlashSprites_Manjimaru, 0x07 },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Manjimaru_VS[] =
 {
     //--VS Portrait--
-    { L"Manjimaru P1 - VS Portrait 1/3", 0x1fc3e0, 0x1fc400 },
-    { L"Manjimaru P1 - VS Portrait 2/3", 0x1fc420, 0x1fc440 },
-    { L"Manjimaru P1 - VS Portrait 3/3", 0x1fc460, 0x1fc480 },
-    { L"Manjimaru P2 - VS Portrait 1/3", 0x1fc400, 0x1fc420 },
-    { L"Manjimaru P2 - VS Portrait 2/3", 0x1fc440, 0x1fc460 },
-    { L"Manjimaru P2 - VS Portrait 3/3", 0x1fc480, 0x1fc4a0 },
+    { L"Manjimaru P1 - VS Portrait 1/3", 0x1fc3e0, 0x1fc400, indexKabukiKlashSprites_Manjimaru, 0x04, &pairNextAndNext },
+    { L"Manjimaru P1 - VS Portrait 2/3", 0x1fc420, 0x1fc440, indexKabukiKlashSprites_Manjimaru, 0x05 },
+    { L"Manjimaru P1 - VS Portrait 3/3", 0x1fc460, 0x1fc480, indexKabukiKlashSprites_Manjimaru, 0x06 },
+    { L"Manjimaru P2 - VS Portrait 1/3", 0x1fc400, 0x1fc420, indexKabukiKlashSprites_Manjimaru, 0x04, &pairNextAndNext },
+    { L"Manjimaru P2 - VS Portrait 2/3", 0x1fc440, 0x1fc460, indexKabukiKlashSprites_Manjimaru, 0x05 },
+    { L"Manjimaru P2 - VS Portrait 3/3", 0x1fc480, 0x1fc4a0, indexKabukiKlashSprites_Manjimaru, 0x06 },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Manjimaru_WIN[] =
 {
     //--Win Portrait--
-    { L"Manjimaru P1 - Win Portrait 1/3", 0x1fd380, 0x1fd3a0 },
-    { L"Manjimaru P1 - Win Portrait 2/3", 0x1fd3c0, 0x1fd3e0 },
-    { L"Manjimaru P1 - Win Portrait 3/3", 0x1fd400, 0x1fd420 },
-    { L"Manjimaru P2 - Win Portrait 1/3", 0x1fd3a0, 0x1fd3c0 },
-    { L"Manjimaru P2 - Win Portrait 2/3", 0x1fd3e0, 0x1fd400 },
-    { L"Manjimaru P2 - Win Portrait 3/3", 0x1fd420, 0x1fd440 },
+    { L"Manjimaru P1 - Win Portrait 1/3", 0x1fd380, 0x1fd3a0, indexKabukiKlashSprites_Manjimaru, 0x08, &pairNextAndNext },
+    { L"Manjimaru P1 - Win Portrait 2/3", 0x1fd3c0, 0x1fd3e0, indexKabukiKlashSprites_Manjimaru, 0x09 },
+    { L"Manjimaru P1 - Win Portrait 3/3", 0x1fd400, 0x1fd420, indexKabukiKlashSprites_Manjimaru, 0x0a },
+    { L"Manjimaru P2 - Win Portrait 1/3", 0x1fd3a0, 0x1fd3c0, indexKabukiKlashSprites_Manjimaru, 0x08, &pairNextAndNext },
+    { L"Manjimaru P2 - Win Portrait 2/3", 0x1fd3e0, 0x1fd400, indexKabukiKlashSprites_Manjimaru, 0x09 },
+    { L"Manjimaru P2 - Win Portrait 3/3", 0x1fd420, 0x1fd440, indexKabukiKlashSprites_Manjimaru, 0x0a },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Ziria_P1[] =
 {
     //---Ziria---
 //--P1--
-    { L"Ziria P1", 0x1f6640, 0x1f6660 },
-    { L"Ziria P1 - Zapped", 0x1f6660, 0x1f6680 },
-    { L"Ziria P1 - Poisoned", 0x1f6680, 0x1f66a0 },
+    { L"Ziria P1", 0x1f6640, 0x1f6660, indexKabukiKlashSprites_Ziria, 0x00 },
+    { L"Ziria P1 - Zapped", 0x1f6660, 0x1f6680, indexKabukiKlashSprites_Ziria, 0x00 },
+    { L"Ziria P1 - Poisoned", 0x1f6680, 0x1f66a0, indexKabukiKlashSprites_Ziria, 0x00 },
     { L"Ziria P1 - Weapon 1", 0x1f66a0, 0x1f66c0 },
     { L"Ziria P1 - Weapon 2", 0x1f66c0, 0x1f66e0 },
     { L"Ziria P1 - Kunai", 0x1f66e0, 0x1f6700 },
@@ -77,17 +92,17 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Ziria_P1[] =
     { L"Ziria P1 - Weapon Dropped COM", 0x1f6760, 0x1f6780 },
     { L"Ziria P1 - Kami Honoo", 0x1f6780, 0x1f67a0 },
     { L"Ziria P1 - Kami Honoo Flames", 0x1f67a0, 0x1f67c0 },
-    { L"Ziria P1 - Freezed Effect", 0x1f67c0, 0x1f67e0 },
-    { L"Ziria P1 - Zapped/Burned Effect", 0x1f67e0, 0x1f6800 },
+    { L"Ziria P1 - Freezed Effect", 0x1f67c0, 0x1f67e0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Ziria P1 - Zapped/Burned Effect", 0x1f67e0, 0x1f6800, indexKabukiKlashSprites_Manjimaru, 0x0b },
     { L"Ziria P1 - Momi", 0x1f6800, 0x1f6820 },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Ziria_P2[] =
 {
     //--P2--
-    { L"Ziria P2", 0x1f79c0, 0x1f79e0 },
-    { L"Ziria P2 - Zapped", 0x1f79e0, 0x1f7a00 },
-    { L"Ziria P2 - Poisoned", 0x1f7a00, 0x1f7a20 },
+    { L"Ziria P2", 0x1f79c0, 0x1f79e0, indexKabukiKlashSprites_Ziria, 0x00 },
+    { L"Ziria P2 - Zapped", 0x1f79e0, 0x1f7a00, indexKabukiKlashSprites_Ziria, 0x00 },
+    { L"Ziria P2 - Poisoned", 0x1f7a00, 0x1f7a20, indexKabukiKlashSprites_Ziria, 0x00 },
     { L"Ziria P2 - Weapon 1", 0x1f7a20, 0x1f7a40 },
     { L"Ziria P2 - Weapon 2", 0x1f7a40, 0x1f7a60 },
     { L"Ziria P2 - Kunai", 0x1f7a60, 0x1f7a80 },
@@ -97,8 +112,8 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Ziria_P2[] =
     { L"Ziria P2 - Weapon Dropped COM", 0x1f7ae0, 0x1f7b00 },
     { L"Ziria P2 - Kami Honoo", 0x1f7b00, 0x1f7b20 },
     { L"Ziria P2 - Kami Honoo Flames", 0x1f7b20, 0x1f7b40 },
-    { L"Ziria P2 - Freezed Effect", 0x1f7b40, 0x1f7b60 },
-    { L"Ziria P2 - Zapped/Burned Effect", 0x1f7b60, 0x1f7b80 },
+    { L"Ziria P2 - Freezed Effect", 0x1f7b40, 0x1f7b60, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Ziria P2 - Zapped/Burned Effect", 0x1f7b60, 0x1f7b80, indexKabukiKlashSprites_Manjimaru, 0x0b },
     { L"Ziria P2 - Momi", 0x1f7b80, 0x1f7ba0 },
 };
 
@@ -128,17 +143,17 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Kabuki_P1[] =
 {
     //---Kabuki Danjuro---
 //--P1--
-    { L"Kabuki P1", 0x1f6820, 0x1f6840 },
-    { L"Kabuki P1 - Zapped", 0x1f6840, 0x1f6860 },
-    { L"Kabuki P1 - Poisoned", 0x1f6860, 0x1f6880 },
-    { L"Kabuki P1 - Weapon 1", 0x1f6880, 0x1f68a0 },
-    { L"Kabuki P1 - Weapon 2", 0x1f68a0, 0x1f68c0 },
+    { L"Kabuki P1", 0x1f6820, 0x1f6840, indexKabukiKlashSprites_Kabuki, 0x00, &pairNext3 },
+    { L"Kabuki P1 - Zapped", 0x1f6840, 0x1f6860, indexKabukiKlashSprites_Kabuki, 0x00, &pairNext2 },
+    { L"Kabuki P1 - Poisoned", 0x1f6860, 0x1f6880, indexKabukiKlashSprites_Kabuki, 0x00, &pairNext },
+    { L"Kabuki P1 - Weapon 1", 0x1f6880, 0x1f68a0, indexKabukiKlashSprites_Kabuki, 0x01 },
+    { L"Kabuki P1 - Weapon 2", 0x1f68a0, 0x1f68c0, indexKabukiKlashSprites_Kabuki, 0x01 },
     { L"Kabuki P1 - Senpu Dan", 0x1f68c0, 0x1f68e0 },
     { L"Kabuki P1 - Rasaitoh", 0x1f68e0, 0x1f6900 },
     { L"Kabuki P1 - Hana Arashi 1", 0x1f6900, 0x1f6920 },
     { L"Kabuki P1 - Hana Arashi 2", 0x1f6920, 0x1f6940 },
     { L"Kabuki P1 - Hana Arashi 3", 0x1f6940, 0x1f6960 },
-    { L"Kabuki P1 - Freezed Effect", 0x1f6960, 0x1f6980 },
+    { L"Kabuki P1 - Freezed Effect", 0x1f6960, 0x1f6980, indexKabukiKlashSprites_Bonus, 0x00 },
     { L"Kabuki P1 - Zapped Effect", 0x1f6980, 0x1f69a0 },
     { L"Kabuki P1 - Burned Effect", 0x1f69a0, 0x1f69c0 },
     { L"Kabuki P1 - Weapon Dropped 1P/2P", 0x1f69c0, 0x1f69e0 },
@@ -148,17 +163,17 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Kabuki_P1[] =
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Kabuki_P2[] =
 {
     //--P2--
-    { L"Kabuki P2", 0x1f7ba0, 0x1f7bc0 },
-    { L"Kabuki P2 - Zapped", 0x1f7bc0, 0x1f7be0 },
-    { L"Kabuki P2 - Poisoned", 0x1f7be0, 0x1f7c00 },
-    { L"Kabuki P2 - Weapon 1", 0x1f7c00, 0x1f7c20 },
-    { L"Kabuki P2 - Weapon 2", 0x1f7c20, 0x1f7c40 },
+    { L"Kabuki P2", 0x1f7ba0, 0x1f7bc0, indexKabukiKlashSprites_Kabuki, 0x00, &pairNext3 },
+    { L"Kabuki P2 - Zapped", 0x1f7bc0, 0x1f7be0, indexKabukiKlashSprites_Kabuki, 0x00, &pairNext2 },
+    { L"Kabuki P2 - Poisoned", 0x1f7be0, 0x1f7c00, indexKabukiKlashSprites_Kabuki, 0x00, &pairNext },
+    { L"Kabuki P2 - Weapon 1", 0x1f7c00, 0x1f7c20, indexKabukiKlashSprites_Kabuki, 0x01 },
+    { L"Kabuki P2 - Weapon 2", 0x1f7c20, 0x1f7c40, indexKabukiKlashSprites_Kabuki, 0x01 },
     { L"Kabuki P2 - Senpu Dan", 0x1f7c40, 0x1f7c60 },
     { L"Kabuki P2 - Rasaitoh", 0x1f7c60, 0x1f7c80 },
     { L"Kabuki P2 - Hana Arashi 1", 0x1f7c80, 0x1f7ca0 },
     { L"Kabuki P2 - Hana Arashi 2", 0x1f7ca0, 0x1f7cc0 },
     { L"Kabuki P2 - Hana Arashi 3", 0x1f7cc0, 0x1f7ce0 },
-    { L"Kabuki P2 - Freezed Effect", 0x1f7ce0, 0x1f7d00 },
+    { L"Kabuki P2 - Freezed Effect", 0x1f7ce0, 0x1f7d00, indexKabukiKlashSprites_Bonus, 0x00 },
     { L"Kabuki P2 - Zapped Effect", 0x1f7d00, 0x1f7d20 },
     { L"Kabuki P2 - Burned Effect", 0x1f7d20, 0x1f7d40 },
     { L"Kabuki P2 - Weapon Dropped 1P/2P", 0x1f7d40, 0x1f7d60 },
@@ -191,18 +206,18 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Yagumo_P1[] =
 {
     //---Yagumo---
 //--P1--
-    { L"Yagumo P1", 0x1f6480, 0x1f64a0 },
-    { L"Yagumo P1 - Zapped", 0x1f64a0, 0x1f64c0 },
-    { L"Yagumo P1 - Poisoned", 0x1f64c0, 0x1f64e0 },
-    { L"Yagumo P1 - Weapon 1", 0x1f64e0, 0x1f6500 },
-    { L"Yagumo P1 - Weapon 2", 0x1f6500, 0x1f6520 },
+    { L"Yagumo P1", 0x1f6480, 0x1f64a0, indexKabukiKlashSprites_Yagumo, 0x00, &pairNext3 },
+    { L"Yagumo P1 - Zapped", 0x1f64a0, 0x1f64c0, indexKabukiKlashSprites_Yagumo, 0x00, &pairNext2 },
+    { L"Yagumo P1 - Poisoned", 0x1f64c0, 0x1f64e0, indexKabukiKlashSprites_Yagumo, 0x00, &pairNext },
+    { L"Yagumo P1 - Weapon 1", 0x1f64e0, 0x1f6500, indexKabukiKlashSprites_Yagumo, 0x01 },
+    { L"Yagumo P1 - Weapon 2", 0x1f6500, 0x1f6520, indexKabukiKlashSprites_Yagumo, 0x01 },
     { L"Yagumo P1 - Hyakka Ryoran", 0x1f6520, 0x1f6540 },
     { L"Yagumo P1 - Fudoh 1", 0x1f6540, 0x1f6560 },
     { L"Yagumo P1 - Fudoh 2", 0x1f6560, 0x1f6580 },
     { L"Yagumo P1 - Shirako", 0x1f6580, 0x1f65a0 },
     { L"Yagumo P1 - Narukami", 0x1f65a0, 0x1f65c0 },
     { L"Yagumo P1 - Narukami Flames", 0x1f65c0, 0x1f65e0 },
-    { L"Yagumo P1 - Freezed Effect", 0x1f65e0, 0x1f6600 },
+    { L"Yagumo P1 - Freezed Effect", 0x1f65e0, 0x1f6600, indexKabukiKlashSprites_Bonus, 0x00 },
     { L"Yagumo P1 - Zapped Effect", 0x1f6600, 0x1f6620 },
     { L"Yagumo P1 - Burned Effect", 0x1f6620, 0x1f6640 },
 };
@@ -210,18 +225,18 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Yagumo_P1[] =
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Yagumo_P2[] =
 {
     //--P2--
-    { L"Yagumo P2", 0x1f7800, 0x1f7820 },
-    { L"Yagumo P2 - Zapped", 0x1f7820, 0x1f7840 },
-    { L"Yagumo P2 - Poisoned", 0x1f7840, 0x1f7860 },
-    { L"Yagumo P2 - Weapon 1", 0x1f7860, 0x1f7880 },
-    { L"Yagumo P2 - Weapon 2", 0x1f7880, 0x1f78a0 },
+    { L"Yagumo P2", 0x1f7800, 0x1f7820, indexKabukiKlashSprites_Yagumo, 0x00, &pairNext3 },
+    { L"Yagumo P2 - Zapped", 0x1f7820, 0x1f7840, indexKabukiKlashSprites_Yagumo, 0x00, &pairNext2 },
+    { L"Yagumo P2 - Poisoned", 0x1f7840, 0x1f7860, indexKabukiKlashSprites_Yagumo, 0x00, &pairNext },
+    { L"Yagumo P2 - Weapon 1", 0x1f7860, 0x1f7880, indexKabukiKlashSprites_Yagumo, 0x01 },
+    { L"Yagumo P2 - Weapon 2", 0x1f7880, 0x1f78a0, indexKabukiKlashSprites_Yagumo, 0x01 },
     { L"Yagumo P2 - Hyakka Ryoran", 0x1f78a0, 0x1f78c0 },
     { L"Yagumo P2 - Fudoh 1", 0x1f78c0, 0x1f78e0 },
     { L"Yagumo P2 - Fudoh 2", 0x1f78e0, 0x1f7900 },
     { L"Yagumo P2 - Shirako", 0x1f7900, 0x1f7920 },
     { L"Yagumo P2 - Narukami", 0x1f7920, 0x1f7940 },
     { L"Yagumo P2 - Narukami Flames", 0x1f7940, 0x1f7960 },
-    { L"Yagumo P2 - Freezed Effect", 0x1f7960, 0x1f7980 },
+    { L"Yagumo P2 - Freezed Effect", 0x1f7960, 0x1f7980, indexKabukiKlashSprites_Bonus, 0x00 },
     { L"Yagumo P2 - Zapped Effect", 0x1f7980, 0x1f79a0 },
     { L"Yagumo P2 - Burned Effect", 0x1f79a0, 0x1f79c0 },
 };
@@ -252,18 +267,18 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Kinu_P1[] =
 {
     //---Kinu---
 //--P1--
-    { L"Kinu P1", 0x1f6a00, 0x1f6a20 },
-    { L"Kinu P1 - Zapped", 0x1f6a20, 0x1f6a40 },
-    { L"Kinu P1 - Poisoned", 0x1f6a40, 0x1f6a60 },
-    { L"Kinu P1 - Weapon 1", 0x1f6a60, 0x1f6a80 },
-    { L"Kinu P1 - Weapon 2", 0x1f6a80, 0x1f6aa0 },
+    { L"Kinu P1", 0x1f6a00, 0x1f6a20, indexKabukiKlashSprites_Kinu, 0x00, &pairNext3 },
+    { L"Kinu P1 - Zapped", 0x1f6a20, 0x1f6a40, indexKabukiKlashSprites_Kinu, 0x00, &pairNext2 },
+    { L"Kinu P1 - Poisoned", 0x1f6a40, 0x1f6a60, indexKabukiKlashSprites_Kinu, 0x00, &pairNext },
+    { L"Kinu P1 - Weapon 1", 0x1f6a60, 0x1f6a80, indexKabukiKlashSprites_Kinu, 0x01 },
+    { L"Kinu P1 - Weapon 2", 0x1f6a80, 0x1f6aa0, indexKabukiKlashSprites_Kinu, 0x01 },
     { L"Kinu P1 - Toriyose", 0x1f6aa0, 0x1f6ac0 },
     { L"Kinu P1 - Tsukineri", 0x1f6ac0, 0x1f6ae0 },
     { L"Kinu P1 - Nazumi Mushi", 0x1f6ae0, 0x1f6b00 },
     { L"Kinu P1 - Haha Wasure", 0x1f6b00, 0x1f6b20 },
-    { L"Kinu P1 - Freezed Effect", 0x1f6b20, 0x1f6b40 },
-    { L"Kinu P1 - Zapped/Burned Effect", 0x1f6b40, 0x1f6b60 },
-    { L"Kinu P1 - Shiro", 0x1f6b60, 0x1f6b80 },
+    { L"Kinu P1 - Freezed Effect", 0x1f6b20, 0x1f6b40, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Kinu P1 - Zapped/Burned Effect", 0x1f6b40, 0x1f6b60, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Kinu P1 - Shiro", 0x1f6b60, 0x1f6b80, indexKabukiKlashSprites_Kinu, 0x02 },
     { L"Kinu P1 - Shiro Effects", 0x1f6b80, 0x1f6ba0 },
     { L"Kinu P1 - Unknown", 0x1f6ba0, 0x1f6bc0 },
 };
@@ -271,18 +286,18 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Kinu_P1[] =
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Kinu_P2[] =
 {
     //--P2--
-    { L"Kinu P2", 0x1f7d80, 0x1f7da0 },
-    { L"Kinu P2 - Zapped", 0x1f7da0, 0x1f7dc0 },
-    { L"Kinu P2 - Poisoned", 0x1f7dc0, 0x1f7de0 },
-    { L"Kinu P2 - Weapon 1", 0x1f7de0, 0x1f7e00 },
-    { L"Kinu P2 - Weapon 2", 0x1f7e00, 0x1f7e20 },
+    { L"Kinu P2", 0x1f7d80, 0x1f7da0, indexKabukiKlashSprites_Kinu, 0x00, &pairNext3 },
+    { L"Kinu P2 - Zapped", 0x1f7da0, 0x1f7dc0, indexKabukiKlashSprites_Kinu, 0x00, &pairNext2 },
+    { L"Kinu P2 - Poisoned", 0x1f7dc0, 0x1f7de0, indexKabukiKlashSprites_Kinu, 0x00, &pairNext },
+    { L"Kinu P2 - Weapon 1", 0x1f7de0, 0x1f7e00, indexKabukiKlashSprites_Kinu, 0x01 },
+    { L"Kinu P2 - Weapon 2", 0x1f7e00, 0x1f7e20, indexKabukiKlashSprites_Kinu, 0x01 },
     { L"Kinu P2 - Toriyose", 0x1f7e20, 0x1f7e40 },
     { L"Kinu P2 - Tsukineri", 0x1f7e40, 0x1f7e60 },
     { L"Kinu P2 - Nazumi Mushi", 0x1f7e60, 0x1f7e80 },
     { L"Kinu P2 - Haha Wasure", 0x1f7e80, 0x1f7ea0 },
-    { L"Kinu P2 - Freezed Effect", 0x1f7ea0, 0x1f7ec0 },
-    { L"Kinu P2 - Zapped/Burned Effect", 0x1f7ec0, 0x1f7ee0 },
-    { L"Kinu P2 - Shiro", 0x1f7ee0, 0x1f7f00 },
+    { L"Kinu P2 - Freezed Effect", 0x1f7ea0, 0x1f7ec0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Kinu P2 - Zapped/Burned Effect", 0x1f7ec0, 0x1f7ee0, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Kinu P2 - Shiro", 0x1f7ee0, 0x1f7f00, indexKabukiKlashSprites_Kinu, 0x02 },
     { L"Kinu P2 - Shiro Effects", 0x1f7f00, 0x1f7f20 },
     { L"Kinu P2 - Unknown", 0x1f7f20, 0x1f7f40 },
 };
@@ -313,39 +328,39 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Tsunade_P1[] =
 {
     //---Tsunade---
 //--P1--
-    { L"Tsunade P1", 0x1f6100, 0x1f6120 },
+    { L"Tsunade P1", 0x1f6100, 0x1f6120, indexKabukiKlashSprites_Tsunade, 0x00, &pairNext3 },
+    { L"Tsunade P1 - Zapped", 0x1f61a0, 0x1f61c0, indexKabukiKlashSprites_Tsunade, 0x00, &pairNext2 },
+    { L"Tsunade P1 - Poisoned", 0x1f61c0, 0x1f61e0, indexKabukiKlashSprites_Tsunade, 0x00, &pairNext },
+    { L"Tsunade P1 - Weapon 1", 0x1f61e0, 0x1f6200, indexKabukiKlashSprites_Tsunade, 0x01 },
+    { L"Tsunade P1 - Weapon 2", 0x1f6200, 0x1f6220, indexKabukiKlashSprites_Tsunade, 0x01 },
     { L"Tsunade P1 - Kin Goh 1", 0x1f6120, 0x1f6140 },
     { L"Tsunade P1 - Kin Goh 2", 0x1f6140, 0x1f6160 },
     { L"Tsunade P1 - Riki Goh 1", 0x1f6160, 0x1f6180 },
     { L"Tsunade P1 - Riki Goh 2", 0x1f6180, 0x1f61a0 },
-    { L"Tsunade P1 - Zapped", 0x1f61a0, 0x1f61c0 },
-    { L"Tsunade P1 - Poisoned", 0x1f61c0, 0x1f61e0 },
-    { L"Tsunade P1 - Weapon 1", 0x1f61e0, 0x1f6200 },
-    { L"Tsunade P1 - Weapon 2", 0x1f6200, 0x1f6220 },
     { L"Tsunade P1 - Riki Goh Kanji", 0x1f6220, 0x1f6240 },
     { L"Tsunade P1 - Weapon Dropped 1P/COM", 0x1f6240, 0x1f6260 },
     { L"Tsunade P1 - Weapon Dropped 2P", 0x1f6260, 0x1f6280 },
-    { L"Tsunade P1 - Freezed Effect", 0x1f6280, 0x1f62a0 },
-    { L"Tsunade P1 - Zapped/Burned Effect", 0x1f62a0, 0x1f62c0 },
+    { L"Tsunade P1 - Freezed Effect", 0x1f6280, 0x1f62a0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Tsunade P1 - Zapped/Burned Effect", 0x1f62a0, 0x1f62c0, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Tsunade_P2[] =
 {
     //--P2--
-    { L"Tsunade P2", 0x1f7480, 0x1f74a0 },
+    { L"Tsunade P2", 0x1f7480, 0x1f74a0, indexKabukiKlashSprites_Tsunade, 0x00, &pairNext3 },
+    { L"Tsunade P2 - Zapped", 0x1f7520, 0x1f7540, indexKabukiKlashSprites_Tsunade, 0x00, &pairNext2 },
+    { L"Tsunade P2 - Poisoned", 0x1f7540, 0x1f7560, indexKabukiKlashSprites_Tsunade, 0x00, &pairNext },
+    { L"Tsunade P2 - Weapon 1", 0x1f7560, 0x1f7580, indexKabukiKlashSprites_Tsunade, 0x01 },
+    { L"Tsunade P2 - Weapon 2", 0x1f7580, 0x1f75a0, indexKabukiKlashSprites_Tsunade, 0x01 },
     { L"Tsunade P2 - Kin Goh 1", 0x1f74a0, 0x1f74c0 },
     { L"Tsunade P2 - Kin Goh 2", 0x1f74c0, 0x1f74e0 },
     { L"Tsunade P2 - Riki Goh 1", 0x1f74e0, 0x1f7500 },
     { L"Tsunade P2 - Riki Goh 2", 0x1f7500, 0x1f7520 },
-    { L"Tsunade P2 - Zapped", 0x1f7520, 0x1f7540 },
-    { L"Tsunade P2 - Poisoned", 0x1f7540, 0x1f7560 },
-    { L"Tsunade P2 - Weapon 1", 0x1f7560, 0x1f7580 },
-    { L"Tsunade P2 - Weapon 2", 0x1f7580, 0x1f75a0 },
     { L"Tsunade P2 - Riki Goh Kanji", 0x1f75a0, 0x1f75c0 },
     { L"Tsunade P2 - Weapon Dropped 1P/COM", 0x1f75c0, 0x1f75e0 },
     { L"Tsunade P2 - Weapon Dropped 2P", 0x1f75e0, 0x1f7600 },
-    { L"Tsunade P2 - Freezed Effect", 0x1f7600, 0x1f7620 },
-    { L"Tsunade P2 - Zapped/Burned Effect", 0x1f7620, 0x1f7640 },
+    { L"Tsunade P2 - Freezed Effect", 0x1f7600, 0x1f7620, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Tsunade P2 - Zapped/Burned Effect", 0x1f7620, 0x1f7640, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Tsunade_VS[] =
@@ -374,16 +389,16 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Gokuraku_P1[] =
 {
     //---Gokuraku Taro---
 //--P1--
-    { L"Gokuraku P1", 0x1f5f60, 0x1f5f80 },
-    { L"Gokuraku P1 - Zapped", 0x1f5f80, 0x1f5fa0 },
-    { L"Gokuraku P1 - Poisoned", 0x1f5fa0, 0x1f5fc0 },
-    { L"Gokuraku P1 - Weapon 1", 0x1f5fc0, 0x1f5fe0 },
-    { L"Gokuraku P1 - Weapon 2", 0x1f5fe0, 0x1f6000 },
+    { L"Gokuraku P1", 0x1f5f60, 0x1f5f80, indexKabukiKlashSprites_Gokuraku, 0x00, &pairNext3 },
+    { L"Gokuraku P1 - Zapped", 0x1f5f80, 0x1f5fa0, indexKabukiKlashSprites_Gokuraku, 0x00, &pairNext2 },
+    { L"Gokuraku P1 - Poisoned", 0x1f5fa0, 0x1f5fc0, indexKabukiKlashSprites_Gokuraku, 0x00, &pairNext },
+    { L"Gokuraku P1 - Weapon 1", 0x1f5fc0, 0x1f5fe0, indexKabukiKlashSprites_Gokuraku, 0x01 },
+    { L"Gokuraku P1 - Weapon 2", 0x1f5fe0, 0x1f6000, indexKabukiKlashSprites_Gokuraku, 0x01 },
     { L"Gokuraku P1 - Flame Techniques", 0x1f6000, 0x1f6020 },
     { L"Gokuraku P1 - Barrel", 0x1f6020, 0x1f6040 },
-    { L"Gokuraku P1 - Freezed Effect", 0x1f6040, 0x1f6060 },
-    { L"Gokuraku P1 - Zapped Effect", 0x1f6060, 0x1f6080 },
-    { L"Gokuraku P1 - Burned Effect", 0x1f6080, 0x1f60a0 },
+    { L"Gokuraku P1 - Freezed Effect", 0x1f6040, 0x1f6060, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Gokuraku P1 - Zapped Effect", 0x1f6060, 0x1f6080, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Gokuraku P1 - Burned Effect", 0x1f6080, 0x1f60a0, indexKabukiKlashSprites_Manjimaru, 0x0b },
     { L"Gokuraku P1 - Weapon Dropped 1P", 0x1f60a0, 0x1f60c0 },
     { L"Gokuraku P1 - Weapon Dropped 2P", 0x1f60c0, 0x1f60e0 },
     { L"Gokuraku P1 - Weapon Dropped COM", 0x1f60e0, 0x1f6100 },
@@ -392,16 +407,16 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Gokuraku_P1[] =
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Gokuraku_P2[] =
 {
     //--P2--
-    { L"Gokuraku P2", 0x1f72e0, 0x1f7300 },
-    { L"Gokuraku P2 - Zapped", 0x1f7300, 0x1f7320 },
-    { L"Gokuraku P2 - Poisoned", 0x1f7320, 0x1f7340 },
-    { L"Gokuraku P2 - Weapon 1", 0x1f7340, 0x1f7360 },
-    { L"Gokuraku P2 - Weapon 2", 0x1f7360, 0x1f7380 },
+    { L"Gokuraku P2", 0x1f72e0, 0x1f7300, indexKabukiKlashSprites_Gokuraku, 0x00, &pairNext3 },
+    { L"Gokuraku P2 - Zapped", 0x1f7300, 0x1f7320, indexKabukiKlashSprites_Gokuraku, 0x00, &pairNext2 },
+    { L"Gokuraku P2 - Poisoned", 0x1f7320, 0x1f7340, indexKabukiKlashSprites_Gokuraku, 0x00, &pairNext },
+    { L"Gokuraku P2 - Weapon 1", 0x1f7340, 0x1f7360, indexKabukiKlashSprites_Gokuraku, 0x01 },
+    { L"Gokuraku P2 - Weapon 2", 0x1f7360, 0x1f7380, indexKabukiKlashSprites_Gokuraku, 0x01 },
     { L"Gokuraku P2 - Flame Techniques", 0x1f7380, 0x1f73a0 },
     { L"Gokuraku P2 - Barrel", 0x1f73a0, 0x1f73c0 },
-    { L"Gokuraku P2 - Freezed Effect", 0x1f73c0, 0x1f73e0 },
-    { L"Gokuraku P2 - Zapped Effect", 0x1f73e0, 0x1f7400 },
-    { L"Gokuraku P2 - Burned Effect", 0x1f7400, 0x1f7420 },
+    { L"Gokuraku P2 - Freezed Effect", 0x1f73c0, 0x1f73e0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Gokuraku P2 - Zapped Effect", 0x1f73e0, 0x1f7400, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Gokuraku P2 - Burned Effect", 0x1f7400, 0x1f7420, indexKabukiKlashSprites_Manjimaru, 0x0b },
     { L"Gokuraku P2 - Weapon Dropped 1P", 0x1f7420, 0x1f7440 },
     { L"Gokuraku P2 - Weapon Dropped 2P", 0x1f7440, 0x1f7460 },
     { L"Gokuraku P2 - Weapon Dropped COM", 0x1f7460, 0x1f7480 },
@@ -433,39 +448,39 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Orochimaru_P1[] =
 {
     //---Orochimaru---
 //--P1--
-    { L"Orochimaru P1", 0x1f62c0, 0x1f62e0 },
-    { L"Orochimaru P1 - Zapped", 0x1f62e0, 0x1f6300 },
-    { L"Orochimaru P1 - Poisoned", 0x1f6300, 0x1f6320 },
-    { L"Orochimaru P1 - Weapon 1", 0x1f6320, 0x1f6340 },
-    { L"Orochimaru P1 - Weapon 2", 0x1f6340, 0x1f6360 },
-    { L"Orochimaru P1 - Weapon 3", 0x1f6360, 0x1f6380 },
+    { L"Orochimaru P1", 0x1f62c0, 0x1f62e0, indexKabukiKlashSprites_Orochimaru, 0x00, &pairNext3 },
+    { L"Orochimaru P1 - Zapped", 0x1f62e0, 0x1f6300, indexKabukiKlashSprites_Orochimaru, 0x00, &pairNext2 },
+    { L"Orochimaru P1 - Poisoned", 0x1f6300, 0x1f6320, indexKabukiKlashSprites_Orochimaru, 0x00, &pairNext },
+    { L"Orochimaru P1 - Weapon 1", 0x1f6320, 0x1f6340, indexKabukiKlashSprites_Orochimaru, 0x01 },
+    { L"Orochimaru P1 - Weapon 2", 0x1f6340, 0x1f6360, indexKabukiKlashSprites_Orochimaru, 0x01 },
+    { L"Orochimaru P1 - Weapon 3", 0x1f6360, 0x1f6380, indexKabukiKlashSprites_Orochimaru, 0x01 },
     { L"Orochimaru P1 - Weapon Dropped 1P/COM", 0x1f6380, 0x1f63a0 },
     { L"Orochimaru P1 - Weapon Dropped 2P", 0x1f63a0, 0x1f63c0 },
     { L"Orochimaru P1 - Sa Ryu", 0x1f63c0, 0x1f63e0 },
     { L"Orochimaru P1 - Ko Ryu", 0x1f63e0, 0x1f6400 },
     { L"Orochimaru P1 - Ei Ryu", 0x1f6400, 0x1f6420 },
-    { L"Orochimaru P1 - Freezed Effect", 0x1f6420, 0x1f6440 },
-    { L"Orochimaru P1 - Zapped Effect", 0x1f6440, 0x1f6460 },
-    { L"Orochimaru P1 - Burned Effect", 0x1f6460, 0x1f6480 },
+    { L"Orochimaru P1 - Freezed Effect", 0x1f6420, 0x1f6440, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Orochimaru P1 - Zapped Effect", 0x1f6440, 0x1f6460, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Orochimaru P1 - Burned Effect", 0x1f6460, 0x1f6480, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Orochimaru_P2[] =
 {
     //--P2--
-    { L"Orochimaru P2", 0x1f7640, 0x1f7660 },
-    { L"Orochimaru P2 - Zapped", 0x1f7660, 0x1f7680 },
-    { L"Orochimaru P2 - Poisoned", 0x1f7680, 0x1f76a0 },
-    { L"Orochimaru P2 - Weapon 1", 0x1f76a0, 0x1f76c0 },
-    { L"Orochimaru P2 - Weapon 2", 0x1f76c0, 0x1f76e0 },
-    { L"Orochimaru P2 - Weapon 3", 0x1f76e0, 0x1f7700 },
+    { L"Orochimaru P2", 0x1f7640, 0x1f7660, indexKabukiKlashSprites_Orochimaru, 0x00, &pairNext3 },
+    { L"Orochimaru P2 - Zapped", 0x1f7660, 0x1f7680, indexKabukiKlashSprites_Orochimaru, 0x00, &pairNext2 },
+    { L"Orochimaru P2 - Poisoned", 0x1f7680, 0x1f76a0, indexKabukiKlashSprites_Orochimaru, 0x00, &pairNext },
+    { L"Orochimaru P2 - Weapon 1", 0x1f76a0, 0x1f76c0, indexKabukiKlashSprites_Orochimaru, 0x01 },
+    { L"Orochimaru P2 - Weapon 2", 0x1f76c0, 0x1f76e0, indexKabukiKlashSprites_Orochimaru, 0x01 },
+    { L"Orochimaru P2 - Weapon 3", 0x1f76e0, 0x1f7700, indexKabukiKlashSprites_Orochimaru, 0x01 },
     { L"Orochimaru P2 - Weapon Dropped 1P/COM", 0x1f7700, 0x1f7720 },
     { L"Orochimaru P2 - Weapon Dropped 2P", 0x1f7720, 0x1f7740 },
     { L"Orochimaru P2 - Sa Ryu", 0x1f7740, 0x1f7760 },
     { L"Orochimaru P2 - Ko Ryu", 0x1f7760, 0x1f7780 },
     { L"Orochimaru P2 - Ei Ryu", 0x1f7780, 0x1f77a0 },
-    { L"Orochimaru P2 - Freezed Effect", 0x1f77a0, 0x1f77c0 },
-    { L"Orochimaru P2 - Zapped Effect", 0x1f77c0, 0x1f77e0 },
-    { L"Orochimaru P2 - Burned Effect", 0x1f77e0, 0x1f7800 },
+    { L"Orochimaru P2 - Freezed Effect", 0x1f77a0, 0x1f77c0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Orochimaru P2 - Zapped Effect", 0x1f77c0, 0x1f77e0, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Orochimaru P2 - Burned Effect", 0x1f77e0, 0x1f7800, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Orochimaru_VS[] =
@@ -494,29 +509,29 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Manto_P1[] =
 {
     //---Manto Ace---
 //--P1--
-    { L"Manto Ace P1", 0x1f6bc0, 0x1f6be0 },
-    { L"Manto Ace P1 - Zapped", 0x1f6be0, 0x1f6c00 },
-    { L"Manto Ace P1 - Poisoned", 0x1f6c00, 0x1f6c20 },
-    { L"Manto Ace P1 - Attacks", 0x1f6c20, 0x1f6c40 },
+    { L"Manto Ace P1", 0x1f6bc0, 0x1f6be0, indexKabukiKlashSprites_MantoAce, 0x00 },
+    { L"Manto Ace P1 - Zapped", 0x1f6be0, 0x1f6c00, indexKabukiKlashSprites_MantoAce, 0x00 },
+    { L"Manto Ace P1 - Poisoned", 0x1f6c00, 0x1f6c20, indexKabukiKlashSprites_MantoAce, 0x00 },
+    { L"Manto Ace P1 - Attacks", 0x1f6c20, 0x1f6c40, indexKabukiKlashSprites_MantoAce, 0x00 },
     { L"Manto Ace P1 - Fireball", 0x1f6c40, 0x1f6c60 },
     { L"Manto Ace P1 - Critter Stampede", 0x1f6c60, 0x1f6c80 },
-    { L"Manto Ace P1 - Freezed Effect", 0x1f6c80, 0x1f6ca0 },
-    { L"Manto Ace P1 - Zapped Effect", 0x1f6ca0, 0x1f6cc0 },
-    { L"Manto Ace P1 - Burned Effect", 0x1f6cc0, 0x1f6ce0 },
+    { L"Manto Ace P1 - Freezed Effect", 0x1f6c80, 0x1f6ca0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Manto Ace P1 - Zapped Effect", 0x1f6ca0, 0x1f6cc0, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Manto Ace P1 - Burned Effect", 0x1f6cc0, 0x1f6ce0, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Manto_P2[] =
 {
     //--P2--
-    { L"Manto Ace P2", 0x1f7f40, 0x1f7f60 },
-    { L"Manto Ace P2 - Zapped", 0x1f7f60, 0x1f7f80 },
-    { L"Manto Ace P2 - Poisoned", 0x1f7f80, 0x1f7fa0 },
-    { L"Manto Ace P2 - Attacks", 0x1f7fa0, 0x1f7fc0 },
+    { L"Manto Ace P2", 0x1f7f40, 0x1f7f60, indexKabukiKlashSprites_MantoAce, 0x00 },
+    { L"Manto Ace P2 - Zapped", 0x1f7f60, 0x1f7f80, indexKabukiKlashSprites_MantoAce, 0x00 },
+    { L"Manto Ace P2 - Poisoned", 0x1f7f80, 0x1f7fa0, indexKabukiKlashSprites_MantoAce, 0x00 },
+    { L"Manto Ace P2 - Attacks", 0x1f7fa0, 0x1f7fc0, indexKabukiKlashSprites_MantoAce, 0x00 },
     { L"Manto Ace P2 - Fireball", 0x1f7fc0, 0x1f7fe0 },
     { L"Manto Ace P2 - Critter Stampede", 0x1f7fe0, 0x1f8000 },
-    { L"Manto Ace P2 - Freezed Effect", 0x1f8000, 0x1f8020 },
-    { L"Manto Ace P2 - Zapped Effect", 0x1f8020, 0x1f8040 },
-    { L"Manto Ace P2 - Burned Effect", 0x1f8040, 0x1f8060 },
+    { L"Manto Ace P2 - Freezed Effect", 0x1f8000, 0x1f8020, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Manto Ace P2 - Zapped Effect", 0x1f8020, 0x1f8040, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Manto Ace P2 - Burned Effect", 0x1f8040, 0x1f8060, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Manto_VS[] =
@@ -535,27 +550,27 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Karakuri_P1[] =
 {
     //---Karakuri---
 //--P1--
-    { L"Karakuri P1", 0x1f6ce0, 0x1f6d00 },
-    { L"Karakuri P1 - Freezed", 0x1f6d00, 0x1f6d20 },
-    { L"Karakuri P1 - Intro", 0x1f6d20, 0x1f6d40 },
-    { L"Karakuri P1 - Zapped", 0x1f6d40, 0x1f6d60 },
+    { L"Karakuri P1", 0x1f6ce0, 0x1f6d00, indexKabukiKlashSprites_Karakuri, 0x00 },
+    { L"Karakuri P1 - Freezed", 0x1f6d00, 0x1f6d20, indexKabukiKlashSprites_Karakuri, 0x00 },
+    { L"Karakuri P1 - Intro", 0x1f6d20, 0x1f6d40, indexKabukiKlashSprites_Karakuri, 0x00 },
+    { L"Karakuri P1 - Zapped", 0x1f6d40, 0x1f6d60, indexKabukiKlashSprites_Karakuri, 0x00 },
     { L"Karakuri P1 - Steam", 0x1f6d60, 0x1f6d80 },
     { L"Karakuri P1 - Explosion", 0x1f6d80, 0x1f6da0 },
-    { L"Karakuri P1 - Zapped Effect", 0x1f6da0, 0x1f6dc0 },
-    { L"Karakuri P1 - Burned Effect", 0x1f6dc0, 0x1f6de0 },
+    { L"Karakuri P1 - Zapped Effect", 0x1f6da0, 0x1f6dc0, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Karakuri P1 - Burned Effect", 0x1f6dc0, 0x1f6de0, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Karakuri_P2[] =
 {
     //--P2--
-    { L"Karakuri P2", 0x1f8060, 0x1f8080 },
-    { L"Karakuri P2 - Freezed", 0x1f8080, 0x1f80a0 },
-    { L"Karakuri P2 - Intro", 0x1f80a0, 0x1f80c0 },
-    { L"Karakuri P2 - Zapped", 0x1f80c0, 0x1f80e0 },
+    { L"Karakuri P2", 0x1f8060, 0x1f8080, indexKabukiKlashSprites_Karakuri, 0x00 },
+    { L"Karakuri P2 - Freezed", 0x1f8080, 0x1f80a0, indexKabukiKlashSprites_Karakuri, 0x00 },
+    { L"Karakuri P2 - Intro", 0x1f80a0, 0x1f80c0, indexKabukiKlashSprites_Karakuri, 0x00 },
+    { L"Karakuri P2 - Zapped", 0x1f80c0, 0x1f80e0, indexKabukiKlashSprites_Karakuri, 0x00 },
     { L"Karakuri P2 - Steam", 0x1f80e0, 0x1f8100 },
     { L"Karakuri P2 - Explosion", 0x1f8100, 0x1f8120 },
-    { L"Karakuri P2 - Zapped Effect", 0x1f8120, 0x1f8140 },
-    { L"Karakuri P2 - Burned Effect", 0x1f8140, 0x1f8160 },
+    { L"Karakuri P2 - Zapped Effect", 0x1f8120, 0x1f8140, indexKabukiKlashSprites_Manjimaru, 0x0b },
+    { L"Karakuri P2 - Burned Effect", 0x1f8140, 0x1f8160, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Karakuri_VS[] =
@@ -574,39 +589,39 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Jyashinsai_P1[] =
 {
     //---Jyashinsai---
 //--P1--
-    { L"Jyashinsai P1", 0x1f6fa0, 0x1f6fc0 },
-    { L"Jyashinsai P1 - Burned", 0x1f6fc0, 0x1f6fe0 },
-    { L"Jyashinsai P1 - Zapped", 0x1f6fe0, 0x1f7000 },
-    { L"Jyashinsai P1 - Poisoned", 0x1f7000, 0x1f7020 },
-    { L"Jyashinsai P1 - Weapon 1", 0x1f7020, 0x1f7040 },
-    { L"Jyashinsai P1 - Weapon 2", 0x1f7040, 0x1f7060 },
-    { L"Jyashinsai P1 - Weapon 3", 0x1f7060, 0x1f7080 },
+    { L"Jyashinsai P1", 0x1f6fa0, 0x1f6fc0, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext4 },
+    { L"Jyashinsai P1 - Burned", 0x1f6fc0, 0x1f6fe0, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext3 },
+    { L"Jyashinsai P1 - Zapped", 0x1f6fe0, 0x1f7000, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext2 },
+    { L"Jyashinsai P1 - Poisoned", 0x1f7000, 0x1f7020, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext },
+    { L"Jyashinsai P1 - Weapon 1", 0x1f7020, 0x1f7040, indexKabukiKlashSprites_Jyashinsai, 0x01 },
+    { L"Jyashinsai P1 - Weapon 2", 0x1f7040, 0x1f7060, indexKabukiKlashSprites_Jyashinsai, 0x01 },
+    { L"Jyashinsai P1 - Weapon 3", 0x1f7060, 0x1f7080, indexKabukiKlashSprites_Jyashinsai, 0x01 },
     { L"Jyashinsai P1 - Teleport", 0x1f7080, 0x1f70a0 },
-    { L"Jyashinsai P1 - Attack", 0x1f70a0, 0x1f70c0 },
+    { L"Jyashinsai P1 - Attack", 0x1f70a0, 0x1f70c0, indexKabukiKlashSprites_Jyashinsai, 0x00 },
     { L"Jyashinsai P1 - Fire/Ice Attacks", 0x1f70c0, 0x1f70e0 },
     { L"Jyashinsai P1 - Lighting Ball", 0x1f70e0, 0x1f7100 },
     { L"Jyashinsai P1 - Unknown", 0x1f7100, 0x1f7120 },
-    { L"Jyashinsai P1 - Freezed Effect", 0x1f7120, 0x1f7140 },
-    { L"Jyashinsai P1 - Zapped Effect", 0x1f7140, 0x1f7160 },
+    { L"Jyashinsai P1 - Freezed Effect", 0x1f7120, 0x1f7140, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Jyashinsai P1 - Zapped Effect", 0x1f7140, 0x1f7160, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Jyashinsai_P2[] =
 {
     //--P2--
-    { L"Jyashinsai P2", 0x1f8320, 0x1f8340 },
-    { L"Jyashinsai P2 - Burned", 0x1f8340, 0x1f8360 },
-    { L"Jyashinsai P2 - Zapped", 0x1f8360, 0x1f8380 },
-    { L"Jyashinsai P2 - Poisoned", 0x1f8380, 0x1f83a0 },
-    { L"Jyashinsai P2 - Weapon 1", 0x1f83a0, 0x1f83c0 },
-    { L"Jyashinsai P2 - Weapon 2", 0x1f83c0, 0x1f83e0 },
-    { L"Jyashinsai P2 - Weapon 3", 0x1f83e0, 0x1f8400 },
+    { L"Jyashinsai P2", 0x1f8320, 0x1f8340, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext4 },
+    { L"Jyashinsai P2 - Burned", 0x1f8340, 0x1f8360, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext3 },
+    { L"Jyashinsai P2 - Zapped", 0x1f8360, 0x1f8380, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext2 },
+    { L"Jyashinsai P2 - Poisoned", 0x1f8380, 0x1f83a0, indexKabukiKlashSprites_Jyashinsai, 0x00, &pairNext },
+    { L"Jyashinsai P2 - Weapon 1", 0x1f83a0, 0x1f83c0, indexKabukiKlashSprites_Jyashinsai, 0x01 },
+    { L"Jyashinsai P2 - Weapon 2", 0x1f83c0, 0x1f83e0, indexKabukiKlashSprites_Jyashinsai, 0x01 },
+    { L"Jyashinsai P2 - Weapon 3", 0x1f83e0, 0x1f8400, indexKabukiKlashSprites_Jyashinsai, 0x01 },
     { L"Jyashinsai P2 - Teleport", 0x1f8400, 0x1f8420 },
-    { L"Jyashinsai P2 - Attack", 0x1f8420, 0x1f8440 },
+    { L"Jyashinsai P2 - Attack", 0x1f8420, 0x1f8440, indexKabukiKlashSprites_Jyashinsai, 0x00 },
     { L"Jyashinsai P2 - Fire/Ice Attacks", 0x1f8440, 0x1f8460 },
     { L"Jyashinsai P2 - Lighting Ball", 0x1f8460, 0x1f8480 },
     { L"Jyashinsai P2 - Unknown", 0x1f8480, 0x1f84a0 },
-    { L"Jyashinsai P2 - Freezed Effect", 0x1f84a0, 0x1f84c0 },
-    { L"Jyashinsai P2 - Zapped Effect", 0x1f84c0, 0x1f84e0 },
+    { L"Jyashinsai P2 - Freezed Effect", 0x1f84a0, 0x1f84c0, indexKabukiKlashSprites_Bonus, 0x00 },
+    { L"Jyashinsai P2 - Zapped Effect", 0x1f84c0, 0x1f84e0, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Jyashinsai_VS[] =
@@ -625,10 +640,10 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Lucifeller_P1[] =
 {
     //---Lucifeller---
 //--P1--
-    { L"Lucifeller P1", 0x1f6de0, 0x1f6e00 },
-    { L"Lucifeller P1 - Freezed", 0x1f6e00, 0x1f6e20 },
-    { L"Lucifeller P1 - Burned", 0x1f6e20, 0x1f6e40 },
-    { L"Lucifeller P1 - Zapped", 0x1f6e40, 0x1f6e60 },
+    { L"Lucifeller P1", 0x1f6de0, 0x1f6e00, indexKabukiKlashSprites_Lucifeller, 0x00 },
+    { L"Lucifeller P1 - Freezed", 0x1f6e00, 0x1f6e20, indexKabukiKlashSprites_Lucifeller, 0x00 },
+    { L"Lucifeller P1 - Burned", 0x1f6e20, 0x1f6e40, indexKabukiKlashSprites_Lucifeller, 0x00 },
+    { L"Lucifeller P1 - Zapped", 0x1f6e40, 0x1f6e60, indexKabukiKlashSprites_Lucifeller, 0x00 },
     { L"Lucifeller P1 - Flames 1", 0x1f6e60, 0x1f6e80 },
     { L"Lucifeller P1 - Flames 2", 0x1f6e80, 0x1f6ea0 },
     { L"Lucifeller P1 - Flames 3", 0x1f6ea0, 0x1f6ec0 },
@@ -638,16 +653,16 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Lucifeller_P1[] =
     { L"Lucifeller P1 - Defeated 1", 0x1f6f20, 0x1f6f40 },
     { L"Lucifeller P1 - Defeated 2", 0x1f6f40, 0x1f6f60 },
     { L"Lucifeller P1 - Defeated 3", 0x1f6f60, 0x1f6f80 },
-    { L"Lucifeller P1 - Zapped Effect", 0x1f6f80, 0x1f6fa0 },
+    { L"Lucifeller P1 - Zapped Effect", 0x1f6f80, 0x1f6fa0, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Lucifeller_P2[] =
 {
     //--P2--
-    { L"Lucifeller P2", 0x1f8160, 0x1f8180 },
-    { L"Lucifeller P2 - Freezed", 0x1f8180, 0x1f81a0 },
-    { L"Lucifeller P2 - Burned", 0x1f81a0, 0x1f81c0 },
-    { L"Lucifeller P2 - Zapped", 0x1f81c0, 0x1f81e0 },
+    { L"Lucifeller P2", 0x1f8160, 0x1f8180, indexKabukiKlashSprites_Lucifeller, 0x00 },
+    { L"Lucifeller P2 - Freezed", 0x1f8180, 0x1f81a0, indexKabukiKlashSprites_Lucifeller, 0x00 },
+    { L"Lucifeller P2 - Burned", 0x1f81a0, 0x1f81c0, indexKabukiKlashSprites_Lucifeller, 0x00 },
+    { L"Lucifeller P2 - Zapped", 0x1f81c0, 0x1f81e0, indexKabukiKlashSprites_Lucifeller, 0x00 },
     { L"Lucifeller P2 - Flames 1", 0x1f81e0, 0x1f8200 },
     { L"Lucifeller P2 - Flames 2", 0x1f8200, 0x1f8220 },
     { L"Lucifeller P2 - Flames 3", 0x1f8220, 0x1f8240 },
@@ -657,7 +672,7 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Lucifeller_P2[] =
     { L"Lucifeller P2 - Defeated 1", 0x1f82a0, 0x1f82c0 },
     { L"Lucifeller P2 - Defeated 2", 0x1f82c0, 0x1f82e0 },
     { L"Lucifeller P2 - Defeated 3", 0x1f82e0, 0x1f8300 },
-    { L"Lucifeller P2 - Zapped Effect", 0x1f8300, 0x1f8320 },
+    { L"Lucifeller P2 - Zapped Effect", 0x1f8300, 0x1f8320, indexKabukiKlashSprites_Manjimaru, 0x0b },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Lucifeller_VS[] =

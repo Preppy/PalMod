@@ -162,7 +162,7 @@ const sGame_PaletteDataset KOF95_A_ATHENA_ALT_PALETTES[] =
 const sGame_PaletteDataset KOF95_A_KENSOU_MAIN_PALETTES[] =
 {
     { L"Kensou", 0xda000, 0xda020, indexKOF94Sprites_Kensou, 0x00 },
-    { L"Extra 1", 0xda020, 0xda040 },
+    { L"Extra 1", 0xda020, 0xda040, indexKOF95Sprites_Kensou, 0x01 },
     { L"MAX Flash", 0xda040, 0xda060, indexKOF94Sprites_Kensou, 0x00 },
     { L"Extra 2", 0xda060, 0xda080 },
     { L"Electric Palette?", 0xda080, 0xda0a0, indexKOF94Sprites_Kensou, 0x00 },
@@ -175,7 +175,7 @@ const sGame_PaletteDataset KOF95_A_KENSOU_MAIN_PALETTES[] =
 const sGame_PaletteDataset KOF95_A_KENSOU_ALT_PALETTES[] =
 {
     { L"Kensou", 0xda200, 0xda220, indexKOF94Sprites_Kensou, 0x00 },
-    { L"Extra 1", 0xda220, 0xda240 },
+    { L"Extra 1", 0xda220, 0xda240, indexKOF95Sprites_Kensou, 0x01 },
     { L"MAX Flash", 0xda240, 0xda260, indexKOF94Sprites_Kensou, 0x00 },
     { L"Extra 2", 0xda260, 0xda280 },
     { L"Electric Palette?", 0xda280, 0xda2a0, indexKOF94Sprites_Kensou, 0x00 },

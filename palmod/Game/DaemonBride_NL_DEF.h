@@ -20,8 +20,6 @@ const std::vector<uint16_t> DaemonBride_NL_IMGIDS_USED =
     indexDaemonBrideSprites_ShiningRebellion,   // 0x2e
     indexDaemonBrideSprites_Souya,              // 0x2f
     indexDaemonBrideSprites_Yui,                // 0x30
-    indexDaemonBrideSprites_Stages,             // 0x31
-    indexDaemonBrideSprites_Bonus,              // 0x32
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_KuonSumeragi_PALETTES[] =

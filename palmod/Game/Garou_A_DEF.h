@@ -143,7 +143,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_A[] =
     { L"Khushnood Butt A - A/B Supers", 0xec60, 0xec80, indexGarouAKhushnood, 0x09 },
     { L"Khushnood Butt A - Unused?", 0xec80, 0xeca0 },
     { L"Khushnood Butt A - Win Stuff (The Wood Piece)", 0xeca0, 0xecc0, indexGarouAKhushnood, 0x0a },
-    { L"Khushnood Butt A - Kouken Effects (Butt/Marco)", 0xecc0, 0xece0 },
+    { L"Khushnood Butt A - Kouken Effects (Butt/Marco)", 0xecc0, 0xece0, indexGarouAKhushnood, 0x0b },
     { L"Khushnood Butt A - Hien Shipuukyaku Effects", 0xece0, 0xed00, indexGarouAKhushnood, 0x08 },
 };
 
@@ -163,7 +163,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_B[] =
     { L"Khushnood Butt B - A/B Supers", 0xee60, 0xee80, indexGarouAKhushnood, 0x09 },
     { L"Khushnood Butt B - Unused?", 0xee80, 0xeea0 },
     { L"Khushnood Butt B - Win Stuff (The Wood Piece)", 0xeea0, 0xeec0, indexGarouAKhushnood, 0x0a },
-    { L"Khushnood Butt B - Kouken Effects (Butt/Marco)", 0xeec0, 0xeee0 },
+    { L"Khushnood Butt B - Kouken Effects (Butt/Marco)", 0xeec0, 0xeee0, indexGarouAKhushnood, 0x0b },
     { L"Khushnood Butt B - Hien Shipuukyaku Effects", 0xeee0, 0xef00, indexGarouAKhushnood, 0x08 },
 };
 
@@ -183,7 +183,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_C[] =
     { L"Khushnood Butt C - A/B Supers", 0xf060, 0xf080, indexGarouAKhushnood, 0x09 },
     { L"Khushnood Butt C - Unused?", 0xf080, 0xf0a0 },
     { L"Khushnood Butt C - Win Stuff (The Wood Piece)", 0xf0a0, 0xf0c0, indexGarouAKhushnood, 0x0a },
-    { L"Khushnood Butt C - Kouken Effects (Butt/Marco)", 0xf0c0, 0xf0e0 },
+    { L"Khushnood Butt C - Kouken Effects (Butt/Marco)", 0xf0c0, 0xf0e0, indexGarouAKhushnood, 0x0b },
     { L"Khushnood Butt C - Hien Shipuukyaku Effects", 0xf0e0, 0xf100, indexGarouAKhushnood, 0x08 },
 };
 
@@ -203,7 +203,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_D[] =
     { L"Khushnood Butt D - A/B Supers", 0xf260, 0xf280, indexGarouAKhushnood, 0x09 },
     { L"Khushnood Butt D - Unused?", 0xf280, 0xf2a0 },
     { L"Khushnood Butt D - Win Stuff (The Wood Piece)", 0xf2a0, 0xf2c0, indexGarouAKhushnood, 0x0a },
-    { L"Khushnood Butt D - Kouken Effects (Butt/Marco)", 0xf2c0, 0xf2e0 },
+    { L"Khushnood Butt D - Kouken Effects (Butt/Marco)", 0xf2c0, 0xf2e0, indexGarouAKhushnood, 0x0b },
     { L"Khushnood Butt D - Hien Shipuukyaku Effects", 0xf2e0, 0xf300, indexGarouAKhushnood, 0x08 },
 };
 
@@ -240,7 +240,7 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_A[] =
     { L"Terry A - Guard Crash Flash", 0xf600, 0xf620, indexGarouATerryBogard },
     { L"Terry A - Just Defense Palette", 0xf620, 0xf640, indexGarouATerryBogard },
     { L"Terry A - Burn Knuckle/Power Dunk/Buster Wolf Effects", 0xf640, 0xf660, indexGarouATerryBogard, 0x08 },
-    { L"Terry A - Power Wave Lighting", 0xf660, 0xf680, indexGarouATerryBogard, 0x0a },
+    { L"Terry A - Power Wave Lighting", 0xf660, 0xf680, indexGarouATerryBogard, 0x0c },
     { L"Terry A - Power Wave", 0xf680, 0xf6a0, indexGarouATerryBogard, 0x0a }, 
     { L"Terry A - Crack Shoot Effects", 0xf6a0, 0xf6c0, indexGarouATerryBogard, 0x09 },
     { L"Terry A - Unused", 0xf6c0, 0xf6e0 },
@@ -260,7 +260,7 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_B[] =
     { L"Terry B - Guard Crash Flash", 0xf800, 0xf820, indexGarouATerryBogard },
     { L"Terry B - Just Defense Palette", 0xf820, 0xf840, indexGarouATerryBogard },
     { L"Terry B - Burn Knuckle/Power Dunk/Buster Wolf Effects", 0xf840, 0xf860, indexGarouATerryBogard, 0x08 },
-    { L"Terry B - Power Wave Lighting", 0xf860, 0xf880, indexGarouATerryBogard, 0x0a },
+    { L"Terry B - Power Wave Lighting", 0xf860, 0xf880, indexGarouATerryBogard, 0x0c },
     { L"Terry B - Power Wave", 0xf880, 0xf8a0, indexGarouATerryBogard, 0x0a },
     { L"Terry B - Crack Shoot Effects", 0xf8a0, 0xf8c0, indexGarouATerryBogard, 0x09 },
     { L"Terry B - Unused", 0xf8c0, 0xf8e0 },
@@ -280,7 +280,7 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_C[] =
     { L"Terry C - Guard Crash Flash", 0xfa00, 0xfa20, indexGarouATerryBogard },
     { L"Terry C - Just Defense Palette", 0xfa20, 0xfa40, indexGarouATerryBogard },
     { L"Terry C - Burn Knuckle/Power Dunk/Buster Wolf Effects", 0xfa40, 0xfa60, indexGarouATerryBogard, 0x08 },
-    { L"Terry C - Power Wave Lighting", 0xfa60, 0xfa80, indexGarouATerryBogard, 0x0a },
+    { L"Terry C - Power Wave Lighting", 0xfa60, 0xfa80, indexGarouATerryBogard, 0x0c },
     { L"Terry C - Power Wave", 0xfa80, 0xfaa0, indexGarouATerryBogard, 0x0a },
     { L"Terry C - Crack Shoot Effects", 0xfaa0, 0xfac0, indexGarouATerryBogard, 0x09 },
     { L"Terry C - Unused", 0xfac0, 0xfae0 },
@@ -300,7 +300,7 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_D[] =
     { L"Terry D - Guard Crash Flash", 0xfc00, 0xfc20, indexGarouATerryBogard },
     { L"Terry D - Just Defense Palette", 0xfc20, 0xfc40, indexGarouATerryBogard },
     { L"Terry D - Burn Knuckle/Power Dunk/Buster Wolf Effects", 0xfc40, 0xfc60, indexGarouATerryBogard, 0x08 },
-    { L"Terry D - Power Wave Lighting", 0xfc60, 0xfc80, indexGarouATerryBogard, 0x0a },
+    { L"Terry D - Power Wave Lighting", 0xfc60, 0xfc80, indexGarouATerryBogard, 0x0c },
     { L"Terry D - Power Wave", 0xfc80, 0xfca0, indexGarouATerryBogard, 0x0a },
     { L"Terry D - Crack Shoot Effects", 0xfca0, 0xfcc0, indexGarouATerryBogard, 0x09 },
     { L"Terry D - Unused", 0xfcc0, 0xfce0 },
@@ -1753,20 +1753,20 @@ const sGame_PaletteDataset Garou_A_BONUS_SELECTLIGHT_PALETTES[] =
 
 const sGame_PaletteDataset Garou_A_BONUS_SELECTBACK_PALETTES[] =
 {
-    { L"Terry",             0x2b700 + (0x20 * 0x00), 0x2b700 + (0x20 * 0x01) },
-    { L"Rock",              0x2b700 + (0x20 * 0x01), 0x2b700 + (0x20 * 0x02) },
-    { L"Dong Hwan",         0x2b700 + (0x20 * 0x02), 0x2b700 + (0x20 * 0x03) },
-    { L"Jae Hoon",          0x2b700 + (0x20 * 0x03), 0x2b700 + (0x20 * 0x04) },
-    { L"Hotaru",            0x2b700 + (0x20 * 0x04), 0x2b700 + (0x20 * 0x05) },
-    { L"Gato",              0x2b700 + (0x20 * 0x05), 0x2b700 + (0x20 * 0x06) },
-    { L"B. Jenet",          0x2b700 + (0x20 * 0x06), 0x2b700 + (0x20 * 0x07) },
-    { L"Khushnood Butt",    0x2b700 + (0x20 * 0x07), 0x2b700 + (0x20 * 0x08) },
-    { L"Hokutomaru",        0x2b700 + (0x20 * 0x08), 0x2b700 + (0x20 * 0x09) },
-    { L"Freeman",           0x2b700 + (0x20 * 0x09), 0x2b700 + (0x20 * 0x0a) },
-    { L"Tizoc",             0x2b700 + (0x20 * 0x0a), 0x2b700 + (0x20 * 0x0b) },
-    { L"Bastard Kevin",     0x2b700 + (0x20 * 0x0b), 0x2b700 + (0x20 * 0x0c) },
-    { L"Grant",             0x2b700 + (0x20 * 0x0c), 0x2b700 + (0x20 * 0x0d) },
-    { L"Kain",              0x2b700 + (0x20 * 0x0d), 0x2b700 + (0x20 * 0x0e) },
+    { L"Terry",             0x2b700 + (0x20 * 0x00), 0x2b700 + (0x20 * 0x01), indexGarouABonus, 0x6f },
+    { L"Rock",              0x2b700 + (0x20 * 0x01), 0x2b700 + (0x20 * 0x02), indexGarouABonus, 0x6f },
+    { L"Dong Hwan",         0x2b700 + (0x20 * 0x02), 0x2b700 + (0x20 * 0x03), indexGarouABonus, 0x6f },
+    { L"Jae Hoon",          0x2b700 + (0x20 * 0x03), 0x2b700 + (0x20 * 0x04), indexGarouABonus, 0x6f },
+    { L"Hotaru",            0x2b700 + (0x20 * 0x04), 0x2b700 + (0x20 * 0x05), indexGarouABonus, 0x6f },
+    { L"Gato",              0x2b700 + (0x20 * 0x05), 0x2b700 + (0x20 * 0x06), indexGarouABonus, 0x6f },
+    { L"B. Jenet",          0x2b700 + (0x20 * 0x06), 0x2b700 + (0x20 * 0x07), indexGarouABonus, 0x6f },
+    { L"Khushnood Butt",    0x2b700 + (0x20 * 0x07), 0x2b700 + (0x20 * 0x08), indexGarouABonus, 0x6f },
+    { L"Hokutomaru",        0x2b700 + (0x20 * 0x08), 0x2b700 + (0x20 * 0x09), indexGarouABonus, 0x6f },
+    { L"Freeman",           0x2b700 + (0x20 * 0x09), 0x2b700 + (0x20 * 0x0a), indexGarouABonus, 0x6f },
+    { L"Tizoc",             0x2b700 + (0x20 * 0x0a), 0x2b700 + (0x20 * 0x0b), indexGarouABonus, 0x6f },
+    { L"Bastard Kevin",     0x2b700 + (0x20 * 0x0b), 0x2b700 + (0x20 * 0x0c), indexGarouABonus, 0x6f },
+    { L"Grant",             0x2b700 + (0x20 * 0x0c), 0x2b700 + (0x20 * 0x0d), indexGarouABonus, 0x6f },
+    { L"Kain",              0x2b700 + (0x20 * 0x0d), 0x2b700 + (0x20 * 0x0e), indexGarouABonus, 0x6f },
 };
 
 // Obsolete 

@@ -21,7 +21,7 @@ const std::vector<uint16_t> AOF3_A_IMGIDS_USED =
 const sGame_PaletteDataset AOF3_A_Robert_A_PALETTES[] =
 {
     { L"Robert Garcia A", 0x058000, 0x058020, indexAoF3Sprites_Robert },
-    { L"Charging Power A", 0x058060, 0x058080 },
+    { L"Charging Power A", 0x058060, 0x058080, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ryuu Geki Ken A", 0x0580c0, 0x0580e0, indexAoF3Sprites_Robert, 0x08 },
     { L"Portrait A", 0x05fac0, 0x05fae0, indexAoF3Sprites_Robert, 0x30 },
  };
@@ -29,7 +29,7 @@ const sGame_PaletteDataset AOF3_A_Robert_A_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Robert_D_PALETTES[] =
 {
     { L"Robert Garcia D", 0x058100, 0x058120, indexAoF3Sprites_Robert },
-    { L"Charging Power D", 0x058160, 0x058180 },
+    { L"Charging Power D", 0x058160, 0x058180, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ryuu Geki Ken D", 0x0581c0, 0x0581e0, indexAoF3Sprites_Robert, 0x08 },
     { L"Portrait D", 0x06fb80, 0x06fba0, indexAoF3Sprites_Robert, 0x30 },
  };
@@ -37,7 +37,7 @@ const sGame_PaletteDataset AOF3_A_Robert_D_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Robert_RAGE_PALETTES[] =
 {
     { L"Robert Garcia Rage", 0x058200, 0x058220, indexAoF3Sprites_Robert },
-    { L"Charging Power Rage", 0x058260, 0x058280 },
+    { L"Charging Power Rage", 0x058260, 0x058280, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ryuu Geki Ken Rage", 0x0582c0, 0x0582e0, indexAoF3Sprites_Robert, 0x08 },
 };
 
@@ -45,7 +45,7 @@ const sGame_PaletteDataset AOF3_A_Robert_RAGE_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Ryo_A_PALETTES[] =
 {
     { L"Ryo Sakazaki A", 0x058800, 0x058820, indexAoF3Sprites_Ryo },
-    { L"Charging Power A", 0x058840, 0x058860 },
+    { L"Charging Power A", 0x058840, 0x058860, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ko Ou Ken A", 0x058860, 0x058880, indexAoF3Sprites_Ryo, 0x08 },
     { L"Ending Costume A", 0x0588e0, 0x058900, indexAoF3Sprites_Ryo, 0x01 },
     { L"Portrait A", 0x05fb00, 0x05fb20, indexAoF3Sprites_Ryo, 0x30 },
@@ -54,7 +54,7 @@ const sGame_PaletteDataset AOF3_A_Ryo_A_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Ryo_D_PALETTES[] =
 {
     { L"Ryo Sakazaki D", 0x058900, 0x058920, indexAoF3Sprites_Ryo },
-    { L"Charging Power D", 0x058940, 0x058960 },
+    { L"Charging Power D", 0x058940, 0x058960, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ko Ou Ken D", 0x058960, 0x058980, indexAoF3Sprites_Ryo, 0x08 },
     { L"Ending Costume D", 0x0589e0, 0x058a00, indexAoF3Sprites_Ryo, 0x01 },
     { L"Portrait D", 0x06fbc0, 0x06fbe0, indexAoF3Sprites_Ryo, 0x30 },
@@ -63,7 +63,7 @@ const sGame_PaletteDataset AOF3_A_Ryo_D_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Ryo_RAGE_PALETTES[] =
 {
     { L"Ryo Sakazaki Rage", 0x058a00, 0x058a20, indexAoF3Sprites_Ryo },
-    { L"Charging Power Rage", 0x058a40, 0x058a60 },
+    { L"Charging Power Rage", 0x058a40, 0x058a60, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ko Ou Ken Rage", 0x058a60, 0x058a80, indexAoF3Sprites_Ryo, 0x08 },
 };
 
@@ -96,7 +96,7 @@ const sGame_PaletteDataset AOF3_A_Kasumi_A_PALETTES[] =
 {
     { L"Kasumi Todoh A", 0x059800, 0x059820, indexAoF3Sprites_Kasumi, 0, &pairNext },
     { L"Book & Bag A", 0x059820, 0x059840, indexAoF3Sprites_Kasumi, 0x01 },
-    { L"Charging Power A", 0x059860, 0x059880 },
+    { L"Charging Power A", 0x059860, 0x059880, indexAoF3Sprites_Bonus, 0x11 },
     { L"Portrait A", 0x05fa80, 0x05faa0, indexAoF3Sprites_Kasumi, 0x30 },
  };
 
@@ -104,14 +104,14 @@ const sGame_PaletteDataset AOF3_A_Kasumi_D_PALETTES[] =
 {
     { L"Kasumi Todoh D", 0x059900, 0x059920, indexAoF3Sprites_Kasumi, 0, &pairNext },
     { L"Book & Bag D", 0x059920, 0x059940, indexAoF3Sprites_Kasumi, 0x01 },
-    { L"Charging Power D", 0x059960, 0x059980 },
+    { L"Charging Power D", 0x059960, 0x059980, indexAoF3Sprites_Bonus, 0x11 },
     { L"Portrait D", 0x06fb40, 0x06fb60, indexAoF3Sprites_Kasumi, 0x30 },
  };
 
 const sGame_PaletteDataset AOF3_A_Kasumi_RAGE_PALETTES[] =
 {
     { L"Kasumi Todoh Rage", 0x059a00, 0x059a20, indexAoF3Sprites_Kasumi },
-    { L"Charging Power Rage", 0x059a60, 0x059a80 },
+    { L"Charging Power Rage", 0x059a60, 0x059a80, indexAoF3Sprites_Bonus, 0x11 },
 };
 
  //Shared
@@ -126,7 +126,7 @@ const sGame_PaletteDataset AOF3_A_Rody_A_PALETTES[] =
 {
     { L"Rody Birts A", 0x05a000, 0x05a020, indexAoF3Sprites_Rody, 0, &pairNext },
     { L"Tonfas A", 0x05a020, 0x05a040, indexAoF3Sprites_Rody, 0x01 },
-    { L"Charging Power A", 0x05a040, 0x05a060 },
+    { L"Charging Power A", 0x05a040, 0x05a060, indexAoF3Sprites_Bonus, 0x11 },
     { L"Middle Impact TT A", 0x05a060, 0x05a080 },
     { L"Portrait A", 0x05fae0, 0x05fb00, indexAoF3Sprites_Rody, 0x30, &pairNext },
     { L"Tonfas Portrait A", 0x05fdf4, 0x05fe00, indexAoF3Sprites_Rody, 0x31 },
@@ -136,7 +136,7 @@ const sGame_PaletteDataset AOF3_A_Rody_D_PALETTES[] =
 {
     { L"Rody Birts D", 0x05a100, 0x05a120, indexAoF3Sprites_Rody, 0, &pairNext },
     { L"Tonfas D", 0x05a120, 0x05a140, indexAoF3Sprites_Rody, 0x01 },
-    { L"Charging Power D", 0x05a140, 0x05a160 },
+    { L"Charging Power D", 0x05a140, 0x05a160, indexAoF3Sprites_Bonus, 0x11 },
     { L"Middle Impact TT D", 0x05a160, 0x05a180 },
     { L"Portrait D", 0x06fba0, 0x06fbc0, indexAoF3Sprites_Rody, 0x30, &pairNext },
     { L"Tonfas Portrait D", 0x06fc54, 0x06fc60, indexAoF3Sprites_Rody, 0x31 },
@@ -146,7 +146,7 @@ const sGame_PaletteDataset AOF3_A_Rody_RAGE_PALETTES[] =
 {
     { L"Rody Birts Rage", 0x05a200, 0x05a220, indexAoF3Sprites_Rody, 0, &pairNext },
     { L"Tonfas Rage", 0x05a220, 0x05a240, indexAoF3Sprites_Rody, 0x01 },
-    { L"Charging Power Rage", 0x05a240, 0x05a260 },
+    { L"Charging Power Rage", 0x05a240, 0x05a260, indexAoF3Sprites_Bonus, 0x11 },
     { L"Middle Impact TT Rage", 0x05a260, 0x05a280 },
 };
 
@@ -155,7 +155,7 @@ const sGame_PaletteDataset AOF3_A_Lenny_A_PALETTES[] =
 {
     { L"Lenny Creston A", 0x05a800, 0x05a820, indexAoF3Sprites_Lenny, 0, &pairNext },
     { L"Whip A", 0x05a820, 0x05a840, indexAoF3Sprites_Lenny, 1 },
-    { L"Charging Power A", 0x05a880, 0x05a8a0 },
+    { L"Charging Power A", 0x05a880, 0x05a8a0, indexAoF3Sprites_Bonus, 0x11 },
     { L"Flick Shot A", 0x05a8c0, 0x05a8e0, indexAoF3Sprites_Lenny, 0x02 },
     { L"Portrait A", 0x05faa0, 0x05fac0, indexAoF3Sprites_Lenny, 0x30 },
  };
@@ -164,7 +164,7 @@ const sGame_PaletteDataset AOF3_A_Lenny_D_PALETTES[] =
 {
     { L"Lenny Creston D", 0x05a900, 0x05a920, indexAoF3Sprites_Lenny, 0, &pairNext },
     { L"Whip D", 0x05a920, 0x05a940, indexAoF3Sprites_Lenny, 1 },
-    { L"Charging Power D", 0x05a980, 0x05a9a0 },
+    { L"Charging Power D", 0x05a980, 0x05a9a0, indexAoF3Sprites_Bonus, 0x11 },
     { L"Flick Shot D", 0x05a9c0, 0x05a9e0, indexAoF3Sprites_Lenny, 0x02 },
     { L"Portrait D", 0x06fb60, 0x06fb80, indexAoF3Sprites_Lenny, 0x30 },
  };
@@ -173,7 +173,7 @@ const sGame_PaletteDataset AOF3_A_Lenny_RAGE_PALETTES[] =
 {
     { L"Lenny Creston Rage", 0x05aa00, 0x05aa20, indexAoF3Sprites_Lenny, 0, &pairNext },
     { L"Whip Rage", 0x05aa20, 0x05aa40, indexAoF3Sprites_Lenny, 1 },
-    { L"Charging Power Rage", 0x05aa80, 0x05aaa0 },
+    { L"Charging Power Rage", 0x05aa80, 0x05aaa0, indexAoF3Sprites_Bonus, 0x11 },
     { L"Flick Shot Rage", 0x05aac0, 0x05aae0, indexAoF3Sprites_Lenny, 0x02 },
 };
 
@@ -188,7 +188,7 @@ const sGame_PaletteDataset AOF3_A_Wang_A_PALETTES[] =
 {
     { L"Wang Koh San A", 0x05b000, 0x05b020, indexAoF3Sprites_Wang, 0, &pairNext },
     { L"Wang Pelican A", 0x05b020, 0x05b040, indexAoF3Sprites_Wang, 1 },
-    { L"Charging Power A", 0x05b060, 0x05b080 },
+    { L"Charging Power A", 0x05b060, 0x05b080, indexAoF3Sprites_Bonus, 0x11 },
     { L"Muteki Ranbu Kun A", 0x05b0c0, 0x05b0e0, indexAoF3Sprites_Wang, 0x02 },
     { L"Portrait A", 0x05fb60, 0x05fb80, indexAoF3Sprites_Wang, 0x30 },
  };
@@ -197,7 +197,7 @@ const sGame_PaletteDataset AOF3_A_Wang_D_PALETTES[] =
 {
     { L"Wang Koh San D", 0x05b100, 0x05b120, indexAoF3Sprites_Wang, 0, &pairNext },
     { L"Wang Pelican D", 0x05b120, 0x05b140, indexAoF3Sprites_Wang, 1 },
-    { L"Charging Power D", 0x05b160, 0x05b180 },
+    { L"Charging Power D", 0x05b160, 0x05b180, indexAoF3Sprites_Bonus, 0x11 },
     { L"Muteki Ranbu Kun D", 0x05b1c0, 0x05b1e0, indexAoF3Sprites_Wang, 0x02 },
     { L"Portrait D", 0x06fc20, 0x06fc40, indexAoF3Sprites_Wang, 0x30 },
  };
@@ -206,7 +206,7 @@ const sGame_PaletteDataset AOF3_A_Wang_RAGE_PALETTES[] =
 {
     { L"Wang Koh San Rage", 0x05b200, 0x05b220, indexAoF3Sprites_Wang, 0, &pairNext },
     { L"Wang Pelican Rage", 0x05b220, 0x05b240, indexAoF3Sprites_Wang, 1 },
-    { L"Charging Power Rage", 0x05b260, 0x05b280 },
+    { L"Charging Power Rage", 0x05b260, 0x05b280, indexAoF3Sprites_Bonus, 0x11 },
     { L"Muteki Ranbu Kun Rage", 0x05b2c0, 0x05b2e0, indexAoF3Sprites_Wang, 0x02 },
 };
 
@@ -214,7 +214,7 @@ const sGame_PaletteDataset AOF3_A_Wang_RAGE_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Jin_A_PALETTES[] =
 {
     { L"Jin Fuha A", 0x05b800, 0x05b820, indexAoF3Sprites_Jin },
-    { L"Charging Power A", 0x05b860, 0x05b880 },
+    { L"Charging Power A", 0x05b860, 0x05b880, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ryu Eijin A", 0x05b8c0, 0x05b8e0, indexAoF3Sprites_Jin, 1 },
     { L"Portrait A", 0x05fa40, 0x05fa60, indexAoF3Sprites_Jin, 0x30 },
  };
@@ -222,7 +222,7 @@ const sGame_PaletteDataset AOF3_A_Jin_A_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Jin_D_PALETTES[] =
 {
     { L"Jin Fuha D", 0x05b900, 0x05b920, indexAoF3Sprites_Jin },
-    { L"Charging Power D", 0x05b960, 0x05b980 },
+    { L"Charging Power D", 0x05b960, 0x05b980, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ryu Eijin D", 0x05b9c0, 0x05b9e0, indexAoF3Sprites_Jin, 1 },
     { L"Portrait D", 0x06fb00, 0x06fb20, indexAoF3Sprites_Jin, 0x30 },
  };
@@ -230,7 +230,7 @@ const sGame_PaletteDataset AOF3_A_Jin_D_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Jin_RAGE_PALETTES[] =
 {
     { L"Jin Fuha Rage", 0x05ba00, 0x05ba20, indexAoF3Sprites_Jin },
-    { L"Charging Power Rage", 0x05ba60, 0x05ba80 },
+    { L"Charging Power Rage", 0x05ba60, 0x05ba80, indexAoF3Sprites_Bonus, 0x11 },
     { L"Ryu Eijin Rage", 0x05bac0, 0x05bae0 },
 };
 
@@ -246,7 +246,7 @@ const sGame_PaletteDataset AOF3_A_Sinclair_A_PALETTES[] =
 {
     { L"Sinclair A", 0x05c000, 0x05c020, indexAoF3Sprites_Sinclair, 0, &pairNext },
     { L"Sword A", 0x05c020, 0x05c040, indexAoF3Sprites_Sinclair, 1 },
-    { L"Charging Power A", 0x05c060, 0x05c080 },
+    { L"Charging Power A", 0x05c060, 0x05c080, indexAoF3Sprites_Bonus, 0x11 },
     { L"Portrait A", 0x05fb20, 0x05fb40, indexAoF3Sprites_Sinclair, 0x30, &pairNext8 },
  };
 
@@ -254,7 +254,7 @@ const sGame_PaletteDataset AOF3_A_Sinclair_D_PALETTES[] =
 {
     { L"Sinclair D", 0x05c100, 0x05c120, indexAoF3Sprites_Sinclair, 0, &pairNext },
     { L"Sword D", 0x05c120, 0x05c140, indexAoF3Sprites_Sinclair, 1 },
-    { L"Charging Power D", 0x05c160, 0x05c180 },
+    { L"Charging Power D", 0x05c160, 0x05c180, indexAoF3Sprites_Bonus, 0x11 },
     { L"Portrait D", 0x06fbe0, 0x06fc00, indexAoF3Sprites_Sinclair, 0x30, &pairNext4 },
  };
 
@@ -262,7 +262,7 @@ const sGame_PaletteDataset AOF3_A_Sinclair_RAGE_PALETTES[] =
 {
     { L"Sinclair Rage", 0x05c200, 0x05c220, indexAoF3Sprites_Sinclair, 0, &pairNext },
     { L"Sword Rage", 0x05c220, 0x05c240, indexAoF3Sprites_Sinclair, 1 },
-    { L"Charging Power Rage", 0x05c260, 0x05c280 },
+    { L"Charging Power Rage", 0x05c260, 0x05c280, indexAoF3Sprites_Bonus, 0x11 },
 };
 
 //Shared
@@ -278,7 +278,7 @@ const sGame_PaletteDataset AOF3_A_Wyler_A_PALETTES[] =
 {
     { L"Wyler A", 0x05c800, 0x05c820, indexAoF3Sprites_Wyler, 0 },
     { L"Red Shoulder A", 0x05c840, 0x05c860, indexAoF3Sprites_Wyler, 1 },
-    { L"Charging Power A", 0x05c860, 0x05c880 },
+    { L"Charging Power A", 0x05c860, 0x05c880, indexAoF3Sprites_Bonus, 0x11 },
     { L"Unknown Extra A", 0x05c880, 0x05c8a0 },
     { L"Destransformation A", 0x05c8a0, 0x05c8c0, indexAoF3Sprites_Wyler, 0x03 },
     { L"Transformation A", 0x05c8c0, 0x05c8e0, indexAoF3Sprites_Wyler, 0x05 },
@@ -290,7 +290,7 @@ const sGame_PaletteDataset AOF3_A_Wyler_D_PALETTES[] =
 {
     { L"Wyler D", 0x05c900, 0x05c920, indexAoF3Sprites_Wyler, 0 },
     { L"Red Shoulder D", 0x05c940, 0x05c960, indexAoF3Sprites_Wyler, 1 },
-    { L"Charging Power D", 0x05c960, 0x05c980 },
+    { L"Charging Power D", 0x05c960, 0x05c980, indexAoF3Sprites_Bonus, 0x11 },
     { L"Unknown Extra D", 0x05c980, 0x05c9a0 },
     { L"Destransformation D", 0x05c9a0, 0x05c9c0, indexAoF3Sprites_Wyler, 0x03 },
     { L"Transformation D", 0x05c9c0, 0x05c9e0, indexAoF3Sprites_Wyler, 0x05 },
@@ -302,7 +302,7 @@ const sGame_PaletteDataset AOF3_A_Wyler_RAGE_PALETTES[] =
 {
     { L"Wyler Rage", 0x05ca00, 0x05ca20, indexAoF3Sprites_Wyler, 0 },
     { L"Red Shoulder Rage", 0x05ca40, 0x05ca60, indexAoF3Sprites_Wyler, 1 },
-    { L"Charging Power Rage", 0x05ca60, 0x05ca80 },
+    { L"Charging Power Rage", 0x05ca60, 0x05ca80, indexAoF3Sprites_Bonus, 0x11 },
 };
 
 //Shared
@@ -394,15 +394,15 @@ const sGame_PaletteDataset AOF3_A_BONUS_SHARED_PALETTES[] =
     { L"Hitsparks", 0x05fee0, 0x05ff00 },
     { L"Blocksparks", 0x05fe60, 0x05fe80 },
     { L"Dust/Shadow/Text", 0x05f840, 0x05f860 },
-    { L"Ryo/Robert Fireball", 0x05f800, 0x05f820 },
-    { L"Ryo/Robert Firekick", 0x05fe80, 0x05fea0 },
+    { L"Ryo/Robert Fireball", 0x05f800, 0x05f820, indexAoF3Sprites_Bonus, 0x12 },
+    { L"Ryo/Robert Firekick", 0x05fe80, 0x05fea0, indexAoF3Sprites_Bonus, 0x13 },
 };
 
  //Story Mode
 const sGame_PaletteDataset AOF3_A_BONUS_STORY_PALETTES[] =
 {
     { L"Freia Lawrence", 0x05ff20, 0x05ff40, indexAoF3Sprites_Bonus, 0x0c },
-    { L"Yuri Sakazaki", 0x05f940, 0x05f960, indexAoF3Sprites_Ryo, 0x02 },
+    { L"Yuri Sakazaki", 0x05f940, 0x05f960, indexAoF3Sprites_Bonus, 0x14 },
     { L"Mizuho Todoh", 0x05f920, 0x05f940, indexAoF3Sprites_Bonus, 0x0a },
     { L"Kasumi Story Cutscene", 0x05fd80, 0x05fda0, indexAoF3Sprites_Bonus, 0x09 },
     { L"Pelican", 0x05ff00, 0x05ff20, indexAoF3Sprites_Bonus, 0x0b },

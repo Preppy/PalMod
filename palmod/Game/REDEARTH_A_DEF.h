@@ -278,14 +278,14 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100, 0x40F180, indexRedEarthSprites_Tessa, 0x09 },
     { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00, 0x40EB80, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00, 0x40EE80, indexRedEarthSprites_Tessa, 0x01a },
-    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00, 0x40fb80 },
+    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00, 0x40fb80, indexRedEarthSprites_Tessa, 0x28 },
 
-    { L"Electron Fairies 1 & UC Angels", 0x40f380, 0x40f400 },
-    { L"Electron Fairies 2", 0x40f400, 0x40f480 },
-    { L"Fiamma Fairies 1", 0x40f480, 0x40f500 },
-    { L"Fiamma Fairies 2", 0x40f500, 0x40f580 },
-    { L"Glace Fairies 1", 0x40f580, 0x40f600 },
-    { L"Glace Fairies 2", 0x40f600, 0x40f680 },
+    { L"Electron Fairies 1 & UC Angels", 0x40f380, 0x40f400, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x40f400, 0x40f480, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x40f480, 0x40f500, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x40f500, 0x40f580, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x40f580, 0x40f600, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x40f600, 0x40f680, indexRedEarthSprites_Tessa, 0x27 },
 
     { L"Cursed Penguin Tessa", 0x40f280, 0x40f300, indexRedEarthSprites_Tessa, 0x25 },
 
@@ -351,14 +351,14 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800, 0x40F180 + 0xc800, indexRedEarthSprites_Tessa, 0x09 },
     { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800, 0x40EB80 + 0xc800, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800, 0x40EE80 + 0xc800, indexRedEarthSprites_Tessa, 0x01a },
-    { L"Tessa Kick Ultimate Counter Chain", 0x41c300, 0x41c380 },
+    { L"Tessa Kick Ultimate Counter Chain", 0x41c300, 0x41c380, indexRedEarthSprites_Tessa, 0x28 },
 
-    { L"Electron Fairies 1 & UC Angels", 0x41bb80, 0x41bc00 },
-    { L"Electron Fairies 2", 0x41bc00, 0x41bc80 },
-    { L"Fiamma Fairies 1", 0x41bc80, 0x41bd00 },
-    { L"Fiamma Fairies 2", 0x41bd00, 0x41bd80 },
-    { L"Glace Fairies 1", 0x41bd80, 0x41be00 },
-    { L"Glace Fairies 2", 0x41be00, 0x41be80 },
+    { L"Electron Fairies 1 & UC Angels", 0x41bb80, 0x41bc00, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x41bc00, 0x41bc80, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x41bc80, 0x41bd00, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x41bd00, 0x41bd80, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x41bd80, 0x41be00, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x41be00, 0x41be80, indexRedEarthSprites_Tessa, 0x27 },
 
     { L"Cursed Penguin Tessa", 0x41ba80, 0x41bb00, indexRedEarthSprites_Tessa, 0x25 },
 
@@ -406,7 +406,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
     { L"Mai-Ling Punch Fireball", 0x411780, 0x411800, indexRedEarthSprites_MaiLing, 0x01 },
     { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880, 0x411900, indexRedEarthSprites_MaiLing, 0x03 },
 
-    { L"Ultimate Guard's Parry Shield", 0x411900, 0x411980 },
+    { L"Ultimate Guard's Parry Shield", 0x411900, 0x411980, indexRedEarthSprites_MaiLing, 0x05 },
     { L"Valerie, Dentry & Bellery", 0x412a00, 0x412b00, indexRedEarthSprites_Bonus, 0x1d },
 
     { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000, 0x414080, indexRedEarthSprites_MaiLing, 0 },
@@ -821,8 +821,8 @@ const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
     { L"Thunder Dragon Teleport 1", 0x437880, 0x437900, indexRedEarthSprites_Scion, 0x01 },
     { L"Thunder Dragon Teleport 2", 0x437800, 0x437880, indexRedEarthSprites_Scion, 0x01 },
 
-    { L"Dragon's Thunderbreath 1 & Icebreath", 0x437900, 0x437980 },
-    { L"Dragon's Thunderbreath 2", 0x437980, 0x437a00 },
+    { L"Dragon's Thunderbreath 1 & Icebreath", 0x437900, 0x437980, indexRedEarthSprites_Scion, 0x02 },
+    { L"Dragon's Thunderbreath 2", 0x437980, 0x437a00, indexRedEarthSprites_Scion, 0x02 },
 };
 
 //Extra Stuff
@@ -1119,7 +1119,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Blade flash", 0x3246a0, 0x324720 },
     // Dupe of logo cycle { L"Intro - Thunderflash", 0x324720, 0x3247a0 },
     { L"Intro - Leo rise and slash", 0x322da0, 0x322ea0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Rise And Slash Effect", 0x323ea0, 0x323f20 },
+    { L"Leo Rise And Slash Effect", 0x323ea0, 0x323f20, indexRedEarthSprites_Bonus, 0x61 },
     { L"Leo Cinematic 1 Rise and Slash BG", 0x322ea0, 0x322f20, indexRedEarthSprites_Bonus, 0x53 },
     { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0, indexRedEarthSprites_Bonus, 0x54 },
 
@@ -1525,16 +1525,16 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Tessa Punch Staff Darker", 0x40ed80, 0x40ee00, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Punch Staff Lighter 1", 0x40ed00, 0x40ed80, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Punch Staff Lighter 2", 0x40ec80, 0x40ed00, indexRedEarthSprites_Tessa, 0x1e },
-    { L"Punch Tessa's Unused Fairies 1 (Poison?)", 0x40f680, 0x40f700 },
-    { L"Punch Tessa's Unused Fairies 2 (Poison?)", 0x40f700, 0x40f780 },
+    { L"Punch Tessa's Unused Fairies 1 (Poison?)", 0x40f680, 0x40f700, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Punch Tessa's Unused Fairies 2 (Poison?)", 0x40f700, 0x40f780, indexRedEarthSprites_Tessa, 0x27 },
 
     { L"Tessa Jamming Ghost Kick Palette", 0x41c000, 0x41c080, indexRedEarthSprites_Tessa, 0x0e },
     { L"Tessa Kick Hato Lighter (Pigeon)", 0x41b800, 0x41b880, indexRedEarthSprites_Tessa, 0x0b },
     { L"Tessa Kick Staff Darker", 0x41b580, 0x41b600, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Kick Staff Lighter 1", 0x41b500, 0x41b580, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Kick Staff Lighter 2", 0x41b480, 0x41b500, indexRedEarthSprites_Tessa, 0x1e },
-    { L"Kick Tessa's Unused Fairies 1 (Poison?)", 0x41be80, 0x41bf00 },
-    { L"Kick Tessa's Unused Fairies 2 (Poison?)", 0x41bf00, 0x41bf80 },
+    { L"Kick Tessa's Unused Fairies 1 (Poison?)", 0x41be80, 0x41bf00, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Kick Tessa's Unused Fairies 2 (Poison?)", 0x41bf00, 0x41bf80, indexRedEarthSprites_Tessa, 0x27 },
 
     { L"Unused Tessa Palette 1", 0x1e4a80, 0x1e4b00, indexRedEarthSprites_Tessa, 0x00 },
     { L"Unused Tessa Palette 2", 0x1e4b00, 0x1e4b80, indexRedEarthSprites_Tessa, 0x00 },

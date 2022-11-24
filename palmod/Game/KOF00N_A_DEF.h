@@ -22,7 +22,6 @@ const std::vector<uint16_t> KOF00N_A_IMGIDS_USED =
     indexKOF01Sprites_Joe,          // 0x1bc
         //indexKOF01Sprites_K,            // 0x1bd
         indexKOF02UMSprites_K,
-    indexKOF01Sprites_K9999,        // 0x1be
     indexKOF01Sprites_Kensou,       // 0x1bf
     indexKOF01Sprites_Kim,          // 0x1c0
     indexKOF01Sprites_King,         // 0x1c1

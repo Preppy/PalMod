@@ -28,6 +28,8 @@ const std::vector<uint16_t> XMVSF_A_IMGIDS_USED =
     indexCPS2Sprites_Magneto,      // 0x2C
     indexCPS2Sprites_Apocalypse,   // 0x4f
     indexCPS2Sprites_XMVSFAssets,  // 0x50 - XMVSF HUD, stages
+
+    indexCPS2Sprites_Bonus,         // 0xea
 };
 
 #pragma region SecondaryPaletteEffects
@@ -1242,12 +1244,12 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_TEXT[] =
     { L"HUD Text", 0x146fa, 0x1471a, indexCPS2Sprites_XMVSFAssets, 0x29 },
     { L"Round Finish Score", 0x1e2fa, 0x1e31a, indexCPS2Sprites_XMVSFAssets, 0x2d },
     // Uses 'CPS2 Test Menu Text' Preview
-        { L"Test Menu Text 1", 0xfccc, 0xfcec },
+        { L"Test Menu Text 1", 0xfccc, 0xfcec, indexCPS2Sprites_Bonus, 0x00 },
     // Uses 'CPS2 Test Menu Text' Preview
-        { L"Test Menu Text 2", 0xfcec, 0xfd0c },
+        { L"Test Menu Text 2", 0xfcec, 0xfd0c, indexCPS2Sprites_Bonus, 0x00 },
     { L"Credit Roll Titles", 0x14d3a, 0x14d5a, indexCPS2Sprites_XMVSFAssets, 0x26 },
     // Uses 'CPS2 Test Menu Text' Preview
-        { L"Credit Roll Thank You For Playing", 0xfd2c, 0xfd4c },
+        { L"Credit Roll Thank You For Playing", 0xfd2c, 0xfd4c, indexCPS2Sprites_Bonus, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_TITLE[] =

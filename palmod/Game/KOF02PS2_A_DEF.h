@@ -64,7 +64,7 @@ const sKOF02PS2_A_CharacterDump KOF02PS2_A_CharacterOffsetArray[] =
     { L"Seth",       0x388c00 + (0x800 * 34), L"indexKOF02UMSprites_Seth",      L"indexKOF02Sprites_Seth",          },
     { L"Ramon",      0x388c00 + (0x800 * 35), L"indexKOF02UMSprites_Ramon",     L"indexKOF02Sprites_Ramon",         },
     { L"Kula",       0x388c00 + (0x800 * 36), L"indexKOF02UMSprites_Kula",      L"indexKOF02Sprites_Kula",          L"Diana and Candy Stuff", 0x1c, L"Foxy Stuff", 0x1b, nullptr, 0, L"Critical Ice", 0x2 },
-    { L"K9999",      0x388c00 + (0x800 * 37), L"indexKOF02Sprites_K9999",       L"indexKOF02Sprites_K9999",         L"Intro Stuff", 0x19, L"MAX2 and Win", 0x9, L"SDM Shield", 0x10, L"Tentacle Arm", 0x1a },
+    { L"K9999",      0x388c00 + (0x800 * 37), L"indexKOF02Sprites_K9999",       L"indexKOF02Sprites_K9999",         L"Intro Stuff", 0x04, L"MAX2 and Win", 0x05, L"SDM Shield", 0x06, L"Tentacle Arm", 0x07 },
     { L"Angel",      0x388c00 + (0x800 * 38), L"indexKOF02UMSprites_Angel",     L"indexKOF02Sprites_Angel",         L"Time Over Lose", 0x19 },
     { L"Omega Rugal", 0x388c00 + (0x800 * 39), L"indexKOF02UMSprites_OmegaRugal", L"indexKOF02Sprites_OmegaRugal",  nullptr, 0, nullptr, 0, L"Superboss Intro Stuff", 0x19 },
     { L"KUSANAGI",   0x388c00 + (0x800 * 40), L"indexKOF02UMSprites_Kusanagi",  L"indexKOF02Sprites_KUSANAGI",      L"Super Move Palette", 0x3, L"MAX Orochinagi Fire", 0x4 },
@@ -144,7 +144,6 @@ const std::vector<uint16_t> KOF02PS2_A_IMGIDS_USED =
     indexKOF02UMSprites_Iori,      // 0x8F
     indexKOF02UMSprites_Joe,       // 0x91
     indexKOF02UMSprites_K,         // 0x92
-    indexKOF02UMSprites_K9999,     // 0x93
     indexKOF02UMSprites_Kensou,    // 0x95
     indexKOF02UMSprites_KensouEX,  // 0x96
     indexKOF02UMSprites_Kim,       // 0x97
@@ -3004,49 +3003,49 @@ const sGame_PaletteDataset KOF02PS2_A_KULA_PALETTES_D[] =
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_A[] =
 {
     { L"K9999 A", 0x039b400, 0x039b420, indexKOF01Sprites_K9999 },
-    { L"A - Intro Stuff", 0x039b420, 0x039b440, indexKOF02UMSprites_K9999, 0x19 },
-    { L"A - MAX2 and Win", 0x039b440, 0x039b460, indexKOF02UMSprites_K9999, 0x09 },
+    { L"A - Intro Stuff", 0x039b420, 0x039b440, indexKOF02Sprites_K9999, 0x06 },
+    { L"A - MAX2 and Win", 0x039b440, 0x039b460, indexKOF02Sprites_K9999, 0x05 },
     { L"A - Electric Shock Effect", 0x039b460, 0x039b480, indexKOF01Sprites_K9999, 0x00 },
     { L"A - MAX Flash", 0x039b480, 0x039b4a0, indexKOF01Sprites_K9999, 0x00 },
-    { L"A - SDM Shield", 0x039b4a0, 0x039b4c0, indexKOF02UMSprites_K9999, 0x10 },
+    { L"A - SDM Shield", 0x039b4a0, 0x039b4c0, indexKOF02Sprites_K9999, 0x04 },
     { L"A - Soul Palette", 0x039b4c0, 0x039b4e0, indexKOF01Sprites_K9999, 0x00 },
-    { L"A - Tentacle Arm", 0x039b4e0, 0x039b500, indexKOF02UMSprites_K9999, 0x1a },
+    { L"A - Tentacle Arm", 0x039b4e0, 0x039b500, indexKOF02Sprites_K9999, 0x07 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_B[] =
 {
     { L"K9999 B", 0x039b600, 0x039b620, indexKOF01Sprites_K9999 },
-    { L"B - Intro Stuff", 0x039b620, 0x039b640, indexKOF02UMSprites_K9999, 0x19 },
-    { L"B - MAX2 and Win", 0x039b640, 0x039b660, indexKOF02UMSprites_K9999, 0x09 },
+    { L"B - Intro Stuff", 0x039b620, 0x039b640, indexKOF02Sprites_K9999, 0x06 },
+    { L"B - MAX2 and Win", 0x039b640, 0x039b660, indexKOF02Sprites_K9999, 0x05 },
     { L"B - Electric Shock Effect", 0x039b660, 0x039b680, indexKOF01Sprites_K9999, 0x00 },
     { L"B - MAX Flash", 0x039b680, 0x039b6a0, indexKOF01Sprites_K9999, 0x00 },
-    { L"B - SDM Shield", 0x039b6a0, 0x039b6c0, indexKOF02UMSprites_K9999, 0x10 },
+    { L"B - SDM Shield", 0x039b6a0, 0x039b6c0, indexKOF02Sprites_K9999, 0x04 },
     { L"B - Soul Palette", 0x039b6c0, 0x039b6e0, indexKOF01Sprites_K9999, 0x00 },
-    { L"B - Tentacle Arm", 0x039b6e0, 0x039b700, indexKOF02UMSprites_K9999, 0x1a },
+    { L"B - Tentacle Arm", 0x039b6e0, 0x039b700, indexKOF02Sprites_K9999, 0x07 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_C[] =
 {
     { L"K9999 C", 0x039b800, 0x039b820, indexKOF01Sprites_K9999 },
-    { L"C - Intro Stuff", 0x039b820, 0x039b840, indexKOF02UMSprites_K9999, 0x19 },
-    { L"C - MAX2 and Win", 0x039b840, 0x039b860, indexKOF02UMSprites_K9999, 0x09 },
+    { L"C - Intro Stuff", 0x039b820, 0x039b840, indexKOF02Sprites_K9999, 0x06 },
+    { L"C - MAX2 and Win", 0x039b840, 0x039b860, indexKOF02Sprites_K9999, 0x05 },
     { L"C - Electric Shock Effect", 0x039b860, 0x039b880, indexKOF01Sprites_K9999, 0x00 },
     { L"C - MAX Flash", 0x039b880, 0x039b8a0, indexKOF01Sprites_K9999, 0x00 },
-    { L"C - SDM Shield", 0x039b8a0, 0x039b8c0, indexKOF02UMSprites_K9999, 0x10 },
+    { L"C - SDM Shield", 0x039b8a0, 0x039b8c0, indexKOF02Sprites_K9999, 0x04 },
     { L"C - Soul Palette", 0x039b8c0, 0x039b8e0, indexKOF01Sprites_K9999, 0x00 },
-    { L"C - Tentacle Arm", 0x039b8e0, 0x039b900, indexKOF02UMSprites_K9999, 0x1a },
+    { L"C - Tentacle Arm", 0x039b8e0, 0x039b900, indexKOF02Sprites_K9999, 0x07 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_D[] =
 {
     { L"K9999 D", 0x039ba00, 0x039ba20, indexKOF01Sprites_K9999 },
-    { L"D - Intro Stuff", 0x039ba20, 0x039ba40, indexKOF02UMSprites_K9999, 0x19 },
-    { L"D - MAX2 and Win", 0x039ba40, 0x039ba60, indexKOF02UMSprites_K9999, 0x09 },
+    { L"D - Intro Stuff", 0x039ba20, 0x039ba40, indexKOF02Sprites_K9999, 0x06 },
+    { L"D - MAX2 and Win", 0x039ba40, 0x039ba60, indexKOF02Sprites_K9999, 0x05 },
     { L"D - Electric Shock Effect", 0x039ba60, 0x039ba80, indexKOF01Sprites_K9999, 0x00 },
     { L"D - MAX Flash", 0x039ba80, 0x039baa0, indexKOF01Sprites_K9999, 0x00 },
-    { L"D - SDM Shield", 0x039baa0, 0x039bac0, indexKOF02UMSprites_K9999, 0x10 },
+    { L"D - SDM Shield", 0x039baa0, 0x039bac0, indexKOF02Sprites_K9999, 0x04 },
     { L"D - Soul Palette", 0x039bac0, 0x039bae0, indexKOF01Sprites_K9999, 0x00 },
-    { L"D - Tentacle Arm", 0x039bae0, 0x039bb00, indexKOF02UMSprites_K9999, 0x1a },
+    { L"D - Tentacle Arm", 0x039bae0, 0x039bb00, indexKOF02Sprites_K9999, 0x07 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_ANGEL_PALETTES_A[] =
@@ -3838,9 +3837,9 @@ const sGame_PaletteDataset KOF02PS2_A_Kula_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_SHARED[] =
 {
-    { L"Special Move Fire",         0xa3562 + 0x30009E, 0xa3582 + 0x30009E, indexKOF02Sprites_K9999, 0x10 },
-    { L"Special Move Dust",         0xa3582 + 0x30009E, 0xa35a2 + 0x30009E, indexKOF02Sprites_K9999, 0x08 },
-    { L"SDM Explosion and Effects", 0xa35a2 + 0x30009E, 0xa35c2 + 0x30009E, indexKOF02Sprites_K9999, 0x09 },
+    { L"Special Move Fire",         0xa3562 + 0x30009E, 0xa3582 + 0x30009E, indexKOF02Sprites_K9999, 0x01 },
+    { L"Special Move Dust",         0xa3582 + 0x30009E, 0xa35a2 + 0x30009E, indexKOF02Sprites_K9999, 0x02 },
+    { L"SDM Explosion and Effects", 0xa35a2 + 0x30009E, 0xa35c2 + 0x30009E, indexKOF02Sprites_K9999, 0x03 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_OmegaRugal_PALETTES_SHARED[] =

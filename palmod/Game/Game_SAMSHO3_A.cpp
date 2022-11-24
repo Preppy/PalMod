@@ -304,9 +304,9 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             if (pCurrentNode)
             {
                 // This code handles the fact that we use variable length pairing depending upon what we're dealing with
-                if ( (paletteDataSet->indexImgToUse == indexSamSho5Sprites_Nakoruru) &&
-                    ((_wcsicmp(paletteDataSet->szPaletteName, L"Main") == 0) ||
-                     (_wcsicmp(paletteDataSet->szPaletteName, L"Rage Flash") == 0)))
+                if ((paletteDataSet->indexImgToUse == indexSamSho3Sprites_Basara) ||
+                    (paletteDataSet->indexImgToUse == indexSamSho3Sprites_Gaira) ||
+                    (paletteDataSet->indexImgToUse == indexSamSho3Sprites_Nakoruru))
                 {
                     if ((_wcsicmp(pCurrentNode->szDesc, L"Slash 1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"Slash 2") == 0) ||
                         (_wcsicmp(pCurrentNode->szDesc, L"Bust 1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"Bust 2") == 0))

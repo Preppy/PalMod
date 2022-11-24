@@ -523,7 +523,7 @@ const sGame_PaletteDataset KOF94_A_TERRY_ALT_PALETTES[] =
 const sGame_PaletteDataset KOF94_A_ANDY_MAIN_PALETTES[] =
 {
     { L"Andy", 0x179800, 0x179820, indexKOF94Sprites_Andy, 0x00 },
-    { L"Extra 1", 0x179820, 0x179840 },
+    { L"Extra 1", 0x179820, 0x179840, indexKOF94Sprites_Andy, 0x01 },
     { L"Electric Palette", 0x179840, 0x179860, indexKOF94Sprites_Andy, 0x00 },
     { L"Extra 2", 0x179860, 0x179880 },
     { L"Win Portrait", 0x179880, 0x179900, indexKOF94Sprites_Andy, 0x30 },
@@ -538,7 +538,7 @@ const sGame_PaletteDataset KOF94_A_ANDY_MAIN_PALETTES[] =
 const sGame_PaletteDataset KOF94_A_ANDY_ALT_PALETTES[] =
 {
     { L"Andy", 0x1799c0, 0x1799e0, indexKOF94Sprites_Andy, 0x00 },
-    { L"Extra 1", 0x1799e0, 0x179a00 },
+    { L"Extra 1", 0x1799e0, 0x179a00, indexKOF94Sprites_Andy, 0x01 },
     { L"Electric Palette", 0x179a00, 0x179a20, indexKOF94Sprites_Andy, 0x00 },
     { L"Extra 2", 0x179a20, 0x179a40 },
     { L"Win Portrait", 0x179a40, 0x179ac0, indexKOF94Sprites_Andy, 0x30 },

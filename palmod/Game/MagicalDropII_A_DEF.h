@@ -2,142 +2,141 @@
 
 const std::vector<uint16_t> MAGICALDROPII_A_IMGIDS_USED =
 {
-    indexMagDrop3Sprites_BlkPierrot,    // 0x53
-    indexMagDrop3Sprites_Chariot,       // 0x54
-    indexMagDrop3Sprites_Devil,         // 0x56
-    indexMagDrop3Sprites_Empress,       // 0x58
-    indexMagDrop3Sprites_Fool,          // 0x59
-    indexMagDrop3Sprites_HighPriestess, // 0x5E
-    indexMagDrop3Sprites_Justice,       // 0x60
-    indexMagDrop3Sprites_Magician,      // 0x62
-    indexMagDrop3Sprites_Star,          // 0x64
-    indexMagDrop3Sprites_Strength,      // 0x65
-    indexMagDrop3Sprites_World,         // 0x6A
-    indexMagDrop3Sprites_Bonus,         // 0x6B
+    indexMagDrop2Sprites_BlkPierrot,        // 0xbc
+    indexMagDrop2Sprites_Chariot,           // 0xbd
+    indexMagDrop2Sprites_Devil,             // 0xbe
+    indexMagDrop2Sprites_Empress,           // 0xbf
+    indexMagDrop2Sprites_Fool,              // 0xc0
+    indexMagDrop2Sprites_HighPriestess,     // 0xc1
+    indexMagDrop2Sprites_Justice,           // 0xc2
+    indexMagDrop2Sprites_Magician,          // 0xc3
+    indexMagDrop2Sprites_Star,              // 0xc4
+    indexMagDrop2Sprites_Strength,          // 0xc5
+    indexMagDrop2Sprites_World,             // 0xc6
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Fool_PALETTES_P1[] =
 {
-    { L"Fool P1", 0x31160, 0x31240 },
-    { L"Fool P1 Icon", 0x31240, 0x31260 },
+    { L"Fool P1", 0x31160, 0x31240, indexMagDrop2Sprites_Fool, 0x00 },
+    { L"Fool P1 Icon", 0x31240, 0x31260, indexMagDrop2Sprites_Fool, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Fool_PALETTES_P2[] =
 {
-    { L"Fool P2", 0x31960, 0x31a40 },
-    { L"Fool P2 Icon", 0x31a40, 0x31a60 },
+    { L"Fool P2", 0x31960, 0x31a40, indexMagDrop2Sprites_Fool, 0x00 },
+    { L"Fool P2 Icon", 0x31a40, 0x31a60, indexMagDrop2Sprites_Fool, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Magician_PALETTES_P1[] =
 {
-    { L"Magician P1", 0x31440, 0x31500 },
-    { L"Magician P1 Icon", 0x31520, 0x31540 },
+    { L"Magician P1", 0x31440, 0x31500, indexMagDrop2Sprites_Magician, 0x00 },
+    { L"Magician P1 Icon", 0x31520, 0x31540, indexMagDrop2Sprites_Magician, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Magician_PALETTES_P2[] =
 {
-    { L"Magician P2", 0x31c40, 0x31d00 },
-    { L"Magician P2 Icon", 0x31d20, 0x31d40 },
+    { L"Magician P2", 0x31c40, 0x31d00, indexMagDrop2Sprites_Magician, 0x00 },
+    { L"Magician P2 Icon", 0x31d20, 0x31d40, indexMagDrop2Sprites_Magician, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_HighPriestess_PALETTES_P1[] =
 {
-    { L"High Priestess P1", 0x31260, 0x31360 },
-    { L"High Priestess P1 Icon", 0x31400, 0x31420 },
+    { L"High Priestess P1", 0x31260, 0x31360, indexMagDrop2Sprites_HighPriestess, 0x00 },
+    { L"High Priestess P1 Icon", 0x31400, 0x31420, indexMagDrop2Sprites_HighPriestess, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_HighPriestess_PALETTES_P2[] =
 {
-    { L"High Priestess P2", 0x31a60, 0x31b60 },
-    { L"High Priestess P2 Icon", 0x31c00, 0x31c20 },
+    { L"High Priestess P2", 0x31a60, 0x31b60, indexMagDrop2Sprites_HighPriestess, 0x00 },
+    { L"High Priestess P2 Icon", 0x31c00, 0x31c20, indexMagDrop2Sprites_HighPriestess, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Empress_PALETTES_P1[] =
 {
-    { L"Empress P1", 0x31680, 0x316e0 },
-    { L"Empress P1 Icon", 0x31660, 0x31680 },
+    { L"Empress P1", 0x31680, 0x316e0, indexMagDrop2Sprites_Empress, 0x00 },
+    { L"Empress P1 Icon", 0x31660, 0x31680, indexMagDrop2Sprites_Empress, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Empress_PALETTES_P2[] =
 {
-    { L"Empress P2", 0x31e80, 0x31ee0 },
-    { L"Empress P2 Icon", 0x31e60, 0x31e80 },
+    { L"Empress P2", 0x31e80, 0x31ee0, indexMagDrop2Sprites_Empress, 0x00 },
+    { L"Empress P2 Icon", 0x31e60, 0x31e80, indexMagDrop2Sprites_Empress, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Chariot_PALETTES_P1[] =
 {
-    { L"Chariot P1", 0x31360, 0x31400 },
-    { L"Chariot P1 Icon", 0x31420, 0x31440 },
+    { L"Chariot P1", 0x31360, 0x31400, indexMagDrop2Sprites_Chariot, 0x00 },
+    { L"Chariot P1 Icon", 0x31420, 0x31440, indexMagDrop2Sprites_Chariot, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Chariot_PALETTES_P2[] =
 {
-    { L"Chariot P2", 0x31b60, 0x31c00 },
-    { L"Chariot P2 Icon", 0x31c20, 0x31c40 },
+    { L"Chariot P2", 0x31b60, 0x31c00, indexMagDrop2Sprites_Chariot, 0x00 },
+    { L"Chariot P2 Icon", 0x31c20, 0x31c40, indexMagDrop2Sprites_Chariot, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Strength_PALETTES_P1[] =
 {
-    { L"Strength P1", 0x31580, 0x315e0 },
+    { L"Strength P1", 0x31580, 0x315e0, indexMagDrop2Sprites_Strength, 0x00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Strength_PALETTES_P2[] =
 {
-    { L"Strength P2", 0x31d80, 0x31de0 },
+    { L"Strength P2", 0x31d80, 0x31de0, indexMagDrop2Sprites_Strength, 0x00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Justice_PALETTES_P1[] =
 {
-    { L"Justice P1", 0x315e0, 0x31640 },
-    { L"Justice P1 Icon", 0x31640, 0x31660 },
+    { L"Justice P1", 0x315e0, 0x31640, indexMagDrop2Sprites_Justice, 0x00 },
+    { L"Justice P1 Icon", 0x31640, 0x31660, indexMagDrop2Sprites_Justice, 0x008 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Justice_PALETTES_P2[] =
 {
-    { L"Justice P2", 0x31de0, 0x31e40 },
-    { L"Justice P2 Icon", 0x31e40, 0x31e60 },
+    { L"Justice P2", 0x31de0, 0x31e40, indexMagDrop2Sprites_Justice, 0x00 },
+    { L"Justice P2 Icon", 0x31e40, 0x31e60, indexMagDrop2Sprites_Justice, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Devil_PALETTES_P1[] =
 {
-    { L"Devil P1", 0x31120, 0x31160 },
+    { L"Devil P1", 0x31120, 0x31160, indexMagDrop2Sprites_Devil, 0x00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Devil_PALETTES_P2[] =
 {
-    { L"Devil P2", 0x31920, 0x31960 },
+    { L"Devil P2", 0x31920, 0x31960, indexMagDrop2Sprites_Devil, 0x00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Star_PALETTES_P1[] =
 {
-    { L"Star P1", 0x31020, 0x31120 },
+    { L"Star P1", 0x31020, 0x31120, indexMagDrop2Sprites_Star, 0x00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_Star_PALETTES_P2[] =
 {
-    { L"Star P2", 0x31820, 0x31920 },
+    { L"Star P2", 0x31820, 0x31920, indexMagDrop2Sprites_Star, 0x00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_World_PALETTES_P1[] =
 {
-    { L"World P1", 0x31540, 0x31580 },
-    { L"World P1 Icon", 0x31500, 0x31520 },
+    { L"World P1", 0x31540, 0x31580, indexMagDrop2Sprites_World, 0x00 },
+    { L"World P1 Icon", 0x31500, 0x31520, indexMagDrop2Sprites_World, 0x08 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_World_PALETTES_P2[] =
 {
-    { L"World P2", 0x31d40, 0x31d80 },
-    { L"World P2 Icon", 0x31d00, 0x31d20 },
+    { L"World P2", 0x31d40, 0x31d80, indexMagDrop2Sprites_World, 0x00 },
+    { L"World P2 Icon", 0x31d00, 0x31d20, indexMagDrop2Sprites_World, 0x008 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_BlackPierrot_PALETTES_P1[] =
 {
-    { L"Black Pierrot P1", 0x317e0, 0x31800 },
+    { L"Black Pierrot P1", 0x317e0, 0x31800, indexMagDrop2Sprites_BlkPierrot, 0x00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPII_A_BlackPierrot_PALETTES_P2[] =
 {
-    { L"Black Pierrot P2", 0x31fe0, 0x32000 },
+    { L"Black Pierrot P2", 0x31fe0, 0x32000, indexMagDrop2Sprites_BlkPierrot, 0x00 },
 };
 
 //-BONUS-

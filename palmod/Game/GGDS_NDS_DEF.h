@@ -2,6 +2,28 @@
 
 const std::vector<uint16_t> GGDS_DS_IMGIDS_USED =
 {
+    indexGGDSSprites_Anji,                  // 0x1E
+    indexGGDSSprites_Axl,                   // 0x1F
+    indexGGDSSprites_Baiken,                // 0x20
+    indexGGDSSprites_Bridget,               // 0x21
+    indexGGDSSprites_Chipp,                 // 0x22
+    indexGGDSSprites_Dizzy,                 // 0x23
+    indexGGDSSprites_Eddie,                 // 0x24
+    indexGGDSSprites_Faust,                 // 0x25
+    indexGGDSSprites_Ino,                   // 0x26
+    indexGGDSSprites_Jam,                   // 0x27
+    indexGGDSSprites_Johnny,                // 0x28
+    indexGGDSSprites_KyKiske,               // 0x29
+    indexGGDSSprites_Millia,                // 0x2A
+    indexGGDSSprites_May,                   // 0x2B
+    indexGGDSSprites_Potemkin,              // 0x2C
+    indexGGDSSprites_RoboKy,                // 0x2D
+    indexGGDSSprites_SolBadguy,             // 0x2E
+    indexGGDSSprites_Slayer,                // 0x2F
+    indexGGDSSprites_Testament,             // 0x30
+    indexGGDSSprites_Venom,                 // 0x31
+    indexGGDSSprites_Zappa,                 // 0x32
+    indexGGDSSprites_Bonus,                 // 0x33
 };
 
 const sGame_PaletteDataset GGDS_DS_ANJI_PALETTES[] =

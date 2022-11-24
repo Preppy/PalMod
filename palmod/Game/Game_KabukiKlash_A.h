@@ -17,7 +17,7 @@ private:
     {
         L"Kabuki Klash: Far East of Eden (Neo-Geo)",
         KabukiKlash_A,
-        IMGDAT_SECTION_KOF,
+        IMGDAT_SECTION_NEOGEO,
         KabukiKlash_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,

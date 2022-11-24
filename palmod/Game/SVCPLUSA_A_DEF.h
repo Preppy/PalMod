@@ -1248,8 +1248,8 @@ const sGame_PaletteDataset SVCPLUSA_A_DICTATOR_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_AKUMA_PUNCH_PALETTES[] =
 {
     { L"Akuma", 0x37d538, 0x37d558, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 1", 0x37d558, 0x37d578, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 2", 0x37d578, 0x37d598, indexSVCSprites_Akuma },
+    { L"Unused: Fire Effect 1", 0x37d558, 0x37d578 },
+    { L"Unused: Fire Effect 2", 0x37d578, 0x37d598 },
     { L"Electric Shock Effect", 0x37d598, 0x37d5b8, indexSVCSprites_Akuma },
     { L"Makai Spell", 0x37d5b8, 0x37d5d8, indexSVCSprites_Akuma, 4 },
     { L"Heaven Spell", 0x37d5d8, 0x37d5f8, indexSVCSprites_Akuma, 5 },
@@ -1260,8 +1260,8 @@ const sGame_PaletteDataset SVCPLUSA_A_AKUMA_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_AKUMA_KICK_PALETTES[] =
 {
     { L"Akuma", 0x37d738, 0x37d758, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 1", 0x37d758, 0x37d778, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 2", 0x37d778, 0x37d798, indexSVCSprites_Akuma },
+    { L"Unused: Fire Effect 1", 0x37d758, 0x37d778 },
+    { L"Unused: Fire Effect 2", 0x37d778, 0x37d798 },
     { L"Electric Shock Effect", 0x37d798, 0x37d7b8, indexSVCSprites_Akuma },
     { L"Makai Spell", 0x37d7b8, 0x37d7d8, indexSVCSprites_Akuma, 4 },
     { L"Heaven Spell", 0x37d7d8, 0x37d7f8, indexSVCSprites_Akuma, 5 },
@@ -1271,9 +1271,9 @@ const sGame_PaletteDataset SVCPLUSA_A_AKUMA_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_AKUMA_EFFECTS_PALETTES[] =
 {
-    { L"Effect 0", 0x394d38, 0x394d58 },
-    { L"Effect 1", 0x394d58, 0x394d78 },
-    { L"Effect 2", 0x394d78, 0x394d98 },
+    { L"Effect 0", 0x394d38, 0x394d58, indexSVCSprites_Akuma, 0x08 },
+    { L"Effect 1", 0x394d58, 0x394d78, indexSVCSprites_Akuma, 0x09 },
+    { L"Effect 2", 0x394d78, 0x394d98, indexSVCSprites_Akuma, 0x0a },
     { L"Effect 3", 0x394d98, 0x394db8 },
     { L"Effect 4", 0x394db8, 0x394dd8 },
     { L"Effect 5", 0x394dd8, 0x394df8 },
@@ -1505,10 +1505,10 @@ const sGame_PaletteDataset SVCPLUSA_A_DEMITRI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_DAN_PUNCH_PALETTES[] =
 {
     { L"Dan", 0x382538, 0x382558, indexSVCSprites_Dan },
-    { L"Unused: Fire Effect 1", 0x382558, 0x382578, indexSVCSprites_Dan },
-    { L"Unused: Fire Effect 2", 0x382578, 0x382598, indexSVCSprites_Dan },
+    { L"Unused: Fire Effect 1", 0x382558, 0x382578 },
+    { L"Unused: Fire Effect 2", 0x382578, 0x382598 },
     { L"Electric Shock Effect", 0x382598, 0x3825b8, indexSVCSprites_Dan },
-    { L"Makai Spell", 0x3825b8, 0x3825d8, indexSVCSprites_Dan },
+    { L"Makai Spell", 0x3825b8, 0x3825d8, indexSVCSprites_Dan, 0x04 },
     { L"Heaven Spell", 0x3825d8, 0x3825f8, indexSVCSprites_Dan, 5 },
     { L"Soul Palette", 0x3825f8, 0x382618, indexSVCSprites_Dan },
     { L"Midnight Bliss", 0x382618, 0x382638, indexSVCSprites_Dan, 7 },
@@ -1517,10 +1517,10 @@ const sGame_PaletteDataset SVCPLUSA_A_DAN_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_DAN_KICK_PALETTES[] =
 {
     { L"Dan", 0x382738, 0x382758, indexSVCSprites_Dan },
-    { L"Unused: Fire Effect 1", 0x382758, 0x382778, indexSVCSprites_Dan },
-    { L"Unused: Fire Effect 2", 0x382778, 0x382798, indexSVCSprites_Dan },
+    { L"Unused: Fire Effect 1", 0x382758, 0x382778 },
+    { L"Unused: Fire Effect 2", 0x382778, 0x382798 },
     { L"Electric Shock Effect", 0x382798, 0x3827b8, indexSVCSprites_Dan },
-    { L"Makai Spell", 0x3827b8, 0x3827d8, indexSVCSprites_Dan },
+    { L"Makai Spell", 0x3827b8, 0x3827d8, indexSVCSprites_Dan, 0x04 },
     { L"Heaven Spell", 0x3827d8, 0x3827f8, indexSVCSprites_Dan, 5 },
     { L"Soul Palette", 0x3827f8, 0x382818, indexSVCSprites_Dan },
     { L"Midnight Bliss", 0x382818, 0x382838, indexSVCSprites_Dan, 7 },
@@ -1528,10 +1528,10 @@ const sGame_PaletteDataset SVCPLUSA_A_DAN_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_DAN_EFFECTS_PALETTES[] =
 {
-    { L"Effect 0", 0x397538, 0x397558 },
-    { L"Effect 1", 0x397558, 0x397578 },
-    { L"Effect 2", 0x397578, 0x397598 },
-    { L"Effect 3", 0x397598, 0x3975b8 },
+    { L"Effect 0", 0x397538, 0x397558, indexSVCSprites_Dan, 0x08 },
+    { L"Effect 1", 0x397558, 0x397578, indexSVCSprites_Dan, 0x09 },
+    { L"Effect 2", 0x397578, 0x397598, indexSVCSprites_Dan, 0x0a },
+    { L"Effect 3", 0x397598, 0x3975b8, indexSVCSprites_Dan, 0x0b },
     { L"Effect 4", 0x3975b8, 0x3975d8 },
     { L"Effect 5", 0x3975d8, 0x3975f8 },
     { L"Effect 6", 0x3975f8, 0x397618 },
@@ -1745,8 +1745,8 @@ const sGame_PaletteDataset SVCPLUSA_A_VIOLENTKEN_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_PUNCH_PALETTES[] =
 {
     { L"Shin Akuma", 0x387538, 0x387558, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 1", 0x387558, 0x387578, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 2", 0x387578, 0x387598, indexSVCSprites_Akuma },
+    { L"Unused: Fire Effect 1", 0x387558, 0x387578 },
+    { L"Unused: Fire Effect 2", 0x387578, 0x387598 },
     { L"Electric Shock Effect", 0x387598, 0x3875b8, indexSVCSprites_Akuma },
     { L"Makai Spell", 0x3875b8, 0x3875d8, indexSVCSprites_ShinAkuma, 4 },
     { L"Heaven Spell", 0x3875d8, 0x3875f8, indexSVCSprites_ShinAkuma, 5 },
@@ -1757,8 +1757,8 @@ const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_KICK_PALETTES[] =
 {
     { L"Shin Akuma", 0x387738, 0x387758, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 1", 0x387758, 0x387778, indexSVCSprites_Akuma },
-    { L"Unused: Fire Effect 2", 0x387778, 0x387798, indexSVCSprites_Akuma },
+    { L"Unused: Fire Effect 1", 0x387758, 0x387778 },
+    { L"Unused: Fire Effect 2", 0x387778, 0x387798 },
     { L"Electric Shock Effect", 0x387798, 0x3877b8, indexSVCSprites_Akuma },
     { L"Makai Spell", 0x3877b8, 0x3877d8, indexSVCSprites_ShinAkuma, 4 },
     { L"Heaven Spell", 0x3877d8, 0x3877f8, indexSVCSprites_ShinAkuma, 5 },
@@ -1768,9 +1768,9 @@ const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_EFFECTS_PALETTES[] =
 {
-    { L"Effect 0", 0x399d38, 0x399d58 },
-    { L"Effect 1", 0x399d58, 0x399d78 },
-    { L"Effect 2", 0x399d78, 0x399d98 },
+    { L"Effect 0", 0x399d38, 0x399d58, indexSVCSprites_Akuma, 0x08 },
+    { L"Effect 1", 0x399d58, 0x399d78, indexSVCSprites_Akuma, 0x09 },
+    { L"Effect 2", 0x399d78, 0x399d98, indexSVCSprites_Akuma, 0x0a },
     { L"Effect 3", 0x399d98, 0x399db8 },
     { L"Effect 4", 0x399db8, 0x399dd8 },
     { L"Effect 5", 0x399dd8, 0x399df8 },

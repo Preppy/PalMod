@@ -31,14 +31,14 @@ const std::vector<uint16_t> Gowcaizer_A_IMGIDS_USED =
 const sGame_PaletteDataset Gowcaizer_A_GOWCAIZER_PALETTES_P1[] =
 {
     { L"Gowcaizer P1", 0x190e62, 0x190e82, indexNEOGEOSprites_VFG_Gowcaizer, 0x00 },
-    { L"Gowcaizer Intro P1", 0x196ee2, 0x196f02 },
+    { L"Gowcaizer Intro P1", 0x196ee2, 0x196f02, indexNEOGEOSprites_VFG_Gowcaizer, 0x01 },
     { L"Gowcaizer Select/Win Portrait P1", 0x191FE2, 0x1920c2, indexNEOGEOSprites_VFG_Gowcaizer, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_GOWCAIZER_PALETTES_P2[] =
 {
     { L"Gowcaizer P2", 0x190e82, 0x190ea2, indexNEOGEOSprites_VFG_Gowcaizer, 0x00 },
-    { L"Gowcaizer Intro P2", 0x196f02, 0x196f22 },
+    { L"Gowcaizer Intro P2", 0x196f02, 0x196f22, indexNEOGEOSprites_VFG_Gowcaizer, 0x01 },
     { L"Gowcaizer Select/Win Portrait P2", 0x1920E2, 0x1921c2, indexNEOGEOSprites_VFG_Gowcaizer, 0x40 },
 };
 
@@ -116,7 +116,7 @@ const sGame_PaletteDataset Gowcaizer_A_SHAIA_PALETTES_P1[] =
 {
     { L"Shaia P1", 0x191162, 0x191182, indexNEOGEOSprites_VFG_Shaia, 0x00, &pairNext },
     { L"Ball Boy P1", 0x1911a2, 0x1911c2, indexNEOGEOSprites_VFG_Shaia, 0x01 },
-    { L"Shaia Intro P1", 0x1976e2, 0x197702 },
+    { L"Shaia Intro P1", 0x1976e2, 0x197702, indexNEOGEOSprites_VFG_Shaia, 0x02 },
     { L"Shaia Select Portrait P1", 0x19A5E2, 0x19A6e2, indexNEOGEOSprites_VFG_Shaia, 0x40 },
     { L"Shaia Win Portrait P1", 0x19b1e2, 0x19b2c2, indexNEOGEOSprites_VFG_Shaia, 0x41 },
 };
@@ -125,7 +125,7 @@ const sGame_PaletteDataset Gowcaizer_A_SHAIA_PALETTES_P2[] =
 {
     { L"Shaia P2", 0x191182, 0x1911a2, indexNEOGEOSprites_VFG_Shaia, 0x00, &pairNext },
     { L"Ball Boy P2", 0x1911c2, 0x1911e2, indexNEOGEOSprites_VFG_Shaia, 0x01 },
-    { L"Shaia Intro P2", 0x197702, 0x197722 },
+    { L"Shaia Intro P2", 0x197702, 0x197722, indexNEOGEOSprites_VFG_Shaia, 0x02 },
     { L"Shaia Select Portrait P2", 0x19A6E2, 0x19A7e2, indexNEOGEOSprites_VFG_Shaia, 0x40 },
     { L"Shaia Win Portrait P2", 0x19b2e2, 0x19b3c2, indexNEOGEOSprites_VFG_Shaia, 0x41 },
 };

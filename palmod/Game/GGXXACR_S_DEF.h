@@ -1128,80 +1128,80 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
     L"Extras",
     {
         //General
-        { L"General Sparks", 0x4d6030, 0x4d6070 },    //Paired with next palette
-        { L"Charge/Storm Viper Fire (1/7)", 0x494030, 0x494070, },
-        { L"Charge/Storm Viper Fire (2/7)", 0x494960, 0x4949a0, },
-        { L"Charge/Storm Viper Fire (3/7)", 0x494f00, 0x494f40, },
-        { L"Charge/Storm Viper Fire (4/7)", 0x4957e0, 0x495820, },
-        { L"Charge/Storm Viper Fire (5/7)", 0x496270, 0x4962b0, },
-        { L"Charge/Storm Viper Fire (6/7)", 0x496bf0, 0x496c30, },
-        { L"Charge/Storm Viper Fire (7/7)", 0x497550, 0x497590, },
+        { L"General Sparks", 0x4d6030, 0x4d6070, indexGGXXSprites_ACR_OrderSol, 0x0a, &pairNext },    //Paired with next palette
+        { L"Charge/Storm Viper Fire (1/7)", 0x494030, 0x494070, indexGGXXSprites_ACR_OrderSol, 0x06 },
+        { L"Charge/Storm Viper Fire (2/7)", 0x494960, 0x4949a0, indexGGXXSprites_ACR_OrderSol, 0x06 },
+        { L"Charge/Storm Viper Fire (3/7)", 0x494f00, 0x494f40, indexGGXXSprites_ACR_OrderSol, 0x06 },
+        { L"Charge/Storm Viper Fire (4/7)", 0x4957e0, 0x495820, indexGGXXSprites_ACR_OrderSol, 0x06 },
+        { L"Charge/Storm Viper Fire (5/7)", 0x496270, 0x4962b0, indexGGXXSprites_ACR_OrderSol, 0x06 },
+        { L"Charge/Storm Viper Fire (6/7)", 0x496bf0, 0x496c30, indexGGXXSprites_ACR_OrderSol, 0x06 },
+        { L"Charge/Storm Viper Fire (7/7)", 0x497550, 0x497590, indexGGXXSprites_ACR_OrderSol, 0x06 },
 
         //Specials
-        { L"Blockhead Buster (1/3)", 0x541c10, 0x541c50 },
-        { L"Blockhead Buster (2/3)", 0x54b7a0, 0x54b7e0 },
-        { L"Blockhead Buster (3/3)", 0x555a20, 0x555a60 },
+        { L"Blockhead Buster (1/3)", 0x541c10, 0x541c50, indexGGXXSprites_ACR_OrderSol, 0x04 },
+        { L"Blockhead Buster (2/3)", 0x54b7a0, 0x54b7e0, indexGGXXSprites_ACR_OrderSol, 0x04 },
+        { L"Blockhead Buster (3/3)", 0x555a20, 0x555a60, indexGGXXSprites_ACR_OrderSol, 0x04 },
 
-        { L"Gun Blaze", 0x47d0e0, 0x47d120 },    //Paired with next palette
-        { L"Gun Blaze Trails", 0x485680, 0x4856c0 },
+        { L"Gun Blaze", 0x47d0e0, 0x47d120, indexGGXXSprites_ACR_OrderSol, 0x0b, &pairNext },    //Paired with next palette
+        { L"Gun Blaze Trails", 0x485680, 0x4856c0, indexGGXXSprites_ACR_OrderSol, 0x0c, &pairPrevious },
 
-        { L"Storm Viper (1/2)", 0x472740, 0x472780 },
-        { L"Storm Viper (2/2)", 0x47bdf0, 0x47be30 },
+        { L"Storm Viper (1/2)", 0x472740, 0x472780, indexGGXXSprites_ACR_OrderSol, 0x13 },
+        { L"Storm Viper (2/2)", 0x47bdf0, 0x47be30, indexGGXXSprites_ACR_OrderSol, 0x13 },
 
-        { L"Bandit Revolver Prototype (Lvl 2) (1/2)", 0x4df610, 0x4df650 },
-        { L"Bandit Revolver Prototype (Lvl 2) (2/2)", 0x4ea790, 0x4ea7d0 },
-        { L"Bandit Revolver Prototype (Lvl 3) (1/2)", 0x485fd0, 0x486010 },
-        { L"Bandit Revolver Prototype (Lvl 3) (2/2)", 0x48eed0, 0x48ef10 },
+        { L"Bandit Revolver Prototype (Lvl 2) (1/2)", 0x4df610, 0x4df650, indexGGXXSprites_ACR_OrderSol, 0x02 },
+        { L"Bandit Revolver Prototype (Lvl 2) (2/2)", 0x4ea790, 0x4ea7d0, indexGGXXSprites_ACR_OrderSol, 0x02 },
+        { L"Bandit Revolver Prototype (Lvl 3) (1/2)", 0x485fd0, 0x486010, indexGGXXSprites_ACR_OrderSol, 0x03 },
+        { L"Bandit Revolver Prototype (Lvl 3) (2/2)", 0x48eed0, 0x48ef10, indexGGXXSprites_ACR_OrderSol, 0x03 },
 
-        { L"Charge Burst (1/8)", 0x505e40, 0x505e80 },
-        { L"Charge Burst (2/8)", 0x5086d0, 0x508710 },
-        { L"Charge Burst (3/8)", 0x50a5a0, 0x50a5e0 },
-        { L"Charge Burst (4/8)", 0x50b3c0, 0x50b400 },
-        { L"Charge Burst (5/8)", 0x50e4b0, 0x50e4f0 },
-        { L"Charge Burst (6/8)", 0x511ea0, 0x511ee0 },
-        { L"Charge Burst (7/8)", 0x515000, 0x515040 },
-        { L"Charge Burst (8/8)", 0x517a70, 0x517ab0 },
+        { L"Charge Burst (1/8)", 0x505e40, 0x505e80, indexGGXXSprites_ACR_OrderSol, 0x05 },
+        { L"Charge Burst (2/8)", 0x5086d0, 0x508710, indexGGXXSprites_ACR_OrderSol, 0x05 },
+        { L"Charge Burst (3/8)", 0x50a5a0, 0x50a5e0, indexGGXXSprites_ACR_OrderSol, 0x05 },
+        { L"Charge Burst (4/8)", 0x50b3c0, 0x50b400, indexGGXXSprites_ACR_OrderSol, 0x05 },
+        { L"Charge Burst (5/8)", 0x50e4b0, 0x50e4f0, indexGGXXSprites_ACR_OrderSol, 0x05 },
+        { L"Charge Burst (6/8)", 0x511ea0, 0x511ee0, indexGGXXSprites_ACR_OrderSol, 0x05 },
+        { L"Charge Burst (7/8)", 0x515000, 0x515040, indexGGXXSprites_ACR_OrderSol, 0x05 },
+        { L"Charge Burst (8/8)", 0x517a70, 0x517ab0, indexGGXXSprites_ACR_OrderSol, 0x05 },
 
-        { L"Action Charge (1/2)", 0x519b80, 0x519bc0 },
-        { L"Action Charge (2/2)", 0x51fe00, 0x51fe40 },
+        { L"Action Charge (1/2)", 0x519b80, 0x519bc0, indexGGXXSprites_ACR_OrderSol, 0x01 },
+        { L"Action Charge (2/2)", 0x51fe00, 0x51fe40, indexGGXXSprites_ACR_OrderSol, 0x01 },
 
         //Force Breaks
-        { L"Fafnir (1/3)", 0x521170, 0x5211b0 },
-        { L"Fafnir (2/3)", 0x52c0b0, 0x52c0f0 },
-        { L"Fafnir (3/3)", 0x5392c0, 0x539300 },
+        { L"Fafnir (1/3)", 0x521170, 0x5211b0, indexGGXXSprites_ACR_OrderSol, 0x09 },
+        { L"Fafnir (2/3)", 0x52c0b0, 0x52c0f0, indexGGXXSprites_ACR_OrderSol, 0x09 },
+        { L"Fafnir (3/3)", 0x5392c0, 0x539300, indexGGXXSprites_ACR_OrderSol, 0x09 },
 
         //Overdrives
-        { L"Tyrant Rave ver. Omega (1/4)", 0x448480, 0x4484c0 },
-        { L"Tyrant Rave ver. Omega (2/4)", 0x455f00, 0x455f40 },
-        { L"Tyrant Rave ver. Omega (3/4)", 0x460ec0, 0x460f00 },
-        { L"Tyrant Rave ver. Omega (4/4)", 0x46d660, 0x46d6a0 },
+        { L"Tyrant Rave ver. Omega (1/4)", 0x448480, 0x4484c0, indexGGXXSprites_ACR_OrderSol, 0x14 },
+        { L"Tyrant Rave ver. Omega (2/4)", 0x455f00, 0x455f40, indexGGXXSprites_ACR_OrderSol, 0x14 },
+        { L"Tyrant Rave ver. Omega (3/4)", 0x460ec0, 0x460f00, indexGGXXSprites_ACR_OrderSol, 0x14 },
+        { L"Tyrant Rave ver. Omega (4/4)", 0x46d660, 0x46d6a0, indexGGXXSprites_ACR_OrderSol, 0x14 },
 
-        { L"Savage Fang Level (Lvl 1/2) (1/4)", 0x4f1560, 0x4f15a0 },    //Paired with Lvl 2 Trail
-        { L"Savage Fang Level (Lvl 1/2) (2/4)", 0x4f8c00, 0x4f8c40 },    //^ for the rest
-        { L"Savage Fang Level (Lvl 1/2) (3/4)", 0x4fc5b0, 0x4fc5f0 },
-        { L"Savage Fang Level (Lvl 1/2) (4/4)", 0x4ffd50, 0x4ffd90 },
-        { L"Savage Fang Level (Lvl 2) Trail", 0x4428d0, 0x442910 },
+        { L"Savage Fang Level (Lvl 1/2) (1/4)", 0x4f1560, 0x4f15a0, indexGGXXSprites_ACR_OrderSol, 0x11, &pairNext4 },    //Paired with Lvl 2 Trail
+        { L"Savage Fang Level (Lvl 1/2) (2/4)", 0x4f8c00, 0x4f8c40, indexGGXXSprites_ACR_OrderSol, 0x11, &pairNext3 },    //^ for the rest
+        { L"Savage Fang Level (Lvl 1/2) (3/4)", 0x4fc5b0, 0x4fc5f0, indexGGXXSprites_ACR_OrderSol, 0x11, &pairNext2 },
+        { L"Savage Fang Level (Lvl 1/2) (4/4)", 0x4ffd50, 0x4ffd90, indexGGXXSprites_ACR_OrderSol, 0x11, &pairNext },
+        { L"Savage Fang Level (Lvl 2) Trail", 0x4428d0, 0x442910, indexGGXXSprites_ACR_OrderSol, 0x12, &pairPrevious4 },
 
         //Rock It Level 3 is shared with most of the effect used for Savage Fang Level 3 AND Dragon Install: Sakkai
         //This makes displaying it complicated, which is why its out of order from the rest of the specials
 
-        { L"Rock It (Lvl 1) (1/2)", 0x497a10, 0x497a50 },
-        { L"Rock It (Lvl 1) (2/2)", 0x49f990, 0x49f9d0 },
-        { L"Rock It (Lvl 3)", 0x4d6ce0, 0x4d6d20 },
+        { L"Rock It (Lvl 1) (1/2)", 0x497a10, 0x497a50, indexGGXXSprites_ACR_OrderSol, 0x0d },
+        { L"Rock It (Lvl 1) (2/2)", 0x49f990, 0x49f9d0, indexGGXXSprites_ACR_OrderSol, 0x0d },
+        { L"Rock It (Lvl 3)", 0x4d6ce0, 0x4d6d20, indexGGXXSprites_ACR_OrderSol, 0x0e },
 
-        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (1/2)", 0x4c8f40, 0x4c8f80 },    //Paired with Pillars 1/2
-        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (2/2)", 0x4cb670, 0x4cb6b0 },    //Paired with Pillars 2/2
-        { L"Rock It (Lvl 3)/Savage Fang Pillars (1/2)", 0x4cd5c0, 0x4cd600 },
-        { L"Rock It (Lvl 3)/Savage Fang Pillars (2/2)", 0x4cf960, 0x4cf9a0 },
+        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (1/2)", 0x4c8f40, 0x4c8f80, indexGGXXSprites_ACR_OrderSol, 0x0f, &pairNext2 },    //Paired with Pillars 1/2
+        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (2/2)", 0x4cb670, 0x4cb6b0, indexGGXXSprites_ACR_OrderSol, 0x0f, &pairNext2 },    //Paired with Pillars 2/2
+        { L"Rock It (Lvl 3)/Savage Fang Pillars (1/2)", 0x4cd5c0, 0x4cd600, indexGGXXSprites_ACR_OrderSol, 0x10, &pairPrevious2 },
+        { L"Rock It (Lvl 3)/Savage Fang Pillars (2/2)", 0x4cf960, 0x4cf9a0, indexGGXXSprites_ACR_OrderSol, 0x10, &pairPrevious2 },
 
         //Instant Kill
-        { L"Dragon Install: Sakkai Entry", 0x4d1590, 0x4d15d0 },
+        { L"Dragon Install: Sakkai Entry", 0x4d1590, 0x4d15d0, indexGGXXSprites_ACR_OrderSol, 0x07 },
 
-        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (1/5)", 0x4a17f0, 0x4a1830 },    //Paired with SF and SF Pillars 
-        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (2/5)", 0x4acd00, 0x4acd40 },
-        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (3/5)", 0x4b5ef0, 0x4b5f30 },
-        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (4/5)", 0x4bf750, 0x4bf790 },
-        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (5/5)", 0x4c6080, 0x4c60c0 },
+        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (1/5)", 0x4a17f0, 0x4a1830, indexGGXXSprites_ACR_OrderSol, 0x08 },    //Paired with SF and SF Pillars 
+        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (2/5)", 0x4acd00, 0x4acd40, indexGGXXSprites_ACR_OrderSol, 0x08 },
+        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (3/5)", 0x4b5ef0, 0x4b5f30, indexGGXXSprites_ACR_OrderSol, 0x08 },
+        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (4/5)", 0x4bf750, 0x4bf790, indexGGXXSprites_ACR_OrderSol, 0x08 },
+        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (5/5)", 0x4c6080, 0x4c60c0, indexGGXXSprites_ACR_OrderSol, 0x08 },
 
         //Unused/Unknown
         //{ L"Meter Numbers (Unused)", 0x55c4b0, 0x55c4f0 },
@@ -1223,38 +1223,38 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_PO_EXTRAS =
     L"Extras",
     {
         //Specials
-        { L"Whiffed HK/Ground Impacts (1/2)", 0x49e4b0, 0x49e4f0 }, //Paired with Pot Buster 1
-        { L"Whiffed HK/Ground Impacts (2/2)", 0x4a0210, 0x4a0250 }, //Paired with Pot Buster 2
+        { L"Whiffed HK/Ground Impacts (1/2)", 0x49e4b0, 0x49e4f0, indexGGXXSprites_ACR_Potemkin, 0x0c, &pairNext2 }, //Paired with Pot Buster 1
+        { L"Whiffed HK/Ground Impacts (2/2)", 0x4a0210, 0x4a0250, indexGGXXSprites_ACR_Potemkin, 0x0c, &pairNext2}, //Paired with Pot Buster 2
 
-        { L"Potemkin Buster (1/2)", 0x4996e0, 0x499720 }, // Paired with Whiff/Impacts 1
-        { L"Potemkin Buster (2/2)", 0x49bf90, 0x49bfd0 }, // Paired with Whiff/Impacts 2
+        { L"Potemkin Buster (1/2)", 0x4996e0, 0x499720, indexGGXXSprites_ACR_Potemkin, 0x0b, &pairPrevious2 }, // Paired with Whiff/Impacts 1
+        { L"Potemkin Buster (2/2)", 0x49bf90, 0x49bfd0, indexGGXXSprites_ACR_Potemkin, 0x0b, &pairPrevious2 }, // Paired with Whiff/Impacts 2
 
-        { L"F.D.B./Giganter Projectile (1/3)", 0x4b69a0, 0x4b69e0 },
-        { L"F.D.B./Giganter Projectile (2/3)", 0x4be9d0, 0x4bea10 },
-        { L"F.D.B./Giganter Projectile (3/3)", 0x4c05a0, 0x4c05e0 },
+        { L"F.D.B./Giganter Projectile (1/3)", 0x4b69a0, 0x4b69e0, indexGGXXSprites_ACR_Potemkin, 0x01 },
+        { L"F.D.B./Giganter Projectile (2/3)", 0x4be9d0, 0x4bea10, indexGGXXSprites_ACR_Potemkin, 0x01 },
+        { L"F.D.B./Giganter Projectile (3/3)", 0x4c05a0, 0x4c05e0, indexGGXXSprites_ACR_Potemkin, 0x01 },
 
-        { L"Heat Knuckle (1/4)", 0x4dba50, 0x4dba90 }, //Paired with Final Explosion
-        { L"Heat Knuckle (2/4)", 0x4dc490, 0x4dc4d0 }, //Paired with Final Explosion
-        { L"Heat Knuckle (3/4)", 0x4d9ac0, 0x4d9b00 }, //Paired with Final Explosion
-        { L"Heat Knuckle (4/4)", 0x4de390, 0x4de3d0 }, //Paired with Final Explosion
-        { L"Heat Knuckle - Final Explosion", 0x4d23c0, 0x4d2400 }, //Paired with Heat Knuckle 1
-        { L"Heat Extend - Bullets", 0x4d22f0, 0x4d2330 },
-        { L"Heat Extend - Hearts (1/2)", 0x4a0500, 0x4a0540 },
-        { L"Heat Extend - Hearts (2/2)", 0x4a10c0, 0x4a1100 },
+        { L"Heat Knuckle (1/4)", 0x4dba50, 0x4dba90, indexGGXXSprites_ACR_Potemkin, 0x07, &pairNext4 }, //Paired with Final Explosion
+        { L"Heat Knuckle (2/4)", 0x4dc490, 0x4dc4d0, indexGGXXSprites_ACR_Potemkin, 0x07, &pairNext3 }, //Paired with Final Explosion
+        { L"Heat Knuckle (3/4)", 0x4d9ac0, 0x4d9b00, indexGGXXSprites_ACR_Potemkin, 0x07, &pairNext2 }, //Paired with Final Explosion
+        { L"Heat Knuckle (4/4)", 0x4de390, 0x4de3d0, indexGGXXSprites_ACR_Potemkin, 0x07, &pairNext }, //Paired with Final Explosion
+        { L"Heat Knuckle - Final Explosion", 0x4d23c0, 0x4d2400, indexGGXXSprites_ACR_Potemkin, 0x08, &pairPrevious4 }, //Paired with Heat Knuckle 1
+        { L"Heat Extend - Bullets", 0x4d22f0, 0x4d2330, indexGGXXSprites_ACR_Potemkin, 0x05 },
+        { L"Heat Extend - Hearts (1/2)", 0x4a0500, 0x4a0540, indexGGXXSprites_ACR_Potemkin, 0x06 },
+        { L"Heat Extend - Hearts (2/2)", 0x4a10c0, 0x4a1100, indexGGXXSprites_ACR_Potemkin, 0x06 },
 
         //Overdrives
-        { L"Giganter (1/2)", 0x4a2700, 0x4a2740 },
-        { L"Giganter (2/2)", 0x4a66b0, 0x4a66f0 },
-        { L"Gigantic Bullet Close Fist (1/2)", 0x4ace00, 0x4ace40 }, //Paired with Far Fist 1
-        { L"Gigantic Bullet Close Fist (2/2)", 0x4af6b0, 0x4af6f0 }, //Paired with Far Fist 2
-        { L"Gigantic Bullet Far Fist (1/2)", 0x4b1bd0, 0x4b1c10 }, //Paired with Close Fist 1
-        { L"Gigantic Bullet Far Fist (2/2)", 0x4b4480, 0x4b44c0 }, //Paired with Close Fist 2
+        { L"Giganter (1/2)", 0x4a2700, 0x4a2740, indexGGXXSprites_ACR_Potemkin, 0x02 },
+        { L"Giganter (2/2)", 0x4a66b0, 0x4a66f0, indexGGXXSprites_ACR_Potemkin, 0x02 },
+        { L"Gigantic Bullet Close Fist (1/2)", 0x4ace00, 0x4ace40, indexGGXXSprites_ACR_Potemkin, 0x03, &pairNext2 }, //Paired with Far Fist 1
+        { L"Gigantic Bullet Close Fist (2/2)", 0x4af6b0, 0x4af6f0, indexGGXXSprites_ACR_Potemkin, 0x03, &pairNext2 }, //Paired with Far Fist 2
+        { L"Gigantic Bullet Far Fist (1/2)", 0x4b1bd0, 0x4b1c10, indexGGXXSprites_ACR_Potemkin, 0x04, &pairPrevious2 }, //Paired with Close Fist 1
+        { L"Gigantic Bullet Far Fist (2/2)", 0x4b4480, 0x4b44c0, indexGGXXSprites_ACR_Potemkin, 0x04, &pairPrevious2 }, //Paired with Close Fist 2
 
         //Instant Kill
-        { L"Magnum Opera (1/2)", 0x4c23e0, 0x4c2420 },
-        { L"Magnum Opera (2/2)", 0x4cc8c0, 0x4cc900 },
-        { L"Magnum Opera - Heart (1/2)", 0x4c1bd0, 0x4c1c10 },
-        { L"Magnum Opera - Heart (2/2)", 0x4c2110, 0x4c2150 },
+        { L"Magnum Opera (1/2)", 0x4c23e0, 0x4c2420, indexGGXXSprites_ACR_Potemkin, 0x09 },
+        { L"Magnum Opera (2/2)", 0x4cc8c0, 0x4cc900, indexGGXXSprites_ACR_Potemkin, 0x09 },
+        { L"Magnum Opera - Heart (1/2)", 0x4c1bd0, 0x4c1c10, indexGGXXSprites_ACR_Potemkin, 0x0a },
+        { L"Magnum Opera - Heart (2/2)", 0x4c2110, 0x4c2150, indexGGXXSprites_ACR_Potemkin, 0x0a },
     }
 };
 

@@ -25,25 +25,25 @@ const std::vector<uint16_t> BMKNS_SNES_IMGIDS_USED =
 const sGame_PaletteDataset BMKNS_SNES_SYOH_Start_PALETTES[] =
 {
     { L"Syoh Start", 0x1fe2ca, 0x1fe2ea, indexBMKNST_Syoh },
-    { L"Syoh Portrait Start", 0x1c092, 0x1c0b2 },
+    { L"Syoh Portrait Start", 0x1c092, 0x1c0b2, indexBMKNST_Syoh, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_SYOH_LK_PALETTES[] =
 {
     { L"Syoh LK", 0x1fe2ea, 0x1fe30a, indexBMKNST_Syoh },
-    { L"Syoh Portrait LK", 0x1c0b2, 0x1c0d2 },
+    { L"Syoh Portrait LK", 0x1c0b2, 0x1c0d2, indexBMKNST_Syoh, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_SYOH_HoldHPStart_PALETTES[] =
 {
     { L"Syoh Hold HP Start", 0x1fe30a, 0x1fe32a, indexBMKNST_Syoh },
-    { L"Syoh Portrait Hold HP Start", 0x1c0d2, 0x1c0f2 },
+    { L"Syoh Portrait Hold HP Start", 0x1c0d2, 0x1c0f2, indexBMKNST_Syoh, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_SYOH_HoldHPLK_PALETTES[] =
 {
     { L"Syoh Hold HP LK", 0x1fe32a, 0x1fe34a, indexBMKNST_Syoh },
-    { L"Syoh Portrait Hold HP LK", 0x1c0f2, 0x1c112 },
+    { L"Syoh Portrait Hold HP LK", 0x1c0f2, 0x1c112, indexBMKNST_Syoh, 0x40 },
 };
 
 //Body
@@ -51,25 +51,25 @@ const sGame_PaletteDataset BMKNS_SNES_SYOH_HoldHPLK_PALETTES[] =
 const sGame_PaletteDataset BMKNS_SNES_BODY_Start_PALETTES[] =
 {
     { L"Body Start", 0x1fe34a, 0x1fe36a, indexBMKNST_Body },
-    { L"Body Portrait Start", 0x1c112, 0x1c132 },
+    { L"Body Portrait Start", 0x1c112, 0x1c132, indexBMKNST_Body, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_BODY_LK_PALETTES[] =
 {
     { L"Body LK", 0x1fe36a, 0x1fe38a, indexBMKNST_Body },
-    { L"Body Portrait LK", 0x1c132, 0x1c152 },
+    { L"Body Portrait LK", 0x1c132, 0x1c152, indexBMKNST_Body, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_BODY_HoldHPStart_PALETTES[] =
 {
     { L"Body Hold HP Start", 0x1fe38a, 0x1fe3aa, indexBMKNST_Body },
-    { L"Body Portrait Hold HP Start", 0x1c152, 0x1c172 },
+    { L"Body Portrait Hold HP Start", 0x1c152, 0x1c172, indexBMKNST_Body, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_BODY_HoldHPLK_PALETTES[] =
 {
     { L"Body Hold HP LK", 0x1fe3aa, 0x1fe3ca, indexBMKNST_Body },
-    { L"Body Portrait Hold HP LK", 0x1c172, 0x1c192 },
+    { L"Body Portrait Hold HP LK", 0x1c172, 0x1c192, indexBMKNST_Body, 0x40 },
 };
 
 //Chan
@@ -77,25 +77,25 @@ const sGame_PaletteDataset BMKNS_SNES_BODY_HoldHPLK_PALETTES[] =
 const sGame_PaletteDataset BMKNS_SNES_CHAN_Start_PALETTES[] =
 {
     { L"Chan Start", 0x1fe3ca, 0x1fe3ea, indexBMKNST_Chan },
-    { L"Chan Portrait Start", 0x1c192, 0x1c1b2 },
+    { L"Chan Portrait Start", 0x1c192, 0x1c1b2, indexBMKNST_Chan, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_CHAN_LK_PALETTES[] =
 {
     { L"Chan LK", 0x1fe3ea, 0x1fe40a, indexBMKNST_Chan },
-    { L"Chan Portrait LK", 0x1c1b2, 0x1c1d2 },
+    { L"Chan Portrait LK", 0x1c1b2, 0x1c1d2, indexBMKNST_Chan, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_CHAN_HoldHPStart_PALETTES[] =
 {
     { L"Chan Hold HP Start", 0x1fe40a, 0x1fe42a, indexBMKNST_Chan },
-    { L"Chan Portrait Hold HP Start", 0x1c1d2, 0x1c1f2 },
+    { L"Chan Portrait Hold HP Start", 0x1c1d2, 0x1c1f2, indexBMKNST_Chan, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_CHAN_HoldHPLK_PALETTES[] =
 {
     { L"Chan Hold HP LK", 0x1fe42a, 0x1fe44a, indexBMKNST_Chan },
-    { L"Chan Portrait Hold HP LK", 0x1c1f2, 0x1c212 },
+    { L"Chan Portrait Hold HP LK", 0x1c1f2, 0x1c212, indexBMKNST_Chan, 0x40 },
 };
 
 //Jian
@@ -103,25 +103,25 @@ const sGame_PaletteDataset BMKNS_SNES_CHAN_HoldHPLK_PALETTES[] =
 const sGame_PaletteDataset BMKNS_SNES_JIAN_Start_PALETTES[] =
 {
     { L"Jian Start", 0x1fe44a, 0x1fe46a, indexBMKNST_Jian },
-    { L"Jian Portrait Start", 0x1c212, 0x1c232 },
+    { L"Jian Portrait Start", 0x1c212, 0x1c232, indexBMKNST_Jian, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_JIAN_LK_PALETTES[] =
 {
     { L"Jian LK", 0x1fe46a, 0x1fe48a, indexBMKNST_Jian },
-    { L"Jian Portrait LK", 0x1c232, 0x1c252 },
+    { L"Jian Portrait LK", 0x1c232, 0x1c252, indexBMKNST_Jian, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_JIAN_HoldHPStart_PALETTES[] =
 {
     { L"Jian Hold HP Start", 0x1fe48a, 0x1fe4aa, indexBMKNST_Jian },
-    { L"Jian Portrait Hold HP Start", 0x1c252, 0x1c272 },
+    { L"Jian Portrait Hold HP Start", 0x1c252, 0x1c272, indexBMKNST_Jian, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_JIAN_HoldHPLK_PALETTES[] =
 {
     { L"Jian Hold HP LK", 0x1fe4aa, 0x1fe4ca, indexBMKNST_Jian },
-    { L"Jian Portrait Hold HP LK", 0x1c272, 0x1c292 },
+    { L"Jian Portrait Hold HP LK", 0x1c272, 0x1c292, indexBMKNST_Jian, 0x40 },
 };
 
 //Watts
@@ -129,25 +129,25 @@ const sGame_PaletteDataset BMKNS_SNES_JIAN_HoldHPLK_PALETTES[] =
 const sGame_PaletteDataset BMKNS_SNES_WATTS_Start_PALETTES[] =
 {
     { L"Watts Start", 0x1fe4ca, 0x1fe4ea, indexBMKNST_Watts },
-    { L"Watts Portrait Start", 0x1c412, 0x1c432 },
+    { L"Watts Portrait Start", 0x1c412, 0x1c432, indexBMKNST_Watts, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_WATTS_LK_PALETTES[] =
 {
     { L"Watts LK", 0x1fe4ea, 0x1fe50a, indexBMKNST_Watts },
-    { L"Watts Portrait LK", 0x1c432, 0x1c452 },
+    { L"Watts Portrait LK", 0x1c432, 0x1c452, indexBMKNST_Watts, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_WATTS_HoldHPStart_PALETTES[] =
 {
     { L"Watts Hold HP Start", 0x1fe50a, 0x1fe52a, indexBMKNST_Watts },
-    { L"Watts Portrait Hold HP Start", 0x1c452, 0x1c472 },
+    { L"Watts Portrait Hold HP Start", 0x1c452, 0x1c472, indexBMKNST_Watts, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_WATTS_HoldHPLK_PALETTES[] =
 {
     { L"Watts Hold HP LK", 0x1fe52a, 0x1fe54a, indexBMKNST_Watts },
-    { L"Watts Portrait Hold HP LK", 0x1c472, 0x1c492 },
+    { L"Watts Portrait Hold HP LK", 0x1c472, 0x1c492, indexBMKNST_Watts, 0x40 },
 };
 
 //Ranmaru
@@ -182,51 +182,51 @@ const sGame_PaletteDataset BMKNS_SNES_RANMARU_HoldHPLK_PALETTES[] =
 const sGame_PaletteDataset BMKNS_SNES_ALTIA_Start_PALETTES[] =
 {
     { L"Altia Start", 0x1fe5ca, 0x1fe5ea, indexBMKNST_Altia },
-    { L"Altia Portrait Start", 0x1c392, 0x1c3b2 },
+    { L"Altia Portrait Start", 0x1c392, 0x1c3b2, indexBMKNST_Altia, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_ALTIA_LK_PALETTES[] =
 {
 
     { L"Altia LK", 0x1fe5ea, 0x1fe60a, indexBMKNST_Altia },
-    { L"Altia Portrait LK", 0x1c3b2, 0x1c3d2 },
+    { L"Altia Portrait LK", 0x1c3b2, 0x1c3d2, indexBMKNST_Altia, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_ALTIA_HoldHPStart_PALETTES[] =
 {
     { L"Altia Hold HP Start", 0x1fe60a, 0x1fe62a, indexBMKNST_Altia },
-    { L"Altia Portrait Hold HP Start", 0x1c3d2, 0x1c3f2 },
+    { L"Altia Portrait Hold HP Start", 0x1c3d2, 0x1c3f2, indexBMKNST_Altia, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_ALTIA_HoldHPLK_PALETTES[] =
 {
     { L"Altia Hold HP LK", 0x1fe62a, 0x1fe64a, indexBMKNST_Altia },
-    { L"Altia Portrait Hold HP LK", 0x1c3f2, 0x1c412 },
+    { L"Altia Portrait Hold HP LK", 0x1c3f2, 0x1c412, indexBMKNST_Altia, 0x40 },
 };
 
 //Wolvan
 const sGame_PaletteDataset BMKNS_SNES_WOLVAN_Start_PALETTES[] =
 {
     { L"Wolvan Start", 0x1fe64a, 0x1fe66a, indexBMKNST_Wolvan },
-    { L"Wolvan Portrait Start", 0x1c292, 0x1c2b2 },
+    { L"Wolvan Portrait Start", 0x1c292, 0x1c2b2, indexBMKNST_Wolvan, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_WOLVAN_LK_PALETTES[] =
 {
     { L"Wolvan LK", 0x1fe66a, 0x1fe68a, indexBMKNST_Wolvan },
-    { L"Wolvan Portrait LK", 0x1c2b2, 0x1c2d2 },
+    { L"Wolvan Portrait LK", 0x1c2b2, 0x1c2d2, indexBMKNST_Wolvan, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_WOLVAN_HoldHPStart_PALETTES[] =
 {
     { L"Wolvan Hold HP Start", 0x1fe68a, 0x1fe6aa, indexBMKNST_Wolvan },
-    { L"Wolvan Portrait Hold HP Start", 0x1c2d2, 0x1c2f2 },
+    { L"Wolvan Portrait Hold HP Start", 0x1c2d2, 0x1c2f2, indexBMKNST_Wolvan, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_WOLVAN_HoldHPLK_PALETTES[] =
 {
     { L"Wolvan Hold HP LK", 0x1fe6aa, 0x1fe6ca, indexBMKNST_Wolvan },
-    { L"Wolvan Portrait Hold HP LK", 0x1c2f2, 0x1c312 },
+    { L"Wolvan Portrait Hold HP LK", 0x1c2f2, 0x1c312, indexBMKNST_Wolvan, 0x40 },
 };
 
 //Zeno
@@ -234,25 +234,25 @@ const sGame_PaletteDataset BMKNS_SNES_WOLVAN_HoldHPLK_PALETTES[] =
 const sGame_PaletteDataset BMKNS_SNES_ZENO_Start_PALETTES[] =
 {
     { L"Zeno Start", 0x1fe6ca, 0x1fe6ea, indexBMKNST_Zeno },
-    { L"Zeno Portrait Start", 0x1c492, 0x1c4b2 },
+    { L"Zeno Portrait Start", 0x1c492, 0x1c4b2, indexBMKNST_Zeno, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_ZENO_LK_PALETTES[] =
 {
     { L"Zeno LK", 0x1fe6ea, 0x1fe70a, indexBMKNST_Zeno },
-    { L"Zeno Portrait LK", 0x1c4b2, 0x1c4d2 },
+    { L"Zeno Portrait LK", 0x1c4b2, 0x1c4d2, indexBMKNST_Zeno, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_ZENO_HoldHPStart_PALETTES[] =
 {
     { L"Zeno Hold HP Start", 0x1fe70a, 0x1fe72a, indexBMKNST_Zeno },
-    { L"Zeno Portrait Hold HP Start", 0x1c4d2, 0x1c4f2 },
+    { L"Zeno Portrait Hold HP Start", 0x1c4d2, 0x1c4f2, indexBMKNST_Zeno, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_ZENO_HoldHPLK_PALETTES[] =
 {
     { L"Zeno Hold HP LK", 0x1fe72a, 0x1fe74a, indexBMKNST_Zeno },
-    { L"Zeno Portrait Hold HP LK", 0x1c4f2, 0x1c512 },
+    { L"Zeno Portrait Hold HP LK", 0x1c4f2, 0x1c512, indexBMKNST_Zeno, 0x40 },
 };
 
 //-BONUS-
