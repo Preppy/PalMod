@@ -1123,7 +1123,7 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_ML_EXTRAS =
     }
 };
 
-const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
+const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS = // Order-Sol
 {
     L"Extras",
     {
@@ -1182,6 +1182,9 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
         { L"Savage Fang Level (Lvl 1/2) (4/4)", 0x4ffd50, 0x4ffd90, indexGGXXSprites_ACR_OrderSol, 0x11, &pairNext },
         { L"Savage Fang Level (Lvl 2) Trail", 0x4428d0, 0x442910, indexGGXXSprites_ACR_OrderSol, 0x12, &pairPrevious4 },
 
+        //Instant Kill
+        { L"Dragon Install: Sakkai Entry", 0x4d1590, 0x4d15d0, indexGGXXSprites_ACR_OrderSol, 0x07 },
+
         //Rock It Level 3 is shared with most of the effect used for Savage Fang Level 3 AND Dragon Install: Sakkai
         //This makes displaying it complicated, which is why its out of order from the rest of the specials
 
@@ -1189,13 +1192,10 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
         { L"Rock It (Lvl 1) (2/2)", 0x49f990, 0x49f9d0, indexGGXXSprites_ACR_OrderSol, 0x0d },
         { L"Rock It (Lvl 3)", 0x4d6ce0, 0x4d6d20, indexGGXXSprites_ACR_OrderSol, 0x0e },
 
-        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (1/2)", 0x4c8f40, 0x4c8f80, indexGGXXSprites_ACR_OrderSol, 0x0f, &pairNext2 },    //Paired with Pillars 1/2
-        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (2/2)", 0x4cb670, 0x4cb6b0, indexGGXXSprites_ACR_OrderSol, 0x0f, &pairNext2 },    //Paired with Pillars 2/2
-        { L"Rock It (Lvl 3)/Savage Fang Pillars (1/2)", 0x4cd5c0, 0x4cd600, indexGGXXSprites_ACR_OrderSol, 0x10, &pairPrevious2 },
-        { L"Rock It (Lvl 3)/Savage Fang Pillars (2/2)", 0x4cf960, 0x4cf9a0, indexGGXXSprites_ACR_OrderSol, 0x10, &pairPrevious2 },
-
-        //Instant Kill
-        { L"Dragon Install: Sakkai Entry", 0x4d1590, 0x4d15d0, indexGGXXSprites_ACR_OrderSol, 0x07 },
+        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (1/2)", 0x4c8f40, 0x4c8f80, indexGGXXSprites_ACR_OrderSol, 0x0f, &pairNext2AndNext4 },    //Paired with Pillars 1/2
+        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (2/2)", 0x4cb670, 0x4cb6b0, indexGGXXSprites_ACR_OrderSol, 0x0f, &pairNext2AndNext3 },    //Paired with Pillars 2/2
+        { L"Rock It (Lvl 3)/Savage Fang Pillars (1/2)", 0x4cd5c0, 0x4cd600, indexGGXXSprites_ACR_OrderSol, 0x10, &pairPrevious2AndNext2 },
+        { L"Rock It (Lvl 3)/Savage Fang Pillars (2/2)", 0x4cf960, 0x4cf9a0, indexGGXXSprites_ACR_OrderSol, 0x10, &pairPrevious2AndNext2 },
 
         { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (1/5)", 0x4a17f0, 0x4a1830, indexGGXXSprites_ACR_OrderSol, 0x08 },    //Paired with SF and SF Pillars 
         { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (2/5)", 0x4acd00, 0x4acd40, indexGGXXSprites_ACR_OrderSol, 0x08 },

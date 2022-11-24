@@ -563,12 +563,14 @@ const stPairedPaletteInfo pairPreviousFlipped7 = { -7, PalettePairOptions::FlipD
 
 const stPairedPaletteInfo pairNextAndNext =                         { 1, {}, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, {}, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext2AndNext4 =                       { 2, {}, 3, 4 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextSkipped =                  { 1, {}, 3, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext4 =                        { 1, {}, 3, 4 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext6 =                        { 1, {}, 3, 6 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext7 =                        { 1, {}, 3, 7 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext9 =                        { 1, {}, 3, 9 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext12 =                       { 1, {}, 3, 12 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairPrevious2AndNext2 =                   { -2, {}, 3, 2 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNextAndNext39 =                       { 1, {}, 3, 39 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41 =                       { 1, {}, 3, 41 }; // triple display... requires special handling in code

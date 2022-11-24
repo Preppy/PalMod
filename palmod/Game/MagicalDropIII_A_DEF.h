@@ -108,18 +108,18 @@ const sGame_PaletteDataset MAGICALDROPIII_A_HIGHPRIESTESS_PALETTES_B[] =
 //Empress
 const sGame_PaletteDataset MAGICALDROPIII_A_EMPRESS_PALETTES_A[] =
 {
-    { L"Empress A", 0x6c8e0, 0x6c940, indexMagDrop3Sprites_Empress, 0x00 },
+    { L"Empress A", 0x6c8e0, 0x6c940, indexMagDrop3Sprites_Empress, 0x00, &pairNext2 },
     { L"Empress Win Extra A", 0x6c940, 0x6c960, indexMagDrop3Sprites_Empress, 0x01 },
-    { L"Empress A Portrait", 0x6b040, 0x6b060, indexMagDrop3Sprites_Empress, 0x40 },
+    { L"Empress A Portrait", 0x6b040, 0x6b060, indexMagDrop3Sprites_Empress, 0x40, &pairPrevious2 },
     { L"Empress A Map", 0x6a780, 0x6a7a0, indexMagDrop3Sprites_Empress, 0x38 },
     { L"Empress A Pre-Fight Icon", 0x6ad80, 0x6ada0, indexMagDrop3Sprites_Empress, 0x41 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_EMPRESS_PALETTES_B[] =
 {
-    { L"Empress B", 0x6c960, 0x6c9c0, indexMagDrop3Sprites_Empress, 0x00 },
+    { L"Empress B", 0x6c960, 0x6c9c0, indexMagDrop3Sprites_Empress, 0x00, &pairNext2 },
     { L"Empress Win Extra B", 0x6c9c0, 0x6c9e0, indexMagDrop3Sprites_Empress, 0x01 },
-    { L"Empress B Portrait", 0x6b060, 0x6b080, indexMagDrop3Sprites_Empress, 0x40 },
+    { L"Empress B Portrait", 0x6b060, 0x6b080, indexMagDrop3Sprites_Empress, 0x40, &pairPrevious2 },
     { L"Empress B Map", 0x6a7a0, 0x6a7c0, indexMagDrop3Sprites_Empress, 0x38 },
     { L"Empress B Pre-Fight Icon", 0x6ada0, 0x6adc0, indexMagDrop3Sprites_Empress, 0x41 },
 };
@@ -399,19 +399,15 @@ const sGame_PaletteDataset MAGICALDROPIII_A_JUDGEMENT_PALETTES_B[] =
 //World
 const sGame_PaletteDataset MAGICALDROPIII_A_WORLD_PALETTES_A[] =
 {
-    { L"World A", 0x69ec0, 0x69f00, indexMagDrop3Sprites_World, 0x01 },
+    { L"World A", 0x69ec0, 0x69f00, indexMagDrop3Sprites_World, 0x01, &pairNext2 },
     { L"World A Map", 0x6ac00, 0x6ac20, indexMagDrop3Sprites_World, 0x38 },
+    { L"World A Portrait", 0x6a000, 0x6a020, indexMagDrop3Sprites_World, 0x40 }, // there is not a pair at 0x6a020 nor in that small chunk there
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_WORLD_PALETTES_B[] =
 {
     { L"World B", 0x69f00, 0x69f40, indexMagDrop3Sprites_World, 0x02 },
     { L"World B Map", 0x6ac20, 0x6ac40, indexMagDrop3Sprites_World, 0x38 },
-};
-
-const sGame_PaletteDataset MAGICALDROPIII_A_WORLD_PALETTES_SHARED[] =
-{
-    { L"World A Portrait", 0x6a000, 0x6a020, indexMagDrop3Sprites_World, 0x40 }, // there is not a pair at 0x6a020 nor in that small chunk there
 };
 
 //Black Pierrot
@@ -619,7 +615,6 @@ const sDescTreeNode MAGICALDROPIII_A_WORLD_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_WORLD_PALETTES_A, ARRAYSIZE(MAGICALDROPIII_A_WORLD_PALETTES_A) },
     { L"B", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_WORLD_PALETTES_B, ARRAYSIZE(MAGICALDROPIII_A_WORLD_PALETTES_B) },
-    { L"Shared", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_WORLD_PALETTES_SHARED, ARRAYSIZE(MAGICALDROPIII_A_WORLD_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MAGICALDROPIII_A_BLACKPIERROT_COLLECTION[] =
