@@ -71,7 +71,7 @@ const sGame_PaletteDataset AOF3_A_Ryo_RAGE_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Karman_A_PALETTES[] =
 {
     { L"Karman Cole A", 0x059000, 0x059020, indexAoF3Sprites_Karman },
-    { L"Charging Power A", 0x059060, 0x059080, indexAoF3Sprites_Karman, 0x02 },
+    { L"Charging Power A", 0x059060, 0x059080, indexAoF3Sprites_Bonus, 0x11 },
     { L"Gebarutiga Fuusutoritto A", 0x0590c0, 0x0590e0, indexAoF3Sprites_Karman, 0x01 },
     { L"Portrait A", 0x05fa60, 0x05fa80, indexAoF3Sprites_Karman, 0x30 },
  };
@@ -79,7 +79,7 @@ const sGame_PaletteDataset AOF3_A_Karman_A_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Karman_D_PALETTES[] =
 {
     { L"Karman Cole D", 0x059100, 0x059120, indexAoF3Sprites_Karman },
-    { L"Charging Power D", 0x059160, 0x059180, indexAoF3Sprites_Karman, 0x02 },
+    { L"Charging Power D", 0x059160, 0x059180, indexAoF3Sprites_Bonus, 0x11 },
     { L"Gebarutiga Fuusutoritto D", 0x0591c0, 0x0591e0, indexAoF3Sprites_Karman, 0x01 },
     { L"Portrait D", 0x06fb20, 0x06fb40, indexAoF3Sprites_Karman, 0x30 },
  };
@@ -87,7 +87,7 @@ const sGame_PaletteDataset AOF3_A_Karman_D_PALETTES[] =
 const sGame_PaletteDataset AOF3_A_Karman_RAGE_PALETTES[] =
 {
     { L"Karman Cole Rage", 0x059200, 0x059220, indexAoF3Sprites_Karman },
-    { L"Charging Power Rage", 0x059260, 0x059280, indexAoF3Sprites_Karman, 0x02 },
+    { L"Charging Power Rage", 0x059260, 0x059280, indexAoF3Sprites_Bonus, 0x11 },
     { L"Gebarutiga Fuusutoritto Rage", 0x0592c0, 0x0592e0, indexAoF3Sprites_Karman, 0x01 },
 };
 

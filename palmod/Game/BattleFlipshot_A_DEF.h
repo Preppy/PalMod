@@ -150,7 +150,7 @@ const sGame_PaletteDataset BattleFlipShot_A_Boss_Extras[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_BONUS_Intro[] =
 {
-    { L"SNK Neo-Geo Logo", 0x2765a, 0x2767a },
+    { L"Credits Text", 0x2765a, 0x2767a },
     { L"VISCO Logo", 0x2777a, 0x2779a },
     { L"VISCO Text", 0x2775a, 0x2777a },
     { L"Characters Names", 0x28b7a, 0x28b9a },
@@ -159,11 +159,15 @@ const sGame_PaletteDataset BattleFlipShot_A_BONUS_Intro[] =
     { L"Title Screen Background", 0x292fa, 0x2933a },
     { L"Title Screen Logo 1/2", 0x2937a, 0x2939a },
     { L"Title Screen Logo 2/2", 0x2925a, 0x292ba },
+    { L"Title Screen Numbers", 0x276fa, 0x2771a },
     { L"Demo Logo", 0x292ba, 0x292fa },
     { L"Tutorial Board", 0x28e9a, 0x28eba },
     { L"Small Text", 0x28f1a, 0x28f3a },
     { L"Ending Names", 0x28b5a, 0x28b7a },
+    { L"Ending You are No.1!!", 0x293ba, 0x293da },
+    { L"Ending Congratulations", 0x293fa, 0x2941a },
     { L"Ending Cutscene", 0x2935a, 0x2937a },
+    { L"Ending Thank You For Your Playing!!", 0x2933a, 0x2935a },
 };
 
 const sGame_PaletteDataset BattleFlipShot_A_BONUS_SelectScreen[] =
@@ -177,6 +181,7 @@ const sGame_PaletteDataset BattleFlipShot_A_BONUS_SelectScreen[] =
     { L"Select Screen Cursor Flash", 0x280da, 0x280fa },
     { L"VS Screen Names", 0x28bba, 0x28bda },
     { L"VS Screen Logo", 0x28b9a, 0x28bba },
+    { L"Win Screen Logo", 0x2819a, 0x281ba },
     { L"Win Screen Text", 0x2779a, 0x277ba },
     { L"Win Screen Numbers", 0x277ba, 0x277da },
 };
@@ -205,7 +210,7 @@ const sGame_PaletteDataset BattleFlipShot_A_BONUS_IngameExtras[] =
     { L"HUD", 0x291fa, 0x2921a },
     { L"HUD Timer", 0x2769a, 0x276ba },
     { L"HUD Score", 0x276ba, 0x276da },
-    { L"HUD Press Start", 0x2771a, 0x2773a },
+    { L"HUD Text", 0x2771a, 0x2773a },
     { L"HUD Win Icon", 0x277da, 0x277fa },
     { L"Ball & Hitsparks", 0x27e5a, 0x27e7a },
     { L"Targets Points", 0x2941a, 0x2943a },

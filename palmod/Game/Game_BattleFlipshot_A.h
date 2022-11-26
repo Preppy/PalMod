@@ -28,7 +28,7 @@ private:
         BattleFlipShot_A_UNITS,
         ARRAYSIZE(BattleFlipShot_A_UNITS),
         L"BattleFlipShotE.txt",         // Extra filename
-        125,                            // Count of palettes listed in the header
+        130,                            // Count of palettes listed in the header
         0x2765a,                        // Lowest known location used for palettes
     };
 

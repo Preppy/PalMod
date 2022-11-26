@@ -406,7 +406,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
     { L"Mai-Ling Punch Fireball", 0x411780, 0x411800, indexRedEarthSprites_MaiLing, 0x01 },
     { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880, 0x411900, indexRedEarthSprites_MaiLing, 0x03 },
 
-    { L"Ultimate Guard's Parry Shield", 0x411900, 0x411980, indexRedEarthSprites_MaiLing, 0x05 },
+    { L"Ultimate Guard's Parry Shield", 0x411900, 0x411980, indexRedEarthSprites_MaiLing, 0x04 },
     { L"Valerie, Dentry & Bellery", 0x412a00, 0x412b00, indexRedEarthSprites_Bonus, 0x1d },
 
     { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000, 0x414080, indexRedEarthSprites_MaiLing, 0 },
@@ -440,7 +440,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
     { L"Mai-Ling Kick Fireball", 0x41DF80, 0x41E000, indexRedEarthSprites_MaiLing, 0x01 },
     { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080, 0x41E100, indexRedEarthSprites_MaiLing, 0x03 },
 
-    { L"Ultimate Guard's Parry Shield", 0x41e100, 0x41e180 },
+    { L"Ultimate Guard's Parry Shield", 0x41e100, 0x41e180, indexRedEarthSprites_MaiLing, 0x04 },
     { L"Valerie, Dentry & Bellery", 0x41f200, 0x41f300, indexRedEarthSprites_Bonus, 0x1d },
 
     { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800, 0x420880, indexRedEarthSprites_MaiLing, 0 },

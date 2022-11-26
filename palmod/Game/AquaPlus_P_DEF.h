@@ -203,8 +203,8 @@ const std::vector<sGCBUPF_BasicFileData> AquaPlusCharacterData_NL =
     { L"flashrom\\act\\partner\\partner_0C_00.pal",      L"(Partner) Serika",             0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x09 },
     { L"flashrom\\act\\partner\\partner_02_00.pal",      L"(Partner) Ulthury",            0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x0a },
     { L"flashrom\\act\\partner\\partner_0B_00.pal",      L"(Partner) Yu",                 0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x0b },
-    { L"flashrom\\act\\partner\\partner_00_00.pal",      L"(Partner) Yuma",               0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x0c },
-    { L"flashrom\\act\\partner\\partner_06_00.pal",      L"(Partner) Yuki",               0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x0d },
+    { L"flashrom\\act\\partner\\partner_00_00.pal",      L"(Partner) Yuma",               0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x0d },
+    { L"flashrom\\act\\partner\\partner_06_00.pal",      L"(Partner) Yuki",               0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x0c },
 
     //{ L"flashrom\\act\\chara\\chara_0A_00.pal",          L"(Unused) Tamaki",              0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Tamaki, 0x00 },
     { L"flashrom\\act\\partner\\partner_0F_00.pal",      L"(Unused) Ma-ryan",             0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x00 },
@@ -252,4 +252,3 @@ const std::vector<sGCBUPF_BasicFileData> AquaPlusCharacterData_P =
     { L"USRDIR\\act\\chara\\chara_0A_00.pal",          L"(Unused) Tamaki",              0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Tamaki, 0x00 },
     { L"USRDIR\\act\\partner\\partner_0F_00.pal",      L"(Unused) Ma-ryan",             0x10010, AquaPlusPaletteNodesNormal,        GCBUPF_UseButtonLabelsAsPaletteSet,      0x10, indexAquaPlusSprites_Partner, 0x03 },
 };
-
