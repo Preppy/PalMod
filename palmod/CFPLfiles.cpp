@@ -103,11 +103,15 @@ public:
 
     BOOL OnInitDialog();
 
+    afx_msg void OnUpdatePalName();
+
     // Dialog Data
     enum { IDD = IDD_CFPL_EXPORT };
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+    DECLARE_MESSAGE_MAP()
 
     std::wstring m_strCharacterName;
     const std::wstring m_strCreatorValueName = L"pref_CreatorName";
@@ -168,6 +172,8 @@ BOOL CCFPLFileExportDialog::OnInitDialog()
 
     GetDlgItem(IDC_CFPL_CREATOR)->SetWindowText(m_strCreator);
 
+    GetDlgItem(IDOK)->EnableWindow(m_strPaletteName.GetLength());
+
     UpdateData();
 
     return TRUE;
@@ -182,6 +188,19 @@ void CCFPLFileExportDialog::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_CFPL_DESCRIPTION, m_strDescription);
     DDX_Check(pDX, IDC_CFPL_ENABLEBLOOM, m_fEnableBloom);
 }
+
+void CCFPLFileExportDialog::OnUpdatePalName()
+{
+    UpdateData();
+
+    GetDlgItem(IDOK)->EnableWindow(m_strPaletteName.GetLength());
+
+    UpdateData(FALSE);
+}
+
+BEGIN_MESSAGE_MAP(CCFPLFileExportDialog, CDialog)
+    ON_EN_CHANGE(IDC_CFPL_PALNAME, &OnUpdatePalName)
+END_MESSAGE_MAP()
 
 bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 {

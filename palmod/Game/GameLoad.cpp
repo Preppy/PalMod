@@ -2346,7 +2346,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
             else
             {
                 CString strError;
-                strError.Format(L"Could not find file \"%s\" needed for this game.", strCurrFile.GetString());
+                strError.Format(L"Could not find required file:\n    %s\n at the specified location:\n    %s\nPlease make sure the path is correct.", CurrRule.szFileName, pszLoadDir);
 
                 if ((nGameFlag == MVC2_D) || (nGameFlag == MVC2_D_16) || (nGameFlag == MVC2_P))
                 {
