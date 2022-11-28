@@ -505,6 +505,7 @@
     <ClInclude Include="Game\Game_KOFXI_A.h" />
     <ClInclude Include="Game\Game_KOTM_A.h" />
     <ClInclude Include="Game\Game_LandMaker_A.h" />
+    <ClInclude Include="Game\Game_LandMaker_P.h" />
     <ClInclude Include="Game\Game_LASTBLADE2_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE_A.h" />
     <ClInclude Include="Game\Game_MAAB_A.h" />
@@ -635,6 +636,7 @@
     <ClInclude Include="Game\KOFXI_A_DEF.h" />
     <ClInclude Include="Game\KOTM_A_DEF.h" />
     <ClInclude Include="Game\LandMaker_A_DEF.h" />
+    <ClInclude Include="Game\LandMaker_P_DEF.h" />
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE_A_DEF.h" />
     <ClInclude Include="Game\MAAB_A_DEF.h" />

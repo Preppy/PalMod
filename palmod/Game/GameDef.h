@@ -211,6 +211,7 @@ enum SupportedGamesList
     HIppo_GBA,
     GGXXACP_Wii,
     LandMaker_A,
+    LandMaker_P,
 
     NUM_GAMES // This needs to be last
 };
@@ -416,6 +417,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Hajime no Ippo - The Fighting! (Japan GBA)",
     L"GGXX:AC+ (Wii, ID:R3NEXS)",
     L"Land Maker (Taito F3 System Arcade)",
+    L"Land Maker (PlayStation)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

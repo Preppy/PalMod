@@ -73,6 +73,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case KOF02UM_S_DIR_RGB555:
             pszExtraInfo = L"Please select the \"Data\" folder under \"The King of Fighters 2002 Unlimited Match\".";
             break;
+        case LandMaker_P:
+            pszExtraInfo = L"Select the \"ARC\" folder at \"DATA/ARC\" from the root of the game image.";
+            break;
         case MAAB_A:
             pszExtraInfo = L"For MAAB, please select the \"flashrom\" folder.\nThe folder is normally located in steamapps\\common\\Million Arthur Arcana Blood.";
             break;

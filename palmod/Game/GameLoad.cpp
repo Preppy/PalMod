@@ -74,6 +74,7 @@
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
 #include "Game_LandMaker_A.h"
+#include "Game_LandMaker_P.h"
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_MAGICALDROPII_A.h"
@@ -169,7 +170,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 188, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 189, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -696,6 +697,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     {
         GetRule = &CGame_LandMaker_A::GetRule;
 
+        return TRUE;
+    }
+    case LandMaker_P:
+    {
+        GetRuleCtr = &CGame_LandMaker_P::GetRuleCtr;
+        ResetRuleCtr = &CGame_LandMaker_P::ResetRuleCtr;
+        GetRule = &CGame_LandMaker_P::GetRule;
+        GetNextRule = &CGame_LandMaker_P::GetNextRule;
+        
         return TRUE;
     }
     case LASTBLADE_A:
@@ -1633,6 +1643,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case LandMaker_A:
     {
         return new CGame_LandMaker_A(nConfirmedROMSize);
+    }
+    case LandMaker_P:
+    {
+        return new CGame_LandMaker_P(nConfirmedROMSize);
     }
     case LASTBLADE_A:
     case LASTBLADE_S:
