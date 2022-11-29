@@ -4170,6 +4170,170 @@ const sDescTreeNode KOF02_A_OCHRIS_COLLECTION[] =
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT) },
 };
 
+const sGame_PaletteDataset KOF02_A_STAGES_RYOANJI1_PALETTES[] =
+{
+    { L"Stage Ryoanji Temple, Japan (1/4) 0xa4362", 0xa4362, 0xa4562 },
+    { L"Stage Ryoanji Temple, Japan (2/4) 0xa4562", 0xa4562, 0xa4762 },
+    { L"Stage Ryoanji Temple, Japan (3/4) 0xa4762", 0xa4762, 0xa4962 },
+    { L"Stage Ryoanji Temple, Japan (4/4) 0xa4962", 0xa4962, 0xa4b42 },
+    { L"Stage Ryoanji Temple, Japan", 0xa4b62, 0xa4c02 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_RYOANJI2_PALETTES[] =
+{
+    { L"Stage Ryoanji Temple, Japan-2 (1/4) 0xa4d62", 0xa4d62, 0xa4f62 },
+    { L"Stage Ryoanji Temple, Japan-2 (2/4) 0xa4f62", 0xa4f62, 0xa5162 },
+    { L"Stage Ryoanji Temple, Japan-2 (3/4) 0xa5162", 0xa5162, 0xa5362 },
+    { L"Stage Ryoanji Temple, Japan-2 (4/4) 0xa5362", 0xa5362, 0xa54a2 },
+    { L"Stage Ryoanji Temple, Japan-2", 0xa5562, 0xa55c2 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_RYOANJI3_PALETTES[] =
+{
+    { L"Stage Ryoanji Temple, Japan-3 (1/5) 0xa5762", 0xa5762, 0xa5962 },
+    { L"Stage Ryoanji Temple, Japan-3 (2/5) 0xa5962", 0xa5962, 0xa5b62 },
+    { L"Stage Ryoanji Temple, Japan-3 (3/5) 0xa5b62", 0xa5b62, 0xa5d62 },
+    { L"Stage Ryoanji Temple, Japan-3 (4/5) 0xa5d62", 0xa5d62, 0xa5f62 },
+    { L"Stage Ryoanji Temple, Japan-3 (5/5) 0xa5f62", 0xa5f62, 0xa6022 },
+    { L"Stage Ryoanji Temple, Japan-3", 0xa60a2, 0xa6142 },
+    { L"Stage Ryoanji Temple, Japan-3", 0xa6162, 0xa6182 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_ANGKOR_PALETTES[] =
+{
+    { L"Stage Cambodia, Angkor Wat Temple (1/5) 0xac362", 0xac362, 0xac562 },
+    { L"Stage Cambodia, Angkor Wat Temple (2/5) 0xac562", 0xac562, 0xac762 },
+    { L"Stage Cambodia, Angkor Wat Temple (3/5) 0xac762", 0xac762, 0xac962 },
+    { L"Stage Cambodia, Angkor Wat Temple (4/5) 0xac962", 0xac962, 0xacb62 },
+    { L"Stage Cambodia, Angkor Wat Temple (5/5) 0xacb62", 0xacb62, 0xacd62 },
+    { L"Stage Cambodia, Angkor Wat Temple", 0xadb62, 0xadb82 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_ZAANSE1_PALETTES[] =
+{
+    { L"Stage Holland - Zaanse Schans Village (1/4) 0xa6362", 0xa6362, 0xa6562 },
+    { L"Stage Holland - Zaanse Schans Village (2/4) 0xa6562", 0xa6562, 0xa6762 },
+    { L"Stage Holland - Zaanse Schans Village (3/4) 0xa6762", 0xa6762, 0xa6962 },
+    { L"Stage Holland - Zaanse Schans Village (4/4) 0xa6962", 0xa6962, 0xa69c2 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_ZAANSE2_PALETTES[] =
+{
+    { L"Stage Holland - Zaanse Schans Village -2 (1/3) 0xa6b62", 0xa6b62, 0xa6d62 },
+    { L"Stage Holland - Zaanse Schans Village -2 (2/3) 0xa6d62", 0xa6d62, 0xa6f62 },
+    { L"Stage Holland - Zaanse Schans Village -2 (3/3) 0xa6f62", 0xa6f62, 0xa7002 },
+    { L"Stage Holland - Zaanse Schans Village -2", 0xa7042, 0xa7082 },
+    { L"Stage Holland - Zaanse Schans Village -2", 0xa7362, 0xa73a2 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_NANHU1_PALETTES[] =
+{
+    { L"Stage China, Nanhu Garden", 0xa8362, 0xa8442 },
+    { L"Stage China, Nanhu Garden (1/2) 0xa85e2", 0xa85e2, 0xa87e2 },
+    { L"Stage China, Nanhu Garden (2/2) 0xa87e2", 0xa87e2, 0xa8842 },
+    { L"Stage China, Nanhu Garden (1/2) 0xa8962", 0xa8962, 0xa8b62 },
+    { L"Stage China, Nanhu Garden (2/2) 0xa8b62", 0xa8b62, 0xa8ba2 },
+    { L"Stage China, Nanhu Garden (1/2) 0xa8be2", 0xa8be2, 0xa8de2 },
+    { L"Stage China, Nanhu Garden (2/2) 0xa8de2", 0xa8de2, 0xa8e62 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_NANHU2_PALETTES[] =
+{
+    { L"Stage China, Nanhu Garden -2 (1/3) 0xa8f62", 0xa8f62, 0xa9162 },
+    { L"Stage China, Nanhu Garden -2 (2/3) 0xa9162", 0xa9162, 0xa9362 },
+    { L"Stage China, Nanhu Garden -2 (3/3) 0xa9362", 0xa9362, 0xa9422 },
+    { L"Stage China, Nanhu Garden -2", 0xa9562, 0xa9582 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_NANHU3_PALETTES[] =
+{
+    { L"Stage China, Nanhu Garden -3 (1/3) 0xa9762", 0xa9762, 0xa9962 },
+    { L"Stage China, Nanhu Garden -3 (2/3) 0xa9962", 0xa9962, 0xa9b62 },
+    { L"Stage China, Nanhu Garden -3 (3/3) 0xa9b62", 0xa9b62, 0xa9c22 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_KOREA1_PALETTES[] =
+{
+    { L"Stage Korea (1/5) 0xaa362", 0xaa362, 0xaa562 },
+    { L"Stage Korea (2/5) 0xaa562", 0xaa562, 0xaa762 },
+    { L"Stage Korea (3/5) 0xaa762", 0xaa762, 0xaa962 },
+    { L"Stage Korea (4/5) 0xaa962", 0xaa962, 0xaab62 },
+    { L"Stage Korea (5/5) 0xaab62", 0xaab62, 0xaac22 },
+    { L"Stage Korea", 0xaaca2, 0xaacc2 },
+    { L"Stage Korea", 0xaad62, 0xaad82 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_KOREA2_PALETTES[] =
+{
+    { L"Stage Korea-2 (1/5) 0xc0362", 0xc0362, 0xc0562 },
+    { L"Stage Korea-2 (2/5) 0xc0562", 0xc0562, 0xc0762 },
+    { L"Stage Korea-2 (3/5) 0xc0762", 0xc0762, 0xc0962 },
+    { L"Stage Korea-2 (4/5) 0xc0962", 0xc0962, 0xc0b62 },
+    { L"Stage Korea-2 (5/5) 0xc0b62", 0xc0b62, 0xc0c22 },
+    { L"Stage Korea-2", 0xc0d42, 0xc0d62 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_KOREA3_PALETTES[] =
+{
+    { L"Stage Korea-3 (1/6) 0xaaf62", 0xaaf62, 0xab162 },
+    { L"Stage Korea-3 (2/6) 0xab162", 0xab162, 0xab362 },
+    { L"Stage Korea-3 (3/6) 0xab362", 0xab362, 0xab562 },
+    { L"Stage Korea-3 (4/6) 0xab562", 0xab562, 0xab762 },
+    { L"Stage Korea-3 (5/6) 0xab762", 0xab762, 0xab962 },
+    { L"Stage Korea-3 (6/6) 0xab962", 0xab962, 0xabb62 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_MEXICO1_PALETTES[] =
+{
+    { L"Stage Mexico (1/4) 0xae362", 0xae362, 0xae562 },
+    { L"Stage Mexico (2/4) 0xae562", 0xae562, 0xae762 },
+    { L"Stage Mexico (3/4) 0xae762", 0xae762, 0xae962 },
+    { L"Stage Mexico (4/4) 0xae962", 0xae962, 0xaeb42 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_MEXICO2_PALETTES[] =
+{
+    { L"Stage Mexico-2 (1/4) 0xaeb62", 0xaeb62, 0xaed62 },
+    { L"Stage Mexico-2 (2/4) 0xaed62", 0xaed62, 0xaef62 },
+    { L"Stage Mexico-2 (3/4) 0xaef62", 0xaef62, 0xaf162 },
+    { L"Stage Mexico-2 (4/4) 0xaf162", 0xaf162, 0xaf242 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_MEXICO3_PALETTES[] =
+{
+    { L"Stage Mexico-3 (1/4) 0xaf362", 0xaf362, 0xaf562 },
+    { L"Stage Mexico-3 (2/4) 0xaf562", 0xaf562, 0xaf762 },
+    { L"Stage Mexico-3 (3/4) 0xaf762", 0xaf762, 0xaf962 },
+    { L"Stage Mexico-3 (4/4) 0xaf962", 0xaf962, 0xafa42 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_ITALY_PALETTES[] =
+{
+    { L"Stage Italy (1/7) 0xb0362", 0xb0362, 0xb0562 },
+    { L"Stage Italy (2/7) 0xb0562", 0xb0562, 0xb0762 },
+    { L"Stage Italy (3/7) 0xb0762", 0xb0762, 0xb0962 },
+    { L"Stage Italy (4/7) 0xb0962", 0xb0962, 0xb0b62 },
+    { L"Stage Italy (5/7) 0xb0b62", 0xb0b62, 0xb0d62 },
+    { L"Stage Italy (6/7) 0xb0d62", 0xb0d62, 0xb0f62 },
+    { L"Stage Italy (7/7) 0xb0f62", 0xb0f62, 0xb1042 },
+    { L"Stage Italy", 0xb1162, 0xb1182 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_NESTS_PALETTES[] =
+{
+    { L"Stage NESTS Team Stage (1/3) 0xc1962", 0xc1962, 0xc1b62 },
+    { L"Stage NESTS Team Stage (2/3) 0xc1b62", 0xc1b62, 0xc1d62 },
+    { L"Stage NESTS Team Stage (3/3) 0xc1d62", 0xc1d62, 0xc1f62 },
+};
+
+const sGame_PaletteDataset KOF02_A_STAGES_RUGAL_PALETTES[] =
+{
+    { L"Stage Omega Rugal (1/3) 0xb2362", 0xb2362, 0xb2562 },
+    { L"Stage Omega Rugal (2/3) 0xb2562", 0xb2562, 0xb2762 },
+    { L"Stage Omega Rugal (3/3) 0xb2762", 0xb2762, 0xb2962 },
+    { L"Stage Omega Rugal", 0xb2b62, 0xb2ba2 },
+};
+
 const sGame_PaletteDataset KOF02_A_BONUS_ENDING_PALETTES[] =
 {
     { L"Rugal (Ending)", 0xa3b02, 0xa3b22, indexKOF02Sprites_Bonus, 0x05, &pairNextAndNext },
@@ -4306,6 +4470,28 @@ const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
     { L"Credits Blue Text", 0x86be2, 0x86c02 },
 };
 
+const sDescTreeNode KOF02_A_STAGES_COLLECTION[] =
+{
+    { L"Ryoanji Temple 1", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_RYOANJI1_PALETTES, ARRAYSIZE(KOF02_A_STAGES_RYOANJI1_PALETTES) },
+    { L"Ryoanji Temple 2", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_RYOANJI2_PALETTES, ARRAYSIZE(KOF02_A_STAGES_RYOANJI2_PALETTES) },
+    { L"Ryoanji Temple 3", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_RYOANJI3_PALETTES, ARRAYSIZE(KOF02_A_STAGES_RYOANJI3_PALETTES) },
+    { L"Angkor Wat Temple", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_ANGKOR_PALETTES, ARRAYSIZE(KOF02_A_STAGES_ANGKOR_PALETTES) },
+    { L"Zaanse Schans Village 1", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_ZAANSE1_PALETTES, ARRAYSIZE(KOF02_A_STAGES_ZAANSE1_PALETTES) },
+    { L"Zaanse Schans Village 2", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_ZAANSE2_PALETTES, ARRAYSIZE(KOF02_A_STAGES_ZAANSE2_PALETTES) },
+    { L"Nanhu Garden 1", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_NANHU1_PALETTES, ARRAYSIZE(KOF02_A_STAGES_NANHU1_PALETTES) },
+    { L"Nanhu Garden 2", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_NANHU2_PALETTES, ARRAYSIZE(KOF02_A_STAGES_NANHU2_PALETTES) },
+    { L"Nanhu Garden 3", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_NANHU3_PALETTES, ARRAYSIZE(KOF02_A_STAGES_NANHU3_PALETTES) },
+    { L"Korea 1", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_KOREA1_PALETTES, ARRAYSIZE(KOF02_A_STAGES_KOREA1_PALETTES) },
+    { L"Korea 2", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_KOREA2_PALETTES, ARRAYSIZE(KOF02_A_STAGES_KOREA2_PALETTES) },
+    { L"Korea 3", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_KOREA3_PALETTES, ARRAYSIZE(KOF02_A_STAGES_KOREA3_PALETTES) },
+    { L"Mexico 1", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_MEXICO1_PALETTES, ARRAYSIZE(KOF02_A_STAGES_MEXICO1_PALETTES) },
+    { L"Mexico 2", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_MEXICO2_PALETTES, ARRAYSIZE(KOF02_A_STAGES_MEXICO2_PALETTES) },
+    { L"Mexico 3", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_MEXICO3_PALETTES, ARRAYSIZE(KOF02_A_STAGES_MEXICO3_PALETTES) },
+    { L"Italy", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_ITALY_PALETTES, ARRAYSIZE(KOF02_A_STAGES_ITALY_PALETTES) },
+    { L"NESTS Team Stage", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_NESTS_PALETTES, ARRAYSIZE(KOF02_A_STAGES_NESTS_PALETTES) },
+    { L"Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_RUGAL_PALETTES, ARRAYSIZE(KOF02_A_STAGES_RUGAL_PALETTES) },
+};
+
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
 {
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_EFFECTS_PALETTES) },
@@ -4375,5 +4561,6 @@ const sDescTreeNode KOF02_A_UNITS[] =
     { L"O.Shermie", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_COLLECTION, ARRAYSIZE(KOF02_A_OSHERMIE_COLLECTION) },
     { L"O.Yashiro", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_COLLECTION, ARRAYSIZE(KOF02_A_OYASHIRO_COLLECTION) },
 
+    { L"Stages", DESC_NODETYPE_TREE, (void*)KOF02_A_STAGES_COLLECTION, ARRAYSIZE(KOF02_A_STAGES_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_COLLECTION, ARRAYSIZE(KOF02_A_BONUS_COLLECTION) },
 };

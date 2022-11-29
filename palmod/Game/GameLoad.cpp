@@ -140,6 +140,7 @@
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
 #include "Game_StreetFighter_A.h"
+#include "Game_SurvivalArts_A.h"
 #include "Game_SVG_SNES.h"
 #include "Game_SVCPLUSA_A.h"
 #include "Game_TMNTTF_SNES.h"
@@ -163,7 +164,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 183, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 184, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -1151,6 +1152,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SSF2T_GBA::GetRule;
         return TRUE;
     }
+    case SurvivalArts_A:
+    {
+        GetRule = &CGame_SurvivalArts_A::GetRule;
+        return TRUE;
+    }
     case SVG_SNES:
     {
         GetRule = &CGame_SVG_SNES::GetRule;
@@ -1892,6 +1898,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_SSF2T_GBA(nConfirmedROMSize);
     }
+    case SurvivalArts_A:
+    {
+        return new CGame_SurvivalArts_A(nConfirmedROMSize);
+    }
     case SVG_SNES:
     {
         return new CGame_SVG_SNES(nConfirmedROMSize);
@@ -2088,6 +2098,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         case SSF2T_A:
             CGame_SSF2T_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case SurvivalArts_A:
+            CGame_SurvivalArts_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case VampireNightWarriors_A:
             CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(pszFileNameLowercase);

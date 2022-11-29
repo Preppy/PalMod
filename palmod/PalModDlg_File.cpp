@@ -133,6 +133,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SHAQFU_SNES,      L"Shaq Fu (SNES)", L"Shaq Fu (SNES)|Shaq Fu (USA).sfc;sns-aqfe-0.u1|", GamePlatform::Nintendo },
     { SVG_SNES,         L"Super Variable Geo (Japan)", L"Super Variable Geo (Japan SNES)|Super Variable Geo (J*).s?c|", GamePlatform::Nintendo },
+    { SurvivalArts_A,   L"Survival Arts (Scarab)", L"Survival Arts (Scarab)|prl-r6.u4;usa-pr-l.u4|", GamePlatform::OtherPlatform },
     { SVCPLUSA_A,       L"SNK vs Capcom", L"SNK vs Capcom|svc-p2pl.bin;svc-p2sp.bin|", GamePlatform::NEOGEO },
     { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SSF2T_GBA,        L"SSF2T: Revival (GBA)", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", GamePlatform::Nintendo },
@@ -156,7 +157,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 183, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 184, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {

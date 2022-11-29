@@ -547,6 +547,9 @@
     <Filter Include="Games\SNK Games\Battle Flip Shot">
       <UniqueIdentifier>{d3df860a-d3c7-4ca6-a743-33436f57a085}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Survival Arts %28Scarab%29">
+      <UniqueIdentifier>{2da53dac-0d06-425f-af72-cc00ffeb2bec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -995,6 +998,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MK2_A.cpp">
       <Filter>Games\Other Platforms\Mortal Kombat 2 %28Arcade%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SurvivalArts_A.cpp">
+      <Filter>Games\Other Platforms\Survival Arts %28Scarab%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2023,6 +2029,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_BattleFlipshot_A.h">
       <Filter>Games\SNK Games\Battle Flip Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SurvivalArts_A.h">
+      <Filter>Games\Other Platforms\Survival Arts %28Scarab%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SurvivalArts_A_DEF.h">
+      <Filter>Games\Other Platforms\Survival Arts %28Scarab%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

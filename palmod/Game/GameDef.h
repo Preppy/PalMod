@@ -205,6 +205,7 @@ enum SupportedGamesList
     GGML_P,
     JCHAN_A,
     BattleFlipShot_A,
+    SurvivalArts_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -400,10 +401,11 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Magical Drop II (Neo-Geo)",
     L"Street Fighter (US, Set 1)",
     L"Unknown Game (Set of files)",
-    L"Mortal Kombat II (Arcade)",
+    L"Mortal Kombat II (Midway, Arcade)",
     L"Guilty Gear: The Missing Link (PlayStation)",
-    L"Jackie Chan in Fists of Fury (Arcade)",
+    L"Jackie Chan in Fists of Fire (Kaneko, Arcade)",
     L"Battle Flip Shot (Neo-Geo)",
+    L"Survival Arts (World)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
