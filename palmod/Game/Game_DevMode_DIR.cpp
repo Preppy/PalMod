@@ -18,10 +18,10 @@ public:
 
     afx_msg void OnOK();
 
-    afx_msg void OnKillFocusFile1() {};
-    afx_msg void OnKillFocusFile2() {};
-    afx_msg void OnKillFocusFile3() {};
-    afx_msg void OnKillFocusFile4() {};
+    afx_msg void OnUpdateFileName1();
+    afx_msg void OnUpdateFileName2();
+    afx_msg void OnUpdateFileName3();
+    afx_msg void OnUpdateFileName4();
 
     afx_msg void OnSelectFile1() { SelectFileForControl(IDC_DEVMODE_FILE1); };
     afx_msg void OnSelectFile2() { SelectFileForControl(IDC_DEVMODE_FILE2); };
@@ -40,17 +40,25 @@ protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
     void SelectFileForControl(int nCtrlId);
+    void UpdateOptionsForCurrentSelection();
+    void EnsurePrimaryPath();
 
     sDirectoryLoadingData* m_psFileLoadingData;
-
     wchar_t m_szPrimaryPath[MAX_PATH] = {};
-    void EnsurePrimaryPath();
+    bool m_fOKButtonShouldBeEnabled = false;
+    bool m_fIsConfigurationSupported = false;
+    // During OnInitDialog we're going to send one initial value assignment message, so we use this to avoid refreshing 
+    // the just-set data during that time
+    bool m_fPastInitialConfig1 = false;
+    bool m_fPastInitialConfig2 = false;
+    bool m_fPastInitialConfig3 = false;
+    bool m_fPastInitialConfig4 = false;
 
     DECLARE_MESSAGE_MAP()
 
 public:
     int m_eReadType = static_cast<int>(FileReadType::Sequential);
-    CString m_strFirstFile;
+    CString m_strFirstFileWithPath;
     CString m_strFile1, m_strFile2, m_strFile3, m_strFile4;
 };
 
@@ -66,9 +74,9 @@ void CDevModeFilePickerDialog::EnsurePrimaryPath()
 {
     if (wcslen(m_szPrimaryPath) == 0)
     {
-        if (m_strFirstFile.GetLength())
+        if (m_strFirstFileWithPath.GetLength())
         {
-            wcsncpy(m_szPrimaryPath, m_strFirstFile.GetString(), ARRAYSIZE(m_szPrimaryPath));
+            wcsncpy(m_szPrimaryPath, m_strFirstFileWithPath.GetString(), ARRAYSIZE(m_szPrimaryPath));
 
             if (!(GetFileAttributes(m_szPrimaryPath) & FILE_ATTRIBUTE_DIRECTORY))
             {
@@ -114,7 +122,7 @@ void CDevModeFilePickerDialog::SelectFileForControl(int nCtrlId)
             case IDC_DEVMODE_FILE1:
             default:
                 m_strFile1 = pszFileName;
-                m_strFirstFile = pOFN.lpstrFile;
+                m_strFirstFileWithPath = pOFN.lpstrFile;
                 break;
             case IDC_DEVMODE_FILE2:
                 m_strFile2 = pszFileName;
@@ -126,9 +134,100 @@ void CDevModeFilePickerDialog::SelectFileForControl(int nCtrlId)
                 m_strFile4 = pszFileName;
                 break;
         }
+
+        UpdateOptionsForCurrentSelection();
+
+        UpdateData(FALSE);
+    }
+}
+
+void CDevModeFilePickerDialog::UpdateOptionsForCurrentSelection()
+{
+    const bool fHave1File = (m_strFirstFileWithPath.GetLength() != 0) && (m_strFile1.GetLength() != 0) && (m_strFile2.GetLength() == 0) && (m_strFile3.GetLength() == 0) && (m_strFile4.GetLength() == 0);
+    const bool fHave2Files = (m_strFile1.GetLength() != 0) && (m_strFile2.GetLength() != 0) && (m_strFile3.GetLength() == 0) && (m_strFile4.GetLength() == 0);
+    const bool fHave3Files = (m_strFile1.GetLength() != 0) && (m_strFile2.GetLength() != 0) && (m_strFile3.GetLength() != 0) && (m_strFile4.GetLength() == 0);
+    const bool fHave4Files = (m_strFile1.GetLength() != 0) && (m_strFile2.GetLength() != 0) && (m_strFile3.GetLength() != 0) && (m_strFile4.GetLength() != 0);
+
+    const bool fEnable2FileSetOptions = fHave2Files || fHave4Files;
+
+    GetDlgItem(IDC_DEVMODE_READTYPE_INT2)->EnableWindow(fEnable2FileSetOptions);
+    GetDlgItem(IDC_DEVMODE_READTYPE_INT2_R2_LE)->EnableWindow(fEnable2FileSetOptions);
+    GetDlgItem(IDC_DEVMODE_READTYPE_INT2_R2_BE)->EnableWindow(fEnable2FileSetOptions);
+
+    GetDlgItem(IDC_DEVMODE_READTYPE_INT4)->EnableWindow(fHave4Files);
+
+    switch (m_eReadType)
+    {
+        case static_cast<int>(FileReadType::Sequential):
+            m_fIsConfigurationSupported = fHave1File || fHave2Files || fHave3Files || fHave4Files;
+        case static_cast<int>(FileReadType::Interleaved_2FileSets):
+        case static_cast<int>(FileReadType::Interleaved_Read2Bytes_LE):
+        case static_cast<int>(FileReadType::Interleaved_Read2Bytes_BE):
+            m_fIsConfigurationSupported = fEnable2FileSetOptions;
+            break;
+        case static_cast<int>(FileReadType::Interleaved_4FileSets):
+            m_fIsConfigurationSupported = fHave4Files;
+            break;
     }
 
-    UpdateData(FALSE);
+    if (m_fOKButtonShouldBeEnabled != m_fIsConfigurationSupported)
+    {
+        m_fOKButtonShouldBeEnabled = m_fIsConfigurationSupported;
+
+        GetDlgItem(IDOK)->EnableWindow(m_fOKButtonShouldBeEnabled);
+    }
+}
+
+void CDevModeFilePickerDialog::OnUpdateFileName1()
+{
+    if (!m_fPastInitialConfig1)
+    {
+        m_fPastInitialConfig1 = true;
+    }
+    else
+    {
+        UpdateData();
+        UpdateOptionsForCurrentSelection();
+    }
+}
+
+void CDevModeFilePickerDialog::OnUpdateFileName2()
+{
+    if (!m_fPastInitialConfig2)
+    {
+        m_fPastInitialConfig2 = true;
+    }
+    else
+    {
+        UpdateData();
+        UpdateOptionsForCurrentSelection();
+    }
+}
+
+void CDevModeFilePickerDialog::OnUpdateFileName3()
+{
+    if (!m_fPastInitialConfig3)
+    {
+        m_fPastInitialConfig3 = true;
+    }
+    else
+    {
+        UpdateData();
+        UpdateOptionsForCurrentSelection();
+    }
+}
+
+void CDevModeFilePickerDialog::OnUpdateFileName4()
+{
+    if (!m_fPastInitialConfig4)
+    {
+        m_fPastInitialConfig4 = true;
+    }
+    else
+    {
+        UpdateData();
+        UpdateOptionsForCurrentSelection();
+    }
 }
 
 BOOL CDevModeFilePickerDialog::OnInitDialog()
@@ -166,6 +265,8 @@ BOOL CDevModeFilePickerDialog::OnInitDialog()
     GetDlgItem(IDC_DEVMODE_FILE2)->SetWindowText(m_strFile2);
     GetDlgItem(IDC_DEVMODE_FILE3)->SetWindowText(m_strFile3);
     GetDlgItem(IDC_DEVMODE_FILE4)->SetWindowText(m_strFile4);
+
+    UpdateOptionsForCurrentSelection();
 
     UpdateData(FALSE);
 
@@ -259,7 +360,7 @@ void CDevModeFilePickerDialog::OnOK()
         strDebugInfo.Format(L"\t%u: '%s'\r\n", iFile, m_psFileLoadingData->rgFileList.at(iFile).strFileName.c_str());
         OutputDebugString(strDebugInfo.GetString());
     }
-    strDebugInfo.Format(L"\tFile read join type is enum value '%u' for path '%s'\r\n", m_psFileLoadingData->eReadType, m_strFirstFile.GetString());
+    strDebugInfo.Format(L"\tFile read join type is enum value '%u' for path '%s'\r\n", m_psFileLoadingData->eReadType, m_strFirstFileWithPath.GetString());
     OutputDebugString(strDebugInfo.GetString());
 
     CDialog::OnOK();
@@ -284,10 +385,10 @@ BEGIN_MESSAGE_MAP(CDevModeFilePickerDialog, CDialog)
     ON_BN_CLICKED(IDC_DEVMODE_FILE3_SELECT, &CDevModeFilePickerDialog::OnSelectFile3)
     ON_BN_CLICKED(IDC_DEVMODE_FILE4_SELECT, &CDevModeFilePickerDialog::OnSelectFile4)
 
-    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE1, &CDevModeFilePickerDialog::OnKillFocusFile1)
-    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE2, &CDevModeFilePickerDialog::OnKillFocusFile2)
-    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE3, &CDevModeFilePickerDialog::OnKillFocusFile3)
-    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE4, &CDevModeFilePickerDialog::OnKillFocusFile4)
+    ON_EN_CHANGE(IDC_DEVMODE_FILE1, &OnUpdateFileName1)
+    ON_EN_CHANGE(IDC_DEVMODE_FILE2, &OnUpdateFileName2)
+    ON_EN_CHANGE(IDC_DEVMODE_FILE3, &OnUpdateFileName3)
+    ON_EN_CHANGE(IDC_DEVMODE_FILE4, &OnUpdateFileName4)
 
     ON_BN_CLICKED(IDC_DEVMODE_READTYPE_SEQ, &CDevModeFilePickerDialog::OnFileReadSeq)
     ON_BN_CLICKED(IDC_DEVMODE_READTYPE_INT2, &CDevModeFilePickerDialog::OnFileReadInt2)
@@ -370,7 +471,7 @@ bool CGame_DevMode_DIR::UserCreatesRules(LPWSTR pszPrimaryFilePath /* = nullptr 
 
     if (GetHost()->GetPalModDlg()->GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE))
     {
-        selectDialog.m_strFirstFile = szLastDir;
+        selectDialog.m_strFirstFileWithPath = szLastDir;
     }
 
     bool fSuccess = (selectDialog.DoModal() == IDOK);
@@ -379,7 +480,7 @@ bool CGame_DevMode_DIR::UserCreatesRules(LPWSTR pszPrimaryFilePath /* = nullptr 
     {
         if (pszPrimaryFilePath)
         {
-            wcsncpy(pszPrimaryFilePath, selectDialog.m_strFirstFile, MAX_PATH);
+            wcsncpy(pszPrimaryFilePath, selectDialog.m_strFirstFileWithPath, MAX_PATH);
         }
 
         SaveLoadingChoices();

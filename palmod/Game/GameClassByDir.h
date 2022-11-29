@@ -30,6 +30,9 @@ struct sDirectoryLoadingData
 
 class CGameClassByDir : public CGameWithExtrasFile
 {
+private:
+    void SetValidatedFileReadType();
+
 public:
     struct sCoreGameData
     {
@@ -61,6 +64,7 @@ public:
     static SupportedGamesList m_snCurrentGameFlag;
 
     static const sDirectoryLoadingData* m_psCurrentFileLoadingData;
+    FileReadType m_eValidatedFileJoinType = FileReadType::Sequential;
 
     static uint32_t m_nConfirmedROMSize;
 
