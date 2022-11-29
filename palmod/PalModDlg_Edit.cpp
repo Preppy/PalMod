@@ -515,52 +515,55 @@ void CPalModDlg::OnEditCopy()
 
 void CPalModDlg::OnEditCopyOffset()
 {
-    if (m_fEnabled)
+    if (m_fEnabled && m_fOleInit)
     {
-        if (m_fOleInit)
+        CJunk* CurrPal = m_PalHost.GetNotifyPal();
+        CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+        if (CurrPal && CurrGame)
         {
-            CStringA CopyText;
-
             COleDataSource* pSource = new COleDataSource();
-            CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
 
-            CGameClass* CurrGame = GetHost()->GetCurrGame();
-            CJunk* CurrPal = m_PalHost.GetNotifyPal();
-
-            uint8_t cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
-            int nInitialOffsetDelta = CurrPal->GetHighlightIndex();
-
-            CopyText.Format("0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
-
-            sf.Write(CopyText, CopyText.GetLength());
-
-            HGLOBAL hMem = sf.Detach();
-            if (hMem)
+            if (pSource)
             {
-                pSource->CacheGlobalData(CF_TEXT, hMem);
+                CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+                CStringA CopyText;
+
+                uint8_t cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
+                int nInitialOffsetDelta = CurrPal->GetHighlightIndex();
+
+                CopyText.Format("0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
+
+                sf.Write(CopyText, CopyText.GetLength());
+
+                HGLOBAL hMem = sf.Detach();
+                if (hMem)
+                {
+                    pSource->CacheGlobalData(CF_TEXT, hMem);
+                }
+
+                CString strUnicodeData;
+
+                // Bug/limitation: this location is in reference to palette 0, not the palette issueing the notification
+                strUnicodeData.Format(L"0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
+
+                OutputDebugString(strUnicodeData.GetString());
+
+                CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+
+                sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(wchar_t));
+
+                HGLOBAL hMemUnicode = sfUnicode.Detach();
+                if (hMemUnicode)
+                {
+                    pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
+                }
+
+                EmptyClipboard();
+                pSource->SetClipboard();
+                pSource->FlushClipboard();
+                CloseClipboard();
             }
-
-            CString strUnicodeData;
-
-            // Bug/limitation: this location is in reference to palette 0, not the palette issueing the notification
-            strUnicodeData.Format(L"0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
-
-            OutputDebugString(strUnicodeData.GetString());
-
-            CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
-
-            sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(wchar_t));
-
-            HGLOBAL hMemUnicode = sfUnicode.Detach();
-            if (hMemUnicode)
-            {
-                pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
-            }
-
-            EmptyClipboard();
-            pSource->SetClipboard();
-            pSource->FlushClipboard();
-            CloseClipboard();
         }
     }
 }
