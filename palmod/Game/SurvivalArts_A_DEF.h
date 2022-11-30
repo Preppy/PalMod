@@ -220,9 +220,79 @@ const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_2P[] =
     { L"Mongo 2P/Alt", 0x1a50c, 0x1a60c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES[] =
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_LP[] =
 {
     { L"Kane LP", 0x1150c, 0x1160c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_MP[] =
+{
+    { L"Kane MP", 0x1720c, 0x1730c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_HP[] =
+{
+    { L"Kane HP", 0x1ba0c, 0x1bb0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_LK[] =
+{
+    { L"Kane LK", 0x1bb0c, 0x1bc0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_MK[] =
+{
+    { L"Kane MK", 0x1bc0c, 0x1bd0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_HK[] =
+{
+    { L"Kane HK", 0x1bd0c, 0x1be0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_2P[] =
+{
+    { L"Kane 2P/Alt", 0x1be0c, 0x1bf0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_LP[] =
+{
+    { L"Santana LP", 0x1530c, 0x1540c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_MP[] =
+{
+    { L"Santana MP", 0x1110c, 0x1120c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_HP[] =
+{
+    { L"Santana HP", 0x1ab0c, 0x1ac0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_LK[] =
+{
+    { L"Santana LK", 0x1ac0c, 0x1ad0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_MK[] =
+{
+    { L"Santana MK", 0x1ad0c, 0x1ae0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_HK[] =
+{
+    { L"Santana HK", 0x1ae0c, 0x1af0c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_2P[] =
+{
+    { L"Santana 2P/Alt", 0x1af0c, 0x1b00c },
+};
+
+const sGame_PaletteDataset SurvivalArts_A_DANTEL_PALETTES[] =
+{
+    { L"Dantel", 0x1660c, 0x1670c },
 };
 
 const sDescTreeNode SurvivalArts_A_VIPER_COLLECTION[] =
@@ -293,7 +363,29 @@ const sDescTreeNode SurvivalArts_A_MONGO_COLLECTION[] =
 
 const sDescTreeNode SurvivalArts_A_KANE_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES) },
+    { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_LP) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_MP) },
+    { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_HP) },
+    { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_LK) },
+    { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_MK) },
+    { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_HK) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_2P) },
+};
+
+const sDescTreeNode SurvivalArts_A_SANTANA_COLLECTION[] =
+{
+    { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_LP) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_MP) },
+    { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_HP) },
+    { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_LK) },
+    { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_MK) },
+    { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_HK) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_2P) },
+};
+
+const sDescTreeNode SurvivalArts_A_DANTEL_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_DANTEL_PALETTES, ARRAYSIZE(SurvivalArts_A_DANTEL_PALETTES) },
 };
 
 const sDescTreeNode SurvivalArts_A_UNITS[] =
@@ -305,4 +397,6 @@ const sDescTreeNode SurvivalArts_A_UNITS[] =
     { L"Tasha", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_COLLECTION, ARRAYSIZE(SurvivalArts_A_TASHA_COLLECTION) },
     { L"Mongo", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_COLLECTION, ARRAYSIZE(SurvivalArts_A_MONGO_COLLECTION) },
     { L"Kane", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_COLLECTION, ARRAYSIZE(SurvivalArts_A_KANE_COLLECTION) },
+    { L"Santana", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_COLLECTION, ARRAYSIZE(SurvivalArts_A_SANTANA_COLLECTION) },
+    { L"Dantel", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_DANTEL_COLLECTION, ARRAYSIZE(SurvivalArts_A_DANTEL_COLLECTION) },
 };

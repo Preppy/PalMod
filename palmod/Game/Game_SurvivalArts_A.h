@@ -46,7 +46,7 @@ private:
         SurvivalArts_A_UNITS,
         ARRAYSIZE(SurvivalArts_A_UNITS),
         L"SurvivalArts_A_E.txt",    // Extra filename
-        43,                         // Count of palettes listed in the header
+        57,                         // Count of palettes listed in the header
         0x10f0c,                    // Lowest known location used for palettes
     };
 
@@ -65,7 +65,7 @@ private:
         SurvivalArts_A_UNITS,
         ARRAYSIZE(SurvivalArts_A_UNITS),
         L"SurvivalArts_A_E.txt",    // Extra filename
-        43,                         // Count of palettes listed in the header
+        57,                         // Count of palettes listed in the header
         0x10f0c,                    // Lowest known location used for palettes
     };
 
