@@ -9,6 +9,7 @@ private:
     {
         V31Normal,
         V31Alt,
+        V31Ult,
     };
 
     static MK2ALoadingKey m_eVersionToLoad;
@@ -27,6 +28,15 @@ private:
         {
             { L"uj12.l31", 0x80000 },
             { L"ug12.l31", 0x80000 },
+        },
+        FileReadType::Interleaved_2FileSets,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_V31Ult =
+    {
+        {
+            { L"mk2ute.uj12", 0x80000 },
+            { L"mk2ute.ug12", 0x80000 },
         },
         FileReadType::Interleaved_2FileSets,
     };
@@ -62,6 +72,25 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V31Alt,
+        MK2_A_UNITS,
+        ARRAYSIZE(MK2_A_UNITS),
+        L"MK2_A_E.txt",             // Extra filename
+        31,                         // Count of palettes listed in the header
+        0x210e2,                    // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_V31Ult
+    {
+        L"Mortal Kombat II Ultimate Tournament Edition (hack)",
+        MK2_A,
+        IMGDAT_SECTION_OTHER,
+        MK2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB555_BE,
+        m_sFileLoadingData_V31Ult,
         MK2_A_UNITS,
         ARRAYSIZE(MK2_A_UNITS),
         L"MK2_A_E.txt",             // Extra filename

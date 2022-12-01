@@ -10,6 +10,8 @@ void CGame_SAMSHO5_A::SetSpecialRuleForFileName(std::wstring strFileName)
         // these should be all lower case
         { L"270-p1.bin", SamSho5LoadingKey::NeoGeo },
         { L"270-p1.p1", SamSho5LoadingKey::NeoGeo },
+        { L"p1.bin", SamSho5LoadingKey::NeoGeo },
+        { L"270-p1c.p1", SamSho5LoadingKey::NeoGeo },
         { L"ssvx_p1.rom", SamSho5LoadingKey::Xbox },
     };
 
@@ -60,8 +62,10 @@ uint32_t CGame_SAMSHO5_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** pp
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Samurai Shodown V (Neo-Geo)", L"270-p1.bin", 0x4a2a09e6, 0 },
-        { L"Samurai Shodown V (Neo-Geo)", L"270-p1.p1", 0x4a2a09e6, 0 },
+        { L"Samurai Shodown V (Neo-Geo set 1)", L"270-p1.bin", 0x4a2a09e6, 0 },
+        { L"Samurai Shodown V (Neo-Geo set 1)", L"270-p1.p1", 0x4a2a09e6, 0 },
+        { L"Samurai Shodown V (Neo-Geo set 2)", L"p1.bin", 0x7795fffe, 0 },
+        { L"Samurai Shodown V (Neo-Geo Hack)", L"270-p1c.p1", 0xbf956089, 0 },
 
         { L"Samurai Shodown V (Xbox)", L"ssvx_p1.rom", 0x16983af9, 0x6d1000 - 0x0d5000 },
     };

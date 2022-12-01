@@ -7,6 +7,9 @@ uint32_t CGame_SPF2T_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     {
         { L"Super Puzzle Fighter II Turbo (CPS2)", L"pzf.04", 0xb80649e2, 0 },
         { L"Super Puzzle Fighter II Turbo (CPS2)", L"pzf.04a", 0xb80649e2, 0 },
+
+        { L"Super Puzzle Fighter II Turbo (Color Blind Hack, v1.1)", L"pzfcb.04", 0xb80649e2, 0 },
+        { L"Super Puzzle Fighter 2 X' Balance Patch (Hack)", L"pzfxp.04", 0xb80649e2, 0 },
     };
 
     if (ppKnownROMSet)

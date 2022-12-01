@@ -1,6 +1,32 @@
 #include "StdAfx.h"
 #include "Game_SAMSHO4_A.h"
 
+uint32_t CGame_SAMSHO4_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet * *ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Samurai Shodown IV (Neo-Geo)", L"222-p1.p1", 0x1a5cb56d, 0 },
+        { L"Samurai Shodown IV (Neo-Geo)", L"222_p1.p1", 0x1a5cb56d, 0 },
+        { L"Samurai Shodown IV (Neo-Geo Korea)", L"222-p1k.p1", 0x06e0a25d, 0 },
+        { L"Samurai Shodown IV (Neo-Geo) ", L"sams4_p1.rom", 0x1a5cb56d, 0 },
+        { L"Samurai Shodown IV (Special 2017, hack) ", L"222-p1sp.p1", 0x6e98579a, 0 },
+        
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
 void CGame_SAMSHO4_A::DumpAllPalettes()
 {
     // I wanted to quickly generate the special palettes we didn't have listed yet.

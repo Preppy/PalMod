@@ -37,6 +37,8 @@ private:
 public:
     CGame_SAMSHO4_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+
     BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };

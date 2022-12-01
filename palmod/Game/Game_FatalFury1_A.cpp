@@ -7,6 +7,7 @@ uint32_t CGame_FatalFury1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet**
     {
         { L"Fatal Fury: King of Fighters (Neo-Geo)", L"033-p1.p1", 0x47ebdc2f, 0 },
         { L"Fatal Fury: King of Fighters (Neo-Geo)", L"033-p1.bin", 0x47ebdc2f, 0 },
+        { L"Fatal Fury: King of Fighters (Boss Hack by Yumeji)", L"033-p1bh.p1", 0xfc051e1d, 0 },
     };
 
     if (ppKnownROMSet)

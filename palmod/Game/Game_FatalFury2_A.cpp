@@ -9,6 +9,7 @@ void CGame_FatalFury2_A::SetSpecialRuleForFileName(std::wstring strFileName)
     {
         // these should be all lower case
         { L"047-p1.bin", FF2LoadingKey::Normal },
+        { L"047-epr.ep1", FF2LoadingKey::Normal },
         { L"047-p1.p1", FF2LoadingKey::Jumbo },
     };
 
@@ -45,6 +46,7 @@ uint32_t CGame_FatalFury2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet**
     {
         { L"Fatal Fury 2 (Neo-Geo)", L"047-p1.bin", 0xbe40ea92, 0 },
         { L"Fatal Fury 2 (Neo-Geo)", L"047-p1.p1", 0xecfdbb69, 0 },
+        { L"Fatal Fury 2 (Neo-Geo)", L"047-epr.ep1", 0xbe40ea92, 0 },
     };
 
     if (ppKnownROMSet)

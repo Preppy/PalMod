@@ -436,7 +436,7 @@ const sGame_PaletteDataset RBFF2_A_StartSelectScreen_PALETTES[] =
     { L"Laurence - Start Select Icon", 0xd6e40, 0xd6e60 },
     { L"Krauser - Start Select Icon", 0xd6e60, 0xd6e80 },
     { L"Rick - Start Select Icon", 0xd6e80, 0xd6ea0 },
-    { L"XiangFei - Start Select Icon", 0xd6ea0, 0xd6ec0 },
+    { L"Xiangfei - Start Select Icon", 0xd6ea0, 0xd6ec0 },
 };
 
 const sGame_PaletteDataset RBFF2_A_SelectScreen_PALETTES[] =
@@ -463,7 +463,7 @@ const sGame_PaletteDataset RBFF2_A_SelectScreen_PALETTES[] =
     { L"Franco - Select Icon", 0xd9460, 0xd9480 },
     // These two are just black: don't expose
     //{ L"Rick - Select Icon", 0xd9480, 0xd94a0 },
-    //{ L"XiangFei - Select Icon", 0xd94a0, 0xd94c0 },
+    //{ L"Xiangfei - Select Icon", 0xd94a0, 0xd94c0 },
 };
 
 const sDescTreeNode RBFF2_A_BONUS_COLLECTION[] =
@@ -1610,7 +1610,7 @@ const sDescTreeNode RBFF2_A_UNITS[] =
     { L"Laurence", DESC_NODETYPE_TREE, (void*)RBFF2_A_LAURENCE_COLLECTION, ARRAYSIZE(RBFF2_A_LAURENCE_COLLECTION) },
     { L"Krauser", DESC_NODETYPE_TREE, (void*)RBFF2_A_KRAUSER_COLLECTION, ARRAYSIZE(RBFF2_A_KRAUSER_COLLECTION) },
     { L"Rick", DESC_NODETYPE_TREE, (void*)RBFF2_A_RICK_COLLECTION, ARRAYSIZE(RBFF2_A_RICK_COLLECTION) },
-    { L"XiangFei", DESC_NODETYPE_TREE, (void*)RBFF2_A_XIANGFEI_COLLECTION, ARRAYSIZE(RBFF2_A_XIANGFEI_COLLECTION) },
+    { L"Xiangfei", DESC_NODETYPE_TREE, (void*)RBFF2_A_XIANGFEI_COLLECTION, ARRAYSIZE(RBFF2_A_XIANGFEI_COLLECTION) },
     { L"Alfred", DESC_NODETYPE_TREE, (void*)RBFF2_A_ALFRED_COLLECTION, ARRAYSIZE(RBFF2_A_ALFRED_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)RBFF2_A_BONUS_COLLECTION, ARRAYSIZE(RBFF2_A_BONUS_COLLECTION) },
 };

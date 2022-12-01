@@ -1002,6 +1002,9 @@
     <ClCompile Include="Game\Game_SurvivalArts_A.cpp">
       <Filter>Games\Other Platforms\Survival Arts %28Scarab%29</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_FatalFury3_A.cpp">
+      <Filter>Games\SNK Games\Fatal Fury 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

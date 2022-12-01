@@ -1,6 +1,30 @@
 #include "StdAfx.h"
 #include "Game_SAMSHO2_A.h"
 
+uint32_t CGame_SAMSHO2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Samurai Shodown II (Neo-Geo)", L"063-p1.p1", 0x22368892, 0 },
+        { L"Samurai Shodown II (Neo-Geo)", L"063-p1.bin", 0x22368892, 0 },
+        { L"Samurai Shodown II (Special 2017, hack) ", L"063-p1-kan.p1", 0x147cc6d7, 0 },
+        { L"Samurai Shodown II (Neo-Geo Optimized)", L"063-p1new.p1", 0xc7633c54, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
 void CGame_SAMSHO2_A::DumpPaletteHeaders()
 {
     CString strOutput;

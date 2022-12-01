@@ -52,7 +52,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_World
     {
-        L"Mortal Kombat II (Arcade rev L3.1)",
+        L"Survival Arts (World)",
         SurvivalArts_A,
         IMGDAT_SECTION_OTHER,
         SurvivalArts_A_IMGIDS_USED,
