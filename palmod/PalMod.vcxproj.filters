@@ -550,6 +550,9 @@
     <Filter Include="Games\Other Platforms\Survival Arts %28Scarab%29">
       <UniqueIdentifier>{2da53dac-0d06-425f-af72-cc00ffeb2bec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29">
+      <UniqueIdentifier>{f7fcc081-8488-40cd-a0a9-16dd6caab4aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1004,6 +1007,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_FatalFury3_A.cpp">
       <Filter>Games\SNK Games\Fatal Fury 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_UMK3_A.cpp">
+      <Filter>Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2038,6 +2044,12 @@
     </ClInclude>
     <ClInclude Include="Game\SurvivalArts_A_DEF.h">
       <Filter>Games\Other Platforms\Survival Arts %28Scarab%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_UMK3_A.h">
+      <Filter>Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UMK3_A_DEF.h">
+      <Filter>Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

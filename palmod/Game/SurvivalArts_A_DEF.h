@@ -15,9 +15,9 @@ const sGame_PaletteDataset SurvivalArts_A_VIPER_PALETTES_LP[] =
     { L"Viper LP", 0x1500c, 0x1510c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_VIPER_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_VIPER_PALETTES_MP[] =
 {
-    { L"Viper 2P/Alt", 0x1120c, 0x1130c },
+    { L"Viper MP", 0x1120c, 0x1130c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_VIPER_PALETTES_HP[] =
@@ -40,9 +40,9 @@ const sGame_PaletteDataset SurvivalArts_A_VIPER_PALETTES_HK[] =
     { L"Viper HK", 0x1a90c, 0x1aa0c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_VIPER_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_VIPER_PALETTES_2P[] =
 {
-    { L"Viper MP", 0x1aa0c, 0x1ab0c },
+    { L"Viper 2P/Alt", 0x1aa0c, 0x1ab0c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_LP[] =
@@ -50,9 +50,9 @@ const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_LP[] =
     { L"Gunner LP", 0x1100c, 0x1110c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_MP[] =
 {
-    { L"Gunner 2P/Alt", 0x1930c, 0x1940c },
+    { L"Gunner MP", 0x13e0c, 0x13f0c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_HP[] =
@@ -75,9 +75,9 @@ const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_HK[] =
     { L"Gunner HK", 0x1920c, 0x1930c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_GUNNER_PALETTES_2P[] =
 {
-    { L"Gunner MP", 0x13e0c, 0x13f0c },
+    { L"Gunner 2P/Alt", 0x1930c, 0x1940c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_LP[] =
@@ -85,9 +85,9 @@ const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_LP[] =
     { L"Hanna LP", 0x10f0c, 0x1100c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_MP[] =
 {
-    { L"Hanna 2P/Alt", 0x1680c, 0x1690c },
+    { L"Hanna MP", 0x1680c, 0x1690c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_HP[] =
@@ -110,9 +110,9 @@ const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_HK[] =
     { L"Hanna HK", 0x1b80c, 0x1b90c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_HANNA_PALETTES_2P[] =
 {
-    { L"Hanna MP", 0x1b90c, 0x1ba0c },
+    { L"Hanna 2P/Alt", 0x1b90c, 0x1ba0c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_LP[] =
@@ -120,9 +120,9 @@ const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_LP[] =
     { L"Hiryu LP", 0x1300c, 0x1310c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_MP[] =
 {
-    { L"Hiryu 2P/Alt", 0x1520c, 0x1530c },
+    { L"Hiryu MP", 0x1520c, 0x1530c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_HP[] =
@@ -145,9 +145,9 @@ const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_HK[] =
     { L"Hiryu HK", 0x1b30c, 0x1b40c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_HIRYU_PALETTES_2P[] =
 {
-    { L"Hiryu MP", 0x1b40c, 0x1b50c },
+    { L"Hiryu 2P/Alt", 0x1b40c, 0x1b50c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_LP[] =
@@ -155,9 +155,9 @@ const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_LP[] =
     { L"Tasha LP", 0x1140c, 0x1150c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_MP[] =
 {
-    { L"Tasha 2P/Alt", 0x13f0c, 0x1400c },
+    { L"Tasha MP", 0x13f0c, 0x1400c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_HP[] =
@@ -180,9 +180,9 @@ const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_HK[] =
     { L"Tasha HK", 0x1970c, 0x1980c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_TASHA_PALETTES_2P[] =
 {
-    { L"Tasha MP", 0x1980c, 0x1990c },
+    { L"Tasha 2P/Alt", 0x1980c, 0x1990c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_LP[] =
@@ -190,9 +190,9 @@ const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_LP[] =
     { L"Mongo LP", 0x1130c, 0x1140c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_MP[] =
 {
-    { L"Mongo 2P/Alt", 0x1410c, 0x1420c },
+    { L"Mongo MP", 0x1410c, 0x1420c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_HP[] =
@@ -215,9 +215,9 @@ const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_HK[] =
     { L"Mongo HK", 0x1a40c, 0x1a50c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_MONGO_PALETTES_2P[] =
 {
-    { L"Mongo MP", 0x1a50c, 0x1a60c },
+    { L"Mongo 2P/Alt", 0x1a50c, 0x1a60c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_LP[] =
@@ -225,9 +225,9 @@ const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_LP[] =
     { L"Kane LP", 0x1150c, 0x1160c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_MP[] =
 {
-    { L"Kane 2P/Alt", 0x1720c, 0x1730c },
+    { L"Kane MP", 0x1720c, 0x1730c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_HP[] =
@@ -250,9 +250,9 @@ const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_HK[] =
     { L"Kane HK", 0x1bd0c, 0x1be0c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_KANE_PALETTES_2P[] =
 {
-    { L"Kane MP", 0x1be0c, 0x1bf0c },
+    { L"Kane 2P/Alt", 0x1be0c, 0x1bf0c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_LP[] =
@@ -260,9 +260,9 @@ const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_LP[] =
     { L"Santana LP", 0x1530c, 0x1540c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_2P[] =
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_MP[] =
 {
-    { L"Santana 2P/Alt", 0x1110c, 0x1120c },
+    { L"Santana MP", 0x1110c, 0x1120c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_HP[] =
@@ -285,9 +285,9 @@ const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_HK[] =
     { L"Santana HK", 0x1ae0c, 0x1af0c },
 };
 
-const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_MP[] =
+const sGame_PaletteDataset SurvivalArts_A_SANTANA_PALETTES_2P[] =
 {
-    { L"Santana MP", 0x1af0c, 0x1b00c },
+    { L"Santana 2P/Alt", 0x1af0c, 0x1b00c },
 };
 
 const sGame_PaletteDataset SurvivalArts_A_DANTEL_PALETTES[] =
@@ -303,84 +303,84 @@ const sDescTreeNode SurvivalArts_A_VIPER_COLLECTION[] =
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_VIPER_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_VIPER_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_VIPER_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_VIPER_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_VIPER_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_VIPER_PALETTES_HK) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_VIPER_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_VIPER_PALETTES_2P) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_VIPER_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_VIPER_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_GUNNER_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_LP) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_2P) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_MP) },
     { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_HP) },
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_HK) },
-    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_MP) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_GUNNER_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_GUNNER_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_HANNA_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_LP) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_2P) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_MP) },
     { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_HP) },
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_HK) },
-    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_MP) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HANNA_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_HANNA_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_HIRYU_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_LP) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_2P) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_MP) },
     { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_HP) },
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_HK) },
-    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_MP) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_HIRYU_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_HIRYU_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_TASHA_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_LP) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_2P) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_MP) },
     { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_HP) },
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_HK) },
-    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_MP) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_TASHA_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_TASHA_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_MONGO_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_LP) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_2P) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_MP) },
     { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_HP) },
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_HK) },
-    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_MP) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_MONGO_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_MONGO_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_KANE_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_LP) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_2P) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_MP) },
     { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_HP) },
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_HK) },
-    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_MP) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_KANE_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_KANE_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_SANTANA_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_LP, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_LP) },
-    { L"2P/Alt", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_2P) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_MP) },
     { L"HP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_HP, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_HP) },
     { L"LK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_LK, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_LK) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_MK, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_MK) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_HK, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_HK) },
-    { L"MP", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_MP, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_MP) },
+    { L"2P/ALT", DESC_NODETYPE_TREE, (void*)SurvivalArts_A_SANTANA_PALETTES_2P, ARRAYSIZE(SurvivalArts_A_SANTANA_PALETTES_2P) },
 };
 
 const sDescTreeNode SurvivalArts_A_DANTEL_COLLECTION[] =

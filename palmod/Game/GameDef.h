@@ -206,6 +206,7 @@ enum SupportedGamesList
     JCHAN_A,
     BattleFlipShot_A,
     SurvivalArts_A,
+    UMK3_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -406,6 +407,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Jackie Chan in Fists of Fire (Kaneko, Arcade)",
     L"Battle Flip Shot (Neo-Geo)",
     L"Survival Arts (World)",
+    L"Ultimate Mortal Kombat 3 (Midway, Arcade)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

@@ -90,7 +90,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { MMX3_SNES,        L"Mega Man X3 (SNES)", L"Mega Man X3 (SNES)|Mega*Man X3 (USA).s?c|", GamePlatform::Nintendo },
     { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).s?c|", GamePlatform::Nintendo },
     { MK1_SNES,         L"Mortal Kombat (SNES)", L"Mortal Kombat (SNES)|Mortal Kombat (USA).sfc|", GamePlatform::Nintendo },
-    { MK2_A,            L"Mortal Kombat II (Arcade)", L"Mortal Kombat 2 (Arcade)|l3.1_mortal_kombat_ii_game_rom_uj12.uj12;uj12.l31;mk2ute.uj12|", GamePlatform::OtherPlatform },
+    { MK2_A,            L"Mortal Kombat II (Midway)", L"Mortal Kombat 2 (Arcade)|l3.1_mortal_kombat_ii_game_rom_uj12.uj12;uj12.l31;mk2ute.uj12|", GamePlatform::OtherPlatform },
     { MK2_SNES,         L"Mortal Kombat II (SNES)", L"Mortal Kombat 2 (SNES)|MK2 USA.sfc;Mortal Kombat II (USA)*.sfc;Mortal_Kombat_II_USA.sfc|", GamePlatform::Nintendo },
     { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { MSHWOTG_SNES,     L"MSH: War of the Gems (SNES)", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).s?c|", GamePlatform::Nintendo },
@@ -128,7 +128,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
     { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
     { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
-    { SF1_A,            L"Street Fighter", L"Street Fighter|sf*19*.*;sfd-19;sfe-19|", GamePlatform::OtherPlatform },
+    { SF1_A,            L"Street Fighter (Capcom)", L"Street Fighter|sf*19*.*;sfd-19;sfe-19|", GamePlatform::OtherPlatform },
     { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SHAQFU_SNES,      L"Shaq Fu (SNES)", L"Shaq Fu (SNES)|Shaq Fu (USA).sfc;sns-aqfe-0.u1|", GamePlatform::Nintendo },
@@ -142,6 +142,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*;pzfcb.04;pzfxp.04|", GamePlatform::CapcomCPS12 },
     { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF (SNES)", L"Teenage Mutant Ninja Turtles: TF (SNES)|sns-ky-0.u1;teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo },
     { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::OtherPlatform },
+    { UMK3_A,           L"Ultimate Mortal Kombat 3 (Midway)", L"Ultimate Mortal Kombat 3 (Arcade)|l1.2_mortal_kombat_3_u54_ultimate.u54;um312u54.bin;u54_umk3plus.u54;umk3plus_beta1.u54;umk3te.u54;umk3uc-u54.bin;umk3uk-u54.bin|", GamePlatform::OtherPlatform },
     { UMK3_DS,          L"Ultimate Mortal Kombat 3 (DS)", L"Ultimate Mortal Kombat 3 (DS)|Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds|", GamePlatform::Nintendo },
     { UMK3_SNES,        L"Ultimate Mortal Kombat 3 (SNES)", L"Ultimate Mortal Kombat 3 (SNES)|Ultimate Mortal Kombat 3 (USA).sfc;sns-a3ze.u1|", GamePlatform::Nintendo },
     { VampireNightWarriors_A,   L"Vampire: The Night Warriors", L"Vampire: The Night Warriors: Characters (rom 9), Portraits (rom 4)|vam*.09?; vam*.04?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
@@ -157,7 +158,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 184, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 185, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {

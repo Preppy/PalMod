@@ -145,6 +145,7 @@
 #include "Game_SVCPLUSA_A.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
+#include "Game_UMK3_A.h"
 #include "Game_UMK3_DS.h"
 #include "Game_UMK3_SNES.h"
 #include "Game_UNICLR_A.h"
@@ -164,7 +165,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 184, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 185, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -1177,6 +1178,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_TOPF2005_SEGA::GetRule;
         return TRUE;
     }
+    case UMK3_A:
+    {
+        GetRule = &CGame_UMK3_A::GetRule;
+        return TRUE;
+    }
     case UMK3_DS:
     {
         GetRule = &CGame_UMK3_DS::GetRule;
@@ -1918,6 +1924,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_TOPF2005_SEGA(nConfirmedROMSize);
     }    
+    case UMK3_A:
+    {
+        return new CGame_UMK3_A(nConfirmedROMSize);
+    }
     case UMK3_DS:
     {
         return new CGame_UMK3_DS(nConfirmedROMSize);
@@ -2101,6 +2111,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         case SurvivalArts_A:
             CGame_SurvivalArts_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case UMK3_A:
+            CGame_UMK3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case VampireNightWarriors_A:
             CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(pszFileNameLowercase);
