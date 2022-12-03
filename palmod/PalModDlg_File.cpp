@@ -18,14 +18,14 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { AODK_A,           L"Aggressors of Dark Kombat", L"Aggressors of Dark Kombat|074-p1.*|", GamePlatform::NEOGEO },
     { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
-    { AsuraBuster_A,    L"Asura Buster", L"Asura Buster|pgm3.u1|", GamePlatform::OtherPlatform },
-    { AvgrsGS_A,        L"Avengers in Galactic Storm", L"Avengers in Galactic Storm|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::OtherPlatform },
+    { AsuraBuster_A,    L"Asura Buster: Eternal Warriors (Fuuki)", L"Asura Buster: Eternal Warriors (Fuuki)|pgm3.u1|", GamePlatform::OtherPlatform },
+    { AvgrsGS_A,        L"Avengers in Galactic Storm (Data East)", L"Avengers in Galactic Storm (Data East)|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::OtherPlatform },
     { BattleFlipShot_A, L"Battle Flip Shot", L"Battle Flip Shot (Neo-Geo)|247-p1.*|", GamePlatform::NEOGEO },
     { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
     { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR (SNES)", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (J*).s?c|", GamePlatform::Nintendo },
-    { BtlKRoad_A,       L"Battle K-Road", L"Battle K-Road|4-u46.bin|", GamePlatform::OtherPlatform },
+    { BtlKRoad_A,       L"Battle K-Road (Psikyo)", L"Battle K-Road (Psikyo)|4-u46.bin|", GamePlatform::OtherPlatform },
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS1_A,           L"CvS1", L"CvS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::SegaNAOMI },
@@ -155,7 +155,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.*|", GamePlatform::NEOGEO }, // Data East on NEOGEO
     { XMMA_SNES,        L"X-Men: Mutant Apocalypse (SNES)", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).s?c|", GamePlatform::Nintendo },
     { XMVSF_A,          L"XMvSF", L"XMvSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
-    { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
+    { NEOGEO_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == 185, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");

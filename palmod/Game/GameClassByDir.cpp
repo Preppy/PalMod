@@ -425,10 +425,12 @@ void CGameClassByDir::SetValidatedFileReadType()
         }
         break;
     case FileReadType::Interleaved_4FileSets:
-        if ((m_psCurrentFileLoadingData->rgFileList.size() % 4) != 0)
+        if (((m_psCurrentFileLoadingData->rgFileList.size() % 4) != 0) ||
+            GameIsUsing24BitColor()) // We don't support 4 file interleave for 24bit right now
         {
             m_eValidatedFileJoinType = FileReadType::Sequential;
         }
+
         break;
     }
 
@@ -623,12 +625,6 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 16bit color read
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        // We only currently support interleaving of two files 
-                        if ((m_psCurrentFileLoadingData->rgFileList.size() % 2) != 0)
-                        {
-                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving sets of 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-
                         const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -787,12 +783,6 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 24bit color read
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        // We only currently support interleaving of two files 
-                        if ((m_psCurrentFileLoadingData->rgFileList.size() % 2) != 0)
-                        {
-                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving sets of 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-
                         const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -1430,12 +1420,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 24bit color write
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        // We only currently support interleaving of two files 
-                        if (m_psCurrentFileLoadingData->rgFileList.size() != 2)
-                        {
-                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-
                         const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
