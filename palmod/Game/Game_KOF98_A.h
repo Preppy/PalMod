@@ -28,7 +28,7 @@ private:
         KOF98_A_UNITS,
         ARRAYSIZE(KOF98_A_UNITS),
         L"KOF98E.txt",          // Extra filename
-        1948,                   // Count of palettes listed in the header
+        2024,                   // Count of palettes listed in the header
         0x2d8210,               // Lowest known location used for palettes
     };
 

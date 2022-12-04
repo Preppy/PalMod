@@ -2797,6 +2797,126 @@ const sGame_PaletteDataset KOF98_A_OMEGARUGAL_EFFECT_PALETTES[] =
     { L"Super Trail 3", 0x2f35d0, 0x2f35f0, indexKOF98Sprites_Rugal },
 };
 
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_JAPAN[] =
+{
+    { L"Japan Street Stage (1/6) 0x2d89f0", 0x2d89f0, 0x2d8bf0 },
+    { L"Japan Street Stage (2/6) 0x2d8bf0", 0x2d8bf0, 0x2d8df0 },
+    { L"Japan Street Stage (3/6) 0x2d8df0", 0x2d8df0, 0x2d8ff0 },
+    { L"Japan Street Stage (4/6) 0x2d8ff0", 0x2d8ff0, 0x2d91f0 },
+    { L"Japan Street Stage (5/6) 0x2d91f0", 0x2d91f0, 0x2d93f0 },
+    { L"Japan Street Stage (6/6) 0x2d93f0", 0x2d93f0, 0x2d9570 },
+    { L"Japan Street Stage part 2", 0x2d95d0, 0x2d95f0 },
+    { L"Japan Street Stage", 0x2f9650, 0x2f96d0 },
+    { L"Japan Street Stage part 2", 0x2f96f0, 0x2f9730 },
+};
+
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_CHINA[] =
+{
+    { L"China Stage (1/4) 0x2f89f0", 0x2f89f0, 0x2f8bf0 },
+    { L"China Stage (2/4) 0x2f8bf0", 0x2f8bf0, 0x2f8df0 },
+    { L"China Stage (3/4) 0x2f8df0", 0x2f8df0, 0x2f8ff0 },
+    { L"China Stage (4/4) 0x2f8ff0", 0x2f8ff0, 0x2f9050 },
+    { L"China Stage part 2", 0x2f9070, 0x2f91f0 },
+    { L"China Stage part 3", 0x2f9330, 0x2f9410 },
+    { L"China Stage part 4", 0x2f9450, 0x2f95d0 },
+};
+
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_KOREA[] =
+{
+    { L"Korea Stage", 0x2f97f0, 0x2f9870 },
+    { L"Korea Stage part 2 (1/3) 0x2f98b0", 0x2f98b0, 0x2f9ab0 },
+    { L"Korea Stage part 2 (2/3) 0x2f9ab0", 0x2f9ab0, 0x2f9cb0 },
+    { L"Korea Stage part 2 (3/3) 0x2f9cb0", 0x2f9cb0, 0x2f9d30 },
+    { L"Korea Stage part 3", 0x2f9d50, 0x2f9df0 },
+    { L"Korea Stage part 4 (1/2) 0x2f9e10", 0x2f9e10, 0x2fa010 },
+    { L"Korea Stage part 4 (2/2) 0x2fa010", 0x2fa010, 0x2fa190 },
+    { L"Korea Stage part 5", 0x2fa1b0, 0x2fa1f0 },
+};
+
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_SPAIN[] =
+{
+    { L"Spain Stage 1 morning (1/2) 0x2fadf0", 0x2fadf0, 0x2faff0 },
+    { L"Spain Stage 1 morning (2/2) 0x2faff0", 0x2faff0, 0x2fb110 },
+    { L"Spain Stage 2 evening (1/2) 0x2fb110", 0x2fb110, 0x2fb310 },
+    { L"Spain Stage 2 evening (2/2) 0x2fb310", 0x2fb310, 0x2fb430 },
+    { L"Spain Stage 3 night (1/2) 0x2fb430", 0x2fb430, 0x2fb630 },
+    { L"Spain Stage 3 night (2/2) 0x2fb630", 0x2fb630, 0x2fb730 },
+    { L"Spain Stage 2 evening", 0x2fb730, 0x2fb770 },
+    { L"Spain Stage 3 night", 0x2fb770, 0x2fb7b0 },
+    { L"Spain Stage 2 evening", 0x2fb7b0, 0x2fb7d0 },
+    { L"Spain Stage 3 night", 0x2fb7d0, 0x2fb7f0 },
+    { L"Spain Stage 3 night", 0x2fb970, 0x2fb990 },
+    { L"Spain Stage cat", 0x2fb990, 0x2fb9d0 },
+    { L"Spain Stage 1 morning Fountain water", 0x2fb9d0, 0x2fb9f0 },
+};
+
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_USATRAIN[] =
+{
+    { L"U.S.A. Train Yard Stage round 1 - Part 1 (1/3) 0x2fb9f0", 0x2fb9f0, 0x2fbbf0 },
+    { L"U.S.A. Train Yard Stage round 1 - Part 1 (2/3) 0x2fbbf0", 0x2fbbf0, 0x2fbdf0 },
+    { L"U.S.A. Train Yard Stage round 1 - Part 1 (3/3) 0x2fbdf0", 0x2fbdf0, 0x2fbed0 },
+    { L"U.S.A. Train Yard Stage round 1 - Part 2", 0x2fbf30, 0x2fbff0 },
+    { L"U.S.A. Train Yard Stage round 2 - Part 1", 0x2fbff0, 0x2fc1b0 },
+    { L"U.S.A. Train Yard Stage round 2 - Part 2 (1/2) 0x2fc1d0", 0x2fc1d0, 0x2fc3d0 },
+    { L"U.S.A. Train Yard Stage round 2 - Part 2 (2/2) 0x2fc3d0", 0x2fc3d0, 0x2fc5d0 },
+    { L"U.S.A. Train Yard Stage round 1 part 3", 0x2fc5d0, 0x2fc5f0 },
+};
+
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_JAPANTEMPLE[] =
+{
+    { L"Japan Temple Stage round 1-2-3", 0x2fc610, 0x2fc7d0 },
+    { L"Japan Temple Stage round 3", 0x2fc7f0, 0x2fc9f0 },
+    { L"Japan Temple Stage round 2", 0x2fc9f0, 0x2fcbf0 },
+    { L"Japan Temple Stage round 1", 0x2fcbf0, 0x2fcdf0 },
+    { L"Japan Temple Stage background part from round 1", 0x2fcff0, 0x2fd010 },
+    { L"Japan Temple Stage background change part from round 1", 0x2fd010, 0x2fd030 },
+    { L"Japan Temple Stage background part from round 2", 0x2fd030, 0x2fd050 },
+    { L"Japan Temple Stage background change part from round 2", 0x2fd050, 0x2fd070 },
+    { L"Japan Temple Stage background part from round 3", 0x2fd070, 0x2fd090 },
+    { L"Japan Temple Stage background change part from round 3", 0x2fd090, 0x2fd0b0 },
+    { L"Japan Temple Stage A luminous caterpillar in all rounds", 0x2fd1d0, 0x2fd1f0 },
+};
+
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_USAWHARF[] =
+{
+    { L"U.S.A. Wharf round 1 round 2 round 3 ", 0x2fd1f0, 0x2fd3f0 },
+    { L"U.S.A. Wharf round 1 round 2 round 3 ", 0x2fd3f0, 0x2fd4f0 },
+    { L"U.S.A. Wharf round 1 round 2 round 3", 0x2fd510, 0x2fd5b0 },
+    { L"U.S.A. Wharf round 1 Duck King", 0x2fd5b0, 0x2fd5d0 },
+    { L"U.S.A. Wharf round 2 round 3 Eiji Kisaragi", 0x2fd5d0, 0x2fd5f0 },
+    { L"U.S.A. Wharf Evening round 1", 0x2fd5f0, 0x2fd6f0 },
+    { L"U.S.A. Wharf night round 2", 0x2fd6f0, 0x2fd7f0 },
+    { L"U.S.A. Wharf round 4", 0x2fd7f0, 0x2fd9f0 },
+    { L"U.S.A. Wharf round 4", 0x2fd9f0, 0x2fdaf0 },
+    { L"U.S.A. Wharf round 4", 0x2fdb10, 0x2fdbf0 },
+    { L"U.S.A. Wharf The fog is blue round 3 round 4", 0x2fdbf0, 0x2fdd10 },
+    { L"U.S.A. Wharf round 1.2 The broken fence.todoh", 0x2fdd50, 0x2fdd90 },
+    { L"U.S.A. Wharf round 3.4 The broken fence", 0x2fdd90, 0x2fddb0 },
+    { L"U.S.A. Wharf round 1.2.3 .4 flag. mc big", 0x2fddb0, 0x2fddf0 },
+};
+
+const sGame_PaletteDataset KOF98_A_STAGE_PALETTES_BLACKNOAH[] =
+{
+    { L"Black Noah Stage Rugal (1/6) 0x2fddf0", 0x2fddf0, 0x2fdff0 },
+    { L"Black Noah Stage Rugal (2/6) 0x2fdff0", 0x2fdff0, 0x2fe1f0 },
+    { L"Black Noah Stage Rugal (3/6) 0x2fe1f0", 0x2fe1f0, 0x2fe3f0 },
+    { L"Black Noah Stage Rugal (4/6) 0x2fe3f0", 0x2fe3f0, 0x2fe5f0 },
+    { L"Black Noah Stage Rugal (5/6) 0x2fe5f0", 0x2fe5f0, 0x2fe7f0 },
+    { L"Black Noah Stage Rugal (6/6) 0x2fe7f0", 0x2fe7f0, 0x2fe9f0 },
+};
+
+const sDescTreeNode KOF98_A_STAGES_COLLECTION[] =
+{
+    { L"Japan Stage", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_JAPAN, ARRAYSIZE(KOF98_A_STAGE_PALETTES_JAPAN) },
+    { L"China Stage", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_CHINA, ARRAYSIZE(KOF98_A_STAGE_PALETTES_CHINA) },
+    { L"Korea Stage", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_KOREA, ARRAYSIZE(KOF98_A_STAGE_PALETTES_KOREA) },
+    { L"Spain Stage", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_SPAIN, ARRAYSIZE(KOF98_A_STAGE_PALETTES_SPAIN) },
+    { L"U.S.A. Train Yard Stage", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_USATRAIN, ARRAYSIZE(KOF98_A_STAGE_PALETTES_USATRAIN) },
+    { L"Japan Temple Stage", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_JAPANTEMPLE, ARRAYSIZE(KOF98_A_STAGE_PALETTES_JAPANTEMPLE) },
+    { L"U.S.A. Wharf Stage", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_USAWHARF, ARRAYSIZE(KOF98_A_STAGE_PALETTES_USAWHARF) },
+    { L"Black Noah Stage Rugal", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGE_PALETTES_BLACKNOAH, ARRAYSIZE(KOF98_A_STAGE_PALETTES_BLACKNOAH) },
+};
+
 const sGame_PaletteDataset KOF98_A_BONUS_CSI_PALETTES[] =
 {
     { L"Hero Team", 0x2F3730, 0x2F3790, indexKOF98Sprites_Bonus, 0x03, &pairFullyLinkedNode },
@@ -3286,5 +3406,6 @@ const sDescTreeNode KOF98_A_UNITS[] =
     { L"O.Shermie", DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_COLLECTION, ARRAYSIZE(KOF98_A_OShermie_COLLECTION) },
     { L"O.Chris", DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_COLLECTION, ARRAYSIZE(KOF98_A_OChris_COLLECTION) },
     { L"Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_COLLECTION, ARRAYSIZE(KOF98_A_OmegaRugal_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)KOF98_A_STAGES_COLLECTION, ARRAYSIZE(KOF98_A_STAGES_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_COLLECTION, ARRAYSIZE(KOF98_A_BONUS_COLLECTION) },
 };
