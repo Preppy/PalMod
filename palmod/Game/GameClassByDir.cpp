@@ -425,8 +425,7 @@ void CGameClassByDir::SetValidatedFileReadType()
         }
         break;
     case FileReadType::Interleaved_4FileSets:
-        if (((m_psCurrentFileLoadingData->rgFileList.size() % 4) != 0) ||
-            GameIsUsing24BitColor()) // We don't support 4 file interleave for 24bit right now
+        if ((m_psCurrentFileLoadingData->rgFileList.size() % 4) != 0)
         {
             m_eValidatedFileJoinType = FileReadType::Sequential;
         }
@@ -726,7 +725,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                 switch (m_eValidatedFileJoinType)
                 {
-                    case FileReadType::Interleaved_2FileSets: // 24bit color read
+                    case FileReadType::Interleaved_2FileSets: // 24bit color read 2 file interleave
                     {
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
@@ -780,7 +779,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         }
                         break;
                     }
-                    case FileReadType::Interleaved_Read2Bytes_LE: // 24bit color read
+                    case FileReadType::Interleaved_Read2Bytes_LE: // 24bit color 2 file 2byte interleave read
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
                         const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
@@ -866,6 +865,117 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 {
                                     m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = _byteswap_ulong(nCurrentColor);
                                 }
+                            }
+                        }
+                        break;
+                    }
+
+                    case FileReadType::Interleaved_4FileSets: // 24bit color 4 file interleave read
+                    {
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            // These have to be checked against the unmodified location
+                            uint32_t nFirstHandle  = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                            uint32_t nSecondHandle = nFirstHandle + 1;
+                            uint32_t nThirdHandle  = nFirstHandle + 2;
+                            uint32_t nFourthHandle = nFirstHandle + 3;
+                            uint32_t nTempHandle = 0;
+
+                            uint32_t nShift1 = 0, nShift2 = 0, nShift3 = 0;
+
+                            // Advance the read heads relative to where we're actually starting the read
+                            switch (m_nCurrentPaletteROMLocation % 4)
+                            {
+                            case 0:
+                                break;
+                            case 1:
+                                nTempHandle = nFirstHandle;
+                                nFirstHandle = nSecondHandle;
+                                nSecondHandle = nThirdHandle;
+                                nThirdHandle = nFourthHandle;
+                                nFourthHandle = nTempHandle;
+
+                                nShift3 = 1;
+                                break;
+                            case 2: 
+                                nTempHandle = nThirdHandle;
+                                nThirdHandle = nFirstHandle;
+                                nFirstHandle = nTempHandle;
+
+                                nTempHandle = nFourthHandle;
+                                nFourthHandle = nSecondHandle;
+                                nSecondHandle = nTempHandle;
+
+                                nShift3 = 1;
+                                nShift2 = 1;
+                                break;
+                            case 3:
+                                nTempHandle = nFourthHandle;
+                                nFourthHandle = nThirdHandle;
+                                nThirdHandle = nSecondHandle;
+                                nSecondHandle = nFirstHandle;
+                                nFirstHandle = nTempHandle;
+
+                                nShift3 = 1;
+                                nShift2 = 1;
+                                nShift1 = 1;
+                                break;
+                            }
+                            
+                            m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                            m_pppDataBuffer24[nUnitCtr][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
+                            memset(m_pppDataBuffer24[nUnitCtr][nPalCtr], 0, sizeof(uint32_t) * m_nCurrentPaletteSizeInColors);
+
+                            rgFileHandles.at(nFirstHandle)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                            rgFileHandles.at(nSecondHandle)->Seek(m_nCurrentPaletteROMLocation + nShift1, CFile::begin);
+                            rgFileHandles.at(nThirdHandle)->Seek(m_nCurrentPaletteROMLocation + nShift2, CFile::begin);
+                            rgFileHandles.at(nFourthHandle)->Seek(m_nCurrentPaletteROMLocation + nShift3, CFile::begin);
+
+                            for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
+                            {
+                                BYTE bVal1, bVal2, bVal3;
+
+                                switch (nColorsRead % 4)
+                                {
+                                    case 0:
+                                    {
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nThirdHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                    case 3:
+                                    {
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nThirdHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nFourthHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                    case 2:
+                                    {
+                                        rgFileHandles.at(nThirdHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nFourthHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                    case 1:
+                                    {
+                                        rgFileHandles.at(nFourthHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                }
+
+                                uint32_t nCurrentColor = 0xff000000; // force alpha
+                                nCurrentColor |= bVal1;
+                                nCurrentColor |= bVal2 << 8;
+                                nCurrentColor |= bVal3 << 16;
+
+                                m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = nCurrentColor;
                             }
                         }
                         break;
@@ -1489,6 +1599,112 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                         {
                                             rgFileHandles.at(nFirstHandle)->Write(&bVal1, sizeof(bVal1));
                                             rgFileHandles.at(nSecondHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case FileReadType::Interleaved_4FileSets: // 24bit color 4 file interleave write
+                    {
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                            {
+                                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                                // These have to be checked against the unmodified location
+                                uint32_t nFirstHandle = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                                uint32_t nSecondHandle = nFirstHandle + 1;
+                                uint32_t nThirdHandle = nFirstHandle + 2;
+                                uint32_t nFourthHandle = nFirstHandle + 3;
+                                uint32_t nTempHandle = 0;
+
+                                uint32_t nShift1 = 0, nShift2 = 0, nShift3 = 0;
+
+                                // Advance the read heads relative to where we're actually starting the write
+                                switch (m_nCurrentPaletteROMLocation % 4)
+                                {
+                                case 0:
+                                    break;
+                                case 1:
+                                    nTempHandle = nFirstHandle;
+                                    nFirstHandle = nSecondHandle;
+                                    nSecondHandle = nThirdHandle;
+                                    nThirdHandle = nFourthHandle;
+                                    nFourthHandle = nTempHandle;
+
+                                    nShift3 = 1;
+                                    break;
+                                case 2:
+                                    nTempHandle = nThirdHandle;
+                                    nThirdHandle = nFirstHandle;
+                                    nFirstHandle = nTempHandle;
+
+                                    nTempHandle = nFourthHandle;
+                                    nFourthHandle = nSecondHandle;
+                                    nSecondHandle = nTempHandle;
+
+                                    nShift3 = 1;
+                                    nShift2 = 1;
+                                    break;
+                                case 3:
+                                    nTempHandle = nFourthHandle;
+                                    nFourthHandle = nThirdHandle;
+                                    nThirdHandle = nSecondHandle;
+                                    nSecondHandle = nFirstHandle;
+                                    nFirstHandle = nTempHandle;
+
+                                    nShift3 = 1;
+                                    nShift2 = 1;
+                                    nShift1 = 1;
+                                    break;
+                                }
+
+                                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                                rgFileHandles.at(nFirstHandle)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                rgFileHandles.at(nSecondHandle)->Seek(m_nCurrentPaletteROMLocation + nShift1, CFile::begin);
+                                rgFileHandles.at(nThirdHandle)->Seek(m_nCurrentPaletteROMLocation + nShift2, CFile::begin);
+                                rgFileHandles.at(nFourthHandle)->Seek(m_nCurrentPaletteROMLocation + nShift3, CFile::begin);
+
+                                for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
+                                {
+                                    const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
+                                    BYTE bVal1 = (nCurrentColor & 0xFF);
+                                    BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
+                                    BYTE bVal3 = (nCurrentColor & 0xFF0000) >> 16;
+
+                                    switch (nColorsWritten % 4)
+                                    {
+                                        case 0:
+                                        {
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nThirdHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
+                                        case 3:
+                                        {
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nThirdHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nFourthHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
+                                        case 2:
+                                        {
+                                            rgFileHandles.at(nThirdHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nFourthHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
+                                        case 1:
+                                        {
+                                            rgFileHandles.at(nFourthHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal2, sizeof(bVal2));
                                             rgFileHandles.at(nSecondHandle)->Write(&bVal3, sizeof(bVal3));
                                             break;
                                         }
