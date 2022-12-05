@@ -135,6 +135,7 @@
 #include "Game_SFIII3_D.h"
 #include "Game_SF2CE_A.h"
 #include "Game_SF2HF_A.h"
+#include "Game_SFTM_A.h"
 #include "Game_SHAQFU_SNES.h"
 #include "Game_SPF2T_A.h"
 #include "Game_SSF2T_A.h"
@@ -165,7 +166,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 185, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 186, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -1128,6 +1129,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SFA3_A::GetRule;
         return TRUE;
     }
+    case SFTM_A:
+    {
+        GetRule = &CGame_SFTM_A::GetRule;
+        return TRUE;
+    }
     case SFZ3U_A:
     {
         GetRule = &CGame_SFZ3U_A::GetRule;
@@ -1888,6 +1894,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_SF2HF_A(nConfirmedROMSize);
     }
+    case SFTM_A:
+    {
+        return new CGame_SFTM_A(nConfirmedROMSize);
+    }
     case SHAQFU_SNES:
     {
         return new CGame_SHAQFU_SNES(nConfirmedROMSize);
@@ -2105,6 +2115,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         case SF2CE_A:
             CGame_SF2CE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case SFTM_A:
+            CGame_SFTM_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case SSF2T_A:
             CGame_SSF2T_A::SetSpecialRuleForFileName(pszFileNameLowercase);

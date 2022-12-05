@@ -553,6 +553,9 @@
     <Filter Include="Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29">
       <UniqueIdentifier>{f7fcc081-8488-40cd-a0a9-16dd6caab4aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Street Fighter the Movie %28Arcade%29">
+      <UniqueIdentifier>{854b731d-b132-449b-a3c1-4a2c23a7c1b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1010,6 +1013,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_UMK3_A.cpp">
       <Filter>Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFTM_A.cpp">
+      <Filter>Games\Other Platforms\Street Fighter the Movie %28Arcade%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2050,6 +2056,12 @@
     </ClInclude>
     <ClInclude Include="Game\UMK3_A_DEF.h">
       <Filter>Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFTM_A_DEF.h">
+      <Filter>Games\Other Platforms\Street Fighter the Movie %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFTM_A.h">
+      <Filter>Games\Other Platforms\Street Fighter the Movie %28Arcade%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
