@@ -116,7 +116,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.*;222_p1.*;222-p1k.p1;222-p1sp.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V|270-p1.*;p1.bin;270-p1c.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO5X_A,       L"Samurai Shodown V (Xbox)", L"Samurai Shodown V (Xbox)|ssvx_p1.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special (Neo-Geo)|272-p1*.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special (Neo-Geo)|272-p1*.*;273-p1.bin|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO5SP_S,      L"Samurai Shodown V Special", L"Samurai Shodown V Special (Steam)|p1*h*.bin|", GamePlatform::Steam },
     { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
     { BASARA_P,         L"Sengoku BASARA X", L"Sengoku BASARA X (PS2)|BSR.bin|", GamePlatform::PS2 },

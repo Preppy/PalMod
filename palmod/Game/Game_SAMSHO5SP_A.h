@@ -8,6 +8,7 @@ private:
     enum class SamSho5SpLoadingKey
     {
         NeoGeo,
+        NeoGeoLarge,
         Steam,
     };
 
@@ -17,6 +18,14 @@ private:
     {
         {
             { L"272-p1.p1", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_NeoGeoLarge =
+    {
+        {
+            { L"273-p1.bin", 0x800000 },
         },
         FileReadType::Sequential,
     };
@@ -41,6 +50,25 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_NeoGeo,
+        SAMSHO5SP_A_UNITS,
+        ARRAYSIZE(SAMSHO5SP_A_UNITS),
+        L"SAMSHO5SPE.txt",        // Extra filename
+        1664,                     // Count of palettes listed in the header
+        0xd4000,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_NeoGeoLarge
+    {
+        L"Samurai Shodown V Perfect / Samurai Spirits Zero Perfect [Hack]",
+        SAMSHO5SP_A,
+        IMGDAT_SECTION_SAMSHO,
+        SAMSHO5SP_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_NEOGEO,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_NeoGeoLarge,
         SAMSHO5SP_A_UNITS,
         ARRAYSIZE(SAMSHO5SP_A_UNITS),
         L"SAMSHO5SPE.txt",        // Extra filename
