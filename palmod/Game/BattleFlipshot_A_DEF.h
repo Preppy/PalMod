@@ -138,7 +138,8 @@ const sGame_PaletteDataset BattleFlipShot_A_MrJustice_Extras[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_Boss_Main[] =
 {
-    { L"Boss", 0x27d7a, 0x27d9a },
+    { L"Sthenno (Boss)", 0x27d7a, 0x27d9a },
+    { L"VS Portrait", 0x28D9A, 0x28DBA },
 };
 
 const sGame_PaletteDataset BattleFlipShot_A_Boss_Extras[] =
@@ -233,6 +234,15 @@ const sGame_PaletteDataset BattleFlipShot_A_BONUS_BigTexts[] =
     { L"GAME OVER", 0x2921a, 0x2923a },
 };
 
+const sGame_PaletteDataset BattleFlipShot_A_BONUS_Unused[] =
+{
+    { L"Unused: Wall", 0x293da, 0x293fa },
+    { L"Unused: Floor", 0x28e7a, 0x28e9a },
+    { L"Unused: How to Play", 0x28e5a, 0x28e7a },
+    { L"Unused: Joystick & Buttons", 0x28eba, 0x28f1a },
+    { L"Unused: Character Select", 0x28BDA, 0x28BFA },
+};
+
 const sDescTreeNode BattleFlipShot_A_ChintaNemoto_Collection[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_ChintaNemoto_P1, ARRAYSIZE(BattleFlipShot_A_ChintaNemoto_P1) },
@@ -282,6 +292,8 @@ const sDescTreeNode BattleFlipShot_A_Bonus_Collection[] =
     { L"Stages", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_BONUS_Stages, ARRAYSIZE(BattleFlipShot_A_BONUS_Stages) },
     { L"In-game Extras", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_BONUS_IngameExtras, ARRAYSIZE(BattleFlipShot_A_BONUS_IngameExtras) },
     { L"Big Texts", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_BONUS_BigTexts, ARRAYSIZE(BattleFlipShot_A_BONUS_BigTexts) },
+
+    { L"Unused", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_BONUS_Unused, ARRAYSIZE(BattleFlipShot_A_BONUS_Unused) },
 };
 
 const sDescTreeNode BattleFlipShot_A_UNITS[] =
@@ -291,6 +303,6 @@ const sDescTreeNode BattleFlipShot_A_UNITS[] =
     { L"Saimon", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_Saimon_Collection, ARRAYSIZE(BattleFlipShot_A_Saimon_Collection) },
     { L"Bloody Wolf", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_BloodyWolf_Collection, ARRAYSIZE(BattleFlipShot_A_BloodyWolf_Collection) },
     { L"Mr. Justice", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_MrJustice_Collection, ARRAYSIZE(BattleFlipShot_A_MrJustice_Collection) },
-    { L"Boss", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_Boss_Collection, ARRAYSIZE(BattleFlipShot_A_Boss_Collection) },
+    { L"Sthenno (Boss)", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_Boss_Collection, ARRAYSIZE(BattleFlipShot_A_Boss_Collection) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_Bonus_Collection, ARRAYSIZE(BattleFlipShot_A_Bonus_Collection) },
 };

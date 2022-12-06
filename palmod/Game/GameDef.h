@@ -441,6 +441,9 @@ enum class GameSeries
     SF2,
     SF3,
     VampireSavior,
+    NintendoDS,
+    NintendoGBA,
+    NintendoSNES,
     Unknown,
     Last,
 };

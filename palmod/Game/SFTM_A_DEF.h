@@ -13,183 +13,183 @@ const std::vector<uint16_t> SFTM_A_IMGIDS_USED =
 // these two are in flipped order on the rom
 const sGame_PaletteDataset SFTM_A_SAGAT_PALETTE_P2[] =
 {
-    { L"Sagat", 0xff1c, 0x1021c },
+    { L"Sagat", 0xff1f, 0x1021f },
 };
 
 const sGame_PaletteDataset SFTM_A_SAGAT_PALETTE_P1[] =
 {
-    { L"Sagat", 0x1021c, 0x1051c },
+    { L"Sagat", 0x1021f, 0x1051f },
 };
 
 const sGame_PaletteDataset SFTM_A_RYU_PALETTE_P1[] =
 {
-    { L"Ryu", 0x1051c, 0x1081c },
+    { L"Ryu", 0x1051f, 0x1081f },
 };
 
 const sGame_PaletteDataset SFTM_A_RYU_PALETTE_P2[] =
 {
-    { L"Ryu", 0x1081c, 0x10b1c },
+    { L"Ryu", 0x1081f, 0x10b1f },
 };
 
 const sGame_PaletteDataset SFTM_A_VEGA_PALETTE_P1[] =
 {
-    { L"Vega", 0x10b1c, 0x10e1c },
+    { L"Vega", 0x10b1f, 0x10e1f },
 };
 
 const sGame_PaletteDataset SFTM_A_VEGA_PALETTE_P2[] =
 {
-    { L"Vega", 0x10e1c, 0x1111c },
+    { L"Vega", 0x10e1f, 0x1111f },
 };
 
 const sGame_PaletteDataset SFTM_A_HONDA_PALETTE_P1[] =
 {
-    { L"Honda", 0x1111c, 0x1141c },
+    { L"Honda", 0x1111f, 0x1141f },
 };
 
 const sGame_PaletteDataset SFTM_A_HONDA_PALETTE_P2[] =
 {
-    { L"Honda", 0x1141c, 0x1171c },
+    { L"Honda", 0x1141f, 0x1171f },
 };
 
 const sGame_PaletteDataset SFTM_A_ZANGIEF_PALETTE_P1[] =
 {
-    { L"Zangief", 0x1171c, 0x11a1c },
+    { L"Zangief", 0x1171f, 0x11a1f },
 };
 
 const sGame_PaletteDataset SFTM_A_ZANGIEF_PALETTE_P2[] =
 {
-    { L"Zangief", 0x11a1c, 0x11d1c },
+    { L"Zangief", 0x11a1f, 0x11d1f },
 };
 
 const sGame_PaletteDataset SFTM_A_BISON_PALETTE_P1[] =
 {
-    { L"M. Bison", 0x11d1c, 0x1201c },
+    { L"M. Bison", 0x11d1f, 0x1201f },
 };
 
 const sGame_PaletteDataset SFTM_A_BISON_PALETTE_P2[] =
 {
-    { L"M. Bison", 0x1201c, 0x1231c },
+    { L"M. Bison", 0x1201f, 0x1231f },
 };
 
 const sGame_PaletteDataset SFTM_A_BISON_PALETTE_SUPER[] =
 {
-    { L"Super Bison", 0x1231c, 0x1261c },
+    { L"Super Bison", 0x1231f, 0x1261f },
 };
 
 const sGame_PaletteDataset SFTM_A_CAMMY_PALETTE_P1[] =
 {
-    { L"Cammy", 0x1261c, 0x1291c },
+    { L"Cammy", 0x1261f, 0x1291f },
 };
 
 const sGame_PaletteDataset SFTM_A_CAMMY_PALETTE_P2[] =
 {
-    { L"Cammy", 0x1291c, 0x12c1c },
+    { L"Cammy", 0x1291f, 0x12c1f },
 };
 
 const sGame_PaletteDataset SFTM_A_BALROG_PALETTE_P1[] =
 {
-    { L"Balrog", 0x12c1c, 0x12f1c },
+    { L"Balrog", 0x12c1f, 0x12f1f },
 };
 
 const sGame_PaletteDataset SFTM_A_BALROG_PALETTE_P2[] =
 {
-    { L"Balrog", 0x12f1c, 0x1321c },
+    { L"Balrog", 0x12f1f, 0x1321f },
 };
 
 const sGame_PaletteDataset SFTM_A_GUILE_PALETTE_P1[] =
 {
-    { L"Guile", 0x1321c, 0x1351c },
+    { L"Guile", 0x1321f, 0x1351f },
 };
 
 const sGame_PaletteDataset SFTM_A_GUILE_PALETTE_P2[] =
 {
-    { L"Guile", 0x1351c, 0x1381c },
+    { L"Guile", 0x1351f, 0x1381f },
 };
 
 const sGame_PaletteDataset SFTM_A_AKUMA_PALETTE_P1[] =
 {
-    { L"Akuma", 0x1381c, 0x13b1c },
+    { L"Akuma", 0x1381f, 0x13b1f },
 };
 
 const sGame_PaletteDataset SFTM_A_AKUMA_PALETTE_P2[] =
 {
-    { L"Akuma", 0x13b1c, 0x13e1c },
+    { L"Akuma", 0x13b1f, 0x13e1f },
 };
 
 // These two are backwards on the ROM
 const sGame_PaletteDataset SFTM_A_KEN_PALETTE_P2[] =
 {
-    { L"Ken", 0x13e1c, 0x1411c },
+    { L"Ken", 0x13e1f, 0x1411f },
 };
 
 const sGame_PaletteDataset SFTM_A_KEN_PALETTE_P1[] =
 {
-    { L"Ken", 0x1411c, 0x1441c },
+    { L"Ken", 0x1411f, 0x1441f },
 };
 
 const sGame_PaletteDataset SFTM_A_CHUNLI_PALETTE_P1[] =
 {
-    { L"Chun-Li", 0x1441c, 0x1471c },
+    { L"Chun-Li", 0x1441f, 0x1471f },
 };
 
 const sGame_PaletteDataset SFTM_A_CHUNLI_PALETTE_P2[] =
 {
-    { L"Chun-Li", 0x1471c, 0x14a1c },
+    { L"Chun-Li", 0x1471f, 0x14a1f },
 };
 
 const sGame_PaletteDataset SFTM_A_BLADE_PALETTE_P1[] =
 {
-    { L"Blade", 0x14a1c, 0x14d1c },
+    { L"Blade", 0x14a1f, 0x14d1f },
 };
 
 const sGame_PaletteDataset SFTM_A_BLADE_PALETTE_P2[] =
 {
-    { L"Blade", 0x14d1c, 0x1501c },
+    { L"Blade", 0x14d1f, 0x1501f },
 };
 
 const sGame_PaletteDataset SFTM_A_KHYBER_PALETTE_P1[] =
 {
-    { L"Khyber", 0x1501c, 0x1531c },
+    { L"Khyber", 0x1501f, 0x1531f },
 };
 
 const sGame_PaletteDataset SFTM_A_KHYBER_PALETTE_P2[] =
 {
-    { L"Khyber", 0x1531c, 0x1561c },
+    { L"Khyber", 0x1531f, 0x1561f },
 };
 
 const sGame_PaletteDataset SFTM_A_ARKANE_PALETTE_P1[] =
 {
-    { L"Arkane", 0x1561c, 0x1591c },
+    { L"Arkane", 0x1561f, 0x1591f },
 };
 
 const sGame_PaletteDataset SFTM_A_ARKANE_PALETTE_P2[] =
 {
-    { L"Arkane", 0x1591c, 0x15c1c },
+    { L"Arkane", 0x1591f, 0x15c1f },
 };
 
 const sGame_PaletteDataset SFTM_A_F7_PALETTE_P1[] =
 {
-    { L"F7", 0x15c1c, 0x15f1c },
+    { L"F7", 0x15c1f, 0x15f1f },
 };
 
 const sGame_PaletteDataset SFTM_A_F7_PALETTE_P2[] =
 {
-    { L"F7", 0x15f1c, 0x1621c },
+    { L"F7", 0x15f1f, 0x1621f },
 };
 
 const sGame_PaletteDataset SFTM_A_SAWADA_PALETTE_P1[] =
 {
-    { L"Sawada", 0x1621c, 0x1651c },
+    { L"Sawada", 0x1621f, 0x1651f },
 };
 
 const sGame_PaletteDataset SFTM_A_SAWADA_PALETTE_P2[] =
 {
-    { L"Sawada", 0x1651c, 0x1681c },
+    { L"Sawada", 0x1651f, 0x1681f },
 };
 
 const sGame_PaletteDataset SFTM_A_VEGA_PALETTE_MASK[] =
 {
-    { L"Mask", 0x1771c, 0x17a1c },
+    { L"Mask", 0x1771f, 0x17a1f },
 };
 
 const sDescTreeNode SFTM_A_RYU_COLLECTION[] =
