@@ -45,6 +45,7 @@
 #include "Game_GGXXACR_P.h"
 #include "Game_GGXXR_S.h"
 #include "Game_GUNDAM_SNES.h"
+#include "Game_HIppo_GBA.h"
 #include "Game_HSF2_A.h"
 #include "Game_JChan_A.h"
 #include "Game_JOJOS_A.h"
@@ -166,7 +167,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 186, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 187, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -489,6 +490,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case GUNDAM_SNES:
     {
         GetRule = &CGame_GUNDAM_SNES::GetRule;
+        return TRUE;
+    }
+    case HIppo_GBA:
+    {
+        GetRule = &CGame_HIppo_GBA::GetRule;
         return TRUE;
     }
     case HSF2_A:
@@ -1476,6 +1482,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case GUNDAM_SNES:
     {
         return new CGame_GUNDAM_SNES(nConfirmedROMSize);
+    }
+    case HIppo_GBA:
+    {
+        return new CGame_HIppo_GBA(nConfirmedROMSize);
     }
     case HSF2_A:
     {

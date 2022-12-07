@@ -45,6 +45,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
     { GGDS_NDS,         L"Guilty Gear: Dust Strikers", L"Guilty Gear: Dust Strikers (Nintendo DS)|0590*(Japan).nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
+    { HIppo_GBA,        L"Hajime no Ippo - The Fighting! (Japan)", L"Hajime no Ippo - The Fighting! (GBA)|Hajime no Ippo - The Fighting! (Japan).gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
     { FotNS_P,          L"Hokuto no Ken", L"Hokuto no Ken (PS2)|HK_B.bin|", GamePlatform::PS2 },
     { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { JCHAN_A,          L"Jackie Chan in Fists of Fire (Kaneko)", L"Jackie Chan in Fists of Fire (Kaneko)|j2p1x4.u70|", GamePlatform::OtherPlatform },
@@ -159,7 +160,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 186, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 187, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {

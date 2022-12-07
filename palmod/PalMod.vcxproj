@@ -261,6 +261,7 @@
     <ClCompile Include="Game\Game_GGDS_NDS.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
+    <ClCompile Include="Game\Game_HIppo_GBA.cpp" />
     <ClCompile Include="Game\Game_HSF2_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
@@ -475,6 +476,7 @@
     <ClInclude Include="Game\Game_GGXXR_S.h" />
     <ClInclude Include="Game\Game_Gowcaizer_A.h" />
     <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
+    <ClInclude Include="Game\Game_HIppo_GBA.h" />
     <ClInclude Include="Game\Game_HSF2_A.h" />
     <ClInclude Include="Game\Game_JChan_A.h" />
     <ClInclude Include="Game\Game_JojosRPG_SNES.h" />
@@ -601,6 +603,7 @@
     <ClInclude Include="Game\GGXXR_S_DEF.h" />
     <ClInclude Include="Game\Gowcaizer_A_DEF.h" />
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
+    <ClInclude Include="Game\HIppo_GBA_DEF.h" />
     <ClInclude Include="Game\HSF2_A_DEF.h" />
     <ClInclude Include="Game\ImgIdDef.h" />
     <ClInclude Include="Game\ImgTicket.h" />

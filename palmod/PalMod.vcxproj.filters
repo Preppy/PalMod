@@ -556,6 +556,9 @@
     <Filter Include="Games\Other Platforms\Street Fighter the Movie %28Arcade%29">
       <UniqueIdentifier>{854b731d-b132-449b-a3c1-4a2c23a7c1b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Hajime no Ippo %28GBA%29">
+      <UniqueIdentifier>{e5b3fb60-9ba0-4275-b2a0-b20a4fcf2760}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1016,6 +1019,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFTM_A.cpp">
       <Filter>Games\Other Platforms\Street Fighter the Movie %28Arcade%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_HIppo_GBA.cpp">
+      <Filter>Games\Nintendo\Hajime no Ippo %28GBA%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2062,6 +2068,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_SFTM_A.h">
       <Filter>Games\Other Platforms\Street Fighter the Movie %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_HIppo_GBA.h">
+      <Filter>Games\Nintendo\Hajime no Ippo %28GBA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\HIppo_GBA_DEF.h">
+      <Filter>Games\Nintendo\Hajime no Ippo %28GBA%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
