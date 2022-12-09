@@ -2070,6 +2070,7 @@ enum SupportedGGXX_PaletteListIndex
     indexGGDSSprites_Dizzy,                 // 0x23
     indexGGDSSprites_Eddie,                 // 0x24
     indexGGDSSprites_Faust,                 // 0x25
+    //Gig would go here if I remembered he existed, ID is 0x42
     indexGGDSSprites_Ino,                   // 0x26
     indexGGDSSprites_Jam,                   // 0x27
     indexGGDSSprites_Johnny,                // 0x28
@@ -2099,6 +2100,8 @@ enum SupportedGGXX_PaletteListIndex
     indexGGMLSprites_Testament,             // 0x3F
     indexGGMLSprites_Zato1,                 // 0x40
     indexGGMLSprites_Bonus,                 // 0x41
+
+    indexGGDSSprites_Gig,                   // 0x42, GGDS boss
 };
 
 enum SupportedFrenchBread_PaletteListIndex
