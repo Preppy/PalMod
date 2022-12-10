@@ -978,9 +978,6 @@
     <ClCompile Include="HTMLfiles.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_GGDS_NDS.cpp">
-      <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_CVS1_A.cpp">
       <Filter>Games\Capcom Games\Capcom vs SNK 1 %28Arcade%29</Filter>
     </ClCompile>

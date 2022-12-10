@@ -258,7 +258,6 @@
     <ClCompile Include="Game\Game_FatalFuryS_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
-    <ClCompile Include="Game\Game_GGDS_NDS.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_HIppo_GBA.cpp" />
