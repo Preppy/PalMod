@@ -17,7 +17,7 @@ private:
     {
         L"Hajime no Ippo - The Fighting! (Japan GBA)",
         HIppo_GBA,
-        IMGDAT_SECTION_SNES,
+        IMGDAT_SECTION_OTHER,
         HIppo_GBA_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,

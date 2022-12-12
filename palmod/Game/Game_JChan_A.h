@@ -33,7 +33,7 @@ private:
         JCHAN_A_UNITS,
         ARRAYSIZE(JCHAN_A_UNITS),
         L"JChanE.txt",          // Extra filename
-        36,                     // Count of palettes listed in the header
+        45,                     // Count of palettes listed in the header
         0xc0000,                // Lowest known location used for palettes
     };
 

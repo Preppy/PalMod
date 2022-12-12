@@ -15,8 +15,8 @@ const std::vector<uint16_t> GGDS_DS_IMGIDS_USED =
     indexGGDSSprites_Jam,                   // 0x27
     indexGGDSSprites_Johnny,                // 0x28
     indexGGDSSprites_KyKiske,               // 0x29
-    indexGGDSSprites_Millia,                // 0x2A
-    indexGGDSSprites_May,                   // 0x2B
+    indexGGDSSprites_May,                   // 0x2a
+    indexGGDSSprites_Millia,                // 0x2b
     indexGGDSSprites_Potemkin,              // 0x2C
     indexGGDSSprites_RoboKy,                // 0x2D
     indexGGDSSprites_SolBadguy,             // 0x2E
@@ -256,25 +256,25 @@ const sGame_PaletteDataset GGDS_DS_DIZZY_STATUS[] =
 };
 const sGame_PaletteDataset GGDS_DS_EDDIE_SPECIAL[] =
 {
-    { L"Base", 0x2ca7028, 0x2ca7048, indexGGDSSprites_Eddie, 0x0 },
+    { L"Base", 0x2ca7028, 0x2ca7048, indexGGDSSprites_Eddie, 0x0, &pairNext },
     { L"Extra", 0x2d9ce28, 0x2d9ce48, indexGGDSSprites_Eddie, 0x1 },
 };
 
 const sGame_PaletteDataset GGDS_DS_EDDIE_LIGHT[] =
 {
-    { L"Base", 0x2ca7428, 0x2ca7448, indexGGDSSprites_Eddie, 0x0 },
+    { L"Base", 0x2ca7428, 0x2ca7448, indexGGDSSprites_Eddie, 0x0, &pairNext },
     { L"Extra", 0x2d9d228, 0x2d9d248, indexGGDSSprites_Eddie, 0x1 },
 };
 
 const sGame_PaletteDataset GGDS_DS_EDDIE_HEAVY[] =
 {
-    { L"Base", 0x2ca7628, 0x2ca7648, indexGGDSSprites_Eddie, 0x0 },
+    { L"Base", 0x2ca7628, 0x2ca7648, indexGGDSSprites_Eddie, 0x0, &pairNext },
     { L"Extra", 0x2d9d428, 0x2d9d448, indexGGDSSprites_Eddie, 0x1 },
 };
 
 const sGame_PaletteDataset GGDS_DS_EDDIE_DUST[] =
 {
-    { L"Base", 0x2ca7228, 0x2ca7248, indexGGDSSprites_Eddie, 0x0 },
+    { L"Base", 0x2ca7228, 0x2ca7248, indexGGDSSprites_Eddie, 0x0, &pairNext },
     { L"Extra", 0x2d9d028, 0x2d9d048, indexGGDSSprites_Eddie, 0x1 },
 };
 

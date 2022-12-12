@@ -32,6 +32,10 @@ const std::vector<uint16_t> MBAACC_S_IMGIDS_USED =
     indexMBAACCSprites_Warachia,            // 0x65
     indexMBAACCSprites_WhiteLen,            // 0x66
     indexMBAACCSprites_Bonus,               // 0x67
+    indexMBAACCSprites_KohaMechHisui,               // 0x7C
+    indexMBAACCSprites_KohaMechKohaku,              // 0x7D #Koha - Mech, Kohaku
+    indexMBAACCSprites_NecoMechHisui,               // 0x7E #Neco - Mech, Mech - Hisui
+    indexMBAACCSprites_NecoMechNeco,                // 0x7F #Nech - Mech, NecoArc
 };
 
 const std::vector<LPCWSTR> MBAACCButtonLabelsNormal =
@@ -143,12 +147,12 @@ const std::vector<sGCBUPF_BasicFileData> MBAACCCharacterData =
     { L"roa.pal",               L"Roa",                         65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Roa },
 
     //Name = MECH_AND_NECO
-    { L"m_hisui_m.pal",         L"Mech-Hisui (Master)",         65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
-    { L"neco_p.pal",            L"Neco-Arc (Puppt)",            65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArc },
+    { L"m_hisui_m.pal",         L"Mech-Hisui (Neco & Mech)",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
+    { L"neco_p.pal",            L"Neco-Arc (Neco & Mech)",      65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArc },
 
     //Name = MECH_AND_KOHAKU
-    { L"kohaku_m.pal",          L"Kohaku (Master)",             65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Kohaku },
-    { L"m_hisui_p.pal",         L"Mech_Hisui (Puppt)",          65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
+    { L"m_hisui_p.pal",         L"Mech-Hisui (Koha & Mech)",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
+    { L"kohaku_m.pal",          L"Kohaku (Koha & Mech)",        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KohaMechKohaku },
 
     { L"ryougi.pal",            L"Shiki Ryougi",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiRyougi },
     //Hime 1/3 arent used, Hime (2) is used

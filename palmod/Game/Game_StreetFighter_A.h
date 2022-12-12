@@ -65,7 +65,7 @@ private:
     {
         L"Street Fighter (US, Set 1)",
         SF1_A,
-        IMGDAT_SECTION_CPS2,
+        IMGDAT_SECTION_OTHER,
         StreetFighter_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -77,14 +77,14 @@ private:
         ARRAYSIZE(StreetFighter_A_UNITS),
         L"StreetFighterE.txt",      // Extra filename
         13,                         // Count of palettes listed in the header
-        0x1ba68,                    // Lowest known location used for palettes
+        0x1BA66,                    // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_USSet2
     {
         L"Street Fighter (US, Set 2)",
         SF1_A,
-        IMGDAT_SECTION_CPS2,
+        IMGDAT_SECTION_OTHER,
         StreetFighter_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -96,14 +96,14 @@ private:
         ARRAYSIZE(StreetFighter_A_UNITS),
         L"StreetFighterE.txt",      // Extra filename
         13,                         // Count of palettes listed in the header
-        0x1ba68,                    // Lowest known location used for palettes
+        0x1BA66,                    // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_Japan
     {
         L"Street Fighter (Japan)",
         SF1_A,
-        IMGDAT_SECTION_CPS2,
+        IMGDAT_SECTION_OTHER,
         StreetFighter_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -115,14 +115,14 @@ private:
         ARRAYSIZE(StreetFighter_A_UNITS),
         L"StreetFighterE.txt",      // Extra filename
         13,                         // Count of palettes listed in the header
-        0x1ba68,                    // Lowest known location used for palettes
+        0x1BA66,                    // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_USSet1Alt
     {
         L"Street Fighter (US, Set 1)",
         SF1_A,
-        IMGDAT_SECTION_CPS2,
+        IMGDAT_SECTION_OTHER,
         StreetFighter_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -134,14 +134,14 @@ private:
         ARRAYSIZE(StreetFighter_A_UNITS),
         L"StreetFighterE.txt",      // Extra filename
         13,                         // Count of palettes listed in the header
-        0x1ba68,                    // Lowest known location used for palettes
+        0x1BA66,                    // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_USSet1MAME
     {
         L"Street Fighter (US, Set 1)",
         SF1_A,
-        IMGDAT_SECTION_CPS2,
+        IMGDAT_SECTION_OTHER,
         StreetFighter_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -153,7 +153,7 @@ private:
         ARRAYSIZE(StreetFighter_A_UNITS),
         L"StreetFighterE.txt",      // Extra filename
         13,                         // Count of palettes listed in the header
-        0x1ba68,                    // Lowest known location used for palettes
+        0x1BA66,                    // Lowest known location used for palettes
     };
 
 public:

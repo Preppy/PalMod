@@ -17,7 +17,7 @@ private:
     {
         L"Guilty Gear: Dust Strikers (Nintendo DS)",
         GGDS_NDS,
-        IMGDAT_SECTION_DS,
+        IMGDAT_SECTION_GUILTYGEAR,
         GGDS_DS_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -28,7 +28,7 @@ private:
         GGDS_NDS_UNITS,
         ARRAYSIZE(GGDS_NDS_UNITS),
         L"GGDStrikersE.txt",            // Extra filename
-        213,                            // Count of palettes listed in the header
+        312,                            // Count of palettes listed in the header
         0x1175e28,                      // Lowest known location used for palettes
     };
 

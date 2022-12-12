@@ -42,6 +42,7 @@ const std::vector<uint16_t> SFA3_A_IMGIDS_USED =
     indexCPS2Sprites_Juli,         // 0x4D
     indexCPS2Sprites_SFA3Assets,   // 0x4e - SFA3 HUD, stages
     indexCPS2Sprites_SFA3_Portraits,
+    indexSFA3Sprites_Stages,        // 0xeb
 };
 
 const sGame_PaletteDataset SFA3_A_RYU_XISMP[] =
@@ -3091,6 +3092,7 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_DOLLS[] =
     { L"V-Ism Kick", 0x4c4b2, 0x4c512 },
 };
 
+#ifdef USE_OLD_STYLE_SFA3_STAGES
 const sGame_PaletteDataset SFA3_A_STAGES_AKUMA_NODE[] =
 {
     { L"Rear Cave Wall", 0x3C812, 0x3C8D2, indexCPS2Sprites_SFA3Assets, 0x0A },
@@ -3178,17 +3180,178 @@ const sGame_PaletteDataset SFA3_A_STAGES_CHUNLI_NODE[] =
     { L"Tree", 0x38772, 0x38792, indexCPS2Sprites_SFA3Assets, 0x33 },
     { L"Shadow", 0x38792, 0x387B2, indexCPS2Sprites_SFA3Assets, 0x34 },
 };
+#endif
+
+const sGame_PaletteDataset SFA3_A_STAGES_AKUMA_NODE[] =
+{
+    { L"8BG.0.0.0", 0x3c812, 0x3c8d2, indexSFA3Sprites_Stages, 0x00, &pairFullyLinkedNode },
+    { L"16BG.0.0.0", 0x40f32, 0x41012, indexSFA3Sprites_Stages, 0x02 },
+    { L"32BG.0.0.0", 0x47cd2, 0x47cf2, indexSFA3Sprites_Stages, 0x04 },
+    { L"SS.0.0.0", 0x38572, 0x38632, indexSFA3Sprites_Stages, 0x05 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_AKUMA_NODE_ANIMATION[] =
+{
+    { L"8BG.1.1.1", 0x61392, 0x613b2, indexSFA3Sprites_Stages, 0x01, &pairNextAndNext },
+    { L"16BG.1.1.1", 0x62a52, 0x62a72, indexSFA3Sprites_Stages, 0x03 },
+    { L"SS.1.1.1", 0x4c552, 0x4c592, indexSFA3Sprites_Stages, 0x06 },
+    
+    { L"8BG.1.2.1", 0x613b2, 0x613d2, indexSFA3Sprites_Stages, 0x01, &pairNextAndNext },
+    { L"16BG.1.2.1", 0x62a72, 0x62a92, indexSFA3Sprites_Stages, 0x03 },
+    { L"SS.1.2.1", 0x4c592, 0x4c5d2, indexSFA3Sprites_Stages, 0x06 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_BIRDIE_NODE[] =
+{
+    { L"32BG.0.0.0", 0x48552, 0x485d2, indexSFA3Sprites_Stages, 0x07, &pairFullyLinkedNode },
+    { L"8BG.0.0.1", 0x3d952, 0x3dab2, indexSFA3Sprites_Stages, 0x08 },
+    { L"8BG.0.0.2", 0x3dab2, 0x3dbf2, indexSFA3Sprites_Stages, 0x09 },
+    { L"16BG.0.0.1", 0x42292, 0x42492, indexSFA3Sprites_Stages, 0x0a },
+    { L"16BG.0.0.2", 0x42492, 0x42692, indexSFA3Sprites_Stages, 0x0b },
+    { L"SS.0.0.0", 0x389f2, 0x38ab2, indexSFA3Sprites_Stages, 0x0c },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_BIRDIE_NODE_ANIMATION[] =
+{
+    { L"SS.1.1.1", 0x4c6d2, 0x4c6f2, indexSFA3Sprites_Stages, 0x0d },
+    { L"SS.1.2.1", 0x4c6f2, 0x4c712, indexSFA3Sprites_Stages, 0x0d },
+    { L"SS.1.3.1", 0x4c712, 0x4c732, indexSFA3Sprites_Stages, 0x0d },
+    { L"SS.1.4.1", 0x4c732, 0x4c752, indexSFA3Sprites_Stages, 0x0d },
+    { L"SS.1.5.1", 0x4c752, 0x4c772, indexSFA3Sprites_Stages, 0x0d },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_CHUNLI_NODE[] =
+{
+    { L"8BG.0.0.1", 0x3cc72, 0x3ce72, indexSFA3Sprites_Stages, 0x0e, &pairFullyLinkedNode },
+    { L"8BG.0.0.2", 0x3ce72, 0x3cfd2, indexSFA3Sprites_Stages, 0x0f },
+    { L"16BG.0.0.1", 0x413d2, 0x415d2, indexSFA3Sprites_Stages, 0x10 },
+    { L"16BG.0.0.2", 0x415d2, 0x417d2, indexSFA3Sprites_Stages, 0x11 },
+    { L"SS.0.0.0", 0x386f2, 0x387b2, indexSFA3Sprites_Stages, 0x12 },
+    { L"32BG.0.0.0", 0x47df2, 0x47ed2, indexSFA3Sprites_Stages, 0x13 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_DAN_NODE[] =
+{
+    { L"32BG.0.0.0", 0x489f2, 0x48b52, indexSFA3Sprites_Stages, 0x14, &pairFullyLinkedNode },
+    { L"SS.0.0.0", 0x38cf2, 0x38db2, indexSFA3Sprites_Stages, 0x15 },
+    { L"8BG.0.0.1", 0x3e0d2, 0x3e2d2, indexSFA3Sprites_Stages, 0x16 },
+    { L"8BG.0.0.2", 0x3e2d2, 0x3e492, indexSFA3Sprites_Stages, 0x17 },
+    { L"16BG.0.0.1", 0x42ef2, 0x43092, indexSFA3Sprites_Stages, 0x18 },
+    { L"16BG.0.0.2", 0x43092, 0x431b2, indexSFA3Sprites_Stages, 0x19 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_GUY_NODE[] =
+{
+    { L"32BG.0.0.0", 0x484b2, 0x48552, indexSFA3Sprites_Stages, 0x1a, &pairFullyLinkedNode },
+    { L"SS.0.0.0", 0x38932, 0x389f2, indexSFA3Sprites_Stages, 0x1b },
+    { L"8BG.0.0.1", 0x3d692, 0x3d852, indexSFA3Sprites_Stages, 0x1e },
+    { L"8BG.0.0.2", 0x3d852, 0x3d952, indexSFA3Sprites_Stages, 0x1f },
+    { L"16BG.0.0.1", 0x41eb2, 0x420b2, indexSFA3Sprites_Stages, 0x20 },
+    { L"16BG.0.0.2", 0x420b2, 0x42292, indexSFA3Sprites_Stages, 0x21 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_GUY_NODE_ANIMATION[] =
+{
+    { L"SS.1.1.1", 0x4c652, 0x4c672, indexSFA3Sprites_Stages, 0x1c },
+    { L"SS.1.1.2", 0x4c692, 0x4c6b2, indexSFA3Sprites_Stages, 0x1c },
+    { L"SS.1.2.1", 0x4c672, 0x4c692, indexSFA3Sprites_Stages, 0x1d},
+    { L"SS.1.2.2", 0x4c6b2, 0x4c6d2, indexSFA3Sprites_Stages, 0x1d },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_KEN_NODE[] =
+{
+    { L"8BG.0.0.1", 0x3c4f2, 0x3c6d2, indexSFA3Sprites_Stages, 0x22, &pairFullyLinkedNode },
+    { L"8BG.0.0.2", 0x3c6d2, 0x3c812, indexSFA3Sprites_Stages, 0x23 },
+    { L"16BG.0.0.1", 0x40b32, 0x40d32, indexSFA3Sprites_Stages, 0x24 },
+    { L"16BG.0.0.2", 0x40d32, 0x40f32, indexSFA3Sprites_Stages, 0x25 },
+    { L"32BG.0.0.1", 0x47932, 0x47b32, indexSFA3Sprites_Stages, 0x26 },
+    { L"32BG.0.0.2", 0x47b32, 0x47cd2, indexSFA3Sprites_Stages, 0x27 },
+    { L"SS.0.0.0", 0x384b2, 0x38572, indexSFA3Sprites_Stages, 0x28 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_NASH_NODE[] =
+{
+    { L"8BG.0.0.1", 0x3c8d2, 0x3cad2, indexSFA3Sprites_Stages, 0x29, &pairFullyLinkedNode },
+    { L"8BG.0.0.2", 0x3cad2, 0x3cc72, indexSFA3Sprites_Stages, 0x2a },
+    { L"32BG.0.0.0", 0x47cf2, 0x47df2, indexSFA3Sprites_Stages, 0x2b },
+    { L"16BG.0.0.1", 0x41012, 0x41212, indexSFA3Sprites_Stages, 0x2c },
+    { L"16BG.0.0.2", 0x41212, 0x413d2, indexSFA3Sprites_Stages, 0x2d },
+    { L"SS.0.0.0", 0x38632, 0x386f2, indexSFA3Sprites_Stages, 0x2e },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_ROSE_NODE[] =
+{
+    { L"32BG.0.0.1", 0x485d2, 0x487b2, indexSFA3Sprites_Stages, 0x2f, &pairFullyLinkedNode },
+    { L"32BG.0.0.2", 0x487b2, 0x488d2, indexSFA3Sprites_Stages, 0x3a },
+    { L"16BG.0.0.1", 0x42692, 0x42892, indexSFA3Sprites_Stages, 0x30 },
+    { L"16BG.0.0.2", 0x42892, 0x42a92, indexSFA3Sprites_Stages, 0x31 },
+    { L"8BG.0.0.1", 0x3dbf2, 0x3ddb2, indexSFA3Sprites_Stages, 0x32 },
+    { L"8BG.0.0.2", 0x3ddb2, 0x3ded2, indexSFA3Sprites_Stages, 0x33 },
+    { L"8BG.0.0.3", 0x61c12, 0x61c32, indexSFA3Sprites_Stages, 0x34 },
+    { L"SS.0.0.0", 0x38ab2, 0x38b72, indexSFA3Sprites_Stages, 0x37 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_ROSE_NODE_ANIMATION[] =
+{
+    { L"8BG.1.1.1", 0x61b92, 0x61bb2, indexSFA3Sprites_Stages, 0x35, &pairNext },
+    { L"8BG.1.1.2", 0x61bd2, 0x61bf2, indexSFA3Sprites_Stages, 0x36 },
+    { L"8BG.1.2.1", 0x61bb2, 0x61bd2, indexSFA3Sprites_Stages, 0x35, &pairNext },
+    { L"8BG.1.2.2", 0x61bf2, 0x61c12, indexSFA3Sprites_Stages, 0x36 },
+    { L"SS.1.1.1", 0x4c7d2, 0x4c7f2, indexSFA3Sprites_Stages, 0x38, &pairNext },
+    { L"SS.1.1.2", 0x4c772, 0x4c792, indexSFA3Sprites_Stages, 0x39 },
+    { L"SS.1.2.1", 0x4c7f2, 0x4c812, indexSFA3Sprites_Stages, 0x38, &pairNext },
+    { L"SS.1.2.2", 0x4c792, 0x4c7b2, indexSFA3Sprites_Stages, 0x39 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_RYU_NODE[] =
+{
+    { L"8BG.0.0.0", 0x3c4b2, 0x3c4f2, indexSFA3Sprites_Stages, 0x3b, &pairFullyLinkedNode },
+    { L"32BG.0.0.0", 0x477f2, 0x47932, indexSFA3Sprites_Stages, 0x3c },
+    { L"16BG.0.0.0", 0x40992, 0x40b32 , indexSFA3Sprites_Stages, 0x3f},
+    { L"SS.0.0.0", 0x383f2, 0x384b2, indexSFA3Sprites_Stages, 0x40 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_RYU_NODE_ANIMATION[] =
+{
+    { L"32BG.1.1.1", 0x63f32, 0x63f52, indexSFA3Sprites_Stages, 0x3d, &pairNext },
+    { L"32BG.1.1.2", 0x63fb2, 0x63fd2, indexSFA3Sprites_Stages, 0x3e },
+    { L"32BG.1.2.1", 0x63f52, 0x63f72, indexSFA3Sprites_Stages, 0x3d, &pairNext },
+    { L"32BG.1.2.2", 0x63fd2, 0x63ff2, indexSFA3Sprites_Stages, 0x3e },
+    { L"32BG.1.3.1", 0x63f72, 0x63f92, indexSFA3Sprites_Stages, 0x3d, &pairNext },
+    { L"32BG.1.3.2", 0x63ff2, 0x64012, indexSFA3Sprites_Stages, 0x3e },
+    { L"32BG.1.4.1", 0x63f92, 0x63fb2, indexSFA3Sprites_Stages, 0x3d, &pairNext },
+    { L"32BG.1.4.2", 0x64012, 0x64032, indexSFA3Sprites_Stages, 0x3e },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_SAGAT_NODE[] =
+{
+    { L"8BG.0.0.0", 0x3def2, 0x3e0d2, indexSFA3Sprites_Stages, 0x41, &pairFullyLinkedNode },
+    { L"16BG.0.0.1", 0x42b12, 0x42d12, indexSFA3Sprites_Stages, 0x42 },
+    { L"16BG.0.0.2", 0x42d12, 0x42ef2, indexSFA3Sprites_Stages, 0x43 },
+    { L"32BG.0.0.0", 0x488f2, 0x489f2, indexSFA3Sprites_Stages, 0x44 },
+    { L"SS.0.0.0", 0x38C32, 0x38CF2, indexSFA3Sprites_Stages, 0x45 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_SAKURA_NODE[] =
+{
+    { L"32BG.0.0.0", 0x48b52, 0x48bd2, indexSFA3Sprites_Stages, 0x46, &pairFullyLinkedNode },
+    { L"16BG.0.0.1", 0x431b2, 0x433b2, indexSFA3Sprites_Stages, 0x47 },
+    { L"16BG.0.0.2", 0x433b2, 0x435b2, indexSFA3Sprites_Stages, 0x48 },
+    { L"8BG.0.0.1", 0x3e492, 0x3e692, indexSFA3Sprites_Stages, 0x49 },
+    { L"8BG.0.0.2", 0x3e692, 0x3e852, indexSFA3Sprites_Stages, 0x4a },
+    { L"SS.0.0.0", 0x38db2, 0x38e72, indexSFA3Sprites_Stages, 0x4b },
+};
 
 const sGame_PaletteDataset SFA3_A_STAGES_ADON_NODE[] =
 {
-    { L"Adon Stage - 32x32 Pt1", 0x47ED2, 0x480D2, indexCPS2Sprites_SFA3Assets, 0x3b, &pairFullyLinkedNode },
-    { L"Adon Stage - 32x32 Pt2", 0x480D2, 0x48112, indexCPS2Sprites_SFA3Assets, 0x3c },
-    { L"Adon Stage - 16x16 Pt1", 0x417D2, 0x419D2, indexCPS2Sprites_SFA3Assets, 0x39 },
-    { L"Adon Stage - 16x16 Pt2", 0x419D2, 0x41BD2, indexCPS2Sprites_SFA3Assets, 0x3a },
-    { L"Adon Stage - Obj Pt1", 0x387B2, 0x387F2, indexCPS2Sprites_SFA3Assets, 0x35 },
-    { L"Adon Stage - 8x8 Pt1", 0x3CFD2, 0x3D1D2, indexCPS2Sprites_SFA3Assets, 0x36 },
-    { L"Adon Stage - 8x8 Pt2", 0x3D1D2, 0x3D312, indexCPS2Sprites_SFA3Assets, 0x37 },
-    { L"Adon Stage - Obj Pt2", 0x387F2, 0x38872, indexCPS2Sprites_SFA3Assets, 0x38 },
+    { L"32x32 Pt1", 0x47ED2, 0x480D2, indexCPS2Sprites_SFA3Assets, 0x3b, &pairFullyLinkedNode },
+    { L"32x32 Pt2", 0x480D2, 0x48112, indexCPS2Sprites_SFA3Assets, 0x3c },
+    { L"16x16 Pt1", 0x417D2, 0x419D2, indexCPS2Sprites_SFA3Assets, 0x39 },
+    { L"16x16 Pt2", 0x419D2, 0x41BD2, indexCPS2Sprites_SFA3Assets, 0x3a },
+    { L"Obj Pt1", 0x387B2, 0x387F2, indexCPS2Sprites_SFA3Assets, 0x35 },
+    { L"8x8 Pt1", 0x3CFD2, 0x3D1D2, indexCPS2Sprites_SFA3Assets, 0x36 },
+    { L"8x8 Pt2", 0x3D1D2, 0x3D312, indexCPS2Sprites_SFA3Assets, 0x37 },
+    { L"Obj Pt2", 0x387F2, 0x38872, indexCPS2Sprites_SFA3Assets, 0x38 },
 };
 
 const sGame_PaletteDataset SFA3_A_RYU_PORTRAIT_SELECT_PALETTES[] =
@@ -4104,11 +4267,23 @@ const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
 const sDescTreeNode SFA3_A_STAGES_COLLECTION[] =
 {
     { L"Adon Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_ADON_NODE, ARRAYSIZE(SFA3_A_STAGES_ADON_NODE) },
+
     { L"Akuma Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
+        { L"Akuma Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE_ANIMATION) },
+    { L"Birdie Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_BIRDIE_NODE, ARRAYSIZE(SFA3_A_STAGES_BIRDIE_NODE) },
+        { L"Birdie Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_BIRDIE_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_BIRDIE_NODE_ANIMATION) },
     { L"Chun-Li Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_CHUNLI_NODE, ARRAYSIZE(SFA3_A_STAGES_CHUNLI_NODE) },
+    { L"Dan Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_DAN_NODE, ARRAYSIZE(SFA3_A_STAGES_DAN_NODE) },
+    { L"Guy Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_GUY_NODE, ARRAYSIZE(SFA3_A_STAGES_GUY_NODE) },
+        { L"Guy Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_GUY_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_GUY_NODE_ANIMATION) },
     { L"Ken Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_KEN_NODE, ARRAYSIZE(SFA3_A_STAGES_KEN_NODE) },
-    { L"Ryu Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE) },
     { L"Nash Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_NASH_NODE, ARRAYSIZE(SFA3_A_STAGES_NASH_NODE) },
+    { L"Rose Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_ROSE_NODE, ARRAYSIZE(SFA3_A_STAGES_ROSE_NODE) },
+        { L"Rose Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_ROSE_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_ROSE_NODE_ANIMATION) },
+    { L"Ryu Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE) },
+        { L"Ryu Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE_ANIMATION) },
+    { L"Sakura Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_SAKURA_NODE, ARRAYSIZE(SFA3_A_STAGES_SAKURA_NODE) },
+    { L"Sagat Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_SAGAT_NODE, ARRAYSIZE(SFA3_A_STAGES_SAGAT_NODE) },
 };
 
 #define k_sfa3NameKey_ChunLi L"Chun-Li"

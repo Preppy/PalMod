@@ -396,10 +396,10 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_ZT_EXTRAS =
     L"Extras",
     {
         //General
-        { L"Grab Effects", 0x2ebeb0, 0x2ebef0 },
+        { L"Grab Effects", 0x2ebeb0, 0x2ebef0, indexGGXXSprites_ACR_Eddie, 0x02 },
         //Specials
-        { L"Damned Fang Effects (1/2)", 0x2ec410, 0x2ec450 },
-        { L"Damned Fang Effects (2/2)", 0x2ecb40, 0x2ecb80 },
+        { L"Damned Fang Effects (1/2)", 0x2ec410, 0x2ec450, indexGGXXSprites_ACR_Eddie, 0x01 },
+        { L"Damned Fang Effects (2/2)", 0x2ecb40, 0x2ecb80, indexGGXXSprites_ACR_Eddie, 0x01 },
     }
 };
 

@@ -129,7 +129,7 @@ const sGame_PaletteDataset Garou_ROCKHOWARD_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_A[] =
 {
-    { L"Khushnood Butt A - Main", 0xeb00, 0xeb20, indexGarouAKhushnood },
+    { L"Khushnood Butt A - Main", 0xeb00, 0xeb20, indexGarouAKhushnood, 0x00, &pairNext13 },
     { L"Khushnood Butt A - Line1", 0xeb20, 0xeb40 },
     { L"Khushnood Butt A - Line2", 0xeb40, 0xeb60 },
     { L"Khushnood Butt A - On Fire", 0xeb60, 0xeb80, indexGarouAKhushnood },
@@ -149,7 +149,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_A[] =
 
 const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_B[] =
 {
-    { L"Khushnood Butt B - Main", 0xed00, 0xed20, indexGarouAKhushnood },
+    { L"Khushnood Butt B - Main", 0xed00, 0xed20, indexGarouAKhushnood, 0x00, &pairNext13 },
     { L"Khushnood Butt B - Line1", 0xed20, 0xed40 },
     { L"Khushnood Butt B - Line2", 0xed40, 0xed60 },
     { L"Khushnood Butt B - On Fire", 0xed60, 0xed80, indexGarouAKhushnood },
@@ -169,7 +169,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_B[] =
 
 const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_C[] =
 {
-    { L"Khushnood Butt C - Main", 0xef00, 0xef20, indexGarouAKhushnood },
+    { L"Khushnood Butt C - Main", 0xef00, 0xef20, indexGarouAKhushnood, 0x00, &pairNext13 },
     { L"Khushnood Butt C - Line1", 0xef20, 0xef40 },
     { L"Khushnood Butt C - Line2", 0xef40, 0xef60 },
     { L"Khushnood Butt C - On Fire", 0xef60, 0xef80, indexGarouAKhushnood },
@@ -189,7 +189,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_C[] =
 
 const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_D[] =
 {
-    { L"Khushnood Butt D - Main", 0xf100, 0xf120, indexGarouAKhushnood },
+    { L"Khushnood Butt D - Main", 0xf100, 0xf120, indexGarouAKhushnood, 0x00, &pairNext13 },
     { L"Khushnood Butt D - Line1", 0xf120, 0xf140 },
     { L"Khushnood Butt D - Line2", 0xf140, 0xf160 },
     { L"Khushnood Butt D - On Fire", 0xf160, 0xf180, indexGarouAKhushnood },
@@ -429,7 +429,7 @@ const sGame_PaletteDataset Garou_A_DONG_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_A[] =
 {
-    { L"Jae Hoon A - Main", 0x11300, 0x11320, indexGarouAJae },
+    { L"Jae Hoon A - Main", 0x11300, 0x11320, indexGarouAJae, 0x00, &pairNext13 },
     { L"Jae Hoon A - Line1", 0x11320, 0x11340 },
     { L"Jae Hoon A - Line2", 0x11340, 0x11360 },
     { L"Jae Hoon A - On Fire", 0x11360, 0x11380, indexGarouAJae },
@@ -442,14 +442,14 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_A[] =
     { L"Jae Hoon A - Fire Effects", 0x11440, 0x11460, indexGarouAJae, 0x08 },
     { L"Jae Hoon A - Fire Flash (Jae Hoon)", 0x11460, 0x11480 },
     { L"Jae Hoon A - Unused", 0x11480, 0x114a0 },
-    { L"Jae Hoon A - Winpose Teacup", 0x114a0, 0x114c0, indexGarouAJae, 0x0a },
+    { L"Jae Hoon A - Winpose Teacup", 0x114a0, 0x114c0, indexGarouAJae, 0x0c },
     { L"Jae Hoon A - Winpose Towel", 0x114c0, 0x114e0, indexGarouAJae, 0x0b },
     { L"Jae Hoon A - Winpose Girl (Need Names)", 0x114e0, 0x11500, indexGarouAJae, 0x09 },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_B[] =
 {
-    { L"Jae Hoon B - Main", 0x11500, 0x11520, indexGarouAJae },
+    { L"Jae Hoon B - Main", 0x11500, 0x11520, indexGarouAJae, 0x00, &pairNext13 },
     { L"Jae Hoon B - Line1", 0x11520, 0x11540 },
     { L"Jae Hoon B - Line2", 0x11540, 0x11560 },
     { L"Jae Hoon B - On Fire", 0x11560, 0x11580, indexGarouAJae },
@@ -462,14 +462,14 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_B[] =
     { L"Jae Hoon B - Fire Effects", 0x11640, 0x11660, indexGarouAJae, 0x08 },
     { L"Jae Hoon B - Fire Flash (Jae Hoon)", 0x11660, 0x11680 },
     { L"Jae Hoon B - Unused", 0x11680, 0x116a0 },
-    { L"Jae Hoon B - Winpose Teacup", 0x116a0, 0x116c0, indexGarouAJae, 0x0a },
+    { L"Jae Hoon B - Winpose Teacup", 0x116a0, 0x116c0, indexGarouAJae, 0x0c },
     { L"Jae Hoon B - Winpose Towel", 0x116c0, 0x116e0, indexGarouAJae, 0x0b },
     { L"Jae Hoon B - Winpose Girl (Need Names)", 0x116e0, 0x11700, indexGarouAJae, 0x09 },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_C[] =
 {
-    { L"Jae Hoon C - Main", 0x11700, 0x11720, indexGarouAJae },
+    { L"Jae Hoon C - Main", 0x11700, 0x11720, indexGarouAJae, 0x00, &pairNext13 },
     { L"Jae Hoon C - Line1", 0x11720, 0x11740 },
     { L"Jae Hoon C - Line2", 0x11740, 0x11760 },
     { L"Jae Hoon C - On Fire", 0x11760, 0x11780, indexGarouAJae },
@@ -482,14 +482,14 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_C[] =
     { L"Jae Hoon C - Fire Effects", 0x11840, 0x11860, indexGarouAJae, 0x08 },
     { L"Jae Hoon C - Fire Flash (Jae Hoon)", 0x11860, 0x11880 },
     { L"Jae Hoon C - Unused", 0x11880, 0x118a0 },
-    { L"Jae Hoon C - Winpose Teacup", 0x118a0, 0x118c0, indexGarouAJae, 0x0a },
+    { L"Jae Hoon C - Winpose Teacup", 0x118a0, 0x118c0, indexGarouAJae, 0x0c },
     { L"Jae Hoon C - Winpose Towel", 0x118c0, 0x118e0, indexGarouAJae, 0x0b },
     { L"Jae Hoon C - Winpose Girl (Need Names)", 0x118e0, 0x11900, indexGarouAJae, 0x09 },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_D[] =
 {
-    { L"Jae Hoon D - Main", 0x11900, 0x11920, indexGarouAJae },
+    { L"Jae Hoon D - Main", 0x11900, 0x11920, indexGarouAJae, 0x00, &pairNext13 },
     { L"Jae Hoon D - Line1", 0x11920, 0x11940 },
     { L"Jae Hoon D - Line2", 0x11940, 0x11960 },
     { L"Jae Hoon D - On Fire", 0x11960, 0x11980, indexGarouAJae },
@@ -502,14 +502,14 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_D[] =
     { L"Jae Hoon D - Fire Effects", 0x11a40, 0x11a60, indexGarouAJae, 0x08 },
     { L"Jae Hoon D - Fire Flash (Jae Hoon)", 0x11a60, 0x11a80 },
     { L"Jae Hoon D - Unused", 0x11a80, 0x11aa0 },
-    { L"Jae Hoon D - Winpose Teacup", 0x11aa0, 0x11ac0, indexGarouAJae, 0x0a },
+    { L"Jae Hoon D - Winpose Teacup", 0x11aa0, 0x11ac0, indexGarouAJae, 0x0c },
     { L"Jae Hoon D - Winpose Towel", 0x11ac0, 0x11ae0, indexGarouAJae, 0x0b },
     { L"Jae Hoon D - Winpose Girl (Need Names)", 0x11ae0, 0x11b00, indexGarouAJae, 0x09 },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_BOSS[] =
 {
-    { L"Jae Hoon Boss? - Main", 0x11b00, 0x11b20, indexGarouAJae },
+    { L"Jae Hoon Boss? - Main", 0x11b00, 0x11b20, indexGarouAJae, 0x00, &pairNext13 },
     { L"Jae Hoon Boss? - Line1", 0x11b20, 0x11b40 },
     { L"Jae Hoon Boss? - Line2", 0x11b40, 0x11b60, indexGarouAJae },
     { L"Jae Hoon Boss? - On Fire", 0x11b60, 0x11b80 },
@@ -522,14 +522,14 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_BOSS[] =
     { L"Jae Hoon Boss? - Projectile1", 0x11c40, 0x11c60 },
     { L"Jae Hoon Boss? - Projectile2", 0x11c60, 0x11c80 },
     { L"Jae Hoon Boss? - Projectile3", 0x11c80, 0x11ca0 },
-    { L"Jae Hoon Boss? - Projectile4", 0x11ca0, 0x11cc0 },
+    { L"Jae Hoon Boss? - Projectile4", 0x11ca0, 0x11cc0, indexGarouAJae, 0x0c },
     { L"Jae Hoon Boss? - Projectile5", 0x11cc0, 0x11ce0 },
     { L"Jae Hoon Boss? - Projectile6", 0x11ce0, 0x11d00 },
 };
 
 const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_A[] =
 {
-    { L"Hotaru A - Main", 0x11d00, 0x11d20, indexGarouAHotaru },
+    { L"Hotaru A - Main", 0x11d00, 0x11d20, indexGarouAHotaru, 0x00, &pairNextAndNext13 },
     { L"Hotaru A - Itokatsu", 0x11d20, 0x11d40, indexGarouAHotaru, 0x09 },
     { L"Hotaru A - Unused", 0x11d40, 0x11d60 },
     { L"Hotaru A - On Fire", 0x11d60, 0x11d80, indexGarouAHotaru },
@@ -542,14 +542,14 @@ const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_A[] =
     { L"Hotaru A - Move Effects", 0x11e40, 0x11e60, indexGarouAHotaru, 0x0a },
     { L"Hotaru A - Move Flash", 0x11e60, 0x11e80, indexGarouAHotaru },
     { L"Hotaru A - Tenshou Ranki D Finisher", 0x11e80, 0x11ea0, indexGarouAHotaru, 0x0b },
-    { L"Hotaru A - Hotaru Stage Intro Stuff", 0x11ea0, 0x11ec0, indexGarouAHotaru, 0x08 },
+    { L"Hotaru A - Hotaru Stage Intro Stuff", 0x11ea0, 0x11ec0, indexGarouAHotaru, 0x0c },
     { L"Hotaru A - Unused", 0x11ec0, 0x11ee0 },
     { L"Hotaru A - Unused", 0x11ee0, 0x11f00 },
 };
 
 const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_B[] =
 {
-    { L"Hotaru B - Main", 0x11f00, 0x11f20, indexGarouAHotaru },
+    { L"Hotaru B - Main", 0x11f00, 0x11f20, indexGarouAHotaru, 0x00, &pairNextAndNext13 },
     { L"Hotaru B - Itokatsu", 0x11f20, 0x11f40, indexGarouAHotaru, 0x09 },
     { L"Hotaru B - Unused", 0x11f40, 0x11f60 },
     { L"Hotaru B - On Fire", 0x11f60, 0x11f80, indexGarouAHotaru },
@@ -562,14 +562,14 @@ const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_B[] =
     { L"Hotaru B - Move Effects", 0x12040, 0x12060, indexGarouAHotaru, 0x0a },
     { L"Hotaru B - Move Flash", 0x12060, 0x12080, indexGarouAHotaru },
     { L"Hotaru B - Tenshou Ranki D Finisher", 0x12080, 0x120a0, indexGarouAHotaru, 0x0b },
-    { L"Hotaru B - Hotaru Stage Intro Stuff", 0x120a0, 0x120c0, indexGarouAHotaru, 0x08 },
+    { L"Hotaru B - Hotaru Stage Intro Stuff", 0x120a0, 0x120c0, indexGarouAHotaru, 0x0c },
     { L"Hotaru B - Unused", 0x120c0, 0x120e0 },
     { L"Hotaru B - Unused", 0x120e0, 0x12100 },
 };
 
 const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_C[] =
 {
-    { L"Hotaru C - Main", 0x12100, 0x12120, indexGarouAHotaru },
+    { L"Hotaru C - Main", 0x12100, 0x12120, indexGarouAHotaru, 0x00, &pairNextAndNext13 },
     { L"Hotaru C - Itokatsu", 0x12120, 0x12140, indexGarouAHotaru, 0x09 },
     { L"Hotaru C - Unused", 0x12140, 0x12160 },
     { L"Hotaru C - On Fire", 0x12160, 0x12180, indexGarouAHotaru },
@@ -582,14 +582,14 @@ const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_C[] =
     { L"Hotaru C - Move Effects", 0x12240, 0x12260, indexGarouAHotaru, 0x0a },
     { L"Hotaru C - Move Flash", 0x12260, 0x12280, indexGarouAHotaru },
     { L"Hotaru C - Tenshou Ranki D Finisher", 0x12280, 0x122a0, indexGarouAHotaru, 0x0b },
-    { L"Hotaru C - Hotaru Stage Intro Stuff", 0x122a0, 0x122c0, indexGarouAHotaru, 0x08 },
+    { L"Hotaru C - Hotaru Stage Intro Stuff", 0x122a0, 0x122c0, indexGarouAHotaru, 0x0c },
     { L"Hotaru C - Unused", 0x122c0, 0x122e0 },
     { L"Hotaru C - Unused", 0x122e0, 0x12300 },
 };
 
 const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_D[] =
 {
-    { L"Hotaru D - Main", 0x12300, 0x12320, indexGarouAHotaru },
+    { L"Hotaru D - Main", 0x12300, 0x12320, indexGarouAHotaru, 0x00, &pairNextAndNext13 },
     { L"Hotaru D - Itokatsu", 0x12320, 0x12340, indexGarouAHotaru, 0x09 },
     { L"Hotaru D - Unused", 0x12340, 0x12360 },
     { L"Hotaru D - On Fire", 0x12360, 0x12380, indexGarouAHotaru },
@@ -602,14 +602,14 @@ const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_D[] =
     { L"Hotaru D - Move Effects", 0x12440, 0x12460, indexGarouAHotaru, 0x0a },
     { L"Hotaru D - Move Flash", 0x12460, 0x12480, indexGarouAHotaru },
     { L"Hotaru D - Tenshou Ranki D Finisher", 0x12480, 0x124a0, indexGarouAHotaru, 0x0b },
-    { L"Hotaru D - Hotaru Stage Intro Stuff", 0x124a0, 0x124c0, indexGarouAHotaru, 0x08 },
+    { L"Hotaru D - Hotaru Stage Intro Stuff", 0x124a0, 0x124c0, indexGarouAHotaru, 0x0c },
     { L"Hotaru D - Unused", 0x124c0, 0x124e0 },
     { L"Hotaru D - Unused", 0x124e0, 0x12500 },
 };
 
 const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_BOSS[] =
 {
-    { L"Hotaru Boss? - Main", 0x12500, 0x12520, indexGarouAHotaru },
+    { L"Hotaru Boss? - Main", 0x12500, 0x12520, indexGarouAHotaru, 0x00, &pairNextAndNext13 },
     { L"Hotaru Boss? - Line1", 0x12520, 0x12540 },
     { L"Hotaru Boss? - Line2", 0x12540, 0x12560, indexGarouAHotaru },
     { L"Hotaru Boss? - On Fire", 0x12560, 0x12580 },
@@ -622,7 +622,7 @@ const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_BOSS[] =
     { L"Hotaru Boss? - Projectile1", 0x12640, 0x12660 },
     { L"Hotaru Boss? - Projectile2", 0x12660, 0x12680 },
     { L"Hotaru Boss? - Projectile3", 0x12680, 0x126a0 },
-    { L"Hotaru Boss? - Projectile4", 0x126a0, 0x126c0 },
+    { L"Hotaru Boss? - Projectile4", 0x126a0, 0x126c0, indexGarouAHotaru, 0x0c },
     { L"Hotaru Boss? - Projectile5", 0x126c0, 0x126e0 },
     { L"Hotaru Boss? - Projectile6", 0x126e0, 0x12700 },
 };
@@ -730,7 +730,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_A[] =
 {
-    { L"Kevin A - Main", 0x13100, 0x13120, indexGarouAKevin },
+    { L"Kevin A - Main", 0x13100, 0x13120, indexGarouAKevin, 0x00, &pairNext12 },
     { L"Kevin A - Marky", 0x13120, 0x13140, indexGarouAKevin, 0x0a },
     { L"Kevin A - Line2", 0x13140, 0x13160 },
     { L"Kevin A - On Fire", 0x13160, 0x13180, indexGarouAKevin },
@@ -742,7 +742,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_A[] =
     { L"Kevin A - Just Defense Palette", 0x13220, 0x13240, indexGarouAKevin },
     { L"Kevin A - Move Effects", 0x13240, 0x13260, indexGarouAKevin, 0x0b },
     { L"Kevin A - Explosions", 0x13260, 0x13280, indexGarouAKevin, 0x08 },
-    { L"Kevin A - Newspaper", 0x13280, 0x132a0, indexGarouAKevin, 0x09 },
+    { L"Kevin A - Newspaper", 0x13280, 0x132a0, indexGarouAKevin, 0x0c },
     { L"Kevin A - Projectile4", 0x132a0, 0x132c0 },
     { L"Kevin A - Projectile5", 0x132c0, 0x132e0 },
     { L"Kevin A - Projectile6", 0x132e0, 0x13300 },
@@ -750,7 +750,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_A[] =
 
 const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_B[] =
 {
-    { L"Kevin B - Main", 0x13300, 0x13320, indexGarouAKevin },
+    { L"Kevin B - Main", 0x13300, 0x13320, indexGarouAKevin, 0x00, &pairNext12 },
     { L"Kevin B - Marky", 0x13320, 0x13340, indexGarouAKevin, 0x0a },
     { L"Kevin B - Line2", 0x13340, 0x13360 },
     { L"Kevin B - On Fire", 0x13360, 0x13380, indexGarouAKevin },
@@ -762,7 +762,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_B[] =
     { L"Kevin B - Just Defense Palette", 0x13420, 0x13440, indexGarouAKevin },
     { L"Kevin B - Move Effects", 0x13440, 0x13460, indexGarouAKevin, 0x0b },
     { L"Kevin B - Explosions", 0x13460, 0x13480, indexGarouAKevin, 0x08 },
-    { L"Kevin B - Newspaper", 0x13480, 0x134a0, indexGarouAKevin, 0x09 },
+    { L"Kevin B - Newspaper", 0x13480, 0x134a0, indexGarouAKevin, 0x0c },
     { L"Kevin B - Projectile4", 0x134a0, 0x134c0 },
     { L"Kevin B - Projectile5", 0x134c0, 0x134e0 },
     { L"Kevin B - Projectile6", 0x134e0, 0x13500 },
@@ -770,7 +770,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_B[] =
 
 const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_C[] =
 {
-    { L"Kevin C - Main", 0x13500, 0x13520, indexGarouAKevin },
+    { L"Kevin C - Main", 0x13500, 0x13520, indexGarouAKevin, 0x00, &pairNext12 },
     { L"Kevin C - Marky", 0x13520, 0x13540, indexGarouAKevin, 0x0a },
     { L"Kevin C - Line2", 0x13540, 0x13560 },
     { L"Kevin C - On Fire", 0x13560, 0x13580, indexGarouAKevin },
@@ -782,7 +782,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_C[] =
     { L"Kevin C - Just Defense Palette", 0x13620, 0x13640, indexGarouAKevin },
     { L"Kevin C - Move Effects", 0x13640, 0x13660, indexGarouAKevin, 0x0b },
     { L"Kevin C - Explosions", 0x13660, 0x13680, indexGarouAKevin, 0x08 },
-    { L"Kevin C - Newspaper", 0x13680, 0x136a0, indexGarouAKevin, 0x09 },
+    { L"Kevin C - Newspaper", 0x13680, 0x136a0, indexGarouAKevin, 0x0c },
     { L"Kevin C - Projectile4", 0x136a0, 0x136c0 },
     { L"Kevin C - Projectile5", 0x136c0, 0x136e0 },
     { L"Kevin C - Projectile6", 0x136e0, 0x13700 },
@@ -790,7 +790,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_C[] =
 
 const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_D[] =
 {
-    { L"Kevin D - Main", 0x13700, 0x13720, indexGarouAKevin },
+    { L"Kevin D - Main", 0x13700, 0x13720, indexGarouAKevin, 0x00, &pairNext12 },
     { L"Kevin D - Marky", 0x13720, 0x13740, indexGarouAKevin, 0x0a },
     { L"Kevin D - Line2", 0x13740, 0x13760 },
     { L"Kevin D - On Fire", 0x13760, 0x13780, indexGarouAKevin },
@@ -802,7 +802,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_D[] =
     { L"Kevin D - Just Defense Palette", 0x13820, 0x13840, indexGarouAKevin },
     { L"Kevin D - Move Effects", 0x13840, 0x13860, indexGarouAKevin, 0x0b },
     { L"Kevin D - Explosions", 0x13860, 0x13880, indexGarouAKevin, 0x08 },
-    { L"Kevin D - Newspaper", 0x13880, 0x138a0, indexGarouAKevin, 0x09 },
+    { L"Kevin D - Newspaper", 0x13880, 0x138a0, indexGarouAKevin, 0x0c },
     { L"Kevin D - Projectile4", 0x138a0, 0x138c0 },
     { L"Kevin D - Projectile5", 0x138c0, 0x138e0 },
     { L"Kevin D - Projectile6", 0x138e0, 0x13900 },
@@ -810,7 +810,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_D[] =
 
 const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_BOSS[] =
 {
-    { L"Kevin Boss? - Main", 0x13900, 0x13920, indexGarouAKevin },
+    { L"Kevin Boss? - Main", 0x13900, 0x13920, indexGarouAKevin, 0x00, &pairNext12 },
     { L"Kevin Boss? - Line1", 0x13920, 0x13940 },
     { L"Kevin Boss? - Line2", 0x13940, 0x13960, indexGarouAKevin },
     { L"Kevin Boss? - On Fire", 0x13960, 0x13980 },
@@ -822,7 +822,7 @@ const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_BOSS[] =
     { L"Kevin Boss? - Just Defense Palette", 0x13a20, 0x13a40, indexGarouAKevin },
     { L"Kevin Boss? - Projectile1", 0x13a40, 0x13a60 },
     { L"Kevin Boss? - Projectile2", 0x13a60, 0x13a80 },
-    { L"Kevin Boss? - Projectile3", 0x13a80, 0x13aa0 },
+    { L"Kevin Boss? - Projectile3", 0x13a80, 0x13aa0, indexGarouAKevin, 0x0c },
     { L"Kevin Boss? - Projectile4", 0x13aa0, 0x13ac0 },
     { L"Kevin Boss? - Projectile5", 0x13ac0, 0x13ae0 },
     { L"Kevin Boss? - Projectile6", 0x13ae0, 0x13b00 },
@@ -1130,7 +1130,7 @@ const sGame_PaletteDataset Garou_A_HOKUTOMARO_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_A[] =
 {
-    { L"Freeman A - Main", 0x15900, 0x15920, indexGarouAFreeman },
+    { L"Freeman A - Main", 0x15900, 0x15920, indexGarouAFreeman, 0x00, &pairNext13 },
     { L"Freeman A - Unused", 0x15920, 0x15940 },
     { L"Freeman A - Unused", 0x15940, 0x15960 },
     { L"Freeman A - On Fire", 0x15960, 0x15980, indexGarouAFreeman },
@@ -1143,14 +1143,14 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_A[] =
     { L"Freeman A - Slash Effects Main", 0x15a40, 0x15a60, indexGarouAFreeman, 0x09 },
     { L"Freeman A - Slash Effects Extra 1", 0x15a60, 0x15a80, indexGarouAFreeman, 0x09 },
     { L"Freeman A - Slash Effects Extra 2", 0x15a80, 0x15aa0, indexGarouAFreeman, 0x09 },
-    { L"Freeman A - Intro Stuff", 0x15aa0, 0x15ac0, indexGarouAFreeman, 0x08 },
+    { L"Freeman A - Intro Stuff", 0x15aa0, 0x15ac0, indexGarouAFreeman, 0x0b },
     { L"Freeman A - Slash Extras 1", 0x15ac0, 0x15ae0, indexGarouAFreeman, 0x0a },
     { L"Freeman A - Slash Extras 2", 0x15ae0, 0x15b00, indexGarouAFreeman, 0x0a },
 };
 
 const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_B[] =
 {
-    { L"Freeman B - Main", 0x15b00, 0x15b20, indexGarouAFreeman },
+    { L"Freeman B - Main", 0x15b00, 0x15b20, indexGarouAFreeman, 0x00, &pairNext13 },
     { L"Freeman B - Unused", 0x15b20, 0x15b40 },
     { L"Freeman B - Unused", 0x15b40, 0x15b60 },
     { L"Freeman B - On Fire", 0x15b60, 0x15b80, indexGarouAFreeman },
@@ -1163,14 +1163,14 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_B[] =
     { L"Freeman B - Slash Effects Main", 0x15c40, 0x15c60, indexGarouAFreeman, 0x09 },
     { L"Freeman B - Slash Effects Extra 1", 0x15c60, 0x15c80, indexGarouAFreeman, 0x09 },
     { L"Freeman B - Slash Effects Extra 2", 0x15c80, 0x15ca0, indexGarouAFreeman, 0x09 },
-    { L"Freeman B - Intro Stuff", 0x15ca0, 0x15cc0, indexGarouAFreeman, 0x08 },
+    { L"Freeman B - Intro Stuff", 0x15ca0, 0x15cc0, indexGarouAFreeman, 0x0b },
     { L"Freeman B - Slash Extras 1", 0x15cc0, 0x15ce0, indexGarouAFreeman, 0x0a },
     { L"Freeman B - Slash Extras 2", 0x15ce0, 0x15d00, indexGarouAFreeman, 0x0a },
 };
 
 const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_C[] =
 {
-    { L"Freeman C - Main", 0x15d00, 0x15d20, indexGarouAFreeman },
+    { L"Freeman C - Main", 0x15d00, 0x15d20, indexGarouAFreeman, 0x00, &pairNext13 },
     { L"Freeman C - Unused", 0x15d20, 0x15d40 },
     { L"Freeman C - Unused", 0x15d40, 0x15d60 },
     { L"Freeman C - On Fire", 0x15d60, 0x15d80, indexGarouAFreeman },
@@ -1183,14 +1183,14 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_C[] =
     { L"Freeman C - Slash Effects Main", 0x15e40, 0x15e60, indexGarouAFreeman, 0x09 },
     { L"Freeman C - Slash Effects Extra 1", 0x15e60, 0x15e80, indexGarouAFreeman, 0x09 },
     { L"Freeman C - Slash Effects Extra 2", 0x15e80, 0x15ea0, indexGarouAFreeman, 0x09 },
-    { L"Freeman C - Intro Stuff", 0x15ea0, 0x15ec0, indexGarouAFreeman, 0x08 },
+    { L"Freeman C - Intro Stuff", 0x15ea0, 0x15ec0, indexGarouAFreeman, 0x0b },
     { L"Freeman C - Slash Extras 1", 0x15ec0, 0x15ee0, indexGarouAFreeman, 0x0a },
     { L"Freeman C - Slash Extras 2", 0x15ee0, 0x15f00, indexGarouAFreeman, 0x0a },
 };
 
 const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_D[] =
 {
-    { L"Freeman D - Main", 0x15f00, 0x15f20, indexGarouAFreeman },
+    { L"Freeman D - Main", 0x15f00, 0x15f20, indexGarouAFreeman, 0x00, &pairNext13 },
     { L"Freeman D - Unused", 0x15f20, 0x15f40 },
     { L"Freeman D - Unused", 0x15f40, 0x15f60 },
     { L"Freeman D - On Fire", 0x15f60, 0x15f80, indexGarouAFreeman },
@@ -1203,14 +1203,14 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_D[] =
     { L"Freeman D - Slash Effects Main", 0x16040, 0x16060, indexGarouAFreeman, 0x090 },
     { L"Freeman D - Slash Effects Extra 1", 0x16060, 0x16080, indexGarouAFreeman, 0x09 },
     { L"Freeman D - Slash Effects Extra 2", 0x16080, 0x160a0, indexGarouAFreeman, 0x09 },
-    { L"Freeman D - Intro Stuff", 0x160a0, 0x160c0, indexGarouAFreeman, 0x08 },
+    { L"Freeman D - Intro Stuff", 0x160a0, 0x160c0, indexGarouAFreeman, 0x0b },
     { L"Freeman D - Slash Extras 1", 0x160c0, 0x160e0, indexGarouAFreeman, 0x0a },
     { L"Freeman D - Slash Extras 2", 0x160e0, 0x16100, indexGarouAFreeman, 0x0a },
 };
 
 const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_BOSS[] =
 {
-    { L"Freeman Boss? - Main", 0x16100, 0x16120, indexGarouAFreeman },
+    { L"Freeman Boss? - Main", 0x16100, 0x16120, indexGarouAFreeman, 0x00, &pairNext13 },
     { L"Freeman Boss? - Line1", 0x16120, 0x16140 },
     { L"Freeman Boss? - Line2", 0x16140, 0x16160, indexGarouAFreeman },
     { L"Freeman Boss? - On Fire", 0x16160, 0x16180 },
@@ -1223,14 +1223,14 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_BOSS[] =
     { L"Freeman Boss? - Projectile1", 0x16240, 0x16260 },
     { L"Freeman Boss? - Projectile2", 0x16260, 0x16280 },
     { L"Freeman Boss? - Projectile3", 0x16280, 0x162a0 },
-    { L"Freeman Boss? - Projectile4", 0x162a0, 0x162c0 },
+    { L"Freeman Boss? - Projectile4", 0x162a0, 0x162c0, indexGarouAFreeman, 0x0b },
     { L"Freeman Boss? - Projectile5", 0x162c0, 0x162e0 },
     { L"Freeman Boss? - Projectile6", 0x162e0, 0x16300 },
 };
 
 const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_A[] =
 {
-    { L"Tizoc A - Main", 0x16300, 0x16320, indexGarouATizoc },
+    { L"Tizoc A - Main", 0x16300, 0x16320, indexGarouATizoc, 0x00, &pairNext10 },
     { L"Tizoc A - Line1", 0x16320, 0x16340 },
     { L"Tizoc A - Line2", 0x16340, 0x16360 },
     { L"Tizoc A - On Fire", 0x16360, 0x16380, indexGarouATizoc },
@@ -1250,7 +1250,7 @@ const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_A[] =
 
 const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_B[] =
 {
-    { L"Tizoc B - Main", 0x16500, 0x16520, indexGarouATizoc },
+    { L"Tizoc B - Main", 0x16500, 0x16520, indexGarouATizoc, 0x00, &pairNext10 },
     { L"Tizoc B - Line1", 0x16520, 0x16540 },
     { L"Tizoc B - Line2", 0x16540, 0x16560 },
     { L"Tizoc B - On Fire", 0x16560, 0x16580, indexGarouATizoc },
@@ -1270,7 +1270,7 @@ const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_B[] =
 
 const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_C[] =
 {
-    { L"Tizoc C - Main", 0x16700, 0x16720, indexGarouATizoc },
+    { L"Tizoc C - Main", 0x16700, 0x16720, indexGarouATizoc, 0x00, &pairNext10 },
     { L"Tizoc C - Line1", 0x16720, 0x16740 },
     { L"Tizoc C - Line2", 0x16740, 0x16760 },
     { L"Tizoc C - On Fire", 0x16760, 0x16780, indexGarouATizoc },
@@ -1290,7 +1290,7 @@ const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_C[] =
 
 const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_D[] =
 {
-    { L"Tizoc D - Main", 0x16900, 0x16920, indexGarouATizoc },
+    { L"Tizoc D - Main", 0x16900, 0x16920, indexGarouATizoc, 0x00, &pairNext10 },
     { L"Tizoc D - Line1", 0x16920, 0x16940 },
     { L"Tizoc D - Line2", 0x16940, 0x16960 },
     { L"Tizoc D - On Fire", 0x16960, 0x16980, indexGarouATizoc },
@@ -1310,7 +1310,7 @@ const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_D[] =
 
 const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_BOSS[] =
 {
-    { L"Tizoc Boss? - Main", 0x16b00, 0x16b20, indexGarouATizoc },
+    { L"Tizoc Boss? - Main", 0x16b00, 0x16b20, indexGarouATizoc, 0x00, &pairNext10 },
     { L"Tizoc Boss? - Line1", 0x16b20, 0x16b40 },
     { L"Tizoc Boss? - Line2", 0x16b40, 0x16b60, indexGarouATizoc },
     { L"Tizoc Boss? - On Fire", 0x16b60, 0x16b80, indexGarouATizoc },
@@ -1320,7 +1320,7 @@ const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_BOSS[] =
     { L"Tizoc Boss? - Super Trail Palette", 0x16be0, 0x16c00, indexGarouATizoc },
     { L"Tizoc Boss? - Guard Crash Flash", 0x16c00, 0x16c20, indexGarouATizoc },
     { L"Tizoc Boss? - Just Defense Palette", 0x16c20, 0x16c40, indexGarouATizoc },
-    { L"Tizoc Boss? - Projectile1", 0x16c40, 0x16c60 },
+    { L"Tizoc Boss? - Projectile1", 0x16c40, 0x16c60, indexGarouATizoc, 0x08 },
     { L"Tizoc Boss? - Projectile2", 0x16c60, 0x16c80 },
     { L"Tizoc Boss? - Projectile3", 0x16c80, 0x16ca0 },
     { L"Tizoc Boss? - Projectile4", 0x16ca0, 0x16cc0 },

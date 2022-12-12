@@ -41,17 +41,17 @@ const sGame_PaletteDataset FatalFury1_A_Bosses_PALETTES[] =
 
 const sGame_PaletteDataset FatalFury1_A_Effects_PALETTES[] =
 {
-    { L"Hitsparks/Dust", 0x32dcc, 0x32dec },
+    { L"Hitsparks/Dust", 0x32dcc, 0x32dec, indexFF1Sprites_Bonus, 0x11 },
     // This is used above so we don't need to reach cross-unit for the palette pairing
     //{ L"Hwa Jai/Billy Thrower", 0x335ac, 0x335cc },
-    { L"Terry Power Wave", 0x32dec, 0x32dfc },
-    { L"Andy Hisho Ken", 0x32e2c, 0x32e4c },
-    { L"Joe Hurricane/Michael Tornado", 0x32dfc, 0x32e0c },
-    { L"Tung Dai Sharin Kyaku", 0x3300c, 0x3302c },
-    { L"Hwa Jai Elixir Bottle", 0x336ac, 0x336cc },
-    { L"Raiden Poison Spray", 0x3364c, 0x3366c },
-    { L"Hwa Jai/Billy Kane Thrower", 0x335ac, 0x335cc },
-    { L"Geese Reppu Ken", 0x335ec, 0x3360c },
+    { L"Terry Power Wave", 0x32dec, 0x32dfc, indexFF1Sprites_Bonus, 0x25 },
+    { L"Andy Hisho Ken", 0x32e2c, 0x32e4c, indexFF1Sprites_Bonus, 0x10 },
+    { L"Joe Hurricane/Michael Tornado", 0x32dfc, 0x32e0c, indexFF1Sprites_Bonus, 0x14 },
+    { L"Tung Dai Sharin Kyaku", 0x3300c, 0x3302c, indexFF1Sprites_Bonus, 0x10 },
+    { L"Hwa Jai Elixir Bottle", 0x336ac, 0x336cc, indexFF1Sprites_Bonus, 0x08 },
+    { L"Raiden Poison Spray", 0x3364c, 0x3366c, indexFF1Sprites_Bonus, 0x24 },
+    { L"Hwa Jai/Billy Kane Thrower", 0x335ac, 0x335cc, indexFF1Sprites_Bonus, 0x29 },
+    { L"Geese Reppu Ken", 0x335ec, 0x3360c, indexFF1Sprites_Bonus, 0x25 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_Portraits_PALETTES[] =
@@ -68,68 +68,68 @@ const sGame_PaletteDataset FatalFury1_A_Portraits_PALETTES[] =
     { L"Billy Kane Portrait",       0x33a8c, 0x33aac, indexFF1Sprites_BillyKane, 0x40 },
 };
 
-const sGame_PaletteDataset FatalFury1_A_CharExtraPortaits_PALETTES[]
+const sGame_PaletteDataset FatalFury1_A_CharExtraPortraits_PALETTES[]
 {
-    { L"Main Portaits", 0x3296c, 0x329cc },
-    { L"Intro Terry", 0x32f2c, 0x32f4c },
-    { L"Intro Joe", 0x32f4c, 0x32f6c },
-    { L"Player Select Glow 1", 0x379ec, 0x37b6c },
-    { L"Player Select Glow 2", 0x37d4c, 0x37e0c },
-    { L"Terry VS Geese GameOver", 0x33b0c, 0x33b2c },
-    { L"Andy VS Geese GameOver", 0x33b2c, 0x33b4c },
-    { L"Joe VS Geese GameOver", 0x33b4c, 0x33b6c},
-    { L"Credits Characters", 0x3376c, 0x337ec },
+    { L"Main Portraits", 0x3296c, 0x329cc, indexFF1Sprites_Bonus, 0x27 },
+    { L"Intro Terry", 0x32f2c, 0x32f4c, indexFF1Sprites_Bonus, 0x1c },
+    { L"Intro Joe", 0x32f4c, 0x32f6c, indexFF1Sprites_Bonus, 0x19 },
+    { L"Player Select Glow 1", 0x379ec, 0x37b6c, indexFF1Sprites_Bonus, 0x22 },
+    { L"Player Select Glow 2", 0x37d4c, 0x37e0c, indexFF1Sprites_Bonus, 0x23 },
+    { L"Terry VS Geese GameOver", 0x33b0c, 0x33b2c, indexFF1Sprites_Bonus, 0x28 },
+    { L"Andy VS Geese GameOver", 0x33b2c, 0x33b4c, indexFF1Sprites_Bonus, 0x00 },
+    { L"Joe VS Geese GameOver", 0x33b4c, 0x33b6c, indexFF1Sprites_Bonus, 0x1d },
+    { L"Credits Characters", 0x3376c, 0x337ec, indexFF1Sprites_Bonus, 0x07 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_INTRO_PALETTES[]
 {
-    { L"Intro Rocky Ground and Portait Boxes", 0x32c8c, 0x32cac },
-    { L"Intro Taxi", 0x329ec, 0x32a0c }, 
-    { L"Intro Fatal Fury Text", 0x3346c, 0x3348c },
-    { L"Intro Background 1", 0x32a0c, 0x32a2c },
-    { L"Intro Background 2", 0x32a2c, 0x32a6c },
+    { L"Intro Rocky Ground and Portrait Boxes", 0x32c8c, 0x32cac, indexFF1Sprites_Bonus, 0x1a },
+    { L"Intro Taxi", 0x329ec, 0x32a0c, indexFF1Sprites_Bonus, 0x1b },
+    { L"Intro Fatal Fury Text", 0x3346c, 0x3348c, indexFF1Sprites_Bonus, 0x18 },
+    { L"Intro Background 1", 0x32a0c, 0x32a2c, indexFF1Sprites_Bonus, 0x16 },
+    { L"Intro Background 2", 0x32a2c, 0x32a6c, indexFF1Sprites_Bonus, 0x17 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_GAMES_PALETTES[]
 {
-    { L"Bonus Guy 1", 0x33aac, 0x33aec },
-    { L"Bonus Guy 2", 0x32ccc, 0x32cec},
+    { L"Bonus Guy 1", 0x33aac, 0x33aec, indexFF1Sprites_Bonus, 0x02 },
+    { L"Bonus Guy 2", 0x32ccc, 0x32cec },
     { L"Bonus Arms", 0x32cac, 0x32ccc },
     { L"Bonus Background", 0x32cec, 0x32d6c},
-    { L"Bonus Background Extras", 0x334ec, 0x3356c},
+    { L"Bonus Background Extras", 0x334ec, 0x3356c },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_Cutscenes_PALETTES[] =
 {
-    { L"Geese", 0x32bac, 0x32bcc },
-    { L"Boss Geese", 0x32bec, 0x32c0c },
-    { L"Falling Geese", 0x328ac, 0x328cc },
-    { L"Womans", 0x32c2c, 0x32c4c },
-    { L"Geese's Mens", 0x32c4c, 0x32c6c },
-    { L"Gesse Background", 0x32bcc, 0x32bec, indexFF1Sprites_Bonus, -1, &pairNext }, // pair the next two palettes (KOF Winner and Boss Geese Background) because the preview is joined
-    { L"KOF Winner Background", 0x32c6c, 0x32c8c },
-    { L"Boss Geese Background", 0x32c0c, 0x32c2c },
-    { L"Geese Death Background", 0x33aec, 0x33b0c },
+    { L"Geese", 0x32bac, 0x32bcc, indexFF1Sprites_Bonus, 0x0c },
+    { L"Boss Geese", 0x32bec, 0x32c0c, indexFF1Sprites_Bonus, 0x04 },
+    { L"Falling Geese", 0x328ac, 0x328cc, indexFF1Sprites_Bonus, 0x0b },
+    { L"Womans", 0x32c2c, 0x32c4c, indexFF1Sprites_Bonus, 0x2c },
+    { L"Geese's Mens", 0x32c4c, 0x32c6c, indexFF1Sprites_Bonus, 0x0f },
+    { L"Geese Background", 0x32bcc, 0x32bec, indexFF1Sprites_Bonus, 0x0d, &pairNextAndNext }, // pair the next two palettes (KOF Winner and Boss Geese Background) because the preview is joined
+    { L"KOF Winner Background", 0x32c6c, 0x32c8c, indexFF1Sprites_Bonus, 0x1e },
+    { L"Boss Geese Background", 0x32c0c, 0x32c2c, indexFF1Sprites_Bonus, 0x05 },
+    { L"Geese Death Background", 0x33aec, 0x33b0c, indexFF1Sprites_Bonus, 0x0e },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_PALETTES[] =
 {
-    { L"HUD and Text (1/2)", 0x3276c, 0x3278c, indexFF1Sprites_Bonus, -1, &pairNext }, // pair with the next palette (Lifebar) because the preview is joined
-    { L"Lifebar and Flashing Timer (2/2)", 0x327ec, 0x3286c },
-    { L"Bonus Text", 0x3278c, 0x327ac },
-    { L"Credits and Bonus Text", 0x3286c, 0x3288c },
-    { L"Level Select Text", 0x32ecc, 0x32f2c },
-    { L"Map Characters and SNK", 0x327ac, 0x327cc },
-    { L"How to Play Buttons", 0x327cc, 0x327ec },
-    { L"In-Game Text", 0x32aec, 0x32b0c },
-    { L"Titles", 0x32acc, 0x32aec },
-    { L"Versus", 0x32b8c, 0x32bac },
-    { L"South Town Map", 0x32a6c, 0x32acc },
-    { L"Area Select Enemy", 0x328cc, 0x3294c, indexFF1Sprites_Bonus, -1, &pairNext }, // pair with the next palette (Area Select Stages) because the preview is joined
-    { L"Area Select Stages", 0x32b0c, 0x32b8c },
+    { L"HUD and Text (1/2)", 0x3276c, 0x3278c, indexFF1Sprites_Bonus, 0x13, &pairNext }, // pair with the next palette (Lifebar) because the preview is joined
+    { L"Lifebar and Flashing Timer (2/2)", 0x327ec, 0x3286c, indexFF1Sprites_Bonus, 0x20 },
+    { L"Bonus Text", 0x3278c, 0x327ac, indexFF1Sprites_Bonus, 0x03 },
+    { L"Credits and Bonus Text", 0x3286c, 0x3288c, indexFF1Sprites_Bonus, 0x06 },
+    { L"Level Select Text", 0x32ecc, 0x32f2c, indexFF1Sprites_Bonus, 0x1f },
+    { L"Map Characters and SNK", 0x327ac, 0x327cc, indexFF1Sprites_Bonus, 0x21 },
+    { L"How to Play Buttons", 0x327cc, 0x327ec, indexFF1Sprites_Bonus, 0x12 },
+    { L"In-Game Text", 0x32aec, 0x32b0c, indexFF1Sprites_Bonus, 0x15 },
+    { L"Titles", 0x32acc, 0x32aec, indexFF1Sprites_Bonus, 0x2a },
+    { L"Versus", 0x32b8c, 0x32bac, indexFF1Sprites_Bonus, 0x2b },
+    { L"South Town Map", 0x32a6c, 0x32acc, indexFF1Sprites_Bonus, 0x26 },
+    { L"Area Select Enemy", 0x328cc, 0x3294c, indexFF1Sprites_Bonus, 0x09, &pairNext }, // pair with the next palette (Area Select Stages) because the preview is joined
+    { L"Area Select Stages", 0x32b0c, 0x32b8c, indexFF1Sprites_Bonus, 0x0a },
     { L"Area Select Stages Glow 1", 0x37b6c, 0x37cec, indexFF1Sprites_Stages, 0x01 },
-    { L"Area Select Stages Glow 2", 0x37e0c, 0x37e8c, indexFF1Sprites_Stages, 0x01 },
-    { L"Area Select Enemy Glow", 0x37eac, 0x380ac },
+    { L"Area Select Stages Glow 2", 0x37e0c, 0x37e8c, indexFF1Sprites_Bonus, 0x0a },
+    { L"Area Select Enemy Glow", 0x37eac, 0x380ac, indexFF1Sprites_Bonus, 0x09 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StagePaoPao_PALETTES[] =
@@ -235,7 +235,7 @@ const sGame_PaletteDataset FatalFury1_A_BONUS_StageGeese_PALETTES[] =
 const sDescTreeNode FatalFury1_A_CHARACTER_COLLECTION[] =
 {
     { L"In-Game Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Character_PALETTES, ARRAYSIZE(FatalFury1_A_Character_PALETTES) },
-    { L"Extra Portaits", DESC_NODETYPE_TREE, (void*)FatalFury1_A_CharExtraPortaits_PALETTES, ARRAYSIZE(FatalFury1_A_CharExtraPortaits_PALETTES) },
+    { L"Extra Portraits", DESC_NODETYPE_TREE, (void*)FatalFury1_A_CharExtraPortraits_PALETTES, ARRAYSIZE(FatalFury1_A_CharExtraPortraits_PALETTES) },
 };
 
 const sDescTreeNode FatalFury1_A_BOSSES_COLLECTION[] =

@@ -551,6 +551,7 @@ const stPairedPaletteInfo pairNext10 = { 10 };
 const stPairedPaletteInfo pairNext11 = { 11 };
 const stPairedPaletteInfo pairNext12 = { 12 };
 const stPairedPaletteInfo pairNext14 = { 14 };
+const stPairedPaletteInfo pairNext13 = { 13 };
 const stPairedPaletteInfo pairNext15 = { 15 };
 const stPairedPaletteInfo pairNext30 = { 30 };
 const stPairedPaletteInfo pairPrevious = { -1 };
@@ -581,6 +582,7 @@ const stPairedPaletteInfo pairNextAndNext6 =                        { 1, {}, 3, 
 const stPairedPaletteInfo pairNextAndNext7 =                        { 1, {}, 3, 7 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext9 =                        { 1, {}, 3, 9 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext12 =                       { 1, {}, 3, 12 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext13 =                       { 1, {}, 3, 13 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairPrevious2AndNext2 =                   { -2, {}, 3, 2 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNextAndNext39 =                       { 1, {}, 3, 39 }; // triple display... requires special handling in code

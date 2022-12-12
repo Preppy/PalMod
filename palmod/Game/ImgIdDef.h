@@ -282,6 +282,7 @@ enum CHARACTERS_CPS2
     indexCVS2Sprites_Bonus,         // 0xe9
 
     indexCPS2Sprites_Bonus,         // 0xea
+    indexSFA3Sprites_Stages,        // 0xeb
 };
 
 enum CHARACTERS_3S_CPS3
@@ -1094,7 +1095,7 @@ enum KOFSpriteList
     indexLastBladeSprites_Kagami,   // 0x26A
     indexLastBladeSprites_Lee,      // 0x26B
     indexLastBladeSprites_Moriya,   // 0x26C
-    indexLastBladeSprites_Mukuro,   // 0x26D
+    indexLastBladeSprites_Shikyoh,  // 0x26D Shikyoh becomes Mukuro in Last blade 2
     indexLastBladeSprites_Musashi,  // 0x26E
     indexLastBladeSprites_Okina,    // 0x26F Genbu
     indexLastBladeSprites_Shigen,   // 0x270
@@ -2026,6 +2027,15 @@ enum SupportedNEOGEO_PaletteListIndex
     indexMagDrop2Sprites_Star,              // 0xc4
     indexMagDrop2Sprites_Strength,          // 0xc5
     indexMagDrop2Sprites_World,             // 0xc6
+    indexMagDrop2Sprites_Bonus,             // 0xc7
+
+    indexBattleFlipShotSprites_BloodyWolf,  // 0xc8
+    indexBattleFlipShotSprites_Boss,        // 0xc9
+    indexBattleFlipShotSprites_Chinta,      // 0xca
+    indexBattleFlipShotSprites_MrJustice,   // 0xcb
+    indexBattleFlipShotSprites_Salmon,      // 0xcc
+    indexBattleFlipShotSprites_Siren,       // 0xcd
+    indexBattleFlipShotSprites_Bonus,       // 0xce
 };
 
 enum SupportedGGXX_PaletteListIndex
@@ -2075,8 +2085,8 @@ enum SupportedGGXX_PaletteListIndex
     indexGGDSSprites_Jam,                   // 0x27
     indexGGDSSprites_Johnny,                // 0x28
     indexGGDSSprites_KyKiske,               // 0x29
-    indexGGDSSprites_Millia,                // 0x2A
-    indexGGDSSprites_May,                   // 0x2B
+    indexGGDSSprites_May,                   // 0x2a
+    indexGGDSSprites_Millia,                // 0x2b
     indexGGDSSprites_Potemkin,              // 0x2C
     indexGGDSSprites_RoboKy,                // 0x2D
     indexGGDSSprites_SolBadguy,             // 0x2E
@@ -2233,6 +2243,11 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
     indexFrenchBreadSprites_MBTL_Neco,              // 0x7A
     indexFrenchBreadSprites_MBTL_Mash,              // 0x7B
+
+    indexMBAACCSprites_KohaMechHisui,               // 0x7C
+    indexMBAACCSprites_KohaMechKohaku,              // 0x7D #Koha - Mech, Kohaku
+    indexMBAACCSprites_NecoMechHisui,               // 0x7E #Neco - Mech, Mech - Hisui
+    indexMBAACCSprites_NecoMechNeco,                // 0x7F #Nech - Mech, NecoArc
 };
 
 enum SupportedTaito_PaletteListIndex
@@ -2597,4 +2612,60 @@ enum SupportedOther_SpriteListIndex
     indexAquaPlusSprites_Touka,         // 0x5E
     indexAquaPlusSprites_Partner,       // 0x5F
     indexAquaPlusSprites_Unused,        // 0x60
+
+    indexHNISprites_Date,               // 0x61
+    indexHNISprites_Hayami,             // 0x62
+    indexHNISprites_Ippo,               // 0x63
+    indexHNISprites_Mashiba,            // 0x64
+    indexHNISprites_Miyata,             // 0x65
+    indexHNISprites_Okita,              // 0x66
+    indexHNISprites_Saeki,              // 0x67
+    indexHNISprites_Sendo,              // 0x68
+    indexHNISprites_Shigeta,            // 0x69
+    indexHNISprites_Volg,               // 0x6a
+    indexHNISprites_Bonus,              // 0x6b
+
+    indexMK2ASprites_Baraka,            // 0x6c
+    indexMK2ASprites_Jade,              // 0x6d
+    indexMK2ASprites_Jax,               // 0x6e
+    indexMK2ASprites_JohnnyCage,        // 0x6f
+    indexMK2ASprites_Kintaro,           // 0x70
+    indexMK2ASprites_Kitana,            // 0x71
+    indexMK2ASprites_KungLao,           // 0x72
+    indexMK2ASprites_LiuKang,           // 0x73
+    indexMK2ASprites_Mileena,           // 0x74
+    indexMK2ASprites_NoobSaibot,        // 0x75
+    indexMK2ASprites_Raiden,            // 0x76
+    indexMK2ASprites_Reptile,           // 0x77
+    indexMK2ASprites_Scorpion,          // 0x78
+    indexMK2ASprites_ShangTsung,        // 0x79
+    indexMK2ASprites_ShaoKahn,          // 0x7a
+    indexMK2ASprites_Smoke,             // 0x7b
+    indexMK2ASprites_SubZero,           // 0x7c
+    indexMK2ASprites_Bonus,             // 0x7d
+    indexMK2ASprites_Stages,            // 0x7e
+
+    indexSF1Sprites_Adon,               // 0x7f
+    indexSF1Sprites_Birdie,             // 0x80
+    indexSF1Sprites_Eagle,              // 0x81
+    indexSF1Sprites_Geki,               // 0x82
+    indexSF1Sprites_Gen,                // 0x83
+    indexSF1Sprites_Joe,                // 0x84
+    indexSF1Sprites_Ken,                // 0x85
+    indexSF1Sprites_Lee,                // 0x86
+    indexSF1Sprites_Mike,               // 0x87
+    indexSF1Sprites_Retsu,              // 0x88
+    indexSF1Sprites_Ryu,                // 0x89
+    indexSF1Sprites_Sagat,              // 0x8a
+    indexSF1Sprites_Bonus,              // 0x8b
+
+    indexBKRoadSprites_Boxing,              // 0x8c
+    indexBKRoadSprites_CommandoSambo,       // 0x8d
+    indexBKRoadSprites_Jujutsu,             // 0x8e
+    indexBKRoadSprites_Karate,              // 0x8f
+    indexBKRoadSprites_MixedMartialArts,    // 0x90
+    indexBKRoadSprites_MrBear,              // 0x91
+    indexBKRoadSprites_MuayThai,            // 0x92
+    indexBKRoadSprites_Sumo,                // 0x93
+    indexBKRoadSprites_Bonus,               // 0x94
 };

@@ -15,6 +15,10 @@ enum class SFIII3LoadingKey
 
 class CGame_SFIII3_A : public CGameClassByDir
 {
+public:
+    // Init before usage in CoreGameData
+    const uint32_t SFIII_ROM50_PALETTECOUNT = 1438;
+
 private:
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM10 =
     {
@@ -71,8 +75,6 @@ private:
     };
 
 public:
-    const uint32_t SFIII_ROM50_PALETTECOUNT = 1438;
-
     static SFIII3LoadingKey m_eVersionToLoad;
 
     static bool IsROMEncrypted() { return (m_eVersionToLoad == SFIII3LoadingKey::ROM10) || (m_eVersionToLoad == SFIII3LoadingKey::ROM10_4rd); };
