@@ -39,5 +39,5 @@ public:
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
+    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 };

@@ -52,7 +52,7 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     uint32_t GetBasicOffset(uint32_t nPalId);
-    void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
+    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
     static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };

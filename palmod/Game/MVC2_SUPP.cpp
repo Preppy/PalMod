@@ -319,7 +319,7 @@ namespace MVC2_SupplementProcessing
         return nTotalLinkedPalettesUpdated;
     }
 
-    void proc_supp(uint32_t char_no, uint32_t pal_no)
+    int proc_supp(uint32_t char_no, uint32_t pal_no)
     {
         CString strDebugInfo;
         int nTotalLinkedPalettesUpdated = 0;
@@ -330,7 +330,7 @@ namespace MVC2_SupplementProcessing
         if (!_mvc2_dreamcast_data && !_mvc2_arcade_data)
         {
             OutputDebugString(L"\t\tproc_supp: Error: palette buffer not available\n");
-            return;
+            return nTotalLinkedPalettesUpdated;
         }
 
         // These happen without regards to whether we have other supplemental processing for this character
@@ -629,5 +629,7 @@ namespace MVC2_SupplementProcessing
 
         strDebugInfo.Format(L"\tproc_supp: Finished processing %u supplemental palettes for character 0x%02x, palette number 0x%x\n\n", nTotalLinkedPalettesUpdated, char_no, pal_no);
         OutputDebugString(strDebugInfo);
+
+        return nTotalLinkedPalettesUpdated;
     }
 }

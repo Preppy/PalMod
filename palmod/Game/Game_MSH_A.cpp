@@ -112,8 +112,10 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
     return ARRAYSIZE(knownROMs);
 }
 
-void CGame_MSH_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+int CGame_MSH_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
+    int nTotalPalettesChanged = 0;
+
     if (nUnitId != m_nCurrentExtraUnitId)
     {
         CString strMessage;
@@ -125,11 +127,13 @@ void CGame_MSH_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
         if (pThisPalette && pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
         {
             OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
-            ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+            nTotalPalettesChanged = ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
         }
         else
         {
             OutputDebugString(L"\tNo further processing needed.\n");
         }
     }
+
+    return nTotalPalettesChanged;
 }

@@ -219,7 +219,7 @@ void CSecondaryPaletteProcessing::ProcessBlendEffects(uint32_t char_id, uint32_t
     safe_delete(pDestinationPalette);
 }
 
-void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const uint32_t nUnitId, const uint32_t nChangedPaletteNumber, const std::vector<std::vector<uint16_t>> supplementalEffectsData)
+int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const uint32_t nUnitId, const uint32_t nChangedPaletteNumber, const std::vector<std::vector<uint16_t>> supplementalEffectsData)
 {
     CString strDebugInfo;
     strDebugInfo.Format(L"\tProcessAdditionalPaletteChangesRequired: Processing supplemental palettes for unit 0x%02x palette number 0x%x. %u effects to apply.\n", nUnitId, nChangedPaletteNumber,
@@ -373,4 +373,6 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
 
     strDebugInfo.Format(L"ProcessAdditionalPaletteChangesRequired: Finished processing supplemental palettes for character 0x%02x, palette number 0x%x\n\n", nUnitId, nChangedPaletteNumber);
     OutputDebugString(strDebugInfo);
+
+    return vstrModifiedPaletteNames.size();
 }

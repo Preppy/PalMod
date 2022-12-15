@@ -259,7 +259,7 @@ public:
     void FlushChangeTrackingArray() { m_rgFileChanged.clear(); ClearDirtyPaletteTracker(); };
     virtual void PrepChangeTrackingArray();
     virtual void ValidateMixExtraColors(BOOL& fChangesWereMade) {};
-    virtual void PostSetPal(uint32_t nUnitId, uint32_t nPalId) {};
+    virtual int PostSetPal(uint32_t nUnitId, uint32_t nPalId) { return 0; };
     virtual void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) {};
     virtual uint32_t GetPaletteCountForUnit(uint32_t nUnitId) { return INVALID_UNIT_VALUE; };
 

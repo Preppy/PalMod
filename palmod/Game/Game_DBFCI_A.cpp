@@ -3,11 +3,13 @@
 #include "DBFCI_S_DEF.h"
 #include "..\PalMod.h"
 
-void CGame_DBFCI_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+int CGame_DBFCI_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_DBFCI_A::PostSetPal : Updating left/right partner for unit %u palette %u.\n", nUnitId, nPalId);
     OutputDebugString(strMessage);
+
+    int nTotalPalettesChanged = 0; // always updating left/right, but we have no onscreen entanglements in palmod to worry about
 
     uint32_t nPartnerId = nPalId;
     const uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, 0);
@@ -44,4 +46,6 @@ void CGame_DBFCI_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
             m_pppDataBuffer32[nUnitId][nPartnerId][nEye2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye1Position + nArrayIndex];
         }
     }
+
+    return nTotalPalettesChanged;
 }

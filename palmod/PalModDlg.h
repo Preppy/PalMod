@@ -295,6 +295,8 @@ public:
     afx_msg void OnFilePatch();
     afx_msg void OnFileCrossPatch();
     afx_msg void OnSavePatchFile();
+    // This should be called after a game's PostSelProc call changes a shown secondary palette
+    void RefreshSecondaryPalettesForPaletteChange();
 
     static void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
     static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);

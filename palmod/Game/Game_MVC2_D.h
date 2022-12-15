@@ -58,7 +58,7 @@ public:
     void UpdatePalData(); // This is old code and uses its own logic
 
     uint16_t** GetDataBuffer() { return ppDataBuffer; };
-    void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
+    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
     void CreateDefPal(sDescNode* srcNode, uint32_t nSepId) override;
     void ResetChangeFlag(uint32_t nUnitId);
 

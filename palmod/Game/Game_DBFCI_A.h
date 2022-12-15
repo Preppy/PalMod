@@ -22,7 +22,7 @@ public:
     CGame_DBFCI_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
     ~CGame_DBFCI_A() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
-    void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
+    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, DBFCICharacterData); };
     static sFileRule GetNextRule() { return CGameClassPerUnitPerFile::GetNextRule(DBFCICharacterData); };

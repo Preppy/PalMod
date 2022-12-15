@@ -110,8 +110,10 @@ void CGame_MVC_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
-void CGame_MVC_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+int CGame_MVC_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
+    int nTotalPalettesChanged = 0;
+
     if (nUnitId != m_nExtraUnit)
     {
         CString strMessage;
@@ -123,11 +125,13 @@ void CGame_MVC_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
         if (pThisPalette && pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
         {
             OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
-            ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+            nTotalPalettesChanged = ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
         }
         else
         {
             OutputDebugString(L"\tNo further processing needed.\n");
         }
     }
+
+    return nTotalPalettesChanged;
 }

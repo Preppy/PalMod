@@ -52,5 +52,5 @@ public:
     virtual void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) = 0;
     virtual LPCWSTR GetCurrentPaletteName() = 0;
 
-    void ProcessAdditionalPaletteChangesRequired(const uint32_t nUnitId, const uint32_t nChangedPaletteNumber, const std::vector<std::vector<uint16_t>> supplementalEffectsData);
+    int ProcessAdditionalPaletteChangesRequired(const uint32_t nUnitId, const uint32_t nChangedPaletteNumber, const std::vector<std::vector<uint16_t>> supplementalEffectsData);
 };

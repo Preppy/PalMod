@@ -306,8 +306,10 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     return TRUE;
 }
 
-void CGame_MSHVSF_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+int CGame_MSHVSF_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
+    int nTotalPalettesChanged = 0;
+
     if (nUnitId != m_nCurrentExtraUnitId)
     {
         CString strMessage;
@@ -319,11 +321,13 @@ void CGame_MSHVSF_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
         if (pThisPalette && pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
         {
             OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
-            ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+            nTotalPalettesChanged = ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
         }
         else
         {
             OutputDebugString(L"\tNo further processing needed.\n");
         }
     }
+
+    return nTotalPalettesChanged;
 }

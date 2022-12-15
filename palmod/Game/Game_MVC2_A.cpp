@@ -658,7 +658,7 @@ uint32_t CGame_MVC2_A::GetBasicOffset(uint32_t nPalId)
     }
 }
 
-void CGame_MVC2_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+int CGame_MVC2_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     uint32_t nBasicOffset = GetBasicOffset(nPalId);
 
@@ -666,5 +666,5 @@ void CGame_MVC2_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
     strMessage.Format(L"CGame_MVC2_A::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");
     OutputDebugString(strMessage);
 
-    MVC2_SupplementProcessing::proc_supp(nUnitId, nPalId);
+    return MVC2_SupplementProcessing::proc_supp(nUnitId, nPalId);
 }

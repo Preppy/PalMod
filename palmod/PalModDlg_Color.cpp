@@ -1149,6 +1149,39 @@ void CPalModDlg::OnBnRevert()
     }
 }
 
+void CPalModDlg::RefreshSecondaryPalettesForPaletteChange()
+{
+    // This gets called after a palette change updates secondary palettes that are being displayed onscreen
+    if (m_fEnabled)
+    {
+        const uint32_t nPalCount = GetHost()->GetCurrGame()->GetPalGroup()->GetPalAmt();
+
+        if (nPalCount > 1)
+        {
+            // Make sure to update m_nCurrSelPath so that the UndoNodes are created for the correct palette
+            for (m_nCurrSelPal = 1; m_nCurrSelPal < nPalCount; m_nCurrSelPal++)
+            {
+                ProcChange();
+
+                // "Revert Changes" is refreshing from source.  That source was directly updated
+                // via the PostSetPal changes, so this will update the visuals to match the new source.
+                GetHost()->GetCurrGame()->RevertChanges((int)m_nCurrSelPal);
+
+                m_PalHost.GetPalCtrl(m_nCurrSelPal)->UpdateIndexAll();
+
+                m_PalHost.GetPalCtrl(m_nCurrSelPal)->UpdateCtrl();
+            }
+
+            ImgDispCtrl->UpdateCtrl();
+
+            UpdateMultiEdit(TRUE);
+            UpdateSliderSel();
+
+            m_nCurrSelPal = 0;
+        }
+    }
+}
+
 void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunction pGradientFunctionToUse)
 {
     if (m_fEnabled)

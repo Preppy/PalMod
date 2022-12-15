@@ -2,7 +2,7 @@
 #include "Game_UNICLR_A.h"
 #include "..\PalMod.h"
 
-void CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+int CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_UNICLR_A::PostSetPal : Updating left/right partner for unit %u palette %u.\n", nUnitId, nPalId);
@@ -10,6 +10,7 @@ void CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 
     uint32_t nPartnerId = nPalId;
     const uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, 0);
+    int nTotalPalettesChanged = 0; // always updating left/right, but we have no onscreen entanglements in palmod to worry about
 
     // Flip to the left/right partner
     if (nPalId >= nNodeCount)
@@ -90,4 +91,6 @@ void CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
             }
         }
     }
+
+    return nTotalPalettesChanged;
 }

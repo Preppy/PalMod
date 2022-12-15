@@ -37,5 +37,5 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 
-    void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
+    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 };

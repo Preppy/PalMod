@@ -654,6 +654,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
 void CGameClass::UpdatePalData()
 {
     const uint32_t nTotalPalettes = BasePalGroup.GetPalAmt();
+    uint32_t nChangedPalettesCount = 0;
 
     // We walk the list backwards so that we know what the first palette's name is
     for (int16_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
@@ -723,9 +724,14 @@ void CGameClass::UpdatePalData()
 
             if (m_ShouldUsePostSetPalProc)
             {
-                PostSetPal(srcDef->uUnitId, srcDef->uPalId);
+                nChangedPalettesCount += PostSetPal(srcDef->uUnitId, srcDef->uPalId);
             }
         }
+    }
+
+    if (nChangedPalettesCount != 0)
+    {
+        GetHost()->GetPalModDlg()->RefreshSecondaryPalettesForPaletteChange();
     }
 }
 

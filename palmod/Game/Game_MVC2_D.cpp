@@ -760,7 +760,7 @@ void CGame_MVC2_D::ResetChangeFlag(uint32_t nUnitId)
     m_rgFileChanged.at(nUnitId) = false;
 }
 
-void CGame_MVC2_D::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+int CGame_MVC2_D::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     uint32_t nBasicOffset = GetBasicOffset(nPalId);
 
@@ -768,7 +768,7 @@ void CGame_MVC2_D::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
     strMessage.Format(L"CGame_MVC2_D::GetBasicOffset : Palette 0x%x was updated.  This palette is %s.  Checking for secondary palettes...\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");
     OutputDebugString(strMessage);
 
-    MVC2_SupplementProcessing::proc_supp(nUnitId, nPalId);
+    return MVC2_SupplementProcessing::proc_supp(nUnitId, nPalId);
 }
 
 LPCWSTR CGame_MVC2_D::GetGameName()
