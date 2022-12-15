@@ -28,7 +28,7 @@ private:
         NINJAMASTERS_A_UNITS,
         ARRAYSIZE(NINJAMASTERS_A_UNITS),
         L"NINJAMASTERSE.txt",       // Extra filename
-        433,                        // Count of palettes listed in the header
+        559,                        // Count of palettes listed in the header
         0x81404,                    // Lowest known location used for palettes
     };
 

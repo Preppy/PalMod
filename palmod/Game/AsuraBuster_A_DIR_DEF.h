@@ -23,7 +23,7 @@ const std::vector<uint16_t> AsuraBuster_A_IMGIDS_USED =
 //  Yashaou
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_A[] =
 {
-    { L"Base A", 0x93492, 0x934b2, indexAsuraBuster_Yashaou, 0x00, &pairNext },
+    { L"Base A", 0x93492, 0x934b2, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
     { L"Weapon Effects A", 0x934b2, 0x934d2, indexAsuraBuster_Yashaou, 0x01 },
     { L"Weapon A", 0x934d2, 0x934f2, indexAsuraBuster_Yashaou, 0x02 },
     { L"Nanami A", 0x934f2, 0x93512, indexAsuraBuster_Yashaou, 0x03 },
@@ -37,7 +37,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_A[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_B[] =
 {
-    { L"Base B", 0x93eb2, 0x93ed2, indexAsuraBuster_Yashaou, 0x00, &pairNext },
+    { L"Base B", 0x93eb2, 0x93ed2, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
     { L"Weapon Effects B", 0x93ed2, 0x93ef2, indexAsuraBuster_Yashaou, 0x01 },
     { L"Weapon B", 0x93ef2, 0x93f12, indexAsuraBuster_Yashaou, 0x02 },
     { L"Nanami B", 0x93f12, 0x93f32, indexAsuraBuster_Yashaou, 0x03 },
@@ -50,7 +50,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_B[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_AB[] =
 {
-    { L"Base AB", 0x948d2, 0x948f2, indexAsuraBuster_Yashaou, 0x00, &pairNext },
+    { L"Base AB", 0x948d2, 0x948f2, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
     { L"Weapon Effects AB", 0x948f2, 0x94912, indexAsuraBuster_Yashaou, 0x01 },
     { L"Weapon AB", 0x94912, 0x94932, indexAsuraBuster_Yashaou, 0x02 },
     { L"Nanami AB", 0x94932, 0x94952, indexAsuraBuster_Yashaou, 0x03 },
@@ -63,7 +63,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AB[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_C[] =
 {
-    { L"Base C", 0x952f2, 0x95312, indexAsuraBuster_Yashaou, 0x00, &pairNext },
+    { L"Base C", 0x952f2, 0x95312, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
     { L"Weapon Effects C", 0x95312, 0x95332, indexAsuraBuster_Yashaou, 0x01 },
     { L"Weapon C", 0x95332, 0x95352, indexAsuraBuster_Yashaou, 0x02 },
     { L"Nanami C", 0x95352, 0x95372, indexAsuraBuster_Yashaou, 0x03 },
@@ -77,7 +77,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_C[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_AC[] =
 {
-    { L"Base AC", 0x95d12, 0x95d32, indexAsuraBuster_Yashaou, 0x00, &pairNext },
+    { L"Base AC", 0x95d12, 0x95d32, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
     { L"Weapon Effects AC", 0x95d32, 0x95d52, indexAsuraBuster_Yashaou, 0x01 },
     { L"Weapon AC", 0x95d52, 0x95d72, indexAsuraBuster_Yashaou, 0x02 },
     { L"Nanami AC", 0x95d72, 0x95d92, indexAsuraBuster_Yashaou, 0x03 },
@@ -91,7 +91,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AC[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_BC[] =
 {
-    { L"Base BC", 0x96732, 0x96752, indexAsuraBuster_Yashaou, 0x00, &pairNext },
+    { L"Base BC", 0x96732, 0x96752, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
     { L"Weapon Effects BC", 0x96752, 0x96772, indexAsuraBuster_Yashaou, 0x01 },
     { L"Weapon BC", 0x96772, 0x96792, indexAsuraBuster_Yashaou, 0x02 },
     { L"Nanami BC", 0x96792, 0x967b2, indexAsuraBuster_Yashaou, 0x03 },
@@ -105,7 +105,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_BC[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_ABC[] =
 {
-    { L"Base ABC", 0x97152, 0x97172, indexAsuraBuster_Yashaou, 0x00, &pairNext },
+    { L"Base ABC", 0x97152, 0x97172, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
     { L"Weapon Effects ABC", 0x97172, 0x97192, indexAsuraBuster_Yashaou, 0x01 },
     { L"Weapon ABC", 0x97192, 0x971b2, indexAsuraBuster_Yashaou, 0x02 },
     { L"Nanami ABC", 0x971b2, 0x971d2, indexAsuraBuster_Yashaou, 0x03 },

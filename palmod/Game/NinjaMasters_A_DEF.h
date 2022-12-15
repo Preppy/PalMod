@@ -606,6 +606,228 @@ const sGame_PaletteDataset NINJAMASTERS_A_NOBUNAGA_Portrait[] =
     { L"Nobunaga Hud B", 0x0881bc, 0x0881dc },
 };
 
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_BUDDHADAY[] =
+{
+    { L"Sasuke Buddha's Tears Day (1/5) 0x88c9c", 0x88c9c, 0x88e9c },
+    { L"Sasuke Buddha's Tears Day (2/5) 0x88e9c", 0x88e9c, 0x8909c },
+    { L"Sasuke Buddha's Tears Day (3/5) 0x8909c", 0x8909c, 0x8929c },
+    { L"Sasuke Buddha's Tears Day (4/5) 0x8929c", 0x8929c, 0x8949c },
+    { L"Sasuke Buddha's Tears Day (5/5) 0x8949c", 0x8949c, 0x8965c },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_BUDDAYDUSK[] =
+{
+    { L"Sasuke Buddha's Tears Dusk (1/5) 0x896a0", 0x896a0, 0x898a0 },
+    { L"Sasuke Buddha's Tears Dusk (2/5) 0x898a0", 0x898a0, 0x89aa0 },
+    { L"Sasuke Buddha's Tears Dusk (3/5) 0x89aa0", 0x89aa0, 0x89ca0 },
+    { L"Sasuke Buddha's Tears Dusk (4/5) 0x89ca0", 0x89ca0, 0x89ea0 },
+    { L"Sasuke Buddha's Tears Dusk (5/5) 0x89ea0", 0x89ea0, 0x8a060 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_KAMUIDAY[] =
+{
+    { L"Kamui Inland Shore Day - 1 (1/5) 0x8b4ac", 0x8b4ac, 0x8b6ac },
+    { L"Kamui Inland Shore Day - 1 (2/5) 0x8b6ac", 0x8b6ac, 0x8b8ac },
+    { L"Kamui Inland Shore Day - 1 (3/5) 0x8b8ac", 0x8b8ac, 0x8baac },
+    { L"Kamui Inland Shore Day - 1 (4/5) 0x8baac", 0x8baac, 0x8bcac },
+    { L"Kamui Inland Shore Day - 1 (5/5) 0x8bcac", 0x8bcac, 0x8bdec },
+    { L"Kamui Inland Shore Day - 2", 0x8be0c, 0x8be6c },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_KAMUINIGHT[] =
+{
+    { L"Kamui Inland Shore Night - 1 (1/5) 0x8beb0", 0x8beb0, 0x8c0b0 },
+    { L"Kamui Inland Shore Night - 1 (2/5) 0x8c0b0", 0x8c0b0, 0x8c2b0 },
+    { L"Kamui Inland Shore Night - 1 (3/5) 0x8c2b0", 0x8c2b0, 0x8c4b0 },
+    { L"Kamui Inland Shore Night - 1 (4/5) 0x8c4b0", 0x8c4b0, 0x8c6b0 },
+    { L"Kamui Inland Shore Night - 1 (5/5) 0x8c6b0", 0x8c6b0, 0x8c7f0 },
+    { L"Kamui Inland Shore Night - 2", 0x8c810, 0x8c870 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_RAIGASUNSET[] =
+{
+    { L"Raiga Lakeside Sunset (1/5) 0x8dcbc", 0x8dcbc, 0x8debc },
+    { L"Raiga Lakeside Sunset (2/5) 0x8debc", 0x8debc, 0x8e0bc },
+    { L"Raiga Lakeside Sunset (3/5) 0x8e0bc", 0x8e0bc, 0x8e2bc },
+    { L"Raiga Lakeside Sunset (4/5) 0x8e2bc", 0x8e2bc, 0x8e4bc },
+    { L"Raiga Lakeside Sunset (5/5) 0x8e4bc", 0x8e4bc, 0x8e67c },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_RAIGANIGHT[] =
+{
+    { L"Raiga Lakeside Night (1/5) 0x8e6c0", 0x8e6c0, 0x8e8c0 },
+    { L"Raiga Lakeside Night (2/5) 0x8e8c0", 0x8e8c0, 0x8eac0 },
+    { L"Raiga Lakeside Night (3/5) 0x8eac0", 0x8eac0, 0x8ecc0 },
+    { L"Raiga Lakeside Night (4/5) 0x8ecc0", 0x8ecc0, 0x8eec0 },
+    { L"Raiga Lakeside Night (5/5) 0x8eec0", 0x8eec0, 0x8f080 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_TENNOHDAY[] =
+{
+    { L"Tennoh Secluded Hut Day - 1 (1/4) 0x904cc", 0x904cc, 0x906cc },
+    { L"Tennoh Secluded Hut Day - 1 (2/4) 0x906cc", 0x906cc, 0x908cc },
+    { L"Tennoh Secluded Hut Day - 1 (3/4) 0x908cc", 0x908cc, 0x90acc },
+    { L"Tennoh Secluded Hut Day - 1 (4/4) 0x90acc", 0x90acc, 0x90ccc },
+    { L"Tennoh Secluded Hut Day 2", 0x90e6c, 0x90e8c },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_TENNOHSUNSET[] =
+{
+    { L"Tennoh Secluded Hut Sunset 1 (1/4) 0x90ed0", 0x90ed0, 0x910d0 },
+    { L"Tennoh Secluded Hut Sunset 1 (2/4) 0x910d0", 0x910d0, 0x912d0 },
+    { L"Tennoh Secluded Hut Sunset 1 (3/4) 0x912d0", 0x912d0, 0x914d0 },
+    { L"Tennoh Secluded Hut Sunset 1 (4/4) 0x914d0", 0x914d0, 0x916d0 },
+    { L"Tennoh Secluded Hut Sunset 2", 0x91870, 0x91890 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_KARASUDAWN[] =
+{
+    { L"Karasu Raven's Lair Dawn (1/5) 0x92cdc", 0x92cdc, 0x92edc },
+    { L"Karasu Raven's Lair Dawn (2/5) 0x92edc", 0x92edc, 0x930dc },
+    { L"Karasu Raven's Lair Dawn (3/5) 0x930dc", 0x930dc, 0x932dc },
+    { L"Karasu Raven's Lair Dawn (4/5) 0x932dc", 0x932dc, 0x934dc },
+    { L"Karasu Raven's Lair Dawn (5/5) 0x934dc", 0x934dc, 0x936bc },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_KARASUNIGHT[] =
+{
+    { L"Karasu Raven's Lair Night (1/5) 0x936e0", 0x936e0, 0x938e0 },
+    { L"Karasu Raven's Lair Night (2/5) 0x938e0", 0x938e0, 0x93ae0 },
+    { L"Karasu Raven's Lair Night (3/5) 0x93ae0", 0x93ae0, 0x93ce0 },
+    { L"Karasu Raven's Lair Night (4/5) 0x93ce0", 0x93ce0, 0x93ee0 },
+    { L"Karasu Raven's Lair Night (5/5) 0x93ee0", 0x93ee0, 0x940c0 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_HOUOHNIGHT[] =
+{
+    { L"Houoh Riverside Forest Night (1/5) 0x954ec", 0x954ec, 0x956ec },
+    { L"Houoh Riverside Forest Night (2/5) 0x956ec", 0x956ec, 0x958ec },
+    { L"Houoh Riverside Forest Night (3/5) 0x958ec", 0x958ec, 0x95aec },
+    { L"Houoh Riverside Forest Night (4/5) 0x95aec", 0x95aec, 0x95cec },
+    { L"Houoh Riverside Forest Night (5/5) 0x95cec", 0x95cec, 0x95eac },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_HOUOHSUNSET[] =
+{
+    { L"Houoh Riverside Forest Sunset (1/5) 0x95ef0", 0x95ef0, 0x960f0 },
+    { L"Houoh Riverside Forest Sunset (2/5) 0x960f0", 0x960f0, 0x962f0 },
+    { L"Houoh Riverside Forest Sunset (3/5) 0x962f0", 0x962f0, 0x964f0 },
+    { L"Houoh Riverside Forest Sunset (4/5) 0x964f0", 0x964f0, 0x966f0 },
+    { L"Houoh Riverside Forest Sunset (5/5) 0x966f0", 0x966f0, 0x968b0 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_NATSUMEDAY[] =
+{
+    { L"Natsume Castle Courtyard Day - 1 (1/5) 0x97cfc", 0x97cfc, 0x97efc },
+    { L"Natsume Castle Courtyard Day - 1 (2/5) 0x97efc", 0x97efc, 0x980fc },
+    { L"Natsume Castle Courtyard Day - 1 (3/5) 0x980fc", 0x980fc, 0x982fc },
+    { L"Natsume Castle Courtyard Day - 1 (4/5) 0x982fc", 0x982fc, 0x984fc },
+    { L"Natsume Castle Courtyard Day - 1 (5/5) 0x984fc", 0x984fc, 0x9863c },
+    { L"Natsume Castle Courtyard Day - 2", 0x9865c, 0x986bc },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_NATSUMENIGHT[] =
+{
+    { L"Natsume Castle Courtyard Night (1/5) 0x98700", 0x98700, 0x98900 },
+    { L"Natsume Castle Courtyard Night (2/5) 0x98900", 0x98900, 0x98b00 },
+    { L"Natsume Castle Courtyard Night (3/5) 0x98b00", 0x98b00, 0x98d00 },
+    { L"Natsume Castle Courtyard Night (4/5) 0x98d00", 0x98d00, 0x98f00 },
+    { L"Natsume Castle Courtyard Night (5/5) 0x98f00", 0x98f00, 0x990c0 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_GOEMON[] =
+{
+    { L"Goemon Underground Cavern - 1 (1/3) 0x9a50c", 0x9a50c, 0x9a70c },
+    { L"Goemon Underground Cavern - 1 (2/3) 0x9a70c", 0x9a70c, 0x9a90c },
+    { L"Goemon Underground Cavern - 1 (3/3) 0x9a90c", 0x9a90c, 0x9a9ac },
+    { L"Goemon Underground Cavern - 2", 0x9a9ec, 0x9aa0c },
+    { L"Goemon Underground Cavern - 3", 0x9ad0c, 0x9aecc },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_GOEMONLIGHTING[] =
+{
+    { L"Goemon Underground Cavern lighting - 1 (1/3) 0x9af10", 0x9af10, 0x9b110 },
+    { L"Goemon Underground Cavern lighting - 1 (2/3) 0x9b110", 0x9b110, 0x9b310 },
+    { L"Goemon Underground Cavern lighting - 1 (3/3) 0x9b310", 0x9b310, 0x9b3b0 },
+    { L"Goemon Underground Cavern lighting - 2", 0x9b710, 0x9b8d0 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_UNZENSPRING[] =
+{
+    { L"Unzen Monastary Front Spring (1/5) 0x9cd1c", 0x9cd1c, 0x9cf1c },
+    { L"Unzen Monastary Front Spring (2/5) 0x9cf1c", 0x9cf1c, 0x9d11c },
+    { L"Unzen Monastary Front Spring (3/5) 0x9d11c", 0x9d11c, 0x9d31c },
+    { L"Unzen Monastary Front Spring (4/5) 0x9d31c", 0x9d31c, 0x9d51c },
+    { L"Unzen Monastary Front Spring (5/5) 0x9d51c", 0x9d51c, 0x9d6dc },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_UNZENWINTER[] =
+{
+    { L"Unzen Monastary Front Winter (1/5) 0x9d720", 0x9d720, 0x9d920 },
+    { L"Unzen Monastary Front Winter (2/5) 0x9d920", 0x9d920, 0x9db20 },
+    { L"Unzen Monastary Front Winter (3/5) 0x9db20", 0x9db20, 0x9dd20 },
+    { L"Unzen Monastary Front Winter (4/5) 0x9dd20", 0x9dd20, 0x9df20 },
+    { L"Unzen Monastary Front Winter (5/5) 0x9df20", 0x9df20, 0x9e0e0 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_KASUMIDAY[] =
+{
+    { L"Kasumi Ninja Dojo Day - 1 (1/5) 0x9f52c", 0x9f52c, 0x9f72c },
+    { L"Kasumi Ninja Dojo Day - 1 (2/5) 0x9f72c", 0x9f72c, 0x9f92c },
+    { L"Kasumi Ninja Dojo Day - 1 (3/5) 0x9f92c", 0x9f92c, 0x9fb2c },
+    { L"Kasumi Ninja Dojo Day - 1 (4/5) 0x9fb2c", 0x9fb2c, 0x9fd2c },
+    { L"Kasumi Ninja Dojo Day - 1 (5/5) 0x9fd2c", 0x9fd2c, 0x9fe2c },
+    { L"Kasumi Ninja Dojo Day - 2", 0x9fe6c, 0x9ff0c },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_KASUMIAFTERNOON[] =
+{
+    { L"Kasumi Ninja Dojo Afternoon - 1 (1/5) 0x9ff30", 0x9ff30, 0xa0130 },
+    { L"Kasumi Ninja Dojo Afternoon - 1 (2/5) 0xa0130", 0xa0130, 0xa0330 },
+    { L"Kasumi Ninja Dojo Afternoon - 1 (3/5) 0xa0330", 0xa0330, 0xa0530 },
+    { L"Kasumi Ninja Dojo Afternoon - 1 (4/5) 0xa0530", 0xa0530, 0xa0730 },
+    { L"Kasumi Ninja Dojo Afternoon - 1 (5/5) 0xa0730", 0xa0730, 0xa0830 },
+    { L"Kasumi Ninja Dojo Afternoon - 2", 0xa0870, 0xa0910 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_RANMARUSUNSET[] =
+{
+    { L"Ranmaru Battlefield Sunset - 1 (1/5) 0xa1d3c", 0xa1d3c, 0xa1f3c },
+    { L"Ranmaru Battlefield Sunset - 1 (2/5) 0xa1f3c", 0xa1f3c, 0xa213c },
+    { L"Ranmaru Battlefield Sunset - 1 (3/5) 0xa213c", 0xa213c, 0xa233c },
+    { L"Ranmaru Battlefield Sunset - 1 (4/5) 0xa233c", 0xa233c, 0xa253c },
+    { L"Ranmaru Battlefield Sunset - 1 (5/5) 0xa253c", 0xa253c, 0xa257c },
+    { L"Ranmaru Battlefield Sunset - 2", 0xa25fc, 0xa26fc },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_RANMARUDAY[] =
+{
+    { L"Ranmaru Battlefield Day - 1 (1/5) 0xa2740", 0xa2740, 0xa2940 },
+    { L"Ranmaru Battlefield Day - 1 (2/5) 0xa2940", 0xa2940, 0xa2b40 },
+    { L"Ranmaru Battlefield Day - 1 (3/5) 0xa2b40", 0xa2b40, 0xa2d40 },
+    { L"Ranmaru Battlefield Day - 1 (4/5) 0xa2d40", 0xa2d40, 0xa2f40 },
+    { L"Ranmaru Battlefield Day - 1 (5/5) 0xa2f40", 0xa2f40, 0xa2f80 },
+    { L"Ranmaru Battlefield Day - 2", 0xa3000, 0xa3100 },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_NOBUNAGADAY[] =
+{
+    { L"Nobunaga Golden Palace Day (1/5) 0xa454c", 0xa454c, 0xa474c },
+    { L"Nobunaga Golden Palace Day (2/5) 0xa474c", 0xa474c, 0xa494c },
+    { L"Nobunaga Golden Palace Day (3/5) 0xa494c", 0xa494c, 0xa4b4c },
+    { L"Nobunaga Golden Palace Day (4/5) 0xa4b4c", 0xa4b4c, 0xa4d4c },
+    { L"Nobunaga Golden Palace Day (5/5) 0xa4d4c", 0xa4d4c, 0xa4f2c },
+};
+
+const sGame_PaletteDataset NINJAMASTERS_A_STAGE_PALETTES_NOBUNAGANIGHT[] =
+{
+    { L"Nobunaga Golden Palace Night (1/5) 0xa4f50", 0xa4f50, 0xa5150 },
+    { L"Nobunaga Golden Palace Night (2/5) 0xa5150", 0xa5150, 0xa5350 },
+    { L"Nobunaga Golden Palace Night (3/5) 0xa5350", 0xa5350, 0xa5550 },
+    { L"Nobunaga Golden Palace Night (4/5) 0xa5550", 0xa5550, 0xa5750 },
+    { L"Nobunaga Golden Palace Night (5/5) 0xa5750", 0xa5750, 0xa5930 },
+};
+
 // -BONUS-
 const sGame_PaletteDataset NINJAMASTERS_A_BONUS_SelectScreen[] =
 {
@@ -696,6 +918,34 @@ const sDescTreeNode NINJAMASTERS_A_NOBUNAGA_COLLECTION[] =
     { L"Portraits", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_NOBUNAGA_Portrait, ARRAYSIZE(NINJAMASTERS_A_NOBUNAGA_Portrait) },
 };
 
+const sDescTreeNode NINJAMASTERS_A_STAGE_COLLECTION[] =
+{
+    { L"Sasuke Buddha's Tears Day", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_BUDDHADAY, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_BUDDHADAY) },
+    { L"Sasuke Buddha's Tears Dusk", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_BUDDAYDUSK, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_BUDDAYDUSK) },
+    { L"Kamui Inland Shore Day", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_KAMUIDAY, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_KAMUIDAY) },
+    { L"Kamui Inland Shore Night", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_KAMUINIGHT, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_KAMUINIGHT) },
+    { L"Raiga Lakeside Sunset", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_RAIGASUNSET, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_RAIGASUNSET) },
+    { L"Raiga Lakeside Night", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_RAIGANIGHT, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_RAIGANIGHT) },
+    { L"Tennoh Secluded Hut Day", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_TENNOHDAY, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_TENNOHDAY) },
+    { L"Tennoh Secluded Hut Sunset", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_TENNOHSUNSET, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_TENNOHSUNSET) },
+    { L"Karasu Raven's Lair Dawn", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_KARASUDAWN, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_KARASUDAWN) },
+    { L"Karasu Raven's Lair Night", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_KARASUNIGHT, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_KARASUNIGHT) },
+    { L"Houoh Riverside Forest Night", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_HOUOHNIGHT, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_HOUOHNIGHT) },
+    { L"Houoh Riverside Forest Sunset", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_HOUOHSUNSET, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_HOUOHSUNSET) },
+    { L"Natsume Castle Courtyard Day", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_NATSUMEDAY, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_NATSUMEDAY) },
+    { L"Natsume Castle Courtyard Night", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_NATSUMENIGHT, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_NATSUMENIGHT) },
+    { L"Goemon Underground Cavern", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_GOEMON, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_GOEMON) },
+    { L"Goemon Underground Cavern lighting", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_GOEMONLIGHTING, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_GOEMONLIGHTING) },
+    { L"Unzen Monastary Front Spring", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_UNZENSPRING, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_UNZENSPRING) },
+    { L"Unzen Monastary Front Winter", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_UNZENWINTER, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_UNZENWINTER) },
+    { L"Kasumi Ninja Dojo Day", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_KASUMIDAY, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_KASUMIDAY) },
+    { L"Kasumi Ninja Dojo Afternoon", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_KASUMIAFTERNOON, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_KASUMIAFTERNOON) },
+    { L"Ranmaru Battlefield Sunset", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_RANMARUSUNSET, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_RANMARUSUNSET) },
+    { L"Ranmaru Battlefield Day", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_RANMARUDAY, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_RANMARUDAY) },
+    { L"Nobunaga Golden Palace Day", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_NOBUNAGADAY, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_NOBUNAGADAY) },
+    { L"Nobunaga Golden Palace Night", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_PALETTES_NOBUNAGANIGHT, ARRAYSIZE(NINJAMASTERS_A_STAGE_PALETTES_NOBUNAGANIGHT) },
+};
+
 const sDescTreeNode NINJAMASTERS_A_BONUS_COLLECTION[] =
 {
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_BONUS_SelectScreen, ARRAYSIZE(NINJAMASTERS_A_BONUS_SelectScreen) },
@@ -716,5 +966,6 @@ const sDescTreeNode NINJAMASTERS_A_UNITS[] =
     { L"Ranmaru", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_RANMARU_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_RANMARU_COLLECTION) },
     { L"Nobunaga", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_NOBUNAGA_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_NOBUNAGA_COLLECTION) },
 
+    { L"Stages", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_STAGE_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_BONUS_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_BONUS_COLLECTION) },
 };

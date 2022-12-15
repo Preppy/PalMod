@@ -3185,8 +3185,8 @@ const sGame_PaletteDataset SFA3_A_STAGES_CHUNLI_NODE[] =
 const sGame_PaletteDataset SFA3_A_STAGES_AKUMA_NODE[] =
 {
     { L"8BG.0.0.0", 0x3c812, 0x3c8d2, indexSFA3Sprites_Stages, 0x00, &pairFullyLinkedNode },
-    { L"16BG.0.0.0", 0x40f32, 0x41012, indexSFA3Sprites_Stages, 0x02 },
     { L"32BG.0.0.0", 0x47cd2, 0x47cf2, indexSFA3Sprites_Stages, 0x04 },
+    { L"16BG.0.0.0", 0x40f32, 0x41012, indexSFA3Sprites_Stages, 0x02 },
     { L"SS.0.0.0", 0x38572, 0x38632, indexSFA3Sprites_Stages, 0x05 },
 };
 
@@ -3340,6 +3340,170 @@ const sGame_PaletteDataset SFA3_A_STAGES_SAKURA_NODE[] =
     { L"8BG.0.0.1", 0x3e492, 0x3e692, indexSFA3Sprites_Stages, 0x49 },
     { L"8BG.0.0.2", 0x3e692, 0x3e852, indexSFA3Sprites_Stages, 0x4a },
     { L"SS.0.0.0", 0x38db2, 0x38e72, indexSFA3Sprites_Stages, 0x4b },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_BLANKA_NODE[] =
+{
+    { L"8BG.0.0.0", 0x3f412, 0x3f492 },
+    { L"32BG.0.0.0", 0x49732, 0x49832 },
+    { L"SS.0.0.0", 0x393b2, 0x39472 },
+    { L"16BG.0.0.0", 0x44b32, 0x44bf2 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_CAMMY_NODE[] =
+{
+    { L"8BG.0.0.0", 0x3ef12, 0x3f052 },
+    { L"32BG.0.0.0", 0x494b2, 0x49632 },
+    { L"16BG.0.0.1", 0x443d2, 0x445d2 },
+    { L"16BG.0.0.2", 0x445d2, 0x447d2 },
+    { L"SS.0.0.0", 0x39232, 0x392f2 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_CAMMY_NODE_ANIMATION[] =
+{
+    { L"8BG.1.1.1", 0x61fd2, 0x61ff2 },
+    { L"8BG.1.1.2", 0x62092, 0x620b2 },
+    { L"8BG.1.1.3", 0x62152, 0x62172 },
+    { L"8BG.1.1.4", 0x62212, 0x62232 },
+    { L"8BG.1.2.1", 0x61ff2, 0x62012 },
+    { L"8BG.1.2.2", 0x620b2, 0x620d2 },
+    { L"8BG.1.2.3", 0x62172, 0x62192 },
+    { L"8BG.1.2.4", 0x62232, 0x62252 },
+    { L"8BG.1.3.1", 0x62012, 0x62032 },
+    { L"8BG.1.3.2", 0x620d2, 0x620f2 },
+    { L"8BG.1.3.3", 0x62192, 0x621b2 },
+    { L"8BG.1.3.4", 0x62252, 0x62272 },
+    { L"8BG.1.4.1", 0x62032, 0x62052 },
+    { L"8BG.1.4.2", 0x620f2, 0x62112 },
+    { L"8BG.1.4.3", 0x621b2, 0x621d2 },
+    { L"8BG.1.4.4", 0x62272, 0x62292 },
+    { L"8BG.1.5.1", 0x62052, 0x62072 },
+    { L"8BG.1.5.2", 0x62112, 0x62132 },
+    { L"8BG.1.5.3", 0x621d2, 0x621f2 },
+    { L"8BG.1.5.4", 0x62292, 0x622b2 },
+    { L"8BG.1.6.1", 0x62072, 0x62092 },
+    { L"8BG.1.6.2", 0x62132, 0x62152 },
+    { L"8BG.1.6.3", 0x621f2, 0x62212 },
+    { L"8BG.1.6.4", 0x622b2, 0x622d2 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_CODY_NODE[] =
+{
+    { L"32BG.0.0.0", 0x499b2, 0x49b12 },
+    { L"16BG.0.0.1", 0x451d2, 0x453d2 },
+    { L"8BG.0.0.0", 0x3f852, 0x3f912 },
+    { L"SS.0.0.0", 0x39532, 0x395f2 },
+    { L"16BG.0.0.2", 0x44ff2, 0x451d2 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_DHALSIM_NODE[] =
+{
+    { L"8BG.0.0.0", 0x3eb92, 0x3ebd2 },
+    { L"SS.0.0.0", 0x38f32, 0x38ff2 },
+    { L"32BG.0.0.1", 0x48cd2, 0x48e72 },
+    { L"32BG.0.0.2", 0x48e72, 0x48f52 },
+    { L"16BG.0.0.1", 0x439b2, 0x43bb2 },
+    { L"16BG.0.0.2", 0x43bb2, 0x43db2 },
+    { L"16BG.0.0.3", 0x62d52, 0x62dd2 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_GEN_NODE[] =
+{
+    { L"32BG.0.0.0", 0x49312, 0x49492 },
+    { L"SS.0.0.0", 0x390b2, 0x39172 },
+    { L"8BG.0.0.1", 0x3ecd2, 0x3edf2 },
+    { L"8BG.0.0.2", 0x3edf2, 0x3eef2 },
+    { L"16BG.0.0.1", 0x43f52, 0x44112 },
+    { L"16BG.0.0.2", 0x44112, 0x441d2 },
+    { L"16BG.0.0.3", 0x441d2, 0x44352 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_GEN_NODE_ANIMATION[] =
+{
+    { L"SS.1.1.1", 0x4cad2, 0x4caf2 },
+    { L"SS.1.2.1", 0x4caf2, 0x4cb12 },
+    { L"SS.1.3.1", 0x4cb12, 0x4cb32 },
+    { L"SS.1.4.1", 0x4cb32, 0x4cb52 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_KARIN_NODE[] =
+{
+    { L"32BG.0.0.0", 0x49c12, 0x49cb2 },
+    { L"16BG.0.0.1", 0x457d2, 0x459d2 },
+    { L"16BG.0.0.2", 0x459d2, 0x45bd2 },
+    { L"8BG.0.0.1", 0x3f952, 0x3fb52 },
+    { L"8BG.0.0.2", 0x3fb52, 0x3fd12 },
+    { L"SS.0.0.0", 0x396b2, 0x39772 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_KARIN_NODE_ANIMATION[] =
+{
+    { L"SS.1.1.1", 0x4cd92, 0x4cdb2 },
+    { L"SS.1.2.1", 0x4cdb2, 0x4cdd2 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_RMIKA_NODE[] =
+{
+    { L"32BG.0.0.0", 0x49832, 0x499b2 },
+    { L"8BG.0.0.1", 0x3f492, 0x3f672 },
+    { L"8BG.0.0.2", 0x3f672, 0x3f852 },
+    { L"16BG.0.0.1", 0x44bf2, 0x44df2 },
+    { L"16BG.0.0.2", 0x44df2, 0x44ff2 },
+    { L"SS.0.0.0", 0x39472, 0x39532 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_VEGA_NODE[] =
+{
+    { L"32BG.0.0.0", 0x49b12, 0x49c12 },
+    { L"16BG.0.0.1", 0x453d2, 0x455d2 },
+    { L"16BG.0.0.2", 0x455d2, 0x457d2 },
+    { L"SS.0.0.0", 0x395f2, 0x396b2 },
+    { L"8BG.0.0.0", 0x3f912, 0x3f952 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_ZANGIEF_NODE[] =
+{
+    { L"8BG.0.0.0", 0x3ebd2, 0x3ecd2 },
+    { L"32BG.0.0.0", 0x48f52, 0x490d2 },
+    { L"16BG.0.0.0", 0x43db2, 0x43f52 },
+    { L"SS.0.0.0", 0x38ff2, 0x390b2 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_ZANGIEF_NODE_ANIMATION[] =
+{
+    { L"8BG.1.1.1", 0x61e32, 0x61e92 },
+    { L"8BG.1.2.1", 0x61e92, 0x61ef2 },
+    { L"8BG.1.3.1", 0x61ef2, 0x61f52 },
+    { L"32BG.1.1.1", 0x490d2, 0x491f2 },
+    { L"32BG.1.2.1", 0x491f2, 0x49312 },
+    { L"32BG.2.1.1", 0x64192, 0x641b2 },
+    { L"32BG.2.2.1", 0x641b2, 0x641d2 },
+    { L"32BG.2.3.1", 0x641d2, 0x641f2 },
+    { L"32BG.2.4.1", 0x641f2, 0x64212 },
+    { L"32BG.2.5.1", 0x64212, 0x64232 },
+    { L"32BG.2.6.1", 0x64232, 0x64252 },
+    { L"32BG.2.7.1", 0x64252, 0x64272 },
+    { L"32BG.2.8.1", 0x64272, 0x64292 },
+    { L"32BG.2.9.1", 0x64292, 0x642b2 },
+    { L"32BG.2.10.1", 0x642b2, 0x642d2 },
+    { L"32BG.3.1.1", 0x642d2, 0x642f2 },
+    { L"32BG.3.2.1", 0x642f2, 0x64312 },
+    { L"32BG.3.3.1", 0x64312, 0x64332 },
+    { L"32BG.3.4.1", 0x64332, 0x64352 },
+    { L"32BG.3.5.1", 0x64352, 0x64372 },
+    { L"32BG.3.6.1", 0x64372, 0x64392 },
+    { L"32BG.3.7.1", 0x64392, 0x643b2 },
+    { L"32BG.3.8.1", 0x643b2, 0x643d2 },
+    { L"32BG.3.9.1", 0x643d2, 0x643f2 },
+    { L"32BG.3.10.1", 0x643f2, 0x64412 },
+    { L"32BG.3.11.1", 0x64412, 0x64432 },
+    { L"32BG.3.12.1", 0x64432, 0x64452 },
+    { L"16BG.1.1.1", 0x62dd2, 0x62f72 },
+    { L"16BG.1.2.1", 0x62f72, 0x63112 },
+    { L"16BG.1.3.1", 0x63112, 0x632b2 },
+    { L"SS.1.1.1", 0x4c892, 0x4c952 },
+    { L"SS.1.2.1", 0x4c952, 0x4ca12 },
+    { L"SS.1.3.1", 0x4ca12, 0x4cad2 },
 };
 
 const sGame_PaletteDataset SFA3_A_STAGES_ADON_NODE[] =
@@ -4284,6 +4448,21 @@ const sDescTreeNode SFA3_A_STAGES_COLLECTION[] =
         { L"Ryu Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE_ANIMATION) },
     { L"Sakura Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_SAKURA_NODE, ARRAYSIZE(SFA3_A_STAGES_SAKURA_NODE) },
     { L"Sagat Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_SAGAT_NODE, ARRAYSIZE(SFA3_A_STAGES_SAGAT_NODE) },
+
+    { L"Blanka Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_BLANKA_NODE, ARRAYSIZE(SFA3_A_STAGES_BLANKA_NODE) },
+    { L"Cammy Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_CAMMY_NODE, ARRAYSIZE(SFA3_A_STAGES_CAMMY_NODE) },
+        { L"Cammy Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_CAMMY_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_CAMMY_NODE_ANIMATION) },
+    { L"Cody Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_CODY_NODE, ARRAYSIZE(SFA3_A_STAGES_CODY_NODE) },
+    { L"Dhalsim Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_DHALSIM_NODE, ARRAYSIZE(SFA3_A_STAGES_DHALSIM_NODE) },
+    { L"Gen Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_GEN_NODE, ARRAYSIZE(SFA3_A_STAGES_GEN_NODE) },
+        { L"Gen Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_GEN_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_GEN_NODE_ANIMATION) },
+    { L"Karin Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_KARIN_NODE, ARRAYSIZE(SFA3_A_STAGES_KARIN_NODE) },
+        { L"Karin Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_KARIN_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_KARIN_NODE_ANIMATION) },
+    { L"R.Mika Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RMIKA_NODE, ARRAYSIZE(SFA3_A_STAGES_RMIKA_NODE) },
+    { L"Vega Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_VEGA_NODE, ARRAYSIZE(SFA3_A_STAGES_VEGA_NODE) },
+    { L"Zangief Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_ZANGIEF_NODE, ARRAYSIZE(SFA3_A_STAGES_ZANGIEF_NODE) },
+        { L"Zangief Stage Animations", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_ZANGIEF_NODE_ANIMATION, ARRAYSIZE(SFA3_A_STAGES_ZANGIEF_NODE_ANIMATION) },
+
 };
 
 #define k_sfa3NameKey_ChunLi L"Chun-Li"
