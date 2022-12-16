@@ -2268,20 +2268,38 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_OTHER_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES[] =
 {
-    { L"Sky & Background Without Sphinx", 0x73e9a0, 0x73ea20, indexRedEarthSprites_Stages, -1, &pairFullyLinkedNode },
-    { L"Background Building on the Right", 0x73ea20, 0x73eaa0 },
-    { L"Ground", 0x73e620, 0x73e6a0 },
-    { L"Palm Trees but Buggy", 0x73e720, 0x73e7a0 },
-    { L"Small Part of Palm Trees", 0x73eaa0, 0x73eb20 },
-    { L"Gigantic Rock on the right & Grass", 0x73e7a0, 0x73e820 },
-    { L"Left Pillars & Ground Part", 0x73e820, 0x73e8a0 },
-    { L"Small Part of Left Pillars & Bricks", 0x73e6a0, 0x73e720 },
-    { L"Smaller Parts of Left Pillars & Bricks", 0x73e920, 0x73e9a0 },
-    { L"Wall on the left & Ground Part", 0x73ec20, 0x73eca0 },
-    { L"Scion Statue", 0x73ee20, 0x73eea0 },
-    { L"Statue Stand", 0x73eea0, 0x73ef20 },
-    { L"Clara's Golden Statue", 0x73ef20, 0x73efa0 },
+    { L"Sky & Background Without Sphinx", 0x73e9a0, 0x73ea20, indexRedEarthSprites_Stages, 0x7b, &pairFullyLinkedNode },
+    { L"Background Building on the Right", 0x73ea20, 0x73eaa0, indexRedEarthSprites_Stages, 0x7c },
+    { L"Ground", 0x73e620, 0x73e6a0, indexRedEarthSprites_Stages, 0x7d },
+    { L"Palm Trees but Buggy", 0x73e720, 0x73e7a0, indexRedEarthSprites_Stages, 0x7e },
+    { L"Small Part of Palm Trees", 0x73eaa0, 0x73eb20, indexRedEarthSprites_Stages, 0x7f },
+    { L"Gigantic Rock on the right & Grass", 0x73e7a0, 0x73e820, indexRedEarthSprites_Stages, 0x80 },
+    { L"Left Pillars & Ground Part", 0x73e820, 0x73e8a0, indexRedEarthSprites_Stages, 0x81 },
+    { L"Small Part of Left Pillars & Bricks", 0x73e6a0, 0x73e720, indexRedEarthSprites_Stages, 0x82 },
+    { L"Smaller Parts of Left Pillars & Bricks", 0x73e920, 0x73e9a0, indexRedEarthSprites_Stages, 0x83 },
+    { L"Wall on the left & Ground Part", 0x73ec20, 0x73eca0, indexRedEarthSprites_Stages, 0x84 },
+    { L"Scion Statue", 0x73ee20, 0x73eea0, indexRedEarthSprites_Stages, 0x87 },
+    { L"Statue Stand", 0x73eea0, 0x73ef20, indexRedEarthSprites_Stages, 0x85 },
+    { L"Clara's Golden Statue", 0x73ef20, 0x73efa0, indexRedEarthSprites_Stages, 0x86 },
     { L"Unknown Bonus Game 1 Palette", 0x73e8a0, 0x73e920 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES[] =
+{
+    { L"Sky & Background Without Sphinx", 0x73e9a0 + 0xb000, 0x73ea20 + 0xb000, indexRedEarthSprites_Stages, 0x7b, &pairFullyLinkedNode },
+    { L"Background Building on the Right", 0x73ea20 + 0xb000, 0x73eaa0 + 0xb000, indexRedEarthSprites_Stages, 0x7c  },
+    { L"Ground", 0x73e620 + 0xb000, 0x73e6a0 + 0xb000, indexRedEarthSprites_Stages, 0x7d },
+    { L"Palm Trees but Buggy", 0x73e720 + 0xb000, 0x73e7a0 + 0xb000, indexRedEarthSprites_Stages, 0x7e },
+    { L"Small Part of Palm Trees", 0x73eaa0 + 0xb000, 0x73eb20 + 0xb000, indexRedEarthSprites_Stages, 0x7f },
+    { L"Gigantic Rock on the right & Grass", 0x73e7a0 + 0xb000, 0x73e820 + 0xb000, indexRedEarthSprites_Stages, 0x80 },
+    { L"Left Pillars & Ground Part", 0x73e820 + 0xb000, 0x73e8a0 + 0xb000, indexRedEarthSprites_Stages, 0x81 },
+    { L"Small Part of Left Pillars & Bricks", 0x73e6a0 + 0xb000, 0x73e720 + 0xb000, indexRedEarthSprites_Stages, 0x82 },
+    { L"Smaller Parts of Left Pillars & Bricks", 0x73e920 + 0xb000, 0x73e9a0 + 0xb000, indexRedEarthSprites_Stages, 0x83 },
+    { L"Wall on the left & Ground Part", 0x73ec20 + 0xb000, 0x73eca0 + 0xb000, indexRedEarthSprites_Stages, 0x84 },
+    { L"Scion Statue", 0x73ee20 + 0xb000, 0x73eea0 + 0xb000, indexRedEarthSprites_Stages, 0x87 },
+    { L"Statue Stand", 0x73eea0 + 0xb000, 0x73ef20 + 0xb000, indexRedEarthSprites_Stages, 0x85 },
+    { L"Clara's Golden Statue", 0x73ef20 + 0xb000, 0x73efa0 + 0xb000, indexRedEarthSprites_Stages, 0x86 },
+    { L"Unknown Bonus Game 1 Palette", 0x73e8a0 + 0xb000, 0x73e920 + 0xb000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_PALETTES[] =
@@ -2564,24 +2582,6 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_OTHER_SLASH_PALETTES[] =
     // Fully unused
     //{ L"Crypt 10/15", 0x73ac80 + 0xb000, 0x73ae80 + 0xb000 },
     { L"Crypt 7/9 13.1.1", 0x73b280 + 0xb000, 0x73b300 + 0xb000 },
-};
-
-const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES[] =
-{
-    { L"Sky & Background Without Sphinx", 0x73e9a0 + 0xb000, 0x73ea20 + 0xb000, indexRedEarthSprites_Stages, -1, &pairFullyLinkedNode },
-    { L"Background Building on the Right", 0x73ea20 + 0xb000, 0x73eaa0 + 0xb000,  },
-    { L"Ground", 0x73e620 + 0xb000, 0x73e6a0 + 0xb000 },
-    { L"Palm Trees but Buggy", 0x73e720 + 0xb000, 0x73e7a0 + 0xb000 },
-    { L"Small Part of Palm Trees", 0x73eaa0 + 0xb000, 0x73eb20 + 0xb000 },
-    { L"Gigantic Rock on the right & Grass", 0x73e7a0 + 0xb000, 0x73e820 + 0xb000 },
-    { L"Left Pillars & Ground Part", 0x73e820 + 0xb000, 0x73e8a0 + 0xb000 },
-    { L"Small Part of Left Pillars & Bricks", 0x73e6a0 + 0xb000, 0x73e720 + 0xb000 },
-    { L"Smaller Parts of Left Pillars & Bricks", 0x73e920 + 0xb000, 0x73e9a0 + 0xb000 },
-    { L"Wall on the left & Ground Part", 0x73ec20 + 0xb000, 0x73eca0 + 0xb000 },
-    { L"Scion Statue", 0x73ee20 + 0xb000, 0x73eea0 + 0xb000 },
-    { L"Statue Stand", 0x73eea0 + 0xb000, 0x73ef20 + 0xb000 },
-    { L"Clara's Golden Statue", 0x73ef20 + 0xb000, 0x73efa0 + 0xb000 },
-    { L"Unknown Bonus Game 1 Palette", 0x73e8a0 + 0xb000, 0x73e920 + 0xb000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_SLASH_PALETTES[] =

@@ -93,10 +93,10 @@ const sGame_PaletteDataset FatalFury1_A_INTRO_PALETTES[]
 const sGame_PaletteDataset FatalFury1_A_BONUS_GAMES_PALETTES[]
 {
     { L"Bonus Guy 1", 0x33aac, 0x33aec, indexFF1Sprites_Bonus, 0x02 },
-    { L"Bonus Guy 2", 0x32ccc, 0x32cec },
-    { L"Bonus Arms", 0x32cac, 0x32ccc },
-    { L"Bonus Background", 0x32cec, 0x32d6c},
-    { L"Bonus Background Extras", 0x334ec, 0x3356c },
+    { L"Bonus Guy 2", 0x32ccc, 0x32cec, indexFF1Sprites_Bonus, 0x30 },
+    { L"Bonus Arms", 0x32cac, 0x32ccc, indexFF1Sprites_Bonus, 0x2d },
+    { L"Bonus Background", 0x32cec, 0x32d6c, indexFF1Sprites_Bonus, 0x2e },
+    { L"Bonus Background Extras", 0x334ec, 0x3356c, indexFF1Sprites_Bonus, 0x2f },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_Cutscenes_PALETTES[] =
