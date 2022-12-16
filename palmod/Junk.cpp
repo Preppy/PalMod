@@ -19,6 +19,8 @@ int GetDpiForScreen()
 
     if (dpiX == -1)
     {
+        SetProcessDPIAware();
+
         HDC screen = GetDC(0);
 
         dpiX = GetDeviceCaps(screen, LOGPIXELSX);
@@ -47,7 +49,7 @@ END_MESSAGE_MAP()
 
 int CJunk::GetPaletteSquareSize()
 {
-    return static_cast<int>(ceil((BASE_PALETTE_SQUARE_SIZE * GetDpiForScreen()) / 96.0));
+    return static_cast<int>(floor((BASE_PALETTE_SQUARE_SIZE * GetDpiForScreen()) / 96.0));
 }
 
 UCHAR CJunk::Toggle(UCHAR& tVar)
