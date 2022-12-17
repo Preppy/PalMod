@@ -20,6 +20,19 @@ const std::vector<uint16_t> AsuraBuster_A_IMGIDS_USED =
     indexAsuraBuster_Bonus,             // 0x40
 };
 
+const auto k_nPalettesPerAsuraNode = 9;
+const auto k_nCoreNodesPerAsuraCollection = 7;
+
+const stPairedPaletteInfo pairAsuraPortraitAtoShared =   { 3 + (k_nPalettesPerAsuraNode * (k_nCoreNodesPerAsuraCollection - 1)), PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairAsuraPortraitBtoShared =   { 3 + (k_nPalettesPerAsuraNode * (k_nCoreNodesPerAsuraCollection - 2)), PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairAsuraPortraitABtoShared =  { 3 + (k_nPalettesPerAsuraNode * (k_nCoreNodesPerAsuraCollection - 3)), PalettePairOptions::DisableMultiExport };
+
+const stPairedPaletteInfo pairAsuraPortraitCtoShared =   { 3 + (k_nPalettesPerAsuraNode * (k_nCoreNodesPerAsuraCollection - 4)), PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairAsuraPortraitACtoShared =  { 3 + (k_nPalettesPerAsuraNode * (k_nCoreNodesPerAsuraCollection - 5)), PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairAsuraPortraitBCtoShared =  { 3 + (k_nPalettesPerAsuraNode * (k_nCoreNodesPerAsuraCollection - 6)), PalettePairOptions::DisableMultiExport };
+
+const stPairedPaletteInfo pairAsuraPortraitABCtoShared = { 3, PalettePairOptions::DisableMultiExport };
+
 //  Yashaou
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_A[] =
 {
@@ -30,7 +43,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_A[] =
     { L"Unused A", 0x93512, 0x93532, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait A", 0x93532, 0x93552, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Yashaou A Portrait", 0x8a4ac, 0x8a4cc, indexAsuraBuster_Yashaou, 0x40 },
+    { L"Yashaou A Portrait", 0x8a4ac, 0x8a4cc, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitAtoShared },
     { L"Yashaou A Super Portrait", 0x7fab0, 0x7fad0 },
     { L"Yashaou A Super Portrait Trail", 0x7fad0, 0x7faf0 },
 };
@@ -43,7 +56,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_B[] =
     { L"Nanami B", 0x93f12, 0x93f32, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused B", 0x93f32, 0x93f52, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait B", 0x93f52, 0x93f72, indexAsuraBuster_Nanami, 0x41 },
-    { L"Yashaou B Portrait", 0x8a4cc, 0x8a4ec, indexAsuraBuster_Yashaou, 0x40 },
+    { L"Yashaou B Portrait", 0x8a4cc, 0x8a4ec, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitBtoShared },
     { L"Yashaou B Super Portrait", 0x7faf0, 0x7fb10 },
     { L"Yashaou B Super Portrait Trail", 0x7fb10, 0x7fb30 },
 };
@@ -56,7 +69,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AB[] =
     { L"Nanami AB", 0x94932, 0x94952, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused AB", 0x94952, 0x94972, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait AB", 0x94972, 0x94992, indexAsuraBuster_Nanami, 0x41 },
-    { L"Yashaou AB Portrait", 0x8a4ec, 0x8a50c, indexAsuraBuster_Yashaou, 0x40 },
+    { L"Yashaou AB Portrait", 0x8a4ec, 0x8a50c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitABtoShared },
     { L"Yashaou AB Super Portrait", 0x7fb30, 0x7fb50 },
     { L"Yashaou AB Super Portrait Trail", 0x7fb50, 0x7fb70 },
 };
@@ -70,7 +83,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_C[] =
     { L"Unused C", 0x95372, 0x95392, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait C", 0x95392, 0x953b2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Yashaou C Portrait", 0x8a50c, 0x8a52c, indexAsuraBuster_Yashaou, 0x40 },
+    { L"Yashaou C Portrait", 0x8a50c, 0x8a52c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitCtoShared },
     { L"Yashaou C Super Portrait", 0x7fb70, 0x7fb90 },
     { L"Yashaou C Super Portrait Trail", 0x7fb90, 0x7fbb0 },
 };
@@ -84,7 +97,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AC[] =
     { L"Unused AC", 0x95d92, 0x95db2, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait AC", 0x95db2, 0x95dd2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Yashaou AC Portrait", 0x8a52c, 0x8a54c, indexAsuraBuster_Yashaou, 0x40 },
+    { L"Yashaou AC Portrait", 0x8a52c, 0x8a54c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitACtoShared },
     { L"Yashaou AC Super Portrait", 0x7fbb0, 0x7fbd0 },
     { L"Yashaou AC Super Portrait Trail", 0x7fbd0, 0x7fbf0 },
 };
@@ -98,7 +111,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_BC[] =
     { L"Unused BC", 0x967b2, 0x967d2, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait BC", 0x967d2, 0x967f2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Yashaou BC Portrait", 0x8a54c, 0x8a56c, indexAsuraBuster_Yashaou, 0x40 },
+    { L"Yashaou BC Portrait", 0x8a54c, 0x8a56c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitBCtoShared },
     { L"Yashaou BC Super Portrait", 0x7fbf0, 0x7fc10 },
     { L"Yashaou BC Super Portrait Trail", 0x7fc10, 0x7fc30 },
 };
@@ -111,7 +124,7 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_ABC[] =
     { L"Nanami ABC", 0x971b2, 0x971d2, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused ABC", 0x971d2, 0x971f2, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait ABC", 0x971f2, 0x97212, indexAsuraBuster_Nanami, 0x41 },
-    { L"Yashaou ABC Portrait", 0x8a56c, 0x8a58c, indexAsuraBuster_Yashaou, 0x40 },
+    { L"Yashaou ABC Portrait", 0x8a56c, 0x8a58c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitABCtoShared },
     { L"Yashaou ABC Super Portrait", 0x7fc30, 0x7fc50 },
     { L"Yashaou ABC Super Portrait Trail", 0x7fc50, 0x7fc70 },
 };
@@ -132,7 +145,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_A[] =
     { L"Unused A", 0x935d2, 0x935f2, indexAsuraBuster_Goat, 0x04 },
     { L"Nanami Lifebar Portrait A", 0x935f2, 0x93612, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Goat A Portrait", 0x8a5cc, 0x8a5ec, indexAsuraBuster_Goat, 0x40 },
+    { L"Goat A Portrait", 0x8a5cc, 0x8a5ec, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitAtoShared },
     { L"Goat A Super Portrait", 0x7fc70, 0x7fc90 },
     { L"Goat A Super Portrait Trail", 0x7fc90, 0x7fcb0 },
 };
@@ -146,7 +159,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_B[] =
     { L"Unused B", 0x93ff2, 0x94012, indexAsuraBuster_Goat, 0x04 },
     { L"Nanami Lifebar Portrait B", 0x94012, 0x94032, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Goat B Portrait", 0x8a5ec, 0x8a60c, indexAsuraBuster_Goat, 0x40 },
+    { L"Goat B Portrait", 0x8a5ec, 0x8a60c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitBtoShared },
     { L"Goat B Super Portrait", 0x7fcb0, 0x7fcd0 },
     { L"Goat B Super Portrait Trail", 0x7fcd0, 0x7fcf0 },
 };
@@ -160,7 +173,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_AB[] =
     { L"Unused AB", 0x94a12, 0x94a32, indexAsuraBuster_Goat, 0x04 },
     { L"Nanami Lifebar Portrait AB", 0x94a32, 0x94a52, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Goat AB Portrait", 0x8a60c, 0x8a62c, indexAsuraBuster_Goat, 0x40 },
+    { L"Goat AB Portrait", 0x8a60c, 0x8a62c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitABtoShared },
     { L"Goat AB Super Portrait", 0x7fcf0, 0x7fd10 },
     { L"Goat AB Super Portrait Trail", 0x7fd10, 0x7fd30 },
 };
@@ -174,7 +187,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_C[] =
     { L"Unused C", 0x95432, 0x95452, indexAsuraBuster_Goat, 0x04 },
     { L"Nanami Lifebar Portrait C", 0x95452, 0x95472, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Goat C Portrait", 0x8a62c, 0x8a64c, indexAsuraBuster_Goat, 0x40 },
+    { L"Goat C Portrait", 0x8a62c, 0x8a64c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitCtoShared },
     { L"Goat C Super Portrait", 0x7fd30, 0x7fd50 },
     { L"Goat C Super Portrait Trail", 0x7fd50, 0x7fd70 },
 };
@@ -188,7 +201,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_AC[] =
     { L"Unused AC", 0x95e52, 0x95e72, indexAsuraBuster_Goat, 0x04 },
     { L"Nanami Lifebar Portrait AC", 0x95e72, 0x95e92, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Goat AC Portrait", 0x8a64c, 0x8a66c, indexAsuraBuster_Goat, 0x40 },
+    { L"Goat AC Portrait", 0x8a64c, 0x8a66c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitACtoShared },
     { L"Goat AC Super Portrait", 0x7fd70, 0x7fd90 },
     { L"Goat AC Super Portrait Trail", 0x7fd90, 0x7fdb0 },
 };
@@ -202,7 +215,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_BC[] =
     { L"Unused BC", 0x96872, 0x96892, indexAsuraBuster_Goat, 0x04 },
     { L"Nanami Lifebar Portrait BC", 0x96892, 0x968b2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Goat BC Portrait", 0x8a66c, 0x8a68c, indexAsuraBuster_Goat, 0x40 },
+    { L"Goat BC Portrait", 0x8a66c, 0x8a68c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitBCtoShared },
     { L"Goat BC Super Portrait", 0x7fdb0, 0x7fdd0 },
     { L"Goat BC Super Portrait Trail", 0x7fdd0, 0x7fdf0 },
 };
@@ -216,7 +229,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_ABC[] =
     { L"Unused ABC", 0x97292, 0x972b2, indexAsuraBuster_Goat, 0x04 },
     { L"Nanami Lifebar Portrait ABC", 0x972b2, 0x972d2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Goat ABC Portrait", 0x8a68c, 0x8a6ac, indexAsuraBuster_Goat, 0x40 },
+    { L"Goat ABC Portrait", 0x8a68c, 0x8a6ac, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitABCtoShared },
     { L"Goat ABC Super Portrait", 0x7fdf0, 0x7fe10 },
     { L"Goat ABC Super Portrait Trail", 0x7fe10, 0x7fe30 },
 };
@@ -859,7 +872,7 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_A[] =
     { L"Unused A", 0x93b12, 0x93b32, indexAsuraBuster_Sittara, 0x04 },
     { L"Nanami Lifebar Portrait A", 0x93b32, 0x93b52, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Sittara A Portrait", 0x8aeec, 0x8af0c, indexAsuraBuster_Sittara, 0x40 },
+    { L"Sittara A Portrait", 0x8aeec, 0x8af0c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitAtoShared },
     { L"Sittara A Super Portrait", 0x80990, 0x809b0 },
     { L"Sittara A Super Portrait Trail", 0x809b0, 0x809d0 },
 };
@@ -873,7 +886,7 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_B[] =
     { L"Unused B", 0x94532, 0x94552, indexAsuraBuster_Sittara, 0x04 },
     { L"Nanami Lifebar Portrait B", 0x94552, 0x94572, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Sittara B Portrait", 0x8af0c, 0x8af2c, indexAsuraBuster_Sittara, 0x40 },
+    { L"Sittara B Portrait", 0x8af0c, 0x8af2c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitBtoShared },
     { L"Sittara B Super Portrait", 0x809d0, 0x809f0 },
     { L"Sittara B Super Portrait Trail", 0x809f0, 0x80a10 },
 };
@@ -887,7 +900,7 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_AB[] =
     { L"Unused AB", 0x94f52, 0x94f72, indexAsuraBuster_Sittara, 0x04 },
     { L"Nanami Lifebar Portrait AB", 0x94f72, 0x94f92, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Sittara AB Portrait", 0x8af2c, 0x8af4c },
+    { L"Sittara AB Portrait", 0x8af2c, 0x8af4c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitABtoShared },
     { L"Sittara AB Super Portrait", 0x80a10, 0x80a30 },
     { L"Sittara AB Super Portrait Trail", 0x80a30, 0x80a50 },
 };
@@ -901,7 +914,7 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_C[] =
     { L"Unused C", 0x95972, 0x95992, indexAsuraBuster_Sittara, 0x04 },
     { L"Nanami Lifebar Portrait C", 0x95992, 0x959b2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Sittara C Portrait", 0x8af4c, 0x8af6c, indexAsuraBuster_Sittara, 0x40 },
+    { L"Sittara C Portrait", 0x8af4c, 0x8af6c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitCtoShared },
     { L"Sittara C Super Portrait", 0x80a50, 0x80a70 },
     { L"Sittara C Super Portrait Trail", 0x80a70, 0x80a90 },
 };
@@ -915,7 +928,7 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_AC[] =
     { L"Unused AC", 0x96392, 0x963b2, indexAsuraBuster_Sittara, 0x04 },
     { L"Nanami Lifebar Portrait AC", 0x963b2, 0x963d2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Sittara AC Portrait", 0x8af6c, 0x8af8c, indexAsuraBuster_Sittara, 0x40 },
+    { L"Sittara AC Portrait", 0x8af6c, 0x8af8c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitACtoShared },
     { L"Sittara AC Super Portrait", 0x80a90, 0x80ab0 },
     { L"Sittara AC Super Portrait Trail", 0x80ab0, 0x80ad0 },
 };
@@ -929,7 +942,7 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_BC[] =
     { L"Unused BC", 0x96db2, 0x96dd2, indexAsuraBuster_Sittara, 0x04 },
     { L"Nanami Lifebar Portrait BC", 0x96dd2, 0x96df2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Sittara BC Portrait", 0x8af8c, 0x8afac, indexAsuraBuster_Sittara, 0x40 },
+    { L"Sittara BC Portrait", 0x8af8c, 0x8afac, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitBCtoShared },
     { L"Sittara BC Super Portrait", 0x80ad0, 0x80af0 },
     { L"Sittara BC Super Portrait Trail", 0x80af0, 0x80b10 },
 };
@@ -943,7 +956,7 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_ABC[] =
     { L"Unused ABC", 0x977d2, 0x977f2, indexAsuraBuster_Sittara, 0x04 },
     { L"Nanami Lifebar Portrait ABC", 0x977f2, 0x97812, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Sittara ABC Portrait", 0x8afac, 0x8afcc, indexAsuraBuster_Sittara, 0x40 },
+    { L"Sittara ABC Portrait", 0x8afac, 0x8afcc, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitABCtoShared },
     { L"Sittara ABC Super Portrait", 0x80b10, 0x80b30 },
     { L"Sittara ABC Super Portrait Trail", 0x80b30, 0x80b50 },
 };
@@ -1063,7 +1076,7 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_A[] =
     { L"Unused A", 0x93c92, 0x93cb2, indexAsuraBuster_Zinsuke, 0x04 },
     { L"Nanami Lifebar Portrait A", 0x93cb2, 0x93cd2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Zinsuke A Portrait", 0x8b10c, 0x8b12c, indexAsuraBuster_Zinsuke, 0x40 },
+    { L"Zinsuke A Portrait", 0x8b10c, 0x8b12c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitAtoShared },
     { L"Zinsuke A Super Portrait", 0x80d10, 0x80d30 },
     { L"Zinsuke A Super Portrait Trail", 0x80d30, 0x80d50 },
 };
@@ -1077,7 +1090,7 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_B[] =
     { L"Unused B", 0x946b2, 0x946d2, indexAsuraBuster_Zinsuke, 0x04 },
     { L"Nanami Lifebar Portrait B", 0x946d2, 0x946f2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Zinsuke B Portrait", 0x8b12c, 0x8b14c, indexAsuraBuster_Zinsuke, 0x40 },
+    { L"Zinsuke B Portrait", 0x8b12c, 0x8b14c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitBtoShared },
     { L"Zinsuke B Super Portrait", 0x80d50, 0x80d70 },
     { L"Zinsuke B Super Portrait Trail", 0x80d70, 0x80d90 },
 };
@@ -1091,7 +1104,7 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_AB[] =
     { L"Unused AB", 0x950d2, 0x950f2, indexAsuraBuster_Zinsuke, 0x04 },
     { L"Nanami Lifebar Portrait AB", 0x950f2, 0x95112, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Zinsuke AB Portrait", 0x8b14c, 0x8b16c, indexAsuraBuster_Zinsuke, 0x40 },
+    { L"Zinsuke AB Portrait", 0x8b14c, 0x8b16c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitABtoShared },
     { L"Zinsuke AB Super Portrait", 0x80d90, 0x80db0 },
     { L"Zinsuke AB Super Portrait Trail", 0x80db0, 0x80dd0 },
 };
@@ -1105,7 +1118,7 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_C[] =
     { L"Unused C", 0x95af2, 0x95b12, indexAsuraBuster_Zinsuke, 0x04 },
     { L"Nanami Lifebar Portrait C", 0x95b12, 0x95b32, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Zinsuke C Portrait", 0x8b16c, 0x8b18c, indexAsuraBuster_Zinsuke, 0x40 },
+    { L"Zinsuke C Portrait", 0x8b16c, 0x8b18c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitCtoShared },
     { L"Zinsuke C Super Portrait", 0x80dd0, 0x80df0 },
     { L"Zinsuke C Super Portrait Trail", 0x80df0, 0x80e10 },
 };
@@ -1119,7 +1132,7 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_AC[] =
     { L"Unused AC", 0x96512, 0x96532, indexAsuraBuster_Zinsuke, 0x04 },
     { L"Nanami Lifebar Portrait AC", 0x96532, 0x96552, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Zinsuke AC Portrait", 0x8b18c, 0x8b1ac, indexAsuraBuster_Zinsuke, 0x40 },
+    { L"Zinsuke AC Portrait", 0x8b18c, 0x8b1ac, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitACtoShared },
     { L"Zinsuke AC Super Portrait", 0x80e10, 0x80e30 },
     { L"Zinsuke AC Super Portrait Trail", 0x80e30, 0x80e50 },
 };
@@ -1133,7 +1146,7 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_BC[] =
     { L"Unused BC", 0x96f32, 0x96f52, indexAsuraBuster_Zinsuke, 0x04 },
     { L"Nanami Lifebar Portrait BC", 0x96f52, 0x96f72, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Zinsuke BC Portrait", 0x8b1ac, 0x8b1cc, indexAsuraBuster_Zinsuke, 0x40 },
+    { L"Zinsuke BC Portrait", 0x8b1ac, 0x8b1cc, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitBCtoShared },
     { L"Zinsuke BC Super Portrait", 0x80e50, 0x80e70 },
     { L"Zinsuke BC Super Portrait Trail", 0x80e70, 0x80e90 },
 };
@@ -1147,7 +1160,7 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_ABC[] =
     { L"Unused ABC", 0x97952, 0x97972, indexAsuraBuster_Zinsuke, 0x04 },
     { L"Nanami Lifebar Portrait ABC", 0x97972, 0x97992, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Zinsuke ABC Portrait", 0x8b1cc, 0x8b1ec, indexAsuraBuster_Zinsuke, 0x40 },
+    { L"Zinsuke ABC Portrait", 0x8b1cc, 0x8b1ec, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitABCtoShared },
     { L"Zinsuke ABC Super Portrait", 0x80e90, 0x80eb0 },
     { L"Zinsuke ABC Super Portrait Trail", 0x80eb0, 0x80ed0 },
 };
@@ -1535,6 +1548,18 @@ const sDescTreeNode AsuraBuster_A_Stages_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Stages, ARRAYSIZE(AsuraBuster_A_Stages) },
 };
+
+// We use a cross-node paired palette using a shared element, so use a compile-time check to help protect against math errors
+static_assert(ARRAYSIZE(AsuraBuster_A_Yashaou_A) == k_nPalettesPerAsuraNode, "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Goat_A) == k_nPalettesPerAsuraNode, "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Sittara_A) == k_nPalettesPerAsuraNode, "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Zinsuke_A) == k_nPalettesPerAsuraNode, "Please update the pairing logic for Asura Buster.");
+
+// +1 for the Shared node.
+static_assert(ARRAYSIZE(AsuraBuster_A_Yashaou_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Goat_COLLECTION)    == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Sittara_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Zinsuke_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
 
 const sDescTreeNode AsuraBuster_A_UNITS[] =
 {

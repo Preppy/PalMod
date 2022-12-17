@@ -838,7 +838,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     uint16_t nLocationOfSecondPalette = 1;
                     uint16_t nSecondPaletteWithinNode = 0;
 
-                    // Zero is interesting and has two different palettes joins with shared palettes.
+                    // Zero is interesting and has two different palette joins with shared palettes.
 
                     if (nSrcStart == 0) // primary sprite, joined with shared Effect 7 palette
                     {

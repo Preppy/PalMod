@@ -495,7 +495,6 @@ enum class PalettePairOptions
     DisableMultiExport  = 1 << 1,
 };
 
-
 struct stPairedPaletteInfo
 {
     int8_t nNodeIncrementToPartner = 1;

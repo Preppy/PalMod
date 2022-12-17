@@ -18,9 +18,17 @@ const std::vector<uint16_t> BattleFlipShot_A_IMGIDS_USED =
     indexBattleFlipShotSprites_Bonus,       // 0xce
 };
 
+const auto k_nPalettesPerFlipshotNode = 5;
+const auto k_nPalettesPerFlipshotBossNode = 2;
+const auto k_nCoreNodesPerFlipshotCollection = 2;
+
+const stPairedPaletteInfo pairFlipShotP1toShared = { k_nPalettesPerFlipshotNode + (k_nPalettesPerFlipshotNode * (k_nCoreNodesPerFlipshotCollection - 1)), PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairFlipShotP2toShared = { k_nPalettesPerFlipshotNode, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairFlipShotBosstoShared = { k_nPalettesPerFlipshotBossNode, PalettePairOptions::DisableMultiExport };
+
 const sGame_PaletteDataset BattleFlipShot_A_ChintaNemoto_P1[] =
 {
-    { L"Chinta Nemoto P1", 0x27a5a, 0x27a7a, indexBattleFlipShotSprites_Chinta, 0x00 },
+    { L"Chinta Nemoto P1", 0x27a5a, 0x27a7a, indexBattleFlipShotSprites_Chinta, 0x00, &pairFlipShotP1toShared },
     { L"Select Portrait P1", 0x27f1a, 0x27f3a, indexBattleFlipShotSprites_Chinta, 0x40 },
     { L"VS Portrait P1", 0x28c5a, 0x28c7a, indexBattleFlipShotSprites_Chinta, 0x41 },
     { L"Win Portrait 1/2 P1", 0x287da, 0x287fa, indexBattleFlipShotSprites_Chinta, 0x42, &pairNext },
@@ -29,7 +37,7 @@ const sGame_PaletteDataset BattleFlipShot_A_ChintaNemoto_P1[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_ChintaNemoto_P2[] =
 {
-    { L"Chinta Nemoto P2", 0x27a7a, 0x27a9a, indexBattleFlipShotSprites_Chinta, 0x00 },
+    { L"Chinta Nemoto P2", 0x27a7a, 0x27a9a, indexBattleFlipShotSprites_Chinta, 0x00, &pairFlipShotP2toShared },
     { L"Select Portrait P2", 0x27f3a, 0x27f5a, indexBattleFlipShotSprites_Chinta, 0x40 },
     { L"VS Portrait P2", 0x28c7a, 0x28c9a, indexBattleFlipShotSprites_Chinta, 0x41 },
     { L"Win Portrait 1/2 P2", 0x287fa, 0x2881a, indexBattleFlipShotSprites_Chinta, 0x42, &pairNext },
@@ -45,7 +53,7 @@ const sGame_PaletteDataset BattleFlipShot_A_ChintaNemoto_Extras[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_Siren_P1[] =
 {
-    { L"Siren P1", 0x27afa, 0x27b1a, indexBattleFlipShotSprites_Siren, 0x00 },
+    { L"Siren P1", 0x27afa, 0x27b1a, indexBattleFlipShotSprites_Siren, 0x00, &pairFlipShotP1toShared },
     { L"Select Portrait P1", 0x27f5a, 0x27f7a, indexBattleFlipShotSprites_Siren, 0x40 },
     { L"VS Portrait P1", 0x28c9a, 0x28cba, indexBattleFlipShotSprites_Siren, 0x41 },
     { L"Win Portrait 1/2 P1", 0x2885a, 0x2887a, indexBattleFlipShotSprites_Siren, 0x42, &pairNext },
@@ -54,7 +62,7 @@ const sGame_PaletteDataset BattleFlipShot_A_Siren_P1[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_Siren_P2[] =
 {
-    { L"Siren P2", 0x27b1a, 0x27b3a, indexBattleFlipShotSprites_Siren, 0x00 },
+    { L"Siren P2", 0x27b1a, 0x27b3a, indexBattleFlipShotSprites_Siren, 0x00, &pairFlipShotP2toShared },
     { L"Select Portrait P2", 0x27f7a, 0x27f9a, indexBattleFlipShotSprites_Siren, 0x40 },
     { L"VS Portrait P2", 0x28cba, 0x28cda, indexBattleFlipShotSprites_Siren, 0x41 },
     { L"Win Portrait 1/2 P2", 0x2887a, 0x2889a, indexBattleFlipShotSprites_Siren, 0x42, &pairNext },
@@ -70,7 +78,7 @@ const sGame_PaletteDataset BattleFlipShot_A_Siren_Extras[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_Saimon_P1[] =
 {
-    { L"Saimon P1", 0x27b9a, 0x27bba, indexBattleFlipShotSprites_Salmon, 0x00 },
+    { L"Saimon P1", 0x27b9a, 0x27bba, indexBattleFlipShotSprites_Salmon, 0x00, &pairFlipShotP1toShared },
     { L"Select Portrait P1", 0x27f9a, 0x27fda, indexBattleFlipShotSprites_Salmon, 0x40 },
     { L"VS Portrait P1", 0x28cda, 0x28cfa, indexBattleFlipShotSprites_Salmon, 0x41 },
     { L"Win Portrait 1/2 P1", 0x288da, 0x288fa, indexBattleFlipShotSprites_Salmon, 0x42, &pairNext },
@@ -79,7 +87,7 @@ const sGame_PaletteDataset BattleFlipShot_A_Saimon_P1[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_Saimon_P2[] =
 {
-    { L"Saimon P2", 0x27bba, 0x27bda, indexBattleFlipShotSprites_Salmon, 0x00 },
+    { L"Saimon P2", 0x27bba, 0x27bda, indexBattleFlipShotSprites_Salmon, 0x00, &pairFlipShotP2toShared },
     { L"Select Portrait P2", 0x27fda, 0x2801a, indexBattleFlipShotSprites_Salmon, 0x40 },
     { L"VS Portrait P2", 0x28cfa, 0x28d1a, indexBattleFlipShotSprites_Salmon, 0x41 },
     { L"Win Portrait 1/2 P2", 0x288fa, 0x2891a, indexBattleFlipShotSprites_Salmon, 0x42, &pairNext },
@@ -95,7 +103,7 @@ const sGame_PaletteDataset BattleFlipShot_A_Saimon_Extras[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_BloodyWolf_P1[] =
 {
-    { L"Bloody Wolf P1", 0x27cda, 0x27cfa, indexBattleFlipShotSprites_BloodyWolf, 0x00 },
+    { L"Bloody Wolf P1", 0x27cda, 0x27cfa, indexBattleFlipShotSprites_BloodyWolf, 0x00, &pairFlipShotP1toShared },
     { L"Select Portrait P1", 0x2805a, 0x2807a, indexBattleFlipShotSprites_BloodyWolf, 0x40 },
     { L"VS Portrait P1", 0x28d5a, 0x28d7a, indexBattleFlipShotSprites_BloodyWolf, 0x41 },
     { L"Win Portrait 1/2 P1", 0x289da, 0x289fa, indexBattleFlipShotSprites_BloodyWolf, 0x42, &pairNext },
@@ -104,7 +112,7 @@ const sGame_PaletteDataset BattleFlipShot_A_BloodyWolf_P1[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_BloodyWolf_P2[] =
 {
-    { L"Bloody Wolf P2", 0x27cfa, 0x27d1a, indexBattleFlipShotSprites_BloodyWolf, 0x00 },
+    { L"Bloody Wolf P2", 0x27cfa, 0x27d1a, indexBattleFlipShotSprites_BloodyWolf, 0x00, &pairFlipShotP2toShared },
     { L"Select Portrait P2", 0x2807a, 0x2809a, indexBattleFlipShotSprites_BloodyWolf, 0x40 },
     { L"VS Portrait P2", 0x28d7a, 0x28d9a, indexBattleFlipShotSprites_BloodyWolf, 0x41 },
     { L"Win Portrait 1/2 P2", 0x289fa, 0x28a1a, indexBattleFlipShotSprites_BloodyWolf, 0x42, &pairNext },
@@ -120,7 +128,7 @@ const sGame_PaletteDataset BattleFlipShot_A_BloodyWolf_Extras[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_MrJustice_P1[] =
 {
-    { L"Mr.Justice P1", 0x27c3a, 0x27c5a, indexBattleFlipShotSprites_MrJustice, 0x00 },
+    { L"Mr.Justice P1", 0x27c3a, 0x27c5a, indexBattleFlipShotSprites_MrJustice, 0x00, &pairFlipShotP1toShared },
     { L"Select Portrait P1", 0x2801a, 0x2803a, indexBattleFlipShotSprites_MrJustice, 0x40 },
     { L"VS Portrait P1", 0x28d1a, 0x28d3a, indexBattleFlipShotSprites_MrJustice, 0x41 },
     { L"Win Portrait 1/2 P1", 0x2895a, 0x2897a, indexBattleFlipShotSprites_MrJustice, 0x42, &pairNext },
@@ -129,7 +137,7 @@ const sGame_PaletteDataset BattleFlipShot_A_MrJustice_P1[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_MrJustice_P2[] =
 {
-    { L"Mr.Justice P2", 0x27c5a, 0x27c7a, indexBattleFlipShotSprites_MrJustice, 0x00 },
+    { L"Mr.Justice P2", 0x27c5a, 0x27c7a, indexBattleFlipShotSprites_MrJustice,0x00, &pairFlipShotP2toShared },
     { L"Select Portrait P2", 0x2803a, 0x2805a, indexBattleFlipShotSprites_MrJustice, 0x40 },
     { L"VS Portrait P2", 0x28d3a, 0x28d5a, indexBattleFlipShotSprites_MrJustice, 0x41 },
     { L"Win Portrait 1/2 P2", 0x2897a, 0x2899a, indexBattleFlipShotSprites_MrJustice, 0x42, &pairNext },
@@ -145,7 +153,7 @@ const sGame_PaletteDataset BattleFlipShot_A_MrJustice_Extras[] =
 
 const sGame_PaletteDataset BattleFlipShot_A_Boss_Main[] =
 {
-    { L"Sthenno (Boss)", 0x27d7a, 0x27d9a, indexBattleFlipShotSprites_Boss, 0x00 },
+    { L"Sthenno (Boss)", 0x27d7a, 0x27d9a, indexBattleFlipShotSprites_Boss, 0x00, &pairFlipShotBosstoShared },
     { L"VS Portrait", 0x28D9A, 0x28DBA, indexBattleFlipShotSprites_Boss, 0x41 },
 };
 
@@ -302,6 +310,22 @@ const sDescTreeNode BattleFlipShot_A_Bonus_Collection[] =
 
     { L"Unused", DESC_NODETYPE_TREE, (void*)BattleFlipShot_A_BONUS_Unused, ARRAYSIZE(BattleFlipShot_A_BONUS_Unused) },
 };
+
+// We use a cross-node paired palette using a shared element, so use a compile-time check to help protect against math errors
+static_assert(ARRAYSIZE(BattleFlipShot_A_ChintaNemoto_P1) == k_nPalettesPerFlipshotNode, "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_Siren_P1)        == k_nPalettesPerFlipshotNode, "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_Saimon_P1)       == k_nPalettesPerFlipshotNode, "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_BloodyWolf_P1)   == k_nPalettesPerFlipshotNode, "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_MrJustice_P1)    == k_nPalettesPerFlipshotNode, "Please update the pairing logic for Battle Flip Shot.");
+
+static_assert(ARRAYSIZE(BattleFlipShot_A_Boss_Main)       == k_nPalettesPerFlipshotBossNode, "Please update the pairing logic for Battle Flip Shot.");
+
+// +1 for the Shared node.
+static_assert(ARRAYSIZE(BattleFlipShot_A_ChintaNemoto_Collection) == (k_nCoreNodesPerFlipshotCollection + 1), "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_Siren_Collection)        == (k_nCoreNodesPerFlipshotCollection + 1), "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_Saimon_Collection)       == (k_nCoreNodesPerFlipshotCollection + 1), "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_BloodyWolf_Collection)   == (k_nCoreNodesPerFlipshotCollection + 1), "Please update the pairing logic for Battle Flip Shot.");
+static_assert(ARRAYSIZE(BattleFlipShot_A_MrJustice_Collection)    == (k_nCoreNodesPerFlipshotCollection + 1), "Please update the pairing logic for Battle Flip Shot.");
 
 const sDescTreeNode BattleFlipShot_A_UNITS[] =
 {
