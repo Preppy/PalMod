@@ -214,7 +214,8 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // Ordering is punch/kick: correct this across all pairs.
                     nProspectiveStart = (nProspectiveStart > 0) ? nProspectiveStart - 1 : nProspectiveStart;
                 }
-                else  if (wcsstr(paletteDataSet->szPaletteName, L"V-Ism") != nullptr)
+                
+                if (wcsstr(paletteDataSet->szPaletteName, L"V-Ism") != nullptr)
                 {
                     nProspectiveStart = (nProspectiveStart > 4) ? nProspectiveStart - 4 : nProspectiveStart;
                 }
