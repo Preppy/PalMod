@@ -191,27 +191,23 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                 m_pszCurrentPaletteName = paletteSetToUse[nDistanceFromZero].szPaletteName;
                 cbPaletteSizeOnDisc = (int)max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
 
+                // If it's regulation, load the regulation-specific data using those shifts
                 if ((m_eVersionToLoad == JojosLoadingKey::JOJOS_US_A_51_ROMKEY) ||
                     (m_eVersionToLoad == JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP))
                 {
-                    if ((wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszTimeStopName) != 0) &&
-                        (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszBonusPalettesName) != 0) &&
-                        (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszStoryModeName) != 0) &&
-                        (nOffset < 0x3AC380)) // only shift the core character/effect palettes, not the portraits
+                    // regions start at Jotaro:
+                    // regulation off characters: 0x336400 - 0x39bd00
+                    // regulation on characters:  0x39bd00 - 0x401500
+                    // non-palette game data:     0x401500 - 0x410000
+                    // regulation off portraits:  0x410000 - 0x428600
+                    // regulation on portraits:   0x428600 - 0x440c00
+                    if ((nOffset >= 0x336400) && (nOffset <= 0x39bd00))
                     {
-                        // General layout is:
-                        // Jotaro A (Regulations On)
-                        // 0x39bd00
-                        // 0x39bd80
-
-                        // Jotaro A(Regulations Off)
-                        // 0x336400
-                        // 0x336480
-
-                        // Shift everything before Gray Fly 6.
-                        // The maximum confirmed shift is for Khan's Counter Anubis Start at 0x39bba0
-                        // The minimum confirmed *non*-shift is for Gray Fly 6 at 0x3AC380
                         nOffset += 0x65900;
+                    }
+                    else if ((nOffset >= 0x410000) && (nOffset <= 0x428600))
+                    {
+                        nOffset += 0x18600;
                     }
                 }
                 break;
