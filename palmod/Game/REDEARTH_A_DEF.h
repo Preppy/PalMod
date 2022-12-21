@@ -180,6 +180,11 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
     { L"Kenji Punch Frozen 5", 0x40E380, 0x40E400, indexRedEarthSprites_Kenji },
     { L"Mirror Trapped - Kenji Punch",      0x434080, 0x434100, indexRedEarthSprites_Kenji, 0x0 },
     { L"Kenji Punch Trapped in Ravange's Sarcophagus", 0x42ef80, 0x42f000 },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x40bfe0", 0x40bfe0, 0x40c1e0 },
+    { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0, 0x40c200 },
+    { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600, 0x40c800 },
+    { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800, 0x40c920 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
@@ -223,6 +228,11 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
     { L"Kenji Kick Frozen 5", 0x41AB80, 0x41AC00, indexRedEarthSprites_Kenji },
     { L"Mirror Trapped - Kenji Kick",       0x434100, 0x434180, indexRedEarthSprites_Kenji, 0x0 },
     { L"Kenji Kick Trapped in Ravange's Sarcophagus", 0x42fc00, 0x42fc80 },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x4187e0", 0x4187e0, 0x4189e0 },
+    { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0, 0x418a00 },
+    { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00, 0x419000 },
+    { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000, 0x419120 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
@@ -309,6 +319,15 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
 
     // Cartur is a knight that tessa encounters during her story mode
     { L"Punch Palette Cartur", 0x40e580, 0x40e600, indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x40e600, 0x40e700 },
+    { L"Unknown Tessa Palette 2", 0x40f180, 0x40f200 },
+    { L"Unknown Tessa Palette 3", 0x40fe80, 0x40ff00 },
+    { L"Unknown Tessa Range 1", 0x40fb80, 0x40fd80 },
+    { L"Unknown Tessa Range 2 (1/4) 0x410000", 0x410000, 0x410200 },
+    { L"Unknown Tessa Range 2 (2/4) 0x410200", 0x410200, 0x410400 },
+    { L"Unknown Tessa Range 2 (3/4) 0x410400", 0x410400, 0x410600 },
+    { L"Unknown Tessa Range 2 (4/4) 0x410600", 0x410600, 0x410680 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
@@ -381,6 +400,15 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick Trapped in Ravange's Sarcophagus", 0x42fc80, 0x42fd00 },
 
     { L"Kick Palette Cartur", 0x41ad80, 0x41ae00, indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x41ae00, 0x41af00 },
+    { L"Unknown Tessa Palette 2", 0x41b980, 0x41ba00 },
+    { L"Unknown Tessa Palette 3", 0x41c680, 0x41c700 },
+    { L"Unknown Tessa Range 1", 0x41c380, 0x41c580 },
+    { L"Unknown Tessa Range 2 (1/4) 0x41c800", 0x41c800, 0x41ca00 },
+    { L"Unknown Tessa Range 2 (2/4) 0x41ca00", 0x41ca00, 0x41cc00 },
+    { L"Unknown Tessa Range 2 (3/4) 0x41cc00", 0x41cc00, 0x41ce00 },
+    { L"Unknown Tessa Range 2 (4/4) 0x41ce00", 0x41ce00, 0x41ce80 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
@@ -426,6 +454,9 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
     { L"Mai-Ling Punch Frozen 5", 0x414780, 0x414800, indexRedEarthSprites_MaiLing, 0 },
     { L"Mirror Trapped - Mai-Ling Punch",   0x434280, 0x434300, indexRedEarthSprites_MaiLing, 0x0 },
     { L"Mai Punch Trapped in Ravange's Sarcophagus", 0x42f080, 0x42f100 },
+
+    { L"Unknown Mai Palette", 0x411700, 0x411780 },
+    { L"Unknown Mai Palette 2", 0x411800, 0x411880 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
@@ -460,6 +491,9 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
     { L"Mai-Ling Kick Frozen 5", 0x420F80, 0x421000, indexRedEarthSprites_MaiLing, 0 },
     { L"Mirror Trapped - Mai-Ling Kick",    0x434300, 0x434380, indexRedEarthSprites_MaiLing, 0x0 },
     { L"Mai Kick Trapped in Ravange's Sarcophagus", 0x42fd00, 0x42fd80 },
+
+    { L"Unknown Mai Palette", 0x41df00, 0x41df80 },
+    { L"Unknown Mai Palette 2", 0x41e000, 0x41e080 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
@@ -1454,6 +1488,15 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"Shadows, Effects & Hit FX 3", 0x132a00, 0x132c00 },
     { L"Shadows, Effects & Hit FX 4", 0x132c00, 0x132e00 },
 
+    { L"Effects Range (1/3) 0x132e00", 0x132e00, 0x133000 },
+    { L"Effects Range (2/3) 0x133000", 0x133000, 0x133200 },
+    { L"Effects Range (3/3) 0x133200", 0x133200, 0x133280 },
+    { L"Elemental Related & Unknown Range 1 (1/2) 0x133500", 0x133500, 0x133700 },
+    { L"Elemental Related & Unknown Range 1 (2/2) 0x133700", 0x133700, 0x133880 },
+    { L"Elemental Related & Unknown Range 2 (1/3) 0x133b00", 0x133b00, 0x133d00 },
+    { L"Elemental Related & Unknown Range 2 (2/3) 0x133d00", 0x133d00, 0x133f00 },
+    { L"Elemental Related & Unknown Range 2 (3/3) 0x133f00", 0x133f00, 0x133f80 },
+
     { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
 
     { L"Game Over", 0x406fe0, 0x407000, indexRedEarthSprites_Bonus, 0x3a },
@@ -1696,6 +1739,9 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Dragon Frozen 3", 0x439680, 0x439700, indexRedEarthSprites_Scion, 0x01 },
     { L"Dragon Frozen 4", 0x439700, 0x439780, indexRedEarthSprites_Scion, 0x01 },
     { L"Dragon Frozen 5", 0x439780, 0x439800, indexRedEarthSprites_Scion, 0x01 },
+
+    { L"Unused Mai Palette?", 0x1e4780, 0x1e4800 },
+    { L"Portrait Related Palette?", 0x1e4900, 0x1e4980 },
 };
 
 //Playable Characters
