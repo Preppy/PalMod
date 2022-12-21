@@ -80,6 +80,8 @@ const sGame_PaletteDataset REDEARTH_A_LEO_PUNCH_PALETTES[] =
     { L"Vigo, Valo & Vestu", 0x408f80, 0x409000 },
     { L"Wisemen Mist 1", 0x409000, 0x409080 },
     { L"Wisemen Mist 2", 0x409080, 0x409100 },
+
+    { L"Unknown Leo Palette", 0x408980, 0x408b80 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
@@ -126,6 +128,8 @@ const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
     { L"Vigo, Valo & Vestu", 0x415780, 0x415800 },
     { L"Wisemen Mist 1", 0x415800, 0x415880 },
     { L"Wisemen Mist 2", 0x415880, 0x415900 },
+
+    { L"Unknown Leo Palette", 0x415180, 0x415380 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
@@ -1231,6 +1235,12 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Red Earth Logo Text 6", 0x3243a0, 0x324420, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
     { L"Red Earth Logo Text 7", 0x324420, 0x3244a0, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
     { L"Red Earth Logo Text 8", 0x3244a0, 0x324520, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+
+    { L"Unknown Intro Palette 1", 0x321100, 0x321220 },
+    { L"Unknown Intro Palette 2 (1/2) 0x322720", 0x322720, 0x322920 },
+    { L"Unknown Intro Palette 2 (2/2) 0x322920", 0x322920, 0x322a20 },
+    { L"Unknown Intro Palette 3", 0x323d20, 0x323da0 },
+    { L"Unknown Intro Palette 4", 0x324520, 0x324620 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES[] =
@@ -1239,6 +1249,106 @@ const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES[] =
     { L"Generic Ending Kenji", 0x3f5080, 0x3f5100, indexRedEarthSprites_Endings, 0x06 },
     { L"Generic Ending Tessa", 0x3f5100, 0x3f5180, indexRedEarthSprites_Endings, 0x09 },
     { L"Generic Ending Mai-Ling", 0x3f5000, 0x3f5080, indexRedEarthSprites_Endings, 0x08 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES_MAI[] =
+{
+    { L"Mai's Both Endings - Mai", 0x3f5500, 0x3f5580 },
+    { L"Mai's Both Endings - Dummy & TinTheDog", 0x3f5580, 0x3f5600 },
+    { L"Mai's Good Ending Cinematic 1 - Background", 0x3f5600, 0x3f5680 },
+    { L"Mai's Good Ending Cinematic 1 - Kids", 0x3f5800, 0x3f5880 },
+    { L"Mai's Good Ending Cinematic 1 - Sky & Kids", 0x3f5880, 0x3f5900 },
+    { L"Mai's Good Ending Cinematic 1 - Valerie & Kids", 0x3f5900, 0x3f5980 },
+    { L"Mai's Good Ending Cinematic 2 - Background", 0x3f5680, 0x3f5700 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 1", 0x3f5a00, 0x3f5a80 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 2", 0x3f5a80, 0x3f5b00 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 3", 0x3f5b00, 0x3f5b80 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 4", 0x3f5b80, 0x3f5c00 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 5", 0x3f5c00, 0x3f5c80 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 6", 0x3f5c80, 0x3f5d00 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 7", 0x3f5d00, 0x3f5d80 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 8", 0x3f5d80, 0x3f5e00 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 9", 0x3f5e00, 0x3f5e80 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 10", 0x3f5e80, 0x3f5f00 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 11", 0x3f5f00, 0x3f5f80 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 12", 0x3f5f80, 0x3f6000 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 13", 0x3f6000, 0x3f6080 },
+    { L"Mai's Good Ending Cinematic 2 - Mai's Kick Inbetween Frame 14", 0x3f6080, 0x3f6100 },
+    { L"Mai's Bad Ending Cinematic 1 & 3 - Ground", 0x3f5700, 0x3f5780 },
+    { L"Mai's Bad Ending Cinematic 1 & 3 - Sky", 0x3f5980, 0x3f5a00 },
+    { L"Mai's Bad Ending Cinematic 2 - Background", 0x3f5780, 0x3f5800 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES_KENJI[] =
+{
+    { L"Kenji's Both Endings - Room", 0x3f6100, 0x3f6180 },
+    { L"Kenji's Both Endings - Shogun", 0x3f6200, 0x3f6280 },
+    { L"Kenji's Both Endings - Slash & Kenji", 0x3f6280, 0x3f6300 },
+    { L"Kenji's Both Endings - Evil Subordinate", 0x3f6300, 0x3f6380 },
+    { L"Kenji's Both Endings - Background ", 0x3f6380, 0x3f6400 },
+    { L"Kenji's Good Ending Cinematic 1, 3 & 4 - Door & Kenji", 0x3f6180, 0x3f6200 },
+    { L"Kenji's Bad Ending Cinematic 1 - Room Darkens 1", 0x3f6400, 0x3f6480 },
+    { L"Kenji's Bad Ending Cinematic 1 - Room Darkens 2", 0x3f6480, 0x3f6500 },
+    { L"Kenji's Bad Ending Cinematic 1 - Room Darkens 3", 0x3f6500, 0x3f6580 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES_LEO[] =
+{
+    { L"Leo Both Endings - Leo", 0x3f6580, 0x3f6600 },
+    { L"Leo Good Endings - People, Castle, BG 1", 0x3f6980, 0x3f6a00 },
+    { L"Leo Good Endings - People, Castle, BG 2", 0x3f6a00, 0x3f6a80 },
+    { L"Leo Good Endings - People, Castle, BG 3", 0x3f6a80, 0x3f6b00 },
+    { L"Leo Good Endings - People, Castle, BG 4", 0x3f6b00, 0x3f6b80 },
+    { L"Leo Good Endings - People, Castle, BG 5", 0x3f6b80, 0x3f6c00 },
+    { L"Leo Good Endings - People, Castle, BG 6", 0x3f6c00, 0x3f6c80 },
+    { L"Leo Good Endings - People, Castle, BG 7", 0x3f6c80, 0x3f6d00 },
+    { L"Leo Good Endings - People, Castle, BG 8", 0x3f6d00, 0x3f6d80 },
+    { L"Leo Good Endings - Fireworks", 0x3f6900, 0x3f6980 },
+    { L"Leo Good Endings - Portraits 1", 0x3f6600, 0x3f6680 },
+    { L"Leo Good Endings - Portraits 2", 0x3f6780, 0x3f6800 },
+    { L"Leo Bad Ending - Cinematic BG, Mist", 0x3f6d80, 0x3f6e00 },
+    { L"Leo Bad Ending - Lion & Rock", 0x3f6680, 0x3f6700 },
+    { L"Leo Bad Ending - Castle", 0x3f6700, 0x3f6780 },
+    { L"Unknown Leo Ending Palette 1", 0x3f6800, 0x3f6880 },
+    { L"Unknown Leo Ending Palette 2", 0x3f6880, 0x3f6900 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES_TESSA[] =
+{
+    { L"Tessa Ending Cutscene 1 - Blue Laboratory", 0x3f6e00, 0x3f6e80 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 1", 0x3f7400, 0x3f7480 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 2", 0x3f7480, 0x3f7500 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 3", 0x3f7500, 0x3f7580 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 4", 0x3f7580, 0x3f7600 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 5", 0x3f7600, 0x3f7680 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 6", 0x3f7680, 0x3f7700 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 7", 0x3f7700, 0x3f7780 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Transition 8", 0x3f7780, 0x3f7800 },
+    { L"Tessa Ending Cutscene 1 - Laboratory", 0x3f6f00, 0x3f6f80 },
+    { L"Tessa Ending Cutscene 1 - Blue Laboratory Objects", 0x3f6e80, 0x3f6f00 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 1", 0x3f7800, 0x3f7880 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 2", 0x3f7880, 0x3f7900 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 3", 0x3f7900, 0x3f7980 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 4", 0x3f7980, 0x3f7a00 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 5", 0x3f7a00, 0x3f7a80 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 6", 0x3f7a80, 0x3f7b00 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 7", 0x3f7b00, 0x3f7b80 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects Transition 8", 0x3f7b80, 0x3f7c00 },
+    { L"Tessa Ending Cutscene 1 - Laboratory Objects", 0x3f6f80, 0x3f7000 },
+    { L"Tessa Ending Cutscene 2 - Laboratory Objects 1", 0x3f7280, 0x3f7300 },
+    { L"Tessa Ending Cutscene 2 - Laboratory Objects 2", 0x3f7e80, 0x3f7f00 },
+    { L"Tessa Ending Cutscene 2 - Laboratory & Tessa 1", 0x3f7300, 0x3f7380 },
+    { L"Tessa Ending Cutscene 2 - Laboratory & Tessa 2", 0x3f7d80, 0x3f7e00 },
+    { L"Tessa Ending Cutscene 2 - Laboratory Top 1", 0x3f7380, 0x3f7400 },
+    { L"Tessa Ending Cutscene 2 - Laboratory Top 2", 0x3f7e00, 0x3f7e80 },
+    { L"Tessa Good Ending - Tessa Casting 1", 0x3f7080, 0x3f7100 },
+    { L"Tessa Good Ending - Tessa Casting 2", 0x3f7c00, 0x3f7c80 },
+    { L"Tessa Good Ending - Tessa Casting 3", 0x3f7c80, 0x3f7d00 },
+    { L"Tessa Good Ending - Tessa Casting 4", 0x3f7d00, 0x3f7d80 },
+    { L"Tessa Good Ending - Icicle and Effects", 0x3f7100, 0x3f7180 },
+    { L"Tessa Bad Ending Cutscene 1 - Tessa's House", 0x3f7000, 0x3f7080 },
+    { L"Tessa Bad Ending Cutscene 2 & 3", 0x3f7180, 0x3f7200 },
+    { L"Unknown Tessa Ending Palette", 0x3f7200, 0x3f7280 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
@@ -1586,6 +1696,46 @@ const sGame_PaletteDataset REDEARTH_A_31_OPENING_MAI_PALETTES[] =
     { L"Unknown Mai's Opening Cinematic", 0x326300, 0x326360 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_31_OPENING_BLADE_INTRO_PALETTES[] =
+{
+    { L"Blade Introduction - Blade Talks 1", 0x38c000, 0x38c080 },
+    { L"Blade Introduction - Blade Talks 2", 0x38c080, 0x38c100 },
+    { L"Blade Introduction - Blade Talks 3", 0x38c100, 0x38c180 },
+    { L"Blade Introduction - Blade Talks 4", 0x38c180, 0x38c200 },
+    { L"Blade Introduction - Blade Talks 5", 0x38c200, 0x38c280 },
+    { L"Blade Introduction - Blade Talks 6", 0x38c280, 0x38c300 },
+    { L"Blade Introduction - Blade Talks 7", 0x38c300, 0x38c380 },
+    { L"Blade Introduction - Blade Talks 8", 0x38c380, 0x38c400 },
+    { L"Blade Introduction - Blade Talks 9", 0x38c400, 0x38c480 },
+    { L"Blade Introduction - Blade Talks 10", 0x38c480, 0x38c500 },
+    { L"Blade Introduction - Gem", 0x38c500, 0x38c580 },
+    { L"Blade Introduction - Blade Walks", 0x38c700, 0x38c780 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_OPENING_BLADE_2ND_PALETTES[] =
+{
+    { L"Blade 2nd Interaction - 1st Cutscene Background", 0x38c580, 0x38c600 },
+    { L"Blade 2nd Interaction - 1st Cutscene Blade", 0x38c600, 0x38c680 },
+    { L"Blade 2nd Interaction - 2nd Cutscene Blade", 0x38c680, 0x38c700 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 1", 0x38c780, 0x38c800 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 2", 0x38c800, 0x38c880 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 3", 0x38c880, 0x38c900 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 4", 0x38c900, 0x38c980 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 5", 0x38c980, 0x38ca00 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 6", 0x38ca00, 0x38ca80 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 7", 0x38ca80, 0x38cb00 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 8", 0x38cb00, 0x38cb80 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 9", 0x38cb80, 0x38cc00 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 10", 0x38cc00, 0x38cc80 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 11", 0x38cc80, 0x38cd00 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 12", 0x38cd00, 0x38cd80 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 13", 0x38cd80, 0x38ce00 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 14", 0x38ce00, 0x38ce80 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 15", 0x38ce80, 0x38cf00 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 16", 0x38cf00, 0x38cf80 },
+    { L"Blade 2nd Interaction - 3rd Cutscene Blade 17", 0x38cf80, 0x38d000 },
+};
+
 const sGame_PaletteDataset REDEARTH_A_31_BONUS_RANKING_PALETTES[] =
 {
     { L"Ranking Background & Portrait 1", 0x1e7800, 0x1e7880, indexRedEarthSprites_Bonus, 0x3E },
@@ -1742,6 +1892,82 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
 
     { L"Unused Mai Palette?", 0x1e4780, 0x1e4800 },
     { L"Portrait Related Palette?", 0x1e4900, 0x1e4980 },
+
+    { L"Tessa Punch Vs/Winning/Losing Screen but blue", 0x1e4600 + (0xa00 * 1), 0x1e4680 + (0xa00 * 1), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Punch Vs/Winning/Losing Screen but blue",   0x1e4680 + (0xa00 * 1), 0x1e4700 + (0xa00 * 1), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Punch Vs/Winning/Losing Sword but blue",    0x1e4700 + (0xa00 * 1), 0x1e4780 + (0xa00 * 1), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Unused Mai Palette? but blue",                  0x1e4780 + (0xa00 * 1), 0x1e4800 + (0xa00 * 1) }, // Unused Mai?
+    { L"Kenji Punch Vs/Winning/Losing Screen but blue", 0x1e4800 + (0xa00 * 1), 0x1e4900 + (0xa00 * 1), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Portrait Related Palette? but blue",            0x1e4900 + (0xa00 * 1), 0x1e4980 + (0xa00 * 1) }, // Unused Mai 2?
+    { L"\"Continue ?\" Portrait's Ground but blue",     0x1e4980 + (0xa00 * 1), 0x1e4a00 + (0xa00 * 1), indexRedEarthSprites_Bonus, 0x64 },
+    { L"Unused Leo Palette but blue",                   0x1e4a00 + (0xa00 * 1), 0x1e4a80 + (0xa00 * 1), indexRedEarthSprites_Endings, 0x10 },
+    { L"Unused Tessa Palette 1 but blue",               0x1e4a80 + (0xa00 * 1), 0x1e4b00 + (0xa00 * 1), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Unused Tessa Palette 2 but blue",               0x1e4b00 + (0xa00 * 1), 0x1e4b80 + (0xa00 * 1), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Mai-Ling Punch Losing Screen but blue",         0x1e4b80 + (0xa00 * 1), 0x1e4c00 + (0xa00 * 1), indexRedEarthSprites_MaiLing, 0x40 },
+    { L"Mai-Ling Punch Vs/Winning Screen but blue",     0x1e4c00 + (0xa00 * 1), 0x1e4c80 + (0xa00 * 1), indexRedEarthSprites_MaiLing, 0x17 },
+    { L"Tessa Kick Vs/Winning/Losing Screen but blue",  0x1e4c80 + (0xa00 * 1), 0x1e4d00 + (0xa00 * 1), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Kick Vs/Winning/Losing Screen but blue",    0x1e4d00 + (0xa00 * 1), 0x1e4d80 + (0xa00 * 1), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Kick Vs/Winning/Losing Sword but blue",     0x1e4d80 + (0xa00 * 1), 0x1e4e00 + (0xa00 * 1), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Kenji Kick Vs/Winning/Losing Screen but blue",  0x1e4e00 + (0xa00 * 1), 0x1e4f00 + (0xa00 * 1), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Mai-Ling Kick Losing Screen but blue",          0x1e4f00 + (0xa00 * 1), 0x1e4f80 + (0xa00 * 1), indexRedEarthSprites_MaiLing, 0x30 },
+    { L"Mai-Ling Kick Vs/Winning Screen but blue",      0x1e4f80 + (0xa00 * 1), 0x1e5000 + (0xa00 * 1), indexRedEarthSprites_MaiLing, 0x27 },
+
+    { L"Tessa Punch Vs/Winning/Losing Screen but pink", 0x1e4600 + (0xa00 * 2), 0x1e4680 + (0xa00 * 2), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Punch Vs/Winning/Losing Screen but pink",   0x1e4680 + (0xa00 * 2), 0x1e4700 + (0xa00 * 2), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Punch Vs/Winning/Losing Sword but pink",    0x1e4700 + (0xa00 * 2), 0x1e4780 + (0xa00 * 2), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Unused Mai Palette? but pink",                  0x1e4780 + (0xa00 * 2), 0x1e4800 + (0xa00 * 2) }, // Unused Mai?
+    { L"Kenji Punch Vs/Winning/Losing Screen but pink", 0x1e4800 + (0xa00 * 2), 0x1e4900 + (0xa00 * 2), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Portrait Related Palette? but pink",            0x1e4900 + (0xa00 * 2), 0x1e4980 + (0xa00 * 2) }, // Unused Mai 2?
+    { L"\"Continue ?\" Portrait's Ground but pink",     0x1e4980 + (0xa00 * 2), 0x1e4a00 + (0xa00 * 2), indexRedEarthSprites_Bonus, 0x64 },
+    { L"Unused Leo Palette but pink",                   0x1e4a00 + (0xa00 * 2), 0x1e4a80 + (0xa00 * 2), indexRedEarthSprites_Endings, 0x10 },
+    { L"Unused Tessa Palette 1 but pink",               0x1e4a80 + (0xa00 * 2), 0x1e4b00 + (0xa00 * 2), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Unused Tessa Palette 2 but pink",               0x1e4b00 + (0xa00 * 2), 0x1e4b80 + (0xa00 * 2), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Mai-Ling Punch Losing Screen but pink",         0x1e4b80 + (0xa00 * 2), 0x1e4c00 + (0xa00 * 2), indexRedEarthSprites_MaiLing, 0x40 },
+    { L"Mai-Ling Punch Vs/Winning Screen but pink",     0x1e4c00 + (0xa00 * 2), 0x1e4c80 + (0xa00 * 2), indexRedEarthSprites_MaiLing, 0x17 },
+    { L"Tessa Kick Vs/Winning/Losing Screen but pink",  0x1e4c80 + (0xa00 * 2), 0x1e4d00 + (0xa00 * 2), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Kick Vs/Winning/Losing Screen but pink",    0x1e4d00 + (0xa00 * 2), 0x1e4d80 + (0xa00 * 2), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Kick Vs/Winning/Losing Sword but pink",     0x1e4d80 + (0xa00 * 2), 0x1e4e00 + (0xa00 * 2), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Kenji Kick Vs/Winning/Losing Screen but pink",  0x1e4e00 + (0xa00 * 2), 0x1e4f00 + (0xa00 * 2), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Mai-Ling Kick Losing Screen but pink",          0x1e4f00 + (0xa00 * 2), 0x1e4f80 + (0xa00 * 2), indexRedEarthSprites_MaiLing, 0x30 },
+    { L"Mai-Ling Kick Vs/Winning Screen but pink",      0x1e4f80 + (0xa00 * 2), 0x1e5000 + (0xa00 * 2), indexRedEarthSprites_MaiLing, 0x27 },
+
+    { L"Tessa Punch Vs/Winning/Losing Screen but green", 0x1e4600 + (0xa00 * 3), 0x1e4680 + (0xa00 * 3), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Punch Vs/Winning/Losing Screen but green",   0x1e4680 + (0xa00 * 3), 0x1e4700 + (0xa00 * 3), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Punch Vs/Winning/Losing Sword but green",    0x1e4700 + (0xa00 * 3), 0x1e4780 + (0xa00 * 3), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Unused Mai Palette? but green",                  0x1e4780 + (0xa00 * 3), 0x1e4800 + (0xa00 * 3) }, // Unused Mai?
+    { L"Kenji Punch Vs/Winning/Losing Screen but green", 0x1e4800 + (0xa00 * 3), 0x1e4900 + (0xa00 * 3), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Portrait Related Palette? but green",            0x1e4900 + (0xa00 * 3), 0x1e4980 + (0xa00 * 3) }, // Unused Mai 2?
+    { L"\"Continue ?\" Portrait's Ground but green",     0x1e4980 + (0xa00 * 3), 0x1e4a00 + (0xa00 * 3), indexRedEarthSprites_Bonus, 0x64 },
+    { L"Unused Leo Palette but green",                   0x1e4a00 + (0xa00 * 3), 0x1e4a80 + (0xa00 * 3), indexRedEarthSprites_Endings, 0x10 },
+    { L"Unused Tessa Palette 1 but green",               0x1e4a80 + (0xa00 * 3), 0x1e4b00 + (0xa00 * 3), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Unused Tessa Palette 2 but green",               0x1e4b00 + (0xa00 * 3), 0x1e4b80 + (0xa00 * 3), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Mai-Ling Punch Losing Screen but green",         0x1e4b80 + (0xa00 * 3), 0x1e4c00 + (0xa00 * 3), indexRedEarthSprites_MaiLing, 0x40 },
+    { L"Mai-Ling Punch Vs/Winning Screen but green",     0x1e4c00 + (0xa00 * 3), 0x1e4c80 + (0xa00 * 3), indexRedEarthSprites_MaiLing, 0x17 },
+    { L"Tessa Kick Vs/Winning/Losing Screen but green",  0x1e4c80 + (0xa00 * 3), 0x1e4d00 + (0xa00 * 3), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Kick Vs/Winning/Losing Screen but green",    0x1e4d00 + (0xa00 * 3), 0x1e4d80 + (0xa00 * 3), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Kick Vs/Winning/Losing Sword but green",     0x1e4d80 + (0xa00 * 3), 0x1e4e00 + (0xa00 * 3), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Kenji Kick Vs/Winning/Losing Screen but green",  0x1e4e00 + (0xa00 * 3), 0x1e4f00 + (0xa00 * 3), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Mai-Ling Kick Losing Screen but green",          0x1e4f00 + (0xa00 * 3), 0x1e4f80 + (0xa00 * 3), indexRedEarthSprites_MaiLing, 0x30 },
+    { L"Mai-Ling Kick Vs/Winning Screen but green",      0x1e4f80 + (0xa00 * 3), 0x1e5000 + (0xa00 * 3), indexRedEarthSprites_MaiLing, 0x27 },
+
+    { L"Tessa Punch Vs/Winning/Losing Screen but red", 0x1e4600 + (0xa00 * 4), 0x1e4680 + (0xa00 * 4), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Punch Vs/Winning/Losing Screen but red",   0x1e4680 + (0xa00 * 4), 0x1e4700 + (0xa00 * 4), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Punch Vs/Winning/Losing Sword but red",    0x1e4700 + (0xa00 * 4), 0x1e4780 + (0xa00 * 4), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Unused Mai Palette? but red",                  0x1e4780 + (0xa00 * 4), 0x1e4800 + (0xa00 * 4) }, // Unused Mai?
+    { L"Kenji Punch Vs/Winning/Losing Screen but red", 0x1e4800 + (0xa00 * 4), 0x1e4900 + (0xa00 * 4), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Portrait Related Palette? but red",            0x1e4900 + (0xa00 * 4), 0x1e4980 + (0xa00 * 4) }, // Unused Mai 2?
+    { L"\"Continue ?\" Portrait's Ground but red",     0x1e4980 + (0xa00 * 4), 0x1e4a00 + (0xa00 * 4), indexRedEarthSprites_Bonus, 0x64 },
+    { L"Unused Leo Palette but red",                   0x1e4a00 + (0xa00 * 4), 0x1e4a80 + (0xa00 * 4), indexRedEarthSprites_Endings, 0x10 },
+    { L"Unused Tessa Palette 1 but red",               0x1e4a80 + (0xa00 * 4), 0x1e4b00 + (0xa00 * 4), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Unused Tessa Palette 2 but red",               0x1e4b00 + (0xa00 * 4), 0x1e4b80 + (0xa00 * 4), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Mai-Ling Punch Losing Screen but red",         0x1e4b80 + (0xa00 * 4), 0x1e4c00 + (0xa00 * 4), indexRedEarthSprites_MaiLing, 0x40 },
+    { L"Mai-Ling Punch Vs/Winning Screen but red",     0x1e4c00 + (0xa00 * 4), 0x1e4c80 + (0xa00 * 4), indexRedEarthSprites_MaiLing, 0x17 },
+    { L"Tessa Kick Vs/Winning/Losing Screen but red",  0x1e4c80 + (0xa00 * 4), 0x1e4d00 + (0xa00 * 4), indexRedEarthSprites_Tessa, 0x17 },
+    { L"Leo Kick Vs/Winning/Losing Screen but red",    0x1e4d00 + (0xa00 * 4), 0x1e4d80 + (0xa00 * 4), indexRedEarthSprites_Leo, 0x13, &pairNext },
+    { L"Leo Kick Vs/Winning/Losing Sword but red",     0x1e4d80 + (0xa00 * 4), 0x1e4e00 + (0xa00 * 4), indexRedEarthSprites_Leo, 0x14, &pairPrevious },
+    { L"Kenji Kick Vs/Winning/Losing Screen but red",  0x1e4e00 + (0xa00 * 4), 0x1e4f00 + (0xa00 * 4), indexRedEarthSprites_Kenji, 0x09 },
+    { L"Mai-Ling Kick Losing Screen but red",          0x1e4f00 + (0xa00 * 4), 0x1e4f80 + (0xa00 * 4), indexRedEarthSprites_MaiLing, 0x30 },
+    { L"Mai-Ling Kick Vs/Winning Screen but red",      0x1e4f80 + (0xa00 * 4), 0x1e5000 + (0xa00 * 4), indexRedEarthSprites_MaiLing, 0x27 },
 };
 
 //Playable Characters
@@ -1838,10 +2064,16 @@ const sDescTreeNode REDEARTH_A_31_OPENINGS_COLLECTION[] =
     { L"Leo Opening Cinematic", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_LEO_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_LEO_PALETTES) },
     { L"Tessa Opening Cinematic", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_TESSA_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_TESSA_PALETTES) },
     { L"Mai's Opening Cinematic", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_MAI_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_MAI_PALETTES) },
+    { L"Blade Introduction", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_BLADE_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_BLADE_INTRO_PALETTES) },
+    { L"Blade 2nd Interaction", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_BLADE_2ND_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_BLADE_2ND_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_31_ENDINGS_COLLECTION[] =
 {
+    { L"Mai's Both Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES_MAI, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES_MAI) },
+    { L"Kenji's Both Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES_KENJI, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES_KENJI) },
+    { L"Leo's Both Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES_LEO, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES_LEO) },
+    { L"Tessa's Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES_TESSA, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES_TESSA) },
     { L"Generic Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES) },
     { L"Generic Ending: Derminor", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_DERMINOR_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_DERMINOR_PALETTES) },
 };
@@ -1968,6 +2200,16 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
     //{ L"Gora - Foreground debris: right",  0x737F80, 0x738000, indexRedEarthSprites_Stages, 0x06 },
     { L"Gora - ???",                0x737F00, 0x737F80 },
     { L"Gora - ???",                0x738000, 0x738080 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_FADED_PALETTES[] =
+{
+    { L"Gora - Moon/Sky",           0x74dd00, 0x74dd80, indexRedEarthSprites_Stages, 0x00, &pairFullyLinkedNode },
+    { L"Gora - Planes/Rocks",       0x74de00, 0x74df00, indexRedEarthSprites_Stages, 0x03 },
+    { L"Gora - Ground/Foilage: foreground",     0x74dd80, 0x74de00, indexRedEarthSprites_Stages, 0x01 },
+    { L"Gora - Foreground debris: middle skull",  0x74df80, 0x74e000, indexRedEarthSprites_Stages, 0x05 },
+    { L"Gora - ???",                0x74df00, 0x74df80 },
+    { L"Gora - ???",                0x74e000, 0x74e080 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_PALETTES[] =
@@ -2369,7 +2611,6 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_FLAMES_INTRO1_PALETTES[] =
     { L"Small Part of Left Pillars & Bricks", 0x738800 + 0x16000, 0x738880 + 0x16000, indexRedEarthSprites_Stages, 0x70 },
     { L"Tiger & Lizard Type Dragon Statues", 0x738a80 + 0x16000, 0x738b00 + 0x16000, indexRedEarthSprites_Stages, 0x74 },
     { L"Wall on the left & Ground Part", 0x738d80 + 0x16000, 0x738e00 + 0x16000, indexRedEarthSprites_Stages, 0x79 },
-    { L"Palm Tree on the Right Side", 0x73a200 + 0x16000, 0x73a280 + 0x16000, indexRedEarthSprites_Stages, 0x7a },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_FLAMES_INTRO2_PALETTES[] =
@@ -2387,7 +2628,6 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_FLAMES_INTRO2_PALETTES[] =
     { L"Small Part of Left Pillars & Bricks", 0x738e80 + 0x16000, 0x738f00 + 0x16000, indexRedEarthSprites_Stages, 0x70 },
     { L"Tiger & Lizard Type Dragon Statues", 0x739100 + 0x16000, 0x739180 + 0x16000, indexRedEarthSprites_Stages, 0x74 },
     { L"Wall on the left & Ground Part", 0x739400 + 0x16000, 0x739480 + 0x16000, indexRedEarthSprites_Stages, 0x79 },
-    { L"Palm Tree on the Right Side", 0x73a180 + 0x16000, 0x73a200 + 0x16000, indexRedEarthSprites_Stages, 0x7a },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_PALETTES[] =
@@ -2406,7 +2646,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_PALETTES[] =
     { L"Crypt 8.1.3", 0x73a980, 0x73aa00, indexRedEarthSprites_Stages, 0x4b },
     { L"Crypt 8.1.2", 0x73a900, 0x73a980, indexRedEarthSprites_Stages, 0x4c },
     { L"Crypt 8.1.1", 0x73a880, 0x73a900, indexRedEarthSprites_Stages, 0x4d },
-    { L"Crypt 9.1.2", 0x73ab00, 0x73ab80, indexRedEarthSprites_Stages, 0x4e },
+    { L"Crypt 9.1.2", 0x73ab00, 0x73ac00, indexRedEarthSprites_Stages, 0x4e },
     { L"Crypt 9.1.1", 0x73aa80, 0x73ab00, indexRedEarthSprites_Stages, 0x4f },
     { L"Crypt 14.1.4", 0x73b600, 0x73b680, indexRedEarthSprites_Stages, 0x50 },
 };
@@ -2443,6 +2683,23 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES[] =
     { L"Statue Stand", 0x73eea0, 0x73ef20, indexRedEarthSprites_Stages, 0x85 },
     { L"Scion Statue", 0x73ee20, 0x73eea0, indexRedEarthSprites_Stages, 0x87 },
     { L"Unknown Bonus Game 1 Palette", 0x73e8a0, 0x73e920 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_FADED_PALETTES[] =
+{
+    { L"Sky & Background Without Sphinx", 0x7539a0, 0x753a20, indexRedEarthSprites_Stages, 0x7b, &pairFullyLinkedNode },
+    { L"Background Building on the Right", 0x753a20, 0x753aa0, indexRedEarthSprites_Stages, 0x7c },
+    { L"Ground", 0x753620, 0x7536a0, indexRedEarthSprites_Stages, 0x7d },
+    { L"Palm Trees but Buggy", 0x753720, 0x7537a0, indexRedEarthSprites_Stages, 0x7e },
+    { L"Small Part of Palm Trees", 0x753aa0, 0x753b20, indexRedEarthSprites_Stages, 0x7f },
+    { L"Gigantic Rock on the right & Grass", 0x7537a0, 0x753820, indexRedEarthSprites_Stages, 0x80 },
+    { L"Left Pillars & Ground Part", 0x753820, 0x7538a0, indexRedEarthSprites_Stages, 0x81 },
+    { L"Small Part of Left Pillars & Bricks", 0x7536a0, 0x753720, indexRedEarthSprites_Stages, 0x82 },
+    { L"Smaller Parts of Left Pillars & Bricks", 0x753920, 0x7539a0, indexRedEarthSprites_Stages, 0x83 },
+    { L"Clara's Golden Statue", 0x753f20, 0x753fa0, indexRedEarthSprites_Stages, 0x86 },
+    { L"Statue Stand", 0x753ea0, 0x753f20, indexRedEarthSprites_Stages, 0x85 },
+    { L"Scion Statue", 0x753e20, 0x753ea0, indexRedEarthSprites_Stages, 0x87 },
+    { L"Unknown Bonus Game 1 Palette", 0x7538a0, 0x753920 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES[] =
@@ -2712,7 +2969,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_SLASH_PALETTES[] =
     { L"Crypt 8.1.3", 0x73a980 + 0xb000, 0x73aa00 + 0xb000, indexRedEarthSprites_Stages, 0x4b },
     { L"Crypt 8.1.2", 0x73a900 + 0xb000, 0x73a980 + 0xb000, indexRedEarthSprites_Stages, 0x4c },
     { L"Crypt 8.1.1", 0x73a880 + 0xb000, 0x73a900 + 0xb000, indexRedEarthSprites_Stages, 0x4d },
-    { L"Crypt 9.1.2", 0x73ab00 + 0xb000, 0x73ab80 + 0xb000, indexRedEarthSprites_Stages, 0x4e },
+    { L"Crypt 9.1.2", 0x745b00, 0x745c00, indexRedEarthSprites_Stages, 0x4e },
     { L"Crypt 9.1.1", 0x73aa80 + 0xb000, 0x73ab00 + 0xb000, indexRedEarthSprites_Stages, 0x4f },
     { L"Crypt 14.1.4", 0x73b600 + 0xb000, 0x73b680 + 0xb000, indexRedEarthSprites_Stages, 0x50 },
 };
@@ -2903,6 +3160,13 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
     { L"Icelarn Unused 1", 0x737100, 0x737180 },
     { L"Icelarn Unused 2", 0x737700, 0x737780 },
 
+    { L"Icelarn Unused 1 (Slash Transparency)", 0x742100, 0x742180 },
+    { L"Icelarn Unused 2 (Slash Transparency)", 0x742700, 0x742780 },
+    { L"Icelarn Unused 1 (Poison Gas Transparency)", 0x74d100, 0x74d180 },
+    { L"Icelarn Unused 2 (Poison Gas Transparency)", 0x74d700, 0x74d780 },
+    { L"Palm Tree on the Right Side for BG1", 0x73eca0, 0x73ed20 },
+    { L"Palm Tree on the Right Side for BG1 ST", 0x749ca0, 0x749d20 },
+
     { L"Greedia Unused Palette", 0x734000, 0x734080 },
 
     { L"Greedia Unused Palette (Slash Transparency)", 0x73f000, 0x73f080 },
@@ -2949,6 +3213,11 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GORA_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_GORA_FADED_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_FADED_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GORA_FADED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_ICELARN_COLLECTION[] =
@@ -3016,6 +3285,11 @@ const sDescTreeNode REDEARTH_A_STAGES_CRYPT_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_30_BONUSGAME_COLLECTION[] =
 {
     { L"Bonus Game 1 Stage", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_30_BONUSGAME_FADED_COLLECTION[] =
+{
+    { L"Bonus Game 1 Stage (Faded)", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_FADED_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_FADED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_DERMINOR_COLLECTION[] =
@@ -3102,6 +3376,7 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
     { L"Scion's Lair",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_COLLECTION) },
     { L"Crypt",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_COLLECTION) },
 
+    { L"Gora (Faded)",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_FADED_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_FADED_COLLECTION) },
     { L"Gora (Slash Transparency)",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_SLASH_COLLECTION) },
     { L"Icelarn (Slash Transparency)",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_SLASH_COLLECTION) },
 
@@ -3116,9 +3391,11 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
 
     { L"Hauzer's Fire Greedia Ruins",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_HAUZERS_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_HAUZERS_COLLECTION) },
     { L"Hydron's Poison Gas Icelarn",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_POISON_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_POISON_COLLECTION) },
-    { L"Sangypt Flame Transparency",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_FLAME_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_FLAME_COLLECTION) },    { L"Zipang Faded",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_FADED_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_FADED_COLLECTION) },
+    { L"Sangypt Flame Transparency",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_FLAME_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_FLAME_COLLECTION) },
+    { L"Zipang Faded",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_FADED_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_FADED_COLLECTION) },
 
     { L"Bonus Game 1",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUSGAME_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUSGAME_COLLECTION) },
+    { L"Bonus Game 1 (Faded)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUSGAME_FADED_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUSGAME_FADED_COLLECTION) },
     { L"Bonus Game 1 (Blue)",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUSGAME_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUSGAME_SLASH_COLLECTION) },
     { L"Bonus Palettes",        DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUS_COLLECTION) },
 };
