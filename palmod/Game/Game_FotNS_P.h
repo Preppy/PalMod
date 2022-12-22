@@ -27,8 +27,8 @@ private:
         m_sFileLoadingData,
         FotNS_P_UNITS,
         ARRAYSIZE(FotNS_P_UNITS),
-        L"HK_BE.txt",               // Extra filename
-        86,                      // Count of palettes listed in the header
+        L"HK_BE.txt",           // Extra filename
+        88,                     // Count of palettes listed in the header
         0x30,                   // Lowest known location used for palettes
     };
 
