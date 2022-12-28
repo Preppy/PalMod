@@ -4118,34 +4118,2935 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_MYSTIC_PALETTES[] =
     { L"Mystic Combo II Super BG 16?", 0x344f80 + (4 * 0x4000), 0x345000 + (4 * 0x4000), indexRedEarthSprites_Bonus, 0x55 },
 };
 
+// Normal base in 31 is 
+// 0x132600
+// 0x133280
+
+// And the variants in 50 are:
+
+// Slash Transparency on Shadows, Effects & Hit FX Ranges
+// 0x330000
+// 0x331980
+
+// Hauzer Transparency on Shadows, Effects & Hit FX Ranges
+// 0x334000
+// 0x335980
+
+// Hydron Transparency on Shadows, Effects & Hit FX Ranges
+// 0x338000
+// 0x339980
+
+// Ravange Transparency on Shadows, Effects & Hit FX Ranges
+// 0x33c000
+// 0x33d980
+
+// Blade Transparency on Shadows, Effects & Hit FX Ranges
+// 0x340000
+// 0x341980
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_SHADOWFX_PALETTES[] =
+{
+    { L"Shadows, Effects & Hit FX 1", 0x132600 + 0x1FDA00, 0x132800 + 0x1FDA00, indexRedEarthSprites_Bonus, 0x60 },
+    { L"Shadows, Effects & Hit FX 2", 0x132800 + 0x1FDA00, 0x132a00 + 0x1FDA00 },
+    { L"Shadows, Effects & Hit FX 3", 0x132a00 + 0x1FDA00, 0x132c00 + 0x1FDA00 },
+    { L"Shadows, Effects & Hit FX 4", 0x132c00 + 0x1FDA00, 0x132e00 + 0x1FDA00 },
+
+    { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x1FDA00, 0x133000 + 0x1FDA00 },
+    { L"Effects Range (2/3) 0x133000", 0x133000 + 0x1FDA00, 0x133200 + 0x1FDA00 },
+    { L"Effects Range (3/3) 0x133200", 0x133200 + 0x1FDA00, 0x133280 + 0x1FDA00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_SHADOWFX_PALETTES[] =
+{
+    { L"Shadows, Effects & Hit FX 1", 0x132600 + 0x201A00, 0x132800 + 0x201A00, indexRedEarthSprites_Bonus, 0x60 },
+    { L"Shadows, Effects & Hit FX 2", 0x132800 + 0x201A00, 0x132a00 + 0x201A00 },
+    { L"Shadows, Effects & Hit FX 3", 0x132a00 + 0x201A00, 0x132c00 + 0x201A00 },
+    { L"Shadows, Effects & Hit FX 4", 0x132c00 + 0x201A00, 0x132e00 + 0x201A00 },
+
+    { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x201A00, 0x133000 + 0x201A00 },
+    { L"Effects Range (2/3) 0x133000", 0x133000 + 0x201A00, 0x133200 + 0x201A00 },
+    { L"Effects Range (3/3) 0x133200", 0x133200 + 0x201A00, 0x133280 + 0x201A00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_SHADOWFX_PALETTES[] =
+{
+    { L"Shadows, Effects & Hit FX 1", 0x132600 + 0x205A00, 0x132800 + 0x205A00, indexRedEarthSprites_Bonus, 0x60 },
+    { L"Shadows, Effects & Hit FX 2", 0x132800 + 0x205A00, 0x132a00 + 0x205A00 },
+    { L"Shadows, Effects & Hit FX 3", 0x132a00 + 0x205A00, 0x132c00 + 0x205A00 },
+    { L"Shadows, Effects & Hit FX 4", 0x132c00 + 0x205A00, 0x132e00 + 0x205A00 },
+
+    { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x205A00, 0x133000 + 0x205A00 },
+    { L"Effects Range (2/3) 0x133000", 0x133000 + 0x205A00, 0x133200 + 0x205A00 },
+    { L"Effects Range (3/3) 0x133200", 0x133200 + 0x205A00, 0x133280 + 0x205A00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_SHADOWFX_PALETTES[] =
+{
+    { L"Shadows, Effects & Hit FX 1", 0x132600 + 0x209A00, 0x132800 + 0x209A00, indexRedEarthSprites_Bonus, 0x60 },
+    { L"Shadows, Effects & Hit FX 2", 0x132800 + 0x209A00, 0x132a00 + 0x209A00 },
+    { L"Shadows, Effects & Hit FX 3", 0x132a00 + 0x209A00, 0x132c00 + 0x209A00 },
+    { L"Shadows, Effects & Hit FX 4", 0x132c00 + 0x209A00, 0x132e00 + 0x209A00 },
+
+    { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x209A00, 0x133000 + 0x209A00 },
+    { L"Effects Range (2/3) 0x133000", 0x133000 + 0x209A00, 0x133200 + 0x209A00 },
+    { L"Effects Range (3/3) 0x133200", 0x133200 + 0x209A00, 0x133280 + 0x209A00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_SHADOWFX_PALETTES[] =
+{
+    { L"Shadows, Effects & Hit FX 1", 0x132600 + 0x20DA00, 0x132800 + 0x20DA00, indexRedEarthSprites_Bonus, 0x60 },
+    { L"Shadows, Effects & Hit FX 2", 0x132800 + 0x20DA00, 0x132a00 + 0x20DA00 },
+    { L"Shadows, Effects & Hit FX 3", 0x132a00 + 0x20DA00, 0x132c00 + 0x20DA00 },
+    { L"Shadows, Effects & Hit FX 4", 0x132c00 + 0x20DA00, 0x132e00 + 0x20DA00 },
+
+    { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x20DA00, 0x133000 + 0x20DA00 },
+    { L"Effects Range (2/3) 0x133000", 0x133000 + 0x20DA00, 0x133200 + 0x20DA00 },
+    { L"Effects Range (3/3) 0x133200", 0x133200 + 0x20DA00, 0x133280 + 0x20DA00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_PUNCH_PALETTES[] =
+{
+    // Punch Leo
+    // 0x408000
+    // 0x40b200
+
+    // Slash Transparency on Punch Leo Ranges
+    // 0x280000
+    // 0x283200
+    { L"Leo Punch",                         0x408000 - (0x408000 - 0x280000), 0x408080 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Punch Old Sword",               0x408100 - (0x408000 - 0x280000), 0x408180 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Punch Bronze Sword",            0x408180 - (0x408000 - 0x280000), 0x408200 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Punch Steel Sword",             0x408200 - (0x408000 - 0x280000), 0x408280 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Punch Diamond Sword",           0x408280 - (0x408000 - 0x280000), 0x408300 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Punch Legendary Sword",         0x408300 - (0x408000 - 0x280000), 0x408380 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Punch Old Shield",              0x408380 - (0x408000 - 0x280000), 0x408400 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Punch Wooden Shield",           0x408400 - (0x408000 - 0x280000), 0x408480 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Punch Steel Shield",            0x408480 - (0x408000 - 0x280000), 0x408500 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Punch Diamond Shield",          0x408500 - (0x408000 - 0x280000), 0x408580 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Punch Legendary Shield",        0x408580 - (0x408000 - 0x280000), 0x408600 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Punch Fire Sword",              0x408600 - (0x408000 - 0x280000), 0x408680 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Punch Ice Sword",               0x408680 - (0x408000 - 0x280000), 0x408700 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Punch Lightning Sword",         0x408700 - (0x408000 - 0x280000), 0x408780 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Punch Battle Axe",              0x408780 - (0x408000 - 0x280000), 0x408800 - (0x408000 - 0x280000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Punch Ultimate Guard Flash and Burn 1", 0x40AA00 - (0x408000 - 0x280000), 0x40AA80 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Burn 2",                  0x40AA80 - (0x408000 - 0x280000), 0x40AB00 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 1",                 0x40AB00 - (0x408000 - 0x280000), 0x40AB80 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 2",                 0x40AB80 - (0x408000 - 0x280000), 0x40AC00 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 1",              0x40AC00 - (0x408000 - 0x280000), 0x40AC80 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 2",              0x40AC80 - (0x408000 - 0x280000), 0x40AD00 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 3",              0x40AD00 - (0x408000 - 0x280000), 0x40AD80 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 4",              0x40AD80 - (0x408000 - 0x280000), 0x40AE00 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 1",             0x40AE00 - (0x408000 - 0x280000), 0x40AE80 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 2",             0x40AE80 - (0x408000 - 0x280000), 0x40AF00 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 3",             0x40AF00 - (0x408000 - 0x280000), 0x40AF80 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 1",                0x40AF80 - (0x408000 - 0x280000), 0x40B000 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 2",                0x40B000 - (0x408000 - 0x280000), 0x40B080 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 3",                0x40B080 - (0x408000 - 0x280000), 0x40B100 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 4",                0x40B100 - (0x408000 - 0x280000), 0x40B180 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 5",                0x40B180 - (0x408000 - 0x280000), 0x40B200 - (0x408000 - 0x280000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu",                0x408f80 - (0x408000 - 0x280000), 0x409000 - (0x408000 - 0x280000) },
+    { L"Wisemen Mist 1",                    0x409000 - (0x408000 - 0x280000), 0x409080 - (0x408000 - 0x280000) },
+    { L"Wisemen Mist 2",                    0x409080 - (0x408000 - 0x280000), 0x409100 - (0x408000 - 0x280000) },
+
+    { L"Unknown Leo Palette",               0x408980 - (0x408000 - 0x280000), 0x408b80 - (0x408000 - 0x280000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_LEO_PUNCH_PALETTES[] =
+{
+    // Hauzer Transparency on Punch Leo Ranges
+    // 0x2b0000
+    // 0x2b3e20
+    { L"Leo Punch",                         0x408000 - (0x408000 - 0x2b0000), 0x408080 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Punch Old Sword",               0x408100 - (0x408000 - 0x2b0000), 0x408180 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Punch Bronze Sword",            0x408180 - (0x408000 - 0x2b0000), 0x408200 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Punch Steel Sword",             0x408200 - (0x408000 - 0x2b0000), 0x408280 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Punch Diamond Sword",           0x408280 - (0x408000 - 0x2b0000), 0x408300 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Punch Legendary Sword",         0x408300 - (0x408000 - 0x2b0000), 0x408380 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Punch Old Shield",              0x408380 - (0x408000 - 0x2b0000), 0x408400 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Punch Wooden Shield",           0x408400 - (0x408000 - 0x2b0000), 0x408480 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Punch Steel Shield",            0x408480 - (0x408000 - 0x2b0000), 0x408500 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Punch Diamond Shield",          0x408500 - (0x408000 - 0x2b0000), 0x408580 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Punch Legendary Shield",        0x408580 - (0x408000 - 0x2b0000), 0x408600 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Punch Fire Sword",              0x408600 - (0x408000 - 0x2b0000), 0x408680 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Punch Ice Sword",               0x408680 - (0x408000 - 0x2b0000), 0x408700 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Punch Lightning Sword",         0x408700 - (0x408000 - 0x2b0000), 0x408780 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Punch Battle Axe",              0x408780 - (0x408000 - 0x2b0000), 0x408800 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Punch Ultimate Guard Flash and Burn 1", 0x40AA00 - (0x408000 - 0x2b0000), 0x40AA80 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Burn 2",                  0x40AA80 - (0x408000 - 0x2b0000), 0x40AB00 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 1",                 0x40AB00 - (0x408000 - 0x2b0000), 0x40AB80 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 2",                 0x40AB80 - (0x408000 - 0x2b0000), 0x40AC00 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 1",              0x40AC00 - (0x408000 - 0x2b0000), 0x40AC80 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 2",              0x40AC80 - (0x408000 - 0x2b0000), 0x40AD00 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 3",              0x40AD00 - (0x408000 - 0x2b0000), 0x40AD80 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 4",              0x40AD80 - (0x408000 - 0x2b0000), 0x40AE00 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 1",             0x40AE00 - (0x408000 - 0x2b0000), 0x40AE80 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 2",             0x40AE80 - (0x408000 - 0x2b0000), 0x40AF00 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 3",             0x40AF00 - (0x408000 - 0x2b0000), 0x40AF80 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 1",                0x40AF80 - (0x408000 - 0x2b0000), 0x40B000 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 2",                0x40B000 - (0x408000 - 0x2b0000), 0x40B080 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 3",                0x40B080 - (0x408000 - 0x2b0000), 0x40B100 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 4",                0x40B100 - (0x408000 - 0x2b0000), 0x40B180 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 5",                0x40B180 - (0x408000 - 0x2b0000), 0x40B200 - (0x408000 - 0x2b0000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu",                0x408f80 - (0x408000 - 0x2b0000), 0x409000 - (0x408000 - 0x2b0000) },
+    { L"Wisemen Mist 1",                    0x409000 - (0x408000 - 0x2b0000), 0x409080 - (0x408000 - 0x2b0000) },
+    { L"Wisemen Mist 2",                    0x409080 - (0x408000 - 0x2b0000), 0x409100 - (0x408000 - 0x2b0000) },
+
+    { L"Unknown Leo Palette",               0x408980 - (0x408000 - 0x2b0000), 0x408b80 - (0x408000 - 0x2b0000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_LEO_PUNCH_PALETTES[] =
+{
+    // Hydron Transparency on Punch Leo Ranges
+    // 0x2b4000
+    // 0x2b7e20
+        { L"Leo Punch",                         0x408000 - (0x408000 - 0x2b4000), 0x408080 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Punch Old Sword",               0x408100 - (0x408000 - 0x2b4000), 0x408180 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Punch Bronze Sword",            0x408180 - (0x408000 - 0x2b4000), 0x408200 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Punch Steel Sword",             0x408200 - (0x408000 - 0x2b4000), 0x408280 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Punch Diamond Sword",           0x408280 - (0x408000 - 0x2b4000), 0x408300 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Punch Legendary Sword",         0x408300 - (0x408000 - 0x2b4000), 0x408380 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Punch Old Shield",              0x408380 - (0x408000 - 0x2b4000), 0x408400 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Punch Wooden Shield",           0x408400 - (0x408000 - 0x2b4000), 0x408480 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Punch Steel Shield",            0x408480 - (0x408000 - 0x2b4000), 0x408500 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Punch Diamond Shield",          0x408500 - (0x408000 - 0x2b4000), 0x408580 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Punch Legendary Shield",        0x408580 - (0x408000 - 0x2b4000), 0x408600 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Punch Fire Sword",              0x408600 - (0x408000 - 0x2b4000), 0x408680 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Punch Ice Sword",               0x408680 - (0x408000 - 0x2b4000), 0x408700 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Punch Lightning Sword",         0x408700 - (0x408000 - 0x2b4000), 0x408780 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Punch Battle Axe",              0x408780 - (0x408000 - 0x2b4000), 0x408800 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Punch Ultimate Guard Flash and Burn 1", 0x40AA00 - (0x408000 - 0x2b4000), 0x40AA80 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Burn 2",                  0x40AA80 - (0x408000 - 0x2b4000), 0x40AB00 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 1",                 0x40AB00 - (0x408000 - 0x2b4000), 0x40AB80 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 2",                 0x40AB80 - (0x408000 - 0x2b4000), 0x40AC00 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 1",              0x40AC00 - (0x408000 - 0x2b4000), 0x40AC80 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 2",              0x40AC80 - (0x408000 - 0x2b4000), 0x40AD00 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 3",              0x40AD00 - (0x408000 - 0x2b4000), 0x40AD80 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 4",              0x40AD80 - (0x408000 - 0x2b4000), 0x40AE00 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 1",             0x40AE00 - (0x408000 - 0x2b4000), 0x40AE80 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 2",             0x40AE80 - (0x408000 - 0x2b4000), 0x40AF00 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 3",             0x40AF00 - (0x408000 - 0x2b4000), 0x40AF80 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 1",                0x40AF80 - (0x408000 - 0x2b4000), 0x40B000 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 2",                0x40B000 - (0x408000 - 0x2b4000), 0x40B080 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 3",                0x40B080 - (0x408000 - 0x2b4000), 0x40B100 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 4",                0x40B100 - (0x408000 - 0x2b4000), 0x40B180 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 5",                0x40B180 - (0x408000 - 0x2b4000), 0x40B200 - (0x408000 - 0x2b4000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu",                0x408f80 - (0x408000 - 0x2b4000), 0x409000 - (0x408000 - 0x2b4000) },
+    { L"Wisemen Mist 1",                    0x409000 - (0x408000 - 0x2b4000), 0x409080 - (0x408000 - 0x2b4000) },
+    { L"Wisemen Mist 2",                    0x409080 - (0x408000 - 0x2b4000), 0x409100 - (0x408000 - 0x2b4000) },
+
+    { L"Unknown Leo Palette",               0x408980 - (0x408000 - 0x2b4000), 0x408b80 - (0x408000 - 0x2b4000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_LEO_PUNCH_PALETTES[] =
+{
+    // Ravange Transparency on Punch Leo Ranges
+    // 0x2b8000
+    // 0x2bbe20
+    { L"Leo Punch",                         0x408000 - (0x408000 - 0x2b8000), 0x408080 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Punch Old Sword",               0x408100 - (0x408000 - 0x2b8000), 0x408180 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Punch Bronze Sword",            0x408180 - (0x408000 - 0x2b8000), 0x408200 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Punch Steel Sword",             0x408200 - (0x408000 - 0x2b8000), 0x408280 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Punch Diamond Sword",           0x408280 - (0x408000 - 0x2b8000), 0x408300 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Punch Legendary Sword",         0x408300 - (0x408000 - 0x2b8000), 0x408380 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Punch Old Shield",              0x408380 - (0x408000 - 0x2b8000), 0x408400 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Punch Wooden Shield",           0x408400 - (0x408000 - 0x2b8000), 0x408480 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Punch Steel Shield",            0x408480 - (0x408000 - 0x2b8000), 0x408500 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Punch Diamond Shield",          0x408500 - (0x408000 - 0x2b8000), 0x408580 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Punch Legendary Shield",        0x408580 - (0x408000 - 0x2b8000), 0x408600 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Punch Fire Sword",              0x408600 - (0x408000 - 0x2b8000), 0x408680 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Punch Ice Sword",               0x408680 - (0x408000 - 0x2b8000), 0x408700 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Punch Lightning Sword",         0x408700 - (0x408000 - 0x2b8000), 0x408780 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Punch Battle Axe",              0x408780 - (0x408000 - 0x2b8000), 0x408800 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Punch Ultimate Guard Flash and Burn 1", 0x40AA00 - (0x408000 - 0x2b8000), 0x40AA80 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Burn 2",                  0x40AA80 - (0x408000 - 0x2b8000), 0x40AB00 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 1",                 0x40AB00 - (0x408000 - 0x2b8000), 0x40AB80 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 2",                 0x40AB80 - (0x408000 - 0x2b8000), 0x40AC00 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 1",              0x40AC00 - (0x408000 - 0x2b8000), 0x40AC80 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 2",              0x40AC80 - (0x408000 - 0x2b8000), 0x40AD00 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 3",              0x40AD00 - (0x408000 - 0x2b8000), 0x40AD80 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 4",              0x40AD80 - (0x408000 - 0x2b8000), 0x40AE00 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 1",             0x40AE00 - (0x408000 - 0x2b8000), 0x40AE80 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 2",             0x40AE80 - (0x408000 - 0x2b8000), 0x40AF00 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 3",             0x40AF00 - (0x408000 - 0x2b8000), 0x40AF80 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 1",                0x40AF80 - (0x408000 - 0x2b8000), 0x40B000 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 2",                0x40B000 - (0x408000 - 0x2b8000), 0x40B080 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 3",                0x40B080 - (0x408000 - 0x2b8000), 0x40B100 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 4",                0x40B100 - (0x408000 - 0x2b8000), 0x40B180 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 5",                0x40B180 - (0x408000 - 0x2b8000), 0x40B200 - (0x408000 - 0x2b8000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu",                0x408f80 - (0x408000 - 0x2b8000), 0x409000 - (0x408000 - 0x2b8000) },
+    { L"Wisemen Mist 1",                    0x409000 - (0x408000 - 0x2b8000), 0x409080 - (0x408000 - 0x2b8000) },
+    { L"Wisemen Mist 2",                    0x409080 - (0x408000 - 0x2b8000), 0x409100 - (0x408000 - 0x2b8000) },
+
+    { L"Unknown Leo Palette",               0x408980 - (0x408000 - 0x2b8000), 0x408b80 - (0x408000 - 0x2b8000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_LEO_PUNCH_PALETTES[] =
+{
+    // Blade Transparency on Punch Leo Ranges
+    // 0x2bc000
+    // 0x2bfe20
+    { L"Leo Punch",                         0x408000 - (0x408000 - 0x2bc000), 0x408080 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Punch Old Sword",               0x408100 - (0x408000 - 0x2bc000), 0x408180 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Punch Bronze Sword",            0x408180 - (0x408000 - 0x2bc000), 0x408200 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Punch Steel Sword",             0x408200 - (0x408000 - 0x2bc000), 0x408280 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Punch Diamond Sword",           0x408280 - (0x408000 - 0x2bc000), 0x408300 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Punch Legendary Sword",         0x408300 - (0x408000 - 0x2bc000), 0x408380 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Punch Old Shield",              0x408380 - (0x408000 - 0x2bc000), 0x408400 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Punch Wooden Shield",           0x408400 - (0x408000 - 0x2bc000), 0x408480 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Punch Steel Shield",            0x408480 - (0x408000 - 0x2bc000), 0x408500 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Punch Diamond Shield",          0x408500 - (0x408000 - 0x2bc000), 0x408580 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Punch Legendary Shield",        0x408580 - (0x408000 - 0x2bc000), 0x408600 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Punch Fire Sword",              0x408600 - (0x408000 - 0x2bc000), 0x408680 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Punch Ice Sword",               0x408680 - (0x408000 - 0x2bc000), 0x408700 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Punch Lightning Sword",         0x408700 - (0x408000 - 0x2bc000), 0x408780 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Punch Battle Axe",              0x408780 - (0x408000 - 0x2bc000), 0x408800 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Punch Ultimate Guard Flash and Burn 1", 0x40AA00 - (0x408000 - 0x2bc000), 0x40AA80 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Burn 2",                  0x40AA80 - (0x408000 - 0x2bc000), 0x40AB00 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 1",                 0x40AB00 - (0x408000 - 0x2bc000), 0x40AB80 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 2",                 0x40AB80 - (0x408000 - 0x2bc000), 0x40AC00 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 1",              0x40AC00 - (0x408000 - 0x2bc000), 0x40AC80 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 2",              0x40AC80 - (0x408000 - 0x2bc000), 0x40AD00 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 3",              0x40AD00 - (0x408000 - 0x2bc000), 0x40AD80 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 4",              0x40AD80 - (0x408000 - 0x2bc000), 0x40AE00 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 1",             0x40AE00 - (0x408000 - 0x2bc000), 0x40AE80 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 2",             0x40AE80 - (0x408000 - 0x2bc000), 0x40AF00 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 3",             0x40AF00 - (0x408000 - 0x2bc000), 0x40AF80 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 1",                0x40AF80 - (0x408000 - 0x2bc000), 0x40B000 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 2",                0x40B000 - (0x408000 - 0x2bc000), 0x40B080 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 3",                0x40B080 - (0x408000 - 0x2bc000), 0x40B100 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 4",                0x40B100 - (0x408000 - 0x2bc000), 0x40B180 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 5",                0x40B180 - (0x408000 - 0x2bc000), 0x40B200 - (0x408000 - 0x2bc000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu",                0x408f80 - (0x408000 - 0x2bc000), 0x409000 - (0x408000 - 0x2bc000) },
+    { L"Wisemen Mist 1",                    0x409000 - (0x408000 - 0x2bc000), 0x409080 - (0x408000 - 0x2bc000) },
+    { L"Wisemen Mist 2",                    0x409080 - (0x408000 - 0x2bc000), 0x409100 - (0x408000 - 0x2bc000) },
+
+    { L"Unknown Leo Palette",               0x408980 - (0x408000 - 0x2bc000), 0x408b80 - (0x408000 - 0x2bc000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_PUNCH_PALETTES[] =
+{
+    // Punch Kenji
+    // 0x40b200
+    // 0x40e400
+
+    // Slash Transparency on Punch Kenji Ranges
+    // 0x284000
+    // 0x287200
+    { L"Kenji Punch",                            0x40B200 - (0x40b200 - 0x284000), 0x40B280 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+
+    { L"Chains, Kunai",                          0x40B380 - (0x40b200 - 0x284000), 0x40B400 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hat intro",                              0x40B300 - (0x40b200 - 0x284000), 0x40B380 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400 - (0x40b200 - 0x284000), 0x40B480 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480 - (0x40b200 - 0x284000), 0x40B500 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x40B500 - (0x40b200 - 0x284000), 0x40B580 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x40B580 - (0x40b200 - 0x284000), 0x40B600 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x40B600 - (0x40b200 - 0x284000), 0x40B680 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700 - (0x40b200 - 0x284000), 0x40B780 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x40B680 - (0x40b200 - 0x284000), 0x40B700 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x40B780 - (0x40b200 - 0x284000), 0x40B800 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Kunai Throwing Shine (1/3)",             0x40BF00 - (0x40b200 - 0x284000), 0x40BF80 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x40BE80 - (0x40b200 - 0x284000), 0x40BF00 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x40BE00 - (0x40b200 - 0x284000), 0x40BE80 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x40B280 - (0x40b200 - 0x284000), 0x40B300 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Punch Ultimate Guard Flash and Burn 1", 0x40DC00 - (0x40b200 - 0x284000), 0x40DC80 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Burn 2", 0x40DC80 - (0x40b200 - 0x284000), 0x40DD00 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 1", 0x40DD00 - (0x40b200 - 0x284000), 0x40DD80 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 2", 0x40DD80 - (0x40b200 - 0x284000), 0x40DE00 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 1", 0x40DE00 - (0x40b200 - 0x284000), 0x40DE80 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 2", 0x40DE80 - (0x40b200 - 0x284000), 0x40DF00 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 3", 0x40DF00 - (0x40b200 - 0x284000), 0x40DF80 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 4", 0x40DF80 - (0x40b200 - 0x284000), 0x40E000 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 1", 0x40E000 - (0x40b200 - 0x284000), 0x40E080 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 2", 0x40E080 - (0x40b200 - 0x284000), 0x40E100 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 3", 0x40E100 - (0x40b200 - 0x284000), 0x40E180 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 1", 0x40E180 - (0x40b200 - 0x284000), 0x40E200 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 2", 0x40E200 - (0x40b200 - 0x284000), 0x40E280 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 3", 0x40E280 - (0x40b200 - 0x284000), 0x40E300 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 4", 0x40E300 - (0x40b200 - 0x284000), 0x40E380 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 5", 0x40E380 - (0x40b200 - 0x284000), 0x40E400 - (0x40b200 - 0x284000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x40bfe0", 0x40bfe0 - (0x40b200 - 0x284000), 0x40c1e0 - (0x40b200 - 0x284000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x284000), 0x40c200 - (0x40b200 - 0x284000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x284000), 0x40c800 - (0x40b200 - 0x284000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x284000), 0x40c920 - (0x40b200 - 0x284000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_PUNCH_PALETTES[] =
+{
+    // Hauzer Transparency on Punch Kenji Ranges
+    // 0x2c0000
+    // 0x2c3200
+    { L"Kenji Punch",                            0x40B200 - (0x40b200 - 0x2c0000), 0x40B280 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+
+    { L"Chains, Kunai",                          0x40B380 - (0x40b200 - 0x2c0000), 0x40B400 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hat intro",                              0x40B300 - (0x40b200 - 0x2c0000), 0x40B380 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400 - (0x40b200 - 0x2c0000), 0x40B480 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480 - (0x40b200 - 0x2c0000), 0x40B500 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x40B500 - (0x40b200 - 0x2c0000), 0x40B580 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x40B580 - (0x40b200 - 0x2c0000), 0x40B600 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x40B600 - (0x40b200 - 0x2c0000), 0x40B680 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700 - (0x40b200 - 0x2c0000), 0x40B780 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x40B680 - (0x40b200 - 0x2c0000), 0x40B700 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x40B780 - (0x40b200 - 0x2c0000), 0x40B800 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Kunai Throwing Shine (1/3)",             0x40BF00 - (0x40b200 - 0x2c0000), 0x40BF80 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x40BE80 - (0x40b200 - 0x2c0000), 0x40BF00 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x40BE00 - (0x40b200 - 0x2c0000), 0x40BE80 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x40B280 - (0x40b200 - 0x2c0000), 0x40B300 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Punch Ultimate Guard Flash and Burn 1", 0x40DC00 - (0x40b200 - 0x2c0000), 0x40DC80 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Burn 2", 0x40DC80 - (0x40b200 - 0x2c0000), 0x40DD00 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 1", 0x40DD00 - (0x40b200 - 0x2c0000), 0x40DD80 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 2", 0x40DD80 - (0x40b200 - 0x2c0000), 0x40DE00 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 1", 0x40DE00 - (0x40b200 - 0x2c0000), 0x40DE80 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 2", 0x40DE80 - (0x40b200 - 0x2c0000), 0x40DF00 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 3", 0x40DF00 - (0x40b200 - 0x2c0000), 0x40DF80 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 4", 0x40DF80 - (0x40b200 - 0x2c0000), 0x40E000 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 1", 0x40E000 - (0x40b200 - 0x2c0000), 0x40E080 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 2", 0x40E080 - (0x40b200 - 0x2c0000), 0x40E100 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 3", 0x40E100 - (0x40b200 - 0x2c0000), 0x40E180 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 1", 0x40E180 - (0x40b200 - 0x2c0000), 0x40E200 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 2", 0x40E200 - (0x40b200 - 0x2c0000), 0x40E280 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 3", 0x40E280 - (0x40b200 - 0x2c0000), 0x40E300 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 4", 0x40E300 - (0x40b200 - 0x2c0000), 0x40E380 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 5", 0x40E380 - (0x40b200 - 0x2c0000), 0x40E400 - (0x40b200 - 0x2c0000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x40bfe0", 0x40bfe0 - (0x40b200 - 0x2c0000), 0x40c1e0 - (0x40b200 - 0x2c0000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2c0000), 0x40c200 - (0x40b200 - 0x2c0000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2c0000), 0x40c800 - (0x40b200 - 0x2c0000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2c0000), 0x40c920 - (0x40b200 - 0x2c0000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_PUNCH_PALETTES[] =
+{
+    // Hydron Transparency on Punch Kenji Ranges
+    // 0x2c4000
+    // 0x2c7200
+    { L"Kenji Punch",                            0x40B200 - (0x40b200 - 0x2c4000), 0x40B280 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+
+    { L"Chains, Kunai",                          0x40B380 - (0x40b200 - 0x2c4000), 0x40B400 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hat intro",                              0x40B300 - (0x40b200 - 0x2c4000), 0x40B380 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400 - (0x40b200 - 0x2c4000), 0x40B480 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480 - (0x40b200 - 0x2c4000), 0x40B500 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x40B500 - (0x40b200 - 0x2c4000), 0x40B580 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x40B580 - (0x40b200 - 0x2c4000), 0x40B600 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x40B600 - (0x40b200 - 0x2c4000), 0x40B680 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700 - (0x40b200 - 0x2c4000), 0x40B780 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x40B680 - (0x40b200 - 0x2c4000), 0x40B700 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x40B780 - (0x40b200 - 0x2c4000), 0x40B800 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Kunai Throwing Shine (1/3)",             0x40BF00 - (0x40b200 - 0x2c4000), 0x40BF80 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x40BE80 - (0x40b200 - 0x2c4000), 0x40BF00 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x40BE00 - (0x40b200 - 0x2c4000), 0x40BE80 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x40B280 - (0x40b200 - 0x2c4000), 0x40B300 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Punch Ultimate Guard Flash and Burn 1", 0x40DC00 - (0x40b200 - 0x2c4000), 0x40DC80 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Burn 2", 0x40DC80 - (0x40b200 - 0x2c4000), 0x40DD00 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 1", 0x40DD00 - (0x40b200 - 0x2c4000), 0x40DD80 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 2", 0x40DD80 - (0x40b200 - 0x2c4000), 0x40DE00 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 1", 0x40DE00 - (0x40b200 - 0x2c4000), 0x40DE80 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 2", 0x40DE80 - (0x40b200 - 0x2c4000), 0x40DF00 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 3", 0x40DF00 - (0x40b200 - 0x2c4000), 0x40DF80 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 4", 0x40DF80 - (0x40b200 - 0x2c4000), 0x40E000 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 1", 0x40E000 - (0x40b200 - 0x2c4000), 0x40E080 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 2", 0x40E080 - (0x40b200 - 0x2c4000), 0x40E100 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 3", 0x40E100 - (0x40b200 - 0x2c4000), 0x40E180 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 1", 0x40E180 - (0x40b200 - 0x2c4000), 0x40E200 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 2", 0x40E200 - (0x40b200 - 0x2c4000), 0x40E280 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 3", 0x40E280 - (0x40b200 - 0x2c4000), 0x40E300 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 4", 0x40E300 - (0x40b200 - 0x2c4000), 0x40E380 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 5", 0x40E380 - (0x40b200 - 0x2c4000), 0x40E400 - (0x40b200 - 0x2c4000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x40bfe0", 0x40bfe0 - (0x40b200 - 0x2c4000), 0x40c1e0 - (0x40b200 - 0x2c4000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2c4000), 0x40c200 - (0x40b200 - 0x2c4000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2c4000), 0x40c800 - (0x40b200 - 0x2c4000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2c4000), 0x40c920 - (0x40b200 - 0x2c4000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_PUNCH_PALETTES[] =
+{
+    // Ravange Transparency on Punch Kenji Ranges
+    // 0x2c8000
+    // 0x2cb200
+    { L"Kenji Punch",                            0x40B200 - (0x40b200 - 0x2c8000), 0x40B280 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+
+    { L"Chains, Kunai",                          0x40B380 - (0x40b200 - 0x2c8000), 0x40B400 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hat intro",                              0x40B300 - (0x40b200 - 0x2c8000), 0x40B380 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400 - (0x40b200 - 0x2c8000), 0x40B480 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480 - (0x40b200 - 0x2c8000), 0x40B500 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x40B500 - (0x40b200 - 0x2c8000), 0x40B580 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x40B580 - (0x40b200 - 0x2c8000), 0x40B600 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x40B600 - (0x40b200 - 0x2c8000), 0x40B680 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700 - (0x40b200 - 0x2c8000), 0x40B780 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x40B680 - (0x40b200 - 0x2c8000), 0x40B700 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x40B780 - (0x40b200 - 0x2c8000), 0x40B800 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Kunai Throwing Shine (1/3)",             0x40BF00 - (0x40b200 - 0x2c8000), 0x40BF80 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x40BE80 - (0x40b200 - 0x2c8000), 0x40BF00 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x40BE00 - (0x40b200 - 0x2c8000), 0x40BE80 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x40B280 - (0x40b200 - 0x2c8000), 0x40B300 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Punch Ultimate Guard Flash and Burn 1", 0x40DC00 - (0x40b200 - 0x2c8000), 0x40DC80 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Burn 2", 0x40DC80 - (0x40b200 - 0x2c8000), 0x40DD00 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 1", 0x40DD00 - (0x40b200 - 0x2c8000), 0x40DD80 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 2", 0x40DD80 - (0x40b200 - 0x2c8000), 0x40DE00 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 1", 0x40DE00 - (0x40b200 - 0x2c8000), 0x40DE80 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 2", 0x40DE80 - (0x40b200 - 0x2c8000), 0x40DF00 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 3", 0x40DF00 - (0x40b200 - 0x2c8000), 0x40DF80 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 4", 0x40DF80 - (0x40b200 - 0x2c8000), 0x40E000 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 1", 0x40E000 - (0x40b200 - 0x2c8000), 0x40E080 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 2", 0x40E080 - (0x40b200 - 0x2c8000), 0x40E100 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 3", 0x40E100 - (0x40b200 - 0x2c8000), 0x40E180 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 1", 0x40E180 - (0x40b200 - 0x2c8000), 0x40E200 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 2", 0x40E200 - (0x40b200 - 0x2c8000), 0x40E280 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 3", 0x40E280 - (0x40b200 - 0x2c8000), 0x40E300 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 4", 0x40E300 - (0x40b200 - 0x2c8000), 0x40E380 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 5", 0x40E380 - (0x40b200 - 0x2c8000), 0x40E400 - (0x40b200 - 0x2c8000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x40bfe0", 0x40bfe0 - (0x40b200 - 0x2c8000), 0x40c1e0 - (0x40b200 - 0x2c8000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2c8000), 0x40c200 - (0x40b200 - 0x2c8000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2c8000), 0x40c800 - (0x40b200 - 0x2c8000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2c8000), 0x40c920 - (0x40b200 - 0x2c8000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_PUNCH_PALETTES[] =
+{
+    // Blade Transparency on Punch Kenji Ranges
+    // 0x2cc000
+    // 0x2cf200
+    { L"Kenji Punch",                            0x40B200 - (0x40b200 - 0x2cc000), 0x40B280 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+
+    { L"Chains, Kunai",                          0x40B380 - (0x40b200 - 0x2cc000), 0x40B400 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hat intro",                              0x40B300 - (0x40b200 - 0x2cc000), 0x40B380 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400 - (0x40b200 - 0x2cc000), 0x40B480 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480 - (0x40b200 - 0x2cc000), 0x40B500 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x40B500 - (0x40b200 - 0x2cc000), 0x40B580 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x40B580 - (0x40b200 - 0x2cc000), 0x40B600 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x40B600 - (0x40b200 - 0x2cc000), 0x40B680 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700 - (0x40b200 - 0x2cc000), 0x40B780 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x40B680 - (0x40b200 - 0x2cc000), 0x40B700 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x40B780 - (0x40b200 - 0x2cc000), 0x40B800 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Kunai Throwing Shine (1/3)",             0x40BF00 - (0x40b200 - 0x2cc000), 0x40BF80 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x40BE80 - (0x40b200 - 0x2cc000), 0x40BF00 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x40BE00 - (0x40b200 - 0x2cc000), 0x40BE80 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x40B280 - (0x40b200 - 0x2cc000), 0x40B300 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Punch Ultimate Guard Flash and Burn 1", 0x40DC00 - (0x40b200 - 0x2cc000), 0x40DC80 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Burn 2", 0x40DC80 - (0x40b200 - 0x2cc000), 0x40DD00 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 1", 0x40DD00 - (0x40b200 - 0x2cc000), 0x40DD80 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 2", 0x40DD80 - (0x40b200 - 0x2cc000), 0x40DE00 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 1", 0x40DE00 - (0x40b200 - 0x2cc000), 0x40DE80 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 2", 0x40DE80 - (0x40b200 - 0x2cc000), 0x40DF00 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 3", 0x40DF00 - (0x40b200 - 0x2cc000), 0x40DF80 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 4", 0x40DF80 - (0x40b200 - 0x2cc000), 0x40E000 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 1", 0x40E000 - (0x40b200 - 0x2cc000), 0x40E080 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 2", 0x40E080 - (0x40b200 - 0x2cc000), 0x40E100 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 3", 0x40E100 - (0x40b200 - 0x2cc000), 0x40E180 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 1", 0x40E180 - (0x40b200 - 0x2cc000), 0x40E200 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 2", 0x40E200 - (0x40b200 - 0x2cc000), 0x40E280 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 3", 0x40E280 - (0x40b200 - 0x2cc000), 0x40E300 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 4", 0x40E300 - (0x40b200 - 0x2cc000), 0x40E380 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 5", 0x40E380 - (0x40b200 - 0x2cc000), 0x40E400 - (0x40b200 - 0x2cc000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x40bfe0", 0x40bfe0 - (0x40b200 - 0x2cc000), 0x40c1e0 - (0x40b200 - 0x2cc000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2cc000), 0x40c200 - (0x40b200 - 0x2cc000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2cc000), 0x40c800 - (0x40b200 - 0x2cc000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2cc000), 0x40c920 - (0x40b200 - 0x2cc000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_PUNCH_PALETTES[] =
+{
+    // Punch Tessa
+    // 0x40e400
+    // 0x411600
+
+    // Slash Transparency on Punch Tessa Ranges
+    // 0x288000
+    // 0x28b200
+    { L"Tessa Punch", 0x40E400 - (0x40e400 - 0x288000), 0x40E480 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Changing Pal", 0x40E480 - (0x40e400 - 0x288000), 0x40E500 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Punch Bottled Ice", 0x40E500 - (0x40e400 - 0x288000), 0x40E580 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Punch Mage Shield Block", 0x40EA00 - (0x40e400 - 0x288000), 0x40EA80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Punch Mage Shield Preblock", 0x40EA80 - (0x40e400 - 0x288000), 0x40EB00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Punch Al (Aru) Cat", 0x40E780 - (0x40e400 - 0x288000), 0x40E800 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800 - (0x40e400 - 0x288000), 0x40E880 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ivan (Ibun) Cat", 0x40E880 - (0x40e400 - 0x288000), 0x40E900 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Ivan (Ibun) Cat Returning", 0x40E900 - (0x40e400 - 0x288000), 0x40E980 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ice", 0x40E980 - (0x40e400 - 0x288000), 0x40EA00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Punch Reverie Sword", 0x40EB80 - (0x40e400 - 0x288000), 0x40EC00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Punch Staffs", 0x40EC00 - (0x40e400 - 0x288000), 0x40EC80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Punch Kaeru (Frog)", 0x40EE80 - (0x40e400 - 0x288000), 0x40EF00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 - (0x40e400 - 0x288000), 0x40F000 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Punch Suitcat", 0x40FF00 - (0x40e400 - 0x288000), 0x40FF80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Suitcat (Mustard)", 0x40FF80 - (0x40e400 - 0x288000), 0x410000 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Chakra Wave", 0x40EF00 - (0x40e400 - 0x288000), 0x40EF80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Punch Cannon Magic Pattern", 0x40E700 - (0x40e400 - 0x288000), 0x40E780 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Punch Cannon Transition", 0x40F880 - (0x40e400 - 0x288000), 0x40F900 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Punch Hyper Cannon (Superball and Winscreen)", 0x40F900 - (0x40e400 - 0x288000), 0x40F980 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Punch Glace Cannon", 0x40F980 - (0x40e400 - 0x288000), 0x40FA00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Flamma Cannon", 0x40FA00 - (0x40e400 - 0x288000), 0x40FA80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Electron Cannon", 0x40FA80 - (0x40e400 - 0x288000), 0x40FB00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Death Phenomenon - On Hit", 0x40FD80 - (0x40e400 - 0x288000), 0x40FE00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Punch Death Phenomenon - On Whiff", 0x40FE00 - (0x40e400 - 0x288000), 0x40FE80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 - (0x40e400 - 0x288000), 0x40F800 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Punch Manot Arm", 0x40F200 - (0x40e400 - 0x288000), 0x40F280 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Punch GC/Pursuit Wrecking Ball", 0x40F300 - (0x40e400 - 0x288000), 0x40F380 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Punch Grab Saw", 0x40F080 - (0x40e400 - 0x288000), 0x40F100 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100 - (0x40e400 - 0x288000), 0x40F180 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00 - (0x40e400 - 0x288000), 0x40EB80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00 - (0x40e400 - 0x288000), 0x40EE80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00 - (0x40e400 - 0x288000), 0x40fb80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x40f380 - (0x40e400 - 0x288000), 0x40f400 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x40f400 - (0x40e400 - 0x288000), 0x40f480 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x40f480 - (0x40e400 - 0x288000), 0x40f500 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x40f500 - (0x40e400 - 0x288000), 0x40f580 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x40f580 - (0x40e400 - 0x288000), 0x40f600 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x40f600 - (0x40e400 - 0x288000), 0x40f680 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x40f280 - (0x40e400 - 0x288000), 0x40f300 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00 - (0x40e400 - 0x288000), 0x410E80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Burn 2", 0x410E80 - (0x40e400 - 0x288000), 0x410F00 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 1", 0x410F00 - (0x40e400 - 0x288000), 0x410F80 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 2", 0x410F80 - (0x40e400 - 0x288000), 0x411000 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 1", 0x411000 - (0x40e400 - 0x288000), 0x411080 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 2", 0x411080 - (0x40e400 - 0x288000), 0x411100 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 3", 0x411100 - (0x40e400 - 0x288000), 0x411180 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 4", 0x411180 - (0x40e400 - 0x288000), 0x411200 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 1", 0x411200 - (0x40e400 - 0x288000), 0x411280 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 2", 0x411280 - (0x40e400 - 0x288000), 0x411300 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 3", 0x411300 - (0x40e400 - 0x288000), 0x411380 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 1", 0x411380 - (0x40e400 - 0x288000), 0x411400 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 2", 0x411400 - (0x40e400 - 0x288000), 0x411480 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 3", 0x411480 - (0x40e400 - 0x288000), 0x411500 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 4", 0x411500 - (0x40e400 - 0x288000), 0x411580 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 5", 0x411580 - (0x40e400 - 0x288000), 0x411600 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Punch Palette Cartur", 0x40e580 - (0x40e400 - 0x288000), 0x40e600 - (0x40e400 - 0x288000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x40e600 - (0x40e400 - 0x288000), 0x40e700 - (0x40e400 - 0x288000) },
+    { L"Unknown Tessa Palette 2", 0x40f180 - (0x40e400 - 0x288000), 0x40f200 - (0x40e400 - 0x288000) },
+    { L"Unknown Tessa Palette 3", 0x40fe80 - (0x40e400 - 0x288000), 0x40ff00 - (0x40e400 - 0x288000) },
+    { L"Unknown Tessa Range 1", 0x40fb80 - (0x40e400 - 0x288000), 0x40fd80 - (0x40e400 - 0x288000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x410000", 0x410000 - (0x40e400 - 0x288000), 0x410200 - (0x40e400 - 0x288000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x410200", 0x410200 - (0x40e400 - 0x288000), 0x410400 - (0x40e400 - 0x288000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x410400", 0x410400 - (0x40e400 - 0x288000), 0x410600 - (0x40e400 - 0x288000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x410600", 0x410600 - (0x40e400 - 0x288000), 0x410680 - (0x40e400 - 0x288000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_TESSA_PUNCH_PALETTES[] =
+{
+    // Hauzer Transparency on Punch Tessa Ranges
+    // 0x2d0000
+    // 0x2d3200
+    { L"Tessa Punch", 0x40E400 - (0x40e400 - 0x2d0000), 0x40E480 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Changing Pal", 0x40E480 - (0x40e400 - 0x2d0000), 0x40E500 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Punch Bottled Ice", 0x40E500 - (0x40e400 - 0x2d0000), 0x40E580 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Punch Mage Shield Block", 0x40EA00 - (0x40e400 - 0x2d0000), 0x40EA80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Punch Mage Shield Preblock", 0x40EA80 - (0x40e400 - 0x2d0000), 0x40EB00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Punch Al (Aru) Cat", 0x40E780 - (0x40e400 - 0x2d0000), 0x40E800 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800 - (0x40e400 - 0x2d0000), 0x40E880 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ivan (Ibun) Cat", 0x40E880 - (0x40e400 - 0x2d0000), 0x40E900 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Ivan (Ibun) Cat Returning", 0x40E900 - (0x40e400 - 0x2d0000), 0x40E980 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ice", 0x40E980 - (0x40e400 - 0x2d0000), 0x40EA00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Punch Reverie Sword", 0x40EB80 - (0x40e400 - 0x2d0000), 0x40EC00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Punch Staffs", 0x40EC00 - (0x40e400 - 0x2d0000), 0x40EC80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Punch Kaeru (Frog)", 0x40EE80 - (0x40e400 - 0x2d0000), 0x40EF00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 - (0x40e400 - 0x2d0000), 0x40F000 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Punch Suitcat", 0x40FF00 - (0x40e400 - 0x2d0000), 0x40FF80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Suitcat (Mustard)", 0x40FF80 - (0x40e400 - 0x2d0000), 0x410000 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Chakra Wave", 0x40EF00 - (0x40e400 - 0x2d0000), 0x40EF80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Punch Cannon Magic Pattern", 0x40E700 - (0x40e400 - 0x2d0000), 0x40E780 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Punch Cannon Transition", 0x40F880 - (0x40e400 - 0x2d0000), 0x40F900 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Punch Hyper Cannon (Superball and Winscreen)", 0x40F900 - (0x40e400 - 0x2d0000), 0x40F980 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Punch Glace Cannon", 0x40F980 - (0x40e400 - 0x2d0000), 0x40FA00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Flamma Cannon", 0x40FA00 - (0x40e400 - 0x2d0000), 0x40FA80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Electron Cannon", 0x40FA80 - (0x40e400 - 0x2d0000), 0x40FB00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Death Phenomenon - On Hit", 0x40FD80 - (0x40e400 - 0x2d0000), 0x40FE00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Punch Death Phenomenon - On Whiff", 0x40FE00 - (0x40e400 - 0x2d0000), 0x40FE80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 - (0x40e400 - 0x2d0000), 0x40F800 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Punch Manot Arm", 0x40F200 - (0x40e400 - 0x2d0000), 0x40F280 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Punch GC/Pursuit Wrecking Ball", 0x40F300 - (0x40e400 - 0x2d0000), 0x40F380 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Punch Grab Saw", 0x40F080 - (0x40e400 - 0x2d0000), 0x40F100 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100 - (0x40e400 - 0x2d0000), 0x40F180 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00 - (0x40e400 - 0x2d0000), 0x40EB80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00 - (0x40e400 - 0x2d0000), 0x40EE80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00 - (0x40e400 - 0x2d0000), 0x40fb80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x40f380 - (0x40e400 - 0x2d0000), 0x40f400 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x40f400 - (0x40e400 - 0x2d0000), 0x40f480 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x40f480 - (0x40e400 - 0x2d0000), 0x40f500 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x40f500 - (0x40e400 - 0x2d0000), 0x40f580 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x40f580 - (0x40e400 - 0x2d0000), 0x40f600 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x40f600 - (0x40e400 - 0x2d0000), 0x40f680 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x40f280 - (0x40e400 - 0x2d0000), 0x40f300 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00 - (0x40e400 - 0x2d0000), 0x410E80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Burn 2", 0x410E80 - (0x40e400 - 0x2d0000), 0x410F00 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 1", 0x410F00 - (0x40e400 - 0x2d0000), 0x410F80 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 2", 0x410F80 - (0x40e400 - 0x2d0000), 0x411000 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 1", 0x411000 - (0x40e400 - 0x2d0000), 0x411080 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 2", 0x411080 - (0x40e400 - 0x2d0000), 0x411100 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 3", 0x411100 - (0x40e400 - 0x2d0000), 0x411180 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 4", 0x411180 - (0x40e400 - 0x2d0000), 0x411200 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 1", 0x411200 - (0x40e400 - 0x2d0000), 0x411280 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 2", 0x411280 - (0x40e400 - 0x2d0000), 0x411300 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 3", 0x411300 - (0x40e400 - 0x2d0000), 0x411380 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 1", 0x411380 - (0x40e400 - 0x2d0000), 0x411400 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 2", 0x411400 - (0x40e400 - 0x2d0000), 0x411480 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 3", 0x411480 - (0x40e400 - 0x2d0000), 0x411500 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 4", 0x411500 - (0x40e400 - 0x2d0000), 0x411580 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 5", 0x411580 - (0x40e400 - 0x2d0000), 0x411600 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Punch Palette Cartur", 0x40e580 - (0x40e400 - 0x2d0000), 0x40e600 - (0x40e400 - 0x2d0000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x40e600 - (0x40e400 - 0x2d0000), 0x40e700 - (0x40e400 - 0x2d0000) },
+    { L"Unknown Tessa Palette 2", 0x40f180 - (0x40e400 - 0x2d0000), 0x40f200 - (0x40e400 - 0x2d0000) },
+    { L"Unknown Tessa Palette 3", 0x40fe80 - (0x40e400 - 0x2d0000), 0x40ff00 - (0x40e400 - 0x2d0000) },
+    { L"Unknown Tessa Range 1", 0x40fb80 - (0x40e400 - 0x2d0000), 0x40fd80 - (0x40e400 - 0x2d0000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x410000", 0x410000 - (0x40e400 - 0x2d0000), 0x410200 - (0x40e400 - 0x2d0000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x410200", 0x410200 - (0x40e400 - 0x2d0000), 0x410400 - (0x40e400 - 0x2d0000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x410400", 0x410400 - (0x40e400 - 0x2d0000), 0x410600 - (0x40e400 - 0x2d0000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x410600", 0x410600 - (0x40e400 - 0x2d0000), 0x410680 - (0x40e400 - 0x2d0000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_PUNCH_PALETTES[] =
+{
+    // Hydron Transparency on Punch Tessa Ranges
+    // 0x2d4000
+    // 0x2d7200
+    { L"Tessa Punch", 0x40E400 - (0x40e400 - 0x2d4000), 0x40E480 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Changing Pal", 0x40E480 - (0x40e400 - 0x2d4000), 0x40E500 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Punch Bottled Ice", 0x40E500 - (0x40e400 - 0x2d4000), 0x40E580 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Punch Mage Shield Block", 0x40EA00 - (0x40e400 - 0x2d4000), 0x40EA80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Punch Mage Shield Preblock", 0x40EA80 - (0x40e400 - 0x2d4000), 0x40EB00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Punch Al (Aru) Cat", 0x40E780 - (0x40e400 - 0x2d4000), 0x40E800 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800 - (0x40e400 - 0x2d4000), 0x40E880 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ivan (Ibun) Cat", 0x40E880 - (0x40e400 - 0x2d4000), 0x40E900 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Ivan (Ibun) Cat Returning", 0x40E900 - (0x40e400 - 0x2d4000), 0x40E980 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ice", 0x40E980 - (0x40e400 - 0x2d4000), 0x40EA00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Punch Reverie Sword", 0x40EB80 - (0x40e400 - 0x2d4000), 0x40EC00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Punch Staffs", 0x40EC00 - (0x40e400 - 0x2d4000), 0x40EC80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Punch Kaeru (Frog)", 0x40EE80 - (0x40e400 - 0x2d4000), 0x40EF00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 - (0x40e400 - 0x2d4000), 0x40F000 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Punch Suitcat", 0x40FF00 - (0x40e400 - 0x2d4000), 0x40FF80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Suitcat (Mustard)", 0x40FF80 - (0x40e400 - 0x2d4000), 0x410000 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Chakra Wave", 0x40EF00 - (0x40e400 - 0x2d4000), 0x40EF80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Punch Cannon Magic Pattern", 0x40E700 - (0x40e400 - 0x2d4000), 0x40E780 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Punch Cannon Transition", 0x40F880 - (0x40e400 - 0x2d4000), 0x40F900 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Punch Hyper Cannon (Superball and Winscreen)", 0x40F900 - (0x40e400 - 0x2d4000), 0x40F980 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Punch Glace Cannon", 0x40F980 - (0x40e400 - 0x2d4000), 0x40FA00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Flamma Cannon", 0x40FA00 - (0x40e400 - 0x2d4000), 0x40FA80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Electron Cannon", 0x40FA80 - (0x40e400 - 0x2d4000), 0x40FB00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Death Phenomenon - On Hit", 0x40FD80 - (0x40e400 - 0x2d4000), 0x40FE00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Punch Death Phenomenon - On Whiff", 0x40FE00 - (0x40e400 - 0x2d4000), 0x40FE80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 - (0x40e400 - 0x2d4000), 0x40F800 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Punch Manot Arm", 0x40F200 - (0x40e400 - 0x2d4000), 0x40F280 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Punch GC/Pursuit Wrecking Ball", 0x40F300 - (0x40e400 - 0x2d4000), 0x40F380 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Punch Grab Saw", 0x40F080 - (0x40e400 - 0x2d4000), 0x40F100 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100 - (0x40e400 - 0x2d4000), 0x40F180 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00 - (0x40e400 - 0x2d4000), 0x40EB80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00 - (0x40e400 - 0x2d4000), 0x40EE80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00 - (0x40e400 - 0x2d4000), 0x40fb80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x40f380 - (0x40e400 - 0x2d4000), 0x40f400 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x40f400 - (0x40e400 - 0x2d4000), 0x40f480 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x40f480 - (0x40e400 - 0x2d4000), 0x40f500 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x40f500 - (0x40e400 - 0x2d4000), 0x40f580 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x40f580 - (0x40e400 - 0x2d4000), 0x40f600 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x40f600 - (0x40e400 - 0x2d4000), 0x40f680 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x40f280 - (0x40e400 - 0x2d4000), 0x40f300 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00 - (0x40e400 - 0x2d4000), 0x410E80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Burn 2", 0x410E80 - (0x40e400 - 0x2d4000), 0x410F00 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 1", 0x410F00 - (0x40e400 - 0x2d4000), 0x410F80 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 2", 0x410F80 - (0x40e400 - 0x2d4000), 0x411000 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 1", 0x411000 - (0x40e400 - 0x2d4000), 0x411080 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 2", 0x411080 - (0x40e400 - 0x2d4000), 0x411100 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 3", 0x411100 - (0x40e400 - 0x2d4000), 0x411180 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 4", 0x411180 - (0x40e400 - 0x2d4000), 0x411200 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 1", 0x411200 - (0x40e400 - 0x2d4000), 0x411280 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 2", 0x411280 - (0x40e400 - 0x2d4000), 0x411300 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 3", 0x411300 - (0x40e400 - 0x2d4000), 0x411380 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 1", 0x411380 - (0x40e400 - 0x2d4000), 0x411400 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 2", 0x411400 - (0x40e400 - 0x2d4000), 0x411480 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 3", 0x411480 - (0x40e400 - 0x2d4000), 0x411500 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 4", 0x411500 - (0x40e400 - 0x2d4000), 0x411580 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 5", 0x411580 - (0x40e400 - 0x2d4000), 0x411600 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Punch Palette Cartur", 0x40e580 - (0x40e400 - 0x2d4000), 0x40e600 - (0x40e400 - 0x2d4000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x40e600 - (0x40e400 - 0x2d4000), 0x40e700 - (0x40e400 - 0x2d4000) },
+    { L"Unknown Tessa Palette 2", 0x40f180 - (0x40e400 - 0x2d4000), 0x40f200 - (0x40e400 - 0x2d4000) },
+    { L"Unknown Tessa Palette 3", 0x40fe80 - (0x40e400 - 0x2d4000), 0x40ff00 - (0x40e400 - 0x2d4000) },
+    { L"Unknown Tessa Range 1", 0x40fb80 - (0x40e400 - 0x2d4000), 0x40fd80 - (0x40e400 - 0x2d4000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x410000", 0x410000 - (0x40e400 - 0x2d4000), 0x410200 - (0x40e400 - 0x2d4000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x410200", 0x410200 - (0x40e400 - 0x2d4000), 0x410400 - (0x40e400 - 0x2d4000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x410400", 0x410400 - (0x40e400 - 0x2d4000), 0x410600 - (0x40e400 - 0x2d4000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x410600", 0x410600 - (0x40e400 - 0x2d4000), 0x410680 - (0x40e400 - 0x2d4000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_PUNCH_PALETTES[] =
+{
+    // Ravange Transparency on Punch Tessa Ranges
+    // 0x2d8000
+    // 0x2db200
+    { L"Tessa Punch", 0x40E400 - (0x40e400 - 0x2d8000), 0x40E480 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Changing Pal", 0x40E480 - (0x40e400 - 0x2d8000), 0x40E500 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Punch Bottled Ice", 0x40E500 - (0x40e400 - 0x2d8000), 0x40E580 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Punch Mage Shield Block", 0x40EA00 - (0x40e400 - 0x2d8000), 0x40EA80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Punch Mage Shield Preblock", 0x40EA80 - (0x40e400 - 0x2d8000), 0x40EB00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Punch Al (Aru) Cat", 0x40E780 - (0x40e400 - 0x2d8000), 0x40E800 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800 - (0x40e400 - 0x2d8000), 0x40E880 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ivan (Ibun) Cat", 0x40E880 - (0x40e400 - 0x2d8000), 0x40E900 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Ivan (Ibun) Cat Returning", 0x40E900 - (0x40e400 - 0x2d8000), 0x40E980 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ice", 0x40E980 - (0x40e400 - 0x2d8000), 0x40EA00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Punch Reverie Sword", 0x40EB80 - (0x40e400 - 0x2d8000), 0x40EC00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Punch Staffs", 0x40EC00 - (0x40e400 - 0x2d8000), 0x40EC80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Punch Kaeru (Frog)", 0x40EE80 - (0x40e400 - 0x2d8000), 0x40EF00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 - (0x40e400 - 0x2d8000), 0x40F000 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Punch Suitcat", 0x40FF00 - (0x40e400 - 0x2d8000), 0x40FF80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Suitcat (Mustard)", 0x40FF80 - (0x40e400 - 0x2d8000), 0x410000 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Chakra Wave", 0x40EF00 - (0x40e400 - 0x2d8000), 0x40EF80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Punch Cannon Magic Pattern", 0x40E700 - (0x40e400 - 0x2d8000), 0x40E780 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Punch Cannon Transition", 0x40F880 - (0x40e400 - 0x2d8000), 0x40F900 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Punch Hyper Cannon (Superball and Winscreen)", 0x40F900 - (0x40e400 - 0x2d8000), 0x40F980 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Punch Glace Cannon", 0x40F980 - (0x40e400 - 0x2d8000), 0x40FA00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Flamma Cannon", 0x40FA00 - (0x40e400 - 0x2d8000), 0x40FA80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Electron Cannon", 0x40FA80 - (0x40e400 - 0x2d8000), 0x40FB00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Death Phenomenon - On Hit", 0x40FD80 - (0x40e400 - 0x2d8000), 0x40FE00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Punch Death Phenomenon - On Whiff", 0x40FE00 - (0x40e400 - 0x2d8000), 0x40FE80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 - (0x40e400 - 0x2d8000), 0x40F800 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Punch Manot Arm", 0x40F200 - (0x40e400 - 0x2d8000), 0x40F280 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Punch GC/Pursuit Wrecking Ball", 0x40F300 - (0x40e400 - 0x2d8000), 0x40F380 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Punch Grab Saw", 0x40F080 - (0x40e400 - 0x2d8000), 0x40F100 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100 - (0x40e400 - 0x2d8000), 0x40F180 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00 - (0x40e400 - 0x2d8000), 0x40EB80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00 - (0x40e400 - 0x2d8000), 0x40EE80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00 - (0x40e400 - 0x2d8000), 0x40fb80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x40f380 - (0x40e400 - 0x2d8000), 0x40f400 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x40f400 - (0x40e400 - 0x2d8000), 0x40f480 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x40f480 - (0x40e400 - 0x2d8000), 0x40f500 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x40f500 - (0x40e400 - 0x2d8000), 0x40f580 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x40f580 - (0x40e400 - 0x2d8000), 0x40f600 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x40f600 - (0x40e400 - 0x2d8000), 0x40f680 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x40f280 - (0x40e400 - 0x2d8000), 0x40f300 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00 - (0x40e400 - 0x2d8000), 0x410E80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Burn 2", 0x410E80 - (0x40e400 - 0x2d8000), 0x410F00 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 1", 0x410F00 - (0x40e400 - 0x2d8000), 0x410F80 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 2", 0x410F80 - (0x40e400 - 0x2d8000), 0x411000 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 1", 0x411000 - (0x40e400 - 0x2d8000), 0x411080 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 2", 0x411080 - (0x40e400 - 0x2d8000), 0x411100 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 3", 0x411100 - (0x40e400 - 0x2d8000), 0x411180 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 4", 0x411180 - (0x40e400 - 0x2d8000), 0x411200 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 1", 0x411200 - (0x40e400 - 0x2d8000), 0x411280 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 2", 0x411280 - (0x40e400 - 0x2d8000), 0x411300 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 3", 0x411300 - (0x40e400 - 0x2d8000), 0x411380 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 1", 0x411380 - (0x40e400 - 0x2d8000), 0x411400 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 2", 0x411400 - (0x40e400 - 0x2d8000), 0x411480 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 3", 0x411480 - (0x40e400 - 0x2d8000), 0x411500 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 4", 0x411500 - (0x40e400 - 0x2d8000), 0x411580 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 5", 0x411580 - (0x40e400 - 0x2d8000), 0x411600 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Punch Palette Cartur", 0x40e580 - (0x40e400 - 0x2d8000), 0x40e600 - (0x40e400 - 0x2d8000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x40e600 - (0x40e400 - 0x2d8000), 0x40e700 - (0x40e400 - 0x2d8000) },
+    { L"Unknown Tessa Palette 2", 0x40f180 - (0x40e400 - 0x2d8000), 0x40f200 - (0x40e400 - 0x2d8000) },
+    { L"Unknown Tessa Palette 3", 0x40fe80 - (0x40e400 - 0x2d8000), 0x40ff00 - (0x40e400 - 0x2d8000) },
+    { L"Unknown Tessa Range 1", 0x40fb80 - (0x40e400 - 0x2d8000), 0x40fd80 - (0x40e400 - 0x2d8000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x410000", 0x410000 - (0x40e400 - 0x2d8000), 0x410200 - (0x40e400 - 0x2d8000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x410200", 0x410200 - (0x40e400 - 0x2d8000), 0x410400 - (0x40e400 - 0x2d8000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x410400", 0x410400 - (0x40e400 - 0x2d8000), 0x410600 - (0x40e400 - 0x2d8000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x410600", 0x410600 - (0x40e400 - 0x2d8000), 0x410680 - (0x40e400 - 0x2d8000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_PUNCH_PALETTES[] =
+{
+    // Blade Transparency on Punch Tessa Ranges
+    // 0x2dc000
+    // 0x2df200
+    { L"Tessa Punch", 0x40E400 - (0x40e400 - 0x2dc000), 0x40E480 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Changing Pal", 0x40E480 - (0x40e400 - 0x2dc000), 0x40E500 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Punch Bottled Ice", 0x40E500 - (0x40e400 - 0x2dc000), 0x40E580 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Punch Mage Shield Block", 0x40EA00 - (0x40e400 - 0x2dc000), 0x40EA80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Punch Mage Shield Preblock", 0x40EA80 - (0x40e400 - 0x2dc000), 0x40EB00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Punch Al (Aru) Cat", 0x40E780 - (0x40e400 - 0x2dc000), 0x40E800 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800 - (0x40e400 - 0x2dc000), 0x40E880 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ivan (Ibun) Cat", 0x40E880 - (0x40e400 - 0x2dc000), 0x40E900 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Ivan (Ibun) Cat Returning", 0x40E900 - (0x40e400 - 0x2dc000), 0x40E980 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Punch Ice", 0x40E980 - (0x40e400 - 0x2dc000), 0x40EA00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Punch Reverie Sword", 0x40EB80 - (0x40e400 - 0x2dc000), 0x40EC00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Punch Staffs", 0x40EC00 - (0x40e400 - 0x2dc000), 0x40EC80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Punch Kaeru (Frog)", 0x40EE80 - (0x40e400 - 0x2dc000), 0x40EF00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 - (0x40e400 - 0x2dc000), 0x40F000 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Punch Suitcat", 0x40FF00 - (0x40e400 - 0x2dc000), 0x40FF80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Suitcat (Mustard)", 0x40FF80 - (0x40e400 - 0x2dc000), 0x410000 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Punch Chakra Wave", 0x40EF00 - (0x40e400 - 0x2dc000), 0x40EF80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Punch Cannon Magic Pattern", 0x40E700 - (0x40e400 - 0x2dc000), 0x40E780 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Punch Cannon Transition", 0x40F880 - (0x40e400 - 0x2dc000), 0x40F900 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Punch Hyper Cannon (Superball and Winscreen)", 0x40F900 - (0x40e400 - 0x2dc000), 0x40F980 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Punch Glace Cannon", 0x40F980 - (0x40e400 - 0x2dc000), 0x40FA00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Flamma Cannon", 0x40FA00 - (0x40e400 - 0x2dc000), 0x40FA80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Electron Cannon", 0x40FA80 - (0x40e400 - 0x2dc000), 0x40FB00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Punch Death Phenomenon - On Hit", 0x40FD80 - (0x40e400 - 0x2dc000), 0x40FE00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Punch Death Phenomenon - On Whiff", 0x40FE00 - (0x40e400 - 0x2dc000), 0x40FE80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 - (0x40e400 - 0x2dc000), 0x40F800 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Punch Manot Arm", 0x40F200 - (0x40e400 - 0x2dc000), 0x40F280 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Punch GC/Pursuit Wrecking Ball", 0x40F300 - (0x40e400 - 0x2dc000), 0x40F380 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Punch Grab Saw", 0x40F080 - (0x40e400 - 0x2dc000), 0x40F100 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100 - (0x40e400 - 0x2dc000), 0x40F180 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00 - (0x40e400 - 0x2dc000), 0x40EB80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00 - (0x40e400 - 0x2dc000), 0x40EE80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00 - (0x40e400 - 0x2dc000), 0x40fb80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x40f380 - (0x40e400 - 0x2dc000), 0x40f400 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x40f400 - (0x40e400 - 0x2dc000), 0x40f480 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x40f480 - (0x40e400 - 0x2dc000), 0x40f500 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x40f500 - (0x40e400 - 0x2dc000), 0x40f580 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x40f580 - (0x40e400 - 0x2dc000), 0x40f600 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x40f600 - (0x40e400 - 0x2dc000), 0x40f680 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x40f280 - (0x40e400 - 0x2dc000), 0x40f300 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00 - (0x40e400 - 0x2dc000), 0x410E80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Burn 2", 0x410E80 - (0x40e400 - 0x2dc000), 0x410F00 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 1", 0x410F00 - (0x40e400 - 0x2dc000), 0x410F80 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 2", 0x410F80 - (0x40e400 - 0x2dc000), 0x411000 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 1", 0x411000 - (0x40e400 - 0x2dc000), 0x411080 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 2", 0x411080 - (0x40e400 - 0x2dc000), 0x411100 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 3", 0x411100 - (0x40e400 - 0x2dc000), 0x411180 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 4", 0x411180 - (0x40e400 - 0x2dc000), 0x411200 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 1", 0x411200 - (0x40e400 - 0x2dc000), 0x411280 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 2", 0x411280 - (0x40e400 - 0x2dc000), 0x411300 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 3", 0x411300 - (0x40e400 - 0x2dc000), 0x411380 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 1", 0x411380 - (0x40e400 - 0x2dc000), 0x411400 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 2", 0x411400 - (0x40e400 - 0x2dc000), 0x411480 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 3", 0x411480 - (0x40e400 - 0x2dc000), 0x411500 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 4", 0x411500 - (0x40e400 - 0x2dc000), 0x411580 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 5", 0x411580 - (0x40e400 - 0x2dc000), 0x411600 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Punch Palette Cartur", 0x40e580 - (0x40e400 - 0x2dc000), 0x40e600 - (0x40e400 - 0x2dc000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x40e600 - (0x40e400 - 0x2dc000), 0x40e700 - (0x40e400 - 0x2dc000) },
+    { L"Unknown Tessa Palette 2", 0x40f180 - (0x40e400 - 0x2dc000), 0x40f200 - (0x40e400 - 0x2dc000) },
+    { L"Unknown Tessa Palette 3", 0x40fe80 - (0x40e400 - 0x2dc000), 0x40ff00 - (0x40e400 - 0x2dc000) },
+    { L"Unknown Tessa Range 1", 0x40fb80 - (0x40e400 - 0x2dc000), 0x40fd80 - (0x40e400 - 0x2dc000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x410000", 0x410000 - (0x40e400 - 0x2dc000), 0x410200 - (0x40e400 - 0x2dc000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x410200", 0x410200 - (0x40e400 - 0x2dc000), 0x410400 - (0x40e400 - 0x2dc000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x410400", 0x410400 - (0x40e400 - 0x2dc000), 0x410600 - (0x40e400 - 0x2dc000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x410600", 0x410600 - (0x40e400 - 0x2dc000), 0x410680 - (0x40e400 - 0x2dc000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_MAI_PUNCH_PALETTES[] =
+{
+    // Punch Mai
+    // 0x411600
+    // 0x414800
+
+    // Slash Transparency on Punch Mai Ranges
+    // 0x28c000
+    // 0x28f200
+    { L"Mai-Ling Punch", 0x411600 - (0x411600 - 0x28c000), 0x411680 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Punch Fire", 0x411680 - (0x411600 - 0x28c000), 0x411700 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Punch Fireball", 0x411780 - (0x411600 - 0x28c000), 0x411800 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880 - (0x411600 - 0x28c000), 0x411900 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x411900 - (0x411600 - 0x28c000), 0x411980 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x412a00 - (0x411600 - 0x28c000), 0x412b00 - (0x411600 - 0x28c000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000 - (0x411600 - 0x28c000), 0x414080 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Burn 2", 0x414080 - (0x411600 - 0x28c000), 0x414100 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 1", 0x414100 - (0x411600 - 0x28c000), 0x414180 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 2", 0x414180 - (0x411600 - 0x28c000), 0x414200 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 1", 0x414200 - (0x411600 - 0x28c000), 0x414280 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 2", 0x414280 - (0x411600 - 0x28c000), 0x414300 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 3", 0x414300 - (0x411600 - 0x28c000), 0x414380 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 4", 0x414380 - (0x411600 - 0x28c000), 0x414400 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 1", 0x414400 - (0x411600 - 0x28c000), 0x414480 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 2", 0x414480 - (0x411600 - 0x28c000), 0x414500 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 3", 0x414500 - (0x411600 - 0x28c000), 0x414580 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 1", 0x414580 - (0x411600 - 0x28c000), 0x414600 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 2", 0x414600 - (0x411600 - 0x28c000), 0x414680 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 3", 0x414680 - (0x411600 - 0x28c000), 0x414700 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 4", 0x414700 - (0x411600 - 0x28c000), 0x414780 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 5", 0x414780 - (0x411600 - 0x28c000), 0x414800 - (0x411600 - 0x28c000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x411700 - (0x411600 - 0x28c000), 0x411780 - (0x411600 - 0x28c000) },
+    { L"Unknown Mai Palette 2", 0x411800 - (0x411600 - 0x28c000), 0x411880 - (0x411600 - 0x28c000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_PUNCH_PALETTES[] =
+{
+    // Hauzer Transparency on Punch Mai Ranges
+    // 0x2e0000
+    // 0x2e3200
+    { L"Mai-Ling Punch", 0x411600 - (0x411600 - 0x2e0000), 0x411680 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Punch Fire", 0x411680 - (0x411600 - 0x2e0000), 0x411700 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Punch Fireball", 0x411780 - (0x411600 - 0x2e0000), 0x411800 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880 - (0x411600 - 0x2e0000), 0x411900 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x411900 - (0x411600 - 0x2e0000), 0x411980 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x412a00 - (0x411600 - 0x2e0000), 0x412b00 - (0x411600 - 0x2e0000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000 - (0x411600 - 0x2e0000), 0x414080 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Burn 2", 0x414080 - (0x411600 - 0x2e0000), 0x414100 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 1", 0x414100 - (0x411600 - 0x2e0000), 0x414180 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 2", 0x414180 - (0x411600 - 0x2e0000), 0x414200 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 1", 0x414200 - (0x411600 - 0x2e0000), 0x414280 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 2", 0x414280 - (0x411600 - 0x2e0000), 0x414300 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 3", 0x414300 - (0x411600 - 0x2e0000), 0x414380 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 4", 0x414380 - (0x411600 - 0x2e0000), 0x414400 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 1", 0x414400 - (0x411600 - 0x2e0000), 0x414480 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 2", 0x414480 - (0x411600 - 0x2e0000), 0x414500 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 3", 0x414500 - (0x411600 - 0x2e0000), 0x414580 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 1", 0x414580 - (0x411600 - 0x2e0000), 0x414600 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 2", 0x414600 - (0x411600 - 0x2e0000), 0x414680 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 3", 0x414680 - (0x411600 - 0x2e0000), 0x414700 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 4", 0x414700 - (0x411600 - 0x2e0000), 0x414780 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 5", 0x414780 - (0x411600 - 0x2e0000), 0x414800 - (0x411600 - 0x2e0000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x411700 - (0x411600 - 0x2e0000), 0x411780 - (0x411600 - 0x2e0000) },
+    { L"Unknown Mai Palette 2", 0x411800 - (0x411600 - 0x2e0000), 0x411880 - (0x411600 - 0x2e0000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_PUNCH_PALETTES[] =
+{
+    // Hydron Transparency on Punch Mai Ranges
+    // 0x2e4000
+    // 0x2e7200
+    { L"Mai-Ling Punch", 0x411600 - (0x411600 - 0x2e4000), 0x411680 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Punch Fire", 0x411680 - (0x411600 - 0x2e4000), 0x411700 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Punch Fireball", 0x411780 - (0x411600 - 0x2e4000), 0x411800 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880 - (0x411600 - 0x2e4000), 0x411900 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x411900 - (0x411600 - 0x2e4000), 0x411980 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x412a00 - (0x411600 - 0x2e4000), 0x412b00 - (0x411600 - 0x2e4000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000 - (0x411600 - 0x2e4000), 0x414080 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Burn 2", 0x414080 - (0x411600 - 0x2e4000), 0x414100 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 1", 0x414100 - (0x411600 - 0x2e4000), 0x414180 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 2", 0x414180 - (0x411600 - 0x2e4000), 0x414200 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 1", 0x414200 - (0x411600 - 0x2e4000), 0x414280 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 2", 0x414280 - (0x411600 - 0x2e4000), 0x414300 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 3", 0x414300 - (0x411600 - 0x2e4000), 0x414380 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 4", 0x414380 - (0x411600 - 0x2e4000), 0x414400 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 1", 0x414400 - (0x411600 - 0x2e4000), 0x414480 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 2", 0x414480 - (0x411600 - 0x2e4000), 0x414500 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 3", 0x414500 - (0x411600 - 0x2e4000), 0x414580 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 1", 0x414580 - (0x411600 - 0x2e4000), 0x414600 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 2", 0x414600 - (0x411600 - 0x2e4000), 0x414680 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 3", 0x414680 - (0x411600 - 0x2e4000), 0x414700 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 4", 0x414700 - (0x411600 - 0x2e4000), 0x414780 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 5", 0x414780 - (0x411600 - 0x2e4000), 0x414800 - (0x411600 - 0x2e4000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x411700 - (0x411600 - 0x2e4000), 0x411780 - (0x411600 - 0x2e4000) },
+    { L"Unknown Mai Palette 2", 0x411800 - (0x411600 - 0x2e4000), 0x411880 - (0x411600 - 0x2e4000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_PUNCH_PALETTES[] =
+{
+    // Ravange Transparency on Punch Mai Ranges
+    // 0x2e8000
+    // 0x2eb200
+    { L"Mai-Ling Punch", 0x411600 - (0x411600 - 0x2e8000), 0x411680 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Punch Fire", 0x411680 - (0x411600 - 0x2e8000), 0x411700 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Punch Fireball", 0x411780 - (0x411600 - 0x2e8000), 0x411800 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880 - (0x411600 - 0x2e8000), 0x411900 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x411900 - (0x411600 - 0x2e8000), 0x411980 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x412a00 - (0x411600 - 0x2e8000), 0x412b00 - (0x411600 - 0x2e8000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000 - (0x411600 - 0x2e8000), 0x414080 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Burn 2", 0x414080 - (0x411600 - 0x2e8000), 0x414100 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 1", 0x414100 - (0x411600 - 0x2e8000), 0x414180 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 2", 0x414180 - (0x411600 - 0x2e8000), 0x414200 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 1", 0x414200 - (0x411600 - 0x2e8000), 0x414280 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 2", 0x414280 - (0x411600 - 0x2e8000), 0x414300 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 3", 0x414300 - (0x411600 - 0x2e8000), 0x414380 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 4", 0x414380 - (0x411600 - 0x2e8000), 0x414400 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 1", 0x414400 - (0x411600 - 0x2e8000), 0x414480 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 2", 0x414480 - (0x411600 - 0x2e8000), 0x414500 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 3", 0x414500 - (0x411600 - 0x2e8000), 0x414580 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 1", 0x414580 - (0x411600 - 0x2e8000), 0x414600 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 2", 0x414600 - (0x411600 - 0x2e8000), 0x414680 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 3", 0x414680 - (0x411600 - 0x2e8000), 0x414700 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 4", 0x414700 - (0x411600 - 0x2e8000), 0x414780 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 5", 0x414780 - (0x411600 - 0x2e8000), 0x414800 - (0x411600 - 0x2e8000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x411700 - (0x411600 - 0x2e8000), 0x411780 - (0x411600 - 0x2e8000) },
+    { L"Unknown Mai Palette 2", 0x411800 - (0x411600 - 0x2e8000), 0x411880 - (0x411600 - 0x2e8000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_PUNCH_PALETTES[] =
+{
+    // Blade Transparency on Punch Mai Ranges
+    // 0x2ec000
+    // 0x2ef200
+    { L"Mai-Ling Punch", 0x411600 - (0x411600 - 0x2ec000), 0x411680 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Punch Fire", 0x411680 - (0x411600 - 0x2ec000), 0x411700 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Punch Fireball", 0x411780 - (0x411600 - 0x2ec000), 0x411800 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880 - (0x411600 - 0x2ec000), 0x411900 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x411900 - (0x411600 - 0x2ec000), 0x411980 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x412a00 - (0x411600 - 0x2ec000), 0x412b00 - (0x411600 - 0x2ec000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000 - (0x411600 - 0x2ec000), 0x414080 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Burn 2", 0x414080 - (0x411600 - 0x2ec000), 0x414100 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 1", 0x414100 - (0x411600 - 0x2ec000), 0x414180 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Shock 2", 0x414180 - (0x411600 - 0x2ec000), 0x414200 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 1", 0x414200 - (0x411600 - 0x2ec000), 0x414280 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 2", 0x414280 - (0x411600 - 0x2ec000), 0x414300 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 3", 0x414300 - (0x411600 - 0x2ec000), 0x414380 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Poisoned 4", 0x414380 - (0x411600 - 0x2ec000), 0x414400 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 1", 0x414400 - (0x411600 - 0x2ec000), 0x414480 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 2", 0x414480 - (0x411600 - 0x2ec000), 0x414500 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Petrified 3", 0x414500 - (0x411600 - 0x2ec000), 0x414580 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 1", 0x414580 - (0x411600 - 0x2ec000), 0x414600 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 2", 0x414600 - (0x411600 - 0x2ec000), 0x414680 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 3", 0x414680 - (0x411600 - 0x2ec000), 0x414700 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 4", 0x414700 - (0x411600 - 0x2ec000), 0x414780 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Punch Frozen 5", 0x414780 - (0x411600 - 0x2ec000), 0x414800 - (0x411600 - 0x2ec000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x411700 - (0x411600 - 0x2ec000), 0x411780 - (0x411600 - 0x2ec000) },
+    { L"Unknown Mai Palette 2", 0x411800 - (0x411600 - 0x2ec000), 0x411880 - (0x411600 - 0x2ec000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_KICK_PALETTES[] =
+{
+    // Kick Leo
+    // 0x414800
+    // 0x417a00
+
+    // Slash Transparency on Kick Leo Ranges
+    // 0x290000
+    // 0x293e20
+    { L"Leo Kick",                          0x414800 - (0x414800 - 0x290000), 0x414880 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Kick Old Sword",                0x414900 - (0x414800 - 0x290000), 0x414980 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Kick Bronze Sword",             0x414980 - (0x414800 - 0x290000), 0x414A00 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Kick Steel Sword",              0x414A00 - (0x414800 - 0x290000), 0x414A80 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Kick Diamond Sword",            0x414A80 - (0x414800 - 0x290000), 0x414B00 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Kick Legendary Sword",          0x414B00 - (0x414800 - 0x290000), 0x414B80 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Kick Old Shield",               0x414B80 - (0x414800 - 0x290000), 0x414C00 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Kick Wooden Shield",            0x414C00 - (0x414800 - 0x290000), 0x414C80 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Kick Steel Shield",             0x414C80 - (0x414800 - 0x290000), 0x414D00 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Kick Diamond Shield",           0x414D00 - (0x414800 - 0x290000), 0x414D80 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Kick Legendary Shield",         0x414D80 - (0x414800 - 0x290000), 0x414E00 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Kick Fire Sword",               0x414E00 - (0x414800 - 0x290000), 0x414E80 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Kick Ice Sword",                0x414E80 - (0x414800 - 0x290000), 0x414F00 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Kick Lightning Sword",          0x414F00 - (0x414800 - 0x290000), 0x414F80 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Kick Battle Axe",               0x414F80 - (0x414800 - 0x290000), 0x415000 - (0x414800 - 0x290000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Kick Ultimate Guard Flash and Burn 1", 0x417200 - (0x414800 - 0x290000), 0x417280 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Burn 2", 0x417280 - (0x414800 - 0x290000), 0x417300 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 1", 0x417300 - (0x414800 - 0x290000), 0x417380 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 2", 0x417380 - (0x414800 - 0x290000), 0x417400 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 1", 0x417400 - (0x414800 - 0x290000), 0x417480 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 2", 0x417480 - (0x414800 - 0x290000), 0x417500 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 3", 0x417500 - (0x414800 - 0x290000), 0x417580 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 4", 0x417580 - (0x414800 - 0x290000), 0x417600 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 1", 0x417600 - (0x414800 - 0x290000), 0x417680 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 2", 0x417680 - (0x414800 - 0x290000), 0x417700 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 3", 0x417700 - (0x414800 - 0x290000), 0x417780 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 1", 0x417780 - (0x414800 - 0x290000), 0x417800 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 2", 0x417800 - (0x414800 - 0x290000), 0x417880 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 3", 0x417880 - (0x414800 - 0x290000), 0x417900 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 4", 0x417900 - (0x414800 - 0x290000), 0x417980 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 5", 0x417980 - (0x414800 - 0x290000), 0x417A00 - (0x414800 - 0x290000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu", 0x415780 - (0x414800 - 0x290000), 0x415800 - (0x414800 - 0x290000) },
+    { L"Wisemen Mist 1", 0x415800 - (0x414800 - 0x290000), 0x415880 - (0x414800 - 0x290000) },
+    { L"Wisemen Mist 2", 0x415880 - (0x414800 - 0x290000), 0x415900 - (0x414800 - 0x290000) },
+
+    { L"Unknown Leo Palette", 0x415180 - (0x414800 - 0x290000), 0x415380 - (0x414800 - 0x290000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_LEO_KICK_PALETTES[] =
+{
+    // Hauzer Transparency on Kick Leo Ranges
+    // 0x2f0000
+    // 0x2f3e20
+    { L"Leo Kick",                          0x414800 - (0x414800 - 0x2f0000), 0x414880 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Kick Old Sword",                0x414900 - (0x414800 - 0x2f0000), 0x414980 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Kick Bronze Sword",             0x414980 - (0x414800 - 0x2f0000), 0x414A00 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Kick Steel Sword",              0x414A00 - (0x414800 - 0x2f0000), 0x414A80 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Kick Diamond Sword",            0x414A80 - (0x414800 - 0x2f0000), 0x414B00 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Kick Legendary Sword",          0x414B00 - (0x414800 - 0x2f0000), 0x414B80 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Kick Old Shield",               0x414B80 - (0x414800 - 0x2f0000), 0x414C00 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Kick Wooden Shield",            0x414C00 - (0x414800 - 0x2f0000), 0x414C80 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Kick Steel Shield",             0x414C80 - (0x414800 - 0x2f0000), 0x414D00 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Kick Diamond Shield",           0x414D00 - (0x414800 - 0x2f0000), 0x414D80 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Kick Legendary Shield",         0x414D80 - (0x414800 - 0x2f0000), 0x414E00 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Kick Fire Sword",               0x414E00 - (0x414800 - 0x2f0000), 0x414E80 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Kick Ice Sword",                0x414E80 - (0x414800 - 0x2f0000), 0x414F00 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Kick Lightning Sword",          0x414F00 - (0x414800 - 0x2f0000), 0x414F80 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Kick Battle Axe",               0x414F80 - (0x414800 - 0x2f0000), 0x415000 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Kick Ultimate Guard Flash and Burn 1", 0x417200 - (0x414800 - 0x2f0000), 0x417280 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Burn 2", 0x417280 - (0x414800 - 0x2f0000), 0x417300 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 1", 0x417300 - (0x414800 - 0x2f0000), 0x417380 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 2", 0x417380 - (0x414800 - 0x2f0000), 0x417400 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 1", 0x417400 - (0x414800 - 0x2f0000), 0x417480 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 2", 0x417480 - (0x414800 - 0x2f0000), 0x417500 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 3", 0x417500 - (0x414800 - 0x2f0000), 0x417580 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 4", 0x417580 - (0x414800 - 0x2f0000), 0x417600 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 1", 0x417600 - (0x414800 - 0x2f0000), 0x417680 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 2", 0x417680 - (0x414800 - 0x2f0000), 0x417700 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 3", 0x417700 - (0x414800 - 0x2f0000), 0x417780 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 1", 0x417780 - (0x414800 - 0x2f0000), 0x417800 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 2", 0x417800 - (0x414800 - 0x2f0000), 0x417880 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 3", 0x417880 - (0x414800 - 0x2f0000), 0x417900 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 4", 0x417900 - (0x414800 - 0x2f0000), 0x417980 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 5", 0x417980 - (0x414800 - 0x2f0000), 0x417A00 - (0x414800 - 0x2f0000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu", 0x415780 - (0x414800 - 0x2f0000), 0x415800 - (0x414800 - 0x2f0000) },
+    { L"Wisemen Mist 1", 0x415800 - (0x414800 - 0x2f0000), 0x415880 - (0x414800 - 0x2f0000) },
+    { L"Wisemen Mist 2", 0x415880 - (0x414800 - 0x2f0000), 0x415900 - (0x414800 - 0x2f0000) },
+
+    { L"Unknown Leo Palette", 0x415180 - (0x414800 - 0x2f0000), 0x415380 - (0x414800 - 0x2f0000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_LEO_KICK_PALETTES[] =
+{
+    // Hydron Transparency on Kick Leo Ranges
+    // 0x2f4000
+    // 0x2f7e20
+    { L"Leo Kick",                          0x414800 - (0x414800 - 0x2f4000), 0x414880 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Kick Old Sword",                0x414900 - (0x414800 - 0x2f4000), 0x414980 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Kick Bronze Sword",             0x414980 - (0x414800 - 0x2f4000), 0x414A00 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Kick Steel Sword",              0x414A00 - (0x414800 - 0x2f4000), 0x414A80 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Kick Diamond Sword",            0x414A80 - (0x414800 - 0x2f4000), 0x414B00 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Kick Legendary Sword",          0x414B00 - (0x414800 - 0x2f4000), 0x414B80 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Kick Old Shield",               0x414B80 - (0x414800 - 0x2f4000), 0x414C00 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Kick Wooden Shield",            0x414C00 - (0x414800 - 0x2f4000), 0x414C80 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Kick Steel Shield",             0x414C80 - (0x414800 - 0x2f4000), 0x414D00 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Kick Diamond Shield",           0x414D00 - (0x414800 - 0x2f4000), 0x414D80 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Kick Legendary Shield",         0x414D80 - (0x414800 - 0x2f4000), 0x414E00 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Kick Fire Sword",               0x414E00 - (0x414800 - 0x2f4000), 0x414E80 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Kick Ice Sword",                0x414E80 - (0x414800 - 0x2f4000), 0x414F00 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Kick Lightning Sword",          0x414F00 - (0x414800 - 0x2f4000), 0x414F80 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Kick Battle Axe",               0x414F80 - (0x414800 - 0x2f4000), 0x415000 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Kick Ultimate Guard Flash and Burn 1", 0x417200 - (0x414800 - 0x2f4000), 0x417280 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Burn 2", 0x417280 - (0x414800 - 0x2f4000), 0x417300 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 1", 0x417300 - (0x414800 - 0x2f4000), 0x417380 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 2", 0x417380 - (0x414800 - 0x2f4000), 0x417400 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 1", 0x417400 - (0x414800 - 0x2f4000), 0x417480 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 2", 0x417480 - (0x414800 - 0x2f4000), 0x417500 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 3", 0x417500 - (0x414800 - 0x2f4000), 0x417580 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 4", 0x417580 - (0x414800 - 0x2f4000), 0x417600 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 1", 0x417600 - (0x414800 - 0x2f4000), 0x417680 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 2", 0x417680 - (0x414800 - 0x2f4000), 0x417700 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 3", 0x417700 - (0x414800 - 0x2f4000), 0x417780 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 1", 0x417780 - (0x414800 - 0x2f4000), 0x417800 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 2", 0x417800 - (0x414800 - 0x2f4000), 0x417880 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 3", 0x417880 - (0x414800 - 0x2f4000), 0x417900 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 4", 0x417900 - (0x414800 - 0x2f4000), 0x417980 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 5", 0x417980 - (0x414800 - 0x2f4000), 0x417A00 - (0x414800 - 0x2f4000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu", 0x415780 - (0x414800 - 0x2f4000), 0x415800 - (0x414800 - 0x2f4000) },
+    { L"Wisemen Mist 1", 0x415800 - (0x414800 - 0x2f4000), 0x415880 - (0x414800 - 0x2f4000) },
+    { L"Wisemen Mist 2", 0x415880 - (0x414800 - 0x2f4000), 0x415900 - (0x414800 - 0x2f4000) },
+
+    { L"Unknown Leo Palette", 0x415180 - (0x414800 - 0x2f4000), 0x415380 - (0x414800 - 0x2f4000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_LEO_KICK_PALETTES[] =
+{
+    // Ravange Transparency on Kick Leo Ranges
+    // 0x2f8000
+    // 0x2fbe20
+    { L"Leo Kick",                          0x414800 - (0x414800 - 0x2f8000), 0x414880 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Kick Old Sword",                0x414900 - (0x414800 - 0x2f8000), 0x414980 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Kick Bronze Sword",             0x414980 - (0x414800 - 0x2f8000), 0x414A00 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Kick Steel Sword",              0x414A00 - (0x414800 - 0x2f8000), 0x414A80 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Kick Diamond Sword",            0x414A80 - (0x414800 - 0x2f8000), 0x414B00 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Kick Legendary Sword",          0x414B00 - (0x414800 - 0x2f8000), 0x414B80 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Kick Old Shield",               0x414B80 - (0x414800 - 0x2f8000), 0x414C00 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Kick Wooden Shield",            0x414C00 - (0x414800 - 0x2f8000), 0x414C80 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Kick Steel Shield",             0x414C80 - (0x414800 - 0x2f8000), 0x414D00 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Kick Diamond Shield",           0x414D00 - (0x414800 - 0x2f8000), 0x414D80 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Kick Legendary Shield",         0x414D80 - (0x414800 - 0x2f8000), 0x414E00 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Kick Fire Sword",               0x414E00 - (0x414800 - 0x2f8000), 0x414E80 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Kick Ice Sword",                0x414E80 - (0x414800 - 0x2f8000), 0x414F00 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Kick Lightning Sword",          0x414F00 - (0x414800 - 0x2f8000), 0x414F80 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Kick Battle Axe",               0x414F80 - (0x414800 - 0x2f8000), 0x415000 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Kick Ultimate Guard Flash and Burn 1", 0x417200 - (0x414800 - 0x2f8000), 0x417280 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Burn 2", 0x417280 - (0x414800 - 0x2f8000), 0x417300 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 1", 0x417300 - (0x414800 - 0x2f8000), 0x417380 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 2", 0x417380 - (0x414800 - 0x2f8000), 0x417400 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 1", 0x417400 - (0x414800 - 0x2f8000), 0x417480 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 2", 0x417480 - (0x414800 - 0x2f8000), 0x417500 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 3", 0x417500 - (0x414800 - 0x2f8000), 0x417580 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 4", 0x417580 - (0x414800 - 0x2f8000), 0x417600 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 1", 0x417600 - (0x414800 - 0x2f8000), 0x417680 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 2", 0x417680 - (0x414800 - 0x2f8000), 0x417700 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 3", 0x417700 - (0x414800 - 0x2f8000), 0x417780 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 1", 0x417780 - (0x414800 - 0x2f8000), 0x417800 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 2", 0x417800 - (0x414800 - 0x2f8000), 0x417880 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 3", 0x417880 - (0x414800 - 0x2f8000), 0x417900 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 4", 0x417900 - (0x414800 - 0x2f8000), 0x417980 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 5", 0x417980 - (0x414800 - 0x2f8000), 0x417A00 - (0x414800 - 0x2f8000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu", 0x415780 - (0x414800 - 0x2f8000), 0x415800 - (0x414800 - 0x2f8000) },
+    { L"Wisemen Mist 1", 0x415800 - (0x414800 - 0x2f8000), 0x415880 - (0x414800 - 0x2f8000) },
+    { L"Wisemen Mist 2", 0x415880 - (0x414800 - 0x2f8000), 0x415900 - (0x414800 - 0x2f8000) },
+
+    { L"Unknown Leo Palette", 0x415180 - (0x414800 - 0x2f8000), 0x415380 - (0x414800 - 0x2f8000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_LEO_KICK_PALETTES[] =
+{
+    // Blade Transparency on Kick Leo Ranges
+    // 0x2fc000
+    // 0x2ffe20
+    { L"Leo Kick",                          0x414800 - (0x414800 - 0x2fc000), 0x414880 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Kick Old Sword",                0x414900 - (0x414800 - 0x2fc000), 0x414980 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x09 },
+    { L"Leo Kick Bronze Sword",             0x414980 - (0x414800 - 0x2fc000), 0x414A00 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x02 },
+    { L"Leo Kick Steel Sword",              0x414A00 - (0x414800 - 0x2fc000), 0x414A80 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x0a },
+    { L"Leo Kick Diamond Sword",            0x414A80 - (0x414800 - 0x2fc000), 0x414B00 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x03 },
+    { L"Leo Kick Legendary Sword",          0x414B00 - (0x414800 - 0x2fc000), 0x414B80 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x07 },
+    { L"Leo Kick Old Shield",               0x414B80 - (0x414800 - 0x2fc000), 0x414C00 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x0b },
+    { L"Leo Kick Wooden Shield",            0x414C00 - (0x414800 - 0x2fc000), 0x414C80 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x0c },
+    { L"Leo Kick Steel Shield",             0x414C80 - (0x414800 - 0x2fc000), 0x414D00 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x0d },
+    { L"Leo Kick Diamond Shield",           0x414D00 - (0x414800 - 0x2fc000), 0x414D80 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x0e },
+    { L"Leo Kick Legendary Shield",         0x414D80 - (0x414800 - 0x2fc000), 0x414E00 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x06 },
+    { L"Leo Kick Fire Sword",               0x414E00 - (0x414800 - 0x2fc000), 0x414E80 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x04 },
+    { L"Leo Kick Ice Sword",                0x414E80 - (0x414800 - 0x2fc000), 0x414F00 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x05 },
+    { L"Leo Kick Lightning Sword",          0x414F00 - (0x414800 - 0x2fc000), 0x414F80 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x08 },
+    { L"Leo Kick Battle Axe",               0x414F80 - (0x414800 - 0x2fc000), 0x415000 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo, 0x01 },
+
+    { L"Leo Kick Ultimate Guard Flash and Burn 1", 0x417200 - (0x414800 - 0x2fc000), 0x417280 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Burn 2", 0x417280 - (0x414800 - 0x2fc000), 0x417300 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 1", 0x417300 - (0x414800 - 0x2fc000), 0x417380 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 2", 0x417380 - (0x414800 - 0x2fc000), 0x417400 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 1", 0x417400 - (0x414800 - 0x2fc000), 0x417480 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 2", 0x417480 - (0x414800 - 0x2fc000), 0x417500 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 3", 0x417500 - (0x414800 - 0x2fc000), 0x417580 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 4", 0x417580 - (0x414800 - 0x2fc000), 0x417600 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 1", 0x417600 - (0x414800 - 0x2fc000), 0x417680 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 2", 0x417680 - (0x414800 - 0x2fc000), 0x417700 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 3", 0x417700 - (0x414800 - 0x2fc000), 0x417780 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 1", 0x417780 - (0x414800 - 0x2fc000), 0x417800 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 2", 0x417800 - (0x414800 - 0x2fc000), 0x417880 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 3", 0x417880 - (0x414800 - 0x2fc000), 0x417900 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 4", 0x417900 - (0x414800 - 0x2fc000), 0x417980 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 5", 0x417980 - (0x414800 - 0x2fc000), 0x417A00 - (0x414800 - 0x2fc000), indexRedEarthSprites_Leo },
+
+    { L"Vigo, Valo & Vestu", 0x415780 - (0x414800 - 0x2fc000), 0x415800 - (0x414800 - 0x2fc000) },
+    { L"Wisemen Mist 1", 0x415800 - (0x414800 - 0x2fc000), 0x415880 - (0x414800 - 0x2fc000) },
+    { L"Wisemen Mist 2", 0x415880 - (0x414800 - 0x2fc000), 0x415900 - (0x414800 - 0x2fc000) },
+
+    { L"Unknown Leo Palette", 0x415180 - (0x414800 - 0x2fc000), 0x415380 - (0x414800 - 0x2fc000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_KICK_PALETTES[] =
+{
+    // Kick Kenji
+    // 0x417a00
+    // 0x41ac00
+
+    // Slash Transparency on Kick Kenji Ranges
+    // 0x294000
+    // 0x297200
+    { L"Kenji Kick",                             0x417A00 - (0x417A00 - 0x294000), 0x417A80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+    { L"Hat intro",                              0x417b00 - (0x417A00 - 0x294000), 0x417b80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Chains, Kunai",                          0x417b80 - (0x417A00 - 0x294000), 0x417c00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x417c00 - (0x417A00 - 0x294000), 0x417c80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x417c80 - (0x417A00 - 0x294000), 0x417d00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x417d00 - (0x417A00 - 0x294000), 0x417d80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x417d80 - (0x417A00 - 0x294000), 0x417e00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x417e00 - (0x417A00 - 0x294000), 0x417e80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x417f00 - (0x417A00 - 0x294000), 0x417f80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x417e80 - (0x417A00 - 0x294000), 0x417f00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x417f80 - (0x417A00 - 0x294000), 0x418000 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x08 },
+
+    { L"Kunai Throwing Shine (1/3)",             0x418700 - (0x417A00 - 0x294000), 0x418780 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x418680 - (0x417A00 - 0x294000), 0x418700 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x418600 - (0x417A00 - 0x294000), 0x418680 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x417A80 - (0x417A00 - 0x294000), 0x417B00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Kick Ultimate Guard Flash and Burn 1", 0x41A400 - (0x417A00 - 0x294000), 0x41A480 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Burn 2", 0x41A480 - (0x417A00 - 0x294000), 0x41A500 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 1", 0x41A500 - (0x417A00 - 0x294000), 0x41A580 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 2", 0x41A580 - (0x417A00 - 0x294000), 0x41A600 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 1", 0x41A600 - (0x417A00 - 0x294000), 0x41A680 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 2", 0x41A680 - (0x417A00 - 0x294000), 0x41A700 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 3", 0x41A700 - (0x417A00 - 0x294000), 0x41A780 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 4", 0x41A780 - (0x417A00 - 0x294000), 0x41A800 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 1", 0x41A800 - (0x417A00 - 0x294000), 0x41A880 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 2", 0x41A880 - (0x417A00 - 0x294000), 0x41A900 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 3", 0x41A900 - (0x417A00 - 0x294000), 0x41A980 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 1", 0x41A980 - (0x417A00 - 0x294000), 0x41AA00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 2", 0x41AA00 - (0x417A00 - 0x294000), 0x41AA80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 3", 0x41AA80 - (0x417A00 - 0x294000), 0x41AB00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 4", 0x41AB00 - (0x417A00 - 0x294000), 0x41AB80 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 5", 0x41AB80 - (0x417A00 - 0x294000), 0x41AC00 - (0x417A00 - 0x294000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x4187e0", 0x4187e0 - (0x417A00 - 0x294000), 0x4189e0 - (0x417A00 - 0x294000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x294000), 0x418a00 - (0x417A00 - 0x294000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x294000), 0x419000 - (0x417A00 - 0x294000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x294000), 0x419120 - (0x417A00 - 0x294000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_KICK_PALETTES[] =
+{
+    // Hauzer Transparency on Kick Kenji Ranges
+    // 0x300000
+    // 0x303200
+    { L"Kenji Kick",                             0x417A00 - (0x417A00 - 0x300000), 0x417A80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+    { L"Hat intro",                              0x417b00 - (0x417A00 - 0x300000), 0x417b80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Chains, Kunai",                          0x417b80 - (0x417A00 - 0x300000), 0x417c00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x417c00 - (0x417A00 - 0x300000), 0x417c80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x417c80 - (0x417A00 - 0x300000), 0x417d00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x417d00 - (0x417A00 - 0x300000), 0x417d80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x417d80 - (0x417A00 - 0x300000), 0x417e00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x417e00 - (0x417A00 - 0x300000), 0x417e80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x417f00 - (0x417A00 - 0x300000), 0x417f80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x417e80 - (0x417A00 - 0x300000), 0x417f00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x417f80 - (0x417A00 - 0x300000), 0x418000 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x08 },
+
+    { L"Kunai Throwing Shine (1/3)",             0x418700 - (0x417A00 - 0x300000), 0x418780 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x418680 - (0x417A00 - 0x300000), 0x418700 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x418600 - (0x417A00 - 0x300000), 0x418680 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x417A80 - (0x417A00 - 0x300000), 0x417B00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Kick Ultimate Guard Flash and Burn 1", 0x41A400 - (0x417A00 - 0x300000), 0x41A480 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Burn 2", 0x41A480 - (0x417A00 - 0x300000), 0x41A500 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 1", 0x41A500 - (0x417A00 - 0x300000), 0x41A580 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 2", 0x41A580 - (0x417A00 - 0x300000), 0x41A600 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 1", 0x41A600 - (0x417A00 - 0x300000), 0x41A680 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 2", 0x41A680 - (0x417A00 - 0x300000), 0x41A700 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 3", 0x41A700 - (0x417A00 - 0x300000), 0x41A780 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 4", 0x41A780 - (0x417A00 - 0x300000), 0x41A800 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 1", 0x41A800 - (0x417A00 - 0x300000), 0x41A880 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 2", 0x41A880 - (0x417A00 - 0x300000), 0x41A900 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 3", 0x41A900 - (0x417A00 - 0x300000), 0x41A980 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 1", 0x41A980 - (0x417A00 - 0x300000), 0x41AA00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 2", 0x41AA00 - (0x417A00 - 0x300000), 0x41AA80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 3", 0x41AA80 - (0x417A00 - 0x300000), 0x41AB00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 4", 0x41AB00 - (0x417A00 - 0x300000), 0x41AB80 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 5", 0x41AB80 - (0x417A00 - 0x300000), 0x41AC00 - (0x417A00 - 0x300000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x4187e0", 0x4187e0 - (0x417A00 - 0x300000), 0x4189e0 - (0x417A00 - 0x300000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x300000), 0x418a00 - (0x417A00 - 0x300000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x300000), 0x419000 - (0x417A00 - 0x300000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x300000), 0x419120 - (0x417A00 - 0x300000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_KICK_PALETTES[] =
+{
+    // Hydron Transparency on Kick Kenji Ranges
+    // 0x304000
+    // 0x307200
+    { L"Kenji Kick",                             0x417A00 - (0x417A00 - 0x304000), 0x417A80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+    { L"Hat intro",                              0x417b00 - (0x417A00 - 0x304000), 0x417b80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Chains, Kunai",                          0x417b80 - (0x417A00 - 0x304000), 0x417c00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x417c00 - (0x417A00 - 0x304000), 0x417c80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x417c80 - (0x417A00 - 0x304000), 0x417d00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x417d00 - (0x417A00 - 0x304000), 0x417d80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x417d80 - (0x417A00 - 0x304000), 0x417e00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x417e00 - (0x417A00 - 0x304000), 0x417e80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x417f00 - (0x417A00 - 0x304000), 0x417f80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x417e80 - (0x417A00 - 0x304000), 0x417f00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x417f80 - (0x417A00 - 0x304000), 0x418000 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x08 },
+
+    { L"Kunai Throwing Shine (1/3)",             0x418700 - (0x417A00 - 0x304000), 0x418780 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x418680 - (0x417A00 - 0x304000), 0x418700 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x418600 - (0x417A00 - 0x304000), 0x418680 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x417A80 - (0x417A00 - 0x304000), 0x417B00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Kick Ultimate Guard Flash and Burn 1", 0x41A400 - (0x417A00 - 0x304000), 0x41A480 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Burn 2", 0x41A480 - (0x417A00 - 0x304000), 0x41A500 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 1", 0x41A500 - (0x417A00 - 0x304000), 0x41A580 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 2", 0x41A580 - (0x417A00 - 0x304000), 0x41A600 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 1", 0x41A600 - (0x417A00 - 0x304000), 0x41A680 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 2", 0x41A680 - (0x417A00 - 0x304000), 0x41A700 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 3", 0x41A700 - (0x417A00 - 0x304000), 0x41A780 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 4", 0x41A780 - (0x417A00 - 0x304000), 0x41A800 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 1", 0x41A800 - (0x417A00 - 0x304000), 0x41A880 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 2", 0x41A880 - (0x417A00 - 0x304000), 0x41A900 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 3", 0x41A900 - (0x417A00 - 0x304000), 0x41A980 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 1", 0x41A980 - (0x417A00 - 0x304000), 0x41AA00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 2", 0x41AA00 - (0x417A00 - 0x304000), 0x41AA80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 3", 0x41AA80 - (0x417A00 - 0x304000), 0x41AB00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 4", 0x41AB00 - (0x417A00 - 0x304000), 0x41AB80 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 5", 0x41AB80 - (0x417A00 - 0x304000), 0x41AC00 - (0x417A00 - 0x304000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x4187e0", 0x4187e0 - (0x417A00 - 0x304000), 0x4189e0 - (0x417A00 - 0x304000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x304000), 0x418a00 - (0x417A00 - 0x304000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x304000), 0x419000 - (0x417A00 - 0x304000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x304000), 0x419120 - (0x417A00 - 0x304000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_KICK_PALETTES[] =
+{
+    // Ravange Transparency on Kick Kenji Ranges
+    // 0x308000
+    // 0x30b200
+    { L"Kenji Kick",                             0x417A00 - (0x417A00 - 0x308000), 0x417A80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+    { L"Hat intro",                              0x417b00 - (0x417A00 - 0x308000), 0x417b80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Chains, Kunai",                          0x417b80 - (0x417A00 - 0x308000), 0x417c00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x417c00 - (0x417A00 - 0x308000), 0x417c80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x417c80 - (0x417A00 - 0x308000), 0x417d00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x417d00 - (0x417A00 - 0x308000), 0x417d80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x417d80 - (0x417A00 - 0x308000), 0x417e00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x417e00 - (0x417A00 - 0x308000), 0x417e80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x417f00 - (0x417A00 - 0x308000), 0x417f80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x417e80 - (0x417A00 - 0x308000), 0x417f00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x417f80 - (0x417A00 - 0x308000), 0x418000 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x08 },
+
+    { L"Kunai Throwing Shine (1/3)",             0x418700 - (0x417A00 - 0x308000), 0x418780 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x418680 - (0x417A00 - 0x308000), 0x418700 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x418600 - (0x417A00 - 0x308000), 0x418680 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x417A80 - (0x417A00 - 0x308000), 0x417B00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Kick Ultimate Guard Flash and Burn 1", 0x41A400 - (0x417A00 - 0x308000), 0x41A480 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Burn 2", 0x41A480 - (0x417A00 - 0x308000), 0x41A500 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 1", 0x41A500 - (0x417A00 - 0x308000), 0x41A580 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 2", 0x41A580 - (0x417A00 - 0x308000), 0x41A600 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 1", 0x41A600 - (0x417A00 - 0x308000), 0x41A680 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 2", 0x41A680 - (0x417A00 - 0x308000), 0x41A700 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 3", 0x41A700 - (0x417A00 - 0x308000), 0x41A780 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 4", 0x41A780 - (0x417A00 - 0x308000), 0x41A800 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 1", 0x41A800 - (0x417A00 - 0x308000), 0x41A880 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 2", 0x41A880 - (0x417A00 - 0x308000), 0x41A900 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 3", 0x41A900 - (0x417A00 - 0x308000), 0x41A980 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 1", 0x41A980 - (0x417A00 - 0x308000), 0x41AA00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 2", 0x41AA00 - (0x417A00 - 0x308000), 0x41AA80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 3", 0x41AA80 - (0x417A00 - 0x308000), 0x41AB00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 4", 0x41AB00 - (0x417A00 - 0x308000), 0x41AB80 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 5", 0x41AB80 - (0x417A00 - 0x308000), 0x41AC00 - (0x417A00 - 0x308000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x4187e0", 0x4187e0 - (0x417A00 - 0x308000), 0x4189e0 - (0x417A00 - 0x308000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x308000), 0x418a00 - (0x417A00 - 0x308000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x308000), 0x419000 - (0x417A00 - 0x308000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x308000), 0x419120 - (0x417A00 - 0x308000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_KICK_PALETTES[] =
+{
+    // Blade Transparency on Kick Kenji Ranges
+    // 0x30c000
+    // 0x30f200
+    { L"Kenji Kick",                             0x417A00 - (0x417A00 - 0x30c000), 0x417A80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x0, &pairNextAndNext },
+    { L"Hat intro",                              0x417b00 - (0x417A00 - 0x30c000), 0x417b80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x02 },
+    { L"Chains, Kunai",                          0x417b80 - (0x417A00 - 0x30c000), 0x417c00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x417c00 - (0x417A00 - 0x30c000), 0x417c80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x417c80 - (0x417A00 - 0x30c000), 0x417d00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x417d00 - (0x417A00 - 0x30c000), 0x417d80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x417d80 - (0x417A00 - 0x30c000), 0x417e00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x03 },
+    { L"HCF.4/5/6 Slash",                        0x417e00 - (0x417A00 - 0x30c000), 0x417e80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x417f00 - (0x417A00 - 0x30c000), 0x417f80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x417e80 - (0x417A00 - 0x30c000), 0x417f00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x417f80 - (0x417A00 - 0x30c000), 0x418000 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x08 },
+
+    { L"Kunai Throwing Shine (1/3)",             0x418700 - (0x417A00 - 0x30c000), 0x418780 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x418680 - (0x417A00 - 0x30c000), 0x418700 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x418600 - (0x417A00 - 0x30c000), 0x418680 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x417A80 - (0x417A00 - 0x30c000), 0x417B00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji, 0x24 },
+
+    { L"Kenji Kick Ultimate Guard Flash and Burn 1", 0x41A400 - (0x417A00 - 0x30c000), 0x41A480 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Burn 2", 0x41A480 - (0x417A00 - 0x30c000), 0x41A500 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 1", 0x41A500 - (0x417A00 - 0x30c000), 0x41A580 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 2", 0x41A580 - (0x417A00 - 0x30c000), 0x41A600 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 1", 0x41A600 - (0x417A00 - 0x30c000), 0x41A680 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 2", 0x41A680 - (0x417A00 - 0x30c000), 0x41A700 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 3", 0x41A700 - (0x417A00 - 0x30c000), 0x41A780 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 4", 0x41A780 - (0x417A00 - 0x30c000), 0x41A800 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 1", 0x41A800 - (0x417A00 - 0x30c000), 0x41A880 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 2", 0x41A880 - (0x417A00 - 0x30c000), 0x41A900 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 3", 0x41A900 - (0x417A00 - 0x30c000), 0x41A980 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 1", 0x41A980 - (0x417A00 - 0x30c000), 0x41AA00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 2", 0x41AA00 - (0x417A00 - 0x30c000), 0x41AA80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 3", 0x41AA80 - (0x417A00 - 0x30c000), 0x41AB00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 4", 0x41AB00 - (0x417A00 - 0x30c000), 0x41AB80 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 5", 0x41AB80 - (0x417A00 - 0x30c000), 0x41AC00 - (0x417A00 - 0x30c000), indexRedEarthSprites_Kenji },
+
+    { L"Unknown Kenji Range 1 (1/2) 0x4187e0", 0x4187e0 - (0x417A00 - 0x30c000), 0x4189e0 - (0x417A00 - 0x30c000) },
+    { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x30c000), 0x418a00 - (0x417A00 - 0x30c000) },
+    { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x30c000), 0x419000 - (0x417A00 - 0x30c000) },
+    { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x30c000), 0x419120 - (0x417A00 - 0x30c000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_KICK_PALETTES[] =
+{
+    // Kick Tessa
+    // 0x41ac00
+    // 0x41de00
+
+    // Slash Transparency on Kick Tessa Ranges
+    // 0x298000
+    // 0x29b200
+    { L"Tessa Kick", 0x41AC00 - (0x41ac00 - 0x298000), 0x41AC80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Tessa Kick Changing Pal", 0x41AC80 - (0x41ac00 - 0x298000), 0x41AD00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Kick Bottled Ice", 0x41AD00 - (0x41ac00 - 0x298000), 0x41AD80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Kick Mage Shield Block", 0x40EA00 + 0xc800 - (0x41ac00 - 0x298000), 0x40EA80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Kick Mage Shield Preblock", 0x40EA80 + 0xc800 - (0x41ac00 - 0x298000), 0x40EB00 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Kick Al (Aru) Cat", 0x40E780 + 0xc800 - (0x41ac00 - 0x298000), 0x40E800 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800 - (0x41ac00 - 0x298000), 0x40E880 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ivan (Ibun) Cat", 0x40E880 + 0xc800 - (0x41ac00 - 0x298000), 0x40E900 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800 - (0x41ac00 - 0x298000), 0x40E980 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ice", 0x40E980 + 0xc800 - (0x41ac00 - 0x298000), 0x40EA00 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Kick Reverie Sword", 0x40EB80 + 0xc800 - (0x41ac00 - 0x298000), 0x40EC00 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Kick Staffs", 0x40EC00 + 0xc800 - (0x41ac00 - 0x298000), 0x40EC80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Kaeru (Frog)", 0x40EE80 + 0xc800 - (0x41ac00 - 0x298000), 0x40EF00 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 + 0xc800 - (0x41ac00 - 0x298000), 0x40F000 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Kick Suitcat", 0x40FF00 + 0xc800 - (0x41ac00 - 0x298000), 0x40FF80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Suitcat (Mustard)", 0x40FF80 + 0xc800 - (0x41ac00 - 0x298000), 0x410000 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Chakra Wave", 0x40EF00 + 0xc800 - (0x41ac00 - 0x298000), 0x40EF80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Kick Cannon Magic Pattern", 0x40E700 + 0xc800 - (0x41ac00 - 0x298000), 0x40E780 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Kick Cannon Transition", 0x40F880 + 0xc800 - (0x41ac00 - 0x298000), 0x40F900 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Kick Hyper Cannon (Superball and Winscreen)", 0x40F900 + 0xc800 - (0x41ac00 - 0x298000), 0x40F980 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Kick Glace Cannon", 0x40F980 + 0xc800 - (0x41ac00 - 0x298000), 0x40FA00 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Flamma Cannon", 0x40FA00 + 0xc800 - (0x41ac00 - 0x298000), 0x40FA80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Electron Cannon", 0x40FA80 + 0xc800 - (0x41ac00 - 0x298000), 0x40FB00 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800 - (0x41ac00 - 0x298000), 0x40FE00 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800 - (0x41ac00 - 0x298000), 0x40FE80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 + 0xc800 - (0x41ac00 - 0x298000), 0x40F800 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800 - (0x41ac00 - 0x298000), 0x40F280 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800 - (0x41ac00 - 0x298000), 0x40F380 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Kick Grab Saw", 0x40F080 + 0xc800 - (0x41ac00 - 0x298000), 0x40F100 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800 - (0x41ac00 - 0x298000), 0x40F180 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800 - (0x41ac00 - 0x298000), 0x40EB80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800 - (0x41ac00 - 0x298000), 0x40EE80 + 0xc800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Kick Ultimate Counter Chain", 0x41c300 - (0x41ac00 - 0x298000), 0x41c380 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x41bb80 - (0x41ac00 - 0x298000), 0x41bc00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x41bc00 - (0x41ac00 - 0x298000), 0x41bc80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x41bc80 - (0x41ac00 - 0x298000), 0x41bd00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x41bd00 - (0x41ac00 - 0x298000), 0x41bd80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x41bd80 - (0x41ac00 - 0x298000), 0x41be00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x41be00 - (0x41ac00 - 0x298000), 0x41be80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x41ba80 - (0x41ac00 - 0x298000), 0x41bb00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600 - (0x41ac00 - 0x298000), 0x41D680 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Burn 2", 0x41D680 - (0x41ac00 - 0x298000), 0x41D700 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 1", 0x41D700 - (0x41ac00 - 0x298000), 0x41D780 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 2", 0x41D780 - (0x41ac00 - 0x298000), 0x41D800 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 1", 0x41D800 - (0x41ac00 - 0x298000), 0x41D880 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 2", 0x41D880 - (0x41ac00 - 0x298000), 0x41D900 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 3", 0x41D900 - (0x41ac00 - 0x298000), 0x41D980 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 4", 0x41D980 - (0x41ac00 - 0x298000), 0x41DA00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 1", 0x41DA00 - (0x41ac00 - 0x298000), 0x41DA80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 2", 0x41DA80 - (0x41ac00 - 0x298000), 0x41DB00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 3", 0x41DB00 - (0x41ac00 - 0x298000), 0x41DB80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 1", 0x41DB80 - (0x41ac00 - 0x298000), 0x41DC00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 2", 0x41DC00 - (0x41ac00 - 0x298000), 0x41DC80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 3", 0x41DC80 - (0x41ac00 - 0x298000), 0x41DD00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 4", 0x41DD00 - (0x41ac00 - 0x298000), 0x41DD80 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 5", 0x41DD80 - (0x41ac00 - 0x298000), 0x41DE00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Kick Palette Cartur", 0x41ad80 - (0x41ac00 - 0x298000), 0x41ae00 - (0x41ac00 - 0x298000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x41ae00 - (0x41ac00 - 0x298000), 0x41af00 - (0x41ac00 - 0x298000) },
+    { L"Unknown Tessa Palette 2", 0x41b980 - (0x41ac00 - 0x298000), 0x41ba00 - (0x41ac00 - 0x298000) },
+    { L"Unknown Tessa Palette 3", 0x41c680 - (0x41ac00 - 0x298000), 0x41c700 - (0x41ac00 - 0x298000) },
+    { L"Unknown Tessa Range 1", 0x41c380 - (0x41ac00 - 0x298000), 0x41c580 - (0x41ac00 - 0x298000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x41c800", 0x41c800 - (0x41ac00 - 0x298000), 0x41ca00 - (0x41ac00 - 0x298000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x41ca00", 0x41ca00 - (0x41ac00 - 0x298000), 0x41cc00 - (0x41ac00 - 0x298000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x41cc00", 0x41cc00 - (0x41ac00 - 0x298000), 0x41ce00 - (0x41ac00 - 0x298000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x41ce00", 0x41ce00 - (0x41ac00 - 0x298000), 0x41ce80 - (0x41ac00 - 0x298000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_TESSA_KICK_PALETTES[] =
+{
+    // Hauzer Transparency on Kick Tessa Ranges
+    // 0x310000
+    // 0x313200
+    { L"Tessa Kick", 0x41AC00 - (0x41ac00 - 0x310000), 0x41AC80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Tessa Kick Changing Pal", 0x41AC80 - (0x41ac00 - 0x310000), 0x41AD00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Kick Bottled Ice", 0x41AD00 - (0x41ac00 - 0x310000), 0x41AD80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Kick Mage Shield Block", 0x40EA00 + 0xc800 - (0x41ac00 - 0x310000), 0x40EA80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Kick Mage Shield Preblock", 0x40EA80 + 0xc800 - (0x41ac00 - 0x310000), 0x40EB00 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Kick Al (Aru) Cat", 0x40E780 + 0xc800 - (0x41ac00 - 0x310000), 0x40E800 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800 - (0x41ac00 - 0x310000), 0x40E880 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ivan (Ibun) Cat", 0x40E880 + 0xc800 - (0x41ac00 - 0x310000), 0x40E900 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800 - (0x41ac00 - 0x310000), 0x40E980 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ice", 0x40E980 + 0xc800 - (0x41ac00 - 0x310000), 0x40EA00 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Kick Reverie Sword", 0x40EB80 + 0xc800 - (0x41ac00 - 0x310000), 0x40EC00 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Kick Staffs", 0x40EC00 + 0xc800 - (0x41ac00 - 0x310000), 0x40EC80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Kaeru (Frog)", 0x40EE80 + 0xc800 - (0x41ac00 - 0x310000), 0x40EF00 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 + 0xc800 - (0x41ac00 - 0x310000), 0x40F000 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Kick Suitcat", 0x40FF00 + 0xc800 - (0x41ac00 - 0x310000), 0x40FF80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Suitcat (Mustard)", 0x40FF80 + 0xc800 - (0x41ac00 - 0x310000), 0x410000 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Chakra Wave", 0x40EF00 + 0xc800 - (0x41ac00 - 0x310000), 0x40EF80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Kick Cannon Magic Pattern", 0x40E700 + 0xc800 - (0x41ac00 - 0x310000), 0x40E780 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Kick Cannon Transition", 0x40F880 + 0xc800 - (0x41ac00 - 0x310000), 0x40F900 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Kick Hyper Cannon (Superball and Winscreen)", 0x40F900 + 0xc800 - (0x41ac00 - 0x310000), 0x40F980 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Kick Glace Cannon", 0x40F980 + 0xc800 - (0x41ac00 - 0x310000), 0x40FA00 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Flamma Cannon", 0x40FA00 + 0xc800 - (0x41ac00 - 0x310000), 0x40FA80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Electron Cannon", 0x40FA80 + 0xc800 - (0x41ac00 - 0x310000), 0x40FB00 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800 - (0x41ac00 - 0x310000), 0x40FE00 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800 - (0x41ac00 - 0x310000), 0x40FE80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 + 0xc800 - (0x41ac00 - 0x310000), 0x40F800 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800 - (0x41ac00 - 0x310000), 0x40F280 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800 - (0x41ac00 - 0x310000), 0x40F380 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Kick Grab Saw", 0x40F080 + 0xc800 - (0x41ac00 - 0x310000), 0x40F100 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800 - (0x41ac00 - 0x310000), 0x40F180 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800 - (0x41ac00 - 0x310000), 0x40EB80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800 - (0x41ac00 - 0x310000), 0x40EE80 + 0xc800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Kick Ultimate Counter Chain", 0x41c300 - (0x41ac00 - 0x310000), 0x41c380 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x41bb80 - (0x41ac00 - 0x310000), 0x41bc00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x41bc00 - (0x41ac00 - 0x310000), 0x41bc80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x41bc80 - (0x41ac00 - 0x310000), 0x41bd00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x41bd00 - (0x41ac00 - 0x310000), 0x41bd80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x41bd80 - (0x41ac00 - 0x310000), 0x41be00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x41be00 - (0x41ac00 - 0x310000), 0x41be80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x41ba80 - (0x41ac00 - 0x310000), 0x41bb00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600 - (0x41ac00 - 0x310000), 0x41D680 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Burn 2", 0x41D680 - (0x41ac00 - 0x310000), 0x41D700 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 1", 0x41D700 - (0x41ac00 - 0x310000), 0x41D780 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 2", 0x41D780 - (0x41ac00 - 0x310000), 0x41D800 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 1", 0x41D800 - (0x41ac00 - 0x310000), 0x41D880 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 2", 0x41D880 - (0x41ac00 - 0x310000), 0x41D900 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 3", 0x41D900 - (0x41ac00 - 0x310000), 0x41D980 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 4", 0x41D980 - (0x41ac00 - 0x310000), 0x41DA00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 1", 0x41DA00 - (0x41ac00 - 0x310000), 0x41DA80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 2", 0x41DA80 - (0x41ac00 - 0x310000), 0x41DB00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 3", 0x41DB00 - (0x41ac00 - 0x310000), 0x41DB80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 1", 0x41DB80 - (0x41ac00 - 0x310000), 0x41DC00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 2", 0x41DC00 - (0x41ac00 - 0x310000), 0x41DC80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 3", 0x41DC80 - (0x41ac00 - 0x310000), 0x41DD00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 4", 0x41DD00 - (0x41ac00 - 0x310000), 0x41DD80 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 5", 0x41DD80 - (0x41ac00 - 0x310000), 0x41DE00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Kick Palette Cartur", 0x41ad80 - (0x41ac00 - 0x310000), 0x41ae00 - (0x41ac00 - 0x310000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x41ae00 - (0x41ac00 - 0x310000), 0x41af00 - (0x41ac00 - 0x310000) },
+    { L"Unknown Tessa Palette 2", 0x41b980 - (0x41ac00 - 0x310000), 0x41ba00 - (0x41ac00 - 0x310000) },
+    { L"Unknown Tessa Palette 3", 0x41c680 - (0x41ac00 - 0x310000), 0x41c700 - (0x41ac00 - 0x310000) },
+    { L"Unknown Tessa Range 1", 0x41c380 - (0x41ac00 - 0x310000), 0x41c580 - (0x41ac00 - 0x310000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x41c800", 0x41c800 - (0x41ac00 - 0x310000), 0x41ca00 - (0x41ac00 - 0x310000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x41ca00", 0x41ca00 - (0x41ac00 - 0x310000), 0x41cc00 - (0x41ac00 - 0x310000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x41cc00", 0x41cc00 - (0x41ac00 - 0x310000), 0x41ce00 - (0x41ac00 - 0x310000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x41ce00", 0x41ce00 - (0x41ac00 - 0x310000), 0x41ce80 - (0x41ac00 - 0x310000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_KICK_PALETTES[] =
+{
+    // Hydron Transparency on Kick Tessa Ranges
+    // 0x314000
+    // 0x317200
+    { L"Tessa Kick", 0x41AC00 - (0x41ac00 - 0x314000), 0x41AC80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Tessa Kick Changing Pal", 0x41AC80 - (0x41ac00 - 0x314000), 0x41AD00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Kick Bottled Ice", 0x41AD00 - (0x41ac00 - 0x314000), 0x41AD80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Kick Mage Shield Block", 0x40EA00 + 0xc800 - (0x41ac00 - 0x314000), 0x40EA80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Kick Mage Shield Preblock", 0x40EA80 + 0xc800 - (0x41ac00 - 0x314000), 0x40EB00 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Kick Al (Aru) Cat", 0x40E780 + 0xc800 - (0x41ac00 - 0x314000), 0x40E800 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800 - (0x41ac00 - 0x314000), 0x40E880 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ivan (Ibun) Cat", 0x40E880 + 0xc800 - (0x41ac00 - 0x314000), 0x40E900 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800 - (0x41ac00 - 0x314000), 0x40E980 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ice", 0x40E980 + 0xc800 - (0x41ac00 - 0x314000), 0x40EA00 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Kick Reverie Sword", 0x40EB80 + 0xc800 - (0x41ac00 - 0x314000), 0x40EC00 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Kick Staffs", 0x40EC00 + 0xc800 - (0x41ac00 - 0x314000), 0x40EC80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Kaeru (Frog)", 0x40EE80 + 0xc800 - (0x41ac00 - 0x314000), 0x40EF00 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 + 0xc800 - (0x41ac00 - 0x314000), 0x40F000 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Kick Suitcat", 0x40FF00 + 0xc800 - (0x41ac00 - 0x314000), 0x40FF80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Suitcat (Mustard)", 0x40FF80 + 0xc800 - (0x41ac00 - 0x314000), 0x410000 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Chakra Wave", 0x40EF00 + 0xc800 - (0x41ac00 - 0x314000), 0x40EF80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Kick Cannon Magic Pattern", 0x40E700 + 0xc800 - (0x41ac00 - 0x314000), 0x40E780 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Kick Cannon Transition", 0x40F880 + 0xc800 - (0x41ac00 - 0x314000), 0x40F900 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Kick Hyper Cannon (Superball and Winscreen)", 0x40F900 + 0xc800 - (0x41ac00 - 0x314000), 0x40F980 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Kick Glace Cannon", 0x40F980 + 0xc800 - (0x41ac00 - 0x314000), 0x40FA00 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Flamma Cannon", 0x40FA00 + 0xc800 - (0x41ac00 - 0x314000), 0x40FA80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Electron Cannon", 0x40FA80 + 0xc800 - (0x41ac00 - 0x314000), 0x40FB00 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800 - (0x41ac00 - 0x314000), 0x40FE00 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800 - (0x41ac00 - 0x314000), 0x40FE80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 + 0xc800 - (0x41ac00 - 0x314000), 0x40F800 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800 - (0x41ac00 - 0x314000), 0x40F280 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800 - (0x41ac00 - 0x314000), 0x40F380 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Kick Grab Saw", 0x40F080 + 0xc800 - (0x41ac00 - 0x314000), 0x40F100 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800 - (0x41ac00 - 0x314000), 0x40F180 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800 - (0x41ac00 - 0x314000), 0x40EB80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800 - (0x41ac00 - 0x314000), 0x40EE80 + 0xc800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Kick Ultimate Counter Chain", 0x41c300 - (0x41ac00 - 0x314000), 0x41c380 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x41bb80 - (0x41ac00 - 0x314000), 0x41bc00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x41bc00 - (0x41ac00 - 0x314000), 0x41bc80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x41bc80 - (0x41ac00 - 0x314000), 0x41bd00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x41bd00 - (0x41ac00 - 0x314000), 0x41bd80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x41bd80 - (0x41ac00 - 0x314000), 0x41be00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x41be00 - (0x41ac00 - 0x314000), 0x41be80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x41ba80 - (0x41ac00 - 0x314000), 0x41bb00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600 - (0x41ac00 - 0x314000), 0x41D680 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Burn 2", 0x41D680 - (0x41ac00 - 0x314000), 0x41D700 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 1", 0x41D700 - (0x41ac00 - 0x314000), 0x41D780 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 2", 0x41D780 - (0x41ac00 - 0x314000), 0x41D800 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 1", 0x41D800 - (0x41ac00 - 0x314000), 0x41D880 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 2", 0x41D880 - (0x41ac00 - 0x314000), 0x41D900 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 3", 0x41D900 - (0x41ac00 - 0x314000), 0x41D980 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 4", 0x41D980 - (0x41ac00 - 0x314000), 0x41DA00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 1", 0x41DA00 - (0x41ac00 - 0x314000), 0x41DA80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 2", 0x41DA80 - (0x41ac00 - 0x314000), 0x41DB00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 3", 0x41DB00 - (0x41ac00 - 0x314000), 0x41DB80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 1", 0x41DB80 - (0x41ac00 - 0x314000), 0x41DC00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 2", 0x41DC00 - (0x41ac00 - 0x314000), 0x41DC80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 3", 0x41DC80 - (0x41ac00 - 0x314000), 0x41DD00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 4", 0x41DD00 - (0x41ac00 - 0x314000), 0x41DD80 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 5", 0x41DD80 - (0x41ac00 - 0x314000), 0x41DE00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Kick Palette Cartur", 0x41ad80 - (0x41ac00 - 0x314000), 0x41ae00 - (0x41ac00 - 0x314000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x41ae00 - (0x41ac00 - 0x314000), 0x41af00 - (0x41ac00 - 0x314000) },
+    { L"Unknown Tessa Palette 2", 0x41b980 - (0x41ac00 - 0x314000), 0x41ba00 - (0x41ac00 - 0x314000) },
+    { L"Unknown Tessa Palette 3", 0x41c680 - (0x41ac00 - 0x314000), 0x41c700 - (0x41ac00 - 0x314000) },
+    { L"Unknown Tessa Range 1", 0x41c380 - (0x41ac00 - 0x314000), 0x41c580 - (0x41ac00 - 0x314000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x41c800", 0x41c800 - (0x41ac00 - 0x314000), 0x41ca00 - (0x41ac00 - 0x314000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x41ca00", 0x41ca00 - (0x41ac00 - 0x314000), 0x41cc00 - (0x41ac00 - 0x314000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x41cc00", 0x41cc00 - (0x41ac00 - 0x314000), 0x41ce00 - (0x41ac00 - 0x314000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x41ce00", 0x41ce00 - (0x41ac00 - 0x314000), 0x41ce80 - (0x41ac00 - 0x314000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_KICK_PALETTES[] =
+{
+    // Ravange Transparency on Kick Tessa Ranges
+    // 0x318000
+    // 0x31b200
+    { L"Tessa Kick", 0x41AC00 - (0x41ac00 - 0x318000), 0x41AC80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Tessa Kick Changing Pal", 0x41AC80 - (0x41ac00 - 0x318000), 0x41AD00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Kick Bottled Ice", 0x41AD00 - (0x41ac00 - 0x318000), 0x41AD80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Kick Mage Shield Block", 0x40EA00 + 0xc800 - (0x41ac00 - 0x318000), 0x40EA80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Kick Mage Shield Preblock", 0x40EA80 + 0xc800 - (0x41ac00 - 0x318000), 0x40EB00 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Kick Al (Aru) Cat", 0x40E780 + 0xc800 - (0x41ac00 - 0x318000), 0x40E800 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800 - (0x41ac00 - 0x318000), 0x40E880 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ivan (Ibun) Cat", 0x40E880 + 0xc800 - (0x41ac00 - 0x318000), 0x40E900 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800 - (0x41ac00 - 0x318000), 0x40E980 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ice", 0x40E980 + 0xc800 - (0x41ac00 - 0x318000), 0x40EA00 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Kick Reverie Sword", 0x40EB80 + 0xc800 - (0x41ac00 - 0x318000), 0x40EC00 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Kick Staffs", 0x40EC00 + 0xc800 - (0x41ac00 - 0x318000), 0x40EC80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Kaeru (Frog)", 0x40EE80 + 0xc800 - (0x41ac00 - 0x318000), 0x40EF00 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 + 0xc800 - (0x41ac00 - 0x318000), 0x40F000 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Kick Suitcat", 0x40FF00 + 0xc800 - (0x41ac00 - 0x318000), 0x40FF80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Suitcat (Mustard)", 0x40FF80 + 0xc800 - (0x41ac00 - 0x318000), 0x410000 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Chakra Wave", 0x40EF00 + 0xc800 - (0x41ac00 - 0x318000), 0x40EF80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Kick Cannon Magic Pattern", 0x40E700 + 0xc800 - (0x41ac00 - 0x318000), 0x40E780 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Kick Cannon Transition", 0x40F880 + 0xc800 - (0x41ac00 - 0x318000), 0x40F900 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Kick Hyper Cannon (Superball and Winscreen)", 0x40F900 + 0xc800 - (0x41ac00 - 0x318000), 0x40F980 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Kick Glace Cannon", 0x40F980 + 0xc800 - (0x41ac00 - 0x318000), 0x40FA00 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Flamma Cannon", 0x40FA00 + 0xc800 - (0x41ac00 - 0x318000), 0x40FA80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Electron Cannon", 0x40FA80 + 0xc800 - (0x41ac00 - 0x318000), 0x40FB00 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800 - (0x41ac00 - 0x318000), 0x40FE00 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800 - (0x41ac00 - 0x318000), 0x40FE80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 + 0xc800 - (0x41ac00 - 0x318000), 0x40F800 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800 - (0x41ac00 - 0x318000), 0x40F280 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800 - (0x41ac00 - 0x318000), 0x40F380 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Kick Grab Saw", 0x40F080 + 0xc800 - (0x41ac00 - 0x318000), 0x40F100 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800 - (0x41ac00 - 0x318000), 0x40F180 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800 - (0x41ac00 - 0x318000), 0x40EB80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800 - (0x41ac00 - 0x318000), 0x40EE80 + 0xc800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Kick Ultimate Counter Chain", 0x41c300 - (0x41ac00 - 0x318000), 0x41c380 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x41bb80 - (0x41ac00 - 0x318000), 0x41bc00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x41bc00 - (0x41ac00 - 0x318000), 0x41bc80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x41bc80 - (0x41ac00 - 0x318000), 0x41bd00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x41bd00 - (0x41ac00 - 0x318000), 0x41bd80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x41bd80 - (0x41ac00 - 0x318000), 0x41be00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x41be00 - (0x41ac00 - 0x318000), 0x41be80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x41ba80 - (0x41ac00 - 0x318000), 0x41bb00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600 - (0x41ac00 - 0x318000), 0x41D680 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Burn 2", 0x41D680 - (0x41ac00 - 0x318000), 0x41D700 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 1", 0x41D700 - (0x41ac00 - 0x318000), 0x41D780 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 2", 0x41D780 - (0x41ac00 - 0x318000), 0x41D800 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 1", 0x41D800 - (0x41ac00 - 0x318000), 0x41D880 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 2", 0x41D880 - (0x41ac00 - 0x318000), 0x41D900 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 3", 0x41D900 - (0x41ac00 - 0x318000), 0x41D980 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 4", 0x41D980 - (0x41ac00 - 0x318000), 0x41DA00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 1", 0x41DA00 - (0x41ac00 - 0x318000), 0x41DA80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 2", 0x41DA80 - (0x41ac00 - 0x318000), 0x41DB00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 3", 0x41DB00 - (0x41ac00 - 0x318000), 0x41DB80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 1", 0x41DB80 - (0x41ac00 - 0x318000), 0x41DC00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 2", 0x41DC00 - (0x41ac00 - 0x318000), 0x41DC80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 3", 0x41DC80 - (0x41ac00 - 0x318000), 0x41DD00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 4", 0x41DD00 - (0x41ac00 - 0x318000), 0x41DD80 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 5", 0x41DD80 - (0x41ac00 - 0x318000), 0x41DE00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Kick Palette Cartur", 0x41ad80 - (0x41ac00 - 0x318000), 0x41ae00 - (0x41ac00 - 0x318000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x41ae00 - (0x41ac00 - 0x318000), 0x41af00 - (0x41ac00 - 0x318000) },
+    { L"Unknown Tessa Palette 2", 0x41b980 - (0x41ac00 - 0x318000), 0x41ba00 - (0x41ac00 - 0x318000) },
+    { L"Unknown Tessa Palette 3", 0x41c680 - (0x41ac00 - 0x318000), 0x41c700 - (0x41ac00 - 0x318000) },
+    { L"Unknown Tessa Range 1", 0x41c380 - (0x41ac00 - 0x318000), 0x41c580 - (0x41ac00 - 0x318000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x41c800", 0x41c800 - (0x41ac00 - 0x318000), 0x41ca00 - (0x41ac00 - 0x318000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x41ca00", 0x41ca00 - (0x41ac00 - 0x318000), 0x41cc00 - (0x41ac00 - 0x318000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x41cc00", 0x41cc00 - (0x41ac00 - 0x318000), 0x41ce00 - (0x41ac00 - 0x318000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x41ce00", 0x41ce00 - (0x41ac00 - 0x318000), 0x41ce80 - (0x41ac00 - 0x318000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_KICK_PALETTES[] =
+{
+    // Blade Transparency on Kick Tessa Ranges
+    // 0x31c000
+    // 0x31f200
+    { L"Tessa Kick", 0x41AC00 - (0x41ac00 - 0x31c000), 0x41AC80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x00 },
+    { L"Tessa Kick Changing Pal", 0x41AC80 - (0x41ac00 - 0x31c000), 0x41AD00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x00 },
+
+    { L"Tessa Kick Bottled Ice", 0x41AD00 - (0x41ac00 - 0x31c000), 0x41AD80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Kick Mage Shield Block", 0x40EA00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EA80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Kick Mage Shield Preblock", 0x40EA80 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EB00 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Kick Al (Aru) Cat", 0x40E780 + 0xc800 - (0x41ac00 - 0x31c000), 0x40E800 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800 - (0x41ac00 - 0x31c000), 0x40E880 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ivan (Ibun) Cat", 0x40E880 + 0xc800 - (0x41ac00 - 0x31c000), 0x40E900 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800 - (0x41ac00 - 0x31c000), 0x40E980 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x26 },
+    { L"Tessa Kick Ice", 0x40E980 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EA00 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Kick Reverie Sword", 0x40EB80 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EC00 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Kick Staffs", 0x40EC00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EC80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Kaeru (Frog)", 0x40EE80 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EF00 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x0f },
+    { L"Hato (Pigeon)", 0x40EF80 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F000 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Kick Suitcat", 0x40FF00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40FF80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Suitcat (Mustard)", 0x40FF80 + 0xc800 - (0x41ac00 - 0x31c000), 0x410000 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Chakra Wave", 0x40EF00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EF80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Kick Cannon Magic Pattern", 0x40E700 + 0xc800 - (0x41ac00 - 0x31c000), 0x40E780 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Kick Cannon Transition", 0x40F880 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F900 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Kick Hyper Cannon (Superball and Winscreen)", 0x40F900 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F980 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Kick Glace Cannon", 0x40F980 + 0xc800 - (0x41ac00 - 0x31c000), 0x40FA00 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Flamma Cannon", 0x40FA00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40FA80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Electron Cannon", 0x40FA80 + 0xc800 - (0x41ac00 - 0x31c000), 0x40FB00 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800 - (0x41ac00 - 0x31c000), 0x40FE00 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40FE80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x07 },
+    { L"Jamming Ghost", 0x40F780 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F800 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F280 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F380 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Kick Grab Saw", 0x40F080 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F100 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800 - (0x41ac00 - 0x31c000), 0x40F180 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EB80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800 - (0x41ac00 - 0x31c000), 0x40EE80 + 0xc800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Kick Ultimate Counter Chain", 0x41c300 - (0x41ac00 - 0x31c000), 0x41c380 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x28 },
+
+    { L"Electron Fairies 1 & UC Angels", 0x41bb80 - (0x41ac00 - 0x31c000), 0x41bc00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Electron Fairies 2", 0x41bc00 - (0x41ac00 - 0x31c000), 0x41bc80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 1", 0x41bc80 - (0x41ac00 - 0x31c000), 0x41bd00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Fiamma Fairies 2", 0x41bd00 - (0x41ac00 - 0x31c000), 0x41bd80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 1", 0x41bd80 - (0x41ac00 - 0x31c000), 0x41be00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x27 },
+    { L"Glace Fairies 2", 0x41be00 - (0x41ac00 - 0x31c000), 0x41be80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Cursed Penguin Tessa", 0x41ba80 - (0x41ac00 - 0x31c000), 0x41bb00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x25 },
+
+    { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600 - (0x41ac00 - 0x31c000), 0x41D680 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Burn 2", 0x41D680 - (0x41ac00 - 0x31c000), 0x41D700 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 1", 0x41D700 - (0x41ac00 - 0x31c000), 0x41D780 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 2", 0x41D780 - (0x41ac00 - 0x31c000), 0x41D800 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 1", 0x41D800 - (0x41ac00 - 0x31c000), 0x41D880 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 2", 0x41D880 - (0x41ac00 - 0x31c000), 0x41D900 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 3", 0x41D900 - (0x41ac00 - 0x31c000), 0x41D980 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 4", 0x41D980 - (0x41ac00 - 0x31c000), 0x41DA00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 1", 0x41DA00 - (0x41ac00 - 0x31c000), 0x41DA80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 2", 0x41DA80 - (0x41ac00 - 0x31c000), 0x41DB00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 3", 0x41DB00 - (0x41ac00 - 0x31c000), 0x41DB80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 1", 0x41DB80 - (0x41ac00 - 0x31c000), 0x41DC00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 2", 0x41DC00 - (0x41ac00 - 0x31c000), 0x41DC80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 3", 0x41DC80 - (0x41ac00 - 0x31c000), 0x41DD00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 4", 0x41DD00 - (0x41ac00 - 0x31c000), 0x41DD80 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 5", 0x41DD80 - (0x41ac00 - 0x31c000), 0x41DE00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0 },
+
+    { L"Kick Palette Cartur", 0x41ad80 - (0x41ac00 - 0x31c000), 0x41ae00 - (0x41ac00 - 0x31c000), indexRedEarthSprites_Tessa, 0x24 },
+
+    { L"Unknown Tessa Palette 1", 0x41ae00 - (0x41ac00 - 0x31c000), 0x41af00 - (0x41ac00 - 0x31c000) },
+    { L"Unknown Tessa Palette 2", 0x41b980 - (0x41ac00 - 0x31c000), 0x41ba00 - (0x41ac00 - 0x31c000) },
+    { L"Unknown Tessa Palette 3", 0x41c680 - (0x41ac00 - 0x31c000), 0x41c700 - (0x41ac00 - 0x31c000) },
+    { L"Unknown Tessa Range 1", 0x41c380 - (0x41ac00 - 0x31c000), 0x41c580 - (0x41ac00 - 0x31c000) },
+    { L"Unknown Tessa Range 2 (1/4) 0x41c800", 0x41c800 - (0x41ac00 - 0x31c000), 0x41ca00 - (0x41ac00 - 0x31c000) },
+    { L"Unknown Tessa Range 2 (2/4) 0x41ca00", 0x41ca00 - (0x41ac00 - 0x31c000), 0x41cc00 - (0x41ac00 - 0x31c000) },
+    { L"Unknown Tessa Range 2 (3/4) 0x41cc00", 0x41cc00 - (0x41ac00 - 0x31c000), 0x41ce00 - (0x41ac00 - 0x31c000) },
+    { L"Unknown Tessa Range 2 (4/4) 0x41ce00", 0x41ce00 - (0x41ac00 - 0x31c000), 0x41ce80 - (0x41ac00 - 0x31c000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_MAI_KICK_PALETTES[] =
+{
+    // Kick Mai
+    // 0x41de00
+    // 0x421000
+
+    // Slash Transparency on Kick Mai Ranges
+    // 0x29c000
+    // 0x29f200
+    { L"Mai-Ling Kick", 0x41DE00 - (0x41de00 - 0x29c000), 0x41DE80 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Kick Fire", 0x41DE80 - (0x41de00 - 0x29c000), 0x41DF00 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Kick Fireball", 0x41DF80 - (0x41de00 - 0x29c000), 0x41E000 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080 - (0x41de00 - 0x29c000), 0x41E100 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x41e100 - (0x41de00 - 0x29c000), 0x41e180 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x41f200 - (0x41de00 - 0x29c000), 0x41f300 - (0x41de00 - 0x29c000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800 - (0x41de00 - 0x29c000), 0x420880 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Burn 2", 0x420880 - (0x41de00 - 0x29c000), 0x420900 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 1", 0x420900 - (0x41de00 - 0x29c000), 0x420980 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 2", 0x420980 - (0x41de00 - 0x29c000), 0x420A00 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 1", 0x420A00 - (0x41de00 - 0x29c000), 0x420A80 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 2", 0x420A80 - (0x41de00 - 0x29c000), 0x420B00 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 3", 0x420B00 - (0x41de00 - 0x29c000), 0x420B80 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 4", 0x420B80 - (0x41de00 - 0x29c000), 0x420C00 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 1", 0x420C00 - (0x41de00 - 0x29c000), 0x420C80 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 2", 0x420C80 - (0x41de00 - 0x29c000), 0x420D00 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 3", 0x420D00 - (0x41de00 - 0x29c000), 0x420D80 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 1", 0x420D80 - (0x41de00 - 0x29c000), 0x420E00 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 2", 0x420E00 - (0x41de00 - 0x29c000), 0x420E80 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 3", 0x420E80 - (0x41de00 - 0x29c000), 0x420F00 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 4", 0x420F00 - (0x41de00 - 0x29c000), 0x420F80 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 5", 0x420F80 - (0x41de00 - 0x29c000), 0x421000 - (0x41de00 - 0x29c000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x41df00 - (0x41de00 - 0x29c000), 0x41df80 - (0x41de00 - 0x29c000) },
+    { L"Unknown Mai Palette 2", 0x41e000 - (0x41de00 - 0x29c000), 0x41e080 - (0x41de00 - 0x29c000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_KICK_PALETTES[] =
+{
+    // Hauzer Transparency on Kick Mai Ranges
+    // 0x320000
+    // 0x323200
+    { L"Mai-Ling Kick", 0x41DE00 - (0x41de00 - 0x320000), 0x41DE80 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Kick Fire", 0x41DE80 - (0x41de00 - 0x320000), 0x41DF00 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Kick Fireball", 0x41DF80 - (0x41de00 - 0x320000), 0x41E000 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080 - (0x41de00 - 0x320000), 0x41E100 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x41e100 - (0x41de00 - 0x320000), 0x41e180 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x41f200 - (0x41de00 - 0x320000), 0x41f300 - (0x41de00 - 0x320000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800 - (0x41de00 - 0x320000), 0x420880 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Burn 2", 0x420880 - (0x41de00 - 0x320000), 0x420900 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 1", 0x420900 - (0x41de00 - 0x320000), 0x420980 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 2", 0x420980 - (0x41de00 - 0x320000), 0x420A00 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 1", 0x420A00 - (0x41de00 - 0x320000), 0x420A80 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 2", 0x420A80 - (0x41de00 - 0x320000), 0x420B00 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 3", 0x420B00 - (0x41de00 - 0x320000), 0x420B80 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 4", 0x420B80 - (0x41de00 - 0x320000), 0x420C00 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 1", 0x420C00 - (0x41de00 - 0x320000), 0x420C80 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 2", 0x420C80 - (0x41de00 - 0x320000), 0x420D00 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 3", 0x420D00 - (0x41de00 - 0x320000), 0x420D80 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 1", 0x420D80 - (0x41de00 - 0x320000), 0x420E00 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 2", 0x420E00 - (0x41de00 - 0x320000), 0x420E80 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 3", 0x420E80 - (0x41de00 - 0x320000), 0x420F00 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 4", 0x420F00 - (0x41de00 - 0x320000), 0x420F80 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 5", 0x420F80 - (0x41de00 - 0x320000), 0x421000 - (0x41de00 - 0x320000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x41df00 - (0x41de00 - 0x320000), 0x41df80 - (0x41de00 - 0x320000) },
+    { L"Unknown Mai Palette 2", 0x41e000 - (0x41de00 - 0x320000), 0x41e080 - (0x41de00 - 0x320000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_KICK_PALETTES[] =
+{
+    // Hydron Transparency on Kick Mai Ranges
+    // 0x324000
+    // 0x327200
+    { L"Mai-Ling Kick", 0x41DE00 - (0x41de00 - 0x324000), 0x41DE80 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Kick Fire", 0x41DE80 - (0x41de00 - 0x324000), 0x41DF00 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Kick Fireball", 0x41DF80 - (0x41de00 - 0x324000), 0x41E000 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080 - (0x41de00 - 0x324000), 0x41E100 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x41e100 - (0x41de00 - 0x324000), 0x41e180 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x41f200 - (0x41de00 - 0x324000), 0x41f300 - (0x41de00 - 0x324000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800 - (0x41de00 - 0x324000), 0x420880 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Burn 2", 0x420880 - (0x41de00 - 0x324000), 0x420900 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 1", 0x420900 - (0x41de00 - 0x324000), 0x420980 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 2", 0x420980 - (0x41de00 - 0x324000), 0x420A00 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 1", 0x420A00 - (0x41de00 - 0x324000), 0x420A80 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 2", 0x420A80 - (0x41de00 - 0x324000), 0x420B00 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 3", 0x420B00 - (0x41de00 - 0x324000), 0x420B80 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 4", 0x420B80 - (0x41de00 - 0x324000), 0x420C00 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 1", 0x420C00 - (0x41de00 - 0x324000), 0x420C80 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 2", 0x420C80 - (0x41de00 - 0x324000), 0x420D00 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 3", 0x420D00 - (0x41de00 - 0x324000), 0x420D80 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 1", 0x420D80 - (0x41de00 - 0x324000), 0x420E00 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 2", 0x420E00 - (0x41de00 - 0x324000), 0x420E80 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 3", 0x420E80 - (0x41de00 - 0x324000), 0x420F00 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 4", 0x420F00 - (0x41de00 - 0x324000), 0x420F80 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 5", 0x420F80 - (0x41de00 - 0x324000), 0x421000 - (0x41de00 - 0x324000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x41df00 - (0x41de00 - 0x324000), 0x41df80 - (0x41de00 - 0x324000) },
+    { L"Unknown Mai Palette 2", 0x41e000 - (0x41de00 - 0x324000), 0x41e080 - (0x41de00 - 0x324000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_KICK_PALETTES[] =
+{
+    // Ravange Transparency on Kick Mai Ranges
+    // 0x328000
+    // 0x32b200
+    { L"Mai-Ling Kick", 0x41DE00 - (0x41de00 - 0x328000), 0x41DE80 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Kick Fire", 0x41DE80 - (0x41de00 - 0x328000), 0x41DF00 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Kick Fireball", 0x41DF80 - (0x41de00 - 0x328000), 0x41E000 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080 - (0x41de00 - 0x328000), 0x41E100 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x41e100 - (0x41de00 - 0x328000), 0x41e180 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x41f200 - (0x41de00 - 0x328000), 0x41f300 - (0x41de00 - 0x328000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800 - (0x41de00 - 0x328000), 0x420880 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Burn 2", 0x420880 - (0x41de00 - 0x328000), 0x420900 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 1", 0x420900 - (0x41de00 - 0x328000), 0x420980 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 2", 0x420980 - (0x41de00 - 0x328000), 0x420A00 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 1", 0x420A00 - (0x41de00 - 0x328000), 0x420A80 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 2", 0x420A80 - (0x41de00 - 0x328000), 0x420B00 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 3", 0x420B00 - (0x41de00 - 0x328000), 0x420B80 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 4", 0x420B80 - (0x41de00 - 0x328000), 0x420C00 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 1", 0x420C00 - (0x41de00 - 0x328000), 0x420C80 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 2", 0x420C80 - (0x41de00 - 0x328000), 0x420D00 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 3", 0x420D00 - (0x41de00 - 0x328000), 0x420D80 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 1", 0x420D80 - (0x41de00 - 0x328000), 0x420E00 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 2", 0x420E00 - (0x41de00 - 0x328000), 0x420E80 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 3", 0x420E80 - (0x41de00 - 0x328000), 0x420F00 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 4", 0x420F00 - (0x41de00 - 0x328000), 0x420F80 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 5", 0x420F80 - (0x41de00 - 0x328000), 0x421000 - (0x41de00 - 0x328000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x41df00 - (0x41de00 - 0x328000), 0x41df80 - (0x41de00 - 0x328000) },
+    { L"Unknown Mai Palette 2", 0x41e000 - (0x41de00 - 0x328000), 0x41e080 - (0x41de00 - 0x328000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_KICK_PALETTES[] =
+{
+    // Blade Transparency on Kick Mai Ranges
+    // 0x32c000
+    // 0x32f200
+    { L"Mai-Ling Kick", 0x41DE00 - (0x41de00 - 0x32c000), 0x41DE80 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Mai-Ling Kick Fire", 0x41DE80 - (0x41de00 - 0x32c000), 0x41DF00 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0x02 },
+    { L"Mai-Ling Kick Fireball", 0x41DF80 - (0x41de00 - 0x32c000), 0x41E000 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0x01 },
+    { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080 - (0x41de00 - 0x32c000), 0x41E100 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0x03 },
+
+    { L"Ultimate Guard's Parry Shield", 0x41e100 - (0x41de00 - 0x32c000), 0x41e180 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0x04 },
+    { L"Valerie, Dentry & Bellery", 0x41f200 - (0x41de00 - 0x32c000), 0x41f300 - (0x41de00 - 0x32c000), indexRedEarthSprites_Bonus, 0x1d },
+
+    { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800 - (0x41de00 - 0x32c000), 0x420880 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Burn 2", 0x420880 - (0x41de00 - 0x32c000), 0x420900 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 1", 0x420900 - (0x41de00 - 0x32c000), 0x420980 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Shock 2", 0x420980 - (0x41de00 - 0x32c000), 0x420A00 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 1", 0x420A00 - (0x41de00 - 0x32c000), 0x420A80 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 2", 0x420A80 - (0x41de00 - 0x32c000), 0x420B00 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 3", 0x420B00 - (0x41de00 - 0x32c000), 0x420B80 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Poisoned 4", 0x420B80 - (0x41de00 - 0x32c000), 0x420C00 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 1", 0x420C00 - (0x41de00 - 0x32c000), 0x420C80 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 2", 0x420C80 - (0x41de00 - 0x32c000), 0x420D00 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Petrified 3", 0x420D00 - (0x41de00 - 0x32c000), 0x420D80 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 1", 0x420D80 - (0x41de00 - 0x32c000), 0x420E00 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 2", 0x420E00 - (0x41de00 - 0x32c000), 0x420E80 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 3", 0x420E80 - (0x41de00 - 0x32c000), 0x420F00 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 4", 0x420F00 - (0x41de00 - 0x32c000), 0x420F80 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+    { L"Mai-Ling Kick Frozen 5", 0x420F80 - (0x41de00 - 0x32c000), 0x421000 - (0x41de00 - 0x32c000), indexRedEarthSprites_MaiLing, 0 },
+
+    { L"Unknown Mai Palette", 0x41df00 - (0x41de00 - 0x32c000), 0x41df80 - (0x41de00 - 0x32c000) },
+    { L"Unknown Mai Palette 2", 0x41e000 - (0x41de00 - 0x32c000), 0x41e080 - (0x41de00 - 0x32c000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_HAUZER_PALETTES[] =
+{
+    // Slash Transparency on Hauzer Ranges
+    { L"Hauzer", 0x421000 - (0x421000 - 0x260000), 0x421080 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Hit Effect 1", 0x423e80 - (0x421000 - 0x260000), 0x423f00 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Hit Effect 2", 0x421180 - (0x421000 - 0x260000), 0x421200 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Fire Effects", 0x421200 - (0x421000 - 0x260000), 0x421280 - (0x421000 - 0x260000) },
+    { L"Hauzer Lava Ball", 0x421280 - (0x421000 - 0x260000), 0x421300 - (0x421000 - 0x260000) },
+    { L"Hauzer Gust Flame 1", 0x421380 - (0x421000 - 0x260000), 0x421400 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Gust Flame 2", 0x421400 - (0x421000 - 0x260000), 0x421480 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 1", 0x421580 - (0x421000 - 0x260000), 0x421600 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 2", 0x421600 - (0x421000 - 0x260000), 0x421680 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 3", 0x421680 - (0x421000 - 0x260000), 0x421700 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 4", 0x421700 - (0x421000 - 0x260000), 0x421780 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 5", 0x421780 - (0x421000 - 0x260000), 0x421800 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 6", 0x421800 - (0x421000 - 0x260000), 0x421880 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 1", 0x421a00 - (0x421000 - 0x260000), 0x421a80 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 2", 0x421980 - (0x421000 - 0x260000), 0x421a00 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 3", 0x421900 - (0x421000 - 0x260000), 0x421980 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 4", 0x421880 - (0x421000 - 0x260000), 0x421900 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+
+    { L"Hauzer Burned 1", 0x423a00 - (0x421000 - 0x260000), 0x423a80 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Burned 2", 0x423a80 - (0x421000 - 0x260000), 0x423b00 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Shocked 1", 0x423b00 - (0x421000 - 0x260000), 0x423b80 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Shocked 2", 0x423b80 - (0x421000 - 0x260000), 0x423c00 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 1", 0x423c00 - (0x421000 - 0x260000), 0x423c80 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 2", 0x423c80 - (0x421000 - 0x260000), 0x423d00 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 3", 0x423d00 - (0x421000 - 0x260000), 0x423d80 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 4", 0x423d80 - (0x421000 - 0x260000), 0x423e00 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Petrified 1", 0x423e00 - (0x421000 - 0x260000), 0x423e80 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Petrified 2", 0x423f00 - (0x421000 - 0x260000), 0x423f80 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 1", 0x423f80 - (0x421000 - 0x260000), 0x424000 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 2", 0x424000 - (0x421000 - 0x260000), 0x424080 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 3", 0x424080 - (0x421000 - 0x260000), 0x424100 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 4", 0x424100 - (0x421000 - 0x260000), 0x424180 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 5", 0x424180 - (0x421000 - 0x260000), 0x424200 - (0x421000 - 0x260000), indexRedEarthSprites_Hauzer, 0 },
+
+    { L"Hauzer's Unknown Palette 1", 0x421480 - (0x421000 - 0x260000), 0x421580 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 2", 0x421a80 - (0x421000 - 0x260000), 0x421b00 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 3", 0x421b00 - (0x421000 - 0x260000), 0x421b80 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 4", 0x421b80 - (0x421000 - 0x260000), 0x421c00 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 5", 0x421c00 - (0x421000 - 0x260000), 0x421c80 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 6", 0x421c80 - (0x421000 - 0x260000), 0x421d00 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 7", 0x421d00 - (0x421000 - 0x260000), 0x421d80 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 8", 0x421d80 - (0x421000 - 0x260000), 0x421e00 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 9", 0x421e00 - (0x421000 - 0x260000), 0x421e80 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 10", 0x421e80 - (0x421000 - 0x260000), 0x421f00 - (0x421000 - 0x260000) },
+    { L"Hauzer's Unknown Palette 11", 0x421f00 - (0x421000 - 0x260000), 0x421f80 - (0x421000 - 0x260000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_HAUZER_PALETTES[] =
+{
+    // Hauzer Transparency on Hauzer Ranges
+    { L"Hauzer", 0x421000 - (0x421000 - 0x2a0000), 0x421080 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Hit Effect 1", 0x423e80 - (0x421000 - 0x2a0000), 0x423f00 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Hit Effect 2", 0x421180 - (0x421000 - 0x2a0000), 0x421200 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Fire Effects", 0x421200 - (0x421000 - 0x2a0000), 0x421280 - (0x421000 - 0x2a0000) },
+    { L"Hauzer Lava Ball", 0x421280 - (0x421000 - 0x2a0000), 0x421300 - (0x421000 - 0x2a0000) },
+    { L"Hauzer Gust Flame 1", 0x421380 - (0x421000 - 0x2a0000), 0x421400 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Gust Flame 2", 0x421400 - (0x421000 - 0x2a0000), 0x421480 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 1", 0x421580 - (0x421000 - 0x2a0000), 0x421600 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 2", 0x421600 - (0x421000 - 0x2a0000), 0x421680 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 3", 0x421680 - (0x421000 - 0x2a0000), 0x421700 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 4", 0x421700 - (0x421000 - 0x2a0000), 0x421780 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 5", 0x421780 - (0x421000 - 0x2a0000), 0x421800 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 6", 0x421800 - (0x421000 - 0x2a0000), 0x421880 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 1", 0x421a00 - (0x421000 - 0x2a0000), 0x421a80 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 2", 0x421980 - (0x421000 - 0x2a0000), 0x421a00 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 3", 0x421900 - (0x421000 - 0x2a0000), 0x421980 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 4", 0x421880 - (0x421000 - 0x2a0000), 0x421900 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+
+    { L"Hauzer Burned 1", 0x423a00 - (0x421000 - 0x2a0000), 0x423a80 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Burned 2", 0x423a80 - (0x421000 - 0x2a0000), 0x423b00 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Shocked 1", 0x423b00 - (0x421000 - 0x2a0000), 0x423b80 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Shocked 2", 0x423b80 - (0x421000 - 0x2a0000), 0x423c00 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 1", 0x423c00 - (0x421000 - 0x2a0000), 0x423c80 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 2", 0x423c80 - (0x421000 - 0x2a0000), 0x423d00 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 3", 0x423d00 - (0x421000 - 0x2a0000), 0x423d80 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 4", 0x423d80 - (0x421000 - 0x2a0000), 0x423e00 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Petrified 1", 0x423e00 - (0x421000 - 0x2a0000), 0x423e80 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Petrified 2", 0x423f00 - (0x421000 - 0x2a0000), 0x423f80 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 1", 0x423f80 - (0x421000 - 0x2a0000), 0x424000 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 2", 0x424000 - (0x421000 - 0x2a0000), 0x424080 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 3", 0x424080 - (0x421000 - 0x2a0000), 0x424100 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 4", 0x424100 - (0x421000 - 0x2a0000), 0x424180 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 5", 0x424180 - (0x421000 - 0x2a0000), 0x424200 - (0x421000 - 0x2a0000), indexRedEarthSprites_Hauzer, 0 },
+
+    { L"Hauzer's Unknown Palette 1", 0x421480 - (0x421000 - 0x2a0000), 0x421580 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 2", 0x421a80 - (0x421000 - 0x2a0000), 0x421b00 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 3", 0x421b00 - (0x421000 - 0x2a0000), 0x421b80 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 4", 0x421b80 - (0x421000 - 0x2a0000), 0x421c00 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 5", 0x421c00 - (0x421000 - 0x2a0000), 0x421c80 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 6", 0x421c80 - (0x421000 - 0x2a0000), 0x421d00 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 7", 0x421d00 - (0x421000 - 0x2a0000), 0x421d80 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 8", 0x421d80 - (0x421000 - 0x2a0000), 0x421e00 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 9", 0x421e00 - (0x421000 - 0x2a0000), 0x421e80 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 10", 0x421e80 - (0x421000 - 0x2a0000), 0x421f00 - (0x421000 - 0x2a0000) },
+    { L"Hauzer's Unknown Palette 11", 0x421f00 - (0x421000 - 0x2a0000), 0x421f80 - (0x421000 - 0x2a0000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_KONGOU_PALETTES[] =
+{
+    // Kongou
+    // 0x424200
+    // 0x427400
+
+    // Slash Transparency on Kongou Ranges
+    // 0x264000
+    // 0x267200
+
+    { L"Kongou", 0x424200 - (0x424200 - 0x264000), 0x424280 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0,& pairNext },
+    { L"Kanabo", 0x424280 - (0x424200 - 0x264000), 0x424300 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 1 },
+    { L"Stomach acid", 0x424300 - (0x424200 - 0x264000), 0x424380 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0x02 },
+
+    { L"Kongou Burned 1", 0x426c00 - (0x424200 - 0x264000), 0x426c80 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Burned 2", 0x426c80 - (0x424200 - 0x264000), 0x426d00 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Shocked 1", 0x426d00 - (0x424200 - 0x264000), 0x426d80 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Shocked 2", 0x426d80 - (0x424200 - 0x264000), 0x426e00 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 1", 0x426e00 - (0x424200 - 0x264000), 0x426e80 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 2", 0x426e80 - (0x424200 - 0x264000), 0x426f00 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 3", 0x426f00 - (0x424200 - 0x264000), 0x426f80 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 4", 0x426f80 - (0x424200 - 0x264000), 0x427000 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Petrified 1", 0x427000 - (0x424200 - 0x264000), 0x427080 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Petrified 2", 0x427080 - (0x424200 - 0x264000), 0x427100 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Petrified 3", 0x427100 - (0x424200 - 0x264000), 0x427180 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 1", 0x427180 - (0x424200 - 0x264000), 0x427200 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 2", 0x427200 - (0x424200 - 0x264000), 0x427280 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 3", 0x427280 - (0x424200 - 0x264000), 0x427300 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 4", 0x427300 - (0x424200 - 0x264000), 0x427380 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Hurt flash", 0x427380 - (0x424200 - 0x264000), 0x427400 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Demon Beserker 1", 0x424380 - (0x424200 - 0x264000), 0x424400 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Demon Beserker 2", 0x424400 - (0x424200 - 0x264000), 0x424480 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Demon Beserker 3", 0x424480 - (0x424200 - 0x264000), 0x424500 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Demon Beserker 4", 0x424500 - (0x424200 - 0x264000), 0x424580 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Demon Beserker 5", 0x424580 - (0x424200 - 0x264000), 0x424600 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Demon Beserker 6", 0x424600 - (0x424200 - 0x264000), 0x424680 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Demon Beserker 7", 0x424680 - (0x424200 - 0x264000), 0x424700 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0 },
+    { L"Tanuma", 0x424700 - (0x424200 - 0x264000), 0x424880 - (0x424200 - 0x264000), indexRedEarthSprites_Kongou, 0x03 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_HYDRON_PALETTES[] =
+{
+    // Hydron
+    // 0x427400
+    // 0x42a600
+
+    // Slash Transparency on Hydron Ranges
+    // 0x268000
+    // 0x26b200
+
+    { L"Hydron", 0x427400 - (0x427400 - 0x268000), 0x427480 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Poison Blast FX", 0x427500 - (0x427400 - 0x268000), 0x427580 - (0x427400 - 0x268000) },
+    { L"Squid boys spawn Tentacle", 0x427580 - (0x427400 - 0x268000), 0x427600 - (0x427400 - 0x268000) },
+
+    { L"Electric PalFX1", 0x427600 - (0x427400 - 0x268000), 0x427680 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427680 - (0x427400 - 0x268000), 0x427700 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427780 - (0x427400 - 0x268000), 0x427800 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427800 - (0x427400 - 0x268000), 0x427880 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427880 - (0x427400 - 0x268000), 0x427900 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427900 - (0x427400 - 0x268000), 0x427980 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427980 - (0x427400 - 0x268000), 0x427a00 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427a00 - (0x427400 - 0x268000), 0x427a80 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427a80 - (0x427400 - 0x268000), 0x427b00 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427b00 - (0x427400 - 0x268000), 0x427b80 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427b80 - (0x427400 - 0x268000), 0x427c00 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427c00 - (0x427400 - 0x268000), 0x427c80 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Firecharge PalFX", 0x427d00 - (0x427400 - 0x268000), 0x427d80 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Spin attack FX", 0x427d80 - (0x427400 - 0x268000), 0x427e00 - (0x427400 - 0x268000) },
+    { L"Squid dudes spawn FX", 0x428000 - (0x427400 - 0x268000), 0x428080 - (0x427400 - 0x268000) },
+
+    { L"Isia, Janna, Elena", 0x428300 - (0x427400 - 0x268000), 0x428380 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0x01 },
+    { L"Isia's White Dog", 0x428380 - (0x427400 - 0x268000), 0x428400 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0x02 },
+    { L"Isia's Gray Dog", 0x428400 - (0x427400 - 0x268000), 0x428480 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0x02 },
+
+    { L"Hydron Burned 1", 0x429e00 - (0x427400 - 0x268000), 0x429e80 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Burned 2", 0x429e80 - (0x427400 - 0x268000), 0x429f00 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Shocked 1", 0x429f00 - (0x427400 - 0x268000), 0x429f80 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Shocked 2", 0x429f80 - (0x427400 - 0x268000), 0x42a000 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 1", 0x42a000 - (0x427400 - 0x268000), 0x42a080 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 2", 0x42a080 - (0x427400 - 0x268000), 0x42a100 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 3", 0x42a100 - (0x427400 - 0x268000), 0x42a180 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 4", 0x42a180 - (0x427400 - 0x268000), 0x42a200 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 1", 0x42a200 - (0x427400 - 0x268000), 0x42a280 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 2", 0x42a280 - (0x427400 - 0x268000), 0x42a300 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 3", 0x42a300 - (0x427400 - 0x268000), 0x42a380 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 1", 0x42a380 - (0x427400 - 0x268000), 0x42a400 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 2", 0x42a400 - (0x427400 - 0x268000), 0x42a480 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 3", 0x42a480 - (0x427400 - 0x268000), 0x42a500 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 4", 0x42a500 - (0x427400 - 0x268000), 0x42a580 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 5", 0x42a580 - (0x427400 - 0x268000), 0x42a600 - (0x427400 - 0x268000), indexRedEarthSprites_Hydron, 0 },
+
+    { L"Hydron's Unknown Palette 1", 0x427480 - (0x427400 - 0x268000), 0x427500 - (0x427400 - 0x268000) },
+    { L"Hydron's Unknown Palette 2", 0x427700 - (0x427400 - 0x268000), 0x427780 - (0x427400 - 0x268000) },
+    { L"Hydron's Unknown Palette 3", 0x427c80 - (0x427400 - 0x268000), 0x427d00 - (0x427400 - 0x268000) },
+    { L"Hydron's Unknown Palette 4", 0x427e00 - (0x427400 - 0x268000), 0x428000 - (0x427400 - 0x268000) },
+    { L"Hydron's Unknown Palette 5 (1/2) 0x428080", 0x428080 - (0x427400 - 0x268000), 0x428280 - (0x427400 - 0x268000) },
+    { L"Hydron's Unknown Palette 5 (2/2) 0x428280", 0x428280 - (0x427400 - 0x268000), 0x428300 - (0x427400 - 0x268000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_HYDRON_PALETTES[] =
+{
+    // Hydron Transparency on Hydron Ranges
+    // 0x2a4000
+    // 0x2a7200
+
+    { L"Hydron", 0x427400 - (0x427400 - 0x2a4000), 0x427480 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Poison Blast FX", 0x427500 - (0x427400 - 0x2a4000), 0x427580 - (0x427400 - 0x2a4000) },
+    { L"Squid boys spawn Tentacle", 0x427580 - (0x427400 - 0x2a4000), 0x427600 - (0x427400 - 0x2a4000) },
+
+    { L"Electric PalFX1", 0x427600 - (0x427400 - 0x2a4000), 0x427680 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427680 - (0x427400 - 0x2a4000), 0x427700 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427780 - (0x427400 - 0x2a4000), 0x427800 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427800 - (0x427400 - 0x2a4000), 0x427880 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427880 - (0x427400 - 0x2a4000), 0x427900 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427900 - (0x427400 - 0x2a4000), 0x427980 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427980 - (0x427400 - 0x2a4000), 0x427a00 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427a00 - (0x427400 - 0x2a4000), 0x427a80 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427a80 - (0x427400 - 0x2a4000), 0x427b00 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427b00 - (0x427400 - 0x2a4000), 0x427b80 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427b80 - (0x427400 - 0x2a4000), 0x427c00 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427c00 - (0x427400 - 0x2a4000), 0x427c80 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Firecharge PalFX", 0x427d00 - (0x427400 - 0x2a4000), 0x427d80 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Spin attack FX", 0x427d80 - (0x427400 - 0x2a4000), 0x427e00 - (0x427400 - 0x2a4000) },
+    { L"Squid dudes spawn FX", 0x428000 - (0x427400 - 0x2a4000), 0x428080 - (0x427400 - 0x2a4000) },
+
+    { L"Isia, Janna, Elena", 0x428300 - (0x427400 - 0x2a4000), 0x428380 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0x01 },
+    { L"Isia's White Dog", 0x428380 - (0x427400 - 0x2a4000), 0x428400 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0x02 },
+    { L"Isia's Gray Dog", 0x428400 - (0x427400 - 0x2a4000), 0x428480 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0x02 },
+
+    { L"Hydron Burned 1", 0x429e00 - (0x427400 - 0x2a4000), 0x429e80 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Burned 2", 0x429e80 - (0x427400 - 0x2a4000), 0x429f00 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Shocked 1", 0x429f00 - (0x427400 - 0x2a4000), 0x429f80 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Shocked 2", 0x429f80 - (0x427400 - 0x2a4000), 0x42a000 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 1", 0x42a000 - (0x427400 - 0x2a4000), 0x42a080 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 2", 0x42a080 - (0x427400 - 0x2a4000), 0x42a100 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 3", 0x42a100 - (0x427400 - 0x2a4000), 0x42a180 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 4", 0x42a180 - (0x427400 - 0x2a4000), 0x42a200 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 1", 0x42a200 - (0x427400 - 0x2a4000), 0x42a280 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 2", 0x42a280 - (0x427400 - 0x2a4000), 0x42a300 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 3", 0x42a300 - (0x427400 - 0x2a4000), 0x42a380 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 1", 0x42a380 - (0x427400 - 0x2a4000), 0x42a400 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 2", 0x42a400 - (0x427400 - 0x2a4000), 0x42a480 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 3", 0x42a480 - (0x427400 - 0x2a4000), 0x42a500 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 4", 0x42a500 - (0x427400 - 0x2a4000), 0x42a580 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 5", 0x42a580 - (0x427400 - 0x2a4000), 0x42a600 - (0x427400 - 0x2a4000), indexRedEarthSprites_Hydron, 0 },
+
+    { L"Hydron's Unknown Palette 1", 0x427480 - (0x427400 - 0x2a4000), 0x427500 - (0x427400 - 0x2a4000) },
+    { L"Hydron's Unknown Palette 2", 0x427700 - (0x427400 - 0x2a4000), 0x427780 - (0x427400 - 0x2a4000) },
+    { L"Hydron's Unknown Palette 3", 0x427c80 - (0x427400 - 0x2a4000), 0x427d00 - (0x427400 - 0x2a4000) },
+    { L"Hydron's Unknown Palette 4", 0x427e00 - (0x427400 - 0x2a4000), 0x428000 - (0x427400 - 0x2a4000) },
+    { L"Hydron's Unknown Palette 5 (1/2) 0x428080", 0x428080 - (0x427400 - 0x2a4000), 0x428280 - (0x427400 - 0x2a4000) },
+    { L"Hydron's Unknown Palette 5 (2/2) 0x428280", 0x428280 - (0x427400 - 0x2a4000), 0x428300 - (0x427400 - 0x2a4000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_LAVIA_PALETTES[] =
+{
+    // Lavia
+    // 0x42a600
+    // 0x42d800
+
+    // Slash Transparency on Lavia Ranges
+    // 0x26c000
+    // 0x26f200
+
+    { L"Lavia", 0x42a600 - (0x42a600 - 0x26c000), 0x42a680 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Intro Effects, Soul, Dust, Fire", 0x42a680 - (0x42a600 - 0x26c000), 0x42a700 - (0x42a600 - 0x26c000) },
+    { L"Sparks", 0x42a700 - (0x42a600 - 0x26c000), 0x42a780 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia, 0x02 },
+    { L"Feather Projectiles", 0x42a780 - (0x42a600 - 0x26c000), 0x42a800 - (0x42a600 - 0x26c000) },
+    { L"Lavia's Soul Second Palette", 0x42a800 - (0x42a600 - 0x26c000), 0x42a880 - (0x42a600 - 0x26c000) },
+
+    { L"Lavia Burned 1", 0x42d000 - (0x42a600 - 0x26c000), 0x42d080 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Burned 2", 0x42d080 - (0x42a600 - 0x26c000), 0x42d100 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 1", 0x42d100 - (0x42a600 - 0x26c000), 0x42d180 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 2", 0x42d180 - (0x42a600 - 0x26c000), 0x42d200 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 1", 0x42d200 - (0x42a600 - 0x26c000), 0x42d280 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 2", 0x42d280 - (0x42a600 - 0x26c000), 0x42d300 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 3", 0x42d300 - (0x42a600 - 0x26c000), 0x42d380 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 4", 0x42d380 - (0x42a600 - 0x26c000), 0x42d400 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 1", 0x42d400 - (0x42a600 - 0x26c000), 0x42d480 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 2", 0x42d480 - (0x42a600 - 0x26c000), 0x42d500 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 3", 0x42d500 - (0x42a600 - 0x26c000), 0x42d580 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 1", 0x42d580 - (0x42a600 - 0x26c000), 0x42d600 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 2", 0x42d600 - (0x42a600 - 0x26c000), 0x42d680 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 3", 0x42d680 - (0x42a600 - 0x26c000), 0x42d700 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 4", 0x42d700 - (0x42a600 - 0x26c000), 0x42d780 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 5", 0x42d780 - (0x42a600 - 0x26c000), 0x42d800 - (0x42a600 - 0x26c000), indexRedEarthSprites_Lavia },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_RAVANGE_PALETTES[] =
+{
+    // Ravange
+    // 0x42d800
+    // 0x430a00
+
+    // Slash Transparency on Ravange Ranges
+    // 0x270000
+    // 0x273200
+
+    { L"Ravange", 0x42d800 - (0x42d800 - 0x270000), 0x42d880 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+
+    { L"Fire FX", 0x42d880 - (0x42d800 - 0x270000), 0x42d900 - (0x42d800 - 0x270000) },
+    { L"Beam FX", 0x42d900 - (0x42d800 - 0x270000), 0x42d980 - (0x42d800 - 0x270000) },
+    { L"Sand FX", 0x42d980 - (0x42d800 - 0x270000), 0x42da00 - (0x42d800 - 0x270000) },
+    { L"Shield", 0x42da80 - (0x42d800 - 0x270000), 0x42db80 - (0x42d800 - 0x270000) },
+    { L"Fire Breath flash", 0x42db80 - (0x42d800 - 0x270000), 0x42dc00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 1", 0x42dc00 - (0x42d800 - 0x270000), 0x42dc80 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 2", 0x42dc80 - (0x42d800 - 0x270000), 0x42dd00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 3", 0x42dd00 - (0x42d800 - 0x270000), 0x42dd80 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 4", 0x42dd80 - (0x42d800 - 0x270000), 0x42de00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 1", 0x42de00 - (0x42d800 - 0x270000), 0x42de80 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 2", 0x42de80 - (0x42d800 - 0x270000), 0x42df00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 3", 0x42df00 - (0x42d800 - 0x270000), 0x42df80 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 4", 0x42df80 - (0x42d800 - 0x270000), 0x42e000 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 1", 0x42e400 - (0x42d800 - 0x270000), 0x42e480 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 2", 0x42e480 - (0x42d800 - 0x270000), 0x42e500 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 3", 0x42e500 - (0x42d800 - 0x270000), 0x42e580 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 4", 0x42e580 - (0x42d800 - 0x270000), 0x42e600 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Poison Mist FX1", 0x42ea00 - (0x42d800 - 0x270000), 0x42eb00 - (0x42d800 - 0x270000) },
+    { L"Ravange Sphinx Intro", 0x42eb00 - (0x42d800 - 0x270000), 0x42eb80 - (0x42d800 - 0x270000) },
+    { L"Ravange Sphinx Flash 1", 0x42eb80 - (0x42d800 - 0x270000), 0x42ec00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ravange Sphinx Flash 2", 0x42ec00 - (0x42d800 - 0x270000), 0x42ec80 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 1", 0x42ec80 - (0x42d800 - 0x270000), 0x42ed00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 2", 0x42ed00 - (0x42d800 - 0x270000), 0x42ed80 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 3", 0x42ed80 - (0x42d800 - 0x270000), 0x42ee00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 4", 0x42ee00 - (0x42d800 - 0x270000), 0x42ee80 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 1", 0x42e600 - (0x42d800 - 0x270000), 0x42e680 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 2", 0x42e680 - (0x42d800 - 0x270000), 0x42e700 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 3", 0x42e700 - (0x42d800 - 0x270000), 0x42e780 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 4", 0x42e780 - (0x42d800 - 0x270000), 0x42e800 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 1", 0x42e800 - (0x42d800 - 0x270000), 0x42e880 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 2", 0x42e880 - (0x42d800 - 0x270000), 0x42e900 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 3", 0x42e900 - (0x42d800 - 0x270000), 0x42e980 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 4", 0x42e980 - (0x42d800 - 0x270000), 0x42ea00 - (0x42d800 - 0x270000), },
+    { L"Clara Tantra",  0x42f300 - (0x42d800 - 0x270000), 0x42f380 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x0a },
+    { L"Clara Flashing 1", 0x42f380 - (0x42d800 - 0x270000), 0x42f400 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 2", 0x42f400 - (0x42d800 - 0x270000), 0x42f480 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 3", 0x42f480 - (0x42d800 - 0x270000), 0x42f500 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 4", 0x42f500 - (0x42d800 - 0x270000), 0x42f580 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 5", 0x42f580 - (0x42d800 - 0x270000), 0x42f600 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 6", 0x42f600 - (0x42d800 - 0x270000), 0x42f680 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 7", 0x42f680 - (0x42d800 - 0x270000), 0x42f700 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 8", 0x42f700 - (0x42d800 - 0x270000), 0x42f780 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 9", 0x42f780 - (0x42d800 - 0x270000), 0x42f800 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 10", 0x42f800 - (0x42d800 - 0x270000), 0x42f880 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 11", 0x42f880 - (0x42d800 - 0x270000), 0x42f900 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 12", 0x42f900 - (0x42d800 - 0x270000), 0x42f980 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Pyre", 0x42f980 - (0x42d800 - 0x270000), 0x42fa00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x09 },
+    { L"Clara ball FX", 0x42fb00 - (0x42d800 - 0x270000), 0x42fb80 - (0x42d800 - 0x270000) },
+
+    { L"Ravange's Sand Ladies", 0x42ee80 - (0x42d800 - 0x270000), 0x42ef00 - (0x42d800 - 0x270000) },
+    { L"Kids", 0x42fa00 - (0x42d800 - 0x270000), 0x42fb00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x01 },
+
+    { L"Ravange Burned 1", 0x430200 - (0x42d800 - 0x270000), 0x430280 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Burned 2", 0x430280 - (0x42d800 - 0x270000), 0x430300 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Shocked 1", 0x430300 - (0x42d800 - 0x270000), 0x430380 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Shocked 2", 0x430380 - (0x42d800 - 0x270000), 0x430400 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 1", 0x430400 - (0x42d800 - 0x270000), 0x430480 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 2", 0x430480 - (0x42d800 - 0x270000), 0x430500 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 3", 0x430500 - (0x42d800 - 0x270000), 0x430580 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 4", 0x430580 - (0x42d800 - 0x270000), 0x430600 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 1", 0x430600 - (0x42d800 - 0x270000), 0x430680 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 2", 0x430680 - (0x42d800 - 0x270000), 0x430700 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 3", 0x430700 - (0x42d800 - 0x270000), 0x430780 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 1", 0x430780 - (0x42d800 - 0x270000), 0x430800 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 2", 0x430800 - (0x42d800 - 0x270000), 0x430880 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 3", 0x430880 - (0x42d800 - 0x270000), 0x430900 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 4", 0x430900 - (0x42d800 - 0x270000), 0x430980 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 5", 0x430980 - (0x42d800 - 0x270000), 0x430a00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
+
+    { L"Ravange's Unknown Palette 1", 0x42da00 - (0x42d800 - 0x270000), 0x42da80 - (0x42d800 - 0x270000) },
+    { L"Ravange's Unknown Palette 2 (1/2) 0x42e000", 0x42e000 - (0x42d800 - 0x270000), 0x42e200 - (0x42d800 - 0x270000) },
+    { L"Ravange's Unknown Palette 2 (2/2) 0x42e200", 0x42e200 - (0x42d800 - 0x270000), 0x42e400 - (0x42d800 - 0x270000) },
+
+    { L"Ravange's Unknown Palette 3", 0x42f100 - (0x42d800 - 0x270000), 0x42f280 - (0x42d800 - 0x270000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_RAVANGE_PALETTES[] =
+{
+    // Ravange Transparency on Ravange Ranges
+    // 0x2a8000
+    // 0x2ab200
+
+    { L"Ravange", 0x42d800 - (0x42d800 - 0x2a8000), 0x42d880 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+
+    { L"Fire FX", 0x42d880 - (0x42d800 - 0x2a8000), 0x42d900 - (0x42d800 - 0x2a8000) },
+    { L"Beam FX", 0x42d900 - (0x42d800 - 0x2a8000), 0x42d980 - (0x42d800 - 0x2a8000) },
+    { L"Sand FX", 0x42d980 - (0x42d800 - 0x2a8000), 0x42da00 - (0x42d800 - 0x2a8000) },
+    { L"Shield", 0x42da80 - (0x42d800 - 0x2a8000), 0x42db80 - (0x42d800 - 0x2a8000) },
+    { L"Fire Breath flash", 0x42db80 - (0x42d800 - 0x2a8000), 0x42dc00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 1", 0x42dc00 - (0x42d800 - 0x2a8000), 0x42dc80 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 2", 0x42dc80 - (0x42d800 - 0x2a8000), 0x42dd00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 3", 0x42dd00 - (0x42d800 - 0x2a8000), 0x42dd80 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Fire Breath 4", 0x42dd80 - (0x42d800 - 0x2a8000), 0x42de00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 1", 0x42de00 - (0x42d800 - 0x2a8000), 0x42de80 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 2", 0x42de80 - (0x42d800 - 0x2a8000), 0x42df00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 3", 0x42df00 - (0x42d800 - 0x2a8000), 0x42df80 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Firing Beam 4", 0x42df80 - (0x42d800 - 0x2a8000), 0x42e000 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 1", 0x42e400 - (0x42d800 - 0x2a8000), 0x42e480 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 2", 0x42e480 - (0x42d800 - 0x2a8000), 0x42e500 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 3", 0x42e500 - (0x42d800 - 0x2a8000), 0x42e580 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Spawning Sand 4", 0x42e580 - (0x42d800 - 0x2a8000), 0x42e600 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Poison Mist FX1", 0x42ea00 - (0x42d800 - 0x2a8000), 0x42eb00 - (0x42d800 - 0x2a8000) },
+    { L"Ravange Sphinx Intro", 0x42eb00 - (0x42d800 - 0x2a8000), 0x42eb80 - (0x42d800 - 0x2a8000) },
+    { L"Ravange Sphinx Flash 1", 0x42eb80 - (0x42d800 - 0x2a8000), 0x42ec00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ravange Sphinx Flash 2", 0x42ec00 - (0x42d800 - 0x2a8000), 0x42ec80 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 1", 0x42ec80 - (0x42d800 - 0x2a8000), 0x42ed00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 2", 0x42ed00 - (0x42d800 - 0x2a8000), 0x42ed80 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 3", 0x42ed80 - (0x42d800 - 0x2a8000), 0x42ee00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ravange morph flash 4", 0x42ee00 - (0x42d800 - 0x2a8000), 0x42ee80 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 1", 0x42e600 - (0x42d800 - 0x2a8000), 0x42e680 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 2", 0x42e680 - (0x42d800 - 0x2a8000), 0x42e700 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 3", 0x42e700 - (0x42d800 - 0x2a8000), 0x42e780 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Ram attack 4", 0x42e780 - (0x42d800 - 0x2a8000), 0x42e800 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 1", 0x42e800 - (0x42d800 - 0x2a8000), 0x42e880 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 2", 0x42e880 - (0x42d800 - 0x2a8000), 0x42e900 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 3", 0x42e900 - (0x42d800 - 0x2a8000), 0x42e980 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange },
+    { L"Lion attack 4", 0x42e980 - (0x42d800 - 0x2a8000), 0x42ea00 - (0x42d800 - 0x2a8000), },
+    { L"Clara Tantra",  0x42f300 - (0x42d800 - 0x2a8000), 0x42f380 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x0a },
+    { L"Clara Flashing 1", 0x42f380 - (0x42d800 - 0x2a8000), 0x42f400 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 2", 0x42f400 - (0x42d800 - 0x2a8000), 0x42f480 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 3", 0x42f480 - (0x42d800 - 0x2a8000), 0x42f500 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 4", 0x42f500 - (0x42d800 - 0x2a8000), 0x42f580 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 5", 0x42f580 - (0x42d800 - 0x2a8000), 0x42f600 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 6", 0x42f600 - (0x42d800 - 0x2a8000), 0x42f680 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 7", 0x42f680 - (0x42d800 - 0x2a8000), 0x42f700 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 8", 0x42f700 - (0x42d800 - 0x2a8000), 0x42f780 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 9", 0x42f780 - (0x42d800 - 0x2a8000), 0x42f800 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 10", 0x42f800 - (0x42d800 - 0x2a8000), 0x42f880 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 11", 0x42f880 - (0x42d800 - 0x2a8000), 0x42f900 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Clara Flashing 12", 0x42f900 - (0x42d800 - 0x2a8000), 0x42f980 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x08 },
+    { L"Pyre", 0x42f980 - (0x42d800 - 0x2a8000), 0x42fa00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x09 },
+    { L"Clara ball FX", 0x42fb00 - (0x42d800 - 0x2a8000), 0x42fb80 - (0x42d800 - 0x2a8000) },
+
+    { L"Ravange's Sand Ladies", 0x42ee80 - (0x42d800 - 0x2a8000), 0x42ef00 - (0x42d800 - 0x2a8000) },
+    { L"Kids", 0x42fa00 - (0x42d800 - 0x2a8000), 0x42fb00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x01 },
+
+    { L"Ravange Burned 1", 0x430200 - (0x42d800 - 0x2a8000), 0x430280 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Burned 2", 0x430280 - (0x42d800 - 0x2a8000), 0x430300 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Shocked 1", 0x430300 - (0x42d800 - 0x2a8000), 0x430380 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Shocked 2", 0x430380 - (0x42d800 - 0x2a8000), 0x430400 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 1", 0x430400 - (0x42d800 - 0x2a8000), 0x430480 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 2", 0x430480 - (0x42d800 - 0x2a8000), 0x430500 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 3", 0x430500 - (0x42d800 - 0x2a8000), 0x430580 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 4", 0x430580 - (0x42d800 - 0x2a8000), 0x430600 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 1", 0x430600 - (0x42d800 - 0x2a8000), 0x430680 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 2", 0x430680 - (0x42d800 - 0x2a8000), 0x430700 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 3", 0x430700 - (0x42d800 - 0x2a8000), 0x430780 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 1", 0x430780 - (0x42d800 - 0x2a8000), 0x430800 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 2", 0x430800 - (0x42d800 - 0x2a8000), 0x430880 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 3", 0x430880 - (0x42d800 - 0x2a8000), 0x430900 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 4", 0x430900 - (0x42d800 - 0x2a8000), 0x430980 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 5", 0x430980 - (0x42d800 - 0x2a8000), 0x430a00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
+
+    { L"Ravange's Unknown Palette 1", 0x42da00 - (0x42d800 - 0x2a8000), 0x42da80 - (0x42d800 - 0x2a8000) },
+    { L"Ravange's Unknown Palette 2 (1/2) 0x42e000", 0x42e000 - (0x42d800 - 0x2a8000), 0x42e200 - (0x42d800 - 0x2a8000) },
+    { L"Ravange's Unknown Palette 2 (2/2) 0x42e200", 0x42e200 - (0x42d800 - 0x2a8000), 0x42e400 - (0x42d800 - 0x2a8000) },
+
+    { L"Ravange's Unknown Palette 3", 0x42f100 - (0x42d800 - 0x2a8000), 0x42f280 - (0x42d800 - 0x2a8000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_GIGI_PALETTES[] =
+{
+    // Gi Gi
+    // 0x430a00
+    // 0x433c00
+
+    // Slash Transparency on Gi Gi Ranges
+    // 0x274000
+    // 0x277200
+
+    { L"Gi Gi Red Form", 0x430a00 - (0x430a00 - 0x274000), 0x430a80 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x09, &pairNext3Palettes },
+    { L"Gi Gi From Red to Blue Switch", 0x431700 - (0x430a00 - 0x274000), 0x431780 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x07 },
+    { L"Gi Gi From Blue to Red Switch", 0x431780 - (0x430a00 - 0x274000), 0x431800 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x06 },
+    { L"Gi Gi Blue Form", 0x431800 - (0x430a00 - 0x274000), 0x431880 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x08 },
+
+
+    { L"Gi Gi Block 1", 0x430c00 - (0x430a00 - 0x274000), 0x430c80 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x01 },
+    { L"Gi Gi Block & Golden Chair 2", 0x430c80 - (0x430a00 - 0x274000), 0x430d00 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x02 },
+    { L"Gi Gi Block 3", 0x430d00 - (0x430a00 - 0x274000), 0x430d80 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x03 },
+    { L"Gi Gi Block 4", 0x430d80 - (0x430a00 - 0x274000), 0x430e00 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x04 },
+
+    { L"Gi Gi Columns & Rocks 1/2", 0x431180 - (0x430a00 - 0x274000), 0x431200 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x05 },
+    { L"Gi Gi Columns & Rocks 2/2", 0x431600 - (0x430a00 - 0x274000), 0x431680 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x05 },
+    { L"Gi Gi Column Summon", 0x431280 - (0x430a00 - 0x274000), 0x431300 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0c },
+    { L"Gi Gi Falling Rock Summon", 0x431300 - (0x430a00 - 0x274000), 0x431380 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0c },
+    { L"Gi Gi Spear Summon", 0x431380 - (0x430a00 - 0x274000), 0x431400 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0c },
+
+    { L"Gi Gi Ground Spears", 0x431200 - (0x430a00 - 0x274000), 0x431280 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0a },
+    { L"Gi Gi Super Fast Sword Slash", 0x431000 - (0x430a00 - 0x274000), 0x431080 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0e },
+    { L"Gi Gi Lighter Sword Slash", 0x431080 - (0x430a00 - 0x274000), 0x431100 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0b },
+    { L"Gi Gi Stunned", 0x431100 - (0x430a00 - 0x274000), 0x431180 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+
+    { L"Gi Gi Victory Column 1/4", 0x431400 - (0x430a00 - 0x274000), 0x431480 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0f },
+    { L"Gi Gi Victory Column 2/4", 0x431480 - (0x430a00 - 0x274000), 0x431500 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0f },
+    { L"Gi Gi Victory Column 3/4", 0x431500 - (0x430a00 - 0x274000), 0x431580 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0f },
+    { L"Gi Gi Victory Column 4/4", 0x431580 - (0x430a00 - 0x274000), 0x431600 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x0f },
+
+    { L"Red Form Burned 1", 0x433400 - (0x430a00 - 0x274000), 0x433480 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Burned 2", 0x433480 - (0x430a00 - 0x274000), 0x433500 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Shocked 1", 0x433500 - (0x430a00 - 0x274000), 0x433580 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Shocked 2", 0x433580 - (0x430a00 - 0x274000), 0x433600 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Petrified 1", 0x433800 - (0x430a00 - 0x274000), 0x433880 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Petrified 2", 0x433880 - (0x430a00 - 0x274000), 0x433900 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Petrified 3", 0x433900 - (0x430a00 - 0x274000), 0x433980 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Burned 1", 0x433080 - (0x430a00 - 0x274000), 0x433100 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Burned 2", 0x433100 - (0x430a00 - 0x274000), 0x433180 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Shocked 1", 0x433180 - (0x430a00 - 0x274000), 0x433200 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Shocked 2", 0x433200 - (0x430a00 - 0x274000), 0x433280 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Petrified 1", 0x433280 - (0x430a00 - 0x274000), 0x433300 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Petrified 2", 0x433300 - (0x430a00 - 0x274000), 0x433380 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Petrified 3", 0x433380 - (0x430a00 - 0x274000), 0x433400 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 1", 0x433600 - (0x430a00 - 0x274000), 0x433680 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 2", 0x433680 - (0x430a00 - 0x274000), 0x433700 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 3", 0x433700 - (0x430a00 - 0x274000), 0x433780 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 4", 0x433780 - (0x430a00 - 0x274000), 0x433800 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 1", 0x433980 - (0x430a00 - 0x274000), 0x433a00 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 2", 0x433a00 - (0x430a00 - 0x274000), 0x433a80 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 3", 0x433a80 - (0x430a00 - 0x274000), 0x433b00 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 4", 0x433b00 - (0x430a00 - 0x274000), 0x433b80 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 5", 0x433b80 - (0x430a00 - 0x274000), 0x433c00 - (0x430a00 - 0x274000), indexRedEarthSprites_GiGi, 0x20 },
+
+    { L"Gi Gi's Unknown Palette Range 1", 0x430a80 - (0x430a00 - 0x274000), 0x430c00 - (0x430a00 - 0x274000) },
+    { L"Gi Gi's Unknown Palette Range 2", 0x430e00 - (0x430a00 - 0x274000), 0x431000 - (0x430a00 - 0x274000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_BLADE_PALETTES[] =
+{
+    // Blade
+    // 0x433c00
+    // 0x436e00
+
+    // Slash Transparency on Blade Ranges
+    // 0x278000
+    // 0x27b200
+
+    { L"Blade/Mirror Frame", 0x433c00 - (0x433c00 - 0x278000), 0x433c80 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x00, &pairNext },
+    { L"Emerald FX/Intro 1/Adrayer+attacking gauntlets", 0x433c80 - (0x433c00 - 0x278000), 0x433d00 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Emerald FX/Intro 2", 0x433d00 - (0x433c00 - 0x278000), 0x433d80 - (0x433c00 - 0x278000), indexRedEarthSprites_Bonus, 0x0c },
+    { L"Emerald FX/Intro 3", 0x433d80 - (0x433c00 - 0x278000), 0x433e00 - (0x433c00 - 0x278000), indexRedEarthSprites_Bonus, 0x0d },
+    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00 - (0x433c00 - 0x278000), 0x433f00 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x03 },
+    { L"Blade Burned 1", 0x436600 - (0x433c00 - 0x278000), 0x436680 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Burned 2", 0x436680 - (0x433c00 - 0x278000), 0x436700 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Shocked 1", 0x436700 - (0x433c00 - 0x278000), 0x436780 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Shocked 2", 0x436780 - (0x433c00 - 0x278000), 0x436800 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 1", 0x436800 - (0x433c00 - 0x278000), 0x436880 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 2", 0x436880 - (0x433c00 - 0x278000), 0x436900 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 3", 0x436900 - (0x433c00 - 0x278000), 0x436980 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 4", 0x436980 - (0x433c00 - 0x278000), 0x436a00 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 1", 0x436a00 - (0x433c00 - 0x278000), 0x436a80 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 2", 0x436a80 - (0x433c00 - 0x278000), 0x436b00 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 3", 0x436b00 - (0x433c00 - 0x278000), 0x436b80 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 1", 0x436b80 - (0x433c00 - 0x278000), 0x436c00 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 2", 0x436c00 - (0x433c00 - 0x278000), 0x436c80 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 3", 0x436c80 - (0x433c00 - 0x278000), 0x436d00 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 4", 0x436d00 - (0x433c00 - 0x278000), 0x436d80 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 5", 0x436d80 - (0x433c00 - 0x278000), 0x436e00 - (0x433c00 - 0x278000), indexRedEarthSprites_Blade, 0x01 },
+
+    { L"Blade's Unknown Palette", 0x433f80 - (0x433c00 - 0x278000), 0x434000 - (0x433c00 - 0x278000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_BLADE_PALETTES[] =
+{
+    // Blade Transparency on Blade Ranges
+    // 0x2ac000
+    // 0x2af200
+
+    { L"Blade/Mirror Frame", 0x433c00 - (0x433c00 - 0x2ac000), 0x433c80 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x00, &pairNext },
+    { L"Emerald FX/Intro 1/Adrayer+attacking gauntlets", 0x433c80 - (0x433c00 - 0x2ac000), 0x433d00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Emerald FX/Intro 2", 0x433d00 - (0x433c00 - 0x2ac000), 0x433d80 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Bonus, 0x0c },
+    { L"Emerald FX/Intro 3", 0x433d80 - (0x433c00 - 0x2ac000), 0x433e00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Bonus, 0x0d },
+    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00 - (0x433c00 - 0x2ac000), 0x433f00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x03 },
+    { L"Blade Burned 1", 0x436600 - (0x433c00 - 0x2ac000), 0x436680 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Burned 2", 0x436680 - (0x433c00 - 0x2ac000), 0x436700 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Shocked 1", 0x436700 - (0x433c00 - 0x2ac000), 0x436780 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Shocked 2", 0x436780 - (0x433c00 - 0x2ac000), 0x436800 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 1", 0x436800 - (0x433c00 - 0x2ac000), 0x436880 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 2", 0x436880 - (0x433c00 - 0x2ac000), 0x436900 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 3", 0x436900 - (0x433c00 - 0x2ac000), 0x436980 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 4", 0x436980 - (0x433c00 - 0x2ac000), 0x436a00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 1", 0x436a00 - (0x433c00 - 0x2ac000), 0x436a80 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 2", 0x436a80 - (0x433c00 - 0x2ac000), 0x436b00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 3", 0x436b00 - (0x433c00 - 0x2ac000), 0x436b80 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 1", 0x436b80 - (0x433c00 - 0x2ac000), 0x436c00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 2", 0x436c00 - (0x433c00 - 0x2ac000), 0x436c80 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 3", 0x436c80 - (0x433c00 - 0x2ac000), 0x436d00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 4", 0x436d00 - (0x433c00 - 0x2ac000), 0x436d80 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 5", 0x436d80 - (0x433c00 - 0x2ac000), 0x436e00 - (0x433c00 - 0x2ac000), indexRedEarthSprites_Blade, 0x01 },
+
+    { L"Blade's Unknown Palette", 0x433f80 - (0x433c00 - 0x2ac000), 0x434000 - (0x433c00 - 0x2ac000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_SCION_PALETTES[] =
+{
+    // Scion
+    // 0x436e00
+    // 0x43a000 
+
+    // Slash Transparency on Scion Ranges
+    // 0x27c000
+    // 0x27f200
+
+    { L"Scion", 0x436e00 - (0x436e00 - 0x27c000), 0x436e80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+
+    { L"Scion Teleport 1", 0x436f00 - (0x436e00 - 0x27c000), 0x436f80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Teleport 2", 0x436f80 - (0x436e00 - 0x27c000), 0x437000 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Teleport 3", 0x437000 - (0x436e00 - 0x27c000), 0x437080 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Teleport 4", 0x437080 - (0x436e00 - 0x27c000), 0x437100 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Blockstun",  0x436e80 - (0x436e00 - 0x27c000), 0x436f00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+
+    { L"Scion Burned 1", 0x439800 - (0x436e00 - 0x27c000), 0x439880 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Burned 2", 0x439880 - (0x436e00 - 0x27c000), 0x439900 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Shocked 1", 0x439900 - (0x436e00 - 0x27c000), 0x439980 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Shocked 2", 0x439980 - (0x436e00 - 0x27c000), 0x439a00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 1", 0x439a00 - (0x436e00 - 0x27c000), 0x439a80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 2", 0x439a80 - (0x436e00 - 0x27c000), 0x439b00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 3", 0x439b00 - (0x436e00 - 0x27c000), 0x439b80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 4", 0x439b80 - (0x436e00 - 0x27c000), 0x439c00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Petrified 1", 0x439d00 - (0x436e00 - 0x27c000), 0x439d80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Petrified 2", 0x439c80 - (0x436e00 - 0x27c000), 0x439d00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Petrified 3", 0x439c00 - (0x436e00 - 0x27c000), 0x439c80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 1", 0x439d80 - (0x436e00 - 0x27c000), 0x439e00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 2", 0x439e00 - (0x436e00 - 0x27c000), 0x439e80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 3", 0x439e80 - (0x436e00 - 0x27c000), 0x439f00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 4", 0x439f00 - (0x436e00 - 0x27c000), 0x439f80 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 5", 0x439f80 - (0x436e00 - 0x27c000), 0x43a000 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x00 },
+
+    { L"Scion's Effects Range (1/6) 0x437a00", 0x437a00 - (0x436e00 - 0x27c000), 0x437c00 - (0x436e00 - 0x27c000) },
+    { L"Scion's Effects Range (2/6) 0x437c00", 0x437c00 - (0x436e00 - 0x27c000), 0x437e00 - (0x436e00 - 0x27c000) },
+    { L"Scion's Effects Range (3/6) 0x437e00", 0x437e00 - (0x436e00 - 0x27c000), 0x438000 - (0x436e00 - 0x27c000) },
+    { L"Scion's Effects Range (4/6) 0x438000", 0x438000 - (0x436e00 - 0x27c000), 0x438200 - (0x436e00 - 0x27c000) },
+    { L"Scion's Effects Range (5/6) 0x438200", 0x438200 - (0x436e00 - 0x27c000), 0x438400 - (0x436e00 - 0x27c000) },
+    { L"Scion's Effects Range (6/6) 0x438400", 0x438400 - (0x436e00 - 0x27c000), 0x438500 - (0x436e00 - 0x27c000) },
+
+    // Scion's Dragon Palettes
+    { L"Scion's Ice Dragon", 0x437180 - (0x436e00 - 0x27c000), 0x437200 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Ice Dragon", 0x437100 - (0x436e00 - 0x27c000), 0x437180 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Ice Dragon Teleport 1", 0x437280 - (0x436e00 - 0x27c000), 0x437300 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Ice Dragon Teleport 2", 0x437200 - (0x436e00 - 0x27c000), 0x437280 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Scion's Poison Gas Dragon", 0x437380 - (0x436e00 - 0x27c000), 0x437400 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Poison Gas Dragon", 0x437300 - (0x436e00 - 0x27c000), 0x437380 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Poison Gas Dragon Teleport 1", 0x437480 - (0x436e00 - 0x27c000), 0x437500 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Poison Gas Dragon Teleport 2", 0x437400 - (0x436e00 - 0x27c000), 0x437480 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Scion's Fire Dragon", 0x437580 - (0x436e00 - 0x27c000), 0x437600 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Fire Dragon", 0x437500 - (0x436e00 - 0x27c000), 0x437580 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Fire Dragon Teleport 1", 0x437680 - (0x436e00 - 0x27c000), 0x437700 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Fire Dragon Teleport 2", 0x437600 - (0x436e00 - 0x27c000), 0x437680 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Scion's Thunder Dragon", 0x437780 - (0x436e00 - 0x27c000), 0x437800 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Thunder Dragon", 0x437700 - (0x436e00 - 0x27c000), 0x437780 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Thunder Dragon Teleport 1", 0x437880 - (0x436e00 - 0x27c000), 0x437900 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+    { L"Thunder Dragon Teleport 2", 0x437800 - (0x436e00 - 0x27c000), 0x437880 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x01 },
+
+    { L"Dragon's Thunderbreath 1 & Icebreath", 0x437900 - (0x436e00 - 0x27c000), 0x437980 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x02 },
+    { L"Dragon's Thunderbreath 2", 0x437980 - (0x436e00 - 0x27c000), 0x437a00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x02 },
+};
+
 const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_SLASH_COLLECTION[] =
 {
+    { L"Leo Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_PUNCH_PALETTES) },
+    { L"Kenji Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_PUNCH_PALETTES) },
+    { L"Tessa Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_PUNCH_PALETTES) },
+    { L"Mai-Ling Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_MAI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_MAI_PUNCH_PALETTES) },
+
+    { L"Leo Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_KICK_PALETTES) },
+    { L"Kenji Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_KICK_PALETTES) },
+    { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_KICK_PALETTES) },
+    { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_MAI_KICK_PALETTES) },
+
+    { L"Hauzer",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_HAUZER_PALETTES) },
+    { L"Kongou",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_KONGOU_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_KONGOU_PALETTES) },
+    { L"Hydron",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_HYDRON_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_HYDRON_PALETTES) },
+    { L"Lavia",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_LAVIA_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_LAVIA_PALETTES) },
+    { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_RAVANGE_PALETTES) },
+    { L"Gi Gi",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_GIGI_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_GIGI_PALETTES) },
+    { L"Blade",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_BLADE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_BLADE_PALETTES) },
+    { L"Scion",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_SCION_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_SCION_PALETTES) },
+
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_MYSTIC_PALETTES) },
+    { L"Shadows, Effects & Hit FX Ranges",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_SHADOWFX_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_SHADOWFX_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_HAUZER_COLLECTION[] =
 {
+    { L"Leo Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_LEO_PUNCH_PALETTES) },
+    { L"Kenji Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_PUNCH_PALETTES) },
+    { L"Tessa Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_TESSA_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_TESSA_PUNCH_PALETTES) },
+    { L"Mai-Ling Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_PUNCH_PALETTES) },
+    { L"Leo Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_LEO_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_LEO_KICK_PALETTES) },
+    { L"Kenji Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_KICK_PALETTES) },
+    { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_TESSA_KICK_PALETTES) },
+    { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_KICK_PALETTES) },
+
+    { L"Hauzer",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_HAUZER_PALETTES) },
+
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_MYSTIC_PALETTES) },
+    { L"Shadows, Effects & Hit FX Ranges",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_SHADOWFX_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_SHADOWFX_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_HYDRON_COLLECTION[] =
 {
+    { L"Leo Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_LEO_PUNCH_PALETTES) },
+    { L"Kenji Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_PUNCH_PALETTES) },
+    { L"Tessa Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_PUNCH_PALETTES) },
+    { L"Mai-Ling Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_PUNCH_PALETTES) },
+    { L"Leo Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_LEO_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_LEO_KICK_PALETTES) },
+    { L"Kenji Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_KICK_PALETTES) },
+    { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_KICK_PALETTES) },
+    { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_KICK_PALETTES) },
+
+    { L"Hydron",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_HYDRON_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_HYDRON_PALETTES) },
+
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_MYSTIC_PALETTES) },
+    { L"Shadows, Effects & Hit FX Ranges",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_SHADOWFX_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_SHADOWFX_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_RAVANGE_COLLECTION[] =
 {
+    { L"Leo Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_LEO_PUNCH_PALETTES) },
+    { L"Kenji Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_PUNCH_PALETTES) },
+    { L"Tessa Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_PUNCH_PALETTES) },
+    { L"Mai-Ling Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_PUNCH_PALETTES) },
+    { L"Leo Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_LEO_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_LEO_KICK_PALETTES) },
+    { L"Kenji Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_KICK_PALETTES) },
+    { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_KICK_PALETTES) },
+    { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_KICK_PALETTES) },
+
+    { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_RAVANGE_PALETTES) },
+
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_MYSTIC_PALETTES) },
+    { L"Shadows, Effects & Hit FX Ranges",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_SHADOWFX_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_SHADOWFX_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_BLADE_COLLECTION[] =
 {
+    { L"Leo Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_LEO_PUNCH_PALETTES) },
+    { L"Kenji Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_PUNCH_PALETTES) },
+    { L"Tessa Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_PUNCH_PALETTES) },
+    { L"Mai-Ling Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_PUNCH_PALETTES) },
+    { L"Leo Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_LEO_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_LEO_KICK_PALETTES) },
+    { L"Kenji Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_KICK_PALETTES) },
+    { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_KICK_PALETTES) },
+    { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_KICK_PALETTES) },
+
+    { L"Blade",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_BLADE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_BLADE_PALETTES) },
+
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_MYSTIC_PALETTES) },
+    { L"Shadows, Effects & Hit FX Ranges",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_SHADOWFX_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_SHADOWFX_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_UNITS_50[] =

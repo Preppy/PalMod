@@ -1255,48 +1255,14 @@ const sGame_PaletteDataset Matrimelee_A_BBM_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_PALETTES[] =
 {
-    { L"Lynn Baker",            0x2a2424 + (0 * 0x20), 0x2a2424 + (1 * 0x20) },
-    { L"Jimmy Lewis",           0x2a2424 + (1 * 0x20), 0x2a2424 + (2 * 0x20) },
-    { L"Elias Patrick",         0x2a2424 + (2 * 0x20), 0x2a2424 + (3 * 0x20) },
-    { L"Mr. Jones",             0x2a2424 + (3 * 0x20), 0x2a2424 + (4 * 0x20) },
-    { L"Olof Linderof",         0x2a2424 + (4 * 0x20), 0x2a2424 + (5 * 0x20) },
-    { L"Shintaro Kuno",         0x2a2424 + (5 * 0x20), 0x2a2424 + (6 * 0x20) },
-    { L"Buntaro Kuno",          0x2a2424 + (6 * 0x20), 0x2a2424 + (7 * 0x20) },
-    { L"Hikaru Jomon",          0x2a2424 + (7 * 0x20), 0x2a2424 + (8 * 0x20) },
-    { L"Chinnen",               0x2a2424 + (8 * 0x20), 0x2a2424 + (9 * 0x20) },
-    { L"Clara Hananokoji",      0x2a2424 + (9 * 0x20), 0x2a2424 + (10 * 0x20) },
-    { L"Poochy",                0x2a2424 + (10 * 0x20), 0x2a2424 + (11 * 0x20) },
-    { L"White Buffalo",         0x2a2424 + (11 * 0x20), 0x2a2424 + (12 * 0x20) },
-    { L"Saizo Hattori",         0x2a2424 + (12 * 0x20), 0x2a2424 + (13 * 0x20) },
-    { L"Keith Wayne",           0x2a2424 + (13 * 0x20), 0x2a2424 + (14 * 0x20) },
-    { L"Anny Hamilton",         0x2a2424 + (14 * 0x20), 0x2a2424 + (15 * 0x20) },
-    { L"Reiji Oyama",           0x2a2424 + (15 * 0x20), 0x2a2424 + (16 * 0x20) },
-    { L"Kanji Kokuin",          0x2a2424 + (16 * 0x20), 0x2a2424 + (17 * 0x20) },
-    { L"Tane Goketsuji",        0x2a2424 + (17 * 0x20), 0x2a2424 + (18 * 0x20) },
-    { L"Ume Goketsuji",          0x2a2424 + (18 * 0x20), 0x2a2424 + (19 * 0x20) },
+    { L"Character Select Icons 1/2", 0x2a2424, 0x2a2624 },
+    { L"Character Select Icons 2/2", 0x2a2624, 0x2a2684 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_FADED_PALETTES[] =
 {
-    { L"Lynn Baker",            0x2a21c4 + (0 * 0x20), 0x2a21c4 + (1 * 0x20) },
-    { L"Jimmy Lewis",           0x2a21c4 + (1 * 0x20), 0x2a21c4 + (2 * 0x20) },
-    { L"Elias Patrick",         0x2a21c4 + (2 * 0x20), 0x2a21c4 + (3 * 0x20) },
-    { L"Mr. Jones",             0x2a21c4 + (3 * 0x20), 0x2a21c4 + (4 * 0x20) },
-    { L"Olof Linderof",         0x2a21c4 + (4 * 0x20), 0x2a21c4 + (5 * 0x20) },
-    { L"Shintaro Kuno",         0x2a21c4 + (5 * 0x20), 0x2a21c4 + (6 * 0x20) },
-    { L"Buntaro Kuno",          0x2a21c4 + (6 * 0x20), 0x2a21c4 + (7 * 0x20) },
-    { L"Hikaru Jomon",          0x2a21c4 + (7 * 0x20), 0x2a21c4 + (8 * 0x20) },
-    { L"Chinnen",               0x2a21c4 + (8 * 0x20), 0x2a21c4 + (9 * 0x20) },
-    { L"Clara Hananokoji",      0x2a21c4 + (9 * 0x20), 0x2a21c4 + (10 * 0x20) },
-    { L"Poochy",                0x2a21c4 + (10 * 0x20), 0x2a21c4 + (11 * 0x20) },
-    { L"White Buffalo",         0x2a21c4 + (11 * 0x20), 0x2a21c4 + (12 * 0x20) },
-    { L"Saizo Hattori",         0x2a21c4 + (12 * 0x20), 0x2a21c4 + (13 * 0x20) },
-    { L"Keith Wayne",           0x2a21c4 + (13 * 0x20), 0x2a21c4 + (14 * 0x20) },
-    { L"Anny Hamilton",         0x2a21c4 + (14 * 0x20), 0x2a21c4 + (15 * 0x20) },
-    { L"Reiji Oyama",           0x2a21c4 + (15 * 0x20), 0x2a21c4 + (16 * 0x20) },
-    { L"Kanji Kokuin",          0x2a21c4 + (16 * 0x20), 0x2a21c4 + (17 * 0x20) },
-    { L"Tane Goketsuji",        0x2a21c4 + (17 * 0x20), 0x2a21c4 + (18 * 0x20) },
-    { L"Ume Goketsuj",          0x2a21c4 + (18 * 0x20), 0x2a21c4 + (19 * 0x20) },
+    { L"Character Select Icons Faded 1/2", 0x2a21c4, 0x2a23c4 },
+    { L"Character Select Icons Faded 2/2", 0x2a23c4, 0x2a2424 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_SCREEN_PALETTES[] =
@@ -1504,16 +1470,12 @@ const sDescTreeNode Matrimelee_A_WHITE_COLLECTION[] =
 
 const sDescTreeNode Matrimelee_A_BONUS_COLLECTION[] =
 {
-    { L"HUD",                       DESC_NODETYPE_TREE,   (void*)Matrimelee_A_HUD_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_HUD_PORTRAIT_PALETTES) },
-    { L"The Judge",                 DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JUDGE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JUDGE_PORTRAIT_PALETTES) },
-    { L"Bloodline Battle Monitor",  DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BBM_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_BBM_PORTRAIT_PALETTES) },
-};
-
-const sDescTreeNode Matrimelee_A_SELECT_COLLECTION[] =
-{
     { L"Character Select Portraits Selected",   DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BONUS_SELECT_PALETTES, ARRAYSIZE(Matrimelee_A_BONUS_SELECT_PALETTES) },
     { L"Character Select Portraits Faded",      DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BONUS_SELECT_FADED_PALETTES, ARRAYSIZE(Matrimelee_A_BONUS_SELECT_FADED_PALETTES) },
     { L"Select Screen Palettes",                DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BONUS_SELECT_SCREEN_PALETTES, ARRAYSIZE(Matrimelee_A_BONUS_SELECT_SCREEN_PALETTES) },
+    { L"HUD",                       DESC_NODETYPE_TREE,   (void*)Matrimelee_A_HUD_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_HUD_PORTRAIT_PALETTES) },
+    { L"The Judge",                 DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JUDGE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JUDGE_PORTRAIT_PALETTES) },
+    { L"Bloodline Battle Monitor",  DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BBM_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_BBM_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_UNITS[] =
@@ -1538,6 +1500,5 @@ const sDescTreeNode Matrimelee_A_UNITS[] =
     { L"Tane Goketsuji",    DESC_NODETYPE_TREE, (void*)Matrimelee_A_TANE_COLLECTION,            ARRAYSIZE(Matrimelee_A_TANE_COLLECTION) },
     { L"Ume Goketsuji",     DESC_NODETYPE_TREE, (void*)Matrimelee_A_UME_COLLECTION,             ARRAYSIZE(Matrimelee_A_UME_COLLECTION) },
     { L"White Buffalo",     DESC_NODETYPE_TREE, (void*)Matrimelee_A_WHITE_COLLECTION,           ARRAYSIZE(Matrimelee_A_WHITE_COLLECTION) },
-    { L"Select Screen",     DESC_NODETYPE_TREE, (void*)Matrimelee_A_SELECT_COLLECTION,          ARRAYSIZE(Matrimelee_A_SELECT_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)Matrimelee_A_BONUS_COLLECTION,           ARRAYSIZE(Matrimelee_A_BONUS_COLLECTION) },
 };

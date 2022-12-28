@@ -28,7 +28,7 @@ private:
         Matrimelee_A_UNITS,
         ARRAYSIZE(Matrimelee_A_UNITS),
         L"MatrimeleeE.txt",        // Extra filename
-        825,                       // Count of palettes listed in the header
+        791,                       // Count of palettes listed in the header
         0x72ba,                    // Lowest known location used for palettes
     };
 
