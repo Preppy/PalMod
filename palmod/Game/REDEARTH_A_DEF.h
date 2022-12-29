@@ -4154,6 +4154,17 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_SHADOWFX_PALETTES[] 
     { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x1FDA00, 0x133000 + 0x1FDA00 },
     { L"Effects Range (2/3) 0x133000", 0x133000 + 0x1FDA00, 0x133200 + 0x1FDA00 },
     { L"Effects Range (3/3) 0x133200", 0x133200 + 0x1FDA00, 0x133280 + 0x1FDA00 },
+
+    { L"Elemental Related & Unknown Range 1 1/2", 0x330f00, 0x331100 },
+    { L"Elemental Related & Unknown Range 1 2/2", 0x331100, 0x331280 },
+    { L"Elemental Related & Unknown Range 2 1/3", 0x331500, 0x331700 },
+    { L"Elemental Related & Unknown Range 2 2/3", 0x331700, 0x331900 },
+    { L"Elemental Related & Unknown Range 2 3/3", 0x331900, 0x331980 },
+    { L"Ingame LVL Up, Exp, Life up 1", 0x331280, 0x331300, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 2", 0x331300, 0x331380, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 3", 0x331380, 0x331400, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 4", 0x331400, 0x331480, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 5", 0x331480, 0x331500, indexRedEarthSprites_Bonus, 0x52 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_SHADOWFX_PALETTES[] =
@@ -4166,6 +4177,17 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_SHADOWFX_PALETTES[]
     { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x201A00, 0x133000 + 0x201A00 },
     { L"Effects Range (2/3) 0x133000", 0x133000 + 0x201A00, 0x133200 + 0x201A00 },
     { L"Effects Range (3/3) 0x133200", 0x133200 + 0x201A00, 0x133280 + 0x201A00 },
+
+    { L"Elemental Related & Unknown Range 1 1/2", 0x334f00, 0x335100 },
+    { L"Elemental Related & Unknown Range 1 2/2", 0x335100, 0x335280 },
+    { L"Elemental Related & Unknown Range 2 1/3", 0x335500, 0x335700 },
+    { L"Elemental Related & Unknown Range 2 2/3", 0x335700, 0x335900 },
+    { L"Elemental Related & Unknown Range 2 3/3", 0x335900, 0x335980 },
+    { L"Ingame LVL Up, Exp, Life up 1", 0x335280, 0x335300, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 2", 0x335300, 0x335380, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 3", 0x335380, 0x335400, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 4", 0x335400, 0x335480, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 5", 0x335480, 0x335500, indexRedEarthSprites_Bonus, 0x52 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_SHADOWFX_PALETTES[] =
@@ -4178,6 +4200,17 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_SHADOWFX_PALETTES[]
     { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x205A00, 0x133000 + 0x205A00 },
     { L"Effects Range (2/3) 0x133000", 0x133000 + 0x205A00, 0x133200 + 0x205A00 },
     { L"Effects Range (3/3) 0x133200", 0x133200 + 0x205A00, 0x133280 + 0x205A00 },
+
+    { L"Elemental Related & Unknown Range 1 1/2", 0x338f00, 0x339100 },
+    { L"Elemental Related & Unknown Range 1 2/2", 0x339100, 0x339280 },
+    { L"Elemental Related & Unknown Range 2 1/3", 0x339500, 0x339700 },
+    { L"Elemental Related & Unknown Range 2 2/3", 0x339700, 0x339900 },
+    { L"Elemental Related & Unknown Range 2 3/3", 0x339900, 0x339980 },
+    { L"Ingame LVL Up, Exp, Life up 1", 0x339280, 0x339300, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 2", 0x339300, 0x339380, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 3", 0x339380, 0x339400, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 4", 0x339400, 0x339480, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 5", 0x339480, 0x339500, indexRedEarthSprites_Bonus, 0x52 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_SHADOWFX_PALETTES[] =
@@ -4190,6 +4223,17 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_SHADOWFX_PALETTES[
     { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x209A00, 0x133000 + 0x209A00 },
     { L"Effects Range (2/3) 0x133000", 0x133000 + 0x209A00, 0x133200 + 0x209A00 },
     { L"Effects Range (3/3) 0x133200", 0x133200 + 0x209A00, 0x133280 + 0x209A00 },
+
+    { L"Elemental Related & Unknown Range 1 1/2", 0x33cf00, 0x33d100 },
+    { L"Elemental Related & Unknown Range 1 2/2", 0x33d100, 0x33d280 },
+    { L"Elemental Related & Unknown Range 2 1/3", 0x33d500, 0x33d700 },
+    { L"Elemental Related & Unknown Range 2 2/3", 0x33d700, 0x33d900 },
+    { L"Elemental Related & Unknown Range 2 3/3", 0x33d900, 0x33d980 },
+    { L"Ingame LVL Up, Exp, Life up 1", 0x33d280, 0x33d300, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 2", 0x33d300, 0x33d380, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 3", 0x33d380, 0x33d400, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 4", 0x33d400, 0x33d480, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 5", 0x33d480, 0x33d500, indexRedEarthSprites_Bonus, 0x52 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_SHADOWFX_PALETTES[] =
@@ -4202,6 +4246,17 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_SHADOWFX_PALETTES[] 
     { L"Effects Range (1/3) 0x132e00", 0x132e00 + 0x20DA00, 0x133000 + 0x20DA00 },
     { L"Effects Range (2/3) 0x133000", 0x133000 + 0x20DA00, 0x133200 + 0x20DA00 },
     { L"Effects Range (3/3) 0x133200", 0x133200 + 0x20DA00, 0x133280 + 0x20DA00 },
+
+    { L"Elemental Related & Unknown Range 1 1/2", 0x340f00, 0x341100 },
+    { L"Elemental Related & Unknown Range 1 2/2", 0x341100, 0x341280 },
+    { L"Elemental Related & Unknown Range 2 1/3", 0x341500, 0x341700 },
+    { L"Elemental Related & Unknown Range 2 2/3", 0x341700, 0x341900 },
+    { L"Elemental Related & Unknown Range 2 3/3", 0x341900, 0x341980 },
+    { L"Ingame LVL Up, Exp, Life up 1", 0x341280, 0x341300, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 2", 0x341300, 0x341380, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 3", 0x341380, 0x341400, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 4", 0x341400, 0x341480, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 5", 0x341480, 0x341500, indexRedEarthSprites_Bonus, 0x52 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_PUNCH_PALETTES[] =
@@ -6665,6 +6720,7 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_RAVANGE_PALETTES[] =
     { L"Ravange Frozen 4", 0x430900 - (0x42d800 - 0x270000), 0x430980 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
     { L"Ravange Frozen 5", 0x430980 - (0x42d800 - 0x270000), 0x430a00 - (0x42d800 - 0x270000), indexRedEarthSprites_Ravange, 0x00 },
 
+    { L"Ravange's 2nd Form Transformation Explosions", 0x330e80, 0x330f00 },
     { L"Ravange's Unknown Palette 1", 0x42da00 - (0x42d800 - 0x270000), 0x42da80 - (0x42d800 - 0x270000) },
     { L"Ravange's Unknown Palette 2 (1/2) 0x42e000", 0x42e000 - (0x42d800 - 0x270000), 0x42e200 - (0x42d800 - 0x270000) },
     { L"Ravange's Unknown Palette 2 (2/2) 0x42e200", 0x42e200 - (0x42d800 - 0x270000), 0x42e400 - (0x42d800 - 0x270000) },
@@ -6749,11 +6805,27 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_RAVANGE_PALETTES[]
     { L"Ravange Frozen 4", 0x430900 - (0x42d800 - 0x2a8000), 0x430980 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
     { L"Ravange Frozen 5", 0x430980 - (0x42d800 - 0x2a8000), 0x430a00 - (0x42d800 - 0x2a8000), indexRedEarthSprites_Ravange, 0x00 },
 
+    { L"Ravange's 2nd Form Transformation Explosions", 0x33ce80, 0x33cf00 },
     { L"Ravange's Unknown Palette 1", 0x42da00 - (0x42d800 - 0x2a8000), 0x42da80 - (0x42d800 - 0x2a8000) },
     { L"Ravange's Unknown Palette 2 (1/2) 0x42e000", 0x42e000 - (0x42d800 - 0x2a8000), 0x42e200 - (0x42d800 - 0x2a8000) },
     { L"Ravange's Unknown Palette 2 (2/2) 0x42e200", 0x42e200 - (0x42d800 - 0x2a8000), 0x42e400 - (0x42d800 - 0x2a8000) },
 
     { L"Ravange's Unknown Palette 3", 0x42f100 - (0x42d800 - 0x2a8000), 0x42f280 - (0x42d800 - 0x2a8000) },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_RAVANGE_PALETTES[] =
+{
+    { L"Ravange's 2nd Form Transformation Explosions", 0x334e80, 0x334f00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_RAVANGE_PALETTES[] =
+{
+    { L"Ravange's 2nd Form Transformation Explosions", 0x338e80, 0x338f00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_RAVANGE_PALETTES[] =
+{
+    { L"Ravange's 2nd Form Transformation Explosions", 0x340e80, 0x340f00 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_GIGI_PALETTES[] =
@@ -6951,6 +7023,22 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_SCION_PALETTES[] =
     { L"Dragon's Thunderbreath 2", 0x437980 - (0x436e00 - 0x27c000), 0x437a00 - (0x436e00 - 0x27c000), indexRedEarthSprites_Scion, 0x02 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_50_UNUSED_PALETTES[] =
+{
+    { L"Slash Transparency Small Chunk of Leo Punch Burn 1", 0x283e00, 0x283e20 },
+    { L"Hauzer Transparency Small Chunk of Leo Punch Burn 1", 0x2b3e00, 0x2b3e20 },
+    { L"Hydron Transparency Small Chunk of Leo Punch Burn 1", 0x2b7e00, 0x2b7e20 },
+    { L"Ravange Transparency Small Chunk of Leo Punch Burn 1", 0x2bbe00, 0x2bbe20 },
+    { L"Blade Transparency Small Chunk of Leo Punch Burn 1", 0x2bfe00, 0x2bfe20 },
+
+
+    { L"Slash Transparency Small Chunk of Leo Kick Burn 1", 0x293e00, 0x293e20 },
+    { L"Hauzer Transparency Small Chunk of Leo Kick Burn 1", 0x2f3e00, 0x2f3e20 },
+    { L"Hydron Transparency Small Chunk of Leo Kick Burn 1", 0x2f7e00, 0x2f7e20 },
+    { L"Ravange Transparency Small Chunk of Leo Kick Burn 1", 0x2fbe00, 0x2fbe20 },
+    { L"Blade Transparency Small Chunk of Leo Kick Burn 1", 0x2ffe00, 0x2ffe20 },
+};
+
 const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_SLASH_COLLECTION[] =
 {
     { L"Leo Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_SLASH_LEO_PUNCH_PALETTES) },
@@ -6989,6 +7077,7 @@ const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_HAUZER_COLLECTION[] =
     { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_MAI_KICK_PALETTES) },
 
     { L"Hauzer",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_HAUZER_PALETTES) },
+    { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_RAVANGE_PALETTES) },
 
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HAUZER_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HAUZER_MYSTIC_PALETTES) },
@@ -7007,6 +7096,7 @@ const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_HYDRON_COLLECTION[] =
     { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_KICK_PALETTES) },
 
     { L"Hydron",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_HYDRON_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_HYDRON_PALETTES) },
+    { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_RAVANGE_PALETTES) },
 
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_MYSTIC_PALETTES) },
@@ -7042,11 +7132,17 @@ const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_BLADE_COLLECTION[] =
     { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_KICK_PALETTES) },
     { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_KICK_PALETTES) },
 
+    { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_RAVANGE_PALETTES) },
     { L"Blade",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_BLADE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_BLADE_PALETTES) },
 
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_ELEBG_PALETTES) },
     { L"Mystic Combo Super Backgrounds (Unused)",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_MYSTIC_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_MYSTIC_PALETTES) },
     { L"Shadows, Effects & Hit FX Ranges",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_SHADOWFX_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_SHADOWFX_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_50_UNUSED_COLLECTION[] =
+{
+    { L"Palettes",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_50_UNUSED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_UNITS_50[] =
@@ -7057,4 +7153,6 @@ const sDescTreeNode REDEARTH_A_UNITS_50[] =
     { L"Hydron Transparency",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_COLLECTION, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_COLLECTION) },
     { L"Ravange Transparency",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_COLLECTION, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_COLLECTION) },
     { L"Blade Transparency",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_COLLECTION, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_COLLECTION) },
+
+    { L"Unused",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_UNUSED_COLLECTION, ARRAYSIZE(REDEARTH_A_50_UNUSED_COLLECTION) },
 };
