@@ -1766,8 +1766,8 @@ const sGame_PaletteDataset REDEARTH_A_31_BONUS_RANKING_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
 {
-    { L"Coming Next? Original (Unused)", 0x411980, 0x411a00, indexRedEarthSprites_MaiLing, 0x58 },
-    { L"Coming Next? Original (Unused)???", 0x41e180, 0x41e200, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Coming Next? Original Punch", 0x411980, 0x411a00, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Coming Next? Original Kick", 0x41e180, 0x41e200, indexRedEarthSprites_MaiLing, 0x58 },
 
     { L"Tessa Jamming Ghost Punch Palette", 0x40f800, 0x40f880, indexRedEarthSprites_Tessa, 0x0e },
     { L"Tessa Punch Hato Lighter (Pigeon)", 0x40f000, 0x40f080, indexRedEarthSprites_Tessa, 0x0b },
@@ -4536,6 +4536,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_PUNCH_PALETTES
     { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x284000), 0x40c200 - (0x40b200 - 0x284000) },
     { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x284000), 0x40c800 - (0x40b200 - 0x284000) },
     { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x284000), 0x40c920 - (0x40b200 - 0x284000) },
+
+    { L"Good Subordinate Appears 1/4",  0x40bb80 - (0x40b800 - 0x284600), 0x40bc00 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x40bb00 - (0x40b800 - 0x284600), 0x40bb80 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x40ba80 - (0x40b800 - 0x284600), 0x40bb00 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x40ba00 - (0x40b800 - 0x284600), 0x40ba80 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Punch Evil Ninja 1/4",          0x40b980 - (0x40b800 - 0x284600), 0x40ba00 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 2/4",          0x40b900 - (0x40b800 - 0x284600), 0x40b980 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja & Shogun 3/4", 0x40b880 - (0x40b800 - 0x284600), 0x40b900 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 4/4",          0x40b800 - (0x40b800 - 0x284600), 0x40b880 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja Cape 1/4",     0x40bd80 - (0x40b800 - 0x284600), 0x40be00 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 2/4",     0x40bd00 - (0x40b800 - 0x284600), 0x40bd80 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 3/4",     0x40bc80 - (0x40b800 - 0x284600), 0x40bd00 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 4/4",     0x40bc00 - (0x40b800 - 0x284600), 0x40bc80 - (0x40b800 - 0x284600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_PUNCH_PALETTES[] =
@@ -4582,6 +4596,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_PUNCH_PALETTE
     { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2c0000), 0x40c200 - (0x40b200 - 0x2c0000) },
     { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2c0000), 0x40c800 - (0x40b200 - 0x2c0000) },
     { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2c0000), 0x40c920 - (0x40b200 - 0x2c0000) },
+
+    { L"Good Subordinate Appears 1/4",  0x40bb80 - (0x40b800 - 0x2c0600), 0x40bc00 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x40bb00 - (0x40b800 - 0x2c0600), 0x40bb80 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x40ba80 - (0x40b800 - 0x2c0600), 0x40bb00 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x40ba00 - (0x40b800 - 0x2c0600), 0x40ba80 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Punch Evil Ninja 1/4",          0x40b980 - (0x40b800 - 0x2c0600), 0x40ba00 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 2/4",          0x40b900 - (0x40b800 - 0x2c0600), 0x40b980 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja & Shogun 3/4", 0x40b880 - (0x40b800 - 0x2c0600), 0x40b900 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 4/4",          0x40b800 - (0x40b800 - 0x2c0600), 0x40b880 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja Cape 1/4",     0x40bd80 - (0x40b800 - 0x2c0600), 0x40be00 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 2/4",     0x40bd00 - (0x40b800 - 0x2c0600), 0x40bd80 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 3/4",     0x40bc80 - (0x40b800 - 0x2c0600), 0x40bd00 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 4/4",     0x40bc00 - (0x40b800 - 0x2c0600), 0x40bc80 - (0x40b800 - 0x2c0600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_PUNCH_PALETTES[] =
@@ -4628,6 +4656,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_PUNCH_PALETTE
     { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2c4000), 0x40c200 - (0x40b200 - 0x2c4000) },
     { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2c4000), 0x40c800 - (0x40b200 - 0x2c4000) },
     { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2c4000), 0x40c920 - (0x40b200 - 0x2c4000) },
+
+    { L"Good Subordinate Appears 1/4",  0x40bb80 - (0x40b800 - 0x2c4600), 0x40bc00 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x40bb00 - (0x40b800 - 0x2c4600), 0x40bb80 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x40ba80 - (0x40b800 - 0x2c4600), 0x40bb00 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x40ba00 - (0x40b800 - 0x2c4600), 0x40ba80 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Punch Evil Ninja 1/4",          0x40b980 - (0x40b800 - 0x2c4600), 0x40ba00 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 2/4",          0x40b900 - (0x40b800 - 0x2c4600), 0x40b980 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja & Shogun 3/4", 0x40b880 - (0x40b800 - 0x2c4600), 0x40b900 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 4/4",          0x40b800 - (0x40b800 - 0x2c4600), 0x40b880 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja Cape 1/4",     0x40bd80 - (0x40b800 - 0x2c4600), 0x40be00 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 2/4",     0x40bd00 - (0x40b800 - 0x2c4600), 0x40bd80 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 3/4",     0x40bc80 - (0x40b800 - 0x2c4600), 0x40bd00 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 4/4",     0x40bc00 - (0x40b800 - 0x2c4600), 0x40bc80 - (0x40b800 - 0x2c4600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_PUNCH_PALETTES[] =
@@ -4674,6 +4716,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_PUNCH_PALETT
     { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2c8000), 0x40c200 - (0x40b200 - 0x2c8000) },
     { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2c8000), 0x40c800 - (0x40b200 - 0x2c8000) },
     { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2c8000), 0x40c920 - (0x40b200 - 0x2c8000) },
+
+    { L"Good Subordinate Appears 1/4",  0x40bb80 - (0x40b800 - 0x2c8600), 0x40bc00 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x40bb00 - (0x40b800 - 0x2c8600), 0x40bb80 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x40ba80 - (0x40b800 - 0x2c8600), 0x40bb00 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x40ba00 - (0x40b800 - 0x2c8600), 0x40ba80 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Punch Evil Ninja 1/4",          0x40b980 - (0x40b800 - 0x2c8600), 0x40ba00 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 2/4",          0x40b900 - (0x40b800 - 0x2c8600), 0x40b980 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja & Shogun 3/4", 0x40b880 - (0x40b800 - 0x2c8600), 0x40b900 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 4/4",          0x40b800 - (0x40b800 - 0x2c8600), 0x40b880 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja Cape 1/4",     0x40bd80 - (0x40b800 - 0x2c8600), 0x40be00 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 2/4",     0x40bd00 - (0x40b800 - 0x2c8600), 0x40bd80 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 3/4",     0x40bc80 - (0x40b800 - 0x2c8600), 0x40bd00 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 4/4",     0x40bc00 - (0x40b800 - 0x2c8600), 0x40bc80 - (0x40b800 - 0x2c8600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_PUNCH_PALETTES[] =
@@ -4720,6 +4776,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_PUNCH_PALETTES
     { L"Unknown Kenji Range 1 (2/2) 0x40c1e0", 0x40c1e0 - (0x40b200 - 0x2cc000), 0x40c200 - (0x40b200 - 0x2cc000) },
     { L"Unknown Kenji Range 2 (1/2) 0x40c600", 0x40c600 - (0x40b200 - 0x2cc000), 0x40c800 - (0x40b200 - 0x2cc000) },
     { L"Unknown Kenji Range 2 (2/2) 0x40c800", 0x40c800 - (0x40b200 - 0x2cc000), 0x40c920 - (0x40b200 - 0x2cc000) },
+
+    { L"Good Subordinate Appears 1/4",  0x40bb80 - (0x40b800 - 0x2cc600), 0x40bc00 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x40bb00 - (0x40b800 - 0x2cc600), 0x40bb80 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x40ba80 - (0x40b800 - 0x2cc600), 0x40bb00 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x40ba00 - (0x40b800 - 0x2cc600), 0x40ba80 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Punch Evil Ninja 1/4",          0x40b980 - (0x40b800 - 0x2cc600), 0x40ba00 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 2/4",          0x40b900 - (0x40b800 - 0x2cc600), 0x40b980 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja & Shogun 3/4", 0x40b880 - (0x40b800 - 0x2cc600), 0x40b900 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 4/4",          0x40b800 - (0x40b800 - 0x2cc600), 0x40b880 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja Cape 1/4",     0x40bd80 - (0x40b800 - 0x2cc600), 0x40be00 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 2/4",     0x40bd00 - (0x40b800 - 0x2cc600), 0x40bd80 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 3/4",     0x40bc80 - (0x40b800 - 0x2cc600), 0x40bd00 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 4/4",     0x40bc00 - (0x40b800 - 0x2cc600), 0x40bc80 - (0x40b800 - 0x2cc600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_PUNCH_PALETTES[] =
@@ -5582,6 +5652,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_KENJI_KICK_PALETTES[
     { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x294000), 0x418a00 - (0x417A00 - 0x294000) },
     { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x294000), 0x419000 - (0x417A00 - 0x294000) },
     { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x294000), 0x419120 - (0x417A00 - 0x294000) },
+
+    { L"Good Subordinate Appears 1/4",  0x418380 - (0x418000 - 0x294600), 0x418400 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x418300 - (0x418000 - 0x294600), 0x418380 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x418280 - (0x418000 - 0x294600), 0x418300 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x418200 - (0x418000 - 0x294600), 0x418280 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Kick Evil Ninja 1/4",           0x418180 - (0x418000 - 0x294600), 0x418200 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 2/4",           0x418100 - (0x418000 - 0x294600), 0x418180 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja & Shogun 3/4",  0x418080 - (0x418000 - 0x294600), 0x418100 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 4/4",           0x418000 - (0x418000 - 0x294600), 0x418080 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja Cape 1/4",      0x418580 - (0x418000 - 0x294600), 0x418600 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 2/4",      0x418500 - (0x418000 - 0x294600), 0x418580 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 3/4",      0x418480 - (0x418000 - 0x294600), 0x418500 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 4/4",      0x418400 - (0x418000 - 0x294600), 0x418480 - (0x418000 - 0x294600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_KICK_PALETTES[] =
@@ -5628,6 +5712,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_KENJI_KICK_PALETTES
     { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x300000), 0x418a00 - (0x417A00 - 0x300000) },
     { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x300000), 0x419000 - (0x417A00 - 0x300000) },
     { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x300000), 0x419120 - (0x417A00 - 0x300000) },
+
+    { L"Good Subordinate Appears 1/4",  0x418380 - (0x418000 - 0x300600), 0x418400 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x418300 - (0x418000 - 0x300600), 0x418380 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x418280 - (0x418000 - 0x300600), 0x418300 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x418200 - (0x418000 - 0x300600), 0x418280 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Kick Evil Ninja 1/4",           0x418180 - (0x418000 - 0x300600), 0x418200 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 2/4",           0x418100 - (0x418000 - 0x300600), 0x418180 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja & Shogun 3/4",  0x418080 - (0x418000 - 0x300600), 0x418100 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 4/4",           0x418000 - (0x418000 - 0x300600), 0x418080 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja Cape 1/4",      0x418580 - (0x418000 - 0x300600), 0x418600 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 2/4",      0x418500 - (0x418000 - 0x300600), 0x418580 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 3/4",      0x418480 - (0x418000 - 0x300600), 0x418500 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 4/4",      0x418400 - (0x418000 - 0x300600), 0x418480 - (0x418000 - 0x300600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_KICK_PALETTES[] =
@@ -5674,6 +5772,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_KENJI_KICK_PALETTES
     { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x304000), 0x418a00 - (0x417A00 - 0x304000) },
     { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x304000), 0x419000 - (0x417A00 - 0x304000) },
     { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x304000), 0x419120 - (0x417A00 - 0x304000) },
+
+    { L"Good Subordinate Appears 1/4",  0x418380 - (0x418000 - 0x304600), 0x418400 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x418300 - (0x418000 - 0x304600), 0x418380 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x418280 - (0x418000 - 0x304600), 0x418300 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x418200 - (0x418000 - 0x304600), 0x418280 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Kick Evil Ninja 1/4",           0x418180 - (0x418000 - 0x304600), 0x418200 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 2/4",           0x418100 - (0x418000 - 0x304600), 0x418180 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja & Shogun 3/4",  0x418080 - (0x418000 - 0x304600), 0x418100 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 4/4",           0x418000 - (0x418000 - 0x304600), 0x418080 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja Cape 1/4",      0x418580 - (0x418000 - 0x304600), 0x418600 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 2/4",      0x418500 - (0x418000 - 0x304600), 0x418580 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 3/4",      0x418480 - (0x418000 - 0x304600), 0x418500 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 4/4",      0x418400 - (0x418000 - 0x304600), 0x418480 - (0x418000 - 0x304600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_KICK_PALETTES[] =
@@ -5720,6 +5832,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_KENJI_KICK_PALETTE
     { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x308000), 0x418a00 - (0x417A00 - 0x308000) },
     { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x308000), 0x419000 - (0x417A00 - 0x308000) },
     { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x308000), 0x419120 - (0x417A00 - 0x308000) },
+
+    { L"Good Subordinate Appears 1/4",  0x418380 - (0x418000 - 0x308600), 0x418400 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x418300 - (0x418000 - 0x308600), 0x418380 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x418280 - (0x418000 - 0x308600), 0x418300 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x418200 - (0x418000 - 0x308600), 0x418280 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Kick Evil Ninja 1/4",           0x418180 - (0x418000 - 0x308600), 0x418200 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 2/4",           0x418100 - (0x418000 - 0x308600), 0x418180 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja & Shogun 3/4",  0x418080 - (0x418000 - 0x308600), 0x418100 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 4/4",           0x418000 - (0x418000 - 0x308600), 0x418080 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja Cape 1/4",      0x418580 - (0x418000 - 0x308600), 0x418600 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 2/4",      0x418500 - (0x418000 - 0x308600), 0x418580 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 3/4",      0x418480 - (0x418000 - 0x308600), 0x418500 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 4/4",      0x418400 - (0x418000 - 0x308600), 0x418480 - (0x418000 - 0x308600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_KICK_PALETTES[] =
@@ -5766,6 +5892,20 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_KENJI_KICK_PALETTES[
     { L"Unknown Kenji Range 1 (2/2) 0x4189e0", 0x4189e0 - (0x417A00 - 0x30c000), 0x418a00 - (0x417A00 - 0x30c000) },
     { L"Unknown Kenji Range 2 (1/2) 0x418e00", 0x418e00 - (0x417A00 - 0x30c000), 0x419000 - (0x417A00 - 0x30c000) },
     { L"Unknown Kenji Range 2 (2/2) 0x419000", 0x419000 - (0x417A00 - 0x30c000), 0x419120 - (0x417A00 - 0x30c000) },
+
+    { L"Good Subordinate Appears 1/4",  0x418380 - (0x418000 - 0x30c600), 0x418400 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4",  0x418300 - (0x418000 - 0x30c600), 0x418380 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4",  0x418280 - (0x418000 - 0x30c600), 0x418300 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4",  0x418200 - (0x418000 - 0x30c600), 0x418280 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x23 },
+
+    { L"Kick Evil Ninja 1/4",           0x418180 - (0x418000 - 0x30c600), 0x418200 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 2/4",           0x418100 - (0x418000 - 0x30c600), 0x418180 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja & Shogun 3/4",  0x418080 - (0x418000 - 0x30c600), 0x418100 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 4/4",           0x418000 - (0x418000 - 0x30c600), 0x418080 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja Cape 1/4",      0x418580 - (0x418000 - 0x30c600), 0x418600 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 2/4",      0x418500 - (0x418000 - 0x30c600), 0x418580 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 3/4",      0x418480 - (0x418000 - 0x30c600), 0x418500 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 4/4",      0x418400 - (0x418000 - 0x30c600), 0x418480 - (0x418000 - 0x30c600), indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_TESSA_KICK_PALETTES[] =
@@ -6399,6 +6539,22 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_HAUZER_PALETTES[] =
     { L"Hauzer's Unknown Palette 9", 0x421e00 - (0x421000 - 0x260000), 0x421e80 - (0x421000 - 0x260000) },
     { L"Hauzer's Unknown Palette 10", 0x421e80 - (0x421000 - 0x260000), 0x421f00 - (0x421000 - 0x260000) },
     { L"Hauzer's Unknown Palette 11", 0x421f00 - (0x421000 - 0x260000), 0x421f80 - (0x421000 - 0x260000) },
+
+    { L"Hauzer Punch Petrified 1?", 0x40c200 - (0x40c200 - 0x285000), 0x40c280 - (0x40c200 - 0x285000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Petrified 2?", 0x40c280 - (0x40c200 - 0x285000), 0x40c300 - (0x40c200 - 0x285000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 1?",    0x40c300 - (0x40c200 - 0x285000), 0x40c380 - (0x40c200 - 0x285000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 2?",    0x40c380 - (0x40c200 - 0x285000), 0x40c400 - (0x40c200 - 0x285000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 3?",    0x40c400 - (0x40c200 - 0x285000), 0x40c480 - (0x40c200 - 0x285000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 4?",    0x40c480 - (0x40c200 - 0x285000), 0x40c500 - (0x40c200 - 0x285000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 5?",    0x40c500 - (0x40c200 - 0x285000), 0x40c580 - (0x40c200 - 0x285000), indexRedEarthSprites_Hauzer, 0x00 },
+
+    { L"Hauzer Kick Petrified 1??", 0x418a00 - (0x418a00 - 0x295000), 0x418a80 - (0x418a00 - 0x295000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Petrified 2??", 0x418a80 - (0x418a00 - 0x295000), 0x418b00 - (0x418a00 - 0x295000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 1??",    0x418b00 - (0x418a00 - 0x295000), 0x418b80 - (0x418a00 - 0x295000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 2??",    0x418b80 - (0x418a00 - 0x295000), 0x418c00 - (0x418a00 - 0x295000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 3??",    0x418c00 - (0x418a00 - 0x295000), 0x418c80 - (0x418a00 - 0x295000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 4??",    0x418c80 - (0x418a00 - 0x295000), 0x418d00 - (0x418a00 - 0x295000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 5??",    0x418d00 - (0x418a00 - 0x295000), 0x418d80 - (0x418a00 - 0x295000), indexRedEarthSprites_Hauzer, 0x00 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_HAUZER_PALETTES[] =
@@ -6449,6 +6605,79 @@ const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HAUZER_HAUZER_PALETTES[] =
     { L"Hauzer's Unknown Palette 9", 0x421e00 - (0x421000 - 0x2a0000), 0x421e80 - (0x421000 - 0x2a0000) },
     { L"Hauzer's Unknown Palette 10", 0x421e80 - (0x421000 - 0x2a0000), 0x421f00 - (0x421000 - 0x2a0000) },
     { L"Hauzer's Unknown Palette 11", 0x421f00 - (0x421000 - 0x2a0000), 0x421f80 - (0x421000 - 0x2a0000) },
+
+    { L"Hauzer Punch Petrified 1?", 0x40c200 - (0x40c200 - 0x2c1000), 0x40c280 - (0x40c200 - 0x2c1000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Petrified 2?", 0x40c280 - (0x40c200 - 0x2c1000), 0x40c300 - (0x40c200 - 0x2c1000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 1?",    0x40c300 - (0x40c200 - 0x2c1000), 0x40c380 - (0x40c200 - 0x2c1000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 2?",    0x40c380 - (0x40c200 - 0x2c1000), 0x40c400 - (0x40c200 - 0x2c1000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 3?",    0x40c400 - (0x40c200 - 0x2c1000), 0x40c480 - (0x40c200 - 0x2c1000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 4?",    0x40c480 - (0x40c200 - 0x2c1000), 0x40c500 - (0x40c200 - 0x2c1000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 5?",    0x40c500 - (0x40c200 - 0x2c1000), 0x40c580 - (0x40c200 - 0x2c1000), indexRedEarthSprites_Hauzer, 0x00 },
+
+    { L"Hauzer Kick Petrified 1??", 0x418a00 - (0x418a00 - 0x301000), 0x418a80 - (0x418a00 - 0x301000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Petrified 2??", 0x418a80 - (0x418a00 - 0x301000), 0x418b00 - (0x418a00 - 0x301000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 1??",    0x418b00 - (0x418a00 - 0x301000), 0x418b80 - (0x418a00 - 0x301000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 2??",    0x418b80 - (0x418a00 - 0x301000), 0x418c00 - (0x418a00 - 0x301000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 3??",    0x418c00 - (0x418a00 - 0x301000), 0x418c80 - (0x418a00 - 0x301000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 4??",    0x418c80 - (0x418a00 - 0x301000), 0x418d00 - (0x418a00 - 0x301000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 5??",    0x418d00 - (0x418a00 - 0x301000), 0x418d80 - (0x418a00 - 0x301000), indexRedEarthSprites_Hauzer, 0x00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_HYDRON_HAUZER_PALETTES[] =
+{
+    { L"Hauzer Punch Petrified 1?", 0x40c200 - (0x40c200 - 0x2c5000), 0x40c280 - (0x40c200 - 0x2c5000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Petrified 2?", 0x40c280 - (0x40c200 - 0x2c5000), 0x40c300 - (0x40c200 - 0x2c5000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 1?",    0x40c300 - (0x40c200 - 0x2c5000), 0x40c380 - (0x40c200 - 0x2c5000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 2?",    0x40c380 - (0x40c200 - 0x2c5000), 0x40c400 - (0x40c200 - 0x2c5000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 3?",    0x40c400 - (0x40c200 - 0x2c5000), 0x40c480 - (0x40c200 - 0x2c5000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 4?",    0x40c480 - (0x40c200 - 0x2c5000), 0x40c500 - (0x40c200 - 0x2c5000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 5?",    0x40c500 - (0x40c200 - 0x2c5000), 0x40c580 - (0x40c200 - 0x2c5000), indexRedEarthSprites_Hauzer, 0x00 },
+
+    { L"Hauzer Kick Petrified 1??", 0x418a00 - (0x418a00 - 0x305000), 0x418a80 - (0x418a00 - 0x305000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Petrified 2??", 0x418a80 - (0x418a00 - 0x305000), 0x418b00 - (0x418a00 - 0x305000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 1??",    0x418b00 - (0x418a00 - 0x305000), 0x418b80 - (0x418a00 - 0x305000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 2??",    0x418b80 - (0x418a00 - 0x305000), 0x418c00 - (0x418a00 - 0x305000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 3??",    0x418c00 - (0x418a00 - 0x305000), 0x418c80 - (0x418a00 - 0x305000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 4??",    0x418c80 - (0x418a00 - 0x305000), 0x418d00 - (0x418a00 - 0x305000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 5??",    0x418d00 - (0x418a00 - 0x305000), 0x418d80 - (0x418a00 - 0x305000), indexRedEarthSprites_Hauzer, 0x00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_RAVANGE_HAUZER_PALETTES[] =
+{
+    { L"Hauzer Punch Petrified 1?", 0x40c200 - (0x40c200 - 0x2c9000), 0x40c280 - (0x40c200 - 0x2c9000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Petrified 2?", 0x40c280 - (0x40c200 - 0x2c9000), 0x40c300 - (0x40c200 - 0x2c9000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 1?",    0x40c300 - (0x40c200 - 0x2c9000), 0x40c380 - (0x40c200 - 0x2c9000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 2?",    0x40c380 - (0x40c200 - 0x2c9000), 0x40c400 - (0x40c200 - 0x2c9000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 3?",    0x40c400 - (0x40c200 - 0x2c9000), 0x40c480 - (0x40c200 - 0x2c9000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 4?",    0x40c480 - (0x40c200 - 0x2c9000), 0x40c500 - (0x40c200 - 0x2c9000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 5?",    0x40c500 - (0x40c200 - 0x2c9000), 0x40c580 - (0x40c200 - 0x2c9000), indexRedEarthSprites_Hauzer, 0x00 },
+
+    { L"Hauzer Kick Petrified 1??", 0x418a00 - (0x418a00 - 0x309000), 0x418a80 - (0x418a00 - 0x309000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Petrified 2??", 0x418a80 - (0x418a00 - 0x309000), 0x418b00 - (0x418a00 - 0x309000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 1??",    0x418b00 - (0x418a00 - 0x309000), 0x418b80 - (0x418a00 - 0x309000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 2??",    0x418b80 - (0x418a00 - 0x309000), 0x418c00 - (0x418a00 - 0x309000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 3??",    0x418c00 - (0x418a00 - 0x309000), 0x418c80 - (0x418a00 - 0x309000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 4??",    0x418c80 - (0x418a00 - 0x309000), 0x418d00 - (0x418a00 - 0x309000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 5??",    0x418d00 - (0x418a00 - 0x309000), 0x418d80 - (0x418a00 - 0x309000), indexRedEarthSprites_Hauzer, 0x00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_BLADE_HAUZER_PALETTES[] =
+{
+    { L"Hauzer Punch Petrified 1?", 0x40c200 - (0x40c200 - 0x2cd000), 0x40c280 - (0x40c200 - 0x2cd000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Petrified 2?", 0x40c280 - (0x40c200 - 0x2cd000), 0x40c300 - (0x40c200 - 0x2cd000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 1?",    0x40c300 - (0x40c200 - 0x2cd000), 0x40c380 - (0x40c200 - 0x2cd000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 2?",    0x40c380 - (0x40c200 - 0x2cd000), 0x40c400 - (0x40c200 - 0x2cd000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 3?",    0x40c400 - (0x40c200 - 0x2cd000), 0x40c480 - (0x40c200 - 0x2cd000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 4?",    0x40c480 - (0x40c200 - 0x2cd000), 0x40c500 - (0x40c200 - 0x2cd000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Punch Frozen 5?",    0x40c500 - (0x40c200 - 0x2cd000), 0x40c580 - (0x40c200 - 0x2cd000), indexRedEarthSprites_Hauzer, 0x00 },
+
+    { L"Hauzer Kick Petrified 1??", 0x418a00 - (0x418a00 - 0x30d000), 0x418a80 - (0x418a00 - 0x30d000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Petrified 2??", 0x418a80 - (0x418a00 - 0x30d000), 0x418b00 - (0x418a00 - 0x30d000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 1??",    0x418b00 - (0x418a00 - 0x30d000), 0x418b80 - (0x418a00 - 0x30d000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 2??",    0x418b80 - (0x418a00 - 0x30d000), 0x418c00 - (0x418a00 - 0x30d000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 3??",    0x418c00 - (0x418a00 - 0x30d000), 0x418c80 - (0x418a00 - 0x30d000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 4??",    0x418c80 - (0x418a00 - 0x30d000), 0x418d00 - (0x418a00 - 0x30d000), indexRedEarthSprites_Hauzer, 0x00 },
+    { L"Hauzer Kick Frozen 5??",    0x418d00 - (0x418a00 - 0x30d000), 0x418d80 - (0x418a00 - 0x30d000), indexRedEarthSprites_Hauzer, 0x00 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_TRANSPARENCY_SLASH_KONGOU_PALETTES[] =
@@ -7031,12 +7260,133 @@ const sGame_PaletteDataset REDEARTH_A_50_UNUSED_PALETTES[] =
     { L"Ravange Transparency Small Chunk of Leo Punch Burn 1", 0x2bbe00, 0x2bbe20 },
     { L"Blade Transparency Small Chunk of Leo Punch Burn 1", 0x2bfe00, 0x2bfe20 },
 
-
     { L"Slash Transparency Small Chunk of Leo Kick Burn 1", 0x293e00, 0x293e20 },
     { L"Hauzer Transparency Small Chunk of Leo Kick Burn 1", 0x2f3e00, 0x2f3e20 },
     { L"Hydron Transparency Small Chunk of Leo Kick Burn 1", 0x2f7e00, 0x2f7e20 },
     { L"Ravange Transparency Small Chunk of Leo Kick Burn 1", 0x2fbe00, 0x2fbe20 },
     { L"Blade Transparency Small Chunk of Leo Kick Burn 1", 0x2ffe00, 0x2ffe20 },
+
+    { L"Slash Transparency Coming Next? Original Punch", 0x28c380, 0x28c400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Slash Transparency Coming Next? Original Kick", 0x29c380, 0x29c400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Hauzer Transparency Coming Next? Original Punch", 0x2e0380, 0x2e0400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Hauzer Transparency Coming Next? Original Kick", 0x320380, 0x320400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Hydron Transparency Coming Next? Original Punch", 0x2e4380, 0x2e4400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Hydron Transparency Coming Next? Original Kick", 0x324380, 0x324400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Ravange Transparency Coming Next? Original Punch", 0x2e8380, 0x2e8400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Ravange Transparency Coming Next? Original Kick", 0x328380, 0x328400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Blade Transparency Coming Next? Original Punch", 0x2ec380, 0x2ec400, indexRedEarthSprites_MaiLing, 0x58 },
+    { L"Blade Transparency Coming Next? Original Kick", 0x32c380, 0x32c400, indexRedEarthSprites_MaiLing, 0x58 },
+
+    { L"Slash Transparency Tessa Jamming Ghost Punch Palette", 0x289400, 0x289480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Slash Transparency Tessa Jamming Ghost Kick Palette", 0x299400, 0x299480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Hauzer Transparency Tessa Jamming Ghost Punch Palette", 0x2d1400, 0x2d1480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Hauzer Transparency Tessa Jamming Ghost Kick Palette", 0x311400, 0x311480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Hydron Transparency Tessa Jamming Ghost Punch Palette", 0x2d5400, 0x2d5480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Hydron Transparency Tessa Jamming Ghost Kick Palette", 0x315400, 0x315480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Ravange Transparency Tessa Jamming Ghost Punch Palette", 0x2d9400, 0x2d9480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Ravange Transparency Tessa Jamming Ghost Kick Palette", 0x319400, 0x319480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Blade Transparency Tessa Jamming Ghost Punch Palette", 0x2dd400, 0x2dd480, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Blade Transparency Tessa Jamming Ghost Kick Palette", 0x31d400, 0x31d480, indexRedEarthSprites_Tessa, 0x0e },
+ 
+    { L"Slash Transparency Tessa Punch Hato Lighter (Pigeon)", 0x288c00, 0x288c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Slash Transparency Tessa Kick Hato Lighter (Pigeon)", 0x298c00, 0x298c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Hauzer Transparency Tessa Punch Hato Lighter (Pigeon)", 0x2d0c00, 0x2d0c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Hauzer Transparency Tessa Kick Hato Lighter (Pigeon)", 0x310c00, 0x310c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Hydron Transparency Tessa Punch Hato Lighter (Pigeon)", 0x2d4c00, 0x2d4c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Hydron Transparency Tessa Kick Hato Lighter (Pigeon)", 0x314c00, 0x314c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Ravange Transparency Tessa Punch Hato Lighter (Pigeon)", 0x2d8c00, 0x2d8c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Ravange Transparency Tessa Kick Hato Lighter (Pigeon)", 0x318c00, 0x318c80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Blade Transparency Tessa Punch Hato Lighter (Pigeon)", 0x2dcc00, 0x2dcc80, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Blade Transparency Tessa Kick Hato Lighter (Pigeon)", 0x31cc00, 0x31cc80, indexRedEarthSprites_Tessa, 0x0b },
+ 
+    { L"Slash Transparency Tessa Punch Staff Darker", 0x288980, 0x288a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Slash Transparency Tessa Kick Staff Darker", 0x298980, 0x298a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hauzer Transparency Tessa Punch Staff Darker", 0x2d0980, 0x2d0a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hauzer Transparency Tessa Kick Staff Darker", 0x310980, 0x310a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hydron Transparency Tessa Punch Staff Darker", 0x2d4980, 0x2d4a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hydron Transparency Tessa Kick Staff Darker", 0x314980, 0x314a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Ravange Transparency Tessa Punch Staff Darker", 0x2d8980, 0x2d8a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Ravange Transparency Tessa Kick Staff Darker", 0x318980, 0x318a00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Blade Transparency Tessa Punch Staff Darker", 0x2dc980, 0x2dca00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Blade Transparency Tessa Kick Staff Darker", 0x31c980, 0x31ca00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Slash Transparency Tessa Punch Staff Lighter 1", 0x288900, 0x288980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Slash Transparency Tessa Kick Staff Lighter 1", 0x298900, 0x298980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hauzer Transparency Tessa Punch Staff Lighter 1", 0x2d0900, 0x2d0980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hauzer Transparency Tessa Kick Staff Lighter 1", 0x310900, 0x310980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hydron Transparency Tessa Punch Staff Lighter 1", 0x2d4900, 0x2d4980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hydron Transparency Tessa Kick Staff Lighter 1", 0x314900, 0x314980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Ravange Transparency Tessa Punch Staff Lighter 1", 0x2d8900, 0x2d8980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Ravange Transparency Tessa Kick Staff Lighter 1", 0x318900, 0x318980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Blade Transparency Tessa Punch Staff Lighter 1", 0x2dc900, 0x2dc980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Blade Transparency Tessa Kick Staff Lighter 1", 0x31c900, 0x31c980, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Slash Transparency Tessa Punch Staff Lighter 2", 0x288880, 0x288900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Slash Transparency Tessa Kick Staff Lighter 2", 0x298880, 0x298900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hauzer Transparency Tessa Punch Staff Lighter 2", 0x2d0880, 0x2d0900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hauzer Transparency Tessa Kick Staff Lighter 2", 0x310880, 0x310900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hydron Transparency Tessa Punch Staff Lighter 2", 0x2d4880, 0x2d4900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Hydron Transparency Tessa Kick Staff Lighter 2", 0x314880, 0x314900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Ravange Transparency Tessa Punch Staff Lighter 2", 0x2d8880, 0x2d8900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Ravange Transparency Tessa Kick Staff Lighter 2", 0x318880, 0x318900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Blade Transparency Tessa Punch Staff Lighter 2", 0x2dc880, 0x2dc900, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Blade Transparency Tessa Kick Staff Lighter 2", 0x31c880, 0x31c900, indexRedEarthSprites_Tessa, 0x1e },
+ 
+    { L"Slash Transparency Punch Tessa's Unused Fairies 1 (Poison?)", 0x289280, 0x289300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Slash Transparency Kick Tessa's Unused Fairies 1 (Poison?)", 0x299280, 0x299300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hauzer Transparency Punch Tessa's Unused Fairies 1 (Poison?)", 0x2d1280, 0x2d1300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hauzer Transparency Kick Tessa's Unused Fairies 1 (Poison?)", 0x311280, 0x311300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hydron Transparency Punch Tessa's Unused Fairies 1 (Poison?)", 0x2d5280, 0x2d5300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hydron Transparency Kick Tessa's Unused Fairies 1 (Poison?)", 0x315280, 0x315300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Ravange Transparency Punch Tessa's Unused Fairies 1 (Poison?)", 0x2d9280, 0x2d9300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Ravange Transparency Kick Tessa's Unused Fairies 1 (Poison?)", 0x319280, 0x319300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Blade Transparency Punch Tessa's Unused Fairies 1 (Poison?)", 0x2dd280, 0x2dd300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Blade Transparency Kick Tessa's Unused Fairies 1 (Poison?)", 0x31d280, 0x31d300, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Slash Transparency Punch Tessa's Unused Fairies 2 (Poison?)", 0x289300, 0x289380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Slash Transparency Kick Tessa's Unused Fairies 2 (Poison?)", 0x299300, 0x299380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hauzer Transparency Punch Tessa's Unused Fairies 2 (Poison?)", 0x2d1300, 0x2d1380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hauzer Transparency Kick Tessa's Unused Fairies 2 (Poison?)", 0x311300, 0x311380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hydron Transparency Punch Tessa's Unused Fairies 2 (Poison?)", 0x2d5300, 0x2d5380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Hydron Transparency Kick Tessa's Unused Fairies 2 (Poison?)", 0x315300, 0x315380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Ravange Transparency Punch Tessa's Unused Fairies 2 (Poison?)", 0x2d9300, 0x2d9380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Ravange Transparency Kick Tessa's Unused Fairies 2 (Poison?)", 0x319300, 0x319380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Blade Transparency Punch Tessa's Unused Fairies 2 (Poison?)", 0x2dd300, 0x2dd380, indexRedEarthSprites_Tessa, 0x27 },
+    { L"Blade Transparency Kick Tessa's Unused Fairies 2 (Poison?)", 0x31d300, 0x31d380, indexRedEarthSprites_Tessa, 0x27 },
+
+    { L"Slash Transparency Gi Gi Unused Summon", 0x274c80, 0x274d00, indexRedEarthSprites_GiGi, 0x0c },
+
+    { L"Slash Transparency Lavia Burned 1 Unused", 0x26c280, 0x26c300, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Burned 2 Unused", 0x26c300, 0x26c380, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Shocked 1 Unused", 0x26c380, 0x26c400, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Shocked 2 Unused", 0x26c400, 0x26c480, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Poisoned 1 Unused", 0x26c480, 0x26c500, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Poisoned 2 Unused", 0x26c500, 0x26c580, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Poisoned 3 Unused", 0x26c580, 0x26c600, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Poisoned 4 Unused", 0x26c600, 0x26c680, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Petrified 1 Unused", 0x26c680, 0x26c700, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Petrified 2 Unused", 0x26c700, 0x26c780, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Petrified 3 Unused", 0x26c780, 0x26c800, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Frozen 1 Unused", 0x26c800, 0x26c880, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Frozen 2 Unused", 0x26c880, 0x26c900, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Frozen 3 Unused", 0x26c900, 0x26c980, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Frozen 4 Unused", 0x26c980, 0x26ca00, indexRedEarthSprites_Lavia, 0x00 },
+    { L"Slash Transparency Lavia Frozen 5 Unused", 0x26ca00, 0x26ca80, indexRedEarthSprites_Lavia, 0x00 },
+
+    { L"Unused Palettes in Slash Transparency Lavia's Section 1/16", 0x26ca80, 0x26cc80 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 2/16", 0x26cc80, 0x26ce80 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 3/16", 0x26ce80, 0x26d080 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 4/16", 0x26d080, 0x26d280 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 5/16", 0x26d280, 0x26d480 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 6/16", 0x26d480, 0x26d680 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 7/16", 0x26d680, 0x26d880 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 8/16", 0x26d880, 0x26da80 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 9/16", 0x26da80, 0x26dc80 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 10/16", 0x26dc80, 0x26de80 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 11/16", 0x26de80, 0x26e080 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 12/16", 0x26e080, 0x26e280 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 13/16", 0x26e280, 0x26e480 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 14/16", 0x26e480, 0x26e680 },
+    { L"Unused Palettes in Slash Transparency Lavia's Section 15/16", 0x26e680, 0x26e880 },
+
+    { L"Unused Palettes in Slash Transparency Lavia's Section 16/16", 0x26e880, 0x26ea00 },
 };
 
 const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_SLASH_COLLECTION[] =
@@ -7095,6 +7445,7 @@ const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_HYDRON_COLLECTION[] =
     { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_TESSA_KICK_PALETTES) },
     { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_MAI_KICK_PALETTES) },
 
+    { L"Hauzer",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_HAUZER_PALETTES) },
     { L"Hydron",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_HYDRON_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_HYDRON_PALETTES) },
     { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_HYDRON_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_HYDRON_RAVANGE_PALETTES) },
 
@@ -7114,6 +7465,7 @@ const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_RAVANGE_COLLECTION[] =
     { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_TESSA_KICK_PALETTES) },
     { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_MAI_KICK_PALETTES) },
 
+    { L"Hauzer",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_HAUZER_PALETTES) },
     { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_RAVANGE_PALETTES) },
 
     { L"Elemental Super Backgrounds",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_RAVANGE_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_RAVANGE_ELEBG_PALETTES) },
@@ -7132,6 +7484,7 @@ const sDescTreeNode REDEARTH_A_50_TRANSPARENCY_BLADE_COLLECTION[] =
     { L"Tessa Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_TESSA_KICK_PALETTES) },
     { L"Mai-Ling Kick",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_KICK_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_MAI_KICK_PALETTES) },
 
+    { L"Hauzer",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_HAUZER_PALETTES) },
     { L"Ravange",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_RAVANGE_PALETTES) },
     { L"Blade",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_TRANSPARENCY_BLADE_BLADE_PALETTES, ARRAYSIZE(REDEARTH_A_50_TRANSPARENCY_BLADE_BLADE_PALETTES) },
 

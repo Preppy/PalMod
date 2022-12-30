@@ -46,7 +46,7 @@ private:
         AvgrsGS_A_UNITS,
         ARRAYSIZE(AvgrsGS_A_UNITS),
         L"AvgrsGSE.txt",                 // Extra filename
-        223,                             // Count of palettes listed in the header
+        250,                             // Count of palettes listed in the header
         0xf2000,                         // Lowest known location used for palettes
     };
 
@@ -65,7 +65,7 @@ private:
         AvgrsGS_A_UNITS,
         ARRAYSIZE(AvgrsGS_A_UNITS),
         L"AvgrsGSE.txt",                 // Extra filename
-        223,                             // Count of palettes listed in the header
+        250,                             // Count of palettes listed in the header
         0xf2000,                         // Lowest known location used for palettes
     };
 
