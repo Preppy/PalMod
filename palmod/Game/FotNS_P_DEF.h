@@ -320,11 +320,11 @@ const sGame_PaletteDataset FotNS_P_JAGI_PALETTES_EFFECTS[] =
 
 const sGame_PaletteDataset FotNS_P_SHIN_PALETTES_EFFECTS[] =
 {
-    { L"Blood", 0x1b27820, 0x1b27840 },
-    { L"Intro Stuff: Women", 0x1c25020, 0x1c25040 },
-    { L"Win Stuff: Yuria", 0x1c32820, 0x1c32860 },
-    { L"Win Stuff: Subordinates 1", 0x1bbf820, 0x1bbf840 },
-    { L"Win Stuff: Subordinates 2", 0x1bd8820, 0x1bd8840 },
+    { L"Blood", 0x1b27820, 0x1b27840, indexHnKSprites_Shin, 0x01 },
+    { L"Intro Stuff: Women", 0x1c25020, 0x1c25040, indexHnKSprites_Shin, 0x03 },
+    { L"Win Stuff: Yuria", 0x1c32820, 0x1c32860, indexHnKSprites_Shin, 0x04 },
+    { L"Win Stuff: Subordinates 1", 0x1bbf820, 0x1bbf840, indexHnKSprites_Shin, 0x02 },
+    { L"Win Stuff: Subordinates 2", 0x1bd8820, 0x1bd8840, indexHnKSprites_Shin, 0x02 },
 };
 
 const sGame_PaletteDataset FotNS_P_REI_PALETTES_EFFECTS[] =

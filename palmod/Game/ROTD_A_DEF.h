@@ -866,12 +866,12 @@ const sGame_PaletteDataset ROTD_A_JONES_PORTRAITS[] =
 
 const sGame_PaletteDataset ROTD_A_JOHANN_PALETTES[] =
 {
-    { L"Johann", 0x084ac4, 0x084ae4, indexRotDSprites_Johann, 0x00 },
-    { L"Dragon Energy", 0x084ae4, 0x084b04 },
-    { L"Intro Cape And Flame", 0x084b04, 0x084b24 },
-    { L"Dragon Wave", 0x084b24, 0x084b44 },
-    { L"Dragon Soul", 0x084b44, 0x084b64 },
-    { L"Painful Scream", 0x084b64, 0x084b84 },
+    { L"Johann", 0x084ac4, 0x084ae4, indexRotDSprites_Johann, 0x00, &pairNext2 },
+    { L"Dragon Energy", 0x084ae4, 0x084b04, indexRotDSprites_Johann, 0x01 },
+    { L"Intro Cape And Flame", 0x084b04, 0x084b24, indexRotDSprites_Johann, 0x04 },
+    { L"Dragon Wave", 0x084b24, 0x084b44, indexRotDSprites_Johann, 0x03 },
+    { L"Dragon Soul", 0x084b44, 0x084b64, indexRotDSprites_Johann, 0x02 },
+    { L"Painful Scream", 0x084b64, 0x084b84, indexRotDSprites_Johann, 0x05 },
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x084ba4, 0x084bc4, indexRotDSprites_Johann, 0x00 },
     { L"EX/Super Trail A", 0x084bc4, 0x084be4, indexRotDSprites_Johann, 0x00 },
     { L"Guard Cancel Trail A", 0x084be4, 0x084c04, indexRotDSprites_Johann, 0x00 },
@@ -902,72 +902,72 @@ const sGame_PaletteDataset ROTD_A_BONUS_CONTINUE_PALETTES[] =
 
 const sGame_PaletteDataset ROTD_A_BONUS_TutorialScreen_PALETTES[] =
 {
-    { L"Tutorial: Background", 0x86cc2, 0x86ce2 },
-    { L"Tutorial: How to Play", 0x86ce2, 0x86d02 },
-    { L"Tutorial: Joystick", 0x86d02, 0x86d42 },
-    { L"Tutorial: Buttons", 0x86bc2, 0x86c42 },
-    { L"Tutorial: Arrows", 0x86c42, 0x86cc2 },
+    { L"Tutorial: Background", 0x86cc2, 0x86ce2, indexRotDSprites_Bonus, 0x21 },
+    { L"Tutorial: How to Play", 0x86ce2, 0x86d02, indexRotDSprites_Bonus, 0x23 },
+    { L"Tutorial: Joystick", 0x86d02, 0x86d42, indexRotDSprites_Bonus, 0x24 },
+    { L"Tutorial: Buttons", 0x86bc2, 0x86c42, indexRotDSprites_Bonus, 0x22, &pairNext },
+    { L"Tutorial: Arrows", 0x86c42, 0x86cc2, indexRotDSprites_Bonus, 0x20, &pairPrevious },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_SelectScreen_PALETTES[] =
 {
-    { L"Select Screen: Background", 0x84d38, 0x84d58 },
-    { L"Select Screen: Timer Text", 0x84d18, 0x84d38 },
-    { L"Select Screen: Timer Numbers", 0x85218, 0x85238 },
+    { L"Select Screen: Background", 0x84d38, 0x84d58, indexRotDSprites_Bonus, 0x10 },
+    { L"Select Screen: Timer Text", 0x84d18, 0x84d38, indexRotDSprites_Bonus, 0x14 },
+    { L"Select Screen: Timer Numbers", 0x85218, 0x85238, indexRotDSprites_Bonus, 0x13 },
     { L"Select Screen: Template Portraits", 0x8523a, 0x8543a, indexRotDSprites_Bonus, 0x04 },
     { L"Select Screen: Icons", 0x84df8, 0x84fb8, indexRotDSprites_Bonus, 0x03 },
     { L"Select Screen: Abubo Icon", 0x84fb8, 0x85018, indexRotDSprites_Bonus, 0x00 },
     { L"Select Screen: Faded Icons", 0x85018, 0x85218, indexRotDSprites_Bonus, 0x01 },
-    { L"Select Screen: 1P Cursor", 0x84db8, 0x84dd8 },
-    { L"Select Screen: 2P Cursor", 0x84d98, 0x84db8 },
-    { L"Select Screen: COM Cursor", 0x84dd8, 0x84df8 },
-    { L"Select Screen: Flash Cursor", 0x84d58, 0x84d78 },
-    { L"Select Screen: VS Text", 0x85b5c, 0x85b7c },
-    { L"Select Screen: VS Background", 0x85b7c, 0x85b9c },
+    { L"Select Screen: 1P Cursor", 0x84db8, 0x84dd8, indexRotDSprites_Bonus, 0x0e },
+    { L"Select Screen: 2P Cursor", 0x84d98, 0x84db8, indexRotDSprites_Bonus, 0x0f },
+    { L"Select Screen: COM Cursor", 0x84dd8, 0x84df8, indexRotDSprites_Bonus, 0x11 },
+    { L"Select Screen: Flash Cursor", 0x84d58, 0x84d78, indexRotDSprites_Bonus, 0x12 },
+    { L"Select Screen: VS Text", 0x85b5c, 0x85b7c, indexRotDSprites_Bonus, 0x16 },
+    { L"Select Screen: VS Background", 0x85b7c, 0x85b9c, indexRotDSprites_Bonus, 0x15 },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_StagePresent_PALETTES[] =
 {
-    { L"Stage Present: Text", 0x85f5c, 0x85f7c },
-    { L"Stage Present: Parking", 0x85f7c, 0x85f9c },
-    { L"Stage Present: School", 0x85f9c, 0x85fbc },
-    { L"Stage Present: Factory", 0x85fbc, 0x85fdc },
-    { L"Stage Present: Dojo", 0x85fdc, 0x85ffc },
-    { L"Stage Present: Church", 0x85ffc, 0x8601c },
-    { L"Stage Present: Disco", 0x8601c, 0x8603c },
-    { L"Stage Present: Subway", 0x8603c, 0x8605c },
-    { L"Stage Present: Ring", 0x8605c, 0x8607c },
+    { L"Stage Present: Text", 0x85f5c, 0x85f7c, indexRotDSprites_Bonus, 0x1f },
+    { L"Stage Present: Parking", 0x85f7c, 0x85f9c, indexRotDSprites_Bonus, 0x1b },
+    { L"Stage Present: School", 0x85f9c, 0x85fbc, indexRotDSprites_Bonus, 0x1d },
+    { L"Stage Present: Factory", 0x85fbc, 0x85fdc, indexRotDSprites_Bonus, 0x1a },
+    { L"Stage Present: Dojo", 0x85fdc, 0x85ffc, indexRotDSprites_Bonus, 0x19 },
+    { L"Stage Present: Church", 0x85ffc, 0x8601c, indexRotDSprites_Bonus, 0x17 },
+    { L"Stage Present: Disco", 0x8601c, 0x8603c, indexRotDSprites_Bonus, 0x18 },
+    { L"Stage Present: Subway", 0x8603c, 0x8605c, indexRotDSprites_Bonus, 0x1e },
+    { L"Stage Present: Ring", 0x8605c, 0x8607c, indexRotDSprites_Bonus, 0x1c },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_WinScreen_PALETTES[] =
 {
-    { L"Ranks: Letters and Text", 0x860fe, 0x8621e },
-    { L"Ranks: Parking", 0x8623e, 0x8625e },
-    { L"Ranks: School", 0x8625e, 0x8627e },
-    { L"Ranks: Factory", 0x8627e, 0x8629e },
-    { L"Ranks: Dojo", 0x8629e, 0x862be },
-    { L"Ranks: Church", 0x862be, 0x862de },
-    { L"Ranks: Disco", 0x862de, 0x862fe },
-    { L"Ranks: Subway", 0x862fe, 0x8631e },
-    { L"Ranks: Ring", 0x8631e, 0x8633e },
-    { L"Ranks: Palace", 0x8633e, 0x8635e },
+    { L"Ranks: Letters and Text", 0x860fe, 0x8621e, indexRotDSprites_Bonus, 0x29 },
+    { L"Ranks: Parking", 0x8623e, 0x8625e, indexRotDSprites_Bonus, 0x2b },
+    { L"Ranks: School", 0x8625e, 0x8627e, indexRotDSprites_Bonus, 0x2d },
+    { L"Ranks: Factory", 0x8627e, 0x8629e, indexRotDSprites_Bonus, 0x28 },
+    { L"Ranks: Dojo", 0x8629e, 0x862be, indexRotDSprites_Bonus, 0x27 },
+    { L"Ranks: Church", 0x862be, 0x862de, indexRotDSprites_Bonus, 0x25 },
+    { L"Ranks: Disco", 0x862de, 0x862fe, indexRotDSprites_Bonus, 0x26 },
+    { L"Ranks: Subway", 0x862fe, 0x8631e, indexRotDSprites_Bonus, 0x2e },
+    { L"Ranks: Ring", 0x8631e, 0x8633e, indexRotDSprites_Bonus, 0x2c },
+    { L"Ranks: Palace", 0x8633e, 0x8635e, indexRotDSprites_Bonus, 0x2a },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_ContinueScreen_PALETTES[] =
 {
-    { L"Continue: Game Over", 0x867be, 0x867de },
-    { L"Continue: Numbers", 0x867de, 0x867fe },
-    { L"Continue: Stages", 0x867fe, 0x8681e },
-    { L"Continue: Background", 0x8681e, 0x8683e },
-    { L"Continue: Text", 0x8683e, 0x8689e },
+    { L"Continue: Game Over", 0x867be, 0x867de, indexRotDSprites_Bonus, 0x06 },
+    { L"Continue: Numbers", 0x867de, 0x867fe, indexRotDSprites_Bonus, 0x07 },
+    { L"Continue: Stages", 0x867fe, 0x8681e, indexRotDSprites_Bonus, 0x08 },
+    { L"Continue: Background", 0x8681e, 0x8683e, indexRotDSprites_Bonus, 0x05 },
+    { L"Continue: Text", 0x8683e, 0x8689e, indexRotDSprites_Bonus, 0x09 },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_RankingScreen_PALETTES[] =
 {
-    { L"Ranking: Background", 0x86940, 0x86960 },
+    { L"Ranking: Background", 0x86940, 0x86960, indexRotDSprites_Bonus, 0x0b },
     { L"Ranking: Icons", 0x869a0, 0x86b80, indexRotDSprites_Bonus, 0x02 },
-    { L"Ranking: Positions", 0x868a0, 0x86940 },
-    { L"Ranking: Texts", 0x86960, 0x869a0 },
+    { L"Ranking: Positions", 0x868a0, 0x86940, indexRotDSprites_Bonus, 0x0c },
+    { L"Ranking: Texts", 0x86960, 0x869a0, indexRotDSprites_Bonus, 0x0d },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_IngameEffects_PALETTES[] =
@@ -991,7 +991,7 @@ const sGame_PaletteDataset ROTD_A_BONUS_IngameEffects_PALETTES[] =
     { L"Various Text/Numbers 2", 0x80382, 0x803a2 },
     { L"Here Comes a New Challenger Flash", 0x803a2, 0x803c2 },
     { L"Perfect/Surrender Text", 0x803c2, 0x803e2 },
-    { L"Demo Logo", 0x803e2, 0x80402 },
+    { L"Demo Logo", 0x803e2, 0x80402, indexRotDSprites_Bonus, 0x0a },
 };
 
 #ifdef PLACEHOLDER_DONTUSE

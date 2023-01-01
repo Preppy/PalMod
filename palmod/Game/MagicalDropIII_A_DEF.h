@@ -92,7 +92,7 @@ const sGame_PaletteDataset MAGICALDROPIII_A_MAGICIAN_PALETTES_B[] =
 //High Priestess
 const sGame_PaletteDataset MAGICALDROPIII_A_HIGHPRIESTESS_PALETTES_A[] =
 {
-    { L"High Priestess A", 0x6bd00, 0x6bd80, indexMagDrop3Sprites_HighPriestess, 0x00 },
+    { L"High Priestess A", 0x6bd00, 0x6bd80, indexMagDrop3Sprites_HighPriestess, 0x01, &pairNext },
     { L"High Priestess A Portrait", 0x6a0c0, 0x6a120, indexMagDrop3Sprites_HighPriestess, 0x40 },
     { L"High Priestess A Map", 0x6a740, 0x6a760, indexMagDrop3Sprites_HighPriestess, 0x38 },
     { L"High Priestess A Pre-Fight Icon", 0x6ad40, 0x6ad60, indexMagDrop3Sprites_HighPriestess, 0x41 },
@@ -100,7 +100,7 @@ const sGame_PaletteDataset MAGICALDROPIII_A_HIGHPRIESTESS_PALETTES_A[] =
 
 const sGame_PaletteDataset MAGICALDROPIII_A_HIGHPRIESTESS_PALETTES_B[] =
 {
-    { L"High Priestess B", 0x6bd80, 0x6be00, indexMagDrop3Sprites_HighPriestess, 0x00 },
+    { L"High Priestess B", 0x6bd80, 0x6be00, indexMagDrop3Sprites_HighPriestess, 0x02 },
     { L"High Priestess B Map", 0x6a760, 0x6a780, indexMagDrop3Sprites_HighPriestess, 0x38 },
     { L"High Priestess B Pre-Fight Icon", 0x6ad60, 0x6ad80, indexMagDrop3Sprites_HighPriestess, 0x41 },
 };
@@ -229,14 +229,14 @@ const sGame_PaletteDataset MAGICALDROPIII_A_HERMIT_PALETTES_SHARED[] =
 const sGame_PaletteDataset MAGICALDROPIII_A_FORTUNE_PALETTES_A[] =
 {
     { L"Fortune A", 0x6c6e0, 0x6c7a0, indexMagDrop3Sprites_Fortune, 0x00 },
-    { L"Fortune Wheel A", 0x6c7a0, 0x6c7e0 },
+    { L"Fortune Wheel A", 0x6c7a0, 0x6c7e0, indexMagDrop3Sprites_Fortune, 0x01 },
     { L"Fortune A Map", 0x6a940, 0x6a960, indexMagDrop3Sprites_Fortune, 0x38 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_FORTUNE_PALETTES_B[] =
 {
     { L"Fortune B", 0x6c7e0, 0x6c8a0, indexMagDrop3Sprites_Fortune, 0x00 },
-    { L"Fortune Wheel B", 0x6c8a0, 0x6c8e0 },
+    { L"Fortune Wheel B", 0x6c8a0, 0x6c8e0, indexMagDrop3Sprites_Fortune, 0x01 },
     { L"Fortune B Map", 0x6a960, 0x6a980, indexMagDrop3Sprites_Fortune, 0x38 },
 };
 
@@ -339,14 +339,14 @@ const sGame_PaletteDataset MAGICALDROPIII_A_TOWER_PALETTES_B[] =
 //Star
 const sGame_PaletteDataset MAGICALDROPIII_A_STAR_PALETTES_A[] =
 {
-    { L"Star A", 0x69d80, 0x69e20, indexMagDrop3Sprites_Star, 0x00 },
+    { L"Star A", 0x69d80, 0x69e20, indexMagDrop3Sprites_Star, 0x01, &pairNext2 },
     { L"Star A Map", 0x6ab00, 0x6ab20, indexMagDrop3Sprites_Star, 0x38 },
     { L"Star A Pre-Fight Icon", 0x6b100, 0x6b120, indexMagDrop3Sprites_Star, 0x41 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_STAR_PALETTES_B[] =
 {
-    { L"Star B", 0x69e20, 0x69ec0, indexMagDrop3Sprites_Star, 0x00 },
+    { L"Star B", 0x69e20, 0x69ec0, indexMagDrop3Sprites_Star, 0x02 },
     { L"Star B Map", 0x6ab20, 0x6ab40, indexMagDrop3Sprites_Star, 0x38 },
 };
 
@@ -368,14 +368,14 @@ const sGame_PaletteDataset MAGICALDROPIII_A_MOON_PALETTES_B[] =
 //Sun
 const sGame_PaletteDataset MAGICALDROPIII_A_SUN_PALETTES_A[] =
 {
-    { L"Sun A", 0x69a40, 0x69a60, indexMagDrop3Sprites_Sun, 0x00,  },
+    { L"Sun A", 0x69a40, 0x69a60, indexMagDrop3Sprites_Sun, 0x01  },
     { L"Sun A Map", 0x6ab80, 0x6aba0, indexMagDrop3Sprites_Sun, 0x38 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_SUN_PALETTES_B[] =
 {
-    { L"Sun B", 0x69a60, 0x69a80, indexMagDrop3Sprites_Sun, 0x00 },
-    { L"Sun B Portrait", 0x6b5a0, 0x6b5c0, indexMagDrop3Sprites_Sun, 0x40 },
+    { L"Sun B", 0x69a60, 0x69a80, indexMagDrop3Sprites_Sun, 0x02, &pairNext },
+    { L"Sun B Portrait", 0x6b5a0, 0x6b5c0, indexMagDrop3Sprites_Sun, 0x42 },
     { L"Sun B Map", 0x6aba0, 0x6abc0, indexMagDrop3Sprites_Sun, 0x38 },
 };
 
@@ -446,12 +446,12 @@ const sGame_PaletteDataset MAGICALDROPIII_A_BONUS_PALETTES_SELECTSCREEN[] =
     { L"Mode Selected 2/4", 0x69f80, 0x69fa0 },
     { L"Mode Selected 3/4", 0x69fc0, 0x69fe0 },
     { L"Mode Selected 4/4", 0x69fe0, 0x6a000 },
-    { L"Main Background", 0x685c0, 0x68600 },
-    { L"Portrait Background", 0x685a0, 0x685c0 },
+    { L"Main Background", 0x685c0, 0x68600, indexMagDrop3Sprites_Bonus, 0x12 },
+    { L"Portrait Background", 0x685a0, 0x685c0, indexMagDrop3Sprites_Bonus, 0x13 },
     { L"Tutorial Things", 0x68440, 0x684e0 },
     { L"Tutorial Boards", 0x68560, 0x685a0 },
     { L"Name Board", 0x684e0, 0x68500 },
-    { L"Data East Logo", 0x680c0, 0x68120 },
+    { L"Data East Logo", 0x680c0, 0x68120, indexMagDrop3Sprites_Bonus, 0x11 },
 };
 
 //Select Icons
