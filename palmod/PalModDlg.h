@@ -375,6 +375,7 @@ public:
     afx_msg void OnLoadDir_DBFCI()          { OnLoadGameByDirectory(DBFCI_A); };
     afx_msg void OnLoadDir_GGML_P()         { OnLoadGameByDirectory(GGML_P); };
     afx_msg void OnLoadDir_GGXXR_S()        { OnLoadGameByDirectory(GGXXR_S); };
+    afx_msg void OnLoadDir_GGXXACP_Wii()    { OnLoadGameByDirectory(GGXXACP_Wii); };
     afx_msg void OnLoadDir_GGXXACR_S()      { OnLoadGameByDirectory(GGXXACR_S); };
     afx_msg void OnLoadDir_GGXXACR_P()      { OnLoadGameByDirectory(GGXXACR_P); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };

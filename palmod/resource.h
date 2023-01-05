@@ -362,6 +362,7 @@
 #define ID_LD_GGML_P                    32942
 #define ID_LD_DEVMODE                   32943
 #define ID_COLORFORMAT_BRG555_LE        32944
+#define ID_LD_GGXXACP_Wii				32945
 
 // Next default values for new objects
 // 

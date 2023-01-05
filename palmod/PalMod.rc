@@ -461,7 +461,8 @@ BEGIN
             POPUP "Guilty Gear"
             BEGIN
                 MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
-                MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
+                MENUITEM "GGXX:AC+R (PlayStation 3)", ID_LD_GGXXACR_P
+                MENUITEM "GGXX:AC+ (Wii, ID:R3NEXS)", ID_LD_GGXXACP_Wii
                 MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S
                 MENUITEM "Guilty Gear: The Missing Link (PlayStation)", ID_LD_GGML_P
             END
