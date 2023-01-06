@@ -5230,6 +5230,52 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_EX_PARTS[] =
     { L"SS.2.1.1", 0x22B2a, 0x22BCA, indexCPS2Sprites_VSAV1_Stages, 0x49 },
 };
 
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_TOWER[] =
+{
+    { L"32BG.0.0.0", 0x58562, 0x585c2, indexCPS2Sprites_VSAV1_Stages, -1, &pairFullyLinkedNode },
+    { L"SS.0.0.1", 0x2002a, 0x2006a },
+    { L"16BG.0.0.0", 0x460fa, 0x4621a },
+    { L"8BG.0.0.1", 0x36092, 0x36232 },
+    { L"8BG.0.0.2", 0x36232, 0x36392 },
+    { L"SS.0.0.2", 0x1ff4a, 0x2002a },
+    { L"SS.0.0.3", 0x2006a, 0x2008a },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_TOWER_PARTS[] =
+{
+    { L"8BG.1.1.1", 0x39072, 0x39092 },
+    { L"8BG.1.1.2", 0x39092, 0x390b2 },
+    { L"8BG.1.1.3", 0x390b2, 0x390d2 },
+    { L"8BG.2.1.1", 0x39032, 0x39052 },
+    { L"8BG.2.2.1", 0x39052, 0x39072 },
+    { L"8BG.3.1.1", 0x38fd2, 0x38ff2 },
+    { L"8BG.3.2.1", 0x38ff2, 0x39012 },
+    { L"8BG.3.3.1", 0x39012, 0x39032 },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_TOWER_EX[] =
+{
+    { L"32BG.0.0.0", 0x5f3c2, 0x5f422, indexCPS2Sprites_VSAV1_Stages, -1, &pairFullyLinkedNode },
+    { L"SS.0.0.1", 0x21b4a, 0x21b8a },
+    { L"16BG.0.0.0", 0x4befa, 0x4c01a },
+    { L"8BG.0.0.1", 0x3b5b2, 0x3b752 },
+    { L"8BG.0.0.2", 0x3b752, 0x3b8b2 },
+    { L"SS.0.0.2", 0x21a6a, 0x21b4a },
+    { L"SS.0.0.3", 0x21b8a, 0x21baa },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_TOWER_EX_PARTS[] =
+{
+    { L"8BG.1.1.1", 0x3e592, 0x3e5b2 },
+    { L"8BG.1.1.2", 0x3e5b2, 0x3e5d2 },
+    { L"8BG.1.1.3", 0x3e5d2, 0x3e5f2 },
+    { L"8BG.2.1.1", 0x3e552, 0x3e572 },
+    { L"8BG.2.2.1", 0x3e572, 0x3e592 },
+    { L"8BG.3.1.1", 0x3e4f2, 0x3e512 },
+    { L"8BG.3.2.1", 0x3e512, 0x3e532 },
+    { L"8BG.3.3.1", 0x3e532, 0x3e552 },
+};
+
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_VANITY[] =
 {
     { L"32BG.0.0.0", 0x59562, 0x596c2, indexCPS2Sprites_VSAV1_Stages, 0x61, &pairFullyLinkedNode },
@@ -5705,7 +5751,10 @@ const sDescTreeNode VSAV_A_STAGE_COLLECTION[] =
 
     // Revenger's Roost
 
-    // Tower of Arrogance
+    { L"Tower of Arrogance",                        DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_TOWER, ARRAYSIZE(VSAV_A_STAGE_PALETTES_TOWER) },
+    { L"Tower of Arrogance: Animation palettes",    DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_TOWER_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_TOWER_PARTS) },
+    { L"EX Tower of Arrogance",                     DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_TOWER_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_TOWER_EX) },
+    { L"EX Tower of Arrogance: Animation palettes", DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_TOWER_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_TOWER_EX_PARTS) },
 
     { L"Vanity Paradise",                           DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_VANITY, ARRAYSIZE(VSAV_A_STAGE_PALETTES_VANITY) },
     { L"EX Vanity Paradise",                        DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_VANITY_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_VANITY_EX) },

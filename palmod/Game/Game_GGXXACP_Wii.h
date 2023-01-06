@@ -18,6 +18,7 @@ private:
         ColMode::COLMODE_RGBA8887,
         GGXXACP_Wii_CharacterData,
     };
+
 public:
     CGame_GGXXACP_Wii(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
     ~CGame_GGXXACP_Wii() { ClearDataBuffer(); FlushChangeTrackingArray(); };

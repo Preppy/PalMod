@@ -328,8 +328,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,78,0
- PRODUCTVERSION 1,0,78,0
+ FILEVERSION 1,0,79,0
+ PRODUCTVERSION 1,0,79,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -346,12 +346,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.78.0"
+            VALUE "FileVersion", "1.0.79.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.78.0"
+            VALUE "ProductVersion", "1.0.79.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -461,8 +461,8 @@ BEGIN
             POPUP "Guilty Gear"
             BEGIN
                 MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
-                MENUITEM "GGXX:AC+R (PlayStation 3)", ID_LD_GGXXACR_P
-                MENUITEM "GGXX:AC+ (Wii, ID:R3NEXS)", ID_LD_GGXXACP_Wii
+                MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
+                MENUITEM "GGXX:AC+ (Wii, ID:R3NEXS)",   ID_LD_GGXXACP_Wii
                 MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S
                 MENUITEM "Guilty Gear: The Missing Link (PlayStation)", ID_LD_GGML_P
             END
@@ -811,7 +811,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.78"
+    IDS_CURRENTAPPNAME      "PalMod 1.79"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."
