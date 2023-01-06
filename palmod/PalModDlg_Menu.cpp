@@ -51,6 +51,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case GGML_P:
             pszExtraInfo = L"Select the 'Chara' folder in the root of the game image.";
             break;
+        case GGXXACP_Wii:
+            pszExtraInfo = L"Guilty Gear (Wii): After extracting the ISO, load the \"SDATA\" folder.";
+            break; 
         case GGXXACR_S:
             pszExtraInfo = L"Guilty Gear (Steam): Select the 'Guilty Gear XX Accent Core Plus R' folder under your steam library.";
             break;

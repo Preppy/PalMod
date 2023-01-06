@@ -41,6 +41,7 @@
 #include "Game_Gowcaizer_A.h"
 #include "Game_GGDS_NDS.h"
 #include "Game_GGML_P.h"
+#include "Game_GGXXACP_Wii.h"
 #include "Game_GGXXACR_S.h"
 #include "Game_GGXXACR_P.h"
 #include "Game_GGXXR_S.h"
@@ -167,7 +168,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 187, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 188, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -460,7 +461,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    case GGXXACR_S:
+    case GGXXACP_Wii:
+    {
+        GetRuleCtr = &CGame_GGXXACP_Wii::GetRuleCtr;
+        ResetRuleCtr = &CGame_GGXXACP_Wii::ResetRuleCtr;
+        GetRule = &CGame_GGXXACP_Wii::GetRule;
+        GetNextRule = &CGame_GGXXACP_Wii::GetNextRule;
+
+        return TRUE;
+    }case GGXXACR_S:
     {
         GetRuleCtr = &CGame_GGXXACR_S::GetRuleCtr;
         ResetRuleCtr = &CGame_GGXXACR_S::ResetRuleCtr;
@@ -1466,6 +1475,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case GGML_P:
     {
         return new CGame_GGML_P(nConfirmedROMSize);
+    }
+    case GGXXACP_Wii:
+    {
+        return new CGame_GGXXACP_Wii(nConfirmedROMSize);
     }
     case GGXXACR_S:
     {

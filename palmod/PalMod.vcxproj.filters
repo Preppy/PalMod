@@ -559,6 +559,9 @@
     <Filter Include="Games\Nintendo\Hajime no Ippo %28GBA%29">
       <UniqueIdentifier>{e5b3fb60-9ba0-4275-b2a0-b20a4fcf2760}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Guilty Gear\GGXX ACP %28Wii%29">
+      <UniqueIdentifier>{7e2cc17a-99b5-42ec-9ff7-3849ec4693c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2071,6 +2074,12 @@
     </ClInclude>
     <ClInclude Include="Game\HIppo_GBA_DEF.h">
       <Filter>Games\Nintendo\Hajime no Ippo %28GBA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GGXXACP_Wii.h">
+      <Filter>Games\Other Platforms\Guilty Gear\GGXX ACP %28Wii%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GGXXACP_Wii_DEF.h">
+      <Filter>Games\Other Platforms\Guilty Gear\GGXX ACP %28Wii%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

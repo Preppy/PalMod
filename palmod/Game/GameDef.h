@@ -209,6 +209,7 @@ enum SupportedGamesList
     UMK3_A,
     SFTM_A,
     HIppo_GBA,
+    GGXXACP_Wii,
 
     NUM_GAMES // This needs to be last
 };
@@ -412,6 +413,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Ultimate Mortal Kombat 3 (Midway, Arcade)",
     L"Street Fighter: The Movie (Incredible Technologies)",
     L"Hajime no Ippo - The Fighting! (Japan GBA)",
+    L"GGXX:AC+ (Wii, ID:R3NEXS)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
