@@ -76,7 +76,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin;clear.bin;psel.bin-n;rank.bin;conte.bin|", GamePlatform::Steam },
     { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", GamePlatform::SammyAtomiswave },
-    { LandMaker_A,      L"Land Maker", L"Land Maker (Arcade)|e61-*.20;mpro-3.60|", GamePlatform::OtherPlatform },
+    { LandMaker_A,      L"Land Maker (Arcade)", L"Land Maker (Arcade)|e61-*.20;mpro-3.60|", GamePlatform::OtherPlatform },
     { LASTBLADE_A,      L"Last Blade", L"Last Blade (Neo-Geo)|234-p1.*|", GamePlatform::NEOGEO },
     { LASTBLADE_S,      L"Last Blade", L"Last Blade (Steam)|lastblad_game_m68k|", GamePlatform::Steam },
     { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Neo-Geo)|243*.*;LB2_P1.ROM|", GamePlatform::NEOGEO },
