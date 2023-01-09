@@ -188,6 +188,8 @@
 #define IDS_HPALSAVE_FAILURE            2062
 #define IDS_CFPLSAVE_SUCCESS            2063
 #define IDS_CFPLSAVE_FAILURE            2064
+#define IDS_GPL_LOADED                  2065
+#define IDS_GPL_LOADFAILURE             2066
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773
@@ -362,14 +364,14 @@
 #define ID_LD_GGML_P                    32942
 #define ID_LD_DEVMODE                   32943
 #define ID_COLORFORMAT_BRG555_LE        32944
-#define ID_LD_GGXXACP_Wii				32945
+#define ID_LD_GGXXACP_Wii               32945
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32945
+#define _APS_NEXT_COMMAND_VALUE         32946
 #define _APS_NEXT_CONTROL_VALUE         1091
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

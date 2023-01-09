@@ -122,6 +122,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                                 (_wcsicmp(pszExtension, L".pal") == 0) ||
                                 (_wcsicmp(pszExtension, L".png") == 0) ||
                                 (_wcsicmp(pszExtension, L".raw") == 0) ||
+                                (_wcsicmp(pszExtension, L".gpl") == 0) ||
                                 (_wcsicmp(pszExtension, L".hpl") == 0) ||
                                 (fAllowBBCFDrop && (_wcsicmp(pszExtension, L".cfpl") == 0)))
                             {
@@ -188,6 +189,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             else if (_wcsicmp(pszExtension, L".cfpl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".gpl") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromGPL(szPath);
             }
             else if (_wcsicmp(pszExtension, L".hpl") == 0)
             {

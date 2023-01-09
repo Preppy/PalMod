@@ -168,6 +168,7 @@ public:
 
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
+    bool LoadPaletteFromGPL(LPCWSTR pszFileName);
     bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
