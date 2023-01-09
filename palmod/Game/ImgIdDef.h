@@ -2265,6 +2265,20 @@ enum SupportedTaito_PaletteListIndex
     indexDanKuGa_Wulong,            // 0x0A
     indexDanKuGa_Bonus,             // 0x0B
     indexDanKuGa_General,           // 0x0C
+
+    indexLandMaker_Common,          // 0x0D
+    indexLandMaker_Intro,           // 0x0E
+    indexLandMaker_Stages,          // 0x0F
+    indexLandMaker_Aifa,            // 0x10
+    indexLandMaker_Gaira,           // 0x11
+    indexLandMaker_Hiryu,           // 0x12
+    indexLandMaker_Kouko,           // 0x13
+    indexLandMaker_Ranju,           // 0x14
+    indexLandMaker_Renki,           // 0x15
+    indexLandMaker_Rinrei,          // 0x16
+    indexLandMaker_Roushinshi,      // 0x17
+    indexLandMaker_Soumei,          // 0x18
+    indexLandMaker_Youen,           // 0x19
 };
 
 enum SupportedNintendoDS_PaletteListIndex
