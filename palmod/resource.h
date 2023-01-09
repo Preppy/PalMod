@@ -188,6 +188,8 @@
 #define IDS_HPALSAVE_FAILURE            2062
 #define IDS_CFPLSAVE_SUCCESS            2063
 #define IDS_CFPLSAVE_FAILURE            2064
+#define IDS_GPL_LOADED                  2065
+#define IDS_GPL_LOADFAILURE             2066
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773

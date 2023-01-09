@@ -1805,32 +1805,35 @@ void CPalModDlg::OnImportPalette()
     // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version
     if (m_fEnabled)
     {
-        static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.hpl;*.cfpl|"
+        static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
                                                 L"ACT Palette|*.act|"
                                                 L"Indexed PNG|*.png|"
                                                 L"Microsoft PAL|*.pal|"
                                                 L"Upside-down ACT Palette|*.act|"
                                                 L"Upside-down Indexed PNG|*.png|"
+                                                L"GIMP palette file|*.gpl|"
                                                 L"HipPalette|*.hpl|"
                                                 L"BBCF palette set|*.cfpl|"
                                                 L"|" };
 
-        static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat;*.hpl|"
+        static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat;*.gpl;*.hpl|"
                                                L"ACT Palette|*.act|"
                                                L"Indexed PNG|*.png|"
                                                L"Microsoft PAL|*.pal|"
                                                L"Upside-down ACT Palette|*.act|"
                                                L"Upside-down Indexed PNG|*.png|"
                                                L"PS3 SF3::OE color file|*.txt.dat"
+                                               L"GIMP palette file|*.gpl|"
                                                L"HipPalette|*.hpl|"
                                                L"|" };
 
-        static LPCWSTR rgszOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.hpl|"
+        static LPCWSTR rgszOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.gpl;*.hpl|"
                                             L"ACT Palette|*.act|"
                                             L"Indexed PNG|*.png|"
                                             L"Microsoft PAL|*.pal|"
                                             L"Upside-down ACT Palette|*.act|"
                                             L"Upside-down Indexed PNG|*.png|"
+                                            L"GIMP palette file|*.gpl|"
                                             L"HipPalette|*.hpl|"
                                             L"|" };
 
@@ -1884,6 +1887,10 @@ void CPalModDlg::OnImportPalette()
             else if (_wcsicmp(szExtension, L".cfpl") == 0)
             {
                 LoadPaletteFromCFPL(strFileName);
+            }
+            else if (_wcsicmp(szExtension, L".gpl") == 0)
+            {
+                LoadPaletteFromGPL(strFileName);
             }
             else if (_wcsicmp(szExtension, L".hpl") == 0)
             {
@@ -2013,74 +2020,6 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
     }
 
     SetStatusText(fSuccess ? IDS_ACTSAVE_SUCCESS : IDS_ACTSAVE_FAILURE);
-
-    fShouldShowGenericError = !fSuccess;
-}
-
-void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
-{
-    CFile GPLFile;
-    bool fSuccess = false;
-
-    // Save to GPL file.
-    if (GPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite))
-    {
-        char szBuffer[MAX_PATH];
-
-        // Write the header...
-        strcpy(szBuffer, "GIMP Palette\n");
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
-        _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "Name: %S\n", m_PalHost.GetPalName(0));
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
-        strcpy(szBuffer, "Columns: 0\n");
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
-        strcpy(szBuffer, "# Created by PalMod\n");
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
-
-        // Write out the colors...
-        uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
-        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-        uint8_t nPalettePageCount;
-
-        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
-        {
-            nPalettePageCount = m_PalHost.GetCurrentPageCount();
-        }
-        else
-        {
-            nPalettePageCount = 1;
-        }
-
-        // Skip the first color for GIMP's usage
-        int nTotalColorsUsed = 1;
-        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
-        {
-            _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-            GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
-        }
-
-        for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
-        {
-            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-            if (pPalCtrlNextPage)
-            {
-                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
-
-                for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
-                {
-                    _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-                    GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
-                    nTotalColorsUsed++;
-                }
-            }
-        }
-
-        GPLFile.Close();
-        fSuccess = true;
-    }
-
-    SetStatusText(fSuccess ? IDS_GPLSAVE_SUCCESS : IDS_GPLSAVE_FAILURE);
 
     fShouldShowGenericError = !fSuccess;
 }

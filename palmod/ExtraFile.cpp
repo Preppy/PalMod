@@ -168,13 +168,13 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
             if (fShouldOpenFile)
             {
-                CFile extraFile;
+                CFile cfExtraFile;
 
-                if (extraFile.Open(szTargetFile, CFile::modeRead))
+                if (cfExtraFile.Open(szTargetFile, CFile::modeRead))
                 {
                     CFileStatus extraInfo;
 
-                    if (extraFile.GetStatus(extraInfo))
+                    if (cfExtraFile.GetStatus(extraInfo))
                     {
                         DWORD nFileSize = (DWORD)extraInfo.m_size;
 
@@ -193,7 +193,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                         CRegProc::SetExtraFileLoadingCanary(pszExtraFileName, nFileSize);
                     }
 
-                    extraFile.Abort();
+                    cfExtraFile.Abort();
                 }
             }
 

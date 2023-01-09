@@ -1023,6 +1023,9 @@
     <ClCompile Include="Game\Game_HIppo_GBA.cpp">
       <Filter>Games\Nintendo\Hajime no Ippo %28GBA%29</Filter>
     </ClCompile>
+    <ClCompile Include="GPLfiles.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

@@ -356,6 +356,7 @@
     <ClCompile Include="Game\PalGroup.cpp" />
     <ClCompile Include="Game\Patching.cpp" />
     <ClCompile Include="Game\SuppProc.cpp" />
+    <ClCompile Include="GPLfiles.cpp" />
     <ClCompile Include="HPALfiles.cpp" />
     <ClCompile Include="HTMLfiles.cpp" />
     <ClCompile Include="ImgDat.cpp" />
