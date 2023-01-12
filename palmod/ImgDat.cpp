@@ -18,26 +18,25 @@ typedef std::map<uint16_t, ImgInfoList*>::iterator imgMapIter;
 CImgDat::CImgDat() {}
 
 CImgDat::~CImgDat() {
-    if (!imageBufferFlushed) {
-      FlushImageBuffer();
-    }
+    FlushImageBuffer();
 }
 
+// this reads and writes imageBufferFlushed
 bool CImgDat::FlushImageBuffer() {
     if (imageBufferFlushed) {
-      return imageBufferFlushed;
+        return imageBufferFlushed;
     }
 
     if (nImgMap) {
-      for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it) {
-        if (it->second) {
-          delete it->second;
+        for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it) {
+            if (it->second) {
+                delete it->second;
+            }
         }
-      }
 
-      if (!nImgMap->empty()) {
-        nImgMap->clear();
-      }
+        if (!nImgMap->empty()) {
+            nImgMap->clear();
+        }
     }
 
     safe_delete(nImgMap);
@@ -49,10 +48,8 @@ bool CImgDat::FlushImageBuffer() {
 }
 
 bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8_t uGameFlag) {
-    if (!imageBufferFlushed) {
-      imageBufferFlushed = FlushImageBuffer();
-    }
-
+    FlushImageBuffer();
+    
 #if IMGDAT_DEBUG
     CString strDebugInfo;
     OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
@@ -214,8 +211,7 @@ BOOL CImgDat::ParsePreviewName(LPCWSTR filename, uint16_t *uCurrUnitId, uint8_t 
 }
 
 
-BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll)
-{
+BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll) {
     uint8_t uNumGames = 0xFF;
 
     CString strDebugInfo;
@@ -232,7 +228,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
 #endif
 
         imageBufferFlushed = false;
-        imageBufferFlushed = FlushImageBuffer();
+        FlushImageBuffer();
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"CImgDat::LoadGameImages : Image buffer has been flushed. imageBuffer prepped: %s \n", imageBufferPrepped ? L"true" : L"false");
         OutputDebugString(strDebugInfo);
@@ -241,9 +237,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
 
     m_fOnTheFly = !fLoadAll;
 
-    if (!imageBufferFlushed) {
-        imageBufferFlushed = FlushImageBuffer();
-    }
+    FlushImageBuffer();
     imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uGameFlag);
 
 
