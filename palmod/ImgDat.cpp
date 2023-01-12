@@ -1,9 +1,10 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "ImgDat.h"
-#include "Game\GameDef.h"
+#include "Game/GameDef.h"
+#include "lodepng/lodepng.h"
 #include "PalMod.h"
 
-#define IMGDAT_DEBUG 0
+#define IMGDAT_DEBUG 1
 
 void OutputDebugString_ImgDat(LPCWSTR pszString)
 {
@@ -25,7 +26,6 @@ CImgDat::~CImgDat()
     {
         FlushImageBuffer();
     }
-    CloseImgFile();
 }
 
 bool CImgDat::FlushImageBuffer()
@@ -156,65 +156,49 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
 
 uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId)
 {
-#if IMGDAT_DEBUG
-    CString strDebugInfo;
-#endif
-    if (pCurrImg->pImgData)
-    {
-#if IMGDAT_DEBUG
-        strDebugInfo.Format(L"CImgDat::GetImgData : Image at position '0x%x' for unit 0x%02x img 0x%x is already loaded.\n", pCurrImg->uThisImgLoc, nCurrentUnitId, nCurrentImgId);
-        OutputDebugString(strDebugInfo);
-
-        strDebugInfo.Format(L"\tImage data: W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
-        OutputDebugString(strDebugInfo);
-#endif
+    if (pCurrImg->pImgData) {
         return pCurrImg->pImgData;
     }
 
-    //Read the data
-
-    uint8_t* pNewImgData = new uint8_t[pCurrImg->uDataSize];
-
-#if IMGDAT_DEBUG
-    strDebugInfo.Format(L"CImgDat::GetImgData : Making pNewImgData for unitID:0x%X, imgID:0x%X .\n", nCurrentUnitId, nCurrentImgId);
-    OutputDebugString_ImgDat(strDebugInfo);
-    strDebugInfo.Format(L"\tImage data: W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
-    OutputDebugString_ImgDat(strDebugInfo);
-#endif
-
-    ImgDatFile.Seek(pCurrImg->uThisImgLoc, CFile::begin);
-    ImgDatFile.Read(pNewImgData, pCurrImg->uDataSize);
-
-    switch (pCurrImg->nCompressionType)
+    // uint8_t* pNewImgData = new uint8_t[pCurrImg->uDataSize];
+    
+    switch (pCurrImg->nCompressionType) {
+    case 0: // "RAW" 8 bit indexed file
     {
-    case 0: // No compression
-        break;
-    case 1: // RLE
-    {
-        uint8_t* pTmpData = pNewImgData;
+        CFile file;
+        if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
+            return nullptr;
+        }
+        UINT dataSize = file.GetLength();
+        uint8_t* pNewImgData = new uint8_t[dataSize];
+        file.Read(pNewImgData, dataSize);
 
-        pNewImgData = RLEDecodeImg(
-            pTmpData,
-            pCurrImg->uDataSize,
-            pCurrImg->uImgWidth,
-            pCurrImg->uImgHeight
-        );
-
-        safe_delete_array(pTmpData);
+        pCurrImg->pImgData = pNewImgData;
+        return pNewImgData;
         break;
     }
-    case 2: // BitmaskRLE
+    case 1: // PNG file
     {
-        uint8_t* pTmpData = pNewImgData;
+        std::vector<unsigned char> png;
+        std::vector<unsigned char> image;
+        uint8_t* pNewImgData = new uint8_t[pCurrImg->uImgWidth * pCurrImg->uImgHeight];
+        unsigned width, height;
+        lodepng::State state;
+        state.info_raw.colortype = LCT_PALETTE;
+        state.info_raw.bitdepth = 8;
 
-        pNewImgData = BitMaskRLEDecodeImg(
-            pTmpData,
-            pCurrImg->uDataSize,
-            pCurrImg->uImgWidth,
-            pCurrImg->uImgHeight
-        );
+        // sketchy conversion from WCHAR* to std::string
+        std::wstring w = pCurrImg->pImgPath;
+        std::string s = std::string(w.begin(), w.end());
+        
+        unsigned error = lodepng::load_file(png, s);
+        if(!error) error = lodepng::decode(image, width, height, state, png);
+        if(error) OutputDebugString(L"CImgDat::GetImgData: lodepng::decode error\n");
 
-        safe_delete_array(pTmpData);
+        memcpy(pNewImgData, image.data(), pCurrImg->uImgWidth * pCurrImg->uImgHeight);
+        //pNewImgData = image.data();
+        pCurrImg->pImgData = pNewImgData;
+        return pNewImgData;
         break;
     }
     default:
@@ -222,64 +206,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
         return nullptr;
     }
 
-#ifdef EXPORT_IMG_DAT_TO_DISK
-    static bool shouldExportItAll = true;
-    if (shouldExportItAll)
-    {
-        int uLengthToWrite = (pCurrImg->nCompressionType) ? (pCurrImg->uImgHeight * pCurrImg->uImgWidth) : pCurrImg->uDataSize;
-
-        CString strThisGameName;
-        strThisGameName = g_GameFriendlyName[uGameFlag];
-
-        // We could use known CurrentUnitId offsets to get back to the friendly character name...
-        // We previously included the offset ( pCurrImg->uThisImgLoc ) in the filename, but that's probably not useful overall.
-        CString strFilePath;
-        strFilePath.Format(L".\\Assets\\%s-unit-0x%02x-imgid-0x%02x-W-%i-H-%i.raw", strThisGameName, nCurrentUnitId, nCurrentImgId, pCurrImg->uImgWidth, pCurrImg->uImgHeight);
-
-        CString strDebugInfo;
-        strDebugInfo.Format(L"Special Export: Image '0x%x', H %u W %u for LEN %u to %s\n", pCurrImg->uThisImgLoc, pCurrImg->uImgHeight, pCurrImg->uImgWidth, uLengthToWrite, strFilePath);
-        OutputDebugString(strDebugInfo);
-
-        HANDLE hFile = CreateFile(
-            strFilePath,
-            GENERIC_WRITE,
-            0,
-            NULL,
-            CREATE_ALWAYS,
-            FILE_ATTRIBUTE_NORMAL,
-            NULL);
-
-        if (hFile != INVALID_HANDLE_VALUE)
-        {
-            DWORD cbWritten = 0;
-
-            // write the file to disk
-            for (int nIndexMe = 0; nIndexMe < uLengthToWrite; nIndexMe++)
-            {
-                cbWritten = 0;
-                WriteFile(hFile, &(pNewImgData[nIndexMe]), 1, &cbWritten, nullptr);
-            }
-
-            CloseHandle(hFile);
-        }
-        else
-        {
-            OutputDebugString(L"Error exporting image file\n");
-        }
-    }
-#endif
-
-    pCurrImg->pImgData = pNewImgData;
-
-    return pNewImgData;
-}
-
-void CImgDat::CloseImgFile()
-{
-    if (m_fOnTheFly)
-    {
-        ImgDatFile.Abort();
-    }
+    return nullptr;
 }
 
 bool CImgDat::sameGameAlreadyLoaded(uint8_t uGameFlag, uint8_t uImgGameFlag)
@@ -287,68 +214,52 @@ bool CImgDat::sameGameAlreadyLoaded(uint8_t uGameFlag, uint8_t uImgGameFlag)
     return (uImgGameFlag == nCurImgGameFlag) && (uGameFlag == nCurGameFlag);
 }
 
-void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp, uint8_t nNumGames)
-{
-    static bool s_havePerformedVersionCheck = false;
 
-    if (!s_havePerformedVersionCheck)
-    {
-        // here we keep track of the imgdat version we expect.
-        // not super critical for daily updates, but still useful
-        const uint16_t nExpectedYear = 2022;
-        const uint8_t nExpectedMonth = 12;
-        const uint8_t nExpectedDay = 31;
-        const uint8_t nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 217928639;
 
-        const uint32_t nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
+BOOL CImgDat::ParsePreviewName(LPCWSTR filename, uint16_t *uCurrUnitId, uint8_t *uCurrImgId, uint16_t  *uCurrImgWidth, uint16_t *uCurrImgHeight, bool *isPng) {
+    std::wstring strFile(filename);
+    std::wstring d1 = L"-unit-";
+    std::wstring d2 = L"-imgid-";
+    std::wstring d3 = L"-W-";
+    std::wstring d4 = L"-H-";
+    size_t start = 0;
+    size_t end = strFile.find(d1);
+    // not validating if game name field is correct
+    start = end + d1.length();
+    end = strFile.find(d2, start);
+    *uCurrUnitId = (uint16_t)std::stoul(strFile.substr(start, end - start), &start, 16);
+    start = end + d2.length();
+    end = strFile.find(d3, start);
+    *uCurrImgId = (uint8_t)std::stoul(strFile.substr(start, end - start), &start, 16);
+    start = end + d3.length();
+    end = strFile.find(d4, start);
+    *uCurrImgWidth = (uint16_t)std::stoul(strFile.substr(start, end - start));
+    start = end + d4.length();
+    *uCurrImgHeight = (uint16_t)std::stoul(strFile.substr(start));
+    // naive
+    start = strFile.rfind(L'.');
+    std::wstring extension = strFile.substr(start + 1);
+    *isPng = extension == L"png" || extension == L"PNG";
 
-        CString strMsg;
-
-        s_havePerformedVersionCheck = true;
-        if (nNumGames != IMGDAT_SECTION_LAST)
-        {
-            strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly as the number of game sets has changed.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
-            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-        }
-        else if (nFileSize < nExpectedFileSize) // it's only a significant problem if the file is smaller, which should happen very rarely as a result of partial downloads
-        {
-            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", (uint32_t)nExpectedFileSize, (uint32_t)nFileSize);
-            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
-        }
-        else if (nExpectedDatestamp != nCurrentDatestamp)
-        {
-            if (nExpectedDatestamp > nCurrentDatestamp)
-            {
-                strMsg.Format(L"Please note that you are using an out of date version of img2020.dat.  Some newly added images will not be available.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
-                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
-            }
-            else
-            {
-                strMsg.Format(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat .  File size is %u bytes.\n", (uint32_t)nFileSize);
-                OutputDebugString(strMsg);
-            }
-        }
+    if(end == std::string::npos){
+        return false;
     }
+    return true;
 }
+
 
 BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll)
 {
     uint8_t uNumGames = 0xFF;
 
     CString strDebugInfo;
-    strDebugInfo.Format(L"CImgDat::LoadGameImages : Opening image file '%s'\n", lpszLoadFile);
-    OutputDebugString(strDebugInfo);
     strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, prgGameImageSet.size());
     OutputDebugString(strDebugInfo);
 
-    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (prgGameImageSet.empty()))
-    {
+    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (prgGameImageSet.empty())) {
         return TRUE;
     }
-    else
-    {
-
+    else {
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.\n", uGameFlag, uImgGameFlag);
         OutputDebugString(strDebugInfo);
@@ -360,333 +271,85 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
         strDebugInfo.Format(L"CImgDat::LoadGameImages : Image buffer has been flushed. imageBuffer prepped: %s \n", imageBufferPrepped ? L"true" : L"false");
         OutputDebugString(strDebugInfo);
 #endif
-        CloseImgFile();
-    }
-
-    if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
-    {
-        ImgDatFile.Abort(); //Error loading
-        return FALSE;
     }
 
     m_fOnTheFly = !fLoadAll;
 
-    uint16_t nYear = 0;
-    uint8_t nMonth = 0, nDay = 0, nDailyRevision = 0;
+    if (!imageBufferFlushed) {
+        imageBufferFlushed = FlushImageBuffer();
+    }
+    imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uGameFlag);
 
-    ImgDatFile.Read(&nYear, 0x02);
-    ImgDatFile.Read(&nMonth, 0x01);
-    ImgDatFile.Read(&nDay, 0x01);
-    ImgDatFile.Read(&nDailyRevision, 0x01);
+    
+    //CString strThisGameName;
+    //strThisGameName = g_GameFriendlyName[uGameFlag];
 
-    ImgDatFile.Read(&uNumGames, 0x01);
+    WIN32_FIND_DATAW FindFileData;
+    HANDLE hFind;
+    CString path;
+    GetModuleFileName(NULL, path.GetBufferSetLength(MAX_PATH), MAX_PATH);
+    //GetCurrentDirectory(path.GetBufferSetLength(MAX_PATH), path);
+    path = path.Left(path.ReverseFind(L'\\') + 1);
+    path.Format(L"%s\\Previews\\%d\\*", (LPCWSTR)path, uImgGameFlag);
+    hFind = FindFirstFile(path, &FindFileData);
 
-    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, (uint32_t)ImgDatFile.GetLength());
-    OutputDebugString(strDebugInfo);
-
-    if (uNumGames)
-    {
-        SanityCheckImgDat(ImgDatFile.GetLength(), (nYear << 16) | (nMonth << 8) | (nDay), uNumGames);
-
-        for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
-        {
-            ImgDatFile.Read(&uReadGameFlag, 0x01);
-            ImgDatFile.Read(&uReadNumImgs, 0x02);
-            ImgDatFile.Read(&uReadNextImgLoc, 0x04);
-
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Detected gameID 0x%02X ; game has %u images; first imgLoc is 0x%X .\n", uReadGameFlag, uReadNumImgs, uReadNextImgLoc);
-            OutputDebugString(strDebugInfo);
-#endif
-
-            if (uReadGameFlag == uImgGameFlag)
-            {
-                nCurGameImgAmt = uReadNumImgs;
-
-#if IMGDAT_DEBUG
-                strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Read matching uImgGameFlag: 0x%X for current uGameFlag: 0x%02X \n", uImgGameFlag, uGameFlag);
-                OutputDebugString(strDebugInfo);
-#endif
-
-                if (!imageBufferFlushed)
-                {
-                    imageBufferFlushed = FlushImageBuffer();
-                }
-
-                imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uGameFlag);
-
-                while (uReadNextImgLoc != 0)
-                {
-                    ImgDatFile.Seek(uReadNextImgLoc, CFile::begin);
-                    uint16_t uCurrUnitId;
-                    uint8_t uCurrImgId;
-                    ImgDatFile.Read(&uCurrUnitId, 0x02);
-                    ImgDatFile.Read(&uCurrImgId, 0x01);
-#if IMGDAT_DEBUG
-                    strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Seeing UnitID:0x%02X imgID:0x%02X \n", uCurrUnitId, uCurrImgId);
-                    OutputDebugString_ImgDat(strDebugInfo);
-#endif
-
-                    std::map<uint16_t, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
-                    if (nImgMap->find(uCurrUnitId) != nImgMap->cend())
-                    {
-                        it->second->insertNode(uCurrImgId);
-
-#if IMGDAT_DEBUG
-                        strDebugInfo.Format(L"\tCImgDat::LoadGameImages : node[0x%X][0x%X] Inserted\n", uCurrUnitId, uCurrImgId);
-                        OutputDebugString_ImgDat(strDebugInfo);
-#endif
-
-                        sImgDef* pCurrImg = it->second->getImgDef(uCurrImgId);
-                        pCurrImg->pImgData = nullptr;
-                        ImgDatFile.Read(&pCurrImg->uImgWidth, 0x02);
-                        ImgDatFile.Read(&pCurrImg->uImgHeight, 0x02);
-                        ImgDatFile.Read(&pCurrImg->nCompressionType, 0x01);
-                        ImgDatFile.Read(&pCurrImg->uDataSize, 0x04);
-                        ImgDatFile.Read(&uReadNextImgLoc, 0x04);
-                        pCurrImg->uThisImgLoc = (0xFFFFFFFF & ImgDatFile.GetPosition());
-
-                        if (pCurrImg->uDataSize == 0)
-                        {
-                            CString strError;
-                            strError.Format(L"WARNING: Probable imgdat corruption at gameflag 0x%02x unit 0x%02x imgid 0x%02x: data size is 0x%x.\n\tNext location is 0x%x\n.", uImgGameFlag, uCurrUnitId, uCurrImgId, pCurrImg->uDataSize, uReadNextImgLoc);
-                            OutputDebugString(strError);
-                        }
-
-#if IMGDAT_DEBUG
-                        strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Image info for unit 0x%02X img 0x%02X has been loaded.\n", uCurrUnitId, uCurrImgId);
-                        OutputDebugString_ImgDat(strDebugInfo);
-                        strDebugInfo.Format(L"\t W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
-                        OutputDebugString_ImgDat(strDebugInfo);
-#endif
-                        if (fLoadAll)
-                        {
-                            GetImgData(pCurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
-                        }
-                    }
-                    else
-                    {
-                        uint8_t tCompressed;
-                        uint16_t tImgWidth, tImgHeight;
-                        uint32_t tDataSize;
-
-                        ImgDatFile.Read(&tImgWidth, 0x02);
-                        ImgDatFile.Read(&tImgHeight, 0x02);
-                        ImgDatFile.Read(&tCompressed, 0x01);
-                        ImgDatFile.Read(&tDataSize, 0x04);
-                        if (!ImgDatFile.Read(&uReadNextImgLoc, 0x04))
-                        {
-                            OutputDebugString(L"WARNING: CImgDat::LoadgameImages was unable to read the next image location.  This indicates a corrupt imgdat.\r\n");
-                            uReadNextImgLoc = 0;
-                        }
-                    }
-                }
-
-                break;
+    if (INVALID_HANDLE_VALUE != hFind) {
+        do {
+            if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+                continue;
             }
-        }
-
-        nCurGameFlag = uGameFlag;
-        nCurImgGameFlag = uImgGameFlag;
-
-        if (fLoadAll)
-        {
-            ImgDatFile.Abort();
-        }
+            WCHAR* filename = FindFileData.cFileName;
+            uint16_t uCurrUnitId;
+            uint8_t uCurrImgId;
+            uint16_t uCurrImgWidth;
+            uint16_t uCurrImgHeight;
+            bool isPng;
+        
+            ParsePreviewName(filename, &uCurrUnitId, &uCurrImgId, &uCurrImgWidth, &uCurrImgHeight, &isPng);
+        
+#if IMGDAT_DEBUG
+            strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Seeing UnitID:0x%02X imgID:0x%02X \n", uCurrUnitId, uCurrImgId);
+            OutputDebugString_ImgDat(strDebugInfo);
+#endif
+        
+            std::map<uint16_t, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
+            if (nImgMap->find(uCurrUnitId) != nImgMap->cend()) {
+                it->second->insertNode(uCurrImgId);
+                
+#if IMGDAT_DEBUG
+                strDebugInfo.Format(L"\tCImgDat::LoadGameImages : node[0x%X][0x%X] Inserted\n", uCurrUnitId, uCurrImgId);
+                OutputDebugString_ImgDat(strDebugInfo);
+#endif
+                
+                sImgDef* pCurrImg = it->second->getImgDef(uCurrImgId);
+                pCurrImg->pImgData = nullptr;
+                pCurrImg->uImgWidth = uCurrImgWidth;
+                pCurrImg->uImgHeight = uCurrImgHeight;
+                pCurrImg->nCompressionType = isPng; // abusing legacy tv imgdat field
+                pCurrImg->uDataSize = 0; // legacy tv imgdat field
+                pCurrImg->pImgPath = new WCHAR[path.GetLength() + wcslen(filename)];
+                wcscpy(pCurrImg->pImgPath, path);
+                wcscpy(&pCurrImg->pImgPath[path.GetLength() - 1], filename);
+                
+#if IMGDAT_DEBUG
+                strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Image info for unit 0x%02X img 0x%02X has been loaded.\n", uCurrUnitId, uCurrImgId);
+                OutputDebugString_ImgDat(strDebugInfo);
+#endif
+                if (fLoadAll) {
+                    GetImgData(pCurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
+                }
+            }
+            
+            nCurGameFlag = uGameFlag;
+            nCurImgGameFlag = uImgGameFlag;
+        } while (FindNextFile(hFind, &FindFileData) != 0);
 
         return TRUE;
     }
-    else
-    {
+    else {
+        strDebugInfo.Format(L"\tCImgDat::LoadGameImages : FindFirstFileW failed for game path: %s \n", (LPCWSTR)path);
+        OutputDebugString_ImgDat(strDebugInfo);
+
         return FALSE;
     }
-}
-
-uint8_t* CImgDat::RLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight)
-{
-    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
-
-    uint8_t count = 0;
-    bool isDigit = true;
-    uint32_t byte_ctr = 0;
-    int data_ctr = 0;
-    while (byte_ctr < uiDataSz)
-    {
-        if (isDigit) // The character is numerical...
-        {
-            // get the count
-            count = pSrcImgData[byte_ctr];
-            byte_ctr++;
-            isDigit = !isDigit;
-        }
-        else
-        {
-            // expand the next character by count times
-            // the decoding
-            for (uint16_t i = 0; i < count; i++)
-            {
-                output_data[data_ctr + i] = pSrcImgData[byte_ctr];
-            }
-
-            byte_ctr++;
-            data_ctr += count;
-            isDigit = !isDigit;
-        }
-    }
-    return output_data;
-}
-
-uint8_t* CImgDat::BitMaskRLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight)
-{
-    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
-
-    uint32_t i_byteCtr = 0;
-    uint32_t o_dataCtr = 0;
-    uint32_t byteGroups = 0;
-    uint8_t extraChunks = 0;
-
-    memcpy(&byteGroups, pSrcImgData, 4);
-    i_byteCtr += 4;
-    extraChunks = *(pSrcImgData + i_byteCtr++);
-
-    // printf("byteGroups: 0x%08X\n  extraChunks: 0x%02X\n", byteGroups, extraChunks);
-
-    for (uint32_t group = 0; group < byteGroups; group++)
-    {
-        getBMRLEData(8, pSrcImgData, output_data, i_byteCtr, o_dataCtr);
-    }
-
-    if (extraChunks != 0)
-    {
-        getBMRLEData(extraChunks, pSrcImgData, output_data, i_byteCtr, o_dataCtr);
-    }
-
-    return output_data;
-}
-
-void CImgDat::getBMRLEData(uint8_t chunkSize, uint8_t* inputData, uint8_t* output_data, uint32_t& i_byteCtr, uint32_t& o_dataCtr)
-{
-    uint8_t data = 0;
-    uint8_t bitMask = 0;
-    uint32_t count = 0;
-    uint8_t tempCount = 0;
-    uint16_t multiplier = 0;
-
-    bitMask = *(inputData + i_byteCtr++);
-    // printf("New Group - \n  BitMask: 0x%02X\n", bitMask);
-
-    for (uint8_t chunk = 0; chunk < chunkSize; chunk++)
-    {
-        count = 0;
-        tempCount = 0;
-        if ((bitMask & (0x80 >> chunk)) != 0)
-        {
-            count = inputData[i_byteCtr++];
-            if (count == 0xFF)
-            {
-                multiplier = 0;
-                tempCount = inputData[i_byteCtr++];
-                while (tempCount == 0xFF)
-                {
-                    multiplier += tempCount;
-                    tempCount = inputData[i_byteCtr++];
-                }
-                multiplier += tempCount;
-                count *= multiplier;
-                tempCount = inputData[i_byteCtr++];
-                count += tempCount;
-            }
-        }
-
-        data = inputData[i_byteCtr++];
-        // printf("    Payload - Count: 0x%08X, Data: 0x%02X\n", count, data);
-        if (count != 0)
-        {
-            for (uint32_t writing = 0; writing < (count - 1); writing++)
-            {
-                output_data[o_dataCtr++] = data;
-            }
-        }
-
-        output_data[o_dataCtr++] = data;
-    }
-}
-
-uint8_t* CImgDat::DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight, uint8_t uiBPP)
-{
-
-    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
-
-    uint32_t bit_ctr = 0;
-    int data_ctr = 0;
-    int k = 0;
-
-    uint8_t uZeroPos;
-    uint8_t uExtraAmt;
-    uint8_t uGetAmt;
-    uint8_t curr_data;
-    uint16_t zero_data;
-    int get_from_extra;
-    int zero_get_amt = 16 - uiBPP;
-
-    while (bit_ctr < (uiDataSz * 8))
-    {
-        if (((8 - bit_ctr % 8) < uiBPP) && ((bit_ctr / 8) != (uiDataSz - 1)))
-        {
-            get_from_extra = uiBPP - (8 - bit_ctr % 8);
-        }
-        else
-        {
-            get_from_extra = 0;
-        }
-
-        curr_data = (pSrcImgData[bit_ctr / 8] >> bit_ctr % 8);
-
-        if (get_from_extra)
-        {
-            curr_data |= (pSrcImgData[(bit_ctr / 8) + 1] & (0xFF >> (8 - get_from_extra))) << (8 - bit_ctr % 8);
-        }
-
-        bit_ctr += uiBPP;
-        curr_data = curr_data & (0xFF >> (8 - uiBPP));
-
-        if (curr_data != 0)
-        {
-            output_data[data_ctr] = curr_data;
-            data_ctr++;
-        }
-        else if (bit_ctr < (uiDataSz * 8))
-        {
-            zero_data = 0;
-            uZeroPos = 0;
-
-            while (uZeroPos < zero_get_amt)
-            {
-                uExtraAmt = bit_ctr % 8;
-                if (zero_get_amt - uZeroPos > 8)
-                {
-                    uGetAmt = 8 - uExtraAmt;
-                }
-                else
-                {
-                    uGetAmt = zero_get_amt - uZeroPos;
-                }
-
-                zero_data |= (((uint16_t)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> (8 - uGetAmt))) << (uZeroPos));
-
-                uZeroPos += uGetAmt;
-                bit_ctr += uGetAmt;
-            }
-
-            for (k = 0; k < zero_data; k++)
-            {
-                output_data[data_ctr + k] = 0;
-            }
-            data_ctr += zero_data;
-        }
-    }
-    return output_data;
 }

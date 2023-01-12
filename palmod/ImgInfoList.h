@@ -12,6 +12,7 @@ struct sImgDef
     uint8_t nCompressionType = 0;
     uint32_t uDataSize = 0;
     uint32_t uThisImgLoc = 0;
+    WCHAR* pImgPath = nullptr;
     uint8_t* pImgData = nullptr;
 };
 

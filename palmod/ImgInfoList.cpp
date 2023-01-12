@@ -28,6 +28,10 @@ ImgInfoList::~ImgInfoList()
             {
                 delete del->imgInfo->pImgData;
             }
+            if (del->imgInfo->pImgPath)
+            {
+                delete del->imgInfo->pImgPath;
+            }
             delete del->imgInfo;
         }
 
