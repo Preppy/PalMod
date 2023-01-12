@@ -18,70 +18,62 @@ typedef std::map<uint16_t, ImgInfoList*>::iterator imgMapIter;
 CImgDat::CImgDat() {}
 
 CImgDat::~CImgDat() {
-    if (!imageBufferFlushed) {
-      FlushImageBuffer();
-    }
+    FlushImageBuffer();
 }
 
+// this reads and writes imageBufferFlushed
 bool CImgDat::FlushImageBuffer() {
-    if (imageBufferFlushed) {
-      return imageBufferFlushed;
-    }
-
-    if (nImgMap) {
-      for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it) {
-        if (it->second) {
-          delete it->second;
+    if (!imageBufferFlushed) {
+        if (nImgMap) {
+            for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it) {
+                if (it->second)
+                    delete it->second;
+            }
+		    
+            if (!nImgMap->empty())
+                nImgMap->clear();
         }
-      }
-
-      if (!nImgMap->empty()) {
-        nImgMap->clear();
-      }
+	    
+        safe_delete(nImgMap);
+	    
+        imageBufferPrepped = false;
+        imageBufferFlushed = true;
     }
-
-    safe_delete(nImgMap);
-
-    imageBufferPrepped = false;
-    imageBufferFlushed = true;
-
-    return true;
+    return imageBufferFlushed;
 }
 
 bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8_t uGameFlag) {
-    if (!imageBufferFlushed) {
-      imageBufferFlushed = FlushImageBuffer();
-    }
-
+    FlushImageBuffer();
+    
 #if IMGDAT_DEBUG
     CString strDebugInfo;
     OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
 #endif
-
+    
     if (prgGameImageSet.empty()) {
         OutputDebugString(L"CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n");
-        return false;
+        return (imageBufferPrepped = false);
     }
-
+    
     nImgMap = new std::map<uint16_t, ImgInfoList*>;
-
+    
     // We have an individual entry here for every game so we can optimize image loads
     for (uint16_t nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++) {
         uint16_t nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
-
+        
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"\tCImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", nImageUnitCounterToUse);
         OutputDebugString(strDebugInfo);
 #endif
         nImgMap->insert({ nImageUnitCounterToUse, new ImgInfoList });
     }
-
+    
 #if IMGDAT_DEBUG
     OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer is complete.\n");
 #endif
-
+    
     imageBufferFlushed = false;
-    return true;
+    return (imageBufferPrepped = true);
 }
 
 sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId) {
@@ -214,39 +206,32 @@ BOOL CImgDat::ParsePreviewName(LPCWSTR filename, uint16_t *uCurrUnitId, uint8_t 
 }
 
 
-BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll)
-{
-    uint8_t uNumGames = 0xFF;
-
+BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll) {
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, prgGameImageSet.size());
     OutputDebugString(strDebugInfo);
 
-    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (prgGameImageSet.empty())) {
-        return TRUE;
-    }
-    else {
+    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (prgGameImageSet.empty()))
+        return true;
+    
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(L"CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.\n", uGameFlag, uImgGameFlag);
-        OutputDebugString(strDebugInfo);
+    strDebugInfo.Format(L"CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.\n", uGameFlag, uImgGameFlag);
+    OutputDebugString(strDebugInfo);
 #endif
-
-        imageBufferFlushed = false;
-        imageBufferFlushed = FlushImageBuffer();
+    
+    imageBufferFlushed = false;
+    FlushImageBuffer();
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(L"CImgDat::LoadGameImages : Image buffer has been flushed. imageBuffer prepped: %s \n", imageBufferPrepped ? L"true" : L"false");
-        OutputDebugString(strDebugInfo);
+    strDebugInfo.Format(L"CImgDat::LoadGameImages : Image buffer has been flushed. imageBuffer prepped: %s \n", imageBufferPrepped ? L"true" : L"false");
+    OutputDebugString(strDebugInfo);
 #endif
-    }
-
+    
     m_fOnTheFly = !fLoadAll;
 
-    if (!imageBufferFlushed) {
-        imageBufferFlushed = FlushImageBuffer();
-    }
-    imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uGameFlag);
-
-
+    FlushImageBuffer();
+    PrepImageBuffer(prgGameImageSet, uGameFlag);
+    
+    
     // need a g_ImgSectionFriendlyName list to look up uImgGameFlag in
     // for better folder names, eventually
     WIN32_FIND_DATAW FindFileData;
@@ -257,63 +242,61 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
     path.Format(L"%s\\Previews\\%s\\*", (LPCWSTR)path, g_IMGDatSectionName[uImgGameFlag]);
     hFind = FindFirstFile(path, &FindFileData);
 
-    if (INVALID_HANDLE_VALUE != hFind) {
-        do {
-            if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
-                continue;
-            }
-            WCHAR* filename = FindFileData.cFileName;
-            uint16_t uCurrUnitId;
-            uint8_t uCurrImgId;
-            uint16_t uCurrImgWidth;
-            uint16_t uCurrImgHeight;
-            bool isPng;
-        
-            ParsePreviewName(filename, &uCurrUnitId, &uCurrImgId, &uCurrImgWidth, &uCurrImgHeight, &isPng);
-        
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Seeing UnitID:0x%02X imgID:0x%02X \n", uCurrUnitId, uCurrImgId);
-            OutputDebugString_ImgDat(strDebugInfo);
-#endif
-        
-            std::map<uint16_t, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
-            if (nImgMap->find(uCurrUnitId) != nImgMap->cend()) {
-                it->second->insertNode(uCurrImgId);
-                
-#if IMGDAT_DEBUG
-                strDebugInfo.Format(L"\tCImgDat::LoadGameImages : node[0x%X][0x%X] Inserted\n", uCurrUnitId, uCurrImgId);
-                OutputDebugString_ImgDat(strDebugInfo);
-#endif
-                
-                sImgDef* pCurrImg = it->second->getImgDef(uCurrImgId);
-                pCurrImg->pImgData = nullptr;
-                pCurrImg->uImgWidth = uCurrImgWidth;
-                pCurrImg->uImgHeight = uCurrImgHeight;
-                pCurrImg->nCompressionType = isPng; // abusing legacy tv imgdat field
-                pCurrImg->uDataSize = 0; // legacy tv imgdat field
-                pCurrImg->pImgPath = new WCHAR[path.GetLength() + wcslen(filename)];
-                wcscpy(pCurrImg->pImgPath, path);
-                wcscpy(&pCurrImg->pImgPath[path.GetLength() - 1], filename);
-                
-#if IMGDAT_DEBUG
-                strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Image info for unit 0x%02X img 0x%02X has been loaded.\n", uCurrUnitId, uCurrImgId);
-                OutputDebugString_ImgDat(strDebugInfo);
-#endif
-                if (fLoadAll) {
-                    GetImgData(pCurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
-                }
-            }
-            
-            nCurGameFlag = uGameFlag;
-            nCurImgGameFlag = uImgGameFlag;
-        } while (FindNextFile(hFind, &FindFileData) != 0);
-
-        return TRUE;
-    }
-    else {
+    if (INVALID_HANDLE_VALUE == hFind) {
         strDebugInfo.Format(L"\tCImgDat::LoadGameImages : FindFirstFileW failed for game path: %s \n", (LPCWSTR)path);
         OutputDebugString_ImgDat(strDebugInfo);
 
-        return FALSE;
+        return false;
     }
+    do {
+        if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+            continue;
+        
+        WCHAR* filename = FindFileData.cFileName;
+        uint16_t uCurrUnitId;
+        uint8_t uCurrImgId;
+        uint16_t uCurrImgWidth;
+        uint16_t uCurrImgHeight;
+        bool isPng;
+        
+        ParsePreviewName(filename, &uCurrUnitId, &uCurrImgId, &uCurrImgWidth, &uCurrImgHeight, &isPng);
+        
+#if IMGDAT_DEBUG
+        strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Seeing UnitID:0x%02X imgID:0x%02X \n", uCurrUnitId, uCurrImgId);
+        OutputDebugString_ImgDat(strDebugInfo);
+#endif
+        
+        std::map<uint16_t, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
+        if (nImgMap->find(uCurrUnitId) != nImgMap->cend()) {
+            it->second->insertNode(uCurrImgId);
+                
+#if IMGDAT_DEBUG
+            strDebugInfo.Format(L"\tCImgDat::LoadGameImages : node[0x%X][0x%X] Inserted\n", uCurrUnitId, uCurrImgId);
+            OutputDebugString_ImgDat(strDebugInfo);
+#endif
+                
+            sImgDef* pCurrImg = it->second->getImgDef(uCurrImgId);
+            pCurrImg->pImgData = nullptr;
+            pCurrImg->uImgWidth = uCurrImgWidth;
+            pCurrImg->uImgHeight = uCurrImgHeight;
+            pCurrImg->nCompressionType = isPng; // abusing legacy tv imgdat field
+            pCurrImg->uDataSize = 0; // legacy tv imgdat field
+            pCurrImg->pImgPath = new WCHAR[path.GetLength() + wcslen(filename)];
+            wcscpy(pCurrImg->pImgPath, path);
+            wcscpy(&pCurrImg->pImgPath[path.GetLength() - 1], filename);
+                
+#if IMGDAT_DEBUG
+            strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Image info for unit 0x%02X img 0x%02X has been loaded.\n", uCurrUnitId, uCurrImgId);
+            OutputDebugString_ImgDat(strDebugInfo);
+#endif
+            if (fLoadAll) {
+                GetImgData(pCurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
+            }
+        }
+            
+        nCurGameFlag = uGameFlag;
+        nCurImgGameFlag = uImgGameFlag;
+    } while (FindNextFile(hFind, &FindFileData) != 0);
+
+    return true;
 }

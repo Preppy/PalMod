@@ -8,7 +8,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 //Include PalMod basic defaults
-#include "Game\Default.h"
+#include "Game/Default.h"
 #include "resource.h"
 
 #ifndef _SECURE_ATL
