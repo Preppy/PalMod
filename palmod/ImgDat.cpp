@@ -23,28 +23,23 @@ CImgDat::~CImgDat() {
 
 // this reads and writes imageBufferFlushed
 bool CImgDat::FlushImageBuffer() {
-    if (imageBufferFlushed) {
-        return imageBufferFlushed;
-    }
-
-    if (nImgMap) {
-        for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it) {
-            if (it->second) {
-                delete it->second;
+    if (!imageBufferFlushed) {
+        if (nImgMap) {
+            for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it) {
+                if (it->second)
+                    delete it->second;
             }
+		    
+            if (!nImgMap->empty())
+                nImgMap->clear();
         }
-
-        if (!nImgMap->empty()) {
-            nImgMap->clear();
-        }
+	    
+        safe_delete(nImgMap);
+	    
+        imageBufferPrepped = false;
+        imageBufferFlushed = true;
     }
-
-    safe_delete(nImgMap);
-
-    imageBufferPrepped = false;
-    imageBufferFlushed = true;
-
-    return true;
+    return imageBufferFlushed;
 }
 
 bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8_t uGameFlag) {
@@ -54,31 +49,31 @@ bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8
     CString strDebugInfo;
     OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
 #endif
-
+    
     if (prgGameImageSet.empty()) {
         OutputDebugString(L"CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n");
-        return false;
+        return (imageBufferPrepped = false);
     }
-
+    
     nImgMap = new std::map<uint16_t, ImgInfoList*>;
-
+    
     // We have an individual entry here for every game so we can optimize image loads
     for (uint16_t nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++) {
         uint16_t nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
-
+        
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"\tCImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", nImageUnitCounterToUse);
         OutputDebugString(strDebugInfo);
 #endif
         nImgMap->insert({ nImageUnitCounterToUse, new ImgInfoList });
     }
-
+    
 #if IMGDAT_DEBUG
     OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer is complete.\n");
 #endif
-
+    
     imageBufferFlushed = false;
-    return true;
+    return (imageBufferPrepped = true);
 }
 
 sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId) {
@@ -136,37 +131,37 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
 
     switch (pCurrImg->nCompressionType) {
     case 0: // "RAW" 8 bit indexed file
-    {
-        CFile file;
-        if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
-            return nullptr;
-        }
-        UINT dataSize = (UINT)file.GetLength();
-        uint8_t* pNewImgData = new uint8_t[dataSize];
-        file.Read(pNewImgData, dataSize);
+        {
+            CFile file;
+            if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
+                return nullptr;
+            }
+            UINT dataSize = (UINT)file.GetLength();
+            uint8_t* pNewImgData = new uint8_t[dataSize];
+            file.Read(pNewImgData, dataSize);
 
-        pCurrImg->pImgData = pNewImgData;
-        return pNewImgData;
-        break;
-    }
+            pCurrImg->pImgData = pNewImgData;
+            return pNewImgData;
+            break;
+        }
     case 1: // PNG file
-    {
-        CFile file;
-        if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
-            return nullptr;
+        {
+            CFile file;
+            if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
+                return nullptr;
+            }
+            UINT dataSize = (UINT)file.GetLength();
+            uint8_t* pngData = new uint8_t[dataSize];
+            file.Read(pngData, dataSize);
+
+            unsigned width, height;
+            unsigned error = lodepng_decode_memory(&pCurrImg->pImgData, &width, &height, pngData, dataSize, LCT_PALETTE, 8);
+            if(error) OutputDebugString(L"CImgDat::GetImgData: lodepng::decode error\n");
+
+            delete pngData;
+            return pCurrImg->pImgData;
+            break;
         }
-        UINT dataSize = (UINT)file.GetLength();
-        uint8_t* pngData = new uint8_t[dataSize];
-        file.Read(pngData, dataSize);
-
-        unsigned width, height;
-        unsigned error = lodepng_decode_memory(&pCurrImg->pImgData, &width, &height, pngData, dataSize, LCT_PALETTE, 8);
-        if(error) OutputDebugString(L"CImgDat::GetImgData: lodepng::decode error\n");
-
-        delete pngData;
-        return pCurrImg->pImgData;
-        break;
-    }
     default:
         OutputDebugString(L"CImgDat::GetImgData : WARNING: Unhandled compression type.  Skipping loading this image\n");
         return nullptr;
@@ -238,9 +233,9 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
     m_fOnTheFly = !fLoadAll;
 
     FlushImageBuffer();
-    imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uGameFlag);
-
-
+    PrepImageBuffer(prgGameImageSet, uGameFlag);
+    
+    
     // need a g_ImgSectionFriendlyName list to look up uImgGameFlag in
     // for better folder names, eventually
     WIN32_FIND_DATAW FindFileData;
