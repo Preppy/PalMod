@@ -60,6 +60,8 @@ const wchar_t g_IMGDatSectionName[][64] =
     L"WindJammers",
 };
 
+static_assert(ARRAYSIZE(g_IMGDatSectionName) == IMGDAT_SECTION_LAST, "The IMGDat_Sections enum and the folders in g_IMGDatSectionName must match length.");
+
 // These numbers refer to the indexes within the appropriate IMGDAT sections
 
 enum CHARACTERS_CPS2

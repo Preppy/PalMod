@@ -166,6 +166,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
         unsigned error = lodepng_decode_memory(&pCurrImg->pImgData, &width, &height, pngData, dataSize, LCT_PALETTE, 8);
         if(error) OutputDebugString(L"CImgDat::GetImgData: lodepng::decode error\n");
 
+        delete pngData;
         return pCurrImg->pImgData;
         break;
     }

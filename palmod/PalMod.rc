@@ -814,7 +814,7 @@ BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
     IDS_CURRENTAPPNAME      "PalMod 1.79"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
-                            "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
+                            "Can't find or load image preview directory for this game at '%s\\%s\\'\n\ncheck ImgIdDef.h for image section folder names."
     IDS_ERROR_NO_IMAGES     "No images available."
     IDS_ERROR_LOADING_GAME  "Unable to load game."
     IDS_ERROR_PARAMETERS    "Invalid parameters."

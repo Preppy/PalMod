@@ -7,9 +7,9 @@
 #error "include 'stdafx.h' before including this file for PCH"
 #endif
 
-// IMG.dat contains all the sprites used for preview.
-// Magnetro ripped the sprites, eidrian used PSP to arrange them, and then suupabuu integrated them.
-#define IMGDATFILE L"img2020.dat"
+// this fork doesn't use the imgdat database (because it sucks)
+// but for the purposes of all the debug strings, let's list our 'Previews' folder
+#define IMGDATFILE L"Previews"
 
 #include "resource.h"        // main symbols
 

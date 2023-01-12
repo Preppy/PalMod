@@ -167,7 +167,7 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     if (!m_fIsImageLoaded)
     {
         CString strMessage;
-        strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, IMGDATFILE, ImgStr, IMGDATFILE);
+        strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, ImgStr, g_IMGDatSectionName[CurrGame->GetImgGameFlag()]);
         MessageBox(g_appHWnd, strMessage, GetAppName(), MB_ICONERROR);
     }
 }
