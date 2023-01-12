@@ -6,8 +6,7 @@
 
 #define IMGDAT_DEBUG 1
 
-void OutputDebugString_ImgDat(LPCWSTR pszString)
-{
+void OutputDebugString_ImgDat(LPCWSTR pszString) {
 #if IMGDAT_DEBUG
     OutputDebugString(pszString);
 #else
@@ -16,39 +15,29 @@ void OutputDebugString_ImgDat(LPCWSTR pszString)
 
 typedef std::map<uint16_t, ImgInfoList*>::iterator imgMapIter;
 
-CImgDat::CImgDat()
-{
-}
+CImgDat::CImgDat() {}
 
-CImgDat::~CImgDat()
-{
-    if (!imageBufferFlushed)
-    {
-        FlushImageBuffer();
+CImgDat::~CImgDat() {
+    if (!imageBufferFlushed) {
+      FlushImageBuffer();
     }
 }
 
-bool CImgDat::FlushImageBuffer()
-{
-    if (imageBufferFlushed)
-    {
-        return imageBufferFlushed;
+bool CImgDat::FlushImageBuffer() {
+    if (imageBufferFlushed) {
+      return imageBufferFlushed;
     }
 
-    if (nImgMap)
-    {
-        for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it)
-        {
-            if (it->second)
-            {
-                delete it->second;
-            }
+    if (nImgMap) {
+      for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it) {
+        if (it->second) {
+          delete it->second;
         }
+      }
 
-        if (!nImgMap->empty())
-        {
-            nImgMap->clear();
-        }
+      if (!nImgMap->empty()) {
+        nImgMap->clear();
+      }
     }
 
     safe_delete(nImgMap);
@@ -59,11 +48,9 @@ bool CImgDat::FlushImageBuffer()
     return true;
 }
 
-bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8_t uGameFlag)
-{
-    if (!imageBufferFlushed)
-    {
-        imageBufferFlushed = FlushImageBuffer();
+bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8_t uGameFlag) {
+    if (!imageBufferFlushed) {
+      imageBufferFlushed = FlushImageBuffer();
     }
 
 #if IMGDAT_DEBUG
@@ -71,8 +58,7 @@ bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8
     OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
 #endif
 
-    if (prgGameImageSet.empty())
-    {
+    if (prgGameImageSet.empty()) {
         OutputDebugString(L"CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n");
         return false;
     }
@@ -80,8 +66,7 @@ bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8
     nImgMap = new std::map<uint16_t, ImgInfoList*>;
 
     // We have an individual entry here for every game so we can optimize image loads
-    for (uint16_t nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++)
-    {
+    for (uint16_t nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++) {
         uint16_t nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
 
 #if IMGDAT_DEBUG
@@ -99,8 +84,7 @@ bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8
     return true;
 }
 
-sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
-{
+sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId) {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::GetImageDef : Attempting to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
@@ -109,23 +93,20 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
 
     //if ((uUnitId >= uCurrUnitAmt) || (uImgId > uCurrImgAmt))
 
-    if (nImgMap)
-    {
+    if (nImgMap) {
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"\tCImgDat::GetImageDef : nImgMap exists containing 0x%x items \n", nImgMap->size() );
         OutputDebugString(strDebugInfo);
 #endif
 
         imgMapIter it = nImgMap->find((uint16_t)uUnitId);
-        if (it != nImgMap->cend())
-        {
+        if (it != nImgMap->cend()) {
             // it->second->listAllImgIDs();
 #if IMGDAT_DEBUG
             strDebugInfo.Format(L"\tCImgDat::GetImageDef : ppImgData[0x%02X] exists containings 0x%x items\n", uUnitId, it->second->size());
             OutputDebugString(strDebugInfo);
 #endif
-            if (it->second->valueExists(uImgId))
-            {
+            if (it->second->valueExists(uImgId)) {
 #if IMGDAT_DEBUG
                 strDebugInfo.Format(L"\tCImgDat::GetImageDef : Found imgID 0x%02X in list for unitID 0x%02X \n", uImgId, uUnitId);
                 OutputDebugString(strDebugInfo);
@@ -136,11 +117,8 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
             strDebugInfo.Format(L"\t\tCImgDat::GetImageDef : Could not find imgID:0x%02X in list for unitID:0x%02X\n", uImgId, uUnitId);
             OutputDebugString(strDebugInfo);
 #endif
-        }
-        else
-        {
-            if ((uUnitId != INVALID_UNIT_VALUE) && (uUnitId != INVALID_UNIT_VALUE32))
-            {
+        } else {
+            if ((uUnitId != INVALID_UNIT_VALUE) && (uUnitId != INVALID_UNIT_VALUE32)) {
                 CString strWarning;
                 strWarning.Format(L"\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update this game's array in gamedef.h?\n    **************\n", uUnitId);
                 OutputDebugString(strWarning);
@@ -154,14 +132,11 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
     return nullptr;
 }
 
-uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId)
-{
+uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId) {
     if (pCurrImg->pImgData) {
         return pCurrImg->pImgData;
     }
 
-    // uint8_t* pNewImgData = new uint8_t[pCurrImg->uDataSize];
-    
     switch (pCurrImg->nCompressionType) {
     case 0: // "RAW" 8 bit indexed file
     {
@@ -169,7 +144,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
         if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
             return nullptr;
         }
-        UINT dataSize = file.GetLength();
+        UINT dataSize = (UINT)file.GetLength();
         uint8_t* pNewImgData = new uint8_t[dataSize];
         file.Read(pNewImgData, dataSize);
 
@@ -179,26 +154,19 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
     }
     case 1: // PNG file
     {
-        std::vector<unsigned char> png;
-        std::vector<unsigned char> image;
-        uint8_t* pNewImgData = new uint8_t[pCurrImg->uImgWidth * pCurrImg->uImgHeight];
-        unsigned width, height;
-        lodepng::State state;
-        state.info_raw.colortype = LCT_PALETTE;
-        state.info_raw.bitdepth = 8;
+        CFile file;
+        if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
+            return nullptr;
+        }
+        UINT dataSize = (UINT)file.GetLength();
+        uint8_t* pngData = new uint8_t[dataSize];
+        file.Read(pngData, dataSize);
 
-        // sketchy conversion from WCHAR* to std::string
-        std::wstring w = pCurrImg->pImgPath;
-        std::string s = std::string(w.begin(), w.end());
-        
-        unsigned error = lodepng::load_file(png, s);
-        if(!error) error = lodepng::decode(image, width, height, state, png);
+        unsigned width, height;
+        unsigned error = lodepng_decode_memory(&pCurrImg->pImgData, &width, &height, pngData, dataSize, LCT_PALETTE, 8);
         if(error) OutputDebugString(L"CImgDat::GetImgData: lodepng::decode error\n");
 
-        memcpy(pNewImgData, image.data(), pCurrImg->uImgWidth * pCurrImg->uImgHeight);
-        //pNewImgData = image.data();
-        pCurrImg->pImgData = pNewImgData;
-        return pNewImgData;
+        return pCurrImg->pImgData;
         break;
     }
     default:
@@ -209,12 +177,9 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
     return nullptr;
 }
 
-bool CImgDat::sameGameAlreadyLoaded(uint8_t uGameFlag, uint8_t uImgGameFlag)
-{
+bool CImgDat::sameGameAlreadyLoaded(uint8_t uGameFlag, uint8_t uImgGameFlag) {
     return (uImgGameFlag == nCurImgGameFlag) && (uGameFlag == nCurGameFlag);
 }
-
-
 
 BOOL CImgDat::ParsePreviewName(LPCWSTR filename, uint16_t *uCurrUnitId, uint8_t *uCurrImgId, uint16_t  *uCurrImgWidth, uint16_t *uCurrImgHeight, bool *isPng) {
     std::wstring strFile(filename);
@@ -280,17 +245,15 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
     }
     imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uGameFlag);
 
-    
-    //CString strThisGameName;
-    //strThisGameName = g_GameFriendlyName[uGameFlag];
 
+    // need a g_ImgSectionFriendlyName list to look up uImgGameFlag in
+    // for better folder names, eventually
     WIN32_FIND_DATAW FindFileData;
     HANDLE hFind;
     CString path;
     GetModuleFileName(NULL, path.GetBufferSetLength(MAX_PATH), MAX_PATH);
-    //GetCurrentDirectory(path.GetBufferSetLength(MAX_PATH), path);
     path = path.Left(path.ReverseFind(L'\\') + 1);
-    path.Format(L"%s\\Previews\\%d\\*", (LPCWSTR)path, uImgGameFlag);
+    path.Format(L"%s\\Previews\\%s\\*", (LPCWSTR)path, g_IMGDatSectionName[uImgGameFlag]);
     hFind = FindFirstFile(path, &FindFileData);
 
     if (INVALID_HANDLE_VALUE != hFind) {

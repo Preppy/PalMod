@@ -2,6 +2,7 @@
 
 // These groups contain the sprites relevant to that particular set of games
 
+// low indexes filled with fighting games for historical reasons
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_ARCANA,  // Fuck Arcana Heart
@@ -29,6 +30,34 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_WAKUWAKU7,
     IMGDAT_SECTION_WINDJAMMERS,
     IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load
+};
+
+const wchar_t g_IMGDatSectionName[][64] =
+{
+    L"ArcanaHeart",
+    L"ArcSys",
+    L"BreakRev",
+    L"CPS2",
+    L"DS",
+    L"FrenchBread",
+    L"Garou",
+    L"GuiltyGear",
+    L"Jojos",
+    L"KarnovsR",
+    L"KOF",
+    L"Matrimelee",
+    L"NeoGeo",
+    L"Other",
+    L"PGM",
+    L"RedEarth",
+    L"SamSho",
+    L"Sega",
+    L"SF2",
+    L"SF3",
+    L"SNES",
+    L"Taito",
+    L"WakuWaku7",
+    L"WindJammers",
 };
 
 // These numbers refer to the indexes within the appropriate IMGDAT sections
