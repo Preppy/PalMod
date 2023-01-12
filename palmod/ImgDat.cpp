@@ -131,37 +131,37 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
 
     switch (pCurrImg->nCompressionType) {
     case 0: // "RAW" 8 bit indexed file
-        {
-            CFile file;
-            if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
-                return nullptr;
-            }
-            UINT dataSize = (UINT)file.GetLength();
-            uint8_t* pNewImgData = new uint8_t[dataSize];
-            file.Read(pNewImgData, dataSize);
-
-            pCurrImg->pImgData = pNewImgData;
-            return pNewImgData;
-            break;
+    {
+        CFile file;
+        if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
+            return nullptr;
         }
+        UINT dataSize = (UINT)file.GetLength();
+        uint8_t* pNewImgData = new uint8_t[dataSize];
+        file.Read(pNewImgData, dataSize);
+
+        pCurrImg->pImgData = pNewImgData;
+        return pNewImgData;
+        break;
+    }
     case 1: // PNG file
-        {
-            CFile file;
-            if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
-                return nullptr;
-            }
-            UINT dataSize = (UINT)file.GetLength();
-            uint8_t* pngData = new uint8_t[dataSize];
-            file.Read(pngData, dataSize);
-
-            unsigned width, height;
-            unsigned error = lodepng_decode_memory(&pCurrImg->pImgData, &width, &height, pngData, dataSize, LCT_PALETTE, 8);
-            if(error) OutputDebugString(L"CImgDat::GetImgData: lodepng::decode error\n");
-
-            delete pngData;
-            return pCurrImg->pImgData;
-            break;
+    {
+        CFile file;
+        if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
+            return nullptr;
         }
+        UINT dataSize = (UINT)file.GetLength();
+        uint8_t* pngData = new uint8_t[dataSize];
+        file.Read(pngData, dataSize);
+
+        unsigned width, height;
+        unsigned error = lodepng_decode_memory(&pCurrImg->pImgData, &width, &height, pngData, dataSize, LCT_PALETTE, 8);
+        if(error) OutputDebugString(L"CImgDat::GetImgData: lodepng::decode error\n");
+
+        delete pngData;
+        return pCurrImg->pImgData;
+        break;
+    }
     default:
         OutputDebugString(L"CImgDat::GetImgData : WARNING: Unhandled compression type.  Skipping loading this image\n");
         return nullptr;
