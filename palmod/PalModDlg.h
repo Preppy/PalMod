@@ -366,53 +366,9 @@ public:
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnChangeExtendedCopyData();
 
-    afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
-    afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };
-    afx_msg void OnLoadDir_BlazBlueCF()     { OnLoadGameByDirectory(BlazBlueCF_S); };
     afx_msg void OnLoadDir_Dankuga()        { OnLoadGameByDirectory(DANKUGA_A); };
-    afx_msg void OnLoadDir_DaemonBride()    { OnLoadGameByDirectory(DaemonBride_NL); };
-    afx_msg void OnLoadDir_DaemonBrideAG()  { OnLoadGameByDirectory(DaemonBrideAG_NL); };
 
-    afx_msg void OnLoadDir_DBFCI()          { OnLoadGameByDirectory(DBFCI_A); };
-    afx_msg void OnLoadDir_GGML_P()         { OnLoadGameByDirectory(GGML_P); };
-    afx_msg void OnLoadDir_GGXXR_S()        { OnLoadGameByDirectory(GGXXR_S); };
-    afx_msg void OnLoadDir_GGXXACP_Wii()    { OnLoadGameByDirectory(GGXXACP_Wii); };
-    afx_msg void OnLoadDir_GGXXACR_S()      { OnLoadGameByDirectory(GGXXACR_S); };
-    afx_msg void OnLoadDir_GGXXACR_P()      { OnLoadGameByDirectory(GGXXACR_P); };
-    afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
-    afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
-    afx_msg void OnLoadDir_Jojos51_USA()    { OnLoadGameByDirectory(JOJOS_US_A_DIR_51); };
-    
-    afx_msg void OnLoadDir_KOF02UM_S_8888() { OnLoadGameByDirectory(KOF02UM_S_DIR_8888); };
-    afx_msg void OnLoadDir_KOF02UM_S_BGR555() { OnLoadGameByDirectory(KOF02UM_S_DIR_BGR555); };
-    afx_msg void OnLoadDir_KOF02UM_S_RGB555() { OnLoadGameByDirectory(KOF02UM_S_DIR_RGB555); };
     afx_msg void OnLoadDir_LandMaker_P()    { OnLoadGameByDirectory(LandMaker_P); };
-    afx_msg void OnLoadDir_MAAB_S()         { OnLoadGameByDirectory(MAAB_A); };
-    afx_msg void OnLoadDir_MBTL_A()         { OnLoadGameByDirectory(MBTL_A); };
-    afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };
-    afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
-    afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
-    afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
-    afx_msg void OnLoadDir_MWarr()          { OnLoadGameByDirectory(MWARR_A); };
-    afx_msg void OnLoadDir_NBHID_NL()       { OnLoadGameByDirectory(NBHID_NL); };
-    afx_msg void OnLoadDir_NBHID_P()        { OnLoadGameByDirectory(NBHID_P); };
-    afx_msg void OnLoadDir_NBHID_S()        { OnLoadGameByDirectory(NBHID_S); };
     
-    afx_msg void OnLoadDir_P4AU_NESICA()    { OnLoadGameByDirectory(P4AU_NESICA); };
-    afx_msg void OnLoadDir_P4AU_STEAM()     { OnLoadGameByDirectory(P4AU_STEAM); };
-    afx_msg void OnLoadDir_RedEarth30()     { OnLoadGameByDirectory(REDEARTH_A_DIR_30); };
-    afx_msg void OnLoadDir_RedEarth31()     { OnLoadGameByDirectory(REDEARTH_A_DIR_31); };
-    afx_msg void OnLoadDir_RedEarth50()     { OnLoadGameByDirectory(REDEARTH_A_DIR_50); };
-    afx_msg void OnLoadDir_SFIII3DCAll()    { OnLoadGameByDirectory(SFIII3_D); };
-    afx_msg void OnLoadDir_SFIII1Arcade()   { OnLoadGameByDirectory(SFIII1_A_DIR); };
-    afx_msg void OnLoadDir_SFIII2Arcade()   { OnLoadGameByDirectory(SFIII2_A_DIR); };
-    afx_msg void OnLoadDir_SFIII3Arcade10() { OnLoadGameByDirectory(SFIII3_A_DIR_10); };
-    afx_msg void OnLoadDir_SFIII3Arcade51() { OnLoadGameByDirectory(SFIII3_A_DIR_51); };
-    afx_msg void OnLoadDir_SFIII3Arcade4rd() { OnLoadGameByDirectory(SFIII3_A_DIR_4rd); };
-    afx_msg void OnLoadDir_SFIII3Arcade4rd_10() { OnLoadGameByDirectory(SFIII3_A_DIR_4rd_10); };
-    afx_msg void OnLoadDir_SFIII3ArcadeEx() { OnLoadGameByDirectory(SFIII3_A_DIR_EX); };
-    afx_msg void OnLoadDir_UNICLR()         { OnLoadGameByDirectory(UNICLR_A); };
-    afx_msg void OnLoadDir_Venture31()      { OnLoadGameByDirectory(VENTURE_A_DIR_31); };
-    afx_msg void OnLoadDir_Venture50()      { OnLoadGameByDirectory(VENTURE_A_DIR_50); };
     afx_msg void OnLoadDir_DevMode()        { OnLoadGameByUnknownFileSet(); };
 };

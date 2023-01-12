@@ -114,7 +114,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                         // BBCF: cfpl, hpal
                         LPCWSTR pszExtension = wcsrchr(szPath, L'.');
 
-                        bool fAllowBBCFDrop = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
+                        bool fAllowBBCFDrop = false; // historic blazblue code touching everything
 
                         if (pszExtension)
                         {
@@ -252,19 +252,20 @@ void CPalModDlg::OnEditCopy()
         // All new color modes should be handled by the DEFAULT handler.  Don't add new handlers.
         uint8_t cbColor = 2;
 
+        // what the fuck. -y
         switch (CurrGame->GetColorMode())
         {
         case ColMode::COLMODE_RGB333:
             // RGB333
-            uCopyFlag1 = TOPF2005_SEGA+ k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGB333 + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_BGR555_LE:
             // BGR555
-            uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_BGR555_LE + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGB444_BE:
             // RGB444
-            uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGB444_BE + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGB444_LE:
             // RGB444 litle endian
@@ -272,30 +273,30 @@ void CPalModDlg::OnEditCopy()
             break;
         case ColMode::COLMODE_RGB555_LE:
             // RGB555
-            uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGB555_LE + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGB555_BE:
             // RGB555
-            uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGB555_BE + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGB666_NEOGEO:
             // RGB666
-            uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGB666_NEOGEO + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGB555_SHARP:
-            uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGB555_SHARP + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGBA8881:
             cbColor = 4;
-            uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGBA8881 + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGBA8887:
             cbColor = 4;
-            uCopyFlag1 = GGXXACR_S + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGBA8887 + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGBA8888_LE:
             cbColor = 4;
-            uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = DUMMY_RGBA8888_LE + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_BGR333:
         case ColMode::COLMODE_RBG333:
@@ -456,7 +457,7 @@ void CPalModDlg::OnEditCopy()
             }
 
             SupportedGamesList gameFlag = CurrGame->GetGameFlag();
-            bool fWantArcanaFormattedData = (gameFlag == MBAACC_S) || (gameFlag == MBTL_A) || (gameFlag == UNICLR_A) || (gameFlag == DBFCI_A);
+            bool fWantArcanaFormattedData = false; // historic
 
             if (fWantArcanaFormattedData)
             {
@@ -735,7 +736,7 @@ void CPalModDlg::HandlePasteFromPalMod()
         {
             switch (uPasteGFlag1)
             {
-            case TOPF2005_SEGA:
+            case DUMMY_RGB333:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGB333;
@@ -747,134 +748,60 @@ void CPalModDlg::HandlePasteFromPalMod()
                 eColModeForPastedColor = ColMode::COLMODE_RGB444_LE;
                 break;
             }
-            case DBFCI_A:
+            case DUMMY_RGBA8881:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGBA8881;
                 break;
             }
-            case GGXXACR_S:
+            case DUMMY_RGBA8887:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGBA8887;
                 break;
             }
-            case UNICLR_A:
+            case DUMMY_RGBA8888_LE:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGBA8888_LE;
                 break;
             }
-            case COTA_A:
-            case MSHVSF_A:
-            case MSH_A:
-            case MVC2_A:
-            case MVC2_A_DIR:
-            case MVC2_D:
-            case MVC2_D_16:
-            case MVC2_P:
-            case MVC_A:
+            case DUMMY_RGB444_BE:
             case GEMFIGHTER_A:
-            case RODSM2_A:
-            case SFA1_A:
-            case SFA2_A:
-            case SFA3_A:
-            case SF2CE_A:
-            case SF2HF_A:
             case SPF2T_A:
-            case SSF2T_A:
-            case VHUNT2_A:
-            case VSAV_A:
-            case VSAV2_A:
-            case XMVSF_A:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGB444_BE;
                 break;
             }
-            case SFIII1_A:
-            case SFIII1_A_DIR:
-            case SFIII2_A:
-            case SFIII2_A_DIR:
-            case SFIII3_A:
-            case SFIII3_A_DIR_10:
-            case SFIII3_A_DIR_51:
-            case JOJOS_A:
-            case JOJOS_A_DIR_50:
-            case JOJOS_A_DIR_51:
-            case REDEARTH_A:
-            case REDEARTH_A_DIR_30:
-            case REDEARTH_A_DIR_31:
+            case DUMMY_RGB555_LE:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGB555_LE;
                 break;
             }
-            case CVS2_A:
-            case KOF02UM_S:
-            case KOFXI_A:
-            case NGBC_A:
-            case SFIII3_D:
+            case DUMMY_RGB555_BE:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGB555_BE;
                 break;
             }
-            case AOF1_A:
-            case AOF3_A:
-            case BREAKERS_A:
-            case DOUBLEDRAGON_A:
-            case Garou_A:
-            case GarouP_A:
-            case Garou_S:
-            case KarnovsR_A:
-            case KOF94_A:
-            case KOF97_A:
-            case KOF97AE_A:
-            case KOF97GM_S:
-            case KOF98_A:
-            case KOF99AE_A:
-            case KOF01_A:
-            case KOF02_A:
-            case KOF03_A:
-            case KOTM_A:
-            case LASTBLADE2_A:
-            case MATRIMELEE_A:
+            case DUMMY_RGB666_NEOGEO:
             case NeoBomberman_A:
             case NEOGEO_A:
-            case NINJAMASTERS_A:
-            case RBFF1_A:
-            case RBFF2_A:
-            case RBFFS_A:
-            case ROTD_A:
-            case SAMSHO3_A:
-            case SAMSHO4_A:
-            case SAMSHO5_A:
-            case SAMSHO5SP_A:
-            case SAVAGEREIGN_A:
-            case SDODGEBALL_A:
-            case SVCPLUSA_A:
-            case WakuWaku7_A:
             case WINDJAMMERS_A:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_RGB666_NEOGEO;
                 break;
             }
-            case BLEACH_DS:
-            case CFTE_SNES:
-            case FatalFuryS_SNES:
-            case GUNDAM_SNES:
-            case MMPR_SNES:
-            case MSHWOTG_SNES:
-            case SSF2T_GBA:
-            case TMNTTF_SNES:
-            case XMMA_SNES:
+            case DUMMY_BGR555_LE:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 eColModeForPastedColor = ColMode::COLMODE_BGR555_LE;
                 break;
             }
+            case DUMMY_RGB555_SHARP:
             case DANKUGA_A:
                 // Don't change this code.  It automatically handles new games and color modes.
             {

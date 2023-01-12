@@ -29,126 +29,11 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         default:
             // No extra description: that's fine.
             break;
-        case AquaPlus_NL:
-            pszExtraInfo = L"Select the main \"Aquapazza: Aquaplus Dream Match\" folder containing the flashrom folder.";
-            break;
-        case AquaPlus_P:
-            pszExtraInfo = L"Select the main \"Aquapazza: Aquaplus Dream Match\" folder containing the USRDIR folder.";
-            break;
-        case BlazBlueCF_S:
-            pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.";
-            break;
-        case DaemonBride_NL:
-        case DaemonBrideAG_NL:
-            pszExtraInfo = L"Select the main game folder that contains the 'Flashrom' folder.";
-            break;
         case DANKUGA_A:
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
             break;
-        case DBFCI_A:
-            pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
-            break;
-        case GGML_P:
-            pszExtraInfo = L"Select the 'Chara' folder in the root of the game image.";
-            break;
-        case GGXXACP_Wii:
-            pszExtraInfo = L"Guilty Gear (Wii): After extracting the ISO, load the \"SDATA\" folder.";
-            break; 
-        case GGXXACR_S:
-            pszExtraInfo = L"Guilty Gear (Steam): Select the 'Guilty Gear XX Accent Core Plus R' folder under your steam library.";
-            break;
-        case GGXXACR_P:
-            break; 
-        case GGXXR_S:
-            break;
-        case JOJOS_A_DIR_50:
-            pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
-            break;
-        case JOJOS_A_DIR_51:
-        case JOJOS_US_A_DIR_51:
-            pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
-            break;
-        case KOF02UM_S_DIR_8888:
-        case KOF02UM_S_DIR_BGR555:
-        case KOF02UM_S_DIR_RGB555:
-            pszExtraInfo = L"Please select the \"Data\" folder under \"The King of Fighters 2002 Unlimited Match\".";
-            break;
         case LandMaker_P:
             pszExtraInfo = L"Select the \"ARC\" folder at \"DATA/ARC\" from the root of the game image.";
-            break;
-        case MAAB_A:
-            pszExtraInfo = L"For MAAB, please select the \"flashrom\" folder.\nThe folder is normally located in steamapps\\common\\Million Arthur Arcana Blood.";
-            break;
-        case MBAACC_S:
-            pszExtraInfo = L"For MBAACC, please select the \"data\" folder.\nIf this is your first time loading MBAACC refer to the Read Me for more details.";
-            break;
-        case MBTL_A:
-            pszExtraInfo = L"For MBTL, please select the \"MELTY BLOOD TYPE LUMINA\" folder.\nThe folder is usually in steamapps\\common. If you didn't come from the guide refer to the Read Me for more details.";
-           break;
-        case NBHID_NL:
-        case NBHID_P:
-            pszExtraInfo = L"Select the main \"Nitroplus Blasterz Heroines Infinite Duel\" folder.";
-            break;
-        case NBHID_S:
-            pszExtraInfo = L"Select the main \"Nitroplus Blasterz Heroines Infinite Duel\" folder in your steamapps\\common directory.";
-            break;
-        case MVC2_A_DIR:
-            pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";
-            break;
-        case MVC2_D:
-        case MVC2_D_16:
-            pszExtraInfo = L"We need the PLxx_DAT.bin files from the root of the game image.";
-            break;
-        case MVC2_P:
-            pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.\nFor the PS3 version, select the folder \"gdrom\" under \"NPUB30068\\USRDIR\".";
-            break;
-        case MWARR_A:
-            pszExtraInfo = L"We need the prg_ev and prg_od files from mwarr.zip.";
-            break;
-        case P4AU_NESICA:
-            pszExtraInfo = L"Select the \"data\" folder.";
-            break;
-        case P4AU_STEAM:
-            pszExtraInfo = L"Select the \"asset\" folder.";
-            break;
-        case REDEARTH_A_DIR_30:
-            pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
-            break;
-        case REDEARTH_A_DIR_31:
-            pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
-            break;
-        case SFIII3_D:
-            pszExtraInfo = L"We need the PLxxPL.bin files from the game image.\nFor the PS3 version, select the \"Colors\" folder under \"NPUB30301-RTM\\USRDIR\".";
-            break;
-        case SFIII1_A_DIR:
-            pszExtraInfo = L"We need the sfiii-simm5.x files from sfiii.zip (US) or sfiiin.zip (JPN).";
-            break;
-        case SFIII2_A_DIR:
-            pszExtraInfo = L"We need the sfiii2-simm5.x files from sfiii2.zip (US) or sfiii2n.zip (JPN).";
-            break;
-        case SFIII3_A_DIR_10:
-            pszExtraInfo = L"US version uses sfiii3-simm1.x files from sfiii3nr1.zip.\nJPN version uses sfiii3n-simm1.x files from sfiii3n.zip.\nIf you don't have sfiii3nr1.zip, the files will be in sfiii3.zip.";
-            break;
-        case SFIII3_A_DIR_51:
-            pszExtraInfo = L"US version uses sfiii3-simm5.x files from sfiii3.zip.\nJPN version uses sfiii3n-simm5.x files from sfiii3n.zip.";
-            break;
-        case SFIII3_A_DIR_4rd:
-            pszExtraInfo = L"We need the 4rd-simm5.x files from sfiii4n.zip.";
-            break;
-        case SFIII3_A_DIR_4rd_10:
-            pszExtraInfo = L"We need the sfiii3-simm1.x files from sfiii4n.zip.";
-            break;
-        case SFIII3_A_DIR_EX:
-            pszExtraInfo = L"We need the sfiii3ex-simm7.x files from sfiii3ex.zip.";
-            break;
-        case UNICLR_A:
-            pszExtraInfo = L"For UNICLR, please select the \"UNDER NIGHT In-Birth Exe Late[st]\" folder.\nThe folder is normally located in steamapps\\common.";
-            break;
-        case VENTURE_A_DIR_31:
-            pszExtraInfo = L"We need the jojo-simm3.x files from jojos.zip.";
-            break;
-        case VENTURE_A_DIR_50:
-            pszExtraInfo = L"We need the jojo-simm5.x files from jojos.zip.";
             break;
         }
 
@@ -179,6 +64,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
         pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH, MF_BYCOMMAND);
 
+        /*
         if (fIsGameAvailable &&
             ((GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D) || (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_P)))
         {
@@ -212,7 +98,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             }
 
             pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
-        }
+        }*/
 
         CMenu gameMenu;
         gameMenu.CreatePopupMenu();

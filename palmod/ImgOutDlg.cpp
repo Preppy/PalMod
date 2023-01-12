@@ -89,7 +89,7 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"4");
         break;
     case 5: // Jojos & Garou
-        if (CurrGame->GetGameFlag() == GGML_P) //Give the option to hide the Mirror palette
+        if (false) // historically, GGML_P check
         {
             m_CB_Amt.AddString(L"4");
         }
@@ -97,7 +97,7 @@ BOOL CImgOutDlg::OnInitDialog()
         break;
     case 6: 
     case 7: // 3S
-        if ((CurrGame->GetGameFlag() == SFA2_A) || (CurrGame->GetGameFlag() == GGDS_NDS)) // SFA2's 5-6 colors are only with autoguard on, and likewise GGDS has a natural 4/6 split
+        if (false) // historically: SFA2's 5-6 colors are only with autoguard on, and likewise GGDS has a natural 4/6 split
         {
             m_CB_Amt.AddString(L"4");
         }

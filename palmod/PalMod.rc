@@ -445,87 +445,11 @@ BEGIN
         MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
         POPUP "&Load Directory"
         BEGIN
-            POPUP "Aquapazza: Aquaplus Dream Match"
-            BEGIN
-                MENUITEM "Aquapazza: Aquaplus Dream Match (NESICAxLive)", ID_LD_AQUAPLUS_NL
-                MENUITEM "Aquapazza: Aquaplus Dream Match (PS3)", ID_LD_AQUAPLUS_P
-            END
-            MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
-            POPUP "Daemon Bride"
-            BEGIN
-                MENUITEM "Daemon Bride (NESICAxLive)",  ID_LD_DAEMONBRIDE_NL
-                MENUITEM "Daemon Bride: Additional Gain (NESICAxLive)", ID_LD_DAEMONBRIDEAG_NL
-            END
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
-            MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
-            POPUP "Guilty Gear"
+            POPUP "Land Maker (PlayStation)"
             BEGIN
-                MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
-                MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
-                MENUITEM "GGXX:AC+ (Wii, ID:R3NEXS)",   ID_LD_GGXXACP_Wii
-                MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S
-                MENUITEM "Guilty Gear: The Missing Link (PlayStation)", ID_LD_GGML_P
+                MENUITEM "Land Maker (PlayStation)",        ID_LD_LANDMAKER_P
             END
-            POPUP "Jojo's"
-            BEGIN
-                MENUITEM "HftF Characters (Normal: Japan Arcade, Regulation: Off)", ID_LD_JOJOS51
-                MENUITEM "HftF HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
-                MENUITEM "HftF Characters (US Arcade, Regulation: On)", ID_LD_JOJOS_US_51
-                MENUITEM "Venture Characters (Japan Arcade)", ID_LD_VENTURE50
-                MENUITEM "Venture HUD (Japan Arcade)",  ID_LD_VENTURE31
-            END
-            POPUP "King of Fighters"
-            BEGIN
-                MENUITEM "King of Fighters 02UM (Steam, RGBA8888 parts)", ID_LD_KOF02UM_S_8888
-                MENUITEM "King of Fighters 02UM (Steam, BGR555 parts)", ID_LD_KOF02UM_S_BGR555
-                MENUITEM "King of Fighters 02UM (Steam, RGB555 parts, Characters)", ID_LD_KOF02UM_S_RGB555
-            END
-            MENUITEM "Land Maker (PlayStation)",        ID_LD_LANDMAKER_P
-            POPUP "Melty Blood"
-            BEGIN
-                MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
-                MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
-            END
-            MENUITEM "Mighty Warriors",             ID_LD_MWARR
-            MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
-            POPUP "MvC2"
-            BEGIN
-                MENUITEM "Arcade (NAOMI)",              ID_LD_MVC2ARCADE
-                MENUITEM "DC",                          ID_LD_MVC2DCUSA
-                MENUITEM "PS2",                         ID_LD_MVC2PS2USA
-            END
-            POPUP "Nitroplus Blasterz: Heroines Infinite Duel"
-            BEGIN
-                MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (NESICAxLive)", ID_LD_NBHID_NL
-                MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (PS3)", ID_LD_NBHID_P
-                MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (Steam)", ID_LD_NBHID_S
-            END
-            POPUP "Persona 4 Arena"
-            BEGIN
-                MENUITEM "Persona 4 Arena Ultimax (Steam)", ID_LD_P4AU_STEAM
-                MENUITEM "Persona 4 Arena Ultimax 2.0 (NESICA Community Port)", ID_LD_P4AU_NESICA
-            END
-            POPUP "Red Earth / Warzard"
-            BEGIN
-                MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
-                MENUITEM "Red Earth / Warzard (Arcade, Characters)", ID_LOADDIRECTORY_REDEARTH_31
-                MENUITEM "Red Earth / Warzard (Arcade, Coming Next)", ID_LOADDIRECTORY_REDEARTH_50
-            END
-            POPUP "Street Fighter III"
-            BEGIN
-                MENUITEM "New Generation (Arcade)",     ID_LD_SFIII1
-                MENUITEM SEPARATOR
-                MENUITEM "2nd Impact (Arcade)",         ID_LD_SFIII2
-                MENUITEM SEPARATOR
-                MENUITEM "3rd Strike (Dreamcast/PS2/PS3)", ID_LD_SFIII3DCALL
-                MENUITEM "3rd Strike (Arcade)",         ID_LD_SFIII3ARCADE51
-                MENUITEM "3rd Strike (Arcade) - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
-                MENUITEM "EX Edition (*)",              ID_LD_SFIII3ARCADEEX
-                MENUITEM SEPARATOR
-                MENUITEM "4rd Strike",                  ID_LD_SFIII3ARCADE4rd
-                MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
-            END
-            MENUITEM "Under Night In-Birth Exe:Late[cl-r]", ID_LD_UNICLR
             MENUITEM "Developer Mode",              ID_LD_DEVMODE
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH

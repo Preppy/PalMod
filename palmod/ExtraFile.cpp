@@ -704,8 +704,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     // color in order to assemble a working palette
     uint32_t k_cbUseForcedOffsetForActuallyOverlappingPalettes = 0;
 
-    if ((nGameFlag == TMNTTF_SNES) ||
-        (nGameFlag == MWARR_A))
+    if (false) // historic, see above comment, add odd length cases here (?)
     {
         k_cbUseForcedOffsetForActuallyOverlappingPalettes = 2;
     }

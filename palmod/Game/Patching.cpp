@@ -29,7 +29,7 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
                 uint32_t nInitialOffset = 0;
 
-                if (nGameFlag == TMNTTF_SNES)
+                if (false) //legacy check
                 {
                     // TMNTTF is evil and uses overlapping palettes.  Account for this by snipping off the lead transparency color.
                     m_nCurrentPaletteROMLocation += m_nSizeOfColorsInBytes;

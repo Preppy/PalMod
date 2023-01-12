@@ -208,12 +208,12 @@ namespace ColorSystem
     {
         switch (uGameFlag)
         {
-        case DBFCI_A:
-        case GGXXACR_S:
-        case GGXXACR_P:
-        case MBAACC_S:
-        case UNICLR_A:
-            return 4;
+        //case DBFCI_A:
+        //case GGXXACR_S:
+        //case GGXXACR_P:
+        //case MBAACC_S:
+        //case UNICLR_A:
+        //    return 4;
         case DUMMY_RGB888:
         case DUMMY_BGR888:
             return 3;
