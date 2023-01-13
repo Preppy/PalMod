@@ -24,6 +24,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { BMKNS_SNES,       L"Battle Master: KnS", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { BLEACH_DS,        L"Bleach Dark Souls", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
+    { BREAKERS_S,       L"Breakers Revenge", L"Breakers Revenge|245-m68k.swbin|", GamePlatform::Steam },
     { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (J*).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { BtlKRoad_A,       L"Battle K-Road (Psikyo)", L"Battle K-Road (Psikyo)|4-u46.bin|", GamePlatform::OtherPlatform },
     { CFTE_SNES,        L"Clay Fighter:TE", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -160,7 +161,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 188, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 189, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {

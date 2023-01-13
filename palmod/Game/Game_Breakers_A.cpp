@@ -168,3 +168,46 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         OutputDebugString(strOutput);
     }
 }
+
+uint32_t CGame_BREAKERS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static const sCRC32ValueSet knownROMs[] =
+    {
+        { L"Breakers Revenge (Neo-Geo)", L"245-p1.p1", 0xc828876d, 0 },
+        { L"Breakers Revenge (Neo-Geo)", L"245-p1.bin", 0xc828876d, 0 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
+uint32_t CGame_BREAKERS_S::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static const sCRC32ValueSet knownROMs[] =
+    {
+        { L"Breakers Revenge (Breakers Collection for Steam)", L"245-m68k.swbin", 0xc828876d, 0 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
