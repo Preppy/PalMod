@@ -776,72 +776,72 @@ const sGame_PaletteDataset Cyberbots_A_404_P2_UNDERWATER_PALETTES[] =
 //--Jin--
 const sGame_PaletteDataset Cyberbots_A_PILOTS_JIN_PALETTES[] =
 {
-    { L"Jin Select/Intro", 0x54fe4, 0x55024, indexCyberbots_Bonus, 0x61 },
-    { L"Jin VS/Cutscenes", 0x549e4, 0x54a44, indexCyberbots_Bonus, 0x62 },
-    { L"Jin HUD", 0x54ee4, 0x54f04, indexCyberbots_Bonus, 0x60 },
+    { L"Jin Select/Intro", 0x54fe4, 0x55024, indexCyberbots_Pilots, 0x61 },
+    { L"Jin VS/Cutscenes", 0x549e4, 0x54a44, indexCyberbots_Pilots, 0x62 },
+    { L"Jin HUD", 0x54ee4, 0x54f04, indexCyberbots_Pilots, 0x60 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_MARY_PALETTES[] =
 {
-    { L"Mary Select/Intro", 0x550e4, 0x55124, indexCyberbots_Bonus, 0x71 },
-    { L"Mary VS/Cutscenes", 0x54aa4, 0x54b04, indexCyberbots_Bonus, 0x72 },
-    { L"Mary HUD", 0x54f24, 0x54f44, indexCyberbots_Bonus, 0x70 },
+    { L"Mary Select/Intro", 0x550e4, 0x55124, indexCyberbots_Pilots, 0x71 },
+    { L"Mary VS/Cutscenes", 0x54aa4, 0x54b04, indexCyberbots_Pilots, 0x72 },
+    { L"Mary HUD", 0x54f24, 0x54f44, indexCyberbots_Pilots, 0x70 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_SANTANA_PALETTES[] =
 {
-    { L"Santana Select/Intro", 0x55064, 0x550a4, indexCyberbots_Bonus, 0x81 },
-    { L"Santana VS/Cutscenes", 0x54a44, 0x54aa4, indexCyberbots_Bonus, 0x82 },
-    { L"Santana HUD", 0x54f04, 0x54f24, indexCyberbots_Bonus, 0x80 },
+    { L"Santana Select/Intro", 0x55064, 0x550a4, indexCyberbots_Pilots, 0x81 },
+    { L"Santana VS/Cutscenes", 0x54a44, 0x54aa4, indexCyberbots_Pilots, 0x82 },
+    { L"Santana HUD", 0x54f04, 0x54f24, indexCyberbots_Pilots, 0x80 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_GAWAINE_PALETTES[] =
 {
-    { L"Gawaine Select/Intro", 0x551e4, 0x55264, indexCyberbots_Bonus, 0x51 },
-    { L"Gawaine VS/Cutscenes", 0x54b64, 0x54bc4, indexCyberbots_Bonus, 0x52 },
-    { L"Gawaine HUD", 0x54f64, 0x54f84, indexCyberbots_Bonus, 0x50 },
+    { L"Gawaine Select/Intro", 0x551e4, 0x55264, indexCyberbots_Pilots, 0x51 },
+    { L"Gawaine VS/Cutscenes", 0x54b64, 0x54bc4, indexCyberbots_Pilots, 0x52 },
+    { L"Gawaine HUD", 0x54f64, 0x54f84, indexCyberbots_Pilots, 0x50 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_BAOMAO_PALETTES[] =
 {
-    { L"Bao & Mao Select/Intro", 0x55264, 0x552c4, indexCyberbots_Bonus, 0x11 },
-    { L"Bao & Mao VS/Cutscenes (1/2)", 0x54bc4, 0x54c24, indexCyberbots_Bonus, 0x12, &pairNext },
-    { L"Bao & Mao VS/Cutscenes (2/2)", 0x54e04, 0x54e64 , indexCyberbots_Bonus, 0x13, &pairPrevious },
-    { L"Bao & Mao HUD", 0x54f84, 0x54fa4, indexCyberbots_Bonus, 0x10 },
+    { L"Bao & Mao Select/Intro", 0x55264, 0x552c4, indexCyberbots_Pilots, 0x11 },
+    { L"Bao & Mao VS/Cutscenes (1/2)", 0x54bc4, 0x54c24, indexCyberbots_Pilots, 0x12, &pairNext },
+    { L"Bao & Mao VS/Cutscenes (2/2)", 0x54e04, 0x54e64 , indexCyberbots_Pilots, 0x13, &pairPrevious },
+    { L"Bao & Mao HUD", 0x54f84, 0x54fa4, indexCyberbots_Pilots, 0x10 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_ARIETA_PALETTES[] =
 {
-    { L"Arieta Select/Intro", 0x55164, 0x551c4, indexCyberbots_Bonus, 0x01 },
-    { L"Arieta VS/Cutscenes", 0x54b04, 0x54b64, indexCyberbots_Bonus, 0x02 },
-    { L"Arieta HUD", 0x54f44, 0x54f64, indexCyberbots_Bonus, 0x00 },
+    { L"Arieta Select/Intro", 0x55164, 0x551c4, indexCyberbots_Pilots, 0x01 },
+    { L"Arieta VS/Cutscenes", 0x54b04, 0x54b64, indexCyberbots_Pilots, 0x02 },
+    { L"Arieta HUD", 0x54f44, 0x54f64, indexCyberbots_Pilots, 0x00 },
 };
 
 // Bosses
 const sGame_PaletteDataset Cyberbots_A_PILOTS_DEVILOTTE_PALETTES[] =
 {
-    { L"Devilotte", 0x54c24, 0x54c84, indexCyberbots_Bonus, 0x30 },
+    { L"Devilotte", 0x54c24, 0x54c84, indexCyberbots_Pilots, 0x30 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_CHIYOMARU_PALETTES[] =
 {
-    { L"Chiyomaru & Tessan", 0x54c84, 0x54ce4, indexCyberbots_Bonus, 0x20 },
+    { L"Chiyomaru & Tessan", 0x54c84, 0x54ce4, indexCyberbots_Pilots, 0x20 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_SHADE_PALETTES[] =
 {
-    { L"Shade", 0x54ce4, 0x54d44, indexCyberbots_Bonus, 0x90 },
+    { L"Shade", 0x54ce4, 0x54d44, indexCyberbots_Pilots, 0x90 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_GOD_PALETTES[] =
 {
-    { L"G.O.D.", 0x54d44, 0x54da4, indexCyberbots_Bonus, 0x40 },
+    { L"G.O.D.", 0x54d44, 0x54da4, indexCyberbots_Pilots, 0x40 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_PILOTS_EXTRA_PALETTES[] =
 {
     { L"Extra BG (Arieta)", 0x54e64, 0x54e84 },
-    { L"Shared BG (BaoMao/Mary)", 0x54e84, 0x54ea4, indexCyberbots_Bonus, 0xa0 },
+    { L"Shared BG (BaoMao/Mary)", 0x54e84, 0x54ea4, indexCyberbots_Pilots, 0xa0 },
 };
 
 //-BONUS---
