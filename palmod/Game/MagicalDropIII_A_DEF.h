@@ -295,13 +295,13 @@ const sGame_PaletteDataset MAGICALDROPIII_A_DEATH_PALETTES_B[] =
 const sGame_PaletteDataset MAGICALDROPIII_A_TEMPERANCE_PALETTES_A[] =
 {
     { L"Temperance A", 0x6a140, 0x6a160, indexMagDrop3Sprites_Temperance, 0x00 },
-    { L"Temperance A Map", 0x6aa60, 0x6aa80, indexMagDrop3Sprites_Temperance, 0x40 },
+    { L"Temperance A Map", 0x6aa60, 0x6aa80, indexMagDrop3Sprites_Temperance, 0x38 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_TEMPERANCE_PALETTES_B[] =
 {
     { L"Temperance B", 0x6a120, 0x6a140, indexMagDrop3Sprites_Temperance, 0x00 },
-    { L"Temperance B Map", 0x6aa40, 0x6aa60, indexMagDrop3Sprites_Temperance, 0x40 },
+    { L"Temperance B Map", 0x6aa40, 0x6aa60, indexMagDrop3Sprites_Temperance, 0x38 },
 };
 
 //Devil
