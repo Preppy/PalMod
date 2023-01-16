@@ -35,6 +35,8 @@
 #define IDD_SETT_DIALOG                 133
 #define IDR_PALMOD_ACC                  134
 #define IDS_ERROR_LOADING_BITMAP_BG     136
+#define IDD_IMPL_IMPORT                 137
+#define IDD_IMPL_EXPORT                 138
 #define IDD_IMGDDLG                     139
 #define IDD_EXTRAS_EXPORT               140
 #define IDR_MENUIMGOUT                  141
@@ -126,6 +128,11 @@
 #define IDC_DEVMODE_FILE3_SELECT        1094
 #define IDC_DEVMODE_FILE4               1095
 #define IDC_DEVMODE_FILE4_SELECT        1096
+#define IDC_IMPL_COLOROPTIONS           1097
+#define IDC_IMPL_CHARACTERNAME          1098
+#define IDC_IMPL_PALNAME                1099
+#define IDC_IMPL_CREATOR                1100
+#define IDC_IMPL_DESCRIPTION            1101
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -190,6 +197,11 @@
 #define IDS_CFPLSAVE_FAILURE            2064
 #define IDS_GPL_LOADED                  2065
 #define IDS_GPL_LOADFAILURE             2066
+#define IDS_IMPL_LOADED                 2067
+#define IDS_IMPL_LOADFAILURE            2068
+#define IDS_IMPLSAVE_SUCCESS            2069
+#define IDS_IMPLSAVE_FAILURE            2070
+#define IDS_BBGTAGBBCF_MISMATCH         2071
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773
@@ -372,7 +384,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
 #define _APS_NEXT_COMMAND_VALUE         32946
-#define _APS_NEXT_CONTROL_VALUE         1091
+#define _APS_NEXT_CONTROL_VALUE         1102
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

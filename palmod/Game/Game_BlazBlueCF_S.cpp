@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_BlazBlueCF_S.h"
 
-std::map<uint32_t, uint8_t> mapSpriteIdToGameId =
+std::map<uint32_t, uint8_t> mapBBCFSpriteIdToBBCFGameId =
 {
     { indexBBCFSprites_AmaneNishiki,         20 },
     { indexBBCFSprites_Arakune,               7 },
@@ -45,9 +45,9 @@ uint8_t TranslatePalModSpriteIdToBBCFGameId(uint32_t nSpriteId)
 {
     std::map<uint32_t, uint8_t>::iterator it;
     
-    it = mapSpriteIdToGameId.find(nSpriteId);
+    it = mapBBCFSpriteIdToBBCFGameId.find(nSpriteId);
 
-    if (it != mapSpriteIdToGameId.end())
+    if (it != mapBBCFSpriteIdToBBCFGameId.end())
     {
         return it->second;
     }
@@ -60,7 +60,7 @@ uint8_t TranslatePalModSpriteIdToBBCFGameId(uint32_t nSpriteId)
 
 uint32_t TranslateBBCFGameIdToPalModSpriteId(uint8_t nGameId)
 {
-    for (auto it = mapSpriteIdToGameId.begin(); it != mapSpriteIdToGameId.end(); it++)
+    for (auto it = mapBBCFSpriteIdToBBCFGameId.begin(); it != mapBBCFSpriteIdToBBCFGameId.end(); it++)
     {
         if (it->second == nGameId)
         {

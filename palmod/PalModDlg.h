@@ -170,15 +170,17 @@ public:
     bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
     bool LoadPaletteFromGPL(LPCWSTR pszFileName);
     bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
+    bool LoadPaletteFromIMPL(LPCWSTR pszFileName);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
-    // if you add a new palette type here, please update the CPalDropTarget support
+    // if you add a new palette type here, please update the CPalDropTarget support in PalModDlg_Edit
 
     void SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& fShouldShowGenericError);
     void SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
+    void SavePaletteToIMPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
 
     void UpdateSliderSel(BOOL fModeChange = FALSE, BOOL fResetRF = FALSE);
@@ -252,6 +254,8 @@ protected:
 private:
     void HandlePasteFromPalMod();
     void HandlePasteFromRGB();
+
+    bool CurrentBBCFCharacterIsInBBTAG();
 
 public:
     static CStringA m_strPasteStr;

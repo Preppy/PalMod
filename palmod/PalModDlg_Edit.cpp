@@ -111,7 +111,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                         // It's a file: is it a file type we know about?
                         // act, pal, png, raw
                         // 3S: txt.dat: not supported for drag and drop
-                        // BBCF: cfpl, hpal
+                        // BBCF: cfpl, hpal, some IMPLs
                         LPCWSTR pszExtension = wcsrchr(szPath, L'.');
 
                         bool fAllowBBCFDrop = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
@@ -124,7 +124,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                                 (_wcsicmp(pszExtension, L".raw") == 0) ||
                                 (_wcsicmp(pszExtension, L".gpl") == 0) ||
                                 (_wcsicmp(pszExtension, L".hpl") == 0) ||
-                                (fAllowBBCFDrop && (_wcsicmp(pszExtension, L".cfpl") == 0)))
+                                (fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".impl") == 0))))
                             {
                                 m_currentEffectState = DROPEFFECT_COPY;
                             }
@@ -197,6 +197,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             else if (_wcsicmp(pszExtension, L".hpl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromHPAL(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".impl") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromIMPL(szPath);
             }
             else if (_wcsicmp(pszExtension, L".pal") == 0)
             {

@@ -283,6 +283,38 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,109,155,43,14
 END
 
+IDD_IMPL_IMPORT DIALOGEX 0, 0, 223, 119
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Import IMPL File"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Import options",IDC_STATIC,10,7,205,106
+    LTEXT           "Apply to character:",IDC_STATIC,15,22,185,11
+    LTEXT           "TBD",IDC_IMPL_CHARACTERNAME,49,35,147,11
+    LTEXT           "Apply to color option:",IDC_STATIC,15,51,175,11
+    COMBOBOX        IDC_IMPL_COLOROPTIONS,45,65,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "OK",IDOK,63,92,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,107,92,43,14
+END
+
+IDD_IMPL_EXPORT DIALOGEX 0, 0, 225, 166
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Export IMPL File"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Export options",IDC_STATIC,10,7,203,151
+    LTEXT           "Applies to character:",IDC_STATIC,15,22,185,11
+    LTEXT           "TBD",IDC_IMPL_CHARACTERNAME,49,35,147,11
+    LTEXT           "Palette name (required):",IDC_STATIC,15,48,175,11
+    EDITTEXT        IDC_IMPL_PALNAME,45,61,135,12
+    LTEXT           "Creator name (optional):",IDC_STATIC,15,77,175,11
+    EDITTEXT        IDC_IMPL_CREATOR,45,90,135,12
+    LTEXT           "Description (optional):",IDC_STATIC,15,106,175,11
+    EDITTEXT        IDC_IMPL_DESCRIPTION,45,119,135,13
+    PUSHBUTTON      "OK",IDOK,65,137,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,109,137,43,14
+END
+
 IDD_RAWFIXUP_DIALOG DIALOGEX 0, 0, 197, 175
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RAW Fixup Options"
@@ -411,6 +443,11 @@ BEGIN
 
     IDD_CFPL_EXPORT, DIALOG
     BEGIN
+    END
+
+    IDD_IMPL_EXPORT, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 165
     END
 
     IDD_RAWFIXUP_DIALOG, DIALOG
@@ -779,6 +816,11 @@ BEGIN
     0
 END
 
+IDD_IMPL_EXPORT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -895,6 +937,13 @@ END
 STRINGTABLE
 BEGIN
     IDS_CFPLSAVE_FAILURE    "Error saving CFPL file."
+    IDS_GPL_LOADED          "Loaded %u colors from %u color GPL file."
+    IDS_GPL_LOADFAILURE     "Failed loading GPL file."
+    IDS_IMPL_LOADED         "Loaded 8 palettes for %s %s."
+    IDS_IMPL_LOADFAILURE    "Failed loading IMPL file."
+    IDS_IMPLSAVE_SUCCESS    "IMPL file saved successfully."
+    IDS_IMPLSAVE_FAILURE    "Error saving IMPL file."
+    IDS_BBGTAGBBCF_MISMATCH "This palette is for a character that is not in this version of the game.  Do you want to apply this palette to the current character?  It will probably not look right."
 END
 
 STRINGTABLE
@@ -925,8 +974,6 @@ BEGIN
     IDS_ACTSAVE_FAILURE     "Error saving ACT file."
     IDS_GPLSAVE_SUCCESS     "GPL file saved successfully."
     IDS_GPLSAVE_FAILURE     "Error saving GPL file."
-    IDS_GPL_LOADED          "Loaded %u colors from %u color GPL file."
-    IDS_GPL_LOADFAILURE     "Failed loading GPL file."
     IDS_PALSAVE_SUCCESS     "RIFF PAL file saved successfully."
     IDS_PALSAVE_FAILURE     "Error saving RIFF PAL file."
     IDS_PNGLOAD_NOTABLE     "Cannot use this PNG: it does not contain a palette table."

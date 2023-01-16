@@ -1814,6 +1814,7 @@ void CPalModDlg::OnImportPalette()
                                                 L"GIMP palette file|*.gpl|"
                                                 L"HipPalette|*.hpl|"
                                                 L"BBCF palette set|*.cfpl|"
+                                                L"BBTAG palette set|*.impl|"
                                                 L"|" };
 
         static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat;*.gpl;*.hpl|"
@@ -1895,6 +1896,10 @@ void CPalModDlg::OnImportPalette()
             else if (_wcsicmp(szExtension, L".hpl") == 0)
             {
                 LoadPaletteFromHPAL(strFileName);
+            }
+            else if (_wcsicmp(szExtension, L".impl") == 0)
+            {
+                LoadPaletteFromIMPL(strFileName);
             }
             else
             {
@@ -2079,9 +2084,18 @@ void CPalModDlg::OnExportPalette()
                                         L"|" };
 
     static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
-                                            L"Central Fiction Palette Set|*.cfpl|"
+                                            L"BlazBlue Central Fiction Palette Set|*.cfpl|"
                                             L"ACT Palette|*.act|"
                                             L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                            L"GIMP Palette File|*.gpl|"
+                                            L"Microsoft PAL|*.pal|"
+                                            L"|" };
+
+    static LPCWSTR rgszBBCFAndBBTAGSaveFilter[] = { L"HipPalette|*.hpl|"
+                                            L"BlazBlue Central Fiction Palette Set|*.cfpl|"
+                                            L"ACT Palette|*.act|"
+                                            L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                            L"BlazBlue Cross Tag Battle Palette Set|*.impl|"
                                             L"GIMP Palette File|*.gpl|"
                                             L"Microsoft PAL|*.pal|"
                                             L"|" };
@@ -2093,7 +2107,15 @@ void CPalModDlg::OnExportPalette()
     if (fUseBBCFLogic)
     {
         pszDefaultExt = L"hpl";
-        pszFilterToUse = *rgszBBCFSaveFilter;
+
+        if (CurrentBBCFCharacterIsInBBTAG())
+        {
+            pszFilterToUse = *rgszBBCFAndBBTAGSaveFilter;
+        }
+        else
+        {
+            pszFilterToUse = *rgszBBCFSaveFilter;
+        }
     }
 
     CFileDialog ActSave(FALSE, pszDefaultExt, nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, pszFilterToUse);
@@ -2123,6 +2145,10 @@ void CPalModDlg::OnExportPalette()
         else if (_wcsicmp(szExtension, L".hpl") == 0)
         {
             SavePaletteToHPAL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
+        }
+        else if (fUseBBCFLogic && (_wcsicmp(szExtension, L".impl") == 0)) // only allow impl for BBCF
+        {
+            SavePaletteToIMPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
         else if (_wcsicmp(szExtension, L".pal") == 0)
         {

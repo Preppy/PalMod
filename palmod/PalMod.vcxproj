@@ -363,6 +363,7 @@
     <ClCompile Include="ImgDumpBmp.cpp" />
     <ClCompile Include="ImgInfoList.cpp" />
     <ClCompile Include="ImgOutDlg.cpp" />
+    <ClCompile Include="IMPLfiles.cpp" />
     <ClCompile Include="Junk.cpp" />
     <ClCompile Include="lodepng\lodepng.cpp" />
     <ClCompile Include="PalMod.cpp" />

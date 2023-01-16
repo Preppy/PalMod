@@ -2506,6 +2506,61 @@ enum SupportedArcsys_SpriteListIndex
     indexSBXSprites_UesugiKenshin,          // 0x53
     indexSBXSprites_Bonus,                  // 0x54
     indexSBXSprites_Stages,                 // 0x55
+
+    indexBBTAGSprites_Adachi,               // 0x56
+    indexBBTAGSprites_Aegis,                // 0x57
+    indexBBTAGSprites_Akatsuki,             // 0x58
+    indexBBTAGSprites_Akihiko,              // 0x59
+    indexBBTAGSprites_Azrael,               // 0x5a
+    indexBBTAGSprites_Blake,                // 0x5b
+    indexBBTAGSprites_Blitztank,            // 0x5c
+    indexBBTAGSprites_Boss,                 // 0x5d
+    indexBBTAGSprites_Carmine,              // 0x5e
+    indexBBTAGSprites_Celica,               // 0x5f
+    indexBBTAGSprites_Chie,                 // 0x60
+    indexBBTAGSprites_Elizabeth,            // 0x61
+    indexBBTAGSprites_Es,                   // 0x62
+    indexBBTAGSprites_Gordeau,              // 0x63
+    indexBBTAGSprites_Hakumen,              // 0x64
+    indexBBTAGSprites_Hazama,               // 0x65
+    indexBBTAGSprites_Heart,                // 0x66
+    indexBBTAGSprites_Hilda,                // 0x67
+    indexBBTAGSprites_Hyde,                 // 0x68
+    indexBBTAGSprites_Izayoi,               // 0x69
+    indexBBTAGSprites_Jin,                  // 0x6a
+    indexBBTAGSprites_Jubei,                // 0x6b
+    indexBBTAGSprites_Kanji,                // 0x6c
+    indexBBTAGSprites_Labrys,               // 0x6d
+    indexBBTAGSprites_Linne,                // 0x6e
+    indexBBTAGSprites_Mai,                  // 0x6f
+    indexBBTAGSprites_Makoto,               // 0x70
+    indexBBTAGSprites_Merkava,              // 0x71
+    indexBBTAGSprites_Mika,                 // 0x72
+    indexBBTAGSprites_Mitsuru,              // 0x73
+    indexBBTAGSprites_Naoto,                // 0x74
+    indexBBTAGSprites_NaotoKurogane,        // 0x75
+    indexBBTAGSprites_Neo,                  // 0x76
+    indexBBTAGSprites_Nine,                 // 0x77
+    indexBBTAGSprites_Noel,                 // 0x78
+    indexBBTAGSprites_Nu,                   // 0x79
+    indexBBTAGSprites_Orie,                 // 0x7a
+    indexBBTAGSprites_Platinum,             // 0x7b
+    indexBBTAGSprites_Rachel,               // 0x7c
+    indexBBTAGSprites_Ragna,                // 0x7d
+    indexBBTAGSprites_Ruby,                 // 0x7e
+    indexBBTAGSprites_Seth,                 // 0x7f
+    indexBBTAGSprites_Susanoo,              // 0x80
+    indexBBTAGSprites_Tager,                // 0x81
+    indexBBTAGSprites_Teddie,               // 0x82
+    indexBBTAGSprites_Vatista,              // 0x83
+    indexBBTAGSprites_Waldstein,            // 0x84
+    indexBBTAGSprites_Weiss,                // 0x85
+    indexBBTAGSprites_Yang,                 // 0x86
+    indexBBTAGSprites_Yosuke,               // 0x87
+    indexBBTAGSprites_Yu,                   // 0x88
+    indexBBTAGSprites_Yukiko,               // 0x89
+    indexBBTAGSprites_Yumi,                 // 0x8a
+    indexBBTAGSprites_Yuzuriha,             // 0x8b
 };
 
 enum SupportedOther_SpriteListIndex
