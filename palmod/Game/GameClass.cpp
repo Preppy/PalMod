@@ -528,10 +528,10 @@ void CGameClass::RevertChanges(int nPalId)
         uint32_t nStart = CurrPalSep->nStart;
         uint32_t nAmt = CurrPalSep->nAmt;
 
-        for (uint32_t i = nStart; i < nStart + nAmt; i++)
+        for (uint32_t iPos = nStart; iPos < nStart + nAmt; iPos++)
         {
-            CurrPalDef->pPal[i] = pTempPal[i];
-            //CurrPalDef->pBasePal[i] = pTempPal[i];
+            CurrPalDef->pPal[iPos] = pTempPal[iPos];
+            //CurrPalDef->pBasePal[iPos] = pTempPal[iPos];
         }
 
         delete[] pTempPal;
@@ -540,40 +540,6 @@ void CGameClass::RevertChanges(int nPalId)
         // Revert will revert back to the stored changed, not the base palette.  So we don't want to
         // lose the dirty bit here.
         //MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
-    }
-}
-
-void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    for (uint16_t i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
-    {
-        const uint16_t nCurrentPos = i + createPalOptions.nStartingPosition;
-
-        if (i >= nColorCount)
-        {
-            break;
-        }
-
-        switch (GetGameColorByteLength())
-        {
-        case 2:
-        {
-            m_pppDataBuffer[nUnitId][nPalId][i] = ConvCol16(rgColors[i]);
-            break;
-        }
-        case 3:
-        {
-            m_pppDataBuffer24[nUnitId][nPalId][i] = ConvCol24(rgColors[i]);
-            break;
-        }
-        case 4:
-        {
-            m_pppDataBuffer32[nUnitId][nPalId][i] = ConvCol32(rgColors[i]);
-            break;
-        }
-        }
     }
 }
 
@@ -588,31 +554,65 @@ COLORREF* CGameClass::CreatePal(uint32_t nUnitId, uint32_t nPalId)
         NewPal[0] = 0x0;
     }
 
-    for (uint16_t i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
+    for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); iPos++)
     {
-        const uint16_t nCurrentPos = i + createPalOptions.nStartingPosition;
+        const uint16_t nCurrentPos = iPos + createPalOptions.nStartingPosition;
 
         switch (GetGameColorByteLength())
         {
         case 2:
         {
-            NewPal[nCurrentPos] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
+            NewPal[nCurrentPos] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][iPos]);
             break;
         }
         case 3:
         {
-            NewPal[nCurrentPos] = ConvPal24(m_pppDataBuffer24[nUnitId][nPalId][i]);
+            NewPal[nCurrentPos] = ConvPal24(m_pppDataBuffer24[nUnitId][nPalId][iPos]);
             break;
         }
         case 4:
         {
-            NewPal[nCurrentPos] = ConvPal32(m_pppDataBuffer32[nUnitId][nPalId][i]);
+            NewPal[nCurrentPos] = ConvPal32(m_pppDataBuffer32[nUnitId][nPalId][iPos]);
             break;
         }
         }
     }
 
     return NewPal;
+}
+
+void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount)
+{
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); iPos++)
+    {
+        const uint16_t nCurrentPos = iPos + createPalOptions.nStartingPosition;
+
+        if (iPos >= nColorCount)
+        {
+            break;
+        }
+
+        switch (GetGameColorByteLength())
+        {
+        case 2:
+        {
+            m_pppDataBuffer[nUnitId][nPalId][iPos] = ConvCol16(rgColors[iPos]);
+            break;
+        }
+        case 3:
+        {
+            m_pppDataBuffer24[nUnitId][nPalId][iPos] = ConvCol24(rgColors[iPos]);
+            break;
+        }
+        case 4:
+        {
+            m_pppDataBuffer32[nUnitId][nPalId][iPos] = ConvCol32(rgColors[iPos]);
+            break;
+        }
+        }
+    }
 }
 
 COLORREF*** CGameClass::CreateImgOutPal()
@@ -666,7 +666,7 @@ void CGameClass::UpdatePalData()
             COLORREF* crSrc = srcDef->pPal;
             int16_t nTotalColorsRemaining = srcDef->uPalSz;
             uint16_t nCurrentTotalWrites = 0;
-            // Every 16 colors there is another counter WORD (color length) to preserve.
+            // Every 16 or 256 colors there is another counter WORD (color length) to preserve.
             const uint16_t nMaxSafeColorsToWrite = (uint16_t)createPalOptions.eWriteOutputOptions;
             const uint16_t iFixedCounterPosition = createPalOptions.nTransparencyColorPosition; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
 
@@ -689,23 +689,25 @@ void CGameClass::UpdatePalData()
                         continue;
                     }
 
+                    const uint32_t iPalPosition = iCurrentArrayOffset - createPalOptions.nStartingPosition;
+
                     switch (GetGameColorByteLength())
                     {
-                    case 2:
-                    {
-                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - createPalOptions.nStartingPosition] = ConvCol16(crSrc[iCurrentArrayOffset]);
-                        break;
-                    }
-                    case 3:
-                    {
-                        m_pppDataBuffer24[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - createPalOptions.nStartingPosition] = ConvCol24(crSrc[iCurrentArrayOffset]);
-                        break;
-                    }
-                    case 4:
-                    {
-                        m_pppDataBuffer32[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - createPalOptions.nStartingPosition] = ConvCol32(crSrc[iCurrentArrayOffset]);
-                        break;
-                    }
+                        case 2:
+                        {
+                            m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iPalPosition] = ConvCol16(crSrc[iCurrentArrayOffset]);
+                            break;
+                        }
+                        case 3:
+                        {
+                            m_pppDataBuffer24[srcDef->uUnitId][srcDef->uPalId][iPalPosition] = ConvCol24(crSrc[iCurrentArrayOffset]);
+                            break;
+                        }
+                        case 4:
+                        {
+                            m_pppDataBuffer32[srcDef->uUnitId][srcDef->uPalId][iPalPosition] = ConvCol32(crSrc[iCurrentArrayOffset]);
+                            break;
+                        }
                     }
                 }
 
