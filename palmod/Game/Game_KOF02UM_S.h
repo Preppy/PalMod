@@ -166,7 +166,7 @@ private:
         KOF02UM_S_UNITS_PSEL,
         ARRAYSIZE(KOF02UM_S_UNITS_PSEL),
         L"KOF02UMPSelE.txt",       // Extra filename
-        77,                        // Count of palettes listed in the header
+        76,                        // Count of palettes listed in the header
         0x1c0,                     // Lowest known location used for palettes
     };
 
