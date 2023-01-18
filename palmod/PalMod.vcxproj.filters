@@ -562,6 +562,9 @@
     <Filter Include="Games\Other Platforms\Guilty Gear\GGXX ACP %28Wii%29">
       <UniqueIdentifier>{7e2cc17a-99b5-42ec-9ff7-3849ec4693c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Fight Fever">
+      <UniqueIdentifier>{d3f7463f-16c2-48e8-843a-4dd2acf9f587}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1028,6 +1031,9 @@
     </ClCompile>
     <ClCompile Include="IMPLfiles.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FightFever_A.cpp">
+      <Filter>Games\SNK Games\Fight Fever</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2086,6 +2092,12 @@
     </ClInclude>
     <ClInclude Include="Game\GGXXACP_Wii_DEF.h">
       <Filter>Games\Other Platforms\Guilty Gear\GGXX ACP %28Wii%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FightFever_A_DEF.h">
+      <Filter>Games\SNK Games\Fight Fever</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FightFever_A.h">
+      <Filter>Games\SNK Games\Fight Fever</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -40,6 +40,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { FatalFuryS_A,     L"Fatal Fury Special", L"Fatal Fury Special (Neo-Geo)|058-p1.*;058-p1bs.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { FatalFuryS_SNES,  L"Fatal Fury Special", L"Fatal Fury Special (SNES)|Fatal Fury Special (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { FatalFury3_A,     L"Fatal Fury 3", L"Fatal Fury 3|069-p1.*;069-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+    { FightFever_A,     L"Fight Fever", L"Fight Fever|060-p1.rom;060-p1.p1|", GamePlatform::NEOGEO },
     { GalaxyFight_A,    L"Galaxy Fight", L"Galaxy Fight|078-p1.*|", GamePlatform::NEOGEO },
     { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin;253-sma.bin|", GamePlatform::NEOGEO, GameSeries::FatalFury },
@@ -161,7 +162,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 189, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 190, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
