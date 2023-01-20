@@ -2089,6 +2089,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case FatalFury2_A:
             CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
+        case FightFever_A:
+            CGame_FightFever_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case HSF2_A:
             CGame_HSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
