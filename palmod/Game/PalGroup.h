@@ -4,6 +4,8 @@
 
 #define sq(x) ((double)x*x)
 
+int LimitVal(int nVal, int nHI, int nLO);
+
 struct sPalRedir
 {
     int nDefIndex;
@@ -79,5 +81,3 @@ public:
 
     void FlushPalAll();
 };
-
-extern int LimitVal(int nVal, int nHI, int nLO);

@@ -592,7 +592,6 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         {
             *editControl = LimitVal(*editControl, nHLSHI, -nHLSHI);
         }
-
     }
     break;
     }

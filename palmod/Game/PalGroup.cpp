@@ -181,7 +181,7 @@ void CPalGroup::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, in
     *crTarget |= GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(alphaSteps) << 24;
 }
 
-extern int LimitVal(int nVal, int nHI, int nLO)
+int LimitVal(int nVal, int nHI, int nLO)
 {
     return ((nVal > nHI) ? nHI : ((nVal < nLO) ? nLO : nVal));
 }

@@ -13,7 +13,12 @@ private:
         GGML_P_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        AlphaMode::GameDoesNotUseAlpha,
+        // PS1 alpha value is a transparency bit, with valid settings being 0 / 1.
+        // That affects how the colors are blended during special transparency effects.
+        // Uniquely it also breaks support for full (0,0,0) black without STP set.
+        // Adding support for STB within PalMod would require rejiggering all usage of PalGroup to 
+        // handle translating our RBGA storage to RGB(STB) for display, so I'm punting on that.
+        AlphaMode::GameUsesChaoticAlpha,
         ColMode::COLMODE_BGR555_LE,
         GGML_P_CharacterData,
         PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet,
