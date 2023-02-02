@@ -565,6 +565,9 @@
     <Filter Include="Games\SNK Games\Fight Fever">
       <UniqueIdentifier>{d3f7463f-16c2-48e8-843a-4dd2acf9f587}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Palette file storage">
+      <UniqueIdentifier>{15ccba13-200c-4fe3-8c89-497c84fde2c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -972,17 +975,8 @@
     <ClCompile Include="Game\Game_HSF2_A.cpp">
       <Filter>Games\Capcom Games\HSF2_A</Filter>
     </ClCompile>
-    <ClCompile Include="HPALfiles.cpp">
-      <Filter>Main DLG/APP\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_FatalFury2_A.cpp">
       <Filter>Games\SNK Games\Fatal Fury 2</Filter>
-    </ClCompile>
-    <ClCompile Include="CFPLfiles.cpp">
-      <Filter>Main DLG/APP\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HTMLfiles.cpp">
-      <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_CVS1_A.cpp">
       <Filter>Games\Capcom Games\Capcom vs SNK 1 %28Arcade%29</Filter>
@@ -1026,14 +1020,35 @@
     <ClCompile Include="Game\Game_HIppo_GBA.cpp">
       <Filter>Games\Nintendo\Hajime no Ippo %28GBA%29</Filter>
     </ClCompile>
-    <ClCompile Include="GPLfiles.cpp">
-      <Filter>Main DLG/APP\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IMPLfiles.cpp">
-      <Filter>Main DLG/APP\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_FightFever_A.cpp">
       <Filter>Games\SNK Games\Fight Fever</Filter>
+    </ClCompile>
+    <ClCompile Include="CFPLfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="GPLfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="HPALfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="HTMLfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="IMPLfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="PALfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="ACTfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="PS3OEfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="PNGfiles.cpp">
+      <Filter>Palette file storage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -225,6 +225,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ACTfiles.cpp" />
     <ClCompile Include="CFPLfiles.cpp" />
     <ClCompile Include="ColorSystem.cpp" />
     <ClCompile Include="CRC32.cpp" />
@@ -367,6 +368,7 @@
     <ClCompile Include="IMPLfiles.cpp" />
     <ClCompile Include="Junk.cpp" />
     <ClCompile Include="lodepng\lodepng.cpp" />
+    <ClCompile Include="PALfiles.cpp" />
     <ClCompile Include="PalMod.cpp" />
     <ClCompile Include="PalModDlg.cpp" />
     <ClCompile Include="PalModDlg_Color.cpp" />
@@ -376,7 +378,9 @@
     <ClCompile Include="PalModDlg_General.cpp" />
     <ClCompile Include="PalModDlg_Menu.cpp" />
     <ClCompile Include="PalTool.cpp" />
+    <ClCompile Include="PNGfiles.cpp" />
     <ClCompile Include="PreviewDlg.cpp" />
+    <ClCompile Include="PS3OEfiles.cpp" />
     <ClCompile Include="RegProc.cpp" />
     <ClCompile Include="SettDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
