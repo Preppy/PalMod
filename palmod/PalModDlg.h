@@ -44,15 +44,7 @@ private:
 class CPalModDlg : public CDialog
 {
 private:
-    void _WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strData, UINT nForcedLength);
-
-public:
     //Program variables
-    CPalGroup* MainPalGroup = nullptr;
-    CImgDisp* ImgDispCtrl = nullptr;
-    CImgDat* ImgFile = nullptr;
-    CPalDropTarget m_dropTarget;
-
     BOOL m_fOleInit = TRUE;
     BOOL m_fEnabled = FALSE;
 
@@ -65,6 +57,11 @@ public:
     BOOL m_fPalChanged = FALSE;
 
     BOOL m_fGetSliderUndo = TRUE;
+
+    CImgDisp* ImgDispCtrl = nullptr;
+    CImgDat* ImgFile = nullptr;
+    CPalDropTarget m_dropTarget;
+    CUndoRedo UndoProc;
 
     sPalDef* CurrPalDef = nullptr;
     sPalSep* CurrPalSep = nullptr;
@@ -86,11 +83,11 @@ public:
 
     int m_nRGBAmt = 0, m_nAAmt = 0;
 
-    CUndoRedo UndoProc;
-
     COLORREF m_crBlinkCol = 0;
 
     BOOL m_fCanMinMax = FALSE;
+
+    void _WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strData, UINT nForcedLength);
 
     //Program functions
 
@@ -98,7 +95,6 @@ public:
     void OnLoadGameByDirectory(SupportedGamesList nGameFlag);
     void OnLoadGameByUnknownFileSet();
 
-    BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
     void UpdateAppTitle();
 
     void LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile);
@@ -166,16 +162,6 @@ public:
     void SaveSettings();
     void UpdateSettingsMenuItems();
 
-    bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
-    bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
-    bool LoadPaletteFromGPL(LPCWSTR pszFileName);
-    bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
-    bool LoadPaletteFromIMPL(LPCWSTR pszFileName);
-    bool LoadPaletteFromPAL(LPCWSTR pszFileName);
-    bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
-    bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
-    // if you add a new palette type here, please update the CPalDropTarget support in PalModDlg_Edit
-
     void SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& fShouldShowGenericError);
     void SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
@@ -204,15 +190,6 @@ public:
 
     BOOL VerifyMsg(eVerifyType eType);
 
-    void CopyColorToClipboard(COLORREF crColor);
-
-// Construction
-public:
-    CPalModDlg(CWnd* pParent = NULL);    // standard constructor
-#ifdef ENABLE_MUI_SUPPORT
-    ~CPalModDlg();
-#endif
-
 // Dialog Data
     enum { IDD = IDD_PALMOD_DIALOG };
     
@@ -231,25 +208,7 @@ public:
     void UpdateEditKillFocus(int nCtrlId);
     void CloseFileDir();
     void ClearGameVar();
-    void SetStatusText(CString szText);
-    void SetStatusText(UINT uStrId);
     void StopBlink();
-
-protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    CToolTipCtrl m_ToolTip;
-
-// Implementation
-    HICON m_hIcon;
-
-    void OnFileOpenInternal(UINT nDefaultGameFilter = NUM_GAMES);
-
-    // Generated message map functions
-    virtual BOOL OnInitDialog();
-    afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
-    afx_msg void OnPaint();
-    afx_msg HCURSOR OnQueryDragIcon();
-    DECLARE_MESSAGE_MAP()
 
 private:
     void HandlePasteFromPalMod();
@@ -257,7 +216,6 @@ private:
 
     bool CurrentBBCFCharacterIsInBBTAG();
 
-public:
     static CStringA m_strPasteStr;
 
     CComboBox m_CBUnitSel;
@@ -300,18 +258,13 @@ public:
     afx_msg void OnFilePatch();
     afx_msg void OnFileCrossPatch();
     afx_msg void OnSavePatchFile();
-    // This should be called after a game's PostSelProc call changes a shown secondary palette
-    void RefreshSecondaryPalettesForPaletteChange();
 
     static void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
-    static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
 
     static BOOL IsPasteFromPalMod();
-    static BOOL IsPasteSupported();
     static BOOL IsPasteRGB();
 
     afx_msg void OnEditCopy();
-    afx_msg void OnEditPaste();
     afx_msg void OnCopyColorAtPointer();
     afx_msg void OnPasteColorAtPointer();
     afx_msg void OnEditCopyOffset();
@@ -323,9 +276,6 @@ public:
     afx_msg void OnPalSelShiftDown();
     afx_msg void OnPalSelPlus();
     afx_msg void OnPalSelMinus();
-
-    DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
-    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
 
     static BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
     static int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData);
@@ -353,12 +303,6 @@ public:
     afx_msg void OnFileOpen() { OnFileOpenInternal(); };
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();
-    afx_msg void OnBnClickedGradient_HSL();
-    afx_msg void OnBnClickedGradient_HSV();
-    afx_msg void OnBnClickedGradient_LAB();
-    afx_msg void OnBnClickedGradient_RGB();
-    afx_msg void OnBnClickedGradient_XYZ();
-    afx_msg void OnBnClickedReverse();
     afx_msg void OnBnBlink();
     afx_msg void OnAboutAboutPalMod();
     afx_msg void OnAboutShowReadMe();
@@ -418,4 +362,66 @@ public:
     afx_msg void OnLoadDir_Venture31()      { OnLoadGameByDirectory(VENTURE_A_DIR_31); };
     afx_msg void OnLoadDir_Venture50()      { OnLoadGameByDirectory(VENTURE_A_DIR_50); };
     afx_msg void OnLoadDir_DevMode()        { OnLoadGameByUnknownFileSet(); };
+
+    CToolTipCtrl m_ToolTip;
+    HICON m_hIcon;
+
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+    void OnFileOpenInternal(UINT nDefaultGameFilter = NUM_GAMES);
+
+    // Generated message map functions
+    virtual BOOL OnInitDialog();
+    afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
+    afx_msg void OnPaint();
+    afx_msg HCURSOR OnQueryDragIcon();
+
+public:
+    // Construction
+    //public:
+    CPalModDlg(CWnd* pParent = NULL);    // standard constructor
+#ifdef ENABLE_MUI_SUPPORT
+    ~CPalModDlg();
+#endif
+
+    CPalGroup* MainPalGroup = nullptr;
+
+    // This should be called after a game's PostSelProc call changes a shown secondary palette
+    void RefreshSecondaryPalettesForPaletteChange();
+
+    static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
+    BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
+
+    static BOOL IsPasteSupported();
+
+    DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
+    void CopyColorToClipboard(COLORREF crColor);
+    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
+
+    void SetStatusText(CString szText);
+    void SetStatusText(UINT uStrId);
+
+    afx_msg void OnBnClickedGradient_HSL();
+    afx_msg void OnBnClickedGradient_HSV();
+    afx_msg void OnBnClickedGradient_LAB();
+    afx_msg void OnBnClickedGradient_RGB();
+    afx_msg void OnBnClickedGradient_XYZ();
+    afx_msg void OnBnClickedReverse();
+    afx_msg void OnEditPaste();
+
+    // Generic palette data files
+    bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromGIF(LPCWSTR pszFileName);
+    bool LoadPaletteFromGPL(LPCWSTR pszFileName);
+    bool LoadPaletteFromPAL(LPCWSTR pszFileName);
+    bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    // BlazBlue palette files
+    bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
+    bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
+    bool LoadPaletteFromIMPL(LPCWSTR pszFileName);
+    // PS3 palette files
+    bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
+    // if you add a new palette type here, please update the CPalDropTarget support in PalModDlg_Edit
+
+    DECLARE_MESSAGE_MAP()
 };

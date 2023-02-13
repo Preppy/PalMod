@@ -1037,6 +1037,10 @@ void CPalModDlg::OnImportPalette()
             {
                 LoadPaletteFromCFPL(strFileName);
             }
+            else if (_wcsicmp(szExtension, L".gif") == 0)
+            {
+                LoadPaletteFromGIF(strFileName);
+            }
             else if (_wcsicmp(szExtension, L".gpl") == 0)
             {
                 LoadPaletteFromGPL(strFileName);

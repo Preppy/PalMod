@@ -96,7 +96,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                 return DROPEFFECT_NONE;
             }
 
-            hDrop = (HDROP)GlobalLock(hg);
+            hDrop = static_cast<HDROP>(GlobalLock(hg));
 
             if (hDrop)
             {
@@ -109,7 +109,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
                     {
                         // It's a file: is it a file type we know about?
-                        // act, pal, png, raw
+                        // act, gif, pal, png, raw
                         // 3S: txt.dat: not supported for drag and drop
                         // BBCF: cfpl, hpal, some IMPLs
                         LPCWSTR pszExtension = wcsrchr(szPath, L'.');
@@ -119,6 +119,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                         if (pszExtension)
                         {
                             if ((_wcsicmp(pszExtension, L".act") == 0) ||
+                                (_wcsicmp(pszExtension, L".gif") == 0) ||
                                 (_wcsicmp(pszExtension, L".pal") == 0) ||
                                 (_wcsicmp(pszExtension, L".png") == 0) ||
                                 (_wcsicmp(pszExtension, L".raw") == 0) ||
@@ -161,7 +162,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                 return FALSE;
             }
 
-            hDrop = (HDROP)GlobalLock(hg);
+            hDrop = static_cast<HDROP>(GlobalLock(hg));
 
             if (hDrop)
             {
@@ -182,6 +183,8 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
         if (pszExtension)
         {
+            // The handling code here needs to match the "acceptable drop file types" list
+            // in OnDragEnter above
             if (_wcsicmp(pszExtension, L".act") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromACT(szPath);
@@ -189,6 +192,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             else if (_wcsicmp(pszExtension, L".cfpl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".gif") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromGIF(szPath);
             }
             else if (_wcsicmp(pszExtension, L".gpl") == 0)
             {
