@@ -568,6 +568,9 @@
     <Filter Include="Palette file storage">
       <UniqueIdentifier>{15ccba13-200c-4fe3-8c89-497c84fde2c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Tekken Advance %28GBA%29">
+      <UniqueIdentifier>{0bb30a4a-ef25-4936-8ae2-07c95e94c901}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1052,6 +1055,9 @@
     </ClCompile>
     <ClCompile Include="GIFfiles.cpp">
       <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_TekkenAdvance_GBA.cpp">
+      <Filter>Games\Nintendo\Tekken Advance %28GBA%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2116,6 +2122,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_FightFever_A.h">
       <Filter>Games\SNK Games\Fight Fever</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TekkenAdvance_GBA.h">
+      <Filter>Games\Nintendo\Tekken Advance %28GBA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TekkenAdvance_GBA_DEF.h">
+      <Filter>Games\Nintendo\Tekken Advance %28GBA%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

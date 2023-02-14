@@ -338,6 +338,7 @@
     <ClCompile Include="Game\Game_StreetFighter_A.cpp" />
     <ClCompile Include="Game\Game_SurvivalArts_A.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
+    <ClCompile Include="Game\Game_TekkenAdvance_GBA.cpp" />
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp" />
     <ClCompile Include="Game\Game_TopF2005_Sega.cpp" />
     <ClCompile Include="Game\Game_UMK3_A.cpp" />
@@ -586,6 +587,7 @@
     <ClInclude Include="Game\Game_SurvivalArts_A.h" />
     <ClInclude Include="Game\Game_SVCPLUSA_A.h" />
     <ClInclude Include="Game\Game_SVG_SNES.h" />
+    <ClInclude Include="Game\Game_TekkenAdvance_GBA.h" />
     <ClInclude Include="Game\Game_TMNTTF_SNES.h" />
     <ClInclude Include="Game\Game_TopF2005_Sega.h" />
     <ClInclude Include="Game\Game_UMK3_A.h" />
@@ -715,6 +717,7 @@
     <ClInclude Include="Game\SurvivalArts_A_DEF.h" />
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h" />
     <ClInclude Include="Game\SVG_SNES_DEF.h" />
+    <ClInclude Include="Game\TekkenAdvance_GBA_DEF.h" />
     <ClInclude Include="Game\TMNTTF_SNES_DEF.h" />
     <ClInclude Include="Game\TopF2005_Sega_DEF.h" />
     <ClInclude Include="Game\UMK3_A_DEF.h" />

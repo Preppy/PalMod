@@ -147,6 +147,7 @@
 #include "Game_SurvivalArts_A.h"
 #include "Game_SVG_SNES.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_TekkenAdvance_GBA.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
 #include "Game_UMK3_A.h"
@@ -169,7 +170,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 190, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 191, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -1200,6 +1201,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SVCPLUSA_A::GetRule;
         return TRUE;
     }
+    case TekkenAdvance_GBA:
+    {
+        GetRule = &CGame_TekkenAdvance_GBA::GetRule;
+        return TRUE;
+    }
     case TMNTTF_SNES:
     {
         GetRule = &CGame_TMNTTF_SNES::GetRule;
@@ -1967,6 +1973,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case SVCPLUSA_A:
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
+    }
+    case TekkenAdvance_GBA:
+    {
+        return new CGame_TekkenAdvance_GBA(nConfirmedROMSize);
     }
     case TMNTTF_SNES:
     {
