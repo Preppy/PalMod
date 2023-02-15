@@ -228,8 +228,6 @@ void CPalModDlg::PostGameLoad()
     //Update the combo selection
     UpdateCombo();
 
-    GetDlgItem(IDC_BCHECKMIX)->ShowWindow((ProgHost->GetCurrGame()->GetGameFlag() == MVC2_D) ? SW_SHOW : SW_HIDE);
-
     CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
 
     if (!PreviewDlg->IsWindowVisible())

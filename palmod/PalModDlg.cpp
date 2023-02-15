@@ -133,27 +133,39 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_WM_SYSCOMMAND()
     ON_WM_PAINT()
     ON_WM_QUERYDRAGICON()
+    ON_WM_INITMENUPOPUP()
+    ON_WM_HSCROLL()
+    ON_WM_CLOSE()
+    ON_WM_TIMER()
+    ON_WM_SETFOCUS()
+    ON_WM_ACTIVATE()
+    ON_WM_GETMINMAXINFO()
+
     //}}AFX_MSG_MAP
     ON_CBN_SELCHANGE(IDC_CHARCOMBO, &CPalModDlg::OnCBUnitChildChange)
     ON_CBN_SELCHANGE(IDC_CHILDCOMBO1, &CPalModDlg::OnCBUnitChildChange)
     ON_CBN_SELCHANGE(IDC_CHILDCOMBO2, &CPalModDlg::OnCBUnitChildChange)
-    ON_WM_HSCROLL()
+
     ON_BN_CLICKED(IDC_RADIO_HLS, &CPalModDlg::OnRadioHLS)
     ON_BN_CLICKED(IDC_RADIO_RGB, &CPalModDlg::OnRadioRGB)
-    ON_WM_CLOSE()
+
     ON_EN_KILLFOCUS(IDC_EDIT_RH, &CPalModDlg::OnKillFocusEditRh)
     ON_EN_KILLFOCUS(IDC_EDIT_GS, &CPalModDlg::OnKillFocusEditGS)
     ON_EN_KILLFOCUS(IDC_EDIT_BL, &CPalModDlg::OnKillFocusEditBL)
     ON_EN_KILLFOCUS(IDC_EDIT_A, &CPalModDlg::OnKillFocusEditA)
-    ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
+
     ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnChangeShowAs32BitColor)
-    ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
+    
     ON_COMMAND(ID_FILE_PATCH, &CPalModDlg::OnFilePatch)
     ON_COMMAND(ID_FILE_CROSSPATCH, &CPalModDlg::OnFileCrossPatch)
+    ON_COMMAND(ID_FILE_LOADLASTUSEDDIR, &CPalModDlg::LoadLastDir)
+
     ON_COMMAND(ID_TOOLS_GENERATEPATCHFILE, &CPalModDlg::OnSavePatchFile)
-    ON_WM_INITMENUPOPUP()
+    ON_COMMAND(ID_TOOLS_CHECKMVC2MIX, &CPalModDlg::OnButtonClickCheckEdits)
+
     ON_COMMAND(ID_SETTINGS_SETTINGS, &CPalModDlg::OnSettingsSettings)
     ON_COMMAND(ID_SETTINGS_EXTCOPYDATA, &CPalModDlg::OnChangeExtendedCopyData)
+
     ON_COMMAND(ID_ACC_UNDO, &CPalModDlg::OnEditUndo)
     ON_COMMAND(ID_ACC_REDO, &CPalModDlg::OnEditRedo)
     ON_COMMAND(ID_ACC_COPY, &CPalModDlg::OnEditCopy)
@@ -185,7 +197,6 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_EDIT_SNIFFPASTE, &CPalModDlg::OnPasteColorAtPointer)
     ON_COMMAND(ID_EDIT_SELECTALL, &CPalModDlg::OnEditSelectAll)
     ON_COMMAND(ID_EDIT_SELECTNONE, &CPalModDlg::OnEditSelectNone)
-    ON_COMMAND(ID_FILE_LOADLASTUSEDDIR, &CPalModDlg::LoadLastDir)
 
     ON_COMMAND(ID_COLORSPERLINE_8COLORSPERLINE, &CPalModDlg::SetColorsPerLineTo8)
     ON_COMMAND(ID_COLORSPERLINE_16COLORSPERLINE, &CPalModDlg::SetColorsPerLineTo16)
@@ -208,7 +219,6 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_RGB555_BE, &CPalModDlg::SetColorFormatToRGB555_BE)
     ON_COMMAND(ID_COLORFORMAT_xBGR555_LE, &CPalModDlg::SetColorFormatToxBGR555_LE)
     
-
     ON_COMMAND(ID_COLORFORMAT_RGB666, &CPalModDlg::SetColorFormatToNEOGEO)
     ON_COMMAND(ID_COLORFORMAT_SHARPRGB, &CPalModDlg::SetColorFormatToSharpRGB)
 
@@ -231,32 +241,34 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_ALPHASETTING_VARIABLE, &CPalModDlg::SetAlphaModeToVariable)
     ON_COMMAND(ID_ALPHASETTING_UNUSED, &CPalModDlg::SetAlphaModeToUnused)
     ON_COMMAND(ID_ALPHASETTING_CHAOTIC, &CPalModDlg::SetAlphaModeToChaotic)
+
     ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_RH_SLIDER, &CPalModDlg::OnNMReleasedCaptureAll)
     ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_GS_SLIDER, &CPalModDlg::OnNMReleasedCaptureAll)
     ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_BL_SLIDER, &CPalModDlg::OnNMReleasedCaptureAll)
     ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_A_SLIDER, &CPalModDlg::OnNMReleasedCaptureAll)
+
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_RH, &CPalModDlg::OnDeltaposSpinRH)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_GS, &CPalModDlg::OnDeltaposSpinGS)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_BL, &CPalModDlg::OnDeltaposSpinBL)
     ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_A, &CPalModDlg::OnDeltaposSpinA)
+
+    ON_COMMAND(ID_FILE_OPEN, &CPalModDlg::OnFileOpen)
     ON_COMMAND(ID_FILE_EXIT, &CPalModDlg::OnFileExit)
     ON_COMMAND(ID_FILE_OPENEXTRAS, &CPalModDlg::OnFileOpenExtrasFile)
     ON_COMMAND(ID_FILE_CLOSEFILEDIR, &CPalModDlg::OnFileCloseFileDir)
-    ON_WM_TIMER()
+
     ON_BN_CLICKED(IDC_SHOWPREVIEW, &CPalModDlg::OnBnShowPrev)
-    ON_WM_SETFOCUS()
-    ON_WM_ACTIVATE()
-    ON_COMMAND(ID_FILE_OPEN, &CPalModDlg::OnFileOpen)
-    ON_BN_CLICKED(IDC_BCHECKMIX, &CPalModDlg::OnButtonClickCheckEdits)
-    ON_BN_CLICKED(IDC_BREVERT, &CPalModDlg::OnBnRevert)
     ON_BN_CLICKED(IDC_BBLINK, &CPalModDlg::OnBnBlink)
-    
+    ON_BN_CLICKED(IDC_BINVERT, &CPalModDlg::OnBnClickedBinvert)
+    ON_BN_CLICKED(IDC_BREVERT, &CPalModDlg::OnBnRevert)
+    ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
+    ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
+
     ON_COMMAND(ID_ABOUT_ABOUTPALMOD, &CPalModDlg::OnAboutAboutPalMod)
     ON_COMMAND(ID_ABOUT_README, &CPalModDlg::OnAboutShowReadMe)
     ON_COMMAND(ID_ABOUT_PALMODSITE, &CPalModDlg::OnAboutLaunchPalModSite)
     ON_COMMAND(ID_ABOUT_VHISTORY, &CPalModDlg::OnAboutShowHistory)
 
-    ON_BN_CLICKED(IDC_BINVERT, &CPalModDlg::OnBnClickedBinvert)
     ON_COMMAND(ID_TOOLS_LOADACTPALETTE, &CPalModDlg::OnImportPalette)
     ON_COMMAND(ID_TOOLS_SAVEACTPALETTE, &CPalModDlg::OnExportPalette)
     ON_COMMAND(ID_TOOLS_GRADIENT_HSL, &CPalModDlg::OnBnClickedGradient_HSL)
@@ -268,7 +280,6 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_REVERT, &CPalModDlg::OnBnRevert)
     ON_COMMAND(ID_TOOLS_REVERSE, &CPalModDlg::OnBnClickedReverse)
     ON_COMMAND(ID_TOOLS_BLINK, &CPalModDlg::OnBnBlink)
-    ON_WM_GETMINMAXINFO()
 
     ON_COMMAND(ID_LD_AQUAPLUS_NL, &CPalModDlg::OnLoadDir_AquaPlus_NL)
     ON_COMMAND(ID_LD_AQUAPLUS_P, &CPalModDlg::OnLoadDir_AquaPlus_P)
@@ -376,7 +387,6 @@ BOOL CPalModDlg::OnInitDialog()
 
     if (m_ToolTip.Create(this))
     {
-        m_ToolTip.AddTool(GetDlgItem(IDC_BCHECKMIX), IDS_BCHECKMIX_TOOLTIP);
         m_ToolTip.AddTool(GetDlgItem(IDC_BUPDATE), IDS_TOOLTIP_UPDATE);
         m_ToolTip.AddTool(GetDlgItem(IDC_BREVERT), IDS_TOOLTIP_REVERT);
         m_ToolTip.AddTool(GetDlgItem(IDC_BNEWCOL), IDS_TOOLTIP_GETCOLOR);

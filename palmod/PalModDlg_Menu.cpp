@@ -202,7 +202,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             {
                 if (pPopupMenu->GetMenuItemID(iMenuPos) == ID_FILE_PATCH)
                 {
-                    // we want it after Patch changes
+                    // we want it after "Patch changes"
                     iMenuPos++;
                     break;
                 }
@@ -405,13 +405,41 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
     else if (pPopupMenu == m_SubToolMenu)
     {
         // Enable everything... but then double-check since some games have no previews available at this time.
-        int i = 0, nMenuID;
+        int iPos = 0, nMenuID;
 
-        while ((nMenuID = pPopupMenu->GetMenuItemID(i)) != -1)
+        while ((nMenuID = pPopupMenu->GetMenuItemID(iPos)) != -1)
         {
             pPopupMenu->EnableMenuItem(nMenuID, !m_fEnabled);
 
-            i++;
+            iPos++;
+        }
+
+        pPopupMenu->DeleteMenu(ID_TOOLS_CHECKMVC2MIX, MF_BYCOMMAND);
+
+        // Add in the old crusty "Check My Edits" option for Dreamcast MvC2 only
+        if (fIsGameAvailable && (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D))
+        {
+            LPCWSTR pszMvC2MixCheck = L"Check MvC2-DC Edits Made By PalMod 1.2x";
+
+            MENUITEMINFO mii = { 0 };
+
+            mii.cbSize = sizeof(MENUITEMINFO);
+            mii.fMask = MIIM_ID | MIIM_STRING;
+            mii.wID = ID_TOOLS_CHECKMVC2MIX;
+            mii.dwTypeData = (LPWSTR)pszMvC2MixCheck;
+
+            int iMenuPos = pPopupMenu->GetMenuItemCount() - 1;
+            for (; iMenuPos >= 0; iMenuPos--)
+            {
+                if (pPopupMenu->GetMenuItemID(iMenuPos) == ID_TOOLS_GENERATEPATCHFILE)
+                {
+                    // we want it after "Generate Patch File"
+                    iMenuPos++;
+                    break;
+                }
+            }
+
+            pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
         }
 
         // Right now we can generate patches collecting changes that are for single-binary game sets OR for the few that have had explicit multifile IPS support added

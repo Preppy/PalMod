@@ -8,7 +8,7 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"Hajime no Ippo - The Fighting! (Japan).gba", 0x800000 },
+            { L"Tekken Advance (USA).gba", 0x800000 },
         },
         FileReadType::Sequential,
     };

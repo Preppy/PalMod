@@ -19,7 +19,6 @@
 #define IDS_SAVE_PALETTE_CHANGES        109
 #define IDS_SAVE_FILE_CHANGES           110
 #define IDS_ERROR_NOTWRITABLE_FORMAT    111
-#define IDS_BCHECKMIX_TOOLTIP           112
 #define IDS_TOOLTIP_UPDATE              113
 #define IDS_TOOLTIP_REVERT              114
 #define IDS_TOOLTIP_GETCOLOR            116
@@ -82,7 +81,7 @@
 #define IDC_BREVERT                     1030
 #define IDC_BBLINK                      1031
 #define IDC_BINVERT                     1032
-#define IDC_BCHECKMIX                   1033
+#define ID_TOOLS_CHECKMVC2MIX           1033
 #define IDC_WEBSITELINK                 1035
 #define IDC_SPIN_RH                     1036
 #define IDC_SPIN_GS                     1037
