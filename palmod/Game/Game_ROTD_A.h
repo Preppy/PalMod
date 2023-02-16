@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Rage of the Dragons (Neo-Geo)", L"264-p1.p1", 0xb8cc969d, 0 },
+        // This is a smaller file but it works
+        { L"Rage of the Dragons (Neo-Geo Clone)", L"264-pk1.p1", 0xff2fa719, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Rage of the Dragons (Neo-Geo)",
@@ -25,17 +32,16 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         ROTD_A_UNITS,
         ARRAYSIZE(ROTD_A_UNITS),
         L"RotDE.txt",           // Extra filename
-        634,                            // Count of palettes listed in the header
-        0x80102,                       // Lowest known location used for palettes
+        634,                    // Count of palettes listed in the header
+        0x80102,                // Lowest known location used for palettes
     };
 
 public:
     CGame_ROTD_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

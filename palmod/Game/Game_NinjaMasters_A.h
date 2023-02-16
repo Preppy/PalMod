@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Ninja Master's (Neo-Geo)", L"217-p2.sp2", 0x191fca88, 0 },
+        { L"Ninja Master's (Neo-Geo)", L"217-p2.bin", 0x191fca88, 0 },
+        { L"Ninja Master's (Neo-Geo)", L"ninjm_p2.rom", 0x191fca88, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Ninja Master's (Neo-Geo)",
@@ -25,6 +32,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         NINJAMASTERS_A_UNITS,
         ARRAYSIZE(NINJAMASTERS_A_UNITS),
         L"NINJAMASTERSE.txt",       // Extra filename
@@ -34,8 +42,6 @@ private:
 
 public:
     CGame_NINJAMASTERS_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

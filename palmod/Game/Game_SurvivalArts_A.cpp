@@ -54,25 +54,3 @@ sFileRule CGame_SurvivalArts_A::GetRule(uint32_t nRuleId)
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_World);
     }
 }
-
-uint32_t CGame_SurvivalArts_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static const sCRC32ValueSet knownROMs[] =
-    {
-        { L"Survival Arts (USA)", L"usa-pr-l.u4", 0xfa328673, 0 },
-        { L"Survival Arts (World)", L"prl-r6.u4", 0xef5f6e17, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

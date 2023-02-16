@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Battle Master: KnS (SNES)", L"battle master - kyuukyoku no senshi-tachi (japan).sfc", 0xdbf76bfd, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Battle Master: KnS (SNES)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         BMKNS_SNES_UNITS,
         ARRAYSIZE(BMKNS_SNES_UNITS),
         L"BMKNSE.txt",               // Extra filename

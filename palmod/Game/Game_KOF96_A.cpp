@@ -40,30 +40,6 @@ sFileRule CGame_KOF96_A::GetRule(uint32_t nRuleId)
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KOF96LoadingKey::Normal) ? m_sFileLoadingData_Normal : m_sFileLoadingData_Hack);
 }
 
-
-uint32_t CGame_KOF96_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"King of Fighters '96 (Neo-Geo)", L"214-p2.sp2", 0x002ccb73, 0},
-        { L"King of Fighters '96 (Neo-Geo)", L"214-p2.bin", 0x002ccb73, 0 },
-        { L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)", L"214ae-p2.p2", 0x2638be07, 0},
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 struct sKOF96_A_PaletteData
 {
     LPCWSTR pszCharacterName;

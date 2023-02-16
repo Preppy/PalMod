@@ -708,9 +708,6 @@
     <ClCompile Include="Game\Game_MVC2_A_DIR.cpp">
       <Filter>Games\Capcom Games\MVC2_A_DIR</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp">
-      <Filter>Games\Capcom Games\GEMFIGHTER_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_REDEARTH_A.cpp">
       <Filter>Games\Capcom Games\RedEarth_A</Filter>
     </ClCompile>
@@ -729,20 +726,11 @@
     <ClCompile Include="Game\Game_SFA1_A.cpp">
       <Filter>Games\Capcom Games\SFA1_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_VSAV_A.cpp">
-      <Filter>Games\Capcom Games\VSAV_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_VSAV2_A.cpp">
-      <Filter>Games\Capcom Games\VSAV2_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_RBFFS_A.cpp">
       <Filter>Games\SNK Games\Real Bout Fatal Fury Special</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO3_A.cpp">
       <Filter>Games\SNK Games\Samurai Shodown III</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_VHUNT2_A.cpp">
-      <Filter>Games\Capcom Games\Vampire Hunter 2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII2_A.cpp">
       <Filter>Games\Capcom Games\SFIII2_A</Filter>
@@ -768,41 +756,23 @@
     <ClCompile Include="Game\Game_Breakers_A.cpp">
       <Filter>Games\SNK Games\Breakers Revenge</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GAME_Bleach_DS.cpp">
-      <Filter>Games\Nintendo\Bleach DS %28NDS%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF03_A.cpp">
       <Filter>Games\SNK Games\KOF03_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_MMPR_SNES.cpp">
-      <Filter>Games\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF01_A.cpp">
       <Filter>Games\SNK Games\KOF01_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_GUNDAM_SNES.cpp">
-      <Filter>Games\Nintendo\Gundam Endless Duel %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF94_A.cpp">
       <Filter>Games\SNK Games\KOF94_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_CFTE_SNES.cpp">
-      <Filter>Games\Nintendo\Clay Fighter: TE %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF99AE_A.cpp">
       <Filter>Games\SNK Games\KOF99AE_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp">
-      <Filter>Games\Nintendo\Fatal Fury Special %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_AOF3_A.cpp">
       <Filter>Games\SNK Games\Art of Fighting 3</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
       <Filter>Games\SNK Games\Samurai Shodown IV</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_RODSM2_A.cpp">
-      <Filter>Games\Capcom Games\Slam Masters 2</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp">
       <Filter>Games\SNK Games\Last Blade 2</Filter>
@@ -813,14 +783,8 @@
     <ClCompile Include="Game\Game_SAMSHO5_A.cpp">
       <Filter>Games\SNK Games\Samurai Shodown V</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_RBFF1_A.cpp">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury 1</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_RBFF2_A.cpp">
       <Filter>Games\SNK Games\Real Bout Fatal Fury 2</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_Kizuna_A.cpp">
-      <Filter>Games\SNK Games\Kizuna Encounter</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFZ3U_A.cpp">
       <Filter>Games\Capcom Games\SFZ3U_A</Filter>
@@ -828,41 +792,14 @@
     <ClCompile Include="Game\Game_AOF1_A.cpp">
       <Filter>Games\SNK Games\Art of Fighting 1</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_DoubleDragon_A.cpp">
-      <Filter>Games\SNK Games\Double Dragon</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_NinjaMasters_A.cpp">
-      <Filter>Games\SNK Games\Ninja Masters</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_SDodgeBall_A.cpp">
-      <Filter>Games\SNK Games\Super Dodge Ball</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF97_A.cpp">
       <Filter>Games\SNK Games\KOF97_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_SavageReign_A.cpp">
-      <Filter>Games\SNK Games\Savage Reign</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_ROTD_A.cpp">
-      <Filter>Games\SNK Games\Rage of the Dragons</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_DBFCI_A.cpp">
       <Filter>Games\Other Platforms\Dengeki Bunko FCI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_UNICLR_A.cpp">
       <Filter>Games\Other Platforms\UNICLR - Under Night In-Birth</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_SPF2T_A.cpp">
-      <Filter>Games\Capcom Games\Super Puzzle Fighter II</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp">
-      <Filter>Games\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_KOTM_A.cpp">
-      <Filter>Games\SNK Games\King of the Monsters</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_TopF2005_Sega.cpp">
-      <Filter>Games\Sega\Top Fighter 2005</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp">
       <Filter>Games\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
@@ -882,20 +819,8 @@
     <ClCompile Include="Game\Game_SAMSHO2_A.cpp">
       <Filter>Games\SNK Games\Samurai Shodown II</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_FatalFuryS_A.cpp">
-      <Filter>Games\SNK Games\Fatal Fury Special</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_FatalFury1_A.cpp">
-      <Filter>Games\SNK Games\Fatal Fury 1</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_GGXXACR_S.cpp">
       <Filter>Games\Other Platforms\Guilty Gear\GGXX ACR %28Steam%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_KOF98AE2016_A.cpp">
-      <Filter>Games\SNK Games\KOF98AE2016</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_KI_SNES.cpp">
-      <Filter>Games\Nintendo\Killer Instinct %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="ImgDumpBmp.cpp">
       <Filter>Images\Image Export</Filter>
@@ -930,23 +855,14 @@
     <ClCompile Include="Game\PalGroup.cpp">
       <Filter>Palettes\Palette View</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_MagicalDropIII_A.cpp">
-      <Filter>Games\SNK Games\Magical Drop III</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF02PS2_A.cpp">
       <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_MartialMasters_A.cpp">
-      <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Venture_A.cpp">
       <Filter>Games\Capcom Games\Jojos Venture</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Venture_A_DIR.cpp">
       <Filter>Games\Capcom Games\Jojos Venture %28SIMM rerip%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_Cyberbots_A.cpp">
-      <Filter>Games\Capcom Games\Cyberbots_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\SuppProc.cpp">
       <Filter>Games\Base</Filter>
@@ -962,9 +878,6 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MK2_SNES.cpp">
       <Filter>Games\Nintendo\Mortal Kombat 2 %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_VampireHunter_A.cpp">
-      <Filter>Games\Capcom Games\Vampire Hunter_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp">
       <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
@@ -993,12 +906,6 @@
     <ClCompile Include="game\Game_AvgrsGS_A_DIR.cpp">
       <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_AoDK_A.cpp">
-      <Filter>Games\SNK Games\Aggressors of Dark Kombat</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_MagicalDropII_A.cpp">
-      <Filter>Games\SNK Games\Magical Drop II</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_StreetFighter_A.cpp">
       <Filter>Games\Capcom Games\Street Fighter I</Filter>
     </ClCompile>
@@ -1011,17 +918,11 @@
     <ClCompile Include="Game\Game_SurvivalArts_A.cpp">
       <Filter>Games\Other Platforms\Survival Arts %28Scarab%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_FatalFury3_A.cpp">
-      <Filter>Games\SNK Games\Fatal Fury 3</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_UMK3_A.cpp">
       <Filter>Games\Other Platforms\Ultimate Mortal Kombat 3 %28Arcade%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFTM_A.cpp">
       <Filter>Games\Other Platforms\Street Fighter the Movie %28Arcade%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_HIppo_GBA.cpp">
-      <Filter>Games\Nintendo\Hajime no Ippo %28GBA%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_FightFever_A.cpp">
       <Filter>Games\SNK Games\Fight Fever</Filter>
@@ -1055,9 +956,6 @@
     </ClCompile>
     <ClCompile Include="GIFfiles.cpp">
       <Filter>Palette file storage</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_TekkenAdvance_GBA.cpp">
-      <Filter>Games\Nintendo\Tekken Advance %28GBA%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Aggressors of Dark Kombat (Neo-Geo)", L"074-p1.p1", 0x62369553, 0 },
+        { L"Aggressors of Dark Kombat (Neo-Geo)", L"074-p1.bin", 0x62369553, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Aggressors of Dark Kombat (Neo-Geo)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         AODK_A_UNITS,
         ARRAYSIZE(AODK_A_UNITS),
         L"AoDKE.txt",           // Extra filename
@@ -34,8 +41,6 @@ private:
 
 public:
     CGame_AODK_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

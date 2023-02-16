@@ -77,6 +77,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     }
 
     m_psCurrentFileLoadingData = &gameLoadingData.sLoadingData;
+    m_prgCRC32DataForGame = gameLoadingData.rgCRC32Data;
 
     // We only check primary ROM size because we outright fail the load if any subsequent ROMs not being the right size.
     if (nConfirmedROMSize == m_psCurrentFileLoadingData->rgFileList.at(0).nFileSize)
@@ -400,7 +401,7 @@ LPCWSTR CGameClassByDir::GetGameName()
 {
     if (m_pCRC32SpecificData)
     {
-        return m_pCRC32SpecificData->szFriendlyName;
+        return m_pCRC32SpecificData->strFriendlyName.c_str();
     }
     else
     {

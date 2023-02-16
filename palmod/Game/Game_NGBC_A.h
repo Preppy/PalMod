@@ -25,6 +25,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         NGBC_A_UNITS,
         ARRAYSIZE(NGBC_A_UNITS),
         L"NGBCe.txt",        // Extra filename

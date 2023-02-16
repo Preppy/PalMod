@@ -43,6 +43,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData_Normal,
+        {},
         AvgrsGS_A_UNITS,
         ARRAYSIZE(AvgrsGS_A_UNITS),
         L"AvgrsGSE.txt",                 // Extra filename
@@ -62,6 +63,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData_BossHack,
+        {},
         AvgrsGS_A_UNITS,
         ARRAYSIZE(AvgrsGS_A_UNITS),
         L"AvgrsGSE.txt",                 // Extra filename

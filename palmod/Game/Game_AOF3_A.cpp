@@ -42,31 +42,6 @@ sFileRule CGame_AOF3_A::GetRule(uint32_t nRuleId)
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == AOF3LoadingKey::P1) ? m_sFileLoadingData_P1 : m_sFileLoadingData_P2);
 }
 
-uint32_t CGame_AOF3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Art of Fighting 3 (Neo-Geo P1)", L"096-p1.p1", 0x9edb420d, 0 },
-        { L"Art of Fighting 3 (Neo-Geo P1 Korea)", L"096-p1k.p1", 0xa0780789, 0 },
-        { L"Art of Fighting 3 (Neo-Geo P2)", L"096-p2.sp2", 0x4d5a2602, 0 },
-        { L"Art of Fighting 3 (Neo-Geo P1)", L"096-p1.bin", 0x9edb420d, 0 },
-        { L"Art of Fighting 3 (Neo-Geo P2)", L"096-p2.bin", 0x4d5a2602, 0 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources

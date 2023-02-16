@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         SAMSHO3_A_UNITS,
         ARRAYSIZE(SAMSHO3_A_UNITS),
         L"SAMSHO3E.txt",          // Extra filename

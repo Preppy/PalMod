@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // Waku Waku 7 variants...
+        { L"Waku Waku 7 (Neo-Geo)", L"225-p1.p1", 0xb14da766, 0 },
+        { L"Waku Waku 7 (Neo-Geo Boss Hack)", L"225-p1bh.p1", 0x0b7a3776, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Waku Waku 7 (Neo-Geo)",
@@ -25,6 +32,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         WakuWaku7_A_UNITS,
         ARRAYSIZE(WakuWaku7_A_UNITS),
         L"WakuWaku7E.txt",             // Extra filename
@@ -36,8 +44,6 @@ public:
     CGame_WakuWaku7_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

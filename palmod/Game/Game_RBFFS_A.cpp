@@ -1,30 +1,6 @@
 #include "StdAfx.h"
 #include "Game_RBFFS_A.h"
 
-uint32_t CGame_RBFFS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Real Bout Fatal Fury Special (Neo-Geo)", L"223-p1.p1", 0xf84a2d1d, 0 },
-        { L"Real Bout Fatal Fury Special (Neo-Geo Korea)", L"223-p1k.p1", 0xb78c8391, 0 },
-
-        { L"Real Bout Fatal Fury Special (Boss Hack)", L"223-p1bs.p1", 0xabf2a6e7, 0 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 void CGame_RBFFS_A::DumpPaletteHeaders()
 {
     CString strOutput;

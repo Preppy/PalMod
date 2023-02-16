@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Voltage Fighter Gowcaizer (Neo-Geo)", L"094-p1.p1", 0x33019545, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Voltage Fighter Gowcaizer (Neo-Geo)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         Gowcaizer_A_UNITS,
         ARRAYSIZE(Gowcaizer_A_UNITS),
         L"GowcaizerE.txt",         // Extra filename

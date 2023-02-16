@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Art of Fighting 1 (Neo-Geo)", L"044-p1.p1", 0xca9f7a6d, 0 },
+        { L"Art of Fighting 1 (Neo-Geo)", L"044-p1.bin", 0xca9f7a6d, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Art of Fighting 1 (Neo-Geo)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         AOF1_A_UNITS,
         ARRAYSIZE(AOF1_A_UNITS),
         L"AOF1E.txt",             // Extra filename
@@ -34,8 +41,6 @@ private:
 
 public:
     CGame_AOF1_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

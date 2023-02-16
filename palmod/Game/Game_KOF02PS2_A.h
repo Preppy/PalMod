@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         KOF02PS2_A_UNITS,
         ARRAYSIZE(KOF02PS2_A_UNITS),
         L"KOF02PS2E.txt",       // Extra filename

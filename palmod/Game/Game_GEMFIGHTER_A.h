@@ -13,6 +13,15 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // sgemf    Super Gem Fighter: Mini Mix (US 970904)
+        // sgemfa   Super Gem Fighter: Mini Mix (Asia 970904)
+        // pfghtj   Pocket Fighter (Japan 970904)
+        // sgemfh   Super Gem Fighter: Mini Mix (Hispanic 970904)
+        { L"Super Gem Fighter: Mini Mix (USA 970904)", L"pcf.07",  0x5ac6d5ea, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Super Gem Fighter: Mini Mix (USA 970904)",
@@ -25,6 +34,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         GEMFIGHTER_A_UNITS,
         ARRAYSIZE(GEMFIGHTER_A_UNITS),
         L"GemFighterE.txt",        // Extra filename
@@ -34,8 +44,6 @@ private:
 
 public:
     CGame_GEMFIGHTER_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

@@ -101,6 +101,22 @@ private:
         FileReadType::Interleaved_2FileSets,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // This won't work so we're not exposing this right now: there's a double-shift for both 1.0 and 1.1
+        { L"Ultimate Mortal Kombat 3 (rev 1.0)", L"l1.0_mortal_kombat_3_u54_ultimate.u54", 0xdfd735da, -0x140 },
+        { L"Ultimate Mortal Kombat 3 (rev 1.1)", L"l1.1_mortal_kombat_3_u54_ultimate.u54", 0x712b4db6, -0xc0 },
+
+        { L"Ultimate Mortal Kombat 3 (rev 1.2)", L"l1.2_mortal_kombat_3_u54_ultimate.u54", 0x712b4db6, 0 },
+        { L"Ultimate Mortal Kombat 3 (rev 1.2)", L"um312u54.bin", 0xcf100a75, 0 },
+
+        { L"Ultimate Mortal Kombat 3 Plus (Hack, Beta 2)", L"u54_umk3plus.u54", 0x54a5359f, 0 },
+        { L"Ultimate Mortal Kombat 3 Plus (Hack, Beta 1)", L"umk3plus_beta1.u54", 0xa46ee73c, 0 },
+        { L"Ultimate Mortal Kombat 3 Tournament Edition (hack, V2.0.042/August 2018)", L"umk3te.u54", 0xd0df2866, 0 },
+        { L"Ultimate Mortal Kombat 3 Ultimate Cup Edition (hack)", L"umk3uc-u54.bin", 0x5010d92d, 0 },
+        { L"Ultimate Mortal Kombat 3 UK (rev 1.2)", L"umk3uk-u54.bin", 0xbc509bce, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_V10
     {
         L"Ultimate Mortal Kombat 3 (rev 1.0)",
@@ -113,6 +129,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V10,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -132,6 +149,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V11,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -151,6 +169,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V12Normal,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -170,6 +189,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V12Alt,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -189,6 +209,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V12Plus,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -208,6 +229,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V12PlusBeta,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -227,6 +249,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V12TE,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -246,6 +269,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V12UC,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -265,6 +289,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_V12UK,
+        m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
@@ -276,8 +301,6 @@ public:
     CGame_UMK3_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId);
 };

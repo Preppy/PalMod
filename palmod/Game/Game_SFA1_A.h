@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // All versions of SFA1/SFZ1 use the same exact palette rom
+        { L"SFA1 (CPS2)", L"sfz.06", 0x806e8f38, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"SFA1 (CPS2)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         SFA1_A_UNITS,
         ARRAYSIZE(SFA1_A_UNITS),
         L"SFA1e.txt",             // Extra filename
@@ -36,8 +43,6 @@ private:
 
 public:
     CGame_SFA1_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
 

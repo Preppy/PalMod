@@ -109,6 +109,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -238,37 +239,24 @@
     <ClCompile Include="Game\GameClassByFile.cpp" />
     <ClCompile Include="Game\GameClassByUnitPerFile.cpp" />
     <ClCompile Include="Game\GameLoad.cpp" />
-    <ClCompile Include="Game\Game_AoDK_A.cpp" />
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
     <ClCompile Include="game\Game_AvgrsGS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp" />
-    <ClCompile Include="Game\GAME_Bleach_DS.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
-    <ClCompile Include="Game\Game_CFTE_SNES.cpp" />
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS1_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
-    <ClCompile Include="Game\Game_Cyberbots_A.cpp" />
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />
     <ClCompile Include="Game\Game_DevMode_DIR.cpp" />
-    <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
-    <ClCompile Include="Game\Game_FatalFury1_A.cpp" />
     <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
-    <ClCompile Include="Game\Game_FatalFury3_A.cpp" />
-    <ClCompile Include="Game\Game_FatalFuryS_A.cpp" />
-    <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_FightFever_A.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
-    <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
-    <ClCompile Include="Game\Game_HIppo_GBA.cpp" />
     <ClCompile Include="Game\Game_HSF2_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
-    <ClCompile Include="Game\Game_Kizuna_A.cpp" />
-    <ClCompile Include="Game\Game_KI_SNES.cpp" />
     <ClCompile Include="Game\Game_KOF01_A.cpp" />
     <ClCompile Include="Game\Game_KOF02PS2_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
@@ -279,22 +267,15 @@
     <ClCompile Include="Game\Game_KOF95_A.cpp" />
     <ClCompile Include="Game\Game_KOF96_A.cpp" />
     <ClCompile Include="Game\Game_KOF97_A.cpp" />
-    <ClCompile Include="Game\Game_KOF98AE2016_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
     <ClCompile Include="Game\Game_KOF99AE_A.cpp" />
     <ClCompile Include="Game\Game_KOFXI_A.cpp" />
-    <ClCompile Include="Game\Game_KOTM_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp" />
-    <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
-    <ClCompile Include="Game\Game_MagicalDropII_A.cpp" />
-    <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_MBTL_A.cpp" />
     <ClCompile Include="Game\Game_MK2_A.cpp" />
     <ClCompile Include="Game\Game_MK2_SNES.cpp" />
-    <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
-    <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
     <ClCompile Include="Game\Game_MVC2_A.cpp" />
     <ClCompile Include="Game\Game_MVC2_A_DIR.cpp" />
@@ -302,24 +283,17 @@
     <ClCompile Include="Game\Game_MVC2_P.cpp" />
     <ClCompile Include="Game\Game_MVC_A.cpp" />
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
-    <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
-    <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
-    <ClCompile Include="Game\Game_RBFF1_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
     <ClCompile Include="Game\Game_REDEARTH_A.cpp" />
     <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp" />
-    <ClCompile Include="Game\Game_RODSM2_A.cpp" />
-    <ClCompile Include="Game\Game_ROTD_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO1_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO2_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO3_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5_A.cpp" />
-    <ClCompile Include="Game\Game_SavageReign_A.cpp" />
-    <ClCompile Include="Game\Game_SDodgeBall_A.cpp" />
     <ClCompile Include="Game\Game_SF2CE_A.cpp" />
     <ClCompile Include="Game\Game_SF2HF_A.cpp" />
     <ClCompile Include="Game\Game_SFA1_A.cpp" />
@@ -332,24 +306,17 @@
     <ClCompile Include="Game\Game_SFIII3_D.cpp" />
     <ClCompile Include="Game\Game_SFTM_A.cpp" />
     <ClCompile Include="Game\Game_SFZ3U_A.cpp" />
-    <ClCompile Include="Game\Game_SPF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_GBA.cpp" />
     <ClCompile Include="Game\Game_StreetFighter_A.cpp" />
     <ClCompile Include="Game\Game_SurvivalArts_A.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
-    <ClCompile Include="Game\Game_TekkenAdvance_GBA.cpp" />
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp" />
-    <ClCompile Include="Game\Game_TopF2005_Sega.cpp" />
     <ClCompile Include="Game\Game_UMK3_A.cpp" />
     <ClCompile Include="Game\Game_UNICLR_A.cpp" />
-    <ClCompile Include="Game\Game_VampireHunter_A.cpp" />
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp" />
     <ClCompile Include="Game\Game_Venture_A.cpp" />
     <ClCompile Include="Game\Game_Venture_A_DIR.cpp" />
-    <ClCompile Include="Game\Game_VHUNT2_A.cpp" />
-    <ClCompile Include="Game\Game_VSAV2_A.cpp" />
-    <ClCompile Include="Game\Game_VSAV_A.cpp" />
     <ClCompile Include="Game\Game_WakuWaku7_A.cpp" />
     <ClCompile Include="Game\Game_XMVSF_A.cpp" />
     <ClCompile Include="Game\MVC2_PALSEL.cpp" />

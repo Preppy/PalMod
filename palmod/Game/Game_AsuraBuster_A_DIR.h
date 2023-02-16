@@ -28,6 +28,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_xBGR555_LE,
         m_sFileLoadingData,
+        {},
         AsuraBuster_A_UNITS,
         ARRAYSIZE(AsuraBuster_A_UNITS),
         L"AsuraBusterE.txt",             // Extra filename

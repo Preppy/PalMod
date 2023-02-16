@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         MK1_SNES_UNITS,
         ARRAYSIZE(MK1_SNES_UNITS),
         L"MK1_SNES_E.txt",            // Extra filename

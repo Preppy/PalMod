@@ -13,6 +13,14 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Garou: MotW (Neo-Geo)", L"kf.neo-sma", 0x98bc93dc, 0 },
+        { L"Garou: MotW (Steam)", L"p1.bin", 0xeb2d1ea5, 0xc0000 },
+        { L"Garou: MotW (Neo-Geo, FC1)", L"253-sma.bin", 0x98bc93dc, 0 }, // just the older filename here
+        { L"Garou: MotW (Neo-Geo Prototype)", L"proto_253-p1.p1", 0xc72f0c16, 0xc0000 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Garou: MotW (Neo-Geo)",
@@ -25,6 +33,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         Garou_A_UNITS,
         ARRAYSIZE(Garou_A_UNITS),
         L"GarouE.txt",         // Extra filename
@@ -37,8 +46,6 @@ public:
     CGame_Garou_A() {};
 
     BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

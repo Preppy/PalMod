@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         NeoBomberman_A_UNITS,
         ARRAYSIZE(NeoBomberman_A_UNITS),
         L"NeoBombermanE.txt",        // Extra filename

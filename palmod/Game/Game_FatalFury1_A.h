@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Fatal Fury: King of Fighters (Neo-Geo)", L"033-p1.p1", 0x47ebdc2f, 0 },
+        { L"Fatal Fury: King of Fighters (Neo-Geo)", L"033-p1.bin", 0x47ebdc2f, 0 },
+        { L"Fatal Fury: King of Fighters (Boss Hack by Yumeji)", L"033-p1bh.p1", 0xfc051e1d, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Fatal Fury: King of Fighters (Neo-Geo)",
@@ -25,6 +32,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         FatalFury1_A_UNITS,
         ARRAYSIZE(FatalFury1_A_UNITS),
         L"FatalFury1E.txt",             // Extra filename
@@ -34,8 +42,6 @@ private:
 
 public:
     CGame_FatalFury1_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

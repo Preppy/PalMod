@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         XMMA_SNES_UNITS,
         ARRAYSIZE(XMMA_SNES_UNITS),
         L"XMMAE.txt",               // Extra filename

@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Gundam Wing: Endless Duel (SNES)", L"Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc", 0xc0aecdca, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Gundam Wing: Endless Duel (SNES)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         GUNDAM_SNES_UNITS,
         ARRAYSIZE(GUNDAM_SNES_UNITS),
         L"GUNDAME.txt",               // Extra filename
@@ -34,8 +40,6 @@ private:
 
 public:
     CGame_GUNDAM_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

@@ -28,6 +28,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData,
+        {},
         SFIII2_A_50_UNITS,
         ARRAYSIZE(SFIII2_A_50_UNITS),
         L"SFIII2e.txt",             // Extra filename

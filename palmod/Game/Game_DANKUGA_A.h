@@ -28,6 +28,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_SHARP,
         m_sFileLoadingData,
+        {},
         DANKUGA_A_UNITS,
         ARRAYSIZE(DANKUGA_A_UNITS),
         L"DANKUGAe.txt",          // Extra filename

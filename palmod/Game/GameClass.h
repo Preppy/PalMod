@@ -123,14 +123,15 @@ protected:
 
     struct sCRC32ValueSet
     {
-        LPCWSTR szFriendlyName = L"Unknown Game";
-        LPCWSTR szROMFileName = L"uninit";
-        const uint32_t crcValueExpected = 0;
-        const int32_t nROMSpecificOffset = 0;
+        std::wstring strFriendlyName = L"Unknown Game";
+        std::wstring strROMFileName = L"uninit";
+        uint32_t crcValueExpected = 0;
+        int32_t nROMSpecificOffset = 0;
         std::vector<ROMRevisionLookupData> vValidationCheckBytes = {};
     };
 
     const sCRC32ValueSet* m_pCRC32SpecificData = nullptr;
+    std::vector<sCRC32ValueSet> m_prgCRC32DataForGame = {};
 
 public:
     CGameClass();
@@ -249,7 +250,7 @@ public:
     virtual uint32_t SaveMultiplePatchFiles(CString strTargetDirectory);
     bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(CFile* CurrFile, uint32_t nCRCForFile);
-    virtual uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
+    const std::vector<sCRC32ValueSet> &GetKnownCRC32DatasetsForGame(bool* pfNeedToValidateCRCs = nullptr);
 
     void WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount);
 

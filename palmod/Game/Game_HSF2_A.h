@@ -29,6 +29,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"HSF2 (CPS2 Portraits)", L"hs2u.03", 0xb308151e, 0 },
+        { L"HSF2 (CPS2 Characters)", L"hs2u.04", 0x327aa49c, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_03
     {
         L"HSF2 (CPS2 Portraits)",
@@ -41,6 +47,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData_03,
+        m_rgCRC32Data,
         HSF2_A_UNITS_03,
         ARRAYSIZE(HSF2_A_UNITS_03),
         L"HSF2-03e.txt",     // Extra filename
@@ -60,6 +67,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData_04,
+        m_rgCRC32Data,
         HSF2_A_UNITS_04,
         ARRAYSIZE(HSF2_A_UNITS_04),
         L"HSF2-04e.txt",   // Extra filename
@@ -71,8 +79,6 @@ public:
     CGame_HSF2_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId);
 };

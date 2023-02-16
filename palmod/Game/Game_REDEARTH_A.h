@@ -47,6 +47,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Red Earth: Stages (CPS3 ROM 30)",      L"30", 0x074cab4d, 0 },
+        { L"Red Earth: Characters (CPS3 ROM 31)",  L"31", 0x14e2cad4, 0 },
+        { L"Red Earth: Coming Next (CPS3 ROM 50)", L"50", 0x2f5b44bd, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_30
     {
         L"Red Earth: Stages (CPS3 ROM 30)",
@@ -59,6 +66,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         RedEarth_A_FileLoadingData_30,
+        m_rgCRC32Data,
         REDEARTH_A_UNITS_30,
         ARRAYSIZE(REDEARTH_A_UNITS_30),
         L"RedEarth30e.txt",             // Extra filename
@@ -78,6 +86,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         RedEarth_A_FileLoadingData_31,
+        m_rgCRC32Data,
         REDEARTH_A_UNITS_31,
         ARRAYSIZE(REDEARTH_A_UNITS_31),
         L"RedEarthE.txt",               // Extra filename
@@ -97,6 +106,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         RedEarth_A_FileLoadingData_50,
+        m_rgCRC32Data,
         REDEARTH_A_UNITS_50,
         ARRAYSIZE(REDEARTH_A_UNITS_50),
         L"RedEarth50e.txt",             // Extra filename
@@ -106,8 +116,6 @@ private:
 
 public:
     CGame_REDEARTH_A(uint32_t nConfirmedROMSize);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
     static sFileRule GetRule(uint32_t nRuleId);

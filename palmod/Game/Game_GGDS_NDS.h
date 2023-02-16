@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Guilty Gear: Dust Strikers (Nintendo DS)", L"0590 - Guilty Gear - Dust Strikers (Japan).nds", 0x69d60f95, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Guilty Gear: Dust Strikers (Nintendo DS)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         GGDS_NDS_UNITS,
         ARRAYSIZE(GGDS_NDS_UNITS),
         L"GGDStrikersE.txt",            // Extra filename

@@ -19,6 +19,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         nullptr,
         0,
         L"UnknownFileSetE.txt",         // Extra filename
@@ -38,6 +39,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         DevMode_DIR_UNITS,
         ARRAYSIZE(DevMode_DIR_UNITS),
         L"UnknownFileSetE.txt",         // Extra filename

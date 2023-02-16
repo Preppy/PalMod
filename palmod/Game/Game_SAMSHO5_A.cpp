@@ -57,29 +57,3 @@ CGame_SAMSHO5_A::CGame_SAMSHO5_A(uint32_t nConfirmedROMSize)
         break;
     }
 }
-
-uint32_t CGame_SAMSHO5_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Samurai Shodown V (Neo-Geo set 1)", L"270-p1.bin", 0x4a2a09e6, 0 },
-        { L"Samurai Shodown V (Neo-Geo set 1)", L"270-p1.p1", 0x4a2a09e6, 0 },
-        { L"Samurai Shodown V (Neo-Geo set 2)", L"p1.bin", 0x7795fffe, 0 },
-        { L"Samurai Shodown V (Neo-Geo Hack)", L"270-p1c.p1", 0xbf956089, 0 },
-
-        { L"Samurai Shodown V (Xbox)", L"ssvx_p1.rom", 0x16983af9, 0x6d1000 - 0x0d5000 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

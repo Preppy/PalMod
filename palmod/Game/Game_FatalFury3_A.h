@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Fatal Fury 3 (Neo-Geo)", L"069-p1.p1", 0xa8bcfbbc, 0 },
+        { L"Fatal Fury 3 (Neo-Geo alternate set)", L"069-p1.bin", 0x4e27bd16, 0 },
+        { L"Fatal Fury 3 (Ancient Battles Resurgence 2015-03-13)", L"069-p1bh.p1", 0xb8362f59, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Fatal Fury 3 (Neo-Geo)",
@@ -25,6 +32,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         FatalFury3_A_UNITS,
         ARRAYSIZE(FatalFury3_A_UNITS),
         L"FatalFury3E.txt",             // Extra filename
@@ -34,8 +42,6 @@ private:
 
 public:
     CGame_FatalFury3_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

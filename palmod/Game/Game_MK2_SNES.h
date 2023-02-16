@@ -41,6 +41,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         MK2_SNES_FileLoadingData_V1dot0,
+        {},
         MK2_1dot0_SNES_UNITS,
         ARRAYSIZE(MK2_1dot0_SNES_UNITS),
         L"MK2_SNES_E.txt",               // Extra filename
@@ -60,6 +61,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         MK2_SNES_FileLoadingData_V1dot1,
+        {},
         MK2_1dot1_SNES_UNITS,
         ARRAYSIZE(MK2_1dot1_SNES_UNITS),
         L"MK2_SNES_E.txt",               // Extra filename

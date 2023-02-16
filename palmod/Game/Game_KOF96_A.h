@@ -29,6 +29,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"King of Fighters '96 (Neo-Geo)", L"214-p2.sp2", 0x002ccb73, 0},
+        { L"King of Fighters '96 (Neo-Geo)", L"214-p2.bin", 0x002ccb73, 0 },
+        { L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)", L"214ae-p2.p2", 0x2638be07, 0},
+    };
+
     const sCoreGameData m_sCoreGameData_Normal
     {
         L"King of Fighters '96 (Neo-Geo)",
@@ -41,6 +48,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_Normal,
+        m_rgCRC32Data,
         KOF96_A_UNITS,
         ARRAYSIZE(KOF96_A_UNITS),
         L"KOF96E.txt",      // Extra filename
@@ -60,6 +68,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_Normal,
+        m_rgCRC32Data,
         KOF96_A_UNITS,
         ARRAYSIZE(KOF96_A_UNITS),
         L"KOF96E.txt",      // Extra filename
@@ -74,8 +83,6 @@ public:
     CGame_KOF96_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId);
 };

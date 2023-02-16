@@ -13,6 +13,14 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Real Bout Fatal Fury Special (Neo-Geo)", L"223-p1.p1", 0xf84a2d1d, 0 },
+        { L"Real Bout Fatal Fury Special (Neo-Geo Korea)", L"223-p1k.p1", 0xb78c8391, 0 },
+
+        { L"Real Bout Fatal Fury Special (Boss Hack)", L"223-p1bs.p1", 0xabf2a6e7, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Real Bout Fatal Fury Special (Neo-Geo)",
@@ -24,7 +32,8 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        m_sFileLoadingData ,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
         RBFFS_A_UNITS,
         ARRAYSIZE(RBFFS_A_UNITS),
         L"RBFFSE.txt",             // Extra filename
@@ -36,8 +45,6 @@ private:
 
 public:
     CGame_RBFFS_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

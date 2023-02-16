@@ -39,26 +39,3 @@ sFileRule CGame_FightFever_A::GetRule(uint32_t nRuleId)
 {
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == FFLoadingKey::Set1) ? m_sFileLoadingData_Set1 : m_sFileLoadingData_Set2);
 }
-
-uint32_t CGame_FightFever_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Fight Fever (Neo-Geo set 1)", L"060-p1.rom", 0x3032041b, 0 },
-        { L"Fight Fever (Neo-Geo set 2)", L"060-p1.p1", 0x2a104b50, 0 },
-        { L"Fight Fever (Neo-Geo)", L"060-p1.rom", 0x2a104b50, 0 }, // Unclear if this is ever used: contained in the ggpofba zip
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

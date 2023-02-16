@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         SVCPLUSA_A_UNITS,
         ARRAYSIZE(SVCPLUSA_A_UNITS),
         L"SVCE.txt",             // Extra filename

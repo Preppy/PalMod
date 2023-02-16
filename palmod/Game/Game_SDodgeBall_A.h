@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Super Dodge Ball (Neo-Geo)", L"208-p1.p1", 0x127f3d32, 0 },
+        { L"Super Dodge Ball (Neo-Geo)", L"208-p1.bin", 0x127f3d32, 0 },
+        { L"Super Dodge Ball (Neo-Geo)", L"SDB_P1.ROM", 0x127f3d32, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Super Dodge Ball (Neo-Geo)",
@@ -25,6 +32,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         SDODGEBALL_A_UNITS,
         ARRAYSIZE(SDODGEBALL_A_UNITS),
         L"SDodgeBallE.txt",        // Extra filename
@@ -34,8 +42,6 @@ private:
 
 public:
     CGame_SDODGEBALL_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

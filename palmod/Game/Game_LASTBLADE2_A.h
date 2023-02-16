@@ -21,6 +21,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"The Last Blade 2 (Neo-Geo)", L"LB2_P1.ROM", 0xaf1e6554, 0 },
+        { L"The Last Blade 2 (Steam)", L"P1.bin", 0x839893c2, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_NeoGeo
     {
         L"The Last Blade 2 (Neo-Geo)",
@@ -33,6 +39,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         LASTBLADE2_A_FileLoadingData_NeoGeo,
+        m_rgCRC32Data,
         LASTBLADE2_A_UNITS,
         ARRAYSIZE(LASTBLADE2_A_UNITS),
         L"LastBlade2E.txt",             // Extra filename
@@ -52,6 +59,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         LASTBLADE2_A_FileLoadingData_Steam,
+        m_rgCRC32Data,
         LASTBLADE2_A_UNITS,
         ARRAYSIZE(LASTBLADE2_A_UNITS),
         L"LastBlade2E.txt",             // Extra filename
@@ -64,6 +72,4 @@ public:
 
     // There are different filenames for NeoGeo and Steam, so direct the user appropriately
     static sFileRule GetRule(uint32_t nRuleId);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 };

@@ -2257,7 +2257,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
                 bool fNeedToValidateCRC = false;
 
                 // CRC calculation is slow, so only calculate if we need it.
-                if ((OutGame->GetKnownCRC32DatasetsForGame(nullptr, &fNeedToValidateCRC) > 1) &&
+                if ((OutGame->GetKnownCRC32DatasetsForGame(&fNeedToValidateCRC).size() > 1) &&
                     fNeedToValidateCRC)
                 {
                     // Only calculate this if desired since it's time-expensive

@@ -31,6 +31,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Capcom vs SNK Millenium Fight (NAOMI)", L"Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin", 0x20be359d, 0 },
+        { L"Capcom vs SNK Millenium Fight (NAOMI re-rip)", L"mpr-23504.ic1", 0xe01a31d2, -0x800000 },
+    };
+
     const sCoreGameData m_sCoreGameData_ROM
     {
         L"Capcom vs SNK Millenium Fight (NAOMI)",
@@ -43,6 +49,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_ROM,
+        m_rgCRC32Data,
         CVS1_A_UNITS,
         ARRAYSIZE(CVS1_A_UNITS),
         L"CVS1E.txt",           // Extra filename
@@ -62,6 +69,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_SIMM,
+        m_rgCRC32Data,
         CVS1_A_UNITS,
         ARRAYSIZE(CVS1_A_UNITS),
         L"CVS1E.txt",           // Extra filename
@@ -75,8 +83,6 @@ public:
     CGame_CVS1_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId);
 };

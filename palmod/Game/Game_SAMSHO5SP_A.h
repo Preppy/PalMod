@@ -38,6 +38,20 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1.p1", 0xfb7a6bba, 0 },
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1ca.p1", 0xc30a08dd, 0 },
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1c.p1", 0x9291794d, 0 },
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1.bin", 0xfb7a6bba, 0 },
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1ca.bin", 0xc30a08dd, 0 },
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1c.bin", 0x9291794d, 0 },
+
+        { L"Samurai Shodown V Special (Steam)", L"p1h.bin", 0x2dbd32dc, 0 },
+
+        { L"Samurai Shodown V Perfect / Samurai Spirits Zero Perfect [Hack]", L"273-p1.bin", 0xe3d18d3a, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_NeoGeo
     {
         L"Samurai Shodown V Special (Neo-Geo)",
@@ -50,6 +64,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_NeoGeo,
+        m_rgCRC32Data,
         SAMSHO5SP_A_UNITS,
         ARRAYSIZE(SAMSHO5SP_A_UNITS),
         L"SAMSHO5SPE.txt",        // Extra filename
@@ -69,6 +84,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_NeoGeoLarge,
+        m_rgCRC32Data,
         SAMSHO5SP_A_UNITS,
         ARRAYSIZE(SAMSHO5SP_A_UNITS),
         L"SAMSHO5SPE.txt",        // Extra filename
@@ -88,6 +104,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_Steam,
+        m_rgCRC32Data,
         SAMSHO5SP_A_UNITS,
         ARRAYSIZE(SAMSHO5SP_A_UNITS),
         L"SAMSHO5SPE.txt",        // Extra filename
@@ -97,8 +114,6 @@ private:
 
 public:
     CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
     static sFileRule GetRule(uint32_t nRuleId);

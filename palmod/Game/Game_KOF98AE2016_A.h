@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"KOF98AE2016 (Romhack)", L"242ae-p2.sp2", 0xAC1E9E79, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"KOF98AE2016 (Romhack)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         KOF98AE2016_A_UNITS,
         ARRAYSIZE(KOF98AE2016_A_UNITS),
         L"KOF98AE2016E.txt",        // Extra filename
@@ -34,8 +40,6 @@ private:
 
 public:
     CGame_KOF98AE2016_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

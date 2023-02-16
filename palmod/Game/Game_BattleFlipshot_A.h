@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Battle Flip Shot (Neo-Geo)", L"247-p1.p1", 0x95779094, 0 },
+        // There's a half-size version for FC1 that we do not currently support
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Battle Flip Shot (Neo-Geo)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         BattleFlipShot_A_UNITS,
         ARRAYSIZE(BattleFlipShot_A_UNITS),
         L"BattleFlipShotE.txt",         // Extra filename

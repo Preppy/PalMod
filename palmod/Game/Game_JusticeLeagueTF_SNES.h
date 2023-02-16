@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         JusticeLeagueTF_SNES_UNITS,
         ARRAYSIZE(JusticeLeagueTF_SNES_UNITS),
         L"JusticeLeagueTFE.txt",        // Extra filename

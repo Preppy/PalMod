@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         RANMACRH_SNES_UNITS,
         ARRAYSIZE(RANMACRH_SNES_UNITS),
         L"RanmaCRHE.txt",               // Extra filename

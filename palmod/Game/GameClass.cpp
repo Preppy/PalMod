@@ -432,7 +432,7 @@ LPCWSTR CGameClass::GetGameName()
 {
     if (m_pCRC32SpecificData)
     {
-        return m_pCRC32SpecificData->szFriendlyName;
+        return m_pCRC32SpecificData->strFriendlyName.c_str();
     }
     else
     {
@@ -2232,30 +2232,29 @@ void CGameClass::SetSpecificValuesForCRC(CFile* CurrFile, uint32_t nCRCForFile)
 {
     m_nConfirmedCRCValue = nCRCForFile;
 
-    const sCRC32ValueSet* ppCRC32ValueSets = nullptr;
-    const uint32_t nCRCValueSetCount = GetKnownCRC32DatasetsForGame(&ppCRC32ValueSets);
+    const std::vector<sCRC32ValueSet>& prgCRC32ValueSets = GetKnownCRC32DatasetsForGame();
 
-    if (nCRCValueSetCount == 1)
+    if (prgCRC32ValueSets.size() == 1)
     {
-        m_pCRC32SpecificData = &ppCRC32ValueSets[0];
+        m_pCRC32SpecificData = &prgCRC32ValueSets.at(0);
     }
-    else if (nCRCValueSetCount > 1)
+    else if (prgCRC32ValueSets.size() > 1)
     {
-        for (uint16_t nIndex = 0; nIndex < nCRCValueSetCount; nIndex++)
+        for (uint16_t nIndex = 0; nIndex < prgCRC32ValueSets.size(); nIndex++)
         {
-            if (ppCRC32ValueSets[nIndex].crcValueExpected == m_nConfirmedCRCValue)
+            if (prgCRC32ValueSets.at(nIndex).crcValueExpected == m_nConfirmedCRCValue)
             {
-                m_pCRC32SpecificData = &ppCRC32ValueSets[nIndex];
+                m_pCRC32SpecificData = &prgCRC32ValueSets.at(nIndex);
 
                 // We have a matching CRC, but some games use different filenames for the same ROM
                 // If we have an exact match, use current data.  Otherwise, continue and see if we find better.
-                if (_wcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
+                if (_wcsicmp(prgCRC32ValueSets.at(nIndex).strROMFileName.c_str(), GetROMFileName()) == 0)
                 {
                     bool fFoundMatch = true;
-                    if (ppCRC32ValueSets[nIndex].vValidationCheckBytes.size())
+                    if (prgCRC32ValueSets.at(nIndex).vValidationCheckBytes.size())
                     {
                         uint16_t nDetectedVersion = 0;
-                        fFoundMatch = FindROMVersionFromByteSniff(CurrFile, ppCRC32ValueSets[nIndex].vValidationCheckBytes, nDetectedVersion);
+                        fFoundMatch = FindROMVersionFromByteSniff(CurrFile, prgCRC32ValueSets.at(nIndex).vValidationCheckBytes, nDetectedVersion);
                     }
 
                     if (fFoundMatch)
@@ -2264,22 +2263,34 @@ void CGameClass::SetSpecificValuesForCRC(CFile* CurrFile, uint32_t nCRCForFile)
                     }
                 }
             }
-            else if (_wcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
+            else if (_wcsicmp(prgCRC32ValueSets.at(nIndex).strROMFileName.c_str(), GetROMFileName()) == 0)
             {
                 bool fFoundMatch = true;
-                if (ppCRC32ValueSets[nIndex].vValidationCheckBytes.size())
+                if (prgCRC32ValueSets.at(nIndex).vValidationCheckBytes.size())
                 {
                     uint16_t nDetectedVersion = 0;
-                    fFoundMatch = FindROMVersionFromByteSniff(CurrFile, ppCRC32ValueSets[nIndex].vValidationCheckBytes, nDetectedVersion);
+                    fFoundMatch = FindROMVersionFromByteSniff(CurrFile, prgCRC32ValueSets.at(nIndex).vValidationCheckBytes, nDetectedVersion);
                 }
 
                 if (fFoundMatch)
                 {
                     // We've got a matching name: it's possible that we're dealing with a modified ROM.
                     // Set this as a fallback option.
-                    m_pCRC32SpecificData = &ppCRC32ValueSets[nIndex];
+                    m_pCRC32SpecificData = &prgCRC32ValueSets.at(nIndex);
                 }
             }
         }
     }
+}
+
+const std::vector<CGameClass::sCRC32ValueSet> &CGameClass::GetKnownCRC32DatasetsForGame(bool* pfNeedToValidateCRCs /*= nullptr */)
+{
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        // This is (obviously) stubbed in: it's for unused code where we would show the crc at runtime.
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return m_prgCRC32DataForGame;
 }

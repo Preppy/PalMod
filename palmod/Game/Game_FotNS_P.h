@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         FotNS_P_UNITS,
         ARRAYSIZE(FotNS_P_UNITS),
         L"HK_BE.txt",           // Extra filename

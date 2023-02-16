@@ -907,7 +907,7 @@ LPCWSTR CGameClassPerUnitPerFile::GetGameName()
 {
     if (m_pCRC32SpecificData)
     {
-        return m_pCRC32SpecificData->szFriendlyName;
+        return m_pCRC32SpecificData->strFriendlyName.c_str();
     }
     else
     {

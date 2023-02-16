@@ -1,30 +1,6 @@
 #include "StdAfx.h"
 #include "Game_Garou_A.h"
 
-uint32_t CGame_Garou_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet /* = nullptr */, bool* pfNeedToValidateCRCs /*= nullptr*/)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Garou: MotW (Neo-Geo)", L"kf.neo-sma", 0x98bc93dc, 0 },
-        { L"Garou: MotW (Steam)", L"p1.bin", 0xeb2d1ea5, 0xc0000 },
-        { L"Garou: MotW (Neo-Geo, FC1)", L"253-sma.bin", 0x98bc93dc, 0 }, // just the older filename here
-        { L"Garou: MotW (Neo-Geo Prototype)", L"proto_253-p1.p1", 0xc72f0c16, 0xc0000 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources

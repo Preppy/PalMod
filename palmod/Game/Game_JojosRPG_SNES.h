@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         JOJOSRPG_SNES_UNITS,
         ARRAYSIZE(JOJOSRPG_SNES_UNITS),
         L"JojosRPGE.txt",             // Extra filename

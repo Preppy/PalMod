@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         KabukiKlash_A_UNITS,
         ARRAYSIZE(KabukiKlash_A_UNITS),
         L"KabukiKlashE.txt",             // Extra filename

@@ -45,6 +45,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_31,
+        {},
         VENTURE_A_UNITS_31,
         ARRAYSIZE(VENTURE_A_UNITS_31),
         L"Venture31.txt",     // Extra filename
@@ -64,6 +65,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_50,
+        {},
         VENTURE_A_UNITS_50,
         ARRAYSIZE(VENTURE_A_UNITS_50),
         L"Venture50.txt",   // Extra filename

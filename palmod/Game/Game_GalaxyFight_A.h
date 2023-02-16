@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Galaxy Fight: Universal Warriors (Neo-Geo)", L"078-p1.p1", 0x45906309, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Galaxy Fight: Universal Warriors (Neo-Geo)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         GalaxyFight_A_UNITS,
         ARRAYSIZE(GalaxyFight_A_UNITS),
         L"GalaxyFightE.txt",       // Extra filename

@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         Matrimelee_A_UNITS,
         ARRAYSIZE(Matrimelee_A_UNITS),
         L"MatrimeleeE.txt",        // Extra filename

@@ -67,6 +67,7 @@ public:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_50,
+        {},
         JOJOS_UNITS_50,
         ARRAYSIZE(JOJOS_UNITS_50),
         L"jojos50e.txt",     // Extra filename
@@ -86,6 +87,7 @@ public:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_51,
+        {},
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
@@ -105,6 +107,7 @@ public:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_51,
+        {},
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
@@ -124,6 +127,7 @@ public:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_50Rerip,
+        {},
         JOJOS_UNITS_50,
         ARRAYSIZE(JOJOS_UNITS_50),
         L"jojos50e.txt",     // Extra filename
@@ -143,6 +147,7 @@ public:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_51Rerip,
+        {},
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
@@ -162,6 +167,7 @@ public:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_51Rerip,
+        {},
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename

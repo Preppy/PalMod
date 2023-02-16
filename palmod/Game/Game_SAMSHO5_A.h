@@ -29,6 +29,16 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Samurai Shodown V (Neo-Geo set 1)", L"270-p1.bin", 0x4a2a09e6, 0 },
+        { L"Samurai Shodown V (Neo-Geo set 1)", L"270-p1.p1", 0x4a2a09e6, 0 },
+        { L"Samurai Shodown V (Neo-Geo set 2)", L"p1.bin", 0x7795fffe, 0 },
+        { L"Samurai Shodown V (Neo-Geo Hack)", L"270-p1c.p1", 0xbf956089, 0 },
+
+        { L"Samurai Shodown V (Xbox)", L"ssvx_p1.rom", 0x16983af9, 0x6d1000 - 0x0d5000 },
+    };
+
     const sCoreGameData m_sCoreGameData_NeoGeo
     {
         L"Samurai Shodown V (Neo-Geo)",
@@ -41,6 +51,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_NeoGeo,
+        m_rgCRC32Data,
         SAMSHO5_A_UNITS,
         ARRAYSIZE(SAMSHO5_A_UNITS),
         L"SAMSHO5E.txt",          // Extra filename
@@ -60,6 +71,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_Xbox,
+        m_rgCRC32Data,
         SAMSHO5_A_UNITS,
         ARRAYSIZE(SAMSHO5_A_UNITS),
         L"SAMSHO5E.txt",          // Extra filename
@@ -69,8 +81,6 @@ private:
 
 public:
     CGame_SAMSHO5_A(uint32_t nConfirmedROMSize);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
     static sFileRule GetRule(uint32_t nRuleId);

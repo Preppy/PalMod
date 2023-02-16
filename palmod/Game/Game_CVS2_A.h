@@ -25,6 +25,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         CVS2_A_UNITS,
         ARRAYSIZE(CVS2_A_UNITS),
         L"CVS2E.txt",           // Extra filename

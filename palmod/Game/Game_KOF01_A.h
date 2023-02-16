@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"King of Fighters 2001 (Neo-Geo)", L"262-p2-08-e0.sp2", 0x8e0d8329, 0 },
+        { L"Crouching Tiger Hidden Dragon 2003 (Bootleg)", L"5003-p2.bin", 0xadc1c22b, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"King of Fighters 2001 (Neo-Geo)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         KOF01_A_UNITS,
         ARRAYSIZE(KOF01_A_UNITS),
         L"KOF01E.txt",      // Extra filename
@@ -37,8 +44,5 @@ private:
 public:
     CGame_KOF01_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
-
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
-

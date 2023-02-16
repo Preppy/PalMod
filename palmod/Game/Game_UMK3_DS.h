@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         UMK3_DS_UNITS,
         ARRAYSIZE(UMK3_DS_UNITS),
         L"UMK3_DS_E.txt",              // Extra filename

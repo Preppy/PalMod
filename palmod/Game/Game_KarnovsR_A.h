@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         KarnovsR_A_UNITS,
         ARRAYSIZE(KarnovsR_A_UNITS),
         L"KarnovsE.txt",        // Extra filename

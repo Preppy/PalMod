@@ -39,26 +39,3 @@ sFileRule CGame_FatalFury2_A::GetRule(uint32_t nRuleId)
 {
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == FF2LoadingKey::Normal) ? FatalFury2_A_FileLoadingData_Normal : FatalFury2_A_FileLoadingData_Alt);
 }
-
-uint32_t CGame_FatalFury2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Fatal Fury 2 (Neo-Geo)", L"047-p1.bin", 0xbe40ea92, 0 },
-        { L"Fatal Fury 2 (Neo-Geo)", L"047-p1.p1", 0xecfdbb69, 0 },
-        { L"Fatal Fury 2 (Neo-Geo)", L"047-epr.ep1", 0xbe40ea92, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

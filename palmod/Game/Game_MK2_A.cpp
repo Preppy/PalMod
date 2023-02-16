@@ -60,26 +60,3 @@ sFileRule CGame_MK2_A::GetRule(uint32_t nRuleId)
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_V31Ult);
     }
 }
-
-uint32_t CGame_MK2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static const sCRC32ValueSet knownROMs[] =
-    {
-        { L"Mortal Kombat II (Arcade rev L3.1)", L"l3.1_mortal_kombat_ii_game_rom_uj12.uj12", 0xcf100a75, 0 },
-        { L"Mortal Kombat II (Arcade rev L3.1)", L"uj12.l31", 0xcf100a75, 0 },
-        { L"Mortal Kombat II Ultimate Tournament Edition (hack)", L"mk2ute.uj12", 0x82c0ef47, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

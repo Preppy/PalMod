@@ -38,25 +38,3 @@ sFileRule CGame_HSF2_A::GetRule(uint32_t nRuleId)
 {
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == HSF2LoadingKey::ROM04) ? m_sFileLoadingData_03 : m_sFileLoadingData_04);
 }
-
-uint32_t CGame_HSF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"HSF2 (CPS2 Portraits)", L"hs2u.03", 0xb308151e, 0 },
-        { L"HSF2 (CPS2 Characters)", L"hs2u.04", 0x327aa49c, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

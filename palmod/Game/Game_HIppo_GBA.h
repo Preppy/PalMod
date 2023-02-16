@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // If we need further differentiation, we can bytesniff at 0xa0
+        { L"Hajime no Ippo - The Fighting! (Japan)", L"Hajime no Ippo - The Fighting! (Japan).gba", 0x63045aa, 0 },
+    };
+
+
     const sCoreGameData m_sCoreGameData
     {
         L"Hajime no Ippo - The Fighting! (Japan GBA)",
@@ -25,6 +32,7 @@ private:
         AlphaMode::GameUsesChaoticAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         HIppo_GBA_UNITS,
         ARRAYSIZE(HIppo_GBA_UNITS),
         L"HIppo-GBAe.txt",      // Extra filename
@@ -34,8 +42,6 @@ private:
 
 public:
     CGame_HIppo_GBA(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

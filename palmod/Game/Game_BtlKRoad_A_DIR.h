@@ -26,6 +26,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         BtlKRoad_A_UNITS,
         ARRAYSIZE(BtlKRoad_A_UNITS),
         L"BtlKRoadE.txt",               // Extra filename

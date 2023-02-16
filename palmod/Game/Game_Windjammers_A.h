@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         Windjammers_A_UNITS,
         ARRAYSIZE(Windjammers_A_UNITS),
         L"WindjammersE.txt",           // Extra filename

@@ -26,6 +26,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         MMX_SNES_UNITS,
         ARRAYSIZE(MMX_SNES_UNITS),
         L"MMXE.txt",               // Extra filename

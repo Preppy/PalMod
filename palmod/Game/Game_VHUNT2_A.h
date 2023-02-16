@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // We use a significant shift here as we're reusing palette locations from another VS game
+        { L"Vampire Hunter 2 (Japan 970929)", L"vh2j.09", 0x11730952, 0x5FFD4 }, //0x4714 }, // bbhood
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Vampire Hunter 2 (CPS2)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         VHUNT2_A_UNITS,
         ARRAYSIZE(VHUNT2_A_UNITS),
         L"VHUNT2e.txt",            // Extra filename
@@ -34,8 +41,6 @@ private:
 
 public:
     CGame_VHUNT2_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

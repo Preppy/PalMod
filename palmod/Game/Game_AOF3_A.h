@@ -29,6 +29,15 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Art of Fighting 3 (Neo-Geo P1)", L"096-p1.p1", 0x9edb420d, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P1 Korea)", L"096-p1k.p1", 0xa0780789, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P2)", L"096-p2.sp2", 0x4d5a2602, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P1)", L"096-p1.bin", 0x9edb420d, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P2)", L"096-p2.bin", 0x4d5a2602, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_P1
     {
         L"Art of Fighting 3 (Neo-Geo)",
@@ -41,6 +50,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_P1,
+        m_rgCRC32Data,
         AOF3_A_P1_UNITS,
         ARRAYSIZE(AOF3_A_P1_UNITS),
         L"AOF3P1E.txt",             // Extra filename
@@ -60,6 +70,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_P2,
+        m_rgCRC32Data,
         AOF3_A_P2_UNITS,
         ARRAYSIZE(AOF3_A_P2_UNITS),
         L"AOF3P2E.txt",             // Extra filename
@@ -71,8 +82,6 @@ public:
     CGame_AOF3_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

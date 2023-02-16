@@ -63,6 +63,9 @@ private:
         ColMode::COLMODE_RGB444_BE,
         // Don't change this: this is the struct above.
         m_sFileLoadingData,
+        // You can optionally plug in CRC32 / version-specific data here through defining a vector of type sCRC32ValueSet.
+        // This allows for handling different versions of a game that need to shift offset locations, for example.
+        {},
         // This is the array you defined in the DEF file.
         NEWGAME_A_UNITS,
         // ... and the sizeof that array

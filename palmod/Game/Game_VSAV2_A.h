@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Vampire Savior 2 (Japan 970913)", L"vs2j.10", 0xeb490213, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Vampire Savior 2 (CPS2)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         VSAV2_A_UNITS,
         ARRAYSIZE(VSAV2_A_UNITS),
         L"VSAV2E.txt",              // Extra filename
@@ -34,8 +40,6 @@ private:
 
 public:
     CGame_VSAV2_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

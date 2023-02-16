@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         KOF03_A_UNITS,
         ARRAYSIZE(KOF03_A_UNITS),
         L"KOF03E.txt",          // Extra filename

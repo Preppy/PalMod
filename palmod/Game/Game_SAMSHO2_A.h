@@ -13,6 +13,14 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Samurai Shodown II (Neo-Geo)", L"063-p1.p1", 0x22368892, 0 },
+        { L"Samurai Shodown II (Neo-Geo)", L"063-p1.bin", 0x22368892, 0 },
+        { L"Samurai Shodown II (Special 2017, hack) ", L"063-p1-kan.p1", 0x147cc6d7, 0 },
+        { L"Samurai Shodown II (Neo-Geo Optimized)", L"063-p1new.p1", 0xc7633c54, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Samurai Shodown II (Neo-Geo)",
@@ -25,6 +33,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         SAMSHO2_A_UNITS,
         ARRAYSIZE(SAMSHO2_A_UNITS),
         L"SamSho2E.txt",          // Extra filename
@@ -36,8 +45,6 @@ private:
 
 public:
     CGame_SAMSHO2_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

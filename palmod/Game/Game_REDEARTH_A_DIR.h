@@ -49,6 +49,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         RedEarth_A_FileLoadingData_3dot0,
+        {},
         REDEARTH_A_UNITS_30,
         ARRAYSIZE(REDEARTH_A_UNITS_30),
         L"RedEarth30e.txt",             // Extra filename
@@ -68,6 +69,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         RedEarth_A_FileLoadingData_3dot1,
+        {},
         REDEARTH_A_UNITS_31,
         ARRAYSIZE(REDEARTH_A_UNITS_31),
         L"RedEarthE.txt",               // Extra filename
@@ -87,6 +89,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         RedEarth_A_FileLoadingData_5dot0,
+        {},
         REDEARTH_A_UNITS_50,
         ARRAYSIZE(REDEARTH_A_UNITS_50),
         L"RedEarth50e.txt",             // Extra filename

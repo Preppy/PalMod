@@ -55,25 +55,3 @@ CGame_SAMSHO1_A::CGame_SAMSHO1_A(uint32_t nConfirmedROMSize)
         break;
     }
 }
-
-uint32_t CGame_SAMSHO1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Samurai Shodown (Neo-Geo)", L"045-p1.p1", 0xdfe51bf0, 0 },
-        { L"Samurai Shodown (Neo-Geo Station)", L"045-p2.rom", 0x71768728, -0x80000 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

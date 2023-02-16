@@ -31,6 +31,12 @@ private:
         FileReadType::Interleaved_2FileSets,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Survival Arts (USA)", L"usa-pr-l.u4", 0xfa328673, 0 },
+        { L"Survival Arts (World)", L"prl-r6.u4", 0xef5f6e17, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_USA
     {
         L"Survival Arts (USA)",
@@ -43,6 +49,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGRA8888_LE,
         m_sFileLoadingData_USA,
+        m_rgCRC32Data,
         SurvivalArts_A_UNITS,
         ARRAYSIZE(SurvivalArts_A_UNITS),
         L"SurvivalArts_A_E.txt",    // Extra filename
@@ -62,6 +69,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGRA8888_LE,
         m_sFileLoadingData_World,
+        m_rgCRC32Data,
         SurvivalArts_A_UNITS,
         ARRAYSIZE(SurvivalArts_A_UNITS),
         L"SurvivalArts_A_E.txt",    // Extra filename
@@ -73,8 +81,6 @@ public:
     CGame_SurvivalArts_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId);
 };

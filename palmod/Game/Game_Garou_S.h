@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         Garou_A_UNITS,
         ARRAYSIZE(Garou_A_UNITS),
         L"GarouE.txt",         // Extra filename
@@ -61,6 +62,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        {},
         Garou_A_UNITS,
         ARRAYSIZE(Garou_A_UNITS),
         L"GarouE.txt",         // Extra filename

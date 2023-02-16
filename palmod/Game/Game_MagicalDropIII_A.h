@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Magical Drop III (Neo-Geo)", L"233-p1.p1", 0x931e17fa, 0 },
+        { L"Magical Drop III Boss Hack (Neo-Geo)", L"233-p1bh.p1", 0x80bfe2a9, 0 },
+        { L"Magical Drop III Tournament Edition Hack (Neo-Geo)", L"233-p1te.p1", 0xe2068d05, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Magical Drop III (Neo-Geo)",
@@ -25,6 +32,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         MAGICALDROPIII_A_UNITS,
         ARRAYSIZE(MAGICALDROPIII_A_UNITS),
         L"MagicalDropIIIE.txt",         // Extra filename
@@ -34,8 +42,6 @@ private:
 
 public:
     CGame_MAGICALDROPIII_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

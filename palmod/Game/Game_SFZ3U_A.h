@@ -26,6 +26,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         SFZ3U_A_UNITS,
         ARRAYSIZE(SFZ3U_A_UNITS),
         L"SFZ3UE.txt",             // Extra filename

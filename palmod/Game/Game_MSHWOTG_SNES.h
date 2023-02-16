@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Marvel Super Heroes:  War of the Gems (SNES USA)", L"Marvel Super Heroes in War of the Gems (USA).sfc", 0x00af56e8, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Marvel Super Heroes: War of the Gems (SNES USA)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         MSHWOTG_SNES_UNITS,
         ARRAYSIZE(MSHWOTG_SNES_UNITS),
         L"MSHWOTGE.txt",               // Extra filename
@@ -34,8 +40,6 @@ private:
 
 public:
     CGame_MSHWOTG_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

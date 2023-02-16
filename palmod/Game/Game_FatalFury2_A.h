@@ -29,6 +29,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Fatal Fury 2 (Neo-Geo)", L"047-p1.bin", 0xbe40ea92, 0 },
+        { L"Fatal Fury 2 (Neo-Geo)", L"047-p1.p1", 0xecfdbb69, 0 },
+        { L"Fatal Fury 2 (Neo-Geo)", L"047-epr.ep1", 0xbe40ea92, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData_Normal
     {
         L"Fatal Fury 2 (Neo-Geo)",
@@ -41,6 +48,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         FatalFury2_A_FileLoadingData_Normal,
+        m_rgCRC32Data,
         FatalFury2_A_UNITS,
         ARRAYSIZE(FatalFury2_A_UNITS),
         L"FatalFury2E.txt",             // Extra filename
@@ -60,6 +68,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         FatalFury2_A_FileLoadingData_Alt,
+        m_rgCRC32Data,
         FatalFury2_A_UNITS,
         ARRAYSIZE(FatalFury2_A_UNITS),
         L"FatalFury2E.txt",             // Extra filename
@@ -73,6 +82,4 @@ public:
     static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     static sFileRule GetRule(uint32_t nRuleId);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 };

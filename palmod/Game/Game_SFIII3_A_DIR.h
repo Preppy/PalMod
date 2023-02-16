@@ -81,6 +81,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_ROM10_DIR,
+        {},
         SFIII3_A_10_UNITS,
         ARRAYSIZE(SFIII3_A_10_UNITS),
         L"sfiii3-10e.txt",      // Extra filename
@@ -100,6 +101,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_ROM10_4rd_DIR,
+        {},
         SFIII3_A_14_UNITS,
         ARRAYSIZE(SFIII3_A_14_UNITS),
         L"sfiii3-10e.txt",      // Extra filename
@@ -119,6 +121,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_ROM51_DIR,
+        {},
         SFIII3_A_51_UNITS,
         ARRAYSIZE(SFIII3_A_51_UNITS),
         L"sfiii3e.txt",             // Extra filename
@@ -139,6 +142,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_ROM51_4rd_DIR,
+        {},
         SFIII3_A_4_UNITS,
         ARRAYSIZE(SFIII3_A_4_UNITS),
         L"sfiii3e.txt",                 // Extra filename
@@ -160,6 +164,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_ROM70_DIR,
+        {},
         SFIII3EX_A_70_UNITS,
         ARRAYSIZE(SFIII3EX_A_70_UNITS),
         L"sfiii3e.txt",         // Extra filename

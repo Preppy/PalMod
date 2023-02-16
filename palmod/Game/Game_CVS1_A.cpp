@@ -40,28 +40,6 @@ sFileRule CGame_CVS1_A::GetRule(uint32_t nRuleId)
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == CvS1LoadingKey::ROM) ? m_sFileLoadingData_ROM : m_sFileLoadingData_SIMM);
 }
 
-uint32_t CGame_CVS1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Capcom vs SNK Millenium Fight (NAOMI)", L"Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin", 0x20be359d, 0 },
-        { L"Capcom vs SNK Millenium Fight (NAOMI re-rip)", L"mpr-23504.ic1", 0xe01a31d2, -0x800000 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 void CGame_CVS1_A::DumpAllCharacters()
 {
     // Quick function/prototype that shows you the basic logic for exporting out a new palette for each character color

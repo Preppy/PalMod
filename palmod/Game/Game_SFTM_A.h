@@ -83,6 +83,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR888,
         m_sFileLoadingData_V110,
+        {},
         SFTM_A_UNITS,
         ARRAYSIZE(SFTM_A_UNITS),
         L"SFTME.txt",          // Extra filename
@@ -102,6 +103,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR888,
         m_sFileLoadingData_V111,
+        {},
         SFTM_A_UNITS,
         ARRAYSIZE(SFTM_A_UNITS),
         L"SFTME.txt",          // Extra filename
@@ -121,6 +123,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR888,
         m_sFileLoadingData_V112Normal,
+        {},
         SFTM_A_UNITS,
         ARRAYSIZE(SFTM_A_UNITS),
         L"SFTME.txt",          // Extra filename
@@ -140,6 +143,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR888,
         m_sFileLoadingData_V112Japan,
+        {},
         SFTM_A_UNITS,
         ARRAYSIZE(SFTM_A_UNITS),
         L"SFTME.txt",          // Extra filename
@@ -159,6 +163,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR888,
         m_sFileLoadingData_V114Japan,
+        {},
         SFTM_A_UNITS,
         ARRAYSIZE(SFTM_A_UNITS),
         L"SFTME.txt",          // Extra filename

@@ -65,33 +65,3 @@ CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize)
         break;
     }
 }
-
-uint32_t CGame_SAMSHO5SP_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1.p1", 0xfb7a6bba, 0 },
-        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1ca.p1", 0xc30a08dd, 0 },
-        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1c.p1", 0x9291794d, 0 },
-        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1.bin", 0xfb7a6bba, 0 },
-        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1ca.bin", 0xc30a08dd, 0 },
-        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1c.bin", 0x9291794d, 0 },
-
-        { L"Samurai Shodown V Special (Steam)", L"p1h.bin", 0x2dbd32dc, 0 },
-
-        { L"Samurai Shodown V Perfect / Samurai Spirits Zero Perfect [Hack]", L"273-p1.bin", 0xe3d18d3a, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

@@ -26,6 +26,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_BE,
         m_sFileLoadingData,
+        {},
         MWarr_A_UNITS,
         ARRAYSIZE(MWarr_A_UNITS),
         L"MWarrE.txt",                  // Extra filename

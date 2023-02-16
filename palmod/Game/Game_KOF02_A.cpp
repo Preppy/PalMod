@@ -157,25 +157,3 @@ void CGame_KOF02_A::DumpAllCharacters()
         OutputDebugString(strOutput);
     }
 }
-
-uint32_t CGame_KOF02_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"King of Fighters 2002 (Neo-Geo)", L"265-p2.sp2", 0x327266b8, 0 },
-        { L"King of Fighters 2002 Remix Ultra 3.5 (Neo-Geo Hack)", L"kf2k2ru35-p2.bin", 0x75185760, 0x300000 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

@@ -30,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BRG555_LE,
         m_sFileLoadingData,
+        {},
         JCHAN_A_UNITS,
         ARRAYSIZE(JCHAN_A_UNITS),
         L"JChanE.txt",          // Extra filename

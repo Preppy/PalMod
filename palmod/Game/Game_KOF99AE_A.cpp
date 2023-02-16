@@ -41,30 +41,6 @@ sFileRule CGame_KOF99AE_A::GetRule(uint32_t nRuleId)
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KOF99AELoadingKey::ROM02) ? m_sFileLoadingData_ROM02 : m_sFileLoadingData_ROM03);
 }
 
-uint32_t CGame_KOF99AE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"KOF '99AE ROM P2 (Neo-Geo)", L"kof99ae_p2.bin", 0xf3f47f41, 0 },
-        { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0xbc85cf02, 0 },
-        { L"KOF '99ND (Neo-Geo)", L"152-p2.bin", 0, 0 },
-        { L"KOF '99 Evolution Ultra Remix (Neo-Geo Hack)", L"kf99eur.p2", 0xaec93904, 0 },        
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 struct sKOF99AE_A_PaletteData
 {
     LPCWSTR pszCharacterName;

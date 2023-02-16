@@ -98,35 +98,3 @@ sFileRule CGame_UMK3_A::GetRule(uint32_t nRuleId)
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_V12UK);
     }
 }
-
-uint32_t CGame_UMK3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static const sCRC32ValueSet knownROMs[] =
-    {
-        // This won't work so we're not exposing this right now: there's a double-shift for both 1.0 and 1.1
-        { L"Ultimate Mortal Kombat 3 (rev 1.0)", L"l1.0_mortal_kombat_3_u54_ultimate.u54", 0xdfd735da, -0x140 },
-        { L"Ultimate Mortal Kombat 3 (rev 1.1)", L"l1.1_mortal_kombat_3_u54_ultimate.u54", 0x712b4db6, -0xc0 },
-
-        { L"Ultimate Mortal Kombat 3 (rev 1.2)", L"l1.2_mortal_kombat_3_u54_ultimate.u54", 0x712b4db6, 0 },
-        { L"Ultimate Mortal Kombat 3 (rev 1.2)", L"um312u54.bin", 0xcf100a75, 0 },
-
-        { L"Ultimate Mortal Kombat 3 Plus (Hack, Beta 2)", L"u54_umk3plus.u54", 0x54a5359f, 0 },
-        { L"Ultimate Mortal Kombat 3 Plus (Hack, Beta 1)", L"umk3plus_beta1.u54", 0xa46ee73c, 0 },
-        { L"Ultimate Mortal Kombat 3 Tournament Edition (hack, V2.0.042/August 2018)", L"umk3te.u54", 0xd0df2866, 0 },
-        { L"Ultimate Mortal Kombat 3 Ultimate Cup Edition (hack)", L"umk3uc-u54.bin", 0x5010d92d, 0 },
-        { L"Ultimate Mortal Kombat 3 UK (rev 1.2)", L"umk3uk-u54.bin", 0xbc509bce, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

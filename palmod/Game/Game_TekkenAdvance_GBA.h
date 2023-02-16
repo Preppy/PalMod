@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Tekken Advance (USA GBA)", L"Tekken Advance (USA).gba", 0xc59ea73b, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Tekken Advance (USA GBA)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameUsesChaoticAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         TekkenAdvance_GBA_UNITS,
         ARRAYSIZE(TekkenAdvance_GBA_UNITS),
         L"TekkenAdvance-GBAe.txt",      // Extra filename
@@ -34,8 +40,6 @@ private:
 
 public:
     CGame_TekkenAdvance_GBA(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

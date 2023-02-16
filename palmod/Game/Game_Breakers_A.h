@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Breakers Revenge (Neo-Geo)", L"245-p1.p1", 0xc828876d, 0 },
+        { L"Breakers Revenge (Neo-Geo)", L"245-p1.bin", 0xc828876d, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Breakers Revenge (Neo-Geo)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         BREAKERS_A_UNITS,
         ARRAYSIZE(BREAKERS_A_UNITS),
         L"BreakersRevE.txt",            // Extra filename
@@ -36,8 +43,6 @@ private:
 
 public:
     CGame_BREAKERS_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
@@ -53,6 +58,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Breakers Revenge (Breakers Collection for Steam)", L"245-m68k.swbin", 0xc828876d, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Breakers Revenge (Breakers Collection for Steam)",
@@ -65,6 +75,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         BREAKERS_A_UNITS,
         ARRAYSIZE(BREAKERS_A_UNITS),
         L"BreakersRevE.txt",            // Extra filename
@@ -74,8 +85,6 @@ private:
 
 public:
     CGame_BREAKERS_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

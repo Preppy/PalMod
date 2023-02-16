@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         SHAQFU_SNES_UNITS,
         ARRAYSIZE(SHAQFU_SNES_UNITS),
         L"ShaqFu_SNES_E.txt",          // Extra filename

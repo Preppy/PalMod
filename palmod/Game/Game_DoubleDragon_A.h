@@ -13,6 +13,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Double Dragon (Neo-Geo)", L"082-p1.p1", 0x34ab832a, 0 },
+        { L"Double Dragon (Neo-Geo)", L"082-p1.bin", 0x34ab832a, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Double Dragon (Neo-Geo)",
@@ -25,6 +31,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         DOUBLEDRAGON_A_UNITS,
         ARRAYSIZE(DOUBLEDRAGON_A_UNITS),
         L"DoubleDragonE.txt",           // Extra filename
@@ -34,8 +41,6 @@ private:
 
 public:
     CGame_DOUBLEDRAGON_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

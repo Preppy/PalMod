@@ -87,6 +87,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData_Main,
+        {},
         KOF02UM_S_UNITS_MAIN,
         ARRAYSIZE(KOF02UM_S_UNITS_MAIN),
         L"KOF02UME.txt",        // Extra filename
@@ -106,6 +107,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData_Bar,
+        {},
         KOF02UM_S_UNITS_BAR,
         ARRAYSIZE(KOF02UM_S_UNITS_BAR),
         L"KOF02UMBarE.txt",         // Extra filename
@@ -125,6 +127,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData_Max2BG,
+        {},
         KOF02UM_S_UNITS_MAX2,
         ARRAYSIZE(KOF02UM_S_UNITS_MAX2),
         L"KOF02UMMax2E.txt",        // Extra filename
@@ -144,6 +147,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_Clear,
+        {},
         KOF02UM_S_UNITS_CLEAR,
         ARRAYSIZE(KOF02UM_S_UNITS_CLEAR),
         L"KOF02UMClearE.txt",       // Extra filename
@@ -163,6 +167,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_PSel,
+        {},
         KOF02UM_S_UNITS_PSEL,
         ARRAYSIZE(KOF02UM_S_UNITS_PSEL),
         L"KOF02UMPSelE.txt",       // Extra filename
@@ -182,6 +187,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_Rank,
+        {},
         KOF02UM_S_UNITS_RANK,
         ARRAYSIZE(KOF02UM_S_UNITS_RANK),
         L"KOF02UMRankE.txt",      // Extra filename
@@ -201,6 +207,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_Conte,
+        {},
         KOF02UM_S_UNITS_CONTE,
         ARRAYSIZE(KOF02UM_S_UNITS_CONTE),
         L"KOF02UMContE.txt",    // Extra filename

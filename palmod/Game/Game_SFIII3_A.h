@@ -48,6 +48,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_ROM10,
+        {},
         SFIII3_A_10_UNITS,
         ARRAYSIZE(SFIII3_A_10_UNITS),
         L"sfiii3-10e.txt",      // Extra filename
@@ -67,6 +68,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_ROM51,
+        {},
         SFIII3_A_51_UNITS,
         ARRAYSIZE(SFIII3_A_51_UNITS),
         L"sfiii3e.txt",             // Extra filename

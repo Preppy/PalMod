@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         PrimalRage_SNES_UNITS,
         ARRAYSIZE(PrimalRage_SNES_UNITS),
         L"PrimalRageE.txt",               // Extra filename

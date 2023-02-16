@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Savage Reign (Neo-Geo)", L"059-p1.p1", 0x01d4e9c0, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Savage Reign (Neo-Geo)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         SAVAGEREIGN_A_UNITS,
         ARRAYSIZE(SAVAGEREIGN_A_UNITS),
         L"SavageReignE.txt",        // Extra filename
@@ -34,8 +40,6 @@ private:
 
 public:
     CGame_SAVAGEREIGN_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

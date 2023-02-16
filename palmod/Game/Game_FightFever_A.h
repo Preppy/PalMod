@@ -29,6 +29,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Fight Fever (Neo-Geo set 1)", L"060-p1.rom", 0x3032041b, 0 },
+        { L"Fight Fever (Neo-Geo set 2)", L"060-p1.p1", 0x2a104b50, 0 },
+        { L"Fight Fever (Neo-Geo)", L"060-p1.rom", 0x2a104b50, 0 }, // Unclear if this is ever used: contained in the ggpofba zip
+    };
+
     const sCoreGameData m_sCoreGameData_Set1
     {
         L"Fight Fever (Neo-Geo set 1)",
@@ -41,6 +48,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_Set1,
+        m_rgCRC32Data,
         FightFever_A_UNITS,
         ARRAYSIZE(FightFever_A_UNITS),
         L"FightFeverE.txt",         // Extra filename
@@ -60,6 +68,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData_Set2,
+        m_rgCRC32Data,
         FightFever_A_UNITS,
         ARRAYSIZE(FightFever_A_UNITS),
         L"FightFeverE.txt",         // Extra filename
@@ -72,6 +81,4 @@ public:
     static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     static sFileRule GetRule(uint32_t nRuleId);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 };

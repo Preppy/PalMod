@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         BASARA_P_UNITS,
         ARRAYSIZE(BASARA_P_UNITS),
         L"BSRE.txt",            // Extra filename

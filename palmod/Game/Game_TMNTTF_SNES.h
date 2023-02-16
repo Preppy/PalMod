@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         TMNTTF_SNES_UNITS,
         ARRAYSIZE(TMNTTF_SNES_UNITS),
         L"TMNTTFE.txt",               // Extra filename

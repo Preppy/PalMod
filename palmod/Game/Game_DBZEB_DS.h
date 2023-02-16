@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)", L"Dragon Ball Z - Extreme Butoden (USA) Decrypted.3ds", 0xb614c5c4, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_RGBA8888_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         DBZEB_DS_UNITS,
         ARRAYSIZE(DBZEB_DS_UNITS),
         L"dbzebE.txt",               // Extra filename

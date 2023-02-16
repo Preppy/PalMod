@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Clay Fighter: TE", L"Clay Fighter - Tournament Edition (USA).sfc", 0xb360f7af, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Clay Fighter: TE (SNES)",
@@ -25,17 +30,16 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         CFTE_SNES_UNITS,
         ARRAYSIZE(CFTE_SNES_UNITS),
-        L"cftee.txt",               // Extra filename
+        L"CFTEe.txt",               // Extra filename
         56,                         // Count of palettes listed in the header
         0x10000,                    // Lowest known location used for palettes
     };
 
 public:
     CGame_CFTE_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

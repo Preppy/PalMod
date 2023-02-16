@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"DBZ: Hyper Dimension (SNES)", L"dragon ball z - hyper dimension (japan).sfc", 0xf4ab1557, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"DBZ: Hyper Dimension (SNES)",
@@ -25,6 +30,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         DBZHD_SNES_UNITS,
         ARRAYSIZE(DBZHD_SNES_UNITS),
         L"DBZHDE.txt",               // Extra filename

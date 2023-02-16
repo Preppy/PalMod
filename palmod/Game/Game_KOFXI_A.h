@@ -25,6 +25,7 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
+        {},
         KOFXI_A_UNITS,
         ARRAYSIZE(KOFXI_A_UNITS),
         L"KOFXIe.txt",              // Extra filename

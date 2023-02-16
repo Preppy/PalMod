@@ -281,25 +281,3 @@ void CGame_KOF01_A::DumpPaletteHeaders()
         OutputDebugString(L"};\r\n\r\n");
     }
 }
-
-uint32_t CGame_KOF01_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"King of Fighters 2001 (Neo-Geo)", L"262-p2-08-e0.sp2", 0x8e0d8329, 0 },
-        { L"Crouching Tiger Hidden Dragon 2003 (Bootleg)", L"5003-p2.bin", 0xadc1c22b, 0 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

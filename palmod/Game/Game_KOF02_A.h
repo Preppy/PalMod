@@ -15,6 +15,12 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"King of Fighters 2002 (Neo-Geo)", L"265-p2.sp2", 0x327266b8, 0 },
+        { L"King of Fighters 2002 Remix Ultra 3.5 (Neo-Geo Hack)", L"kf2k2ru35-p2.bin", 0x75185760, 0x300000 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"King of Fighters 2002 (Neo-Geo)",
@@ -26,7 +32,8 @@ private:
         DEF_BUTTONLABEL_NEOGEO,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        m_sFileLoadingData ,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
         KOF02_A_UNITS,
         ARRAYSIZE(KOF02_A_UNITS),
         L"KOF02E.txt",              // Extra filename
@@ -36,8 +43,6 @@ private:
 
 public:
     CGame_KOF02_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

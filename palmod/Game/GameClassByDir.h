@@ -46,6 +46,7 @@ public:
         AlphaMode eAlphaMode;
         ColMode eColMode;
         const sDirectoryLoadingData sLoadingData;
+        std::vector<sCRC32ValueSet> rgCRC32Data;
         const sDescTreeNode* psUnitData;
         const size_t nUnitCount;
         const std::wstring strExtraName;

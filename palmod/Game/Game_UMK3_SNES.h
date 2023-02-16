@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         UMK3_SNES_UNITS,
         ARRAYSIZE(UMK3_SNES_UNITS),
         L"UMK3_SNES_E.txt",           // Extra filename

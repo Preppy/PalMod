@@ -184,25 +184,3 @@ sFileRule CGame_LASTBLADE_A::GetRule(uint32_t nUnitId)
 
     return NewFileRule;
 }
-
-uint32_t CGame_LASTBLADE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"The Last Blade (Neo-Geo)", L"234-p1.p1", 0xe123a5a3, 0 },
-        { L"The Last Blade (Steam)", L"lastblad_game_m68k", 0xe72943de, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}

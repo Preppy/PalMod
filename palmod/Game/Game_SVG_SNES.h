@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         SVG_SNES_UNITS,
         ARRAYSIZE(SVG_SNES_UNITS),
         L"SVGE.txt",               // Extra filename

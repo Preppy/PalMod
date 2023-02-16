@@ -25,6 +25,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
+        {},
         MMX2_SNES_UNITS,
         ARRAYSIZE(MMX2_SNES_UNITS),
         L"MMX2E.txt",               // Extra filename

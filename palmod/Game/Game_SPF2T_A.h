@@ -13,6 +13,15 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Super Puzzle Fighter II Turbo (CPS2)", L"pzf.04", 0xb80649e2, 0 },
+        { L"Super Puzzle Fighter II Turbo (CPS2)", L"pzf.04a", 0xb80649e2, 0 },
+
+        { L"Super Puzzle Fighter II Turbo (Color Blind Hack, v1.1)", L"pzfcb.04", 0xb80649e2, 0 },
+        { L"Super Puzzle Fighter 2 X' Balance Patch (Hack)", L"pzfxp.04", 0xb80649e2, 0 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Super Puzzle Fighter II Turbo (CPS2)",
@@ -25,6 +34,7 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
+        m_rgCRC32Data,
         SPF2T_A_UNITS,
         ARRAYSIZE(SPF2T_A_UNITS),
         L"SPF2TE.txt",            // Extra filename
@@ -34,8 +44,6 @@ private:
 
 public:
     CGame_SPF2T_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
