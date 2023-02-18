@@ -192,9 +192,10 @@ const std::vector<uint16_t> JOJOS_A_IMGIDS_USED =
     indexJojos51Timestop,
     indexJojos51Bonus,
     indexJojos50Stages,
-    indexJojos50HUDPortraits,
-    indexJojos51GrayFly,
-    indexJojos51TarotCards,
+    indexJojos50HUDPortraits,   // 0x1C
+    indexJojos51GrayFly,        // 0x1d
+    indexJojos51TarotCards,     // 0x1e
+    indexJojos51StoryMode,      // 0x1f
 };
 
 // hud, portraits, stages: 50
@@ -4038,14 +4039,14 @@ const sDescTreeNode JOJOS_TIMESTOP_COLLECTION[] =
 
 const sGame_PaletteDataset JOJOS_A_JOTARO_STORY_PALETTES[] =
 {
-    { L"Imprisoned Jotaro", 0x02e8400, 0x02e8500 },
+    { L"Imprisoned Jotaro", 0x02e8400, 0x02e8500, indexJojos51StoryMode, 0x00 },
     { L"Lockdown Staredown", 0x2ec000, 0x2ec080 },
     { L"Jotaro Staring at DIO (Unused)", 0x2fb580, 0x2fb600 }
 };
 
 const sGame_PaletteDataset JOJOS_A_KAKYOIN_STORY_PALETTES[] =
 {
-    { L"Scared Kakyoin", 0x02e9b00, 0x02e9b80 },
+    { L"Scared Kakyoin", 0x02e9b00, 0x02e9b80, indexJojos51StoryMode, 0x02 },
     { L"Shadow Dio Smirk", 0x02e9b80, 0x02e9c00 },
     { L"Fleshbud Scene", 0x02e9e00, 0x02ea000 },
     { L"Fleshbud Scene (Background)", 0x02ea000, 0x2ea020 },
@@ -4054,7 +4055,7 @@ const sGame_PaletteDataset JOJOS_A_KAKYOIN_STORY_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_A_AVDOL_STORY_PALETTES[] =
 {
-    { L"Imprisoned Jotaro", 0x2ebf00, 0x2ec000 },
+    { L"Imprisoned Jotaro", 0x2ebf00, 0x2ec000, indexJojos51StoryMode, 0x00 },
     { L"Avdol Airport Cutscene Portrait", 0x2ec200, 0x2ec280 },
     { L"Holly and Joseph Airport Cutscene", 0x2ec100, 0x2ec180 },
     { L"Holly and Joseph Airport Cutscene BG", 0x2ec180, 0x2ec200 },
@@ -4080,8 +4081,8 @@ const sGame_PaletteDataset JOJOS_A_MIDLER_STORY_PALETTES[] =
     { L"Midler With Cup Body", 0x2e5680, 0x2e5780 },
     { L"Midler With Cup High Priestess", 0x2f8080, 0x2f8100 },
     { L"Midler Near DIO's Mansion", 0x2f7e00, 0x2f7e80 },
-    { L"DIO Point", 0x305a00, 0x305a80 },
-    { L"Midler Facing DIO ", 0x305a80, 0x305b00 },
+    { L"DIO Point", 0x305a00, 0x305a80, indexJojos51StoryMode, 0x01 },
+    { L"Midler Facing DIO", 0x305a80, 0x305b00 },
     { L"Midler Facing DIO BG", 0x305B62, 0x305B80 },
     { L"Midler & DIO Ending Portrait", 0x2e6300, 0x2e6500 },
 };
