@@ -416,10 +416,10 @@ void CImgDisp::ModifySrcRect()
         MAIN_H = m_nImgRctH;
     }
 
-    m_rSrcRct.top = (MAIN_H / 2) - (int)((double)(nCtrlH / 2) / m_fpZoom);
-    m_rSrcRct.left = (MAIN_W / 2) - (int)((double)(nCtrlW / 2) / m_fpZoom);
-    m_rSrcRct.bottom = m_rSrcRct.top + (int)((double)nCtrlH / m_fpZoom);
-    m_rSrcRct.right = m_rSrcRct.left + (int)((double)nCtrlW / m_fpZoom);
+    m_rSrcRct.top = (MAIN_H / 2) - static_cast<int>(static_cast<double>(nCtrlH / 2) / m_fpZoom);
+    m_rSrcRct.left = (MAIN_W / 2) - static_cast<int>(static_cast<double>(nCtrlW / 2) / m_fpZoom);
+    m_rSrcRct.bottom = m_rSrcRct.top + static_cast<int>(static_cast<double>(nCtrlH) / m_fpZoom);
+    m_rSrcRct.right = m_rSrcRct.left + static_cast<int>(static_cast<double>(nCtrlW) / m_fpZoom);
 
     m_rImgRct.left = -(m_nImgRctW / 2) + (MAIN_W / 2);
     m_rImgRct.right = (m_nImgRctW / 2) + (MAIN_W / 2);
@@ -583,7 +583,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
     if (TextureFile.Open(pszTextureLocation, CFile::modeRead | CFile::typeBinary))
     {
-        const int nSizeToRead = (int)TextureFile.GetLength();
+        const int nSizeToRead = static_cast<int>(TextureFile.GetLength());
         const int cbMinimumReasonableFileSize = 250;
         safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
         m_nTextureOverrideW[nPositionToLoadTo] = 0;
@@ -781,20 +781,20 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     int nSrcX = 0, nSrcY = 0;
     uint8_t* pImgData = nullptr;
     uint8_t* pCurrPal = nullptr;
-    uint8_t* pDstBmpData = (uint8_t*)m_pBmpData;
+    uint8_t* pDstBmpData = reinterpret_cast<uint8_t *>(m_pBmpData);
     int nPalSizeInUint8 = 0;
 
     if ((nSrcIndex != -1) && m_pImgBuffer[nSrcIndex])
     {
-        pImgData = (uint8_t*)m_pImgBuffer[nSrcIndex]->pImgData;
-        pCurrPal = (uint8_t*)(fUseBlinkPal ? m_pImgBuffer[nSrcIndex]->pBlinkPalette : m_pImgBuffer[nSrcIndex]->pPalette);
+        pImgData = reinterpret_cast<uint8_t*>(m_pImgBuffer[nSrcIndex]->pImgData);
+        pCurrPal = reinterpret_cast<uint8_t*>(fUseBlinkPal ? m_pImgBuffer[nSrcIndex]->pBlinkPalette : m_pImgBuffer[nSrcIndex]->pPalette);
         nPalSizeInUint8 = m_pImgBuffer[nSrcIndex]->uPalSz * 4;
         nWidth = m_pImgBuffer[nSrcIndex]->uImgW;
         nHeight = m_pImgBuffer[nSrcIndex]->uImgH;
     }
     else if (m_pBackupPaletteDef != nullptr)
     {
-        pCurrPal = (uint8_t*)(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
+        pCurrPal = reinterpret_cast<uint8_t*>(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
         nPalSizeInUint8 = m_pBackupPaletteDef->uPalSz * 4;
     }
     else
@@ -908,9 +908,9 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                     uint8_t* uDstG = &pDstBmpData[nDstPos + 1];
                     uint8_t* uDstB = &pDstBmpData[nDstPos];
 
-                    *uDstR = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition]), (fpDstA2 * (double)*uDstR));
-                    *uDstG = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 1]), (fpDstA2 * (double)*uDstG));
-                    *uDstB = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 2]), (fpDstA2 * (double)*uDstB));
+                    *uDstR = static_cast<uint8_t>(aadd((fpDstA1 * static_cast<double>(pCurrPal[nCurrentColorPosition])), (fpDstA2 * static_cast<double>(*uDstR))));
+                    *uDstG = static_cast<uint8_t>(aadd((fpDstA1 * static_cast<double>(pCurrPal[nCurrentColorPosition + 1])), (fpDstA2 * static_cast<double>(*uDstG))));
+                    *uDstB = static_cast<uint8_t>(aadd((fpDstA1 * static_cast<double>(pCurrPal[nCurrentColorPosition + 2])), (fpDstA2 * static_cast<double>(*uDstB))));
                 }
             }
         }
@@ -925,8 +925,7 @@ void CImgDisp::OnLButtonDown(UINT nFlags, CPoint point)
     m_bCtrlDown = (GetAsyncKeyState(VK_CONTROL) & 0x8000);
     SetCapture();
 
-    m_fpPrevX = (double)point.x;
-    m_fpPrevY = (double)point.y;
+    m_ptMouseDown = m_ptLastMouse = point;
 
     m_fpDiffX = 0.0f;
     m_fpDiffY = 0.0f;
@@ -938,8 +937,8 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 {
     if (m_bLButtonDown && (m_nImgAmt || m_bCtrlDown))
     {
-        m_fpDiffX += (m_fpPrevX - (double)point.x) / m_fpZoom;
-        m_fpDiffY += (m_fpPrevY - (double)point.y) / m_fpZoom;
+        m_fpDiffX += static_cast<double>(m_ptLastMouse.x - point.x) / m_fpZoom;
+        m_fpDiffY += static_cast<double>(m_ptLastMouse.y - point.y) / m_fpZoom;
 
         int nAdd = 1;
 
@@ -955,7 +954,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
             while (fabs(m_fpDiffX) >= 1.0f)
             {
                 m_nBGXOffs -= nAdd;
-                m_fpDiffX -= (double)nAdd;
+                m_fpDiffX -= static_cast<double>(nAdd);
             }
         }
         else
@@ -982,7 +981,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
                     }
                 }
 
-                m_fpDiffX -= (double)nAdd;
+                m_fpDiffX -= static_cast<double>(nAdd);
             }
         }
 #endif
@@ -1000,7 +999,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
             while (fabs(m_fpDiffY) >= 1.0f)
             {
                 m_nBGYOffs -= nAdd;
-                m_fpDiffY -= (double)nAdd;
+                m_fpDiffY -= static_cast<double>(nAdd);
             }
         }
         else
@@ -1027,7 +1026,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
                     }
                 }
 
-                m_fpDiffY -= (double)nAdd;
+                m_fpDiffY -= static_cast<double>(nAdd);
             }
         }
 
@@ -1035,8 +1034,8 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
         int nImgIndex = SETIMGINDEX;
 
-        pImgBuffer[nImgIndex]->nXOffs -= (int)fpDiffX;
-        pImgBuffer[nImgIndex]->nYOffs -= (int)fpDiffY;
+        pImgBuffer[nImgIndex]->nXOffs -= static_cast<int>(fpDiffX);
+        pImgBuffer[nImgIndex]->nYOffs -= static_cast<int>(fpDiffY);
         UpdateCtrl();
 
         fpDiffX = 0;
@@ -1046,8 +1045,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
         UpdateCtrl();
 
-        m_fpPrevX = (double)point.x;
-        m_fpPrevY = (double)point.y;
+        m_ptLastMouse = point;
     }
 
     CWnd::OnMouseMove(nFlags, point);
@@ -1070,8 +1068,15 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 
     if (GetClickToFindColorSetting())
     {
-        // Update the current palette selections based upon this click
-        GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(), m_crBGCol);
+        // We want clicks to highlight colors, but we don't want mouse *drags* to change selections or highlight colors.
+        // So let's just say that a "click" will have less than 15px of total mouse travel, whereas a "drag" will have
+        // 15px or more of travel.
+        constexpr auto mouse_distance_for_drags = 15;
+        if ((abs(m_ptMouseDown.x - point.x) + (abs(m_ptMouseDown.y - point.y))) < mouse_distance_for_drags)
+        {
+            // Update the current palette selections based upon this click
+            GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(), m_crBGCol);
+        }
     }
 
     CWnd::OnLButtonUp(nFlags, point);

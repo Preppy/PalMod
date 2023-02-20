@@ -95,7 +95,7 @@ private:
     BOOL m_bLButtonDown = FALSE;
     BOOL m_bCtrlDown = FALSE;
 
-    double m_fpPrevX = 0.0, m_fpPrevY = 0.0;
+    CPoint m_ptMouseDown = { 0, 0 }, m_ptLastMouse = { 0, 0 };
     double m_fpDiffX = 0.0, m_fpDiffY = 0.0;
 
     CRect m_rCtrlRct;
