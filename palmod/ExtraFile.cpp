@@ -10,7 +10,7 @@
 //#define DUMP_EXTRAS_ON_LOAD
 
 uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
-uint32_t CGameWithExtrasFile::m_nLoadedFileViewSize = 0;
+size_t CGameWithExtrasFile::m_nLoadedFileViewSize = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
 AlphaMode CGameWithExtrasFile::m_AlphaModeOverride = AlphaMode::Unknown;
 ColMode CGameWithExtrasFile::m_ColorModeOverride = ColMode::COLMODE_LAST;
@@ -116,7 +116,7 @@ void CGameWithExtrasFile::SetColorFormatOverride(LPCSTR paszColorString)
     }
 }
 
-void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, uint32_t nGameROMSize, uint8_t cbColorSize /* = 2 */)
+void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, size_t nGameROMSize, uint8_t cbColorSize /* = 2 */)
 {
     std::ifstream extraFile;
     wchar_t szTargetFile[MAX_PATH];

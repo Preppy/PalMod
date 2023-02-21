@@ -30,12 +30,12 @@ sFileRule CGame_VENTURE_A_DIR::GetRuleInternal(VentureDirLoadingKey nGameMode, u
     {
     case VentureDirLoadingKey::ROM31:
         wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_31.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = m_sFileLoadingData_31.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_31.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
         break;
     case VentureDirLoadingKey::ROM50:
     default:
         wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = m_sFileLoadingData_50.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
         break;
     }
 

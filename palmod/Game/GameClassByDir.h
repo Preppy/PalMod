@@ -67,7 +67,7 @@ public:
     static const sDirectoryLoadingData* m_psCurrentFileLoadingData;
     FileReadType m_eValidatedFileJoinType = FileReadType::Sequential;
 
-    static uint32_t m_nConfirmedROMSize;
+    static size_t m_nConfirmedROMSize;
 
     static void InitializeStatics(const sCoreGameData& gameLoadingData);
 

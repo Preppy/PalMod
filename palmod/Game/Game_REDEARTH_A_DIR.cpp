@@ -30,16 +30,16 @@ sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(RedEarthLoadingKey nGameMode, ui
     {
     case RedEarthLoadingKey::RedEarthROM30:
         wcsncpy(NewFileRule.szFileName, RedEarth_A_FileLoadingData_3dot0.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = RedEarth_A_FileLoadingData_3dot0.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(RedEarth_A_FileLoadingData_3dot0.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
         break;
     case RedEarthLoadingKey::RedEarthROM31:
     default:
         wcsncpy(NewFileRule.szFileName, RedEarth_A_FileLoadingData_3dot1.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = RedEarth_A_FileLoadingData_3dot1.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(RedEarth_A_FileLoadingData_3dot1.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
         break;
     case RedEarthLoadingKey::RedEarthROM50:
         wcsncpy(NewFileRule.szFileName, RedEarth_A_FileLoadingData_5dot0.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = RedEarth_A_FileLoadingData_5dot0.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(RedEarth_A_FileLoadingData_5dot0.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
         break;
     }
 

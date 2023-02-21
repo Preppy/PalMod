@@ -15,12 +15,12 @@ sFileRule CGame_LASTBLADE2_A::GetRule(uint32_t nUnitId)
     if (nUnitId == LASTBLADE2_S)
     {
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, LASTBLADE2_A_FileLoadingData_Steam.rgFileList.at(0).strFileName.c_str()); // Update with the primary expected ROM name here.
-        NewFileRule.uVerifyVar = LASTBLADE2_A_FileLoadingData_Steam.rgFileList.at(0).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(LASTBLADE2_A_FileLoadingData_Steam.rgFileList.at(0).nFileSize);
     }
     else
     {
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, LASTBLADE2_A_FileLoadingData_NeoGeo.rgFileList.at(0).strFileName.c_str()); // Update with the primary expected ROM name here.
-        NewFileRule.uVerifyVar = LASTBLADE2_A_FileLoadingData_NeoGeo.rgFileList.at(0).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(LASTBLADE2_A_FileLoadingData_NeoGeo.rgFileList.at(0).nFileSize);
     }
 
     NewFileRule.uUnitId = 0;

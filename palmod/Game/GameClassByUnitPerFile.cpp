@@ -94,7 +94,7 @@ sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
 
     uint32_t nTotalPaletteCountForGame = 0;
     const uint32_t nTotalCharacters = GetUniqueUnitCount();
-    const uint32_t nTotalFiles = m_psCurrentGameLoadingData->srgLoadingData.size();
+    const uint32_t nTotalFiles = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
     uint32_t nCurrentCharacterIndex = 0;
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
@@ -156,7 +156,7 @@ sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
             CollectionNode->uChildAmt = nTotalPalettesForCollection;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nTotalPalettesForCollection];
 
-            uint32_t nTotalPalettesThisFile = GetBasicPaletteCountForUnit(nCurrentCharacterIndex);
+            uint32_t nTotalPalettesThisFile = static_cast<uint32_t>(GetBasicPaletteCountForUnit(nCurrentCharacterIndex));
             nTotalPalettesThisFile += static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nCurrentFileUnitForCollection).sExtrasNodeData.prgExtraPalettes.size());
 
 #if GCPUPF_A_DEBUG
@@ -319,7 +319,7 @@ uint32_t CGameClassPerUnitPerFile::GetNodeCountForCollection(uint32_t nCharacter
             }
             else
             {
-                nRelativeNodeId -= m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sNodeData.rgpszNodeNames.size();
+                nRelativeNodeId -= static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sNodeData.rgpszNodeNames.size());
             }
 
             if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sExtrasNodeData.prgExtraPalettes.size())
@@ -379,7 +379,7 @@ uint32_t CGameClassPerUnitPerFile::GetCollectionCountForUnit(uint32_t nCharacter
             if (m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).sNodeData.rgpszButtonLabels.size() ||
                 m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).prgBasicPalettes.size())
             {
-                nCollectionCount += m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).sNodeData.rgpszNodeNames.size();
+                nCollectionCount += static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).sNodeData.rgpszNodeNames.size());
             }
 
             if (m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).sExtrasNodeData.prgExtraPalettes.size())
@@ -407,7 +407,7 @@ LPCWSTR CGameClassPerUnitPerFile::GetDescriptionForCollection(uint32_t nCharacte
             }
             else
             {
-                nRelativeNodeId -= m_psCurrentGameLoadingData->srgLoadingData.at(nIndex).sNodeData.rgpszNodeNames.size();
+                nRelativeNodeId -= static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nIndex).sNodeData.rgpszNodeNames.size());
             }
 
             if (m_psCurrentGameLoadingData->srgLoadingData.at(nIndex).sExtrasNodeData.prgExtraPalettes.size())
@@ -575,7 +575,7 @@ uint32_t CGameClassPerUnitPerFile::GetFileIndexFromCharacterCollection(uint32_t 
             }
             else
             {
-                nRelativeCollectionId -= m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sNodeData.rgpszNodeNames.size();
+                nRelativeCollectionId -= static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sNodeData.rgpszNodeNames.size());
             }
 
             if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sExtrasNodeData.prgExtraPalettes.size())
@@ -614,7 +614,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
     {
         if (ShouldUseBasePaletteSetForFileUnit(nFileUnitId, nFilePalId))
         {
-            const uint32_t nBasicPaletteSizeForUnit = GetBasicPaletteListSizeForUnit(nCharacterId);
+            const uint32_t nBasicPaletteSizeForUnit = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(nCharacterId));
             const uint32_t nRelativePalId = nFilePalId % nBasicPaletteSizeForUnit;
             const uint32_t nPaletteSet =    nFilePalId / nBasicPaletteSizeForUnit;
 
@@ -648,7 +648,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
     {
         if (ShouldUseBasePaletteSetForFileUnit(nFileUnitId, nFilePalId))
         {
-            const uint32_t nBasicPaletteSizeForUnit = GetBasicPaletteListSizeForUnit(nCharacterId);
+            const uint32_t nBasicPaletteSizeForUnit = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(nCharacterId));
             const uint32_t nRelativePalId = nFilePalId % nBasicPaletteSizeForUnit;
             const uint32_t nCollectionId = static_cast<uint32_t>(floor(static_cast<double>(nFilePalId) / static_cast<double>(nBasicPaletteSizeForUnit)));
 
@@ -826,7 +826,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
                         break;
                     }
 
-                    const sGame_PaletteDataset* paletteDataSetToJoin = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode + vnPeerPaletteDistances.at(nPairIndex));
+                    const sGame_PaletteDataset* paletteDataSetToJoin = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode + static_cast<size_t>(vnPeerPaletteDistances.at(nPairIndex)));
 
                     if (paletteDataSetToJoin)
                     {
@@ -871,7 +871,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
                         pPreviousImage = pThisImage;
                     }
 
-                    ClearSetImgTicket(vsImagePairs[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1)]);
+                    ClearSetImgTicket(vsImagePairs[(static_cast<size_t>(paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1)]);
 
                     for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
                     {

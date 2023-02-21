@@ -18,12 +18,12 @@ sFileRule CGame_JOJOS_A_DIR::GetRuleInternal(uint32_t nUnitId, JojosLoadingKey n
     {
     case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
         wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50Rerip.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = m_sFileLoadingData_50Rerip.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50Rerip.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
         break;
     case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
     default:
         wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_51Rerip.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = m_sFileLoadingData_51Rerip.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_51Rerip.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
         break;
     }
 

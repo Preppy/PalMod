@@ -223,7 +223,7 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
 {
     CString strDebugInfo;
     strDebugInfo.Format(L"\tProcessAdditionalPaletteChangesRequired: Processing supplemental palettes for unit 0x%02x palette number 0x%x. %u effects to apply.\n", nUnitId, nChangedPaletteNumber,
-        supplementalEffectsData.size());
+        static_cast<uint32_t>(supplementalEffectsData.size()));
     OutputDebugString(strDebugInfo);
 
     uint32_t nLastDestinationPalette = 0;
@@ -289,8 +289,8 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
                 OutputDebugString(L"\t\t\tProcessing FX for this node\n");
 
                 //pi = palette index - value should be from 0 to <palette length>, maxing at 255.
-                uint8_t pi_start = static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 1]);
-                uint8_t pi_amt = static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 2]);
+                uint8_t pi_start = static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 1]);
+                uint8_t pi_amt = static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 2]);
 
                 // While this would normally be error-checking, this also has the side effect of allowing us to 
                 // specify max palette size possible for variable length portrait/stage/csi palettes that we want to
@@ -304,8 +304,8 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
                 {
                 case MOD_TINT:
                 {
-                    ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
-                        currentEffectsData[indexCounterForEffects + 4], currentEffectsData[indexCounterForEffects + 5], currentEffectsData[indexCounterForEffects + 6]);
+                    ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt,
+                        currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 4], currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 5], currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 6]);
 
                     indexCounterForEffects += 7;
                     break;
@@ -313,8 +313,8 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
 
                 case MOD_BLEND:
                 {
-                    ProcessBlendEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
-                        static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 4]), static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 5]), static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 6]));
+                    ProcessBlendEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt,
+                        static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 4]), static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 5]), static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 6]));
 
                     indexCounterForEffects += 7;
                     break;
@@ -330,7 +330,7 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
 
                 case MOD_COPY:
                 {
-                    ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt);
+                    ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt);
 
                     indexCounterForEffects += 4;
                     break;
@@ -341,7 +341,7 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
                 {
                     // We have first done a full copy of the source palette to dest palette here, and now we apply desired LUM/SAT tweaks.
                     uint16_t mod_type = currentEffectsData[indexCounterForEffects];
-                    uint16_t mod_amt = currentEffectsData[indexCounterForEffects + 3];
+                    uint16_t mod_amt = currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3];
 
                     ProcessSecondaryHSLEffects(nUnitId, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
 
@@ -374,5 +374,5 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
     strDebugInfo.Format(L"ProcessAdditionalPaletteChangesRequired: Finished processing supplemental palettes for character 0x%02x, palette number 0x%x\n\n", nUnitId, nChangedPaletteNumber);
     OutputDebugString(strDebugInfo);
 
-    return vstrModifiedPaletteNames.size();
+    return static_cast<int>(vstrModifiedPaletteNames.size());
 }

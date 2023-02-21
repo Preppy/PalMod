@@ -24,7 +24,7 @@ protected:
     static ColMode m_ColorModeOverride;
 
     // We may be navigating over a set of files, so track that total size if we get it
-    static uint32_t m_nLoadedFileViewSize;
+    static size_t m_nLoadedFileViewSize;
 
     static void ResetStaticOverrideVariables();
     static void SetGameNameOverride(LPCSTR paszGameNameString);
@@ -64,5 +64,5 @@ public:
     static ColMode GetExtrasOverrideForColorFormat() { return m_ColorModeOverride; };
     static LPCSTR GetExtrasOverrideForGameName() { return m_paszGameNameOverride; };
 
-    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, uint32_t nGameROMSize, uint8_t cbColorSize = 2);
+    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, size_t nGameROMSize, uint8_t cbColorSize = 2);
 };

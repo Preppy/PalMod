@@ -357,7 +357,7 @@ void CDevModeFilePickerDialog::OnOK()
     OutputDebugString(L"Configuration complete.  Files loaded will be:\r\n");
     for (size_t iFile = 0; iFile < m_psFileLoadingData->rgFileList.size(); iFile++)
     {
-        strDebugInfo.Format(L"\t%u: '%s'\r\n", iFile, m_psFileLoadingData->rgFileList.at(iFile).strFileName.c_str());
+        strDebugInfo.Format(L"\t%u: '%s'\r\n", static_cast<uint32_t>(iFile), m_psFileLoadingData->rgFileList.at(iFile).strFileName.c_str());
         OutputDebugString(strDebugInfo.GetString());
     }
     strDebugInfo.Format(L"\tFile read join type is enum value '%u' for path '%s'\r\n", m_psFileLoadingData->eReadType, m_strFirstFileWithPath.GetString());
@@ -551,7 +551,7 @@ void CGame_DevMode_DIR::SaveLoadingChoices()
 
             if (iFilePos < m_sFileLoadingData.rgFileList.size())
             {
-                RegSetValueEx(hKey, strValueName, 0, REG_SZ, (LPBYTE)m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.c_str(), sizeof(wchar_t) * (m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.length() + 1));
+                RegSetValueEx(hKey, strValueName, 0, REG_SZ, (LPBYTE)m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.c_str(), static_cast<DWORD>(sizeof(wchar_t) * (m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.length() + 1)));
                 
                 strValueName.Format(c_strRegvalFileSizeFormat, iFilePos);
                 

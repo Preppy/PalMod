@@ -106,9 +106,9 @@ template <unsigned B, typename T, typename... U> T bitswap(T val, U... b) noexce
     return bitswap(val, b...);
 }
 
-void sx_decrypt(uint8_t* fixed, uint32_t fixed_size, int value)
+void sx_decrypt(uint8_t* fixed, size_t fixed_size, int value)
 {
-    int sx_size = fixed_size;
+    size_t sx_size = fixed_size;
     uint8_t* rom = fixed;
 
     if (value == 1)
@@ -116,7 +116,7 @@ void sx_decrypt(uint8_t* fixed, uint32_t fixed_size, int value)
         std::vector<uint8_t> buf(sx_size);
         memcpy(&buf[0], rom, sx_size);
 
-        for (int i = 0; i < sx_size; i += 0x10)
+        for (size_t i = 0; i < sx_size; i += 0x10)
         {
             memcpy(&rom[i], &buf[i + 8], 8);
             memcpy(&rom[i + 8], &buf[i], 8);
@@ -124,7 +124,7 @@ void sx_decrypt(uint8_t* fixed, uint32_t fixed_size, int value)
     }
     else if (value == 2)
     {
-        for (int i = 0; i < sx_size; i++)
+        for (size_t i = 0; i < sx_size; i++)
             rom[i] = bitswap<8>(rom[i], 7, 6, 0, 4, 3, 2, 1, 5);
     }
 }
@@ -135,17 +135,17 @@ enum class SVCCryptionChoice
     encryption
 };
 
-void svcplus_px_crypto(uint8_t* cpurom, uint32_t cpurom_size, SVCCryptionChoice direction)
+void svcplus_px_crypto(uint8_t* cpurom, size_t cpurom_size, SVCCryptionChoice direction)
 {
-    static const int sec[] = { 0x00, 0x03, 0x02, 0x05, 0x04, 0x01 };
-    int size = cpurom_size;
+    static const size_t sec[] = { 0x00, 0x03, 0x02, 0x05, 0x04, 0x01 };
+    size_t size = cpurom_size;
     uint8_t* src = cpurom;
     std::vector<uint8_t> dst(size);
 
     memcpy(&dst[0], src, size);
-    for (int i = 0; i < size / 2; i++)
+    for (size_t i = 0; i < size / 2; i++)
     {
-        int ofst = bitswap<24>((i & 0xfffff), 0x17, 0x16, 0x15, 0x14, 0x13, 0x00, 0x01, 0x02,
+        size_t ofst = bitswap<24>((i & 0xfffff), 0x17, 0x16, 0x15, 0x14, 0x13, 0x00, 0x01, 0x02,
             0x0f, 0x0e, 0x0d, 0x0c, 0x0b, 0x0a, 0x09, 0x08,
             0x07, 0x06, 0x05, 0x04, 0x03, 0x10, 0x11, 0x12);
         ofst ^= 0x0f0007;
@@ -154,23 +154,23 @@ void svcplus_px_crypto(uint8_t* cpurom, uint32_t cpurom_size, SVCCryptionChoice 
     }
 
     memcpy(&dst[0], src, size);
-    for (int i = 0; i < 6; i++)
+    for (size_t i = 0; i < 6; i++)
     {
         memcpy(&src[i * 0x100000], &dst[sec[i] * 0x100000], 0x100000);
     }
 }
 
-void svcsplus_px_crypto(uint8_t* cpurom, uint32_t cpurom_size, SVCCryptionChoice direction)
+void svcsplus_px_crypto(uint8_t* cpurom, size_t cpurom_size, SVCCryptionChoice direction)
 {
-    static const int sec[] = { 0x06, 0x07, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00 };
-    int size = cpurom_size;
+    static const size_t sec[] = { 0x06, 0x07, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00 };
+    size_t size = cpurom_size;
     uint8_t* src = cpurom;
     std::vector<uint8_t> dst(size);
 
     memcpy(&dst[0], src, size);
-    for (int i = 0; i < size / 2; i++)
+    for (size_t i = 0; i < size / 2; i++)
     {
-        int ofst = bitswap<16>((i & 0x007fff), 0x0f, 0x00, 0x08, 0x09, 0x0b, 0x0a, 0x0c, 0x0d,
+        size_t ofst = bitswap<16>((i & 0x007fff), 0x0f, 0x00, 0x08, 0x09, 0x0b, 0x0a, 0x0c, 0x0d,
             0x04, 0x03, 0x01, 0x07, 0x06, 0x02, 0x05, 0x0e);
 
         ofst += (i & 0x078000);
@@ -437,7 +437,7 @@ sFileRule CGame_SVCPLUSA_A::GetRule(uint32_t nUnitId)
     // This value is only used for directory-based games
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData.rgFileList.at(0).strFileName.c_str());
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_sFileLoadingData.rgFileList.at(0).nFileSize;
+    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData.rgFileList.at(0).nFileSize);
 
     // SVC has a second differently sized ROM variant, but the area of interest matches
     NewFileRule.fHasAltName = true;
@@ -543,8 +543,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                 if (strMsg.LoadString(IDS_SVC_WARNDECRYPT) &&
                     (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES))
                 {
-                    pPeerFile.Read(decryptedROM, m_nConfirmedROMSize);
-                    LoadedFile->Read(decryptedROM + m_nConfirmedROMSize, m_nConfirmedROMSize);
+                    pPeerFile.Read(decryptedROM, static_cast<UINT>(m_nConfirmedROMSize));
+                    LoadedFile->Read(decryptedROM + m_nConfirmedROMSize, static_cast<UINT>(m_nConfirmedROMSize));
 
                     pPeerFile.Abort();
 
@@ -581,7 +581,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                             m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
-                            memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSizeInColors * 2);
+                            memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], static_cast<size_t>(m_nCurrentPaletteSizeInColors) * 2);
                         }
                     }
                 }
@@ -652,7 +652,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                         LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                         m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
-                        memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSizeInColors * 2);
+                        memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], static_cast<size_t>(m_nCurrentPaletteSizeInColors) * 2);
                     }
                 }
             }
@@ -1013,8 +1013,8 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                         GetHost()->GetPalModDlg()->SetStatusText(IDS_ENCRYPTING_DONE);
                     }
 
-                    pPeerFile.Write(decryptedROM, m_nConfirmedROMSize);
-                    SaveFile->Write(decryptedROM + m_nConfirmedROMSize, m_nConfirmedROMSize);
+                    pPeerFile.Write(decryptedROM, static_cast<UINT>(m_nConfirmedROMSize));
+                    SaveFile->Write(decryptedROM + m_nConfirmedROMSize, static_cast<UINT>(m_nConfirmedROMSize));
 
                     pPeerFile.Abort();
                 }

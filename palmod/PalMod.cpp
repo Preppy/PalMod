@@ -29,7 +29,7 @@ void get_date_when_compiled(tm& buildDate)
 
     constexpr char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";
 
-    buildDate.tm_mon = (strstr(month_names, strMonth.c_str()) - month_names) / 3 + 1;
+    buildDate.tm_mon = static_cast<int>((strstr(month_names, strMonth.c_str()) - month_names) / 3 + 1);
     buildDate.tm_year = year - 1900;
 
     return;
