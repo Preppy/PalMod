@@ -2036,6 +2036,17 @@ enum SupportedNEOGEO_PaletteListIndex
     indexBattleFlipShotSprites_Salmon,      // 0xcc
     indexBattleFlipShotSprites_Siren,       // 0xcd
     indexBattleFlipShotSprites_Bonus,       // 0xce
+
+    indexFightFeverSprites_Chintao,         // 0xcf
+    indexFightFeverSprites_Golrio,          // 0xd0
+    indexFightFeverSprites_HanBaedal,       // 0xd1
+    indexFightFeverSprites_KarataKenji,     // 0xd2
+    indexFightFeverSprites_KimHoon,         // 0xd3
+    indexFightFeverSprites_MagicDunker,     // 0xd4
+    indexFightFeverSprites_MasterTaekuk,    // 0xd5
+    indexFightFeverSprites_Miyuki,          // 0xd6
+    indexFightFeverSprites_NickCommando,    // 0xd7
+    indexFightFeverSprites_RophenHeimer,    // 0xd8
 };
 
 enum SupportedGGXX_PaletteListIndex
@@ -2248,6 +2259,9 @@ enum SupportedFrenchBread_PaletteListIndex
     indexMBAACCSprites_KohaMechKohaku,              // 0x7D #Koha - Mech, Kohaku
     indexMBAACCSprites_NecoMechHisui,               // 0x7E #Neco - Mech, Mech - Hisui
     indexMBAACCSprites_NecoMechNeco,                // 0x7F #Nech - Mech, NecoArc
+
+    indexFrenchBreadSprites_MBTL_Edmond,            // 0x80
+    indexFrenchBreadSprites_MBTL_Ushi,              // 0x81
 };
 
 enum SupportedTaito_PaletteListIndex

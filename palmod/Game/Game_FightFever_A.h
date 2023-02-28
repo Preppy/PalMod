@@ -75,6 +75,7 @@ private:
         90,                         // Count of palettes listed in the header
         0x48240,                    // Lowest known location used for palettes
     };
+
 public:
     CGame_FightFever_A(uint32_t nConfirmedROMSize);
 

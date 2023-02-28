@@ -2,92 +2,103 @@
 
 const std::vector<uint16_t> FightFever_A_IMGIDS_USED =
 {
+    indexFightFeverSprites_Chintao,         // 0xcf
+    indexFightFeverSprites_Golrio,          // 0xd0
+    indexFightFeverSprites_HanBaedal,       // 0xd1
+    indexFightFeverSprites_KarataKenji,     // 0xd2
+    indexFightFeverSprites_KimHoon,         // 0xd3
+    indexFightFeverSprites_MagicDunker,     // 0xd4
+    indexFightFeverSprites_MasterTaekuk,    // 0xd5
+    indexFightFeverSprites_Miyuki,          // 0xd6
+    indexFightFeverSprites_NickCommando,    // 0xd7
+    indexFightFeverSprites_RophenHeimer,    // 0xd8
+
 };
 
 const sGame_PaletteDataset FightFever_A_HAN_PALETTES_A[] =
 {
-    { L"Han Baedal A", 0x48520, 0x48540 },
+    { L"Han Baedal A", 0x48520, 0x48540, indexFightFeverSprites_HanBaedal },
 };
 
 const sGame_PaletteDataset FightFever_A_HAN_PALETTES_B[] =
 {
-    { L"Han Baedal B", 0x48540, 0x48560 },
+    { L"Han Baedal B", 0x48540, 0x48560, indexFightFeverSprites_HanBaedal },
 };
 
 const sGame_PaletteDataset FightFever_A_HAN_PALETTES_C[] =
 {
-    { L"Han Baedal C", 0x48560, 0x48580 },
+    { L"Han Baedal C", 0x48560, 0x48580, indexFightFeverSprites_HanBaedal },
 };
 
 const sGame_PaletteDataset FightFever_A_HAN_PALETTES_D[] =
 {
-    { L"Han Baedal D", 0x48580, 0x485a0 },
+    { L"Han Baedal D", 0x48580, 0x485a0, indexFightFeverSprites_HanBaedal },
 };
 
 //---Miyuki
 
 const sGame_PaletteDataset FightFever_A_MIYUKI_PALETTES_A[] =
 {
-    { L"Miyuki A", 0x485a0, 0x485c0 },
+    { L"Miyuki A", 0x485a0, 0x485c0, indexFightFeverSprites_Miyuki },
 };
 
 const sGame_PaletteDataset FightFever_A_MIYUKI_PALETTES_B[] =
 {
-    { L"Miyuki  B", 0x485c0, 0x485e0 },
+    { L"Miyuki  B", 0x485c0, 0x485e0, indexFightFeverSprites_Miyuki },
 };
 
 const sGame_PaletteDataset FightFever_A_MIYUKI_PALETTES_C[] =
 {
-    { L"Miyuki C", 0x485e0, 0x48600 },
+    { L"Miyuki C", 0x485e0, 0x48600, indexFightFeverSprites_Miyuki },
 };
 
 const sGame_PaletteDataset FightFever_A_MIYUKI_PALETTES_D[] =
 {
-    { L"Miyuki D", 0x48600, 0x48620 },
+    { L"Miyuki D", 0x48600, 0x48620, indexFightFeverSprites_Miyuki },
 };
 
 //---Rophen Heimer
 
 const sGame_PaletteDataset FightFever_A_ROPHEN_PALETTES_A[] =
 {
-    { L"Rophen Heimer A", 0x48620, 0x48640 },
+    { L"Rophen Heimer A", 0x48620, 0x48640, indexFightFeverSprites_RophenHeimer },
 };
 
 const sGame_PaletteDataset FightFever_A_ROPHEN_PALETTES_B[] =
 {
-    { L"Rophen Heimer B", 0x48640, 0x48660 },
+    { L"Rophen Heimer B", 0x48640, 0x48660, indexFightFeverSprites_RophenHeimer },
 };
 
 const sGame_PaletteDataset FightFever_A_ROPHEN_PALETTES_C[] =
 {
-    { L"Rophen Heimer C", 0x48660, 0x48680 },
+    { L"Rophen Heimer C", 0x48660, 0x48680, indexFightFeverSprites_RophenHeimer },
 };
 
 const sGame_PaletteDataset FightFever_A_ROPHEN_PALETTES_D[] =
 {
-    { L"Rophen Heimer D", 0x48680, 0x486a0 },
+    { L"Rophen Heimer D", 0x48680, 0x486a0, indexFightFeverSprites_RophenHeimer },
 };
 
 //---Magic Dunker
 
 const sGame_PaletteDataset FightFever_A_MAGIC_PALETTES_A[] =
 {
-    { L"Magic Dunker A", 0x48460, 0x48480 },
+    { L"Magic Dunker A", 0x48460, 0x48480, indexFightFeverSprites_MagicDunker },
 };
 
 const sGame_PaletteDataset FightFever_A_MAGIC_PALETTES_B[] =
 {
-    { L"Magic Dunker B", 0x48480, 0x484a0 },
+    { L"Magic Dunker B", 0x48480, 0x484a0, indexFightFeverSprites_MagicDunker },
 };
 
 const sGame_PaletteDataset FightFever_A_MAGIC_PALETTES_C[] =
 {
-    { L"Magic Dunker C", 0x484a0, 0x484c0 },
+    { L"Magic Dunker C", 0x484a0, 0x484c0, indexFightFeverSprites_MagicDunker },
 };
 
 const sGame_PaletteDataset FightFever_A_MAGIC_PALETTES_D[] =
 {
-    { L"Magic Dunker D", 0x484c0, 0x484e0 },
+    { L"Magic Dunker D", 0x484c0, 0x484e0, indexFightFeverSprites_MagicDunker },
 };
 
 const sGame_PaletteDataset FightFever_A_MAGIC_PALETTES_SHARED[] =
@@ -99,122 +110,122 @@ const sGame_PaletteDataset FightFever_A_MAGIC_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset FightFever_A_GOLRIO_PALETTES_A[] =
 {
-    { L"Golrio A", 0x486a0, 0x486c0 },
+    { L"Golrio A", 0x486a0, 0x486c0, indexFightFeverSprites_Golrio },
 };
 
 const sGame_PaletteDataset FightFever_A_GOLRIO_PALETTES_B[] =
 {
-    { L"Golrio B", 0x486c0, 0x486e0 },
+    { L"Golrio B", 0x486c0, 0x486e0, indexFightFeverSprites_Golrio },
 };
 
 const sGame_PaletteDataset FightFever_A_GOLRIO_PALETTES_C[] =
 {
-    { L"Golrio C", 0x486e0, 0x48700 },
+    { L"Golrio C", 0x486e0, 0x48700, indexFightFeverSprites_Golrio },
 };
 
 const sGame_PaletteDataset FightFever_A_GOLRIO_PALETTES_D[] =
 {
-    { L"Golrio D", 0x48700, 0x48720 },
+    { L"Golrio D", 0x48700, 0x48720, indexFightFeverSprites_Golrio },
 };
 
 //---Kim Hoon
 
 const sGame_PaletteDataset FightFever_A_KIM_PALETTES_A[] =
 {
-    { L"Kim Hoon A", 0x48820, 0x48840 },
+    { L"Kim Hoon A", 0x48820, 0x48840, indexFightFeverSprites_KimHoon },
 };
 
 const sGame_PaletteDataset FightFever_A_KIM_PALETTES_B[] =
 {
-    { L"Kim Hoon B", 0x48840, 0x48860 },
+    { L"Kim Hoon B", 0x48840, 0x48860, indexFightFeverSprites_KimHoon },
 };
 
 const sGame_PaletteDataset FightFever_A_KIM_PALETTES_C[] =
 {
-    { L"Kim Hoon C", 0x48860, 0x48880 },
+    { L"Kim Hoon C", 0x48860, 0x48880, indexFightFeverSprites_KimHoon },
 };
 
 const sGame_PaletteDataset FightFever_A_KIM_PALETTES_D[] =
 {
-    { L"Kim Hoon D", 0x48880, 0x488a0 },
+    { L"Kim Hoon D", 0x48880, 0x488a0, indexFightFeverSprites_KimHoon },
 };
 
 //---Chintao
 
 const sGame_PaletteDataset FightFever_A_CHINTAO_PALETTES_A[] =
 {
-    { L"Chintao A", 0x487a0, 0x487c0 },
+    { L"Chintao A", 0x487a0, 0x487c0, indexFightFeverSprites_Chintao },
 };
 
 const sGame_PaletteDataset FightFever_A_CHINTAO_PALETTES_B[] =
 {
-    { L"Chintao B", 0x487c0, 0x487e0 },
+    { L"Chintao B", 0x487c0, 0x487e0, indexFightFeverSprites_Chintao },
 };
 
 const sGame_PaletteDataset FightFever_A_CHINTAO_PALETTES_C[] =
 {
-    { L"Chintao C", 0x487e0, 0x48800 },
+    { L"Chintao C", 0x487e0, 0x48800, indexFightFeverSprites_Chintao },
 };
 
 const sGame_PaletteDataset FightFever_A_CHINTAO_PALETTES_D[] =
 {
-    { L"Chintao D", 0x48800, 0x48820 },
+    { L"Chintao D", 0x48800, 0x48820, indexFightFeverSprites_Chintao },
 };
 
 //---Nick Commando
 
 const sGame_PaletteDataset FightFever_A_NICK_PALETTES_A[] =
 {
-    { L"Nick Commando A", 0x48720, 0x48740 },
+    { L"Nick Commando A", 0x48720, 0x48740, indexFightFeverSprites_NickCommando },
 };
 
 const sGame_PaletteDataset FightFever_A_NICK_PALETTES_B[] =
 {
-    { L"Nick Commando B", 0x48740, 0x48760 },
+    { L"Nick Commando B", 0x48740, 0x48760, indexFightFeverSprites_NickCommando },
 };
 
 const sGame_PaletteDataset FightFever_A_NICK_PALETTES_C[] =
 {
-    { L"Nick Commando C", 0x48760, 0x48780 },
+    { L"Nick Commando C", 0x48760, 0x48780, indexFightFeverSprites_NickCommando },
 };
 
 const sGame_PaletteDataset FightFever_A_NICK_PALETTES_D[] =
 {
-    { L"Nick Commando D", 0x48780, 0x487a0 },
+    { L"Nick Commando D", 0x48780, 0x487a0, indexFightFeverSprites_NickCommando },
 };
 
 //---Master Taekuk
 
 const sGame_PaletteDataset FightFever_A_MASTER_PALETTES_A[] =
 {
-    { L"Master Taekuk A", 0x488a0, 0x488c0 },
+    { L"Master Taekuk A", 0x488a0, 0x488c0, indexFightFeverSprites_MasterTaekuk },
 };
 
 const sGame_PaletteDataset FightFever_A_MASTER_PALETTES_B[] =
 {
-    { L"Master Taekuk B", 0x488c0, 0x488e0 },
+    { L"Master Taekuk B", 0x488c0, 0x488e0, indexFightFeverSprites_MasterTaekuk },
 };
 
 const sGame_PaletteDataset FightFever_A_MASTER_PALETTES_C[] =
 {
-    { L"Master Taekuk C", 0x488e0, 0x48900 },
+    { L"Master Taekuk C", 0x488e0, 0x48900, indexFightFeverSprites_MasterTaekuk },
 };
 
 const sGame_PaletteDataset FightFever_A_MASTER_PALETTES_D[] =
 {
-    { L"Master Taekuk D", 0x48900, 0x48920 },
+    { L"Master Taekuk D", 0x48900, 0x48920, indexFightFeverSprites_MasterTaekuk },
 };
 
 //---Karate Kenji
 
 const sGame_PaletteDataset FightFever_A_KARATE_PALETTES_A[] =
 {
-    { L"Karate Kenji A", 0x484e0, 0x48500 },
+    { L"Karate Kenji A", 0x484e0, 0x48500, indexFightFeverSprites_KarataKenji },
 };
 
 const sGame_PaletteDataset FightFever_A_KARATE_PALETTES_B[] =
 {
-    { L"Karate Kenji B", 0x48500, 0x48520 },
+    { L"Karate Kenji B", 0x48500, 0x48520, indexFightFeverSprites_KarataKenji },
 };
 
 const sGame_PaletteDataset FightFever_A_KARATE_PALETTES_SHARED[] =
@@ -228,10 +239,10 @@ const sGame_PaletteDataset FightFever_A_BONUS_PALETTES_INTRO[] =
     { L"THE 100MEGA SHOCK", 0x49160, 0x49180 },
     { L"Intro Background (1/2)", 0x48b20, 0x48b80 },
     { L"Intro Background (2/2)", 0x48fe0, 0x49000 },
-    { L"Intro Taekuk", 0x48dc0, 0x48de0 },
+    { L"Intro Taekuk", 0x48dc0, 0x48de0, indexFightFeverSprites_MasterTaekuk },
     { L"Intro Text", 0x49120, 0x49140 },
     { L"Han Baedal, Kim Hoon, Master Taekuk - Ending", 0x49920, 0x49940 },
-    { L"Miyuki - Ending", 0x499a0, 0x499c0 },
+    { L"Miyuki - Ending", 0x499a0, 0x499c0, indexFightFeverSprites_Miyuki },
     { L"Rophen Heimer - Ending", 0x499c0, 0x499e0 },
     { L"Magic Dunker - Ending", 0x49140, 0x49160 },
     { L"Golrio - Ending", 0x49a00, 0x49a20 },

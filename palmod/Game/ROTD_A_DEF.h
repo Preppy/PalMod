@@ -486,9 +486,9 @@ const sGame_PaletteDataset ROTD_A_RADEL_PORTRAITS[] =
 const sGame_PaletteDataset ROTD_A_LYNN_A[] =
 {
     { L"Lynn A", 0x082b16, 0x082b36, indexRotDSprites_Lynn, 0x00 },
-    { L"Chi Energy A", 0x082b36, 0x082b56 },
-    { L"Tobi Ryu A", 0x082b56, 0x082b76 },
-    { L"Koo Ryu Shozanha A", 0x082b76, 0x082b96 },
+    { L"Chi Energy A", 0x082b36, 0x082b56, indexRotDSprites_Lynn, 0x01 },
+    { L"Tobi Ryu A", 0x082b56, 0x082b76, indexRotDSprites_Lynn, 0x03 },
+    { L"Koo Ryu Shozanha A", 0x082b76, 0x082b96, indexRotDSprites_Lynn, 0x02 },
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x082c16, 0x082c36, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail A", 0x082c36, 0x082c56, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail A", 0x082c56, 0x082c76, indexRotDSprites_Lynn, 0x00 },
@@ -499,9 +499,9 @@ const sGame_PaletteDataset ROTD_A_LYNN_A[] =
 const sGame_PaletteDataset ROTD_A_LYNN_B[] =
 {
     { L"Lynn B", 0x082c76, 0x082c96, indexRotDSprites_Lynn, 0x00 },
-    { L"Chi Energy B", 0x082c96, 0x082cb6 },
-    { L"Tobi Ryu B", 0x082cb6, 0x082cd6 },
-    { L"Koo Ryu Shozanha B", 0x082cd6, 0x082cf6 },
+    { L"Chi Energy B", 0x082c96, 0x082cb6, indexRotDSprites_Lynn, 0x01 },
+    { L"Tobi Ryu B", 0x082cb6, 0x082cd6, indexRotDSprites_Lynn, 0x03 },
+    { L"Koo Ryu Shozanha B", 0x082cd6, 0x082cf6, indexRotDSprites_Lynn, 0x02 },
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x082d56, 0x082d76, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail B", 0x082d76, 0x082d96, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail B", 0x082d96, 0x082db6, indexRotDSprites_Lynn, 0x00 },
@@ -512,9 +512,9 @@ const sGame_PaletteDataset ROTD_A_LYNN_B[] =
 const sGame_PaletteDataset ROTD_A_LYNN_C[] =
 {
     { L"Lynn C", 0x082db6, 0x082dd6, indexRotDSprites_Lynn, 0x00 },
-    { L"Chi Energy C", 0x082dd6, 0x082df6 },
-    { L"Tobi Ryu C", 0x082df6, 0x082e16 },
-    { L"Koo Ryu Shozanha C", 0x082e16, 0x082e36 },
+    { L"Chi Energy C", 0x082dd6, 0x082df6, indexRotDSprites_Lynn, 0x01 },
+    { L"Tobi Ryu C", 0x082df6, 0x082e16, indexRotDSprites_Lynn, 0x03 },
+    { L"Koo Ryu Shozanha C", 0x082e16, 0x082e36, indexRotDSprites_Lynn, 0x02 },
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x082e96, 0x082eb6, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail C", 0x082eb6, 0x082ed6, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail C", 0x082ed6, 0x082ef6, indexRotDSprites_Lynn, 0x00 },
@@ -525,9 +525,9 @@ const sGame_PaletteDataset ROTD_A_LYNN_C[] =
 const sGame_PaletteDataset ROTD_A_LYNN_D[] =
 {
     { L"Lynn D", 0x082ef6, 0x082f16, indexRotDSprites_Lynn, 0x00 },
-    { L"Chi Energy D", 0x082f16, 0x082f36 },
-    { L"Tobi Ryu D", 0x082f36, 0x082f56 },
-    { L"Koo Ryu Shozanha D", 0x082f56, 0x082f76 },
+    { L"Chi Energy D", 0x082f16, 0x082f36, indexRotDSprites_Lynn, 0x01 },
+    { L"Tobi Ryu D", 0x082f36, 0x082f56, indexRotDSprites_Lynn, 0x03 },
+    { L"Koo Ryu Shozanha D", 0x082f56, 0x082f76, indexRotDSprites_Lynn, 0x02 },
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x082fd6, 0x082ff6, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail D", 0x082ff6, 0x083016, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail D", 0x083016, 0x083036, indexRotDSprites_Lynn, 0x00 },

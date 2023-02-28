@@ -23,8 +23,8 @@ const std::vector<uint16_t> MBTL_A_IMGIDS_USED =
     indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
     indexFrenchBreadSprites_MBTL_Neco,              // 0x7A
     indexFrenchBreadSprites_MBTL_Mash,              // 0x7B
-    //indexFrenchBreadSprites_MBTL_Ushi,            // 0x80
-    //indexFrenchBreadSprites_MBTL_Edward,          // 0x81
+    indexFrenchBreadSprites_MBTL_Edmond,            // 0x80 aka The Count
+    indexFrenchBreadSprites_MBTL_Ushi,              // 0x81
 };
 
 const std::vector<LPCWSTR> MBTLButtonLabelsNormal =
@@ -136,8 +136,8 @@ const std::vector<sGCBUPF_BasicFileData> MBTLCharacterData =
     { L"data\\_csel\\Chr005.pal",       L"Roa",                                    61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10, indexFrenchBreadSprites_MBTL_Roa },
     { L"data\\_csel\\Chr012.pal",       L"Saber",                                  61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10, indexFrenchBreadSprites_MBTL_Saber },
     { L"data\\_csel\\Chr003.pal",       L"Shiki Tohno",                            61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10, indexFrenchBreadSprites_MBTL_Shiki },
-    { L"data\\_csel\\Chr022.pal",       L"The Count of Monte Cristo",              61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10 },
-    { L"data\\_csel\\Chr021.pal",       L"Ushiwakamaru",                           61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10 },
+    { L"data\\_csel\\Chr022.pal",       L"The Count of Monte Cristo",              61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10, indexFrenchBreadSprites_MBTL_Edmond },
+    { L"data\\_csel\\Chr021.pal",       L"Ushiwakamaru",                           61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10, indexFrenchBreadSprites_MBTL_Ushi },
     { L"data\\_csel\\Chr009.pal",       L"Vlov",                                   61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10, indexFrenchBreadSprites_MBTL_Vlov },
 
     { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,       0x10, indexFrenchBreadSprites_MBTL_Ciel, 0x01 },
