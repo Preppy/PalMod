@@ -25,52 +25,52 @@ const std::vector<uint16_t> ROTD_A_IMGIDS_USED =
 
 const sGame_PaletteDataset ROTD_A_BILLY_A[] =
 {
-    { L"Billy A", 0x080406, 0x080426, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
-    { L"Weak Cross Slasher A", 0x080426, 0x080446, indexRotDSprites_Billy, 0x02 },
-    { L"Strong Cross Slasher A", 0x080446, 0x080466, indexRotDSprites_Billy, 0x03 },
-    { L"Lightning Energy A", 0x080466, 0x080486, indexRotDSprites_Billy, 0x01 },
-    { L"Rolling/Super Jump/Impact Combo Trail A", 0x0804e6, 0x080506, indexRotDSprites_Billy, 0x04 },
-    { L"EX/Super Trail A", 0x080506, 0x080526, indexRotDSprites_Billy, 0x04 },
-    { L"Guard Cancel Trail A", 0x080526, 0x080546, indexRotDSprites_Billy, 0x04 },
+    { L"Billy A", 0x080406, 0x080426, indexRotDSprites_Billy, 0x00 },
+    { L"Weak Cross Slasher A", 0x080426, 0x080446, indexRotDSprites_Billy, 0x06 },
+    { L"Strong Cross Slasher A", 0x080446, 0x080466, indexRotDSprites_Billy, 0x05 },
+    { L"Lightning Energy A", 0x080466, 0x080486, indexRotDSprites_Billy, 0x04 },
+    { L"Rolling/Super Jump/Impact Combo Trail A", 0x0804e6, 0x080506, indexRotDSprites_Billy, 0x00 },
+    { L"EX/Super Trail A", 0x080506, 0x080526, indexRotDSprites_Billy, 0x00 },
+    { L"Guard Cancel Trail A", 0x080526, 0x080546, indexRotDSprites_Billy, 0x00 },
     { L"Normal Hud A", 0x0804c6, 0x0804e6, indexRotDSprites_Billy, 0x81 },
     { L"Charging/Defeated Hud A", 0x0804a6, 0x0804c6, indexRotDSprites_Billy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_BILLY_B[] =
 {
-    { L"Billy B", 0x080546, 0x080566, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
-    { L"Weak Cross Slasher B", 0x080566, 0x080586, indexRotDSprites_Billy, 0x02 },
-    { L"Strong Cross Slasher B", 0x080586, 0x0805a6, indexRotDSprites_Billy, 0x03 },
-    { L"Lightning Energy B", 0x0805a6, 0x0805c6, indexRotDSprites_Billy, 0x01 },
-    { L"Rolling/Super Jump/Impact Combo Trail B", 0x080606, 0x080626, indexRotDSprites_Billy, 0x04 },
-    { L"EX/Super Trail B", 0x080626, 0x080646, indexRotDSprites_Billy, 0x04 },
-    { L"Guard Cancel Trail B", 0x080646, 0x080666, indexRotDSprites_Billy, 0x04 },
+    { L"Billy B", 0x080546, 0x080566, indexRotDSprites_Billy, 0x00 },
+    { L"Weak Cross Slasher B", 0x080566, 0x080586, indexRotDSprites_Billy, 0x06 },
+    { L"Strong Cross Slasher B", 0x080586, 0x0805a6, indexRotDSprites_Billy, 0x05 },
+    { L"Lightning Energy B", 0x0805a6, 0x0805c6, indexRotDSprites_Billy, 0x04 },
+    { L"Rolling/Super Jump/Impact Combo Trail B", 0x080606, 0x080626, indexRotDSprites_Billy, 0x00 },
+    { L"EX/Super Trail B", 0x080626, 0x080646, indexRotDSprites_Billy, 0x00 },
+    { L"Guard Cancel Trail B", 0x080646, 0x080666, indexRotDSprites_Billy, 0x00 },
     { L"Normal Hud B", 0x0805e6, 0x080606, indexRotDSprites_Billy, 0x81 },
     { L"Charging/Defeated Hud B", 0x0805c6, 0x0805e6, indexRotDSprites_Billy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_BILLY_C[] =
 {
-    { L"Billy C", 0x080666, 0x080686, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
-    { L"Weak Cross Slasher C", 0x080686, 0x0806a6, indexRotDSprites_Billy, 0x02 },
-    { L"Strong Cross Slasher C", 0x0806a6, 0x0806c6, indexRotDSprites_Billy, 0x03 },
-    { L"Lightning Energy C", 0x0806c6, 0x0806e6, indexRotDSprites_Billy, 0x01 },
-    { L"Rolling/Super Jump/Impact Combo Trail C", 0x080726, 0x080746, indexRotDSprites_Billy, 0x04 },
-    { L"EX/Super Trail C", 0x080746, 0x080766, indexRotDSprites_Billy, 0x04 },
-    { L"Guard Cancel Trail C", 0x080766, 0x080786, indexRotDSprites_Billy, 0x04 },
+    { L"Billy C", 0x080666, 0x080686, indexRotDSprites_Billy, 0x00 },
+    { L"Weak Cross Slasher C", 0x080686, 0x0806a6, indexRotDSprites_Billy, 0x06 },
+    { L"Strong Cross Slasher C", 0x0806a6, 0x0806c6, indexRotDSprites_Billy, 0x05 },
+    { L"Lightning Energy C", 0x0806c6, 0x0806e6, indexRotDSprites_Billy, 0x04 },
+    { L"Rolling/Super Jump/Impact Combo Trail C", 0x080726, 0x080746, indexRotDSprites_Billy, 0x00 },
+    { L"EX/Super Trail C", 0x080746, 0x080766, indexRotDSprites_Billy, 0x00 },
+    { L"Guard Cancel Trail C", 0x080766, 0x080786, indexRotDSprites_Billy, 0x00 },
     { L"Normal Hud C", 0x080706, 0x080726 },
     { L"Charging/Defeated Hud C", 0x0806e6, 0x080706 },
 };
 
 const sGame_PaletteDataset ROTD_A_BILLY_D[] =
 {
-    { L"Billy D", 0x080786, 0x0807a6, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
-    { L"Weak Cross Slasher D", 0x0807a6, 0x0807c6, indexRotDSprites_Billy, 0x02 },
-    { L"Strong Cross Slasher D", 0x0807c6, 0x0807e6, indexRotDSprites_Billy, 0x03 },
-    { L"Lightning Energy D", 0x0807e6, 0x080806, indexRotDSprites_Billy, 0x01 },
-    { L"Rolling/Super Jump/Impact Combo Trail D", 0x080846, 0x080866, indexRotDSprites_Billy, 0x04 },
-    { L"EX/Super Trail D", 0x080866, 0x080886, indexRotDSprites_Billy, 0x04 },
-    { L"Guard Cancel Trail D", 0x080886, 0x0808a6, indexRotDSprites_Billy, 0x04 },
+    { L"Billy D", 0x080786, 0x0807a6, indexRotDSprites_Billy, 0x00 },
+    { L"Weak Cross Slasher D", 0x0807a6, 0x0807c6, indexRotDSprites_Billy, 0x06 },
+    { L"Strong Cross Slasher D", 0x0807c6, 0x0807e6, indexRotDSprites_Billy, 0x05 },
+    { L"Lightning Energy D", 0x0807e6, 0x080806, indexRotDSprites_Billy, 0x04 },
+    { L"Rolling/Super Jump/Impact Combo Trail D", 0x080846, 0x080866, indexRotDSprites_Billy, 0x00 },
+    { L"EX/Super Trail D", 0x080866, 0x080886, indexRotDSprites_Billy, 0x00 },
+    { L"Guard Cancel Trail D", 0x080886, 0x0808a6, indexRotDSprites_Billy, 0x00 },
     { L"Normal Hud D", 0x080826, 0x080846 },
     { L"Charging/Defeated Hud D", 0x080806, 0x080826 },
 };
