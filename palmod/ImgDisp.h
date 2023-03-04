@@ -42,6 +42,14 @@ enum class SpriteImportDirection { TopDown, UpsideDown };
 
 class CImgDisp : public CWnd
 {
+public:
+    enum class BlendMode
+    {
+        Alpha,
+        AdditiveRGB,    // Linear dodge
+        AdditiveARGB,
+    };
+
 private:
     sImgNode* m_pImgBuffer[MAX_IMAGES_DISPLAYABLE] = {};
     int m_nImgAmt = 0;
@@ -125,6 +133,8 @@ private:
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
 
+    BlendMode m_eBlendMode = BlendMode::AdditiveARGB;
+
 public:
     CImgDisp();
     ~CImgDisp();
@@ -143,6 +153,8 @@ public:
     void CenterImg() { ModifySrcRect(); };
 
     void SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette);
+    void SetBlendMode(BlendMode newMode) { m_eBlendMode = newMode; UpdateCtrl(); };
+    BlendMode GetBlendMode() { return m_eBlendMode; };
 
     BOOL IsBGTiled() { return m_fShouldTileBGBmp; };
     BOOL IsUsingBGCol() { return m_fShouldUseBGCol; };

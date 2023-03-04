@@ -696,6 +696,12 @@ BEGIN
         MENUITEM "Set Background Image",        ID_SETTINGS_SETBACKGROUNDIMAGE
         MENUITEM "Set Blink Color",             ID_SETTINGS_SETBLINKCOLOR
         MENUITEM SEPARATOR
+        POPUP "Blend Mode"
+        BEGIN
+            MENUITEM "Alpha (Normal)"           ID_SETTINGS_BLENDALPHA
+            MENUITEM "Additive"                 ID_SETTINGS_BLENDADD
+        END
+        MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS
         MENUITEM "Use Background Color",        ID_SETTINGS_USEBGCOLOR
         MENUITEM "Tile Image Background",       ID_SETTINGS_TILEIMAGEBACKGROUND

@@ -901,16 +901,43 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                 }
                 else
                 {
-                    double fpDstA2 = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
-                    double fpDstA1 = 1.0 - fpDstA2;
-
                     uint8_t* uDstR = &pDstBmpData[nDstPos + 2];
                     uint8_t* uDstG = &pDstBmpData[nDstPos + 1];
                     uint8_t* uDstB = &pDstBmpData[nDstPos];
 
-                    *uDstR = static_cast<uint8_t>(aadd((fpDstA1 * static_cast<double>(pCurrPal[nCurrentColorPosition])), (fpDstA2 * static_cast<double>(*uDstR))));
-                    *uDstG = static_cast<uint8_t>(aadd((fpDstA1 * static_cast<double>(pCurrPal[nCurrentColorPosition + 1])), (fpDstA2 * static_cast<double>(*uDstG))));
-                    *uDstB = static_cast<uint8_t>(aadd((fpDstA1 * static_cast<double>(pCurrPal[nCurrentColorPosition + 2])), (fpDstA2 * static_cast<double>(*uDstB))));
+                    switch (m_eBlendMode)
+                    {
+                        case BlendMode::Alpha: // alpha blend
+                        {
+                            const double fpAlphaBackground = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
+                            const double fpAlphaForeground = 1.0 - fpAlphaBackground;
+
+                            *uDstR = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition    ])), (fpAlphaBackground * static_cast<double>(*uDstR))));
+                            *uDstG = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 1])), (fpAlphaBackground * static_cast<double>(*uDstG))));
+                            *uDstB = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 2])), (fpAlphaBackground * static_cast<double>(*uDstB))));
+                            break;
+                        }
+                        case BlendMode::AdditiveRGB: // additive / linear dodge
+                        {
+                            *uDstR = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(pCurrPal[nCurrentColorPosition    ]) + static_cast<uint16_t>(*uDstR))));
+                            *uDstG = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(pCurrPal[nCurrentColorPosition + 1]) + static_cast<uint16_t>(*uDstG))));
+                            *uDstB = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(pCurrPal[nCurrentColorPosition + 2]) + static_cast<uint16_t>(*uDstB))));
+                            break;
+                        }
+                        case BlendMode::AdditiveARGB:
+                        {
+                            const double fpAlphaBackground = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
+                            const double fpAlphaForeground = 1.0 - fpAlphaBackground;
+
+                            const uint8_t uBlendedR = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition     ])), (fpAlphaBackground * static_cast<double>(*uDstR))));
+                            const uint8_t uBlendedG = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 1])), (fpAlphaBackground * static_cast<double>(*uDstG))));
+                            const uint8_t uBlendedB = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 2])), (fpAlphaBackground * static_cast<double>(*uDstB))));
+
+                            *uDstR = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(uBlendedR) + static_cast<uint16_t>(*uDstR))));
+                            *uDstG = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(uBlendedG) + static_cast<uint16_t>(*uDstG))));
+                            *uDstB = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(uBlendedB) + static_cast<uint16_t>(*uDstB))));
+                        }
+                    }
                 }
             }
         }

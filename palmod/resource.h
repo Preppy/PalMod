@@ -376,6 +376,8 @@
 #define ID_LD_DEVMODE                   32943
 #define ID_COLORFORMAT_BRG555_LE        32944
 #define ID_LD_GGXXACP_Wii               32945
+#define ID_SETTINGS_BLENDALPHA          32946
+#define ID_SETTINGS_BLENDADD            32947
 
 // Next default values for new objects
 // 

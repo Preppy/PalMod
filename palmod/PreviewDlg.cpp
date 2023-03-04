@@ -31,6 +31,12 @@ void CPreviewDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_WM_SHOWWINDOW()
     ON_WM_SIZE()
+    ON_WM_MOUSEWHEEL()
+    ON_WM_CLOSE()
+    ON_WM_DESTROY()
+    ON_WM_CREATE()
+    ON_WM_INITMENUPOPUP()
+
     ON_COMMAND(ID_ZOOM_1X, &CPreviewDlg::OnZoom1x)
     ON_COMMAND(ID_ZOOM_2X, &CPreviewDlg::OnZoom2x)
     ON_COMMAND(ID_ZOOM_3X, &CPreviewDlg::OnZoom3x)
@@ -39,24 +45,25 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_ZOOM_6X, &CPreviewDlg::OnZoom6x)
     ON_COMMAND(ID_ZOOM_7X, &CPreviewDlg::OnZoom7x)
     ON_COMMAND(ID_ZOOM_8X, &CPreviewDlg::OnZoom8x)
+
+    ON_COMMAND(ID_FILE_CLOSE, &CPreviewDlg::OnFileClose)
+    ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
+    ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSpriteForZero)
+    ON_COMMAND(ID_FILE_LOADSPRITEFLIPPED, &CPreviewDlg::OnLoadCustomSpriteForZeroFlipped)
+
     ON_COMMAND(ID_SETTINGS_BLINKINVERTS, &CPreviewDlg::OnSetBlinkInverts)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBackgroundCol)
     ON_COMMAND(ID_SETTINGS_SETBLINKCOLOR, &CPreviewDlg::OnSetBlinkCol)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBackgroundImage)
+
     ON_COMMAND(ID_ACC_ADDZOOM, &CPreviewDlg::AddZoom)
     ON_COMMAND(ID_ACC_SUBZOOM, &CPreviewDlg::SubZoom)
 
-    ON_WM_MOUSEWHEEL()
-    ON_WM_CLOSE()
-    ON_WM_DESTROY()
-    ON_WM_CREATE()
-    ON_COMMAND(ID_FILE_CLOSE, &CPreviewDlg::OnFileClose)
+    ON_COMMAND(ID_SETTINGS_BLENDALPHA, &CPreviewDlg::SetBlendToAlpha)
+    ON_COMMAND(ID_SETTINGS_BLENDADD, &CPreviewDlg::SetBlendToAdd)
+
     ON_COMMAND(ID_SETTINGS_TILEIMAGEBACKGROUND, &CPreviewDlg::OnTileBackground)
-    ON_WM_INITMENUPOPUP()
     ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBackgroundOffset)
-    ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
-    ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSpriteForZero)
-    ON_COMMAND(ID_FILE_LOADSPRITEFLIPPED, &CPreviewDlg::OnLoadCustomSpriteForZeroFlipped)
     ON_COMMAND(ID_SETTINGS_USEBGCOLOR, &CPreviewDlg::OnSettingsUseBackgroundColor)
     ON_COMMAND(ID_SETTINGS_CLICKANDFIND, &CPreviewDlg::OnSettingsClickToFindColor)
 
@@ -447,6 +454,9 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
+
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDALPHA, (m_ImgDisp.GetBlendMode() == CImgDisp::BlendMode::Alpha) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDADD,   (m_ImgDisp.GetBlendMode() == CImgDisp::BlendMode::AdditiveARGB) ? MF_CHECKED : MF_UNCHECKED);
     }
 
     CMenu* pZoomMenu = GetMenu()->GetSubMenu(2); //2 = Zoom menu
