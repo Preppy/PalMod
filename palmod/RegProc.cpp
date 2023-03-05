@@ -460,34 +460,41 @@ void CRegProc::LoadReg(eRegistryStoreID src)
         case eRegistryStoreID::REG_PREV:
         {
             RegType = REG_DWORD;
-            GetSz = sizeof(BOOL); //int is same size as bool, so...
-            static_assert(sizeof(BOOL) == sizeof(int));
 
+            GetSz = sizeof(prev_bgcol);
             if (RegQueryValueEx(hKey, L"prev_bgcol", 0, &RegType, (BYTE*)&prev_bgcol, &GetSz) != ERROR_SUCCESS)
                 prev_bgcol = RGB(0xd0, 0xd0, 0xd0); // Default to grey background
 
+            GetSz = sizeof(prev_blinkcol);
             if (RegQueryValueEx(hKey, L"prev_blinkcol", 0, &RegType, (BYTE*)&prev_blinkcol, &GetSz) != ERROR_SUCCESS)
                 prev_blinkcol = RGB(255, 255, 255); // Default to white blink
 
+            GetSz = sizeof(prev_blinkinverts);
             if (RegQueryValueEx(hKey, L"prev_blinkinverts", 0, &RegType, (BYTE*)&prev_blinkinverts, &GetSz) != ERROR_SUCCESS)
                 prev_blinkinverts = FALSE; // Default to non-inverting blink
 
+            GetSz = sizeof(fTileBG);
             if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, (BYTE*)&fTileBG, &GetSz) != ERROR_SUCCESS)
                 fTileBG = TRUE;
 
+            GetSz = sizeof(nBGXOffs);
             if (RegQueryValueEx(hKey, L"PreviewBGXOffset", 0, &RegType, (BYTE*)&nBGXOffs, &GetSz) != ERROR_SUCCESS)
                 nBGXOffs = 0;
 
+            GetSz = sizeof(nBGYOffs);
             if (RegQueryValueEx(hKey, L"PreviewBGYOffset", 0, &RegType, (BYTE*)&nBGYOffs, &GetSz) != ERROR_SUCCESS)
                 nBGYOffs = 0;
 
+            GetSz = sizeof(fUseBGCol);
             if (RegQueryValueEx(hKey, L"UseBGCol", 0, &RegType, (BYTE*)&fUseBGCol, &GetSz) != ERROR_SUCCESS)
                 fUseBGCol = TRUE;
 
+            GetSz = sizeof(fClickToFind);
             if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, (BYTE*)&fClickToFind, &GetSz) != ERROR_SUCCESS)
                 fClickToFind = TRUE;
 
             int nTranslation = 1;
+            GetSz = sizeof(nTranslation);
             if (RegQueryValueEx(hKey, L"PreviewZoom", 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
             {
                 dPreviewZoom = (double)nTranslation;
