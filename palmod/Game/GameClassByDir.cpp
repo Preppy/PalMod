@@ -430,7 +430,6 @@ void CGameClassByDir::SetValidatedFileReadType()
         {
             m_eValidatedFileJoinType = FileReadType::Sequential;
         }
-
         break;
     }
 
@@ -438,6 +437,32 @@ void CGameClassByDir::SetValidatedFileReadType()
     {
         MessageBox(g_appHWnd, L"ERROR: Unsupported file join type: invalid number of files specified.  This won't work right so we will use Sequential loading for now.", GetHost()->GetAppName(), MB_ICONERROR);
     }
+}
+
+int CGameClassByDir::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
+{
+    int nTotalPalettesChanged = 0;
+
+    if (nUnitId < m_rgCurrentGameUnits.size())
+    {
+        CString strMessage;
+        strMessage.Format(L"CGameClassByDir::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+        OutputDebugString(strMessage);
+
+        const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+
+        if (pThisPalette && pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+        {
+            OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+            nTotalPalettesChanged = ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+        }
+        else
+        {
+            OutputDebugString(L"\tNo further processing needed.\n");
+        }
+    }
+
+    return nTotalPalettesChanged;
 }
 
 BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)

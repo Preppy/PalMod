@@ -124,6 +124,4 @@ public:
     BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
 
     static sFileRule GetRule(uint32_t nRuleId);
-
-    int PostSetPal(uint32_t nUnitId, uint32_t nPalId);
 };

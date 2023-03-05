@@ -37,6 +37,4 @@ public:
     CGame_SFIII1_A(uint32_t nConfirmedROMSize, bool fUseNormalData = true) { if (fUseNormalData) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); } };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
-
-    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 };

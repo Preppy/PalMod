@@ -81,7 +81,5 @@ private:
 public:
     CGame_COTA_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
-
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

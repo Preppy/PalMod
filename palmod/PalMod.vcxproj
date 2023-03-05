@@ -244,7 +244,6 @@
     <ClCompile Include="game\Game_AvgrsGS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
-    <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS1_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />
@@ -299,7 +298,6 @@
     <ClCompile Include="Game\Game_SFA1_A.cpp" />
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
     <ClCompile Include="Game\Game_SFA3_A.cpp" />
-    <ClCompile Include="Game\Game_SFIII1_A.cpp" />
     <ClCompile Include="Game\Game_SFIII2_A.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
@@ -318,7 +316,6 @@
     <ClCompile Include="Game\Game_Venture_A.cpp" />
     <ClCompile Include="Game\Game_Venture_A_DIR.cpp" />
     <ClCompile Include="Game\Game_WakuWaku7_A.cpp" />
-    <ClCompile Include="Game\Game_XMVSF_A.cpp" />
     <ClCompile Include="Game\MVC2_PALSEL.cpp" />
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
     <ClCompile Include="Game\mvc2_validate.cpp" />

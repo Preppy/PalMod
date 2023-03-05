@@ -117,4 +117,6 @@ public:
     LPCWSTR GetGameName() override;
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+
+    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 };

@@ -99,6 +99,4 @@ public:
 
     // Special-casing for Gill, Shin Gouki, Ultra Sean, Oro
     BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
-
-    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 };
