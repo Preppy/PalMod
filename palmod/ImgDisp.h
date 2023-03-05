@@ -4,9 +4,6 @@
 
 #define aadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 #define fabs(x) (x < 0.0f ? -x : x)
-//Notes
-
-//Main bitmap is not cleared on destroy
 
 //#define SETIMGPOS
 constexpr auto SETIMGINDEX = 1;
@@ -42,14 +39,6 @@ enum class SpriteImportDirection { TopDown, UpsideDown };
 
 class CImgDisp : public CWnd
 {
-public:
-    enum class BlendMode
-    {
-        Alpha,
-        AdditiveRGB,    // Linear dodge
-        AdditiveARGB,
-    };
-
 private:
     sImgNode* m_pImgBuffer[MAX_IMAGES_DISPLAYABLE] = {};
     int m_nImgAmt = 0;
@@ -153,7 +142,7 @@ public:
     void CenterImg() { ModifySrcRect(); };
 
     void SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette);
-    void SetBlendMode(BlendMode newMode) { m_eBlendMode = newMode; UpdateCtrl(); };
+    void SetBlendMode(BlendMode newMode) { m_eBlendMode = newMode; };
     BlendMode GetBlendMode() { return m_eBlendMode; };
 
     BOOL IsBGTiled() { return m_fShouldTileBGBmp; };

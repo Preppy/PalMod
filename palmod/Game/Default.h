@@ -21,3 +21,10 @@ enum class PALWriteOutputOptions
     WRITE_16 = 16,
     WRITE_MAX = 256,
 };
+
+enum class BlendMode
+{
+    Alpha,
+    AdditiveRGB,    // Linear dodge
+    AdditiveARGB,
+};

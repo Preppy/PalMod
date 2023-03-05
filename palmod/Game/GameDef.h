@@ -528,7 +528,7 @@ bool ArePalettePairsEqual(const stPairedPaletteInfo* plhs, const stPairedPalette
 struct stPaletteProcessingInformation
 {
     const std::vector<std::vector<uint16_t>> pProcessingSteps;
-    bool fIsTarget = false;
+    BlendMode eBlendMode = BlendMode::Alpha;
 };
 
 struct sGame_PaletteDataset
@@ -680,6 +680,8 @@ const stPaletteProcessingInformation secondaryGreyTintEffects_Skip15{ paletteBud
 const stPaletteProcessingInformation secondaryGreyTintEffects_Skip16{ paletteBuddy_GreyTint_Skip16Palettes };
 const stPaletteProcessingInformation secondaryGreyTintEffects_Skip18{ paletteBuddy_GreyTint_Skip18Palettes };
 const stPaletteProcessingInformation secondaryGreyTintEffects_Skip31{ paletteBuddy_GreyTint_Skip31Palettes };
+
+const stPaletteProcessingInformation effects_AdditiveBlend{ {}, BlendMode::AdditiveARGB };
 
 #pragma endregion
 

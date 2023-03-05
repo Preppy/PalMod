@@ -114,8 +114,6 @@ public:
     BOOL LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nFileUnitNumber) override;
 
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nCharacterUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
     LPCWSTR GetGameName() override;
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
@@ -133,8 +131,6 @@ public:
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static uint32_t GetNodeCountForCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId);
     static LPCWSTR GetDescriptionForCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nCharacterUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nCharacterUnitId, uint32_t nPaletteId);
 
     // These enable joining units across files by having them share unit names.
     static bool PaletteIsInFileUnit(uint32_t nTargetFileUnitId, uint32_t nDisplayUnitId, uint32_t nDisplayPalId);

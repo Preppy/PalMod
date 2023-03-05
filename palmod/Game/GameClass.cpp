@@ -90,7 +90,7 @@ BOOL CGameClass::SpecSel(int* nRelativizedPalId, int nPalId, int nRelativePalIdT
     return TRUE;
 }
 
-sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs)
+sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs, BlendMode nBlendMode)
 {
     sImgTicket* NewTicket = new sImgTicket;
 
@@ -99,6 +99,7 @@ sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket
     NewTicket->nXOffs = nXOffs;
     NewTicket->nYOffs = nYOffs;
     NewTicket->NextTicket = NextTicket;
+    NewTicket->nBlendMode = nBlendMode;
 
     return NewTicket;
 }
@@ -106,11 +107,10 @@ sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket
 void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
 {
     sImgTicket* DelTicket = CurrImgTicket;
-    sImgTicket* NextTicket;
 
     while (DelTicket)
     {
-        NextTicket = DelTicket->NextTicket;
+        sImgTicket* NextTicket = DelTicket->NextTicket;
         delete DelTicket;
         DelTicket = NextTicket;
     }
@@ -1471,6 +1471,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    BlendMode nBlendMode = BlendMode::Alpha;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -1544,6 +1545,11 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                 }
             }
 
+            if (paletteDataSet->pExtraProcessing)
+            {
+                nBlendMode = paletteDataSet->pExtraProcessing->eBlendMode;
+            }
+
             if (paletteDataSet->pPalettePairingInfo)
             {
                 if (DisableMultiSpriteExport(paletteDataSet->pPalettePairingInfo))
@@ -1564,7 +1570,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex), ppExtraDef);
                         if (paletteDataSetToJoin)
                         {
-                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray, 0, 0, nBlendMode);
 
                             //Set each palette
                             sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
@@ -1674,7 +1680,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         {
                             for (uint32_t nNodeIndex = 0; nNodeIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
                             {
-                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
+                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
 
                                 vsImagePairs.push_back(pThisImage);
 
@@ -1695,7 +1701,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         {
                             for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
                             {
-                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
+                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
 
                                 vsImagePairs.push_back(pThisImage);
 
@@ -1725,7 +1731,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     if (!fShouldUseAlternateLoadLogic)
     {
         //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId, nullptr, 0, 0, nBlendMode));
 
         CreateDefPal(NodeGet, 0);
 

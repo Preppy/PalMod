@@ -229,6 +229,8 @@ void CPalModDlg::PostPalSel()
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
+                ImgDispCtrl->SetBlendMode(CurrTicket->nBlendMode);
+
                 if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || m_fForceImg || (nPalAmt > 1) || (s_nLastPalAmt != nPalAmt))
                 {
                     if (nImgIndexCtr == 0)

@@ -221,7 +221,7 @@ public:
     void SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart, uint32_t nAmt, uint32_t nInc);
     void ClearSrcPal();
 
-    sImgTicket* CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
+    sImgTicket* CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0, BlendMode nBlendMode = BlendMode::Alpha);
     void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
 
     uint32_t GetCurrentPaletteIncrement() { return nSrcPalInc[0]; };

@@ -8,5 +8,7 @@ struct sImgTicket
     int nXOffs = 0;
     int nYOffs = 0;
 
+    BlendMode nBlendMode = BlendMode::Alpha;
+
     sImgTicket* NextTicket = nullptr;
 };

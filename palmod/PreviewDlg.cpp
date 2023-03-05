@@ -455,8 +455,8 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
 
-        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDALPHA, (m_ImgDisp.GetBlendMode() == CImgDisp::BlendMode::Alpha) ? MF_CHECKED : MF_UNCHECKED);
-        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDADD,   (m_ImgDisp.GetBlendMode() == CImgDisp::BlendMode::AdditiveARGB) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDALPHA, (m_ImgDisp.GetBlendMode() == BlendMode::Alpha) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDADD,   (m_ImgDisp.GetBlendMode() == BlendMode::AdditiveARGB) ? MF_CHECKED : MF_UNCHECKED);
     }
 
     CMenu* pZoomMenu = GetMenu()->GetSubMenu(2); //2 = Zoom menu

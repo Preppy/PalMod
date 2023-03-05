@@ -76,8 +76,8 @@ public:
     afx_msg void OnLoadCustomSpriteForZero() { OnLoadCustomSprite(0, SpriteImportDirection::TopDown); };
     afx_msg void OnLoadCustomSpriteForZeroFlipped() { OnLoadCustomSprite(0, SpriteImportDirection::UpsideDown); };
 
-    afx_msg void SetBlendToAlpha() { m_ImgDisp.SetBlendMode(CImgDisp::BlendMode::Alpha); };
-    afx_msg void SetBlendToAdd() { m_ImgDisp.SetBlendMode(CImgDisp::BlendMode::AdditiveARGB); };
+    afx_msg void SetBlendToAlpha() { m_ImgDisp.SetBlendMode(BlendMode::Alpha); m_ImgDisp.UpdateCtrl(); };
+    afx_msg void SetBlendToAdd() { m_ImgDisp.SetBlendMode(BlendMode::AdditiveARGB); m_ImgDisp.UpdateCtrl(); };
 
     void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath);
 };

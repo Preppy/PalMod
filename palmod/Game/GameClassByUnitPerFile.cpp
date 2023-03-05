@@ -713,6 +713,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
     uint32_t nSrcStart = 0;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    BlendMode nBlendMode = BlendMode::Alpha;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -763,6 +764,11 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
 
                 // For preview ID, use the vlaue from the basic palette data.  At worst case it'll default to 0.
                 nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageSprite;
+
+                if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pExtraProcessing)
+                {
+                    nBlendMode = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pExtraProcessing->eBlendMode;
+                }
             }
             else
             {
@@ -782,6 +788,11 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         const sGame_PaletteDataset* paletteDataSet = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode);
         nImgUnitId = paletteDataSet->indexImgToUse;
         nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+        if (paletteDataSet->pExtraProcessing)
+        {
+            nBlendMode = paletteDataSet->pExtraProcessing->eBlendMode;
+        }
 
         if (paletteDataSet->pPalettePairingInfo)
         {
@@ -864,7 +875,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
 
                     for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
                     {
-                        sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin.at(nNodeIndex)->indexImgToUse, vsPaletteDataSetToJoin.at(nNodeIndex)->indexOffsetToUse, pPreviousImage);
+                        sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin.at(nNodeIndex)->indexImgToUse, vsPaletteDataSetToJoin.at(nNodeIndex)->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
 
                         vsImagePairs.push_back(pThisImage);
 
@@ -895,7 +906,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         CreateDefPal(CharacterNode, 0);
 
         // Only internal units get sprites
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId, nullptr, 0, 0, nBlendMode));
 
         SetSourcePal(0, CharacterNode->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }

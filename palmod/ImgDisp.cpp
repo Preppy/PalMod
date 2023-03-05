@@ -908,6 +908,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                     switch (m_eBlendMode)
                     {
                         case BlendMode::Alpha: // alpha blend
+                        default:
                         {
                             const double fpAlphaBackground = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
                             const double fpAlphaForeground = 1.0 - fpAlphaBackground;
