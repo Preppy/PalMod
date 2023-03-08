@@ -1570,6 +1570,15 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex), ppExtraDef);
                         if (paletteDataSetToJoin)
                         {
+                            if (paletteDataSetToJoin->pExtraProcessing)
+                            {
+                                nBlendMode = paletteDataSetToJoin->pExtraProcessing->eBlendMode;
+                            }
+                            else
+                            {
+                                nBlendMode = BlendMode::Alpha;
+                            }
+
                             pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray, 0, 0, nBlendMode);
 
                             //Set each palette
@@ -1680,6 +1689,15 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         {
                             for (uint32_t nNodeIndex = 0; nNodeIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
                             {
+                                if (vsPaletteDataSetToJoin[nNodeIndex]->pExtraProcessing)
+                                {
+                                    nBlendMode = vsPaletteDataSetToJoin[nNodeIndex]->pExtraProcessing->eBlendMode;
+                                }
+                                else
+                                {
+                                    nBlendMode = BlendMode::Alpha;
+                                }
+
                                 sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
 
                                 vsImagePairs.push_back(pThisImage);
@@ -1701,6 +1719,15 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         {
                             for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
                             {
+                                if (vsPaletteDataSetToJoin[nNodeIndex]->pExtraProcessing)
+                                {
+                                    nBlendMode = vsPaletteDataSetToJoin[nNodeIndex]->pExtraProcessing->eBlendMode;
+                                }
+                                else
+                                {
+                                    nBlendMode = BlendMode::Alpha;
+                                }
+
                                 sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
 
                                 vsImagePairs.push_back(pThisImage);

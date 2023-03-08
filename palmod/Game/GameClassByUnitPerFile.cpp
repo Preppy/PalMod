@@ -875,6 +875,15 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
 
                     for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
                     {
+                        if (vsPaletteDataSetToJoin.at(nNodeIndex)->pExtraProcessing)
+                        {
+                            nBlendMode = paletteDataSet->pExtraProcessing->eBlendMode;
+                        }
+                        else
+                        {
+                            nBlendMode = BlendMode::Alpha;
+                        }
+
                         sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin.at(nNodeIndex)->indexImgToUse, vsPaletteDataSetToJoin.at(nNodeIndex)->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
 
                         vsImagePairs.push_back(pThisImage);

@@ -24,6 +24,7 @@ enum class PALWriteOutputOptions
 
 enum class BlendMode
 {
+    Default,        // unset: allows us to differentiate betwee user-forced and desired-by-palette
     Alpha,
     AdditiveRGB,    // Linear dodge
     AdditiveARGB,

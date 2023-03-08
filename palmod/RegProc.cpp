@@ -18,6 +18,7 @@ constexpr auto c_mainExtraFileCanaryKey = L"main_lastExtraFileSize_%s";
 
 constexpr auto c_nPrefSavePaletteToMemory = L"pref_ShouldSavePaletteToMemory";
 constexpr auto c_prevClickToFind = L"PreviewClickToFind";
+constexpr auto c_prevBlendMode = L"PreviewBlendMode";
 constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
 constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
@@ -493,6 +494,12 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, (BYTE*)&fClickToFind, &GetSz) != ERROR_SUCCESS)
                 fClickToFind = TRUE;
 
+            GetSz = sizeof(eBlendMode);
+            if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, (BYTE*)&eBlendMode, &GetSz) != ERROR_SUCCESS)
+            {
+                eBlendMode = BlendMode::Default;
+            }
+
             int nTranslation = 1;
             GetSz = sizeof(nTranslation);
             if (RegQueryValueEx(hKey, L"PreviewZoom", 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
@@ -592,10 +599,10 @@ void CRegProc::SaveReg(eRegistryStoreID src)
         {
         case eRegistryStoreID::REG_MAIN:
         {
-            RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, (BYTE*)&main_fAllowAlphaChanges, sizeof(BOOL));
-            RegSetValueEx(hKey, L"main_show32", 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(BOOL));
-            RegSetValueEx(hKey, L"main_procsupps", 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(BOOL));
-            RegSetValueEx(hKey, c_mainExtraCopyInfo, 0, REG_DWORD, (BYTE*)&main_bExtraCopyData, sizeof(BOOL));
+            RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, (BYTE*)&main_fAllowAlphaChanges, sizeof(main_fAllowAlphaChanges));
+            RegSetValueEx(hKey, L"main_show32", 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(main_bShow32));
+            RegSetValueEx(hKey, L"main_procsupps", 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(main_bProcSupp));
+            RegSetValueEx(hKey, c_mainExtraCopyInfo, 0, REG_DWORD, (BYTE*)&main_bExtraCopyData, sizeof(main_bExtraCopyData));
 
             conv_str = RectToStr(main_szpos);
 
@@ -608,31 +615,34 @@ void CRegProc::SaveReg(eRegistryStoreID src)
 
         case eRegistryStoreID::REG_PREV:
         {
-            RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, (BYTE*)&prev_bgcol, sizeof(COLORREF));
-            RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, (BYTE*)&prev_blinkcol, sizeof(COLORREF));
-            RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, (BYTE*)&prev_blinkinverts, sizeof(BOOL));
+            RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, (BYTE*)&prev_bgcol, sizeof(prev_bgcol));
+            RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, (BYTE*)&prev_blinkcol, sizeof(prev_blinkcol));
+            RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, (BYTE*)&prev_blinkinverts, sizeof(prev_blinkinverts));
 
             conv_str = RectToStr(prev_szpos);
 
             RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(wchar_t) * (conv_str.GetLength() + 1));
             RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, (BYTE*)szPrevBGLoc, (DWORD)((wcslen(szPrevBGLoc) + 1) * sizeof(wchar_t)));
-            RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, (BYTE*)&fTileBG, sizeof(BOOL));
-            RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
-            RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
-            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, (BYTE*)&fUseBGCol, sizeof(BOOL));
-            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&fClickToFind, sizeof(BOOL));
+            RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, (BYTE*)&fTileBG, sizeof(fTileBG));
+            RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(nBGXOffs));
+            RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(nBGYOffs));
+            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, (BYTE*)&fUseBGCol, sizeof(fUseBGCol));
+            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&fClickToFind, sizeof(fClickToFind));
+            RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, (BYTE*)&eBlendMode, sizeof(eBlendMode));
+            
+
 
             int nTranslation = (int)dPreviewZoom;
-            RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(int));
+            RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(nTranslation));
         }
         break;
 
         case eRegistryStoreID::REG_IMGOUT:
         {
-            RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(COLORREF));
-            RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(DWORD));
-            RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(DWORD));
-            RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, (BYTE*)&fTransPNG, sizeof(BOOL));
+            RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(imgout_bgcol));
+            RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(imgout_border));
+            RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(imgout_zoomindex));
+            RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, (BYTE*)&fTransPNG, sizeof(fTransPNG));
 
             conv_str = RectToStr(imgout_szpos);
 

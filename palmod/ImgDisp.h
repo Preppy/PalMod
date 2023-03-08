@@ -31,6 +31,8 @@ struct sImgNode
     uint16_t uPalSz = 0;
     COLORREF* pPalette = nullptr;
     COLORREF* pBlinkPalette = nullptr;
+
+    BlendMode eBlendMode = BlendMode::Alpha;
 };
 
 enum class SpriteImportDirection { TopDown, UpsideDown };
@@ -122,13 +124,13 @@ private:
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
 
-    BlendMode m_eBlendMode = BlendMode::AdditiveARGB;
+    BlendMode m_eForcedBlendMode = BlendMode::Default;
 
 public:
     CImgDisp();
     ~CImgDisp();
 
-    void AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs);
+    void AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode = BlendMode::Alpha);
     void FlushImageNode(int nIndex);
     void ClearAllImages();
     void UpdateCtrl(BOOL fRedraw = TRUE, int nUseBlinkPal = 0);
@@ -142,8 +144,9 @@ public:
     void CenterImg() { ModifySrcRect(); };
 
     void SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette);
-    void SetBlendMode(BlendMode newMode) { m_eBlendMode = newMode; };
-    BlendMode GetBlendMode() { return m_eBlendMode; };
+
+    BlendMode GetForcedBlendMode() { return m_eForcedBlendMode; };
+    void SetForcedBlendMode(BlendMode newMode) { m_eForcedBlendMode = newMode; };
 
     BOOL IsBGTiled() { return m_fShouldTileBGBmp; };
     BOOL IsUsingBGCol() { return m_fShouldUseBGCol; };

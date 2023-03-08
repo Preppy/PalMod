@@ -242,7 +242,7 @@ void CImgDisp::FlushUnused()
     }
 }
 
-void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs)
+void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode /* = BlendMode::Alpha */)
 {
     sImgNode* pNewNode = new sImgNode;
 
@@ -254,6 +254,8 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
     pNewNode->pImgData = pImgData;
     pNewNode->pPalette = pPalette;
     pNewNode->uPalSz = uPalSz;
+
+    pNewNode->eBlendMode = eBlendMode;
 
     if (m_pImgBuffer[nIndex])
     {
@@ -781,8 +783,9 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     int nSrcX = 0, nSrcY = 0;
     uint8_t* pImgData = nullptr;
     uint8_t* pCurrPal = nullptr;
-    uint8_t* pDstBmpData = reinterpret_cast<uint8_t *>(m_pBmpData);
+    uint8_t* pDstBmpData = reinterpret_cast<uint8_t*>(m_pBmpData);
     int nPalSizeInUint8 = 0;
+    BlendMode eBlendMode = BlendMode::Alpha;
 
     if ((nSrcIndex != -1) && m_pImgBuffer[nSrcIndex])
     {
@@ -791,16 +794,23 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
         nPalSizeInUint8 = m_pImgBuffer[nSrcIndex]->uPalSz * 4;
         nWidth = m_pImgBuffer[nSrcIndex]->uImgW;
         nHeight = m_pImgBuffer[nSrcIndex]->uImgH;
+        eBlendMode = m_pImgBuffer[nSrcIndex]->eBlendMode;
     }
     else if (m_pBackupPaletteDef != nullptr)
     {
         pCurrPal = reinterpret_cast<uint8_t*>(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
         nPalSizeInUint8 = m_pBackupPaletteDef->uPalSz * 4;
+        eBlendMode = BlendMode::Alpha;
     }
     else
     {
         OutputDebugString(L"CImgDisp::CustomBlt: No image available and no backup palette available. No image will be loaded.\n");
         return FALSE;
+    }
+
+    if (m_eForcedBlendMode != BlendMode::Default)
+    {
+        eBlendMode = m_eForcedBlendMode;
     }
 
     // The user can override the internal sprite here
@@ -905,7 +915,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                     uint8_t* uDstG = &pDstBmpData[nDstPos + 1];
                     uint8_t* uDstB = &pDstBmpData[nDstPos];
 
-                    switch (m_eBlendMode)
+                    switch (eBlendMode)
                     {
                         case BlendMode::Alpha: // alpha blend
                         default:

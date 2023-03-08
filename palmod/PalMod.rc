@@ -698,8 +698,9 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Blend Mode"
         BEGIN
-            MENUITEM "Alpha (Normal)"           ID_SETTINGS_BLENDALPHA
-            MENUITEM "Additive"                 ID_SETTINGS_BLENDADD
+            MENUITEM "Default"                  ID_SETTINGS_BLENDDEFAULT
+            MENUITEM "Always Alpha"             ID_SETTINGS_BLENDALPHA
+            MENUITEM "Always Additive"          ID_SETTINGS_BLENDADD
         END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS

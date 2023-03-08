@@ -97,6 +97,7 @@ public:
     BOOL fUseBGCol;
     BOOL fClickToFind;
     double dPreviewZoom = 0.0;
+    BlendMode eBlendMode = BlendMode::Default;
 
     //New Image
 
