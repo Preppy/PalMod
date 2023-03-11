@@ -877,7 +877,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
                     {
                         if (vsPaletteDataSetToJoin.at(nNodeIndex)->pExtraProcessing)
                         {
-                            nBlendMode = paletteDataSet->pExtraProcessing->eBlendMode;
+                            nBlendMode = vsPaletteDataSetToJoin.at(nNodeIndex)->pExtraProcessing->eBlendMode;
                         }
                         else
                         {
