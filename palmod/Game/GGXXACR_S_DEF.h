@@ -1556,8 +1556,8 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_VE_EXTRAS = //Venom
         //General
         { L"Active Ball Glow", 0x26d330, 0x26d370, indexGGXXSprites_ACR_Venom, 0x01, nullptr, &effects_AdditiveBlend },
         { L"Lightning Ball Glow", 0x26f610, 0x26f650, indexGGXXSprites_ACR_Venom, 0x03, nullptr, &effects_AdditiveBlend   },
-        { L"Enhanced Ball Glow (1/2)", 0x270f70, 0x270fb0, indexGGXXSprites_ACR_Venom, 0x04 },
-        { L"Enhanced Ball Glow (2/2)", 0x273580, 0x2735c0, indexGGXXSprites_ACR_Venom, 0x04 },
+        { L"Enhanced Ball Glow (1/2)", 0x270f70, 0x270fb0, indexGGXXSprites_ACR_Venom, 0x02 },
+        { L"Enhanced Ball Glow (2/2)", 0x273580, 0x2735c0, indexGGXXSprites_ACR_Venom, 0x02 },
 
         { L"Grab (1/3)", 0x294d50, 0x294d90, indexGGXXSprites_ACR_Venom, 0x0C },
         { L"Grab (2/3)", 0x294170, 0x2941b0, indexGGXXSprites_ACR_Venom, 0x0C },

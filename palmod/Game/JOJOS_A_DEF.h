@@ -4027,7 +4027,7 @@ const sGame_PaletteDataset JOJOS_A_JOTARO_STORY_PALETTES[] =
 {
     { L"Imprisoned Jotaro", 0x02e8400, 0x02e8500, indexJojos51StoryMode, 0x00 },
     { L"Lockdown Staredown", 0x2ec000, 0x2ec080, indexJojos51StoryMode, 0x04 },
-    { L"Jotaro Staring at DIO (Unused)", 0x2fb580, 0x2fb600 }
+    { L"Jotaro Staring at DIO (Unused)", 0x2fb580, 0x2fb600, indexJojos51StoryMode, 0x10 }
 };
 
 const sGame_PaletteDataset JOJOS_A_KAKYOIN_STORY_PALETTES[] =
@@ -4036,13 +4036,13 @@ const sGame_PaletteDataset JOJOS_A_KAKYOIN_STORY_PALETTES[] =
     { L"Shadow Dio Smirk", 0x02e9b80, 0x02e9c00, indexJojos51StoryMode, 0x06 },
     { L"Fleshbud Scene", 0x02e9e00, 0x02ea000, indexJojos51StoryMode, 0x05 },
     { L"Fleshbud Scene (Background)", 0x02ea000, 0x2ea020 },
-    { L"Kakyoin 20M Emerald Splash", 0x2ea080, 0x2ea100 },
+    { L"Kakyoin 20M Emerald Splash", 0x2ea080, 0x2ea100, indexJojos51StoryMode, 0x11 },
 };
 
 const sGame_PaletteDataset JOJOS_A_AVDOL_STORY_PALETTES[] =
 {
     { L"Imprisoned Jotaro", 0x2ebf00, 0x2ec000, indexJojos51StoryMode, 0x00 },
-    { L"Avdol Airport Cutscene Portrait", 0x2ec200, 0x2ec280 },
+    { L"Avdol Airport Cutscene Portrait", 0x2ec200, 0x2ec280, indexJojos51StoryMode, 0x0d },
     { L"Holly and Joseph Airport Cutscene", 0x2ec100, 0x2ec180 },
     { L"Holly and Joseph Airport Cutscene BG", 0x2ec180, 0x2ec200 },
 };
@@ -4070,7 +4070,7 @@ const sGame_PaletteDataset JOJOS_A_MIDLER_STORY_PALETTES[] =
     { L"DIO Point", 0x305a00, 0x305a80, indexJojos51StoryMode, 0x01 },
     { L"Midler Facing DIO", 0x305a80, 0x305b00, indexJojos51StoryMode, 0x09 },
     { L"Midler Facing DIO BG", 0x305B62, 0x305B80 },
-    { L"Midler & DIO Ending Portrait", 0x2e6300, 0x2e6500 },
+    { L"Midler & DIO Ending Portrait", 0x2e6300, 0x2e6500, indexJojos51StoryMode, 0x12 },
 };
 
 // needs bg for alessi running
@@ -4079,10 +4079,10 @@ const sGame_PaletteDataset JOJOS_A_YOJO_STORY_PALETTES[] =
     { L"Young Joseph Chasing Alessi", 0x2fc480, 0x2fc500 },
     { L"Alessi Being Chased By Joseph", 0x2fc380, 0x2fc400 },
     { L"Young Joseph Chasing Alessi BG", 0x2fc300, 0x2fc380 },
-    { L"Alessi Running Away", 0x2fc400, 0x2fc480 },
+    { L"Alessi Running Away", 0x2fc400, 0x2fc480, indexJojos51StoryMode, 0x13 },
     { L"Joseph Reunited With The Crusaders 1/2", 0x2fc580, 0x2fc780 },
     { L"Joseph Reunited With The Crusaders 2/2", 0x2fc780, 0x2fc800 },
-    { L"Joseph Reunited With The Crusaders BG", 0x2fc800, 0x2fc880 },
+    { L"Joseph Reunited With The Crusaders BG", 0x2fc800, 0x2fc880, indexJojos51StoryMode, 0x14 },
 };
 
 // complete
@@ -4093,19 +4093,19 @@ const sGame_PaletteDataset JOJOS_A_HOL_STORY_PALETTES[] =
     { L"J. Geil (Intro Scene)", 0x2fbb00, 0x2fbb80 },
     // ending scene
     { L"Hol Horse Standing Over DIO", 0x2fb980, 0x2fba00 },
-    { L"Defeated Shadow DIO", 0x2fba00, 0x2fba80 },
+    { L"Defeated Shadow DIO", 0x2fba00, 0x2fba80, indexJojos51StoryMode, 0x0e },
     { L"Defeated Shadow DIO BG", 0x2fba80, 0x2fbb00 },
-    { L"Hol Horse Ending Portrait", 0x2fbb80, 0x2fbc00 },
+    { L"Hol Horse Ending Portrait", 0x2fbb80, 0x2fbc00, indexJojos51StoryMode, 0x0f },
 };
 
 // complete
 const sGame_PaletteDataset JOJOS_A_VICE_STORY_PALETTES[] =
 {
-    { L"Decapitated Vanilla Ice", 0x2fbc80, 0x2fbd00 },
-    { L"Vanilla Ice Bowing to DIO", 0x2fbd00, 0x2fbd80 },
+    { L"Decapitated Vanilla Ice", 0x2fbc80, 0x2fbd00, indexJojos51StoryMode, 0x1e },
+    { L"Vanilla Ice Bowing to DIO", 0x2fbd00, 0x2fbd80, indexJojos51StoryMode, 0x20 },
     // Not sure how this'll be handled in paired code, maybe like sfiii alex flash chop?
-    { L"Decapitated/Bowing Vanilla Ice BG", 0x2fbd80, 0x2fbdc0 },
-    { L"Vanilla Ice Ending Portrait", 0x2fbe00, 0x2fbe80 },
+    { L"Decapitated/Bowing Vanilla Ice BG", 0x2fbd80, 0x2fbdc0, indexJojos51StoryMode, 0x1f },
+    { L"Vanilla Ice Ending Portrait", 0x2fbe00, 0x2fbe80, indexJojos51StoryMode, 0x21 },
 };
 
 // complete
@@ -4124,15 +4124,15 @@ const sGame_PaletteDataset JOJOS_A_KHAN_STORY_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_A_SHARED_STORY_PALETTES[] =
 {
-    { L"DIO's Curse (Crusaders)", 0x2ea400, 0x2ea480 },
-    { L"Crusaders Off to Egypt (Crusaders)", 0x2e7600, 0x2e7800 },
-    { L"DIO's Mansion 1/2", 0x2e5e80, 0x2e6080 },
-    { L"DIO's Mansion 2/2", 0x2e6080, 0x2e6180 },
-    { L"Crusaders Coffin Scene", 0x2eb680, 0x2eb880 },
-    { L"Nukesaku In The Coffin", 0x2eb580, 0x2eb600 },
+    { L"DIO's Curse (Crusaders)", 0x2ea400, 0x2ea480, indexJojos51StoryMode, 0x1a },
+    { L"Crusaders Off to Egypt (Crusaders)", 0x2e7600, 0x2e7800, indexJojos51StoryMode, 0x19 },
+    { L"DIO's Mansion 1/2", 0x2e5e80, 0x2e6080, indexJojos51StoryMode, 0x1b, &pairNext },
+    { L"DIO's Mansion 2/2", 0x2e6080, 0x2e6180, indexJojos51StoryMode, 0x1c, &pairPrevious },
+    { L"Crusaders Coffin Scene", 0x2eb680, 0x2eb880, indexJojos51StoryMode, 0x18 },
+    { L"Nukesaku In The Coffin", 0x2eb580, 0x2eb600, indexJojos51StoryMode, 0x1d },
     { L"Nukesaku In The Coffin BG", 0x2eb600, 0x2eb680 },
-    { L"Cloaked DIO 1/2", 0x2eba00, 0x2ebc00 },
-    { L"Cloaked DIO 2/2", 0x2ebc00, 0x2ebd00 },
+    { L"Cloaked DIO 1/2", 0x2eba00, 0x2ebc00, indexJojos51StoryMode, 0x16 },
+    { L"Cloaked DIO 2/2", 0x2ebc00, 0x2ebd00, indexJojos51StoryMode, 0x17 },
 };
 
 const sDescTreeNode JOJOS_A_STORYMODE_COLLECTION[] =
@@ -4192,7 +4192,7 @@ const sDescTreeNode JOJOS_UNITS_51[] =
     { L"N'Doul",                                  DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_NDOUL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_NDOUL) },
     { L"Boss Ice",                                DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_BICE, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_BICE) },
     { L"Death 13",                                DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_DEATH13, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_DEATH13) },
-    { L"(Unused )Gray Fly",                       DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_GRAYFLY, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_GRAYFLY) },
+    { L"(Unused) Gray Fly",                       DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_GRAYFLY, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_GRAYFLY) },
     { k_pszTimeStopName,                          DESC_NODETYPE_TREE, (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
     { k_pszStoryModeName,                         DESC_NODETYPE_TREE, (void*)JOJOS_A_STORYMODE_COLLECTION, ARRAYSIZE(JOJOS_A_STORYMODE_COLLECTION)},
     { k_pszBonusPalettesName,                     DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
