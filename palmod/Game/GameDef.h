@@ -560,6 +560,7 @@ const stPairedPaletteInfo pairNext12 = { 12 };
 const stPairedPaletteInfo pairNext14 = { 14 };
 const stPairedPaletteInfo pairNext13 = { 13 };
 const stPairedPaletteInfo pairNext15 = { 15 };
+const stPairedPaletteInfo pairNext21 = { 21 };
 const stPairedPaletteInfo pairNext30 = { 30 };
 const stPairedPaletteInfo pairPrevious = { -1 };
 const stPairedPaletteInfo pairPrevious2 = { -2 };
