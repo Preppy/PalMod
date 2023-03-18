@@ -1,5 +1,61 @@
 #include "stdafx.h"
 #include "PalMod.h"
+#include "ImgOutDlg.h"
+
+// GIF headers use an odd number of bytes, so avoid having our struct padded
+#pragma pack(1)
+struct GIFHeader
+{
+    // packing per https://www.w3.org/Graphics/GIF/spec-gif89a.txt
+    byte type[3];
+    byte version[3];
+    uint16_t width;
+    uint16_t height;
+    byte flags;
+    byte bgcolor;
+    byte aspectratio;
+};
+
+bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, CString& strPossibleError)
+{
+    bool fIsValidGIF = false;
+
+    sourceGIF.Read(&gif_header, sizeof(gif_header));
+
+    if ((gif_header.type[0] == 'G') &&
+        (gif_header.type[1] == 'I') &&
+        (gif_header.type[2] == 'F'))
+    {
+        if ((gif_header.version[0] == '8') &&
+            ((gif_header.version[1] == '7') || (gif_header.version[1] == '9')) && // 87a and 89a are identical for our purposes
+            (gif_header.version[2] == 'a'))
+        {
+            bool UseGlobalColorTable = (gif_header.flags & 0x80);
+            // This is the bbp for the source image, useless for our needs
+            uint8_t ColorResolution = ((gif_header.flags & 0x70) >> 4) + 1;
+            bool TableSorted = (gif_header.flags & 0x08);
+
+            if (UseGlobalColorTable)
+            {
+                fIsValidGIF = true;
+            }
+            else
+            {
+                strPossibleError = L"GIF using local color data: we don't support those.";
+            }
+        }
+        else
+        {
+            strPossibleError = L"This is not a supported GIF file.";
+        }
+    }
+    else
+    {
+        strPossibleError = L"This is not a GIF file.";
+    }
+
+    return fIsValidGIF;
+}
 
 bool LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData, CString& strPossibleError)
 {
@@ -8,68 +64,25 @@ bool LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPal
     // Populate color table from file
     if (sourceGIF.Open(pszGIFFileName, CFile::modeRead | CFile::typeBinary))
     {
-        // GIF headers use an odd number of bytes, so avoid having our struct padded
-#pragma pack(1)
-        struct GIFHeader
-        {
-            byte type[3];
-            byte version[3];
-            uint16_t width;
-            uint16_t height;
-            byte flags;
-            byte bgcolor;
-            byte aspectratio;
-        };
-
         GIFHeader header = {};
 
-        sourceGIF.Read(&header, sizeof(header));
-
-        if ((header.type[0] == 'G') &&
-            (header.type[1] == 'I') &&
-            (header.type[2] == 'F'))
+        if (LoadGIFHeaderAndValidate(sourceGIF, header, strPossibleError))
         {
-            if ((header.version[0] == '8') &&
-                ((header.version[1] == '7') || (header.version[1] == '9')) && // 87a and 89a are identical for our purposes
-                (header.version[2] == 'a'))
+            uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
+            size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
+
+            rgclrPaletteData.resize(nColorTableSize);
+
+            for (size_t iPos = 0; iPos < rgclrPaletteData.size(); iPos++)
             {
-                // packing per https://www.w3.org/Graphics/GIF/spec-gif89a.txt
-                bool UseGlobalColorTable = (header.flags & 0x80);
-                // This is the bbp for the source image, useless for our needs
-                uint8_t ColorResolution = ((header.flags & 0x70) >> 4) + 1;
-                bool TableSorted = (header.flags & 0x08);
+                uint8_t red = 0, green = 0, blue = 0;
 
-                if (UseGlobalColorTable)
-                {
-                    uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
-                    size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
+                sourceGIF.Read(&red, sizeof(red));
+                sourceGIF.Read(&green, sizeof(green));
+                sourceGIF.Read(&blue, sizeof(blue));
 
-                    rgclrPaletteData.resize(nColorTableSize);
-
-                    for (size_t iPos = 0; iPos < rgclrPaletteData.size(); iPos++)
-                    {
-                        uint8_t red = 0, green = 0, blue = 0;
-
-                        sourceGIF.Read(&red, sizeof(red));
-                        sourceGIF.Read(&green, sizeof(green));
-                        sourceGIF.Read(&blue, sizeof(blue));
-
-                        rgclrPaletteData.at(iPos) = RGB(red, green, blue);
-                    }
-                }
-                else
-                {
-                    strPossibleError = L"GIF using local color data: we don't support those.";
-                }
+                rgclrPaletteData.at(iPos) = RGB(red, green, blue);
             }
-            else
-            {
-                strPossibleError = L"This is not a supported GIF file.";
-            }
-        }
-        else
-        {
-            strPossibleError = L"This is not a GIF file.";
         }
 
         sourceGIF.Close();
@@ -195,4 +208,44 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
     }
 
     return fSuccess;
+}
+
+void CImgOutDlg::UpdatePaletteInGIF(CString output_str)
+{
+    CFile sourceGIF;
+
+    // Populate color table from file
+    if (sourceGIF.Open(output_str, CFile::modeReadWrite | CFile::typeBinary))
+    {
+        CString strPossibleError;
+        GIFHeader header = {};
+
+        if (LoadGIFHeaderAndValidate(sourceGIF, header, strPossibleError))
+        {
+            uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
+            size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
+
+            size_t minWriteSize = min(nColorTableSize, m_DumpBmp.m_rgSrcImg[0]->uPalSz);
+
+            // Walk past the transparency color
+            sourceGIF.Seek(3, CFile::current);
+
+            for (size_t iPos = 1; iPos < minWriteSize; iPos++)
+            {
+                COLORREF curColor = m_DumpBmp.m_pppPalettes[0][m_DumpBmp.m_nPalIndex][iPos];
+
+                uint8_t red   = GetRValue(curColor);
+                uint8_t green = GetGValue(curColor);
+                uint8_t blue  = GetBValue(curColor);
+
+                sourceGIF.Write(&red, sizeof(red));
+                sourceGIF.Write(&green, sizeof(green));
+                sourceGIF.Write(&blue, sizeof(blue));
+            }
+        }
+
+        sourceGIF.Close();
+    }
+
+    return;
 }

@@ -880,6 +880,20 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
 void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags)
 {
+    if ((img_format == ImageFormatGIF) &&
+        (m_iSelectedImageAmount == 1))
+    {
+        if (GetFileAttributes(output_str) != INVALID_FILE_ATTRIBUTES)
+        {
+            CString strMessage = L"A file with this name already exists: do you wish to update the existing GIF's palette instead of creating a new GIF preview?";
+            if (MessageBox(strMessage, GetHost()->GetAppName(), MB_YESNO) == IDYES)
+            {
+                UpdatePaletteInGIF(output_str);
+                return;
+            }
+        }
+    }
+
     CImage out_img;
     int output_width = m_DumpBmp.GetOutputW();
     int output_height = m_DumpBmp.GetOutputH();

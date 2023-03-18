@@ -38,6 +38,8 @@ private:
     void ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszSuggestedFileName);
     void ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags);
 
+    void UpdatePaletteInGIF(CString output_str);
+
 public:
     BOOL m_fDlgInit = FALSE;
 
