@@ -102,6 +102,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case MWARR_A:
             pszExtraInfo = L"We need the prg_ev and prg_od files from mwarr.zip.";
             break;
+        case P4AU_FightClub:
+            pszExtraInfo = L"Select the \"data\" folder.";
+            break;
         case P4AU_NESICA:
             pszExtraInfo = L"Select the \"data\" folder.";
             break;

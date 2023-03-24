@@ -538,6 +538,7 @@ BEGIN
             BEGIN
                 MENUITEM "Persona 4 Arena Ultimax (Steam)", ID_LD_P4AU_STEAM
                 MENUITEM "Persona 4 Arena Ultimax 2.0 (NESICA Community Port)", ID_LD_P4AU_NESICA
+                MENUITEM "Persona Fight Club Modpack", ID_LD_P4AU_FIGHTCLUB
             END
             POPUP "Red Earth / Warzard"
             BEGIN
@@ -698,9 +699,9 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Blend Mode"
         BEGIN
-            MENUITEM "Default"                  ID_SETTINGS_BLENDDEFAULT
-            MENUITEM "Always Alpha"             ID_SETTINGS_BLENDALPHA
-            MENUITEM "Always Additive"          ID_SETTINGS_BLENDADD
+            MENUITEM "Default",                 ID_SETTINGS_BLENDDEFAULT
+            MENUITEM "Always Alpha",            ID_SETTINGS_BLENDALPHA
+            MENUITEM "Always Additive",         ID_SETTINGS_BLENDADD
         END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS

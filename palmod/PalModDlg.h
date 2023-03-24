@@ -345,6 +345,7 @@ private:
     afx_msg void OnLoadDir_NBHID_P()        { OnLoadGameByDirectory(NBHID_P); };
     afx_msg void OnLoadDir_NBHID_S()        { OnLoadGameByDirectory(NBHID_S); };
     
+    afx_msg void OnLoadDir_P4AU_FightClub() { OnLoadGameByDirectory(P4AU_FightClub); };
     afx_msg void OnLoadDir_P4AU_NESICA()    { OnLoadGameByDirectory(P4AU_NESICA); };
     afx_msg void OnLoadDir_P4AU_STEAM()     { OnLoadGameByDirectory(P4AU_STEAM); };
     afx_msg void OnLoadDir_RedEarth30()     { OnLoadGameByDirectory(REDEARTH_A_DIR_30); };

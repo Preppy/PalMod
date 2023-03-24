@@ -104,6 +104,7 @@
 #include "Game_NEOGEO_A.h"
 #include "Game_NGBC_A.h"
 #include "Game_NINJAMASTERS_A.h"
+#include "Game_P4AU_FightClub.h"
 #include "Game_P4AU_NESICA.h"
 #include "Game_P4AU_STEAM.h"
 #include "Game_PrimalRage_SNES.h"
@@ -170,7 +171,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 191, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 192, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -906,6 +907,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_NINJAMASTERS_A::GetRule;
         return TRUE;
     }   
+    case P4AU_FightClub:
+    {
+        GetRuleCtr = &CGame_P4AU_FightClub::GetRuleCtr;
+        ResetRuleCtr = &CGame_P4AU_FightClub::ResetRuleCtr;
+        GetRule = &CGame_P4AU_FightClub::GetRule;
+        GetNextRule = &CGame_P4AU_FightClub::GetNextRule;
+
+        return TRUE;
+    }
     case P4AU_NESICA:
     {
         GetRuleCtr = &CGame_P4AU_NESICA::GetRuleCtr;
@@ -1779,6 +1789,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_NINJAMASTERS_A(nConfirmedROMSize);
     }
+    case P4AU_FightClub:
+    {
+        return new CGame_P4AU_FightClub(nConfirmedROMSize);
+    }
     case P4AU_NESICA:
     {
         return new CGame_P4AU_NESICA(nConfirmedROMSize);
@@ -2386,7 +2400,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 CString strError;
                 strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), CurrRule.uVerifyVar, (int)CurrFile.GetLength());
                 fActualFileSizeIsSafe = (MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONERROR) == IDYES);
-                strError.Format(L"WARNING: The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n", strCurrFile.GetString(), CurrRule.uVerifyVar, (int)CurrFile.GetLength());
+                strError.Format(L"WARNING: The file \"%s\" was found but is not the expected size.  We expect the file to be 0x%x bytes, but this file is 0x%x bytes.\n", strCurrFile.GetString(), CurrRule.uVerifyVar, (int)CurrFile.GetLength());
                 OutputDebugString(strError);
             }
 

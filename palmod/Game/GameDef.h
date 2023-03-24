@@ -213,6 +213,7 @@ enum SupportedGamesList
     BREAKERS_S,
     FightFever_A,
     TekkenAdvance_GBA,
+    P4AU_FightClub,
 
     NUM_GAMES // This needs to be last
 };
@@ -420,6 +421,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Breakers Revenge (Breakers Collection for Steam)",
     L"Fight Fever (Neo-Geo)",
     L"Tekken Advance (USA GBA)",
+    L"Persona Fight Club Modpack",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

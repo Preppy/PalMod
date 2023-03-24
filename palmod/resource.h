@@ -379,13 +379,13 @@
 #define ID_SETTINGS_BLENDDEFAULT        32946
 #define ID_SETTINGS_BLENDALPHA          32947
 #define ID_SETTINGS_BLENDADD            32948
-
+#define ID_LD_P4AU_FIGHTCLUB            32949
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32946
+#define _APS_NEXT_COMMAND_VALUE         32950
 #define _APS_NEXT_CONTROL_VALUE         1102
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
