@@ -10,7 +10,7 @@ private:
         L"GGXX #Reload (Steam)",
         GGXXR_S,
         IMGDAT_SECTION_GUILTYGEAR,
-        GGXX_ACR_IMGIDS_USED,
+        GGXX_Rld_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesVariableAlpha,

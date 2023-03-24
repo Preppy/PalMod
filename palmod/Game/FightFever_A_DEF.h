@@ -230,8 +230,8 @@ const sGame_PaletteDataset FightFever_A_KARATE_PALETTES_B[] =
 
 const sGame_PaletteDataset FightFever_A_KARATE_PALETTES_SHARED[] =
 {
-    { L"Karate Kenji - Demon Charge 1", 0x49ca2, 0x49cc2 },
-    { L"Karate Kenji - Demon Charge 2", 0x49cc2, 0x49ce2 },
+    { L"Karate Kenji - Demon Charge 1", 0x49ca2, 0x49cc2, indexFightFeverSprites_KarataKenji, 0x01, &pairNext },
+    { L"Karate Kenji - Demon Charge 2", 0x49cc2, 0x49ce2, indexFightFeverSprites_KarataKenji, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset FightFever_A_BONUS_PALETTES_INTRO[] =

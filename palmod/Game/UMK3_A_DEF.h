@@ -8,6 +8,7 @@
 
 const std::vector<uint16_t> UMK3_A_IMGIDS_USED =
 {
+    indexMK2ASprites_ShaoKahn,          // 0x7a
 };
 
 const sGame_PaletteDataset UMK3_A_LIUKANG_PALETTES_P1[] =
@@ -232,7 +233,7 @@ const sGame_PaletteDataset UMK3_A_SMOKE_PALETTES_P2[] =
 
 const sGame_PaletteDataset UMK3_A_SHAOKHAN_PALETTES[] =
 {
-    { L"Shao Kahn", 0xb1b86, 0xb1c06 },
+    { L"Shao Kahn", 0xb1b86, 0xb1c06, indexMK2ASprites_ShaoKahn },
 };
 
 const sGame_PaletteDataset UMK3_A_HUMANSMOKE_PALETTES[] =

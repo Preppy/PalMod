@@ -2,6 +2,41 @@
 
 #include "GGXXACR_Common.h"
 
+const std::vector<uint16_t> GGXX_Rld_IMGIDS_USED =
+{
+    indexGGXXSprites_ACR_ABA,   // 0x00
+    indexGGXXSprites_ACR_Anji,  // 0x01
+    indexGGXXSprites_ACR_Axl,   // 0x02
+    indexGGXXSprites_ACR_Baiken,// 0x03
+    indexGGXXSprites_ACR_Bridget,   // 0x04
+    indexGGXXSprites_ACR_Chipp, // 0x05
+    indexGGXXSprites_ACR_Dizzy, // 0x06
+    indexGGXXSprites_ACR_Eddie, // 0x07
+    indexGGXXSprites_ACR_Faust, // 0x08
+    indexGGXXSprites_ACR_Ino,   // 0x09
+    indexGGXXSprites_ACR_Jam,   // 0x0a
+    indexGGXXSprites_ACR_Johnny,// 0x0b
+    indexGGXXSprites_ACR_Justice,   // 0x0c
+    indexGGXXSprites_ACR_Kliff, // 0x0d
+    indexGGXXSprites_ACR_Ky,// 0x0e
+    indexGGXXSprites_ACR_May,   // 0x0f
+    indexGGXXSprites_ACR_Millia,// 0x10
+    indexGGXXSprites_ACR_OrderSol,  // 0x11
+    indexGGXXSprites_ACR_Potemkin,  // 0x12
+    indexGGXXSprites_ACR_RoboKy,// 0x13
+    indexGGXXSprites_ACR_Slayer,// 0x14
+    indexGGXXSprites_ACR_Sol,   // 0x15
+    indexGGXXSprites_ACR_Testament, // 0x16
+    indexGGXXSprites_ACR_Venom, // 0x17
+    indexGGXXSprites_ACR_Zappa, // 0x18
+    indexGGXXSprites_ACR_Bonus, // 0x19
+
+    indexGGXXRldSprites_Baiken,             // 0x1A
+    indexGGXXRldSprites_Bridget,            // 0x1B
+    indexGGXXRldSprites_Ino,                // 0x1C
+    indexGGXXRldSprites_Testament,          // 0x1D
+};
+
 const std::vector<LPCWSTR> GGXXRPaletteNames_Text =
 {
     { L"Punch" },
@@ -46,12 +81,12 @@ const std::vector<sGCBUPF_BasicFileData> GGXXR_S_CharacterData =
     { L"cddata03.bin",    L"Anji Mito",         64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x32051b0, indexGGXXSprites_ACR_Anji },
     { L"cddata03.bin",    L"Axl Low",           64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x14cea30, indexGGXXSprites_ACR_Axl },
     { L"cddata03.bin",    L"Baiken",            64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x2255cc0, indexGGXXSprites_ACR_Baiken },
-    { L"cddata04.bin",    L"Bridget",           63557632,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x124e830, indexGGXXSprites_ACR_Bridget }, //Different sprites from ACR, but these work for now
+    { L"cddata04.bin",    L"Bridget",           63557632,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x124e830, indexGGXXRldSprites_Bridget },
     { L"cddata03.bin",    L"Chipp Zanuff",      64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x1c56e80, indexGGXXSprites_ACR_Chipp },
     { L"cddata03.bin",    L"Dizzy",             64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x3d19e80, indexGGXXSprites_ACR_Dizzy },
     { L"cddata03.bin",    L"Eddie",             64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x1f19600, indexGGXXSprites_ACR_Eddie },
     { L"cddata03.bin",    L"Faust",             64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x265d930, indexGGXXSprites_ACR_Faust },
-    { L"cddata04.bin",    L"I-no",              63557632,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x895050,  indexGGXXSprites_ACR_Ino }, //Different sprites from ACR, but these work for now
+    { L"cddata04.bin",    L"I-no",              63557632,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x895050,  indexGGXXRldSprites_Ino },
     { L"cddata03.bin",    L"Jam Kuradoberi",    64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x2da6940, indexGGXXSprites_ACR_Jam },
     { L"cddata03.bin",    L"Johnny",            64798720,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x35987c0, indexGGXXSprites_ACR_Johnny },
     { L"cddata04.bin",    L"Justice",           63557632,    GGXXR_S_NormalNode, GGXXRPaletteNamesNormal,    0x1cb87d0, indexGGXXSprites_ACR_Justice },
