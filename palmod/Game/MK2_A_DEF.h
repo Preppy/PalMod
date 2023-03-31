@@ -50,7 +50,7 @@ const sGame_PaletteDataset MK2_A_LIUKANG_PALETTES_P2[] =
 
 const sGame_PaletteDataset MK2_A_LIUKANG_PALETTES_SHARED[] =
 {
-    { L"Liu Kang Fireball", 0x5b99a, 0x5ba1a },
+    { L"Liu Kang Fireball", 0x5b99a, 0x5ba1a, indexMK2ASprites_LiuKang, 0x01 },
 };
 
 const sGame_PaletteDataset MK2_A_KUNGLAO_PALETTES_P1[] =

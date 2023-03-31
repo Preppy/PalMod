@@ -531,7 +531,7 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
         bi.pidlRoot = nullptr; // We don't want to force browse-below
         bi.pszDisplayName = pszBuffer;
         bi.lpszTitle = pszDescriptionString ? pszDescriptionString : L"Select a target directory";
-        bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE | BIF_NONEWFOLDERBUTTON;
+        bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE | BIF_NONEWFOLDERBUTTON | BIF_EDITBOX;
         bi.lpfn = OnBrowseDialog;
         bi.lParam = nDefaultGameFlag;
 
