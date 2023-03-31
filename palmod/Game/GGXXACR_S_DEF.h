@@ -2,6 +2,9 @@
 
 #include "GGXXACR_Common.h"
 
+constexpr auto k_strSidebarPortraits = L"Sidebar Portraits";
+constexpr auto k_strTitleScreen      = L"Title Screen";
+
 const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettes_S =
 {
     { L"Punch" },
@@ -2053,7 +2056,7 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_RoundMessages =
 
 const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits =
 {
-    L"Sidebar Portraits",
+    k_strSidebarPortraits,
     {
         { L"Type A Background (Left)",  0x110, 0x510, indexGGXXSprites_ACR_Bonus, 0x00 },
         { L"Type A Background (Right)", 0x162E0, 0x166E0, indexGGXXSprites_ACR_Bonus, 0x01 },
@@ -2356,7 +2359,7 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_SelectScreenPortraits =
 
 const sGCBUPF_ExtrasCollection GGXXACR_S_Title =
 {
-    L"Title Screen",
+    k_strTitleScreen,
     {
         { L"Title Screen", 0x7AC70, 0x7B070, indexGGXXSprites_ACR_Bonus, 0x06 },
     }

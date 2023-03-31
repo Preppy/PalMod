@@ -8,11 +8,22 @@ void CGame_GGXXACR_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     CGameClassPerUnitPerFile::LoadSpecificPaletteData(nUnitId, nPalId);
 
-    // The portrait palettes don't actually use a transparency color: we'll use this check to handle this for now.
+    // The sidebar portrait and title screen palettes don't actually use a transparency color: we'll use this check to handle this for now.
     if (GGXXACR_S_CharacterData[nUnitId].prgBasicPalettes.empty())
     {
-        createPalOptions.nTransparencyColorPosition = 257; 
+        uint32_t nFileId = 0, nCharacterId = 0;
 
+        GetFileIndexFromCharacterIndex(nUnitId, nPalId, nFileId, nCharacterId);
+
+        if ((m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sExtrasNodeData.strExtraCollectionName == k_strSidebarPortraits) ||
+            (m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sExtrasNodeData.strExtraCollectionName == k_strTitleScreen))
+        {
+            createPalOptions.nTransparencyColorPosition = 257;
+        }
+        else
+        {
+            createPalOptions.nTransparencyColorPosition = 0;
+        }
     }
     else
     {
