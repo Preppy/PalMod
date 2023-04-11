@@ -87,7 +87,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                 const uint16_t nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
                 for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)
                 {
-                    const int iIndexToUse= fShouldProcessTopdown ? iACTIndex : (nACTColorCount - iACTIndex);
+                    const int iIndexToUse = fShouldProcessTopdown ? iACTIndex : (nACTColorCount - 1 - iACTIndex);
                     if ((rgAct.at(iIndexToUse * 3) != 0) ||
                         (rgAct.at((iIndexToUse * 3) + 1) != 0) ||
                         (rgAct.at((iIndexToUse * 3) + 2) != 0))
