@@ -33,7 +33,9 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize, SFIII3Loading
         break;
     case SFIII3LoadingKey::ROM51:
     default:
-        m_fAllowIPSPatching = true;
+        // TODO: enable if we ever want to test this
+        //m_fAllowIPSPatching = true;
+        //m_nSIMMLength = 0x200000;
         nFileAmt = 8;
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_DIR);
         break;

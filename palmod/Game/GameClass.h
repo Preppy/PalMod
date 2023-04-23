@@ -305,11 +305,10 @@ public:
     uint8_t m_nSIMMSetStartingFileNumber = 0;
     uint8_t m_nTotalNumberOfSIMMFilesNeeded = 0;
 
-    inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
-    inline uint32_t GetLocationWithinSIMM(uint32_t nSIMMSetLocation);
-    inline uint8_t GetSIMMSetForROMLocation(uint32_t nROMLocation);
-    BOOL LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber);
-    BOOL SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber);
-    // this is a little hacky...
+    uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
+    uint32_t GetLocationWithinSIMM(uint32_t nSIMMSetLocation);
+    uint8_t GetSIMMSetForROMLocation(uint32_t nROMLocation);
+
+    // this is always overriden
     virtual sFileRule GetNextRuleForSIMMGame() { sFileRule NewFileRule = {}; return NewFileRule; };
 };

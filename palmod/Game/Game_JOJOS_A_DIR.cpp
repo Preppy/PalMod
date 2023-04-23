@@ -7,6 +7,7 @@ CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(uint32_t nConfirmedROMSize, JojosLoadingKey
         CGame_JOJOS_A(nConfirmedROMSize, nJojosModeToLoad)
 {
     m_fAllowIPSPatching = true;
+    m_nSIMMLength = 0x200000;
 }
 
 sFileRule CGame_JOJOS_A_DIR::GetRuleInternal(uint32_t nUnitId, JojosLoadingKey nVersionToLoad)

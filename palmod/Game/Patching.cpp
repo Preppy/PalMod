@@ -51,15 +51,7 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
                 PatchFile->Write(&b1, 1);
                 PatchFile->Write(&b2, 1);
 
-                // Actual data
-                if (GameIsUsing16BitColor())
-                {
-                    PatchFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nInitialOffset], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
-                }
-                else
-                {
-                    PatchFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nInitialOffset], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
-                }
+                PatchFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nInitialOffset], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
 
                 nTotalPalettesSaved++;
             }

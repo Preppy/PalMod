@@ -884,8 +884,9 @@ BOOL CGameClass::WasGameFileChangedInSession()
 
 bool CGameClass::AllowIPSPatchGeneration()
 {
-    if ((!m_fIsDirectoryBasedGame || m_fAllowIPSPatching) &&
-        m_fGameSizeAllowsIPSPatching)
+    if ((!m_fIsDirectoryBasedGame || (m_fAllowIPSPatching && (m_nSIMMLength != 0))) &&
+        m_fGameSizeAllowsIPSPatching &&
+        (m_nSizeOfColorsInBytes == 2))
     {
         return true;
     }
@@ -1768,19 +1769,19 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     return TRUE;
 }
 
-inline uint8_t CGameClass::GetSIMMSetForROMLocation(uint32_t nROMLocation)
+uint8_t CGameClass::GetSIMMSetForROMLocation(uint32_t nROMLocation)
 {
     return (nROMLocation > (m_nNumberOfSIMMsPerSet * m_nSIMMLength)) ? 1 : 0;
 }
 
-inline uint32_t CGameClass::GetSIMMLocationFromROMLocation(uint32_t nROMLocation)
+uint32_t CGameClass::GetSIMMLocationFromROMLocation(uint32_t nROMLocation)
 {
     uint32_t nSIMMLocation = nROMLocation / m_nNumberOfSIMMsPerSet;
 
     return nSIMMLocation;
 }
 
-inline uint32_t CGameClass::GetLocationWithinSIMM(uint32_t nSIMMSetLocation)
+uint32_t CGameClass::GetLocationWithinSIMM(uint32_t nSIMMSetLocation)
 {
     uint32_t nSIMMLocation = nSIMMSetLocation;
 
@@ -1947,265 +1948,6 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
     CString strMsg;
     strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
-
-    return TRUE;
-}
-
-BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
-{
-    CString strInfo;
-    uint32_t nAdjustedSIMMFileNumber = nSIMMNumber + m_nSIMMSetStartingFileNumber;
-    BOOL fSuccess = TRUE;
-
-    if ((nAdjustedSIMMFileNumber % m_nNumberOfSIMMsPerSet) != 0)
-    {
-        strInfo.Format(L"\tCGameClass::LoadFileForSIMMGame: SIMM %u.%u is a peer SIMM: skipping.\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
-        OutputDebugString(strInfo);
-        return TRUE;
-    }
-    else if (nAdjustedSIMMFileNumber > (uint32_t)(m_nSIMMSetStartingFileNumber + m_nTotalNumberOfSIMMFilesNeeded))
-    {
-        // Nothing useful on those SIMMs
-        strInfo.Format(L"\tCGameClass::LoadFileForSIMMGame: SIMM %u.%u is unused: skipping.\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
-        OutputDebugString(strInfo);
-        return TRUE;
-    }
-
-    // This code handles ROMs as being interleaved
-    // For example, one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
-    // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
-    // So to read the SIMMs we need to perform shenanigans.
-    const uint32_t nBeginningRange = 0 + (m_nSIMMLength * (nAdjustedSIMMFileNumber - m_nSIMMSetStartingFileNumber));
-    uint32_t nEndingRange = (m_nSIMMLength * m_nNumberOfSIMMsPerSet) + (m_nSIMMLength * (nAdjustedSIMMFileNumber - m_nSIMMSetStartingFileNumber));
-
-    CFile FilePeer;
-    sFileRule PeerRule = GetNextRuleForSIMMGame();
-    CString strPeerFilename;
-    strPeerFilename.Format(L"%s\\%s", GetLoadedDirPathOnly(), PeerRule.szFileName);
-
-    BOOL fFileOpened = FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary);
-
-    if (fFileOpened)
-    {
-        uint32_t nPaletteLoadCount = 0;
-        bool fShownCrossSIMMErrorOnce = false;
-
-        strInfo.Format(L"CGameClass::LoadFileForSIMMGame: Preparing to load data from SIMM number %u.%u with peer %s (range 0x%x to 0x%x)\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber,
-                            PeerRule.szFileName, nBeginningRange, nEndingRange);
-        OutputDebugString(strInfo);
-
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-            if (m_pppDataBuffer[nUnitCtr] == nullptr)
-            {
-                m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
-                memset(m_pppDataBuffer[nUnitCtr], 0, sizeof(uint16_t*) * nPalAmt);
-            }
-
-            // Layout is presorted
-            m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
-
-            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-            {
-                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                if ((m_nCurrentPaletteROMLocation >= nBeginningRange) && (m_nCurrentPaletteROMLocation <= nEndingRange))
-                {
-                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
-                    m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
-                    m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
-
-                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSizeInColors) > m_nSIMMLength)
-                    {
-                        if (!fShownCrossSIMMErrorOnce)
-                        {
-                            fShownCrossSIMMErrorOnce = true;
-                            strInfo.Format(IDS_EXTRAS_SIMMBOUNDARY,
-                                            nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
-                            MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-
-                        fSuccess = FALSE;
-                    }
-
-                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
-                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
-
-                    LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    nPaletteLoadCount++;
-
-                    for (uint16_t nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
-                    {
-                        BYTE high, low;
-
-                        LoadedFile->Read(&low, 1);
-                        FilePeer.Read(&high, 1);
-
-                        m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (uint16_t)((high << 8) | low);
-                    }
-                }
-            }
-        }
-
-        strInfo.Format(L"\tCGameClass::LoadFileForSIMMGame: Loaded %u palettes from this SIMM pairing of %u.%u\n", nPaletteLoadCount, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
-        OutputDebugString(strInfo);
-
-        FilePeer.Close();
-    }
-    else
-    {
-        strInfo.Format(L"\tCGameClass::LoadFileForSIMMGame: Failed to load file for SIMM %u.%u.\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
-        OutputDebugString(strInfo);
-        fSuccess = FALSE;
-    }
-
-    // We can do our cleanup checks when finished, which is at either file 0, 2, 4, etc
-    if (nAdjustedSIMMFileNumber == (m_nSIMMSetStartingFileNumber + (m_nTotalNumberOfSIMMFilesNeeded - m_nNumberOfSIMMsPerSet)))
-    {
-        CheckForErrorsInTables();
-
-        OutputDebugString(L"CGameClass::LoadFileForSIMMGame: Loading the SIMM set is complete.\n");
-    }
-
-    return fSuccess;
-}
-
-BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber)
-{
-    CString strInfo;
-    uint32_t nAdjustedSIMMFileNumber = nSIMMNumber + m_nSIMMSetStartingFileNumber;
-
-    strInfo.Format(L"CGameClass::SaveFileForSIMMGame: Preparing to save data for game unit number %u\n", nSIMMNumber);
-    OutputDebugString(strInfo);
-
-    // We only save out once to avoid looping
-    if (nAdjustedSIMMFileNumber != m_nSIMMSetStartingFileNumber)
-    {
-        strInfo.Format(L"\tCGameClass::SaveFileForSIMMGame: SIMM %u.%u is already saved.\n", m_nSIMMSetBaseNumber, nSIMMNumber);
-        OutputDebugString(strInfo);
-        return TRUE;
-    }
-    else if ((nSIMMNumber % m_nNumberOfSIMMsPerSet) != 0)
-    {
-        strInfo.Format(L"\tCGameClass::SaveFileForSIMMGame: SIMM %u.%u is a peer SIMM: skipping.\n", m_nSIMMSetBaseNumber, nSIMMNumber);
-        OutputDebugString(strInfo);
-        return TRUE;
-    }
-
-    // This code handles ROMs as interleaved
-    // For example, there is one byte from 5.0 followed by one byte from 5.1, up until the end of those SIMMs.
-    // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
-    // So to read the SIMMs we need to perform shenanigans.
-
-    CFile fileSIMM1;
-    CString strSIMMName1;
-    CFile fileSIMM2;
-    CString strSIMMName2;
-    CFile fileSIMM3;
-    CString strSIMMName3;
-    CFile fileSIMM4;
-    CString strSIMMName4;
-
-    strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
-    strSIMMName2.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 1);
-
-    if (m_nTotalNumberOfSIMMFilesNeeded == 4)
-    {
-        strSIMMName3.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 2);
-        strSIMMName4.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 3);
-    }
-
-    // We don't necessarily want the incoming file handle, so close it
-    SaveFile->Abort();
-
-    if ((fileSIMM1.Open(strSIMMName1, CFile::modeWrite | CFile::typeBinary)) &&
-        (fileSIMM2.Open(strSIMMName2, CFile::modeWrite | CFile::typeBinary)) &&
-        ((m_nTotalNumberOfSIMMFilesNeeded != 4) || (fileSIMM3.Open(strSIMMName3, CFile::modeWrite | CFile::typeBinary))) &&
-        ((m_nTotalNumberOfSIMMFilesNeeded != 4) || (fileSIMM4.Open(strSIMMName4, CFile::modeWrite | CFile::typeBinary))))
-    {
-        strInfo.Format(L"CGameClass::SaveFileForSIMMGame: Preparing to save data starting with SIMM %u.%u\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
-        OutputDebugString(strInfo);
-        uint32_t nPaletteSaveCount = 0;
-
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-            {
-                if (IsPaletteDirty(nUnitCtr, nPalCtr))
-                {
-                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
-
-                    const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
-
-                    m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
-                    m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
-
-                    CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
-                    CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
-
-                    pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    nPaletteSaveCount++;
-
-                    // write length will be number of *bytes* in the sequence across 2 files
-                    // We use a temp array to minimize the number of write calls we make
-                    uint16_t nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
-
-                    BYTE* pbWrite1 = new BYTE[nCurrentWriteLength];
-                    BYTE* pbWrite2 = new BYTE[nCurrentWriteLength];
-
-                    if (pbWrite1 && pbWrite2)
-                    {
-                        for (uint16_t nWordsWritten = 0; nWordsWritten < nCurrentWriteLength; nWordsWritten++)
-                        {
-                            pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
-                            pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
-                        }
-
-                        pSIMM1->Write(pbWrite1, nCurrentWriteLength);
-                        pSIMM2->Write(pbWrite2, nCurrentWriteLength);
-                    }
-
-                    safe_delete_array(pbWrite1);
-                    safe_delete_array(pbWrite2);
-                }
-            }
-        }
-
-        strInfo.Format(L"\tCGameClass::SaveFileForSIMMGame: Saved %u palettes\n", nPaletteSaveCount);
-        OutputDebugString(strInfo);
-    }
-    else
-    {
-        OutputDebugString(L"CGameClass::SaveFileForSIMMGame: Failed to open full SIMM set: skipping save.\n");
-    }
-
-    if (fileSIMM1.m_hFile != CFile::hFileNull)
-    {
-        fileSIMM1.Close();
-    }
-
-    if (fileSIMM2.m_hFile != CFile::hFileNull)
-    {
-        fileSIMM2.Close();
-    }
-
-    if (fileSIMM3.m_hFile != CFile::hFileNull)
-    {
-        fileSIMM3.Close();
-    }
-
-    if (fileSIMM4.m_hFile != CFile::hFileNull)
-    {
-        fileSIMM4.Close();
-    }
 
     return TRUE;
 }
