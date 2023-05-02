@@ -4226,6 +4226,18 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_SD[] =
     { L"Start+D - Extra Move 6", 0x3e95be0, 0x3e95c00, indexNGBCSprites_KingLion, 0x06 },
 };
 
+const sGame_PaletteDataset NGBC_A_KINGLEO_PALETTES[] =
+{
+    { L"King Leo", 0x3e95c00, 0x3e95c20, indexNGBCSprites_KingLion },
+    { L"King Leo - Super Trail", 0x3e95c20, 0x3e95c40, indexNGBCSprites_KingLion, 0x00 },
+    { L"King Leo - Extra Move 1", 0x3e95c40, 0x3e95c60, indexNGBCSprites_KingLion, 0x01 },
+    { L"King Leo - Extra Move 2", 0x3e95c60, 0x3e95c80, indexNGBCSprites_KingLion, 0x02 },
+    { L"King Leo - Extra Move 3", 0x3e95c80, 0x3e95ca0, indexNGBCSprites_KingLion, 0x03 },
+    { L"King Leo - Extra Move 4", 0x3e95ca0, 0x3e95cc0, indexNGBCSprites_KingLion, 0x04 },
+    { L"King Leo - Extra Move 5", 0x3e95cc0, 0x3e95ce0, indexNGBCSprites_KingLion, 0x05 },
+    { L"King Leo - Extra Move 6", 0x3e95ce0, 0x3e95d00, indexNGBCSprites_KingLion, 0x06 },
+};
+
 const sGame_PaletteDataset NGBC_A_CYBERWOO_PALETTES_A[] =
 {
     { L"Cyber Woo A", 0x406f000, 0x406f020, indexNGBCSprites_CyberWoo },
@@ -6272,6 +6284,7 @@ const sDescTreeNode NGBC_A_KINGLION_COLLECTION[] =
     { L"Start + B", DESC_NODETYPE_TREE, (void*)NGBC_A_KINGLION_PALETTES_SB, ARRAYSIZE(NGBC_A_KINGLION_PALETTES_SB) },
     { L"Start + C", DESC_NODETYPE_TREE, (void*)NGBC_A_KINGLION_PALETTES_SC, ARRAYSIZE(NGBC_A_KINGLION_PALETTES_SC) },
     { L"Start + D", DESC_NODETYPE_TREE, (void*)NGBC_A_KINGLION_PALETTES_SD, ARRAYSIZE(NGBC_A_KINGLION_PALETTES_SD) },
+    { L"King Leo", DESC_NODETYPE_TREE, (void*)NGBC_A_KINGLEO_PALETTES, ARRAYSIZE(NGBC_A_KINGLEO_PALETTES) },
 };
 
 const sDescTreeNode NGBC_A_CYBERWOO_COLLECTION[] =

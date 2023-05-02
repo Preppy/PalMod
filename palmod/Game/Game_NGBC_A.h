@@ -29,7 +29,7 @@ private:
         NGBC_A_UNITS,
         ARRAYSIZE(NGBC_A_UNITS),
         L"NGBCe.txt",        // Extra filename
-        3840,                // Count of palettes listed in the header
+        3848,                // Count of palettes listed in the header
         0x1013000,           // Lowest known location used for palettes
     };
 
