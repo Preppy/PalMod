@@ -72,7 +72,7 @@ private:
         MVC_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2,
+        DEF_BUTTONLABEL_2_PK,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
