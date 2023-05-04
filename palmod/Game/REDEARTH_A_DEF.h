@@ -2724,15 +2724,15 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_PALETTES[] =
     { L"Crypt 8.1.1", 0x73a880, 0x73a900, indexRedEarthSprites_Stages, 0x4d },
     { L"Crypt 9.1.2", 0x73ab00, 0x73ac00, indexRedEarthSprites_Stages, 0x4e },
     { L"Crypt 9.1.1", 0x73aa80, 0x73ab00, indexRedEarthSprites_Stages, 0x4f },
-    { L"Crypt 14.1.4", 0x73b600, 0x73b680, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 14.1.4 Cycle 1/3", 0x73b600, 0x73b680, indexRedEarthSprites_Stages, 0x50 },
 
     { L"Crypt Unknown Palette", 0x73b500, 0x73b580 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_OTHER_PALETTES[] =
 {
-    { L"Crypt 9/9 14.1.4 Cycle 1/2", 0x73b680, 0x73b700, indexRedEarthSprites_Stages, 0x50 },
-    { L"Crypt 9/9 14.1.4 Cycle 1/2", 0x73b700, 0x73b780, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 9/9 14.1.4 Cycle 2/3", 0x73b680, 0x73b700, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 9/9 14.1.4 Cycle 3/3", 0x73b700, 0x73b780, indexRedEarthSprites_Stages, 0x50 },
 
     { L"Crypt 1/9 6.1.2", 0x73a500, 0x73a580 },
     // Fully unused data
@@ -2747,8 +2747,8 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_OTHER_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_FADED_OTHER_PALETTES[] =
 {
-    { L"Crypt 9/9 14.1.4 Cycle 1/2", 0x750680, 0x750700, indexRedEarthSprites_Stages, 0x50 },
-    { L"Crypt 9/9 14.1.4 Cycle 1/2", 0x750700, 0x750780, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 9/9 14.1.4 Cycle 2/3", 0x750680, 0x750700, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 9/9 14.1.4 Cycle 3/3", 0x750700, 0x750780, indexRedEarthSprites_Stages, 0x50 },
 
     { L"Crypt 1/9 6.1.2", 0x74f500, 0x74f580 },
     // Fully unused data
@@ -3183,7 +3183,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_SLASH_PALETTES[] =
     { L"Crypt 8.1.1", 0x73a880 + 0xb000, 0x73a900 + 0xb000, indexRedEarthSprites_Stages, 0x4d },
     { L"Crypt 9.1.2", 0x745b00, 0x745c00, indexRedEarthSprites_Stages, 0x4e },
     { L"Crypt 9.1.1", 0x73aa80 + 0xb000, 0x73ab00 + 0xb000, indexRedEarthSprites_Stages, 0x4f },
-    { L"Crypt 14.1.4", 0x73b600 + 0xb000, 0x73b680 + 0xb000, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 14.1.4 Cycle 1/3", 0x73b600 + 0xb000, 0x73b680 + 0xb000, indexRedEarthSprites_Stages, 0x50 },
 
     { L"Crypt Unknown Palette", 0x746500, 0x746580 },
 };
@@ -3206,15 +3206,15 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_FADED_PALETTES[] =
     { L"Crypt 8.1.1", 0x73a880 + 0x15000, 0x73a900 + 0x15000, indexRedEarthSprites_Stages, 0x4d },
     { L"Crypt 9.1.2", 0x745b00 + 0xA000, 0x745c00 + 0xA000, indexRedEarthSprites_Stages, 0x4e },
     { L"Crypt 9.1.1", 0x73aa80 + 0x15000, 0x73ab00 + 0x15000, indexRedEarthSprites_Stages, 0x4f },
-    { L"Crypt 14.1.4", 0x73b600 + 0x15000, 0x73b680 + 0x15000, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 14.1.4 Cycle 1/3", 0x73b600 + 0x15000, 0x73b680 + 0x15000, indexRedEarthSprites_Stages, 0x50 },
 
     { L"Crypt Unknown Palette", 0x746500 + 0xA000, 0x746580 + 0xA000},
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_OTHER_SLASH_PALETTES[] =
 {
-    { L"Crypt 9/9 14.1.4 Cycle 1/2", 0x73b680 + 0xb000, 0x73b700 + 0xb000, indexRedEarthSprites_Stages, 0x50 },
-    { L"Crypt 9/9 14.1.4 Cycle 1/2", 0x73b700 + 0xb000, 0x73b780 + 0xb000, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 9/9 14.1.4 Cycle 2/3", 0x73b680 + 0xb000, 0x73b700 + 0xb000, indexRedEarthSprites_Stages, 0x50 },
+    { L"Crypt 9/9 14.1.4 Cycle 3/3", 0x73b700 + 0xb000, 0x73b780 + 0xb000, indexRedEarthSprites_Stages, 0x50 },
 
     { L"Crypt 1/9 6.1.2", 0x73a500 + 0xb000, 0x73a580 + 0xb000 },
     // Fully unused data
