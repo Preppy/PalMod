@@ -1799,7 +1799,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_HULK =
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_VENOM =
 { //0E: Venom" },
-    { 0x00, L"Main Color" },
+    { 0x00, L"Main Color", 0, indexCPS2Sprites_Venom, &pairNext },
     { 0x01, L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)" },
     { 0x02, L"(03) ID:01-07 s.MP (Launcher - Effect) ID:08-15 Webs" },
     { 0x03, L"(04) Not Used" },

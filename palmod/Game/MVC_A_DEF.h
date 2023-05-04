@@ -1041,6 +1041,7 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     { L"K Megaman", 0x4eb82, 0x4eba2, indexCPS2Sprites_Megaman },
     { L"K Magnetic Shockwave Megaman", 0x4eba2, 0x4ebc2, indexCPS2Sprites_Megaman },
 };
+
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_CHARLES[] =
 {
     { L"Charles (Intro)", 0x49082, 0x490a2, indexCPS2Sprites_Onslaught, 0x1 },

@@ -1981,7 +1981,7 @@ const sDescTreeNode MVC2_A_HULK_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x32ed120, 0x32ed140, indexCPS2Sprites_Venom, 0 },
+    { L"Main Color LP", 0x32ed120, 0x32ed140, indexCPS2Sprites_Venom, 0, &pairNext },
     { L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)", 0x32ed140, 0x32ed160, indexCPS2Sprites_Venom, 1 },
     { L"(03) ID:01-07 s.MP (Launcher - Effect) ID:08-15 Webs", 0x32ed160, 0x32ed180, indexCPS2Sprites_Venom, 2 },
     { L"(04) Not Used", 0x32ed180, 0x32ed1a0, indexCPS2Sprites_Venom, 3 },
@@ -1993,7 +1993,7 @@ const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x32ed220, 0x32ed240, indexCPS2Sprites_Venom, 0 },
+    { L"Main Color LK", 0x32ed220, 0x32ed240, indexCPS2Sprites_Venom, 0, &pairNext },
     { L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)", 0x32ed240, 0x32ed260, indexCPS2Sprites_Venom, 1 },
     { L"(03) ID:01-07 s.MP (Launcher - Effect) ID:08-15 Webs", 0x32ed260, 0x32ed280, indexCPS2Sprites_Venom, 2 },
     { L"(04) Not Used", 0x32ed280, 0x32ed2a0, indexCPS2Sprites_Venom, 3 },
@@ -2005,7 +2005,7 @@ const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x32ed320, 0x32ed340, indexCPS2Sprites_Venom, 0 },
+    { L"Main Color HP", 0x32ed320, 0x32ed340, indexCPS2Sprites_Venom, 0, &pairNext },
     { L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)", 0x32ed340, 0x32ed360, indexCPS2Sprites_Venom, 1 },
     { L"(03) ID:01-07 s.MP (Launcher - Effect) ID:08-15 Webs", 0x32ed360, 0x32ed380, indexCPS2Sprites_Venom, 2 },
     { L"(04) Not Used", 0x32ed380, 0x32ed3a0, indexCPS2Sprites_Venom, 3 },
@@ -2017,7 +2017,7 @@ const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x32ed420, 0x32ed440, indexCPS2Sprites_Venom, 0 },
+    { L"Main Color HK", 0x32ed420, 0x32ed440, indexCPS2Sprites_Venom, 0, &pairNext },
     { L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)", 0x32ed440, 0x32ed460, indexCPS2Sprites_Venom, 1 },
     { L"(03) ID:01-07 s.MP (Launcher - Effect) ID:08-15 Webs", 0x32ed460, 0x32ed480, indexCPS2Sprites_Venom, 2 },
     { L"(04) Not Used", 0x32ed480, 0x32ed4a0, indexCPS2Sprites_Venom, 3 },
@@ -2029,7 +2029,7 @@ const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x32ed520, 0x32ed540, indexCPS2Sprites_Venom, 0 },
+    { L"Main Color A1", 0x32ed520, 0x32ed540, indexCPS2Sprites_Venom, 0, &pairNext },
     { L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)", 0x32ed540, 0x32ed560, indexCPS2Sprites_Venom, 1 },
     { L"(03) ID:01-07 s.MP (Launcher - Effect) ID:08-15 Webs", 0x32ed560, 0x32ed580, indexCPS2Sprites_Venom, 2 },
     { L"(04) Not Used", 0x32ed580, 0x32ed5a0, indexCPS2Sprites_Venom, 3 },
@@ -2041,7 +2041,7 @@ const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x32ed620, 0x32ed640, indexCPS2Sprites_Venom, 0 },
+    { L"Main Color A2", 0x32ed620, 0x32ed640, indexCPS2Sprites_Venom, 0, &pairNext },
     { L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)", 0x32ed640, 0x32ed660, indexCPS2Sprites_Venom, 1 },
     { L"(03) ID:01-07 s.MP (Launcher - Effect) ID:08-15 Webs", 0x32ed660, 0x32ed680, indexCPS2Sprites_Venom, 2 },
     { L"(04) Not Used", 0x32ed680, 0x32ed6a0, indexCPS2Sprites_Venom, 3 },
