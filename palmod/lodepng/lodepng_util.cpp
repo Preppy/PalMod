@@ -1,7 +1,7 @@
 /*
 LodePNG Utils
 
-Copyright (c) 2005-2022 Lode Vandevenne
+Copyright (c) 2005-2023 Lode Vandevenne
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any damages
@@ -722,7 +722,7 @@ static void mulMatrix(float* x2, float* y2, float* z2, const float* m, double x,
 
 static void mulMatrixMatrix(float* result, const float* a, const float* b) {
   int i;
-  float temp[9] = {}; /* temp is to allow result and a or b to be the same */
+  float temp[9]; /* temp is to allow result and a or b to be the same */
   mulMatrix(&temp[0], &temp[3], &temp[6], a, b[0], b[3], b[6]);
   mulMatrix(&temp[1], &temp[4], &temp[7], a, b[1], b[4], b[7]);
   mulMatrix(&temp[2], &temp[5], &temp[8], a, b[2], b[5], b[8]);
@@ -739,7 +739,7 @@ static unsigned invMatrix(float* m) {
   double e6 = (double)m[3] * m[7] - (double)m[4] * m[6];
   /* inverse determinant */
   double d = 1.0 / (m[0] * e0 + m[1] * e3 + m[2] * e6);
-  double result[9] = {};
+  double result[9];
   if((d > 0 ? d : -d) > 1e15) return 1; /* error, likely not invertible */
   result[0] = e0 * d;
   result[1] = ((double)m[2] * m[7] - (double)m[1] * m[8]) * d;
@@ -760,7 +760,7 @@ static unsigned getChrmMatrixXYZ(float* m,
                                  float rX, float rY, float rZ,
                                  float gX, float gY, float gZ,
                                  float bX, float bY, float bZ) {
-  float t[9] = {};
+  float t[9];
   float rs, gs, bs;
   t[0] = rX; t[1] = gX; t[2] = bX;
   t[3] = rY; t[4] = gY; t[5] = bY;
@@ -865,8 +865,8 @@ so in that case you could skip the transform. */
 static unsigned getICCChrm(float m[9], float whitepoint[3], const LodePNGICC* icc) {
   size_t i;
   if(icc->inputspace == 2) { /* RGB profile */
-    float red[3] = {}, green[3] = {}, blue[3] = {};
-    float white[3] = {}; /* the whitepoint of the RGB color space (absolute) */
+    float red[3], green[3], blue[3];
+    float white[3]; /* the whitepoint of the RGB color space (absolute) */
     /* Adaptation matrix a.
     This is an adaptation needed for ICC's file format (due to it using
     an internal global illuminant unrelated to the actual images) */
@@ -1609,12 +1609,11 @@ struct ExtractZlib { // Zlib decompression and information extraction
 
   void inflateHuffmanBlock(std::vector<unsigned char>& out,
                            const unsigned char* in, size_t& bp, size_t& pos, size_t inlength, unsigned long btype) {
-    size_t numcodes = 0, numlit = 0, numlen = 0; //for logging
+    size_t numlit = 0, numlen = 0; //for logging
     if(btype == 1) { generateFixedTrees(codetree, codetreeD); }
     else if(btype == 2) { getTreeInflateDynamic(codetree, codetreeD, in, bp, inlength); if(error) return; }
     for(;;) {
       unsigned long code = huffmanDecodeSymbol(in, bp, codetree, inlength); if(error) return;
-      numcodes++;
       zlibinfo->back().lz77_lcode.push_back(code); //output code
       zlibinfo->back().lz77_dcode.push_back(0);
       zlibinfo->back().lz77_lbits.push_back(0);
