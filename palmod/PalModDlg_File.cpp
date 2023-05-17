@@ -40,7 +40,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { FatalFury3_A,     L"Fatal Fury 3", L"Fatal Fury 3|069-p1.*;069-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { FightFever_A,     L"Fight Fever", L"Fight Fever|060-p1.p1;060-p1.bin|", GamePlatform::NEOGEO },
     { GalaxyFight_A,    L"Galaxy Fight", L"Galaxy Fight|078-p1.*|", GamePlatform::NEOGEO },
-    { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+    { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma;253-sma.bin;253-sma.kf|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin;253-sma.bin|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
     { GGDS_NDS,         L"Guilty Gear: Dust Strikers", L"Guilty Gear: Dust Strikers (Nintendo DS)|0590*(Japan).nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },

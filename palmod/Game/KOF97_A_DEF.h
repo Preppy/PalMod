@@ -3351,6 +3351,26 @@ const sGame_PaletteDataset KOF97_A_OROCHI_SHARED_PALETTES[] =
     { L"Orochi Shared Flash 16", 0x2ffbd0, 0x2ffbf0, indexKOF97Sprites_Orochi },
 };
 
+const sGame_PaletteDataset KOF97_A_OROCHI_MAROKARE_PALETTES[] =
+{
+    { L"Marokare 1", 0x2ffdf0, 0x2ffe10 },
+    { L"Marokare 2", 0x2ffe10, 0x2ffe30 },
+    { L"Marokare 3", 0x2ffe30, 0x2ffe50 },
+    { L"Marokare 4", 0x2ffe50, 0x2ffe70 },
+    { L"Marokare 5", 0x2ffe70, 0x2ffe90 },
+    { L"Marokare 6", 0x2ffe90, 0x2ffeb0 },
+    { L"Marokare 7", 0x2ffeb0, 0x2ffed0 },
+    { L"Marokare 8", 0x2ffed0, 0x2ffef0 },
+    { L"Marokare 9", 0x2ffef0, 0x2fff10 },
+    { L"Marokare 10", 0x2fff10, 0x2fff30 },
+    { L"Marokare 11", 0x2fff30, 0x2fff50 },
+    { L"Marokare 12", 0x2fff50, 0x2fff70 },
+    { L"Marokare 13", 0x2fff70, 0x2fff90 },
+    { L"Marokare 14", 0x2fff90, 0x2fffb0 },
+    { L"Marokare 15", 0x2fffb0, 0x2fffd0 },
+    { L"Marokare 16", 0x2fffd0, 0x2ffff0 },
+};
+
 #pragma region KOF97AE_Exclusive_Characters
 
 const sGame_PaletteDataset KOF97AE_A_K_PALETTES_A[] =
@@ -3815,6 +3835,7 @@ const sDescTreeNode KOF97_A_OROCHI_COLLECTION[] =
     { L"Extra D", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHI_PALETTES_D, ARRAYSIZE(KOF97_A_OROCHI_PALETTES_D) },
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHI_EFFECT_PALETTES, ARRAYSIZE(KOF97_A_OROCHI_EFFECT_PALETTES) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHI_SHARED_PALETTES, ARRAYSIZE(KOF97_A_OROCHI_SHARED_PALETTES) },
+    { L"Marokare", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHI_MAROKARE_PALETTES, ARRAYSIZE(KOF97_A_OROCHI_MAROKARE_PALETTES) },
 };
 
 const sDescTreeNode KOF97_A_SHINGO_COLLECTION[] =

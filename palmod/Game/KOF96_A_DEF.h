@@ -1530,13 +1530,17 @@ const sGame_PaletteDataset KOF96_A_BONUS_INTRO_PALETTES[] =
 
 const sGame_PaletteDataset KOF96_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Orange Text", 0x100142, 0x100162 },
-    { L"Ranking Title Text", 0x100182, 0x1001a2, indexKOF96Sprites_Bonus, 0x10 },
-    { L"Grayed Ranking Text", 0x100162, 0x100182, indexKOF96Sprites_Bonus, 0x09 },
+    { L"General Bonus Text", 0x100142, 0x1001c2 },
+
+    //{ L"Orange Text", 0x100142, 0x100162 },
+    //{ L"Grayed Ranking Text", 0x100162, 0x100182, indexKOF96Sprites_Bonus, 0x09 },
+    //{ L"Ranking Title Text", 0x100182, 0x1001a2, indexKOF96Sprites_Bonus, 0x10 },
+    //{ L"Member and Order Select Text", 0x1001a2, 0x1001c2 },
+
+
     { L"Ranking Background", 0x1153c2, 0x1153e2, indexKOF96Sprites_Bonus, 0x08 },
     { L"How to Play Buttons and Arrows", 0x115202, 0x115302, indexKOF96Sprites_Bonus, 0x04 },
     { L"How to Play Background", 0x1153e2, 0x115402, indexKOF96Sprites_Bonus, 0x03 },
-    { L"Member and Order Select Text", 0x1001a2, 0x1001c2 },
     { L"Winner Dialog and Intro Text", 0x1001e2, 0x100202 },
     { L"Char Select Transition Slots", 0x1153a2, 0x1153c2, indexKOF96Sprites_Bonus, 0x02 },
     { L"Character Selection Boxes", 0x115422, 0x115482, indexKOF96Sprites_Bonus, 0x06 },

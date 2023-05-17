@@ -52,7 +52,7 @@ private:
         KOF96_A_UNITS,
         ARRAYSIZE(KOF96_A_UNITS),
         L"KOF96E.txt",      // Extra filename
-        1038,               // Count of palettes listed in the header
+        1035,               // Count of palettes listed in the header
         0x100002,           // Lowest known location used for palettes
     };
 
@@ -72,7 +72,7 @@ private:
         KOF96_A_UNITS,
         ARRAYSIZE(KOF96_A_UNITS),
         L"KOF96E.txt",      // Extra filename
-        1038,               // Count of palettes listed in the header
+        1035,               // Count of palettes listed in the header
         0x100002,           // Lowest known location used for palettes
     };
 

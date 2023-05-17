@@ -1264,6 +1264,7 @@ const sGame_PaletteDataset KOF03_A_YAMAZAKI_PALETTES_A[] =
 
     { L"Guillotine/Driller Effects A", 0xa900, 0xa920 },
     { L"Bai Gaeshi Projectile A", 0xa920, 0xa940 },
+    { L"Sand Attacks A", 0xa940, 0xa960 },
     { L"Intro Coat A", 0xa960, 0xa980 },
 
     { L"Yamazaki Victory A", 0x20220, 0x20260, indexKOF03Sprites_Yamazaki, 0x30 },
@@ -1282,6 +1283,7 @@ const sGame_PaletteDataset KOF03_A_YAMAZAKI_PALETTES_B[] =
 
     { L"Guillotine/Driller Effects B", 0xab00, 0xab20 },
     { L"Bai Gaeshi Projectile B", 0xab20, 0xab40 },
+    { L"Sand Attacks B", 0xab40, 0xab60 },
     { L"Intro Coat B", 0xab60, 0xab80 },
 
     { L"Yamazaki Victory B", 0x20260, 0x202a0, indexKOF03Sprites_Yamazaki, 0x30 },
@@ -1300,6 +1302,7 @@ const sGame_PaletteDataset KOF03_A_YAMAZAKI_PALETTES_C[] =
 
     { L"Guillotine/Driller Effects C", 0xad00, 0xad20 },
     { L"Bai Gaeshi Projectile C", 0xad20, 0xad40 },
+    { L"Sand Attacks C", 0xad40, 0xad60 },
     { L"Intro Coat C", 0xad60, 0xad80 },
 
     { L"Yamazaki Victory C", 0x202a0, 0x202e0, indexKOF03Sprites_Yamazaki, 0x30 },
@@ -1318,6 +1321,7 @@ const sGame_PaletteDataset KOF03_A_YAMAZAKI_PALETTES_D[] =
 
     { L"Guillotine/Driller Effects D", 0xaf00, 0xaf20 },
     { L"Bai Gaeshi Projectile D", 0xaf20, 0xaf40 },
+    { L"Sand Attacks D", 0xaf40, 0xaf60 },
     { L"Intro Coat D", 0xaf60, 0xaf80 },
 
     { L"Yamazaki Victory D", 0x202e0, 0x20320, indexKOF03Sprites_Yamazaki, 0x30 },
