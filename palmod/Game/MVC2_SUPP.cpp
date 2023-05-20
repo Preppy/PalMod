@@ -435,12 +435,24 @@ namespace MVC2_SupplementProcessing
                         OutputDebugString(L"\t\tproc_supp: This node is being skipped for this palette type.\n");
                     }
 
+                    // This value will typically be 0x00-0x05 for the LP/LK/HP/HK/A1/A2 variants
                     uint8_t pal_ctr;
                     uint32_t destination_palette;
 
                     if (!thisNodeForExtraPalettesOnly)
                     {
-                        pal_ctr = (uint8_t)(pal_no / base_inc);
+                        if (effect_node_type & SUPP_NODE_EX)
+                        {
+                            // In this situation we are doing math in the EX nodes:
+                            // step by node_inc but ensure we are multiplying by base node
+                            // button color alignment
+                            pal_ctr = static_cast<uint8_t>(pal_no / 8);
+                        }
+                        else
+                        {
+                            pal_ctr = static_cast<uint8_t>(pal_no / base_inc);
+                        }
+
                         destination_palette = node_start + (node_inc * pal_ctr);
 
                         if ((effect_node_type & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
@@ -456,7 +468,7 @@ namespace MVC2_SupplementProcessing
                         if ((pal_no >= base_start) && ((pal_no - base_start) % base_inc == 0))
                         {
                             // Character offset will be a value from 0-5
-                            pal_ctr = (uint8_t)((pal_no - base_start) / base_inc);
+                            pal_ctr = static_cast<uint8_t>((pal_no - base_start) / base_inc);
                         }
                         else
                         {
@@ -546,16 +558,16 @@ namespace MVC2_SupplementProcessing
                             }
 
                             //pi = palette index - value should be from 0-15.
-                            uint8_t pi_start = (uint8_t)supplementalEffectsData[indexCounterForEffects + 1];
-                            uint8_t pi_amt = (uint8_t)supplementalEffectsData[indexCounterForEffects + 2];
+                            uint8_t pi_start = static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 1]);
+                            uint8_t pi_amt = static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 2]);
 
                             switch (supplementalEffectsData[indexCounterForEffects])
                             {
                             case MOD_TINT:
                             {
-                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, (uint8_t)supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
+                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3] + pi_amt)))
                                 {
-                                    nTotalLinkedPalettesUpdated += supp_mod_tint(char_no, pal_no, destination_palette, (uint8_t)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt,
+                                    nTotalLinkedPalettesUpdated += supp_mod_tint(char_no, pal_no, destination_palette, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
                                         supplementalEffectsData[indexCounterForEffects + 4], supplementalEffectsData[indexCounterForEffects + 5], supplementalEffectsData[indexCounterForEffects + 6]);
                                 }
 
@@ -577,7 +589,7 @@ namespace MVC2_SupplementProcessing
                             {
                                 if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
                                 {
-                                    nTotalLinkedPalettesUpdated += supp_copy_index(char_no, pal_no, destination_palette, (uint8_t)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt);
+                                    nTotalLinkedPalettesUpdated += supp_copy_index(char_no, pal_no, destination_palette, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt);
                                 }
 
                                 indexCounterForEffects += 4;

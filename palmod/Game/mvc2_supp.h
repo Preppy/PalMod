@@ -113,6 +113,7 @@ namespace MVC2_SupplementProcessing
 
             // sHK swing effect: doesn't matter right now due to palette pairing
             // does matter for the team view palette
+            /*
             SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 5, 9,
 
             SUPP_NODE_ABSOL | SUPP_NODE_EX, 1 | MOD_ABS, 8, 1 | MOD_ABS, 8, 13, 1, 14,
@@ -124,6 +125,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 1, 17,
             SUPP_NODE_ABSOL | SUPP_NODE_EX, 1 | MOD_ABS, 8, 1 | MOD_ABS, 8, 2, 1, 1,
                 MOD_LUM, 1, 1, 9,
+            */
 
             // there are 8 intro frames
             SUPP_NODE, 0x29, 8,
