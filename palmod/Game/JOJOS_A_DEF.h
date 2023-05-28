@@ -3333,7 +3333,7 @@ const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
     { L"Extra characters page arrows", 0x310500, 0x310580, indexJojos51Bonus, 0x55 },
     { L"Vs screen Background", 0x30d000, 0x30d080, indexJojos51Bonus, 0x49 },
     { L"Win screen Background", 0x310200, 0x310280, indexJojos51Bonus, 0x4a },
-    { L"Oldseph Challenge Mode Faces", 0x441000, 0x441200 },
+    { L"Oldseph Challenge Mode Faces", 0x441000, 0x441200, indexJojos51Bonus, 0x59 },
     { L"D'Arby", 0x311a00, 0x311a80, indexJojos51Bonus, 0x2C },
     { L"Darby Chips", 0x311d00, 0x311d80, indexJojos51Bonus, 0x2D },
     { L"Osiris Arms", 0x311b80, 0x311c00, indexJojos51Bonus, 0x2E },
@@ -4052,7 +4052,7 @@ const sGame_PaletteDataset JOJOS_A_POL_STORY_PALETTES[] =
 {
     { L"Polnareff in Cairo", 0x2ecf00, 0x2ecf80 },
     { L"Polnareff in Cairo BG", 0x2ed180, 0x2ed280 },
-    { L"DIO Alluring Polnareff", 0x2ed100, 0x2ed180 },
+    { L"DIO Alluring Polnareff", 0x2ed100, 0x2ed180, indexJojos51StoryMode, 0x24 },
     { L"Polnareff Joining DIO", 0x2ed280, 0x2ed300 },
     { L"Polnareff Starting His Journey", 0x2ed380, 0x2ed400 },
     // seperate and pair instead?
@@ -4111,8 +4111,8 @@ const sGame_PaletteDataset JOJOS_A_VICE_STORY_PALETTES[] =
 // complete
 const sGame_PaletteDataset JOJOS_A_MARIAH_STORY_PALETTES[] =
 {
-    { L"Mariah Intro Scene Portrait", 0x2fc980, 0x2fca00 },
-    { L"Mariah Ending Scene Portrait", 0x2fc900, 0x2fc980 },
+    { L"Mariah Intro Scene Portrait", 0x2fc980, 0x2fca00, indexJojos51StoryMode, 0x23 },
+    { L"Mariah Ending Scene Portrait", 0x2fc900, 0x2fc980, indexJojos51StoryMode, 0x22 },
 };
 
 // complete
