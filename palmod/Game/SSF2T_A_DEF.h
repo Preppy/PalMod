@@ -1864,7 +1864,7 @@ const sGame_PaletteDataset SSF2T_A_08_BALROG_STAGE_NODE[] =
 
 const sGame_PaletteDataset SSF2T_A_VEGA_STAGE_NODE[] =
 {
-    { L"Cage + Brown wall on the sides", 0x62C00 - 0x02, 0x62C20 - 0x02 },
+    { L"Cage + Brown wall on the sides", 0x62C00 - 0x02, 0x62C20 - 0x02, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"Wall sign, part 1 (\"Meson\")", 0x6AC00 - 0x02, 0x6AC20 - 0x02 },
     { L"Wall sign, part 2 (\"Meson de\")", 0x6AC20 - 0x02, 0x6AC40 - 0x02 },
     { L"Wall sign, part 3 (\"Meson de la\")", 0x6AC40 - 0x02, 0x6AC60 - 0x02 },
@@ -1881,8 +1881,8 @@ const sGame_PaletteDataset SSF2T_A_VEGA_STAGE_NODE[] =
     { L"Foreground wall, lamp wall (middle shade)", 0x6ADA0 - 0x02, 0x6ADC0 - 0x02 },
     { L"Foreground wall, lamp wall (lightest shade)", 0x6ADC0 - 0x02, 0x6ADE0 - 0x02 },
     { L"Foreground wall, footer + ground", 0x6ADE0 - 0x02, 0x6AE00 - 0x02 },
-    // { L"????", 0x6AE00 - 0x02, 0x6AE20 - 0x02 },
-    // { L"????", 0x6AE20 - 0x02, 0x6AE40 - 0x02 },
+    { L"????", 0x6AE00 - 0x02, 0x6AE20 - 0x02 },
+    { L"????", 0x6AE20 - 0x02, 0x6AE40 - 0x02 },
     // { L"Unused", 0x6AE40 - 0x02, 0x6AE60 - 0x02 },
     // { L"Unused", 0x6AE60 - 0x02, 0x6AE80 - 0x02 },
     // { L"Unused", 0x6AE80 - 0x02, 0x6AEA0 - 0x02 },
