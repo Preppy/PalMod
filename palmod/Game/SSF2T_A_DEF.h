@@ -1862,6 +1862,64 @@ const sGame_PaletteDataset SSF2T_A_08_BALROG_STAGE_NODE[] =
     { L"Part 11", 0x627fe, 0x6281e },
 };
 
+const sGame_PaletteDataset SSF2T_A_VEGA_STAGE_NODE[] =
+{
+    { L"Cage + Brown wall on the sides", 0x62C00 - 0x02, 0x62C20 - 0x02 },
+    { L"Wall sign, part 1 (\"Meson\")", 0x6AC00 - 0x02, 0x6AC20 - 0x02 },
+    { L"Wall sign, part 2 (\"Meson de\")", 0x6AC20 - 0x02, 0x6AC40 - 0x02 },
+    { L"Wall sign, part 3 (\"Meson de la\")", 0x6AC40 - 0x02, 0x6AC60 - 0x02 },
+    { L"Wall sign, part 4 (\"Meson de la Taberna\")", 0x6AC60 - 0x02, 0x6AC80 - 0x02 },
+    { L"Wall sign, part 5 (blank)", 0x6AC80 - 0x02, 0x6ACA0 - 0x02 },
+    { L"Foreground wall, stairs (darkest shade)", 0x6ACA0 - 0x02, 0x6ACC0 - 0x02 },
+    { L"Foreground wall, stairs (middle shade)", 0x6ACC0 - 0x02, 0x6ACE0 - 0x02 },
+    { L"Foreground wall, stairs (lightest shade)", 0x6ACE0 - 0x02, 0x6AD00 - 0x02 },
+    { L"Background wall, lamp wall (middle shade)", 0x6AD00 - 0x02, 0x6AD20 - 0x02 },
+    { L"Background wall, lamp wall (lightest shade)", 0x6AD20 - 0x02, 0x6AD40 - 0x02 },
+    { L"Background wall, lamp wall (darkest shade)", 0x6AD40 - 0x02, 0x6AD60 - 0x02 },
+    // { L"Unused", 0x6AD60 - 0x02, 0x6AD80 - 0x02 },
+    { L"Foreground wall, lamp wall (darkest shade)", 0x6AD80 - 0x02, 0x6ADA0 - 0x02 },
+    { L"Foreground wall, lamp wall (middle shade)", 0x6ADA0 - 0x02, 0x6ADC0 - 0x02 },
+    { L"Foreground wall, lamp wall (lightest shade)", 0x6ADC0 - 0x02, 0x6ADE0 - 0x02 },
+    { L"Foreground wall, footer + ground", 0x6ADE0 - 0x02, 0x6AE00 - 0x02 },
+    // { L"????", 0x6AE00 - 0x02, 0x6AE20 - 0x02 },
+    // { L"????", 0x6AE20 - 0x02, 0x6AE40 - 0x02 },
+    // { L"Unused", 0x6AE40 - 0x02, 0x6AE60 - 0x02 },
+    // { L"Unused", 0x6AE60 - 0x02, 0x6AE80 - 0x02 },
+    // { L"Unused", 0x6AE80 - 0x02, 0x6AEA0 - 0x02 },
+    // { L"Unused", 0x6AEA0 - 0x02, 0x6AEC0 - 0x02 },
+    // { L"Unused", 0x6AEC0 - 0x02, 0x6AEE0 - 0x02 },
+    { L"Background wall, archway lower part + people + red trimming on top of Foreground wall", 0x6AEE0 - 0x02, 0x6AF00 - 0x02 },
+    { L"Background wall, archway upper part", 0x6AF00 - 0x02, 0x6AF20 - 0x02 },
+    { L"Background wall, torero & bull painting", 0x6AF20 - 0x02, 0x6AF40 - 0x02 },
+    { L"Unused, but in ram it will have the values of palettes 8, 9 & A (BG lamp wall)", 0x6AF40 - 0x02, 0x6AF60 - 0x02 },
+    { L"Background wall, torero & bull painting (footer) + red trimming on top of Foreground wall + side wall pieces", 0x6AF60 - 0x02, 0x6AF80 - 0x02 },
+    { L"Unused, but in ram it will have the values of palettes 0 - 0x02, 1, 2, 3 & 4 (Wall sign)", 0x6AF80 - 0x02, 0x6AFA0 - 0x02 },
+    { L"Unused", 0x6AFA0 - 0x02, 0x6AFC0 - 0x02 },
+    { L"Unused from CPS1", 0x6AFC0 - 0x02, 0x6AFE0 - 0x02 },
+    { L"Parallaxed ground", 0x6AFE0 - 0x02, 0x6B000 - 0x02 },
+    //{ L"Unused", 0x6B000 - 0x02, 0x6B020 - 0x02 },
+    //{ L"Unused", 0x6B020 - 0x02, 0x6B040 - 0x02 },
+    //{ L"Unused", 0x6B040 - 0x02, 0x6B060 - 0x02 },
+    //{ L"Unused", 0x6B060 - 0x02, 0x6B080 - 0x02 },
+
+    // { L"Unused", 0x73000 - 0x02, 0x73020 - 0x02 },
+    // { L"Unused", 0x73020 - 0x02, 0x73040 - 0x02 },
+    // { L"Unused", 0x73040 - 0x02, 0x73060 - 0x02 },
+    // { L"Unused", 0x73060 - 0x02, 0x73080 - 0x02 },
+    { L"Middle layer, neon footer + feet of dancers/guitar players, part 1", 0x73080 - 0x02, 0x730A0 - 0x02 },
+    { L"Middle layer, neon footer + feet of dancers/guitar players, part 2", 0x730A0 - 0x02, 0x730C0 - 0x02 },
+    { L"Middle layer, neon footer + feet of dancers/guitar players, part 3", 0x730C0 - 0x02, 0x730E0 - 0x02 },
+    // { L"Unused", 0x730E0 - 0x02, 0x73100 - 0x02 },
+    { L"Middle layer, people cheering on the table", 0x73100 - 0x02, 0x73120 - 0x02 },
+    { L"Middle layer, dancers", 0x73120 - 0x02, 0x73140 - 0x02 },
+    { L"Middle layer, guitar players", 0x73140 - 0x02, 0x73160 - 0x02 },
+    // { L"Unused", 0x73160 - 0x02, 0x73180 - 0x02 },
+    // { L"Unused", 0x73180 - 0x02, 0x731A0 - 0x02 },
+    { L"Middle layer, people cheering on the table", 0x731A0 - 0x02, 0x731C0 - 0x02 },
+    { L"Middle layer, people cheering on the table + pink waiter", 0x731C0 - 0x02, 0x731E0 - 0x02 },
+    { L"Middle layer, red waiter", 0x731E0 - 0x02, 0x73200 - 0x02 },
+};
+
 const sGame_PaletteDataset SSF2T_A_KEN_STAGE_NODE_4[] =
 {
     { L"Barrel & Metal things", 0x5519a, 0x5523a, indexSF2Sprites_Stages, 0x18 },
@@ -3093,12 +3151,13 @@ const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_08_STAGES_COLLECTION[] =
 {
-    { L"Balrog's Casino Stage (08 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BALROG_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_BALROG_STAGE_NODE) },
-    { L"Cammy's Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE,    ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE) },
-    { L"Dhalsim's Stage (08 parts)", DESC_NODETYPE_TREE, (void*)SSF2T_A_08_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_08_DHALSIM_STAGE_NODE) },
-    { L"Ken's Stage (08 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_8,    ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_8) },
-    { L"Ryu's Stage",     DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,      ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
-    { L"Sagat's Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,    ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
+    { L"Balrog's Casino Stage (08 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BALROG_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_BALROG_STAGE_NODE) },
+    { L"Cammy's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE,        ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE) },
+    { L"Claw's Stage",                      DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_STAGE_NODE,         ARRAYSIZE(SSF2T_A_VEGA_STAGE_NODE) },
+    { L"Dhalsim's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_08_DHALSIM_STAGE_NODE,   ARRAYSIZE(SSF2T_A_08_DHALSIM_STAGE_NODE) },
+    { L"Ken's Stage (08 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_8) },
+    { L"Ryu's Stage",                       DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,          ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
+    { L"Sagat's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,        ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
 };
 
 #define k_stNameKey_Bonus L"Bonus Palettes"
