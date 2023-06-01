@@ -70,7 +70,7 @@ GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         XMVSF_A_UNITS,
         ARRAYSIZE(XMVSF_A_UNITS),
         L"XMVSFe.txt",               // Extra filename
-        874,                         // Count of palettes listed in the header
+        876,                         // Count of palettes listed in the header
         0x606c,                      // Lowest known location used for palettes
     };
 

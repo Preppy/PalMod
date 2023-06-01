@@ -410,8 +410,11 @@ const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P1[] =
     { L"Palette (01)", 0x1533a, 0x1535a, indexCPS2Sprites_Rogue, 0x0c },
     { L"P1 ground FX", 0x1535a, 0x1537a, indexCPS2Sprites_Rogue, 0x02 },
 
+    // If you change the position of these (0x03 / 0x04), you will need to update secondaryXMVSFRogueEffects
     { L"P1 glow effects 1", 0x1e57a, 0x1e59a, indexCPS2Sprites_Rogue, 0x0c },
     { L"P1 glow effects 2", 0x1e59a, 0x1e5ba, indexCPS2Sprites_Rogue, 0x0c },
+
+    { L"P1 Winposes", 0x1e5fa, 0x1e61a, indexCPS2Sprites_Rogue, 0x0b },
 };
 
 const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
@@ -420,8 +423,11 @@ const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
     { L"Palette (04)", 0x1539a, 0x153ba, indexCPS2Sprites_Rogue, 0x0c },
     { L"P2 ground FX", 0x153ba, 0x153da, indexCPS2Sprites_Rogue, 0x02 },
 
+    // If you change the position of these (0x03 / 0x04), you will need to update secondaryXMVSFRogueEffects
     { L"P2 glow effects 1", 0x1e5ba, 0x1e5da, indexCPS2Sprites_Rogue, 0x0c },
     { L"P2 glow effects 2", 0x1e5da, 0x1e5fa, indexCPS2Sprites_Rogue, 0x0c },
+
+    { L"P2 Winposes", 0x1e61a, 0x1e63a, indexCPS2Sprites_Rogue, 0x0b },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_P1[] =
