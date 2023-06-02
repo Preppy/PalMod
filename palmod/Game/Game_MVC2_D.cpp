@@ -616,20 +616,32 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             
             if (_nCurrentTotalColorOptions == 6)
             {
-                nDataSz = (nEnd - nStart);
                 nExpectedSize = MVC2_D_PALDATASIZE_6COLORS[nUnitId];
             }
             else
             {
-                nDataSz = (int)(LoadedFile->GetLength() - nStart);
                 nExpectedSize = MVC2_D_PALDATASIZE_16COLORS[nUnitId];
             }
-            
+
+            if ((_nCurrentTotalColorOptions == 6) &&
+                (nEnd > nStart)) // The "end" pointer is not really the end-of-section pointer, so have a 
+                                 // back-up plan if they use the "end" pointer to point to something other than
+                                 // the next file-contiguous section
+            {
+                nDataSz = (nEnd - nStart);
+            }
+            else
+            {
+                nDataSz = static_cast<int>(LoadedFile->GetLength() - nStart);
+            }
+
             if (nDataSz != nExpectedSize)
             {
                 CString strError;
                 strError.Format(L"CGame_MVC2_D::LoadFile: Palette data size 0x%08x does not match with expected palette data size 0x%08x.  Failing file load for file ID 0x%02x.\n", nDataSz, nExpectedSize, nUnitId);
                 OutputDebugString(strError);
+                strError.Format(L"Error: unexpected palette data size for file ID 0x%02x (%s).  We don't know how to correctly handle that palette size: this requires an update to PalMod.", nUnitId, MVC2_D_UNITDESC[nUnitId]);
+                MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONSTOP);
                 return FALSE;
             }
 
@@ -664,13 +676,16 @@ BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, uint32_t nUnitId)
             // 16color and 6color PAL files have different meanings for the second value, so fork our usage
             int nDataSz = 0;
 
-            if (_nCurrentTotalColorOptions == 6)
+            if ((_nCurrentTotalColorOptions == 6) &&
+                (nEnd > nStart)) // The "end" pointer is not really the end-of-section pointer, so have a 
+                                 // back-up plan if they use the "end" pointer to point to something other than
+                                 // the next file-contiguous section
             {
                 nDataSz = (nEnd - nStart);
             }
             else
             {
-                nDataSz = (int)(SaveFile->GetLength() - nStart);
+                nDataSz = static_cast<int>(SaveFile->GetLength() - nStart);
             }
 
             if (nStart > SaveFile->GetLength())

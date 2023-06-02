@@ -75,12 +75,12 @@ namespace MVC2_SupplementProcessing
         CString strDebugInfo;
         if ((src_index == 0) && (index_amt == 0x10))
         {
-            strDebugInfo.Format(L"\t\t\tsupp_copy_index being applied: full copy of source palette 0x%x to destination palette 0x%x\n",
+            strDebugInfo.Format(L"\t\t\t\tsupp_copy_index being applied: full copy of source palette 0x%x to destination palette 0x%x\n",
                 source_palette, destination_palette);
         }
         else
         {
-            strDebugInfo.Format(L"\t\t\tsupp_copy_index being applied: copying from source palette 0x%x at index 0x%x to destination palette 0x%x at index 0x%x for 0x%x colors\n",
+            strDebugInfo.Format(L"\t\t\t\tsupp_copy_index being applied: copying from source palette 0x%x at index 0x%x to destination palette 0x%x at index 0x%x for 0x%x colors\n",
                 source_palette, src_index, destination_palette, dst_index, index_amt);
         }
         OutputDebugString(strDebugInfo);
@@ -95,7 +95,7 @@ namespace MVC2_SupplementProcessing
 
     int supp_mod_white(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc)
     {
-        OutputDebugString(L"\t\t\tsupp_mod_white being applied\n");
+        OutputDebugString(L"\t\t\t\tsupp_mod_white being applied\n");
 
         uint16_t* dst_16 = get_pal_16(char_id, destination_palette);
 
@@ -118,7 +118,7 @@ namespace MVC2_SupplementProcessing
         mod_amt = AdjustNumberForPossibleNegation(mod_amt);
 
         CString strDebugInfo;
-        strDebugInfo.Format(L"\t\t\tsupp_mod_hsl being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? L"MOD_LUM" : L"MOD_SAT", mod_amt, destination_palette, index_start, index_inc);
+        strDebugInfo.Format(L"\t\t\t\tsupp_mod_hsl being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? L"MOD_LUM" : L"MOD_SAT", mod_amt, destination_palette, index_start, index_inc);
         OutputDebugString(strDebugInfo);
 
         switch (mod_type)
@@ -167,7 +167,7 @@ namespace MVC2_SupplementProcessing
         tint_factor_b = AdjustNumberForPossibleNegation(tint_factor_b);
 
         CString strDebugInfo;
-        strDebugInfo.Format(L"\t\t\tsupp_mod_tint being applied : applying tint(%i, %i, %i) from source palette 0x%x at 0x%x to palette 0x%x at 0x%x for 0x%x colors\n",
+        strDebugInfo.Format(L"\t\t\t\tsupp_mod_tint being applied : applying tint(%i, %i, %i) from source palette 0x%x at 0x%x to palette 0x%x at 0x%x for 0x%x colors\n",
             tint_factor_r, tint_factor_g, tint_factor_b, source_palette, src_index, destination_palette, dst_index, index_amt);
         OutputDebugString(strDebugInfo);
 
@@ -191,7 +191,7 @@ namespace MVC2_SupplementProcessing
     int supp_copy_crosscharacter(uint32_t source_id, uint32_t source_palette, uint32_t destination_id, uint32_t destination_palette, uint8_t source_index, uint8_t destination_index, uint8_t copy_amount)
     {
         CString strDebugInfo;
-        strDebugInfo.Format(L"\t\t\tsupp_copy_crosscharacter being applied: Copying source unit 0x%02x palette 0x%02x to destination unit 0x%02x palette 0x%02x\n", source_id, source_palette, destination_id, destination_palette);
+        strDebugInfo.Format(L"\t\t\t\tsupp_copy_crosscharacter being applied: Copying source unit 0x%02x palette 0x%02x to destination unit 0x%02x palette 0x%02x\n", source_id, source_palette, destination_id, destination_palette);
         OutputDebugString(strDebugInfo);
 
         uint16_t* src_16 = get_pal_16(source_id, source_palette);
@@ -355,7 +355,7 @@ namespace MVC2_SupplementProcessing
                 uint16_t node_start = 0, node_inc = 0, base_start = 0, base_inc = 1;
                 uint16_t effect_node_type = supplementalEffectsData[indexCounterForEffects];
 
-                BOOL isCurrentPaletteABasicPalette = FALSE;
+                BOOL isCurrentPaletteTheCorePalette = FALSE;
                 BOOL isCurrentPaletteAnExtraPalette = FALSE;
 
                 // If the current position is SUPP_NODE or SUPP_NODE_*, that indicates the beginning of a new modifier array
@@ -418,10 +418,11 @@ namespace MVC2_SupplementProcessing
 
                     bool thisNodeForExtraPalettesOnly = ((effect_node_type & EXTRA_NODE_ONLY) == EXTRA_NODE_ONLY);
 
-                    // Ensure that this palette comes from one of the first BUTTON_COUNT * NORMAL_PALETTE_COUNT (8 *k_mvc2_character_coloroption_count)
-                    if ((pal_no / 8) < k_mvc2_character_coloroption_count && (pal_no % 8) == 0)
+                    // Ensure that this palette comes from one of the first BUTTON_COUNT * NORMAL_PALETTE_COUNT (8 * k_mvc2_character_coloroption_count)
+                    if (((pal_no / 8) < k_mvc2_character_coloroption_count) &&
+                        ((pal_no % 8) == 0))
                     {
-                        isCurrentPaletteABasicPalette = TRUE;
+                        isCurrentPaletteTheCorePalette = TRUE;
                     }
                     else
                     {
@@ -429,10 +430,10 @@ namespace MVC2_SupplementProcessing
                     }
 
                     bool shouldProcessEffectsForThisNode = true;
-                    if (thisNodeForExtraPalettesOnly ? !isCurrentPaletteAnExtraPalette : !isCurrentPaletteABasicPalette)
+                    if (thisNodeForExtraPalettesOnly ? !isCurrentPaletteAnExtraPalette : !isCurrentPaletteTheCorePalette)
                     {
                         shouldProcessEffectsForThisNode = false;
-                        OutputDebugString(L"\t\tproc_supp: This node is being skipped for this palette type.\n");
+                        OutputDebugString(L"\t\t\tproc_supp: This node is being skipped for this palette type: data is for the opposite palette type (core vs extended).\n");
                     }
 
                     // This value will typically be 0x00-0x05 for the LP/LK/HP/HK/A1/A2 variants
@@ -487,7 +488,7 @@ namespace MVC2_SupplementProcessing
                         // We're in Extras space, so make sure we're within the bounds of the character.
                         if (pal_ctr > (k_mvc2_character_coloroption_count - 1))
                         {
-                            OutputDebugString(L"\t\tproc_supp: This node is not applicable to this palette range.\n");
+                            OutputDebugString(L"\t\t\tproc_supp: This node is not applicable to this source palette.\n");
                             shouldProcessEffectsForThisNode = false;
                         }
                     }
@@ -516,11 +517,11 @@ namespace MVC2_SupplementProcessing
 
                         if (shouldProcessEffectsForThisNode)
                         {
-                            strDebugInfo.Format(L"\t\tproc_supp: Preparing to process from palette 0x%x to palette 0x%x\n", source_palette, destination_palette);
+                            strDebugInfo.Format(L"\t\t\tproc_supp: Preparing to process from palette 0x%x to palette 0x%x\n", source_palette, destination_palette);
                         }
                         else
                         {
-                            strDebugInfo.Format(L"\t\tproc_supp: Skipping processing from palette 0x%x to palette 0x%x\n", source_palette, destination_palette);
+                            strDebugInfo.Format(L"\t\t\tproc_supp: Skipping processing from palette 0x%x to palette 0x%x\n", source_palette, destination_palette);
                         }
 
                         OutputDebugString(strDebugInfo);
@@ -540,7 +541,7 @@ namespace MVC2_SupplementProcessing
                             {
                                 if (VerifyWriteIsSafe(char_no, copy_dst + copy_amt))
                                 {
-                                    OutputDebugString(L"\t\tproc_supp: SUPP_NODE_NOCOPY not specified: copying over entire palette first\n");
+                                    OutputDebugString(L"\t\t\tproc_supp: SUPP_NODE_NOCOPY not specified: copying over entire palette first\n");
                                     nTotalLinkedPalettesUpdated += supp_copy_index(char_no, source_palette, destination_palette, copy_dst, copy_start, copy_amt);
                                 }
                             }
@@ -554,7 +555,7 @@ namespace MVC2_SupplementProcessing
                         {
                             if (shouldProcessEffectsForThisNode)
                             {
-                                OutputDebugString(L"\t\tproc_supp: Processing FX for this node\n");
+                                OutputDebugString(L"\t\t\tproc_supp: Processing FX for this node\n");
                             }
 
                             //pi = palette index - value should be from 0-15.
@@ -623,7 +624,7 @@ namespace MVC2_SupplementProcessing
         }
         else
         {
-            OutputDebugString(L"\t\tproc_supp: Not applicable here\n");
+            OutputDebugString(L"\t\t\tproc_supp: Not applicable here\n");
         }
 
         if (nTotalLinkedPalettesUpdated)
