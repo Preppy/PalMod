@@ -214,6 +214,8 @@ enum SupportedGamesList
     FightFever_A,
     TekkenAdvance_GBA,
     P4AU_FightClub,
+    CVS2_D,
+    CVS2_P,
 
     NUM_GAMES // This needs to be last
 };
@@ -422,6 +424,8 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Fight Fever (Neo-Geo)",
     L"Tekken Advance (USA GBA)",
     L"Persona Fight Club Modpack",
+    L"Capcom vs SNK 2 (Dreamcast)",
+    L"Capcom vs SNK 2 (PS2)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

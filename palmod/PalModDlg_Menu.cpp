@@ -96,6 +96,12 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case MVC2_D_16:
             pszExtraInfo = L"We need the PLxx_DAT.bin files from the root of the game image.";
             break;
+        case CVS2_P:
+            pszExtraInfo = L"We need the PLxxPAK.bin files inside the AFS02.AFS AFS archive in the PS2 folder of the game image.";
+            break;
+        case CVS2_D:
+            pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.";
+            break;
         case MVC2_P:
             pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.\nFor the PS3 version, select the folder \"gdrom\" under \"NPUB30068\\USRDIR\".";
             break;

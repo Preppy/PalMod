@@ -317,6 +317,8 @@ private:
     afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };
     afx_msg void OnLoadDir_BlazBlueCF()     { OnLoadGameByDirectory(BlazBlueCF_S); };
+    afx_msg void OnLoadDir_CVS2DCUSA()      { OnLoadGameByDirectory(CVS2_D); };
+    afx_msg void OnLoadDir_CVS2PS2USA()     { OnLoadGameByDirectory(CVS2_P); };
     afx_msg void OnLoadDir_Dankuga()        { OnLoadGameByDirectory(DANKUGA_A); };
     afx_msg void OnLoadDir_DaemonBride()    { OnLoadGameByDirectory(DaemonBride_NL); };
     afx_msg void OnLoadDir_DaemonBrideAG()  { OnLoadGameByDirectory(DaemonBrideAG_NL); };

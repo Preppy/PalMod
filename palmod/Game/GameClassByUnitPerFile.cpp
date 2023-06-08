@@ -687,6 +687,171 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nDisplayUnitId, 
     LoadSpecificPaletteDataByFileUnit(nFileUnitId, nFilePalId);
 }
 
+bool CGameClassPerUnitPerFile::CreateImageIfPaired(ImagePairing pairingType, int Node01, int Node02, int Node03, int Node04, uint32_t nFileUnitId, uint32_t nPalIdInNode, const stPairedPaletteInfo* pPalettePairingInfo)
+{
+    bool fHaveCreatedImgTicket = false;
+
+    if (pPalettePairingInfo &&
+        (pPalettePairingInfo->nPalettesToJoin > 1) &&
+        (pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
+    {
+        std::vector<const sGCBUPF_RelativePaletteData*> vsBasicPaletteDataSetToJoin;
+        std::vector<const sGame_PaletteDataset*> vsExtraPaletteDataSetToJoin;
+        std::vector<int8_t> vnPeerPaletteDistances;
+        bool fAllNodesFound = true;
+
+        for (uint32_t nPairIndex = 0; nPairIndex < pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+        {
+            switch (nPairIndex)
+            {
+            case 0:
+                vnPeerPaletteDistances.push_back(0);
+                break;
+            case 1:
+                vnPeerPaletteDistances.push_back(pPalettePairingInfo->nNodeIncrementToPartner);
+                break;
+            case 2:
+                vnPeerPaletteDistances.push_back(pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner);
+                break;
+            case 3:
+                vnPeerPaletteDistances.push_back(pPalettePairingInfo->nOverallNodeIncrementTo3rdPartner);
+                break;
+            case 4:
+                vnPeerPaletteDistances.push_back(pPalettePairingInfo->nOverallNodeIncrementTo4thPartner);
+                break;
+            case 5:
+                vnPeerPaletteDistances.push_back(pPalettePairingInfo->nOverallNodeIncrementTo5thPartner);
+                break;
+            case 6:
+                vnPeerPaletteDistances.push_back(pPalettePairingInfo->nOverallNodeIncrementTo6thPartner);
+                break;
+            case 7:
+                vnPeerPaletteDistances.push_back(pPalettePairingInfo->nOverallNodeIncrementTo7thPartner);
+                break;
+            default:
+                // Anything past this just gets default pairing
+                vnPeerPaletteDistances.push_back(nPairIndex);
+                break;
+            }
+
+            if (pairingType == ImagePairing::ForBasic)
+            {
+                const sGCBUPF_RelativePaletteData* paletteDataSetToJoin = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nPalIdInNode + static_cast<size_t>(vnPeerPaletteDistances.at(nPairIndex)));
+
+                if (paletteDataSetToJoin)
+                {
+                    vsBasicPaletteDataSetToJoin.push_back(paletteDataSetToJoin);
+                }
+                else
+                {
+                    fAllNodesFound = false;
+                }
+            }
+            else
+            {
+                const sGame_PaletteDataset* paletteDataSetToJoin = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInNode + static_cast<size_t>(vnPeerPaletteDistances.at(nPairIndex)));
+
+                if (paletteDataSetToJoin)
+                {
+                    vsExtraPaletteDataSetToJoin.push_back(paletteDataSetToJoin);
+                }
+                else
+                {
+                    fAllNodesFound = false;
+                }
+            }
+        }
+
+        std::vector<sDescNode*> vsJoinedNodes;
+
+        for (uint32_t nNodeIndex = 0; nNodeIndex < pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
+        {
+            sDescNode* sSearchedNode = GetMainTree()->GetDescNode(Node01, Node02, nPalIdInNode + vnPeerPaletteDistances.at(nNodeIndex), -1);
+
+            if (sSearchedNode)
+            {
+                vsJoinedNodes.push_back(sSearchedNode);
+            }
+            else
+            {
+                fAllNodesFound = false;
+                break;
+            }
+        }
+
+        if (fAllNodesFound)
+        {
+            fHaveCreatedImgTicket = true;
+
+            std::vector<sImgTicket*> vsImagePairs;
+            sImgTicket* pPreviousImage = nullptr;
+            sDescNode* CharacterNode = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
+            uint32_t nSrcStart;
+            uint32_t nSrcAmt;
+            uint32_t nNodeIncrement;
+
+            if (pairingType == ImagePairing::ForBasic)
+            {
+                nSrcStart = CharacterNode->uPalId % GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId);
+                nSrcAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.rgpszNodeNames.size());
+                nNodeIncrement = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId));
+            }
+            else
+            {
+                nSrcStart = CharacterNode->uPalId;
+                nSrcAmt = 1;
+                nNodeIncrement = 1;
+                pButtonLabelSet = DEF_NOBUTTONS;
+            }
+
+            for (int32_t nNodeIndex = (pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
+            {
+                sImgTicket* pThisImage;
+
+                if (pairingType == ImagePairing::ForBasic)
+                {
+                    pThisImage = CreateImgTicket(vsBasicPaletteDataSetToJoin.at(nNodeIndex)->indexImageUnit, vsBasicPaletteDataSetToJoin.at(nNodeIndex)->indexImageSprite, pPreviousImage, 0, 0);
+                }
+                else
+                {
+                    BlendMode nBlendMode = BlendMode::Alpha;
+
+                    if (vsExtraPaletteDataSetToJoin.at(nNodeIndex)->pExtraProcessing)
+                    {
+                        nBlendMode = vsExtraPaletteDataSetToJoin.at(nNodeIndex)->pExtraProcessing->eBlendMode;
+                    }
+                    else
+                    {
+                        nBlendMode = BlendMode::Alpha;
+                    }
+
+                    pThisImage = CreateImgTicket(vsExtraPaletteDataSetToJoin.at(nNodeIndex)->indexImgToUse, vsExtraPaletteDataSetToJoin.at(nNodeIndex)->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
+                }
+
+                vsImagePairs.push_back(pThisImage);
+
+                pPreviousImage = pThisImage;
+            }
+
+            ClearSetImgTicket(vsImagePairs.at(static_cast<size_t>(pPalettePairingInfo->nPalettesToJoin) - 1));
+
+            for (uint32_t nPairIndex = 0; nPairIndex < pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+            {
+                //Set each palette
+                CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
+
+                SetSourcePal(nPairIndex, CharacterNode->uUnitId, nSrcStart + vnPeerPaletteDistances.at(nPairIndex), nSrcAmt, nNodeIncrement);
+            }
+        }
+        else
+        {
+            OutputDebugString(L"ERROR: Invalid palette pairing requested.   You probably want to check the linkage here.\n");
+        }
+    }
+
+    return fHaveCreatedImgTicket;
+}
+
 BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
@@ -762,13 +927,15 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
                     nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImageUnitIndex;
                 }
 
-                // For preview ID, use the vlaue from the basic palette data.  At worst case it'll default to 0.
+                // For preview ID, use the value from the basic palette data.  At worst case it'll default to 0.
                 nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageSprite;
 
                 if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pExtraProcessing)
                 {
                     nBlendMode = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pExtraProcessing->eBlendMode;
                 }
+
+                fShouldUseAlternateLoadLogic = CreateImageIfPaired(ImagePairing::ForBasic, Node01, Node02, Node03, Node04, nFileUnitId, nSrcStart, m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pPalettePairingInfo);
             }
             else
             {
@@ -794,119 +961,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nBlendMode = paletteDataSet->pExtraProcessing->eBlendMode;
         }
 
-        if (paletteDataSet->pPalettePairingInfo)
-        {
-            if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) &&
-                (paletteDataSet->pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
-            {
-                std::vector<const sGame_PaletteDataset*> vsPaletteDataSetToJoin;
-                std::vector<int8_t> vnPeerPaletteDistances;
-                bool fAllNodesFound = true;
-
-                for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
-                {
-                    switch (nPairIndex)
-                    {
-                    case 0:
-                        vnPeerPaletteDistances.push_back(0);
-                        break;
-                    case 1:
-                        vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner);
-                        break;
-                    case 2:
-                        vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner);
-                        break;
-                    case 3:
-                        vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo3rdPartner);
-                        break;
-                    case 4:
-                        vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo4thPartner);
-                        break;
-                    case 5:
-                        vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo5thPartner);
-                        break;
-                    case 6:
-                        vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo6thPartner);
-                        break;
-                    case 7:
-                        vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo7thPartner);
-                        break;
-                    default:
-                        // Anything past this just gets default pairing
-                        vnPeerPaletteDistances.push_back(nPairIndex);
-                        break;
-                    }
-
-                    const sGame_PaletteDataset* paletteDataSetToJoin = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode + static_cast<size_t>(vnPeerPaletteDistances.at(nPairIndex)));
-
-                    if (paletteDataSetToJoin)
-                    {
-                        vsPaletteDataSetToJoin.push_back(paletteDataSetToJoin);
-                    }
-                    else
-                    {
-                        fAllNodesFound = false;
-                    }
-                }
-
-                std::vector<sDescNode*> vsJoinedNodes;
-
-                for (uint32_t nNodeIndex = 0; nNodeIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
-                {
-                    sDescNode* sSearchedNode = GetMainTree()->GetDescNode(Node01, Node02, nPalIdInFileNode + vnPeerPaletteDistances.at(nNodeIndex), -1);
-
-                    if (sSearchedNode)
-                    {
-                        vsJoinedNodes.push_back(sSearchedNode);
-                    }
-                    else
-                    {
-                        fAllNodesFound = false;
-                        break;
-                    }
-                }
-
-                if (fAllNodesFound)
-                {
-                    fShouldUseAlternateLoadLogic = true;
-
-                    std::vector<sImgTicket*> vsImagePairs;
-                    sImgTicket* pPreviousImage = nullptr;
-
-                    for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
-                    {
-                        if (vsPaletteDataSetToJoin.at(nNodeIndex)->pExtraProcessing)
-                        {
-                            nBlendMode = vsPaletteDataSetToJoin.at(nNodeIndex)->pExtraProcessing->eBlendMode;
-                        }
-                        else
-                        {
-                            nBlendMode = BlendMode::Alpha;
-                        }
-
-                        sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin.at(nNodeIndex)->indexImgToUse, vsPaletteDataSetToJoin.at(nNodeIndex)->indexOffsetToUse, pPreviousImage, 0, 0, nBlendMode);
-
-                        vsImagePairs.push_back(pThisImage);
-
-                        pPreviousImage = pThisImage;
-                    }
-
-                    ClearSetImgTicket(vsImagePairs[(static_cast<size_t>(paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1)]);
-
-                    for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
-                    {
-                        //Set each palette
-                        CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
-
-                        SetSourcePal(nPairIndex, CharacterNode->uUnitId, nSrcStart + vnPeerPaletteDistances.at(nPairIndex), nSrcAmt, nNodeIncrement);
-                    }
-                }
-                else
-                {
-                    OutputDebugString(L"ERROR: Invalid palette pairing requested.   You probably want to check the linkage here.\n");
-                }
-            }
-        }
+        fShouldUseAlternateLoadLogic = CreateImageIfPaired(ImagePairing::ForExtras, Node01, Node02, Node03, Node04, nFileUnitId, nPalIdInFileNode, m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode).pPalettePairingInfo);
     }
 
     if (!fShouldUseAlternateLoadLogic)

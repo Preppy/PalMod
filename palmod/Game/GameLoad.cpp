@@ -20,6 +20,7 @@
 #include "Game_COTA_A.h"
 #include "Game_CVS1_A.h"
 #include "Game_CVS2_A.h"
+#include "Game_CVS2_D.h"
 #include "Game_Cyberbots_A.h"
 #include "Game_DaemonBride_NL.h"
 #include "Game_DaemonBrideAG_NL.h"
@@ -171,7 +172,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 192, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 194, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -332,6 +333,24 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case CVS2_A:
     {
         GetRule = &CGame_CVS2_A::GetRule;
+        return TRUE;
+    }
+    case CVS2_D:
+    {
+        GetRuleCtr = &CGame_CVS2_D::GetRuleCtr;
+        ResetRuleCtr = &CGame_CVS2_D::ResetRuleCtr;
+        GetRule = &CGame_CVS2_D::GetRule;
+        GetNextRule = &CGame_CVS2_D::GetNextRule;
+
+        return TRUE;
+    }
+    case CVS2_P:
+    {
+        GetRuleCtr = &CGame_CVS2_P::GetRuleCtr;
+        ResetRuleCtr = &CGame_CVS2_P::ResetRuleCtr;
+        GetRule = &CGame_CVS2_P::GetRule;
+        GetNextRule = &CGame_CVS2_P::GetNextRule;
+
         return TRUE;
     }
     case CYBERBOTS_A:
@@ -1414,6 +1433,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case CVS2_A:
     {
         return new CGame_CVS2_A(nConfirmedROMSize);
+    }
+    case CVS2_D:
+    {
+        return new CGame_CVS2_D(nConfirmedROMSize);
+    }
+    case CVS2_P:
+    {
+        return new CGame_CVS2_P(nConfirmedROMSize);
     }
     case CYBERBOTS_A:
     {

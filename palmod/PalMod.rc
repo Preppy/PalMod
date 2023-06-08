@@ -486,6 +486,11 @@ BEGIN
                 MENUITEM "Aquapazza: Aquaplus Dream Match (PS3)", ID_LD_AQUAPLUS_P
             END
             MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
+            POPUP "CvS2"
+            BEGIN
+                MENUITEM "DC",                          ID_LD_CVS2DCUSA
+                MENUITEM "PS2",                         ID_LD_CVS2PS2USA
+            END
             POPUP "Daemon Bride"
             BEGIN
                 MENUITEM "Daemon Bride (NESICAxLive)",  ID_LD_DAEMONBRIDE_NL

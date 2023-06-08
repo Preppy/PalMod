@@ -116,6 +116,13 @@ public:
 
     LPCWSTR GetGameName() override;
 
+    enum class ImagePairing
+    {
+        ForBasic,
+        ForExtras
+    };
+    bool CreateImageIfPaired(ImagePairing pairingType, int Node01, int Node02, int Node03, int Node04, uint32_t nFileUnitId, uint32_t nPalIdInNode, const stPairedPaletteInfo *pPalettePairingInfo);
+
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     static sFileRule GetNextRule(const std::vector<sGCBUPF_BasicFileData>& gameLoadingData);
