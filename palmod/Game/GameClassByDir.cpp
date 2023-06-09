@@ -214,15 +214,19 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
         }
         default: // FileReadType::Sequential
         {
-            // Adjust read/write locations if they traverse ROM boundaries
-            for (uint32_t nFileUnit = 0; nFileUnit < m_psCurrentFileLoadingData->rgFileList.size(); nFileUnit++)
+            // Check if they're using multiple files: adjust to the correct file if so
+            if (m_psCurrentFileLoadingData->rgFileList.size() > 1)
             {
-                if (nROMLocation < m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize)
+                // Adjust read/write locations if they traverse ROM boundaries
+                for (uint32_t nFileUnit = 0; nFileUnit < m_psCurrentFileLoadingData->rgFileList.size(); nFileUnit++)
                 {
-                    break;
-                }
+                    if (nROMLocation < m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize)
+                    {
+                        break;
+                    }
 
-                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize);
+                    nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize);
+                }
             }
 
             return nROMLocation;

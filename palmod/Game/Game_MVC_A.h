@@ -92,3 +92,49 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_MVC_D : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"0.bin", 4930596 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // Marvel Vs. Capcom: Clash of Super Heroes
+        { L"MvC (Dreamcast)", L"0.bin",  0xc4acce88, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"MvC (Dreamcast)",
+        MVC_D,
+        IMGDAT_SECTION_CPS2,
+        MVC_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        MVC_A_UNITS,
+        ARRAYSIZE(MVC_A_UNITS),
+        L"MvCdE.txt",           // Extra filename
+        1337,                   // Count of palettes listed in the header
+        0x30B18,                // Lowest known location used for palettes
+    };
+
+public:
+    CGame_MVC_D(uint32_t nConfirmedROMSize, bool fUseNormalData = true) { if (fUseNormalData) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); } };
+
+    // We use custom handling since we have mid-ROM shifts
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

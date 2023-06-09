@@ -1791,14 +1791,19 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_STATUSEFFECTS[] =
 
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES_STATUSEFFECTS[] =
 {
-    { L"Burning 1", 0x4b042, 0x4b062, indexCPS2Sprites_Onslaught },
-    { L"Burning 2", 0x4b062, 0x4b082, indexCPS2Sprites_Onslaught },
-    { L"Shocked 1", 0x4b082, 0x4b0a2, indexCPS2Sprites_Onslaught },
-    { L"Shocked 2", 0x4b0a2, 0x4b0c2, indexCPS2Sprites_Onslaught },
-    { L"Dark Burning 1", 0x4b0c2, 0x4b0e2, indexCPS2Sprites_Onslaught },
-    { L"Dark Burning 2", 0x4b0e2, 0x4b102, indexCPS2Sprites_Onslaught },
-    { L"Shadows Light", 0x49922, 0x49942, indexCPS2Sprites_Onslaught },
-    { L"Shadows Dark", 0x49942, 0x49962, indexCPS2Sprites_Onslaught },
+    // This actually overlaps with Megaman Kinectic Charged 3: if you look at it you see that
+    // color 00 is megaman's color 15, and color 01 is actually Onslaught's transparency counter
+    // I don't have a great fix for this, so I'll just make the title clear
+    { L"Burning 1 (munged)", 0x4b040, 0x4b060, indexCPS2Sprites_Onslaught },
+    { L"Burning 2", 0x4b060, 0x4b080, indexCPS2Sprites_Onslaught },
+    { L"Shocked 1", 0x4b080, 0x4b0a0, indexCPS2Sprites_Onslaught },
+    { L"Shocked 2", 0x4b0a0, 0x4b0c0, indexCPS2Sprites_Onslaught },
+    { L"Dark Burning 1", 0x4b0c0, 0x4b0e0, indexCPS2Sprites_Onslaught },
+    { L"Dark Burning 2", 0x4b0e0, 0x4b100, indexCPS2Sprites_Onslaught },
+    // This actually overlaps with Megaman Shadows Dark
+    // I don't have a great fix for this, so I'll just make the title clear
+    { L"Shadows Light (munged)", 0x49920, 0x49940, indexCPS2Sprites_Onslaught },
+    { L"Shadows Dark", 0x49940, 0x49960, indexCPS2Sprites_Onslaught },
 };
 
 const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_STATUSEFFECTS[] =
@@ -2082,7 +2087,7 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
     { L"Zangief CS Icon",           0x3e738, 0x3e758, indexCPS2Sprites_Zangief, 0x11 },
 };
 
-const sGame_PaletteDataset MVC_A_CSIS_NEXT_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CSIS_NEXT_PALETTES[] = // Campaign Cards
 {
     { L"Captain America", 0x3e5da + 0x14188, 0x3e5fa + 0x14188, indexCPS2Sprites_CapAm, 0x11 },
     { L"Captain Commando", 0x3e6da + 0x14188, 0x3e6fa + 0x14188, indexCPS2Sprites_CapCom, 0x11 },

@@ -216,6 +216,7 @@ enum SupportedGamesList
     P4AU_FightClub,
     CVS2_D,
     CVS2_P,
+    MVC_D,
 
     NUM_GAMES // This needs to be last
 };
@@ -426,6 +427,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Persona Fight Club Modpack",
     L"Capcom vs SNK 2 (Dreamcast)",
     L"Capcom vs SNK 2 (PS2)",
+    L"MvC (Dreamcast)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

@@ -21,14 +21,14 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { BattleFlipShot_A, L"Battle Flip Shot", L"Battle Flip Shot (Neo-Geo)|247-p1.*|", GamePlatform::NEOGEO },
     { BMKNS_SNES,       L"Battle Master: KnS", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { BLEACH_DS,        L"Bleach Dark Souls", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
-    { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
-    { BREAKERS_S,       L"Breakers Revenge", L"Breakers Revenge|245-m68k.swbin|", GamePlatform::Steam },
+    { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge (Neo-Geo)|245-p1.*|", GamePlatform::NEOGEO },
+    { BREAKERS_S,       L"Breakers Revenge", L"Breakers Revenge (Steam)|245-m68k.swbin|", GamePlatform::Steam },
     { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (J*).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { BtlKRoad_A,       L"Battle K-Road (Psikyo)", L"Battle K-Road (Psikyo)|4-u46.bin|", GamePlatform::OtherPlatform },
     { CFTE_SNES,        L"Clay Fighter:TE", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS1_A,           L"CvS1", L"CvS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::SegaNAOMI },
-    { CVS2_A,           L"CvS2", L"CvS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
+    { CVS2_A,           L"CvS2", L"CvS2 (Naomi)|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
     { CYBERBOTS_A,      L"Cyberbots", L"Cyberbots|cyb?.04|", GamePlatform::CapcomCPS12 },
     { DBZEB_DS,         L"Dragon Ball Z: Extreme Butoden (3DS)", L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)|3DS1366*(USA)-decrypted.3ds;Dragon*Butoden*USA*decrypted*.3ds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
     { DBZHD_SNES,       L"Dragon Ball Z: Hyper Dimension", L"Dragon Ball Z: Hyper Dimension (SNES)|dragon ball z - hyper dimension (*).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -40,9 +40,9 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { FatalFury3_A,     L"Fatal Fury 3", L"Fatal Fury 3|069-p1.*;069-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { FightFever_A,     L"Fight Fever", L"Fight Fever|060-p1.p1;060-p1.bin|", GamePlatform::NEOGEO },
     { GalaxyFight_A,    L"Galaxy Fight", L"Galaxy Fight|078-p1.*|", GamePlatform::NEOGEO },
-    { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma;253-sma.bin;253-sma.kf|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+    { Garou_A,          L"Garou: MotW", L"Garou: MotW (Neo-Geo)|kf.neo-sma;253-sma.bin;253-sma.kf|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin;253-sma.bin|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
+    { Garou_S,          L"Garou: MotW", L"Garou: MotW (Steam)|p1.bin|", GamePlatform::Steam },
     { GGDS_NDS,         L"Guilty Gear: Dust Strikers", L"Guilty Gear: Dust Strikers (Nintendo DS)|0590*(Japan).nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { HIppo_GBA,        L"Hajime no Ippo - The Fighting! (Japan)", L"Hajime no Ippo - The Fighting! (GBA)|Hajime no Ippo - The Fighting! (Japan).gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
@@ -85,7 +85,8 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { MartialMasters_A, L"Martial Masters", L"Martial Masters (PGM)|v104_32m.u9|", GamePlatform::PGM },
     { MATRIMELEE_A,     L"Matrimelee", L"Matrimelee|266-p2.*|", GamePlatform::NEOGEO },
     { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
-    { MVC_A,            L"Marvel vs Capcom", L"MvC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+    { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (Arcade)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+    { MVC_D,            L"Marvel vs Capcom (Dreamcast)", L"MvC (Dreamcast)|0.bin|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { MMX_SNES,         L"Mega Man X", L"Mega Man X (SNES)|Mega*Man X (USA).s?c;sns-rx-0 p0.u1|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { MMX2_SNES,        L"Mega Man X2", L"Mega Man X2 (SNES)|Mega*Man X2 (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
     { MMX3_SNES,        L"Mega Man X3", L"Mega Man X3 (SNES)|Mega*Man X3 (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -161,7 +162,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 194 , "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 195 , "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
