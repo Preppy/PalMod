@@ -185,11 +185,16 @@ const sGame_PaletteDataset WakuWaku7_A_ARINA_BONUS_PALETTES[] =
     { L"Doki Doki 5", 0xd318, 0xd338, indexWakuWaku7Sprites_Arina, 0x00 },
     { L"Doki Doki 6", 0xd338, 0xd358, indexWakuWaku7Sprites_Arina, 0x00 },
     { L"Doki Doki 7", 0xd358, 0xd378, indexWakuWaku7Sprites_Arina, 0x00 },
-    { L"Arina Extras 1", 0xd278, 0xd298 },
-    { L"Arina Extras 2", 0xd678, 0xd6d8 },
-    { L"Arina Extras 3", 0xd6f8, 0xd7b8 },
-    { L"Arina Extras 4", 0xd7d8, 0xd7f8 },
-    { L"Arina Extras 5", 0xd858, 0xd878 },
+    { L"Arina Friends", 0xd6f8, 0xd758 },
+    { L"Arina Beam 1", 0xd758, 0xd778 },
+    { L"Arina Beam 2", 0xd778, 0xd798 },
+    { L"Arina Beam 3", 0xd798, 0xd7b8 },
+    { L"Arina Beam 4", 0xd678, 0xd698 },
+    { L"EX Arina Beam", 0xd698, 0xd6b8 },
+    { L"Arina Special 1", 0xd7d8, 0xd7f8 },
+    { L"Arina Special 2", 0xd278, 0xd298 },
+    { L"Super Charge Effect", 0xd6b8, 0xd6d8 },
+    { L"Unused", 0xd858, 0xd878 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_DANDYJ_A_PALETTES[] =

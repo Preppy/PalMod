@@ -2629,8 +2629,8 @@ const sGame_PaletteDataset KOF97_A_OROCHILEONA_PALETTES_D[] =
 const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_A[] =
 {
     { L"Orochi Advanced A - Main", 0x2e0ff0, 0x2e1010, indexKOF97Sprites_Orochi },
-    { L"Orochi Advanced A - Extra 1", 0x2e1010, 0x2e1030, indexKOF97Sprites_Orochi },
-    { L"Orochi Advanced A - Extra 2", 0x2e1030, 0x2e1050, indexKOF97Sprites_Orochi },
+    { L"Orochi Advanced A - Extra 1", 0x2e1010, 0x2e1030, indexKOF97Sprites_Orochi, 0x01 },
+    { L"Orochi Advanced A - Extra 2", 0x2e1030, 0x2e1050, indexKOF97Sprites_Orochi, 0x02 },
     { L"Orochi Advanced A - Max Mode", 0x2e1050, 0x2e1070, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced A - Extra 4", 0x2e1070, 0x2e1090, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced A - Extra 5", 0x2e1090, 0x2e10b0, indexKOF97Sprites_Orochi },
@@ -2643,15 +2643,15 @@ const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_A[] =
     { L"Orochi Advanced A - Extra 12", 0x2e1170, 0x2e1190, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced A - Extra 13", 0x2e1190, 0x2e11b0, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced A - Character Select/Win Assist Portrait", 0x2e11b0, 0x2e11d0, indexKOF97Sprites_Orochi, 0x41 },
-    { L"Orochi Advanced A - Lifebar Portrait", 0x2e11d0, 0x2e11f0, indexKOF98Sprites_Lifebar, indexKOF97Sprites_Orochi },
+    { L"Orochi Advanced A - Lifebar Portrait", 0x2e11d0, 0x2e11f0, indexKOF97Sprites_Orochi, 0x10 },
     { L"Orochi Advanced A - Win Portrait", 0x2ef5f0, 0x2ef650, indexKOF97Sprites_Orochi, 0x40 },
 };
 
 const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_B[] =
 {
     { L"Orochi Advanced D - Main", 0x2e11f0, 0x2e1210, indexKOF97Sprites_Orochi },
-    { L"Orochi Advanced D - Extra 1", 0x2e1210, 0x2e1230, indexKOF97Sprites_Orochi },
-    { L"Orochi Advanced D - Extra 2", 0x2e1230, 0x2e1250, indexKOF97Sprites_Orochi },
+    { L"Orochi Advanced D - Extra 1", 0x2e1210, 0x2e1230, indexKOF97Sprites_Orochi, 0x01 },
+    { L"Orochi Advanced D - Extra 2", 0x2e1230, 0x2e1250, indexKOF97Sprites_Orochi, 0x02 },
     { L"Orochi Advanced D - Max Mode", 0x2e1250, 0x2e1270, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced D - Extra 4", 0x2e1270, 0x2e1290, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced D - Extra 5", 0x2e1290, 0x2e12b0, indexKOF97Sprites_Orochi },
@@ -2664,15 +2664,15 @@ const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_B[] =
     { L"Orochi Advanced D - Extra 12", 0x2e1370, 0x2e1390, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced D - Extra 13", 0x2e1390, 0x2e13b0, indexKOF97Sprites_Orochi },
     { L"Orochi Advanced D - Character Select/Win Assist Portrait", 0x2e13b0, 0x2e13d0, indexKOF97Sprites_Orochi, 0x41 },
-    { L"Orochi Advanced D - Lifebar Portrait", 0x2e13d0, 0x2e13f0, indexKOF98Sprites_Lifebar, indexKOF97Sprites_Orochi },
+    { L"Orochi Advanced D - Lifebar Portrait", 0x2e13d0, 0x2e13f0, indexKOF97Sprites_Orochi, 0x10 },
     { L"Orochi Advanced D - Win Portrait", 0x2ef6f0, 0x2ef750, indexKOF97Sprites_Orochi, 0x40 },
 };
 
 const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_C[] =
 {
     { L"Orochi Extra A - Main", 0x2e13f0, 0x2e1410, indexKOF97Sprites_Orochi },
-    { L"Orochi Extra A - Extra 1", 0x2e1410, 0x2e1430, indexKOF97Sprites_Orochi },
-    { L"Orochi Extra A - Extra 2", 0x2e1430, 0x2e1450, indexKOF97Sprites_Orochi },
+    { L"Orochi Extra A - Extra 1", 0x2e1410, 0x2e1430, indexKOF97Sprites_Orochi, 0x01 },
+    { L"Orochi Extra A - Extra 2", 0x2e1430, 0x2e1450, indexKOF97Sprites_Orochi, 0x02 },
     { L"Orochi Extra A - Max Mode", 0x2e1450, 0x2e1470, indexKOF97Sprites_Orochi },
     { L"Orochi Extra A - Extra 4", 0x2e1470, 0x2e1490, indexKOF97Sprites_Orochi },
     { L"Orochi Extra A - Extra 5", 0x2e1490, 0x2e14b0, indexKOF97Sprites_Orochi },
@@ -2685,15 +2685,15 @@ const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_C[] =
     { L"Orochi Extra A - Extra 12", 0x2e1570, 0x2e1590, indexKOF97Sprites_Orochi },
     { L"Orochi Extra A - Extra 13", 0x2e1590, 0x2e15b0, indexKOF97Sprites_Orochi },
     { L"Orochi Extra A - Character Select/Win Assist Portrait", 0x2e15b0, 0x2e15d0, indexKOF97Sprites_Orochi, 0x41 },
-    { L"Orochi Extra A - Lifebar Portrait", 0x2e15d0, 0x2e15f0, indexKOF98Sprites_Lifebar, indexKOF97Sprites_Orochi },
+    { L"Orochi Extra A - Lifebar Portrait", 0x2e15d0, 0x2e15f0, indexKOF97Sprites_Orochi, 0x10 },
     { L"Orochi Extra A - Win Portrait", 0x2ef7f0, 0x2ef850, indexKOF97Sprites_Orochi, 0x40 },
 };
 
 const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_D[] =
 {
     { L"Orochi Extra D - Main", 0x2e15f0, 0x2e1610, indexKOF97Sprites_Orochi },
-    { L"Orochi Extra D - Extra 1", 0x2e1610, 0x2e1630, indexKOF97Sprites_Orochi },
-    { L"Orochi Extra D - Extra 2", 0x2e1630, 0x2e1650, indexKOF97Sprites_Orochi },
+    { L"Orochi Extra D - Extra 1", 0x2e1610, 0x2e1630, indexKOF97Sprites_Orochi, 0x01 },
+    { L"Orochi Extra D - Extra 2", 0x2e1630, 0x2e1650, indexKOF97Sprites_Orochi, 0x02 },
     { L"Orochi Extra D - Max Mode", 0x2e1650, 0x2e1670, indexKOF97Sprites_Orochi },
     { L"Orochi Extra D - Extra 4", 0x2e1670, 0x2e1690, indexKOF97Sprites_Orochi },
     { L"Orochi Extra D - Extra 5", 0x2e1690, 0x2e16b0, indexKOF97Sprites_Orochi },
@@ -2706,7 +2706,7 @@ const sGame_PaletteDataset KOF97_A_OROCHI_PALETTES_D[] =
     { L"Orochi Extra D - Extra 12", 0x2e1770, 0x2e1790, indexKOF97Sprites_Orochi },
     { L"Orochi Extra D - Extra 13", 0x2e1790, 0x2e17b0, indexKOF97Sprites_Orochi },
     { L"Orochi Extra D - Character Select/Win Assist Portrait", 0x2e17b0, 0x2e17d0, indexKOF97Sprites_Orochi, 0x41 },
-    { L"Orochi Extra D - Lifebar Portrait", 0x2e17d0, 0x2e17f0, indexKOF98Sprites_Lifebar, indexKOF97Sprites_Orochi },
+    { L"Orochi Extra D - Lifebar Portrait", 0x2e17d0, 0x2e17f0, indexKOF97Sprites_Orochi, 0x10 },
     { L"Orochi Extra D - Win Portrait", 0x2ef8f0, 0x2ef950, indexKOF97Sprites_Orochi, 0x40 },
 };
 
@@ -3282,11 +3282,11 @@ const sGame_PaletteDataset KOF97_A_OROCHILEONA_EFFECT_PALETTES[] =
 
 const sGame_PaletteDataset KOF97_A_OROCHI_EFFECT_PALETTES[] =
 {
-    { L"Effect 0", 0x2e73f0, 0x2e7410 },
-    { L"Effect 1", 0x2e7410, 0x2e7430 },
-    { L"Effect 2", 0x2e7430, 0x2e7450 },
-    { L"Effect 3", 0x2e7450, 0x2e7470 },
-    { L"Effect 4", 0x2e7470, 0x2e7490 },
+    { L"Effect 0", 0x2e73f0, 0x2e7410, indexKOF97Sprites_Orochi, 0x08 },
+    { L"Effect 1", 0x2e7410, 0x2e7430, indexKOF97Sprites_Orochi, 0x09, &pairNext },
+    { L"Effect 2", 0x2e7430, 0x2e7450, indexKOF97Sprites_Orochi, 0x0a, &pairPrevious },
+    { L"Effect 3", 0x2e7450, 0x2e7470, indexKOF97Sprites_Orochi, 0x0b },
+    { L"Effect 4", 0x2e7470, 0x2e7490, indexKOF97Sprites_Orochi, 0x0c },
     { L"Effect 5", 0x2e7490, 0x2e74b0 },
 };
 
@@ -3353,22 +3353,22 @@ const sGame_PaletteDataset KOF97_A_OROCHI_SHARED_PALETTES[] =
 
 const sGame_PaletteDataset KOF97_A_OROCHI_MAROKARE_PALETTES[] =
 {
-    { L"Marokare 1", 0x2ffdf0, 0x2ffe10 },
-    { L"Marokare 2", 0x2ffe10, 0x2ffe30 },
-    { L"Marokare 3", 0x2ffe30, 0x2ffe50 },
-    { L"Marokare 4", 0x2ffe50, 0x2ffe70 },
-    { L"Marokare 5", 0x2ffe70, 0x2ffe90 },
-    { L"Marokare 6", 0x2ffe90, 0x2ffeb0 },
-    { L"Marokare 7", 0x2ffeb0, 0x2ffed0 },
-    { L"Marokare 8", 0x2ffed0, 0x2ffef0 },
-    { L"Marokare 9", 0x2ffef0, 0x2fff10 },
-    { L"Marokare 10", 0x2fff10, 0x2fff30 },
-    { L"Marokare 11", 0x2fff30, 0x2fff50 },
-    { L"Marokare 12", 0x2fff50, 0x2fff70 },
-    { L"Marokare 13", 0x2fff70, 0x2fff90 },
-    { L"Marokare 14", 0x2fff90, 0x2fffb0 },
-    { L"Marokare 15", 0x2fffb0, 0x2fffd0 },
-    { L"Marokare 16", 0x2fffd0, 0x2ffff0 },
+    { L"Marokare 1", 0x2ffdf0, 0x2ffe10, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 2", 0x2ffe10, 0x2ffe30, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 3", 0x2ffe30, 0x2ffe50, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 4", 0x2ffe50, 0x2ffe70, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 5", 0x2ffe70, 0x2ffe90, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 6", 0x2ffe90, 0x2ffeb0, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 7", 0x2ffeb0, 0x2ffed0, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 8", 0x2ffed0, 0x2ffef0, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 9", 0x2ffef0, 0x2fff10, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 10", 0x2fff10, 0x2fff30, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 11", 0x2fff30, 0x2fff50, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 12", 0x2fff50, 0x2fff70, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 13", 0x2fff70, 0x2fff90, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 14", 0x2fff90, 0x2fffb0, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 15", 0x2fffb0, 0x2fffd0, indexKOF97Sprites_Orochi, 0x11 },
+    { L"Marokare 16", 0x2fffd0, 0x2ffff0, indexKOF97Sprites_Orochi, 0x11 },
 };
 
 #pragma region KOF97AE_Exclusive_Characters

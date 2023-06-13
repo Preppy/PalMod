@@ -61,9 +61,9 @@ const sGame_PaletteDataset Gowcaizer_A_ATLANTIS_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_KARIN_PALETTES_P1[] =
 {
     { L"Karin P1", 0x190f22, 0x190f42, indexNEOGEOSprites_VFG_Karin, 0x00 },
-    { L"Karin Intro P1", 0x1971e2, 0x197202 },
-    { L"Karin Intro Extra 1 P1", 0x197222, 0x197242 },
-    { L"Karin Intro Extra 2 P1", 0x197262, 0x197282 },
+    { L"Karin Intro P1", 0x1971e2, 0x197202, indexNEOGEOSprites_VFG_Karin, 0x01 },
+    { L"Karin Intro Extra 1 P1", 0x197222, 0x197242, indexNEOGEOSprites_VFG_Karin, 0x02, &pairNext },
+    { L"Karin Intro Extra 2 P1", 0x197262, 0x197282, indexNEOGEOSprites_VFG_Karin, 0x03, &pairPrevious },
     { L"Karin Select Portrait P1", 0x199BE2, 0x199Ce2, indexNEOGEOSprites_VFG_Karin, 0x40 },
     { L"Karin Win Portrait P1", 0x198DE2, 0x198EE2, indexNEOGEOSprites_VFG_Karin, 0x41 },
 };
@@ -71,9 +71,9 @@ const sGame_PaletteDataset Gowcaizer_A_KARIN_PALETTES_P1[] =
 const sGame_PaletteDataset Gowcaizer_A_KARIN_PALETTES_P2[] =
 {
     { L"Karin P2", 0x190f42, 0x190f62, indexNEOGEOSprites_VFG_Karin, 0x00 },
-    { L"Karin Intro P2", 0x197202, 0x197222 },
-    { L"Karin Intro Extra 1 P2", 0x197242, 0x197262 },
-    { L"Karin Intro Extra 2 P2", 0x197282, 0x1972a2 },
+    { L"Karin Intro P2", 0x197202, 0x197222, indexNEOGEOSprites_VFG_Karin, 0x01 },
+    { L"Karin Intro Extra 1 P2", 0x197242, 0x197262, indexNEOGEOSprites_VFG_Karin, 0x02, &pairNext },
+    { L"Karin Intro Extra 2 P2", 0x197282, 0x1972a2, indexNEOGEOSprites_VFG_Karin, 0x03, &pairPrevious },
     { L"Karin Select Portrait P2", 0x199CE2, 0x199De2, indexNEOGEOSprites_VFG_Karin, 0x40 },
     { L"Karin Win Portrait P2", 0x198eE2, 0x198fE2, indexNEOGEOSprites_VFG_Karin, 0x41 },
 };
@@ -166,19 +166,19 @@ const sGame_PaletteDataset Gowcaizer_A_KYOSUKE_PALETTES_P2[] =
 
 const sGame_PaletteDataset Gowcaizer_A_HELLSTINGER_PALETTES_P1[] =
 {
-    { L"HellStinger P1", 0x190de2, 0x190e02, indexNEOGEOSprites_VFG_Stinger, 0x00 },
-    { L"Hellstinger Guitar P1", 0x190e22, 0x190e42 },
-    { L"HellStinger Intro P1", 0x196de2, 0x196e02 },
-    { L"HellStinger Intro Extra P1", 0x196e22, 0x196e42 },
+    { L"HellStinger P1", 0x190de2, 0x190e02, indexNEOGEOSprites_VFG_Stinger, 0x00, &pairNext },
+    { L"Hellstinger Guitar P1", 0x190e22, 0x190e42, indexNEOGEOSprites_VFG_Stinger, 0x03, &pairPrevious },
+    { L"HellStinger Intro P1", 0x196de2, 0x196e02, indexNEOGEOSprites_VFG_Stinger, 0x01, &pairNext },
+    { L"HellStinger Intro Extra P1", 0x196e22, 0x196e42, indexNEOGEOSprites_VFG_Stinger, 0x02, &pairPrevious },
     { L"HellStinger Select/Win Portrait P1", 0x191DE2, 0x191Ee2, indexNEOGEOSprites_VFG_Stinger, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_HELLSTINGER_PALETTES_P2[] =
 {
-    { L"HellStinger P2", 0x190e02, 0x190e22, indexNEOGEOSprites_VFG_Stinger, 0x00 },
-    { L"Hellstinger Guitar P2", 0x190e42, 0x190e62 },
-    { L"HellStinger Intro P2", 0x196e02, 0x196e22 },
-    { L"HellStinger Intro Extra P2", 0x196e42, 0x196e62 },
+    { L"HellStinger P2", 0x190e02, 0x190e22, indexNEOGEOSprites_VFG_Stinger, 0x00, &pairNext },
+    { L"Hellstinger Guitar P2", 0x190e42, 0x190e62, indexNEOGEOSprites_VFG_Stinger, 0x03, &pairPrevious },
+    { L"HellStinger Intro P2", 0x196e02, 0x196e22, indexNEOGEOSprites_VFG_Stinger, 0x01, &pairNext },
+    { L"HellStinger Intro Extra P2", 0x196e42, 0x196e62, indexNEOGEOSprites_VFG_Stinger, 0x02, &pairPrevious },
     { L"HellStinger Select/Win Portrait P2", 0x191EE2, 0x191Fe2, indexNEOGEOSprites_VFG_Stinger, 0x40 },
 };
 
@@ -188,7 +188,7 @@ const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P1[] =
 {
     { L"Brider P1", 0x1910a2, 0x1910c2, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Double Brider P1", 0x191122, 0x191142, indexNEOGEOSprites_VFG_Brider, 0x00 },
-    { L"Brider Intro P1", 0x1975e2, 0x197602 },
+    { L"Brider Intro P1", 0x1975e2, 0x197602, indexNEOGEOSprites_VFG_Brider, 0x01 },
     { L"Brider Select/Win Portrait P1", 0x19A3E2, 0x19A4e2, indexNEOGEOSprites_VFG_Brider, 0x40 },
 };
 
@@ -196,7 +196,7 @@ const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P2[] =
 {
     { L"Brider P2", 0x1910c2, 0x1910e2, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Double Brider P2", 0x191142, 0x191162, indexNEOGEOSprites_VFG_Brider, 0x00 },
-    { L"Brider Intro P2", 0x197602, 0x197622 },
+    { L"Brider Intro P2", 0x197602, 0x197622, indexNEOGEOSprites_VFG_Brider, 0x01 },
     { L"Brider Select/Win Portrait P2", 0x19A4E2, 0x19A5e2, indexNEOGEOSprites_VFG_Brider, 0x40 },
 };
 

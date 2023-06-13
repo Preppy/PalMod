@@ -57,9 +57,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_A[] =
     { L"A - Extra Move 1", 0x1013040, 0x1013060, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"A - Extra Move 2", 0x1013060, 0x1013080, indexNGBCSprites_Yuuki, 0x02 },
     { L"A - Extra Move 3", 0x1013080, 0x10130a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"A - Extra Move 4", 0x10130a0, 0x10130c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"A - Extra Move 4", 0x10130a0, 0x10130c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"A - Extra Move 5", 0x10130c0, 0x10130e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"A - Extra Move 6", 0x10130e0, 0x1013100, indexNGBCSprites_Yuuki, 0x06 },
+    { L"A - Extra Move 6", 0x10130e0, 0x1013100, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_B[] =
@@ -69,9 +69,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_B[] =
     { L"B - Extra Move 1", 0x1013140, 0x1013160, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"B - Extra Move 2", 0x1013160, 0x1013180, indexNGBCSprites_Yuuki, 0x02 },
     { L"B - Extra Move 3", 0x1013180, 0x10131a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"B - Extra Move 4", 0x10131a0, 0x10131c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"B - Extra Move 4", 0x10131a0, 0x10131c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"B - Extra Move 5", 0x10131c0, 0x10131e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"B - Extra Move 6", 0x10131e0, 0x1013200, indexNGBCSprites_Yuuki, 0x06 },
+    { L"B - Extra Move 6", 0x10131e0, 0x1013200, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_C[] =
@@ -81,9 +81,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_C[] =
     { L"C - Extra Move 1", 0x1013240, 0x1013260, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"C - Extra Move 2", 0x1013260, 0x1013280, indexNGBCSprites_Yuuki, 0x02 },
     { L"C - Extra Move 3", 0x1013280, 0x10132a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"C - Extra Move 4", 0x10132a0, 0x10132c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"C - Extra Move 4", 0x10132a0, 0x10132c0, indexNGBCSprites_Yuuki, 0x0c },
     { L"C - Extra Move 5", 0x10132c0, 0x10132e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"C - Extra Move 6", 0x10132e0, 0x1013300, indexNGBCSprites_Yuuki, 0x06 },
+    { L"C - Extra Move 6", 0x10132e0, 0x1013300, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_D[] =
@@ -93,9 +93,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_D[] =
     { L"D - Extra Move 1", 0x1013340, 0x1013360, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"D - Extra Move 2", 0x1013360, 0x1013380, indexNGBCSprites_Yuuki, 0x02 },
     { L"D - Extra Move 3", 0x1013380, 0x10133a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"D - Extra Move 4", 0x10133a0, 0x10133c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"D - Extra Move 4", 0x10133a0, 0x10133c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"D - Extra Move 5", 0x10133c0, 0x10133e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"D - Extra Move 6", 0x10133e0, 0x1013400, indexNGBCSprites_Yuuki, 0x06 },
+    { L"D - Extra Move 6", 0x10133e0, 0x1013400, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_EA[] =
@@ -105,9 +105,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_EA[] =
     { L"E+A - Extra Move 1", 0x1013440, 0x1013460, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"E+A - Extra Move 2", 0x1013460, 0x1013480, indexNGBCSprites_Yuuki, 0x02 },
     { L"E+A - Extra Move 3", 0x1013480, 0x10134a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"E+A - Extra Move 4", 0x10134a0, 0x10134c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"E+A - Extra Move 4", 0x10134a0, 0x10134c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"E+A - Extra Move 5", 0x10134c0, 0x10134e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"E+A - Extra Move 6", 0x10134e0, 0x1013500, indexNGBCSprites_Yuuki, 0x06 },
+    { L"E+A - Extra Move 6", 0x10134e0, 0x1013500, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_EB[] =
@@ -117,9 +117,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_EB[] =
     { L"E+B - Extra Move 1", 0x1013540, 0x1013560, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"E+B - Extra Move 2", 0x1013560, 0x1013580, indexNGBCSprites_Yuuki, 0x02 },
     { L"E+B - Extra Move 3", 0x1013580, 0x10135a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"E+B - Extra Move 4", 0x10135a0, 0x10135c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"E+B - Extra Move 4", 0x10135a0, 0x10135c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"E+B - Extra Move 5", 0x10135c0, 0x10135e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"E+B - Extra Move 6", 0x10135e0, 0x1013600, indexNGBCSprites_Yuuki, 0x06 },
+    { L"E+B - Extra Move 6", 0x10135e0, 0x1013600, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_EC[] =
@@ -129,9 +129,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_EC[] =
     { L"E+C - Extra Move 1", 0x1013640, 0x1013660, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"E+C - Extra Move 2", 0x1013660, 0x1013680, indexNGBCSprites_Yuuki, 0x02 },
     { L"E+C - Extra Move 3", 0x1013680, 0x10136a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"E+C - Extra Move 4", 0x10136a0, 0x10136c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"E+C - Extra Move 4", 0x10136a0, 0x10136c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"E+C - Extra Move 5", 0x10136c0, 0x10136e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"E+C - Extra Move 6", 0x10136e0, 0x1013700, indexNGBCSprites_Yuuki, 0x06 },
+    { L"E+C - Extra Move 6", 0x10136e0, 0x1013700, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_ED[] =
@@ -141,9 +141,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_ED[] =
     { L"E+D - Extra Move 1", 0x1013740, 0x1013760, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"E+D - Extra Move 2", 0x1013760, 0x1013780, indexNGBCSprites_Yuuki, 0x02 },
     { L"E+D - Extra Move 3", 0x1013780, 0x10137a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"E+D - Extra Move 4", 0x10137a0, 0x10137c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"E+D - Extra Move 4", 0x10137a0, 0x10137c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"E+D - Extra Move 5", 0x10137c0, 0x10137e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"E+D - Extra Move 6", 0x10137e0, 0x1013800, indexNGBCSprites_Yuuki, 0x06 },
+    { L"E+D - Extra Move 6", 0x10137e0, 0x1013800, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SA[] =
@@ -153,9 +153,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SA[] =
     { L"Start+A - Extra Move 1", 0x1013840, 0x1013860, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"Start+A - Extra Move 2", 0x1013860, 0x1013880, indexNGBCSprites_Yuuki, 0x02 },
     { L"Start+A - Extra Move 3", 0x1013880, 0x10138a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"Start+A - Extra Move 4", 0x10138a0, 0x10138c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"Start+A - Extra Move 4", 0x10138a0, 0x10138c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"Start+A - Extra Move 5", 0x10138c0, 0x10138e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"Start+A - Extra Move 6", 0x10138e0, 0x1013900, indexNGBCSprites_Yuuki, 0x06 },
+    { L"Start+A - Extra Move 6", 0x10138e0, 0x1013900, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SB[] =
@@ -165,9 +165,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SB[] =
     { L"Start+B - Extra Move 1", 0x1013940, 0x1013960, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"Start+B - Extra Move 2", 0x1013960, 0x1013980, indexNGBCSprites_Yuuki, 0x02 },
     { L"Start+B - Extra Move 3", 0x1013980, 0x10139a0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"Start+B - Extra Move 4", 0x10139a0, 0x10139c0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"Start+B - Extra Move 4", 0x10139a0, 0x10139c0, indexNGBCSprites_Yuuki, 0x0b },
     { L"Start+B - Extra Move 5", 0x10139c0, 0x10139e0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"Start+B - Extra Move 6", 0x10139e0, 0x1013a00, indexNGBCSprites_Yuuki, 0x06 },
+    { L"Start+B - Extra Move 6", 0x10139e0, 0x1013a00, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SC[] =
@@ -177,9 +177,9 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SC[] =
     { L"Start+C - Extra Move 1", 0x1013a40, 0x1013a60, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"Start+C - Extra Move 2", 0x1013a60, 0x1013a80, indexNGBCSprites_Yuuki, 0x02 },
     { L"Start+C - Extra Move 3", 0x1013a80, 0x1013aa0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"Start+C - Extra Move 4", 0x1013aa0, 0x1013ac0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"Start+C - Extra Move 4", 0x1013aa0, 0x1013ac0, indexNGBCSprites_Yuuki, 0x0b },
     { L"Start+C - Extra Move 5", 0x1013ac0, 0x1013ae0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"Start+C - Extra Move 6", 0x1013ae0, 0x1013b00, indexNGBCSprites_Yuuki, 0x06 },
+    { L"Start+C - Extra Move 6", 0x1013ae0, 0x1013b00, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SD[] =
@@ -189,153 +189,153 @@ const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_SD[] =
     { L"Start+D - Extra Move 1", 0x1013b40, 0x1013b60, indexNGBCSprites_Yuuki, 0x08, &pairNext4 },
     { L"Start+D - Extra Move 2", 0x1013b60, 0x1013b80, indexNGBCSprites_Yuuki, 0x02 },
     { L"Start+D - Extra Move 3", 0x1013b80, 0x1013ba0, indexNGBCSprites_Yuuki, 0x03 },
-    { L"Start+D - Extra Move 4", 0x1013ba0, 0x1013bc0, indexNGBCSprites_Yuuki, 0x04 },
+    { L"Start+D - Extra Move 4", 0x1013ba0, 0x1013bc0, indexNGBCSprites_Yuuki, 0x0b },
     { L"Start+D - Extra Move 5", 0x1013bc0, 0x1013be0, indexNGBCSprites_Yuuki, 0x0c },
-    { L"Start+D - Extra Move 6", 0x1013be0, 0x1013c00, indexNGBCSprites_Yuuki, 0x06 },
+    { L"Start+D - Extra Move 6", 0x1013be0, 0x1013c00, indexNGBCSprites_Yuuki, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_A[] =
 {
     { L"Ai A", 0x1250000, 0x1250020, indexNGBCSprites_Ai },
     { L"A - Super Trail", 0x1250020, 0x1250040, indexNGBCSprites_Ai, 0x00 },
-    { L"A - Extra Move 1", 0x1250040, 0x1250060, indexNGBCSprites_Ai, 0x01 },
-    { L"A - Extra Move 2", 0x1250060, 0x1250080, indexNGBCSprites_Ai, 0x02 },
-    { L"A - Extra Move 3", 0x1250080, 0x12500a0, indexNGBCSprites_Ai, 0x03 },
-    { L"A - Extra Move 4", 0x12500a0, 0x12500c0, indexNGBCSprites_Ai, 0x04 },
-    { L"A - Extra Move 5", 0x12500c0, 0x12500e0, indexNGBCSprites_Ai, 0x05 },
-    { L"A - Extra Move 6", 0x12500e0, 0x1250100, indexNGBCSprites_Ai, 0x06 },
+    { L"A - Extra Move 1", 0x1250040, 0x1250060, indexNGBCSprites_Ai, 0x08 },
+    { L"A - Extra Move 2", 0x1250060, 0x1250080, indexNGBCSprites_Ai, 0x09 },
+    { L"A - Extra Move 3", 0x1250080, 0x12500a0, indexNGBCSprites_Ai, 0x0a },
+    { L"A - Extra Move 4", 0x12500a0, 0x12500c0, indexNGBCSprites_Ai, 0x0b },
+    { L"A - Extra Move 5", 0x12500c0, 0x12500e0, indexNGBCSprites_Ai, 0x0c },
+    { L"A - Extra Move 6", 0x12500e0, 0x1250100, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_B[] =
 {
     { L"Ai B", 0x1250100, 0x1250120, indexNGBCSprites_Ai },
     { L"B - Super Trail", 0x1250120, 0x1250140, indexNGBCSprites_Ai, 0x00 },
-    { L"B - Extra Move 1", 0x1250140, 0x1250160, indexNGBCSprites_Ai, 0x01 },
-    { L"B - Extra Move 2", 0x1250160, 0x1250180, indexNGBCSprites_Ai, 0x02 },
-    { L"B - Extra Move 3", 0x1250180, 0x12501a0, indexNGBCSprites_Ai, 0x03 },
-    { L"B - Extra Move 4", 0x12501a0, 0x12501c0, indexNGBCSprites_Ai, 0x04 },
-    { L"B - Extra Move 5", 0x12501c0, 0x12501e0, indexNGBCSprites_Ai, 0x05 },
-    { L"B - Extra Move 6", 0x12501e0, 0x1250200, indexNGBCSprites_Ai, 0x06 },
+    { L"B - Extra Move 1", 0x1250140, 0x1250160, indexNGBCSprites_Ai, 0x08 },
+    { L"B - Extra Move 2", 0x1250160, 0x1250180, indexNGBCSprites_Ai, 0x09 },
+    { L"B - Extra Move 3", 0x1250180, 0x12501a0, indexNGBCSprites_Ai, 0x0a },
+    { L"B - Extra Move 4", 0x12501a0, 0x12501c0, indexNGBCSprites_Ai, 0x0b },
+    { L"B - Extra Move 5", 0x12501c0, 0x12501e0, indexNGBCSprites_Ai, 0x0c },
+    { L"B - Extra Move 6", 0x12501e0, 0x1250200, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_C[] =
 {
     { L"Ai C", 0x1250200, 0x1250220, indexNGBCSprites_Ai },
     { L"C - Super Trail", 0x1250220, 0x1250240, indexNGBCSprites_Ai, 0x00 },
-    { L"C - Extra Move 1", 0x1250240, 0x1250260, indexNGBCSprites_Ai, 0x01 },
-    { L"C - Extra Move 2", 0x1250260, 0x1250280, indexNGBCSprites_Ai, 0x02 },
-    { L"C - Extra Move 3", 0x1250280, 0x12502a0, indexNGBCSprites_Ai, 0x03 },
-    { L"C - Extra Move 4", 0x12502a0, 0x12502c0, indexNGBCSprites_Ai, 0x04 },
-    { L"C - Extra Move 5", 0x12502c0, 0x12502e0, indexNGBCSprites_Ai, 0x05 },
-    { L"C - Extra Move 6", 0x12502e0, 0x1250300, indexNGBCSprites_Ai, 0x06 },
+    { L"C - Extra Move 1", 0x1250240, 0x1250260, indexNGBCSprites_Ai, 0x08 },
+    { L"C - Extra Move 2", 0x1250260, 0x1250280, indexNGBCSprites_Ai, 0x09 },
+    { L"C - Extra Move 3", 0x1250280, 0x12502a0, indexNGBCSprites_Ai, 0x0a },
+    { L"C - Extra Move 4", 0x12502a0, 0x12502c0, indexNGBCSprites_Ai, 0x0b },
+    { L"C - Extra Move 5", 0x12502c0, 0x12502e0, indexNGBCSprites_Ai, 0x0c },
+    { L"C - Extra Move 6", 0x12502e0, 0x1250300, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_D[] =
 {
     { L"Ai D", 0x1250300, 0x1250320, indexNGBCSprites_Ai },
     { L"D - Super Trail", 0x1250320, 0x1250340, indexNGBCSprites_Ai, 0x00 },
-    { L"D - Extra Move 1", 0x1250340, 0x1250360, indexNGBCSprites_Ai, 0x01 },
-    { L"D - Extra Move 2", 0x1250360, 0x1250380, indexNGBCSprites_Ai, 0x02 },
-    { L"D - Extra Move 3", 0x1250380, 0x12503a0, indexNGBCSprites_Ai, 0x03 },
-    { L"D - Extra Move 4", 0x12503a0, 0x12503c0, indexNGBCSprites_Ai, 0x04 },
-    { L"D - Extra Move 5", 0x12503c0, 0x12503e0, indexNGBCSprites_Ai, 0x05 },
-    { L"D - Extra Move 6", 0x12503e0, 0x1250400, indexNGBCSprites_Ai, 0x06 },
+    { L"D - Extra Move 1", 0x1250340, 0x1250360, indexNGBCSprites_Ai, 0x08 },
+    { L"D - Extra Move 2", 0x1250360, 0x1250380, indexNGBCSprites_Ai, 0x09 },
+    { L"D - Extra Move 3", 0x1250380, 0x12503a0, indexNGBCSprites_Ai, 0x0a },
+    { L"D - Extra Move 4", 0x12503a0, 0x12503c0, indexNGBCSprites_Ai, 0x0b },
+    { L"D - Extra Move 5", 0x12503c0, 0x12503e0, indexNGBCSprites_Ai, 0x0c },
+    { L"D - Extra Move 6", 0x12503e0, 0x1250400, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_EA[] =
 {
     { L"Ai EA", 0x1250400, 0x1250420, indexNGBCSprites_Ai },
     { L"E+A - Super Trail", 0x1250420, 0x1250440, indexNGBCSprites_Ai, 0x00 },
-    { L"E+A - Extra Move 1", 0x1250440, 0x1250460, indexNGBCSprites_Ai, 0x01 },
-    { L"E+A - Extra Move 2", 0x1250460, 0x1250480, indexNGBCSprites_Ai, 0x02 },
-    { L"E+A - Extra Move 3", 0x1250480, 0x12504a0, indexNGBCSprites_Ai, 0x03 },
-    { L"E+A - Extra Move 4", 0x12504a0, 0x12504c0, indexNGBCSprites_Ai, 0x04 },
-    { L"E+A - Extra Move 5", 0x12504c0, 0x12504e0, indexNGBCSprites_Ai, 0x05 },
-    { L"E+A - Extra Move 6", 0x12504e0, 0x1250500, indexNGBCSprites_Ai, 0x06 },
+    { L"E+A - Extra Move 1", 0x1250440, 0x1250460, indexNGBCSprites_Ai, 0x08 },
+    { L"E+A - Extra Move 2", 0x1250460, 0x1250480, indexNGBCSprites_Ai, 0x09 },
+    { L"E+A - Extra Move 3", 0x1250480, 0x12504a0, indexNGBCSprites_Ai, 0x0a },
+    { L"E+A - Extra Move 4", 0x12504a0, 0x12504c0, indexNGBCSprites_Ai, 0x0b },
+    { L"E+A - Extra Move 5", 0x12504c0, 0x12504e0, indexNGBCSprites_Ai, 0x0c },
+    { L"E+A - Extra Move 6", 0x12504e0, 0x1250500, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_EB[] =
 {
     { L"Ai EB", 0x1250500, 0x1250520, indexNGBCSprites_Ai },
     { L"E+B - Super Trail", 0x1250520, 0x1250540, indexNGBCSprites_Ai, 0x00 },
-    { L"E+B - Extra Move 1", 0x1250540, 0x1250560, indexNGBCSprites_Ai, 0x01 },
-    { L"E+B - Extra Move 2", 0x1250560, 0x1250580, indexNGBCSprites_Ai, 0x02 },
-    { L"E+B - Extra Move 3", 0x1250580, 0x12505a0, indexNGBCSprites_Ai, 0x03 },
-    { L"E+B - Extra Move 4", 0x12505a0, 0x12505c0, indexNGBCSprites_Ai, 0x04 },
-    { L"E+B - Extra Move 5", 0x12505c0, 0x12505e0, indexNGBCSprites_Ai, 0x05 },
-    { L"E+B - Extra Move 6", 0x12505e0, 0x1250600, indexNGBCSprites_Ai, 0x06 },
+    { L"E+B - Extra Move 1", 0x1250540, 0x1250560, indexNGBCSprites_Ai, 0x08 },
+    { L"E+B - Extra Move 2", 0x1250560, 0x1250580, indexNGBCSprites_Ai, 0x09 },
+    { L"E+B - Extra Move 3", 0x1250580, 0x12505a0, indexNGBCSprites_Ai, 0x0a },
+    { L"E+B - Extra Move 4", 0x12505a0, 0x12505c0, indexNGBCSprites_Ai, 0x0b },
+    { L"E+B - Extra Move 5", 0x12505c0, 0x12505e0, indexNGBCSprites_Ai, 0x0c },
+    { L"E+B - Extra Move 6", 0x12505e0, 0x1250600, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_EC[] =
 {
     { L"Ai EC", 0x1250600, 0x1250620, indexNGBCSprites_Ai },
     { L"E+C - Super Trail", 0x1250620, 0x1250640, indexNGBCSprites_Ai, 0x00 },
-    { L"E+C - Extra Move 1", 0x1250640, 0x1250660, indexNGBCSprites_Ai, 0x01 },
-    { L"E+C - Extra Move 2", 0x1250660, 0x1250680, indexNGBCSprites_Ai, 0x02 },
-    { L"E+C - Extra Move 3", 0x1250680, 0x12506a0, indexNGBCSprites_Ai, 0x03 },
-    { L"E+C - Extra Move 4", 0x12506a0, 0x12506c0, indexNGBCSprites_Ai, 0x04 },
-    { L"E+C - Extra Move 5", 0x12506c0, 0x12506e0, indexNGBCSprites_Ai, 0x05 },
-    { L"E+C - Extra Move 6", 0x12506e0, 0x1250700, indexNGBCSprites_Ai, 0x06 },
+    { L"E+C - Extra Move 1", 0x1250640, 0x1250660, indexNGBCSprites_Ai, 0x08 },
+    { L"E+C - Extra Move 2", 0x1250660, 0x1250680, indexNGBCSprites_Ai, 0x09 },
+    { L"E+C - Extra Move 3", 0x1250680, 0x12506a0, indexNGBCSprites_Ai, 0x0a },
+    { L"E+C - Extra Move 4", 0x12506a0, 0x12506c0, indexNGBCSprites_Ai, 0x0b },
+    { L"E+C - Extra Move 5", 0x12506c0, 0x12506e0, indexNGBCSprites_Ai, 0x0c },
+    { L"E+C - Extra Move 6", 0x12506e0, 0x1250700, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_ED[] =
 {
     { L"Ai ED", 0x1250700, 0x1250720, indexNGBCSprites_Ai },
     { L"E+D - Super Trail", 0x1250720, 0x1250740, indexNGBCSprites_Ai, 0x00 },
-    { L"E+D - Extra Move 1", 0x1250740, 0x1250760, indexNGBCSprites_Ai, 0x01 },
-    { L"E+D - Extra Move 2", 0x1250760, 0x1250780, indexNGBCSprites_Ai, 0x02 },
-    { L"E+D - Extra Move 3", 0x1250780, 0x12507a0, indexNGBCSprites_Ai, 0x03 },
-    { L"E+D - Extra Move 4", 0x12507a0, 0x12507c0, indexNGBCSprites_Ai, 0x04 },
-    { L"E+D - Extra Move 5", 0x12507c0, 0x12507e0, indexNGBCSprites_Ai, 0x05 },
-    { L"E+D - Extra Move 6", 0x12507e0, 0x1250800, indexNGBCSprites_Ai, 0x06 },
+    { L"E+D - Extra Move 1", 0x1250740, 0x1250760, indexNGBCSprites_Ai, 0x08 },
+    { L"E+D - Extra Move 2", 0x1250760, 0x1250780, indexNGBCSprites_Ai, 0x09 },
+    { L"E+D - Extra Move 3", 0x1250780, 0x12507a0, indexNGBCSprites_Ai, 0x0a },
+    { L"E+D - Extra Move 4", 0x12507a0, 0x12507c0, indexNGBCSprites_Ai, 0x0b },
+    { L"E+D - Extra Move 5", 0x12507c0, 0x12507e0, indexNGBCSprites_Ai, 0x0c },
+    { L"E+D - Extra Move 6", 0x12507e0, 0x1250800, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_SA[] =
 {
     { L"Ai SA", 0x1250800, 0x1250820, indexNGBCSprites_Ai },
     { L"Start+A - Super Trail", 0x1250820, 0x1250840, indexNGBCSprites_Ai, 0x00 },
-    { L"Start+A - Extra Move 1", 0x1250840, 0x1250860, indexNGBCSprites_Ai, 0x01 },
-    { L"Start+A - Extra Move 2", 0x1250860, 0x1250880, indexNGBCSprites_Ai, 0x02 },
-    { L"Start+A - Extra Move 3", 0x1250880, 0x12508a0, indexNGBCSprites_Ai, 0x03 },
-    { L"Start+A - Extra Move 4", 0x12508a0, 0x12508c0, indexNGBCSprites_Ai, 0x04 },
-    { L"Start+A - Extra Move 5", 0x12508c0, 0x12508e0, indexNGBCSprites_Ai, 0x05 },
-    { L"Start+A - Extra Move 6", 0x12508e0, 0x1250900, indexNGBCSprites_Ai, 0x06 },
+    { L"Start+A - Extra Move 1", 0x1250840, 0x1250860, indexNGBCSprites_Ai, 0x08 },
+    { L"Start+A - Extra Move 2", 0x1250860, 0x1250880, indexNGBCSprites_Ai, 0x09 },
+    { L"Start+A - Extra Move 3", 0x1250880, 0x12508a0, indexNGBCSprites_Ai, 0x0a },
+    { L"Start+A - Extra Move 4", 0x12508a0, 0x12508c0, indexNGBCSprites_Ai, 0x0b },
+    { L"Start+A - Extra Move 5", 0x12508c0, 0x12508e0, indexNGBCSprites_Ai, 0x0c },
+    { L"Start+A - Extra Move 6", 0x12508e0, 0x1250900, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_SB[] =
 {
     { L"Ai SB", 0x1250900, 0x1250920, indexNGBCSprites_Ai },
     { L"Start+B - Super Trail", 0x1250920, 0x1250940, indexNGBCSprites_Ai, 0x00 },
-    { L"Start+B - Extra Move 1", 0x1250940, 0x1250960, indexNGBCSprites_Ai, 0x01 },
-    { L"Start+B - Extra Move 2", 0x1250960, 0x1250980, indexNGBCSprites_Ai, 0x02 },
-    { L"Start+B - Extra Move 3", 0x1250980, 0x12509a0, indexNGBCSprites_Ai, 0x03 },
-    { L"Start+B - Extra Move 4", 0x12509a0, 0x12509c0, indexNGBCSprites_Ai, 0x04 },
-    { L"Start+B - Extra Move 5", 0x12509c0, 0x12509e0, indexNGBCSprites_Ai, 0x05 },
-    { L"Start+B - Extra Move 6", 0x12509e0, 0x1250a00, indexNGBCSprites_Ai, 0x06 },
+    { L"Start+B - Extra Move 1", 0x1250940, 0x1250960, indexNGBCSprites_Ai, 0x08 },
+    { L"Start+B - Extra Move 2", 0x1250960, 0x1250980, indexNGBCSprites_Ai, 0x09 },
+    { L"Start+B - Extra Move 3", 0x1250980, 0x12509a0, indexNGBCSprites_Ai, 0x0a },
+    { L"Start+B - Extra Move 4", 0x12509a0, 0x12509c0, indexNGBCSprites_Ai, 0x0b },
+    { L"Start+B - Extra Move 5", 0x12509c0, 0x12509e0, indexNGBCSprites_Ai, 0x0c },
+    { L"Start+B - Extra Move 6", 0x12509e0, 0x1250a00, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_SC[] =
 {
     { L"Ai SC", 0x1250a00, 0x1250a20, indexNGBCSprites_Ai },
     { L"Start+C - Super Trail", 0x1250a20, 0x1250a40, indexNGBCSprites_Ai, 0x00 },
-    { L"Start+C - Extra Move 1", 0x1250a40, 0x1250a60, indexNGBCSprites_Ai, 0x01 },
-    { L"Start+C - Extra Move 2", 0x1250a60, 0x1250a80, indexNGBCSprites_Ai, 0x02 },
-    { L"Start+C - Extra Move 3", 0x1250a80, 0x1250aa0, indexNGBCSprites_Ai, 0x03 },
-    { L"Start+C - Extra Move 4", 0x1250aa0, 0x1250ac0, indexNGBCSprites_Ai, 0x04 },
-    { L"Start+C - Extra Move 5", 0x1250ac0, 0x1250ae0, indexNGBCSprites_Ai, 0x05 },
-    { L"Start+C - Extra Move 6", 0x1250ae0, 0x1250b00, indexNGBCSprites_Ai, 0x06 },
+    { L"Start+C - Extra Move 1", 0x1250a40, 0x1250a60, indexNGBCSprites_Ai, 0x08 },
+    { L"Start+C - Extra Move 2", 0x1250a60, 0x1250a80, indexNGBCSprites_Ai, 0x09 },
+    { L"Start+C - Extra Move 3", 0x1250a80, 0x1250aa0, indexNGBCSprites_Ai, 0x0a },
+    { L"Start+C - Extra Move 4", 0x1250aa0, 0x1250ac0, indexNGBCSprites_Ai, 0x0b },
+    { L"Start+C - Extra Move 5", 0x1250ac0, 0x1250ae0, indexNGBCSprites_Ai, 0x0c },
+    { L"Start+C - Extra Move 6", 0x1250ae0, 0x1250b00, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_AI_PALETTES_SD[] =
 {
     { L"Ai SD", 0x1250b00, 0x1250b20, indexNGBCSprites_Ai },
     { L"Start+D - Super Trail", 0x1250b20, 0x1250b40, indexNGBCSprites_Ai, 0x00 },
-    { L"Start+D - Extra Move 1", 0x1250b40, 0x1250b60, indexNGBCSprites_Ai, 0x01 },
-    { L"Start+D - Extra Move 2", 0x1250b60, 0x1250b80, indexNGBCSprites_Ai, 0x02 },
-    { L"Start+D - Extra Move 3", 0x1250b80, 0x1250ba0, indexNGBCSprites_Ai, 0x03 },
-    { L"Start+D - Extra Move 4", 0x1250ba0, 0x1250bc0, indexNGBCSprites_Ai, 0x04 },
-    { L"Start+D - Extra Move 5", 0x1250bc0, 0x1250be0, indexNGBCSprites_Ai, 0x05 },
-    { L"Start+D - Extra Move 6", 0x1250be0, 0x1250c00, indexNGBCSprites_Ai, 0x06 },
+    { L"Start+D - Extra Move 1", 0x1250b40, 0x1250b60, indexNGBCSprites_Ai, 0x08 },
+    { L"Start+D - Extra Move 2", 0x1250b60, 0x1250b80, indexNGBCSprites_Ai, 0x09 },
+    { L"Start+D - Extra Move 3", 0x1250b80, 0x1250ba0, indexNGBCSprites_Ai, 0x0a },
+    { L"Start+D - Extra Move 4", 0x1250ba0, 0x1250bc0, indexNGBCSprites_Ai, 0x0b },
+    { L"Start+D - Extra Move 5", 0x1250bc0, 0x1250be0, indexNGBCSprites_Ai, 0x0c },
+    { L"Start+D - Extra Move 6", 0x1250be0, 0x1250c00, indexNGBCSprites_Ai, 0x0d },
 };
 
 const sGame_PaletteDataset NGBC_A_KYO_PALETTES_A[] =
@@ -630,10 +630,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_A[] =
 {
     { L"Mr. Karate A", 0x17cb000, 0x17cb020, indexNGBCSprites_MrKarate },
     { L"A - Super Trail", 0x17cb020, 0x17cb040, indexNGBCSprites_MrKarate, 0x00 },
-    { L"A - Extra Move 1", 0x17cb040, 0x17cb060, indexNGBCSprites_MrKarate, 0x01 },
+    { L"A - Extra Move 1", 0x17cb040, 0x17cb060, indexNGBCSprites_MrKarate, 0x08 },
     { L"A - Extra Move 2", 0x17cb060, 0x17cb080, indexNGBCSprites_MrKarate, 0x02 },
-    { L"A - Extra Move 3", 0x17cb080, 0x17cb0a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"A - Extra Move 4", 0x17cb0a0, 0x17cb0c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"A - Extra Move 3", 0x17cb080, 0x17cb0a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"A - Extra Move 4", 0x17cb0a0, 0x17cb0c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"A - Extra Move 5", 0x17cb0c0, 0x17cb0e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"A - Extra Move 6", 0x17cb0e0, 0x17cb100, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -642,10 +642,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_B[] =
 {
     { L"Mr. Karate B", 0x17cb100, 0x17cb120, indexNGBCSprites_MrKarate },
     { L"B - Super Trail", 0x17cb120, 0x17cb140, indexNGBCSprites_MrKarate, 0x00 },
-    { L"B - Extra Move 1", 0x17cb140, 0x17cb160, indexNGBCSprites_MrKarate, 0x01 },
+    { L"B - Extra Move 1", 0x17cb140, 0x17cb160, indexNGBCSprites_MrKarate, 0x08 },
     { L"B - Extra Move 2", 0x17cb160, 0x17cb180, indexNGBCSprites_MrKarate, 0x02 },
-    { L"B - Extra Move 3", 0x17cb180, 0x17cb1a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"B - Extra Move 4", 0x17cb1a0, 0x17cb1c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"B - Extra Move 3", 0x17cb180, 0x17cb1a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"B - Extra Move 4", 0x17cb1a0, 0x17cb1c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"B - Extra Move 5", 0x17cb1c0, 0x17cb1e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"B - Extra Move 6", 0x17cb1e0, 0x17cb200, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -654,10 +654,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_C[] =
 {
     { L"Mr. Karate C", 0x17cb200, 0x17cb220, indexNGBCSprites_MrKarate },
     { L"C - Super Trail", 0x17cb220, 0x17cb240, indexNGBCSprites_MrKarate, 0x00 },
-    { L"C - Extra Move 1", 0x17cb240, 0x17cb260, indexNGBCSprites_MrKarate, 0x01 },
+    { L"C - Extra Move 1", 0x17cb240, 0x17cb260, indexNGBCSprites_MrKarate, 0x08 },
     { L"C - Extra Move 2", 0x17cb260, 0x17cb280, indexNGBCSprites_MrKarate, 0x02 },
-    { L"C - Extra Move 3", 0x17cb280, 0x17cb2a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"C - Extra Move 4", 0x17cb2a0, 0x17cb2c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"C - Extra Move 3", 0x17cb280, 0x17cb2a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"C - Extra Move 4", 0x17cb2a0, 0x17cb2c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"C - Extra Move 5", 0x17cb2c0, 0x17cb2e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"C - Extra Move 6", 0x17cb2e0, 0x17cb300, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -666,10 +666,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_D[] =
 {
     { L"Mr. Karate D", 0x17cb300, 0x17cb320, indexNGBCSprites_MrKarate },
     { L"D - Super Trail", 0x17cb320, 0x17cb340, indexNGBCSprites_MrKarate, 0x00 },
-    { L"D - Extra Move 1", 0x17cb340, 0x17cb360, indexNGBCSprites_MrKarate, 0x01 },
+    { L"D - Extra Move 1", 0x17cb340, 0x17cb360, indexNGBCSprites_MrKarate, 0x08 },
     { L"D - Extra Move 2", 0x17cb360, 0x17cb380, indexNGBCSprites_MrKarate, 0x02 },
-    { L"D - Extra Move 3", 0x17cb380, 0x17cb3a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"D - Extra Move 4", 0x17cb3a0, 0x17cb3c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"D - Extra Move 3", 0x17cb380, 0x17cb3a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"D - Extra Move 4", 0x17cb3a0, 0x17cb3c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"D - Extra Move 5", 0x17cb3c0, 0x17cb3e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"D - Extra Move 6", 0x17cb3e0, 0x17cb400, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -678,10 +678,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_EA[] =
 {
     { L"Mr. Karate EA", 0x17cb400, 0x17cb420, indexNGBCSprites_MrKarate },
     { L"E+A - Super Trail", 0x17cb420, 0x17cb440, indexNGBCSprites_MrKarate, 0x00 },
-    { L"E+A - Extra Move 1", 0x17cb440, 0x17cb460, indexNGBCSprites_MrKarate, 0x01 },
+    { L"E+A - Extra Move 1", 0x17cb440, 0x17cb460, indexNGBCSprites_MrKarate, 0x08 },
     { L"E+A - Extra Move 2", 0x17cb460, 0x17cb480, indexNGBCSprites_MrKarate, 0x02 },
-    { L"E+A - Extra Move 3", 0x17cb480, 0x17cb4a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"E+A - Extra Move 4", 0x17cb4a0, 0x17cb4c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"E+A - Extra Move 3", 0x17cb480, 0x17cb4a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"E+A - Extra Move 4", 0x17cb4a0, 0x17cb4c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"E+A - Extra Move 5", 0x17cb4c0, 0x17cb4e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"E+A - Extra Move 6", 0x17cb4e0, 0x17cb500, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -690,10 +690,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_EB[] =
 {
     { L"Mr. Karate EB", 0x17cb500, 0x17cb520, indexNGBCSprites_MrKarate },
     { L"E+B - Super Trail", 0x17cb520, 0x17cb540, indexNGBCSprites_MrKarate, 0x00 },
-    { L"E+B - Extra Move 1", 0x17cb540, 0x17cb560, indexNGBCSprites_MrKarate, 0x01 },
+    { L"E+B - Extra Move 1", 0x17cb540, 0x17cb560, indexNGBCSprites_MrKarate, 0x08 },
     { L"E+B - Extra Move 2", 0x17cb560, 0x17cb580, indexNGBCSprites_MrKarate, 0x02 },
-    { L"E+B - Extra Move 3", 0x17cb580, 0x17cb5a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"E+B - Extra Move 4", 0x17cb5a0, 0x17cb5c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"E+B - Extra Move 3", 0x17cb580, 0x17cb5a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"E+B - Extra Move 4", 0x17cb5a0, 0x17cb5c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"E+B - Extra Move 5", 0x17cb5c0, 0x17cb5e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"E+B - Extra Move 6", 0x17cb5e0, 0x17cb600, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -702,10 +702,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_EC[] =
 {
     { L"Mr. Karate EC", 0x17cb600, 0x17cb620, indexNGBCSprites_MrKarate },
     { L"E+C - Super Trail", 0x17cb620, 0x17cb640, indexNGBCSprites_MrKarate, 0x00 },
-    { L"E+C - Extra Move 1", 0x17cb640, 0x17cb660, indexNGBCSprites_MrKarate, 0x01 },
+    { L"E+C - Extra Move 1", 0x17cb640, 0x17cb660, indexNGBCSprites_MrKarate, 0x08 },
     { L"E+C - Extra Move 2", 0x17cb660, 0x17cb680, indexNGBCSprites_MrKarate, 0x02 },
-    { L"E+C - Extra Move 3", 0x17cb680, 0x17cb6a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"E+C - Extra Move 4", 0x17cb6a0, 0x17cb6c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"E+C - Extra Move 3", 0x17cb680, 0x17cb6a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"E+C - Extra Move 4", 0x17cb6a0, 0x17cb6c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"E+C - Extra Move 5", 0x17cb6c0, 0x17cb6e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"E+C - Extra Move 6", 0x17cb6e0, 0x17cb700, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -714,10 +714,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_ED[] =
 {
     { L"Mr. Karate ED", 0x17cb700, 0x17cb720, indexNGBCSprites_MrKarate },
     { L"E+D - Super Trail", 0x17cb720, 0x17cb740, indexNGBCSprites_MrKarate, 0x00 },
-    { L"E+D - Extra Move 1", 0x17cb740, 0x17cb760, indexNGBCSprites_MrKarate, 0x01 },
+    { L"E+D - Extra Move 1", 0x17cb740, 0x17cb760, indexNGBCSprites_MrKarate, 0x08 },
     { L"E+D - Extra Move 2", 0x17cb760, 0x17cb780, indexNGBCSprites_MrKarate, 0x02 },
-    { L"E+D - Extra Move 3", 0x17cb780, 0x17cb7a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"E+D - Extra Move 4", 0x17cb7a0, 0x17cb7c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"E+D - Extra Move 3", 0x17cb780, 0x17cb7a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"E+D - Extra Move 4", 0x17cb7a0, 0x17cb7c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"E+D - Extra Move 5", 0x17cb7c0, 0x17cb7e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"E+D - Extra Move 6", 0x17cb7e0, 0x17cb800, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -726,10 +726,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_SA[] =
 {
     { L"Mr. Karate SA", 0x17cb800, 0x17cb820, indexNGBCSprites_MrKarate },
     { L"Start+A - Super Trail", 0x17cb820, 0x17cb840, indexNGBCSprites_MrKarate, 0x00 },
-    { L"Start+A - Extra Move 1", 0x17cb840, 0x17cb860, indexNGBCSprites_MrKarate, 0x01 },
+    { L"Start+A - Extra Move 1", 0x17cb840, 0x17cb860, indexNGBCSprites_MrKarate, 0x08 },
     { L"Start+A - Extra Move 2", 0x17cb860, 0x17cb880, indexNGBCSprites_MrKarate, 0x02 },
-    { L"Start+A - Extra Move 3", 0x17cb880, 0x17cb8a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"Start+A - Extra Move 4", 0x17cb8a0, 0x17cb8c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"Start+A - Extra Move 3", 0x17cb880, 0x17cb8a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"Start+A - Extra Move 4", 0x17cb8a0, 0x17cb8c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"Start+A - Extra Move 5", 0x17cb8c0, 0x17cb8e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"Start+A - Extra Move 6", 0x17cb8e0, 0x17cb900, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -738,10 +738,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_SB[] =
 {
     { L"Mr. Karate SB", 0x17cb900, 0x17cb920, indexNGBCSprites_MrKarate },
     { L"Start+B - Super Trail", 0x17cb920, 0x17cb940, indexNGBCSprites_MrKarate, 0x00 },
-    { L"Start+B - Extra Move 1", 0x17cb940, 0x17cb960, indexNGBCSprites_MrKarate, 0x01 },
+    { L"Start+B - Extra Move 1", 0x17cb940, 0x17cb960, indexNGBCSprites_MrKarate, 0x08 },
     { L"Start+B - Extra Move 2", 0x17cb960, 0x17cb980, indexNGBCSprites_MrKarate, 0x02 },
-    { L"Start+B - Extra Move 3", 0x17cb980, 0x17cb9a0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"Start+B - Extra Move 4", 0x17cb9a0, 0x17cb9c0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"Start+B - Extra Move 3", 0x17cb980, 0x17cb9a0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"Start+B - Extra Move 4", 0x17cb9a0, 0x17cb9c0, indexNGBCSprites_MrKarate, 0x0b },
     { L"Start+B - Extra Move 5", 0x17cb9c0, 0x17cb9e0, indexNGBCSprites_MrKarate, 0x05 },
     { L"Start+B - Extra Move 6", 0x17cb9e0, 0x17cba00, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -750,10 +750,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_SC[] =
 {
     { L"Mr. Karate SC", 0x17cba00, 0x17cba20, indexNGBCSprites_MrKarate },
     { L"Start+C - Super Trail", 0x17cba20, 0x17cba40, indexNGBCSprites_MrKarate, 0x00 },
-    { L"Start+C - Extra Move 1", 0x17cba40, 0x17cba60, indexNGBCSprites_MrKarate, 0x01 },
+    { L"Start+C - Extra Move 1", 0x17cba40, 0x17cba60, indexNGBCSprites_MrKarate, 0x08 },
     { L"Start+C - Extra Move 2", 0x17cba60, 0x17cba80, indexNGBCSprites_MrKarate, 0x02 },
-    { L"Start+C - Extra Move 3", 0x17cba80, 0x17cbaa0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"Start+C - Extra Move 4", 0x17cbaa0, 0x17cbac0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"Start+C - Extra Move 3", 0x17cba80, 0x17cbaa0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"Start+C - Extra Move 4", 0x17cbaa0, 0x17cbac0, indexNGBCSprites_MrKarate, 0x0b },
     { L"Start+C - Extra Move 5", 0x17cbac0, 0x17cbae0, indexNGBCSprites_MrKarate, 0x05 },
     { L"Start+C - Extra Move 6", 0x17cbae0, 0x17cbb00, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -762,10 +762,10 @@ const sGame_PaletteDataset NGBC_A_MRKARATE_PALETTES_SD[] =
 {
     { L"Mr. Karate SD", 0x17cbb00, 0x17cbb20, indexNGBCSprites_MrKarate },
     { L"Start+D - Super Trail", 0x17cbb20, 0x17cbb40, indexNGBCSprites_MrKarate, 0x00 },
-    { L"Start+D - Extra Move 1", 0x17cbb40, 0x17cbb60, indexNGBCSprites_MrKarate, 0x01 },
+    { L"Start+D - Extra Move 1", 0x17cbb40, 0x17cbb60, indexNGBCSprites_MrKarate, 0x08 },
     { L"Start+D - Extra Move 2", 0x17cbb60, 0x17cbb80, indexNGBCSprites_MrKarate, 0x02 },
-    { L"Start+D - Extra Move 3", 0x17cbb80, 0x17cbba0, indexNGBCSprites_MrKarate, 0x03 },
-    { L"Start+D - Extra Move 4", 0x17cbba0, 0x17cbbc0, indexNGBCSprites_MrKarate, 0x04 },
+    { L"Start+D - Extra Move 3", 0x17cbb80, 0x17cbba0, indexNGBCSprites_MrKarate, 0x0a },
+    { L"Start+D - Extra Move 4", 0x17cbba0, 0x17cbbc0, indexNGBCSprites_MrKarate, 0x0b },
     { L"Start+D - Extra Move 5", 0x17cbbc0, 0x17cbbe0, indexNGBCSprites_MrKarate, 0x05 },
     { L"Start+D - Extra Move 6", 0x17cbbe0, 0x17cbc00, indexNGBCSprites_MrKarate, 0x06 },
 };
@@ -4086,9 +4086,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_A[] =
 {
     { L"King Lion A", 0x3e95000, 0x3e95020, indexNGBCSprites_KingLion },
     { L"A - Super Trail", 0x3e95020, 0x3e95040, indexNGBCSprites_KingLion, 0x00 },
-    { L"A - Extra Move 1", 0x3e95040, 0x3e95060, indexNGBCSprites_KingLion, 0x01 },
-    { L"A - Extra Move 2", 0x3e95060, 0x3e95080, indexNGBCSprites_KingLion, 0x02 },
-    { L"A - Extra Move 3", 0x3e95080, 0x3e950a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"A - Extra Move 1", 0x3e95040, 0x3e95060, indexNGBCSprites_KingLion, 0x08 },
+    { L"A - Extra Move 2", 0x3e95060, 0x3e95080, indexNGBCSprites_KingLion, 0x09 },
+    { L"A - Extra Move 3", 0x3e95080, 0x3e950a0, indexNGBCSprites_KingLion, 0x0a },
     { L"A - Extra Move 4", 0x3e950a0, 0x3e950c0, indexNGBCSprites_KingLion, 0x04 },
     { L"A - Extra Move 5", 0x3e950c0, 0x3e950e0, indexNGBCSprites_KingLion, 0x05 },
     { L"A - Extra Move 6", 0x3e950e0, 0x3e95100, indexNGBCSprites_KingLion, 0x06 },
@@ -4098,9 +4098,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_B[] =
 {
     { L"King Lion B", 0x3e95100, 0x3e95120, indexNGBCSprites_KingLion },
     { L"B - Super Trail", 0x3e95120, 0x3e95140, indexNGBCSprites_KingLion, 0x00 },
-    { L"B - Extra Move 1", 0x3e95140, 0x3e95160, indexNGBCSprites_KingLion, 0x01 },
-    { L"B - Extra Move 2", 0x3e95160, 0x3e95180, indexNGBCSprites_KingLion, 0x02 },
-    { L"B - Extra Move 3", 0x3e95180, 0x3e951a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"B - Extra Move 1", 0x3e95140, 0x3e95160, indexNGBCSprites_KingLion, 0x08 },
+    { L"B - Extra Move 2", 0x3e95160, 0x3e95180, indexNGBCSprites_KingLion, 0x09 },
+    { L"B - Extra Move 3", 0x3e95180, 0x3e951a0, indexNGBCSprites_KingLion, 0x0a },
     { L"B - Extra Move 4", 0x3e951a0, 0x3e951c0, indexNGBCSprites_KingLion, 0x04 },
     { L"B - Extra Move 5", 0x3e951c0, 0x3e951e0, indexNGBCSprites_KingLion, 0x05 },
     { L"B - Extra Move 6", 0x3e951e0, 0x3e95200, indexNGBCSprites_KingLion, 0x06 },
@@ -4110,9 +4110,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_C[] =
 {
     { L"King Lion C", 0x3e95200, 0x3e95220, indexNGBCSprites_KingLion },
     { L"C - Super Trail", 0x3e95220, 0x3e95240, indexNGBCSprites_KingLion, 0x00 },
-    { L"C - Extra Move 1", 0x3e95240, 0x3e95260, indexNGBCSprites_KingLion, 0x01 },
-    { L"C - Extra Move 2", 0x3e95260, 0x3e95280, indexNGBCSprites_KingLion, 0x02 },
-    { L"C - Extra Move 3", 0x3e95280, 0x3e952a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"C - Extra Move 1", 0x3e95240, 0x3e95260, indexNGBCSprites_KingLion, 0x08 },
+    { L"C - Extra Move 2", 0x3e95260, 0x3e95280, indexNGBCSprites_KingLion, 0x09 },
+    { L"C - Extra Move 3", 0x3e95280, 0x3e952a0, indexNGBCSprites_KingLion, 0x0a },
     { L"C - Extra Move 4", 0x3e952a0, 0x3e952c0, indexNGBCSprites_KingLion, 0x04 },
     { L"C - Extra Move 5", 0x3e952c0, 0x3e952e0, indexNGBCSprites_KingLion, 0x05 },
     { L"C - Extra Move 6", 0x3e952e0, 0x3e95300, indexNGBCSprites_KingLion, 0x06 },
@@ -4122,9 +4122,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_D[] =
 {
     { L"King Lion D", 0x3e95300, 0x3e95320, indexNGBCSprites_KingLion },
     { L"D - Super Trail", 0x3e95320, 0x3e95340, indexNGBCSprites_KingLion, 0x00 },
-    { L"D - Extra Move 1", 0x3e95340, 0x3e95360, indexNGBCSprites_KingLion, 0x01 },
-    { L"D - Extra Move 2", 0x3e95360, 0x3e95380, indexNGBCSprites_KingLion, 0x02 },
-    { L"D - Extra Move 3", 0x3e95380, 0x3e953a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"D - Extra Move 1", 0x3e95340, 0x3e95360, indexNGBCSprites_KingLion, 0x08 },
+    { L"D - Extra Move 2", 0x3e95360, 0x3e95380, indexNGBCSprites_KingLion, 0x09 },
+    { L"D - Extra Move 3", 0x3e95380, 0x3e953a0, indexNGBCSprites_KingLion, 0x0a },
     { L"D - Extra Move 4", 0x3e953a0, 0x3e953c0, indexNGBCSprites_KingLion, 0x04 },
     { L"D - Extra Move 5", 0x3e953c0, 0x3e953e0, indexNGBCSprites_KingLion, 0x05 },
     { L"D - Extra Move 6", 0x3e953e0, 0x3e95400, indexNGBCSprites_KingLion, 0x06 },
@@ -4134,9 +4134,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_EA[] =
 {
     { L"King Lion EA", 0x3e95400, 0x3e95420, indexNGBCSprites_KingLion },
     { L"E+A - Super Trail", 0x3e95420, 0x3e95440, indexNGBCSprites_KingLion, 0x00 },
-    { L"E+A - Extra Move 1", 0x3e95440, 0x3e95460, indexNGBCSprites_KingLion, 0x01 },
-    { L"E+A - Extra Move 2", 0x3e95460, 0x3e95480, indexNGBCSprites_KingLion, 0x02 },
-    { L"E+A - Extra Move 3", 0x3e95480, 0x3e954a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"E+A - Extra Move 1", 0x3e95440, 0x3e95460, indexNGBCSprites_KingLion, 0x08 },
+    { L"E+A - Extra Move 2", 0x3e95460, 0x3e95480, indexNGBCSprites_KingLion, 0x09 },
+    { L"E+A - Extra Move 3", 0x3e95480, 0x3e954a0, indexNGBCSprites_KingLion, 0x0a },
     { L"E+A - Extra Move 4", 0x3e954a0, 0x3e954c0, indexNGBCSprites_KingLion, 0x04 },
     { L"E+A - Extra Move 5", 0x3e954c0, 0x3e954e0, indexNGBCSprites_KingLion, 0x05 },
     { L"E+A - Extra Move 6", 0x3e954e0, 0x3e95500, indexNGBCSprites_KingLion, 0x06 },
@@ -4146,9 +4146,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_EB[] =
 {
     { L"King Lion EB", 0x3e95500, 0x3e95520, indexNGBCSprites_KingLion },
     { L"E+B - Super Trail", 0x3e95520, 0x3e95540, indexNGBCSprites_KingLion, 0x00 },
-    { L"E+B - Extra Move 1", 0x3e95540, 0x3e95560, indexNGBCSprites_KingLion, 0x01 },
-    { L"E+B - Extra Move 2", 0x3e95560, 0x3e95580, indexNGBCSprites_KingLion, 0x02 },
-    { L"E+B - Extra Move 3", 0x3e95580, 0x3e955a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"E+B - Extra Move 1", 0x3e95540, 0x3e95560, indexNGBCSprites_KingLion, 0x08 },
+    { L"E+B - Extra Move 2", 0x3e95560, 0x3e95580, indexNGBCSprites_KingLion, 0x09 },
+    { L"E+B - Extra Move 3", 0x3e95580, 0x3e955a0, indexNGBCSprites_KingLion, 0x0a },
     { L"E+B - Extra Move 4", 0x3e955a0, 0x3e955c0, indexNGBCSprites_KingLion, 0x04 },
     { L"E+B - Extra Move 5", 0x3e955c0, 0x3e955e0, indexNGBCSprites_KingLion, 0x05 },
     { L"E+B - Extra Move 6", 0x3e955e0, 0x3e95600, indexNGBCSprites_KingLion, 0x06 },
@@ -4158,9 +4158,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_EC[] =
 {
     { L"King Lion EC", 0x3e95600, 0x3e95620, indexNGBCSprites_KingLion },
     { L"E+C - Super Trail", 0x3e95620, 0x3e95640, indexNGBCSprites_KingLion, 0x00 },
-    { L"E+C - Extra Move 1", 0x3e95640, 0x3e95660, indexNGBCSprites_KingLion, 0x01 },
-    { L"E+C - Extra Move 2", 0x3e95660, 0x3e95680, indexNGBCSprites_KingLion, 0x02 },
-    { L"E+C - Extra Move 3", 0x3e95680, 0x3e956a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"E+C - Extra Move 1", 0x3e95640, 0x3e95660, indexNGBCSprites_KingLion, 0x08 },
+    { L"E+C - Extra Move 2", 0x3e95660, 0x3e95680, indexNGBCSprites_KingLion, 0x09 },
+    { L"E+C - Extra Move 3", 0x3e95680, 0x3e956a0, indexNGBCSprites_KingLion, 0x0a },
     { L"E+C - Extra Move 4", 0x3e956a0, 0x3e956c0, indexNGBCSprites_KingLion, 0x04 },
     { L"E+C - Extra Move 5", 0x3e956c0, 0x3e956e0, indexNGBCSprites_KingLion, 0x05 },
     { L"E+C - Extra Move 6", 0x3e956e0, 0x3e95700, indexNGBCSprites_KingLion, 0x06 },
@@ -4170,9 +4170,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_ED[] =
 {
     { L"King Lion ED", 0x3e95700, 0x3e95720, indexNGBCSprites_KingLion },
     { L"E+D - Super Trail", 0x3e95720, 0x3e95740, indexNGBCSprites_KingLion, 0x00 },
-    { L"E+D - Extra Move 1", 0x3e95740, 0x3e95760, indexNGBCSprites_KingLion, 0x01 },
-    { L"E+D - Extra Move 2", 0x3e95760, 0x3e95780, indexNGBCSprites_KingLion, 0x02 },
-    { L"E+D - Extra Move 3", 0x3e95780, 0x3e957a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"E+D - Extra Move 1", 0x3e95740, 0x3e95760, indexNGBCSprites_KingLion, 0x08 },
+    { L"E+D - Extra Move 2", 0x3e95760, 0x3e95780, indexNGBCSprites_KingLion, 0x09 },
+    { L"E+D - Extra Move 3", 0x3e95780, 0x3e957a0, indexNGBCSprites_KingLion, 0x0a },
     { L"E+D - Extra Move 4", 0x3e957a0, 0x3e957c0, indexNGBCSprites_KingLion, 0x04 },
     { L"E+D - Extra Move 5", 0x3e957c0, 0x3e957e0, indexNGBCSprites_KingLion, 0x05 },
     { L"E+D - Extra Move 6", 0x3e957e0, 0x3e95800, indexNGBCSprites_KingLion, 0x06 },
@@ -4182,9 +4182,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_SA[] =
 {
     { L"King Lion SA", 0x3e95800, 0x3e95820, indexNGBCSprites_KingLion },
     { L"Start+A - Super Trail", 0x3e95820, 0x3e95840, indexNGBCSprites_KingLion, 0x00 },
-    { L"Start+A - Extra Move 1", 0x3e95840, 0x3e95860, indexNGBCSprites_KingLion, 0x01 },
-    { L"Start+A - Extra Move 2", 0x3e95860, 0x3e95880, indexNGBCSprites_KingLion, 0x02 },
-    { L"Start+A - Extra Move 3", 0x3e95880, 0x3e958a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"Start+A - Extra Move 1", 0x3e95840, 0x3e95860, indexNGBCSprites_KingLion, 0x08 },
+    { L"Start+A - Extra Move 2", 0x3e95860, 0x3e95880, indexNGBCSprites_KingLion, 0x09 },
+    { L"Start+A - Extra Move 3", 0x3e95880, 0x3e958a0, indexNGBCSprites_KingLion, 0x0a },
     { L"Start+A - Extra Move 4", 0x3e958a0, 0x3e958c0, indexNGBCSprites_KingLion, 0x04 },
     { L"Start+A - Extra Move 5", 0x3e958c0, 0x3e958e0, indexNGBCSprites_KingLion, 0x05 },
     { L"Start+A - Extra Move 6", 0x3e958e0, 0x3e95900, indexNGBCSprites_KingLion, 0x06 },
@@ -4194,9 +4194,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_SB[] =
 {
     { L"King Lion SB", 0x3e95900, 0x3e95920, indexNGBCSprites_KingLion },
     { L"Start+B - Super Trail", 0x3e95920, 0x3e95940, indexNGBCSprites_KingLion, 0x00 },
-    { L"Start+B - Extra Move 1", 0x3e95940, 0x3e95960, indexNGBCSprites_KingLion, 0x01 },
-    { L"Start+B - Extra Move 2", 0x3e95960, 0x3e95980, indexNGBCSprites_KingLion, 0x02 },
-    { L"Start+B - Extra Move 3", 0x3e95980, 0x3e959a0, indexNGBCSprites_KingLion, 0x03 },
+    { L"Start+B - Extra Move 1", 0x3e95940, 0x3e95960, indexNGBCSprites_KingLion, 0x08 },
+    { L"Start+B - Extra Move 2", 0x3e95960, 0x3e95980, indexNGBCSprites_KingLion, 0x09 },
+    { L"Start+B - Extra Move 3", 0x3e95980, 0x3e959a0, indexNGBCSprites_KingLion, 0x0a },
     { L"Start+B - Extra Move 4", 0x3e959a0, 0x3e959c0, indexNGBCSprites_KingLion, 0x04 },
     { L"Start+B - Extra Move 5", 0x3e959c0, 0x3e959e0, indexNGBCSprites_KingLion, 0x05 },
     { L"Start+B - Extra Move 6", 0x3e959e0, 0x3e95a00, indexNGBCSprites_KingLion, 0x06 },
@@ -4206,9 +4206,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_SC[] =
 {
     { L"King Lion SC", 0x3e95a00, 0x3e95a20, indexNGBCSprites_KingLion },
     { L"Start+C - Super Trail", 0x3e95a20, 0x3e95a40, indexNGBCSprites_KingLion, 0x00 },
-    { L"Start+C - Extra Move 1", 0x3e95a40, 0x3e95a60, indexNGBCSprites_KingLion, 0x01 },
-    { L"Start+C - Extra Move 2", 0x3e95a60, 0x3e95a80, indexNGBCSprites_KingLion, 0x02 },
-    { L"Start+C - Extra Move 3", 0x3e95a80, 0x3e95aa0, indexNGBCSprites_KingLion, 0x03 },
+    { L"Start+C - Extra Move 1", 0x3e95a40, 0x3e95a60, indexNGBCSprites_KingLion, 0x08 },
+    { L"Start+C - Extra Move 2", 0x3e95a60, 0x3e95a80, indexNGBCSprites_KingLion, 0x09 },
+    { L"Start+C - Extra Move 3", 0x3e95a80, 0x3e95aa0, indexNGBCSprites_KingLion, 0x0a },
     { L"Start+C - Extra Move 4", 0x3e95aa0, 0x3e95ac0, indexNGBCSprites_KingLion, 0x04 },
     { L"Start+C - Extra Move 5", 0x3e95ac0, 0x3e95ae0, indexNGBCSprites_KingLion, 0x05 },
     { L"Start+C - Extra Move 6", 0x3e95ae0, 0x3e95b00, indexNGBCSprites_KingLion, 0x06 },
@@ -4218,9 +4218,9 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_SD[] =
 {
     { L"King Lion SD", 0x3e95b00, 0x3e95b20, indexNGBCSprites_KingLion },
     { L"Start+D - Super Trail", 0x3e95b20, 0x3e95b40, indexNGBCSprites_KingLion, 0x00 },
-    { L"Start+D - Extra Move 1", 0x3e95b40, 0x3e95b60, indexNGBCSprites_KingLion, 0x01 },
-    { L"Start+D - Extra Move 2", 0x3e95b60, 0x3e95b80, indexNGBCSprites_KingLion, 0x02 },
-    { L"Start+D - Extra Move 3", 0x3e95b80, 0x3e95ba0, indexNGBCSprites_KingLion, 0x03 },
+    { L"Start+D - Extra Move 1", 0x3e95b40, 0x3e95b60, indexNGBCSprites_KingLion, 0x08 },
+    { L"Start+D - Extra Move 2", 0x3e95b60, 0x3e95b80, indexNGBCSprites_KingLion, 0x09 },
+    { L"Start+D - Extra Move 3", 0x3e95b80, 0x3e95ba0, indexNGBCSprites_KingLion, 0x0a },
     { L"Start+D - Extra Move 4", 0x3e95ba0, 0x3e95bc0, indexNGBCSprites_KingLion, 0x04 },
     { L"Start+D - Extra Move 5", 0x3e95bc0, 0x3e95be0, indexNGBCSprites_KingLion, 0x05 },
     { L"Start+D - Extra Move 6", 0x3e95be0, 0x3e95c00, indexNGBCSprites_KingLion, 0x06 },
@@ -4228,11 +4228,11 @@ const sGame_PaletteDataset NGBC_A_KINGLION_PALETTES_SD[] =
 
 const sGame_PaletteDataset NGBC_A_KINGLEO_PALETTES[] =
 {
-    { L"King Leo", 0x3e95c00, 0x3e95c20, indexNGBCSprites_KingLion },
-    { L"King Leo - Super Trail", 0x3e95c20, 0x3e95c40, indexNGBCSprites_KingLion, 0x00 },
-    { L"King Leo - Extra Move 1", 0x3e95c40, 0x3e95c60, indexNGBCSprites_KingLion, 0x01 },
-    { L"King Leo - Extra Move 2", 0x3e95c60, 0x3e95c80, indexNGBCSprites_KingLion, 0x02 },
-    { L"King Leo - Extra Move 3", 0x3e95c80, 0x3e95ca0, indexNGBCSprites_KingLion, 0x03 },
+    { L"King Leo", 0x3e95c00, 0x3e95c20, indexNGBCSprites_KingLion, 0x10, &pairNext2 },
+    { L"King Leo - Super Trail", 0x3e95c20, 0x3e95c40, indexNGBCSprites_KingLion, 0x10 },
+    { L"King Leo - Extra Move 1", 0x3e95c40, 0x3e95c60, indexNGBCSprites_KingLion, 0x11 },
+    { L"King Leo - Extra Move 2", 0x3e95c60, 0x3e95c80, indexNGBCSprites_KingLion, 0x09 },
+    { L"King Leo - Extra Move 3", 0x3e95c80, 0x3e95ca0, indexNGBCSprites_KingLion, 0x0a },
     { L"King Leo - Extra Move 4", 0x3e95ca0, 0x3e95cc0, indexNGBCSprites_KingLion, 0x04 },
     { L"King Leo - Extra Move 5", 0x3e95cc0, 0x3e95ce0, indexNGBCSprites_KingLion, 0x05 },
     { L"King Leo - Extra Move 6", 0x3e95ce0, 0x3e95d00, indexNGBCSprites_KingLion, 0x06 },
@@ -4528,11 +4528,11 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SD[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_A[] =
 {
-    { L"Kisarah A", 0x43f0800, 0x43f0820, indexNGBCSprites_Kisarah },
+    { L"Kisarah A", 0x43f0800, 0x43f0820, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"A - Super Trail", 0x43f0820, 0x43f0840, indexNGBCSprites_Kisarah, 0x00 },
     { L"A - Extra Move 1", 0x43f0840, 0x43f0860, indexNGBCSprites_Kisarah, 0x01 },
-    { L"A - Extra Move 2", 0x43f0860, 0x43f0880, indexNGBCSprites_Kisarah, 0x02 },
-    { L"A - Extra Move 3", 0x43f0880, 0x43f08a0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"A - Extra Move 2", 0x43f0860, 0x43f0880, indexNGBCSprites_Kisarah, 0x09 },
+    { L"A - Extra Move 3", 0x43f0880, 0x43f08a0, indexNGBCSprites_Kisarah, 0x0a },
     { L"A - Extra Move 4", 0x43f08a0, 0x43f08c0, indexNGBCSprites_Kisarah, 0x04 },
     { L"A - Extra Move 5", 0x43f08c0, 0x43f08e0, indexNGBCSprites_Kisarah, 0x05 },
     { L"A - Extra Move 6", 0x43f08e0, 0x43f0900, indexNGBCSprites_Kisarah, 0x06 },
@@ -4540,11 +4540,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_A[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_B[] =
 {
-    { L"Kisarah B", 0x43f0900, 0x43f0920, indexNGBCSprites_Kisarah },
+    { L"Kisarah B", 0x43f0900, 0x43f0920, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"B - Super Trail", 0x43f0920, 0x43f0940, indexNGBCSprites_Kisarah, 0x00 },
     { L"B - Extra Move 1", 0x43f0940, 0x43f0960, indexNGBCSprites_Kisarah, 0x01 },
-    { L"B - Extra Move 2", 0x43f0960, 0x43f0980, indexNGBCSprites_Kisarah, 0x02 },
-    { L"B - Extra Move 3", 0x43f0980, 0x43f09a0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"B - Extra Move 2", 0x43f0960, 0x43f0980, indexNGBCSprites_Kisarah, 0x09 },
+    { L"B - Extra Move 3", 0x43f0980, 0x43f09a0, indexNGBCSprites_Kisarah, 0x0a },
     { L"B - Extra Move 4", 0x43f09a0, 0x43f09c0, indexNGBCSprites_Kisarah, 0x04 },
     { L"B - Extra Move 5", 0x43f09c0, 0x43f09e0, indexNGBCSprites_Kisarah, 0x05 },
     { L"B - Extra Move 6", 0x43f09e0, 0x43f0a00, indexNGBCSprites_Kisarah, 0x06 },
@@ -4552,11 +4552,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_B[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_C[] =
 {
-    { L"Kisarah C", 0x43f0a00, 0x43f0a20, indexNGBCSprites_Kisarah },
+    { L"Kisarah C", 0x43f0a00, 0x43f0a20, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"C - Super Trail", 0x43f0a20, 0x43f0a40, indexNGBCSprites_Kisarah, 0x00 },
     { L"C - Extra Move 1", 0x43f0a40, 0x43f0a60, indexNGBCSprites_Kisarah, 0x01 },
-    { L"C - Extra Move 2", 0x43f0a60, 0x43f0a80, indexNGBCSprites_Kisarah, 0x02 },
-    { L"C - Extra Move 3", 0x43f0a80, 0x43f0aa0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"C - Extra Move 2", 0x43f0a60, 0x43f0a80, indexNGBCSprites_Kisarah, 0x09 },
+    { L"C - Extra Move 3", 0x43f0a80, 0x43f0aa0, indexNGBCSprites_Kisarah, 0x0a },
     { L"C - Extra Move 4", 0x43f0aa0, 0x43f0ac0, indexNGBCSprites_Kisarah, 0x04 },
     { L"C - Extra Move 5", 0x43f0ac0, 0x43f0ae0, indexNGBCSprites_Kisarah, 0x05 },
     { L"C - Extra Move 6", 0x43f0ae0, 0x43f0b00, indexNGBCSprites_Kisarah, 0x06 },
@@ -4564,11 +4564,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_C[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_D[] =
 {
-    { L"Kisarah D", 0x43f0b00, 0x43f0b20, indexNGBCSprites_Kisarah },
+    { L"Kisarah D", 0x43f0b00, 0x43f0b20, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"D - Super Trail", 0x43f0b20, 0x43f0b40, indexNGBCSprites_Kisarah, 0x00 },
     { L"D - Extra Move 1", 0x43f0b40, 0x43f0b60, indexNGBCSprites_Kisarah, 0x01 },
-    { L"D - Extra Move 2", 0x43f0b60, 0x43f0b80, indexNGBCSprites_Kisarah, 0x02 },
-    { L"D - Extra Move 3", 0x43f0b80, 0x43f0ba0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"D - Extra Move 2", 0x43f0b60, 0x43f0b80, indexNGBCSprites_Kisarah, 0x09 },
+    { L"D - Extra Move 3", 0x43f0b80, 0x43f0ba0, indexNGBCSprites_Kisarah, 0x0a },
     { L"D - Extra Move 4", 0x43f0ba0, 0x43f0bc0, indexNGBCSprites_Kisarah, 0x04 },
     { L"D - Extra Move 5", 0x43f0bc0, 0x43f0be0, indexNGBCSprites_Kisarah, 0x05 },
     { L"D - Extra Move 6", 0x43f0be0, 0x43f0c00, indexNGBCSprites_Kisarah, 0x06 },
@@ -4576,11 +4576,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_D[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_EA[] =
 {
-    { L"Kisarah EA", 0x43f0c00, 0x43f0c20, indexNGBCSprites_Kisarah },
+    { L"Kisarah EA", 0x43f0c00, 0x43f0c20, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"E+A - Super Trail", 0x43f0c20, 0x43f0c40, indexNGBCSprites_Kisarah, 0x00 },
     { L"E+A - Extra Move 1", 0x43f0c40, 0x43f0c60, indexNGBCSprites_Kisarah, 0x01 },
-    { L"E+A - Extra Move 2", 0x43f0c60, 0x43f0c80, indexNGBCSprites_Kisarah, 0x02 },
-    { L"E+A - Extra Move 3", 0x43f0c80, 0x43f0ca0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"E+A - Extra Move 2", 0x43f0c60, 0x43f0c80, indexNGBCSprites_Kisarah, 0x09 },
+    { L"E+A - Extra Move 3", 0x43f0c80, 0x43f0ca0, indexNGBCSprites_Kisarah, 0x0a },
     { L"E+A - Extra Move 4", 0x43f0ca0, 0x43f0cc0, indexNGBCSprites_Kisarah, 0x04 },
     { L"E+A - Extra Move 5", 0x43f0cc0, 0x43f0ce0, indexNGBCSprites_Kisarah, 0x05 },
     { L"E+A - Extra Move 6", 0x43f0ce0, 0x43f0d00, indexNGBCSprites_Kisarah, 0x06 },
@@ -4588,11 +4588,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_EA[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_EB[] =
 {
-    { L"Kisarah EB", 0x43f0d00, 0x43f0d20, indexNGBCSprites_Kisarah },
+    { L"Kisarah EB", 0x43f0d00, 0x43f0d20, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"E+B - Super Trail", 0x43f0d20, 0x43f0d40, indexNGBCSprites_Kisarah, 0x00 },
     { L"E+B - Extra Move 1", 0x43f0d40, 0x43f0d60, indexNGBCSprites_Kisarah, 0x01 },
-    { L"E+B - Extra Move 2", 0x43f0d60, 0x43f0d80, indexNGBCSprites_Kisarah, 0x02 },
-    { L"E+B - Extra Move 3", 0x43f0d80, 0x43f0da0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"E+B - Extra Move 2", 0x43f0d60, 0x43f0d80, indexNGBCSprites_Kisarah, 0x09 },
+    { L"E+B - Extra Move 3", 0x43f0d80, 0x43f0da0, indexNGBCSprites_Kisarah, 0x0a },
     { L"E+B - Extra Move 4", 0x43f0da0, 0x43f0dc0, indexNGBCSprites_Kisarah, 0x04 },
     { L"E+B - Extra Move 5", 0x43f0dc0, 0x43f0de0, indexNGBCSprites_Kisarah, 0x05 },
     { L"E+B - Extra Move 6", 0x43f0de0, 0x43f0e00, indexNGBCSprites_Kisarah, 0x06 },
@@ -4600,11 +4600,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_EB[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_EC[] =
 {
-    { L"Kisarah EC", 0x43f0e00, 0x43f0e20, indexNGBCSprites_Kisarah },
+    { L"Kisarah EC", 0x43f0e00, 0x43f0e20, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"E+C - Super Trail", 0x43f0e20, 0x43f0e40, indexNGBCSprites_Kisarah, 0x00 },
     { L"E+C - Extra Move 1", 0x43f0e40, 0x43f0e60, indexNGBCSprites_Kisarah, 0x01 },
-    { L"E+C - Extra Move 2", 0x43f0e60, 0x43f0e80, indexNGBCSprites_Kisarah, 0x02 },
-    { L"E+C - Extra Move 3", 0x43f0e80, 0x43f0ea0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"E+C - Extra Move 2", 0x43f0e60, 0x43f0e80, indexNGBCSprites_Kisarah, 0x09 },
+    { L"E+C - Extra Move 3", 0x43f0e80, 0x43f0ea0, indexNGBCSprites_Kisarah, 0x0a },
     { L"E+C - Extra Move 4", 0x43f0ea0, 0x43f0ec0, indexNGBCSprites_Kisarah, 0x04 },
     { L"E+C - Extra Move 5", 0x43f0ec0, 0x43f0ee0, indexNGBCSprites_Kisarah, 0x05 },
     { L"E+C - Extra Move 6", 0x43f0ee0, 0x43f0f00, indexNGBCSprites_Kisarah, 0x06 },
@@ -4612,11 +4612,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_EC[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_ED[] =
 {
-    { L"Kisarah ED", 0x43f0f00, 0x43f0f20, indexNGBCSprites_Kisarah },
+    { L"Kisarah ED", 0x43f0f00, 0x43f0f20, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"E+D - Super Trail", 0x43f0f20, 0x43f0f40, indexNGBCSprites_Kisarah, 0x00 },
     { L"E+D - Extra Move 1", 0x43f0f40, 0x43f0f60, indexNGBCSprites_Kisarah, 0x01 },
-    { L"E+D - Extra Move 2", 0x43f0f60, 0x43f0f80, indexNGBCSprites_Kisarah, 0x02 },
-    { L"E+D - Extra Move 3", 0x43f0f80, 0x43f0fa0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"E+D - Extra Move 2", 0x43f0f60, 0x43f0f80, indexNGBCSprites_Kisarah, 0x09 },
+    { L"E+D - Extra Move 3", 0x43f0f80, 0x43f0fa0, indexNGBCSprites_Kisarah, 0x0a },
     { L"E+D - Extra Move 4", 0x43f0fa0, 0x43f0fc0, indexNGBCSprites_Kisarah, 0x04 },
     { L"E+D - Extra Move 5", 0x43f0fc0, 0x43f0fe0, indexNGBCSprites_Kisarah, 0x05 },
     { L"E+D - Extra Move 6", 0x43f0fe0, 0x43f1000, indexNGBCSprites_Kisarah, 0x06 },
@@ -4624,11 +4624,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_ED[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SA[] =
 {
-    { L"Kisarah SA", 0x43f1000, 0x43f1020, indexNGBCSprites_Kisarah },
+    { L"Kisarah SA", 0x43f1000, 0x43f1020, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"Start+A - Super Trail", 0x43f1020, 0x43f1040, indexNGBCSprites_Kisarah, 0x00 },
     { L"Start+A - Extra Move 1", 0x43f1040, 0x43f1060, indexNGBCSprites_Kisarah, 0x01 },
-    { L"Start+A - Extra Move 2", 0x43f1060, 0x43f1080, indexNGBCSprites_Kisarah, 0x02 },
-    { L"Start+A - Extra Move 3", 0x43f1080, 0x43f10a0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"Start+A - Extra Move 2", 0x43f1060, 0x43f1080, indexNGBCSprites_Kisarah, 0x09 },
+    { L"Start+A - Extra Move 3", 0x43f1080, 0x43f10a0, indexNGBCSprites_Kisarah, 0x0a },
     { L"Start+A - Extra Move 4", 0x43f10a0, 0x43f10c0, indexNGBCSprites_Kisarah, 0x04 },
     { L"Start+A - Extra Move 5", 0x43f10c0, 0x43f10e0, indexNGBCSprites_Kisarah, 0x05 },
     { L"Start+A - Extra Move 6", 0x43f10e0, 0x43f1100, indexNGBCSprites_Kisarah, 0x06 },
@@ -4636,11 +4636,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SA[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SB[] =
 {
-    { L"Kisarah SB", 0x43f1100, 0x43f1120, indexNGBCSprites_Kisarah },
+    { L"Kisarah SB", 0x43f1100, 0x43f1120, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"Start+B - Super Trail", 0x43f1120, 0x43f1140, indexNGBCSprites_Kisarah, 0x00 },
     { L"Start+B - Extra Move 1", 0x43f1140, 0x43f1160, indexNGBCSprites_Kisarah, 0x01 },
-    { L"Start+B - Extra Move 2", 0x43f1160, 0x43f1180, indexNGBCSprites_Kisarah, 0x02 },
-    { L"Start+B - Extra Move 3", 0x43f1180, 0x43f11a0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"Start+B - Extra Move 2", 0x43f1160, 0x43f1180, indexNGBCSprites_Kisarah, 0x09 },
+    { L"Start+B - Extra Move 3", 0x43f1180, 0x43f11a0, indexNGBCSprites_Kisarah, 0x0a },
     { L"Start+B - Extra Move 4", 0x43f11a0, 0x43f11c0, indexNGBCSprites_Kisarah, 0x04 },
     { L"Start+B - Extra Move 5", 0x43f11c0, 0x43f11e0, indexNGBCSprites_Kisarah, 0x05 },
     { L"Start+B - Extra Move 6", 0x43f11e0, 0x43f1200, indexNGBCSprites_Kisarah, 0x06 },
@@ -4648,11 +4648,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SB[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SC[] =
 {
-    { L"Kisarah SC", 0x43f1200, 0x43f1220, indexNGBCSprites_Kisarah },
+    { L"Kisarah SC", 0x43f1200, 0x43f1220, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"Start+C - Super Trail", 0x43f1220, 0x43f1240, indexNGBCSprites_Kisarah, 0x00 },
     { L"Start+C - Extra Move 1", 0x43f1240, 0x43f1260, indexNGBCSprites_Kisarah, 0x01 },
-    { L"Start+C - Extra Move 2", 0x43f1260, 0x43f1280, indexNGBCSprites_Kisarah, 0x02 },
-    { L"Start+C - Extra Move 3", 0x43f1280, 0x43f12a0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"Start+C - Extra Move 2", 0x43f1260, 0x43f1280, indexNGBCSprites_Kisarah, 0x09 },
+    { L"Start+C - Extra Move 3", 0x43f1280, 0x43f12a0, indexNGBCSprites_Kisarah, 0x0a },
     { L"Start+C - Extra Move 4", 0x43f12a0, 0x43f12c0, indexNGBCSprites_Kisarah, 0x04 },
     { L"Start+C - Extra Move 5", 0x43f12c0, 0x43f12e0, indexNGBCSprites_Kisarah, 0x05 },
     { L"Start+C - Extra Move 6", 0x43f12e0, 0x43f1300, indexNGBCSprites_Kisarah, 0x06 },
@@ -4660,11 +4660,11 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SC[] =
 
 const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SD[] =
 {
-    { L"Kisarah SD", 0x43f1300, 0x43f1320, indexNGBCSprites_Kisarah },
+    { L"Kisarah SD", 0x43f1300, 0x43f1320, indexNGBCSprites_Kisarah, 0x00, &pairNext4 },
     { L"Start+D - Super Trail", 0x43f1320, 0x43f1340, indexNGBCSprites_Kisarah, 0x00 },
     { L"Start+D - Extra Move 1", 0x43f1340, 0x43f1360, indexNGBCSprites_Kisarah, 0x01 },
-    { L"Start+D - Extra Move 2", 0x43f1360, 0x43f1380, indexNGBCSprites_Kisarah, 0x02 },
-    { L"Start+D - Extra Move 3", 0x43f1380, 0x43f13a0, indexNGBCSprites_Kisarah, 0x03 },
+    { L"Start+D - Extra Move 2", 0x43f1360, 0x43f1380, indexNGBCSprites_Kisarah, 0x09 },
+    { L"Start+D - Extra Move 3", 0x43f1380, 0x43f13a0, indexNGBCSprites_Kisarah, 0x0a },
     { L"Start+D - Extra Move 4", 0x43f13a0, 0x43f13c0, indexNGBCSprites_Kisarah, 0x04 },
     { L"Start+D - Extra Move 5", 0x43f13c0, 0x43f13e0, indexNGBCSprites_Kisarah, 0x05 },
     { L"Start+D - Extra Move 6", 0x43f13e0, 0x43f1400, indexNGBCSprites_Kisarah, 0x06 },
@@ -4960,13 +4960,13 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SD[] =
 
 const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_A[] =
 {
-    { L"Neo Dio A", 0x47f1000, 0x47f1020, indexNGBCSprites_NeoDio },
+    { L"Neo Dio A", 0x47f1000, 0x47f1020, indexNGBCSprites_NeoDio, 0x00, &pairNext4 },
     { L"A - Super Trail", 0x47f1020, 0x47f1040, indexNGBCSprites_NeoDio, 0x00 },
-    { L"A - Extra Move 1", 0x47f1040, 0x47f1060, indexNGBCSprites_NeoDio, 0x01 },
+    { L"A - Extra Move 1", 0x47f1040, 0x47f1060, indexNGBCSprites_NeoDio, 0x08 },
     { L"A - Extra Move 2", 0x47f1060, 0x47f1080, indexNGBCSprites_NeoDio, 0x02 },
-    { L"A - Extra Move 3", 0x47f1080, 0x47f10a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"A - Extra Move 3", 0x47f1080, 0x47f10a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"A - Extra Move 4", 0x47f10a0, 0x47f10c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"A - Extra Move 5", 0x47f10c0, 0x47f10e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"A - Extra Move 5", 0x47f10c0, 0x47f10e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"A - Extra Move 6", 0x47f10e0, 0x47f1100, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -4974,11 +4974,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_B[] =
 {
     { L"Neo Dio B", 0x47f1100, 0x47f1120, indexNGBCSprites_NeoDio },
     { L"B - Super Trail", 0x47f1120, 0x47f1140, indexNGBCSprites_NeoDio, 0x00 },
-    { L"B - Extra Move 1", 0x47f1140, 0x47f1160, indexNGBCSprites_NeoDio, 0x01 },
+    { L"B - Extra Move 1", 0x47f1140, 0x47f1160, indexNGBCSprites_NeoDio, 0x08 },
     { L"B - Extra Move 2", 0x47f1160, 0x47f1180, indexNGBCSprites_NeoDio, 0x02 },
-    { L"B - Extra Move 3", 0x47f1180, 0x47f11a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"B - Extra Move 3", 0x47f1180, 0x47f11a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"B - Extra Move 4", 0x47f11a0, 0x47f11c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"B - Extra Move 5", 0x47f11c0, 0x47f11e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"B - Extra Move 5", 0x47f11c0, 0x47f11e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"B - Extra Move 6", 0x47f11e0, 0x47f1200, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -4986,11 +4986,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_C[] =
 {
     { L"Neo Dio C", 0x47f1200, 0x47f1220, indexNGBCSprites_NeoDio },
     { L"C - Super Trail", 0x47f1220, 0x47f1240, indexNGBCSprites_NeoDio, 0x00 },
-    { L"C - Extra Move 1", 0x47f1240, 0x47f1260, indexNGBCSprites_NeoDio, 0x01 },
+    { L"C - Extra Move 1", 0x47f1240, 0x47f1260, indexNGBCSprites_NeoDio, 0x08 },
     { L"C - Extra Move 2", 0x47f1260, 0x47f1280, indexNGBCSprites_NeoDio, 0x02 },
-    { L"C - Extra Move 3", 0x47f1280, 0x47f12a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"C - Extra Move 3", 0x47f1280, 0x47f12a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"C - Extra Move 4", 0x47f12a0, 0x47f12c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"C - Extra Move 5", 0x47f12c0, 0x47f12e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"C - Extra Move 5", 0x47f12c0, 0x47f12e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"C - Extra Move 6", 0x47f12e0, 0x47f1300, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -4998,11 +4998,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_D[] =
 {
     { L"Neo Dio D", 0x47f1300, 0x47f1320, indexNGBCSprites_NeoDio },
     { L"D - Super Trail", 0x47f1320, 0x47f1340, indexNGBCSprites_NeoDio, 0x00 },
-    { L"D - Extra Move 1", 0x47f1340, 0x47f1360, indexNGBCSprites_NeoDio, 0x01 },
+    { L"D - Extra Move 1", 0x47f1340, 0x47f1360, indexNGBCSprites_NeoDio, 0x08 },
     { L"D - Extra Move 2", 0x47f1360, 0x47f1380, indexNGBCSprites_NeoDio, 0x02 },
-    { L"D - Extra Move 3", 0x47f1380, 0x47f13a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"D - Extra Move 3", 0x47f1380, 0x47f13a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"D - Extra Move 4", 0x47f13a0, 0x47f13c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"D - Extra Move 5", 0x47f13c0, 0x47f13e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"D - Extra Move 5", 0x47f13c0, 0x47f13e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"D - Extra Move 6", 0x47f13e0, 0x47f1400, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5010,11 +5010,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_EA[] =
 {
     { L"Neo Dio EA", 0x47f1400, 0x47f1420, indexNGBCSprites_NeoDio },
     { L"E+A - Super Trail", 0x47f1420, 0x47f1440, indexNGBCSprites_NeoDio, 0x00 },
-    { L"E+A - Extra Move 1", 0x47f1440, 0x47f1460, indexNGBCSprites_NeoDio, 0x01 },
+    { L"E+A - Extra Move 1", 0x47f1440, 0x47f1460, indexNGBCSprites_NeoDio, 0x08 },
     { L"E+A - Extra Move 2", 0x47f1460, 0x47f1480, indexNGBCSprites_NeoDio, 0x02 },
-    { L"E+A - Extra Move 3", 0x47f1480, 0x47f14a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"E+A - Extra Move 3", 0x47f1480, 0x47f14a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"E+A - Extra Move 4", 0x47f14a0, 0x47f14c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"E+A - Extra Move 5", 0x47f14c0, 0x47f14e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"E+A - Extra Move 5", 0x47f14c0, 0x47f14e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"E+A - Extra Move 6", 0x47f14e0, 0x47f1500, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5022,11 +5022,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_EB[] =
 {
     { L"Neo Dio EB", 0x47f1500, 0x47f1520, indexNGBCSprites_NeoDio },
     { L"E+B - Super Trail", 0x47f1520, 0x47f1540, indexNGBCSprites_NeoDio, 0x00 },
-    { L"E+B - Extra Move 1", 0x47f1540, 0x47f1560, indexNGBCSprites_NeoDio, 0x01 },
+    { L"E+B - Extra Move 1", 0x47f1540, 0x47f1560, indexNGBCSprites_NeoDio, 0x08 },
     { L"E+B - Extra Move 2", 0x47f1560, 0x47f1580, indexNGBCSprites_NeoDio, 0x02 },
-    { L"E+B - Extra Move 3", 0x47f1580, 0x47f15a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"E+B - Extra Move 3", 0x47f1580, 0x47f15a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"E+B - Extra Move 4", 0x47f15a0, 0x47f15c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"E+B - Extra Move 5", 0x47f15c0, 0x47f15e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"E+B - Extra Move 5", 0x47f15c0, 0x47f15e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"E+B - Extra Move 6", 0x47f15e0, 0x47f1600, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5034,11 +5034,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_EC[] =
 {
     { L"Neo Dio EC", 0x47f1600, 0x47f1620, indexNGBCSprites_NeoDio },
     { L"E+C - Super Trail", 0x47f1620, 0x47f1640, indexNGBCSprites_NeoDio, 0x00 },
-    { L"E+C - Extra Move 1", 0x47f1640, 0x47f1660, indexNGBCSprites_NeoDio, 0x01 },
+    { L"E+C - Extra Move 1", 0x47f1640, 0x47f1660, indexNGBCSprites_NeoDio, 0x08 },
     { L"E+C - Extra Move 2", 0x47f1660, 0x47f1680, indexNGBCSprites_NeoDio, 0x02 },
-    { L"E+C - Extra Move 3", 0x47f1680, 0x47f16a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"E+C - Extra Move 3", 0x47f1680, 0x47f16a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"E+C - Extra Move 4", 0x47f16a0, 0x47f16c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"E+C - Extra Move 5", 0x47f16c0, 0x47f16e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"E+C - Extra Move 5", 0x47f16c0, 0x47f16e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"E+C - Extra Move 6", 0x47f16e0, 0x47f1700, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5046,11 +5046,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_ED[] =
 {
     { L"Neo Dio ED", 0x47f1700, 0x47f1720, indexNGBCSprites_NeoDio },
     { L"E+D - Super Trail", 0x47f1720, 0x47f1740, indexNGBCSprites_NeoDio, 0x00 },
-    { L"E+D - Extra Move 1", 0x47f1740, 0x47f1760, indexNGBCSprites_NeoDio, 0x01 },
+    { L"E+D - Extra Move 1", 0x47f1740, 0x47f1760, indexNGBCSprites_NeoDio, 0x08 },
     { L"E+D - Extra Move 2", 0x47f1760, 0x47f1780, indexNGBCSprites_NeoDio, 0x02 },
-    { L"E+D - Extra Move 3", 0x47f1780, 0x47f17a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"E+D - Extra Move 3", 0x47f1780, 0x47f17a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"E+D - Extra Move 4", 0x47f17a0, 0x47f17c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"E+D - Extra Move 5", 0x47f17c0, 0x47f17e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"E+D - Extra Move 5", 0x47f17c0, 0x47f17e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"E+D - Extra Move 6", 0x47f17e0, 0x47f1800, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5058,11 +5058,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_SA[] =
 {
     { L"Neo Dio SA", 0x47f1800, 0x47f1820, indexNGBCSprites_NeoDio },
     { L"Start+A - Super Trail", 0x47f1820, 0x47f1840, indexNGBCSprites_NeoDio, 0x00 },
-    { L"Start+A - Extra Move 1", 0x47f1840, 0x47f1860, indexNGBCSprites_NeoDio, 0x01 },
+    { L"Start+A - Extra Move 1", 0x47f1840, 0x47f1860, indexNGBCSprites_NeoDio, 0x08 },
     { L"Start+A - Extra Move 2", 0x47f1860, 0x47f1880, indexNGBCSprites_NeoDio, 0x02 },
-    { L"Start+A - Extra Move 3", 0x47f1880, 0x47f18a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"Start+A - Extra Move 3", 0x47f1880, 0x47f18a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"Start+A - Extra Move 4", 0x47f18a0, 0x47f18c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"Start+A - Extra Move 5", 0x47f18c0, 0x47f18e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"Start+A - Extra Move 5", 0x47f18c0, 0x47f18e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"Start+A - Extra Move 6", 0x47f18e0, 0x47f1900, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5070,11 +5070,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_SB[] =
 {
     { L"Neo Dio SB", 0x47f1900, 0x47f1920, indexNGBCSprites_NeoDio },
     { L"Start+B - Super Trail", 0x47f1920, 0x47f1940, indexNGBCSprites_NeoDio, 0x00 },
-    { L"Start+B - Extra Move 1", 0x47f1940, 0x47f1960, indexNGBCSprites_NeoDio, 0x01 },
+    { L"Start+B - Extra Move 1", 0x47f1940, 0x47f1960, indexNGBCSprites_NeoDio, 0x08 },
     { L"Start+B - Extra Move 2", 0x47f1960, 0x47f1980, indexNGBCSprites_NeoDio, 0x02 },
-    { L"Start+B - Extra Move 3", 0x47f1980, 0x47f19a0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"Start+B - Extra Move 3", 0x47f1980, 0x47f19a0, indexNGBCSprites_NeoDio, 0x0a },
     { L"Start+B - Extra Move 4", 0x47f19a0, 0x47f19c0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"Start+B - Extra Move 5", 0x47f19c0, 0x47f19e0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"Start+B - Extra Move 5", 0x47f19c0, 0x47f19e0, indexNGBCSprites_NeoDio, 0x0c },
     { L"Start+B - Extra Move 6", 0x47f19e0, 0x47f1a00, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5082,11 +5082,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_SC[] =
 {
     { L"Neo Dio SC", 0x47f1a00, 0x47f1a20, indexNGBCSprites_NeoDio },
     { L"Start+C - Super Trail", 0x47f1a20, 0x47f1a40, indexNGBCSprites_NeoDio, 0x00 },
-    { L"Start+C - Extra Move 1", 0x47f1a40, 0x47f1a60, indexNGBCSprites_NeoDio, 0x01 },
+    { L"Start+C - Extra Move 1", 0x47f1a40, 0x47f1a60, indexNGBCSprites_NeoDio, 0x08 },
     { L"Start+C - Extra Move 2", 0x47f1a60, 0x47f1a80, indexNGBCSprites_NeoDio, 0x02 },
-    { L"Start+C - Extra Move 3", 0x47f1a80, 0x47f1aa0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"Start+C - Extra Move 3", 0x47f1a80, 0x47f1aa0, indexNGBCSprites_NeoDio, 0x0a },
     { L"Start+C - Extra Move 4", 0x47f1aa0, 0x47f1ac0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"Start+C - Extra Move 5", 0x47f1ac0, 0x47f1ae0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"Start+C - Extra Move 5", 0x47f1ac0, 0x47f1ae0, indexNGBCSprites_NeoDio, 0x0c },
     { L"Start+C - Extra Move 6", 0x47f1ae0, 0x47f1b00, indexNGBCSprites_NeoDio, 0x06 },
 };
 
@@ -5094,11 +5094,11 @@ const sGame_PaletteDataset NGBC_A_NEODIO_PALETTES_SD[] =
 {
     { L"Neo Dio SD", 0x47f1b00, 0x47f1b20, indexNGBCSprites_NeoDio },
     { L"Start+D - Super Trail", 0x47f1b20, 0x47f1b40, indexNGBCSprites_NeoDio, 0x00 },
-    { L"Start+D - Extra Move 1", 0x47f1b40, 0x47f1b60, indexNGBCSprites_NeoDio, 0x01 },
+    { L"Start+D - Extra Move 1", 0x47f1b40, 0x47f1b60, indexNGBCSprites_NeoDio, 0x08 },
     { L"Start+D - Extra Move 2", 0x47f1b60, 0x47f1b80, indexNGBCSprites_NeoDio, 0x02 },
-    { L"Start+D - Extra Move 3", 0x47f1b80, 0x47f1ba0, indexNGBCSprites_NeoDio, 0x03 },
+    { L"Start+D - Extra Move 3", 0x47f1b80, 0x47f1ba0, indexNGBCSprites_NeoDio, 0x0a },
     { L"Start+D - Extra Move 4", 0x47f1ba0, 0x47f1bc0, indexNGBCSprites_NeoDio, 0x04 },
-    { L"Start+D - Extra Move 5", 0x47f1bc0, 0x47f1be0, indexNGBCSprites_NeoDio, 0x05 },
+    { L"Start+D - Extra Move 5", 0x47f1bc0, 0x47f1be0, indexNGBCSprites_NeoDio, 0x0c },
     { L"Start+D - Extra Move 6", 0x47f1be0, 0x47f1c00, indexNGBCSprites_NeoDio, 0x06 },
 };
 

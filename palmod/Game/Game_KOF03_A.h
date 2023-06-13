@@ -38,7 +38,5 @@ private:
 public:
     CGame_KOF03_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
-
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
