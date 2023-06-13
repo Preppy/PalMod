@@ -209,7 +209,7 @@ private:
         SFA2_A_UNITS_07_REV1,
         ARRAYSIZE(SFA2_A_UNITS_07_REV1),
         L"SFA2e.txt",           // Extra filename
-        935,                    // Count of palettes listed in the header
+        939,                    // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
@@ -229,7 +229,7 @@ private:
         SFA2_A_UNITS_07_REV2,
         ARRAYSIZE(SFA2_A_UNITS_07_REV2),
         L"SFA2e.txt",           // Extra filename
-        1057,                   // Count of palettes listed in the header
+        1061,                   // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
@@ -249,7 +249,7 @@ private:
         SFZ2A_A_UNITS_07,
         ARRAYSIZE(SFZ2A_A_UNITS_07),
         L"SFA2e.txt",           // Extra filename
-        1342,                   // Count of palettes listed in the header
+        1346,                   // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
@@ -269,7 +269,7 @@ private:
         SFA2_A_UNITS_08_REV1,
         ARRAYSIZE(SFA2_A_UNITS_08_REV1),
         L"SFA2-8e.txt",         // Extra filename
-        271,                    // Count of palettes listed in the header
+        275,                    // Count of palettes listed in the header
         0x125e,                 // Lowest known location used for palettes
     };
 
@@ -289,7 +289,7 @@ private:
         SFA2_A_UNITS_08_REV2,
         ARRAYSIZE(SFA2_A_UNITS_08_REV2),
         L"SFA2-8e.txt",         // Extra filename
-        315,                    // Count of palettes listed in the header
+        319,                    // Count of palettes listed in the header
         0x125e,                 // Lowest known location used for palettes
     };
 
@@ -309,7 +309,7 @@ private:
         SFZ2A_A_UNITS_08,
         ARRAYSIZE(SFZ2A_A_UNITS_08),
         L"SFA2-8e.txt",         // Extra filename
-        345,                    // Count of palettes listed in the header
+        349,                    // Count of palettes listed in the header
         0x125e,                 // Lowest known location used for palettes
     };
 

@@ -36,7 +36,7 @@ private:
         WakuWaku7_A_UNITS,
         ARRAYSIZE(WakuWaku7_A_UNITS),
         L"WakuWaku7E.txt",             // Extra filename
-        548,                           // Count of palettes listed in the header
+        549,                           // Count of palettes listed in the header
         0xc8d8,                        // Lowest known location used for palettes
     };
 

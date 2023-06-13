@@ -666,7 +666,8 @@ const sGame_PaletteDataset WakuWaku7_A_TESSE_BONUS_PALETTES[] =
     { L"Doki Doki 5", 0xea38, 0xea58, indexWakuWaku7Sprites_Tesse, 0x00 },
     { L"Doki Doki 6", 0xea58, 0xea78, indexWakuWaku7Sprites_Tesse, 0x00 },
     { L"Doki Doki 7", 0xea78, 0xea98, indexWakuWaku7Sprites_Tesse, 0x00 },
-    { L"Tesse Extras", 0xed98, 0xee18 },
+    { L"Effects", 0xed98, 0xedb8 },
+    { L"Arekore Poi", 0xedb8, 0xee18 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_FERNANDEATH_A_PALETTES[] =

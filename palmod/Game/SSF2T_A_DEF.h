@@ -928,7 +928,10 @@ const sGame_PaletteDataset SSF2T_A_KEN_PALETTES_OLD2P[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_JAB[] =
 {
-    { L"Jab", 0x42e7c, 0x42f1c, indexSF2Sprites_Bison },
+    { L"Jab", 0x42e7c, 0x42e9c, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Jab Cape", 0x42e9c, 0x42ebc, indexSF2Sprites_Bison, 0x01 },
+    { L"Jab Psycho Attacks", 0x42efc, 0x42f1c, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Jab Psycho Crusher", 0x42ebc, 0x42efc, indexSF2Sprites_Bison, 0x03  },
     //{ L"Jab Cape", 0x42e9c, 0x42ebc },
     //{ L"Jab Super Trail 1", 0x42ebc, 0x42edc, indexSF2Sprites_Bison },
     //{ L"Jab Super Trail 2", 0x42edc, 0x42efc, indexSF2Sprites_Bison },
@@ -937,7 +940,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_JAB[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_STRONG[] =
 {
-    { L"Strong", 0x42f20 - 0x02, 0x42fc0 - 0x02, indexSF2Sprites_Bison },
+    { L"Strong", 0x42f1e, 0x42f3e, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Strong Cape", 0x42f3e, 0x42f5e, indexSF2Sprites_Bison, 0x01 },
+    { L"Strong Psycho Attacks", 0x42f9e, 0x42fbe, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Strong Psycho Crusher", 0x42f5e, 0x42f9e, indexSF2Sprites_Bison, 0x03 },
     //{ L"Strong Cape", 0x42f40 - 0x02, 0x42f60 - 0x02 },
     //{ L"Strong Super Trail 1", 0x42f60 - 0x02, 0x42f80 - 0x02, indexSF2Sprites_Bison },
     //{ L"Strong Super Trail 2", 0x42f80 - 0x02, 0x42fa0 - 0x02, indexSF2Sprites_Bison },
@@ -946,7 +952,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_STRONG[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_FIERCE[] =
 {
-    { L"Fierce", 0x42fc0, 0x43060, indexSF2Sprites_Bison },
+    { L"Fierce", 0x42fc0, 0x42fe0, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Fierce Cape", 0x42fe0, 0x43000, indexSF2Sprites_Bison, 0x01 },
+    { L"Fierce Psycho Attacks", 0x43040, 0x43060, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Fierce Psycho Crusher", 0x43000, 0x43040, indexSF2Sprites_Bison, 0x03 },
     //{ L"Fierce Cape", 0x42fe0, 0x43000 },
     //{ L"Fierce Super Trail 1", 0x43000, 0x43020, indexSF2Sprites_Bison },
     //{ L"Fierce Super Trail 2", 0x43020, 0x43040, indexSF2Sprites_Bison },
@@ -955,7 +964,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_FIERCE[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_SHORT[] =
 {
-    { L"Short", 0x43062, 0x43102, indexSF2Sprites_Bison },
+    { L"Short", 0x43062, 0x43082, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Short Cape", 0x43082, 0x430a2, indexSF2Sprites_Bison, 0x01 },
+    { L"Short Psycho Attacks", 0x430e2, 0x43102, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Short Psycho Crusher", 0x430a2, 0x430e2, indexSF2Sprites_Bison, 0x03 },
     //{ L"Short Cape", 0x43082, 0x430a2 },
     //{ L"Short Super Trail 1", 0x430a2, 0x430c2, indexSF2Sprites_Bison },
     //{ L"Short Super Trail 2", 0x430c2, 0x430e2, indexSF2Sprites_Bison },
@@ -964,7 +976,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_SHORT[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_FORWARD[] =
 {
-    { L"Forward", 0x43104, 0x431a4, indexSF2Sprites_Bison },
+    { L"Forward", 0x43104, 0x43124, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Forward Cape", 0x43124, 0x43144, indexSF2Sprites_Bison, 0x01 },
+    { L"Forward Psycho Attacks", 0x43184, 0x431a4, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Forward Psycho Crusher", 0x43144, 0x43184, indexSF2Sprites_Bison, 0x03 },
     //{ L"Forward Cape", 0x43124, 0x43144 },
     //{ L"Forward Super Trail 1", 0x43144, 0x43164, indexSF2Sprites_Bison },
     //{ L"Forward Super Trail 2", 0x43164, 0x43184, indexSF2Sprites_Bison },
@@ -973,7 +988,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_FORWARD[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_ROUNDHOUSE[] =
 {
-    { L"Roundhouse", 0x431a6, 0x43246, indexSF2Sprites_Bison },
+    { L"Roundhouse", 0x431a6, 0x431c6, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Roundhouse Cape", 0x431c6, 0x431e6, indexSF2Sprites_Bison, 0x01 },
+    { L"Roundhouse Psycho Attacks", 0x43226, 0x43246, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Roundhouse Psycho Crusher", 0x431e6, 0x43226, indexSF2Sprites_Bison, 0x03 },
     //{ L"Roundhouse Cape", 0x431c6, 0x431e6 },
     //{ L"Roundhouse Super Trail 1", 0x431e6, 0x43206, indexSF2Sprites_Bison },
     //{ L"Roundhouse Super Trail 2", 0x43206, 0x43226, indexSF2Sprites_Bison },
@@ -982,7 +1000,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_ROUNDHOUSE[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_START[] =
 {
-    { L"Start", 0x4324a - 0x02, 0x432ea - 0x02, indexSF2Sprites_Bison },
+    { L"Start", 0x43248, 0x43268, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Start Cape", 0x43268, 0x43288, indexSF2Sprites_Bison, 0x01 },
+    { L"Start Psycho Attacks", 0x432c8, 0x432e8, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Start Psycho Crusher", 0x43288, 0x432c8, indexSF2Sprites_Bison, 0x03 },
     //{ L"Start Cape", 0x4326a - 0x02, 0x4328a - 0x02 },
     //{ L"Start Super Trail 1", 0x4328a - 0x02, 0x432aa - 0x02, indexSF2Sprites_Bison },
     //{ L"Start Super Trail 2", 0x432aa - 0x02, 0x432ca - 0x02, indexSF2Sprites_Bison },
@@ -991,7 +1012,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_START[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_HOLD[] =
 {
-    { L"Hold", 0x432ea, 0x4338a, indexSF2Sprites_Bison },
+    { L"Hold", 0x432ea, 0x4330a, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Hold Cape", 0x4330a, 0x4332a, indexSF2Sprites_Bison, 0x01 },
+    { L"Hold Psycho Attacks", 0x4336a, 0x4338a, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Hold Psycho Crusher", 0x4332a, 0x4336a, indexSF2Sprites_Bison, 0x03 },
     //{ L"Hold Cape", 0x4330a, 0x4332c },
     //{ L"Hold Super Trail 1", 0x4332a, 0x4334a, indexSF2Sprites_Bison },
     //{ L"Hold Super Trail 2", 0x4334a, 0x4336a, indexSF2Sprites_Bison },
@@ -1000,7 +1024,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_HOLD[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_OLD1P[] =
 {
-    { L"Old 1P", 0x4338c, 0x4342c, indexSF2Sprites_Bison },
+    { L"Old 1P", 0x4338c, 0x433ac, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Old 1P Cape", 0x433ac, 0x433cc, indexSF2Sprites_Bison, 0x01 },
+    { L"Old 1P Psycho Attacks", 0x4340c, 0x4342c, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Old 1P Psycho Crusher", 0x433cc, 0x4340c, indexSF2Sprites_Bison, 0x03 },
     //{ L"Old 1P Cape", 0x433ac, 0x433cc },
     //{ L"Old 1P Super Trail 1", 0x433cc, 0x433ec, indexSF2Sprites_Bison },
     //{ L"Old 1P Super Trail 2", 0x433ec, 0x4340c, indexSF2Sprites_Bison },
@@ -1009,7 +1036,10 @@ const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_OLD1P[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_OLD2P[] =
 {
-    { L"Old 2P", 0x43430 - 0x02, 0x434d0 - 0x02, indexSF2Sprites_Bison },
+    { L"Old 2P", 0x4342e, 0x4344e, indexSF2Sprites_Bison, 0x00, &pairNext2 },
+    { L"Old 2P Cape", 0x4344e, 0x4346e, indexSF2Sprites_Bison, 0x01 },
+    { L"Old 2P Psycho Attacks", 0x434ae, 0x434ce, indexSF2Sprites_Bison, 0x02, &pairPrevious2 },
+    { L"Old 2P Psycho Crusher", 0x4346e, 0x434ae, indexSF2Sprites_Bison, 0x03 },
     //{ L"Old 2P Cape", 0x43450 - 0x02, 0x43470 - 0x02 },
     //{ L"Old 2P Super Trail 1", 0x43470 - 0x02, 0x43490 - 0x02, indexSF2Sprites_Bison },
     //{ L"Old 2P Super Trail 2", 0x43490 - 0x02, 0x434b0 - 0x02, indexSF2Sprites_Bison },
@@ -1099,7 +1129,7 @@ const sGame_PaletteDataset SSF2T_A_RYU_PALETTES_OLD2P[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_JAB[] =
 {
     { L"Jab", 0x434ea - 0x02, 0x4350a - 0x02, indexSF2Sprites_Sagat },
-    { L"Jab Extra", 0x4350a - 0x02, 0x4352a - 0x02, indexSF2Sprites_Sagat, 0x1 },
+    { L"Jab Tiger Shot", 0x4350a - 0x02, 0x4352a - 0x02, indexSF2Sprites_Sagat, 0x1 },
     { L"Jab Super Trail 1", 0x4352a - 0x02, 0x4354a - 0x02, indexSF2Sprites_Sagat },
     { L"Jab Super Trail 2", 0x4354a - 0x02, 0x4356a - 0x02, indexSF2Sprites_Sagat },
     { L"Jab Super Trail 3", 0x4356a - 0x02, 0x4358a - 0x02, indexSF2Sprites_Sagat },
@@ -1108,7 +1138,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_JAB[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_STRONG[] =
 {
     { L"Strong", 0x4358a, 0x435aa, indexSF2Sprites_Sagat },
-    { L"Strong Extra", 0x435aa, 0x435ca, indexSF2Sprites_Sagat, 0x1 },
+    { L"Strong Tiger Shot", 0x435aa, 0x435ca, indexSF2Sprites_Sagat, 0x1 },
     { L"Strong Super Trail 1", 0x435ca, 0x435ea, indexSF2Sprites_Sagat },
     { L"Strong Super Trail 2", 0x435ea, 0x4360a, indexSF2Sprites_Sagat },
     { L"Strong Super Trail 3", 0x4360a, 0x4362a, indexSF2Sprites_Sagat },
@@ -1117,7 +1147,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_STRONG[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_FIERCE[] =
 {
     { L"Fierce", 0x4362c, 0x4364c, indexSF2Sprites_Sagat },
-    { L"Fierce Extra", 0x4364c, 0x4366c, indexSF2Sprites_Sagat, 0x1 },
+    { L"Fierce Tiger Shot", 0x4364c, 0x4366c, indexSF2Sprites_Sagat, 0x1 },
     { L"Fierce Super Trail 1", 0x4366c, 0x4368c, indexSF2Sprites_Sagat },
     { L"Fierce Super Trail 2", 0x4368c, 0x436ac, indexSF2Sprites_Sagat },
     { L"Fierce Super Trail 3", 0x436ac, 0x436cc, indexSF2Sprites_Sagat },
@@ -1126,7 +1156,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_FIERCE[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_SHORT[] =
 {
     { L"Short", 0x436d0 - 0x02, 0x436f0 - 0x02, indexSF2Sprites_Sagat },
-    { L"Short Extra", 0x436f0 - 0x02, 0x43710 - 0x02, indexSF2Sprites_Sagat, 0x1 },
+    { L"Short Tiger Shot", 0x436f0 - 0x02, 0x43710 - 0x02, indexSF2Sprites_Sagat, 0x1 },
     { L"Short Super Trail 1", 0x43710 - 0x02, 0x43730 - 0x02, indexSF2Sprites_Sagat },
     { L"Short Super Trail 2", 0x43730 - 0x02, 0x43750 - 0x02, indexSF2Sprites_Sagat },
     { L"Short Super Trail 3", 0x43750 - 0x02, 0x43770 - 0x02, indexSF2Sprites_Sagat },
@@ -1135,7 +1165,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_SHORT[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_FORWARD[] =
 {
     { L"Forward", 0x43770, 0x43790, indexSF2Sprites_Sagat },
-    { L"Forward Extra", 0x43790, 0x437b0, indexSF2Sprites_Sagat, 0x1 },
+    { L"Forward Tiger Shot", 0x43790, 0x437b0, indexSF2Sprites_Sagat, 0x1 },
     { L"Forward Super Trail 1", 0x437b0, 0x437d0, indexSF2Sprites_Sagat },
     { L"Forward Super Trail 2", 0x437d0, 0x437f0, indexSF2Sprites_Sagat },
     { L"Forward Super Trail 3", 0x437f0, 0x43810, indexSF2Sprites_Sagat },
@@ -1144,7 +1174,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_FORWARD[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_ROUNDHOUSE[] =
 {
     { L"Roundhouse", 0x43812, 0x43832, indexSF2Sprites_Sagat },
-    { L"Roundhouse Extra", 0x43832, 0x43852, indexSF2Sprites_Sagat, 0x1 },
+    { L"Roundhouse Tiger Shot", 0x43832, 0x43852, indexSF2Sprites_Sagat, 0x1 },
     { L"Roundhouse Super Trail 1", 0x43852, 0x43872, indexSF2Sprites_Sagat },
     { L"Roundhouse Super Trail 2", 0x43872, 0x43892, indexSF2Sprites_Sagat },
     { L"Roundhouse Super Trail 3", 0x43892, 0x438b2, indexSF2Sprites_Sagat },
@@ -1153,7 +1183,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_ROUNDHOUSE[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_START[] =
 {
     { L"Start", 0x438b4, 0x438d4, indexSF2Sprites_Sagat },
-    { L"Start Extra", 0x438d4, 0x438f4, indexSF2Sprites_Sagat, 0x1 },
+    { L"Start Tiger Shot", 0x438d4, 0x438f4, indexSF2Sprites_Sagat, 0x1 },
     { L"Start Super Trail 1", 0x438f4, 0x43914, indexSF2Sprites_Sagat },
     { L"Start Super Trail 2", 0x43914, 0x43934, indexSF2Sprites_Sagat },
     { L"Start Super Trail 3", 0x43934, 0x43954, indexSF2Sprites_Sagat },
@@ -1162,7 +1192,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_START[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_HOLD[] =
 {
     { L"Hold", 0x43956, 0x43976, indexSF2Sprites_Sagat },
-    { L"Hold Extra", 0x43976, 0x43996, indexSF2Sprites_Sagat, 0x1 },
+    { L"Hold Tiger Shot", 0x43976, 0x43996, indexSF2Sprites_Sagat, 0x1 },
     { L"Hold Super Trail 1", 0x43996, 0x439b6, indexSF2Sprites_Sagat },
     { L"Hold Super Trail 2", 0x439b6, 0x439d6, indexSF2Sprites_Sagat },
     { L"Hold Super Trail 3", 0x439d6, 0x439f6, indexSF2Sprites_Sagat },
@@ -1171,7 +1201,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_HOLD[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_OLD1P[] =
 {
     { L"Old 1P", 0x439fa - 0x02, 0x43a1a - 0x02, indexSF2Sprites_Sagat },
-    { L"Old 1P Extra", 0x43a1a - 0x02, 0x43a3a - 0x02, indexSF2Sprites_Sagat, 0x1 },
+    { L"Old 1P Tiger Shot", 0x43a1a - 0x02, 0x43a3a - 0x02, indexSF2Sprites_Sagat, 0x1 },
     { L"Old 1P Super Trail 1", 0x43a3a - 0x02, 0x43a5a - 0x02, indexSF2Sprites_Sagat },
     { L"Old 1P Super Trail 2", 0x43a5a - 0x02, 0x43a7a - 0x02, indexSF2Sprites_Sagat },
     { L"Old 1P Super Trail 3", 0x43a7a - 0x02, 0x43a9a - 0x02, indexSF2Sprites_Sagat },
@@ -1180,7 +1210,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_OLD1P[] =
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_OLD2P[] =
 {
     { L"Old 2P", 0x43a9a, 0x43aba, indexSF2Sprites_Sagat },
-    { L"Old 2P Extra", 0x43aba, 0x43ada, indexSF2Sprites_Sagat, 0x1 },
+    { L"Old 2P Tiger Shot", 0x43aba, 0x43ada, indexSF2Sprites_Sagat, 0x1 },
     { L"Old 2P Super Trail 1", 0x43ada, 0x43afa, indexSF2Sprites_Sagat },
     { L"Old 2P Super Trail 2", 0x43afa, 0x43b1a, indexSF2Sprites_Sagat },
     { L"Old 2P Super Trail 3", 0x43b1a, 0x43b3a, indexSF2Sprites_Sagat },
