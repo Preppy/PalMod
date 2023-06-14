@@ -32,7 +32,6 @@ const std::vector<uint16_t> KOFXI_A_IMGIDS_USED =
     indexKOF03Sprites_Ash,          // 0xe5
     indexKOF03Sprites_Benimaru,     // 0xe7
     indexKOF03Sprites_Duo,          // 0xed
-    indexKOF03Sprites_Gato,         // 0xee
     indexKOF03Sprites_Kyo,          // 0xf8
     indexKOF03Sprites_Shen,         // 0x102
     indexKOF03Sprites_Terry,        // 0x104
@@ -3213,11 +3212,11 @@ const sGame_PaletteDataset KOFXI_A_BJENET_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_A[] =
 {
-    { L"Gato A", 0x2381000, 0x2381020, indexKOF03Sprites_Gato, 0x00 },
-    { L"A - Super Stuff 1", 0x2381020, 0x2381040, indexKOF03Sprites_Gato, 0x00 },
-    { L"A - Electric Palette", 0x2381040, 0x2381060, indexKOF03Sprites_Gato, 0x00 },
-    { L"A - Darker Palette", 0x2381060, 0x2381080, indexKOF03Sprites_Gato, 0x00 },
-    { L"A - Super Stuff 2", 0x2381080, 0x23810a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato A", 0x2381000, 0x2381020, indexKOFXISprites_Gato, 0x00 },
+    { L"A - Super Stuff 1", 0x2381020, 0x2381040, indexKOFXISprites_Gato, 0x00 },
+    { L"A - Electric Palette", 0x2381040, 0x2381060, indexKOFXISprites_Gato, 0x00 },
+    { L"A - Darker Palette", 0x2381060, 0x2381080, indexKOFXISprites_Gato, 0x00 },
+    { L"A - Super Stuff 2", 0x2381080, 0x23810a0, indexKOFXISprites_Gato, 0x00 },
     { L"A - Character Extra 1", 0x23810a0, 0x23810c0, indexKOFXISprites_Gato, 0x30 },
     { L"A - Character Extra 2", 0x23810c0, 0x23810e0, indexKOFXISprites_Gato, 0x31 },
     { L"A - Character Extra 3", 0x23810e0, 0x2381100, indexKOFXISprites_Gato, 0x32 },
@@ -3233,11 +3232,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_B[] =
 {
-    { L"Gato B", 0x2381200, 0x2381220, indexKOF03Sprites_Gato, 0x00 },
-    { L"B - Super Stuff 1", 0x2381220, 0x2381240, indexKOF03Sprites_Gato, 0x00 },
-    { L"B - Electric Palette", 0x2381240, 0x2381260, indexKOF03Sprites_Gato, 0x00 },
-    { L"B - Darker Palette", 0x2381260, 0x2381280, indexKOF03Sprites_Gato, 0x00 },
-    { L"B - Super Stuff 2", 0x2381280, 0x23812a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato B", 0x2381200, 0x2381220, indexKOFXISprites_Gato, 0x00 },
+    { L"B - Super Stuff 1", 0x2381220, 0x2381240, indexKOFXISprites_Gato, 0x00 },
+    { L"B - Electric Palette", 0x2381240, 0x2381260, indexKOFXISprites_Gato, 0x00 },
+    { L"B - Darker Palette", 0x2381260, 0x2381280, indexKOFXISprites_Gato, 0x00 },
+    { L"B - Super Stuff 2", 0x2381280, 0x23812a0, indexKOFXISprites_Gato, 0x00 },
     { L"B - Character Extra 1", 0x23812a0, 0x23812c0, indexKOFXISprites_Gato, 0x30 },
     { L"B - Character Extra 2", 0x23812c0, 0x23812e0, indexKOFXISprites_Gato, 0x31 },
     { L"B - Character Extra 3", 0x23812e0, 0x2381300, indexKOFXISprites_Gato, 0x32 },
@@ -3253,11 +3252,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_C[] =
 {
-    { L"Gato C", 0x2381400, 0x2381420, indexKOF03Sprites_Gato, 0x00 },
-    { L"C - Super Stuff 1", 0x2381420, 0x2381440, indexKOF03Sprites_Gato, 0x00 },
-    { L"C - Electric Palette", 0x2381440, 0x2381460, indexKOF03Sprites_Gato, 0x00 },
-    { L"C - Darker Palette", 0x2381460, 0x2381480, indexKOF03Sprites_Gato, 0x00 },
-    { L"C - Super Stuff 2", 0x2381480, 0x23814a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato C", 0x2381400, 0x2381420, indexKOFXISprites_Gato, 0x00 },
+    { L"C - Super Stuff 1", 0x2381420, 0x2381440, indexKOFXISprites_Gato, 0x00 },
+    { L"C - Electric Palette", 0x2381440, 0x2381460, indexKOFXISprites_Gato, 0x00 },
+    { L"C - Darker Palette", 0x2381460, 0x2381480, indexKOFXISprites_Gato, 0x00 },
+    { L"C - Super Stuff 2", 0x2381480, 0x23814a0, indexKOFXISprites_Gato, 0x00 },
     { L"C - Character Extra 1", 0x23814a0, 0x23814c0, indexKOFXISprites_Gato, 0x30 },
     { L"C - Character Extra 2", 0x23814c0, 0x23814e0, indexKOFXISprites_Gato, 0x31 },
     { L"C - Character Extra 3", 0x23814e0, 0x2381500, indexKOFXISprites_Gato, 0x32 },
@@ -3273,11 +3272,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_D[] =
 {
-    { L"Gato D", 0x2381600, 0x2381620, indexKOF03Sprites_Gato, 0x00 },
-    { L"D - Super Stuff 1", 0x2381620, 0x2381640, indexKOF03Sprites_Gato, 0x00 },
-    { L"D - Electric Palette", 0x2381640, 0x2381660, indexKOF03Sprites_Gato, 0x00 },
-    { L"D - Darker Palette", 0x2381660, 0x2381680, indexKOF03Sprites_Gato, 0x00 },
-    { L"D - Super Stuff 2", 0x2381680, 0x23816a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato D", 0x2381600, 0x2381620, indexKOFXISprites_Gato, 0x00 },
+    { L"D - Super Stuff 1", 0x2381620, 0x2381640, indexKOFXISprites_Gato, 0x00 },
+    { L"D - Electric Palette", 0x2381640, 0x2381660, indexKOFXISprites_Gato, 0x00 },
+    { L"D - Darker Palette", 0x2381660, 0x2381680, indexKOFXISprites_Gato, 0x00 },
+    { L"D - Super Stuff 2", 0x2381680, 0x23816a0, indexKOFXISprites_Gato, 0x00 },
     { L"D - Character Extra 1", 0x23816a0, 0x23816c0, indexKOFXISprites_Gato, 0x30 },
     { L"D - Character Extra 2", 0x23816c0, 0x23816e0, indexKOFXISprites_Gato, 0x31 },
     { L"D - Character Extra 3", 0x23816e0, 0x2381700, indexKOFXISprites_Gato, 0x32 },
@@ -3293,11 +3292,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EA[] =
 {
-    { L"Gato EA", 0x2381800, 0x2381820, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+A - Super Stuff 1", 0x2381820, 0x2381840, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+A - Electric Palette", 0x2381840, 0x2381860, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+A - Darker Palette", 0x2381860, 0x2381880, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+A - Super Stuff 2", 0x2381880, 0x23818a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato EA", 0x2381800, 0x2381820, indexKOFXISprites_Gato, 0x00 },
+    { L"E+A - Super Stuff 1", 0x2381820, 0x2381840, indexKOFXISprites_Gato, 0x00 },
+    { L"E+A - Electric Palette", 0x2381840, 0x2381860, indexKOFXISprites_Gato, 0x00 },
+    { L"E+A - Darker Palette", 0x2381860, 0x2381880, indexKOFXISprites_Gato, 0x00 },
+    { L"E+A - Super Stuff 2", 0x2381880, 0x23818a0, indexKOFXISprites_Gato, 0x00 },
     { L"E+A - Character Extra 1", 0x23818a0, 0x23818c0, indexKOFXISprites_Gato, 0x30 },
     { L"E+A - Character Extra 2", 0x23818c0, 0x23818e0, indexKOFXISprites_Gato, 0x31 },
     { L"E+A - Character Extra 3", 0x23818e0, 0x2381900, indexKOFXISprites_Gato, 0x32 },
@@ -3313,11 +3312,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EB[] =
 {
-    { L"Gato EB", 0x2381a00, 0x2381a20, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+B - Super Stuff 1", 0x2381a20, 0x2381a40, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+B - Electric Palette", 0x2381a40, 0x2381a60, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+B - Darker Palette", 0x2381a60, 0x2381a80, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+B - Super Stuff 2", 0x2381a80, 0x2381aa0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato EB", 0x2381a00, 0x2381a20, indexKOFXISprites_Gato, 0x00 },
+    { L"E+B - Super Stuff 1", 0x2381a20, 0x2381a40, indexKOFXISprites_Gato, 0x00 },
+    { L"E+B - Electric Palette", 0x2381a40, 0x2381a60, indexKOFXISprites_Gato, 0x00 },
+    { L"E+B - Darker Palette", 0x2381a60, 0x2381a80, indexKOFXISprites_Gato, 0x00 },
+    { L"E+B - Super Stuff 2", 0x2381a80, 0x2381aa0, indexKOFXISprites_Gato, 0x00 },
     { L"E+B - Character Extra 1", 0x2381aa0, 0x2381ac0, indexKOFXISprites_Gato, 0x30 },
     { L"E+B - Character Extra 2", 0x2381ac0, 0x2381ae0, indexKOFXISprites_Gato, 0x31 },
     { L"E+B - Character Extra 3", 0x2381ae0, 0x2381b00, indexKOFXISprites_Gato, 0x32 },
@@ -3333,11 +3332,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EC[] =
 {
-    { L"Gato EC", 0x2381c00, 0x2381c20, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+C - Super Stuff 1", 0x2381c20, 0x2381c40, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+C - Electric Palette", 0x2381c40, 0x2381c60, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+C - Darker Palette", 0x2381c60, 0x2381c80, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+C - Super Stuff 2", 0x2381c80, 0x2381ca0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato EC", 0x2381c00, 0x2381c20, indexKOFXISprites_Gato, 0x00 },
+    { L"E+C - Super Stuff 1", 0x2381c20, 0x2381c40, indexKOFXISprites_Gato, 0x00 },
+    { L"E+C - Electric Palette", 0x2381c40, 0x2381c60, indexKOFXISprites_Gato, 0x00 },
+    { L"E+C - Darker Palette", 0x2381c60, 0x2381c80, indexKOFXISprites_Gato, 0x00 },
+    { L"E+C - Super Stuff 2", 0x2381c80, 0x2381ca0, indexKOFXISprites_Gato, 0x00 },
     { L"E+C - Character Extra 1", 0x2381ca0, 0x2381cc0, indexKOFXISprites_Gato, 0x30 },
     { L"E+C - Character Extra 2", 0x2381cc0, 0x2381ce0, indexKOFXISprites_Gato, 0x31 },
     { L"E+C - Character Extra 3", 0x2381ce0, 0x2381d00, indexKOFXISprites_Gato, 0x32 },
@@ -3353,11 +3352,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_ED[] =
 {
-    { L"Gato ED", 0x2381e00, 0x2381e20, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+D - Super Stuff 1", 0x2381e20, 0x2381e40, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+D - Electric Palette", 0x2381e40, 0x2381e60, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+D - Darker Palette", 0x2381e60, 0x2381e80, indexKOF03Sprites_Gato, 0x00 },
-    { L"E+D - Super Stuff 2", 0x2381e80, 0x2381ea0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato ED", 0x2381e00, 0x2381e20, indexKOFXISprites_Gato, 0x00 },
+    { L"E+D - Super Stuff 1", 0x2381e20, 0x2381e40, indexKOFXISprites_Gato, 0x00 },
+    { L"E+D - Electric Palette", 0x2381e40, 0x2381e60, indexKOFXISprites_Gato, 0x00 },
+    { L"E+D - Darker Palette", 0x2381e60, 0x2381e80, indexKOFXISprites_Gato, 0x00 },
+    { L"E+D - Super Stuff 2", 0x2381e80, 0x2381ea0, indexKOFXISprites_Gato, 0x00 },
     { L"E+D - Character Extra 1", 0x2381ea0, 0x2381ec0, indexKOFXISprites_Gato, 0x30 },
     { L"E+D - Character Extra 2", 0x2381ec0, 0x2381ee0, indexKOFXISprites_Gato, 0x31 },
     { L"E+D - Character Extra 3", 0x2381ee0, 0x2381f00, indexKOFXISprites_Gato, 0x32 },
@@ -3373,11 +3372,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SA[] =
 {
-    { L"Gato SA", 0x2382000, 0x2382020, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+A - Super Stuff 1", 0x2382020, 0x2382040, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+A - Electric Palette", 0x2382040, 0x2382060, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+A - Darker Palette", 0x2382060, 0x2382080, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+A - Super Stuff 2", 0x2382080, 0x23820a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato SA", 0x2382000, 0x2382020, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+A - Super Stuff 1", 0x2382020, 0x2382040, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+A - Electric Palette", 0x2382040, 0x2382060, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+A - Darker Palette", 0x2382060, 0x2382080, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+A - Super Stuff 2", 0x2382080, 0x23820a0, indexKOFXISprites_Gato, 0x00 },
     { L"Start+A - Character Extra 1", 0x23820a0, 0x23820c0, indexKOFXISprites_Gato, 0x30 },
     { L"Start+A - Character Extra 2", 0x23820c0, 0x23820e0, indexKOFXISprites_Gato, 0x31 },
     { L"Start+A - Character Extra 3", 0x23820e0, 0x2382100, indexKOFXISprites_Gato, 0x32 },
@@ -3393,11 +3392,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SB[] =
 {
-    { L"Gato SB", 0x2382200, 0x2382220, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+B - Super Stuff 1", 0x2382220, 0x2382240, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+B - Electric Palette", 0x2382240, 0x2382260, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+B - Darker Palette", 0x2382260, 0x2382280, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+B - Super Stuff 2", 0x2382280, 0x23822a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato SB", 0x2382200, 0x2382220, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+B - Super Stuff 1", 0x2382220, 0x2382240, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+B - Electric Palette", 0x2382240, 0x2382260, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+B - Darker Palette", 0x2382260, 0x2382280, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+B - Super Stuff 2", 0x2382280, 0x23822a0, indexKOFXISprites_Gato, 0x00 },
     { L"Start+B - Character Extra 1", 0x23822a0, 0x23822c0, indexKOFXISprites_Gato, 0x30 },
     { L"Start+B - Character Extra 2", 0x23822c0, 0x23822e0, indexKOFXISprites_Gato, 0x31 },
     { L"Start+B - Character Extra 3", 0x23822e0, 0x2382300, indexKOFXISprites_Gato, 0x32 },
@@ -3413,11 +3412,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SC[] =
 {
-    { L"Gato SC", 0x2382400, 0x2382420, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+C - Super Stuff 1", 0x2382420, 0x2382440, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+C - Electric Palette", 0x2382440, 0x2382460, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+C - Darker Palette", 0x2382460, 0x2382480, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+C - Super Stuff 2", 0x2382480, 0x23824a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato SC", 0x2382400, 0x2382420, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+C - Super Stuff 1", 0x2382420, 0x2382440, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+C - Electric Palette", 0x2382440, 0x2382460, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+C - Darker Palette", 0x2382460, 0x2382480, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+C - Super Stuff 2", 0x2382480, 0x23824a0, indexKOFXISprites_Gato, 0x00 },
     { L"Start+C - Character Extra 1", 0x23824a0, 0x23824c0, indexKOFXISprites_Gato, 0x30 },
     { L"Start+C - Character Extra 2", 0x23824c0, 0x23824e0, indexKOFXISprites_Gato, 0x31 },
     { L"Start+C - Character Extra 3", 0x23824e0, 0x2382500, indexKOFXISprites_Gato, 0x32 },
@@ -3433,11 +3432,11 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SD[] =
 {
-    { L"Gato SD", 0x2382600, 0x2382620, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+D - Super Stuff 1", 0x2382620, 0x2382640, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+D - Electric Palette", 0x2382640, 0x2382660, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+D - Darker Palette", 0x2382660, 0x2382680, indexKOF03Sprites_Gato, 0x00 },
-    { L"Start+D - Super Stuff 2", 0x2382680, 0x23826a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato SD", 0x2382600, 0x2382620, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+D - Super Stuff 1", 0x2382620, 0x2382640, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+D - Electric Palette", 0x2382640, 0x2382660, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+D - Darker Palette", 0x2382660, 0x2382680, indexKOFXISprites_Gato, 0x00 },
+    { L"Start+D - Super Stuff 2", 0x2382680, 0x23826a0, indexKOFXISprites_Gato, 0x00 },
     { L"Start+D - Character Extra 1", 0x23826a0, 0x23826c0, indexKOFXISprites_Gato, 0x30 },
     { L"Start+D - Character Extra 2", 0x23826c0, 0x23826e0, indexKOFXISprites_Gato, 0x31 },
     { L"Start+D - Character Extra 3", 0x23826e0, 0x2382700, indexKOFXISprites_Gato, 0x32 },

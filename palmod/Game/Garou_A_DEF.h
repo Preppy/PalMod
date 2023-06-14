@@ -444,7 +444,7 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_A[] =
     { L"Jae Hoon A - Unused", 0x11480, 0x114a0 },
     { L"Jae Hoon A - Winpose Teacup/Fire Phoenix", 0x114a0, 0x114c0, indexGarouAJae, 0x0d },
     { L"Jae Hoon A - Winpose Towel", 0x114c0, 0x114e0, indexGarouAJae, 0x0e, &pairPrevious14 },
-    { L"Jae Hoon A - Winpose Girl (Need Names)", 0x114e0, 0x11500, indexGarouAJae, 0x0f },
+    { L"Jae Hoon A - Winpose Girl", 0x114e0, 0x11500, indexGarouAJae, 0x0f },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_B[] =
@@ -464,7 +464,7 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_B[] =
     { L"Jae Hoon B - Unused", 0x11680, 0x116a0 },
     { L"Jae Hoon B - Winpose Teacup/Fire Phoenix", 0x116a0, 0x116c0, indexGarouAJae, 0x0d },
     { L"Jae Hoon B - Winpose Towel", 0x116c0, 0x116e0, indexGarouAJae, 0x0e, &pairPrevious14 },
-    { L"Jae Hoon B - Winpose Girl (Need Names)", 0x116e0, 0x11700, indexGarouAJae, 0x0f },
+    { L"Jae Hoon B - Winpose Girl", 0x116e0, 0x11700, indexGarouAJae, 0x0f },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_C[] =
@@ -484,7 +484,7 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_C[] =
     { L"Jae Hoon C - Unused", 0x11880, 0x118a0 },
     { L"Jae Hoon C - Winpose Teacup/Fire Phoenix", 0x118a0, 0x118c0, indexGarouAJae, 0x0d },
     { L"Jae Hoon C - Winpose Towel", 0x118c0, 0x118e0, indexGarouAJae, 0x0e, &pairPrevious14 },
-    { L"Jae Hoon C - Winpose Girl (Need Names)", 0x118e0, 0x11900, indexGarouAJae, 0x0f },
+    { L"Jae Hoon C - Winpose Girl", 0x118e0, 0x11900, indexGarouAJae, 0x0f },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_D[] =
@@ -504,7 +504,7 @@ const sGame_PaletteDataset Garou_A_JAE_PALETTES_D[] =
     { L"Jae Hoon D - Unused", 0x11a80, 0x11aa0 },
     { L"Jae Hoon D - Winpose Teacup/Fire Phoenix", 0x11aa0, 0x11ac0, indexGarouAJae, 0x0d },
     { L"Jae Hoon D - Winpose Towel", 0x11ac0, 0x11ae0, indexGarouAJae, 0x0e, &pairPrevious14 },
-    { L"Jae Hoon D - Winpose Girl (Need Names)", 0x11ae0, 0x11b00, indexGarouAJae, 0x0f },
+    { L"Jae Hoon D - Winpose Girl", 0x11ae0, 0x11b00, indexGarouAJae, 0x0f },
 };
 
 const sGame_PaletteDataset Garou_A_JAE_PALETTES_BOSS[] =
@@ -630,7 +630,7 @@ const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_BOSS[] =
 const sGame_PaletteDataset Garou_A_GATO_PALETTES_A[] =
 {
     { L"Gato A - Main", 0x12700, 0x12720, indexGarouAGato },
-    { L"Gato A - Tatsu Kiba B Flash", 0x12720, 0x12740, indexGarouAGato, 0x01, &pairNext11 },
+    { L"Gato A - Tatsu Kiba B Flash", 0x12720, 0x12740, indexGarouAGato, 0x01, &pairNext10 },
     { L"Gato A - Water Effect", 0x12740, 0x12760, indexGarouAGato, 0x02 },
     { L"Gato A - Burned", 0x12760, 0x12780, indexGarouAGato },
     { L"Gato A - Purple-Burned", 0x12780, 0x127a0, indexGarouAGato },
@@ -640,7 +640,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_A[] =
     { L"Gato A - Guard Crash", 0x12800, 0x12820, indexGarouAGato },
     { L"Gato A - Just Defense", 0x12820, 0x12840, indexGarouAGato },
     { L"Gato A - Dust Effect", 0x12840, 0x12860, indexGarouAGato, 0x0a },
-    { L"Gato A - Tatsu Kiba B", 0x12860, 0x12880, indexGarouAGato, 0x0b, &pairPrevious11 },
+    { L"Gato A - Tatsu Kiba B", 0x12860, 0x12880, indexGarouAGato, 0x0b, &pairPrevious10 },
     { L"Gato A - Tatsu Kiba D", 0x12880, 0x128a0, indexGarouAGato, 0x0b, &pairNext3 },
     { L"Gato A - Zero Kiba A", 0x128a0, 0x128c0, indexGarouAGato, 0x0d },
     { L"Gato A - Zero Kiba C", 0x128c0, 0x128e0, indexGarouAGato, 0x0d },
@@ -650,7 +650,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_A[] =
 const sGame_PaletteDataset Garou_A_GATO_PALETTES_B[] =
 {
     { L"Gato B - Main", 0x12900, 0x12920, indexGarouAGato },
-    { L"Gato B - Tatsu Kiba B Flash", 0x12920, 0x12940, indexGarouAGato, 0x01, &pairNext11 },
+    { L"Gato B - Tatsu Kiba B Flash", 0x12920, 0x12940, indexGarouAGato, 0x01, &pairNext10 },
     { L"Gato B - Water Effect", 0x12940, 0x12960, indexGarouAGato, 0x02 },
     { L"Gato B - Burned", 0x12960, 0x12980, indexGarouAGato },
     { L"Gato B - Purple-Burned", 0x12980, 0x129a0, indexGarouAGato },
@@ -660,7 +660,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_B[] =
     { L"Gato B - Guard Crash", 0x12a00, 0x12a20, indexGarouAGato },
     { L"Gato B - Just Defense", 0x12a20, 0x12a40, indexGarouAGato },
     { L"Gato B - Dust Effect", 0x12a40, 0x12a60, indexGarouAGato, 0x0a },
-    { L"Gato B - Tatsu Kiba B", 0x12a60, 0x12a80, indexGarouAGato, 0x0b, &pairPrevious11 },
+    { L"Gato B - Tatsu Kiba B", 0x12a60, 0x12a80, indexGarouAGato, 0x0b, &pairPrevious10 },
     { L"Gato B - Tatsu Kiba D", 0x12a80, 0x12aa0, indexGarouAGato, 0x0b, &pairNext3 },
     { L"Gato B - Zero Kiba A", 0x12aa0, 0x12ac0, indexGarouAGato, 0x0d },
     { L"Gato B - Zero Kiba C", 0x12ac0, 0x12ae0, indexGarouAGato, 0x0d },
@@ -670,7 +670,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_B[] =
 const sGame_PaletteDataset Garou_A_GATO_PALETTES_C[] =
 {
     { L"Gato C - Main", 0x12b00, 0x12b20, indexGarouAGato },
-    { L"Gato C - Tatsu Kiba B Flash", 0x12b20, 0x12b40, indexGarouAGato, 0x01, &pairNext11 },
+    { L"Gato C - Tatsu Kiba B Flash", 0x12b20, 0x12b40, indexGarouAGato, 0x01, &pairNext10 },
     { L"Gato C - Water Effect", 0x12b40, 0x12b60, indexGarouAGato, 0x02 },
     { L"Gato C - Burned", 0x12b60, 0x12b80, indexGarouAGato },
     { L"Gato C - Purple-Burned", 0x12b80, 0x12ba0, indexGarouAGato },
@@ -680,7 +680,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_C[] =
     { L"Gato C - Guard Crash", 0x12c00, 0x12c20, indexGarouAGato },
     { L"Gato C - Just Defense", 0x12c20, 0x12c40, indexGarouAGato },
     { L"Gato C - Dust Effect", 0x12c40, 0x12c60, indexGarouAGato, 0x0a },
-    { L"Gato C - Tatsu Kiba B", 0x12c60, 0x12c80, indexGarouAGato, 0x0b, &pairPrevious11 },
+    { L"Gato C - Tatsu Kiba B", 0x12c60, 0x12c80, indexGarouAGato, 0x0b, &pairPrevious10 },
     { L"Gato C - Tatsu Kiba D", 0x12c80, 0x12ca0, indexGarouAGato, 0x0b, &pairNext3 },
     { L"Gato C - Zero Kiba A", 0x12ca0, 0x12cc0, indexGarouAGato, 0x0d },
     { L"Gato C - Zero Kiba C", 0x12cc0, 0x12ce0, indexGarouAGato, 0x0d },
@@ -690,7 +690,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_C[] =
 const sGame_PaletteDataset Garou_A_GATO_PALETTES_D[] =
 {
     { L"Gato D - Main", 0x12d00, 0x12d20, indexGarouAGato },
-    { L"Gato D - Tatsu Kiba B Flash", 0x12d20, 0x12d40, indexGarouAGato, 0x01, &pairNext11 },
+    { L"Gato D - Tatsu Kiba B Flash", 0x12d20, 0x12d40, indexGarouAGato, 0x01, &pairNext10 },
     { L"Gato D - Water Effect", 0x12d40, 0x12d60, indexGarouAGato, 0x02 },
     { L"Gato D - Burned", 0x12d60, 0x12d80, indexGarouAGato },
     { L"Gato D - Purple-Burned", 0x12d80, 0x12da0, indexGarouAGato },
@@ -700,7 +700,7 @@ const sGame_PaletteDataset Garou_A_GATO_PALETTES_D[] =
     { L"Gato D - Guard Crash", 0x12e00, 0x12e20, indexGarouAGato },
     { L"Gato D - Just Defense", 0x12e20, 0x12e40, indexGarouAGato },
     { L"Gato D - Dust Effect", 0x12e40, 0x12e60, indexGarouAGato, 0x0a },
-    { L"Gato D - Tatsu Kiba B", 0x12e60, 0x12e80, indexGarouAGato, 0x0b, &pairPrevious11 },
+    { L"Gato D - Tatsu Kiba B", 0x12e60, 0x12e80, indexGarouAGato, 0x0b, &pairPrevious10 },
     { L"Gato D - Tatsu Kiba D", 0x12e80, 0x12ea0, indexGarouAGato, 0x0b, &pairNext3 },
     { L"Gato D - Zero Kiba A", 0x12ea0, 0x12ec0, indexGarouAGato, 0x0d },
     { L"Gato D - Zero Kiba C", 0x12ec0, 0x12ee0, indexGarouAGato, 0x0d },

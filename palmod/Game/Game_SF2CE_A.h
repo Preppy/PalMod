@@ -160,7 +160,7 @@ private:
         SF2CE_A_22_UNITS,
         ARRAYSIZE(SF2CE_A_22_UNITS),
         L"SF2CE-22e.txt",         // Extra filename
-        37,                       // Count of palettes listed in the header
+        43,                       // Count of palettes listed in the header
         0x16792,                  // Lowest known location used for palettes
     };
 

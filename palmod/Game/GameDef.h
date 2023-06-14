@@ -581,6 +581,8 @@ const stPairedPaletteInfo pairPrevious10 = { -10 };
 const stPairedPaletteInfo pairPrevious11 = { -11 };
 const stPairedPaletteInfo pairPrevious14 = { -14 };
 
+const stPairedPaletteInfo pairNextFlipped4 = { 4, PalettePairOptions::FlipDisplay };
+
 // Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
 const stPairedPaletteInfo pairPreviousFlipped = { -1, PalettePairOptions::FlipDisplay };
 const stPairedPaletteInfo pairPreviousFlipped2 = { -2, PalettePairOptions::FlipDisplay };

@@ -1111,13 +1111,13 @@ const sGame_PaletteDataset KOF03_A_CLARK_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_GATO_PALETTES_A[] =
 {
-    { L"Gato A", 0x9800, 0x9820, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato A", 0x9800, 0x9820, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 1 A", 0x9820, 0x9840 },
-    { L"Gato Electricity A", 0x9840, 0x9860, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Electricity A", 0x9840, 0x9860, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 2 A", 0x9860, 0x9880 },
-    { L"Gato Super Trail A", 0x9880, 0x98a0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Super Trail A", 0x9880, 0x98a0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 3 A", 0x98a0, 0x98c0 },
-    { L"Gato Shikai Palette A", 0x98c0, 0x98e0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Shikai Palette A", 0x98c0, 0x98e0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 4 A", 0x98e0, 0x9900 },
 
     { L"Tatsu Kiba Burst A", 0x9900, 0x9920, indexKOFXISprites_Gato, 0x11, &pairNextAndNext4 },
@@ -1131,13 +1131,13 @@ const sGame_PaletteDataset KOF03_A_GATO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_GATO_PALETTES_B[] =
 {
-    { L"Gato B", 0x9a00, 0x9a20, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato B", 0x9a00, 0x9a20, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 1 B", 0x9a20, 0x9a40 },
-    { L"Gato Electricity B", 0x9a40, 0x9a60, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Electricity B", 0x9a40, 0x9a60, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 2 B", 0x9a60, 0x9a80 },
-    { L"Gato Super Trail B", 0x9a80, 0x9aa0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Super Trail B", 0x9a80, 0x9aa0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 3 B", 0x9aa0, 0x9ac0 },
-    { L"Gato Shikai Palette B", 0x9ac0, 0x9ae0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Shikai Palette B", 0x9ac0, 0x9ae0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 4 B", 0x9ae0, 0x9b00 },
 
     { L"Tatsu Kiba Burst B", 0x9b00, 0x9b20, indexKOFXISprites_Gato, 0x11, &pairNextAndNext4 },
@@ -1151,13 +1151,13 @@ const sGame_PaletteDataset KOF03_A_GATO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_GATO_PALETTES_C[] =
 {
-    { L"Gato C", 0x9c00, 0x9c20, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato C", 0x9c00, 0x9c20, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 1 C", 0x9c20, 0x9c40 },
-    { L"Gato Electricity C", 0x9c40, 0x9c60, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Electricity C", 0x9c40, 0x9c60, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 2 C", 0x9c60, 0x9c80 },
-    { L"Gato Super Trail C", 0x9c80, 0x9ca0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Super Trail C", 0x9c80, 0x9ca0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 3 C", 0x9ca0, 0x9cc0 },
-    { L"Gato Shikai Palette C", 0x9cc0, 0x9ce0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Shikai Palette C", 0x9cc0, 0x9ce0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 4 C", 0x9ce0, 0x9d00 },
 
     { L"Tatsu Kiba Burst C", 0x9d00, 0x9d20, indexKOFXISprites_Gato, 0x11, &pairNextAndNext4 },
@@ -1171,13 +1171,13 @@ const sGame_PaletteDataset KOF03_A_GATO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_GATO_PALETTES_D[] =
 {
-    { L"Gato D", 0x9e00, 0x9e20, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato D", 0x9e00, 0x9e20, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 1 D", 0x9e20, 0x9e40 },
-    { L"Gato Electricity D", 0x9e40, 0x9e60, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Electricity D", 0x9e40, 0x9e60, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 2 D", 0x9e60, 0x9e80 },
-    { L"Gato Super Trail D", 0x9e80, 0x9ea0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Super Trail D", 0x9e80, 0x9ea0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 3 D", 0x9ea0, 0x9ec0 },
-    { L"Gato Shikai Palette D", 0x9ec0, 0x9ee0, indexKOF03Sprites_Gato, 0x00 },
+    { L"Gato Shikai Palette D", 0x9ec0, 0x9ee0, indexKOFXISprites_Gato, 0x00 },
     { L"Gato Extra 4 D", 0x9ee0, 0x9f00 },
 
     { L"Tatsu Kiba Burst D", 0x9f00, 0x9f20, indexKOFXISprites_Gato, 0x11, &pairNextAndNext4 },

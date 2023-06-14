@@ -99,14 +99,21 @@ const sGame_PaletteDataset SF2HF_A_DHALSIM_START_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_DICTATOR_NORMAL_NODE[] =
 {
-    { L"Dictator", 0x1E7B6, 0x1e7d6, indexSF2Sprites_Bison, 0x08, &pairNext },
-    { L"Psycho Attacks", 0x1e836, 0x1e876, indexSF2Sprites_Bison, 0x09, &pairPrevious },
+    { L"Dictator", 0x1E7B6, 0x1e7d6, indexSF2Sprites_Bison, 0x08, &pairNext2 },
+    { L"Cape", 0x1e7d6, 0x1e7f6, indexSF2Sprites_Bison, 0x01 },
+    { L"Psycho Attacks 1", 0x1e836, 0x1e876, indexSF2Sprites_Bison, 0x09, &pairPrevious2 },
+    { L"Psycho Attacks 2", 0x1e876, 0x1e8b6, indexSF2Sprites_Bison, 0x09, &pairPrevious3 },
+    { L"Psycho Crusher", 0x1e7f6, 0x1e836, indexSF2Sprites_Bison, 0x03 },
 };
 
 const sGame_PaletteDataset SF2HF_A_DICTATOR_START_NODE[] =
 {
-    { L"Dictator", 0x1E95e, 0x1E97e, indexSF2Sprites_Bison, 0x08, &pairNext },
-    { L"Psycho Attacks", 0x1e9dc, 0x1ea1c, indexSF2Sprites_Bison, 0x09, &pairPrevious },
+    { L"Dictator", 0x1E95e, 0x1E97e, indexSF2Sprites_Bison, 0x08, &pairNext2 },
+    { L"Cape", 0x1E97e, 0x1E99e, indexSF2Sprites_Bison, 0x01 },
+    { L"Psycho Attacks 1", 0x1e9dc, 0x1ea1c, indexSF2Sprites_Bison, 0x09, &pairPrevious2 },
+    { L"Psycho Attacks 2", 0x1ea1c, 0x1ea5c, indexSF2Sprites_Bison, 0x09, &pairPrevious3 },
+    { L"Psycho Crusher", 0x1E99e, 0x1e9dc, indexSF2Sprites_Bison, 0x03 },
+   
 };
 
 const sGame_PaletteDataset SF2HF_A_SAGAT_NORMAL_NODE[] =
