@@ -22,7 +22,6 @@ const std::vector<uint16_t> HSF2_A_IMGIDS_USED =
     indexSF2Sprites_FeiLong,
     indexSF2Sprites_DeeJay,
     indexSF2Sprites_Gouki,
-    indexSF2Sprites_Bonus,
     indexSF2Sprites_Stages,
 };
 
@@ -1490,195 +1489,195 @@ const sGame_PaletteDataset HSF2_A_DEEJAY_ST_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset HSF2_A_RYU_WW_PORTRAIT_PALETTES[] =
 {
-    { L"Ryu WW Portrait (Shared)", 0x370A8, 0x37128, indexSF2Sprites_Bonus, 0x16 },
+    { L"Ryu WW Portrait (Shared)", 0x370A8, 0x37128, indexSF2Sprites_Ryu, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_RYU_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Ryu CE Portrait Palette 1", 0x37128, 0x371A8, indexSF2Sprites_Bonus, 0x16 },
-    { L"Ryu CE Portrait Palette 2", 0x371A8, 0x37228, indexSF2Sprites_Bonus, 0x16 },
+    { L"Ryu CE Portrait Palette 1", 0x37128, 0x371A8, indexSF2Sprites_Ryu, 0x24 },
+    { L"Ryu CE Portrait Palette 2", 0x371A8, 0x37228, indexSF2Sprites_Ryu, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_RYU_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Ryu HF Portrait Palette 1 ", 0x372a8, 0X37328, indexSF2Sprites_Bonus, 0x16 },
-    { L"Ryu HF Portrait Palette 2", 0x37228, 0x372a8, indexSF2Sprites_Bonus, 0x16 },
+    { L"Ryu HF Portrait Palette 1 ", 0x372a8, 0X37328, indexSF2Sprites_Ryu, 0x24 },
+    { L"Ryu HF Portrait Palette 2", 0x37228, 0x372a8, indexSF2Sprites_Ryu, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_EHONDA_WW_PORTRAIT_PALETTES[] =
 {
-    { L"E.Honda WW Portrait (Shared)", 0X37328, 0x373A8, indexSF2Sprites_Bonus, 0x10 },
+    { L"E.Honda WW Portrait (Shared)", 0X37328, 0x373A8, indexSF2Sprites_EHonda, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_EHONDA_CE_PORTRAIT_PALETTES[] =
 {
-    { L"E.Honda CE Portrait Palette 1", 0x373A8, 0x37428, indexSF2Sprites_Bonus, 0x10 },
-    { L"E.Honda CE Portrait Palette 2", 0x37428, 0x374A8, indexSF2Sprites_Bonus, 0x10 },
+    { L"E.Honda CE Portrait Palette 1", 0x373A8, 0x37428, indexSF2Sprites_EHonda, 0x24 },
+    { L"E.Honda CE Portrait Palette 2", 0x37428, 0x374A8, indexSF2Sprites_EHonda, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_EHONDA_HF_PORTRAIT_PALETTES[] =
 {
-    { L"E.Honda HF Portrait Palette 1", 0X37528, 0x375A8, indexSF2Sprites_Bonus, 0x10 },
-    { L"E.Honda HF Portrait Palette 2", 0x374A8, 0X37528, indexSF2Sprites_Bonus, 0x10 },
+    { L"E.Honda HF Portrait Palette 1", 0X37528, 0x375A8, indexSF2Sprites_EHonda, 0x24 },
+    { L"E.Honda HF Portrait Palette 2", 0x374A8, 0X37528, indexSF2Sprites_EHonda, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_BLANKA_WW_PORTRAIT_PALETTES[] =
 {
-    { L"Blanka WW Portrait (Shared)", 0x375A8, 0x37628, indexSF2Sprites_Bonus, 0x03 },
+    { L"Blanka WW Portrait (Shared)", 0x375A8, 0x37628, indexSF2Sprites_Blanka, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_BLANKA_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Blanka CE Portrait Palette 1", 0x37628, 0x376A8, indexSF2Sprites_Bonus, 0x03 },
-    { L"Blanka CE Portrait Palette 2", 0x376A8, 0x37728, indexSF2Sprites_Bonus, 0x03 },
+    { L"Blanka CE Portrait Palette 1", 0x37628, 0x376A8, indexSF2Sprites_Blanka, 0x24 },
+    { L"Blanka CE Portrait Palette 2", 0x376A8, 0x37728, indexSF2Sprites_Blanka, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_BLANKA_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Blanka HF Portrait Palette 1", 0x377A8, 0x37828, indexSF2Sprites_Bonus, 0x03 },
-    { L"Blanka HF Portrait Palette 2", 0x37728, 0x377A8, indexSF2Sprites_Bonus, 0x03 },
+    { L"Blanka HF Portrait Palette 1", 0x377A8, 0x37828, indexSF2Sprites_Blanka, 0x24 },
+    { L"Blanka HF Portrait Palette 2", 0x37728, 0x377A8, indexSF2Sprites_Blanka, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_GUILE_WW_PORTRAIT_PALETTES[] =
 {
-    { L"Guile WW Portrait (Shared)", 0x37828, 0x378A8, indexSF2Sprites_Bonus, 0x12 },
+    { L"Guile WW Portrait (Shared)", 0x37828, 0x378A8, indexSF2Sprites_Guile, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_GUILE_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Guile CE Portrait Palette 1", 0x378A8, 0x37928, indexSF2Sprites_Bonus, 0x12 },
-    { L"Guile CE Portrait Palette 2", 0x37928, 0x379A8, indexSF2Sprites_Bonus, 0x12 },
+    { L"Guile CE Portrait Palette 1", 0x378A8, 0x37928, indexSF2Sprites_Guile, 0x24 },
+    { L"Guile CE Portrait Palette 2", 0x37928, 0x379A8, indexSF2Sprites_Guile, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_GUILE_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Guile HF Portrait Palette 1", 0X37A28, 0x37AA8, indexSF2Sprites_Bonus, 0x12 },
-    { L"Guile HF Portrait Palette 2", 0x379A8, 0X37A28, indexSF2Sprites_Bonus, 0x12 },
+    { L"Guile HF Portrait Palette 1", 0X37A28, 0x37AA8, indexSF2Sprites_Guile, 0x24 },
+    { L"Guile HF Portrait Palette 2", 0x379A8, 0X37A28, indexSF2Sprites_Guile, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_KEN_WW_PORTRAIT_PALETTES[] =
 {
-    { L"Ken WW Portrait (Shared)", 0x37AA8, 0x37B28, indexSF2Sprites_Bonus, 0x14 },
+    { L"Ken WW Portrait (Shared)", 0x37AA8, 0x37B28, indexSF2Sprites_Ken, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_KEN_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Ken CE Portrait Palette 1", 0x37B28, 0x37BA8, indexSF2Sprites_Bonus, 0x14 },
-    { L"Ken CE Portrait Palette 2", 0x37BA8, 0x37C28, indexSF2Sprites_Bonus, 0x14 },
+    { L"Ken CE Portrait Palette 1", 0x37B28, 0x37BA8, indexSF2Sprites_Ken, 0x24 },
+    { L"Ken CE Portrait Palette 2", 0x37BA8, 0x37C28, indexSF2Sprites_Ken, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_KEN_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Ken HF Portrait Palette 1", 0x37CA8, 0x37D28, indexSF2Sprites_Bonus, 0x14 },
-    { L"Ken HF Portrait Palette 2", 0x37C28, 0x37CA8, indexSF2Sprites_Bonus, 0x14 },
+    { L"Ken HF Portrait Palette 1", 0x37CA8, 0x37D28, indexSF2Sprites_Ken, 0x24 },
+    { L"Ken HF Portrait Palette 2", 0x37C28, 0x37CA8, indexSF2Sprites_Ken, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_CHUNLI_WW_PORTRAIT_PALETTES[] =
 {
-    { L"Chun Li WW Portrait (Shared)", 0x37D28, 0x37DA8, indexSF2Sprites_Bonus, 0x06 },
+    { L"Chun Li WW Portrait (Shared)", 0x37D28, 0x37DA8, indexSF2Sprites_ChunLi, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_CHUNLI_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Chun Li CE Portrait Palette 1", 0x37DA8, 0x37E28, indexSF2Sprites_Bonus, 0x06 },
-    { L"Chun Li CE Portrait Palette 2", 0x37E28, 0x37EA8, indexSF2Sprites_Bonus, 0x06 },
+    { L"Chun Li CE Portrait Palette 1", 0x37DA8, 0x37E28, indexSF2Sprites_ChunLi, 0x24 },
+    { L"Chun Li CE Portrait Palette 2", 0x37E28, 0x37EA8, indexSF2Sprites_ChunLi, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_CHUNLI_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Chun Li HF Portrait Palette 1", 0x37F28, 0x37FA8, indexSF2Sprites_Bonus, 0x06 },
-    { L"Chun Li HF Portrait Palette 2", 0x37EA8, 0x37F28, indexSF2Sprites_Bonus, 0x06 },
+    { L"Chun Li HF Portrait Palette 1", 0x37F28, 0x37FA8, indexSF2Sprites_ChunLi, 0x24 },
+    { L"Chun Li HF Portrait Palette 2", 0x37EA8, 0x37F28, indexSF2Sprites_ChunLi, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_ZANGIEF_WW_PORTRAIT_PALETTES[] =
 {
-    { L"Zangief WW Portrait (Shared) ", 0x37FA8, 0x38028, indexSF2Sprites_Bonus, 0x1a },
+    { L"Zangief WW Portrait (Shared) ", 0x37FA8, 0x38028, indexSF2Sprites_Zangief, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_ZANGIEF_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Zangief CE Portrait Palette 1", 0x38028, 0x380A8, indexSF2Sprites_Bonus, 0x1a },
-    { L"Zangief CE Portrait Palette 2", 0x380A8, 0x38128, indexSF2Sprites_Bonus, 0x1a },
+    { L"Zangief CE Portrait Palette 1", 0x38028, 0x380A8, indexSF2Sprites_Zangief, 0x24 },
+    { L"Zangief CE Portrait Palette 2", 0x380A8, 0x38128, indexSF2Sprites_Zangief, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_ZANGIEF_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Zangief HF Portrait Palette 1", 0x381A8, 0x38228, indexSF2Sprites_Bonus, 0x1a },
-    { L"Zangief HF Portrait Palette 2", 0x38128, 0x381A8, indexSF2Sprites_Bonus, 0x1a },
+    { L"Zangief HF Portrait Palette 1", 0x381A8, 0x38228, indexSF2Sprites_Zangief, 0x24 },
+    { L"Zangief HF Portrait Palette 2", 0x38128, 0x381A8, indexSF2Sprites_Zangief, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_DHALSIM_WW_PORTRAIT_PALETTES[] =
 {
-    { L"Dhalsim WW Portrait (Shared) 1/2", 0x38228, 0x38248, indexSF2Sprites_Bonus, 0x0a, &pairNext },
-    { L"Dhalsim WW Portrait (Shared) 2/2", 0x38248, 0x382A8, indexSF2Sprites_Bonus, 0x0b },
+    { L"Dhalsim WW Portrait (Shared) 1/2", 0x38228, 0x38248, indexSF2Sprites_Dhalsim, 0x24, &pairNext },
+    { L"Dhalsim WW Portrait (Shared) 2/2", 0x38248, 0x382A8, indexSF2Sprites_Dhalsim, 0x25 },
 };
 
 const sGame_PaletteDataset HSF2_A_DHALSIM_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Dhalsim CE Portrait Palette 1 1/2", 0x382A8, 0x382c8, indexSF2Sprites_Bonus, 0x0a, &pairNext },
-    { L"Dhalsim CE Portrait Palette 1 2/2", 0x382c8, 0x38328, indexSF2Sprites_Bonus, 0x0b },
-    { L"Dhalsim CE Portrait Palette 2 1/2", 0x38328, 0x38348, indexSF2Sprites_Bonus, 0x0a, &pairNext },
-    { L"Dhalsim CE Portrait Palette 2 2/2", 0x38348, 0x383A8, indexSF2Sprites_Bonus, 0x0b },
+    { L"Dhalsim CE Portrait Palette 1 1/2", 0x382A8, 0x382c8, indexSF2Sprites_Dhalsim, 0x24, &pairNext },
+    { L"Dhalsim CE Portrait Palette 1 2/2", 0x382c8, 0x38328, indexSF2Sprites_Dhalsim, 0x25 },
+    { L"Dhalsim CE Portrait Palette 2 1/2", 0x38328, 0x38348, indexSF2Sprites_Dhalsim, 0x24, &pairNext },
+    { L"Dhalsim CE Portrait Palette 2 2/2", 0x38348, 0x383A8, indexSF2Sprites_Dhalsim, 0x25 },
 };
 
 const sGame_PaletteDataset HSF2_A_DHALSIM_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Dhalsim HF Portrait Palette 1 1/2", 0x38428, 0x38448, indexSF2Sprites_Bonus, 0x0a, &pairNext },
-    { L"Dhalsim HF Portrait Palette 1 2/2", 0x38448, 0x384A8, indexSF2Sprites_Bonus, 0x0b },
-    { L"Dhalsim HF Portrait Palette 2 1/2", 0x383A8, 0x383c8, indexSF2Sprites_Bonus, 0x0a, &pairNext },
-    { L"Dhalsim HF Portrait Palette 2 2/2", 0x383c8, 0x38428, indexSF2Sprites_Bonus, 0x0b },
+    { L"Dhalsim HF Portrait Palette 1 1/2", 0x38428, 0x38448, indexSF2Sprites_Dhalsim, 0x24, &pairNext },
+    { L"Dhalsim HF Portrait Palette 1 2/2", 0x38448, 0x384A8, indexSF2Sprites_Dhalsim, 0x25 },
+    { L"Dhalsim HF Portrait Palette 2 1/2", 0x383A8, 0x383c8, indexSF2Sprites_Dhalsim, 0x24, &pairNext },
+    { L"Dhalsim HF Portrait Palette 2 2/2", 0x383c8, 0x38428, indexSF2Sprites_Dhalsim, 0x25 },
 };
 
 const sGame_PaletteDataset HSF2_A_MBISON_CE_PORTRAIT_PALETTES[] =
 {
-    { L"M. Bison CE Portrait Palette 1 1/2", 0x384A8, 0x384c8, indexSF2Sprites_Bonus, 0x0d, &pairNext },
-    { L"M. Bison CE Portrait Palette 1 2/2", 0x384c8, 0x38528, indexSF2Sprites_Bonus, 0x0e },
-    { L"M. Bison CE Portrait Palette 1 1/2", 0x38528, 0x38548, indexSF2Sprites_Bonus, 0x0d, &pairNext },
-    { L"M. Bison CE Portrait Palette 1 2/2", 0x38548, 0x385A8, indexSF2Sprites_Bonus, 0x0e },
+    { L"M. Bison CE Portrait Palette 1 1/2", 0x384A8, 0x384c8, indexSF2Sprites_Bison, 0x24, &pairNext },
+    { L"M. Bison CE Portrait Palette 1 2/2", 0x384c8, 0x38528, indexSF2Sprites_Bison, 0x25 },
+    { L"M. Bison CE Portrait Palette 1 1/2", 0x38528, 0x38548, indexSF2Sprites_Bison, 0x24, &pairNext },
+    { L"M. Bison CE Portrait Palette 1 2/2", 0x38548, 0x385A8, indexSF2Sprites_Bison, 0x25 },
 };
 
 const sGame_PaletteDataset HSF2_A_MBISON_HF_PORTRAIT_PALETTES[] =
 {
-    { L"M. Bison HF Portrait Palette 1 1/2", 0x385A8, 0x385c8, indexSF2Sprites_Bonus, 0x0d, &pairNext },
-    { L"M. Bison HF Portrait Palette 1 2/2", 0x385c8, 0x38628, indexSF2Sprites_Bonus, 0x0e },
-    { L"M. Bison HF Portrait Palette 2 1/2", 0x38628, 0x38648, indexSF2Sprites_Bonus, 0x0d, &pairNext },
-    { L"M. Bison HF Portrait Palette 2 2/2", 0x38648, 0x386A8, indexSF2Sprites_Bonus, 0x0e },
+    { L"M. Bison HF Portrait Palette 1 1/2", 0x385A8, 0x385c8, indexSF2Sprites_Bison, 0x24, &pairNext },
+    { L"M. Bison HF Portrait Palette 1 2/2", 0x385c8, 0x38628, indexSF2Sprites_Bison, 0x25 },
+    { L"M. Bison HF Portrait Palette 2 1/2", 0x38628, 0x38648, indexSF2Sprites_Bison, 0x24, &pairNext },
+    { L"M. Bison HF Portrait Palette 2 2/2", 0x38648, 0x386A8, indexSF2Sprites_Bison, 0x25 },
 };
 
 const sGame_PaletteDataset HSF2_A_SAGAT_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Sagat CE Portrait Palette 1", 0x386A8, 0x38728, indexSF2Sprites_Bonus, 0x19 },
-    { L"Sagat CE Portrait Palette 1", 0x38728, 0x387A8, indexSF2Sprites_Bonus, 0x19 },
+    { L"Sagat CE Portrait Palette 1", 0x386A8, 0x38728, indexSF2Sprites_Sagat, 0x24 },
+    { L"Sagat CE Portrait Palette 1", 0x38728, 0x387A8, indexSF2Sprites_Sagat, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_SAGAT_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Sagat HF Portrait Palette 1", 0x38828, 0x388A8, indexSF2Sprites_Bonus, 0x19 },
-    { L"Sagat HF Portrait Palette 2", 0x387A8, 0x38828, indexSF2Sprites_Bonus, 0x19 },
+    { L"Sagat HF Portrait Palette 1", 0x38828, 0x388A8, indexSF2Sprites_Sagat, 0x24 },
+    { L"Sagat HF Portrait Palette 2", 0x387A8, 0x38828, indexSF2Sprites_Sagat, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_BALROG_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Balrog CE Portrait Palette 1", 0x388A8, 0x38928 },
-    { L"Balrog CE Portrait Palette 2", 0x38928, 0x389A8 },
+    { L"Balrog CE Portrait Palette 1", 0x388A8, 0x38928, indexSF2Sprites_Balrog, 0x24 },
+    { L"Balrog CE Portrait Palette 2", 0x38928, 0x389A8, indexSF2Sprites_Balrog, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_BALROG_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Balrog HF Portrait Palette 1", 0x38A28, 0x38AA8 },
-    { L"Balrog HF Portrait Palette 2", 0x389A8, 0x38A28 },
+    { L"Balrog HF Portrait Palette 1", 0x38A28, 0x38AA8, indexSF2Sprites_Balrog, 0x24 },
+    { L"Balrog HF Portrait Palette 2", 0x389A8, 0x38A28, indexSF2Sprites_Balrog, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_VEGA_CE_PORTRAIT_PALETTES[] =
 {
-    { L"Vega CE Portrait Palette 1", 0x38AA8, 0x38B28 },
-    { L"Vega CE Portrait Palette 2", 0x38B28, 0x38BA8 },
+    { L"Vega CE Portrait Palette 1", 0x38AA8, 0x38B28, indexSF2Sprites_Vega, 0x24 },
+    { L"Vega CE Portrait Palette 2", 0x38B28, 0x38BA8, indexSF2Sprites_Vega, 0x24 },
 };
 
 const sGame_PaletteDataset HSF2_A_VEGA_HF_PORTRAIT_PALETTES[] =
 {
-    { L"Vega HF Portrait Palette 1", 0x38C28, 0x38CA8 },
-    { L"Vega HF Portrait Palette 2", 0x38BA8, 0x38C28 },
+    { L"Vega HF Portrait Palette 1", 0x38C28, 0x38CA8, indexSF2Sprites_Vega, 0x24 },
+    { L"Vega HF Portrait Palette 2", 0x38BA8, 0x38C28, indexSF2Sprites_Vega, 0x24 },
 };
 
 const sDescTreeNode HSF2_A_RYU_PORTRAIT_COLLECTION[] =

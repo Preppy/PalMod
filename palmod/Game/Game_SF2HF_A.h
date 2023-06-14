@@ -49,18 +49,18 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Street Fighter II' - Hyper Fighting (US 921209)", L"s2tu_21.6f", 0xfd200288, 0 },
-        { L"Street Fighter II' - Hyper Fighting (US 921209)", L"s2tu_22.7f", 0xaea6e035, 0 },
-        { L"Street Fighter II' - Hyper Fighting (US 921209)", L"s2tu_23.8f", 0x89a1fc38, 0 },
+        { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 21)", L"s2tu_21.6f", 0xfd200288, 0 },
+        { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 22)", L"s2tu_22.7f", 0xaea6e035, 0 },
+        { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 23)", L"s2tu_23.8f", 0x89a1fc38, 0 },
 
-        { L"Street Fighter II' - Hyper Fighting (World 921209)", L"s2te_21.6f", 0xfd200288, 0 },
-        { L"Street Fighter II' - Hyper Fighting (World 921209)", L"s2te_22.7f", 0xaea6e035, 0 },
-        { L"Street Fighter II' - Hyper Fighting (World 921209)", L"s2te_23.8f", 0xaea6e035, 0 },
+        { L"Street Fighter II' - Hyper Fighting (World 921209 ROM 21)", L"s2te_21.6f", 0xfd200288, 0 },
+        { L"Street Fighter II' - Hyper Fighting (World 921209 ROM 22)", L"s2te_22.7f", 0xaea6e035, 0 },
+        { L"Street Fighter II' - Hyper Fighting (World 921209 ROM 23)", L"s2te_23.8f", 0xaea6e035, 0 },
 
 
-        { L"Street Fighter II' - Hyper Fighting (Japan 921209)", L"s2tj_21.6f", 0xfd200288, 0 },
-        { L"Street Fighter II' - Hyper Fighting (Japan 921209)", L"s2tj_22.7f", 0xaea6e035, 0 },
-        { L"Street Fighter II' - Hyper Fighting (Japan 921209)", L"s2tj_23.8f", 0xea73b4dc, 0 },
+        { L"Street Fighter II' - Hyper Fighting (Japan 921209 ROM 21)", L"s2tj_21.6f", 0xfd200288, 0 },
+        { L"Street Fighter II' - Hyper Fighting (Japan 921209 ROM 22)", L"s2tj_22.7f", 0xaea6e035, 0 },
+        { L"Street Fighter II' - Hyper Fighting (Japan 921209 ROM 23)", L"s2tj_23.8f", 0xea73b4dc, 0 },
 
         // SF2 HF 30th anniversary collates all the roms.  The shifts are:
         // case SF2HFLoadingKey::ROM21:
@@ -74,7 +74,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_ROM21
     {
-        L"Street Fighter II' - Hyper Fighting",
+        L"Street Fighter II' - Hyper Fighting (ROM 21)",
         SF2HF_A,
         IMGDAT_SECTION_SF2,
         SF2HF_A_IMGIDS_USED,
@@ -94,7 +94,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_ROM22
     {
-        L"Street Fighter II' - Hyper Fighting",
+        L"Street Fighter II' - Hyper Fighting (ROM 22)",
         SF2HF_A,
         IMGDAT_SECTION_SF2,
         SF2HF_A_IMGIDS_USED,
@@ -114,7 +114,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_ROM23
     {
-        L"Street Fighter II' - Hyper Fighting",
+        L"Street Fighter II' - Hyper Fighting (ROM 23)",
         SF2HF_A,
         IMGDAT_SECTION_SF2,
         SF2HF_A_IMGIDS_USED,

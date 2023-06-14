@@ -41,31 +41,31 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         // 21 is the same across all versions
-        { L"Street Fighter II' - Champion Edition", L"s92_21a.6f", 0x925a7877, 0 },
-        { L"Street Fighter II' - Champion Edition (Japan 920308)", L"s92j_21a.6f", 0x925a7877, 0 },
+        { L"Street Fighter II' - Champion Edition (ROM 21)", L"s92_21a.6f", 0x925a7877, 0 },
+        { L"Street Fighter II' - Champion Edition (Japan 920308 ROM 21)", L"s92j_21a.6f", 0x925a7877, 0 },
 
         // 22 shifts consistently across revisions
-        { L"Street Fighter II' - Champion Edition (920313)", L"s92_22a.7f", 0x99f1cca4, -0xc },
-        { L"Street Fighter II' - Champion Edition (920513)", L"s92_22b.7f", 0x2bbe15ed, 0 },
-        { L"Street Fighter II' - Champion Edition (920803)", L"s92_22c.7f", 0x5fd8630b, 0x8 },
+        { L"Street Fighter II' - Champion Edition (920313 ROM 22)", L"s92_22a.7f", 0x99f1cca4, -0xc },
+        { L"Street Fighter II' - Champion Edition (920513 ROM 22)", L"s92_22b.7f", 0x2bbe15ed, 0 },
+        { L"Street Fighter II' - Champion Edition (920803 ROM 22)", L"s92_22c.7f", 0x5fd8630b, 0x8 },
 
         // these use two shifts, the second shift is for boxer and P2 colors at least
-        { L"Street Fighter II' - Champion Edition (Japan 920313)", k_SF2CE_JapanROMName_RevA, 0xc4f64bcd, 0x1BDE },
-        { L"Street Fighter II' - Champion Edition (Japan 920513)", k_SF2CE_JapanROMName_RevB, 0x2fbb3bfe, 0x1BF0 },
-        { L"Street Fighter II' - Champion Edition (Japan 920803)", k_SF2CE_JapanROMName_RevC, 0x8c0b2ed6, 0x1BF8 },
+        { L"Street Fighter II' - Champion Edition (Japan 920313 ROM 22)", k_SF2CE_JapanROMName_RevA, 0xc4f64bcd, 0x1BDE },
+        { L"Street Fighter II' - Champion Edition (Japan 920513 ROM 22)", k_SF2CE_JapanROMName_RevB, 0x2fbb3bfe, 0x1BF0 },
+        { L"Street Fighter II' - Champion Edition (Japan 920803 ROM 22)", k_SF2CE_JapanROMName_RevC, 0x8c0b2ed6, 0x1BF8 },
 
         // 23
-        { L"Street Fighter II' - Champion Edition (World 920313)", L"s92e_23b.8f", 0x0aaa1a3a, 0 }, // ce - core
-        { L"Street Fighter II' - Champion Edition (World 920513)", L"s92e_23a.8f", 0x3f846b74, 0 }, // ceea
+        { L"Street Fighter II' - Champion Edition (World 920313 ROM 23)", L"s92e_23b.8f", 0x0aaa1a3a, 0 }, // ce - core
+        { L"Street Fighter II' - Champion Edition (World 920513 ROM 23)", L"s92e_23a.8f", 0x3f846b74, 0 }, // ceea
 
-        { L"Street Fighter II' - Champion Edition (USA 920313)", L"s92u_23a.8f", 0xac44415b, 0 }, // ceua
-        { L"Street Fighter II' - Champion Edition (USA 920513)", L"s92u_23b.8f", 0x996a3015, 0 }, // ceub
-        { L"Street Fighter II' - Champion Edition (USA 920803)", L"s92u_23c.8f", 0x0a8b6aa2, 0 }, // ceuc
+        { L"Street Fighter II' - Champion Edition (USA 920313 ROM 23)", L"s92u_23a.8f", 0xac44415b, 0 }, // ceua
+        { L"Street Fighter II' - Champion Edition (USA 920513 ROM 23)", L"s92u_23b.8f", 0x996a3015, 0 }, // ceub
+        { L"Street Fighter II' - Champion Edition (USA 920803 ROM 23)", L"s92u_23c.8f", 0x0a8b6aa2, 0 }, // ceuc
 
-        { L"Street Fighter II' - Champion Edition (Taiwan 920313)", L"s92t_23a.8f", 0xd7c28ade, 0 }, // cet
-        { L"Street Fighter II' - Champion Edition (Japan 920322)", L"s92j_23a.8f", 0x4f42bb5a, 0xA14 }, // ceja
-        { L"Street Fighter II' - Champion Edition (Japan 920513)", L"s92j_23b.8f", 0x140876c5, 0xA14 }, // cejb
-        { L"Street Fighter II' - Champion Edition (Japan 920803)", L"s92j_23c.8f", 0xf0120635, 0xA14 }, // cejc
+        { L"Street Fighter II' - Champion Edition (Taiwan 920313 ROM 23)", L"s92t_23a.8f", 0xd7c28ade, 0 }, // cet
+        { L"Street Fighter II' - Champion Edition (Japan 920322 ROM 23)", L"s92j_23a.8f", 0x4f42bb5a, 0xA14 }, // ceja
+        { L"Street Fighter II' - Champion Edition (Japan 920513 ROM 23)", L"s92j_23b.8f", 0x140876c5, 0xA14 }, // cejb
+        { L"Street Fighter II' - Champion Edition (Japan 920803 ROM 23)", L"s92j_23c.8f", 0xf0120635, 0xA14 }, // cejc
 
 #ifdef MAME_INFO
         ROM_START(sf2ce)    // 13/05/1992 (c) 1992 (World)
