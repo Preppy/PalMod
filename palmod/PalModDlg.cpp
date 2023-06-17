@@ -342,9 +342,6 @@ BOOL CPalModDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
 
-    CRect rClient;
-    GetClientRect(&rClient);
-
     // Add "About..." menu item to system menu.
     CMenu* pSysMenu = GetSystemMenu(FALSE);
     if (pSysMenu != NULL)
@@ -365,6 +362,40 @@ BOOL CPalModDlg::OnInitDialog()
     //Init XP Style controls
     InitCommonControls();
 
+#ifdef WANT_TO_DISABLE_ROUND_CORNERS
+    // Note that the call to DWM should be wrapped in a system version check so
+    // we don't get the pointless "incorrect parameter" warning from dwmapi on
+    // older systems when run under the debugger
+#pragma warning(push)
+#pragma warning( disable : 4996 )
+
+    OSVERSIONINFO verInfo = {};
+    verInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    if (GetVersionEx(&verInfo) &&
+        (verInfo.dwMajorVersion >= 10) &&
+        (verInfo.dwBuildNumber >= 22000)) // This is the Win11 RTM build
+    {
+        // Use a compile-time option that allows us to be SDK version agnostic
+        __if_not_exists(DWM_WINDOW_CORNER_PREFERENCE)
+        {
+            int DWMWA_WINDOW_CORNER_PREFERENCE = 33;
+
+            typedef enum {
+                DWMWCP_DEFAULT = 0,
+                DWMWCP_DONOTROUND = 1,
+                DWMWCP_ROUND = 2,
+                DWMWCP_ROUNDSMALL = 3
+            } DWM_WINDOW_CORNER_PREFERENCE;
+        }
+
+        // Stop the DWM corner clipping
+        DWM_WINDOW_CORNER_PREFERENCE preference = DWMWCP_DONOTROUND;
+        DwmSetWindowAttribute(GetSafeHwnd(), DWMWA_WINDOW_CORNER_PREFERENCE, &preference, sizeof(preference));
+    }
+#pragma warning( pop )
+#endif
+
     //Init Ole
     if (!AfxOleInit())
     {
@@ -376,9 +407,13 @@ BOOL CPalModDlg::OnInitDialog()
     m_StatusBar.Create(this);
 
     m_StatusBar.SetIndicators(indicators, 2);
-    m_StatusBar.SetPaneInfo(0, ID_INDICATOR_MAIN, 0, rClient.Width() - 55);
 
-    m_StatusBar.SetPaneInfo(1, ID_INDICATOR_EXTRA, 0, 55);
+    CRect rClient;
+    GetClientRect(&rClient);
+
+    const uint32_t c_nRightBuffer = static_cast<uint32_t>(floor(80 * GetDpiForScreen() / 96.0));
+    m_StatusBar.SetPaneInfo(0, ID_INDICATOR_MAIN, 0, rClient.Width() - c_nRightBuffer);
+    m_StatusBar.SetPaneInfo(1, ID_INDICATOR_EXTRA, 0, c_nRightBuffer);
 
     RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, ID_INDICATOR_MAIN);
 

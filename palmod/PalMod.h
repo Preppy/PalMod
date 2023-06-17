@@ -36,6 +36,8 @@ const uint16_t PAL_MAXAMT_16COLORSPERLINE = MAXAMT_ColorsPerPaletteTable;
 // arguably could be moved to a helper file
 void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL);
 
+int GetDpiForScreen();
+
 class CPalModApp : public CWinApp
 {
 private:
