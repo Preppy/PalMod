@@ -414,6 +414,7 @@ public:
 
     // Generic palette data files
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromBMP(LPCWSTR pszFileName);
     bool LoadPaletteFromGIF(LPCWSTR pszFileName);
     bool LoadPaletteFromGPL(LPCWSTR pszFileName);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);

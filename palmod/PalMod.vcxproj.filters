@@ -948,6 +948,9 @@
     <ClCompile Include="GIFfiles.cpp">
       <Filter>Palette file storage</Filter>
     </ClCompile>
+    <ClCompile Include="BMPfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

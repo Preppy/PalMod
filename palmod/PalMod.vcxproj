@@ -225,6 +225,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ACTfiles.cpp" />
+    <ClCompile Include="BMPfiles.cpp" />
     <ClCompile Include="CFPLfiles.cpp" />
     <ClCompile Include="ColorSystem.cpp" />
     <ClCompile Include="CRC32.cpp" />
