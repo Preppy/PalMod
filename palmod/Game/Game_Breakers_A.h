@@ -35,7 +35,7 @@ private:
         BREAKERS_A_UNITS,
         ARRAYSIZE(BREAKERS_A_UNITS),
         L"BreakersRevE.txt",            // Extra filename
-        414,                            // Count of palettes listed in the header
+        415,                            // Count of palettes listed in the header
         0x135e2a,                       // Lowest known location used for palettes
     };
 
@@ -79,7 +79,7 @@ private:
         BREAKERS_A_UNITS,
         ARRAYSIZE(BREAKERS_A_UNITS),
         L"BreakersRevE.txt",            // Extra filename
-        414,                            // Count of palettes listed in the header
+        415,                            // Count of palettes listed in the header
         0x135e2a,                       // Lowest known location used for palettes
     };
 

@@ -130,6 +130,7 @@ const sGame_PaletteDataset BREAKERS_A_LIU_PALETTES[] =
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_SHARED[] =
 {
+    { L"Dao Fireball 2", 0x13ee3a, 0x13ee5a },
     { L"Dao Super Fireball Charge", 0x13ee1a, 0x13ee3a },
     { L"Dao Super Fireball", 0x13f17a, 0x13f19a },
 
