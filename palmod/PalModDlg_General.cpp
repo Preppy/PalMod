@@ -48,7 +48,7 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
         //Add each unit in the sorted fashion indicated by rgUnitRedir
         for (const uint32_t& nRedirIndex : CurrGame->m_rgUnitRedir)
         {
-            m_CBUnitSel.AddString(((sDescTreeNode*)UnitTree->ChildNodes)[nRedirIndex].szDesc);
+            m_CBUnitSel.AddString(reinterpret_cast<sDescTreeNode*>(UnitTree->ChildNodes)[nRedirIndex].szDesc);
         }
 
         //Since we just updated, set to 0
@@ -73,7 +73,7 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 
         for (uint32_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
         {
-            m_CBChildSel1.AddString(((sDescTreeNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
+            m_CBChildSel1.AddString(reinterpret_cast<sDescTreeNode*>(ChildTree->ChildNodes)[nDescCtr].szDesc);
         }
 
         //Set to 0 since update
@@ -100,7 +100,7 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 
         for (uint32_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
         {
-            m_CBChildSel2.AddString(((sDescNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
+            m_CBChildSel2.AddString(reinterpret_cast<sDescNode*>(ChildTree->ChildNodes)[nDescCtr].szDesc);
         }
 
         //Set to 0 since update
@@ -150,7 +150,7 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 
     sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), -1);
     sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
-    sDescNode PaletteNode = ((sDescNode *)(ButtonTree->ChildNodes))[nCurrChildSel2];
+    sDescNode PaletteNode = (reinterpret_cast<sDescNode*>(ButtonTree->ChildNodes))[nCurrChildSel2];
 
     m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
     m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);
@@ -337,10 +337,31 @@ void CPalModDlg::OnPalSelChange(UINT_PTR nCtrlId)
     UpdateSliderSel();
 }
 
+void CPalModDlg::_UpdateStatusBarWidthIfNeeded(uint32_t nPaneTwoWidth)
+{
+    static uint32_t s_nLastKnownWidth = 0;
+
+    if (nPaneTwoWidth != s_nLastKnownWidth)
+    {
+        CRect rClient;
+        GetClientRect(&rClient);
+
+        const uint32_t c_nRightBuffer = static_cast<uint32_t>(floor(nPaneTwoWidth * GetDpiForScreen() / 96.0));
+        m_StatusBar.SetPaneInfo(0, ID_INDICATOR_MAIN, 0, rClient.Width() - c_nRightBuffer);
+        m_StatusBar.SetPaneInfo(1, ID_INDICATOR_EXTRA, 0, c_nRightBuffer);
+
+        RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, ID_INDICATOR_MAIN);
+    }
+
+    s_nLastKnownWidth = nPaneTwoWidth;
+}
+
 void CPalModDlg::OnPalHLChange(void* pPalCtrl, UINT_PTR nCtrlId)
 {
-    CJunk* pNotifyCtrl = (CJunk*)pPalCtrl;
+    CJunk* pNotifyCtrl = reinterpret_cast<CJunk*>(pPalCtrl);
     int nHLAmt = pNotifyCtrl->GetHLAmt();
+
+    _UpdateStatusBarWidthIfNeeded(55);
 
     if (!nHLAmt)
     {
@@ -348,11 +369,10 @@ void CPalModDlg::OnPalHLChange(void* pPalCtrl, UINT_PTR nCtrlId)
     }
     else if (nHLAmt == 1)
     {
-        wchar_t szIndex[32];
-        // this is the status bar area text
-        _snwprintf_s(szIndex, ARRAYSIZE(szIndex), _TRUNCATE, L"(%d: %d)", (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
+        CString strMsg;
+        strMsg.Format(L"(%d: %d)", static_cast<int>(nCtrlId), pNotifyCtrl->GetHighlightIndex());
 
-        m_StatusBar.SetPaneText(1, szIndex);
+        m_StatusBar.SetPaneText(1, strMsg);
     }
     else
     {

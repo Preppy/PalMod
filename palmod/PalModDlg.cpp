@@ -407,15 +407,7 @@ BOOL CPalModDlg::OnInitDialog()
     m_StatusBar.Create(this);
 
     m_StatusBar.SetIndicators(indicators, 2);
-
-    CRect rClient;
-    GetClientRect(&rClient);
-
-    const uint32_t c_nRightBuffer = static_cast<uint32_t>(floor(80 * GetDpiForScreen() / 96.0));
-    m_StatusBar.SetPaneInfo(0, ID_INDICATOR_MAIN, 0, rClient.Width() - c_nRightBuffer);
-    m_StatusBar.SetPaneInfo(1, ID_INDICATOR_EXTRA, 0, c_nRightBuffer);
-
-    RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, ID_INDICATOR_MAIN);
+    _UpdateStatusBarWidthIfNeeded(80);
 
     CString strMsg;
     if (strMsg.LoadStringW(IDS_WELCOME_BACKUP))
