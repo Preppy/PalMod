@@ -180,7 +180,7 @@ public:
     BOOL SetLoadedPathOrFile(LPCWSTR pszNewPathOrFile);
 
     AlphaMode GetAlphaMode() { return ColorSystem::GetAlphaMode(); };
-    virtual void SetAlphaMode(AlphaMode NewMode) { ColorSystem::SetAlphaMode(NewMode); };
+    virtual void SetAlphaMode(AlphaMode NewMode);
 
     virtual BlendMode GetGameSpecificBlendMode() { return BlendMode::Default; };
 

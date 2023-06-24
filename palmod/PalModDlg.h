@@ -413,6 +413,8 @@ public:
     afx_msg void OnBnClickedReverse();
     afx_msg void OnEditPaste();
 
+    void SetSliderDescForAlpha(bool fUseAlphaNotSTB);
+
     // Generic palette data files
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromBMP(LPCWSTR pszFileName);

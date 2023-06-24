@@ -58,6 +58,13 @@ void CGameClass::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, i
     BasePalGroup.AddColorStepsToColorValue(crSrc, crTarget, uStepsR, uStepsG, uStepsB, uStepsA);
 }
 
+void CGameClass::SetAlphaMode(AlphaMode NewMode)
+{
+    ColorSystem::SetAlphaMode(NewMode); 
+
+    GetHost()->GetPalModDlg()->SetSliderDescForAlpha(NewMode != AlphaMode::GameUsesSTPNotAlpha);
+}
+
 void CGameClass::ClearSrcPal()
 {
     //Values used for image out

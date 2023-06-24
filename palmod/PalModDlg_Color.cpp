@@ -315,7 +315,7 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     int* editControl = &m_Edit_RH;
     double nMul = 0.0;
     int nSliderId = pScrollBar->GetDlgCtrlID();
-    CSliderCtrl* SrcScroll = (CSliderCtrl*)pScrollBar;
+    CSliderCtrl* SrcScroll = dynamic_cast<CSliderCtrl*>(pScrollBar);
 
     switch (nSliderId)
     {
@@ -407,9 +407,9 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
             UpdateData();
             if (fShowAsRGB) //HLStoRGB
             {
-                dH = ((double)(m_Edit_RH) / 360.0f);
-                dS = ((double)(m_Edit_GS) / 255.0f);
-                dL = ((double)(m_Edit_BL) / 100.0f);
+                dH = (static_cast<double>(m_Edit_RH) / 360.0f);
+                dS = (static_cast<double>(m_Edit_GS) / 255.0f);
+                dL = (static_cast<double>(m_Edit_BL) / 100.0f);
 
                 COLORREF crRGBVal = HLStoRGB(dH, dL, dS);
 
@@ -443,9 +443,9 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
 
                 RGBtoHLS(crRGBVal, &dH, &dL, &dS);
 
-                m_Edit_RH = (int)round((dH * 360.0f));
-                m_Edit_GS = (int)round((dS * 255.0f));
-                m_Edit_BL = (int)round((dL * 100.0f));
+                m_Edit_RH = static_cast<int>(round((dH * 360.0f)));
+                m_Edit_GS = static_cast<int>(round((dS * 255.0f)));
+                m_Edit_BL = static_cast<int>(round((dL * 100.0f)));
             }
 
             UpdateData(FALSE);
@@ -670,9 +670,9 @@ void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
 
         RGBtoHLS(RGB(nRH, nGS, nBL), &dH, &dL, &dS);
 
-        nRH = (int)(dH * 360.0f);
-        nGS = (int)(dS * 255.0f);
-        nBL = (int)(dL * 100.0f);
+        nRH = static_cast<int>(dH * 360.0f);
+        nGS = static_cast<int>(dS * 255.0f);
+        nBL = static_cast<int>(dL * 100.0f);
 
         if (!m_fForceShowAs32bitColor)
         {
@@ -714,9 +714,9 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
             else
             {
                 MainPalGroup->SetHLSA(crTarget,
-                    (double)m_RHSlider.GetPos() / 360.0f,
-                    (double)m_BLSlider.GetPos() / 100.0f,
-                    (double)m_GSSlider.GetPos() / 255.0f,
+                    static_cast<double>(m_RHSlider.GetPos()) / 360.0f,
+                    static_cast<double>(m_BLSlider.GetPos()) / 100.0f,
+                    static_cast<double>(m_GSSlider.GetPos()) / 255.0f,
                     GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                 );
             }
@@ -766,9 +766,9 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
                     if (uSelBuffer[nICtr] || (m_nPalSelAmt == 0))
                     {
                         MainPalGroup->SetAddHLSA(crBasePal[nICtr], &crTarget[nICtr],
-                            (double)m_RHSlider.GetPos() / 360.0f,
-                            (double)m_BLSlider.GetPos() / 100.0f,
-                            (double)m_GSSlider.GetPos() / 255.0f,
+                            static_cast<double>(m_RHSlider.GetPos()) / 360.0f,
+                            static_cast<double>(m_BLSlider.GetPos()) / 100.0f,
+                            static_cast<double>(m_GSSlider.GetPos()) / 255.0f,
                             GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                         );
 
@@ -825,9 +825,9 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
                     if (uSelBuffer[nICtr])
                     {
                         MainPalGroup->SetHLSA(&crTarget[nICtr],
-                            (double)m_RHSlider.GetPos() / 360.0f,
-                            (double)m_BLSlider.GetPos() / 100.0f,
-                            (double)m_GSSlider.GetPos() / 255.0f,
+                            static_cast<double>(m_RHSlider.GetPos()) / 360.0f,
+                            static_cast<double>(m_BLSlider.GetPos()) / 100.0f,
+                            static_cast<double>(m_GSSlider.GetPos()) / 255.0f,
                             GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                         );
 
@@ -864,6 +864,22 @@ void CPalModDlg::UpdateMultiEdit(BOOL fForce)
 
         m_fCopyFromBase = FALSE;
     }
+}
+
+void CPalModDlg::SetSliderDescForAlpha(bool fUseAlphaNotSTB)
+{
+    UpdateData();
+
+    if (fUseAlphaNotSTB)
+    {
+        m_EditADesc = L"A";
+    }
+    else
+    {
+        m_EditADesc = L"S";
+    }
+
+    UpdateData(FALSE);
 }
 
 void CPalModDlg::SetSliderDescEdit()
@@ -921,9 +937,9 @@ void CPalModDlg::OnBnNewCol()
         {
             double dH, dS, dL;
 
-            dH = ((double)(m_Edit_RH) / 360.0f);
-            dS = ((double)(m_Edit_GS) / 255.0f);
-            dL = ((double)(m_Edit_BL) / 100.0f);
+            dH = (static_cast<double>(m_Edit_RH) / 360.0f);
+            dS = (static_cast<double>(m_Edit_GS) / 255.0f);
+            dL = (static_cast<double>(m_Edit_BL) / 100.0f);
 
             ColorDlg = new CColorDialog(HLStoRGB(dH, dL, dS), colorFlags);
         }
@@ -966,7 +982,7 @@ void CPalModDlg::OnBnNewCol()
             {
                 if (rgSel[iPos])
                 {
-                    pPal[iPos] = (crNewCol | ((COLORREF)0xFF << 24));
+                    pPal[iPos] = (crNewCol | (0x000000FF << 24));
                 }
 
                 CurrPalCtrl->UpdateIndex(iPos);
@@ -1164,7 +1180,7 @@ void CPalModDlg::RefreshSecondaryPalettesForPaletteChange()
 
                 // "Revert Changes" is refreshing from source.  That source was directly updated
                 // via the PostSetPal changes, so this will update the visuals to match the new source.
-                GetHost()->GetCurrGame()->RevertChanges((int)m_nCurrSelPal);
+                GetHost()->GetCurrGame()->RevertChanges(static_cast<int>(m_nCurrSelPal));
 
                 m_PalHost.GetPalCtrl(m_nCurrSelPal)->UpdateIndexAll();
 
