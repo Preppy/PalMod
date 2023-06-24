@@ -15,6 +15,7 @@ enum class AlphaMode
     Unknown,
     GameUsesVariableAlpha,  // Modifiable, as in the case of MvC2.
     GameUsesChaoticAlpha,   // Yes, this is odd.  ST-GBA appears to not have alpha consistently set.
+    GameUsesSTPNotAlpha,    // PS1-specific: Semi-Transparent Pixel
 };
 
 enum class ColMode
@@ -169,6 +170,8 @@ namespace ColorSystem
 
     AlphaMode GetAlphaMode();
     void SetAlphaMode(AlphaMode NewMode);
+    inline bool IsAlphaModeMutable(AlphaMode am) { return (am == AlphaMode::GameUsesVariableAlpha); };
+    uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal);
 
     bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode);
 

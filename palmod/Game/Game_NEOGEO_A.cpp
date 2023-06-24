@@ -55,7 +55,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded
 
     m_pszExtraFilename = m_pszExtraNameOverride;
     m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
-    m_nExtraUnit = (uint16_t)m_nTotalInternalUnits;
+    m_nExtraUnit = static_cast<uint16_t>(m_nTotalInternalUnits);
 
     m_nSafeCountForThisRom = GetExtraCountForUnit(m_nExtraUnit) + 1;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
@@ -163,7 +163,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     // Update this check once you've decided whether to expose the new color or not.
-    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+    static_assert(static_cast<ColMode>(28) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
 
     switch (NewMode)
     {

@@ -126,7 +126,7 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
 #pragma warning( push )
 #pragma warning( disable : 26454 ) // bug in Microsoft headers
 
-static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
+static_assert(static_cast<ColMode>(28) == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
 
 // CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)

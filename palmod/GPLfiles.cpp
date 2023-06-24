@@ -129,7 +129,7 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                 uint16_t nTotalColorsUsed = 0;
                 bool fHaveLooped = false;
                 uint16_t iCurrentIndexInPalette = 1; // skip transparency color
-                uint8_t* pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
 
                 bool fHaveMultiplePalettes = (nTotalPaletteCount != 1);
                 bool* rgfGPLHasColorsForThisPalette = new bool[nTotalPaletteCount];
@@ -183,7 +183,7 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                             if (rgfGPLHasColorsForThisPalette[nCurrentPalette])
                             {
                                 iCurrentIndexInPalette = 1;
-                                pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
                             }
                             else
                             {
@@ -233,7 +233,7 @@ void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
     if (GPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite))
     {
         char szBuffer[MAX_PATH];
-        uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
+        uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
         int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
         int nColumnCount = nWorkingAmt; // This tracks the numbers of colors listed in the file
         uint8_t nDesiredPalettePageCount = 0;

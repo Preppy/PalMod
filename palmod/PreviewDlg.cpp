@@ -62,6 +62,8 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_BLENDDEFAULT, &CPreviewDlg::SetBlendToDefault)
     ON_COMMAND(ID_SETTINGS_BLENDALPHA, &CPreviewDlg::SetBlendToAlpha)
     ON_COMMAND(ID_SETTINGS_BLENDADD, &CPreviewDlg::SetBlendToAdd)
+    ON_COMMAND(ID_SETTINGS_BLENDPS1STON, &CPreviewDlg::SetBlendToPS1STOn)
+    ON_COMMAND(ID_SETTINGS_BLENDPS1STOFF, &CPreviewDlg::SetBlendToPS1STOff)
 
     ON_COMMAND(ID_SETTINGS_TILEIMAGEBACKGROUND, &CPreviewDlg::OnTileBackground)
     ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBackgroundOffset)
@@ -458,16 +460,18 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
 
-        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDDEFAULT, (m_ImgDisp.GetForcedBlendMode() == BlendMode::Default) ? MF_CHECKED : MF_UNCHECKED);
-        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDALPHA,   (m_ImgDisp.GetForcedBlendMode() == BlendMode::Alpha) ? MF_CHECKED : MF_UNCHECKED);
-        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDADD,     (m_ImgDisp.GetForcedBlendMode() == BlendMode::AdditiveARGB) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDDEFAULT,  (m_ImgDisp.GetForcedBlendMode() == BlendMode::Default) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDALPHA,    (m_ImgDisp.GetForcedBlendMode() == BlendMode::Alpha) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDADD,      (m_ImgDisp.GetForcedBlendMode() == BlendMode::AdditiveARGB) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDPS1STON,  (m_ImgDisp.GetForcedBlendMode() == BlendMode::PS1SemiTransparencyOn) ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDPS1STOFF, (m_ImgDisp.GetForcedBlendMode() == BlendMode::PS1SemiTransparencyOff) ? MF_CHECKED : MF_UNCHECKED);
     }
 
     CMenu* pZoomMenu = GetMenu()->GetSubMenu(2); //2 = Zoom menu
 
     if (pZoomMenu == pPopupMenu)
     {
-        double fpCurrZoom = m_ImgDisp.GetZoom();
+        const double fpCurrZoom = m_ImgDisp.GetZoom();
         pZoomMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | ((fpCurrZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED));
         pZoomMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | ((fpCurrZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED));
         pZoomMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | ((fpCurrZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED));

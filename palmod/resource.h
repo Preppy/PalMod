@@ -382,13 +382,16 @@
 #define ID_LD_P4AU_FIGHTCLUB            32949
 #define ID_LD_CVS2DCUSA                 32950
 #define ID_LD_CVS2PS2USA                32951
+#define ID_ALPHASETTING_STP             32952
+#define ID_SETTINGS_BLENDPS1STON        32953
+#define ID_SETTINGS_BLENDPS1STOFF       32954
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32952
+#define _APS_NEXT_COMMAND_VALUE         32955
 #define _APS_NEXT_CONTROL_VALUE         1102
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

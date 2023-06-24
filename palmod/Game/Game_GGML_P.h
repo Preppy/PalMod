@@ -15,14 +15,12 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         // PS1 alpha value is a transparency bit, with valid settings being 0 / 1.
         // That affects how the colors are blended during special transparency effects.
-        // Uniquely it also breaks support for full (0,0,0) black without STP set.
-        // Adding support for STB within PalMod would require rejiggering all usage of PalGroup to 
-        // handle translating our RBGA storage to RGB(STB) for display, so I'm punting on that.
-        AlphaMode::GameUsesChaoticAlpha,
+        AlphaMode::GameUsesSTPNotAlpha,
         ColMode::COLMODE_BGR555_LE,
         GGML_P_CharacterData,
         PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet,
         0x20, // Core Palette Sizes, we want 16 colours instead of the full table
+        BlendMode::PS1SemiTransparencyOff,
     };
 
 public:

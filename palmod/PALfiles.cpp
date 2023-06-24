@@ -156,7 +156,7 @@ void CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericE
             memset(&mmckInfoData, 0, sizeof(mmckInfoData));
 
             // Write out the current palette
-            uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
+            uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
             int nColorCount = CurrPalCtrl->GetWorkingAmt();
 
             mmckInfoData.ckid = mmioFOURCC('d', 'a', 't', 'a');

@@ -79,6 +79,8 @@ public:
     afx_msg void SetBlendToDefault() { m_ImgDisp.SetForcedBlendMode(BlendMode::Default); m_ImgDisp.UpdateCtrl(); };
     afx_msg void SetBlendToAlpha()   { m_ImgDisp.SetForcedBlendMode(BlendMode::Alpha); m_ImgDisp.UpdateCtrl(); };
     afx_msg void SetBlendToAdd()     { m_ImgDisp.SetForcedBlendMode(BlendMode::AdditiveARGB); m_ImgDisp.UpdateCtrl(); };
+    afx_msg void SetBlendToPS1STOn() { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOn); m_ImgDisp.UpdateCtrl(); };
+    afx_msg void SetBlendToPS1STOff() { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOff); m_ImgDisp.UpdateCtrl(); };
 
     void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath);
 };

@@ -76,6 +76,7 @@ public:
             // all nodes together represent the set of palettes.  if there are effects, they go in each node
         const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet;
         const int cbDefaultPaletteSize = 0x400;
+        const BlendMode defaultBlendMode = BlendMode::Alpha;
     };
 
     static std::wstring m_strGameFriendlyName;
@@ -124,6 +125,8 @@ public:
     bool CreateImageIfPaired(ImagePairing pairingType, int Node01, int Node02, int Node03, int Node04, uint32_t nFileUnitId, uint32_t nPalIdInNode, const stPairedPaletteInfo *pPalettePairingInfo);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+
+    BlendMode GetGameSpecificBlendMode() override { return m_psCurrentGameLoadingData->defaultBlendMode; };
 
     static sFileRule GetNextRule(const std::vector<sGCBUPF_BasicFileData>& gameLoadingData);
     static sFileRule GetRule(uint32_t nRuleId, const std::vector<sGCBUPF_BasicFileData>& gameLoadingData);

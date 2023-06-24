@@ -35,7 +35,7 @@ private:
 
     int GetPaletteSquareSize();
 
-    void CustomFillRect(RECT* lpRect, uint8_t* crSrcCol);
+    void CustomFillRect(RECT* lpRect, uint8_t* crSrcCol, BlendMode bm);
     //Input management
 
     BOOL ProcessHovered(CPoint hPoint, CPoint& auxPos);

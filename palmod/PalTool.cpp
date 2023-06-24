@@ -245,7 +245,7 @@ void CPalTool::EndSetPal()
                     if (nPalettesThisPage == 0)
                     {
                         // m_rgPalRedir indicates the first palette to show for any given page: set the indicator for the first palette every page
-                        m_rgPalRedir[nCurrentPage] = (uint8_t)iCurrentPalette;
+                        m_rgPalRedir[nCurrentPage] = static_cast<uint8_t>(iCurrentPalette);
                     }
 
                     nPalettesThisPage = 0;
@@ -255,7 +255,7 @@ void CPalTool::EndSetPal()
                         // Ensure that a final palette has a page to show upon, as without this that final palette
                         // will not be associated in m_rgPalRedir
                         nCurrentPage++;
-                        m_rgPalRedir[nCurrentPage] = (uint8_t)(iCurrentPalette + 1);
+                        m_rgPalRedir[nCurrentPage] = static_cast<uint8_t>(iCurrentPalette + 1);
                     }
                 }
 

@@ -109,7 +109,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
                     {
                         // It's a file: is it a file type we know about?
-                        // act, gif, pal, png, raw
+                        // act, bmp, gif, pal, png, raw
                         // 3S: txt.dat: not supported for drag and drop
                         // BBCF: cfpl, hpal, some IMPLs
                         LPCWSTR pszExtension = wcsrchr(szPath, L'.');
@@ -257,7 +257,7 @@ void CPalModDlg::OnEditCopy()
         // We use a wchar_t as a uint8_t value to store the size.  This is compatible with all versions of palmod.
         // For the new large palette support, this would overflow, so we're just going to set it to 0.
         // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
-        uint8_t uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (uint8_t)nPaletteSelectionLength : k_nASCIICharacterOffset;
+        uint8_t uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? static_cast<uint8_t>(nPaletteSelectionLength) : k_nASCIICharacterOffset;
 
         bool fCopyAll = (CurrPal->GetSelAmt() == 0);
         bool fHitError = false;
@@ -333,7 +333,7 @@ void CPalModDlg::OnEditCopy()
                 // OK, this overflows the 127 character ascii table we use.
                 // But since we've made copyflag2 obsolete, let's just hijack that and stuff the color mode there.
                 uCopyFlag1 = k_nEncodedColorStringOverflowIndicator;
-                uCopyFlag2 = min(k_nASCIIMaxValue, (uint8_t)CurrGame->GetColorMode() + k_nASCIICharacterOffset);
+                uCopyFlag2 = min(k_nASCIIMaxValue, static_cast<uint8_t>(CurrGame->GetColorMode()) + k_nASCIICharacterOffset);
                 cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
                 break;
             }
@@ -374,7 +374,7 @@ void CPalModDlg::OnEditCopy()
                     FormatTxt.Format("%04X", uCurrData);
 
                     //Only changed:
-                    //FormatTxt.Format("%04X", (uint16_t)((uCurrData << 8) | (uCurrData >> 8) & (uint16_t)0xFF0F));
+                    //FormatTxt.Format("%04X", static_cast<uint16_t>((uCurrData << 8) | (uCurrData >> 8) & static_cast<uint16_t>(0xFF0F)));
                     break;
                 }
                 case 3:
@@ -619,12 +619,12 @@ BOOL CPalModDlg::IsPasteFromPalMod()
 
             if (cbColorSize != 0)
             {
-                nPaletteCount = (uint16_t)((strlen(szTempStr) - 3) / (cbColorSize * 2));
+                nPaletteCount = static_cast<uint16_t>((strlen(szTempStr) - 3) / (cbColorSize * 2));
             }
 
             if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
             {
-                uint16_t nTerminalLocation = (uint16_t)min(strlen(szTempStr), (uint32_t)(nPaletteCount * (cbColorSize * 2)) + 3);
+                uint16_t nTerminalLocation = static_cast<uint16_t>(min(strlen(szTempStr), static_cast<uint32_t>(nPaletteCount * (cbColorSize * 2)) + 3));
                 
                 if (szTempStr[nTerminalLocation] == ')')
                 {
@@ -633,9 +633,9 @@ BOOL CPalModDlg::IsPasteFromPalMod()
                 else
                 {
                     // So we're in "technically wrong" space here, but maybe it's workable...
-                    nPaletteCount = (uint16_t)((strlen(szTempStr) - 3) / (cbColorSize * 2));
+                    nPaletteCount = static_cast<uint16_t>((strlen(szTempStr) - 3) / (cbColorSize * 2));
 
-                    nTerminalLocation = (uint16_t)min(strlen(szTempStr), (uint32_t)(nPaletteCount * (cbColorSize * 2)) + 3);
+                    nTerminalLocation = static_cast<uint16_t>(min(strlen(szTempStr), static_cast<uint32_t>(nPaletteCount * (cbColorSize * 2)) + 3));
 
                     if (szTempStr[nTerminalLocation] == ')')
                     {
@@ -731,7 +731,7 @@ void CPalModDlg::HandlePasteFromPalMod()
     const uint8_t cbColor = ColorSystem::GetCbForColorForGameFlag(uPasteGFlag1, uPasteGFlag2);
 
     // We want the number of colors per paste minus the () and game flag
-    const uint16_t uPasteAmt = (uint16_t)((strlen(szPasteBuff) - 3) / (cbColor * 2));
+    const uint16_t uPasteAmt = static_cast<uint16_t>((strlen(szPasteBuff) - 3) / (cbColor * 2));
 
     if (uPasteAmt)
     {
@@ -937,9 +937,9 @@ void CPalModDlg::HandlePasteFromPalMod()
             {
                 memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * iPasteIndex)], sizeof(uint8_t) * 4);
 
-                rgPasteCol[iPasteIndex] = CurrGame->ConvPal16((uint16_t)strtoul(szFormatStr16, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(static_cast<uint16_t>(strtoul(szFormatStr16, NULL, 16)));
 
-                if (((uint8_t*)rgPasteCol)[(iPasteIndex * 4) + 3] != 0)
+                if (reinterpret_cast<uint8_t*>(rgPasteCol)[(iPasteIndex * 4) + 3] != 0)
                 {
                     fAnyValueHasAlpha = true;
                     break;
@@ -950,15 +950,17 @@ void CPalModDlg::HandlePasteFromPalMod()
             {
                 memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * iPasteIndex)], sizeof(uint8_t) * 4);
 
-                rgPasteCol[iPasteIndex] = CurrGame->ConvPal16((uint16_t)strtoul(szFormatStr16, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(static_cast<uint16_t>(strtoul(szFormatStr16, NULL, 16)));
 
                 // Allow Alpha only if both:
                 //      the current game accepts it, and
+                //      the current game is using that channel for Alpha, not PS1 Semi-Transparency, and
                 //      the incoming data has been proven to know about alpha
-                if (!CurrGame->AllowTransparency() || !fAnyValueHasAlpha)
+                if ((!CurrGame->AllowTransparency() || !fAnyValueHasAlpha) &&
+                    (CurrGame->GetAlphaMode() != AlphaMode::GameUsesSTPNotAlpha))
                 {
                     // this game doesn't use/want alpha, but we need alpha to display properly
-                    ((uint8_t*)rgPasteCol)[(iPasteIndex * 4) + 3] |= 0xFF;
+                    reinterpret_cast<uint8_t*>(rgPasteCol)[(iPasteIndex * 4) + 3] |= 0xFF;
                 }
             }
 
@@ -984,7 +986,7 @@ void CPalModDlg::HandlePasteFromPalMod()
             {
                 memcpy(&szFormatStr24[2], &szPasteBuff[3 + (6 * iPasteIndex)], sizeof(uint8_t) * 6);
 
-                rgPasteCol[iPasteIndex] = CurrGame->ConvPal24((uint32_t)strtoul(szFormatStr24, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal24(static_cast<uint32_t>(strtoul(szFormatStr24, NULL, 16)));
             }
 
             if (eCurrColMode != eColModeForPastedColor)
@@ -1009,7 +1011,7 @@ void CPalModDlg::HandlePasteFromPalMod()
             {
                 memcpy(&szFormatStr32[2], &szPasteBuff[3 + (8 * iPasteIndex)], sizeof(uint8_t) * 8);
 
-                rgPasteCol[iPasteIndex] = CurrGame->ConvPal32((uint32_t)strtoul(szFormatStr32, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(static_cast<uint32_t>(strtoul(szFormatStr32, NULL, 16)));
             }
 
             if (eCurrColMode != eColModeForPastedColor)

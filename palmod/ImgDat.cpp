@@ -116,7 +116,7 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
         OutputDebugString(strDebugInfo);
 #endif
 
-        imgMapIter it = nImgMap->find((uint16_t)uUnitId);
+        imgMapIter it = nImgMap->find(static_cast<uint16_t>(uUnitId));
         if (it != nImgMap->cend())
         {
             // it->second->listAllImgIDs();
@@ -313,7 +313,7 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         }
         else if (nFileSize < nExpectedFileSize) // it's only a significant problem if the file is smaller, which should happen very rarely as a result of partial downloads
         {
-            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", (uint32_t)nExpectedFileSize, (uint32_t)nFileSize);
+            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", static_cast<uint32_t>(nExpectedFileSize), static_cast<uint32_t>(nFileSize));
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
         }
         else if (nExpectedDatestamp != nCurrentDatestamp)
@@ -325,7 +325,7 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
             }
             else
             {
-                strMsg.Format(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat .  File size is %u bytes.\n", (uint32_t)nFileSize);
+                strMsg.Format(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat .  File size is %u bytes.\n", static_cast<uint32_t>(nFileSize));
                 OutputDebugString(strMsg);
             }
         }
@@ -381,7 +381,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
 
     ImgDatFile.Read(&uNumGames, 0x01);
 
-    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, (uint32_t)ImgDatFile.GetLength());
+    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, static_cast<uint32_t>(ImgDatFile.GetLength()));
     OutputDebugString(strDebugInfo);
 
     if (uNumGames)
@@ -675,7 +675,7 @@ uint8_t* CImgDat::DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t ui
                     uGetAmt = zero_get_amt - uZeroPos;
                 }
 
-                zero_data |= (((uint16_t)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> (8 - uGetAmt))) << (uZeroPos));
+                zero_data |= ((static_cast<uint16_t>(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> (8 - uGetAmt))) << (uZeroPos));
 
                 uZeroPos += uGetAmt;
                 bit_ctr += uGetAmt;

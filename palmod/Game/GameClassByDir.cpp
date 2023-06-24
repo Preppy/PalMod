@@ -71,7 +71,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     // Must set alpha mode after setting color mode, as color mode can have a preferred alpha mode
     SetAlphaMode(gameLoadingData.eAlphaMode);
 
-    if (gameLoadingData.eAlphaMode == AlphaMode::GameUsesVariableAlpha)
+    if (ColorSystem::IsAlphaModeMutable(gameLoadingData.eAlphaMode))
     {
         m_fGameUsesAlphaValue = true;
     }
@@ -1134,7 +1134,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 rgFileHandles.at(iHandle1)->Read(&low2, sizeof(low2));
                                 rgFileHandles.at(iHandle2)->Read(&high2, sizeof(high2));
 
-                                uint32_t nColorValue = (high2 << 24) | (low2 << 16) | (high1 << 8) | low1;
+                                const uint32_t nColorValue = (high2 << 24) | (low2 << 16) | (high1 << 8) | low1;
 
                                 m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsRead] = nColorValue;
                             }

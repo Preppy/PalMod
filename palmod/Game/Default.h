@@ -24,8 +24,13 @@ enum class PALWriteOutputOptions
 
 enum class BlendMode
 {
-    Default,        // unset: allows us to differentiate betwee user-forced and desired-by-palette
+    Default,        // unset: allows us to differentiate between user-forced and desired-by-palette
     Alpha,
     AdditiveRGB,    // Linear dodge
     AdditiveARGB,
+    // There are two display states for Playstation 1 systems.  The color data is being stored as TRGB, where "T" is semi-transparency.
+    // The game will run with either Semi-Transparent Mode on or off, and the pixel will be colorized according to the combination of 
+    // the T and STM settings.
+    PS1SemiTransparencyOff,
+    PS1SemiTransparencyOn,
 };

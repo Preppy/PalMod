@@ -5,7 +5,7 @@
 
 double LimitHLS(double a) { return ((a > 1.0) ? 1.0 : ((a < 0.0) ? 0.0 : a)); };
 double SubHLS(double a) { while (a >= 1.0) { a -= 1.0; } return a; };
-uint8_t LimitRGB(int Val) { return (uint8_t)((Val < 0) ? 0 : ((Val > 255) ? 255 : Val)); };
+uint8_t LimitRGB(int Val) { return static_cast<uint8_t>((Val < 0) ? 0 : ((Val > 255) ? 255 : Val)); };
 
 namespace ColorSystem
 {
@@ -119,6 +119,55 @@ namespace ColorSystem
         { "BRG555LE", ColMode::COLMODE_BRG555_LE },              // BRG555 little endian, used by Fists of Fury
     };
 
+    uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
+    {
+        uint8_t nBlendedAlpha;
+
+        switch (bm)
+        {
+            default:
+                nBlendedAlpha = nPreBlendAlpha;
+                break;
+            case BlendMode::PS1SemiTransparencyOff:
+            {
+                const bool fIsSTPOn = (nPreBlendAlpha & 0xF);
+
+                if (!fIsSTPOn && (rVal == 0) && (gVal == 0) && (bVal == 0))
+                {
+                    nBlendedAlpha = 0;
+                }
+                else
+                {
+                    nBlendedAlpha = 255;
+                }
+                break;
+            }
+            case BlendMode::PS1SemiTransparencyOn:
+            {
+                const bool fIsSTPOn = (nPreBlendAlpha & 0xF);
+
+                if (fIsSTPOn)
+                {
+                    nBlendedAlpha = 127;
+                }
+                else
+                {
+                    if ((rVal == 0) && (gVal == 0) && (bVal == 0))
+                    {
+                        nBlendedAlpha = 0;
+                    }
+                    else
+                    {
+                        nBlendedAlpha = 255;
+                    }
+                }
+                break;
+            }
+        }
+
+        return nBlendedAlpha;
+    }
+
     bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode)
     {
         bool fFoundMatch = false;
@@ -195,9 +244,9 @@ namespace ColorSystem
         {
             uint8_t nAdjustedValue = (uPossibleColorFlag - k_nASCIICharacterOffset);
 
-            if (nAdjustedValue < (uint8_t)ColMode::COLMODE_LAST)
+            if (nAdjustedValue < static_cast<uint8_t>(ColMode::COLMODE_LAST))
             {
-                colorMode = (ColMode)nAdjustedValue;
+                colorMode = static_cast<ColMode>(nAdjustedValue);
             }
         }
 
@@ -253,7 +302,14 @@ namespace ColorSystem
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_RGB555_SHARP:
-            return k_nRGBPlaneAmtForRGB555;
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB555;
+            }
 
         case ColMode::COLMODE_RGB666_NEOGEO:
             return k_nRGBPlaneAmtForNeoGeo;
@@ -306,7 +362,7 @@ namespace ColorSystem
         // xxxxRRRx GGGxBBBx, where x is 0
         // conversion code mostly by sega16
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        uint8_t* palP = (uint8_t*)&inCol;
+        uint8_t* palP = reinterpret_cast<uint8_t*>(&inCol);
         uint8_t r = (*palP++ & 14) * 18;
         uint8_t g = ((*palP & 240) >> 5) * 36;
         uint8_t b = (*palP & 14) * 18;
@@ -332,7 +388,7 @@ namespace ColorSystem
         // xxxxGGGx BBBxRRRx, where x is 0
         // conversion code mostly by sega16
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        uint8_t* palP = (uint8_t*)&inCol;
+        uint8_t* palP = reinterpret_cast<uint8_t*>(&inCol);
         uint8_t g = (*palP++ & 14) * 18;
         uint8_t b = ((*palP & 240) >> 5) * 36;
         uint8_t r = (*palP & 14) * 18;
@@ -357,7 +413,7 @@ namespace ColorSystem
         // xxxxBBBx GGGxRRRx, where x is 0
         // conversion code mostly by sega16
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        uint8_t* palP = (uint8_t*)&inCol;
+        uint8_t* palP = reinterpret_cast<uint8_t*>(&inCol);
         uint8_t b = (*palP++ & 14) * 18;
         uint8_t g = ((*palP & 240) >> 5) * 36;
         uint8_t r = (*palP & 14) * 18;
@@ -391,7 +447,7 @@ namespace ColorSystem
         green += green / 32;
         blue += blue / 32;
 
-        if ((alpha == 0x8) || (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha))
+        if ((alpha != 0) || (!IsAlphaModeMutable(CurrAlphaMode)) && (CurrAlphaMode != AlphaMode::GameUsesSTPNotAlpha))
         {
             alpha = 0xFF;
         }
@@ -440,7 +496,7 @@ namespace ColorSystem
         auxb *= 17;
         auxa *= 17;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -460,9 +516,9 @@ namespace ColorSystem
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
         uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (uint16_t)round(auxr / 17.0);
-        auxg = (uint16_t)round(auxg / 17.0);
-        auxb = (uint16_t)round(auxb / 17.0);
+        auxr = static_cast<uint16_t>(round(auxr / 17.0));
+        auxg = static_cast<uint16_t>(round(auxg / 17.0));
+        auxb = static_cast<uint16_t>(round(auxb / 17.0));
 
         auxb = auxb << 8;
         auxg = auxg << 4;
@@ -474,7 +530,7 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (uint16_t)round(auxa / 17.0);
+            auxa = static_cast<uint16_t>(round(auxa / 17.0));
             auxa = auxa << 12;
         }
 
@@ -493,7 +549,7 @@ namespace ColorSystem
         auxb *= 17;
         auxa *= 17;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -513,9 +569,9 @@ namespace ColorSystem
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
         uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (uint16_t)round(auxr / 17.0);
-        auxg = (uint16_t)round(auxg / 17.0);
-        auxb = (uint16_t)round(auxb / 17.0);
+        auxr = static_cast<uint16_t>(round(auxr / 17.0));
+        auxg = static_cast<uint16_t>(round(auxg / 17.0));
+        auxb = static_cast<uint16_t>(round(auxb / 17.0));
 
         //auxb = auxb;
         auxg = auxg << 8;
@@ -527,7 +583,7 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (uint16_t)round(auxa / 17.0);
+            auxa = static_cast<uint16_t>(round(auxa / 17.0));
             auxa = auxa << 12;
         }
 
@@ -546,7 +602,7 @@ namespace ColorSystem
         auxb *= 17;
         auxa *= 17;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -566,9 +622,9 @@ namespace ColorSystem
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
         uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (uint16_t)round(auxr / 17.0);
-        auxg = (uint16_t)round(auxg / 17.0);
-        auxb = (uint16_t)round(auxb / 17.0);
+        auxr = static_cast<uint16_t>(round(auxr / 17.0));
+        auxg = static_cast<uint16_t>(round(auxg / 17.0));
+        auxb = static_cast<uint16_t>(round(auxb / 17.0));
 
         auxb = auxb << 4;
         //auxg = auxg;
@@ -580,7 +636,7 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (uint16_t)round(auxa / 17.0);
+            auxa = static_cast<uint16_t>(round(auxa / 17.0));
             auxa = auxa << 12;
         }
 
@@ -599,7 +655,7 @@ namespace ColorSystem
         auxb *= 17;
         auxa *= 17;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -619,9 +675,9 @@ namespace ColorSystem
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
         uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (uint16_t)round(auxr / 17.0);
-        auxg = (uint16_t)round(auxg / 17.0);
-        auxb = (uint16_t)round(auxb / 17.0);
+        auxr = static_cast<uint16_t>(round(auxr / 17.0));
+        auxg = static_cast<uint16_t>(round(auxg / 17.0));
+        auxb = static_cast<uint16_t>(round(auxb / 17.0));
 
         //auxb = auxb;
         auxg = auxg << 4;
@@ -633,7 +689,7 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (uint16_t)round(auxa / 17.0);
+            auxa = static_cast<uint16_t>(round(auxa / 17.0));
             auxa = auxa << 12;
         }
 
@@ -659,7 +715,7 @@ namespace ColorSystem
         uint32_t auxb = (swapped & 0x1F);
         uint32_t auxa = 0x0;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -687,9 +743,9 @@ namespace ColorSystem
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxb = (inCol & 0x000000FF);
 
-        auxb = (uint16_t)round(auxb / 8);
-        auxg = (uint16_t)round(auxg / 8);
-        auxr = (uint16_t)round(auxr / 8);
+        auxb = static_cast<uint16_t>(round(auxb / 8));
+        auxg = static_cast<uint16_t>(round(auxg / 8));
+        auxr = static_cast<uint16_t>(round(auxr / 8));
 
         //auxr = auxr; no-op
         auxg = auxg << 5;
@@ -707,7 +763,7 @@ namespace ColorSystem
         uint32_t auxr = (swapped & 0x1F);
         uint32_t auxa = 0x0;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -735,9 +791,9 @@ namespace ColorSystem
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = (uint16_t)round(auxb / 8);
-        auxg = (uint16_t)round(auxg / 8);
-        auxr = (uint16_t)round(auxr / 8);
+        auxb = static_cast<uint16_t>(round(auxb / 8));
+        auxg = static_cast<uint16_t>(round(auxg / 8));
+        auxr = static_cast<uint16_t>(round(auxr / 8));
 
         //auxr = auxr; no-op
         auxg = auxg << 5;
@@ -755,7 +811,7 @@ namespace ColorSystem
         uint32_t auxg = (swapped & 0x1F);
         uint32_t auxa = 0x0;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -783,9 +839,9 @@ namespace ColorSystem
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = (uint16_t)round(auxb / 8);
-        auxg = (uint16_t)round(auxg / 8);
-        auxr = (uint16_t)round(auxr / 8);
+        auxb = static_cast<uint16_t>(round(auxb / 8));
+        auxg = static_cast<uint16_t>(round(auxg / 8));
+        auxr = static_cast<uint16_t>(round(auxr / 8));
 
         auxr = auxr << 5;
         auxg = auxg; // no-op
@@ -803,7 +859,7 @@ namespace ColorSystem
         uint32_t auxb = (swapped & 0x1F);
         uint32_t auxa = 0x0;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -831,9 +887,9 @@ namespace ColorSystem
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = (uint16_t)round(auxb / 8);
-        auxg = (uint16_t)round(auxg / 8);
-        auxr = (uint16_t)round(auxr / 8);
+        auxb = static_cast<uint16_t>(round(auxb / 8));
+        auxg = static_cast<uint16_t>(round(auxg / 8));
+        auxr = static_cast<uint16_t>(round(auxr / 8));
 
         auxr = auxr << 5;
         auxg = auxg << 10;
@@ -861,7 +917,7 @@ namespace ColorSystem
         auxg += auxg / 32;
         auxb += auxb / 32;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -881,9 +937,9 @@ namespace ColorSystem
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = (uint16_t)round(auxb / 8);
-        auxg = (uint16_t)round(auxg / 8);
-        auxr = (uint16_t)round(auxr / 8);
+        auxb = static_cast<uint16_t>(round(auxb / 8));
+        auxg = static_cast<uint16_t>(round(auxg / 8));
+        auxr = static_cast<uint16_t>(round(auxr / 8));
 
         auxr = auxr << 10;
         auxg = auxg << 5;
@@ -1180,7 +1236,7 @@ namespace ColorSystem
         uint32_t auxr = GetRValue(inCol);
         uint32_t auxa = GetAValue(inCol) * 0xFF;
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -1200,7 +1256,7 @@ namespace ColorSystem
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0x01;
         }
@@ -1224,7 +1280,7 @@ namespace ColorSystem
         uint32_t auxr = GetRValue(inCol);
         uint32_t auxa = min(GetAValue(inCol) * 2, 0xFF);
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -1244,14 +1300,14 @@ namespace ColorSystem
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0x80;
         }
         else
         {
             // We want half alpha
-            auxa = (uint32_t)floor((auxa + 1) / 2);
+            auxa = static_cast<uint32_t>(floor((auxa + 1) / 2));
         }
 
         //auxr = auxr;
@@ -1269,7 +1325,7 @@ namespace ColorSystem
         uint32_t auxr = GetRValue(inCol);
         uint32_t auxa = GetAValue(inCol);
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -1289,7 +1345,7 @@ namespace ColorSystem
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xff;
         }
@@ -1330,7 +1386,7 @@ namespace ColorSystem
         uint32_t auxr = GetBValue(inCol);
         uint32_t auxa = GetAValue(inCol);
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xFF;
         }
@@ -1350,7 +1406,7 @@ namespace ColorSystem
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
 
-        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        if (!IsAlphaModeMutable(CurrAlphaMode))
         {
             auxa = 0xff;
         }

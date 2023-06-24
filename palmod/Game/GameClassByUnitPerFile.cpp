@@ -57,7 +57,7 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
     DisplayType = gameLoadingData.displayStyle;
     SetAlphaMode(gameLoadingData.eAlphaMode);
 
-    if (gameLoadingData.eAlphaMode == AlphaMode::GameUsesVariableAlpha)
+    if (ColorSystem::IsAlphaModeMutable(gameLoadingData.eAlphaMode))
     {
         m_fGameUsesAlphaValue = true;
     }
@@ -878,7 +878,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
     uint32_t nSrcStart = 0;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
-    BlendMode nBlendMode = BlendMode::Alpha;
+    BlendMode nBlendMode = m_psCurrentGameLoadingData->defaultBlendMode;
 
     bool fShouldUseAlternateLoadLogic = false;
 

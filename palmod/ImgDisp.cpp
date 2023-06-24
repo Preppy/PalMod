@@ -947,6 +947,55 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                             *uDstR = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(uBlendedR) + static_cast<uint16_t>(*uDstR))));
                             *uDstG = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(uBlendedG) + static_cast<uint16_t>(*uDstG))));
                             *uDstB = static_cast<uint8_t>(min(255, (static_cast<uint16_t>(uBlendedB) + static_cast<uint16_t>(*uDstB))));
+                            break;
+                        }
+                        case BlendMode::PS1SemiTransparencyOff:
+                        {
+                            const bool fIsSTPOn = (pCurrPal[nCurrentColorPosition + 3] & 0xF);
+                            double fpAlphaToUse = 255.0;
+
+                            if (!fIsSTPOn &&
+                                (pCurrPal[nCurrentColorPosition] == 0) &&
+                                (pCurrPal[nCurrentColorPosition + 1] == 0) &&
+                                (pCurrPal[nCurrentColorPosition + 2] == 0))
+                            {
+                                fpAlphaToUse = 0;
+                            }
+
+                            const double fpAlphaBackground = (1.0 - (fpAlphaToUse / 255.0));
+                            const double fpAlphaForeground = 1.0 - fpAlphaBackground;
+
+                            *uDstR = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition])), (fpAlphaBackground * static_cast<double>(*uDstR))));
+                            *uDstG = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 1])), (fpAlphaBackground * static_cast<double>(*uDstG))));
+                            *uDstB = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 2])), (fpAlphaBackground * static_cast<double>(*uDstB))));
+                            break;
+                        }
+                        case BlendMode::PS1SemiTransparencyOn:
+                        {
+                            const bool fIsSTPOn = (pCurrPal[nCurrentColorPosition + 3] & 0xF);
+                            double fpAlphaToUse = 127.0;
+
+                            if (!fIsSTPOn)
+                            {
+                                if ((pCurrPal[nCurrentColorPosition] == 0) &&
+                                    (pCurrPal[nCurrentColorPosition + 1] == 0) &&
+                                    (pCurrPal[nCurrentColorPosition + 2] == 0))
+                                {
+                                    fpAlphaToUse = 0;
+                                }
+                                else
+                                {
+                                    fpAlphaToUse = 255.0;
+                                }
+                            }
+
+                            const double fpAlphaBackground = (1.0 - (fpAlphaToUse / 255.0));
+                            const double fpAlphaForeground = 1.0 - fpAlphaBackground;
+
+                            *uDstR = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition])), (fpAlphaBackground * static_cast<double>(*uDstR))));
+                            *uDstG = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 1])), (fpAlphaBackground * static_cast<double>(*uDstG))));
+                            *uDstB = static_cast<uint8_t>(aadd((fpAlphaForeground * static_cast<double>(pCurrPal[nCurrentColorPosition + 2])), (fpAlphaBackground * static_cast<double>(*uDstB))));
+                            break;
                         }
                     }
                 }

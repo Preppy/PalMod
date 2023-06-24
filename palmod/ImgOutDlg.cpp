@@ -200,9 +200,9 @@ BOOL CImgOutDlg::OnInitDialog()
     //Cannot get accurate remainder amount
 
     //Populate Zoom combo box: 1-8x
-    for (uint32_t i = 0; i < CPalModZoom::GetZoomListSize(); i++)
+    for (uint32_t iPos = 0; iPos < CPalModZoom::GetZoomListSize(); iPos++)
     {
-        tmp_str.Format(L"%.0fx", CPalModZoom::GetValueAt(i));
+        tmp_str.Format(L"%.0fx", CPalModZoom::GetValueAt(iPos));
         m_CB_Zoom.AddString(tmp_str);
     }
 
@@ -247,8 +247,8 @@ BOOL CImgOutDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CImgOutDlg::AddZoom()
 {
-    int nCurrZoomIndex = m_CB_Zoom.GetCurSel() + 1;
-    if (nCurrZoomIndex < (int)CPalModZoom::GetZoomListSize())
+    const int nCurrZoomIndex = m_CB_Zoom.GetCurSel() + 1;
+    if (nCurrZoomIndex < static_cast<int>(CPalModZoom::GetZoomListSize()))
     {
         m_CB_Zoom.SetCurSel(nCurrZoomIndex);
     }
@@ -258,7 +258,7 @@ void CImgOutDlg::AddZoom()
 
 void CImgOutDlg::SubZoom()
 {
-    int nCurrZoomIndex = m_CB_Zoom.GetCurSel() - 1;
+    const int nCurrZoomIndex = m_CB_Zoom.GetCurSel() - 1;
 
     if (nCurrZoomIndex >= m_nZoomSelOptionsMin)
     {
@@ -317,7 +317,7 @@ void CImgOutDlg::OnShowWindow(BOOL fShow, UINT nStatus)
 
     CRegProc sett;
 
-    int nPreferredAmount = sett.GetImageAmountForPalettePreview(m_nPalAmt);
+    const int nPreferredAmount = sett.GetImageAmountForPalettePreview(m_nPalAmt);
     m_CB_Amt.SetCurSel(nPreferredAmount);
     m_CB_Pal.SetCurSel(0);
 
@@ -387,9 +387,9 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 
 void CImgOutDlg::FillPalCombo()
 {
-    bool fShouldShowMultipleOptions = (m_nPalAmt != 1) && (!pButtonLabelSet.empty());
+    const bool fShouldShowMultipleOptions = (m_nPalAmt != 1) && (!pButtonLabelSet.empty());
 
-    if (fShouldShowMultipleOptions && ((uint32_t)m_nPalAmt > pButtonLabelSet.size()))
+    if (fShouldShowMultipleOptions && (static_cast<uint32_t>(m_nPalAmt) > pButtonLabelSet.size()))
     {
         MessageBox(L"Error: list of output options doesn't match list size.\n\nPlease report this bug in PalMod and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
     }
@@ -499,7 +499,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     const int nImageCount = m_DumpBmp.m_pMainImgCtrl->GetImgAmt();
     sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
-    const uint8_t currentZoom = (uint8_t)m_DumpBmp.m_flZoomLevel;
+    const uint8_t currentZoom = static_cast<uint8_t>(m_DumpBmp.m_flZoomLevel);
 
     // We want to ensure filename syntax, so strip the extension in order to rebuild it below
     save_str.Replace(output_ext.GetString(), L"");
@@ -550,7 +550,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
     if (fShouldExportAsIndexed)
     {
-        uint16_t nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+        const uint16_t nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
 #ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
         // It's technically correct for our purposes to allow for this, but also problematic since Photoshop
         // only wants one transparency per indexed image.  So let's just turn this off for now.
@@ -619,11 +619,11 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
                             for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                             {
-                                int destIndex = ((m_DumpBmp.m_border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.m_border_sz + adjustedX + zoomX);
+                                const int destIndex = ((m_DumpBmp.m_border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.m_border_sz + adjustedX + zoomX);
                                 // this is the upside-down version:
                                 //int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
                                 // and this is the rightside-up version:
-                                int srcIndex = (destX / currentZoom) + ((destY / currentZoom) * srcWidth);
+                                const int srcIndex = (destX / currentZoom) + ((destY / currentZoom) * srcWidth);
 
                                 // only write used pixels
                                 if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
@@ -636,8 +636,9 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 }
 
                 // Establish the PLTE header data.
-                uint8_t* pCurrPal = (uint8_t*)m_DumpBmp.m_pppPalettes[nImageIndex][nCurrentPalIndex];
-                CGameClass* CurrGame = GetHost()->GetCurrGame();
+                uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(m_DumpBmp.m_pppPalettes[nImageIndex][nCurrentPalIndex]);
+                const BlendMode bm = GetHost()->GetCurrGame()->GetGameSpecificBlendMode();
+
                 // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
                 for (uint32_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
                 {
@@ -670,15 +671,18 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                             lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.m_crBGCol), GetGValue(m_DumpBmp.m_crBGCol), GetBValue(m_DumpBmp.m_crBGCol), 0xFF);
                         }
                     }
-                    else if (iCurrentColor < (uint32_t)m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz) // actual colors
+                    else if (iCurrentColor < static_cast<uint32_t>(m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz)) // actual colors
                     {
-                        uint32_t nCurrentPosition = iCurrentColor * 4;
+                        const uint32_t nCurrentPosition = iCurrentColor * 4;
                         const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
                         const uint8_t currBVal = pCurrPal[nCurrentPosition + 2];
                         const uint8_t currGVal = pCurrPal[nCurrentPosition + 1];
                         const uint8_t currRVal = pCurrPal[nCurrentPosition];
-                        lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, currAVal);
-                        lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, currAVal);
+
+                        const uint8_t nAdjustedAlpha = ColorSystem::GetAlphaValueForBlendType(bm, currAVal, currRVal, currGVal, currBVal);
+
+                        lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, nAdjustedAlpha);
+                        lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, nAdjustedAlpha);
                     }
                     else
                     {
@@ -771,7 +775,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
         const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
         sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
-        const uint8_t currentZoom = (uint8_t)m_DumpBmp.m_flZoomLevel;
+        const uint8_t currentZoom = static_cast<uint8_t>(m_DumpBmp.m_flZoomLevel);
 
         // We want to ensure filename syntax, so strip the extension in order to rebuild it below
         save_str.Replace(output_ext.GetString(), L"");
@@ -904,7 +908,7 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
         const bool fUsingAlphaChannel = dwExportFlags == CImage::createAlphaChannel;
         if (fUsingAlphaChannel)
         {
-            m_DumpBmp.UpdateCtrl(FALSE, (uint8_t*)out_img.GetBits());
+            m_DumpBmp.UpdateCtrl(FALSE, reinterpret_cast<uint8_t*>(out_img.GetBits()));
         }
         else
         {

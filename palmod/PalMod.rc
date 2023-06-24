@@ -664,6 +664,7 @@ BEGIN
                 MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
                 MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
                 MENUITEM "Variable Alpha",              ID_ALPHASETTING_VARIABLE
+                MENUITEM "PS1 Semi-Transparency",       ID_ALPHASETTING_STP
                 MENUITEM "Unknown Alpha",               ID_ALPHASETTING_CHAOTIC
             END
             MENUITEM SEPARATOR
@@ -707,6 +708,8 @@ BEGIN
             MENUITEM "Default",                 ID_SETTINGS_BLENDDEFAULT
             MENUITEM "Always Alpha",            ID_SETTINGS_BLENDALPHA
             MENUITEM "Always Additive",         ID_SETTINGS_BLENDADD
+            MENUITEM "PS1: Semi-Transparency On" ID_SETTINGS_BLENDPS1STON
+            MENUITEM "PS1: Semi-Transparency Off" ID_SETTINGS_BLENDPS1STOFF
         END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS

@@ -195,7 +195,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                             if (rgfACTHasColorsForThisPalette[nCurrentPalette])
                             {
                                 iCurrentIndexInPalette = 0;
-                                pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
                             }
                             else
                             {

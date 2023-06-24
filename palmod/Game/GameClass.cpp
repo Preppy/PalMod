@@ -127,7 +127,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+    static_assert(static_cast<ColMode>(28) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
 
     switch (NewMode)
     {
@@ -174,10 +174,10 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         m_nSizeOfColorsInBytes = 2;
         GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_32Steps;
         Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_32Steps;
-        GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_32Steps;
+        GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_1Step;
+        Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_1Step;
         GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB555;
-        GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_RGB555;
+        GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
         ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
         break;
 
@@ -272,7 +272,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+    static_assert(static_cast<ColMode>(28) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
 
     switch (NewMode)
     {
@@ -410,8 +410,8 @@ bool CGameClass::_SetColorMode(ColMode NewMode)
 
     CurrColMode = NewMode;
 
-    bool fUpdatedColorConverters = _UpdateColorConverters(NewMode);
-    bool fUpdatedColorSteps = _UpdateColorSteps(NewMode);
+    const bool fUpdatedColorConverters = _UpdateColorConverters(NewMode);
+    const bool fUpdatedColorSteps = _UpdateColorSteps(NewMode);
 
     return fUpdatedColorConverters && fUpdatedColorSteps;
 }

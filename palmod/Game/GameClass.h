@@ -19,7 +19,7 @@ struct sFileRule
     uint32_t uUnitId = INVALID_UNIT_VALUE;
     bool fHasAltName = false;
     wchar_t szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
-    uint32_t uAltVerifyVar = (uint32_t)-1;
+    uint32_t uAltVerifyVar = static_cast<uint32_t>(-1);
 };
 
 const uint32_t k_nBogusHighValue = 0xFEEDFED;
@@ -181,6 +181,8 @@ public:
 
     AlphaMode GetAlphaMode() { return ColorSystem::GetAlphaMode(); };
     virtual void SetAlphaMode(AlphaMode NewMode) { ColorSystem::SetAlphaMode(NewMode); };
+
+    virtual BlendMode GetGameSpecificBlendMode() { return BlendMode::Default; };
 
     ColMode GetColorMode() { return CurrColMode; };
     bool _UpdateColorConverters(ColMode NewMode);

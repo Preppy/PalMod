@@ -189,7 +189,7 @@ void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_Co
     DisplayType = gameLoadingData.displayStyle;
     SetAlphaMode(gameLoadingData.eAlphaMode);
 
-    if (gameLoadingData.eAlphaMode == AlphaMode::GameUsesVariableAlpha)
+    if (ColorSystem::IsAlphaModeMutable(gameLoadingData.eAlphaMode))
     {
         m_fGameUsesAlphaValue = true;
     }

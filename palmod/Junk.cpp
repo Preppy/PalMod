@@ -2,6 +2,7 @@
 #include "junk.h"
 #include "PalMod.h"
 #include "RegProc.h"
+#include "ColorSystem.h"
 
 //This is used for the edit commands
 #include "resource.h"
@@ -63,9 +64,9 @@ void CJunk::ClearSelView()
 {
     if (m_SelView)
     {
-        for (int i = 0; i < m_iWorkingAmt; i++)
+        for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
         {
-            SetSelViewItem(L"ClearSelView", i, FALSE);
+            SetSelViewItem(L"ClearSelView", iPos, FALSE);
         }
     }
 
@@ -140,9 +141,9 @@ void CJunk::ClearSelected()
 {
     if (m_Selected)
     {
-        for (int i = 0; i < m_iWorkingAmt; i++)
+        for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
         {
-            m_Selected[i] = 0;
+            m_Selected[iPos] = 0;
         }
     }
 
@@ -155,9 +156,9 @@ void CJunk::ClearHighlighted()
 {
     if (m_Highlighted)
     {
-        for (int i = 0; i < m_iWorkingAmt; i++)
+        for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
         {
-            m_Highlighted[i] = 0;
+            m_Highlighted[iPos] = 0;
         }
     }
 
@@ -196,9 +197,9 @@ void CJunk::SetSelected(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 
 void CJunk::LoadDefaultPal()
 {
-    for (int i = 0; i < (m_iPalH * m_iPalW); i++)
+    for (int iPos = 0; iPos < (m_iPalH * m_iPalW); iPos++)
     {
-        m_BasePal[i] = RGB((F_R + 1) * i / 13, (F_G + 1) * i / 13, (F_B + 1) * i / 13);
+        m_BasePal[iPos] = RGB((F_R + 1) * iPos / 13, (F_G + 1) * iPos / 13, (F_B + 1) * iPos / 13);
     }
 }
 
@@ -256,8 +257,8 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
         if (m_nAllocationLength != m_iWorkingAmt)
         {
             // This handles non-rectangular layouts, since we allocate a H*W layout
-            int nSrcIndex = (m_iWorkingAmt % m_nWidthMax) + ((m_iPalH - 1) * m_nWidthMax);
-            int nDstIndex = ((m_iPalH * m_nWidthMax) - 1);
+            const int nSrcIndex = (m_iWorkingAmt % m_nWidthMax) + ((m_iPalH - 1) * m_nWidthMax);
+            const int nDstIndex = ((m_iPalH * m_nWidthMax) - 1);
 
             m_rUnused.top = (BDR_SZ * ((nSrcIndex / m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex / m_iPalW));
             m_rUnused.left = (BDR_SZ * ((nSrcIndex % m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex % m_iPalW));
@@ -666,7 +667,16 @@ void CJunk::UpdateIndex(int index)
             m_rIndexRect.right =  (BDR_SZ * ((index % m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index % m_iPalW) + 1));
             m_rIndexRect.bottom = (BDR_SZ * ((index / m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index / m_iPalW) + 1));
 
-            CustomFillRect(&m_rIndexRect, (uint8_t*)&m_BasePal[index]);
+            BlendMode bm = BlendMode::Default;
+
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+            if (CurrGame)
+            {
+                bm = CurrGame->GetGameSpecificBlendMode();
+            }
+
+            CustomFillRect(&m_rIndexRect, reinterpret_cast<uint8_t*>(&m_BasePal[index]), bm);
         }
     }
 }
@@ -728,21 +738,23 @@ void CJunk::UpdateFace()
     }
 }
 
-void CJunk::CustomFillRect(RECT* lpRect, uint8_t* crSrcCol)
+void CJunk::CustomFillRect(RECT* lpRect, uint8_t* crSrcCol, BlendMode bm)
 {
     int nSqW = lpRect->right - lpRect->left;
     int nSqH = lpRect->top - lpRect->bottom;
 
-    uint8_t* pDstImgData = (uint8_t*)m_pBmpData;
+    uint8_t* pDstImgData = reinterpret_cast<uint8_t*>(m_pBmpData);
 
-    double fpDstA2 = (1.0f - ((double)crSrcCol[3]) / 255.0f);
+    const uint8_t nAdjustedAlpha = ColorSystem::GetAlphaValueForBlendType(bm, crSrcCol[3], crSrcCol[0], crSrcCol[1], crSrcCol[2]);
+
+    double fpDstA2 = (1.0f - (static_cast<double>(nAdjustedAlpha) / 255.0f));
     double fpDstA1 = 1.0f - fpDstA2;
 
     for (int y = lpRect->top * 4; y < lpRect->bottom * 4; y += 4)
     {
         for (int x = lpRect->left * 4; x < lpRect->right * 4; x += 4)
         {
-            uint8_t* crDstCol = const_cast<uint8_t*>((uint8_t*)&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
+            const uint8_t* crDstCol = reinterpret_cast<const uint8_t*>(&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
 
             pDstImgData[(y * m_iBaseW) + x + 2] = static_cast<uint8_t>(min(255.0, (fpDstA1 * static_cast<double>(crSrcCol[0])) + (fpDstA2 * static_cast<double>(crDstCol[0]))));
             pDstImgData[(y * m_iBaseW) + x + 1] = static_cast<uint8_t>(min(255.0, (fpDstA1 * static_cast<double>(crSrcCol[1])) + (fpDstA2 * static_cast<double>(crDstCol[1]))));

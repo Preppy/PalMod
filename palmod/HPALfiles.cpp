@@ -85,7 +85,7 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
             uint16_t nTotalColorsUsed = 0;
             bool fHaveLooped = false;
             uint16_t iCurrentIndexInPalette = 0;
-            uint8_t* pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+            uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
 
             bool fHaveMultiplePalettes = (nTotalPaletteCount != 1);
             bool* rgfHPALHasColorsForThisPalette = new bool[nTotalPaletteCount];
@@ -148,7 +148,7 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
                         if (rgfHPALHasColorsForThisPalette[nCurrentPalette])
                         {
                             iCurrentIndexInPalette = 0;
-                            pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                            pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
                         }
                         else
                         {
@@ -196,7 +196,7 @@ void CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGeneric
         HPALFile.Write(&k_rgHPALHeader, static_cast<UINT>(k_rgHPALHeader.size()));
 
         const uint16_t k_nColorsPerPalette = 256; // An HPAL has 256 colors.  Fill with black as needed.
-        uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
+        uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
         int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
 
         int nTotalColorsUsed = 0;
