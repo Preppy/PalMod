@@ -315,7 +315,7 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     int* editControl = &m_Edit_RH;
     double nMul = 0.0;
     int nSliderId = pScrollBar->GetDlgCtrlID();
-    CSliderCtrl* SrcScroll = dynamic_cast<CSliderCtrl*>(pScrollBar);
+    CSliderCtrl* SrcScroll = reinterpret_cast<CSliderCtrl*>(pScrollBar);
 
     switch (nSliderId)
     {
