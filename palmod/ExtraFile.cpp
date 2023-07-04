@@ -676,11 +676,11 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalI
                     nTotalDupesFound++;
                     if (nEndOfRegionToCheck != 0x0)
                     {
-                        strDupeText.Format(L"ERROR: Unit 0x%02x pal 0x%02x ('%s', 0x%x to 0x%x) is a duplicate of unit 0x%02x pal 0x%02x (0x%x to 0x%x)!\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nStartingOffsetToCheck, nEndOfRegionToCheck);
+                        strDupeText.Format(L"ERROR: Unit 0x%02x pal 0x%03x ('%s', 0x%x to 0x%x) is a duplicate of unit 0x%02x pal 0x%03x (0x%x to 0x%x)!\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nStartingOffsetToCheck, nEndOfRegionToCheck);
                     }
                     else
                     {
-                        strDupeText.Format(L"ERROR: Unit 0x%02x pal 0x%02x ('%s', 0x%x to 0x%x) is a duplicate of unit 0x%02x pal 0x%02x (starts at 0x%x)!\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nStartingOffsetToCheck);
+                        strDupeText.Format(L"ERROR: Unit 0x%02x pal 0x%03x ('%s', 0x%x to 0x%x) is a duplicate of unit 0x%02x pal 0x%03x (starts at 0x%x)!\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nStartingOffsetToCheck);
                     }
                     OutputDebugString(strDupeText);
                     break;

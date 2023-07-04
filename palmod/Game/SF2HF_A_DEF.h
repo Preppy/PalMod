@@ -387,10 +387,82 @@ const sDescTreeNode SF2HF_A_PORTRAITS_COLLECTION[] =
     { L"Dictator",   DESC_NODETYPE_TREE, (void*)SF2HF_A_DICTATOR_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_DICTATOR_PORTRAITS_NODE) },
 };
 
+const sGame_PaletteDataset SF2HF_A_BONUS21_NODE[] =
+{
+    { L"World Map Background", 0xe51e, 0xe5de },
+};
+
+const sGame_PaletteDataset SF2HF_A_STAGES_NODE[] =
+{
+    { L"Blanka Stage - Sky", 0x7de, 0x85e },
+    { L"Blanka Stage - Background", 0x57fe, 0x59be },
+    { L"Blanka Stage - Ground", 0x5a1e, 0x5afe },
+
+    { L"Boxer Stage (1/2)", 0x77fe, 0x79fe },
+    { L"Boxer Stage (2/2)", 0x79fe, 0x7bfe },
+
+    { L"Chun-Li Stage (1/2)", 0x63fe, 0x65fe },
+    { L"Chun-Li Stage (2/2)", 0x65fe, 0x677e },
+
+    { L"Dhalsim Stage (1/3)", 0x6bfe, 0x6dfe },
+    { L"Dhalsim Stage (2/3)", 0x6dfe, 0x6ffe },
+    { L"Dhalsim Stage (3/3)", 0x6ffe, 0x700e },
+    { L"Dhalsim Stage - Elephant", 0x1bfe, 0x1c3e },
+
+    { L"E.Honda Stage - Floor & Ceiling", 0x53fe, 0x54be },
+
+    { L"Guile Stage - Sky Top Half", 0x5e00, 0x5f40 },
+    { L"Guile Stage - Sky Bottom Half", 0xbfe, 0xcfe },
+    { L"Guile Stage - Ground & Jet", 0x5bfe, 0x5d3e },
+
+    { L"Ken Stage (1/2)", 0x5fde, 0x61de },
+    { L"Ken Stage (2/2)", 0x61de, 0x61fe },
+
+    { L"Ryu Stage - Moon & Sky", 0x25e, 0x3de },
+    { L"Ryu Stage - Ground", 0x4ffe, 0x51de },
+
+    { L"Sagat Stage - Background Grass", 0x249e, 0x251e },
+    { L"Sagat Stage - Ground & Buddha (1/2)", 0x73fe, 0x75fe },
+    { L"Sagat Stage - Ground & Buddha (2/2)", 0x75fe, 0x775e },
+
+    { L"Zangief Stage - Background & Crowd", 0x67fe, 0x697e },
+    { L"Zangief Stage - Floor & Crowd", 0x6a5e, 0x6bfe },
+};
+
+const sDescTreeNode SF2HF_A_BONUS21_COLLECTION[] =
+{
+    { L"Stages",            DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_NODE, ARRAYSIZE(SF2HF_A_STAGES_NODE) },
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS21_NODE, ARRAYSIZE(SF2HF_A_BONUS21_NODE) },
+};
+
 const sDescTreeNode SF2HF_A_21_UNITS[] =
 {
     { L"Portraits",      DESC_NODETYPE_TREE, (void*)SF2HF_A_PORTRAITS_COLLECTION, ARRAYSIZE(SF2HF_A_PORTRAITS_COLLECTION) },
     { L"Select Screen",  DESC_NODETYPE_TREE, (void*)SF2HF_A_SELECTICON_COLLECTION, ARRAYSIZE(SF2HF_A_SELECTICON_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS21_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS21_COLLECTION) },
+};
+
+const sGame_PaletteDataset SF2HF_A_IN_GAME_NODE[] =
+{
+    { L"Insert Coin Text", 0x2da7e, 0x2da9e, indexSF2Sprites_Bonus, 0x2e },
+    { L"HUD and Text", 0x2dbfe, 0x2dc3e, indexSF2Sprites_Bonus, 0x2c },
+    { L"In-Game FX - Black", 0x2dbbe, 0x2dbde, indexSF2Sprites_Bonus, 0x29, &pairNextAndNext },
+    { L"In-Game FX - Dust and Green Hitsparks", 0x2dbde, 0x2dbfe, indexSF2Sprites_Bonus, 0x28 },
+    { L"In-Game FX - Various", 0x2dc3e, 0x2dc7e, indexSF2Sprites_Bonus, 0x2a },
+};
+
+const sGame_PaletteDataset SF2HF_A_BONUS22_NODE[] =
+{
+    { L"Intro Characters", 0x2fcfe, 0x2fe3e, indexSF2Sprites_Bonus, 0x2d },
+    { L"Game Title", 0x2fe5e, 0x2fe7e, indexSF2Sprites_Bonus, 0x2b },
+    { L"Character Select Extras", 0x3001e, 0x3007e, indexSF2Sprites_Bonus, 0x24 },
+    { L"World Map Dictator", 0x2ff9e, 0x2ffbe, indexSF2Sprites_Bonus, 0x2f },
+};
+
+const sDescTreeNode SF2HF_A_BONUS22_COLLECTION[] =
+{
+    { L"In-Game Palettes",  DESC_NODETYPE_TREE, (void*)SF2HF_A_IN_GAME_NODE, ARRAYSIZE(SF2HF_A_IN_GAME_NODE) },
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS22_NODE, ARRAYSIZE(SF2HF_A_BONUS22_NODE) },
 };
 
 const sDescTreeNode SF2HF_A_22_UNITS[] =
@@ -408,6 +480,8 @@ const sDescTreeNode SF2HF_A_22_UNITS[] =
     { L"Claw",       DESC_NODETYPE_TREE, (void*)SF2HF_A_CLAW_COLLECTION, ARRAYSIZE(SF2HF_A_CLAW_COLLECTION) },
     { L"Sagat",      DESC_NODETYPE_TREE, (void*)SF2HF_A_SAGAT_COLLECTION, ARRAYSIZE(SF2HF_A_SAGAT_COLLECTION) },
     { L"Dictator",   DESC_NODETYPE_TREE, (void*)SF2HF_A_DICTATOR_COLLECTION, ARRAYSIZE(SF2HF_A_DICTATOR_COLLECTION) },
+
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS22_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS22_COLLECTION) },
 };
 
 const sGame_PaletteDataset SF2HF_A_RYU_23_PORTRAITS_NODE[] =
