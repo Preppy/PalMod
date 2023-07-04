@@ -1146,6 +1146,70 @@ const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_CSIS[] =
     { L"Shiro Tokisada Amakusa", 0xB60, 0xB80 },
 };
 
+const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_BONUS[] =
+{
+    { L"Blood", 0x600, 0x620 },
+    { L"Blood (dark)", 0x620, 0x640 },
+    { L"Hit/Blocksparks (Slashes)", 0x6c0, 0x6e0 },
+    { L"Hit/Blocksparks (Blunts)", 0x6e0, 0x700 },
+    { L"Rage build", 0x280, 0x2a0 },
+    { L"Food", 0xf760, 0xf780 },
+    { L"Bomb", 0xf780, 0xf7a0 },
+};
+
+const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_HUD[] =
+{
+    { L"P1 Healthbar", 0x100, 0x120 },
+    { L"P2 Healthbar", 0x120, 0x140 },
+    { L"VS Text", 0x140, 0x160 },
+    { L"White flash", 0x160, 0x180 },
+    { L"Rage meter (1/7)", 0x126e0, 0x12700 },
+    { L"Rage meter (2/7)", 0x12700, 0x12720 },
+    { L"Rage meter (3/7)", 0x12720, 0x12740 },
+    { L"Rage meter (4/7)", 0x12740, 0x12760 },
+    { L"Rage meter (5/7)", 0x12760, 0x12780 },
+    { L"Rage meter (6/7)", 0x12780, 0x127a0 },
+    { L"Rage meter (7/7)", 0x127a0, 0x127c0 },
+    { L"POW/Full rage", 0x320, 0x340 },
+    { L"Blue tile in \"POW/Full rage\"", 0x80, 0xa0 },
+};
+
+const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_FONTS[] =
+{
+    { L"LEVEL / CREDITS text", 0x0, 0x20 },
+    { L"Slash / Select grade / Timer / Misc. text", 0x40, 0x60 },
+    { L"Bust / Unselected grade / Misc. text", 0x60, 0x80 },
+};
+
+const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_MENUS[] =
+{
+    { L"Title", 0x840, 0x880 },
+    { L"\"How to play\" / Win Background", 0x900, 0x920 },
+};
+
+const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_CREDITICONS[] =
+{
+    { L"Haohmaru", 0x13b80, 0x13ba0 },
+    { L"Nakoruru", 0x13ba0, 0x13bc0 },
+    { L"Ukyo", 0x13d40, 0x13d60 },
+    { L"Galford", 0x13d00, 0x13d20 },
+    { L"Kyoshiro", 0x13d20, 0x13d40 },
+    { L"Hanzo", 0x13be0, 0x13c00 },
+    { L"Genjuro", 0x13d60, 0x13d80 },
+    { L"Amakusa", 0x13de0, 0x13e00 },
+    { L"Rimururu", 0x13bc0, 0x13be0 },
+    { L"Basara", 0x13d80, 0x13da0 },
+    { L"Gaira", 0x13dc0, 0x13de0 },
+    { L"Shizumaru", 0x13da0, 0x13dc0 },
+    { L"Zankuro", 0x13ec0, 0x13ee0 },
+    { L"Credited as \"Back\"", 0x14ec0, 0x14ee0 },
+    { L"Credited for \"Demo\"", 0x13f00, 0x13f20 },
+    { L"Credited for \"Special Effect\"", 0x13f40, 0x13f60 },
+    { L"Credited for \"Pranning\"", 0x13f60, 0x13f80 },
+    { L"Credited for \"Program\"", 0x13f20, 0x13f40 },
+    { L"Credited as \"Garapagos Team\"", 0x13f80, 0x13fa0 },
+};
+
 const sDescTreeNode SAMSHO3_A_HAOHMARU_COLLECTION[] =
 {
     { L"Slash 1", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_HAOHMARU_PALETTES_S1, ARRAYSIZE(SAMSHO3_A_HAOHMARU_PALETTES_S1) },
@@ -1259,7 +1323,12 @@ const sDescTreeNode SAMSHO3_A_KUROKO_COLLECTION[] =
 
 const sDescTreeNode SAMSHO3_A_BONUS_COLLECTION[] =
 {
+    { L"HUD", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_PALETTES_HUD, ARRAYSIZE(SAMSHO3_A_BONUS_PALETTES_HUD) },
+    { L"Fonts", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_PALETTES_FONTS, ARRAYSIZE(SAMSHO3_A_BONUS_PALETTES_FONTS) },
+    { L"Menus", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_PALETTES_MENUS, ARRAYSIZE(SAMSHO3_A_BONUS_PALETTES_MENUS) },
+    { L"Credit Icons", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_PALETTES_CREDITICONS, ARRAYSIZE(SAMSHO3_A_BONUS_PALETTES_CREDITICONS) },
     { L"Select Screen Icons", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_PALETTES_CSIS, ARRAYSIZE(SAMSHO3_A_BONUS_PALETTES_CSIS) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_PALETTES_BONUS, ARRAYSIZE(SAMSHO3_A_BONUS_PALETTES_BONUS) },
 };
 
 const sDescTreeNode SAMSHO3_A_UNITS[] =

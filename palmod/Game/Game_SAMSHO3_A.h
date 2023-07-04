@@ -29,8 +29,8 @@ private:
         SAMSHO3_A_UNITS,
         ARRAYSIZE(SAMSHO3_A_UNITS),
         L"SAMSHO3E.txt",          // Extra filename
-        898,                      // Count of palettes listed in the header
-        0x360,                    // Lowest known location used for palettes
+        942,                      // Count of palettes listed in the header
+        0x0,                      // Lowest known location used for palettes
     };
 
     static void DumpPaletteHeaders();

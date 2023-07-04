@@ -404,10 +404,10 @@ const sGame_PaletteDataset SF2HF_A_STAGES_NODE[] =
     { L"Chun-Li Stage (1/2)", 0x63fe, 0x65fe },
     { L"Chun-Li Stage (2/2)", 0x65fe, 0x677e },
 
-    { L"Dhalsim Stage (1/3)", 0x6bfe, 0x6dfe },
-    { L"Dhalsim Stage (2/3)", 0x6dfe, 0x6ffe },
-    { L"Dhalsim Stage (3/3)", 0x6ffe, 0x700e },
-    { L"Dhalsim Stage - Elephant", 0x1bfe, 0x1c3e },
+    { L"Dhalsim Stage (1/2)", 0x6bfe, 0x6dfe },
+    { L"Dhalsim Stage (2/2)", 0x6dfe, 0x6ffe },
+    { L"Dhalsim Stage - Elephant 1", 0x1bfe, 0x1c3e },
+    { L"Dhalsim Stage - Elephant 2", 0xbbfe, 0xbc3e },
 
     { L"E.Honda Stage - Floor & Ceiling", 0x53fe, 0x54be },
 
