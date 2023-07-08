@@ -576,7 +576,7 @@ void CGame_MVC2_D::ClearDataBuffer()
 uint32_t CGame_MVC2_D::GetBasicOffset(uint32_t nPalId)
 {
     // Each character by default gets 6 buttons worth of 8 palettes.  
-    if (nPalId >= (uint32_t)(8 * k_mvc2_character_coloroption_count))
+    if (nPalId >= static_cast<uint32_t>(8 * k_mvc2_character_coloroption_count))
     {
         // This palette is in the Extra group for this character
         return -1;

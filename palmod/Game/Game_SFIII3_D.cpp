@@ -257,7 +257,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     int nTargetImgId = 0;
     uint32_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
 
-    int nSrcStart = (int)0;
+    int nSrcStart = 0;
     uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());//GetBasicAmt(uUnitId);
 
     //Get rid of any palettes if there are any

@@ -192,7 +192,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
         UpdateSliderSel();
 
         CString strInfo;
-        strInfo.Format(L"Loaded %u colors from %u color GIF file.", nTotalColorsUsed, rgclrPaletteData.size());
+        strInfo.Format(L"Loaded %u colors from %u color GIF file.", nTotalColorsUsed, static_cast<int>(rgclrPaletteData.size()));
 
         SetStatusText(strInfo);
 

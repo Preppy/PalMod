@@ -91,13 +91,13 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, u
         {
             /*
         case MOD_HUE:
-            add_h = (double)mod_amt / 360.0;
+            add_h = static_cast<double>(mod_amt) / 360.0;
             */
         case MOD_LUM:
-            add_l = (double)mod_amt / 100.0;
+            add_l = static_cast<double>(mod_amt) / 100.0;
             break;
         case MOD_SAT:
-            add_s = (double)mod_amt / 255.0;
+            add_s = static_cast<double>(mod_amt) / 255.0;
             break;
         }
 

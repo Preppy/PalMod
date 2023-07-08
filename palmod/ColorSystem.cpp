@@ -1444,14 +1444,14 @@ namespace ColorSystem
 
     int ROUND_17(int rVal)
     {
-        int outVal = (int)min(0xff, (round(rVal / 17.0)) * 17);
+        const int outVal = static_cast<int>(min(0xff, (round(rVal / 17.0)) * 17));
 
         return outVal;
     }
 
     int ROUND_32(int rVal)
     {
-        int outVal = (int)min(0xff, (round(rVal / 32.0)) * 32);
+        const int outVal = static_cast<int>(min(0xff, (round(rVal / 32.0)) * 32));
 
         return outVal;
     }
@@ -1468,7 +1468,7 @@ namespace ColorSystem
 
     int GetColorStepFor8BitValue_8Steps(int nColorValue)
     {
-        int nStep = (int)round(nColorValue / k_nRGBPlaneMulForRGB333);
+        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB333));
 
         return nStep;
     }
@@ -1479,14 +1479,14 @@ namespace ColorSystem
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB333);
 
         // establish about where we should be
-        int nColorValue = ROUND_32((int)round(k_nRGBPlaneMulForRGB333 * (double)nColorStep));
+        const int nColorValue = ROUND_32(static_cast<int>(round(k_nRGBPlaneMulForRGB333 * static_cast<double>(nColorStep))));
 
         return nColorValue;
     }
 
     int GetColorStepFor8BitValue_16Steps(int nColorValue)
     {
-        int nStep = (int)round(nColorValue / k_nRGBPlaneMulForRGB444);
+        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB444));
 
         return nStep;
     }
@@ -1497,14 +1497,14 @@ namespace ColorSystem
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB444);
 
         // establish about where we should be
-        int nColorValue = ROUND_17((int)round(k_nRGBPlaneMulForRGB444 * (double)nColorStep));
+        const int nColorValue = ROUND_17(static_cast<int>(round(k_nRGBPlaneMulForRGB444 * static_cast<double>(nColorStep))));
 
         return nColorValue;
     }
 
     int GetColorStepFor8BitValue_32Steps(int nColorValue)
     {
-        int nStep = (int)round(nColorValue / k_nRGBPlaneMulForRGB555);
+        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555));
 
         return nStep;
     }
@@ -1515,15 +1515,15 @@ namespace ColorSystem
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555);
 
         // establish about where we should be
-        int nColorValue = ROUND_8((int)round(k_nRGBPlaneMulForRGB555 * (double)nColorStep));
+        const int nColorValue = ROUND_8(static_cast<int>(round(k_nRGBPlaneMulForRGB555 * static_cast<double>(nColorStep))));
 
         return nColorValue;
     }
 
     int GetColorStepFor8BitValue_32Steps_SharpCLUT(int nColorValue)
     {
-        bool fIsNegative = (nColorValue < 0);
-        int nStep = Convert32ToSharpRGB(abs(nColorValue));
+        const bool fIsNegative = (nColorValue < 0);
+        const int nStep = Convert32ToSharpRGB(abs(nColorValue));
 
         return nStep * (fIsNegative ? -1 : 1);
     }

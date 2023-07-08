@@ -204,7 +204,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             mii.cbSize = sizeof(MENUITEMINFO);
             mii.fMask = MIIM_ID | MIIM_STRING;
             mii.wID = ID_FILE_CROSSPATCH;
-            mii.dwTypeData = (LPWSTR)pszMvC2CrossPlatform;
+            mii.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform);
 
             int iMenuPos = pPopupMenu->GetMenuItemCount() - 1;
             for (; iMenuPos >= 0; iMenuPos--)
@@ -225,7 +225,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         MENUITEMINFO mii = { 0 };
 
         // This code does some work to allow for dynamic submenus for Capcom, NEOGEO, and Nintendo
-        for (int nPlatform = (int)GamePlatform::CapcomCPS12; nPlatform != (int)GamePlatform::Last; nPlatform++)
+        for (int nPlatform = static_cast<int>(GamePlatform::CapcomCPS12); nPlatform != static_cast<int>(GamePlatform::Last); nPlatform++)
         {
             int nCurrentPosition = 0;
             CMenu platformMenu;
@@ -237,19 +237,19 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             seriesMenu[2].CreatePopupMenu();
             seriesMenu[3].CreatePopupMenu();
 
-            if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) || ((GamePlatform)nPlatform == GamePlatform::NEOGEO) || ((GamePlatform)nPlatform == GamePlatform::Nintendo))
+            if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) || (static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) || (static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo))
             {
                 // first pass is just the submenus
                 for (const auto& sGametoFileData : g_rgGameToFileMap)
                 {
-                    if (sGametoFileData.publisherKey == (GamePlatform)nPlatform)
+                    if (sGametoFileData.publisherKey == static_cast<GamePlatform>(nPlatform))
                     {
                         mii.cbSize = sizeof(MENUITEMINFO);
                         mii.fMask = MIIM_ID | MIIM_STRING;
                         mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
-                        mii.dwTypeData = (LPWSTR)sGametoFileData.szGameFriendlyName;
+                        mii.dwTypeData = const_cast<LPWSTR>(sGametoFileData.szGameFriendlyName);
 
-                        if (sGametoFileData.seriesKey != (GameSeries)GameSeries::Unknown)
+                        if (sGametoFileData.seriesKey != GameSeries::Unknown)
                         {
                             switch (sGametoFileData.seriesKey)
                             {
@@ -285,49 +285,49 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
             for (const auto& sGametoFileData : g_rgGameToFileMap)
             {
-                if (sGametoFileData.publisherKey == (GamePlatform)nPlatform)
+                if (sGametoFileData.publisherKey == static_cast<GamePlatform>(nPlatform))
                 {
                     mii.cbSize = sizeof(MENUITEMINFO);
                     mii.fMask = MIIM_ID | MIIM_STRING;
                     mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
-                    mii.dwTypeData = (LPWSTR)sGametoFileData.szGameFriendlyName;
+                    mii.dwTypeData = const_cast<LPWSTR>(sGametoFileData.szGameFriendlyName);
 
-                    if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
+                    if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
                     {
                         // This logic is used to insert our submenu mostly alphabetically
                         if ((ppszCapcomSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
                             (ppszCapcomSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
                         {
-                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszCapcomSubMenu[nMenuIndex]);
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszCapcomSubMenu[nMenuIndex]);
                             nMenuIndex++;
                             nCurrentPosition++;
                         }
                     }
-                    else if (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
+                    else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
                     {
                         if ((ppszSNKSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
                             (ppszSNKSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
                         {
-                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszSNKSubMenu[nMenuIndex]);
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszSNKSubMenu[nMenuIndex]);
                             nMenuIndex++;
                             nCurrentPosition++;
                         }
                     }
-                    else if (((GamePlatform)nPlatform == GamePlatform::Nintendo) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszNintendoSubMenu))))
+                    else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszNintendoSubMenu))))
                     {
                         if ((ppszNintendoSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
                             (ppszNintendoSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
                         {
-                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszNintendoSubMenu[nMenuIndex]);
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszNintendoSubMenu[nMenuIndex]);
                             nMenuIndex++;
                             nCurrentPosition++;
                         }
                     }
 
-                    if ((((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
-                        (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
-                        (((GamePlatform)nPlatform == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
-                        (((GamePlatform)nPlatform != GamePlatform::CapcomCPS12) && ((GamePlatform)nPlatform != GamePlatform::NEOGEO) && ((GamePlatform)nPlatform != GamePlatform::Nintendo)))
+                    if (((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
+                        ((static_cast<GamePlatform>(nPlatform) != GamePlatform::CapcomCPS12) && (static_cast<GamePlatform>(nPlatform) != GamePlatform::NEOGEO) && (static_cast<GamePlatform>(nPlatform) != GamePlatform::Nintendo)))
                     {
                         platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                     }
@@ -336,7 +336,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
             LPCWSTR pszPlatformName = L"";
 
-            switch ((GamePlatform)nPlatform)
+            switch (static_cast<GamePlatform>(nPlatform))
             {
                 case GamePlatform::CapcomCPS12:
                     pszPlatformName = L"Capcom CPS1/2";
@@ -376,24 +376,24 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     break;
             }
 
-            if ((GamePlatform)nPlatform == GamePlatform::DevMode)
+            if (static_cast<GamePlatform>(nPlatform) == GamePlatform::DevMode)
             {
                 mii.cbSize = sizeof(MENUITEMINFO);
                 mii.fMask = MIIM_ID | MIIM_STRING;
                 mii.wID = DEVMODE_DIR | k_nGameLoadROMListMask;
-                mii.dwTypeData = (LPWSTR)L"Unknown Game Mode (Interleaved Files)";
+                mii.dwTypeData = const_cast<LPWSTR>(L"Unknown Game Mode (Interleaved Files)");
 
                 platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
             }
 
-            gameMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)platformMenu.Detach(), pszPlatformName);
+            gameMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(platformMenu.Detach()), pszPlatformName);
         }
 
         MENUITEMINFO miiNew = { 0 };
         miiNew.cbSize = sizeof(MENUITEMINFO);
         miiNew.fMask = MIIM_SUBMENU | MIIM_STRING;
         miiNew.hSubMenu = gameMenu.Detach();   // Detach() to keep the pop-up menu alive
-        miiNew.dwTypeData = (LPWSTR)L"Load ROM by game";
+        miiNew.dwTypeData = const_cast<LPWSTR>(L"Load ROM by game");
 
         pPopupMenu->SetMenuItemInfo(ID_FILE_OPEN_BY_GAME, &miiNew, FALSE);
     }
@@ -435,7 +435,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             mii.cbSize = sizeof(MENUITEMINFO);
             mii.fMask = MIIM_ID | MIIM_STRING;
             mii.wID = ID_TOOLS_CHECKMVC2MIX;
-            mii.dwTypeData = (LPWSTR)pszMvC2MixCheck;
+            mii.dwTypeData = const_cast<LPWSTR>(pszMvC2MixCheck);
 
             int iMenuPos = pPopupMenu->GetMenuItemCount() - 1;
             for (; iMenuPos >= 0; iMenuPos--)

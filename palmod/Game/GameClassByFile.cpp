@@ -493,7 +493,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     std::vector<sImgTicket*> vsImagePairs;
                     sImgTicket* pPreviousImage = nullptr;
 
-                    for (int nNodeIndex = ((int)paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
+                    for (int nNodeIndex = static_cast<int>(paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                     {
                         sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
 
@@ -504,7 +504,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                     ClearSetImgTicket(vsImagePairs[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1)]);
 
-                    for (int nPairIndex = 0; nPairIndex < (int)paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                    for (int nPairIndex = 0; nPairIndex < static_cast<int>(paletteDataSet->pPalettePairingInfo->nPalettesToJoin); nPairIndex++)
                     {
                         //Set each palette
                         CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);

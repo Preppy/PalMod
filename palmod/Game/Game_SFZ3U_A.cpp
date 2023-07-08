@@ -115,8 +115,8 @@ void CGame_SFZ3U_A::DumpAllCharacters()
                 }
 
                 strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, indexCPS2Sprites_%s, 0x%02x%s },\r\n", strColorName.GetString(), 
-                    SFZ3U_A_CharacterDataArray[nIndex].nROMOffset + (PALETTE_LENGTH * nPaletteIndex) + (nColorIndex * ARRAYSIZE(SFZ3U_CharacterPaletteNames) * PALETTE_LENGTH),
-                    SFZ3U_A_CharacterDataArray[nIndex].nROMOffset + (PALETTE_LENGTH * (nPaletteIndex + 1)) + (nColorIndex * ARRAYSIZE(SFZ3U_CharacterPaletteNames) * PALETTE_LENGTH),
+                    static_cast<int>(SFZ3U_A_CharacterDataArray[nIndex].nROMOffset + (PALETTE_LENGTH * nPaletteIndex) + (nColorIndex * ARRAYSIZE(SFZ3U_CharacterPaletteNames) * PALETTE_LENGTH)),
+                    static_cast<int>(SFZ3U_A_CharacterDataArray[nIndex].nROMOffset + (PALETTE_LENGTH * (nPaletteIndex + 1)) + (nColorIndex * ARRAYSIZE(SFZ3U_CharacterPaletteNames) * PALETTE_LENGTH)),
                     SFZ3U_A_CharacterDataArray[nIndex].pszCharacterImageName, nPaletteSpriteIndex, SFZ3U_A_CharacterDataArray[nIndex].fSpriteIsPaired ? L", &pairNext" : L"");
                 OutputDebugString(strOutput);
             }

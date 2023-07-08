@@ -5,7 +5,7 @@
 bool CGameClass::UserWantsAllPalettesInPatch()
 {
     CString strOptions;
-    strOptions.Format(L"Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session.", m_vDirtyPaletteList.size(), (m_vDirtyPaletteList.size() > 1) ? L"s" : L"");
+    strOptions.Format(L"Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session.", static_cast<int>(m_vDirtyPaletteList.size()), (m_vDirtyPaletteList.size() > 1) ? L"s" : L"");
 
     return (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
 }
@@ -16,7 +16,7 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
 
     uint32_t nTotalPalettesSaved = 0;
     LPCSTR szIPSOpener = "PATCH";
-    PatchFile->Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+    PatchFile->Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
 
     for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -59,7 +59,7 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
     }
 
     LPCSTR szIPSCloser = "EOF";
-    PatchFile->Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+    PatchFile->Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
 
 #ifdef WANT_IPS_DAT_FILES
     // This code works, but I'm discussing what we want to do with it if anything.
@@ -175,8 +175,8 @@ uint32_t CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
                         fSetOneOpened = true;
                         // Write the headers...
                         LPCSTR szIPSOpener = "PATCH";
-                        fileIPS1.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
-                        fileIPS2.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+                        fileIPS1.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
+                        fileIPS2.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
                     }
                     else
                     {
@@ -199,8 +199,8 @@ uint32_t CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
                         fSetTwoOpened = true;
                         // Write the headers...
                         LPCSTR szIPSOpener = "PATCH";
-                        fileIPS3.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
-                        fileIPS4.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+                        fileIPS3.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
+                        fileIPS4.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
                     }
                     else
                     {
@@ -265,25 +265,25 @@ uint32_t CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
     LPCSTR szIPSCloser = "EOF";
     if (fileIPS1.m_hFile != CFile::hFileNull)
     {
-        fileIPS1.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS1.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS1.Close();
     }
 
     if (fileIPS2.m_hFile != CFile::hFileNull)
     {
-        fileIPS2.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS2.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS2.Close();
     }
 
     if (fileIPS3.m_hFile != CFile::hFileNull)
     {
-        fileIPS3.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS3.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS3.Close();
     }
 
     if (fileIPS4.m_hFile != CFile::hFileNull)
     {
-        fileIPS4.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS4.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS4.Close();
     }
 

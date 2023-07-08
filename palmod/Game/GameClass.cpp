@@ -674,7 +674,7 @@ void CGameClass::UpdatePalData()
             int16_t nTotalColorsRemaining = srcDef->uPalSz;
             uint16_t nCurrentTotalWrites = 0;
             // Every 16 or 256 colors there is another counter WORD (color length) to preserve.
-            const uint16_t nMaxSafeColorsToWrite = (uint16_t)createPalOptions.eWriteOutputOptions;
+            const uint16_t nMaxSafeColorsToWrite = static_cast<uint16_t>(createPalOptions.eWriteOutputOptions);
             const uint16_t iFixedCounterPosition = createPalOptions.nTransparencyColorPosition; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
 
             while (nTotalColorsRemaining > 0)
@@ -752,7 +752,7 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    const uint8_t nTotalPagesNeeded = (uint8_t)ceil((double)m_nCurrentPaletteSizeInColors / (double)s_nColorsPerPage);
+    const uint8_t nTotalPagesNeeded = static_cast<uint8_t>(ceil(static_cast<double>(m_nCurrentPaletteSizeInColors) / static_cast<double>(s_nColorsPerPage)));
     const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
 
     if (!fCanFitWithinCurrentPageLayout)
@@ -772,7 +772,7 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
         for (uint16_t nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSizeInColors; nCurrentPage++)
         {
             strPageDescription.Format(L"%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
+            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, static_cast<DWORD>(nColorsRemaining)));
             nColorsRemaining -= s_nColorsPerPage;
         }
     }

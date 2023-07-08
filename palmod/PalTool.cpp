@@ -401,7 +401,7 @@ void CPalTool::DrawText()
         {
             if (m_sPalEntry[iPaletteIndex].fPalAvailable)
             {
-                if (iPaletteIndex == (int)m_nNotifyCtrlIndex)
+                if (iPaletteIndex == static_cast<int>(m_nNotifyCtrlIndex))
                 {
                     dc.SetTextColor(RGB(0, 0, 0)); //Black for selected palette
                 }

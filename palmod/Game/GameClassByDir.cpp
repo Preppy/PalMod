@@ -1122,7 +1122,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 iHandle1 = nSIMMUnitHoldingPalette + 1;
                                 iHandle2 = nSIMMUnitHoldingPalette;
                                 rgFileHandles.at(iHandle1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                                rgFileHandles.at(iHandle2)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
+                                rgFileHandles.at(iHandle2)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 1, CFile::begin);
                             }
 
                             for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
@@ -1187,8 +1187,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 iHandle4 = nSIMMUnitHoldingPalette + 1;
                                 rgFileHandles.at(iHandle1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                 rgFileHandles.at(iHandle2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                                rgFileHandles.at(iHandle3)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
-                                rgFileHandles.at(iHandle4)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
+                                rgFileHandles.at(iHandle3)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 2, CFile::begin);
+                                rgFileHandles.at(iHandle4)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 2, CFile::begin);
                             }
 
                             for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
@@ -1381,8 +1381,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 }
                                 else
                                 {
-                                    rgFileHandles.at(nFirstHandle)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
-                                    rgFileHandles.at(nSecondHandle)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
+                                    rgFileHandles.at(nFirstHandle)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 1, CFile::begin);
+                                    rgFileHandles.at(nSecondHandle)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 1, CFile::begin);
                                     rgFileHandles.at(nThirdHandle)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     rgFileHandles.at(nFourthHandle)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     iHandle1 = 2;
@@ -1849,7 +1849,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     iHandle1 = nSIMMUnitHoldingPalette + 1;
                                     iHandle2 = nSIMMUnitHoldingPalette;
                                     rgFileHandles.at(iHandle1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                                    rgFileHandles.at(iHandle2)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
+                                    rgFileHandles.at(iHandle2)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 1, CFile::begin);
                                 }
 
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
@@ -1912,8 +1912,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     iHandle4 = nSIMMUnitHoldingPalette + 1;
                                     rgFileHandles.at(iHandle1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     rgFileHandles.at(iHandle2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                                    rgFileHandles.at(iHandle3)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
-                                    rgFileHandles.at(iHandle4)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
+                                    rgFileHandles.at(iHandle3)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 2, CFile::begin);
+                                    rgFileHandles.at(iHandle4)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 2, CFile::begin);
                                 }
 
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)

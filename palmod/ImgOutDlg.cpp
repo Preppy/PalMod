@@ -333,7 +333,7 @@ void CImgOutDlg::UpdImgVar(BOOL fResize)
     m_DumpBmp.m_nTotalImagesToDisplay = m_iSelectedImageAmount;
     m_DumpBmp.m_nPalIndex = m_pal;
 
-    m_zoomSelIndex = min(m_zoomSelIndex, (int)CPalModZoom::GetZoomListSize());
+    m_zoomSelIndex = min(m_zoomSelIndex, static_cast<int>(CPalModZoom::GetZoomListSize()));
     m_zoomSelIndex = max(m_zoomSelIndex, m_nZoomSelOptionsMin);
 
     m_DumpBmp.m_flZoomLevel = (float)(1 + m_zoomSelIndex);

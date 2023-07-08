@@ -507,12 +507,12 @@ bool CGame_DevMode_DIR::ReloadLoadingChoices()
             GetSz = MAX_PATH;
             strValueName.Format(c_strRegvalFileFormat, iFilePos);
 
-            if (RegQueryValueEx(hKey, strValueName, 0, &RegType, (LPBYTE)strLookup.GetBufferSetLength(MAX_PATH), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, strValueName, 0, &RegType, reinterpret_cast<LPBYTE>(strLookup.GetBufferSetLength(MAX_PATH)), &GetSz) == ERROR_SUCCESS)
             {
                 GetSz = sizeof(DWORD);
 
                 strValueName.Format(c_strRegvalFileSizeFormat, iFilePos);
-                if (RegQueryValueEx(hKey, strValueName, 0, &RegType, (LPBYTE)&dwValue, &GetSz) == ERROR_SUCCESS)
+                if (RegQueryValueEx(hKey, strValueName, 0, &RegType, reinterpret_cast<LPBYTE>(&dwValue), &GetSz) == ERROR_SUCCESS)
                 {
                     m_sFileLoadingData.rgFileList.resize(iFilePos + 1);
                     m_sFileLoadingData.rgFileList.at(iFilePos).strFileName = strLookup.GetString();
@@ -526,7 +526,7 @@ bool CGame_DevMode_DIR::ReloadLoadingChoices()
         if (m_sFileLoadingData.rgFileList.size() > 1)
         {
             GetSz = sizeof(DWORD);
-            RegQueryValueEx(hKey, c_strRegValType, 0, &RegType, (LPBYTE)&dwValue, &GetSz);
+            RegQueryValueEx(hKey, c_strRegValType, 0, &RegType, reinterpret_cast<LPBYTE>(&dwValue), &GetSz);
 
             m_sFileLoadingData.eReadType = static_cast<FileReadType>(dwValue);
         }
@@ -551,12 +551,12 @@ void CGame_DevMode_DIR::SaveLoadingChoices()
 
             if (iFilePos < m_sFileLoadingData.rgFileList.size())
             {
-                RegSetValueEx(hKey, strValueName, 0, REG_SZ, (LPBYTE)m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.c_str(), static_cast<DWORD>(sizeof(wchar_t) * (m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.length() + 1)));
+                RegSetValueEx(hKey, strValueName, 0, REG_SZ, reinterpret_cast<const BYTE *>(m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.c_str()), static_cast<DWORD>(sizeof(wchar_t) * (m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.length() + 1)));
                 
                 strValueName.Format(c_strRegvalFileSizeFormat, iFilePos);
                 
                 DWORD dwFilesize = static_cast<DWORD>(m_sFileLoadingData.rgFileList.at(iFilePos).nFileSize);
-                RegSetValueEx(hKey, strValueName, 0, REG_DWORD, (LPBYTE)&dwFilesize, sizeof(DWORD));
+                RegSetValueEx(hKey, strValueName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&dwFilesize), sizeof(DWORD));
             }
             else
             {
@@ -564,7 +564,7 @@ void CGame_DevMode_DIR::SaveLoadingChoices()
             }
         }
 
-        RegSetValueEx(hKey, c_strRegValType, 0, REG_DWORD, (LPBYTE)&m_sFileLoadingData.eReadType, sizeof(DWORD));
+        RegSetValueEx(hKey, c_strRegValType, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_sFileLoadingData.eReadType), sizeof(DWORD));
         
         RegCloseKey(hKey);
     }

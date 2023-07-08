@@ -399,8 +399,8 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
             ImportMenuOption rgImportMenuOptions[] =
             {
-                { ID_FILE_LOADSPRITE, (LPWSTR)L"Load Texture", L"Load Texture for Palette %u", 0 },
-                { ID_FILE_LOADSPRITEFLIPPED, (LPWSTR)L"Load Flipped Texture", L"Load Flipped Texture for Palette %u", FLIPPED_IMAGES_MESSAGE_OFFSET },
+                { ID_FILE_LOADSPRITE, const_cast<LPWSTR>(L"Load Texture"), L"Load Texture for Palette %u", 0 },
+                { ID_FILE_LOADSPRITEFLIPPED, const_cast<LPWSTR>(L"Load Flipped Texture"), L"Load Flipped Texture for Palette %u", FLIPPED_IMAGES_MESSAGE_OFFSET },
             };
 
             for (UINT iIndex = 0; iIndex < ARRAYSIZE(rgImportMenuOptions); iIndex++)
@@ -431,7 +431,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         mii.wID = (nSpritePos | k_nTextureLoadCommandMask) + rgImportMenuOptions[iIndex].nAdditionalOffset;
                         strMenuName.Format(rgImportMenuOptions[iIndex].pszMultiFormat, nSpritePos);
 
-                        mii.dwTypeData = (LPWSTR)strMenuName.GetString();
+                        mii.dwTypeData = const_cast<LPWSTR>(strMenuName.GetString());
 
                         spriteMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                     }

@@ -1121,7 +1121,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_LAB, L"LAB");
         GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_XYZ, L"XYZ");
 
-        PopupMenu.AppendMenu(MF_POPUP | ((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED), (UINT_PTR)GradientMenu.m_hMenu, L"Gradient");
+        PopupMenu.AppendMenu(MF_POPUP | ((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED), reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
 
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");

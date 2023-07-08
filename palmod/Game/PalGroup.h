@@ -2,7 +2,7 @@
 #include "Default.h"
 #include "PalTool.h"
 
-#define sq(x) ((double)x*x)
+#define sq(x) (static_cast<double>(x)*x)
 
 int LimitVal(int nVal, int nHI, int nLO);
 

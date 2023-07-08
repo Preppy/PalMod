@@ -670,9 +670,9 @@ void CPalModDlg::SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameF
             CString strPerGameString;
 
             strPerGameString.Format(L"%s_%u", c_strLastUsedPath, nGameFlag);
-            RegSetValueEx(hKey, strPerGameString, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(wchar_t));
-            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(wchar_t));
-            RegSetValueEx(hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
+            RegSetValueEx(hKey, strPerGameString, 0, REG_SZ, reinterpret_cast<const BYTE *>(pszPath), static_cast<DWORD>(wcslen(pszPath) + 1) * sizeof(wchar_t));
+            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, reinterpret_cast<const BYTE *>(pszPath), static_cast<DWORD>(wcslen(pszPath) + 1) * sizeof(wchar_t));
+            RegSetValueEx(hKey, c_strLastUsedGFlag, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nGameFlag), static_cast<DWORD>(sizeof(int)));
 
             RegCloseKey(hKey);
         }
@@ -715,7 +715,7 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
                 strPerGameString = c_strLastUsedPath;
             }
 
-            if ((ERROR_SUCCESS == RegQueryValueEx(hKey, strPerGameString, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize))
+            if ((ERROR_SUCCESS == RegQueryValueEx(hKey, strPerGameString, 0, &dwRegType, reinterpret_cast<LPBYTE>(szPath), &cbDataSize))
                 && (REG_SZ == dwRegType))
             {
                 if (fCheckOnly)
@@ -754,7 +754,7 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
             dwRegType = REG_DWORD;
             cbDataSize = sizeof(int);
 
-            if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strLastUsedGFlag, 0, &dwRegType, (LPBYTE)nGameFlag, &cbDataSize)))
+            if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strLastUsedGFlag, 0, &dwRegType, reinterpret_cast<LPBYTE>(nGameFlag), &cbDataSize)))
             {
                 //fFound = TRUE;
             }

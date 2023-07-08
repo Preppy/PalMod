@@ -137,16 +137,16 @@ void CGame_CVS1_A::DumpAllCharacters()
                 if (rgCvS1BaseCharacterInformation.at(iCurrChar).wstrRest.size())
                 {
                     strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", strCurrName.GetString(),
-                                                                            nStartingPosition,
-                                                                            nEndingPosition,
+                                                                            static_cast<int>(nStartingPosition),
+                                                                            static_cast<int>(nEndingPosition),
                                                                             rgCvS1BaseCharacterInformation.at(iCurrChar).wstrRest.c_str(),
-                                                                            iCurrPalette);
+                                                                            static_cast<int>(iCurrPalette));
                 }
                 else
                 {
                     strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x },\r\n", strCurrName.GetString(),
-                        nStartingPosition,
-                        nEndingPosition);
+                        static_cast<int>(nStartingPosition),
+                        static_cast<int>(nEndingPosition));
                 }
 
                 OutputDebugString(strOutput);

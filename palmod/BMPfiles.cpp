@@ -93,7 +93,7 @@ bool CPalModDlg::LoadPaletteFromBMP(LPCWSTR pszFileName)
     }
     else
     {
-        strError.Format(L"Loaded %u colors from the %u color BMP file.", nHowManyColorsToImport, rgclrPaletteData.size());
+        strError.Format(L"Loaded %u colors from the %u color BMP file.", static_cast<int>(nHowManyColorsToImport), static_cast<int>(rgclrPaletteData.size()));
         SetStatusText(strError);
     }
 

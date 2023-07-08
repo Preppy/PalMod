@@ -45,7 +45,7 @@ CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
     tm buildDate = { 0 };
     
     get_date_when_compiled(buildDate);
-    (void)strAppName.Format(L"%s.%02u%02u", strPalModString.GetString(), buildDate.tm_mon, buildDate.tm_mday);
+    strAppName.Format(L"%s.%02u%02u", strPalModString.GetString(), buildDate.tm_mon, buildDate.tm_mday);
  
 #ifdef DEBUG
     strAppName += L" DEBUG";
@@ -107,11 +107,11 @@ BOOL CPalModApp::InitInstance()
 
     if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
     {
-        ((CPalModDlg*)PalModDlg)->Create(IDD_PALMOD_DIALOG);
+        PalModDlg->Create(IDD_PALMOD_DIALOG);
     }
     else
     {
-        ((CPalModDlg*)PalModDlg)->Create(IDD_PALMOD_DIALOG_FAT);
+        PalModDlg->Create(IDD_PALMOD_DIALOG_FAT);
     }
 
     m_pMainWnd = PalModDlg;
@@ -201,7 +201,7 @@ void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL)
 
     if (pszFileName)
     {
-        DWORD dwCharsUsed = GetModuleFileName(nullptr, szReadMeFile, (DWORD)ARRAYSIZE(szReadMeFile));
+        DWORD dwCharsUsed = GetModuleFileName(nullptr, szReadMeFile, static_cast<DWORD>(ARRAYSIZE(szReadMeFile)));
         wchar_t* pszExeFileName = wcsrchr(szReadMeFile, L'\\') + 1;
         wcsncpy(pszExeFileName, pszFileName, ARRAYSIZE(szReadMeFile) - dwCharsUsed);
 

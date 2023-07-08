@@ -582,7 +582,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 #ifdef BLEND_TO_BACKGROUND
                         // zachd 2020/10/02: I am baffled why we would blend to background on a transparent background.  For one image there's nothing to blend to.  For multiple images we break layering and instead
                         // muddle everything together.  I think this was just early experiemental code.  I'll leave it in case it matters, but don't think it's ever correct.
-                        double fpAdd = ((double)pCurrPal[(uIndex * 4) + 3] / 255.0);
+                        double fpAdd = (static_cast<double>(pCurrPal[(uIndex * 4) + 3]) / 255.0);
 
                         pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
 

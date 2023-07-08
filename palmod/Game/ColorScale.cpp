@@ -38,9 +38,9 @@ inline double fMin(double a, double b)
 void RGBtoHLS(const COLORREF rgb, double* H, double* L, double* S)
 {
     double delta;
-    double r = (double)((rgb) & 0xFF) / 255;
-    double g = (double)((rgb >> 8) & 0xFF) / 255;
-    double b = (double)((rgb >> 16) & 0xFF) / 255;
+    double r = static_cast<double>((rgb) & 0xFF) / 255;
+    double g = static_cast<double>((rgb >> 8) & 0xFF) / 255;
+    double b = static_cast<double>((rgb >> 16) & 0xFF) / 255;
     double cmax = MAX3(r, g, b);
     double cmin = MIN3(r, g, b);
     *L = (cmax + cmin) / 2.0;
@@ -195,9 +195,9 @@ COLORREF ColorScaleRGB(const COLORREF Col1,
                        r = 1-Ratio;
                    else
                        r = 1+Ratio;
-                   R1 = (int)(double(R1) * r + 0.5);
-                   G1 = (int)(double(G1) * r + 0.5);
-                   B1 = (int)(double(B1) * r + 0.5);
+                   R1 = static_cast<int>(double(R1) * r + 0.5);
+                   G1 = static_cast<int>(double(G1) * r + 0.5);
+                   B1 = static_cast<int>(double(B1) * r + 0.5);
                    return RGB(R1,G1,B1);*/
 
     return RGB(

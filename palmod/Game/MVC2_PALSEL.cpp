@@ -216,7 +216,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 std::vector<sImgTicket*> vsImagePairs;
                 sImgTicket* pPreviousImage = nullptr;
 
-                for (int nNodeIndex = ((int)pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
+                for (int nNodeIndex = static_cast<int>(pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                 {
                     const uint32_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
                     const uint16_t nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
@@ -271,7 +271,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             uint16_t nJoinedUnit3 = indexMVC2APsylocke;
             bool fTeamFound = false;
 
-            uint16_t nTeamViewNode = (uint16_t)floor(NodeGet->uPalId / (uint16_t)pCurrentButtonLabelSet.size());
+            const uint16_t nTeamViewNode = static_cast<uint16_t>(floor(NodeGet->uPalId / static_cast<uint16_t>(pCurrentButtonLabelSet.size())));
             const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
 
             for (uint16_t nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)

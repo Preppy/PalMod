@@ -125,13 +125,13 @@ namespace MVC2_SupplementProcessing
         {
             /*
         case MOD_HUE:
-            add_h = (double)mod_amt / 360.0;
+            add_h = static_cast<double>(mod_amt) / 360.0;
             */
         case MOD_LUM:
-            add_l = (double)mod_amt / 100.0;
+            add_l = static_cast<double>(mod_amt) / 100.0;
             break;
         case MOD_SAT:
-            add_s = (double)mod_amt / 255.0;
+            add_s = static_cast<double>(mod_amt) / 255.0;
             break;
         }
 
@@ -175,9 +175,9 @@ namespace MVC2_SupplementProcessing
         {
             COLORREF input_col = CurrMVC2->ConvPal16(src_16[offset + src_index]);
 
-            BYTE newR = min(255, max(0, (int)GetRValue(input_col) + ((int)17 * tint_factor_r)));
-            BYTE newG = min(255, max(0, (int)GetGValue(input_col) + ((int)17 * tint_factor_g)));
-            BYTE newB = min(255, max(0, (int)GetBValue(input_col) + ((int)17 * tint_factor_b)));
+            BYTE newR = min(255, max(0, static_cast<int>(GetRValue(input_col)) + (17 * tint_factor_r)));
+            BYTE newG = min(255, max(0, static_cast<int>(GetGValue(input_col)) + (17 * tint_factor_g)));
+            BYTE newB = min(255, max(0, static_cast<int>(GetBValue(input_col)) + (17 * tint_factor_b)));
 
             newR /= 17;
             newG /= 17;
@@ -220,7 +220,7 @@ namespace MVC2_SupplementProcessing
 
                 if (nColorInQuestion == 0x03) // Cammy's M.Bison
                 {
-                    const uint32_t nSourceNode = (uint32_t)floor(pal_no / 8);
+                    const uint32_t nSourceNode = static_cast<uint32_t>(floor(pal_no / 8));
                     nTotalLinkedPalettesUpdated += supp_copy_crosscharacter(char_no, pal_no, indexCPS2Sprites_Bison, nSourceNode * 8, 0, 0, 0x10);
                 }
             }
@@ -242,7 +242,7 @@ namespace MVC2_SupplementProcessing
 
                 if (nColorInQuestion == 0x00) // core M.Bison
                 {
-                    const uint32_t nSourceNode = (uint32_t)floor(pal_no / 8);
+                    const uint32_t nSourceNode = static_cast<uint32_t>(floor(pal_no / 8));
                     nTotalLinkedPalettesUpdated += supp_copy_crosscharacter(char_no, pal_no, indexCPS2Sprites_Cammy, (nSourceNode * 8) + 0x03, 0, 0, 0x10);
                 }
             }

@@ -468,7 +468,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             LoadedFile->Read(&low, 1);
                             FilePeer.Read(&high, 1);
 
-                            m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (uint16_t)((high << 8) | low);
+                            m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = static_cast<uint16_t>((high << 8) | low);
                         }
                     }
                 }
@@ -895,8 +895,8 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                         fSetOneOpened = true;
                         // Write the headers...
                         LPCSTR szIPSOpener = "PATCH";
-                        fileIPS1.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
-                        fileIPS2.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+                        fileIPS1.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
+                        fileIPS2.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
                     }
                     else
                     {
@@ -917,8 +917,8 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                         fSetTwoOpened = true;
                         // Write the headers...
                         LPCSTR szIPSOpener = "PATCH";
-                        fileIPS3.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
-                        fileIPS4.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+                        fileIPS3.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
+                        fileIPS4.Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
                     }
                     else
                     {
@@ -988,25 +988,25 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     LPCSTR szIPSCloser = "EOF";
     if (fileIPS1.m_hFile != CFile::hFileNull)
     {
-        fileIPS1.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS1.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS1.Close();
     }
 
     if (fileIPS2.m_hFile != CFile::hFileNull)
     {
-        fileIPS2.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS2.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS2.Close();
     }
 
     if (fileIPS3.m_hFile != CFile::hFileNull)
     {
-        fileIPS3.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS3.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS3.Close();
     }
 
     if (fileIPS4.m_hFile != CFile::hFileNull)
     {
-        fileIPS4.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS4.Write(szIPSCloser, static_cast<UINT>(strlen(szIPSCloser)));
         fileIPS4.Close();
     }
 

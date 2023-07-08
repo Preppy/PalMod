@@ -47,7 +47,7 @@ void CRegProc::SetUserSavePaletteToMemoryPreference(int nPreference)
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        RegSetValueEx(hKey, c_nPrefSavePaletteToMemory, 0, REG_DWORD, (BYTE*)&nPreference, sizeof(DWORD));
+        RegSetValueEx(hKey, c_nPrefSavePaletteToMemory, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreference), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -64,13 +64,13 @@ int CRegProc::GetUserSavePaletteToMemoryPreference()
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 
-        if (RegQueryValueEx(hKey, c_nPrefSavePaletteToMemory, 0, &RegType, (BYTE*)&dwValue, &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, c_nPrefSavePaletteToMemory, 0, &RegType, reinterpret_cast<LPBYTE>(&dwValue), &GetSz) != ERROR_SUCCESS)
         {
             nShouldAutoSavePalettesToMemory = IDYES;
         }
         else
         {
-            nShouldAutoSavePalettesToMemory = (int)dwValue;
+            nShouldAutoSavePalettesToMemory = static_cast<int>(dwValue);
         }
 
         RegCloseKey(hKey);
@@ -94,13 +94,13 @@ int CRegProc::GetImageAmountForPalettePreview(int nMaxAmount)
         CString strText;
         strText.Format(c_nPrefImageExportForNumber, nMaxAmount);
 
-        if (RegQueryValueEx(hKey, strText.GetString(), 0, &RegType, (BYTE*)&dwValue, &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, strText.GetString(), 0, &RegType, reinterpret_cast<LPBYTE>(&dwValue), &GetSz) != ERROR_SUCCESS)
         {
             nPreferredAmount = 0;
         }
         else
         {
-            nPreferredAmount = (int)dwValue;
+            nPreferredAmount = static_cast<int>(dwValue);
         }
 
         RegCloseKey(hKey);
@@ -119,7 +119,7 @@ void CRegProc::SetImageAmountForPalettePreview(int nMaxAmount, int nPreferredAmo
         CString strText;
         strText.Format(c_nPrefImageExportForNumber, nMaxAmount);
 
-        RegSetValueEx(hKey, strText.GetString(), 0, REG_DWORD, (BYTE*)&nPreferredAmount, sizeof(DWORD));
+        RegSetValueEx(hKey, strText.GetString(), 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredAmount), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -131,7 +131,7 @@ void CRegProc::SetAlphaModeForUnknownGame(AlphaMode alphaMode)
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        RegSetValueEx(hKey, c_mainUnknownGameAlphaMode, 0, REG_DWORD, (BYTE*)&alphaMode, sizeof(DWORD));
+        RegSetValueEx(hKey, c_mainUnknownGameAlphaMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&alphaMode), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -143,7 +143,7 @@ void CRegProc::SetColorModeForUnknownGame(ColMode colorMode)
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        RegSetValueEx(hKey, c_mainUnknownGameColMode, 0, REG_DWORD, (BYTE*)&colorMode, sizeof(DWORD));
+        RegSetValueEx(hKey, c_mainUnknownGameColMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&colorMode), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -155,7 +155,7 @@ void CRegProc::SetMaxWriteForUnknownGame(PALWriteOutputOptions maxWrite)
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        RegSetValueEx(hKey, c_mainUnknownGameMaxWrite, 0, REG_DWORD, (BYTE*)&maxWrite, sizeof(DWORD));
+        RegSetValueEx(hKey, c_mainUnknownGameMaxWrite, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&maxWrite), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -167,7 +167,7 @@ void CRegProc::SetColorsPerLine(DWORD dwColors)
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        RegSetValueEx(hKey, c_mainWndColorsPerLine, 0, REG_DWORD, (BYTE*)&dwColors, sizeof(DWORD));
+        RegSetValueEx(hKey, c_mainWndColorsPerLine, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&dwColors), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -189,7 +189,7 @@ uint16_t CRegProc::GetMaxColorsPerPageOverride()
             DWORD RegType = REG_DWORD;
             DWORD GetSz = sizeof(DWORD);
 
-            if (RegQueryValueEx(hKey, c_mainWndMaxColorsPerPage, 0, &RegType, (BYTE*)&s_dwMaxColorsPerPage, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_mainWndMaxColorsPerPage, 0, &RegType, reinterpret_cast<LPBYTE>(&s_dwMaxColorsPerPage), &GetSz) != ERROR_SUCCESS)
             {
                 s_dwMaxColorsPerPage = 0;
             }
@@ -198,7 +198,7 @@ uint16_t CRegProc::GetMaxColorsPerPageOverride()
         }
     }
 
-    return (uint16_t)s_dwMaxColorsPerPage;
+    return static_cast<uint16_t>(s_dwMaxColorsPerPage);
 }
 
 bool CRegProc::ShouldForcePeerPreviewWindow()
@@ -218,7 +218,7 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
             DWORD RegType = REG_DWORD;
             DWORD GetSz = sizeof(DWORD);
 
-            if (RegQueryValueEx(hKey, c_mainWndForcePeerPreviewWindow, 0, &RegType, (BYTE*)&shouldForcePeerWindow, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_mainWndForcePeerPreviewWindow, 0, &RegType, reinterpret_cast<LPBYTE>(&shouldForcePeerWindow), &GetSz) != ERROR_SUCCESS)
             {
                 shouldForcePeerWindow = 0;
             }
@@ -233,7 +233,7 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
 AlphaMode CRegProc::GetAlphaModeForUnknownGame()
 {
     HKEY hKey;
-    DWORD dwAlphaMode = (DWORD)AlphaMode::Unknown;
+    DWORD dwAlphaMode = static_cast<DWORD>(AlphaMode::Unknown);
 
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
@@ -241,9 +241,9 @@ AlphaMode CRegProc::GetAlphaModeForUnknownGame()
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 
-        if (RegQueryValueEx(hKey, c_mainUnknownGameAlphaMode, 0, &RegType, (BYTE*)&dwAlphaMode, &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, c_mainUnknownGameAlphaMode, 0, &RegType, reinterpret_cast<LPBYTE>(&dwAlphaMode), &GetSz) != ERROR_SUCCESS)
         {
-            dwAlphaMode = (DWORD)AlphaMode::Unknown;
+            dwAlphaMode = static_cast<DWORD>(AlphaMode::Unknown);
         }
 
         RegCloseKey(hKey);
@@ -255,7 +255,7 @@ AlphaMode CRegProc::GetAlphaModeForUnknownGame()
 ColMode CRegProc::GetColorModeForUnknownGame()
 {
     HKEY hKey;
-    DWORD dwColMode = (DWORD)ColMode::COLMODE_RGB666_NEOGEO;
+    DWORD dwColMode = static_cast<DWORD>(ColMode::COLMODE_RGB666_NEOGEO);
 
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
@@ -263,9 +263,9 @@ ColMode CRegProc::GetColorModeForUnknownGame()
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 
-        if (RegQueryValueEx(hKey, c_mainUnknownGameColMode, 0, &RegType, (BYTE*)&dwColMode, &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, c_mainUnknownGameColMode, 0, &RegType, reinterpret_cast<LPBYTE>(&dwColMode), &GetSz) != ERROR_SUCCESS)
         {
-            dwColMode = (DWORD)ColMode::COLMODE_RGB666_NEOGEO;
+            dwColMode = static_cast<DWORD>(ColMode::COLMODE_RGB666_NEOGEO);
         }
 
         RegCloseKey(hKey);
@@ -277,7 +277,7 @@ ColMode CRegProc::GetColorModeForUnknownGame()
 PALWriteOutputOptions CRegProc::GetMaxWriteForUnknownGame()
 {
     HKEY hKey;
-    DWORD dwMaxWrite = (DWORD)PALWriteOutputOptions::WRITE_16;
+    DWORD dwMaxWrite = static_cast<DWORD>(PALWriteOutputOptions::WRITE_16);
 
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
@@ -285,9 +285,9 @@ PALWriteOutputOptions CRegProc::GetMaxWriteForUnknownGame()
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 
-        if (RegQueryValueEx(hKey, c_mainUnknownGameMaxWrite, 0, &RegType, (BYTE*)&dwMaxWrite, &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, c_mainUnknownGameMaxWrite, 0, &RegType, reinterpret_cast<LPBYTE>(&dwMaxWrite), &GetSz) != ERROR_SUCCESS)
         {
-            dwMaxWrite = (DWORD)PALWriteOutputOptions::WRITE_16;
+            dwMaxWrite = static_cast<DWORD>(PALWriteOutputOptions::WRITE_16);
         }
 
         RegCloseKey(hKey);
@@ -309,7 +309,7 @@ uint16_t CRegProc::GetColorsPerLine()
             DWORD RegType = REG_DWORD;
             DWORD GetSz = sizeof(DWORD);
 
-            if (RegQueryValueEx(hKey, c_mainWndColorsPerLine, 0, &RegType, (BYTE*)&dwColorsPerLine, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_mainWndColorsPerLine, 0, &RegType, reinterpret_cast<LPBYTE>(&dwColorsPerLine), &GetSz) != ERROR_SUCCESS)
             {
                 dwColorsPerLine = PAL_MAXWIDTH_16COLORSPERLINE;
             }
@@ -402,35 +402,35 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             RegType = REG_DWORD;
             GetSz = sizeof(BOOL);
 
-            if (RegQueryValueEx(hKey, c_mainAllowAlphaChanges, 0, &RegType, (BYTE*)&main_fAllowAlphaChanges, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_mainAllowAlphaChanges, 0, &RegType, reinterpret_cast<LPBYTE>(&main_fAllowAlphaChanges), &GetSz) != ERROR_SUCCESS)
             {
                 main_fAllowAlphaChanges = c_mainDefaultAllowAlphaChanges;
             }
 
-            if (RegQueryValueEx(hKey, L"main_show32", 0, &RegType, (BYTE*)&main_bShow32, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"main_show32", 0, &RegType, reinterpret_cast<LPBYTE>(&main_bShow32), &GetSz) != ERROR_SUCCESS)
             {
                 main_bShow32 = c_mainDefaultShowAs32;
             }
 
-            if (RegQueryValueEx(hKey, L"main_procsupps", 0, &RegType, (BYTE*)&main_bProcSupp, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"main_procsupps", 0, &RegType, reinterpret_cast<LPBYTE>(&main_bProcSupp), &GetSz) != ERROR_SUCCESS)
             {
                 main_bProcSupp = c_mainDefaultProcSupp;
             }
 
 #ifdef ENABLE_OLD_OPTIONS
             // These were classic PalMod 2008 options, but ... I don't really see a reason for continuing to include them
-            if (RegQueryValueEx(hKey, L"main_getcolor", 0, &RegType, (BYTE*)&main_bGetColor, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"main_getcolor", 0, &RegType, reinterpret_cast<LPBYTE>(&main_bGetColor), &GetSz) != ERROR_SUCCESS)
             {
                 main_bGetColor = c_mainDefaultGetColor;
             }
 
-            if (RegQueryValueEx(hKey, L"AutoSetColor", 0, &RegType, (BYTE*)&main_bAutoSetCol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"AutoSetColor", 0, &RegType, reinterpret_cast<LPBYTE>(&main_bAutoSetCol), &GetSz) != ERROR_SUCCESS)
             {
                 main_bAutoSetCol = c_mainDefaultAutoSetCol;
             }
 #endif
 
-            if (RegQueryValueEx(hKey, c_mainExtraCopyInfo, 0, &RegType, (BYTE*)&main_bExtraCopyData, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_mainExtraCopyInfo, 0, &RegType, reinterpret_cast<LPBYTE>(&main_bExtraCopyData), &GetSz) != ERROR_SUCCESS)
             {
                 main_bExtraCopyData = c_mainDefaultExtraCopyData;
             }
@@ -441,7 +441,7 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             CString strPosAndDpi;
             strPosAndDpi.Format(L"%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
-            if (RegQueryValueEx(hKey, strPosAndDpi, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(MAX_PATH), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, strPosAndDpi, 0, &RegType, reinterpret_cast<LPBYTE>(conv_str.GetBufferSetLength(MAX_PATH)), &GetSz) == ERROR_SUCCESS)
             {
                 main_szpos = StrToRect(conv_str);
                 // This good faith check doesn't seem to do anything meaningful. 
@@ -463,48 +463,48 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             RegType = REG_DWORD;
 
             GetSz = sizeof(prev_bgcol);
-            if (RegQueryValueEx(hKey, L"prev_bgcol", 0, &RegType, (BYTE*)&prev_bgcol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"prev_bgcol", 0, &RegType, reinterpret_cast<LPBYTE>(&prev_bgcol), &GetSz) != ERROR_SUCCESS)
                 prev_bgcol = RGB(0xd0, 0xd0, 0xd0); // Default to grey background
 
             GetSz = sizeof(prev_blinkcol);
-            if (RegQueryValueEx(hKey, L"prev_blinkcol", 0, &RegType, (BYTE*)&prev_blinkcol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"prev_blinkcol", 0, &RegType, reinterpret_cast<LPBYTE>(&prev_blinkcol), &GetSz) != ERROR_SUCCESS)
                 prev_blinkcol = RGB(255, 255, 255); // Default to white blink
 
             GetSz = sizeof(prev_blinkinverts);
-            if (RegQueryValueEx(hKey, L"prev_blinkinverts", 0, &RegType, (BYTE*)&prev_blinkinverts, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"prev_blinkinverts", 0, &RegType, reinterpret_cast<LPBYTE>(&prev_blinkinverts), &GetSz) != ERROR_SUCCESS)
                 prev_blinkinverts = FALSE; // Default to non-inverting blink
 
             GetSz = sizeof(fTileBG);
-            if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, (BYTE*)&fTileBG, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, reinterpret_cast<LPBYTE>(&fTileBG), &GetSz) != ERROR_SUCCESS)
                 fTileBG = TRUE;
 
             GetSz = sizeof(nBGXOffs);
-            if (RegQueryValueEx(hKey, L"PreviewBGXOffset", 0, &RegType, (BYTE*)&nBGXOffs, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"PreviewBGXOffset", 0, &RegType, reinterpret_cast<LPBYTE>(&nBGXOffs), &GetSz) != ERROR_SUCCESS)
                 nBGXOffs = 0;
 
             GetSz = sizeof(nBGYOffs);
-            if (RegQueryValueEx(hKey, L"PreviewBGYOffset", 0, &RegType, (BYTE*)&nBGYOffs, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"PreviewBGYOffset", 0, &RegType, reinterpret_cast<LPBYTE>(&nBGYOffs), &GetSz) != ERROR_SUCCESS)
                 nBGYOffs = 0;
 
             GetSz = sizeof(fUseBGCol);
-            if (RegQueryValueEx(hKey, L"UseBGCol", 0, &RegType, (BYTE*)&fUseBGCol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"UseBGCol", 0, &RegType, reinterpret_cast<LPBYTE>(&fUseBGCol), &GetSz) != ERROR_SUCCESS)
                 fUseBGCol = TRUE;
 
             GetSz = sizeof(fClickToFind);
-            if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, (BYTE*)&fClickToFind, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, reinterpret_cast<LPBYTE>(&fClickToFind), &GetSz) != ERROR_SUCCESS)
                 fClickToFind = TRUE;
 
             GetSz = sizeof(eBlendMode);
-            if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, (BYTE*)&eBlendMode, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, reinterpret_cast<LPBYTE>(&eBlendMode), &GetSz) != ERROR_SUCCESS)
             {
                 eBlendMode = BlendMode::Default;
             }
 
             int nTranslation = 1;
             GetSz = sizeof(nTranslation);
-            if (RegQueryValueEx(hKey, L"PreviewZoom", 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"PreviewZoom", 0, &RegType, reinterpret_cast<LPBYTE>(&nTranslation), &GetSz) == ERROR_SUCCESS)
             {
-                dPreviewZoom = (double)nTranslation;
+                dPreviewZoom = static_cast<double>(nTranslation);
             }
             else
             {
@@ -514,7 +514,7 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             RegType = REG_SZ;
             GetSz = MAX_PATH;
 
-            if (RegQueryValueEx(hKey, c_previewWndPos, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(MAX_PATH), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_previewWndPos, 0, &RegType, reinterpret_cast<LPBYTE>(conv_str.GetBufferSetLength(MAX_PATH)), &GetSz) == ERROR_SUCCESS)
             {
                 prev_szpos = StrToRect(conv_str);
                 // This is a good faith check to make sure we didn't get positioned off-screen
@@ -531,7 +531,7 @@ void CRegProc::LoadReg(eRegistryStoreID src)
 
             //Reset get size 
             GetSz = MAX_PATH;
-            if ((RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, (BYTE*)szPrevBGLoc, &GetSz) != ERROR_SUCCESS)  ||
+            if ((RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, reinterpret_cast<LPBYTE>(szPrevBGLoc), &GetSz) != ERROR_SUCCESS)  ||
                 (GetFileAttributes(szPrevBGLoc) == INVALID_FILE_ATTRIBUTES))
             {
                 CString szTemp;
@@ -545,18 +545,18 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             RegType = REG_DWORD;
             GetSz = sizeof(DWORD);
 
-            if (RegQueryValueEx(hKey, L"imgout_bgcol", 0, &RegType, (BYTE*)&imgout_bgcol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"imgout_bgcol", 0, &RegType, reinterpret_cast<LPBYTE>(&imgout_bgcol), &GetSz) != ERROR_SUCCESS)
                 imgout_bgcol = RGB(0, 0, 0);
 
-            if (RegQueryValueEx(hKey, L"imgout_border", 0, &RegType, (BYTE*)&imgout_border, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"imgout_border", 0, &RegType, reinterpret_cast<LPBYTE>(&imgout_border), &GetSz) != ERROR_SUCCESS)
                 imgout_border = 0;
 
             // Changed our index, so don't try to mismap settings.
-            if (RegQueryValueEx(hKey, L"imgout_zoomindex_2", 0, &RegType, (BYTE*)&imgout_zoomindex, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"imgout_zoomindex_2", 0, &RegType, reinterpret_cast<LPBYTE>(&imgout_zoomindex), &GetSz) != ERROR_SUCCESS)
                 imgout_zoomindex = 0;
 
             GetSz = sizeof(BOOL);
-            if (RegQueryValueEx(hKey, L"TransparentPNG", 0, &RegType, (BYTE*)&fTransPNG, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"TransparentPNG", 0, &RegType, reinterpret_cast<LPBYTE>(&fTransPNG), &GetSz) != ERROR_SUCCESS)
             {
                 fTransPNG = TRUE;
             }
@@ -564,7 +564,7 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             RegType = REG_SZ;
             GetSz = MAX_PATH;
 
-            if (RegQueryValueEx(hKey, L"imgout_szpos", 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(MAX_PATH), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"imgout_szpos", 0, &RegType, reinterpret_cast<LPBYTE>(conv_str.GetBufferSetLength(MAX_PATH)), &GetSz) == ERROR_SUCCESS)
             {
                 imgout_szpos = StrToRect(conv_str);
 
@@ -599,54 +599,52 @@ void CRegProc::SaveReg(eRegistryStoreID src)
         {
         case eRegistryStoreID::REG_MAIN:
         {
-            RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, (BYTE*)&main_fAllowAlphaChanges, sizeof(main_fAllowAlphaChanges));
-            RegSetValueEx(hKey, L"main_show32", 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(main_bShow32));
-            RegSetValueEx(hKey, L"main_procsupps", 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(main_bProcSupp));
-            RegSetValueEx(hKey, c_mainExtraCopyInfo, 0, REG_DWORD, (BYTE*)&main_bExtraCopyData, sizeof(main_bExtraCopyData));
+            RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_fAllowAlphaChanges), sizeof(main_fAllowAlphaChanges));
+            RegSetValueEx(hKey, L"main_show32", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bShow32), sizeof(main_bShow32));
+            RegSetValueEx(hKey, L"main_procsupps", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bProcSupp), sizeof(main_bProcSupp));
+            RegSetValueEx(hKey, c_mainExtraCopyInfo, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bExtraCopyData), sizeof(main_bExtraCopyData));
 
             conv_str = RectToStr(main_szpos);
 
             CString strPosAndDpi;
             strPosAndDpi.Format(L"%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
-            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
         }
         break;
 
         case eRegistryStoreID::REG_PREV:
         {
-            RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, (BYTE*)&prev_bgcol, sizeof(prev_bgcol));
-            RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, (BYTE*)&prev_blinkcol, sizeof(prev_blinkcol));
-            RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, (BYTE*)&prev_blinkinverts, sizeof(prev_blinkinverts));
+            RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_bgcol), sizeof(prev_bgcol));
+            RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkcol), sizeof(prev_blinkcol));
+            RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkinverts), sizeof(prev_blinkinverts));
 
             conv_str = RectToStr(prev_szpos);
 
-            RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(wchar_t) * (conv_str.GetLength() + 1));
-            RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, (BYTE*)szPrevBGLoc, (DWORD)((wcslen(szPrevBGLoc) + 1) * sizeof(wchar_t)));
-            RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, (BYTE*)&fTileBG, sizeof(fTileBG));
-            RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(nBGXOffs));
-            RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(nBGYOffs));
-            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, (BYTE*)&fUseBGCol, sizeof(fUseBGCol));
-            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&fClickToFind, sizeof(fClickToFind));
-            RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, (BYTE*)&eBlendMode, sizeof(eBlendMode));
+            RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+            RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, reinterpret_cast<LPBYTE>(szPrevBGLoc), static_cast<DWORD>((wcslen(szPrevBGLoc) + 1) * sizeof(wchar_t)));
+            RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTileBG), sizeof(fTileBG));
+            RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGXOffs), sizeof(nBGXOffs));
+            RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGYOffs), sizeof(nBGYOffs));
+            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fUseBGCol), sizeof(fUseBGCol));
+            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fClickToFind), sizeof(fClickToFind));
+            RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&eBlendMode), sizeof(eBlendMode));
             
-
-
-            int nTranslation = (int)dPreviewZoom;
-            RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(nTranslation));
+            DWORD nTranslation = static_cast<DWORD>(dPreviewZoom);
+            RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nTranslation), sizeof(nTranslation));
         }
         break;
 
         case eRegistryStoreID::REG_IMGOUT:
         {
-            RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(imgout_bgcol));
-            RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(imgout_border));
-            RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(imgout_zoomindex));
-            RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, (BYTE*)&fTransPNG, sizeof(fTransPNG));
+            RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_bgcol), sizeof(imgout_bgcol));
+            RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_border), sizeof(imgout_border));
+            RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_zoomindex), sizeof(imgout_zoomindex));
+            RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTransPNG), sizeof(fTransPNG));
 
             conv_str = RectToStr(imgout_szpos);
 
-            RegSetValueEx(hKey, L"imgout_szpos", 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+            RegSetValueEx(hKey, L"imgout_szpos", 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
         }
         break;
         }
@@ -723,7 +721,7 @@ DWORD CRegProc::GetOFNIndexForPaletteExport(bool fUsingBBCFOptions)
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 
-        if (RegQueryValueEx(hKey, fUsingBBCFOptions? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, &RegType, (LPBYTE)&nPreferredIndex, &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, fUsingBBCFOptions? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, &RegType, reinterpret_cast<LPBYTE>(&nPreferredIndex), &GetSz) != ERROR_SUCCESS)
         {
             nPreferredIndex = 0;
         }
@@ -741,7 +739,7 @@ void CRegProc::StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPref
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        RegSetValueEx(hKey, fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, REG_DWORD, (LPBYTE)&nPreferredIndex, sizeof(DWORD));
+        RegSetValueEx(hKey, fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredIndex), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -757,7 +755,7 @@ DWORD CRegProc::GetOFNIndexForImageExport()
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 
-        if (RegQueryValueEx(hKey, c_exportImageOFNValueName, 0, &RegType, (LPBYTE)&nPreferredIndex, &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, c_exportImageOFNValueName, 0, &RegType, reinterpret_cast<LPBYTE>(&nPreferredIndex), &GetSz) != ERROR_SUCCESS)
         {
             nPreferredIndex = 0;
         }
@@ -775,7 +773,7 @@ void CRegProc::StoreOFNIndexForImageExport(DWORD nPreferredIndex)
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        RegSetValueEx(hKey, c_exportImageOFNValueName, 0, REG_DWORD, (LPBYTE)&nPreferredIndex, sizeof(DWORD));
+        RegSetValueEx(hKey, c_exportImageOFNValueName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredIndex), sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }

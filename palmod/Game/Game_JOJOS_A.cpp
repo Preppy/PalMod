@@ -189,7 +189,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             {
                 nOffset = paletteSetToUse[nDistanceFromZero].nPaletteOffset;
                 m_pszCurrentPaletteName = paletteSetToUse[nDistanceFromZero].szPaletteName;
-                cbPaletteSizeOnDisc = (int)max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
+                cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset)));
 
                 // If it's regulation, load the regulation-specific data using those shifts
                 if ((m_eVersionToLoad == JojosLoadingKey::JOJOS_US_A_51_ROMKEY) ||

@@ -226,7 +226,7 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 
         if (paletteData)
         {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+            cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
@@ -604,7 +604,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             std::vector<sImgTicket*> vsImagePairs;
                             sImgTicket* pPreviousImage = nullptr;
 
-                            for (int nNodeIndex = ((int)paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
+                            for (int nNodeIndex = static_cast<int>(paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                             {
                                 sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
 
@@ -615,7 +615,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                             ClearSetImgTicket(vsImagePairs[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1)]);
 
-                            for (int nPairIndex = 0; nPairIndex < (int)paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                            for (int nPairIndex = 0; nPairIndex < static_cast<int>(paletteDataSet->pPalettePairingInfo->nPalettesToJoin); nPairIndex++)
                             {
                                 //Set each palette
                                 CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
@@ -645,7 +645,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 uint32_t CGame_MVC2_A::GetBasicOffset(uint32_t nPalId)
 {
     // Each character by default gets 6 buttons worth of 8 palettes.  
-    if (nPalId >= (uint32_t)(8 * k_mvc2_character_coloroption_count))
+    if (nPalId >= static_cast<uint32_t>(8 * k_mvc2_character_coloroption_count))
     {
         // This palette is in the Extra group for this character
         return -1;

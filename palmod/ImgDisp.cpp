@@ -1024,8 +1024,8 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 {
     if (m_bLButtonDown && (m_nImgAmt || m_bCtrlDown))
     {
-        m_fpDiffX += static_cast<double>(m_ptLastMouse.x - point.x) / m_fpZoom;
-        m_fpDiffY += static_cast<double>(m_ptLastMouse.y - point.y) / m_fpZoom;
+        m_fpDiffX += (static_cast<double>(m_ptLastMouse.x) - static_cast<double>(point.x)) / m_fpZoom;
+        m_fpDiffY += (static_cast<double>(m_ptLastMouse.y) - static_cast<double>(point.y)) / m_fpZoom;
 
         int nAdd = 1;
 

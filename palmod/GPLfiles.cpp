@@ -266,13 +266,13 @@ void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
 
         // Write the header...
         strcpy(szBuffer, "GIMP Palette\n");
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
+        GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
         _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "Name: %S\n", m_PalHost.GetPalName(0));
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
+        GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
         _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "Columns: %u\n", nWorkingAmt);
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
+        GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
         strcpy(szBuffer, "# Created by PalMod\n");
-        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
+        GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
 
         // Write out the colors...
         // Skip the first color for GIMP's usage
@@ -280,7 +280,7 @@ void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
         for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
         {
             _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-            GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
+            GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
         }
 
         for (uint8_t nCurrentPage = 1; nCurrentPage < nAllowedPalettePageCount; nCurrentPage++)
@@ -294,7 +294,7 @@ void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
                 for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
                 {
                     _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-                    GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
+                    GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
                     nTotalColorsUsed++;
                 }
             }

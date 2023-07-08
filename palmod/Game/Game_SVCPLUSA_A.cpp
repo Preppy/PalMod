@@ -995,7 +995,7 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
                             for (uint16_t nPaletteIndex = 0; nPaletteIndex < m_nCurrentPaletteSizeInColors; nPaletteIndex++)
                             {
-                                const uint16_t nMaxSafeColorsToWrite = (uint16_t)createPalOptions.eWriteOutputOptions;
+                                const uint16_t nMaxSafeColorsToWrite = static_cast<uint16_t>(createPalOptions.eWriteOutputOptions);
 
                                 if ((nPaletteIndex % nMaxSafeColorsToWrite) != 0) // skip the transparency counters
                                 {

@@ -153,7 +153,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
         if ((m_nLoadedFileViewSize != -1) && pszExtraFileName) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.
         {
             // Now we look for the Extra extension file.
-            GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH);
+            GetModuleFileName(nullptr, szTargetFile, static_cast<DWORD>(MAX_PATH));
             wchar_t* pszExeFileName = wcsrchr(szTargetFile, L'\\') + 1;
             pszExeFileName[0] = 0;
 
@@ -176,7 +176,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                     if (cfExtraFile.GetStatus(extraInfo))
                     {
-                        DWORD nFileSize = (DWORD)extraInfo.m_size;
+                        DWORD nFileSize = static_cast<DWORD>(extraInfo.m_size);
 
                         if (nFileSize == 0)
                         {
@@ -370,7 +370,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                         CString strQuestion;
                                         strQuestion.Format(L"In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%x bytes. This Extra starts at offset 0x%x and ends at offset 0x%x."
                                             L"That won't work: the maximum ending offset possible is 0x%x.\n\n"
-                                            L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, m_nLoadedFileViewSize, nCurrStart, nCurrEnd, nGameROMSize);
+                                            L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, static_cast<int>(m_nLoadedFileViewSize), nCurrStart, nCurrEnd, static_cast<int>(nGameROMSize));
 
                                         MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
                                         fAlertedToTruncation = true;
@@ -384,7 +384,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 }
 
                                 uint32_t nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
-                                const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)k_colorsPerPage);
+                                const int nTotalPagesNeeded = static_cast<int>(ceil(static_cast<double>(nColorsUsed) / static_cast<double>(k_colorsPerPage)));
                                 int nCurrentPage = 1;
 
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
@@ -1196,7 +1196,7 @@ void CGameWithExtrasFile::OpenExtraFile()
         else
         {
             // Create in the PalMod folder
-            DWORD dwCharsUsed = GetModuleFileName(nullptr, szExtraFileWithPath, (DWORD)ARRAYSIZE(szExtraFileWithPath));
+            DWORD dwCharsUsed = GetModuleFileName(nullptr, szExtraFileWithPath, static_cast<DWORD>(ARRAYSIZE(szExtraFileWithPath)));
             wchar_t* pszExeFileName = wcsrchr(szExtraFileWithPath, L'\\') + 1;
             wcsncpy(pszExeFileName, m_pszExtraFilename, ARRAYSIZE(szExtraFileWithPath) - dwCharsUsed);
         }

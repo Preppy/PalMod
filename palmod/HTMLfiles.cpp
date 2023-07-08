@@ -86,7 +86,7 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                 strOutput = "<script>\r\n";
                 rawFile.Write(strOutput.GetString(), strOutput.GetLength());
 
-                for (size_t iCurrentColor = 0; iCurrentColor < m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz; iCurrentColor++)
+                for (int iCurrentColor = 0; iCurrentColor < static_cast<int>(m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz); iCurrentColor++)
                 {
                     strOutput.Format("function updateColor%02x() {\r\n", iCurrentColor);
                     rawFile.Write(strOutput.GetString(), strOutput.GetLength());

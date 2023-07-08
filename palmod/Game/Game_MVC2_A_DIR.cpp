@@ -152,7 +152,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
 inline uint8_t CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(uint32_t nROMLocation)
 {
-    return (uint8_t)(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / c_nMVC2SIMMLength));
+    return static_cast<uint8_t>(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / c_nMVC2SIMMLength));
 }
 
 BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
