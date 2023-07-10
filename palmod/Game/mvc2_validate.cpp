@@ -3087,11 +3087,12 @@ void FixAllProblemPalettes(std::vector<bool>& rgPaletteChangeArray)
 
     for (const palette_validation& paletteToCheck : char_val_array)
     {
-        if (g_rgfCharacterHasIssues[paletteToCheck.character_number] && 
+        if ((paletteToCheck.character_number < ARRAYSIZE(g_rgfCharacterHasIssues)) &&
+            g_rgfCharacterHasIssues[paletteToCheck.character_number] &&
             ((lastFixedCharacter != paletteToCheck.character_number)  || (lastFixedPalette != paletteToCheck.source_palette)))
         {
             CString strMessage;
-            strMessage.Format(L"Fixing %s palette 0x%x \n", MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette);
+            strMessage.Format(L"Fixing %s palette 0x%x \n", MVC2_D_UNITDESC.at(paletteToCheck.character_number), paletteToCheck.source_palette);
             OutputDebugString(strMessage);
 
             lastFixedCharacter = paletteToCheck.character_number;
@@ -3138,7 +3139,14 @@ void FixAllProblemPalettes(std::vector<bool>& rgPaletteChangeArray)
 
     for (const palette_validation& paletteToCheck : char_val_array)
     {
-        g_rgfCharacterHasIssues[paletteToCheck.character_number] = false;
+        if (paletteToCheck.character_number < ARRAYSIZE(g_rgfCharacterHasIssues))
+        {
+#pragma warning( push )
+            // analysis on 6386 is buggy, so disable
+#pragma warning( disable : 6386)
+            g_rgfCharacterHasIssues[paletteToCheck.character_number] = false;
+#pragma warning( pop ) 
+        }
     }
 
     g_haveValidationData = false;
