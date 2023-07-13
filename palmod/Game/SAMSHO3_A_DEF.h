@@ -1154,7 +1154,7 @@ const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_BONUS[] =
     { L"Hit/Blocksparks (Blunts)", 0x6e0, 0x700 },
     { L"Rage build", 0x280, 0x2a0 },
     { L"Food", 0xf760, 0xf780 },
-    { L"Bomb", 0xf780, 0xf7a0 },
+    { L"Bomb", 0x780, 0x7a0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_HUD[] =
