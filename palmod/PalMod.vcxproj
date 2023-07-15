@@ -237,6 +237,7 @@
     <ClCompile Include="Game\GameClassByDir.cpp" />
     <ClCompile Include="Game\GameClassByFile.cpp" />
     <ClCompile Include="Game\GameClassByUnitPerFile.cpp" />
+    <ClCompile Include="Game\GameRegistry.cpp" />
     <ClCompile Include="Game\GameLoad.cpp" />
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
@@ -405,6 +406,7 @@
     <ClInclude Include="Game\GameClassByUnitPerFile.h" />
     <ClInclude Include="Game\GameDef.h" />
     <ClInclude Include="Game\GameLoad.h" />
+    <ClInclude Include="Game\GameRegistry.h" />
     <ClInclude Include="Game\Game_AoDK_A.h" />
     <ClInclude Include="Game\Game_AOF1_A.h" />
     <ClInclude Include="Game\Game_AOF3_A.h" />

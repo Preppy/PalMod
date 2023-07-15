@@ -2,167 +2,10 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "RegProc.h"
-#include "Game\GameDef.h"
+#include "Game\GameRegistry.h"
 
 constexpr auto c_strLastUsedPath = L"LastUsedPath";
 constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
-
-// NOTE: If you add a multiple-ROM option below, you will also need to update
-// CGameLoad::LoadFile to pass the appropriate gameflag to that game.
-// When you add or change the data here, please also update the Read Me with that data.
-std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
-{
-    // 1: Game ID,      2: Popup menu text,   3: Open File filter text,    4: Game Platform [,  5: Optional sub-category]
-    { AODK_A,           L"Aggressors of Dark Kombat", L"Aggressors of Dark Kombat|074-p1.*|", GamePlatform::NEOGEO },
-    { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
-    { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
-    { AsuraBuster_A,    L"Asura Buster: Eternal Warriors (Fuuki)", L"Asura Buster: Eternal Warriors (Fuuki)|pgm3.u1|", GamePlatform::OtherPlatform },
-    { AvgrsGS_A,        L"Avengers in Galactic Storm (Data East)", L"Avengers in Galactic Storm (Data East)|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::OtherPlatform },
-    { BattleFlipShot_A, L"Battle Flip Shot", L"Battle Flip Shot (Neo-Geo)|247-p1.*|", GamePlatform::NEOGEO },
-    { BMKNS_SNES,       L"Battle Master: KnS", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { BLEACH_DS,        L"Bleach Dark Souls", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
-    { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge (Neo-Geo)|245-p1.*|", GamePlatform::NEOGEO },
-    { BREAKERS_S,       L"Breakers Revenge", L"Breakers Revenge (Steam)|245-m68k.swbin|", GamePlatform::Steam },
-    { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (J*).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { BtlKRoad_A,       L"Battle K-Road (Psikyo)", L"Battle K-Road (Psikyo)|4-u46.bin|", GamePlatform::OtherPlatform },
-    { CFTE_SNES,        L"Clay Fighter:TE", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
-    { CVS1_A,           L"CvS1", L"CvS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::SegaNAOMI },
-    { CVS2_A,           L"CvS2", L"CvS2 (Naomi)|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
-    { CYBERBOTS_A,      L"Cyberbots", L"Cyberbots|cyb?.04|", GamePlatform::CapcomCPS12 },
-    { DBZEB_DS,         L"Dragon Ball Z: Extreme Butoden (3DS)", L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)|3DS1366*(USA)-decrypted.3ds;Dragon*Butoden*USA*decrypted*.3ds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
-    { DBZHD_SNES,       L"Dragon Ball Z: Hyper Dimension", L"Dragon Ball Z: Hyper Dimension (SNES)|dragon ball z - hyper dimension (*).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { DOUBLEDRAGON_A,   L"Double Dragon", L"Double Dragon|082-p1.*;ddrag_p1.rom|", GamePlatform::NEOGEO },
-    { FatalFury1_A,     L"Fatal Fury: King of Fighters", L"Fatal Fury: KoF|033-p1.*;033-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { FatalFury2_A,     L"Fatal Fury 2", L"Fatal Fury 2|047-p1.*;047-epr.ep1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { FatalFuryS_A,     L"Fatal Fury Special", L"Fatal Fury Special (Neo-Geo)|058-p1.*;058-p1bs.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { FatalFuryS_SNES,  L"Fatal Fury Special", L"Fatal Fury Special (SNES)|Fatal Fury Special (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { FatalFury3_A,     L"Fatal Fury 3", L"Fatal Fury 3|069-p1.*;069-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { FightFever_A,     L"Fight Fever", L"Fight Fever|060-p1.p1;060-p1.bin|", GamePlatform::NEOGEO },
-    { GalaxyFight_A,    L"Galaxy Fight", L"Galaxy Fight|078-p1.*|", GamePlatform::NEOGEO },
-    { Garou_A,          L"Garou: MotW", L"Garou: MotW (Neo-Geo)|kf.neo-sma;253-sma.bin;253-sma.kf|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin;253-sma.bin|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { Garou_S,          L"Garou: MotW", L"Garou: MotW (Steam)|p1.bin|", GamePlatform::Steam },
-    { GGDS_NDS,         L"Guilty Gear: Dust Strikers", L"Guilty Gear: Dust Strikers (Nintendo DS)|0590*(Japan).nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
-    { GUNDAM_SNES,      L"Gundam Wing: Endless Duel", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { HIppo_GBA,        L"Hajime no Ippo - The Fighting! (Japan)", L"Hajime no Ippo - The Fighting! (GBA)|Hajime no Ippo - The Fighting! (Japan).gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
-    { FotNS_P,          L"Hokuto no Ken", L"Hokuto no Ken (PS2)|HK_B.bin|", GamePlatform::PS2 },
-    { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
-    { JCHAN_A,          L"Jackie Chan in Fists of Fire (Kaneko)", L"Jackie Chan in Fists of Fire (Kaneko)|j2p1x4.u70|", GamePlatform::OtherPlatform },
-    { JOJOS_A,          L"Jojo's: HFTF (Normal, Regulation: Off)", L"Jojos HFTF: HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
-    { JOJOS_US_A,       L"Jojo's: HFTF (Regulation: On)", L"Jojos HFTF: HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
-    { JOJOSRPG_SNES,    L"Jojo's: RPG", L"Jojo's: RPG (SNES)|JoJo no Kimyou na Bouken (Japan).sfc;JoJo no Kimyou na Bouken (Japan) (Translated En).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { JusticeLeagueTF_SNES, L"Justice League Task Force", L"Justice League Task Force (SNES)|Justice League Task Force (USA).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { VENTURE_A,        L"Jojo's Venture", L"Jojo's Venture: Characters (50), HUD (31)|31;50|", GamePlatform::CapcomCPS3 },
-    { KabukiKlash_A,    L"Kabuki Klash", L"Kabuki Klash|092-p1.*|", GamePlatform::NEOGEO },
-    { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.*|", GamePlatform::NEOGEO }, // DataEast
-    { KI_SNES,          L"Killer Instinct", L"Killer Instinct (SNES)|Killer Instinct (USA)*.s?c;sns-akle-0.u1|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { KOTM_A,           L"King of the Monsters", L"King of the Monsters (Neo-Geo)|016-p1.*;016-hp1.*|", GamePlatform::NEOGEO },
-    { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
-    { KOF94_A,          L"KOF94", L"KOF94|055-p1.*|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF95_A,          L"KOF95", L"KOF95|084-p1.*;084-p2sp.p2|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF96_A,          L"KOF96", L"KOF96|214-p2.sp2;214-p2.bin;214ae-p2.p2|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF97_A,          L"KOF97", L"KOF97|232-p2.*;kof97_p2.rom;kf97-p2p.bin;97cbt-p2.bin;kf97-p2p.bin;232-p2ps.sp2;232-rc.sp2;232t.p2;232t2020-p2.sp2;232xt-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF97AE_A,        L"KOF97AE", L"KOF97AE|232ae.p2;232ae-p2.sp2;232aef-p2.sp2|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF97GM_S,        L"KOF97GM", L"KOF97GM|p1.bin|", GamePlatform::Steam },
-    { KOF98_A,          L"KOF98", L"KOF98|242-p2.*;kof98_p2.rom;242cb-p2.sp2;242pfe.p2;242mix.p2;98eckvs-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF98AE2016_A,    L"KOF98AE2016 (Romhack)", L"KOF98AE2016 (Romhack)|242ae-p2.sp2;242ae-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin;152-p2.bin;kf99eur.p2|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF00N_A,         L"KOF00N", L"KOF00N|257-pg2.sp2;257-p2n.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2;5003-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-    // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
-    { KOF02_A,          L"KOF02", L"KOF02|265*p2*;kf2k2ru35-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF02PS2_A,       L"KOF02 (2002PS2)", L"KOF02 (2002PS2)|265ps2*p2*|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin;clear.bin;psel.bin-n;rank.bin;conte.bin|", GamePlatform::Steam },
-    { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", GamePlatform::SammyAtomiswave },
-    { LASTBLADE_A,      L"Last Blade", L"Last Blade (Neo-Geo)|234-p1.*|", GamePlatform::NEOGEO },
-    { LASTBLADE_S,      L"Last Blade", L"Last Blade (Steam)|lastblad_game_m68k|", GamePlatform::Steam },
-    { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Neo-Geo)|243*.*;LB2_P1.ROM|", GamePlatform::NEOGEO },
-    { LASTBLADE2_S,     L"Last Blade 2", L"Last Blade 2 (Steam)|p1.bin|", GamePlatform::Steam },
-    { MAGICALDROPII_A,  L"Magical Drop II", L"Magical Drop II|221-p1*.*|", GamePlatform::NEOGEO },
-    { MAGICALDROPIII_A, L"Magical Drop III", L"Magical Drop III|233-p1*.*|", GamePlatform::NEOGEO },
-    { MartialMasters_A, L"Martial Masters", L"Martial Masters (PGM)|v104_32m.u9|", GamePlatform::PGM },
-    { MATRIMELEE_A,     L"Matrimelee", L"Matrimelee|266-p2.*|", GamePlatform::NEOGEO },
-    { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
-    { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (Arcade)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
-    { MVC_D,            L"Marvel vs Capcom (Dreamcast)", L"MvC (Dreamcast)|0.bin|", GamePlatform::CapcomCPS12, GameSeries::MvC },
-    { MMX_SNES,         L"Mega Man X", L"Mega Man X (SNES)|Mega*Man X (USA).s?c;sns-rx-0 p0.u1|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { MMX2_SNES,        L"Mega Man X2", L"Mega Man X2 (SNES)|Mega*Man X2 (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { MMX3_SNES,        L"Mega Man X3", L"Mega Man X3 (SNES)|Mega*Man X3 (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { MMPR_SNES,        L"MMPR:TFE", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { MK1_SNES,         L"Mortal Kombat", L"Mortal Kombat (SNES)|Mortal Kombat (USA).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { MK2_A,            L"Mortal Kombat II (Midway)", L"Mortal Kombat 2 (Arcade)|l3.1_mortal_kombat_ii_game_rom_uj12.uj12;uj12.l31;mk2ute.uj12|", GamePlatform::OtherPlatform },
-    { MK2_SNES,         L"Mortal Kombat II", L"Mortal Kombat 2 (SNES)|MK2 USA.sfc;Mortal Kombat II (USA)*.sfc;Mortal_Kombat_II_USA.sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
-    { MSHWOTG_SNES,     L"MSH: War of the Gems", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    // MarvelVsCapcom2.bin
-    // Unlocked\MarvelVsCapcom2_unlocked.bin
-    { MVC2_A,           L"MvC2", L"MvC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", GamePlatform::SegaNAOMI },
-    { NeoBomberman_A,   L"Neo Bomberman", L"Neo Bomberman|093-p1.*|", GamePlatform::NEOGEO },
-    { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", GamePlatform::SammyAtomiswave },
-    { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
-    { PrimalRage_SNES,  L"Primal Rage", L"Primal Rage (SNES)|Primal Rage (USA).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { RANMACRH_SNES,    L"Ranma Nibunnoichi: CRH", L"Ranma Nibunnoichi: CRH (SNES)|Ranma Nibunnoichi - Chougi Ranbu Hen (J).s?c;ranma 1-2 - chougi ranbu hen (japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { RANMAHB_SNES,     L"Ranma Nibunnoichi: HB", L"Ranma Nibunnoichi: HB (SNES)|ranma 1-2 - hard battle (usa).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.*|", GamePlatform::NEOGEO },
-    { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;095-p1k.p1;rbff1_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;240-pg1.*;rb2_p1.rom;140-p1k.*;240-p1fc.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
-    { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31, Next: 50)|30;31;50|", GamePlatform::CapcomCPS3 },
-    { RODSM2_A,         L"Ring of Destruction: Slam Masters 2", L"Ring of Destruction: Slam Masters 2|smbe.05b|", GamePlatform::CapcomCPS12 },
-    { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown|045-p1.p1;045-p1.bin;045-p2.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO2_A,        L"Samurai Shodown II", L"Samurai Shodown II|063-p1.*;063-p1-kan.p1;063-p1new.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.*;222_p1.*;222-p1k.p1;222-p1sp.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V|270-p1.*;p1.bin;270-p1c.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO5X_A,       L"Samurai Shodown V (Xbox)", L"Samurai Shodown V (Xbox)|ssvx_p1.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special (Neo-Geo)|272-p1*.*;273-p1.bin|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO5SP_S,      L"Samurai Shodown V Special", L"Samurai Shodown V Special (Steam)|p1*h*.bin|", GamePlatform::Steam },
-    { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
-    { BASARA_P,         L"Sengoku BASARA X", L"Sengoku BASARA X (PS2)|BSR.bin|", GamePlatform::PS2 },
-    { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
-    { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
-    { SFA2_Hack_A,      L"SFA2 Hack", L"SFA2 Hack (sz2u.09)|sz2u.09|", GamePlatform::CapcomCPS12, GameSeries::SFA },
-    { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
-    { SFZ3U_A,          L"SFZ3U", L"SFZ3U|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
-    { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
-    { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
-    { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
-    { SF1_A,            L"Street Fighter (Capcom)", L"Street Fighter|sf*19*.*;sfd-19;sfe-19|", GamePlatform::OtherPlatform },
-    { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
-    { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
-    { SHAQFU_SNES,      L"Shaq Fu", L"Shaq Fu (SNES)|Shaq Fu (USA).sfc;sns-aqfe-0.u1|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { SFTM_A,           L"Street Fighter: The Movie (Incredible Technologies)", L"Street Fighter: The Movie (Arcade)|sfm_0_v1.1.prom0;sfm_0_v1.11.prom0;sfm_0_v1.12.prom0;sfmn_0_v1.12.prom0;sfmn_0_v1.14.prom0|", GamePlatform::OtherPlatform },
-    { SVG_SNES,         L"Super Variable Geo (Japan)", L"Super Variable Geo (Japan SNES)|Super Variable Geo (J*).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { SurvivalArts_A,   L"Survival Arts (Scarab)", L"Survival Arts (Scarab)|prl-r6.u4;usa-pr-l.u4|", GamePlatform::OtherPlatform },
-    { SVCPLUSA_A,       L"SNK vs Capcom", L"SNK vs Capcom|svc-p2pl.bin;svc-p2sp.bin|", GamePlatform::NEOGEO },
-    { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
-    { SSF2T_GBA,        L"SSF2T: Revival", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
-    { SDODGEBALL_A,     L"Super Dodge Ball", L"Super Dodge Ball|208-p1.*;sdb_p1.rom|", GamePlatform::NEOGEO },
-    { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", GamePlatform::CapcomCPS12 },
-    { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*;pzfcb.04;pzfxp.04|", GamePlatform::CapcomCPS12 },
-    { TekkenAdvance_GBA, L"Tekken Advance (USA)", L"Tekken Advance (USA GBA)|Tekken Advance (USA).gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
-    { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF", L"Teenage Mutant Ninja Turtles: TF (SNES)|sns-ky-0.u1;teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::OtherPlatform },
-    { UMK3_A,           L"Ultimate Mortal Kombat 3 (Midway)", L"Ultimate Mortal Kombat 3 (Arcade)|l1.2_mortal_kombat_3_u54_ultimate.u54;um312u54.bin;u54_umk3plus.u54;umk3plus_beta1.u54;umk3te.u54;umk3uc-u54.bin;umk3uk-u54.bin|", GamePlatform::OtherPlatform },
-    { UMK3_DS,          L"Ultimate Mortal Kombat 3", L"Ultimate Mortal Kombat 3 (DS)|Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
-    { UMK3_SNES,        L"Ultimate Mortal Kombat 3", L"Ultimate Mortal Kombat 3 (SNES)|Ultimate Mortal Kombat 3 (USA).sfc;sns-a3ze.u1|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { VampireNightWarriors_A,   L"Vampire: The Night Warriors", L"Vampire: The Night Warriors: Characters (rom 9), Portraits (rom 4)|vam*.09?; vam*.04?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
-    { VampireHunter_A,          L"Vampire Hunter: Darkstalkers' Revenge", L"Vampire Hunter: Darkstalkers' Revenge|vph?.09?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
-    { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
-    { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
-    { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
-    { Gowcaizer_A,      L"Voltage Fighter Gowcaizer", L"Voltage Fighter Gowcaizer|094-p1.*|", GamePlatform::NEOGEO },
-    { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.*;225-p1bh.p1|", GamePlatform::NEOGEO },
-    { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.*|", GamePlatform::NEOGEO }, // Data East on NEOGEO
-    { XMMA_SNES,        L"X-Men: Mutant Apocalypse", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
-    { XMVSF_A,          L"XMvSF", L"XMvSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
-    { NEOGEO_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
-};
-
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 195 , "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
@@ -198,7 +41,7 @@ void CPalModDlg::PostGameLoad()
     CPalModApp* ProgHost = GetHost();
 
     CString strDebugInfo;
-    strDebugInfo.Format(L"CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n", g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
+    strDebugInfo.Format(L"CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n", KnownGameInfo::GetGameNameForGameID(ProgHost->GetCurrGame()->GetGameFlag()));
     OutputDebugString(strDebugInfo);
 
     //Set pal, img, and img ctrl pointers
@@ -809,7 +652,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
             LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
 
             wchar_t szGameFilter[MAX_DESCRIPTION_LENGTH];
-            wcsncpy(szGameFilter, g_rgGameToFileMap[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+            wcsncpy(szGameFilter, KnownGameInfo::GetGameToFileMap().at(0).szGameFilterString, ARRAYSIZE(szGameFilter));
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
 
             LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
@@ -820,7 +663,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
                 pszPipe[0] = 0;
             }
 
-            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[g_rgGameToFileMap[0].nInternalGameIndex]);
+            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, KnownGameInfo::GetGameNameForGameID(KnownGameInfo::GetGameToFileMap().at(0).nInternalGameIndex));
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
         }
     }
@@ -835,16 +678,18 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
     DWORD dwLastUsedGameIndex = 0;
 
-    // Add all the games, and make sure we know how to map index to game code
-    for (int nArrayPosition = 0; nArrayPosition < static_cast<int>(g_rgGameToFileMap.size()); nArrayPosition++)
-    {
-        szGameFileDef.Append(g_rgGameToFileMap[nArrayPosition].szGameFilterString);
-        g_rgGameToFileMap[nArrayPosition].nListedGameIndex = nArrayPosition;
+    std::vector<sSupportedGameToFileMap> rgGameToFileMap = KnownGameInfo::GetGameToFileMap();
 
-        if (g_rgGameToFileMap[nArrayPosition].nInternalGameIndex == nDefaultGameFilter)
+    // Add all the games, and make sure we know how to map index to game code
+    for (int nArrayPosition = 0; nArrayPosition < static_cast<int>(rgGameToFileMap.size()); nArrayPosition++)
+    {
+        szGameFileDef.Append(rgGameToFileMap.at(nArrayPosition).szGameFilterString);
+        rgGameToFileMap.at(nArrayPosition).nListedGameIndex = nArrayPosition;
+
+        if (rgGameToFileMap.at(nArrayPosition).nInternalGameIndex == nDefaultGameFilter)
         {
             // user nFilterIndex starts at 1
-            dwLastUsedGameIndex = g_rgGameToFileMap[nArrayPosition].nListedGameIndex + 1;
+            dwLastUsedGameIndex = rgGameToFileMap.at(nArrayPosition).nListedGameIndex + 1;
         }
     }
 
@@ -898,12 +743,12 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
         if (fSafeToContinue)
         {
-            for (const sSupportedGameToFileMap& currentGame : g_rgGameToFileMap)
+            for (const sSupportedGameToFileMap& currentGame : rgGameToFileMap)
             {
                 // user nFilterIndex starts at 1
                 if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)
                 {
-                    LoadGameFile((SupportedGamesList)currentGame.nInternalGameIndex, (wchar_t*)ofn.lpstrFile);
+                    LoadGameFile(static_cast<SupportedGamesList>(currentGame.nInternalGameIndex), static_cast<wchar_t*>(ofn.lpstrFile));
                     break;
                 }
             }
@@ -995,25 +840,25 @@ void CPalModDlg::OnImportPalette()
 
         switch (GetHost()->GetCurrGame()->GetGameFlag())
         {
-        case SFIII3_A:
-        case SFIII3_D:
-        case SFIII3_A_DIR_51:
-        case SFIII2_A:
-        case SFIII1_A:
-        case SFIII3_A_DIR_10:
-        case SFIII3_A_DIR_4rd:
-        case SFIII3_A_DIR_EX:
-        case SFIII3_A_DIR_4rd_10:
-        case SFIII1_A_DIR:
-        case SFIII2_A_DIR:
-            pszFilterInUse = *rgszSF3OpenFilter;
-            break;
-        case BlazBlueCF_S:
-            pszFilterInUse = *rgszBBCFOpenFilter;
-            break;
-        default:
-            pszFilterInUse = *rgszOpenFilter;
-            break;
+            case SFIII3_A:
+            case SFIII3_D:
+            case SFIII3_A_DIR_51:
+            case SFIII2_A:
+            case SFIII1_A:
+            case SFIII3_A_DIR_10:
+            case SFIII3_A_DIR_4rd:
+            case SFIII3_A_DIR_EX:
+            case SFIII3_A_DIR_4rd_10:
+            case SFIII1_A_DIR:
+            case SFIII2_A_DIR:
+                pszFilterInUse = *rgszSF3OpenFilter;
+                break;
+            case BlazBlueCF_S:
+                pszFilterInUse = *rgszBBCFOpenFilter;
+                break;
+            default:
+                pszFilterInUse = *rgszOpenFilter;
+                break;
         }
 
         CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, pszFilterInUse);

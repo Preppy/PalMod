@@ -23,8 +23,8 @@ private:
     int nSaveLoadErr = 0;
 
 public:
-    CGameLoad();
-    ~CGameLoad();
+    CGameLoad() {};
+    ~CGameLoad() {};
 
     CGameClass* LoadFile(int nGameFlag, wchar_t* pszLoadFile);
     CGameClass* LoadDir(int nGameFlag, wchar_t* pszLoadDir);

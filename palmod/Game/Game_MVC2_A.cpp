@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "GameDef.h"
+#include "GameRegistry.h"
 #include "Game_MVC2_A.h"
 #include "Game_MVC2_D.h"
 #include "mvc2_descs.h"
@@ -116,7 +116,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[MVC2_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", KnownGameInfo::GetGameNameForGameID(MVC2_A));
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children

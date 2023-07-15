@@ -951,6 +951,9 @@
     <ClCompile Include="BMPfiles.cpp">
       <Filter>Palette file storage</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameRegistry.cpp">
+      <Filter>Games\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -2020,6 +2023,9 @@
     </ClInclude>
     <ClInclude Include="Game\TekkenAdvance_GBA_DEF.h">
       <Filter>Games\Nintendo\Tekken Advance %28GBA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameRegistry.h">
+      <Filter>Games\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -399,22 +399,26 @@ void CPalTool::DrawText()
 
         for (int iPaletteIndex = nPalStart; iPaletteIndex < nPalEnd; iPaletteIndex++)
         {
-            if (m_sPalEntry[iPaletteIndex].fPalAvailable)
+            if ((iPaletteIndex < ARRAYSIZE(m_sPalEntry)) &&
+                (iPaletteIndex < ARRAYSIZE(m_PalSize)))
             {
-                if (iPaletteIndex == static_cast<int>(m_nNotifyCtrlIndex))
+                if (m_sPalEntry[iPaletteIndex].fPalAvailable)
                 {
-                    dc.SetTextColor(RGB(0, 0, 0)); //Black for selected palette
+                    if (iPaletteIndex == static_cast<int>(m_nNotifyCtrlIndex))
+                    {
+                        dc.SetTextColor(RGB(0, 0, 0)); //Black for selected palette
+                    }
+                    else
+                    {
+                        dc.SetTextColor(RGB(96, 96, 96)); //Gray for unselected palette
+                    }
+
+                    nVisibleAmt++;
+
+                    dc.TextOut(CurrPos.cx, CurrPos.cy, CString(m_sPalEntry[iPaletteIndex].pszPalStr));
+
+                    CurrPos.cy += ((PAL_TXT_SPACE * 2) + m_nFontHeight + m_PalSize[iPaletteIndex].cy);
                 }
-                else
-                {
-                    dc.SetTextColor(RGB(96, 96, 96)); //Gray for unselected palette
-                }
-
-                nVisibleAmt++;
-
-                dc.TextOut(CurrPos.cx, CurrPos.cy, CString(m_sPalEntry[iPaletteIndex].pszPalStr));
-
-                CurrPos.cy += ((PAL_TXT_SPACE * 2) + m_nFontHeight + m_PalSize[iPaletteIndex].cy);
             }
         }
     }

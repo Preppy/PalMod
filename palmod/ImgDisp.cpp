@@ -814,23 +814,29 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     }
 
     // The user can override the internal sprite here
-    if (m_ppSpriteOverrideTexture[nSrcIndex])
+    if ((nSrcIndex < ARRAYSIZE(m_ppSpriteOverrideTexture)) &&
+        m_ppSpriteOverrideTexture[nSrcIndex])
     {
         CString strInfo;
         strInfo.Format(L"CImgDisp::CustomBlt: Displaying alternate sprite for sprite %u\n", nSrcIndex);
         OutputDebugString(strInfo.GetString());
         pImgData = m_ppSpriteOverrideTexture[nSrcIndex];
-        nWidth = m_nTextureOverrideW[nSrcIndex];
-        nHeight = m_nTextureOverrideH[nSrcIndex];
 
-        // Reset the rect now that W/H have changed...
-        m_rImgRct.left = -(m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
-        m_rImgRct.right = (m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
-        m_rImgRct.top = -(m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
-        m_rImgRct.bottom = (m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
+        if ((nSrcIndex < ARRAYSIZE(m_nTextureOverrideW)) &&
+            (nSrcIndex < ARRAYSIZE(m_nTextureOverrideH)))
+        {
+            nWidth = m_nTextureOverrideW[nSrcIndex];
+            nHeight = m_nTextureOverrideH[nSrcIndex];
 
-        xWidth = m_ptOffs[nSrcIndex].x + m_rImgRct.left + abs(m_nXOffsTop);
-        yHeight = m_ptOffs[nSrcIndex].y + m_rImgRct.top + abs(m_nYOffsTop);
+            // Reset the rect now that W/H have changed...
+            m_rImgRct.left = -(m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
+            m_rImgRct.right = (m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
+            m_rImgRct.top = -(m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
+            m_rImgRct.bottom = (m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
+
+            xWidth = m_ptOffs[nSrcIndex].x + m_rImgRct.left + abs(m_nXOffsTop);
+            yHeight = m_ptOffs[nSrcIndex].y + m_rImgRct.top + abs(m_nYOffsTop);
+        }
     }
 
     if (pImgData == nullptr)

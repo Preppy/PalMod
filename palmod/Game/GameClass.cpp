@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "GameClass.h"
+#include "GameRegistry.h"
 #include "ColorSystem.h"
 #include "..\PalMod.h"
 #include "..\regproc.h"
@@ -443,7 +444,7 @@ LPCWSTR CGameClass::GetGameName()
     }
     else
     {
-        return g_GameFriendlyName[nGameFlag];
+        return KnownGameInfo::GetGameNameForGameID(nGameFlag);
     }
 }
 

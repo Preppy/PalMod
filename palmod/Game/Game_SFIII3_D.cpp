@@ -1,7 +1,7 @@
 #include "StdAfx.h"
+#include "GameRegistry.h"
 #include "Game_SFIII3_D.h"
 #include "SFIII3_D_DEF.h"
-#include "GameDef.h"
 
 CDescTree CGame_SFIII3_D::MainDescTree = nullptr;
 
@@ -67,7 +67,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SFIII3_D]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", KnownGameInfo::GetGameNameForGameID(SFIII3_D));
     NewDescTree->ChildNodes = new sDescTreeNode[SFIII3_D_NUMUNIT];
     NewDescTree->uChildAmt = SFIII3_D_NUMUNIT;
 

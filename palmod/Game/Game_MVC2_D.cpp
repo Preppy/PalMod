@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "Gamedef.h"
+#include "GameRegistry.h"
 #include "Game_MVC2_D.h"
 #include "MVC2_A_DEF.h"
 #include "mvc2_validate.h"
@@ -137,7 +137,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[MVC2_D]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", KnownGameInfo::GetGameNameForGameID(MVC2_D));
     NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
     NewDescTree->uChildAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
     //All units have tree children
@@ -421,25 +421,30 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 // TODO: Rip this out and just give each character their own array to start with.
 void CGame_MVC2_D::InitExtraRg()
 {
-    int i = 0;
+    int iPos = 0;
 
     //Clear the extra buffer
     memset(CGame_MVC2_D::rgExtraChrLoc, 0, sizeof(uint32_t) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
 
     // Set up the 
-    while (pCurrentExtrasLayout[i] != EXTRA_END)
+    while (pCurrentExtrasLayout[iPos] != EXTRA_END)
     {
-        if ((pCurrentExtrasLayout[i] & EXTRA_START) == EXTRA_START)
+        if ((pCurrentExtrasLayout[iPos] & EXTRA_START) == EXTRA_START)
         {
             // This is associating each character's starting point in the EXTRADEF table to the corresponding index in rgExtraChrLoc.
             // So 0x0 is set to Ryu offset 0x0, then Ryu has eight extra slots available, then 0x1 is set to 0xa for 0x1 Gief,
             // 0x2 is set to 0x14 for 0x2 Guile, and so forth.  Look at MVC2_D_6COLORS_EXTRADEF and this should be easy to follow.
-            rgExtraChrLoc[(pCurrentExtrasLayout[i] & 0x00FF)] = i;
-            i += 8;
+            const int nIndex = (pCurrentExtrasLayout[iPos] & 0x00FF);
+
+            if (nIndex < ARRAYSIZE(rgExtraChrLoc))
+            {
+                rgExtraChrLoc[nIndex] = iPos;
+            }
+            iPos += 8;
         }
         else
         {
-            i++;
+            iPos++;
         }
     }
 }

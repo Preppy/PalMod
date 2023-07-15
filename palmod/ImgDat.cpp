@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 #include "ImgDat.h"
-#include "Game\GameDef.h"
+#include "Game\GameRegistry.h"
 #include "PalMod.h"
 
 #define IMGDAT_DEBUG 0
@@ -339,7 +339,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::LoadGameImages : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, static_cast<int>(prgGameImageSet.size()));
+    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, KnownGameInfo::GetGameNameForGameID(uGameFlag), uImgGameFlag, uGameUnitAmt, static_cast<int>(prgGameImageSet.size()));
     OutputDebugString(strDebugInfo);
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (prgGameImageSet.empty()))
@@ -504,8 +504,9 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
 
 uint8_t* CImgDat::RLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight)
 {
-    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
+    const int nImageSize = uiImgWidth * uiImgHeight;
+    uint8_t* output_data = new uint8_t[nImageSize];
+    memset(output_data, NULL, sizeof(uint8_t) * nImageSize);
 
     uint8_t count = 0;
     bool isDigit = true;
@@ -524,9 +525,12 @@ uint8_t* CImgDat::RLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t
         {
             // expand the next character by count times
             // the decoding
-            for (uint16_t i = 0; i < count; i++)
+            for (uint16_t iPos = 0; iPos < count; iPos++)
             {
-                output_data[data_ctr + i] = pSrcImgData[byte_ctr];
+                if ((data_ctr + iPos) < nImageSize)
+                {
+                    output_data[data_ctr + iPos] = pSrcImgData[byte_ctr];
+                }
             }
 
             byte_ctr++;
@@ -616,9 +620,9 @@ void CImgDat::getBMRLEData(uint8_t chunkSize, uint8_t* inputData, uint8_t* outpu
 
 uint8_t* CImgDat::DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight, uint8_t uiBPP)
 {
-
-    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
+    const int nImageSize = uiImgWidth * uiImgHeight;
+    uint8_t* output_data = new uint8_t[nImageSize];
+    memset(output_data, NULL, sizeof(uint8_t) * nImageSize);
 
     uint32_t bit_ctr = 0;
     int data_ctr = 0;
@@ -655,7 +659,10 @@ uint8_t* CImgDat::DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t ui
 
         if (curr_data != 0)
         {
-            output_data[data_ctr] = curr_data;
+            if (data_ctr < nImageSize)
+            {
+                output_data[data_ctr] = curr_data;
+            }
             data_ctr++;
         }
         else if (bit_ctr < (uiDataSz * 8))
@@ -683,7 +690,10 @@ uint8_t* CImgDat::DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t ui
 
             for (k = 0; k < zero_data; k++)
             {
-                output_data[data_ctr + k] = 0;
+                if ((data_ctr + k) < nImageSize)
+                {
+                    output_data[data_ctr + k] = 0;
+                }
             }
             data_ctr += zero_data;
         }

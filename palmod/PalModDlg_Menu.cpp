@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "game\gamedef.h"
+#include "Game\GameRegistry.h"
 #include "PalModDlg.h"
 #include "PalMod.h"
 #include "game\game_devmode_dir.h"
@@ -23,6 +23,8 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
     {
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
+
+        static_assert(NUM_GAMES == 195, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -224,6 +226,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         gameMenu.CreatePopupMenu();
         MENUITEMINFO mii = { 0 };
 
+        std::vector<sSupportedGameToFileMap> rgGameToFileMap = KnownGameInfo::GetGameToFileMap();
+
         // This code does some work to allow for dynamic submenus for Capcom, NEOGEO, and Nintendo
         for (int nPlatform = static_cast<int>(GamePlatform::CapcomCPS12); nPlatform != static_cast<int>(GamePlatform::Last); nPlatform++)
         {
@@ -240,7 +244,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) || (static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) || (static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo))
             {
                 // first pass is just the submenus
-                for (const auto& sGametoFileData : g_rgGameToFileMap)
+                for (const auto& sGametoFileData : rgGameToFileMap)
                 {
                     if (sGametoFileData.publisherKey == static_cast<GamePlatform>(nPlatform))
                     {
@@ -283,7 +287,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
             LPCWSTR ppszNintendoSubMenu[] = { L"DS/3DS", L"GBA", L"SNES" };
 
-            for (const auto& sGametoFileData : g_rgGameToFileMap)
+            for (const auto& sGametoFileData : rgGameToFileMap)
             {
                 if (sGametoFileData.publisherKey == static_cast<GamePlatform>(nPlatform))
                 {

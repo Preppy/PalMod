@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "GameDef.h"
+#include "GameRegistry.h"
 #include "Game_NEOGEO_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
@@ -364,7 +364,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[NEOGEO_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", KnownGameInfo::GetGameNameForGameID(NEOGEO_A));
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
