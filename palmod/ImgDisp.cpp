@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "ImgDisp.h"
+#include "RLEData.h"
 
 #include "resource.h"
 #include "atlimage.h"
@@ -585,7 +586,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
     if (TextureFile.Open(pszTextureLocation, CFile::modeRead | CFile::typeBinary))
     {
-        const int nSizeToRead = static_cast<int>(TextureFile.GetLength());
+        const int nFileSize = static_cast<int>(TextureFile.GetLength());
         const int cbMinimumReasonableFileSize = 250;
         safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
         m_nTextureOverrideW[nPositionToLoadTo] = 0;
@@ -626,18 +627,18 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
                     fHaveViableDimensions = true;
 
-                    if ((3 * nSizeIfThisIsRAW) == nSizeToRead)
+                    if ((3 * nSizeIfThisIsRAW) == nFileSize)
                     {
                         // This is an RGB RAW...
                         MessageBox(L"This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
                     }
-                    else if ((2 * nSizeIfThisIsRAW) == nSizeToRead)
+                    else if ((2 * nSizeIfThisIsRAW) == nFileSize)
                     {
                         // I think it's GIMP that doubles the RAW for no apparent reason
                         fIsDoubleSizeGIMPRAW = true;
                         GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                     }
-                    else if (nSizeIfThisIsRAW != nSizeToRead)
+                    else if (nSizeIfThisIsRAW != nFileSize)
                     {
                         fHaveViableDimensions = false;
                     }
@@ -646,7 +647,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
         }
         else
         {
-            if (nSizeToRead > cbMinimumReasonableFileSize)
+            if (nFileSize > cbMinimumReasonableFileSize)
             {
                 CString strHelpText = L"RAW texture files do not contain header information, so we don't know what height or width to use.  To work around this, please name your filenames in the form WHATEVER-W-width-H-height.raw .  "
                                       L"We'll present you some H/W combos that might work if this is a normal RAW file, but please update your filename.";
@@ -655,7 +656,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             }
         }
 
-        if (!fHaveViableDimensions && (nSizeToRead > cbMinimumReasonableFileSize))
+        if (!fHaveViableDimensions && (nFileSize > cbMinimumReasonableFileSize))
         {
             CString strOutput;
             std::vector<int> rgWidthOptions;
@@ -666,18 +667,18 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             // Arbitrary assumption that image size should be less than 25px wide.
             // We'll increment this such that we ensure that the image is not "nUnreasonablyTallImage" tall.
             int nMinimumAcceptableWidth = 25;
-            const int nSizeToCheck = static_cast<int>(ceil(nSizeToRead / static_cast<float>(nMinimumAcceptableWidth)));
+            const int nSizeToCheck = static_cast<int>(ceil(nFileSize / static_cast<float>(nMinimumAcceptableWidth)));
 
-            while ((nSizeToRead / nMinimumAcceptableWidth) > nUnreasonablyTallImage)
+            while ((nFileSize / nMinimumAcceptableWidth) > nUnreasonablyTallImage)
             {
                 nMinimumAcceptableWidth++;
             }
 
             for (int nPossibleWidth = nMinimumAcceptableWidth, nFoundMatches = 0; nPossibleWidth < nSizeToCheck; nPossibleWidth++)
             {
-                if (nSizeToRead % nPossibleWidth == 0)
+                if (nFileSize % nPossibleWidth == 0)
                 {
-                    strOutput.Format(L"%u x %u", nPossibleWidth, nSizeToRead / nPossibleWidth);
+                    strOutput.Format(L"%u x %u", nPossibleWidth, nFileSize / nPossibleWidth);
 
                     rgWidthOptions.push_back(nPossibleWidth);
                     rgstrHWOptions.push_back(strOutput);
@@ -702,30 +703,34 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 if (AdjustmentDialog.DoModal() == IDOK)
                 {
                     m_nTextureOverrideW[nPositionToLoadTo] = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
-                    m_nTextureOverrideH[nPositionToLoadTo] = nSizeToRead / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+                    m_nTextureOverrideH[nPositionToLoadTo] = nFileSize / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
                     fHaveViableDimensions = true;
                 }
             }
         }
 
+        bool fFoundData = false;
+
         if (fHaveViableDimensions)
         {
             safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
-            m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nSizeToRead];
+            m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nFileSize];
 
             CString strInfo;
             strInfo.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
             OutputDebugString(strInfo);
 
+            fFoundData = true;
+
             TextureFile.SeekToBegin();
 
             if (direction == SpriteImportDirection::TopDown)
             {
-                TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nFileSize);
             }
             else
             {
-                int nCurrentFilePosition = nSizeToRead;
+                int nCurrentFilePosition = nFileSize;
 
                 if (fIsDoubleSizeGIMPRAW)
                 {
@@ -738,14 +743,44 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 // We need to flip this line by line
                 for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
                 {
-                    //TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                    //TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nFileSize);
                     TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][nCurrentFilePosition], m_nTextureOverrideW[nPositionToLoadTo]);
                     nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
-                }                        
+                }
             }
+        }
+        else
+        {
+            // Check and see if maybe this is RLE compressed data...?
+            const uint32_t nTotalImageSize = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
 
-            TextureFile.Close();
+            if (nTotalImageSize > static_cast<uint32_t>(nFileSize))
+            {
+                std::vector<uint8_t*> pNewData;
+                pNewData.resize(nFileSize);
 
+                TextureFile.Read(pNewData.data(), nFileSize);
+
+                uint8_t* pRAWData = RLEData::BitMaskRLEDecodeImg(
+                    reinterpret_cast<uint8_t*>(&pNewData[0]),
+                    nTotalImageSize,
+                    m_nTextureOverrideW[nPositionToLoadTo],
+                    m_nTextureOverrideH[nPositionToLoadTo]
+                );
+
+                if (pRAWData)
+                {
+                    fFoundData = true;
+                    m_ppSpriteOverrideTexture[nPositionToLoadTo] = pRAWData;
+                    GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RAW as RLE-compressed data.");
+                }
+            }
+        }
+
+        TextureFile.Close();
+
+        if (fFoundData)
+        {
             if (m_pImgBuffer[nPositionToLoadTo])
             {
                 // Override but use the stock palette

@@ -954,6 +954,9 @@
     <ClCompile Include="Game\GameRegistry.cpp">
       <Filter>Games\Base</Filter>
     </ClCompile>
+    <ClCompile Include="RLEData.cpp">
+      <Filter>Images\IMaGe DATabase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -2026,6 +2029,9 @@
     </ClInclude>
     <ClInclude Include="Game\GameRegistry.h">
       <Filter>Games\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="RLEData.h">
+      <Filter>Images\IMaGe DATabase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
