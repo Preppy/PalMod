@@ -800,38 +800,41 @@ void CPalModDlg::OnImportPalette()
     // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version
     if (m_fEnabled)
     {
-        static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
+        static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
                                                 L"ACT Palette|*.act|"
                                                 L"Indexed PNG|*.png|"
                                                 L"Microsoft PAL|*.pal|"
                                                 L"Upside-down ACT Palette|*.act|"
                                                 L"Upside-down Indexed PNG|*.png|"
                                                 L"Indexed BMP|*.bmp|"
+                                                L"GIF|*.gif|"
                                                 L"GIMP palette file|*.gpl|"
                                                 L"HipPalette|*.hpl|"
                                                 L"BBCF palette set|*.cfpl|"
                                                 L"BBTAG palette set|*.impl|"
                                                 L"|" };
 
-        static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.png;*.pal;*txt.dat;*.gpl;*.hpl|"
+        static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*txt.dat;*.gpl;*.hpl|"
                                                L"ACT Palette|*.act|"
                                                L"Indexed PNG|*.png|"
                                                L"Microsoft PAL|*.pal|"
                                                L"Upside-down ACT Palette|*.act|"
                                                L"Upside-down Indexed PNG|*.png|"
                                                L"Indexed BMP|*.bmp|"
+                                               L"GIF|*.gif|"
                                                L"PS3 SF3::OE color file|*.txt.dat"
                                                L"GIMP palette file|*.gpl|"
                                                L"HipPalette|*.hpl|"
                                                L"|" };
 
-        static LPCWSTR rgszOpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.png;*.pal;*.gpl;*.hpl|"
+        static LPCWSTR rgszOpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl|"
                                             L"ACT Palette|*.act|"
                                             L"Indexed PNG|*.png|"
                                             L"Microsoft PAL|*.pal|"
                                             L"Upside-down ACT Palette|*.act|"
                                             L"Upside-down Indexed PNG|*.png|"
                                             L"Indexed BMP|*.bmp|"
+                                            L"GIF|*.gif|"
                                             L"GIMP palette file|*.gpl|"
                                             L"HipPalette|*.hpl|"
                                             L"|" };

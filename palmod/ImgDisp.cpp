@@ -695,13 +695,16 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 }
             }
 
-            CRAWHeightWidthAdjustmentDialog AdjustmentDialog(rgstrHWOptions, indexSuggestion.first);
-
-            if (AdjustmentDialog.DoModal() == IDOK)
+            if (rgstrHWOptions.size())
             {
-                m_nTextureOverrideW[nPositionToLoadTo] = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
-                m_nTextureOverrideH[nPositionToLoadTo] = nSizeToRead / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
-                fHaveViableDimensions = true;
+                CRAWHeightWidthAdjustmentDialog AdjustmentDialog(rgstrHWOptions, indexSuggestion.first);
+
+                if (AdjustmentDialog.DoModal() == IDOK)
+                {
+                    m_nTextureOverrideW[nPositionToLoadTo] = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+                    m_nTextureOverrideH[nPositionToLoadTo] = nSizeToRead / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+                    fHaveViableDimensions = true;
+                }
             }
         }
 
