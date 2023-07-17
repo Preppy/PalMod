@@ -580,6 +580,62 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
             m_ppSpriteOverrideTexture[nIndex]);
 }
 
+bool CImgDisp::_FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight)
+{
+    CString strOutput;
+    std::vector<int> rgWidthOptions;
+    std::vector<CString> rgstrHWOptions;
+    std::pair<int, int> indexSuggestion = { 0, nImageWidth };
+    // Arbitrary assumption that user raws will not be taller than 4000px tall
+    const int nUnreasonablyTallImage = 4096;
+    // Arbitrary assumption that image size should be less than 25px wide.
+    // We'll increment this such that we ensure that the image is not "nUnreasonablyTallImage" tall.
+    int nMinimumAcceptableWidth = 25;
+    const int nSizeToCheck = static_cast<int>(ceil(nFileSize / static_cast<float>(nMinimumAcceptableWidth)));
+    bool fHaveViableDimensions = false;
+
+    while ((nFileSize / nMinimumAcceptableWidth) > nUnreasonablyTallImage)
+    {
+        nMinimumAcceptableWidth++;
+    }
+
+    for (int nPossibleWidth = nMinimumAcceptableWidth, nFoundMatches = 0; nPossibleWidth < nSizeToCheck; nPossibleWidth++)
+    {
+        if (nFileSize % nPossibleWidth == 0)
+        {
+            strOutput.Format(L"%u x %u", nPossibleWidth, nFileSize / nPossibleWidth);
+
+            rgWidthOptions.push_back(nPossibleWidth);
+            rgstrHWOptions.push_back(strOutput);
+
+            if (nImageWidth)
+            {
+                if (abs(nImageWidth - nPossibleWidth) < indexSuggestion.second)
+                {
+                    indexSuggestion.first = nFoundMatches;
+                    indexSuggestion.second = abs(nImageWidth - nPossibleWidth);
+                }
+            }
+
+            nFoundMatches++;
+        }
+    }
+
+    if (rgstrHWOptions.size())
+    {
+        CRAWHeightWidthAdjustmentDialog AdjustmentDialog(rgstrHWOptions, indexSuggestion.first);
+
+        if (AdjustmentDialog.DoModal() == IDOK)
+        {
+            nImageWidth = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+            nImageHeight = nFileSize / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+            fHaveViableDimensions = true;
+        }
+    }
+
+    return fHaveViableDimensions;
+}
+
 bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
 {
     CFile TextureFile;
@@ -596,7 +652,17 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
         _wcslwr(pszTextureLocation);
         wchar_t* pszDataW = wcsstr(pszTextureLocation, L"-w-");
         wchar_t* pszDataH = wcsstr(pszTextureLocation, L"-h-");
+        wchar_t* pszCompType = wcsstr(pszTextureLocation, L"-compf-");
         wchar_t* pszTermination = wcsstr(pszTextureLocation, L".data");
+
+        enum class RAWCompressionChoice
+        {
+            NoCompression,
+            RLE,
+            BitMaskRLE,
+        };
+
+        RAWCompressionChoice eCompType = RAWCompressionChoice::NoCompression;
 
         if (pszTermination == nullptr)
         {
@@ -605,6 +671,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
         bool fHaveViableDimensions = false;
         bool fIsDoubleSizeGIMPRAW = false;
+        int nSizeIfThisIsRAW = 0;
 
         if ((pszDataW != nullptr) && (pszDataH != nullptr) && (pszTermination != nullptr))
         {
@@ -615,33 +682,59 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
             uint32_t nScannedH = 0, nScannedW = 0;
 
+            if (pszCompType)
+            {
+                uint32_t nCompType = 0;
+                pszCompType[0] = 0;
+                pszCompType += ARRAYSIZE(L"compf-");
+
+                if (_stscanf_s(pszCompType, L"%u", &nCompType))
+                {
+                    switch (nCompType)
+                    {
+                        default:
+                            eCompType = RAWCompressionChoice::NoCompression;
+                            break;
+                        case 1:
+                            OutputDebugString(L"RAW is marked as being RLE compressed.\n");
+                            eCompType = RAWCompressionChoice::RLE;
+                            break;
+                        case 2:
+                            OutputDebugString(L"RAW is marked as being BitMask RLE compressed.\n");
+                            eCompType = RAWCompressionChoice::BitMaskRLE;
+                            break;
+                    }
+                }
+            }
+
             if (_stscanf_s(pszDataW, L"%u", &nScannedW) && _stscanf_s(pszDataH, L"%u", &nScannedH))
             {
                 m_nTextureOverrideW[nPositionToLoadTo] = static_cast<uint16_t>(nScannedW);
                 m_nTextureOverrideH[nPositionToLoadTo] = static_cast<uint16_t>(nScannedH);
+                nSizeIfThisIsRAW = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
+            }
 
-                if ((m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
-                    (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
+            if ((eCompType == RAWCompressionChoice::NoCompression) &&
+                (m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
+                (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
+            {
+                // Validate that the RAW dimensions are viable
+                fHaveViableDimensions = true;
+
+                if ((3 * nSizeIfThisIsRAW) == nFileSize)
                 {
-                    const int nSizeIfThisIsRAW = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
-
-                    fHaveViableDimensions = true;
-
-                    if ((3 * nSizeIfThisIsRAW) == nFileSize)
-                    {
-                        // This is an RGB RAW...
-                        MessageBox(L"This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
-                    }
-                    else if ((2 * nSizeIfThisIsRAW) == nFileSize)
-                    {
-                        // I think it's GIMP that doubles the RAW for no apparent reason
-                        fIsDoubleSizeGIMPRAW = true;
-                        GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
-                    }
-                    else if (nSizeIfThisIsRAW != nFileSize)
-                    {
-                        fHaveViableDimensions = false;
-                    }
+                    // This is an RGB RAW...
+                    MessageBox(L"This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
+                }
+                else if ((2 * nSizeIfThisIsRAW) == nFileSize)
+                {
+                    // I think it's GIMP that doubles the RAW for no apparent reason
+                    fIsDoubleSizeGIMPRAW = true;
+                    GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
+                }
+                else if ((nSizeIfThisIsRAW != nFileSize) && (nFileSize > cbMinimumReasonableFileSize))
+                {
+                    fHaveViableDimensions = _FindAlternateDimensionsForTextureOverride(nFileSize, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
                 }
             }
         }
@@ -656,62 +749,49 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             }
         }
 
-        if (!fHaveViableDimensions && (nFileSize > cbMinimumReasonableFileSize))
-        {
-            CString strOutput;
-            std::vector<int> rgWidthOptions;
-            std::vector<CString> rgstrHWOptions;
-            std::pair<int, int> indexSuggestion = { 0, m_nTextureOverrideW[nPositionToLoadTo] };
-            // Arbitrary assumption that user raws will not be taller than 4000px tall
-            const int nUnreasonablyTallImage = 4096;
-            // Arbitrary assumption that image size should be less than 25px wide.
-            // We'll increment this such that we ensure that the image is not "nUnreasonablyTallImage" tall.
-            int nMinimumAcceptableWidth = 25;
-            const int nSizeToCheck = static_cast<int>(ceil(nFileSize / static_cast<float>(nMinimumAcceptableWidth)));
-
-            while ((nFileSize / nMinimumAcceptableWidth) > nUnreasonablyTallImage)
-            {
-                nMinimumAcceptableWidth++;
-            }
-
-            for (int nPossibleWidth = nMinimumAcceptableWidth, nFoundMatches = 0; nPossibleWidth < nSizeToCheck; nPossibleWidth++)
-            {
-                if (nFileSize % nPossibleWidth == 0)
-                {
-                    strOutput.Format(L"%u x %u", nPossibleWidth, nFileSize / nPossibleWidth);
-
-                    rgWidthOptions.push_back(nPossibleWidth);
-                    rgstrHWOptions.push_back(strOutput);
-
-                    if (m_nTextureOverrideW[nPositionToLoadTo])
-                    {
-                        if (abs(m_nTextureOverrideW[nPositionToLoadTo] - nPossibleWidth) < indexSuggestion.second)
-                        {
-                            indexSuggestion.first = nFoundMatches;
-                            indexSuggestion.second = abs(m_nTextureOverrideW[nPositionToLoadTo] - nPossibleWidth);
-                        }
-                    }
-
-                    nFoundMatches++;
-                }
-            }
-
-            if (rgstrHWOptions.size())
-            {
-                CRAWHeightWidthAdjustmentDialog AdjustmentDialog(rgstrHWOptions, indexSuggestion.first);
-
-                if (AdjustmentDialog.DoModal() == IDOK)
-                {
-                    m_nTextureOverrideW[nPositionToLoadTo] = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
-                    m_nTextureOverrideH[nPositionToLoadTo] = nFileSize / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
-                    fHaveViableDimensions = true;
-                }
-            }
-        }
-
         bool fFoundData = false;
 
-        if (fHaveViableDimensions)
+        if (eCompType != RAWCompressionChoice::NoCompression)
+        {
+            std::vector<uint8_t*> pNewData;
+            pNewData.resize(nFileSize);
+
+            TextureFile.Read(pNewData.data(), nFileSize);
+
+            uint8_t* pRAWData = nullptr;
+            
+            switch (eCompType)
+            {
+                case RAWCompressionChoice::RLE:
+                {
+                    pRAWData = RLEData::RLEDecodeImg(
+                        reinterpret_cast<uint8_t*>(&pNewData[0]),
+                        nSizeIfThisIsRAW,
+                        m_nTextureOverrideW[nPositionToLoadTo],
+                        m_nTextureOverrideH[nPositionToLoadTo]
+                    );
+                    break;
+                }
+                case RAWCompressionChoice::BitMaskRLE:
+                {
+                    pRAWData = RLEData::BitMaskRLEDecodeImg(
+                        reinterpret_cast<uint8_t*>(&pNewData[0]),
+                        nSizeIfThisIsRAW,
+                        m_nTextureOverrideW[nPositionToLoadTo],
+                        m_nTextureOverrideH[nPositionToLoadTo]
+                    );
+                    break;
+                }
+            }
+
+            if (pRAWData)
+            {
+                fFoundData = true;
+                m_ppSpriteOverrideTexture[nPositionToLoadTo] = pRAWData;
+                GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RLE-compressed RAW as a custom preview.");
+            }
+        }
+        else if (fHaveViableDimensions)
         {
             safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
             m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nFileSize];
@@ -748,33 +828,8 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                     nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
                 }
             }
-        }
-        else
-        {
-            // Check and see if maybe this is RLE compressed data...?
-            const uint32_t nTotalImageSize = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
 
-            if (nTotalImageSize > static_cast<uint32_t>(nFileSize))
-            {
-                std::vector<uint8_t*> pNewData;
-                pNewData.resize(nFileSize);
-
-                TextureFile.Read(pNewData.data(), nFileSize);
-
-                uint8_t* pRAWData = RLEData::BitMaskRLEDecodeImg(
-                    reinterpret_cast<uint8_t*>(&pNewData[0]),
-                    nTotalImageSize,
-                    m_nTextureOverrideW[nPositionToLoadTo],
-                    m_nTextureOverrideH[nPositionToLoadTo]
-                );
-
-                if (pRAWData)
-                {
-                    fFoundData = true;
-                    m_ppSpriteOverrideTexture[nPositionToLoadTo] = pRAWData;
-                    GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RAW as RLE-compressed data.");
-                }
-            }
+            GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RAW as a custom preview.");
         }
 
         TextureFile.Close();

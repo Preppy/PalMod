@@ -59,7 +59,7 @@ namespace RLEData
         if (nImageSize)
         {
             output_data = new uint8_t[nImageSize];
-            memset(output_data, NULL, sizeof(uint8_t) * nImageSize);
+            memset(output_data, 0, sizeof(uint8_t) * nImageSize);
 
             uint8_t count = 0;
             bool isDigit = true;
@@ -103,7 +103,7 @@ namespace RLEData
         if (nRequiredDataSize)
         {
             output_data = new uint8_t[nRequiredDataSize];
-            memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
+            memset(output_data, 0, sizeof(uint8_t) * nRequiredDataSize);
 
             uint32_t i_byteCtr = 0;
             uint32_t o_dataCtr = 0;

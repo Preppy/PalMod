@@ -121,6 +121,8 @@ private:
     int m_nTextureOverrideW[MAX_IMAGES_DISPLAYABLE] = { 0 };
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
 
+    bool _FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight);
+
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
 
