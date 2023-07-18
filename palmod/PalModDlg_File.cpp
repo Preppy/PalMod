@@ -822,7 +822,7 @@ void CPalModDlg::OnImportPalette()
                                                L"Upside-down Indexed PNG|*.png|"
                                                L"Indexed BMP|*.bmp|"
                                                L"GIF|*.gif|"
-                                               L"PS3 SF3::OE color file|*.txt.dat"
+                                               L"PS3 SF3::OE color file|*.txt.dat|"
                                                L"GIMP palette file|*.gpl|"
                                                L"HipPalette|*.hpl|"
                                                L"|" };
