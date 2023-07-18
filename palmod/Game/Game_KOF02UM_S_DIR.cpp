@@ -32,13 +32,13 @@ sFileRule CGame_KOF02UM_S_DIR::GetRule_8888(uint32_t nUnitId)
 
 sFileRule CGame_KOF02UM_S_DIR::GetNextRule_8888()
 {
-    sFileRule NewFileRule = GetRule_8888(uRuleCtr);
+    sFileRule NewFileRule = GetRule_8888(m_uRuleCtr);
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
-    if (uRuleCtr >= KOF02UM_S_DIR_8888_UNITS.size())
+    if (m_uRuleCtr >= KOF02UM_S_DIR_8888_UNITS.size())
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -58,13 +58,13 @@ sFileRule CGame_KOF02UM_S_DIR::GetRule_BGR555(uint32_t nUnitId)
 
 sFileRule CGame_KOF02UM_S_DIR::GetNextRule_BGR555()
 {
-    sFileRule NewFileRule = GetRule_BGR555(uRuleCtr);
+    sFileRule NewFileRule = GetRule_BGR555(m_uRuleCtr);
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
-    if (uRuleCtr >= KOF02UM_S_DIR_BGR555_UNITS.size())
+    if (m_uRuleCtr >= KOF02UM_S_DIR_BGR555_UNITS.size())
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -84,13 +84,13 @@ sFileRule CGame_KOF02UM_S_DIR::GetRule_RGB555(uint32_t nUnitId)
 
 sFileRule CGame_KOF02UM_S_DIR::GetNextRule_RGB555()
 {
-    sFileRule NewFileRule = GetRule_RGB555(uRuleCtr);
+    sFileRule NewFileRule = GetRule_RGB555(m_uRuleCtr);
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
-    if (uRuleCtr >= KOF02UM_S_DIR_RGB555_UNITS.size())
+    if (m_uRuleCtr >= KOF02UM_S_DIR_RGB555_UNITS.size())
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;

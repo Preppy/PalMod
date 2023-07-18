@@ -192,10 +192,10 @@ public:
     inline uint8_t GetSIMMSetForROMLocation(uint32_t nROMLocation);
 
     //Static functions
-    static uint32_t uRuleCtr;
+    static uint32_t m_uRuleCtr;
 
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
+    static uint32_t GetRuleCtr() { return m_uRuleCtr; };
+    static void ResetRuleCtr() { m_uRuleCtr = 0; };
 
     static sFileRule GetNextRule10() { return GetNextRuleInternal(SFIII3LoadingKey::ROM10); };
     static sFileRule GetNextRule4_10() { return GetNextRuleInternal(SFIII3LoadingKey::ROM10_4rd); };

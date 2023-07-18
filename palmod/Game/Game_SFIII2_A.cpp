@@ -30,7 +30,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -99,13 +99,13 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
-                    BasePalGroup.AddSep(0, L"Morph", 0, 64);
+                    m_BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
+                    m_BasePalGroup.AddSep(0, L"Morph", 0, 64);
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId + 1);
 
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId + 1);
-                    BasePalGroup.AddSep(1, L"Suit", 0, 64);
+                    m_BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId + 1);
+                    m_BasePalGroup.AddSep(1, L"Suit", 0, 64);
 
                     ClearSetImgTicket(
                         CreateImgTicket(index3SSprites_Urien, 2,

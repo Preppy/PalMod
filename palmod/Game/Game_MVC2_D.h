@@ -9,7 +9,7 @@ private:
     void ClearDataBuffer() override;
     static void InitializeStatics();
 
-    uint16_t** ppDataBuffer = nullptr;
+    uint16_t** m_ppDataBuffer = nullptr;
 
     void FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext);
 
@@ -22,19 +22,19 @@ public:
     uint32_t nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
 
     //Static functions
-    static uint32_t uRuleCtr;
-    static uint32_t rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+    static uint32_t m_uRuleCtr;
+    static uint32_t m_rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
 
-    static std::vector<LPCWSTR> pCurrentButtonLabelSet;
-    static std::vector<std::vector<sMoveDescription>> pCurrentMoveDescriptions;
-    static std::vector<uint16_t> pCurrentExtrasLayout;
+    static std::vector<LPCWSTR> m_pCurrentButtonLabelSet;
+    static std::vector<std::vector<sMoveDescription>> m_pCurrentMoveDescriptions;
+    static std::vector<uint16_t> m_pCurrentExtrasLayout;
     static uint8_t _nCurrentTotalColorOptions;
     void SetNumberOfColorOptions(uint8_t nColorOptions);
 
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
+    static uint32_t GetRuleCtr() { return m_uRuleCtr; };
+    static void ResetRuleCtr() { m_uRuleCtr = 0; };
 
-    static CDescTree MainDescTree;
+    static CDescTree m_MainDescTree;
 
     static sDescTreeNode* InitDescTree();
     static void InitExtraRg();
@@ -57,7 +57,7 @@ public:
 
     void UpdatePalData(); // This is old code and uses its own logic
 
-    uint16_t** GetDataBuffer() { return ppDataBuffer; };
+    uint16_t** GetDataBuffer() { return m_ppDataBuffer; };
     int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
     void CreateDefPal(sDescNode* srcNode, uint32_t nSepId) override;
     void ResetChangeFlag(uint32_t nUnitId);

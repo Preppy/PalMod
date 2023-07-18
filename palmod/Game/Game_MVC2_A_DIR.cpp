@@ -2,7 +2,7 @@
 #include "Game_MVC2_A_DIR.h"
 #include "..\palmod.h" // getappname
 
-uint32_t CGame_MVC2_A_DIR::uRuleCtr = 0;
+uint32_t CGame_MVC2_A_DIR::m_uRuleCtr = 0;
 
 constexpr auto MVC2_Arcade_ROM_Base = L"mpr-230";
 constexpr auto MVC2_ROMReripOffsetDelta = 0x2000000;
@@ -14,9 +14,9 @@ CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize) :
         CGame_MVC2_A(c_nMVC2SIMMLength)
 {
     OutputDebugString(L"CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n");
-    nGameFlag = MVC2_A_DIR;
+    m_nGameFlag = MVC2_A_DIR;
     // We lie here because we want to look at 8 SIMM banks
-    nFileAmt = MVC2_Arcade_NumberOfSIMMs;
+    m_nFileAmt = MVC2_Arcade_NumberOfSIMMs;
 
     // Ensure our change array is using the correct length
     FlushChangeTrackingArray();
@@ -45,13 +45,13 @@ sFileRule CGame_MVC2_A_DIR::GetRule(uint32_t nUnitId)
 
 sFileRule CGame_MVC2_A_DIR::GetNextRule()
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr);
+    sFileRule NewFileRule = GetRule(m_uRuleCtr);
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
-    if (uRuleCtr >= MVC2_Arcade_NumberOfSIMMs)
+    if (m_uRuleCtr >= MVC2_Arcade_NumberOfSIMMs)
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -88,7 +88,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
     // this is a little obnoxious since it's per simm - could just load all 8 and party
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -196,7 +196,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
     if (fLoadedEverything)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             if (nUnitCtr == indexMVC2ATeamView)
             {

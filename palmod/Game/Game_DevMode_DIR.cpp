@@ -399,7 +399,7 @@ END_MESSAGE_MAP()
 
 CGame_DevMode_DIR::CGame_DevMode_DIR(uint32_t nConfirmedROMSize)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, CRegProc::GetMaxWriteForUnknownGame() };
+    m_createPalOptions = { NO_SPECIAL_OPTIONS, CRegProc::GetMaxWriteForUnknownGame() };
 
     ColMode cmCurrentDefault = CRegProc::GetColorModeForUnknownGame();
     AlphaMode amCurrentDefault = CRegProc::GetAlphaModeForUnknownGame();
@@ -418,7 +418,7 @@ CGame_DevMode_DIR::CGame_DevMode_DIR(uint32_t nConfirmedROMSize)
     }
 #endif
 
-    m_sCoreGameData_UseExtrasFile.createPalOptions = createPalOptions;
+    m_sCoreGameData_UseExtrasFile.createPalOptions = m_createPalOptions;
     m_sCoreGameData_UseExtrasFile.eAlphaMode = amCurrentDefault;
     m_sCoreGameData_UseExtrasFile.eColMode = cmCurrentDefault;
 

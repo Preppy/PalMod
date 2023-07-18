@@ -24,7 +24,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
@@ -53,7 +53,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     // These nodes are variable sizes, so do a little math to figure it out
                     nSrcAmt = 4;
-                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+                    m_pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
                     nNodeIncrement = 1;
                     uint32_t nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     nSrcStart = 0;
@@ -68,7 +68,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             if (nNextChunk != nSrcAmt)
                             {
                                 nSrcAmt = 1;
-                                pButtonLabelSet = DEF_NOBUTTONS;
+                                m_pButtonLabelSet = DEF_NOBUTTONS;
                             }
                             break;
                         }
@@ -78,12 +78,12 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else
                 {
-                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
+                    m_pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
                     bool fIsCorePalette = false;
 
-                    for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+                    for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
                     {
-                        if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                        if (wcscmp(pCurrentNode->szDesc, m_pButtonLabelSet[nOptionsToTest]) == 0)
                         {
                             fIsCorePalette = true;
                             break;

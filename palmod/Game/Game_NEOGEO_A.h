@@ -8,8 +8,8 @@ class CGame_NEOGEO_A : public CGameWithExtrasFile
 private:
     static uint32_t m_nTotalPaletteCountForNEOGEO;
 
-    static uint32_t rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
+    static uint32_t m_rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
+    static uint32_t m_rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
     const static uint8_t NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
     static wchar_t m_pszExtraNameOverride[MAX_PATH];
 
@@ -33,7 +33,7 @@ public:
     ~CGame_NEOGEO_A();
 
     //Static functions / variables
-    static CDescTree MainDescTree;
+    static CDescTree m_MainDescTree;
 
     static sDescTreeNode* InitDescTree(LPCWSTR pszFileLoaded);
     static sFileRule GetRule(uint32_t nUnitId);

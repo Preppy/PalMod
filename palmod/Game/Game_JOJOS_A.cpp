@@ -147,7 +147,7 @@ bool CGame_JOJOS_A::CanEnableMultispriteExport(uint32_t nUnitId, uint32_t nPalId
         if ((wcsstr(pUnitTree->szDesc, L"Timestop") == nullptr) &&
             (wcsstr(pUnitTree->szDesc, L"Bonus") == nullptr))
         {
-            if (pUnitTree->uChildAmt >= pButtonLabelSet.size())
+            if (pUnitTree->uChildAmt >= m_pButtonLabelSet.size())
             {
                 const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pUnitTree->ChildNodes);
 
@@ -159,7 +159,7 @@ bool CGame_JOJOS_A::CanEnableMultispriteExport(uint32_t nUnitId, uint32_t nPalId
                 if (isBalanced)
                 {
                     // We know the button nodes are balanced... but are we in a core button node?
-                    isBalanced = nPalId < (pButtonLabelSet.size() * pCurrentCollection[0].uChildAmt);
+                    isBalanced = nPalId < (m_pButtonLabelSet.size() * pCurrentCollection[0].uChildAmt);
                 }
             }
         }

@@ -8,8 +8,8 @@ class CGame_MVC2_A : public CGameWithExtrasFile
 public:
     static uint32_t m_nTotalPaletteCountForMVC2;
 
-    static uint32_t rgExtraCountAll[MVC2_A_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[MVC2_A_NUMUNIT + 1];
+    static uint32_t m_rgExtraCountAll[MVC2_A_NUMUNIT + 1];
+    static uint32_t m_rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static uint32_t m_nConfirmedROMSize;
@@ -25,7 +25,7 @@ public:
     ~CGame_MVC2_A();
 
     //Static functions / variables
-    static CDescTree MainDescTree;
+    static CDescTree m_MainDescTree;
 
     static sDescTreeNode* InitDescTree();
     static sFileRule GetRule(uint32_t nUnitId);

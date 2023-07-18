@@ -3,8 +3,8 @@
 
 #define CGAMECLASSBYFILE_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-uint32_t CGameClassByFile::uRuleCtr = 0;
-CDescTree CGameClassByFile::MainDescTree = nullptr;
+uint32_t CGameClassByFile::m_uRuleCtr = 0;
+CDescTree CGameClassByFile::m_MainDescTree = nullptr;
 uint32_t CGameClassByFile::m_nConfirmedROMSize = -1;
 
 std::wstring CGameClassByFile::m_strGameFriendlyName;
@@ -25,11 +25,11 @@ sFileRule CGameClassByFile::GetRule(uint32_t nUnitId, const std::vector<sGameUni
 
 sFileRule CGameClassByFile::GetNextRule(const std::vector<sGameUnitsByFile>& gameLoadingData)
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr, gameLoadingData);
+    sFileRule NewFileRule = GetRule(m_uRuleCtr, gameLoadingData);
 
-    if (++uRuleCtr >= gameLoadingData.size())
+    if (++m_uRuleCtr >= gameLoadingData.size())
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -110,7 +110,7 @@ const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, ui
         if (nDistanceFromZero < nNodeCount)
         {
             // We know it's within this group.  Now: is it basic?
-            if (nCollectionIndex < pButtonLabelSet.size())
+            if (nCollectionIndex < m_pButtonLabelSet.size())
             {
                 pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
             }
@@ -181,12 +181,12 @@ void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_Co
 {
     //Set game-game specific information before loading the game's known palette locations
     m_strGameFriendlyName = gameLoadingData.strGameFriendlyName;
-    m_nCurrentGameFlag = nGameFlag = gameLoadingData.nGameID;
-    nImgGameFlag = gameLoadingData.eImgDatSectionID;
+    m_nCurrentGameFlag = m_nGameFlag = gameLoadingData.nGameID;
+    m_nImgGameFlag = gameLoadingData.eImgDatSectionID;
     m_prgGameImageSet = gameLoadingData.rgGameImageSet;
-    createPalOptions = gameLoadingData.createPalOptions;
+    m_createPalOptions = gameLoadingData.createPalOptions;
     //Set the image out display type
-    DisplayType = gameLoadingData.displayStyle;
+    m_DisplayType = gameLoadingData.displayStyle;
     SetAlphaMode(gameLoadingData.eAlphaMode);
 
     if (ColorSystem::IsAlphaModeMutable(gameLoadingData.eAlphaMode))
@@ -203,19 +203,19 @@ void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_Co
 
     uint32_t nPaletteCount = InitDescTreeForFileSet(NewTree);
 
-    MainDescTree.SetRootTree(NewTree);
+    m_MainDescTree.SetRootTree(NewTree);
 
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
     //We need the proper unit amt before we init the main buffer
-    nUnitAmt = nFileAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
+    m_nUnitAmt = m_nFileAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
 
     // Stub in the palette buffer that we will LoadFile into
     InitDataBuffer();
 
     //Create the redirect buffer
-    m_rgUnitRedir.resize(nUnitAmt, 0);
+    m_rgUnitRedir.resize(m_nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -324,7 +324,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
@@ -345,9 +345,9 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
         {
             bool fIsCorePalette = false;
 
-            for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+            for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
             {
-                if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                if (wcscmp(pCurrentNode->szDesc, m_pButtonLabelSet[nOptionsToTest]) == 0)
                 {
                     fIsCorePalette = true;
                     break;
@@ -356,7 +356,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
             if (fIsCorePalette)
             {
-                nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
+                nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
                 nNodeIncrement = pCurrentNode->uChildAmt;
 
                 while (nSrcStart >= nNodeIncrement)

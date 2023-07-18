@@ -3,42 +3,42 @@
 #include "Game_SFIII3_D.h"
 #include "SFIII3_D_DEF.h"
 
-CDescTree CGame_SFIII3_D::MainDescTree = nullptr;
+CDescTree CGame_SFIII3_D::m_MainDescTree = nullptr;
 
 uint32_t CGame_SFIII3_D::m_uRuleCtr = 0;
 
 void CGame_SFIII3_D::InitializeStatics()
 {
-    MainDescTree.SetRootTree(CGame_SFIII3_D::InitDescTree());
+    m_MainDescTree.SetRootTree(CGame_SFIII3_D::InitDescTree());
 }
 
 CGame_SFIII3_D::CGame_SFIII3_D()
 {
     //Set color mode
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
+    m_createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_RGB555_BE);
 
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
-    nUnitAmt = SFIII3_D_NUMUNIT;
+    m_nUnitAmt = SFIII3_D_NUMUNIT;
 
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = SFIII3_D;
-    nImgGameFlag = IMGDAT_SECTION_SF3;
+    m_nGameFlag = SFIII3_D;
+    m_nImgGameFlag = IMGDAT_SECTION_SF3;
     m_prgGameImageSet = SFIII3_D_IMGID_SORTED_BY_UNIT;
 
-    nFileAmt = SFIII3_D_NUMUNIT;
+    m_nFileAmt = SFIII3_D_NUMUNIT;
 
     //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
+    m_DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    m_pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
 
     //Create the redirect buffer
-    m_rgUnitRedir.resize(nUnitAmt, 0);
+    m_rgUnitRedir.resize(m_nUnitAmt, 0);
 
     //Create the file changed flag array
     PrepChangeTrackingArray();
@@ -55,7 +55,7 @@ CGame_SFIII3_D::~CGame_SFIII3_D()
 
 CDescTree* CGame_SFIII3_D::GetMainTree()
 {
-    return &CGame_SFIII3_D::MainDescTree;
+    return &CGame_SFIII3_D::m_MainDescTree;
 }
 
 sDescTreeNode* CGame_SFIII3_D::InitDescTree()
@@ -229,8 +229,8 @@ void CGame_SFIII3_D::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 
     GetPalOffsSz(nUnitId, nPalId);
 
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrPalSz, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrPalSz);
+    m_BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrPalSz, nUnitId, nPalId);
+    m_BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrPalSz);
 }
 
 BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -258,10 +258,10 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     uint32_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
 
     int nSrcStart = 0;
-    uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());//GetBasicAmt(uUnitId);
+    uint32_t nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());//GetBasicAmt(uUnitId);
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     //Create the default palette
     ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));

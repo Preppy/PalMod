@@ -33,8 +33,8 @@ public:
         std::vector<sGameUnitsByFile> srgLoadingData;
     };
 
-    static uint32_t uRuleCtr;
-    static CDescTree MainDescTree;
+    static uint32_t m_uRuleCtr;
+    static CDescTree m_MainDescTree;
     static uint32_t m_nConfirmedROMSize;
     static SupportedGamesList m_nCurrentGameFlag;
     static std::wstring m_strGameFriendlyName;
@@ -44,10 +44,10 @@ public:
     static sFileRule GetNextRule(const std::vector<sGameUnitsByFile>& gameLoadingData);
     static sFileRule GetRule(uint32_t nRuleId, const std::vector<sGameUnitsByFile>& gameLoadingData);
 
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
+    static uint32_t GetRuleCtr() { return m_uRuleCtr; };
+    static void ResetRuleCtr() { m_uRuleCtr = 0; };
 
-    CDescTree* GetMainTree() { return &MainDescTree; };
+    CDescTree* GetMainTree() { return &m_MainDescTree; };
 
     void InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_CoreGameData& gameLoadingData);
 

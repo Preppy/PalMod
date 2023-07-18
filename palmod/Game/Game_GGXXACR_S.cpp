@@ -18,16 +18,16 @@ void CGame_GGXXACR_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         if ((m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sExtrasNodeData.strExtraCollectionName == k_strSidebarPortraits) ||
             (m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sExtrasNodeData.strExtraCollectionName == k_strTitleScreen))
         {
-            createPalOptions.nTransparencyColorPosition = 257;
+            m_createPalOptions.nTransparencyColorPosition = 257;
         }
         else
         {
-            createPalOptions.nTransparencyColorPosition = 0;
+            m_createPalOptions.nTransparencyColorPosition = 0;
         }
     }
     else
     {
-        createPalOptions.nTransparencyColorPosition = 0;
+        m_createPalOptions.nTransparencyColorPosition = 0;
     }
 }
 

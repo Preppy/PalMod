@@ -50,10 +50,10 @@ sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(RedEarthLoadingKey nGameMode, ui
 
 sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(RedEarthLoadingKey nGameMode)
 {
-    sFileRule NewFileRule = GetRuleInternal(nGameMode, uRuleCtr);
+    sFileRule NewFileRule = GetRuleInternal(nGameMode, m_uRuleCtr);
     uint16_t nMaxRuleNumber;
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
     switch (nGameMode)
     {
@@ -69,9 +69,9 @@ sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(RedEarthLoadingKey nGameMode
         break;
     }
 
-    if (uRuleCtr >= nMaxRuleNumber)
+    if (m_uRuleCtr >= nMaxRuleNumber)
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;

@@ -86,9 +86,9 @@ public:
 
     static uint32_t m_nConfirmedROMSize;
 
-    static uint32_t uRuleCtr;
+    static uint32_t m_uRuleCtr;
 
-    static CDescTree MainDescTree;
+    static CDescTree m_MainDescTree;
 
     static void InitializeStatics();
 
@@ -108,7 +108,7 @@ public:
     CGameClassPerUnitPerFile(uint32_t nConfirmedROMSize = -1) {};
     ~CGameClassPerUnitPerFile() {};
 
-    CDescTree* GetMainTree() { return &MainDescTree; };
+    CDescTree* GetMainTree() { return &m_MainDescTree; };
 
     void InitializeGame(uint32_t nConfirmedROMSize, const sGCPUPF_CoreGameData& gameLoadingData);
 
@@ -131,8 +131,8 @@ public:
     static sFileRule GetNextRule(const std::vector<sGCBUPF_BasicFileData>& gameLoadingData);
     static sFileRule GetRule(uint32_t nRuleId, const std::vector<sGCBUPF_BasicFileData>& gameLoadingData);
     
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
+    static uint32_t GetRuleCtr() { return m_uRuleCtr; };
+    static void ResetRuleCtr() { m_uRuleCtr = 0; };
 
     static sDescTreeNode* InitDescTree();
 

@@ -46,7 +46,7 @@ BOOL CImgOutDlg::OnInitDialog()
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     //Set dialog data
-    pButtonLabelSet = CurrGame->GetButtonDescSet();
+    m_pButtonLabelSet = CurrGame->GetButtonDescSet();
 
     //Set the image controls data
     m_DumpBmp.m_pMainImgCtrl = &GetHost()->GetPreviewDlg()->m_ImgDisp;
@@ -387,9 +387,9 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 
 void CImgOutDlg::FillPalCombo()
 {
-    const bool fShouldShowMultipleOptions = (m_nPalAmt != 1) && (!pButtonLabelSet.empty());
+    const bool fShouldShowMultipleOptions = (m_nPalAmt != 1) && (!m_pButtonLabelSet.empty());
 
-    if (fShouldShowMultipleOptions && (static_cast<uint32_t>(m_nPalAmt) > pButtonLabelSet.size()))
+    if (fShouldShowMultipleOptions && (static_cast<uint32_t>(m_nPalAmt) > m_pButtonLabelSet.size()))
     {
         MessageBox(L"Error: list of output options doesn't match list size.\n\nPlease report this bug in PalMod and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
     }
@@ -398,7 +398,7 @@ void CImgOutDlg::FillPalCombo()
     {
         for (int nNodeIndex = 0; nNodeIndex < m_nPalAmt; nNodeIndex++)
         {
-            m_CB_Pal.AddString(pButtonLabelSet[nNodeIndex]);
+            m_CB_Pal.AddString(m_pButtonLabelSet[nNodeIndex]);
         }
     }
     else
@@ -575,7 +575,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-                strCurrentNodeName = pButtonLabelSet[nNodeIndex];
+                strCurrentNodeName = m_pButtonLabelSet[nNodeIndex];
             }
 
             int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.m_nPalIndex : nNodeIndex;

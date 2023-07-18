@@ -21,11 +21,11 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     switch (GetCollectionCountForUnit(NodeGet->uUnitId))
     {
     case 5: // A/B/C/D/Bonus
-        pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+        m_pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
         break;
     case 6: // A/B/C/D/Dark/Bonus
     default:
-        pButtonLabelSet = DEF_BUTTONLABEL_WAKUWAKU7_FIVE;
+        m_pButtonLabelSet = DEF_BUTTONLABEL_WAKUWAKU7_FIVE;
         break;
     }
 

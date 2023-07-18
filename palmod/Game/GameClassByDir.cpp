@@ -5,8 +5,8 @@
 #include "..\PalMod.h"
 #include "..\regproc.h"
 
-uint32_t CGameClassByDir::uRuleCtr = 0;
-CDescTree CGameClassByDir::MainDescTree = nullptr;
+uint32_t CGameClassByDir::m_uRuleCtr = 0;
+CDescTree CGameClassByDir::m_MainDescTree = nullptr;
 size_t CGameClassByDir::m_nConfirmedROMSize = -1;
 
 std::vector<sDescTreeNode> CGameClassByDir::m_rgCurrentGameUnits;
@@ -53,20 +53,20 @@ void CGameClassByDir::InitializeStatics(const sCoreGameData& gameLoadingData)
     }
     m_nCurrentExtraUnitId = static_cast<uint16_t>(m_rgCurrentGameUnits.size());
 
-    MainDescTree.SetRootTree(CGameClassByDir::InitDescTree(gameLoadingData.eColMode));
+    m_MainDescTree.SetRootTree(CGameClassByDir::InitDescTree(gameLoadingData.eColMode));
 }
 
 void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGameData& gameLoadingData)
 {
     //Set game-game specific information before loading the game's known palette locations
     m_strGameFriendlyName = gameLoadingData.strGameFriendlyName;
-    m_snCurrentGameFlag = nGameFlag = gameLoadingData.nGameID;
-    nImgGameFlag = gameLoadingData.eImgDatSectionID;
+    m_snCurrentGameFlag = m_nGameFlag = gameLoadingData.nGameID;
+    m_nImgGameFlag = gameLoadingData.eImgDatSectionID;
     m_prgGameImageSet = gameLoadingData.rgGameImageSet;
-    createPalOptions = gameLoadingData.createPalOptions;
+    m_createPalOptions = gameLoadingData.createPalOptions;
     //Set the image out display type
-    DisplayType = gameLoadingData.displayStyle;
-    pButtonLabelSet = gameLoadingData.rgszButtonLabelSet;
+    m_DisplayType = gameLoadingData.displayStyle;
+    m_pButtonLabelSet = gameLoadingData.rgszButtonLabelSet;
     SetColorMode(gameLoadingData.eColMode);
     // Must set alpha mode after setting color mode, as color mode can have a preferred alpha mode
     SetAlphaMode(gameLoadingData.eAlphaMode);
@@ -111,7 +111,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     m_nTotalInternalUnits = static_cast<uint32_t>(m_rgCurrentGameUnits.size());
     m_nExtraUnit = m_nCurrentExtraUnitId = static_cast<uint16_t>(m_rgCurrentGameUnits.size());
     // Tack on an extra unit if we're loading extras
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+    m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     // Game-specific safety checks: if these match what we find at runtime we skip our check for duplicated palettes
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + gameLoadingData.nKnownPaletteCount;
@@ -121,10 +121,10 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     InitDataBuffer();
 
     // This lets LoadGame and SaveGame know how many files it needs to interact with
-    nFileAmt = static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.size());
+    m_nFileAmt = static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.size());
 
     //Create the redirect buffer
-    m_rgUnitRedir.resize(nUnitAmt, 0);
+    m_rgUnitRedir.resize(m_nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -391,11 +391,11 @@ sFileRule CGameClassByDir::GetRule(uint32_t nUnitId, const sDirectoryLoadingData
 
 sFileRule CGameClassByDir::GetNextRule(const sDirectoryLoadingData& gameLoadingData)
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr++, gameLoadingData);
+    sFileRule NewFileRule = GetRule(m_uRuleCtr++, gameLoadingData);
 
-    if (uRuleCtr >= gameLoadingData.rgFileList.size())
+    if (m_uRuleCtr >= gameLoadingData.rgFileList.size())
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -540,7 +540,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     {
         SetValidatedFileReadType();
 
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -1309,7 +1309,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
     if (fSuccess)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 

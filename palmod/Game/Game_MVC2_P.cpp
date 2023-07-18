@@ -3,7 +3,7 @@
 
 CGame_MVC2_P::CGame_MVC2_P(uint32_t nConfirmedROMSize) : CGame_MVC2_D(nConfirmedROMSize)
 {
-    nGameFlag = MVC2_P;
+    m_nGameFlag = MVC2_P;
 }
 
 CGame_MVC2_P::~CGame_MVC2_P()
@@ -26,13 +26,13 @@ sFileRule CGame_MVC2_P::GetRule(uint32_t nRuleId)
 
 sFileRule CGame_MVC2_P::GetNextRule()
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr);
+    sFileRule NewFileRule = GetRule(m_uRuleCtr);
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
-    if (uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
+    if (m_uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;

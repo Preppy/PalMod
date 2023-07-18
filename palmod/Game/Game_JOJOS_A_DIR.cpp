@@ -35,10 +35,10 @@ sFileRule CGame_JOJOS_A_DIR::GetRuleInternal(uint32_t nUnitId, JojosLoadingKey n
 
 sFileRule CGame_JOJOS_A_DIR::GetNextRuleInternal(JojosLoadingKey nVersionToLoad)
 {
-    sFileRule NewFileRule = GetRuleInternal(uRuleCtr, nVersionToLoad);
+    sFileRule NewFileRule = GetRuleInternal(m_uRuleCtr, nVersionToLoad);
     uint16_t nMaxRuleNumber;
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
     switch (nVersionToLoad)
     {
@@ -51,9 +51,9 @@ sFileRule CGame_JOJOS_A_DIR::GetNextRuleInternal(JojosLoadingKey nVersionToLoad)
         break;
     }
 
-    if (uRuleCtr >= nMaxRuleNumber)
+    if (m_uRuleCtr >= nMaxRuleNumber)
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -99,7 +99,7 @@ uint32_t CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     bool fSetOneOpened = false;
     bool fSetTwoOpened = false;
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 

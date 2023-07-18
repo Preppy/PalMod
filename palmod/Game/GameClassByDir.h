@@ -82,20 +82,20 @@ public:
     BOOL LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nSaveUnit) override;
 
-    CDescTree* GetMainTree() { return &MainDescTree; };
+    CDescTree* GetMainTree() { return &m_MainDescTree; };
 
     inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
     inline uint32_t GetSIMMUnitFromROMLocation(uint32_t nROMLocation);
 
-    static uint32_t uRuleCtr;
+    static uint32_t m_uRuleCtr;
 
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
+    static uint32_t GetRuleCtr() { return m_uRuleCtr; };
+    static void ResetRuleCtr() { m_uRuleCtr = 0; };
 
     static sFileRule GetRule(uint32_t nRuleId, const sDirectoryLoadingData& gameLoadingData);
     static sFileRule GetNextRule(const sDirectoryLoadingData& gameLoadingData);
 
-    static CDescTree MainDescTree;
+    static CDescTree m_MainDescTree;
 
     static sDescTreeNode* InitDescTree(ColMode eColMode);
 

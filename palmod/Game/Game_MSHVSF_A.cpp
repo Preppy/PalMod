@@ -72,11 +72,11 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         if ((m_nCurrentPaletteROMLocation == 0) && (m_eVersionToLoad == MSHVSFLoadingKey::ROM07))
         {
             // This is a very particular override for the split-rom Captain America Part 2 sprite
-            createPalOptions.nTransparencyColorPosition = 6;
+            m_createPalOptions.nTransparencyColorPosition = 6;
         }
         else
         {
-            createPalOptions.nTransparencyColorPosition = 0;
+            m_createPalOptions.nTransparencyColorPosition = 0;
         }
     }
     else // MSHVSF_A_EXTRALOC
@@ -114,7 +114,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     int8_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
@@ -140,7 +140,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 if ((wcsstr(pCurrentNode->szDesc, L"P1") != nullptr) || (wcsstr(pCurrentNode->szDesc, L"P2") != nullptr))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal VS sprites
-                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
+                    nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     if (wcscmp(m_rgCurrentGameUnits.at(NodeGet->uUnitId).szDesc, k_pszBlackheartUnit) == 0)

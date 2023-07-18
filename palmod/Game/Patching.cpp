@@ -18,7 +18,7 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
     LPCSTR szIPSOpener = "PATCH";
     PatchFile->Write(szIPSOpener, static_cast<UINT>(strlen(szIPSOpener)));
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -29,7 +29,7 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
                 uint32_t nInitialOffset = 0;
 
-                if (nGameFlag == TMNTTF_SNES)
+                if (m_nGameFlag == TMNTTF_SNES)
                 {
                     // TMNTTF is evil and uses overlapping palettes.  Account for this by snipping off the lead transparency color.
                     m_nCurrentPaletteROMLocation += m_nSizeOfColorsInBytes;
@@ -110,7 +110,7 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
 #endif
 
     CString strMsg;
-    strMsg.Format(L"CGameClass::SavePatchFile: Saved 0x%x palettes to patching file for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(L"CGameClass::SavePatchFile: Saved 0x%x palettes to patching file for %u units\n", nTotalPalettesSaved, m_nUnitAmt);
     OutputDebugString(strMsg);
 
     return nTotalPalettesSaved;
@@ -143,7 +143,7 @@ uint32_t CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
     bool fSetOneOpened = false;
     bool fSetTwoOpened = false;
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 

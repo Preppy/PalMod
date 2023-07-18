@@ -7,24 +7,24 @@
 
 void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext)
 {
-    for (uint32_t nButtonCount = 0; nButtonCount < pCurrentButtonLabelSet.size(); nButtonCount++)
+    for (uint32_t nButtonCount = 0; nButtonCount < m_pCurrentButtonLabelSet.size(); nButtonCount++)
     {
-        if (wcsncmp(pMoveDescription->szMoveName, pCurrentButtonLabelSet[nButtonCount], wcslen(pCurrentButtonLabelSet[nButtonCount])) == 0)
+        if (wcsncmp(pMoveDescription->szMoveName, m_pCurrentButtonLabelSet[nButtonCount], wcslen(m_pCurrentButtonLabelSet[nButtonCount])) == 0)
         {
             // Tentative match...
-            LPCWSTR pszSubstring = pMoveDescription->szMoveName + wcslen(pCurrentButtonLabelSet[nButtonCount]);
+            LPCWSTR pszSubstring = pMoveDescription->szMoveName + wcslen(m_pCurrentButtonLabelSet[nButtonCount]);
 
             if ((pszSubstring[0] == ' ') && (pszSubstring[1] == '-') && (pszSubstring[2] == ' '))
             {
                 // Actual match: check for peers
                 pszSubstring = &(pszSubstring[3]);
 
-                const int32_t nStride = (nButtonCount > (pCurrentButtonLabelSet.size() / 2)) ? -1 : 1;
+                const int32_t nStride = (nButtonCount > (m_pCurrentButtonLabelSet.size() / 2)) ? -1 : 1;
 
                 CString strCheckString;
-                strCheckString.Format(L"%s - %s", pCurrentButtonLabelSet[nButtonCount + nStride], pszSubstring);
+                strCheckString.Format(L"%s - %s", m_pCurrentButtonLabelSet[nButtonCount + nStride], pszSubstring);
 
-                const int32_t nMaximumKnownPaletteId = pCurrentMoveDescriptions[uUnitId][pCurrentMoveDescriptions[uUnitId].size() - 1].nCharacterIndex;
+                const int32_t nMaximumKnownPaletteId = m_pCurrentMoveDescriptions[uUnitId][m_pCurrentMoveDescriptions[uUnitId].size() - 1].nCharacterIndex;
                 const int32_t nAdjustedPalId = uPalId - EXTRA_OMNI;
 
                 for (int32_t nStepsTaken = nStride; ((nStepsTaken + nAdjustedPalId) > 0) && ((nStepsTaken + nAdjustedPalId) < nMaximumKnownPaletteId); nStepsTaken += nStride)
@@ -40,7 +40,7 @@ void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription*
                     if (wcscmp(pDescriptionToCheck->szMoveName, strCheckString) == 0)
                     {
                         nStart = uPalId + (nButtonCount * (-nStride) * nStepsTaken);
-                        nColorOptions = static_cast<uint32_t>(pCurrentButtonLabelSet.size());
+                        nColorOptions = static_cast<uint32_t>(m_pCurrentButtonLabelSet.size());
                         nIncrementToNext = abs(nStepsTaken);
                         break;
                     }
@@ -55,17 +55,17 @@ sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(uint32_t nUnitId, uint32_
 {
     sMoveDescription* pDescriptionForPalId = nullptr;
 
-    if (nUnitId < pCurrentMoveDescriptions.size()) // TeamView is a valid UnitId but uses its own description storage
+    if (nUnitId < m_pCurrentMoveDescriptions.size()) // TeamView is a valid UnitId but uses its own description storage
     {
         if (nPalId < EXTRA_OMNI)
         {
             uint32_t uCorePalId = nPalId % 8;
 
-            for (uint32_t uPalPos = 0; (uPalPos < 8) && (uPalPos < pCurrentMoveDescriptions[nUnitId].size()); uPalPos++)
+            for (uint32_t uPalPos = 0; (uPalPos < 8) && (uPalPos < m_pCurrentMoveDescriptions[nUnitId].size()); uPalPos++)
             {
-                if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uCorePalId)
+                if (m_pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uCorePalId)
                 {
-                    pDescriptionForPalId = &pCurrentMoveDescriptions[nUnitId][uPalPos];
+                    pDescriptionForPalId = &m_pCurrentMoveDescriptions[nUnitId][uPalPos];
                     break;
                 }
             }
@@ -75,11 +75,11 @@ sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(uint32_t nUnitId, uint32_
             uint32_t uPalIdPostExtras = nPalId - EXTRA_OMNI;
 
             // SKip past the core 8 palettes into extras space and see if we have a match
-            for (uint32_t uPalPos = 8; uPalPos < pCurrentMoveDescriptions[nUnitId].size(); uPalPos++)
+            for (uint32_t uPalPos = 8; uPalPos < m_pCurrentMoveDescriptions[nUnitId].size(); uPalPos++)
             {
-                if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uPalIdPostExtras)
+                if (m_pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uPalIdPostExtras)
                 {
-                    pDescriptionForPalId = &pCurrentMoveDescriptions[nUnitId][uPalPos];
+                    pDescriptionForPalId = &m_pCurrentMoveDescriptions[nUnitId][uPalPos];
                     break;
                 }
             }
@@ -118,7 +118,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     nImgUnitId = uUnitId;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     // Allow for built-in overrides
     sMoveDescription* pDescriptionForPalId = GetMoveDescriptionInfo(uUnitId, uPalId);
@@ -271,7 +271,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             uint16_t nJoinedUnit3 = indexMVC2APsylocke;
             bool fTeamFound = false;
 
-            const uint16_t nTeamViewNode = static_cast<uint16_t>(floor(NodeGet->uPalId / static_cast<uint16_t>(pCurrentButtonLabelSet.size())));
+            const uint16_t nTeamViewNode = static_cast<uint16_t>(floor(NodeGet->uPalId / static_cast<uint16_t>(m_pCurrentButtonLabelSet.size())));
             const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
 
             for (uint16_t nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
@@ -291,7 +291,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
             }
 
-            uint32_t nNodeIndex = ((NodeGet->uPalId) % pCurrentButtonLabelSet.size());
+            uint32_t nNodeIndex = ((NodeGet->uPalId) % m_pCurrentButtonLabelSet.size());
             uint32_t nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
 
             // Get the image dimensions so that we can collate them into one contiguous strip

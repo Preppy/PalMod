@@ -1020,7 +1020,7 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
     m_currentSFA2ROMRevision = GetSFA2ROMVersion(LoadedFile);
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -1070,7 +1070,7 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
@@ -1112,9 +1112,9 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 nSrcAmt = 1;
 
-                for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+                for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
                 {
-                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    if (wcscmp(pCurrentNode->szDesc, m_pButtonLabelSet[nOptionsToTest]) == 0)
                     {
                         fIsCorePalette = true;
                         break;
@@ -1125,7 +1125,7 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     // We've confirmed that the string matches one of the indicated button names.  Since we're doing a color per node, ensure we only ever
                     // expose to max node.  This covers the situation where a game might have LP/LK but not LP/LK/MP/MK out of a set.
-                    nSrcAmt = min(static_cast<uint32_t>(pButtonLabelSet.size()), GetCollectionCountForUnit(NodeGet->uUnitId));
+                    nSrcAmt = min(static_cast<uint32_t>(m_pButtonLabelSet.size()), GetCollectionCountForUnit(NodeGet->uUnitId));
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)

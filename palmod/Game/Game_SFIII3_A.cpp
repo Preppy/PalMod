@@ -92,7 +92,7 @@ uint32_t cps3_mask(uint32_t address, uint32_t key1, uint32_t key2)
 
 BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -150,7 +150,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
     uint32_t nTotalPalettesSaved = 0;
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -190,7 +190,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, m_nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
@@ -224,7 +224,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -238,9 +238,9 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         {
             bool fIsCorePalette = false;
 
-            for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+            for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
             {
-                if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                if (wcscmp(pCurrentNode->szDesc, m_pButtonLabelSet[nOptionsToTest]) == 0)
                 {
                     fIsCorePalette = true;
                     break;
@@ -258,7 +258,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 }
                 else
                 {
-                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
+                    nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
                 }
 
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -305,13 +305,13 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
+                    m_BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
 
-                    BasePalGroup.AddSep(0, L"Concrete", 0, 16);
-                    BasePalGroup.AddSep(0, L"Turtle", 16, 16);
-                    BasePalGroup.AddSep(0, L"Dinosaur / Stone", 32, 16);
-                    BasePalGroup.AddSep(0, L"Rocket", 48, 16);
-                    BasePalGroup.AddSep(0, L"Brick", 64, 16);
+                    m_BasePalGroup.AddSep(0, L"Concrete", 0, 16);
+                    m_BasePalGroup.AddSep(0, L"Turtle", 16, 16);
+                    m_BasePalGroup.AddSep(0, L"Dinosaur / Stone", 32, 16);
+                    m_BasePalGroup.AddSep(0, L"Rocket", 48, 16);
+                    m_BasePalGroup.AddSep(0, L"Brick", 64, 16);
 
                     ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 

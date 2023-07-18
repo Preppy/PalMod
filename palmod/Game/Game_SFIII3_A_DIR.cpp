@@ -2,7 +2,7 @@
 #include "Game_SFIII3_A_DIR.h"
 #include "..\PalMod.h"
 
-uint32_t CGame_SFIII3_A_DIR::uRuleCtr = 0;
+uint32_t CGame_SFIII3_A_DIR::m_uRuleCtr = 0;
 
 SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_Unsupported;
 
@@ -24,11 +24,11 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize, SFIII3Loading
     switch (nSF3ModeToLoad)
     {
     case SFIII3LoadingKey::ROM10:
-        nFileAmt = 4;
+        m_nFileAmt = 4;
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_DIR);
         break;
     case SFIII3LoadingKey::ROM10_4rd:
-        nFileAmt = 4;
+        m_nFileAmt = 4;
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_4rd_DIR);
         break;
     case SFIII3LoadingKey::ROM51:
@@ -36,15 +36,15 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize, SFIII3Loading
         // TODO: enable if we ever want to test this
         //m_fAllowIPSPatching = true;
         //m_nSIMMLength = 0x200000;
-        nFileAmt = 8;
+        m_nFileAmt = 8;
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_DIR);
         break;
     case SFIII3LoadingKey::ROM51_4rd:
-        nFileAmt = 2;
+        m_nFileAmt = 2;
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_4rd_DIR);
         break;
     case SFIII3LoadingKey::ROM70_EX:
-        nFileAmt = 4;
+        m_nFileAmt = 4;
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM70_DIR);
         break;
     }
@@ -109,13 +109,13 @@ sFileRule CGame_SFIII3_A_DIR::GetNextRuleInternal(SFIII3LoadingKey nSF3ModeToLoa
     m_eVersionToLoad = nSF3ModeToLoad;
 
     const uint16_t nFilesNeeded = !UsePaletteSetFor51() ? 2 : 8;
-    sFileRule NewFileRule = GetRuleInternal(uRuleCtr, m_eVersionToLoad);
+    sFileRule NewFileRule = GetRuleInternal(m_uRuleCtr, m_eVersionToLoad);
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
-    if (uRuleCtr >= nFilesNeeded)
+    if (m_uRuleCtr >= nFilesNeeded)
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -383,7 +383,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         strInfo.Format(L"CGame_SFIII3_A_DIR::LoadFile: Preparing to load data from SIMM number %u with peer %s (range 0x%x to 0x%x)\n", nSIMMNumber, PeerRule.szFileName, nBeginningRange, nEndingRange);
         OutputDebugString(strInfo);
 
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -495,11 +495,11 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         fSuccess = FALSE;
     }
 
-    if (((nGameFlag == SFIII3_A_DIR_10) && (nSIMMNumber == 0)) ||
-        ((nGameFlag == SFIII3_A_DIR_4rd_10) && (nSIMMNumber == 0)) ||
-        ((nGameFlag == SFIII3_A_DIR_4rd) && (nSIMMNumber == 6)) ||
-        ((nGameFlag == SFIII3_A_DIR_EX) && (nSIMMNumber == 0)) ||
-        ((nGameFlag == SFIII3_A_DIR_51) && (nSIMMNumber == 6)))
+    if (((m_nGameFlag == SFIII3_A_DIR_10) && (nSIMMNumber == 0)) ||
+        ((m_nGameFlag == SFIII3_A_DIR_4rd_10) && (nSIMMNumber == 0)) ||
+        ((m_nGameFlag == SFIII3_A_DIR_4rd) && (nSIMMNumber == 6)) ||
+        ((m_nGameFlag == SFIII3_A_DIR_EX) && (nSIMMNumber == 0)) ||
+        ((m_nGameFlag == SFIII3_A_DIR_51) && (nSIMMNumber == 6)))
     {
         // Only run the dupe checker for the second SIMM pair
         CheckForErrorsInTables();
@@ -581,7 +581,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
     uint16_t nSIMMSetBaseNumber;
     LPCWSTR pszSpecial3rdExtension = L"";
 
-    switch (nGameFlag)
+    switch (m_nGameFlag)
     {
     case SFIII3_A_DIR_4rd_10:
         pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
@@ -624,7 +624,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
         OutputDebugString(strInfo);
         uint32_t nPaletteSaveCount = 0;
 
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -825,7 +825,7 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     LPCWSTR pszBaseFormatString;
     uint16_t nSIMMSetBaseNumber;
 
-    switch (nGameFlag)
+    switch (m_nGameFlag)
     {
     case SFIII3_A_DIR_4rd_10:
         pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
@@ -858,7 +858,7 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     bool fSetOneOpened = false;
     bool fSetTwoOpened = false;
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 

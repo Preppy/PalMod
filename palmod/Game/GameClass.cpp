@@ -46,7 +46,7 @@ CGameClass::~CGameClass()
 
 int CGameClass::GetPlaneAmt(ColFlag Flag)
 {
-    return ColorSystem::GetPlaneAmtForColor(CurrColMode, Flag);
+    return ColorSystem::GetPlaneAmtForColor(m_CurrColMode, Flag);
 }
 
 int CGameClass::GetNearestLegal8BitColorValue_RGB_impl(int nCol)
@@ -56,7 +56,7 @@ int CGameClass::GetNearestLegal8BitColorValue_RGB_impl(int nCol)
 
 void CGameClass::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA)
 {
-    BasePalGroup.AddColorStepsToColorValue(crSrc, crTarget, uStepsR, uStepsG, uStepsB, uStepsA);
+    m_BasePalGroup.AddColorStepsToColorValue(crSrc, crTarget, uStepsR, uStepsG, uStepsB, uStepsA);
 }
 
 void CGameClass::SetAlphaMode(AlphaMode NewMode)
@@ -69,10 +69,10 @@ void CGameClass::SetAlphaMode(AlphaMode NewMode)
 void CGameClass::ClearSrcPal()
 {
     //Values used for image out
-    memset(nSrcPalUnit, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
-    memset(nSrcPalStart, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
-    memset(nSrcPalAmt, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
-    memset(nSrcPalInc, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
+    memset(m_nSrcPalUnit, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
+    memset(m_nSrcPalStart, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
+    memset(m_nSrcPalAmt, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
+    memset(m_nSrcPalInc, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
 }
 
 // For a given palette ID (such as palette 4 in a nInc long palette set), verify if that palette ID is an
@@ -114,7 +114,7 @@ sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket
 
 void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
 {
-    sImgTicket* DelTicket = CurrImgTicket;
+    sImgTicket* DelTicket = m_CurrImgTicket;
 
     while (DelTicket)
     {
@@ -123,7 +123,7 @@ void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
         DelTicket = NextTicket;
     }
 
-    CurrImgTicket = NewImgTicket;
+    m_CurrImgTicket = NewImgTicket;
 }
 
 bool CGameClass::SetColorMode(ColMode NewMode)
@@ -411,12 +411,12 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 
 bool CGameClass::_SetColorMode(ColMode NewMode)
 {
-    if (CurrColMode != NewMode)
+    if (m_CurrColMode != NewMode)
     {
         OutputDebugString(L"CGameClass::SetColorMode : Switching color mode...\n");
     }
 
-    CurrColMode = NewMode;
+    m_CurrColMode = NewMode;
 
     const bool fUpdatedColorConverters = _UpdateColorConverters(NewMode);
     const bool fUpdatedColorSteps = _UpdateColorSteps(NewMode);
@@ -444,7 +444,7 @@ LPCWSTR CGameClass::GetGameName()
     }
     else
     {
-        return KnownGameInfo::GetGameNameForGameID(nGameFlag);
+        return KnownGameInfo::GetGameNameForGameID(m_nGameFlag);
     }
 }
 
@@ -516,17 +516,17 @@ void CGameClass::SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart
     }
 #endif
 
-    nSrcPalUnit[nIndex] = nUnitId;
-    nSrcPalStart[nIndex] = nStart;
-    nSrcPalAmt[nIndex] = nAmt;
-    nSrcPalInc[nIndex] = nInc;
+    m_nSrcPalUnit[nIndex] = nUnitId;
+    m_nSrcPalStart[nIndex] = nStart;
+    m_nSrcPalAmt[nIndex] = nAmt;
+    m_nSrcPalInc[nIndex] = nInc;
 }
 
 void CGameClass::RevertChanges(int nPalId)
 {
-    sPalRedir* RedirIndex = &BasePalGroup.GetRedir()[nPalId];
+    sPalRedir* RedirIndex = &m_BasePalGroup.GetRedir()[nPalId];
 
-    sPalDef* CurrPalDef = BasePalGroup.GetPalDef(RedirIndex->nDefIndex);
+    sPalDef* CurrPalDef = m_BasePalGroup.GetPalDef(RedirIndex->nDefIndex);
     sPalSep* CurrPalSep = CurrPalDef->SepList[RedirIndex->nSepIndex];
 
     if (CurrPalSep)
@@ -557,14 +557,14 @@ COLORREF* CGameClass::CreatePal(uint32_t nUnitId, uint32_t nPalId)
 
     COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSizeInColors];
 
-    if (createPalOptions.nStartingPosition != 0)
+    if (m_createPalOptions.nStartingPosition != 0)
     {
         NewPal[0] = 0x0;
     }
 
-    for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); iPos++)
+    for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - m_createPalOptions.nStartingPosition); iPos++)
     {
-        const uint16_t nCurrentPos = iPos + createPalOptions.nStartingPosition;
+        const uint16_t nCurrentPos = iPos + m_createPalOptions.nStartingPosition;
 
         switch (GetGameColorByteLength())
         {
@@ -593,9 +593,9 @@ void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors,
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); iPos++)
+    for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - m_createPalOptions.nStartingPosition); iPos++)
     {
-        const uint16_t nCurrentPos = iPos + createPalOptions.nStartingPosition;
+        const uint16_t nCurrentPos = iPos + m_createPalOptions.nStartingPosition;
 
         if (iPos >= nColorCount)
         {
@@ -625,16 +625,16 @@ void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors,
 
 COLORREF*** CGameClass::CreateImgOutPal()
 {
-    if (nSrcPalStart[0] == -1)
+    if (m_nSrcPalStart[0] == -1)
     {
         return nullptr;
     }
     else
     {
         int iIndex = 0;
-        const uint32_t nPalAmt = nSrcPalAmt[0];
+        const uint32_t nPalAmt = m_nSrcPalAmt[0];
 
-        while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
+        while ((m_nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
         {
             iIndex++;
         }
@@ -643,13 +643,13 @@ COLORREF*** CGameClass::CreateImgOutPal()
 
         //Pass 2
         iIndex = 0; 
-        while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
+        while ((m_nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
         {
             pppReturnPal[iIndex] = new COLORREF * [nPalAmt];
 
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
-                pppReturnPal[iIndex][nPalCtr] = CreatePal(nSrcPalUnit[iIndex], nSrcPalStart[iIndex] + (nPalCtr * nSrcPalInc[iIndex]));
+                pppReturnPal[iIndex][nPalCtr] = CreatePal(m_nSrcPalUnit[iIndex], m_nSrcPalStart[iIndex] + (nPalCtr * m_nSrcPalInc[iIndex]));
             }
 
             iIndex++;
@@ -661,13 +661,13 @@ COLORREF*** CGameClass::CreateImgOutPal()
 
 void CGameClass::UpdatePalData()
 {
-    const uint32_t nTotalPalettes = BasePalGroup.GetPalAmt();
+    const uint32_t nTotalPalettes = m_BasePalGroup.GetPalAmt();
     uint32_t nChangedPalettesCount = 0;
 
     // We walk the list backwards so that we know what the first palette's name is
     for (int16_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
     {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
+        sPalDef* srcDef = m_BasePalGroup.GetPalDef(nPalCtr);
 
         if (srcDef->fPalAvailable)
         {
@@ -675,8 +675,8 @@ void CGameClass::UpdatePalData()
             int16_t nTotalColorsRemaining = srcDef->uPalSz;
             uint16_t nCurrentTotalWrites = 0;
             // Every 16 or 256 colors there is another counter WORD (color length) to preserve.
-            const uint16_t nMaxSafeColorsToWrite = static_cast<uint16_t>(createPalOptions.eWriteOutputOptions);
-            const uint16_t iFixedCounterPosition = createPalOptions.nTransparencyColorPosition; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
+            const uint16_t nMaxSafeColorsToWrite = static_cast<uint16_t>(m_createPalOptions.eWriteOutputOptions);
+            const uint16_t iFixedCounterPosition = m_createPalOptions.nTransparencyColorPosition; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
 
             while (nTotalColorsRemaining > 0)
             {
@@ -691,13 +691,13 @@ void CGameClass::UpdatePalData()
 
                     const uint16_t iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
 
-                    if (iCurrentArrayOffset < createPalOptions.nStartingPosition)
+                    if (iCurrentArrayOffset < m_createPalOptions.nStartingPosition)
                     {
                         OutputDebugString(L"ERROR: this palette is trying to touch a negative index offset.  Turn off the createPalOptions offset for this game\n");
                         continue;
                     }
 
-                    const uint32_t iPalPosition = iCurrentArrayOffset - createPalOptions.nStartingPosition;
+                    const uint32_t iPalPosition = iCurrentArrayOffset - m_createPalOptions.nStartingPosition;
 
                     switch (GetGameColorByteLength())
                     {
@@ -763,7 +763,7 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
         OutputDebugString(strWarning);
     }
 
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSizeInColors, nUnitId, nPalId);
+    m_BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSizeInColors, nUnitId, nPalId);
 
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSizeInColors > s_nColorsPerPage))
     {
@@ -773,13 +773,13 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
         for (uint16_t nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSizeInColors; nCurrentPage++)
         {
             strPageDescription.Format(L"%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, static_cast<DWORD>(nColorsRemaining)));
+            m_BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, static_cast<DWORD>(nColorsRemaining)));
             nColorsRemaining -= s_nColorsPerPage;
         }
     }
     else
     {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSizeInColors);
+        m_BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSizeInColors);
     }
 }
 
@@ -789,20 +789,20 @@ void CGameClass::InitDataBuffer()
     {
     case 2:
     {
-        m_pppDataBuffer = new uint16_t * *[nUnitAmt];
-        memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * nUnitAmt);
+        m_pppDataBuffer = new uint16_t * *[m_nUnitAmt];
+        memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * m_nUnitAmt);
         break;
     }
     case 3:
     {
-        m_pppDataBuffer24 = new uint32_t * *[nUnitAmt];
-        memset(m_pppDataBuffer24, 0, sizeof(uint32_t**) * nUnitAmt);
+        m_pppDataBuffer24 = new uint32_t * *[m_nUnitAmt];
+        memset(m_pppDataBuffer24, 0, sizeof(uint32_t**) * m_nUnitAmt);
         break;
     }
     case 4:
     {
-        m_pppDataBuffer32 = new uint32_t * *[nUnitAmt];
-        memset(m_pppDataBuffer32, 0, sizeof(uint32_t**) * nUnitAmt);
+        m_pppDataBuffer32 = new uint32_t * *[m_nUnitAmt];
+        memset(m_pppDataBuffer32, 0, sizeof(uint32_t**) * m_nUnitAmt);
         break;
     }
     }
@@ -812,7 +812,7 @@ void CGameClass::ClearDataBuffer()
 {
     if (m_pppDataBuffer)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
@@ -832,7 +832,7 @@ void CGameClass::ClearDataBuffer()
 
     if (m_pppDataBuffer24)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer24[nUnitCtr])
             {
@@ -852,7 +852,7 @@ void CGameClass::ClearDataBuffer()
 
     if (m_pppDataBuffer32)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer32[nUnitCtr])
             {
@@ -906,7 +906,7 @@ bool CGameClass::AllowIPSPatchGeneration()
 
 void CGameClass::PrepChangeTrackingArray()
 {
-    m_rgFileChanged.resize(max(nUnitAmt, nFileAmt) + 1, false);
+    m_rgFileChanged.resize(max(m_nUnitAmt, m_nFileAmt) + 1, false);
 }
 
 void CGameClass::MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId)
@@ -1197,7 +1197,7 @@ const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGam
             if (nDistanceFromZero < nNodeCount)
             {
                 // We know it's within this group.  Now: is it basic?
-                if (!fReturnBasicNodesOnly || (nCollectionIndex < pButtonLabelSet.size()))
+                if (!fReturnBasicNodesOnly || (nCollectionIndex < m_pButtonLabelSet.size()))
                 {
                     pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
                 }
@@ -1483,7 +1483,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     BlendMode nBlendMode = BlendMode::Alpha;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
@@ -1508,9 +1508,9 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
             {
                 bool fIsCorePalette = false;
 
-                for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+                for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
                 {
-                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    if (wcscmp(pCurrentNode->szDesc, m_pButtonLabelSet[nOptionsToTest]) == 0)
                     {
                         fIsCorePalette = true;
                         break;
@@ -1523,7 +1523,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                     // expose to max node.  This covers the situation where a game might have LP/LK but not LP/LK/MP/MK out of a set.
                     const uint32_t nCollectionCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, ppExtraDef);
 
-                    nSrcAmt = min(static_cast<uint32_t>(pButtonLabelSet.size()), nCollectionCount);
+                    nSrcAmt = min(static_cast<uint32_t>(m_pButtonLabelSet.size()), nCollectionCount);
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     // OK, we have confirmed that the collection label matches a button label.
@@ -1805,7 +1805,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     if (GameIsUsing16BitColor() && m_pppDataBuffer)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -1827,7 +1827,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     }
     else if (GameIsUsing24BitColor() && m_pppDataBuffer24)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -1862,7 +1862,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     }
     else if (GameIsUsing32BitColor() && m_pppDataBuffer32)
     {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -1901,7 +1901,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
     uint32_t nTotalPalettesSaved = 0;
 
-    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -1918,8 +1918,8 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                     {
                         // Never write the transparency counter.
                         // It's kind of OK to do so since it should be a no-op, but TMNTF is evil and relies upon overlapping palettes.
-                        if ((((nArrayIndex + createPalOptions.nStartingPosition) % static_cast<uint16_t>(createPalOptions.eWriteOutputOptions)) != 0) ||
-                            (nGameFlag == MSHVSF_A)) // We don't support skipping the transparency color for MSHvSF's special override
+                        if ((((nArrayIndex + m_createPalOptions.nStartingPosition) % static_cast<uint16_t>(m_createPalOptions.eWriteOutputOptions)) != 0) ||
+                            (m_nGameFlag == MSHVSF_A)) // We don't support skipping the transparency color for MSHvSF's special override
                         {
                             SaveFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
                         }
@@ -1954,7 +1954,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, m_nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;

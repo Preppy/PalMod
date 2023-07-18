@@ -35,7 +35,7 @@ protected:
     // This is an old array used to determine if the character-file or the ROM has been updated
     // Don't use this for SIMM-based games: use IsPaletteDirty there instead
     std::vector<bool> m_rgFileChanged;
-    uint32_t nFileAmt = 0;
+    uint32_t m_nFileAmt = 0;
 
     uint32_t m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     uint32_t m_nCurrentPaletteROMLocation = 0;
@@ -47,24 +47,24 @@ protected:
     BOOL m_fIsDirectoryBasedGame = FALSE;
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
-    uint32_t nUnitAmt = 0;
-    SupportedGamesList nGameFlag = NUM_GAMES;
-    int nImgGameFlag = 0;
+    uint32_t m_nUnitAmt = 0;
+    SupportedGamesList m_nGameFlag = NUM_GAMES;
+    int m_nImgGameFlag = 0;
     std::vector<uint16_t> m_prgGameImageSet;
 
     //Values used for image out
-    uint32_t nSrcPalUnit[MAX_PALETTES_DISPLAYABLE] = { 0 };
-    uint32_t nSrcPalStart[MAX_PALETTES_DISPLAYABLE] = { 0 };
-    uint32_t nSrcPalAmt[MAX_PALETTES_DISPLAYABLE] = { 0 };
-    uint32_t nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    uint32_t m_nSrcPalUnit[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    uint32_t m_nSrcPalStart[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    uint32_t m_nSrcPalAmt[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    uint32_t m_nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
 
-    ColMode CurrColMode = ColMode::COLMODE_RGB444_BE;
-    sImgTicket* CurrImgTicket = nullptr;
-    CPalGroup BasePalGroup;
+    ColMode m_CurrColMode = ColMode::COLMODE_RGB444_BE;
+    sImgTicket* m_CurrImgTicket = nullptr;
+    CPalGroup m_BasePalGroup;
 
-    eImageOutputSpriteDisplay DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    eImageOutputSpriteDisplay m_DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Used for the Export Image listbox: P1/P2, LP-HK/A2, etc
-    std::vector<LPCWSTR> pButtonLabelSet;
+    std::vector<LPCWSTR> m_pButtonLabelSet;
 
     bool m_fGameUsesAlphaValue = false;
     bool m_fAllowIPSPatching = false;
@@ -86,7 +86,7 @@ protected:
         uint16_t nTransparencyColorPosition = 0;
     };
 
-    sCreatePalOptions createPalOptions;
+    sCreatePalOptions m_createPalOptions;
 
     struct sPaletteIdentifier
     {
@@ -147,7 +147,7 @@ public:
     // Currently only used by MVC2
     uint16_t*** GetDataBuffer() { return m_pppDataBuffer; };
     // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
-    uint32_t GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * GetGameColorByteLength()); };
+    uint32_t GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (m_createPalOptions.nStartingPosition * GetGameColorByteLength()); };
     uint32_t GetLowestExpectedPaletteLocation();
 
     inline uint8_t GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };
@@ -184,7 +184,7 @@ public:
 
     virtual BlendMode GetGameSpecificBlendMode() { return BlendMode::Default; };
 
-    ColMode GetColorMode() { return CurrColMode; };
+    ColMode GetColorMode() { return m_CurrColMode; };
     bool _UpdateColorConverters(ColMode NewMode);
     bool _UpdateColorSteps(ColMode NewMode);
     bool _SetColorMode(ColMode NewMode);
@@ -193,21 +193,21 @@ public:
     virtual void OpenExtraFile() { };
     virtual bool GameAllowsExtraFile() { return false; };
 
-    virtual void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
-    PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return createPalOptions.eWriteOutputOptions; };
-    uint16_t GetTransparencyColorPosition() { return createPalOptions.nTransparencyColorPosition; };
+    virtual void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { m_createPalOptions.eWriteOutputOptions = eUpdatedOption; };
+    PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return m_createPalOptions.eWriteOutputOptions; };
+    uint16_t GetTransparencyColorPosition() { return m_createPalOptions.nTransparencyColorPosition; };
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 
-    SupportedGamesList GetGameFlag() { return nGameFlag; };
-    int GetImgGameFlag() { return nImgGameFlag; };
-    uint32_t GetUnitCt() { return nUnitAmt; };
+    SupportedGamesList GetGameFlag() { return m_nGameFlag; };
+    int GetImgGameFlag() { return m_nImgGameFlag; };
+    uint32_t GetUnitCt() { return m_nUnitAmt; };
     std::vector<uint16_t> GetImageSetForGame() { return m_prgGameImageSet; };
-    sImgTicket* GetImgTicket() { return CurrImgTicket; };
+    sImgTicket* GetImgTicket() { return m_CurrImgTicket; };
 
-    CPalGroup* GetPalGroup() { return &BasePalGroup; };
+    CPalGroup* GetPalGroup() { return &m_BasePalGroup; };
 
-    uint32_t GetFileAmt() { return nFileAmt; };
+    uint32_t GetFileAmt() { return m_nFileAmt; };
 
     void ResetFileChangeTrackingArray();
     std::vector<bool>& GetFileChangeTrackingArray() { return m_rgFileChanged; };
@@ -226,11 +226,11 @@ public:
     sImgTicket* CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0, BlendMode nBlendMode = BlendMode::Alpha);
     void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
 
-    uint32_t GetCurrentPaletteIncrement() { return nSrcPalInc[0]; };
-    eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
-    uint32_t GetImgOutPalAmt() { return nSrcPalAmt[0]; };
+    uint32_t GetCurrentPaletteIncrement() { return m_nSrcPalInc[0]; };
+    eImageOutputSpriteDisplay GetImgDispType() { return m_DisplayType; };
+    uint32_t GetImgOutPalAmt() { return m_nSrcPalAmt[0]; };
 
-    const std::vector<LPCWSTR> GetButtonDescSet() { return pButtonLabelSet; };
+    const std::vector<LPCWSTR> GetButtonDescSet() { return m_pButtonLabelSet; };
 
     void RevertChanges(int nPalId);
 

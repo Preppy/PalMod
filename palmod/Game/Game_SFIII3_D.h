@@ -17,7 +17,7 @@ public:
     ~CGame_SFIII3_D();
 
     //Static functions / variables
-    static CDescTree MainDescTree;
+    static CDescTree m_MainDescTree;
 
     //    static CDescTree * GetMainTree();
     static sDescTreeNode* InitDescTree();

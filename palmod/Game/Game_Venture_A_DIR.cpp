@@ -46,10 +46,10 @@ sFileRule CGame_VENTURE_A_DIR::GetRuleInternal(VentureDirLoadingKey nGameMode, u
 
 sFileRule CGame_VENTURE_A_DIR::GetNextRuleInternal(VentureDirLoadingKey nGameMode)
 {
-    sFileRule NewFileRule = GetRuleInternal(nGameMode, uRuleCtr);
+    sFileRule NewFileRule = GetRuleInternal(nGameMode, m_uRuleCtr);
     uint16_t nMaxRuleNumber;
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
     switch (nGameMode)
     {
@@ -62,9 +62,9 @@ sFileRule CGame_VENTURE_A_DIR::GetNextRuleInternal(VentureDirLoadingKey nGameMod
         break;
     }
 
-    if (uRuleCtr >= nMaxRuleNumber)
+    if (m_uRuleCtr >= nMaxRuleNumber)
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;

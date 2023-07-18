@@ -7,8 +7,8 @@
 
 #define GCPUPF_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-uint32_t CGameClassPerUnitPerFile::uRuleCtr = 0;
-CDescTree CGameClassPerUnitPerFile::MainDescTree = nullptr;
+uint32_t CGameClassPerUnitPerFile::m_uRuleCtr = 0;
+CDescTree CGameClassPerUnitPerFile::m_MainDescTree = nullptr;
 uint32_t CGameClassPerUnitPerFile::m_nConfirmedROMSize = -1;
 
 std::wstring CGameClassPerUnitPerFile::m_strGameFriendlyName;
@@ -18,7 +18,7 @@ const CGameClassPerUnitPerFile::sGCPUPF_CoreGameData* CGameClassPerUnitPerFile::
 
 void CGameClassPerUnitPerFile::InitializeStatics()
 {
-    MainDescTree.SetRootTree(CGameClassPerUnitPerFile::InitDescTree());
+    m_MainDescTree.SetRootTree(CGameClassPerUnitPerFile::InitDescTree());
 }
 
 sFileRule CGameClassPerUnitPerFile::GetRule(uint32_t nUnitId, const std::vector<sGCBUPF_BasicFileData>& gameLoadingData)
@@ -35,11 +35,11 @@ sFileRule CGameClassPerUnitPerFile::GetRule(uint32_t nUnitId, const std::vector<
 
 sFileRule CGameClassPerUnitPerFile::GetNextRule(const std::vector<sGCBUPF_BasicFileData>& gameLoadingData)
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr, gameLoadingData);
+    sFileRule NewFileRule = GetRule(m_uRuleCtr, gameLoadingData);
 
-    if (++uRuleCtr >= gameLoadingData.size())
+    if (++m_uRuleCtr >= gameLoadingData.size())
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -49,12 +49,12 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
 {
     //Set game-game specific information before loading the game's known palette locations
     m_strGameFriendlyName = gameLoadingData.strGameFriendlyName;
-    m_snCurrentGameFlag = nGameFlag = gameLoadingData.nGameID;
-    nImgGameFlag = gameLoadingData.eImgDatSectionID;
+    m_snCurrentGameFlag = m_nGameFlag = gameLoadingData.nGameID;
+    m_nImgGameFlag = gameLoadingData.eImgDatSectionID;
     m_prgGameImageSet = gameLoadingData.rgGameImageSet;
-    createPalOptions = gameLoadingData.createPalOptions;
+    m_createPalOptions = gameLoadingData.createPalOptions;
     //Set the image out display type
-    DisplayType = gameLoadingData.displayStyle;
+    m_DisplayType = gameLoadingData.displayStyle;
     SetAlphaMode(gameLoadingData.eAlphaMode);
 
     if (ColorSystem::IsAlphaModeMutable(gameLoadingData.eAlphaMode))
@@ -73,14 +73,14 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
     m_pszExtraFilename = nullptr;
 
     //We need the proper unit amt before we init the main buffer
-    nFileAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
-    nUnitAmt = m_nTotalInternalUnits = GetUniqueUnitCount();
+    m_nFileAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
+    m_nUnitAmt = m_nTotalInternalUnits = GetUniqueUnitCount();
 
     // Stub in the palette buffer that we will LoadFile into
     InitDataBuffer();
 
     //Create the redirect buffer: must be for the larger file-based size as CGameLoad::LoadDir needs that size
-    m_rgUnitRedir.resize(nUnitAmt, 0);
+    m_rgUnitRedir.resize(m_nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -801,7 +801,7 @@ bool CGameClassPerUnitPerFile::CreateImageIfPaired(ImagePairing pairingType, int
                 nSrcStart = CharacterNode->uPalId;
                 nSrcAmt = 1;
                 nNodeIncrement = 1;
-                pButtonLabelSet = DEF_NOBUTTONS;
+                m_pButtonLabelSet = DEF_NOBUTTONS;
             }
 
             for (int32_t nNodeIndex = (pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
@@ -870,7 +870,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
     }
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     //Change the image id if we need to
     uint32_t nImgUnitId = INVALID_UNIT_VALUE;
@@ -889,7 +889,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
 
     if (ShouldUseBasePaletteSetForFileUnit(nFileUnitId, nFilePalId))
     {
-        pButtonLabelSet = GetBasicPaletteLabelsForUnit(CharacterNode->uUnitId);
+        m_pButtonLabelSet = GetBasicPaletteLabelsForUnit(CharacterNode->uUnitId);
 
         if (m_psCurrentGameLoadingData->ePaletteLayout == PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet)
         {
@@ -901,7 +901,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImageUnitIndex;
             nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImagePreviewIndex;
 
-            nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
+            nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
 
             nNodeIncrement = 1;
         }
@@ -951,7 +951,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         const uint32_t nPalIdInFileNode = nFilePalId - static_cast<uint32_t>(nCountBasicPalettes);
         nSrcStart = CharacterNode->uPalId;
         nSrcAmt = 1;
-        pButtonLabelSet = DEF_NOBUTTONS;
+        m_pButtonLabelSet = DEF_NOBUTTONS;
         const sGame_PaletteDataset* paletteDataSet = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode);
         nImgUnitId = paletteDataSet->indexImgToUse;
         nTargetImgId = paletteDataSet->indexOffsetToUse;

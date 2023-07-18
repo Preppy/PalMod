@@ -567,7 +567,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                     }
 #endif
 
-                    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                     {
                         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -638,7 +638,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                 }
 #endif
 
-                for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                 {
                     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -676,7 +676,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     case eSVCRevisionName::SVCPlusA:
         {
             // SVCPlusA is already decrypted
-            for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+            for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
             {
                 uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -731,7 +731,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
@@ -985,7 +985,7 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                     (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES))
                 {
                     // Save the palette changes
-                    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                     {
                         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
@@ -995,7 +995,7 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
                             for (uint16_t nPaletteIndex = 0; nPaletteIndex < m_nCurrentPaletteSizeInColors; nPaletteIndex++)
                             {
-                                const uint16_t nMaxSafeColorsToWrite = static_cast<uint16_t>(createPalOptions.eWriteOutputOptions);
+                                const uint16_t nMaxSafeColorsToWrite = static_cast<uint16_t>(m_createPalOptions.eWriteOutputOptions);
 
                                 if ((nPaletteIndex % nMaxSafeColorsToWrite) != 0) // skip the transparency counters
                                 {
@@ -1044,7 +1044,7 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                     (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES))
                 {
                     // Save the palette changes
-                    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                     {
                         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
