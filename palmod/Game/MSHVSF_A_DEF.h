@@ -300,14 +300,14 @@ const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7340c, 0x7342c, indexCPS2Sprites_Spidey },
-    { L"Extra 01: webs",          0x7342c, 0x7344c, indexCPS2Sprites_Spidey, 2 },
+    { L"P1 Color (Punch)",       0x7340c, 0x7342c, indexCPS2Sprites_Spidey, 0x00, &pairNext },
+    { L"P1 Spider-sense / Webs", 0x7342c, 0x7344c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x7346c, 0x7348c, indexCPS2Sprites_Spidey },
-    { L"Extra 02: webs",         0x7348c, 0x734Ac, indexCPS2Sprites_Spidey, 2 },
+    { L"P2 Color (Kick)",        0x7346c, 0x7348c, indexCPS2Sprites_Spidey, 0x00, &pairNext },
+    { L"P2 Spider-sense / Webs", 0x7348c, 0x734Ac, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH[] =
@@ -477,8 +477,8 @@ const sGame_PaletteDataset MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK[] =
 const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P1 Color (Punch)",       0x7288c, 0x728Ac, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
-    { L"P1 Extras 1 Flames",     0x728Ac, 0x728Cc, indexCPS2Sprites_Dhalsim, 1 },
-    { L"P1 Extras Sally",        0x728Cc, 0x728Ec, indexCPS2Sprites_Dhalsim, 2 },
+    { L"P1 Flames",              0x728Ac, 0x728Cc, indexCPS2Sprites_Dhalsim, 1 },
+    { L"P1 Sally",               0x728Cc, 0x728Ec, indexCPS2Sprites_Dhalsim, 2 },
     { L"P1 Teleport 1",          0x76CCc, 0x76CEc, indexCPS2Sprites_Dhalsim, 0xb },
     { L"P1 Teleport 2",          0x76CEc, 0x76D0c, indexCPS2Sprites_Dhalsim, 0xb },
     { L"P1 Teleport 3",          0x76D0c, 0x76D2c, indexCPS2Sprites_Dhalsim, 0xb },
@@ -489,8 +489,8 @@ const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH[] =
 const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)",        0x728Ec, 0x7290c, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
-    { L"P2 Extras 1 Flames",     0x7290c, 0x7292c, indexCPS2Sprites_Dhalsim, 1 },
-    { L"P2 Extras Sally",        0x7292c, 0x7294c, indexCPS2Sprites_Dhalsim, 2 },
+    { L"P2 Flames",              0x7290c, 0x7292c, indexCPS2Sprites_Dhalsim, 1 },
+    { L"P2 Sally",               0x7292c, 0x7294c, indexCPS2Sprites_Dhalsim, 2 },
     { L"P2 Teleport 1",          0x76D6c, 0x76D8c, indexCPS2Sprites_Dhalsim, 0xb },
     { L"P2 Teleport 2",          0x76D8c, 0x76DAc, indexCPS2Sprites_Dhalsim, 0xb },
     { L"P2 Teleport 3",          0x76DAc, 0x76DCc, indexCPS2Sprites_Dhalsim, 0xb },
@@ -500,16 +500,16 @@ const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_AKUMA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x72BCc, 0x72BEc, indexCPS2Sprites_Akuma },
-    { L"Extra 01 Hadouken",      0x72BEc, 0x72C0c, indexCPS2Sprites_Akuma, 1 },
-    { L"Zankuu Hadouken",        0x72C0c, 0x72C2c, indexCPS2Sprites_Akuma, 1 },
+    { L"P1 Color (Punch)",      0x72BCc, 0x72BEc, indexCPS2Sprites_Akuma },
+    { L"Hadouken",              0x72BEc, 0x72C0c, indexCPS2Sprites_Akuma, 1 },
+    { L"Zankuu Hadouken",       0x72C0c, 0x72C2c, indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_AKUMA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x72C2c, 0x72C4c, indexCPS2Sprites_Akuma },
-    { L"Extra 01 Hadouken",      0x72C4c, 0x72C6c, indexCPS2Sprites_Akuma, 1 },
-    { L"Zankuu Hadouken",        0x72C6c, 0x72C8c, indexCPS2Sprites_Akuma, 1 },
+    { L"P2 Color (Kick)",       0x72C2c, 0x72C4c, indexCPS2Sprites_Akuma },
+    { L"Hadouken",              0x72C4c, 0x72C6c, indexCPS2Sprites_Akuma, 1 },
+    { L"Zankuu Hadouken",       0x72C6c, 0x72C8c, indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_HULK_PALETTES_P1COLOR_PUNCH[] =
@@ -646,22 +646,22 @@ const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",          0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
-    { L"P1 Extras 1 Hadouken",      0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
-    { L"P1 Extras 2 Friend (Kei)",  0x77FCc, 0x77FEc, indexCPS2Sprites_Sakura, 0x09, &pairNext },
-    { L"P1 Extras 3 Bag",           0x77FEc, 0x7800c, indexCPS2Sprites_Sakura, 0x0a },
+    { L"P1 Color (Punch)",  0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
+    { L"P1 Hadouken",       0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
+    { L"P1 Friend (Kei)",   0x77FCc, 0x77FEc, indexCPS2Sprites_Sakura, 0x09, &pairNext },
+    { L"P1 Bag",            0x77FEc, 0x7800c, indexCPS2Sprites_Sakura, 0x0a },
 
-    { L"P1 Extras Dark Sakura?",  0x77F6c, 0x77F8c, indexCPS2Sprites_Sakura, 0x00 },
+    { L"P1 Dark Sakura?",   0x77F6c, 0x77F8c, indexCPS2Sprites_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",           0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
-    { L"P2 Extras 1 Hadouken",      0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
-    { L"P2 Extras 2 Friend (Kei)",  0x7800c, 0x7802c, indexCPS2Sprites_Sakura, 0x09, &pairNext },
-    { L"P2 Extras 3 Bag",           0x7802c, 0x7804c, indexCPS2Sprites_Sakura, 0x0a },
+    { L"P2 Color (Kick)",   0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
+    { L"P2 Hadouken",       0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
+    { L"P2 Friend (Kei)",   0x7800c, 0x7802c, indexCPS2Sprites_Sakura, 0x09, &pairNext },
+    { L"P2 Bag",            0x7802c, 0x7804c, indexCPS2Sprites_Sakura, 0x0a },
 
-    { L"P2 Extras Dark Sakura?",  0x77F8c, 0x77Fac, indexCPS2Sprites_Sakura, 0x00 },
+    { L"P2 Dark Sakura?",   0x77F8c, 0x77Fac, indexCPS2Sprites_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_SHARED[] =
@@ -685,126 +685,125 @@ const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7234c, 0x7236c, indexCPS2Sprites_Shuma, 0x00, nullptr, &secondaryMSHVSFShumaEffects },
-        { L"P1 HP", 0x7236c, 0x7238c, indexCPS2Sprites_Shuma },
-        { L"P1 FP / jFP / cFP / Intro", 0x7238c, 0x723Ac },
+    { L"P1 Color (Punch)",        0x7234c, 0x7236c, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
+    { L"P1 Dash Frame / Guard Frame", 0x7236c, 0x7238c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P1 FP / jFP / cFP / Intro", 0x7238c, 0x723Ac, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
 
-    { L"P1 Post HP Stance 1", 0x7728c, 0x772Ac, indexCPS2Sprites_Shuma },
-    { L"P1 Post HP Stance 2", 0x772Ac, 0x772Cc, indexCPS2Sprites_Shuma },
-    { L"P1 Post HP Stance 3", 0x772Cc, 0x772Ec, indexCPS2Sprites_Shuma },
-    { L"P1 Post HP Stance 4", 0x772Ec, 0x7730c, indexCPS2Sprites_Shuma },
-    { L"P1 Post HP Stance 5", 0x7730c, 0x7732c, indexCPS2Sprites_Shuma },
+    { L"P1 Unknown 1", 0x7728c, 0x772Ac },
+    { L"P1 Unknown 2", 0x772Ac, 0x772Cc },
+    { L"P1 Unknown 3", 0x772Cc, 0x772Ec },
+    { L"P1 Unknown 4", 0x772Ec, 0x7730c },
+    { L"P1 Unknown 5", 0x7730c, 0x7732c },
 
-    { L"P1 Stone Drop 1", 0x7732c, 0x7734c, indexCPS2Sprites_Shuma },
-    { L"P1 Stone Drop 2", 0x7734c, 0x7736c, indexCPS2Sprites_Shuma },
-    { L"P1 Stone Drop 3", 0x7736c, 0x7738c, indexCPS2Sprites_Shuma },
-    { L"P1 Stone Drop 4", 0x7738c, 0x773Ac, indexCPS2Sprites_Shuma },
-    { L"P1 Stone Drop 5", 0x773Ac, 0x773Cc, indexCPS2Sprites_Shuma },
+    { L"P1 Stone Drop 1", 0x7732c, 0x7734c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P1 Stone Drop 2", 0x7734c, 0x7736c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P1 Stone Drop 3", 0x7736c, 0x7738c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P1 Stone Drop 4", 0x7738c, 0x773Ac, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P1 Stone Drop 5", 0x773Ac, 0x773Cc, indexCPS2Sprites_Shuma, 0x04 },
 
     // Unused blue region
 
     // HK grab region
-    { L"P1 Life Drain 1", 0x7750c, 0x7752c, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 2", 0x7752c, 0x7754c, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 3", 0x7754c, 0x7756c, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 4", 0x7756c, 0x7758c, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 5", 0x7758c, 0x775Ac, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 6", 0x775Ac, 0x775Cc, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 7", 0x775Cc, 0x775Ec, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 8", 0x775Ec, 0x7760c, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 9", 0x7760c, 0x7762c, indexCPS2Sprites_Shuma },
-    { L"P1 Life Drain 10", 0x7762c, 0x7764c, indexCPS2Sprites_Shuma },
+    { L"P1 Life Drain 1", 0x7750c, 0x7752c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 2", 0x7752c, 0x7754c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 3", 0x7754c, 0x7756c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 4", 0x7756c, 0x7758c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 5", 0x7758c, 0x775Ac, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 6", 0x775Ac, 0x775Cc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 7", 0x775Cc, 0x775Ec, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 8", 0x775Ec, 0x7760c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 9", 0x7760c, 0x7762c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P1 Life Drain 10", 0x7762c, 0x7764c, indexCPS2Sprites_Shuma, 0x05 },
 
     // HP flash
-    { L"P1 HP Flash 1", 0x7764c, 0x7766c, indexCPS2Sprites_Shuma },
-    { L"P1 HP Flash 2", 0x7766c, 0x7768c, indexCPS2Sprites_Shuma },
-    { L"P1 HP Flash 3", 0x7768c, 0x776Ac, indexCPS2Sprites_Shuma },
-    { L"P1 HP Flash 4", 0x776Ac, 0x776Cc, indexCPS2Sprites_Shuma },
-    { L"P1 HP Flash 5", 0x776Cc, 0x776Ec, indexCPS2Sprites_Shuma },
-    { L"P1 HP Flash 6", 0x776Ec, 0x7770c, indexCPS2Sprites_Shuma },
-    { L"P1 HP Flash 7", 0x7770c, 0x7772c, indexCPS2Sprites_Shuma },
+    { L"P1 Unknown 1", 0x7764c, 0x7766c },
+    { L"P1 Unknown 2", 0x7766c, 0x7768c },
+    { L"P1 Unknown 3", 0x7768c, 0x776Ac },
+    { L"P1 Unknown 4", 0x776Ac, 0x776Cc },
+    { L"P1 HP Flash", 0x776Cc, 0x776Ec, indexCPS2Sprites_Shuma, 0x06, &pairPrevious25 },
+    { L"P1 Winpose", 0x776Ec, 0x7770c, indexCPS2Sprites_Shuma, 0x07 },
+    { L"P1 Unknown 5", 0x7770c, 0x7772c },
 
-    { L"P1 Chaos Dimension 1", 0x7772c, 0x7774c, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Dash 1", 0x7774c, 0x7776c, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension 2", 0x7776c, 0x7778c, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Dash 2", 0x7778c, 0x777Ac, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension 3", 0x777Ac, 0x777Cc, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Dash 3", 0x777Cc, 0x777Ec, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension 4", 0x777Ec, 0x7780c, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Dash 4", 0x7780c, 0x7782c, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension 5", 0x7782c, 0x7784c, indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Dash 5", 0x7784c, 0x7786c, indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension 1", 0x7772c, 0x7774c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P1 Chaos Dimension Dash 1", 0x7774c, 0x7776c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P1 Chaos Dimension 2", 0x7776c, 0x7778c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P1 Chaos Dimension Dash 2", 0x7778c, 0x777Ac, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P1 Chaos Dimension 3", 0x777Ac, 0x777Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P1 Chaos Dimension Dash 3", 0x777Cc, 0x777Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P1 Chaos Dimension 4", 0x777Ec, 0x7780c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P1 Chaos Dimension Dash 4", 0x7780c, 0x7782c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P1 Chaos Dimension 5", 0x7782c, 0x7784c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P1 Chaos Dimension Dash 5", 0x7784c, 0x7786c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
 
-    { L"P1 Mystic Smash", 0x7786c, 0x7788c, indexCPS2Sprites_Shuma },
+    { L"P1 Mystic Smash Shadows", 0x7786c, 0x7788c, indexCPS2Sprites_Shuma, 0x08 },
 
     // { L"P1 Extra 11", 0x79C0c, 0x79C2c, indexCPS2Sprites_Shuma },//  this is shuma but doesn't fit.  excising until somebody tells me why they want it
 };
 
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK[] =
 {
+    { L"P2 Color (Kick)", 0x723Ac, 0x723Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
+    { L"P2 Dash Frame / Guard Frame", 0x723Cc, 0x723Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P2 FP / jFP / cFP / Intro", 0x723Ec, 0x7240c, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
 
-    { L"P2 Color (Kick)", 0x723Ac, 0x723Cc, indexCPS2Sprites_Shuma, 0x00, nullptr, &secondaryMSHVSFShumaEffects },
-    { L"P2 HP", 0x723Cc, 0x723Ec, indexCPS2Sprites_Shuma },
-    { L"P2 FP / jFP / cFP / Intro", 0x723Ec, 0x7240c },
+    { L"P2 Unknown 1", 0x7788c, 0x778Ac },
+    { L"P2 Unknown 2", 0x778Ac, 0x778Cc },
+    { L"P2 Unknown 3", 0x778Cc, 0x778Ec },
+    { L"P2 Unknown 4", 0x778Ec, 0x7790c },
+    { L"P2 Unknown 5", 0x7790c, 0x7792c },
 
-    { L"P2 Post HP Stance 1", 0x7788c, 0x778Ac, indexCPS2Sprites_Shuma },
-    { L"P2 Post HP Stance 2", 0x778Ac, 0x778Cc, indexCPS2Sprites_Shuma },
-    { L"P2 Post HP Stance 3", 0x778Cc, 0x778Ec, indexCPS2Sprites_Shuma },
-    { L"P2 Post HP Stance 4", 0x778Ec, 0x7790c, indexCPS2Sprites_Shuma },
-    { L"P2 Post HP Stance 5", 0x7790c, 0x7792c, indexCPS2Sprites_Shuma },
-
-    { L"P2 Stone Drop 1", 0x7792c, 0x7794c, indexCPS2Sprites_Shuma },
-    { L"P2 Stone Drop 2", 0x7794c, 0x7796c, indexCPS2Sprites_Shuma },
-    { L"P2 Stone Drop 3", 0x7796c, 0x7798c, indexCPS2Sprites_Shuma },
-    { L"P2 Stone Drop 4", 0x7798c, 0x779Ac, indexCPS2Sprites_Shuma },
-    { L"P2 Stone Drop 5", 0x779Ac, 0x779Cc, indexCPS2Sprites_Shuma },
+    { L"P2 Stone Drop 1", 0x7792c, 0x7794c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P2 Stone Drop 2", 0x7794c, 0x7796c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P2 Stone Drop 3", 0x7796c, 0x7798c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P2 Stone Drop 4", 0x7798c, 0x779Ac, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P2 Stone Drop 5", 0x779Ac, 0x779Cc, indexCPS2Sprites_Shuma, 0x04 },
 
     // unused 'blue range': 799ce-77b0e
 
     // HK grab region
-    { L"P2 Life Drain 1", 0x77B0c, 0x77B2c, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 2", 0x77B2c, 0x77B4c, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 3", 0x77B4c, 0x77B6c, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 4", 0x77B6c, 0x77B8c, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 5", 0x77B8c, 0x77BAc, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 6", 0x77BAc, 0x77BCc, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 7", 0x77BCc, 0x77BEc, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 8", 0x77BEc, 0x77C0c, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 9", 0x77C0c, 0x77C2c, indexCPS2Sprites_Shuma },
-    { L"P2 Life Drain 10", 0x77C2c, 0x77C4c, indexCPS2Sprites_Shuma },
+    { L"P2 Life Drain 1", 0x77B0c, 0x77B2c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 2", 0x77B2c, 0x77B4c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 3", 0x77B4c, 0x77B6c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 4", 0x77B6c, 0x77B8c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 5", 0x77B8c, 0x77BAc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 6", 0x77BAc, 0x77BCc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 7", 0x77BCc, 0x77BEc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 8", 0x77BEc, 0x77C0c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 9", 0x77C0c, 0x77C2c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P2 Life Drain 10", 0x77C2c, 0x77C4c, indexCPS2Sprites_Shuma, 0x05 },
 
     // HP flash
-    { L"P2 HP Flash 1", 0x77C4c, 0x77C6c, indexCPS2Sprites_Shuma },
-    { L"P2 HP Flash 2", 0x77C6c, 0x77C8c, indexCPS2Sprites_Shuma },
-    { L"P2 HP Flash 3", 0x77C8c, 0x77CAc, indexCPS2Sprites_Shuma },
-    { L"P2 HP Flash 4", 0x77CAc, 0x77CCc, indexCPS2Sprites_Shuma },
-    { L"P2 HP Flash 5", 0x77CCc, 0x77CEc, indexCPS2Sprites_Shuma },
-    { L"P2 HP Flash 6", 0x77CEc, 0x77D0c, indexCPS2Sprites_Shuma },
-    { L"P2 HP Flash 7", 0x77D0c, 0x77D2c, indexCPS2Sprites_Shuma },
+    { L"P2 Unknown 1", 0x77C4c, 0x77C6c },
+    { L"P2 Unknown 2", 0x77C6c, 0x77C8c },
+    { L"P2 Unknown 3", 0x77C8c, 0x77CAc },
+    { L"P2 Unknown 4", 0x77CAc, 0x77CCc },
+    { L"P2 HP Flash", 0x77CCc, 0x77CEc, indexCPS2Sprites_Shuma, 0x06, &pairPrevious25 },
+    { L"P2 Winpose", 0x77CEc, 0x77D0c, indexCPS2Sprites_Shuma, 0x07 },
+    { L"P2 Unknown 5", 0x77D0c, 0x77D2c },
 
-    { L"P2 Chaos Dimension 1", 0x77D2c, 0x77D4c, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Dash 1", 0x77D4c, 0x77D6c, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension 2", 0x77D6c, 0x77D8c, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Dash 2", 0x77D8c, 0x77DAc, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension 3", 0x77DAc, 0x77DCc, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Dash 3", 0x77DCc, 0x77DEc, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension 4", 0x77DEc, 0x77E0c, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Dash 4", 0x77E0c, 0x77E2c, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension 5", 0x77E2c, 0x77E4c, indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Dash 5", 0x77E4c, 0x77E6c, indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension 1", 0x77D2c, 0x77D4c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P2 Chaos Dimension Dash 1", 0x77D4c, 0x77D6c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P2 Chaos Dimension 2", 0x77D6c, 0x77D8c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P2 Chaos Dimension Dash 2", 0x77D8c, 0x77DAc, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P2 Chaos Dimension 3", 0x77DAc, 0x77DCc, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P2 Chaos Dimension Dash 3", 0x77DCc, 0x77DEc, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P2 Chaos Dimension 4", 0x77DEc, 0x77E0c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P2 Chaos Dimension Dash 4", 0x77E0c, 0x77E2c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P2 Chaos Dimension 5", 0x77E2c, 0x77E4c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P2 Chaos Dimension Dash 5", 0x77E4c, 0x77E6c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
 
-    { L"P2 Mystic Smash", 0x77E6c, 0x77E8c, indexCPS2Sprites_Shuma },
+    { L"P2 Mystic Smash Shadows", 0x77E6c, 0x77E8c, indexCPS2Sprites_Shuma, 0x08 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 { // 2 is web
-    { L"P1 Color (Punch)", 0x724Cc, 0x724Ec, indexCPS2Sprites_Spidey, 0x00, nullptr, &secondaryMSHVSFSpideyEffects },
-    { L"P1 Extras 1", 0x724Ec, 0x7250c, indexCPS2Sprites_Spidey, 0x2 },
+    { L"P1 Color (Punch)", 0x724Cc, 0x724Ec, indexCPS2Sprites_Spidey, 0x00, &pairNext, &secondaryMSHVSFSpideyEffects },
+    { L"P1 Spider-sense / Webs", 0x724Ec, 0x7250c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
     { L"P1 Spotlight 1", 0x7250c, 0x7252c, indexCPS2Sprites_Spidey, 13 },
     { L"P1 Spotlight 2", 0x766cc, 0x766ec, indexCPS2Sprites_Spidey, 0x0c },
     { L"P1 Spotlight 3 + Taunt 1", 0x766ec, 0x7670c, indexCPS2Sprites_Spidey, 0x0d },
-    { L"P1 Taunt 2", 0x7670c, 0x7672c, indexCPS2Sprites_Spidey, 0x0d },
-    { L"P1 Taunt 3", 0x7672c, 0x7674c, indexCPS2Sprites_Spidey, 0x0d },
+    { L"P1 HEY!", 0x7670c, 0x7672c, indexCPS2Sprites_Spidey, 0x0e },
+    { L"P1 Do your job!", 0x7672c, 0x7674c, indexCPS2Sprites_Spidey, 0x0f },
     { L"P1 Intro 1", 0x765Cc, 0x765Ec, indexCPS2Sprites_Spidey, 0x0B },
     { L"P1 Intro 2", 0x765Ec, 0x7660c, indexCPS2Sprites_Spidey, 0x0B },
     { L"P1 Intro 3", 0x7660c, 0x7662c, indexCPS2Sprites_Spidey, 0x0B },
@@ -817,13 +816,13 @@ const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x7252c, 0x7254c, indexCPS2Sprites_Spidey, 0x00, nullptr, &secondaryMSHVSFSpideyEffects },
-    { L"P2 Extras 1", 0x7254c, 0x7256c, indexCPS2Sprites_Spidey, 0x2 },
+    { L"P2 Color (Kick)", 0x7252c, 0x7254c, indexCPS2Sprites_Spidey, 0x00, &pairNext, &secondaryMSHVSFSpideyEffects },
+    { L"P2 Spider-sense / Webs", 0x7254c, 0x7256c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
     { L"P2 Spotlight 1", 0x7256c, 0x7258c, indexCPS2Sprites_Spidey, 13 },
     { L"P2 Spotlight 2", 0x768cc, 0x768ec, indexCPS2Sprites_Spidey, 0x0c },
     { L"P2 Spotlight 3 + Taunt 1", 0x768ec, 0x7690c, indexCPS2Sprites_Spidey, 0x0d },
-    { L"P2 Taunt 2", 0x7690c, 0x7692c, indexCPS2Sprites_Spidey, 0x0d },
-    { L"P2 Taunt 3", 0x7692c, 0x7694c, indexCPS2Sprites_Spidey, 0x0d },
+    { L"P2 HEY!", 0x7690c, 0x7692c, indexCPS2Sprites_Spidey, 0x0e },
+    { L"P2 Do your job!", 0x7692c, 0x7694c, indexCPS2Sprites_Spidey, 0x0f },
     { L"P2 Intro 1", 0x767Cc, 0x767Ec, indexCPS2Sprites_Spidey, 0x0B },
     { L"P2 Intro 2", 0x767Ec, 0x7680c, indexCPS2Sprites_Spidey, 0x0B },
     { L"P2 Intro 3", 0x7680c, 0x7682c, indexCPS2Sprites_Spidey, 0x0B },
@@ -2217,27 +2216,27 @@ const sDescTreeNode MSHVSF_A_ZANGIEF_COLLECTION[] =
 // palette swaps like USAgent share the status effects with the core palette
 const sDescTreeNode MSHVSF_A_STATUS_COLLECTION[] =
 {
-    { L"Akuma",             DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_STATUS,            ARRAYSIZE(MSHVSF_A_AKUMA_STATUS) },
+    { L"Akuma",                     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_STATUS,            ARRAYSIZE(MSHVSF_A_AKUMA_STATUS) },
     { L"Blackheart/Mephisto",       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_STATUS,       ARRAYSIZE(MSHVSF_A_BLACKHEART_STATUS) },
     { L"Captain America/US Agent",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAINAMERICA_STATUS,   ARRAYSIZE(MSHVSF_A_CAPTAINAMERICA_STATUS) },
-    { L"Chun-Li",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_STATUS,           ARRAYSIZE(MSHVSF_A_CHUNLI_STATUS) },
-    { L"Cyclops",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_STATUS,          ARRAYSIZE(MSHVSF_A_CYCLOPS_STATUS) },
-    { L"Dhalsim",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_STATUS,          ARRAYSIZE(MSHVSF_A_DHALSIM_STATUS) },
-    { L"Hulk",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_STATUS,             ARRAYSIZE(MSHVSF_A_HULK_STATUS) },
-    { L"Ken",               DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_STATUS,              ARRAYSIZE(MSHVSF_A_KEN_STATUS) },
-    { L"M.Bison",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BISON_STATUS,            ARRAYSIZE(MSHVSF_A_BISON_STATUS) },
-    { L"Norimaro",          DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_STATUS,         ARRAYSIZE(MSHVSF_A_NORIMARO_STATUS) },
-    { L"Omega Red",         DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_STATUS,         ARRAYSIZE(MSHVSF_A_OMEGARED_STATUS) },
-    { L"RYu",               DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_STATUS,              ARRAYSIZE(MSHVSF_A_RYU_STATUS) },
+    { L"Chun-Li",                   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_STATUS,           ARRAYSIZE(MSHVSF_A_CHUNLI_STATUS) },
+    { L"Cyclops",                   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_STATUS,          ARRAYSIZE(MSHVSF_A_CYCLOPS_STATUS) },
+    { L"Dhalsim",                   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_STATUS,          ARRAYSIZE(MSHVSF_A_DHALSIM_STATUS) },
+    { L"Hulk",                      DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_STATUS,             ARRAYSIZE(MSHVSF_A_HULK_STATUS) },
+    { L"Ken",                       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_STATUS,              ARRAYSIZE(MSHVSF_A_KEN_STATUS) },
+    { L"M.Bison",                   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BISON_STATUS,            ARRAYSIZE(MSHVSF_A_BISON_STATUS) },
+    { L"Norimaro",                  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_STATUS,         ARRAYSIZE(MSHVSF_A_NORIMARO_STATUS) },
+    { L"Omega Red",                 DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_STATUS,         ARRAYSIZE(MSHVSF_A_OMEGARED_STATUS) },
+    { L"RYu",                       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_STATUS,              ARRAYSIZE(MSHVSF_A_RYU_STATUS) },
     { L"Sakura/Dark Sakura",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_STATUS,           ARRAYSIZE(MSHVSF_A_SAKURA_STATUS) },
-    { L"Shadow",            DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_STATUS,           ARRAYSIZE(MSHVSF_A_SHADOW_STATUS) },
-    { L"Shuma-Gorath",      DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMA_STATUS,            ARRAYSIZE(MSHVSF_A_SHUMA_STATUS) },
-    { L"Spider-Man/Armored Spider-Man",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDEY_STATUS,           ARRAYSIZE(MSHVSF_A_SPIDEY_STATUS) },
-    { L"Wolverine",         DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_STATUS,        ARRAYSIZE(MSHVSF_A_WOLVERINE_STATUS) },
-    { L"Zangief",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_STATUS,          ARRAYSIZE(MSHVSF_A_ZANGIEF_STATUS) },
+    { L"Shadow",                    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_STATUS,           ARRAYSIZE(MSHVSF_A_SHADOW_STATUS) },
+    { L"Shuma-Gorath",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMA_STATUS,            ARRAYSIZE(MSHVSF_A_SHUMA_STATUS) },
+    { L"Spider-Man/Armored Spider-Man", DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDEY_STATUS,           ARRAYSIZE(MSHVSF_A_SPIDEY_STATUS) },
+    { L"Wolverine",                 DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_STATUS,        ARRAYSIZE(MSHVSF_A_WOLVERINE_STATUS) },
+    { L"Zangief",                   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_STATUS,          ARRAYSIZE(MSHVSF_A_ZANGIEF_STATUS) },
 
-    { L"Dan",               DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_STATUS,              ARRAYSIZE(MSHVSF_A_DAN_STATUS) },
-    { L"Cyber Akuma",       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBERAKUMA_STATUS,       ARRAYSIZE(MSHVSF_A_CYBERAKUMA_STATUS) },
+    { L"Dan",                       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_STATUS,              ARRAYSIZE(MSHVSF_A_DAN_STATUS) },
+    { L"Cyber Akuma",               DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBERAKUMA_STATUS,       ARRAYSIZE(MSHVSF_A_CYBERAKUMA_STATUS) },
 };
 
 const sDescTreeNode MSHVSF_A_BONUS_COLLECTION[] = // 6a

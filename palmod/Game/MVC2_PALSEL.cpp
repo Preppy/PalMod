@@ -124,9 +124,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     sMoveDescription* pDescriptionForPalId = GetMoveDescriptionInfo(uUnitId, uPalId);
     if (pDescriptionForPalId)
     {
-        if (pDescriptionForPalId->nImageIndex != 0xFF)
+        if (pDescriptionForPalId->nImageIndex != USE_DEFAULT_PREVIEW)
         {
-            nImgUnitId = (pDescriptionForPalId->nImageUnitOverride != 0xFF) ? pDescriptionForPalId->nImageUnitOverride : nImgUnitId;
+            nImgUnitId = (pDescriptionForPalId->nImageUnitOverride != USE_DEFAULT_PREVIEW) ? pDescriptionForPalId->nImageUnitOverride : nImgUnitId;
             nTargetImgId = pDescriptionForPalId->nImageIndex;
             fUsingDataFromDescriptionSet = true;
 
@@ -218,8 +218,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 for (int nNodeIndex = static_cast<int>(pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                 {
-                    const uint32_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
-                    const uint16_t nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
+                    const uint32_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != USE_DEFAULT_PREVIEW) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
+                    const uint16_t nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != USE_DEFAULT_PREVIEW) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
 
                     sImgTicket* pThisImage = CreateImgTicket(nUnitToUse, nImageToUse, pPreviousImage);
 

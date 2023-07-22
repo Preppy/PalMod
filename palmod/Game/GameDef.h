@@ -358,7 +358,9 @@ const stPairedPaletteInfo pairNext14 = { 14 };
 const stPairedPaletteInfo pairNext13 = { 13 };
 const stPairedPaletteInfo pairNext15 = { 15 };
 const stPairedPaletteInfo pairNext21 = { 21 };
+const stPairedPaletteInfo pairNext25 = { 25 };
 const stPairedPaletteInfo pairNext30 = { 30 };
+const stPairedPaletteInfo pairNext35 = { 35 };
 const stPairedPaletteInfo pairPrevious = { -1 };
 const stPairedPaletteInfo pairPrevious2 = { -2 };
 const stPairedPaletteInfo pairPrevious3 = { -3 };
@@ -369,6 +371,8 @@ const stPairedPaletteInfo pairPrevious9 = { -9 };
 const stPairedPaletteInfo pairPrevious10 = { -10 };
 const stPairedPaletteInfo pairPrevious11 = { -11 };
 const stPairedPaletteInfo pairPrevious14 = { -14 };
+const stPairedPaletteInfo pairPrevious25 = { -25 };
+const stPairedPaletteInfo pairPrevious35 = { -35 };
 
 const stPairedPaletteInfo pairNextFlipped4 = { 4, PalettePairOptions::FlipDisplay };
 
