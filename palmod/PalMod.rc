@@ -105,7 +105,7 @@ BEGIN
     LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,164,209,16
     LTEXT           "Updates and guides available at:",IDC_STATIC,7,185,209,8
     CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,195,93,14
-    LTEXT           "Copyright (C) 2022",IDC_STATIC,10,208,65,8
+    LTEXT           "Copyright (C) 2023",IDC_STATIC,10,208,65,8
     DEFPUSHBUTTON   "OK",IDOK,174,206,50,14,WS_GROUP
 END
 
@@ -443,6 +443,10 @@ BEGIN
     BEGIN
     END
 
+    IDD_IMPL_IMPORT, DIALOG
+    BEGIN
+    END
+
     IDD_IMPL_EXPORT, DIALOG
     BEGIN
         BOTTOMMARGIN, 165
@@ -543,7 +547,7 @@ BEGIN
             BEGIN
                 MENUITEM "Persona 4 Arena Ultimax (Steam)", ID_LD_P4AU_STEAM
                 MENUITEM "Persona 4 Arena Ultimax 2.0 (NESICA Community Port)", ID_LD_P4AU_NESICA
-                MENUITEM "Persona Fight Club Modpack", ID_LD_P4AU_FIGHTCLUB
+                MENUITEM "Persona Fight Club Modpack",  ID_LD_P4AU_FIGHTCLUB
             END
             POPUP "Red Earth / Warzard"
             BEGIN
@@ -705,11 +709,11 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Blend Mode"
         BEGIN
-            MENUITEM "Default",                 ID_SETTINGS_BLENDDEFAULT
-            MENUITEM "Always Alpha",            ID_SETTINGS_BLENDALPHA
-            MENUITEM "Always Additive",         ID_SETTINGS_BLENDADD
-            MENUITEM "PS1: Semi-Transparency On" ID_SETTINGS_BLENDPS1STON
-            MENUITEM "PS1: Semi-Transparency Off" ID_SETTINGS_BLENDPS1STOFF
+            MENUITEM "Default",                     ID_SETTINGS_BLENDDEFAULT
+            MENUITEM "Always Alpha",                ID_SETTINGS_BLENDALPHA
+            MENUITEM "Always Additive",             ID_SETTINGS_BLENDADD
+            MENUITEM "PS1: Semi-Transparency On",   ID_SETTINGS_BLENDPS1STON
+            MENUITEM "PS1: Semi-Transparency Off",  ID_SETTINGS_BLENDPS1STOFF
         END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS
