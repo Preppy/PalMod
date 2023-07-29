@@ -279,14 +279,14 @@ COLORREF* CGame_SFIII3_D::CreatePal(uint32_t nUnitId, uint32_t nPalId)
 
     COLORREF* NewPal = new COLORREF[m_nCurrPalSz];
 
-    for (uint16_t i = 0; i < m_nCurrPalSz; i++)
+    for (uint16_t iPos = 0; iPos < m_nCurrPalSz; iPos++)
     {
-        NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
+        NewPal[iPos] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][iPos]);
 
-        if (i != 0)
+        if (iPos != 0)
         {
             // Force alpha, but leave the first transparency color alone
-            NewPal[i] |= 0xFF000000;
+            NewPal[iPos] |= 0xFF000000;
         }
     }
 

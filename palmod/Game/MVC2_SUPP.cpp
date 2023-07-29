@@ -99,9 +99,9 @@ namespace MVC2_SupplementProcessing
 
         uint16_t* dst_16 = get_pal_16(char_id, destination_palette);
 
-        for (int i = index_start; i < index_start + index_inc; i++)
+        for (int iPos = index_start; iPos < index_start + index_inc; iPos++)
         {
-            dst_16[i] |= 0xFFFF;
+            dst_16[iPos] |= 0xFFFF;
         }
 
         return 1;
@@ -135,9 +135,9 @@ namespace MVC2_SupplementProcessing
             break;
         }
 
-        for (int i = index_start; i < (index_start + index_inc); i++)
+        for (int iPos = index_start; iPos < (index_start + index_inc); iPos++)
         {
-            input_col = CurrMVC2->ConvPal16(dst_16[i]);
+            input_col = CurrMVC2->ConvPal16(dst_16[iPos]);
 
             RGBtoHLS(input_col, &src_h, &src_l, &src_s);
 
@@ -149,8 +149,8 @@ namespace MVC2_SupplementProcessing
             src_s = LimitHLS(src_s);
             src_l = LimitHLS(src_l);
 
-            dst_16[i] &= 0xF000;
-            dst_16[i] |= CurrMVC2->ConvCol16(HLStoRGB(src_h, src_l, src_s));
+            dst_16[iPos] &= 0xF000;
+            dst_16[iPos] |= CurrMVC2->ConvCol16(HLStoRGB(src_h, src_l, src_s));
         }
 
         return 1;

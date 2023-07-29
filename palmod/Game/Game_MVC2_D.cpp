@@ -569,9 +569,9 @@ void CGame_MVC2_D::ClearDataBuffer()
 {
     if (m_ppDataBuffer)
     {
-        for (uint32_t i = 0; i < m_nUnitAmt; i++)
+        for (uint32_t iPos = 0; iPos < m_nUnitAmt; iPos++)
         {
-            safe_delete_array(m_ppDataBuffer[i]);
+            safe_delete_array(m_ppDataBuffer[iPos]);
         }
 
         safe_delete_array(m_ppDataBuffer);
@@ -713,9 +713,9 @@ COLORREF* CGame_MVC2_D::CreatePal(uint32_t nUnitId, uint32_t nPalId)
     //Create a new palette
     COLORREF* NewPal = new COLORREF[MVC2_D_PALSZ];
 
-    for (uint16_t i = 0; i < MVC2_D_PALSZ; i++)
+    for (uint16_t iPos = 0; iPos < MVC2_D_PALSZ; iPos++)
     {
-        NewPal[i] = ConvPal16(m_ppDataBuffer[nUnitId][(nPalId * 16) + i]);
+        NewPal[iPos] = ConvPal16(m_ppDataBuffer[nUnitId][(nPalId * 16) + iPos]);
     }
 
     return NewPal;

@@ -116,16 +116,16 @@ void sx_decrypt(uint8_t* fixed, size_t fixed_size, int value)
         std::vector<uint8_t> buf(sx_size);
         memcpy(&buf[0], rom, sx_size);
 
-        for (size_t i = 0; i < sx_size; i += 0x10)
+        for (size_t iPos = 0; iPos < sx_size; iPos += 0x10)
         {
-            memcpy(&rom[i], &buf[i + 8], 8);
-            memcpy(&rom[i + 8], &buf[i], 8);
+            memcpy(&rom[iPos], &buf[iPos + 8], 8);
+            memcpy(&rom[iPos + 8], &buf[iPos], 8);
         }
     }
     else if (value == 2)
     {
-        for (size_t i = 0; i < sx_size; i++)
-            rom[i] = bitswap<8>(rom[i], 7, 6, 0, 4, 3, 2, 1, 5);
+        for (size_t iPos = 0; iPos < sx_size; iPos++)
+            rom[iPos] = bitswap<8>(rom[iPos], 7, 6, 0, 4, 3, 2, 1, 5);
     }
 }
 
@@ -143,20 +143,20 @@ void svcplus_px_crypto(uint8_t* cpurom, size_t cpurom_size, SVCCryptionChoice di
     std::vector<uint8_t> dst(size);
 
     memcpy(&dst[0], src, size);
-    for (size_t i = 0; i < size / 2; i++)
+    for (size_t iPos = 0; iPos < size / 2; iPos++)
     {
-        size_t ofst = bitswap<24>((i & 0xfffff), 0x17, 0x16, 0x15, 0x14, 0x13, 0x00, 0x01, 0x02,
+        size_t ofst = bitswap<24>((iPos & 0xfffff), 0x17, 0x16, 0x15, 0x14, 0x13, 0x00, 0x01, 0x02,
             0x0f, 0x0e, 0x0d, 0x0c, 0x0b, 0x0a, 0x09, 0x08,
             0x07, 0x06, 0x05, 0x04, 0x03, 0x10, 0x11, 0x12);
         ofst ^= 0x0f0007;
-        ofst += (i & 0xff00000);
-        memcpy(&src[i * 0x02], &dst[ofst * 0x02], 0x02);
+        ofst += (iPos & 0xff00000);
+        memcpy(&src[iPos * 0x02], &dst[ofst * 0x02], 0x02);
     }
 
     memcpy(&dst[0], src, size);
-    for (size_t i = 0; i < 6; i++)
+    for (size_t iPos = 0; iPos < 6; iPos++)
     {
-        memcpy(&src[i * 0x100000], &dst[sec[i] * 0x100000], 0x100000);
+        memcpy(&src[iPos * 0x100000], &dst[sec[iPos] * 0x100000], 0x100000);
     }
 }
 
@@ -168,21 +168,21 @@ void svcsplus_px_crypto(uint8_t* cpurom, size_t cpurom_size, SVCCryptionChoice d
     std::vector<uint8_t> dst(size);
 
     memcpy(&dst[0], src, size);
-    for (size_t i = 0; i < size / 2; i++)
+    for (size_t iPos = 0; iPos < size / 2; iPos++)
     {
-        size_t ofst = bitswap<16>((i & 0x007fff), 0x0f, 0x00, 0x08, 0x09, 0x0b, 0x0a, 0x0c, 0x0d,
+        size_t ofst = bitswap<16>((iPos & 0x007fff), 0x0f, 0x00, 0x08, 0x09, 0x0b, 0x0a, 0x0c, 0x0d,
             0x04, 0x03, 0x01, 0x07, 0x06, 0x02, 0x05, 0x0e);
 
-        ofst += (i & 0x078000);
-        ofst += sec[(i & 0xf80000) >> 19] << 19;
+        ofst += (iPos & 0x078000);
+        ofst += sec[(iPos & 0xf80000) >> 19] << 19;
 
         if (direction == SVCCryptionChoice::decryption)
         {
-            memcpy(&src[i * 2], &dst[ofst * 2], 0x02);
+            memcpy(&src[iPos * 2], &dst[ofst * 2], 0x02);
         }
         else
         {
-            memcpy(&src[ofst * 2], &dst[i * 2], 0x02);
+            memcpy(&src[ofst * 2], &dst[iPos * 2], 0x02);
         }
     }
 }

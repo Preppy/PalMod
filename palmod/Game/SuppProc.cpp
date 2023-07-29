@@ -58,9 +58,9 @@ void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32
 
     if (pDestinationPalette)
     {
-        for (int i = index_start; i < (index_start + index_inc); i++)
+        for (int iPos = index_start; iPos < (index_start + index_inc); iPos++)
         {
-            pDestinationPalette[i] = 0xFF000000 | RGB(0xff, 0xff, 0xff);
+            pDestinationPalette[iPos] = 0xFF000000 | RGB(0xff, 0xff, 0xff);
         }
 
         WritePal(char_id, destination_palette, pDestinationPalette, -1);
@@ -101,9 +101,9 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, u
             break;
         }
 
-        for (int i = index_start; i < (index_start + index_inc); i++)
+        for (int iPos = index_start; iPos < (index_start + index_inc); iPos++)
         {
-            COLORREF input_col = pDestinationPalette[i];
+            COLORREF input_col = pDestinationPalette[iPos];
 
             RGBtoHLS(input_col, &src_h, &src_l, &src_s);
 
@@ -115,7 +115,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, u
             src_l = LimitHLS(src_l);
 
             // Convert back, forcing alpha on the way.
-            pDestinationPalette[i] = 0xFF000000 | HLStoRGB(src_h, src_l, src_s);
+            pDestinationPalette[iPos] = 0xFF000000 | HLStoRGB(src_h, src_l, src_s);
         }
 
         WritePal(char_id, destination_palette, pDestinationPalette, -1);

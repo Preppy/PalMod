@@ -1098,9 +1098,9 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 
         int nCountColorSelected = 0;
 
-        for (int i = 0; i < m_iWorkingAmt; i++)
+        for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
         {
-            if (m_Selected[i])
+            if (m_Selected[iPos])
             {
                 nCountColorSelected++;
             }

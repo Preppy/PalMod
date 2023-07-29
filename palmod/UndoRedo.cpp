@@ -117,18 +117,18 @@ CUndoNode* CUndoRedo::Pop(CUndoNode** start, CUndoNode** tail)
 int CUndoRedo::GetCount(CUndoNode* start)
 {
     CUndoNode* countnode;
-    int i = 0;
+    int iPos = 0;
 
     countnode = start;
 
     while (countnode)
     {
-        i++;
+        iPos++;
 
         countnode = countnode->next;
     }
 
-    return i;
+    return iPos;
 }
 
 void CUndoRedo::DeleteList(CUndoNode** start)
