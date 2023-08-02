@@ -864,7 +864,7 @@ void CPalModDlg::OnImportPalette()
                 break;
         }
 
-        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, pszFilterInUse);
+        CFileDialog PaletteLoad(TRUE, NULL, NULL, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST, pszFilterInUse);
 
         if (PaletteLoad.DoModal() == IDOK)
         {
@@ -909,6 +909,13 @@ void CPalModDlg::OnImportPalette()
             else if (_wcsicmp(szExtension, L".impl") == 0)
             {
                 LoadPaletteFromIMPL(strFileName);
+            }
+            else if ((_wcsicmp(szExtension, L".url") == 0) ||
+                     (_wcsicmp(szExtension, L".lnk") == 0))
+            {
+                MessageBox(L"You are attempting to open a shortcut to a file, not the actual file."
+                           L"  This won't work.  You will need to download the actual file instead and use that with PalMod.",
+                           GetHost()->GetAppName(), MB_ICONERROR);
             }
             else
             {

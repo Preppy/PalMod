@@ -7,11 +7,8 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
     CFile ActFile;
     if (ActFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
-        ProcChange();
-
         int nFileSz = static_cast<int>(ActFile.GetLength());
         int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
-        bool fHadToFlip = false;
 
         // Read data from the ACT...
         if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
@@ -27,167 +24,117 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             nFileSz = 768;
         }
 
-        if (nACTColorCount == 0)
+        if (nFileSz == 768) // We only support 768/772 byte ACT files
         {
-            // Default to everything
-            nACTColorCount = 256;
-        }
+            ProcChange();
 
-        std::vector<uint8_t> rgAct;
-        rgAct.resize(nACTColorCount * 3);
+            bool fHadToFlip = false;
 
-        ActFile.Read(&rgAct[0], nACTColorCount * 3);
-        ActFile.Close();
-
-        // Now consume those colors...
-        const uint8_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
-        int nTotalNumberOfCurrentColors = 0;
-
-        for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
-        {
-            nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
-        }
-
-        uint16_t iACTIndex = 0;
-        uint16_t nCurrentPalette = 0;
-        uint16_t nTotalColorsUsed = 0;
-        bool fHaveLooped = false;
-        int iCurrentIndexInPalette = 0;
-        uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-
-        uint16_t nBlackColorCount = 0;
-
-        // This code exists because Fighter Factory writes upside-down color tables.
-        for (iACTIndex = 0; iACTIndex < nACTColorCount; iACTIndex++)
-        {
-            if ((rgAct.at(iACTIndex * 3) == 0) &&
-                (rgAct.at((iACTIndex * 3) + 1) == 0) &&
-                (rgAct.at((iACTIndex * 3) + 2) == 0))
+            if (nACTColorCount == 0)
             {
-                nBlackColorCount++;
+                // Default to everything
+                nACTColorCount = 256;
             }
-            else
-            {
-                break;
-            }
-        }
 
-        const bool fShouldProcessTopdown = !fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors);
+            std::vector<uint8_t> rgAct;
+            rgAct.resize(nACTColorCount * 3);
 
-        bool fHaveMultiplePalettes = (nTotalPaletteCount != 1);
-        bool* rgfACTHasColorsForThisPalette = new bool[nTotalPaletteCount];
-        memset(rgfACTHasColorsForThisPalette, false, sizeof(bool) * nTotalPaletteCount);
+            ActFile.Read(&rgAct[0], nACTColorCount * 3);
+            ActFile.Close();
 
-        if (fHaveMultiplePalettes)
-        {
-            // we have multiple palettes: ensure that we only use useful data from the ACT
-            int nOffsetThisPass = 0;
+            // Now consume those colors...
+            const uint8_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
+            int nTotalNumberOfCurrentColors = 0;
+
             for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
             {
-                const uint16_t nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
-                for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)
-                {
-                    const int iIndexToUse = fShouldProcessTopdown ? iACTIndex : (nACTColorCount - 1 - iACTIndex);
-                    if ((rgAct.at(iIndexToUse * 3) != 0) ||
-                        (rgAct.at((iIndexToUse * 3) + 1) != 0) ||
-                        (rgAct.at((iIndexToUse * 3) + 2) != 0))
-                    {
-                        if (nColorsNeededForThisPalette <= (nACTColorCount - nOffsetThisPass))
-                        {
-                            // Only allow usage if we fully cover the secondary palette: ignore incomplete palette coverage
-                            rgfACTHasColorsForThisPalette[iPalette] = true;
-                        }
-                        break;
-                    }
-                }
-
-                nOffsetThisPass += nColorsNeededForThisPalette;
+                nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
             }
-        }
 
-        if (fShouldProcessTopdown)
-        {
-            iACTIndex = 0;
+            uint16_t iACTIndex = 0;
+            uint16_t nCurrentPalette = 0;
+            uint16_t nTotalColorsUsed = 0;
+            bool fHaveLooped = false;
+            int iCurrentIndexInPalette = 0;
+            uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
 
-            for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+            uint16_t nBlackColorCount = 0;
+
+            // This code exists because Fighter Factory writes upside-down color tables.
+            for (iACTIndex = 0; iACTIndex < nACTColorCount; iACTIndex++)
             {
-                pPal[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
-                pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
-                pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
-
-                if (++iACTIndex >= nACTColorCount)
+                if ((rgAct.at(iACTIndex * 3) == 0) &&
+                    (rgAct.at((iACTIndex * 3) + 1) == 0) &&
+                    (rgAct.at((iACTIndex * 3) + 2) == 0))
                 {
-                    // If the palette is larger than our ACT, loop it.
-                    iACTIndex = 0;
-                    fHaveLooped = true;
+                    nBlackColorCount++;
                 }
-
-                iCurrentIndexInPalette++;
-                if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                else
                 {
-                    if (fHaveLooped)
-                    {
-                        // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                        nTotalColorsUsed++;
-                        break;
-                    }
-                    else
-                    {
-                        // advance to the next palette
-                        nCurrentPalette++;
+                    break;
+                }
+            }
 
-                        if (rgfACTHasColorsForThisPalette[nCurrentPalette])
+            const bool fShouldProcessTopdown = !fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors);
+
+            bool fHaveMultiplePalettes = (nTotalPaletteCount != 1);
+            bool* rgfACTHasColorsForThisPalette = new bool[nTotalPaletteCount];
+            memset(rgfACTHasColorsForThisPalette, false, sizeof(bool) * nTotalPaletteCount);
+
+            if (fHaveMultiplePalettes)
+            {
+                // we have multiple palettes: ensure that we only use useful data from the ACT
+                int nOffsetThisPass = 0;
+                for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
+                {
+                    const uint16_t nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                    for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)
+                    {
+                        const int iIndexToUse = fShouldProcessTopdown ? iACTIndex : (nACTColorCount - 1 - iACTIndex);
+                        if ((rgAct.at(iIndexToUse * 3) != 0) ||
+                            (rgAct.at((iIndexToUse * 3) + 1) != 0) ||
+                            (rgAct.at((iIndexToUse * 3) + 2) != 0))
                         {
-                            iCurrentIndexInPalette = 0;
-                            pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-                        }
-                        else
-                        {
-                            nTotalColorsUsed++;
+                            if (nColorsNeededForThisPalette <= (nACTColorCount - nOffsetThisPass))
+                            {
+                                // Only allow usage if we fully cover the secondary palette: ignore incomplete palette coverage
+                                rgfACTHasColorsForThisPalette[iPalette] = true;
+                            }
                             break;
                         }
                     }
+
+                    nOffsetThisPass += nColorsNeededForThisPalette;
                 }
             }
-        }
-        else
-        {
-            // TODO: Maybe ask the user before flipping?
-            iACTIndex = nACTColorCount - 1;
-            fHadToFlip = true;
-            iCurrentIndexInPalette = 0;
-            nCurrentPalette = 0;
-            fHaveLooped = false;
-            pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
 
-            OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
-
-            for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+            if (fShouldProcessTopdown)
             {
-                pPal[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
-                pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
-                pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
+                iACTIndex = 0;
 
-                // This code exists because Fighter Factory writes upside-down color tables.
-                if (--iACTIndex >= nACTColorCount)
+                for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                 {
-                    // If the palette is larger than our ACT, loop it.
-                    iACTIndex = nTotalNumberOfCurrentColors;
-                    fHaveLooped = true;
-                }
+                    pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
+                    pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
+                    pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
 
-                iCurrentIndexInPalette++;
-                if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
-                {
-                    if (fHaveLooped)
+                    if (++iACTIndex >= nACTColorCount)
                     {
-                        // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                        nTotalColorsUsed++;
-                        break;
+                        // If the palette is larger than our ACT, loop it.
+                        iACTIndex = 0;
+                        fHaveLooped = true;
                     }
-                    else
+
+                    iCurrentIndexInPalette++;
+                    if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
                     {
-                        if (iACTIndex >= nBlackColorCount)
+                        if (fHaveLooped)
+                        {
+                            // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                            nTotalColorsUsed++;
+                            break;
+                        }
+                        else
                         {
                             // advance to the next palette
                             nCurrentPalette++;
@@ -203,37 +150,94 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                                 break;
                             }
                         }
-                        else
+                    }
+                }
+            }
+            else
+            {
+                // TODO: Maybe ask the user before flipping?
+                iACTIndex = nACTColorCount - 1;
+                fHadToFlip = true;
+                iCurrentIndexInPalette = 0;
+                nCurrentPalette = 0;
+                fHaveLooped = false;
+                pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
+
+                OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
+
+                for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+                {
+                    pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
+                    pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
+                    pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
+
+                    // This code exists because Fighter Factory writes upside-down color tables.
+                    if (--iACTIndex >= nACTColorCount)
+                    {
+                        // If the palette is larger than our ACT, loop it.
+                        iACTIndex = nTotalNumberOfCurrentColors;
+                        fHaveLooped = true;
+                    }
+
+                    iCurrentIndexInPalette++;
+                    if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                    {
+                        if (fHaveLooped)
                         {
-                            // The next palette chunk is all black: don't stomp on a further palette with reversed black/empty colors
+                            // Applying a looping palette to a secondary palette will be generally illogical, so don't
                             nTotalColorsUsed++;
                             break;
                         }
+                        else
+                        {
+                            if (iACTIndex >= nBlackColorCount)
+                            {
+                                // advance to the next palette
+                                nCurrentPalette++;
+
+                                if (rgfACTHasColorsForThisPalette[nCurrentPalette])
+                                {
+                                    iCurrentIndexInPalette = 0;
+                                    pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
+                                }
+                                else
+                                {
+                                    nTotalColorsUsed++;
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                // The next palette chunk is all black: don't stomp on a further palette with reversed black/empty colors
+                                nTotalColorsUsed++;
+                                break;
+                            }
+                        }
                     }
-                }               
+                }
             }
+
+            safe_delete_array(rgfACTHasColorsForThisPalette);
+
+            ImgDispCtrl->UpdateCtrl();
+            m_PalHost.UpdateAllPalCtrls();
+
+            UpdateMultiEdit(TRUE);
+            UpdateSliderSel();
+
+            fSuccess = true;
+            CString strStatus;
+            if (fHadToFlip)
+            {
+                strStatus.Format(IDS_ACT_REVERSEDLOAD, nTotalColorsUsed);
+            }
+            else
+            {
+                strStatus.Format(IDS_ACT_LOADED, nTotalColorsUsed, nACTColorCount);
+            }
+
+            SetStatusText(strStatus);
         }
-
-        safe_delete_array(rgfACTHasColorsForThisPalette);
-
-        ImgDispCtrl->UpdateCtrl();
-        m_PalHost.UpdateAllPalCtrls();
-
-        UpdateMultiEdit(TRUE);
-        UpdateSliderSel();
-
-        fSuccess = true;
-        CString strStatus;
-        if (fHadToFlip)
-        {
-            strStatus.Format(IDS_ACT_REVERSEDLOAD, nTotalColorsUsed);
-        }
-        else
-        {
-            strStatus.Format(IDS_ACT_LOADED, nTotalColorsUsed, nACTColorCount);
-        }
-
-        SetStatusText(strStatus);
     }
 
     if (!fSuccess)
