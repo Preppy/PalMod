@@ -520,14 +520,14 @@ const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P[] =
 {
     { L"P Palette", 0x48942, 0x48962, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"P Keiokuken (shades)", 0x48962, 0x48982, indexCPS2Sprites_ChunLi, 1 },
-    { L"P Kikosho", 0x48982, 0x489a2, indexCPS2Sprites_ChunLi, 2 },
+    { L"P Lightning Kicks / Kikouken / Kikosho", 0x48982, 0x489a2, indexCPS2Sprites_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_K[] =
 {
     { L"K Palette", 0x489a2, 0x489c2, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"K Keiokuken (shades)", 0x489c2, 0x489e2, indexCPS2Sprites_ChunLi, 1 },
-    { L"K Kikosho", 0x489e2, 0x48a02, indexCPS2Sprites_ChunLi, 2 },
+    { L"K Lightning Kicks / Kikouken / Kikosho", 0x489e2, 0x48a02, indexCPS2Sprites_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_JIN_PALETTES_P[] =

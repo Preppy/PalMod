@@ -3483,7 +3483,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x3f00960, 0x3f00980, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)", 0x3f00980, 0x3f009a0, indexCPS2Sprites_ChunLi, 1 },
-    { L"(03) Lightning Kicks / Kikouken / Kouken", 0x3f009a0, 0x3f009c0, indexCPS2Sprites_ChunLi, 2 },
+    { L"(03) Lightning Kicks / Kikouken / Kikosho", 0x3f009a0, 0x3f009c0, indexCPS2Sprites_ChunLi, 2 },
     { L"(04) Not Used", 0x3f009c0, 0x3f009e0, indexCPS2Sprites_ChunLi, 3 },
     { L"(05) Not Used", 0x3f009e0, 0x3f00a00, indexCPS2Sprites_ChunLi, 4 },
     { L"(06) Not Used", 0x3f00a00, 0x3f00a20, indexCPS2Sprites_ChunLi, 5 },
@@ -3495,7 +3495,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x3f00a60, 0x3f00a80, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)", 0x3f00a80, 0x3f00aa0, indexCPS2Sprites_ChunLi, 1 },
-    { L"(03) Lightning Kicks / Kikouken / Kouken", 0x3f00aa0, 0x3f00ac0, indexCPS2Sprites_ChunLi, 2 },
+    { L"(03) Lightning Kicks / Kikouken / Kikosho", 0x3f00aa0, 0x3f00ac0, indexCPS2Sprites_ChunLi, 2 },
     { L"(04) Not Used", 0x3f00ac0, 0x3f00ae0, indexCPS2Sprites_ChunLi, 3 },
     { L"(05) Not Used", 0x3f00ae0, 0x3f00b00, indexCPS2Sprites_ChunLi, 4 },
     { L"(06) Not Used", 0x3f00b00, 0x3f00b20, indexCPS2Sprites_ChunLi, 5 },
@@ -3507,7 +3507,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x3f00b60, 0x3f00b80, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)", 0x3f00b80, 0x3f00ba0, indexCPS2Sprites_ChunLi, 1 },
-    { L"(03) Lightning Kicks / Kikouken / Kouken", 0x3f00ba0, 0x3f00bc0, indexCPS2Sprites_ChunLi, 2 },
+    { L"(03) Lightning Kicks / Kikouken / Kikosho", 0x3f00ba0, 0x3f00bc0, indexCPS2Sprites_ChunLi, 2 },
     { L"(04) Not Used", 0x3f00bc0, 0x3f00be0, indexCPS2Sprites_ChunLi, 3 },
     { L"(05) Not Used", 0x3f00be0, 0x3f00c00, indexCPS2Sprites_ChunLi, 4 },
     { L"(06) Not Used", 0x3f00c00, 0x3f00c20, indexCPS2Sprites_ChunLi, 5 },
@@ -3519,7 +3519,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x3f00c60, 0x3f00c80, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)", 0x3f00c80, 0x3f00ca0, indexCPS2Sprites_ChunLi, 1 },
-    { L"(03) Lightning Kicks / Kikouken / Kouken", 0x3f00ca0, 0x3f00cc0, indexCPS2Sprites_ChunLi, 2 },
+    { L"(03) Lightning Kicks / Kikouken / Kikosho", 0x3f00ca0, 0x3f00cc0, indexCPS2Sprites_ChunLi, 2 },
     { L"(04) Not Used", 0x3f00cc0, 0x3f00ce0, indexCPS2Sprites_ChunLi, 3 },
     { L"(05) Not Used", 0x3f00ce0, 0x3f00d00, indexCPS2Sprites_ChunLi, 4 },
     { L"(06) Not Used", 0x3f00d00, 0x3f00d20, indexCPS2Sprites_ChunLi, 5 },
@@ -3531,7 +3531,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x3f00d60, 0x3f00d80, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)", 0x3f00d80, 0x3f00da0, indexCPS2Sprites_ChunLi, 1 },
-    { L"(03) Lightning Kicks / Kikouken / Kouken", 0x3f00da0, 0x3f00dc0, indexCPS2Sprites_ChunLi, 2 },
+    { L"(03) Lightning Kicks / Kikouken / Kikosho", 0x3f00da0, 0x3f00dc0, indexCPS2Sprites_ChunLi, 2 },
     { L"(04) Not Used", 0x3f00dc0, 0x3f00de0, indexCPS2Sprites_ChunLi, 3 },
     { L"(05) Not Used", 0x3f00de0, 0x3f00e00, indexCPS2Sprites_ChunLi, 4 },
     { L"(06) Not Used", 0x3f00e00, 0x3f00e20, indexCPS2Sprites_ChunLi, 5 },
@@ -3543,7 +3543,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x3f00e60, 0x3f00e80, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)", 0x3f00e80, 0x3f00ea0, indexCPS2Sprites_ChunLi, 1 },
-    { L"(03) Lightning Kicks / Kikouken / Kouken", 0x3f00ea0, 0x3f00ec0, indexCPS2Sprites_ChunLi, 2 },
+    { L"(03) Lightning Kicks / Kikouken / Kikosho", 0x3f00ea0, 0x3f00ec0, indexCPS2Sprites_ChunLi, 2 },
     { L"(04) Not Used", 0x3f00ec0, 0x3f00ee0, indexCPS2Sprites_ChunLi, 3 },
     { L"(05) Not Used", 0x3f00ee0, 0x3f00f00, indexCPS2Sprites_ChunLi, 4 },
     { L"(06) Not Used", 0x3f00f00, 0x3f00f20, indexCPS2Sprites_ChunLi, 5 },

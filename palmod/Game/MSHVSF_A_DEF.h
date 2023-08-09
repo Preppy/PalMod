@@ -375,14 +375,14 @@ const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P1 Color (Punch)",   0x727Cc, 0x727Ec, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"P1 Keiokuken (shades)", 0x727Ec, 0x7280c, indexCPS2Sprites_ChunLi, 1 },
-    { L"P1 Kikosho",         0x7280c, 0x7282c, indexCPS2Sprites_ChunLi, 2 },
+    { L"P1 Lightning Kicks / Kikouken / Kikosho", 0x7280c, 0x7282c, indexCPS2Sprites_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)",    0x7282c, 0x7284c, indexCPS2Sprites_ChunLi, 0, &pairNext },
     { L"P2 Keiokuken (shades)", 0x7284c, 0x7286c, indexCPS2Sprites_ChunLi, 1 },
-    { L"P2 Kikosho",         0x7286c, 0x7288c, indexCPS2Sprites_ChunLi, 2 },
+    { L"P2 Lightning Kicks / Kikouken / Kikosho", 0x7286c, 0x7288c, indexCPS2Sprites_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH[] =

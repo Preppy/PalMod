@@ -2750,7 +2750,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CHUNLI =
 { //1B: Chun-Li" },
     { 0x00, L"Main Color", 0x00, indexCPS2Sprites_ChunLi, &pairNext },
     { 0x01, L"(02) Keiokuken (shades)", 0x01 },
-    { 0x02, L"(03) Lightning Kicks / Kikouken / Kouken" },
+    { 0x02, L"(03) Lightning Kicks / Kikouken / Kikosho" },
     { 0x03, L"(04) Not Used" },
     { 0x04, L"(05) Not Used" },
     { 0x05, L"(06) Not Used" },

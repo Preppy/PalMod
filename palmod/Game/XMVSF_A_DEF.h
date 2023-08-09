@@ -650,28 +650,28 @@ const sGame_PaletteDataset XMVSF_A_ChunLi_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x15b9a, 0x15bba, indexCPS2Sprites_ChunLi, 0x00, &pairNext },
     { L"P1 Keiokuken (shades)", 0x15bba, 0x15bda, indexCPS2Sprites_ChunLi, 0x01 },
-    { L"P1 Kikosho", 0x15bda, 0x15bfa, indexCPS2Sprites_ChunLi, 0x02 },
+    { L"P1 Lightning Kicks / Kikouken / Kikosho", 0x15bda, 0x15bfa, indexCPS2Sprites_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLi_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x15bfa, 0x15c1a, indexCPS2Sprites_ChunLi, 0x00, &pairNext },
     { L"P2 Keiokuken (shades)", 0x15c1a, 0x15c3a, indexCPS2Sprites_ChunLi, 0x01 },
-    { L"P2 Kikosho", 0x15c3a, 0x15c5a, indexCPS2Sprites_ChunLi, 0x02 },
+    { L"P2 Lightning Kicks / Kikouken / Kikosho", 0x15c3a, 0x15c5a, indexCPS2Sprites_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLiSFA_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x164ba, 0x164da, indexCPS2Sprites_ChunLi, 0x0C, &pairNext },
     { L"P1 Keiokuken (shades)", 0x164da, 0x164fa, indexCPS2Sprites_ChunLi, 0x0F },
-    { L"P1 Kikosho", 0x164fa, 0x1651a, indexCPS2Sprites_ChunLi, 0x02 },
+    { L"P1 Lightning Kicks / Kikouken / Kikosho", 0x164fa, 0x1651a, indexCPS2Sprites_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLiSFA_PALETTES_P2[] =
 {
     { L"P2 Kick Colors", 0x1651a, 0x1653a, indexCPS2Sprites_ChunLi, 0x0C, &pairNext },
     { L"P2 Keiokuken (shades)", 0x1653a, 0x1655a, indexCPS2Sprites_ChunLi, 0x0F },
-    { L"P2 Kikosho", 0x1655a, 0x1657a, indexCPS2Sprites_ChunLi, 0x02 },
+    { L"P2 Lightning Kicks / Kikouken / Kikosho", 0x1655a, 0x1657a, indexCPS2Sprites_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_WOLVERINE_PALETTES_STATUSEFFECTS[] =
