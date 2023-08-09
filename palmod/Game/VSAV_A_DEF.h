@@ -5312,7 +5312,7 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY[] =
     { L"16BG.0.0.3", 0x4773a, 0x4783a, indexCPS2Sprites_VSAV1_Stages, 0x6f },
     { L"16BG.0.0.4", 0x4785a, 0x4789a, indexCPS2Sprites_VSAV1_Stages, 0x70 },
 
-    { L"8BG.0.0.0", 0x37492, 0x37652, indexCPS2Sprites_VSAV1_Stages, 0x71, &pairFullyLinkedNode },
+    { L"8BG.0.0.0", 0x37492, 0x37652, indexCPS2Sprites_VSAV1_Stages, 0x71 },
 
     { L"SS.0.0.0", 0x2062a, 0x206CA, indexCPS2Sprites_VSAV1_Stages, 0x72 },
 };

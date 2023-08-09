@@ -1568,36 +1568,43 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
 
                 if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
                 {
-                    const uint32_t nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
-
-                    fShouldUseAlternateLoadLogic = true;
-                    sImgTicket* pImgArray = nullptr;
-
-                    for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    if (Node03 == 0)
                     {
-                        // The palettes get added forward, but the image tickets need to be generated in reverse order
-                        const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex), ppExtraDef);
-                        if (paletteDataSetToJoin)
+                        const uint32_t nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
+
+                        fShouldUseAlternateLoadLogic = true;
+                        sImgTicket* pImgArray = nullptr;
+
+                        for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                         {
-                            if (paletteDataSetToJoin->pExtraProcessing)
+                            // The palettes get added forward, but the image tickets need to be generated in reverse order
+                            const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex), ppExtraDef);
+                            if (paletteDataSetToJoin)
                             {
-                                nBlendMode = paletteDataSetToJoin->pExtraProcessing->eBlendMode;
-                            }
-                            else
-                            {
-                                nBlendMode = BlendMode::Alpha;
-                            }
+                                if (paletteDataSetToJoin->pExtraProcessing)
+                                {
+                                    nBlendMode = paletteDataSetToJoin->pExtraProcessing->eBlendMode;
+                                }
+                                else
+                                {
+                                    nBlendMode = BlendMode::Alpha;
+                                }
 
-                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray, 0, 0, nBlendMode);
+                                pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray, 0, 0, nBlendMode);
 
-                            //Set each palette
-                            sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
-                            CreateDefPal(JoinedNode, nStageIndex);
-                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                                //Set each palette
+                                sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                                CreateDefPal(JoinedNode, nStageIndex);
+                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            }
                         }
-                    }
 
-                    ClearSetImgTicket(pImgArray);
+                        ClearSetImgTicket(pImgArray);
+                    }
+                    else
+                    {
+                        MessageBox(g_appHWnd, L"Mispaired node crash averted: please report this error so it can be properly fixed.", GetHost()->GetAppName(), MB_ICONERROR);
+                    }
                 }
                 else if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) &&
                          (paletteDataSet->pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
