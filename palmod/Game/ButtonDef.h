@@ -68,6 +68,11 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_4_BMKNS =
     L"Start", L"LK", L"HoldHPStart", L"HoldHPLK"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_4_VS_HOME =
+{
+    L"Punch", L"Kick", L"Bonus 1", L"Bonus 2"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_NEOGEO_FIVE =
 {
     L"A", L"B", L"C", L"D", L"Boss"

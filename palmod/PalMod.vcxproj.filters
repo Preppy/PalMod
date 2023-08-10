@@ -457,15 +457,6 @@
     <Filter Include="Games\SNK Games\Fatal Fury 2">
       <UniqueIdentifier>{beb3d933-be7a-4973-b797-22d5962721ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\PS2">
-      <UniqueIdentifier>{3d005acd-6996-4044-9066-c10aeb79a7f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\PS2\Fist of the North Star">
-      <UniqueIdentifier>{92e91d1b-55d6-4ed5-bf35-830aba8d0c04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\PS2\Sengoku BASARA X">
-      <UniqueIdentifier>{c0db6b95-a63f-4c5f-8208-c7db2221f32e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Other Platforms\Persona 4 Arena">
       <UniqueIdentifier>{4e88659a-4bad-47c6-a28a-427ba926dcc0}</UniqueIdentifier>
     </Filter>
@@ -570,6 +561,18 @@
     </Filter>
     <Filter Include="Games\Nintendo\Tekken Advance %28GBA%29">
       <UniqueIdentifier>{0bb30a4a-ef25-4936-8ae2-07c95e94c901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Capcom Games\MVC_P">
+      <UniqueIdentifier>{178a1970-d6c0-4c1a-a093-5d02c22eeff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\PS2">
+      <UniqueIdentifier>{3d005acd-6996-4044-9066-c10aeb79a7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\PS2\Fist of the North Star">
+      <UniqueIdentifier>{92e91d1b-55d6-4ed5-bf35-830aba8d0c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\PS2\Sengoku BASARA X">
+      <UniqueIdentifier>{c0db6b95-a63f-4c5f-8208-c7db2221f32e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2032,6 +2035,12 @@
     </ClInclude>
     <ClInclude Include="RLEData.h">
       <Filter>Images\IMaGe DATabase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MvC_P.h">
+      <Filter>Games\Capcom Games\MVC_P</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MvC_P_DEF.h">
+      <Filter>Games\Capcom Games\MVC_P</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

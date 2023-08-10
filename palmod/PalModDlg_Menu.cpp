@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 195, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 196, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -103,6 +103,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             break;
         case CVS2_D:
             pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.";
+            break;
+        case MVC_P:
+            pszExtraInfo = L"We need the PLxx_xx.A0 files from the DAT folder of the game image.";
             break;
         case MVC2_P:
             pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.\nFor the PS3 version, select the folder \"gdrom\" under \"NPUB30068\\USRDIR\".";

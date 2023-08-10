@@ -531,6 +531,7 @@ BEGIN
             END
             MENUITEM "Mighty Warriors",             ID_LD_MWARR
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
+            MENUITEM "MvC (PSX)", ID_LD_MVCPSXUSA
             POPUP "MvC2"
             BEGIN
                 MENUITEM "Arcade (NAOMI)",              ID_LD_MVC2ARCADE

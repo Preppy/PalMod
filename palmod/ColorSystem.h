@@ -23,7 +23,7 @@ enum class ColMode
     // If you add new color modes that users would want to use, you need to update CGame_NEOGEO_A::SetAlphaAndColorModeInternal
     // as well as rgColorNameToFormatMap
     // Don't change the order of this list: we emit copy strings that rely upon the ordering
-    COLMODE_BGR555_LE,      // BGR555 little endian (GBA)
+    COLMODE_BGR555_LE,      // BGR555 little endian (GBA, PSX, SNES)
     COLMODE_RGB444_BE,      // RGB444 big endian (CPS1/2)
     COLMODE_RGB444_LE,      // RGB444 little endian (SF 30th steam)
     COLMODE_RGB555_LE,      // RGB555 little endian (CPS3)

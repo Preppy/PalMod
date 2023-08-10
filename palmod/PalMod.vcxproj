@@ -504,6 +504,7 @@
     <ClInclude Include="Game\Game_MVC2_D.h" />
     <ClInclude Include="Game\Game_MVC2_P.h" />
     <ClInclude Include="Game\Game_MVC_A.h" />
+    <ClInclude Include="Game\Game_MvC_P.h" />
     <ClInclude Include="Game\Game_MWarr_A_DIR.h" />
     <ClInclude Include="Game\Game_NBHID_S.h" />
     <ClInclude Include="Game\Game_NeoBomberman_A.h" />
@@ -634,6 +635,7 @@
     <ClInclude Include="Game\MVC2_D_Def.h" />
     <ClInclude Include="Game\mvc2_supp.h" />
     <ClInclude Include="Game\MVC_A_DEF.h" />
+    <ClInclude Include="Game\MvC_P_DEF.h" />
     <ClInclude Include="Game\MWARR_A_DIR_DEF.h" />
     <ClInclude Include="Game\NBHID_S_DEF.h" />
     <ClInclude Include="Game\NeoBomberman_A_DEF.h" />

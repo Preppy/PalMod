@@ -94,6 +94,7 @@
 #include "Game_MSHVSF_A.h"
 #include "Game_MSHWOTG_SNES.h"
 #include "Game_MVC_A.h"
+#include "Game_MVC_P.h"
 #include "Game_MVC2_A.h"
 #include "Game_MVC2_A_DIR.h"
 #include "Game_MVC2_D.h"
@@ -168,7 +169,7 @@
 #include "Game_XMVSF_A.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 195, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 196, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -278,13 +279,14 @@ namespace KnownGameInfo
     CGameClass* Make_MSHVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHVSF_A(nConfirmedROMSize); }
     CGameClass* Make_MSHWOTG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHWOTG_SNES(nConfirmedROMSize); }
     CGameClass* Make_MSH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSH_A(nConfirmedROMSize); }
+    CGameClass* Make_MVC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_A(nConfirmedROMSize); }
+    CGameClass* Make_MVC_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_D(nConfirmedROMSize); }
+    CGameClass* Make_MVC_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_P(nConfirmedROMSize); }
     CGameClass* Make_MVC2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize); }
     CGameClass* Make_MVC2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_MVC2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize); }
     CGameClass* Make_MVC2_D_16(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize); }
     CGameClass* Make_MVC2_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_P(nConfirmedROMSize); }
-    CGameClass* Make_MVC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_A(nConfirmedROMSize); }
-    CGameClass* Make_MVC_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_D(nConfirmedROMSize); }
     CGameClass* Make_MWARR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MWarr_A_DIR(-1); }
     CGameClass* Make_NBHID_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_NL(nConfirmedROMSize); }
     CGameClass* Make_NBHID_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_P(nConfirmedROMSize); }
@@ -1158,6 +1160,16 @@ namespace KnownGameInfo
             CGame_MVC_D::GetRule,
         },
         {
+            MVC_P,
+            L"Marvel vs Capcom (PSX)",
+            {},
+            Make_MVC_P,
+            CGame_MVC_P::GetRule,
+            CGame_MVC_P::GetNextRule,
+            CGame_MVC_P::GetRuleCtr,
+            CGame_MVC_P::ResetRuleCtr,
+        },
+        {
             MMX_SNES,
             L"Mega Man X (SNES)",
             { MMX_SNES,         L"Mega Man X", L"Mega Man X (SNES)|Mega*Man X (USA).s?c;sns-rx-0 p0.u1|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -1883,7 +1895,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 195, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 196, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
