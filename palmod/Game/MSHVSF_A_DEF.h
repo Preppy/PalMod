@@ -314,35 +314,35 @@ const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P Palette",       0x7258c, 0x725Ac, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",    0x725Ac, 0x725Cc, indexCPS2Sprites_Blackheart, 0x01 },
+    { L"P HP/HK Demons (hurt)", 0x725Cc, 0x725Ec, indexCPS2Sprites_Blackheart, 0x02 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK[] =
 {
     { L"K Palette",        0x725Ec, 0x7260c, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",    0x7260c, 0x7262c, indexCPS2Sprites_Blackheart, 0x01 },
+    { L"K HP/HK Demons (hurt)", 0x7262c, 0x7264c, indexCPS2Sprites_Blackheart, 0x02 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P Palette",        0x7334c, 0x7336c, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",     0x7336c, 0x7338c, indexCPS2Sprites_Blackheart, 0x01 },
+    { L"P HP/HK Demons (hurt)", 0x7338c, 0x733Ac, indexCPS2Sprites_Blackheart, 0x02 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK[] =
 {
     { L"K Palette",          0x733Ac, 0x733Cc, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",      0x733cc, 0x733ec, indexCPS2Sprites_Blackheart, 0x01 },
+    { L"K HP/HK Demons (hurt)", 0x733Ec, 0x7340c, indexCPS2Sprites_Blackheart, 0x02 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED[] =
 {
     //{ L"P Extras 1?", 0x76BEc, 0x76C0c }, // doesn't match mvc2 anything bugbug
     { L"P HP/HK Demons", 0x769Cc, 0x769Ec, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Blackheart P HP/HK Demons (hurt)", 0x725Cc, 0x725Ec, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Mephisto P HP/HK Demons (hurt)", 0x7338c, 0x733Ac, indexCPS2Sprites_Blackheart, 0x02 },
     { L"K HP/HK Demons", 0x76B4c, 0x76B6c, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Blackheart K HP/HK Demons (hurt)", 0x7262c, 0x7264c, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Mephisto K HP/HK Demons (hurt)", 0x733Ec, 0x7340c, indexCPS2Sprites_Blackheart, 0x02 },
     { L"Dark Thunder (HCF+P)", 0x769Ec, 0x76A0c, indexCPS2Sprites_Blackheart, 0x01 },
     { L"Thunder Inferno (HCB+LP)", 0x76A0c, 0x76A2c, indexCPS2Sprites_Blackheart, 0x09 },
     { L"Ice Inferno (HCB+MP)", 0x76A2c, 0x76A4c, indexCPS2Sprites_Blackheart, 0x08 },
@@ -647,7 +647,7 @@ const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P2COLOR_KICK[] =
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P Palette",  0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
-    { L"P Hadouken",       0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
+    { L"P Hadouken",       0x72CAc, 0x72CCc, indexCPS2Sprites_Sakura, 1 },
     { L"P Friend (Kei)",   0x77FCc, 0x77FEc, indexCPS2Sprites_Sakura, 0x09, &pairNext },
     { L"P Bag",            0x77FEc, 0x7800c, indexCPS2Sprites_Sakura, 0x0a },
 
@@ -657,7 +657,7 @@ const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK[] =
 {
     { L"K Palette",   0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
-    { L"K Hadouken",       0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
+    { L"K Hadouken",       0x72D0c, 0x72D2c, indexCPS2Sprites_Sakura, 1 },
     { L"K Friend (Kei)",   0x7800c, 0x7802c, indexCPS2Sprites_Sakura, 0x09, &pairNext },
     { L"K Bag",            0x7802c, 0x7804c, indexCPS2Sprites_Sakura, 0x0a },
 

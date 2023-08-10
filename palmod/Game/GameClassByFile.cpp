@@ -188,6 +188,7 @@ void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_Co
     //Set the image out display type
     m_DisplayType = gameLoadingData.displayStyle;
     SetAlphaMode(gameLoadingData.eAlphaMode);
+    m_pButtonLabelSet = gameLoadingData.rgszButtonlabels;
 
     if (ColorSystem::IsAlphaModeMutable(gameLoadingData.eAlphaMode))
     {

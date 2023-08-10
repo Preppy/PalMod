@@ -218,6 +218,7 @@ enum SupportedGamesList
     CVS2_P,
     MVC_D,
     MVC_P,
+    MSHVSF_P,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

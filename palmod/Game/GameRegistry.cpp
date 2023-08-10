@@ -92,6 +92,7 @@
 #include "Game_MMX3_SNES.h"
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
+#include "Game_MSHVSF_P.h"
 #include "Game_MSHWOTG_SNES.h"
 #include "Game_MVC_A.h"
 #include "Game_MVC_P.h"
@@ -169,7 +170,7 @@
 #include "Game_XMVSF_A.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 196, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 197, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -277,6 +278,7 @@ namespace KnownGameInfo
     CGameClass* Make_MMX3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMX3_SNES(nConfirmedROMSize); }
     CGameClass* Make_MMX_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMX_SNES(nConfirmedROMSize); }
     CGameClass* Make_MSHVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHVSF_A(nConfirmedROMSize); }
+    CGameClass* Make_MSHVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHVSF_P(nConfirmedROMSize); }
     CGameClass* Make_MSHWOTG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHWOTG_SNES(nConfirmedROMSize); }
     CGameClass* Make_MSH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSH_A(nConfirmedROMSize); }
     CGameClass* Make_MVC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_A(nConfirmedROMSize); }
@@ -1226,6 +1228,16 @@ namespace KnownGameInfo
             CGame_MSHVSF_A::GetRule,
         },
         {
+            MSHVSF_P,
+            L"MSHvSF (PSX)",
+            {},
+            Make_MSHVSF_P,
+            CGame_MSHVSF_P::GetRule,
+            CGame_MSHVSF_P::GetNextRule,
+            CGame_MSHVSF_P::GetRuleCtr,
+            CGame_MSHVSF_P::ResetRuleCtr,
+        },
+        {
             MSHWOTG_SNES,
             L"Marvel Super Heroes: War of the Gems (SNES)",
             { MSHWOTG_SNES,     L"MSH: War of the Gems", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -1895,7 +1907,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 196, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 197, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

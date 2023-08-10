@@ -497,6 +497,7 @@
     <ClInclude Include="Game\Game_MMX3_SNES.h" />
     <ClInclude Include="Game\Game_MMX_SNES.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
+    <ClInclude Include="Game\Game_MSHVSF_P.h" />
     <ClInclude Include="Game\Game_MSHWOTG_SNES.h" />
     <ClInclude Include="Game\Game_MSH_A.h" />
     <ClInclude Include="Game\Game_MVC2_A.h" />
@@ -628,6 +629,7 @@
     <ClInclude Include="Game\MMX3_SNES_DEF.h" />
     <ClInclude Include="Game\MMX_SNES_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
+    <ClInclude Include="Game\MSHVSF_P_DEF.h" />
     <ClInclude Include="Game\MSHWOTG_SNES_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />
     <ClInclude Include="Game\MVC2_A_DEF.h" />

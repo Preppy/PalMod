@@ -533,6 +533,7 @@ BEGIN
             END
             MENUITEM "Mighty Warriors",             ID_LD_MWARR
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
+            MENUITEM "MSHvSF (PSX)",                ID_LD_MSHVSFP
             MENUITEM "MvC (PSX)",                   ID_LD_MVCPSXUSA
             POPUP "MvC2"
             BEGIN

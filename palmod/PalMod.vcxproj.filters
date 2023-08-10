@@ -574,6 +574,9 @@
     <Filter Include="Games\PS2\Sengoku BASARA X">
       <UniqueIdentifier>{c0db6b95-a63f-4c5f-8208-c7db2221f32e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\MSHVSF_P">
+      <UniqueIdentifier>{9ed39276-ab87-422e-862b-80b281cf24cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2041,6 +2044,12 @@
     </ClInclude>
     <ClInclude Include="Game\MvC_P_DEF.h">
       <Filter>Games\Capcom Games\MVC_P</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MSHVSF_P.h">
+      <Filter>Games\Capcom Games\MSHVSF_P</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MSHVSF_P_DEF.h">
+      <Filter>Games\Capcom Games\MSHVSF_P</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
