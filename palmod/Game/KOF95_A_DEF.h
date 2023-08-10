@@ -731,6 +731,40 @@ const sGame_PaletteDataset KOF95_A_OMEGARUGAL_ALT_PALETTES[] =
     { L"Lifebar Portrait Defeated/Grayed", 0xdf7e0, 0xdf800, indexKOF95Sprites_OmegaRugal, 0x40 },
 };
 
+const sGame_PaletteDataset KOF95_A_TERRY_SHARED_PALETTES[] =
+{
+    { L"Power Dunk", 0xd8020, 0xd8040 },
+    { L"Power Geyser", 0xd8120, 0xd8140 },
+    { L"Power Wave", 0xd81c0, 0xd81e0 },
+};
+
+const sGame_PaletteDataset KOF95_A_JOE_SHARED_PALETTES[] =
+{
+    { L"Screw Upper", 0xd8100, 0xd8120 },
+};
+
+const sGame_PaletteDataset KOF95_A_ATHENA_SHARED_PALETTES[] =
+{
+    { L"Projectile Startup", 0xd8160, 0xd8180 },
+};
+
+const sGame_PaletteDataset KOF95_A_YURI_SHARED_PALETTES[] =
+{
+    { L"Projectile", 0xd8240, 0xd8260 },
+};
+
+const sGame_PaletteDataset KOF95_A_IORI_SHARED_PALETTES[] =
+{
+    { L"Projectile", 0xd8320, 0xd8340 },
+    { L"Projectile Trails", 0xd8140, 0xd8160 },
+    { L"DP Effects", 0xd8300, 0xd8320 },
+};
+
+const sGame_PaletteDataset KOF95_A_MAI_SHARED_PALETTES[] =
+{
+    { L"Effects", 0xd8340, 0xd8360 },
+};
+
 const sDescTreeNode KOF95_A_HEIDERN_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF95_A_HEIDERN_MAIN_PALETTES, ARRAYSIZE(KOF95_A_HEIDERN_MAIN_PALETTES) },
@@ -753,6 +787,7 @@ const sDescTreeNode KOF95_A_ATHENA_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF95_A_ATHENA_MAIN_PALETTES, ARRAYSIZE(KOF95_A_ATHENA_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF95_A_ATHENA_ALT_PALETTES, ARRAYSIZE(KOF95_A_ATHENA_ALT_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)KOF95_A_ATHENA_SHARED_PALETTES, ARRAYSIZE(KOF95_A_ATHENA_SHARED_PALETTES) },
 };
 
 const sDescTreeNode KOF95_A_KENSOU_COLLECTION[] =
@@ -789,6 +824,7 @@ const sDescTreeNode KOF95_A_IORI_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF95_A_IORI_MAIN_PALETTES, ARRAYSIZE(KOF95_A_IORI_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF95_A_IORI_ALT_PALETTES, ARRAYSIZE(KOF95_A_IORI_ALT_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)KOF95_A_IORI_SHARED_PALETTES, ARRAYSIZE(KOF95_A_IORI_SHARED_PALETTES) },
 };
 
 const sDescTreeNode KOF95_A_EIJI_COLLECTION[] =
@@ -825,6 +861,7 @@ const sDescTreeNode KOF95_A_TERRY_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF95_A_TERRY_MAIN_PALETTES, ARRAYSIZE(KOF95_A_TERRY_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF95_A_TERRY_ALT_PALETTES, ARRAYSIZE(KOF95_A_TERRY_ALT_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)KOF95_A_TERRY_SHARED_PALETTES, ARRAYSIZE(KOF95_A_TERRY_SHARED_PALETTES) },
 };
 
 const sDescTreeNode KOF95_A_ANDY_COLLECTION[] =
@@ -837,6 +874,7 @@ const sDescTreeNode KOF95_A_JOE_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF95_A_JOE_MAIN_PALETTES, ARRAYSIZE(KOF95_A_JOE_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF95_A_JOE_ALT_PALETTES, ARRAYSIZE(KOF95_A_JOE_ALT_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)KOF95_A_JOE_SHARED_PALETTES, ARRAYSIZE(KOF95_A_JOE_SHARED_PALETTES) },
 };
 
 const sDescTreeNode KOF95_A_RYO_COLLECTION[] =
@@ -861,12 +899,14 @@ const sDescTreeNode KOF95_A_YURI_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF95_A_YURI_MAIN_PALETTES, ARRAYSIZE(KOF95_A_YURI_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF95_A_YURI_ALT_PALETTES, ARRAYSIZE(KOF95_A_YURI_ALT_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)KOF95_A_YURI_SHARED_PALETTES, ARRAYSIZE(KOF95_A_YURI_SHARED_PALETTES) },
 };
 
 const sDescTreeNode KOF95_A_MAI_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF95_A_MAI_MAIN_PALETTES, ARRAYSIZE(KOF95_A_MAI_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF95_A_MAI_ALT_PALETTES, ARRAYSIZE(KOF95_A_MAI_ALT_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)KOF95_A_MAI_SHARED_PALETTES, ARRAYSIZE(KOF95_A_MAI_SHARED_PALETTES) },
 };
 
 const sDescTreeNode KOF95_A_KING_COLLECTION[] =
@@ -985,9 +1025,46 @@ const sGame_PaletteDataset KOF95_A_BONUS_EFFECTS_PALETTES[] =
     { L"Orochi Fire Palette",   0xe6a00, 0xe6c00 },
 };
 
+const sGame_PaletteDataset KOF95_A_BONUS_HITEFFECTS_PALETTES[] =
+{
+    { L"Hitsparks / Ground Impacts", 0xd7f40, 0xd7f60 },
+    { L"Extra Hitspark Effects #1", 0xd7e60, 0xd7e80 },
+    { L"Extra Hitspark Effects #2", 0xd7e80, 0xd7ea0 },
+    { L"Extra Hitspark Effects #3", 0xd7f00, 0xd7f20 },
+    { L"Blocksparks", 0xd7fe0, 0xd8000 },
+    { L"Stun Effects", 0xd7fc0, 0xd7fe0 },
+};
+
+const sGame_PaletteDataset KOF95_A_BONUS_SHAREDEFFECTS_PALETTES[] =
+{
+    { L"ABC Charge", 0xd7f80, 0xd7fa0 },
+    { L"Fire Projectile Startup", 0xd7f60, 0xd7f80 },
+    { L"Fire Projectiles", 0xd8000, 0xd8020 },
+    { L"Fire Projectile Impact", 0xd8060, 0xd8080 },
+    { L"Shared Fire Effects #1", 0xd7ec0, 0xd7ee0 },
+    { L"Shared Fire Effects #2", 0xd7f20, 0xd7f40 },
+    { L"Blue Projectiles", 0xd8080, 0xd80a0 },
+    { L"Wind Effects", 0xd80e0, 0xd8100 },
+    { L"Red Flashes", 0xd83a0, 0xd83c0 },
+    { L"Athena/Yuri Effects", 0xd80c0, 0xd80e0 },
+};
+
+const sGame_PaletteDataset KOF95_A_BONUS_MENU_PALETTES[] =
+{
+    { L"READY! GO!", 0xd82c0, 0xd82e0 },
+    { L"Generic Font #1", 0xd7020, 0xd7040 },
+    { L"Generic Font #2", 0xd7040, 0xd7060 },
+    { L"P1 Order", 0xe4020, 0xe4040 },
+    { L"P2 Order", 0xe4040, 0xe4060 },
+    { L"VS Icon", 0xe4060, 0xe4080 },
+};
+
 const sDescTreeNode KOF95_A_BONUS_COLLECTION[] =
 {
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF95_A_BONUS_EFFECTS_PALETTES) },
+    { L"Hit Effects", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_HITEFFECTS_PALETTES, ARRAYSIZE(KOF95_A_BONUS_HITEFFECTS_PALETTES) },
+    { L"Shared Effects", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_SHAREDEFFECTS_PALETTES, ARRAYSIZE(KOF95_A_BONUS_SHAREDEFFECTS_PALETTES) },
+    { L"Menus", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_MENU_PALETTES, ARRAYSIZE(KOF95_A_BONUS_MENU_PALETTES) },
 };
 
 const sDescTreeNode KOF95_A_UNITS[] =

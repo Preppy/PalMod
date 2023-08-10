@@ -52,8 +52,8 @@ private:
         KOF95_A_UNITS,
         ARRAYSIZE(KOF95_A_UNITS),
         L"KOF95E.txt",      // Extra filename
-        510,                // Count of palettes listed in the header
-        0xd8600,            // Lowest known location used for palettes
+        542,                // Count of palettes listed in the header
+        0xd7020,            // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_Hack
@@ -72,8 +72,8 @@ private:
         KOF95_A_UNITS,
         ARRAYSIZE(KOF95_A_UNITS),
         L"KOF95E.txt",      // Extra filename
-        510,                // Count of palettes listed in the header
-        0xd8600,            // Lowest known location used for palettes
+        542,                // Count of palettes listed in the header
+        0xd7020,            // Lowest known location used for palettes
     };
 
     // Developer-only mode to regenerate the header file quickly.
