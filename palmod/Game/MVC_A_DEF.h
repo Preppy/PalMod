@@ -1128,7 +1128,6 @@ const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P[] =
     { L"P Palette", 0x48282, 0x482a2, indexCPS2Sprites_CapAm, 0, &pairNext },
     { L"P Shield", 0x482a2, 0x482c2, indexCPS2Sprites_CapAm, 1 },
     { L"P Charging Star", 0x482c2, 0x482e2, indexCPS2Sprites_CapAm, 2 },
-    { L"P Eagle", 0x591E2, 0x59202, indexCPS2Sprites_CapAm, 3 },
 };
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_K[] =
@@ -1136,7 +1135,13 @@ const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_K[] =
     { L"K Palette", 0x482e2, 0x48302, indexCPS2Sprites_CapAm, 0, &pairNext },
     { L"K Shield", 0x48302, 0x48322, indexCPS2Sprites_CapAm, 1 },
     { L"K Charging Star", 0x48322, 0x48342, indexCPS2Sprites_CapAm, 2 },
-    { L"K Eagle", 0x59202, 0x59222, indexCPS2Sprites_CapAm, 3 },
+};
+
+const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_EXTRAS[] =
+{
+    // This is weird.  The K eagle is used everywhere.
+    { L"Eagle (Shared)", 0x59202, 0x59222, indexCPS2Sprites_CapAm, 3 },
+    { L"Unused \"P\" Eagle", 0x591E2, 0x59202, indexCPS2Sprites_CapAm, 3 },
 };
 
 const sGame_PaletteDataset MVC_A_HULK_PALETTES_P[] =
@@ -2256,6 +2261,7 @@ const sDescTreeNode MVC_A_CAPAM_COLLECTION[] =
 {
     { L"Punch", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_P,  ARRAYSIZE(MVC_A_CAPAM_PALETTES_P) },
     { L"Kick", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_K,   ARRAYSIZE(MVC_A_CAPAM_PALETTES_K) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_EXTRAS,  ARRAYSIZE(MVC_A_CAPAM_PALETTES_EXTRAS) },
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_STATUSEFFECTS, ARRAYSIZE(MVC_A_CAPAM_PALETTES_STATUSEFFECTS) },
 };
 
