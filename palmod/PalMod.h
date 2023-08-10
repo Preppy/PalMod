@@ -49,6 +49,7 @@ private:
     CPalGroup* BasePal = nullptr;
 
     BOOL m_fIsImageLoaded = FALSE;
+    BOOL m_fPreviewWasCreatedAsPeer = FALSE;
 
     CPalModDlg* PalModDlg = nullptr;
     CPreviewDlg* PreviewDlg = nullptr;

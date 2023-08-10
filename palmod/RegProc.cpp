@@ -201,7 +201,7 @@ uint16_t CRegProc::GetMaxColorsPerPageOverride()
     return static_cast<uint16_t>(s_dwMaxColorsPerPage);
 }
 
-bool CRegProc::ShouldForcePeerPreviewWindow()
+BOOL CRegProc::ShouldForcePeerPreviewWindow()
 {
     static DWORD shouldForcePeerWindow = -1;
 
@@ -228,6 +228,21 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
     }
 
     return (shouldForcePeerWindow == 1);
+}
+
+void CRegProc::SetForcePeerPreviewWindow(BOOL fForcePeer)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        DWORD dwValue = fForcePeer;
+
+        RegSetValueEx(hKey, c_mainWndForcePeerPreviewWindow, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&dwValue), sizeof(DWORD));
+
+        RegCloseKey(hKey);
+    }
 }
 
 AlphaMode CRegProc::GetAlphaModeForUnknownGame()

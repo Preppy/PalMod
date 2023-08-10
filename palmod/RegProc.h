@@ -53,7 +53,8 @@ public:
     static uint16_t GetMaxColorsPerPageOverride();
     static uint16_t GetMaxPalettePageSize();
     static DWORD dwColorsPerLine;
-    static bool ShouldForcePeerPreviewWindow();
+    static void SetForcePeerPreviewWindow(BOOL fForcePeer);
+    static BOOL ShouldForcePeerPreviewWindow();
 
     static DWORD GetOFNIndexForPaletteExport(bool fUsingBBCFOptions);
     static void StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPreferredIndex);

@@ -1300,7 +1300,8 @@ void CPalModDlg::OnSettingsSettings()
     CSettDlg SettDlg;
 
     SettDlg.m_fAllowAlphaChanges = CGameClass::AllowTransparencyEdits();
-    SettDlg.m_bUpdSupp = CGameClass::m_ShouldUsePostSetPalProc;
+    SettDlg.m_fUpdSupp = CGameClass::m_ShouldUsePostSetPalProc;
+    SettDlg.m_fPreviewIsAChild = !CRegProc::ShouldForcePeerPreviewWindow();
 
     const BOOL oldAlphaSetting = SettDlg.m_fAllowAlphaChanges;
 
@@ -1316,7 +1317,8 @@ void CPalModDlg::OnSettingsSettings()
         }
 
         CGameClass::AllowTransparencyEdits(SettDlg.m_fAllowAlphaChanges);
-        CGameClass::m_ShouldUsePostSetPalProc = SettDlg.m_bUpdSupp;
+        CGameClass::m_ShouldUsePostSetPalProc = SettDlg.m_fUpdSupp;
+        CRegProc::SetForcePeerPreviewWindow(!SettDlg.m_fPreviewIsAChild);
 
         if ((oldAlphaSetting != SettDlg.m_fAllowAlphaChanges) &&
             (GetHost()->GetCurrGame()))

@@ -195,18 +195,20 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
 END
 
-IDD_SETT_DIALOG DIALOGEX 0, 0, 261, 121
+IDD_SETT_DIALOG DIALOGEX 0, 0, 261, 149
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Advanced Settings"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "Settings",IDC_STATIC,6,6,249,106
+    GROUPBOX        "Settings",IDC_STATIC,4,0,251,140
     CONTROL         "Allow changing transparency for games that support it.\n(Not Recommended)",IDC_CALPHATRANS,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,20,230,20
     CONTROL         "Process Supplement Palettes for MvC2, SF3 (Arcade), COTA, MBTL, MSH, MSHVSF, MVC, UNICLR, and XMVSF.\n(ex: Cyclops HK, Spider-Man win poses, etc)\n(Recommended)",IDC_CUPDSUPP,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,44,230,41
-    PUSHBUTTON      "OK",IDOK,87,95,43,14
-    PUSHBUTTON      "Cancel",IDCANCEL,131,95,43,14
+    PUSHBUTTON      "OK",IDOK,87,117,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,131,117,43,14
+    CONTROL         "Preview window is a child window. (Restart PalMod to take effect)",IDC_SETT_FORCEPEER,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,85,230,20
 END
 
 IDD_IMGDDLG DIALOGEX 0, 0, 344, 278
@@ -421,7 +423,7 @@ BEGIN
 
     IDD_SETT_DIALOG, DIALOG
     BEGIN
-        BOTTOMMARGIN, 112
+        BOTTOMMARGIN, 140
     END
 
     IDD_IMGDDLG, DIALOG
@@ -531,7 +533,7 @@ BEGIN
             END
             MENUITEM "Mighty Warriors",             ID_LD_MWARR
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
-            MENUITEM "MvC (PSX)", ID_LD_MVCPSXUSA
+            MENUITEM "MvC (PSX)",                   ID_LD_MVCPSXUSA
             POPUP "MvC2"
             BEGIN
                 MENUITEM "Arcade (NAOMI)",              ID_LD_MVC2ARCADE

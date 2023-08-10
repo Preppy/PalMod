@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CSettDlg dialog
 
 class CSettDlg : public CDialog
@@ -18,7 +17,9 @@ protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
     DECLARE_MESSAGE_MAP()
+
 public:
-    BOOL m_fAllowAlphaChanges;
-    BOOL m_bUpdSupp;
+    BOOL m_fAllowAlphaChanges = FALSE;
+    BOOL m_fUpdSupp = TRUE;
+    BOOL m_fPreviewIsAChild = TRUE;
 };

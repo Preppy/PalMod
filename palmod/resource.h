@@ -69,6 +69,7 @@
 #define IDC_BSETTINGS                   1021
 #define IDC_CUPDSUPP                    1021
 #define IDC_BNEWCOL                     1022
+#define IDC_SETT_FORCEPEER              1022
 #define IDC_APPLY                       1023
 #define IDC_BUPDATE                     1023
 #define IDC_STATUS                      1024

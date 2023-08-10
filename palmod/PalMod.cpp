@@ -124,7 +124,8 @@ BOOL CPalModApp::InitInstance()
     // As a child window Preview will share taskbar space with the main window.
     // It will also always clip the main window, which is an annoyance.
     // I prefer to be parented....
-    PreviewDlg->Create(IDD_PREVIEW_DIALOG, CRegProc::ShouldForcePeerPreviewWindow() ? CWnd::GetDesktopWindow() : nullptr);
+    m_fPreviewWasCreatedAsPeer = CRegProc::ShouldForcePeerPreviewWindow();
+    PreviewDlg->Create(IDD_PREVIEW_DIALOG, m_fPreviewWasCreatedAsPeer ? CWnd::GetDesktopWindow() : nullptr);
     PreviewDlg->ShowWindow(SW_SHOW);
 
     //Load the accelerator table
@@ -140,6 +141,12 @@ BOOL CPalModApp::InitInstance()
 CPalModApp::~CPalModApp()
 {
     safe_delete(CurrGame);
+
+    if (m_fPreviewWasCreatedAsPeer)
+    {
+        PreviewDlg->DestroyWindow();
+    }
+
     safe_delete(PreviewDlg);
     safe_delete(PalModDlg);
 
