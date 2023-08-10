@@ -300,57 +300,57 @@ const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x7340c, 0x7342c, indexCPS2Sprites_Spidey, 0x00, &pairNext },
-    { L"P1 Spider-sense / Webs", 0x7342c, 0x7344c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
+    { L"P Palette",       0x7340c, 0x7342c, indexCPS2Sprites_Spidey, 0x00, &pairNext },
+    { L"P Spider-sense / Webs", 0x7342c, 0x7344c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x7346c, 0x7348c, indexCPS2Sprites_Spidey, 0x00, &pairNext },
-    { L"P2 Spider-sense / Webs", 0x7348c, 0x734Ac, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
+    { L"K Palette",        0x7346c, 0x7348c, indexCPS2Sprites_Spidey, 0x00, &pairNext },
+    { L"K Spider-sense / Webs", 0x7348c, 0x734Ac, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x7258c, 0x725Ac, indexCPS2Sprites_Blackheart },
+    { L"P Palette",       0x7258c, 0x725Ac, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",    0x725Ac, 0x725Cc, indexCPS2Sprites_Blackheart, 0x01 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x725Ec, 0x7260c, indexCPS2Sprites_Blackheart },
+    { L"K Palette",        0x725Ec, 0x7260c, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",    0x7260c, 0x7262c, indexCPS2Sprites_Blackheart, 0x01 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7334c, 0x7336c, indexCPS2Sprites_Blackheart },
+    { L"P Palette",        0x7334c, 0x7336c, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",     0x7336c, 0x7338c, indexCPS2Sprites_Blackheart, 0x01 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",          0x733Ac, 0x733Cc, indexCPS2Sprites_Blackheart },
+    { L"K Palette",          0x733Ac, 0x733Cc, indexCPS2Sprites_Blackheart },
     { L"Unused Dark Thunder",      0x733cc, 0x733ec, indexCPS2Sprites_Blackheart, 0x01 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED[] =
 {
-    //{ L"P1 Extras 1?", 0x76BEc, 0x76C0c }, // doesn't match mvc2 anything bugbug
-    { L"P1 HP/HK Demons", 0x769Cc, 0x769Ec, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Blackheart P1 HP/HK Demons (hurt)", 0x725Cc, 0x725Ec, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Mephisto P1 HP/HK Demons (hurt)", 0x7338c, 0x733Ac, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"P2 HP/HK Demons", 0x76B4c, 0x76B6c, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Blackheart P2 HP/HK Demons (hurt)", 0x7262c, 0x7264c, indexCPS2Sprites_Blackheart, 0x02 },
-    { L"Mephisto P2 HP/HK Demons (hurt)", 0x733Ec, 0x7340c, indexCPS2Sprites_Blackheart, 0x02 },
+    //{ L"P Extras 1?", 0x76BEc, 0x76C0c }, // doesn't match mvc2 anything bugbug
+    { L"P HP/HK Demons", 0x769Cc, 0x769Ec, indexCPS2Sprites_Blackheart, 0x02 },
+    { L"Blackheart P HP/HK Demons (hurt)", 0x725Cc, 0x725Ec, indexCPS2Sprites_Blackheart, 0x02 },
+    { L"Mephisto P HP/HK Demons (hurt)", 0x7338c, 0x733Ac, indexCPS2Sprites_Blackheart, 0x02 },
+    { L"K HP/HK Demons", 0x76B4c, 0x76B6c, indexCPS2Sprites_Blackheart, 0x02 },
+    { L"Blackheart K HP/HK Demons (hurt)", 0x7262c, 0x7264c, indexCPS2Sprites_Blackheart, 0x02 },
+    { L"Mephisto K HP/HK Demons (hurt)", 0x733Ec, 0x7340c, indexCPS2Sprites_Blackheart, 0x02 },
     { L"Dark Thunder (HCF+P)", 0x769Ec, 0x76A0c, indexCPS2Sprites_Blackheart, 0x01 },
     { L"Thunder Inferno (HCB+LP)", 0x76A0c, 0x76A2c, indexCPS2Sprites_Blackheart, 0x09 },
     { L"Ice Inferno (HCB+MP)", 0x76A2c, 0x76A4c, indexCPS2Sprites_Blackheart, 0x08 },
     { L"Flame Inferno (HCB+HP)", 0x76A4c, 0x76A6c, indexCPS2Sprites_Blackheart, 0x0A },
     { L"Armageddon Meteors (QCF+3P)", 0x76A8c, 0x76AAc, indexCPS2Sprites_Blackheart, 0x0B },
     { L"Heart of Darkness (QCF+3K)", 0x76BAc, 0x76BCc },
-    { L"P1 Intro Demons/H.O.D.", 0x76bec, 0x76c2c, indexCPS2Sprites_Blackheart, 0x0e },
-    { L"P2 Intro Demons/H.O.D.", 0x76c2c, 0x76c6c, indexCPS2Sprites_Blackheart, 0x0e },
+    { L"P Intro Demons/H.O.D.", 0x76bec, 0x76c2c, indexCPS2Sprites_Blackheart, 0x0e },
+    { L"K Intro Demons/H.O.D.", 0x76c2c, 0x76c6c, indexCPS2Sprites_Blackheart, 0x0e },
     { L"j.MP Lightning (All)", 0x76BCc, 0x76BEc, indexCPS2Sprites_Blackheart, 0x0D },
     { L"MP Lightning (All)", 0x76b8c, 0x76bac, indexCPS2Sprites_Blackheart, 0x0f },
     { L"Fire Hand Win Pose (All)", 0x76b6c, 0x76b8c, indexCPS2Sprites_Blackheart, 0x10 },
@@ -359,84 +359,84 @@ const sGame_PaletteDataset MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",           0x7210c, 0x7212c, indexCPS2Sprites_CapAm, 0, &pairNext },
-    { L"P1 Shield",                  0x7212c, 0x7214c, indexCPS2Sprites_CapAm, 1 },
-    { L"P1 Charging Star",           0x7214c, 0x7216c, indexCPS2Sprites_CapAm, 2 },
+    { L"P Palette",           0x7210c, 0x7212c, indexCPS2Sprites_CapAm, 0, &pairNext },
+    { L"P Shield",                  0x7212c, 0x7214c, indexCPS2Sprites_CapAm, 1 },
+    { L"P Charging Star",           0x7214c, 0x7216c, indexCPS2Sprites_CapAm, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",            0x7216c, 0x7218c, indexCPS2Sprites_CapAm, 0, &pairNext },
-    { L"P2 Shield",                  0x7218c, 0x721Ac, indexCPS2Sprites_CapAm, 1 },
-    { L"P2 Charging Star",           0x721Ac, 0x721Cc, indexCPS2Sprites_CapAm, 2 },
+    { L"K Palette",            0x7216c, 0x7218c, indexCPS2Sprites_CapAm, 0, &pairNext },
+    { L"K Shield",                  0x7218c, 0x721Ac, indexCPS2Sprites_CapAm, 1 },
+    { L"K Charging Star",           0x721Ac, 0x721Cc, indexCPS2Sprites_CapAm, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",   0x727Cc, 0x727Ec, indexCPS2Sprites_ChunLi, 0, &pairNext },
-    { L"P1 Keiokuken (shades)", 0x727Ec, 0x7280c, indexCPS2Sprites_ChunLi, 1 },
-    { L"P1 Lightning Kicks / Kikouken / Kikosho", 0x7280c, 0x7282c, indexCPS2Sprites_ChunLi, 2 },
+    { L"P Palette",   0x727Cc, 0x727Ec, indexCPS2Sprites_ChunLi, 0, &pairNext },
+    { L"P Keiokuken (shades)", 0x727Ec, 0x7280c, indexCPS2Sprites_ChunLi, 1 },
+    { L"P Lightning Kicks / Kikouken / Kikosho", 0x7280c, 0x7282c, indexCPS2Sprites_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",    0x7282c, 0x7284c, indexCPS2Sprites_ChunLi, 0, &pairNext },
-    { L"P2 Keiokuken (shades)", 0x7284c, 0x7286c, indexCPS2Sprites_ChunLi, 1 },
-    { L"P2 Lightning Kicks / Kikouken / Kikosho", 0x7286c, 0x7288c, indexCPS2Sprites_ChunLi, 2 },
+    { L"K Palette",    0x7282c, 0x7284c, indexCPS2Sprites_ChunLi, 0, &pairNext },
+    { L"K Keiokuken (shades)", 0x7284c, 0x7286c, indexCPS2Sprites_ChunLi, 1 },
+    { L"K Lightning Kicks / Kikouken / Kikosho", 0x7286c, 0x7288c, indexCPS2Sprites_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)", 0x72ECc, 0x72EEc, indexCPS2Sprites_CyberAkuma, 0, &pairNext },
-    { L"P1 Machinery, Hadouken 2", 0x72F0c, 0x72F2c, indexCPS2Sprites_CyberAkuma, 1 },
-    { L"P1 Hadouken 1 Tatsu Flames", 0x72EEc, 0x72F0c, indexCPS2Sprites_Akuma, 1 },
+    { L"P Palette", 0x72ECc, 0x72EEc, indexCPS2Sprites_CyberAkuma, 0, &pairNext },
+    { L"P Machinery, Hadouken 2", 0x72F0c, 0x72F2c, indexCPS2Sprites_CyberAkuma, 1 },
+    { L"P Hadouken 1 Tatsu Flames", 0x72EEc, 0x72F0c, indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x72F2c, 0x72F4c, indexCPS2Sprites_CyberAkuma, 0, &pairNext },
-    { L"P2 Machinery, Hadouken 2", 0x72F6c, 0x72F8c, indexCPS2Sprites_CyberAkuma, 1 },
-    { L"P2 Hadouken 1 Tatsu Flames", 0x72F4c, 0x72F6c, indexCPS2Sprites_Akuma, 1 },
+    { L"K Palette", 0x72F2c, 0x72F4c, indexCPS2Sprites_CyberAkuma, 0, &pairNext },
+    { L"K Machinery, Hadouken 2", 0x72F6c, 0x72F8c, indexCPS2Sprites_CyberAkuma, 1 },
+    { L"K Hadouken 1 Tatsu Flames", 0x72F4c, 0x72F6c, indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)", 0x71F8c, 0x71FAc, indexCPS2Sprites_Cyclops, 0, &pairNext, &secondaryMSHVSFCyclopsEffects },
-    { L"P1 HK Extra", 0x71FAc, 0x71FCc, indexCPS2Sprites_Cyclops, 1 },
-    { L"P1 Optic Blast Super", 0x71FCc, 0x71FEc, indexCPS2Sprites_Cyclops, 2 },
+    { L"P Palette", 0x71F8c, 0x71FAc, indexCPS2Sprites_Cyclops, 0, &pairNext, &secondaryMSHVSFCyclopsEffects },
+    { L"P HK Extra", 0x71FAc, 0x71FCc, indexCPS2Sprites_Cyclops, 1 },
+    { L"P Optic Blast Super", 0x71FCc, 0x71FEc, indexCPS2Sprites_Cyclops, 2 },
     // ? don't know what this maps to
     // ? don't know what this maps to
-    { L"P1 Laser FX", 0x7208C, 0x720AC, indexCPS2Sprites_Cyclops, 3 },
-    { L"P1 Intro 1", 0x7616c, 0x7618c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Intro 2", 0x7618c, 0x761Ac, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Intro 3", 0x761Ac, 0x761Cc, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Intro 4", 0x761Cc, 0x761Ec, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Intro 5", 0x761Ec, 0x7620c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Intro 6", 0x7620c, 0x7622c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Intro 7", 0x7622c, 0x7624c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Intro 8", 0x7624c, 0x7626c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P1 Extra Lighting", 0x7640c, 0x7642c, indexCPS2Sprites_Cyclops, 13 },
-    { L"P1 OOptic Light Extra / MK/HK Grab", 0x7642c, 0x7644c, indexCPS2Sprites_Cyclops, 13 },
+    { L"P Laser FX", 0x7208C, 0x720AC, indexCPS2Sprites_Cyclops, 3 },
+    { L"P Intro 1", 0x7616c, 0x7618c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Intro 2", 0x7618c, 0x761Ac, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Intro 3", 0x761Ac, 0x761Cc, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Intro 4", 0x761Cc, 0x761Ec, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Intro 5", 0x761Ec, 0x7620c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Intro 6", 0x7620c, 0x7622c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Intro 7", 0x7622c, 0x7624c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Intro 8", 0x7624c, 0x7626c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P Extra Lighting", 0x7640c, 0x7642c, indexCPS2Sprites_Cyclops, 13 },
+    { L"P Optic Light Extra / MK/HK Grab", 0x7642c, 0x7644c, indexCPS2Sprites_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x71FEc, 0x7200c, indexCPS2Sprites_Cyclops, 0, &pairNext, &secondaryMSHVSFCyclopsEffects },
-    { L"P2 HK Extra", 0x7200c, 0x7202c, indexCPS2Sprites_Cyclops, 1 },
-    { L"P2 Optic Blast Super", 0x7202c, 0x7204c, indexCPS2Sprites_Cyclops, 2 },
+    { L"K Palette", 0x71FEc, 0x7200c, indexCPS2Sprites_Cyclops, 0, &pairNext, &secondaryMSHVSFCyclopsEffects },
+    { L"K HK Extra", 0x7200c, 0x7202c, indexCPS2Sprites_Cyclops, 1 },
+    { L"K Optic Blast Super", 0x7202c, 0x7204c, indexCPS2Sprites_Cyclops, 2 },
     // ? don't know what this maps to
     // ? don't know what this maps to
-    { L"P2 Laser FX", 0x720Ec, 0x7210c, indexCPS2Sprites_Cyclops, 3 },
-    { L"P2 Intro 1", 0x7626c, 0x7628c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Intro 2", 0x7628c, 0x762Ac, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Intro 3", 0x762Ac, 0x762Cc, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Intro 4", 0x762Cc, 0x762Ec, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Intro 5", 0x762Ec, 0x7630c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Intro 6", 0x7630c, 0x7632c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Intro 7", 0x7632c, 0x7634c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Intro 8", 0x7634c, 0x7636c, indexCPS2Sprites_Cyclops, 12 },
-    { L"P2 Extra Lighting 2", 0x7644c, 0x7646c, indexCPS2Sprites_Cyclops, 13 },
-    { L"P2 Optic Light Extra / MK/HK Grab", 0x7646c, 0x7648c, indexCPS2Sprites_Cyclops, 13 },
+    { L"K Laser FX", 0x720Ec, 0x7210c, indexCPS2Sprites_Cyclops, 3 },
+    { L"K Intro 1", 0x7626c, 0x7628c, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Intro 2", 0x7628c, 0x762Ac, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Intro 3", 0x762Ac, 0x762Cc, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Intro 4", 0x762Cc, 0x762Ec, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Intro 5", 0x762Ec, 0x7630c, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Intro 6", 0x7630c, 0x7632c, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Intro 7", 0x7632c, 0x7634c, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Intro 8", 0x7634c, 0x7636c, indexCPS2Sprites_Cyclops, 12 },
+    { L"K Extra Lighting 2", 0x7644c, 0x7646c, indexCPS2Sprites_Cyclops, 13 },
+    { L"K Optic Light Extra / MK/HK Grab", 0x7646c, 0x7648c, indexCPS2Sprites_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_SHARED[] =
@@ -450,80 +450,80 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_DAN_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",  0x72E0c, 0x72E2c, indexCPS2Sprites_Dan },
-    { L"P1 gadoken blue",   0x72E2c, 0x72E4c, indexCPS2Sprites_Dan, 1 },
-    { L"P1 gadoken red",    0x72E4c, 0x72E6c, indexCPS2Sprites_Dan, 1 },
+    { L"P Palette",  0x72E0c, 0x72E2c, indexCPS2Sprites_Dan },
+    { L"P gadoken blue",   0x72E2c, 0x72E4c, indexCPS2Sprites_Dan, 1 },
+    { L"P gadoken red",    0x72E4c, 0x72E6c, indexCPS2Sprites_Dan, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DAN_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",   0x72E6c, 0x72E8c, indexCPS2Sprites_Dan },
-    { L"P2 gadoken blue",   0x72E8c, 0x72EAc, indexCPS2Sprites_Dan, 1 },
-    { L"P2 gadoken red",    0x72Eac, 0x72Ecc, indexCPS2Sprites_Dan, 1 },
+    { L"K Palette",   0x72E6c, 0x72E8c, indexCPS2Sprites_Dan },
+    { L"K gadoken blue",   0x72E8c, 0x72EAc, indexCPS2Sprites_Dan, 1 },
+    { L"K gadoken red",    0x72Eac, 0x72Ecc, indexCPS2Sprites_Dan, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DARK_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",  0x7310c, 0x7312c, indexCPS2Sprites_Sakura },
-    { L"P1 Hadouken",       0x7312c, 0x7314c, indexCPS2Sprites_Ken, 1 },
+    { L"P Palette",  0x7310c, 0x7312c, indexCPS2Sprites_Sakura },
+    { L"P Hadouken",       0x7312c, 0x7314c, indexCPS2Sprites_Ken, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",   0x7316c, 0x7318c, indexCPS2Sprites_Sakura },
-    { L"P2 Hadouken",       0x7318c, 0x731Ac, indexCPS2Sprites_Ken, 1 },
+    { L"K Palette",   0x7316c, 0x7318c, indexCPS2Sprites_Sakura },
+    { L"K Hadouken",       0x7318c, 0x731Ac, indexCPS2Sprites_Ken, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x7288c, 0x728Ac, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
-    { L"P1 Flames",              0x728Ac, 0x728Cc, indexCPS2Sprites_Dhalsim, 1 },
-    { L"P1 Sally",               0x728Cc, 0x728Ec, indexCPS2Sprites_Dhalsim, 2 },
-    { L"P1 Teleport 1",          0x76CCc, 0x76CEc, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P1 Teleport 2",          0x76CEc, 0x76D0c, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P1 Teleport 3",          0x76D0c, 0x76D2c, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P1 Teleport 4",          0x76D2c, 0x76D4c, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P1 Teleport 5 (Unused)", 0x76D4c, 0x76D6c, indexCPS2Sprites_Dhalsim, 0xb }, // This is just the all-white frame.
+    { L"P Palette",       0x7288c, 0x728Ac, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
+    { L"P Flames",              0x728Ac, 0x728Cc, indexCPS2Sprites_Dhalsim, 1 },
+    { L"P Sally",               0x728Cc, 0x728Ec, indexCPS2Sprites_Dhalsim, 2 },
+    { L"P Teleport 1",          0x76CCc, 0x76CEc, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"P Teleport 2",          0x76CEc, 0x76D0c, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"P Teleport 3",          0x76D0c, 0x76D2c, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"P Teleport 4",          0x76D2c, 0x76D4c, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"P Teleport 5 (Unused)", 0x76D4c, 0x76D6c, indexCPS2Sprites_Dhalsim, 0xb }, // This is just the all-white frame.
 
 };
 const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x728Ec, 0x7290c, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
-    { L"P2 Flames",              0x7290c, 0x7292c, indexCPS2Sprites_Dhalsim, 1 },
-    { L"P2 Sally",               0x7292c, 0x7294c, indexCPS2Sprites_Dhalsim, 2 },
-    { L"P2 Teleport 1",          0x76D6c, 0x76D8c, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P2 Teleport 2",          0x76D8c, 0x76DAc, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P2 Teleport 3",          0x76DAc, 0x76DCc, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P2 Teleport 4",          0x76DCc, 0x76DEc, indexCPS2Sprites_Dhalsim, 0xb },
-    { L"P2 Teleport 5 (Unused)", 0x76Dec, 0x76e0c, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"K Palette",        0x728Ec, 0x7290c, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
+    { L"K Flames",              0x7290c, 0x7292c, indexCPS2Sprites_Dhalsim, 1 },
+    { L"K Sally",               0x7292c, 0x7294c, indexCPS2Sprites_Dhalsim, 2 },
+    { L"K Teleport 1",          0x76D6c, 0x76D8c, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"K Teleport 2",          0x76D8c, 0x76DAc, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"K Teleport 3",          0x76DAc, 0x76DCc, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"K Teleport 4",          0x76DCc, 0x76DEc, indexCPS2Sprites_Dhalsim, 0xb },
+    { L"K Teleport 5 (Unused)", 0x76Dec, 0x76e0c, indexCPS2Sprites_Dhalsim, 0xb },
 };
 
 const sGame_PaletteDataset MSHVSF_A_AKUMA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",      0x72BCc, 0x72BEc, indexCPS2Sprites_Akuma },
+    { L"P Palette",      0x72BCc, 0x72BEc, indexCPS2Sprites_Akuma },
     { L"Hadouken",              0x72BEc, 0x72C0c, indexCPS2Sprites_Akuma, 1 },
     { L"Zankuu Hadouken",       0x72C0c, 0x72C2c, indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_AKUMA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",       0x72C2c, 0x72C4c, indexCPS2Sprites_Akuma },
+    { L"K Palette",       0x72C2c, 0x72C4c, indexCPS2Sprites_Akuma },
     { L"Hadouken",              0x72C4c, 0x72C6c, indexCPS2Sprites_Akuma, 1 },
     { L"Zankuu Hadouken",       0x72C6c, 0x72C8c, indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_HULK_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",         0x721Cc, 0x721Ec, indexCPS2Sprites_Hulk },
-    { L"P1 Gamma Charge/j.HP",     0x721Ec, 0x7220c, indexCPS2Sprites_Hulk, 1 },
-    { L"P1 Gamma Slam/Gamma Wave", 0x7220c, 0x7222c, indexCPS2Sprites_Hulk, 2 },
+    { L"P Palette",         0x721Cc, 0x721Ec, indexCPS2Sprites_Hulk },
+    { L"P Gamma Charge/j.HP",     0x721Ec, 0x7220c, indexCPS2Sprites_Hulk, 1 },
+    { L"P Gamma Slam/Gamma Wave", 0x7220c, 0x7222c, indexCPS2Sprites_Hulk, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_HULK_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",          0x7222c, 0x7224c, indexCPS2Sprites_Hulk },
-    { L"P2 Gamma Charge/j.HP",     0x7224c, 0x7226c, indexCPS2Sprites_Hulk, 1 },
-    { L"P2 Gamma Slam/Gamma Wave", 0x7226c, 0x7228c, indexCPS2Sprites_Hulk, 2 },
+    { L"K Palette",          0x7222c, 0x7224c, indexCPS2Sprites_Hulk },
+    { L"K Gamma Charge/j.HP",     0x7224c, 0x7226c, indexCPS2Sprites_Hulk, 1 },
+    { L"K Gamma Slam/Gamma Wave", 0x7226c, 0x7228c, indexCPS2Sprites_Hulk, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_HULK_PALETTES_SHARED[] =
@@ -534,56 +534,56 @@ const sGame_PaletteDataset MSHVSF_A_HULK_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_KEN_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7270c, 0x7272c, indexCPS2Sprites_Ken },
-    { L"P1 Hadouken",             0x7272c, 0x7274c, indexCPS2Sprites_Ken, 1 },
-    { L"P1 Shoryuken",            0x7274c, 0x7276c, indexCPS2Sprites_Ken, 2 },
+    { L"P Palette",        0x7270c, 0x7272c, indexCPS2Sprites_Ken },
+    { L"P Hadouken",             0x7272c, 0x7274c, indexCPS2Sprites_Ken, 1 },
+    { L"P Shoryuken",            0x7274c, 0x7276c, indexCPS2Sprites_Ken, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_KEN_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",       0x7276c, 0x7278c, indexCPS2Sprites_Ken },
-    { L"P2 Hadouken",           0x7278c, 0x727Ac, indexCPS2Sprites_Ken, 1 },
-    { L"P2 Shoryuken",          0x727Ac, 0x727Cc, indexCPS2Sprites_Ken, 2 },
+    { L"K Palette",       0x7276c, 0x7278c, indexCPS2Sprites_Ken },
+    { L"K Hadouken",           0x7278c, 0x727Ac, indexCPS2Sprites_Ken, 1 },
+    { L"K Shoryuken",          0x727Ac, 0x727Cc, indexCPS2Sprites_Ken, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MBIPSON_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x72B0c, 0x72B2c, indexCPS2Sprites_Bison },
-    { L"P1 Extras 01",           0x72B2c, 0x72B4c, indexCPS2Sprites_Bison, 0x08 },
-    { L"P1 Extras 02",           0x7708c, 0x770Ac, indexCPS2Sprites_Bison, 0x08 },
-    { L"P1 Extras 03",           0x72B4c, 0x72B6c, indexCPS2Sprites_Bison, 0x09 },
-    { L"P1 Extras 04",           0x770Ac, 0x770Cc, indexCPS2Sprites_Bison, 0x09 },
+    { L"P Palette",       0x72B0c, 0x72B2c, indexCPS2Sprites_Bison },
+    { L"P Extras 01",           0x72B2c, 0x72B4c, indexCPS2Sprites_Bison, 0x08 },
+    { L"P Extras 02",           0x7708c, 0x770Ac, indexCPS2Sprites_Bison, 0x08 },
+    { L"P Extras 03",           0x72B4c, 0x72B6c, indexCPS2Sprites_Bison, 0x09 },
+    { L"P Extras 04",           0x770Ac, 0x770Cc, indexCPS2Sprites_Bison, 0x09 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MBIPSON_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x72B6c, 0x72B8c, indexCPS2Sprites_Bison },
-    { L"P2 Extras 01",           0x72B8c, 0x72BAc, indexCPS2Sprites_Bison, 0x08 },
-    { L"P2 Extras 02",           0x770Cc, 0x770Ec, indexCPS2Sprites_Bison, 0x08 },
-    { L"P2 Extras 03",           0x72BAc, 0x72BCc, indexCPS2Sprites_Bison, 0x09 },
-    { L"P2 Extras 04",           0x770Ec, 0x7710c, indexCPS2Sprites_Bison, 0x09 },
+    { L"K Palette",        0x72B6c, 0x72B8c, indexCPS2Sprites_Bison },
+    { L"K Extras 01",           0x72B8c, 0x72BAc, indexCPS2Sprites_Bison, 0x08 },
+    { L"K Extras 02",           0x770Cc, 0x770Ec, indexCPS2Sprites_Bison, 0x08 },
+    { L"K Extras 03",           0x72BAc, 0x72BCc, indexCPS2Sprites_Bison, 0x09 },
+    { L"K Extras 04",           0x770Ec, 0x7710c, indexCPS2Sprites_Bison, 0x09 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MECH_ZANGIEF_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x72F8c, 0x72FAc, indexCPS2Sprites_Zangief },
-    { L"P1 Vodka Fire",          0x72FAc, 0x72FCc, indexCPS2Sprites_Zangief, 3 },
+    { L"P Palette",       0x72F8c, 0x72FAc, indexCPS2Sprites_Zangief },
+    { L"P Vodka Fire",          0x72FAc, 0x72FCc, indexCPS2Sprites_Zangief, 3 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MECH_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x72FEc, 0x7300c, indexCPS2Sprites_Zangief },
-    { L"P2 Vodka Fire",          0x7300c, 0x7302c, indexCPS2Sprites_Zangief, 3 },
+    { L"K Palette",        0x72FEc, 0x7300c, indexCPS2Sprites_Zangief },
+    { L"K Vodka Fire",          0x7300c, 0x7302c, indexCPS2Sprites_Zangief, 3 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MECH_ZANGIEF_PALETTES_SHARED[] =
 {
-    { L"P1+P2 Super Armor",      0x7304c, 0x7306c, indexCPS2Sprites_Zangief },
+    { L"P+K Super Armor",      0x7304c, 0x7306c, indexCPS2Sprites_Zangief },
 };
 
 const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x72D4c, 0x72D6c, indexCPS2Sprites_Norimaro, 0x00, nullptr, &secondaryMSHVSFNorimaroEffects },
+    { L"P Palette",       0x72D4c, 0x72D6c, indexCPS2Sprites_Norimaro, 0x00, nullptr, &secondaryMSHVSFNorimaroEffects },
     { L"Big Head Dash/Grab",     0x7716c, 0x7718c, indexCPS2Sprites_Norimaro, 0x02 },
     { L"Stunned",                0x7712c, 0x7714c, indexCPS2Sprites_Norimaro, 0x03 },
     { L"Variety Items",          0x72d6c, 0x72dac },
@@ -591,7 +591,7 @@ const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x72DAc, 0x72DCc, indexCPS2Sprites_Norimaro, 0x00, nullptr, &secondaryMSHVSFNorimaroEffects },
+    { L"K Palette",        0x72DAc, 0x72DCc, indexCPS2Sprites_Norimaro, 0x00, nullptr, &secondaryMSHVSFNorimaroEffects },
     { L"Big Head Dash/Grab",     0x7718c, 0x771ac, indexCPS2Sprites_Norimaro, 0x02 },
     { L"Stunned",                0x7714c, 0x7716c, indexCPS2Sprites_Norimaro, 0x03 },
     { L"Variety Items",          0x72dcc, 0x72e0c },
@@ -605,24 +605,24 @@ const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x7240c, 0x7242c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryMSHVSFOmegaRedEffects },
-    { L"P1 Intro 1", 0x764Ac, 0x764Cc, indexCPS2Sprites_OmegaRed },
-    { L"P1 Intro 2", 0x764Cc, 0x764Ec, indexCPS2Sprites_OmegaRed },
-    { L"P1 Intro 3", 0x764Ec, 0x7650c, indexCPS2Sprites_OmegaRed },
-    { L"P1 Intro 4", 0x7650c, 0x7652c, indexCPS2Sprites_OmegaRed },
-    { L"P1 Intro Shockwave 1", 0x7242c, 0x7244c, indexCPS2Sprites_OmegaRed, 0x01 },
-    { L"P1 Intro Shockwave 2", 0x7244c, 0x7246c, indexCPS2Sprites_OmegaRed, 0x02 },
+    { L"P Palette",       0x7240c, 0x7242c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryMSHVSFOmegaRedEffects },
+    { L"P Intro 1", 0x764Ac, 0x764Cc, indexCPS2Sprites_OmegaRed },
+    { L"P Intro 2", 0x764Cc, 0x764Ec, indexCPS2Sprites_OmegaRed },
+    { L"P Intro 3", 0x764Ec, 0x7650c, indexCPS2Sprites_OmegaRed },
+    { L"P Intro 4", 0x7650c, 0x7652c, indexCPS2Sprites_OmegaRed },
+    { L"P Intro Shockwave 1", 0x7242c, 0x7244c, indexCPS2Sprites_OmegaRed, 0x01 },
+    { L"P Intro Shockwave 2", 0x7244c, 0x7246c, indexCPS2Sprites_OmegaRed, 0x02 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",       0x7246c, 0x7248c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryMSHVSFOmegaRedEffects },
-    { L"P2 Intro 1", 0x7652c, 0x7654c, indexCPS2Sprites_OmegaRed },
-    { L"P2 Intro 2", 0x7654c, 0x7656c, indexCPS2Sprites_OmegaRed },
-    { L"P2 Intro 3", 0x7656c, 0x7658c, indexCPS2Sprites_OmegaRed },
-    { L"P2 Intro 4", 0x7658c, 0x765Ac, indexCPS2Sprites_OmegaRed },
-    { L"P2 Intro Shockwave 1", 0x7248c, 0x724Ac, indexCPS2Sprites_OmegaRed, 0x01 },
-    { L"P2 Intro Shockwave 2", 0x724Ac, 0x724Cc, indexCPS2Sprites_OmegaRed, 0x02 },
+    { L"K Palette",       0x7246c, 0x7248c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryMSHVSFOmegaRedEffects },
+    { L"K Intro 1", 0x7652c, 0x7654c, indexCPS2Sprites_OmegaRed },
+    { L"K Intro 2", 0x7654c, 0x7656c, indexCPS2Sprites_OmegaRed },
+    { L"K Intro 3", 0x7656c, 0x7658c, indexCPS2Sprites_OmegaRed },
+    { L"K Intro 4", 0x7658c, 0x765Ac, indexCPS2Sprites_OmegaRed },
+    { L"K Intro Shockwave 1", 0x7248c, 0x724Ac, indexCPS2Sprites_OmegaRed, 0x01 },
+    { L"K Intro Shockwave 2", 0x724Ac, 0x724Cc, indexCPS2Sprites_OmegaRed, 0x02 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_SHARED[] =
@@ -632,36 +632,36 @@ const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_SHARED[] =
     
 const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7264c, 0x7266c, indexCPS2Sprites_Ryu },
-    { L"P1 Hadouken", 0x7266c, 0x7268c, indexCPS2Sprites_Ryu, 1 },
-    { L"P1 Extra 2", 0x7268c, 0x726Ac },
+    { L"P Palette",        0x7264c, 0x7266c, indexCPS2Sprites_Ryu },
+    { L"P Hadouken", 0x7266c, 0x7268c, indexCPS2Sprites_Ryu, 1 },
+    { L"P Extra 2", 0x7268c, 0x726Ac },
 };
 
 const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x726Ac, 0x726Cc, indexCPS2Sprites_Ryu },
-    { L"P2 Hadouken", 0x726Cc, 0x726Ec, indexCPS2Sprites_Ryu, 1 },
-    { L"P2 Extra 2", 0x726Ec, 0x7270c },
+    { L"K Palette",        0x726Ac, 0x726Cc, indexCPS2Sprites_Ryu },
+    { L"K Hadouken", 0x726Cc, 0x726Ec, indexCPS2Sprites_Ryu, 1 },
+    { L"K Extra 2", 0x726Ec, 0x7270c },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",  0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
-    { L"P1 Hadouken",       0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
-    { L"P1 Friend (Kei)",   0x77FCc, 0x77FEc, indexCPS2Sprites_Sakura, 0x09, &pairNext },
-    { L"P1 Bag",            0x77FEc, 0x7800c, indexCPS2Sprites_Sakura, 0x0a },
+    { L"P Palette",  0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
+    { L"P Hadouken",       0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
+    { L"P Friend (Kei)",   0x77FCc, 0x77FEc, indexCPS2Sprites_Sakura, 0x09, &pairNext },
+    { L"P Bag",            0x77FEc, 0x7800c, indexCPS2Sprites_Sakura, 0x0a },
 
-    { L"P1 Dark Sakura?",   0x77F6c, 0x77F8c, indexCPS2Sprites_Sakura, 0x00 },
+    { L"P Dark Sakura?",   0x77F6c, 0x77F8c, indexCPS2Sprites_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",   0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
-    { L"P2 Hadouken",       0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
-    { L"P2 Friend (Kei)",   0x7800c, 0x7802c, indexCPS2Sprites_Sakura, 0x09, &pairNext },
-    { L"P2 Bag",            0x7802c, 0x7804c, indexCPS2Sprites_Sakura, 0x0a },
+    { L"K Palette",   0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
+    { L"K Hadouken",       0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
+    { L"K Friend (Kei)",   0x7800c, 0x7802c, indexCPS2Sprites_Sakura, 0x09, &pairNext },
+    { L"K Bag",            0x7802c, 0x7804c, indexCPS2Sprites_Sakura, 0x0a },
 
-    { L"P2 Dark Sakura?",   0x77F8c, 0x77Fac, indexCPS2Sprites_Sakura, 0x00 },
+    { L"K Dark Sakura?",   0x77F8c, 0x77Fac, indexCPS2Sprites_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_SHARED[] =
@@ -671,216 +671,216 @@ const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x731Cc, 0x731Ec, indexCPS2Sprites_Charlie },
-    { L"P1 Sonic Boom", 0x731Ec, 0x7320c, indexCPS2Sprites_Charlie, 1 },
-    { L"P1 Flash Kick", 0x7320c, 0x7322c, indexCPS2Sprites_Charlie, 2 },
+    { L"P Palette",       0x731Cc, 0x731Ec, indexCPS2Sprites_Charlie },
+    { L"P Sonic Boom", 0x731Ec, 0x7320c, indexCPS2Sprites_Charlie, 1 },
+    { L"P Flash Kick", 0x7320c, 0x7322c, indexCPS2Sprites_Charlie, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x7322c, 0x7324c, indexCPS2Sprites_Charlie },
-    { L"P2 Sonic Boom", 0x7324c, 0x7326c, indexCPS2Sprites_Charlie, 1 },
-    { L"P2 Flash Kick", 0x7326c, 0x7328c, indexCPS2Sprites_Charlie, 2 },
+    { L"K Palette",        0x7322c, 0x7324c, indexCPS2Sprites_Charlie },
+    { L"K Sonic Boom", 0x7324c, 0x7326c, indexCPS2Sprites_Charlie, 1 },
+    { L"K Flash Kick", 0x7326c, 0x7328c, indexCPS2Sprites_Charlie, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7234c, 0x7236c, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
-    { L"P1 Dash Frame / Guard Frame", 0x7236c, 0x7238c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P1 FP / jFP / cFP / Intro", 0x7238c, 0x723Ac, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
+    { L"P Palette",        0x7234c, 0x7236c, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
+    { L"P Dash Frame / Guard Frame", 0x7236c, 0x7238c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P FP / jFP / cFP / Intro", 0x7238c, 0x723Ac, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
 
-    { L"P1 Unknown 1", 0x7728c, 0x772Ac },
-    { L"P1 Unknown 2", 0x772Ac, 0x772Cc },
-    { L"P1 Unknown 3", 0x772Cc, 0x772Ec },
-    { L"P1 Unknown 4", 0x772Ec, 0x7730c },
-    { L"P1 Unknown 5", 0x7730c, 0x7732c },
+    { L"P Unknown 1", 0x7728c, 0x772Ac },
+    { L"P Unknown 2", 0x772Ac, 0x772Cc },
+    { L"P Unknown 3", 0x772Cc, 0x772Ec },
+    { L"P Unknown 4", 0x772Ec, 0x7730c },
+    { L"P Unknown 5", 0x7730c, 0x7732c },
 
-    { L"P1 Stone Drop 1", 0x7732c, 0x7734c, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P1 Stone Drop 2", 0x7734c, 0x7736c, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P1 Stone Drop 3", 0x7736c, 0x7738c, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P1 Stone Drop 4", 0x7738c, 0x773Ac, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P1 Stone Drop 5", 0x773Ac, 0x773Cc, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P Stone Drop 1", 0x7732c, 0x7734c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P Stone Drop 2", 0x7734c, 0x7736c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P Stone Drop 3", 0x7736c, 0x7738c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P Stone Drop 4", 0x7738c, 0x773Ac, indexCPS2Sprites_Shuma, 0x04 },
+    { L"P Stone Drop 5", 0x773Ac, 0x773Cc, indexCPS2Sprites_Shuma, 0x04 },
 
     // Unused blue region
 
     // HK grab region
-    { L"P1 Life Drain 1", 0x7750c, 0x7752c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 2", 0x7752c, 0x7754c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 3", 0x7754c, 0x7756c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 4", 0x7756c, 0x7758c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 5", 0x7758c, 0x775Ac, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 6", 0x775Ac, 0x775Cc, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 7", 0x775Cc, 0x775Ec, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 8", 0x775Ec, 0x7760c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 9", 0x7760c, 0x7762c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P1 Life Drain 10", 0x7762c, 0x7764c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 1", 0x7750c, 0x7752c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 2", 0x7752c, 0x7754c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 3", 0x7754c, 0x7756c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 4", 0x7756c, 0x7758c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 5", 0x7758c, 0x775Ac, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 6", 0x775Ac, 0x775Cc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 7", 0x775Cc, 0x775Ec, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 8", 0x775Ec, 0x7760c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 9", 0x7760c, 0x7762c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"P Life Drain 10", 0x7762c, 0x7764c, indexCPS2Sprites_Shuma, 0x05 },
 
     // HP flash
-    { L"P1 Unknown 1", 0x7764c, 0x7766c },
-    { L"P1 Unknown 2", 0x7766c, 0x7768c },
-    { L"P1 Unknown 3", 0x7768c, 0x776Ac },
-    { L"P1 Unknown 4", 0x776Ac, 0x776Cc },
-    { L"P1 HP Flash", 0x776Cc, 0x776Ec, indexCPS2Sprites_Shuma, 0x06, &pairPrevious25 },
-    { L"P1 Winpose", 0x776Ec, 0x7770c, indexCPS2Sprites_Shuma, 0x07 },
-    { L"P1 Unknown 5", 0x7770c, 0x7772c },
+    { L"P Unknown 1", 0x7764c, 0x7766c },
+    { L"P Unknown 2", 0x7766c, 0x7768c },
+    { L"P Unknown 3", 0x7768c, 0x776Ac },
+    { L"P Unknown 4", 0x776Ac, 0x776Cc },
+    { L"P HP Flash", 0x776Cc, 0x776Ec, indexCPS2Sprites_Shuma, 0x06, &pairPrevious25 },
+    { L"P Winpose", 0x776Ec, 0x7770c, indexCPS2Sprites_Shuma, 0x07 },
+    { L"P Unknown 5", 0x7770c, 0x7772c },
 
-    { L"P1 Chaos Dimension 1", 0x7772c, 0x7774c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P1 Chaos Dimension Dash 1", 0x7774c, 0x7776c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P1 Chaos Dimension 2", 0x7776c, 0x7778c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P1 Chaos Dimension Dash 2", 0x7778c, 0x777Ac, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P1 Chaos Dimension 3", 0x777Ac, 0x777Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P1 Chaos Dimension Dash 3", 0x777Cc, 0x777Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P1 Chaos Dimension 4", 0x777Ec, 0x7780c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P1 Chaos Dimension Dash 4", 0x7780c, 0x7782c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P1 Chaos Dimension 5", 0x7782c, 0x7784c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P1 Chaos Dimension Dash 5", 0x7784c, 0x7786c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P Chaos Dimension 1", 0x7772c, 0x7774c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P Chaos Dimension Dash 1", 0x7774c, 0x7776c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P Chaos Dimension 2", 0x7776c, 0x7778c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P Chaos Dimension Dash 2", 0x7778c, 0x777Ac, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P Chaos Dimension 3", 0x777Ac, 0x777Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P Chaos Dimension Dash 3", 0x777Cc, 0x777Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P Chaos Dimension 4", 0x777Ec, 0x7780c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P Chaos Dimension Dash 4", 0x7780c, 0x7782c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"P Chaos Dimension 5", 0x7782c, 0x7784c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"P Chaos Dimension Dash 5", 0x7784c, 0x7786c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
 
-    { L"P1 Mystic Smash Shadows", 0x7786c, 0x7788c, indexCPS2Sprites_Shuma, 0x08 },
+    { L"P Mystic Smash Shadows", 0x7786c, 0x7788c, indexCPS2Sprites_Shuma, 0x08 },
 
-    // { L"P1 Extra 11", 0x79C0c, 0x79C2c, indexCPS2Sprites_Shuma },//  this is shuma but doesn't fit.  excising until somebody tells me why they want it
+    // { L"P Extra 11", 0x79C0c, 0x79C2c, indexCPS2Sprites_Shuma },//  this is shuma but doesn't fit.  excising until somebody tells me why they want it
 };
 
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x723Ac, 0x723Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
-    { L"P2 Dash Frame / Guard Frame", 0x723Cc, 0x723Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P2 FP / jFP / cFP / Intro", 0x723Ec, 0x7240c, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
+    { L"K Palette", 0x723Ac, 0x723Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
+    { L"K Dash Frame / Guard Frame", 0x723Cc, 0x723Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"K FP / jFP / cFP / Intro", 0x723Ec, 0x7240c, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
 
-    { L"P2 Unknown 1", 0x7788c, 0x778Ac },
-    { L"P2 Unknown 2", 0x778Ac, 0x778Cc },
-    { L"P2 Unknown 3", 0x778Cc, 0x778Ec },
-    { L"P2 Unknown 4", 0x778Ec, 0x7790c },
-    { L"P2 Unknown 5", 0x7790c, 0x7792c },
+    { L"K Unknown 1", 0x7788c, 0x778Ac },
+    { L"K Unknown 2", 0x778Ac, 0x778Cc },
+    { L"K Unknown 3", 0x778Cc, 0x778Ec },
+    { L"K Unknown 4", 0x778Ec, 0x7790c },
+    { L"K Unknown 5", 0x7790c, 0x7792c },
 
-    { L"P2 Stone Drop 1", 0x7792c, 0x7794c, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P2 Stone Drop 2", 0x7794c, 0x7796c, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P2 Stone Drop 3", 0x7796c, 0x7798c, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P2 Stone Drop 4", 0x7798c, 0x779Ac, indexCPS2Sprites_Shuma, 0x04 },
-    { L"P2 Stone Drop 5", 0x779Ac, 0x779Cc, indexCPS2Sprites_Shuma, 0x04 },
+    { L"K Stone Drop 1", 0x7792c, 0x7794c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"K Stone Drop 2", 0x7794c, 0x7796c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"K Stone Drop 3", 0x7796c, 0x7798c, indexCPS2Sprites_Shuma, 0x04 },
+    { L"K Stone Drop 4", 0x7798c, 0x779Ac, indexCPS2Sprites_Shuma, 0x04 },
+    { L"K Stone Drop 5", 0x779Ac, 0x779Cc, indexCPS2Sprites_Shuma, 0x04 },
 
     // unused 'blue range': 799ce-77b0e
 
     // HK grab region
-    { L"P2 Life Drain 1", 0x77B0c, 0x77B2c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 2", 0x77B2c, 0x77B4c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 3", 0x77B4c, 0x77B6c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 4", 0x77B6c, 0x77B8c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 5", 0x77B8c, 0x77BAc, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 6", 0x77BAc, 0x77BCc, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 7", 0x77BCc, 0x77BEc, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 8", 0x77BEc, 0x77C0c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 9", 0x77C0c, 0x77C2c, indexCPS2Sprites_Shuma, 0x05 },
-    { L"P2 Life Drain 10", 0x77C2c, 0x77C4c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 1", 0x77B0c, 0x77B2c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 2", 0x77B2c, 0x77B4c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 3", 0x77B4c, 0x77B6c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 4", 0x77B6c, 0x77B8c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 5", 0x77B8c, 0x77BAc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 6", 0x77BAc, 0x77BCc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 7", 0x77BCc, 0x77BEc, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 8", 0x77BEc, 0x77C0c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 9", 0x77C0c, 0x77C2c, indexCPS2Sprites_Shuma, 0x05 },
+    { L"K Life Drain 10", 0x77C2c, 0x77C4c, indexCPS2Sprites_Shuma, 0x05 },
 
     // HP flash
-    { L"P2 Unknown 1", 0x77C4c, 0x77C6c },
-    { L"P2 Unknown 2", 0x77C6c, 0x77C8c },
-    { L"P2 Unknown 3", 0x77C8c, 0x77CAc },
-    { L"P2 Unknown 4", 0x77CAc, 0x77CCc },
-    { L"P2 HP Flash", 0x77CCc, 0x77CEc, indexCPS2Sprites_Shuma, 0x06, &pairPrevious25 },
-    { L"P2 Winpose", 0x77CEc, 0x77D0c, indexCPS2Sprites_Shuma, 0x07 },
-    { L"P2 Unknown 5", 0x77D0c, 0x77D2c },
+    { L"K Unknown 1", 0x77C4c, 0x77C6c },
+    { L"K Unknown 2", 0x77C6c, 0x77C8c },
+    { L"K Unknown 3", 0x77C8c, 0x77CAc },
+    { L"K Unknown 4", 0x77CAc, 0x77CCc },
+    { L"K HP Flash", 0x77CCc, 0x77CEc, indexCPS2Sprites_Shuma, 0x06, &pairPrevious25 },
+    { L"K Winpose", 0x77CEc, 0x77D0c, indexCPS2Sprites_Shuma, 0x07 },
+    { L"K Unknown 5", 0x77D0c, 0x77D2c },
 
-    { L"P2 Chaos Dimension 1", 0x77D2c, 0x77D4c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P2 Chaos Dimension Dash 1", 0x77D4c, 0x77D6c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P2 Chaos Dimension 2", 0x77D6c, 0x77D8c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P2 Chaos Dimension Dash 2", 0x77D8c, 0x77DAc, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P2 Chaos Dimension 3", 0x77DAc, 0x77DCc, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P2 Chaos Dimension Dash 3", 0x77DCc, 0x77DEc, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P2 Chaos Dimension 4", 0x77DEc, 0x77E0c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P2 Chaos Dimension Dash 4", 0x77E0c, 0x77E2c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P2 Chaos Dimension 5", 0x77E2c, 0x77E4c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
-    { L"P2 Chaos Dimension Dash 5", 0x77E4c, 0x77E6c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"K Chaos Dimension 1", 0x77D2c, 0x77D4c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"K Chaos Dimension Dash 1", 0x77D4c, 0x77D6c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"K Chaos Dimension 2", 0x77D6c, 0x77D8c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"K Chaos Dimension Dash 2", 0x77D8c, 0x77DAc, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"K Chaos Dimension 3", 0x77DAc, 0x77DCc, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"K Chaos Dimension Dash 3", 0x77DCc, 0x77DEc, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"K Chaos Dimension 4", 0x77DEc, 0x77E0c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"K Chaos Dimension Dash 4", 0x77E0c, 0x77E2c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
+    { L"K Chaos Dimension 5", 0x77E2c, 0x77E4c, indexCPS2Sprites_Shuma, 0x00, &pairNext },
+    { L"K Chaos Dimension Dash 5", 0x77E4c, 0x77E6c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
 
-    { L"P2 Mystic Smash Shadows", 0x77E6c, 0x77E8c, indexCPS2Sprites_Shuma, 0x08 },
+    { L"K Mystic Smash Shadows", 0x77E6c, 0x77E8c, indexCPS2Sprites_Shuma, 0x08 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 { // 2 is web
-    { L"P1 Color (Punch)", 0x724Cc, 0x724Ec, indexCPS2Sprites_Spidey, 0x00, &pairNext, &secondaryMSHVSFSpideyEffects },
-    { L"P1 Spider-sense / Webs", 0x724Ec, 0x7250c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
-    { L"P1 Spotlight 1", 0x7250c, 0x7252c, indexCPS2Sprites_Spidey, 13 },
-    { L"P1 Spotlight 2", 0x766cc, 0x766ec, indexCPS2Sprites_Spidey, 0x0c },
-    { L"P1 Spotlight 3 + Taunt 1", 0x766ec, 0x7670c, indexCPS2Sprites_Spidey, 0x0d },
-    { L"P1 HEY!", 0x7670c, 0x7672c, indexCPS2Sprites_Spidey, 0x0e },
-    { L"P1 Do your job!", 0x7672c, 0x7674c, indexCPS2Sprites_Spidey, 0x0f },
-    { L"P1 Intro 1", 0x765Cc, 0x765Ec, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P1 Intro 2", 0x765Ec, 0x7660c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P1 Intro 3", 0x7660c, 0x7662c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P1 Intro 4", 0x7662c, 0x7664c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P1 Intro 5", 0x7664c, 0x7666c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P1 Intro 6", 0x7666c, 0x7668c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P1 Intro 7", 0x7668c, 0x766Ac, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P1 Intro 8", 0x766Ac, 0x766Cc, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Palette", 0x724Cc, 0x724Ec, indexCPS2Sprites_Spidey, 0x00, &pairNext, &secondaryMSHVSFSpideyEffects },
+    { L"P Spider-sense / Webs", 0x724Ec, 0x7250c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
+    { L"P Spotlight 1", 0x7250c, 0x7252c, indexCPS2Sprites_Spidey, 13 },
+    { L"P Spotlight 2", 0x766cc, 0x766ec, indexCPS2Sprites_Spidey, 0x0c },
+    { L"P Spotlight 3 + Taunt 1", 0x766ec, 0x7670c, indexCPS2Sprites_Spidey, 0x0d },
+    { L"P HEY!", 0x7670c, 0x7672c, indexCPS2Sprites_Spidey, 0x0e },
+    { L"P Do your job!", 0x7672c, 0x7674c, indexCPS2Sprites_Spidey, 0x0f },
+    { L"P Intro 1", 0x765Cc, 0x765Ec, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Intro 2", 0x765Ec, 0x7660c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Intro 3", 0x7660c, 0x7662c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Intro 4", 0x7662c, 0x7664c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Intro 5", 0x7664c, 0x7666c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Intro 6", 0x7666c, 0x7668c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Intro 7", 0x7668c, 0x766Ac, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P Intro 8", 0x766Ac, 0x766Cc, indexCPS2Sprites_Spidey, 0x0B },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x7252c, 0x7254c, indexCPS2Sprites_Spidey, 0x00, &pairNext, &secondaryMSHVSFSpideyEffects },
-    { L"P2 Spider-sense / Webs", 0x7254c, 0x7256c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
-    { L"P2 Spotlight 1", 0x7256c, 0x7258c, indexCPS2Sprites_Spidey, 13 },
-    { L"P2 Spotlight 2", 0x768cc, 0x768ec, indexCPS2Sprites_Spidey, 0x0c },
-    { L"P2 Spotlight 3 + Taunt 1", 0x768ec, 0x7690c, indexCPS2Sprites_Spidey, 0x0d },
-    { L"P2 HEY!", 0x7690c, 0x7692c, indexCPS2Sprites_Spidey, 0x0e },
-    { L"P2 Do your job!", 0x7692c, 0x7694c, indexCPS2Sprites_Spidey, 0x0f },
-    { L"P2 Intro 1", 0x767Cc, 0x767Ec, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P2 Intro 2", 0x767Ec, 0x7680c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P2 Intro 3", 0x7680c, 0x7682c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P2 Intro 4", 0x7682c, 0x7684c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P2 Intro 5", 0x7684c, 0x7686c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P2 Intro 6", 0x7686c, 0x7688c, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P2 Intro 7", 0x7688c, 0x768Ac, indexCPS2Sprites_Spidey, 0x0B },
-    { L"P2 Intro 8", 0x768Ac, 0x768Cc, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Palette", 0x7252c, 0x7254c, indexCPS2Sprites_Spidey, 0x00, &pairNext, &secondaryMSHVSFSpideyEffects },
+    { L"K Spider-sense / Webs", 0x7254c, 0x7256c, indexCPS2Sprites_Spidey, 0x02, &pairPrevious },
+    { L"K Spotlight 1", 0x7256c, 0x7258c, indexCPS2Sprites_Spidey, 13 },
+    { L"K Spotlight 2", 0x768cc, 0x768ec, indexCPS2Sprites_Spidey, 0x0c },
+    { L"K Spotlight 3 + Taunt 1", 0x768ec, 0x7690c, indexCPS2Sprites_Spidey, 0x0d },
+    { L"K HEY!", 0x7690c, 0x7692c, indexCPS2Sprites_Spidey, 0x0e },
+    { L"K Do your job!", 0x7692c, 0x7694c, indexCPS2Sprites_Spidey, 0x0f },
+    { L"K Intro 1", 0x767Cc, 0x767Ec, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Intro 2", 0x767Ec, 0x7680c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Intro 3", 0x7680c, 0x7682c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Intro 4", 0x7682c, 0x7684c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Intro 5", 0x7684c, 0x7686c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Intro 6", 0x7686c, 0x7688c, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Intro 7", 0x7688c, 0x768Ac, indexCPS2Sprites_Spidey, 0x0B },
+    { L"K Intro 8", 0x768Ac, 0x768Cc, indexCPS2Sprites_Spidey, 0x0B },
 };
 
 const sGame_PaletteDataset MSHVSF_A_USAGENT_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7328c, 0x732Ac, indexCPS2Sprites_CapAm, 0, &pairNext },
-    { L"P1 Shield", 0x732Ac, 0x732Cc, indexCPS2Sprites_CapAm, 1 },
-    { L"P1 Charging Star", 0x732Cc, 0x732Ec, indexCPS2Sprites_CapAm, 2 },
+    { L"P Palette",        0x7328c, 0x732Ac, indexCPS2Sprites_CapAm, 0, &pairNext },
+    { L"P Shield", 0x732Ac, 0x732Cc, indexCPS2Sprites_CapAm, 1 },
+    { L"P Charging Star", 0x732Cc, 0x732Ec, indexCPS2Sprites_CapAm, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_USAGENT_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x732Ec, 0x7330c, indexCPS2Sprites_CapAm, 0, &pairNext },
-    { L"P2 Shield", 0x7330c, 0x7332c, indexCPS2Sprites_CapAm, 1 },
-    { L"P2 Charging Star", 0x7332c, 0x7334c, indexCPS2Sprites_CapAm, 2 },
+    { L"K Palette",        0x732Ec, 0x7330c, indexCPS2Sprites_CapAm, 0, &pairNext },
+    { L"K Shield", 0x7330c, 0x7332c, indexCPS2Sprites_CapAm, 1 },
+    { L"K Charging Star", 0x7332c, 0x7334c, indexCPS2Sprites_CapAm, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x7228c, 0x722Ac, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHVSFWolverineEffects },
-    { L"P1 Claws", 0x722Ac, 0x722Cc, indexCPS2Sprites_Wolverine, 1 },
-    { L"P1 Extras 1", 0x722Cc, 0x722Ec, indexCPS2Sprites_Wolverine, 2 },
-    { L"P1 Extras 2 (Fatal Claw)", 0x7804c, 0x7806c },
+    { L"P Palette",       0x7228c, 0x722Ac, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHVSFWolverineEffects },
+    { L"P Claws", 0x722Ac, 0x722Cc, indexCPS2Sprites_Wolverine, 1 },
+    { L"P Extras 1", 0x722Cc, 0x722Ec, indexCPS2Sprites_Wolverine, 2 },
+    { L"P Extras 2 (Fatal Claw)", 0x7804c, 0x7806c },
 };
 
 const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x722Ec, 0x7230c, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHVSFWolverineEffects },
-    { L"P2 Claws", 0x7230c, 0x7232c, indexCPS2Sprites_Wolverine, 1 },
-    { L"P2 Extras 1", 0x7232c, 0x7234c, indexCPS2Sprites_Wolverine, 2 },
-    { L"P2 Extras 2 (Fatal Claw)", 0x7806c, 0x7808c },
+    { L"K Palette",        0x722Ec, 0x7230c, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHVSFWolverineEffects },
+    { L"K Claws", 0x7230c, 0x7232c, indexCPS2Sprites_Wolverine, 1 },
+    { L"K Extras 1", 0x7232c, 0x7234c, indexCPS2Sprites_Wolverine, 2 },
+    { L"K Extras 2 (Fatal Claw)", 0x7806c, 0x7808c },
 };
 
 const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",   0x7294c, 0x7296c, indexCPS2Sprites_Zangief, 0x00, nullptr, &secondaryMSHVSFZangiefEffects },
-    { L"P1 Banishing Fist",  0x7296c, 0x7298c, indexCPS2Sprites_Zangief, 1 },
-    { L"P1 Extra 2",         0x7298c, 0x729Ac },
-    { L"P1 FAB 1",           0x72A4c, 0x72A6c, indexCPS2Sprites_Zangief },
-    { L"P1 FAB 2",           0x72A6c, 0x72A8c, indexCPS2Sprites_Zangief },
-    { L"P1 FAB 3",           0x72A8c, 0x72AAc, indexCPS2Sprites_Zangief },
+    { L"P Palette",   0x7294c, 0x7296c, indexCPS2Sprites_Zangief, 0x00, nullptr, &secondaryMSHVSFZangiefEffects },
+    { L"P Banishing Fist",  0x7296c, 0x7298c, indexCPS2Sprites_Zangief, 1 },
+    { L"P Extra 2",         0x7298c, 0x729Ac },
+    { L"P FAB 1",           0x72A4c, 0x72A6c, indexCPS2Sprites_Zangief },
+    { L"P FAB 2",           0x72A6c, 0x72A8c, indexCPS2Sprites_Zangief },
+    { L"P FAB 3",           0x72A8c, 0x72AAc, indexCPS2Sprites_Zangief },
 };
 
 const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x729Ac, 0x729Cc, indexCPS2Sprites_Zangief, 0x00, nullptr, &secondaryMSHVSFZangiefEffects },
-    { L"P2 Banishing Fist",      0x729Cc, 0x729Ec, indexCPS2Sprites_Zangief, 1 },
-    { L"P2 Extra 2",             0x729Ec, 0x72A0c },
-    { L"P2 FAB 1",               0x72AAc, 0x72ACc, indexCPS2Sprites_Zangief },
-    { L"P2 FAB 2",               0x72ACc, 0x72AEc, indexCPS2Sprites_Zangief },
-    { L"P2 FAB 3",               0x72AEc, 0x72B0c, indexCPS2Sprites_Zangief },
+    { L"K Palette",        0x729Ac, 0x729Cc, indexCPS2Sprites_Zangief, 0x00, nullptr, &secondaryMSHVSFZangiefEffects },
+    { L"K Banishing Fist",      0x729Cc, 0x729Ec, indexCPS2Sprites_Zangief, 1 },
+    { L"K Extra 2",             0x729Ec, 0x72A0c },
+    { L"K FAB 1",               0x72AAc, 0x72ACc, indexCPS2Sprites_Zangief },
+    { L"K FAB 2",               0x72ACc, 0x72AEc, indexCPS2Sprites_Zangief },
+    { L"K FAB 3",               0x72AEc, 0x72B0c, indexCPS2Sprites_Zangief },
 };
 
 #ifdef UNKNOWN_STATUS_PALETES
@@ -1324,18 +1324,18 @@ const sGame_PaletteDataset MSHVSF_A_CHARSELECT_PALETTES[] =
     { L"Mode Select 5", 0x7a06c, 0x7a08c, indexCPS2Sprites_MSHVSFAssets, 0x39 },
     { L"Mode Select 6", 0x7a08c, 0x7a0ac, indexCPS2Sprites_MSHVSFAssets, 0x39 },
     { L"Mode Select 7", 0x7a0ac, 0x7a0cc, indexCPS2Sprites_MSHVSFAssets, 0x39 },
-    { L"P1 Select Ring 1", 0x79a0c, 0x79a2c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
-    { L"P1 Select Ring 2", 0x7a10c, 0x7a12c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
-    { L"P1 Select Ring 3", 0x7a12c, 0x7a14c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
-    { L"P1 Select Ring 4", 0x7a14c, 0x7a16c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
-    { L"P1 Select Ring 5", 0x7a16c, 0x7a18c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
-    { L"P1 Select Ring 6", 0x7a18c, 0x7a1ac, indexCPS2Sprites_MSHVSFAssets, 0x2e },
-    { L"P2 Select Ring 1", 0x79a2c, 0x79a4c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
-    { L"P2 Select Ring 2", 0x7a1ac, 0x7a1cc, indexCPS2Sprites_MSHVSFAssets, 0x2f },
-    { L"P2 Select Ring 3", 0x7a1cc, 0x7a1ec, indexCPS2Sprites_MSHVSFAssets, 0x2f },
-    { L"P2 Select Ring 4", 0x7a1ec, 0x7a20c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
-    { L"P2 Select Ring 5", 0x7a20c, 0x7a22c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
-    { L"P2 Select Ring 6", 0x7a22c, 0x7a24c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
+    { L"P Select Ring 1", 0x79a0c, 0x79a2c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
+    { L"P Select Ring 2", 0x7a10c, 0x7a12c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
+    { L"P Select Ring 3", 0x7a12c, 0x7a14c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
+    { L"P Select Ring 4", 0x7a14c, 0x7a16c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
+    { L"P Select Ring 5", 0x7a16c, 0x7a18c, indexCPS2Sprites_MSHVSFAssets, 0x2e },
+    { L"P Select Ring 6", 0x7a18c, 0x7a1ac, indexCPS2Sprites_MSHVSFAssets, 0x2e },
+    { L"K Select Ring 1", 0x79a2c, 0x79a4c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
+    { L"K Select Ring 2", 0x7a1ac, 0x7a1cc, indexCPS2Sprites_MSHVSFAssets, 0x2f },
+    { L"K Select Ring 3", 0x7a1cc, 0x7a1ec, indexCPS2Sprites_MSHVSFAssets, 0x2f },
+    { L"K Select Ring 4", 0x7a1ec, 0x7a20c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
+    { L"K Select Ring 5", 0x7a20c, 0x7a22c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
+    { L"K Select Ring 6", 0x7a22c, 0x7a24c, indexCPS2Sprites_MSHVSFAssets, 0x2f },
     { L"Character Name 1", 0x79a4c, 0x79a6c, indexCPS2Sprites_MSHVSFAssets, 0x38 },
     { L"Character Name 2", 0x7a26c, 0x7a28c, indexCPS2Sprites_MSHVSFAssets, 0x38 },
     { L"Character Name 3", 0x7a28c, 0x7a2ac, indexCPS2Sprites_MSHVSFAssets, 0x38 },
@@ -1345,59 +1345,59 @@ const sGame_PaletteDataset MSHVSF_A_CHARSELECT_PALETTES[] =
 
 const sGame_PaletteDataset MSHVSF_A_SSP_PALETTES[] =
 {
-    // P1 to P2 SSP is diff 0x10E0
-    { L"A. Spider-Man P1 SSP", 0x7DA4c, 0x7DA8c, indexCPS2Sprites_Spidey, 0x31 },
-    { L"A. Spider-Man P2 SSP", 0x7EB2c, 0x7EB6c, indexCPS2Sprites_Spidey, 0x31 },
-    { L"Akuma P1 SSP", 0x7D40c, 0x7D48c, indexCPS2Sprites_Akuma, 0x31 },
-    { L"Akuma P2 SSP", 0x7E4Ec, 0x7E56c, indexCPS2Sprites_Akuma, 0x31 },
-    { L"Blackheart P1 SSP", 0x7CFAc, 0x7D02c, indexCPS2Sprites_Blackheart, 0x31 },
-    { L"Blackheart P2 SSP", 0x7E08c, 0x7E10c, indexCPS2Sprites_Blackheart, 0x31 },
-    { L"Captain America P1 SSP", 0x7CBEc, 0x7CC8c, indexCPS2Sprites_CapAm, 0x31 },
-    { L"Captain America P2 SSP", 0x7DCCc, 0x7DD6c, indexCPS2Sprites_CapAm, 0x31 },
-    { L"Chun-Li P1 SSP", 0x7D18c, 0x7D20c, indexCPS2Sprites_ChunLi, 0x31 },
-    { L"Chun-Li P2 SSP", 0x7E26c, 0x7E2Ec, indexCPS2Sprites_ChunLi, 0x31 },
-    { L"Cyber Akuma P1 SSP", 0x7D68c, 0x7D70c, indexCPS2Sprites_CyberAkuma, 0x31 },
-    { L"Cyber Akuma P2 SSP", 0x7E76c, 0x7E7Ec, indexCPS2Sprites_CyberAkuma, 0x31 },
-    { L"Cyclops P1 SSP", 0x7CB4c, 0x7CBEc, indexCPS2Sprites_Cyclops, 0x31 },
-    { L"Cyclops P2 SSP", 0x7DC2c, 0x7DCCc, indexCPS2Sprites_Cyclops, 0x31 },
-    { L"Dan P1 SSP", 0x7D5Ec, 0x7D66c, indexCPS2Sprites_Dan, 0x31 },
-    { L"Dan P2 SSP", 0x7E6Cc, 0x7E74c, indexCPS2Sprites_Dan, 0x31 },
-    { L"Dark Sakura P1 SSP", 0x7D7Cc, 0x7D84c, indexCPS2Sprites_Sakura, 0x31 },
-    { L"Dark Sakura P2 SSP", 0x7E8Ac, 0x7E92c, indexCPS2Sprites_Sakura, 0x31 },
-    { L"Dhalsim P1 SSP", 0x7D22c, 0x7D2Ac, indexCPS2Sprites_Dhalsim, 0x31 },
-    { L"Dhalsim P2 SSP", 0x7E30c, 0x7E38c, indexCPS2Sprites_Dhalsim, 0x31 },
-    { L"Hulk P1 SSP", 0x7CC8c, 0x7CCEc, indexCPS2Sprites_Hulk, 0x31 },
-    { L"Hulk P2 SSP", 0x7DD6c, 0x7DDCc, indexCPS2Sprites_Hulk, 0x31 },
-    { L"Ken P1 SSP", 0x7D0EC, 0x7D18C, indexCPS2Sprites_Ken, 0x31 },
-    { L"Ken P2 SSP", 0x7E1CC, 0x7E26C, indexCPS2Sprites_Ken, 0x31 },
-    { L"M. Bison P1 SSP", 0x7D36c, 0x7D3Ec, indexCPS2Sprites_Bison, 0x31 },
-    { L"M. Bison P2 SSP", 0x7E44c, 0x7E4Cc, indexCPS2Sprites_Bison, 0x31 },
-    { L"Mech Zangief P1 SSP", 0x7D72c, 0x7D78c, indexCPS2Sprites_Zangief, 0x31 },
-    { L"Mech Zangief P2 SSP", 0x7E80c, 0x7E86c, indexCPS2Sprites_Zangief, 0x31 },
-    { L"Mephisto P1 SSP", 0x7D9Ac, 0x7DA2c, indexCPS2Sprites_Blackheart, 0x31 },
-    { L"Mephisto P2 SSP", 0x7EA8c, 0x7EB0c, indexCPS2Sprites_Blackheart, 0x31 },
-    { L"Norimaro P1 SSP", 0x7D54c, 0x7D5Ec, indexCPS2Sprites_Norimaro, 0x31 },
-    { L"Norimaro P2 SSP", 0x7E62c, 0x7E6Cc, indexCPS2Sprites_Norimaro, 0x31 },
-    { L"Omega Red P1 SSP", 0x7CE6c, 0x7CEEc, indexCPS2Sprites_OmegaRed, 0x31 },
-    { L"Omega Red P2 SSP", 0x7DF4c, 0x7DFCc, indexCPS2Sprites_OmegaRed, 0x31 },
-    { L"Ryu P1 SSP", 0x7D04c, 0x7D0Cc, indexCPS2Sprites_Ryu, 0x31 },
-    { L"Ryu P2 SSP", 0x7E12c, 0x7E1Ac, indexCPS2Sprites_Ryu, 0x31 },
-    { L"Sakura P1 SSP", 0x7D4Ac, 0x7D52c, indexCPS2Sprites_Sakura, 0x31 },
-    { L"Sakura P2 SSP", 0x7E58c, 0x7E60c, indexCPS2Sprites_Sakura, 0x31 },
-    { L"Shadow P1 SSP", 0x7D86c, 0x7D90c, indexCPS2Sprites_Charlie, 0x31 },
-    { L"Shadow P2 SSP", 0x7E94c, 0x7E9Ec, indexCPS2Sprites_Charlie, 0x31 },
-    { L"Shuma-Gorath P1 SSP", 0x7CDCc, 0x7CE2c, indexCPS2Sprites_Shuma, 0x31 },
-    { L"Shuma-Gorath P2 SSP", 0x7DEAc, 0x7DF0c, indexCPS2Sprites_Shuma, 0x31 },
-    { L"Spider-Man P1 SSP", 0x7CF0c, 0x7CF4c, indexCPS2Sprites_Spidey, 0x31 },
-    { L"Spider-Man P2 SSP", 0x7DFEc, 0x7E02c, indexCPS2Sprites_Spidey, 0x31 },
-    { L"US Agent P1 SSP", 0x7D90c, 0x7D9Ac, indexCPS2Sprites_CapAm, 0x31 },
-    { L"US Agent P2 SSP", 0x7E9Ec, 0x7EA8c, indexCPS2Sprites_CapAm, 0x31 },
-    { L"Wolverine P1 SSP", 0x7CD2c, 0x7CDAc, indexCPS2Sprites_Wolverine, 0x31 },
-    { L"Wolverine P2 SSP", 0x7DE0c, 0x7DE8c, indexCPS2Sprites_Wolverine, 0x31 },
-    { L"Zangief P1 SSP", 0x7D2Cc, 0x7D32c, indexCPS2Sprites_Zangief, 0x31 },
-    { L"Zangief P2 SSP", 0x7E3Ac, 0x7E40c, indexCPS2Sprites_Zangief, 0x31 },
-    { L"Apocalypse P1 SSP", 0x7CAAc, 0x7CB0c, 0x4F, 0x31 },
-    { L"Apocalypse P2 SSP", 0x7DB8c, 0x7DBEc, 0x4F, 0x31 },
+    // P to K SSP is diff 0x10E0
+    { L"A. Spider-Man P SSP", 0x7DA4c, 0x7DA8c, indexCPS2Sprites_Spidey, 0x31 },
+    { L"A. Spider-Man K SSP", 0x7EB2c, 0x7EB6c, indexCPS2Sprites_Spidey, 0x31 },
+    { L"Akuma P SSP", 0x7D40c, 0x7D48c, indexCPS2Sprites_Akuma, 0x31 },
+    { L"Akuma K SSP", 0x7E4Ec, 0x7E56c, indexCPS2Sprites_Akuma, 0x31 },
+    { L"Blackheart P SSP", 0x7CFAc, 0x7D02c, indexCPS2Sprites_Blackheart, 0x31 },
+    { L"Blackheart K SSP", 0x7E08c, 0x7E10c, indexCPS2Sprites_Blackheart, 0x31 },
+    { L"Captain America P SSP", 0x7CBEc, 0x7CC8c, indexCPS2Sprites_CapAm, 0x31 },
+    { L"Captain America K SSP", 0x7DCCc, 0x7DD6c, indexCPS2Sprites_CapAm, 0x31 },
+    { L"Chun-Li P SSP", 0x7D18c, 0x7D20c, indexCPS2Sprites_ChunLi, 0x31 },
+    { L"Chun-Li K SSP", 0x7E26c, 0x7E2Ec, indexCPS2Sprites_ChunLi, 0x31 },
+    { L"Cyber Akuma P SSP", 0x7D68c, 0x7D70c, indexCPS2Sprites_CyberAkuma, 0x31 },
+    { L"Cyber Akuma K SSP", 0x7E76c, 0x7E7Ec, indexCPS2Sprites_CyberAkuma, 0x31 },
+    { L"Cyclops P SSP", 0x7CB4c, 0x7CBEc, indexCPS2Sprites_Cyclops, 0x31 },
+    { L"Cyclops K SSP", 0x7DC2c, 0x7DCCc, indexCPS2Sprites_Cyclops, 0x31 },
+    { L"Dan P SSP", 0x7D5Ec, 0x7D66c, indexCPS2Sprites_Dan, 0x31 },
+    { L"Dan K SSP", 0x7E6Cc, 0x7E74c, indexCPS2Sprites_Dan, 0x31 },
+    { L"Dark Sakura P SSP", 0x7D7Cc, 0x7D84c, indexCPS2Sprites_Sakura, 0x31 },
+    { L"Dark Sakura K SSP", 0x7E8Ac, 0x7E92c, indexCPS2Sprites_Sakura, 0x31 },
+    { L"Dhalsim P SSP", 0x7D22c, 0x7D2Ac, indexCPS2Sprites_Dhalsim, 0x31 },
+    { L"Dhalsim K SSP", 0x7E30c, 0x7E38c, indexCPS2Sprites_Dhalsim, 0x31 },
+    { L"Hulk P SSP", 0x7CC8c, 0x7CCEc, indexCPS2Sprites_Hulk, 0x31 },
+    { L"Hulk K SSP", 0x7DD6c, 0x7DDCc, indexCPS2Sprites_Hulk, 0x31 },
+    { L"Ken P SSP", 0x7D0EC, 0x7D18C, indexCPS2Sprites_Ken, 0x31 },
+    { L"Ken K SSP", 0x7E1CC, 0x7E26C, indexCPS2Sprites_Ken, 0x31 },
+    { L"M. Bison P SSP", 0x7D36c, 0x7D3Ec, indexCPS2Sprites_Bison, 0x31 },
+    { L"M. Bison K SSP", 0x7E44c, 0x7E4Cc, indexCPS2Sprites_Bison, 0x31 },
+    { L"Mech Zangief P SSP", 0x7D72c, 0x7D78c, indexCPS2Sprites_Zangief, 0x31 },
+    { L"Mech Zangief K SSP", 0x7E80c, 0x7E86c, indexCPS2Sprites_Zangief, 0x31 },
+    { L"Mephisto P SSP", 0x7D9Ac, 0x7DA2c, indexCPS2Sprites_Blackheart, 0x31 },
+    { L"Mephisto K SSP", 0x7EA8c, 0x7EB0c, indexCPS2Sprites_Blackheart, 0x31 },
+    { L"Norimaro P SSP", 0x7D54c, 0x7D5Ec, indexCPS2Sprites_Norimaro, 0x31 },
+    { L"Norimaro K SSP", 0x7E62c, 0x7E6Cc, indexCPS2Sprites_Norimaro, 0x31 },
+    { L"Omega Red P SSP", 0x7CE6c, 0x7CEEc, indexCPS2Sprites_OmegaRed, 0x31 },
+    { L"Omega Red K SSP", 0x7DF4c, 0x7DFCc, indexCPS2Sprites_OmegaRed, 0x31 },
+    { L"Ryu P SSP", 0x7D04c, 0x7D0Cc, indexCPS2Sprites_Ryu, 0x31 },
+    { L"Ryu K SSP", 0x7E12c, 0x7E1Ac, indexCPS2Sprites_Ryu, 0x31 },
+    { L"Sakura P SSP", 0x7D4Ac, 0x7D52c, indexCPS2Sprites_Sakura, 0x31 },
+    { L"Sakura K SSP", 0x7E58c, 0x7E60c, indexCPS2Sprites_Sakura, 0x31 },
+    { L"Shadow P SSP", 0x7D86c, 0x7D90c, indexCPS2Sprites_Charlie, 0x31 },
+    { L"Shadow K SSP", 0x7E94c, 0x7E9Ec, indexCPS2Sprites_Charlie, 0x31 },
+    { L"Shuma-Gorath P SSP", 0x7CDCc, 0x7CE2c, indexCPS2Sprites_Shuma, 0x31 },
+    { L"Shuma-Gorath K SSP", 0x7DEAc, 0x7DF0c, indexCPS2Sprites_Shuma, 0x31 },
+    { L"Spider-Man P SSP", 0x7CF0c, 0x7CF4c, indexCPS2Sprites_Spidey, 0x31 },
+    { L"Spider-Man K SSP", 0x7DFEc, 0x7E02c, indexCPS2Sprites_Spidey, 0x31 },
+    { L"US Agent P SSP", 0x7D90c, 0x7D9Ac, indexCPS2Sprites_CapAm, 0x31 },
+    { L"US Agent K SSP", 0x7E9Ec, 0x7EA8c, indexCPS2Sprites_CapAm, 0x31 },
+    { L"Wolverine P SSP", 0x7CD2c, 0x7CDAc, indexCPS2Sprites_Wolverine, 0x31 },
+    { L"Wolverine K SSP", 0x7DE0c, 0x7DE8c, indexCPS2Sprites_Wolverine, 0x31 },
+    { L"Zangief P SSP", 0x7D2Cc, 0x7D32c, indexCPS2Sprites_Zangief, 0x31 },
+    { L"Zangief K SSP", 0x7E3Ac, 0x7E40c, indexCPS2Sprites_Zangief, 0x31 },
+    { L"Apocalypse P SSP", 0x7CAAc, 0x7CB0c, 0x4F, 0x31 },
+    { L"Apocalypse K SSP", 0x7DB8c, 0x7DBEc, 0x4F, 0x31 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BONUS_UNPORT_PALETTES[] =
@@ -1425,64 +1425,64 @@ const sGame_PaletteDataset MSHVSF_A_BONUS_UNPORT_PALETTES[] =
 
 const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES[] =
 {
-    // P1 to P2 VSPs are also a difference of 0x10E0
-    { L"A. Spider-Man P1 VSP", 0x7FD4c, 0x7FD8c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP },
-    { L"Akuma P1 VSP", 0x7F70c, 0x7F78c, indexCPS2Sprites_Akuma, indexMSHVSF_VSP },
-    { L"Blackheart P1 VSP", 0x7F2Ac, 0x7F2Ec, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
-    { L"Captain America P1 VSP", 0x7EEEc, 0x7EF8c, indexCPS2Sprites_CapAm, indexMSHVSF_VSP },
-    { L"Captain America P2 VSP Part 1", 0x7FFCc, 0x80000 },
-    { L"Chun-Li P1 VSP", 0x7F48c, 0x7F4Ec, indexCPS2Sprites_ChunLi, indexMSHVSF_VSP },
-    { L"Cyber Akuma P1 VSP", 0x7F98c, 0x7FA2c, indexCPS2Sprites_CyberAkuma, indexMSHVSF_VSP },
-    { L"Cyclops P1 VSP", 0x7EE4c, 0x7EEEc, indexCPS2Sprites_Cyclops, indexMSHVSF_VSP },
-    { L"Cyclops P2 VSP", 0x7FF2c, 0x7FFCc, indexCPS2Sprites_Cyclops, indexMSHVSF_VSP },
-    { L"Dan P1 VSP", 0x7F8Ec, 0x7F98c, indexCPS2Sprites_Dan, indexMSHVSF_VSP },
-    { L"Dark Sakura P1 VSP", 0x7FACc, 0x7FB6c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
-    { L"Dhalsim P1 VSP", 0x7F52c, 0x7F5Cc, indexCPS2Sprites_Dhalsim, indexMSHVSF_VSP },
-    { L"Hulk P1 VSP", 0x7EF8c, 0x7EFEc, indexCPS2Sprites_Hulk, indexMSHVSF_VSP },
-    { L"Ken P1 VSP", 0x7F3Ec, 0x7F48c, indexCPS2Sprites_Ken, indexMSHVSF_VSP },
-    { L"Omega Red P1 VSP", 0x7F16c, 0x7F20c, indexCPS2Sprites_OmegaRed, indexMSHVSF_VSP },
-    { L"M. Bison P1 VSP", 0x7F66c, 0x7F70c, indexCPS2Sprites_Bison, indexMSHVSF_VSP },
-    { L"Mech Zangief P1 VSP", 0x7FA2c, 0x7FACc, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
-    { L"Mephisto P1 VSP", 0x7FCAc, 0x7FCEc, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
-    { L"Norimaro P1 VSP", 0x7F84c, 0x7F8Ec, indexCPS2Sprites_Norimaro, indexMSHVSF_VSP },
-    { L"Ryu P1 VSP", 0x7F34c, 0x7F3Ec, indexCPS2Sprites_Ryu, indexMSHVSF_VSP },
-    { L"Sakura P1 VSP", 0x7F7Ac, 0x7F84c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
-    { L"Shadow P1 VSP", 0x7FB6c, 0x7FC0c, indexCPS2Sprites_Charlie, indexMSHVSF_VSP },
-    { L"Shuma-Gorath P1 VSP", 0x7F0Cc, 0x7F14c, indexCPS2Sprites_Shuma, indexMSHVSF_VSP },
-    { L"Spider-Man P1 VSP", 0x7F20c, 0x7F24c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP },
-    { L"U.S Agent P1 VSP", 0x7FC0c, 0x7FCAc, indexCPS2Sprites_CapAm, indexMSHVSF_VSP },
-    { L"Wolverine P1 VSP", 0x7F02c, 0x7F0Cc, indexCPS2Sprites_Wolverine, indexMSHVSF_VSP },
-    { L"Zangief P1 VSP", 0x7F5Cc, 0x7F66c, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
-    { L"Apocalypse P1 VSP", 0x7EDAc, 0x7EE4c, indexCPS2Sprites_Apocalypse, indexMSHVSF_VSP },
-    { L"Apocalypse P2 VSP", 0x7FE8c, 0x7FF2c, indexCPS2Sprites_Apocalypse, indexMSHVSF_VSP },
+    // P to K VSPs are also a difference of 0x10E0
+    { L"A. Spider-Man P VSP", 0x7FD4c, 0x7FD8c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP },
+    { L"Akuma P VSP", 0x7F70c, 0x7F78c, indexCPS2Sprites_Akuma, indexMSHVSF_VSP },
+    { L"Blackheart P VSP", 0x7F2Ac, 0x7F2Ec, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
+    { L"Captain America P VSP", 0x7EEEc, 0x7EF8c, indexCPS2Sprites_CapAm, indexMSHVSF_VSP },
+    { L"Captain America K VSP Part 1", 0x7FFCc, 0x80000 },
+    { L"Chun-Li P VSP", 0x7F48c, 0x7F4Ec, indexCPS2Sprites_ChunLi, indexMSHVSF_VSP },
+    { L"Cyber Akuma P VSP", 0x7F98c, 0x7FA2c, indexCPS2Sprites_CyberAkuma, indexMSHVSF_VSP },
+    { L"Cyclops P VSP", 0x7EE4c, 0x7EEEc, indexCPS2Sprites_Cyclops, indexMSHVSF_VSP },
+    { L"Cyclops K VSP", 0x7FF2c, 0x7FFCc, indexCPS2Sprites_Cyclops, indexMSHVSF_VSP },
+    { L"Dan P VSP", 0x7F8Ec, 0x7F98c, indexCPS2Sprites_Dan, indexMSHVSF_VSP },
+    { L"Dark Sakura P VSP", 0x7FACc, 0x7FB6c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
+    { L"Dhalsim P VSP", 0x7F52c, 0x7F5Cc, indexCPS2Sprites_Dhalsim, indexMSHVSF_VSP },
+    { L"Hulk P VSP", 0x7EF8c, 0x7EFEc, indexCPS2Sprites_Hulk, indexMSHVSF_VSP },
+    { L"Ken P VSP", 0x7F3Ec, 0x7F48c, indexCPS2Sprites_Ken, indexMSHVSF_VSP },
+    { L"Omega Red P VSP", 0x7F16c, 0x7F20c, indexCPS2Sprites_OmegaRed, indexMSHVSF_VSP },
+    { L"M. Bison P VSP", 0x7F66c, 0x7F70c, indexCPS2Sprites_Bison, indexMSHVSF_VSP },
+    { L"Mech Zangief P VSP", 0x7FA2c, 0x7FACc, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
+    { L"Mephisto P VSP", 0x7FCAc, 0x7FCEc, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
+    { L"Norimaro P VSP", 0x7F84c, 0x7F8Ec, indexCPS2Sprites_Norimaro, indexMSHVSF_VSP },
+    { L"Ryu P VSP", 0x7F34c, 0x7F3Ec, indexCPS2Sprites_Ryu, indexMSHVSF_VSP },
+    { L"Sakura P VSP", 0x7F7Ac, 0x7F84c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
+    { L"Shadow P VSP", 0x7FB6c, 0x7FC0c, indexCPS2Sprites_Charlie, indexMSHVSF_VSP },
+    { L"Shuma-Gorath P VSP", 0x7F0Cc, 0x7F14c, indexCPS2Sprites_Shuma, indexMSHVSF_VSP },
+    { L"Spider-Man P VSP", 0x7F20c, 0x7F24c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP },
+    { L"U.S Agent P VSP", 0x7FC0c, 0x7FCAc, indexCPS2Sprites_CapAm, indexMSHVSF_VSP },
+    { L"Wolverine P VSP", 0x7F02c, 0x7F0Cc, indexCPS2Sprites_Wolverine, indexMSHVSF_VSP },
+    { L"Zangief P VSP", 0x7F5Cc, 0x7F66c, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
+    { L"Apocalypse P VSP", 0x7EDAc, 0x7EE4c, indexCPS2Sprites_Apocalypse, indexMSHVSF_VSP },
+    { L"Apocalypse K VSP", 0x7FE8c, 0x7FF2c, indexCPS2Sprites_Apocalypse, indexMSHVSF_VSP },
 };
 
 const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES_7B[] =
 {
-    { L"A. Spider-Man P2 VSP", 0xe2c, 0xe6c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP  },
-    { L"Akuma P2 VSP", 0x7ec, 0x86c, indexCPS2Sprites_Akuma, indexMSHVSF_VSP },
-    { L"Blackheart P2 VSP", 0x38c, 0x3cc, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
-    { L"Captain America P2 VSP Part 2", 0x000, 0x06c },
-    { L"Chun-Li P2 VSP", 0x56c, 0x5cc, indexCPS2Sprites_ChunLi, indexMSHVSF_VSP },
-    { L"Cyber Akuma P2 VSP", 0xA6c, 0xB0c, indexCPS2Sprites_CyberAkuma, indexMSHVSF_VSP },
-    { L"Dan P2 VSP", 0x9cc, 0xa6c, indexCPS2Sprites_Dan, indexMSHVSF_VSP },
-    { L"Dark Sakura P2 VSP", 0xbac, 0xc4c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
-    { L"Dhalsim P2 VSP", 0x60c, 0x6ac, indexCPS2Sprites_Dhalsim, indexMSHVSF_VSP },
-    { L"Hulk P2 VSP", 0x06c, 0x0cc, indexCPS2Sprites_Hulk, indexMSHVSF_VSP },
-    { L"Ken P2 VSP", 0x4cc, 0x56c, indexCPS2Sprites_Ken, indexMSHVSF_VSP },
-    { L"Omega Red P2 VSP", 0x24c, 0x2ec, indexCPS2Sprites_OmegaRed, indexMSHVSF_VSP },
-    { L"M. Bison P2 VSP", 0x74c, 0x7ec, indexCPS2Sprites_Bison, indexMSHVSF_VSP },
-    { L"Mech Zangief P2 VSP", 0xb0c, 0xbac, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
-    { L"Mephisto P2 VSP", 0xd8c, 0xdcc, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
-    { L"Norimaro P2 VSP", 0x92c, 0x9cc, indexCPS2Sprites_Norimaro, indexMSHVSF_VSP },
-    { L"Ryu P2 VSP", 0x42c, 0x4cc, indexCPS2Sprites_Ryu, indexMSHVSF_VSP },
-    { L"Sakura P2 VSP", 0x88c, 0x92c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
-    { L"Shadow P2 VSP", 0xC4c, 0xCEc, indexCPS2Sprites_Charlie, indexMSHVSF_VSP },
-    { L"Shuma-Gorath P2 VSP", 0x1ac, 0x22c, indexCPS2Sprites_Shuma, indexMSHVSF_VSP },
-    { L"Spider-Man P2 VSP", 0x2ec, 0x32c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP },
-    { L"US Agent P2 VSP", 0xcec, 0xd8c, indexCPS2Sprites_CapAm, indexMSHVSF_VSP },
-    { L"Wolverine P2 VSP", 0x10c, 0x1ac, indexCPS2Sprites_Wolverine, indexMSHVSF_VSP },
-    { L"Zangief P2 VSP", 0x6ac, 0x74c, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
+    { L"A. Spider-Man K VSP", 0xe2c, 0xe6c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP  },
+    { L"Akuma K VSP", 0x7ec, 0x86c, indexCPS2Sprites_Akuma, indexMSHVSF_VSP },
+    { L"Blackheart K VSP", 0x38c, 0x3cc, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
+    { L"Captain America K VSP Part 2", 0x000, 0x06c },
+    { L"Chun-Li K VSP", 0x56c, 0x5cc, indexCPS2Sprites_ChunLi, indexMSHVSF_VSP },
+    { L"Cyber Akuma K VSP", 0xA6c, 0xB0c, indexCPS2Sprites_CyberAkuma, indexMSHVSF_VSP },
+    { L"Dan K VSP", 0x9cc, 0xa6c, indexCPS2Sprites_Dan, indexMSHVSF_VSP },
+    { L"Dark Sakura K VSP", 0xbac, 0xc4c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
+    { L"Dhalsim K VSP", 0x60c, 0x6ac, indexCPS2Sprites_Dhalsim, indexMSHVSF_VSP },
+    { L"Hulk K VSP", 0x06c, 0x0cc, indexCPS2Sprites_Hulk, indexMSHVSF_VSP },
+    { L"Ken K VSP", 0x4cc, 0x56c, indexCPS2Sprites_Ken, indexMSHVSF_VSP },
+    { L"Omega Red K VSP", 0x24c, 0x2ec, indexCPS2Sprites_OmegaRed, indexMSHVSF_VSP },
+    { L"M. Bison K VSP", 0x74c, 0x7ec, indexCPS2Sprites_Bison, indexMSHVSF_VSP },
+    { L"Mech Zangief K VSP", 0xb0c, 0xbac, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
+    { L"Mephisto K VSP", 0xd8c, 0xdcc, indexCPS2Sprites_Blackheart, indexMSHVSF_VSP },
+    { L"Norimaro K VSP", 0x92c, 0x9cc, indexCPS2Sprites_Norimaro, indexMSHVSF_VSP },
+    { L"Ryu K VSP", 0x42c, 0x4cc, indexCPS2Sprites_Ryu, indexMSHVSF_VSP },
+    { L"Sakura K VSP", 0x88c, 0x92c, indexCPS2Sprites_Sakura, indexMSHVSF_VSP },
+    { L"Shadow K VSP", 0xC4c, 0xCEc, indexCPS2Sprites_Charlie, indexMSHVSF_VSP },
+    { L"Shuma-Gorath K VSP", 0x1ac, 0x22c, indexCPS2Sprites_Shuma, indexMSHVSF_VSP },
+    { L"Spider-Man K VSP", 0x2ec, 0x32c, indexCPS2Sprites_Spidey, indexMSHVSF_VSP },
+    { L"US Agent K VSP", 0xcec, 0xd8c, indexCPS2Sprites_CapAm, indexMSHVSF_VSP },
+    { L"Wolverine K VSP", 0x10c, 0x1ac, indexCPS2Sprites_Wolverine, indexMSHVSF_VSP },
+    { L"Zangief K VSP", 0x6ac, 0x74c, indexCPS2Sprites_Zangief, indexMSHVSF_VSP },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CSP_PALETTES_7B[] =
@@ -1683,8 +1683,8 @@ const sGame_PaletteDataset MSHVSF_A_BONUS_INTRO_PALETTES[] =
 
 const sGame_PaletteDataset MSHVSF_A_BONUS_HITSPARK_PALETTES[] =
 {
-    { L"P1 Hit Sparks", 0x200c, 0x202c },
-    { L"P2 Hit Sparks", 0x1fec, 0x200c },
+    { L"P Hit Sparks", 0x200c, 0x202c },
+    { L"K Hit Sparks", 0x1fec, 0x200c },
     { L"Dark Fire, Hit/Block, Super, Shadow", 0x202c, 0x204c },
     { L"Wall Press/Ground Press", 0x204c, 0x206c },
     { L"Dust, Dash & Super Jump", 0x206c, 0x208c },
@@ -2054,162 +2054,162 @@ const sGame_PaletteDataset MSHVSF_A_BONUS_6aBONUS_PALETTES[] =
 
 const sDescTreeNode MSHVSF_A_APOCALYPSE_COLLECTION[] =
 {
-    //{ L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH) },
-    //{ L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_APOCALYPSE_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_APOCALYPSE_PALETTES_P2COLOR_KICK) },
+    //{ L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH) },
+    //{ L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_APOCALYPSE_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_APOCALYPSE_PALETTES_P2COLOR_KICK) },
     { L"Shared",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_APOCALYPSE_PALETTES_SHARED,     ARRAYSIZE(MSHVSF_A_APOCALYPSE_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_ARMORED_SPIDERMAN_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_AKUMA_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_AKUMA_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_AKUMA_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_AKUMA_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_AKUMA_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION[] =
 {
-    { L"Blackheart P1 Color (Punch)", DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH,   ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH)  },
-    { L"Blackheart P2 Color (Kick)",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK,    ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK)   },
-    { L"Mephisto P1 Color (Punch)",   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH,     ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH)    },
-    { L"Mephisto P2 Color (Kick)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK,      ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK)     },
+    { L"Blackheart Punch", DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH,   ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH)  },
+    { L"Blackheart Kick",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK,    ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK)   },
+    { L"Mephisto Punch",   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH,     ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH)    },
+    { L"Mephisto Kick",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK,      ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK)     },
     { L"Shared Palettes",             DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED, ARRAYSIZE(MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_CAPTAIN_AMERICA_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_CHUNLI_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_CYBER_AKUMA_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_CYCLOPS_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK) },
     { L"Extras",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_PALETTES_SHARED,           ARRAYSIZE(MSHVSF_A_CYCLOPS_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_DAN_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_DAN_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_DAN_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_DAN_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_DAN_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_DARK_SAKURA_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DARK_SAKURA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_DARK_SAKURA_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DARK_SAKURA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_DARK_SAKURA_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_DHALSIM_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_HULK_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_HULK_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_HULK_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_HULK_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_HULK_PALETTES_P2COLOR_KICK) },
     { L"Shared",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_PALETTES_SHARED,           ARRAYSIZE(MSHVSF_A_HULK_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_KEN_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_KEN_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_KEN_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_KEN_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_KEN_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_MBIPSON_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MBIPSON_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_MBIPSON_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MBIPSON_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_MBIPSON_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MBIPSON_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_MBIPSON_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MBIPSON_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_MBIPSON_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_MECH_ZANGIEF_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MECH_ZANGIEF_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_MECH_ZANGIEF_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MECH_ZANGIEF_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_MECH_ZANGIEF_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MECH_ZANGIEF_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_MECH_ZANGIEF_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MECH_ZANGIEF_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_MECH_ZANGIEF_PALETTES_P2COLOR_KICK) },
     { L"Shared",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MECH_ZANGIEF_PALETTES_SHARED,           ARRAYSIZE(MSHVSF_A_MECH_ZANGIEF_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_NORIMARO_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK) },
     { L"Extras",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_EXTRAS,           ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MSHVSF_A_OMEGARED_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_OMEGARED_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_OMEGARED_PALETTES_P2COLOR_KICK) },
     { L"Shared",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_PALETTES_SHARED,           ARRAYSIZE(MSHVSF_A_OMEGARED_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_RYU_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_RYU_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_RYU_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_RYU_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_RYU_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_SAKURA_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK) },
     { L"Extras",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_SHARED,     ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_SHADOW_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SHADOW_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SHADOW_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_SHUMAGORATH_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_SPIDERMAN_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_USAGENT_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_USAGENT_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_USAGENT_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_USAGENT_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_USAGENT_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_USAGENT_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_USAGENT_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_USAGENT_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_USAGENT_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_WOLVERINE_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK) },
 };
 
 const sDescTreeNode MSHVSF_A_ZANGIEF_COLLECTION[] =
 {
-    { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH) },
-    { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK) },
+    { L"Punch",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH) },
+    { L"Kick",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK) },
 };
 
 // It would make sense to move the under the specific character, but that doesn't quite work since 
