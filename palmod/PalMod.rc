@@ -574,6 +574,7 @@ BEGIN
                 MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
             END
             MENUITEM "Under Night In-Birth Exe:Late[cl-r]", ID_LD_UNICLR
+            MENUITEM "XMvSF (PSX)",                 ID_LD_XMVSFP
             MENUITEM "Developer Mode",              ID_LD_DEVMODE
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH

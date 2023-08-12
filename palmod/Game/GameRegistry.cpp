@@ -168,9 +168,10 @@
 #include "Game_Windjammers_A.h"
 #include "Game_XMMA_SNES.h"
 #include "Game_XMVSF_A.h"
+#include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 197, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 198, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -368,6 +369,7 @@ namespace KnownGameInfo
     CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Windjammers_A(nConfirmedROMSize); }
     CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_A(nConfirmedROMSize); }
+    CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_P(nConfirmedROMSize); }
 
     struct CoreGameData
     {
@@ -1897,6 +1899,16 @@ namespace KnownGameInfo
             Make_XMVSF_A,
             CGame_XMVSF_A::GetRule,
         },
+        {
+            XMVSF_P,
+            L"XMvSF (PSX)",
+            {},
+            Make_XMVSF_P,
+            CGame_XMVSF_P::GetRule,
+            CGame_XMVSF_P::GetNextRule,
+            CGame_XMVSF_P::GetRuleCtr,
+            CGame_XMVSF_P::ResetRuleCtr,
+        },
 
         {
             NEOGEO_A,
@@ -1907,7 +1919,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 197, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 198, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

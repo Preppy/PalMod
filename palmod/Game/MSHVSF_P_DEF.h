@@ -1,53 +1,56 @@
 #pragma once
 #include "MSHVSF_A_DEF.h"
 
+#undef CURRENT_LOCATION
+#define CURRENT_LOCATION 0x9e22
+
 const sGame_PaletteDataset MSHVSF_P_AKUMA_PUNCH[] =
 {
-    { L"Palette",               0x9e22 + (0x00 * 0x20), 0x9e22 + (0x01 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Hadouken",              0x9e22 + (0x01 * 0x20), 0x9e22 + (0x02 * 0x20), indexCPS2Sprites_Akuma, 1 },
-    { L"Zankuu Hadouken",       0x9e22 + (0x02 * 0x20), 0x9e22 + (0x03 * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Palette",               CURRENT_LOCATION + (0x00 * 0x20), CURRENT_LOCATION + (0x01 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Hadouken",              CURRENT_LOCATION + (0x01 * 0x20), CURRENT_LOCATION + (0x02 * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Zankuu Hadouken",       CURRENT_LOCATION + (0x02 * 0x20), CURRENT_LOCATION + (0x03 * 0x20), indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_P_AKUMA_KICK[] =
 {
-    { L"Palette",               0x9e22 + (0x03 * 0x20), 0x9e22 + (0x04 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Hadouken",              0x9e22 + (0x04 * 0x20), 0x9e22 + (0x05 * 0x20), indexCPS2Sprites_Akuma, 1 },
-    { L"Zankuu Hadouken",       0x9e22 + (0x05 * 0x20), 0x9e22 + (0x06 * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Palette",               CURRENT_LOCATION + (0x03 * 0x20), CURRENT_LOCATION + (0x04 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Hadouken",              CURRENT_LOCATION + (0x04 * 0x20), CURRENT_LOCATION + (0x05 * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Zankuu Hadouken",       CURRENT_LOCATION + (0x05 * 0x20), CURRENT_LOCATION + (0x06 * 0x20), indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_P_AKUMA_BONUS1[] =
 {
-    { L"Palette",               0x9e22 + (0x06 * 0x20), 0x9e22 + (0x07 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Hadouken",              0x9e22 + (0x07 * 0x20), 0x9e22 + (0x08 * 0x20), indexCPS2Sprites_Akuma, 1 },
-    { L"Zankuu Hadouken",       0x9e22 + (0x08 * 0x20), 0x9e22 + (0x09 * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Palette",               CURRENT_LOCATION + (0x06 * 0x20), CURRENT_LOCATION + (0x07 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Hadouken",              CURRENT_LOCATION + (0x07 * 0x20), CURRENT_LOCATION + (0x08 * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Zankuu Hadouken",       CURRENT_LOCATION + (0x08 * 0x20), CURRENT_LOCATION + (0x09 * 0x20), indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_P_AKUMA_BONUS2[] =
 {
-    { L"Palette",               0x9e22 + (0x09 * 0x20), 0x9e22 + (0x0a * 0x20), indexCPS2Sprites_Akuma },
-    { L"Hadouken",              0x9e22 + (0x0a * 0x20), 0x9e22 + (0x0b * 0x20), indexCPS2Sprites_Akuma, 1 },
-    { L"Zankuu Hadouken",       0x9e22 + (0x0b * 0x20), 0x9e22 + (0x0c * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Palette",               CURRENT_LOCATION + (0x09 * 0x20), CURRENT_LOCATION + (0x0a * 0x20), indexCPS2Sprites_Akuma },
+    { L"Hadouken",              CURRENT_LOCATION + (0x0a * 0x20), CURRENT_LOCATION + (0x0b * 0x20), indexCPS2Sprites_Akuma, 1 },
+    { L"Zankuu Hadouken",       CURRENT_LOCATION + (0x0b * 0x20), CURRENT_LOCATION + (0x0c * 0x20), indexCPS2Sprites_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_P_AKUMA_STATUS[] =
 {
-    { L"Light Super Trail",                     0x9e22 + (0x0c * 0x20), 0x9e22 + (0x0d * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Dark Super Trail",                      0x9e22 + (0x0d * 0x20), 0x9e22 + (0x0e * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Burn Light",                            0x9e22 + (0x0e * 0x20), 0x9e22 + (0x0f * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Burn Dark",                             0x9e22 + (0x0f * 0x20), 0x9e22 + (0x10 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Shocked Light",                         0x9e22 + (0x10 * 0x20), 0x9e22 + (0x11 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Shocked Dark",                          0x9e22 + (0x11 * 0x20), 0x9e22 + (0x12 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Dark Burn Light",                       0x9e22 + (0x12 * 0x20), 0x9e22 + (0x13 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Dark Burn Dark",                        0x9e22 + (0x13 * 0x20), 0x9e22 + (0x14 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Kinetic 1 (Unused)",                    0x9e22 + (0x14 * 0x20), 0x9e22 + (0x15 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Kinetic 2 (Unused)",                    0x9e22 + (0x15 * 0x20), 0x9e22 + (0x16 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Kinetic 3 (Unused)",                    0x9e22 + (0x16 * 0x20), 0x9e22 + (0x17 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Death Factor Light",                    0x9e22 + (0x17 * 0x20), 0x9e22 + (0x18 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Death Factor Dark",                     0x9e22 + (0x18 * 0x20), 0x9e22 + (0x19 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Energy Drain Light",                    0x9e22 + (0x19 * 0x20), 0x9e22 + (0x1a * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Energy Drain Dark",                     0x9e22 + (0x1a * 0x20), 0x9e22 + (0x1b * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Blackheart/Mephisto HP/HK Demons 1",    0x9e22 + (0x1b * 0x20), 0x9e22 + (0x1c * 0x20), indexCPS2Sprites_Akuma, 0x00 },
-    { L"Blackheart/Mephisto HP/HK Demons 2",    0x9e22 + (0x1c * 0x20), 0x9e22 + (0x1d * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Light Super Trail",                     CURRENT_LOCATION + (0x0c * 0x20), CURRENT_LOCATION + (0x0d * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Dark Super Trail",                      CURRENT_LOCATION + (0x0d * 0x20), CURRENT_LOCATION + (0x0e * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Burn Light",                            CURRENT_LOCATION + (0x0e * 0x20), CURRENT_LOCATION + (0x0f * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Burn Dark",                             CURRENT_LOCATION + (0x0f * 0x20), CURRENT_LOCATION + (0x10 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Shocked Light",                         CURRENT_LOCATION + (0x10 * 0x20), CURRENT_LOCATION + (0x11 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Shocked Dark",                          CURRENT_LOCATION + (0x11 * 0x20), CURRENT_LOCATION + (0x12 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Dark Burn Light",                       CURRENT_LOCATION + (0x12 * 0x20), CURRENT_LOCATION + (0x13 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Dark Burn Dark",                        CURRENT_LOCATION + (0x13 * 0x20), CURRENT_LOCATION + (0x14 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Kinetic 1 (Unused)",                    CURRENT_LOCATION + (0x14 * 0x20), CURRENT_LOCATION + (0x15 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Kinetic 2 (Unused)",                    CURRENT_LOCATION + (0x15 * 0x20), CURRENT_LOCATION + (0x16 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Kinetic 3 (Unused)",                    CURRENT_LOCATION + (0x16 * 0x20), CURRENT_LOCATION + (0x17 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Death Factor Light",                    CURRENT_LOCATION + (0x17 * 0x20), CURRENT_LOCATION + (0x18 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Death Factor Dark",                     CURRENT_LOCATION + (0x18 * 0x20), CURRENT_LOCATION + (0x19 * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Energy Drain Light",                    CURRENT_LOCATION + (0x19 * 0x20), CURRENT_LOCATION + (0x1a * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Energy Drain Dark",                     CURRENT_LOCATION + (0x1a * 0x20), CURRENT_LOCATION + (0x1b * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Blackheart/Mephisto HP/HK Demons 1",    CURRENT_LOCATION + (0x1b * 0x20), CURRENT_LOCATION + (0x1c * 0x20), indexCPS2Sprites_Akuma, 0x00 },
+    { L"Blackheart/Mephisto HP/HK Demons 2",    CURRENT_LOCATION + (0x1c * 0x20), CURRENT_LOCATION + (0x1d * 0x20), indexCPS2Sprites_Akuma, 0x00 },
 };
 
 const sDescTreeNode MSHVSF_P_AKUMA_COLLECTION[] =
@@ -59,6 +62,7 @@ const sDescTreeNode MSHVSF_P_AKUMA_COLLECTION[] =
     { L"Status Effects",    DESC_NODETYPE_TREE, (void*)MSHVSF_P_AKUMA_STATUS, ARRAYSIZE(MSHVSF_P_AKUMA_STATUS) },
 };
 
+#undef CURRENT_LOCATION
 #define CURRENT_LOCATION 0xe1f2
 
 const sGame_PaletteDataset MSHVSF_P_ARMSPIDER_PUNCH[] =

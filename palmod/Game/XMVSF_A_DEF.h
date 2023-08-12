@@ -178,15 +178,15 @@ const stPaletteProcessingInformation secondaryXMVSFWolverineEffects{ paletteBudd
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P1[] =
 {
     { L"P1 Punch Color",    0x14d7a, 0x14d9a, indexCPS2Sprites_Wolverine, 0x00, &pairNext, &secondaryXMVSFWolverineEffects },
-    { L"P1 claw",           0x14d9a, 0x14dba, indexCPS2Sprites_Wolverine, 0x01 },
+    { L"P1 Claws",          0x14d9a, 0x14dba, indexCPS2Sprites_Wolverine, 0x01 },
     { L"P1 slash FX",       0x14dba, 0x14dda, indexCPS2Sprites_Wolverine, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x14dda, 0x14dfa, indexCPS2Sprites_Wolverine, 0x00, &pairNext, &secondaryXMVSFWolverineEffects },
-    { L"P2 claw",       0x14dfa, 0x14e1a, indexCPS2Sprites_Wolverine, 0x01 },
-    { L"P2 slash FX",   0x14e1a, 0x14e3a, indexCPS2Sprites_Wolverine, 0x02 },
+    { L"P2 Kick Color",     0x14dda, 0x14dfa, indexCPS2Sprites_Wolverine, 0x00, &pairNext, &secondaryXMVSFWolverineEffects },
+    { L"P2 Claws",          0x14dfa, 0x14e1a, indexCPS2Sprites_Wolverine, 0x01 },
+    { L"P2 slash FX",       0x14e1a, 0x14e3a, indexCPS2Sprites_Wolverine, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
@@ -234,10 +234,10 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_Extras[] =
 {
-    { L"Palette (06)", 0x14efa, 0x14f1a },
-    { L"Palette (07)", 0x14f1a, 0x14f3a },
-    { L"Palette (09)", 0x14f5a, 0x14f7a },
-    { L"Palette (0A)", 0x14f7a, 0x14f9a },
+    { L"Palette (06)", 0x14efa, 0x14f1a, indexCPS2Sprites_Cyclops, 0x00, &pairNext },
+    { L"Palette (07)", 0x14f1a, 0x14f3a, indexCPS2Sprites_Cyclops, 0x01 },
+    { L"Palette (09)", 0x14f5a, 0x14f7a, indexCPS2Sprites_Cyclops, 0x00, &pairNext },
+    { L"Palette (0A)", 0x14f7a, 0x14f9a, indexCPS2Sprites_Cyclops, 0x01 },
 
     { L"Optic Blast / Optic Bullet (Shared) 1", 0x181da, 0x181fa, indexCPS2Sprites_Cyclops, 0x0b },
     { L"Optic Blast / Optic Bullet (Shared) 2", 0x181fa, 0x1821a, indexCPS2Sprites_Cyclops, 0x0b },
@@ -293,11 +293,11 @@ const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P1[] =
     { L"P1 Cajun Strike", 0x1541a, 0x1543a, indexCPS2Sprites_Gambit, 0x02 },
 
     // le tournament es finit
-    { L"P1 glow effects 1", 0x1e63a, 0x1e65a, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P1 glow effects 2", 0x1e65a, 0x1e67a, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P1 glow effects 3", 0x1e67a, 0x1e69a, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P1 glow effects 4", 0x1e69a, 0x1e6ba, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P1 glow effects 5", 0x1e6ba, 0x1e6da, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 Glow Effects 1", 0x1e63a, 0x1e65a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 Glow Effects 2", 0x1e65a, 0x1e67a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 Glow Effects 3", 0x1e67a, 0x1e69a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 Glow Effects 4", 0x1e69a, 0x1e6ba, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 Glow Effects 5", 0x1e6ba, 0x1e6da, indexCPS2Sprites_Gambit, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P2[] =
@@ -306,17 +306,17 @@ const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P2[] =
     { L"P2 Kinetic Card // Trick Card", 0x1545a, 0x1547a, indexCPS2Sprites_Gambit, 0x01 },
     { L"P2 Cajun Strike", 0x1547a, 0x1549a, indexCPS2Sprites_Gambit, 0x02 },
 
-    { L"P2 glow effects 1", 0x1e6da, 0x1e6fa, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P2 glow effects 2", 0x1e6fa, 0x1e71a, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P2 glow effects 3", 0x1e71a, 0x1e73a, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P2 glow effects 4", 0x1e73a, 0x1e75a, indexCPS2Sprites_Gambit, 0x00 },
-    { L"P2 glow effects 5", 0x1e75a, 0x1e77a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 Glow Effects 1", 0x1e6da, 0x1e6fa, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 Glow Effects 2", 0x1e6fa, 0x1e71a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 Glow Effects 3", 0x1e71a, 0x1e73a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 Glow Effects 4", 0x1e73a, 0x1e75a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 Glow Effects 5", 0x1e75a, 0x1e77a, indexCPS2Sprites_Gambit, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x1549a, 0x154ba, indexCPS2Sprites_Sabretooth, 0x00 },
-    { L"P1 slash FX", 0x154ba, 0x154da, indexCPS2Sprites_Sabretooth, 0x01 },
+    { L"P1 Slash FX", 0x154ba, 0x154da, indexCPS2Sprites_Sabretooth, 0x01 },
     { L"P1 Birdy", 0x154da, 0x154fa, indexCPS2Sprites_Sabretooth, 0x02 },
     { L"P1 Getaway car", 0x1555a, 0x1557a, indexCPS2Sprites_Sabretooth, 0x03 },
 };
@@ -324,7 +324,7 @@ const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P1[] =
 const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x154fa, 0x1551a, indexCPS2Sprites_Sabretooth, 0x00 },
-    { L"P2 slash FX", 0x1551a, 0x1553a, indexCPS2Sprites_Sabretooth, 0x01 },
+    { L"P2 Slash FX", 0x1551a, 0x1553a, indexCPS2Sprites_Sabretooth, 0x01 },
     { L"P2 Birdy", 0x1553a, 0x1555a, indexCPS2Sprites_Sabretooth, 0x02 },
     { L"P2 Getaway car", 0x1557a, 0x1559a, indexCPS2Sprites_Sabretooth, 0x03 },
 };
@@ -333,7 +333,7 @@ const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x1559a, 0x155ba, indexCPS2Sprites_Juggy, 0x00, nullptr, &secondaryXMVSFJuggernautEffects },
     { L"Palette (01)", 0x155ba, 0x155da },
-    { L"P1 ground FX", 0x155da, 0x155fa, indexCPS2Sprites_Juggy, 0x02 },
+    { L"P1 Ground FX", 0x155da, 0x155fa, indexCPS2Sprites_Juggy, 0x02 },
 
     { L"P1 Juggernaut Headcrush Frame 1", 0x184ba, 0x184da, indexCPS2Sprites_Juggy, 0x00 },
     { L"P1 Juggernaut Headcrush Frame 2", 0x184da, 0x184fa, indexCPS2Sprites_Juggy, 0x00 },
@@ -351,7 +351,7 @@ const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x155fa, 0x1561a, indexCPS2Sprites_Juggy, 0x00, nullptr, &secondaryXMVSFJuggernautEffects },
     { L"Palette (04)", 0x1561a, 0x1563a },
-    { L"P2 ground FX", 0x1563a, 0x1565a, indexCPS2Sprites_Juggy, 0x02 },
+    { L"P2 Ground FX", 0x1563a, 0x1565a, indexCPS2Sprites_Juggy, 0x02 },
 
     { L"P2 Juggernaut Headcrush Frame 1", 0x185fa, 0x1861a, indexCPS2Sprites_Juggy, 0x00 },
     { L"P2 Juggernaut Headcrush Frame 2", 0x1861a, 0x1863a, indexCPS2Sprites_Juggy, 0x00 },
@@ -378,7 +378,7 @@ const sGame_PaletteDataset XMVSF_A_MBison_PALETTES_P1[] =
     { L"P1 Psycho FX 1", 0x15ffa, 0x1601a, indexCPS2Sprites_Bison, 0x08 },
     { L"P1 Psycho FX 2", 0x1601a, 0x1603a, indexCPS2Sprites_Bison, 0x09 },
     { L"P1 Psycho FX 3", 0x18a9a, 0x18aba, indexCPS2Sprites_Bison, 0x08 },
-    { L"P1 Psycho FX 4", 0x18aba, 0x18ada, indexCPS2Sprites_Bison, 0x08 },
+    { L"P1 Psycho FX 4", 0x18aba, 0x18ada, indexCPS2Sprites_Bison, 0x09 },
 };
 
 const sGame_PaletteDataset XMVSF_A_MBison_PALETTES_P2[] =
@@ -393,26 +393,26 @@ const sGame_PaletteDataset XMVSF_A_MBison_PALETTES_P2[] =
 const sGame_PaletteDataset XMVSF_A_Magneto_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x156ba, 0x156da, indexCPS2Sprites_Magneto, 0x00 },
-    { L"P1 magnetic FX", 0x156da, 0x156fa, indexCPS2Sprites_Magneto, 0x01 },
-    { L"P1 magnetic FX 2", 0x156fa, 0x1571a, indexCPS2Sprites_Magneto, 0x02 },
+    { L"P1 Magnetic FX", 0x156da, 0x156fa, indexCPS2Sprites_Magneto, 0x01 },
+    { L"P1 Magnetic FX 2", 0x156fa, 0x1571a, indexCPS2Sprites_Magneto, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Magneto_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x1571a, 0x1573a, indexCPS2Sprites_Magneto, 0x00 },
-    { L"P2 magnetic FX", 0x1573a, 0x1575a, indexCPS2Sprites_Magneto, 0x01 },
-    { L"P2 magnetic FX 2", 0x1575a, 0x1577a, indexCPS2Sprites_Magneto, 0x02 },
+    { L"P2 Magnetic FX", 0x1573a, 0x1575a, indexCPS2Sprites_Magneto, 0x01 },
+    { L"P2 Magnetic FX 2", 0x1575a, 0x1577a, indexCPS2Sprites_Magneto, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x1531a, 0x1533a, indexCPS2Sprites_Rogue, 0x0c, nullptr, &secondaryXMVSFRogueEffects },
     { L"Palette (01)", 0x1533a, 0x1535a, indexCPS2Sprites_Rogue, 0x0c },
-    { L"P1 ground FX", 0x1535a, 0x1537a, indexCPS2Sprites_Rogue, 0x02 },
+    { L"P1 Ground FX", 0x1535a, 0x1537a, indexCPS2Sprites_Rogue, 0x02 },
 
     // If you change the position of these (0x03 / 0x04), you will need to update secondaryXMVSFRogueEffects
-    { L"P1 glow effects 1", 0x1e57a, 0x1e59a, indexCPS2Sprites_Rogue, 0x0c },
-    { L"P1 glow effects 2", 0x1e59a, 0x1e5ba, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P1 Glow Effects 1", 0x1e57a, 0x1e59a, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P1 Glow Effects 2", 0x1e59a, 0x1e5ba, indexCPS2Sprites_Rogue, 0x0c },
 
     { L"P1 Winposes", 0x1e5fa, 0x1e61a, indexCPS2Sprites_Rogue, 0x0b },
 };
@@ -421,11 +421,11 @@ const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x1537a, 0x1539a, indexCPS2Sprites_Rogue, 0x0c, nullptr, &secondaryXMVSFRogueEffects },
     { L"Palette (04)", 0x1539a, 0x153ba, indexCPS2Sprites_Rogue, 0x0c },
-    { L"P2 ground FX", 0x153ba, 0x153da, indexCPS2Sprites_Rogue, 0x02 },
+    { L"P2 Ground FX", 0x153ba, 0x153da, indexCPS2Sprites_Rogue, 0x02 },
 
     // If you change the position of these (0x03 / 0x04), you will need to update secondaryXMVSFRogueEffects
-    { L"P2 glow effects 1", 0x1e5ba, 0x1e5da, indexCPS2Sprites_Rogue, 0x0c },
-    { L"P2 glow effects 2", 0x1e5da, 0x1e5fa, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P2 Glow Effects 1", 0x1e5ba, 0x1e5da, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P2 Glow Effects 2", 0x1e5da, 0x1e5fa, indexCPS2Sprites_Rogue, 0x0c },
 
     { L"P2 Winposes", 0x1e61a, 0x1e63a, indexCPS2Sprites_Rogue, 0x0b },
 };
@@ -433,24 +433,24 @@ const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
 const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x1589a, 0x158ba, indexCPS2Sprites_Ryu, 0x00 },
-    { L"P1 fireballs", 0x158ba, 0x158da, indexCPS2Sprites_Ryu, 0x01 },
+    { L"P1 Hadouken", 0x158ba, 0x158da, indexCPS2Sprites_Ryu, 0x01 },
     { L"P1 Extra 2", 0x158da, 0x158fa },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x158fa, 0x1591a, indexCPS2Sprites_Ryu, 0x00 },
-    { L"P2 fireballs", 0x1591a, 0x1593a, indexCPS2Sprites_Ryu, 0x01 },
+    { L"P2 Hadouken", 0x1591a, 0x1593a, indexCPS2Sprites_Ryu, 0x01 },
     { L"P2 Extra 2", 0x1593a, 0x1595a },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_Extras[] =
 {
     { L"Palette (06)",           0x1595a, 0x1597a, indexCPS2Sprites_Ryu, 0x00 },
-    { L"Palette (07) fireballs", 0x1597a, 0x1599a, indexCPS2Sprites_Ryu, 0x01 },
+    { L"Palette (07) Hadouken", 0x1597a, 0x1599a, indexCPS2Sprites_Ryu, 0x01 },
     { L"Palette (08)",           0x1599a, 0x159ba },
     { L"Palette (09)",           0x159ba, 0x159da, indexCPS2Sprites_Ryu, 0x00 },
-    { L"Palette (0A) fireballs", 0x159da, 0x159fa, indexCPS2Sprites_Ryu, 0x01 },
+    { L"Palette (0A) Hadouken", 0x159da, 0x159fa, indexCPS2Sprites_Ryu, 0x01 },
     { L"Palette (0B)",           0x159fa, 0x15a1a },
 };
 
@@ -496,7 +496,7 @@ const sGame_PaletteDataset XMVSF_A_Ken_PALETTES_Extras[] =
 const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x15c5a, 0x15c7a, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryXMVSFDhalsimEffects },
-    { L"P1 fire FX", 0x15c7a, 0x15c9a, indexCPS2Sprites_Dhalsim, 0x01 },
+    { L"P1 Fire FX", 0x15c7a, 0x15c9a, indexCPS2Sprites_Dhalsim, 0x01 },
     { L"P1 Sally", 0x15c9a, 0x15cba, indexCPS2Sprites_Dhalsim, 0x02 },
 
     { L"P1 Teleport 1", 0x1895a, 0x1897a, indexCPS2Sprites_Dhalsim, 11 },
@@ -509,7 +509,7 @@ const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P1[] =
 const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x15cba, 0x15cda, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryXMVSFDhalsimEffects },
-    { L"P2 fire FX", 0x15cda, 0x15cfa, indexCPS2Sprites_Dhalsim, 0x01 },
+    { L"P2 Fire FX", 0x15cda, 0x15cfa, indexCPS2Sprites_Dhalsim, 0x01 },
     { L"P2 Sally", 0x15cfa, 0x15d1a, indexCPS2Sprites_Dhalsim, 0x02 },
 
     { L"P2 Teleport 1", 0x189Fa, 0x18A1a, indexCPS2Sprites_Dhalsim, 11 },
@@ -560,25 +560,25 @@ const sGame_PaletteDataset XMVSF_A_Zangief_PALETTES_Extras[] =
 const sGame_PaletteDataset XMVSF_A_Gouki_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x1609a, 0x160ba, indexCPS2Sprites_Akuma, 0x00 },
-    { L"P1 fireballs", 0x160ba, 0x160da, indexCPS2Sprites_Akuma, 0x01 },
-    { L"P1 Extra 2", 0x160da, 0x160fa },
+    { L"P1 Hadouken", 0x160ba, 0x160da, indexCPS2Sprites_Akuma, 0x01 },
+    { L"P1 Zankuu Hadouken", 0x160da, 0x160fa, indexCPS2Sprites_Akuma, 0x01 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Gouki_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x160fa, 0x1611a, indexCPS2Sprites_Akuma, 0x00 },
-    { L"P2 fireballs", 0x1611a, 0x1613a, indexCPS2Sprites_Akuma, 0x01 },
-    { L"P2 Extra 2", 0x1613a, 0x1615a },
+    { L"P2 Hadouken", 0x1611a, 0x1613a, indexCPS2Sprites_Akuma, 0x01 },
+    { L"P2 Zankuu Hadouken", 0x1613a, 0x1615a, indexCPS2Sprites_Akuma, 0x01 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Gouki_PALETTES_Extras[] =
 {
     { L"Palette (06)", 0x1615a, 0x1617a, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Palette (07) fireballs", 0x1617a, 0x1619a, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Palette (08)", 0x1619a, 0x161ba },
+    { L"Palette (07) Hadouken", 0x1617a, 0x1619a, indexCPS2Sprites_Akuma, 0x01 },
+    { L"Palette (08) Zankuu Hadouken", 0x1619a, 0x161ba, indexCPS2Sprites_Akuma, 0x01 },
     { L"Palette (09)", 0x161ba, 0x161da, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Palette (0A) fireballs", 0x161da, 0x161fa, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Palette (0B)", 0x161fa, 0x1621a },
+    { L"Palette (0A) Hadouken", 0x161da, 0x161fa, indexCPS2Sprites_Akuma, 0x01 },
+    { L"Palette (0B) Zankuu Hadouken", 0x161fa, 0x1621a, indexCPS2Sprites_Akuma, 0x01 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Charlie_PALETTES_P1[] =
@@ -608,7 +608,7 @@ const sGame_PaletteDataset XMVSF_A_Charlie_PALETTES_Extras[] =
 const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x1639a, 0x163ba, indexCPS2Sprites_Cammy, 0x00, nullptr, &secondaryXMVSFCammyEffects },
-    { L"P1 psycho FX", 0x163ba, 0x163da, indexCPS2Sprites_Cammy, 0x01 },
+    { L"P1 Psycho FX", 0x163ba, 0x163da, indexCPS2Sprites_Cammy, 0x01 },
     { L"P1 Coat", 0x163da, 0x163fa, indexCPS2Sprites_Cammy, 0x02 },
 
     { L"P1 Cannon Revenge 1", 0x18b1a, 0x18b3a, indexCPS2Sprites_Cammy, 11 },
@@ -625,7 +625,7 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P1[] =
 const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x163fa, 0x1641a, indexCPS2Sprites_Cammy, 0x00, nullptr, &secondaryXMVSFCammyEffects },
-    { L"P2 psycho FX", 0x1641a, 0x1643a, indexCPS2Sprites_Cammy, 0x01 },
+    { L"P2 Psycho FX", 0x1641a, 0x1643a, indexCPS2Sprites_Cammy, 0x01 },
     { L"P2 Coat", 0x1643a, 0x1645a, indexCPS2Sprites_Cammy, 0x02 },
 
     { L"P2 Cannon Revenge 1", 0x18c3a, 0x18c5a, indexCPS2Sprites_Cammy, 11 },
@@ -1566,7 +1566,6 @@ const sDescTreeNode XMVSF_A_UNITS[] =
    { L"Cyclops", DESC_NODETYPE_TREE, (void*)XMVSF_A_CYCLOPS_COLLECTION, ARRAYSIZE(XMVSF_A_CYCLOPS_COLLECTION) },
    { L"Dhalsim", DESC_NODETYPE_TREE, (void*)XMVSF_A_DHALSIM_COLLECTION, ARRAYSIZE(XMVSF_A_DHALSIM_COLLECTION) },
    { L"Gambit", DESC_NODETYPE_TREE, (void*)XMVSF_A_GAMBIT_COLLECTION, ARRAYSIZE(XMVSF_A_GAMBIT_COLLECTION) },
-   { L"Gouki", DESC_NODETYPE_TREE, (void*)XMVSF_A_GOUKI_COLLECTION, ARRAYSIZE(XMVSF_A_GOUKI_COLLECTION) },
    { L"Juggernaut", DESC_NODETYPE_TREE, (void*)XMVSF_A_JUGGERNAUT_COLLECTION, ARRAYSIZE(XMVSF_A_JUGGERNAUT_COLLECTION) },
    { L"Ken", DESC_NODETYPE_TREE, (void*)XMVSF_A_KEN_COLLECTION, ARRAYSIZE(XMVSF_A_KEN_COLLECTION) },
    { L"M. Bison", DESC_NODETYPE_TREE, (void*)XMVSF_A_MBISON_COLLECTION, ARRAYSIZE(XMVSF_A_MBISON_COLLECTION) },
@@ -1577,6 +1576,7 @@ const sDescTreeNode XMVSF_A_UNITS[] =
    { L"Storm", DESC_NODETYPE_TREE, (void*)XMVSF_A_STORM_COLLECTION, ARRAYSIZE(XMVSF_A_STORM_COLLECTION) },
    { L"Wolverine", DESC_NODETYPE_TREE, (void*)XMVSF_A_WOLVERINE_COLLECTION, ARRAYSIZE(XMVSF_A_WOLVERINE_COLLECTION) },
    { L"Zangief", DESC_NODETYPE_TREE, (void*)XMVSF_A_ZANGIEF_COLLECTION, ARRAYSIZE(XMVSF_A_ZANGIEF_COLLECTION) },
+   { L"Akuma", DESC_NODETYPE_TREE, (void*)XMVSF_A_GOUKI_COLLECTION, ARRAYSIZE(XMVSF_A_GOUKI_COLLECTION) },
    { L"Apocalypse", DESC_NODETYPE_TREE, (void*)XMVSF_A_APOCALYPSE_COLLECTION, ARRAYSIZE(XMVSF_A_APOCALYPSE_COLLECTION) },
    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_COLLECTION, ARRAYSIZE(XMVSF_A_BONUS_COLLECTION) },
 };
