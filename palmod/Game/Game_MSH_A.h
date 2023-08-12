@@ -84,7 +84,7 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
         MSH_UNITS_05,
         ARRAYSIZE(MSH_UNITS_05),
         L"MSHe.txt",        // Extra filename
-        437,                // Count of palettes listed in the header
+        445,                // Count of palettes listed in the header
         0x60f4c,            // Lowest known location used for palettes
     };
 
