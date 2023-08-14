@@ -50,7 +50,7 @@ public:
     afx_msg void OnZoom2x() { UpdateZoomSetting(2.0); };
     afx_msg void OnZoom3x() { UpdateZoomSetting(3.0); };
     afx_msg void OnZoom4x() { UpdateZoomSetting(4.0); };
-    afx_msg void OnZoom5x() { UpdateZoomSetting(6.0); };
+    afx_msg void OnZoom5x() { UpdateZoomSetting(5.0); };
     afx_msg void OnZoom6x() { UpdateZoomSetting(6.0); };
     afx_msg void OnZoom7x() { UpdateZoomSetting(7.0); };
     afx_msg void OnZoom8x() { UpdateZoomSetting(8.0); };
