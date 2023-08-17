@@ -1716,6 +1716,22 @@ const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
     { L"Character Select Background (1/2)", 0x743fe, 0x7441e, indexSF2Sprites_Bonus, 0x1c, &pairNext },
     { L"Character Select Background (2/2)", 0x7443e, 0x7445e, indexSF2Sprites_Bonus, 0x1d },
     { L"Vs Background", 0x74b1e, 0x74b3e, indexSF2Sprites_Bonus, 0x21 },
+
+    { L"Super KO 1", 0x77020 - 0x02, 0x77040 - 0x02 },
+    { L"Super KO 2", 0x77040 - 0x02, 0x77060 - 0x02 },
+    { L"Super KO 3", 0x77060 - 0x02, 0x77080 - 0x02 },
+    { L"Super KO 4", 0x77080 - 0x02, 0x770A0 - 0x02 },
+    { L"Super KO 5", 0x770A0 - 0x02, 0x770C0 - 0x02 },
+    { L"Super KO 6", 0x770C0 - 0x02, 0x770E0 - 0x02 },
+    { L"Super KO 7", 0x770E0 - 0x02, 0x77100 - 0x02 },
+    { L"Super KO 8", 0x77100 - 0x02, 0x77120 - 0x02 },
+    { L"Super KO 9", 0x77120 - 0x02, 0x77140 - 0x02 },
+    { L"Super KO 10", 0x77140 - 0x02, 0x77160 - 0x02 },
+    { L"Super KO 11", 0x77160 - 0x02, 0x77180 - 0x02 },
+    { L"Super KO 12", 0x77180 - 0x02, 0x771A0 - 0x02 },
+    { L"Super KO 13", 0x771A0 - 0x02, 0x771C0 - 0x02 },
+    { L"Super KO 14", 0x771C0 - 0x02, 0x771E0 - 0x02 },
+    { L"Super KO 15", 0x771E0 - 0x02, 0x77200 - 0x02 },
 };
 
 const sGame_PaletteDataset SSF2T_A_03_STAGES_CASINO_NODE[] =
@@ -3154,7 +3170,7 @@ const sDescTreeNode SSF2T_A_03_STAGES_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
 {
-    { L"Stage HUDs and Extras",     DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
+    { L"Stage HUDs and Effects",     DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
 
     { L"Balrog's Casino Stage (04 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGES_CASINO_NODE, ARRAYSIZE(SSF2T_A_04_STAGES_CASINO_NODE) },
     { L"Cammy's Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
