@@ -220,6 +220,7 @@ enum SupportedGamesList
     MVC_P,
     MSHVSF_P,
     XMVSF_P,
+    TattooAsns_A,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

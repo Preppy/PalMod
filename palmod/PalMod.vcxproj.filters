@@ -580,6 +580,9 @@
     <Filter Include="Games\Capcom Games\XMvSF_P">
       <UniqueIdentifier>{7054d6f9-9092-4e25-860f-e787743be816}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Tattoo Assassins %28DECO32%29">
+      <UniqueIdentifier>{2d633175-81e8-4b34-b90b-c578e734ec70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2059,6 +2062,12 @@
     </ClInclude>
     <ClInclude Include="Game\XMVSF_P_DEF.h">
       <Filter>Games\Capcom Games\XMvSF_P</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TattooAsns_A.h">
+      <Filter>Games\Other Platforms\Tattoo Assassins %28DECO32%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TattooAsns_A_DEF.h">
+      <Filter>Games\Other Platforms\Tattoo Assassins %28DECO32%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

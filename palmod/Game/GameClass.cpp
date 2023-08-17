@@ -1506,18 +1506,18 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                bool fIsCorePalette = false;
+                bool fCanPairAsNodePairs = false;
 
                 for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
                 {
                     if (wcscmp(pCurrentNode->szDesc, m_pButtonLabelSet[nOptionsToTest]) == 0)
                     {
-                        fIsCorePalette = true;
+                        fCanPairAsNodePairs = true;
                         break;
                     }
                 }
 
-                if (fIsCorePalette)
+                if (fCanPairAsNodePairs)
                 {
                     // We've confirmed that the string matches one of the indicated button names.  Since we're doing a color per node, ensure we only ever
                     // expose to max node.  This covers the situation where a game might have LP/LK but not LP/LK/MP/MK out of a set.
@@ -1533,11 +1533,11 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         if (_GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, nOptionsToTest, ppExtraDef) != nNodeIncrement)
                         {
                             OutputDebugString(L"CGameClass::_UpdatePalImg: WARNING: These palette nodes are not pairable.  Possibly you already know this, but maybe you want to doublecheck and see if you forget a palette in the set.\r\n");
-                            fIsCorePalette = false;
+                            fCanPairAsNodePairs = false;
                         }
                     }
 
-                    if (fIsCorePalette)
+                    if (fCanPairAsNodePairs)
                     {
                         while (nSrcStart >= nNodeIncrement)
                         {
@@ -1549,6 +1549,32 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                     {
                         // This isn't pairable: treat as a solo palette.
                         nSrcAmt = 1;
+                        nNodeIncrement = 1;
+                    }
+                }
+                else
+                {
+                    // This handles a node which is simply P1/P2/P3/P4
+                    uint32_t nMatchCount = 0;
+
+                    for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
+                    {
+                        const sGame_PaletteDataset* paletteToCheck = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, nOptionsToTest, ppExtraDef);
+
+                        if (!paletteToCheck ||
+                            (wcscmp(paletteToCheck->szPaletteName, m_pButtonLabelSet[nOptionsToTest]) != 0))
+                        {
+                            break;
+                        }
+
+                        nMatchCount++;
+                    }
+
+                    // If the current palette is a part of the button labels and there are more than one to pair, pair what we have
+                    if ((nMatchCount > nSrcStart) && (nMatchCount > 1))
+                    {
+                        nSrcStart = 0;
+                        nSrcAmt = nMatchCount;
                         nNodeIncrement = 1;
                     }
                 }

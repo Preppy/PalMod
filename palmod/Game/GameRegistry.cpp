@@ -150,6 +150,7 @@
 #include "Game_SurvivalArts_A.h"
 #include "Game_SVG_SNES.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_TattooAsns_A.h"
 #include "Game_TekkenAdvance_GBA.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
@@ -171,7 +172,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 198, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 199, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -350,6 +351,7 @@ namespace KnownGameInfo
     CGameClass* Make_SurvivalArts_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SurvivalArts_A(nConfirmedROMSize); }
     CGameClass* Make_SVCPLUSA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SVCPLUSA_A(nConfirmedROMSize); }
     CGameClass* Make_SVG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SVG_SNES(nConfirmedROMSize); }
+    CGameClass* Make_TattooAsns_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TattooAsns_A(nConfirmedROMSize); }
     CGameClass* Make_TekkenAdvance_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TekkenAdvance_GBA(nConfirmedROMSize); }
     CGameClass* Make_TMNTTF_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TMNTTF_SNES(nConfirmedROMSize); }
     CGameClass* Make_TOPF2005_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TOPF2005_SEGA(nConfirmedROMSize); }
@@ -1778,6 +1780,13 @@ namespace KnownGameInfo
             CGame_SPF2T_A::GetRule,
         },
         {
+            TattooAsns_A,
+            L"Tattoo Assassins (Data East DECO32)",
+            { TattooAsns_A,    L"Tattoo Assassins (Data East DECO32)", L"Tattoo Assassins (Data East DECO32)|pp44.cpu|", GamePlatform::OtherPlatform },
+            Make_TattooAsns_A,
+            CGame_TattooAsns_A::GetRule,
+        },
+        {
             TekkenAdvance_GBA,
             L"Tekken Advance (USA GBA)",
             { TekkenAdvance_GBA, L"Tekken Advance (USA)", L"Tekken Advance (USA GBA)|Tekken Advance (USA).gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
@@ -1919,7 +1928,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 198, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 199, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

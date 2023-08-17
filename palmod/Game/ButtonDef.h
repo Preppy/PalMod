@@ -152,6 +152,11 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL7_SurvivalArts =
    L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"2P/Alt"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL7_TattooAsns =
+{
+   L"C1", L"C2", L"C3", L"C4", L"C5", L"C6", L"Grayscale",
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_CVS2 =
 {
    L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"3P", L"3K"
