@@ -732,9 +732,14 @@ void CGame_MVC2_D::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 
 void CGame_MVC2_D::UpdatePalData()
 {
-    for (uint16_t nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
+    const uint32_t nTotalPalettes = m_BasePalGroup.GetPalAmt();
+    int nTotalLinkedPalettesUpdated = 0;
+
+    // We walk the list backwards so that we can handle in-preview palette updates such as Servbot main->assist
+    for (int16_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
     {
         sPalDef* srcDef = m_BasePalGroup.GetPalDef(nPalCtr);
+
         if (srcDef->fPalAvailable)
         {
             COLORREF* crSrc = srcDef->pPal;
@@ -753,20 +758,27 @@ void CGame_MVC2_D::UpdatePalData()
                 }
             }
 
-            //0 out the 1st index alpha flag
+            // 0 out the 1st index alpha flag
             m_ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16)] &= 0x0FFF;
 
             GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
+
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->fIsChanged = false;
             m_rgFileChanged.at(srcDef->uUnitId) = true;
 
-            //Process supplement palettes
+            // Process supplement palettes
             if (m_ShouldUsePostSetPalProc)
             {
-                PostSetPal(srcDef->uUnitId, srcDef->uPalId);
+                nTotalLinkedPalettesUpdated += PostSetPal(srcDef->uUnitId, srcDef->uPalId);
             }
         }
+    }
+
+    if (nTotalLinkedPalettesUpdated)
+    {
+        // refresh any palettes shown in preview that were updated 
+        GetHost()->GetPalModDlg()->RefreshSecondaryPalettesForPaletteChange();
     }
 }
 

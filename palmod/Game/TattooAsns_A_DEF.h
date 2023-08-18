@@ -117,7 +117,6 @@ const sGame_PaletteDataset TattooAsns_A_DEKE_PALETTES[] =
 const sGame_PaletteDataset TattooAsns_A_KOLDAN_PALETTES[] =
 {
     { L"Koldan", 0x91EB4, 0x91F14 },
-    { L"Golden \"Koldan\" Tattoo", 0x769C4, 0x769F4 },
 };
 
 const sGame_PaletteDataset TattooAsns_A_BONUS_PALETTES[] =
@@ -125,6 +124,7 @@ const sGame_PaletteDataset TattooAsns_A_BONUS_PALETTES[] =
     { L"Mullah Abba", 0x5CB48, 0x5CBA8 },
     { L"Mullah Abba Grayscale?", 0x5CBB0, 0x5CC10 },
     { L"\"Squid Squad\"", 0x733E0, 0x73410 },
+    { L"Golden \"Koldan\" Tattoo", 0x769C4, 0x769F4 },
 };
 
 const sDescTreeNode TattooAsns_A_TAKHATA_COLLECTION[] =
