@@ -23,16 +23,16 @@ const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettes_S =
     { L"Slash Kick", 0xb0 },
     { L"Slash Slash", 0xc0 },
     { L"Slash Heavy Slash", 0xd0 },
-    { L"Gold", 0xe0 },
+    { L"Slash Dust", 0x140 },
 
     { L"Reload Punch", 0xf0 },
     { L"Reload Kick", 0x100 },
     { L"Reload Slash", 0x110 },
     { L"Reload Heavy Slash", 0x120 },
-    { L"Shadow", 0x130 },
+    { L"Reload Dust", 0x150 },
 
-    { L"Vs Slash Dust", 0x140 },
-    { L"Vs Reload Dust", 0x150 },
+    { L"Gold", 0xe0 },
+    { L"Shadow", 0x130 },
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettesEx_S =
