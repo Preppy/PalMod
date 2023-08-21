@@ -583,6 +583,9 @@
     <Filter Include="Games\Other Platforms\Tattoo Assassins %28DECO32%29">
       <UniqueIdentifier>{2d633175-81e8-4b34-b90b-c578e734ec70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Mortal Kombat 1 %28Arcade%29">
+      <UniqueIdentifier>{e398fce3-e153-4103-b8ca-8aa1b39d18e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -968,6 +971,9 @@
     </ClCompile>
     <ClCompile Include="RLEData.cpp">
       <Filter>Images\IMaGe DATabase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MK1_A.cpp">
+      <Filter>Games\Other Platforms\Mortal Kombat 1 %28Arcade%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2068,6 +2074,12 @@
     </ClInclude>
     <ClInclude Include="Game\TattooAsns_A_DEF.h">
       <Filter>Games\Other Platforms\Tattoo Assassins %28DECO32%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MK1_A.h">
+      <Filter>Games\Other Platforms\Mortal Kombat 1 %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MK1_A_DEF.h">
+      <Filter>Games\Other Platforms\Mortal Kombat 1 %28Arcade%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
