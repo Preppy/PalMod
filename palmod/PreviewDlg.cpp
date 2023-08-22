@@ -532,7 +532,9 @@ void CPreviewDlg::OnFileExportImg()
 {
     if (m_ImgDisp.HaveImageData())
     {
-        if (GetHost()->GetCurrGame())
+        if (GetHost()->GetCurrGame() &&
+            GetHost()->GetPalModDlg()->MainPalGroup &&
+            GetHost()->GetPalModDlg()->MainPalGroup->IsAnyPaletteDirty())
         {
             GetHost()->GetCurrGame()->UpdatePalData();
         }

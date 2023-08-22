@@ -49,9 +49,9 @@ enum ePalType
 class CPalGroup
 {
 private:
-    sPalDef rgPalettes[MAX_PALETTES_DISPLAYABLE];
-    sPalRedir rgRedir[MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS];
-    uint32_t nRedirCtr = 0;
+    sPalDef m_rgPalettes[MAX_PALETTES_DISPLAYABLE];
+    sPalRedir m_rgRedir[MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS];
+    uint32_t m_nRedirCtr = 0;
     uint32_t m_nCurrPalAmt = 0;
 
     void InitPal();
@@ -75,9 +75,11 @@ public:
     void SetAddHLSA(COLORREF crSrc, COLORREF* crTarget, double fpAddH, double fpAddL, double fpAddS, int uAddA);
     void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA);
 
-    sPalDef* GetPalDef(uint32_t nIndex) { return &rgPalettes[nIndex]; };
-    sPalSep* GetSep(uint32_t nPal, uint32_t nSep) { return rgPalettes[nPal].SepList[nSep]; };
-    sPalRedir* GetRedir() { return rgRedir; };
+    sPalDef* GetPalDef(uint32_t nIndex) { return &m_rgPalettes[nIndex]; };
+    sPalSep* GetSep(uint32_t nPal, uint32_t nSep) { return m_rgPalettes[nPal].SepList[nSep]; };
+    sPalRedir* GetRedir() { return m_rgRedir; };
 
     void FlushPalAll();
+
+    bool IsAnyPaletteDirty();
 };

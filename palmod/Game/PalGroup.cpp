@@ -19,13 +19,26 @@ void CPalGroup::InitPal()
 {
     for (uint32_t iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        rgPalettes[iPalette].pPal = nullptr;
-        rgPalettes[iPalette].pBasePal = nullptr;
-        rgPalettes[iPalette].uSepAmt = 0;
+        m_rgPalettes[iPalette].pPal = nullptr;
+        m_rgPalettes[iPalette].pBasePal = nullptr;
+        m_rgPalettes[iPalette].uSepAmt = 0;
     }
 
     //Clear the redirect buffer
-    memset(rgRedir, NULL, sizeof(sPalRedir) * MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS);
+    memset(m_rgRedir, NULL, sizeof(sPalRedir) * MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS);
+}
+
+bool CPalGroup::IsAnyPaletteDirty()
+{
+    for (uint32_t iPalette = 0; iPalette < m_nCurrPalAmt; iPalette++)
+    {
+        if (m_rgPalettes[iPalette].fIsChanged)
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void CPalGroup::FlushPalAll()
@@ -38,23 +51,23 @@ void CPalGroup::FlushPalAll()
     }
 
     //Clear the redirect buffer
-    memset(rgRedir, NULL, sizeof(sPalRedir) * MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS);
-    nRedirCtr = 0;
+    memset(m_rgRedir, NULL, sizeof(sPalRedir) * MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS);
+    m_nRedirCtr = 0;
 }
 
 BOOL CPalGroup::FlushPal(uint32_t nIndex)
 {
     if (nIndex < MAX_PALETTES_DISPLAYABLE)
     {
-        safe_delete_array(rgPalettes[nIndex].pPal);
-        safe_delete_array(rgPalettes[nIndex].pBasePal);
+        safe_delete_array(m_rgPalettes[nIndex].pPal);
+        safe_delete_array(m_rgPalettes[nIndex].pBasePal);
 
-        for (uint32_t iPos = 0; iPos < rgPalettes[nIndex].uSepAmt; iPos++)
+        for (uint32_t iPos = 0; iPos < m_rgPalettes[nIndex].uSepAmt; iPos++)
         {
-            safe_delete(rgPalettes[nIndex].SepList[iPos]);
+            safe_delete(m_rgPalettes[nIndex].SepList[iPos]);
         }
 
-        memset(&rgPalettes[nIndex], NULL, sizeof(sPalDef));
+        memset(&m_rgPalettes[nIndex], NULL, sizeof(sPalDef));
 
         return TRUE;
     }
@@ -67,10 +80,10 @@ BOOL CPalGroup::FlushPal(uint32_t nIndex)
 BOOL CPalGroup::AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_t nAmt)
 {
     // Separators enable us to have multiple groups of palettes within a palette display.
-    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))
+    if ((m_rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS) || ((nStart + nAmt) > m_rgPalettes[nIndex].uPalSz))
     {
         CString strWarning;
-        strWarning.Format(L"WARNING: Trying to use too many separators for \"%s\": %u requested, %u allowed. Disallowing this.\n", szDesc, rgPalettes[nIndex].uSepAmt, MAX_SEPARATORS);
+        strWarning.Format(L"WARNING: Trying to use too many separators for \"%s\": %u requested, %u allowed. Disallowing this.\n", szDesc, m_rgPalettes[nIndex].uSepAmt, MAX_SEPARATORS);
         OutputDebugString(strWarning);
         return FALSE;
     }
@@ -83,14 +96,14 @@ BOOL CPalGroup::AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_
     NewSep->nStart = nStart;
     NewSep->nAmt = nAmt;
 
-    rgPalettes[nIndex].SepList[rgPalettes[nIndex].uSepAmt] = NewSep;
+    m_rgPalettes[nIndex].SepList[m_rgPalettes[nIndex].uSepAmt] = NewSep;
 
     //Set a redir node
-    rgRedir[nRedirCtr].nDefIndex = nIndex;
-    rgRedir[nRedirCtr].nSepIndex = rgPalettes[nIndex].uSepAmt;
-    nRedirCtr++;
+    m_rgRedir[m_nRedirCtr].nDefIndex = nIndex;
+    m_rgRedir[m_nRedirCtr].nSepIndex = m_rgPalettes[nIndex].uSepAmt;
+    m_nRedirCtr++;
 
-    rgPalettes[nIndex].uSepAmt++;
+    m_rgPalettes[nIndex].uSepAmt++;
 
     return TRUE;
 }
@@ -103,7 +116,7 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, uint16_t uPalSz, uint32_t uUnitId, uint32
         return FALSE;
     }
 
-    sPalDef* CurrPal = &rgPalettes[m_nCurrPalAmt];
+    sPalDef* CurrPal = &m_rgPalettes[m_nCurrPalAmt];
 
     //Init the basics of the palette
     CurrPal->pPal = pPal;

@@ -545,7 +545,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
         strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
 
-        fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING) == IDOK);
+        fShouldExportAsIndexed = (SHMessageBoxCheck(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING, IDOK, L"{2788E83C-EC41-4131-AA75-488B1425E085}") == IDOK);
     }
 
     if (fShouldExportAsIndexed)
@@ -739,7 +739,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-                output_str.Format(L"%s%s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
+                output_str.Format(L"%s %s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
                 lodepng::save_file(buffer, output_str.GetString());
             }
 
