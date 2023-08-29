@@ -687,7 +687,7 @@ const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P Palette",        0x7234c, 0x7236c, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
     { L"P Dash Frame / Guard Frame", 0x7236c, 0x7238c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P FP / jFP / cFP / Intro", 0x7238c, 0x723Ac, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
+    { L"P FP / jFP / cFP / Intro", 0x7238c, 0x723Ac, indexCPS2Sprites_Shuma, 0x09, &pairNext25 },
 
     { L"P Unknown 1", 0x7728c, 0x772Ac },
     { L"P Unknown 2", 0x772Ac, 0x772Cc },
@@ -744,7 +744,7 @@ const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK[] =
 {
     { L"K Palette", 0x723Ac, 0x723Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHVSFShumaEffects },
     { L"K Dash Frame / Guard Frame", 0x723Cc, 0x723Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"K FP / jFP / cFP / Intro", 0x723Ec, 0x7240c, indexCPS2Sprites_Shuma, 0x02, &pairNext25 },
+    { L"K FP / jFP / cFP / Intro", 0x723Ec, 0x7240c, indexCPS2Sprites_Shuma, 0x09, &pairNext25 },
 
     { L"K Unknown 1", 0x7788c, 0x778Ac },
     { L"K Unknown 2", 0x778Ac, 0x778Cc },

@@ -475,7 +475,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P1[] =
 {
     { L"P1 Main", 0x6222c, 0x6224c, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHShumaEffects },
     { L"P1 Dash Frame / Guard Frame", 0x6224c, 0x6226c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P1 FP / jFP / cFP / Intro", 0x6226c, 0x6228c, indexCPS2Sprites_Shuma, 0x02, &pairNext35 },
+    { L"P1 FP / jFP / cFP / Intro", 0x6226c, 0x6228c, indexCPS2Sprites_Shuma, 0x09, &pairNext35 },
 
     { L"P1 Unused 1", 0x63bac + (0 * 0x20), 0x63bcc + (0 * 0x20) },
     { L"P1 Unused 2", 0x63bac + (1 * 0x20), 0x63bcc + (1 * 0x20) },
@@ -537,7 +537,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P2[] =
 {
     { L"P2 Main", 0x622Ac, 0x622Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHShumaEffects },
     { L"P2 Dash Frame / Guard Frame", 0x622Cc, 0x622Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P2 FP / jFP / cFP / Intro", 0x622ec, 0x6230c, indexCPS2Sprites_Shuma, 0x02, &pairNext35 },
+    { L"P2 FP / jFP / cFP / Intro", 0x622ec, 0x6230c, indexCPS2Sprites_Shuma, 0x09, &pairNext35 },
 
     { L"P2 Unused 1", 0x641ac + (0 * 0x20), 0x641cc + (0 * 0x20) },
     { L"P2 Unused 2", 0x641ac + (1 * 0x20), 0x641cc + (1 * 0x20) },

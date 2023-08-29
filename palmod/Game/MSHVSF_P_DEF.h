@@ -934,28 +934,28 @@ const sGame_PaletteDataset MSHVSF_P_SHUMA_PUNCH[] =
 {
     { L"Palette",               CURRENT_LOCATION + (0x00 * 0x20), CURRENT_LOCATION + (0x01 * 0x20), indexCPS2Sprites_Shuma, 0x00, &pairNext },
     { L"Dash Frame / Guard Frame",              CURRENT_LOCATION + (0x01 * 0x20), CURRENT_LOCATION + (0x02 * 0x20), indexCPS2Sprites_Shuma, 0x01 },
-    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x02 * 0x20), CURRENT_LOCATION + (0x03 * 0x20), indexCPS2Sprites_Shuma, 0x02 },
+    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x02 * 0x20), CURRENT_LOCATION + (0x03 * 0x20), indexCPS2Sprites_Shuma, 0x09 },
 };
 
 const sGame_PaletteDataset MSHVSF_P_SHUMA_KICK[] =
 {
     { L"Palette",               CURRENT_LOCATION + (0x03 * 0x20), CURRENT_LOCATION + (0x04 * 0x20), indexCPS2Sprites_Shuma, 0x00, &pairNext },
     { L"Dash Frame / Guard Frame",              CURRENT_LOCATION + (0x04 * 0x20), CURRENT_LOCATION + (0x05 * 0x20), indexCPS2Sprites_Shuma, 0x01 },
-    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x05 * 0x20), CURRENT_LOCATION + (0x06 * 0x20), indexCPS2Sprites_Shuma, 0x02 },
+    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x05 * 0x20), CURRENT_LOCATION + (0x06 * 0x20), indexCPS2Sprites_Shuma, 0x09 },
 };
 
 const sGame_PaletteDataset MSHVSF_P_SHUMA_BONUS1[] =
 {
     { L"Palette",               CURRENT_LOCATION + (0x06 * 0x20), CURRENT_LOCATION + (0x07 * 0x20), indexCPS2Sprites_Shuma, 0x00, &pairNext },
     { L"Dash Frame / Guard Frame",              CURRENT_LOCATION + (0x07 * 0x20), CURRENT_LOCATION + (0x08 * 0x20), indexCPS2Sprites_Shuma, 0x01 },
-    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x08 * 0x20), CURRENT_LOCATION + (0x09 * 0x20), indexCPS2Sprites_Shuma, 0x02 },
+    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x08 * 0x20), CURRENT_LOCATION + (0x09 * 0x20), indexCPS2Sprites_Shuma, 0x09 },
 };
 
 const sGame_PaletteDataset MSHVSF_P_SHUMA_BONUS2[] =
 {
     { L"Palette",               CURRENT_LOCATION + (0x09 * 0x20), CURRENT_LOCATION + (0x0a * 0x20), indexCPS2Sprites_Shuma, 0x00, &pairNext },
     { L"Dash Frame / Guard Frame",              CURRENT_LOCATION + (0x0a * 0x20), CURRENT_LOCATION + (0x0b * 0x20), indexCPS2Sprites_Shuma, 0x01 },
-    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x0b * 0x20), CURRENT_LOCATION + (0x0c * 0x20), indexCPS2Sprites_Shuma, 0x02 },
+    { L"FP / jFP / cFP / Intro",     CURRENT_LOCATION + (0x0b * 0x20), CURRENT_LOCATION + (0x0c * 0x20), indexCPS2Sprites_Shuma, 0x09 },
 };
 
 const sDescTreeNode MSHVSF_P_SHUMA_COLLECTION[] =

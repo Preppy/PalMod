@@ -185,15 +185,15 @@ const sGame_PaletteDataset WakuWaku7_A_ARINA_BONUS_PALETTES[] =
     { L"Doki Doki 5", 0xd318, 0xd338, indexWakuWaku7Sprites_Arina, 0x00 },
     { L"Doki Doki 6", 0xd338, 0xd358, indexWakuWaku7Sprites_Arina, 0x00 },
     { L"Doki Doki 7", 0xd358, 0xd378, indexWakuWaku7Sprites_Arina, 0x00 },
-    { L"Arina Friends", 0xd6f8, 0xd758 },
-    { L"Arina Beam 1", 0xd758, 0xd778 },
-    { L"Arina Beam 2", 0xd778, 0xd798 },
-    { L"Arina Beam 3", 0xd798, 0xd7b8 },
-    { L"Arina Beam 4", 0xd678, 0xd698 },
-    { L"EX Arina Beam", 0xd698, 0xd6b8 },
-    { L"Arina Special 1", 0xd7d8, 0xd7f8 },
-    { L"Arina Special 2", 0xd278, 0xd298 },
-    { L"Super Charge Effect", 0xd6b8, 0xd6d8 },
+    { L"Arina Friends", 0xd6f8, 0xd758, indexWakuWaku7Sprites_Arina, 0x02 },
+    { L"Arina Beam 1", 0xd758, 0xd778, indexWakuWaku7Sprites_Arina, 0x01 },
+    { L"Arina Beam 2", 0xd778, 0xd798, indexWakuWaku7Sprites_Arina, 0x01 },
+    { L"Arina Beam 3", 0xd798, 0xd7b8, indexWakuWaku7Sprites_Arina, 0x01 },
+    { L"Arina Beam 4", 0xd678, 0xd698, indexWakuWaku7Sprites_Arina, 0x01 },
+    { L"EX Arina Beam", 0xd698, 0xd6b8, indexWakuWaku7Sprites_Arina, 0x05 },
+    { L"Arina Special 1", 0xd7d8, 0xd7f8, indexWakuWaku7Sprites_Arina, 0x03 },
+    { L"Arina Special 2", 0xd278, 0xd298, indexWakuWaku7Sprites_Arina, 0x04 },
+    { L"Super Charge Effect", 0xd6b8, 0xd6d8, indexWakuWaku7Sprites_Arina, 0x06 },
     { L"Unused", 0xd858, 0xd878 },
 };
 
@@ -666,8 +666,8 @@ const sGame_PaletteDataset WakuWaku7_A_TESSE_BONUS_PALETTES[] =
     { L"Doki Doki 5", 0xea38, 0xea58, indexWakuWaku7Sprites_Tesse, 0x00 },
     { L"Doki Doki 6", 0xea58, 0xea78, indexWakuWaku7Sprites_Tesse, 0x00 },
     { L"Doki Doki 7", 0xea78, 0xea98, indexWakuWaku7Sprites_Tesse, 0x00 },
-    { L"Effects", 0xed98, 0xedb8 },
-    { L"Arekore Poi", 0xedb8, 0xee18 },
+    { L"Effects", 0xed98, 0xedb8, indexWakuWaku7Sprites_Tesse, 0x02 },
+    { L"Arekore Poi", 0xedb8, 0xee18, indexWakuWaku7Sprites_Tesse, 0x01 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_FERNANDEATH_A_PALETTES[] =
