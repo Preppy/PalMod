@@ -739,7 +739,17 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-                output_str.Format(L"%s %s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
+                CString strOptionalNodeSuffix = L"";
+
+                if (strCurrentNodeName.GetLength())
+                {
+                    // the save dialog is doing an internal trim on the string submitted.
+                    // that's normally fine, but is annoying when we're adding a suffix.
+                    // so insert a space to make the output slightly prettier
+                    strOptionalNodeSuffix.Format(L" %s", strCurrentNodeName.GetString());
+                }
+                
+                output_str.Format(L"%s%s%s", save_str.GetString(), strOptionalNodeSuffix.GetString(), output_ext.GetString());
                 lodepng::save_file(buffer, output_str.GetString());
             }
 

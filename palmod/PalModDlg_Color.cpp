@@ -13,11 +13,11 @@ void CPalModDlg::EnableSlider(int RH, int GS, int BL)
 
     GetDlgItem(IDC_EDIT_GS)->EnableWindow(GS);
     m_GSSlider.EnableWindow(GS);
-    GetDlgItem(IDC_SPIN_GS)->EnableWindow(RH);
+    GetDlgItem(IDC_SPIN_GS)->EnableWindow(GS);
 
     GetDlgItem(IDC_EDIT_BL)->EnableWindow(BL);
     m_BLSlider.EnableWindow(BL);
-    GetDlgItem(IDC_SPIN_BL)->EnableWindow(RH);
+    GetDlgItem(IDC_SPIN_BL)->EnableWindow(BL);
 
     GetDlgItem(IDC_BNEWCOL)->EnableWindow(RH);
 }
