@@ -51,16 +51,16 @@ const std::vector<LPCWSTR> GGXXACRPaletteNamesShort =
     L"S. Kick",
     L"S. Slash",
     L"S. Heavy",
-    L"Gold",
+    L"S. Dust",
 
     L"R. Punch",
     L"R. Kick",
     L"R. Slash",
     L"R. Heavy",
-    L"Shadow",
+    L"R. Dust",
 
-    L"VsS. Dust",
-    L"VsR. Dust",
+    L"Gold",
+    L"Shadow",
 };
 
 const std::vector<LPCWSTR> GGXXACRExPaletteNamesShort =
@@ -70,19 +70,16 @@ const std::vector<LPCWSTR> GGXXACRExPaletteNamesShort =
     L"Slash",
     L"Heavy",
     L"Dust",
-
     L"E. Punch",
     L"E. Kick",
     L"E. Slash",
     L"E. Heavy",
     L"E. Dust",
-
     L"S. Punch",
     L"S. Kick",
     L"S. Slash",
     L"S. Heavy",
     L"Gold",
-
     L"R. Punch",
     L"R. Kick",
     L"R. Slash",

@@ -13,7 +13,7 @@ struct sGCBUPF_RelativePaletteData
 {
     const LPCWSTR pszPaletteName;
     // this reflects all accrued buffer space from pal(0) up until this palette's start location
-    const uint32_t nPaletteShiftFromBase = 0;
+    const int32_t nPaletteShiftFromBase = 0;
     const uint16_t indexImageUnit = INVALID_UNIT_VALUE; // the major character/collection index
     const uint16_t indexImageSprite = 0; // subsprites within that collection
     const stPairedPaletteInfo* pPalettePairingInfo = nullptr;

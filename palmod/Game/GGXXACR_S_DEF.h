@@ -23,16 +23,23 @@ const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettes_S =
     { L"Slash Kick", 0xb0 },
     { L"Slash Slash", 0xc0 },
     { L"Slash Heavy Slash", 0xd0 },
-    { L"Slash Dust", 0x140 },
+    { L"Slash Dust", 0x1940 },
 
     { L"Reload Punch", 0xf0 },
     { L"Reload Kick", 0x100 },
     { L"Reload Slash", 0x110 },
     { L"Reload Heavy Slash", 0x120 },
-    { L"Reload Dust", 0x150 },
+    { L"Reload Dust", 0x950 },
 
-    { L"Gold", 0xe0 },
-    { L"Shadow", 0x130 },
+    { L"Gold", -0x1720 },
+    { L"Shadow", -0x6D0 },
+
+    //we mangle the math with s.dust/r.dust and shadow/gold so that we get a better order, but internally it is:
+    //default   p k s h d 
+    //ex        p k s h d 
+    //slash     p k s h, gold
+    //reload    p k s h, shadow
+    //slash dust, reload dust
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettesEx_S =
