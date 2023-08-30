@@ -184,13 +184,16 @@ void CPalModDlg::UpdateSliderSel(BOOL fModeChange, BOOL fResetRF)
     // RangeFlag is a cute way for us to know whether or not we need to reset 
     // the min/max for each slider.  It's a combination of gameflag +
     // a per-display-type value.
-    static int nRangeFlag = 0xFFFF;
+    constexpr auto RANGE_UNSET = 0xFFFF;
+    // We add multiples of this value to differentiate UI states.
+    constexpr auto RANGE_MASK = 0x800;
+    static int nRangeFlag = RANGE_UNSET;
     static BOOL fSliderEnabled = TRUE;
     static BOOL fAlphaEnabled = TRUE;
 
     if (fResetRF)
     {
-        nRangeFlag = 0xFFFF;
+        nRangeFlag = RANGE_UNSET;
     }
 
     BOOL fEnableSlider = FALSE;
@@ -212,7 +215,8 @@ void CPalModDlg::UpdateSliderSel(BOOL fModeChange, BOOL fResetRF)
 
             if (m_fShowAsRGBNotHSL)
             {
-                if (nRangeFlag != (0 + nGameFlag))
+                // Yes, that math is a no-op.  But it is an *explicit* no-op!
+                if (nRangeFlag != ((RANGE_MASK * 0) + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, m_nRGBAmt, TRUE);
                     m_GSSlider.SetRange(0, m_nRGBAmt, TRUE);
@@ -224,14 +228,14 @@ void CPalModDlg::UpdateSliderSel(BOOL fModeChange, BOOL fResetRF)
             }
             else
             {
-                if (nRangeFlag != ((0xFF * 1) + nGameFlag))
+                if (nRangeFlag != ((RANGE_MASK * 1) + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, 360, TRUE);
                     m_GSSlider.SetRange(0, 255, TRUE);
                     m_BLSlider.SetRange(0, 100, TRUE);
                     m_ASlider.SetRange(0, m_nAAmt, TRUE);
 
-                    nRangeFlag = (0xFF * 1) + nGameFlag;
+                    nRangeFlag = (RANGE_MASK * 1) + nGameFlag;
                 }
             }
 
@@ -250,26 +254,26 @@ void CPalModDlg::UpdateSliderSel(BOOL fModeChange, BOOL fResetRF)
 
             if (m_fShowAsRGBNotHSL)
             {
-                if (nRangeFlag != ((0xFF * 2) + nGameFlag))
+                if (nRangeFlag != ((RANGE_MASK * 2) + nGameFlag))
                 {
                     m_RHSlider.SetRange(-m_nRGBAmt, m_nRGBAmt, TRUE);
                     m_GSSlider.SetRange(-m_nRGBAmt, m_nRGBAmt, TRUE);
                     m_BLSlider.SetRange(-m_nRGBAmt, m_nRGBAmt, TRUE);
                     m_ASlider.SetRange(-m_nAAmt, m_nAAmt, TRUE);
 
-                    nRangeFlag = (0xFF * 2) + nGameFlag;
+                    nRangeFlag = (RANGE_MASK * 2) + nGameFlag;
                 }
             }
             else
             {
-                if (nRangeFlag != ((0xFF * 3) + nGameFlag))
+                if (nRangeFlag != ((RANGE_MASK * 3) + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, 360, TRUE);
                     m_GSSlider.SetRange(-255, 255, TRUE);
                     m_BLSlider.SetRange(-100, 100, TRUE);
                     m_ASlider.SetRange(-m_nAAmt, m_nAAmt, TRUE);
 
-                    nRangeFlag = (0xFF * 3) + nGameFlag;
+                    nRangeFlag = (RANGE_MASK * 3) + nGameFlag;
                 }
             }
 
