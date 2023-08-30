@@ -2,6 +2,8 @@
 #include "GameClassByDir.h"
 #include "KOF97_A_DEF.h"
 
+constexpr auto KOF97_COMMON_PALETTECOUNT = 2584;
+
 class CGame_KOF97_A : public CGameClassByDir
 {
 private:
@@ -55,9 +57,9 @@ private:
         m_rgCRC32Data,
         KOF97_A_UNITS,
         ARRAYSIZE(KOF97_A_UNITS),
-        L"KOF97E.txt",      // Extra filename
-        2584,               // Count of palettes listed in the header
-        0x2d1ff0,           // Lowest known location used for palettes
+        L"KOF97E.txt",              // Extra filename
+        KOF97_COMMON_PALETTECOUNT,  // Count of palettes listed in the header
+        0x2d1ff0,                   // Lowest known location used for palettes
     };
 
     // Developer-only mode to regenerate the header file quickly.
@@ -102,9 +104,9 @@ private:
         m_rgCRC32Data,
         KOF97AE_A_UNITS,
         ARRAYSIZE(KOF97AE_A_UNITS),
-        L"KOF97AEe.txt",      // Extra filename
-        2568,                 // Count of palettes listed in the header
-        0x2d1ff0,             // Lowest known location used for palettes
+        L"KOF97AEe.txt",            // Extra filename
+        KOF97_COMMON_PALETTECOUNT,  // Count of palettes listed in the header
+        0x2d1ff0,                   // Lowest known location used for palettes
     };
 
 public:
@@ -144,9 +146,9 @@ private:
         m_rgCRC32Data,
         KOF97AE_A_UNITS,
         ARRAYSIZE(KOF97AE_A_UNITS),
-        L"KOF97AEe.txt",      // Extra filename
-        2568,                 // Count of palettes listed in the header
-        0x2d1ff0,             // Lowest known location used for palettes
+        L"KOF97AEe.txt",            // Extra filename
+        KOF97_COMMON_PALETTECOUNT,  // Count of palettes listed in the header
+        0x2d1ff0,                   // Lowest known location used for palettes
     };
 
 public:

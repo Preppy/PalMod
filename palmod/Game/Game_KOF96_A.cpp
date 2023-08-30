@@ -51,7 +51,7 @@ struct sKOF96_A_PaletteData
 
 sKOF96_A_PaletteData KOF96_A_CharacterEffectPalettes[] =
 {
-    { L"Kyo",       0x102002, false, L"indexKOF94Sprites_Kyo",          L"indexKOF96Sprites_Kyo" },
+    { L"Kyo",       0x102002, false, L"indexKOF96Sprites_Kyo",          L"indexKOF96Sprites_Kyo" },
     { L"Benimaru",  0x102402, false, L"indexKOF94Sprites_Benimaru",          L"indexKOF96Sprites_Benimaru" },
     { L"Daimon",    0x102802, false, L"indexKOF98Sprites_Daimon",          L"indexKOF96Sprites_Daimon" },
     { L"Terry",     0x102c02, false, L"indexKOF94Sprites_Terry",          L"indexKOF96Sprites_Terry" },
@@ -72,14 +72,14 @@ sKOF96_A_PaletteData KOF96_A_CharacterEffectPalettes[] =
     { L"Kim",       0x106802, false, L"indexKOF98Sprites_Kim",          L"indexKOF96Sprites_Kim" },
     { L"Chang",     0x106c02, true, L"indexKOF98Sprites_Chang",          L"indexKOF96Sprites_Chang" },
     { L"Choi",      0x107002, false, L"indexKOF98Sprites_Choi",          L"indexKOF96Sprites_Choi" },
-    { L"Iori",      0x107402, false, L"indexKOF98Sprites_Iori",          L"indexKOF96Sprites_Iori" },
+    { L"Iori",      0x107402, false, L"indexKOF96Sprites_Iori",          L"indexKOF96Sprites_Iori" },
     { L"Mature",    0x107802, false, L"indexKOF98Sprites_Mature",          L"indexKOF96Sprites_Mature" },
     { L"Vice",      0x107c02, false, L"indexKOF98Sprites_Vice",          L"indexKOF96Sprites_Vice" },
     { L"Geese",     0x108002, false, L"indexKOF02Sprites_Geese",          L"indexKOF96Sprites_Geese" },
     { L"Krauser",   0x108402, false, L"indexKOF96Sprites_Krauser",          L"indexKOF96Sprites_Krauser" },
     { L"Mr. Big",   0x108802, false, L"indexKOF96Sprites_MrBig",          L"indexKOF96Sprites_MrBig" },
     { L"Chizuru",   0x108c02, false, L"indexKOF98Sprites_Chizuru",          L"indexKOF96Sprites_Chizuru" },
-    { L"Goenitz",   0x109002, false, L"indexKOF02Sprites_Goenitz",          L"indexKOF96Sprites_Goenitz" },
+    { L"Goenitz",   0x109002, false, L"indexKOF96Sprites_Goenitz",          L"indexKOF96Sprites_Goenitz" },
 };
 
 void CGame_KOF96_A::DumpPaletteHeaders()

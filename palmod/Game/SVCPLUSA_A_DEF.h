@@ -8,12 +8,14 @@
 
 const std::vector<uint16_t> SVCPLUSA_A_IMGIDS_USED =
 {
-    indexKOF97Sprites_Kyo,
     indexKOF96Sprites_Ryo,
-    indexKOF97Sprites_Terry,
     indexKOF99Sprites_Mai,
     indexKOF02Sprites_Kim,
     indexKOF96Sprites_Choi,
+    
+    indexKOF97Sprites_IoriOrochi,       // 0x1F7
+    indexKOF97Sprites_Kyo,
+    indexKOF97Sprites_Terry,
 
     indexSVCSprites_Kyo,        // 4f
     indexSVCSprites_Iori,       // 50
@@ -1406,9 +1408,9 @@ const sGame_PaletteDataset SVCPLUSA_A_ZERO_PUNCH_PALETTES[] =
     { L"Ciel", 0x380558, 0x380578, indexSVCSprites_Zero, 1 },
     { L"Red Arremer Transform 1/2", 0x380578, 0x380598, indexSVCSprites_Zero, 4, &pairHandledInCode },
     { L"Electric Shock Effect", 0x380598, 0x3805b8, indexSVCSprites_Zero },
-    { L"Exceed", 0x3805b8, 0x3805d8, indexSVCSprites_Zero,  },
+    { L"Exceed", 0x3805b8, 0x3805d8, indexSVCSprites_Zero },
     { L"Heaven Spell", 0x3805d8, 0x3805f8, indexSVCSprites_Zero, 5 },
-    { L"Soul Palette", 0x3805f8, 0x380618, indexSVCSprites_Zero,  },
+    { L"Soul Palette", 0x3805f8, 0x380618, indexSVCSprites_Zero },
     { L"Midnight Bliss", 0x380618, 0x380638, indexSVCSprites_Zero, 7 }, 
 };
 
@@ -1600,25 +1602,25 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_PUNCH_PALETTES[] =
 {
-    { L"Orochi Iori", 0x384538, 0x384558, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 1", 0x384558, 0x384578, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 2", 0x384578, 0x384598, indexSVCSprites_OrochiIori },
-    { L"Electric Shock Effect", 0x384598, 0x3845b8, indexSVCSprites_OrochiIori },
+    { L"Orochi Iori", 0x384538, 0x384558, indexKOF97Sprites_IoriOrochi },
+    // unused { L"Fire Effect 1", 0x384558, 0x384578, indexKOF97Sprites_IoriOrochi },
+    // unused { L"Fire Effect 2", 0x384578, 0x384598, indexKOF97Sprites_IoriOrochi },
+    { L"Electric Shock Effect", 0x384598, 0x3845b8, indexKOF97Sprites_IoriOrochi },
     { L"Makai Spell", 0x3845b8, 0x3845d8, indexSVCSprites_OrochiIori, 4 },
     { L"Heaven Spell", 0x3845d8, 0x3845f8, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette", 0x3845f8, 0x384618, indexSVCSprites_OrochiIori },
+    { L"Soul Palette", 0x3845f8, 0x384618, indexKOF97Sprites_IoriOrochi },
     { L"Midnight Bliss", 0x384618, 0x384638, indexSVCSprites_OrochiIori, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_KICK_PALETTES[] =
 {
-    { L"Orochi Iori", 0x384738, 0x384758, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 1", 0x384758, 0x384778, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 2", 0x384778, 0x384798, indexSVCSprites_OrochiIori },
-    { L"Electric Shock Effect", 0x384798, 0x3847b8, indexSVCSprites_OrochiIori },
+    { L"Orochi Iori", 0x384738, 0x384758, indexKOF97Sprites_IoriOrochi },
+    // unused { L"Fire Effect 1", 0x384758, 0x384778, indexKOF97Sprites_IoriOrochi },
+    // unused { L"Fire Effect 2", 0x384778, 0x384798, indexKOF97Sprites_IoriOrochi },
+    { L"Electric Shock Effect", 0x384798, 0x3847b8, indexKOF97Sprites_IoriOrochi },
     { L"Makai Spell", 0x3847b8, 0x3847d8, indexSVCSprites_OrochiIori, 4 },
     { L"Heaven Spell", 0x3847d8, 0x3847f8, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette", 0x3847f8, 0x384818, indexSVCSprites_OrochiIori },
+    { L"Soul Palette", 0x3847f8, 0x384818, indexKOF97Sprites_IoriOrochi },
     { L"Midnight Bliss", 0x384818, 0x384838, indexSVCSprites_OrochiIori, 7 },
 };
 

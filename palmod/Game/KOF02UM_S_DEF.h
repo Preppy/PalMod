@@ -24,6 +24,7 @@ const std::vector<uint16_t> KOF02UM_S_IMGIDS_USED =
 {
     indexKOF96Sprites_Choi,         // 0x24D
     indexKOF96Sprites_Daimon,       // 0x24F
+    indexKOF96Sprites_Goenitz,      // 0x251
     indexKOF96Sprites_Ryo,          // 0x260
 
     indexKOF97Sprites_Billy,            // 0x299
@@ -889,12 +890,12 @@ const sGame_PaletteDataset KOF02UM_S_NIGHTMAREGEESE_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_MOVES[] =
 {
-    { L"Goenitz Wanhyo Special Effects",            0x53100, 0x53120, indexKOF02UMSprites_Goenitz, 0x03 },
-    { L"Goenitz Yonokaze and Super Tornados",       0x53120, 0x53140, indexKOF02UMSprites_Goenitz, 0x19 },
-    { L"Goenitz MAX Blood",                         0x53140, 0x53160, indexKOF02UMSprites_Goenitz, 0x09 },
-    { L"Goenitz Yamidoukoku and Hyouga Tornado",    0x53160, 0x53180, indexKOF02UMSprites_Goenitz, 0x0a },
-    { L"Goenitz Shin Aoi Rekka Finisher",           0x53180, 0x531a0, indexKOF02UMSprites_Goenitz, 0x02 },
-    { L"Goenitz Shin Aoi Rekka Attacks",            0x531a0, 0x531c0, indexKOF02UMSprites_Goenitz, 0x02 },
+    { L"Goenitz Wanhyo Special Effects",            0x53100, 0x53120, indexKOF96Sprites_Goenitz, 0x03 },
+    { L"Goenitz Yonokaze and Super Tornados",       0x53120, 0x53140, indexKOF02UMSprites_Goenitz, 0x21  },
+    { L"Goenitz MAX Blood",                         0x53140, 0x53160, indexKOF96Sprites_Goenitz, 0x05 },
+    { L"Goenitz Yamidoukoku and Hyouga Tornado",    0x53160, 0x53180, indexKOF96Sprites_Goenitz, 0x06 },
+    { L"Goenitz Shin Aoi Rekka Finisher",           0x53180, 0x531a0, indexKOF02UMSprites_Goenitz, 0x24, &pairNext },
+    { L"Goenitz Shin Aoi Rekka Attacks",            0x531a0, 0x531c0, indexKOF02UMSprites_Goenitz, 0x25, &pairPrevious },
     { L"Goenitz Fuujin Ibuki Tornado Spawn",        0x531c0, 0x531e0, indexKOF02UMSprites_Goenitz, 0x0b },
 };
 
@@ -4865,50 +4866,50 @@ const sDescTreeNode KOF02UM_S_KYO2_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_A[] =
 {
-    { L"Goenitz A", 0x004e400, 0x004e420, indexKOF02Sprites_Goenitz },
-    { L"A - Hidden Super Desperation Move 1", 0x004e420, 0x004e440, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"A - Desperation Move / Super Desperation Move", 0x004e440, 0x004e460, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"A - Electric Shock Effect", 0x004e460, 0x004e480, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"A - MAX Flash", 0x004e480, 0x004e4a0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"A - Hidden Super Desperation Move 2", 0x004e4a0, 0x004e4c0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"A - Soul Palette", 0x004e4c0, 0x004e4e0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"A - Hidden Super Desperation Move 3", 0x004e4e0, 0x004e500, indexKOF02Sprites_Goenitz, 0x00 },
+    { L"Goenitz A", 0x004e400, 0x004e420, indexKOF96Sprites_Goenitz },
+    { L"A - Hidden Super Desperation Move 1", 0x004e420, 0x004e440 },
+    { L"A - Desperation Move / Super Desperation Move", 0x004e440, 0x004e460 },
+    { L"A - Electric Shock Effect", 0x004e460, 0x004e480, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"A - MAX Flash", 0x004e480, 0x004e4a0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"A - Hidden Super Desperation Move 2", 0x004e4a0, 0x004e4c0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"A - Soul Palette", 0x004e4c0, 0x004e4e0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"A - Hidden Super Desperation Move 3", 0x004e4e0, 0x004e500, indexKOF96Sprites_Goenitz, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_B[] =
 {
-    { L"Goenitz B", 0x004e500, 0x004e520, indexKOF02Sprites_Goenitz },
-    { L"B - Hidden Super Desperation Move 1", 0x004e520, 0x004e540, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"B - Desperation Move / Super Desperation Move", 0x004e540, 0x004e560, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"B - Electric Shock Effect", 0x004e560, 0x004e580, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"B - MAX Flash", 0x004e580, 0x004e5a0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"B - Hidden Super Desperation Move 2", 0x004e5a0, 0x004e5c0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"B - Soul Palette", 0x004e5c0, 0x004e5e0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"B - Hidden Super Desperation Move 3", 0x004e5e0, 0x004e600, indexKOF02Sprites_Goenitz, 0x00 },
+    { L"Goenitz B", 0x004e500, 0x004e520, indexKOF96Sprites_Goenitz },
+    { L"B - Hidden Super Desperation Move 1", 0x004e520, 0x004e540 },
+    { L"B - Desperation Move / Super Desperation Move", 0x004e540, 0x004e560 },
+    { L"B - Electric Shock Effect", 0x004e560, 0x004e580, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"B - MAX Flash", 0x004e580, 0x004e5a0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"B - Hidden Super Desperation Move 2", 0x004e5a0, 0x004e5c0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"B - Soul Palette", 0x004e5c0, 0x004e5e0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"B - Hidden Super Desperation Move 3", 0x004e5e0, 0x004e600, indexKOF96Sprites_Goenitz, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_C[] =
 {
-    { L"Goenitz C", 0x004e600, 0x004e620, indexKOF02Sprites_Goenitz },
-    { L"C - Hidden Super Desperation Move 1", 0x004e620, 0x004e640, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"C - Desperation Move / Super Desperation Move", 0x004e640, 0x004e660, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"C - Electric Shock Effect", 0x004e660, 0x004e680, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"C - MAX Flash", 0x004e680, 0x004e6a0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"C - Hidden Super Desperation Move 2", 0x004e6a0, 0x004e6c0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"C - Soul Palette", 0x004e6c0, 0x004e6e0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"C - Hidden Super Desperation Move 3", 0x004e6e0, 0x004e700, indexKOF02Sprites_Goenitz, 0x00 },
+    { L"Goenitz C", 0x004e600, 0x004e620, indexKOF96Sprites_Goenitz },
+    { L"C - Hidden Super Desperation Move 1", 0x004e620, 0x004e640 },
+    { L"C - Desperation Move / Super Desperation Move", 0x004e640, 0x004e660 },
+    { L"C - Electric Shock Effect", 0x004e660, 0x004e680, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"C - MAX Flash", 0x004e680, 0x004e6a0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"C - Hidden Super Desperation Move 2", 0x004e6a0, 0x004e6c0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"C - Soul Palette", 0x004e6c0, 0x004e6e0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"C - Hidden Super Desperation Move 3", 0x004e6e0, 0x004e700, indexKOF96Sprites_Goenitz, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_D[] =
 {
-    { L"Goenitz D", 0x004e700, 0x004e720, indexKOF02Sprites_Goenitz },
-    { L"D - Hidden Super Desperation Move 1", 0x004e720, 0x004e740, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"D - Desperation Move / Super Desperation Move", 0x004e740, 0x004e760, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"D - Electric Shock Effect", 0x004e760, 0x004e780, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"D - MAX Flash", 0x004e780, 0x004e7a0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"D - Hidden Super Desperation Move 2", 0x004e7a0, 0x004e7c0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"D - Soul Palette", 0x004e7c0, 0x004e7e0, indexKOF02Sprites_Goenitz, 0x00 },
-    { L"D - Hidden Super Desperation Move 3", 0x004e7e0, 0x004e800, indexKOF02Sprites_Goenitz, 0x00 },
+    { L"Goenitz D", 0x004e700, 0x004e720, indexKOF96Sprites_Goenitz },
+    { L"D - Hidden Super Desperation Move 1", 0x004e720, 0x004e740 },
+    { L"D - Desperation Move / Super Desperation Move", 0x004e740, 0x004e760 },
+    { L"D - Electric Shock Effect", 0x004e760, 0x004e780, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"D - MAX Flash", 0x004e780, 0x004e7a0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"D - Hidden Super Desperation Move 2", 0x004e7a0, 0x004e7c0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"D - Soul Palette", 0x004e7c0, 0x004e7e0, indexKOF96Sprites_Goenitz, 0x00 },
+    { L"D - Hidden Super Desperation Move 3", 0x004e7e0, 0x004e800, indexKOF96Sprites_Goenitz, 0x00 },
 };
 
 const sDescTreeNode KOF02UM_S_GOENITZ_COLLECTION[] =

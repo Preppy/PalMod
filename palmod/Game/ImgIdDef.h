@@ -1231,6 +1231,9 @@ enum KOFSpriteList
     indexKOF98Sprites_OmegaRugal,       // 0x2e3
     indexKOF98Sprites_Bonus,            // 0x2e4
 
+    indexKOF97Sprites_K,                // 0x2e5
+    indexKOF97Sprites_Kasumi,           // 0x2e6
+
     // indexKOF97Sprites_Bonus,         // 0x1F0
     // indexKOF97Sprites_Stages,        // 0x1F1
 };

@@ -2329,6 +2329,18 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_BONUS_MainFrozenPalette[] =
     { L"Main Frozen Palette 15/15", 0xdc1b0, 0xdc1d0 },
 };
 
+const sGame_PaletteDataset KOF00N_A_PALETTES_BONUS_BONUS[] =
+{
+    { L"Intro K'-Iori-Kyo Frame", 0xeb970, 0xeba70 },
+    { L"Character Select Screen Background", 0xe53f0, 0xe5410 },
+    { L"Character Select Screen Interface Hud", 0xe5410, 0xe5430 },
+    { L"Character Select Screen Player Icons 1/2", 0xe5430, 0xe5630 },
+    { L"Character Select Screen Player Icons 2/2", 0xe5630, 0xe5790 },
+    { L"Character Select Screen P1/P2/CPU Rings", 0xe5790, 0xe57b0 },
+    { L"Character Select Screen Name Bars", 0xe57b0, 0xe57f0 },
+    { L"Next Battle Plate", 0xe57f0, 0xe5810 },
+};
+
 const sDescTreeNode KOF00N_A_K_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_K_A, ARRAYSIZE(KOF00N_A_PALETTES_K_A) },
@@ -2733,6 +2745,7 @@ const sDescTreeNode KOF00N_A_BONUS_COLLECTION[] =
     { L"Main Orochi Fire", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_MainOrochiFirePalette, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_MainOrochiFirePalette) },
     { L"Main Lin Poison", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_MainLinPoisonPalette, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_MainLinPoisonPalette) },
     { L"Main Frozen", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_MainFrozenPalette, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_MainFrozenPalette) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_BONUS, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_BONUS) },
 };
 
 const sDescTreeNode KOF00N_A_UNITS[] =
@@ -2774,5 +2787,5 @@ const sDescTreeNode KOF00N_A_UNITS[] =
     { L"Kula", DESC_NODETYPE_TREE, (void*)KOF00N_A_KULA_COLLECTION, ARRAYSIZE(KOF00N_A_KULA_COLLECTION) },
     { L"Clone Zero", DESC_NODETYPE_TREE, (void*)KOF00N_A_CLONEZERO_COLLECTION, ARRAYSIZE(KOF00N_A_CLONEZERO_COLLECTION) },
 
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF00N_A_BONUS_COLLECTION, ARRAYSIZE(KOF00N_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF00N_A_BONUS_COLLECTION, ARRAYSIZE(KOF00N_A_BONUS_COLLECTION) },
 };

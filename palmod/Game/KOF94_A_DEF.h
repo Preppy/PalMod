@@ -36,8 +36,11 @@ const std::vector<uint16_t> KOF94_A_IMGIDS_USED =
     indexKOF94Sprites_Stages,       // 0x17d
     indexKOF94Sprites_Bonus,        // 0x17e
 
+    indexKOF95Sprites_Andy,         // 0x22D
     indexKOF95Sprites_Chang,        // 0x231
     indexKOF95Sprites_Choi,         // 0x233
+    indexKOF95Sprites_Kensou,       // 0x23A
+    indexKOF95Sprites_Kyo,          // 0x23D
 };
 
 const sGame_PaletteDataset KOF94_A_HEIDERN_MAIN_PALETTES[] =
@@ -162,31 +165,31 @@ const sGame_PaletteDataset KOF94_A_ATHENA_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF94_A_KENSOU_MAIN_PALETTES[] =
 {
-    { L"Kensou", 0x176e00, 0x176e20, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Kensou", 0x176e00, 0x176e20, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 1", 0x176e20, 0x176e40 },
-    { L"Electric Palette", 0x176e40, 0x176e60, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Electric Palette", 0x176e40, 0x176e60, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 2", 0x176e60, 0x176e80 },
     { L"Win Portrait", 0x176e80, 0x176f00, indexKOF94Sprites_Kensou, 0x30 },
     { L"Lifebar Portrait", 0x176f00, 0x176f20, indexKOF94Sprites_Kensou, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x176f20, 0x176f40, indexKOF94Sprites_Kensou, 0x40 },
-    { L"Darker Palette", 0x176f40, 0x176f60, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Darker Palette", 0x176f40, 0x176f60, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 3", 0x176f60, 0x176f80 },
-    { L"MAX Flash", 0x176f80, 0x176fa0, indexKOF94Sprites_Kensou, 0x00 },
+    { L"MAX Flash", 0x176f80, 0x176fa0, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 4", 0x176fa0, 0x176fc0 },
 };
 
 const sGame_PaletteDataset KOF94_A_KENSOU_ALT_PALETTES[] =
 {
-    { L"Kensou", 0x176fc0, 0x176fe0, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Kensou", 0x176fc0, 0x176fe0, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 1", 0x176fe0, 0x177000 },
-    { L"Electric Palette", 0x177000, 0x177020, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Electric Palette", 0x177000, 0x177020, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 2", 0x177020, 0x177040 },
     { L"Win Portrait", 0x177040, 0x1770c0, indexKOF94Sprites_Kensou, 0x30 },
     { L"Lifebar Portrait", 0x1770c0, 0x1770e0, indexKOF94Sprites_Kensou, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x1770e0, 0x177100, indexKOF94Sprites_Kensou, 0x40 },
-    { L"Darker Palette", 0x177100, 0x177120, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Darker Palette", 0x177100, 0x177120, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 3", 0x177120, 0x177140 },
-    { L"MAX Flash", 0x177140, 0x177160, indexKOF94Sprites_Kensou, 0x00 },
+    { L"MAX Flash", 0x177140, 0x177160, indexKOF95Sprites_Kensou, 0x00 },
     { L"Extra 4", 0x177160, 0x177180 },
 };
 
@@ -222,32 +225,32 @@ const sGame_PaletteDataset KOF94_A_CHIN_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF94_A_KYO_MAIN_PALETTES[] =
 {
-    { L"Kyo", 0x177500, 0x177520, indexKOF94Sprites_Kyo, 0x00 },
-    { L"Extra 1", 0x177520, 0x177540 },
-    { L"Electric Palette", 0x177540, 0x177560, indexKOF94Sprites_Kyo, 0x00 },
+    { L"Kyo", 0x177500, 0x177520, indexKOF95Sprites_Kyo, 0x00 },
+    { L"Extra 1", 0x177520, 0x177540, indexKOF95Sprites_Kyo, 0x00 },
+    { L"Electric Palette", 0x177540, 0x177560, indexKOF95Sprites_Kyo, 0x00 },
     { L"Extra 2", 0x177560, 0x177580 },
     { L"Win Portrait", 0x177580, 0x177600, indexKOF94Sprites_Kyo, 0x30 },
     { L"Lifebar Portrait", 0x177600, 0x177620, indexKOF94Sprites_Kyo, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x177620, 0x177640, indexKOF94Sprites_Kyo, 0x40 },
-    { L"Darker Palette", 0x177640, 0x177660, indexKOF94Sprites_Kyo, 0x00 },
+    { L"Darker Palette", 0x177640, 0x177660, indexKOF95Sprites_Kyo, 0x00 },
     { L"Extra 3", 0x177660, 0x177680 },
-    { L"MAX Flash", 0x177680, 0x1776a0, indexKOF94Sprites_Kyo, 0x00 },
-    { L"Extra 4", 0x1776a0, 0x1776c0 },
+    { L"MAX Flash", 0x177680, 0x1776a0, indexKOF95Sprites_Kyo, 0x00 },
+    { L"Extra 4", 0x1776a0, 0x1776c0, indexKOF95Sprites_Kyo, 0x00 },
 };
 
 const sGame_PaletteDataset KOF94_A_KYO_ALT_PALETTES[] =
 {
-    { L"Kyo", 0x1776c0, 0x1776e0, indexKOF94Sprites_Kyo, 0x00 },
-    { L"Extra 1", 0x1776e0, 0x177700 },
-    { L"Electric Palette", 0x177700, 0x177720, indexKOF94Sprites_Kyo, 0x00 },
+    { L"Kyo", 0x1776c0, 0x1776e0, indexKOF95Sprites_Kyo, 0x00 },
+    { L"Extra 1", 0x1776e0, 0x177700, indexKOF95Sprites_Kyo, 0x00 },
+    { L"Electric Palette", 0x177700, 0x177720, indexKOF95Sprites_Kyo, 0x00 },
     { L"Extra 2", 0x177720, 0x177740 },
     { L"Win Portrait", 0x177740, 0x1777c0, indexKOF94Sprites_Kyo, 0x30 },
     { L"Lifebar Portrait", 0x1777c0, 0x1777e0, indexKOF94Sprites_Kyo, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x1777e0, 0x177800, indexKOF94Sprites_Kyo, 0x40 },
-    { L"Darker Palette", 0x177800, 0x177820, indexKOF94Sprites_Kyo, 0x00 },
+    { L"Darker Palette", 0x177800, 0x177820, indexKOF95Sprites_Kyo, 0x00 },
     { L"Extra 3", 0x177820, 0x177840 },
-    { L"MAX Flash", 0x177840, 0x177860, indexKOF94Sprites_Kyo, 0x00 },
-    { L"Extra 4", 0x177860, 0x177880 },
+    { L"MAX Flash", 0x177840, 0x177860, indexKOF95Sprites_Kyo, 0x00 },
+    { L"Extra 4", 0x177860, 0x177880, indexKOF95Sprites_Kyo, 0x00 },
 };
 
 const sGame_PaletteDataset KOF94_A_BENIMARU_MAIN_PALETTES[] =
@@ -522,32 +525,32 @@ const sGame_PaletteDataset KOF94_A_TERRY_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF94_A_ANDY_MAIN_PALETTES[] =
 {
-    { L"Andy", 0x179800, 0x179820, indexKOF94Sprites_Andy, 0x00 },
-    { L"Extra 1", 0x179820, 0x179840, indexKOF94Sprites_Andy, 0x01 },
-    { L"Electric Palette", 0x179840, 0x179860, indexKOF94Sprites_Andy, 0x00 },
+    { L"Andy", 0x179800, 0x179820, indexKOF95Sprites_Andy, 0x00 },
+    { L"Extra 1", 0x179820, 0x179840, indexKOF95Sprites_Andy, 0x01 },
+    { L"Electric Palette", 0x179840, 0x179860, indexKOF95Sprites_Andy, 0x00 },
     { L"Extra 2", 0x179860, 0x179880 },
     { L"Win Portrait", 0x179880, 0x179900, indexKOF94Sprites_Andy, 0x30 },
     { L"Lifebar Portrait", 0x179900, 0x179920, indexKOF94Sprites_Andy, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x179920, 0x179940, indexKOF94Sprites_Andy, 0x40 },
-    { L"Darker Palette", 0x179940, 0x179960, indexKOF94Sprites_Andy, 0x00 },
+    { L"Darker Palette", 0x179940, 0x179960, indexKOF95Sprites_Andy, 0x00 },
     { L"Extra 3", 0x179960, 0x179980 },
-    { L"MAX Flash", 0x179980, 0x1799a0, indexKOF94Sprites_Andy, 0x00 },
-    { L"Extra 4", 0x1799a0, 0x1799c0 },
+    { L"MAX Flash", 0x179980, 0x1799a0, indexKOF95Sprites_Andy, 0x00 },
+    { L"Extra 4", 0x1799a0, 0x1799c0, indexKOF95Sprites_Andy, 0x01 },
 };
 
 const sGame_PaletteDataset KOF94_A_ANDY_ALT_PALETTES[] =
 {
-    { L"Andy", 0x1799c0, 0x1799e0, indexKOF94Sprites_Andy, 0x00 },
-    { L"Extra 1", 0x1799e0, 0x179a00, indexKOF94Sprites_Andy, 0x01 },
-    { L"Electric Palette", 0x179a00, 0x179a20, indexKOF94Sprites_Andy, 0x00 },
+    { L"Andy", 0x1799c0, 0x1799e0, indexKOF95Sprites_Andy, 0x00 },
+    { L"Extra 1", 0x1799e0, 0x179a00, indexKOF95Sprites_Andy, 0x01 },
+    { L"Electric Palette", 0x179a00, 0x179a20, indexKOF95Sprites_Andy, 0x00 },
     { L"Extra 2", 0x179a20, 0x179a40 },
     { L"Win Portrait", 0x179a40, 0x179ac0, indexKOF94Sprites_Andy, 0x30 },
     { L"Lifebar Portrait", 0x179ac0, 0x179ae0, indexKOF94Sprites_Andy, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x179ae0, 0x179b00, indexKOF94Sprites_Andy, 0x40 },
-    { L"Darker Palette", 0x179b00, 0x179b20, indexKOF94Sprites_Andy, 0x00 },
+    { L"Darker Palette", 0x179b00, 0x179b20, indexKOF95Sprites_Andy, 0x00 },
     { L"Extra 3", 0x179b20, 0x179b40 },
-    { L"MAX Flash", 0x179b40, 0x179b60, indexKOF94Sprites_Andy, 0x00 },
-    { L"Extra 4", 0x179b60, 0x179b80 },
+    { L"MAX Flash", 0x179b40, 0x179b60, indexKOF95Sprites_Andy, 0x00 },
+    { L"Extra 4", 0x179b60, 0x179b80, indexKOF95Sprites_Andy, 0x01 },
 };
 
 const sGame_PaletteDataset KOF94_A_JOE_MAIN_PALETTES[] =
@@ -762,32 +765,32 @@ const sGame_PaletteDataset KOF94_A_KING_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF94_A_RUGAL_MAIN_PALETTES[] =
 {
-    { L"Rugal", 0x17b400, 0x17b420, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Extra 1", 0x17b420, 0x17b440, indexKOF94Sprites_Rugal, 0x01 },
-    { L"Electric Palette", 0x17b440, 0x17b460, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Electric Palette Extra", 0x17b460, 0x17b480, indexKOF94Sprites_Rugal, 0x01 },
+    { L"Rugal", 0x17b400, 0x17b420, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Extra 1", 0x17b420, 0x17b440, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
+    { L"Electric Palette", 0x17b440, 0x17b460, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Electric Palette Extra", 0x17b460, 0x17b480, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
     { L"Win Portrait", 0x17b480, 0x17b500, indexKOF94Sprites_Rugal, 0x30 },
     { L"Lifebar Portrait", 0x17b500, 0x17b520, indexKOF94Sprites_Rugal, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x17b520, 0x17b540, indexKOF94Sprites_Rugal, 0x40 },
-    { L"Darker Palette", 0x17b540, 0x17b560, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Darker Palette Extra", 0x17b560, 0x17b580, indexKOF94Sprites_Rugal, 0x01 },
-    { L"MAX Flash", 0x17b580, 0x17b5a0, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0x17b5a0, 0x17b5c0, indexKOF94Sprites_Rugal, 0x01 },
+    { L"Darker Palette", 0x17b540, 0x17b560, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Darker Palette Extra", 0x17b560, 0x17b580, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
+    { L"MAX Flash", 0x17b580, 0x17b5a0, indexKOF94Sprites_Rugal, 0x00 },
+    { L"MAX Flash Extra", 0x17b5a0, 0x17b5c0, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
 };
 
 const sGame_PaletteDataset KOF94_A_RUGAL_ALT_PALETTES[] =
 {
-    { L"Rugal", 0x17b5c0, 0x17b5e0, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Extra 1", 0x17b5e0, 0x17b600, indexKOF94Sprites_Rugal, 0x01 },
-    { L"Electric Palette", 0x17b600, 0x17b620, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Electric Palette Extra", 0x17b620, 0x17b640, indexKOF94Sprites_Rugal, 0x01 },
+    { L"Rugal", 0x17b5c0, 0x17b5e0, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Extra 1", 0x17b5e0, 0x17b600, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
+    { L"Electric Palette", 0x17b600, 0x17b620, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Electric Palette Extra", 0x17b620, 0x17b640, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
     { L"Win Portrait", 0x17b640, 0x17b6c0, indexKOF94Sprites_Rugal, 0x30 },
     { L"Lifebar Portrait", 0x17b6c0, 0x17b6e0, indexKOF94Sprites_Rugal, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x17b6e0, 0x17b700, indexKOF94Sprites_Rugal, 0x40 },
-    { L"Darker Palette", 0x17b700, 0x17b720, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Darker Palette Extra", 0x17b720, 0x17b740, indexKOF94Sprites_Rugal, 0x01 },
-    { L"MAX Flash", 0x17b740, 0x17b760, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0x17b760, 0x17b780, indexKOF94Sprites_Rugal, 0x01 },
+    { L"Darker Palette", 0x17b700, 0x17b720, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Darker Palette Extra", 0x17b720, 0x17b740, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
+    { L"MAX Flash", 0x17b740, 0x17b760, indexKOF94Sprites_Rugal, 0x00 },
+    { L"MAX Flash Extra", 0x17b760, 0x17b780, indexKOF94Sprites_Rugal, 0x01, &pairPreviousFlipped },
 };
 
 const sGame_PaletteDataset KOF94_A_LUCKY_SHARED_PALETTES[]

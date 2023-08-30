@@ -29,7 +29,7 @@ private:
         KOF03_A_UNITS,
         ARRAYSIZE(KOF03_A_UNITS),
         L"KOF03E.txt",          // Extra filename
-        1928,                   // Count of palettes listed in the header
+        1932,                   // Count of palettes listed in the header
         0x2000,                 // Lowest known location used for palettes
     };
 

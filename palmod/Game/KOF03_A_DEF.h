@@ -2434,6 +2434,7 @@ const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_A[] =
 
     { L"Fire Palette A", 0x12900, 0x12920 },
     { L"Orochinagi and Intro/Win Flames A", 0x12920, 0x12940 },
+    { L"Orochinagi Fire A", 0x129a0, 0x129c0 },
     { L"Orochinagi Charge A", 0x12940, 0x12960 },
     { L"Oniyaki Effects A", 0x12960, 0x12980 },
     { L"Yami Barai A", 0x12980, 0x129a0 },
@@ -2454,6 +2455,7 @@ const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_B[] =
 
     { L"Fire Palette B", 0x12b00, 0x12b20 },
     { L"Orochinagi and Intro/Win Flames B", 0x12b20, 0x12b40 },
+    { L"Orochinagi Fire B", 0x12ba0, 0x12bc0 },
     { L"Orochinagi Charge B", 0x12b40, 0x12b60 },
     { L"Oniyaki Effects B", 0x12b60, 0x12b80 },
     { L"Yami Barai B", 0x12b80, 0x12ba0 },
@@ -2474,6 +2476,7 @@ const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_C[] =
 
     { L"Fire Palette C", 0x12d00, 0x12d20 },
     { L"Orochinagi and Intro/Win Flames C", 0x12d20, 0x12d40 },
+    { L"Orochinagi Fire C", 0x12da0, 0x12dc0 },
     { L"Orochinagi Charge C", 0x12d40, 0x12d60 },
     { L"Oniyaki Effects C", 0x12d60, 0x12d80 },
     { L"Yami Barai C", 0x12d80, 0x12da0 },
@@ -2494,6 +2497,7 @@ const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_D[] =
 
     { L"Fire Palette D", 0x12f00, 0x12f20 },
     { L"Orochinagi and Intro/Win Flames D", 0x12f20, 0x12f40 },
+    { L"Orochinagi Fire D", 0x12fa0, 0x12fc0 },
     { L"Orochinagi Charge D", 0x12f40, 0x12f60 },
     { L"Oniyaki Effects D", 0x12f60, 0x12f80 },
     { L"Yami Barai D", 0x12f80, 0x12fa0 },

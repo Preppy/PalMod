@@ -8,6 +8,8 @@
 
 const std::vector<uint16_t> KOF98_A_IMGIDS_USED =
 {
+    indexKOF97Sprites_Kyo,              // 0x2A8
+
     indexKOF98Sprites_Kyo,      // 0x00
     indexKOF98Sprites_Benimaru, // 0x01
     indexKOF98Sprites_Daimon,   // 0x02
@@ -62,12 +64,12 @@ const std::vector<uint16_t> KOF98_A_IMGIDS_USED =
 
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_A[] =
 {
-    { L"Kyo A - Main",  0x2d97f0, 0x2d9810, indexKOF98Sprites_Kyo },
-    { L"Kyo A - Extra 1",  0x2d9810, 0x2d9830, indexKOF98Sprites_Kyo },
-    { L"Kyo A - Extra 2",  0x2d9830, 0x2d9850, indexKOF98Sprites_Kyo },
-    { L"Kyo A - Max Mode",  0x2d9850, 0x2d9870, indexKOF98Sprites_Kyo },
-    { L"Kyo A - Extra 3",  0x2d9870, 0x2d9890, indexKOF98Sprites_Kyo },
-    { L"Kyo A - Extra 4",  0x2d9890, 0x2d98b0, indexKOF98Sprites_Kyo },
+    { L"Kyo A - Main",  0x2d97f0, 0x2d9810, indexKOF97Sprites_Kyo },
+    { L"Kyo A - Extra 1",  0x2d9810, 0x2d9830, indexKOF97Sprites_Kyo },
+    { L"Kyo A - Extra 2",  0x2d9830, 0x2d9850, indexKOF97Sprites_Kyo },
+    { L"Kyo A - Max Mode",  0x2d9850, 0x2d9870, indexKOF97Sprites_Kyo },
+    { L"Kyo A - Extra 3",  0x2d9870, 0x2d9890, indexKOF97Sprites_Kyo },
+    { L"Kyo A - Extra 4",  0x2d9890, 0x2d98b0, indexKOF97Sprites_Kyo },
     { L"Kyo A - Order Select",  0x2d98b0, 0x2d98d0, indexKOF98Sprites_OrderSelect, 0x2b },
     { L"Kyo A - Life Bar Portrait",  0x2d98d0, 0x2d98f0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Kyo },
     { L"Kyo A - Win Screen Portrait/sprite",  0x2d98f0, 0x2d99f0, indexKOF98Sprites_WinPortrait, indexKOF98Sprites_Kyo },
@@ -75,12 +77,12 @@ const sGame_PaletteDataset KOF98_A_KYO_PALETTE_A[] =
 
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_B[] =
 {
-    { L"Kyo B - Main",  0x2d99f0, 0x2d9a10, indexKOF98Sprites_Kyo },
-    { L"Kyo B - Extra 1",  0x2d9a10, 0x2d9a30, indexKOF98Sprites_Kyo },
-    { L"Kyo B - Extra 2",  0x2d9a30, 0x2d9a50, indexKOF98Sprites_Kyo },
-    { L"Kyo B - Max Mode",  0x2d9a50, 0x2d9a70, indexKOF98Sprites_Kyo },
-    { L"Kyo B - Extra 3",  0x2d9a70, 0x2d9a90, indexKOF98Sprites_Kyo },
-    { L"Kyo B - Extra 4",  0x2d9a90, 0x2d9ab0, indexKOF98Sprites_Kyo },
+    { L"Kyo B - Main",  0x2d99f0, 0x2d9a10, indexKOF97Sprites_Kyo },
+    { L"Kyo B - Extra 1",  0x2d9a10, 0x2d9a30, indexKOF97Sprites_Kyo },
+    { L"Kyo B - Extra 2",  0x2d9a30, 0x2d9a50, indexKOF97Sprites_Kyo },
+    { L"Kyo B - Max Mode",  0x2d9a50, 0x2d9a70, indexKOF97Sprites_Kyo },
+    { L"Kyo B - Extra 3",  0x2d9a70, 0x2d9a90, indexKOF97Sprites_Kyo },
+    { L"Kyo B - Extra 4",  0x2d9a90, 0x2d9ab0, indexKOF97Sprites_Kyo },
     { L"Kyo B - Order Select",  0x2d9ab0, 0x2d9ad0, indexKOF98Sprites_OrderSelect, 0x2b },
     { L"Kyo B - Life Bar Portrait",  0x2d9ad0, 0x2d9af0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Kyo },
     { L"Kyo B - Win Screen Portrait/sprite",  0x2d9af0, 0x2d9bf0, indexKOF98Sprites_WinPortrait, indexKOF98Sprites_Kyo },
@@ -88,12 +90,12 @@ const sGame_PaletteDataset KOF98_A_KYO_PALETTE_B[] =
 
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_C[] =
 {
-    { L"Kyo C - Main",  0x2d9bf0, 0x2d9c10, indexKOF98Sprites_Kyo },
-    { L"Kyo C - Extra 1",  0x2d9c10, 0x2d9c30, indexKOF98Sprites_Kyo },
-    { L"Kyo C - Extra 2",  0x2d9c30, 0x2d9c50, indexKOF98Sprites_Kyo },
-    { L"Kyo C - Max Mode",  0x2d9c50, 0x2d9c70, indexKOF98Sprites_Kyo },
-    { L"Kyo C - Extra 3",  0x2d9c70, 0x2d9c90, indexKOF98Sprites_Kyo },
-    { L"Kyo C - Extra 4",  0x2d9c90, 0x2d9cb0, indexKOF98Sprites_Kyo },
+    { L"Kyo C - Main",  0x2d9bf0, 0x2d9c10, indexKOF97Sprites_Kyo },
+    { L"Kyo C - Extra 1",  0x2d9c10, 0x2d9c30, indexKOF97Sprites_Kyo },
+    { L"Kyo C - Extra 2",  0x2d9c30, 0x2d9c50, indexKOF97Sprites_Kyo },
+    { L"Kyo C - Max Mode",  0x2d9c50, 0x2d9c70, indexKOF97Sprites_Kyo },
+    { L"Kyo C - Extra 3",  0x2d9c70, 0x2d9c90, indexKOF97Sprites_Kyo },
+    { L"Kyo C - Extra 4",  0x2d9c90, 0x2d9cb0, indexKOF97Sprites_Kyo },
     { L"Kyo C - Order Select",  0x2d9cb0, 0x2d9cd0, indexKOF98Sprites_OrderSelect, 0x2b },
     { L"Kyo C - Life Bar Portrait",  0x2d9cd0, 0x2d9cf0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Kyo },
     { L"Kyo C - Win Screen Portrait/sprite",  0x2d9cf0, 0x2d9df0, indexKOF98Sprites_WinPortrait, indexKOF98Sprites_Kyo },
@@ -101,12 +103,12 @@ const sGame_PaletteDataset KOF98_A_KYO_PALETTE_C[] =
 
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_D[] =
 {
-    { L"Kyo D - Main",  0x2d9df0, 0x2d9e10, indexKOF98Sprites_Kyo },
-    { L"Kyo D - Extra 1",  0x2d9e10, 0x2d9e30, indexKOF98Sprites_Kyo },
-    { L"Kyo D - Extra 2",  0x2d9e30, 0x2d9e50, indexKOF98Sprites_Kyo },
-    { L"Kyo D - Max Mode",  0x2d9e50, 0x2d9e70, indexKOF98Sprites_Kyo },
-    { L"Kyo D - Extra 3",  0x2d9e70, 0x2d9e90, indexKOF98Sprites_Kyo },
-    { L"Kyo D - Extra 4",  0x2d9e90, 0x2d9eb0, indexKOF98Sprites_Kyo },
+    { L"Kyo D - Main",  0x2d9df0, 0x2d9e10, indexKOF97Sprites_Kyo },
+    { L"Kyo D - Extra 1",  0x2d9e10, 0x2d9e30, indexKOF97Sprites_Kyo },
+    { L"Kyo D - Extra 2",  0x2d9e30, 0x2d9e50, indexKOF97Sprites_Kyo },
+    { L"Kyo D - Max Mode",  0x2d9e50, 0x2d9e70, indexKOF97Sprites_Kyo },
+    { L"Kyo D - Extra 3",  0x2d9e70, 0x2d9e90, indexKOF97Sprites_Kyo },
+    { L"Kyo D - Extra 4",  0x2d9e90, 0x2d9eb0, indexKOF97Sprites_Kyo },
     { L"Kyo D - Order Select",  0x2d9eb0, 0x2d9ed0, indexKOF98Sprites_OrderSelect, 0x2b },
     { L"Kyo D - Life Bar Portrait",  0x2d9ed0, 0x2d9ef0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Kyo },
     { L"Kyo D - Win Screen Portrait/sprite",  0x2d9ef0, 0x2d9ff0, indexKOF98Sprites_WinPortrait, indexKOF98Sprites_Kyo },
@@ -2252,11 +2254,11 @@ const sGame_PaletteDataset KOF98_A_KYO_EFFECT_PALETTES[] =
     { L"Effect 4", 0x2ee870, 0x2ee890 },
     { L"Effect 5", 0x2ee890, 0x2ee8b0 },
     { L"Effect 6", 0x2ee8b0, 0x2ee8d0 },
-    { L"Zap Effect 1", 0x2ee950, 0x2ee970, indexKOF98Sprites_Kyo },
-    { L"Zap Effect 2", 0x2ee970, 0x2ee990, indexKOF98Sprites_Kyo },
-    { L"Super Trail 1", 0x2ee990, 0x2ee9b0, indexKOF98Sprites_Kyo },
-    { L"Super Trail 2", 0x2ee9b0, 0x2ee9d0, indexKOF98Sprites_Kyo },
-    { L"Super Trail 3", 0x2ee9d0, 0x2ee9f0, indexKOF98Sprites_Kyo },
+    { L"Zap Effect 1", 0x2ee950, 0x2ee970, indexKOF97Sprites_Kyo },
+    { L"Zap Effect 2", 0x2ee970, 0x2ee990, indexKOF97Sprites_Kyo },
+    { L"Super Trail 1", 0x2ee990, 0x2ee9b0, indexKOF97Sprites_Kyo },
+    { L"Super Trail 2", 0x2ee9b0, 0x2ee9d0, indexKOF97Sprites_Kyo },
+    { L"Super Trail 3", 0x2ee9d0, 0x2ee9f0, indexKOF97Sprites_Kyo },
 };
 
 const sGame_PaletteDataset KOF98_A_BENIMARU_EFFECT_PALETTES[] =
