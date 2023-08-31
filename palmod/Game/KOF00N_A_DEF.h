@@ -2329,15 +2329,43 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_BONUS_MainFrozenPalette[] =
     { L"Main Frozen Palette 15/15", 0xdc1b0, 0xdc1d0 },
 };
 
-const sGame_PaletteDataset KOF00N_A_PALETTES_BONUS_BONUS[] =
+const sGame_PaletteDataset KOF00N_A_PALETTES_BONUS_INTRO[] =
 {
-    { L"Intro K'-Iori-Kyo Frame", 0xeb970, 0xeba70 },
-    { L"Character Select Screen Background", 0xe53f0, 0xe5410 },
-    { L"Character Select Screen Interface Hud", 0xe5410, 0xe5430 },
-    { L"Character Select Screen Player Icons 1/2", 0xe5430, 0xe5630 },
-    { L"Character Select Screen Player Icons 2/2", 0xe5630, 0xe5790 },
-    { L"Character Select Screen P1/P2/CPU Rings", 0xe5790, 0xe57b0 },
-    { L"Character Select Screen Name Bars", 0xe57b0, 0xe57f0 },
+    { L"K' Walking Start", 0xebdf0, 0xebe10 },
+    { L"Glowing Tittle/Initial Walk Frame", 0xebd30, 0xebd50 },
+    { L"K' Walking", 0xebcd0, 0xebcf0 },
+    { L"KOF Title", 0xebd50, 0xebd70 },
+    { L"Hero Team/Benimaru Team", 0xeb730, 0xeb7d0 },
+    { L"Women Fighter Team", 0xeb7d0, 0xeb810 },
+    { L"Fatal Fury Team", 0xeb810, 0xeb850 },
+    { L"Art of Fighting Team", 0xeb850, 0xeb890 },
+    { L"Psycho Soldier Team", 0xeb890, 0xeb8d0 },
+    { L"Ikari Warriors Team", 0xeb8d0, 0xeb910 },
+    { L"Korean Justice Team", 0xeb910, 0xeb950 },
+    { L"Episode 6 Tittle", 0xeb950, 0xeb970 },
+    { L"K'-Iori-Kyo Frame", 0xeb970, 0xeba70, indexKOF00Sprites_Bonus, 0x06 },
+    { L"Kula Diamond Cut-In", 0xebcf0, 0xebd10 },
+    { L"SNK Presents", 0xebd70, 0xebd90 },
+    { L"K' Step-In", 0xeba70, 0xebad0 },
+    { L"K' Cut-In", 0xebd10, 0xebd30 },
+    { L"K' Kick Sequence Background", 0xebb10, 0xebb30 },
+    { L"K' Kick Sequence 1/6", 0xebad0, 0xebb10 },
+    { L"K' Kick Sequence 2/6", 0xebb30, 0xebb90 },
+    { L"K' Kick Sequence 3/6", 0xebb90, 0xebbf0 },
+    { L"K' Kick Sequence 4/6", 0xebbf0, 0xebc50 },
+    { L"K' Kick Sequence 5/6", 0xebc50, 0xebc90 },
+    { L"K' Kick Sequence 6/6", 0xebc90, 0xebcd0 },
+    { L"KOF 2000 Title", 0xebd90, 0xebdf0 },
+};
+
+const sGame_PaletteDataset KOF00N_A_PALETTES_BONUS_CSS[] =
+{
+    { L"Background", 0xe53f0, 0xe5410, indexKOF00Sprites_Bonus, 0x00, &pairFullyLinkedNode },
+    { L"Interface Hud", 0xe5410, 0xe5430, indexKOF00Sprites_Bonus, 0x01 },
+    { L"Player Icons (1/2) 0xe5430", 0xe5430, 0xe5630, indexKOF00Sprites_Bonus, 0x04 },
+    { L"Player Icons (2/2) 0xe5630", 0xe5630, 0xe5790, indexKOF00Sprites_Bonus, 0x05 },
+    { L"P1/P2/CPU Rings", 0xe5790, 0xe57b0, indexKOF00Sprites_Bonus, 0x03 },
+    { L"Name Display Bars", 0xe57b0, 0xe57f0, indexKOF00Sprites_Bonus, 0x02 },
     { L"Next Battle Plate", 0xe57f0, 0xe5810 },
 };
 
@@ -2745,7 +2773,8 @@ const sDescTreeNode KOF00N_A_BONUS_COLLECTION[] =
     { L"Main Orochi Fire", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_MainOrochiFirePalette, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_MainOrochiFirePalette) },
     { L"Main Lin Poison", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_MainLinPoisonPalette, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_MainLinPoisonPalette) },
     { L"Main Frozen", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_MainFrozenPalette, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_MainFrozenPalette) },
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_BONUS, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_BONUS) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_INTRO, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_INTRO) },
+    { L"Character Select Screen", DESC_NODETYPE_TREE, (void*)KOF00N_A_PALETTES_BONUS_CSS, ARRAYSIZE(KOF00N_A_PALETTES_BONUS_CSS) },
 };
 
 const sDescTreeNode KOF00N_A_UNITS[] =
