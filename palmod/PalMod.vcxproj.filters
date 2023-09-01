@@ -586,6 +586,9 @@
     <Filter Include="Games\Other Platforms\Mortal Kombat 1 %28Arcade%29">
       <UniqueIdentifier>{e398fce3-e153-4103-b8ca-8aa1b39d18e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\King of Fighters EX2: Howling Blood %28GBA%29">
+      <UniqueIdentifier>{5ba091d1-fa30-4e7a-a01c-42af5dec20fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2080,6 +2083,12 @@
     </ClInclude>
     <ClInclude Include="Game\MK1_A_DEF.h">
       <Filter>Games\Other Platforms\Mortal Kombat 1 %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOFEX2_GBA.h">
+      <Filter>Games\Nintendo\King of Fighters EX2: Howling Blood %28GBA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOFEX2_GBA_DEF.h">
+      <Filter>Games\Nintendo\King of Fighters EX2: Howling Blood %28GBA%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
