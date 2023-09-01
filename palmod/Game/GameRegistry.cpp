@@ -72,6 +72,7 @@
 #include "Game_KOF98_A.h"
 #include "Game_KOF98AE2016_A.h"
 #include "Game_KOF99AE_A.h"
+#include "Game_KOFEX2_GBA.h"
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
 #include "Game_LASTBLADE_A.h"
@@ -173,7 +174,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 200, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 201, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -260,6 +261,7 @@ namespace KnownGameInfo
     CGameClass* Make_KOF98AE2016_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF98AE2016_A(nConfirmedROMSize); }
     CGameClass* Make_KOF98_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF98_A(nConfirmedROMSize); }
     CGameClass* Make_KOF99AE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF99AE_A(nConfirmedROMSize); }
+    CGameClass* Make_KOFEX2_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOFEX2_GBA(nConfirmedROMSize); }
     CGameClass* Make_KOFXI_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOFXI_A(nConfirmedROMSize); }
     CGameClass* Make_KOTM_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOTM_A(nConfirmedROMSize); }
     CGameClass* Make_LASTBLADE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_LASTBLADE_A(nConfirmedROMSize, LASTBLADE_A); }
@@ -1053,6 +1055,13 @@ namespace KnownGameInfo
             Make_KOF03_A,
             CGame_KOF03_A::GetRule,
         },
+        {
+            KOFEX2_GBA,
+            L"King of Fighters EX2: Howling Blood (GBA)",
+            { KOFEX2_GBA,          L"KOFEX2", L"KOFEX2|*King of Fighters EX 2*(USA).gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
+            Make_KOFEX2_GBA,
+            CGame_KOFEX2_GBA::GetRule,
+        }, 
         {
             KOFXI_A,
             L"King of Fighters XI (Atomiswave)",
@@ -1937,7 +1946,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 200, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 201, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
