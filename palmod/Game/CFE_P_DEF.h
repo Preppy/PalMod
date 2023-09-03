@@ -288,6 +288,7 @@ const sGame_PaletteDataset CFE_P_DEMITRI_EXTRAS[] =
     { L"Demitri ES (2/4)", 0x1e5b60, 0x1e5b80, indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri ES (3/4)", 0x1e5b80, 0x1e5ba0, indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri ES (4/4)", 0x1e5ba0, 0x1e5bc0, indexCPS2Sprites_Vamp_Demitri },
+
     { L"Demitri EX (1/8)", 0x1e5bc0, 0x1e5be0, indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri EX (2/8)", 0x1e5be0, 0x1e5c00, indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri EX (3/8)", 0x1e5c00, 0x1e5c20, indexCPS2Sprites_Vamp_Demitri },
@@ -304,6 +305,7 @@ const sGame_PaletteDataset CFE_P_ANAKARIS_EXTRAS[] =
     { L"Anakaris ES (2/4)", 0x1e5ce0, 0x1e5d00, indexCPS2Sprites_Anakaris },
     { L"Anakaris ES (3/4)", 0x1e5d00, 0x1e5d20, indexCPS2Sprites_Anakaris },
     { L"Anakaris ES (4/4)", 0x1e5d20, 0x1e5d40, indexCPS2Sprites_Anakaris },
+
     { L"Anakaris EX (1/8)", 0x1e5d40, 0x1e5d60, indexCPS2Sprites_Anakaris },
     { L"Anakaris EX (2/8)", 0x1e5d60, 0x1e5d80, indexCPS2Sprites_Anakaris },
     { L"Anakaris EX (3/8)", 0x1e5d80, 0x1e5da0, indexCPS2Sprites_Anakaris },
@@ -320,6 +322,7 @@ const sGame_PaletteDataset CFE_P_FELICIA_EXTRAS[] =
     { L"Felicia ES (2/4)", 0x1e5e60, 0x1e5e80, indexCPS2Sprites_Felicia },
     { L"Felicia ES (3/4)", 0x1e5e80, 0x1e5ea0, indexCPS2Sprites_Felicia },
     { L"Felicia ES (4/4)", 0x1e5ea0, 0x1e5ec0, indexCPS2Sprites_Felicia },
+
     { L"Felicia EX (1/8)", 0x1e5ec0, 0x1e5ee0, indexCPS2Sprites_Felicia },
     { L"Felicia EX (2/8)", 0x1e5ee0, 0x1e5f00, indexCPS2Sprites_Felicia },
     { L"Felicia EX (3/8)", 0x1e5f00, 0x1e5f20, indexCPS2Sprites_Felicia },
@@ -336,6 +339,7 @@ const sGame_PaletteDataset CFE_P_JEDAH_EXTRAS[] =
     { L"Jedah ES (2/4)", 0x1e5fe0, 0x1e6000, indexCPS2Sprites_Vamp_Jedah },
     { L"Jedah ES (3/4)", 0x1e6000, 0x1e6020, indexCPS2Sprites_Vamp_Jedah },
     { L"Jedah ES (4/4)", 0x1e6020, 0x1e6040, indexCPS2Sprites_Vamp_Jedah },
+
     { L"Jedah EX (1/8)", 0x1e6040, 0x1e6060, indexCPS2Sprites_Vamp_Jedah },
     { L"Jedah EX (2/8)", 0x1e6060, 0x1e6080, indexCPS2Sprites_Vamp_Jedah },
     { L"Jedah EX (3/8)", 0x1e6080, 0x1e60a0, indexCPS2Sprites_Vamp_Jedah },
@@ -352,6 +356,7 @@ const sGame_PaletteDataset CFE_P_PYRON_EXTRAS[] =
     { L"Pyron ES (2/4)", 0x1e6160, 0x1e6180, indexCPS2Sprites_Vamp_Pyron },
     { L"Pyron ES (3/4)", 0x1e6180, 0x1e61a0, indexCPS2Sprites_Vamp_Pyron },
     { L"Pyron ES (4/4)", 0x1e61a0, 0x1e61c0, indexCPS2Sprites_Vamp_Pyron },
+
     { L"Pyron EX (1/8)", 0x1e61c0, 0x1e61e0, indexCPS2Sprites_Vamp_Pyron },
     { L"Pyron EX (2/8)", 0x1e61e0, 0x1e6200, indexCPS2Sprites_Vamp_Pyron },
     { L"Pyron EX (3/8)", 0x1e6200, 0x1e6220, indexCPS2Sprites_Vamp_Pyron },

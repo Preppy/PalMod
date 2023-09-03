@@ -31,7 +31,7 @@ private:
         {},
         CFE_P_UNITS,
         ARRAYSIZE(CFE_P_UNITS),
-        L"KofEx2E.txt",                
+        L"CFEe.txt",                
         112,
         0x1e4e10,
     };

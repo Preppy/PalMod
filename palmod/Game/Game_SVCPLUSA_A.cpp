@@ -590,6 +590,12 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                     fSuccess = FALSE;
                 }
             }
+            else
+            {
+                CString strMsg;
+                strMsg.Format(L"This is a not a complete file set.  You are missing:\n%s\nYou will need this file to continue.", strPeerFileName);
+                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP);
+            }
         }
         break;
     case eSVCRevisionName::SVCPlus: // svc-p2p.bin
@@ -616,9 +622,21 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                         pPeerFile.Read(&decryptedROM[nCurrentROMOffset], 0x200000);
                         pPeerFile.Abort();
                     }
+                    else
+                    {
+                        if (fSuccess)
+                        {
+                            CString strMsg;
+                            strMsg.Format(L"This is a not a complete file set.  You are missing:\n%s\nYou will need this file to continue.", romName);
+                            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP);
+                        }
+
+                        fSuccess = false;
+                    }
                     nCurrentROMOffset += 0x200000;
                 }
 
+                if (fSuccess)
                 {
                     CWaitCursor wait;
                     GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_START);
@@ -626,33 +644,36 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                     GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_DONE);
                 }
 
-#ifdef save_decrypted_output
-                CFile pOutput;
-                CString strFN;
-                strFN.Format(L"%s\\..\\%s", GetLoadedDirPathOnly(), L"SVCPlus-decrypt.bin");
-
-                if (pOutput.Open(strFN, CFile::modeWrite | CFile::typeBinary | CFile::modeCreate))
+                if (fSuccess)
                 {
-                    pOutput.Write(decryptedROM, nROMSetSize);
-                    pOutput.Abort();
-                }
+#ifdef save_decrypted_output
+                    CFile pOutput;
+                    CString strFN;
+                    strFN.Format(L"%s\\..\\%s", GetLoadedDirPathOnly(), L"SVCPlus-decrypt.bin");
+
+                    if (pOutput.Open(strFN, CFile::modeWrite | CFile::typeBinary | CFile::modeCreate))
+                    {
+                        pOutput.Write(decryptedROM, nROMSetSize);
+                        pOutput.Abort();
+                    }
 #endif
 
-                for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
-                {
-                    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                    m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
-
-                    // These are already sorted, no need to redirect
-                    m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
-
-                    for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                     {
-                        LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+                        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                        m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
-                        memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], static_cast<size_t>(m_nCurrentPaletteSizeInColors) * 2);
+                        m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
+
+                        // These are already sorted, no need to redirect
+                        m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
+
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
+                            memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], static_cast<size_t>(m_nCurrentPaletteSizeInColors) * 2);
+                        }
                     }
                 }
             }
