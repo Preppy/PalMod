@@ -223,6 +223,7 @@ enum SupportedGamesList
     TattooAsns_A,
     MK1_A,
     KOFEX2_GBA,
+    CFE_P,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

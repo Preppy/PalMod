@@ -68,7 +68,7 @@ const std::vector<sGCBUPF_BasicFileData> GGXXACP_Wii_CharacterData =
     { L"obj\\ezt.bin",  L"EX Eddie",        4278048,    GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x3776D0,   indexGGXXSprites_ACR_Eddie },
     { L"obj\\efa.bin",  L"EX Faust",        6088704,    GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x53B130,   indexGGXXSprites_ACR_Faust },
     { L"obj\\ein.bin",  L"EX I-No",         7191200,    GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x524610,   indexGGXXSprites_ACR_Ino },
-    { L"obj\\ejm.bin",	L"EX Jam Kuradoberi",4743168,   GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x3A1C90,   indexGGXXSprites_ACR_Jam },
+    { L"obj\\ejm.bin",    L"EX Jam Kuradoberi",4743168,   GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x3A1C90,   indexGGXXSprites_ACR_Jam },
     { L"obj\\ejy.bin",  L"EX Johnny",       5419776,    GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x4D2B50,   indexGGXXSprites_ACR_Johnny },
     { L"obj\\eky.bin",  L"EX Ky Kiske",     5982400,    GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x4C5050,   indexGGXXSprites_ACR_Ky },
     { L"obj\\emy.bin",  L"EX May",          6098368,    GGXXACR_EXNode, GGXXACPCorePalettes_Wii,    0x4E8B70,   indexGGXXSprites_ACR_May },

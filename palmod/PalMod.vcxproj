@@ -378,6 +378,7 @@
     <ClInclude Include="Game\BSSMSJR_SNES_DEF.h" />
     <ClInclude Include="Game\BtlKRoad_A_DIR_DEF.h" />
     <ClInclude Include="Game\ButtonDef.h" />
+    <ClInclude Include="Game\CFE_P_DEF.h" />
     <ClInclude Include="Game\CFTE_SNES_DEF.h" />
     <ClInclude Include="Game\ColorScale.h" />
     <ClInclude Include="Game\COTA_A_DEF.h" />
@@ -423,6 +424,7 @@
     <ClInclude Include="Game\Game_Breakers_A.h" />
     <ClInclude Include="Game\Game_BSSMSJR_SNES.h" />
     <ClInclude Include="Game\Game_BtlKRoad_A_DIR.h" />
+    <ClInclude Include="Game\Game_CFE_P.h" />
     <ClInclude Include="Game\Game_CFTE_SNES.h" />
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS1_A.h" />

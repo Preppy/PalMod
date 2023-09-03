@@ -8,11 +8,11 @@
 
 const std::vector<uint16_t> VSAV2_A_IMGIDS_USED =
 {
-    indexCPS2Sprites_Anakaris,
-    indexCPS2Sprites_Anita,
-    indexCPS2Sprites_BBHood,
-    indexCPS2Sprites_Felicia,
-    indexCPS2Sprites_Morrigan,
+    indexCPS2Sprites_Anakaris,     // 0x04
+    indexCPS2Sprites_Anita,        // 0x51
+    indexCPS2Sprites_BBHood,       // 0x1F
+    indexCPS2Sprites_Felicia,      // 0x20
+    indexCPS2Sprites_Morrigan,     // 0x03
     indexCPS2Sprites_Vamp_Aulbath,   // 0x67
     indexCPS2Sprites_Vamp_Bishamon,  // 0x68
     indexCPS2Sprites_Vamp_Dee,       // 0x69
@@ -32,7 +32,7 @@ const std::vector<uint16_t> VSAV2_A_IMGIDS_USED =
     indexCPS2Sprites_Vamp_Zabel,     // 0x77
 
     indexCPS2Sprites_VSAV1_WinPortraits, // 0x78
-    indexCPS2Sprites_Vamp_DarkGallon,
+    indexCPS2Sprites_Vamp_DarkGallon,    // 0x7a
     indexCPS2Sprites_Vamp_OboroBishamon, // 0x7b
     indexCPS2Sprites_VSAV1_Bonus, // 0x7c
 };

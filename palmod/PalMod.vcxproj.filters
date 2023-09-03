@@ -589,6 +589,9 @@
     <Filter Include="Games\Nintendo\King of Fighters EX2: Howling Blood %28GBA%29">
       <UniqueIdentifier>{5ba091d1-fa30-4e7a-a01c-42af5dec20fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Capcom Fighting Evolution %28PS2%29">
+      <UniqueIdentifier>{cd1663e9-9cf7-4746-b2d2-295ea95d6c5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2089,6 +2092,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOFEX2_GBA_DEF.h">
       <Filter>Games\Nintendo\King of Fighters EX2: Howling Blood %28GBA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CFE_P_DEF.h">
+      <Filter>Games\Capcom Games\Capcom Fighting Evolution %28PS2%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_CFE_P.h">
+      <Filter>Games\Capcom Games\Capcom Fighting Evolution %28PS2%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

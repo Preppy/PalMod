@@ -15,6 +15,7 @@
 #include "Game_Breakers_A.h"
 #include "Game_BSSMSJR_SNES.h"
 #include "Game_BtlKRoad_A_DIR.h"
+#include "Game_CFE_P.h"
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS1_A.h"
@@ -174,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 201, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 202, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -194,6 +195,7 @@ namespace KnownGameInfo
     CGameClass* Make_BREAKERS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BREAKERS_S(nConfirmedROMSize); }
     CGameClass* Make_BSSMSJR_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BSSMSJR_SNES(nConfirmedROMSize); }
     CGameClass* Make_BtlKRoad_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BtlKRoad_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_CFE_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFE_P(nConfirmedROMSize); }
     CGameClass* Make_CFTE_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFTE_SNES(nConfirmedROMSize); }
     CGameClass* Make_COTA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_A(nConfirmedROMSize); }
     CGameClass* Make_CVS1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS1_A(nConfirmedROMSize); }
@@ -513,6 +515,13 @@ namespace KnownGameInfo
             { BtlKRoad_A,       L"Battle K-Road (Psikyo)", L"Battle K-Road (Psikyo)|4-u46.bin|", GamePlatform::OtherPlatform },
             Make_BtlKRoad_A,
             CGame_BtlKRoad_A_DIR::GetRule,
+        },
+        {
+            CFE_P,
+            L"Capcom Fighting Evolution (PS2)",
+            { CFE_P,        L"Capcom Fighting Evolution", L"Capcom Fighting Evolution (PS2)|SLUS_209.50|", GamePlatform::PS2 },
+            Make_CFE_P,
+            CGame_CFE_P::GetRule,
         },
         {
             CFTE_SNES,
@@ -1946,7 +1955,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 201, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 202, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
