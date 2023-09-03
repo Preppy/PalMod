@@ -4,55 +4,15 @@
 
 const std::vector<uint16_t> KOF00N_A_IMGIDS_USED =
 {
-    indexKOF01Sprites_Andy,         // 0x1af
-    indexKOF01Sprites_Angel,        // 0x1b0
-    indexKOF01Sprites_Bao,          // 0x148
-    indexKOF01Sprites_Benimaru,     // 0x1b1
-    indexKOF01Sprites_Mary,         // 0x1b2 Blue Mary
-    indexKOF01Sprites_Chang,        // 0x1b3
-    indexKOF01Sprites_Chin,         // 0x1b4
-    indexKOF01Sprites_Choi,         // 0x1b5
-    indexKOF01Sprites_Clark,        // 0x1b6
-    indexKOF01Sprites_Foxy,         // 0x149
-    indexKOF01Sprites_Goro,         // 0x1b7 Goro Daimon
-    indexKOF01Sprites_Heidern,      // 0x1b8
-    indexKOF01Sprites_Hinako,       // 0x1b9
-    indexKOF01Sprites_Igniz,        // 0x1ba
-    indexKOF01Sprites_Iori,         // 0x1bb
-    indexKOF01Sprites_Joe,          // 0x1bc
-        //indexKOF01Sprites_K,            // 0x1bd
-        indexKOF02UMSprites_K,
-    indexKOF01Sprites_Kensou,       // 0x1bf
-    indexKOF01Sprites_Kim,          // 0x1c0
-    indexKOF01Sprites_King,         // 0x1c1
-    indexKOF01Sprites_Kula,         // 0x1c2
-    indexKOF01Sprites_Kyo,          // 0x1c3
-    indexKOF01Sprites_Leona,        // 0x1c4
-    indexKOF01Sprites_Lin,          // 0x1c5
-    indexKOF01Sprites_Mai,          // 0x1c6
-        //indexKOF01Sprites_Maxima,       // 0x1c7
-        indexKOF02UMSprites_Maxima,
-    indexKOF01Sprites_MayLee,       // 0x1c8
-    indexKOF01Sprites_Ralf,         // 0x1c9
-        //indexKOF01Sprites_Ramon,        // 0x1ca
-        indexKOF02UMSprites_Ramon, 
-    indexKOF01Sprites_Robert,       // 0x1cb
-    indexKOF01Sprites_Ryo,          // 0x1cc
-    indexKOF01Sprites_Seth,         // 0x1cd
-    indexKOF01Sprites_Shingo,       // 0x1ce
-    indexKOF01Sprites_Takuma,       // 0x1cf
-    indexKOF01Sprites_Terry,        // 0x1d0
-    indexKOF01Sprites_Vanessa,      // 0x1d1
-    // indexKOF01Sprites_Xiangfei,  // 47
-    indexKOF01Sprites_Whip,         // 0x1d2
-    indexKOF01Sprites_Yuri,         // 0x1d3
-    indexKOF01Sprites_Zero,         // 0x1d4
 
     // This uses a lot of KOF02 sprites because most of the KOF01 sprites don't exist
     // plus KOF00 uses a lot of characters as strikers
     indexKOF98Sprites_Chizuru,
     
     indexKOF99Sprites_Andy,         // 0x17f
+
+    indexKOF02UMSprites_K,
+    indexKOF02UMSprites_Maxima,
 
     indexKOF02UMSprites_Bao,       // 0x7C
     indexKOF02UMSprites_Benimaru,  // 0x7D
