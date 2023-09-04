@@ -243,7 +243,7 @@ sSVCPLUSA_A_PaletteData SVCPLUSA_A_CharacterPalettes[] =
     { L"Dan",            0x382538, 0x397538, 0x3aa838, 0x3a8838, L"indexSVCSprites_Dan" },
     { L"Red Arremer",    0x383538, 0x397d38, 0x3aa8b8, 0x3a88b8, L"indexSVCSprites_RedArremer" },
 
-    { L"Orochi Iori",    0x384538, 0x398538, 0x3aa938, 0x3a8938, L"indexSVCSprites_OrochiIori" },
+    { L"Orochi Iori",    0x384538, 0x398538, 0x3aa938, 0x3a8938, L"indexKOF97Sprites_IoriOrochi" },
     { L"Serious Mr. Karate", 0x385538, 0x398d38, 0x3aa9b8, 0x3a89b8, L"indexSVCSprites_SeriousMrKarate" },
     { L"Violent Ken",    0x386538, 0x399538, 0x3aaa38, 0x3a8a38, L"indexSVCSprites_ViolentKen" },
     { L"Shin Akuma",     0x387538, 0x399d38, 0x3aaab8, 0x3a8ab8, L"indexSVCSprites_ShinAkuma" },
@@ -593,7 +593,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             else
             {
                 CString strMsg;
-                strMsg.Format(L"This is a not a complete file set.  You are missing:\n%s\nYou will need this file to continue.", strPeerFileName);
+                strMsg.Format(L"This is a not a complete file set.  You are missing:\n%s\nYou will need this file to continue.", strPeerFileName.GetString());
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP);
             }
         }

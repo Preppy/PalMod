@@ -21,7 +21,7 @@ private:
         CFE_P_IMG_UNITS,
         {
             NO_SPECIAL_OPTIONS,
-            PALWriteOutputOptions::WRITE_16
+            PALWriteOutputOptions::WRITE_MAX
         },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_2_PK,

@@ -77,7 +77,7 @@ const sKOF02PS2_A_CharacterDump KOF02PS2_A_CharacterOffsetArray[] =
     { L"King",      0x3b3600,                 L"indexKOF02UMSprites_King",       L"indexKOF02Sprites_King",         L"Rose and Kick Effects", 0x04 },
     { L"Orochi Iori", 0x3b6800,               L"indexKOF02UMSprites_OrochiIori", L"indexKOF02Sprites_Iori",         },
     { L"Geese",     0x3b7000,                 L"indexKOF02UMSprites_Geese",      L"indexKOF02Sprites_Geese",        },
-    { L"Goenitz",   0x3b7800,                 L"indexKOF96Sprites_Goenitz",      L"indexKOF02Sprites_Goenitz",      },
+    { L"Goenitz",   0x3b7800,                 L"indexKOF96Sprites_Goenitz",      L"indexKOF96Sprites_Goenitz",      },
 };
 
 const std::vector<uint16_t> KOF02PS2_A_IMGIDS_USED =
