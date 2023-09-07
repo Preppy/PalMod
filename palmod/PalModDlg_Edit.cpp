@@ -77,30 +77,95 @@ void CPalModDlg::OnFindColorAtPointer()
     SelectMatchingColorsInPalette(GetColorAtCurrentMouseCursorPosition(), GetHost()->GetImgDispCtrl()->GetBGCol());
 }
 
+bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
+{
+    static const CLIPFORMAT s_idDesc = RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR);
+    static const CLIPFORMAT s_idContent = RegisterClipboardFormat(CFSTR_FILECONTENTS);
+
+    bool fIsFromFirefox = false;
+
+    if (pDataObject->IsDataAvailable(s_idDesc) &&
+        pDataObject->IsDataAvailable(s_idContent))
+    {
+        FORMATETC formatDesc = { s_idDesc, 0, DVASPECT_CONTENT, -1, TYMED_HGLOBAL };
+        STGMEDIUM storageDesc = {};
+
+        CString strFileName;
+
+        if (pDataObject->GetData(s_idDesc, &storageDesc, &formatDesc))
+        {
+            FILEGROUPDESCRIPTOR* pfd = reinterpret_cast<FILEGROUPDESCRIPTOR*>(GlobalLock(storageDesc.hGlobal));
+
+            if (pfd)
+            {
+                if (pfd->cItems == 1)
+                {
+                    FILEDESCRIPTOR* pFileData = &pfd->fgd[0];
+
+                    if ((pFileData->nFileSizeLow == 0) &&
+                        (pFileData->nFileSizeHigh == 0))
+                    {
+                        LPCWSTR pszExtension = wcsrchr(pFileData->cFileName, L'.');
+
+                        fIsFromFirefox = true;
+
+                        // These are the image types we might expect from Firefox that it might convert to a temp palettized bitmap.
+                        // For these and these alone we should be able to grab source from the idropobject and work with that instead.
+                        // There's a larger list in OnDragEnter that covers every droppable type: this is just images from Firefox
+                        if ((_wcsicmp(pszExtension, L".bmp") == 0) ||
+                            (_wcsicmp(pszExtension, L".gif") == 0) ||
+                            (_wcsicmp(pszExtension, L".png") == 0))
+                        {
+                            fIsSupportable = true;
+
+                            if (pstrFilename)
+                            {
+                                wchar_t szTempPath[MAX_PATH];
+
+                                if (GetTempPath(ARRAYSIZE(szTempPath), szTempPath))
+                                {
+                                    pstrFilename->Format(L"%sPMT-%s", szTempPath, pFileData->cFileName);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            fIsSupportable = false;
+                        }
+                    }
+                }
+
+                GlobalUnlock(storageDesc.hGlobal);
+            }
+        }
+    }
+
+    return fIsFromFirefox;
+}
+
 DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point)
 {
     m_currentEffectState = DROPEFFECT_NONE;
 
     if (GetHost()->GetCurrGame())
     {
+        bool fMightBeFirefox = false;
+
         if (pDataObject->IsDataAvailable(CF_HDROP))
         {
-            HGLOBAL hg;
-            HDROP hDrop;
-
             // Get the HDROP data from the data object.
-            hg = pDataObject->GetGlobalData(CF_HDROP);
+            const HGLOBAL hg = pDataObject->GetGlobalData(CF_HDROP);
 
             if (!hg)
             {
                 return DROPEFFECT_NONE;
             }
 
-            hDrop = static_cast<HDROP>(GlobalLock(hg));
+            const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
 
             if (hDrop)
             {
-                UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+                const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
 
                 if (nFilesAvailable == 1)
                 {
@@ -114,12 +179,13 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                         // BBCF: cfpl, hpal, some IMPLs
                         LPCWSTR pszExtension = wcsrchr(szPath, L'.');
 
-                        bool fAllowBBCFDrop = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
+                        const bool fAllowBBCFDrop = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
 
                         if (pszExtension)
                         {
+                            // There's a smaller list in _IsDataObjectFromFirefox that needs to mirror all image types 
+                            // that Firefox might hand us.
                             if ((_wcsicmp(pszExtension, L".act") == 0) ||
-                                (_wcsicmp(pszExtension, L".bmp") == 0) ||
                                 (_wcsicmp(pszExtension, L".gif") == 0) ||
                                 (_wcsicmp(pszExtension, L".pal") == 0) ||
                                 (_wcsicmp(pszExtension, L".png") == 0) ||
@@ -130,13 +196,41 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                             {
                                 m_currentEffectState = DROPEFFECT_COPY;
                             }
+                            else if (_wcsicmp(pszExtension, L".bmp") == 0)
+                            {
+                                // Firefox does bad things as regards image drag and drop, so flag them
+                                fMightBeFirefox = true;
+                                m_currentEffectState = DROPEFFECT_COPY;
+                            }
                         }
                     }
                 }
             }
 
             GlobalUnlock(hg);
+
+            if (fMightBeFirefox)
+            {
+                bool fIsSupportable = false;
+
+                if (_IsDataObjectFromFirefox(pDataObject, fIsSupportable))
+                {
+                    if (fIsSupportable)
+                    {
+                        GetHost()->GetPalModDlg()->SetStatusText(L"Firefox is weird: will create temp file for this.");
+                    }
+                    else
+                    {
+                        GetHost()->GetPalModDlg()->SetStatusText(L"This is not a supported palette source.");
+                        m_currentEffectState = DROPEFFECT_NONE;
+                    }
+                }
+            }
         }
+    }
+    else
+    {
+        GetHost()->GetPalModDlg()->SetStatusText(L"Load a game first.");
     }
 
     return m_currentEffectState;
@@ -147,39 +241,88 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
     // This handles palette import via drag/drop: PalModDlg::OnImportPalette is the Tools menu version
     if (GetHost()->GetCurrGame())
     {
+        bool fHaveData = false;
+        bool fUsingFirefoxTempFile = false;
+        bool fIsSupportable = false;
         LPCWSTR pszExtension = nullptr;
         wchar_t szPath[MAX_PATH];
+        CString strFileName;
 
-        if (pDataObject->IsDataAvailable(CF_HDROP))
+        if (_IsDataObjectFromFirefox(pDataObject, fIsSupportable, &strFileName) && fIsSupportable && strFileName.GetLength())
         {
-            HGLOBAL hg;
-            HDROP hDrop;
+            static const CLIPFORMAT s_idContent = RegisterClipboardFormat(CFSTR_FILECONTENTS);
 
-            // Get the HDROP data from the data object.
-            hg = pDataObject->GetGlobalData(CF_HDROP);
-
-            if (!hg)
+            if (pDataObject->IsDataAvailable(s_idContent))
             {
-                return FALSE;
-            }
+                FORMATETC formatContent = { s_idContent, 0, DVASPECT_CONTENT, -1, TYMED_ISTREAM | TYMED_HGLOBAL | TYMED_ISTORAGE };
+                STGMEDIUM storageContent = {};
 
-            hDrop = static_cast<HDROP>(GlobalLock(hg));
-
-            if (hDrop)
-            {
-                UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
-
-                if (nFilesAvailable == 1)
+                if (pDataObject->GetData(s_idContent, &storageContent, &formatContent))
                 {
-                    if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
+                    if (storageContent.tymed == TYMED_ISTREAM)
                     {
-                        // we just need the filename right now: test later
-                        pszExtension = wcsrchr(szPath, L'.');
+                        COleStreamFile streamFile(storageContent.pstm);
+                        const UINT nFileSize = static_cast<UINT>(streamFile.GetLength());
+
+                        CFile fileTemp;
+                        if (fileTemp.Open(strFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+                        {
+                            BYTE* pRawData = new BYTE[nFileSize];
+
+                            if (pRawData)
+                            {
+                                streamFile.Read(pRawData, nFileSize);
+                                fileTemp.Write(pRawData, nFileSize);
+
+                                fHaveData = true;
+                                fUsingFirefoxTempFile = true;
+                                wcsncpy(szPath, strFileName.GetString(), ARRAYSIZE(szPath));
+
+                                safe_delete_array(pRawData);
+                            }
+
+                            fileTemp.Close();
+                        }
+
+                        ReleaseStgMedium(&storageContent);
                     }
                 }
             }
+        }
 
-            GlobalUnlock(hg);
+        if (!fHaveData)
+        {
+            if (pDataObject->IsDataAvailable(CF_HDROP))
+            {
+                // Get the HDROP data from the data object.
+                const HGLOBAL hg = pDataObject->GetGlobalData(CF_HDROP);
+
+                if (hg)
+                {
+                    const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
+
+                    if (hDrop)
+                    {
+                        const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+
+                        if (nFilesAvailable == 1)
+                        {
+                            if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
+                            {
+                                // we just need the filename right now: test later
+                                fHaveData = true;
+                            }
+                        }
+                    }
+
+                    GlobalUnlock(hg);
+                }
+            }
+        }
+
+        if (fHaveData)
+        {
+            pszExtension = wcsrchr(szPath, L'.');
         }
 
         if (pszExtension)
@@ -226,6 +369,11 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             {
                 GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, SpriteImportDirection::TopDown, szPath);
             }
+        }
+
+        if (fUsingFirefoxTempFile)
+        {
+            DeleteFile(szPath);
         }
     }
 

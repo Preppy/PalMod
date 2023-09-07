@@ -38,6 +38,8 @@ public:
 
 private:
     DROPEFFECT m_currentEffectState = DROPEFFECT_NONE;
+
+    bool _IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename = nullptr);
 };
 
 // CPalModDlg dialog
