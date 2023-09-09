@@ -1,6 +1,44 @@
 #include "StdAfx.h"
 #include "Game_KOF03_A.h"
 
+CGame_KOF03_A::KOF03LoadingKey CGame_KOF03_A::m_eVersionToLoad = KOF03LoadingKey::Ultra;
+
+void CGame_KOF03_A::SetSpecialRuleForFileName(std::wstring strFileName)
+{
+    const std::map<std::wstring, KOF03LoadingKey> m_rgFileNameToVersion =
+    {
+        // these should be all lower case
+        { L"2k3-p1.bin", KOF03LoadingKey::Bootleg },
+        { L"2k3-p1up.bin", KOF03LoadingKey::Ultra },
+    };
+
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
+
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
+
+    if (result != m_rgFileNameToVersion.end())
+    {
+        m_eVersionToLoad = result->second;
+    }
+    else
+    {
+        m_eVersionToLoad = KOF03LoadingKey::Ultra;
+    }
+
+    return;
+}
+
+CGame_KOF03_A::CGame_KOF03_A(uint32_t nConfirmedROMSize)
+{
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == KOF03LoadingKey::Ultra) ? m_sCoreGameData_Ultra : m_sCoreGameData_boot);
+}
+
+sFileRule CGame_KOF03_A::GetRule(uint32_t nRuleId)
+{
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KOF03LoadingKey::Ultra) ? m_sFileLoadingData_Ultra : m_sFileLoadingData_boot);
+}
+
 void CGame_KOF03_A::DumpGameHeaders()
 {
     CString strInfo;

@@ -10,6 +10,10 @@ void CGame_KOF99AE_A::SetSpecialRuleForFileName(std::wstring strFileName)
         // these should be all lower case
         { L"kof99ae_p2.bin", KOF99AELoadingKey::ROM02 },
         { L"152-p2.bin", KOF99AELoadingKey::ROM02 },
+        { L"251-p2p.bin", KOF99AELoadingKey::ROM02 },
+        { L"251-p2p.p2", KOF99AELoadingKey::ROM02 },
+        { L"proto_251-p2.bin", KOF99AELoadingKey::ROM02 },
+        { L"proto_251-p2.p2", KOF99AELoadingKey::ROM02 },
         { L"kf99eur.p2", KOF99AELoadingKey::ROM02 },
         { L"kof99ae_p3.bin", KOF99AELoadingKey::ROM03 },
     };

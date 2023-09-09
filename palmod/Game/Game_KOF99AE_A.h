@@ -33,7 +33,12 @@ private:
     {
         { L"KOF '99AE ROM P2 (Neo-Geo)", L"kof99ae_p2.bin", 0xf3f47f41, 0 },
         { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0xbc85cf02, 0 },
-        { L"KOF '99ND (Neo-Geo)", L"152-p2.bin", 0, 0 },
+        // 152-p2.bin can "'99ND" or "The King of Fighters '99: Millennium Battle (Korean)" crc 0x274ef47a
+        { L"KOF '99 various (Neo-Geo)", L"152-p2.bin", 0, 0 },
+        { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"251-p2p.bin", 0x739742ad, 0 },
+        { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"251-p2p.p2", 0x739742ad, 0 },
+        { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"proto_251-p2.bin", 0x739742ad, 0 },
+        { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"proto_251-p2.p2", 0x739742ad, 0 },
         { L"KOF '99 Evolution Ultra Remix (Neo-Geo Hack)", L"kf99eur.p2", 0xaec93904, 0 },
     };
 
@@ -52,7 +57,7 @@ private:
         m_rgCRC32Data,
         KOF99AE_A_P2_UNITS,
         ARRAYSIZE(KOF99AE_A_P2_UNITS),
-        L"KOF99AEp2E.txt",         // Extra filename
+        L"KOF99AEp2E.txt",      // Extra filename
         1468,                   // Count of palettes listed in the header
         0x2d97f0,               // Lowest known location used for palettes
     };
@@ -72,7 +77,7 @@ private:
         m_rgCRC32Data,
         KOF99AE_A_P3_UNITS,
         ARRAYSIZE(KOF99AE_A_P3_UNITS),
-        L"KOF99AEp3E.txt",         // Extra filename
+        L"KOF99AEp3E.txt",      // Extra filename
         2448,                   // Count of palettes listed in the header
         0x1d97f0,               // Lowest known location used for palettes
     };

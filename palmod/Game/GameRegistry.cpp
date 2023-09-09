@@ -987,7 +987,7 @@ namespace KnownGameInfo
         {
             KOF99AE_A,
             L"King of Fighters '99AE (Neo-Geo)",
-            { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin;152-p2.bin;kf99eur.p2|", GamePlatform::NEOGEO, GameSeries::KOF },
+            { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin;152-p2.bin;kf99eur.p2;251-p2p.*;proto_251-p2.*|", GamePlatform::NEOGEO, GameSeries::KOF },
             Make_KOF99AE_A,
             CGame_KOF99AE_A::GetRule,
         },
@@ -1060,7 +1060,7 @@ namespace KnownGameInfo
         {
             KOF03_A,
             L"King of Fighters 2003: 2004 EX Ultra Plus",
-            { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
+            { KOF03_A,          L"KOF03 (bootleg 1 or 2004 EX Ultra Plus)", L"KOF03 (bootleg 1 or 2004 EX Ultra Plus)|2k3-p1.bin;2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
             Make_KOF03_A,
             CGame_KOF03_A::GetRule,
         },
@@ -2063,6 +2063,9 @@ namespace KnownGameInfo
             break;
         case KOF02UM_S:
             CGame_KOF02UM_S::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case KOF03_A:
+            CGame_KOF03_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case MK1_A:
             CGame_MK1_A::SetSpecialRuleForFileName(pszFileNameLowercase);

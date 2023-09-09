@@ -41,6 +41,7 @@ const std::vector<uint16_t> KOF94_A_IMGIDS_USED =
     indexKOF95Sprites_Choi,         // 0x233
     indexKOF95Sprites_Kensou,       // 0x23A
     indexKOF95Sprites_Kyo,          // 0x23D
+    indexKOF95Sprites_Ryo,          // 0x242
 };
 
 const sGame_PaletteDataset KOF94_A_HEIDERN_MAIN_PALETTES[] =
@@ -585,31 +586,31 @@ const sGame_PaletteDataset KOF94_A_JOE_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF94_A_RYO_MAIN_PALETTES[] =
 {
-    { L"Ryo", 0x179f00, 0x179f20, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Ryo", 0x179f00, 0x179f20, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 1", 0x179f20, 0x179f40 },
-    { L"Electric Palette", 0x179f40, 0x179f60, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Electric Palette", 0x179f40, 0x179f60, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 2", 0x179f60, 0x179f80 },
     { L"Win Portrait", 0x179f80, 0x17a000, indexKOF94Sprites_Ryo, 0x30 },
     { L"Lifebar Portrait", 0x17a000, 0x17a020, indexKOF94Sprites_Ryo, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x17a020, 0x17a040, indexKOF94Sprites_Ryo, 0x40 },
-    { L"Darker Palette", 0x17a040, 0x17a060, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Darker Palette", 0x17a040, 0x17a060, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 3", 0x17a060, 0x17a080 },
-    { L"MAX Flash", 0x17a080, 0x17a0a0, indexKOF94Sprites_Ryo, 0x00 },
+    { L"MAX Flash", 0x17a080, 0x17a0a0, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 4", 0x17a0a0, 0x17a0c0 },
 };
 
 const sGame_PaletteDataset KOF94_A_RYO_ALT_PALETTES[] =
 {
-    { L"Ryo", 0x17a0c0, 0x17a0e0, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Ryo", 0x17a0c0, 0x17a0e0, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 1", 0x17a0e0, 0x17a100 },
-    { L"Electric Palette", 0x17a100, 0x17a120, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Electric Palette", 0x17a100, 0x17a120, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 2", 0x17a120, 0x17a140 },
     { L"Win Portrait", 0x17a140, 0x17a1c0, indexKOF94Sprites_Ryo, 0x30 },
     { L"Lifebar Portrait", 0x17a1c0, 0x17a1e0, indexKOF94Sprites_Ryo, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0x17a1e0, 0x17a200, indexKOF94Sprites_Ryo, 0x40 },
-    { L"Darker Palette", 0x17a200, 0x17a220, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Darker Palette", 0x17a200, 0x17a220, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 3", 0x17a220, 0x17a240 },
-    { L"MAX Flash", 0x17a240, 0x17a260, indexKOF94Sprites_Ryo, 0x00 },
+    { L"MAX Flash", 0x17a240, 0x17a260, indexKOF95Sprites_Ryo, 0x00 },
     { L"Extra 4", 0x17a260, 0x17a280 },
 };
 
