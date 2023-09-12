@@ -79,7 +79,7 @@ enum SupportedGamesList
     NeoBomberman_A,
     GUNDAM_SNES,
     KOF94_A,
-    KOF99AE_A,
+    KOF99_A,
     CFTE_SNES,
     FatalFuryS_SNES,
     TOPF2005_SEGA,

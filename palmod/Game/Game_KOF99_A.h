@@ -1,17 +1,17 @@
 #pragma once
 #include "GameClassByDir.h"
-#include "KOF99AE_A_DEF.h"
+#include "KOF99_A_DEF.h"
 
-class CGame_KOF99AE_A : public CGameClassByDir
+class CGame_KOF99_A : public CGameClassByDir
 {
 private:
-    enum class KOF99AELoadingKey
+    enum class KOF99LoadingKey
     {
         ROM02,
         ROM03,
     };
 
-    static KOF99AELoadingKey m_eVersionToLoad;
+    static KOF99LoadingKey m_eVersionToLoad;
 
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM02 =
     {
@@ -35,6 +35,7 @@ private:
         { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0xbc85cf02, 0 },
         // 152-p2.bin can "'99ND" or "The King of Fighters '99: Millennium Battle (Korean)" crc 0x274ef47a
         { L"KOF '99 various (Neo-Geo)", L"152-p2.bin", 0, 0 },
+        { L"The King of Fighters '99: Millennium Battle (Neo-Geo Korea)", L"152-p2.sp2", 0x274ef47a, 0 },
         { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"251-p2p.bin", 0x739742ad, 0 },
         { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"251-p2p.p2", 0x739742ad, 0 },
         { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"proto_251-p2.bin", 0x739742ad, 0 },
@@ -45,7 +46,7 @@ private:
     const sCoreGameData m_sCoreGameData_ROM02
     {
         L"KOF '99AE ROM P2 (Neo-Geo)",
-        KOF99AE_A,
+        KOF99_A,
         IMGDAT_SECTION_KOF,
         KOF99AE_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
@@ -65,7 +66,7 @@ private:
     const sCoreGameData m_sCoreGameData_ROM03
     {
         L"KOF '99AE ROM P3 (Neo-Geo)",
-        KOF99AE_A,
+        KOF99_A,
         IMGDAT_SECTION_KOF,
         KOF99AE_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
@@ -86,7 +87,7 @@ private:
     static void DumpPaletteHeaders(int nHeaderSetToDump);
 
 public:
-    CGame_KOF99AE_A(uint32_t nConfirmedROMSize);
+    CGame_KOF99_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
 

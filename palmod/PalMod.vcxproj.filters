@@ -97,9 +97,6 @@
     <Filter Include="Games\SNK Games\KOFXI_A">
       <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\KOF99AE_A">
-      <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\SNK Games\Art of Fighting 3">
       <UniqueIdentifier>{0fb8dfe4-7c4f-44ba-a82b-b15d13c2b3f7}</UniqueIdentifier>
     </Filter>
@@ -592,6 +589,9 @@
     <Filter Include="Games\Capcom Games\Capcom Fighting Evolution %28PS2%29">
       <UniqueIdentifier>{cd1663e9-9cf7-4746-b2d2-295ea95d6c5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\KOF %2799">
+      <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -777,8 +777,8 @@
     <ClCompile Include="Game\Game_KOF94_A.cpp">
       <Filter>Games\SNK Games\KOF94_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_KOF99AE_A.cpp">
-      <Filter>Games\SNK Games\KOF99AE_A</Filter>
+    <ClCompile Include="Game\Game_KOF99_A.cpp">
+      <Filter>Games\SNK Games\KOF %2799</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_AOF3_A.cpp">
       <Filter>Games\SNK Games\Art of Fighting 3</Filter>
@@ -1352,11 +1352,11 @@
     <ClInclude Include="Game\Game_CFTE_SNES.h">
       <Filter>Games\Nintendo\Clay Fighter: TE %28SNES%29</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game_KOF99AE_A.h">
-      <Filter>Games\SNK Games\KOF99AE_A</Filter>
+    <ClInclude Include="Game\Game_KOF99_A.h">
+      <Filter>Games\SNK Games\KOF %2799</Filter>
     </ClInclude>
-    <ClInclude Include="Game\KOF99AE_A_DEF.h">
-      <Filter>Games\SNK Games\KOF99AE_A</Filter>
+    <ClInclude Include="Game\KOF99_A_DEF.h">
+      <Filter>Games\SNK Games\KOF %2799</Filter>
     </ClInclude>
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h">
       <Filter>Games\Nintendo\Fatal Fury Special %28SNES%29</Filter>

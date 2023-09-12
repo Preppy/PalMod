@@ -2938,6 +2938,10 @@ const sGame_PaletteDataset KOF98_A_BONUS_CSI_PALETTES[] =
     { L"Orochi Team", 0x2F3610, 0x2F3670, indexKOF98Sprites_Bonus, 0x09 },
     { L"Omega Rugal", 0x2F36B0, 0x2F36D0, indexKOF98Sprites_Bonus, 0x08 },
 
+    { L"Dark Icons", 0x2f3670, 0x2f3690 },
+    { L"Random Icon", 0x2f3690, 0x2f36b0 },
+    { L"Defeated Icons", 0x2f36d0, 0x2f36f0 },
+
 //    { L"back ground select characters", 0x2F36F0, 0x2F3710 },
 //    { L"Mode Select", 0x2F3C30, 0x2F3C50 },
 //    { L"Advanced", 0x2F3DB0, 0x2F3DD0 },

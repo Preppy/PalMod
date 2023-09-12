@@ -1,21 +1,21 @@
 #include "StdAfx.h"
-#include "Game_KOF99AE_A.h"
+#include "Game_KOF99_A.h"
 
-CGame_KOF99AE_A::KOF99AELoadingKey CGame_KOF99AE_A::m_eVersionToLoad = KOF99AELoadingKey::ROM02;
+CGame_KOF99_A::KOF99LoadingKey CGame_KOF99_A::m_eVersionToLoad = KOF99LoadingKey::ROM02;
 
-void CGame_KOF99AE_A::SetSpecialRuleForFileName(std::wstring strFileName)
+void CGame_KOF99_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
-    const std::map<std::wstring, KOF99AELoadingKey> m_rgFileNameToVersion =
+    const std::map<std::wstring, KOF99LoadingKey> m_rgFileNameToVersion =
     {
         // these should be all lower case
-        { L"kof99ae_p2.bin", KOF99AELoadingKey::ROM02 },
-        { L"152-p2.bin", KOF99AELoadingKey::ROM02 },
-        { L"251-p2p.bin", KOF99AELoadingKey::ROM02 },
-        { L"251-p2p.p2", KOF99AELoadingKey::ROM02 },
-        { L"proto_251-p2.bin", KOF99AELoadingKey::ROM02 },
-        { L"proto_251-p2.p2", KOF99AELoadingKey::ROM02 },
-        { L"kf99eur.p2", KOF99AELoadingKey::ROM02 },
-        { L"kof99ae_p3.bin", KOF99AELoadingKey::ROM03 },
+        { L"kof99ae_p2.bin", KOF99LoadingKey::ROM02 },
+        { L"152-p2.bin", KOF99LoadingKey::ROM02 },
+        { L"251-p2p.bin", KOF99LoadingKey::ROM02 },
+        { L"251-p2p.p2", KOF99LoadingKey::ROM02 },
+        { L"proto_251-p2.bin", KOF99LoadingKey::ROM02 },
+        { L"proto_251-p2.p2", KOF99LoadingKey::ROM02 },
+        { L"kf99eur.p2", KOF99LoadingKey::ROM02 },
+        { L"kof99ae_p3.bin", KOF99LoadingKey::ROM03 },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();
@@ -29,20 +29,20 @@ void CGame_KOF99AE_A::SetSpecialRuleForFileName(std::wstring strFileName)
     }
     else
     {
-        m_eVersionToLoad = KOF99AELoadingKey::ROM02;
+        m_eVersionToLoad = KOF99LoadingKey::ROM02;
     }
 
     return;
 }
 
-CGame_KOF99AE_A::CGame_KOF99AE_A(uint32_t nConfirmedROMSize)
+CGame_KOF99_A::CGame_KOF99_A(uint32_t nConfirmedROMSize)
 {
-    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == KOF99AELoadingKey::ROM02) ? m_sCoreGameData_ROM02 : m_sCoreGameData_ROM03);
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == KOF99LoadingKey::ROM02) ? m_sCoreGameData_ROM02 : m_sCoreGameData_ROM03);
 }
 
-sFileRule CGame_KOF99AE_A::GetRule(uint32_t nRuleId)
+sFileRule CGame_KOF99_A::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KOF99AELoadingKey::ROM02) ? m_sFileLoadingData_ROM02 : m_sFileLoadingData_ROM03);
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KOF99LoadingKey::ROM02) ? m_sFileLoadingData_ROM02 : m_sFileLoadingData_ROM03);
 }
 
 struct sKOF99AE_A_PaletteData
@@ -207,7 +207,7 @@ sKOF99AE_A_PaletteData KOF99AE_A_CharacterEffectPalettes[] =
     { L"Kyo-2 Extras", 0x2fb5f0, 0x2fb6f0 },
 };
 
-void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
+void CGame_KOF99_A::DumpPaletteHeaders(int nHeaderSetToDump)
 {
     CString strOutput;
     uint16_t nColorOptionsPerCharacter = 2;

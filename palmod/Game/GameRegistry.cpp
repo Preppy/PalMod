@@ -72,7 +72,7 @@
 #include "Game_KOF97_A.h"
 #include "Game_KOF98_A.h"
 #include "Game_KOF98AE2016_A.h"
-#include "Game_KOF99AE_A.h"
+#include "Game_KOF99_A.h"
 #include "Game_KOFEX2_GBA.h"
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
@@ -262,7 +262,7 @@ namespace KnownGameInfo
     CGameClass* Make_KOF97_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF97_A(nConfirmedROMSize); }
     CGameClass* Make_KOF98AE2016_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF98AE2016_A(nConfirmedROMSize); }
     CGameClass* Make_KOF98_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF98_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF99AE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF99AE_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF99_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF99_A(nConfirmedROMSize); }
     CGameClass* Make_KOFEX2_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOFEX2_GBA(nConfirmedROMSize); }
     CGameClass* Make_KOFXI_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOFXI_A(nConfirmedROMSize); }
     CGameClass* Make_KOTM_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOTM_A(nConfirmedROMSize); }
@@ -985,11 +985,11 @@ namespace KnownGameInfo
             CGame_KOF98AE2016_A::GetRule,
         },
         {
-            KOF99AE_A,
-            L"King of Fighters '99AE (Neo-Geo)",
-            { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin;152-p2.bin;kf99eur.p2;251-p2p.*;proto_251-p2.*|", GamePlatform::NEOGEO, GameSeries::KOF },
-            Make_KOF99AE_A,
-            CGame_KOF99AE_A::GetRule,
+            KOF99_A,
+            L"King of Fighters '99 (Neo-Geo)",
+            { KOF99_A,        L"KOF99", L"KOF99: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin;152-p2.*;kf99eur.p2;251-p2p.*;proto_251-p2.*|", GamePlatform::NEOGEO, GameSeries::KOF },
+            Make_KOF99_A,
+            CGame_KOF99_A::GetRule,
         },
         {
             KOF00N_A,
@@ -2058,8 +2058,8 @@ namespace KnownGameInfo
         case KOF96_A:
             CGame_KOF96_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        case KOF99AE_A:
-            CGame_KOF99AE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+        case KOF99_A:
+            CGame_KOF99_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case KOF02UM_S:
             CGame_KOF02UM_S::SetSpecialRuleForFileName(pszFileNameLowercase);

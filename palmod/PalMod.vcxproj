@@ -267,7 +267,7 @@
     <ClCompile Include="Game\Game_KOF96_A.cpp" />
     <ClCompile Include="Game\Game_KOF97_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
-    <ClCompile Include="Game\Game_KOF99AE_A.cpp" />
+    <ClCompile Include="Game\Game_KOF99_A.cpp" />
     <ClCompile Include="Game\Game_KOFXI_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp" />
@@ -480,7 +480,7 @@
     <ClInclude Include="Game\Game_KOF97_A.h" />
     <ClInclude Include="Game\Game_KOF98AE2016_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
-    <ClInclude Include="Game\Game_KOF99AE_A.h" />
+    <ClInclude Include="Game\Game_KOF99_A.h" />
     <ClInclude Include="Game\Game_KOFEX2_GBA.h" />
     <ClInclude Include="Game\Game_KOFXI_A.h" />
     <ClInclude Include="Game\Game_KOTM_A.h" />
@@ -616,7 +616,7 @@
     <ClInclude Include="Game\KOF97_A_DEF.h" />
     <ClInclude Include="Game\KOF98AE2016_A_DEF.h" />
     <ClInclude Include="Game\KOF98_A_DEF.h" />
-    <ClInclude Include="Game\KOF99AE_A_DEF.h" />
+    <ClInclude Include="Game\KOF99_A_DEF.h" />
     <ClInclude Include="Game\KOFEX2_GBA_DEF.h" />
     <ClInclude Include="Game\KOFXI_A_DEF.h" />
     <ClInclude Include="Game\KOTM_A_DEF.h" />
