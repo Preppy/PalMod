@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 202, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 203, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -987,7 +987,14 @@ namespace KnownGameInfo
         {
             KOF99_A,
             L"King of Fighters '99 (Neo-Geo)",
-            { KOF99_A,        L"KOF99", L"KOF99: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin;152-p2.*;kf99eur.p2;251-p2p.*;proto_251-p2.*|", GamePlatform::NEOGEO, GameSeries::KOF },
+            { KOF99_A,        L"KOF99", L"KOF99|152-p2.*;kf99eur.p2;251-p2p.*;proto_251-p2.*|", GamePlatform::NEOGEO, GameSeries::KOF },
+            Make_KOF99_A,
+            CGame_KOF99_A::GetRule,
+        },
+        {
+            KOF99AE_A,
+            L"King of Fighters '99AE (Neo-Geo)",
+            { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
             Make_KOF99_A,
             CGame_KOF99_A::GetRule,
         },
@@ -1955,7 +1962,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 202, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 203, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

@@ -79,7 +79,7 @@ enum SupportedGamesList
     NeoBomberman_A,
     GUNDAM_SNES,
     KOF94_A,
-    KOF99_A,
+    KOF99AE_A,
     CFTE_SNES,
     FatalFuryS_SNES,
     TOPF2005_SEGA,
@@ -224,6 +224,7 @@ enum SupportedGamesList
     MK1_A,
     KOFEX2_GBA,
     CFE_P,
+    KOF99_A,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
