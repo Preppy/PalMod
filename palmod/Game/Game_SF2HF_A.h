@@ -88,7 +88,7 @@ private:
         SF2HF_A_21_UNITS,
         ARRAYSIZE(SF2HF_A_21_UNITS),
         L"SF2HF-21e.txt",        // Extra filename
-        68,                      // Count of palettes listed in the header
+        318,                     // Count of palettes listed in the header
         0x25e,                   // Lowest known location used for palettes
     };
 
