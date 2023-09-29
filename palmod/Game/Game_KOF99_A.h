@@ -92,7 +92,7 @@ private:
         KOF99AE_A_P2_UNITS,
         ARRAYSIZE(KOF99AE_A_P2_UNITS),
         L"KOF99AEp2E.txt",      // Extra filename
-        1468,                   // Count of palettes listed in the header
+        1470,                   // Count of palettes listed in the header
         0x2d97f0,               // Lowest known location used for palettes
     };
 

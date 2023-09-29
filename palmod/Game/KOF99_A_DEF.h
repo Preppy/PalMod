@@ -2148,6 +2148,8 @@ const sGame_PaletteDataset KOF99AE_A_ANDY_EFFECT_PALETTES[] =
     { L"Effect 5", 0x2e2690, 0x2e26b0 },
     { L"Effect 6", 0x2e26b0, 0x2e26d0 },
     { L"Effect 7", 0x2e26d0, 0x2e26f0 },
+    { L"Effect 8", 0x2e26f0, 0x2e2710 },
+    { L"Effect 9", 0x2e2710, 0x2e2730 },
 };
 
 const sGame_PaletteDataset KOF99AE_A_JOE_C_PALETTES[] =

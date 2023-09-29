@@ -764,46 +764,163 @@ const sDescTreeNode SF2HF_A_21_UNITS[] =
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS21_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS21_COLLECTION) },
 };
 
-const sGame_PaletteDataset SF2HF_A_IN_GAME_NODE[] =
-{
-    { L"Insert Coin Text", 0x2da7e, 0x2da9e, indexSF2Sprites_Bonus, 0x2e },
-    { L"HUD and Text", 0x2dbfe, 0x2dc3e, indexSF2Sprites_Bonus, 0x2c },
-    { L"In-Game FX - Black", 0x2dbbe, 0x2dbde, indexSF2Sprites_Bonus, 0x29, &pairNextAndNext },
-    { L"In-Game FX - Dust and Green Hitsparks", 0x2dbde, 0x2dbfe, indexSF2Sprites_Bonus, 0x28 },
-    { L"In-Game FX - Various", 0x2dc3e, 0x2dc7e, indexSF2Sprites_Bonus, 0x2a },
-};
-
-const sGame_PaletteDataset SF2HF_A_BONUS22_NODE[] =
+const sGame_PaletteDataset SF2HF_A_22_BONUS_OPENING_NODE[] =
 {
     { L"Intro Characters", 0x2fcfe, 0x2fe3e, indexSF2Sprites_Bonus, 0x2d },
-    { L"Game Title", 0x2fe5e, 0x2fe7e, indexSF2Sprites_Bonus, 0x2b },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_BONUS_TITLE_NODE[] =
+{
+    { L"Street Fighter II'", 0x2fe5e, 0x2fe7e, indexSF2Sprites_Bonus, 0x2b },
+    { L"Hyper Fighting", 0x2fcde, 0x2fcfe },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_BONUS_CSELECT_NODE[] =
+{
     { L"Character Select Extras", 0x3001e, 0x3007e, indexSF2Sprites_Bonus, 0x24 },
     { L"World Map Dictator", 0x2ff9e, 0x2ffbe, indexSF2Sprites_Bonus, 0x2f },
 };
 
-const sDescTreeNode SF2HF_A_BONUS22_COLLECTION[] =
+const sGame_PaletteDataset SF2HF_A_IN_GAME_NODE[] =
 {
+    // Insert Coin, Copyright, Push Start, Continue?
+    { L"Insert Coin Text", 0x2da7e, 0x2da9e, indexSF2Sprites_Bonus, 0x2e },
+    { L"HUD and Text", 0x2dbfe, 0x2dc3e, indexSF2Sprites_Bonus, 0x2c },
+    { L"In-Game FX - Black", 0x2dbbe, 0x2dbde, indexSF2Sprites_Bonus, 0x29, &pairNextAndNext },
+    // Dust, Vomit, Hit Sparks, Dizzy Stars, Rocks (Chun-Li & Sagat Stage)
+    { L"In-Game FX - Dust and Green Hitsparks", 0x2dbde, 0x2dbfe, indexSF2Sprites_Bonus, 0x28 },
+    // HUD Text, Hit Sparks, Dizzy Stars, Dizzy Birds, Hadouken, Hadouken Explosion, Kikouken Explosion, Sonic Boom Explosion, Glass Shards (Car Bonus Stage), Drum Fire on Hit (Drum Bonus Stage)
+    // Vomit, Yoga Fire, Yoga Flame, Hit by Yoga Fire, Hit by Yoga Flame, Hit by Electricity, Tiger Shot Explosion, Car Fluids (Car Bonus Stage)
+    { L"In-Game FX - Various", 0x2dc3e, 0x2dc7e, indexSF2Sprites_Bonus, 0x2a },
+};
+
+const sDescTreeNode SF2HF_A_22_BONUS_COLLECTION[] =
+{
+    { L"Opening Cinematic", DESC_NODETYPE_TREE, (void*)SF2HF_A_22_BONUS_OPENING_NODE, ARRAYSIZE(SF2HF_A_22_BONUS_OPENING_NODE) },
+    { L"Title Screen",      DESC_NODETYPE_TREE, (void*)SF2HF_A_22_BONUS_TITLE_NODE, ARRAYSIZE(SF2HF_A_22_BONUS_TITLE_NODE) },
+    { L"Character Select",  DESC_NODETYPE_TREE, (void*)SF2HF_A_22_BONUS_CSELECT_NODE, ARRAYSIZE(SF2HF_A_22_BONUS_CSELECT_NODE) },
     { L"In-Game Palettes",  DESC_NODETYPE_TREE, (void*)SF2HF_A_IN_GAME_NODE, ARRAYSIZE(SF2HF_A_IN_GAME_NODE) },
-    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS22_NODE, ARRAYSIZE(SF2HF_A_BONUS22_NODE) },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSCAR_NODE[] =
+{
+    { L"Car 1", 0x2f59e, 0x2f63e },
+    { L"Car 2", 0x2f65e, 0x2f67e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSCASKS_NODE[] =
+{
+    { L"P2 Scoreboard", 0x2f7fe, 0x2f81e },
+    { L"Scoreboard Tallies", 0x2f81e, 0x2f83e },
+    { L"Rolling Casks", 0x2f85e, 0x2f87e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSDRUMS_NODE[] =
+{
+    { L"Flames", 0x2fa3e, 0x2fa5e },
+    { L"Drums", 0x2fa5e, 0x2fa7e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_BLANKA_NODE[] =
+{
+    { L"Posts", 0x2e1de, 0x2e1fe },
+    { L"Crowd & Stump", 0x2e1fe, 0x2e21e },
+    { L"Crowd & Right Hut", 0x2e21e, 0x2e23e },
+    { L"Crowd", 0x2e23e, 0x2e25e },
+    { L"Fish", 0x2e25e, 0x2e27e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_BOXER_NODE[] =
+{
+    { L"Show Girls", 0x2f21e, 0x2f27e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_CHUNLI_NODE[] =
+{
+    { L"Cyclists", 0x2e81e, 0x2e87e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_DHALSIM_NODE[] =
+{
+    { L"Pots", 0x2ec3e, 0x2ec7e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_DICTATOR_NODE[] =
+{
+    { L"Statues (Destroyed)", 0x2ee5e, 0x2ee7e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_EHONDA_NODE[] =
+{
+    { L"Left Side Wall", 0x2dfde, 0x2dffe },
+    { L"Soap & Bucket", 0x2dfbe, 0x2dfde },
+    { L"Water Droplets & Bathtub Overspill", 0x2dffe, 0x2e01e },
+    { L"Lantern", 0x2e05e, 0x2e07e },
+    { L"Lantern After KO", 0x2e01e, 0x2e05e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_GUILE_NODE[] =
+{
+    { L"Crates", 0x2e41e, 0x2e43e },
+    { L"Jet", 0x2e43e, 0x2e47e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_KEN_NODE[] =
+{
+    { L"Foreground Bollards", 0x2e5fe, 0x2e61e },
+    { L"Background Bollards & Steamboat", 0x2e63e, 0x2e65e },
+    { L"Drum", 0x2e65e, 0x2e67e },
+    { L"Drum (Destroyed)", 0x2e59e, 0x2e5be },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_RYU_NODE[] =
+{
+    { L"Intermediate Rooftop & Birds", 0x2de1e, 0x2de3e },
+    { L"Background Building", 0x2de5e, 0x2de7e },
+};
+
+const sGame_PaletteDataset SF2HF_A_22_STAGES_ZANGIEF_NODE[] =
+{
+    { L"Foreground Chain", 0x2e9de, 0x2e9fe },
+    { L"Fire Extinguisher", 0x2e9fe, 0x2ea1e },
+};
+
+const sDescTreeNode SF2HF_A_22_STAGES_COLLECTION[] =
+{
+    { L"Bonus Stage (Car)",     DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_BONUSCAR_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_BONUSCAR_NODE) },
+    { L"Bonus Stage (Casks)",   DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_BONUSCASKS_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_BONUSCASKS_NODE) },
+    { L"Bonus Stage (Drums)",   DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_BONUSDRUMS_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_BONUSDRUMS_NODE) },
+    { L"Blanka",                DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_BLANKA_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_BLANKA_NODE) },
+    { L"Boxer",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_BOXER_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_BOXER_NODE) },
+    { L"Chun-Li",               DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_CHUNLI_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_CHUNLI_NODE) },
+    { L"Dhalsim",               DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_DHALSIM_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_DHALSIM_NODE) },
+    { L"Dictator",              DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_DICTATOR_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_DICTATOR_NODE) },
+    { L"E.Honda",               DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_EHONDA_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_EHONDA_NODE) },
+    { L"Guile",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_GUILE_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_GUILE_NODE) },
+    { L"Ken",                   DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_KEN_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_KEN_NODE) },
+    { L"Ryu",                   DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_RYU_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_RYU_NODE) },
+    { L"Zangief",               DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_ZANGIEF_NODE, ARRAYSIZE(SF2HF_A_22_STAGES_ZANGIEF_NODE) },
 };
 
 const sDescTreeNode SF2HF_A_22_UNITS[] =
 {
-    { L"Blanka",     DESC_NODETYPE_TREE, (void*)SF2HF_A_BLANKA_COLLECTION, ARRAYSIZE(SF2HF_A_BLANKA_COLLECTION) },
-    { L"Chun-Li",    DESC_NODETYPE_TREE, (void*)SF2HF_A_CHUNLI_COLLECTION, ARRAYSIZE(SF2HF_A_CHUNLI_COLLECTION) },
-    { L"Dhalsim",    DESC_NODETYPE_TREE, (void*)SF2HF_A_DHALSIM_COLLECTION, ARRAYSIZE(SF2HF_A_DHALSIM_COLLECTION) },
-    { L"E.Honda",    DESC_NODETYPE_TREE, (void*)SF2HF_A_EHONDA_COLLECTION, ARRAYSIZE(SF2HF_A_EHONDA_COLLECTION) },
-    { L"Guile",      DESC_NODETYPE_TREE, (void*)SF2HF_A_GUILE_COLLECTION, ARRAYSIZE(SF2HF_A_GUILE_COLLECTION) },
-    { L"Ken",        DESC_NODETYPE_TREE, (void*)SF2HF_A_KEN_COLLECTION, ARRAYSIZE(SF2HF_A_KEN_COLLECTION) },
-    { L"Ryu",        DESC_NODETYPE_TREE, (void*)SF2HF_A_RYU_COLLECTION, ARRAYSIZE(SF2HF_A_RYU_COLLECTION) },
-    { L"Zangief",    DESC_NODETYPE_TREE, (void*)SF2HF_A_ZANGIEF_COLLECTION, ARRAYSIZE(SF2HF_A_ZANGIEF_COLLECTION) },
+    { L"Blanka",    DESC_NODETYPE_TREE, (void*)SF2HF_A_BLANKA_COLLECTION, ARRAYSIZE(SF2HF_A_BLANKA_COLLECTION) },
+    { L"Chun-Li",   DESC_NODETYPE_TREE, (void*)SF2HF_A_CHUNLI_COLLECTION, ARRAYSIZE(SF2HF_A_CHUNLI_COLLECTION) },
+    { L"Dhalsim",   DESC_NODETYPE_TREE, (void*)SF2HF_A_DHALSIM_COLLECTION, ARRAYSIZE(SF2HF_A_DHALSIM_COLLECTION) },
+    { L"E.Honda",   DESC_NODETYPE_TREE, (void*)SF2HF_A_EHONDA_COLLECTION, ARRAYSIZE(SF2HF_A_EHONDA_COLLECTION) },
+    { L"Guile",     DESC_NODETYPE_TREE, (void*)SF2HF_A_GUILE_COLLECTION, ARRAYSIZE(SF2HF_A_GUILE_COLLECTION) },
+    { L"Ken",       DESC_NODETYPE_TREE, (void*)SF2HF_A_KEN_COLLECTION, ARRAYSIZE(SF2HF_A_KEN_COLLECTION) },
+    { L"Ryu",       DESC_NODETYPE_TREE, (void*)SF2HF_A_RYU_COLLECTION, ARRAYSIZE(SF2HF_A_RYU_COLLECTION) },
+    { L"Zangief",   DESC_NODETYPE_TREE, (void*)SF2HF_A_ZANGIEF_COLLECTION, ARRAYSIZE(SF2HF_A_ZANGIEF_COLLECTION) },
 
-    { L"Boxer",      DESC_NODETYPE_TREE, (void*)SF2HF_A_BOXER_COLLECTION, ARRAYSIZE(SF2HF_A_BOXER_COLLECTION) },
-    { L"Claw",       DESC_NODETYPE_TREE, (void*)SF2HF_A_CLAW_COLLECTION, ARRAYSIZE(SF2HF_A_CLAW_COLLECTION) },
-    { L"Sagat",      DESC_NODETYPE_TREE, (void*)SF2HF_A_SAGAT_COLLECTION, ARRAYSIZE(SF2HF_A_SAGAT_COLLECTION) },
-    { L"Dictator",   DESC_NODETYPE_TREE, (void*)SF2HF_A_DICTATOR_COLLECTION, ARRAYSIZE(SF2HF_A_DICTATOR_COLLECTION) },
+    { L"Boxer",     DESC_NODETYPE_TREE, (void*)SF2HF_A_BOXER_COLLECTION, ARRAYSIZE(SF2HF_A_BOXER_COLLECTION) },
+    { L"Claw",      DESC_NODETYPE_TREE, (void*)SF2HF_A_CLAW_COLLECTION, ARRAYSIZE(SF2HF_A_CLAW_COLLECTION) },
+    { L"Sagat",     DESC_NODETYPE_TREE, (void*)SF2HF_A_SAGAT_COLLECTION, ARRAYSIZE(SF2HF_A_SAGAT_COLLECTION) },
+    { L"Dictator",  DESC_NODETYPE_TREE, (void*)SF2HF_A_DICTATOR_COLLECTION, ARRAYSIZE(SF2HF_A_DICTATOR_COLLECTION) },
 
-    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS22_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS22_COLLECTION) },
+    { L"Stages",    DESC_NODETYPE_TREE, (void*)SF2HF_A_22_STAGES_COLLECTION, ARRAYSIZE(SF2HF_A_22_STAGES_COLLECTION) },
+
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_22_BONUS_COLLECTION, ARRAYSIZE(SF2HF_A_22_BONUS_COLLECTION) },
 };
 
 const sGame_PaletteDataset SF2HF_A_RYU_23_PORTRAITS_NODE[] =
@@ -855,19 +972,31 @@ const sGame_PaletteDataset SF2HF_A_DHALSIM_23_PORTRAITS_NODE[] =
     { L"Dhalsim Part 3", 0x348d8, 0x348f8, indexSF2Sprites_Dhalsim, 0x25 },
 };
 
+const sGame_PaletteDataset SF2HF_A_23_BONUS_NODE[] =
+{
+    // (Order: Ryu, E.Honda, Blanka, Guile, Ken, Chun-Li, Zangief, Dhalsim, Dictator, Sagat, Boxer, Claw, Car, Casks, Drums)
+    { L"Stage Player Character Shadows", 0x1a4e, 0x1a6e },
+};
+
 const sDescTreeNode SF2HF_A_23_PORTRAITS_COLLECTION[] =
 {
-    { L"Blanka",     DESC_NODETYPE_TREE, (void*)SF2HF_A_BLANKA_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_BLANKA_23_PORTRAITS_NODE) },
-    { L"Chun-Li",    DESC_NODETYPE_TREE, (void*)SF2HF_A_CHUNLI_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_CHUNLI_23_PORTRAITS_NODE) },
-    { L"Dhalsim",    DESC_NODETYPE_TREE, (void*)SF2HF_A_DHALSIM_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_DHALSIM_23_PORTRAITS_NODE) },
-    { L"E.Honda",    DESC_NODETYPE_TREE, (void*)SF2HF_A_EHONDA_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_EHONDA_23_PORTRAITS_NODE) },
-    { L"Guile",      DESC_NODETYPE_TREE, (void*)SF2HF_A_GUILE_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_GUILE_23_PORTRAITS_NODE) },
-    { L"Ken",        DESC_NODETYPE_TREE, (void*)SF2HF_A_KEN_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_KEN_23_PORTRAITS_NODE) },
-    { L"Ryu",        DESC_NODETYPE_TREE, (void*)SF2HF_A_RYU_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_RYU_23_PORTRAITS_NODE) },
-    { L"Zangief",    DESC_NODETYPE_TREE, (void*)SF2HF_A_ZANGIEF_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_ZANGIEF_23_PORTRAITS_NODE) },
+    { L"Blanka",    DESC_NODETYPE_TREE, (void*)SF2HF_A_BLANKA_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_BLANKA_23_PORTRAITS_NODE) },
+    { L"Chun-Li",   DESC_NODETYPE_TREE, (void*)SF2HF_A_CHUNLI_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_CHUNLI_23_PORTRAITS_NODE) },
+    { L"Dhalsim",   DESC_NODETYPE_TREE, (void*)SF2HF_A_DHALSIM_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_DHALSIM_23_PORTRAITS_NODE) },
+    { L"E.Honda",   DESC_NODETYPE_TREE, (void*)SF2HF_A_EHONDA_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_EHONDA_23_PORTRAITS_NODE) },
+    { L"Guile",     DESC_NODETYPE_TREE, (void*)SF2HF_A_GUILE_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_GUILE_23_PORTRAITS_NODE) },
+    { L"Ken",       DESC_NODETYPE_TREE, (void*)SF2HF_A_KEN_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_KEN_23_PORTRAITS_NODE) },
+    { L"Ryu",       DESC_NODETYPE_TREE, (void*)SF2HF_A_RYU_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_RYU_23_PORTRAITS_NODE) },
+    { L"Zangief",   DESC_NODETYPE_TREE, (void*)SF2HF_A_ZANGIEF_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_ZANGIEF_23_PORTRAITS_NODE) },
+};
+
+const sDescTreeNode SF2HF_A_23_BONUS_COLLECTION[] =
+{
+    { L"Bonus",     DESC_NODETYPE_TREE, (void*)SF2HF_A_23_BONUS_NODE, ARRAYSIZE(SF2HF_A_23_BONUS_NODE) },
 };
 
 const sDescTreeNode SF2HF_A_23_UNITS[] =
 {
     { L"Continue Portraits", DESC_NODETYPE_TREE, (void*)SF2HF_A_23_PORTRAITS_COLLECTION, ARRAYSIZE(SF2HF_A_23_PORTRAITS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_23_BONUS_COLLECTION, ARRAYSIZE(SF2HF_A_23_BONUS_COLLECTION) },
 };

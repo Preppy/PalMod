@@ -108,7 +108,7 @@ private:
         SF2HF_A_22_UNITS,
         ARRAYSIZE(SF2HF_A_22_UNITS),
         L"SF2HF-22e.txt",        // Extra filename
-        41,                      // Count of palettes listed in the header
+        73,                      // Count of palettes listed in the header
         0x1e6a6,                 // Lowest known location used for palettes
     };
 
@@ -128,8 +128,8 @@ private:
         SF2HF_A_23_UNITS,
         ARRAYSIZE(SF2HF_A_23_UNITS),
         L"SF2HF-23e.txt",        // Extra filename
-        17,                      // Count of palettes listed in the header
-        0x2e748,                 // Lowest known location used for palettes
+        18,                      // Count of palettes listed in the header
+        0x1a4e,                  // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_SF30th
@@ -148,7 +148,7 @@ private:
         SF2HF_A_22_UNITS,
         ARRAYSIZE(SF2HF_A_22_UNITS),
         L"SF2HF-22e.txt",        // Extra filename
-        41,                      // Count of palettes listed in the header
+        73,                      // Count of palettes listed in the header
         0x1e6a6,                 // Lowest known location used for palettes
     };
 
