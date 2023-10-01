@@ -749,7 +749,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_MOVES[] =
 {
     { L"Andy Hishouken and Darkness Kick",      0x18800, 0x18820, indexKOF02UMSprites_Andy, 0x3 },
     { L"Andy Geki Hishouken and Kunai Bullet",  0x18820, 0x18840, indexKOF02UMSprites_Andy, 0x4 },
-    { L"Andy Sho Ryu Dan Effects",              0x18880, 0x188a0, indexKOF02UMSprites_Andy, 0x2 },
+    { L"Andy Shoryudan Effects",              0x18880, 0x188a0, indexKOF02UMSprites_Andy, 0x2 },
     { L"Andy SDM/MAX Fire",                     0x188a0, 0x188c0, indexKOF02UMSprites_Andy, 0x12 },
     { L"Andy Zan Ei Comet Punch Main",          0x188c0, 0x188e0, indexKOF02UMSprites_Andy, 0x10 },
     { L"Andy Zan Ei Comet Punch Extra",         0x188e0, 0x18900 },
@@ -896,7 +896,7 @@ const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_MOVES[] =
     { L"Goenitz Yamidoukoku and Hyouga Tornado",    0x53160, 0x53180, indexKOF96Sprites_Goenitz, 0x06 },
     { L"Goenitz Shin Aoi Rekka Finisher",           0x53180, 0x531a0, indexKOF02UMSprites_Goenitz, 0x24, &pairNext },
     { L"Goenitz Shin Aoi Rekka Attacks",            0x531a0, 0x531c0, indexKOF02UMSprites_Goenitz, 0x25, &pairPrevious },
-    { L"Goenitz Fuujin Ibuki Tornado Spawn",        0x531c0, 0x531e0, indexKOF02UMSprites_Goenitz, 0x0b },
+    { L"Goenitz Fuujin Ibuki Tornado Spawn (Unused)", 0x531c0, 0x531e0, indexKOF02UMSprites_Goenitz, 0x0b },
 };
 
 const sGame_PaletteDataset KOF02UM_S_HEIDERN_PALETTES_MOVES[] =

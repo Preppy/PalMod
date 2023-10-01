@@ -207,10 +207,51 @@ const sGame_PaletteDataset RBFF1_A_BILLY_PALETTES_A[] =
     { L"Billy Kane A", 0x0c0f00, 0x0c0f20, indexRBFF1Sprites_Billy, 0x00 },
     { L"Billy Kane Bottom Plane A", 0x0c0f40, 0x0c0f60, indexRBFF1Sprites_Billy, 0x00 },
 };
+
 const sGame_PaletteDataset RBFF1_A_BILLY_PALETTES_D[] =
 {
     { L"Billy Kane D", 0x0c0f20, 0x0c0f40, indexRBFF1Sprites_Billy, 0x00 },
     { L"Billy Kane Bottom Plane D", 0x0c0f60, 0x0c0f80, indexRBFF1Sprites_Billy, 0x00 },
+};
+
+const sGame_PaletteDataset RBFF1_A_BONUS_PALETTES_CSELECT[] =
+{
+    { L"Terry A Select portrait", 0xcd600, 0xcd620 },
+    { L"Terry D Select portrait", 0xcd800, 0xcd820 },
+    { L"Andy A Select portrait", 0xcd620, 0xcd640 },
+    { L"Andy D Select potrait", 0xcd820, 0xcd840 },
+    { L"Joe A Select portrait", 0xcd640, 0xcd660 },
+    { L"Joe D Select Portrait", 0xcd840, 0xcd860 },
+    { L"Mai A Select portrait", 0xcd660, 0xcd680 },
+    { L"Mai D Select portrait", 0xcd860, 0xcd880 },
+    { L"Geese A Select portrait", 0xcd680, 0xcd6a0 },
+    { L"Geese A Select portrait extra", 0xce4a0, 0xce4c0 },
+    { L"Geese D Select portrait ", 0xcd880, 0xcd8a0 },
+    { L"Geese D Select portrait extra", 0xce4c0, 0xce4e0 },
+    { L"Sokaku A Select portrait", 0xcd6a0, 0xcd6c0 },
+    { L"Sokaku D Select portrait", 0xcd8a0, 0xcd8c0 },
+    { L"Bob A Select portrait", 0xcd6c0, 0xcd6e0 },
+    { L"Bob D Select portrait", 0xcd8c0, 0xcd8e0 },
+    { L"Hon Fu A Select portrait ", 0xcd6e0, 0xcd700 },
+    { L"Hon Fu D Select portrait", 0xcd8e0, 0xcd900 },
+    { L"Blue Mary A Select portrait", 0xcd700, 0xcd720 },
+    { L"Blue Mary D Select portrait", 0xcd900, 0xcd920 },
+    { L"Blue Mary Select portrait extra", 0xce4e0, 0xce500 },
+    { L"Franco A Select Portrait", 0xcd720, 0xcd740 },
+    { L"Franco D Select portrait ", 0xcd920, 0xcd940 },
+    { L"Yamazaki A Select portrait", 0xcd740, 0xcd760 },
+    { L"Yamazaki D Select portrait", 0xcd940, 0xcd960 },
+    { L"Yamazaki Select portrait extra", 0xce500, 0xce520 },
+    { L"Chonshu A Select portrait", 0xcd760, 0xcd780 },
+    { L"Chonshu D Select portrait", 0xcd960, 0xcd980 },
+    { L"Chonrei A Select portrait", 0xcd780, 0xcd7a0 },
+    { L"Chonrei D Select portrait", 0xcd980, 0xcd9a0 },
+    { L"Duck King A Select portrait", 0xcd7a0, 0xcd7c0 },
+    { L"Duck King D Select portrait", 0xcd9a0, 0xcd9c0 },
+    { L"Kim A Select portrait", 0xcd7c0, 0xcd7e0 },
+    { L"Kim D Select portrait", 0xcd9c0, 0xcd9e0 },
+    { L"Billy A Select portrait", 0xcd7e0, 0xcd800 },
+    { L"Billy D Select portrait", 0xcd9e0, 0xcda00 },
 };
 
 const sDescTreeNode RBFF1_A_TERRY_COLLECTION[] =
@@ -309,6 +350,11 @@ const sDescTreeNode RBFF1_A_BILLY_COLLECTION[] =
     { L"D", DESC_NODETYPE_TREE, (void*)RBFF1_A_BILLY_PALETTES_D, ARRAYSIZE(RBFF1_A_BILLY_PALETTES_D) },
 };
 
+const sDescTreeNode RBFF1_A_BONUS_COLLECTION[] =
+{
+    { L"Character Select Portraits", DESC_NODETYPE_TREE, (void*)RBFF1_A_BONUS_PALETTES_CSELECT, ARRAYSIZE(RBFF1_A_BONUS_PALETTES_CSELECT) },
+};
+
 const sDescTreeNode RBFF1_A_UNITS[] =
 {
     { L"Terry", DESC_NODETYPE_TREE, (void*)RBFF1_A_TERRY_COLLECTION, ARRAYSIZE(RBFF1_A_TERRY_COLLECTION) },
@@ -327,4 +373,5 @@ const sDescTreeNode RBFF1_A_UNITS[] =
     { L"Duck King", DESC_NODETYPE_TREE, (void*)RBFF1_A_DUCKKING_COLLECTION, ARRAYSIZE(RBFF1_A_DUCKKING_COLLECTION) },
     { L"Kim", DESC_NODETYPE_TREE, (void*)RBFF1_A_KIM_COLLECTION, ARRAYSIZE(RBFF1_A_KIM_COLLECTION) },
     { L"Billy", DESC_NODETYPE_TREE, (void*)RBFF1_A_BILLY_COLLECTION, ARRAYSIZE(RBFF1_A_BILLY_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)RBFF1_A_BONUS_COLLECTION, ARRAYSIZE(RBFF1_A_BONUS_COLLECTION) },
 };

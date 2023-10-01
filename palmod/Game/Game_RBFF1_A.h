@@ -36,7 +36,7 @@ private:
         RBFF1_A_UNITS,
         ARRAYSIZE(RBFF1_A_UNITS),
         L"RBFF1E.txt",             // Extra filename
-        64,                        // Count of palettes listed in the header
+        100,                       // Count of palettes listed in the header
         0xc0200,                   // Lowest known location used for palettes
     };
 

@@ -3608,7 +3608,7 @@ const sGame_PaletteDataset KOF02PS2_A_Andy_PALETTES_SHARED[] =
 {
     { L"Hishouken",                 0x9f362 + 0x30009E, 0x9f382 + 0x30009E, indexKOF02UMSprites_Andy, 0x3 },
     { L"Geki Hishouken",            0x9f382 + 0x30009E, 0x9f3a2 + 0x30009E, indexKOF02UMSprites_Andy, 0x4 },
-    { L"Shoryudan Effects",         0x9f3a2 + 0x30009E, 0x9f3c2 + 0x30009E, indexKOF02UMSprites_Andy, 0x2 },
+    { L"Shoryudan Effects",         0x9f3e2 + 0x30009E, 0x9f402 + 0x30009E, indexKOF02UMSprites_Andy, 0x2 },
     { L"SDM/MAX Fire",              0x9f402 + 0x30009E, 0x9f422 + 0x30009E, indexKOF02UMSprites_Andy, 0x12 },
     { L"Zan Ei Comet Punch Main",   0x9f422 + 0x30009E, 0x9f442 + 0x30009E, indexKOF02UMSprites_Andy, 0x10 },
     { L"Zan Ei Comet Punch Extra",  0x9f442 + 0x30009E, 0x9f462 + 0x30009E },
