@@ -533,8 +533,16 @@ void CPreviewDlg::OnFileExportImg()
     if (m_ImgDisp.HaveImageData())
     {
         if (GetHost()->GetCurrGame() &&
-            GetHost()->GetPalModDlg()->MainPalGroup &&
-            GetHost()->GetPalModDlg()->MainPalGroup->IsAnyPaletteDirty())
+            // A preview marked as updated via a user loaded palette (via Load Palette etc)
+            // will take palette actions across all loaded palettes.  We track that via IsActivePaletteChanged
+            // which handles subsequently marking palettes dirty individually in any OnUpdate calls.
+            // Since we need to create a secondary preview, we need to force that OnUpdate here so that
+            // the palettes referenced via PreviewDlg are the latest user loaded palettes.
+            (GetHost()->GetPalModDlg()->IsActivePaletteChanged()  ||
+             // And this is the generic case of the user directly modifying any specific palettes
+             // that are visible.
+             (GetHost()->GetPalModDlg()->MainPalGroup &&
+              GetHost()->GetPalModDlg()->MainPalGroup->IsAnyPaletteDirty())))
         {
             GetHost()->GetCurrGame()->UpdatePalData();
         }
