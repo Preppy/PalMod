@@ -8020,7 +8020,7 @@ const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_STORM =
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SABRETOOTH =
 { //2B: Sabretooth" },
-    { 0x00, L"Main Color" },
+    { 0x00, L"Main Color", 0x00, indexCPS2Sprites_Sabretooth, &pairNextAndNext },
     { 0x01, L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2" },
     { 0x02, L"(03) Birdie" },
     { 0x03, L"(04) Sabre's Limo" },

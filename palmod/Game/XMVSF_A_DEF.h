@@ -315,7 +315,7 @@ const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P2[] =
 
 const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P1[] =
 {
-    { L"P1 Punch Color", 0x1549a, 0x154ba, indexCPS2Sprites_Sabretooth, 0x00 },
+    { L"P1 Punch Color", 0x1549a, 0x154ba, indexCPS2Sprites_Sabretooth, 0x00, &pairNextAndNext },
     { L"P1 Slash FX", 0x154ba, 0x154da, indexCPS2Sprites_Sabretooth, 0x01 },
     { L"P1 Birdy", 0x154da, 0x154fa, indexCPS2Sprites_Sabretooth, 0x02 },
     { L"P1 Getaway car", 0x1555a, 0x1557a, indexCPS2Sprites_Sabretooth, 0x03 },
@@ -323,7 +323,7 @@ const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P1[] =
 
 const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x154fa, 0x1551a, indexCPS2Sprites_Sabretooth, 0x00 },
+    { L"P2 Kick Color", 0x154fa, 0x1551a, indexCPS2Sprites_Sabretooth, 0x00, &pairNextAndNext },
     { L"P2 Slash FX", 0x1551a, 0x1553a, indexCPS2Sprites_Sabretooth, 0x01 },
     { L"P2 Birdy", 0x1553a, 0x1555a, indexCPS2Sprites_Sabretooth, 0x02 },
     { L"P2 Getaway car", 0x1557a, 0x1559a, indexCPS2Sprites_Sabretooth, 0x03 },

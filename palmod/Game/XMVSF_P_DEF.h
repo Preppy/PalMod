@@ -830,7 +830,7 @@ const sDescTreeNode XMVSF_P_ROGUE_COLLECTION[] =
 
 const sGame_PaletteDataset XMVSF_P_SABRETOOTH_PUNCH[] =
 {
-    { L"Palette",       CURRENT_LOCATION + (0x00 * 0x20), CURRENT_LOCATION + (0x01 * 0x20), indexCPS2Sprites_Sabretooth, 0x00 },
+    { L"Palette",       CURRENT_LOCATION + (0x00 * 0x20), CURRENT_LOCATION + (0x01 * 0x20), indexCPS2Sprites_Sabretooth, 0x00, &pairNextAndNext },
     { L"Slash FX",      CURRENT_LOCATION + (0x01 * 0x20), CURRENT_LOCATION + (0x02 * 0x20), indexCPS2Sprites_Sabretooth, 0x01 },
     { L"Birdy",         CURRENT_LOCATION + (0x02 * 0x20), CURRENT_LOCATION + (0x03 * 0x20), indexCPS2Sprites_Sabretooth, 0x02 },
 
@@ -839,7 +839,7 @@ const sGame_PaletteDataset XMVSF_P_SABRETOOTH_PUNCH[] =
 
 const sGame_PaletteDataset XMVSF_P_SABRETOOTH_KICK[] =
 {
-    { L"Palette",       CURRENT_LOCATION + (0x03 * 0x20), CURRENT_LOCATION + (0x04 * 0x20), indexCPS2Sprites_Sabretooth, 0x00 },
+    { L"Palette",       CURRENT_LOCATION + (0x03 * 0x20), CURRENT_LOCATION + (0x04 * 0x20), indexCPS2Sprites_Sabretooth, 0x00, &pairNextAndNext },
     { L"Slash FX",      CURRENT_LOCATION + (0x04 * 0x20), CURRENT_LOCATION + (0x05 * 0x20), indexCPS2Sprites_Sabretooth, 0x01 },
     { L"Birdy",         CURRENT_LOCATION + (0x05 * 0x20), CURRENT_LOCATION + (0x06 * 0x20), indexCPS2Sprites_Sabretooth, 0x02 },
 

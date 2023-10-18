@@ -6351,7 +6351,7 @@ const sDescTreeNode MVC2_A_STORM_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x4adb360, 0x4adb380, indexCPS2Sprites_Sabretooth, 0 },
+    { L"Main Color LP", 0x4adb360, 0x4adb380, indexCPS2Sprites_Sabretooth, 0, &pairNextAndNext },
     { L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2", 0x4adb380, 0x4adb3a0, indexCPS2Sprites_Sabretooth, 1 },
     { L"(03) Birdie", 0x4adb3a0, 0x4adb3c0, indexCPS2Sprites_Sabretooth, 2 },
     { L"(04) Sabre's Limo", 0x4adb3c0, 0x4adb3e0, indexCPS2Sprites_Sabretooth, 3 },
@@ -6363,7 +6363,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x4adb460, 0x4adb480, indexCPS2Sprites_Sabretooth, 0 },
+    { L"Main Color LK", 0x4adb460, 0x4adb480, indexCPS2Sprites_Sabretooth, 0, &pairNextAndNext },
     { L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2", 0x4adb480, 0x4adb4a0, indexCPS2Sprites_Sabretooth, 1 },
     { L"(03) Birdie", 0x4adb4a0, 0x4adb4c0, indexCPS2Sprites_Sabretooth, 2 },
     { L"(04) Sabre's Limo", 0x4adb4c0, 0x4adb4e0, indexCPS2Sprites_Sabretooth, 3 },
@@ -6375,7 +6375,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x4adb560, 0x4adb580, indexCPS2Sprites_Sabretooth, 0 },
+    { L"Main Color HP", 0x4adb560, 0x4adb580, indexCPS2Sprites_Sabretooth, 0, &pairNextAndNext },
     { L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2", 0x4adb580, 0x4adb5a0, indexCPS2Sprites_Sabretooth, 1 },
     { L"(03) Birdie", 0x4adb5a0, 0x4adb5c0, indexCPS2Sprites_Sabretooth, 2 },
     { L"(04) Sabre's Limo", 0x4adb5c0, 0x4adb5e0, indexCPS2Sprites_Sabretooth, 3 },
@@ -6387,7 +6387,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x4adb660, 0x4adb680, indexCPS2Sprites_Sabretooth, 0 },
+    { L"Main Color HK", 0x4adb660, 0x4adb680, indexCPS2Sprites_Sabretooth, 0, &pairNextAndNext },
     { L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2", 0x4adb680, 0x4adb6a0, indexCPS2Sprites_Sabretooth, 1 },
     { L"(03) Birdie", 0x4adb6a0, 0x4adb6c0, indexCPS2Sprites_Sabretooth, 2 },
     { L"(04) Sabre's Limo", 0x4adb6c0, 0x4adb6e0, indexCPS2Sprites_Sabretooth, 3 },
@@ -6399,7 +6399,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x4adb760, 0x4adb780, indexCPS2Sprites_Sabretooth, 0 },
+    { L"Main Color A1", 0x4adb760, 0x4adb780, indexCPS2Sprites_Sabretooth, 0, &pairNextAndNext },
     { L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2", 0x4adb780, 0x4adb7a0, indexCPS2Sprites_Sabretooth, 1 },
     { L"(03) Birdie", 0x4adb7a0, 0x4adb7c0, indexCPS2Sprites_Sabretooth, 2 },
     { L"(04) Sabre's Limo", 0x4adb7c0, 0x4adb7e0, indexCPS2Sprites_Sabretooth, 3 },
@@ -6411,7 +6411,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x4adb860, 0x4adb880, indexCPS2Sprites_Sabretooth, 0 },
+    { L"Main Color A2", 0x4adb860, 0x4adb880, indexCPS2Sprites_Sabretooth, 0, &pairNextAndNext },
     { L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2", 0x4adb880, 0x4adb8a0, indexCPS2Sprites_Sabretooth, 1 },
     { L"(03) Birdie", 0x4adb8a0, 0x4adb8c0, indexCPS2Sprites_Sabretooth, 2 },
     { L"(04) Sabre's Limo", 0x4adb8c0, 0x4adb8e0, indexCPS2Sprites_Sabretooth, 3 },
