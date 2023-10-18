@@ -51,6 +51,8 @@ void CPalModDlg::ResetSlider(BOOL fSetZero)
         m_ASlider.SetPos(m_Edit_A);
     }
 
+    m_fCurrentlyBundlingSliderActions = false;
+
     UpdateData(FALSE);
 }
 
@@ -355,11 +357,11 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     }
 
     //Update the slider undo data before changing
-    if (m_fGetSliderUndo)
+    if (!m_fCurrentlyBundlingSliderActions)
     {
         ProcChange();
 
-        m_fGetSliderUndo = FALSE;
+        m_fCurrentlyBundlingSliderActions = true;
     }
 
     if (m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL)

@@ -175,9 +175,10 @@ void CPalModDlg::OnSavePatchFile()
 
 void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* pNMHDR, LRESULT* pResult)
 {
-    if (!m_fGetSliderUndo)
+    if (m_fCurrentlyBundlingSliderActions)
     {
-        m_fGetSliderUndo = TRUE;
+        // mouse is now up, indicating they are done with a set of modifications
+        m_fCurrentlyBundlingSliderActions = false;
     }
 
     *pResult = 0;

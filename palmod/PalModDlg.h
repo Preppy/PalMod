@@ -58,7 +58,9 @@ private:
     BOOL m_fFileChanged = FALSE;
     BOOL m_fPalChanged = FALSE;
 
-    BOOL m_fGetSliderUndo = TRUE;
+    // We use this to bundle all mouse activity into one undo step
+    // as opposed to a jumble of steps for each mouse notification.
+    bool m_fCurrentlyBundlingSliderActions = false;
 
     CImgDisp* ImgDispCtrl = nullptr;
     CImgDat* ImgFile = nullptr;
