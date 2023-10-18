@@ -175,7 +175,7 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
     {
         case FileReadType::Interleaved_2FileSets:
         {
-            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size() + 1; nSIMMUnit += 2)
+            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size(); nSIMMUnit += 2)
             {
                 if (nROMLocation < (m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize + m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize))
                 {
@@ -189,7 +189,7 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
         }
         case FileReadType::Interleaved_4FileSets:
         {
-            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size() + 3; nSIMMUnit += 4)
+            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size() + 2; nSIMMUnit += 4)
             {
                 if (nROMLocation < (m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize +
                     m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize +
