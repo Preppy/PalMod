@@ -9,6 +9,7 @@ void CGame_MK1_A::SetSpecialRuleForFileName(std::wstring strFileName)
     {
         // these should be all lower case
         { L"l5_mortal_kombat_t-unit_uj12_game_rom.uj12", MK1ALoadingKey::V50Alt },
+        { L"mkg-u112.rom", MK1ALoadingKey::V30Alt },
         { L"mkt-uj12.bin", MK1ALoadingKey::Base },
     };
 
@@ -23,7 +24,7 @@ void CGame_MK1_A::SetSpecialRuleForFileName(std::wstring strFileName)
     }
     else
     {
-        m_eVersionToLoad = MK1ALoadingKey::Base;
+        m_eVersionToLoad = MK1ALoadingKey::V30Alt;
     }
 
     return;
@@ -36,6 +37,9 @@ CGame_MK1_A::CGame_MK1_A(uint32_t nConfirmedROMSize)
     case MK1ALoadingKey::Base:
     default:
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_Base);
+        break;
+    case MK1ALoadingKey::V30Alt:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_V30YAlt);
         break;
     case MK1ALoadingKey::V50Alt:
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_V50TAlt);
@@ -50,6 +54,8 @@ sFileRule CGame_MK1_A::GetRule(uint32_t nRuleId)
     case MK1ALoadingKey::Base:
     default:
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Base);
+    case MK1ALoadingKey::V30Alt:
+        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_V30YAlt);
     case MK1ALoadingKey::V50Alt:
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_V50TAlt);
     }
