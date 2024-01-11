@@ -345,61 +345,64 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_DZ_EXTRAS = //Dizzy
     L"Extras",
     {
         //General
-        { L"Idle Rings", 0x495080, 0x4950c0 },
+        { L"Idle Rings", 0x495080, 0x4950c0, indexGGXXSprites_ACR_Dizzy, 0x03, nullptr, &effects_AdditiveBlend },
 
         //Specials
-        { L"I Use This to Get Fruit", 0x495ac0, 0x495b00 },
+        { L"I Use This to Get Fruit", 0x495ac0, 0x495b00, indexGGXXSprites_ACR_Dizzy, 0x07 }, // held spear uses the generic spark effect found in archive_jpf.bin at 1B94D0, not a unique palette for dizzy
 
-        { L"My Talking Buddies",               0x488840, 0x488880 },
-        { L"My Talking Buddies Effects (1/2)", 0x488680, 0x4886c0 }, //missing the laser palette, these are the sparkles
-        { L"My Talking Buddies Effects (2/2)", 0x488740, 0x488780 },
+        { L"My Talking Buddies", 0x488840, 0x488880, indexGGXXSprites_ACR_Dizzy, 0x08 },
+        { L"My Talking Buddies - Effects (1/2)", 0x488680, 0x4886c0, indexGGXXSprites_ACR_Dizzy, 0x09, &pairPreviousFlipped },
+        { L"My Talking Buddies - Effects (2/2)", 0x488740, 0x488780, indexGGXXSprites_ACR_Dizzy, 0x09, &pairPreviousFlipped2 }, //missing the laser palette, these are the sparkles
 
-        { L"Please Leave Me Alone (1/20)",          0x4a5800, 0x4a5c00 }, //horrible awful palettes, going to need a new sprite for each of them if previews are done 
-        { L"Please Leave Me Alone (2/20)",          0x4a9590, 0x4a9990 }, //FB bubble is pink, but uses the same palette listed here and just twists the values around
-        { L"Please Leave Me Alone (3/20)",          0x4ad430, 0x4ad830 },
-        { L"Please Leave Me Alone (4/20)",          0x4b12f0, 0x4b16f0 },
-        { L"Please Leave Me Alone (5/20)",          0x4b50f0, 0x4b54f0 },
-        { L"Please Leave Me Alone (6/20)",          0x4b8f90, 0x4b9390 },
-        { L"Please Leave Me Alone (7/20)",          0x4bd000, 0x4bd400 },
-        { L"Please Leave Me Alone (8/20)",          0x4c1050, 0x4c1450 },
-        { L"Please Leave Me Alone (9/20)",          0x4c5120, 0x4c5520 },
-        { L"Please Leave Me Alone (10/20)",         0x4c9150, 0x4c9550 },
-        { L"Please Leave Me Alone (11/20)",         0x4cd260, 0x4cd660 },
-        { L"Please Leave Me Alone (12/20)",         0x4d13f0, 0x4d17f0 },
-        { L"Please Leave Me Alone (13/20)",         0x4d5600, 0x4d5a00 },
-        { L"Please Leave Me Alone (14/20)",         0x4d9810, 0x4d9c10 },
-        { L"Please Leave Me Alone (15/20)",         0x4ddb50, 0x4ddf50 },
-        { L"Please Leave Me Alone (16/20)",         0x4e1f20, 0x4e2320 },
-        { L"Please Leave Me Alone (17/20)",         0x4e63f0, 0x4e67f0 },
-        { L"Please Leave Me Alone (18/20)",         0x4ea740, 0x4eab40 },
-        { L"Please Leave Me Alone (19/20)",         0x4eecb0, 0x4ef0b0 },
-        { L"Please Leave Me Alone (20/20)",         0x4f3270, 0x4f3670 },
-        { L"Please Leave Me Alone (Popping) (1/3)", 0x479b20, 0x479b60 }, //FB bubble is pink, but uses the same palette listed here and just twists the values around
-        { L"Please Leave Me Alone (Popping) (2/3)", 0x47a530, 0x47a570 },
-        { L"Please Leave Me Alone (Popping) (3/3)", 0x47c290, 0x47c2d0 },
+        //FB bubble is pink, it uses the same palette data here with a forced red value (240 or 256)
+        { L"Please Leave Me Alone (1/20)",          0x4a5800, 0x4a5c00, indexGGXXSprites_ACR_Dizzy, 0x0F },
+        { L"Please Leave Me Alone (2/20)",          0x4a9590, 0x4a9990, indexGGXXSprites_ACR_Dizzy, 0x10 },
+        { L"Please Leave Me Alone (3/20)",          0x4ad430, 0x4ad830, indexGGXXSprites_ACR_Dizzy, 0x11 },
+        { L"Please Leave Me Alone (4/20)",          0x4b12f0, 0x4b16f0, indexGGXXSprites_ACR_Dizzy, 0x12 },
+        { L"Please Leave Me Alone (5/20)",          0x4b50f0, 0x4b54f0, indexGGXXSprites_ACR_Dizzy, 0x13 },
+        { L"Please Leave Me Alone (6/20)",          0x4b8f90, 0x4b9390, indexGGXXSprites_ACR_Dizzy, 0x14 },
+        { L"Please Leave Me Alone (7/20)",          0x4bd000, 0x4bd400, indexGGXXSprites_ACR_Dizzy, 0x15 },
+        { L"Please Leave Me Alone (8/20)",          0x4c1050, 0x4c1450, indexGGXXSprites_ACR_Dizzy, 0x16 },
+        { L"Please Leave Me Alone (9/20)",          0x4c5120, 0x4c5520, indexGGXXSprites_ACR_Dizzy, 0x17 },
+        { L"Please Leave Me Alone (10/20)",         0x4c9150, 0x4c9550, indexGGXXSprites_ACR_Dizzy, 0x18 },
+        { L"Please Leave Me Alone (11/20)",         0x4cd260, 0x4cd660, indexGGXXSprites_ACR_Dizzy, 0x19 },
+        { L"Please Leave Me Alone (12/20)",         0x4d13f0, 0x4d17f0, indexGGXXSprites_ACR_Dizzy, 0x1A },
+        { L"Please Leave Me Alone (13/20)",         0x4d5600, 0x4d5a00, indexGGXXSprites_ACR_Dizzy, 0x1B },
+        { L"Please Leave Me Alone (14/20)",         0x4d9810, 0x4d9c10, indexGGXXSprites_ACR_Dizzy, 0x1C },
+        { L"Please Leave Me Alone (15/20)",         0x4ddb50, 0x4ddf50, indexGGXXSprites_ACR_Dizzy, 0x1D },
+        { L"Please Leave Me Alone (16/20)",         0x4e1f20, 0x4e2320, indexGGXXSprites_ACR_Dizzy, 0x1E },
+        { L"Please Leave Me Alone (17/20)",         0x4e63f0, 0x4e67f0, indexGGXXSprites_ACR_Dizzy, 0x1F },
+        { L"Please Leave Me Alone (18/20)",         0x4ea740, 0x4eab40, indexGGXXSprites_ACR_Dizzy, 0x20 },
+        { L"Please Leave Me Alone (19/20)",         0x4eecb0, 0x4ef0b0, indexGGXXSprites_ACR_Dizzy, 0x21 },
+        { L"Please Leave Me Alone (20/20)",         0x4f3270, 0x4f3670, indexGGXXSprites_ACR_Dizzy, 0x22 },
+        { L"Please Leave Me Alone - Popping (1/3)", 0x479b20, 0x479b60, indexGGXXSprites_ACR_Dizzy, 0x23, nullptr, &effects_AdditiveBlend },
+        { L"Please Leave Me Alone - Popping (2/3)", 0x47a530, 0x47a570, indexGGXXSprites_ACR_Dizzy, 0x23, nullptr, &effects_AdditiveBlend },
+        { L"Please Leave Me Alone - Popping (3/3)", 0x47c290, 0x47c2d0, indexGGXXSprites_ACR_Dizzy, 0x23, nullptr, &effects_AdditiveBlend },
 
         //Overdrives
-        { L"Imperial Ray Startup (1/2)", 0x47dd10, 0x47dd50 }, //missing the red line palette, unsure if it even has a palette tied to it since its a single shade, could be programmed
-        { L"Imperial Ray Startup (2/2)", 0x47df30, 0x47df70 },
-        { L"Imperial Ray (1/5)",         0x47e070, 0x47e0b0 },
-        { L"Imperial Ray (2/5)",         0x486e90, 0x486ed0 },
-        { L"Imperial Ray (3/5)",         0x487f20, 0x487f60 },
-        { L"Imperial Ray (4/5)",         0x4a46f0, 0x4a4730 },
-        { L"Imperial Ray (5/5)",         0x4a4ff0, 0x4a5030 },
+        { L"Imperial Ray - Laser Sparks (1/2)",		0x47dd10, 0x47dd50, indexGGXXSprites_ACR_Dizzy, 0x05 }, //missing the red laser palette
+        { L"Imperial Ray - Laser Sparks (2/2)",		0x47df30, 0x47df70, indexGGXXSprites_ACR_Dizzy, 0x05 },
+        { L"Imperial Ray - Main Fire (1/3)",		0x47e070, 0x47e0b0, indexGGXXSprites_ACR_Dizzy, 0x06, &pairNext3 },
+        { L"Imperial Ray - Main Fire (2/3)",		0x486e90, 0x486ed0, indexGGXXSprites_ACR_Dizzy, 0x06, &pairNext2 },
+        { L"Imperial Ray - Main Fire (3/3)",		0x487f20, 0x487f60, indexGGXXSprites_ACR_Dizzy, 0x06, &pairNext },
+        { L"Imperial Ray - Extra Fire (1/2)",		0x4a46f0, 0x4a4730, indexGGXXSprites_ACR_Dizzy, 0x04, &pairPreviousFlipped3 },
+        { L"Imperial Ray - Extra Fire (2/2)",		0x4a4ff0, 0x4a5030, indexGGXXSprites_ACR_Dizzy, 0x04, &pairPreviousFlipped4 },
 
-        { L"Necro Unleashed Text",          0x49bd20, 0x49bd60 },
-        { L"Necro Unleashed Rings (1/3)",   0x496b50, 0x496b90 },
-        { L"Necro Unleashed Rings (2/3)",   0x499660, 0x4996a0 },
-        { L"Necro Unleashed Rings (3/3)",   0x49c110, 0x49c150 },
-        { L"Necro Unleashed Statue",        0x49c840, 0x49c880 },
-        { L"Necro Unleashed Effects (1/2)", 0x49efc0, 0x49f000 }, // missing the glowing effect palette
-        { L"Necro Unleashed Effects (2/2)", 0x4a3180, 0x4a31c0 },
-        { L"Necro Unleashed Effect Trails", 0x49ecc0, 0x49ed00 },
+        { L"Necro Unleashed - Rings",         0x49bd20, 0x49bd60, indexGGXXSprites_ACR_Dizzy, 0x0D, &pairNextFlipped },
+        { L"Necro Unleashed - Sigil (1/3)",   0x496b50, 0x496b90, indexGGXXSprites_ACR_Dizzy, 0x0E, &pairPrevious },
+        { L"Necro Unleashed - Sigil (2/3)",   0x499660, 0x4996a0, indexGGXXSprites_ACR_Dizzy, 0x0E, &pairPrevious2 },
+        { L"Necro Unleashed - Sigil (3/3)",   0x49c110, 0x49c150, indexGGXXSprites_ACR_Dizzy, 0x0E, &pairPrevious3 },
+        { L"Necro Unleashed - Coffin",        0x49c840, 0x49c880, indexGGXXSprites_ACR_Dizzy, 0x0A },
+        { L"Necro Unleashed - Effects (1/2)", 0x49efc0, 0x49f000, indexGGXXSprites_ACR_Dizzy, 0x0b, nullptr, &effects_AdditiveBlend }, // missing the glowing effect palette
+        { L"Necro Unleashed - Effects (2/2)", 0x4a3180, 0x4a31c0, indexGGXXSprites_ACR_Dizzy, 0x0b, nullptr, &effects_AdditiveBlend },
+        { L"Necro Unleashed - Effect Trails", 0x49ecc0, 0x49ed00, indexGGXXSprites_ACR_Dizzy, 0x0C, nullptr, &effects_AdditiveBlend },
 
-        { L"Gamma Ray small lasers (1/3)", 0x465bb0, 0x465bf0 },
-        { L"Gamma Ray small lasers (2/3)", 0x4676f0, 0x467730 },
-        { L"Gamma Ray small lasers (3/3)", 0x48f100, 0x48f140 },
-        { L"Gamma Ray big laser",          0x48fb30, 0x48fb70 },
+        { L"Gamma Ray - Big laser",		0x48fb30, 0x48fb70, indexGGXXSprites_ACR_Dizzy, 0x01, &pairNext, &effects_AdditiveBlend },
+        { L"Gamma Ray - Small lasers", 	0x48f100, 0x48f140, indexGGXXSprites_ACR_Dizzy, 0x02, &pairPrevious, &effects_AdditiveBlend },
+
+        //Unused
+        { L"(Unused) Michael sword? (1/2)", 0x465bb0, 0x465bf0 },
+        { L"(Unused) Michael sword? (2/2)", 0x4676f0, 0x467730 },
     }
 };
 
