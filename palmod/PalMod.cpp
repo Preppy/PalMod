@@ -21,20 +21,18 @@ void get_date_when_compiled(tm& buildDate)
 
     std::string strMonth;
     strMonth.reserve(32);
-    int month = 1;
-    int day = 1;
-    int year = 1970;
 
-    (void)sscanf(datestr.c_str(), "%s %u %u", &strMonth[0], &buildDate.tm_mday, &year);
+    (void)sscanf(datestr.c_str(), "%s %u %u", &strMonth[0], &buildDate.tm_mday, &buildDate.tm_year);
 
     constexpr char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";
 
     buildDate.tm_mon = static_cast<int>((strstr(month_names, strMonth.c_str()) - month_names) / 3 + 1);
-    buildDate.tm_year = year - 1900;
 
     return;
 }
 
+// The App Name here is shown in the app title bar.  We include the build
+// date in some fashion so that it's easy to track which version people are using.
 CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
 {
     CString strAppName;
@@ -45,7 +43,12 @@ CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
     tm buildDate = { 0 };
     
     get_date_when_compiled(buildDate);
-    strAppName.Format(L"%s.%02u%02u", strPalModString.GetString(), buildDate.tm_mon, buildDate.tm_mday);
+
+    // Temporary(?) tweak to avoid needing to increment the build number to 1.80 since
+    // there's no meaningful core changes yet.
+    const int nDisplayMonth = ((buildDate.tm_year - 2023) * 12) + buildDate.tm_mon;
+
+    strAppName.Format(L"%s.%02u%02u", strPalModString.GetString(), nDisplayMonth, buildDate.tm_mday);
  
 #ifdef DEBUG
     strAppName += L" DEBUG";
