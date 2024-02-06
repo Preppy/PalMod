@@ -368,8 +368,8 @@ namespace KnownGameInfo
     CGameClass* Make_VampireHunter_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireHunter_A(nConfirmedROMSize); }
     CGameClass* Make_VampireNightWarriors_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireNightWarriors_A(nConfirmedROMSize); }
     CGameClass* Make_VENTURE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A(nConfirmedROMSize); }
-    CGameClass* Make_VENTURE_A_DIR_31(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(-1, VentureDirLoadingKey::ROM31); }
-    CGameClass* Make_VENTURE_A_DIR_50(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(-1, VentureDirLoadingKey::ROM50); }
+    CGameClass* Make_VENTURE_A_DIR_31(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM31); }
+    CGameClass* Make_VENTURE_A_DIR_50(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM50); }
     CGameClass* Make_VHUNT2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VHUNT2_A(nConfirmedROMSize); }
     CGameClass* Make_VSAV_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV_A(nConfirmedROMSize); }
     CGameClass* Make_VSAV2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_A(nConfirmedROMSize); }
