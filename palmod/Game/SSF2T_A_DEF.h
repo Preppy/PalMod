@@ -1748,6 +1748,7 @@ const sGame_PaletteDataset SSF2T_A_04_BONUS_NODE[] =
     { L"Cammy Intro", 0x05be5a, 0x05bf5a, indexSF2Sprites_Bonus, 0 },
 
     { L"Intro Ryu Part 5", 0x5917a, 0x5919a },
+    { L"Intro Ryu Part 6", 0x5919a, 0x591BA },
 
     { L"Intro Ryu Charging Hadouken", 0x591da, 0x591fa },
 };
@@ -1863,6 +1864,95 @@ const sGame_PaletteDataset SSF2T_A_08_DHALSIM_STAGE_NODE[] =
 
     //{ L"\"front layer\" elephant (OBS  there's a duplicate @2E1C00, but apparently it's unused)", 0xD5E3C, 0xD5E3C + 0x20 },
     //{ L"\"front layer\" elephant, legs/shadow", 0x2E1C20, 0x2E1C20 + 0x20 },
+};
+
+const sGame_PaletteDataset SSF2T_A_04_EHONDA_STAGE_NODE[] =
+{
+    // 0x5457a : BLANK
+    // 0x5459a : unused ?
+    // 0x545Ba : water drips (ceiling / pool)
+    { L"water drips (ceiling / pool)", 0x545Ba, 0x545Ba + 0x20 },
+    // 0x545Da : bucket / tub
+    { L"bucket / tub", 0x545Da, 0x545Da + 0x20 },
+    // 0x545Fa : door (glass area - lower part)
+    { L"door (glass area - lower part)", 0x545Fa, 0x545Fa + 0x20 },
+    // 0x5461a : lamp
+    { L"lamp", 0x5461a, 0x5461a + 0x20 },
+};
+
+const sGame_PaletteDataset SSF2T_A_08_EHONDA_STAGE_NODE[] =
+{
+    // 0x60600: side of the pool
+    { L"side of the pool", 0x60600 - 0x02, 0x60600 + 0x1e },
+
+    // --68400 ~6851F (floor / ceiling parallaxes)--
+    // 0x68400 : floor
+    { L"floor", 0x68400 - 0x02, 0x68400 + 0x1e },
+    // 0x68420 : ceiling
+    { L"ceiling", 0x68420 - 0x02, 0x68420 + 0x1e },
+    // 
+    // 0x68440 : floor, "background"
+    { L"floor, background", 0x68440 - 0x02, 0x68440 + 0x1e },
+    // 0x68460 : unused ?
+    // 0x68480 : pool (+water dripping animation)
+    { L"pool (+water dripping animation)", 0x68480 - 0x02, 0x68480 + 0x1e },
+    // 0x684A0 : BLANK
+    // 0x684C0 : unused ?
+    // 0x684E0 : unused ?
+    // 0x68500 : unused ?
+
+    // --70800 ~70BFF (background)--
+    // 0x70800 : wall painting
+    { L"wall painting", 0x70800 - 0x02, 0x70800 + 0x1e },
+    // 0x70820 : wall tiling (3rd row)
+    { L"wall tiling (3rd row)", 0x70820 - 0x02, 0x70820 + 0x1e },
+    // 0x70840 : wall color (above door)
+    { L"wall color (above door)", 0x70840 - 0x02, 0x70840 + 0x1e },
+    // 0x70860 : BLANK
+    // 0x70880 : BLANK
+    // 0x708A0 : BLANK
+    // 0x708C0 : BLANK
+    // 0x708E0 : BLANK
+    // 0x70900 : BLANK
+    // 0x70920 : BLANK
+    // 0x70940 : BLANK
+    // 0x70960 : wall painting (end round animation - frame 1)
+    { L"wall painting (end round animation - frame 1)", 0x70960 - 0x02, 0x70960 + 0x1e },
+    // 0x70980 : wall painting (end round animation - frame 2)
+    { L"wall painting (end round animation - frame 2)", 0x70980 - 0x02, 0x70980 + 0x1e },
+    // 0x709A0 : BLANK
+    // 0x709C0 : BLANK
+    // 0x709E0 : BLANK // actually is wall painting (top)
+    { L"wall painting (top)", 0x709E0 - 0x02, 0x709E0 + 0x1e },
+
+    // 0x70A00 : wall tiling (1st row) + wall color (around the door) + step near the wall
+    { L"wall tiling (1st row) + wall color (around the door) + step near the wall", 0x70A00 - 0x02, 0x70A00 + 0x1e },
+    // 0x70A20 : wall tiling (2nd row)
+    { L"wall tiling (2nd row)", 0x70A20 - 0x02, 0x70A20 + 0x1e },
+    // 0x70A40 : wall tiling (4th row)
+    { L"wall tiling (4th row)", 0x70A40 - 0x02, 0x70A40 + 0x1e },
+    // 0x70A60 : step near wall (parts with the wood props)
+    { L"step near wall (parts with the wood props)", 0x70A60 - 0x02, 0x70A60 + 0x1e },
+    // 0x70A80 : step near wall
+    { L"step near wall", 0x70A80 - 0x02, 0x70A80 + 0x1e },
+    // 0x70AA0 : BLANK
+    // 0x70AC0 : BLANK
+    // 0x70AE0 : door (upper part of the red area)
+    { L"door (upper part of the red area)", 0x70AE0 - 0x02, 0x70AE0 + 0x1e },
+    // 0x70B00 : door (lower part of the red area)
+    { L"door (lower part of the red area)", 0x70B00 - 0x02, 0x70B00 + 0x1e },
+    // 0x70B20 : door (glass area - upper part)
+    { L"door (glass area - upper part)", 0x70B20 - 0x02, 0x70B20 + 0x1e },
+    // 0x70B40 : door (between red area and glass part)
+    { L"door (between red area and glass part)", 0x70B40 - 0x02, 0x70B40 + 0x1e },
+    // 0x70B60 : wall painting (end round animation - frame 1)
+    { L"wall painting (end round animation - frame 1)", 0x70B60 - 0x02, 0x70B60 + 0x1e },
+    // 0x70B80 : wall painting (end round animation - frame 2)
+    { L"wall painting (end round animation - frame 2)", 0x70B80 - 0x02, 0x70B80 + 0x1e },
+    // 0x70BA0 : BLANK
+    // 0x70BC0 : BLANK
+    // 0x70BE0 : BLANK // actually is wall painting (center)
+    { L"wall painting (center)", 0x70BE0 - 0x02, 0x70BE0 + 0x1e },
 };
 
 const sGame_PaletteDataset SSF2T_A_CAMMY_STAGE_NODE[] =
@@ -3170,13 +3260,14 @@ const sDescTreeNode SSF2T_A_03_STAGES_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
 {
-    { L"Stage HUDs and Effects",     DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
+    { L"Stage HUDs and Effects",        DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
 
     { L"Balrog's Casino Stage (04 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGES_CASINO_NODE, ARRAYSIZE(SSF2T_A_04_STAGES_CASINO_NODE) },
-    { L"Cammy's Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
-    { L"Dhalsim's Stage (04 parts)", DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
-    { L"Ken's Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_4) },
-    { L"Ryu's Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
+    { L"Cammy's Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
+    { L"Dhalsim's Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
+    { L"E. Honda's Stage (04 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_04_EHONDA_STAGE_NODE,   ARRAYSIZE(SSF2T_A_04_EHONDA_STAGE_NODE) },
+    { L"Ken's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_4) },
+    { L"Ryu's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
 };
 
 const sDescTreeNode SSF2T_A_03_BONUS_COLLECTION[] =
@@ -3201,6 +3292,7 @@ const sDescTreeNode SSF2T_A_08_STAGES_COLLECTION[] =
     { L"Cammy's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE,        ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE) },
     { L"Claw's Stage",                      DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_STAGE_NODE,         ARRAYSIZE(SSF2T_A_VEGA_STAGE_NODE) },
     { L"Dhalsim's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_08_DHALSIM_STAGE_NODE,   ARRAYSIZE(SSF2T_A_08_DHALSIM_STAGE_NODE) },
+    { L"E. Honda's Stage (08 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_08_EHONDA_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_EHONDA_STAGE_NODE) },
     { L"Ken's Stage (08 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_8) },
     { L"Ryu's Stage",                       DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,          ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
     { L"Sagat's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,        ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
