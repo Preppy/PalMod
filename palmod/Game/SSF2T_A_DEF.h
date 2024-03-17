@@ -1701,12 +1701,29 @@ const sGame_PaletteDataset SSF2T_A_03_BONUS_NODE[] =
     { L"Character Select icons", 0xF1DA, 0xf3da, indexSF2Sprites_Bonus, 0x23 },
 };
 
+const sGame_PaletteDataset SSF2T_A_04_BONUS_BONUS_NODE[] =
+{
+    { L"Insert Coin Ryu Stage", 0x53e3c, 0x53e5c },
+    { L"Ryu Ending (Ryu walking)", 0x5987a, 0x5989a },
+    { L"Ken Portrait 2", 0x5c8ba, 0x5c9ba },
+    { L"Cammy End Portrait 2", 0x5c63a, 0x5c81a },
+    { L"M.Bison Ending Portrait Fingers 1/3", 0x4a432, 0x4a452 },
+    { L"M.Bison Ending Portrait Fingers 2/3", 0x4a478, 0x4a498 },
+    { L"M.Bison Ending Portrait Fingers 3/3", 0x4a4be, 0x4a4de },
+    { L"M.Bison Ending Portrait Body 1/3", 0x4a454, 0x4a474 },
+    { L"M.Bison Ending Portrait Body 2/3", 0x4a49a, 0x4a4ba },
+    { L"M.Bison Ending Portrait Body 3/3", 0x4a4e0, 0x4a500 },
+    { L"Vega Ending Portrait 1", 0x5a4fa, 0x5a57a },
+    { L"Vega Ending Portrait 2", 0x5a5da, 0x5a61a },
+    { L"M.Bison Ending 2", 0x5c3da, 0x5c4ba },
+};
+
 const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
 {
-    { L"Intro Ryu Part 1", 0x6d0be, 0x6d1fe },
-    { L"Intro Ryu Part 2", 0x6d2be, 0x6d37e },
+    { L"Intro Ryu Part 1", 0x6d0be, 0x6d1fe, indexSF2Sprites_Bonus, 0x31 },
+    { L"Intro Ryu Part 2", 0x6d2be, 0x6d37e, indexSF2Sprites_Bonus, 0x32 },
     { L"Intro Ryu Part 3", 0x6d3be, 0x6d3de },
-    { L"Intro Ryu Part 4", 0x755de, 0x755fe },
+    { L"Intro Ryu Part 4", 0x755de, 0x755fe, indexSF2Sprites_Bonus, 0x33 },
 
     { L"Blue SUPER Text", 0x7561e, 0x7565e },
     { L"Yellow Flash SUPER Text Part 1", 0x7555e, 0x755de },
@@ -1732,6 +1749,31 @@ const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
     { L"Super KO 13", 0x771A0 - 0x02, 0x771C0 - 0x02 },
     { L"Super KO 14", 0x771C0 - 0x02, 0x771E0 - 0x02 },
     { L"Super KO 15", 0x771E0 - 0x02, 0x77200 - 0x02 },
+
+    { L"Dee Jay Stage Sky And Mid Foreground", 0x63bfe, 0x63cbe },
+    { L"Dee Jay Stage Front Water 1/5", 0x63dfe, 0x63e1e },
+    { L"Dee Jay Stage Front Water 2/5", 0x63e1e, 0x63e3e },
+    { L"Dee Jay Stage Front Water 3/5", 0x63e3e, 0x63e5e },
+    { L"Dee Jay Stage Front Water 4/5", 0x63e5e, 0x63e7e },
+    { L"Dee Jay Stage Front Water 5/5", 0x63e7e, 0x63e9e },
+    { L"Dee Jay Stage BG Water 1/5", 0x63ebe, 0x63ede },
+    { L"Dee Jay Stage BG Water 2/5", 0x63ede, 0x63efe },
+    { L"Dee Jay Stage BG Water 3/5", 0x63efe, 0x63f1e },
+    { L"Dee Jay Stage BG Water 4/5", 0x63f1e, 0x63f3e },
+    { L"Dee Jay Stage BG Water 5/5", 0x63f3e, 0x63f5e },
+    { L"T Hawk Stage NPC'S 1/2", 0x6b3fe, 0x6b5fe },
+    { L"T Hawk Stage NPC'S 2/2", 0x6b5fe, 0x6b79e },
+    { L"M.Bison Stage 1/3", 0x69ffe, 0x6a1fe },
+    { L"M.Bison Stage 2/3", 0x6a1fe, 0x6a3fe },
+    { L"M.Bison Stage 3/3", 0x7261e, 0x727fe },
+    { L"World Tour Huds", 0x745fe, 0x747fe },
+    { L"Ryu Ending Portrait 1 Winners Poster", 0x6d7fe, 0x6d81e },
+    { L"Ryu Ending Portrait 2", 0x6d81e, 0x6d83e },
+    { L"Ryu Ending Foreground", 0x75c40, 0x75c60 },
+    { L"Ryu Ending 1 Bg", 0x75c60, 0x75c80 },
+    { L"Ryu Ending Portrait Sunset Bg", 0x6d840, 0x6d860 },
+    { L"Cammy Ending 1 Section (Delta Red)", 0x6e000, 0x6e020 },
+    { L"M.Bison Ending Fade In", 0x6e5fe, 0x6e61e },
 };
 
 const sGame_PaletteDataset SSF2T_A_03_STAGES_CASINO_NODE[] =
@@ -1747,7 +1789,7 @@ const sGame_PaletteDataset SSF2T_A_04_BONUS_NODE[] =
     { L"Chun-Li Intro", 0x05bf7a, 0x05c09a, indexSF2Sprites_Bonus, 2 },
     { L"Cammy Intro", 0x05be5a, 0x05bf5a, indexSF2Sprites_Bonus, 0 },
 
-    { L"Intro Ryu Part 5", 0x5917a, 0x5919a },
+    { L"Intro Ryu Part 5", 0x5917a, 0x5919a, indexSF2Sprites_Bonus, 0x34 },
     { L"Intro Ryu Part 6", 0x5919a, 0x591BA },
 
     { L"Intro Ryu Charging Hadouken", 0x591da, 0x591fa },
@@ -3279,6 +3321,7 @@ const sDescTreeNode SSF2T_A_04_BONUS_COLLECTION[] =
 {
     { L"Intro Palettes",            DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_NODE,          ARRAYSIZE(SSF2T_A_04_BONUS_NODE) },
     { L"Title Screen",              DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_TITLESCREEN_NODE, ARRAYSIZE(SSF2T_A_04_BONUS_TITLESCREEN_NODE) },
+    { L"Bonus",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_BONUS_NODE,     ARRAYSIZE(SSF2T_A_04_BONUS_BONUS_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =

@@ -4172,11 +4172,11 @@ const sDescTreeNode KOF02_A_OCHRIS_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02_A_STAGES_RYOANJI1_PALETTES[] =
 {
-    { L"Stage Ryoanji Temple, Japan (1/4) 0xa4362", 0xa4362, 0xa4562 },
-    { L"Stage Ryoanji Temple, Japan (2/4) 0xa4562", 0xa4562, 0xa4762 },
-    { L"Stage Ryoanji Temple, Japan (3/4) 0xa4762", 0xa4762, 0xa4962 },
-    { L"Stage Ryoanji Temple, Japan (4/4) 0xa4962", 0xa4962, 0xa4b42 },
-    { L"Stage Ryoanji Temple, Japan", 0xa4b62, 0xa4c02 },
+    { L"Stage Ryoanji Temple, Japan (1/4) 0xa4362", 0xa4362, 0xa4562, indexKOF02Sprites_Stages, 0x00, &pairFullyLinkedNode },
+    { L"Stage Ryoanji Temple, Japan (2/4) 0xa4562", 0xa4562, 0xa4762, indexKOF02Sprites_Stages, 0x01 },
+    { L"Stage Ryoanji Temple, Japan (3/4) 0xa4762", 0xa4762, 0xa4962, indexKOF02Sprites_Stages, 0x02 },
+    { L"Stage Ryoanji Temple, Japan (4/4) 0xa4962", 0xa4962, 0xa4b42, indexKOF02Sprites_Stages, 0x03 },
+    { L"Stage Ryoanji Temple, Japan", 0xa4b62, 0xa4c02, indexKOF02Sprites_Stages, 0x04 },
 };
 
 const sGame_PaletteDataset KOF02_A_STAGES_RYOANJI2_PALETTES[] =
