@@ -1522,19 +1522,17 @@ namespace ColorSystem
 
     int GetColorStepFor8BitValue_32Steps_SharpCLUT(int nColorValue)
     {
-        const bool fIsNegative = (nColorValue < 0);
         const int nStep = Convert32ToSharpRGB(abs(nColorValue));
 
-        return nStep * (fIsNegative ? -1 : 1);
+        return nStep;
     }
 
     int Get8BitValueForColorStep_32Steps_SharpCLUT(int nColorStep)
     {
-        bool fIsNegative = (nColorStep < 0);
+        nColorStep = min(abs(nColorStep), ARRAYSIZE(SharpRGBColorVals));
+        nColorStep = max(0, nColorStep - 1);
 
-        nColorStep = min(abs(nColorStep), k_nRGBPlaneAmtForRGB555);
-
-        return SharpRGBColorVals[nColorStep] * (fIsNegative ? -1 : 1);
+        return SharpRGBColorVals[nColorStep];
     }
 
     int GetColorStepFor8BitValue_NeoGeoCLUT(int nColorValue)

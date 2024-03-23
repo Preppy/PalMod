@@ -142,7 +142,7 @@ void CPalGroup::SetRGBA(COLORREF* crTarget, uint8_t rVal, uint8_t gVal, uint8_t 
     *crTarget = RGB(GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rVal),
                     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(gVal),
                     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(bVal));
-    *crTarget |= (COLORREF)aVal << 24;
+    *crTarget |= static_cast<COLORREF>(aVal) << 24;
 }
 
 void CPalGroup::SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, uint8_t aVal)

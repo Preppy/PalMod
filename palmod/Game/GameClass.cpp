@@ -193,8 +193,8 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         m_nSizeOfColorsInBytes = 2;
         GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
         Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_32Steps_SharpCLUT;
-        GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
-        Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_32Steps_SharpCLUT;
+        GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_1Step;
+        Get8BitValueForColorStep_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
         GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_SharpCLUT;
         GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_SharpCLUT;
         ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;

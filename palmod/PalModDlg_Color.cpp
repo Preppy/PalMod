@@ -969,7 +969,7 @@ void CPalModDlg::OnBnNewCol()
             ResetSlider(FALSE);
 
             int nSelIndex = CurrPalCtrl->GetSingleSelectIndex();
-            CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | ((COLORREF)nAVal << 24));
+            CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | (static_cast<COLORREF>(nAVal) << 24));
 
             CurrPalCtrl->UpdateIndex(nSelIndex);
             CurrPalCtrl->UpdateCtrl();
