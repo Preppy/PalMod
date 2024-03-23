@@ -3536,9 +3536,9 @@ const sGame_PaletteDataset KOF02_A_Kula_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_SHARED[] =
 {
-    { L"Special Move Fire",         0xa3562, 0xa3582, indexKOF02Sprites_K9999, 0x01 },
+    { L"Special Move Fire",         0xa3562, 0xa3582, indexKOF02Sprites_K9999, 0x03 },
     { L"Special Move Dust",         0xa3582, 0xa35a2, indexKOF02Sprites_K9999, 0x02 },
-    { L"SDM Explosion and Effects", 0xa35a2, 0xa35c2, indexKOF02Sprites_K9999, 0x03 },
+    { L"SDM Explosion and Effects", 0xa35a2, 0xa35c2, indexKOF02Sprites_K9999, 0x01 },
 };
 
 const sGame_PaletteDataset KOF02_A_OmegaRugal_PALETTES_SHARED[] =
