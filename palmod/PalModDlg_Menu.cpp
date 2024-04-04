@@ -425,12 +425,16 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
     else if (pPopupMenu == m_SubToolMenu)
     {
         // Enable everything... but then double-check since some games have no previews available at this time.
-        int iPos = 0, nMenuID;
+        int iPos = 0;
+        const int iMenuEntries = pPopupMenu->GetMenuItemCount();
 
-        while ((nMenuID = pPopupMenu->GetMenuItemID(iPos)) != -1)
+        while (iPos < iMenuEntries)
         {
-            pPopupMenu->EnableMenuItem(nMenuID, !m_fEnabled);
-
+            const int nMenuID = pPopupMenu->GetMenuItemID(iPos);
+            if (nMenuID != -1) // -1 is the return for invalid entries or submenus such as the Gradient submenu
+            {
+                pPopupMenu->EnableMenuItem(nMenuID, m_fEnabled ? MF_ENABLED : MF_GRAYED);
+            }
             iPos++;
         }
 
@@ -464,7 +468,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
         // Right now we can generate patches collecting changes that are for single-binary game sets OR for the few that have had explicit multifile IPS support added
         const bool shouldEnable = m_fFileChanged && GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->AllowIPSPatchGeneration();
-        pPopupMenu->EnableMenuItem(ID_TOOLS_GENERATEPATCHFILE, !shouldEnable);
+        pPopupMenu->EnableMenuItem(ID_TOOLS_GENERATEPATCHFILE, shouldEnable ? MF_ENABLED : MF_GRAYED);
     }
     else if (pPopupMenu == m_SubSettMenu)
     {

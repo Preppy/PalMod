@@ -954,7 +954,7 @@ void CPalModDlg::OnExportPalette()
 
     LPCWSTR pszDefaultExt = L"act";
     LPCWSTR pszFilterToUse = *rgszSaveFilter;
-    bool fUseBBCFLogic = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
+    bool fUseBBCFLogic = (GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
 
     if (fUseBBCFLogic)
     {
