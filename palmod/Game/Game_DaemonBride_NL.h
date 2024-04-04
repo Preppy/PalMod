@@ -14,7 +14,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         DEF_BUTTONLABEL_NEOGEO,
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        AlphaMode::GameDoesNotUseAlpha,
+        AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_RGB555_BE,
         DAEMONBRIDE_NL_UNITS,
     };
