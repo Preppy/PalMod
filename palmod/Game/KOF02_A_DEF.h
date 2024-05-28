@@ -3342,6 +3342,7 @@ const sGame_PaletteDataset KOF02_A_Athena_PALETTES_SHARED[] =
     { L"Psycho Ball Hit",                   0x9fde2, 0x9fe02, indexKOF02UMSprites_Athena, 0x03 },
     { L"SDM Stuff and Portals",             0x9fe02, 0x9fe22, indexKOF02UMSprites_Athena, 0x11 },
     { L"Psycho Reflector and SDM Finisher", 0x9fe42, 0x9fe62 },
+    { L"Phoenix Arrow",                     0x9fda2, 0x9fdc2 },
 };
 
 const sGame_PaletteDataset KOF02_A_Kensou_PALETTES_SHARED[] =
@@ -3405,7 +3406,9 @@ const sGame_PaletteDataset KOF02_A_Mai_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset KOF02_A_Yuri_PALETTES_SHARED[] =
 {
-    { L"Kouken",                0xa1182, 0xa11a2, indexKOF02UMSprites_Yuri, 0x03 },
+    { L"Kouken",                0xa1162, 0xa1182, indexKOF02UMSprites_Yuri, 0x03 },
+    { L"Unknown",               0xa1182, 0xa11a2, indexKOF02UMSprites_Yuri, 0x03 },
+    { L"Air Kouken",            0xa1222, 0xa1242 },
     { L"Cypher",                0xa11a2, 0xa11c2, indexKOF02UMSprites_Yuri, 0x02 },
     { L"Raiouken",              0xa1202, 0xa1222, indexKOF02UMSprites_Yuri, 0x05 },
     { L"Hao Shokouken Stuff",   0xa1242, 0xa1262, indexKOF02UMSprites_Yuri, 0x04 },
@@ -3454,7 +3457,8 @@ const sGame_PaletteDataset KOF02_A_BlueMary_PALETTES_SHARED[] =
 {
     { L"Stun Fang Followup Attack", 0xa1d62, 0xa1d82, indexKOF02UMSprites_BlueMary, 0x03 },
     { L"M.Splash Rose Finisher",    0xa1d82, 0xa1da2, indexKOF02UMSprites_BlueMary, 0x02 },
-    { L"Rose Stuff",                0xa1dc2, 0xa1de2, indexKOF02UMSprites_BlueMary, 0x19 },
+    { L"Rose Stuff Dark",           0xa1da2, 0xa1dc2, indexKOF02UMSprites_BlueMary, 0x19 },
+    { L"Rose Stuff Light",          0xa1dc2, 0xa1de2, indexKOF02UMSprites_BlueMary, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02_A_Billy_PALETTES_SHARED[] =
@@ -4375,6 +4379,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
     { L"Special/Super Blocksparks", 0x86e22, 0x86e42 },
     { L"Dust and Fire Effects", 0x86ea2, 0x86ec2, indexKOF02Sprites_Bonus, 0x10 },
     { L"Dust and Orochi Fire Effects", 0x86f82, 0x86fa2, indexKOF02Sprites_Bonus, 0x0f },
+    { L"Steel Glint (Leona Moon Slasher)", 0x87402, 0x87422 },
+    { L"Fireball effects (Athena Psycho Reflector)", 0x870c2, 0x870e2 },
     { L"MAX Mode and SDM Flash", 0x87022, 0x87042 },
     { L"MAX Flash", 0x875e2, 0x87602 },
     { L"MAX2 Flash", 0x87602, 0x87622 },
@@ -4382,6 +4388,7 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
     { L"Orochi Fire Palette", 0x88362, 0x88562 },
     { L"Orochi Burn Palette", 0x88562, 0x88762 },
     { L"Frozen Palette", 0x88762, 0x88962 },
+    { L"Character Shadows", 0x88b22, 0x88b42 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_INTRO_PALETTES[] =
