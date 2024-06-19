@@ -262,7 +262,6 @@ void CPalModDlg::UpdateColorFormatMenu()
 {
     bool canChangeFormat = false;
     bool canChangeAlpha = false;
-    bool canVaryAlphaSetting = false;
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
 
     if (GetHost()->GetCurrGame())
@@ -308,8 +307,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRA8888_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRA8888_LE) ? MF_CHECKED : MF_UNCHECKED));
 
         // There's no allowance for alpha with NEOGEO colors, nor with 24-bit color
-        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_RGB666_NEOGEO) && (ColorSystem::GetCbForColMode(currColMode) != 3);
-        canVaryAlphaSetting = canChangeAlpha && (GetHost()->GetCurrGame()->GameIsUsing32BitColor());
+        canChangeAlpha = canChangeAlpha && ColorSystem::CouldColorModeHaveAlpha(currColMode);
 
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_FIXED, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesFixedAlpha) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_VARIABLE, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) ? MF_CHECKED : MF_UNCHECKED));
@@ -393,7 +391,7 @@ void CPalModDlg::UpdateColorFormatMenu()
 
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_FIXED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_UNUSED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_ALPHASETTING_VARIABLE, canVaryAlphaSetting ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_ALPHASETTING_VARIABLE, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_STP, MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_CHAOTIC, MF_DISABLED);
 

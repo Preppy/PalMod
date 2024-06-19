@@ -106,20 +106,26 @@ uint32_t CGame_NEOGEO_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL fCountVisib
 
 void CGame_NEOGEO_A::SetAlphaModeInternal(AlphaMode NewMode)
 {
+    m_fGameUsesAlphaValue = (NewMode == AlphaMode::GameUsesVariableAlpha);
+
     return CGameClass::SetAlphaMode(NewMode);
 }
 
 void CGame_NEOGEO_A::SetAlphaMode(AlphaMode NewMode)
 {
-    CString strMsg = L"Updated.  Further palette changes will use this alpha setting.";
-    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
-
-    // stomp the setting for posterity
+    // This is called from the Settings : Color Mode : Alpha menu
+    // Stomp the setting for posterity
     // We set this here as this is an explicit action overriding the implicit default for any
     // given color format.
     CRegProc::SetAlphaModeForUnknownGame(NewMode);
 
-    return SetAlphaModeInternal(NewMode);
+    SetAlphaModeInternal(NewMode);
+
+    CString strMsg = L"Updated.  Further palette changes will use this alpha setting.  Please change palettes now: things won't work correctly until you do.";
+    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
+
+    // This path uniquely needs to refresh availability of the Alpha color edit box
+    GetHost()->GetPalModDlg()->OnPalSelChange(0);
 }
 
 bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting)
@@ -130,7 +136,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     // stomp the setting for posterity
     CRegProc::SetColorModeForUnknownGame(NewMode);
 
-    bool fShouldSetAlpha = CurrentAlphaSetting == AlphaMode::Unknown;
+    bool fMustOverrideAlphaSetting = CurrentAlphaSetting == AlphaMode::Unknown;
     AlphaMode suggestedAlphaSetting = CurrentAlphaSetting;
     
     const uint8_t cbPreviousColorSize = m_nSizeOfColorsInBytes;
@@ -170,7 +176,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_BGR333:
     case ColMode::COLMODE_RBG333:
     case ColMode::COLMODE_RGB333:
-
+    case ColMode::COLMODE_RGB555_SHARP:
     case ColMode::COLMODE_BGR444:
     case ColMode::COLMODE_BRG444:
     case ColMode::COLMODE_RBG444:
@@ -181,11 +187,8 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_BGR555_BE:
     case ColMode::COLMODE_GRB555_LE:
     case ColMode::COLMODE_BRG555_LE:
-
-    case ColMode::COLMODE_RGB555_SHARP:
         cbRequiredColorSize = 2;
-        suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
-        m_fGameUsesAlphaValue = false;
+        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         break;
 
     case ColMode::COLMODE_RGB555_LE:
@@ -193,7 +196,6 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_RGB555_BE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        m_fGameUsesAlphaValue = true;
         break;
 
     case ColMode::COLMODE_BGR888:
@@ -201,8 +203,8 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_GRB888:
     case ColMode::COLMODE_RGB888:
         cbRequiredColorSize = 3;
+        fMustOverrideAlphaSetting = true; // 24bit, no room
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        m_fGameUsesAlphaValue = false;
         break;        
 
     case ColMode::COLMODE_RGBA8881:
@@ -214,7 +216,6 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_BGRA8888_LE:
         cbRequiredColorSize = 4;
         suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
-        m_fGameUsesAlphaValue = true;
         break;
 
     default: // Something is wrong: reset
@@ -222,9 +223,8 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         __fallthrough;
     case ColMode::COLMODE_RGB666_NEOGEO:
         cbRequiredColorSize = 2;
-        fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
+        fMustOverrideAlphaSetting = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        m_fGameUsesAlphaValue = false;
         break;
     };
 
@@ -254,10 +254,12 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
     m_fHaveDoneInitialColorSet = true;
 
-    if (fShouldSetAlpha)
+    if (fMustOverrideAlphaSetting)
     {
-        SetAlphaModeInternal(suggestedAlphaSetting);
+        CurrentAlphaSetting = suggestedAlphaSetting;
     }
+
+    SetAlphaModeInternal(CurrentAlphaSetting);
 
     if (!fChangedColorSize)
     {

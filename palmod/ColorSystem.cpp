@@ -168,6 +168,13 @@ namespace ColorSystem
         return nBlendedAlpha;
     }
 
+    bool CouldColorModeHaveAlpha(ColMode& cmColorMode)
+    {
+        // no for 24bit color and color tables that can't have alpha
+        return ((GetCbForColMode(cmColorMode) != 3) &&
+                (cmColorMode != ColMode::COLMODE_RGB666_NEOGEO));
+    }
+
     bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode)
     {
         bool fFoundMatch = false;
@@ -201,8 +208,9 @@ namespace ColorSystem
     std::map<LPCSTR, AlphaMode> rgAlphaNameToModeMap =
     {
         { "None", AlphaMode::GameDoesNotUseAlpha },
-        { "Fixed", AlphaMode::GameUsesFixedAlpha }
-        // We deliberately do not expose the Variable or Chaotic alpha types
+        { "Fixed", AlphaMode::GameUsesFixedAlpha },
+        { "Variable", AlphaMode::GameUsesVariableAlpha }
+        // We deliberately do not expose the Chaotic alpha type
     };
 
     bool GetAlphaModeForAlphaModeString(LPCSTR paszAlphaString, AlphaMode& amAlphaMode)

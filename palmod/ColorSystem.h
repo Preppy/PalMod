@@ -172,6 +172,7 @@ namespace ColorSystem
     void SetAlphaMode(AlphaMode NewMode);
     inline bool IsAlphaModeMutable(AlphaMode am) { return (am == AlphaMode::GameUsesVariableAlpha); };
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal);
+    bool CouldColorModeHaveAlpha(ColMode& cmColorMode);
 
     bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode);
 

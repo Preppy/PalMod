@@ -198,7 +198,6 @@ private:
 // Dialog Data
     enum { IDD = IDD_PALMOD_DIALOG };
     
-    void OnPalSelChange(UINT_PTR nCtrlId);
     void OnPalHLChange(void * pPalCtrl, UINT_PTR nCtrlId);
     void CustomEditProc(void * pPalCtrl, UINT_PTR nCtrlId, int nMethod);
     //void OnPalMHL(void * pPalCtrl, int nCtrlId);
@@ -420,6 +419,8 @@ public:
     afx_msg void OnBnClickedGradient_XYZ();
     afx_msg void OnBnClickedReverse();
     afx_msg void OnEditPaste();
+
+    void OnPalSelChange(UINT_PTR nCtrlId);
 
     void SetSliderDescForAlpha(bool fUseAlphaNotSTB);
 
