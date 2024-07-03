@@ -1221,7 +1221,7 @@ const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_K[] =
 
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P[] =
 {
-    { L"P Palette", 0x48642, 0x48662, indexCPS2Sprites_Spidey, 0, nullptr, &secondaryMVCSpideyEffects },
+    { L"P Palette", 0x48642, 0x48662, indexCPS2Sprites_Spidey, 0, &pairNext, &secondaryMVCSpideyEffects },
     { L"P Web", 0x48682, 0x486a2, indexCPS2Sprites_Spidey, 2 },
 
     { L"P Intro 1", 0x4B822, 0x4B842, indexCPS2Sprites_Spidey, 11 },
@@ -1241,7 +1241,7 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P[] =
 
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_K[] =
 {
-    { L"Kick Palette", 0x486a2, 0x486c2, indexCPS2Sprites_Spidey, 0, nullptr, &secondaryMVCSpideyEffects },
+    { L"Kick Palette", 0x486a2, 0x486c2, indexCPS2Sprites_Spidey, 0, &pairNext, &secondaryMVCSpideyEffects },
     { L"K Web", 0x486e2, 0x48702, indexCPS2Sprites_Spidey, 2 },
     { L"K Intro 1", 0x4BA22, 0x4BA42, indexCPS2Sprites_Spidey, 11 },
     { L"K Intro 2", 0x4BA42, 0x4BA62, indexCPS2Sprites_Spidey, 11 },

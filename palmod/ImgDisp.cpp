@@ -829,7 +829,10 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 }
             }
 
-            GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RAW as a custom preview.");
+            if (!fIsDoubleSizeGIMPRAW)
+            {
+                GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RAW as a custom preview.");
+            }
         }
 
         TextureFile.Close();
