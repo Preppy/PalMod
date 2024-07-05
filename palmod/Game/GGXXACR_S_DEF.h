@@ -1078,22 +1078,29 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_MY_EXTRAS = //May
 {
     L"Extras",
     {
-        { L"Applause for the Victim 1/2", 0x36c430, 0x36c470  },
-        { L"Applause for the Victim 2/2", 0x36ec00, 0x36ec40 },
-        { L"Dolphin Hoops", 0x370f90, 0x370fd0 },
-        { L"General Sparks (Layer 1)", 0x371410, 0x371450 },
-        { L"General Sparks (Layer 2)", 0x371a50, 0x371a90 },
-        { L"General Sparks (Layer 3)", 0x371d10, 0x371d50 },
-        { L"General Water Sparkles", 0x371f10, 0x371f50 },
-        { L"Great Yamada Attack 1/5", 0x372ef0, 0x372f30 },
-        { L"Great Yamada Attack 2/5", 0x375ba0, 0x375be0 },
-        { L"Great Yamada Attack 3/5", 0x377b90, 0x377bd0 },
-        { L"Great Yamada Attack 4/5", 0x379a30, 0x379a70 },
-        { L"Great Yamada Attack 5/5", 0x37b7c0, 0x37b800 },
-        { L"IK Pirate Dizzy 1/4", 0x3bb060, 0x3bb0a0 },
-        { L"IK Pirate Dizzy 2/4", 0x3bc610, 0x3bc650 },
-        { L"IK Pirate Dizzy 3/4", 0x3bdba0, 0x3bdbe0 },
-        { L"IK Pirate Dizzy 4/4", 0x3bf120, 0x3bf160 },
+        //General
+        { L"Sparkles (1/3)", 0x371410, 0x371450, indexGGXXSprites_ACR_May, 0x05, &pairNextAndNext, &effects_AdditiveBlend }, //three way join, additive
+        { L"Sparkles (2/3)", 0x371a50, 0x371a90, indexGGXXSprites_ACR_May, 0x06, nullptr, &effects_AdditiveBlend }, //^
+        { L"Sparkles (3/3)", 0x371d10, 0x371d50, indexGGXXSprites_ACR_May, 0x07, nullptr, &effects_AdditiveBlend }, //^
+        { L"Water Splashes", 0x371f10, 0x371f50, indexGGXXSprites_ACR_May, 0x08, nullptr, &effects_AdditiveBlend }, //additive
+
+        //Specials
+        { L"Applause for the Victim (1/2)", 0x36c430, 0x36c470, indexGGXXSprites_ACR_May, 0x01, &pairNext2, &effects_AdditiveBlend }, //pair to hoops, additive
+        { L"Applause for the Victim (2/2)", 0x36ec00, 0x36ec40, indexGGXXSprites_ACR_May, 0x01, &pairNext, &effects_AdditiveBlend }, //pair to hoops, additive
+        { L"Applause for the Victim (Hoops)", 0x370f90, 0x370fd0, indexGGXXSprites_ACR_May, 0x02, &pairPreviousFlipped2 },
+
+        //Overdrives
+        { L"Great Yamada Attack (1/5)", 0x372ef0, 0x372f30, indexGGXXSprites_ACR_May, 0x03, nullptr, &effects_AdditiveBlend }, //all 5 additive
+        { L"Great Yamada Attack (2/5)", 0x375ba0, 0x375be0, indexGGXXSprites_ACR_May, 0x03, nullptr, &effects_AdditiveBlend },
+        { L"Great Yamada Attack (3/5)", 0x377b90, 0x377bd0, indexGGXXSprites_ACR_May, 0x03, nullptr, &effects_AdditiveBlend },
+        { L"Great Yamada Attack (4/5)", 0x379a30, 0x379a70, indexGGXXSprites_ACR_May, 0x03, nullptr, &effects_AdditiveBlend },
+        { L"Great Yamada Attack (5/5)", 0x37b7c0, 0x37b800, indexGGXXSprites_ACR_May, 0x03, nullptr, &effects_AdditiveBlend },
+
+        //Instant Kill
+        { L"Pirate Dizzy (1/4)", 0x3bb060, 0x3bb0a0, indexGGXXSprites_ACR_May, 0x04 },
+        { L"Pirate Dizzy (2/4)", 0x3bc610, 0x3bc650, indexGGXXSprites_ACR_May, 0x04 },
+        { L"Pirate Dizzy (3/4)", 0x3bdba0, 0x3bdbe0, indexGGXXSprites_ACR_May, 0x04 },
+        { L"Pirate Dizzy (4/4)", 0x3bf120, 0x3bf160, indexGGXXSprites_ACR_May, 0x04 },
     }
 };
 

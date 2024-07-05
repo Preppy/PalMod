@@ -804,7 +804,17 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
             TextureFile.SeekToBegin();
 
-            if (direction == SpriteImportDirection::TopDown)
+            if (fIsDoubleSizeGIMPRAW)
+            {
+                int iDestPos = 0;
+                for (int iReadPos = 0; iReadPos < nFileSize; iReadPos += 2)
+                {
+                    TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][iDestPos], 1);
+                    iDestPos++;
+                    TextureFile.Seek(1, CFile::current);
+                }
+            }
+            else if (direction == SpriteImportDirection::TopDown)
             {
                 TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nFileSize);
             }
@@ -812,18 +822,12 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             {
                 int nCurrentFilePosition = nFileSize;
 
-                if (fIsDoubleSizeGIMPRAW)
-                {
-                    nCurrentFilePosition /= 2;
-                }
-
                 // Skip one line back
                 nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
 
                 // We need to flip this line by line
                 for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
                 {
-                    //TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nFileSize);
                     TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][nCurrentFilePosition], m_nTextureOverrideW[nPositionToLoadTo]);
                     nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
                 }
