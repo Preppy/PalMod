@@ -5,7 +5,7 @@
 class CGame_SVCPLUSA_A : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Normal =
     {
         {
             { L"svc-p2pl.bin", 0x400000 },
@@ -13,7 +13,15 @@ private:
         FileReadType::Sequential,
     };
 
-    const sCoreGameData m_sCoreGameData
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Steam =
+    {
+        {
+            { L"pl.bin", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const sCoreGameData m_sCoreGameData_Normal
     {
         L"SVC Plus A",
         SVCPLUSA_A,
@@ -24,12 +32,32 @@ private:
         DEF_BUTTONLABEL_2_PK,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        m_sFileLoadingData,
+        m_sFileLoadingData_Normal,
         {},
         SVCPLUSA_A_UNITS,
         ARRAYSIZE(SVCPLUSA_A_UNITS),
-        L"SVCE.txt",             // Extra filename
-        1048,                        // Count of palettes listed in the header
+        L"SVCE.txt",                // Extra filename
+        1048,                       // Count of palettes listed in the header
+        0x2d97f0,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Steam
+    {
+        L"SNK VS. CAPCOM SVC CHAOS (Steam)",
+        SVC_S,
+        IMGDAT_SECTION_KOF,
+        SVCPLUSA_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_Steam,
+        {},
+        SVCPLUSA_A_UNITS,
+        ARRAYSIZE(SVCPLUSA_A_UNITS),
+        L"SVCE.txt",                // Extra filename
+        1048,                       // Count of palettes listed in the header
         0x2d97f0,                   // Lowest known location used for palettes
     };
 
@@ -42,6 +70,7 @@ private:
         SVCPlus,
         SVCPlusA, // already decrypted!
         SVCSPlus,
+        SVCSteam,
     };
 
     struct SVCRevisionInfo
@@ -58,7 +87,7 @@ private:
     uint8_t* decryptedROM = nullptr;
 
 public:
-    CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize);
     ~CGame_SVCPLUSA_A();
 
     LPCWSTR GetGameName() { return m_loadedROMRevision.pszRevisionName; };
@@ -71,5 +100,6 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static sFileRule GetRule(uint32_t nRuleId);
+    static sFileRule GetRule_Normal(uint32_t nRuleId);
+    static sFileRule GetRule_Steam(uint32_t nRuleId);
 };

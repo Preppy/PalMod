@@ -430,19 +430,43 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     OutputDebugString(L"};\r\n\r\n");
 }
 
-sFileRule CGame_SVCPLUSA_A::GetRule(uint32_t nUnitId)
+CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize)
+{
+    if (nConfirmedROMSize == 0x800000)
+    {
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_Steam);
+    }
+    else
+    {
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_Normal);
+    }
+}
+
+sFileRule CGame_SVCPLUSA_A::GetRule_Normal(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData.rgFileList.at(0).strFileName.c_str());
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData_Normal.rgFileList.at(0).strFileName.c_str());
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData.rgFileList.at(0).nFileSize);
+    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_Normal.rgFileList.at(0).nFileSize);
 
     // SVC has a second differently sized ROM variant, but the area of interest matches
     NewFileRule.fHasAltName = true;
     _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"svc-p2p.bin");
     NewFileRule.uAltVerifyVar = 0x200000;
+
+    return NewFileRule;
+}
+
+sFileRule CGame_SVCPLUSA_A::GetRule_Steam(uint32_t nUnitId)
+{
+    sFileRule NewFileRule;
+
+    // This value is only used for directory-based games
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData_Steam.rgFileList.at(0).strFileName.c_str());
+    NewFileRule.uUnitId = 0;
+    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_Steam.rgFileList.at(0).nFileSize);
 
     return NewFileRule;
 }
@@ -480,7 +504,16 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
 
 void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
 {
-    if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2sp.bin") == 0) // svcSplus: encrypted
+    if (_wcsicmp(LoadedFile->GetFileName(), L"p1.bin") == 0) // svcSplus: encrypted
+    {
+        m_loadedROMRevision.pszRevisionName = L"SNK vs. CAPCOM SVC CHAOS (Steam)";
+        m_loadedROMRevision.rev = eSVCRevisionName::SVCSteam;
+        m_loadedROMRevision.fileList = { L"p1.bin" };
+        m_loadedROMRevision.nOffsetForReads = 0x200000;
+        m_loadedROMRevision.allowWrites = true;
+
+    }
+    else if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2sp.bin") == 0) // svcSplus: encrypted
     {
         m_loadedROMRevision.pszRevisionName = L"SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)";
         m_loadedROMRevision.rev = eSVCRevisionName::SVCSPlus;

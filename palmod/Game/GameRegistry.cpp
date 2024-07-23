@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 203, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 204, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -1776,7 +1776,14 @@ namespace KnownGameInfo
             L"SvC Plus A",
             { SVCPLUSA_A,       L"SNK vs Capcom", L"SNK vs Capcom|svc-p2pl.bin;svc-p2sp.bin|", GamePlatform::NEOGEO },
             Make_SVCPLUSA_A,
-            CGame_SVCPLUSA_A::GetRule,
+            CGame_SVCPLUSA_A::GetRule_Normal,
+        },
+        {
+            SVC_S,
+            L"SNK VS. CAPCOM SVC CHAOS (Steam)",
+            { SVC_S,       L"SNK VS. CAPCOM SVC CHAOS", L"SNK VS. CAPCOM SVC CHAOS (Steam)|p1.bin|", GamePlatform::Steam },
+            Make_SVCPLUSA_A,
+            CGame_SVCPLUSA_A::GetRule_Steam,
         },
         {
             SSF2T_A,
@@ -1962,7 +1969,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 203, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 204, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
