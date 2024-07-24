@@ -401,17 +401,17 @@ const sGame_PaletteDataset HSF2_A_CHUNLI_CE_PALETTES[] =
 const sGame_PaletteDataset HSF2_A_CHUNLI_HF_PALETTES[] =
 {
     { L"Palette 1", 0x47baa, 0x47bca, indexSF2Sprites_ChunLi, 0x00 },
-    { L"Palette 1 Kikouken", 0x47bca, 0x47bea, indexSF2Sprites_ChunLi, 0x00 },
+    { L"Palette 1 Kikouken", 0x47bca, 0x47bea, indexSF2Sprites_ChunLi, 0x01 },
     { L"Palette 2", 0x47c4c, 0x47c6c, indexSF2Sprites_ChunLi, 0x00 },
-    { L"Palette 2 Kikouken", 0x47c6c, 0x47c8c, indexSF2Sprites_ChunLi, 0x00 },
+    { L"Palette 2 Kikouken", 0x47c6c, 0x47c8c, indexSF2Sprites_ChunLi, 0x01 },
 };
 
 const sGame_PaletteDataset HSF2_A_CHUNLI_SSF2_PALETTES[] =
 {
     { L"Palette 1", 0x477De, 0x477fe, indexSF2Sprites_ChunLi, 0x00 },
-    { L"Palette 1 Kikouken", 0x477fe, 0x4781E, indexSF2Sprites_ChunLi, 0x1 },
+    { L"Palette 1 Kikouken", 0x477fe, 0x4781E, indexSF2Sprites_ChunLi, 0x01 },
     { L"Palette 2/Start", 0x47880, 0x478a0, indexSF2Sprites_ChunLi, 0x00 },
-    { L"Palette 2/Start Kikouken", 0x478a0, 0x478c0, indexSF2Sprites_ChunLi, 0x1 },
+    { L"Palette 2/Start Kikouken", 0x478a0, 0x478c0, indexSF2Sprites_ChunLi, 0x01 },
 };
 
 const sGame_PaletteDataset HSF2_A_CHUNLI_ST_PALETTES[] =
