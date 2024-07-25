@@ -1754,40 +1754,40 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_ZP_EXTRAS = //Zappa
         //Zappas got mutiple summons, the order im using here is Naked -> Dog -> Triplets -> Sword -> Roah
 
         //General
-        { L"Orbs (1/2)", 0x4c6b30, 0x4c6b70 },
-        { L"Orbs (2/2)", 0x4c7530, 0x4c7570 },
+        { L"Orbs (1/2)", 0x4c6b30, 0x4c6b70, indexGGXXSprites_ACR_Zappa, 0x0c },
+        { L"Orbs (2/2)", 0x4c7530, 0x4c7570, indexGGXXSprites_ACR_Zappa, 0x0c },
 
-        { L"Locusts (1/3)", 0x490130, 0x490170 },
-        { L"Locusts (2/3)", 0x4906b0, 0x4906f0 },
-        { L"Locusts (3/3)", 0x490c00, 0x490c40 },
+        { L"Locusts (1/3)", 0x490130, 0x490170, indexGGXXSprites_ACR_Zappa, 0x0b },
+        { L"Locusts (2/3)", 0x4906b0, 0x4906f0, indexGGXXSprites_ACR_Zappa, 0x0b },
+        { L"Locusts (3/3)", 0x490c00, 0x490c40, indexGGXXSprites_ACR_Zappa, 0x0b },
 
-        { L"Dog sleeping/waking up ", 0x4911f0, 0x491230 },
+        { L"Dog sleeping/waking up ", 0x4911f0, 0x491230, indexGGXXSprites_ACR_Zappa, 0x04 },
 
         //Normals (Naked)
-        { L"f.S (1/3)",          0x459320, 0x459360 },
-        { L"f.S (2/3)",          0x45b550, 0x45b590 },
-        { L"f.S (3/3)",          0x45cb90, 0x45cbd0 },
-        { L"f.S - Impact (1/4)", 0x45d1d0, 0x45d210 },
-        { L"f.S - Impact (2/4)", 0x45fc60, 0x45fca0 },
-        { L"f.S - Impact (3/4)", 0x4632b0, 0x4632f0 },
-        { L"f.S - Impact (4/4)", 0x465f50, 0x465f90 },
+        { L"f.S (1/3)",          0x459320, 0x459360, indexGGXXSprites_ACR_Zappa, 0x08 },
+        { L"f.S (2/3)",          0x45b550, 0x45b590, indexGGXXSprites_ACR_Zappa, 0x08 },
+        { L"f.S (3/3)",          0x45cb90, 0x45cbd0, indexGGXXSprites_ACR_Zappa, 0x08 },
+        { L"f.S - Impact (1/4)", 0x45d1d0, 0x45d210, indexGGXXSprites_ACR_Zappa, 0x07 },
+        { L"f.S - Impact (2/4)", 0x45fc60, 0x45fca0, indexGGXXSprites_ACR_Zappa, 0x07 },
+        { L"f.S - Impact (3/4)", 0x4632b0, 0x4632f0, indexGGXXSprites_ACR_Zappa, 0x07 },
+        { L"f.S - Impact (4/4)", 0x465f50, 0x465f90, indexGGXXSprites_ACR_Zappa, 0x07 },
 
         //Specials (Triplets)
-        { L"Shouting (Left)",            0x4b5780, 0x4b57c0 },
-        { L"Shouting (Right)/Golf ball", 0x4b4cd0, 0x4b4d10 },
-        { L"Banana (1/2)",               0x4b8650, 0x4b8a50 },
-        { L"Banana (2/2)",               0x4b8f20, 0x4b9320 },
-        { L"Potted plant (1/4)",         0x4b6230, 0x4b6630 },
-        { L"Potted plant (2/4)",         0x4b6e10, 0x4b7210 },
-        { L"Potted plant (3/4)",         0x4b7660, 0x4b7a60 },
-        { L"Potted plant (4/4)",         0x4b7f90, 0x4b8390 },
+        { L"Shouting (Left)",            0x4b5780, 0x4b57c0, indexGGXXSprites_ACR_Zappa, 0x0f, &pairNext },
+        { L"Shouting (Right)/Golf ball", 0x4b4cd0, 0x4b4d10, indexGGXXSprites_ACR_Zappa, 0x10, &pairPrevious },
+        { L"Banana (1/2)",               0x4b8650, 0x4b8a50, indexGGXXSprites_ACR_Zappa, 0x01 },
+        { L"Banana (2/2)",               0x4b8f20, 0x4b9320, indexGGXXSprites_ACR_Zappa, 0x01 },
+        { L"Potted plant (1/4)",         0x4b6230, 0x4b6630, indexGGXXSprites_ACR_Zappa, 0x0e },
+        { L"Potted plant (2/4)",         0x4b6e10, 0x4b7210, indexGGXXSprites_ACR_Zappa, 0x0e },
+        { L"Potted plant (3/4)",         0x4b7660, 0x4b7a60, indexGGXXSprites_ACR_Zappa, 0x0e },
+        { L"Potted plant (4/4)",         0x4b7f90, 0x4b8390, indexGGXXSprites_ACR_Zappa, 0x0e },
 
         //Specials (Sword)    
-        { L"Please Fall (1/2)", 0x484120, 0x484160 },
-        { L"Please Fall (2/2)", 0x48b4f0, 0x48b530 },
+        { L"Please Fall (1/2)", 0x484120, 0x484160, indexGGXXSprites_ACR_Zappa, 0x0d },
+        { L"Please Fall (2/2)", 0x48b4f0, 0x48b530, indexGGXXSprites_ACR_Zappa, 0x0d },
 
-        { L"Come Close, and I'll Kill You (1/2)", 0x4b97f0, 0x4b9830 },
-        { L"Come Close, and I'll Kill You (2/2)", 0x4bba60, 0x4bbaa0 },
+        { L"Come Close, and I'll Kill You (1/2)", 0x4b97f0, 0x4b9830, indexGGXXSprites_ACR_Zappa, 0x03 },
+        { L"Come Close, and I'll Kill You (2/2)", 0x4bba60, 0x4bbaa0, indexGGXXSprites_ACR_Zappa, 0x03 },
 
         //Specials (Roah)
         { L"Darkness Anthem (1/14)",    0x447360, 0x4473a0 },
@@ -1806,14 +1806,14 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_ZP_EXTRAS = //Zappa
         { L"Darkness Anthem (14/14)",   0x458aa0, 0x458ae0 },
 
         //Force breaks (Naked)
-        { L"Etiquette Starts Here ",        0x4bd900, 0x4bd940 },
-        { L"Etiquette Starts Here Effects", 0x4c6920, 0x4c6960 },
+        { L"Etiquette Starts Here ",        0x4bd900, 0x4bd940, indexGGXXSprites_ACR_Zappa, 0x06, &pairNext },
+        { L"Etiquette Starts Here Effects", 0x4c6920, 0x4c6960, indexGGXXSprites_ACR_Zappa, 0x05, &pairPreviousFlipped },
 
         //Overdrives (Naked/All summons)
-        { L"Birth!! (1/4)", 0x466930, 0x466970 },
-        { L"Birth!! (2/4)", 0x46f4f0, 0x46f530 },
-        { L"Birth!! (3/4)", 0x472d40, 0x472d80 },
-        { L"Birth!! (4/4)", 0x4773c0, 0x477400 },
+        { L"Birth!! (1/4)", 0x466930, 0x466970, indexGGXXSprites_ACR_Zappa, 0x02 },
+        { L"Birth!! (2/4)", 0x46f4f0, 0x46f530, indexGGXXSprites_ACR_Zappa, 0x02 },
+        { L"Birth!! (3/4)", 0x472d40, 0x472d80, indexGGXXSprites_ACR_Zappa, 0x02 },
+        { L"Birth!! (4/4)", 0x4773c0, 0x477400, indexGGXXSprites_ACR_Zappa, 0x02 },
 
         //Overdrives (Roah)
         { L"Bellows Malice (1/5)", 0x47a5a0, 0x47a5e0 },
@@ -1823,10 +1823,10 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_ZP_EXTRAS = //Zappa
         { L"Bellows Malice (5/5)", 0x481de0, 0x481e20 },
 
         //Instant Kill (Naked/All Summons)
-        { L"I'm Scared... - Scream",     0x491510, 0x491550 },
-        { L"I'm Scared... - Tree (1/3)", 0x4919f0, 0x491bf0 },
-        { L"I'm Scared... - Tree (2/3)", 0x49d5a0, 0x49d7a0 },
-        { L"I'm Scared... - Tree (3/3)", 0x4a8fa0, 0x4a91a0 },
+        { L"I'm Scared... - Scream",     0x491510, 0x491550, indexGGXXSprites_ACR_Zappa, 0x09, &pairNext },
+        { L"I'm Scared... - Tree (1/3)", 0x4919f0, 0x491bf0, indexGGXXSprites_ACR_Zappa, 0x0a, &pairPrevious },
+        { L"I'm Scared... - Tree (2/3)", 0x49d5a0, 0x49d7a0, indexGGXXSprites_ACR_Zappa, 0x0a, &pairPrevious2 },
+        { L"I'm Scared... - Tree (3/3)", 0x4a8fa0, 0x4a91a0, indexGGXXSprites_ACR_Zappa, 0x0a, &pairPrevious3 },
     }
 };
 

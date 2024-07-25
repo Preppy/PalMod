@@ -637,25 +637,44 @@ const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P1[] =
 {
-    { L"P1 Main", 0x6264c, 0x6266c, indexCPS2Sprites_Thanos },
-    { L"P1 Gems", 0x6266c, 0x6268c },
+    { L"P1 Main", 0x6264c, 0x6266c, indexCPS2Sprites_Thanos, 0x00, &pairNext },
+    { L"P1 Gems", 0x6266c, 0x6268c, indexCPS2Sprites_Thanos, 0x1, &pairPreviousFlipped },
 };
 
 const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P2[] =
 {
-    { L"P2 Main", 0x626Cc, 0x626Ec, indexCPS2Sprites_Thanos },
-    { L"P2 Gems", 0x626Ec, 0x6270c },
+    { L"P2 Main", 0x626Cc, 0x626Ec, indexCPS2Sprites_Thanos, 0x00, &pairNext },
+    { L"P2 Gems", 0x626Ec, 0x6270c, indexCPS2Sprites_Thanos, 0x01, &pairPreviousFlipped },
 };
 
 const sGame_PaletteDataset MSH_A_THANOS_PALETTES_EXTRAS[] =
 {
-    { L"Thanos victory pose flash",     0x6566c, 0x6568c, indexCPS2Sprites_Thanos },
-    { L"Terraxia incoming orb",         0x6568c, 0x656ac },
-    { L"Terraxia solid color frame",    0x656ac, 0x656cc, indexCPS2Sprites_Thanos, 8 },
-    { L"Terraxia appearing",            0x656cc, 0x656ec, indexCPS2Sprites_Thanos, 8 },
-    { L"Terraxia hugging",              0x656ec, 0x6570c, indexCPS2Sprites_Thanos, 9 },
+    { L"Recovery/Terraxia fade in", 0x6560c, 0x6562c, indexCPS2Sprites_Thanos, 0x0A, &pairNext },
+    { L"Recovery/Winpose (Gems)", 0x6564c, 0x6566c, indexCPS2Sprites_Thanos, 0x0B, &pairPrevious },
+    { L"Terraxia White frame", 0x6562c, 0x6564c, indexCPS2Sprites_Thanos, 0x0E },
+    { L"Terraxia tan frame/Power Gem projectile flash", 0x656ac, 0x656cc, indexCPS2Sprites_Thanos, 0x0E },
+    { L"Terraxia bright frame", 0x656cc, 0x656ec, indexCPS2Sprites_Thanos, 0x0E },
+    { L"Terraxia final frame (P1 ONLY - P2 uses base)", 0x656ec, 0x6570c, indexCPS2Sprites_Thanos, 0x0E },	// P2 uses the base palette here
+    { L"Winpose flashing", 0x6566c, 0x6568c, indexCPS2Sprites_Thanos, 0x10 },
+    { L"MP Grab/Soul Gem (1/2)/Standing HP", 0x6576c, 0x6578c, indexCPS2Sprites_Thanos, 0x08 },
+    { L"MP Grab/Soul Gem (2/2)", 0x6578c, 0x657ac, indexCPS2Sprites_Thanos, 0x07 },
+    { L"Jumping HP", 0x657ec, 0x6580c, indexCPS2Sprites_Thanos, 0x06 },
+    { L"Fire", 0x657ac, 0x657cc, indexCPS2Sprites_Thanos, 0x03 },
+    { L"Rocks", 0x6572c, 0x6574c, indexCPS2Sprites_Thanos, 0x0C },
+    { L"Death Sphere", 0x658cc, 0x658ec, indexCPS2Sprites_Thanos, 0x02 },
+    { L"Bubble/Time Gem", 0x6580c, 0x6582c, indexCPS2Sprites_Thanos, 0x04 },
+    { L"Bubble/Reality Gem", 0x6582c, 0x6584c, indexCPS2Sprites_Thanos, 0x04 },
+    { L"Bubble/Soul Gem", 0x6584c, 0x6586c, indexCPS2Sprites_Thanos, 0x04 },
+    { L"Bubble/Mind Gem", 0x6586c, 0x6588c, indexCPS2Sprites_Thanos, 0x04 },
+    { L"Bubble/Power Gem/Titan Crush", 0x6588c, 0x658ac, indexCPS2Sprites_Thanos, 0x05 },
+    { L"Bubble/Space Gem", 0x658ac, 0x658cc, indexCPS2Sprites_Thanos, 0x04 },
+    { L"Time Gem projectile", 0x6574c, 0x6576c, indexCPS2Sprites_Thanos, 0x0F },
+    { L"Power Gem projectile", 0x6570c, 0x6572c, indexCPS2Sprites_Thanos, 0x09 },
+    { L"Space Gem portal/rocks/j2HK", 0x657cc, 0x657ec, indexCPS2Sprites_Thanos, 0x0D },
 
-    { L"Thanos Extras",                 0x6576c, 0x6578c },
+    { L"Unknown", 0x6590c, 0x6592c },
+    { L"Unknown 2", 0x658ec, 0x6590c },
+    { L"Unknown 3", 0x6568c, 0x656ac },
 };
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P1[] =
