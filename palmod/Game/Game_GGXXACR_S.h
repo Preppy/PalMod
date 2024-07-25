@@ -5,7 +5,7 @@
 class CGame_GGXXACR_S : public CGameClassPerUnitPerFile
 {
 private:
-    const sGCPUPF_CoreGameData m_sCoreGameData
+    sGCPUPF_CoreGameData m_sCoreGameData
     {
         L"GGXX:AC+R (Steam)",
         GGXXACR_S,

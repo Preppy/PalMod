@@ -40,9 +40,10 @@ struct sGCBUPF_BasicFileData
     uint32_t nImageUnitIndex = INVALID_UNIT_VALUE;
     uint32_t nImagePreviewIndex = 0;
     sGCBUPF_ExtrasCollection sExtrasNodeData;
+    int32_t nRevisionSpecificAdditionalOffset = 0;
 };
 
-// This enum defines how we present the assembled data to the user.  While PalMod internally Unit::Collection::Node,
+// This enum defines how we present the assembled data to the user.  While PalMod internally is Unit::Collection::Node,
 // the game's view of those palettes to the user is constructed around button labels, such as P1/P2/P3, etc.
 // This enum lets you align our Collection::Node layouts to those button labels.
 enum class PaletteArrangementStyle

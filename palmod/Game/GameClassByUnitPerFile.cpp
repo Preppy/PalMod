@@ -674,6 +674,8 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
         }
     }
 
+    m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nRevisionSpecificAdditionalOffset;
+
     WarnIfPaletteIsOversized(nFileUnitId, nFilePalId, m_nCurrentPaletteROMLocation, m_nCurrentPaletteSizeInColors, m_pszCurrentPaletteName);
 }
 
