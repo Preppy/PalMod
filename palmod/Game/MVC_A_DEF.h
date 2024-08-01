@@ -79,7 +79,7 @@ const std::vector<uint16_t> MVC_A_IMGIDS_USED =
 
 #if dontcompilethis
 
-    Educated guess at sort order based upon VSPs.Agrees with CSIs.
+    Educated guess at sort order based upon VSPs. Agrees with CSIs.
     War Machine
     Captain America
     Hulk
