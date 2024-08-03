@@ -14,7 +14,8 @@ namespace ColorSystem
     // These are the multipliers that can be used for color formats
     // so long as they don't use color lookup tables (CLUTs)
     const double k_nRGBPlaneMulForRGB111 = 255;
-    const double k_nRGBPlaneMulForRGB333 = 36.428;
+    // We're using floor() for math, so use .429 instead of .428
+    const double k_nRGBPlaneMulForRGB333 = 36.429;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
     const double k_nRGBPlaneMulForRGB555 = 8.225;
     const double k_nRGBPlaneMulForRGB777 = 2;
@@ -367,13 +368,12 @@ namespace ColorSystem
 
     uint32_t CONV_BGR333_32(uint16_t inCol)
     {
-        // xxxxRRRx GGGxBBBx, where x is 0
-        // conversion code mostly by sega16
+        // big endian:
+        // GGGxBBBx xxxxRRRx, where x is 0
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        uint8_t* palP = reinterpret_cast<uint8_t*>(&inCol);
-        uint8_t r = (*palP++ & 14) * 18;
-        uint8_t g = ((*palP & 240) >> 5) * 36;
-        uint8_t b = (*palP & 14) * 18;
+        const uint8_t r = static_cast<uint8_t>(floor(((inCol >> 1) & 0x07) * k_nRGBPlaneMulForRGB333));
+        const uint8_t g = static_cast<uint8_t>(floor(((inCol >> 13) & 0x07) * k_nRGBPlaneMulForRGB333));
+        const uint8_t b = static_cast<uint8_t>(floor(((inCol >> 9) & 0x07) * k_nRGBPlaneMulForRGB333));
 
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
@@ -393,13 +393,12 @@ namespace ColorSystem
 
     uint32_t CONV_RBG333_32(uint16_t inCol)
     {
-        // xxxxGGGx BBBxRRRx, where x is 0
-        // conversion code mostly by sega16
+        // big endian:
+        // BBBxRRRx xxxxGGGx, where x is 0
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        uint8_t* palP = reinterpret_cast<uint8_t*>(&inCol);
-        uint8_t g = (*palP++ & 14) * 18;
-        uint8_t b = ((*palP & 240) >> 5) * 36;
-        uint8_t r = (*palP & 14) * 18;
+        const uint8_t r = static_cast<uint8_t>(floor(((inCol >> 9) & 0x07) * k_nRGBPlaneMulForRGB333));
+        const uint8_t g = static_cast<uint8_t>(floor(((inCol >> 1) & 0x07) * k_nRGBPlaneMulForRGB333));
+        const uint8_t b = static_cast<uint8_t>(floor(((inCol >> 13) & 0x07) * k_nRGBPlaneMulForRGB333));
 
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
@@ -416,15 +415,15 @@ namespace ColorSystem
 
         return (auxg << 1) | (auxr << 9) | (auxb << 13);
     }
+
     uint32_t CONV_RGB333_32(uint16_t inCol)
     {
-        // xxxxBBBx GGGxRRRx, where x is 0
-        // conversion code mostly by sega16
+        // big endian:
+        // GGGxRRRx xxxxBBBx , where x is 0
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        uint8_t* palP = reinterpret_cast<uint8_t*>(&inCol);
-        uint8_t b = (*palP++ & 14) * 18;
-        uint8_t g = ((*palP & 240) >> 5) * 36;
-        uint8_t r = (*palP & 14) * 18;
+        const uint8_t r = static_cast<uint8_t>(floor(((inCol >> 9) & 0x07) * k_nRGBPlaneMulForRGB333));
+        const uint8_t g = static_cast<uint8_t>(floor(((inCol >> 13) & 0x07) * k_nRGBPlaneMulForRGB333));
+        const uint8_t b = static_cast<uint8_t>(floor(((inCol >> 1) & 0x07) * k_nRGBPlaneMulForRGB333));
 
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
@@ -1457,9 +1456,9 @@ namespace ColorSystem
         return outVal;
     }
 
-    int ROUND_32(int rVal)
+    int ROUND_36(int rVal)
     {
-        const int outVal = static_cast<int>(min(0xff, (round(rVal / 32.0)) * 32));
+        const int outVal = static_cast<int>(min(0xff, (round(rVal / k_nRGBPlaneMulForRGB333)) * k_nRGBPlaneMulForRGB333));
 
         return outVal;
     }
@@ -1487,7 +1486,7 @@ namespace ColorSystem
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB333);
 
         // establish about where we should be
-        const int nColorValue = ROUND_32(static_cast<int>(round(k_nRGBPlaneMulForRGB333 * static_cast<double>(nColorStep))));
+        const int nColorValue = ROUND_36(static_cast<int>(round(k_nRGBPlaneMulForRGB333 * static_cast<double>(nColorStep))));
 
         return nColorValue;
     }
@@ -1623,7 +1622,7 @@ namespace ColorSystem
 
     int GetNearestLegalColorValue_RGB333(int nColorValue)
     {
-        return ROUND_32(nColorValue);
+        return ROUND_36(nColorValue);
     }
 
     int GetNearestLegalColorValue_RGB444(int nColorValue)
