@@ -356,30 +356,73 @@ const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_P1[] =
 {
-    { L"P1 Main",  0x624Cc, 0x624Ec, 0x0F },
-    { L"P1 Flames", 0x624Ec, 0x6250c, 0x0F, 1 },
+    { L"P1 Main", 0x624cc, 0x624ec, indexCPS2Sprites_DrDoom },
+    { L"P1 Flames + jHP", 0x624ec, 0x6250c, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"P1 Interrupted Normals", 0x6250c, 0x6252c, indexCPS2Sprites_DrDoom, 0x02 },
 };
 
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_P2[] =
 {
-    { L"P2 Main", 0x6254c, 0x6256c, 0x0F },
-    { L"P2 Flames", 0x6256c, 0x6258c, 0x0F, 1 },
+    { L"P2 Main", 0x6254c, 0x6256c, indexCPS2Sprites_DrDoom },
+    { L"P2 Flames + jHP", 0x6256c, 0x6258c, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"P2 Interrupted Normals", 0x6258c, 0x625ac, indexCPS2Sprites_DrDoom, 0x02 },
 };
 
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_EXTRAS[] =
 {
-    { L"Photon Array (Shared)", 0x6530c, 0x6532c },
-    { L"Photon Array (Shared)", 0x6532c, 0x6534c },
-    { L"Photon Array (Shared)", 0x6534c, 0x6536c },
-    { L"Extras 1 (MP + HP, Shared)", 0x6536c, 0x6538c },
-    { L"Extras 2 (MP + HP, Shared)", 0x6538c, 0x653Ac },
-    { L"Extras 3 (MP + HP, Shared)", 0x653Ac, 0x653Cc, 0x0F, 1 },
-    { L"Luminance Extra 1 (Shared)", 0x6518c, 0x651Ac, 0x0F },
-    { L"Luminance Extra 2 (Shared)", 0x651Cc, 0x651Ec, 0x0F },
-    { L"Luminance Extra 3 (Shared)", 0x651Ec, 0x6520c, 0x0F },
-    { L"Luminance Extra 4 (Shared)", 0x6520c, 0x6522c, 0x0F },
-    { L"Luminance Extra 5 (Shared)", 0x6526c, 0x6528c, 0x0F },
-    { L"Luminance Extra 6 (Shared)", 0x6528c, 0x652Ac, 0x0F },
+    { L"Normals (1/3)", 0x653ac, 0x653cc, indexCPS2Sprites_DrDoom, 0x02 },
+    { L"Normals (2/3)", 0x6538c, 0x653ac, indexCPS2Sprites_DrDoom, 0x02 },
+    { L"Normals (3/3)", 0x6536c, 0x6538c, indexCPS2Sprites_DrDoom, 0x02 },
+    { L"Photon Shot/Array (1/3)", 0x6534c, 0x6536c, indexCPS2Sprites_DrDoom, 0x03 },
+    { L"Photon Shot/Array (2/3)", 0x6532c, 0x6534c, indexCPS2Sprites_DrDoom, 0x03 },
+    { L"Photon Shot/Array (3/3)", 0x6530c, 0x6532c, indexCPS2Sprites_DrDoom, 0x03 },
+    { L"Plasma Beam (1/3)", 0x652ec, 0x6530c, indexCPS2Sprites_DrDoom, 0x04 },
+    { L"Plasma Beam (2/3)", 0x652cc, 0x652ec, indexCPS2Sprites_DrDoom, 0x04 },
+    { L"Plasma Beam (3/3)", 0x652ac, 0x652cc, indexCPS2Sprites_DrDoom, 0x04 },
+    { L"Copy of base (for glimmer/fade)", 0x6518c, 0x651ac, indexCPS2Sprites_DrDoom },
+    { L"Attack glimmer (1/2)", 0x6526c, 0x6528c, indexCPS2Sprites_DrDoom },
+    { L"Attack glimmer (2/2)", 0x6528c, 0x652ac, indexCPS2Sprites_DrDoom },
+    { L"Intro/Winpose fade in (1/6)", 0x6524c, 0x6526c, indexCPS2Sprites_DrDoom },
+    { L"Intro/Winpose fade in (2/6)", 0x6522c, 0x6524c, indexCPS2Sprites_DrDoom },
+    { L"Intro/Winpose fade in (3/6)", 0x6520c, 0x6522c, indexCPS2Sprites_DrDoom },
+    { L"Intro/Winpose fade in (4/6)", 0x651ec, 0x6520c, indexCPS2Sprites_DrDoom },
+    { L"Intro/Winpose fade in (5/6)", 0x651cc, 0x651ec, indexCPS2Sprites_DrDoom },
+    { L"Intro/Winpose fade in (6/6)", 0x651ac, 0x651cc, indexCPS2Sprites_DrDoom },
+    { L"Winpose chair + butler", 0x650ac, 0x650cc, indexCPS2Sprites_DrDoom, 0x0e },
+    { L"Winpose chair + butler (fade in 1/6)", 0x6516c, 0x6518c, indexCPS2Sprites_DrDoom, 0x0e },
+    { L"Winpose chair + butler (fade in 2/6)", 0x6514c, 0x6516c, indexCPS2Sprites_DrDoom, 0x0e },
+    { L"Winpose chair + butler (fade in 3/6)", 0x6512c, 0x6514c, indexCPS2Sprites_DrDoom, 0x0e },
+    { L"Winpose chair + butler (fade in 4/6)", 0x6510c, 0x6512c, indexCPS2Sprites_DrDoom, 0x0e },
+    { L"Winpose chair + butler (fade in 5/6)", 0x650ec, 0x6510c, indexCPS2Sprites_DrDoom, 0x0e },
+    { L"Winpose chair + butler (fade in 6/6)", 0x650cc, 0x650ec, indexCPS2Sprites_DrDoom, 0x0e },
+
+};
+
+const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_UNUSED[] =
+{
+    // large batch of likely unused palettes
+    { L"P2 Copy of base (for glimmer/fade)", 0x653cc, 0x653ec, indexCPS2Sprites_DrDoom },
+    { L"P2 Attack glimmer (1/2)", 0x654ac, 0x654cc, indexCPS2Sprites_DrDoom },
+    { L"P2 Attack glimmer (2/2)", 0x654cc, 0x654ec, indexCPS2Sprites_DrDoom },
+    { L"P2 Intro/Winpose fade in (1/6)", 0x6548c, 0x654ac, indexCPS2Sprites_DrDoom },
+    { L"P2 Intro/Winpose fade in (2/6)", 0x6546c, 0x6548c, indexCPS2Sprites_DrDoom },
+    { L"P2 Intro/Winpose fade in (3/6)", 0x6544c, 0x6546c, indexCPS2Sprites_DrDoom },
+    { L"P2 Intro/Winpose fade in (4/6)", 0x6542c, 0x6544c, indexCPS2Sprites_DrDoom },
+    { L"P2 Intro/Winpose fade in (5/6)", 0x6540c, 0x6542c, indexCPS2Sprites_DrDoom },
+    { L"P2 Intro/Winpose fade in (6/6)", 0x653ec, 0x6540c, indexCPS2Sprites_DrDoom },
+    { L"P? Main", 0x625cc, 0x625ec, indexCPS2Sprites_DrDoom },
+    { L"P? Flames + jHP", 0x625ec, 0x6260c, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"P? Interrupted Normals", 0x6260c, 0x6262c, indexCPS2Sprites_DrDoom, 0x02 },
+    { L"P? Copy of base (for glimmer/fade)", 0x654ec, 0x6550c, indexCPS2Sprites_DrDoom },
+    { L"P? Attack glimmer (1/2)", 0x655cc, 0x655ec, indexCPS2Sprites_DrDoom },
+    { L"P? Attack glimmer (2/2)", 0x655ec, 0x6560c, indexCPS2Sprites_DrDoom },
+    { L"P? Intro/Winpose fade in (1/6)", 0x655ac, 0x655cc, indexCPS2Sprites_DrDoom },
+    { L"P? Intro/Winpose fade in (2/6)", 0x6558c, 0x655ac, indexCPS2Sprites_DrDoom },
+    { L"P? Intro/Winpose fade in (3/6)", 0x6556c, 0x6558c, indexCPS2Sprites_DrDoom },
+    { L"P? Intro/Winpose fade in (4/6)", 0x6554c, 0x6556c, indexCPS2Sprites_DrDoom },
+    { L"P? Intro/Winpose fade in (5/6)", 0x6552c, 0x6554c, indexCPS2Sprites_DrDoom },
+    { L"P? Intro/Winpose fade in (6/6)", 0x6550c, 0x6552c, indexCPS2Sprites_DrDoom },
+    { L"Unused?", 0x6508c, 0x650ac },
 };
 
 const sGame_PaletteDataset MSH_A_HULK_PALETTES_P1[] =
@@ -1073,6 +1116,7 @@ const sDescTreeNode MSH_A_DRDOOM_COLLECTION[] =
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P2,           ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P2) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_DRDOOM_PALETTES_EXTRAS) },
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_DOOM_PALETTES_STATUS, ARRAYSIZE(MSH_A_DOOM_PALETTES_STATUS) },
+    { L"Unused", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_UNUSED,   ARRAYSIZE(MSH_A_DRDOOM_PALETTES_UNUSED) },
 };
 
 const sDescTreeNode MSH_A_HULK_COLLECTION[] =

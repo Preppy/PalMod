@@ -5226,6 +5226,76 @@ const sDescTreeNode KOF02UM_S_OROCHIIORI_COLLECTION[] =
 
 #pragma endregion Character Palettes
 
+const sGame_PaletteDataset KOF02UM_S_MAX2PORTRAIT_PALETTES[] =
+{
+    { L"Kyo MAX2 portrait", 0x57ee0, 0x580e0 },
+    { L"Benimaru MAX2 portrait", 0x580e0, 0x582e0 },
+    { L"Daimon MAX2 portrait", 0x582e0, 0x584e0 },
+    { L"Terry MAX2 portrait", 0x584e0, 0x586e0 },
+    { L"Andy MAX2 portrait", 0x586e0, 0x588e0 },
+    { L"Joe MAX2 portrait", 0x588e0, 0x58ae0 },
+    { L"Kim MAX2 portrait", 0x58ae0, 0x58ce0 },
+    { L"Chang MAX2 portrait", 0x58ce0, 0x58ee0 },
+    { L"Choi MAX2 portrait", 0x58ee0, 0x590e0 },
+    { L"Athena MAX2 portrait", 0x590e0, 0x592e0 },
+    { L"Kensou MAX2 portrait", 0x592e0, 0x594e0 },
+    { L"Chin MAX2 portrait", 0x594e0, 0x596e0 },
+    { L"Leona MAX2 portrait", 0x596e0, 0x598e0 },
+    { L"Ralf MAX2 portrait", 0x598e0, 0x59ae0 },
+    { L"Clark MAX2 portrait", 0x59ae0, 0x59ce0 },
+    { L"Ryo MAX2 portrait", 0x59ce0, 0x59ee0 },
+    { L"Robert MAX2 portrait", 0x59ee0, 0x5a0e0 },
+    { L"Takuma MAX2 portrait", 0x5a0e0, 0x5a2e0 },
+    { L"Mai MAX2 portrait", 0x5a2e0, 0x5a4e0 },
+    { L"Yuri MAX2 portrait", 0x5a4e0, 0x5a6e0 },
+    { L"May Lee MAX2 portrait", 0x5a6e0, 0x5a8e0 },
+    { L"Iori MAX2 portrait", 0x5a8e0, 0x5aae0 },
+    { L"Mature MAX2 portrait", 0x5aae0, 0x5ace0 },
+    { L"Vice MAX2 portrait", 0x5ace0, 0x5aee0 },
+    { L"Yamazaki MAX2 portrait", 0x5aee0, 0x5b0e0 },
+    { L"Blue Mary MAX2 portrait", 0x5b0e0, 0x5b2e0 },
+    { L"Billy MAX2 portrait", 0x5b2e0, 0x5b4e0 },
+    { L"Yashiro MAX2 portrait", 0x5b4e0, 0x5b6e0 },
+    { L"Shermie MAX2 portrait", 0x5b6e0, 0x5b8e0 },
+    { L"Chris MAX2 portrait", 0x5b8e0, 0x5bae0 },
+    { L"K' MAX2 portrait", 0x5bae0, 0x5bce0 },
+    { L"Maxima MAX2 portrait", 0x5bce0, 0x5bee0 },
+    { L"Whip MAX2 portrait", 0x5bee0, 0x5c0e0 },
+    { L"Vanessa MAX2 portrait", 0x5c0e0, 0x5c2e0 },
+    { L"Seth MAX2 portrait", 0x5c2e0, 0x5c4e0 },
+    { L"Ramon MAX2 portrait", 0x5c4e0, 0x5c6e0 },
+    { L"Kula MAX2 portrait", 0x5c6e0, 0x5c8e0 },
+    { L"Nameless MAX2 portrait", 0x5c8e0, 0x5cae0 },
+    { L"Angel MAX2 portrait", 0x5cae0, 0x5cce0 },
+    { L"Omega Rugal MAX2 portrait", 0x5cce0, 0x5cee0 },
+    { L"KUSANAGI MAX2 portrait", 0x5cee0, 0x5d0e0 },
+    { L"Shingo MAX2 portrait", 0x5d0e0, 0x5d2e0 },
+    { L"King MAX2 portrait", 0x5d2e0, 0x5d4e0 },
+    { L"Xiangfei MAX2 portrait", 0x5d4e0, 0x5d6e0 },
+    { L"Hinako MAX2 portrait", 0x5d6e0, 0x5d8e0 },
+    { L"Heidern MAX2 portrait", 0x5d8e0, 0x5dae0 },
+    { L"Lin MAX2 portrait", 0x5dae0, 0x5dce0 },
+    { L"EX Takuma MAX2 portrait", 0x5dce0, 0x5dee0 },
+    { L"Bao MAX2 portrait", 0x5dee0, 0x5e0e0 },
+    { L"Jhun MAX2 portrait", 0x5e0e0, 0x5e2e0 },
+    { L"Kyo-1 MAX2 portrait", 0x5e2e0, 0x5e4e0 },
+    { L"Foxy MAX2 portrait", 0x5e4e0, 0x5e6e0 },
+    { L"Kasumi MAX2 portrait", 0x5e6e0, 0x5e8e0 },
+    { L"Geese MAX2 portrait", 0x5e8e0, 0x5eae0 },
+    { L"Nightmare Geese MAX2 portrait", 0x5eae0, 0x5ece0 },
+    { L"EX Robert MAX2 portrait", 0x5ece0, 0x5eee0 },
+    { L"EX Kensou MAX2 portrait", 0x5eee0, 0x5f0e0 },
+    { L"Kyo-2 MAX2 portrait", 0x5f0e0, 0x5f2e0 },
+    { L"Goenitz MAX2 portrait", 0x5f2e0, 0x5f4e0 },
+    { L"Krizalid MAX2 portrait", 0x5f4e0, 0x5f6e0 },
+    { L"Clone Zero MAX2 portrait", 0x5f6e0, 0x5f8e0 },
+    { L"Original Zero MAX2 portrait", 0x5f8e0, 0x5fae0 },
+    { L"Igniz MAX2 portrait", 0x5fae0, 0x5fce0 },
+    { L"Orochi Yashiro MAX2 portrait", 0x5fee0, 0x600e0 },
+    { L"Orochi Shermie MAX2 portrait", 0x600e0, 0x602e0 },
+    { L"Orochi Chris MAX2 portrait", 0x602e0, 0x604e0 },
+};
+
 const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
 {
     { L"Main HUD Stuff and Meter",                  0x53700, 0x53720 },
@@ -5271,6 +5341,11 @@ const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
 const sGame_PaletteDataset KOF02UM_S_NEXTSTAGE_PALETTES[] =
 {
     { L"Next Stage", 0x57c00, 0x57e00 },
+};
+
+const sDescTreeNode KOF02UM_S_PORTRAITS_COLLECTION[] =
+{
+    { L"MAX2 Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAX2PORTRAIT_PALETTES, ARRAYSIZE(KOF02UM_S_MAX2PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode KOF02UM_S_BONUS_COLLECTION[] =
@@ -5561,6 +5636,8 @@ const sDescTreeNode KOF02UM_S_UNITS_MAIN[] =
     { L"Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF02UM_S_OMEGARUGAL_COLLECTION) },
     { L"Nightmare Geese", DESC_NODETYPE_TREE, (void*)KOF02UM_S_NIGHTMAREGEESE_COLLECTION, ARRAYSIZE(KOF02UM_S_NIGHTMAREGEESE_COLLECTION) },
     { L"Orochi Iori (Unplayable)", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OROCHIIORI_COLLECTION, ARRAYSIZE(KOF02UM_S_OROCHIIORI_COLLECTION) },
+
+    { L"MAX2 Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAITS_COLLECTION, ARRAYSIZE(KOF02UM_S_PORTRAITS_COLLECTION) },
 
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_BONUS_COLLECTION, ARRAYSIZE(KOF02UM_S_BONUS_COLLECTION) },
 };

@@ -91,7 +91,7 @@ private:
         KOF02UM_S_UNITS_MAIN,
         ARRAYSIZE(KOF02UM_S_UNITS_MAIN),
         L"KOF02UME.txt",        // Extra filename
-        2749,                   // Count of palettes listed in the header
+        2815,                   // Count of palettes listed in the header
         0x2a0,                  // Lowest known location used for palettes
     };
 
