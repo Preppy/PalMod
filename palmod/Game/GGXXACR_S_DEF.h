@@ -1839,13 +1839,11 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_EFR_EXTRAS = //Ex Order-Sol (wip)
     }
 };
 
+
 const sGCBUPF_ExtrasCollection GGXXACR_S_EXTRAS_JPF =
 {
     L"Effects",
     {
-        //Missing Faultless defense, Slash back, Clashes, grab techs, etc
-        //Leaving out hitsparks for now since theres so many, but they are in the archive_jpf.bin file
-
         { L"Roman Cancel",          0x1C9770, 0x1C97B0, indexGGXXSprites_ACR_Bonus, 0x08, nullptr, &effects_AdditiveBlend },
         { L"Force Roman Cancel",    0x1C9970, 0x1C99B0, indexGGXXSprites_ACR_Bonus, 0x07, nullptr, &effects_AdditiveBlend },
         { L"Chaos Roman Cancel",    0x1C9B70, 0x1C9BB0, indexGGXXSprites_ACR_Bonus, 0x08, nullptr, &effects_AdditiveBlend },
@@ -1876,11 +1874,62 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_EXTRAS_JPF =
         { L"Gold Burst (11/12)",    0x17D150, 0x17D550, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
         { L"Gold Burst (12/12)",    0x17EF80, 0x17F380, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
 
-        //I may be missing some palettes here
+        { L"Forcebreak Sparks",                            0x1cad60, 0x1cada0 },
         { L"Overdrive Actvation Rings",                    0x1C75B0, 0x1C75F0 },
         { L"Overdrive Background",                         0x1F4380, 0x1F43C0 },
         { L"Normal Overdrive Background (Layer 2)",        0x203450, 0x203490 },
         { L"Forcebreak Overdrive Background (Layer 2)",    0x1F1590, 0x1F15D0 },
+
+        { L"Level 1 Hitsparks (1/7)",                   0x1d04a0, 0x1d04e0 },
+        { L"Level 1 Hitsparks (2/7)",                   0x1d05d0, 0x1d0610 },
+        { L"Level 1 Hitsparks (3/7)",                   0x1d0e60, 0x1d0ea0 },
+        { L"Level 1 Hitsparks (4/7)",                   0x1d1810, 0x1d1850 },
+        { L"Level 1 Hitsparks (5/7)",                   0x1d21d0, 0x1d2210 },
+        { L"Level 1 Hitsparks (6/7)",                   0x1d29b0, 0x1d29f0 },
+        { L"Level 1 Hitsparks (7/7)",                   0x1d2e30, 0x1d2e70 },
+        { L"Level 2-5 Hitsparks (1/9)",                 0x1bb4a0, 0x1bb4e0 },
+        { L"Level 2-5 Hitsparks (2/9)",                 0x1bbd20, 0x1bbd60 },
+        { L"Level 2-5 Hitsparks (3/9)",                 0x1bd0b0, 0x1bd0f0 },
+        { L"Level 2-5 Hitsparks (4/9)",                 0x1bf000, 0x1bf040 },
+        { L"Level 2-5 Hitsparks (5/9)",                 0x1c1310, 0x1c1350 },
+        { L"Level 2-5 Hitsparks (6/9)",                 0x1c3370, 0x1c33b0 },
+        { L"Level 2-5 Hitsparks (7/9)",                 0x1c4940, 0x1c4980 },
+        { L"Level 2-5 Hitsparks (8/9)",                 0x1c55e0, 0x1c5620 },
+        { L"Level 2-5 Hitsparks (9/9)",                 0x1c5ac0, 0x1c5b00 },
+        { L"Slash Hitsparks",                           0x1c8220, 0x1c8260 },
+        { L"Special/Overdrive Hitsparks Outer ring",    0x1c9390, 0x1c93d0 },
+        { L"Special/Overdrive Hitsparks Inner ring",    0x1c6a50, 0x1c6a90 },
+        { L"Special/Overdrive Hitsparks Effects",       0x1c7950, 0x1c7990 },
+
+        { L"Level 1 Blocksparks (1/6)",             0x1ce5b0, 0x1ce5f0 },
+        { L"Level 1 Blocksparks (2/6)",             0x1ce680, 0x1ce6c0 },
+        { L"Level 1 Blocksparks (3/6)",             0x1ce820, 0x1ce860 },
+        { L"Level 1 Blocksparks (4/6)",             0x1cebd0, 0x1cec10 },
+        { L"Level 1 Blocksparks (5/6)",             0x1ceff0, 0x1cf030 },
+        { L"Level 1 Blocksparks (6/6)",             0x1cf5a0, 0x1cf5e0 },
+        { L"Level 2-5 Blocksparks (1/4)",           0x1a7960, 0x1a79a0 },
+        { L"Level 2-5 Blocksparks (2/4)",           0x1aa8b0, 0x1aa8f0 },
+        { L"Level 2-5 Blocksparks (3/4)",           0x1adb30, 0x1adb70 },
+        { L"Level 2-5 Blocksparks (4/4)",           0x1b0410, 0x1b0450 },
+        { L"Level 1-5 Blocksparks",                 0x1b2050, 0x1b2090 },
+        { L"Special/Overdrive Blocksparks (1/4)",   0x1a1640, 0x1a1680 },
+        { L"Special/Overdrive Blocksparks (2/4)",   0x1a3070, 0x1a30b0 },
+        { L"Special/Overdrive Blocksparks (3/4)",   0x1a4990, 0x1a49d0 },
+        { L"Special/Overdrive Blocksparks (4/4)",   0x1a65f0, 0x1a6630 },
+        { L"Fautless Defense Blocksparks (1/2)",    0x21d560, 0x21d5a0 },
+        { L"Fautless Defense Blocksparks (2/2)",    0x21d6a0, 0x21d6e0 },
+        { L"Successful Slashback ring",             0x21dbc0, 0x21dc00 },
+
+        //missing: move clashes, failed slashback, faultless defense rings, airdash rings, pot buster/di 2nd rings, and maybe include blood? altho blood is buggy in +R
+        { L"Ground bounce/Wall splat",          0x1cc170, 0x1cc1b0 },
+        { L"Throw Clash (1/2)",                 0x1ca830, 0x1ca870 },
+        { L"Throw Clash (2/2)",                 0x1ca9f0, 0x1caa30 },
+        { L"Instant Kill Activate Effects",     0x1ca2b0, 0x1ca2f0 },
+        { L"(GG Mode) Charging orb",            0x1cb570, 0x1cb5b0 },
+        { L"Burning Flames (1/3)",              0x1b2f30, 0x1b2f70 },
+        { L"Burning Flames (2/3)",              0x1b50c0, 0x1b5100 },
+        { L"Burning Flames (3/3)",              0x1b7020, 0x1b7060 },
+        { L"Airdash Sparks",                    0x1c9160, 0x1c91a0 },
 
         //Dust effects for movement, certain stages swap these out for stage specific effects that can be found in the stages file
         //eg. Grove uses water effects, which palettes are stored in bg_dz.cmp, and not with these otherwise universal effects
