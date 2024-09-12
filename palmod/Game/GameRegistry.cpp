@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 204, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 205, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -292,7 +292,8 @@ namespace KnownGameInfo
     CGameClass* Make_MVC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_A(nConfirmedROMSize); }
     CGameClass* Make_MVC_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_D(nConfirmedROMSize); }
     CGameClass* Make_MVC_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_P(nConfirmedROMSize); }
-    CGameClass* Make_MVC2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize); }
+    CGameClass* Make_MVC2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_A); }
+    CGameClass* Make_MVC2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_S); }
     CGameClass* Make_MVC2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_MVC2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize); }
     CGameClass* Make_MVC2_D_16(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize); }
@@ -1289,7 +1290,7 @@ namespace KnownGameInfo
             // Unlocked\MarvelVsCapcom2_unlocked.bin
             { MVC2_A,           L"MvC2", L"MvC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", GamePlatform::SegaNAOMI },
             Make_MVC2_A,
-            CGame_MVC2_A::GetRule,
+            CGame_MVC2_A::GetRule_A,
         },
         {
             MVC2_A_DIR,
@@ -1330,6 +1331,13 @@ namespace KnownGameInfo
             CGame_MVC2_P::GetNextRule,
             CGame_MVC2_P::GetRuleCtr,
             CGame_MVC2_P::ResetRuleCtr,
+        },
+        {
+            MVC2_S,
+            L"MvC2 (Steam)",
+            { MVC2_S,           L"MvC2", L"MvC2 (Steam)|mvsc2.21D3D8A7|", GamePlatform::Steam },
+            Make_MVC2_S,
+            CGame_MVC2_A::GetRule_S,
         },
         {
             MWARR_A,
@@ -1969,7 +1977,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 204, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 205, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

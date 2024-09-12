@@ -27,7 +27,7 @@ void CGame_MVC2_A::InitializeStatics()
     m_MainDescTree.SetRootTree(CGame_MVC2_A::InitDescTree());
 }
 
-CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize)
+CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /* = MVC2_A */)
 {
     OutputDebugString(L"CGame_MVC2_A::CGame_MVC2_A: Loading ROM...\n");
 
@@ -48,14 +48,21 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize)
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x260a9c0;
+    if (nROMToLoad == MVC2_A)
+    {
+        m_nLowestKnownPaletteRomLocation = 0x260a9c0;
+    }
+    else
+    {
+        m_nLowestKnownPaletteRomLocation = 0x1DDDD60;
+    }
 
     m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
     //Set game information
-    m_nGameFlag = MVC2_A;
+    m_nGameFlag = nROMToLoad;
     m_nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = MVC2_IMGIDS_USED;
 
@@ -137,7 +144,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_MVC2_A::GetRule(uint32_t nUnitId)
+sFileRule CGame_MVC2_A::GetRule_A(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -145,7 +152,20 @@ sFileRule CGame_MVC2_A::GetRule(uint32_t nUnitId)
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Marvel vs. Capcom 2.dat");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize_A;
+
+    return NewFileRule;
+}
+
+sFileRule CGame_MVC2_A::GetRule_S(uint32_t nUnitId)
+{
+    sFileRule NewFileRule;
+
+    // This value is only used for directory-based games
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"mvsc2.21D3D8A7");
+
+    NewFileRule.uUnitId = 0;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize_S;
 
     return NewFileRule;
 }
@@ -231,6 +251,78 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            if (!UseArcadeMode())
+            {
+                const std::vector<int32_t> shiftTable =
+                {
+                    // These values are the NAOMI locations vs the Steam locations
+                    // The delta the operation establishes lets us quickly adjust things 
+                    // for Steam
+                    /* Ryu */ 0x260a9c0 - 0x82CC60,
+                    /* Zangief */ 0x26e2240 - 0x9049A0,
+                    /* Guile */ 0x2775160 - 0x997A20,
+                    /* Morrigan */ 0x283a360 - 0xA5D320,
+                    /* Anakaris */ 0x2954600 - 0xB77B60,
+                    /* Strider */ 0x2a2c5e0 - 0xC4FE20,
+                    /* Cyclops */ 0x2b13440 - 0xD36F80,
+                    /* Wolverine */ 0x2c0eba0 - 0xE32D20,
+                    /* Psylocke */ 0x2d104e0 - 0xF34940,
+                    /* Iceman */ 0x2dfb5c0 - 0x10201E0,
+                    /* Rogue */ 0x2ee2140 - 0x1107480,
+                    /* CapAm */ 0x2fd03e0 - 0x11F58A0,
+                    /* Spidey */ 0x30ae9c0 - 0x12D44C0,
+                    /* Hulk */ 0x31c9400 - 0x13EEF80,
+                    /* Venom */ 0x32ed120 - 0x1512e20,
+                    /* DrDoom */ 0x33ffa40 - 0x1625A40,
+                    /* Tron */ 0x35175c0 - 0x173D7C0,
+                    /* Jill */ 0x35f3160 - 0x1819B40,
+                    /* Hayato */ 0x36f0740 - 0x19176C0,
+                    /* Ruby */ 0x37f9ce0 - 0x1A20D00,
+                    /* SonSon */ 0x39136c0 - 0x1B3A8C0,
+                    /* Amingo */ 0x3a2c760 - 0x1C53DE0,
+                    /* Marrow */ 0x3b214a0 - 0x1D48E20,
+                    /* Cable */ 0x3c2d5a0 - 0x1E55220,
+                    /* Abyss 1 */ 0x3d19480 - 0x1F41800,
+                    /* Abyss 2 */ 0x3da68e0 - 0x1FCED80,
+                    /* Abyss 3 */ 0x3e80560 - 0x20A8DA0,
+                    /* ChunLi */ 0x3f00960 - 0x2129520,
+                    /* Megaman */ 0x3f93960 - 0x21BC920,
+                    /* Roll */ 0x4007740 - 0x2230DE0,
+                    /* Akuma */ 0x4090ce0 - 0x22BA5A0,
+                    /* BBHood */ 0x41aae60 - 0x23D4AA0,
+                    /* Felicia */ 0x42d2080 - 0x24FC100,
+                    /* Charlie */ 0x433f100 - 0x25691A0,
+                    /* Sakura */ 0x4405b60 - 0x2630380,
+                    /* Dan */ 0x44540c0 - 0x267EB60,
+                    /* Cammy */ 0x44f3b80 - 0x271EBE0,
+                    /* Dhalsim */ 0x45aa820 - 0x27D5F20,
+                    /* Bison */ 0x462f340 - 0x285B0A0,
+                    /* Ken */ 0x46b5660 - 0x28E1AE0,
+                    /* Gambit */ 0x479ec80 - 0x29CB740,
+                    /* Juggy */ 0x48cb760 - 0x2AF8860,
+                    /* Storm */ 0x49d9e80 - 0x2C070E0,
+                    /* Sabretooth */ 0x4adb360 - 0x2D089E0,
+                    /* Magneto */ 0x4bf21c0 - 0x2e1ff80,
+                    /* Shuma-Gorath */ 0x4cda620 - 0x2F08560,
+                    /* WarMachine */ 0x4ddab80 - 0x30091A0,
+                    /* SilverSam */ 0x4ef6120 - 0x3124EC0,
+                    /* OmegaRed */ 0x4ff4940 - 0x3223B60,
+                    /* Spiral */ 0x5109fa0 - 0x3339480,
+                    /* Colossus */ 0x5235a60 - 0x34652C0,
+                    /* IronMan */ 0x53384c0 - 0x35683A0,
+                    /* Sent */ 0x545e420 - 0x368E840,
+                    /* Blackheart */ 0x5585400 - 0x37B5EE0,
+                    /* Thanos */ 0x5673e40 - 0x38A4C80,
+                    /* Jin */ 0x5758480 - 0x3989460,
+                    /* CapCom */ 0x5847ec0 - 0x3A793A0,
+                    /* Bonerine */ 0x59472a0 - 0x3B78B00,
+                    /* Kobun */ 0x59acdc0 - 0x3BDEB20,
+                    0,  // Team View virtual unit
+                };
+
+                m_nCurrentPaletteROMLocation -= shiftTable.at(nUnitId);
+            }
         }
         else
         {

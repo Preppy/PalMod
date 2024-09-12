@@ -18,17 +18,19 @@ public:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     static constexpr auto EXTRA_FILENAME_MVC2_A = L"MVC2e.txt";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x889B600; // 143,242,752 bytes
+    static constexpr uint32_t m_nExpectedGameROMSize_A = 0x889B600; // 143,242,752 bytes
+    static constexpr uint32_t m_nExpectedGameROMSize_S = 0x6B6B040; // 112,635,968 bytes
 
 public:
-    CGame_MVC2_A(uint32_t nConfirmedROMSize);
+    CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = MVC2_A);
     ~CGame_MVC2_A();
 
     //Static functions / variables
     static CDescTree m_MainDescTree;
 
     static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
+    static sFileRule GetRule_A(uint32_t nUnitId);
+    static sFileRule GetRule_S(uint32_t nUnitId);
 
     //Extra palette function
     static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
@@ -53,6 +55,8 @@ public:
 
     uint32_t GetBasicOffset(uint32_t nPalId);
     int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
+
+    inline bool UseArcadeMode() { return m_nGameFlag == MVC2_A; };
 
     static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };
