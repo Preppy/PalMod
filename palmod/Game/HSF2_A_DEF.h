@@ -903,7 +903,7 @@ const sGame_PaletteDataset HSF2_A_CAMMY_ST_PALETTES[] =
     { L"Short Super Trail 1", 0x4b788, 0x4b7a8, indexSF2Sprites_Cammy },
     { L"Short Super Trail 2", 0x4b7a8, 0x4b7c8, indexSF2Sprites_Cammy },
     { L"Short Super Trail 3", 0x4b7c8, 0x4B7E8, indexSF2Sprites_Cammy },
-    { L"Forward", 0x4b7ea, 0x4b7fa, indexSF2Sprites_Cammy },
+    { L"Forward", 0x4b7ea, 0x4b80a, indexSF2Sprites_Cammy },
     { L"Forward Super Trail 1", 0x4b82a, 0x4b84a, indexSF2Sprites_Cammy },
     { L"Forward Super Trail 2", 0x4b84a, 0x4b86a, indexSF2Sprites_Cammy },
     { L"Forward Super Trail 3", 0x4b86a, 0x4B88A, indexSF2Sprites_Cammy },
