@@ -115,3 +115,46 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_MSH_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"mshh.21D3D8A7", 0x2C50040 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"MSH (Steam - World)", L"mshh.21D3D8A7", 0x6a9f2afa, 0x16218c - 0x6214c },
+        { L"MSH (Steam - Japan)", L"mshj.21D3D8A7", 0xb24cac5c, 0x16218c - 0x6214c },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"MSH (Steam)",
+        MSH_S,
+        IMGDAT_SECTION_CPS2,
+        MSH_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        MSH_UNITS_05,
+        ARRAYSIZE(MSH_UNITS_05),
+        L"MSHSe.txt",       // Extra filename
+        501,                // Count of palettes listed in the header
+        0x60f4c + 0x16218c - 0x6214c, // Lowest known location used for palettes
+    };
+
+public:
+    CGame_MSH_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

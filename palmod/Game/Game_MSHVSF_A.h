@@ -9,6 +9,8 @@ private:
     {
         ROM06,
         ROM07,
+        Steam_J,
+        Steam_U,
     };
 
     static MSHVSFLoadingKey m_eVersionToLoad;
@@ -25,6 +27,14 @@ private:
     {
         {
             { L"mvs.07b", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Steam =
+    {
+        {
+            { L"mshvsfj.21D3D8A7", 0x3050040 },
         },
         FileReadType::Sequential,
     };
@@ -72,7 +82,9 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
 #endif
         { L"MSHvSF (CPS2, Characters)", L"mvs.06a", 0x959f3030, 0 },
         { L"MSHvSF (CPS2, Portraits)", L"mvs.07b", 0x7f915bdb, 0 },
-};
+        { L"MSHvSF (Steam - Japan)", L"mshvsfj.21D3D8A7", 0x5ba987f4, 0x1f2c0c - 0x72bcc },
+        { L"MSHvSF (Steam - USA)", L"mshvsfu.21D3D8A7", 0xaf9f7546, 0x1f2c0c - 0x72bcc },
+    };
 
     const sCoreGameData m_sCoreGameData_ROM06
     {
@@ -92,6 +104,26 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         L"mshvsf-6ae.txt",      // Extra filename
         1099,                   // Count of palettes listed in the header
         0x56EF2,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Steam
+    {
+        L"MSHVSF (Steam)",
+        MSHVSF_S,
+        IMGDAT_SECTION_CPS2,
+        MSHVSF_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_Steam,
+        m_rgCRC32Data,
+        MSHVSF_A_UNITS_6A,
+        ARRAYSIZE(MSHVSF_A_UNITS_6A),
+        L"mshvsfSe.txt",                // Extra filename
+        1099,                           // Count of palettes listed in the header
+        0x56EF2 + 0x1f2c0c - 0x72bcc,   // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM07

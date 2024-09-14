@@ -83,3 +83,46 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_COTA_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"xmcotaj.21D3D8A7", 0x2C50040 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"X-Men: Children of the Atom (Steam - Japan)", L"xmcotaj.21D3D8A7", 0x51144b70, 0x12687c - 0x2683c },
+        { L"X-Men: Children of the Atom (Steam - USA)", L"xmcotau.21D3D8A7", 0x1c94ded1, 0x12687c - 0x2683c },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"X-Men: Children of the Atom (Steam)",
+        COTA_A,
+        IMGDAT_SECTION_CPS2,
+        COTA_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        COTA_A_UNITS,
+        ARRAYSIZE(COTA_A_UNITS),
+        L"CotASe.txt",                  // Extra filename
+        479,                            // Count of palettes listed in the header
+        0x2600e + 0x12687c - 0x2683c,   // Lowest known location used for palettes
+    };
+
+public:
+    CGame_COTA_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

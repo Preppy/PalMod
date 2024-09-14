@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 205, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 210, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -248,7 +248,10 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             seriesMenu[2].CreatePopupMenu();
             seriesMenu[3].CreatePopupMenu();
 
-            if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) || (static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) || (static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo))
+            if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) ||
+                (static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) ||
+                (static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) ||
+                (static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam))
             {
                 // first pass is just the submenus
                 for (const auto& sGametoFileData : rgGameToFileMap)
@@ -293,6 +296,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             LPCWSTR ppszCapcomSubMenu[] = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
             LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
             LPCWSTR ppszNintendoSubMenu[] = { L"DS/3DS", L"GBA", L"SNES" };
+            LPCWSTR ppszSteamSubMenu[] = { L"Marvel vs Capcom" };
 
             for (const auto& sGametoFileData : rgGameToFileMap)
             {
@@ -334,11 +338,25 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                             nCurrentPosition++;
                         }
                     }
+                    else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszSteamSubMenu))))
+                    {
+                        if ((ppszSteamSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
+                            (ppszSteamSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
+                        {
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszSteamSubMenu[nMenuIndex]);
+                            nMenuIndex++;
+                            nCurrentPosition++;
+                        }
+                    }
 
                     if (((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
                         ((static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
                         ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
-                        ((static_cast<GamePlatform>(nPlatform) != GamePlatform::CapcomCPS12) && (static_cast<GamePlatform>(nPlatform) != GamePlatform::NEOGEO) && (static_cast<GamePlatform>(nPlatform) != GamePlatform::Nintendo)))
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
+                            ((static_cast<GamePlatform>(nPlatform) != GamePlatform::CapcomCPS12) &&
+                             (static_cast<GamePlatform>(nPlatform) != GamePlatform::NEOGEO) &&
+                             (static_cast<GamePlatform>(nPlatform) != GamePlatform::Nintendo) &&
+                             (static_cast<GamePlatform>(nPlatform) != GamePlatform::Steam)))
                     {
                         platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                     }

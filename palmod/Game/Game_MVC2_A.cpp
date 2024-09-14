@@ -27,7 +27,7 @@ void CGame_MVC2_A::InitializeStatics()
     m_MainDescTree.SetRootTree(CGame_MVC2_A::InitDescTree());
 }
 
-CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /* = MVC2_A */)
+CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad)
 {
     OutputDebugString(L"CGame_MVC2_A::CGame_MVC2_A: Loading ROM...\n");
 
@@ -252,7 +252,7 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
 
-            if (!UseArcadeMode())
+            if (UseSteamMode())
             {
                 const std::vector<int32_t> shiftTable =
                 {

@@ -22,7 +22,7 @@ public:
     static constexpr uint32_t m_nExpectedGameROMSize_S = 0x6B6B040; // 112,635,968 bytes
 
 public:
-    CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = MVC2_A);
+    CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad);
     ~CGame_MVC2_A();
 
     //Static functions / variables
@@ -56,7 +56,7 @@ public:
     uint32_t GetBasicOffset(uint32_t nPalId);
     int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
-    inline bool UseArcadeMode() { return m_nGameFlag == MVC2_A; };
+    inline bool UseSteamMode() { return m_nGameFlag == MVC2_S; };
 
     static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };

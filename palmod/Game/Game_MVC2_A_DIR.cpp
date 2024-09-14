@@ -11,7 +11,7 @@ constexpr auto MVC2_Arcade_NumberOfSIMMs = 8;
 #define MVC2_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
 CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize) :
-        CGame_MVC2_A(c_nMVC2SIMMLength)
+        CGame_MVC2_A(c_nMVC2SIMMLength, MVC2_A_DIR)
 {
     OutputDebugString(L"CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n");
     m_nGameFlag = MVC2_A_DIR;

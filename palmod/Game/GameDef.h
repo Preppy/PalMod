@@ -227,6 +227,11 @@ enum SupportedGamesList
     KOF99_A,
     SVC_S,
     MVC2_S,
+    COTA_S,
+    MSH_S,
+    MSHVSF_S,
+    MVC_S,
+    XMVSF_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 205, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 210, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -198,6 +198,7 @@ namespace KnownGameInfo
     CGameClass* Make_CFE_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFE_P(nConfirmedROMSize); }
     CGameClass* Make_CFTE_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFTE_SNES(nConfirmedROMSize); }
     CGameClass* Make_COTA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_A(nConfirmedROMSize); }
+    CGameClass* Make_COTA_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_S(nConfirmedROMSize); }
     CGameClass* Make_CVS1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS1_A(nConfirmedROMSize); }
     CGameClass* Make_CVS2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_A(nConfirmedROMSize); }
     CGameClass* Make_CVS2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_D(nConfirmedROMSize); }
@@ -289,9 +290,11 @@ namespace KnownGameInfo
     CGameClass* Make_MSHVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHVSF_P(nConfirmedROMSize); }
     CGameClass* Make_MSHWOTG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHWOTG_SNES(nConfirmedROMSize); }
     CGameClass* Make_MSH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSH_A(nConfirmedROMSize); }
+    CGameClass* Make_MSH_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSH_S(nConfirmedROMSize); }
     CGameClass* Make_MVC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_A(nConfirmedROMSize); }
     CGameClass* Make_MVC_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_D(nConfirmedROMSize); }
     CGameClass* Make_MVC_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_P(nConfirmedROMSize); }
+    CGameClass* Make_MVC_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_S(nConfirmedROMSize); }
     CGameClass* Make_MVC2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_A); }
     CGameClass* Make_MVC2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_S); }
     CGameClass* Make_MVC2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A_DIR(nConfirmedROMSize); }
@@ -379,6 +382,7 @@ namespace KnownGameInfo
     CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_A(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_P(nConfirmedROMSize); }
+    CGameClass* Make_XMVSF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_S(nConfirmedROMSize); }
 
     struct CoreGameData
     {
@@ -537,6 +541,13 @@ namespace KnownGameInfo
             { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
             Make_COTA_A,
             CGame_COTA_A::GetRule,
+        },
+        {
+            COTA_S,
+            L"X-Men: COTA (Steam)",
+            { COTA_S,           L"COTA", L"COTA (Steam)|xmcota?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            Make_COTA_S,
+            CGame_COTA_S::GetRule,
         },
         {
             CVS1_A,
@@ -1180,11 +1191,11 @@ namespace KnownGameInfo
             CGame_MSH_A::GetRule,
         },
         {
-            MVC_A,
-            L"MvC (CPS2 Arcade)",
-            { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (Arcade)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
-            Make_MVC_A,
-            CGame_MVC_A::GetRule,
+            MSH_S,
+            L"MSH (Steam)",
+            { MSH_S,            L"Marvel Super Heroes", L"MSH (Steam)|msh?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            Make_MSH_S,
+            CGame_MSH_S::GetRule,
         },
         {
             MVC_D,
@@ -1202,6 +1213,13 @@ namespace KnownGameInfo
             CGame_MVC_P::GetNextRule,
             CGame_MVC_P::GetRuleCtr,
             CGame_MVC_P::ResetRuleCtr,
+        },
+        {
+            MVC_S,
+            L"MvC (Steam)",
+            { MVC_S,            L"Marvel vs Capcom", L"MvC (Steam)|mvsc?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            Make_MVC_S,
+            CGame_MVC_S::GetRule,
         },
         {
             MMX_SNES,
@@ -1277,6 +1295,13 @@ namespace KnownGameInfo
             CGame_MSHVSF_P::ResetRuleCtr,
         },
         {
+            MSHVSF_S,
+            L"MSHvSF (Steam)",
+            { MSHVSF_S,         L"MSHvSF", L"MSHvSF (Steam)|mshvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            Make_MSHVSF_A,
+            CGame_MSHVSF_A::GetRule,
+        },
+        {
             MSHWOTG_SNES,
             L"Marvel Super Heroes: War of the Gems (SNES)",
             { MSHWOTG_SNES,     L"MSH: War of the Gems", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -1335,7 +1360,7 @@ namespace KnownGameInfo
         {
             MVC2_S,
             L"MvC2 (Steam)",
-            { MVC2_S,           L"MvC2", L"MvC2 (Steam)|mvsc2.21D3D8A7|", GamePlatform::Steam },
+            { MVC2_S,           L"MvC2", L"MvC2 (Steam)|mvsc2.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
             Make_MVC2_S,
             CGame_MVC2_A::GetRule_S,
         },
@@ -1967,6 +1992,13 @@ namespace KnownGameInfo
             CGame_XMVSF_P::GetRuleCtr,
             CGame_XMVSF_P::ResetRuleCtr,
         },
+        {
+            XMVSF_S,
+            L"XMvSF",
+            { XMVSF_S,          L"XMvSF", L"XMvSF (Steam)|xmvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            Make_XMVSF_S,
+            CGame_XMVSF_S::GetRule,
+        },
 
         {
             NEOGEO_A,
@@ -1977,7 +2009,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 205, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 210, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
@@ -2102,6 +2134,7 @@ namespace KnownGameInfo
             CGame_MSH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case MSHVSF_A:
+        case MSHVSF_S:
             CGame_MSHVSF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case REDEARTH_A:
