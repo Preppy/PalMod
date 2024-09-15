@@ -1198,6 +1198,13 @@ namespace KnownGameInfo
             CGame_MSH_S::GetRule,
         },
         {
+            MVC_A,
+            L"MvC (CPS2 Arcade)",
+            { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (Arcade)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+            Make_MVC_A,
+            CGame_MVC_A::GetRule,
+        },
+        {
             MVC_D,
             L"MvC (Dreamcast)",
             { MVC_D,            L"Marvel vs Capcom (Dreamcast)", L"MvC (Dreamcast)|0.bin|", GamePlatform::CapcomCPS12, GameSeries::MvC },
