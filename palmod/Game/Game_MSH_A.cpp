@@ -56,3 +56,41 @@ sFileRule CGame_MSH_A::GetRule(uint32_t nRuleId)
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM06);
     }
 }
+
+// Use this to handle treating the split CPS2 ROMs as one monolithic unit for Steam
+void CGame_MSH_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    if (nUnitId != m_nCurrentExtraUnitId)
+    {
+        int cbPaletteSizeOnDisc = 0;
+        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
+
+        cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
+
+        m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+        m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+        if (m_pCRC32SpecificData)
+        {
+            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+        }
+
+        // This handles the Steam version being monolithic.  
+        // These specific units are from the 2nd ROM, so offset by one unit
+        if ((nUnitId == 13) || (nUnitId == 14) || (nUnitId == 16))
+        {
+            m_nCurrentPaletteROMLocation += 0x80000;
+        }
+    }
+    else // MSH_S_EXTRALOC
+    {
+        // This is where we handle all the palettes added in via Extra.
+        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = pCurrDef->szDesc;
+    }
+}
+

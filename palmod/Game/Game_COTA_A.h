@@ -104,7 +104,7 @@ private:
     const sCoreGameData m_sCoreGameData
     {
         L"X-Men: Children of the Atom (Steam)",
-        COTA_A,
+        COTA_S,
         IMGDAT_SECTION_CPS2,
         COTA_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },

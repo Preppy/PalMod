@@ -146,15 +146,17 @@ private:
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
         m_rgCRC32Data,
-        MSH_UNITS_05,
-        ARRAYSIZE(MSH_UNITS_05),
-        L"MSHSe.txt",       // Extra filename
-        501,                // Count of palettes listed in the header
-        0x60f4c + 0x16218c - 0x6214c, // Lowest known location used for palettes
+        MSH_UNITS_STEAM,
+        ARRAYSIZE(MSH_UNITS_STEAM),
+        L"MSHSe.txt",           // Extra filename
+        573,                    // Count of palettes listed in the header
+        0x160f8c - 0x100040,    // Lowest known location used for palettes
     };
 
 public:
     CGame_MSH_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

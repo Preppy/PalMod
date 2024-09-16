@@ -92,6 +92,15 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         {
             m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
         }
+
+        if (m_nGameFlag == MSHVSF_S)
+        {
+            // For Steam, we can handle the split ROMs as one unit.  Adjust the 07 units for the offset.
+            if ((nUnitId == 27) || (nUnitId == 29))
+            {
+                m_nCurrentPaletteROMLocation += 0x80000;
+            }
+        }
     }
     else // MSHVSF_A_EXTRALOC
     {

@@ -925,144 +925,144 @@ const sGame_PaletteDataset COTA_A_BONUS_BONUS_PALETTES[] =
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_STATUS[] =
 {
     //Colossus
-    { L"Colossus Frozen 1", 0x3d7d6, 0x3d7f6, indexCPS2Sprites_Colossus, 0x00 },
-    { L"Colossus Frozen 2", 0x3d7f6, 0x3d816, indexCPS2Sprites_Colossus, 0x00 },
-    { L"Colossus Burned 1", 0x3d816, 0x3d836, indexCPS2Sprites_Colossus, 0x00 },
-    { L"Colossus Burned 2", 0x3d836, 0x3d856, indexCPS2Sprites_Colossus, 0x00 },
-    { L"Colossus Zapped 1", 0x3d856, 0x3d876, indexCPS2Sprites_Colossus, 0x00 },
-    { L"Colossus Zapped 2", 0x3d876, 0x3d896, indexCPS2Sprites_Colossus, 0x00 },
+    { L"Frozen 1", 0x3d7d6, 0x3d7f6, indexCPS2Sprites_Colossus, 0x00 },
+    { L"Frozen 2", 0x3d7f6, 0x3d816, indexCPS2Sprites_Colossus, 0x00 },
+    { L"Burned 1", 0x3d816, 0x3d836, indexCPS2Sprites_Colossus, 0x00 },
+    { L"Burned 2", 0x3d836, 0x3d856, indexCPS2Sprites_Colossus, 0x00 },
+    { L"Zapped 1", 0x3d856, 0x3d876, indexCPS2Sprites_Colossus, 0x00 },
+    { L"Zapped 2", 0x3d876, 0x3d896, indexCPS2Sprites_Colossus, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_STATUS[] =
 {
     //Cyclops
-    { L"Cyclops Frozen 1", 0x3d896, 0x3d8b6, indexCPS2Sprites_Cyclops, 0x00 },
-    { L"Cyclops Frozen 2", 0x3d8b6, 0x3d8d6, indexCPS2Sprites_Cyclops, 0x00 },
-    { L"Cyclops Burned 1", 0x3d8d6, 0x3d8f6, indexCPS2Sprites_Cyclops, 0x00 },
-    { L"Cyclops Burned 2", 0x3d8f6, 0x3d916, indexCPS2Sprites_Cyclops, 0x00 },
-    { L"Cyclops Zapped 1", 0x3d916, 0x3d936, indexCPS2Sprites_Cyclops, 0x00 },
-    { L"Cyclops Zapped 2", 0x3d936, 0x3d956, indexCPS2Sprites_Cyclops, 0x00 },
+    { L"Frozen 1", 0x3d896, 0x3d8b6, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Frozen 2", 0x3d8b6, 0x3d8d6, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Burned 1", 0x3d8d6, 0x3d8f6, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Burned 2", 0x3d8f6, 0x3d916, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Zapped 1", 0x3d916, 0x3d936, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Zapped 2", 0x3d936, 0x3d956, indexCPS2Sprites_Cyclops, 0x80 },
 };
 
 const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_STATUS[] =
 {
     //Iceman
-    { L"Iceman Frozen 1", 0x3da16, 0x3da36, indexCPS2Sprites_Iceman, 0x00 },
-    { L"Iceman Frozen 2", 0x3da36, 0x3da56, indexCPS2Sprites_Iceman, 0x00 },
-    { L"Iceman Burned 1", 0x3da56, 0x3da76, indexCPS2Sprites_Iceman, 0x00 },
-    { L"Iceman Burned 2", 0x3da76, 0x3da96, indexCPS2Sprites_Iceman, 0x00 },
-    { L"Iceman Zapped 1", 0x3da96, 0x3dab6, indexCPS2Sprites_Iceman, 0x00 },
-    { L"Iceman Zapped 2", 0x3dab6, 0x3dad6, indexCPS2Sprites_Iceman, 0x00 },
+    { L"Frozen 1", 0x3da16, 0x3da36, indexCPS2Sprites_Iceman, 0x00 },
+    { L"Frozen 2", 0x3da36, 0x3da56, indexCPS2Sprites_Iceman, 0x00 },
+    { L"Burned 1", 0x3da56, 0x3da76, indexCPS2Sprites_Iceman, 0x00 },
+    { L"Burned 2", 0x3da76, 0x3da96, indexCPS2Sprites_Iceman, 0x00 },
+    { L"Zapped 1", 0x3da96, 0x3dab6, indexCPS2Sprites_Iceman, 0x00 },
+    { L"Zapped 2", 0x3dab6, 0x3dad6, indexCPS2Sprites_Iceman, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_STATUS[] =
 {
     //Juggernaut
-    { L"Juggernaut Frozen 1", 0x3ddd6, 0x3ddf6, indexCPS2Sprites_Juggy, 0x00 },
-    { L"Juggernaut Frozen 2", 0x3ddf6, 0x3de16, indexCPS2Sprites_Juggy, 0x00 },
-    { L"Juggernaut Burned 1", 0x3de16, 0x3de36, indexCPS2Sprites_Juggy, 0x00 },
-    { L"Juggernaut Burned 2", 0x3de36, 0x3de56, indexCPS2Sprites_Juggy, 0x00 },
-    { L"Juggernaut Zapped 1", 0x3de56, 0x3de76, indexCPS2Sprites_Juggy, 0x00 },
-    { L"Juggernaut Zapped 2", 0x3de76, 0x3de96, indexCPS2Sprites_Juggy, 0x00 },
+    { L"Frozen 1", 0x3ddd6, 0x3ddf6, indexCPS2Sprites_Juggy, 0x00 },
+    { L"Frozen 2", 0x3ddf6, 0x3de16, indexCPS2Sprites_Juggy, 0x00 },
+    { L"Burned 1", 0x3de16, 0x3de36, indexCPS2Sprites_Juggy, 0x00 },
+    { L"Burned 2", 0x3de36, 0x3de56, indexCPS2Sprites_Juggy, 0x00 },
+    { L"Zapped 1", 0x3de56, 0x3de76, indexCPS2Sprites_Juggy, 0x00 },
+    { L"Zapped 2", 0x3de76, 0x3de96, indexCPS2Sprites_Juggy, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_STATUS[] =
 {
     //Magneto
-    { L"Magneto Frozen 1", 0x3de96, 0x3deb6, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Magneto Frozen 2", 0x3deb6, 0x3ded6, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Magneto Burned 1", 0x3ded6, 0x3def6, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Magneto Burned 2", 0x3def6, 0x3df16, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Magneto Zapped 1", 0x3df16, 0x3df36, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Magneto Zapped 2", 0x3df36, 0x3df56, indexCPS2Sprites_Magneto, 0x00 },
+    { L"Frozen 1", 0x3de96, 0x3deb6, indexCPS2Sprites_Magneto, 0x00 },
+    { L"Frozen 2", 0x3deb6, 0x3ded6, indexCPS2Sprites_Magneto, 0x00 },
+    { L"Burned 1", 0x3ded6, 0x3def6, indexCPS2Sprites_Magneto, 0x00 },
+    { L"Burned 2", 0x3def6, 0x3df16, indexCPS2Sprites_Magneto, 0x00 },
+    { L"Zapped 1", 0x3df16, 0x3df36, indexCPS2Sprites_Magneto, 0x00 },
+    { L"Zapped 2", 0x3df36, 0x3df56, indexCPS2Sprites_Magneto, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_STATUS[] =
 {
     //Omega Red
-    { L"Omega Red Frozen 1", 0x3dc56, 0x3dc76, indexCPS2Sprites_OmegaRed, 0x00 },
-    { L"Omega Red Frozen 2", 0x3dc76, 0x3dc96, indexCPS2Sprites_OmegaRed, 0x00 },
-    { L"Omega Red Burned 1", 0x3dc96, 0x3dcb6, indexCPS2Sprites_OmegaRed, 0x00 },
-    { L"Omega Red Burned 2", 0x3dcb6, 0x3dcd6, indexCPS2Sprites_OmegaRed, 0x00 },
-    { L"Omega Red Zapped 1", 0x3dcd6, 0x3dcf6, indexCPS2Sprites_OmegaRed, 0x00 },
-    { L"Omega Red Zapped 2", 0x3dcf6, 0x3dd16, indexCPS2Sprites_OmegaRed, 0x00 },
+    { L"Frozen 1", 0x3dc56, 0x3dc76, indexCPS2Sprites_OmegaRed, 0x00 },
+    { L"Frozen 2", 0x3dc76, 0x3dc96, indexCPS2Sprites_OmegaRed, 0x00 },
+    { L"Burned 1", 0x3dc96, 0x3dcb6, indexCPS2Sprites_OmegaRed, 0x00 },
+    { L"Burned 2", 0x3dcb6, 0x3dcd6, indexCPS2Sprites_OmegaRed, 0x00 },
+    { L"Zapped 1", 0x3dcd6, 0x3dcf6, indexCPS2Sprites_OmegaRed, 0x00 },
+    { L"Zapped 2", 0x3dcf6, 0x3dd16, indexCPS2Sprites_OmegaRed, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_STATUS[] =
 {
     //Psylocke
-    { L"Psylocke Frozen 1", 0x3d716, 0x3d736, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Psylocke Frozen 2", 0x3d736, 0x3d756, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Psylocke Burned 1", 0x3d756, 0x3d776, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Psylocke Burned 2", 0x3d776, 0x3d796, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Psylocke Zapped 1", 0x3d796, 0x3d7b6, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Psylocke Zapped 2", 0x3d7b6, 0x3d7d6, indexCPS2Sprites_Psylocke, 0x00 },
+    { L"Frozen 1", 0x3d716, 0x3d736, indexCPS2Sprites_Psylocke, 0x00 },
+    { L"Frozen 2", 0x3d736, 0x3d756, indexCPS2Sprites_Psylocke, 0x00 },
+    { L"Burned 1", 0x3d756, 0x3d776, indexCPS2Sprites_Psylocke, 0x00 },
+    { L"Burned 2", 0x3d776, 0x3d796, indexCPS2Sprites_Psylocke, 0x00 },
+    { L"Zapped 1", 0x3d796, 0x3d7b6, indexCPS2Sprites_Psylocke, 0x00 },
+    { L"Zapped 2", 0x3d7b6, 0x3d7d6, indexCPS2Sprites_Psylocke, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_STATUS[] =
 {
     //Sentinel
-    { L"Sentinel Frozen 1", 0x3dd16, 0x3dd36, indexCPS2Sprites_Sentinel, 0x20 },
-    { L"Sentinel Frozen 2", 0x3dd36, 0x3dd56, indexCPS2Sprites_Sentinel, 0x20 },
-    { L"Sentinel Burned 1", 0x3dd56, 0x3dd76, indexCPS2Sprites_Sentinel, 0x20 },
-    { L"Sentinel Burned 2", 0x3dd76, 0x3dd96, indexCPS2Sprites_Sentinel, 0x20 },
-    { L"Sentinel Zapped 1", 0x3dd96, 0x3ddb6, indexCPS2Sprites_Sentinel, 0x20 },
-    { L"Sentinel Zapped 2", 0x3ddb6, 0x3ddd6, indexCPS2Sprites_Sentinel, 0x20 },
+    { L"Frozen 1", 0x3dd16, 0x3dd36, indexCPS2Sprites_Sentinel, 0x80 },
+    { L"Frozen 2", 0x3dd36, 0x3dd56, indexCPS2Sprites_Sentinel, 0x80 },
+    { L"Burned 1", 0x3dd56, 0x3dd76, indexCPS2Sprites_Sentinel, 0x80 },
+    { L"Burned 2", 0x3dd76, 0x3dd96, indexCPS2Sprites_Sentinel, 0x80 },
+    { L"Zapped 1", 0x3dd96, 0x3ddb6, indexCPS2Sprites_Sentinel, 0x80 },
+    { L"Zapped 2", 0x3ddb6, 0x3ddd6, indexCPS2Sprites_Sentinel, 0x80 },
 };
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_STATUS[] =
 {
     //Silver Samurai
-    { L"Silver Samurai Frozen 1", 0x3db96, 0x3dbb6, indexCPS2Sprites_SilverSamurai, 0x00 },
-    { L"Silver Samurai Frozen 2", 0x3dbb6, 0x3dbd6, indexCPS2Sprites_SilverSamurai, 0x00 },
-    { L"Silver Samurai Burned 1", 0x3dbd6, 0x3dbf6, indexCPS2Sprites_SilverSamurai, 0x00 },
-    { L"Silver Samurai Burned 2", 0x3dbf6, 0x3dc16, indexCPS2Sprites_SilverSamurai, 0x00 },
-    { L"Silver Samurai Zapped 1", 0x3dc16, 0x3dc36, indexCPS2Sprites_SilverSamurai, 0x00 },
-    { L"Silver Samurai Zapped 2", 0x3dc36, 0x3dc56, indexCPS2Sprites_SilverSamurai, 0x00 },
+    { L"Frozen 1", 0x3db96, 0x3dbb6, indexCPS2Sprites_SilverSamurai, 0x00 },
+    { L"Frozen 2", 0x3dbb6, 0x3dbd6, indexCPS2Sprites_SilverSamurai, 0x00 },
+    { L"Burned 1", 0x3dbd6, 0x3dbf6, indexCPS2Sprites_SilverSamurai, 0x00 },
+    { L"Burned 2", 0x3dbf6, 0x3dc16, indexCPS2Sprites_SilverSamurai, 0x00 },
+    { L"Zapped 1", 0x3dc16, 0x3dc36, indexCPS2Sprites_SilverSamurai, 0x00 },
+    { L"Zapped 2", 0x3dc36, 0x3dc56, indexCPS2Sprites_SilverSamurai, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_STATUS[] =
 {
     //Spiral
-    { L"Spiral Frozen 1", 0x3dad6, 0x3daf6, indexCPS2Sprites_Spiral, 0x00 },
-    { L"Spiral Frozen 2", 0x3daf6, 0x3db16, indexCPS2Sprites_Spiral, 0x00 },
-    { L"Spiral Burned 1", 0x3db16, 0x3db36, indexCPS2Sprites_Spiral, 0x00 },
-    { L"Spiral Burned 2", 0x3db36, 0x3db56, indexCPS2Sprites_Spiral, 0x00 },
-    { L"Spiral Zapped 1", 0x3db56, 0x3db76, indexCPS2Sprites_Spiral, 0x00 },
-    { L"Spiral Zapped 2", 0x3db76, 0x3db96, indexCPS2Sprites_Spiral, 0x00 },
+    { L"Frozen 1", 0x3dad6, 0x3daf6, indexCPS2Sprites_Spiral, 0x00 },
+    { L"Frozen 2", 0x3daf6, 0x3db16, indexCPS2Sprites_Spiral, 0x00 },
+    { L"Burned 1", 0x3db16, 0x3db36, indexCPS2Sprites_Spiral, 0x00 },
+    { L"Burned 2", 0x3db36, 0x3db56, indexCPS2Sprites_Spiral, 0x00 },
+    { L"Zapped 1", 0x3db56, 0x3db76, indexCPS2Sprites_Spiral, 0x00 },
+    { L"Zapped 2", 0x3db76, 0x3db96, indexCPS2Sprites_Spiral, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_STORM_PALETTES_STATUS[] =
 {
     //Storm
-    { L"Storm Frozen 1", 0x3d956, 0x3d976, indexCPS2Sprites_Storm, 0x00 },
-    { L"Storm Frozen 2", 0x3d976, 0x3d996, indexCPS2Sprites_Storm, 0x00 },
-    { L"Storm Burned 1", 0x3d996, 0x3d9b6, indexCPS2Sprites_Storm, 0x00 },
-    { L"Storm Burned 2", 0x3d9b6, 0x3d9d6, indexCPS2Sprites_Storm, 0x00 },
-    { L"Storm Zapped 1", 0x3d9d6, 0x3d9f6, indexCPS2Sprites_Storm, 0x00 },
-    { L"Storm Zapped 2", 0x3d9f6, 0x3da16, indexCPS2Sprites_Storm, 0x00 },
+    { L"Frozen 1", 0x3d956, 0x3d976, indexCPS2Sprites_Storm, 0x00 },
+    { L"Frozen 2", 0x3d976, 0x3d996, indexCPS2Sprites_Storm, 0x00 },
+    { L"Burned 1", 0x3d996, 0x3d9b6, indexCPS2Sprites_Storm, 0x00 },
+    { L"Burned 2", 0x3d9b6, 0x3d9d6, indexCPS2Sprites_Storm, 0x00 },
+    { L"Zapped 1", 0x3d9d6, 0x3d9f6, indexCPS2Sprites_Storm, 0x00 },
+    { L"Zapped 2", 0x3d9f6, 0x3da16, indexCPS2Sprites_Storm, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_STATUS[] =
 {
     //Wolverine
-    { L"Wolverine Frozen 1", 0x3d656, 0x3d676, indexCPS2Sprites_Wolverine, 0x00 },
-    { L"Wolverine Frozen 2", 0x3d676, 0x3d696, indexCPS2Sprites_Wolverine, 0x00 },
-    { L"Wolverine Burned 1", 0x3d696, 0x3d6b6, indexCPS2Sprites_Wolverine, 0x00 },
-    { L"Wolverine Burned 2", 0x3d6b6, 0x3d6d6, indexCPS2Sprites_Wolverine, 0x00 },
-    { L"Wolverine Zapped 1", 0x3d6d6, 0x3d6f6, indexCPS2Sprites_Wolverine, 0x00 },
-    { L"Wolverine Zapped 2", 0x3d6f6, 0x3d716, indexCPS2Sprites_Wolverine, 0x00 },
+    { L"Frozen 1", 0x3d656, 0x3d676, indexCPS2Sprites_Wolverine, 0x80 },
+    { L"Frozen 2", 0x3d676, 0x3d696, indexCPS2Sprites_Wolverine, 0x80 },
+    { L"Burned 1", 0x3d696, 0x3d6b6, indexCPS2Sprites_Wolverine, 0x80 },
+    { L"Burned 2", 0x3d6b6, 0x3d6d6, indexCPS2Sprites_Wolverine, 0x80 },
+    { L"Zapped 1", 0x3d6d6, 0x3d6f6, indexCPS2Sprites_Wolverine, 0x80 },
+    { L"Zapped 2", 0x3d6f6, 0x3d716, indexCPS2Sprites_Wolverine, 0x80 },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_STATUS[] =
 {
     //Akuma
-    { L"Akuma Frozen 1", 0x3df56, 0x3df76, indexCPS2Sprites_STAkuma, 0x00 },
-    { L"Akuma Frozen 2", 0x3df76, 0x3df96, indexCPS2Sprites_STAkuma, 0x00 },
-    { L"Akuma Burned 1", 0x3df96, 0x3dfb6, indexCPS2Sprites_STAkuma, 0x00 },
-    { L"Akuma Burned 2", 0x3dfb6, 0x3dfd6, indexCPS2Sprites_STAkuma, 0x00 },
-    { L"Akuma Zapped 1", 0x3dfd6, 0x3dff6, indexCPS2Sprites_STAkuma, 0x00 },
-    { L"Akuma Zapped 2", 0x3dff6, 0x3e016, indexCPS2Sprites_STAkuma, 0x00 },
+    { L"Frozen 1", 0x3df56, 0x3df76, indexCPS2Sprites_STAkuma, 0x00 },
+    { L"Frozen 2", 0x3df76, 0x3df96, indexCPS2Sprites_STAkuma, 0x00 },
+    { L"Burned 1", 0x3df96, 0x3dfb6, indexCPS2Sprites_STAkuma, 0x00 },
+    { L"Burned 2", 0x3dfb6, 0x3dfd6, indexCPS2Sprites_STAkuma, 0x00 },
+    { L"Zapped 1", 0x3dfd6, 0x3dff6, indexCPS2Sprites_STAkuma, 0x00 },
+    { L"Zapped 2", 0x3dff6, 0x3e016, indexCPS2Sprites_STAkuma, 0x00 },
 };
 
 const sGame_PaletteDataset COTA_A_HUD_PALETTES[] =

@@ -873,14 +873,14 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x2a2cbe0, 0x2a2cc00, indexCPS2Sprites_Strider, 0 },
-    { L"Burning Light", 0x2a2cc00, 0x2a2cc20, indexCPS2Sprites_Strider, 0 },
-    { L"Shocked Dark", 0x2a2cc20, 0x2a2cc40, indexCPS2Sprites_Strider, 0 },
-    { L"Shocked Light", 0x2a2cc40, 0x2a2cc60, indexCPS2Sprites_Strider, 0 },
-    { L"Dark Burning Dark", 0x2a2cc60, 0x2a2cc80, indexCPS2Sprites_Strider, 0 },
-    { L"Dark Burning Light", 0x2a2cc80, 0x2a2cca0, indexCPS2Sprites_Strider, 0 },
-    { L"Kinetic Charge Dark", 0x2a2cca0, 0x2a2ccc0, indexCPS2Sprites_Strider, 0 },
-    { L"Kinetic Charge Light", 0x2a2ccc0, 0x2a2cce0, indexCPS2Sprites_Strider, 0 },
+    { L"Burning Dark", 0x2a2cbe0, 0x2a2cc00, indexCPS2Sprites_Strider, 0x80 },
+    { L"Burning Light", 0x2a2cc00, 0x2a2cc20, indexCPS2Sprites_Strider, 0x80 },
+    { L"Shocked Dark", 0x2a2cc20, 0x2a2cc40, indexCPS2Sprites_Strider, 0x80 },
+    { L"Shocked Light", 0x2a2cc40, 0x2a2cc60, indexCPS2Sprites_Strider, 0x80 },
+    { L"Dark Burning Dark", 0x2a2cc60, 0x2a2cc80, indexCPS2Sprites_Strider, 0x80 },
+    { L"Dark Burning Light", 0x2a2cc80, 0x2a2cca0, indexCPS2Sprites_Strider, 0x80 },
+    { L"Kinetic Charge Dark", 0x2a2cca0, 0x2a2ccc0, indexCPS2Sprites_Strider, 0x80 },
+    { L"Kinetic Charge Light", 0x2a2ccc0, 0x2a2cce0, indexCPS2Sprites_Strider, 0x80 },
 };
 
 const sDescTreeNode MVC2_A_STRIDER_COLLECTION[] =
@@ -968,14 +968,14 @@ const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x2b13a40, 0x2b13a60, indexCPS2Sprites_Cyclops, 0 },
-    { L"Burning Light", 0x2b13a60, 0x2b13a80, indexCPS2Sprites_Cyclops, 0 },
-    { L"Shocked Dark", 0x2b13a80, 0x2b13aa0, indexCPS2Sprites_Cyclops, 0 },
-    { L"Shocked Light", 0x2b13aa0, 0x2b13ac0, indexCPS2Sprites_Cyclops, 0 },
-    { L"Dark Burning Dark", 0x2b13ac0, 0x2b13ae0, indexCPS2Sprites_Cyclops, 0 },
-    { L"Dark Burning Light", 0x2b13ae0, 0x2b13b00, indexCPS2Sprites_Cyclops, 0 },
-    { L"Kinetic Charge Dark", 0x2b13b00, 0x2b13b20, indexCPS2Sprites_Cyclops, 0 },
-    { L"Kinetic Charge Light", 0x2b13b20, 0x2b13b40, indexCPS2Sprites_Cyclops, 0 },
+    { L"Burning Dark", 0x2b13a40, 0x2b13a60, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Burning Light", 0x2b13a60, 0x2b13a80, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Shocked Dark", 0x2b13a80, 0x2b13aa0, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Shocked Light", 0x2b13aa0, 0x2b13ac0, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Dark Burning Dark", 0x2b13ac0, 0x2b13ae0, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Dark Burning Light", 0x2b13ae0, 0x2b13b00, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Kinetic Charge Dark", 0x2b13b00, 0x2b13b20, indexCPS2Sprites_Cyclops, 0x80 },
+    { L"Kinetic Charge Light", 0x2b13b20, 0x2b13b40, indexCPS2Sprites_Cyclops, 0x80 },
 };
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_EXTRAS[] =
@@ -1759,14 +1759,14 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x30aefc0, 0x30aefe0, indexCPS2Sprites_Spidey, 0 },
-    { L"Burning Light", 0x30aefe0, 0x30af000, indexCPS2Sprites_Spidey, 0 },
-    { L"Shocked Dark", 0x30af000, 0x30af020, indexCPS2Sprites_Spidey, 0 },
-    { L"Shocked Light", 0x30af020, 0x30af040, indexCPS2Sprites_Spidey, 0 },
-    { L"Dark Burning Dark", 0x30af040, 0x30af060, indexCPS2Sprites_Spidey, 0 },
-    { L"Dark Burning Light", 0x30af060, 0x30af080, indexCPS2Sprites_Spidey, 0 },
-    { L"Kinetic Charge Dark", 0x30af080, 0x30af0a0, indexCPS2Sprites_Spidey, 0 },
-    { L"Kinetic Charge Light", 0x30af0a0, 0x30af0c0, indexCPS2Sprites_Spidey, 0 },
+    { L"Burning Dark", 0x30aefc0, 0x30aefe0, indexCPS2Sprites_Spidey, 0x80 },
+    { L"Burning Light", 0x30aefe0, 0x30af000, indexCPS2Sprites_Spidey, 0x80 },
+    { L"Shocked Dark", 0x30af000, 0x30af020, indexCPS2Sprites_Spidey, 0x80 },
+    { L"Shocked Light", 0x30af020, 0x30af040, indexCPS2Sprites_Spidey, 0x80 },
+    { L"Dark Burning Dark", 0x30af040, 0x30af060, indexCPS2Sprites_Spidey, 0x80 },
+    { L"Dark Burning Light", 0x30af060, 0x30af080, indexCPS2Sprites_Spidey, 0x80 },
+    { L"Kinetic Charge Dark", 0x30af080, 0x30af0a0, indexCPS2Sprites_Spidey, 0x80 },
+    { L"Kinetic Charge Light", 0x30af0a0, 0x30af0c0, indexCPS2Sprites_Spidey, 0x80 },
 };
 
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_EXTRAS[] =
@@ -2053,14 +2053,14 @@ const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_VENOM_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x32ed720, 0x32ed740, indexCPS2Sprites_Venom, 0 },
-    { L"Burning Light", 0x32ed740, 0x32ed760, indexCPS2Sprites_Venom, 0 },
-    { L"Shocked Dark", 0x32ed760, 0x32ed780, indexCPS2Sprites_Venom, 0 },
-    { L"Shocked Light", 0x32ed780, 0x32ed7a0, indexCPS2Sprites_Venom, 0 },
-    { L"Dark Burning Dark", 0x32ed7a0, 0x32ed7c0, indexCPS2Sprites_Venom, 0 },
-    { L"Dark Burning Light", 0x32ed7c0, 0x32ed7e0, indexCPS2Sprites_Venom, 0 },
-    { L"Kinetic Charge Dark", 0x32ed7e0, 0x32ed800, indexCPS2Sprites_Venom, 0 },
-    { L"Kinetic Charge Light", 0x32ed800, 0x32ed820, indexCPS2Sprites_Venom, 0 },
+    { L"Burning Dark", 0x32ed720, 0x32ed740, indexCPS2Sprites_Venom, 0x80 },
+    { L"Burning Light", 0x32ed740, 0x32ed760, indexCPS2Sprites_Venom, 0x80 },
+    { L"Shocked Dark", 0x32ed760, 0x32ed780, indexCPS2Sprites_Venom, 0x80 },
+    { L"Shocked Light", 0x32ed780, 0x32ed7a0, indexCPS2Sprites_Venom, 0x80 },
+    { L"Dark Burning Dark", 0x32ed7a0, 0x32ed7c0, indexCPS2Sprites_Venom, 0x80 },
+    { L"Dark Burning Light", 0x32ed7c0, 0x32ed7e0, indexCPS2Sprites_Venom, 0x80 },
+    { L"Kinetic Charge Dark", 0x32ed7e0, 0x32ed800, indexCPS2Sprites_Venom, 0x80 },
+    { L"Kinetic Charge Light", 0x32ed800, 0x32ed820, indexCPS2Sprites_Venom, 0x80 },
 };
 
 const sDescTreeNode MVC2_A_VENOM_COLLECTION[] =
@@ -2505,14 +2505,14 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x35f3760, 0x35f3780, indexCPS2Sprites_Jill, 0 },
-    { L"Burning Light", 0x35f3780, 0x35f37a0, indexCPS2Sprites_Jill, 0 },
-    { L"Shocked Dark", 0x35f37a0, 0x35f37c0, indexCPS2Sprites_Jill, 0 },
-    { L"Shocked Light", 0x35f37c0, 0x35f37e0, indexCPS2Sprites_Jill, 0 },
-    { L"Dark Burning Dark", 0x35f37e0, 0x35f3800, indexCPS2Sprites_Jill, 0 },
-    { L"Dark Burning Light", 0x35f3800, 0x35f3820, indexCPS2Sprites_Jill, 0 },
-    { L"Kinetic Charge Dark", 0x35f3820, 0x35f3840, indexCPS2Sprites_Jill, 0 },
-    { L"Kinetic Charge Light", 0x35f3840, 0x35f3860, indexCPS2Sprites_Jill, 0 },
+    { L"Burning Dark", 0x35f3760, 0x35f3780, indexCPS2Sprites_Jill, 0x80 },
+    { L"Burning Light", 0x35f3780, 0x35f37a0, indexCPS2Sprites_Jill, 0x80 },
+    { L"Shocked Dark", 0x35f37a0, 0x35f37c0, indexCPS2Sprites_Jill, 0x80 },
+    { L"Shocked Light", 0x35f37c0, 0x35f37e0, indexCPS2Sprites_Jill, 0x80 },
+    { L"Dark Burning Dark", 0x35f37e0, 0x35f3800, indexCPS2Sprites_Jill, 0x80 },
+    { L"Dark Burning Light", 0x35f3800, 0x35f3820, indexCPS2Sprites_Jill, 0x80 },
+    { L"Kinetic Charge Dark", 0x35f3820, 0x35f3840, indexCPS2Sprites_Jill, 0x80 },
+    { L"Kinetic Charge Light", 0x35f3840, 0x35f3860, indexCPS2Sprites_Jill, 0x80 },
 };
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_EXTRAS[] =
@@ -2608,22 +2608,22 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x36f0d40, 0x36f0d60, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Burning Dark 2", 0x36f0d60, 0x36f0d80, indexCPS2Sprites_Hayato, 1 },
-    { L"Burning Light", 0x36f0d80, 0x36f0da0, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Burning Light 2", 0x36f0da0, 0x36f0dc0, indexCPS2Sprites_Hayato, 1 },
-    { L"Shocked Dark", 0x36f0dc0, 0x36f0de0, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Shocked Dark 2", 0x36f0de0, 0x36f0e00, indexCPS2Sprites_Hayato, 1 },
-    { L"Shocked Light", 0x36f0e00, 0x36f0e20, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Shocked Light 2", 0x36f0e20, 0x36f0e40, indexCPS2Sprites_Hayato, 1 },
-    { L"Dark Burning Dark", 0x36f0e40, 0x36f0e60, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Dark Burning Dark 2", 0x36f0e60, 0x36f0e80, indexCPS2Sprites_Hayato, 1 },
-    { L"Dark Burning Light", 0x36f0e80, 0x36f0ea0, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Dark Burning Light 2", 0x36f0ea0, 0x36f0ec0, indexCPS2Sprites_Hayato, 1 },
-    { L"Kinetic Charge Dark", 0x36f0ec0, 0x36f0ee0, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Kinetic Charge Dark 2", 0x36f0ee0, 0x36f0f00, indexCPS2Sprites_Hayato, 1 },
-    { L"Kinetic Charge Light", 0x36f0f00, 0x36f0f20, indexCPS2Sprites_Hayato, 0, &pairNext },
-    { L"Kinetic Charge Light 2", 0x36f0f20, 0x36f0f40, indexCPS2Sprites_Hayato, 1 },
+    { L"Burning Dark", 0x36f0d40, 0x36f0d60, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Burning Dark 2", 0x36f0d60, 0x36f0d80, indexCPS2Sprites_Hayato, 0x81 },
+    { L"Burning Light", 0x36f0d80, 0x36f0da0, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Burning Light 2", 0x36f0da0, 0x36f0dc0, indexCPS2Sprites_Hayato, 0x81 },
+    { L"Shocked Dark", 0x36f0dc0, 0x36f0de0, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Shocked Dark 2", 0x36f0de0, 0x36f0e00, indexCPS2Sprites_Hayato, 0x81 },
+    { L"Shocked Light", 0x36f0e00, 0x36f0e20, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Shocked Light 2", 0x36f0e20, 0x36f0e40, indexCPS2Sprites_Hayato, 0x81 },
+    { L"Dark Burning Dark", 0x36f0e40, 0x36f0e60, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Dark Burning Dark 2", 0x36f0e60, 0x36f0e80, indexCPS2Sprites_Hayato, 0x81 },
+    { L"Dark Burning Light", 0x36f0e80, 0x36f0ea0, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Dark Burning Light 2", 0x36f0ea0, 0x36f0ec0, indexCPS2Sprites_Hayato, 0x81 },
+    { L"Kinetic Charge Dark", 0x36f0ec0, 0x36f0ee0, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Kinetic Charge Dark 2", 0x36f0ee0, 0x36f0f00, indexCPS2Sprites_Hayato, 0x81 },
+    { L"Kinetic Charge Light", 0x36f0f00, 0x36f0f20, indexCPS2Sprites_Hayato, 0x80, &pairNext },
+    { L"Kinetic Charge Light 2", 0x36f0f20, 0x36f0f40, indexCPS2Sprites_Hayato, 0x81 },
 };
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_EXTRAS[] =
@@ -2831,14 +2831,14 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x3913cc0, 0x3913ce0, indexCPS2Sprites_SonSon, 0 },
-    { L"Burning Light", 0x3913ce0, 0x3913d00, indexCPS2Sprites_SonSon, 0 },
-    { L"Shocked Dark", 0x3913d00, 0x3913d20, indexCPS2Sprites_SonSon, 0 },
-    { L"Shocked Light", 0x3913d20, 0x3913d40, indexCPS2Sprites_SonSon, 0 },
-    { L"Dark Burning Dark", 0x3913d40, 0x3913d60, indexCPS2Sprites_SonSon, 0 },
-    { L"Dark Burning Light", 0x3913d60, 0x3913d80, indexCPS2Sprites_SonSon, 0 },
-    { L"Kinetic Charge Dark", 0x3913d80, 0x3913da0, indexCPS2Sprites_SonSon, 0 },
-    { L"Kinetic Charge Light", 0x3913da0, 0x3913dc0, indexCPS2Sprites_SonSon, 0 },
+    { L"Burning Dark", 0x3913cc0, 0x3913ce0, indexCPS2Sprites_SonSon, 0x80 },
+    { L"Burning Light", 0x3913ce0, 0x3913d00, indexCPS2Sprites_SonSon, 0x80 },
+    { L"Shocked Dark", 0x3913d00, 0x3913d20, indexCPS2Sprites_SonSon, 0x80 },
+    { L"Shocked Light", 0x3913d20, 0x3913d40, indexCPS2Sprites_SonSon, 0x80 },
+    { L"Dark Burning Dark", 0x3913d40, 0x3913d60, indexCPS2Sprites_SonSon, 0x80 },
+    { L"Dark Burning Light", 0x3913d60, 0x3913d80, indexCPS2Sprites_SonSon, 0x80 },
+    { L"Kinetic Charge Dark", 0x3913d80, 0x3913da0, indexCPS2Sprites_SonSon, 0x80 },
+    { L"Kinetic Charge Light", 0x3913da0, 0x3913dc0, indexCPS2Sprites_SonSon, 0x80 },
 };
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_EXTRAS[] =
@@ -3553,14 +3553,14 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x3f00f60, 0x3f00f80, indexCPS2Sprites_ChunLi, 0 },
-    { L"Burning Light", 0x3f00f80, 0x3f00fa0, indexCPS2Sprites_ChunLi, 0 },
-    { L"Shocked Dark", 0x3f00fa0, 0x3f00fc0, indexCPS2Sprites_ChunLi, 0 },
-    { L"Shocked Light", 0x3f00fc0, 0x3f00fe0, indexCPS2Sprites_ChunLi, 0 },
-    { L"Dark Burning Dark", 0x3f00fe0, 0x3f01000, indexCPS2Sprites_ChunLi, 0 },
-    { L"Dark Burning Light", 0x3f01000, 0x3f01020, indexCPS2Sprites_ChunLi, 0 },
-    { L"Kinetic Charge Dark", 0x3f01020, 0x3f01040, indexCPS2Sprites_ChunLi, 0 },
-    { L"Kinetic Charge Light", 0x3f01040, 0x3f01060, indexCPS2Sprites_ChunLi, 0 },
+    { L"Burning Dark", 0x3f00f60, 0x3f00f80, indexCPS2Sprites_ChunLi, 0x80 },
+    { L"Burning Light", 0x3f00f80, 0x3f00fa0, indexCPS2Sprites_ChunLi, 0x80 },
+    { L"Shocked Dark", 0x3f00fa0, 0x3f00fc0, indexCPS2Sprites_ChunLi, 0x80 },
+    { L"Shocked Light", 0x3f00fc0, 0x3f00fe0, indexCPS2Sprites_ChunLi, 0x80 },
+    { L"Dark Burning Dark", 0x3f00fe0, 0x3f01000, indexCPS2Sprites_ChunLi, 0x80 },
+    { L"Dark Burning Light", 0x3f01000, 0x3f01020, indexCPS2Sprites_ChunLi, 0x80 },
+    { L"Kinetic Charge Dark", 0x3f01020, 0x3f01040, indexCPS2Sprites_ChunLi, 0x80 },
+    { L"Kinetic Charge Light", 0x3f01040, 0x3f01060, indexCPS2Sprites_ChunLi, 0x80 },
 };
 
 const sDescTreeNode MVC2_A_CHUNLI_COLLECTION[] =
@@ -6423,14 +6423,14 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x4adb960, 0x4adb980, indexCPS2Sprites_Sabretooth, 0 },
-    { L"Burning Light", 0x4adb980, 0x4adb9a0, indexCPS2Sprites_Sabretooth, 0 },
-    { L"Shocked Dark", 0x4adb9a0, 0x4adb9c0, indexCPS2Sprites_Sabretooth, 0 },
-    { L"Shocked Light", 0x4adb9c0, 0x4adb9e0, indexCPS2Sprites_Sabretooth, 0 },
-    { L"Dark Burning Dark", 0x4adb9e0, 0x4adba00, indexCPS2Sprites_Sabretooth, 0 },
-    { L"Dark Burning Light", 0x4adba00, 0x4adba20, indexCPS2Sprites_Sabretooth, 0 },
-    { L"Kinetic Charge Dark", 0x4adba20, 0x4adba40, indexCPS2Sprites_Sabretooth, 0 },
-    { L"Kinetic Charge Light", 0x4adba40, 0x4adba60, indexCPS2Sprites_Sabretooth, 0 },
+    { L"Burning Dark", 0x4adb960, 0x4adb980, indexCPS2Sprites_Sabretooth, 0x80 },
+    { L"Burning Light", 0x4adb980, 0x4adb9a0, indexCPS2Sprites_Sabretooth, 0x80 },
+    { L"Shocked Dark", 0x4adb9a0, 0x4adb9c0, indexCPS2Sprites_Sabretooth, 0x80 },
+    { L"Shocked Light", 0x4adb9c0, 0x4adb9e0, indexCPS2Sprites_Sabretooth, 0x80 },
+    { L"Dark Burning Dark", 0x4adb9e0, 0x4adba00, indexCPS2Sprites_Sabretooth, 0x80 },
+    { L"Dark Burning Light", 0x4adba00, 0x4adba20, indexCPS2Sprites_Sabretooth, 0x80 },
+    { L"Kinetic Charge Dark", 0x4adba20, 0x4adba40, indexCPS2Sprites_Sabretooth, 0x80 },
+    { L"Kinetic Charge Light", 0x4adba40, 0x4adba60, indexCPS2Sprites_Sabretooth, 0x80 },
 };
 
 const sDescTreeNode MVC2_A_SABRETOOTH_COLLECTION[] =
