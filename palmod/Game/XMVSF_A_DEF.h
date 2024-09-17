@@ -143,6 +143,9 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Rogue =
         MOD_LUM, 1, 15, NEG + 8 },
     { SUPP_NODE, 0x04, 8,
         MOD_LUM, 1, 15, NEG + 12 },
+    // Winpose skin
+    { SUPP_NODE, 0x05, 8,
+        MOD_COPY, 2, 4, 2 },
 };
 
 const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Storm =

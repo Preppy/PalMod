@@ -18,8 +18,11 @@ extern uint16_t ID_MOD; // = ((6 * 8) - 1); // Index mod - this is also EXTRA_OM
 // These are palettes wholly located within the Extra nodes.  
 constexpr uint16_t EXTRA_NODE_ONLY = 0x4008;
 
-//Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
-// This indicates that the supplemental node to be changed is located within the EX/Extras section and is not one of the core palettes
+//Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Colors to Copy, Dest Index
+// SUPP_NODE_EX indicates the supplemental node to be changed is located within the EX/Extras section and is not one 
+// of the core palettes.
+// By default it includes a limited copy (the last three values) unless SUPP_NODE_NOCOPY is also set.
+// Note that if SUPP_NODE_NOCOPY is used, everything after Dest Increment is ignored.
 constexpr uint16_t SUPP_NODE_EX = 0x4001;
 
 namespace MVC2_SupplementProcessing
@@ -93,17 +96,14 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE, 0x53, 9,
             //    MOD_LUM, 1, 15, 0
         
-            // pose sprite: full copy and then we manually tweak further.
+            // Taunt pose sprite: full copy and then we manually tweak further.
             SUPP_NODE, 0x81, 1,
-
-            // pose sprite sleeves
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 10, 1, 10,
+                // pose sprite sleeves
                 MOD_LUM, 10, 1, NEG + 21,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 10, 1, 11,
                 MOD_LUM, 11, 1, NEG + 13,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 10, 1, 12,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 11, 1, 13,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 12, 1, 14,
+                MOD_COPY, 10, 1, 12,
+                MOD_COPY, 11, 1, 13,
+                MOD_COPY, 12, 1, 14,
     };
 
     const std::vector<uint16_t> supp_data_cyclops_6color =
@@ -194,46 +194,32 @@ namespace MVC2_SupplementProcessing
             // Dash shadows
             SUPP_NODE, 0x04 | MOD_ABS, 8,
                 MOD_LUM, 1, 15, NEG + 8,
-            // "Unused" dash shadows
+            // "Not Used" but darker dash shadows
             SUPP_NODE, 0x05 | MOD_ABS, 8,
                 MOD_LUM, 1, 15, NEG + 12,
         
             // Taunt sprite,    
             // skin: 1-7, 8: hair & boots, 9-15: boots and clothes
             SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 1, 6, 1,
-
-            // skin
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 3, 1, 3,
-                MOD_LUM, 3, 1, 6,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 4, 1, 4,
-                MOD_LUM, 4, 1, 12,
+                MOD_COPY, 2, 4, 2,
+            // skin: commented out since while it is brighter normally... it
+            // seems unnecessary
+                // MOD_LUM, 3, 1, 6,
+                // MOD_LUM, 4, 1, 12,
 
             // These are commented out: they are not consistently related.
-
             // shoes, shirt
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 7, 1, 7,
             //    MOD_LUM, 7, 1, NEG + 25,
-
             // sunglasses, boots, skirt
-            //  SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 8, 1, 8,
             //    MOD_LUM, 8, 1, NEG + 25,
-            //  SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 9,
             //    MOD_LUM, 9, 1, NEG + 13,
-
             // shorts
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 10,
             //    MOD_LUM, 10, 1, 25,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 10, 1, 11,
             //    MOD_LUM, 11, 1, 25,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 11, 1, 12,
             //    MOD_LUM, 12, 1, 25,
-
             // jacket
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 13,
             //    MOD_LUM, 13, 1, 24,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 14,
             //    MOD_LUM, 14, 1, 12,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 15,
             //    MOD_LUM, 15, 1, 6,
     };
 
@@ -379,15 +365,12 @@ namespace MVC2_SupplementProcessing
 
             // Taunt sprite: full copy and then we manually tweak further.
             SUPP_NODE, 0xf9, 1,
-
-            // pose sprite sleeves
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 10,
+                // pose sprite sleeves
                 MOD_LUM, 10, 1, NEG + 21,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 11,
                 MOD_LUM, 11, 1, NEG + 13,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 12,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 11, 1, 13,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 12, 1, 14,
+                MOD_COPY, 10, 1, 12,
+                MOD_COPY, 11, 1, 13,
+                MOD_COPY, 12, 1, 14,
     };
 
     const std::vector<uint16_t> supp_data_anakaris =
@@ -507,39 +490,27 @@ namespace MVC2_SupplementProcessing
             // Taunt sprite,    
             // skin: 1-7, 8: hair & boots, 9-15: boots and clothes
             SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x0a, 1, 1, 6, 1,
+                MOD_COPY, 2, 4, 2,
 
-            // skin
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x0a, 1, 3, 1, 3,
-                MOD_LUM, 3, 1, 6,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x0a, 1, 4, 1, 4,
-                MOD_LUM, 4, 1, 12,
+            // skin: commented out since while it is brighter normally... it
+            // seems unnecessary
+                // MOD_LUM, 3, 1, 6,
+                // MOD_LUM, 4, 1, 12,
 
             // These are commented out: they are not consistently related.
 
             // shoes, shirt
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 7, 1, 7,
             //    MOD_LUM, 7, 1, NEG + 25,
-
             // sunglasses, boots, skirt
-            //  SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 8, 1, 8,
             //    MOD_LUM, 8, 1, NEG + 25,
-            //  SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 9,
             //    MOD_LUM, 9, 1, NEG + 13,
-
             // shorts
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 10,
             //    MOD_LUM, 10, 1, 25,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 10, 1, 11,
             //    MOD_LUM, 11, 1, 25,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 11, 1, 12,
             //    MOD_LUM, 12, 1, 25,
-
             // jacket
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 13,
             //    MOD_LUM, 13, 1, 24,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 14,
             //    MOD_LUM, 14, 1, 12,
-            // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 15,
             //    MOD_LUM, 15, 1, 6,
     };
 

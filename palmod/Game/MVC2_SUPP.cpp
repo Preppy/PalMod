@@ -191,7 +191,7 @@ namespace MVC2_SupplementProcessing
     int supp_copy_crosscharacter(uint32_t source_id, uint32_t source_palette, uint32_t destination_id, uint32_t destination_palette, uint8_t source_index, uint8_t destination_index, uint8_t copy_amount)
     {
         CString strDebugInfo;
-        strDebugInfo.Format(L"\t\t\t\tsupp_copy_crosscharacter being applied: Copying source unit 0x%02x palette 0x%02x to destination unit 0x%02x palette 0x%02x\n", source_id, source_palette, destination_id, destination_palette);
+        strDebugInfo.Format(L"\t\t\t\tsupp_copy_crosscharacter being applied: Copying source unit 0x%02x (%s) palette 0x%02x to destination unit 0x%02x (%s) palette 0x%02x\n", source_id, MVC2_D_UNITDESC[source_id], source_palette, destination_id, MVC2_D_UNITDESC[destination_id], destination_palette);
         OutputDebugString(strDebugInfo);
 
         uint16_t* src_16 = get_pal_16(source_id, source_palette);
@@ -357,6 +357,7 @@ namespace MVC2_SupplementProcessing
 
                 BOOL isCurrentPaletteTheCorePalette = FALSE;
                 BOOL isCurrentPaletteAnExtraPalette = FALSE;
+                int nLinkedPalettesUpdated = 0;
 
                 // If the current position is SUPP_NODE or SUPP_NODE_*, that indicates the beginning of a new modifier array
                     //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
@@ -503,18 +504,6 @@ namespace MVC2_SupplementProcessing
 
                     //if (isCurrentPaletteABasicPalette)
                     {
-                        // By default skip the transparency color but copy the entire palette
-                        int copy_start = 1;
-                        int copy_dst = 1;
-                        int copy_amt = 15;
-
-                        if ((effect_node_type & SUPP_NODE_EX) == SUPP_NODE_EX)
-                        {
-                            copy_start = supplementalEffectsData[indexCounterForOptionalModifiers + 0];
-                            copy_amt = supplementalEffectsData[indexCounterForOptionalModifiers + 1];
-                            copy_dst = supplementalEffectsData[indexCounterForOptionalModifiers + 2];
-                        }
-
                         if (shouldProcessEffectsForThisNode)
                         {
                             strDebugInfo.Format(L"\t\t\tproc_supp: Preparing to process from palette 0x%x to palette 0x%x\n", source_palette, destination_palette);
@@ -539,10 +528,22 @@ namespace MVC2_SupplementProcessing
                         {
                             if (shouldProcessEffectsForThisNode)
                             {
+                                // By default skip the transparency color but copy the entire palette
+                                int copy_start = 1;
+                                int copy_dst = 1;
+                                int copy_amt = 15;
+
+                                if ((effect_node_type & SUPP_NODE_EX) == SUPP_NODE_EX)
+                                {
+                                    copy_start = supplementalEffectsData[indexCounterForOptionalModifiers + 0];
+                                    copy_amt = supplementalEffectsData[indexCounterForOptionalModifiers + 1];
+                                    copy_dst = supplementalEffectsData[indexCounterForOptionalModifiers + 2];
+                                }
+
                                 if (VerifyWriteIsSafe(char_no, copy_dst + copy_amt))
                                 {
                                     OutputDebugString(L"\t\t\tproc_supp: SUPP_NODE_NOCOPY not specified: copying over entire palette first\n");
-                                    nTotalLinkedPalettesUpdated += supp_copy_index(char_no, source_palette, destination_palette, copy_dst, copy_start, copy_amt);
+                                    nLinkedPalettesUpdated += supp_copy_index(char_no, source_palette, destination_palette, copy_dst, copy_start, copy_amt);
                                 }
                             }
                         }
@@ -564,56 +565,63 @@ namespace MVC2_SupplementProcessing
 
                             switch (supplementalEffectsData[indexCounterForEffects])
                             {
-                            case MOD_TINT:
-                            {
-                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3] + pi_amt)))
+                                case MOD_TINT:
                                 {
-                                    nTotalLinkedPalettesUpdated += supp_mod_tint(char_no, pal_no, destination_palette, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
-                                        supplementalEffectsData[indexCounterForEffects + 4], supplementalEffectsData[indexCounterForEffects + 5], supplementalEffectsData[indexCounterForEffects + 6]);
+                                    if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3] + pi_amt)))
+                                    {
+                                        nLinkedPalettesUpdated += supp_mod_tint(char_no, pal_no, destination_palette, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
+                                            supplementalEffectsData[indexCounterForEffects + 4], supplementalEffectsData[indexCounterForEffects + 5], supplementalEffectsData[indexCounterForEffects + 6]);
+                                    }
+
+                                    indexCounterForEffects += 7;
+                                    break;
+                                }
+                                case MOD_WHITE:
+                                {
+                                    if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, pi_start + pi_amt))
+                                    {
+                                        nLinkedPalettesUpdated += supp_mod_white(char_no, destination_palette, pi_start, pi_amt);
+                                    }
+
+                                    indexCounterForEffects += 3;
+                                    break;
                                 }
 
-                                indexCounterForEffects += 7;
-                                break;
-                            }
-                            case MOD_WHITE:
-                            {
-                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, pi_start + pi_amt))
+                                case MOD_COPY:
                                 {
-                                    nTotalLinkedPalettesUpdated += supp_mod_white(char_no, destination_palette, pi_start, pi_amt);
+                                    if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
+                                    {
+                                        nLinkedPalettesUpdated += supp_copy_index(char_no, pal_no, destination_palette, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt);
+                                    }
+
+                                    indexCounterForEffects += 4;
+                                    break;
                                 }
 
-                                indexCounterForEffects += 3;
-                                break;
-                            }
-
-                            case MOD_COPY:
-                            {
-                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
+                                case MOD_LUM:
+                                case MOD_SAT:
                                 {
-                                    nTotalLinkedPalettesUpdated += supp_copy_index(char_no, pal_no, destination_palette, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt);
+                                    if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, pi_start + pi_amt))
+                                    {
+                                        uint16_t mod_type = supplementalEffectsData[indexCounterForEffects];
+                                        uint16_t mod_amt = supplementalEffectsData[indexCounterForEffects + 3];
+
+                                        nLinkedPalettesUpdated += supp_mod_hsl(char_no, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
+                                    }
+
+                                    indexCounterForEffects += 4;
+                                    break;
                                 }
-
-                                indexCounterForEffects += 4;
-                                break;
-                            }
-
-                            case MOD_LUM:
-                            case MOD_SAT:
-                            {
-                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, pi_start + pi_amt))
-                                {
-                                    uint16_t mod_type = supplementalEffectsData[indexCounterForEffects];
-                                    uint16_t mod_amt = supplementalEffectsData[indexCounterForEffects + 3];
-
-                                    nTotalLinkedPalettesUpdated += supp_mod_hsl(char_no, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
-                                }
-
-                                indexCounterForEffects += 4;
-                                break;
-                            }
                             }
                         }
                     }
+
+                    if (shouldProcessEffectsForThisNode && (nLinkedPalettesUpdated == 0))
+                    {
+                        OutputDebugString(L"\t\t\t\tWARNING: No actions taken.  This node might not need to exist.\n");
+                    }
+
+                    nTotalLinkedPalettesUpdated += nLinkedPalettesUpdated;
                 }
 
                 indexCounterForEffects += add;
@@ -624,7 +632,7 @@ namespace MVC2_SupplementProcessing
         }
         else
         {
-            OutputDebugString(L"\t\t\tproc_supp: Not applicable here\n");
+            OutputDebugString(L"\t\t\tproc_supp: Not applicable here: no linked palettes specified.\n");
         }
 
         if (nTotalLinkedPalettesUpdated)
