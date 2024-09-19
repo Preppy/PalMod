@@ -818,39 +818,39 @@ void CGameLoad::CrosscopyGame_Steam(CGameClass* CurrGame)
                 { L"PL17_DAT.BIN", 0x00fba00, 0x1E55220, 0x00000720 }, // Cable
                 { L"PL18_DAT.BIN", 0x00db7e0, 0x1F41800, 0x00000720 }, // Abyss(Form 1)
                 { L"PL19_DAT.BIN", 0x0007cd60, 0x1FCED80, 0x00000720 }, // Abyss(Form 2)
-                { L"PL1A_DAT.BIN", 0x00c9580, 0x20A8DA0, 0x00004840 }, // Abyss(Form 3)
-                { L"PL1B_DAT.BIN", 0x006fd00, 0x2129520, 0x00004840 }, // Chun-Li
-                { L"PL1C_DAT.BIN", 0x00082900, 0x21BC920, 0x00000720 }, // Megaman
-                { L"PL1D_DAT.BIN", 0x0005f5c0, 0x2230DE0, 0x00000960 }, // Roll
+                { L"PL1A_DAT.BIN", 0x00c9580, 0x20A8DA0,  0x00000720 }, // Abyss(Form 3)
+                { L"PL1B_DAT.BIN", 0x006fd00, 0x2129520,  0x00000720 }, // Chun-Li
+                { L"PL1C_DAT.BIN", 0x00082900, 0x21BC920, 0x00004840 }, // Megaman
+                { L"PL1D_DAT.BIN", 0x0005f5c0, 0x2230DE0, 0x00004840 }, // Roll
                 { L"PL1E_DAT.BIN", 0x00074d80, 0x22BA5A0, 0x00000720 }, // Akuma
-                { L"PL1F_DAT.BIN", 0x00109a80, 0x23D4AA0, 0x00000720 }, // B.B.Hood
-                { L"PL20_DAT.BIN", 0x001168e0, 0x24FC100, 0x00000A40 }, // Felicia
+                { L"PL1F_DAT.BIN", 0x00109a80, 0x23D4AA0, 0x00000960 }, // B.B.Hood
+                { L"PL20_DAT.BIN", 0x001168e0, 0x24FC100, 0x00000720 }, // Felicia
                 { L"PL21_DAT.BIN", 0x0005c980, 0x25691A0, 0x00000720 }, // Charlie
-                { L"PL22_DAT.BIN", 0x00b6360, 0x2630380, 0x00000DC0 }, // Sakura
-                { L"PL23_DAT.BIN", 0x003db40, 0x267EB60, 0x00000AC0 }, // Dan
-                { L"PL24_DAT.BIN", 0x008f3c0, 0x271EBE0, 0x00000880 }, // Cammy
-                { L"PL25_DAT.BIN", 0x00a5f00, 0x27D5F20, 0x00000720 }, // Dhalsim
-                { L"PL26_DAT.BIN", 0x0074080, 0x285B0A0, 0x00000AC0 }, // M.Bison
-                { L"PL27_DAT.BIN", 0x0075ac0, 0x28E1AE0, 0x00000E80 }, // Ken
-                { L"PL28_DAT.BIN", 0x00d8f20, 0x29CB740, 0x00000B40 }, // Gambit
-                { L"PL29_DAT.BIN", 0x011c040, 0x2AF8860, 0x00000720 }, // Juggernaut
-                { L"PL2A_DAT.BIN", 0x00fd8c0, 0x2C070E0, 0x00000740 }, // Storm
-                { L"PL2B_DAT.BIN", 0x00f09c0, 0x2D089E0, 0x00002C00 }, // Sabretooth
-                { L"PL2C_DAT.BIN", 0x00106760, 0x2E1FF80, 0x00000720 }, // Magneto
-                { L"PL2D_DAT.BIN", 0x00d7d40, 0x2F08560, 0x00000D00 }, // Shuma-Gorath
-                { L"PL2E_DAT.BIN", 0x00ed980, 0x30091A0, 0x00000A20 }, // War Machine
-                { L"PL2F_DAT.BIN", 0x010aea0, 0x3124EC0, 0x00002040 }, // Silver Samurai
-                { L"PL30_DAT.BIN", 0x00ebb40, 0x3223B60, 0x00001F00 }, // Omega Red
-                { L"PL31_DAT.BIN", 0x00104c60, 0x3339480, 0x00000760 }, // Spiral
-                { L"PL32_DAT.BIN", 0x00119aa0, 0x34652C0, 0x00000940 }, // Colossus
-                { L"PL33_DAT.BIN", 0x00f0b80, 0x35683A0, 0x00000E00 }, // Iron Man
-                { L"PL34_DAT.BIN", 0x00115820, 0x368E840, 0x00000A20 }, // Sentinel
-                { L"PL35_DAT.BIN", 0x001166c0, 0x37B5EE0, 0x000016E0 }, // Blackheart
-                { L"PL36_DAT.BIN", 0x00ddc60, 0x38A4C80, 0x00000920 }, // Thanos
-                { L"PL37_DAT.BIN", 0x00d3c40, 0x3989460, 0x00000840 }, // Jin
-                { L"PL38_DAT.BIN", 0x00de380, 0x3A793A0, 0x00000B80 }, // Captain Commando
-                { L"PL39_DAT.BIN", 0x00eeae0, 0x3B78B00, 0x00000720 }, // Wolverine(Bone Claw)
-                { L"PL3A_DAT.BIN", 0x00055300, 0x3BDEB20, 0x00000740 }, // Servbot
+                { L"PL22_DAT.BIN", 0x00b6360, 0x2630380,  0x00000a40 }, // Sakura
+                { L"PL23_DAT.BIN", 0x003db40, 0x267EB60,  0x00000720 }, // Dan
+                { L"PL24_DAT.BIN", 0x008f3c0, 0x271EBE0,  0x00000dc0 }, // Cammy
+                { L"PL25_DAT.BIN", 0x00a5f00, 0x27D5F20,  0x00000ac0 }, // Dhalsim
+                { L"PL26_DAT.BIN", 0x0074080, 0x285B0A0,  0x00000880 }, // M.Bison
+                { L"PL27_DAT.BIN", 0x0075ac0, 0x28E1AE0,  0x00000720 }, // Ken
+                { L"PL28_DAT.BIN", 0x00d8f20, 0x29CB740,  0x00000ac0 }, // Gambit
+                { L"PL29_DAT.BIN", 0x011c040, 0x2AF8860,  0x00000e80 }, // Juggernaut
+                { L"PL2A_DAT.BIN", 0x00fd8c0, 0x2C070E0,  0x00000b40 }, // Storm
+                { L"PL2B_DAT.BIN", 0x00f09c0, 0x2D089E0,  0x00000720 }, // Sabretooth
+                { L"PL2C_DAT.BIN", 0x00106760, 0x2E1FF80, 0x00000740 }, // Magneto
+                { L"PL2D_DAT.BIN", 0x00d7d40, 0x2F08560,  0x00002c00 }, // Shuma-Gorath
+                { L"PL2E_DAT.BIN", 0x00ed980, 0x30091A0,  0x00000720 }, // War Machine
+                { L"PL2F_DAT.BIN", 0x010aea0, 0x3124EC0,  0x00000d00 }, // Silver Samurai
+                { L"PL30_DAT.BIN", 0x00ebb40, 0x3223B60,  0x00000a20 }, // Omega Red
+                { L"PL31_DAT.BIN", 0x00104c60, 0x3339480, 0x00002040 }, // Spiral
+                { L"PL32_DAT.BIN", 0x00119aa0, 0x34652C0, 0x00001f00 }, // Colossus
+                { L"PL33_DAT.BIN", 0x00f0b80, 0x35683A0,  0x00000760 }, // Iron Man
+                { L"PL34_DAT.BIN", 0x00115820, 0x368E840, 0x00000940 }, // Sentinel
+                { L"PL35_DAT.BIN", 0x001166c0, 0x37B5EE0, 0x00000e00 }, // Blackheart
+                { L"PL36_DAT.BIN", 0x00ddc60, 0x38A4C80,  0x00000a20 }, // Thanos
+                { L"PL37_DAT.BIN", 0x00d3c40, 0x3989460,  0x000016e0 }, // Jin
+                { L"PL38_DAT.BIN", 0x00de380, 0x3A793A0,  0x00000920 }, // Captain Commando
+                { L"PL39_DAT.BIN", 0x00eeae0, 0x3B78B00,  0x00000840 }, // Wolverine(Bone Claw)
+                { L"PL3A_DAT.BIN", 0x00055300, 0x3BDEB20, 0x00000b80 }, // Servbot
             };
 
             if (TargetFile.Open(ofn.lpstrFile, CFile::modeWrite | CFile::typeBinary))

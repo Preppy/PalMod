@@ -160,66 +160,66 @@ const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_16COLO
 
 const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_6COLORS =
 {
-    0x00000720,
-    0x00000D40,
-    0x00000720,
-    0x00001780,
-    0x00000A00,
-    0x00000720,
-    0x00001280,
-    0x00000840,
-    0x00000740,
-    0x00000F40,
-    0x00000A40,
-    0x00000960,
-    0x00001300,
-    0x00000740,
-    0x00000720,
-    0x00001C00,
-    0x000008A0,
-    0x00000760,
-    0x000008E0,
-    0x00000960,
-    0x00000B00,
-    0x00000760,
-    0x00000720,
-    0x00000720,
-    0x00000720,
-    0x00000720,
-    0x00000720,
-    0x00000720,
-    0x00004840,
-    0x00004840,
-    0x00000720,
-    0x00000960,
-    0x00000720,
-    0x00000720,
-    0x00000A40,
-    0x00000720,
-    0x00000DC0,
-    0x00000AC0,
-    0x00000880,
-    0x00000720,
-    0x00000AC0,
-    0x00000E80,
-    0x00000B40,
-    0x00000720,
-    0x00000740,
-    0x00002C00,
-    0x00000720,
-    0x00000D00,
-    0x00000A20,
-    0x00002040,
-    0x00001F00,
-    0x00000760,
-    0x00000940,
-    0x00000E00,
-    0x00000A20,
-    0x000016E0,
-    0x00000920,
-    0x00000840,
-    0x00000B80,
-    0x00000720
+    0x00000720, // Ryu
+    0x00000D40, // Zangief
+    0x00000720, // Guile
+    0x00001780, // Morrigan
+    0x00000A00, // Anakaris
+    0x00000720, // Strider
+    0x00001280, // Cyclops
+    0x00000840, // Wolverine
+    0x00000740, // Psylocke
+    0x00000F40, // Iceman
+    0x00000A40, // Rogue
+    0x00000960, // Captain America
+    0x00001300, // Spider-Man
+    0x00000740, // Hulk
+    0x00000720, // Venom
+    0x00001C00, // Doom
+    0x000008A0, // Tron
+    0x00000760, // Jill
+    0x000008E0, // Hayato
+    0x00000960, // Ruby
+    0x00000B00, // SonSon
+    0x00000760, // Amingo
+    0x00000720, // Marrow
+    0x00000720, // Cable
+    0x00000720, // Abyss 1
+    0x00000720, // Abyss 2
+    0x00000720, // Abyss 3
+    0x00000720, // Chun
+    0x00004840, // megaman
+    0x00004840, // roll
+    0x00000720, // akuma
+    0x00000960, // bbhood
+    0x00000720, // felicia
+    0x00000720, // charlie
+    0x00000A40, // sakura
+    0x00000720, // dan
+    0x00000DC0, // cammy
+    0x00000AC0, // dhalsim
+    0x00000880, // bison
+    0x00000720, // ken
+    0x00000AC0, // gambit
+    0x00000E80, // juggy
+    0x00000B40, // storm
+    0x00000720, // sabre
+    0x00000740, // magneto
+    0x00002C00, // shuma
+    0x00000720, // war machine
+    0x00000D00, // silver sam
+    0x00000A20, // omega
+    0x00002040, // spiral
+    0x00001F00, // colossus
+    0x00000760, // iron man
+    0x00000940, // sentinel
+    0x00000E00, // blackheart
+    0x00000A20, // thanos
+    0x000016E0, // jin
+    0x00000920, // capcom
+    0x00000840, // bonerine
+    0x00000B80, // kobun
+    0x00000720 // team view: dummy
 };
 
 const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_16COLORS =
