@@ -31,7 +31,8 @@ public:
     bool SaveGame(CGameClass* CurrGame);
     void SavePatchFile(CGameClass* CurrGame);
     void SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDirectory);
-    void CrosscopyGame(CGameClass* CurrGame);
+    void CrosscopyGame_DCPS2(CGameClass* CurrGame);
+    void CrosscopyGame_Steam(CGameClass* CurrGame);
 
     int GetErrCt() { return nSaveLoadErr; };
     CString GetLoadSaveStr() { return strLoadSaveStr; };

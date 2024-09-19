@@ -259,7 +259,8 @@ private:
     afx_msg void OnChangeShowAs32BitColor();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();
-    afx_msg void OnFileCrossPatch();
+    afx_msg void OnFileCrossPatch_DCPS2();
+    afx_msg void OnFileCrossPatch_Steam();
     afx_msg void OnSavePatchFile();
 
     static void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);

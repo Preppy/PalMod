@@ -217,7 +217,7 @@
 #define ID_SHOW32BITRGB                 32783
 #define ID_ZOOM_5X                      32784
 #define ID_AUTO                         32785
-#define ID_FILE_CROSSPATCH              32786
+#define ID_FILE_CROSSPATCH_DCPS2        32786
 #define ID_FILE_PATCH                   32787
 #define ID_ZOOM_6X                      32788
 #define ID_ZOOM_7X                      32789
@@ -389,13 +389,14 @@
 #define ID_LD_MVCPSXUSA                 32955
 #define ID_LD_MSHVSFP                   32956
 #define ID_LD_XMVSFP                    32957
+#define ID_FILE_CROSSPATCH_STEAM        32958
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32958
+#define _APS_NEXT_COMMAND_VALUE         32959
 #define _APS_NEXT_CONTROL_VALUE         1102
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

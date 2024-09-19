@@ -192,41 +192,57 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, !fIsGameAvailable);
         pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedPath(NULL, 0, NULL, TRUE));
 
-        pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH, MF_BYCOMMAND);
+        pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH_DCPS2, MF_BYCOMMAND);
+        pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH_STEAM, MF_BYCOMMAND);
 
         if (fIsGameAvailable &&
             ((GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D) || (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_P)))
         {
-            LPCWSTR pszMvC2CrossPlatform;
-
-            if (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D)
-            {
-                pszMvC2CrossPlatform = L"Copy colors to PS2";
-            }
-            else
-            {
-                pszMvC2CrossPlatform = L"Copy colors to DC";
-            }
-
-            MENUITEMINFO mii = { 0 };
-
-            mii.cbSize = sizeof(MENUITEMINFO);
-            mii.fMask = MIIM_ID | MIIM_STRING;
-            mii.wID = ID_FILE_CROSSPATCH;
-            mii.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform);
-
             int iMenuPos = pPopupMenu->GetMenuItemCount() - 1;
             for (; iMenuPos >= 0; iMenuPos--)
             {
                 if (pPopupMenu->GetMenuItemID(iMenuPos) == ID_FILE_PATCH)
                 {
-                    // we want it after "Patch changes"
+                    // we want our additions after "Patch changes"
                     iMenuPos++;
+
+                    LPCWSTR pszMvC2CrossPlatform_DCPS2;
+
+                    if (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D)
+                    {
+                        pszMvC2CrossPlatform_DCPS2 = L"Copy colors to PS2";
+                    }
+                    else
+                    {
+                        pszMvC2CrossPlatform_DCPS2 = L"Copy colors to DC";
+                    }
+
+                    MENUITEMINFO mii = { 0 };
+
+                    mii.cbSize = sizeof(MENUITEMINFO);
+                    mii.fMask = MIIM_ID | MIIM_STRING;
+                    mii.wID = ID_FILE_CROSSPATCH_DCPS2;
+                    mii.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform_DCPS2);
+
+                    pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
+
+                    if (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D)
+                    {
+                        iMenuPos++;
+
+                        LPCWSTR pszMvC2CrossPlatform_Steam = L"Copy colors to Steam";
+
+                        mii.cbSize = sizeof(MENUITEMINFO);
+                        mii.fMask = MIIM_ID | MIIM_STRING;
+                        mii.wID = ID_FILE_CROSSPATCH_STEAM;
+                        mii.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform_Steam);
+
+                        pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
+                    }
+
                     break;
                 }
             }
-
-            pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
         }
 
         CMenu gameMenu;

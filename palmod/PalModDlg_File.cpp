@@ -139,10 +139,18 @@ void CPalModDlg::OnFilePatch()
     }
 }
 
-void CPalModDlg::OnFileCrossPatch()
+void CPalModDlg::OnFileCrossPatch_DCPS2()
 {
     // Do *not* clear the dirty flag if set: this isn't saving to the original game files!
-    GetHost()->GetLoader()->CrosscopyGame(GetHost()->GetCurrGame());
+    GetHost()->GetLoader()->CrosscopyGame_DCPS2(GetHost()->GetCurrGame());
+
+    SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
+}
+
+void CPalModDlg::OnFileCrossPatch_Steam()
+{
+    // Do *not* clear the dirty flag if set: this isn't saving to the original game files!
+    GetHost()->GetLoader()->CrosscopyGame_Steam(GetHost()->GetCurrGame());
 
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
