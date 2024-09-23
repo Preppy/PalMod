@@ -6,6 +6,109 @@
 // * Update every array using SVCPLUSA_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const std::vector<std::vector<uint16_t>> paletteBuddy_SVC_Kyo =
+{
+    // Makai
+    { SUPP_NODE, 4, 0,
+        MOD_TINT, 8, 1, 8, 1, 0, NEG + 1,
+        MOD_TINT, 9, 1, 9, 7, 4, 2,
+        MOD_TINT, 9, 1, 10, 2, NEG + 1, NEG + 3 },
+    // Heaven spell
+    { SUPP_NODE, 5, 0,
+        MOD_LUM, 1, 15, 5 },
+    // Midnight Bliss
+    { SUPP_NODE, 7, 0,
+        MOD_LUM, 1, 15, 7,
+        // lipstick
+        MOD_TINT, 10, 1, 10, 30, 0, 0 },
+    // Hell
+    { SUPP_NODE, 16, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, NEG + 7, NEG + 9, NEG + 12,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 0, NEG + 3, NEG + 3,
+        MOD_TINT, 10, 6, 10, 0, NEG + 3, NEG + 3,
+        // Kyo whites
+        MOD_TINT, 8, 2, 8, NEG + 5, NEG + 9, NEG + 13 },
+    // Hell: Makai
+    { SUPP_NODE, 20, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, NEG + 7, NEG + 9, NEG + 12,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 0, NEG + 3, NEG + 3,
+        MOD_TINT, 11, 5, 11, 0, NEG + 3, NEG + 3,
+        // Kyo whites
+        MOD_TINT, 8, 1, 8, NEG + 4, NEG + 9, NEG + 13,
+        MOD_TINT, 9, 1, 9, NEG + 2, NEG + 5, NEG + 11,
+        MOD_TINT, 9, 1, 10, NEG + 3, NEG + 10, NEG + 15,},
+    // Hell: Heaven spell
+    { SUPP_NODE, 21, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, NEG + 7, NEG + 9, NEG + 12,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 0, NEG + 3, NEG + 3,
+        MOD_TINT, 10, 6, 10, 0, NEG + 3, NEG + 3,
+        // Kyo whites
+        MOD_TINT, 8, 2, 8, NEG + 5, NEG + 9, NEG + 13,
+        MOD_LUM, 1, 15, 5 },
+    // Hell: Midnight Bliss
+    { SUPP_NODE, 23, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, NEG + 7, NEG + 9, NEG + 12,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 0, NEG + 3, NEG + 3,
+        MOD_TINT, 11, 5, 11, 0, NEG + 3, NEG + 3,
+        // Kyo whites
+        MOD_TINT, 8, 2, 8, NEG + 5, NEG + 9, NEG + 13,
+        MOD_LUM, 1, 15, 7,
+        // lipstick
+        MOD_TINT, 10, 1, 10, 30, NEG + 3, NEG + 3 },
+    // Heaven
+    { SUPP_NODE, 32, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, 0, 2, 4,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 2, 2, 3,
+        MOD_TINT, 10, 6, 10, 2, 2, 3,
+        // Kyo whites
+        MOD_TINT, 8, 2, 8, 2, 1, 3 },
+    // Heaven: Makai
+    { SUPP_NODE, 36, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, 0, 2, 4,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 2, 2, 3,
+        MOD_TINT, 11, 5, 11, 2, 2, 3,
+        // Kyo whites
+        MOD_TINT, 8, 1, 8, 3, 1, 2,
+        MOD_TINT, 9, 1, 9, 9, 5, 5,
+        MOD_TINT, 9, 1, 10, 4, 0, 0 },
+    // Heaven: Heaven spell
+    { SUPP_NODE, 37, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, 0, 2, 4,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 2, 2, 3,
+        MOD_TINT, 10, 6, 10, 2, 2, 3,
+        // Kyo whites
+        MOD_TINT, 8, 2, 8, 2, 1, 3,
+        MOD_LUM, 1, 15, 5 },
+    // Heaven: Midnight Bliss
+    { SUPP_NODE, 39, 0,
+        // Kyo skin
+        MOD_TINT, 1, 4, 1, 0, 2, 4,
+        // Kyo clothes
+        MOD_TINT, 5, 3, 5, 2, 2, 3,
+        MOD_TINT, 11, 5, 11, 2, 2, 3,
+        // Kyo whites
+        MOD_TINT, 8, 2, 8, 2, 1, 3,
+        MOD_LUM, 1, 15, 7,
+        // lipstick
+        MOD_TINT, 10, 1, 10, 32, 2, 3 },
+};
+
+const stPaletteProcessingInformation secondarySVCKyoEffects{ paletteBuddy_SVC_Kyo };
+
 const std::vector<uint16_t> SVCPLUSA_A_IMGIDS_USED =
 {
     indexKOF96Sprites_Ryo,
@@ -61,7 +164,7 @@ const std::vector<uint16_t> SVCPLUSA_A_IMGIDS_USED =
 
 const sGame_PaletteDataset SVCPLUSA_A_KYO_PUNCH_PALETTES[] =
 {
-    { L"Kyo", 0x364538, 0x364558, indexKOF97Sprites_Kyo },
+    { L"Kyo", 0x364538, 0x364558, indexKOF97Sprites_Kyo /*, 0x00, nullptr, &secondarySVCKyoEffects */ },
     { L"Fire Effect 1", 0x364558, 0x364578, indexKOF97Sprites_Kyo },
     { L"Fire Effect 2", 0x364578, 0x364598, indexKOF97Sprites_Kyo },
     { L"Electric Shock Effect", 0x364598, 0x3645b8, indexKOF97Sprites_Kyo },
@@ -73,7 +176,7 @@ const sGame_PaletteDataset SVCPLUSA_A_KYO_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_KYO_KICK_PALETTES[] =
 {
-    { L"Kyo", 0x364738, 0x364758, indexKOF97Sprites_Kyo },
+    { L"Kyo", 0x364738, 0x364758, indexKOF97Sprites_Kyo /*, 0x00, nullptr, &secondarySVCKyoEffects */ },
     { L"Fire Effect 1", 0x364758, 0x364778, indexKOF97Sprites_Kyo },
     { L"Fire Effect 2", 0x364778, 0x364798, indexKOF97Sprites_Kyo },
     { L"Electric Shock Effect", 0x364798, 0x3647b8, indexKOF97Sprites_Kyo },

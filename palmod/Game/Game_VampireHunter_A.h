@@ -81,3 +81,46 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_VampireHunter_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"vhuntjr2.21D3D8A7", 0x2c50040 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Vampire Hunter: Darkstalkers' Revenge (Steam Japan 950302)", L"vhuntjr2.21D3D8A7", 0xdac027e4, 0x35d74c - 0x5d70c },
+        { L"Night Warriors: Darkstalkers' Revenge (Steam USA 950406)", L"nwarru.21D3D8A7", 0x7317bbfe, 0x35ddc2 - 0x5d70c },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Vampire Hunter: Darkstalkers' Revenge (Steam Unknown Version)",
+        VampireHunter_S,
+        IMGDAT_SECTION_CPS2,
+        VampireHunter_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_VAMPIREHUNTER,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        VampireHunter_A_UNITS,
+        ARRAYSIZE(VampireHunter_A_UNITS),
+        L"VampireHunterSE.txt",      // Extra filename
+        560,                         // Count of palettes listed in the header
+        0x5d5cc,                     // Lowest known location used for palettes
+    };
+
+public:
+    CGame_VampireHunter_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

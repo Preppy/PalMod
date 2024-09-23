@@ -232,6 +232,15 @@ enum SupportedGamesList
     MSHVSF_S,
     MVC_S,
     XMVSF_S,
+    VampireNightWarriors_S,
+    VampireHunter_S,
+    VSAV_S,
+    VHUNT2_S,
+    VSAV2_S,
+    SPF2T_S,
+    GEMFIGHTER_S,
+    HSF2_S,
+    REDEARTH_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
@@ -258,7 +267,7 @@ enum class GameSeries
     ArtOfFighting = 0,
     FatalFury,
     KOF,
-    MvC,
+    MvCNormal,
     SamuraiShodown,
     SFA,
     SF2,
@@ -267,6 +276,8 @@ enum class GameSeries
     NintendoDS,
     NintendoGBA,
     NintendoSNES,
+    MvCSteam,
+    CapcomFightCollection,
     Unknown,
     Last,
 };

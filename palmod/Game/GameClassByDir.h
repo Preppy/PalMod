@@ -51,7 +51,7 @@ public:
         const size_t nUnitCount;
         const std::wstring strExtraName;
         const uint32_t nKnownPaletteCount;
-        const uint32_t nLowestKnownPaletteLocation;
+        const int32_t nLowestKnownPaletteLocation;
     };
 
     static std::vector<sDescTreeNode> m_rgCurrentGameUnits;

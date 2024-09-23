@@ -393,7 +393,7 @@ const sDescTreeNode VampireNightWarriors_A_PYRON_COLLECTION[] =
 const sDescTreeNode VampireNightWarriors_A_UNITS_04[] =
 {
     { L"Character Select Small Portraits",   DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_SPORT_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_SPORT_COLLECTION) },
-    { L"Character Select Big Portraits",     DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_BPORT_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_BPORT_COLLECTION) }, // Jon Talbain
+    { L"Character Select Big Portraits",     DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_BPORT_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_BPORT_COLLECTION) },
 };
 
 const sDescTreeNode VampireNightWarriors_A_UNITS_09[] =
@@ -411,4 +411,25 @@ const sDescTreeNode VampireNightWarriors_A_UNITS_09[] =
 
     { L"Phobos",             DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PHOBOS_COLLECTION,        ARRAYSIZE(VampireNightWarriors_A_PHOBOS_COLLECTION) },
     { L"Pyron",              DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PYRON_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_PYRON_COLLECTION) },
+};
+
+const sDescTreeNode VampireNightWarriors_A_UNITS_MONO[] =
+{
+    { L"Demitri",            DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_DEMITRI_COLLECTION,       ARRAYSIZE(VampireNightWarriors_A_DEMITRI_COLLECTION) },
+    { L"Gallon",             DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_GALLON_COLLECTION,        ARRAYSIZE(VampireNightWarriors_A_GALLON_COLLECTION) }, // Jon Talbain
+    { L"Victor",             DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_VICTOR_COLLECTION,        ARRAYSIZE(VampireNightWarriors_A_VICTOR_COLLECTION) },
+    { L"Zabel",              DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_ZABEL_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_ZABEL_COLLECTION) }, // Lord Raptor
+    { L"Morrigan",           DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_MORRIGAN_COLLECTION,      ARRAYSIZE(VampireNightWarriors_A_MORRIGAN_COLLECTION) },
+    { L"Anakaris",           DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_ANAKARIS_COLLECTION,      ARRAYSIZE(VampireNightWarriors_A_ANAKARIS_COLLECTION) },
+    { L"Felicia",            DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_FELICIA_COLLECTION,       ARRAYSIZE(VampireNightWarriors_A_FELICIA_COLLECTION) },
+    { L"Bishamon",           DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_BISHAMON_COLLECTION,      ARRAYSIZE(VampireNightWarriors_A_BISHAMON_COLLECTION) },
+    { L"Aulbath",            DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_AULBATH_COLLECTION,       ARRAYSIZE(VampireNightWarriors_A_AULBATH_COLLECTION) }, // Rikuo
+    { L"Sasquatch",          DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_SASQUATCH_COLLECTION,     ARRAYSIZE(VampireNightWarriors_A_SASQUATCH_COLLECTION) },
+
+    { L"Phobos",             DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PHOBOS_COLLECTION,        ARRAYSIZE(VampireNightWarriors_A_PHOBOS_COLLECTION) },
+    { L"Pyron",              DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PYRON_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_PYRON_COLLECTION) },
+
+    // ROM 04 data
+    { L"Character Select Small Portraits",   DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_SPORT_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_SPORT_COLLECTION) },
+    { L"Character Select Big Portraits",     DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_BPORT_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_BPORT_COLLECTION) },
 };

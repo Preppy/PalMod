@@ -67,32 +67,9 @@ sFileRule CGame_MSHVSF_A::GetRule(uint32_t nRuleId)
 // We use special handling for the Captain America part 2 palette
 void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
+    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
     if (nUnitId != m_nCurrentExtraUnitId)
     {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
-
-        m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-        m_pszCurrentPaletteName = paletteData->szPaletteName;
-
-        if ((m_nCurrentPaletteROMLocation == 0) && (m_eVersionToLoad == MSHVSFLoadingKey::ROM07))
-        {
-            // This is a very particular override for the split-rom Captain America Part 2 sprite
-            m_createPalOptions.nTransparencyColorPosition = 6;
-        }
-        else
-        {
-            m_createPalOptions.nTransparencyColorPosition = 0;
-        }
-
-        if (m_pCRC32SpecificData)
-        {
-            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
-        }
-
         if (m_nGameFlag == MSHVSF_S)
         {
             // For Steam, we can handle the split ROMs as one unit.  Adjust the 07 units for the offset.
@@ -101,15 +78,18 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                 m_nCurrentPaletteROMLocation += 0x80000;
             }
         }
-    }
-    else // MSHVSF_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        else
+        {
+            if ((m_nCurrentPaletteROMLocation == 0) && (m_eVersionToLoad == MSHVSFLoadingKey::ROM07))
+            {
+                // This is a very particular override for the split-rom Captain America Part 2 sprite
+                m_createPalOptions.nTransparencyColorPosition = 6;
+            }
+            else
+            {
+                m_createPalOptions.nTransparencyColorPosition = 0;
+            }
+        }
     }
 }
 

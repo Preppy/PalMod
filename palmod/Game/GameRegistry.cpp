@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 210, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 219, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -370,13 +370,18 @@ namespace KnownGameInfo
     CGameClass* Make_UMK3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_SNES(nConfirmedROMSize); }
     CGameClass* Make_UNICLR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UNICLR_A(nConfirmedROMSize); }
     CGameClass* Make_VampireHunter_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireHunter_A(nConfirmedROMSize); }
+    CGameClass* Make_VampireHunter_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireHunter_S(nConfirmedROMSize); }
     CGameClass* Make_VampireNightWarriors_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireNightWarriors_A(nConfirmedROMSize); }
+    CGameClass* Make_VampireNightWarriors_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireNightWarriors_S(nConfirmedROMSize); }
     CGameClass* Make_VENTURE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A(nConfirmedROMSize); }
     CGameClass* Make_VENTURE_A_DIR_31(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM31); }
     CGameClass* Make_VENTURE_A_DIR_50(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM50); }
     CGameClass* Make_VHUNT2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VHUNT2_A(nConfirmedROMSize); }
+    CGameClass* Make_VHUNT2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VHUNT2_S(nConfirmedROMSize); }
     CGameClass* Make_VSAV_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV_A(nConfirmedROMSize); }
+    CGameClass* Make_VSAV_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV_S(nConfirmedROMSize); }
     CGameClass* Make_VSAV2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_A(nConfirmedROMSize); }
+    CGameClass* Make_VSAV2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_S(nConfirmedROMSize); }
     CGameClass* Make_WakuWaku7_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_A(nConfirmedROMSize); }
     CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Windjammers_A(nConfirmedROMSize); }
     CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
@@ -545,7 +550,7 @@ namespace KnownGameInfo
         {
             COTA_S,
             L"X-Men: COTA (Steam)",
-            { COTA_S,           L"COTA", L"COTA (Steam)|xmcota?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            { COTA_S,           L"COTA", L"COTA (Steam)|xmcota?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_COTA_S,
             CGame_COTA_S::GetRule,
         },
@@ -1193,21 +1198,21 @@ namespace KnownGameInfo
         {
             MSH_S,
             L"MSH (Steam)",
-            { MSH_S,            L"Marvel Super Heroes", L"MSH (Steam)|msh?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            { MSH_S,            L"Marvel Super Heroes", L"MSH (Steam)|msh?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MSH_S,
             CGame_MSH_S::GetRule,
         },
         {
             MVC_A,
             L"MvC (CPS2 Arcade)",
-            { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (Arcade)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+            { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (Arcade)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
             Make_MVC_A,
             CGame_MVC_A::GetRule,
         },
         {
             MVC_D,
             L"MvC (Dreamcast)",
-            { MVC_D,            L"Marvel vs Capcom (Dreamcast)", L"MvC (Dreamcast)|0.bin|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+            { MVC_D,            L"Marvel vs Capcom (Dreamcast)", L"MvC (Dreamcast)|0.bin|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
             Make_MVC_D,
             CGame_MVC_D::GetRule,
         },
@@ -1224,7 +1229,7 @@ namespace KnownGameInfo
         {
             MVC_S,
             L"MvC (Steam)",
-            { MVC_S,            L"Marvel vs Capcom", L"MvC (Steam)|mvsc?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            { MVC_S,            L"Marvel vs Capcom", L"MvC (Steam)|mvsc?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MVC_S,
             CGame_MVC_S::GetRule,
         },
@@ -1287,7 +1292,7 @@ namespace KnownGameInfo
         {
             MSHVSF_A,
             L"MSHvSF (CPS2 Arcade)",
-            { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+            { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
             Make_MSHVSF_A,
             CGame_MSHVSF_A::GetRule,
         },
@@ -1304,7 +1309,7 @@ namespace KnownGameInfo
         {
             MSHVSF_S,
             L"MSHvSF (Steam)",
-            { MSHVSF_S,         L"MSHvSF", L"MSHvSF (Steam)|mshvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            { MSHVSF_S,         L"MSHvSF", L"MSHvSF (Steam)|mshvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MSHVSF_A,
             CGame_MSHVSF_A::GetRule,
         },
@@ -1367,7 +1372,7 @@ namespace KnownGameInfo
         {
             MVC2_S,
             L"MvC2 (Steam)",
-            { MVC2_S,           L"MvC2", L"MvC2 (Steam)|mvsc2.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            { MVC2_S,           L"MvC2", L"MvC2 (Steam)|mvsc2.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MVC2_S,
             CGame_MVC2_A::GetRule_S,
         },
@@ -1927,11 +1932,25 @@ namespace KnownGameInfo
             CGame_VampireNightWarriors_A::GetRule,
         },
         {
+            VampireNightWarriors_S,
+            L"Vampire: The Night Warriors (Steam)",
+            { VampireNightWarriors_S,   L"Vampire: The Night Warriors", L"Vampire: The Night Warriors (Steam)|dstlku.21D3D8A7;vampj.21d3d8a7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_VampireNightWarriors_S,
+            CGame_VampireNightWarriors_S::GetRule,
+        },
+        {
             VampireHunter_A,
             L"Vampire Hunter (CPS2)",
             { VampireHunter_A,          L"Vampire Hunter: Darkstalkers' Revenge", L"Vampire Hunter: Darkstalkers' Revenge|vph?.09?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VampireHunter_A,
             CGame_VampireHunter_A::GetRule,
+        },
+        {
+            VampireHunter_S,
+            L"Vampire Hunter (Steam)",
+            { VampireHunter_S,          L"Vampire Hunter: Darkstalkers' Revenge", L"Vampire Hunter: Darkstalkers' Revenge (Steam)|nwarru.21D3D8A7;vhuntjr2.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_VampireHunter_S,
+            CGame_VampireHunter_S::GetRule,
         },
         {
             VHUNT2_A,
@@ -1941,6 +1960,13 @@ namespace KnownGameInfo
             CGame_VHUNT2_A::GetRule,
         },
         {
+            VHUNT2_S,
+            L"Vampire Hunter 2 (Steam)",
+            { VHUNT2_S,         L"Vampire Hunter 2", L"Vampire Hunter 2 (Steam)|vhunt2.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_VHUNT2_S,
+            CGame_VHUNT2_S::GetRule,
+        },
+        {
             VSAV_A,
             L"Vampire Savior (CPS2 Arcade)",
             { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
@@ -1948,11 +1974,25 @@ namespace KnownGameInfo
             CGame_VSAV_A::GetRule,
         },
         {
+            VSAV_S,
+            L"Vampire Savior (Steam)",
+            { VSAV_S,           L"Vampire Savior", L"Vampire Savior (Steam)|vsavj.21D3D8A7;vsavu.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_VSAV_S,
+            CGame_VSAV_S::GetRule,
+        },
+        {
             VSAV2_A,
             L"Vampire Savior 2 (CPS2 Arcade)",
             { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VSAV2_A,
             CGame_VSAV2_A::GetRule,
+        },
+        {
+            VSAV2_S,
+            L"Vampire Savior 2 (Steam)",
+            { VSAV2_S,          L"Vampire Savior 2", L"Vampire Savior 2 (Steam)|vsav2.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_VSAV2_S,
+            CGame_VSAV2_S::GetRule,
         },
         {
             Gowcaizer_A,
@@ -1985,7 +2025,7 @@ namespace KnownGameInfo
         {
             XMVSF_A,
             L"XMvSF (CPS2 Arcade)",
-            { XMVSF_A,          L"XMvSF", L"XMvSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+            { XMVSF_A,          L"XMvSF", L"XMvSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
             Make_XMVSF_A,
             CGame_XMVSF_A::GetRule,
         },
@@ -2002,7 +2042,7 @@ namespace KnownGameInfo
         {
             XMVSF_S,
             L"XMvSF",
-            { XMVSF_S,          L"XMvSF", L"XMvSF (Steam)|xmvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvC },
+            { XMVSF_S,          L"XMvSF", L"XMvSF (Steam)|xmvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_XMVSF_S,
             CGame_XMVSF_S::GetRule,
         },
@@ -2016,7 +2056,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 210, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 219, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

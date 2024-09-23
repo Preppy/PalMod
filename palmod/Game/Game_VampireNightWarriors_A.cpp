@@ -55,3 +55,26 @@ sFileRule CGame_VampireNightWarriors_A::GetRule(uint32_t nRuleId)
 {
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == VNWLoadingKey::ROM04) ? m_sFileLoadingData_4 : m_sFileLoadingData_9);
 }
+
+// We use special handling for the joined 04/09 ROMs
+void CGame_VampireNightWarriors_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
+
+    if (m_nGameFlag == VampireNightWarriors_S)
+    {
+        // For Steam, we can handle the split ROMs as one unit.  Adjust the 04 units for the offset.
+        if ((nUnitId == 12) || (nUnitId == 13))
+        {
+            if (m_pCRC32SpecificData->nROMSpecificOffset == 0x3000A8)
+            {
+                m_nCurrentPaletteROMLocation -= 0x27DB46;
+            }
+            else
+            {
+                m_nCurrentPaletteROMLocation -= 0x27db8c;
+            }
+        }
+    }
+}
+

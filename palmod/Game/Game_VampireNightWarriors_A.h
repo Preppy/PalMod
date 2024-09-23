@@ -163,3 +163,48 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_VampireNightWarriors_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"vampj.21d3d8a7", 0x2050040 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Vampire: The Night Warriors (Steam Japan 940705)", L"vampj.21d3d8a7", 0x620e238e, 0x3000A8 },
+        { L"Darkstalkers: The Night Warriors (Steam USA 940818)", L"dstlku.21D3D8A7", 0x3abd56c8, 0x2FDEAA },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Vampire: The Night Warriors (Unknown Version)",
+        VampireNightWarriors_S,
+        IMGDAT_SECTION_CPS2,
+        VampireNightWarriors_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        VampireNightWarriors_A_UNITS_MONO,
+        ARRAYSIZE(VampireNightWarriors_A_UNITS_MONO),
+        L"VampireNightWarriorsSE.txt",      // Extra filename
+        181,                                // Count of palettes listed in the header
+        0xca04a - 0x3000ee,                 // Lowest known location used for palettes
+    };
+
+public:
+    CGame_VampireNightWarriors_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};
