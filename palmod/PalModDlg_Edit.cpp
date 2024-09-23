@@ -227,6 +227,11 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                 }
             }
         }
+        else
+        {
+            // https://issues.chromium.org/issues/40083002
+            GetHost()->GetPalModDlg()->SetStatusText(L"Chromium's drag and drop is broken: if you use Firefox that would have worked.");
+        }
     }
     else
     {
