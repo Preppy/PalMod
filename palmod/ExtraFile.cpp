@@ -694,6 +694,8 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalI
 
 int CGameWithExtrasFile::GetDupeCountInDataset()
 {
+    OutputDebugString(L"\tCGameWithExtrasFile::GetDupeCountInDataset: Starting dupe check...\n");
+
     uint32_t nTotalPalettesChecked = 0;
     uint32_t nTotalDupesFound = 0;
 
@@ -749,7 +751,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
         }
     }
 
-    strDupeText.Format(L"CGameWithExtrasFile::GetDupeCountInDataset: Checked %u core palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format(L"\t\tCGameWithExtrasFile::GetDupeCountInDataset: Checked %u core palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -757,6 +759,8 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
 int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 {
+    OutputDebugString(L"\tCGameWithExtrasFile::GetDupeCountInExtrasDataset: Starting dupe check...");
+
     uint32_t nTotalPalettesChecked = 0;
     uint32_t nTotalDupesFound = 0;
 
@@ -792,7 +796,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         }
     }
 
-    strDupeText.Format(L"CGameWithExtrasFile::GetDupeCountInExtrasDataset: Checked %u Extras palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format(L"\t\tCGameWithExtrasFile::GetDupeCountInExtrasDataset: Checked %u Extras palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;

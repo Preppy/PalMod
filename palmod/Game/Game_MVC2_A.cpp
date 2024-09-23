@@ -54,7 +54,7 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMTo
     }
     else
     {
-        m_nLowestKnownPaletteRomLocation = 0x1DDDD60;
+        m_nLowestKnownPaletteRomLocation = 0x82cc60;
     }
 
     m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
