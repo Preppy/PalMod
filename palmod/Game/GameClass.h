@@ -22,7 +22,7 @@ struct sFileRule
     uint32_t uAltVerifyVar = static_cast<uint32_t>(-1);
 };
 
-const uint32_t k_nBogusHighValue = 0xFEEDFED;
+const uint32_t k_nBogusHighValue = 0x7FEEDFED;
 
 const uint16_t RULE_COUNTER_MASK = 0xF000;
 const uint16_t RULE_COUNTER_DEMASK = 0x0FFF;

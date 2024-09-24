@@ -759,7 +759,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
 int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 {
-    OutputDebugString(L"\tCGameWithExtrasFile::GetDupeCountInExtrasDataset: Starting dupe check...");
+    OutputDebugString(L"\tCGameWithExtrasFile::GetDupeCountInExtrasDataset: Starting dupe check...\n");
 
     uint32_t nTotalPalettesChecked = 0;
     uint32_t nTotalDupesFound = 0;

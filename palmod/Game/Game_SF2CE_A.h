@@ -197,3 +197,48 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_SF2CE_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleStreetFighterII_CE.mbundle", 0x827f519 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        // 21 is the same across all versions
+        { L"Street Fighter II' - Champion Edition (Steam)", L"bundleStreetFighterII_CE.mbundle", 0xaf9dcf75, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Street Fighter II' - Champion Edition (Steam)",
+        SF2CE_S,
+        IMGDAT_SECTION_SF2,
+        SF2HF_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SF2CE_A_UNITS_MONO,
+        ARRAYSIZE(SF2CE_A_UNITS_MONO),
+        L"SF2CESe.txt",           // Extra filename
+        96,                       // Count of palettes listed in the header
+        0x16792,                  // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SF2CE_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

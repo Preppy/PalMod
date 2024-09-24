@@ -41,3 +41,41 @@ public:
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
 
+class CGame_SFIII2_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleStreetFighterIII_2ndImpact.mbundle", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"SFIII:2I (Steam)",
+        SFIII2_S,
+        IMGDAT_SECTION_SF3,
+        SFIII2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL7_SF3,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData,
+        {},
+        SFIII2_A_50_UNITS,
+        ARRAYSIZE(SFIII2_A_50_UNITS),
+        L"SFIII2Se.txt",             // Extra filename
+        846,                        // Count of palettes listed in the header
+        0x398000,                   // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SFIII2_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    ////////////////////////////BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

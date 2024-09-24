@@ -90,7 +90,7 @@ void CGame_SFA1_A::DumpHeaderPalettes()
     }
 }
 
-BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -126,7 +126,7 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     if (m_nExtraUnit != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
+        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
@@ -143,7 +143,7 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 nNodeIncrement = 1;
             }
             else if ((_wcsicmp(pCurrentNode->szDesc, L"Punch") == 0) ||
-                     (_wcsicmp(pCurrentNode->szDesc, L"Kick") == 0))
+                (_wcsicmp(pCurrentNode->szDesc, L"Kick") == 0))
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);

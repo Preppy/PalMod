@@ -172,3 +172,47 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_SSF2T_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleSuperStreetFighterIITurbo.mbundle", 0x116f1dd3 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        {  L"SSF2T (Steam)", L"bundleSuperStreetFighterIITurbo.mbundle", 0xbfed9077, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"SSF2T (Steam)",
+        SSF2T_S,
+        IMGDAT_SECTION_SF2,
+        SSF2T_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_ST10,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SSF2T_A_UNITS_MONO,
+        ARRAYSIZE(SSF2T_A_UNITS_MONO),
+        L"ssf2tSe.txt",         // Extra filename
+        1246,                   // Count of palettes listed in the header
+        0x110bee3b,             // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SSF2T_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

@@ -257,3 +257,44 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_StreetFighter_S : public CGameClassByDir
+{
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleStreetFighter.mbundle", 0x5e5eb50 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Street Fighter (Steam)", L"bundleStreetFighter.mbundle", 0xa3b4810d, 0x2c72999 - 0x1ba66 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Street Fighter (Steam)",
+        SF1_S,
+        IMGDAT_SECTION_OTHER,
+        StreetFighter_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        StreetFighter_A_UNITS,
+        ARRAYSIZE(StreetFighter_A_UNITS),
+        L"StreetFighterSE.txt",      // Extra filename
+        13,                          // Count of palettes listed in the header
+        0x1BA66,                     // Lowest known location used for palettes
+    };
+
+public:
+    CGame_StreetFighter_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

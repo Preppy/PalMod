@@ -100,3 +100,40 @@ public:
     // Special-casing for Gill, Shin Gouki, Ultra Sean, Oro
     BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
 };
+
+class CGame_SFIII3_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleStreetFighterIII_3rdStrike.mbundle", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"SFIII:3S (Steam)",
+        SFIII3_A,
+        IMGDAT_SECTION_SF3,
+        SFIII3_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL7_SF3,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData,
+        {},
+        SFIII3_A_51_UNITS,
+        ARRAYSIZE(SFIII3_A_51_UNITS),
+        L"sfiii3Se.txt",             // Extra filename
+        55,   // Count of palettes listed in the header
+        0x700000,                   // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SFIII3_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

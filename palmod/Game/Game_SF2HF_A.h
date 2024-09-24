@@ -159,3 +159,47 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_SF2HF_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleStreetFighterII_HF.mbundle", 0x7d191f },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Street Fighter II' - Hyper Fighting (30th Anniversary)", L"bundleStreetFighterII_HF.mbundle", 0x299ce4f8, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Street Fighter II' - Hyper Fighting (30th Anniversary)",
+        SF2HF_S,
+        IMGDAT_SECTION_SF2,
+        SF2HF_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_NORMAL_START,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SF2HF_A_UNITS_MONO,
+        ARRAYSIZE(SF2HF_A_UNITS_MONO),
+        L"SF2HFS.txt",        // Extra filename
+        409,                  // Count of palettes listed in the header
+        0x601aec,             // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SF2HF_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

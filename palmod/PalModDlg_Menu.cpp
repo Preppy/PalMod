@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 219, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 230, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -296,6 +296,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                                 seriesMenu[1].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
                             case GameSeries::SF2:
+                            case GameSeries::SF30th:
                             case GameSeries::KOF:
                             case GameSeries::NintendoSNES:
                                 seriesMenu[2].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
@@ -314,7 +315,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             LPCWSTR ppszCapcomSubMenu[] = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
             LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
             LPCWSTR ppszNintendoSubMenu[] = { L"DS/3DS", L"GBA", L"SNES" };
-            LPCWSTR ppszSteamSubMenu[] = { L"Capcom Fighting Collection", L"Marvel vs Capcom"};
+            LPCWSTR ppszSteamSubMenu[] = { L"Capcom Fighting Collection", L"Marvel vs Capcom", L"Street Fighter 30th Anniversary" };
 
             for (const auto& sGametoFileData : rgGameToFileMap)
             {

@@ -241,6 +241,17 @@ enum SupportedGamesList
     GEMFIGHTER_S,
     HSF2_S,
     REDEARTH_S,
+    SF1_S,
+    SF2_S,
+    SF2CE_S,
+    SF2HF_S,
+    SSF2T_S,
+    SFA1_S,
+    SFA2_S,
+    SFA3_S,
+    SFIII1_S,
+    SFIII2_S,
+    SFIII3_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
@@ -276,8 +287,9 @@ enum class GameSeries
     NintendoDS,
     NintendoGBA,
     NintendoSNES,
-    MvCSteam,
     CapcomFightCollection,
+    SF30th,
+    MvCSteam,
     Unknown,
     Last,
 };

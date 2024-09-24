@@ -130,3 +130,25 @@ void CGame_SF2CE_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
+
+void CGame_SF2CE_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
+
+    if (nUnitId != m_nCurrentExtraUnitId)
+    {
+        // For Steam, we can handle the split ROMs as one unit.  Adjust the 04 units for the offset.
+        if (nUnitId < ARRAYSIZE(SF2CE_A_22_UNITS))
+        {
+            m_nCurrentPaletteROMLocation += 0x8a50ac - 0x242c6;
+        }
+        else if (nUnitId < (ARRAYSIZE(SF2CE_A_22_UNITS) + ARRAYSIZE(SF2CE_A_21_UNITS)))
+        {
+            m_nCurrentPaletteROMLocation += 0x90f210 - 0xe41e;
+        }
+        else
+        {
+            m_nCurrentPaletteROMLocation += 0x81ee2a - 0x1e038;
+        }
+    }
+}

@@ -2,7 +2,13 @@
 #include "GameClassByDir.h"
 #include "SFA3_A_DEF.h"
 
-class CGame_SFA3_A : public CGameClassByDir
+class CGame_SFA3_Core : public CGameClassByDir
+{
+public:
+    BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
+};
+
+class CGame_SFA3_A : public CGame_SFA3_Core
 {
 private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
@@ -92,7 +98,47 @@ private:
 public:
     CGame_SFA3_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};
+
+class CGame_SFA3_S : public CGame_SFA3_Core
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleStreetFighterAlpha3.mbundle", 0x12727d6d },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"SFA3 (Steam)", L"bundleStreetFighterAlpha3.mbundle", 0xfbb39e77, 0x6f24855 - 0x2d392 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"SFA3 (Steam)",
+        SFA3_S,
+        IMGDAT_SECTION_CPS2,
+        SFA3_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_ISMS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SFA3_A_UNITS,
+        ARRAYSIZE(SFA3_A_UNITS),
+        L"SFA3Se.txt",                      // Extra filename
+        2875,                               // Count of palettes listed in the header
+        0x6f23595 - (0x6f24855 - 0x2d392),  // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SFA3_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

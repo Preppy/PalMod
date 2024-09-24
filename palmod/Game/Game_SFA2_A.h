@@ -349,3 +349,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_SFA2_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM07_Rev2 =
+    {
+        {
+            { L"bundleStreetFighterAlpha2.mbundle", 0x12d0153b },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"SFA2 Rev 1 (Steam)", L"bundleStreetFighterAlpha2.mbundle", 0x8eddc428, 0x4cd6dba - 0x6e39e },
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM07_Rev2
+    {
+        L"SFA2 (CPS2 ROM07)",
+        SFA2_S,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData_ROM07_Rev2,
+        m_rgCRC32Data,
+        SFA2_A_UNITS_07_REV2,
+        ARRAYSIZE(SFA2_A_UNITS_07_REV2),
+        L"SFA2e.txt",           // Extra filename
+        1061,                   // Count of palettes listed in the header
+        0x2C000,                // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SFA2_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM07_Rev2); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM07_Rev2); };
+};

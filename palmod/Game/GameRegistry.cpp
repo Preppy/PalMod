@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 219, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 230, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -338,17 +338,26 @@ namespace KnownGameInfo
     CGameClass* Make_SAVAGEREIGN_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAVAGEREIGN_A(nConfirmedROMSize); }
     CGameClass* Make_SDODGEBALL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SDODGEBALL_A(nConfirmedROMSize); }
     CGameClass* Make_SF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_A(nConfirmedROMSize); }
+    CGameClass* Make_SF1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_S(nConfirmedROMSize); }
     CGameClass* Make_SF2CE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_A(nConfirmedROMSize); }
+    CGameClass* Make_SF2CE_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_S(nConfirmedROMSize); }
     CGameClass* Make_SF2HF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2HF_A(nConfirmedROMSize); }
+    CGameClass* Make_SF2HF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2HF_S(nConfirmedROMSize); }
     CGameClass* Make_SFA1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA1_A(nConfirmedROMSize); }
+    CGameClass* Make_SFA1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA1_S(nConfirmedROMSize); }
     CGameClass* Make_SFA2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA2_A(nConfirmedROMSize); }
+    CGameClass* Make_SFA2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA2_S(nConfirmedROMSize); }
     CGameClass* Make_SFA2_Hack_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA2_A(nConfirmedROMSize); }
     CGameClass* Make_SFA3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_A(nConfirmedROMSize); }
+    CGameClass* Make_SFA3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_S(nConfirmedROMSize); }
     CGameClass* Make_SFIII1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A(nConfirmedROMSize); }
+    CGameClass* Make_SFIII1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_S(nConfirmedROMSize); }
     CGameClass* Make_SFIII1_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_SFIII2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A(nConfirmedROMSize); }
+    CGameClass* Make_SFIII2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_S(nConfirmedROMSize); }
     CGameClass* Make_SFIII2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_SFIII3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A(nConfirmedROMSize); }
+    CGameClass* Make_SFIII3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_S(nConfirmedROMSize); }
     CGameClass* Make_SFIII3_A_DIR_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10); }
     CGameClass* Make_SFIII3_A_DIR_4rd(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51_4rd); }
     CGameClass* Make_SFIII3_A_DIR_4rd_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10_4rd); }
@@ -361,6 +370,7 @@ namespace KnownGameInfo
     CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_A(nConfirmedROMSize); }
+    CGameClass* Make_SSF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_GBA(nConfirmedROMSize); }
     CGameClass* Make_SurvivalArts_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SurvivalArts_A(nConfirmedROMSize); }
     CGameClass* Make_SVCPLUSA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SVCPLUSA_A(nConfirmedROMSize); }
@@ -1660,6 +1670,13 @@ namespace KnownGameInfo
             CGame_SFA1_A::GetRule,
         },
         {
+            SFA1_S,
+            L"SFA1 (CPS2 Steam)",
+            { SFA1_S,           L"SFA1", L"SFA1 (Steam)|bundleStreetFighterAlpha.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFA1_S,
+            CGame_SFA1_S::GetRule,
+        },
+        {
             SFA2_A,
             L"SFA2 (CPS2 Arcade)",
             { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
@@ -1673,12 +1690,28 @@ namespace KnownGameInfo
             Make_SFA2_Hack_A,
             CGame_SFA2_A::GetRule,
         },
+#ifdef needs_fix
+        {
+            SFA2_S,
+            L"SFA2 (Steam)",
+            { SFA2_S,           L"SFA2", L"SFA2 (Steam)|bundleStreetFighterAlpha2.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFA2_S,
+            CGame_SFA2_S::GetRule,
+        },
+#endif
         {
             SFA3_A,
             L"SFA3 (CPS2 Arcade)",
-            { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+            { SFA3_A,           L"SFA3", L"SFA3|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
             Make_SFA3_A,
             CGame_SFA3_A::GetRule,
+        },
+        {
+            SFA3_S,
+            L"SFA3 (Steam)",
+            { SFA3_S,           L"SFA3", L"SFA3 (Steam)|bundleStreetFighterAlpha3.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFA3_S,
+            CGame_SFA3_S::GetRule,
         },
         {
             SFZ3U_A,
@@ -1690,7 +1723,7 @@ namespace KnownGameInfo
         {
             SFIII1_A,
             L"SFIII:NG (CPS3 Arcade)",
-            { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
+            { SFIII1_A,         L"SFIII:NG", L"SFIII:NG (Arcade)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
             Make_SFIII1_A,
             CGame_SFIII1_A::GetRule,
         },
@@ -1704,10 +1737,19 @@ namespace KnownGameInfo
             CGame_SFIII1_A_DIR::GetRuleCtr,
             CGame_SFIII1_A_DIR::ResetRuleCtr,
         },
+#ifdef cps3_weirdness_solved
+        {
+            SFIII1_S,
+            L"SFIII:NG (Steam)",
+            { SFIII1_S,         L"SFIII:NG", L"SFIII:NG (Steam)|bundleStreetFighterIII.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFIII1_S,
+            CGame_SFIII1_S::GetRule,
+        },
+#endif
         {
             SFIII2_A,
             L"SFIII:2I (CPS3 Arcade)",
-            { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
+            { SFIII2_A,         L"SFIII:2I", L"SFIII:2I (Arcade)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
             Make_SFIII2_A,
             CGame_SFIII2_A::GetRule,
         },
@@ -1796,6 +1838,13 @@ namespace KnownGameInfo
             CGame_StreetFighter_A::GetRule,
         },
         {
+            SF1_S,
+            L"Street Fighter (Steam)",
+            { SF1_S,            L"Street Fighter", L"Street Fighter (Steam)|bundleStreetFighter.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SF1_S,
+            CGame_StreetFighter_S::GetRule,
+        },
+        {
             SF2CE_A,
             L"SF2:CE (CPS1 Arcade)",
             { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
@@ -1803,11 +1852,25 @@ namespace KnownGameInfo
             CGame_SF2CE_A::GetRule,
         },
         {
+            SF2CE_S,
+            L"SF2:CE (Steam)",
+            { SF2CE_S,          L"SF2:CE", L"SF2:CE (Steam)|bundleStreetFighterII_CE.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SF2CE_S,
+            CGame_SF2CE_S::GetRule,
+        },
+        {
             SF2HF_A,
             L"SF2:HF (CPS1 Arcade)",
-            { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SF2HF_A,
             CGame_SF2HF_A::GetRule,
+        },
+        {
+            SF2HF_S,
+            L"SF2:HF (Steam)",
+            { SF2HF_S,          L"SF2:HF", L"SF2:HF (Steam)|bundleStreetFighterII_HF.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SF2HF_S,
+            CGame_SF2HF_S::GetRule,
         },
         {
             SHAQFU_SNES,
@@ -1864,6 +1927,13 @@ namespace KnownGameInfo
             { SSF2T_GBA,        L"SSF2T: Revival", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", GamePlatform::Nintendo, GameSeries::NintendoGBA },
             Make_SSF2T_GBA,
             CGame_SSF2T_GBA::GetRule,
+        },
+        {
+            SSF2T_S,
+            L"SSF2T (Steam)",
+            { SSF2T_S,          L"SSF2T", L"SSF2T (Steam)|bundleSuperStreetFighterIITurbo.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SSF2T_S,
+            CGame_SSF2T_S::GetRule,
         },
         {
             SDODGEBALL_A,
@@ -2091,7 +2161,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 219, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 230, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

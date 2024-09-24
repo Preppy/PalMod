@@ -76,3 +76,31 @@ sFileRule CGame_SF2HF_A::GetRule(uint32_t nRuleId)
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SF30th);
     }
 }
+
+void CGame_SF2HF_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    // case SF2HFLoadingKey::ROM21:
+    //    m_nCurrentPaletteROMLocation += 0x70009e;
+    // case SF2HFLoadingKey::ROM22:
+    //    m_nCurrentPaletteROMLocation += 0x68009e;
+    // case SF2HFLoadingKey::ROM23:
+    //    m_nCurrentPaletteROMLocation += 0x60009E;
+    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
+
+    if (nUnitId != m_nCurrentExtraUnitId)
+    {
+        // For Steam, we can handle the split ROMs as one unit.  Adjust the 04 units for the offset.
+        if (nUnitId < ARRAYSIZE(SF2HF_A_22_UNITS))
+        {
+            m_nCurrentPaletteROMLocation += 0x68009e;
+        }
+        else if (nUnitId < (ARRAYSIZE(SF2HF_A_22_UNITS) + ARRAYSIZE(SF2HF_A_21_UNITS)))
+        {
+            m_nCurrentPaletteROMLocation += 0x70009e;
+        }
+        else
+        {
+            m_nCurrentPaletteROMLocation += 0x60009E;
+        }
+    }
+}
