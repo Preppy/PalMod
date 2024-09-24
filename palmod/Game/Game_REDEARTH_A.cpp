@@ -60,3 +60,26 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize)
         break;
     }
 }
+
+void CGame_REDEARTH_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
+
+    if (nUnitId != m_nCurrentExtraUnitId)
+    {
+        // For Steam, we can handle the split ROMs as one unit.
+        // Adjust each chunk by the offsets once they are known
+        if (nUnitId <= ARRAYSIZE(REDEARTH_A_UNITS_31))
+        {
+            //m_nCurrentPaletteROMLocation += 0x80000;
+        }
+        else if (nUnitId <= (ARRAYSIZE(REDEARTH_A_UNITS_31) + ARRAYSIZE(REDEARTH_A_UNITS_30)))
+        {
+            //m_nCurrentPaletteROMLocation += 0x80000;
+        }
+        else // REDEARTH_A_UNITS_50
+        {
+            //m_nCurrentPaletteROMLocation += 0x80000;
+        }
+    }
+}

@@ -47,3 +47,46 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_GEMFIGHTER_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"pfghtj.21D3D8A7", 0x2450040 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Pocket Fighter (Steam Japan 970904)", L"pfghtj.21D3D8A7", 0xc3ed0ad4, 0x20b5a6 - 0xb566 },
+        { L"Super Gem Fighter Minimix (Steam USA 970904)", L"sgemf.21D3D8A7", 0x52801078, 0x20b5a6 - 0xb566 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Super Gem Fighter Minimix (Steam Unknown Version)",
+        GEMFIGHTER_S,
+        IMGDAT_SECTION_CPS2,
+        GEMFIGHTER_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_GEMFIGHTER,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        GEMFIGHTER_A_UNITS,
+        ARRAYSIZE(GEMFIGHTER_A_UNITS),
+        L"GemFighterSE.txt",        // Extra filename
+        302,                        // Count of palettes listed in the header
+        0x99e6,                     // Lowest known location used for palettes
+    };
+
+public:
+    CGame_GEMFIGHTER_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

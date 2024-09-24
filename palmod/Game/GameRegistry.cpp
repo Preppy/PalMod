@@ -224,6 +224,7 @@ namespace KnownGameInfo
     CGameClass* Make_Garou_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Garou_A(nConfirmedROMSize); }
     CGameClass* Make_Garou_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Garou_S(nConfirmedROMSize); }
     CGameClass* Make_GEMFIGHTER_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GEMFIGHTER_A(nConfirmedROMSize); }
+    CGameClass* Make_GEMFIGHTER_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GEMFIGHTER_S(nConfirmedROMSize); }
     CGameClass* Make_GGDS_NDS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGDS_NDS(nConfirmedROMSize); }
     CGameClass* Make_GGML_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGML_P(nConfirmedROMSize); }
     CGameClass* Make_GGXXACP_Wii(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACP_Wii(nConfirmedROMSize); }
@@ -234,6 +235,7 @@ namespace KnownGameInfo
     CGameClass* Make_GUNDAM_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GUNDAM_SNES(nConfirmedROMSize); }
     CGameClass* Make_HIppo_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_HIppo_GBA(nConfirmedROMSize); }
     CGameClass* Make_HSF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_HSF2_A(nConfirmedROMSize); }
+    CGameClass* Make_HSF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_HSF2_S(nConfirmedROMSize); }
     CGameClass* Make_JCHAN_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JCHAN_A(nConfirmedROMSize); }
     CGameClass* Make_JOJOSRPG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOSRPG_SNES(nConfirmedROMSize); }
     CGameClass* Make_JOJOS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOS_A(nConfirmedROMSize, static_cast<JojosLoadingKey>(nExtraGameData)); }
@@ -319,6 +321,7 @@ namespace KnownGameInfo
     CGameClass* Make_RBFF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_A(nConfirmedROMSize); }
     CGameClass* Make_RBFFS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFFS_A(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_A(nConfirmedROMSize); }
+    CGameClass* Make_REDEARTH_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_S(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_A_DIR_30(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM30); }
     CGameClass* Make_REDEARTH_A_DIR_31(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM31); }
     CGameClass* Make_REDEARTH_A_DIR_50(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM50); }
@@ -356,6 +359,7 @@ namespace KnownGameInfo
     CGameClass* Make_SFZ3U_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3U_A(nConfirmedROMSize); }
     CGameClass* Make_SHAQFU_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SHAQFU_SNES(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
+    CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_GBA(nConfirmedROMSize); }
     CGameClass* Make_SurvivalArts_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SurvivalArts_A(nConfirmedROMSize); }
@@ -817,6 +821,13 @@ namespace KnownGameInfo
             { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_HSF2_A,
             CGame_HSF2_A::GetRule,
+        },
+        {
+            HSF2_S,
+            L"Hyper Street Fighter 2",
+            { HSF2_S,           L"HSF2", L"HSF2 (Steam)|hsf2.21D3D8A7;hsf2j.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_HSF2_S,
+            CGame_HSF2_S::GetRule,
         },
         {
             JCHAN_A,
@@ -1554,6 +1565,16 @@ namespace KnownGameInfo
             CGame_RedEarth_A_DIR::GetRuleCtr,
             CGame_RedEarth_A_DIR::ResetRuleCtr,
         },
+#ifdef dontuse
+        // ... I can't find the colors in the ROM.  maybe a color format shift...?
+        {
+            REDEARTH_S,
+            L"Red Earth (Steam)",
+            { REDEARTH_S,       L"Red Earth", L"Red Earth (Steam)|redearth.21D3D8A7;warzard.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_REDEARTH_S,
+            CGame_REDEARTH_S::GetRule,
+        },
+#endif
         {
             RODSM2_A,
             L"Ring of Destruction: Slam Master's II",
@@ -1859,11 +1880,25 @@ namespace KnownGameInfo
             CGame_GEMFIGHTER_A::GetRule,
         },
         {
+            GEMFIGHTER_S,
+            L"Super Gem Fighter Mini Mix (USA 970904)",
+            { GEMFIGHTER_S,     L"Super Gem Fighter", L"Super Gem Fighter (Steam)|pfghtj.21D3D8A7;sgemf.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_GEMFIGHTER_S,
+            CGame_GEMFIGHTER_S::GetRule,
+        },
+        {
             SPF2T_A,
             L"Super Puzzle Fighter II Turbo (CPS2 Arcade)",
             { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*;pzfcb.04;pzfxp.04|", GamePlatform::CapcomCPS12 },
             Make_SPF2T_A,
             CGame_SPF2T_A::GetRule,
+        },
+        {
+            SPF2T_S,
+            L"Super Puzzle Fighter II Turbo (Steam)",
+            { SPF2T_S,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo (Steam)|spf2tu.21D3D8A7;spf2xj.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_SPF2T_S,
+            CGame_SPF2T_S::GetRule,
         },
         {
             TattooAsns_A,

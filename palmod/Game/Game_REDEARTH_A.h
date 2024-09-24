@@ -120,3 +120,48 @@ public:
     static void SetSpecialRuleForFileName(std::wstring strFileName);
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_REDEARTH_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"redearth.21D3D8A7", 0x4480040 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Red Earth (Steam Red Earth 961121)", L"redearth.21D3D8A7", 0x074cab4d, 0 },
+        { L"Red Earth (Steam Warzard 961121)",   L"warzard.21D3D8A7", 0x14e2cad4, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Red Earth (Steam Unknown Version)",
+        REDEARTH_S,
+        IMGDAT_SECTION_REDEARTH,
+        REDEARTH_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        REDEARTH_A_UNITS_MONO,
+        ARRAYSIZE(REDEARTH_A_UNITS_MONO),
+        L"RedEarthSe.txt",              // Extra filename
+        REDEARTH_30_PALETTE_COUNT,      // Count of palettes listed in the header
+        REDEARTH_30_LOWEST_OFFSET,      // Lowest known location used for palettes
+    };
+
+public:
+    CGame_REDEARTH_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

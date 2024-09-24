@@ -38,3 +38,21 @@ sFileRule CGame_HSF2_A::GetRule(uint32_t nRuleId)
 {
     return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == HSF2LoadingKey::ROM04) ? m_sFileLoadingData_03 : m_sFileLoadingData_04);
 }
+
+void CGame_HSF2_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
+
+    if (nUnitId != m_nCurrentExtraUnitId)
+    {
+        // For Steam, we can handle the split ROMs as one unit.  Adjust the 03/04 units for their offsets.
+        if (nUnitId < ARRAYSIZE(HSF2_A_UNITS_04))
+        {
+            m_nCurrentPaletteROMLocation += 0x80040;
+        }
+        else
+        {
+            m_nCurrentPaletteROMLocation += 0x40;
+        }
+    }
+}
