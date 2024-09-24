@@ -63,16 +63,20 @@ void CGame_VampireNightWarriors_S::LoadSpecificPaletteData(uint32_t nUnitId, uin
 
     if (m_nGameFlag == VampireNightWarriors_S)
     {
-        // For Steam, we can handle the split ROMs as one unit.  Adjust the 04 units for the offset.
-        if ((nUnitId == 12) || (nUnitId == 13))
+        if (nUnitId != m_nCurrentExtraUnitId)
         {
-            if (m_pCRC32SpecificData->nROMSpecificOffset == 0x3000A8)
+            // For Steam, we can handle the split ROMs as one unit.  Adjust the 04 units for the offset.
+            if (nUnitId > ARRAYSIZE(VampireNightWarriors_A_UNITS_09))
             {
-                m_nCurrentPaletteROMLocation -= 0x27DB46;
-            }
-            else
-            {
-                m_nCurrentPaletteROMLocation -= 0x27db8c;
+                // Handle US vs Japan-specific offsets here
+                if (m_pCRC32SpecificData->nROMSpecificOffset == 0x3000A8)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x27DB46;
+                }
+                else
+                {
+                    m_nCurrentPaletteROMLocation -= 0x27db8c;
+                }
             }
         }
     }
