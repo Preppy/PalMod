@@ -51,14 +51,14 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"vhunt2.21D3D8A", 0x3050040 },
+            { L"vhunt2.21D3D8A7", 0x3050040 },
         },
         FileReadType::Sequential,
     };
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Vampire Hunter 2 (Steam Japan 970929)", L"vhunt2.21D3D8A", 0x9d9653f9, 0x360014 },
+        { L"Vampire Hunter 2 (Steam Japan 970929)", L"vhunt2.21D3D8A7", 0x9d9653f9, 0x360014 },
     };
 
     const sCoreGameData m_sCoreGameData
