@@ -97,97 +97,138 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Shuma =
         MOD_SAT, 1, 8, NEG + 30,
         MOD_LUM, 1, 8, 5 },
     { SUPP_NODE, 0x0c, 0x30 },
+    
+    // 10 unused super trail palettes
+    // 10 grab frame palettes, not tied to main color
 
     // HP Flash frames: 7 frames
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x21, 0x30, MOD_COPY, 2, 7, 2 },
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x22, 0x30, MOD_COPY, 2, 7, 2 },
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x23, 0x30, MOD_COPY, 2, 7, 2 },
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x24, 0x30, MOD_COPY, 2, 7, 2 },
-    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x25, 0x30, MOD_COPY, 2, 7, 2 },
+    // HP flash
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x25, 0x30,
+        MOD_COPY, 2, 10, 2,
+        MOD_LUM, 9, 1, NEG + 5, //darken eye shine, 
+        MOD_COPY, 2, 2, 14, //match and lighten the last 2 shades
+        MOD_LUM, 14, 2, 20, MOD_LUM, 14, 1, 10,
+        MOD_SAT, 14, 2, 40, MOD_SAT, 14, 1, 20, },
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x26, 0x30, MOD_COPY, 2, 7, 2 },
+    // Winpose: eye is different color, but i don't know how that works
+    // Saturation is maxed, but the other transforms are unclear
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x27, 0x30, MOD_COPY, 2, 7, 2 },
 
-    // Chaos Dimension: 5 paired frames: different sort than MvC2
+    // Chaos Dimension: 5 paired frames: normal, dash, repeat
+    // Chaos frame 1
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x28, 0x30,
         MOD_COPY, 1, 11, 1,
-        MOD_SAT, 2, 7, NEG + 65,
-        MOD_LUM, 2, 7, 17,
-        MOD_LUM, 9, 3, 10 },
-
-    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x29, 0x30, 
-        MOD_COPY, 1, 11, 1,
-        MOD_SAT, 2, 7, NEG + 45,
-        MOD_LUM, 2, 7, 13 },
-
-    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2a, 0x30,
-        MOD_COPY, 1, 11, 1,
-        MOD_SAT, 2, 7, NEG + 35,
-        MOD_LUM, 2, 7, 14 },
-
-    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2b, 0x30,
-        MOD_COPY, 1, 1, 1,
-        MOD_COPY, 2, 1, 8,
-        MOD_COPY, 3, 1, 7,
-        MOD_COPY, 4, 1, 6,
-        MOD_COPY, 5, 1, 5,
-        MOD_COPY, 6, 1, 4,
-        MOD_COPY, 7, 1, 3,
-        MOD_COPY, 8, 1, 2,
-        MOD_COPY, 9, 3, 9,
-        MOD_SAT, 2, 7, NEG + 25,
-        MOD_LUM, 2, 7, 17 },
-
-    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2c, 0x30,
-    // the skin highlight is flipped here
-        MOD_COPY, 1, 1, 1,
-        MOD_COPY, 2, 1, 8,
-        MOD_COPY, 3, 1, 7,
-        MOD_COPY, 4, 1, 6,
-        MOD_COPY, 5, 1, 5,
-        MOD_COPY, 6, 1, 4,
-        MOD_COPY, 7, 1, 3,
-        MOD_COPY, 8, 1, 2,
-        MOD_COPY, 9, 3, 9,
-        MOD_SAT, 2, 7, NEG + 15,
+        MOD_SAT, 2, 7, NEG + 40,
         MOD_LUM, 2, 7, 20,
-        MOD_LUM, 9, 3, 10 },
+        MOD_LUM, 9, 3, 10
+    },
 
-    // Chaos Dimension: 5 dash frames
+    // Dash frame 1
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x29, 0x30,
+        MOD_COPY, 2, 7, 2,
+        MOD_SAT, 2, 7, NEG + 40,
+        MOD_LUM, 2, 7, 20,
+    },
+
+    // Chaos frame 2
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2a, 0x30, 
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 30,
+        MOD_LUM, 2, 7, 30
+    },
+
+    // Dash frame 2
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2b, 0x30,
+        MOD_COPY, 2, 7, 2,
+        MOD_SAT, 2, 7, NEG + 30,
+        MOD_LUM, 2, 7, 30 },
+
+    // Chaos frame 3
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2c, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 20,
+        MOD_LUM, 2, 7, 20 },
+
+    // Dash frame 3
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2d, 0x30,
-        MOD_COPY, 1, 8, 1,
-        MOD_LUM, 1, 8, 5 },
+        MOD_COPY, 2, 7, 2,
+        MOD_SAT, 2, 7, NEG + 20,
+        MOD_LUM, 2, 7, 20 },
+
+    // Chaos frame 4
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2e, 0x30,
-        MOD_COPY, 1, 8, 1,
-       MOD_LUM, 1, 8, 10 },
+        MOD_COPY, 2, 1, 8,
+        MOD_COPY, 3, 1, 7,
+        MOD_COPY, 4, 1, 6,
+        MOD_COPY, 5, 1, 5,
+        MOD_COPY, 6, 1, 4,
+        MOD_COPY, 7, 1, 3,
+        MOD_COPY, 7, 1, 2,
+        MOD_COPY, 9, 3, 9,
+        MOD_SAT, 2, 1, 40,
+        MOD_LUM, 2, 1, 40,
+        MOD_SAT, 3, 6, 60,
+        MOD_LUM, 3, 6, 50,
+    },
+
+    // Dash frame 4
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2f, 0x30,
-        MOD_COPY, 1, 8, 1,
-        MOD_LUM, 1, 8, 15 },
+    // the skin highlight is flipped here
+        MOD_COPY, 2, 1, 8,
+        MOD_COPY, 3, 1, 7,
+        MOD_COPY, 4, 1, 6,
+        MOD_COPY, 5, 1, 5,
+        MOD_COPY, 6, 1, 4,
+        MOD_COPY, 7, 1, 3,
+        MOD_COPY, 7, 1, 2,
+        MOD_SAT, 2, 1, 40,
+        MOD_LUM, 2, 1, 40,
+        MOD_SAT, 3, 6, 60,
+        MOD_LUM, 3, 6, 50,
+    },
+            
+    // Chaos frame 5
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x30, 0x30,
     // the skin highlight is flipped here
-        MOD_COPY, 1, 1, 1,
         MOD_COPY, 2, 1, 8,
         MOD_COPY, 3, 1, 7,
         MOD_COPY, 4, 1, 6,
         MOD_COPY, 5, 1, 5,
         MOD_COPY, 6, 1, 4,
         MOD_COPY, 7, 1, 3,
-        MOD_COPY, 8, 1, 2,
-        MOD_LUM, 1, 8, 20 },
+        MOD_COPY, 7, 1, 2,
+        MOD_COPY, 9, 3, 9,
+        MOD_SAT, 2, 1, 30,
+        MOD_LUM, 2, 1, 20,
+        MOD_SAT, 3, 6, 50,
+        MOD_LUM, 3, 6, 30
+    },
+
+    // Dash frame 5
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x31, 0x30,
     // the skin highlight is flipped here
-        MOD_COPY, 1, 1, 1,
         MOD_COPY, 2, 1, 8,
         MOD_COPY, 3, 1, 7,
         MOD_COPY, 4, 1, 6,
         MOD_COPY, 5, 1, 5,
         MOD_COPY, 6, 1, 4,
         MOD_COPY, 7, 1, 3,
-        MOD_COPY, 8, 1, 2,
-        MOD_LUM, 1, 8, 25 },
+        MOD_COPY, 7, 1, 2,
+        MOD_SAT, 2, 1, 30,
+        MOD_LUM, 2, 1, 20,
+        MOD_SAT, 3, 6, 50,
+        MOD_LUM, 3, 6, 30
+    },
 
     // Mystic Smash Shadows
     { SUPP_NODE, 0x32, 0x30,
-        MOD_LUM, 1, 15, NEG + 20 },
+        MOD_LUM, 1, 15, NEG + 10,
+        MOD_SAT, 1, 15, NEG + 100
+    },
 };
 
 const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Spidey =
@@ -558,7 +599,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P1[] =
     { L"P1 Unused 2", 0x63bac + (31 * 0x20), 0x63bcc + (31 * 0x20) },
     { L"P1 Unused 3", 0x63bac + (32 * 0x20), 0x63bcc + (32 * 0x20) },
     { L"P1 Unused 4", 0x63bac + (33 * 0x20), 0x63bcc + (33 * 0x20) },
-    { L"P1 HP Flash Frame", 0x63bac + (34 * 0x20), 0x63bcc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPrevious35 },
+    { L"P1 HP Flash Frame", 0x63bac + (34 * 0x20), 0x63bcc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPreviousFlipped35 },
     { L"P1 Winpose", 0x63bac + (35 * 0x20), 0x63bcc + (35 * 0x20), indexCPS2Sprites_Shuma, 0x07 },
     { L"P1 Unused 5", 0x63bac + (36 * 0x20), 0x63bcc + (36 * 0x20) },
 
@@ -620,7 +661,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P2[] =
     { L"P2 Unused 2", 0x641ac + (31 * 0x20), 0x641cc + (31 * 0x20) },
     { L"P2 Unused 3", 0x641ac + (32 * 0x20), 0x641cc + (32 * 0x20) },
     { L"P2 Unused 4", 0x641ac + (33 * 0x20), 0x641cc + (33 * 0x20) },
-    { L"P2 HP Flash Frames", 0x641ac + (34 * 0x20), 0x641cc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPrevious35 },
+    { L"P2 HP Flash Frames", 0x641ac + (34 * 0x20), 0x641cc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPreviousFlipped35 },
     { L"P2 Winpose", 0x641ac + (35 * 0x20), 0x641cc + (35 * 0x20), indexCPS2Sprites_Shuma, 0x07 },
     { L"P2 Unused 5", 0x641ac + (36 * 0x20), 0x641cc + (36 * 0x20) },
 

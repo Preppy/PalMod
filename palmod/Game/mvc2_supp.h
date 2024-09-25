@@ -836,67 +836,129 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 8, 5,
             SUPP_NODE, 0x1A, 0x30,
 
+            // 10 unused super trail palettes
+            // 10 grab frame palettes, not tied to main color
+
             // HP Flash frames: 2F-35
             SUPP_NODE_EX, 0x2F, 0x30, 2, 7, 2,
             SUPP_NODE_EX, 0x30, 0x30, 2, 7, 2,
             SUPP_NODE_EX, 0x31, 0x30, 2, 7, 2,
             SUPP_NODE_EX, 0x32, 0x30, 2, 7, 2,
+            // HP Flash Frame
             SUPP_NODE_EX, 0x33, 0x30, 2, 7, 2,
+                MOD_COPY, 2, 10, 2,
+                MOD_LUM, 9, 1, NEG + 5, //darken eye shine, 
+                MOD_COPY, 2, 2, 14, //match and lighten the last 2 shades
+                MOD_LUM, 14, 2, 20, MOD_LUM, 14, 1, 10,
+                MOD_SAT, 14, 2, 40, MOD_SAT, 14, 1, 20,
+            // Winpose: eye is different color, but i don't know how that works
+            // Saturation is maxed, but the other transforms are unclear
             SUPP_NODE_EX, 0x34, 0x30, 2, 7, 2,
             SUPP_NODE_EX, 0x35, 0x30, 2, 7, 2,
 
-            // Chaos Dimension: 0x36-3F
-            SUPP_NODE_EX, 0x36, 0x30, 1, 11, 1,
-                MOD_SAT, 2, 7, NEG + 65,
-                MOD_LUM, 2, 7, 17,
-                MOD_SAT, 9, 3, NEG + 25,
-                MOD_LUM, 9, 3, 10,
+            // Chaos Dimension: 0x36-3F. 5 paired frames: normal, dash, repeat
+            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x36, 0x30, 1, 11, 1,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 40,
+        MOD_LUM, 2, 7, 20,
+        MOD_LUM, 9, 3, 10,
 
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x30, 0x36, 0x30, 1, 15, 1,
+        // Dash frame 1
+    SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x37, 0x30, 1, 11, 1,
+        MOD_COPY, 2, 7, 2,
+        MOD_SAT, 2, 7, NEG + 40,
+        MOD_LUM, 2, 7, 20,
 
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x30, 0x38, 0x30, 6, 1, 7,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x30, 0x38, 0x30, 6, 1, 8,
-                MOD_LUM, 7, 1, 10,
-                MOD_LUM, 8, 1, 15,
-                MOD_SAT, 2, 5, NEG + 30,
-                MOD_LUM, 9, 3, 10,
-                MOD_SAT, 9, 3, NEG + 10,
+        // Chaos frame 2
+    SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x38, 0x30, 1, 11, 1,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 30,
+        MOD_LUM, 2, 7, 30,
 
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 2, 7, 2,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x3A, 0x30, 7, 1, 2,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x3A, 0x30, 7, 1, 5,
-                MOD_LUM, 7, 1, 5,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 10, 1, 10,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 11, 1, 9,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 11, 1, 11,
+        // Dash frame 2
+     SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x39, 0x30, 1, 11, 1,
+        MOD_COPY, 2, 7, 2,
+        MOD_SAT, 2, 7, NEG + 30,
+        MOD_LUM, 2, 7, 30,
 
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 11, 1, 9,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 10, 1, 10,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 9, 1, 11,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 6, 1, 2,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 6, 1, 3,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 5, 1, 4,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 4, 1, 5,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 3, 1, 6,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 2, 1, 7,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 2, 1, 8,
-                MOD_LUM, 3, 2, 4,
-                MOD_LUM, 6, 1, 8,
-        
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x30, 0x3C, 0x30, 2, 7, 2,
-                MOD_LUM, 2, 7, 4,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x30, 0x3C, 0x30, 9, 2, 9,
-                MOD_LUM, 9, 2, 4,
+        // Chaos frame 3
+    SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x3a, 0x30, 1, 11, 1,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 20,
+        MOD_LUM, 2, 7, 20,
 
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x37, 0x30, 0x36, 0x30, 1, 8, 1,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x39, 0x30, 0x38, 0x30, 1, 8, 1,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3B, 0x30, 0x3A, 0x30, 1, 8, 1,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3D, 0x30, 0x3C, 0x30, 1, 8, 1,
-            SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3F, 0x30, 0x3E, 0x30, 1, 8, 1,
+        // Dash frame 3
+    SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x3b, 0x30, 1, 11, 1,
+        MOD_COPY, 2, 7, 2,
+        MOD_SAT, 2, 7, NEG + 20,
+        MOD_LUM, 2, 7, 20,
+
+        // Chaos frame 4
+     SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x3c, 0x30, 1, 11, 1,
+        MOD_COPY, 2, 1, 8,
+        MOD_COPY, 3, 1, 7,
+        MOD_COPY, 4, 1, 6,
+        MOD_COPY, 5, 1, 5,
+        MOD_COPY, 6, 1, 4,
+        MOD_COPY, 7, 1, 3,
+        MOD_COPY, 7, 1, 2,
+        MOD_COPY, 9, 3, 9,
+        MOD_SAT, 2, 1, 40,
+        MOD_LUM, 2, 1, 40,
+        MOD_SAT, 3, 6, 60,
+        MOD_LUM, 3, 6, 50,
+
+        // Dash frame 4
+     SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x3d, 0x30, 1, 11, 1,
+        // the skin highlight is flipped here
+            MOD_COPY, 2, 1, 8,
+            MOD_COPY, 3, 1, 7,
+            MOD_COPY, 4, 1, 6,
+            MOD_COPY, 5, 1, 5,
+            MOD_COPY, 6, 1, 4,
+            MOD_COPY, 7, 1, 3,
+            MOD_COPY, 7, 1, 2,
+            MOD_SAT, 2, 1, 40,
+            MOD_LUM, 2, 1, 40,
+            MOD_SAT, 3, 6, 60,
+            MOD_LUM, 3, 6, 50,
+
+        // Chaos frame 5
+                SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x3e, 0x30, 1, 11, 1,
+        // the skin highlight is flipped here
+            MOD_COPY, 2, 1, 8,
+            MOD_COPY, 3, 1, 7,
+            MOD_COPY, 4, 1, 6,
+            MOD_COPY, 5, 1, 5,
+            MOD_COPY, 6, 1, 4,
+            MOD_COPY, 7, 1, 3,
+            MOD_COPY, 7, 1, 2,
+            MOD_COPY, 9, 3, 9,
+            MOD_SAT, 2, 1, 30,
+            MOD_LUM, 2, 1, 20,
+            MOD_SAT, 3, 6, 50,
+            MOD_LUM, 3, 6, 30,
+
+
+        // Dash frame 5
+                SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x3f, 0x30, 1, 11, 1,
+        // the skin highlight is flipped here
+            MOD_COPY, 2, 1, 8,
+            MOD_COPY, 3, 1, 7,
+            MOD_COPY, 4, 1, 6,
+            MOD_COPY, 5, 1, 5,
+            MOD_COPY, 6, 1, 4,
+            MOD_COPY, 7, 1, 3,
+            MOD_COPY, 7, 1, 2,
+            MOD_SAT, 2, 1, 30,
+            MOD_LUM, 2, 1, 20,
+            MOD_SAT, 3, 6, 50,
+            MOD_LUM, 3, 6, 30,
 
             // Mystic Smash Shadows
             SUPP_NODE, 0x40, 0x30,
-                MOD_LUM, 1, 15, NEG + 60,
+                MOD_LUM, 1, 15, NEG + 10,
+                MOD_SAT, 1, 15, NEG + 100
     };
 
     const std::vector<uint16_t> supp_data_silversamurai =

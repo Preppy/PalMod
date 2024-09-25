@@ -410,7 +410,6 @@ const stPairedPaletteInfo pairPrevious10 = { -10 };
 const stPairedPaletteInfo pairPrevious11 = { -11 };
 const stPairedPaletteInfo pairPrevious14 = { -14 };
 const stPairedPaletteInfo pairPrevious25 = { -25 };
-const stPairedPaletteInfo pairPrevious35 = { -35 };
 
 const stPairedPaletteInfo pairNextFlipped =  { 1, PalettePairOptions::FlipDisplay };
 const stPairedPaletteInfo pairNextFlipped4 = { 4, PalettePairOptions::FlipDisplay };
@@ -423,6 +422,7 @@ const stPairedPaletteInfo pairPreviousFlipped4 = { -4, PalettePairOptions::FlipD
 const stPairedPaletteInfo pairPreviousFlipped5 = { -5, PalettePairOptions::FlipDisplay };
 const stPairedPaletteInfo pairPreviousFlipped6 = { -6, PalettePairOptions::FlipDisplay };
 const stPairedPaletteInfo pairPreviousFlipped7 = { -7, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairPreviousFlipped35 = { -35, PalettePairOptions::FlipDisplay };
 
 const stPairedPaletteInfo pairNextAndNext =                         { 1, {}, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, {}, 3, 3 }; // triple display... requires special handling in code
