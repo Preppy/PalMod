@@ -398,7 +398,6 @@ const stPairedPaletteInfo pairNext15 = { 15 };
 const stPairedPaletteInfo pairNext21 = { 21 };
 const stPairedPaletteInfo pairNext25 = { 25 };
 const stPairedPaletteInfo pairNext30 = { 30 };
-const stPairedPaletteInfo pairNext35 = { 35 };
 const stPairedPaletteInfo pairPrevious = { -1 };
 const stPairedPaletteInfo pairPrevious2 = { -2 };
 const stPairedPaletteInfo pairPrevious3 = { -3 };
@@ -410,9 +409,11 @@ const stPairedPaletteInfo pairPrevious10 = { -10 };
 const stPairedPaletteInfo pairPrevious11 = { -11 };
 const stPairedPaletteInfo pairPrevious14 = { -14 };
 const stPairedPaletteInfo pairPrevious25 = { -25 };
+const stPairedPaletteInfo pairPrevious35 = { -35 };
 
 const stPairedPaletteInfo pairNextFlipped =  { 1, PalettePairOptions::FlipDisplay };
 const stPairedPaletteInfo pairNextFlipped4 = { 4, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairNextFlipped35 = { 35, PalettePairOptions::FlipDisplay };
 
 // Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
 const stPairedPaletteInfo pairPreviousFlipped = { -1, PalettePairOptions::FlipDisplay };
@@ -422,7 +423,6 @@ const stPairedPaletteInfo pairPreviousFlipped4 = { -4, PalettePairOptions::FlipD
 const stPairedPaletteInfo pairPreviousFlipped5 = { -5, PalettePairOptions::FlipDisplay };
 const stPairedPaletteInfo pairPreviousFlipped6 = { -6, PalettePairOptions::FlipDisplay };
 const stPairedPaletteInfo pairPreviousFlipped7 = { -7, PalettePairOptions::FlipDisplay };
-const stPairedPaletteInfo pairPreviousFlipped35 = { -35, PalettePairOptions::FlipDisplay };
 
 const stPairedPaletteInfo pairNextAndNext =                         { 1, {}, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, {}, 3, 3 }; // triple display... requires special handling in code

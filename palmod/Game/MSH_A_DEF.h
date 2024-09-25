@@ -559,7 +559,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P1[] =
 {
     { L"P1 Main", 0x6222c, 0x6224c, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHShumaEffects },
     { L"P1 Dash Frame / Guard Frame", 0x6224c, 0x6226c, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P1 FP / jFP / cFP / Intro", 0x6226c, 0x6228c, indexCPS2Sprites_Shuma, 0x09, &pairNext35 },
+    { L"P1 FP / jFP / cFP / Intro", 0x6226c, 0x6228c, indexCPS2Sprites_Shuma, 0x09, &pairNextFlipped35 },
 
     { L"P1 Unused 1", 0x63bac + (0 * 0x20), 0x63bcc + (0 * 0x20) },
     { L"P1 Unused 2", 0x63bac + (1 * 0x20), 0x63bcc + (1 * 0x20) },
@@ -599,7 +599,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P1[] =
     { L"P1 Unused 2", 0x63bac + (31 * 0x20), 0x63bcc + (31 * 0x20) },
     { L"P1 Unused 3", 0x63bac + (32 * 0x20), 0x63bcc + (32 * 0x20) },
     { L"P1 Unused 4", 0x63bac + (33 * 0x20), 0x63bcc + (33 * 0x20) },
-    { L"P1 HP Flash Frame", 0x63bac + (34 * 0x20), 0x63bcc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPreviousFlipped35 },
+    { L"P1 HP Flash Frame", 0x63bac + (34 * 0x20), 0x63bcc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPrevious35 },
     { L"P1 Winpose", 0x63bac + (35 * 0x20), 0x63bcc + (35 * 0x20), indexCPS2Sprites_Shuma, 0x07 },
     { L"P1 Unused 5", 0x63bac + (36 * 0x20), 0x63bcc + (36 * 0x20) },
 
@@ -621,7 +621,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P2[] =
 {
     { L"P2 Main", 0x622Ac, 0x622Cc, indexCPS2Sprites_Shuma, 0x00, &pairNext, &secondaryMSHShumaEffects },
     { L"P2 Dash Frame / Guard Frame", 0x622Cc, 0x622Ec, indexCPS2Sprites_Shuma, 0x01, &pairPrevious },
-    { L"P2 FP / jFP / cFP / Intro", 0x622ec, 0x6230c, indexCPS2Sprites_Shuma, 0x09, &pairNext35 },
+    { L"P2 FP / jFP / cFP / Intro", 0x622ec, 0x6230c, indexCPS2Sprites_Shuma, 0x09, &pairNextFlipped35 },
 
     { L"P2 Unused 1", 0x641ac + (0 * 0x20), 0x641cc + (0 * 0x20) },
     { L"P2 Unused 2", 0x641ac + (1 * 0x20), 0x641cc + (1 * 0x20) },
@@ -661,7 +661,7 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P2[] =
     { L"P2 Unused 2", 0x641ac + (31 * 0x20), 0x641cc + (31 * 0x20) },
     { L"P2 Unused 3", 0x641ac + (32 * 0x20), 0x641cc + (32 * 0x20) },
     { L"P2 Unused 4", 0x641ac + (33 * 0x20), 0x641cc + (33 * 0x20) },
-    { L"P2 HP Flash Frames", 0x641ac + (34 * 0x20), 0x641cc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPreviousFlipped35 },
+    { L"P2 HP Flash Frames", 0x641ac + (34 * 0x20), 0x641cc + (34 * 0x20), indexCPS2Sprites_Shuma, 0x06, &pairPrevious35 },
     { L"P2 Winpose", 0x641ac + (35 * 0x20), 0x641cc + (35 * 0x20), indexCPS2Sprites_Shuma, 0x07 },
     { L"P2 Unused 5", 0x641ac + (36 * 0x20), 0x641cc + (36 * 0x20) },
 
