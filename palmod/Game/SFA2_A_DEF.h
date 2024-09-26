@@ -1925,7 +1925,7 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV1_ELIZA_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_STAGES08_REV1_ELIZA_PALETTES[] =
 {
-    { L"BG - Lights.1", 0x28abe ,0x28ade, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
+    { L"BG - Lights.1", 0x28abe, 0x28ade, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
     { L"BG - Lights.2", 0x28ade, 0x28afe, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
     { L"BG - Lights.3", 0x28afe, 0x28b1e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
     { L"BG - Lights.4", 0x28b1e, 0x28b3e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
@@ -1984,7 +1984,7 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_KEN_PALETTES[] =
     { L"Ken Stage - Tables and Decorations 1/2",    0x69be, 0x6bbe, indexCPS2Sprites_SFA2_Stages, 0x04, &pairFullyLinkedNode },
     { L"Ken Stage - Tables and Decorations 2/2",    0x6bbe, 0x6Dbe, indexCPS2Sprites_SFA2_Stages, 0x05  },
     { L"Ken Stage - Guests and Some Decor 1/2",     0x10Dbe, 0x10fbe, indexCPS2Sprites_SFA2_Stages, 0x08 },
-    { L"Ken Stage - Guests and Some Decor 2/2",     0x10fbe, 0x110fe, indexCPS2Sprites_SFA2_Stages, 0x09 },
+    { L"Ken Stage - Guests and Some Decor 2/2",     0x10fbe, 0x1113e, indexCPS2Sprites_SFA2_Stages, 0x09 },
     { L"Ken Stage Candles 1.1",                     0x29D1e, 0x29D3e, indexCPS2Sprites_SFA2_Stages, 0x06 },
     { L"Ken Stage Candles 1.2",                     0x29D3e, 0x29D5e, indexCPS2Sprites_SFA2_Stages, 0x06 },
     { L"Ken Stage Candles 1.3",                     0x29D5e, 0x29D7e, indexCPS2Sprites_SFA2_Stages, 0x06 },
@@ -4718,4 +4718,196 @@ const sDescTreeNode SFZ2A_A_UNITS_08[] =
 
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08ForSFZ2A_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08ForSFZ2A_COLLECTION) },
     //{ L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV1_COLLECTION) },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_MONO_ELIZA_PALETTES[] =
+{
+    { L"BG - Bridge+Buildings 1/2", 0x4ce4fda, 0x4ce51da, indexCPS2Sprites_SFA2_Stages, 0x02, &pairNext },
+    { L"BG - Bridge+Buildings 2/2", 0x4ce51da, 0x4ce52fa, indexCPS2Sprites_SFA2_Stages, 0x03 },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_MONO_KEN_PALETTES[] =
+{
+    { L"Front Guests", 0x4cde73a, 0x4cde85a, indexCPS2Sprites_SFA2_Stages, 0x0a },
+};
+
+const sDescTreeNode SFA2_A_STAGES07_MONO_COLLECTION[] =
+{
+    { L"Ken Stage Background (ROM 07 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_MONO_ELIZA_PALETTES, ARRAYSIZE(SFA2_A_STAGES07_MONO_ELIZA_PALETTES) },
+    { L"Ken Stage (ROM 07 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_MONO_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES07_MONO_KEN_PALETTES) },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_MONO_REV1_ELIZA_PALETTES[] =
+{
+    { L"BG - Lights.1", 0x4d11c5a, 0x4d11c7a, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
+    { L"BG - Lights.2", 0x4d11c7a, 0x4d11c9a, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
+    { L"BG - Lights.3", 0x4d11c9a, 0x4d11cba, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
+    { L"BG - Lights.4", 0x4d11cba, 0x4d11cda, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext4 },
+    { L"BG - Stars.1",  0x4d11e5a, 0x4d11e7a, indexCPS2Sprites_SFA2_Stages, 0x00 },
+    { L"BG - Stars.2",  0x4d11e7a, 0x4d11e9a, indexCPS2Sprites_SFA2_Stages, 0x00 },
+    { L"BG - Stars.3",  0x4d11e9a, 0x4d11eba, indexCPS2Sprites_SFA2_Stages, 0x00 },
+    { L"BG - Stars.4",  0x4d11eba, 0x4d11eda, indexCPS2Sprites_SFA2_Stages, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_MONO_REV1_KEN_PALETTES[] =
+{
+    { L"Ken Stage - Tables & Decorations 1/2", 0x4cef3da, 0x4cef5da, indexCPS2Sprites_SFA2_Stages, 0x04, &pairFullyLinkedNode },
+    { L"Ken Stage - Tables & Decorations 2/2", 0x4cef5da, 0x4cef7da, indexCPS2Sprites_SFA2_Stages, 0x05  },
+    
+    { L"Ken Stage - Guests & Some Decor 1/2", 0x4cf97da, 0x4cf99da, indexCPS2Sprites_SFA2_Stages, 0x08 },
+    { L"Ken Stage - Guests & Some Decor 2/2", 0x4cf99da, 0x4cf9b1a, indexCPS2Sprites_SFA2_Stages, 0x09 },
+
+    { L"Ken Stage Candles 1.1", 0x4d1273a, 0x4d1275a, indexCPS2Sprites_SFA2_Stages, 0x06 },
+    { L"Ken Stage Candles 1.2", 0x4d1275a, 0x4d1277a, indexCPS2Sprites_SFA2_Stages, 0x06 },
+    { L"Ken Stage Candles 1.3", 0x4d1277a, 0x4d1279a, indexCPS2Sprites_SFA2_Stages, 0x06 },
+    { L"Ken Stage Candles 2.1", 0x4d1279a, 0x4d127ba, indexCPS2Sprites_SFA2_Stages, 0x07 },
+    { L"Ken Stage Candles 2.2", 0x4d127ba, 0x4d127da, indexCPS2Sprites_SFA2_Stages, 0x07 },
+    { L"Ken Stage Candles 2.3", 0x4d127da, 0x4d127fa, indexCPS2Sprites_SFA2_Stages, 0x07 },
+
+    { L"Ken Stage Preview 1/2", 0x4d0c83a, 0x4d0ca3a },
+    { L"Ken Stage Preview 2/2", 0x4d0ca3a, 0x4d0cb9a },
+};
+
+const sDescTreeNode SFA2_A_STAGES08_MONO_COLLECTION[] =
+{
+    { L"Ken Stage Background (ROM 08 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_MONO_REV1_ELIZA_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_MONO_REV1_ELIZA_PALETTES) },
+    { L"Ken Stage (ROM 08 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_MONO_REV1_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_MONO_REV1_KEN_PALETTES) },
+};
+
+const sGame_PaletteDataset SFA2_A_07REV1_MONO_CSI_PALETTES[] =
+{
+    { L"Char Select 1", 0x4cdfcda, 0x4cdfeda, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
+    { L"Char Select 2", 0x4cdfeda, 0x4cdff1a, indexCPS2Sprites_SFA2_Bonus, 0x12 },
+};
+
+const sGame_PaletteDataset SFA2_A_07REV1_MONO_INTROPORTRAIT_PALETTES[] =
+{
+    { L"Rose' Tarot Cards (Intro)", 0x4cdfaba, 0x4cdfada },
+    { L"Intro - Purple BG pt.1", 0x4cdf97a, 0x4cdf99a },
+
+    { L"Charlie (Intro)", 0x4cdf89a, 0x4cdf8fa, indexCPS2Sprites_SFA2_Bonus, 0x0e },
+    { L"Chun-Li (Intro)", 0x4cdf7fa, 0x4cdf89a, indexCPS2Sprites_SFA2_Bonus, 0x0f },
+    { L"Foreground Flames (Intro)", 0x4cdf7da, 0x4cdf7fa },
+};
+
+const sGame_PaletteDataset SFA2_A_07REV1_MONO_BONUS_PALETTES[] =
+{
+    { L"SF Title Logo Pt.1", 0x4cdf9ba, 0x4cdf9fa },
+    { L"Alpha 2 Logo", 0x4cdfa1a, 0x4cdfa3a },
+    { L"Character HUD Name / VS / Perfect!! (flash)", 0x4cde5ba, 0x4cde5da },
+    { L"CC Win Icons / Perfect text (filled)", 0x4cde63a, 0x4cde65a, indexCPS2Sprites_SFA2_Bonus, 0x17 },
+};
+
+const sDescTreeNode SFA2_A_BONUS07_MONO_COLLECTION[] =
+{
+    { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV1_MONO_CSI_PALETTES, ARRAYSIZE(SFA2_A_07REV1_MONO_CSI_PALETTES) },
+    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV1_MONO_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_07REV1_MONO_INTROPORTRAIT_PALETTES) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV1_MONO_BONUS_PALETTES, ARRAYSIZE(SFA2_A_07REV1_MONO_BONUS_PALETTES) },
+};
+
+const sGame_PaletteDataset SFA2_A_08REV1_MONO_INTROPORTRAIT_PALETTES[] =
+{
+    // formerly 0x1cabe
+    { L"Birdie",                0x4ce9c7a, 0x4ce9d3a, indexCPS2Sprites_SFA2_Bonus, 0x01 },
+    { L"Sagat",                 0x4cf429a, 0x4cf42fa, indexCPS2Sprites_SFA2_Bonus, 0x09 },
+    { L"Sakura",                0x4d0983a, 0x4d0989a, indexCPS2Sprites_SFA2_Bonus, 0x0a },
+    { L"Gen",                   0x4d0977a, 0x4d097ba, indexCPS2Sprites_SFA2_Bonus, 0x05 },
+    { L"Rolento",               0x4d0995a, 0x4d0999a, indexCPS2Sprites_SFA2_Bonus, 0x07 },
+    { L"Dhalsim",               0x4D09A1A, 0x4D09A5A, indexCPS2Sprites_SFA2_Bonus, 0x04 },
+    { L"Zangief",               0x4D09ADA, 0x4D09b1A, indexCPS2Sprites_SFA2_Bonus, 0x0b },
+
+    { L"Adon Pants",            0x4D09BBA, 0x4D09BDA, indexCPS2Sprites_SFA2_Bonus, 0x00 },
+    { L"Dan Intro",             0x4D09BfA, 0x4D09c5A, indexCPS2Sprites_SFA2_Bonus, 0x03 },
+    { L"Dan Intro Rock",        0x4D09c5A, 0x4D09c7A, indexCPS2Sprites_SFA2_Bonus, 0x02 },
+
+    { L"Ryu Intro Faceoff",     0x4D09c9A, 0x4D09d3A, indexCPS2Sprites_SFA2_Bonus, 0x08 },
+    { L"Ken Intro Faceoff",     0x4D09d3A, 0x4D09ddA, indexCPS2Sprites_SFA2_Bonus, 0x06 },
+
+    { L"Ryu Charge Part 1",     0x4d13f3a, 0x4d13fda, indexCPS2Sprites_SFA2_Bonus, 0x14, &pairNext },
+    { L"Ryu Charge Part 2",     0x4d140ba, 0x4d140fa, indexCPS2Sprites_SFA2_Bonus, 0x15 },
+    { L"Ken Charge",            0x4d13fda, 0x4d140ba, indexCPS2Sprites_SFA2_Bonus, 0x13 },
+    { L"Ryu Ken Intro Blast",   0x4d13f1a, 0x4d13f3a, indexCPS2Sprites_SFA2_Bonus, 0x16 },
+
+    { L"Rose",                  0x4cf407a, 0x4cf415a, indexCPS2Sprites_SFA2_Bonus, 0x10 },
+    { L"Bison",                 0x4cf415a, 0x4cf429a, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
+    { L"Bison pt.2",            0x4cf431a, 0x4cf433a, indexCPS2Sprites_SFA2_Bonus, 0x0d },
+    { L"Intro - Purple BG pt.2",    0x4cfe43e, 0x4cfe45e },
+    { L"Intro - Blue BG pt.1",      0x4d09b9a, 0x4d09bba },
+    { L"Intro - Blue BG pt.2",      0x4D1579A, 0x4D157bA },
+}; 
+
+const sGame_PaletteDataset SFA2_A_08REV1_MONO_BONUS_PALETTES[] =
+{
+    { L"Title BG",              0x4cfe47a, 0x4cfe490 },
+    { L"\"Round # Fight\"",     0x4d0a5ba, 0x4d0a5da },
+    { L"SF Title Logo Pt.2",    0x4d09dda, 0x4d09e1a },
+    { L"SF Title Logo Pt.3",    0x4d04b7a, 0x4d04b9a },
+};
+
+const sDescTreeNode SFA2_A_BONUS08REV1_MONO_COLLECTION[] =
+{
+    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_MONO_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08REV1_MONO_INTROPORTRAIT_PALETTES) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_MONO_BONUS_PALETTES, ARRAYSIZE(SFA2_A_08REV1_MONO_BONUS_PALETTES) },
+};
+
+const sDescTreeNode SFA2_A_UNITS_REV1_MONO[] =
+{
+    // ROM 07 stuff
+    { L"Adon",            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
+    { L"Akuma",           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
+    { L"Birdie",          DESC_NODETYPE_TREE, (void*)SFA2_A_BIRDIE_COLLECTION,        ARRAYSIZE(SFA2_A_BIRDIE_COLLECTION) },
+    { L"Charlie",         DESC_NODETYPE_TREE, (void*)SFA2_A_CHARLIE_COLLECTION,       ARRAYSIZE(SFA2_A_CHARLIE_COLLECTION) },
+    { L"Chun-Li",         DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLI_COLLECTION,        ARRAYSIZE(SFA2_A_CHUNLI_COLLECTION) },
+    { L"Chun-Li (Original)", DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_COLLECTION, ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_COLLECTION) },
+    { L"Dan",             DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_COLLECTION,           ARRAYSIZE(SFA2_A_DAN_COLLECTION) },
+    { L"Dhalsim",         DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_COLLECTION,       ARRAYSIZE(SFA2_A_DHALSIM_COLLECTION) },
+    { L"Gen",             DESC_NODETYPE_TREE, (void*)SFA2_A_GEN_COLLECTION,           ARRAYSIZE(SFA2_A_GEN_COLLECTION) },
+    // Crane Stance Gen isn't really loadable, per Jed
+    { L"Gen (Crane Stance)", DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_COLLECTION, ARRAYSIZE(SFA2_A_GENCRANESTANCE_COLLECTION) },
+    { L"Guy",             DESC_NODETYPE_TREE, (void*)SFA2_A_GUY_COLLECTION,           ARRAYSIZE(SFA2_A_GUY_COLLECTION) },
+    { L"Ken",             DESC_NODETYPE_TREE, (void*)SFA2_A_KEN_COLLECTION,           ARRAYSIZE(SFA2_A_KEN_COLLECTION) },
+    { L"M. Bison",        DESC_NODETYPE_TREE, (void*)SFA2_A_MBISON_COLLECTION,        ARRAYSIZE(SFA2_A_MBISON_COLLECTION) },
+    { L"Rolento",         DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_COLLECTION,       ARRAYSIZE(SFA2_A_ROLENTO_COLLECTION) },
+    { L"Rose",            DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_COLLECTION,          ARRAYSIZE(SFA2_A_ROSE_COLLECTION) },
+    { L"Ryu",             DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_COLLECTION,           ARRAYSIZE(SFA2_A_RYU_COLLECTION) },
+    { L"Sagat",           DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA2_A_SAGAT_COLLECTION) },
+    { L"Sakura",          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
+    { L"Sodom",           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
+    { L"Zangief",         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
+    { L"Shin Akuma",      DESC_NODETYPE_TREE, (void*)SFA2_A_SHINAKUMAREV1_COLLECTION, ARRAYSIZE(SFA2_A_SHINAKUMAREV1_COLLECTION) },
+
+    // ROM 08 stuff
+    { L"Boss: Shin Akuma",  DESC_NODETYPE_TREE, (void*)SFA2_A_SHINAKUMA_PARTIAL_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_SHINAKUMA_PARTIAL_MOVE_COLLECTION) },
+    { L"Akuma Extras",      DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_AKUMA_MOVE_COLLECTION) },
+    { L"Birdie Extras",     DESC_NODETYPE_TREE, (void*)SFA2_A_BIRDIE_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_BIRDIE_MOVE_COLLECTION) },
+    { L"Dhalsim Extras",    DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_DHALSIM_MOVE_COLLECTION) },
+    { L"M.Bison Extras",    DESC_NODETYPE_TREE, (void*)SFA2_A_MBISON_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_MBISON_MOVE_COLLECTION) },
+    { L"Rose Extras",       DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_ROSE_MOVE_COLLECTION) },
+    { L"Dan Extras",        DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_DAN_MOVE_COLLECTION) },
+
+    { L"Adon Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_ADON_PORTRAIT_COLLECTION) },
+    { L"Akuma Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_AKUMA_PORTRAIT_COLLECTION) },
+    { L"Birdie Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_BIRDIE_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_BIRDIE_PORTRAIT_COLLECTION) },
+    { L"Charlie Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_CHARLIE_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_CHARLIE_PORTRAIT_COLLECTION) },
+    { L"Chun-Li Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLI_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_CHUNLI_PORTRAIT_COLLECTION) },
+    { L"Chun-Li (Original) Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_PORTRAIT_COLLECTION) },
+    { L"Dan Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_DAN_PORTRAIT_COLLECTION) },
+    { L"Dhalsim Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_DHALSIM_PORTRAIT_COLLECTION) },
+    { L"Gen Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_GEN_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_GEN_PORTRAIT_COLLECTION) },
+    { L"Guy Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_GUY_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_GUY_PORTRAIT_COLLECTION) },
+    { L"Ken Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_KEN_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_KEN_PORTRAIT_COLLECTION) },
+    { L"M.Bison Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_MBISON_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_MBISON_PORTRAIT_COLLECTION) },
+    { L"Rolento Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_ROLENTO_PORTRAIT_COLLECTION) },
+    { L"Rose Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_ROSE_PORTRAIT_COLLECTION) },
+    { L"Ryu Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_RYU_PORTRAIT_COLLECTION) },
+    { L"Sagat Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_SAGAT_PORTRAIT_COLLECTION) },
+    { L"Sakura Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_SAKURA_PORTRAIT_COLLECTION) },
+    { L"Sodom Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_SODOM_PORTRAIT_COLLECTION) },
+    { L"Zangief Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_ZANGIEF_PORTRAIT_COLLECTION) },
+
+
+    { L"ROM 07 Stages",             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_MONO_COLLECTION, ARRAYSIZE(SFA2_A_STAGES07_MONO_COLLECTION) },
+    { L"ROM 08 Stages",             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_MONO_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_MONO_COLLECTION) },
+    { L"ROM 07 Bonus Palettes",     DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07_MONO_COLLECTION,   ARRAYSIZE(SFA2_A_BONUS07_MONO_COLLECTION)},
+    { L"ROM 08 Bonus Palettes",     DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08REV1_MONO_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08REV1_MONO_COLLECTION) },
 };

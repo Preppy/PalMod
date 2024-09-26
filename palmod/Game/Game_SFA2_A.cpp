@@ -405,148 +405,6 @@ void CGame_SFA2_A::DumpPaletteHeaders()
     }
 }
 
-void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-    if (nUnitId != m_nCurrentExtraUnitId)
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
-
-        m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-
-        if (UsePaletteSetForCharacters())
-        {
-            switch (m_currentSFA2ROMRevision)
-            {
-            case SFA2_SupportedROMRevision::SFA2_960229: // Rev 1
-            case SFA2_SupportedROMRevision::SFA2_Hack_220203: // Jed's "glasses" update
-            case SFA2_SupportedROMRevision::SFA2_Unsupported: // Don't touch
-                // no deltas needed
-                break;
-            case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // Rev 2
-            default:
-                // 0306 ROMs have a different location for palettes
-                if (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_EvilRyu_Rev2) == 0)
-                {
-                    ; // no-op: this is already handled
-                }
-                else if ((m_nCurrentPaletteROMLocation < 0x72Dbe) || // Handle up to Gen (Crane Stance)
-                        (((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWDhalsim) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWZangief) == 0)) &&
-                            (m_nCurrentPaletteROMLocation < 0x738fe))) // Second check handles the inserted WW characters
-                {
-                    m_nCurrentPaletteROMLocation -= 0x11e0;
-                }
-                else if (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_Stages07) == 0)
-                {
-                    // this is handling stages right now
-                    m_nCurrentPaletteROMLocation -= 0x180;
-                }
-                else
-                {
-                    //  229: Chun-Li SF2, Crane Gen
-                    //  and then status effects.
-                    //  306: Chun-Li SF2, Crane Gen, Shin Akuma, WW Gief, WW Sim, Evil Ryu
-                    m_nCurrentPaletteROMLocation -= 0x380;
-                }
-                break;
-            case SFA2_SupportedROMRevision::SFZ2A_960826: // 0x1bbe0: ryu
-                if (((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWRyu) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWKen) == 0) ||
-                     (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWChunLi) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWSagat) == 0) ||
-                     (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWMBison) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_EvilRyu_SFZ2A) == 0) ||
-                     (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_AltSakura) == 0)) &&
-                    (m_nCurrentPaletteROMLocation < 0x738fe))
-                {
-                    // use real locations for SFZ2A unique characters
-                }
-                else if (m_nCurrentPaletteROMLocation < 0x72Dbe) // Handle up to Gen (Crane Stance)
-                {
-                    // This handles all the character palettes
-                    m_nCurrentPaletteROMLocation -= 0xDDBC;
-                }
-                else if (((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWDhalsim) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWZangief) == 0)) &&
-                            (m_nCurrentPaletteROMLocation < 0x738fe)) // Second check handles the inserted WW characters
-                {
-                    // sim: in code 73540
-                    // sim: in sz2u.07 -- 72360
-                    // sim: in szaa.07 -- 65784
-                    m_nCurrentPaletteROMLocation -= 0xDDBC; // CBE0;
-                }
-                else
-                {
-                    // This handles all the status effect palettes
-                    m_nCurrentPaletteROMLocation -= 0xB11C;
-                }
-                break;
-            };
-        }
-        else // (!UsePaletteSetForCharacters()
-        {
-            switch (m_currentSFA2ROMRevision)
-            {
-            case SFA2_SupportedROMRevision::SFA2_Unsupported: // Don't touch
-                break;
-            case SFA2_SupportedROMRevision::SFA2_960229: // in 229 portraits start at 0x1bb40
-                if (m_nCurrentPaletteROMLocation < 0x1c7be)
-                {
-                    // Early bonus/extra range
-                    m_nCurrentPaletteROMLocation += 0xD80;
-                }
-                else
-                {
-                    // Later portrait range
-                    m_nCurrentPaletteROMLocation += 0x900;
-                }
-                break;
-            case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // in 306 portraits start at 0x1adc0
-            default:
-                // 0x1adc0: akuma extra 1
-                // 0x1b480: bison teleport
-                // 0x1b780: dan sagat throw
-                // 0x1b820: sim teleport
-                // 0x1bbe0: shin akuma
-                // 0x1bc80: evil ryu
-                break;
-            case SFA2_SupportedROMRevision::SFZ2A_960826: 
-                // 0x11024: akuma extra 1
-                // 0x11ce4: dan
-                // 0x12144: shin akuma
-                // 0x12504: evil ryu
-                if (((nUnitId > 0) && (nUnitId < 27)) ||
-                    (nUnitId == 0x25))                    
-                {
-                    if (m_nCurrentPaletteROMLocation < 0x1b77e)
-                    {
-                        m_nCurrentPaletteROMLocation -= 0x9D9C;
-                    }
-                    else if (m_nCurrentPaletteROMLocation < 0x1bc7e)
-                    {
-                        m_nCurrentPaletteROMLocation -= 0x9A9C;
-                    }
-                    else
-                    {
-                        m_nCurrentPaletteROMLocation -= 0x977C;
-                    }
-                }
-                break;
-            };
-        }
-
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-        m_pszCurrentPaletteName = paletteData->szPaletteName;
-    }
-    else // SFA2_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[(GetExtraLoc(nUnitId) + nPalId)];
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
 CGame_SFA2_A::SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
 {
     // There are a number of SFA2 ROMs floating around for different game versions.
@@ -1047,7 +905,7 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 }
 
 // There's a tiny bit of special handling for Akuma below
-BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_SFA2_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -1220,4 +1078,165 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
+}
+
+void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    if (nUnitId != m_nCurrentExtraUnitId)
+    {
+        int cbPaletteSizeOnDisc = 0;
+        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
+
+        cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
+
+        m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
+
+        if (UsePaletteSetForCharacters())
+        {
+            switch (m_currentSFA2ROMRevision)
+            {
+            case SFA2_SupportedROMRevision::SFA2_960229: // Rev 1
+            case SFA2_SupportedROMRevision::SFA2_Hack_220203: // Jed's "glasses" update
+            case SFA2_SupportedROMRevision::SFA2_Unsupported: // Don't touch
+                // no deltas needed
+                break;
+            case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // Rev 2
+            default:
+                // 0306 ROMs have a different location for palettes
+                if (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_EvilRyu_Rev2) == 0)
+                {
+                    ; // no-op: this is already handled
+                }
+                else if ((m_nCurrentPaletteROMLocation < 0x72Dbe) || // Handle up to Gen (Crane Stance)
+                    (((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWDhalsim) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWZangief) == 0)) &&
+                        (m_nCurrentPaletteROMLocation < 0x738fe))) // Second check handles the inserted WW characters
+                {
+                    m_nCurrentPaletteROMLocation -= 0x11e0;
+                }
+                else if (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_Stages07) == 0)
+                {
+                    // this is handling stages right now
+                    m_nCurrentPaletteROMLocation -= 0x180;
+                }
+                else
+                {
+                    //  229: Chun-Li SF2, Crane Gen
+                    //  and then status effects.
+                    //  306: Chun-Li SF2, Crane Gen, Shin Akuma, WW Gief, WW Sim, Evil Ryu
+                    m_nCurrentPaletteROMLocation -= 0x380;
+                }
+                break;
+            case SFA2_SupportedROMRevision::SFZ2A_960826: // 0x1bbe0: ryu
+                if (((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWRyu) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWKen) == 0) ||
+                    (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWChunLi) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWSagat) == 0) ||
+                    (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWMBison) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_EvilRyu_SFZ2A) == 0) ||
+                    (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_AltSakura) == 0)) &&
+                    (m_nCurrentPaletteROMLocation < 0x738fe))
+                {
+                    // use real locations for SFZ2A unique characters
+                }
+                else if (m_nCurrentPaletteROMLocation < 0x72Dbe) // Handle up to Gen (Crane Stance)
+                {
+                    // This handles all the character palettes
+                    m_nCurrentPaletteROMLocation -= 0xDDBC;
+                }
+                else if (((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWDhalsim) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWZangief) == 0)) &&
+                    (m_nCurrentPaletteROMLocation < 0x738fe)) // Second check handles the inserted WW characters
+                {
+                    // sim: in code 73540
+                    // sim: in sz2u.07 -- 72360
+                    // sim: in szaa.07 -- 65784
+                    m_nCurrentPaletteROMLocation -= 0xDDBC; // CBE0;
+                }
+                else
+                {
+                    // This handles all the status effect palettes
+                    m_nCurrentPaletteROMLocation -= 0xB11C;
+                }
+                break;
+            };
+        }
+        else // (!UsePaletteSetForCharacters()
+        {
+            switch (m_currentSFA2ROMRevision)
+            {
+            case SFA2_SupportedROMRevision::SFA2_Unsupported: // Don't touch
+                break;
+            case SFA2_SupportedROMRevision::SFA2_960229: // in 229 portraits start at 0x1bb40
+                if (m_nCurrentPaletteROMLocation < 0x1c7be)
+                {
+                    // Early bonus/extra range
+                    m_nCurrentPaletteROMLocation += 0xD80;
+                }
+                else
+                {
+                    // Later portrait range
+                    m_nCurrentPaletteROMLocation += 0x900;
+                }
+                break;
+            case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // in 306 portraits start at 0x1adc0
+            default:
+                // 0x1adc0: akuma extra 1
+                // 0x1b480: bison teleport
+                // 0x1b780: dan sagat throw
+                // 0x1b820: sim teleport
+                // 0x1bbe0: shin akuma
+                // 0x1bc80: evil ryu
+                break;
+            case SFA2_SupportedROMRevision::SFZ2A_960826:
+                // 0x11024: akuma extra 1
+                // 0x11ce4: dan
+                // 0x12144: shin akuma
+                // 0x12504: evil ryu
+                if (((nUnitId > 0) && (nUnitId < 27)) ||
+                    (nUnitId == 0x25))
+                {
+                    if (m_nCurrentPaletteROMLocation < 0x1b77e)
+                    {
+                        m_nCurrentPaletteROMLocation -= 0x9D9C;
+                    }
+                    else if (m_nCurrentPaletteROMLocation < 0x1bc7e)
+                    {
+                        m_nCurrentPaletteROMLocation -= 0x9A9C;
+                    }
+                    else
+                    {
+                        m_nCurrentPaletteROMLocation -= 0x977C;
+                    }
+                }
+                break;
+            };
+        }
+
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+        m_pszCurrentPaletteName = paletteData->szPaletteName;
+    }
+    else // SFA2_A_EXTRALOC
+    {
+        // This is where we handle all the palettes added in via Extra.
+        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[(GetExtraLoc(nUnitId) + nPalId)];
+
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = pCurrDef->szDesc;
+    }
+}
+
+void CGame_SFA2_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
+
+    if (nUnitId != m_nCurrentExtraUnitId)
+    {
+        // For Steam, we can handle the split ROMs as one unit.  Adjust offsets as needed
+        if (nUnitId < 21)
+        {
+            // This is for characters. We hand-tuned the stages and bonus areas so don't need those tweaked.
+            m_nCurrentPaletteROMLocation += 0x4cd6dba - 0x6f57e;
+        }
+        else if (nUnitId < 0x2f)
+        {
+            m_nCurrentPaletteROMLocation += 0x4d03b9a - 0x1B17E;
+        }
+    }
 }

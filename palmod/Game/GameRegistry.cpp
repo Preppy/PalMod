@@ -1690,7 +1690,6 @@ namespace KnownGameInfo
             Make_SFA2_Hack_A,
             CGame_SFA2_A::GetRule,
         },
-#ifdef needs_fix
         {
             SFA2_S,
             L"SFA2 (Steam)",
@@ -1698,7 +1697,6 @@ namespace KnownGameInfo
             Make_SFA2_S,
             CGame_SFA2_S::GetRule,
         },
-#endif
         {
             SFA3_A,
             L"SFA3 (CPS2 Arcade)",
