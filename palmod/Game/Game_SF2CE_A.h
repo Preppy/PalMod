@@ -211,7 +211,6 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        // 21 is the same across all versions
         { L"Street Fighter II' - Champion Edition (Steam)", L"bundleStreetFighterII_CE.mbundle", 0xaf9dcf75, 0 },
     };
 

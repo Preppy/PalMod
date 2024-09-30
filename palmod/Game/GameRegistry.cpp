@@ -1838,7 +1838,7 @@ namespace KnownGameInfo
         {
             SF1_S,
             L"Street Fighter (Steam)",
-            { SF1_S,            L"Street Fighter", L"Street Fighter (Steam)|bundleStreetFighter.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            { SF1_S,            L"Street Fighter", L"Street Fighter (Steam)|bundleStreetFighter.mbundle;StreetFighter.u.68k|", GamePlatform::Steam, GameSeries::SF30th },
             Make_SF1_S,
             CGame_StreetFighter_S::GetRule,
         },

@@ -263,14 +263,22 @@ class CGame_StreetFighter_S : public CGameClassByDir
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"bundleStreetFighter.mbundle", 0x5e5eb50 },
+            {
+                L"bundleStreetFighter.mbundle",
+                0x5e5eb50,
+                INVALID_UNIT_VALUE,
+                true,
+                L"StreetFighter.u.68k",
+                0x60000
+            },
         },
         FileReadType::Sequential,
     };
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Street Fighter (Steam)", L"bundleStreetFighter.mbundle", 0xa3b4810d, 0x2c72999 - 0x1ba66 },
+        { L"Street Fighter (Steam)", L"bundleStreetFighter.mbundle", 0xa3b4810d, 0x2c72999 - 0x1a446 },
+        { L"Street Fighter (Steam extracted)", L"StreetFighter.u.68k", 0x05fbeaa8, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
@@ -286,11 +294,11 @@ class CGame_StreetFighter_S : public CGameClassByDir
         ColMode::COLMODE_RGB444_LE,
         m_sFileLoadingData,
         m_rgCRC32Data,
-        StreetFighter_A_UNITS,
-        ARRAYSIZE(StreetFighter_A_UNITS),
+        StreetFighter_S_UNITS,
+        ARRAYSIZE(StreetFighter_S_UNITS),
         L"StreetFighterSE.txt",      // Extra filename
         13,                          // Count of palettes listed in the header
-        0x1BA66,                     // Lowest known location used for palettes
+        0x1a446,                     // Lowest known location used for palettes
     };
 
 public:

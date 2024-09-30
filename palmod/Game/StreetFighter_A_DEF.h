@@ -171,3 +171,33 @@ const sDescTreeNode StreetFighter_A_UNITS[] =
 
     { L"Board Breaking Game", DESC_NODETYPE_TREE, (void*)StreetFighter_A_BoardBreaking_COLLECTION, ARRAYSIZE(StreetFighter_A_BoardBreaking_COLLECTION) },
 };
+
+const sGame_PaletteDataset StreetFighter_S_RYU_PALETTES[] =
+{
+    { L"Ryu", 0x1a446, 0x1a466, indexSF1Sprites_Ryu },
+};
+
+const sDescTreeNode StreetFighter_S_Ryu_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)StreetFighter_S_RYU_PALETTES, ARRAYSIZE(StreetFighter_S_RYU_PALETTES) },
+};
+
+// Ryu alone moves relative to everybody else, so we'll fork to handle that
+const sDescTreeNode StreetFighter_S_UNITS[] =
+{
+    { L"Ryu", DESC_NODETYPE_TREE, (void*)StreetFighter_S_Ryu_COLLECTION, ARRAYSIZE(StreetFighter_S_Ryu_COLLECTION) },
+    { L"Ken", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Ken_COLLECTION, ARRAYSIZE(StreetFighter_A_Ken_COLLECTION) },
+    { L"Geki", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Geki_COLLECTION, ARRAYSIZE(StreetFighter_A_Geki_COLLECTION) },
+    { L"Retsu", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Retsu_COLLECTION, ARRAYSIZE(StreetFighter_A_Retsu_COLLECTION) },
+    { L"Joe", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Joe_COLLECTION, ARRAYSIZE(StreetFighter_A_Joe_COLLECTION) },
+    { L"Lee", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Lee_COLLECTION, ARRAYSIZE(StreetFighter_A_Lee_COLLECTION) },
+    { L"Mike", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Mike_COLLECTION, ARRAYSIZE(StreetFighter_A_Mike_COLLECTION) },
+
+    { L"Gen", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Gen_COLLECTION, ARRAYSIZE(StreetFighter_A_Gen_COLLECTION) },
+    { L"Birdie", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Birdie_COLLECTION, ARRAYSIZE(StreetFighter_A_Birdie_COLLECTION) },
+    { L"Eagle", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Eagle_COLLECTION, ARRAYSIZE(StreetFighter_A_Eagle_COLLECTION) },
+    { L"Adon", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Adon_COLLECTION, ARRAYSIZE(StreetFighter_A_Adon_COLLECTION) },
+    { L"Sagat", DESC_NODETYPE_TREE, (void*)StreetFighter_A_Sagat_COLLECTION, ARRAYSIZE(StreetFighter_A_Sagat_COLLECTION) },
+
+    { L"Board Breaking Game", DESC_NODETYPE_TREE, (void*)StreetFighter_A_BoardBreaking_COLLECTION, ARRAYSIZE(StreetFighter_A_BoardBreaking_COLLECTION) },
+};
