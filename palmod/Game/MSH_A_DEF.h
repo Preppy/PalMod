@@ -123,7 +123,7 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Shuma =
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x28, 0x30,
         MOD_COPY, 1, 11, 1,
         MOD_SAT, 2, 7, NEG + 40,
-        MOD_LUM, 2, 7, 20,
+        MOD_LUM, 2, 7, 10,
         MOD_LUM, 9, 3, 10
     },
 
@@ -131,21 +131,21 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Shuma =
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x29, 0x30,
         MOD_COPY, 2, 7, 2,
         MOD_SAT, 2, 7, NEG + 40,
-        MOD_LUM, 2, 7, 20,
+        MOD_LUM, 2, 7, 10,
     },
 
     // Chaos frame 2
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2a, 0x30, 
         MOD_COPY, 1, 11, 1,
         MOD_SAT, 2, 7, NEG + 30,
-        MOD_LUM, 2, 7, 30
+        MOD_LUM, 2, 7, 20
     },
 
     // Dash frame 2
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2b, 0x30,
         MOD_COPY, 2, 7, 2,
         MOD_SAT, 2, 7, NEG + 30,
-        MOD_LUM, 2, 7, 30 },
+        MOD_LUM, 2, 7, 20 },
 
     // Chaos frame 3
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2c, 0x30,
