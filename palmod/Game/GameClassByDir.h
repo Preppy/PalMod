@@ -16,15 +16,9 @@ enum class FileReadType
     Interleaved_Read2Bytes_BE,
 };
 
-struct sFileSpecificLoadData
-{
-    std::wstring strFileName;
-    size_t nFileSize = 0; // This value must be identical for set for interleaved ROMs but can be different for sequential roms
-};
-
 struct sDirectoryLoadingData
 {
-    std::vector<sFileSpecificLoadData> rgFileList;
+    std::vector<sFileRule> rgRuleList;
     FileReadType eReadType = FileReadType::Sequential;
 };
 

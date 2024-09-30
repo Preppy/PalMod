@@ -18,13 +18,13 @@ sFileRule CGame_JOJOS_A_DIR::GetRuleInternal(uint32_t nUnitId, JojosLoadingKey n
     switch (nVersionToLoad)
     {
     case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
-        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50Rerip.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50Rerip.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
+        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
         break;
     case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
     default:
-        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_51Rerip.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_51Rerip.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize);
+        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_51Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_51Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
         break;
     }
 
@@ -43,11 +43,11 @@ sFileRule CGame_JOJOS_A_DIR::GetNextRuleInternal(JojosLoadingKey nVersionToLoad)
     switch (nVersionToLoad)
     {
     case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
-        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_50Rerip.rgFileList.size());
+        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_50Rerip.rgRuleList.size());
         break;
     case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
     default:
-        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_51Rerip.rgFileList.size());
+        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_51Rerip.rgRuleList.size());
         break;
     }
 

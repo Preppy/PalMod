@@ -447,9 +447,9 @@ sFileRule CGame_SVCPLUSA_A::GetRule_Normal(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData_Normal.rgFileList.at(0).strFileName.c_str());
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData_Normal.rgRuleList.at(0).szFileName);
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_Normal.rgFileList.at(0).nFileSize);
+    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_Normal.rgRuleList.at(0).uVerifyVar);
 
     // SVC has a second differently sized ROM variant, but the area of interest matches
     NewFileRule.fHasAltName = true;
@@ -464,9 +464,9 @@ sFileRule CGame_SVCPLUSA_A::GetRule_Steam(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData_Steam.rgFileList.at(0).strFileName.c_str());
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData_Steam.rgRuleList.at(0).szFileName);
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_Steam.rgFileList.at(0).nFileSize);
+    NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_Steam.rgRuleList.at(0).uVerifyVar);
 
     return NewFileRule;
 }

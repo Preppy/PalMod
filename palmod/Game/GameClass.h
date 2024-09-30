@@ -9,17 +9,17 @@
 #include "game\SuppProc.h"
 #include <vector>
 
-constexpr auto MAX_FILENAME_LENGTH = 64;
+constexpr auto MAX_FILENAME_LENGTH = 128;
 
 //File rule definition
 struct sFileRule
 {
     wchar_t szFileName[MAX_FILENAME_LENGTH] = L"uninit";
-    uint32_t uVerifyVar;
+    size_t uVerifyVar = 0;
     uint32_t uUnitId = INVALID_UNIT_VALUE;
     bool fHasAltName = false;
     wchar_t szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
-    uint32_t uAltVerifyVar = static_cast<uint32_t>(-1);
+    size_t uAltVerifyVar = static_cast<size_t>(-1);
 };
 
 const uint32_t k_nBogusHighValue = 0x7FEEDFED;

@@ -28,7 +28,7 @@ sFileRule CGameClassPerUnitPerFile::GetRule(uint32_t nUnitId, const std::vector<
     const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", gameLoadingData.at(nAdjustedUnitId).strFileName.c_str());
     NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = gameLoadingData.at(nAdjustedUnitId).nExpectedFileSize;
+    NewFileRule.uVerifyVar = gameLoadingData.at(nUnitId & RULE_COUNTER_DEMASK).nExpectedFileSize;
 
     return NewFileRule;
 }

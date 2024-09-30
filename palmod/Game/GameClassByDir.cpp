@@ -80,16 +80,16 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     m_prgCRC32DataForGame = gameLoadingData.rgCRC32Data;
 
     // We only check primary ROM size because we outright fail the load if any subsequent ROMs not being the right size.
-    if (nConfirmedROMSize == m_psCurrentFileLoadingData->rgFileList.at(0).nFileSize)
+    if (nConfirmedROMSize == m_psCurrentFileLoadingData->rgRuleList.at(0).uVerifyVar)
     {
         m_nConfirmedROMSize = 0;
 
-        for (const auto& fileData : m_psCurrentFileLoadingData->rgFileList)
+        for (const auto& fileData : m_psCurrentFileLoadingData->rgRuleList)
         {
-            m_nConfirmedROMSize += fileData.nFileSize;
+            m_nConfirmedROMSize += fileData.uVerifyVar;
         }
     }
-    else if (m_psCurrentFileLoadingData->rgFileList.size() == 1)
+    else if (m_psCurrentFileLoadingData->rgRuleList.size() == 1)
     {
         OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size.  Narrowing extra load down to primary ROM.\r\n");
         m_nConfirmedROMSize = nConfirmedROMSize;
@@ -121,7 +121,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     InitDataBuffer();
 
     // This lets LoadGame and SaveGame know how many files it needs to interact with
-    m_nFileAmt = static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.size());
+    m_nFileAmt = static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.size());
 
     //Create the redirect buffer
     m_rgUnitRedir.resize(m_nUnitAmt, 0);
@@ -175,34 +175,34 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
     {
         case FileReadType::Interleaved_2FileSets:
         {
-            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size(); nSIMMUnit += 2)
+            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgRuleList.size(); nSIMMUnit += 2)
             {
-                if (nROMLocation < (m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize + m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize))
+                if (nROMLocation < (m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar + m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar))
                 {
                     break;
                 }
 
-                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize + m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize);
+                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar + m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar);
             }
 
             return static_cast<uint32_t>(floor(nROMLocation / 2.0));
         }
         case FileReadType::Interleaved_4FileSets:
         {
-            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size() + 2; nSIMMUnit += 4)
+            for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgRuleList.size() + 2; nSIMMUnit += 4)
             {
-                if (nROMLocation < (m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize +
-                    m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize +
-                    m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 2).nFileSize +
-                    m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 3).nFileSize))
+                if (nROMLocation < (m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar +
+                    m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar +
+                    m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 2).uVerifyVar +
+                    m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 3).uVerifyVar))
                 {
                     break;
                 }
 
-                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize);
-                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize);
-                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 2).nFileSize);
-                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 3).nFileSize);
+                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar);
+                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar);
+                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 2).uVerifyVar);
+                nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 3).uVerifyVar);
             }
 
             return static_cast<uint32_t>(floor(nROMLocation / 4.0));
@@ -210,22 +210,22 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
         case FileReadType::Interleaved_Read2Bytes_LE:
         case FileReadType::Interleaved_Read2Bytes_BE:
         {
-            return static_cast<uint32_t>(floor(static_cast<double>(nROMLocation) / m_psCurrentFileLoadingData->rgFileList.size()));
+            return static_cast<uint32_t>(floor(static_cast<double>(nROMLocation) / m_psCurrentFileLoadingData->rgRuleList.size()));
         }
         default: // FileReadType::Sequential
         {
             // Check if they're using multiple files: adjust to the correct file if so
-            if (m_psCurrentFileLoadingData->rgFileList.size() > 1)
+            if (m_psCurrentFileLoadingData->rgRuleList.size() > 1)
             {
                 // Adjust read/write locations if they traverse ROM boundaries
-                for (uint32_t nFileUnit = 0; nFileUnit < m_psCurrentFileLoadingData->rgFileList.size(); nFileUnit++)
+                for (uint32_t nFileUnit = 0; nFileUnit < m_psCurrentFileLoadingData->rgRuleList.size(); nFileUnit++)
                 {
-                    if (nROMLocation < m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize)
+                    if (nROMLocation < m_psCurrentFileLoadingData->rgRuleList.at(nFileUnit).uVerifyVar)
                     {
                         break;
                     }
 
-                    nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize);
+                    nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nFileUnit).uVerifyVar);
                 }
             }
 
@@ -238,46 +238,46 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
 {
     if (m_eValidatedFileJoinType == FileReadType::Sequential)
     {
-        for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size(); nSIMMUnit++)
+        for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgRuleList.size(); nSIMMUnit++)
         {
-            if (nROMLocation < m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize)
+            if (nROMLocation < m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar)
             {
                 return nSIMMUnit;
             }
 
-            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize);
+            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar);
         }
     }
     else if ((m_eValidatedFileJoinType == FileReadType::Interleaved_2FileSets) &&
-             (m_psCurrentFileLoadingData->rgFileList.size() != 2))
+             (m_psCurrentFileLoadingData->rgRuleList.size() != 2))
     {
-        for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size() + 1; nSIMMUnit += 2)
+        for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgRuleList.size() + 1; nSIMMUnit += 2)
         {
-            if (nROMLocation < (m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize + m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize))
+            if (nROMLocation < (m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar + m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar))
             {
                 return nSIMMUnit;
             }
 
-            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize + m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize);
+            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar + m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar);
         }
     }
     else if ((m_eValidatedFileJoinType == FileReadType::Interleaved_4FileSets) &&
-             (m_psCurrentFileLoadingData->rgFileList.size() != 4))
+             (m_psCurrentFileLoadingData->rgRuleList.size() != 4))
     {
-        for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size() + 3; nSIMMUnit += 4)
+        for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgRuleList.size() + 3; nSIMMUnit += 4)
         {
-            if (nROMLocation < (m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize +
-                m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize +
-                m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 2).nFileSize +
-                m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 3).nFileSize))
+            if (nROMLocation < (m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar +
+                m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar +
+                m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 2).uVerifyVar +
+                m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 3).uVerifyVar))
             {
                 return nSIMMUnit;
             }
 
-            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize);
-            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 1).nFileSize);
-            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 2).nFileSize);
-            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgFileList.at(static_cast<size_t>(nSIMMUnit) + 3).nFileSize);
+            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar);
+            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar);
+            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 2).uVerifyVar);
+            nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 3).uVerifyVar);
         }
     }
     else
@@ -380,20 +380,14 @@ BOOL CGameClassByDir::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
 sFileRule CGameClassByDir::GetRule(uint32_t nUnitId, const sDirectoryLoadingData& gameLoadingData)
 {
-    sFileRule NewFileRule;
-
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", gameLoadingData.rgFileList.at(nUnitId & 0xFF).strFileName.c_str());
-    NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = static_cast<uint32_t>(gameLoadingData.rgFileList.at(nUnitId & 0xFF).nFileSize);
-
-    return NewFileRule;
+    return gameLoadingData.rgRuleList.at(nUnitId & RULE_COUNTER_DEMASK);
 }
 
 sFileRule CGameClassByDir::GetNextRule(const sDirectoryLoadingData& gameLoadingData)
 {
     sFileRule NewFileRule = GetRule(m_uRuleCtr++, gameLoadingData);
 
-    if (m_uRuleCtr >= gameLoadingData.rgFileList.size())
+    if (m_uRuleCtr >= gameLoadingData.rgRuleList.size())
     {
         m_uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -424,13 +418,13 @@ void CGameClassByDir::SetValidatedFileReadType()
     case FileReadType::Interleaved_2FileSets:
     case FileReadType::Interleaved_Read2Bytes_LE:
     case FileReadType::Interleaved_Read2Bytes_BE:
-        if ((m_psCurrentFileLoadingData->rgFileList.size() % 2) != 0)
+        if ((m_psCurrentFileLoadingData->rgRuleList.size() % 2) != 0)
         {
             m_eValidatedFileJoinType = FileReadType::Sequential;
         }
         break;
     case FileReadType::Interleaved_4FileSets:
-        if ((m_psCurrentFileLoadingData->rgFileList.size() % 4) != 0)
+        if ((m_psCurrentFileLoadingData->rgRuleList.size() % 4) != 0)
         {
             m_eValidatedFileJoinType = FileReadType::Sequential;
         }
@@ -486,9 +480,9 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     std::vector<CFile *> rgFileHandles;
 
     // Reset: we reopen in bulk
-    rgFileHandles.resize(m_psCurrentFileLoadingData->rgFileList.size());
+    rgFileHandles.resize(m_psCurrentFileLoadingData->rgRuleList.size());
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgRuleList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
 
@@ -500,16 +494,16 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         }
         else
         {
-            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).strFileName.c_str());
+            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgRuleList.at(iCurrentFile).szFileName);
         }
 
         rgFileHandles.at(iCurrentFile) = new CFile;
         
         if (rgFileHandles.at(iCurrentFile)->Open(strNameWithPath.GetString(), CFile::modeRead | CFile::typeBinary))
         {
-            if (rgFileHandles.at(iCurrentFile)->GetLength() != m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).nFileSize)
+            if (rgFileHandles.at(iCurrentFile)->GetLength() != m_psCurrentFileLoadingData->rgRuleList.at(iCurrentFile).uVerifyVar)
             {
-                if (m_psCurrentFileLoadingData->rgFileList.size() != 1) // for monolithic files we have a runtime check asking if they want to allow the load anyways
+                if (m_psCurrentFileLoadingData->rgRuleList.size() != 1) // for monolithic files we have a runtime check asking if they want to allow the load anyways
                 {
                     if (fSuccess)
                     {
@@ -1251,7 +1245,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         }
     }
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgRuleList.size(); iCurrentFile++)
     {
         rgFileHandles.at(iCurrentFile)->Abort();
         delete rgFileHandles.at(iCurrentFile);
@@ -1280,9 +1274,9 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     std::vector<CFile*> rgFileHandles;
 
     // Reset: we reopen in bulk
-    rgFileHandles.resize(m_psCurrentFileLoadingData->rgFileList.size());
+    rgFileHandles.resize(m_psCurrentFileLoadingData->rgRuleList.size());
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgRuleList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
 
@@ -1294,7 +1288,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
         }
         else
         {
-            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).strFileName.c_str());
+            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgRuleList.at(iCurrentFile).szFileName);
         }
 
         rgFileHandles.at(iCurrentFile) = new CFile;
@@ -1414,7 +1408,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 16bit color write
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        if ((m_psCurrentFileLoadingData->rgFileList.size() % 2) != 0)
+                        if ((m_psCurrentFileLoadingData->rgRuleList.size() % 2) != 0)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 file sets this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
@@ -1969,7 +1963,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
         }
     }
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgRuleList.size(); iCurrentFile++)
     {
         rgFileHandles.at(iCurrentFile)->Abort();
         safe_delete(rgFileHandles.at(iCurrentFile));

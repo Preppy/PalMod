@@ -114,7 +114,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 
     if (CurrFile.Open(pszLoadFile, CFile::modeRead | CFile::typeBinary))
     {
-        ULONGLONG nGameFileLength = CurrFile.GetLength();
+        const ULONGLONG nGameFileLength = CurrFile.GetLength();
         bool isSafeToRunGame = (static_cast<short int>(CurrRule.uVerifyVar) == -1) || (nGameFileLength == CurrRule.uVerifyVar);
 
         if (!isSafeToRunGame)
@@ -282,9 +282,9 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
         {
             bool fActualFileSizeIsSafe = false;
             ULONGLONG nGameFileLength = CurrFile.GetLength();
-            uint32_t nConfirmedVerifyVar = CurrRule.uVerifyVar;
+            size_t nConfirmedVerifyVar = CurrRule.uVerifyVar;
             
-            if (((short int)CurrRule.uVerifyVar == -1) ||
+            if ((CurrRule.uVerifyVar == (size_t )-1) ||
                 ((CurrRule.uVerifyVar == nGameFileLength)))
             {
                 fActualFileSizeIsSafe = true;

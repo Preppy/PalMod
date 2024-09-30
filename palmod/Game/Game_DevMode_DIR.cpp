@@ -234,24 +234,24 @@ BOOL CDevModeFilePickerDialog::OnInitDialog()
 {
     CDialog::OnInitDialog();
 
-    if (m_psFileLoadingData->rgFileList.size())
+    if (m_psFileLoadingData->rgRuleList.size())
     {
-        m_strFile1 = m_psFileLoadingData->rgFileList.at(0).strFileName.data();
+        m_strFile1 = m_psFileLoadingData->rgRuleList.at(0).szFileName;
     }
 
-    if (m_psFileLoadingData->rgFileList.size() > 1)
+    if (m_psFileLoadingData->rgRuleList.size() > 1)
     {
-        m_strFile2 = m_psFileLoadingData->rgFileList.at(1).strFileName.data();
+        m_strFile2 = m_psFileLoadingData->rgRuleList.at(1).szFileName;
     }
 
-    if (m_psFileLoadingData->rgFileList.size() > 2)
+    if (m_psFileLoadingData->rgRuleList.size() > 2)
     {
-        m_strFile3 = m_psFileLoadingData->rgFileList.at(2).strFileName.data();
+        m_strFile3 = m_psFileLoadingData->rgRuleList.at(2).szFileName;
     }
 
-    if (m_psFileLoadingData->rgFileList.size() > 3)
+    if (m_psFileLoadingData->rgRuleList.size() > 3)
     {
-        m_strFile4 = m_psFileLoadingData->rgFileList.at(3).strFileName.data();
+        m_strFile4 = m_psFileLoadingData->rgRuleList.at(3).szFileName;
     }
 
     if (m_strFile1.GetLength() == 0)
@@ -324,9 +324,9 @@ void CDevModeFilePickerDialog::OnOK()
                 pszFileName = wcsrchr(pstrCurrent->GetString(), L'\\');
                 pszFileName = pszFileName ? (pszFileName + 1) : pstrCurrent->GetString();
 
-                m_psFileLoadingData->rgFileList.resize(nCurrentFilePos + 1);
-                m_psFileLoadingData->rgFileList.at(nCurrentFilePos).nFileSize = wfad.nFileSizeLow;
-                m_psFileLoadingData->rgFileList.at(nCurrentFilePos).strFileName = pszFileName;
+                m_psFileLoadingData->rgRuleList.resize(nCurrentFilePos + 1);
+                m_psFileLoadingData->rgRuleList.at(nCurrentFilePos).uVerifyVar = wfad.nFileSizeLow;
+                wcsncpy(m_psFileLoadingData->rgRuleList.at(nCurrentFilePos).szFileName, pszFileName, ARRAYSIZE(m_psFileLoadingData->rgRuleList.at(nCurrentFilePos).szFileName));
             }
         }
         
@@ -339,8 +339,8 @@ void CDevModeFilePickerDialog::OnOK()
     FileReadType proposedFileType = static_cast<FileReadType>(m_eReadType);
 
     // Validate that they have selected a valid pairing style
-    if ((((proposedFileType != FileReadType::Sequential) && (m_psFileLoadingData->rgFileList.size() % 2) != 0)) ||
-        ((proposedFileType == FileReadType::Interleaved_4FileSets) && (m_psFileLoadingData->rgFileList.size() != 4)))
+    if ((((proposedFileType != FileReadType::Sequential) && (m_psFileLoadingData->rgRuleList.size() % 2) != 0)) ||
+        ((proposedFileType == FileReadType::Interleaved_4FileSets) && (m_psFileLoadingData->rgRuleList.size() != 4)))
     {
         CString strMsg = L"You have selected an unsupported interleaving configuration for this number of files: defaulting back to Sequential.";
         MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
@@ -355,9 +355,9 @@ void CDevModeFilePickerDialog::OnOK()
     CString strDebugInfo;
 
     OutputDebugString(L"Configuration complete.  Files loaded will be:\r\n");
-    for (size_t iFile = 0; iFile < m_psFileLoadingData->rgFileList.size(); iFile++)
+    for (size_t iFile = 0; iFile < m_psFileLoadingData->rgRuleList.size(); iFile++)
     {
-        strDebugInfo.Format(L"\t%u: '%s'\r\n", static_cast<uint32_t>(iFile), m_psFileLoadingData->rgFileList.at(iFile).strFileName.c_str());
+        strDebugInfo.Format(L"\t%u: '%s'\r\n", static_cast<uint32_t>(iFile), m_psFileLoadingData->rgRuleList.at(iFile).szFileName);
         OutputDebugString(strDebugInfo.GetString());
     }
     strDebugInfo.Format(L"\tFile read join type is enum value '%u' for path '%s'\r\n", m_psFileLoadingData->eReadType, m_strFirstFileWithPath.GetString());
@@ -445,13 +445,13 @@ CGame_DevMode_DIR::CGame_DevMode_DIR(uint32_t nConfirmedROMSize)
 
 sFileRule CGame_DevMode_DIR::GetRule(uint32_t nRuleId)
 {
-    if (m_sFileLoadingData.rgFileList.size() == 0)
+    if (m_sFileLoadingData.rgRuleList.size() == 0)
     {
         // This is a re-open: Load last selection
         ReloadLoadingChoices();
     }
 
-    if (m_sFileLoadingData.rgFileList.size() == 0)
+    if (m_sFileLoadingData.rgRuleList.size() == 0)
     {
         // Uh-oh: let them reestablish
         UserCreatesRules();
@@ -514,16 +514,16 @@ bool CGame_DevMode_DIR::ReloadLoadingChoices()
                 strValueName.Format(c_strRegvalFileSizeFormat, iFilePos);
                 if (RegQueryValueEx(hKey, strValueName, 0, &RegType, reinterpret_cast<LPBYTE>(&dwValue), &GetSz) == ERROR_SUCCESS)
                 {
-                    m_sFileLoadingData.rgFileList.resize(iFilePos + 1);
-                    m_sFileLoadingData.rgFileList.at(iFilePos).strFileName = strLookup.GetString();
-                    m_sFileLoadingData.rgFileList.at(iFilePos).nFileSize = dwValue;
+                    m_sFileLoadingData.rgRuleList.resize(iFilePos + 1);
+                    wcsncpy(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName, strLookup.GetString(), ARRAYSIZE(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName));
+                    m_sFileLoadingData.rgRuleList.at(iFilePos).uVerifyVar = dwValue;
                 }
             }
         }
 
         dwValue = static_cast<DWORD>(FileReadType::Sequential);
 
-        if (m_sFileLoadingData.rgFileList.size() > 1)
+        if (m_sFileLoadingData.rgRuleList.size() > 1)
         {
             GetSz = sizeof(DWORD);
             RegQueryValueEx(hKey, c_strRegValType, 0, &RegType, reinterpret_cast<LPBYTE>(&dwValue), &GetSz);
@@ -534,7 +534,7 @@ bool CGame_DevMode_DIR::ReloadLoadingChoices()
         RegCloseKey(hKey);
     }
 
-    return (m_sFileLoadingData.rgFileList.size() != 0);
+    return (m_sFileLoadingData.rgRuleList.size() != 0);
 }
 
 void CGame_DevMode_DIR::SaveLoadingChoices()
@@ -549,13 +549,13 @@ void CGame_DevMode_DIR::SaveLoadingChoices()
             CString strValueName;
             strValueName.Format(c_strRegvalFileFormat, iFilePos);
 
-            if (iFilePos < m_sFileLoadingData.rgFileList.size())
+            if (iFilePos < m_sFileLoadingData.rgRuleList.size())
             {
-                RegSetValueEx(hKey, strValueName, 0, REG_SZ, reinterpret_cast<const BYTE *>(m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.c_str()), static_cast<DWORD>(sizeof(wchar_t) * (m_sFileLoadingData.rgFileList.at(iFilePos).strFileName.length() + 1)));
+                RegSetValueEx(hKey, strValueName, 0, REG_SZ, reinterpret_cast<const BYTE *>(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName), static_cast<DWORD>(sizeof(wchar_t) * (ARRAYSIZE(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName) + 1)));
                 
                 strValueName.Format(c_strRegvalFileSizeFormat, iFilePos);
                 
-                DWORD dwFilesize = static_cast<DWORD>(m_sFileLoadingData.rgFileList.at(iFilePos).nFileSize);
+                DWORD dwFilesize = static_cast<DWORD>(m_sFileLoadingData.rgRuleList.at(iFilePos).uVerifyVar);
                 RegSetValueEx(hKey, strValueName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&dwFilesize), sizeof(DWORD));
             }
             else
