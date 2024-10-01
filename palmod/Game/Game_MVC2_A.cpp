@@ -254,74 +254,7 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 
             if (UseSteamMode())
             {
-                const std::vector<int32_t> shiftTable =
-                {
-                    // These values are the NAOMI locations vs the Steam locations
-                    // The delta the operation establishes lets us quickly adjust things 
-                    // for Steam
-                    /* Ryu */ 0x260a9c0 - 0x82CC60,
-                    /* Zangief */ 0x26e2240 - 0x9049A0,
-                    /* Guile */ 0x2775160 - 0x997A20,
-                    /* Morrigan */ 0x283a360 - 0xA5D320,
-                    /* Anakaris */ 0x2954600 - 0xB77B60,
-                    /* Strider */ 0x2a2c5e0 - 0xC4FE20,
-                    /* Cyclops */ 0x2b13440 - 0xD36F80,
-                    /* Wolverine */ 0x2c0eba0 - 0xE32D20,
-                    /* Psylocke */ 0x2d104e0 - 0xF34940,
-                    /* Iceman */ 0x2dfb5c0 - 0x10201E0,
-                    /* Rogue */ 0x2ee2140 - 0x1107480,
-                    /* CapAm */ 0x2fd03e0 - 0x11F58A0,
-                    /* Spidey */ 0x30ae9c0 - 0x12D44C0,
-                    /* Hulk */ 0x31c9400 - 0x13EEF80,
-                    /* Venom */ 0x32ed120 - 0x1512e20,
-                    /* DrDoom */ 0x33ffa40 - 0x1625A40,
-                    /* Tron */ 0x35175c0 - 0x173D7C0,
-                    /* Jill */ 0x35f3160 - 0x1819B40,
-                    /* Hayato */ 0x36f0740 - 0x19176C0,
-                    /* Ruby */ 0x37f9ce0 - 0x1A20D00,
-                    /* SonSon */ 0x39136c0 - 0x1B3A8C0,
-                    /* Amingo */ 0x3a2c760 - 0x1C53DE0,
-                    /* Marrow */ 0x3b214a0 - 0x1D48E20,
-                    /* Cable */ 0x3c2d5a0 - 0x1E55220,
-                    /* Abyss 1 */ 0x3d19480 - 0x1F41800,
-                    /* Abyss 2 */ 0x3da68e0 - 0x1FCED80,
-                    /* Abyss 3 */ 0x3e80560 - 0x20A8DA0,
-                    /* ChunLi */ 0x3f00960 - 0x2129520,
-                    /* Megaman */ 0x3f93960 - 0x21BC920,
-                    /* Roll */ 0x4007740 - 0x2230DE0,
-                    /* Akuma */ 0x4090ce0 - 0x22BA5A0,
-                    /* BBHood */ 0x41aae60 - 0x23D4AA0,
-                    /* Felicia */ 0x42d2080 - 0x24FC100,
-                    /* Charlie */ 0x433f100 - 0x25691A0,
-                    /* Sakura */ 0x4405b60 - 0x2630380,
-                    /* Dan */ 0x44540c0 - 0x267EB60,
-                    /* Cammy */ 0x44f3b80 - 0x271EBE0,
-                    /* Dhalsim */ 0x45aa820 - 0x27D5F20,
-                    /* Bison */ 0x462f340 - 0x285B0A0,
-                    /* Ken */ 0x46b5660 - 0x28E1AE0,
-                    /* Gambit */ 0x479ec80 - 0x29CB740,
-                    /* Juggy */ 0x48cb760 - 0x2AF8860,
-                    /* Storm */ 0x49d9e80 - 0x2C070E0,
-                    /* Sabretooth */ 0x4adb360 - 0x2D089E0,
-                    /* Magneto */ 0x4bf21c0 - 0x2e1ff80,
-                    /* Shuma-Gorath */ 0x4cda620 - 0x2F08560,
-                    /* WarMachine */ 0x4ddab80 - 0x30091A0,
-                    /* SilverSam */ 0x4ef6120 - 0x3124EC0,
-                    /* OmegaRed */ 0x4ff4940 - 0x3223B60,
-                    /* Spiral */ 0x5109fa0 - 0x3339480,
-                    /* Colossus */ 0x5235a60 - 0x34652C0,
-                    /* IronMan */ 0x53384c0 - 0x35683A0,
-                    /* Sent */ 0x545e420 - 0x368E840,
-                    /* Blackheart */ 0x5585400 - 0x37B5EE0,
-                    /* Thanos */ 0x5673e40 - 0x38A4C80,
-                    /* Jin */ 0x5758480 - 0x3989460,
-                    /* CapCom */ 0x5847ec0 - 0x3A793A0,
-                    /* Bonerine */ 0x59472a0 - 0x3B78B00,
-                    /* Kobun */ 0x59acdc0 - 0x3BDEB20,
-                    0,  // Team View virtual unit
-                };
-
-                m_nCurrentPaletteROMLocation -= shiftTable.at(nUnitId);
+                m_nCurrentPaletteROMLocation -= m_activeSteamShiftTable.at(nUnitId);
             }
         }
         else
@@ -345,7 +278,153 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
-        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+        if (UseSteamMode() && (nUnitCtr < indexMVC2ATeamView))
+        {
+            // The PAL files start at file 209 in the AFS.
+            const uint32_t nPALFileLocation = 0x40 /* IBIS header */ + 0x08 /* AFS header */ + (0x08 * (nUnitCtr + 209));
+            int32_t nPALFileStart = 0;
+
+            // Our offsets should shift as needed if the ARC has been rebuilt in such a fashion as to move the location of the PL_DAT files.
+            const std::vector<int32_t> baseSteamShiftTable =
+            {
+                // These values are the NAOMI locations vs the Steam locations
+                // The delta the operation establishes lets us quickly adjust things 
+                // for Steam
+                /* Ryu */ 0x260a9c0 - 0x82CC60,
+                /* Zangief */ 0x26e2240 - 0x9049A0,
+                /* Guile */ 0x2775160 - 0x997A20,
+                /* Morrigan */ 0x283a360 - 0xA5D320,
+                /* Anakaris */ 0x2954600 - 0xB77B60,
+                /* Strider */ 0x2a2c5e0 - 0xC4FE20,
+                /* Cyclops */ 0x2b13440 - 0xD36F80,
+                /* Wolverine */ 0x2c0eba0 - 0xE32D20,
+                /* Psylocke */ 0x2d104e0 - 0xF34940,
+                /* Iceman */ 0x2dfb5c0 - 0x10201E0,
+                /* Rogue */ 0x2ee2140 - 0x1107480,
+                /* CapAm */ 0x2fd03e0 - 0x11F58A0,
+                /* Spidey */ 0x30ae9c0 - 0x12D44C0,
+                /* Hulk */ 0x31c9400 - 0x13EEF80,
+                /* Venom */ 0x32ed120 - 0x1512e20,
+                /* DrDoom */ 0x33ffa40 - 0x1625A40,
+                /* Tron */ 0x35175c0 - 0x173D7C0,
+                /* Jill */ 0x35f3160 - 0x1819B40,
+                /* Hayato */ 0x36f0740 - 0x19176C0,
+                /* Ruby */ 0x37f9ce0 - 0x1A20D00,
+                /* SonSon */ 0x39136c0 - 0x1B3A8C0,
+                /* Amingo */ 0x3a2c760 - 0x1C53DE0,
+                /* Marrow */ 0x3b214a0 - 0x1D48E20,
+                /* Cable */ 0x3c2d5a0 - 0x1E55220,
+                /* Abyss 1 */ 0x3d19480 - 0x1F41800,
+                /* Abyss 2 */ 0x3da68e0 - 0x1FCED80,
+                /* Abyss 3 */ 0x3e80560 - 0x20A8DA0,
+                /* ChunLi */ 0x3f00960 - 0x2129520,
+                /* Megaman */ 0x3f93960 - 0x21BC920,
+                /* Roll */ 0x4007740 - 0x2230DE0,
+                /* Akuma */ 0x4090ce0 - 0x22BA5A0,
+                /* BBHood */ 0x41aae60 - 0x23D4AA0,
+                /* Felicia */ 0x42d2080 - 0x24FC100,
+                /* Charlie */ 0x433f100 - 0x25691A0,
+                /* Sakura */ 0x4405b60 - 0x2630380,
+                /* Dan */ 0x44540c0 - 0x267EB60,
+                /* Cammy */ 0x44f3b80 - 0x271EBE0,
+                /* Dhalsim */ 0x45aa820 - 0x27D5F20,
+                /* Bison */ 0x462f340 - 0x285B0A0,
+                /* Ken */ 0x46b5660 - 0x28E1AE0,
+                /* Gambit */ 0x479ec80 - 0x29CB740,
+                /* Juggy */ 0x48cb760 - 0x2AF8860,
+                /* Storm */ 0x49d9e80 - 0x2C070E0,
+                /* Sabretooth */ 0x4adb360 - 0x2D089E0,
+                /* Magneto */ 0x4bf21c0 - 0x2e1ff80,
+                /* Shuma-Gorath */ 0x4cda620 - 0x2F08560,
+                /* WarMachine */ 0x4ddab80 - 0x30091A0,
+                /* SilverSam */ 0x4ef6120 - 0x3124EC0,
+                /* OmegaRed */ 0x4ff4940 - 0x3223B60,
+                /* Spiral */ 0x5109fa0 - 0x3339480,
+                /* Colossus */ 0x5235a60 - 0x34652C0,
+                /* IronMan */ 0x53384c0 - 0x35683A0,
+                /* Sent */ 0x545e420 - 0x368E840,
+                /* Blackheart */ 0x5585400 - 0x37B5EE0,
+                /* Thanos */ 0x5673e40 - 0x38A4C80,
+                /* Jin */ 0x5758480 - 0x3989460,
+                /* CapCom */ 0x5847ec0 - 0x3A793A0,
+                /* Bonerine */ 0x59472a0 - 0x3B78B00,
+                /* Kobun */ 0x59acdc0 - 0x3BDEB20,
+                0,  // Team View virtual unit
+            };
+
+            std::vector<uint32_t> normalPALStarts =
+            {
+                // These are the normal/expected locations for the Steam PL_DAT files within 
+                // the ARC.
+                // We then check the actual locations, and further shift as needed.
+                /* 00 */ 0x7be800,
+                /* 01 */ 0x83d800,
+                /* 02 */ 0x915800,
+                /* 03 */ 0x9a8800,
+                /* 04 */ 0xa6f000,
+                /* 05 */ 0xb88800,
+                /* 06 */ 0xc60800,
+                /* 07 */ 0xd48800,
+                /* 08 */ 0xe43800,
+                /* 09 */ 0xf45800,
+                /* 0a */ 0x1031800,
+                /* 0b */ 0x1118000,
+                /* 0c */ 0x120a800,
+                /* 0d */ 0x12e5800,
+                /* 0e */ 0x13ff800,
+                /* 0f */ 0x1523800,
+                /* 10 */ 0x1637800,
+                /* 11 */ 0x174e800,
+                /* 12 */ 0x182a800,
+                /* 13 */ 0x1928000,
+                /* 14 */ 0x1a31800,
+                /* 15 */ 0x1b4b800,
+                /* 16 */ 0x1c64800,
+                /* 17 */ 0x1d59800,
+                /* 18 */ 0x1e66000,
+                /* 19 */ 0x1f52000,
+                /* 1a */ 0x1fdf800,
+                /* 1b */ 0x20b9800,
+                /* 1c */ 0x213a000,
+                /* 1d */ 0x21d1800,
+                /* 1e */ 0x2245800,
+                /* 1f */ 0x22cb000,
+                /* 20 */ 0x23e5800,
+                /* 21 */ 0x250c800,
+                /* 22 */ 0x257a000,
+                /* 23 */ 0x2641000,
+                /* 24 */ 0x268f800,
+                /* 25 */ 0x2730000,
+                /* 26 */ 0x27e7000,
+                /* 27 */ 0x286c000,
+                /* 28 */ 0x28f2800,
+                /* 29 */ 0x29dc800,
+                /* 2a */ 0x2b09800,
+                /* 2b */ 0x2c18000,
+                /* 2c */ 0x2d19800,
+                /* 2d */ 0x2e30800,
+                /* 2e */ 0x2f1b800,
+                /* 2f */ 0x301a000,
+                /* 30 */ 0x3138000,
+                /* 31 */ 0x3234800,
+                /* 32 */ 0x334b800,
+                /* 33 */ 0x3477800,
+                /* 34 */ 0x3579000,
+                /* 35 */ 0x369f800,
+                /* 36 */ 0x37c7000,
+                /* 37 */ 0x38b5800,
+                /* 38 */ 0x399b000,
+                /* 39 */ 0x3a8a000,
+                /* 3a */ 0x3b89800,
+            };
+
+            LoadedFile->Seek(nPALFileLocation, CFile::begin);
+            LoadedFile->Read(&nPALFileStart, sizeof(nPALFileStart));
+
+            m_activeSteamShiftTable.at(nUnitCtr) = baseSteamShiftTable.at(nUnitCtr) + (normalPALStarts.at(nUnitCtr) - nPALFileStart);
+        }
 
         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 

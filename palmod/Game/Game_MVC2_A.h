@@ -21,6 +21,9 @@ public:
     static constexpr uint32_t m_nExpectedGameROMSize_A = 0x889B600; // 143,242,752 bytes
     static constexpr uint32_t m_nExpectedGameROMSize_S = 0x6B6B040; // 112,635,968 bytes
 
+private:
+    std::array<int32_t, MVC2_A_NUMUNIT + 2> m_activeSteamShiftTable = { 0 };
+
 public:
     CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad);
     ~CGame_MVC2_A();
