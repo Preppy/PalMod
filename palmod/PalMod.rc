@@ -983,7 +983,7 @@ BEGIN
     IDS_PATCHGAME_MULTI     "%d of %d units patched successfully%s."
     IDS_PATCH_EMPTY         "No changes detected: nothing to patch."
     IDS_CROSSCOPY_SINGLE_SUCCESS "Game crosscopied successfully%s."
-    IDS_CROSSCOPY_MULTI_SUCCESS "%d of %d files crosscopied successfully%s."
+    IDS_CROSSCOPY_MULTI_SUCCESS "%d of %d characters crosscopied successfully%s."
     IDS_CROSSCOPY_NODIR     "No directory specified."
     IDS_IPS_SINGLE          "%u change saved to patch file."
 END
