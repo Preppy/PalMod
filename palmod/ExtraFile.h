@@ -23,6 +23,8 @@ protected:
     static AlphaMode m_AlphaModeOverride;
     static ColMode m_ColorModeOverride;
 
+    // Allow for unusable offset if we have an offset shift built into a game load
+    static size_t m_nUsableFileViewStart;
     // We may be navigating over a set of files, so track that total size if we get it
     static size_t m_nLoadedFileViewSize;
 
@@ -58,11 +60,11 @@ public:
     void CheckForErrorsInTables();
 
     void OpenExtraFile() override;
-    bool GameAllowsExtraFile() override { return m_pszExtraFilename != nullptr; };
+    bool GameAllowsExtraFile() override { return (m_pszExtraFilename != nullptr) && (m_nLoadedFileViewSize != -1); };
 
     static AlphaMode GetExtrasOverrideForAlphaType() { return m_AlphaModeOverride; };
     static ColMode GetExtrasOverrideForColorFormat() { return m_ColorModeOverride; };
     static LPCSTR GetExtrasOverrideForGameName() { return m_paszGameNameOverride; };
 
-    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, size_t nGameROMSize, uint8_t cbColorSize = 2);
+    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, size_t nGameROMSize, uint8_t cbColorSize = 2, size_t nUsableStartingOffset = 0);
 };

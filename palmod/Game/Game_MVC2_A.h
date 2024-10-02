@@ -3,6 +3,8 @@
 #include "MVC2_A_DEF.h"
 #include "..\extrafile.h"
 
+constexpr auto MVC2_ROMReripOffsetDelta = 0x2000000;
+
 class CGame_MVC2_A : public CGameWithExtrasFile
 {
 public:
@@ -20,6 +22,7 @@ public:
     static constexpr auto EXTRA_FILENAME_MVC2_A = L"MVC2e.txt";
     static constexpr uint32_t m_nExpectedGameROMSize_A = 0x889B600; // 143,242,752 bytes
     static constexpr uint32_t m_nExpectedGameROMSize_S = 0x6B6B040; // 112,635,968 bytes
+    static size_t m_nStartingUsableOffset;
 
 private:
     std::array<int32_t, MVC2_A_NUMUNIT + 2> m_activeSteamShiftTable = { 0 };

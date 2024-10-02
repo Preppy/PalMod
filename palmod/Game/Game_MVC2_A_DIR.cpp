@@ -5,13 +5,13 @@
 uint32_t CGame_MVC2_A_DIR::m_uRuleCtr = 0;
 
 constexpr auto MVC2_Arcade_ROM_Base = L"mpr-230";
-constexpr auto MVC2_ROMReripOffsetDelta = 0x2000000;
 constexpr auto MVC2_Arcade_NumberOfSIMMs = 8;
+const uint32_t MVC2_Rerip_SIMM_Length = 0x800000;
 
 #define MVC2_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
 CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize) :
-        CGame_MVC2_A(c_nMVC2SIMMLength, MVC2_A_DIR)
+        CGame_MVC2_A(MVC2_ROMReripOffsetDelta + (MVC2_Rerip_SIMM_Length * MVC2_Arcade_NumberOfSIMMs), MVC2_A_DIR)                                     
 {
     OutputDebugString(L"CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n");
     m_nGameFlag = MVC2_A_DIR;
@@ -61,9 +61,9 @@ inline uint32_t CGame_MVC2_A_DIR::GetLocationWithinSIMM(uint32_t nSIMMSetLocatio
 {
     uint32_t nSIMMLocation = nSIMMSetLocation;
 
-    while (nSIMMLocation > c_nMVC2SIMMLength)
+    while (nSIMMLocation >= MVC2_Rerip_SIMM_Length)
     {
-        nSIMMLocation -= c_nMVC2SIMMLength;
+        nSIMMLocation -= MVC2_Rerip_SIMM_Length;
     }
 
     return nSIMMLocation;
@@ -77,8 +77,8 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     strInfo.Format(L"CGame_MVC2_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n", nSIMMNumber);
     OutputDebugString(strInfo);
 
-    const uint32_t nBeginningRange =  MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber);
-    const uint32_t nEndingRange =     MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber) + c_nMVC2SIMMLength;
+    const uint32_t nBeginningRange =  MVC2_ROMReripOffsetDelta + (MVC2_Rerip_SIMM_Length * nSIMMNumber);
+    const uint32_t nEndingRange =     MVC2_ROMReripOffsetDelta + (MVC2_Rerip_SIMM_Length * nSIMMNumber) + MVC2_Rerip_SIMM_Length;
 
     strInfo.Format(L"\tSIMM %u begins at 0x%06x and ends at 0x%06x\n", nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
@@ -112,9 +112,10 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                 continue;
             }
 
+            // Only care about palettes that are in this particular ROM slice
             if ((m_nCurrentPaletteROMLocation >= nBeginningRange) && (m_nCurrentPaletteROMLocation <= nEndingRange))
             {
-                uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                const uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                 m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if MVC2_RERIP_DEBUG
@@ -122,7 +123,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                 OutputDebugString(strInfo);
 #endif
 
-                if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSizeInColors) > c_nMVC2SIMMLength)
+                if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSizeInColors) > MVC2_Rerip_SIMM_Length)
                 {
                     if (!fShownCrossSIMMErrorOnce)
                     {
@@ -152,7 +153,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
 inline uint8_t CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(uint32_t nROMLocation)
 {
-    return static_cast<uint8_t>(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / c_nMVC2SIMMLength));
+    return static_cast<uint8_t>(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / MVC2_Rerip_SIMM_Length));
 }
 
 BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)

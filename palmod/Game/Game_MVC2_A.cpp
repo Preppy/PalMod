@@ -16,6 +16,7 @@ uint32_t CGame_MVC2_A::m_rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
 uint32_t CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
 uint32_t CGame_MVC2_A::m_nConfirmedROMSize = -1;
+size_t CGame_MVC2_A::m_nStartingUsableOffset = 0;
 
 void CGame_MVC2_A::InitializeStatics()
 {
@@ -39,6 +40,26 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMTo
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
+
+    // Get this data ready for InitializeStatics to consume
+    switch (nROMToLoad)
+    {
+        case MVC2_A:
+        default:
+            m_nStartingUsableOffset = 0;
+            // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+            m_nLowestKnownPaletteRomLocation = 0x260a9c0;
+            break;
+        case MVC2_S:
+            m_nStartingUsableOffset = 0;
+            m_nLowestKnownPaletteRomLocation = 0x82cc60;
+            break;
+        case MVC2_A_DIR:
+            m_nStartingUsableOffset = MVC2_ROMReripOffsetDelta;
+            m_nLowestKnownPaletteRomLocation = 0x82cc60;
+            break;
+    }
+
     InitializeStatics();
 
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
@@ -47,15 +68,6 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMTo
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6370;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    if (nROMToLoad == MVC2_A)
-    {
-        m_nLowestKnownPaletteRomLocation = 0x260a9c0;
-    }
-    else
-    {
-        m_nLowestKnownPaletteRomLocation = 0x82cc60;
-    }
 
     m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -116,7 +128,7 @@ uint32_t CGame_MVC2_A::GetExtraLoc(uint32_t nUnitId)
 sDescTreeNode* CGame_MVC2_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nConfirmedROMSize, 2, m_nStartingUsableOffset);
 
     uint16_t nUnitCt = MVC2_A_NUMUNIT + (GetExtraCt(MVC2_A_EXTRALOC) ? 1 : 0);
     
