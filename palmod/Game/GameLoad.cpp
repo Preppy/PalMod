@@ -308,7 +308,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
             {
                 if (!OutGame)
                 {
-                    OutGame = CreateGame(nGameFlag, nConfirmedVerifyVar);
+                    OutGame = CreateGame(nGameFlag, static_cast<uint32_t>(nConfirmedVerifyVar));
 
                     if (OutGame)
                     {
@@ -872,7 +872,7 @@ void CGameLoad::CrosscopyGame_Steam(CGameClass* CurrGame)
                     { L"PL3A_DAT.BIN", 0x00055300, 0x3BDEB20, 0x00000b80 }, // Servbot
                 };
 
-                const uint32_t nChunksToCopy = rgPortMap.size();
+                const uint32_t nChunksToCopy = static_cast<uint32_t>(rgPortMap.size());
 
                 CFile SourceFile;
 
