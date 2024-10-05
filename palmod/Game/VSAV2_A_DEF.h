@@ -140,6 +140,7 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_AK[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LP[] =
 {
     { L"LP Demitri", 0x1719a, 0x171ba, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"LP Demitri Shimmer", 0x30dfa, 0x30e1a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LP Teledash 1", 0x171fa, 0x1721a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LP Teledash 2", 0x171ba, 0x171da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LP Fireball", 0x171da, 0x171fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -150,6 +151,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LP[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MP[] =
 {
     { L"MP Demitri", 0x1721a, 0x1723a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"MP Demitri Shimmer", 0x30e1a, 0x30e3a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MP Teledash 1", 0x1727a, 0x1729a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MP Teledash 2", 0x1723a, 0x1725a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MP Fireball", 0x1725a, 0x1727a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -160,6 +162,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MP[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HP[] =
 {
     { L"HP Demitri", 0x1729a, 0x172ba, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"HP Demitri Shimmer", 0x30e3a, 0x30e5a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HP Teledash 1", 0x172fa, 0x1731a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HP Teledash 2", 0x172ba, 0x172da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HP Fireball", 0x172da, 0x172fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -170,6 +173,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HP[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LK[] =
 {
     { L"LK Demitri", 0x1731a, 0x1733a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"LK Demitri Shimmer", 0x30e5a, 0x30e7a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LK Teledash 1", 0x1737a, 0x1739a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LK Teledash 2", 0x1733a, 0x1735a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LK Fireball", 0x1735a, 0x1737a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -180,6 +184,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LK[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MK[] =
 {
     { L"MK Demitri", 0x1739a, 0x173ba, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"MK Demitri Shimmer", 0x30e7a, 0x30e9a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MK Teledash 1", 0x173fa, 0x1741a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MK Teledash 2", 0x173ba, 0x173da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MK Fireball", 0x173da, 0x173fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -190,6 +195,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MK[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HK[] =
 {
     { L"HK Demitri", 0x1741a, 0x1743a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"HK Demitri Shimmer", 0x30e9a, 0x30eba, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HK Teledash 1", 0x1747a, 0x1749a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HK Teledash 2", 0x1743a, 0x1745a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HK Fireball", 0x1745a, 0x1747a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -200,6 +206,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_PP[] =
 {
     { L"PP Demitri", 0x1749a, 0x174ba, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"PP Demitri Shimmer", 0x30eba, 0x30eda, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"PP Teledash 1", 0x174fa, 0x1751a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"PP Teledash 2", 0x174ba, 0x174da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"PP Fireball", 0x174da, 0x174fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -210,6 +217,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_PP[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_KK[] =
 {
     { L"KK Demitri", 0x1751a, 0x1753a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"KK Demitri Shimmer", 0x30eda, 0x30efa, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"KK Teledash 1", 0x1757a, 0x1759a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"KK Teledash 2", 0x1753a, 0x1755a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"KK Fireball", 0x1755a, 0x1757a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -220,6 +228,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_KK[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_AP[] =
 {
     { L"AP Demitri", 0x1759a, 0x175ba, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"AP Demitri Shimmer", 0x30efa, 0x30f1a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AP Teledash 1", 0x175fa, 0x1761a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AP Teledash 2", 0x175ba, 0x175da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AP Fireball", 0x175da, 0x175fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
@@ -230,6 +239,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_AP[] =
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_AK[] =
 {
     { L"AK Demitri", 0x1761a, 0x1763a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
+    { L"AK Demitri Shimmer", 0x30f1a, 0x30f3a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AK Teledash 1", 0x1767a, 0x1769a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AK Teledash 2", 0x1763a, 0x1765a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AK Fireball", 0x1765a, 0x1767a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
