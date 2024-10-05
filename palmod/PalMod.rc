@@ -540,6 +540,7 @@ BEGIN
                 MENUITEM "Arcade (NAOMI)",              ID_LD_MVC2ARCADE
                 MENUITEM "DC",                          ID_LD_MVC2DCUSA
                 MENUITEM "PS2",                         ID_LD_MVC2PS2USA
+                MENUITEM "Steam",                       ID_LD_MVC2STEAM
             END
             POPUP "Nitroplus Blasterz: Heroines Infinite Duel"
             BEGIN

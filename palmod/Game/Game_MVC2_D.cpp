@@ -62,7 +62,7 @@ void CGame_MVC2_D::SetNumberOfColorOptions(uint8_t nColorOptions)
     EXTRA_OMNI = ID_MOD;
 }
 
-CGame_MVC2_D::CGame_MVC2_D(uint32_t nConfirmedROMSize)
+CGame_MVC2_D::CGame_MVC2_D(uint32_t nConfirmedROMSize, SupportedGamesList eGameVersion)
 {
     //Set color mode
     m_createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
@@ -73,16 +73,17 @@ CGame_MVC2_D::CGame_MVC2_D(uint32_t nConfirmedROMSize)
     m_DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
 
     {
-        sFileRule FirstRuleOfMVC2Club = GetRule(0);
+        sFileRule FirstRuleOfMVC2Club = GetRuleDC(0);
         if (nConfirmedROMSize == FirstRuleOfMVC2Club.uAltVerifyVar)
         {
-            SetNumberOfColorOptions(16);
+            // We detect this at runtime, so enforce correct gameflag here
             m_nGameFlag = MVC2_D_16;
+            SetNumberOfColorOptions(16);
         }
         else
         {
+            m_nGameFlag = eGameVersion;
             SetNumberOfColorOptions(6);
-            m_nGameFlag = MVC2_D;
         }
     }
    
@@ -515,7 +516,7 @@ uint32_t CGame_MVC2_D::CountExtraRg(uint32_t nUnitId, BOOL fCountIsOfSharedExtra
     return 0;
 }
 
-sFileRule CGame_MVC2_D::GetRule(uint32_t nMaskedUnsortedRuleId)
+sFileRule CGame_MVC2_D::GetRuleDC(uint32_t nMaskedUnsortedRuleId)
 {
     sFileRule NewFileRule;
 
@@ -545,9 +546,56 @@ sFileRule CGame_MVC2_D::GetRule(uint32_t nMaskedUnsortedRuleId)
     return NewFileRule;
 }
 
-sFileRule CGame_MVC2_D::GetNextRule()
+sFileRule CGame_MVC2_D::GetRuleSteam(uint32_t nMaskedUnsortedRuleId)
 {
-    sFileRule NewFileRule = GetRule(m_uRuleCtr);
+    sFileRule NewFileRule;
+
+    const uint32_t nTrueUnsortedRuleId = (nMaskedUnsortedRuleId & RULE_COUNTER_DEMASK);
+
+    if (nTrueUnsortedRuleId < MVC2_D_NUMUNIT_WITH_TEAMVIEW)
+    {
+        const uint32_t nRuleIdToUse = (nMaskedUnsortedRuleId & RULE_COUNTER_MASK) == RULE_COUNTER_MASK ? (nTrueUnsortedRuleId) : MVC2_D_UNITSORT[nTrueUnsortedRuleId];
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02X_DAT.BIN", nRuleIdToUse);
+
+        NewFileRule.uUnitId = nRuleIdToUse;
+        NewFileRule.uVerifyVar = MVC2_S_FILESIZES_6COLORS[nRuleIdToUse];
+
+        // Allow for the temporary variant
+        NewFileRule.fHasAltName = true;
+        // The first extraction steps tie the filename to the file number in the AFS.  That offset is +209.
+        // Nobody should be using these anymore, but hey - they were live for a little while on 10/4/2024.  
+        // Feel free to delete these variant filenames now that you live in the future.
+        _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"F%03u-PL%02X_DAT.BIN", nRuleIdToUse + 209, nRuleIdToUse);
+        NewFileRule.uAltVerifyVar = MVC2_S_FILESIZES_6COLORS[nRuleIdToUse];
+    }
+    else
+    {
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"TeamViewIsNotReal-%02X", nMaskedUnsortedRuleId);
+
+        NewFileRule.uUnitId = nMaskedUnsortedRuleId;
+        NewFileRule.uVerifyVar = -1;
+    }
+
+    return NewFileRule;
+}
+
+sFileRule CGame_MVC2_D::GetNextRuleDC()
+{
+    sFileRule NewFileRule = GetRuleDC(m_uRuleCtr);
+
+    m_uRuleCtr++;
+
+    if (m_uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
+    {
+        m_uRuleCtr = INVALID_UNIT_VALUE;
+    }
+
+    return NewFileRule;
+}
+
+sFileRule CGame_MVC2_D::GetNextRuleSteam()
+{
+    sFileRule NewFileRule = GetRuleSteam(m_uRuleCtr);
 
     m_uRuleCtr++;
 
@@ -807,8 +855,14 @@ LPCWSTR CGame_MVC2_D::GetGameName()
 {
     if (k_mvc2_character_coloroption_count == 6)
     {
-        return L"MvC2 (Dreamcast)";
-
+        if (m_nGameFlag == MVC2_D)
+        {
+            return L"MvC2 (Dreamcast)";
+        }
+        else
+        {
+            return L"MvC2 (Steam: file view)";
+        }
     }
     else
     {

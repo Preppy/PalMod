@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 230, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 231, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -97,6 +97,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case MVC2_D:
         case MVC2_D_16:
             pszExtraInfo = L"We need the PLxx_DAT.bin files from the root of the game image.";
+            break;
+        case MVC2_S_DIR:
+            pszExtraInfo = L"We need the PLxx_DAT.bin files in the \'mvsc2.21D3D8A7\' folder that Paxtez's extraction tool created.";
             break;
         case CVS2_P:
             pszExtraInfo = L"We need the PLxxPAK.bin files inside the AFS02.AFS AFS archive in the PS2 folder of the game image.";

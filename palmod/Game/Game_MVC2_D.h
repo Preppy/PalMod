@@ -16,7 +16,7 @@ private:
     sMoveDescription* GetMoveDescriptionInfo(uint32_t nUnitId, uint32_t nPalId);
 
 public:
-    CGame_MVC2_D(uint32_t nConfirmedROMSize);
+    CGame_MVC2_D(uint32_t nConfirmedROMSize, SupportedGamesList eGameVersion);
     ~CGame_MVC2_D();
 
     uint32_t nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
@@ -40,8 +40,10 @@ public:
     static void InitExtraRg();
     static uint32_t CountExtraRg(uint32_t nUnitId, BOOL fOmniExtra);
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
-    static sFileRule GetNextRule();
-    static sFileRule GetRule(uint32_t nRuleId);
+    static sFileRule GetRuleDC(uint32_t nRuleId);
+    static sFileRule GetRuleSteam(uint32_t nRuleId);
+    static sFileRule GetNextRuleDC();
+    static sFileRule GetNextRuleSteam();
 
     //Normal functions
     CDescTree* GetMainTree();

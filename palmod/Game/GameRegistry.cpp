@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 230, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 231, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -300,9 +300,10 @@ namespace KnownGameInfo
     CGameClass* Make_MVC2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_A); }
     CGameClass* Make_MVC2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_S); }
     CGameClass* Make_MVC2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_MVC2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize); }
-    CGameClass* Make_MVC2_D_16(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize); }
+    CGameClass* Make_MVC2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_D); }
+    CGameClass* Make_MVC2_D_16(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_D_16); }
     CGameClass* Make_MVC2_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_P(nConfirmedROMSize); }
+    CGameClass* Make_MVC2_S_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_S_DIR); }
     CGameClass* Make_MWARR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MWarr_A_DIR(-1); }
     CGameClass* Make_NBHID_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_NL(nConfirmedROMSize); }
     CGameClass* Make_NBHID_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_P(nConfirmedROMSize); }
@@ -1365,8 +1366,8 @@ namespace KnownGameInfo
             L"MvC2 (Dreamcast)",
             {},
             Make_MVC2_D,
-            CGame_MVC2_D::GetRule,
-            CGame_MVC2_D::GetNextRule,
+            CGame_MVC2_D::GetRuleDC,
+            CGame_MVC2_D::GetNextRuleDC,
             CGame_MVC2_D::GetRuleCtr,
             CGame_MVC2_D::ResetRuleCtr,
         },
@@ -1375,8 +1376,8 @@ namespace KnownGameInfo
             L"MvC2 (Dreamcast Palette Expansion)",
             {},
             Make_MVC2_D_16,
-            CGame_MVC2_D::GetRule,
-            CGame_MVC2_D::GetNextRule,
+            CGame_MVC2_D::GetRuleDC,
+            CGame_MVC2_D::GetNextRuleDC,
             CGame_MVC2_D::GetRuleCtr,
             CGame_MVC2_D::ResetRuleCtr,
         },
@@ -1392,10 +1393,20 @@ namespace KnownGameInfo
         },
         {
             MVC2_S,
-            L"MvC2 (Steam)",
+            L"MvC2 (Steam: AFS)",
             { MVC2_S,           L"MvC2", L"MvC2 (Steam)|mvsc2.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MVC2_S,
             CGame_MVC2_A::GetRule_S,
+        },
+        {
+            MVC2_S_DIR,
+            L"MvC2 (Steam: file view)",
+            {},
+            Make_MVC2_S_DIR,
+            CGame_MVC2_D::GetRuleSteam,
+            CGame_MVC2_D::GetNextRuleSteam,
+            CGame_MVC2_D::GetRuleCtr,
+            CGame_MVC2_D::ResetRuleCtr,
         },
         {
             MWARR_A,
@@ -2159,7 +2170,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 230, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 231, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

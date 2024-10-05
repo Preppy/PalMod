@@ -15,6 +15,7 @@ private:
 
     bool IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath = nullptr, uint32_t ccPathSize = 0);
     bool VerifyLocationIsUsable(LPCWSTR pszLocation);
+    bool IsGameUnitMvC2TeamView(int eGameID, uint32_t nGameUnit);
 
     CString strLoadSaveStr = L"";
 

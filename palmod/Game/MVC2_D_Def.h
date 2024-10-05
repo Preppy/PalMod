@@ -29,8 +29,8 @@ struct sMoveDescription
 
 // These are the filesizes for each normal MVC2 PAL file.
 // This is sorted by character ID: Ryu is 0x0
-const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_6COLORS = {
-
+const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_6COLORS =
+{
     557408, 
     926400, 
     640928, 
@@ -90,6 +90,70 @@ const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_6COLOR
     1025152, 
     1091648, 
     464448,
+    0
+};
+
+const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_S_FILESIZES_6COLORS =
+{
+    /* PL00_DAT.BIN */ 0x7eb40,
+    /* PL01_DAT.BIN */ 0xd7ea0,
+    /* PL02_DAT.BIN */ 0x92900,
+    /* PL03_DAT.BIN */ 0xc6260,
+    /* PL04_DAT.BIN */ 0x119520,
+    /* PL05_DAT.BIN */ 0xd7d00,
+    /* PL06_DAT.BIN */ 0xe79c0,
+    /* PL07_DAT.BIN */ 0xfad20,
+    /* PL08_DAT.BIN */ 0x101840,
+    /* PL09_DAT.BIN */ 0xeb8e0,
+    /* PL0A_DAT.BIN */ 0xe6680,
+    /* PL0B_DAT.BIN */ 0xf21c0,
+    /* PL0C_DAT.BIN */ 0xdaf80,
+    /* PL0D_DAT.BIN */ 0x119e80,
+    /* PL0E_DAT.BIN */ 0x123d00,
+    /* PL0F_DAT.BIN */ 0x113e00,
+    /* PL10_DAT.BIN */ 0x116820,
+    /* PL11_DAT.BIN */ 0xdba60,
+    /* PL12_DAT.BIN */ 0xfd760,
+    /* PL13_DAT.BIN */ 0x109620,
+    /* PL14_DAT.BIN */ 0x119b80,
+    /* PL15_DAT.BIN */ 0x118d00,
+    /* PL16_DAT.BIN */ 0xf4d00,
+    /* PL17_DAT.BIN */ 0x10c100,
+    /* PL18_DAT.BIN */ 0xebee0,
+    /* PL19_DAT.BIN */ 0x8d460,
+    /* PL1A_DAT.BIN */ 0xd9c80,
+    /* PL1B_DAT.BIN */ 0x80400,
+    /* PL1C_DAT.BIN */ 0x97120,
+    /* PL1D_DAT.BIN */ 0x73de0,
+    /* PL1E_DAT.BIN */ 0x85480,
+    /* PL1F_DAT.BIN */ 0x11a3c0,
+    /* PL20_DAT.BIN */ 0x126fe0,
+    /* PL21_DAT.BIN */ 0x6d080,
+    /* PL22_DAT.BIN */ 0xc6d80,
+    /* PL23_DAT.BIN */ 0x4e240,
+    /* PL24_DAT.BIN */ 0xa0160,
+    /* PL25_DAT.BIN */ 0xb69a0,
+    /* PL26_DAT.BIN */ 0x848e0,
+    /* PL27_DAT.BIN */ 0x861c0,
+    /* PL28_DAT.BIN */ 0xe99c0,
+    /* PL29_DAT.BIN */ 0x12cea0,
+    /* PL2A_DAT.BIN */ 0x10e3e0,
+    /* PL2B_DAT.BIN */ 0x1010c0,
+    /* PL2C_DAT.BIN */ 0x116e80,
+    /* PL2D_DAT.BIN */ 0xea920,
+    /* PL2E_DAT.BIN */ 0xfe080,
+    /* PL2F_DAT.BIN */ 0x11db80,
+    /* PL30_DAT.BIN */ 0xfc540,
+    /* PL31_DAT.BIN */ 0x116c80,
+    /* PL32_DAT.BIN */ 0x12b980,
+    /* PL33_DAT.BIN */ 0x1012c0,
+    /* PL34_DAT.BIN */ 0x126140,
+    /* PL35_DAT.BIN */ 0x1274a0,
+    /* PL36_DAT.BIN */ 0xee660,
+    /* PL37_DAT.BIN */ 0xe5300,
+    /* PL38_DAT.BIN */ 0xeec80,
+    /* PL39_DAT.BIN */ 0xff300,
+    /* PL3A_DAT.BIN */ 0x65e60,
     0
 };
 

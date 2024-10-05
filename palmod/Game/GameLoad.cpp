@@ -340,10 +340,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 OutputDebugString(L"CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n");
                 nSaveLoadSucc++;
             }
-            else if (OutGame && 
-                   (((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
-                    ((nGameFlag == MVC2_D_16) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
-                    ((nGameFlag == MVC2_P) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))))
+            else if (OutGame && IsGameUnitMvC2TeamView(nGameFlag, nCurrRuleCtr))
             {
                 OutputDebugString(L"CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n");
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))
@@ -440,6 +437,14 @@ bool CGameLoad::VerifyLocationIsUsable(LPCWSTR pszLocation)
     return fLocationIsOKToUse;
 }
 
+bool CGameLoad::IsGameUnitMvC2TeamView(int eGameID, uint32_t nGameUnit)
+{
+    return (((eGameID == MVC2_D) && (nGameUnit == MVC2_D_TEAMVIEW_LOCATION)) ||
+            ((eGameID == MVC2_D_16) && (nGameUnit == MVC2_D_TEAMVIEW_LOCATION)) ||
+            ((eGameID == MVC2_P) && (nGameUnit == MVC2_D_TEAMVIEW_LOCATION)) ||
+            ((eGameID == MVC2_S_DIR) && (nGameUnit == MVC2_D_TEAMVIEW_LOCATION)));
+}
+
 bool CGameLoad::SaveGame(CGameClass* CurrGame)
 {
     CFile FileSave;
@@ -468,11 +473,7 @@ bool CGameLoad::SaveGame(CGameClass* CurrGame)
                 nSaveLoadCount++;
 
                 // Ignore the virtualized team view
-                bool fIsMvC2TeamView = ((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
-                                       ((CurrGame->GetGameFlag() == MVC2_D_16) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
-                                       ((CurrGame->GetGameFlag() == MVC2_P) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION));
-
-                if (!fIsMvC2TeamView)
+                if (!IsGameUnitMvC2TeamView(CurrGame->GetGameFlag(), nFileCtr))
                 {
                     CString szLoad;
                     sFileRule CurrRule = GetRule(nFileCtr | RULE_COUNTER_MASK);
@@ -504,7 +505,6 @@ bool CGameLoad::SaveGame(CGameClass* CurrGame)
                                 // Mark as clean so we don't save it out until it gets dirtied again.
                                 rgFileIsChanged.at(nFileCtr) = false;
                             }
-
                         }
                         else
                         {
@@ -669,12 +669,12 @@ void CGameLoad::CrosscopyGame_DCPS2(CGameClass* CurrGame)
                 // Ignore the virtualized team view
                 if (nFileCtr != MVC2_D_TEAMVIEW_LOCATION)
                 {
-                    CString szLoad;
-                    sFileRule CurrRule = fIsDreamcast ? CGame_MVC2_P::GetRule(nFileCtr | RULE_COUNTER_MASK) : CGame_MVC2_D::GetRule(nFileCtr | RULE_COUNTER_MASK);
+                    CString strLoad;
+                    sFileRule CurrRule = fIsDreamcast ? CGame_MVC2_P::GetRule(nFileCtr | RULE_COUNTER_MASK) : CGame_MVC2_D::GetRuleDC(nFileCtr | RULE_COUNTER_MASK);
 
-                    szLoad.Format(L"%s\\%s", strTargetDirectory.GetString(), CurrRule.szFileName);
+                    strLoad.Format(L"%s\\%s", strTargetDirectory.GetString(), CurrRule.szFileName);
 
-                    if (FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary))
+                    if (FileSave.Open(strLoad, CFile::modeReadWrite | CFile::typeBinary))
                     {
                         if (CurrGame->SaveFile(&FileSave, nFileCtr))
                         {
@@ -682,7 +682,7 @@ void CGameLoad::CrosscopyGame_DCPS2(CGameClass* CurrGame)
                         }
                         else
                         {
-                            strErrorFile = szLoad;
+                            strErrorFile = strLoad;
                             nSaveLoadErr++;
                         }
 
@@ -693,7 +693,7 @@ void CGameLoad::CrosscopyGame_DCPS2(CGameClass* CurrGame)
                     }
                     else
                     {
-                        strErrorFile = szLoad;
+                        strErrorFile = strLoad;
                         nSaveLoadErr++;
                     }
                 }
@@ -890,7 +890,7 @@ void CGameLoad::CrosscopyGame_Steam(CGameClass* CurrGame)
                         // Ignore the virtualized team view
                         if (nFileCtr != MVC2_D_TEAMVIEW_LOCATION)
                         {
-                            sFileRule CurrRule = CGame_MVC2_D::GetRule(nFileCtr | RULE_COUNTER_MASK);
+                            sFileRule CurrRule = CGame_MVC2_D::GetRuleDC(nFileCtr | RULE_COUNTER_MASK);
                             CString strSourceFile;
 
                             if (eCurGame != MVC2_S)

@@ -252,6 +252,7 @@ enum SupportedGamesList
     SFIII1_S,
     SFIII2_S,
     SFIII3_S,
+    MVC2_S_DIR,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
