@@ -295,7 +295,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 nConfirmedVerifyVar = CurrRule.uAltVerifyVar;
             }
 
-            if (!fActualFileSizeIsSafe)
+            if (!fActualFileSizeIsSafe && (nSaveLoadErr == 0))
             {
                 CString strError;
                 strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(CurrFile.GetLength()));

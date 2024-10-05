@@ -19,7 +19,8 @@ private:
     };
 
     bool IsGGXXACRFileEncrypted(CFile* LoadedFile);
-    bool m_fIsFileSetEncrypted = false;
+    bool IsGGXXACRFileModified(CFile* LoadedFile);
+    bool m_fFileIsUsable = true;
 
 public:
     CGame_GGXXACR_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
