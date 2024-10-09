@@ -539,10 +539,10 @@ bool CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
-        LPCWSTR pszLoadFile = CurrGame->GetLoadedDirOrFile();
-
         if (CurrGame->WasGameFileChangedInSession())
         {
+            LPCWSTR pszLoadFile = CurrGame->GetLoadedDirOrFile();
+
             CFileException pError;
 
             nSaveLoadCount = 1;

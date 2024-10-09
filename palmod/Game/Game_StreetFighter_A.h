@@ -264,12 +264,9 @@ class CGame_StreetFighter_S : public CGameClassByDir
     {
         {
             {
-                L"bundleStreetFighter.mbundle",
-                0x5e5eb50,
-                INVALID_UNIT_VALUE,
-                true,
-                L"StreetFighter.u.68k",
-                0x60000
+                L"bundleStreetFighter.mbundle", 0x5e5eb50,
+                INVALID_UNIT_VALUE, true,
+                L"StreetFighter.u.68k", 0x60000
             },
         },
         FileReadType::Sequential,
