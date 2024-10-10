@@ -1803,6 +1803,26 @@ const sGame_PaletteDataset SSF2T_A_04_BONUS_TITLESCREEN_NODE[] =
     // this is now "charging hadouken" { L"Title Screen Lightning", 0x591da, 0x591fa },
 };
 
+const sGame_PaletteDataset SSF2T_A_04_BONUS_SUPERTRAILS_NODE[] =
+{
+    { L"Japan (Ryu's Stage)", 0x540da, 0x5413a },
+    { L"Japan (E.Honda's Stage)", 0x544da, 0x5453a },
+    { L"Brazil (Blanka's Stage)", 0x548da, 0x5493a },
+    { L"USA (Guile's Stage)", 0x54cda, 0x54d3a },
+    { L"USA (Ken's Stage)", 0x550da, 0x5513a },
+    { L"China (Chun-Li's Stage)", 0x554da, 0x5553a },
+    { L"USSR (Zangief's Stage)", 0x558da, 0x5593a },
+    { L"India (Dhalsim's Stage)", 0x55cda, 0x55d3a },
+    { L"Thailand (M.Bison's Stage)", 0x560da, 0x5613a },
+    { L"Thailand (Sagat's Stage)", 0x564da, 0x5653a },
+    { L"USA (Balrog's Stage)", 0x568da, 0x5693a },
+    { L"Spain (Vega's Stage)", 0x56cda, 0x56d3a },
+    { L"England (Cammy's Stage)", 0x570da, 0x5713a },
+    { L"Mexico (T.Hawk's Stage)", 0x574da, 0x5753a },
+    { L"Hong Kong (Fei Long's Stage)", 0x578da, 0x5793a },
+    { L"Jamaica (Dee Jay's Stage)", 0x57cda, 0x57d3a },
+};
+
 const sGame_PaletteDataset SSF2T_A_04_STAGES_CASINO_NODE[] =
 {
     { L"Girls & Nin Nin Hall Sign", 0x5697a, 0x56a5a, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
@@ -3310,6 +3330,7 @@ const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
     { L"E. Honda's Stage (04 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_04_EHONDA_STAGE_NODE,   ARRAYSIZE(SSF2T_A_04_EHONDA_STAGE_NODE) },
     { L"Ken's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_4) },
     { L"Ryu's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
+    { L"Stage Super Trails",            DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_SUPERTRAILS_NODE, ARRAYSIZE(SSF2T_A_04_BONUS_SUPERTRAILS_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_03_BONUS_COLLECTION[] =
