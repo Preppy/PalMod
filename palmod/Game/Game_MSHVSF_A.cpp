@@ -12,6 +12,7 @@ void CGame_MSHVSF_A::SetSpecialRuleForFileName(std::wstring strFileName)
         { L"mvs.07b", MSHVSFLoadingKey::ROM07 },
         { L"mshvsfj.21d3d8a7", MSHVSFLoadingKey::Steam_J },
         { L"mshvsfu.21d3d8a7", MSHVSFLoadingKey::Steam_U },
+        { L"f000.bin", MSHVSFLoadingKey::Steam_U },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();

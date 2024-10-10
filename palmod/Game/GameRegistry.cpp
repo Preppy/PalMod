@@ -567,7 +567,7 @@ namespace KnownGameInfo
         {
             COTA_S,
             L"X-Men: COTA (Steam)",
-            { COTA_S,           L"COTA", L"COTA (Steam)|xmcota?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
+            { COTA_S,           L"COTA", L"COTA (Steam)|xmcota?.21D3D8A7;f000.bin|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_COTA_S,
             CGame_COTA_S::GetRule,
         },
@@ -1242,7 +1242,7 @@ namespace KnownGameInfo
         {
             MSH_S,
             L"MSH (Steam)",
-            { MSH_S,            L"Marvel Super Heroes", L"MSH (Steam)|msh?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
+            { MSH_S,            L"Marvel Super Heroes", L"MSH (Steam)|msh?.21D3D8A7;f000.bin|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MSH_S,
             CGame_MSH_S::GetRule,
         },
@@ -1273,7 +1273,7 @@ namespace KnownGameInfo
         {
             MVC_S,
             L"MvC (Steam)",
-            { MVC_S,            L"Marvel vs Capcom", L"MvC (Steam)|mvsc?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
+            { MVC_S,            L"Marvel vs Capcom", L"MvC (Steam)|mvsc?.21D3D8A7;f000.bin|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MVC_S,
             CGame_MVC_S::GetRule,
         },
@@ -1353,7 +1353,7 @@ namespace KnownGameInfo
         {
             MSHVSF_S,
             L"MSHvSF (Steam)",
-            { MSHVSF_S,         L"MSHvSF", L"MSHvSF (Steam)|mshvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
+            { MSHVSF_S,         L"MSHvSF", L"MSHvSF (Steam)|mshvsf?.21D3D8A7;f000.bin|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_MSHVSF_A,
             CGame_MSHVSF_A::GetRule,
         },
@@ -2178,7 +2178,7 @@ namespace KnownGameInfo
         {
             XMVSF_S,
             L"XMvSF",
-            { XMVSF_S,          L"XMvSF", L"XMvSF (Steam)|xmvsf?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
+            { XMVSF_S,          L"XMvSF", L"XMvSF (Steam)|xmvsf?.21D3D8A7;f000.bin|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_XMVSF_S,
             CGame_XMVSF_S::GetRule,
         },

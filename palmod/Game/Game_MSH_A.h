@@ -122,7 +122,11 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"mshh.21D3D8A7", 0x2C50040 },
+            {
+                L"mshh.21D3D8A7", 0x2C50040, // ARC form
+                INVALID_UNIT_VALUE, true,
+                L"f000.bin", 0x800000  // extracted-from-AFS form
+            },
         },
         FileReadType::Sequential,
     };
@@ -131,6 +135,7 @@ private:
     {
         { L"MSH (Steam - World)", L"mshh.21D3D8A7", 0x6a9f2afa, 0x16218c - 0x6214c },
         { L"MSH (Steam - Japan)", L"mshj.21D3D8A7", 0xb24cac5c, 0x16218c - 0x6214c },
+        { L"MSH (Steam - Either)", L"f000.bin", 0, 0x16218c - 0x6214c - 0x40 },
     };
 
     const sCoreGameData m_sCoreGameData

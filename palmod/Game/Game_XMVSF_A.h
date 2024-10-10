@@ -86,7 +86,11 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"xmvsfj.21D3D8A7", 0x2C50040 },
+            {
+                L"xmvsfj.21D3D8A7", 0x2C50040, // ARC form
+                INVALID_UNIT_VALUE, true,
+                L"f000.bin", 0x800000  // extracted-from-AFS form
+            },
         },
         FileReadType::Sequential,
     };
@@ -95,6 +99,7 @@ private:
     {
         { L"XMvSF (Steam - Japan)", L"xmvsfj.21D3D8A7", 0xc73915b3, 0x1158da - 0x1589a },
         { L"XMvSF (Steam - USA)", L"xmvsfu.21D3D8A7", 0x81fbcf3f, 0x1158da - 0x1589a },
+        { L"XMvSF (Steam - Either)", L"f000.bin", 0, 0x1158da - 0x1589a - 0x40 },
     };
 
     const sCoreGameData m_sCoreGameData
@@ -114,7 +119,8 @@ private:
         ARRAYSIZE(XMVSF_A_UNITS),
         L"XMVSFSe.txt",                // Extra filename
         876,                           // Count of palettes listed in the header
-        0x606c + (0x1158da - 0x1589a), // Lowest known location used for palettes
+        0x606c, // Lowest known location used for palettes
+            // 1060ac
     };
 
 public:

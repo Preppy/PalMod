@@ -1789,9 +1789,9 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_STATUSEFFECTS[] =
     { L"Dark Burning 2", 0x4afc2, 0x4afe2, indexCPS2Sprites_Megaman },
     { L"Kinetic Charged 1", 0x4afe2, 0x4b002, indexCPS2Sprites_Megaman },
     { L"Kinetic Charged 2", 0x4b002, 0x4b022, indexCPS2Sprites_Megaman },
-    { L"Kinetic Charged 3", 0x4b022, 0x4b042, indexCPS2Sprites_Megaman },
+    { L"Kinetic Charged 3 (overlaps with Onslaught)", 0x4b022, 0x4b042, indexCPS2Sprites_Megaman },
     { L"Shadows Light", 0x498e2, 0x49902, indexCPS2Sprites_Megaman },
-    { L"Shadows Dark", 0x49902, 0x49922, indexCPS2Sprites_Megaman },
+    { L"Shadows Dark (overlaps with Onslaught)", 0x49902, 0x49922, indexCPS2Sprites_Megaman },
 };
 
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES_STATUSEFFECTS[] =
@@ -1799,7 +1799,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES_STATUSEFFECTS[] =
     // This actually overlaps with Megaman Kinetic Charged 3: if you look at it you see that
     // color 00 is megaman's color 15, and color 01 is actually Onslaught's transparency counter
     // I don't have a great fix for this, so I'll just make the title clear
-    { L"Burning 1 (munged)", 0x4b040, 0x4b060, indexCPS2Sprites_Onslaught },
+    { L"Burning 1 (overlaps with Megaman)", 0x4b040, 0x4b060, indexCPS2Sprites_Onslaught },
     { L"Burning 2", 0x4b060, 0x4b080, indexCPS2Sprites_Onslaught },
     { L"Shocked 1", 0x4b080, 0x4b0a0, indexCPS2Sprites_Onslaught },
     { L"Shocked 2", 0x4b0a0, 0x4b0c0, indexCPS2Sprites_Onslaught },
@@ -1807,7 +1807,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES_STATUSEFFECTS[] =
     { L"Dark Burning 2", 0x4b0e0, 0x4b100, indexCPS2Sprites_Onslaught },
     // This actually overlaps with Megaman Shadows Dark
     // I don't have a great fix for this, so I'll just make the title clear
-    { L"Shadows Light (munged)", 0x49920, 0x49940, indexCPS2Sprites_Onslaught },
+    { L"Shadows Light (overlaps with Megaman)", 0x49920, 0x49940, indexCPS2Sprites_Onslaught },
     { L"Shadows Dark", 0x49940, 0x49960, indexCPS2Sprites_Onslaught },
 };
 
@@ -2427,54 +2427,53 @@ const sDescTreeNode MVC_A_ONSLAUGHT_COLLECTION[] =
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_PALETTES_STATUSEFFECTS, ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES_STATUSEFFECTS) },
 };
 
-
 const sDescTreeNode MVC_A_PORTRAITS_COLLECTION[] =
 {
-    { L"Super Portraits",              DESC_NODETYPE_TREE, (void*)MVC_A_SUPERPORT_PALETTES, ARRAYSIZE(MVC_A_SUPERPORT_PALETTES) },
-    { L"Character Select Portraits",   DESC_NODETYPE_TREE, (void*)MVC_A_CSP_PALETTES,       ARRAYSIZE(MVC_A_CSP_PALETTES) },
-    { L"Victory Screen Portraits",     DESC_NODETYPE_TREE, (void*)MVC_A_VSP_PALETTES,       ARRAYSIZE(MVC_A_VSP_PALETTES) },
-    { L"Character Name Text",          DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_NAME_PALETTES,       ARRAYSIZE(MVC_A_BONUS_NAME_PALETTES) },
-    { L"Character Select Icons",       DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_PALETTES,      ARRAYSIZE(MVC_A_CSIS_PALETTES) },
-    { L"Campaign Cards",               DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_NEXT_PALETTES, ARRAYSIZE(MVC_A_CSIS_NEXT_PALETTES) },
+    { L"Super Portraits",               DESC_NODETYPE_TREE, (void*)MVC_A_SUPERPORT_PALETTES, ARRAYSIZE(MVC_A_SUPERPORT_PALETTES) },
+    { L"Character Select Portraits",    DESC_NODETYPE_TREE, (void*)MVC_A_CSP_PALETTES,       ARRAYSIZE(MVC_A_CSP_PALETTES) },
+    { L"Victory Screen Portraits",      DESC_NODETYPE_TREE, (void*)MVC_A_VSP_PALETTES,       ARRAYSIZE(MVC_A_VSP_PALETTES) },
+    { L"Character Name Text",           DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_NAME_PALETTES,       ARRAYSIZE(MVC_A_BONUS_NAME_PALETTES) },
+    { L"Character Select Icons",        DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_PALETTES,      ARRAYSIZE(MVC_A_CSIS_PALETTES) },
+    { L"Campaign Cards",                DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_NEXT_PALETTES, ARRAYSIZE(MVC_A_CSIS_NEXT_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
 {
-   { L"Bonus",                         DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
-   { L"Title/Select Screen",           DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_TITLES_PALETTES,     ARRAYSIZE(MVC_A_BONUS_TITLES_PALETTES) },
-   { L"Blue Area of the Moon Stage",   DESC_NODETYPE_TREE, (void*)MVC_A_BLUEMOON_STAGE_PALETTES,   ARRAYSIZE(MVC_A_BLUEMOON_STAGE_PALETTES) },
-   { L"Council Stage",                 DESC_NODETYPE_TREE, (void*)MVC_A_COUNCIL_STAGE_PALETTES,    ARRAYSIZE(MVC_A_COUNCIL_STAGE_PALETTES) },
-   { L"Megaman Stage",                 DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_STAGE_PALETTES,    ARRAYSIZE(MVC_A_MEGAMAN_STAGE_PALETTES) },
-   { L"Onslaught Stage",               DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_STAGE_PALETTES,  ARRAYSIZE(MVC_A_ONSLAUGHT_STAGE_PALETTES) },
-   { L"Zabel Stage",                   DESC_NODETYPE_TREE, (void*)MVC_A_ZABEL_STAGE_PALETTES,      ARRAYSIZE(MVC_A_ZABEL_STAGE_PALETTES) },
+   { L"Bonus",                          DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
+   { L"Title/Select Screen",            DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_TITLES_PALETTES,     ARRAYSIZE(MVC_A_BONUS_TITLES_PALETTES) },
+   { L"Blue Area of the Moon Stage",    DESC_NODETYPE_TREE, (void*)MVC_A_BLUEMOON_STAGE_PALETTES,   ARRAYSIZE(MVC_A_BLUEMOON_STAGE_PALETTES) },
+   { L"Council Stage",                  DESC_NODETYPE_TREE, (void*)MVC_A_COUNCIL_STAGE_PALETTES,    ARRAYSIZE(MVC_A_COUNCIL_STAGE_PALETTES) },
+   { L"Megaman Stage",                  DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_STAGE_PALETTES,    ARRAYSIZE(MVC_A_MEGAMAN_STAGE_PALETTES) },
+   { L"Onslaught Stage",                DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_STAGE_PALETTES,  ARRAYSIZE(MVC_A_ONSLAUGHT_STAGE_PALETTES) },
+   { L"Zabel Stage",                    DESC_NODETYPE_TREE, (void*)MVC_A_ZABEL_STAGE_PALETTES,      ARRAYSIZE(MVC_A_ZABEL_STAGE_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_UNITS[] =
 {
-    { L"Captain America",              DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_COLLECTION,           ARRAYSIZE(MVC_A_CAPAM_COLLECTION) },
-    { L"Captain Commando",             DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_COLLECTION,          ARRAYSIZE(MVC_A_CAPCOM_COLLECTION) },
-    { L"Chun-Li",                      DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_COLLECTION,          ARRAYSIZE(MVC_A_CHUNLI_COLLECTION) },
-    { L"Shadow Lady",                  DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_COLLECTION,      ARRAYSIZE(MVC_A_SHADOWLADY_COLLECTION) },
-    { L"Gambit",                       DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_COLLECTION,          ARRAYSIZE(MVC_A_GAMBIT_COLLECTION) },
-    { L"Hulk",                         DESC_NODETYPE_TREE, (void*)MVC_A_HULK_COLLECTION,            ARRAYSIZE(MVC_A_HULK_COLLECTION) },
-    { L"Orange Hulk",                  DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_COLLECTION,      ARRAYSIZE(MVC_A_ORANGEHULK_COLLECTION) },
-    { L"Jin",                          DESC_NODETYPE_TREE, (void*)MVC_A_JIN_COLLECTION,             ARRAYSIZE(MVC_A_JIN_COLLECTION) },
-    { L"Megaman",                      DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_COLLECTION,         ARRAYSIZE(MVC_A_MEGAMAN_COLLECTION) },
-    { L"Morrigan",                     DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_COLLECTION,        ARRAYSIZE(MVC_A_MORRIGAN_COLLECTION) },
-    { L"Lilith",                       DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_COLLECTION,          ARRAYSIZE(MVC_A_LILITH_COLLECTION) },
-    { L"Roll",                         DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_COLLECTION,            ARRAYSIZE(MVC_A_ROLL_COLLECTION) },
-    { L"Ryu",                          DESC_NODETYPE_TREE, (void*)MVC_A_RYU_COLLECTION,             ARRAYSIZE(MVC_A_RYU_COLLECTION) },
-    { L"Spider-Man",                   DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_COLLECTION,          ARRAYSIZE(MVC_A_SPIDEY_COLLECTION) },
-    { L"Strider",                      DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_COLLECTION,         ARRAYSIZE(MVC_A_STRIDER_COLLECTION) },
-    { L"Venom",                        DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_COLLECTION,           ARRAYSIZE(MVC_A_VENOM_COLLECTION) },
-    { L"Hyper Venom",                  DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_COLLECTION,      ARRAYSIZE(MVC_A_HYPERVENOM_COLLECTION) },
-    { L"War Machine",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_COLLECTION,      ARRAYSIZE(MVC_A_WARMACHINE_COLLECTION) },
-    { L"Gold War Machine",             DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_COLLECTION,  ARRAYSIZE(MVC_A_GOLDWARMACHINE_COLLECTION) },
-    { L"Wolverine",                    DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_COLLECTION,       ARRAYSIZE(MVC_A_WOLVERINE_COLLECTION) },
-    { L"Zangief",                      DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_COLLECTION,            ARRAYSIZE(MVC_A_GIEF_COLLECTION) },
+    { L"Captain America",               DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_COLLECTION,           ARRAYSIZE(MVC_A_CAPAM_COLLECTION) },
+    { L"Captain Commando",              DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_COLLECTION,          ARRAYSIZE(MVC_A_CAPCOM_COLLECTION) },
+    { L"Chun-Li",                       DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_COLLECTION,          ARRAYSIZE(MVC_A_CHUNLI_COLLECTION) },
+    { L"Shadow Lady",                   DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_COLLECTION,      ARRAYSIZE(MVC_A_SHADOWLADY_COLLECTION) },
+    { L"Gambit",                        DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_COLLECTION,          ARRAYSIZE(MVC_A_GAMBIT_COLLECTION) },
+    { L"Hulk",                          DESC_NODETYPE_TREE, (void*)MVC_A_HULK_COLLECTION,            ARRAYSIZE(MVC_A_HULK_COLLECTION) },
+    { L"Orange Hulk",                   DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_COLLECTION,      ARRAYSIZE(MVC_A_ORANGEHULK_COLLECTION) },
+    { L"Jin",                           DESC_NODETYPE_TREE, (void*)MVC_A_JIN_COLLECTION,             ARRAYSIZE(MVC_A_JIN_COLLECTION) },
+    { L"Megaman",                       DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_COLLECTION,         ARRAYSIZE(MVC_A_MEGAMAN_COLLECTION) },
+    { L"Morrigan",                      DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_COLLECTION,        ARRAYSIZE(MVC_A_MORRIGAN_COLLECTION) },
+    { L"Lilith",                        DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_COLLECTION,          ARRAYSIZE(MVC_A_LILITH_COLLECTION) },
+    { L"Roll",                          DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_COLLECTION,            ARRAYSIZE(MVC_A_ROLL_COLLECTION) },
+    { L"Ryu",                           DESC_NODETYPE_TREE, (void*)MVC_A_RYU_COLLECTION,             ARRAYSIZE(MVC_A_RYU_COLLECTION) },
+    { L"Spider-Man",                    DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_COLLECTION,          ARRAYSIZE(MVC_A_SPIDEY_COLLECTION) },
+    { L"Strider",                       DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_COLLECTION,         ARRAYSIZE(MVC_A_STRIDER_COLLECTION) },
+    { L"Venom",                         DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_COLLECTION,           ARRAYSIZE(MVC_A_VENOM_COLLECTION) },
+    { L"Hyper Venom",                   DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_COLLECTION,      ARRAYSIZE(MVC_A_HYPERVENOM_COLLECTION) },
+    { L"War Machine",                   DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_COLLECTION,      ARRAYSIZE(MVC_A_WARMACHINE_COLLECTION) },
+    { L"Gold War Machine",              DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_COLLECTION,  ARRAYSIZE(MVC_A_GOLDWARMACHINE_COLLECTION) },
+    { L"Wolverine",                     DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_COLLECTION,       ARRAYSIZE(MVC_A_WOLVERINE_COLLECTION) },
+    { L"Zangief",                       DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_COLLECTION,            ARRAYSIZE(MVC_A_GIEF_COLLECTION) },
 
-    { L"Assists",                      DESC_NODETYPE_TREE, (void*)MVC_A_ASSIST_COLLECTION,          ARRAYSIZE(MVC_A_ASSIST_COLLECTION) },
-    { L"Onslaught",                    DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_COLLECTION,       ARRAYSIZE(MVC_A_ONSLAUGHT_COLLECTION) },
+    { L"Assists",                       DESC_NODETYPE_TREE, (void*)MVC_A_ASSIST_COLLECTION,          ARRAYSIZE(MVC_A_ASSIST_COLLECTION) },
+    { L"Onslaught",                     DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_COLLECTION,       ARRAYSIZE(MVC_A_ONSLAUGHT_COLLECTION) },
 
     { L"Portraits & Icons",             DESC_NODETYPE_TREE, (void*)MVC_A_PORTRAITS_COLLECTION,       ARRAYSIZE(MVC_A_PORTRAITS_COLLECTION) },
     { L"Bonus and Stages",              DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_COLLECTION,           ARRAYSIZE(MVC_A_BONUS_COLLECTION) },

@@ -90,15 +90,21 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"xmcotaj.21D3D8A7", 0x2C50040 },
+            {
+                L"xmcotaj.21D3D8A7", 0x2C50040, // ARC form
+                INVALID_UNIT_VALUE, true,
+                L"f000.bin", 0x800000  // extracted-from-AFS form
+            }
         },
         FileReadType::Sequential,
     };
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
+        // use the shifted colossus offset as a reference
         { L"X-Men: Children of the Atom (Steam - Japan)", L"xmcotaj.21D3D8A7", 0x51144b70, 0x12687c - 0x2683c },
         { L"X-Men: Children of the Atom (Steam - USA)", L"xmcotau.21D3D8A7", 0x1c94ded1, 0x12687c - 0x2683c },
+        { L"X-Men: Children of the Atom (Steam - Either)", L"f000.bin", 0, 0x12683c - 0x2683c },
     };
 
     const sCoreGameData m_sCoreGameData

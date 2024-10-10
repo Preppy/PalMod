@@ -870,7 +870,14 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
         
         if (nInternalDupeCount)
         {
-            strError.Format(L"WARNING: There are currently %u duplicates in PalMod's internal palettes tables for this game.\n\nThis is a bug in PalMod.  Please report.\n", nInternalDupeCount);
+            if (((m_nGameFlag == MVC_A) || (m_nGameFlag == MVC_S)) && (nInternalDupeCount == 2))
+            {
+                strError = L"Warning: MvC's palettes overlap in a few places, so be careful when adding new palettes.\n";
+            }
+            else
+            {
+                strError.Format(L"WARNING: There are currently %u duplicates in PalMod's internal palettes tables for this game.\n\nThis is a bug in PalMod.  Please report.\n", nInternalDupeCount);
+            }
             strText.Append(strError);
         }
         else if ((m_nSafeCountForThisRom != nPaletteCountForRom) && (m_nTotalInternalUnits != 0))

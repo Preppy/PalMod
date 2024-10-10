@@ -145,7 +145,11 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"mvscj.21D3D8A7", 0x3050040 },
+            {
+                L"mvscj.21D3D8A7", 0x3050040, // ARC form
+                INVALID_UNIT_VALUE, true,
+                L"f000.bin", 0x800000  // extracted-from-AFS form
+            },
         },
         FileReadType::Sequential,
     };
@@ -155,6 +159,7 @@ private:
         // Marvel Vs. Capcom: Clash of Super Heroes
         { L"MvC (Steam - Japan)", L"mvscj.21D3D8A7", 0x7c11c44f, 0x1c82e2 - 0x482a2 },
         { L"MvC (Steam - USA)", L"mvscu.21D3D8A7", 0x4e1b5fff, 0x1c82e2 - 0x482a2 },
+        { L"MvC (Steam - Either)", L"f000.bin", 0, 0x1c82e2 - 0x482a2 - 0x40 },
     };
 
     const sCoreGameData m_sCoreGameData
@@ -172,9 +177,9 @@ private:
         m_rgCRC32Data,
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
-        L"MvCSE.txt",                   // Extra filename
-        1337,                           // Count of palettes listed in the header
-        0x30B18 + 0x1c82e2 - 0x482a2,   // Lowest known location used for palettes
+        L"MvCSE.txt",           // Extra filename
+        1337,                   // Count of palettes listed in the header
+        0x30B18,                // Lowest known location used for palettes
     };
 
 public:

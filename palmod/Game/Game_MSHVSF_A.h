@@ -34,7 +34,11 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData_Steam =
     {
         {
-            { L"mshvsfj.21D3D8A7", 0x3050040 },
+            {
+                L"mshvsfj.21D3D8A7", 0x3050040, // ARC form
+                INVALID_UNIT_VALUE, true,
+                L"f000.bin", 0x800000  // extracted-from-AFS form
+            },
         },
         FileReadType::Sequential,
     };
@@ -84,6 +88,7 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         { L"MSHvSF (CPS2, Portraits)", L"mvs.07b", 0x7f915bdb, 0 },
         { L"MSHvSF (Steam - Japan)", L"mshvsfj.21D3D8A7", 0x5ba987f4, 0x1f2c0c - 0x72bcc },
         { L"MSHvSF (Steam - USA)", L"mshvsfu.21D3D8A7", 0xaf9f7546, 0x1f2c0c - 0x72bcc },
+        { L"MSHvSF (Steam - Either)", L"f000.bin", 0, 0x1f2c0c - 0x72bcc - 0x40 },
     };
 
     const sCoreGameData m_sCoreGameData_ROM06
