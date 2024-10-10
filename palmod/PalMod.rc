@@ -506,7 +506,10 @@ BEGIN
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
             POPUP "Guilty Gear"
             BEGIN
-                MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
+                MENUITEM "GGXX:AC+R (Steam, Characters)",           ID_LD_GGXXACR_S
+                MENUITEM "GGXX:AC+R (Steam, EX Characters)",        ID_LD_GGXXACR_S_EXCHAR
+                MENUITEM "GGXX:AC+R (Steam, Effects/HUD/Menus)",    ID_LD_GGXXACR_S_EXTRAS
+                MENUITEM SEPARATOR
                 MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
                 MENUITEM "GGXX:AC+ (Wii, ID:R3NEXS)",   ID_LD_GGXXACP_Wii
                 MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S

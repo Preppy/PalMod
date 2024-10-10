@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 231, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 233, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -229,7 +229,9 @@ namespace KnownGameInfo
     CGameClass* Make_GGML_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGML_P(nConfirmedROMSize); }
     CGameClass* Make_GGXXACP_Wii(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACP_Wii(nConfirmedROMSize); }
     CGameClass* Make_GGXXACR_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_P(nConfirmedROMSize); }
-    CGameClass* Make_GGXXACR_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_S(nConfirmedROMSize); }
+    CGameClass* Make_GGXXACR_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S); }
+    CGameClass* Make_GGXXACR_S_EXCHAR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S_EXCHAR); }
+    CGameClass* Make_GGXXACR_S_EXTRAS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S_EXTRAS); }
     CGameClass* Make_GGXXR_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXR_S(nConfirmedROMSize); }
     CGameClass* Make_Gowcaizer_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Gowcaizer_A(nConfirmedROMSize); }
     CGameClass* Make_GUNDAM_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GUNDAM_SNES(nConfirmedROMSize); }
@@ -787,11 +789,31 @@ namespace KnownGameInfo
         },
         {
             GGXXACR_S,
-            L"GGXX:AC+R (Steam)",
+            L"GGXX:AC+R (Steam, Characters)",
             {},
             Make_GGXXACR_S,
-            CGame_GGXXACR_S::GetRule,
-            CGame_GGXXACR_S::GetNextRule,
+            CGame_GGXXACR_S::GetRule_Characters,
+            CGame_GGXXACR_S::GetNextRule_Characters,
+            CGame_GGXXACR_S::GetRuleCtr,
+            CGame_GGXXACR_S::ResetRuleCtr,
+        },
+        {
+            GGXXACR_S_EXCHAR,
+            L"GGXX:AC+R (Steam, EX Characters)",
+            {},
+            Make_GGXXACR_S_EXCHAR,
+            CGame_GGXXACR_S::GetRule_EXChar,
+            CGame_GGXXACR_S::GetNextRule_EXChar,
+            CGame_GGXXACR_S::GetRuleCtr,
+            CGame_GGXXACR_S::ResetRuleCtr,
+        },
+        {
+            GGXXACR_S_EXTRAS,
+            L"GGXX:AC+R (Steam, Effects/HUD/Menus)",
+            {},
+            Make_GGXXACR_S_EXTRAS,
+            CGame_GGXXACR_S::GetRule_Extras,
+            CGame_GGXXACR_S::GetNextRule_Extras,
             CGame_GGXXACR_S::GetRuleCtr,
             CGame_GGXXACR_S::ResetRuleCtr,
         },
@@ -2170,7 +2192,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 231, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 233, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

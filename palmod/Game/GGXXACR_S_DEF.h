@@ -2,7 +2,10 @@
 
 #include "GGXXACR_Common.h"
 
-constexpr auto k_strSidebarPortraits = L"Sidebar Portraits";
+constexpr auto k_strSidebarPortraits_TypeA = L"Type A";
+constexpr auto k_strSidebarPortraits_TypeB = L"Type B";
+constexpr auto k_strSidebarPortraits_TypeC = L"Type C";
+constexpr auto k_strSidebarPortraits_TypeD = L"Type D";
 constexpr auto k_strTitleScreen      = L"Title Screen";
 
 const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettes_S =
@@ -1840,7 +1843,7 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_EFR_EXTRAS = //Ex Order-Sol (wip)
 };
 
 
-const sGCBUPF_ExtrasCollection GGXXACR_S_EXTRAS_JPF =
+const sGCBUPF_ExtrasCollection GGXXACR_S_EFFECTS_JPF =
 {
     L"Effects",
     {
@@ -1861,6 +1864,7 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_EXTRAS_JPF =
         { L"Burst (10/12)",         0x19B090, 0x19B490, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
         { L"Burst (11/12)",         0x19D2D0, 0x19D6D0, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
         { L"Burst (12/12)",         0x19F100, 0x19F500, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
+
         { L"Gold Burst (1/12)",     0x160660, 0x160A60, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
         { L"Gold Burst (2/12)",     0x165E10, 0x166210, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
         { L"Gold Burst (3/12)",     0x169F50, 0x16A350, indexGGXXSprites_ACR_Bonus, 0x0b, nullptr, &effects_AdditiveBlend },
@@ -1880,6 +1884,46 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_EXTRAS_JPF =
         { L"Normal Overdrive Background (Layer 2)",        0x203450, 0x203490 },
         { L"Forcebreak Overdrive Background (Layer 2)",    0x1F1590, 0x1F15D0 },
 
+        { L"Instant Kill Activate Effects",     0x1ca2b0, 0x1ca2f0 },
+        { L"(GG Mode) Charging orb",            0x1cb570, 0x1cb5b0 },
+        { L"Airdash Sparks",                    0x1c9160, 0x1c91a0 },
+    }
+};
+
+const sGCBUPF_ExtrasCollection GGXXACR_S_DUSTS_JPF =
+{
+    L"Movement/Attack Dust",
+    {
+        //Dust effects for movement, certain stages swap these out for stage specific effects that can be found in the stages file
+        //eg. Grove uses water effects, which palettes are stored in bg_dz.cmp, and not with these otherwise universal effects
+        { L"Jumping Dust Effects (1/8)", 0x1D4690, 0x1D46D0, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Jumping Dust Effects (2/8)", 0x1D5DF0, 0x1D5E30, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Jumping Dust Effects (3/8)", 0x1D6CD0, 0x1D6D10, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Jumping Dust Effects (4/8)", 0x1D86E0, 0x1D8720, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Jumping Dust Effects (5/8)", 0x1D9E00, 0x1D9E40, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Jumping Dust Effects (6/8)", 0x1DB220, 0x1DB260, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Jumping Dust Effects (7/8)", 0x1DC500, 0x1DC540, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Jumping Dust Effects (8/8)", 0x1DD4A0, 0x1DD4E0, indexGGXXSprites_ACR_Bonus, 0x0d },
+        { L"Landing Dust Effects",       0x1DFBE0, 0x1DFC20 },
+        { L"Running Dust Effects (1/3)", 0x1DE2E0, 0x1DE320, indexGGXXSprites_ACR_Bonus, 0x0e },
+        { L"Running Dust Effects (2/3)", 0x1DEA90, 0x1DEAD0, indexGGXXSprites_ACR_Bonus, 0x0e },
+        { L"Running Dust Effects (3/3)", 0x1DF470, 0x1DF4B0, indexGGXXSprites_ACR_Bonus, 0x0e },
+
+        //May uses her own dust palettes for tons of attacks, these also change based on the stage
+        { L"Attack Dust Effects (1/7)", 0x1E1950, 0x1E1990, indexGGXXSprites_ACR_Bonus, 0x0a },
+        { L"Attack Dust Effects (2/7)", 0x1E2700, 0x1E2740, indexGGXXSprites_ACR_Bonus, 0x0a },
+        { L"Attack Dust Effects (3/7)", 0x1E2F40, 0x1E2F80, indexGGXXSprites_ACR_Bonus, 0x0a },
+        { L"Attack Dust Effects (4/7)", 0x1E3E50, 0x1E3E90, indexGGXXSprites_ACR_Bonus, 0x0a },
+        { L"Attack Dust Effects (5/7)", 0x1E4A80, 0x1E4AC0, indexGGXXSprites_ACR_Bonus, 0x0a },
+        { L"Attack Dust Effects (6/7)", 0x1E55F0, 0x1E5630, indexGGXXSprites_ACR_Bonus, 0x0a },
+        { L"Attack Dust Effects (7/7)", 0x1E6580, 0x1E65C0, indexGGXXSprites_ACR_Bonus, 0x0a },
+    }
+};
+
+const sGCBUPF_ExtrasCollection GGXXACR_S_HITSPARKS_JPF =
+{
+    L"Hitsparks/Blocksparks",
+    {
         { L"Level 1 Hitsparks (1/7)",                   0x1d04a0, 0x1d04e0 },
         { L"Level 1 Hitsparks (2/7)",                   0x1d05d0, 0x1d0610 },
         { L"Level 1 Hitsparks (3/7)",                   0x1d0e60, 0x1d0ea0 },
@@ -1924,36 +1968,9 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_EXTRAS_JPF =
         { L"Ground bounce/Wall splat",          0x1cc170, 0x1cc1b0 },
         { L"Throw Clash (1/2)",                 0x1ca830, 0x1ca870 },
         { L"Throw Clash (2/2)",                 0x1ca9f0, 0x1caa30 },
-        { L"Instant Kill Activate Effects",     0x1ca2b0, 0x1ca2f0 },
-        { L"(GG Mode) Charging orb",            0x1cb570, 0x1cb5b0 },
         { L"Burning Flames (1/3)",              0x1b2f30, 0x1b2f70 },
         { L"Burning Flames (2/3)",              0x1b50c0, 0x1b5100 },
         { L"Burning Flames (3/3)",              0x1b7020, 0x1b7060 },
-        { L"Airdash Sparks",                    0x1c9160, 0x1c91a0 },
-
-        //Dust effects for movement, certain stages swap these out for stage specific effects that can be found in the stages file
-        //eg. Grove uses water effects, which palettes are stored in bg_dz.cmp, and not with these otherwise universal effects
-        { L"Jumping Dust Effects (1/8)", 0x1D4690, 0x1D46D0, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Jumping Dust Effects (2/8)", 0x1D5DF0, 0x1D5E30, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Jumping Dust Effects (3/8)", 0x1D6CD0, 0x1D6D10, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Jumping Dust Effects (4/8)", 0x1D86E0, 0x1D8720, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Jumping Dust Effects (5/8)", 0x1D9E00, 0x1D9E40, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Jumping Dust Effects (6/8)", 0x1DB220, 0x1DB260, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Jumping Dust Effects (7/8)", 0x1DC500, 0x1DC540, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Jumping Dust Effects (8/8)", 0x1DD4A0, 0x1DD4E0, indexGGXXSprites_ACR_Bonus, 0x0d },
-        { L"Landing Dust Effects",       0x1DFBE0, 0x1DFC20 },
-        { L"Running Dust Effects (1/3)", 0x1DE2E0, 0x1DE320, indexGGXXSprites_ACR_Bonus, 0x0e },
-        { L"Running Dust Effects (2/3)", 0x1DEA90, 0x1DEAD0, indexGGXXSprites_ACR_Bonus, 0x0e },
-        { L"Running Dust Effects (3/3)", 0x1DF470, 0x1DF4B0, indexGGXXSprites_ACR_Bonus, 0x0e },
-
-        //May uses her own dust palettes for tons of attacks, these also change based on the stage
-        { L"Attack Dust Effects (1/7)", 0x1E1950, 0x1E1990, indexGGXXSprites_ACR_Bonus, 0x0a },
-        { L"Attack Dust Effects (2/7)", 0x1E2700, 0x1E2740, indexGGXXSprites_ACR_Bonus, 0x0a },
-        { L"Attack Dust Effects (3/7)", 0x1E2F40, 0x1E2F80, indexGGXXSprites_ACR_Bonus, 0x0a },
-        { L"Attack Dust Effects (4/7)", 0x1E3E50, 0x1E3E90, indexGGXXSprites_ACR_Bonus, 0x0a },
-        { L"Attack Dust Effects (5/7)", 0x1E4A80, 0x1E4AC0, indexGGXXSprites_ACR_Bonus, 0x0a },
-        { L"Attack Dust Effects (6/7)", 0x1E55F0, 0x1E5630, indexGGXXSprites_ACR_Bonus, 0x0a },
-        { L"Attack Dust Effects (7/7)", 0x1E6580, 0x1E65C0, indexGGXXSprites_ACR_Bonus, 0x0a },
     }
 };
 
@@ -2120,18 +2137,30 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_RoundMessages =
     }
 };
 
-const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits =
+const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits_TypeA
 {
-    k_strSidebarPortraits,
+    k_strSidebarPortraits_TypeA,
     {
         { L"Type A Background (Left)",  0x110, 0x510, indexGGXXSprites_ACR_Bonus, 0x00 },
         { L"Type A Background (Right)", 0x162E0, 0x166E0, indexGGXXSprites_ACR_Bonus, 0x01 },
+    }
+};
 
-        // Type B
+const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits_TypeB
+{
+    k_strSidebarPortraits_TypeB,
+    {
         { L"Type B Background (Left)",  0x2D850, 0x2DC50, indexGGXXSprites_ACR_Bonus, 0x02 },
         { L"Type B Background (Right)", 0x43C20, 0x44020, indexGGXXSprites_ACR_Bonus, 0x03 },
+    }
+};
 
-        // Type C Portraits
+const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits_TypeC
+{
+    k_strSidebarPortraits_TypeC,
+    {
+        { L"Type C Background (Left)",  0x599D0, 0x59DD0, indexGGXXSprites_ACR_Bonus, 0x04 },
+        { L"Type C Background (Right)", 0x686D0, 0x68AD0, indexGGXXSprites_ACR_Bonus, 0x04 },
         { L"Type C A.B.A",              0x773D0, 0x777D0, indexGGXXSprites_ACR_ABA, 0x40 },
         { L"Type C Anji",               0x7B8D0, 0x7BcD0, indexGGXXSprites_ACR_Anji, 0x40 },
         { L"Type C Axl",                0x7F4B0, 0x7F8B0, indexGGXXSprites_ACR_Axl, 0x40 },
@@ -2157,10 +2186,14 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits =
         { L"Type C Testament",          0xC5AC0, 0xC5EC0, indexGGXXSprites_ACR_Testament, 0x40 },
         { L"Type C Venom",              0xC9AD0, 0xC9ED0, indexGGXXSprites_ACR_Venom, 0x40 },
         { L"Type C Zappa",              0xCCE20, 0xCD220, indexGGXXSprites_ACR_Zappa, 0x40 },
-        { L"Type C Background (Left)",  0x599D0, 0x59DD0, indexGGXXSprites_ACR_Bonus, 0x04 },
-        { L"Type C Background (Right)", 0x686D0, 0x68AD0, indexGGXXSprites_ACR_Bonus, 0x04 },
+    }
+};
 
-        // Type D Portraits
+const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits_TypeD
+{
+    k_strSidebarPortraits_TypeD,
+    {
+        { L"Type D Background",         0x29c220, 0x29C620, indexGGXXSprites_ACR_Bonus, 0x05 },
         { L"Type D A.B.A",              0x2522a0, 0x2526A0, indexGGXXSprites_ACR_ABA, 0x41 },
         { L"Type D Anji",               0x1b05c0, 0x1B09C0, indexGGXXSprites_ACR_Anji, 0x41 },
         { L"Type D Axl",                0x11edb0, 0x11F1B0, indexGGXXSprites_ACR_Axl, 0x41 },
@@ -2186,7 +2219,6 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_Sidebar_Portraits =
         { L"Type D Testament",          0x189dc0, 0x18A1C0, indexGGXXSprites_ACR_Testament, 0x41 },
         { L"Type D Venom",              0x1d4a40, 0x1D4E40, indexGGXXSprites_ACR_Venom, 0x41 },
         { L"Type D Zappa",              0x21CCC0, 0x21D0C0, indexGGXXSprites_ACR_Zappa, 0x41 },
-        { L"Type D Background",         0x29c220, 0x29C620, indexGGXXSprites_ACR_Bonus, 0x05 },
     }
 };
 
@@ -2195,51 +2227,58 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_SelectScreen =
     L"Select Screen",
     {
         //Select Screen 
-        { L"Background",                    0xe3340, 0xe3380 },
-        { L"Glowing Background",            0xf9ce0, 0xf9d20 },
-        { L"Glowing Background (GG Logo)",  0x104250, 0x104290 },
-        { L"Glowing Background (XX Skull)", 0x10f340, 0x10f380 },
-        { L"Glowing Background (AC Logo)",  0x112cd0, 0x112d10 },
-        { L"Moving Parts (1/4)",            0xf9400, 0xf9440 },
-        { L"Moving Parts (2/4)",            0x103740, 0x103780 },
-        { L"Moving Parts (3/4)",            0x10dea0, 0x10dee0 },
-        { L"Moving Parts (4/4)",            0x1120f0, 0x112130 },
-        { L"Top Bar",                       0x115560, 0x1155a0 },
-        { L"\"Player 1\" Panel",            0x106010, 0x106050 },
-        { L"\"Player 2\" Panel",            0x114940, 0x114980 },
-        { L"Right Panel",                   0x110eb0, 0x110ef0 },
-        { L"Left Panel",                    0xfb620, 0xfb660 },
+          { L"Background",                    0xe3340, 0xe3380 },
+          { L"Glowing Background",            0xf9ce0, 0xf9d20 },
+          { L"Glowing Background (GG Logo)",  0x104250, 0x104290 },
+          { L"Glowing Background (XX Skull)", 0x10f340, 0x10f380 },
+          { L"Glowing Background (AC Logo)",  0x112cd0, 0x112d10 },
+          { L"Moving Parts (1/4)",            0xf9400, 0xf9440 },
+          { L"Moving Parts (2/4)",            0x103740, 0x103780 },
+          { L"Moving Parts (3/4)",            0x10dea0, 0x10dee0 },
+          { L"Moving Parts (4/4)",            0x1120f0, 0x112130 },
+          { L"Top Bar",                       0x115560, 0x1155a0 },
+          { L"\"Player 1\" Panel",            0x106010, 0x106050 },
+          { L"\"Player 2\" Panel",            0x114940, 0x114980 },
+          { L"Right Panel",                   0x110eb0, 0x110ef0 },
+          { L"Left Panel",                    0xfb620, 0xfb660 },
 
-        { L"Icons Right",       0xffc00, 0xffc40 },
-        { L"Icons Left",        0x10a300, 0x10a340 },
-        { L"Icons Order-Sol",   0x111af0, 0x111b30 },
+          { L"Icons Right",       0xffc00, 0xffc40 },
+          { L"Icons Left",        0x10a300, 0x10a340 },
+          { L"Icons Order-Sol",   0x111af0, 0x111b30 },
 
-        { L"Select Arrow P1",   0xe3260, 0xe32a0 },
-        { L"Select Rings P1",   0x1119a0, 0x1119e0 },
-        { L"Select Arrow P2",   0xfc3a0, 0xfc3e0 },
-        { L"Select Rings P2",   0x115400, 0x115440 },
-        { L"Selection Icon",    0x106af0, 0x106b30 },
+          { L"Select Arrow P1",   0xe3260, 0xe32a0 },
+          { L"Select Rings P1",   0x1119a0, 0x1119e0 },
+          { L"Select Arrow P2",   0xfc3a0, 0xfc3e0 },
+          { L"Select Rings P2",   0x115400, 0x115440 },
+          { L"Selection Icon",    0x106af0, 0x106b30 },
 
-        { L"Timer Numbers",         0x117b00, 0x117b40 },
-        { L"Timer Numbers Flash",   0x117740, 0x117780 },
-        { L"Timer Panel/Text",      0x116b60, 0x116ba0 },
-        { L"Timer Side Panels",     0x117130, 0x117170 },
-        { L"Random Character",      0x117980, 0x1179c0 },
+          { L"Timer Numbers",         0x117b00, 0x117b40 },
+          { L"Timer Numbers Flash",   0x117740, 0x117780 },
+          { L"Timer Panel/Text",      0x116b60, 0x116ba0 },
+          { L"Timer Side Panels",     0x117130, 0x117170 },
+          { L"Random Character",      0x117980, 0x1179c0 },
 
-        { L"\"Push Start\" Menu",       0x19a960, 0x19a9a0 },
-        { L"\"Character\" Text",        0x199c20, 0x199c60 },
-        { L"\"Normal\" Icon",           0x19a460, 0x19a4a0 },
-        { L"\"Normal\" Icon (Faded)",   0x19a5b0, 0x19a5f0 },
-        { L"\"EX\" Icon",               0x19a700, 0x19a740 },
-        { L"\"EX\" Icon (Faded)",       0x19a830, 0x19a870 },
-        { L"\"Mode\" Text",             0x199b50, 0x199b90 },
-        { L"\"AC\" Icon",               0x199d40, 0x199d80 },
-        { L"\"AC\" Icon (Faded)",       0x199e60, 0x199ea0 },
-        { L"\"GG\" Icon",               0x19a200, 0x19a240 },
-        { L"\"GG\" Icon (Faded)",       0x19a330, 0x19a370 },
-        { L"\"GGX\" Icon",              0x199f80, 0x199fc0 },
-        { L"\"GGX\" Icon (Faded)",      0x19a0c0, 0x19a100 },
+          { L"\"Push Start\" Menu",       0x19a960, 0x19a9a0 },
+          { L"\"Character\" Text",        0x199c20, 0x199c60 },
+          { L"\"Normal\" Icon",           0x19a460, 0x19a4a0 },
+          { L"\"Normal\" Icon (Faded)",   0x19a5b0, 0x19a5f0 },
+          { L"\"EX\" Icon",               0x19a700, 0x19a740 },
+          { L"\"EX\" Icon (Faded)",       0x19a830, 0x19a870 },
+          { L"\"Mode\" Text",             0x199b50, 0x199b90 },
+          { L"\"AC\" Icon",               0x199d40, 0x199d80 },
+          { L"\"AC\" Icon (Faded)",       0x199e60, 0x199ea0 },
+          { L"\"GG\" Icon",               0x19a200, 0x19a240 },
+          { L"\"GG\" Icon (Faded)",       0x19a330, 0x19a370 },
+          { L"\"GGX\" Icon",              0x199f80, 0x199fc0 },
+          { L"\"GGX\" Icon (Faded)",      0x19a0c0, 0x19a100 },
 
+    }
+};
+
+const sGCBUPF_ExtrasCollection GGXXACR_S_SelectScreenStages =
+{
+    L"Select Screen Stages",
+    {
         { L"Music Select Menu",             0x198900, 0x198940 },
         { L"Music Select Arrow (Left)",     0x198ba0, 0x198be0 },
         { L"Music Select Arrow (Right)",    0x1993e0, 0x199420 },
@@ -2464,3 +2503,5 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_MissionIcons =
 };
 
 extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_CharacterData;
+extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_ExtrasData;
+extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_EXCharData;

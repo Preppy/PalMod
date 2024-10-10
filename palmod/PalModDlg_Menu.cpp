@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 231, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 233, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -57,6 +57,8 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"Guilty Gear (Wii): After extracting the ISO, load the \"SDATA\" folder.";
             break; 
         case GGXXACR_S:
+        case GGXXACR_S_EXCHAR:
+        case GGXXACR_S_EXTRAS:
             pszExtraInfo = L"Guilty Gear (Steam): Select the 'Guilty Gear XX Accent Core Plus R' folder under your steam library.";
             break;
         case GGXXACR_P:

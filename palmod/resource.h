@@ -391,13 +391,15 @@
 #define ID_LD_XMVSFP                    32957
 #define ID_FILE_CROSSPATCH_STEAM        32958
 #define ID_LD_MVC2STEAM                 32959
+#define ID_LD_GGXXACR_S_EXTRAS          32960
+#define ID_LD_GGXXACR_S_EXCHAR          32961
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32960
+#define _APS_NEXT_COMMAND_VALUE         32962
 #define _APS_NEXT_CONTROL_VALUE         1102
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
