@@ -808,9 +808,20 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
             if (pCurrentNode)
             {
-                if ((_wcsicmp(pCurrentNode->szDesc, L"Punch") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"Kick") == 0))
+                bool fCanPairAsNodePairs = false;
+
+                for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
                 {
-                    nSrcAmt = 2;
+                    if (wcscmp(pCurrentNode->szDesc, m_pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fCanPairAsNodePairs = true;
+                        break;
+                    }
+                }
+
+                if (fCanPairAsNodePairs)
+                {
+                    nSrcAmt = m_pButtonLabelSet.size();
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)
@@ -851,9 +862,9 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                 {
                     fShouldUseAlternateLoadLogic = true;
 
-                    int nPaletteTwoDelta = 1;
-                    int nPaletteThreeDelta = 2;
-                    int nPaletteFourDelta = 5;
+                    const int nPaletteTwoDelta = 1;
+                    const int nPaletteThreeDelta = 2;
+                    const int nPaletteFourDelta = 5;
 
                     const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
                     const sGame_PaletteDataset* paletteDataSetTwo = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteTwoDelta);
@@ -972,7 +983,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                 }
                 else
                 {
-                    int8_t nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    const int8_t nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                     const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
 

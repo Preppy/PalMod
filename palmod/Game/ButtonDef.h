@@ -93,6 +93,11 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL6 =
     L"LP", L"MP", L"HP", L"LK", L"MK", L"HK"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL6_SVC =
+{
+    L"Punch", L"Punch (Temple/Hell)", L"Punch (Heaven)", L"Kick", L"Kick (Temple/Hell)", L"Kick (Heaven)"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_GBA =
 {
     L"A", L"L", L"R", L"B", L"Sel+A", L"Sel+L", L"Sel+R", L"Sel+B", L"Start"
