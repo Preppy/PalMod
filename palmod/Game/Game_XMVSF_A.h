@@ -117,10 +117,9 @@ private:
         m_rgCRC32Data,
         XMVSF_A_UNITS,
         ARRAYSIZE(XMVSF_A_UNITS),
-        L"XMVSFSe.txt",                // Extra filename
-        876,                           // Count of palettes listed in the header
-        0x606c, // Lowest known location used for palettes
-            // 1060ac
+        L"XMVSFSe.txt",             // Extra filename
+        876,                        // Count of palettes listed in the header
+        0x606c,                     // Lowest known location used for palettes
     };
 
 public:
