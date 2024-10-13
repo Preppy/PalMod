@@ -2060,7 +2060,12 @@ void CGameClass::SetSpecificValuesForCRC(CFile* CurrFile, uint32_t nCRCForFile)
         {
             if (prgCRC32ValueSets.at(nIndex).crcValueExpected == m_nConfirmedCRCValue)
             {
-                m_pCRC32SpecificData = &prgCRC32ValueSets.at(nIndex);
+                // If we have already have a candidate, don't overrwite if this is an unset CRC evaluation
+                if (!m_pCRC32SpecificData || m_nConfirmedCRCValue)
+                {
+                    // Establish as a candidate
+                    m_pCRC32SpecificData = &prgCRC32ValueSets.at(nIndex);
+                }
 
                 // We have a matching CRC, but some games use different filenames for the same ROM
                 // If we have an exact match, use current data.  Otherwise, continue and see if we find better.
@@ -2075,6 +2080,7 @@ void CGameClass::SetSpecificValuesForCRC(CFile* CurrFile, uint32_t nCRCForFile)
 
                     if (fFoundMatch)
                     {
+                        m_pCRC32SpecificData = &prgCRC32ValueSets.at(nIndex);
                         break;
                     }
                 }
