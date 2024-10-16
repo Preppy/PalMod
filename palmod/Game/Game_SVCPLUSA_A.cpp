@@ -821,7 +821,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                 if (fCanPairAsNodePairs)
                 {
-                    nSrcAmt = m_pButtonLabelSet.size();
+                    nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)

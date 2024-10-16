@@ -453,7 +453,6 @@ const stPairedPaletteInfo pairNext3Palettes =                       { 1, {}, 4 }
 const stPairedPaletteInfo pairNextAndNextSkippedPair =              { 1, {}, 4, 3, 4 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, {}, 4, 32, 34 };  // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, {}, 4, 41, 42 };  // quad display... requires special handling in code
-const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, {}, 4, 4, 5 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNextAndNext =                 { 4, {}, 4, 5, 6 };    // quad display... requires special handling in code
 
 const stPairedPaletteInfo pairNext4AndNext8AndNext9 =               { 4, {}, 4, 8, 9 };    // quad display... requires special handling in code

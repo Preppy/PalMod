@@ -3149,7 +3149,7 @@ const sGame_PaletteDataset SVCPLUSA_A_DAN_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_PALETTES[] =
 {
-    { L"Red Arremer", 0x383538, 0x383558, indexSVCSprites_RedArremer, 0x00, &pairNextSkippedAndNextSkippedAndNext },
+    { L"Red Arremer", 0x383538, 0x383558, indexSVCSprites_RedArremer, 0x00, &pairNextAndNextSkippedPair },
     //{ L"Unused: Fire Effect 1", 0x383558, 0x383578, indexSVCSprites_RedArremer },
     { L"Woody Pig", 0x383578, 0x383598, indexSVCSprites_RedArremer, 0x10 },
     { L"Electric Shock Effect", 0x383598, 0x3835b8, indexSVCSprites_RedArremer },
@@ -3161,7 +3161,7 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_KICK_PALETTES[] =
 {
-    { L"Red Arremer", 0x383738, 0x383758, indexSVCSprites_RedArremer, 0x00, &pairNextSkippedAndNextSkippedAndNext },
+    { L"Red Arremer", 0x383738, 0x383758, indexSVCSprites_RedArremer, 0x00, &pairNextAndNextSkippedPair },
     //{ L"Unused: Fire Effect 1", 0x383758, 0x383778, indexSVCSprites_RedArremer },
     { L"Woody Pig", 0x383778, 0x383798, indexSVCSprites_RedArremer, 0x10 },
     { L"Electric Shock Effect", 0x383798, 0x3837b8, indexSVCSprites_RedArremer },
@@ -3173,7 +3173,7 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_HELL_PALETTES[] =
 {
-    { L"Red Arremer", 0X384138, 0X384158, indexSVCSprites_RedArremer, 0x00, &pairNextSkippedAndNextSkippedAndNext },
+    { L"Red Arremer", 0X384138, 0X384158, indexSVCSprites_RedArremer, 0x00, &pairNextAndNextSkippedPair },
     //{ L"Unused: Fire Effect 1", 0X384158, 0X384178, indexSVCSprites_RedArremer },
     { L"Woody Pig", 0X384178, 0X384198, indexSVCSprites_RedArremer, 0x10 },
     { L"Electric Shock Effect", 0X384198, 0X3841B8, indexSVCSprites_RedArremer },
@@ -3185,7 +3185,7 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_HELL_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_KICK_HELL_PALETTES[] =
 {
-    { L"Red Arremer", 0X384338, 0X384358, indexSVCSprites_RedArremer, 0x00, &pairNextSkippedAndNextSkippedAndNext },
+    { L"Red Arremer", 0X384338, 0X384358, indexSVCSprites_RedArremer, 0x00, &pairNextAndNextSkippedPair },
     //{ L"Unused: Fire Effect 1", 0X384358, 0X384378, indexSVCSprites_RedArremer },
     { L"Woody Pig", 0X384378, 0X384398, indexSVCSprites_RedArremer, 0x10 },
     { L"Electric Shock Effect", 0X384398, 0X3843B8, indexSVCSprites_RedArremer },
@@ -3197,7 +3197,7 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_KICK_HELL_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_HEAVEN_PALETTES[] =
 {
-    { L"Red Arremer", 0X383D38, 0X383D58, indexSVCSprites_RedArremer, 0x00, &pairNextSkippedAndNextSkippedAndNext },
+    { L"Red Arremer", 0X383D38, 0X383D58, indexSVCSprites_RedArremer, 0x00, &pairNextAndNextSkippedPair },
     //{ L"Unused: Fire Effect 1", 0X383D58, 0X383D78, indexSVCSprites_RedArremer },
     { L"Woody Pig", 0X383D78, 0X383D98, indexSVCSprites_RedArremer, 0x10 },
     { L"Electric Shock Effect", 0X383D98, 0X383DB8, indexSVCSprites_RedArremer },
@@ -3209,7 +3209,7 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_HEAVEN_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_KICK_HEAVEN_PALETTES[] =
 {
-    { L"Red Arremer", 0X383F38, 0X383F58, indexSVCSprites_RedArremer, 0x00, &pairNextSkippedAndNextSkippedAndNext },
+    { L"Red Arremer", 0X383F38, 0X383F58, indexSVCSprites_RedArremer, 0x00, &pairNextAndNextSkippedPair },
     //{ L"Unused: Fire Effect 1", 0X383F58, 0X383F78, indexSVCSprites_RedArremer },
     { L"Woody Pig", 0X383F78, 0X383F98, indexSVCSprites_RedArremer, 0x10 },
     { L"Electric Shock Effect", 0X383F98, 0X383FB8, indexSVCSprites_RedArremer },
