@@ -142,7 +142,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                         {
                             for (iPNGIndex = nOffsetThisPass; (iPNGIndex < nTotalNumberOfCurrentPaletteColors) && ((iPNGIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz) && (iPNGIndex < nPNGColorCount); iPNGIndex++)
                             {
-                                int iIndexToUse = fShouldProcessTopdown ? iPNGIndex : (nPNGColorCount - iPNGIndex);
+                                const int iIndexToUse = fShouldProcessTopdown ? iPNGIndex : (nPNGColorCount - 1 - iPNGIndex);
                                 if ((rgchPaletteData.at(iIndexToUse * 3) != 0) ||
                                     (rgchPaletteData.at((iIndexToUse * 3) + 1) != 0) ||
                                     (rgchPaletteData.at((iIndexToUse * 3) + 2) != 0))
