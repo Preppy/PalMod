@@ -312,11 +312,29 @@ private:
     afx_msg void OnAboutShowReadMe();
     afx_msg void OnAboutShowHistory();
     afx_msg void OnAboutLaunchPalModSite();
-    afx_msg void OnBnClickedBinvert();
     afx_msg void OnImportPalette();
     afx_msg void OnExportPalette();
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnChangeExtendedCopyData();
+
+    enum class ColorSwap
+    {
+        Invert = 0,
+        Swap_RB = 1,
+        Swap_GB = 2,
+        Swap_RG = 3,
+        Swap_RGB = 4,
+        Swap_RBG = 5,
+    };
+
+    void HandleColorSwap(ColorSwap action);
+
+    afx_msg void OnBnClickedBinvert() { HandleColorSwap(ColorSwap::Invert); };
+    afx_msg void OnBnSwapRG() { HandleColorSwap(ColorSwap::Swap_RG); };
+    afx_msg void OnBnSwapGB() { HandleColorSwap(ColorSwap::Swap_GB); };
+    afx_msg void OnBnSwapRB() { HandleColorSwap(ColorSwap::Swap_RB); };
+    afx_msg void OnBnSwapRGB() { HandleColorSwap(ColorSwap::Swap_RGB); };
+    afx_msg void OnBnSwapRBG() { HandleColorSwap(ColorSwap::Swap_RBG); };
 
     afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };

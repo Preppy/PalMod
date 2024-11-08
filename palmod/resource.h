@@ -133,6 +133,11 @@
 #define IDC_IMPL_PALNAME                1099
 #define IDC_IMPL_CREATOR                1100
 #define IDC_IMPL_DESCRIPTION            1101
+#define IDC_BSWAPRG                     1102
+#define IDC_BSWAPGB                     1103
+#define IDC_BSWAPRB                     1104
+#define IDC_BSWAPRGB                    1105
+#define IDC_BSWAPRBG                    1106
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
