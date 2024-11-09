@@ -91,7 +91,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2006,               // Count of palettes listed in the header
+        2011,               // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 
@@ -111,7 +111,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2006,               // Count of palettes listed in the header
+        2011,               // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 
@@ -151,7 +151,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2006,               // Count of palettes listed in the header
+        2011,               // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 
@@ -171,7 +171,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2006,               // Count of palettes listed in the header
+        2011,               // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 

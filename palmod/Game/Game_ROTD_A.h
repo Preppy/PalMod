@@ -36,7 +36,7 @@ private:
         ROTD_A_UNITS,
         ARRAYSIZE(ROTD_A_UNITS),
         L"RotDE.txt",           // Extra filename
-        634,                    // Count of palettes listed in the header
+        646,                    // Count of palettes listed in the header
         0x80102,                // Lowest known location used for palettes
     };
 
