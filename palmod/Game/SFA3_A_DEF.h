@@ -41,7 +41,7 @@ const std::vector<uint16_t> SFA3_A_IMGIDS_USED =
     indexCPS2Sprites_Juni,         // 0x4C
     indexCPS2Sprites_Juli,         // 0x4D
     indexCPS2Sprites_SFA3Assets,   // 0x4e - SFA3 HUD, stages
-    indexCPS2Sprites_SFA3_Portraits,
+    indexCPS2Sprites_SFA3_Portraits, // 0x66
     indexSFA3Sprites_Stages,        // 0xeb
 };
 
