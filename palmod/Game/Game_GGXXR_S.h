@@ -7,7 +7,7 @@ class CGame_GGXXR_S : public CGameClassPerUnitPerFile
 private:
     const sGCPUPF_CoreGameData m_sCoreGameData
     {
-        L"GGXX #Reload (Steam)",
+        L"GGXX #Reload (Steam: JPN/Netplay Patch)",
         GGXXR_S,
         IMGDAT_SECTION_GUILTYGEAR,
         GGXX_Rld_IMGIDS_USED,

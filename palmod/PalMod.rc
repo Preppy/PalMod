@@ -517,7 +517,7 @@ BEGIN
                 MENUITEM SEPARATOR
                 MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
                 MENUITEM "GGXX:AC+ (Wii, ID:R3NEXS)",   ID_LD_GGXXACP_Wii
-                MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S
+                MENUITEM "GGXX #Reload (JPN/Netplay Patch)", ID_LD_GGXXR_S
                 MENUITEM "Guilty Gear: The Missing Link (PlayStation)", ID_LD_GGML_P
             END
             POPUP "Jojo's"
