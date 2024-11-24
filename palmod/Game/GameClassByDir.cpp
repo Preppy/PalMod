@@ -385,7 +385,9 @@ sFileRule CGameClassByDir::GetRule(uint32_t nUnitId, const sDirectoryLoadingData
 
 sFileRule CGameClassByDir::GetNextRule(const sDirectoryLoadingData& gameLoadingData)
 {
-    sFileRule NewFileRule = GetRule(m_uRuleCtr++, gameLoadingData);
+    sFileRule NewFileRule = GetRule(m_uRuleCtr, gameLoadingData);
+    NewFileRule.uUnitId = m_uRuleCtr;
+    m_uRuleCtr++;
 
     if (m_uRuleCtr >= gameLoadingData.rgRuleList.size())
     {

@@ -787,24 +787,24 @@ void CGameClass::InitDataBuffer()
 {
     switch (GetGameColorByteLength())
     {
-    case 2:
-    {
-        m_pppDataBuffer = new uint16_t * *[m_nUnitAmt];
-        memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * m_nUnitAmt);
-        break;
-    }
-    case 3:
-    {
-        m_pppDataBuffer24 = new uint32_t * *[m_nUnitAmt];
-        memset(m_pppDataBuffer24, 0, sizeof(uint32_t**) * m_nUnitAmt);
-        break;
-    }
-    case 4:
-    {
-        m_pppDataBuffer32 = new uint32_t * *[m_nUnitAmt];
-        memset(m_pppDataBuffer32, 0, sizeof(uint32_t**) * m_nUnitAmt);
-        break;
-    }
+        case 2:
+        {
+            m_pppDataBuffer = new uint16_t * *[m_nUnitAmt];
+            memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * m_nUnitAmt);
+            break;
+        }
+        case 3:
+        {
+            m_pppDataBuffer24 = new uint32_t * *[m_nUnitAmt];
+            memset(m_pppDataBuffer24, 0, sizeof(uint32_t**) * m_nUnitAmt);
+            break;
+        }
+        case 4:
+        {
+            m_pppDataBuffer32 = new uint32_t * *[m_nUnitAmt];
+            memset(m_pppDataBuffer32, 0, sizeof(uint32_t**) * m_nUnitAmt);
+            break;
+        }
     }
 }
 
@@ -816,7 +816,7 @@ void CGameClass::ClearDataBuffer()
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
@@ -836,7 +836,7 @@ void CGameClass::ClearDataBuffer()
         {
             if (m_pppDataBuffer24[nUnitCtr])
             {
-                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
@@ -856,7 +856,7 @@ void CGameClass::ClearDataBuffer()
         {
             if (m_pppDataBuffer32[nUnitCtr])
             {
-                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
@@ -941,7 +941,7 @@ void CGameClass::WarnIfPaletteIsOversized(uint32_t nUnit, uint32_t nPaletteId, u
     if ((nPaletteSizeInColors > MAXAMT_ColorsPerPaletteTable) || (nPaletteSizeInColors == 0))
     {
         static int s_nLastPaletteWithThisError = 0;
-        int nThisPaletteId = ((nUnit & 0xFFFF) << 16) | (nPaletteId & 0xFFFF);
+        const int nThisPaletteId = ((nUnit & 0xFFFF) << 16) | (nPaletteId & 0xFFFF);
         CString strText;
         strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis must be fixed.\n", pszPaletteName, nPaletteSizeInColors, nUnit, nPaletteId);
         OutputDebugString(strText);
@@ -1050,8 +1050,8 @@ uint32_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, ui
     }
     else
     {
-        uint32_t  nCompleteCount = 0;
-        uint32_t nCollectionCount = pGameUnits[nUnitId].uChildAmt;
+        uint32_t nCompleteCount = 0;
+        const uint32_t nCollectionCount = pGameUnits[nUnitId].uChildAmt;
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pGameUnits[nUnitId].ChildNodes);
 
         for (uint32_t  nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
@@ -1118,7 +1118,7 @@ const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode*
         for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
         {
             const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
-            uint32_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
+            const uint32_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
 
             if (nDistanceFromZero < nNodeCount)
             {
@@ -1144,7 +1144,7 @@ uint32_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, 
 {
     // Don't use this for Extra palettes.
     uint32_t nNodeSize = 0;
-    uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
+    const uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
@@ -1169,7 +1169,7 @@ const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGam
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
-    uint32_t  nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
+    const uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
@@ -1408,7 +1408,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
         //Set up extra nodes
         if (fUseExtra)
         {
-            uint32_t nExtraPos = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
+            const uint32_t nExtraPos = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
             uint32_t nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; // Extra node

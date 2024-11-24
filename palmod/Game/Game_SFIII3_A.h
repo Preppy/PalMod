@@ -115,7 +115,7 @@ private:
     const sCoreGameData m_sCoreGameData
     {
         L"SFIII:3S (Steam)",
-        SFIII3_A,
+        SFIII3_S,
         IMGDAT_SECTION_SF3,
         SFIII3_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
