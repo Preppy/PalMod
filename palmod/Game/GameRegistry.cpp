@@ -819,7 +819,7 @@ namespace KnownGameInfo
         },
         {
             GGXXR_S,
-            L"Guilty Gear #Reload (Steam/Community Port)",
+            L"Guilty Gear #Reload (Steam: JPN/Netplay Patch)",
             {},
             Make_GGXXR_S,
             CGame_GGXXR_S::GetRule,
@@ -964,7 +964,7 @@ namespace KnownGameInfo
         {
             KarnovsR_A,
             L"Karnov's Revenge / Fighter's History Dynamite",
-            { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.*|", GamePlatform::NEOGEO }, // DataEast
+            { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.*;066-p1kre.p1|", GamePlatform::NEOGEO }, // DataEast
             Make_KarnovsR_A,
             CGame_KarnovsR_A::GetRule,
         },
@@ -2288,6 +2288,9 @@ namespace KnownGameInfo
             break;
         case JOJOS_US_A:
             nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_US_A_51_ROMKEY);
+            break;
+        case KarnovsR_A:
+            CGame_KarnovsR_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case KOF95_A:
             CGame_KOF95_A::SetSpecialRuleForFileName(pszFileNameLowercase);

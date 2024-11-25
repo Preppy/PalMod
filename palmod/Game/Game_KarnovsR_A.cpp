@@ -1,10 +1,53 @@
 #include "StdAfx.h"
 #include "Game_KarnovsR_A.h"
 
+CGame_KarnovsR_A::KarnovLoadingKey CGame_KarnovsR_A::m_eVersionToLoad = KarnovLoadingKey::Arcade;
+
+void CGame_KarnovsR_A::SetSpecialRuleForFileName(std::wstring strFileName)
+{
+    const std::map<std::wstring, KarnovLoadingKey> m_rgFileNameToVersion =
+    {
+        // these should be all lower case
+        { L"066-p1.p1", KarnovLoadingKey::Arcade },
+        { L"066-p1.bin", KarnovLoadingKey::Arcade },
+        { L"066-p1kre.p1", KarnovLoadingKey::Revolution },
+    };
+
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
+
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
+
+    if (result != m_rgFileNameToVersion.end())
+    {
+        m_eVersionToLoad = result->second;
+    }
+    else
+    {
+        m_eVersionToLoad = KarnovLoadingKey::Arcade;
+    }
+
+    return;
+}
+
+CGame_KarnovsR_A::CGame_KarnovsR_A(uint32_t nConfirmedROMSize)
+{
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == KarnovLoadingKey::Arcade) ? m_sCoreGameData_Arcade : m_sCoreGameData_Revolution);
+}
+
+sFileRule CGame_KarnovsR_A::GetRule(uint32_t nRuleId)
+{
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KarnovLoadingKey::Arcade) ? m_sFileLoadingData_Arcade : m_sFileLoadingData_Revolution);
+}
+
 BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    // We use custom handling here for the cross-collection weakpoints
+    if (m_eVersionToLoad == KarnovLoadingKey::Revolution)
+    {
+        return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
+    }
 
+    // We use custom handling here for the cross-collection weakpoints
 
     //Reset palette sources
     ClearSrcPal();

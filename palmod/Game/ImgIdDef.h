@@ -1471,7 +1471,7 @@ enum SamuraiShodownSpriteList
 enum SupportedKarnovsR_A_PaletteListIndex
 {
     indexKarnovsRSprites_Clown,         // 0x00
-    indexKarnovsRSprites_Felin,         // 0x01
+    indexKarnovsRSprites_Feilin,        // 0x01
     indexKarnovsRSprites_Jean,          // 0x02
     indexKarnovsRSprites_Karnov,        // 0x03
     indexKarnovsRSprites_Lee,           // 0x04
