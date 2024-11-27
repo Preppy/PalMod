@@ -37,7 +37,7 @@ private:
         SVCPLUSA_A_UNITS,
         ARRAYSIZE(SVCPLUSA_A_UNITS),
         L"SVCE.txt",                // Extra filename
-        1902,                       // Count of palettes listed in the header
+        2178,                       // Count of palettes listed in the header
         0x2d97f0,                   // Lowest known location used for palettes
     };
 
@@ -57,7 +57,7 @@ private:
         SVCPLUSA_A_UNITS,
         ARRAYSIZE(SVCPLUSA_A_UNITS),
         L"SVCE.txt",                // Extra filename
-        1902,                       // Count of palettes listed in the header
+        2178,                       // Count of palettes listed in the header
         0x2d97f0,                   // Lowest known location used for palettes
     };
 
