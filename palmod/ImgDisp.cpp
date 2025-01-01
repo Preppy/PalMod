@@ -804,17 +804,15 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
             TextureFile.SeekToBegin();
 
-            if (fIsDoubleSizeGIMPRAW)
-            {
-                int iDestPos = 0;
-                for (int iReadPos = 0; iReadPos < nFileSize; iReadPos += 2)
-                {
-                    TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][iDestPos], 1);
-                    iDestPos++;
-                    TextureFile.Seek(1, CFile::current);
-                }
-            }
-            else if (direction == SpriteImportDirection::TopDown)
+            // Note: at one point (July 4, 2024) I wrote alternate loading code for GIMP RAWs.
+            // That change loaded flipped RAWs topdown (?) and did a 2 byte stride across the file.
+            // Both those changes seem non-optimum.  Reverting the change gets us loading the 
+            // test files I currently have correctly.  I am solidly guessing that we had a different 
+            // sample file with different behavior, but can't find it in the archives right now.
+            // If we do need to revisit this, make sure to test both with that new mystery file that 
+            // lead to this change as well as the GIMP 2x sample texture I've now put in the archive.
+
+            if (direction == SpriteImportDirection::TopDown)
             {
                 TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nFileSize);
             }
@@ -822,7 +820,12 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             {
                 int nCurrentFilePosition = nFileSize;
 
-                // Skip one line back
+                if (fIsDoubleSizeGIMPRAW)
+                {
+                    nCurrentFilePosition /= 2;
+                }
+
+                // Skip one line back since we're upside-down and walking backwards
                 nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
 
                 // We need to flip this line by line
