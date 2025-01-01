@@ -1165,14 +1165,14 @@ namespace KnownGameInfo
             L"The Last Blade 2 (Neo-Geo)",
             { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Neo-Geo)|243*.*;LB2_P1.ROM|", GamePlatform::NEOGEO },
             Make_LASTBLADE2_A,
-            CGame_LASTBLADE2_A::GetRule,
+            CGame_LASTBLADE2_A::GetRule_A,
         },
         {
             LASTBLADE2_S,
             L"The Last Blade 2 (Steam)",
             { LASTBLADE2_S,     L"Last Blade 2", L"Last Blade 2 (Steam)|p1.bin|", GamePlatform::Steam },
             Make_LASTBLADE2_S,
-            CGame_LASTBLADE2_A::GetRule,
+            CGame_LASTBLADE2_A::GetRule_S,
         },
         {
             MAAB_A,
