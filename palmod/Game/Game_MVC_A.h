@@ -18,7 +18,7 @@ private:
         // Marvel Vs. Capcom: Clash of Super Heroes
         { L"MvC (CPS2 980112)", L"mvc.06",  0x4b0b6d3e, 0 },
         { L"MvC (CPS2 980123)", L"mvc.06a", 0x8528e1f5, 0 },
-        { L"MvC (CPS2 980123)", L"mvcu.06", 0x2f1524bc, -0x60 },
+        { L"MvC (CPS2 980123u)", L"mvcu.06", 0x2f1524bc, -0x60 },
 
 #ifdef NOTES
     // These are the MAME values...
@@ -80,7 +80,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCE.txt",             // Extra filename
-        1337,                    // Count of palettes listed in the header
+        1364,                    // Count of palettes listed in the header
         0x30b18,                 // Lowest known location used for palettes
     };
 
@@ -126,7 +126,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCdE.txt",           // Extra filename
-        1337,                   // Count of palettes listed in the header
+        1364,                   // Count of palettes listed in the header
         0x30B18,                // Lowest known location used for palettes
     };
 
@@ -178,7 +178,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCSE.txt",           // Extra filename
-        1337,                   // Count of palettes listed in the header
+        1364,                   // Count of palettes listed in the header
         0x30B18,                // Lowest known location used for palettes
     };
 
