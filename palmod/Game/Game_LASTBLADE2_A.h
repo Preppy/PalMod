@@ -71,5 +71,7 @@ public:
     CGame_LASTBLADE2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE2_A */);
 
     // There are different filenames for NeoGeo and Steam, so direct the user appropriately
-    static sFileRule GetRule(uint32_t nRuleId);
+    static sFileRule GetRule(SupportedGamesList nGameId, uint32_t nRuleId);
+    static sFileRule GetRule_A(uint32_t nRuleId) { return GetRule(LASTBLADE2_A, nRuleId); };
+    static sFileRule GetRule_S(uint32_t nRuleId) { return GetRule(LASTBLADE2_S, nRuleId); };
 };
