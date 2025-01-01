@@ -40,6 +40,8 @@ const std::vector<uint16_t> VENTURE_A_IMGIDS_USED =
     indexVentureSprites_Kakyo,  // 0x20
     indexVentureSprites_Iggy,   // 0x21
     indexVentureSprites_YSeph,  // 0x22
+    indexVentureSprites_Seph,   // 0x23
+    indexVentureSprites_Bonus,  // 0x24
 };
 
 const sGame_PaletteDataset VENTURE_A_JOTARO_P1[] =
@@ -51,7 +53,7 @@ const sGame_PaletteDataset VENTURE_A_JOTARO_P1[] =
     { L"Jotaro Burning P1 2/2 ", 0x3b0100, 0x3b0180, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { L"Jotaro Tech/Zap P1 1/2 ", 0x3b0380, 0x3b0400, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { L"Jotaro Tech/Zap P1 2/2 ", 0x3b0400, 0x3b0480, indexJojos51Jotaro, indexJojos51Character_BurnZap },
-    { L"Jotaro Child Mode P1", 0x3b0680, 0x3b0700, indexJojos51Jotaro, 0x0 },
+    { L"Jotaro Child Mode P1", 0x3b0680, 0x3b0700, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { L"Jotaro Select/Win P1", 0x3f2d80, 0x3f2e00, indexJojos51Jotaro, indexJojos51Character_SelectWin1, &pairNext },
     { L"Star Platinum Select/Win P1", 0x3f2e00, 0x3f2e80, indexJojos51Jotaro, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Jotaro Vs/Super P1", 0x3c9800, 0x3c9880, indexJojos51Jotaro, indexJojos51Character_VsSuper },
@@ -67,7 +69,7 @@ const sGame_PaletteDataset VENTURE_A_JOTARO_P2[] =
     { L"Jotaro Burning P2 2/2", 0x3b0d80, 0x3b0e00, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { L"Jotaro Tech/Zap P2 1/2", 0x3b1000, 0x3b1080, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { L"Jotaro Tech/Zap P2 2/2", 0x3b1080, 0x3b1100, indexJojos51Jotaro, indexJojos51Character_BurnZap },
-    { L"Jotaro Child Mode P2", 0x3b1300, 0x3b1380, indexJojos51Jotaro, 0x0 },
+    { L"Jotaro Child Mode P2", 0x3b1300, 0x3b1380, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { L"Jotaro Select/Win P2", 0x3f3b80, 0x3f3c00, indexJojos51Jotaro, indexJojos51Character_SelectWin1, &pairNext },
     { L"Star Platinum Select/Win P2", 0x3f3c00, 0x3f3c80, indexJojos51Jotaro, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Jotaro Vs/Super P2", 0x3c9e80, 0x3c9f00, indexJojos51Jotaro, indexJojos51Character_VsSuper },
@@ -83,13 +85,23 @@ const sDescTreeNode VENTURE_A_COL_JOTARO[] =
 const sGame_PaletteDataset VENTURE_A_KAKYOIN_P1[] =
 {
     { L"Kakyoin & Hierophant Green P1", 0x3b1900, 0x3b1980, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 1/7 P1", 0x3b2180, 0x3b2200, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 2/7 P1", 0x3b2180 + 0x080, 0x3b2200 + 0x080, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 3/7 P1", 0x3b2180 + 0x100, 0x3b2200 + 0x100, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 4/7 P1", 0x3b2180 + 0x180, 0x3b2200 + 0x180, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 5/7 P1", 0x3b2180 + 0x200, 0x3b2200 + 0x200, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 6/7 P1", 0x3b2180 + 0x280, 0x3b2200 + 0x280, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 7/7 P1", 0x3b2180 + 0x300, 0x3b2200 + 0x300, indexVentureSprites_Kakyo, 0x00 },
+    { L"Kakyoin Sparkles P1", 0x3b2180 + 0x380, 0x3b2200 + 0x380, indexVentureSprites_Kakyo, 0x03 },
 
-    { L"Kakyoin Burning P1 1/2", 0x3b1980, 0x3b1a00, indexVentureSprites_Kakyo, 0x0 },
-    { L"Kakyoin Burning P1 2/2", 0x3b1a00, 0x3b1a80, indexVentureSprites_Kakyo, 0x0 },
-    { L"Kakyoin Tech/Zap P1 1/2", 0x3b1c80, 0x3b1d00, indexVentureSprites_Kakyo, 0x0 },
-    { L"Kakyoin Tech/Zap P1 2/2", 0x3b1d00, 0x3b1d80, indexVentureSprites_Kakyo, 0x0 },
-    { L"Hierophant Remote Mode P1", 0x3b1d80, 0x3b1e00 },
-    { L"Hierophant Raging Demon P1", 0x3b2080, 0x3b2100 },
+    { L"Kakyoin Burning P1 1/2", 0x3b1980, 0x3b1a00, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin Burning P1 2/2", 0x3b1a00, 0x3b1a80, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin Tech/Zap P1 1/2", 0x3b1c80, 0x3b1d00, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin Tech/Zap P1 2/2", 0x3b1d00, 0x3b1d80, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin GC/Child Mode P1", 0x3b1f80, 0x3b2000, indexVentureSprites_Kakyo, 0x01 },
+
+    { L"Hierophant Remote Mode P1", 0x3b1d80, 0x3b1e00, indexVentureSprites_Kakyo, 0x02 },
+    { L"Hierophant Raging Demon P1", 0x3b2080, 0x3b2100, indexVentureSprites_Kakyo, 0x02 },
 
     { L"Kakyoin Select/Win P1", 0x3f2e80, 0x3f2F00, indexJojos51Kakyo, indexJojos51Character_SelectWin1, &pairNext },
     { L"Hierophant Green Select/Win P1", 0x3f2F00, 0x3f2F80, indexJojos51Kakyo, indexJojos51Character_SelectWin2, &pairPrevious },
@@ -100,13 +112,23 @@ const sGame_PaletteDataset VENTURE_A_KAKYOIN_P1[] =
 const sGame_PaletteDataset VENTURE_A_KAKYOIN_P2[] = 
 {
     { L"Kakyoin & Hierophant Green P2", 0x3b2580, 0x3b2600, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 1/7 P1", 0x3b2180 + 0xc80, 0x3b2200 + 0xc80, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 2/7 P1", 0x3b2180 + 0x080 + 0xc80, 0x3b2200 + 0x080 + 0xc80, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 3/7 P1", 0x3b2180 + 0x100 + 0xc80, 0x3b2200 + 0x100 + 0xc80, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 4/7 P1", 0x3b2180 + 0x180 + 0xc80, 0x3b2200 + 0x180 + 0xc80, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 5/7 P1", 0x3b2180 + 0x200 + 0xc80, 0x3b2200 + 0x200 + 0xc80, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 6/7 P1", 0x3b2180 + 0x280 + 0xc80, 0x3b2200 + 0x280 + 0xc80, indexVentureSprites_Kakyo, 0x00 },
+    { L"Hierophant Changing Pal 7/7 P1", 0x3b2180 + 0x300 + 0xc80, 0x3b2200 + 0x300 + 0xc80, indexVentureSprites_Kakyo, 0x00 },
+    { L"Kakyoin Sparkles P1", 0x3b2180 + 0x380 + 0xc80, 0x3b2200 + 0x380 + 0xc80, indexVentureSprites_Kakyo, 0x03 },
 
-    { L"Kakyoin Burning P2 1/2", 0x3b1980 + 0xc80, 0x3b1a00 + 0xc80, indexVentureSprites_Kakyo, 0x0 },
-    { L"Kakyoin Burning P2 2/2", 0x3b1a00 + 0xc80, 0x3b1a80 + 0xc80, indexVentureSprites_Kakyo, 0x0 },
-    { L"Kakyoin Tech/Zap P2 1/2", 0x3b1c80 + 0xc80, 0x3b1d00 + 0xc80, indexVentureSprites_Kakyo, 0x0 },
-    { L"Kakyoin Tech/Zap P2 2/2", 0x3b1d00 + 0xc80, 0x3b1d80 + 0xc80, indexVentureSprites_Kakyo, 0x0 },
-    { L"Hierophant Remote Mode P2", 0x3b1d80 + 0xc80, 0x3b1e00 + 0xc80 },
-    { L"Hierophant Raging Demon P2", 0x3b2080 + 0xc80, 0x3b2100 + 0xc80 },
+    { L"Kakyoin Burning P2 1/2", 0x3b1980 + 0xc80, 0x3b1a00 + 0xc80, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin Burning P2 2/2", 0x3b1a00 + 0xc80, 0x3b1a80 + 0xc80, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin Tech/Zap P2 1/2", 0x3b1c80 + 0xc80, 0x3b1d00 + 0xc80, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin Tech/Zap P2 2/2", 0x3b1d00 + 0xc80, 0x3b1d80 + 0xc80, indexVentureSprites_Kakyo, 0x01 },
+    { L"Kakyoin GC/Child Mode P2", 0x3b1f80 + 0xc80, 0x3b2000 + 0xc80, indexVentureSprites_Kakyo, 0x01 },
+
+    { L"Hierophant Remote Mode P2", 0x3b1d80 + 0xc80, 0x3b1e00 + 0xc80, indexVentureSprites_Kakyo, 0x02 },
+    { L"Hierophant Raging Demon P2", 0x3b2080 + 0xc80, 0x3b2100 + 0xc80, indexVentureSprites_Kakyo, 0x02 },
 
     { L"Kakyoin Select/Win P2", 0x3f3c80, 0x3f3d00, indexJojos51Kakyo, indexJojos51Character_SelectWin1, &pairNext },
     { L"Hierophant Green Select/Win P2", 0x3f3d00, 0x3f3d80, indexJojos51Kakyo, indexJojos51Character_SelectWin2, &pairPrevious },
@@ -172,7 +194,12 @@ const sDescTreeNode VENTURE_A_COL_POL[] =
 
 const sGame_PaletteDataset VENTURE_A_JOSEPH_P1[] =
 {
-    { L"Joseph & Hermit Purple P1", 0x3B6400, 0x3B6480, indexJojos51Joseph },
+    { L"Joseph & Hermit Purple P1", 0x3B6400, 0x3B6480, indexVentureSprites_Seph },
+    { L"Joseph Burning P1 1/2", 0x3B6400 + 0x080, 0x3B6480 + 0x080, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph Burning P1 2/2", 0x3B6400 + 0x100, 0x3B6480 + 0x100, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph Tech/Zap P1 1/2", 0x3B6400 + 0x380, 0x3B6480 + 0x380, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph Tech/Zap P1 1/2", 0x3B6400 + 0x400, 0x3B6480 + 0x400, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph GC/Child Mode P1", 0x3B6400 + 0x580, 0x3B6480 + 0x580, indexVentureSprites_Seph, 0x01 },
     { L"Joseph Select/Win P1", 0x3f3180, 0x3f3200, indexJojos51Joseph, indexJojos51Character_SelectWin1, &pairNext },
     { L"Hermit Purple Select/Win P1", 0x3f3200, 0x3f3280, indexJojos51Joseph, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Joseph Vs/Super P1", 0x3c9a00, 0x3c9a80, indexJojos51Joseph, indexJojos51Character_VsSuper },
@@ -181,7 +208,12 @@ const sGame_PaletteDataset VENTURE_A_JOSEPH_P1[] =
 
 const sGame_PaletteDataset VENTURE_A_JOSEPH_P2[] =
 {
-    { L"Joseph & Hermit Purple P2", 0x3B7080, 0x3B7100, indexJojos51Joseph },
+    { L"Joseph & Hermit Purple P2", 0x3B7080, 0x3B7100, indexVentureSprites_Seph },
+    { L"Joseph Burning P2 1/2", 0x3B7080 + 0x080, 0x3B7100 + 0x080, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph Burning P2 2/2", 0x3B7080 + 0x100, 0x3B7100 + 0x100, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph Tech/Zap P2 1/2", 0x3B7080 + 0x380, 0x3B7100 + 0x380, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph Tech/Zap P2 2/2", 0x3B7080 + 0x400, 0x3B7100 + 0x400, indexVentureSprites_Seph, 0x01 },
+    { L"Joseph GC/Child Mode P2", 0x3B7080 + 0x580, 0x3B7100 + 0x580, indexVentureSprites_Seph, 0x01 },
     { L"Joseph Select/Win P2", 0x3f3f80, 0x3f4000, indexJojos51Joseph, indexJojos51Character_SelectWin1, &pairNext },
     { L"Hermit Purple Select/Win P2", 0x3f4000, 0x3f4080, indexJojos51Joseph, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Joseph Vs/Super P2", 0x3ca080, 0x3ca100, indexJojos51Joseph, indexJojos51Character_VsSuper },
@@ -197,14 +229,14 @@ const sDescTreeNode VENTURE_A_COL_JOSEPH[] =
 const sGame_PaletteDataset VENTURE_A_IGGY_P1[] =
 {
     { L"Iggy & The Fool P1", 0x3B7D00, 0x3B7D80, indexVentureSprites_Iggy, 0x00 },
-    { L"Iggy Raging Demon Trail P1 1/3", 0x3b8500, 0x3b8580 },
-    { L"Iggy Raging Demon Trail P1 2/3", 0x3b8580, 0x3b8600 },
-    { L"Iggy Raging Demon Trail P1 3/3", 0x3b8600, 0x3b8680 },
-    { L"Iggy Burn P1 1/2", 0x3b7d80, 0x3b7e00, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy Burn P1 2/2", 0x3b7e00, 0x3b7e80, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy Tech/Zap P1 1/2", 0x3b8080, 0x3b8100, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy Tech/Zap P1 2/2", 0x3b8100, 0x3b8180, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy GC/Child Mode P1", 0x3b8380, 0x3b8400 },
+    { L"Iggy Raging Demon Trail P1 1/3", 0x3b8500, 0x3b8580, indexVentureSprites_Iggy, 0x02 },
+    { L"Iggy Raging Demon Trail P1 2/3", 0x3b8580, 0x3b8600, indexVentureSprites_Iggy, 0x02 },
+    { L"Iggy Raging Demon Trail P1 3/3", 0x3b8600, 0x3b8680, indexVentureSprites_Iggy, 0x02 },
+    { L"Iggy Burn P1 1/2", 0x3b7d80, 0x3b7e00, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy Burn P1 2/2", 0x3b7e00, 0x3b7e80, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy Tech/Zap P1 1/2", 0x3b8080, 0x3b8100, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy Tech/Zap P1 2/2", 0x3b8100, 0x3b8180, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy GC/Child Mode P1", 0x3b8380, 0x3b8400, indexVentureSprites_Iggy, 0x01 },
         { L"Iggy Select/Win P1", 0x3f3280, 0x3f3300, indexJojos51Iggy, indexJojos51Character_SelectWin1, &pairNext },
         { L"The Fool Select/Win P1", 0x3f3300, 0x3f3380, indexJojos51Iggy, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Iggy Vs/Super P1", 0x3c9a80, 0x3c9b00, indexJojos51Iggy, indexJojos51Character_VsSuper },
@@ -214,14 +246,14 @@ const sGame_PaletteDataset VENTURE_A_IGGY_P1[] =
 const sGame_PaletteDataset VENTURE_A_IGGY_P2[] =
 {
     { L"Iggy & The Fool P2", 0x3B8980, 0x3B8A00, indexVentureSprites_Iggy, 0x00 },
-    { L"Iggy Raging Demon Trail P2 1/3", 0x3b9180, 0x3b9200 },
-    { L"Iggy Raging Demon Trail P2 2/3", 0x3b9200, 0x3b9280 },
-    { L"Iggy Raging Demon Trail P2 3/3", 0x3b9280, 0x3b9300 },
-    { L"Iggy Burn P2 1/2", 0x3b8a00, 0x3b8a80, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy Burn P2 2/2", 0x3b8a80, 0x3b8b00, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy Tech/Zap P2 1/2", 0x3b8d00, 0x3b8d80, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy Tech/Zap P2 2/2", 0x3b8d80, 0x3b8e00, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy GC/Child Mode P2", 0x3b9000, 0x3b9080 },
+    { L"Iggy Raging Demon Trail P2 1/3", 0x3b9180, 0x3b9200, indexVentureSprites_Iggy, 0x02 },
+    { L"Iggy Raging Demon Trail P2 2/3", 0x3b9200, 0x3b9280, indexVentureSprites_Iggy, 0x02 },
+    { L"Iggy Raging Demon Trail P2 3/3", 0x3b9280, 0x3b9300, indexVentureSprites_Iggy, 0x02 },
+    { L"Iggy Burn P2 1/2", 0x3b8a00, 0x3b8a80, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy Burn P2 2/2", 0x3b8a80, 0x3b8b00, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy Tech/Zap P2 1/2", 0x3b8d00, 0x3b8d80, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy Tech/Zap P2 2/2", 0x3b8d80, 0x3b8e00, indexVentureSprites_Iggy, 0x01 },
+    { L"Iggy GC/Child Mode P2", 0x3b9000, 0x3b9080, indexVentureSprites_Iggy, 0x01 },
         { L"Iggy Select/Win P2", 0x3f4080, 0x3f4100, indexJojos51Iggy, indexJojos51Character_SelectWin1, &pairNext },
         { L"The Fool Select/Win P2", 0x3f4100, 0x3f4180, indexJojos51Iggy, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Iggy Vs/Super P2", 0x3ca100, 0x3ca180, indexJojos51Iggy, indexJojos51Character_VsSuper },
@@ -379,6 +411,11 @@ const sDescTreeNode VENTURE_A_COL_SDIO[] =
 const sGame_PaletteDataset VENTURE_A_YJOSEPH_P1[] =
 {
     { L"Young Joseph P1", 0x3c5e00, 0x3c5e80, indexVentureSprites_YSeph, 0x00 },
+    { L"Young Joseph Burning P1 1/2", 0x3c5e00 + 0x080, 0x3c5e80 + 0x080, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph Burning P1 2/2", 0x3c5e00 + 0x100, 0x3c5e80 + 0x100, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph Tech/Zap P1 1/2", 0x3c5e00 + 0x380, 0x3c5e80 + 0x380, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph Tech/Zap P1 2/2", 0x3c5e00 + 0x400, 0x3c5e80 + 0x400, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph GC/Child Mode P1", 0x3c5e00 + 0x580, 0x3c5e80 + 0x580, indexVentureSprites_YSeph, 0x01 },
     { L"Young Joseph Select/Win P1", 0x3f4900, 0x3f4980, indexJojos51YSeph, indexJojos51Character_SelectWin1 },
     { L"Young Joseph Vs/Super P1", 0x3ca500, 0x3ca580, indexJojos51YSeph, indexJojos51Character_VsSuper },
     { L"Young Joseph Challenger P1", 0x3ca700, 0x3ca780, indexJojos51YSeph, indexJojos51Character_Challenger },
@@ -387,6 +424,11 @@ const sGame_PaletteDataset VENTURE_A_YJOSEPH_P1[] =
 const sGame_PaletteDataset VENTURE_A_YJOSEPH_P2[] =
 {
     { L"Young Joseph P2", 0x3C6A80, 0x3C6B00, indexVentureSprites_YSeph, 0x00 },
+    { L"Young Joseph Burning P2 1/2", 0x3C6A80 + 0x080, 0x3C6B00 + 0x080, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph Burning P2 2/2", 0x3C6A80 + 0x100, 0x3C6B00 + 0x100, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph Tech/Zap P2 1/2", 0x3C6A80 + 0x380, 0x3C6B00 + 0x380, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph Tech/Zap P2 2/2", 0x3C6A80 + 0x400, 0x3C6B00 + 0x400, indexVentureSprites_YSeph, 0x01 },
+    { L"Young Joseph GC/Child Mode P2", 0x3C6A80 + 0x580, 0x3C6B00 + 0x580, indexVentureSprites_YSeph, 0x01 },
     { L"Young Joseph Select/Win P2", 0x3f4980, 0x3f4a00, indexJojos51YSeph, indexJojos51Character_SelectWin1 },
     { L"Young Joseph Vs/Super P2", 0x3ca580, 0x3ca600, indexJojos51YSeph, indexJojos51Character_VsSuper },
     { L"Young Joseph Challenger P2", 0x3ca780, 0x3ca800, indexJojos51YSeph, indexJojos51Character_Challenger },
@@ -455,10 +497,10 @@ const sGame_PaletteDataset VENTURE_A_BONUS[] =
     { L"Challenger Background (6/7) 0x3f7f80", 0x3f7f80, 0x3f8180 }, 
     { L"Challenger Background (7/7) 0x3f8180", 0x3f8180, 0x3f8380 }, 
 
-    { L"Cameo (Judgement)", 0x3c7780, 0x3c7800 },
-    { L"Hol Horse (Beta)", 0x3c7700, 0x3c7780 },
-    { L"Enya (Beta)", 0x3c7800, 0x3c7880 },
-    { L"Zombie", 0x3c7880, 0x3c7900 },
+    { L"Cameo (Judgement)", 0x3c7780, 0x3c7800, indexVentureSprites_Bonus, 0x02 },
+    { L"Hol Horse (Beta)", 0x3c7700, 0x3c7780, indexVentureSprites_Bonus, 0x01 },
+    { L"Enya (Beta)", 0x3c7800, 0x3c7880, indexVentureSprites_Bonus, 0x00 },
+    { L"Zombie", 0x3c7880, 0x3c7900, indexVentureSprites_Bonus, 0x03 },
 };
 
 const sDescTreeNode VENTURE_A_COL_BONUS[] =

@@ -398,25 +398,25 @@ const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P2[] =
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_P1[] =
 {
     { L"P1 Main", 0x624cc, 0x624ec, indexCPS2Sprites_DrDoom },
-    { L"P1 Flames + jHP", 0x624ec, 0x6250c, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"P1 Flames + jHP", 0x624ec, 0x6250c, indexCPS2Sprites_DrDoom, 0x08 },
     { L"P1 Interrupted Normals", 0x6250c, 0x6252c, indexCPS2Sprites_DrDoom, 0x02 },
 };
 
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_P2[] =
 {
     { L"P2 Main", 0x6254c, 0x6256c, indexCPS2Sprites_DrDoom },
-    { L"P2 Flames + jHP", 0x6256c, 0x6258c, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"P2 Flames + jHP", 0x6256c, 0x6258c, indexCPS2Sprites_DrDoom, 0x08 },
     { L"P2 Interrupted Normals", 0x6258c, 0x625ac, indexCPS2Sprites_DrDoom, 0x02 },
 };
 
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_EXTRAS[] =
 {
-    { L"Normals (1/3)", 0x653ac, 0x653cc, indexCPS2Sprites_DrDoom, 0x02 },
-    { L"Normals (2/3)", 0x6538c, 0x653ac, indexCPS2Sprites_DrDoom, 0x02 },
-    { L"Normals (3/3)", 0x6536c, 0x6538c, indexCPS2Sprites_DrDoom, 0x02 },
-    { L"Photon Shot/Array (1/3)", 0x6534c, 0x6536c, indexCPS2Sprites_DrDoom, 0x03 },
-    { L"Photon Shot/Array (2/3)", 0x6532c, 0x6534c, indexCPS2Sprites_DrDoom, 0x03 },
-    { L"Photon Shot/Array (3/3)", 0x6530c, 0x6532c, indexCPS2Sprites_DrDoom, 0x03 },
+    { L"Normals (1/3)", 0x653ac, 0x653cc, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"Normals (2/3)", 0x6538c, 0x653ac, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"Normals (3/3)", 0x6536c, 0x6538c, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"Photon Shot/Array (1/3)", 0x6534c, 0x6536c, indexCPS2Sprites_DrDoom, 0x09 },
+    { L"Photon Shot/Array (2/3)", 0x6532c, 0x6534c, indexCPS2Sprites_DrDoom, 0x09 },
+    { L"Photon Shot/Array (3/3)", 0x6530c, 0x6532c, indexCPS2Sprites_DrDoom, 0x09 },
     { L"Plasma Beam (1/3)", 0x652ec, 0x6530c, indexCPS2Sprites_DrDoom, 0x04 },
     { L"Plasma Beam (2/3)", 0x652cc, 0x652ec, indexCPS2Sprites_DrDoom, 0x04 },
     { L"Plasma Beam (3/3)", 0x652ac, 0x652cc, indexCPS2Sprites_DrDoom, 0x04 },
@@ -436,7 +436,6 @@ const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_EXTRAS[] =
     { L"Winpose chair + butler (fade in 4/6)", 0x6510c, 0x6512c, indexCPS2Sprites_DrDoom, 0x0e },
     { L"Winpose chair + butler (fade in 5/6)", 0x650ec, 0x6510c, indexCPS2Sprites_DrDoom, 0x0e },
     { L"Winpose chair + butler (fade in 6/6)", 0x650cc, 0x650ec, indexCPS2Sprites_DrDoom, 0x0e },
-
 };
 
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_UNUSED[] =
@@ -452,7 +451,7 @@ const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_UNUSED[] =
     { L"P2 Intro/Winpose fade in (5/6)", 0x6540c, 0x6542c, indexCPS2Sprites_DrDoom },
     { L"P2 Intro/Winpose fade in (6/6)", 0x653ec, 0x6540c, indexCPS2Sprites_DrDoom },
     { L"P? Main", 0x625cc, 0x625ec, indexCPS2Sprites_DrDoom },
-    { L"P? Flames + jHP", 0x625ec, 0x6260c, indexCPS2Sprites_DrDoom, 0x01 },
+    { L"P? Flames + jHP", 0x625ec, 0x6260c, indexCPS2Sprites_DrDoom, 0x08 },
     { L"P? Interrupted Normals", 0x6260c, 0x6262c, indexCPS2Sprites_DrDoom, 0x02 },
     { L"P? Copy of base (for glimmer/fade)", 0x654ec, 0x6550c, indexCPS2Sprites_DrDoom },
     { L"P? Attack glimmer (1/2)", 0x655cc, 0x655ec, indexCPS2Sprites_DrDoom },

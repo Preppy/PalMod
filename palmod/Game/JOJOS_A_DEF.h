@@ -1544,8 +1544,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
 {
     { L"Alessi & Sethan A", 0x33af00, 0x33af80, indexJojos51Alessi },
-    { L"Alessi - Wave Attack A", 0x33b780, 0x33b7c0, indexJojos51Alessi, 0x01 },
-    { L"Alessi - Winpose A", 0x33b800, 0x33b880, indexJojos51Alessi, 0x02 },
+    { L"Alessi - Wave Attack A", 0x33b780, 0x33b7c0, indexJojos51Alessi, 0x08 },
+    { L"Alessi - Winpose A", 0x33b800, 0x33b880, indexJojos51Alessi, 0x09 },
     { L"Alessi - VS/Super A", 0x411200, 0x411280, indexJojos51Alessi, indexJojos51Character_VsSuper },
     { L"Alessi - Challenger A", 0x411280, 0x411300, indexJojos51Alessi, indexJojos51Character_Challenger },
     { L"Alessi - Select/Winning A (1/2)", 0x411300, 0x411380, indexJojos51Alessi, indexJojos51Character_SelectWin1, &pairNext },
@@ -1560,8 +1560,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
 {
     { L"Alessi & Sethan B", 0x34f400, 0x34f480, indexJojos51Alessi },
-    { L"Alessi - Wave Attack B", 0x34fc80, 0x34fcc0, indexJojos51Alessi, 0x01 },
-    { L"Alessi - Winpose B", 0x34fd00, 0x34fd80, indexJojos51Alessi, 0x02 },
+    { L"Alessi - Wave Attack B", 0x34fc80, 0x34fcc0, indexJojos51Alessi, 0x08 },
+    { L"Alessi - Winpose B", 0x34fd00, 0x34fd80, indexJojos51Alessi, 0x09 },
     { L"Alessi - VS/Super B", 0x416000, 0x416080, indexJojos51Alessi, indexJojos51Character_VsSuper },
     { L"Alessi - Challenger B", 0x416080, 0x416100, indexJojos51Alessi, indexJojos51Character_Challenger },
     { L"Alessi - Select/Winning B (1/2)", 0x416100, 0x416180, indexJojos51Alessi, indexJojos51Character_SelectWin1, &pairNext },
@@ -1576,8 +1576,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
 {
     { L"Alessi & Sethan C", 0x363900, 0x363980, indexJojos51Alessi },
-    { L"Alessi - Wave Attack C", 0x364180, 0x3641c0, indexJojos51Alessi, 0x01 },
-    { L"Alessi - Winpose C", 0x364200, 0x364280, indexJojos51Alessi, 0x02 },
+    { L"Alessi - Wave Attack C", 0x364180, 0x3641c0, indexJojos51Alessi, 0x08 },
+    { L"Alessi - Winpose C", 0x364200, 0x364280, indexJojos51Alessi, 0x09 },
     { L"Alessi - VS/Super C", 0x41ae00, 0x41ae80, indexJojos51Alessi, indexJojos51Character_VsSuper },
     { L"Alessi - Challenger C", 0x41ae80, 0x41af00, indexJojos51Alessi, indexJojos51Character_Challenger },
     { L"Alessi - Select/Winning C (1/2)", 0x41af00, 0x41af80, indexJojos51Alessi, indexJojos51Character_SelectWin1, &pairNext },
@@ -1592,8 +1592,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
 {
     { L"Alessi & Sethan S", 0x377e00, 0x377e80, indexJojos51Alessi },
-    { L"Alessi - Wave Attack S", 0x378680, 0x3786c0, indexJojos51Alessi, 0x01 },
-    { L"Alessi - Winpose S", 0x378700, 0x378780, indexJojos51Alessi, 0x02 },
+    { L"Alessi - Wave Attack S", 0x378680, 0x3786c0, indexJojos51Alessi, 0x08 },
+    { L"Alessi - Winpose S", 0x378700, 0x378780, indexJojos51Alessi, 0x09 },
     { L"Alessi - VS/Super S", 0x41fc00, 0x41fc80, indexJojos51Alessi, indexJojos51Character_VsSuper },
     { L"Alessi - Challenger S", 0x41fc80, 0x41fd00, indexJojos51Alessi, indexJojos51Character_Challenger },
     { L"Alessi - Select/Winning S (1/2)", 0x41fd00, 0x41fd80, indexJojos51Alessi, indexJojos51Character_SelectWin1, &pairNext },
@@ -1608,8 +1608,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
 {
     { L"Alessi & Sethan Start", 0x38c300, 0x38c380, indexJojos51Alessi },
-    { L"Alessi - Wave Attack Start", 0x38cb80, 0x38cbc0, indexJojos51Alessi, 0x01 },
-    { L"Alessi - Winpose Start", 0x38cc00, 0x38cc80, indexJojos51Alessi, 0x02 },
+    { L"Alessi - Wave Attack Start", 0x38cb80, 0x38cbc0, indexJojos51Alessi, 0x08 },
+    { L"Alessi - Winpose Start", 0x38cc00, 0x38cc80, indexJojos51Alessi, 0x09 },
     { L"Alessi - VS/Super Start", 0x424a00, 0x424a80, indexJojos51Alessi, indexJojos51Character_VsSuper },
     { L"Alessi - Challenger Start", 0x424a80, 0x424b00, indexJojos51Alessi, indexJojos51Character_Challenger },
     { L"Alessi - Select/Winning Start (1/2)", 0x424b00, 0x424b80, indexJojos51Alessi, indexJojos51Character_SelectWin1, &pairNext },
@@ -1624,7 +1624,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
 {
     { L"Chaka & Anubis A", 0x33bb80, 0x33bc00, indexJojos51Chaka },
-    { L"Chaka - Super Trail A", 0x33c400, 0x33c480, indexJojos51Chaka, 0x01 },
+    { L"Chaka - Super Trail A", 0x33c400, 0x33c480, indexJojos51Chaka, 0x08 },
     { L"Chaka - VS/Super A", 0x411500, 0x411580, indexJojos51Chaka, indexJojos51Character_VsSuper },
     { L"Chaka - Challenger A", 0x411580, 0x411600, indexJojos51Chaka, indexJojos51Character_Challenger },
     { L"Chaka - Select/Winning A", 0x411600, 0x411680, indexJojos51Chaka, indexJojos51Character_SelectWin1 },
@@ -1638,7 +1638,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_B[] =
 {
     { L"Chaka & Anubis B", 0x350080, 0x350100, indexJojos51Chaka },
-    { L"Chaka - Super Trail B", 0x350900, 0x350980, indexJojos51Chaka, 0x01 },
+    { L"Chaka - Super Trail B", 0x350900, 0x350980, indexJojos51Chaka, 0x08 },
     { L"Chaka - VS/Super B", 0x416300, 0x416380, indexJojos51Chaka, indexJojos51Character_VsSuper },
     { L"Chaka - Challenger B", 0x416380, 0x416400, indexJojos51Chaka, indexJojos51Character_Challenger },
     { L"Chaka - Select/Winning B", 0x416400, 0x416480, indexJojos51Chaka, indexJojos51Character_SelectWin1 },
@@ -1652,7 +1652,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
 {
     { L"Chaka & Anubis C", 0x364580, 0x364600, indexJojos51Chaka },
-    { L"Chaka - Super Trail C", 0x364e00, 0x364e80, indexJojos51Chaka, 0x01 },
+    { L"Chaka - Super Trail C", 0x364e00, 0x364e80, indexJojos51Chaka, 0x08 },
     { L"Chaka - VS/Super C", 0x41b100, 0x41b180, indexJojos51Chaka, indexJojos51Character_VsSuper },
     { L"Chaka - Challenger C", 0x41b180, 0x41b200, indexJojos51Chaka, indexJojos51Character_Challenger },
     { L"Chaka - Select/Winning C", 0x41b200, 0x41b280, indexJojos51Chaka, indexJojos51Character_SelectWin1 },
@@ -1666,7 +1666,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_S[] =
 {
     { L"Chaka & Anubis S", 0x378a80, 0x378b00, indexJojos51Chaka },
-    { L"Chaka - Super Trail S", 0x379300, 0x379380, indexJojos51Chaka, 0x01 },
+    { L"Chaka - Super Trail S", 0x379300, 0x379380, indexJojos51Chaka, 0x08 },
     { L"Chaka - VS/Super S", 0x41ff00, 0x41ff80, indexJojos51Chaka, indexJojos51Character_VsSuper },
     { L"Chaka - Challenger S", 0x41ff80, 0x420000, indexJojos51Chaka, indexJojos51Character_Challenger },
     { L"Chaka - Select/Winning S", 0x420000, 0x420080, indexJojos51Chaka, indexJojos51Character_SelectWin1 },
@@ -1680,7 +1680,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
 {
     { L"Chaka & Anubis Start", 0x38cf80, 0x38d000, indexJojos51Chaka },
-    { L"Chaka - Super Trail Start", 0x38d800, 0x38d880, indexJojos51Chaka, 0x01 },
+    { L"Chaka - Super Trail Start", 0x38d800, 0x38d880, indexJojos51Chaka, 0x08 },
     { L"Chaka - VS/Super Start", 0x424d00, 0x424d80, indexJojos51Chaka, indexJojos51Character_VsSuper },
     { L"Chaka - Challenger Start", 0x424d80, 0x424e00, indexJojos51Chaka, indexJojos51Character_Challenger },
     { L"Chaka - Select/Winning Start", 0x424e00, 0x424e80, indexJojos51Chaka, indexJojos51Character_SelectWin1 },
@@ -1699,7 +1699,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_A[] =
     { L"Devo - Super Trail A (1/3)", 0x33d100, 0x33d180, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail A (2/3)", 0x33d180, 0x33d200, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail A (3/3)", 0x33d200, 0x33d280, indexJojos51Devo, 0x02 },
-    { L"Devo - Intro Stuff A", 0x33d400, 0x33d480, indexJojos51Devo, 0x01 },
+    { L"Devo - Intro Stuff A", 0x33d400, 0x33d480, indexJojos51Devo, 0x08 },
     { L"Devo - VS/Super A", 0x411800, 0x411880, indexJojos51Devo, indexJojos51Character_VsSuper },
     { L"Devo - Challenger A", 0x411880, 0x411900, indexJojos51Devo, indexJojos51Character_Challenger },
     { L"Devo - Select/Winning A (1/2)", 0x411900, 0x411980, indexJojos51Devo, indexJojos51Character_SelectWin1, &pairNext },
@@ -1719,7 +1719,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_B[] =
     { L"Devo - Super Trail B (1/3)", 0x351600, 0x351680, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail B (2/3)", 0x351680, 0x351700, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail B (3/3)", 0x351700, 0x351780, indexJojos51Devo, 0x02 },
-    { L"Devo - Intro Stuff B", 0x351900, 0x351980, indexJojos51Devo, 0x01 },
+    { L"Devo - Intro Stuff B", 0x351900, 0x351980, indexJojos51Devo, 0x08 },
     { L"Devo - VS/Super B", 0x416600, 0x416680, indexJojos51Devo, indexJojos51Character_VsSuper },
     { L"Devo - Challenger B", 0x416680, 0x416700, indexJojos51Devo, indexJojos51Character_Challenger },
     { L"Devo - Select/Winning B (1/2)", 0x416700, 0x416780, indexJojos51Devo, indexJojos51Character_SelectWin1, &pairNext },
@@ -1739,7 +1739,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_C[] =
     { L"Devo - Super Trail C (1/3)", 0x365b00, 0x365b80, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail C (2/3)", 0x365b80, 0x365c00, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail C (3/3)", 0x365c00, 0x365c80, indexJojos51Devo, 0x02 },
-    { L"Devo - Intro Stuff C", 0x365e00, 0x365e80, indexJojos51Devo, 0x01 },
+    { L"Devo - Intro Stuff C", 0x365e00, 0x365e80, indexJojos51Devo, 0x08 },
     { L"Devo - VS/Super C", 0x41b400, 0x41b480, indexJojos51Devo, indexJojos51Character_VsSuper },
     { L"Devo - Challenger C", 0x41b480, 0x41b500, indexJojos51Devo, indexJojos51Character_Challenger },
     { L"Devo - Select/Winning C (1/2)", 0x41b500, 0x41b580, indexJojos51Devo, indexJojos51Character_SelectWin1, &pairNext },
@@ -1759,7 +1759,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_S[] =
     { L"Devo - Super Trail S (1/3)", 0x37a000, 0x37a080, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail S (2/3)", 0x37a080, 0x37a100, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail S (3/3)", 0x37a100, 0x37a180, indexJojos51Devo, 0x02 },
-    { L"Devo - Intro Stuff S", 0x37a300, 0x37a380, indexJojos51Devo, 0x01 },
+    { L"Devo - Intro Stuff S", 0x37a300, 0x37a380, indexJojos51Devo, 0x08 },
     { L"Devo - VS/Super S", 0x420200, 0x420280, indexJojos51Devo, indexJojos51Character_VsSuper },
     { L"Devo - Challenger S", 0x420280, 0x420300, indexJojos51Devo, indexJojos51Character_Challenger },
     { L"Devo - Select/Winning S (1/2)", 0x420300, 0x420380, indexJojos51Devo, indexJojos51Character_SelectWin1, &pairNext },
@@ -1779,7 +1779,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_Start[] =
     { L"Devo - Super Trail Start (1/3)", 0x38e500, 0x38e580, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail Start (2/3)", 0x38e580, 0x38e600, indexJojos51Devo, 0x02 },
     { L"Devo - Super Trail Start (3/3)", 0x38e600, 0x38e680, indexJojos51Devo, 0x02 },
-    { L"Devo - Intro Stuff Start", 0x38e800, 0x38e880, indexJojos51Devo, 0x01 },
+    { L"Devo - Intro Stuff Start", 0x38e800, 0x38e880, indexJojos51Devo, 0x08 },
     { L"Devo - VS/Super Start", 0x425000, 0x425080, indexJojos51Devo, indexJojos51Character_VsSuper },
     { L"Devo - Challenger Start", 0x425080, 0x425100, indexJojos51Devo, indexJojos51Character_Challenger },
     { L"Devo - Select/Winning Start (1/2)", 0x425100, 0x425180, indexJojos51Devo, indexJojos51Character_SelectWin1, &pairNext },
@@ -1794,12 +1794,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
 {
     { L"Midler & High Priestess A", 0x33e100, 0x33e180, indexJojos51Midler },
-    { L"Midler - Afterimage A", 0x33E880, 0x33E900, indexJojos51Midler, 0x08 },
-    { L"Midler - Super Cars A (1/4)", 0x33e980, 0x33ea00, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars A (2/4)", 0x33ea00, 0x33ea80, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars A (3/4)", 0x33ea80, 0x33eb00, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars A (4/4)", 0x33eb00, 0x33eb80, indexJojos51Midler, 0x01 },
-    { L"Midler - Beam/Jaws A", 0x33eb80, 0x33ec00, indexJojos51Midler, 0x02 },
+    { L"Midler - Afterimage A", 0x33E880, 0x33E900, indexJojos51Midler, 0x02 },
+    { L"Midler - Super Cars A (1/4)", 0x33e980, 0x33ea00, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars A (2/4)", 0x33ea00, 0x33ea80, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars A (3/4)", 0x33ea80, 0x33eb00, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars A (4/4)", 0x33eb00, 0x33eb80, indexJojos51Midler, 0x0a },
+    { L"Midler - Beam/Jaws A", 0x33eb80, 0x33ec00, indexJojos51Midler, 0x09 },
     { L"Midler - VS/Super A", 0x411e00, 0x411e80, indexJojos51Midler, indexJojos51Character_VsSuper },
     { L"Midler - Challenger A", 0x411e80, 0x411f00, indexJojos51Midler, indexJojos51Character_Challenger },
     { L"Midler - Select/Winning A (1/2)", 0x411f00, 0x411f80, indexJojos51Midler, indexJojos51Character_SelectWin1, &pairNext },
@@ -1814,12 +1814,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
 {
     { L"Midler & High Priestess B", 0x352600, 0x352680, indexJojos51Midler },
-    { L"Midler - Afterimage B", 0x352D80, 0x352E00, indexJojos51Midler, 0x08 },
-    { L"Midler - Super Cars B (1/4)", 0x352e80, 0x352f00, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars B (2/4)", 0x352f00, 0x352f80, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars B (3/4)", 0x352f80, 0x353000, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars B (4/4)", 0x353000, 0x353080, indexJojos51Midler, 0x01 },
-    { L"Midler - Beam/Jaws B", 0x353080, 0x353100, indexJojos51Midler, 0x02 },
+    { L"Midler - Afterimage B", 0x352D80, 0x352E00, indexJojos51Midler, 0x02 },
+    { L"Midler - Super Cars B (1/4)", 0x352e80, 0x352f00, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars B (2/4)", 0x352f00, 0x352f80, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars B (3/4)", 0x352f80, 0x353000, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars B (4/4)", 0x353000, 0x353080, indexJojos51Midler, 0x0a },
+    { L"Midler - Beam/Jaws B", 0x353080, 0x353100, indexJojos51Midler, 0x09 },
     { L"Midler - VS/Super B", 0x416c00, 0x416c80, indexJojos51Midler, indexJojos51Character_VsSuper },
     { L"Midler - Challenger B", 0x416c80, 0x416d00, indexJojos51Midler, indexJojos51Character_Challenger },
     { L"Midler - Select/Winning B (1/2)", 0x416d00, 0x416d80, indexJojos51Midler, indexJojos51Character_SelectWin1, &pairNext },
@@ -1834,12 +1834,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
 {
     { L"Midler & High Priestess C", 0x366b00, 0x366b80, indexJojos51Midler },
-    { L"Midler - Afterimage C", 0x367280, 0x367300, indexJojos51Midler, 0x08 },
-    { L"Midler - Super Cars C (1/4)", 0x367380, 0x367400, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars C (2/4)", 0x367400, 0x367480, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars C (3/4)", 0x367480, 0x367500, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars C (4/4)", 0x367500, 0x367580, indexJojos51Midler, 0x01 },
-    { L"Midler - Beam/Jaws C", 0x367580, 0x367600, indexJojos51Midler, 0x02 },
+    { L"Midler - Afterimage C", 0x367280, 0x367300, indexJojos51Midler, 0x02 },
+    { L"Midler - Super Cars C (1/4)", 0x367380, 0x367400, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars C (2/4)", 0x367400, 0x367480, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars C (3/4)", 0x367480, 0x367500, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars C (4/4)", 0x367500, 0x367580, indexJojos51Midler, 0x0a },
+    { L"Midler - Beam/Jaws C", 0x367580, 0x367600, indexJojos51Midler, 0x09 },
     { L"Midler - VS/Super C", 0x41ba00, 0x41ba80, indexJojos51Midler, indexJojos51Character_VsSuper },
     { L"Midler - Challenger C", 0x41ba80, 0x41bb00, indexJojos51Midler, indexJojos51Character_Challenger },
     { L"Midler - Select/Winning C (1/2)", 0x41bb00, 0x41bb80, indexJojos51Midler, indexJojos51Character_SelectWin1, &pairNext },
@@ -1854,12 +1854,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
 {
     { L"Midler & High Priestess S", 0x37b000, 0x37b080, indexJojos51Midler },
-    { L"Midler - Afterimage S", 0x37B780, 0x37B800, indexJojos51Midler, 0x08 },
-    { L"Midler - Super Cars S (1/4)", 0x37b880, 0x37b900, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars S (2/4)", 0x37b900, 0x37b980, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars S (3/4)", 0x37b980, 0x37ba00, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars S (4/4)", 0x37ba00, 0x37ba80, indexJojos51Midler, 0x01 },
-    { L"Midler - Beam/Jaws S", 0x37ba80, 0x37bb00, indexJojos51Midler, 0x02 },
+    { L"Midler - Afterimage S", 0x37B780, 0x37B800, indexJojos51Midler, 0x02 },
+    { L"Midler - Super Cars S (1/4)", 0x37b880, 0x37b900, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars S (2/4)", 0x37b900, 0x37b980, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars S (3/4)", 0x37b980, 0x37ba00, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars S (4/4)", 0x37ba00, 0x37ba80, indexJojos51Midler, 0x0a },
+    { L"Midler - Beam/Jaws S", 0x37ba80, 0x37bb00, indexJojos51Midler, 0x09 },
     { L"Midler - VS/Super S", 0x420800, 0x420880, indexJojos51Midler, indexJojos51Character_VsSuper },
     { L"Midler - Challenger S", 0x420880, 0x420900, indexJojos51Midler, indexJojos51Character_Challenger },
     { L"Midler - Select/Winning S (1/2)", 0x420900, 0x420980, indexJojos51Midler, indexJojos51Character_SelectWin1, &pairNext },
@@ -1874,12 +1874,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
 {
     { L"Midler & High Priestess Start", 0x38f500, 0x38f580, indexJojos51Midler },
-    { L"Midler - Afterimage Start", 0x38FC80, 0x38FD00, indexJojos51Midler, 0x08 },
-    { L"Midler - Super Cars Start (1/4)", 0x38fd80, 0x38fe00, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars Start (2/4)", 0x38fe00, 0x38fe80, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars Start (3/4)", 0x38fe80, 0x38ff00, indexJojos51Midler, 0x01 },
-    { L"Midler - Super Cars Start (4/4)", 0x38ff00, 0x38ff80, indexJojos51Midler, 0x01 },
-    { L"Midler - Beam/Jaws Start", 0x38ff80, 0x390000, indexJojos51Midler, 0x02 },
+    { L"Midler - Afterimage Start", 0x38FC80, 0x38FD00, indexJojos51Midler, 0x02 },
+    { L"Midler - Super Cars Start (1/4)", 0x38fd80, 0x38fe00, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars Start (2/4)", 0x38fe00, 0x38fe80, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars Start (3/4)", 0x38fe80, 0x38ff00, indexJojos51Midler, 0x0a },
+    { L"Midler - Super Cars Start (4/4)", 0x38ff00, 0x38ff80, indexJojos51Midler, 0x0a },
+    { L"Midler - Beam/Jaws Start", 0x38ff80, 0x390000, indexJojos51Midler, 0x09 },
     { L"Midler - VS/Super Start", 0x425600, 0x425680, indexJojos51Midler, indexJojos51Character_VsSuper },
     { L"Midler - Challenger Start", 0x425680, 0x425700, indexJojos51Midler, indexJojos51Character_Challenger },
     { L"Midler - Select/Winning Start (1/2)", 0x425700, 0x425780, indexJojos51Midler, indexJojos51Character_SelectWin1, &pairNext },
@@ -1894,11 +1894,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
 {
     { L"DIO & The World A", 0x33ed80, 0x33ee00, indexJojos51Dio },
-    { L"DIO - Intro Stuff A", 0x33f700, 0x33f780, indexJojos51Dio, 0x01 },
-    { L"DIO - Bloody Summoning A", 0x33f800, 0x33f880, indexJojos51Dio, 0x02 },
+    { L"DIO - Intro Stuff A", 0x33f700, 0x33f780, indexJojos51Dio, 0x09 },
+    { L"DIO - Bloody Summoning A", 0x33f800, 0x33f880, indexJojos51Dio, 0x08 },
     { L"DIO - Teleport A (1/2)", 0x33f500, 0x33f580, indexJojos51Dio, indexJojos51Character_BurnZap },
     { L"DIO - Teleport A (2/2)", 0x33f680, 0x33f700, indexJojos51Dio, indexJojos51Character_BurnZap },
-    { L"DIO - Nukesaku A", 0x33f780, 0x33f7c0, indexJojos51Dio, 8 },
+    { L"DIO - Nukesaku A", 0x33f780, 0x33f7c0, indexJojos51Dio, 0x0a },
     { L"DIO - VS/Super A", 0x412100, 0x412180, indexJojos51Dio, indexJojos51Character_VsSuper },
     { L"DIO - Challenger A", 0x412180, 0x412200, indexJojos51Dio, indexJojos51Character_Challenger },
     { L"DIO - Select/Winning A (1/2)", 0x412200, 0x412280, indexJojos51Dio, indexJojos51Character_SelectWin1, &pairNext },
@@ -1913,11 +1913,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
 {
     { L"DIO & The World B", 0x353280, 0x353300, indexJojos51Dio },
-    { L"DIO - Intro Stuff B", 0x353c00, 0x353c80, indexJojos51Dio, 0x01 },
-    { L"DIO - Bloody Summoning B", 0x353d00, 0x353d80, indexJojos51Dio, 0x02 },
+    { L"DIO - Intro Stuff B", 0x353c00, 0x353c80, indexJojos51Dio, 0x09 },
+    { L"DIO - Bloody Summoning B", 0x353d00, 0x353d80, indexJojos51Dio, 0x08 },
     { L"DIO - Teleport B (1/2)", 0x353a00, 0x353a80, indexJojos51Dio, indexJojos51Character_BurnZap },
     { L"DIO - Teleport B (2/2)", 0x353b80, 0x353c00, indexJojos51Dio, indexJojos51Character_BurnZap },
-    { L"DIO - Nukesaku B", 0x353c80, 0x353cc0, indexJojos51Dio, 8 },
+    { L"DIO - Nukesaku B", 0x353c80, 0x353cc0, indexJojos51Dio, 0x0a },
     { L"DIO - VS/Super B", 0x416f00, 0x416f80, indexJojos51Dio, indexJojos51Character_VsSuper },
     { L"DIO - Challenger B", 0x416f80, 0x417000, indexJojos51Dio, indexJojos51Character_Challenger },
     { L"DIO - Select/Winning B (1/2)", 0x417000, 0x417080, indexJojos51Dio, indexJojos51Character_SelectWin1, &pairNext },
@@ -1932,11 +1932,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
 {
     { L"DIO & The World C", 0x367780, 0x367800, indexJojos51Dio },
-    { L"DIO - Intro Stuff C", 0x368100, 0x368180, indexJojos51Dio, 0x01 },
-    { L"DIO - Bloody Summoning C", 0x368200, 0x368280, indexJojos51Dio, 0x02 },
+    { L"DIO - Intro Stuff C", 0x368100, 0x368180, indexJojos51Dio, 0x09 },
+    { L"DIO - Bloody Summoning C", 0x368200, 0x368280, indexJojos51Dio, 0x08 },
     { L"DIO - Teleport C (1/2)", 0x367f00, 0x367f80, indexJojos51Dio, indexJojos51Character_BurnZap },
     { L"DIO - Teleport C (2/2)", 0x368080, 0x368100, indexJojos51Dio, indexJojos51Character_BurnZap },
-    { L"DIO - Nukesaku C", 0x368180, 0x3681c0, indexJojos51Dio, 8 },
+    { L"DIO - Nukesaku C", 0x368180, 0x3681c0, indexJojos51Dio, 0x0a },
     { L"DIO - VS/Super C", 0x41bd00, 0x41bd80, indexJojos51Dio, indexJojos51Character_VsSuper },
     { L"DIO - Challenger C", 0x41bd80, 0x41be00, indexJojos51Dio, indexJojos51Character_Challenger },
     { L"DIO - Select/Winning C (1/2)", 0x41be00, 0x41be80, indexJojos51Dio, indexJojos51Character_SelectWin1, &pairNext },
@@ -1951,11 +1951,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
 {
     { L"DIO & The World S", 0x37bc80, 0x37bd00, indexJojos51Dio },
-    { L"DIO - Intro Stuff S", 0x37c600, 0x37c680, indexJojos51Dio, 0x01 },
-    { L"DIO - Bloody Summoning S", 0x37c700, 0x37c780, indexJojos51Dio, 0x02 },
+    { L"DIO - Intro Stuff S", 0x37c600, 0x37c680, indexJojos51Dio, 0x09 },
+    { L"DIO - Bloody Summoning S", 0x37c700, 0x37c780, indexJojos51Dio, 0x08 },
     { L"DIO - Teleport S (1/2)", 0x37c400, 0x37c480, indexJojos51Dio, indexJojos51Character_BurnZap },
     { L"DIO - Teleport S (2/2)", 0x37c580, 0x37c600, indexJojos51Dio, indexJojos51Character_BurnZap },
-    { L"DIO - Nukesaku S", 0x37c680, 0x37c6c0, indexJojos51Dio, 8 },
+    { L"DIO - Nukesaku S", 0x37c680, 0x37c6c0, indexJojos51Dio, 0x0a },
     { L"DIO - VS/Super S", 0x420b00, 0x420b80, indexJojos51Dio, indexJojos51Character_VsSuper },
     { L"DIO - Challenger S", 0x420b80, 0x420c00, indexJojos51Dio, indexJojos51Character_Challenger },
     { L"DIO - Select/Winning S (1/2)", 0x420c00, 0x420c80, indexJojos51Dio, indexJojos51Character_SelectWin1, &pairNext },
@@ -1970,11 +1970,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
 {
     { L"DIO & The World Start", 0x390180, 0x390200, indexJojos51Dio },
-    { L"DIO - Intro Stuff Start", 0x390b00, 0x390b80, indexJojos51Dio, 0x01 },
-    { L"DIO - Bloody Summoning Start", 0x390c00, 0x390c80, indexJojos51Dio, 0x02 },
+    { L"DIO - Intro Stuff Start", 0x390b00, 0x390b80, indexJojos51Dio, 0x09 },
+    { L"DIO - Bloody Summoning Start", 0x390c00, 0x390c80, indexJojos51Dio, 0x08 },
     { L"DIO - Teleport Start (1/2)", 0x390900, 0x390980, indexJojos51Dio, indexJojos51Character_BurnZap },
     { L"DIO - Teleport Start (2/2)", 0x390a80, 0x390b00, indexJojos51Dio, indexJojos51Character_BurnZap },
-    { L"DIO - Nukesaku Start", 0x390b80, 0x390bc0, indexJojos51Dio, 8 },
+    { L"DIO - Nukesaku Start", 0x390b80, 0x390bc0, indexJojos51Dio, 0x0a },
     { L"DIO - VS/Super Start", 0x425900, 0x425980, indexJojos51Dio, indexJojos51Character_VsSuper },
     { L"DIO - Challenger Start", 0x425980, 0x425a00, indexJojos51Dio, indexJojos51Character_Challenger },
     { L"DIO - Select/Winning Start (1/2)", 0x425a00, 0x425a80, indexJojos51Dio, indexJojos51Character_SelectWin1, &pairNext },
@@ -1989,11 +1989,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
 {
     { L"Evil Incarnate Dio & The World A", 0x341300, 0x341380, indexJojos51SDio },
-    { L"Evil Incarnate Dio - Super Trail A", 0x341b80, 0x341c00, indexJojos51SDio, 0x01 },
+    { L"Evil Incarnate Dio - Super Trail A", 0x341b80, 0x341c00, indexJojos51SDio, 0x09 },
     { L"Evil Incarnate Dio - Stand Trail A (1/3)", 0x341ac0, 0x341ae0, indexJojos51SDio, 0x02 },
-    { L"Evil Incarnate Dio - Stand Trail A (2/3)", 0x341ec0, 0x341ee0, indexJojos51SDio, 2},
+    { L"Evil Incarnate Dio - Stand Trail A (2/3)", 0x341ec0, 0x341ee0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail A (3/3)", 0x341b40, 0x341b60, indexJojos51SDio, 0x02 },
-    { L"Evil Incarnate Dio - Wang Chan A", 0x341d00, 0x341d40, indexJojos51SDio, 8 },
+    { L"Evil Incarnate Dio - Wang Chan A", 0x341d00, 0x341d40, indexJojos51SDio, 0x0a },
     { L"Evil Incarnate Dio - VS/Super A", 0x412a00, 0x412a80, indexJojos51SDio, indexJojos51Character_VsSuper },
     { L"Evil Incarnate Dio - Challenger A", 0x412a80, 0x412b00, indexJojos51SDio, indexJojos51Character_Challenger },
     { L"Evil Incarnate Dio - Select/Winning A", 0x412b00, 0x412b80, indexJojos51SDio, indexJojos51Character_SelectWin1 },
@@ -2007,11 +2007,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_B[] =
 {
     { L"Evil Incarnate Dio & The World B", 0x355800, 0x355880, indexJojos51SDio },
-    { L"Evil Incarnate Dio - Super Trail B", 0x356080, 0x356100, indexJojos51SDio, 0x01 },
+    { L"Evil Incarnate Dio - Super Trail B", 0x356080, 0x356100, indexJojos51SDio, 0x09 },
     { L"Evil Incarnate Dio - Stand Trail B (1/3)", 0x355fc0, 0x355fe0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail B (2/3)", 0x3563c0, 0x3563e0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail B (3/3)", 0x356040, 0x356060, indexJojos51SDio, 0x02 },
-    { L"Evil Incarnate Dio - Wang Chan B", 0x356200, 0x356240, indexJojos51SDio, 8 },
+    { L"Evil Incarnate Dio - Wang Chan B", 0x356200, 0x356240, indexJojos51SDio, 0x0a },
     { L"Evil Incarnate Dio - VS/Super B", 0x417800, 0x417880, indexJojos51SDio, indexJojos51Character_VsSuper },
     { L"Evil Incarnate Dio - Challenger B", 0x417880, 0x417900, indexJojos51SDio, indexJojos51Character_Challenger },
     { L"Evil Incarnate Dio - Select/Winning B", 0x417900, 0x417980, indexJojos51SDio, indexJojos51Character_SelectWin1 },
@@ -2025,11 +2025,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
 {
     { L"Evil Incarnate Dio & The World C", 0x369d00, 0x369d80, indexJojos51SDio },
-    { L"Evil Incarnate Dio - Super Trail C", 0x36a580, 0x36a600, indexJojos51SDio, 0x01 },
+    { L"Evil Incarnate Dio - Super Trail C", 0x36a580, 0x36a600, indexJojos51SDio, 0x09 },
     { L"Evil Incarnate Dio - Stand Trail C (1/3)", 0x36a4c0, 0x36a4e0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail C (2/3)", 0x36a8c0, 0x36a8e0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail C (3/3)", 0x36a540, 0x36a560, indexJojos51SDio, 0x02 },
-    { L"Evil Incarnate Dio - Wang Chan C", 0x36a700, 0x36a740, indexJojos51SDio, 8 },
+    { L"Evil Incarnate Dio - Wang Chan C", 0x36a700, 0x36a740, indexJojos51SDio, 0x0a },
     { L"Evil Incarnate Dio - VS/Super C", 0x41c600, 0x41c680, indexJojos51SDio, indexJojos51Character_VsSuper },
     { L"Evil Incarnate Dio - Challenger C", 0x41c680, 0x41c700, indexJojos51SDio, indexJojos51Character_Challenger },
     { L"Evil Incarnate Dio - Select/Winning Screen C", 0x41c700, 0x41c780, indexJojos51SDio, indexJojos51Character_SelectWin1 },
@@ -2043,11 +2043,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_S[] =
 {
     { L"Evil Incarnate Dio & The World S", 0x37e200, 0x37e280, indexJojos51SDio },
-    { L"Evil Incarnate Dio - Super Trail S", 0x37ea80, 0x37eb00, indexJojos51SDio, 0x01 },
+    { L"Evil Incarnate Dio - Super Trail S", 0x37ea80, 0x37eb00, indexJojos51SDio, 0x09 },
     { L"Evil Incarnate Dio - Stand Trail S (1/3)", 0x37e9c0, 0x37e9e0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail S (2/3)",  0x37edc0, 0x37ede0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail S (3/3)", 0x37ea40, 0x37ea60, indexJojos51SDio, 0x02 },
-    { L"Evil Incarnate Dio - Wang Chan S", 0x37ec00, 0x37ec40, indexJojos51SDio, 8 },
+    { L"Evil Incarnate Dio - Wang Chan S", 0x37ec00, 0x37ec40, indexJojos51SDio, 0x0a },
     { L"Evil Incarnate Dio - VS/Super S", 0x421400, 0x421480, indexJojos51SDio, indexJojos51Character_VsSuper },
     { L"Evil Incarnate Dio - Challenger S", 0x421480, 0x421500, indexJojos51SDio, indexJojos51Character_Challenger },
     { L"Evil Incarnate Dio - Select/Winning Screen S", 0x421500, 0x421580, indexJojos51SDio, indexJojos51Character_SelectWin1 },
@@ -2061,11 +2061,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_Start[] =
 {
     { L"Evil Incarnate Dio & The World Start", 0x392700, 0x392780, indexJojos51SDio },
-    { L"Evil Incarnate Dio - Super Trail Start", 0x392f80, 0x393000, indexJojos51SDio, 0x01 },
+    { L"Evil Incarnate Dio - Super Trail Start", 0x392f80, 0x393000, indexJojos51SDio, 0x09 },
     { L"Evil Incarnate Dio - Stand Trail Start (1/3)", 0x392ec0, 0x392ee0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail Start (2/3)", 0x3932c0, 0x3932e0, indexJojos51SDio, 0x02 },
     { L"Evil Incarnate Dio - Stand Trail Start (3/3)", 0x392f40, 0x392f60, indexJojos51SDio, 0x02 },
-    { L"Evil Incarnate Dio - Wang Chan Start", 0x393100, 0x393140, indexJojos51SDio, 8 },
+    { L"Evil Incarnate Dio - Wang Chan Start", 0x393100, 0x393140, indexJojos51SDio, 0x0a },
     { L"Evil Incarnate Dio - VS/Super Start", 0x426200, 0x426280, indexJojos51SDio, indexJojos51Character_VsSuper },
     { L"Evil Incarnate Dio - Challenger Start", 0x426280, 0x426300, indexJojos51SDio, indexJojos51Character_Challenger },
     { L"Evil Incarnate Dio - Select/Winning Screen Start", 0x426300, 0x426380, indexJojos51SDio, indexJojos51Character_SelectWin1 },
@@ -2149,10 +2149,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
 {
     { L"Hol Horse & Emperor A", 0x342c00, 0x342c80, indexJojos51Hol, 0x00 },
-    { L"Hol Horse - Trace of Bullets A", 0x343540, 0x343560 },
-    { L"Hol Horse - Rapid Fire A (1/2)", 0x3435C0, 0x3435E0 },
-    { L"Hol Horse - Rapid Fire A (2/2)", 0x343640, 0x343660 },
-    { L"Hol Horse - Intro/Winpose Stuff & Boingo A", 0x343480, 0x343500, indexJojos51Hol, 0x03 },
+    { L"Hol Horse - Trace of Bullets A", 0x343540, 0x343560, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire A (1/2)", 0x3435C0, 0x3435E0, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire A (2/2)", 0x343640, 0x343660, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Intro/Winpose Stuff & Boingo A", 0x343480, 0x343500, indexJojos51Hol, 0x09 },
     { L"Hol Horse - VS/Super A", 0x413000, 0x413080, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger A", 0x413080, 0x413100, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning A", 0x413100, 0x413180, indexJojos51Hol, 0x06 },
@@ -2166,10 +2166,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
 {
     { L"Hol Horse & Emperor B", 0x357100, 0x357180, indexJojos51Hol, 0x00 },
-    { L"Hol Horse - Trace of Bullets B", 0x357A40, 0x357A60 },
-    { L"Hol Horse - Rapid Fire B (1/2)", 0x357AC0, 0x357AE0 },
-    { L"Hol Horse - Rapid Fire B (2/2)", 0x357B40, 0x357B60 },
-    { L"Hol Horse - Intro/Winpose Stuff & Boingo B", 0x357980, 0x357a00, indexJojos51Hol, 0x03 },
+    { L"Hol Horse - Trace of Bullets B", 0x357A40, 0x357A60, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire B (1/2)", 0x357AC0, 0x357AE0, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire B (2/2)", 0x357B40, 0x357B60, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Intro/Winpose Stuff & Boingo B", 0x357980, 0x357a00, indexJojos51Hol, 0x09 },
     { L"Hol Horse - VS/Super B", 0x417e00, 0x417e80, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger B", 0x417e80, 0x417f00, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning B", 0x417f00, 0x417f80, indexJojos51Hol, 0x06 },
@@ -2183,10 +2183,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
 {
     { L"Hol Horse & Emperor C", 0x36b600, 0x36b680, indexJojos51Hol, 0x00 },
-    { L"Hol Horse - Trace of Bullets C", 0x36BF40, 0x36BF60 },
-    { L"Hol Horse - Rapid Fire C (1/2)", 0x36BFC0, 0x36BFE0 },
-    { L"Hol Horse - Rapid Fire C (2/2)", 0x36C040, 0x36C060 },
-    { L"Hol Horse - Intro/Winpose Stuff & Boingo C", 0x36be80, 0x36bf00, indexJojos51Hol, 0x03 },
+    { L"Hol Horse - Trace of Bullets C", 0x36BF40, 0x36BF60, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire C (1/2)", 0x36BFC0, 0x36BFE0, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire C (2/2)", 0x36C040, 0x36C060, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Intro/Winpose Stuff & Boingo C", 0x36be80, 0x36bf00, indexJojos51Hol, 0x09 },
     { L"Hol Horse - VS/Super C", 0x41cc00, 0x41cc80, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger C", 0x41cc80, 0x41cd00, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning C", 0x41cd00, 0x41cd80, indexJojos51Hol, 0x06 },
@@ -2200,10 +2200,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
 {
     { L"Hol Horse & Emperor S", 0x37fb00, 0x37fb80, indexJojos51Hol, 0x00 },
-    { L"Hol Horse - Trace of Bullets S", 0x380440, 0x380460 },
-    { L"Hol Horse - Rapid Fire S (1/2)", 0x3804C0, 0x3804E0 },
-    { L"Hol Horse - Rapid Fire S (2/2)", 0x380540, 0x380560 },
-    { L"Hol Horse - Intro/Winpose Stuff & Boingo S", 0x380380, 0x380400, indexJojos51Hol, 0x03 },
+    { L"Hol Horse - Trace of Bullets S", 0x380440, 0x380460, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire S (1/2)", 0x3804C0, 0x3804E0, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire S (2/2)", 0x380540, 0x380560, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Intro/Winpose Stuff & Boingo S", 0x380380, 0x380400, indexJojos51Hol, 0x09 },
     { L"Hol Horse - VS/Super S", 0x421a00, 0x421a80, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger S", 0x421a80, 0x421b00, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning S", 0x421b00, 0x421b80, indexJojos51Hol, 0x06 },
@@ -2217,10 +2217,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
 {
     { L"Hol Horse & Emperor Start", 0x394000, 0x394080, indexJojos51Hol, 0x00 },
-    { L"Hol Horse - Trace of Bullets Start", 0x394940, 0x394960 },
-    { L"Hol Horse - Rapid Fire Start (1/2)", 0x3949C0, 0x3949E0 },
-    { L"Hol Horse - Rapid Fire Start (2/2)", 0x394A40, 0x394A60 },
-    { L"Hol Horse - Intro/Winpose Stuff & Boingo Start", 0x394880, 0x394900, indexJojos51Hol, 0x03 },
+    { L"Hol Horse - Trace of Bullets Start", 0x394940, 0x394960, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire Start (1/2)", 0x3949C0, 0x3949E0, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Rapid Fire Start (2/2)", 0x394A40, 0x394A60, indexJojos51Hol, 0x08 },
+    { L"Hol Horse - Intro/Winpose Stuff & Boingo Start", 0x394880, 0x394900, indexJojos51Hol, 0x09 },
     { L"Hol Horse - VS/Super Start", 0x426800, 0x426880, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger Start", 0x426880, 0x426900, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning Screen Start", 0x426900, 0x426980, indexJojos51Hol, 0x06 },
@@ -2242,7 +2242,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
     { L"Vanilla Ice - Burning A (2/2)", 0x343980, 0x343a00, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap A (1/2)", 0x343c00, 0x343c80, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap A (2/2)", 0x343c80, 0x343d00, indexJojos51VIce, indexJojos51Character_BurnZap },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation A", 0x343f00, 0x343f80 },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation A", 0x343f00, 0x343f80, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
@@ -2304,16 +2304,17 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =
 {
     { L"Fearless Kakyoin & Hierophant Green A", 0x344500, 0x344580, indexJojos51NewKakyo },
-    { L"Fearless Kakyoin - Changing Pal A (1/7)", 0x344d80, 0x344e00, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped },
-    { L"Fearless Kakyoin - Changing Pal A (2/7)", 0x344e00, 0x344e80, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped2 },
-    { L"Fearless Kakyoin - Changing Pal A (3/7)", 0x344e80, 0x344f00, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped3 },
-    { L"Fearless Kakyoin - Changing Pal A (4/7)", 0x344f00, 0x344f80, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped4 },
-    { L"Fearless Kakyoin - Changing Pal A (5/7)", 0x344f80, 0x345000, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped5 },
-    { L"Fearless Kakyoin - Changing Pal A (6/7)", 0x345000, 0x345080, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped6 },
-    { L"Fearless Kakyoin - Changing Pal A (7/7)", 0x345080, 0x345100, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped7 },
-    { L"Fearless Kakyoin - Sparkles A", 0x345100, 0x345120, indexJojos51NewKakyo, 0x08 },
-    { L"Fearless Kakyoin - Raging Demon Trail A", 0x344c80, 0x344d00, indexJojos51NewKakyo, 0x09 },
-    { L"Fearless Kakyoin - Remote Mode Afterimage A", 0x344980, 0x344A00, indexJojos51NewKakyo, 0x0a },
+    // Disable the pairing until we get the new imgdat...
+    { L"Fearless Kakyoin - Changing Pal A (1/7)", 0x344d80, 0x344e00, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped },
+    { L"Fearless Kakyoin - Changing Pal A (2/7)", 0x344e00, 0x344e80, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped2 },
+    { L"Fearless Kakyoin - Changing Pal A (3/7)", 0x344e80, 0x344f00, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped3 },
+    { L"Fearless Kakyoin - Changing Pal A (4/7)", 0x344f00, 0x344f80, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped4 },
+    { L"Fearless Kakyoin - Changing Pal A (5/7)", 0x344f80, 0x345000, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped5 },
+    { L"Fearless Kakyoin - Changing Pal A (6/7)", 0x345000, 0x345080, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped6 },
+    { L"Fearless Kakyoin - Changing Pal A (7/7)", 0x345080, 0x345100, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped7 },
+    { L"Fearless Kakyoin - Sparkles A", 0x345100, 0x345120, indexJojos51NewKakyo, 0x08, &pairPrevious8 },
+    { L"Fearless Kakyoin - Raging Demon Trail A", 0x344c80, 0x344d00, indexJojos51NewKakyo, 0x02 },
+    { L"Fearless Kakyoin - Remote Mode Afterimage A", 0x344980, 0x344A00, indexJojos51NewKakyo, 0x02 },
     { L"Fearless Kakyoin - VS/Super A", 0x413600, 0x413680, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
     { L"Fearless Kakyoin - Challenger A", 0x413680, 0x413700, indexJojos51NewKakyo, indexJojos51Character_Challenger },
     { L"Fearless Kakyoin - Select/Winning A (1/2)", 0x413700, 0x413780, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2328,16 +2329,16 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
 {
     { L"Fearless Kakyoin & Hierophant Green B", 0x358a00, 0x358a80, indexJojos51NewKakyo },
-    { L"Fearless Kakyoin - Changing Pal B (1/7)", 0x359280, 0x359300, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped },
-    { L"Fearless Kakyoin - Changing Pal B (2/7)", 0x359300, 0x359380, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped2 },
-    { L"Fearless Kakyoin - Changing Pal B (3/7)", 0x359380, 0x359400, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped3 },
-    { L"Fearless Kakyoin - Changing Pal B (4/7)", 0x359400, 0x359480, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped4 },
-    { L"Fearless Kakyoin - Changing Pal B (5/7)", 0x359480, 0x359500, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped5 },
-    { L"Fearless Kakyoin - Changing Pal B (6/7)", 0x359500, 0x359580, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped6 },
-    { L"Fearless Kakyoin - Changing Pal B (7/7)", 0x359580, 0x359600, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped7 },
-    { L"Fearless Kakyoin - Sparkles B", 0x359600, 0x359620, indexJojos51NewKakyo, 0x08 },
-    { L"Fearless Kakyoin - Raging Demon Trail B", 0x359180, 0x359200, indexJojos51NewKakyo, 0x09 },
-    { L"Fearless Kakyoin - Remote Mode Afterimage B", 0x358E80, 0x358F00, indexJojos51NewKakyo, 0x0a },
+    { L"Fearless Kakyoin - Changing Pal B (1/7)", 0x359280, 0x359300, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped },
+    { L"Fearless Kakyoin - Changing Pal B (2/7)", 0x359300, 0x359380, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped2 },
+    { L"Fearless Kakyoin - Changing Pal B (3/7)", 0x359380, 0x359400, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped3 },
+    { L"Fearless Kakyoin - Changing Pal B (4/7)", 0x359400, 0x359480, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped4 },
+    { L"Fearless Kakyoin - Changing Pal B (5/7)", 0x359480, 0x359500, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped5 },
+    { L"Fearless Kakyoin - Changing Pal B (6/7)", 0x359500, 0x359580, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped6 },
+    { L"Fearless Kakyoin - Changing Pal B (7/7)", 0x359580, 0x359600, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped7 },
+    { L"Fearless Kakyoin - Sparkles B", 0x359600, 0x359620, indexJojos51NewKakyo, 0x08, &pairPrevious8 },
+    { L"Fearless Kakyoin - Raging Demon Trail B", 0x359180, 0x359200, indexJojos51NewKakyo, 0x02 },
+    { L"Fearless Kakyoin - Remote Mode Afterimage B", 0x358E80, 0x358F00, indexJojos51NewKakyo, 0x02 },
     { L"Fearless Kakyoin - VS/Super B", 0x418400, 0x418480, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
     { L"Fearless Kakyoin - Challenger B", 0x418480, 0x418500, indexJojos51NewKakyo, indexJojos51Character_Challenger },
     { L"Fearless Kakyoin - Select/Winning B (1/2)", 0x418500, 0x418580, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2352,16 +2353,16 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_C[] =
 {
     { L"Fearless Kakyoin & Hierophant Green C", 0x36cf00, 0x36cf80, indexJojos51NewKakyo },
-    { L"Fearless Kakyoin - Changing Pal C (1/7)", 0x36d780, 0x36d800, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped },
-    { L"Fearless Kakyoin - Changing Pal C (2/7)", 0x36d800, 0x36d880, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped2 },
-    { L"Fearless Kakyoin - Changing Pal C (3/7)", 0x36d880, 0x36d900, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped3 },
-    { L"Fearless Kakyoin - Changing Pal C (4/7)", 0x36d900, 0x36d980, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped4 },
-    { L"Fearless Kakyoin - Changing Pal C (5/7)", 0x36d980, 0x36da00, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped5 },
-    { L"Fearless Kakyoin - Changing Pal C (6/7)", 0x36da00, 0x36da80, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped6 },
-    { L"Fearless Kakyoin - Changing Pal C (7/7)", 0x36da80, 0x36db00, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped7 },
-    { L"Fearless Kakyoin - Sparkles C", 0x36db00, 0x36db20, indexJojos51NewKakyo, 0x08 },
-    { L"Fearless Kakyoin - Raging Demon Trail C", 0x36d680, 0x36d700, indexJojos51NewKakyo, 0x09 },
-    { L"Fearless Kakyoin - Remote Mode Afterimage C", 0x36D380,0x36D400, indexJojos51NewKakyo, 0x0a },
+    { L"Fearless Kakyoin - Changing Pal C (1/7)", 0x36d780, 0x36d800, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped },
+    { L"Fearless Kakyoin - Changing Pal C (2/7)", 0x36d800, 0x36d880, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped2 },
+    { L"Fearless Kakyoin - Changing Pal C (3/7)", 0x36d880, 0x36d900, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped3 },
+    { L"Fearless Kakyoin - Changing Pal C (4/7)", 0x36d900, 0x36d980, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped4 },
+    { L"Fearless Kakyoin - Changing Pal C (5/7)", 0x36d980, 0x36da00, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped5 },
+    { L"Fearless Kakyoin - Changing Pal C (6/7)", 0x36da00, 0x36da80, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped6 },
+    { L"Fearless Kakyoin - Changing Pal C (7/7)", 0x36da80, 0x36db00, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped7 }, 
+    { L"Fearless Kakyoin - Sparkles C", 0x36db00, 0x36db20, indexJojos51NewKakyo, 0x08, &pairPrevious8 },
+    { L"Fearless Kakyoin - Raging Demon Trail C", 0x36d680, 0x36d700, indexJojos51NewKakyo, 0x02 },
+    { L"Fearless Kakyoin - Remote Mode Afterimage C", 0x36D380,0x36D400, indexJojos51NewKakyo, 0x02 },
     { L"Fearless Kakyoin - VS/Super C", 0x41d200, 0x41d280, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
     { L"Fearless Kakyoin - Challenger C", 0x41d280, 0x41d300, indexJojos51NewKakyo, indexJojos51Character_Challenger },
     { L"Fearless Kakyoin - Select/Winning C (1/2)", 0x41d300, 0x41d380, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2376,16 +2377,16 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
 {
     { L"Fearless Kakyoin & Hierophant Green S", 0x381400, 0x381480, indexJojos51NewKakyo },
-    { L"Fearless Kakyoin - Changing Pal S (1/7)", 0x381c80, 0x381d00, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped },
-    { L"Fearless Kakyoin - Changing Pal S (2/7)", 0x381d00, 0x381d80, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped2 },
-    { L"Fearless Kakyoin - Changing Pal S (3/7)", 0x381d80, 0x381e00, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped3 },
-    { L"Fearless Kakyoin - Changing Pal S (4/7)", 0x381e00, 0x381e80, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped4 },
-    { L"Fearless Kakyoin - Changing Pal S (5/7)", 0x381e80, 0x381f00, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped5 },
-    { L"Fearless Kakyoin - Changing Pal S (6/7)", 0x381f00, 0x381f80, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped6 },
-    { L"Fearless Kakyoin - Changing Pal S (7/7)", 0x381f80, 0x382000, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped7 },
-    { L"Fearless Kakyoin - Sparkles S", 0x382000, 0x382020, indexJojos51NewKakyo, 0x08 },
-    { L"Fearless Kakyoin - Raging Demon Trail S", 0x381b80, 0x381c00, indexJojos51NewKakyo, 0x09 },
-    { L"Fearless Kakyoin - Remote Mode Afterimage S", 0x381880, 0x381900, indexJojos51NewKakyo, 0x0a },
+    { L"Fearless Kakyoin - Changing Pal S (1/7)", 0x381c80, 0x381d00, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped },
+    { L"Fearless Kakyoin - Changing Pal S (2/7)", 0x381d00, 0x381d80, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped2 },
+    { L"Fearless Kakyoin - Changing Pal S (3/7)", 0x381d80, 0x381e00, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped3 },
+    { L"Fearless Kakyoin - Changing Pal S (4/7)", 0x381e00, 0x381e80, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped4 },
+    { L"Fearless Kakyoin - Changing Pal S (5/7)", 0x381e80, 0x381f00, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped5 },
+    { L"Fearless Kakyoin - Changing Pal S (6/7)", 0x381f00, 0x381f80, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped6 },
+    { L"Fearless Kakyoin - Changing Pal S (7/7)", 0x381f80, 0x382000, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped7 },
+    { L"Fearless Kakyoin - Sparkles S", 0x382000, 0x382020, indexJojos51NewKakyo, 0x08, &pairPrevious8 },
+    { L"Fearless Kakyoin - Raging Demon Trail S", 0x381b80, 0x381c00, indexJojos51NewKakyo, 0x02 },
+    { L"Fearless Kakyoin - Remote Mode Afterimage S", 0x381880, 0x381900, indexJojos51NewKakyo, 0x02 },
     { L"Fearless Kakyoin - VS/Super S", 0x422000, 0x422080, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
     { L"Fearless Kakyoin - Challenger S", 0x422080, 0x422100, indexJojos51NewKakyo, indexJojos51Character_Challenger },
     { L"Fearless Kakyoin - Select/Winning S (1/2)", 0x422100, 0x422180, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2400,16 +2401,16 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_Start[] =
 {
     { L"Fearless Kakyoin & Hierophant Green Start", 0x395900, 0x395980, indexJojos51NewKakyo },
-    { L"Fearless Kakyoin - Changing Pal Start (1/7)", 0x396180, 0x396200, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped },
-    { L"Fearless Kakyoin - Changing Pal Start (2/7)", 0x396200, 0x396280, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped2 },
-    { L"Fearless Kakyoin - Changing Pal Start (3/7)", 0x396280, 0x396300, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped3 },
-    { L"Fearless Kakyoin - Changing Pal Start (4/7)", 0x396300, 0x396380, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped4 },
-    { L"Fearless Kakyoin - Changing Pal Start (5/7)", 0x396380, 0x396400, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped5 },
-    { L"Fearless Kakyoin - Changing Pal Start (6/7)", 0x396400, 0x396480, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped6 },
-    { L"Fearless Kakyoin - Changing Pal Start (7/7)", 0x396480, 0x396500, indexJojos51NewKakyo, 0x01, &pairPreviousFlipped7 },
-    { L"Fearless Kakyoin - Sparkles Start", 0x396500, 0x396520, indexJojos51NewKakyo, 0x08 },
-    { L"Fearless Kakyoin - Raging Demon Trail Start", 0x396080, 0x396100, indexJojos51NewKakyo, 0x09 },
-    { L"Fearless Kakyoin - Remote Mode Afterimage Start", 0x395D80, 0x395E00, indexJojos51NewKakyo, 0x0a },
+    { L"Fearless Kakyoin - Changing Pal Start (1/7)", 0x396180, 0x396200, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped },
+    { L"Fearless Kakyoin - Changing Pal Start (2/7)", 0x396200, 0x396280, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped2 },
+    { L"Fearless Kakyoin - Changing Pal Start (3/7)", 0x396280, 0x396300, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped3 },
+    { L"Fearless Kakyoin - Changing Pal Start (4/7)", 0x396300, 0x396380, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped4 },
+    { L"Fearless Kakyoin - Changing Pal Start (5/7)", 0x396380, 0x396400, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped5 },
+    { L"Fearless Kakyoin - Changing Pal Start (6/7)", 0x396400, 0x396480, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped6 },
+    { L"Fearless Kakyoin - Changing Pal Start (7/7)", 0x396480, 0x396500, indexJojos51NewKakyo, 0x01 }, // &pairPreviousFlipped7 },
+    { L"Fearless Kakyoin - Sparkles Start", 0x396500, 0x396520, indexJojos51NewKakyo, 0x08, &pairPrevious8 },
+    { L"Fearless Kakyoin - Raging Demon Trail Start", 0x396080, 0x396100, indexJojos51NewKakyo, 0x02 },
+    { L"Fearless Kakyoin - Remote Mode Afterimage Start", 0x395D80, 0x395E00, indexJojos51NewKakyo, 0x02 },
     { L"Fearless Kakyoin - VS/Super Start", 0x426e00, 0x426e80, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
     { L"Fearless Kakyoin - Challenger Start", 0x426e80, 0x426f00, indexJojos51NewKakyo, indexJojos51Character_Challenger },
     { L"Fearless Kakyoin - Select/Winning Start (1/2)", 0x426f00, 0x426f80, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2494,7 +2495,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_A[] =
 {
     { L"Pet Shop & Horus A", 0x345e00, 0x345e80, indexJojos51Petshop },
-    { L"Pet Shop - Egg & Wealthy Beggar A", 0x346680, 0x346700, indexJojos51Petshop, 0x01 },
+    { L"Pet Shop - Egg & Wealthy Beggar A", 0x346680, 0x346700, indexJojos51Petshop, 0x08 },
     { L"Pet Shop - VS/Super A", 0x413c00, 0x413c80, indexJojos51Petshop, indexJojos51Character_VsSuper },
     { L"Pet Shop - Challenger A", 0x413c80, 0x413d00, indexJojos51Petshop, indexJojos51Character_Challenger },
     { L"Pet Shop - Select/Winning A (1/2)", 0x413d00, 0x413d80, indexJojos51Petshop, indexJojos51Character_SelectWin1, &pairNext },
@@ -2509,7 +2510,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
 {
     { L"Pet Shop & Horus B", 0x35a300, 0x35a380, indexJojos51Petshop },
-    { L"Pet Shop - Egg & Wealthy Beggar B", 0x35AB80, 0x35AC00, indexJojos51Petshop, 0x01 },
+    { L"Pet Shop - Egg & Wealthy Beggar B", 0x35AB80, 0x35AC00, indexJojos51Petshop, 0x08 },
     { L"Pet Shop - VS/Super B", 0x418a00, 0x418a80, indexJojos51Petshop, indexJojos51Character_VsSuper },
     { L"Pet Shop - Challenger B", 0x418a80, 0x418b00, indexJojos51Petshop, indexJojos51Character_Challenger },
     { L"Pet Shop - Select/Winning B (1/2)", 0x418b00, 0x418b80, indexJojos51Petshop, indexJojos51Character_SelectWin1, &pairNext },
@@ -2524,7 +2525,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_C[] =
 {
     { L"Pet Shop & Horus C", 0x36e800, 0x36e880, indexJojos51Petshop },
-    { L"Pet Shop - Egg & Wealthy Beggar C", 0x36F080, 0x36F100, indexJojos51Petshop, 0x01 },
+    { L"Pet Shop - Egg & Wealthy Beggar C", 0x36F080, 0x36F100, indexJojos51Petshop, 0x08 },
     { L"Pet Shop - VS/Super C", 0x41d800, 0x41d880, indexJojos51Petshop, indexJojos51Character_VsSuper },
     { L"Pet Shop - Challenger C", 0x41d880, 0x41d900, indexJojos51Petshop, indexJojos51Character_Challenger },
     { L"Pet Shop - Select/Winning C (1/2)", 0x41d900, 0x41d980, indexJojos51Petshop, indexJojos51Character_SelectWin1, &pairNext },
@@ -2539,7 +2540,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
 {
     { L"Pet Shop & Horus S", 0x382d00, 0x382d80, indexJojos51Petshop },
-    { L"Pet Shop - Egg & Wealthy Beggar S", 0x383580, 0x383600, indexJojos51Petshop, 0x01 },
+    { L"Pet Shop - Egg & Wealthy Beggar S", 0x383580, 0x383600, indexJojos51Petshop, 0x08 },
     { L"Pet Shop - VS/Super S", 0x422600, 0x422680, indexJojos51Petshop, indexJojos51Character_VsSuper },
     { L"Pet Shop - Challenger S", 0x422680, 0x422700, indexJojos51Petshop, indexJojos51Character_Challenger },
     { L"Pet Shop - Select/Winning S (1/2)", 0x422700, 0x422780, indexJojos51Petshop, indexJojos51Character_SelectWin1, &pairNext },
@@ -2554,7 +2555,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
 {
     { L"Pet Shop & Horus Start", 0x397200, 0x397280, indexJojos51Petshop },
-    { L"Pet Shop - Egg & Wealthy Beggar Start", 0x397A80, 0x397B00, indexJojos51Petshop, 0x01 },
+    { L"Pet Shop - Egg & Wealthy Beggar Start", 0x397A80, 0x397B00, indexJojos51Petshop, 0x08 },
     { L"Pet Shop - VS/Super Start", 0x427400, 0x427480, indexJojos51Petshop, indexJojos51Character_VsSuper },
     { L"Pet Shop - Challenger Start", 0x427480, 0x427500, indexJojos51Petshop, indexJojos51Character_Challenger },
     { L"Pet Shop - Select/Winning Start (1/2)", 0x427500, 0x427580, indexJojos51Petshop, indexJojos51Character_SelectWin1, &pairNext },
@@ -2572,7 +2573,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
     { L"Mariah - Luxor Old Woman A", 0x347f80, 0x348000, indexJojos51Mariah, 0x09 },
     { L"Mariah - Winpose Stuff A (1/2)", 0x348000, 0x348080, indexJojos51Mariah, 0x0a },
     { L"Mariah - Winpose Stuff A (2/2)", 0x348080, 0x348100, indexJojos51Mariah, 0x0b },
-    { L"Mariah - Bastet A", 0x348100, 0x348180, indexJojos51Mariah, 8 },
+    { L"Mariah - Bastet A", 0x348100, 0x348180, indexJojos51Mariah, 0x08 },
     { L"Mariah - VS/Super A", 0x414200, 0x414280, indexJojos51Mariah, indexJojos51Character_VsSuper },
     { L"Mariah - Challenger A", 0x414280, 0x414300, indexJojos51Mariah, indexJojos51Character_Challenger },
     { L"Mariah - Select/Winning A", 0x414300, 0x414380, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
@@ -2589,7 +2590,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
     { L"Mariah - Luxor Old Woman B", 0x35c480, 0x35c500, indexJojos51Mariah, 0x09 },
     { L"Mariah - Winpose Stuff B (1/2)", 0x35c500, 0x35c580, indexJojos51Mariah, 0x0a },
     { L"Mariah - Winpose Stuff B (2/2)", 0x35c580, 0x35c600, indexJojos51Mariah, 0x0b },
-    { L"Mariah - Bastet B", 0x35c600, 0x35c680, indexJojos51Mariah, 8 },
+    { L"Mariah - Bastet B", 0x35c600, 0x35c680, indexJojos51Mariah, 0x08 },
     { L"Mariah - VS/Super B", 0x419000, 0x419080, indexJojos51Mariah, indexJojos51Character_VsSuper },
     { L"Mariah - Challenger B", 0x419080, 0x419100, indexJojos51Mariah, indexJojos51Character_Challenger },
     { L"Mariah - Select/Winning B", 0x419100, 0x419180, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
@@ -2606,7 +2607,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
     { L"Mariah - Luxor Old Woman C", 0x370980, 0x370a00, indexJojos51Mariah, 0x09 },
     { L"Mariah - Winpose Stuff C (1/2)", 0x370a00, 0x370a80, indexJojos51Mariah, 0x0a },
     { L"Mariah - Winpose Stuff C (2/2)", 0x370a80, 0x370b00, indexJojos51Mariah, 0x0b },
-    { L"Mariah - Bastet C", 0x370b00, 0x370b80, indexJojos51Mariah, 8 },
+    { L"Mariah - Bastet C", 0x370b00, 0x370b80, indexJojos51Mariah, 0x08 },
     { L"Mariah - VS/Super C", 0x41de00, 0x41de80, indexJojos51Mariah, indexJojos51Character_VsSuper },
     { L"Mariah - Challenger C", 0x41de80, 0x41df00, indexJojos51Mariah, indexJojos51Character_Challenger },
     { L"Mariah - Select/Winning C", 0x41df00, 0x41df80, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
@@ -2623,7 +2624,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
     { L"Mariah - Luxor Old Woman S", 0x384e80, 0x384f00, indexJojos51Mariah, 0x09 },
     { L"Mariah - Winpose Stuff S (1/2)", 0x384f00, 0x384f80, indexJojos51Mariah, 0x0a },
     { L"Mariah - Winpose Stuff S (2/2)", 0x384f80, 0x385000, indexJojos51Mariah, 0x0b },
-    { L"Mariah - Bastet S", 0x385000, 0x385080, indexJojos51Mariah, 8 },
+    { L"Mariah - Bastet S", 0x385000, 0x385080, indexJojos51Mariah, 0x08 },
     { L"Mariah - VS/Super S", 0x422c00, 0x422c80, indexJojos51Mariah, indexJojos51Character_VsSuper },
     { L"Mariah - Challenger S", 0x422c80, 0x422d00, indexJojos51Mariah, indexJojos51Character_Challenger },
     { L"Mariah - Select/Winning S", 0x422d00, 0x422d80, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
@@ -2640,7 +2641,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
     { L"Mariah - Luxor Old Woman Start", 0x399380, 0x399400, indexJojos51Mariah, 0x09 },
     { L"Mariah - Winpose Stuff Start (1/2)", 0x399400, 0x399480, indexJojos51Mariah, 0x0a },
     { L"Mariah - Winpose Stuff Start (2/2)", 0x399480, 0x399500, indexJojos51Mariah, 0x0b },
-    { L"Mariah - Bastet Start", 0x399500, 0x399580, indexJojos51Mariah, 8 },
+    { L"Mariah - Bastet Start", 0x399500, 0x399580, indexJojos51Mariah, 0x08 },
     { L"Mariah - VS/Super Start", 0x427a00, 0x427a80, indexJojos51Mariah, indexJojos51Character_VsSuper },
     { L"Mariah - Challenger Start", 0x427a80, 0x427b00, indexJojos51Mariah, indexJojos51Character_Challenger },
     { L"Mariah - Select/Winning Start", 0x427b00, 0x427b80, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
@@ -2654,8 +2655,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
 {
     { L"Hol Horse & Boingo A", 0x348380, 0x348400, indexJojos51HolBoingo },
-    { L"Hol Horse & Boingo - Child Form A", 0x348c00, 0x348c80, indexJojos51HolBoingo, 0x01 },
-    { L"Hol Horse & Boingo - Trace of Bullets A", 0x348CC0, 0x348CE0 },
+    { L"Hol Horse & Boingo - Child Form A", 0x348c00, 0x348c80, indexJojos51HolBoingo, 0x09 },
+    { L"Hol Horse & Boingo - Trace of Bullets A", 0x348CC0, 0x348CE0, indexJojos51HolBoingo, 0x08 },
     { L"Hol Horse & Boingo - VS/Super A", 0x414500, 0x414580, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol Horse & Boingo - Challenger A", 0x414580, 0x414600, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol Horse & Boingo - Select/Winning A (1/2)", 0x414600, 0x414680, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2670,8 +2671,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_B[] =
 {
     { L"Hol Horse & Boingo B", 0x35c880, 0x35c900, indexJojos51HolBoingo },
-    { L"Hol Horse & Boingo - Child Form B", 0x35d100, 0x35d180, indexJojos51HolBoingo, 0x01 },
-    { L"Hol Horse & Boingo - Trace of Bullets B", 0x35D1C0, 0x35D1E0 },
+    { L"Hol Horse & Boingo - Child Form B", 0x35d100, 0x35d180, indexJojos51HolBoingo, 0x09 },
+    { L"Hol Horse & Boingo - Trace of Bullets B", 0x35D1C0, 0x35D1E0, indexJojos51HolBoingo, 0x08 },
     { L"Hol Horse & Boingo - VS/Super B", 0x419300, 0x419380, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol Horse & Boingo - Challenger B", 0x419380, 0x419400, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol Horse & Boingo - Select/Winning B (1/2)", 0x419400, 0x419480, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2686,8 +2687,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
 {
     { L"Hol Horse & Boingo C", 0x370d80, 0x370e00, indexJojos51HolBoingo },
-    { L"Hol Horse & Boingo - Child Form C", 0x371600, 0x371680, indexJojos51HolBoingo, 0x01 },
-    { L"Hol Horse & Boingo - Trace of Bullets C", 0x3716C0, 0x3716E0 },
+    { L"Hol Horse & Boingo - Child Form C", 0x371600, 0x371680, indexJojos51HolBoingo, 0x09 },
+    { L"Hol Horse & Boingo - Trace of Bullets C", 0x3716C0, 0x3716E0, indexJojos51HolBoingo, 0x08 },
     { L"Hol Horse & Boingo - VS/Super C", 0x41e100, 0x41e180, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol Horse & Boingo - Challenger C", 0x41e180, 0x41e200, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol Horse & Boingo - Select/Winning C (1/2)", 0x41e200, 0x41e280, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2702,8 +2703,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_S[] =
 {
     { L"Hol Horse & Boingo S", 0x385280, 0x385300, indexJojos51HolBoingo },
-    { L"Hol Horse & Boingo - Child Form S", 0x385b00, 0x385b80, indexJojos51HolBoingo, 0x01 },
-    { L"Hol Horse & Boingo - Trace of Bullets S", 0x385BC0, 0x385BE0 },
+    { L"Hol Horse & Boingo - Child Form S", 0x385b00, 0x385b80, indexJojos51HolBoingo, 0x09 },
+    { L"Hol Horse & Boingo - Trace of Bullets S", 0x385BC0, 0x385BE0, indexJojos51HolBoingo, 0x08 },
     { L"Hol Horse & Boingo - VS/Super S", 0x422f00, 0x422f80, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol Horse & Boingo - Challenger S", 0x422f80, 0x423000, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol Horse & Boingo - Select/Winning S (1/2)", 0x423000, 0x423080, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2718,8 +2719,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
 {
     { L"Hol Horse & Boingo Start", 0x399780, 0x399800, indexJojos51HolBoingo },
-    { L"Hol Horse & Boingo - Child Form Start", 0x39a000, 0x39a080, indexJojos51HolBoingo, 0x01 },
-    { L"Hol Horse & Boingo - Trace of Bullets Start", 0x39A0C0, 0x39A0E0 },
+    { L"Hol Horse & Boingo - Child Form Start", 0x39a000, 0x39a080, indexJojos51HolBoingo, 0x09 },
+    { L"Hol Horse & Boingo - Trace of Bullets Start", 0x39A0C0, 0x39A0E0, indexJojos51HolBoingo, 0x08 },
     { L"Hol Horse & Boingo - VS/Super Start", 0x427d00, 0x427d80, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol Horse & Boingo - Challenger Start", 0x427d80, 0x427e00, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol Horse & Boingo - Select/Winning Start (1/2)", 0x427e00, 0x427e80, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairNext },
@@ -2734,7 +2735,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
 {
     { L"Rubber Soul & Yellow Temperance A", 0x349000, 0x349080, indexJojos51RSoul },
-    { L"Rubber Soul - Impersonation A", 0x349780, 0x349800, indexJojos51RSoul, 0x01 },
+    { L"Rubber Soul - Impersonation A", 0x349780, 0x349800, indexJojos51RSoul, 0x08 },
     { L"Rubber Soul - VS/Super A", 0x414800, 0x414880, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { L"Rubber Soul - Challenger A", 0x414880, 0x414900, indexJojos51RSoul, indexJojos51Character_Challenger },
     { L"Rubber Soul - Select/Winning A", 0x414900, 0x414980, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
@@ -2748,7 +2749,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
 {
     { L"Rubber Soul & Yellow Temperance B", 0x35d500, 0x35d580, indexJojos51RSoul },
-    { L"Rubber Soul - Impersonation B", 0x35dc80, 0x35dd00, indexJojos51RSoul, 0x01 },
+    { L"Rubber Soul - Impersonation B", 0x35dc80, 0x35dd00, indexJojos51RSoul, 0x08 },
     { L"Rubber Soul - VS/Super B", 0x419600, 0x419680, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { L"Rubber Soul - Challenger B", 0x419680, 0x419700, indexJojos51RSoul, indexJojos51Character_Challenger },
     { L"Rubber Soul - Select/Winning B", 0x419700, 0x419780, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
@@ -2762,7 +2763,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
 {
     { L"Rubber Soul & Yellow Temperance C", 0x371a00, 0x371a80, indexJojos51RSoul },
-    { L"Rubber Soul - Impersonation C", 0x372180, 0x372200, indexJojos51RSoul, 0x01 },
+    { L"Rubber Soul - Impersonation C", 0x372180, 0x372200, indexJojos51RSoul, 0x08 },
     { L"Rubber Soul - VS/Super C", 0x41e400, 0x41e480, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { L"Rubber Soul - Challenger C", 0x41e480, 0x41e500, indexJojos51RSoul, indexJojos51Character_Challenger },
     { L"Rubber Soul - Select/Winning C", 0x41e500, 0x41e580, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
@@ -2776,7 +2777,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
 {
     { L"Rubber Soul & Yellow Temperance S", 0x385f00, 0x385f80, indexJojos51RSoul },
-    { L"Rubber Soul - Impersonation S", 0x386680, 0x386700, indexJojos51RSoul, 0x01 },
+    { L"Rubber Soul - Impersonation S", 0x386680, 0x386700, indexJojos51RSoul, 0x08 },
     { L"Rubber Soul - VS/Super S", 0x423200, 0x423280, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { L"Rubber Soul - Challenger S", 0x423280, 0x423300, indexJojos51RSoul, indexJojos51Character_Challenger },
     { L"Rubber Soul - Select/Winning S", 0x423300, 0x423380, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
@@ -2790,7 +2791,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
 {
     { L"Rubber Soul & Yellow Temperance Start", 0x39a400, 0x39a480, indexJojos51RSoul },
-    { L"Rubber Soul - Impersonation Start", 0x39ab80, 0x39ac00, indexJojos51RSoul, 0x01 },
+    { L"Rubber Soul - Impersonation Start", 0x39ab80, 0x39ac00, indexJojos51RSoul, 0x08 },
     { L"Rubber Soul - VS/Super Start", 0x428000, 0x428080, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { L"Rubber Soul - Challenger Start", 0x428080, 0x428100, indexJojos51RSoul, indexJojos51Character_Challenger },
     { L"Rubber Soul - Select/Winning Start", 0x428100, 0x428180, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
@@ -2804,85 +2805,85 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =
 {
     { L"Khan & Anubis A", 0x349c80, 0x349d00, indexJojos51Khan },
-    { L"Khan - Intro Card A", 0x34a600, 0x34a620, indexJojos51Khan, 0x01 },
-    { L"Khan - Counter Anubis A", 0x34a780, 0x34a7a0, indexJojos51Khan, 0x02 },
-    { L"Khan - Special Slash A", 0x34a700, 0x34a720, indexJojos51Khan, 8 },
-    { L"Khan - Dust A", 0x34a680, 0x34a6a0 },
+    { L"Khan - Intro Card A", 0x34a600, 0x34a620, indexJojos51Khan, 0x0b },
+    { L"Khan - Counter Anubis A", 0x34a780, 0x34a7a0, indexJojos51Khan, 0x09 },
+    { L"Khan - Special Slash A", 0x34a700, 0x34a720, indexJojos51Khan, 0x0c },
+    { L"Khan - Dust A", 0x34a680, 0x34a6a0, indexJojos51Khan, 0x0a },
     { L"Khan - VS/Super A", 0x414b00, 0x414b80, indexJojos51Khan, indexJojos51Character_VsSuper },
     { L"Khan - Challenger A", 0x414b80, 0x414c00, indexJojos51Khan, indexJojos51Character_Challenger },
     { L"Khan - Select/Winning A", 0x414c00, 0x414c80, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { L"Khan - Burning A (1/2)", 0x349d00, 0x349d80, indexJojos51Khan, indexJojos51Character_BurnZap },
     { L"Khan - Burning A (2/2)", 0x349d80, 0x349e00, indexJojos51Khan, indexJojos51Character_BurnZap },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter A (1/2)", 0x34a000, 0x34a080, indexJojos51Khan, 6 },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter A (2/2)", 0x34a080, 0x34a100, indexJojos51Khan, 6 },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter A (1/2)", 0x34a000, 0x34a080, indexJojos51Khan, 0x0d },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter A (2/2)", 0x34a080, 0x34a100, indexJojos51Khan, 0x0d },
     { L"Khan - Guard Cancel/Child Transformation A", 0x34a300, 0x34a380, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
 {
     { L"Khan & Anubis B", 0x35e180, 0x35e200, indexJojos51Khan },
-    { L"Khan - Intro Card B", 0x35eb00, 0x35eb20, indexJojos51Khan, 0x01 },
-    { L"Khan - Counter Anubis B", 0x35ec80, 0x35eca0, indexJojos51Khan, 0x02 },
-    { L"Khan - Special Slash B", 0x35ec00, 0x35ec20, indexJojos51Khan, 8 },
-    { L"Khan - Dust B", 0x35eb80, 0x35eba0 },
+    { L"Khan - Intro Card B", 0x35eb00, 0x35eb20, indexJojos51Khan, 0x0b },
+    { L"Khan - Counter Anubis B", 0x35ec80, 0x35eca0, indexJojos51Khan, 0x09 },
+    { L"Khan - Special Slash B", 0x35ec00, 0x35ec20, indexJojos51Khan, 0x0c },
+    { L"Khan - Dust B", 0x35eb80, 0x35eba0, indexJojos51Khan, 0x0a },
     { L"Khan - VS/Super B", 0x419900, 0x419980, indexJojos51Khan, indexJojos51Character_VsSuper },
     { L"Khan - Challenger B", 0x419980, 0x419a00, indexJojos51Khan, indexJojos51Character_Challenger },
     { L"Khan - Select/Winning B", 0x419a00, 0x419a80, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { L"Khan - Burning B (1/2)", 0x35e200, 0x35e280, indexJojos51Khan, indexJojos51Character_BurnZap },
     { L"Khan - Burning B (2/2)", 0x35e280, 0x35e300, indexJojos51Khan, indexJojos51Character_BurnZap },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter B (1/2)", 0x35e500, 0x35e580, indexJojos51Khan, 6 },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter B (2/2)", 0x35e580, 0x35e600, indexJojos51Khan, 6 },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter B (1/2)", 0x35e500, 0x35e580, indexJojos51Khan, 0x0d },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter B (2/2)", 0x35e580, 0x35e600, indexJojos51Khan, 0x0d },
     { L"Khan - Guard Cancel/Child Transformation B", 0x35e800, 0x35e880, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
 {
     { L"Khan & Anubis C", 0x372680, 0x372700, indexJojos51Khan },
-    { L"Khan - Intro Card C", 0x373000, 0x373020, indexJojos51Khan, 0x01 },
-    { L"Khan - Counter Anubis C", 0x373180, 0x3731a0, indexJojos51Khan, 0x02 },
-    { L"Khan - Special Slash C", 0x373100, 0x373120, indexJojos51Khan, 8 },
-    { L"Khan - Dust C", 0x373080, 0x3730a0 },
+    { L"Khan - Intro Card C", 0x373000, 0x373020, indexJojos51Khan, 0x0b },
+    { L"Khan - Counter Anubis C", 0x373180, 0x3731a0, indexJojos51Khan, 0x09 },
+    { L"Khan - Special Slash C", 0x373100, 0x373120, indexJojos51Khan, 0x0c },
+    { L"Khan - Dust C", 0x373080, 0x3730a0, indexJojos51Khan, 0x0a },
     { L"Khan - VS/Super C", 0x41e700, 0x41e780, indexJojos51Khan, indexJojos51Character_VsSuper },
     { L"Khan - Challenger C", 0x41e780, 0x41e800, indexJojos51Khan, indexJojos51Character_Challenger },
     { L"Khan - Select/Winning C", 0x41e800, 0x41e880, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { L"Khan - Burning C (1/2)", 0x372700, 0x372780, indexJojos51Khan, indexJojos51Character_BurnZap },
     { L"Khan - Burning C (2/2)", 0x372780, 0x372800, indexJojos51Khan, indexJojos51Character_BurnZap },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter C (1/2)", 0x372a00, 0x372a80, indexJojos51Khan, 6 },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter C (2/2)", 0x372a80, 0x372b00, indexJojos51Khan, 6 },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter C (1/2)", 0x372a00, 0x372a80, indexJojos51Khan, 0x0d },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter C (2/2)", 0x372a80, 0x372b00, indexJojos51Khan, 0x0d },
     { L"Khan - Guard Cancel/Child Transformation C", 0x372d00, 0x372d80, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
 {
     { L"Khan & Anubis S", 0x386b80, 0x386c00, indexJojos51Khan },
-    { L"Khan - Intro Card S", 0x387500, 0x387520, indexJojos51Khan, 0x01 },
-    { L"Khan - Counter Anubis S", 0x387680, 0x3876a0, indexJojos51Khan, 0x02 },
-    { L"Khan - Special Slash S", 0x387600, 0x387620, indexJojos51Khan, 8 },
-    { L"Khan - Dust S", 0x387580, 0x3875a0 },
+    { L"Khan - Intro Card S", 0x387500, 0x387520, indexJojos51Khan, 0x0b },
+    { L"Khan - Counter Anubis S", 0x387680, 0x3876a0, indexJojos51Khan, 0x09 },
+    { L"Khan - Special Slash S", 0x387600, 0x387620, indexJojos51Khan, 0x0c },
+    { L"Khan - Dust S", 0x387580, 0x3875a0, indexJojos51Khan, 0x0a },
     { L"Khan - VS/Super S", 0x423500, 0x423580, indexJojos51Khan, indexJojos51Character_VsSuper },
     { L"Khan - Challenger S", 0x423580, 0x423600, indexJojos51Khan, indexJojos51Character_Challenger },
     { L"Khan - Select/Winning S", 0x423600, 0x423680, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { L"Khan - Burning S (1/2)", 0x386c00, 0x386c80, indexJojos51Khan, indexJojos51Character_BurnZap },
     { L"Khan - Burning S (2/2)", 0x386c80, 0x386d00, indexJojos51Khan, indexJojos51Character_BurnZap },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter S (1/2)", 0x386f00, 0x386f80, indexJojos51Khan, 6 },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter S (2/2)", 0x386f80, 0x387000, indexJojos51Khan, 6 },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter S (1/2)", 0x386f00, 0x386f80, indexJojos51Khan, 0x0d },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter S (2/2)", 0x386f80, 0x387000, indexJojos51Khan, 0x0d },
     { L"Khan - Guard Cancel/Child Transformation S", 0x387200, 0x387280, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
 {
     { L"Khan & Anubis Start", 0x39b080, 0x39b100, indexJojos51Khan },
-    { L"Khan - Intro Card Start", 0x39ba00, 0x39ba20, indexJojos51Khan, 0x01 },
-    { L"Khan - Counter Anubis Start", 0x39bb80, 0x39bba0, indexJojos51Khan, 0x02 },
-    { L"Khan - Special Slash Start", 0x39bb00, 0x39bb20, indexJojos51Khan, 8 },
-    { L"Khan - Dust Start", 0x39ba80, 0x39baa0 },
+    { L"Khan - Intro Card Start", 0x39ba00, 0x39ba20, indexJojos51Khan, 0x0b },
+    { L"Khan - Counter Anubis Start", 0x39bb80, 0x39bba0, indexJojos51Khan, 0x09 },
+    { L"Khan - Special Slash Start", 0x39bb00, 0x39bb20, indexJojos51Khan, 0x0c },
+    { L"Khan - Dust Start", 0x39ba80, 0x39baa0, indexJojos51Khan, 0x0a },
     { L"Khan - VS/Super Start", 0x428300, 0x428380, indexJojos51Khan, indexJojos51Character_VsSuper },
     { L"Khan - Challenger Start", 0x428380, 0x428400, indexJojos51Khan, indexJojos51Character_Challenger },
     { L"Khan - Select/Winning Start", 0x428400, 0x428480, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { L"Khan - Burning Start (1/2)", 0x39b100, 0x39b180, indexJojos51Khan, indexJojos51Character_BurnZap },
     { L"Khan - Burning Start (2/2)", 0x39b180, 0x39b200, indexJojos51Khan, indexJojos51Character_BurnZap },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter Start (1/2)", 0x39b400, 0x39b480, indexJojos51Khan, 6 },
-    { L"Khan - Tech/Zap/Sword Slashes/Counter Start (2/2)", 0x39b480, 0x39b500, indexJojos51Khan, 6 },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter Start (1/2)", 0x39b400, 0x39b480, indexJojos51Khan, 0x0d },
+    { L"Khan - Tech/Zap/Sword Slashes/Counter Start (2/2)", 0x39b480, 0x39b500, indexJojos51Khan, 0x0d },
     { L"Khan - Guard Cancel/Child Transformation Start", 0x39b700, 0x39b780, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
@@ -4048,8 +4049,8 @@ const sGame_PaletteDataset JOJOS_A_AVDOL_STORY_PALETTES[] =
 {
     { L"Imprisoned Jotaro", 0x2ebf00, 0x2ec000, indexJojos51StoryMode, 0x00 },
     { L"Avdol Airport Cutscene Portrait", 0x2ec200, 0x2ec280, indexJojos51StoryMode, 0x0d },
-    { L"Holly and Joseph Airport Cutscene", 0x2ec100, 0x2ec180 },
-    { L"Holly and Joseph Airport Cutscene BG", 0x2ec180, 0x2ec200 },
+    { L"Holly and Joseph Airport Cutscene", 0x2ec100, 0x2ec180, indexJojos51StoryMode, 0x25, &pairNextFlipped },
+    { L"Holly and Joseph Airport Cutscene BG", 0x2ec180, 0x2ec200, indexJojos51StoryMode, 0x26, &pairPrevious },
 };
 
 // nearly complete, still needs the bg location for Polnareff Joining DIO and DIO Stab (might have shared bg)

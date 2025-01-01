@@ -405,6 +405,8 @@ enum JOJOS_51_CHARACTERS
     indexVentureSprites_Kakyo,  // 0x20
     indexVentureSprites_Iggy,   // 0x21
     indexVentureSprites_YSeph,  // 0x22
+    indexVentureSprites_Seph,   // 0x23
+    indexVentureSprites_Bonus,  // 0x24
 };
 
 // Used by both Jojos and Venture

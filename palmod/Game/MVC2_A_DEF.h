@@ -2160,7 +2160,7 @@ const sGame_PaletteDataset MVC2_A_DRDOOM_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MVC2_A_DRDOOM_PALETTES_EXTRAS[] =
 {
-    { L"09: LP Intro", 0x3400140, 0x3400160, indexCPS2Sprites_DrDoom, 11 },
+    { L"09: LP Intro", 0x3400140, 0x3400160, indexCPS2Sprites_DrDoom, 11, &pairNextAndNext },
     { L"0a: LP Intro - Chair", 0x3400160, 0x3400180, indexCPS2Sprites_DrDoom, 12 },
     { L"0b: LP Intro - Portal", 0x3400180, 0x34001a0, indexCPS2Sprites_DrDoom, 13 },
     { L"0c: LP Winpose (butler, chair and minions)", 0x34001a0, 0x34001c0, indexCPS2Sprites_DrDoom, 14 },
@@ -2188,7 +2188,7 @@ const sGame_PaletteDataset MVC2_A_DRDOOM_PALETTES_EXTRAS[] =
     { L"22: Not Used", 0x3400460, 0x3400480 },
     { L"23: Not Used", 0x3400480, 0x34004a0 },
     { L"24: Not Used", 0x34004a0, 0x34004c0 },
-    { L"25: LK Intro", 0x34004c0, 0x34004e0, indexCPS2Sprites_DrDoom, 11 },
+    { L"25: LK Intro", 0x34004c0, 0x34004e0, indexCPS2Sprites_DrDoom, 11, &pairNextAndNext },
     { L"26: LK Intro - Chair", 0x34004e0, 0x3400500, indexCPS2Sprites_DrDoom, 12 },
     { L"27: LK Intro - Portal", 0x3400500, 0x3400520, indexCPS2Sprites_DrDoom, 13 },
     { L"28: LK Winpose (butler, chair and minions)", 0x3400520, 0x3400540, indexCPS2Sprites_DrDoom, 14 },
@@ -2216,7 +2216,7 @@ const sGame_PaletteDataset MVC2_A_DRDOOM_PALETTES_EXTRAS[] =
     { L"3e: Not Used", 0x34007e0, 0x3400800 },
     { L"3f: Not Used", 0x3400800, 0x3400820 },
     { L"40: Not Used", 0x3400820, 0x3400840 },
-    { L"41: HP Intro", 0x3400840, 0x3400860, indexCPS2Sprites_DrDoom, 11 },
+    { L"41: HP Intro", 0x3400840, 0x3400860, indexCPS2Sprites_DrDoom, 11, &pairNextAndNext },
     { L"42: HP Intro - Chair", 0x3400860, 0x3400880, indexCPS2Sprites_DrDoom, 12 },
     { L"43: HP Intro - Portal", 0x3400880, 0x34008a0, indexCPS2Sprites_DrDoom, 13 },
     { L"44: HP Winpose (butler, chair and minions)", 0x34008a0, 0x34008c0, indexCPS2Sprites_DrDoom, 14 },
@@ -2244,7 +2244,7 @@ const sGame_PaletteDataset MVC2_A_DRDOOM_PALETTES_EXTRAS[] =
     { L"5a: Not Used", 0x3400b60, 0x3400b80 },
     { L"5b: Not Used", 0x3400b80, 0x3400ba0 },
     { L"5c: Not Used", 0x3400ba0, 0x3400bc0 },
-    { L"5d: HK Intro", 0x3400bc0, 0x3400be0, indexCPS2Sprites_DrDoom, 11 },
+    { L"5d: HK Intro", 0x3400bc0, 0x3400be0, indexCPS2Sprites_DrDoom, 11, &pairNextAndNext },
     { L"5e: HK Intro - Chair", 0x3400be0, 0x3400c00, indexCPS2Sprites_DrDoom, 12 },
     { L"5f: HK Intro - Portal", 0x3400c00, 0x3400c20, indexCPS2Sprites_DrDoom, 13 },
     { L"60: HK Winpose (butler, chair and minions)", 0x3400c20, 0x3400c40, indexCPS2Sprites_DrDoom, 14 },
@@ -2272,7 +2272,7 @@ const sGame_PaletteDataset MVC2_A_DRDOOM_PALETTES_EXTRAS[] =
     { L"76: Not Used", 0x3400ee0, 0x3400f00 },
     { L"77: Not Used", 0x3400f00, 0x3400f20 },
     { L"78: Not Used", 0x3400f20, 0x3400f40 },
-    { L"79: A1 Intro", 0x3400f40, 0x3400f60, indexCPS2Sprites_DrDoom, 11 },
+    { L"79: A1 Intro", 0x3400f40, 0x3400f60, indexCPS2Sprites_DrDoom, 11, &pairNextAndNext },
     { L"7a: A1 Intro - Chair", 0x3400f60, 0x3400f80, indexCPS2Sprites_DrDoom, 12 },
     { L"7b: A1 Intro - Portal", 0x3400f80, 0x3400fa0, indexCPS2Sprites_DrDoom, 13 },
     { L"7c: A1 Winpose (butler, chair and minions)", 0x3400fa0, 0x3400fc0, indexCPS2Sprites_DrDoom, 14 },
@@ -2300,7 +2300,7 @@ const sGame_PaletteDataset MVC2_A_DRDOOM_PALETTES_EXTRAS[] =
     { L"92: Not Used", 0x3401260, 0x3401280 },
     { L"93: Not Used", 0x3401280, 0x34012a0 },
     { L"94: Not Used", 0x34012a0, 0x34012c0 },
-    { L"95: A2 Intro", 0x34012c0, 0x34012e0, indexCPS2Sprites_DrDoom, 11 },
+    { L"95: A2 Intro", 0x34012c0, 0x34012e0, indexCPS2Sprites_DrDoom, 11, &pairNextAndNext },
     { L"96: A2 Intro - Chair", 0x34012e0, 0x3401300, indexCPS2Sprites_DrDoom, 12 },
     { L"97: A2 Intro - Portal", 0x3401300, 0x3401320, indexCPS2Sprites_DrDoom, 13 },
     { L"98: A2 Winpose (butler, chair and minions)", 0x3401320, 0x3401340, indexCPS2Sprites_DrDoom, 14 },
@@ -3089,7 +3089,7 @@ const sDescTreeNode MVC2_A_MARROW_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x3c2d5a0, 0x3c2d5c0, indexCPS2Sprites_Cable, 0 },
+    { L"Main Color LP", 0x3c2d5a0, 0x3c2d5c0, indexCPS2Sprites_Cable, 0, &pairNext3 },
     { L"(02) ID: 01-08 : ElecTrap(Burst)/Intro/Crackdown/Viper Beam || ID: 09-15 : Eye & Arm Flash (stance) / Scimitar (shine) / Psy-Charge", 0x3c2d5c0, 0x3c2d5e0, indexCPS2Sprites_Cable, 1 },
     { L"(03) ID: 01-04: Scimitar (Blade) ID: 05-09: Not Used", 0x3c2d5e0, 0x3c2d600, indexCPS2Sprites_Cable, 2 },
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d600, 0x3c2d620, indexCPS2Sprites_Cable, 3 },
@@ -3101,7 +3101,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x3c2d6a0, 0x3c2d6c0, indexCPS2Sprites_Cable, 0 },
+    { L"Main Color LK", 0x3c2d6a0, 0x3c2d6c0, indexCPS2Sprites_Cable, 0, &pairNext3 },
     { L"(02) ID: 01-08 : ElecTrap(Burst)/Intro/Crackdown/Viper Beam || ID: 09-15 : Eye & Arm Flash (stance) / Scimitar (shine) / Psy-Charge", 0x3c2d6c0, 0x3c2d6e0, indexCPS2Sprites_Cable, 1 },
     { L"(03) ID: 01-04: Scimitar (Blade) ID: 05-09: Not Used", 0x3c2d6e0, 0x3c2d700, indexCPS2Sprites_Cable, 2 },
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d700, 0x3c2d720, indexCPS2Sprites_Cable, 3 },
@@ -3113,7 +3113,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x3c2d7a0, 0x3c2d7c0, indexCPS2Sprites_Cable, 0 },
+    { L"Main Color HP", 0x3c2d7a0, 0x3c2d7c0, indexCPS2Sprites_Cable, 0, &pairNext3 },
     { L"(02) ID: 01-08 : ElecTrap(Burst)/Intro/Crackdown/Viper Beam || ID: 09-15 : Eye & Arm Flash (stance) / Scimitar (shine) / Psy-Charge", 0x3c2d7c0, 0x3c2d7e0, indexCPS2Sprites_Cable, 1 },
     { L"(03) ID: 01-04: Scimitar (Blade) ID: 05-09: Not Used", 0x3c2d7e0, 0x3c2d800, indexCPS2Sprites_Cable, 2 },
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d800, 0x3c2d820, indexCPS2Sprites_Cable, 3 },
@@ -3125,7 +3125,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x3c2d8a0, 0x3c2d8c0, indexCPS2Sprites_Cable, 0 },
+    { L"Main Color HK", 0x3c2d8a0, 0x3c2d8c0, indexCPS2Sprites_Cable, 0, &pairNext3 },
     { L"(02) ID: 01-08 : ElecTrap(Burst)/Intro/Crackdown/Viper Beam || ID: 09-15 : Eye & Arm Flash (stance) / Scimitar (shine) / Psy-Charge", 0x3c2d8c0, 0x3c2d8e0, indexCPS2Sprites_Cable, 1 },
     { L"(03) ID: 01-04: Scimitar (Blade) ID: 05-09: Not Used", 0x3c2d8e0, 0x3c2d900, indexCPS2Sprites_Cable, 2 },
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d900, 0x3c2d920, indexCPS2Sprites_Cable, 3 },
@@ -3137,7 +3137,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x3c2d9a0, 0x3c2d9c0, indexCPS2Sprites_Cable, 0 },
+    { L"Main Color A1", 0x3c2d9a0, 0x3c2d9c0, indexCPS2Sprites_Cable, 0, &pairNext3 },
     { L"(02) ID: 01-08 : ElecTrap(Burst)/Intro/Crackdown/Viper Beam || ID: 09-15 : Eye & Arm Flash (stance) / Scimitar (shine) / Psy-Charge", 0x3c2d9c0, 0x3c2d9e0, indexCPS2Sprites_Cable, 1 },
     { L"(03) ID: 01-04: Scimitar (Blade) ID: 05-09: Not Used", 0x3c2d9e0, 0x3c2da00, indexCPS2Sprites_Cable, 2 },
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2da00, 0x3c2da20, indexCPS2Sprites_Cable, 3 },
@@ -3149,7 +3149,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x3c2daa0, 0x3c2dac0, indexCPS2Sprites_Cable, 0 },
+    { L"Main Color A2", 0x3c2daa0, 0x3c2dac0, indexCPS2Sprites_Cable, 0, &pairNext3 },
     { L"(02) ID: 01-08 : ElecTrap(Burst)/Intro/Crackdown/Viper Beam || ID: 09-15 : Eye & Arm Flash (stance) / Scimitar (shine) / Psy-Charge", 0x3c2dac0, 0x3c2dae0, indexCPS2Sprites_Cable, 1 },
     { L"(03) ID: 01-04: Scimitar (Blade) ID: 05-09: Not Used", 0x3c2dae0, 0x3c2db00, indexCPS2Sprites_Cable, 2 },
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2db00, 0x3c2db20, indexCPS2Sprites_Cable, 3 },
@@ -7427,7 +7427,7 @@ const sGame_PaletteDataset MVC2_A_SPIRAL_PALETTES_EXTRAS[] =
     { L"27: Sentinel Metamorphosis X Character Frame 28", 0x510aa60, 0x510aa80, indexCPS2Sprites_Sentinel, 0, &pairNext },
     { L"28: Sentinel's COTA j.d.HK Metamorphosis X Character Frame 29", 0x510aa80, 0x510aaa0, indexCPS2Sprites_Sentinel, 1 },
     { L"29: Blackheart Metamorphosis X Character Frame 30", 0x510aaa0, 0x510aac0, indexCPS2Sprites_Blackheart, 0 },
-    { L"2a: Thanos Metamorphosis X Character Frame 31", 0x510aac0, 0x510aae0, indexCPS2Sprites_Thanos, 0 },
+    { L"2a: Thanos Metamorphosis X Character Frame 31", 0x510aac0, 0x510aae0, indexCPS2Sprites_Thanos, 0x17 },
     { L"2b: Not Used", 0x510aae0, 0x510ab00 },
     { L"2c: Not Used", 0x510ab00, 0x510ab20 },
     { L"2d: LP - Power-Up Enhance Frames 1 ID06-15: redtint 3perc", 0x510ab20, 0x510ab40, indexCPS2Sprites_Spiral, 11 },
@@ -8229,7 +8229,7 @@ const sDescTreeNode MVC2_A_BLACKHEART_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x5673e40, 0x5673e60, indexCPS2Sprites_Thanos, 0x00 },
+    { L"Main Color LP", 0x5673e40, 0x5673e60, indexCPS2Sprites_Thanos, 0x17 },
     { L"(02) Stand Up Frame 2", 0x5673e60, 0x5673e80, indexCPS2Sprites_Thanos, 0x15 },
     { L"(03) Not Used", 0x5673e80, 0x5673ea0 },
     { L"(04) Not Used", 0x5673ea0, 0x5673ec0 },
@@ -8241,7 +8241,7 @@ const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x5673f40, 0x5673f60, indexCPS2Sprites_Thanos, 0x00 },
+    { L"Main Color LK", 0x5673f40, 0x5673f60, indexCPS2Sprites_Thanos, 0x17 },
     { L"(02) Stand Up Frame 2", 0x5673f60, 0x5673f80, indexCPS2Sprites_Thanos, 0x15 },
     { L"(03) Not Used", 0x5673f80, 0x5673fa0 },
     { L"(04) Not Used", 0x5673fa0, 0x5673fc0 },
@@ -8253,7 +8253,7 @@ const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x5674040, 0x5674060, indexCPS2Sprites_Thanos, 0x00 },
+    { L"Main Color HP", 0x5674040, 0x5674060, indexCPS2Sprites_Thanos, 0x17 },
     { L"(02) Stand Up Frame 2", 0x5674060, 0x5674080, indexCPS2Sprites_Thanos, 0x15 },
     { L"(03) Not Used", 0x5674080, 0x56740a0 },
     { L"(04) Not Used", 0x56740a0, 0x56740c0 },
@@ -8265,7 +8265,7 @@ const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x5674140, 0x5674160, indexCPS2Sprites_Thanos, 0x00 },
+    { L"Main Color HK", 0x5674140, 0x5674160, indexCPS2Sprites_Thanos, 0x17 },
     { L"(02) Stand Up Frame 2", 0x5674160, 0x5674180, indexCPS2Sprites_Thanos, 0x15 },
     { L"(03) Not Used", 0x5674180, 0x56741a0 },
     { L"(04) Not Used", 0x56741a0, 0x56741c0 },
@@ -8277,7 +8277,7 @@ const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x5674240, 0x5674260, indexCPS2Sprites_Thanos, 0x00 },
+    { L"Main Color A1", 0x5674240, 0x5674260, indexCPS2Sprites_Thanos, 0x17 },
     { L"(02) Stand Up Frame 2", 0x5674260, 0x5674280, indexCPS2Sprites_Thanos, 0x15 },
     { L"(03) Not Used", 0x5674280, 0x56742a0 },
     { L"(04) Not Used", 0x56742a0, 0x56742c0 },
@@ -8289,7 +8289,7 @@ const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x5674340, 0x5674360, indexCPS2Sprites_Thanos, 0x00 },
+    { L"Main Color A2", 0x5674340, 0x5674360, indexCPS2Sprites_Thanos, 0x17 },
     { L"(02) Stand Up Frame 2", 0x5674360, 0x5674380, indexCPS2Sprites_Thanos, 0x15 },
     { L"(03) Not Used", 0x5674380, 0x56743a0 },
     { L"(04) Not Used", 0x56743a0, 0x56743c0 },
@@ -8301,14 +8301,14 @@ const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x5674440, 0x5674460, indexCPS2Sprites_Thanos, 0 },
-    { L"Burning Light", 0x5674460, 0x5674480, indexCPS2Sprites_Thanos, 0 },
-    { L"Shocked Dark", 0x5674480, 0x56744a0, indexCPS2Sprites_Thanos, 0 },
-    { L"Shocked Light", 0x56744a0, 0x56744c0, indexCPS2Sprites_Thanos, 0 },
-    { L"Dark Burning Dark", 0x56744c0, 0x56744e0, indexCPS2Sprites_Thanos, 0 },
-    { L"Dark Burning Light", 0x56744e0, 0x5674500, indexCPS2Sprites_Thanos, 0 },
-    { L"Kinetic Charge Dark", 0x5674500, 0x5674520, indexCPS2Sprites_Thanos, 0 },
-    { L"Kinetic Charge Light", 0x5674520, 0x5674540, indexCPS2Sprites_Thanos, 0 },
+    { L"Burning Dark", 0x5674440, 0x5674460, indexCPS2Sprites_Thanos, 0x17 },
+    { L"Burning Light", 0x5674460, 0x5674480, indexCPS2Sprites_Thanos, 0x17 },
+    { L"Shocked Dark", 0x5674480, 0x56744a0, indexCPS2Sprites_Thanos, 0x17 },
+    { L"Shocked Light", 0x56744a0, 0x56744c0, indexCPS2Sprites_Thanos, 0x17 },
+    { L"Dark Burning Dark", 0x56744c0, 0x56744e0, indexCPS2Sprites_Thanos, 0x17 },
+    { L"Dark Burning Light", 0x56744e0, 0x5674500, indexCPS2Sprites_Thanos, 0x17 },
+    { L"Kinetic Charge Dark", 0x5674500, 0x5674520, indexCPS2Sprites_Thanos, 0x17 },
+    { L"Kinetic Charge Light", 0x5674520, 0x5674540, indexCPS2Sprites_Thanos, 0x17 },
 };
 
 const sGame_PaletteDataset MVC2_A_THANOS_PALETTES_EXTRAS[] =

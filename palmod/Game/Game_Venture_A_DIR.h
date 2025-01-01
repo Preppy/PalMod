@@ -69,7 +69,7 @@ private:
         VENTURE_A_UNITS_50,
         ARRAYSIZE(VENTURE_A_UNITS_50),
         L"Venture50.txt",   // Extra filename
-        193,                // Count of palettes listed in the header
+        231,                // Count of palettes listed in the header
         0x3b0000,           // Lowest known location used for palettes
     };
 
