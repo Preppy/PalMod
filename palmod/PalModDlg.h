@@ -271,6 +271,7 @@ private:
     afx_msg void OnEditCopy();
     afx_msg void OnCopyColorAtPointer();
     afx_msg void OnPasteColorAtPointer();
+    afx_msg void OnPasteWalkColorAtPointer();
     afx_msg void OnEditCopyOffset();
     afx_msg void OnFindColorAtPointer();
 

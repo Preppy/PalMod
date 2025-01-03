@@ -72,6 +72,12 @@ void CPalModDlg::OnPasteColorAtPointer()
     OnEditPaste();
 }
 
+void CPalModDlg::OnPasteWalkColorAtPointer()
+{
+    OnPasteColorAtPointer();
+    OnPalSelShiftRight();
+}
+
 void CPalModDlg::OnFindColorAtPointer()
 {
     SelectMatchingColorsInPalette(GetColorAtCurrentMouseCursorPosition(), GetHost()->GetImgDispCtrl()->GetBGCol());

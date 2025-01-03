@@ -478,6 +478,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
         // ID_EDIT_SNIFFCOPY is ok to always be available
         pPopupMenu->EnableMenuItem(ID_EDIT_SNIFFPASTE, !IsPasteSupported() || !fIsGameAvailable);
+        pPopupMenu->EnableMenuItem(ID_EDIT_SNIFFPASTEWALK, !IsPasteSupported() || !fIsGameAvailable);
 
         pPopupMenu->EnableMenuItem(ID_EDIT_SELECTALL, !m_PalHost.GetNotifyPal()->GetWorkingAmt() || !fIsGameAvailable);
         pPopupMenu->EnableMenuItem(ID_EDIT_SELECTNONE, !m_PalHost.GetNotifyPal()->GetWorkingAmt() || !fIsGameAvailable);

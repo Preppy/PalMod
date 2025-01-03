@@ -605,6 +605,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "Copy Color at Cursor\tCtrl+Shift+C", ID_EDIT_SNIFFCOPY
         MENUITEM "Paste Color at Cursor\tCtrl+Shift+V", ID_EDIT_SNIFFPASTE
+        MENUITEM "Paste Color at Cursor, Next\tCtrl+Shift+N", ID_EDIT_SNIFFPASTEWALK
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECTALL
         MENUITEM "Select &None\tCtrl+D",        ID_EDIT_SELECTNONE
@@ -780,6 +781,7 @@ BEGIN
     "S",            ID_ACC_FILEPATCH,       VIRTKEY, CONTROL, NOINVERT
     "O",            ID_ACC_LOADLASTUSEDDIR, VIRTKEY, SHIFT, CONTROL, NOINVERT
     "V",            ID_ACC_PASTE,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_ACC_SNIFFPASTEWALK,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "V",            ID_ACC_SNIFFPASTE,      VIRTKEY, SHIFT, CONTROL, NOINVERT
     "Y",            ID_ACC_REDO,            VIRTKEY, CONTROL, NOINVERT
     "A",            ID_ACC_SELALL,          VIRTKEY, CONTROL, NOINVERT

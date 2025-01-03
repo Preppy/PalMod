@@ -316,7 +316,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
         strMessage = L"Error: This PNG file is not using indexed color and cannot be used.  Only type 3 (indexed color) PNGs contain the palette information PalMod needs.\n";
         strMessage.Append(L"\nYou might want to ask the person who made this to provide you an indexed color PNG or the ACT.\n");
         strMessage.Append(L"Failing that, open up the PNG in a picture viewer.  While PalMod is the foreground application, select a color in PalMod. ");
-        strMessage.Append(L"Then hover your mouse over the \"new\" color in your image, and press CTRL+SHIFT+V to copy that color to PalMod.  Repeat until you're done.");
+        strMessage.Append(L"Then hover your mouse over the \"new\" color in your image, and press CTRL+SHIFT+N to copy that color to PalMod.  Then mouse over the next color, and repeat until you're done.");
         MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONERROR);
         SetStatusText(IDS_PNGLOAD_NOTABLE);
     }
