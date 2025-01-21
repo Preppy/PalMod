@@ -8,8 +8,10 @@ private:
     enum class SSF2TLoadingKey
     {
         ROM03,
+        ROM03nl,
         ROM04,
         ROM08,
+        ROM09nl,
     };
 
     static SSF2TLoadingKey m_eVersionToLoad;
@@ -34,6 +36,14 @@ private:
     {
         {
             { L"sfxe.08", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM09 =
+    {
+        {
+            { L"sfnl.09", 0x80000 },
         },
         FileReadType::Sequential,
     };
@@ -103,6 +113,10 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         { L"SSF2T (CPS2 Asia 940223 bootleg 03)", L"sfxad.03c", 0xe3c92ece, 0 },
         { L"SSF2T (CPS2 Asia 940223 bootleg 04)", L"sfxad.04a", 0x9bf3bb2e, 0 },
         { L"SSF2T (CPS2 Asia 940223 bootleg 08)", L"sfxad.08", 0xd399c36c, 0 },
+
+        { L"SSF2T (New Legacy Hack 03)", L"sfnl.03", 0x4beda7d5, 0 },
+        { L"SSF2T (New Legacy Hack 04)", L"sfnl.04", 0xd0bc29c6, 0 },
+        { L"SSF2T (New Legacy Hack 09)", L"sfnl.09", 0x6b2068bc, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_ROM03
@@ -122,6 +136,26 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         ARRAYSIZE(SSF2T_A_UNITS_3C),
         L"ssf2t-3ce.txt",       // Extra filename
         323,                    // Count of palettes listed in the header
+        0xf1da,                 // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM03nl
+    {
+        L"SSF2T (New Legacy Hack 03 Portraits)",
+        SSF2T_A,
+        IMGDAT_SECTION_SF2,
+        SSF2T_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_ST10,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM03,
+        m_rgCRC32Data,
+        SSF2T_A_UNITS_03_NL,
+        ARRAYSIZE(SSF2T_A_UNITS_03_NL),
+        L"ssf2t-3NLe.txt",      // Extra filename
+        163,                    // Count of palettes listed in the header
         0xf1da,                 // Lowest known location used for palettes
     };
 
@@ -163,6 +197,26 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         L"ssf2t-8e.txt",        // Extra filename
         170,                    // Count of palettes listed in the header
         0x603be,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM09nl
+    {
+        L"SSF2T (New Legacy 09)",
+        SSF2T_A,
+        IMGDAT_SECTION_SF2,
+        SSF2T_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_ST10,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM09,
+        m_rgCRC32Data,
+        SSF2T_A_UNITS_09_NL,
+        ARRAYSIZE(SSF2T_A_UNITS_09_NL),
+        L"ssf2t-9NLe.txt",      // Extra filename
+        323,                    // Count of palettes listed in the header
+        0x66ffe,                // Lowest known location used for palettes
     };
 
 public:

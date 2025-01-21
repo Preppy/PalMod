@@ -1948,7 +1948,7 @@ namespace KnownGameInfo
         {
             SSF2T_A,
             L"SSF2T (CPS2 Arcade)",
-            { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08;sfnl.03;sfnl.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SSF2T_A,
             CGame_SSF2T_A::GetRule,
         },

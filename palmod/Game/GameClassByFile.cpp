@@ -67,7 +67,7 @@ LPCWSTR CGameClassByFile::GetDescriptionForCollection(uint32_t nUnitId, uint32_t
 uint32_t CGameClassByFile::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     uint32_t nNodeSize = 0;
-    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
@@ -96,7 +96,7 @@ const sGame_PaletteDataset* CGameClassByFile::GetPaletteSet(uint32_t nUnitId, ui
 const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     const sDescTreeNode* pCollectionNode = nullptr;
-    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
@@ -131,7 +131,7 @@ const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, ui
 const sGame_PaletteDataset* CGameClassByFile::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
@@ -225,7 +225,7 @@ void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_Co
 uint32_t CGameClassByFile::InitDescTreeForFileSet(sDescTreeNode* pNewDescTree)
 {
     uint32_t nTotalPaletteCount = 0;
-    uint32_t nUnitCt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
+    const uint32_t nUnitCt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
 
     //Create the main character tree
     _snwprintf_s(pNewDescTree->szDesc, ARRAYSIZE(pNewDescTree->szDesc), _TRUNCATE, L"%s", m_psCurrentGameLoadingData->strGameFriendlyName.c_str());
@@ -267,7 +267,7 @@ uint32_t CGameClassByFile::InitDescTreeForFileSet(sDescTreeNode* pNewDescTree)
             //Set each collection data
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
             //Collection children have nodes
-            uint32_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+            const uint32_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nListedChildrenCount;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -459,7 +459,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     sDescNode* sSearchedNode = nullptr;
 
                     // We need to readjust the nodes here.
-                    uint32_t nNodeSize = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const uint32_t nNodeSize = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
                     uint32_t nAdjustedCollectionIndex = Node02;
                     ptrdiff_t nAdjustedButtonIndex = Node03 + vnPeerPaletteDistances[nNodeIndex];
 
@@ -537,7 +537,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 BOOL CGameClassByFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 {
     CString strInfo;
-    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
+    const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
     strInfo.Format(L"CGameClassByFile::LoadFile: Preparing to load %u palettes for unit number %u...\n", nPalAmt, nUnitNumber);
     OutputDebugString(strInfo);
@@ -604,7 +604,7 @@ BOOL CGameClassByFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 BOOL CGameClassByFile::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
     uint32_t nTotalPalettesSaved = 0;
-    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
+    const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {

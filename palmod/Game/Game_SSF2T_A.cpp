@@ -7,6 +7,9 @@ void CGame_SSF2T_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
     const std::map<std::wstring, SSF2TLoadingKey> m_rgFileNameToVersion =
     {
+        { L"sfnl.03", SSF2TLoadingKey::ROM03nl },
+        { L"sfnl.04", SSF2TLoadingKey::ROM04 },
+        { L"sfnl.09", SSF2TLoadingKey::ROM09nl },
         { L"sfxe.03c", SSF2TLoadingKey::ROM03 },
         { L"sfxe.04a", SSF2TLoadingKey::ROM04 },
         { L"sfxe.08", SSF2TLoadingKey::ROM08 },
@@ -53,11 +56,17 @@ CGame_SSF2T_A::CGame_SSF2T_A(uint32_t nConfirmedROMSize)
     default:
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM03);
         break;
+    case SSF2TLoadingKey::ROM03nl:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM03nl);
+        break;
     case SSF2TLoadingKey::ROM04:
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM04);
         break;
     case SSF2TLoadingKey::ROM08:
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM08);
+        break;
+    case SSF2TLoadingKey::ROM09nl:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM09nl);
         break;
     }
 }
@@ -67,12 +76,15 @@ sFileRule CGame_SSF2T_A::GetRule(uint32_t nRuleId)
     switch (m_eVersionToLoad)
     {
     case SSF2TLoadingKey::ROM03:
+    case SSF2TLoadingKey::ROM03nl:
     default:
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM03);
     case SSF2TLoadingKey::ROM04:
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM04);
     case SSF2TLoadingKey::ROM08:
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM08);
+    case SSF2TLoadingKey::ROM09nl:
+        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM09);
     }
 }
 
