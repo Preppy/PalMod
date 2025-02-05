@@ -142,7 +142,15 @@ void CPalModDlg::OnFilePatch()
 void CPalModDlg::OnFileCrossPatch_DCPS2()
 {
     // Do *not* clear the dirty flag if set: this isn't saving to the original game files!
-    GetHost()->GetLoader()->CrosscopyGame_DCPS2(GetHost()->GetCurrGame());
+    if ((GetHost()->GetCurrGame()->GetGameFlag() == MVC2_S) ||
+        (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_S_DIR))
+    {
+        GetHost()->GetLoader()->CrosscopyGame_SteamToDC(GetHost()->GetCurrGame());
+    }
+    else
+    {
+        GetHost()->GetLoader()->CrosscopyGame_DCPS2(GetHost()->GetCurrGame());
+    }
 
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
@@ -150,7 +158,7 @@ void CPalModDlg::OnFileCrossPatch_DCPS2()
 void CPalModDlg::OnFileCrossPatch_Steam()
 {
     // Do *not* clear the dirty flag if set: this isn't saving to the original game files!
-    GetHost()->GetLoader()->CrosscopyGame_Steam(GetHost()->GetCurrGame());
+    GetHost()->GetLoader()->CrosscopyGame_ToSteam(GetHost()->GetCurrGame());
 
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
@@ -168,7 +176,7 @@ void CPalModDlg::OnSavePatchFile()
     {
         CString strTargetDirectory;
 
-        if (SetLoadDir(&strTargetDirectory))
+        if (HaveUserPickADirectory(&strTargetDirectory))
         {
             GetHost()->GetLoader()->SaveMultiplePatchFiles(GetHost()->GetCurrGame(), strTargetDirectory);
         }

@@ -232,6 +232,7 @@
     <ClCompile Include="debugutil.cpp" />
     <ClCompile Include="ExtraFile.cpp" />
     <ClCompile Include="Game\ColorScale.cpp" />
+    <ClCompile Include="Game\CrossCopy.cpp" />
     <ClCompile Include="Game\DescTree.cpp" />
     <ClCompile Include="Game\GameClass.cpp" />
     <ClCompile Include="Game\GameClassByDir.cpp" />

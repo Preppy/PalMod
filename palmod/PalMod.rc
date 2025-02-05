@@ -105,7 +105,7 @@ BEGIN
     LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,164,209,16
     LTEXT           "Updates and guides available at:",IDC_STATIC,7,185,209,8
     CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,195,93,14
-    LTEXT           "Copyright (C) 2024",IDC_STATIC,10,208,65,8
+    LTEXT           "Copyright (C) 2025",IDC_STATIC,10,208,65,8
     DEFPUSHBUTTON   "OK",IDOK,174,206,50,14,WS_GROUP
 END
 

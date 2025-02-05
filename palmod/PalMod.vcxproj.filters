@@ -981,6 +981,9 @@
     <ClCompile Include="Game\Game_MK1_A.cpp">
       <Filter>Games\Other Platforms\Mortal Kombat 1 %28Arcade%29</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CrossCopy.cpp">
+      <Filter>Games\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

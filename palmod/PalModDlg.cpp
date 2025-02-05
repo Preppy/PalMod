@@ -560,7 +560,7 @@ BOOL CALLBACK CPalModDlg::EnumChildProc(HWND hwnd, LPARAM lParam)
     return TRUE;
 }
 
-BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = nullptr */, SupportedGamesList nDefaultGameFlag /* = NUM_GAMES */)
+BOOL CPalModDlg::HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionString /* = nullptr */, SupportedGamesList nDefaultGameFlag /* = NUM_GAMES */)
 {
     LPMALLOC pMalloc;
     BOOL fSuccess = TRUE;
@@ -568,12 +568,12 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
         BROWSEINFO      bi = {};
-        wchar_t         pszBuffer[MAX_PATH] = {};
-        LPITEMIDLIST    pidl;
+        wchar_t         szBuffer[MAX_PATH] = {};
+        LPITEMIDLIST    pidl = nullptr;
 
         bi.hwndOwner = GetSafeHwnd();
-        bi.pidlRoot = nullptr; // We don't want to force browse-below
-        bi.pszDisplayName = pszBuffer;
+        bi.pidlRoot = nullptr; // Avoid force browse
+        bi.pszDisplayName = szBuffer;
         bi.lpszTitle = pszDescriptionString ? pszDescriptionString : L"Select a target directory";
         bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE | BIF_NONEWFOLDERBUTTON | BIF_EDITBOX;
         bi.lpfn = OnBrowseDialog;
@@ -581,9 +581,9 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
 
         if (pidl = ::SHBrowseForFolder(&bi))
         {
-            if (::SHGetPathFromIDList(pidl, pszBuffer))
+            if (::SHGetPathFromIDList(pidl, szBuffer))
             {
-                *strOut = pszBuffer;
+                *strOut = szBuffer;
             }
             pMalloc->Free(pidl);
         }

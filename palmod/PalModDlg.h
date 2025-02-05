@@ -422,7 +422,7 @@ public:
     void RefreshSecondaryPalettesForPaletteChange();
 
     static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
-    BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
+    BOOL HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
 
     BOOL IsActivePaletteChanged() { return m_fPalChanged; };
 
