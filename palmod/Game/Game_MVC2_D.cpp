@@ -20,7 +20,7 @@ uint32_t EXTRA_OMNI = ID_MOD; //  (8 * 6) - 1;
 uint8_t CGame_MVC2_D::_nCurrentTotalColorOptions = 6;
 
 std::vector<LPCWSTR> CGame_MVC2_D::m_pCurrentButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
-std::vector<std::vector<sMoveDescription>>  CGame_MVC2_D::m_pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
+std::vector<std::vector<sMoveDescription>> CGame_MVC2_D::m_pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
 std::vector<uint16_t> CGame_MVC2_D::m_pCurrentExtrasLayout = MVC2_D_6COLORS_EXTRADEF;
 
 //Initialize the selection tree

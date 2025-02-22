@@ -495,9 +495,9 @@ void CGameLoad::CrosscopyGame_SteamToDC(CGameClass* CurrGame)
             }
         }
 
-
         if (!strErrorFile.IsEmpty())
         {
+            // Note that we show a janky "unwritable" error for 16 color DC files for now
             CString strError;
             UINT uErrorString;
             if ((GetFileAttributes(strErrorFile)) == INVALID_FILE_ATTRIBUTES)
