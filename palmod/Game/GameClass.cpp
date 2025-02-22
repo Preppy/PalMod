@@ -135,7 +135,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(28) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+    static_assert(static_cast<ColMode>(29) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
 
     switch (NewMode)
     {
@@ -179,6 +179,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
     case ColMode::COLMODE_RGB555_BE:
     case ColMode::COLMODE_BRG555_LE:
     case ColMode::COLMODE_GRB555_LE:
+    case ColMode::COLMODE_GRB555_BE:
         m_nSizeOfColorsInBytes = 2;
         GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_32Steps;
         Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_32Steps;
@@ -280,7 +281,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(28) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+    static_assert(static_cast<ColMode>(29) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
 
     switch (NewMode)
     {
@@ -345,6 +346,10 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
     case ColMode::COLMODE_GRB555_LE:
         ConvPal16 = &ColorSystem::CONV_GRB555LE_32;
         ConvCol16 = &ColorSystem::CONV_32_GRB555LE;
+        break;
+    case ColMode::COLMODE_GRB555_BE:
+        ConvPal16 = &ColorSystem::CONV_GRB555BE_32;
+        ConvCol16 = &ColorSystem::CONV_32_GRB555BE;
         break;
 
     case ColMode::COLMODE_RGB555_SHARP:

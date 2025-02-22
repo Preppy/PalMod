@@ -56,6 +56,7 @@ enum class ColMode
     COLMODE_BGRA8888_BE,    // 32bit color (ps3)
 
     COLMODE_BRG555_LE,      // used by Fists of Fury
+    COLMODE_GRB555_BE,      // GRB555 big endian: added for a game that didn't need it, so unused
 
     COLMODE_LAST,
 };
@@ -104,6 +105,8 @@ namespace ColorSystem
     uint32_t CONV_RGB555BE_32(uint16_t inCol);
     uint16_t CONV_32_GRB555LE(uint32_t inCol);
     uint32_t CONV_GRB555LE_32(uint16_t inCol);
+    uint16_t CONV_32_GRB555BE(uint32_t inCol);
+    uint32_t CONV_GRB555BE_32(uint16_t inCol);
     uint16_t CONV_32_BRG555LE(uint32_t inCol);
     uint32_t CONV_BRG555LE_32(uint16_t inCol);
 

@@ -64,6 +64,7 @@ namespace ColorSystem
         case ColMode::COLMODE_RGB555_SHARP:
 
         case ColMode::COLMODE_GRB555_LE:
+        case ColMode::COLMODE_GRB555_BE:
         case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_RGB666_NEOGEO:
             return 2;
@@ -105,6 +106,7 @@ namespace ColorSystem
         { "BGR888", ColMode::COLMODE_BGR888 },                  // 24bit
         { "RGBA8881_32", ColMode::COLMODE_RGBA8881_32STEPS },   // MBAACC: 32 bit color, except only 32 steps
         { "GRB555LE", ColMode::COLMODE_GRB555_LE },             // GRB555 little endian
+        { "GRB555BE", ColMode::COLMODE_GRB555_BE },             // GRB555 big endian
         { "BGRA8888BE", ColMode::COLMODE_BGRA8888_BE },         // 32bit color (ps3)
         { "BGRA8888", ColMode::COLMODE_BGRA8888_LE },           // 32bit color (arcana blood)
         { "BGR555BE", ColMode::COLMODE_BGR555_BE },             // BGR555 big endian: Motorola 68000 games
@@ -309,6 +311,7 @@ namespace ColorSystem
         case ColMode::COLMODE_RGB555_LE:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_GRB555_LE:
+        case ColMode::COLMODE_GRB555_BE:
         case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_RGB555_SHARP:
             if (Flag == ColFlag::COL_A)
@@ -855,6 +858,17 @@ namespace ColorSystem
         auxb = auxb << 10;
 
         return SWAP_16(auxb | auxg | auxr);
+    }
+
+    uint32_t CONV_GRB555BE_32(uint16_t inCol)
+    {
+        return CONV_GRB555LE_32(_byteswap_ushort(inCol));
+    }
+
+   uint16_t CONV_32_GRB555BE(uint32_t inCol)
+    {
+        return _byteswap_ushort(CONV_32_GRB555LE(inCol));
+
     }
 
     uint32_t CONV_BRG555LE_32(uint16_t inCol)

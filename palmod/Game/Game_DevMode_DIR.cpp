@@ -624,6 +624,7 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
     // ID_COLORFORMAT_xGRB888
     // ID_COLORFORMAT_xRGB888
     // ID_COLORFORMAT_GRB555_LE
+    // ID_COLORFORMAT_GRB555_BE
     // ID_COLORFORMAT_ABGR8888
     // ID_COLORFORMAT_BGR555_BE
     // ID_COLORFORMAT_xBGR555_LE
@@ -632,7 +633,7 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     // Update this check once you've decided whether to expose the new color or not.
-    static_assert(static_cast<ColMode>(28) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+    static_assert(static_cast<ColMode>(29) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
 
     switch (NewMode)
     {
@@ -649,6 +650,7 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
         case ColMode::COLMODE_BGR555_LE:
         case ColMode::COLMODE_BGR555_BE:
         case ColMode::COLMODE_GRB555_LE:
+        case ColMode::COLMODE_GRB555_BE:
         case ColMode::COLMODE_BRG555_LE:
 
         case ColMode::COLMODE_RGB555_SHARP:
