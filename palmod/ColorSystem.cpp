@@ -868,7 +868,6 @@ namespace ColorSystem
    uint16_t CONV_32_GRB555BE(uint32_t inCol)
     {
         return _byteswap_ushort(CONV_32_GRB555LE(inCol));
-
     }
 
     uint32_t CONV_BRG555LE_32(uint16_t inCol)

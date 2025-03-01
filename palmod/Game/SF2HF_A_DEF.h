@@ -15,6 +15,7 @@ const std::vector<uint16_t> SF2HF_A_IMGIDS_USED =
     indexSF2Sprites_Balrog,
     indexSF2Sprites_Vega,
     indexSF2Sprites_Bonus,
+    indexSF2HFSprites_Stages,
 };
 
 const sGame_PaletteDataset SF2HF_A_RYU_NORMAL_NODE[] =
@@ -637,11 +638,11 @@ const sGame_PaletteDataset SF2HF_A_STAGES_KEN_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES_RYU_NODE[] =
 {
-    { L"Moon & Sky", 0x3be, 0x3de },
-    { L"Intermediate Rooftop", 0xa03e, 0xa09e },
-    { L"Front Rooftop 1", 0x501e, 0x507e },
-    { L"Front Rooftop 2", 0x50be, 0x511e },
-    { L"Floor", 0x4ffe, 0x501e },
+    { L"Moon & Sky", 0x3be, 0x3de, indexSF2HFSprites_Stages, 0x00, &pairFullyLinkedNode },
+    { L"Intermediate Rooftop", 0xa03e, 0xa09e, indexSF2HFSprites_Stages, 0x03 },
+    { L"Front Rooftop 1", 0x501e, 0x507e, indexSF2HFSprites_Stages, 0x05 },
+    { L"Front Rooftop 2", 0x50be, 0x511e, indexSF2HFSprites_Stages, 0x06 },
+    { L"Floor", 0x4ffe, 0x501e, indexSF2HFSprites_Stages, 0x04 },
 };
 
 const sGame_PaletteDataset SF2HF_A_STAGES_SAGAT_NODE[] =
@@ -875,8 +876,8 @@ const sGame_PaletteDataset SF2HF_A_22_STAGES_KEN_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_RYU_NODE[] =
 {
-    { L"Intermediate Rooftop & Birds", 0x2de1e, 0x2de3e },
-    { L"Background Building", 0x2de5e, 0x2de7e },
+    { L"Intermediate Rooftop & Birds", 0x2de1e, 0x2de3e, indexSF2HFSprites_Stages, 0x03, &pairFullyLinkedNode },
+    { L"Background Building", 0x2de5e, 0x2de7e, indexSF2HFSprites_Stages, 0x01 },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_ZANGIEF_NODE[] =

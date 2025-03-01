@@ -3285,7 +3285,7 @@ const sDescTreeNode MVC2_A_ABYSS1_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LP[] =
 {
-    { L"Main Color (button specific) LP", 0x3da68e0, 0x3da6900, indexCPS2Sprites_Abyss2, 0, &pairFullyLinkedNode },
+    { L"Main Color (button specific) LP", 0x3da68e0, 0x3da6900, indexCPS2Sprites_Abyss2, 0 },
     { L"(02) Not Used", 0x3da6900, 0x3da6920, indexCPS2Sprites_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6920, 0x3da6940, indexCPS2Sprites_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6940, 0x3da6960, indexCPS2Sprites_Abyss2, 3 },
@@ -3297,7 +3297,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LK[] =
 {
-    { L"Main Color (button specific) LK", 0x3da69e0, 0x3da6a00, indexCPS2Sprites_Abyss2, 0, &pairFullyLinkedNode },
+    { L"Main Color (button specific) LK", 0x3da69e0, 0x3da6a00, indexCPS2Sprites_Abyss2, 0 },
     { L"(02) Not Used", 0x3da6a00, 0x3da6a20, indexCPS2Sprites_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6a20, 0x3da6a40, indexCPS2Sprites_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6a40, 0x3da6a60, indexCPS2Sprites_Abyss2, 3 },
@@ -3309,7 +3309,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HP[] =
 {
-    { L"Main Color (button specific) HP", 0x3da6ae0, 0x3da6b00, indexCPS2Sprites_Abyss2, 0, &pairFullyLinkedNode },
+    { L"Main Color (button specific) HP", 0x3da6ae0, 0x3da6b00, indexCPS2Sprites_Abyss2, 0 },
     { L"(02) Not Used", 0x3da6b00, 0x3da6b20, indexCPS2Sprites_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6b20, 0x3da6b40, indexCPS2Sprites_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6b40, 0x3da6b60, indexCPS2Sprites_Abyss2, 3 },
@@ -3321,7 +3321,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HK[] =
 {
-    { L"Main Color (button specific) HK", 0x3da6be0, 0x3da6c00, indexCPS2Sprites_Abyss2, 0, &pairFullyLinkedNode },
+    { L"Main Color (button specific) HK", 0x3da6be0, 0x3da6c00, indexCPS2Sprites_Abyss2, 0 },
     { L"(02) Not Used", 0x3da6c00, 0x3da6c20, indexCPS2Sprites_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6c20, 0x3da6c40, indexCPS2Sprites_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6c40, 0x3da6c60, indexCPS2Sprites_Abyss2, 3 },
@@ -3333,7 +3333,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_A1[] =
 {
-    { L"Main Color (button specific) A1", 0x3da6ce0, 0x3da6d00, indexCPS2Sprites_Abyss2, 0, &pairFullyLinkedNode },
+    { L"Main Color (button specific) A1", 0x3da6ce0, 0x3da6d00, indexCPS2Sprites_Abyss2, 0 },
     { L"(02) Not Used", 0x3da6d00, 0x3da6d20, indexCPS2Sprites_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6d20, 0x3da6d40, indexCPS2Sprites_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6d40, 0x3da6d60, indexCPS2Sprites_Abyss2, 3 },
@@ -3345,7 +3345,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_A2[] =
 {
-    { L"Main Color (button specific) A2", 0x3da6de0, 0x3da6e00, indexCPS2Sprites_Abyss2, 0, &pairFullyLinkedNode },
+    { L"Main Color (button specific) A2", 0x3da6de0, 0x3da6e00, indexCPS2Sprites_Abyss2, 0 },
     { L"(02) Not Used", 0x3da6e00, 0x3da6e20, indexCPS2Sprites_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6e20, 0x3da6e40, indexCPS2Sprites_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6e40, 0x3da6e60, indexCPS2Sprites_Abyss2, 3 },
@@ -3389,8 +3389,8 @@ const sGame_PaletteDataset MVC2_A_ABYSS3_PALETTES_LP[] =
     { L"Main Color (shared for all buttons) / Rising Fire LP", 0x3e80560, 0x3e80580, indexCPS2Sprites_Abyss3, 0 },
     { L"(02) Beast Flame / Beast Pillar", 0x3e80580, 0x3e805a0, indexCPS2Sprites_Abyss3, 1 },
     { L"(03) Not Used", 0x3e805a0, 0x3e805c0, indexCPS2Sprites_Abyss3, 2 },
-    { L"(04) Super Armor Frame (when being hit)", 0x3e805c0, 0x3e805e0, indexCPS2Sprites_Abyss3, 3 },
-    { L"(05) Not Used", 0x3e805e0, 0x3e80600, indexCPS2Sprites_Abyss3, 4 },
+    { L"(04) Super Armor Frame (when being hit)", 0x3e805c0, 0x3e805e0, indexCPS2Sprites_Abyss3, 0x00 },
+    { L"(05) Beast Flame", 0x3e805e0, 0x3e80600, indexCPS2Sprites_Abyss3, 4 },
     { L"(06) Not Used", 0x3e80600, 0x3e80620, indexCPS2Sprites_Abyss3, 5 },
     { L"(07) Not Used", 0x3e80620, 0x3e80640, indexCPS2Sprites_Abyss3, 6 },
     { L"(08) Not Used", 0x3e80640, 0x3e80660, indexCPS2Sprites_Abyss3, 7 },
@@ -3401,8 +3401,8 @@ const sGame_PaletteDataset MVC2_A_ABYSS3_PALETTES_LK[] =
     { L"Main Color (shared for all buttons) / Rising Fire LK", 0x3e80660, 0x3e80680, indexCPS2Sprites_Abyss3, 0 },
     { L"(02) Beast Flame / Beast Pillar", 0x3e80680, 0x3e806a0, indexCPS2Sprites_Abyss3, 1 },
     { L"(03) Not Used", 0x3e806a0, 0x3e806c0, indexCPS2Sprites_Abyss3, 2 },
-    { L"(04) Super Armor Frame (when being hit)", 0x3e806c0, 0x3e806e0, indexCPS2Sprites_Abyss3, 3 },
-    { L"(05) Not Used", 0x3e806e0, 0x3e80700, indexCPS2Sprites_Abyss3, 4 },
+    { L"(04) Super Armor Frame (when being hit)", 0x3e806c0, 0x3e806e0, indexCPS2Sprites_Abyss3, 0x00 },
+    { L"(05) Beast Flame", 0x3e806e0, 0x3e80700, indexCPS2Sprites_Abyss3, 4 },
     { L"(06) Not Used", 0x3e80700, 0x3e80720, indexCPS2Sprites_Abyss3, 5 },
     { L"(07) Not Used", 0x3e80720, 0x3e80740, indexCPS2Sprites_Abyss3, 6 },
     { L"(08) Not Used", 0x3e80740, 0x3e80760, indexCPS2Sprites_Abyss3, 7 },
@@ -3413,8 +3413,8 @@ const sGame_PaletteDataset MVC2_A_ABYSS3_PALETTES_HP[] =
     { L"Main Color (shared for all buttons) / Rising Fire HP", 0x3e80760, 0x3e80780, indexCPS2Sprites_Abyss3, 0 },
     { L"(02) Beast Flame / Beast Pillar", 0x3e80780, 0x3e807a0, indexCPS2Sprites_Abyss3, 1 },
     { L"(03) Not Used", 0x3e807a0, 0x3e807c0, indexCPS2Sprites_Abyss3, 2 },
-    { L"(04) Super Armor Frame (when being hit)", 0x3e807c0, 0x3e807e0, indexCPS2Sprites_Abyss3, 3 },
-    { L"(05) Not Used", 0x3e807e0, 0x3e80800, indexCPS2Sprites_Abyss3, 4 },
+    { L"(04) Super Armor Frame (when being hit)", 0x3e807c0, 0x3e807e0, indexCPS2Sprites_Abyss3, 0x00 },
+    { L"(05) Beast Flame", 0x3e807e0, 0x3e80800, indexCPS2Sprites_Abyss3, 4 },
     { L"(06) Not Used", 0x3e80800, 0x3e80820, indexCPS2Sprites_Abyss3, 5 },
     { L"(07) Not Used", 0x3e80820, 0x3e80840, indexCPS2Sprites_Abyss3, 6 },
     { L"(08) Not Used", 0x3e80840, 0x3e80860, indexCPS2Sprites_Abyss3, 7 },
@@ -3425,8 +3425,8 @@ const sGame_PaletteDataset MVC2_A_ABYSS3_PALETTES_HK[] =
     { L"Main Color (shared for all buttons) / Rising Fire HK", 0x3e80860, 0x3e80880, indexCPS2Sprites_Abyss3, 0 },
     { L"(02) Beast Flame / Beast Pillar", 0x3e80880, 0x3e808a0, indexCPS2Sprites_Abyss3, 1 },
     { L"(03) Not Used", 0x3e808a0, 0x3e808c0, indexCPS2Sprites_Abyss3, 2 },
-    { L"(04) Super Armor Frame (when being hit)", 0x3e808c0, 0x3e808e0, indexCPS2Sprites_Abyss3, 3 },
-    { L"(05) Not Used", 0x3e808e0, 0x3e80900, indexCPS2Sprites_Abyss3, 4 },
+    { L"(04) Super Armor Frame (when being hit)", 0x3e808c0, 0x3e808e0, indexCPS2Sprites_Abyss3, 0x00 },
+    { L"(05) Beast Flame", 0x3e808e0, 0x3e80900, indexCPS2Sprites_Abyss3, 4 },
     { L"(06) Not Used", 0x3e80900, 0x3e80920, indexCPS2Sprites_Abyss3, 5 },
     { L"(07) Not Used", 0x3e80920, 0x3e80940, indexCPS2Sprites_Abyss3, 6 },
     { L"(08) Not Used", 0x3e80940, 0x3e80960, indexCPS2Sprites_Abyss3, 7 },
@@ -3437,8 +3437,8 @@ const sGame_PaletteDataset MVC2_A_ABYSS3_PALETTES_A1[] =
     { L"Main Color (shared for all buttons) / Rising Fire A1", 0x3e80960, 0x3e80980, indexCPS2Sprites_Abyss3, 0 },
     { L"(02) Beast Flame / Beast Pillar", 0x3e80980, 0x3e809a0, indexCPS2Sprites_Abyss3, 1 },
     { L"(03) Not Used", 0x3e809a0, 0x3e809c0, indexCPS2Sprites_Abyss3, 2 },
-    { L"(04) Super Armor Frame (when being hit)", 0x3e809c0, 0x3e809e0, indexCPS2Sprites_Abyss3, 3 },
-    { L"(05) Not Used", 0x3e809e0, 0x3e80a00, indexCPS2Sprites_Abyss3, 4 },
+    { L"(04) Super Armor Frame (when being hit)", 0x3e809c0, 0x3e809e0, indexCPS2Sprites_Abyss3, 0x00 },
+    { L"(05) Beast Flame", 0x3e809e0, 0x3e80a00, indexCPS2Sprites_Abyss3, 4 },
     { L"(06) Not Used", 0x3e80a00, 0x3e80a20, indexCPS2Sprites_Abyss3, 5 },
     { L"(07) Not Used", 0x3e80a20, 0x3e80a40, indexCPS2Sprites_Abyss3, 6 },
     { L"(08) Not Used", 0x3e80a40, 0x3e80a60, indexCPS2Sprites_Abyss3, 7 },
@@ -3449,8 +3449,8 @@ const sGame_PaletteDataset MVC2_A_ABYSS3_PALETTES_A2[] =
     { L"Main Color (shared for all buttons) / Rising Fire A2", 0x3e80a60, 0x3e80a80, indexCPS2Sprites_Abyss3, 0 },
     { L"(02) Beast Flame / Beast Pillar", 0x3e80a80, 0x3e80aa0, indexCPS2Sprites_Abyss3, 1 },
     { L"(03) Not Used", 0x3e80aa0, 0x3e80ac0, indexCPS2Sprites_Abyss3, 2 },
-    { L"(04) Super Armor Frame (when being hit)", 0x3e80ac0, 0x3e80ae0, indexCPS2Sprites_Abyss3, 3 },
-    { L"(05) Not Used", 0x3e80ae0, 0x3e80b00, indexCPS2Sprites_Abyss3, 4 },
+    { L"(04) Super Armor Frame (when being hit)", 0x3e80ac0, 0x3e80ae0, indexCPS2Sprites_Abyss3, 0x00 },
+    { L"(05) Beast Flame", 0x3e80ae0, 0x3e80b00, indexCPS2Sprites_Abyss3, 4 },
     { L"(06) Not Used", 0x3e80b00, 0x3e80b20, indexCPS2Sprites_Abyss3, 5 },
     { L"(07) Not Used", 0x3e80b20, 0x3e80b40, indexCPS2Sprites_Abyss3, 6 },
     { L"(08) Not Used", 0x3e80b40, 0x3e80b60, indexCPS2Sprites_Abyss3, 7 },
@@ -5438,7 +5438,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x44f3b80, 0x44f3ba0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3ba0, 0x44f3bc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Coat", 0x44f3bc0, 0x44f3be0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat (Not Intro)", 0x44f3bc0, 0x44f3be0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3be0, 0x44f3c00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3c00, 0x44f3c20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3c20, 0x44f3c40, indexCPS2Sprites_Cammy, 5 },
@@ -5450,7 +5450,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x44f3c80, 0x44f3ca0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3ca0, 0x44f3cc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Coat", 0x44f3cc0, 0x44f3ce0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat (Not Intro)", 0x44f3cc0, 0x44f3ce0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3ce0, 0x44f3d00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3d00, 0x44f3d20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3d20, 0x44f3d40, indexCPS2Sprites_Cammy, 5 },
@@ -5462,7 +5462,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x44f3d80, 0x44f3da0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3da0, 0x44f3dc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Coat", 0x44f3dc0, 0x44f3de0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat (Not Intro)", 0x44f3dc0, 0x44f3de0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3de0, 0x44f3e00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3e00, 0x44f3e20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3e20, 0x44f3e40, indexCPS2Sprites_Cammy, 5 },
@@ -5474,7 +5474,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x44f3e80, 0x44f3ea0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3ea0, 0x44f3ec0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Coat", 0x44f3ec0, 0x44f3ee0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat (Not Intro)", 0x44f3ec0, 0x44f3ee0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3ee0, 0x44f3f00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3f00, 0x44f3f20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3f20, 0x44f3f40, indexCPS2Sprites_Cammy, 5 },
@@ -5486,7 +5486,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x44f3f80, 0x44f3fa0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3fa0, 0x44f3fc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Coat", 0x44f3fc0, 0x44f3fe0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat (Not Intro)", 0x44f3fc0, 0x44f3fe0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3fe0, 0x44f4000, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f4000, 0x44f4020, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f4020, 0x44f4040, indexCPS2Sprites_Cammy, 5 },
@@ -5498,7 +5498,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x44f4080, 0x44f40a0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f40a0, 0x44f40c0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Coat", 0x44f40c0, 0x44f40e0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat (Not Intro)", 0x44f40c0, 0x44f40e0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f40e0, 0x44f4100, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f4100, 0x44f4120, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f4120, 0x44f4140, indexCPS2Sprites_Cammy, 5 },
