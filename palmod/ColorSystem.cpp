@@ -118,7 +118,7 @@ namespace ColorSystem
         { "BRG444", ColMode::COLMODE_BRG444 },
         { "RGB444", ColMode::COLMODE_RBG444 },
         { "BRG888", ColMode::COLMODE_BRG888 },
-        { "xBGR555LE", ColMode::COLMODE_xBGR555_LE },            // Different packing used by Asura Buster / Fuuki
+        { "xBGR555LE", ColMode::COLMODE_xBGR555_LE },            // Different packing used by Sega Saturn, Asura Buster / Fuuki
         { "BRG555LE", ColMode::COLMODE_BRG555_LE },              // BRG555 little endian, used by Fists of Fury
     };
 

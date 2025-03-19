@@ -50,7 +50,7 @@ enum class ColMode
     COLMODE_RBG444,
     COLMODE_BRG888,
 
-    COLMODE_xBGR555_LE,     // Different packing used by Asura Buster / Fuuki
+    COLMODE_xBGR555_LE,     // Different packing used by Sega Saturn, Asura Buster / Fuuki
 
     COLMODE_RGBA8888_BE,    // 32bit color
     COLMODE_BGRA8888_BE,    // 32bit color (ps3)
