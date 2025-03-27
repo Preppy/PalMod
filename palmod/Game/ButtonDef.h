@@ -256,3 +256,9 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_JCHAN =
 {
     L"LP/HP", L"LK/HK", L"P1 (Boss)", L"P2 (Boss)"
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_STNL20 =
+{
+   L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20",
+    L"21", L"21", L"23", L"24", L"25", L"26", L"27", L"28", L"29", L"30",
+};
