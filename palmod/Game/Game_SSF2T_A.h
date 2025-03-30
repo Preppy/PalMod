@@ -266,7 +266,5 @@ private:
 public:
     CGame_SSF2T_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

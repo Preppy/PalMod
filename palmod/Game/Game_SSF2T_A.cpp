@@ -269,28 +269,3 @@ sFileRule CGame_SSF2T_A::GetRule(uint32_t nRuleId)
         return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM09);
     }
 }
-
-void CGame_SSF2T_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
-
-    if (nUnitId != m_nCurrentExtraUnitId)
-    {
-        // For Steam, we can handle the split ROMs as one unit.  Adjust offsets.
-        if (nUnitId < ARRAYSIZE(SSF2T_A_UNITS_4A))
-        {
-            // ROM04
-            m_nCurrentPaletteROMLocation += 0x111737b5 - 0x43b54;
-        }
-        else if (nUnitId < (ARRAYSIZE(SSF2T_A_UNITS_4A) + ARRAYSIZE(SSF2T_A_UNITS_3C)))
-        {
-            // ROM03
-            m_nCurrentPaletteROMLocation += 0x111737b5 - 0x43b54 - 0x80000;
-        }
-        else
-        {
-            // ROM08
-            m_nCurrentPaletteROMLocation += 0x111737b5 - 0x43b54 + (4 * 0x80000);
-        }
-    }
-}

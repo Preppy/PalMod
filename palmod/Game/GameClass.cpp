@@ -1109,7 +1109,7 @@ const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGam
 
 const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef)
 {
-    uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
+    const uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteToUse = nullptr;
 
     if (nUnitId >= nExtraUnitLocation)

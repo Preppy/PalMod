@@ -21,6 +21,10 @@ struct sDescTreeNode
     uint8_t uChildType = DESC_NODETYPE_TREE;
     void* ChildNodes = nullptr;
     uint32_t uChildAmt = 0;
+    // Solely used within CGameClassByDir
+    // Allows for reusing units from loose ROM sets by specifying their offset location
+    // within the new monolithic ROM composition
+    size_t nROMShift = 0;
 };
 
 class CDescTree
