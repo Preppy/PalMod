@@ -371,9 +371,9 @@ static unsigned lodepng_load_file_(unsigned char** out, size_t* outsize, FILE* f
     return 0; /*ok*/
 }
 
-unsigned lodepng_load_file(unsigned char** out, size_t* outsize, const char* filename) {
+unsigned lodepng_load_file(unsigned char** out, size_t* outsize, const wchar_t* filename) {
     unsigned error;
-    FILE* file = fopen(filename, "rb");
+    FILE* file = _wfopen(filename, L"rb");
     if (!file) return 78;
     error = lodepng_load_file_(out, outsize, file);
     fclose(file);
@@ -5566,7 +5566,7 @@ unsigned lodepng_decode24(unsigned char** out, unsigned* w, unsigned* h, const u
 }
 
 #ifdef LODEPNG_COMPILE_DISK
-unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h, const char* filename,
+unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h, const wchar_t* filename,
                              LodePNGColorType colortype, unsigned bitdepth) {
   unsigned char* buffer = 0;
   size_t buffersize;
@@ -5580,11 +5580,11 @@ unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h, cons
   return error;
 }
 
-unsigned lodepng_decode32_file(unsigned char** out, unsigned* w, unsigned* h, const char* filename) {
+unsigned lodepng_decode32_file(unsigned char** out, unsigned* w, unsigned* h, const wchar_t* filename) {
   return lodepng_decode_file(out, w, h, filename, LCT_RGBA, 8);
 }
 
-unsigned lodepng_decode24_file(unsigned char** out, unsigned* w, unsigned* h, const char* filename) {
+unsigned lodepng_decode24_file(unsigned char** out, unsigned* w, unsigned* h, const wchar_t* filename) {
   return lodepng_decode_file(out, w, h, filename, LCT_RGB, 8);
 }
 #endif /*LODEPNG_COMPILE_DISK*/

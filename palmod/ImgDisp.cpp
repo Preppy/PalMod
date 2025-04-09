@@ -8,6 +8,7 @@
 #include "resource.h"
 #include "atlimage.h"
 #include "PalMod.h"
+#include "lodepng\lodepng.h"
 
 class CRAWHeightWidthAdjustmentDialog : public CDialog
 {
@@ -863,16 +864,16 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
 bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
 {
-    CImage turbo;
+    CImage sprite;
 
-    if (SUCCEEDED(turbo.Load(pszTextureLocation)) &&
-        turbo.IsDIBSection() &&
-        turbo.IsIndexed())
+    if (SUCCEEDED(sprite.Load(pszTextureLocation)) &&
+        sprite.IsDIBSection() &&
+        sprite.IsIndexed())
     {
-        uint8_t* pBits = reinterpret_cast<uint8_t*>(turbo.GetBits());
+        uint8_t* pBits = reinterpret_cast<uint8_t*>(sprite.GetBits());
 
         // Need to replace the color table so we can figure out what goes where easily
-        const int nColorTableSize = turbo.GetMaxColorTableEntries();
+        const int nColorTableSize = sprite.GetMaxColorTableEntries();
 
         RGBQUAD* pColorTable = new RGBQUAD[nColorTableSize];
         uint16_t r = 0, g = 0, b = 0;
@@ -895,18 +896,18 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
             }
         }
 
-        turbo.SetColorTable(0, nColorTableSize, pColorTable);
+        sprite.SetColorTable(0, nColorTableSize, pColorTable);
         safe_delete_array(pColorTable);
 
-        m_nTextureOverrideW[nPositionToLoadTo] = turbo.GetWidth();
-        m_nTextureOverrideH[nPositionToLoadTo] = turbo.GetHeight();
+        m_nTextureOverrideW[nPositionToLoadTo] = sprite.GetWidth();
+        m_nTextureOverrideH[nPositionToLoadTo] = sprite.GetHeight();
 
-        const size_t nPixelCount = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
+        const size_t nPixelCount = static_cast<size_t>(m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]);
 
         safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
         m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nPixelCount];
 
-        if (turbo.GetPitch() > 0)
+        if (sprite.GetPitch() > 0)
         {
             size_t iPos = (direction == SpriteImportDirection::TopDown) ? 0 : nPixelCount - 1;
 
@@ -914,7 +915,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
             {
                 for (signed int xPos = 0; xPos < m_nTextureOverrideW[nPositionToLoadTo]; xPos++)
                 {
-                    const COLORREF curColor = turbo.GetPixel(xPos, yPos);
+                    const COLORREF curColor = sprite.GetPixel(xPos, yPos);
                     const uint8_t nColorIndex = (GetRValue(curColor) + GetGValue(curColor) + GetBValue(curColor));
 
                     m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = nColorIndex;
@@ -937,7 +938,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
             {
                 for (signed int xPos = m_nTextureOverrideW[nPositionToLoadTo] - 1; xPos >= 0; xPos--)
                 {
-                    const COLORREF curColor = turbo.GetPixel(xPos, yPos);
+                    const COLORREF curColor = sprite.GetPixel(xPos, yPos);
                     const uint8_t nColorIndex = (GetRValue(curColor) + GetGValue(curColor) + GetBValue(curColor));
 
                     m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = nColorIndex;
@@ -960,6 +961,73 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     else
     {
         MessageBox(L"Error: this is an animated GIF.  Only static GIFs can be used as a replacement preview.", GetHost()->GetAppName(), MB_ICONERROR);
+
+        return false;
+    }
+}
+
+bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
+{
+    bool fSuccess = false;
+    lodepng::State state;
+
+    lodepng_state_init(&state);
+
+    size_t nSize = 0;
+    unsigned char* loadedAsFile = nullptr;
+    unsigned char* loadedAsPNG = nullptr;
+
+    if (lodepng_load_file(&loadedAsFile, &nSize, pszTextureLocation) == 0)
+    {
+        unsigned width = 0, height = 0;
+        state.decoder.color_convert = 0;
+        if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
+        {
+            state.info_raw.colortype = LodePNGColorType::LCT_PALETTE;
+            if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
+            {
+                m_nTextureOverrideW[nPositionToLoadTo] = width;
+                m_nTextureOverrideH[nPositionToLoadTo] = height;
+
+                const signed int nPixelCount = width * height;
+
+                safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+                m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nPixelCount];
+
+                if (direction == SpriteImportDirection::TopDown)
+                {
+                    for (signed int iPos = 0; iPos < nPixelCount; iPos++)
+                    {
+                        m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = loadedAsPNG[iPos];
+                    }
+                }
+                else
+                {
+                    signed int srcPos = 0;
+                    for (signed int iPos = nPixelCount - 1; iPos >= 0 ; iPos--)
+                    {
+                        m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = loadedAsPNG[srcPos++];
+                    }
+                }
+
+                fSuccess = true;
+            }
+
+            free(loadedAsPNG);
+        }
+
+        free(loadedAsFile);
+    }
+    
+    if (fSuccess)
+    {
+        _UpdatePreviewForExternalSprite(nPositionToLoadTo);
+
+        return true;
+    }
+    else
+    {
+        MessageBox(L"Error: this is not an indexed (type 3) PNG.  Only indexed PNGs can be used as a replacement preview.", GetHost()->GetAppName(), MB_ICONERROR);
 
         return false;
     }

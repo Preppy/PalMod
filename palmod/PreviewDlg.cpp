@@ -498,10 +498,13 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportD
 
     if (pszExt &&
         ((_wcsicmp(pszExt, L".gif") == 0) ||
-         (_wcsicmp(pszExt, L".png") == 0) ||
          (_wcsicmp(pszExt, L".bmp") == 0)))
     {
         fSuccess = m_ImgDisp.LoadExternalCImageSprite(nPositionToLoadTo, direction, pszPath);
+    }
+    else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
+    {
+        fSuccess = m_ImgDisp.LoadExternalPNGSprite(nPositionToLoadTo, direction, pszPath);
     }
     else
     {
@@ -518,8 +521,9 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
 {
     if (GetHost()->GetCurrGame())
     {
-        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Supported texture files|*-W-*-H-*.*;*.gif|"
+        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Supported texture files|*-W-*-H-*.*;*.png;*.gif|"
                                                        L"RAW Texture file|*-W-*-H-*.*|"
+                                                       L"Indexed PNG|*.png|"
                                                        L"GIF|*.gif|", this);
 
         if (OpenDialog.DoModal() == IDOK)

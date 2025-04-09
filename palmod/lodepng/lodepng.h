@@ -168,7 +168,7 @@ Same as the other decode functions, but instead takes a filename as input.
 NOTE: Wide-character filenames are not supported, you can use an external method
 to handle such files and decode in-memory.*/
 unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h,
-                             const char* filename,
+                             const wchar_t* filename,
                              LodePNGColorType colortype, unsigned bitdepth);
 
 /*Same as lodepng_decode_file, but always decodes to 32-bit RGBA raw image.
@@ -176,14 +176,14 @@ unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h,
 NOTE: Wide-character filenames are not supported, you can use an external method
 to handle such files and decode in-memory.*/
 unsigned lodepng_decode32_file(unsigned char** out, unsigned* w, unsigned* h,
-                               const char* filename);
+                               const wchar_t* filename);
 
 /*Same as lodepng_decode_file, but always decodes to 24-bit RGB raw image.
 
 NOTE: Wide-character filenames are not supported, you can use an external method
 to handle such files and decode in-memory.*/
 unsigned lodepng_decode24_file(unsigned char** out, unsigned* w, unsigned* h,
-                               const char* filename);
+                               const wchar_t* filename);
 #endif /*LODEPNG_COMPILE_DISK*/
 #endif /*LODEPNG_COMPILE_DECODER*/
 
@@ -1166,7 +1166,7 @@ return value: error code (0 means ok)
 NOTE: Wide-character filenames are not supported, you can use an external method
 to handle such files and decode in-memory.
 */
-unsigned lodepng_load_file(unsigned char** out, size_t* outsize, const char* filename);
+unsigned lodepng_load_file(unsigned char** out, size_t* outsize, const wchar_t* filename);
 
 /*
 Save a file from buffer to disk. Warning, if it exists, this function overwrites

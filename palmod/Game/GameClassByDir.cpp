@@ -358,7 +358,7 @@ void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
         }
 
-        m_nCurrentPaletteROMLocation += m_rgCurrentGameUnits.at(nUnitId).nROMShift;
+        m_nCurrentPaletteROMLocation += static_cast<uint32_t>(m_rgCurrentGameUnits.at(nUnitId).nROMShift);
 
         WarnIfPaletteIsOversized(nUnitId, nPalId, m_nCurrentPaletteROMLocation, m_nCurrentPaletteSizeInColors, m_pszCurrentPaletteName);
     }

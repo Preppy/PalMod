@@ -172,8 +172,9 @@ public:
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
-    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
     bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
+    bool LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
+    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     
