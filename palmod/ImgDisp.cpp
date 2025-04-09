@@ -846,20 +846,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
         if (fFoundData)
         {
-            if (m_pImgBuffer[nPositionToLoadTo])
-            {
-                // Override but use the stock palette
-                AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-                                                m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
-            }
-            else
-            {
-                // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-                AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-                                                m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
-            }
-
-            ResetForNewImage();
+            _UpdatePreviewForExternalSprite(nPositionToLoadTo);
 
             return true;
         }
@@ -872,6 +859,128 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     }
 
     return false;
+}
+
+bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
+{
+    CImage turbo;
+
+    if (SUCCEEDED(turbo.Load(pszTextureLocation)) &&
+        turbo.IsDIBSection() &&
+        turbo.IsIndexed())
+    {
+        uint8_t* pBits = reinterpret_cast<uint8_t*>(turbo.GetBits());
+
+        // Need to replace the color table so we can figure out what goes where easily
+        const int nColorTableSize = turbo.GetMaxColorTableEntries();
+
+        RGBQUAD* pColorTable = new RGBQUAD[nColorTableSize];
+        uint16_t r = 0, g = 0, b = 0;
+
+        // override the color table so that we can then remap
+        for (int iPos = 0; iPos < nColorTableSize; iPos++)
+        {
+            pColorTable[iPos] = { static_cast<uint8_t>(b), static_cast<uint8_t>(g), static_cast<uint8_t>(r) };
+            r++;
+            if (r > 0xff)
+            {
+                r = 0;
+                g++;
+                if (g > 0xff)
+                {
+                    // we won't hit this
+                    g = 0;
+                    b++;
+                }
+            }
+        }
+
+        turbo.SetColorTable(0, nColorTableSize, pColorTable);
+        safe_delete_array(pColorTable);
+
+        m_nTextureOverrideW[nPositionToLoadTo] = turbo.GetWidth();
+        m_nTextureOverrideH[nPositionToLoadTo] = turbo.GetHeight();
+
+        const size_t nPixelCount = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
+
+        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+        m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nPixelCount];
+
+        if (turbo.GetPitch() > 0)
+        {
+            size_t iPos = (direction == SpriteImportDirection::TopDown) ? 0 : nPixelCount - 1;
+
+            for (signed int yPos = 0; yPos < m_nTextureOverrideH[nPositionToLoadTo]; yPos++)
+            {
+                for (signed int xPos = 0; xPos < m_nTextureOverrideW[nPositionToLoadTo]; xPos++)
+                {
+                    const COLORREF curColor = turbo.GetPixel(xPos, yPos);
+                    const uint8_t nColorIndex = (GetRValue(curColor) + GetGValue(curColor) + GetBValue(curColor));
+
+                    m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = nColorIndex;
+                    if (direction == SpriteImportDirection::TopDown)
+                    {
+                        iPos++;
+                    }
+                    else
+                    {
+                        iPos--;
+                    }
+                }
+            }
+        }
+        else
+        {
+            // We're flipped: flip the logic.
+            size_t iPos = (direction == SpriteImportDirection::TopDown) ? nPixelCount - 1 : 0;
+            for (signed int yPos = m_nTextureOverrideH[nPositionToLoadTo] - 1; yPos >= 0; yPos--)
+            {
+                for (signed int xPos = m_nTextureOverrideW[nPositionToLoadTo] - 1; xPos >= 0; xPos--)
+                {
+                    const COLORREF curColor = turbo.GetPixel(xPos, yPos);
+                    const uint8_t nColorIndex = (GetRValue(curColor) + GetGValue(curColor) + GetBValue(curColor));
+
+                    m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = nColorIndex;
+                    if (direction == SpriteImportDirection::TopDown)
+                    {
+                        iPos--;
+                    }
+                    else
+                    {
+                        iPos++;
+                    }
+                }
+            }
+        }
+
+        _UpdatePreviewForExternalSprite(nPositionToLoadTo);
+
+        return true;
+    }
+    else
+    {
+        MessageBox(L"Error: this is an animated GIF.  Only static GIFs can be used as a replacement preview.", GetHost()->GetAppName(), MB_ICONERROR);
+
+        return false;
+    }
+}
+
+void CImgDisp::_UpdatePreviewForExternalSprite(UINT nPositionToLoadTo)
+{
+    if (m_pImgBuffer[nPositionToLoadTo])
+    {
+        // Override but use the stock palette
+        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+            m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+    }
+    else
+    {
+        // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
+        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+            m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
+    }
+
+    ResetForNewImage();
 }
 
 BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkPal)

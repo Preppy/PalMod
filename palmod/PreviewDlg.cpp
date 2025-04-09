@@ -493,7 +493,22 @@ void CPreviewDlg::OnResetBackgroundOffset()
 
 void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath)
 {
-    if (m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath))
+    wchar_t* pszExt = wcsrchr(pszPath, L'.');
+    bool fSuccess = false;
+
+    if (pszExt &&
+        ((_wcsicmp(pszExt, L".gif") == 0) ||
+         (_wcsicmp(pszExt, L".png") == 0) ||
+         (_wcsicmp(pszExt, L".bmp") == 0)))
+    {
+        fSuccess = m_ImgDisp.LoadExternalCImageSprite(nPositionToLoadTo, direction, pszPath);
+    }
+    else
+    {
+        fSuccess = m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath);
+    }
+
+    if (fSuccess)
     {
         m_ImgDisp.UpdateCtrl();
     }
@@ -503,7 +518,9 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
 {
     if (GetHost()->GetCurrGame())
     {
-        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"RAW Texture file|*-W-*-H-*.*||", this);
+        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Supported texture files|*-W-*-H-*.*;*.gif|"
+                                                       L"RAW Texture file|*-W-*-H-*.*|"
+                                                       L"GIF|*.gif|", this);
 
         if (OpenDialog.DoModal() == IDOK)
         {

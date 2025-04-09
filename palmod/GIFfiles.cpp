@@ -69,7 +69,7 @@ bool LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPal
         if (LoadGIFHeaderAndValidate(sourceGIF, header, strPossibleError))
         {
             uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
-            size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
+            const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
 
             rgclrPaletteData.resize(nColorTableSize);
 
@@ -222,21 +222,21 @@ void CImgOutDlg::UpdatePaletteInGIF(CString output_str)
 
         if (LoadGIFHeaderAndValidate(sourceGIF, header, strPossibleError))
         {
-            uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
-            size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
+            const uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
+            const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
 
-            size_t minWriteSize = min(nColorTableSize, m_DumpBmp.m_rgSrcImg[0]->uPalSz);
+            const size_t minWriteSize = min(nColorTableSize, m_DumpBmp.m_rgSrcImg[0]->uPalSz);
 
             // Walk past the transparency color
             sourceGIF.Seek(3, CFile::current);
 
             for (size_t iPos = 1; iPos < minWriteSize; iPos++)
             {
-                COLORREF curColor = m_DumpBmp.m_pppPalettes[0][m_DumpBmp.m_nPalIndex][iPos];
+                const COLORREF curColor = m_DumpBmp.m_pppPalettes[0][m_DumpBmp.m_nPalIndex][iPos];
 
-                uint8_t red   = GetRValue(curColor);
-                uint8_t green = GetGValue(curColor);
-                uint8_t blue  = GetBValue(curColor);
+                const uint8_t red   = GetRValue(curColor);
+                const uint8_t green = GetGValue(curColor);
+                const uint8_t blue  = GetBValue(curColor);
 
                 sourceGIF.Write(&red, sizeof(red));
                 sourceGIF.Write(&green, sizeof(green));

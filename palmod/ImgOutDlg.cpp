@@ -522,13 +522,13 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
         nTotalPaletteSize += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
     }
 
-    unsigned maxSrcWidth = rectCompleteDimensions.right - rectCompleteDimensions.left;
-    unsigned maxSrcHeight = rectCompleteDimensions.bottom - rectCompleteDimensions.top;
+    const unsigned maxSrcWidth = rectCompleteDimensions.right - rectCompleteDimensions.left;
+    const unsigned maxSrcHeight = rectCompleteDimensions.bottom - rectCompleteDimensions.top;
 
-    int nXSkew = abs(rectCompleteDimensions.left);
-    int nYSkew = abs(rectCompleteDimensions.top);
+    const int nXSkew = abs(rectCompleteDimensions.left);
+    const int nYSkew = abs(rectCompleteDimensions.top);
 
-    bool fTooManyColorsForSingleIndexedPNG = (nTotalPaletteSize > 256);
+    const bool fTooManyColorsForSingleIndexedPNG = (nTotalPaletteSize > 256);
 
     if (!fShowingSingleVersion || fTooManyColorsForSingleIndexedPNG)
     {
@@ -578,7 +578,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 strCurrentNodeName = m_pButtonLabelSet[nNodeIndex];
             }
 
-            int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.m_nPalIndex : nNodeIndex;
+            const int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.m_nPalIndex : nNodeIndex;
 
             const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.m_border_sz);
             const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.m_border_sz);
@@ -909,8 +909,8 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     }
 
     CImage out_img;
-    int output_width = m_DumpBmp.GetOutputW();
-    int output_height = m_DumpBmp.GetOutputH();
+    const int output_width = m_DumpBmp.GetOutputW();
+    const int output_height = m_DumpBmp.GetOutputH();
 
     // Pass negative height in order to indicate that this is top-down
     if (out_img.Create(output_width, -output_height, 32, dwExportFlags))

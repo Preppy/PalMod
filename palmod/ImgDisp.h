@@ -122,6 +122,7 @@ private:
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
 
     bool _FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight);
+    void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo);
 
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
@@ -172,6 +173,7 @@ public:
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
     bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
+    bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     
