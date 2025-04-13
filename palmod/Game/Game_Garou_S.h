@@ -13,6 +13,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Garou: MotW (Steam)", L"p1.bin", 0xeb2d1ea5, 0xc0000 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Garou: MotW (Steam)",
@@ -25,10 +30,10 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
-        {},
+        m_rgCRC32Data,
         Garou_A_UNITS,
         ARRAYSIZE(Garou_A_UNITS),
-        L"GarouE.txt",         // Extra filename
+        L"GarouSE.txt",         // Extra filename
         1631,                  // Count of palettes listed in the header
         0xe040,                // Lowest known location used for palettes
     };
@@ -50,6 +55,11 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Garou: MotW (Neo-Geo Prototype)", L"proto_253-p1.p1", 0xc72f0c16, 0xc0000 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Garou: MotW (Neo-Geo Prototype)",
@@ -62,10 +72,10 @@ private:
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
-        {},
+        m_rgCRC32Data,
         Garou_A_UNITS,
         ARRAYSIZE(Garou_A_UNITS),
-        L"GarouE.txt",         // Extra filename
+        L"GarouPE.txt",         // Extra filename
         1631,                  // Count of palettes listed in the header
         0xe040,                // Lowest known location used for palettes
     };
