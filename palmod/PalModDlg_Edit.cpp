@@ -354,7 +354,14 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             }
             else if (_wcsicmp(pszExtension, L".gif") == 0)
             {
-                GetHost()->GetPalModDlg()->LoadPaletteFromGIF(szPath);
+                if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
+                {
+                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, SpriteImportDirection::TopDown, szPath);
+                }
+                else
+                {
+                    GetHost()->GetPalModDlg()->LoadPaletteFromGIF(szPath);
+                }
             }
             else if (_wcsicmp(pszExtension, L".gpl") == 0)
             {
@@ -374,7 +381,14 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             }
             else if (_wcsicmp(pszExtension, L".png") == 0)
             {
-                GetHost()->GetPalModDlg()->LoadPaletteFromPNG(szPath);
+                if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
+                {
+                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, SpriteImportDirection::TopDown, szPath);
+                }
+                else
+                {
+                    GetHost()->GetPalModDlg()->LoadPaletteFromPNG(szPath);
+                }
             }
             else if (_wcsicmp(pszExtension, L".raw") == 0)
             {

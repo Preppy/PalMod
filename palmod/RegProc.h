@@ -97,6 +97,7 @@ public:
     BOOL fTileBG;
     BOOL fUseBGCol;
     BOOL fClickToFind;
+    BOOL fPreviewDropIsPalette;
     double dPreviewZoom = 0.0;
     BlendMode eBlendMode = BlendMode::Default;
 

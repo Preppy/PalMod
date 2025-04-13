@@ -722,6 +722,7 @@ BEGIN
         MENUITEM "Set Background Color",        ID_SETTINGS_SETBACKGROUNDCOLOR
         MENUITEM "Set Background Image",        ID_SETTINGS_SETBACKGROUNDIMAGE
         MENUITEM "Set Blink Color",             ID_SETTINGS_SETBLINKCOLOR
+        MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
         MENUITEM SEPARATOR
         POPUP "Blend Mode"
         BEGIN

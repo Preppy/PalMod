@@ -58,6 +58,7 @@ public:
     afx_msg void OnSetBlinkCol();
     afx_msg void OnSetBlinkInverts();
     afx_msg void OnSetBackgroundImage();
+    afx_msg void OnSetDropIsPalette();
     afx_msg void OnDestroy();
     afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
     afx_msg void OnClose();
@@ -83,4 +84,5 @@ public:
     afx_msg void SetBlendToPS1STOff() { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOff); m_ImgDisp.UpdateCtrl(); };
 
     void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath);
+    BOOL GetPreviewDropIsPalette() { return m_ImgDisp.GetPreviewDropIsPalette(); };
 };

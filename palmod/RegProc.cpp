@@ -23,6 +23,7 @@ constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
 constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
 constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
+constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes";
 
 extern int GetDpiForScreen();
 
@@ -509,6 +510,10 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, reinterpret_cast<LPBYTE>(&fClickToFind), &GetSz) != ERROR_SUCCESS)
                 fClickToFind = TRUE;
 
+            GetSz = sizeof(fPreviewDropIsPalette);
+            if (RegQueryValueEx(hKey, c_prevPreviewDropsArePalettes, 0, &RegType, reinterpret_cast<LPBYTE>(&fPreviewDropIsPalette), &GetSz) != ERROR_SUCCESS)
+                fPreviewDropIsPalette = TRUE;
+
             GetSz = sizeof(eBlendMode);
             if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, reinterpret_cast<LPBYTE>(&eBlendMode), &GetSz) != ERROR_SUCCESS)
             {
@@ -612,56 +617,56 @@ void CRegProc::SaveReg(eRegistryStoreID src)
 
         switch (src)
         {
-        case eRegistryStoreID::REG_MAIN:
-        {
-            RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_fAllowAlphaChanges), sizeof(main_fAllowAlphaChanges));
-            RegSetValueEx(hKey, L"main_show32", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bShow32), sizeof(main_bShow32));
-            RegSetValueEx(hKey, L"main_procsupps", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bProcSupp), sizeof(main_bProcSupp));
-            RegSetValueEx(hKey, c_mainExtraCopyInfo, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bExtraCopyData), sizeof(main_bExtraCopyData));
+            case eRegistryStoreID::REG_MAIN:
+            {
+                RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_fAllowAlphaChanges), sizeof(main_fAllowAlphaChanges));
+                RegSetValueEx(hKey, L"main_show32", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bShow32), sizeof(main_bShow32));
+                RegSetValueEx(hKey, L"main_procsupps", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bProcSupp), sizeof(main_bProcSupp));
+                RegSetValueEx(hKey, c_mainExtraCopyInfo, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&main_bExtraCopyData), sizeof(main_bExtraCopyData));
 
-            conv_str = RectToStr(main_szpos);
+                conv_str = RectToStr(main_szpos);
 
-            CString strPosAndDpi;
-            strPosAndDpi.Format(L"%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
+                CString strPosAndDpi;
+                strPosAndDpi.Format(L"%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
-            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
-        }
-        break;
+                RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+                break;
+            }
 
-        case eRegistryStoreID::REG_PREV:
-        {
-            RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_bgcol), sizeof(prev_bgcol));
-            RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkcol), sizeof(prev_blinkcol));
-            RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkinverts), sizeof(prev_blinkinverts));
+            case eRegistryStoreID::REG_PREV:
+            {
+                RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_bgcol), sizeof(prev_bgcol));
+                RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkcol), sizeof(prev_blinkcol));
+                RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkinverts), sizeof(prev_blinkinverts));
 
-            conv_str = RectToStr(prev_szpos);
+                conv_str = RectToStr(prev_szpos);
 
-            RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
-            RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, reinterpret_cast<LPBYTE>(szPrevBGLoc), static_cast<DWORD>((wcslen(szPrevBGLoc) + 1) * sizeof(wchar_t)));
-            RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTileBG), sizeof(fTileBG));
-            RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGXOffs), sizeof(nBGXOffs));
-            RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGYOffs), sizeof(nBGYOffs));
-            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fUseBGCol), sizeof(fUseBGCol));
-            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fClickToFind), sizeof(fClickToFind));
-            RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&eBlendMode), sizeof(eBlendMode));
-            
-            DWORD nTranslation = static_cast<DWORD>(dPreviewZoom);
-            RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nTranslation), sizeof(nTranslation));
-        }
-        break;
+                RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+                RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, reinterpret_cast<LPBYTE>(szPrevBGLoc), static_cast<DWORD>((wcslen(szPrevBGLoc) + 1) * sizeof(wchar_t)));
+                RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTileBG), sizeof(fTileBG));
+                RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGXOffs), sizeof(nBGXOffs));
+                RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGYOffs), sizeof(nBGYOffs));
+                RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fUseBGCol), sizeof(fUseBGCol));
+                RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fClickToFind), sizeof(fClickToFind));
+                RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&eBlendMode), sizeof(eBlendMode));
+                RegSetValueEx(hKey, c_prevPreviewDropsArePalettes, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fPreviewDropIsPalette), sizeof(fPreviewDropIsPalette));
+                DWORD nTranslation = static_cast<DWORD>(dPreviewZoom);
+                RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nTranslation), sizeof(nTranslation));
+                break;
+            }
 
-        case eRegistryStoreID::REG_IMGOUT:
-        {
-            RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_bgcol), sizeof(imgout_bgcol));
-            RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_border), sizeof(imgout_border));
-            RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_zoomindex), sizeof(imgout_zoomindex));
-            RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTransPNG), sizeof(fTransPNG));
+            case eRegistryStoreID::REG_IMGOUT:
+            {
+                RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_bgcol), sizeof(imgout_bgcol));
+                RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_border), sizeof(imgout_border));
+                RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_zoomindex), sizeof(imgout_zoomindex));
+                RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTransPNG), sizeof(fTransPNG));
 
-            conv_str = RectToStr(imgout_szpos);
+                conv_str = RectToStr(imgout_szpos);
 
-            RegSetValueEx(hKey, L"imgout_szpos", 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
-        }
-        break;
+                RegSetValueEx(hKey, L"imgout_szpos", 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+                break;
+            }
         }
 
         RegCloseKey(hKey);

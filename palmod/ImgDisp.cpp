@@ -477,7 +477,7 @@ void CImgDisp::UpdateCtrl(BOOL fRedraw /* = TRUE */, int indexOfImageUsingBlinkP
     //Reset the BLT rect
     //memset(&rBlt, 0, sizof(RECT));
 
-    int nBlinkImageIndex = (indexOfImageUsingBlinkPalette ? (indexOfImageUsingBlinkPalette & 0x00FF) : MAX_IMAGES_DISPLAYABLE);
+    const int nBlinkImageIndex = (indexOfImageUsingBlinkPalette ? (indexOfImageUsingBlinkPalette & 0x00FF) : MAX_IMAGES_DISPLAYABLE);
 
     for (int nImgCtr = 0; nImgCtr < MAX_IMAGES_DISPLAYABLE; nImgCtr++)
     {
@@ -862,6 +862,145 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     return false;
 }
 
+void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize)
+{
+    // So this is an interesting situation.
+    // Incoming we have a palettized image that the user wants to use as a custom preview.
+    // However we know that that image can be comprised of multiple sprites representing multiple palette sets.
+    // Since the color table is monolithic, we don't know via that if there were multiple sprites used to build the image.
+    // BUT -- we can make some good faith guesses based upon the alignment of the current palette and the
+    // palette that is in use in the incoming preview.
+    // So if we consider an incoming Wolverine preview, that will be palette size 0x20.  We can use simple 
+    // math to split out all references to 0x00-0x10 and 0x11-0x20, functionally decomposing it.
+    // For someone with a 0x10 palette length, we can just excise overflowing references: that otherwise would be garbage data.
+    // For someone with a 0x20 palette, we can use each "layer" of the preview as its own preview.
+    // For someone with a 0x40 palette length, we can not split.
+
+    // Get the total palette size so we can handle correctly
+    size_t nTotalPalSize = 0;
+    for (int nStartPalette = 0; nStartPalette < m_nImgAmt; nStartPalette++)
+    {
+        nTotalPalSize += m_pImgBuffer[nStartPalette]->uPalSz;
+    }
+
+    const signed int nDataLen = width * height;
+
+    if ((nTotalPalSize > 0xff) ||
+        ((m_nImgAmt == 1) && (nTotalPalSize >= nImagePalSize)))
+    {
+        // This handles
+        // * maximum color table size: at this point we know that the incoming image could not encompass 
+        //   the entire sprite set for this composition.  as such, the palette here should be left alone
+        // * this is a single preview and the palette sizes match or at least don't use overflowing references.  Don't touch.
+        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+        m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nDataLen];
+
+        if (direction == SpriteImportDirection::TopDown)
+        {
+            for (signed int iPos = 0; iPos < nDataLen; iPos++)
+            {
+                m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = pImageData[iPos];
+            }
+        }
+        else
+        {
+            signed int srcPos = 0;
+            for (signed int iPos = nDataLen - 1; iPos >= 0; iPos--)
+            {
+                m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = pImageData[srcPos++];
+            }
+        }
+
+        m_nTextureOverrideW[nPositionToLoadTo] = width;
+        m_nTextureOverrideH[nPositionToLoadTo] = height;
+
+        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+                        m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+    }
+    else
+    {
+        // This handles:
+        //   * single preview with an incoming palette that overflows: cut out overflow references
+        //   * multi-preview composition and the palettes match: cut the previews apart
+        //   * direct assignment to a particular position: prune extra and only load for that position
+        for (int nPos = nPositionToLoadTo; nPos < m_nImgAmt; nPos++)
+        {
+            safe_delete_array(m_ppSpriteOverrideTexture[nPos]);
+            m_ppSpriteOverrideTexture[nPos] = new uint8_t[nDataLen];
+
+            if (nPositionToLoadTo)
+            {
+                break;
+            }
+        }
+
+        unsigned char nCurrentPalStart = 0;
+        for (int nPos = 0; nPos < m_nImgAmt; nPos++)
+        {
+            unsigned char nCurrentPalEnd = nCurrentPalStart + m_pImgBuffer[nPos]->uPalSz;
+
+            if (nPos < static_cast<int>(nPositionToLoadTo))
+            {
+                // we just wanted the palette math
+                continue;
+            }
+
+            if (direction == SpriteImportDirection::TopDown)
+            {
+                for (signed int iPos = 0; iPos < nDataLen; iPos++)
+                {
+                    unsigned char nAdjustedIndex = pImageData[iPos];
+
+                    if ((nAdjustedIndex <= nCurrentPalStart) ||
+                        (nAdjustedIndex >= nCurrentPalEnd))
+                    {
+                        nAdjustedIndex = 0;
+                    }
+                    else
+                    {
+                        nAdjustedIndex -= nCurrentPalStart;
+                    }
+
+                    m_ppSpriteOverrideTexture[nPos][iPos] = nAdjustedIndex;
+                }
+            }
+            else
+            {
+                signed int srcPos = 0;
+                for (signed int iPos = nDataLen - 1; iPos >= 0; iPos--)
+                {
+                    unsigned char nAdjustedIndex = pImageData[srcPos++];
+
+                    if ((nAdjustedIndex <= nCurrentPalStart) ||
+                        (nAdjustedIndex >= nCurrentPalEnd))
+                    {
+                        nAdjustedIndex = 0;
+                    }
+                    else
+                    {
+                        nAdjustedIndex -= nCurrentPalStart;
+                    }
+
+                    m_ppSpriteOverrideTexture[nPos][iPos] = nAdjustedIndex;
+                }
+            }
+
+            nCurrentPalStart = nCurrentPalEnd;
+
+            m_nTextureOverrideW[nPos] = width;
+            m_nTextureOverrideH[nPos] = height;
+
+            AddImageNode(nPos, m_nTextureOverrideW[nPos], m_nTextureOverrideH[nPos], m_ppSpriteOverrideTexture[nPos],
+                            m_pImgBuffer[nPos]->pPalette, m_pImgBuffer[nPos]->uPalSz, 0, 0);
+
+            if (nPositionToLoadTo)
+            {
+                break;
+            }
+        }
+    }
+}
+
 bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
 {
     CImage sprite;
@@ -986,29 +1125,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             state.info_raw.colortype = LodePNGColorType::LCT_PALETTE;
             if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
             {
-                m_nTextureOverrideW[nPositionToLoadTo] = width;
-                m_nTextureOverrideH[nPositionToLoadTo] = height;
-
-                const signed int nPixelCount = width * height;
-
-                safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
-                m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nPixelCount];
-
-                if (direction == SpriteImportDirection::TopDown)
-                {
-                    for (signed int iPos = 0; iPos < nPixelCount; iPos++)
-                    {
-                        m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = loadedAsPNG[iPos];
-                    }
-                }
-                else
-                {
-                    signed int srcPos = 0;
-                    for (signed int iPos = nPixelCount - 1; iPos >= 0 ; iPos--)
-                    {
-                        m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = loadedAsPNG[srcPos++];
-                    }
-                }
+                _ImportAndSplitSpriteComposition(direction, nPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
 
                 fSuccess = true;
             }
@@ -1021,7 +1138,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     
     if (fSuccess)
     {
-        _UpdatePreviewForExternalSprite(nPositionToLoadTo);
+        _UpdatePreviewForExternalSprite(nPositionToLoadTo, false);
 
         return true;
     }
@@ -1033,19 +1150,22 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     }
 }
 
-void CImgDisp::_UpdatePreviewForExternalSprite(UINT nPositionToLoadTo)
+void CImgDisp::_UpdatePreviewForExternalSprite(UINT nPositionToLoadTo, bool shouldAddImageNodes /* = true */)
 {
-    if (m_pImgBuffer[nPositionToLoadTo])
+    if (shouldAddImageNodes)
     {
-        // Override but use the stock palette
-        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-            m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
-    }
-    else
-    {
-        // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-            m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
+        if (m_pImgBuffer[nPositionToLoadTo])
+        {
+            // Override but use the stock palette
+            AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+                m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+        }
+        else
+        {
+            // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
+            AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+                m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
+        }
     }
 
     ResetForNewImage();

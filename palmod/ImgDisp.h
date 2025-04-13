@@ -71,6 +71,7 @@ private:
     BOOL m_fNeedFirstInit = TRUE;
     BOOL m_fClickToFindColor = TRUE;
     BOOL m_fBlinkInverts = FALSE;
+    BOOL m_fPreviewDropIsPalette = TRUE;
 
     COLORREF m_crBGCol = 0x00FF0000;
     COLORREF m_crBlinkCol = 0x00FFFFFF;
@@ -122,7 +123,8 @@ private:
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
 
     bool _FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight);
-    void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo);
+    void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo, bool shouldAddImageNodes = true);
+    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize);
 
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
@@ -161,6 +163,8 @@ public:
     void SetClickToFindColorSetting(BOOL fClickToFind) { m_fClickToFindColor = fClickToFind; };
     BOOL GetClickToFindColorSetting() { return m_fClickToFindColor; };
     BOOL CanForceBGBitmapAvailable();
+    BOOL GetPreviewDropIsPalette() { return m_fPreviewDropIsPalette; };
+    void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_fPreviewDropIsPalette = fPreviewDropIsPalette; };
 
     int GetBGXOffs() { return m_nBGXOffs; };
     int GetBGYOffs() { return m_nBGYOffs; };
