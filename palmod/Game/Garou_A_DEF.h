@@ -916,16 +916,16 @@ const sGame_PaletteDataset Garou_A_GRANT_PALETTES_BOSS[] =
     { L"Grant Boss? - Burned", 0x14360, 0x14380, indexGarouAGrant },
     { L"Grant Boss? - Purple-Burned", 0x14380, 0x143a0, indexGarouAGrant },
     { L"Grant Boss? - Zapped", 0x143a0, 0x143c0, indexGarouAGrant },
-    { L"Grant Boss? - T.O.P.", 0x143c0, 0x143e0 },
+    { L"Grant Boss? - T.O.P.", 0x143c0, 0x143e0, indexGarouAGrant },
     { L"Grant Boss? - Super Trail", 0x143e0, 0x14400, indexGarouAGrant },
     { L"Grant Boss? - Guard Crash", 0x14400, 0x14420, indexGarouAGrant },
     { L"Grant Boss? - Just Defense", 0x14420, 0x14440, indexGarouAGrant },
-    { L"Grant Boss? - Projectile1", 0x14440, 0x14460 },
+    { L"Grant Boss? - Projectile1", 0x14440, 0x14460, indexGarouAGrant, 0x09 },
     { L"Grant Boss? - Projectile2", 0x14460, 0x14480 },
     { L"Grant Boss? - Projectile3", 0x14480, 0x144a0 },
     { L"Grant Boss? - Projectile4", 0x144a0, 0x144c0 },
     { L"Grant Boss? - Projectile5", 0x144c0, 0x144e0 },
-    { L"Grant Boss? - Projectile6", 0x144e0, 0x14500 },
+    { L"Grant Boss? - Projectile6", 0x144e0, 0x14500, indexGarouAGrant, 0x08 },
 };
 
 const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_A[] =
@@ -1200,7 +1200,7 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_D[] =
     { L"Freeman D - Super Trail", 0x15fe0, 0x16000, indexGarouAFreeman },
     { L"Freeman D - Guard Crash", 0x16000, 0x16020, indexGarouAFreeman },
     { L"Freeman D - Just Defense", 0x16020, 0x16040, indexGarouAFreeman },
-    { L"Freeman D - Slash Effects Main", 0x16040, 0x16060, indexGarouAFreeman, 0x090 },
+    { L"Freeman D - Slash Effects Main", 0x16040, 0x16060, indexGarouAFreeman, 0x09 },
     { L"Freeman D - Slash Effects Extra 1", 0x16060, 0x16080, indexGarouAFreeman, 0x09 },
     { L"Freeman D - Slash Effects Extra 2", 0x16080, 0x160a0, indexGarouAFreeman, 0x09 },
     { L"Freeman D - Intro Stuff", 0x160a0, 0x160c0, indexGarouAFreeman, 0x0b },
@@ -1420,12 +1420,12 @@ const sGame_PaletteDataset Garou_A_KAIN_PALETTES_BOSS[] =
     { L"Kain Boss? - Super Trail", 0x175e0, 0x17600, indexGarouAKain },
     { L"Kain Boss? - Guard Crash", 0x17600, 0x17620, indexGarouAKain },
     { L"Kain Boss? - Just Defense", 0x17620, 0x17640, indexGarouAKain },
-    { L"Kain Boss? - Projectile1", 0x17640, 0x17660 },
-    { L"Kain Boss? - Projectile2", 0x17660, 0x17680 },
+    { L"Kain Boss? - Projectile1", 0x17640, 0x17660, indexGarouAKain, 0x09 }, // a or 9?
+    { L"Kain Boss? - Projectile2", 0x17660, 0x17680, indexGarouAKain, 0x07 },
     { L"Kain Boss? - Projectile3", 0x17680, 0x176a0 },
-    { L"Kain Boss? - Projectile4", 0x176a0, 0x176c0 },
+    { L"Kain Boss? - Projectile4", 0x176a0, 0x176c0, indexGarouAKain, 0x0d },
     { L"Kain Boss? - Projectile5", 0x176c0, 0x176e0 },
-    { L"Kain Boss? - Projectile6", 0x176e0, 0x17700 },
+    { L"Kain Boss? - Projectile6", 0x176e0, 0x17700, indexGarouAKain, 0x0d },
 };
 
 const sGame_PaletteDataset Garou_A_ROCKHOWARD_PALETTES_PORTRAITS[] =
