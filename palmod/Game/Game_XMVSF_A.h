@@ -97,9 +97,16 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"XMvSF (Steam - Japan)", L"xmvsfj.21D3D8A7", 0xc73915b3, 0x1158da - 0x1589a },
-        { L"XMvSF (Steam - USA)", L"xmvsfu.21D3D8A7", 0x81fbcf3f, 0x1158da - 0x1589a },
-        { L"XMvSF (Steam - Either)", L"f000.bin", 0, 0x1158da - 0x1589a - 0x40 },
+        { L"XMvSF (Steam - 961023 Japan)", L"xmvsfj.21D3D8A7", 0xc73915b3, 0x1158da - 0x1589a },
+        { L"XMvSF (Steam - 961023 USA)", L"xmvsfu.21D3D8A7", 0x81fbcf3f, 0x1158da - 0x1589a },
+        
+        { L"XMvSF (Steam - 961004 Japan)", L"xmvsfjr1.21D3D8A7", 0x1f4d060c,  0x1158da - 0x1589a },
+        { L"XMvSF (Steam - 961004 USA)", L"xmvsfur1.21D3D8A7", 0x0a6baa6f,  0x1158da - 0x1589a },
+        
+        { L"XMvSF (Steam - 960910 Japan)", L"xmvsfjr2.21D3D8A7", 0x060063e1,  0x1158da - 0x1589a },
+        { L"XMvSF (Steam - 960910 USA)", L"xmvsfur2.21D3D8A7", 0x4307c97c,  0x1158da - 0x1589a },
+
+        { L"XMvSF (Steam - Any)", L"f000.bin", 0, 0x1158da - 0x1589a - 0x40 },
     };
 
     const sCoreGameData m_sCoreGameData

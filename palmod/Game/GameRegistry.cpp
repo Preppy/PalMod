@@ -2178,7 +2178,7 @@ namespace KnownGameInfo
         {
             XMVSF_S,
             L"XMvSF",
-            { XMVSF_S,          L"XMvSF", L"XMvSF (Steam)|xmvsf?.21D3D8A7;f000.bin|", GamePlatform::Steam, GameSeries::MvCSteam },
+            { XMVSF_S,          L"XMvSF", L"XMvSF (Steam)|xmvsf*.21D3D8A7;f000.bin|", GamePlatform::Steam, GameSeries::MvCSteam },
             Make_XMVSF_S,
             CGame_XMVSF_S::GetRule,
         },
