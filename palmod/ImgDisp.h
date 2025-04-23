@@ -124,7 +124,9 @@ private:
 
     bool _FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight);
     void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo, bool shouldAddImageNodes = true);
+    void _FlipCustomPreviewLayerIfNeeded(SpriteImportDirection direction, UINT nPositionToLoadTo);
     void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize);
+    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
