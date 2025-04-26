@@ -994,6 +994,21 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
     }
 }
 
+void CImgDisp::_ResizeAndBlankCustomPreviews(UINT nPositionToLoadTo, size_t nNewSize)
+{
+    for (size_t nLayer = nPositionToLoadTo; nLayer < static_cast<size_t>(m_nImgAmt); nLayer++)
+    {
+        safe_delete_array(m_ppSpriteOverrideTexture[nLayer]);
+        m_ppSpriteOverrideTexture[nLayer] = new uint8_t[nNewSize];
+        ZeroMemory(m_ppSpriteOverrideTexture[nLayer], nNewSize);
+
+        if (nPositionToLoadTo)
+        {
+            break;
+        }
+    }
+}
+
 void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize)
 {
     // Get the total palette size so we can handle correctly
@@ -1006,8 +1021,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     // allocate max size, even though we may be adjusting this for trim
     const unsigned nDataLen = width * height;
 
-    safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
-    m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nDataLen];
+    _ResizeAndBlankCustomPreviews(nPositionToLoadTo, nDataLen);
 
     const bool fIsARGB = ((nDataLen * 4) == nImageSize);
     const bool fIsRGB = ((nDataLen * 3) == nImageSize);
@@ -1042,15 +1056,16 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         }
 
         // filter each color, sadly
-        unsigned char colorIndex = 0;
         const COLORREF colThisColor = RGB(r, g, b);
-        unsigned char nPalOffset = 0;
 
         if (a != 0) // ignore background color
         {
-            for (int nCurrentPalette = nPositionToLoadTo; nCurrentPalette < m_nImgAmt; nCurrentPalette++)
+            int nCurrentPalette = nPositionToLoadTo;
+            bool fFoundThisColor = false;
+
+            for (; nCurrentPalette < m_nImgAmt; nCurrentPalette++)
             {
-                for (unsigned iPalPos = 1; iPalPos < m_pImgBuffer[nCurrentPalette]->uPalSz; iPalPos++)
+                for (uint16_t iPalPos = 1; iPalPos < m_pImgBuffer[nCurrentPalette]->uPalSz; iPalPos++)
                 {
                     // filter out alpha for now at least: screenshotting would distort that
                     if ((0xffffff & m_pImgBuffer[nCurrentPalette]->pPalette[iPalPos]) == colThisColor)
@@ -1063,28 +1078,26 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                         nLeftMost = min(nLeftMost, xPos);
                         nRightMost = max(nRightMost, xPos);
 
+                        fFoundThisColor = true;
                         fFoundOne = true;
-                        colorIndex = iPalPos + nPalOffset;
+                        m_ppSpriteOverrideTexture[nCurrentPalette][iPos] = static_cast<uint8_t>(iPalPos);
 
                         break;
                     }
                 }
 
-                if (nPositionToLoadTo || colorIndex)
+                if (nPositionToLoadTo || fFoundThisColor)
                 {
                     break;
                 }
-
-                nPalOffset += m_pImgBuffer[nCurrentPalette]->uPalSz;
             }
         }
-
-        m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = colorIndex;
 
         if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift)
         {
             fUseWinKawaksShift = true;
             iPos = 0;
+            _ResizeAndBlankCustomPreviews(nPositionToLoadTo, nDataLen);
         }
     }
 
@@ -1095,32 +1108,40 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     // trim only if we want to (allow a user setting?), if there's actual trimming possible, and if we have a reasonably sized object
     if (GetPreviewDropTrim() && (trim_length != nDataLen) && (trim_length > 16))
     {
-        uint8_t* pTrimmedBuffer = new uint8_t[trim_length];
-
-        unsigned iFilledPos = 0;
-
-        for (unsigned iPos = 0; iPos < nDataLen; iPos++)
+        for (signed int nCurrentLayer = nPositionToLoadTo; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
         {
-            const unsigned xPos = (iPos % width);
-            const unsigned yPos = static_cast<int>(floor(static_cast<double>(iPos) / width));
+            uint8_t* pTrimmedBuffer = new uint8_t[trim_length];
 
-            if ((yPos < nFirstLine) || (xPos < nLeftMost) || (xPos > nRightMost))
+            unsigned iFilledPos = 0;
+
+            for (unsigned iPos = 0; iPos < nDataLen; iPos++)
             {
-                continue;
+                const unsigned xPos = (iPos % width);
+                const unsigned yPos = static_cast<int>(floor(static_cast<double>(iPos) / width));
+
+                if ((yPos < nFirstLine) || (xPos < nLeftMost) || (xPos > nRightMost))
+                {
+                    continue;
+                }
+                else if (yPos > nLastLine)
+                {
+                    break;
+                }
+
+                pTrimmedBuffer[iFilledPos++] = m_ppSpriteOverrideTexture[nCurrentLayer][iPos];
             }
-            else if (yPos > nLastLine)
+
+            safe_delete_array(m_ppSpriteOverrideTexture[nCurrentLayer]);
+            m_ppSpriteOverrideTexture[nCurrentLayer] = pTrimmedBuffer;
+
+            m_nTextureOverrideW[nCurrentLayer] = true_width;
+            m_nTextureOverrideH[nCurrentLayer] = true_height;
+
+            if (nPositionToLoadTo)
             {
                 break;
             }
-
-            pTrimmedBuffer[iFilledPos++] = m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos];
         }
-
-        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
-        m_ppSpriteOverrideTexture[nPositionToLoadTo] = pTrimmedBuffer;
-
-        m_nTextureOverrideW[nPositionToLoadTo] = true_width;
-        m_nTextureOverrideH[nPositionToLoadTo] = true_height;
 
         strMsg.Format(L"Loaded %u x %u (trimmed) RGB PNG as a preview.", true_width, true_height);
     }
@@ -1134,38 +1155,8 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
     if (!nPositionToLoadTo)
     {
-        unsigned char nCurrentPalEnd = static_cast<unsigned char>(min(0xFF, nTotalPalSize));
-        const int nPreviewDataLen = m_nTextureOverrideH[0] * m_nTextureOverrideW[0];
-
-        for (signed int nCurrentLayer = m_nImgAmt - 1; nCurrentLayer >= 0; nCurrentLayer--)
+        for (signed int nCurrentLayer = 0; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
         {
-            uint8_t* pSplitBuffer = new uint8_t[nPreviewDataLen];
-            unsigned char nCurrentPalStart = nCurrentPalEnd - m_pImgBuffer[nCurrentLayer]->uPalSz;
-
-            for (signed int iPos = 0; iPos < nPreviewDataLen; iPos++)
-            {
-                // We pull everything from layer 0, the only layer that we created earlier.
-                // Because we're pulling from 0, we need to update that last.
-                unsigned char nAdjustedIndex = m_ppSpriteOverrideTexture[0][iPos];
-
-                if ((nAdjustedIndex <= nCurrentPalStart) ||
-                    (nAdjustedIndex >= nCurrentPalEnd))
-                {
-                    nAdjustedIndex = 0;
-                }
-                else
-                {
-                    nAdjustedIndex -= nCurrentPalStart;
-                }
-
-                pSplitBuffer[iPos] = nAdjustedIndex;
-            }
-
-            nCurrentPalEnd -= m_pImgBuffer[nCurrentLayer]->uPalSz;
-
-            safe_delete_array(m_ppSpriteOverrideTexture[nCurrentLayer]);
-            m_ppSpriteOverrideTexture[nCurrentLayer] = pSplitBuffer;
-
             m_nTextureOverrideW[nCurrentLayer] = m_nTextureOverrideW[0];
             m_nTextureOverrideH[nCurrentLayer] = m_nTextureOverrideH[0];
 

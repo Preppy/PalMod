@@ -125,6 +125,7 @@ private:
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
 
     bool _FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight);
+    void _ResizeAndBlankCustomPreviews(UINT nPositionToLoadTo, size_t nNewSize);
     void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo, bool shouldAddImageNodes = true);
     void _FlipCustomPreviewLayerIfNeeded(SpriteImportDirection direction, UINT nPositionToLoadTo);
     void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize);
