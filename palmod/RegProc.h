@@ -98,6 +98,8 @@ public:
     BOOL fUseBGCol;
     BOOL fClickToFind;
     BOOL fPreviewDropIsPalette;
+    BOOL fPreviewDropTrimPreview;
+    BOOL fPreviewDropWinKawaksFirst;
     double dPreviewZoom = 0.0;
     BlendMode eBlendMode = BlendMode::Default;
 

@@ -56,6 +56,8 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_SETBLINKCOLOR, &CPreviewDlg::OnSetBlinkCol)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBackgroundImage)
     ON_COMMAND(ID_SETTINGS_DROPISPALETTE, &CPreviewDlg::OnSetDropIsPalette)
+    ON_COMMAND(ID_SETTINGS_DROPTRIM, &CPreviewDlg::OnSetDropTrim)
+    ON_COMMAND(ID_SETTINGS_DROPKAWAKS, &CPreviewDlg::OnSetDropWinKawaksFirst)
 
     ON_COMMAND(ID_ACC_ADDZOOM, &CPreviewDlg::AddZoom)
     ON_COMMAND(ID_ACC_SUBZOOM, &CPreviewDlg::SubZoom)
@@ -210,6 +212,16 @@ void CPreviewDlg::OnSetDropIsPalette()
     m_ImgDisp.SetDropIsPalette(!m_ImgDisp.GetPreviewDropIsPalette());
 }
 
+void CPreviewDlg::OnSetDropTrim()
+{
+    m_ImgDisp.SetPreviewDropTrim(!m_ImgDisp.GetPreviewDropTrim());
+}
+
+void CPreviewDlg::OnSetDropWinKawaksFirst()
+{
+    m_ImgDisp.SetPreviewDropWinKawaksFirst(!m_ImgDisp.GetPreviewDropWinKawaksFirst());
+}
+
 void CPreviewDlg::LoadSettings()
 {
     CRegProc LoadSett;
@@ -229,6 +241,8 @@ void CPreviewDlg::LoadSettings()
     m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
     m_ImgDisp.SetClickToFindColorSetting(LoadSett.fClickToFind);
     m_ImgDisp.SetDropIsPalette(LoadSett.fPreviewDropIsPalette);
+    m_ImgDisp.SetPreviewDropTrim(LoadSett.fPreviewDropTrimPreview);
+    m_ImgDisp.SetPreviewDropWinKawaksFirst(LoadSett.fPreviewDropWinKawaksFirst);
 
     if (LoadSett.fUseBGCol)
     {
@@ -301,6 +315,8 @@ void CPreviewDlg::SaveSettings()
     SaveSett.dPreviewZoom = m_ImgDisp.GetZoom();
     SaveSett.fClickToFind = m_ImgDisp.GetClickToFindColorSetting();
     SaveSett.fPreviewDropIsPalette = m_ImgDisp.GetPreviewDropIsPalette();
+    SaveSett.fPreviewDropTrimPreview = m_ImgDisp.GetPreviewDropTrim();
+    SaveSett.fPreviewDropWinKawaksFirst = m_ImgDisp.GetPreviewDropWinKawaksFirst();
 
     RECT window_rect;
 
@@ -467,7 +483,9 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPISPALETTE, m_ImgDisp.GetPreviewDropIsPalette() ? MF_CHECKED : MF_UNCHECKED);
-        
+        pSettMenu->CheckMenuItem(ID_SETTINGS_DROPTRIM, m_ImgDisp.GetPreviewDropTrim() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_DROPKAWAKS, m_ImgDisp.GetPreviewDropWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
+
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
 
         pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDDEFAULT,  (m_ImgDisp.GetForcedBlendMode() == BlendMode::Default) ? MF_CHECKED : MF_UNCHECKED);

@@ -1012,7 +1012,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     const bool fIsARGB = ((nDataLen * 4) == nImageSize);
     const bool fIsRGB = ((nDataLen * 3) == nImageSize);
     bool fFoundOne = false;
-    bool fUseWinKawaksShift = false;
+    bool fUseWinKawaksShift = GetPreviewDropWinKawaksFirst();
     unsigned nFirstLine = height, nLastLine = 0, nLeftMost = width, nRightMost = 0;
     CString strMsg;
 
@@ -1088,14 +1088,12 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         }
     }
 
-    bool fTrim = true;
-
     const unsigned true_width = min(width, 1 + (nRightMost - nLeftMost));
     const unsigned true_height = min(height, 1 + (nLastLine - nFirstLine));
     const unsigned trim_length = true_width * true_height;
 
     // trim only if we want to (allow a user setting?), if there's actual trimming possible, and if we have a reasonably sized object
-    if (fTrim && (trim_length != nDataLen) && (trim_length > 16))
+    if (GetPreviewDropTrim() && (trim_length != nDataLen) && (trim_length > 16))
     {
         uint8_t* pTrimmedBuffer = new uint8_t[trim_length];
 

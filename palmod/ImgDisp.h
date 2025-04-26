@@ -72,6 +72,8 @@ private:
     BOOL m_fClickToFindColor = TRUE;
     BOOL m_fBlinkInverts = FALSE;
     BOOL m_fPreviewDropIsPalette = TRUE;
+    BOOL m_fPreviewDropTrim = TRUE;
+    BOOL m_fPreviewDropWinKawaksFirst = FALSE;
 
     COLORREF m_crBGCol = 0x00FF0000;
     COLORREF m_crBlinkCol = 0x00FFFFFF;
@@ -167,6 +169,10 @@ public:
     BOOL CanForceBGBitmapAvailable();
     BOOL GetPreviewDropIsPalette() { return m_fPreviewDropIsPalette; };
     void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_fPreviewDropIsPalette = fPreviewDropIsPalette; };
+    BOOL GetPreviewDropTrim() { return m_fPreviewDropTrim; };
+    void SetPreviewDropTrim(BOOL fPreviewDropTrim) { m_fPreviewDropTrim = fPreviewDropTrim; };
+    BOOL GetPreviewDropWinKawaksFirst() { return m_fPreviewDropWinKawaksFirst; };
+    void SetPreviewDropWinKawaksFirst(BOOL fPreviewDropWinKawaksFirst) { m_fPreviewDropWinKawaksFirst = fPreviewDropWinKawaksFirst; };
 
     int GetBGXOffs() { return m_nBGXOffs; };
     int GetBGYOffs() { return m_nBGYOffs; };

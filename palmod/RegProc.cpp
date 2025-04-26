@@ -24,6 +24,8 @@ constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
 constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
 constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes";
+constexpr auto c_prevPreviewDropsTrim = L"prev_DropsTrimPreview";
+constexpr auto c_prevPreviewDropsKawaksFirst = L"prev_DropsTryKawaksFirst";
 
 extern int GetDpiForScreen();
 
@@ -514,6 +516,14 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             if (RegQueryValueEx(hKey, c_prevPreviewDropsArePalettes, 0, &RegType, reinterpret_cast<LPBYTE>(&fPreviewDropIsPalette), &GetSz) != ERROR_SUCCESS)
                 fPreviewDropIsPalette = TRUE;
 
+            GetSz = sizeof(fPreviewDropTrimPreview);
+            if (RegQueryValueEx(hKey, c_prevPreviewDropsTrim, 0, &RegType, reinterpret_cast<LPBYTE>(&fPreviewDropTrimPreview), &GetSz) != ERROR_SUCCESS)
+                fPreviewDropTrimPreview = TRUE;
+
+            GetSz = sizeof(fPreviewDropWinKawaksFirst);
+            if (RegQueryValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, &RegType, reinterpret_cast<LPBYTE>(&fPreviewDropWinKawaksFirst), &GetSz) != ERROR_SUCCESS)
+                fPreviewDropWinKawaksFirst = FALSE;
+
             GetSz = sizeof(eBlendMode);
             if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, reinterpret_cast<LPBYTE>(&eBlendMode), &GetSz) != ERROR_SUCCESS)
             {
@@ -650,6 +660,8 @@ void CRegProc::SaveReg(eRegistryStoreID src)
                 RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fClickToFind), sizeof(fClickToFind));
                 RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&eBlendMode), sizeof(eBlendMode));
                 RegSetValueEx(hKey, c_prevPreviewDropsArePalettes, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fPreviewDropIsPalette), sizeof(fPreviewDropIsPalette));
+                RegSetValueEx(hKey, c_prevPreviewDropsTrim, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fPreviewDropTrimPreview), sizeof(fPreviewDropTrimPreview));
+                RegSetValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fPreviewDropWinKawaksFirst), sizeof(fPreviewDropWinKawaksFirst));
                 DWORD nTranslation = static_cast<DWORD>(dPreviewZoom);
                 RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nTranslation), sizeof(nTranslation));
                 break;

@@ -722,7 +722,6 @@ BEGIN
         MENUITEM "Set Background Color",        ID_SETTINGS_SETBACKGROUNDCOLOR
         MENUITEM "Set Background Image",        ID_SETTINGS_SETBACKGROUNDIMAGE
         MENUITEM "Set Blink Color",             ID_SETTINGS_SETBLINKCOLOR
-        MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
         MENUITEM SEPARATOR
         POPUP "Blend Mode"
         BEGIN
@@ -731,6 +730,13 @@ BEGIN
             MENUITEM "Always Additive",             ID_SETTINGS_BLENDADD
             MENUITEM "PS1: Semi-Transparency On",   ID_SETTINGS_BLENDPS1STON
             MENUITEM "PS1: Semi-Transparency Off",  ID_SETTINGS_BLENDPS1STOFF
+        END
+        MENUITEM SEPARATOR
+        POPUP "Drop Settings"
+        BEGIN
+            MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
+            MENUITEM "Trim dropped previews", ID_SETTINGS_DROPTRIM
+            MENUITEM "Use WinKawaks correction first", ID_SETTINGS_DROPKAWAKS
         END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS
