@@ -9,8 +9,6 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
     if (PNGFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
-        ProcChange();
-
         char aszSignature[8];
 
         const ULONGLONG nTotalFileSize = PNGFile.GetLength();
@@ -84,6 +82,10 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                 }
                 else if (strcmp(chunkType, "PLTE") == 0)
                 {
+                    // OK, we have useful color table information, so mark ourselves dirty
+                    // and create a save state
+                    ProcChange();
+
                     fFoundPaletteData = true;
                     std::vector<uint8_t> rgchPaletteData;
                     rgchPaletteData.resize(chunkLength);
