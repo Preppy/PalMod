@@ -38,7 +38,7 @@ private:
         GEMFIGHTER_A_UNITS,
         ARRAYSIZE(GEMFIGHTER_A_UNITS),
         L"GemFighterE.txt",        // Extra filename
-        302,                       // Count of palettes listed in the header
+        422,                       // Count of palettes listed in the header
         0x99e6,                    // Lowest known location used for palettes
     };
 
@@ -81,7 +81,7 @@ private:
         GEMFIGHTER_A_UNITS,
         ARRAYSIZE(GEMFIGHTER_A_UNITS),
         L"GemFighterSE.txt",        // Extra filename
-        302,                        // Count of palettes listed in the header
+        422,                        // Count of palettes listed in the header
         0x99e6,                     // Lowest known location used for palettes
     };
 
