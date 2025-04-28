@@ -1925,11 +1925,7 @@ const sGame_PaletteDataset SSF2T_A_08_DHALSIM_STAGE_NODE[] =
     { L"Mid layer elephant", 0x72000 - 0x2, 0x72000 + 0x20 - 0x2 },
     { L"Mid layer elephant, legs/shadow", 0x72020 - 0x2, 0x72020 + 0x20 - 0x2 },
 
-    //{ L"left vase", 0xD5DFC, 0xD5DFC + 0x20 },
-    //{ L"right vase", 0xD5E1C, 0xD5E1C + 0x20 },
-
-    //{ L"\"front layer\" elephant (OBS  there's a duplicate @2E1C00, but apparently it's unused)", 0xD5E3C, 0xD5E3C + 0x20 },
-    //{ L"\"front layer\" elephant, legs/shadow", 0x2E1C20, 0x2E1C20 + 0x20 },
+    { L"Front layer elephant", 0x61c00, 0x61c40 },
 };
 
 const sGame_PaletteDataset SSF2T_A_04_EHONDA_STAGE_NODE[] =
@@ -1949,7 +1945,7 @@ const sGame_PaletteDataset SSF2T_A_04_EHONDA_STAGE_NODE[] =
 const sGame_PaletteDataset SSF2T_A_08_EHONDA_STAGE_NODE[] =
 {
     // 0x60600: side of the pool
-    { L"side of the pool", 0x60600 - 0x02, 0x60600 + 0x1e },
+    { L"side of the pool", 0x60600 - 0x02, 0x60600 + 0x1e, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
 
     // --68400 ~6851F (floor / ceiling parallaxes)--
     // 0x68400 : floor
@@ -2051,7 +2047,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_STAGE_NODE_8[] =
 
 const sGame_PaletteDataset SSF2T_A_08_BALROG_STAGE_NODE[] =
 {
-    { L"Part 1", 0x6A7Fe, 0x6A8Fe },
+    { L"Part 1", 0x6A7Fe, 0x6A8Fe, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"Part 2", 0x628de, 0x6295e },
     { L"Part 3", 0x62A9e, 0x62B5e },
     { L"Part 4", 0x6A91e, 0x6aabe },
@@ -2068,23 +2064,23 @@ const sGame_PaletteDataset SSF2T_A_VEGA_STAGE_NODE_8[] =
 {
     { L"Cage + Brown wall on the sides", 0x62C00 - 0x02, 0x62C20 - 0x02, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"Wall sign, part 1 (\"Meson\")", 0x6AC00 - 0x02, 0x6AC20 - 0x02 },
-    { L"Wall sign, part 2 (\"Meson de\")", 0x6AC20 - 0x02, 0x6AC40 - 0x02 },
-    { L"Wall sign, part 3 (\"Meson de la\")", 0x6AC40 - 0x02, 0x6AC60 - 0x02 },
-    { L"Wall sign, part 4 (\"Meson de la Taberna\")", 0x6AC60 - 0x02, 0x6AC80 - 0x02 },
-    { L"Wall sign, part 5 (blank)", 0x6AC80 - 0x02, 0x6ACA0 - 0x02 },
+        { L"Wall sign, part 2 (\"Meson de\")", 0x6AC20 - 0x02, 0x6AC40 - 0x02 },
+        { L"Wall sign, part 3 (\"Meson de la\")", 0x6AC40 - 0x02, 0x6AC60 - 0x02 },
+        { L"Wall sign, part 4 (\"Meson de la Taberna\")", 0x6AC60 - 0x02, 0x6AC80 - 0x02 },
+        { L"Wall sign, part 5 (blank)", 0x6AC80 - 0x02, 0x6ACA0 - 0x02 },
     { L"Foreground wall, stairs (darkest shade)", 0x6ACA0 - 0x02, 0x6ACC0 - 0x02 },
-    { L"Foreground wall, stairs (middle shade)", 0x6ACC0 - 0x02, 0x6ACE0 - 0x02 },
-    { L"Foreground wall, stairs (lightest shade)", 0x6ACE0 - 0x02, 0x6AD00 - 0x02 },
-    { L"Background wall, lamp wall (middle shade)", 0x6AD00 - 0x02, 0x6AD20 - 0x02 },
-    { L"Background wall, lamp wall (lightest shade)", 0x6AD20 - 0x02, 0x6AD40 - 0x02 },
+        { L"Foreground wall, stairs (middle shade)", 0x6ACC0 - 0x02, 0x6ACE0 - 0x02 },
+        { L"Foreground wall, stairs (lightest shade)", 0x6ACE0 - 0x02, 0x6AD00 - 0x02 },
+        { L"Background wall, lamp wall (middle shade)", 0x6AD00 - 0x02, 0x6AD20 - 0x02 },
+        { L"Background wall, lamp wall (lightest shade)", 0x6AD20 - 0x02, 0x6AD40 - 0x02 },
     { L"Background wall, lamp wall (darkest shade)", 0x6AD40 - 0x02, 0x6AD60 - 0x02 },
     // { L"Unused", 0x6AD60 - 0x02, 0x6AD80 - 0x02 },
     { L"Foreground wall, lamp wall (darkest shade)", 0x6AD80 - 0x02, 0x6ADA0 - 0x02 },
-    { L"Foreground wall, lamp wall (middle shade)", 0x6ADA0 - 0x02, 0x6ADC0 - 0x02 },
-    { L"Foreground wall, lamp wall (lightest shade)", 0x6ADC0 - 0x02, 0x6ADE0 - 0x02 },
+        { L"Foreground wall, lamp wall (middle shade)", 0x6ADA0 - 0x02, 0x6ADC0 - 0x02 },
+        { L"Foreground wall, lamp wall (lightest shade)", 0x6ADC0 - 0x02, 0x6ADE0 - 0x02 },
     { L"Foreground wall, footer + ground", 0x6ADE0 - 0x02, 0x6AE00 - 0x02 },
-    { L"????", 0x6AE00 - 0x02, 0x6AE20 - 0x02 },
-    { L"????", 0x6AE20 - 0x02, 0x6AE40 - 0x02 },
+        { L"????", 0x6AE00 - 0x02, 0x6AE20 - 0x02 },
+        { L"????", 0x6AE20 - 0x02, 0x6AE40 - 0x02 },
     // { L"Unused", 0x6AE40 - 0x02, 0x6AE60 - 0x02 },
     // { L"Unused", 0x6AE60 - 0x02, 0x6AE80 - 0x02 },
     // { L"Unused", 0x6AE80 - 0x02, 0x6AEA0 - 0x02 },
@@ -2095,9 +2091,9 @@ const sGame_PaletteDataset SSF2T_A_VEGA_STAGE_NODE_8[] =
     { L"Background wall, torero & bull painting", 0x6AF20 - 0x02, 0x6AF40 - 0x02 },
     { L"Unused, but in ram it will have the values of palettes 8, 9 & A (BG lamp wall)", 0x6AF40 - 0x02, 0x6AF60 - 0x02 },
     { L"Background wall, torero & bull painting (footer) + red trimming on top of Foreground wall + side wall pieces", 0x6AF60 - 0x02, 0x6AF80 - 0x02 },
-    { L"Unused, but in ram it will have the values of palettes 0 - 0x02, 1, 2, 3 & 4 (Wall sign)", 0x6AF80 - 0x02, 0x6AFA0 - 0x02 },
-    { L"Unused", 0x6AFA0 - 0x02, 0x6AFC0 - 0x02 },
-    { L"Unused from CPS1", 0x6AFC0 - 0x02, 0x6AFE0 - 0x02 },
+        { L"Unused, but in ram it will have the values of palettes 0 - 0x02, 1, 2, 3 & 4 (Wall sign)", 0x6AF80 - 0x02, 0x6AFA0 - 0x02 },
+        { L"Unused", 0x6AFA0 - 0x02, 0x6AFC0 - 0x02 },
+        { L"Unused from CPS1", 0x6AFC0 - 0x02, 0x6AFE0 - 0x02 },
     { L"Parallaxed ground", 0x6AFE0 - 0x02, 0x6B000 - 0x02 },
     //{ L"Unused", 0x6B000 - 0x02, 0x6B020 - 0x02 },
     //{ L"Unused", 0x6B020 - 0x02, 0x6B040 - 0x02 },
@@ -2109,8 +2105,8 @@ const sGame_PaletteDataset SSF2T_A_VEGA_STAGE_NODE_8[] =
     // { L"Unused", 0x73040 - 0x02, 0x73060 - 0x02 },
     // { L"Unused", 0x73060 - 0x02, 0x73080 - 0x02 },
     { L"Middle layer, neon footer + feet of dancers/guitar players, part 1", 0x73080 - 0x02, 0x730A0 - 0x02 },
-    { L"Middle layer, neon footer + feet of dancers/guitar players, part 2", 0x730A0 - 0x02, 0x730C0 - 0x02 },
-    { L"Middle layer, neon footer + feet of dancers/guitar players, part 3", 0x730C0 - 0x02, 0x730E0 - 0x02 },
+        { L"Middle layer, neon footer + feet of dancers/guitar players, part 2", 0x730A0 - 0x02, 0x730C0 - 0x02 },
+        { L"Middle layer, neon footer + feet of dancers/guitar players, part 3", 0x730C0 - 0x02, 0x730E0 - 0x02 },
     // { L"Unused", 0x730E0 - 0x02, 0x73100 - 0x02 },
     { L"Middle layer, people cheering on the table", 0x73100 - 0x02, 0x73120 - 0x02 },
     { L"Middle layer, dancers", 0x73120 - 0x02, 0x73140 - 0x02 },
