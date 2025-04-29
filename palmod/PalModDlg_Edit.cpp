@@ -774,45 +774,48 @@ BOOL CPalModDlg::IsPasteFromPalMod()
     }
 
     HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
-    CMemFile sf(static_cast<BYTE*>(::GlobalLock(hmem)), static_cast<UINT>(::GlobalSize(hmem)));
-
-    LPSTR szTempStr = m_strPasteStr.GetBufferSetLength(static_cast<int>(::GlobalSize(hmem)));
-    sf.Read(szTempStr, static_cast<UINT>(::GlobalSize(hmem)));
-    ::GlobalUnlock(hmem);
-
-    m_strPasteStr.Remove(' ');
-    m_strPasteStr.Remove('\n');
-
-    if (szTempStr[0] == '(')
+    if (hmem)
     {
-        if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
+        CMemFile sf(static_cast<BYTE*>(::GlobalLock(hmem)), static_cast<UINT>(::GlobalSize(hmem)));
+
+        LPSTR szTempStr = m_strPasteStr.GetBufferSetLength(static_cast<int>(::GlobalSize(hmem)));
+        sf.Read(szTempStr, static_cast<UINT>(::GlobalSize(hmem)));
+        ::GlobalUnlock(hmem);
+
+        m_strPasteStr.Remove(' ');
+        m_strPasteStr.Remove('\n');
+
+        if (szTempStr[0] == '(')
         {
-            uint16_t nPaletteCount = 0;
-            uint8_t cbColorSize = ColorSystem::GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
-
-            if (cbColorSize != 0)
+            if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
             {
-                nPaletteCount = static_cast<uint16_t>((strlen(szTempStr) - 3) / (cbColorSize * 2));
-            }
+                uint16_t nPaletteCount = 0;
+                uint8_t cbColorSize = ColorSystem::GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
 
-            if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
-            {
-                uint16_t nTerminalLocation = static_cast<uint16_t>(min(strlen(szTempStr), static_cast<uint32_t>(nPaletteCount * (cbColorSize * 2)) + 3));
-                
-                if (szTempStr[nTerminalLocation] == ')')
+                if (cbColorSize != 0)
                 {
-                    fCanPaste = TRUE;
-                }
-                else
-                {
-                    // So we're in "technically wrong" space here, but maybe it's workable...
                     nPaletteCount = static_cast<uint16_t>((strlen(szTempStr) - 3) / (cbColorSize * 2));
+                }
 
-                    nTerminalLocation = static_cast<uint16_t>(min(strlen(szTempStr), static_cast<uint32_t>(nPaletteCount * (cbColorSize * 2)) + 3));
+                if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
+                {
+                    uint16_t nTerminalLocation = static_cast<uint16_t>(min(strlen(szTempStr), static_cast<uint32_t>(nPaletteCount * (cbColorSize * 2)) + 3));
 
                     if (szTempStr[nTerminalLocation] == ')')
                     {
                         fCanPaste = TRUE;
+                    }
+                    else
+                    {
+                        // So we're in "technically wrong" space here, but maybe it's workable...
+                        nPaletteCount = static_cast<uint16_t>((strlen(szTempStr) - 3) / (cbColorSize * 2));
+
+                        nTerminalLocation = static_cast<uint16_t>(min(strlen(szTempStr), static_cast<uint32_t>(nPaletteCount * (cbColorSize * 2)) + 3));
+
+                        if (szTempStr[nTerminalLocation] == ')')
+                        {
+                            fCanPaste = TRUE;
+                        }
                     }
                 }
             }
@@ -839,47 +842,50 @@ BOOL CPalModDlg::IsPasteRGB()
     }
 
     HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
-    CMemFile sf(static_cast<BYTE*>(::GlobalLock(hmem)), static_cast<UINT>(::GlobalSize(hmem)));
-
-    LPSTR szTempStr = m_strPasteStr.GetBufferSetLength(static_cast<int>(::GlobalSize(hmem)));
-    sf.Read(szTempStr, static_cast<UINT>(::GlobalSize(hmem)));
-    ::GlobalUnlock(hmem);
-
-    m_strPasteStr.Remove(' ');
-    m_strPasteStr.Remove('\n');
-
-    uint32_t nCountChars = static_cast<uint32_t>(strlen(szTempStr));
-    uint32_t nOffset = 0;
-
-    if (szTempStr[0] == '#')
+    if (hmem)
     {
-        nOffset = 1;
-    }
+        CMemFile sf(static_cast<BYTE*>(::GlobalLock(hmem)), static_cast<UINT>(::GlobalSize(hmem)));
 
-    uint32_t nXPos = nOffset;
+        LPSTR szTempStr = m_strPasteStr.GetBufferSetLength(static_cast<int>(::GlobalSize(hmem)));
+        sf.Read(szTempStr, static_cast<UINT>(::GlobalSize(hmem)));
+        ::GlobalUnlock(hmem);
 
-    if ((nCountChars > 7) && (nCountChars < 11))
-    {
-        if ((szTempStr[nOffset + 1] == 'x') ||
-            (szTempStr[nOffset + 1] == 'X'))
+        m_strPasteStr.Remove(' ');
+        m_strPasteStr.Remove('\n');
+
+        uint32_t nCountChars = static_cast<uint32_t>(strlen(szTempStr));
+        uint32_t nOffset = 0;
+
+        if (szTempStr[0] == '#')
         {
-            nXPos = nOffset + 2;
+            nOffset = 1;
         }
-    }
 
-    uint32_t nCountColorChars = nCountChars - nXPos;
+        uint32_t nXPos = nOffset;
 
-    // Accept rrggbb or aarrggbb
-    if ((nCountColorChars == 6) || (nCountColorChars == 8))
-    {
-        fCanPaste = TRUE;
-
-        for (uint32_t nIndex = nXPos; nIndex < nCountChars; nIndex++)
+        if ((nCountChars > 7) && (nCountChars < 11))
         {
-            if (isxdigit(szTempStr[nIndex]) == 0)
+            if ((szTempStr[nOffset + 1] == 'x') ||
+                (szTempStr[nOffset + 1] == 'X'))
             {
-                fCanPaste = FALSE;
-                break;
+                nXPos = nOffset + 2;
+            }
+        }
+
+        uint32_t nCountColorChars = nCountChars - nXPos;
+
+        // Accept rrggbb or aarrggbb
+        if ((nCountColorChars == 6) || (nCountColorChars == 8))
+        {
+            fCanPaste = TRUE;
+
+            for (uint32_t nIndex = nXPos; nIndex < nCountChars; nIndex++)
+            {
+                if (isxdigit(szTempStr[nIndex]) == 0)
+                {
+                    fCanPaste = FALSE;
+                    break;
+                }
             }
         }
     }
