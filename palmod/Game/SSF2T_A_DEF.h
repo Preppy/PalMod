@@ -1754,22 +1754,6 @@ const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
     { L"Super KO 14", 0x771C0 - 0x02, 0x771E0 - 0x02 },
     { L"Super KO 15", 0x771E0 - 0x02, 0x77200 - 0x02 },
 
-    { L"Dee Jay Stage Sky And Mid Foreground", 0x63bfe, 0x63cbe },
-    { L"Dee Jay Stage Front Water 1/5", 0x63dfe, 0x63e1e },
-    { L"Dee Jay Stage Front Water 2/5", 0x63e1e, 0x63e3e },
-    { L"Dee Jay Stage Front Water 3/5", 0x63e3e, 0x63e5e },
-    { L"Dee Jay Stage Front Water 4/5", 0x63e5e, 0x63e7e },
-    { L"Dee Jay Stage Front Water 5/5", 0x63e7e, 0x63e9e },
-    { L"Dee Jay Stage BG Water 1/5", 0x63ebe, 0x63ede },
-    { L"Dee Jay Stage BG Water 2/5", 0x63ede, 0x63efe },
-    { L"Dee Jay Stage BG Water 3/5", 0x63efe, 0x63f1e },
-    { L"Dee Jay Stage BG Water 4/5", 0x63f1e, 0x63f3e },
-    { L"Dee Jay Stage BG Water 5/5", 0x63f3e, 0x63f5e },
-    { L"T Hawk Stage NPC'S 1/2", 0x6b3fe, 0x6b5fe },
-    { L"T Hawk Stage NPC'S 2/2", 0x6b5fe, 0x6b79e },
-    { L"M.Bison Stage 1/3", 0x69ffe, 0x6a1fe },
-    { L"M.Bison Stage 2/3", 0x6a1fe, 0x6a3fe },
-    { L"M.Bison Stage 3/3", 0x7261e, 0x727fe },
     { L"World Tour Huds", 0x745fe, 0x747fe },
     { L"Ryu Ending Portrait 1 Winners Poster", 0x6d7fe, 0x6d81e },
     { L"Ryu Ending Portrait 2", 0x6d81e, 0x6d83e },
@@ -2128,6 +2112,101 @@ const sGame_PaletteDataset SSF2T_A_KEN_STAGE_NODE_8[] =
     { L"Ken Background/Foreground", 0x68FFE, 0x691fe, indexSF2Sprites_Stages, 0x15 },
     { L"Ken Boat 1/2", 0x713FE, 0X715fe, indexSF2Sprites_Stages, 0x16, &pairNext },
     { L"Ken Boat 2/2", 0x715fe, 0x717be, indexSF2Sprites_Stages, 0x17, &pairPrevious },
+};
+
+const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_8[] =
+{
+    { L"Dee Jay Stage Sky And Mid Foreground", 0x63bfe, 0x63cbe, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Dee Jay Stage Front Water 1/5", 0x63dfe, 0x63e1e },
+    { L"Dee Jay Stage Front Water 2/5", 0x63e1e, 0x63e3e },
+    { L"Dee Jay Stage Front Water 3/5", 0x63e3e, 0x63e5e },
+    { L"Dee Jay Stage Front Water 4/5", 0x63e5e, 0x63e7e },
+    { L"Dee Jay Stage Front Water 5/5", 0x63e7e, 0x63e9e },
+    { L"Dee Jay Stage BG Water 1/5", 0x63ebe, 0x63ede },
+    { L"Dee Jay Stage BG Water 2/5", 0x63ede, 0x63efe },
+    { L"Dee Jay Stage BG Water 3/5", 0x63efe, 0x63f1e },
+    { L"Dee Jay Stage BG Water 4/5", 0x63f1e, 0x63f3e },
+    { L"Dee Jay Stage BG Water 5/5", 0x63f3e, 0x63f5e },
+    { L"Dee Jay Stage Gazebo and palm trees", 0x73ffe, 0x7407e },
+
+    { L"Dee Jay Stage Grass right gazebo and people 1/2", 0x6bdbe, 0x6bfbe },
+    { L"Dee Jay Stage Grass right gazebo and people 2/2", 0x6bfbe, 0x6bffe },
+};
+
+const sGame_PaletteDataset SSF2T_A_THAWK_STAGE_NODE_8[] =
+{
+    { L"T-Hawk Stage 1/4 background", 0x633fe, 0x6357e, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"T-Hawk Stage 2/4 market and people", 0x737fe, 0x7393e },
+    { L"T Hawk Stage 3/4 NPCs and ground 1/2", 0x6b3fe, 0x6b5fe },
+    { L"T Hawk Stage 4/4 NPCs 2/2", 0x6b5fe, 0x6b79e },
+};
+
+const sGame_PaletteDataset SSF2T_A_FEILONG_STAGE_NODE_8[] =
+{
+    { L"Fei Long Stage 1/4 background 1/2", 0x73bfe, 0x73dfe, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Fei Long Stage 2/4 background 2/2", 0x73dfe, 0x73ffe },
+    { L"Fei Long Stage 3/4 tree", 0x637fe, 0x638de },
+    { L"Fei Long Stage 4/4 ring ", 0x6b7fe, 0x6b83e },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_STAGE_NODE_8[] =
+{
+    { L"Blanka Stage 1/5", 0x607de, 0x6083e, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+
+    { L"Blanka Stage 2/5", 0x687fe, 0x6895e },
+
+    { L"Blanka Stage 3/5 left water sparkle 1/3", 0x689fe, 0x68a1e },
+    { L"Blanka Stage 3/5 left water sparkle 2/3", 0x68a1e, 0x68a3e },
+    { L"Blanka Stage 3/5 left water sparkle 3/3", 0x68a3e, 0x68a5e },
+
+    { L"Blanka Stage 3/5 right water sparkle 1/4", 0x68a5e, 0x68a7e },
+    { L"Blanka Stage 3/5 right water sparkle 2/4", 0x68a7e, 0x68a9e },
+    { L"Blanka Stage 3/5 right water sparkle 3/4", 0x68a9e, 0x68abe },
+    { L"Blanka Stage 3/5 right water sparkle 4/4", 0x68abe, 0x68ade },
+
+    { L"Blanka Stage 4/5", 0x70bfe, 0x70dfe },
+
+    { L"Blanka Stage 5/5", 0x70dfe, 0x70e3e },
+};
+
+const sGame_PaletteDataset SSF2T_A_GUILE_STAGE_NODE_8[] =
+{
+    { L"Guile Stage 1/8", 0x60bfe, 0x60cde, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+
+    { L"Guile Stage 2/8", 0x68bfe, 0x68cde },
+    { L"Guile Stage 3/8 ground tiles", 0x68cde, 0x68d1e },
+    { L"Guile Stage 4/8 plane bits", 0x68d3e, 0x68d5e },
+    { L"Guile Stage 5/8 sky", 0x68dfe, 0x68e1e },
+
+    { L"Guile Stage 6/8", 0x70ffe, 0x7107e },
+    { L"Guile Stage 7/8", 0x7107e, 0x711be },
+    { L"Guile Stage 8/8 stereo", 0x713be, 0x713fe },
+};
+
+const sGame_PaletteDataset SSF2T_A_MBISON_STAGE_NODE_8[] =
+{
+    { L"M.Bison Stage 1/5", 0x69ffe, 0x6a1fe, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"M.Bison Stage 2/5", 0x6a1fe, 0x6a3fe },
+    { L"M.Bison Stage 3/5 Bell", 0x7241e, 0x7261e },
+    { L"M.Bison Stage 4/5", 0x7261e, 0x727fe },
+    { L"M.Bison Stage 5/5 Statue", 0x61fe0, 0x62060 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CHUNLI_STAGE_NODE_8[] =
+{
+    { L"Chun-Li's Stage 1/5", 0x717fe, 0x7195e, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Chun-Li's Stage 2/5", 0x719fe, 0x71a1e },
+    { L"Chun-Li's Stage 3/5", 0x693fe, 0x695fe },
+    { L"Chun-Li's Stage 4/5", 0x695fe, 0x6979e },
+    { L"Chun-Li's Stage 5/5", 0x697de, 0x697fe },
+};
+
+const sGame_PaletteDataset SSF2T_A_GIEF_STAGE_NODE_8[] =
+{
+    { L"Zangief's Stage 1/4", 0x71bfe, 0x71d9e, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Zangief's Stage 2/4", 0x697fe, 0x6995e },
+    { L"Zangief's Stage 3/4", 0x69a5e, 0x69bfe },
+    { L"Zangief's Stage 4/4", 0x617de, 0x6185e },
 };
 
 const sGame_PaletteDataset SSF2T_A_RYU_PORTRAITS_JAB[] =
@@ -8377,13 +8456,21 @@ const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =
 const sDescTreeNode SSF2T_A_08_STAGES_COLLECTION[] =
 {
     { L"Balrog's Casino Stage (08 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BALROG_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_BALROG_STAGE_NODE) },
+    { L"Blanka's Stage (08 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_STAGE_NODE_8,    ARRAYSIZE(SSF2T_A_BLANKA_STAGE_NODE_8) },
     { L"Cammy's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_8) },
+    { L"Chun-Li's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_CHUNLI_STAGE_NODE_8) },
     { L"Claw's Stage",                      DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_STAGE_NODE_8,         ARRAYSIZE(SSF2T_A_VEGA_STAGE_NODE_8) },
+    { L"Dee Jay's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_8) },
     { L"Dhalsim's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_08_DHALSIM_STAGE_NODE,   ARRAYSIZE(SSF2T_A_08_DHALSIM_STAGE_NODE) },
     { L"E. Honda's Stage (08 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_08_EHONDA_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_EHONDA_STAGE_NODE) },
+    { L"Fei Long's Stage (08 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_STAGE_NODE_8,   ARRAYSIZE(SSF2T_A_FEILONG_STAGE_NODE_8) },
+    { L"Guile's Stage (08 parts)",          DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_GUILE_STAGE_NODE_8) },
     { L"Ken's Stage (08 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_8) },
+    { L"M. Bison's Stage",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_MBISON_STAGE_NODE_8) },
     { L"Ryu's Stage",                       DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_8,          ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_8) },
     { L"Sagat's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE_8) },
+    { L"T-Hawk's Stage (08 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_THAWK_STAGE_NODE_8) },
+    { L"Zangief's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_GIEF_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_GIEF_STAGE_NODE_8) },
 };
 
 const sGame_PaletteDataset SSF2T_A_CAMMY_STAGE_NODE_HYBRID[] =

@@ -195,7 +195,7 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         SSF2T_A_UNITS_8,
         ARRAYSIZE(SSF2T_A_UNITS_8),
         L"ssf2t-8e.txt",        // Extra filename
-        171,                    // Count of palettes listed in the header
+        210,                    // Count of palettes listed in the header
         0x603be,                // Lowest known location used for palettes
     };
 
@@ -259,7 +259,7 @@ private:
         SSF2T_A_UNITS_MONO,
         ARRAYSIZE(SSF2T_A_UNITS_MONO),
         L"ssf2tSe.txt",         // Extra filename
-        1263,                   // Count of palettes listed in the header
+        1092 + 210 /*08 tally*/, // Count of palettes listed in the header
         0x110bee3b,             // Lowest known location used for palettes
     };
 
