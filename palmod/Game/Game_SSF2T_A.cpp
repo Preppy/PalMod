@@ -191,6 +191,7 @@ void CGame_SSF2T_A::SetSpecialRuleForFileName(std::wstring strFileName)
     {
         { L"sfnl.03", SSF2TLoadingKey::ROM03nl },
         { L"sfnl.04", SSF2TLoadingKey::ROM04 },
+        { L"sfnl.08", SSF2TLoadingKey::ROM08 },
         { L"sfnl.09", SSF2TLoadingKey::ROM09nl },
         { L"sfxe.03c", SSF2TLoadingKey::ROM03 },
         { L"sfxe.04a", SSF2TLoadingKey::ROM04 },

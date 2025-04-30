@@ -116,6 +116,7 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
 
         { L"SSF2T (New Legacy Hack 03: Portraits)", L"sfnl.03", 0x4beda7d5, 0 },
         { L"SSF2T (New Legacy Hack 04: Characters)", L"sfnl.04", 0xd0bc29c6, 0 },
+        { L"SSF2T (New Legacy Hack 08: Stages)", L"sfnl.08", 0x1c1696e4, 0 },
         { L"SSF2T (New Legacy Hack 09: Extended Colors)", L"sfnl.09", 0x6b2068bc, 0 },
     };
 
