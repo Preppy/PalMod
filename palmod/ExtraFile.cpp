@@ -973,6 +973,13 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
     {
         for (uint32_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
         {
+            if (nUnitIndex == m_nExtraUnit)
+            {
+                // If you have palmod open with an extras file loaded but then blank it,
+                // we should ignore those entries when creating your new file
+                continue;
+            }
+
             sDescTreeNode* UnitTree = &((sDescTreeNode*)pRootTree->ChildNodes)[nUnitIndex];
 
             for (uint32_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
