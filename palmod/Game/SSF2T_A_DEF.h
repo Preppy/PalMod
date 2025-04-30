@@ -1827,6 +1827,89 @@ const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE_4[] =
     { L"Background Castle", 0x541Da, 0x5423a, indexSF2Sprites_Stages, 0x0b },
 };
 
+const sGame_PaletteDataset SSF2T_A_BLANKA_STAGE_NODE_4[] =
+{
+    { L"Fish and feet", 0x5493a, 0x54a3a },
+};
+
+const sGame_PaletteDataset SSF2T_A_GUILE_STAGE_NODE_4[] =
+{
+    { L"Fin and box", 0x54d3a, 0x54e3a },
+};
+
+const sGame_PaletteDataset SSF2T_A_CHUNLI_STAGE_NODE_4[] =
+{
+    { L"Blue Biker", 0x555da, 0x555fa, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Green Biker", 0x555fa, 0x5561a },
+    { L"Red Biker", 0x5561a, 0x5563a },
+};
+
+const sGame_PaletteDataset SSF2T_A_GIEF_STAGE_NODE_4[] =
+{
+    { L"Chain and extinguisher", 0x5599a, 0x559da },
+};
+
+const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_4_1[] =
+{
+    { L"Left gazebo 1/39", 0x49208, 0x49228, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Left gazebo 2/39", 0x49208 + (0x01 * 0x22), 0x49228 + (0x01 * 0x22) },
+        { L"Unused: Left gazebo 3/39", 0x49208 + (0x02 * 0x22), 0x49228 + (0x02 * 0x22) },
+    { L"Left gazebo 4/39", 0x49208 + (0x03 * 0x22), 0x49228 + (0x03 * 0x22) },
+    { L"Left gazebo 5/39", 0x49208 + (0x04 * 0x22), 0x49228 + (0x04 * 0x22) },
+    { L"Left gazebo 6/39", 0x49208 + (0x05 * 0x22), 0x49228 + (0x05 * 0x22) },
+    { L"Left gazebo 7/39", 0x49208 + (0x06 * 0x22), 0x49228 + (0x06 * 0x22) },
+    { L"Left gazebo 8/39", 0x49208 + (0x07 * 0x22), 0x49228 + (0x07 * 0x22) },
+    { L"Left gazebo 9/39", 0x49208 + (0x08 * 0x22), 0x49228 + (0x08 * 0x22) },
+    { L"Left gazebo 10/39", 0x49208 + (0x09 * 0x22), 0x49228 + (0x09 * 0x22) },
+    { L"Left gazebo 11/39", 0x49208 + (0x0a * 0x22), 0x49228 + (0x0a * 0x22) },
+    { L"Left gazebo 12/39", 0x49208 + (0x0b * 0x22), 0x49228 + (0x0b * 0x22) },
+    { L"Left gazebo 13/39", 0x49208 + (0x0c * 0x22), 0x49228 + (0x0c * 0x22) },
+        { L"Unused: Left gazebo 14/39", 0x49208 + (0x0d * 0x22), 0x49228 + (0x0d * 0x22) },
+        { L"Unused: Left gazebo 15/39", 0x49208 + (0x0e * 0x22), 0x49228 + (0x0e * 0x22) },
+    { L"Left gazebo 16/39", 0x49208 + (0x0f * 0x22), 0x49228 + (0x0f * 0x22) },
+        { L"Unused: Left gazebo 17/39", 0x49208 + (0x10 * 0x22), 0x49228 + (0x10 * 0x22) },
+        { L"Unused: Left gazebo 18/39", 0x49208 + (0x11 * 0x22), 0x49228 + (0x11 * 0x22) },
+        { L"Unused: Left gazebo 19/39", 0x49208 + (0x12 * 0x22), 0x49228 + (0x12 * 0x22) },
+        { L"Unused: Left gazebo 20/39", 0x49208 + (0x13 * 0x22), 0x49228 + (0x13 * 0x22) },
+        { L"Unused: Left gazebo 21/39", 0x49208 + (0x14 * 0x22), 0x49228 + (0x14 * 0x22) },
+        { L"Unused: Left gazebo 22/39", 0x49208 + (0x15 * 0x22), 0x49228 + (0x15 * 0x22) },
+        { L"Unused: Left gazebo 23/39", 0x49208 + (0x16 * 0x22), 0x49228 + (0x16 * 0x22) },
+        { L"Unused: Left gazebo 24/39", 0x49208 + (0x17 * 0x22), 0x49228 + (0x17 * 0x22) },
+        { L"Unused: Left gazebo 25/39", 0x49208 + (0x18 * 0x22), 0x49228 + (0x18 * 0x22) },
+        { L"Unused: Left gazebo 26/39", 0x49208 + (0x19 * 0x22), 0x49228 + (0x19 * 0x22) },
+        { L"Unused: Left gazebo 27/39", 0x49208 + (0x1a * 0x22), 0x49228 + (0x1a * 0x22) },
+        { L"Unused: Left gazebo 28/39", 0x49208 + (0x1b * 0x22), 0x49228 + (0x1b * 0x22) },
+        { L"Unused: Left gazebo 29/39", 0x49208 + (0x1c * 0x22), 0x49228 + (0x1c * 0x22) },
+        { L"Unused: Left gazebo 30/39", 0x49208 + (0x1d * 0x22), 0x49228 + (0x1d * 0x22) },
+    { L"Left gazebo 31/39", 0x49208 + (0x1e * 0x22), 0x49228 + (0x1e * 0x22) },
+        { L"Unused: Left gazebo 32/39", 0x49208 + (0x1f * 0x22), 0x49228 + (0x1f * 0x22) },
+        { L"Unused: Left gazebo 33/39", 0x49208 + (0x20 * 0x22), 0x49228 + (0x20 * 0x22) },
+        { L"Unused: Left gazebo 34/39", 0x49208 + (0x21 * 0x22), 0x49228 + (0x21 * 0x22) },
+        { L"Unused: Left gazebo 35/39", 0x49208 + (0x22 * 0x22), 0x49228 + (0x22 * 0x22) },
+        { L"Unused: Left gazebo 36/39", 0x49208 + (0x23 * 0x22), 0x49228 + (0x23 * 0x22) },
+        { L"Unused: Left gazebo 37/39", 0x49208 + (0x24 * 0x22), 0x49228 + (0x24 * 0x22) },
+        { L"Unused: Left gazebo 38/39", 0x49208 + (0x25 * 0x22), 0x49228 + (0x25 * 0x22) },
+        { L"Unused: Left gazebo 39/39", 0x49208 + (0x26 * 0x22), 0x49228 + (0x26 * 0x22) },
+};
+
+const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_4_2[] =
+{
+    { L"Dancers", 0x57d3a, 0x57e3a },
+};
+
+const sGame_PaletteDataset SSF2T_A_THAWK_STAGE_NODE_4[] =
+{
+    { L"Birds", 0x5759a, 0x575ba, indexSF2Sprites_Stages, -1, &pairNext },
+    { L"Feet cycle 1/3", 0x575ba, 0x575da },
+    { L"Feet cycle 2/3", 0x575da, 0x575fa },
+    { L"Feet cycle 3/3", 0x575fa, 0x5761a },
+};
+
+const sGame_PaletteDataset SSF2T_A_FEILONG_STAGE_NODE_4[] =
+{
+    { L"Dragon", 0x5797a, 0x579da },
+};
+
 const sGame_PaletteDataset SSF2T_A_04_STAGEHUD_NODE[] =
 {
     { L"Ryu Stage HUD and Extras", 0x53f7c, 0x5403c, indexSF2Sprites_Bonus, 0x22 },
@@ -1868,7 +1951,6 @@ const sGame_PaletteDataset SSF2T_A_04_DHALSIM_STAGE_NODE[] =
 {
     { L"left vase", 0x55DFC, 0x55DFC + 0x20, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"right vase", 0x55E1C, 0x55E1C + 0x20 },
-    { L"front elephant", 0x55E3C, 0x55E3C + 0x20 },
 };
 
 const sGame_PaletteDataset SSF2T_A_08_DHALSIM_STAGE_NODE[] =
@@ -7257,7 +7339,7 @@ const sGame_PaletteDataset SSF2T_A_DeeJay_09NL_30[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_01[] =
 {
     { L"Main Color", 0x7ec5e, 0x7ec7e, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7ec7e, 0x7ec9e, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7ec7e, 0x7ec9e, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7ec9e, 0x7ecbe, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7ecbe, 0x7ecde, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7ecde, 0x7ecfe, indexSF2Sprites_Gouki, 0x00 },
@@ -7266,7 +7348,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_01[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_02[] =
 {
     { L"Main Color", 0x7ed00, 0x7ed20, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7ed20, 0x7ed40, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7ed20, 0x7ed40, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7ed40, 0x7ed60, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7ed60, 0x7ed80, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7ed80, 0x7eda0, indexSF2Sprites_Gouki, 0x00 },
@@ -7275,7 +7357,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_02[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_03[] =
 {
     { L"Main Color", 0x7eda2, 0x7edc2, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7edc2, 0x7ede2, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7edc2, 0x7ede2, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7ede2, 0x7ee02, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7ee02, 0x7ee22, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7ee22, 0x7ee42, indexSF2Sprites_Gouki, 0x00 },
@@ -7284,7 +7366,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_03[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_04[] =
 {
     { L"Main Color", 0x7ee44, 0x7ee64, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7ee64, 0x7ee84, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7ee64, 0x7ee84, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7ee84, 0x7eea4, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7eea4, 0x7eec4, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7eec4, 0x7eee4, indexSF2Sprites_Gouki, 0x00 },
@@ -7293,7 +7375,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_04[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_05[] =
 {
     { L"Main Color", 0x7eee6, 0x7ef06, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7ef06, 0x7ef26, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7ef06, 0x7ef26, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7ef26, 0x7ef46, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7ef46, 0x7ef66, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7ef66, 0x7ef86, indexSF2Sprites_Gouki, 0x00 },
@@ -7302,7 +7384,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_05[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_06[] =
 {
     { L"Main Color", 0x7ef88, 0x7efa8, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7efa8, 0x7efc8, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7efa8, 0x7efc8, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7efc8, 0x7efe8, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7efe8, 0x7f008, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f008, 0x7f028, indexSF2Sprites_Gouki, 0x00 },
@@ -7311,7 +7393,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_06[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_07[] =
 {
     { L"Main Color", 0x7f02a, 0x7f04a, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f04a, 0x7f06a, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f04a, 0x7f06a, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f06a, 0x7f08a, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f08a, 0x7f0aa, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f0aa, 0x7f0ca, indexSF2Sprites_Gouki, 0x00 },
@@ -7320,7 +7402,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_07[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_08[] =
 {
     { L"Main Color", 0x7f0cc, 0x7f0ec, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f0ec, 0x7f10c, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f0ec, 0x7f10c, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f10c, 0x7f12c, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f12c, 0x7f14c, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f14c, 0x7f16c, indexSF2Sprites_Gouki, 0x00 },
@@ -7329,7 +7411,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_08[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_09[] =
 {
     { L"Main Color", 0x7f16e, 0x7f18e, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f18e, 0x7f1ae, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f18e, 0x7f1ae, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f1ae, 0x7f1ce, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f1ce, 0x7f1ee, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f1ee, 0x7f20e, indexSF2Sprites_Gouki, 0x00 },
@@ -7338,7 +7420,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_09[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_10[] =
 {
     { L"Main Color", 0x7f210, 0x7f230, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f230, 0x7f250, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f230, 0x7f250, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f250, 0x7f270, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f270, 0x7f290, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f290, 0x7f2b0, indexSF2Sprites_Gouki, 0x00 },
@@ -7347,7 +7429,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_10[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_11[] =
 {
     { L"Main Color", 0x7f2b2, 0x7f2d2, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f2d2, 0x7f2f2, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f2d2, 0x7f2f2, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f2f2, 0x7f312, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f312, 0x7f332, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f332, 0x7f352, indexSF2Sprites_Gouki, 0x00 },
@@ -7356,7 +7438,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_11[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_12[] =
 {
     { L"Main Color", 0x7f354, 0x7f374, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f374, 0x7f394, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f374, 0x7f394, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f394, 0x7f3b4, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f3b4, 0x7f3d4, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f3d4, 0x7f3f4, indexSF2Sprites_Gouki, 0x00 },
@@ -7365,7 +7447,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_12[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_13[] =
 {
     { L"Main Color", 0x7f3f6, 0x7f416, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f416, 0x7f436, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f416, 0x7f436, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f436, 0x7f456, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f456, 0x7f476, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f476, 0x7f496, indexSF2Sprites_Gouki, 0x00 },
@@ -7374,7 +7456,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_13[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_14[] =
 {
     { L"Main Color", 0x7f498, 0x7f4b8, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f4b8, 0x7f4d8, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f4b8, 0x7f4d8, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f4d8, 0x7f4f8, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f4f8, 0x7f518, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f518, 0x7f538, indexSF2Sprites_Gouki, 0x00 },
@@ -7383,7 +7465,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_14[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_15[] =
 {
     { L"Main Color", 0x7f53a, 0x7f55a, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f55a, 0x7f57a, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f55a, 0x7f57a, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f57a, 0x7f59a, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f59a, 0x7f5ba, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f5ba, 0x7f5da, indexSF2Sprites_Gouki, 0x00 },
@@ -7392,7 +7474,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_15[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_16[] =
 {
     { L"Main Color", 0x7f5dc, 0x7f5fc, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f5fc, 0x7f61c, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f5fc, 0x7f61c, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f61c, 0x7f63c, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f63c, 0x7f65c, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f65c, 0x7f67c, indexSF2Sprites_Gouki, 0x00 },
@@ -7401,7 +7483,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_16[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_17[] =
 {
     { L"Main Color", 0x7f67e, 0x7f69e, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f69e, 0x7f6be, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f69e, 0x7f6be, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f6be, 0x7f6de, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f6de, 0x7f6fe, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f6fe, 0x7f71e, indexSF2Sprites_Gouki, 0x00 },
@@ -7410,7 +7492,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_17[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_18[] =
 {
     { L"Main Color", 0x7f720, 0x7f740, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f740, 0x7f760, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f740, 0x7f760, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f760, 0x7f780, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f780, 0x7f7a0, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f7a0, 0x7f7c0, indexSF2Sprites_Gouki, 0x00 },
@@ -7419,7 +7501,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_18[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_19[] =
 {
     { L"Main Color", 0x7f7c2, 0x7f7e2, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f7e2, 0x7f802, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f7e2, 0x7f802, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f802, 0x7f822, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f822, 0x7f842, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f842, 0x7f862, indexSF2Sprites_Gouki, 0x00 },
@@ -7428,7 +7510,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_19[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_20[] =
 {
     { L"Main Color", 0x7f864, 0x7f884, indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884, 0x7f8a4, indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884, 0x7f8a4, indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4, 0x7f8c4, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4, 0x7f8e4, indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4, 0x7f904, indexSF2Sprites_Gouki, 0x00 },
@@ -7437,7 +7519,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_20[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_21[] =
 {
     { L"Main Color", 0x7f864 + (1 * 0xa2), 0x7f884 + (1 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (1 * 0xa2), 0x7f8a4 + (1 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (1 * 0xa2), 0x7f8a4 + (1 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (1 * 0xa2), 0x7f8c4 + (1 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (1 * 0xa2), 0x7f8e4 + (1 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (1 * 0xa2), 0x7f904 + (1 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7446,7 +7528,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_21[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_22[] =
 {
     { L"Main Color", 0x7f864 + (2 * 0xa2), 0x7f884 + (2 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (2 * 0xa2), 0x7f8a4 + (2 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (2 * 0xa2), 0x7f8a4 + (2 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (2 * 0xa2), 0x7f8c4 + (2 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (2 * 0xa2), 0x7f8e4 + (2 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (2 * 0xa2), 0x7f904 + (2 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7455,7 +7537,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_22[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_23[] =
 {
     { L"Main Color", 0x7f864 + (3 * 0xa2), 0x7f884 + (3 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (3 * 0xa2), 0x7f8a4 + (3 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (3 * 0xa2), 0x7f8a4 + (3 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (3 * 0xa2), 0x7f8c4 + (3 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (3 * 0xa2), 0x7f8e4 + (3 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (3 * 0xa2), 0x7f904 + (3 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7464,7 +7546,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_23[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_24[] =
 {
     { L"Main Color", 0x7f864 + (4 * 0xa2), 0x7f884 + (4 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (4 * 0xa2), 0x7f8a4 + (4 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (4 * 0xa2), 0x7f8a4 + (4 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (4 * 0xa2), 0x7f8c4 + (4 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (4 * 0xa2), 0x7f8e4 + (4 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (4 * 0xa2), 0x7f904 + (4 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7473,7 +7555,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_24[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_25[] =
 {
     { L"Main Color", 0x7f864 + (5 * 0xa2), 0x7f884 + (5 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (5 * 0xa2), 0x7f8a4 + (5 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (5 * 0xa2), 0x7f8a4 + (5 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (5 * 0xa2), 0x7f8c4 + (5 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (5 * 0xa2), 0x7f8e4 + (5 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (5 * 0xa2), 0x7f904 + (5 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7482,7 +7564,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_25[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_26[] =
 {
     { L"Main Color", 0x7f864 + (6 * 0xa2), 0x7f884 + (6 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (6 * 0xa2), 0x7f8a4 + (6 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (6 * 0xa2), 0x7f8a4 + (6 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (6 * 0xa2), 0x7f8c4 + (6 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (6 * 0xa2), 0x7f8e4 + (6 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (6 * 0xa2), 0x7f904 + (6 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7491,7 +7573,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_26[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_27[] =
 {
     { L"Main Color", 0x7f864 + (7 * 0xa2), 0x7f884 + (7 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (7 * 0xa2), 0x7f8a4 + (7 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (7 * 0xa2), 0x7f8a4 + (7 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (7 * 0xa2), 0x7f8c4 + (7 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (7 * 0xa2), 0x7f8e4 + (7 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (7 * 0xa2), 0x7f904 + (7 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7500,7 +7582,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_27[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_28[] =
 {
     { L"Main Color", 0x7f864 + (8 * 0xa2), 0x7f884 + (8 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (8 * 0xa2), 0x7f8a4 + (8 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (8 * 0xa2), 0x7f8a4 + (8 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (8 * 0xa2), 0x7f8c4 + (8 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (8 * 0xa2), 0x7f8e4 + (8 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (8 * 0xa2), 0x7f904 + (8 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7509,7 +7591,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_28[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_29[] =
 {
     { L"Main Color", 0x7f864 + (9 * 0xa2), 0x7f884 + (9 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (9 * 0xa2), 0x7f8a4 + (9 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (9 * 0xa2), 0x7f8a4 + (9 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (9 * 0xa2), 0x7f8c4 + (9 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (9 * 0xa2), 0x7f8e4 + (9 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (9 * 0xa2), 0x7f904 + (9 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -7518,7 +7600,7 @@ const sGame_PaletteDataset SSF2T_A_Gouki_09NL_29[] =
 const sGame_PaletteDataset SSF2T_A_Gouki_09NL_30[] =
 {
     { L"Main Color", 0x7f864 + (10 * 0xa2), 0x7f884 + (10 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
-    { L"Unknown", 0x7f884 + (10 * 0xa2), 0x7f8a4 + (10 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
+    { L"Hadouken", 0x7f884 + (10 * 0xa2), 0x7f8a4 + (10 * 0xa2), indexSF2Sprites_Gouki, 0x01 },
     { L"Super Trail 1", 0x7f8a4 + (10 * 0xa2), 0x7f8c4 + (10 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 2", 0x7f8c4 + (10 * 0xa2), 0x7f8e4 + (10 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
     { L"Super Trail 3", 0x7f8e4 + (10 * 0xa2), 0x7f904 + (10 * 0xa2), indexSF2Sprites_Gouki, 0x00 },
@@ -8415,15 +8497,24 @@ const sDescTreeNode SSF2T_A_03_STAGES_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
 {
-    { L"Stage HUDs and Effects",        DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
+    { L"Stage HUDs and Effects",            DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
 
     { L"Balrog's Casino Stage (04 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BALROG_STAGES_NODE, ARRAYSIZE(SSF2T_A_04_BALROG_STAGES_NODE) },
-    { L"Cammy's Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
-    { L"Dhalsim's Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
-    { L"E. Honda's Stage (04 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_04_EHONDA_STAGE_NODE,   ARRAYSIZE(SSF2T_A_04_EHONDA_STAGE_NODE) },
-    { L"Ken's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_4) },
-    { L"Ryu's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
-    { L"Stage Super Trails",            DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_SUPERTRAILS_NODE, ARRAYSIZE(SSF2T_A_04_BONUS_SUPERTRAILS_NODE) },
+    { L"Blanka's Stage (04 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_BLANKA_STAGE_NODE_4) },
+    { L"Cammy's Stage (04 parts)",          DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
+    { L"Chun-Li's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_CHUNLI_STAGE_NODE_4) },
+    { L"Dee Jay's Stage (04 parts: gazebo)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_4_1,    ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_4_1) },
+    { L"Dee Jay's Stage (04 parts: dancers)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_4_2,    ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_4_2) },
+    { L"Dhalsim's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
+    { L"E. Honda's Stage (04 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_04_EHONDA_STAGE_NODE,   ARRAYSIZE(SSF2T_A_04_EHONDA_STAGE_NODE) },
+    { L"Fei Long's Stage (04 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_FEILONG_STAGE_NODE_4) },
+    { L"Guile's Stage (04 parts)",          DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_GUILE_STAGE_NODE_4) },
+    { L"Ken's Stage (04 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_4) },
+    { L"Ryu's Stage (04 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
+    { L"T-Hawk's Stage (04 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_THAWK_STAGE_NODE_4) },
+    { L"Zangief's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_GIEF_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_GIEF_STAGE_NODE_4) },
+
+    { L"Stage Super Trails",                DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_SUPERTRAILS_NODE, ARRAYSIZE(SSF2T_A_04_BONUS_SUPERTRAILS_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_HYBRID_STAGES_COLLECTION_UNIQUE_04[] =
