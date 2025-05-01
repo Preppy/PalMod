@@ -37,7 +37,7 @@ private:
         VSAV_A_UNITS,
         ARRAYSIZE(VSAV_A_UNITS),
         L"VSAVE.txt",               // Extra filename
-        4148,                       // Count of palettes listed in the header
+        4194,                       // Count of palettes listed in the header
         0xc1aa,                     // Lowest known location used for palettes
     };
 
@@ -80,7 +80,7 @@ private:
         VSAV_A_UNITS,
         ARRAYSIZE(VSAV_A_UNITS),
         L"VSAVSE.txt",               // Extra filename
-        4148,                       // Count of palettes listed in the header
+        4194,                       // Count of palettes listed in the header
         0xc1aa,                     // Lowest known location used for palettes
     };
 

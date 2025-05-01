@@ -260,7 +260,7 @@ private:
         SSF2T_A_UNITS_MONO,
         ARRAYSIZE(SSF2T_A_UNITS_MONO),
         L"ssf2tSe.txt",         // Extra filename
-        1122 + 210 /*08 tally*/, // Count of palettes listed in the header
+        1246,                   // Count of palettes listed in the header
         0x110bee3b,             // Lowest known location used for palettes
     };
 
