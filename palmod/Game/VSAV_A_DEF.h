@@ -5199,6 +5199,7 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST[] =
     { L"16BG.0.0.0", 0x464fa, 0x466fa, indexCPS2Sprites_VSAV1_Stages, 0x46 },
 
     { L"SS.0.0.0", 0x2010a, 0x201CA, indexCPS2Sprites_VSAV1_Stages, 0x47 },
+    { L"SS.0.0.1 Stage shadow", 0x2008a, 0x200aa },
 };
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_PARTS[] =
@@ -5219,6 +5220,7 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_EX[] =
     { L"16BG.0.0.0", 0x4C2Fa, 0x4C4FA, indexCPS2Sprites_VSAV1_Stages, 0x46 },
 
     { L"SS.0.0.0", 0x21C2a, 0x21CEA, indexCPS2Sprites_VSAV1_Stages, 0x47 },
+    { L"SS.0.0.1 Stage shadow", 0x21baa, 0x21bca },
 };
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_EX_PARTS[] =
@@ -5315,6 +5317,7 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY[] =
     { L"8BG.0.0.0", 0x37492, 0x37652, indexCPS2Sprites_VSAV1_Stages, 0x71 },
 
     { L"SS.0.0.0", 0x2062a, 0x206CA, indexCPS2Sprites_VSAV1_Stages, 0x72 },
+    { L"SS.0.0.1 Stage shadow", 0x2058a, 0x205aA },
 };
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY_PARTS[] =
@@ -5366,6 +5369,7 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY_EX[] =
     { L"8BG.0.0.0", 0x3C9B2, 0x3CB72, indexCPS2Sprites_VSAV1_Stages, 0x71 },
 
     { L"SS.0.0.0", 0x2214A, 0x221EA, indexCPS2Sprites_VSAV1_Stages, 0x72 },
+    { L"SS.0.0.1 Stage shadow", 0x220AA, 0x220cA },
 };
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY_EX_PARTS[] =
