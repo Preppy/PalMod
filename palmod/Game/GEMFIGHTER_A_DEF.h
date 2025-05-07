@@ -530,6 +530,11 @@ const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_X3[] =
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_A[] =
 {
     { L"Dan A", 0xb2e6, 0xb306, indexPuzzleFighter_Dan, 0x00 },
+
+    { L"Dan A: Elvis", 0x3059a, 0x305ba },
+    { L"Dan A: Enka / Folk Singer", 0x3061a, 0x3063a },
+    { L"Dan A: Street sign", 0x3069a, 0x306ba },
+    // one unknown palette here
     { L"Dan A: Go Hibiki", 0x3079a, 0x307ba, indexPuzzleFighter_Dan, 0x02, &pairNext2 },
     { L"Dan A: Gadouken", 0x3081a, 0x3083a },
     { L"Dan A: Go Laser", 0x3089a, 0x308ba },
@@ -542,6 +547,9 @@ const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_A[] =
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_B[] =
 {
     { L"Dan B", 0xb386, 0xb3a6, indexPuzzleFighter_Dan, 0x00 },
+    { L"Dan B: Elvis", 0x305ba, 0x305da },
+    { L"Dan B: Enka / Folk Singer", 0x3063a, 0x3065a },
+    { L"Dan B: Street sign", 0x306ba, 0x306da },
     { L"Dan B: Go Hibiki", 0x307ba, 0x307da, indexPuzzleFighter_Dan, 0x02, &pairNext2 },
     { L"Dan B: Gadouken", 0x3083a, 0x3085a },
     { L"Dan B: Go Laser", 0x308ba, 0x308da },
@@ -553,6 +561,9 @@ const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_B[] =
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_C[] =
 {
     { L"Dan C", 0xb426, 0xb446, indexPuzzleFighter_Dan, 0x00 },
+    { L"Dan C: Elvis", 0x305da, 0x305fa },
+    { L"Dan C: Enka / Folk Singer", 0x3065a, 0x3067a },
+    { L"Dan C: Street sign", 0x306da, 0x306fa },
     { L"Dan C: Go Hibiki", 0x307da, 0x307fa, indexPuzzleFighter_Dan, 0x02, &pairNext2 },
     { L"Dan C: Gadouken", 0x3085a, 0x3087a },
     { L"Dan C: Go Laser", 0x308da, 0x308fa },
@@ -564,6 +575,9 @@ const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_C[] =
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_X3[] =
 {
     { L"Dan x3", 0xb4c6, 0xb4e6, indexPuzzleFighter_Dan, 0x00 },
+    { L"Dan x3: Elvis", 0x305fa, 0x3061a },
+    { L"Dan x3: Enka / Folk Singer", 0x3067a, 0x3069a },
+    { L"Dan x3: Street sign", 0x306fa, 0x3071a },
     { L"Dan x3: Go Hibiki", 0x307fa, 0x3081a, indexPuzzleFighter_Dan, 0x02, &pairNext2 },
     { L"Dan x3: Gadouken", 0x3087a, 0x3089a },
     { L"Dan x3: Go Laser", 0x308fa, 0x3091a },
