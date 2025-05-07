@@ -1229,7 +1229,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
     if (fCurrentPaletteIsNotMappingFriendly)
     {
-        strMsg += " Use a mapping palette.";
+        strMsg += " Use a mapping palette!";
     }
 
     GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
@@ -1241,13 +1241,13 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         if (nCheckAgainstPalette == 0)
         {
             strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
-                                L"That color may originally have intended to be index %u or index %u, but since we lose all that content we can only ever map it as index %u.\n\n"
+                                L"That color may originally have intended to be index %u or index %u, but since we lose all that context we can only ever map it as index %u.\n\n"
                                 L"To avoid this problem, please use mapping palettes.", nCheckColor, nCheckAgainstColor, nCheckColor);
         }
         else
         {
             strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
-                                L"That color may originally have intended to be palette %u index %u or palette %u index %u, but since we lose all that content we can only ever map it as palette %u index %u.\n\n"
+                                L"That color may originally have intended to be palette %u index %u or palette %u index %u, but since we lose all that context we can only ever map it as palette %u index %u.\n\n"
                                 L"To avoid this problem, please use mapping palettes.", nStartCheckPalette, nCheckColor, nCheckAgainstPalette, nCheckAgainstColor, nStartCheckPalette, nCheckColor);
         }
 
