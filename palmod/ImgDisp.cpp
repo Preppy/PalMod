@@ -1013,10 +1013,54 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 {
     // Get the total palette size so we can handle correctly
     size_t nTotalPalSize = 0;
+
     for (int nStartPalette = 0; nStartPalette < m_nImgAmt; nStartPalette++)
     {
         nTotalPalSize += m_pImgBuffer[nStartPalette]->uPalSz;
     }
+
+    bool fCurrentPaletteIsNotMappingFriendly = false;
+    int nCheckColor = 1, nCheckAgainstColor = 2;
+    int nStartCheckPalette = 0, nCheckAgainstPalette = 0;
+    
+    for (nStartCheckPalette = 0; nStartCheckPalette < m_nImgAmt; nStartCheckPalette++)
+    {
+        for (nCheckColor = 1; nCheckColor < m_pImgBuffer[nStartCheckPalette]->uPalSz; nCheckColor++)
+        {
+            const COLORREF clrChecking = m_pImgBuffer[nStartCheckPalette]->pPalette[nCheckColor];
+            nCheckAgainstColor = nCheckColor + 1;
+
+            for (nCheckAgainstPalette = nStartCheckPalette; nCheckAgainstPalette < m_nImgAmt; nCheckAgainstPalette++)
+            {
+                for (; nCheckAgainstColor < m_pImgBuffer[nCheckAgainstPalette]->uPalSz; nCheckAgainstColor++)
+                {
+                    if (clrChecking == m_pImgBuffer[nCheckAgainstPalette]->pPalette[nCheckAgainstColor])
+                    {
+                        fCurrentPaletteIsNotMappingFriendly = true;
+                        break;
+                    }
+                }
+
+                if (fCurrentPaletteIsNotMappingFriendly)
+                {
+                    break;
+                }
+
+                nCheckAgainstColor = 1;
+            }
+
+            if (fCurrentPaletteIsNotMappingFriendly)
+            {
+                break;
+            }
+        }
+
+        if (fCurrentPaletteIsNotMappingFriendly)
+        {
+            break;
+        }
+    }
+
 
     // allocate max size, even though we may be adjusting this for trim
     const unsigned nDataLen = width * height;
@@ -1143,14 +1187,14 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             }
         }
 
-        strMsg.Format(L"Loaded %u x %u (trimmed) RGB PNG as a preview.", true_width, true_height);
+        strMsg.Format(L"Loaded %u x %u (trimmed) RGB PNG preview.", true_width, true_height);
     }
     else
     {
         m_nTextureOverrideW[nPositionToLoadTo] = width;
         m_nTextureOverrideH[nPositionToLoadTo] = height;
 
-        strMsg.Format(L"Loaded %u x %u RGB PNG as a preview.", width, height);
+        strMsg.Format(L"Loaded %u x %u RGB PNG preview.", width, height);
     }
 
     if (!nPositionToLoadTo)
@@ -1176,13 +1220,39 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
     if (fFoundOne && fUseWinKawaksShift)
     {
-        strMsg += L" Tried correcting for WinKawaks color errors.";
+        strMsg += L" Corrected for WinKawaks colors.";
     }
     else if (!fFoundOne)
     {
-        strMsg += L" Probably not the correct palette.";
+        strMsg += L" Palette doesn't match.";
     }
+
+    if (fCurrentPaletteIsNotMappingFriendly)
+    {
+        strMsg += " Use a mapping palette.";
+    }
+
     GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+
+    if (fCurrentPaletteIsNotMappingFriendly)
+    {
+        CString strMistake;
+
+        if (nCheckAgainstPalette == 0)
+        {
+            strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
+                                L"That color may originally have intended to be index %u or index %u, but since we lose all that content we can only ever map it as index %u.\n\n"
+                                L"To avoid this problem, please use mapping palettes.", nCheckColor, nCheckAgainstColor, nCheckColor);
+        }
+        else
+        {
+            strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
+                                L"That color may originally have intended to be palette %u index %u or palette %u index %u, but since we lose all that content we can only ever map it as palette %u index %u.\n\n"
+                                L"To avoid this problem, please use mapping palettes.", nStartCheckPalette, nCheckColor, nCheckAgainstPalette, nCheckAgainstColor, nStartCheckPalette, nCheckColor);
+        }
+
+        SHMessageBoxCheck(g_appHWnd, strMistake, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_OK, 0, L"{11BFAD2C-42CA-40e2-967C-1017C1B2676A}");
+    }
 }
 
 bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
