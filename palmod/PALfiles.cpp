@@ -61,7 +61,6 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                             }
 
                             uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-                            size_t nCurrentPalSizeInChannels = MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz * 4;
 
                             for (int iAbsoluteColorIndex = 0; iAbsoluteColorIndex < nTotalNumberOfCurrentPaletteColors; iAbsoluteColorIndex++, nTotalColorsUsed++)
                             {
@@ -78,7 +77,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                                 }
 
                                 iCurrentIndexInPalette++;
-                                if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == nCurrentPalSizeInChannels))
+                                if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
                                 {
                                     if (fHaveLooped)
                                     {
@@ -91,8 +90,6 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                                         // advance to the next palette
                                         nCurrentPalette++;
                                         iCurrentIndexInPalette = 0;
-
-                                        nCurrentPalSizeInChannels = MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz * 4;
 
                                         pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
                                     }
