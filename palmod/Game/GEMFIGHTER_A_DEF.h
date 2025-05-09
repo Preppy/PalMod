@@ -87,10 +87,18 @@ const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_SHARED[] =
 {
     { L"Ryu: Burning Effect", 0x002b4da, 0x002b4fa, indexCPS2Sprites_SPF_Ryu, 0x00 },
     { L"Ryu: Zap Effect", 0x002b4fa, 0x002b51a, indexCPS2Sprites_SPF_Ryu, 0x00 },
+    // unknown
     { L"Ryu: Poisoned Effect", 0x002b53a, 0x002b55a, indexCPS2Sprites_SPF_Ryu, 0x00 },
     { L"Ryu: Hayate Effect", 0x002b55a, 0x002b57a, indexCPS2Sprites_SPF_Ryu, 0x00 },
+    // unknown
     { L"Ryu: Stone Effect", 0x002b59a, 0x002b5ba, indexCPS2Sprites_SPF_Ryu, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
     { L"Ryu: Blue-Burning Effect", 0x002b65a, 0x002b67a, indexCPS2Sprites_SPF_Ryu, 0x00 },
+    // unknown
     { L"Ryu: Counter Effect", 0x002b69a, 0x002b6ba, indexCPS2Sprites_SPF_Ryu, 0x00 },
 };
 
@@ -710,6 +718,216 @@ const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_X3[] =
     { L"Akuma x3: Portrait", 0xd426, 0xd486, indexCPS2Sprites_SPF_Akuma, 0x40 },
 };
 
+// All the special effects other than for Ryu
+const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_SHARED[] =
+{
+    { L"Ken: Burning Effect",   0x2bcda, 0x2bcda + (1 * 0x20), indexCPS2Sprites_SPF_Ken, 0x00 },
+    { L"Ken: Zap Effect",       0x2bcda + (1 * 0x20), 0x2bcda + (2 * 0x20), indexCPS2Sprites_SPF_Ken, 0x00 },
+    // unknown
+    { L"Ken: Poisoned Effect",  0x2bcda + (3 * 0x20), 0x2bcda + (4 * 0x20), indexCPS2Sprites_SPF_Ken, 0x00 },
+    { L"Ken: Hayate Effect",    0x2bcda + (4 * 0x20), 0x2bcda + (5 * 0x20), indexCPS2Sprites_SPF_Ken, 0x00 },
+    // unknown
+    { L"Ken: Stone Effect",     0x2bcda + (6 * 0x20), 0x2bcda + (7 * 0x20), indexCPS2Sprites_SPF_Ken, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Ken: Blue-Burning Effect", 0x2bcda + (12 * 0x20), 0x2bcda + (13 * 0x20), indexCPS2Sprites_SPF_Ken, 0x00 },
+    // unknown
+    { L"Ken: Counter Effect",   0x2bcda + (14 * 0x20), 0x2bcda + (15 * 0x20), indexCPS2Sprites_SPF_Ken, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_SHARED[] =
+{
+    { L"Chun-Li: Burning Effect",   0x2c67a, 0x2c67a + (1 * 0x20), indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li: Zap Effect",       0x2c67a + (1 * 0x20), 0x2c67a + (2 * 0x20), indexPuzzleFighter_ChunLi, 0x00 },
+    // unknown
+    { L"Chun-Li: Poisoned Effect",  0x2c67a + (3 * 0x20), 0x2c67a + (4 * 0x20), indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li: Hayate Effect",    0x2c67a + (4 * 0x20), 0x2c67a + (5 * 0x20), indexPuzzleFighter_ChunLi, 0x00 },
+    // unknown
+    { L"Chun-Li: Stone Effect",     0x2c67a + (6 * 0x20), 0x2c67a + (7 * 0x20), indexPuzzleFighter_ChunLi, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Chun-Li: Blue-Burning Effect", 0x2c67a + (12 * 0x20), 0x2c67a + (13 * 0x20), indexPuzzleFighter_ChunLi, 0x00 },
+    // unknown
+    { L"Chun-Li: Counter Effect",   0x2c67a + (14 * 0x20), 0x2c67a + (15 * 0x20), indexPuzzleFighter_ChunLi, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_SHARED[] =
+{
+    { L"Sakura: Burning Effect",   0x2cdda, 0x2cdda + (1 * 0x20), indexCPS2Sprites_SPF_Sakura, 0x00 },
+    { L"Sakura: Zap Effect",       0x2cdda + (1 * 0x20), 0x2cdda + (2 * 0x20), indexCPS2Sprites_SPF_Sakura, 0x00 },
+    // unknown
+    { L"Sakura: Poisoned Effect",  0x2cdda + (3 * 0x20), 0x2cdda + (4 * 0x20), indexCPS2Sprites_SPF_Sakura, 0x00 },
+    { L"Sakura: Hayate Effect",    0x2cdda + (4 * 0x20), 0x2cdda + (5 * 0x20), indexCPS2Sprites_SPF_Sakura, 0x00 },
+    // unknown
+    { L"Sakura: Stone Effect",     0x2cdda + (6 * 0x20), 0x2cdda + (7 * 0x20), indexCPS2Sprites_SPF_Sakura, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Sakura: Blue-Burning Effect", 0x2cdda + (12 * 0x20), 0x2cdda + (13 * 0x20), indexCPS2Sprites_SPF_Sakura, 0x00 },
+    // unknown
+    { L"Sakura: Counter Effect",   0x2cdda + (14 * 0x20), 0x2cdda + (15 * 0x20), indexCPS2Sprites_SPF_Sakura, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_SHARED[] =
+{
+    { L"Morrigan: Burning Effect",   0x2d53a, 0x2d53a + (1 * 0x20), indexPuzzleFighter_Morrigan, 0x00 },
+    { L"Morrigan: Zap Effect",       0x2d53a + (1 * 0x20), 0x2d53a + (2 * 0x20), indexPuzzleFighter_Morrigan, 0x00 },
+    // unknown
+    { L"Morrigan: Poisoned Effect",  0x2d53a + (3 * 0x20), 0x2d53a + (4 * 0x20), indexPuzzleFighter_Morrigan, 0x00 },
+    { L"Morrigan: Hayate Effect",    0x2d53a + (4 * 0x20), 0x2d53a + (5 * 0x20), indexPuzzleFighter_Morrigan, 0x00 },
+    // unknown
+    { L"Morrigan: Stone Effect",     0x2d53a + (6 * 0x20), 0x2d53a + (7 * 0x20), indexPuzzleFighter_Morrigan, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Morrigan: Blue-Burning Effect", 0x2d53a + (12 * 0x20), 0x2d53a + (13 * 0x20), indexPuzzleFighter_Morrigan, 0x00 },
+    // unknown
+    { L"Morrigan: Counter Effect",   0x2d53a + (14 * 0x20), 0x2d53a + (15 * 0x20), indexPuzzleFighter_Morrigan, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_SHARED[] =
+{
+    { L"Hsien-Ko: Burning Effect",   0x2dc3a, 0x2dc3a + (1 * 0x20), indexCPS2Sprites_SPF_HsienKo, 0x00 },
+    { L"Hsien-Ko: Zap Effect",       0x2dc3a + (1 * 0x20), 0x2dc3a + (2 * 0x20), indexCPS2Sprites_SPF_HsienKo, 0x00 },
+    // unknown
+    { L"Hsien-Ko: Poisoned Effect",  0x2dc3a + (3 * 0x20), 0x2dc3a + (4 * 0x20), indexCPS2Sprites_SPF_HsienKo, 0x00 },
+    { L"Hsien-Ko: Hayate Effect",    0x2dc3a + (4 * 0x20), 0x2dc3a + (5 * 0x20), indexCPS2Sprites_SPF_HsienKo, 0x00 },
+    // unknown
+    { L"Hsien-Ko: Stone Effect",     0x2dc3a + (6 * 0x20), 0x2dc3a + (7 * 0x20), indexCPS2Sprites_SPF_HsienKo, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Hsien-Ko: Blue-Burning Effect", 0x2dc3a + (12 * 0x20), 0x2dc3a + (13 * 0x20), indexCPS2Sprites_SPF_HsienKo, 0x00 },
+    // unknown
+    { L"Hsien-Ko: Counter Effect",   0x2dc3a + (14 * 0x20), 0x2dc3a + (15 * 0x20), indexCPS2Sprites_SPF_HsienKo, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_SHARED[] =
+{
+    { L"Felicia: Burning Effect",   0x2e29a, 0x2e29a + (1 * 0x20), indexCPS2Sprites_SPF_Felicia, 0x00 },
+    { L"Felicia: Zap Effect",       0x2e29a + (1 * 0x20), 0x2e29a + (2 * 0x20), indexCPS2Sprites_SPF_Felicia, 0x00 },
+    // unknown
+    { L"Felicia: Poisoned Effect",  0x2e29a + (3 * 0x20), 0x2e29a + (4 * 0x20), indexCPS2Sprites_SPF_Felicia, 0x00 },
+    { L"Felicia: Hayate Effect",    0x2e29a + (4 * 0x20), 0x2e29a + (5 * 0x20), indexCPS2Sprites_SPF_Felicia, 0x00 },
+    // unknown
+    { L"Felicia: Stone Effect",     0x2e29a + (6 * 0x20), 0x2e29a + (7 * 0x20), indexCPS2Sprites_SPF_Felicia, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Felicia: Blue-Burning Effect", 0x2e29a + (12 * 0x20), 0x2e29a + (13 * 0x20), indexCPS2Sprites_SPF_Felicia, 0x00 },
+    // unknown
+    { L"Felicia: Counter Effect",   0x2e29a + (14 * 0x20), 0x2e29a + (15 * 0x20), indexCPS2Sprites_SPF_Felicia, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_SHARED[] =
+{
+    { L"Tessa: Burning Effect",   0x2f27a, 0x2f27a + (1 * 0x20), indexCPS2Sprites_SPF_Tessa, 0x00 },
+    { L"Tessa: Zap Effect",       0x2f27a + (1 * 0x20), 0x2f27a + (2 * 0x20), indexCPS2Sprites_SPF_Tessa, 0x00 },
+    // unknown
+    { L"Tessa: Poisoned Effect",  0x2f27a + (3 * 0x20), 0x2f27a + (4 * 0x20), indexCPS2Sprites_SPF_Tessa, 0x00 },
+    { L"Tessa: Hayate Effect",    0x2f27a + (4 * 0x20), 0x2f27a + (5 * 0x20), indexCPS2Sprites_SPF_Tessa, 0x00 },
+    // unknown
+    { L"Tessa: Stone Effect",     0x2f27a + (6 * 0x20), 0x2f27a + (7 * 0x20), indexCPS2Sprites_SPF_Tessa, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Tessa: Blue-Burning Effect", 0x2f27a + (12 * 0x20), 0x2f27a + (13 * 0x20), indexCPS2Sprites_SPF_Tessa, 0x00 },
+    // unknown
+    { L"Tessa: Counter Effect",   0x2f27a + (14 * 0x20), 0x2f27a + (15 * 0x20), indexCPS2Sprites_SPF_Tessa, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_SHARED[] =
+{
+    { L"Ibuki: Burning Effect",   0x2f95a, 0x2f95a + (1 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+    { L"Ibuki: Zap Effect",       0x2f95a + (1 * 0x20), 0x2f95a + (2 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+    // unknown
+    { L"Ibuki: Poisoned Effect",  0x2f95a + (3 * 0x20), 0x2f95a + (4 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+    { L"Ibuki: Hayate Effect",    0x2f95a + (4 * 0x20), 0x2f95a + (5 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+    // unknown
+    { L"Ibuki: Stone Effect",     0x2f95a + (6 * 0x20), 0x2f95a + (7 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Ibuki: Blue-Burning Effect", 0x2f95a + (12 * 0x20), 0x2f95a + (13 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+    // unknown
+    { L"Ibuki: Counter Effect",   0x2f95a + (14 * 0x20), 0x2f95a + (15 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_SHARED[] =
+{
+    { L"Zangief: Burning Effect",   0x303ba, 0x303ba + (1 * 0x20), indexCPS2Sprites_SPF_Zangief, 0x00 },
+    { L"Zangief: Zap Effect",       0x303ba + (1 * 0x20), 0x303ba + (2 * 0x20), indexCPS2Sprites_SPF_Zangief, 0x00 },
+    // unknown
+    { L"Zangief: Poisoned Effect",  0x303ba + (3 * 0x20), 0x303ba + (4 * 0x20), indexCPS2Sprites_SPF_Zangief, 0x00 },
+    { L"Zangief: Hayate Effect",    0x303ba + (4 * 0x20), 0x303ba + (5 * 0x20), indexCPS2Sprites_SPF_Zangief, 0x00 },
+    // unknown
+    { L"Zangief: Stone Effect",     0x303ba + (6 * 0x20), 0x303ba + (7 * 0x20), indexCPS2Sprites_SPF_Zangief, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Zangief: Blue-Burning Effect", 0x303ba + (12 * 0x20), 0x303ba + (13 * 0x20), indexCPS2Sprites_SPF_Zangief, 0x00 },
+    // unknown
+    { L"Zangief: Counter Effect",   0x303ba + (14 * 0x20), 0x303ba + (15 * 0x20), indexCPS2Sprites_SPF_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_SHARED[] =
+{
+    { L"Dan: Burning Effect",   0x3099a, 0x3099a + (1 * 0x20), indexPuzzleFighter_Dan, 0x00 },
+    { L"Dan: Zap Effect",       0x3099a + (1 * 0x20), 0x3099a + (2 * 0x20), indexPuzzleFighter_Dan, 0x00 },
+    // unknown
+    { L"Dan: Poisoned Effect",  0x3099a + (3 * 0x20), 0x3099a + (4 * 0x20), indexPuzzleFighter_Dan, 0x00 },
+    { L"Dan: Hayate Effect",    0x3099a + (4 * 0x20), 0x3099a + (5 * 0x20), indexPuzzleFighter_Dan, 0x00 },
+    // unknown
+    { L"Dan: Stone Effect",     0x3099a + (6 * 0x20), 0x3099a + (7 * 0x20), indexPuzzleFighter_Dan, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Dan: Blue-Burning Effect", 0x3099a + (12 * 0x20), 0x3099a + (13 * 0x20), indexPuzzleFighter_Dan, 0x00 },
+    // unknown
+    { L"Dan: Counter Effect",   0x3099a + (14 * 0x20), 0x3099a + (15 * 0x20), indexPuzzleFighter_Dan, 0x00 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_SHARED[] =
+{
+    { L"Akuma: Burning Effect",   0x3121a, 0x3121a + (1 * 0x20), indexPuzzleFighter_Akuma, 0x00 },
+    { L"Akuma: Zap Effect",       0x3121a + (1 * 0x20), 0x3121a + (2 * 0x20), indexPuzzleFighter_Akuma, 0x00 },
+    // unknown
+    { L"Akuma: Poisoned Effect",  0x3121a + (3 * 0x20), 0x3121a + (4 * 0x20), indexPuzzleFighter_Akuma, 0x00 },
+    { L"Akuma: Hayate Effect",    0x3121a + (4 * 0x20), 0x3121a + (5 * 0x20), indexPuzzleFighter_Akuma, 0x00 },
+    // unknown
+    { L"Akuma: Stone Effect",     0x3121a + (6 * 0x20), 0x3121a + (7 * 0x20), indexPuzzleFighter_Akuma, 0x00 },
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    // unknown
+    { L"Akuma: Blue-Burning Effect", 0x3121a + (12 * 0x20), 0x3121a + (13 * 0x20), indexPuzzleFighter_Akuma, 0x00 },
+    // unknown
+    { L"Akuma: Counter Effect",   0x3121a + (14 * 0x20), 0x3121a + (15 * 0x20), indexPuzzleFighter_Akuma, 0x00 },
+};
+
 const sDescTreeNode GEMFIGHTER_A_RYU_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_RYU_PALETTES_A, ARRAYSIZE(GEMFIGHTER_A_RYU_PALETTES_A) },
@@ -725,6 +943,7 @@ const sDescTreeNode GEMFIGHTER_A_KEN_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_KEN_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_KEN_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_KEN_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_KEN_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_KEN_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_KEN_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_KEN_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_KEN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_CHUNLI_COLLECTION[] =
@@ -733,6 +952,7 @@ const sDescTreeNode GEMFIGHTER_A_CHUNLI_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_CHUNLI_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_CHUNLI_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_CHUNLI_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_CHUNLI_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_CHUNLI_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_CHUNLI_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_CHUNLI_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_CHUNLI_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_SAKURA_COLLECTION[] =
@@ -741,6 +961,7 @@ const sDescTreeNode GEMFIGHTER_A_SAKURA_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_SAKURA_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_SAKURA_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_SAKURA_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_SAKURA_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_SAKURA_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_SAKURA_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_SAKURA_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_SAKURA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_MORRIGAN_COLLECTION[] =
@@ -749,6 +970,7 @@ const sDescTreeNode GEMFIGHTER_A_MORRIGAN_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_MORRIGAN_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_MORRIGAN_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_MORRIGAN_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_MORRIGAN_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_MORRIGAN_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_MORRIGAN_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_MORRIGAN_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_MORRIGAN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_HSIENKO_COLLECTION[] =
@@ -757,6 +979,7 @@ const sDescTreeNode GEMFIGHTER_A_HSIENKO_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_HSIENKO_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_HSIENKO_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_HSIENKO_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_HSIENKO_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_HSIENKO_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_HSIENKO_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_HSIENKO_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_HSIENKO_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_FELICIA_COLLECTION[] =
@@ -765,6 +988,7 @@ const sDescTreeNode GEMFIGHTER_A_FELICIA_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_FELICIA_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_FELICIA_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_FELICIA_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_FELICIA_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_FELICIA_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_FELICIA_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_FELICIA_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_FELICIA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_TESSA_COLLECTION[] =
@@ -773,6 +997,7 @@ const sDescTreeNode GEMFIGHTER_A_TESSA_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_TESSA_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_TESSA_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_TESSA_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_TESSA_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_TESSA_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_TESSA_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_TESSA_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_TESSA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_IBUKI_COLLECTION[] =
@@ -781,6 +1006,7 @@ const sDescTreeNode GEMFIGHTER_A_IBUKI_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_IBUKI_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_IBUKI_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_IBUKI_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_IBUKI_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_IBUKI_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_IBUKI_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_IBUKI_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_IBUKI_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_ZANGIEF_COLLECTION[] =
@@ -789,6 +1015,7 @@ const sDescTreeNode GEMFIGHTER_A_ZANGIEF_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_ZANGIEF_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_ZANGIEF_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_ZANGIEF_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_ZANGIEF_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_ZANGIEF_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_ZANGIEF_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_ZANGIEF_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_ZANGIEF_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_DAN_COLLECTION[] =
@@ -797,6 +1024,7 @@ const sDescTreeNode GEMFIGHTER_A_DAN_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_DAN_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_DAN_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_DAN_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_DAN_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_DAN_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_DAN_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_DAN_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_DAN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode GEMFIGHTER_A_AKUMA_COLLECTION[] =
@@ -805,6 +1033,7 @@ const sDescTreeNode GEMFIGHTER_A_AKUMA_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_AKUMA_PALETTES_B, ARRAYSIZE(GEMFIGHTER_A_AKUMA_PALETTES_B) },
     { L"C", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_AKUMA_PALETTES_C, ARRAYSIZE(GEMFIGHTER_A_AKUMA_PALETTES_C) },
     { L"X3", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_AKUMA_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_AKUMA_PALETTES_X3) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_AKUMA_PALETTES_SHARED, ARRAYSIZE(GEMFIGHTER_A_AKUMA_PALETTES_SHARED) },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_CARDS_ARCADE_PALETTES[] =
@@ -932,24 +1161,27 @@ const sGame_PaletteDataset GEMFIGHTER_A_RESEARCH_PALETTES[] =
 {
     //======Tessa: 26 },
     { L"Tessa Cat Left A", 0x2e47a, 0x2e49a },
-    { L"Tessa Cat Left B", 0x2e49a, 0x2e4ba },
-    { L"Tessa Cat Left C", 0x2e4ba, 0x2e4da },
-    { L"Tessa Cat Left x3", 0x2e4da, 0x2e4fa },
     { L"Tessa Cat Left Smear A", 0x2e4fa, 0x2e51a },
-    { L"Tessa Cat Left Smear B", 0x2e51a, 0x2e53a },
-    { L"Tessa Cat Left Smear C", 0x2e53a, 0x2e55a },
-    { L"Tessa Cat Left Smear x3", 0x2e55a, 0x2e57a },
     { L"Tessa Cat Right A", 0x2e57a, 0x2e59a },
-    { L"Tessa Cat Right B", 0x2e59a, 0x2e5ba },
-    { L"Tessa Cat Right C", 0x2e5ba, 0x2e5da },
-    { L"Tessa Cat Right x3", 0x2e5da, 0x2e5fa },
     { L"Tessa Cat Right Smear A", 0x2e5fa, 0x2e61a },
-    { L"Tessa Cat Right Smear B", 0x2e61a, 0x2e63a },
-    { L"Tessa Cat Right Smear C", 0x2e63a, 0x2e65a },
-    { L"Tessa Cat Right Smear x3", 0x2e65a, 0x2e67a },
     { L"Unknown A", 0x2e67a, 0x2e69a },
+
+    { L"Tessa Cat Left B", 0x2e49a, 0x2e4ba },
+    { L"Tessa Cat Left Smear B", 0x2e51a, 0x2e53a },
+    { L"Tessa Cat Right B", 0x2e59a, 0x2e5ba },
+    { L"Tessa Cat Right Smear B", 0x2e61a, 0x2e63a },
     { L"Unknown B", 0x2e69a, 0x2e6ba },
+
+    { L"Tessa Cat Left C", 0x2e4ba, 0x2e4da },
+    { L"Tessa Cat Left Smear C", 0x2e53a, 0x2e55a },
+    { L"Tessa Cat Right C", 0x2e5ba, 0x2e5da },
+    { L"Tessa Cat Right Smear C", 0x2e63a, 0x2e65a },
     { L"Unknown C", 0x2e6ba, 0x2e6da },
+
+    { L"Tessa Cat Left x3", 0x2e4da, 0x2e4fa },
+    { L"Tessa Cat Left Smear x3", 0x2e55a, 0x2e57a },
+    { L"Tessa Cat Right x3", 0x2e5da, 0x2e5fa },
+    { L"Tessa Cat Right Smear x3", 0x2e65a, 0x2e67a },
     { L"Unknown x3", 0x2e6da, 0x2e6fa },
     { L"Tessa Genius A", 0x2e6fa, 0x2e71a },
     { L"Tessa Genius B", 0x2e71a, 0x2e73a },
