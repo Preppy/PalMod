@@ -1123,11 +1123,11 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
             {
                 if (sCreationOptions.fShowUnknownRegions)
                 {
-                    strExtraFileText.Format(L"After: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                    strExtraFileText.Format(L"Post: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
                     strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-                    strExtraFileText.Format(L";Before: %s, %s, %s\r\n", pCurrent->pNext->strUnitName.c_str(), pCurrent->pNext->strCollectionName.c_str(), pCurrent->pNext->strPaletteName.c_str());
+                    strExtraFileText.Format(L";Pre: %s, %s, %s\r\n", pCurrent->pNext->strUnitName.c_str(), pCurrent->pNext->strCollectionName.c_str(), pCurrent->pNext->strPaletteName.c_str());
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
                     strExtraFileText.Format(L"0x%x\r\n\r\n", pCurrent->pNext->nPaletteOffset);
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
@@ -1140,7 +1140,7 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
                 if (GameROM.Open(m_pszLoadedPathOrFile, CFile::modeRead | CFile::typeBinary))
                 {
-                    strExtraFileText.Format(L"After: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                    strExtraFileText.Format(L"Post: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
                     strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
