@@ -105,24 +105,67 @@ const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_SHARED[] =
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_A[] =
 {
     { L"Ken A", 0x9c66, 0x9c86, indexCPS2Sprites_SPF_Ken, 0x00 },
+
+    // unknown first four: 0x2b75a-0x2b7da
+    { L"Ken A: Soccer Suit", 0x2b7da, 0x2b7fa },
+    { L"Ken A: Bronco", 0x2b85a, 0x2b87a },
+    { L"Ken A: 100 ton hammer", 0x2b8da, 0x2b8fa },
+    { L"Ken A: Cowboy", 0x2b95a, 0x2b97a },
+    { L"Ken A: Mace", 0x2b9da, 0x2b9fa },
+    { L"Ken A: Soccer ball", 0x2ba5a, 0x2ba7a },
+    { L"Ken A: Hadoken", 0x2bada, 0x2bafa },
+    { L"Ken A: Fire Hadoken", 0x2bb5a, 0x2bb7a },
+    { L"Ken A: Shoryuken", 0x2bc5a, 0x2bc7a },
+    // ?  unknown @ 0x2bbda-0x2bc5a
+
     { L"Ken A: Portrait", 0xc406, 0xc466, indexCPS2Sprites_SPF_Ken, 0x40 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_B[] =
 {
     { L"Ken B", 0x9d06, 0x9d26, indexCPS2Sprites_SPF_Ken, 0x00 },
+    { L"Ken B: Soccer Suit", 0x2b7fa, 0x2b81a },
+    { L"Ken B: Bronco", 0x2b87a, 0x2b89a },
+    { L"Ken B: 100 ton hammer", 0x2b8fa, 0x2b91a },
+    { L"Ken B: Cowboy", 0x2b97a, 0x2b99a },
+    { L"Ken B: Mace", 0x2b9fa, 0x2ba1a },
+    { L"Ken B: Soccer ball", 0x2ba7a, 0x2ba9a },
+    { L"Ken B: Hadoken", 0x2bafa, 0x2bb1a },
+    { L"Ken B: Fire Hadoken", 0x2bb7a, 0x2bb9a },
+    { L"Ken B: Shoryuken", 0x2bc7a, 0x2bc9a },
+
     { L"Ken B: Portrait", 0xc466, 0xc4c6, indexCPS2Sprites_SPF_Ken, 0x40 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_C[] =
 {
     { L"Ken C", 0x9da6, 0x9dc6, indexCPS2Sprites_SPF_Ken, 0x00 },
+    { L"Ken C: Soccer Suit", 0x2b81a, 0x2b83a },
+    { L"Ken C: Bronco", 0x2b89a, 0x2b8ba },
+    { L"Ken C: 100 ton hammer", 0x2b91a, 0x2b93a },
+    { L"Ken C: Cowboy", 0x2b99a, 0x2b9ba },
+    { L"Ken C: Mace", 0x2ba1a, 0x2ba3a },
+    { L"Ken C: Soccer ball", 0x2ba9a, 0x2baba },
+    { L"Ken C: Hadoken", 0x2bb1a, 0x2bb3a },
+    { L"Ken C: Fire Hadoken", 0x2bb9a, 0x2bbba },
+    { L"Ken C: Shoryuken", 0x2bc9a, 0x2bcba },
+
     { L"Ken C: Portrait", 0xc4c6, 0xc526, indexCPS2Sprites_SPF_Ken, 0x40 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_X3[] =
 {
     { L"Ken x3", 0x9e46, 0x9e66, indexCPS2Sprites_SPF_Ken, 0x00 },
+    { L"Ken x3: Soccer Suit", 0x2b83a, 0x2b85a },
+    { L"Ken x3: Bronco", 0x2b8ba, 0x2b8da },
+    { L"Ken x3: 100 ton hammer", 0x2b93a, 0x2b95a },
+    { L"Ken x3: Cowboy", 0x2b9ba, 0x2b9da },
+    { L"Ken x3: Mace", 0x2ba3a, 0x2ba5a },
+    { L"Ken x3: Soccer ball", 0x2baba, 0x2bada },
+    { L"Ken x3: Hadoken", 0x2bb3a, 0x2bb5a },
+    { L"Ken x3: Fire Hadoken", 0x2bbba, 0x2bbda },
+    { L"Ken x3: Shoryuken", 0x2bcba, 0x2bcda },
+
     { L"Ken x3: Portrait", 0xc526, 0xc586, indexCPS2Sprites_SPF_Ken, 0x40 },
 };
 

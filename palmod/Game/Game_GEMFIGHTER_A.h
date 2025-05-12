@@ -2,7 +2,7 @@
 #include "GameClassByDir.h"
 #include "GEMFIGHTER_A_DEF.h"
 
-const auto GEMFIGHTER_PALETTE_COUNT = 715;
+const auto GEMFIGHTER_PALETTE_COUNT = 751;
 
 class CGame_GEMFIGHTER_A : public CGameClassByDir
 {
