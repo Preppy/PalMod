@@ -771,24 +771,108 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_X3[] =
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_A[] =
 {
     { L"Zangief A", 0xb066, 0xb086, indexCPS2Sprites_SPF_Zangief, 0x00 },
+
+    { L"Zangief A: Unknown 1", 0x2fb3a, 0x2fb5a },
+    { L"Zangief A: Hardhat", 0x2fbba, 0x2fbda },
+    { L"Zangief A: Gorilla", 0x2fc3a, 0x2fc5a },
+    { L"Zangief A: Neanderthal", 0x2fcba, 0x2fcda },
+
+    { L"Zangief A: Caveman", 0x2fd3a, 0x2fd5a },
+    { L"Zangief A: Dinner suit", 0x2fdba, 0x2fdda },
+    { L"Zangief A: Unknown 2", 0x2fe3a, 0x2fe5a },
+    { L"Zangief A: Drilling line", 0x2feba, 0x2feda },
+
+    { L"Zangief A: Unknown 3", 0x2ff3a, 0x2ff5a },
+    { L"Zangief A: Wrestling items", 0x2ffba, 0x2ffda },
+    { L"Zangief A: Caveman fire / dinner table", 0x3003a, 0x3005a },
+    { L"Zangief A: Newspaper", 0x300ba, 0x300da },
+
+    { L"Zangief A: Banishing Fist", 0x3013a, 0x3015a },
+    { L"Zangief A: Unknown 4", 0x301ba, 0x301da },
+    { L"Zangief A: Unknown 5", 0x3023a, 0x3025a },
+    { L"Zangief A: Unknown 6", 0x302ba, 0x302da },
+
     { L"Zangief A: Portrait", 0xd006, 0xd066, indexCPS2Sprites_SPF_Zangief, 0x40 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_B[] =
 {
     { L"Zangief B", 0xb106, 0xb126, indexCPS2Sprites_SPF_Zangief, 0x00 },
+
+    { L"Zangief B: Unknown 1", 0x2fb5a, 0x2fb7a },
+    { L"Zangief B: Hardhat", 0x2fbda, 0x2fbfa },
+    { L"Zangief B: Gorilla", 0x2fc5a, 0x2fc7a },
+    { L"Zangief B: Neanderthal", 0x2fcda, 0x2fcfa },
+
+    { L"Zangief B: Caveman", 0x2fd5a, 0x2fd7a },
+    { L"Zangief B: Dinner suit", 0x2fdda, 0x2fdfa },
+    { L"Zangief B: Unknown 2", 0x2fe5a, 0x2fe7a },
+    { L"Zangief B: Drilling line", 0x2feda, 0x2fefa },
+
+    { L"Zangief B: Unknown 3", 0x2ff5a, 0x2ff7a },
+    { L"Zangief B: Wrestling items", 0x2ffda, 0x2fffa },
+    { L"Zangief B: Caveman fire / dinner table", 0x3005a, 0x3007a },
+    { L"Zangief B: Newspaper", 0x300da, 0x300fa },
+
+    { L"Zangief B: Banishing Fist", 0x3015a, 0x3017a },
+    { L"Zangief B: Unknown 4", 0x301da, 0x301fa },
+    { L"Zangief B: Unknown 5", 0x3025a, 0x3027a },
+    { L"Zangief B: Unknown 6", 0x302da, 0x302fa },
+
     { L"Zangief B: Portrait", 0xd066, 0xd0c6, indexCPS2Sprites_SPF_Zangief, 0x40 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_C[] =
 {
     { L"Zangief C", 0xb1a6, 0xb1c6, indexCPS2Sprites_SPF_Zangief, 0x00 },
+
+    { L"Zangief C: Unknown 1", 0x2fb7a, 0x2fb9a },
+    { L"Zangief C: Hardhat", 0x2fbfa, 0x2fc1a },
+    { L"Zangief C: Gorilla", 0x2fc7a, 0x2fc9a },
+    { L"Zangief C: Neanderthal", 0x2fcfa, 0x2fd1a },
+
+    { L"Zangief C: Caveman", 0x2fd7a, 0x2fd9a },
+    { L"Zangief C: Dinner suit", 0x2fdfa, 0x2fe1a },
+    { L"Zangief C: Unknown 2", 0x2fe7a, 0x2fe9a },
+    { L"Zangief C: Drilling line", 0x2fefa, 0x2ff1a },
+
+    { L"Zangief C: Unknown 3", 0x2ff7a, 0x2ff9a },
+    { L"Zangief C: Wrestling items", 0x2fffa, 0x3001a },
+    { L"Zangief C: Caveman fire / dinner table", 0x3007a, 0x3009a },
+    { L"Zangief C: Newspaper", 0x300fa, 0x3011a },
+
+    { L"Zangief C: Banishing Fist", 0x3017a, 0x3019a },
+    { L"Zangief C: Unknown 4", 0x301fa, 0x3021a },
+    { L"Zangief C: Unknown 5", 0x3027a, 0x3029a },
+    { L"Zangief C: Unknown 6", 0x302fa, 0x3031a },
+
     { L"Zangief C: Portrait", 0xd0c6, 0xd126, indexCPS2Sprites_SPF_Zangief, 0x40 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_X3[] =
 {
     { L"Zangief x3", 0xb246, 0xb266, indexCPS2Sprites_SPF_Zangief, 0x00 },
+
+    { L"Zangief x3: Unknown 1", 0x2fb9a, 0x2fbba },
+    { L"Zangief x3: Hardhat", 0x2fc1a, 0x2fc3a },
+    { L"Zangief x3: Gorilla", 0x2fc9a, 0x2fcba },
+    { L"Zangief x3: Neanderthal", 0x2fd1a, 0x2fd3a },
+
+    { L"Zangief x3: Caveman", 0x2fd9a, 0x2fdba },
+    { L"Zangief x3: Dinner suit", 0x2fe1a, 0x2fe3a },
+    { L"Zangief x3: Unknown 2", 0x2fe9a, 0x2feba },
+    { L"Zangief x3: Drilling line", 0x2ff1a, 0x2ff3a },
+
+    { L"Zangief x3: Unknown 3", 0x2ff9a, 0x2ffba },
+    { L"Zangief x3: Wrestling items", 0x3001a, 0x3003a },
+    { L"Zangief x3: Caveman fire / dinner table", 0x3009a, 0x300ba },
+    { L"Zangief x3: Newspaper", 0x3011a, 0x3013a },
+
+    { L"Zangief x3: Banishing Fist", 0x3019a, 0x301ba },
+    { L"Zangief x3: Unknown 4", 0x3021a, 0x3023a },
+    { L"Zangief x3: Unknown 5", 0x3029a, 0x302ba },
+    { L"Zangief x3: Unknown 6", 0x3031a, 0x3033a },
+
     { L"Zangief x3: Portrait", 0xd126, 0xd186, indexCPS2Sprites_SPF_Zangief, 0x40 },
 };
 
