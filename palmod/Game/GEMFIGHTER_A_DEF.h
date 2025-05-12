@@ -696,6 +696,18 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_A[] =
     { L"Ibuki A: Extras 1", 0xae26, 0xae46 },
     { L"Ibuki A: Extras 2", 0xae46, 0xae66 },
     { L"Ibuki A: Unused Super Trail", 0xae66, 0xae86, indexCPS2Sprites_SPF_Ibuki, 0x00 },
+
+    { L"Ibuki A: Rolento", 0x2f45a, 0x2f47a },
+    { L"Ibuki A: Penguin", 0x2f4da, 0x2f4fa },
+    // unknown 1: 0x2f55a-0x2f5da
+    // unknown 2: 0x2f5da-0x2f65a
+    { L"Ibuki A: Calligraphy and cooking", 0x2f65a, 0x2f67a },
+    { L"Ibuki A: Kimono", 0x2f6da, 0x2f6fa },
+    { L"Ibuki A: Geisha and Prince", 0x2f75a, 0x2f77a },
+    { L"Ibuki A: Cultural Training", 0x2f7da, 0x2f7fa },
+    { L"Ibuki A: Hayate", 0x2f85a, 0x2f87a },
+    { L"Ibuki A: Evil schemer", 0x2f8da, 0x2f8fa },
+
     { L"Ibuki A: Portrait", 0xce86, 0xcee6, indexCPS2Sprites_SPF_Ibuki, 0x40 },
 };
 
@@ -705,6 +717,16 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_B[] =
     { L"Ibuki B: Extras 1", 0xaec6, 0xaee6 },
     { L"Ibuki B: Extras 2", 0xaee6, 0xaf06 },
     { L"Ibuki B: Unused Super Trail", 0xaf06, 0xaf26, indexCPS2Sprites_SPF_Ibuki, 0x00 },
+
+    { L"Ibuki B: Rolento", 0x2f47a, 0x2f49a },
+    { L"Ibuki B: Penguin", 0x2f4fa, 0x2f51a },
+    { L"Ibuki B: Calligraphy and cooking", 0x2f67a, 0x2f69a },
+    { L"Ibuki B: Kimono", 0x2f6fa, 0x2f71a },
+    { L"Ibuki B: Geisha and Prince", 0x2f77a, 0x2f79a },
+    { L"Ibuki B: Cultural Training", 0x2f7fa, 0x2f81a },
+    { L"Ibuki B: Hayate", 0x2f87a, 0x2f89a },
+    { L"Ibuki B: Evil schemer", 0x2f8fa, 0x2f91a },
+
     { L"Ibuki B: Portrait", 0xcee6, 0xcf46, indexCPS2Sprites_SPF_Ibuki, 0x40 },
 };
 
@@ -714,6 +736,16 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_C[] =
     { L"Ibuki C: Extras 1", 0xaf66, 0xaf86 },
     { L"Ibuki C: Extras 2", 0xaf86, 0xafa6 },
     { L"Ibuki C: Unused Super Trail", 0xafa6, 0xafc6, indexCPS2Sprites_SPF_Ibuki, 0x00 },
+
+    { L"Ibuki C: Rolento", 0x2f49a, 0x2f4ba },
+    { L"Ibuki C: Penguin", 0x2f51a, 0x2f53a },
+    { L"Ibuki C: Calligraphy and cooking", 0x2f69a, 0x2f6ba },
+    { L"Ibuki C: Kimono", 0x2f71a, 0x2f73a },
+    { L"Ibuki C: Geisha and Prince", 0x2f79a, 0x2f7ba },
+    { L"Ibuki C: Cultural Training", 0x2f81a, 0x2f83a },
+    { L"Ibuki C: Hayate", 0x2f89a, 0x2f8ba },
+    { L"Ibuki C: Evil schemer", 0x2f91a, 0x2f93a },
+
     { L"Ibuki C: Portrait", 0xcf46, 0xcfa6, indexCPS2Sprites_SPF_Ibuki, 0x40 },
 };
 
@@ -723,6 +755,16 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_X3[] =
     { L"Ibuki x3: Extras 1", 0xb006, 0xb026 },
     { L"Ibuki x3: Extras 2", 0xb026, 0xb046 },
     { L"Ibuki x3: Unused Super Trail", 0xb046, 0xb066, indexCPS2Sprites_SPF_Ibuki, 0x00 },
+
+    { L"Ibuki x3: Rolento", 0x2f4ba, 0x2f4da },
+    { L"Ibuki x3: Penguin", 0x2f53a, 0x2f55a },
+    { L"Ibuki x3: Calligraphy and cooking", 0x2f6ba, 0x2f6da },
+    { L"Ibuki x3: Kimono", 0x2f73a, 0x2f75a },
+    { L"Ibuki x3: Geisha and Prince", 0x2f7ba, 0x2f7da },
+    { L"Ibuki x3: Cultural Training", 0x2f83a, 0x2f85a },
+    { L"Ibuki x3: Hayate", 0x2f8ba, 0x2f8da },
+    { L"Ibuki x3: Evil schemer", 0x2f93a, 0x2f95a },
+
     { L"Ibuki x3: Portrait", 0xcfa6, 0xd006, indexCPS2Sprites_SPF_Ibuki, 0x40 },
 };
 
@@ -1031,7 +1073,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_SHARED[] =
     // unknown
     { L"Ibuki: Blue-Burning Effect", 0x2f95a + (12 * 0x20), 0x2f95a + (13 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
     // unknown
-    { L"Ibuki: Counter Effect",   0x2f95a + (14 * 0x20), 0x2f95a + (15 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
+    { L"Ibuki: Cooking and Counter Effect",   0x2f95a + (14 * 0x20), 0x2f95a + (15 * 0x20), indexCPS2Sprites_SPF_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_SHARED[] =
