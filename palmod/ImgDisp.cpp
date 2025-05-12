@@ -1261,7 +1261,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
 
     if (SUCCEEDED(sprite.Load(pszTextureLocation)) &&
         sprite.IsDIBSection() &&
-        sprite.IsIndexed())
+        sprite.IsIndexed())  // Note that animated GIFs will be DIBSections but not indexed
     {
         uint8_t* pBits = reinterpret_cast<uint8_t*>(sprite.GetBits());
 
