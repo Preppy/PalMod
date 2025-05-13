@@ -1708,7 +1708,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
     { L"Chaka - Burning Start (2/2)", 0x38d080, 0x38d100, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter Start (1/2)", 0x38d300, 0x38d380, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter Start (2/2)", 0x38d380, 0x38d400, indexJojos51Chaka, indexJojos51Character_BurnZap },
-    { L"Chaka - Stand Tech/Initial Counter Start", 0x38d400, 0x38d600 },
+    { L"Chaka - Stand Tech/Initial Counter Start", 0x38d400, 0x38d480 },
     { L"Chaka - Guard Cancel/Child Transformation Start", 0x38d600, 0x38d680, indexJojos51Chaka, indexJojos51Character_BurnZap },
 };
 
