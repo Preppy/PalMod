@@ -902,9 +902,12 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
 
     // Get the total palette size so we can handle correctly
     size_t nTotalPalSize = 0;
-    for (int nStartPalette = 0; nStartPalette < m_nImgAmt; nStartPalette++)
+    for (int nStartPalette = 0; nStartPalette < MAX_IMAGES_DISPLAYABLE; nStartPalette++)
     {
-        nTotalPalSize += m_pImgBuffer[nStartPalette]->uPalSz;
+        if (m_pImgBuffer[nStartPalette])
+        {
+            nTotalPalSize += m_pImgBuffer[nStartPalette]->uPalSz;
+        }
     }
 
     const size_t nDataLen = width * height;
@@ -1067,10 +1070,13 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
     _ResizeAndBlankCustomPreviews(nPositionToLoadTo, nDataLen);
 
+    ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
+    const bool fGameSuportedByKawaks = ((currColMode == ColMode::COLMODE_RGB444_BE) || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
+    bool fUseWinKawaksShift = fGameSuportedByKawaks && GetPreviewDropWinKawaksFirst();
+
     const bool fIsARGB = ((nDataLen * 4) == nImageSize);
     const bool fIsRGB = ((nDataLen * 3) == nImageSize);
     bool fFoundOne = false;
-    bool fUseWinKawaksShift = GetPreviewDropWinKawaksFirst();
     unsigned nFirstLine = height, nLastLine = 0, nLeftMost = width, nRightMost = 0;
     CString strMsg;
 
@@ -1137,7 +1143,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             }
         }
 
-        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift)
+        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fGameSuportedByKawaks)
         {
             fUseWinKawaksShift = true;
             iPos = 0;

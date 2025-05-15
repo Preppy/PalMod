@@ -736,7 +736,7 @@ BEGIN
         BEGIN
             MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
             MENUITEM "Trim dropped previews", ID_SETTINGS_DROPTRIM
-            MENUITEM "Use WinKawaks correction first", ID_SETTINGS_DROPKAWAKS
+            MENUITEM "Use WinKawaks correction first for CPS1/CPS2/NeoGeo", ID_SETTINGS_DROPKAWAKS
         END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS
