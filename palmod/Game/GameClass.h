@@ -192,6 +192,7 @@ public:
     virtual bool AllowUpdatingColorFormatForGame() { return false; };
     virtual void OpenExtraFile() { };
     virtual bool GameAllowsExtraFile() { return false; };
+    static LPCWSTR GetExtraUnitDescription() { return L"Extra Palettes"; };
 
     virtual void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { m_createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return m_createPalOptions.eWriteOutputOptions; };

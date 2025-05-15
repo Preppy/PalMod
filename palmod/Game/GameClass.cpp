@@ -1092,7 +1092,7 @@ LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits
 {
     if (nUnitId == nExtraUnitLocation)
     {
-        return L"Extra Palettes";
+        return GetExtraUnitDescription();
     }
     else
     {
