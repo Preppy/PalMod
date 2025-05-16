@@ -570,12 +570,14 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             {
                 if (fTooManyColorsForSingleIndexedPNG)
                 {
-                    strCurrentNodeName.Format(L"%02u", nImageIndex);
+                    // This naming logic is in lane with the multi-RAW export names
+                    strCurrentNodeName.Format(L"-%02x", nImageIndex);
                 }
             }
             else
             {
-                strCurrentNodeName = m_pButtonLabelSet[nNodeIndex];
+                // Add a space here because that's how we've been doing it.
+                strCurrentNodeName.Format(L" %s", m_pButtonLabelSet[nNodeIndex]);
             }
 
             const int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.m_nPalIndex : nNodeIndex;
@@ -739,17 +741,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-                CString strOptionalNodeSuffix = L"";
-
-                if (strCurrentNodeName.GetLength())
-                {
-                    // the save dialog is doing an internal trim on the string submitted.
-                    // that's normally fine, but is annoying when we're adding a suffix.
-                    // so insert a space to make the output slightly prettier
-                    strOptionalNodeSuffix.Format(L" %s", strCurrentNodeName.GetString());
-                }
-                
-                output_str.Format(L"%s%s%s", save_str.GetString(), strOptionalNodeSuffix.GetString(), output_ext.GetString());
+                output_str.Format(L"%s%s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
                 lodepng::save_file(buffer, output_str.GetString());
             }
 
