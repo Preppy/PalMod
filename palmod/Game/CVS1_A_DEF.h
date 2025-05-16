@@ -2427,6 +2427,150 @@ const sGame_PaletteDataset CVS1_A_BOXER_PALETTES_3K[] =
     { L"Boxer 3K Extra 4", 0x20bc660, 0x20bc680, indexCVS2Sprites_Balrog, 0x04 },
 };
 
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_LP[] =
+{
+    { L"Joe LP", 0x1bb0000 + (0x0 * 0x20), 0x1bb0000 + (0x01 * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe LP Extra 1", 0x1bb0000 + (0x01 * 0x20), 0x1bb0000 + (0x02 * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe LP Extra 2", 0x1bb0000 + (0x02 * 0x20), 0x1bb0000 + (0x03 * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe LP Extra 3", 0x1bb0000 + (0x03 * 0x20), 0x1bb0000 + (0x04 * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe LP Extra 4", 0x1bb0000 + (0x04 * 0x20), 0x1bb0000 + (0x05 * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_MP[] =
+{
+    { L"Joe MP", 0x1bb0000 + (0x05 * 0x20), 0x1bb0000 + (0x06 * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe MP Extra 1", 0x1bb0000 + (0x06 * 0x20), 0x1bb0000 + (0x07 * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe MP Extra 2", 0x1bb0000 + (0x07 * 0x20), 0x1bb0000 + (0x08 * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe MP Extra 3", 0x1bb0000 + (0x08 * 0x20), 0x1bb0000 + (0x09 * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe MP Extra 4", 0x1bb0000 + (0x09 * 0x20), 0x1bb0000 + (0x0a * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_HP[] =
+{
+    { L"Joe HP", 0x1bb0000 + (0x0a * 0x20), 0x1bb0000 + (0x0b * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe HP Extra 1", 0x1bb0000 + (0x0b * 0x20), 0x1bb0000 + (0x0c * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe HP Extra 2", 0x1bb0000 + (0x0c * 0x20), 0x1bb0000 + (0x0d * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe HP Extra 3", 0x1bb0000 + (0x0d * 0x20), 0x1bb0000 + (0x0e * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe HP Extra 4", 0x1bb0000 + (0x0e * 0x20), 0x1bb0000 + (0x0f * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_LK[] =
+{
+    { L"Joe LK", 0x1bb0000 + (0x0f * 0x20), 0x1bb0000 + (0x10 * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe LK Extra 1", 0x1bb0000 + (0x10 * 0x20), 0x1bb0000 + (0x11 * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe LK Extra 2", 0x1bb0000 + (0x11 * 0x20), 0x1bb0000 + (0x12 * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe LK Extra 3", 0x1bb0000 + (0x12 * 0x20), 0x1bb0000 + (0x13 * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe LK Extra 4", 0x1bb0000 + (0x13 * 0x20), 0x1bb0000 + (0x14 * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_MK[] =
+{
+    { L"Joe MK", 0x1bb0000 + (0x14 * 0x20), 0x1bb0000 + (0x15 * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe MK Extra 1", 0x1bb0000 + (0x15 * 0x20), 0x1bb0000 + (0x16 * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe MK Extra 2", 0x1bb0000 + (0x16 * 0x20), 0x1bb0000 + (0x17 * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe MK Extra 3", 0x1bb0000 + (0x17 * 0x20), 0x1bb0000 + (0x18 * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe MK Extra 4", 0x1bb0000 + (0x18 * 0x20), 0x1bb0000 + (0x19 * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_HK[] =
+{
+    { L"Joe HK", 0x1bb0000 + (0x19 * 0x20), 0x1bb0000 + (0x1a * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe HK Extra 1", 0x1bb0000 + (0x1a * 0x20), 0x1bb0000 + (0x1b * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe HK Extra 2", 0x1bb0000 + (0x1b * 0x20), 0x1bb0000 + (0x1c * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe HK Extra 3", 0x1bb0000 + (0x1c * 0x20), 0x1bb0000 + (0x1d * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe HK Extra 4", 0x1bb0000 + (0x1d * 0x20), 0x1bb0000 + (0x1e * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_3P[] =
+{
+    { L"Joe 3P", 0x1bb0000 + (0x1e * 0x20), 0x1bb0000 + (0x1f * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe 3P Extra 1", 0x1bb0000 + (0x1f * 0x20), 0x1bb0000 + (0x20 * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe 3P Extra 2", 0x1bb0000 + (0x20 * 0x20), 0x1bb0000 + (0x21 * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe 3P Extra 3", 0x1bb0000 + (0x21 * 0x20), 0x1bb0000 + (0x22 * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe 3P Extra 4", 0x1bb0000 + (0x22 * 0x20), 0x1bb0000 + (0x23 * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_JOE_PALETTES_3K[] =
+{
+    { L"Joe 3K", 0x1bb0000 + (0x23 * 0x20), 0x1bb0000 + (0x24 * 0x20), indexCVS2Sprites_Joe, 0x00 },
+    { L"Joe 3K Extra 1", 0x1bb0000 + (0x24 * 0x20), 0x1bb0000 + (0x25 * 0x20), indexCVS2Sprites_Joe, 0x01 },
+    { L"Joe 3K Extra 2", 0x1bb0000 + (0x25 * 0x20), 0x1bb0000 + (0x26 * 0x20), indexCVS2Sprites_Joe, 0x02 },
+    { L"Joe 3K Extra 3", 0x1bb0000 + (0x26 * 0x20), 0x1bb0000 + (0x27 * 0x20), indexCVS2Sprites_Joe, 0x03 },
+    { L"Joe 3K Extra 4", 0x1bb0000 + (0x27 * 0x20), 0x1bb0000 + (0x28 * 0x20), indexCVS2Sprites_Joe, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_LP[] =
+{
+    { L"Dan LP", 0x1af17c0 + (0x00 * 0x20), 0x1af17c0 + (0x01 * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan LP Extra 1", 0x1af17c0 + (0x01 * 0x20), 0x1af17c0 + (0x02 * 0x20) },
+    { L"Dan LP Extra 2", 0x1af17c0 + (0x02 * 0x20), 0x1af17c0 + (0x03 * 0x20) },
+    { L"Dan LP Extra 3", 0x1af17c0 + (0x03 * 0x20), 0x1af17c0 + (0x04 * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan LP Extra 4", 0x1af17c0 + (0x04 * 0x20), 0x1af17c0 + (0x05 * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_MP[] =
+{
+    { L"Dan MP", 0x1af17c0 + (0x05 * 0x20), 0x1af17c0 + (0x06 * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan MP Extra 1", 0x1af17c0 + (0x06 * 0x20), 0x1af17c0 + (0x07 * 0x20) },
+    { L"Dan MP Extra 2", 0x1af17c0 + (0x07 * 0x20), 0x1af17c0 + (0x08 * 0x20) },
+    { L"Dan MP Extra 3", 0x1af17c0 + (0x08 * 0x20), 0x1af17c0 + (0x09 * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan MP Extra 4", 0x1af17c0 + (0x09 * 0x20), 0x1af17c0 + (0x0a * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_HP[] =
+{
+    { L"Dan HP", 0x1af17c0 + (0x0a * 0x20), 0x1af17c0 + (0x0b * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan HP Extra 1", 0x1af17c0 + (0x0b * 0x20), 0x1af17c0 + (0x0c * 0x20) },
+    { L"Dan HP Extra 2", 0x1af17c0 + (0x0c * 0x20), 0x1af17c0 + (0x0d * 0x20) },
+    { L"Dan HP Extra 3", 0x1af17c0 + (0x0d * 0x20), 0x1af17c0 + (0x0e * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan HP Extra 4", 0x1af17c0 + (0x0e * 0x20), 0x1af17c0 + (0x0f * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_LK[] =
+{
+    { L"Dan LK", 0x1af17c0 + (0x0f * 0x20), 0x1af17c0 + (0x10 * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan LK Extra 1", 0x1af17c0 + (0x10 * 0x20), 0x1af17c0 + (0x11 * 0x20) },
+    { L"Dan LK Extra 2", 0x1af17c0 + (0x11 * 0x20), 0x1af17c0 + (0x12 * 0x20) },
+    { L"Dan LK Extra 3", 0x1af17c0 + (0x12 * 0x20), 0x1af17c0 + (0x13 * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan LK Extra 4", 0x1af17c0 + (0x13 * 0x20), 0x1af17c0 + (0x14 * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_MK[] =
+{
+    { L"Dan MK", 0x1af17c0 + (0x14 * 0x20), 0x1af17c0 + (0x15 * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan MK Extra 1", 0x1af17c0 + (0x15 * 0x20), 0x1af17c0 + (0x16 * 0x20) },
+    { L"Dan MK Extra 2", 0x1af17c0 + (0x16 * 0x20), 0x1af17c0 + (0x17 * 0x20) },
+    { L"Dan MK Extra 3", 0x1af17c0 + (0x17 * 0x20), 0x1af17c0 + (0x18 * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan MK Extra 4", 0x1af17c0 + (0x18 * 0x20), 0x1af17c0 + (0x19 * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_HK[] =
+{
+    { L"Dan HK", 0x1af17c0 + (0x19 * 0x20), 0x1af17c0 + (0x1a * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan HK Extra 1", 0x1af17c0 + (0x1a * 0x20), 0x1af17c0 + (0x1b * 0x20) },
+    { L"Dan HK Extra 2", 0x1af17c0 + (0x1b * 0x20), 0x1af17c0 + (0x1c * 0x20) },
+    { L"Dan HK Extra 3", 0x1af17c0 + (0x1c * 0x20), 0x1af17c0 + (0x1d * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan HK Extra 4", 0x1af17c0 + (0x1d * 0x20), 0x1af17c0 + (0x1e * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_3P[] =
+{
+    { L"Dan 3P", 0x1af17c0 + (0x1e * 0x20), 0x1af17c0 + (0x1f * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan 3P Extra 1", 0x1af17c0 + (0x1f * 0x20), 0x1af17c0 + (0x20 * 0x20) },
+    { L"Dan 3P Extra 2", 0x1af17c0 + (0x20 * 0x20), 0x1af17c0 + (0x21 * 0x20) },
+    { L"Dan 3P Extra 3", 0x1af17c0 + (0x21 * 0x20), 0x1af17c0 + (0x22 * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan 3P Extra 4", 0x1af17c0 + (0x22 * 0x20), 0x1af17c0 + (0x23 * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
+const sGame_PaletteDataset CVS1_S_DAN_PALETTES_3K[] =
+{
+    { L"Dan 3K", 0x1af17c0 + (0x23 * 0x20), 0x1af17c0 + (0x24 * 0x20), indexCVS2Sprites_Dan, 0x00 },
+    { L"Dan 3K Extra 1", 0x1af17c0 + (0x24 * 0x20), 0x1af17c0 + (0x25 * 0x20) },
+    { L"Dan 3K Extra 2", 0x1af17c0 + (0x25 * 0x20), 0x1af17c0 + (0x26 * 0x20) },
+    { L"Dan 3K Extra 3", 0x1af17c0 + (0x26 * 0x20), 0x1af17c0 + (0x27 * 0x20), indexCVS2Sprites_Dan, 0x03 },
+    { L"Dan 3K Extra 4", 0x1af17c0 + (0x27 * 0x20), 0x1af17c0 + (0x28 * 0x20), indexCVS2Sprites_Dan, 0x04 },
+};
+
 const sDescTreeNode CVS1_A_RYU_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)CVS1_A_RYU_PALETTES_LP, ARRAYSIZE(CVS1_A_RYU_PALETTES_LP) },
@@ -2823,6 +2967,31 @@ const sDescTreeNode CVS1_A_BOXER_COLLECTION[] =
     { L"3K", DESC_NODETYPE_TREE, (void*)CVS1_A_BOXER_PALETTES_3K, ARRAYSIZE(CVS1_A_BOXER_PALETTES_3K) },
 };
 
+const sDescTreeNode CVS1_S_JOE_COLLECTION[] =
+{
+    { L"LP", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_LP, ARRAYSIZE(CVS1_S_JOE_PALETTES_LP) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_MP, ARRAYSIZE(CVS1_S_JOE_PALETTES_MP) },
+    { L"HP", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_HP, ARRAYSIZE(CVS1_S_JOE_PALETTES_HP) },
+    { L"LK", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_LK, ARRAYSIZE(CVS1_S_JOE_PALETTES_LK) },
+    { L"MK", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_MK, ARRAYSIZE(CVS1_S_JOE_PALETTES_MK) },
+    { L"HK", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_HK, ARRAYSIZE(CVS1_S_JOE_PALETTES_HK) },
+    { L"3P", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_3P, ARRAYSIZE(CVS1_S_JOE_PALETTES_3P) },
+    { L"3K", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_PALETTES_3K, ARRAYSIZE(CVS1_S_JOE_PALETTES_3K) },
+};
+
+const sDescTreeNode CVS1_S_DAN_COLLECTION[] =
+{
+    { L"LP", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_LP, ARRAYSIZE(CVS1_S_DAN_PALETTES_LP) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_MP, ARRAYSIZE(CVS1_S_DAN_PALETTES_MP) },
+    { L"HP", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_HP, ARRAYSIZE(CVS1_S_DAN_PALETTES_HP) },
+    { L"LK", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_LK, ARRAYSIZE(CVS1_S_DAN_PALETTES_LK) },
+    { L"MK", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_MK, ARRAYSIZE(CVS1_S_DAN_PALETTES_MK) },
+    { L"HK", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_HK, ARRAYSIZE(CVS1_S_DAN_PALETTES_HK) },
+    { L"3P", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_3P, ARRAYSIZE(CVS1_S_DAN_PALETTES_3P) },
+    { L"3K", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_PALETTES_3K, ARRAYSIZE(CVS1_S_DAN_PALETTES_3K) },
+};
+
+
 const sDescTreeNode CVS1_A_UNITS[] =
 {
     { L"Ryu", DESC_NODETYPE_TREE, (void*)CVS1_A_RYU_COLLECTION, ARRAYSIZE(CVS1_A_RYU_COLLECTION) },
@@ -2858,4 +3027,44 @@ const sDescTreeNode CVS1_A_UNITS[] =
     { L"Nakoruru", DESC_NODETYPE_TREE, (void*)CVS1_A_NAKORURU_COLLECTION, ARRAYSIZE(CVS1_A_NAKORURU_COLLECTION) },
     { L"Orochi Iori", DESC_NODETYPE_TREE, (void*)CVS1_A_OROCHIIORI_COLLECTION, ARRAYSIZE(CVS1_A_OROCHIIORI_COLLECTION) },
     { L"Boxer", DESC_NODETYPE_TREE, (void*)CVS1_A_BOXER_COLLECTION, ARRAYSIZE(CVS1_A_BOXER_COLLECTION) },
+};
+
+const sDescTreeNode CVS1_S_UNITS[] =
+{
+    { L"Ryu", DESC_NODETYPE_TREE, (void*)CVS1_A_RYU_COLLECTION, ARRAYSIZE(CVS1_A_RYU_COLLECTION) },
+    { L"Ken", DESC_NODETYPE_TREE, (void*)CVS1_A_KEN_COLLECTION, ARRAYSIZE(CVS1_A_KEN_COLLECTION) },
+    { L"Chun-Li", DESC_NODETYPE_TREE, (void*)CVS1_A_CHUNLI_COLLECTION, ARRAYSIZE(CVS1_A_CHUNLI_COLLECTION) },
+    { L"Guile", DESC_NODETYPE_TREE, (void*)CVS1_A_GUILE_COLLECTION, ARRAYSIZE(CVS1_A_GUILE_COLLECTION) },
+    { L"Zangief", DESC_NODETYPE_TREE, (void*)CVS1_A_ZANGIEF_COLLECTION, ARRAYSIZE(CVS1_A_ZANGIEF_COLLECTION) },
+    { L"Dhalsim", DESC_NODETYPE_TREE, (void*)CVS1_A_DHALSIM_COLLECTION, ARRAYSIZE(CVS1_A_DHALSIM_COLLECTION) },
+    { L"E. Honda", DESC_NODETYPE_TREE, (void*)CVS1_A_EHONDA_COLLECTION, ARRAYSIZE(CVS1_A_EHONDA_COLLECTION) },
+    { L"Blanka", DESC_NODETYPE_TREE, (void*)CVS1_A_BLANKA_COLLECTION, ARRAYSIZE(CVS1_A_BLANKA_COLLECTION) },
+    { L"Claw", DESC_NODETYPE_TREE, (void*)CVS1_A_CLAW_COLLECTION, ARRAYSIZE(CVS1_A_CLAW_COLLECTION) },
+    { L"Sagat", DESC_NODETYPE_TREE, (void*)CVS1_A_SAGAT_COLLECTION, ARRAYSIZE(CVS1_A_SAGAT_COLLECTION) },
+    { L"Dictator", DESC_NODETYPE_TREE, (void*)CVS1_A_DICTATOR_COLLECTION, ARRAYSIZE(CVS1_A_DICTATOR_COLLECTION) },
+    { L"Sakura", DESC_NODETYPE_TREE, (void*)CVS1_A_SAKURA_COLLECTION, ARRAYSIZE(CVS1_A_SAKURA_COLLECTION) },
+    { L"Cammy", DESC_NODETYPE_TREE, (void*)CVS1_A_CAMMY_COLLECTION, ARRAYSIZE(CVS1_A_CAMMY_COLLECTION) },
+    { L"Akuma", DESC_NODETYPE_TREE, (void*)CVS1_A_AKUMA_COLLECTION, ARRAYSIZE(CVS1_A_AKUMA_COLLECTION) },
+    { L"Morrigan", DESC_NODETYPE_TREE, (void*)CVS1_A_MORRIGAN_COLLECTION, ARRAYSIZE(CVS1_A_MORRIGAN_COLLECTION) },
+    { L"Evil Ryu", DESC_NODETYPE_TREE, (void*)CVS1_A_EVILRYU_COLLECTION, ARRAYSIZE(CVS1_A_EVILRYU_COLLECTION) },
+    { L"Kyo", DESC_NODETYPE_TREE, (void*)CVS1_A_KYO_COLLECTION, ARRAYSIZE(CVS1_A_KYO_COLLECTION) },
+    { L"Iori", DESC_NODETYPE_TREE, (void*)CVS1_A_IORI_COLLECTION, ARRAYSIZE(CVS1_A_IORI_COLLECTION) },
+    { L"Terry", DESC_NODETYPE_TREE, (void*)CVS1_A_TERRY_COLLECTION, ARRAYSIZE(CVS1_A_TERRY_COLLECTION) },
+    { L"Ryo", DESC_NODETYPE_TREE, (void*)CVS1_A_RYO_COLLECTION, ARRAYSIZE(CVS1_A_RYO_COLLECTION) },
+    { L"Mai", DESC_NODETYPE_TREE, (void*)CVS1_A_MAI_COLLECTION, ARRAYSIZE(CVS1_A_MAI_COLLECTION) },
+    { L"Kim", DESC_NODETYPE_TREE, (void*)CVS1_A_KIM_COLLECTION, ARRAYSIZE(CVS1_A_KIM_COLLECTION) },
+    { L"Geese", DESC_NODETYPE_TREE, (void*)CVS1_A_GEESE_COLLECTION, ARRAYSIZE(CVS1_A_GEESE_COLLECTION) },
+    { L"Yamazaki", DESC_NODETYPE_TREE, (void*)CVS1_A_YAMAZAKI_COLLECTION, ARRAYSIZE(CVS1_A_YAMAZAKI_COLLECTION) },
+    { L"Raiden", DESC_NODETYPE_TREE, (void*)CVS1_A_RAIDEN_COLLECTION, ARRAYSIZE(CVS1_A_RAIDEN_COLLECTION) },
+    { L"Rugal", DESC_NODETYPE_TREE, (void*)CVS1_A_RUGAL_COLLECTION, ARRAYSIZE(CVS1_A_RUGAL_COLLECTION) },
+    { L"Vice", DESC_NODETYPE_TREE, (void*)CVS1_A_VICE_COLLECTION, ARRAYSIZE(CVS1_A_VICE_COLLECTION) },
+    { L"Benimaru", DESC_NODETYPE_TREE, (void*)CVS1_A_BENIMARU_COLLECTION, ARRAYSIZE(CVS1_A_BENIMARU_COLLECTION) },
+    { L"Yuri", DESC_NODETYPE_TREE, (void*)CVS1_A_YURI_COLLECTION, ARRAYSIZE(CVS1_A_YURI_COLLECTION) },
+    { L"King", DESC_NODETYPE_TREE, (void*)CVS1_A_KING_COLLECTION, ARRAYSIZE(CVS1_A_KING_COLLECTION) },
+    { L"Nakoruru", DESC_NODETYPE_TREE, (void*)CVS1_A_NAKORURU_COLLECTION, ARRAYSIZE(CVS1_A_NAKORURU_COLLECTION) },
+    { L"Orochi Iori", DESC_NODETYPE_TREE, (void*)CVS1_A_OROCHIIORI_COLLECTION, ARRAYSIZE(CVS1_A_OROCHIIORI_COLLECTION) },
+    { L"Boxer", DESC_NODETYPE_TREE, (void*)CVS1_A_BOXER_COLLECTION, ARRAYSIZE(CVS1_A_BOXER_COLLECTION) },
+
+    { L"Dan", DESC_NODETYPE_TREE, (void*)CVS1_S_DAN_COLLECTION, ARRAYSIZE(CVS1_S_DAN_COLLECTION) },
+    { L"Joe", DESC_NODETYPE_TREE, (void*)CVS1_S_JOE_COLLECTION, ARRAYSIZE(CVS1_S_JOE_COLLECTION) },
 };

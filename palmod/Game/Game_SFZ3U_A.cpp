@@ -157,3 +157,37 @@ void CGame_SFZ3U_A::DumpAllCharacters()
 
     OutputDebugString(L"};\r\n\r\n");
 }
+
+void CGame_SFZ3U_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    if (nUnitId != m_nExtraUnit)
+    {
+        int cbPaletteSizeOnDisc = 0;
+        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
+
+        if (paletteData)
+        {
+            cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
+
+            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            m_nCurrentPaletteROMLocation -= m_activeSteamShiftTable.at(nUnitId);
+        }
+        else
+        {
+            // A bogus palette was requested: this is unrecoverable.
+            DebugBreak();
+        }
+    }
+    else
+    {
+        // This is where we handle all the palettes added in via Extra.
+        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = pCurrDef->szDesc;
+    }
+}

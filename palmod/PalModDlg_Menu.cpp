@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 233, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 236, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -302,20 +302,21 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                             case GameSeries::NintendoDS:
                                 seriesMenu[0].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
-                            case GameSeries::MvCSteam:
+                            case GameSeries::CapcomFightCollection2:
                             case GameSeries::SFA:
                             case GameSeries::FatalFury:
                             case GameSeries::NintendoGBA:
                                 seriesMenu[1].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
+                            case GameSeries::MvCSteam:
                             case GameSeries::SF2:
-                            case GameSeries::SF30th:
                             case GameSeries::KOF:
                             case GameSeries::NintendoSNES:
                                 seriesMenu[2].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
-                            case GameSeries::VampireSavior:
+                            case GameSeries::SF30th:
                             case GameSeries::SamuraiShodown:
+                            case GameSeries::VampireSavior:
                                 seriesMenu[3].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
                             }
@@ -328,7 +329,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             LPCWSTR ppszCapcomSubMenu[] = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
             LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
             LPCWSTR ppszNintendoSubMenu[] = { L"DS/3DS", L"GBA", L"SNES" };
-            LPCWSTR ppszSteamSubMenu[] = { L"Capcom Fighting Collection", L"Marvel vs Capcom", L"Street Fighter 30th Anniversary" };
+            LPCWSTR ppszSteamSubMenu[] = { L"Capcom Fighting Collection",  L"Capcom Fighting Collection 2", L"Marvel vs Capcom", L"Street Fighter 30th Anniversary" };
 
             for (const auto& sGametoFileData : rgGameToFileMap)
             {

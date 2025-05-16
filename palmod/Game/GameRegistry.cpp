@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 233, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 236, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -200,9 +200,11 @@ namespace KnownGameInfo
     CGameClass* Make_COTA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_A(nConfirmedROMSize); }
     CGameClass* Make_COTA_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_S(nConfirmedROMSize); }
     CGameClass* Make_CVS1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS1_A(nConfirmedROMSize); }
+    CGameClass* Make_CVS1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS1_S(nConfirmedROMSize); }
     CGameClass* Make_CVS2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_A(nConfirmedROMSize); }
     CGameClass* Make_CVS2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_D(nConfirmedROMSize); }
     CGameClass* Make_CVS2_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_P(nConfirmedROMSize); }
+    CGameClass* Make_CVS2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_S(nConfirmedROMSize); }
     CGameClass* Make_CYBERBOTS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Cyberbots_A(nConfirmedROMSize); }
     CGameClass* Make_DaemonBrideAG_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBrideAG_NL(nConfirmedROMSize); }
     CGameClass* Make_DaemonBride_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBride_NL(nConfirmedROMSize); }
@@ -369,6 +371,7 @@ namespace KnownGameInfo
     CGameClass* Make_SFIII3_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_D; }
     CGameClass* Make_SFTM_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFTM_A(nConfirmedROMSize); }
     CGameClass* Make_SFZ3U_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3U_A(nConfirmedROMSize); }
+    CGameClass* Make_SFZ3U_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3U_S(nConfirmedROMSize); }
     CGameClass* Make_SHAQFU_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SHAQFU_SNES(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
@@ -579,6 +582,13 @@ namespace KnownGameInfo
             CGame_CVS1_A::GetRule,
         },
         {
+            CVS1_S,
+            L"Capcom vs SNK Millenium Fight (Steam)",
+            { CVS1_S,           L"CvS1", L"CvS1|cvs1.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            Make_CVS1_S,
+            CGame_CVS1_S::GetRule,
+        },
+        {
             CVS2_A,
             L"CvS2 (NAOMI Arcade)",
             { CVS2_A,           L"CvS2", L"CvS2 (Naomi)|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
@@ -605,6 +615,14 @@ namespace KnownGameInfo
             CGame_CVS2_P::GetRuleCtr,
             CGame_CVS2_P::ResetRuleCtr,
         },
+        {
+            CVS2_S,
+            L"CvS2 (Steam)",
+            { CVS2_S,           L"CvS2", L"CvS2 (Steam)|cvs2.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            Make_CVS2_S,
+            CGame_CVS2_S::GetRule,
+        },
+
         {
             CYBERBOTS_A,
             L"Cyberbots: Fullmetal Madness (CPS2 Arcade)",
@@ -1752,6 +1770,14 @@ namespace KnownGameInfo
             CGame_SFZ3U_A::GetRule,
         },
         {
+            SFZ3U_S,
+            L"Street Fighter Zero 3 Upper (Steam)",
+            { SFZ3U_S,           L"SFZ3U", L"CvS1|z3u.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            Make_SFZ3U_S,
+            CGame_SFZ3U_S::GetRule,
+        },
+
+        {
             SFIII1_A,
             L"SFIII:NG (CPS3 Arcade)",
             { SFIII1_A,         L"SFIII:NG", L"SFIII:NG (Arcade)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
@@ -2192,7 +2218,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 233, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 236, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

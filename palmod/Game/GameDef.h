@@ -255,6 +255,9 @@ enum SupportedGamesList
     MVC2_S_DIR,
     GGXXACR_S_EXCHAR,
     GGXXACR_S_EXTRAS,
+    CVS1_S,
+    CVS2_S,
+    SFZ3U_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
@@ -293,6 +296,7 @@ enum class GameSeries
     CapcomFightCollection,
     SF30th,
     MvCSteam,
+    CapcomFightCollection2,
     Unknown,
     Last,
 };
