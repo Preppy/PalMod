@@ -190,7 +190,7 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
 }
 */
 
-void CImgDisp::ClearUsed()
+void CImgDisp::ResetImageCompositionLayout()
 {
     memset(m_bUsed, 0, sizeof(uint8_t) * MAX_IMAGES_DISPLAYABLE);
     m_rImgRct.SetRectEmpty();
@@ -223,6 +223,28 @@ void CImgDisp::ResetForNewImage()
     ResizeMainBitmap();
 }
 
+void CImgDisp::ResetCustomSpriteOverride(int nPosition)
+{
+    if (m_ppSpriteOverrideTexture[nPosition])
+    {
+        if (m_pImgBuffer[nPosition])
+        {
+            m_pImgBuffer[nPosition]->pImgData = nullptr;
+            m_pImgBuffer[nPosition]->uImgH = m_pImgBuffer[nPosition]->uImgW = 0;
+        }
+    }
+    safe_delete_array(m_ppSpriteOverrideTexture[nPosition]);
+}
+
+void CImgDisp::FlushCustomSpriteOverrides()
+{
+    for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
+    {
+        ResetCustomSpriteOverride(iPos);
+        m_nTextureOverrideW[iPos] = m_nTextureOverrideH[iPos] = 0;
+    }
+}
+
 void CImgDisp::FlushUnused()
 {
     if (m_nImgAmt)
@@ -238,10 +260,7 @@ void CImgDisp::FlushUnused()
         ResetForNewImage();
     }
 
-    for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
-    {
-        safe_delete_array(m_ppSpriteOverrideTexture[iPos]);
-    }
+    FlushCustomSpriteOverrides();
 }
 
 void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode /* = BlendMode::Alpha */)
@@ -269,16 +288,20 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
     //Set used
     m_bUsed[nIndex] = 1;
 
-    if (nXOffs < m_rImgRct.left)
+    // The zero image defines the bounding rect
+    if (nIndex == 0)
     {
-        m_rImgRct.left = nXOffs;
-        m_nXOffsTop = nXOffs;
-    }
+        if (nXOffs < m_rImgRct.left)
+        {
+            m_rImgRct.left = nXOffs;
+            m_nXOffsTop = nXOffs;
+        }
 
-    if (nYOffs < m_rImgRct.top)
-    {
-        m_rImgRct.top = nYOffs;
-        m_nYOffsTop = nYOffs;
+        if (nYOffs < m_rImgRct.top)
+        {
+            m_rImgRct.top = nYOffs;
+            m_nYOffsTop = nYOffs;
+        }
     }
 
     if ((nXOffs + uImgW) > m_rImgRct.right)
@@ -491,18 +514,6 @@ void CImgDisp::UpdateCtrl(BOOL fRedraw /* = TRUE */, int indexOfImageUsingBlinkP
                 (nBlinkImageIndex == nImgCtr)
             );
         }
-        else if (m_ppSpriteOverrideTexture[nImgCtr])
-        {
-            //Draw the img
-            CustomBlt(
-                nImgCtr,
-                -1, // overridden 
-                -1, // overridden 
-                (nBlinkImageIndex == nImgCtr)
-            );
-
-            OutputDebugString(L"Loaded alternate sprite for character with no sprite... \n");
-        }
     }
 
     //Repaint
@@ -645,7 +656,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     {
         const int nFileSize = static_cast<int>(TextureFile.GetLength());
         const int cbMinimumReasonableFileSize = 250;
-        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+        ResetCustomSpriteOverride(nPositionToLoadTo);
         m_nTextureOverrideW[nPositionToLoadTo] = 0;
         m_nTextureOverrideH[nPositionToLoadTo] = 0;
 
@@ -794,7 +805,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
         }
         else if (fHaveViableDimensions)
         {
-            safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+            ResetCustomSpriteOverride(nPositionToLoadTo);
             m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nFileSize];
 
             CString strInfo;
@@ -881,7 +892,7 @@ void CImgDisp::_FlipCustomPreviewLayerIfNeeded(SpriteImportDirection direction, 
             }
         }
 
-        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+        ResetCustomSpriteOverride(nPositionToLoadTo);
         m_ppSpriteOverrideTexture[nPositionToLoadTo] = pFlippedBuffer;
     }
 }
@@ -919,7 +930,7 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         // * maximum color table size: at this point we know that the incoming image could not encompass 
         //   the entire sprite set for this composition.  as such, the palette here should be left alone
         // * this is a single preview and the palette sizes match or at least don't use overflowing references.  Don't touch.
-        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+        ResetCustomSpriteOverride(nPositionToLoadTo);
         m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nDataLen];
 
         for (size_t iPos = 0; iPos < nDataLen; iPos++)
@@ -930,9 +941,6 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         m_nTextureOverrideW[nPositionToLoadTo] = width;
         m_nTextureOverrideH[nPositionToLoadTo] = height;
         _FlipCustomPreviewLayerIfNeeded(direction, nPositionToLoadTo);
-
-        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-                        m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
     }
     else
     {
@@ -942,7 +950,7 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         //   * direct assignment to a particular position: prune extra and only load for that position
         for (int nPos = nPositionToLoadTo; nPos < m_nImgAmt; nPos++)
         {
-            safe_delete_array(m_ppSpriteOverrideTexture[nPos]);
+            ResetCustomSpriteOverride(nPos);
             m_ppSpriteOverrideTexture[nPos] = new uint8_t[nDataLen];
 
             if (nPositionToLoadTo)
@@ -954,7 +962,7 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         unsigned char nCurrentPalStart = 0;
         for (int nPos = 0; nPos < m_nImgAmt; nPos++)
         {
-            unsigned char nCurrentPalEnd = nCurrentPalStart + m_pImgBuffer[nPos]->uPalSz;
+            unsigned char nCurrentPalEnd = min(0xff, nCurrentPalStart + m_pImgBuffer[nPos]->uPalSz);
 
             if (nPos < static_cast<int>(nPositionToLoadTo))
             {
@@ -986,9 +994,6 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
 
             _FlipCustomPreviewLayerIfNeeded(direction, nPos);
 
-            AddImageNode(nPos, m_nTextureOverrideW[nPos], m_nTextureOverrideH[nPos], m_ppSpriteOverrideTexture[nPos],
-                            m_pImgBuffer[nPos]->pPalette, m_pImgBuffer[nPos]->uPalSz, 0, 0);
-
             if (nPositionToLoadTo)
             {
                 break;
@@ -999,9 +1004,9 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
 
 void CImgDisp::_ResizeAndBlankCustomPreviews(UINT nPositionToLoadTo, size_t nNewSize)
 {
-    for (size_t nLayer = nPositionToLoadTo; nLayer < static_cast<size_t>(m_nImgAmt); nLayer++)
+    for (UINT nLayer = nPositionToLoadTo; nLayer < static_cast<size_t>(m_nImgAmt); nLayer++)
     {
-        safe_delete_array(m_ppSpriteOverrideTexture[nLayer]);
+        ResetCustomSpriteOverride(nLayer);
         m_ppSpriteOverrideTexture[nLayer] = new uint8_t[nNewSize];
         ZeroMemory(m_ppSpriteOverrideTexture[nLayer], nNewSize);
 
@@ -1063,7 +1068,6 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             break;
         }
     }
-
 
     // allocate max size, even though we may be adjusting this for trim
     const unsigned nDataLen = width * height;
@@ -1181,7 +1185,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                 pTrimmedBuffer[iFilledPos++] = m_ppSpriteOverrideTexture[nCurrentLayer][iPos];
             }
 
-            safe_delete_array(m_ppSpriteOverrideTexture[nCurrentLayer]);
+            ResetCustomSpriteOverride(nCurrentLayer);
             m_ppSpriteOverrideTexture[nCurrentLayer] = pTrimmedBuffer;
 
             m_nTextureOverrideW[nCurrentLayer] = true_width;
@@ -1303,7 +1307,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
 
         const size_t nPixelCount = static_cast<size_t>(m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]);
 
-        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+        ResetCustomSpriteOverride(nPositionToLoadTo);
         m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nPixelCount];
 
         if (sprite.GetPitch() > 0)
@@ -1356,7 +1360,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     }
 }
 
-bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
+bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fUseQuietMode /* = false */)
 {
     bool fSuccess = false;
     lodepng::State state;
@@ -1399,37 +1403,45 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     
     if (fSuccess)
     {
-        _UpdatePreviewForExternalSprite(nPositionToLoadTo, false);
+        _UpdatePreviewForExternalSprite(nPositionToLoadTo);
 
         return true;
     }
     else
     {
-        MessageBox(L"Error: this is not an indexed (type 3) PNG.  Only indexed PNGs can be used as a replacement preview.", GetHost()->GetAppName(), MB_ICONERROR);
+        if (!fUseQuietMode)
+        {
+            MessageBox(L"Error: this is not a supported PNG.  Indexed PNGs are best suited replacement previews.", GetHost()->GetAppName(), MB_ICONERROR);
+        }
 
         return false;
     }
 }
 
-void CImgDisp::_UpdatePreviewForExternalSprite(UINT nPositionToLoadTo, bool shouldAddImageNodes /* = true */)
+void CImgDisp::_UpdatePreviewForExternalSprite(UINT nPositionToLoadTo)
 {
-    if (shouldAddImageNodes)
+    if (nPositionToLoadTo == 0)
     {
-        if (m_pImgBuffer[nPositionToLoadTo])
-        {
-            // Override but use the stock palette
-            AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-                m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
-        }
-        else
-        {
-            // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-            AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-                m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
-        }
+        ResetImageCompositionLayout();
     }
 
-    ResetForNewImage();
+    if (m_pImgBuffer[nPositionToLoadTo])
+    {
+        // Override but use the stock palette
+        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+            m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+    }
+    else
+    {
+        // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
+        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+            m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
+    }
+
+    if (nPositionToLoadTo == 0)
+    {
+        ResetForNewImage();
+    }
 }
 
 BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkPal)
@@ -1448,6 +1460,12 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     int nPalSizeInUint8 = 0;
     BlendMode eBlendMode = BlendMode::Alpha;
 
+    if (!pDstBmpData)
+    {
+        OutputDebugString(L"CImgDisp::CustomBlt: No bitmap available.\n");
+        return FALSE;
+    }
+
     if ((nSrcIndex != -1) && m_pImgBuffer[nSrcIndex])
     {
         pImgData = reinterpret_cast<uint8_t*>(m_pImgBuffer[nSrcIndex]->pImgData);
@@ -1457,7 +1475,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
         nHeight = m_pImgBuffer[nSrcIndex]->uImgH;
         eBlendMode = m_pImgBuffer[nSrcIndex]->eBlendMode;
     }
-    else if (m_pBackupPaletteDef != nullptr)
+    else if (m_pBackupPaletteDef)
     {
         pCurrPal = reinterpret_cast<uint8_t*>(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
         nPalSizeInUint8 = m_pBackupPaletteDef->uPalSz * 4;
@@ -1472,32 +1490,6 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     if (m_eForcedBlendMode != BlendMode::Default)
     {
         eBlendMode = m_eForcedBlendMode;
-    }
-
-    // The user can override the internal sprite here
-    if ((nSrcIndex < ARRAYSIZE(m_ppSpriteOverrideTexture)) &&
-        m_ppSpriteOverrideTexture[nSrcIndex])
-    {
-        CString strInfo;
-        strInfo.Format(L"CImgDisp::CustomBlt: Displaying alternate sprite for sprite %u\n", nSrcIndex);
-        OutputDebugString(strInfo.GetString());
-        pImgData = m_ppSpriteOverrideTexture[nSrcIndex];
-
-        if ((nSrcIndex < ARRAYSIZE(m_nTextureOverrideW)) &&
-            (nSrcIndex < ARRAYSIZE(m_nTextureOverrideH)))
-        {
-            nWidth = m_nTextureOverrideW[nSrcIndex];
-            nHeight = m_nTextureOverrideH[nSrcIndex];
-
-            // Reset the rect now that W/H have changed...
-            m_rImgRct.left = -(m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
-            m_rImgRct.right = (m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
-            m_rImgRct.top = -(m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
-            m_rImgRct.bottom = (m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
-
-            xWidth = m_ptOffs[nSrcIndex].x + m_rImgRct.left + abs(m_nXOffsTop);
-            yHeight = m_ptOffs[nSrcIndex].y + m_rImgRct.top + abs(m_nYOffsTop);
-        }
     }
 
     if (pImgData == nullptr)

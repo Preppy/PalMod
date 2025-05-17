@@ -91,71 +91,221 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
         return;
     }
 
-    if (nCurrChildSel1 != m_nPrevChildSel1)
+if (nCurrChildSel1 != m_nPrevChildSel1)
+{
+    sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
+
+    //Clear the 1st child list
+    while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
+
+    for (uint32_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
     {
-        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
+        m_CBChildSel2.AddString(reinterpret_cast<sDescNode*>(ChildTree->ChildNodes)[nDescCtr].szDesc);
+    }
 
-        //Clear the 1st child list
-        while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
+    //Set to 0 since update
+    m_CBChildSel2.SetCurSel(0);
+    m_nPrevChildSel1 = nCurrChildSel1;
 
-        for (uint32_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
+    //Reset the next selection
+    m_nPrevChildSel2 = 0xFFFF;
+}
+
+int nCurrChildSel2 = m_CBChildSel2.GetCurSel();
+
+if (nCurrChildSel2 == -1)
+{
+    return;
+}
+
+if ((nCurrChildSel2 != m_nPrevChildSel2) || fForceUpdate)
+{
+    //Clear the undo data
+    UndoProc.Clear();
+
+    //Get the selected palette
+    GetHost()->GetCurrGame()->UpdatePalImg(
+        CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, nCurrChildSel2);
+
+    PostPalSel();
+
+    m_nPrevChildSel2 = nCurrChildSel2;
+
+    //Select None
+    //OnEditSelectNone();
+
+    //Update the display palette selection
+    const UINT_PTR nNotifyIndex = m_PalHost.GetNotifyIndex();
+
+    if (m_PalHost.GetPalCtrl(nNotifyIndex))
+    {
+        OnPalSelChange(nNotifyIndex);
+    }
+    else
+    {
+        OnEditSelectNone();
+        OnPalSelChange(0);
+    }
+}
+
+sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), -1);
+sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
+sDescNode PaletteNode = (reinterpret_cast<sDescNode*>(ButtonTree->ChildNodes))[nCurrChildSel2];
+
+m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
+m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);
+m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO2), PaletteNode.szDesc);
+SetStatusText(PaletteNode.szDesc);
+}
+
+void SanitizeString(wchar_t* pszString)
+{
+    for (size_t iPos = 0; iPos < wcslen(pszString); iPos++)
+    {
+        if (!isalnum(pszString[iPos]) && (pszString[iPos] != L'-') && (pszString[iPos] != L'_'))
         {
-            m_CBChildSel2.AddString(reinterpret_cast<sDescNode*>(ChildTree->ChildNodes)[nDescCtr].szDesc);
+            pszString[iPos] = L'_';
         }
-
-        //Set to 0 since update
-        m_CBChildSel2.SetCurSel(0);
-        m_nPrevChildSel1 = nCurrChildSel1;
-
-        //Reset the next selection
-        m_nPrevChildSel2 = 0xFFFF;
     }
+}
 
-    int nCurrChildSel2 = m_CBChildSel2.GetCurSel();
-
-    if (nCurrChildSel2 == -1)
+void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wchar_t* pszPalette)
+{
+    wchar_t* pszUnitNamePos = wcsstr(pszPalette, pszUnit);
+    if (pszUnitNamePos)
     {
-        return;
-    }
+        wchar_t* pszPostUnitName = pszUnitNamePos + wcslen(pszUnit);
 
-    if ((nCurrChildSel2 != m_nPrevChildSel2) || fForceUpdate)
-    {
-        //Clear the undo data
-        UndoProc.Clear();
-
-        //Get the selected palette
-        GetHost()->GetCurrGame()->UpdatePalImg(
-            CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, nCurrChildSel2);
-
-        PostPalSel();
-
-        m_nPrevChildSel2 = nCurrChildSel2;
-
-        //Select None
-        //OnEditSelectNone();
-
-        //Update the display palette selection
-        const UINT_PTR nNotifyIndex = m_PalHost.GetNotifyIndex();
-
-        if (m_PalHost.GetPalCtrl(nNotifyIndex))
+        if (pszPostUnitName && (pszPostUnitName[0] != L'\0'))
         {
-            OnPalSelChange(nNotifyIndex);
+            wchar_t* pszNodeNamePos = wcsstr(pszPostUnitName, pszNode);
+
+            if (pszUnitNamePos && pszNodeNamePos && (pszNodeNamePos == (pszUnitNamePos + wcslen(pszUnit) + 1)))
+            {
+                wchar_t* pszCandidate = pszNodeNamePos + wcslen(pszNode);
+                if (pszCandidate)
+                {
+                    if (pszCandidate[0] == L'\0')
+                    {
+                        // Truncate "Joe LP" to "Joe"
+                        // Truncate "Main LP" to "Main"
+                        if ((pszNodeNamePos - 1)[0] == L' ')
+                        {
+                            (pszNodeNamePos - 1)[0] = L'\0';
+                        }
+                    }
+                    else if (!isalnum(pszCandidate[0]))
+                    {
+                        // Truncate "Zangief A: foo" to "foo"
+                        // Truncate "Zangief A foo" to "foo"
+                        wchar_t szCleansedPalette[MAX_DESCRIPTION_LENGTH] = {};
+
+                        pszCandidate++;
+
+                        if ((pszCandidate[0] != L'\0') && (!isalnum(pszCandidate[0])))
+                        {
+                            pszCandidate++;
+                        }
+
+                        wcsncpy(szCleansedPalette, pszCandidate, MAX_DESCRIPTION_LENGTH);
+                        szCleansedPalette[ARRAYSIZE(szCleansedPalette) - 1] = 0;
+                        wcsncpy(pszPalette, szCleansedPalette, MAX_DESCRIPTION_LENGTH);
+                    }
+                }
+            }
+        }
+    }
+}
+
+bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, int nPosition)
+{
+    // Note that used pathing is off CurentWorkingDirectory\\Previews
+    // Note that since we key off of combobox palette names at this point, we can only do this for image 0
+    wchar_t szUnit[MAX_DESCRIPTION_LENGTH], szNode[MAX_DESCRIPTION_LENGTH], szPalette[MAX_DESCRIPTION_LENGTH];
+    bool fLoadedImage = false;
+
+    if (CurrGame &&
+        (m_CBUnitSel.GetLBText(m_CBUnitSel.GetCurSel(), szUnit) != CB_ERR) &&
+        (m_CBChildSel1.GetLBText(m_CBChildSel1.GetCurSel(), szNode) != CB_ERR) &&
+        (m_CBChildSel2.GetLBText(m_CBChildSel2.GetCurSel(), szPalette) != CB_ERR))
+    {
+        CString strPath;
+
+        SanitizeString(szUnit);
+        SanitizeString(szNode);
+        wcsncpy(szPalette, m_PalHost.GetPalName(nPosition), ARRAYSIZE(szPalette));
+        szPalette[ARRAYSIZE(szPalette) - 1] = 0;
+
+        if (_wcsicmp(CurrGame->GetExtraUnitDescription(), szUnit) == 0)
+        {
+            for (size_t iChar = 2; iChar < wcslen(szPalette); iChar++)
+            {
+                // For the purposes of finding palettes, you might have a lengthy multipalette search chunk
+                // Within PalMod we break that up by appending (x/y) to [search chunk]
+                // To avoid needing the user to have Y number of [search chunk].png files, we can just
+                // remove that specific suffix.
+                if (szPalette[iChar] == L'(')
+                {
+                    for (size_t iSlash = iChar + 1; iSlash < wcslen(szPalette); iSlash++)
+                    {
+                        if (szPalette[iSlash] == L'/')
+                        {
+                            if (szPalette[iChar - 1] == L' ')
+                            {
+                                szPalette[iChar - 1] = 0;
+                            }
+
+                            break;
+                        }
+                    }
+
+                    break;
+                }               
+            }
+
+            SanitizeString(szPalette);
+            strPath.Format(L"previews\\%s.png", szPalette);
         }
         else
         {
-            OnEditSelectNone();
-            OnPalSelChange(0);
+            bool fIsButtonNode = false;
+
+            std::vector<LPCWSTR> pButtonLabelSet = CurrGame->GetButtonDescSet();
+
+            SanitizeString(szPalette);
+
+            for (LPCWSTR pszButtonLabel : pButtonLabelSet)
+            {
+                if (_wcsicmp(pszButtonLabel, szNode) == 0)
+                {
+                    fIsButtonNode = true;
+                    break;
+                }
+            }
+
+            if (fIsButtonNode)
+            {
+                CleanseButtonNodeString(szUnit, szNode, szPalette);
+
+                strPath.Format(L"previews\\%s-%s.png", szUnit, szPalette);
+            }
+            else
+            {
+                strPath.Format(L"previews\\%s-%s-%s.png", szUnit, szNode, szPalette);
+            }
+        }
+
+        if (GetFileAttributes(strPath.GetBuffer()) != INVALID_FILE_ATTRIBUTES)
+        {
+            CString strFile;
+            strFile.Format(L"CPalModDlg::TryFallbackImageLoad: Loading \"%s\" to position %u\n", strPath.GetBuffer(), nPosition);
+            OutputDebugString(strFile.GetBuffer());
+
+            fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
         }
     }
 
-    sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), -1);
-    sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
-    sDescNode PaletteNode = (reinterpret_cast<sDescNode*>(ButtonTree->ChildNodes))[nCurrChildSel2];
-
-    m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
-    m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);
-    m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO2), PaletteNode.szDesc);
-    SetStatusText(PaletteNode.szDesc);
+    return fLoadedImage;
 }
 
 void CPalModDlg::PostPalSel()
@@ -163,9 +313,9 @@ void CPalModDlg::PostPalSel()
     static int nPrevImgIndex[MAX_IMAGES_DISPLAYABLE] = { -1, -1 };
     //Update the host palette control
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    sImgDef* CurrImgDef;
-    sPalDef* CurrPalDef;
-    sPalSep* CurrSep;
+    sImgDef* CurrImgDef = nullptr;
+    sPalDef* CurrPalDef = nullptr;
+    sPalSep* CurrSep = nullptr;
 
     sImgTicket* CurrTicket = CurrGame->GetImgTicket();
 
@@ -174,7 +324,7 @@ void CPalModDlg::PostPalSel()
     uint32_t nImgIndexCtr = 0;
     uint32_t nCurrSepAmt = 0;
 
-    bool fSameImg = false;
+    bool fShouldKeepImageCache = false;
 
     StopBlink();
 
@@ -224,16 +374,26 @@ void CPalModDlg::PostPalSel()
                 // This is where we load our images from img.dat .
                 // nUnitId is the character/palette index.
                 // nImgId is the extra offset for that character.
-                int nImgKey = (static_cast<uint16_t>(CurrTicket->nUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
+                const int nImgKey = (static_cast<uint16_t>(CurrTicket->nUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
                 static int s_nLastPalAmt = 1;
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
+
+                if (nImgIndexCtr == 0)
+                {
+                    while (ImgDispCtrl->GetImgAmt() > static_cast<int>(nPalAmt))
+                    {
+                        ImgDispCtrl->FlushImageNode(ImgDispCtrl->GetImgAmt() - 1);
+                    }
+
+                    ImgDispCtrl->FlushCustomSpriteOverrides();
+                }
 
                 if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || m_fForceImg || (nPalAmt > 1) || (s_nLastPalAmt != nPalAmt))
                 {
                     if (nImgIndexCtr == 0)
                     {
-                        ImgDispCtrl->ClearUsed();
+                        ImgDispCtrl->ResetImageCompositionLayout();
                     }
 
                     if (CurrImgDef)
@@ -262,6 +422,11 @@ void CPalModDlg::PostPalSel()
                             CurrTicket->nXOffs,
                             CurrTicket->nYOffs,
                             CurrTicket->nBlendMode);
+
+                        if (TryFallbackImageLoad(CurrGame, nCurrentPalette))
+                        {
+                            fShouldKeepImageCache = true;
+                        }
                     }
                 }
                 else
@@ -272,7 +437,18 @@ void CPalModDlg::PostPalSel()
                         MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
                         MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz);
 
-                    fSameImg = true;
+                    if (!CurrImgDef)
+                    {
+                        // This is a little loose, but here we're checking to see if we have anything more precise to load
+                        if (TryFallbackImageLoad(CurrGame, nCurrentPalette))
+                        {
+                            fShouldKeepImageCache = true;
+                        }
+                    }
+                    else
+                    {
+                        fShouldKeepImageCache = true;
+                    }
                 }
 
                 nPrevImgIndex[nImgIndexCtr] = nImgKey;
@@ -291,11 +467,11 @@ void CPalModDlg::PostPalSel()
     //No images
     if (!nImgIndexCtr)
     {
-        ImgDispCtrl->ClearUsed();
+        ImgDispCtrl->ResetImageCompositionLayout();
     }
 
     //Get rid of the unused images
-    if (!fSameImg)
+    if (!fShouldKeepImageCache)
     {
         ImgDispCtrl->FlushUnused();
     }

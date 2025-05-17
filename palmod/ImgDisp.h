@@ -126,7 +126,7 @@ private:
 
     bool _FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight);
     void _ResizeAndBlankCustomPreviews(UINT nPositionToLoadTo, size_t nNewSize);
-    void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo, bool shouldAddImageNodes = true);
+    void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo);
     void _FlipCustomPreviewLayerIfNeeded(SpriteImportDirection direction, UINT nPositionToLoadTo);
     void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize);
     void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
@@ -186,7 +186,7 @@ public:
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
     bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
-    bool LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
+    bool LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fUseQuietMode = false);
     bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
@@ -209,9 +209,12 @@ public:
 
     int GetImgAmt() { return m_nImgAmt; };
 
-    void ClearUsed();
+    void ResetImageCompositionLayout();
     // Eliminates all unused buffers and resets for new display
     void FlushUnused();
+    // Just reset custom loaded sprites
+    void FlushCustomSpriteOverrides();
+    void ResetCustomSpriteOverride(int nPosition);
 
     void ResetForNewImage();
 

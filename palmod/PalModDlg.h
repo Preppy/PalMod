@@ -421,6 +421,7 @@ public:
 
     // This should be called after a game's PostSelProc call changes a shown secondary palette
     void RefreshSecondaryPalettesForPaletteChange();
+    bool TryFallbackImageLoad(CGameClass* CurrGame, int nPosition);
 
     static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
     BOOL HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
