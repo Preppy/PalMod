@@ -231,13 +231,14 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, int nPosition)
     {
         CString strPath;
 
-        SanitizeString(szUnit);
         SanitizeString(szNode);
         wcsncpy(szPalette, m_PalHost.GetPalName(nPosition), ARRAYSIZE(szPalette));
         szPalette[ARRAYSIZE(szPalette) - 1] = 0;
 
         if (_wcsicmp(CurrGame->GetExtraUnitDescription(), szUnit) == 0)
         {
+            SanitizeString(szUnit);
+
             for (size_t iChar = 2; iChar < wcslen(szPalette); iChar++)
             {
                 // For the purposes of finding palettes, you might have a lengthy multipalette search chunk
@@ -269,6 +270,7 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, int nPosition)
         else
         {
             bool fIsButtonNode = false;
+            SanitizeString(szUnit);
 
             std::vector<LPCWSTR> pButtonLabelSet = CurrGame->GetButtonDescSet();
 
@@ -297,9 +299,11 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, int nPosition)
 
         if (GetFileAttributes(strPath.GetBuffer()) != INVALID_FILE_ATTRIBUTES)
         {
+#ifdef DEBUG
             CString strFile;
             strFile.Format(L"CPalModDlg::TryFallbackImageLoad: Loading \"%s\" to position %u\n", strPath.GetBuffer(), nPosition);
             OutputDebugString(strFile.GetBuffer());
+#endif
 
             fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
         }
