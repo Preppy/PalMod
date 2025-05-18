@@ -473,6 +473,7 @@ const stPairedPaletteInfo pairNext5Palettes =                       { 1, {}, 6 }
 
 const stPairedPaletteInfo pairNext6Palettes =                       { 1, {}, 7 }; // Seven-display -- specially handled
 const stPairedPaletteInfo pairNext7Palettes =                       { 1, {}, 8 }; // eight-display -- specially handled
+const stPairedPaletteInfo pairNext9Palettes =                       { 1, {}, 10 };
 const stPairedPaletteInfo pairNext11Palettes =                      { 1, {}, 12 };
 
 // These must be used when you are doing the extremely fragile act of pairing cross-node.  For that type of pairing we need

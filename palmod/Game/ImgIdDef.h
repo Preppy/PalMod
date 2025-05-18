@@ -356,7 +356,7 @@ enum SF2Sprites
     indexSF2GBASprites_ShinGouki,
     indexSF2GBASprites_Bonus,       // 0x32, // GBA_Bonus
     indexSF2GBASprites_Stages,      // 0x33, // GBA_Stages
-    indexSF2HFSprites_Stages,       // 0x33, // SF2HF stages
+    indexSF2HFSprites_Stages,       // 0x34, // SF2HF stages
 };
 
 enum SPECIFIC_GAME_SPRITESETS

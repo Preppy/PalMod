@@ -4565,24 +4565,24 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS[] =
 {
-    { L"32BG.0.0.1", 0x5a962, 0x5aa02, indexCPS2Sprites_VSAV1_Stages, -1, &pairFullyLinkedNode },
-    { L"32BG.0.0.2", 0x5ab62, 0x5ab82 },
-    { L"8BG.0.0.1", 0x38492, 0x38672 },
-    { L"8BG.0.0.2", 0x38692, 0x38712 },
-    { L"16BG.0.0.1", 0x484fa, 0x486ba },
-    { L"16BG.0.0.2", 0x486fa, 0x4883a },
-    { L"SS.0.0.0", 0x20A8A, 0x20BCA },
+    { L"32BG.0.0.1", 0x5a962, 0x5aa02, indexCPS2Sprites_VSAV1_Stages, 0xa9, &pairFullyLinkedNode },
+    { L"32BG.0.0.2", 0x5ab62, 0x5ab82, indexCPS2Sprites_VSAV1_Stages, 0xaa },
+    { L"8BG.0.0.1", 0x38492, 0x38672, indexCPS2Sprites_VSAV1_Stages, 0xab },
+    { L"8BG.0.0.2", 0x38692, 0x38712, indexCPS2Sprites_VSAV1_Stages, 0xac },
+    { L"16BG.0.0.1", 0x484fa, 0x486ba, indexCPS2Sprites_VSAV1_Stages, 0xad },
+    { L"16BG.0.0.2", 0x486fa, 0x4883a, indexCPS2Sprites_VSAV1_Stages, 0xae },
+    { L"SS.0.0.0", 0x20A8A, 0x20BCA, indexCPS2Sprites_VSAV1_Stages, 0xaf },
 };
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_EX[] =
 {
-    { L"32BG.0.0.1", 0x5a962 + 0x6e60, 0x5aa02 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, -1, &pairFullyLinkedNode },
-    { L"32BG.0.0.2", 0x5ab62 + 0x6e60, 0x5ab82 + 0x6e60 },
-    { L"8BG.0.0.1", 0x38492 + 0x5520, 0x38672 + 0x5520 },
-    { L"8BG.0.0.2", 0x38692 + 0x5520, 0x38712 + 0x5520 },
-    { L"16BG.0.0.1", 0x484fa + 0x5e00, 0x486ba + 0x5e00 },
-    { L"16BG.0.0.2", 0x486fa + 0x5e00, 0x4883a + 0x5e00 },
-    { L"SS.0.0.0", 0x20A8A + 0x1b20, 0x20BCA + 0x1b20 },
+    { L"32BG.0.0.1", 0x5a962 + 0x6e60, 0x5aa02 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, 0xa9, &pairFullyLinkedNode },
+    { L"32BG.0.0.2", 0x5ab62 + 0x6e60, 0x5ab82 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, 0xaa },
+    { L"8BG.0.0.1", 0x38492 + 0x5520, 0x38672 + 0x5520, indexCPS2Sprites_VSAV1_Stages, 0xab },
+    { L"8BG.0.0.2", 0x38692 + 0x5520, 0x38712 + 0x5520, indexCPS2Sprites_VSAV1_Stages, 0xac },
+    { L"16BG.0.0.1", 0x484fa + 0x5e00, 0x486ba + 0x5e00, indexCPS2Sprites_VSAV1_Stages, 0xad },
+    { L"16BG.0.0.2", 0x486fa + 0x5e00, 0x4883a + 0x5e00, indexCPS2Sprites_VSAV1_Stages, 0xae },
+    { L"SS.0.0.0", 0x20A8A + 0x1b20, 0x20BCA + 0x1b20, indexCPS2Sprites_VSAV1_Stages, 0xaf },
 };
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_PARTS[] =
