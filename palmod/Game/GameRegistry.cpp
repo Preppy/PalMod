@@ -1769,7 +1769,6 @@ namespace KnownGameInfo
             Make_SFZ3U_A,
             CGame_SFZ3U_A::GetRule,
         },
-#ifdef NEEDS_WORK
         {
             SFZ3U_S,
             L"Street Fighter Zero 3 Upper (Steam)",
@@ -1777,7 +1776,6 @@ namespace KnownGameInfo
             Make_SFZ3U_S,
             CGame_SFZ3U_S::GetRule,
         },
-#endif
         {
             SFIII1_A,
             L"SFIII:NG (CPS3 Arcade)",
