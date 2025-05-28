@@ -101,15 +101,13 @@ uint32_t CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
 
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
-        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
 
                 const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 

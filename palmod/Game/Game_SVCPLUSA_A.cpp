@@ -602,7 +602,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
                     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                     {
-                        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
@@ -693,7 +693,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
                     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                     {
-                        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
@@ -732,7 +732,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             // SVCPlusA is already decrypted
             for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
             {
-                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
@@ -1052,7 +1052,7 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                     // Save the palette changes
                     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
                     {
-                        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {

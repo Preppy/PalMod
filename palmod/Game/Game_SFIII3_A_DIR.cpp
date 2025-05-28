@@ -385,7 +385,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
         for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
-            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -407,7 +407,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         m_nCurrentPaletteROMLocation += 0x14c;
                     }
 
-                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    const uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
@@ -429,7 +429,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     if (IsROMEncrypted())
                     {
                         // this rom is encrypted
-                        uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
+                        const uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                         const uint8_t cbStride = 4;
 
                         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -626,7 +626,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
 
         for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
-            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -639,7 +639,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
                         m_nCurrentPaletteROMLocation += 0x14c;
                     }
 
-                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    const uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
 
                     const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 
@@ -648,7 +648,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
 
                     if (IsROMEncrypted())
                     {
-                        uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
+                        const uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                         const uint8_t cbStride = 4;
 
                         fileSIMM1.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -687,7 +687,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
                         nPaletteSaveCount++;
 
                         // write length will be number of *bytes* in the sequence across 2 files
-                        uint16_t nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
+                        const uint16_t nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
 
                         BYTE* pbWrite1 = new BYTE[nCurrentWriteLength];
                         BYTE* pbWrite2 = new BYTE[nCurrentWriteLength];
@@ -860,7 +860,7 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
 
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
-        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -872,8 +872,6 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                 {
                     m_nCurrentPaletteROMLocation += 0x14c;
                 }
-
-                uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
 
                 const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 

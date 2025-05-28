@@ -94,7 +94,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
-        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
@@ -109,7 +109,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
             if (IsROMEncrypted())
             {
-                uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
+                const uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                 const uint8_t cbStride = 4;
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -152,7 +152,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
-        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -162,7 +162,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
                 if (IsROMEncrypted())
                 {
-                    uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
+                    const uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                     const uint8_t cbStride = 4;
 
                     SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -190,7 +190,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, m_nUnitAmt);
+    strMsg.Format(L"CGame_SFIII3_A::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, m_nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
