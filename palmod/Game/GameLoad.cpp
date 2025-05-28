@@ -540,6 +540,10 @@ bool CGameLoad::SaveGame(CGameClass* CurrGame)
                 {
                     nSaveLoadSucc++;
                 }
+                else
+                {
+                    nSaveLoadErr = 1;
+                }
 
                 FileSave.Abort();
             }

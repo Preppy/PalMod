@@ -2,25 +2,37 @@
 
 const std::vector<uint16_t> CFE_P_IMG_UNITS =
 {
-    indexCPS2Sprites_Anakaris,     // 0x04
+    // Darkstalker versions
+    indexCPS2Sprites_Anakaris,      // 0x04
     indexCPS2Sprites_Vamp_Demitri,   // 0x6A
-    indexCPS2Sprites_Felicia,      // 0x20
-
+    indexCPS2Sprites_Felicia,       // 0x20
     indexCPS2Sprites_Vamp_Jedah,     // 0x6D
     indexCPS2Sprites_Vamp_Pyron,     // 0x72
 
+    // "sf2" cvs2 versions
     indexCVS2Sprites_Guile,         // 0xc8
-
     indexCVS2Sprites_MBison,        // 0xd2
-
     indexCVS2Sprites_Ryu,           // 0xdd
-    indexCVS2Sprites_Sakura,        // 0xe1
     indexCVS2Sprites_ShinAkuma,     // 0xe2
     indexCVS2Sprites_Zangief,       // 0xe8
 
+    // sfa versions
+    indexCPS2Sprites_Sakura,       // 0x22
     indexCPS2Sprites_Guy,          // 0x3F
     indexCPS2Sprites_Rose,         // 0x41
     indexCPS2Sprites_Karin,        // 0x4B
+
+    // Yes, this is CPS3 SF3.  We have code in LoadSpecificPalette to swap image sets as needed
+    index3SSprites_Alex,      // 0x00
+    index3SSprites_Yun,       // 0x02
+    index3SSprites_Urien,     // 0x0c
+    index3SSprites_ChunLi,    // 0x0f
+
+    // Red Earth peeps
+    indexRedEarthSprites_Hauzer,    // 0x02
+    indexRedEarthSprites_Hydron,    // 0x03
+    indexRedEarthSprites_Kenji,     // 0x04
+    indexRedEarthSprites_Leo,       // 0x07
 };
 
 // Darkstalkers/Vampire
@@ -150,12 +162,12 @@ const sGame_PaletteDataset CFE_P_ROSE_KICK[] =
 
 const sGame_PaletteDataset CFE_P_SAKURA_PUNCH[] =
 {
-    { L"Sakura Punch", 0x1e5150, 0x1e5170, indexCVS2Sprites_Sakura },
+    { L"Sakura Punch", 0x1e5150, 0x1e5170, indexCPS2Sprites_Sakura },
 };
 
 const sGame_PaletteDataset CFE_P_SAKURA_KICK[] =
 {
-    { L"Sakura Kick", 0x1e5170, 0x1e5190, indexCVS2Sprites_Sakura },
+    { L"Sakura Kick", 0x1e5170, 0x1e5190, indexCPS2Sprites_Sakura },
 };
 
 const sGame_PaletteDataset CFE_P_KARIN_PUNCH[] =
@@ -539,4 +551,429 @@ const sDescTreeNode CFE_P_UNITS[] =
     { L"Kenji",         DESC_NODETYPE_TREE, (void*)CFE_P_KENJI_COLLECTION, ARRAYSIZE(CFE_P_KENJI_COLLECTION) },
     { L"Hauzer",        DESC_NODETYPE_TREE, (void*)CFE_P_HAUZER_COLLECTION, ARRAYSIZE(CFE_P_HAUZER_COLLECTION) },
     { L"Hydron",        DESC_NODETYPE_TREE, (void*)CFE_P_HYDRON_COLLECTION, ARRAYSIZE(CFE_P_HYDRON_COLLECTION) },
+};
+
+// CFJ palette storage is quite odd.  They are striped as 8 color chunks in sets of 32 
+// vertically, as in:
+//  11111111 33333333
+//  22222222 44444444
+
+// Darkstalkers/Vampire
+const sGame_PaletteDataset CFJ_S_DEMITRI_PUNCH[] =
+{
+    { L"Demitri #1 Punch", 0x1d8c500, 0x1d8c520, indexCPS2Sprites_Vamp_Demitri },
+    { L"Demitri #2 Punch", 0x1d8c540, 0x1d8c560, indexCPS2Sprites_Vamp_Demitri },
+};
+
+const sGame_PaletteDataset CFJ_S_DEMITRI_KICK[] =
+{
+    { L"Demitri #1 Kick", 0x1d8c800, 0x1d8c820, indexCPS2Sprites_Vamp_Demitri },
+    { L"Demitri #2 Kick", 0x1d8c840, 0x1d8c860, indexCPS2Sprites_Vamp_Demitri },
+};
+
+const sGame_PaletteDataset CFJ_S_ANAKARIS_PUNCH[] =
+{
+    { L"Anakaris Punch", 0x1f32eb0, 0x1f32ed0, indexCPS2Sprites_Anakaris },
+};
+
+const sGame_PaletteDataset CFJ_S_ANAKARIS_KICK[] =
+{
+    { L"Anakaris Kick", 0x1f331b0, 0x1f331d0, indexCPS2Sprites_Anakaris },
+};
+
+const sGame_PaletteDataset CFJ_S_FELICIA_PUNCH[] =
+{
+    { L"Felicia Punch", 0x2a83984, 0x2a839a4, indexCPS2Sprites_Felicia },
+};
+
+const sGame_PaletteDataset CFJ_S_FELICIA_KICK[] =
+{
+    { L"Felicia Kick", 0x2a83c84, 0x2a83ca4, indexCPS2Sprites_Felicia },
+};
+
+const sGame_PaletteDataset CFJ_S_JEDAH_PUNCH[] =
+{
+    { L"Jedah Punch", 0x20f9c7c, 0x20f9c9c, indexCPS2Sprites_Vamp_Jedah, 0x00, &pairNext },
+    { L"Punch Blood", 0x20f9cbc, 0x20f9cdc, indexCPS2Sprites_Vamp_Jedah, 0x01 },
+};
+
+const sGame_PaletteDataset CFJ_S_JEDAH_KICK[] =
+{
+    { L"Jedah Kick", 0x20f9efc, 0x20f9f1c, indexCPS2Sprites_Vamp_Jedah, 0x00, &pairNext },
+    { L"Kick Blood", 0x20f9fbc, 0x20f9fdc, indexCPS2Sprites_Vamp_Jedah, 0x01 },
+};
+
+const sGame_PaletteDataset CFJ_S_PYRON_PUNCH[] =
+{
+    { L"Pyron Punch", 0x137da38, 0x137da58, indexCPS2Sprites_Vamp_Pyron },
+};
+
+const sGame_PaletteDataset CFJ_S_PYRON_KICK[] =
+{
+    { L"Pyron Kick", 0x1c87f62, 0x1c87f82, indexCPS2Sprites_Vamp_Pyron },
+};
+
+// Street Fighter II
+const sGame_PaletteDataset CFJ_S_RYU_PUNCH[] =
+{
+    { L"Ryu Punch", 0xe39710, 0xe39730, indexCVS2Sprites_Ryu },
+};
+
+const sGame_PaletteDataset CFJ_S_RYU_KICK[] =
+{
+    { L"Ryu Kick", 0xe39a10, 0xe39a30, indexCVS2Sprites_Ryu },
+};
+
+const sGame_PaletteDataset CFJ_S_GUILE_PUNCH[] =
+{
+    { L"Guile Punch", 0x1184a7e, 0x1184a9e, indexCVS2Sprites_Guile },
+};
+
+const sGame_PaletteDataset CFJ_S_GUILE_KICK[] =
+{
+    { L"Guile Kick", 0x1184d7e, 0x1184d9e, indexCVS2Sprites_Guile },
+};
+
+const sGame_PaletteDataset CFJ_S_ZANGIEF_PUNCH[] =
+{
+    { L"Zangief Punch", 0x128e838, 0x128e858, indexCVS2Sprites_Zangief },
+};
+
+const sGame_PaletteDataset CFJ_S_ZANGIEF_KICK[] =
+{
+    { L"Zangief Kick", 0x128eb38, 0x128eb58, indexCVS2Sprites_Zangief },
+};
+
+const sGame_PaletteDataset CFJ_S_BISON_PUNCH[] =
+{
+    { L"M. Bison Punch", 0x137d7b8, 0x137d7f8, indexCVS2Sprites_MBison },
+};
+
+const sGame_PaletteDataset CFJ_S_BISON_KICK[] =
+{
+    { L"M. Bison Kick", 0x137dab8, 0x137daf8, indexCVS2Sprites_MBison },
+};
+
+const sGame_PaletteDataset CFJ_S_SHINAKUMA_PUNCH[] =
+{
+    { L"Shin Akuma Punch", 0x2f4a328, 0x2f4a348, indexCVS2Sprites_ShinAkuma },
+};
+
+const sGame_PaletteDataset CFJ_S_SHINAKUMA_KICK[] =
+{
+    { L"Shin Akuma Kick", 0x2f4a628, 0x2f4a648, indexCVS2Sprites_ShinAkuma },
+};
+
+// Street Fighter Alpha/Zero
+const sGame_PaletteDataset CFJ_S_GUY_PUNCH[] =
+{
+    { L"Guy Punch", 0x19d5166, 0x19d5186, indexCPS2Sprites_Guy },
+};
+
+const sGame_PaletteDataset CFJ_S_GUY_KICK[] =
+{
+    { L"Guy Kick", 0x19d5466, 0x19d5486, indexCPS2Sprites_Guy },
+};
+
+const sGame_PaletteDataset CFJ_S_ROSE_PUNCH[] =
+{
+    { L"Rose Punch", 0x1a63758, 0x1a63778, indexCPS2Sprites_Rose },
+    // Second location, doesn't do anything either.
+    // Uses a different sprite...?
+    //{ L"Rose Punch", 0x668f1f4, 0x668f214, indexCPS2Sprites_Rose },
+};
+
+const sGame_PaletteDataset CFJ_S_ROSE_KICK[] =
+{
+    { L"Rose Kick", 0x1a63a58, 0x1a63a78, indexCPS2Sprites_Rose },
+    //{ L"Rose Kick", 0x668f234, 0x668f254, indexCPS2Sprites_Rose },
+};
+
+const sGame_PaletteDataset CFJ_S_SAKURA_PUNCH[] =
+{
+    { L"Sakura Punch", 0x149087e, 0x149089e, indexCPS2Sprites_Sakura },
+};
+
+const sGame_PaletteDataset CFJ_S_SAKURA_KICK[] =
+{
+    { L"Sakura Kick", 0x1490b7e, 0x1490b9e, indexCPS2Sprites_Sakura },
+};
+
+const sGame_PaletteDataset CFJ_S_KARIN_PUNCH[] =
+{
+    { L"Karin Punch", 0x1afe242, 0x1afe262, indexCPS2Sprites_Karin },
+};
+
+const sGame_PaletteDataset CFJ_S_KARIN_KICK[] =
+{
+    { L"Karin Kick", 0x1afe542, 0x1afe562, indexCPS2Sprites_Karin },
+};
+
+const sGame_PaletteDataset CFJ_S_INGRID_PUNCH[] =
+{
+    { L"Ingrid Punch", 0x2bc8e14, 0x2bc8e14 + 0x80 },
+};
+
+const sGame_PaletteDataset CFJ_S_INGRID_KICK[] =
+{
+    { L"Ingrid Kick", 0x2bc9114, 0x2bc9114 + 0x80 },
+};
+
+const sGame_PaletteDataset CFJ_S_CHUNLI_PUNCH[] =
+{
+    { L"Chun-Li Punch", 0x4f9a990, 0x4f9a990 + 0x80, index3SSprites_ChunLi, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_CHUNLI_KICK[] =
+{
+    { L"Chun-Li Kick", 0x4f9af10, 0x4f9af10 + 0x80, index3SSprites_ChunLi, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_YUN_PUNCH[] =
+{
+    { L"Yun Punch", 0x2df17ee, 0x2df17ee + 0x80, index3SSprites_Yun, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_YUN_KICK[] =
+{
+    { L"Yun Kick", 0x2df1aee, 0x2df1aee + 0x80, index3SSprites_Yun, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_ALEX_PUNCH[] =
+{
+    { L"Alex Punch", 0x2319782, 0x2319782 + 0x80, index3SSprites_Alex, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_ALEX_KICK[] =
+{
+    { L"Alex Kick", 0x2319a82, 0x2319a82 + 0x80, index3SSprites_Alex, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_URIEN_PUNCH[] =
+{
+    { L"Urien Punch", 0x24f7174, 0x24f7174 + 0x80, index3SSprites_Urien, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_URIEN_KICK[] =
+{
+    { L"Urien Kick", 0x24f7474, 0x24f7474 + 0x80, index3SSprites_Urien, 0x00 },
+};
+
+// Red Earth/Warzard
+const sGame_PaletteDataset CFJ_S_LEO_PUNCH[] =
+{
+    { L"Leo Punch", 0x27051a4, 0x27051a4 + 0x80, indexRedEarthSprites_Leo, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_LEO_KICK[] =
+{
+    { L"Leo Kick", 0x27054a4, 0x27054a4 + 0x80, indexRedEarthSprites_Leo, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_KENJI_PUNCH[] =
+{
+    { L"Kenji Punch", 0x29901b4, 0x29901b4 + 0x80, indexRedEarthSprites_Kenji, 0x00, &pairNextAndNext },
+    { L"Chains, Kunai", 0x29902b4, 0x29902b4 + 0x80, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hat intro", 0x2990434, 0x2990434 + 0x80, indexRedEarthSprites_Kenji, 0x02 },
+};
+
+const sGame_PaletteDataset CFJ_S_KENJI_KICK[] =
+{
+    { L"Kenji Kick", 0x29904b4, 0x29904b4 + 0x80, indexRedEarthSprites_Kenji, 0x00, &pairNextAndNext },
+    { L"Chains, Kunai", 0x29905b4, 0x29905b4 + 0x80, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hat intro", 0x2990734, 0x2990734 + 0x80, indexRedEarthSprites_Kenji, 0x02 },
+};
+
+const sGame_PaletteDataset CFJ_S_HAUZER_PUNCH[] =
+{
+    { L"Hauzer Punch", 0x176dd70, 0x176dd70 + 0x80, indexRedEarthSprites_Hauzer, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_HAUZER_KICK[] =
+{
+    { L"Hauzer Kick", 0x176e070, 0x176e070 + 0x80, indexRedEarthSprites_Hauzer, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_HYDRON_PUNCH[] =
+{
+    { L"Hydron Punch", 0x196dce4, 0x196dce4 + 0x80, indexRedEarthSprites_Hydron, 0x00 },
+};
+
+const sGame_PaletteDataset CFJ_S_HYDRON_KICK[] =
+{
+    { L"Hydron Kick", 0x196dfe4, 0x196dfe4 + 0x80, indexRedEarthSprites_Hydron, 0x00 },
+};
+
+const sDescTreeNode CFJ_S_DEMITRI_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_DEMITRI_PUNCH, ARRAYSIZE(CFJ_S_DEMITRI_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_DEMITRI_KICK, ARRAYSIZE(CFJ_S_DEMITRI_KICK) },
+};
+
+const sDescTreeNode CFJ_S_ANAKARIS_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_ANAKARIS_PUNCH, ARRAYSIZE(CFJ_S_ANAKARIS_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_ANAKARIS_KICK, ARRAYSIZE(CFJ_S_ANAKARIS_KICK) },
+};
+
+const sDescTreeNode CFJ_S_FELICIA_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_FELICIA_PUNCH, ARRAYSIZE(CFJ_S_FELICIA_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_FELICIA_KICK, ARRAYSIZE(CFJ_S_FELICIA_KICK) },
+};
+
+const sDescTreeNode CFJ_S_JEDAH_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_JEDAH_PUNCH, ARRAYSIZE(CFJ_S_JEDAH_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_JEDAH_KICK, ARRAYSIZE(CFJ_S_JEDAH_KICK) },
+};
+
+const sDescTreeNode CFJ_S_PYRON_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_PYRON_PUNCH, ARRAYSIZE(CFJ_S_PYRON_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_PYRON_KICK, ARRAYSIZE(CFJ_S_PYRON_KICK) },
+};
+
+const sDescTreeNode CFJ_S_RYU_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_RYU_PUNCH, ARRAYSIZE(CFJ_S_RYU_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_RYU_KICK, ARRAYSIZE(CFJ_S_RYU_KICK) },
+};
+
+const sDescTreeNode CFJ_S_GUILE_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_GUILE_PUNCH, ARRAYSIZE(CFJ_S_GUILE_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_GUILE_KICK, ARRAYSIZE(CFJ_S_GUILE_KICK) },
+};
+
+const sDescTreeNode CFJ_S_ZANGIEF_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_ZANGIEF_PUNCH, ARRAYSIZE(CFJ_S_ZANGIEF_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_ZANGIEF_KICK, ARRAYSIZE(CFJ_S_ZANGIEF_KICK) },
+};
+
+const sDescTreeNode CFJ_S_BISON_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_BISON_PUNCH, ARRAYSIZE(CFJ_S_BISON_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_BISON_KICK, ARRAYSIZE(CFJ_S_BISON_KICK) },
+};
+
+const sDescTreeNode CFJ_S_SHINAKUMA_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_SHINAKUMA_PUNCH, ARRAYSIZE(CFJ_S_SHINAKUMA_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_SHINAKUMA_KICK, ARRAYSIZE(CFJ_S_SHINAKUMA_KICK) },
+};
+
+const sDescTreeNode CFJ_S_GUY_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_GUY_PUNCH, ARRAYSIZE(CFJ_S_GUY_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_GUY_KICK, ARRAYSIZE(CFJ_S_GUY_KICK) },
+};
+
+const sDescTreeNode CFJ_S_ROSE_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_ROSE_PUNCH, ARRAYSIZE(CFJ_S_ROSE_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_ROSE_KICK, ARRAYSIZE(CFJ_S_ROSE_KICK) },
+};
+
+const sDescTreeNode CFJ_S_SAKURA_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_SAKURA_PUNCH, ARRAYSIZE(CFJ_S_SAKURA_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_SAKURA_KICK, ARRAYSIZE(CFJ_S_SAKURA_KICK) },
+};
+
+const sDescTreeNode CFJ_S_KARIN_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_KARIN_PUNCH, ARRAYSIZE(CFJ_S_KARIN_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_KARIN_KICK, ARRAYSIZE(CFJ_S_KARIN_KICK) },
+};
+
+const sDescTreeNode CFJ_S_INGRID_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_INGRID_PUNCH, ARRAYSIZE(CFJ_S_INGRID_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_INGRID_KICK, ARRAYSIZE(CFJ_S_INGRID_KICK) },
+};
+
+const sDescTreeNode CFJ_S_CHUNLI_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_CHUNLI_PUNCH, ARRAYSIZE(CFJ_S_CHUNLI_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_CHUNLI_KICK, ARRAYSIZE(CFJ_S_CHUNLI_KICK) },
+};
+
+const sDescTreeNode CFJ_S_YUN_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_YUN_PUNCH, ARRAYSIZE(CFJ_S_YUN_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_YUN_KICK, ARRAYSIZE(CFJ_S_YUN_KICK) },
+};
+
+const sDescTreeNode CFJ_S_ALEX_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_ALEX_PUNCH, ARRAYSIZE(CFJ_S_ALEX_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_ALEX_KICK, ARRAYSIZE(CFJ_S_ALEX_KICK) },
+};
+
+const sDescTreeNode CFJ_S_URIEN_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_URIEN_PUNCH, ARRAYSIZE(CFJ_S_URIEN_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_URIEN_KICK, ARRAYSIZE(CFJ_S_URIEN_KICK) },
+};
+
+const sDescTreeNode CFJ_S_LEO_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_LEO_PUNCH, ARRAYSIZE(CFJ_S_LEO_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_LEO_KICK, ARRAYSIZE(CFJ_S_LEO_KICK) },
+};
+
+const sDescTreeNode CFJ_S_KENJI_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_KENJI_PUNCH, ARRAYSIZE(CFJ_S_KENJI_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_KENJI_KICK, ARRAYSIZE(CFJ_S_KENJI_KICK) },
+};
+
+const sDescTreeNode CFJ_S_HAUZER_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_HAUZER_PUNCH, ARRAYSIZE(CFJ_S_HAUZER_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_HAUZER_KICK, ARRAYSIZE(CFJ_S_HAUZER_KICK) },
+};
+
+const sDescTreeNode CFJ_S_HYDRON_COLLECTION[] =
+{
+    { L"Punch", DESC_NODETYPE_TREE, (void*)CFJ_S_HYDRON_PUNCH, ARRAYSIZE(CFJ_S_HYDRON_PUNCH) },
+    { L"Kick", DESC_NODETYPE_TREE, (void*)CFJ_S_HYDRON_KICK, ARRAYSIZE(CFJ_S_HYDRON_KICK) },
+};
+
+const sDescTreeNode CFJ_S_UNITS[] =
+{
+    // darkstalker
+    { L"Demitri",       DESC_NODETYPE_TREE, (void*)CFJ_S_DEMITRI_COLLECTION, ARRAYSIZE(CFJ_S_DEMITRI_COLLECTION) },
+    { L"Anakaris",      DESC_NODETYPE_TREE, (void*)CFJ_S_ANAKARIS_COLLECTION, ARRAYSIZE(CFJ_S_ANAKARIS_COLLECTION) },
+    { L"Felicia",       DESC_NODETYPE_TREE, (void*)CFJ_S_FELICIA_COLLECTION, ARRAYSIZE(CFJ_S_FELICIA_COLLECTION) },
+    { L"Jedah",         DESC_NODETYPE_TREE, (void*)CFJ_S_JEDAH_COLLECTION, ARRAYSIZE(CFJ_S_JEDAH_COLLECTION) },
+    { L"Pyron",         DESC_NODETYPE_TREE, (void*)CFJ_S_PYRON_COLLECTION, ARRAYSIZE(CFJ_S_PYRON_COLLECTION) },
+
+    // sf2
+    { L"Ryu",           DESC_NODETYPE_TREE, (void*)CFJ_S_RYU_COLLECTION, ARRAYSIZE(CFJ_S_RYU_COLLECTION) },
+    { L"Guile",         DESC_NODETYPE_TREE, (void*)CFJ_S_GUILE_COLLECTION, ARRAYSIZE(CFJ_S_GUILE_COLLECTION) },
+    { L"Zangief",       DESC_NODETYPE_TREE, (void*)CFJ_S_ZANGIEF_COLLECTION, ARRAYSIZE(CFJ_S_ZANGIEF_COLLECTION) },
+    { L"M.Bison",       DESC_NODETYPE_TREE, (void*)CFJ_S_BISON_COLLECTION, ARRAYSIZE(CFJ_S_BISON_COLLECTION) },
+    { L"Shin Akuma",    DESC_NODETYPE_TREE, (void*)CFJ_S_SHINAKUMA_COLLECTION, ARRAYSIZE(CFJ_S_SHINAKUMA_COLLECTION) },
+    
+    // sf alpha
+    { L"Guy",           DESC_NODETYPE_TREE, (void*)CFJ_S_GUY_COLLECTION, ARRAYSIZE(CFJ_S_GUY_COLLECTION) },
+    { L"Rose",          DESC_NODETYPE_TREE, (void*)CFJ_S_ROSE_COLLECTION, ARRAYSIZE(CFJ_S_ROSE_COLLECTION) },
+    { L"Sakura",        DESC_NODETYPE_TREE, (void*)CFJ_S_SAKURA_COLLECTION, ARRAYSIZE(CFJ_S_SAKURA_COLLECTION) },
+    { L"Karin",         DESC_NODETYPE_TREE, (void*)CFJ_S_KARIN_COLLECTION, ARRAYSIZE(CFJ_S_KARIN_COLLECTION) },
+    
+    // sfiii
+    { L"Ingrid",        DESC_NODETYPE_TREE, (void*)CFJ_S_INGRID_COLLECTION, ARRAYSIZE(CFJ_S_INGRID_COLLECTION) },
+    { L"Chun-Li",       DESC_NODETYPE_TREE, (void*)CFJ_S_CHUNLI_COLLECTION, ARRAYSIZE(CFJ_S_CHUNLI_COLLECTION) },
+    { L"Yun",           DESC_NODETYPE_TREE, (void*)CFJ_S_YUN_COLLECTION, ARRAYSIZE(CFJ_S_YUN_COLLECTION) },
+    { L"Alex",          DESC_NODETYPE_TREE, (void*)CFJ_S_ALEX_COLLECTION, ARRAYSIZE(CFJ_S_ALEX_COLLECTION) },
+    { L"Urien",         DESC_NODETYPE_TREE, (void*)CFJ_S_URIEN_COLLECTION, ARRAYSIZE(CFJ_S_URIEN_COLLECTION) },
+    
+    // redearth
+    { L"Leo",           DESC_NODETYPE_TREE, (void*)CFJ_S_LEO_COLLECTION, ARRAYSIZE(CFJ_S_LEO_COLLECTION) },
+    { L"Kenji",         DESC_NODETYPE_TREE, (void*)CFJ_S_KENJI_COLLECTION, ARRAYSIZE(CFJ_S_KENJI_COLLECTION) },
+    { L"Hauzer",        DESC_NODETYPE_TREE, (void*)CFJ_S_HAUZER_COLLECTION, ARRAYSIZE(CFJ_S_HAUZER_COLLECTION) },
+    { L"Hydron",        DESC_NODETYPE_TREE, (void*)CFJ_S_HYDRON_COLLECTION, ARRAYSIZE(CFJ_S_HYDRON_COLLECTION) },
 };

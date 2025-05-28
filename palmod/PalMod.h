@@ -61,6 +61,8 @@ public:
     CGameLoad* GetLoader() { return &GameLoader; };
     CGameClass* GetCurrGame() { return CurrGame; };
     void SetGameClass(CGameClass* NewGame);
+    // This is weird and should only be used for CFE/CFJ
+    void UpdateForNewImageGameFlag();
 
     CImgDat* GetImgFile() { return &ImgBase; };
     CPalGroup* GetBasePal() { return BasePal; };

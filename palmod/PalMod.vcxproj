@@ -245,6 +245,7 @@
     <ClCompile Include="game\Game_AvgrsGS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
+    <ClCompile Include="Game\Game_CFE_P.cpp" />
     <ClCompile Include="Game\Game_CVS1_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />

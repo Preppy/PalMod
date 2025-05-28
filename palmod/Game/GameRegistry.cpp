@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 236, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 237, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -196,6 +196,7 @@ namespace KnownGameInfo
     CGameClass* Make_BSSMSJR_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BSSMSJR_SNES(nConfirmedROMSize); }
     CGameClass* Make_BtlKRoad_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BtlKRoad_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_CFE_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFE_P(nConfirmedROMSize); }
+    CGameClass* Make_CFJ_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFJ_S(nConfirmedROMSize); }
     CGameClass* Make_CFTE_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFTE_SNES(nConfirmedROMSize); }
     CGameClass* Make_COTA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_A(nConfirmedROMSize); }
     CGameClass* Make_COTA_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_S(nConfirmedROMSize); }
@@ -552,6 +553,13 @@ namespace KnownGameInfo
             { CFE_P,        L"Capcom Fighting Evolution", L"Capcom Fighting Evolution (PS2)|SLUS_209.50|", GamePlatform::PS2 },
             Make_CFE_P,
             CGame_CFE_P::GetRule,
+        },
+        {
+            CFJ_S,
+            L"Capcom Fighting Jam (Steam)",
+            { CFJ_S,           L"CFE/CFJ (READ-ONLY!)", L"CFJ (Steam: Read-only!)|cfj.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            Make_CFJ_S,
+            CGame_CFJ_S::GetRule,
         },
         {
             CFTE_SNES,
@@ -2217,7 +2225,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 236, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 237, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

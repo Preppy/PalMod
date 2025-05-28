@@ -161,6 +161,22 @@ CPalModApp* GetHost()
     return &theApp;
 }
 
+void CPalModApp::UpdateForNewImageGameFlag()
+{
+    if (CurrGame)
+    {
+        //Load the game's image set
+        m_fIsImageLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame());
+
+        if (!m_fIsImageLoaded)
+        {
+            CString strMessage;
+            strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, IMGDATFILE, ImgStr, IMGDATFILE);
+            MessageBox(g_appHWnd, strMessage, GetAppName(), MB_ICONERROR);
+        }
+    }
+}
+
 void CPalModApp::SetGameClass(CGameClass* NewGame)
 {
     safe_delete(CurrGame);
@@ -171,15 +187,7 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     //Set ptr to main pal group
     BasePal = CurrGame->GetPalGroup();
 
-    //Load the game's image set
-    m_fIsImageLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame());
-                                                                                                              
-    if (!m_fIsImageLoaded)
-    {
-        CString strMessage;
-        strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, IMGDATFILE, ImgStr, IMGDATFILE);
-        MessageBox(g_appHWnd, strMessage, GetAppName(), MB_ICONERROR);
-    }
+    UpdateForNewImageGameFlag();
 }
 
 void CPalModApp::CleanUp()
