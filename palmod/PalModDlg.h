@@ -28,6 +28,20 @@ enum class eVerifyType
     VM_FILECHANGE
 };
 
+// GIF headers use an odd number of bytes, so avoid having our struct padded
+#pragma pack(1)
+struct GIFHeader
+{
+    // packing per https://www.w3.org/Graphics/GIF/spec-gif89a.txt
+    byte type[3];
+    byte version[3];
+    uint16_t width;
+    uint16_t height;
+    byte flags;
+    byte bgcolor;
+    byte aspectratio;
+};
+
 class CPalDropTarget : public COleDropTarget
 {
 public:
@@ -452,6 +466,8 @@ public:
     // Generic palette data files
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromBMP(LPCWSTR pszFileName);
+    bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header);
+    bool LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData);
     bool LoadPaletteFromGIF(LPCWSTR pszFileName);
     bool LoadPaletteFromGPL(LPCWSTR pszFileName);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);

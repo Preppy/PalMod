@@ -1354,7 +1354,8 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     }
     else
     {
-        MessageBox(L"Error: this is an animated GIF.  Only static GIFs can be used as a replacement preview.", GetHost()->GetAppName(), MB_ICONERROR);
+        std::vector<COLORREF> rgclrPaletteData;
+        GetHost()->GetPalModDlg()->LoadDataFromGIFFile(pszTextureLocation, rgclrPaletteData);
 
         return false;
     }

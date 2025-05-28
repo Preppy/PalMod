@@ -2,21 +2,7 @@
 #include "PalMod.h"
 #include "ImgOutDlg.h"
 
-// GIF headers use an odd number of bytes, so avoid having our struct padded
-#pragma pack(1)
-struct GIFHeader
-{
-    // packing per https://www.w3.org/Graphics/GIF/spec-gif89a.txt
-    byte type[3];
-    byte version[3];
-    uint16_t width;
-    uint16_t height;
-    byte flags;
-    byte bgcolor;
-    byte aspectratio;
-};
-
-bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, CString& strPossibleError)
+bool CPalModDlg::LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header)
 {
     bool fIsValidGIF = false;
 
@@ -41,23 +27,34 @@ bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, CString& 
             }
             else
             {
-                strPossibleError = L"GIF using local color data: we don't support those.";
+                MessageBox(L"Error: GIF using local color data: we don't support those.", GetHost()->GetAppName(), MB_ICONERROR);
+                SetStatusText(L"GIF using local color data: we don't support those.");
             }
         }
         else
         {
-            strPossibleError = L"This is not a supported GIF file.";
+            MessageBox(L"Error: this is not a supported GIF file", GetHost()->GetAppName(), MB_ICONERROR);
+            SetStatusText(L"That is not a supported  GIF file.");
         }
+    }
+    else if ((gif_header.type[0] == 'R') &&
+             (gif_header.type[1] == 'I') &&
+             (gif_header.type[2] == 'F') &&
+             (gif_header.version[0] == 'F'))
+    {
+        MessageBox(L"Error: this is a WEBP file not a GIF.  WEBP files are not currently supported.", GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(L"WEBP is not supported.");
     }
     else
     {
-        strPossibleError = L"This is not a GIF file.";
+        MessageBox(L"Error: this is not a GIF file", GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(L"That is not a GIF file.");
     }
 
     return fIsValidGIF;
 }
 
-bool LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData, CString& strPossibleError)
+bool CPalModDlg::LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData)
 {
     CFile sourceGIF;
 
@@ -66,7 +63,7 @@ bool LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPal
     {
         GIFHeader header = {};
 
-        if (LoadGIFHeaderAndValidate(sourceGIF, header, strPossibleError))
+        if (LoadGIFHeaderAndValidate(sourceGIF, header))
         {
             uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
             const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
@@ -97,7 +94,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
     CString strError = L"Unknown error loading GIF file.";
     std::vector<COLORREF> rgclrPaletteData;
 
-    if (LoadDataFromGIFFile(pszFileName, rgclrPaletteData, strError))
+    if (LoadDataFromGIFFile(pszFileName, rgclrPaletteData))
     {
         ProcChange();
 
@@ -201,12 +198,6 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
         OutputDebugString(L"gifreader: done!\n");
     }
 
-    if (!fSuccess)
-    {
-        MessageBox(L"Error: This is not a valid GIF file.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(strError);
-    }
-
     return fSuccess;
 }
 
@@ -219,8 +210,9 @@ void CImgOutDlg::UpdatePaletteInGIF(CString output_str)
     {
         CString strPossibleError;
         GIFHeader header = {};
+        std::vector<COLORREF> rgclrPaletteData;
 
-        if (LoadGIFHeaderAndValidate(sourceGIF, header, strPossibleError))
+        if (GetHost()->GetPalModDlg()->LoadGIFHeaderAndValidate(sourceGIF, header))
         {
             const uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
             const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
