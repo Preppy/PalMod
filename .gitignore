@@ -684,3 +684,10 @@ palmod/Release/GemFighterE.txt
 /palmod/previews
 palmod/Release/CVS1SE.txt
 palmod/x64/Release/UnknownE.txt
+/palmod/.vs/PalMod
+palmod/PalMod/x64/Release/vc143.pdb
+palmod/PalMod/x64/Release/PalMod.res
+palmod/PalMod/x64/Release/PalMod.log
+palmod/PalMod/x64/Release/PalMod.ipdb
+palmod/PalMod/x64/Release/PalMod.iobj
+palmod/PalMod/x64/Release/PalMod.exe.recipe

@@ -877,14 +877,14 @@ void CImgDisp::_FlipCustomPreviewLayerIfNeeded(SpriteImportDirection direction, 
 {
     if (direction == SpriteImportDirection::UpsideDown)
     {
-        size_t nTotalLength = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
+        const int nTotalLength = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
         uint8_t* pFlippedBuffer = new uint8_t[nTotalLength];
 
         // We need to flip this line by line
-        size_t iPos = 0;
+        int iPos = 0;
         for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
         {
-            size_t nLineStart = (nTotalLength - ((nLinePosition + 1) * m_nTextureOverrideW[nPositionToLoadTo]));
+            int nLineStart = (nTotalLength - ((nLinePosition + 1) * m_nTextureOverrideW[nPositionToLoadTo]));
 
             for (int nColumnPosition = 0; nColumnPosition < m_nTextureOverrideW[nPositionToLoadTo]; nColumnPosition++)
             {
@@ -921,7 +921,7 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         }
     }
 
-    const size_t nDataLen = width * height;
+    const size_t nDataLen = static_cast<size_t>(width) * static_cast<size_t>(height);
 
     if ((nTotalPalSize > 0xff) ||
         ((m_nImgAmt == 1) && (nTotalPalSize >= nImagePalSize)))
@@ -1078,8 +1078,8 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     const bool fGameSuportedByKawaks = ((currColMode == ColMode::COLMODE_RGB444_BE) || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
     bool fUseWinKawaksShift = fGameSuportedByKawaks && GetPreviewDropWinKawaksFirst();
 
-    const bool fIsARGB = ((nDataLen * 4) == nImageSize);
-    const bool fIsRGB = ((nDataLen * 3) == nImageSize);
+    const bool fIsARGB = ((static_cast<size_t>(nDataLen) * 4) == nImageSize);
+    const bool fIsRGB = ((static_cast<size_t>(nDataLen) * 3) == nImageSize);
     bool fFoundOne = false;
     unsigned nFirstLine = height, nLastLine = 0, nLeftMost = width, nRightMost = 0;
     CString strMsg;
