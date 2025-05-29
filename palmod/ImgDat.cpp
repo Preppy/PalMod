@@ -40,10 +40,7 @@ bool CImgDat::FlushImageBuffer()
     {
         for (imgMapIter it = nImgMap->begin(); it != nImgMap->end(); ++it)
         {
-            if (it->second)
-            {
-                delete it->second;
-            }
+            safe_delete(it->second);
         }
 
         if (!nImgMap->empty())
@@ -83,13 +80,16 @@ bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8
     // We have an individual entry here for every game so we can optimize image loads
     for (uint16_t nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++)
     {
-        uint16_t nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
+        const uint16_t nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
 
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"\tCImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", nImageUnitCounterToUse);
         OutputDebugString(strDebugInfo);
 #endif
-        nImgMap->insert({ nImageUnitCounterToUse, new ImgInfoList });
+        if (nImgMap->find(nImageUnitCounterToUse) == nImgMap->cend())
+        {
+            nImgMap->insert({ nImageUnitCounterToUse, new ImgInfoList });
+        }
     }
 
 #if IMGDAT_DEBUG

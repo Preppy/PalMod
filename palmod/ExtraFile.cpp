@@ -1236,6 +1236,7 @@ void CGameWithExtrasFile::OpenExtraFile()
             wchar_t* pszExeFileName = wcsrchr(szExtraFileWithPath, L'\\') + 1;
             wcsncpy(pszExeFileName, m_pszExtraFilename, ARRAYSIZE(szExtraFileWithPath) - dwCharsUsed);
         }
+        szExtraFileWithPath[ARRAYSIZE(szExtraFileWithPath) - 1] = 0;
 
         WIN32_FILE_ATTRIBUTE_DATA fad = {};
         

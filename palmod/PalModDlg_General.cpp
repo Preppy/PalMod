@@ -219,7 +219,7 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
 
 bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, int nPosition)
 {
-    // Note that used pathing is off CurentWorkingDirectory\\Previews
+    // Note that used pathing is off CurrentWorkingDirectory\\Previews
     // Note that since we key off of combobox palette names at this point, we can only do this for image 0
     wchar_t szUnit[MAX_DESCRIPTION_LENGTH], szNode[MAX_DESCRIPTION_LENGTH], szPalette[MAX_DESCRIPTION_LENGTH];
     bool fLoadedImage = false;

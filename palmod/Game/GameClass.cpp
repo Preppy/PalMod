@@ -792,6 +792,7 @@ void CGameClass::InitDataBuffer()
 {
     switch (GetGameColorByteLength())
     {
+        // If you leak in here you're calling the init routines twice
         case 2:
         {
             m_pppDataBuffer = new uint16_t * *[m_nUnitAmt];
