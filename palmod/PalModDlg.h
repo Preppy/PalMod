@@ -29,7 +29,7 @@ enum class eVerifyType
 };
 
 // GIF headers use an odd number of bytes, so avoid having our struct padded
-#pragma pack(1)
+#pragma pack(push, 1)
 struct GIFHeader
 {
     // packing per https://www.w3.org/Graphics/GIF/spec-gif89a.txt
@@ -41,6 +41,7 @@ struct GIFHeader
     byte bgcolor;
     byte aspectratio;
 };
+#pragma pack(pop)
 
 class CPalDropTarget : public COleDropTarget
 {
