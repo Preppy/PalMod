@@ -557,7 +557,7 @@ namespace KnownGameInfo
         {
             CFJ_S,
             L"Capcom Fighting Jam (Steam)",
-            { CFJ_S,           L"CFE/CFJ (READ-ONLY!)", L"CFJ (Steam: Read-only!)|cfj.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            { CFJ_S,           L"CFE/CFJ (READ-ONLY!)", L"Capcom Fighting Evolution (Steam: Read-only!)|cfj.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
             Make_CFJ_S,
             CGame_CFJ_S::GetRule,
         },
@@ -571,7 +571,7 @@ namespace KnownGameInfo
         {
             COTA_A,
             L"X-Men: COTA (CPS2 Arcade)",
-            { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
+            { COTA_A,           L"COTA", L"COTA (CPS2)|xmn*.05*|", GamePlatform::CapcomCPS12 },
             Make_COTA_A,
             CGame_COTA_A::GetRule,
         },
@@ -585,21 +585,21 @@ namespace KnownGameInfo
         {
             CVS1_A,
             L"Capcom vs SNK Millenium Fight (NAOMI)",
-            { CVS1_A,           L"CvS1", L"CvS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::SegaNAOMI },
+            { CVS1_A,           L"CvS1", L"CvS1 (NAOMI)|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::SegaNAOMI },
             Make_CVS1_A,
             CGame_CVS1_A::GetRule,
         },
         {
             CVS1_S,
             L"Capcom vs SNK Millenium Fight (Steam)",
-            { CVS1_S,           L"CvS1", L"CvS1|cvs1.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            { CVS1_S,           L"CvS1", L"CvS1 (Steam)|cvs1.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
             Make_CVS1_S,
             CGame_CVS1_S::GetRule,
         },
         {
             CVS2_A,
             L"CvS2 (NAOMI Arcade)",
-            { CVS2_A,           L"CvS2", L"CvS2 (Naomi)|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
+            { CVS2_A,           L"CvS2", L"CvS2 (NAOMI)|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
             Make_CVS2_A,
             CGame_CVS2_A::GetRule,
         },
@@ -877,7 +877,7 @@ namespace KnownGameInfo
         {
             HSF2_A,
             L"Hyper Street Fighter 2",
-            { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04) (CPS2)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_HSF2_A,
             CGame_HSF2_A::GetRule,
         },
@@ -1261,7 +1261,7 @@ namespace KnownGameInfo
         {
             MSH_A,
             L"MSH (CPS2 Arcade)",
-            { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
+            { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b) (CPS2)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
             Make_MSH_A,
             CGame_MSH_A::GetRule,
         },
@@ -1275,7 +1275,7 @@ namespace KnownGameInfo
         {
             MVC_A,
             L"MvC (CPS2 Arcade)",
-            { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (Arcade)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
+            { MVC_A,            L"Marvel vs Capcom (CPS2)", L"MvC (CPS2)|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
             Make_MVC_A,
             CGame_MVC_A::GetRule,
         },
@@ -1682,7 +1682,7 @@ namespace KnownGameInfo
         {
             SAMSHO5_A,
             L"Samurai Shodown V (Neo-Geo)",
-            { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V|270-p1.*;p1.bin;270-p1c.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+            { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V (Neo-Geo)|270-p1.*;p1.bin;270-p1c.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
             Make_SAMSHO5_A,
             CGame_SAMSHO5_A::GetRule,
         },
@@ -1724,7 +1724,7 @@ namespace KnownGameInfo
         {
             SFA1_A,
             L"SFA1 (CPS2 Arcade)",
-            { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+            { SFA1_A,           L"SFA1", L"SFA1 (CPS2)|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
             Make_SFA1_A,
             CGame_SFA1_A::GetRule,
         },
@@ -1738,7 +1738,7 @@ namespace KnownGameInfo
         {
             SFA2_A,
             L"SFA2 (CPS2 Arcade)",
-            { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+            { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08) (CPS2)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
             Make_SFA2_A,
             CGame_SFA2_A::GetRule,
         },
@@ -1759,7 +1759,7 @@ namespace KnownGameInfo
         {
             SFA3_A,
             L"SFA3 (CPS2 Arcade)",
-            { SFA3_A,           L"SFA3", L"SFA3|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+            { SFA3_A,           L"SFA3", L"SFA3 (CPS2)|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
             Make_SFA3_A,
             CGame_SFA3_A::GetRule,
         },
@@ -1773,21 +1773,21 @@ namespace KnownGameInfo
         {
             SFZ3U_A,
             L"Street Fighter Zero 3 Upper (NAOMI)",
-            { SFZ3U_A,          L"SFZ3U", L"SFZ3U|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
+            { SFZ3U_A,          L"SFA3U/SFZ3U", L"SFA3U/SFZ3U (NAOMI)|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
             Make_SFZ3U_A,
             CGame_SFZ3U_A::GetRule,
         },
         {
             SFZ3U_S,
             L"Street Fighter Zero 3 Upper (Steam)",
-            { SFZ3U_S,           L"SFZ3U", L"SFZ3U|z3u.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            { SFZ3U_S,           L"SFA3U/SFZ3U", L"SFA3U/SFZ3U (Steam)|z3u.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
             Make_SFZ3U_S,
             CGame_SFZ3U_S::GetRule,
         },
         {
             SFIII1_A,
             L"SFIII:NG (CPS3 Arcade)",
-            { SFIII1_A,         L"SFIII:NG", L"SFIII:NG (Arcade)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
+            { SFIII1_A,         L"SFIII:NG", L"SFIII:NG (CPS3)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
             Make_SFIII1_A,
             CGame_SFIII1_A::GetRule,
         },
@@ -1813,7 +1813,7 @@ namespace KnownGameInfo
         {
             SFIII2_A,
             L"SFIII:2I (CPS3 Arcade)",
-            { SFIII2_A,         L"SFIII:2I", L"SFIII:2I (Arcade)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
+            { SFIII2_A,         L"SFIII:2I", L"SFIII:2I (CPS3)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
             Make_SFIII2_A,
             CGame_SFIII2_A::GetRule,
         },
@@ -1830,7 +1830,7 @@ namespace KnownGameInfo
         {
             SFIII3_A,
             L"SFIII:3S (CPS3 Arcade)",
-            { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
+            { SFIII3_A,         L"SFIII:3S", L"SFIII:3S (51), Gill glow/X.C.O.P.Y. (10) (CPS3)|10;51|", GamePlatform::CapcomCPS3 },
             Make_SFIII3_A,
             CGame_SFIII3_A::GetRule,
         },
@@ -1911,7 +1911,7 @@ namespace KnownGameInfo
         {
             SF2CE_A,
             L"SF2:CE (CPS1 Arcade)",
-            { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23) (CPS2)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SF2CE_A,
             CGame_SF2CE_A::GetRule,
         },
@@ -1925,7 +1925,7 @@ namespace KnownGameInfo
         {
             SF2HF_A,
             L"SF2:HF (CPS1 Arcade)",
-            { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23) (CPS2)|s2t*21.6f;s2t*22.7f;s2t*_23.8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SF2HF_A,
             CGame_SF2HF_A::GetRule,
         },
@@ -1967,7 +1967,7 @@ namespace KnownGameInfo
         {
             SVCPLUSA_A,
             L"SvC Plus A",
-            { SVCPLUSA_A,       L"SNK vs Capcom", L"SNK vs Capcom|svc-p2pl.bin;svc-p2sp.bin|", GamePlatform::NEOGEO },
+            { SVCPLUSA_A,       L"SNK vs Capcom", L"SNK vs Capcom (Neo-Geo)|svc-p2pl.bin;svc-p2sp.bin|", GamePlatform::NEOGEO },
             Make_SVCPLUSA_A,
             CGame_SVCPLUSA_A::GetRule_Normal,
         },
@@ -1981,7 +1981,7 @@ namespace KnownGameInfo
         {
             SSF2T_A,
             L"SSF2T (CPS2 Arcade)",
-            { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08), New Legacy Extensions (*.09)|sfx*.03*;sfx*.04a;sf*.08;sfnl.03;sfnl.04;sfnl.09|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08), New Legacy Extensions (*.09) (CPS2)|sfx*.03*;sfx*.04a;sf*.08;sfnl.03;sfnl.04;sfnl.09|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SSF2T_A,
             CGame_SSF2T_A::GetRule,
         },
@@ -2009,7 +2009,7 @@ namespace KnownGameInfo
         {
             GEMFIGHTER_A,
             L"Super Gem Fighter Mini Mix (USA 970904)",
-            { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", GamePlatform::CapcomCPS12 },
+            { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter (CPS2)|pcf*.07|", GamePlatform::CapcomCPS12 },
             Make_GEMFIGHTER_A,
             CGame_GEMFIGHTER_A::GetRule,
         },
@@ -2023,7 +2023,7 @@ namespace KnownGameInfo
         {
             SPF2T_A,
             L"Super Puzzle Fighter II Turbo (CPS2 Arcade)",
-            { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*;pzfcb.04;pzfxp.04|", GamePlatform::CapcomCPS12 },
+            { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo (CPS2)|pzf.04*;pzfcb.04;pzfxp.04|", GamePlatform::CapcomCPS12 },
             Make_SPF2T_A,
             CGame_SPF2T_A::GetRule,
         },
@@ -2096,7 +2096,7 @@ namespace KnownGameInfo
         {
             VampireNightWarriors_A,
             L"Vampire: The Night Warriors (CPS2)",
-            { VampireNightWarriors_A,   L"Vampire: The Night Warriors", L"Vampire: The Night Warriors: Characters (rom 9), Portraits (rom 4)|vam*.09?; vam*.04?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+            { VampireNightWarriors_A,   L"Vampire: The Night Warriors", L"Vampire: The Night Warriors: Characters (rom 9), Portraits (rom 4) (CPS2)|vam*.09?; vam*.04?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VampireNightWarriors_A,
             CGame_VampireNightWarriors_A::GetRule,
         },
@@ -2110,7 +2110,7 @@ namespace KnownGameInfo
         {
             VampireHunter_A,
             L"Vampire Hunter (CPS2)",
-            { VampireHunter_A,          L"Vampire Hunter: Darkstalkers' Revenge", L"Vampire Hunter: Darkstalkers' Revenge|vph?.09?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+            { VampireHunter_A,          L"Vampire Hunter: Darkstalkers' Revenge", L"Vampire Hunter: Darkstalkers' Revenge (CPS2)|vph?.09?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VampireHunter_A,
             CGame_VampireHunter_A::GetRule,
         },
@@ -2124,7 +2124,7 @@ namespace KnownGameInfo
         {
             VHUNT2_A,
             L"Vampire Hunter 2 (CPS2 Arcade)",
-            { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+            { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2 (CPS2)|vh2j.09|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VHUNT2_A,
             CGame_VHUNT2_A::GetRule,
         },
@@ -2138,7 +2138,7 @@ namespace KnownGameInfo
         {
             VSAV_A,
             L"Vampire Savior (CPS2 Arcade)",
-            { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+            { VSAV_A,           L"Vampire Savior", L"Vampire Savior (CPS2)|vm3*.10b|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VSAV_A,
             CGame_VSAV_A::GetRule,
         },
@@ -2152,7 +2152,7 @@ namespace KnownGameInfo
         {
             VSAV2_A,
             L"Vampire Savior 2 (CPS2 Arcade)",
-            { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+            { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2 (CPS2)|vs2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VSAV2_A,
             CGame_VSAV2_A::GetRule,
         },
@@ -2194,7 +2194,7 @@ namespace KnownGameInfo
         {
             XMVSF_A,
             L"XMvSF (CPS2 Arcade)",
-            { XMVSF_A,          L"XMvSF", L"XMvSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
+            { XMVSF_A,          L"XMvSF", L"XMvSF (CPS2)|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
             Make_XMVSF_A,
             CGame_XMVSF_A::GetRule,
         },
