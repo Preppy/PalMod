@@ -70,12 +70,13 @@ const sGame_PaletteDataset CFE_P_FELICIA_KICK[] =
 
 const sGame_PaletteDataset CFE_P_JEDAH_PUNCH[] =
 {
-    { L"Jedah Punch", 0x1e4f10, 0x1e4f30, indexCPS2Sprites_Vamp_Jedah },
+    // Note that Jedah-PS2 doesn't appear to have his Blood palettes
+    { L"Jedah Punch", 0x1e4f10, 0x1e4f30, indexCPS2Sprites_Vamp_Jedah, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_JEDAH_KICK[] =
 {
-    { L"Jedah Kick", 0x1e4f30, 0x1e4f50, indexCPS2Sprites_Vamp_Jedah },
+    { L"Jedah Kick", 0x1e4f30, 0x1e4f50, indexCPS2Sprites_Vamp_Jedah, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_PYRON_PUNCH[] =
@@ -193,83 +194,84 @@ const sGame_PaletteDataset CFE_P_INGRID_KICK[] =
 
 const sGame_PaletteDataset CFE_P_CHUNLI_PUNCH[] =
 {
-    { L"Chun-Li Punch", 0x1e51d0, 0x1e5250 },
+    { L"Chun-Li Punch", 0x1e51d0, 0x1e5250, index3SSprites_ChunLi, 0x00  },
 };
 
 const sGame_PaletteDataset CFE_P_CHUNLI_KICK[] =
 {
-    { L"Chun-Li Kick", 0x1e5250, 0x1e52d0 },
+    { L"Chun-Li Kick", 0x1e5250, 0x1e52d0, index3SSprites_ChunLi, 0x00  },
 };
 
 const sGame_PaletteDataset CFE_P_YUN_PUNCH[] =
 {
-    { L"Yun Punch", 0x1e52d0, 0x1e5350 },
+    { L"Yun Punch", 0x1e52d0, 0x1e5350, index3SSprites_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_YUN_KICK[] =
 {
-    { L"Yun Kick", 0x1e5350, 0x1e53d0 },
+    { L"Yun Kick", 0x1e5350, 0x1e53d0, index3SSprites_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_ALEX_PUNCH[] =
 {
-    { L"Alex Punch", 0x1e53d0, 0x1e5450 },
+    { L"Alex Punch", 0x1e53d0, 0x1e5450, index3SSprites_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_ALEX_KICK[] =
 {
-    { L"Alex Kick", 0x1e5450, 0x1e54d0 },
+    { L"Alex Kick", 0x1e5450, 0x1e54d0, index3SSprites_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_URIEN_PUNCH[] =
 {
-    { L"Urien Punch", 0x1e54d0, 0x1e5550 },
+    { L"Urien Punch", 0x1e54d0, 0x1e5550, index3SSprites_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_URIEN_KICK[] =
 {
-    { L"Urien Kick", 0x1e5550, 0x1e55d0 },
+    { L"Urien Kick", 0x1e5550, 0x1e55d0, index3SSprites_Urien, 0x00 },
 };
 
 // Red Earth/Warzard
 const sGame_PaletteDataset CFE_P_LEO_PUNCH[] =
 {
-    { L"Leo Punch", 0x1e55d0, 0x1e5650 },
+    { L"Leo Punch", 0x1e55d0, 0x1e5650, indexRedEarthSprites_Leo, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_LEO_KICK[] =
 {
-    { L"Leo Kick", 0x1e5650, 0x1e56d0 },
+    { L"Leo Kick", 0x1e5650, 0x1e56d0, indexRedEarthSprites_Leo, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_KENJI_PUNCH[] =
 {
-    { L"Kenji Punch", 0x1e56d0, 0x1e5750 },
+    // Note that Kenji-PS2 is different than Kenji-RedEarth or Kenji-Steam
+    { L"Kenji Punch", 0x1e56d0, 0x1e5750, indexRedEarthSprites_Kenji, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_KENJI_KICK[] =
 {
-    { L"Kenji Kick", 0x1e5750, 0x1e57d0 },
+    { L"Kenji Kick", 0x1e5750, 0x1e57d0, indexRedEarthSprites_Kenji, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_HAUZER_PUNCH[] =
 {
-    { L"Hauzer Punch", 0x1e57d0, 0x1e5850 },
+    { L"Hauzer Punch", 0x1e57d0, 0x1e5850, indexRedEarthSprites_Hauzer, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_HAUZER_KICK[] =
 {
-    { L"Hauzer Kick", 0x1e5850, 0x1e58d0 },
+    { L"Hauzer Kick", 0x1e5850, 0x1e58d0, indexRedEarthSprites_Hauzer, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_HYDRON_PUNCH[] =
 {
-    { L"Hydron Punch", 0x1e58d0, 0x1e5950 },
+    { L"Hydron Punch", 0x1e58d0, 0x1e5950, indexRedEarthSprites_Hydron, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_HYDRON_KICK[] =
 {
-    { L"Hydron Kick", 0x1e5950, 0x1e59d0 },
+    { L"Hydron Kick", 0x1e5950, 0x1e59d0, indexRedEarthSprites_Hydron, 0x00 },
 };
 
 // Effects/EX

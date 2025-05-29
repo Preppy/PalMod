@@ -36,8 +36,52 @@ private:
         0x1e4e10,
     };
 
+    // PS2 and Steam have different swizzle rules, oddly.
+    std::array<bool, ARRAYSIZE(CFE_P_UNITS) + 1> m_rgfMustSwizzlePaletteLoad =
+    {
+        // darkstalker
+        /* Demitri */       false,
+        /* Anakaris */      false,
+        /* Felicia */       false,
+        /* Jedah */         false,
+        /* Pyron */         false,
+
+        // sf2
+        /* Ryu */           false,
+        /* Guile */         false,
+        /* Zangief */       false,
+        /* M.Bison */       false,
+        /* Shin Akuma */    false,
+
+        // sf alpha
+        /* Guy */           false,
+        /* Rose */          false,
+        /* Sakura */        false,
+        /* Karin */         false,
+
+        // sfiii
+        /* Ingrid */        true,
+        /* Chun-Li */       true,
+        /* Yun */           true,
+        /* Alex */          true,
+        /* Urien */         true,
+
+        // redearth
+        /* Leo */           true,
+        /* Kenji */         true,
+        /* Hauzer */        true,
+        /* Hydron */        true,
+        
+        /* Extras */        false,
+    };
+
 public:
     CGame_CFE_P(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
+
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId = 0) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
@@ -74,8 +118,8 @@ private:
         CFJ_S_UNITS,
         ARRAYSIZE(CFJ_S_UNITS),
         L"CFJe.txt",
-        112,
-        0x1e4e10,
+        54,             // Note: due to the crazed swizzling for CFJ, these numbers are not used
+        0xe39710,       // Note: due to the crazed swizzling for CFJ, these numbers are not used
     };
 
 public:
