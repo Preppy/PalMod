@@ -1815,13 +1815,13 @@ const sGame_PaletteDataset SSF2T_A_04_BONUS_SUPERTRAILS_NODE[] =
 
 const sGame_PaletteDataset SSF2T_A_04_BALROG_STAGES_NODE[] =
 {
-    { L"Girls & Nin Nin Hall Sign", 0x5697a, 0x56a5a, indexSF2Sprites_Stages, 0x1b, &pairFullyLinkedNode },
-    { L"Casino Sign 1", 0x4a360, 0x4a380, indexSF2Sprites_Stages, 0x1a },
-    { L"Casino Sign 2", 0x4a384, 0x4a3a4, indexSF2Sprites_Stages, 0x1a },
-    { L"Casino Sign 3", 0x4a3a8, 0x4a3c8, indexSF2Sprites_Stages, 0x1a },
-    { L"Casino Sign 4", 0x4a3cc, 0x4a3ec, indexSF2Sprites_Stages, 0x1a },
-    { L"Casino Sign 5", 0x4a3f0, 0x4a410, indexSF2Sprites_Stages, 0x1a },
-    { L"Casino Sign 6", 0x4a33c, 0x4a35c, indexSF2Sprites_Stages, 0x1a },
+    { L"Girls & Nin Nin Hall Sign", 0x5697a, 0x56a5a, indexSF2Sprites_Stages, 0x1b, &pairNext },
+    { L"Casino Sign cycle 1/6", 0x4a360, 0x4a380, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 2/6", 0x4a384, 0x4a3a4, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 3/6", 0x4a3a8, 0x4a3c8, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 4/6", 0x4a3cc, 0x4a3ec, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 5/6", 0x4a3f0, 0x4a410, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 6/6", 0x4a33c, 0x4a35c, indexSF2Sprites_Stages, 0x1a },
 };
 
 const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE_4[] =
@@ -1851,7 +1851,7 @@ const sGame_PaletteDataset SSF2T_A_GIEF_STAGE_NODE_4[] =
     { L"Chain and extinguisher", 0x5599a, 0x559da, indexSF2Sprites_Stages, 0xa6 },
 };
 
-const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_4_1[] =
+const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_4[] =
 {
     { L"Left gazebo 1/39", 0x49208, 0x49228, indexSF2Sprites_Stages, 0x44, &pairFullyLinkedNode },
     { L"Left gazebo 2/39", 0x49208 + (0x01 * 0x22), 0x49228 + (0x01 * 0x22), indexSF2Sprites_Stages, 0x45 },
@@ -1892,10 +1892,6 @@ const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_4_1[] =
         { L"Unused: Left gazebo 37/39", 0x49208 + (0x24 * 0x22), 0x49228 + (0x24 * 0x22) },
         { L"Unused: Left gazebo 38/39", 0x49208 + (0x25 * 0x22), 0x49228 + (0x25 * 0x22) },
         { L"Unused: Left gazebo 39/39", 0x49208 + (0x26 * 0x22), 0x49228 + (0x26 * 0x22) },
-};
-
-const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_4_2[] =
-{
     { L"Dancers", 0x57d3a, 0x57e3a, indexSF2Sprites_Stages, 0x43 },
 };
 
@@ -2118,17 +2114,28 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_STAGE_NODE_8[] =
 
 const sGame_PaletteDataset SSF2T_A_08_BALROG_STAGE_NODE[] =
 {
-    { L"Part 2", 0x628de, 0x6295e, indexSF2Sprites_Stages, 0x1d, &pairFullyLinkedNode },
-    { L"Part 3", 0x62A9e, 0x62B5e, indexSF2Sprites_Stages, 0x1e },
-    { L"Part 11", 0x627fe, 0x6281e, indexSF2Sprites_Stages, 0x25 },
-    { L"Part 4", 0x6A91e, 0x6aabe, indexSF2Sprites_Stages, 0x1f },
-    { L"Part 5", 0x6aade, 0x6abfe, indexSF2Sprites_Stages, 0x20 },
-    { L"Part 6", 0x72C7e, 0x72dfe, indexSF2Sprites_Stages, 0x21 },
-    { L"Part 7", 0x72e7e, 0x72e9e, indexSF2Sprites_Stages, 0x22 },
-    { L"Part 8", 0x72efe, 0x72f1e, indexSF2Sprites_Stages, 0x23 },
-    { L"Part 9", 0x72f3e, 0x72f7e, indexSF2Sprites_Stages, 0x24 },
-    { L"Unused: Part 10", 0x72fbe, 0x72fde  },
-    { L"Part 1", 0x6A7Fe, 0x6A8Fe, indexSF2Sprites_Stages, 0x1c },
+    { L"Wedding Chapel background 1/2", 0x628de, 0x6295e, indexSF2Sprites_Stages, 0x1d, &pairFullyLinkedNode },
+    // We only have coverage for one line here
+    { L"Wedding Chapel background 2/2", 0x62A9e, 0x62Aae, indexSF2Sprites_Stages, 0x1e },
+    { L"Unused? 1/5", 0x62Aae, 0x62ace },
+    { L"Unused? 2/5", 0x62Ace, 0x62aee },
+    { L"Unused? 3/5", 0x62Aee, 0x62B1e },
+    { L"Unused? 4/5", 0x62b1e, 0x62B3e },
+    { L"Unused? 5/5", 0x62b3e, 0x62B5e },
+
+    { L"Street", 0x627fe, 0x6281e, indexSF2Sprites_Stages, 0x25 },
+    // This also should be chopped up: there's multiple animation cycles here
+    { L"Casino signs", 0x6A91e, 0x6aabe, indexSF2Sprites_Stages, 0x1f },
+    // This also should be chopped up: there's multiple animation cycles here
+    { L"Ground / casinos", 0x6aade, 0x6abfe, indexSF2Sprites_Stages, 0x20 },
+    { L"Cars / people", 0x72C7e, 0x72dfe, indexSF2Sprites_Stages, 0x21 },
+    { L"Guy's torso", 0x72e7e, 0x72e9e, indexSF2Sprites_Stages, 0x22 },
+    { L"Green car hood", 0x72efe, 0x72f1e, indexSF2Sprites_Stages, 0x23 },
+    { L"Blue car hood", 0x72f3e, 0x72f5e, indexSF2Sprites_Stages, 0x24 },
+    { L"Unused? 1/2", 0x72f5e, 0x72f7e },
+    { L"Unused? 2/2", 0x72fbe, 0x72fde  },
+    // This also should be chopped up: there's multiple animation cycles here
+    { L"Side casino signs", 0x6A7Fe, 0x6A8Fe, indexSF2Sprites_Stages, 0x1c },
 };
 
 const sGame_PaletteDataset SSF2T_A_VEGA_STAGE_NODE_8[] =
@@ -2252,7 +2259,7 @@ const sGame_PaletteDataset SSF2T_A_BLANKA_STAGE_NODE_8[] =
         { L"Blanka Stage 4/6 right water sparkle 3/4", 0x68a9e, 0x68abe, indexSF2Sprites_Stages, 0x27 },
         { L"Blanka Stage 4/6 right water sparkle 4/4", 0x68abe, 0x68ade, indexSF2Sprites_Stages, 0x27 },
 
-    { L"Blanka Stage 5/6", 0x70bfe, 0x70dfe, indexSF2Sprites_Stages, 0x28 },
+    { L"Blanka Stage 5/6 tree and right side stuff", 0x70bfe, 0x70dfe, indexSF2Sprites_Stages, 0x28 },
 
     { L"Blanka Stage 6/6", 0x70dfe, 0x70e3e, indexSF2Sprites_Stages, -1 },
 };
@@ -8509,8 +8516,7 @@ const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
     { L"Blanka's Stage (04 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_BLANKA_STAGE_NODE_4) },
     { L"Cammy's Stage (04 parts)",          DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
     { L"Chun-Li's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_CHUNLI_STAGE_NODE_4) },
-    { L"Dee Jay's Stage (04 parts: gazebo)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_4_1,    ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_4_1) },
-    { L"Dee Jay's Stage (04 parts: dancers)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_4_2,    ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_4_2) },
+    { L"Dee Jay's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_4) },
     { L"Dhalsim's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
     { L"E. Honda's Stage (04 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_04_EHONDA_STAGE_NODE,   ARRAYSIZE(SSF2T_A_04_EHONDA_STAGE_NODE) },
     { L"Fei Long's Stage (04 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_FEILONG_STAGE_NODE_4) },
@@ -8528,8 +8534,20 @@ const sDescTreeNode SSF2T_A_HYBRID_STAGES_COLLECTION_UNIQUE_04[] =
     { L"Stage HUDs and Effects",        DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
 
     { L"Balrog's Casino Stage (04 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BALROG_STAGES_NODE, ARRAYSIZE(SSF2T_A_04_BALROG_STAGES_NODE) },
-    { L"Dhalsim's Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
-    { L"E. Honda's Stage (04 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_04_EHONDA_STAGE_NODE,   ARRAYSIZE(SSF2T_A_04_EHONDA_STAGE_NODE) },
+    { L"Blanka's Stage (04 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_BLANKA_STAGE_NODE_4) },
+    // This and the other two are in the Hybrid_Stages node
+    //{ L"Cammy's Stage (04 parts)",          DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
+    { L"Chun-Li's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_CHUNLI_STAGE_NODE_4) },
+    { L"Dee Jay's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_4) },
+    { L"Dhalsim's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
+    { L"E. Honda's Stage (04 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_04_EHONDA_STAGE_NODE,   ARRAYSIZE(SSF2T_A_04_EHONDA_STAGE_NODE) },
+    { L"Fei Long's Stage (04 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_FEILONG_STAGE_NODE_4) },
+    { L"Guile's Stage (04 parts)",          DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_GUILE_STAGE_NODE_4) },
+    //{ L"Ken's Stage (04 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_4) },
+    //{ L"Ryu's Stage (04 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
+    { L"T-Hawk's Stage (04 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_THAWK_STAGE_NODE_4) },
+    { L"Zangief's Stage (04 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_GIEF_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_GIEF_STAGE_NODE_4) },
+
     { L"Stage Super Trails",            DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_SUPERTRAILS_NODE, ARRAYSIZE(SSF2T_A_04_BONUS_SUPERTRAILS_NODE) },
 };
 
@@ -8607,10 +8625,22 @@ const sDescTreeNode SSF2T_A_HYBRID_STAGES_COLLECTION[] =
 const sDescTreeNode SSF2T_A_HYBRID_STAGES_COLLECTION_UNIQUE_08[] =
 {
     { L"Balrog's Casino Stage (08 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BALROG_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_BALROG_STAGE_NODE) },
+    { L"Blanka's Stage (08 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_STAGE_NODE_8,    ARRAYSIZE(SSF2T_A_BLANKA_STAGE_NODE_8) },
+    // This and the other two are in the Hybrid collection
+    //{ L"Cammy's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_8) },
+    { L"Chun-Li's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_CHUNLI_STAGE_NODE_8) },
     { L"Claw's Stage",                      DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_STAGE_NODE_8,         ARRAYSIZE(SSF2T_A_VEGA_STAGE_NODE_8) },
+    { L"Dee Jay's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_DEEJAY_STAGE_NODE_8) },
     { L"Dhalsim's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_08_DHALSIM_STAGE_NODE,   ARRAYSIZE(SSF2T_A_08_DHALSIM_STAGE_NODE) },
     { L"E. Honda's Stage (08 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_08_EHONDA_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_EHONDA_STAGE_NODE) },
+    { L"Fei Long's Stage (08 parts)",       DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_STAGE_NODE_8,   ARRAYSIZE(SSF2T_A_FEILONG_STAGE_NODE_8) },
+    { L"Guile's Stage (08 parts)",          DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_GUILE_STAGE_NODE_8) },
+    //{ L"Ken's Stage (08 parts)",            DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_KEN_STAGE_NODE_8) },
+    { L"M. Bison's Stage",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_MBISON_STAGE_NODE_8) },
+    //{ L"Ryu's Stage",                       DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_8,          ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_8) },
     { L"Sagat's Stage",                     DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE_8) },
+    { L"T-Hawk's Stage (08 parts)",         DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_THAWK_STAGE_NODE_8) },
+    { L"Zangief's Stage (08 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_GIEF_STAGE_NODE_8,        ARRAYSIZE(SSF2T_A_GIEF_STAGE_NODE_8) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_3C[] =
@@ -8743,6 +8773,8 @@ const sDescTreeNode SSF2T_A_UNITS_MONO[] =
     { L"Portraits: T-Hawk",     DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_THAWK_PORTRAIT_COLLECTION), MATH_SHIFT_03_TO_STEAM },
     { L"Portraits: Vega",       DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_PORTRAIT_COLLECTION,       ARRAYSIZE(SSF2T_A_VEGA_PORTRAIT_COLLECTION), MATH_SHIFT_03_TO_STEAM },
     { L"Portraits: Zangief",    DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_PORTRAIT_COLLECTION,    ARRAYSIZE(SSF2T_A_ZANGIEF_PORTRAIT_COLLECTION), MATH_SHIFT_03_TO_STEAM },
+    // This composites across multiple roms to show the full stage at once
+    // It's a task, tho, so not everything has been moved.
     { L"Stages",                DESC_NODETYPE_TREE, (void*)SSF2T_A_HYBRID_STAGES_COLLECTION,       ARRAYSIZE(SSF2T_A_HYBRID_STAGES_COLLECTION) },
 
     { L"ROM03 Stages",          DESC_NODETYPE_TREE, (void*)SSF2T_A_03_STAGES_COLLECTION,                ARRAYSIZE(SSF2T_A_03_STAGES_COLLECTION), MATH_SHIFT_03_TO_STEAM },

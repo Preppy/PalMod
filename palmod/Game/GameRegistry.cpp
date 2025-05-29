@@ -175,7 +175,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 237, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 238, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -1981,7 +1981,14 @@ namespace KnownGameInfo
         {
             SSF2T_A,
             L"SSF2T (CPS2 Arcade)",
-            { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08), New Legacy Extensions (*.09) (CPS2)|sfx*.03*;sfx*.04a;sf*.08;sfnl.03;sfnl.04;sfnl.09|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08) (CPS2)|sfx*.03*;sfx*.04a;sf*.08|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            Make_SSF2T_A,
+            CGame_SSF2T_A::GetRule,
+        },
+        {
+            SSF2T_NL,
+            L"SSF2T (New Legacy)",
+            { SSF2T_NL,          L"SSF2T: New Legacy Hack", L"SSF2T: New Legacy: Portraits (*.03), Characters (*.04), Stages (*.08), New Legacy Extensions (*.09)|sfnl.03;sfnl.04;sfnl.08;sfnl.09|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SSF2T_A,
             CGame_SSF2T_A::GetRule,
         },
@@ -2225,7 +2232,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 237, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 238, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
@@ -2390,6 +2397,7 @@ namespace KnownGameInfo
             CGame_SFTM_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case SSF2T_A:
+        case SSF2T_NL:
             CGame_SSF2T_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case SurvivalArts_A:

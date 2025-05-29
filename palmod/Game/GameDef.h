@@ -259,6 +259,7 @@ enum SupportedGamesList
     CVS2_S,
     SFZ3U_S,
     CFJ_S,
+    SSF2T_NL,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
