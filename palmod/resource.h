@@ -404,6 +404,7 @@
 #define ID_SETTINGS_DROPISPALETTE       32965
 #define ID_SETTINGS_DROPTRIM            32966
 #define ID_SETTINGS_DROPKAWAKS          32967
+#define ID_SETTINGS_IMGOUT_EXPORTSINGLE 32968
 
 
 // Next default values for new objects
@@ -411,7 +412,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32968
+#define _APS_NEXT_COMMAND_VALUE         32969
 #define _APS_NEXT_CONTROL_VALUE         1102
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

@@ -110,6 +110,7 @@ public:
     DWORD imgout_border;
     DWORD imgout_zoomindex;
     BOOL fTransPNG;
+    BOOL fExportPNGAsJoined;
 };
 
 CString RectToStr(RECT in_rect);

@@ -591,6 +591,12 @@ void CRegProc::LoadReg(eRegistryStoreID src)
                 fTransPNG = TRUE;
             }
 
+            GetSz = sizeof(BOOL);
+            if (RegQueryValueEx(hKey, L"imgout_ExportPNGAsJoined", 0, &RegType, reinterpret_cast<LPBYTE>(&fExportPNGAsJoined), &GetSz) != ERROR_SUCCESS)
+            {
+                fExportPNGAsJoined = TRUE;
+            }
+
             RegType = REG_SZ;
             GetSz = MAX_PATH;
 
@@ -673,6 +679,7 @@ void CRegProc::SaveReg(eRegistryStoreID src)
                 RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_border), sizeof(imgout_border));
                 RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_zoomindex), sizeof(imgout_zoomindex));
                 RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTransPNG), sizeof(fTransPNG));
+                RegSetValueEx(hKey, L"imgout_ExportPNGAsJoined", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fExportPNGAsJoined), sizeof(fExportPNGAsJoined));
 
                 conv_str = RectToStr(imgout_szpos);
 

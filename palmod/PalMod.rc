@@ -768,6 +768,8 @@ BEGIN
     BEGIN
         MENUITEM "Set &Background Color",       ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR
         MENUITEM SEPARATOR
+        MENUITEM "Export paired palettes to a single PNG if possible", ID_SETTINGS_IMGOUT_EXPORTSINGLE
+        MENUITEM SEPARATOR
         MENUITEM "&Transparent PNG",            ID_SETTINGS_USETRANSPARENTPNG
     END
 END

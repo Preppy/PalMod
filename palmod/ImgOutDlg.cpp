@@ -294,6 +294,7 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
     //ON_COMMAND(REQ_VAR, UpdImgVar)
     ON_NOTIFY(UDN_DELTAPOS, IDC_BDRSPN, OnDeltaposBdrspn)
     ON_COMMAND(ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR, OnSettingsSetBackgroundColor)
+    ON_COMMAND(ID_SETTINGS_IMGOUT_EXPORTSINGLE, OnSettingsSetPNGExportJoined)
     ON_COMMAND(ID_IMGOUT_SAVE, OnFileSave)
     ON_COMMAND(ID_IMGOUT_CLOSE, OnClose)
     ON_COMMAND(REQ_VAR, UpdateImg)
@@ -444,6 +445,7 @@ void CImgOutDlg::LoadSettings()
     UpdateData();
 
     m_fTransPNG = sett.fTransPNG;
+    m_fExportPNGAsJoined = sett.fExportPNGAsJoined;
     m_border_sz = sett.imgout_border;
 
     UpdateData(FALSE);
@@ -467,6 +469,7 @@ void CImgOutDlg::SaveSettings()
     sett.imgout_border = m_border_sz;
     sett.imgout_zoomindex = m_CB_Zoom.GetCurSel();
     sett.fTransPNG = m_fTransPNG;
+    sett.fExportPNGAsJoined = m_fExportPNGAsJoined;
 
     RECT window_rect;
 
@@ -530,15 +533,17 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
     const bool fTooManyColorsForSingleIndexedPNG = (nTotalPaletteSize > 256);
 
-    if (!fShowingSingleVersion || fTooManyColorsForSingleIndexedPNG)
+    if (!fShowingSingleVersion || 
+        (fTooManyColorsForSingleIndexedPNG && m_fExportPNGAsJoined))
     {
         CString strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
 
-        if (fTooManyColorsForSingleIndexedPNG)
+        if (fTooManyColorsForSingleIndexedPNG && m_fExportPNGAsJoined)
         {
             strWarning.Append(L"* Indexed PNGs can only use up to 256 colors.  PalMod will need to export each image to its own indexed PNG file.\n");
         }
-        else
+        
+        if (!fShowingSingleVersion)
         {
             strWarning.Append(L"* The preview is showing multiple versions of this sprite.  PalMod will need to export each of those versions to its own indexed PNG file.\n");
         }
@@ -551,6 +556,10 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     if (fShouldExportAsIndexed)
     {
         const uint16_t nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+        const int nImageLayersToUse = (fTooManyColorsForSingleIndexedPNG || !m_fExportPNGAsJoined) ? nImageCount : 1;
+        const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.m_border_sz);
+        const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.m_border_sz);
+
 #ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
         // It's technically correct for our purposes to allow for this, but also problematic since Photoshop
         // only wants one transparency per indexed image.  So let's just turn this off for now.
@@ -558,196 +567,195 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 #endif
 
         // Indexed PNG: use the lodePNG encoder
-        int nImageIndex = 0;
-
-        for (int nNodeIndex = 0; (nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay) ||
-                                 (fTooManyColorsForSingleIndexedPNG && (nImageIndex < nImageCount));
-             nNodeIndex++)
+        for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
         {
-            CString strCurrentNodeName = L"";
-            
-            if (fShowingSingleVersion)
-            {
-                if (fTooManyColorsForSingleIndexedPNG)
-                {
-                    // This naming logic is in lane with the multi-RAW export names
-                    strCurrentNodeName.Format(L"-%02x", nImageIndex);
-                }
-            }
-            else
-            {
-                // Add a space here because that's how we've been doing it.
-                strCurrentNodeName.Format(L" %s", m_pButtonLabelSet[nNodeIndex]);
-            }
-
             const int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.m_nPalIndex : nNodeIndex;
-
-            const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.m_border_sz);
-            const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.m_border_sz);
-
-            std::vector<unsigned char> image(destWidth * destHeight);
-            lodepng::State state;
-
             unsigned nPaletteOffset = 0;
-            bool fWrittenTheOneTransparencyColor = false;
+            int nImageIndex = 0;
 
-            if (!fTooManyColorsForSingleIndexedPNG)
+            for (int nImageLayerIndex = 0; nImageLayerIndex < nImageLayersToUse; nImageLayerIndex++)
             {
-                nImageIndex = 0;
-            }
+                CString strCurrentNodeName = L"";
+                lodepng::State state;
+                std::vector<unsigned char> image(destWidth * destHeight);
+                bool fWrittenTheOneTransparencyColor = false;
 
-            // This section writes the image to rgSrcImg
-            // For single-png output, we glom together the palette tables and thus adjust the indexes of the 
-            // secondary images
-            for (; nImageIndex < nImageCount; nImageIndex++)
-            {
-                const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
-                const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
-                const unsigned srcSize = srcWidth * srcHeight;
-
-                unsigned skewYForImage = nYSkew + rgSrcImg[nImageIndex]->nYOffs;
-                unsigned skewXForImage = nXSkew + rgSrcImg[nImageIndex]->nXOffs;
-
-                // Handle zoom stretching inline
-                for (unsigned destY = 0; destY < (srcHeight * currentZoom); destY += currentZoom)
+                // The output filename options are:
+                //   Character.png
+                //   Character-01.png
+                //   Character LP.png
+                //   Character LP-01.png
+                if (fShowingSingleVersion)
                 {
-                    unsigned adjustedY = skewYForImage + destY;
-
-                    for (unsigned zoomY = 0; zoomY < currentZoom; zoomY++)
+                    if (nImageLayersToUse > 1)
                     {
-                        for (unsigned destX = 0; destX < (srcWidth * currentZoom); destX += currentZoom)
+                        // This naming logic is in line with the multi-RAW export names
+                        strCurrentNodeName.Format(L"-%02x", nImageLayerIndex);
+                    }
+                }
+                else
+                {
+                    // Add a space for multiple versions because that's how we've been doing it.
+                    if (nImageLayersToUse > 1)
+                    {
+                        // This naming logic is in line with the multi-RAW export names
+                        strCurrentNodeName.Format(L"-%02x %s", nImageLayerIndex, m_pButtonLabelSet[nNodeIndex]);
+                    }
+                    else
+                    {
+                        strCurrentNodeName.Format(L" %s", m_pButtonLabelSet[nNodeIndex]);
+                    }
+                }
+
+                // This section writes the image to rgSrcImg
+                // For single-png output, we glom together the palette tables and thus adjust the indexes of the 
+                // secondary images
+                for (; nImageIndex < nImageCount; nImageIndex++)
+                {
+                    const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
+                    const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
+                    const unsigned srcSize = srcWidth * srcHeight;
+
+                    unsigned skewYForImage = nYSkew + rgSrcImg[nImageIndex]->nYOffs;
+                    unsigned skewXForImage = nXSkew + rgSrcImg[nImageIndex]->nXOffs;
+
+                    // Handle zoom stretching inline
+                    for (unsigned destY = 0; destY < (srcHeight * currentZoom); destY += currentZoom)
+                    {
+                        unsigned adjustedY = skewYForImage + destY;
+
+                        for (unsigned zoomY = 0; zoomY < currentZoom; zoomY++)
                         {
-                            unsigned adjustedX = skewXForImage + destX;
-
-                            for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
+                            for (unsigned destX = 0; destX < (srcWidth * currentZoom); destX += currentZoom)
                             {
-                                const int destIndex = ((m_DumpBmp.m_border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.m_border_sz + adjustedX + zoomX);
-                                // this is the upside-down version:
-                                //int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
-                                // and this is the rightside-up version:
-                                const int srcIndex = (destX / currentZoom) + ((destY / currentZoom) * srcWidth);
+                                unsigned adjustedX = skewXForImage + destX;
 
-                                // only write used pixels
-                                if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
+                                for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                                 {
-                                    image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
+                                    const int destIndex = ((m_DumpBmp.m_border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.m_border_sz + adjustedX + zoomX);
+                                    // this is the upside-down version:
+                                    //int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
+                                    // and this is the rightside-up version:
+                                    const int srcIndex = (destX / currentZoom) + ((destY / currentZoom) * srcWidth);
+
+                                    // only write used pixels
+                                    if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
+                                    {
+                                        image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
+                                    }
                                 }
                             }
                         }
                     }
-                }
 
-                // Establish the PLTE header data.
-                uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(m_DumpBmp.m_pppPalettes[nImageIndex][nCurrentPalIndex]);
-                const BlendMode bm = GetHost()->GetCurrGame()->GetGameSpecificBlendMode();
+                    // Establish the PLTE header data.
+                    uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(m_DumpBmp.m_pppPalettes[nImageIndex][nCurrentPalIndex]);
+                    const BlendMode bm = GetHost()->GetCurrGame()->GetGameSpecificBlendMode();
 
-                // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
-                for (uint32_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
-                {
-#ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
-                    if ((iCurrentColor % nMaxWritePerTransparency) == nTransparencyPosition)
-#else
-                    if (iCurrentColor == nTransparencyPosition) // transparency color
-#endif
+                    // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
+                    for (uint32_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
                     {
-                        if (m_fTransPNG)
+#ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
+                        if ((iCurrentColor % nMaxWritePerTransparency) == nTransparencyPosition)
+#else
+                        if (iCurrentColor == nTransparencyPosition) // transparency color
+#endif
                         {
-                            if (!fWrittenTheOneTransparencyColor)
+                            if (m_fTransPNG)
                             {
-                                fWrittenTheOneTransparencyColor = true;
-                                lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
-                                lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                                if (!fWrittenTheOneTransparencyColor)
+                                {
+                                    fWrittenTheOneTransparencyColor = true;
+                                    lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                                    lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                                }
+                                else
+                                {
+                                    // Force alpha so that photoshop understands this PNG is indexed instead of RBG:
+                                    // Photoshop only accepts single-transparency indexed PNGs
+                                    lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0xFF);
+                                    lodepng_palette_add(&state.info_raw, 0, 0, 0, 0xFF);
+                                }
                             }
                             else
                             {
-                                // Force alpha so that photoshop understands this PNG is indexed instead of RBG:
-                                // Photoshop only accepts single-transparency indexed PNGs
-                                lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0xFF);
-                                lodepng_palette_add(&state.info_raw, 0, 0, 0, 0xFF);
+                                // Use the background color, but be sure to force alpha
+                                lodepng_palette_add(&state.info_png.color, GetRValue(m_DumpBmp.m_crBGCol), GetGValue(m_DumpBmp.m_crBGCol), GetBValue(m_DumpBmp.m_crBGCol), 0xFF);
+                                lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.m_crBGCol), GetGValue(m_DumpBmp.m_crBGCol), GetBValue(m_DumpBmp.m_crBGCol), 0xFF);
                             }
+                        }
+                        else if (iCurrentColor < static_cast<uint32_t>(m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz)) // actual colors
+                        {
+                            const uint32_t nCurrentPosition = iCurrentColor * 4;
+                            const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
+                            const uint8_t currBVal = pCurrPal[nCurrentPosition + 2];
+                            const uint8_t currGVal = pCurrPal[nCurrentPosition + 1];
+                            const uint8_t currRVal = pCurrPal[nCurrentPosition];
+
+                            const uint8_t nAdjustedAlpha = ColorSystem::GetAlphaValueForBlendType(bm, currAVal, currRVal, currGVal, currBVal);
+
+                            lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, nAdjustedAlpha);
+                            lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, nAdjustedAlpha);
                         }
                         else
                         {
-                            // Use the background color, but be sure to force alpha
-                            lodepng_palette_add(&state.info_png.color, GetRValue(m_DumpBmp.m_crBGCol), GetGValue(m_DumpBmp.m_crBGCol), GetBValue(m_DumpBmp.m_crBGCol), 0xFF);
-                            lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.m_crBGCol), GetGValue(m_DumpBmp.m_crBGCol), GetBValue(m_DumpBmp.m_crBGCol), 0xFF);
+                            break;
                         }
                     }
-                    else if (iCurrentColor < static_cast<uint32_t>(m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz)) // actual colors
+
+                    if (fTooManyColorsForSingleIndexedPNG || !m_fExportPNGAsJoined)
                     {
-                        const uint32_t nCurrentPosition = iCurrentColor * 4;
-                        const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
-                        const uint8_t currBVal = pCurrPal[nCurrentPosition + 2];
-                        const uint8_t currGVal = pCurrPal[nCurrentPosition + 1];
-                        const uint8_t currRVal = pCurrPal[nCurrentPosition];
-
-                        const uint8_t nAdjustedAlpha = ColorSystem::GetAlphaValueForBlendType(bm, currAVal, currRVal, currGVal, currBVal);
-
-                        lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, nAdjustedAlpha);
-                        lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, nAdjustedAlpha);
+                        // Only need one preview per file: break now and generate the PNG
+                        break;
                     }
                     else
                     {
-                        break;
+                        nPaletteOffset += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
                     }
                 }
 
-                if (fTooManyColorsForSingleIndexedPNG)
+#ifdef DEBUG
+                // If we want to add metadata, this is what is needed.
+                // But currently, I don't know what metadata I would want, so I'm leaving it alone for now.
+                state.encoder.text_compression = 0; // use tExt
+                LodePNGInfo& info = state.info_png;
+                CStringA astrText;
+                astrText.Format("%S", GetHost()->GetAppName(false).GetString());
+                lodepng_add_text(&info, "Software", astrText.GetString());
+                // What should title be?  Node name plus current palette name...?
+                lodepng_add_text(&info, "Title", "...");
+#endif      
+
+                // lodepng options: going from RAW to indexed PNG
+                state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
+                state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;
+                if (fTooManyColorsForSingleIndexedPNG || !m_fExportPNGAsJoined)
                 {
-                    // Only need one preview per file: break now and generate the PNG
-                    break;
+                    state.info_png.color.palettesize = state.info_raw.palettesize = m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
+                    nImageIndex++;
                 }
                 else
                 {
-                    nPaletteOffset += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
+                    state.info_png.color.palettesize = state.info_raw.palettesize = nTotalPaletteSize;
                 }
-            }
 
-#ifdef DEBUG
-            // If we want to add metadata, this is what is needed.
-            // But currently, I don't know what metadata I would want, so I'm leaving it alone for now.
-            state.encoder.text_compression = 0; // use tExt
-            LodePNGInfo& info = state.info_png;
-            CStringA astrText;
-            astrText.Format("%S", GetHost()->GetAppName(false).GetString());
-            lodepng_add_text(&info, "Software", astrText.GetString());
-            // What should title be?  Node name plus current palette name...?
-            lodepng_add_text(&info, "Title", "...");
-#endif      
+                state.encoder.auto_convert = 0;
 
-            // lodepng options: going from RAW to indexed PNG
-            state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
-            state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;
-            if (!fTooManyColorsForSingleIndexedPNG)
-            {
-                state.info_png.color.palettesize = state.info_raw.palettesize = nTotalPaletteSize;
-            }
-            else
-            {
-                state.info_png.color.palettesize = state.info_raw.palettesize = m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
-            }
-
-            state.encoder.auto_convert = 0;
-
-            //encode and save
-            std::vector<unsigned char> buffer;
-            unsigned error = lodepng::encode(buffer, &image[0], destWidth, destHeight, state);
-            if (error)
-            {
-                CString strError;
-                strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
-                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-                OutputDebugString(strError);
-            }
-            else
-            {
-                output_str.Format(L"%s%s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
-                lodepng::save_file(buffer, output_str.GetString());
-            }
-
-            if (fTooManyColorsForSingleIndexedPNG)
-            {
-                nImageIndex++;
+                //encode and save
+                std::vector<unsigned char> buffer;
+                unsigned error = lodepng::encode(buffer, &image[0], destWidth, destHeight, state);
+                if (error)
+                {
+                    CString strError;
+                    strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
+                    MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                    OutputDebugString(strError);
+                }
+                else
+                {
+                    output_str.Format(L"%s%s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
+                    lodepng::save_file(buffer, output_str.GetString());
+                }
             }
         }
     }
@@ -1134,6 +1142,11 @@ void CImgOutDlg::OnSettingsUseTransparentPNG()
     m_fTransPNG = !m_fTransPNG;
 }
 
+void CImgOutDlg::OnSettingsSetPNGExportJoined()
+{
+    m_fExportPNGAsJoined = !m_fExportPNGAsJoined;
+}
+
 void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 {
     CDialog::OnInitMenuPopup(pPopupMenu, nIndex, fSysMenu);
@@ -1143,5 +1156,6 @@ void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
     if (pPopupMenu == SettMenu)
     {
         pPopupMenu->CheckMenuItem(ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * m_fTransPNG);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMGOUT_EXPORTSINGLE, MF_CHECKED * m_fExportPNGAsJoined);
     }
 }

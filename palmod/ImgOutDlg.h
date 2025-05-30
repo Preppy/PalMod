@@ -50,6 +50,7 @@ public:
     BOOL m_fCanSize = FALSE;
 
     BOOL m_fTransPNG = FALSE;
+    BOOL m_fExportPNGAsJoined = TRUE;
 
     std::vector<LPCWSTR> m_pButtonLabelSet;
 
@@ -74,6 +75,7 @@ public:
 
     CSpinButtonCtrl m_BdrSpn;
     afx_msg void OnSettingsSetBackgroundColor();
+    afx_msg void OnSettingsSetPNGExportJoined();
     afx_msg void OnFileSave();
     afx_msg void OnClose();
 

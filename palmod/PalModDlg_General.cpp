@@ -481,7 +481,7 @@ void CPalModDlg::PostPalSel()
     }
 
     //Reset the prev indexes
-    memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMAGES_DISPLAYABLE - nImgIndexCtr));
+    memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMAGES_DISPLAYABLE - static_cast<size_t>(nImgIndexCtr)));
 
     m_PalHost.EndSetPal();
 
