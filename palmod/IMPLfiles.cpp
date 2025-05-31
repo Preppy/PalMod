@@ -162,6 +162,7 @@ uint8_t TranslateBBCFSpriteIdToBBTAGGameId(uint32_t nSpriteId)
         return k_nInvalidGameID;
     }
 }
+
 class CIMPLFileImportDialog : public CDialog
 {
     DECLARE_DYNAMIC(CIMPLFileImportDialog)

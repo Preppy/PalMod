@@ -215,7 +215,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 
 CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
 {
-    CGameClass* OutGame = NULL;
+    CGameClass* OutGame = nullptr;
     sFileRule CurrRule;
 
     CFile CurrFile;
@@ -276,7 +276,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
         if (fFileOpened)
         {
             bool fActualFileSizeIsSafe = false;
-            ULONGLONG nGameFileLength = CurrFile.GetLength();
+            const ULONGLONG nGameFileLength = CurrFile.GetLength();
             size_t nConfirmedVerifyVar = CurrRule.uVerifyVar;
             
             if ((CurrRule.uVerifyVar == (size_t )-1) ||
@@ -293,8 +293,25 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
             if (!fActualFileSizeIsSafe && (nSaveLoadErr == 0))
             {
                 CString strError;
-                strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(CurrFile.GetLength()));
-                fActualFileSizeIsSafe = (MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONERROR) == IDYES);
+                strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(nGameFileLength));
+
+                if (nGameFlag == GGXXACR_S)
+                {
+                    CString strGuid;
+                    strGuid.Format(L"GGXXACR-%llu", nGameFileLength);
+
+                    strError.Append(L"\n\nNote that since GGXXACR (Steam) is heavily modded, this dialog is uniquely providing you a 'Don't Ask Again' option so we trust this specific file.  "
+                                    "Please ONLY check that if you really are sure this file will work for you.");
+
+                    // GGXXACR_S is uniquely doing a lot of unique custom builds that they'll be working with
+                    // As such, allow GGXXACR_S and only that game the ability to trust custom binaries
+                    fActualFileSizeIsSafe = (SHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONWARNING, IDYES, strGuid.GetString()) == IDYES);
+                }
+                else
+                {
+                    fActualFileSizeIsSafe = (MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONERROR) == IDYES);
+                }
+
                 strError.Format(L"WARNING: The file \"%s\" was found but is not the expected size.  We expect the file to be 0x%x bytes, but this file is 0x%x bytes.\n", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(CurrFile.GetLength()));
                 OutputDebugString(strError);
             }
@@ -378,7 +395,12 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
     strLoadSaveStr.Format((nSaveLoadCount == 1) ? IDS_LOADGAME_SINGLE : IDS_LOADGAME_MULTI, nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
 
     // Perhaps we could be less strict here, but -- we also will crash elsewhere if we don't have the full PL set.
-    return (nSaveLoadErr == 0) ? OutGame : nullptr;
+    if (nSaveLoadErr != 0)
+    {
+        safe_delete(OutGame);
+    }
+    
+    return OutGame;
 }
 
 bool CGameLoad::IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath /*= nullptr*/, uint32_t ccPathSize /*= 0*/)
