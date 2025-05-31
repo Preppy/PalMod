@@ -37,5 +37,6 @@ public:
     void CrosscopyGame_ToSteam(CGameClass* CurrGame);
 
     int GetErrCt() { return nSaveLoadErr; };
+    int GetChangedCt() { return nSaveLoadSucc; };
     CString GetLoadSaveStr() { return strLoadSaveStr; };
 };

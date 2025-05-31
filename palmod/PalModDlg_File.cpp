@@ -118,7 +118,8 @@ void CPalModDlg::OnFilePatch()
         m_fFileChanged = FALSE;
     }
 
-    if (fSuccess)
+    // If we actually updated the binary, give them a few tips
+    if (fSuccess && GetHost()->GetLoader()->GetChangedCt())
     {
         static bool s_fHaveShownOnceThisSession = false;
 
