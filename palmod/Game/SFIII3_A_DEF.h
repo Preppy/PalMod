@@ -1090,8 +1090,8 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_3SGouki_HandlePortraits =
             MOD_COPY, 40, 1, 8,
             // pupil
             MOD_COPY, 61, 1, 9,
-            // background shadow
-            MOD_COPY, 9, 1, 10,
+            // shirt shoulder
+            MOD_COPY, 2, 1, 10,
             // hair for 4 colors
             MOD_COPY, 48, 1, 11,
             MOD_COPY, 49, 1, 12,
