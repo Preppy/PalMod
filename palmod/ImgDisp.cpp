@@ -1412,7 +1412,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     {
         if (!fUseQuietMode)
         {
-            MessageBox(L"Error: this is not a supported PNG.  Indexed PNGs are best suited replacement previews.", GetHost()->GetAppName(), MB_ICONERROR);
+            MessageBox(L"Error: this is not a supported PNG.  Indexed PNGs are best suited as replacement previews.", GetHost()->GetAppName(), MB_ICONERROR);
         }
 
         return false;

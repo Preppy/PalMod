@@ -380,10 +380,11 @@ void CPalModDlg::PostPalSel()
                 // nImgId is the extra offset for that character.
                 const int nImgKey = (static_cast<uint16_t>(CurrTicket->nUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
                 static int s_nLastPalAmt = 1;
+                const bool fChangingVisualLayout = (nPrevImgIndex[nImgIndexCtr] != nImgKey) || (s_nLastPalAmt != nPalAmt);
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
-                if (nImgIndexCtr == 0)
+                if (fChangingVisualLayout && (nImgIndexCtr == 0))
                 {
                     while (ImgDispCtrl->GetImgAmt() > static_cast<int>(nPalAmt))
                     {
@@ -393,7 +394,7 @@ void CPalModDlg::PostPalSel()
                     ImgDispCtrl->FlushCustomSpriteOverrides();
                 }
 
-                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || m_fForceImg || (nPalAmt > 1) || (s_nLastPalAmt != nPalAmt))
+                if (fChangingVisualLayout || m_fForceImg || (nPalAmt > 1))
                 {
                     if (nImgIndexCtr == 0)
                     {
