@@ -14,6 +14,10 @@ enum class JojosLoadingKey
 
 class CGame_JOJOS_A : public CGameClassByDir
 {
+private:
+    const uint32_t c_nPaletteCount50 = 476;
+    const uint32_t c_nPaletteCount51 = 2075;
+
 public:
     static JojosLoadingKey m_eVersionToLoad;
 
@@ -71,7 +75,7 @@ public:
         JOJOS_UNITS_50,
         ARRAYSIZE(JOJOS_UNITS_50),
         L"jojos50e.txt",     // Extra filename
-        476,                 // Count of palettes listed in the header
+        c_nPaletteCount50,   // Count of palettes listed in the header
         0x7c0000,            // Lowest known location used for palettes
     };
 
@@ -91,7 +95,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2067,               // Count of palettes listed in the header
+        c_nPaletteCount51,  // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 
@@ -111,7 +115,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2067,               // Count of palettes listed in the header
+        c_nPaletteCount51,  // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 
@@ -131,7 +135,7 @@ public:
         JOJOS_UNITS_50,
         ARRAYSIZE(JOJOS_UNITS_50),
         L"jojos50e.txt",     // Extra filename
-        476,                 // Count of palettes listed in the header
+        c_nPaletteCount50,   // Count of palettes listed in the header
         0x7c0000,            // Lowest known location used for palettes
     };
 
@@ -151,7 +155,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2067,               // Count of palettes listed in the header
+        c_nPaletteCount51,  // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 
@@ -171,7 +175,7 @@ public:
         JOJOS_UNITS_51,
         ARRAYSIZE(JOJOS_UNITS_51),
         L"jojos51e.txt",    // Extra filename
-        2067,               // Count of palettes listed in the header
+        c_nPaletteCount51,  // Count of palettes listed in the header
         0x2d0000,           // Lowest known location used for palettes
     };
 

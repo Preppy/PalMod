@@ -3450,6 +3450,16 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { L"Title Screen Background", 0x30b0a0, 0x30b0b0, indexJojos51Bonus, 0x31 },
     { L"World Map",              0x313780, 0x313800, indexJojos51Bonus, 0x38 },
 
+    { L"SCORE RANKING 1 ( R E K I N G )", 0x314000, 0x314020, indexJojos51Bonus, -1, &pairNext3Palettes },
+    { L"SCORE RANKING 2 ( O N )", 0x314020, 0x314040 },
+    { L"SCORE RANKING 3 ( C A )", 0x314040, 0x314060 },
+    { L"SCORE RANKING 4 ( S R )", 0x314060, 0x314080 },
+
+    { L"JOJO RANKING 1 (J & O Outlines, O K I N G)", 0x314100, 0x314120, indexJojos51Bonus, -1, &pairNext3Palettes},
+    { L"JOJO RANKING 2 (Second J, N)", 0x314120, 0x314140 },
+    { L"JOJO RANKING 3 (First O, A )", 0x314140, 0x314160 },
+    { L"JOJO RANKING 4 (First J, R)", 0x314160, 0x314180 },
+
     { L"Ranking Mini Logo",      0x313f00, 0x313f80, indexJojos51Bonus, 0x4d },
 
     { L"Score Ranking Star (after beating the story)", 0x313ea0, 0x313eb0 },
