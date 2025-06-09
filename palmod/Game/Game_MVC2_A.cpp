@@ -748,7 +748,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         // We need to readjust the nodes here.
                         uint32_t nNodeSize = 8;
                         uint32_t nAdjustedCollectionIndex = Node02;
-                        ptrdiff_t nAdjustedButtonIndex = Node03 + vnPeerPaletteDistances[nNodeIndex];
+                        ptrdiff_t nAdjustedButtonIndex = Node03 + static_cast<ptrdiff_t>(vnPeerPaletteDistances[nNodeIndex]);
 
                         while (nAdjustedButtonIndex >= 0)
                         {
