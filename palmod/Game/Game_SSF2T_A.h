@@ -4,7 +4,7 @@
 
 const uint32_t c_nPaletteCount03 = 325;
 const uint32_t c_nPaletteCount04 = 818;
-const uint32_t c_nPaletteCount08 = 216;
+const uint32_t c_nPaletteCount08 = 211;
 
 class CGame_SSF2T_A : public CGameClassByDir
 {

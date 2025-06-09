@@ -2116,12 +2116,12 @@ const sGame_PaletteDataset SSF2T_A_08_BALROG_STAGE_NODE[] =
 {
     { L"Wedding Chapel background 1/2", 0x628de, 0x6295e, indexSF2Sprites_Stages, 0x1d, &pairFullyLinkedNode },
     // We only have coverage for one line here
-    { L"Wedding Chapel background 2/2", 0x62A9e, 0x62Aae, indexSF2Sprites_Stages, 0x1e },
-    { L"Unused? 1/5", 0x62Aae, 0x62ace },
-    { L"Unused? 2/5", 0x62Ace, 0x62aee },
-    { L"Unused? 3/5", 0x62Aee, 0x62B1e },
-    { L"Unused? 4/5", 0x62b1e, 0x62B3e },
-    { L"Unused? 5/5", 0x62b3e, 0x62B5e },
+    { L"Wedding Chapel background 2/2", 0x62A9e, 0x62B5e, indexSF2Sprites_Stages, 0x1e },
+    //{ L"Unused? 1/5", 0x62Abe, 0x62ade },
+    //{ L"Unused? 2/5", 0x62Ade, 0x62afe },
+    //{ L"Unused? 3/5", 0x62Afe, 0x62B1e },
+    //{ L"Unused? 4/5", 0x62b1e, 0x62B3e },
+    //{ L"Unused? 5/5", 0x62b3e, 0x62B5e },
 
     { L"Street", 0x627fe, 0x6281e, indexSF2Sprites_Stages, 0x25 },
     // This also should be chopped up: there's multiple animation cycles here
