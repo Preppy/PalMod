@@ -192,7 +192,7 @@ private:
         SF2HF_A_UNITS_MONO,
         ARRAYSIZE(SF2HF_A_UNITS_MONO),
         L"SF2HFS.txt",        // Extra filename
-        409,                  // Count of palettes listed in the header
+        410,                  // Count of palettes listed in the header
         0x601aec,             // Lowest known location used for palettes
     };
 

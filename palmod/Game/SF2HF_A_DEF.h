@@ -417,7 +417,7 @@ const sGame_PaletteDataset SF2HF_A_BONUS21_NODE[] =
     { L"Versus Screen - Background & VS", 0xe3fe, 0xe41e },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_BLANKA_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_BLANKA_NODE[] =
 {
     { L"Sky", 0x7fe, 0x83e },
     { L"Left Hut 1", 0x583e, 0x585e },
@@ -442,7 +442,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_BLANKA_NODE[] =
     { L"Floor", 0x5ade, 0x5afe },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_BOXER_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_BOXER_NODE[] =
 {
     { L"Crowd 1", 0xc81e, 0xc83e },
     { L"Crowd 2", 0xc85e, 0xc87e },
@@ -471,7 +471,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_BOXER_NODE[] =
     { L"Floor", 0x7afe, 0x7bbe },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_CHUNLI_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_CHUNLI_NODE[] =
 {
     { L"Sky", 0xb4fe, 0xb51e },
     { L"Sky & Alley Buildings 1", 0xb3fe, 0xb41e },
@@ -500,7 +500,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_CHUNLI_NODE[] =
     { L"Right Shop 2", 0x675e, 0x677e },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_CLAW_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_CLAW_NODE[] =
 {
     { L"Performers", 0xcd1e, 0xcd5e },
     { L"Performers & Stage", 0xcc7e, 0xccde },
@@ -517,7 +517,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_CLAW_NODE[] =
     { L"Fence & Pillars", 0x2bfe, 0x2c1e },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_DHALSIM_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_DHALSIM_NODE[] =
 {
     { L"Painting", 0x6bfe, 0x6c1e },
     { L"Painting & Column", 0x6f1e, 0x6f3e },
@@ -543,7 +543,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_DHALSIM_NODE[] =
     { L"Front Elephant & Floor", 0x1c1e, 0x1c3e },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_DICTATOR_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_DICTATOR_NODE[] =
 {
     { L"Ceiling 1", 0x6ffe, 0x701e },
     { L"Ceiling 2", 0x703e, 0x705e },
@@ -571,7 +571,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_DICTATOR_NODE[] =
     { L"Columns", 0xc29e, 0xc2be },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_EHONDA_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_EHONDA_NODE[] =
 {
     { L"Background Wall 1", 0xa5de, 0xa61e, indexSF2HFSprites_Stages, 0x07, &pairNext9Palettes },
     { L"Background Wall 2", 0xa61e, 0xa69e, indexSF2HFSprites_Stages, 0x08 },
@@ -587,7 +587,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_EHONDA_NODE[] =
     { L"Background After K.O. 2", 0xa75e, 0xa79e, indexSF2HFSprites_Stages, 0x12 },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_GUILE_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_GUILE_NODE[] =
 {
     { L"Sky 1", 0x5dfe, 0x5e1e, indexSF2HFSprites_Stages, 0x1a, &pairFullyLinkedNode },
     { L"Sky 2", 0xcde, 0xcfe, indexSF2HFSprites_Stages, 0x19 },
@@ -614,7 +614,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_GUILE_NODE[] =
     { L"Crowd 5", 0xad5e, 0xad7e, indexSF2HFSprites_Stages, 0x2b },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_KEN_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_KEN_NODE[] =
 {
     { L"Sky & Water", 0x601e, 0x603e, indexSF2HFSprites_Stages, 0x31, &pairFullyLinkedNode },
     { L"Sky & Yacht 1", 0x605e, 0x607e, indexSF2HFSprites_Stages, 0x32 },
@@ -638,7 +638,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_KEN_NODE[] =
     { L"Crowd & Steamboat 6", 0xaffe, 0xb01e, indexSF2HFSprites_Stages, 0x43 },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_RYU_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_RYU_NODE[] =
 {
     { L"Moon & Sky", 0x3be, 0x3de, indexSF2HFSprites_Stages, 0x00, &pairFullyLinkedNode },
     { L"Intermediate Rooftop", 0xa03e, 0xa09e, indexSF2HFSprites_Stages, 0x03 },
@@ -647,7 +647,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_RYU_NODE[] =
     { L"Floor", 0x4ffe, 0x501e, indexSF2HFSprites_Stages, 0x04 },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_SAGAT_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_SAGAT_NODE[] =
 {
     { L"Sky & Temple", 0x253e, 0x255e },
     { L"Buddha 1", 0x73fe, 0x741e },
@@ -668,7 +668,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_SAGAT_NODE[] =
     { L"Grass & Right Structure 2", 0x765e, 0x767e },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_ZANGIEF_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_ZANGIEF_NODE[] =
 {
     { L"Factory Background 1", 0xb7fe, 0xb89e },
     { L"Factory Background 2", 0xb8be, 0xb95e },
@@ -691,7 +691,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_ZANGIEF_NODE[] =
     { L"Foreground Fence", 0x17fe, 0x181e },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_BONUSCAR_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSCAR_NODE[] =
 {
     { L"Water & Sky", 0x801e, 0x803e },
     { L"Water & Yacht 1", 0x80de, 0x80fe },
@@ -704,7 +704,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_BONUSCAR_NODE[] =
     { L"Floor", 0x81de, 0x81fe },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_BONUSCASKS_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSCASKS_NODE[] =
 {
     { L"Background Casks & Pallets", 0xd3fe, 0xd41e },
     { L"Background Casks & Gate", 0xd41e, 0xd43e },
@@ -716,7 +716,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES_BONUSCASKS_NODE[] =
     { L"Floor", 0x847e, 0x849e },
 };
 
-const sGame_PaletteDataset SF2HF_A_STAGES_BONUSDRUMS_NODE[] =
+const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSDRUMS_NODE[] =
 {
     { L"Sky", 0x3bbe, 0x3bde },
     { L"Crowd 1", 0x8a9e, 0x8ade },
@@ -734,24 +734,24 @@ const sGame_PaletteDataset SF2HF_A_STAGES_BONUSDRUMS_NODE[] =
     { L"Drums", 0xd9be, 0xd9de },
 };
 
-const sDescTreeNode SF2HF_A_STAGES_COLLECTION[] =
+const sDescTreeNode SF2HF_A_STAGES21_COLLECTION[] =
 {
-    { L"Blanka",                DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_BLANKA_NODE, ARRAYSIZE(SF2HF_A_STAGES_BLANKA_NODE) },
-    { L"Boxer",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_BOXER_NODE, ARRAYSIZE(SF2HF_A_STAGES_BOXER_NODE) },
-    { L"Chun-Li",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_CHUNLI_NODE, ARRAYSIZE(SF2HF_A_STAGES_CHUNLI_NODE) },
-    { L"Claw",                  DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_CLAW_NODE, ARRAYSIZE(SF2HF_A_STAGES_CLAW_NODE) },
-    { L"Dhalsim",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_DHALSIM_NODE, ARRAYSIZE(SF2HF_A_STAGES_DHALSIM_NODE) },
-    { L"Dictator",              DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_DICTATOR_NODE, ARRAYSIZE(SF2HF_A_STAGES_DICTATOR_NODE) },
-    { L"E.Honda",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_EHONDA_NODE, ARRAYSIZE(SF2HF_A_STAGES_EHONDA_NODE) },
-    { L"Guile",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_GUILE_NODE, ARRAYSIZE(SF2HF_A_STAGES_GUILE_NODE) },
-    { L"Ken",                   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_KEN_NODE, ARRAYSIZE(SF2HF_A_STAGES_KEN_NODE) },
-    { L"Ryu",                   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_RYU_NODE, ARRAYSIZE(SF2HF_A_STAGES_RYU_NODE) },
-    { L"Sagat",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_SAGAT_NODE, ARRAYSIZE(SF2HF_A_STAGES_SAGAT_NODE) },
-    { L"Zangief",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_ZANGIEF_NODE, ARRAYSIZE(SF2HF_A_STAGES_ZANGIEF_NODE) },
+    { L"Blanka",                DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_BLANKA_NODE, ARRAYSIZE(SF2HF_A_STAGES21_BLANKA_NODE) },
+    { L"Boxer",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_BOXER_NODE, ARRAYSIZE(SF2HF_A_STAGES21_BOXER_NODE) },
+    { L"Chun-Li",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_CHUNLI_NODE, ARRAYSIZE(SF2HF_A_STAGES21_CHUNLI_NODE) },
+    { L"Claw",                  DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_CLAW_NODE, ARRAYSIZE(SF2HF_A_STAGES21_CLAW_NODE) },
+    { L"Dhalsim",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_DHALSIM_NODE, ARRAYSIZE(SF2HF_A_STAGES21_DHALSIM_NODE) },
+    { L"Dictator",              DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_DICTATOR_NODE, ARRAYSIZE(SF2HF_A_STAGES21_DICTATOR_NODE) },
+    { L"E.Honda",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_EHONDA_NODE, ARRAYSIZE(SF2HF_A_STAGES21_EHONDA_NODE) },
+    { L"Guile",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_GUILE_NODE, ARRAYSIZE(SF2HF_A_STAGES21_GUILE_NODE) },
+    { L"Ken",                   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_KEN_NODE, ARRAYSIZE(SF2HF_A_STAGES21_KEN_NODE) },
+    { L"Ryu",                   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_RYU_NODE, ARRAYSIZE(SF2HF_A_STAGES21_RYU_NODE) },
+    { L"Sagat",                 DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_SAGAT_NODE, ARRAYSIZE(SF2HF_A_STAGES21_SAGAT_NODE) },
+    { L"Zangief",               DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_ZANGIEF_NODE, ARRAYSIZE(SF2HF_A_STAGES21_ZANGIEF_NODE) },
     
-    { L"Bonus Stage (Car)",     DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_BONUSCAR_NODE, ARRAYSIZE(SF2HF_A_STAGES_BONUSCAR_NODE) },
-    { L"Bonus Stage (Casks)",   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_BONUSCASKS_NODE, ARRAYSIZE(SF2HF_A_STAGES_BONUSCASKS_NODE) },
-    { L"Bonus Stage (Drums)",   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_BONUSDRUMS_NODE, ARRAYSIZE(SF2HF_A_STAGES_BONUSDRUMS_NODE) },
+    { L"Bonus Stage (Car)",     DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_BONUSCAR_NODE, ARRAYSIZE(SF2HF_A_STAGES21_BONUSCAR_NODE) },
+    { L"Bonus Stage (Casks)",   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_BONUSCASKS_NODE, ARRAYSIZE(SF2HF_A_STAGES21_BONUSCASKS_NODE) },
+    { L"Bonus Stage (Drums)",   DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_BONUSDRUMS_NODE, ARRAYSIZE(SF2HF_A_STAGES21_BONUSDRUMS_NODE) },
 };
 
 const sDescTreeNode SF2HF_A_BONUS21_COLLECTION[] =
@@ -763,7 +763,7 @@ const sDescTreeNode SF2HF_A_21_UNITS[] =
 {
     { L"Portraits",      DESC_NODETYPE_TREE, (void*)SF2HF_A_PORTRAITS_COLLECTION, ARRAYSIZE(SF2HF_A_PORTRAITS_COLLECTION) },
     { L"Select Screen",  DESC_NODETYPE_TREE, (void*)SF2HF_A_SELECTICON_COLLECTION, ARRAYSIZE(SF2HF_A_SELECTICON_COLLECTION) },
-    { L"Stages",         DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_COLLECTION, ARRAYSIZE(SF2HF_A_STAGES_COLLECTION) },
+    { L"Stages",         DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_COLLECTION, ARRAYSIZE(SF2HF_A_STAGES21_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS21_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS21_COLLECTION) },
 };
 
@@ -1026,9 +1026,9 @@ const sDescTreeNode SF2HF_A_UNITS_MONO[] =
 
     { L"Portraits",      DESC_NODETYPE_TREE, (void*)SF2HF_A_PORTRAITS_COLLECTION, ARRAYSIZE(SF2HF_A_PORTRAITS_COLLECTION) },
     { L"Select Screen",  DESC_NODETYPE_TREE, (void*)SF2HF_A_SELECTICON_COLLECTION, ARRAYSIZE(SF2HF_A_SELECTICON_COLLECTION) },
-    { L"ROM21 Stages",         DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES_COLLECTION, ARRAYSIZE(SF2HF_A_STAGES_COLLECTION) },
+    { L"ROM21 Stages",         DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_COLLECTION, ARRAYSIZE(SF2HF_A_STAGES21_COLLECTION) },
     { L"ROM21 Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS21_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS21_COLLECTION) },
 
     { L"Continue Portraits", DESC_NODETYPE_TREE, (void*)SF2HF_A_23_PORTRAITS_COLLECTION, ARRAYSIZE(SF2HF_A_23_PORTRAITS_COLLECTION) },
-    { L"ROM22 Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_23_BONUS_COLLECTION, ARRAYSIZE(SF2HF_A_23_BONUS_COLLECTION) },
+    { L"ROM23 Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_23_BONUS_COLLECTION, ARRAYSIZE(SF2HF_A_23_BONUS_COLLECTION) },
 };
