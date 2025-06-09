@@ -16,6 +16,8 @@ const std::vector<uint16_t> SF2HF_A_IMGIDS_USED =
     indexSF2Sprites_Vega,
     indexSF2Sprites_Bonus,
     indexSF2HFSprites_Stages,
+
+    indexSF2Sprites_Stages, // 0x12
 };
 
 const sGame_PaletteDataset SF2HF_A_RYU_NORMAL_NODE[] =
@@ -805,26 +807,26 @@ const sDescTreeNode SF2HF_A_22_BONUS_COLLECTION[] =
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSCAR_NODE[] =
 {
-    { L"Car 1", 0x2f59e, 0x2f63e },
+    { L"Car 1", 0x2f5be, 0x2f63e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Car 2", 0x2f65e, 0x2f67e },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSCASKS_NODE[] =
 {
-    { L"P2 Scoreboard", 0x2f7fe, 0x2f81e },
+    { L"P2 Scoreboard", 0x2f7fe, 0x2f81e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Scoreboard Tallies", 0x2f81e, 0x2f83e },
     { L"Rolling Casks", 0x2f85e, 0x2f87e },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSDRUMS_NODE[] =
 {
+    { L"Drums", 0x2fa5e, 0x2fa7e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Flames", 0x2fa3e, 0x2fa5e },
-    { L"Drums", 0x2fa5e, 0x2fa7e },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BLANKA_NODE[] =
 {
-    { L"Posts", 0x2e1de, 0x2e1fe },
+    { L"Posts", 0x2e1de, 0x2e1fe, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"Crowd & Stump", 0x2e1fe, 0x2e21e },
     { L"Crowd & Right Hut", 0x2e21e, 0x2e23e },
     { L"Crowd", 0x2e23e, 0x2e25e },
@@ -833,17 +835,19 @@ const sGame_PaletteDataset SF2HF_A_22_STAGES_BLANKA_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BOXER_NODE[] =
 {
-    { L"Show Girls", 0x2f21e, 0x2f27e },
+    { L"Show Girls", 0x2f1be, 0x2f27e, indexSF2Sprites_Stages, 0x1b },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_CHUNLI_NODE[] =
 {
-    { L"Cyclists", 0x2e81e, 0x2e87e },
+    { L"Blue Biker", 0x2e81e, 0x2e83e, indexSF2Sprites_Stages, 0x29, &pairFullyLinkedNode },
+    { L"Green Biker", 0x2e83e, 0x2e85e, indexSF2Sprites_Stages, 0x2a },
+    { L"Red Biker", 0x2e85e, 0x2e87e, indexSF2Sprites_Stages, 0x2b },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_DHALSIM_NODE[] =
 {
-    { L"Pots", 0x2ec3e, 0x2ec7e },
+    { L"Pots", 0x2ec40, 0x2ec80, indexSF2Sprites_Stages, 0x58 },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_DICTATOR_NODE[] =
@@ -882,8 +886,7 @@ const sGame_PaletteDataset SF2HF_A_22_STAGES_RYU_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_ZANGIEF_NODE[] =
 {
-    { L"Foreground Chain", 0x2e9de, 0x2e9fe },
-    { L"Fire Extinguisher", 0x2e9fe, 0x2ea1e },
+    { L"Chain and extinguisher", 0x2e9de, 0x2ea1e, indexSF2Sprites_Stages, 0xa6 },
 };
 
 const sDescTreeNode SF2HF_A_22_STAGES_COLLECTION[] =

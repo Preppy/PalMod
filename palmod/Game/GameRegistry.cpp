@@ -1911,7 +1911,7 @@ namespace KnownGameInfo
         {
             SF2CE_A,
             L"SF2:CE (CPS1 Arcade)",
-            { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23) (CPS2)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23) (CPS1)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SF2CE_A,
             CGame_SF2CE_A::GetRule,
         },
@@ -1925,7 +1925,7 @@ namespace KnownGameInfo
         {
             SF2HF_A,
             L"SF2:HF (CPS1 Arcade)",
-            { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23) (CPS2)|s2t*21.6f;s2t*22.7f;s2t*_23.8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23) (CPS1)|s2t*21.6f;s2t*22.7f;s2t*_23.8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SF2HF_A,
             CGame_SF2HF_A::GetRule,
         },
