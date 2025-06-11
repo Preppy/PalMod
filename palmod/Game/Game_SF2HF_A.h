@@ -49,6 +49,10 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
+        { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 21 old rip)", L"sf2_21.bin", 0xfd200288, 0 },
+        { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 22 old rip)", L"sf2_22.bin", 0xaea6e035, 0 },
+        { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 23 old rip)", L"sf2.23", 0x89a1fc38, 0 },
+
         { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 21)", L"s2tu_21.6f", 0xfd200288, 0 },
         { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 22)", L"s2tu_22.7f", 0xaea6e035, 0 },
         { L"Street Fighter II' - Hyper Fighting (US 921209 ROM 23)", L"s2tu_23.8f", 0x89a1fc38, 0 },

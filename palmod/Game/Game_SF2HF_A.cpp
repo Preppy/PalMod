@@ -8,6 +8,10 @@ void CGame_SF2HF_A::SetSpecialRuleForFileName(std::wstring strFileName)
     const std::map<std::wstring, SF2HFLoadingKey> m_rgFileNameToVersion =
     {
         // these should be all lower case
+        { L"sf2_21.bin", SF2HFLoadingKey::ROM21 },
+        { L"sf2_22.bin", SF2HFLoadingKey::ROM22 },
+        { L"sf2.23", SF2HFLoadingKey::ROM23 },
+
         { L"s2tu_21.6f", SF2HFLoadingKey::ROM21 },
         { L"s2tu_22.7f", SF2HFLoadingKey::ROM22 },
         { L"s2tu_23.8f", SF2HFLoadingKey::ROM23 },
