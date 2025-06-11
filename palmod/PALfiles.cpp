@@ -19,7 +19,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
         if (mmRes == MMSYSERR_NOERROR)
         {
             // found some palette data.
-            FOURCC fourCCPal = mmioFOURCC('P', 'A', 'L', ' ');
+            const FOURCC fourCCPal = mmioFOURCC('P', 'A', 'L', ' ');
 
             if (mmckinfoParent.fccType == fourCCPal)
             {
@@ -32,8 +32,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 
                 if (mmioDescend(hRIFFFile, &mmckinfoSubchunk, &mmckinfoParent, MMIO_FINDCHUNK) == MMSYSERR_NOERROR)
                 {
-                    DWORD dwDataSize;
-                    dwDataSize = mmckinfoSubchunk.cksize;
+                    const DWORD dwDataSize = mmckinfoSubchunk.cksize;
 
                     if ((dwDataSize > 0))
                     {
@@ -154,7 +153,7 @@ void CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericE
 
             // Write out the current palette
             uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
-            int nColorCount = CurrPalCtrl->GetWorkingAmt();
+            const int nColorCount = CurrPalCtrl->GetWorkingAmt();
 
             mmckInfoData.ckid = mmioFOURCC('d', 'a', 't', 'a');
             mmckInfoData.cksize = 0;

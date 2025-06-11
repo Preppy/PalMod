@@ -950,6 +950,7 @@ void CPalModDlg::OnExportPalette()
                                         L"Microsoft PAL|*.pal|"
                                         L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
                                         L"HipPalette|*.hpl|"
+                                        L"TileLayer Pro palette|*.tpl|"
                                         L"|" };
 
     static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
@@ -958,6 +959,7 @@ void CPalModDlg::OnExportPalette()
                                             L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
                                             L"GIMP Palette File|*.gpl|"
                                             L"Microsoft PAL|*.pal|"
+                                            L"TileLayer Pro palette|*.tpl|"
                                             L"|" };
 
     static LPCWSTR rgszBBCFAndBBTAGSaveFilter[] = { L"HipPalette|*.hpl|"
@@ -967,6 +969,7 @@ void CPalModDlg::OnExportPalette()
                                             L"BlazBlue Cross Tag Battle Palette Set|*.impl|"
                                             L"GIMP Palette File|*.gpl|"
                                             L"Microsoft PAL|*.pal|"
+                                            L"TileLayer Pro palette|*.tpl|"
                                             L"|" };
 
     LPCWSTR pszDefaultExt = L"act";
@@ -1022,6 +1025,10 @@ void CPalModDlg::OnExportPalette()
         else if (_wcsicmp(szExtension, L".pal") == 0)
         {
             SavePaletteToPAL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
+        }
+        else if (_wcsicmp(szExtension, L".tpl") == 0)
+        {
+            SavePaletteToTPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
         else
         {

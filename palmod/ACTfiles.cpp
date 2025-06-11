@@ -270,7 +270,7 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
         std::array<uint8_t, nActSz> rgAct = {};
 
         uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
-        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
         uint8_t nPalettePageCount;
 
         if (CurrPalCtrl->GetSelAmt() == 0) // they want everything

@@ -188,6 +188,7 @@ private:
     void SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToIMPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
+    void SavePaletteToTPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
 
     void UpdateSliderSel(BOOL fModeChange = FALSE, BOOL fResetRF = FALSE);
     void SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB);

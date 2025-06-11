@@ -987,6 +987,9 @@
     <ClCompile Include="Game\Game_CFE_P.cpp">
       <Filter>Games\Capcom Games\Capcom Fighting Evolution %28PS2%29</Filter>
     </ClCompile>
+    <ClCompile Include="TPLfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

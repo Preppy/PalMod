@@ -1030,6 +1030,8 @@ END
 STRINGTABLE
 BEGIN
     IDS_ERROR_ENCRYPTED     "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
+    IDS_TPLSAVE_SUCCESS    "TPL file saved successfully."
+    IDS_TPLSAVE_FAILURE    "Error saving TPL file."
 END
 
 #endif    // English (United States) resources
