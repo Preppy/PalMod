@@ -499,12 +499,11 @@ void CJunk::MovePaletteSelection(SelectionMovement nOption)
             {
                 if (m_Selected && m_iWorkingAmt)
                 {
-                    BOOL fPreviousState;
                     BOOL fNextState = m_Selected[0];
 
                     for (int iPos = m_iWorkingAmt - 1; iPos > 0 ; iPos--)
                     {
-                        fPreviousState = m_Selected[iPos];
+                        BOOL fPreviousState = m_Selected[iPos];
                         m_Selected[iPos] = fNextState;
                         fNextState = fPreviousState;
                     }
@@ -567,12 +566,11 @@ void CJunk::MovePaletteSelection(SelectionMovement nOption)
             {
                 if (m_Selected && m_iWorkingAmt)
                 {
-                    BOOL fPreviousState;
                     BOOL fNextState = m_Selected[m_iWorkingAmt - 1];
 
                     for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
                     {
-                        fPreviousState = m_Selected[iPos];
+                        BOOL fPreviousState = m_Selected[iPos];
                         m_Selected[iPos] = fNextState;
                         fNextState = fPreviousState;
                     }
@@ -740,15 +738,12 @@ void CJunk::UpdateFace()
 
 void CJunk::CustomFillRect(RECT* lpRect, uint8_t* crSrcCol, BlendMode bm)
 {
-    int nSqW = lpRect->right - lpRect->left;
-    int nSqH = lpRect->top - lpRect->bottom;
-
     uint8_t* pDstImgData = reinterpret_cast<uint8_t*>(m_pBmpData);
 
     const uint8_t nAdjustedAlpha = ColorSystem::GetAlphaValueForBlendType(bm, crSrcCol[3], crSrcCol[0], crSrcCol[1], crSrcCol[2]);
 
-    double fpDstA2 = (1.0f - (static_cast<double>(nAdjustedAlpha) / 255.0f));
-    double fpDstA1 = 1.0f - fpDstA2;
+    const double fpDstA2 = (1.0f - (static_cast<double>(nAdjustedAlpha) / 255.0f));
+    const double fpDstA1 = 1.0f - fpDstA2;
 
     for (int y = lpRect->top * 4; y < lpRect->bottom * 4; y += 4)
     {
@@ -813,8 +808,6 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
     if (!m_LButtonDown)
     {
-        //bMulHL = FALSE;
-
         if (ProcessHovered(point, PalIndex))
         {
             if (!((PalIndex.y >= m_iPalH) || (PalIndex.x >= m_iPalW)))
@@ -852,7 +845,6 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
         {
             if ((m_yHLOld != PalIndex.y) || (m_xHLOld != PalIndex.x))
             {
-                //bMulHL = TRUE;
                 ClearSelView();
 
                 if ((PalIndex.y == m_yInSelStart) && (PalIndex.x == m_xInSelStart))
@@ -863,22 +855,17 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
                 else
                 {
                     //Multiple selection of palette entries are based on lines instead of boxes
-                    int ix, iy, jx, jy, x, y;
-                    int ks, ke, kt;
-
-                    ix = iy = jx = jy = x = y = ks = ke = kt = 0;
-
-                    ks = (m_yInSelStart * m_iPalW) + m_xInSelStart;
-                    ke = (PalIndex.y * m_iPalW) + PalIndex.x;
+                    int ks = (m_yInSelStart * m_iPalW) + m_xInSelStart;
+                    int ke = (PalIndex.y * m_iPalW) + PalIndex.x;
 
                     if (ks > ke)
                     {
-                        kt = ks;
+                        int kTemp = ks;
                         ks = ke;
-                        ke = kt;
+                        ke = kTemp;
                     }
 
-                    for (y = ks; y <= ke; y++)
+                    for (int y = ks; y <= ke; y++)
                     {
                         SetSelViewItem(L"OnMouseMove::ProcessHovered", y, TRUE);
                         m_iHLAmt++;
@@ -916,7 +903,7 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
         m_yInSelStart = PalIndex.y;
         m_xInSelStart = PalIndex.x;
 
-        int nNewSingleSel = (m_yInSelStart * m_iPalW) + (m_xInSelStart);
+        const int nNewSingleSel = (m_yInSelStart * m_iPalW) + (m_xInSelStart);
 
         if (!(nFlags & MK_CONTROL))
         {
@@ -1032,13 +1019,9 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 
 BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
 {
-    int x = hPoint.x;
-    int y = hPoint.y;
-
-    int posmod = GetPaletteSquareSize() + BDR_SZ;
-
-    int xIn = x / posmod;
-    int yIn = y / posmod;
+    const int posmod = GetPaletteSquareSize() + BDR_SZ;
+    const int xIn = hPoint.x / posmod;
+    const int yIn = hPoint.y / posmod;
 
     // Verify the hover is over the control still
     if ((xIn >= m_iPalW) || (xIn < 0) ||
@@ -1129,7 +1112,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(m_nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYOFFSET, L"Copy Offset");
 
-        int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
+        const int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
 
         switch (result)
         {
@@ -1192,15 +1175,15 @@ BOOL CJunk::OnCommand(WPARAM wParam, LPARAM lParam)
 {
     switch (LOWORD(wParam))
     {
-    case CUSTOM_COPY:
-    case CUSTOM_PASTE:
-    case CUSTOM_SALL:
-    case CUSTOM_SNONE:
-    case CUSTOM_COPYOFFSET:
-    {
-        NotifyParent(LOWORD(wParam));
-        break;
-    }
+        case CUSTOM_COPY:
+        case CUSTOM_PASTE:
+        case CUSTOM_SALL:
+        case CUSTOM_SNONE:
+        case CUSTOM_COPYOFFSET:
+        {
+            NotifyParent(LOWORD(wParam));
+            break;
+        }
     }
     return CWnd::OnCommand(wParam, lParam);
 }
