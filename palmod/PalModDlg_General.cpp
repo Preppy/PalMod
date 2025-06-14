@@ -135,11 +135,11 @@ if ((nCurrChildSel2 != m_nPrevChildSel2) || fForceUpdate)
     //OnEditSelectNone();
 
     //Update the display palette selection
-    const UINT_PTR nNotifyIndex = m_PalHost.GetNotifyIndex();
+    const UINT_PTR nActivePaletteIndex = m_PalHost.GetActivePaletteIndex();
 
-    if (m_PalHost.GetPalCtrl(nNotifyIndex))
+    if (m_PalHost.GetPalCtrl(nActivePaletteIndex))
     {
-        OnPalSelChange(nNotifyIndex);
+        OnPalSelChange(nActivePaletteIndex);
     }
     else
     {

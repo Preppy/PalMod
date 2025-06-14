@@ -31,7 +31,7 @@ private:
     bool m_fFontIsBold = true;
     int m_nFontHeight = -1;
 
-    UINT_PTR m_nNotifyCtrlIndex = 0;
+    UINT_PTR m_nActivePaletteCtrlIndex = 0;
 
     CSpinButtonCtrl m_PgSpin;
 
@@ -64,21 +64,21 @@ public:
     void BeginSetPal();
     void EndSetPal();
     void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, LPCWSTR pszNewPalStr);
-    UINT_PTR GetNotifyIndex() { return m_nNotifyCtrlIndex; };
-    CJunk* GetNotifyPal() { return m_sPalEntry[m_nNotifyCtrlIndex].PaletteCtrl; };
+    UINT_PTR GetActivePaletteIndex() { return m_nActivePaletteCtrlIndex; };
+    CJunk* GetNotifyPal() { return m_sPalEntry[m_nActivePaletteCtrlIndex].PaletteCtrl; };
     CJunk* GetPalCtrl(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].PaletteCtrl : nullptr; };
     LPCWSTR GetPalName(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].pszPalStr : L"Untitled Palette"; };
 
-    void ResetNotifyIndex() { m_nNotifyCtrlIndex = 0; };
+    void ResetNotifyIndex() { m_nActivePaletteCtrlIndex = 0; };
 
-    bool CurrPalAvail() { return m_sPalEntry[m_nNotifyCtrlIndex].fPalAvailable; };
+    bool CurrPalAvail() { return m_sPalEntry[m_nActivePaletteCtrlIndex].fPalAvailable; };
     void ShowAvailPal();
     void UpdateAllPalCtrls();
     void UpdateCtrl();
 
-    int GetCurrentPageCount() { return m_nPageAmt; };
+    int GetCurrentPaletteCount() { return m_nCurrPalAmt; };
 
-    //void ResetNotifyPal(int nIndex){OnPalSelChange(0);SendPalMsg(m_nNotifyCtrlIndex);};
+    //void ResetNotifyPal(int nIndex){OnPalSelChange(0);SendPalMsg(m_nActivePaletteCtrlIndex);};
 
     BOOL RegisterWindowClass();
 

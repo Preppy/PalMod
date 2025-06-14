@@ -94,7 +94,7 @@ void CPalTool::OnPalSelChange(UINT_PTR nCtrlId, BOOL fCurrPage)
         }
     }
 
-    m_nNotifyCtrlIndex = nCtrlId;
+    m_nActivePaletteCtrlIndex = nCtrlId;
 
     DrawText();
     Invalidate();
@@ -404,7 +404,7 @@ void CPalTool::DrawText()
             {
                 if (m_sPalEntry[iPaletteIndex].fPalAvailable)
                 {
-                    if (iPaletteIndex == static_cast<int>(m_nNotifyCtrlIndex))
+                    if (iPaletteIndex == static_cast<int>(m_nActivePaletteCtrlIndex))
                     {
                         dc.SetTextColor(RGB(0, 0, 0)); //Black for selected palette
                     }
@@ -486,7 +486,7 @@ BOOL CPalTool::PreTranslateMessage(MSG* pMsg)
         {
             OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
 
-            SendPalMsg(m_nNotifyCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
+            SendPalMsg(m_nActivePaletteCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
         }
         break;
 
@@ -554,7 +554,7 @@ void CPalTool::OnDeltaposSpin(NMHDR* pNMHDR, LRESULT* pResult)
         UpdateCtrl();
 
         OnPalSelChange(m_rgPalRedir[m_nCurrPage - 1], FALSE);
-        SendPalMsg(m_nNotifyCtrlIndex, CUSTOM_SS);
+        SendPalMsg(m_nActivePaletteCtrlIndex, CUSTOM_SS);
     }
 
     *pResult = 0;

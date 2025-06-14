@@ -269,47 +269,32 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
         const int nActSz = k_nMaxColorsAllowed * 3;
         std::array<uint8_t, nActSz> rgAct = {};
 
-        uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
-        const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-        uint8_t nPalettePageCount;
-
-        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
-        {
-            nPalettePageCount = m_PalHost.GetCurrentPageCount();
-        }
-        else
-        {
-            nPalettePageCount = 1;
-        }
+        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
 
         int nTotalColorsUsed = 0;
 
         if (fRightsideUp)
         {
-            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+            for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
             {
-                rgAct.at(nTotalColorsUsed * 3) = pPal[nTotalColorsUsed * 4];
-                rgAct.at((nTotalColorsUsed * 3) + 1) = pPal[nTotalColorsUsed * 4 + 1];
-                rgAct.at((nTotalColorsUsed * 3) + 2) = pPal[nTotalColorsUsed * 4 + 2];
-            }
+                CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 
-            for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
-            {
-                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-                if (pPalCtrlNextPage)
+                if (pPalette)
                 {
-                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+                    const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
 
-                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) &&
-                                                   (nActivePageIndex < nNextPageWorkingAmt) &&
-                                                   (nTotalColorsUsed < nWorkingAmt);
-                        nActivePageIndex++)
+                    if ((nTotalColorsUsed + nPaletteWorkingAmt) > k_nMaxColorsAllowed)
                     {
-                        rgAct.at(nTotalColorsUsed * 3) = pPal[nTotalColorsUsed * 4];
-                        rgAct.at((nTotalColorsUsed * 3) + 1) = pPal[nTotalColorsUsed * 4 + 1];
-                        rgAct.at((nTotalColorsUsed * 3) + 2) = pPal[nTotalColorsUsed * 4 + 2];
-                        nTotalColorsUsed++;
+                        break;
+                    }
+
+                    const uint8_t* pPal = reinterpret_cast<uint8_t*>(pPalette->GetBasePal());
+
+                    for (int nActivePaletteIndex = 0; (nActivePaletteIndex < nPaletteWorkingAmt) && (nTotalColorsUsed < k_nMaxColorsAllowed); nActivePaletteIndex++, nTotalColorsUsed++)
+                    {
+                        rgAct.at(nTotalColorsUsed * 3)       = pPal[(nActivePaletteIndex * 4)];
+                        rgAct.at((nTotalColorsUsed * 3) + 1) = pPal[(nActivePaletteIndex * 4) + 1];
+                        rgAct.at((nTotalColorsUsed * 3) + 2) = pPal[(nActivePaletteIndex * 4) + 2];
                     }
                 }
             }
@@ -317,30 +302,27 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
         else //upside-down for fighter factory 3
         {
             int nWriteLocation = k_nMaxColorsAllowed - 1;
-            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
-            {
-                rgAct.at((nWriteLocation - nTotalColorsUsed) * 3) = pPal[nTotalColorsUsed * 4];
-                rgAct.at(((nWriteLocation - nTotalColorsUsed) * 3) + 1) = pPal[nTotalColorsUsed * 4 + 1];
-                rgAct.at(((nWriteLocation - nTotalColorsUsed) * 3) + 2) = pPal[nTotalColorsUsed * 4 + 2];
-            }
 
-            for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
             {
-                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+                CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 
-                if (pPalCtrlNextPage)
+                if (pPalette)
                 {
-                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+                    const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
 
-                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) &&
-                                                   (nActivePageIndex < nNextPageWorkingAmt) &&
-                                                   (nTotalColorsUsed < nWorkingAmt);
-                        nActivePageIndex++)
+                    if ((nTotalColorsUsed + nPaletteWorkingAmt) > k_nMaxColorsAllowed)
                     {
-                        rgAct.at((nWriteLocation - nTotalColorsUsed) * 3) = pPal[nTotalColorsUsed * 4];
-                        rgAct.at(((nWriteLocation - nTotalColorsUsed) * 3) + 1) = pPal[nTotalColorsUsed * 4 + 1];
-                        rgAct.at(((nWriteLocation - nTotalColorsUsed) * 3) + 2) = pPal[nTotalColorsUsed * 4 + 2];
-                        nTotalColorsUsed++;
+                        break;
+                    }
+
+                    const uint8_t* pPal = reinterpret_cast<uint8_t*>(pPalette->GetBasePal());
+
+                    for (int nActivePaletteIndex = 0; (nActivePaletteIndex < nPaletteWorkingAmt) && (nTotalColorsUsed < k_nMaxColorsAllowed); nActivePaletteIndex++, nTotalColorsUsed++)
+                    {
+                        rgAct.at((nWriteLocation - nTotalColorsUsed) * 3)       = pPal[(nActivePaletteIndex * 4)];
+                        rgAct.at(((nWriteLocation - nTotalColorsUsed) * 3) + 1) = pPal[(nActivePaletteIndex * 4) + 1];
+                        rgAct.at(((nWriteLocation - nTotalColorsUsed) * 3) + 2) = pPal[(nActivePaletteIndex * 4) + 2];
                     }
                 }
             }

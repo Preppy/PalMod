@@ -13,6 +13,9 @@
 
 void CPalModDlg::SavePaletteToTPL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
 {
+    // The design here is that we export out the maximum possible number of palettes to the palette file.
+    // For the sake of simplicity we'll just pad to 256.
+
     CFile TPLFile;
     bool fSuccess = false;
 
@@ -29,44 +32,30 @@ void CPalModDlg::SavePaletteToTPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
         // The actual TPL 'standard' indicates that valid file length is 2^4, 2^5, 2^6, 2^6, or 2^8.
         // We will simplify to just use 2^8 / 256 for now.
         const uint16_t k_nColorsPerPalette = 256;
-        uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
-        const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
 
         int nTotalColorsUsed = 0;
 
-        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+        for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
         {
-            // Swap to BGR, stride is four since source is ARGB
-            TPLFile.Write(&pPal[nTotalColorsUsed * 4 ], 1);
-            TPLFile.Write(&pPal[nTotalColorsUsed * 4 + 1], 1);
-            TPLFile.Write(&pPal[nTotalColorsUsed * 4 + 2], 1);
-        }
+            CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 
-        // Check for remaining fill
-        uint8_t nPalettePageCount;
-
-        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
-        {
-            nPalettePageCount = m_PalHost.GetCurrentPageCount();
-        }
-        else
-        {
-            nPalettePageCount = 1;
-        }
-
-        for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
-        {
-            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-            if (pPalCtrlNextPage)
+            if (pPalette)
             {
-                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+                const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
 
-                for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nColorsPerPalette) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++, nTotalColorsUsed++)
+                if ((nTotalColorsUsed + nPaletteWorkingAmt) > k_nColorsPerPalette)
                 {
-                    TPLFile.Write(&pPal[nTotalColorsUsed * 4], 1);
-                    TPLFile.Write(&pPal[nTotalColorsUsed * 4 + 1], 1);
-                    TPLFile.Write(&pPal[nTotalColorsUsed * 4 + 2], 1);
+                    break;
+                }
+
+                const uint8_t* pPal = reinterpret_cast<uint8_t*>(pPalette->GetBasePal());
+
+                for (int nActivePaletteIndex = 0; (nTotalColorsUsed < k_nColorsPerPalette) && (nActivePaletteIndex < nPaletteWorkingAmt); nActivePaletteIndex++, nTotalColorsUsed++)
+                {
+                    TPLFile.Write(&pPal[nActivePaletteIndex * 4], 1);
+                    TPLFile.Write(&pPal[nActivePaletteIndex * 4 + 1], 1);
+                    TPLFile.Write(&pPal[nActivePaletteIndex * 4 + 2], 1);
                 }
             }
         }

@@ -188,6 +188,9 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
 
 void CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
 {
+    // The design here is that we export out the maximum possible number of palettes to the palette file,
+    // limited to and filling to the file's 256 color maximum.
+
     CFile HPALFile;
     bool fSuccess = false;
 
@@ -196,46 +199,32 @@ void CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGeneric
         HPALFile.Write(&k_rgHPALHeader, static_cast<UINT>(k_rgHPALHeader.size()));
 
         const uint16_t k_nColorsPerPalette = 256; // An HPAL has 256 colors.  Fill with black as needed.
-        uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
-        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
 
         int nTotalColorsUsed = 0;
 
-        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+        for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
         {
-            // Swap to ABGR
-            HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 2], 1);
-            HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 1], 1);
-            HPALFile.Write(&pPal[nTotalColorsUsed * 4], 1);
-            HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 3], 1);
-        }
+            CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 
-        // Check for remaining fill
-        uint8_t nPalettePageCount;
-
-        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
-        {
-            nPalettePageCount = m_PalHost.GetCurrentPageCount();
-        }
-        else
-        {
-            nPalettePageCount = 1;
-        }
-
-        for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
-        {
-            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-            if (pPalCtrlNextPage)
+            if (pPalette)
             {
-                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
-
-                for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nColorsPerPalette) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++, nTotalColorsUsed++)
+                const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
+                
+                if ((nTotalColorsUsed + nPaletteWorkingAmt) > k_nColorsPerPalette)
                 {
-                    HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 2], 1);
-                    HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 1], 1);
-                    HPALFile.Write(&pPal[nTotalColorsUsed * 4], 1);
-                    HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 3], 1);
+                    break;
+                }
+
+                const uint8_t* pPal = reinterpret_cast<uint8_t*>(pPalette->GetBasePal());
+
+                for (int nActivePaletteIndex = 0; (nTotalColorsUsed < k_nColorsPerPalette) && (nActivePaletteIndex < nPaletteWorkingAmt); nActivePaletteIndex++, nTotalColorsUsed++)
+                {
+                    // Swap to ABGR
+                    HPALFile.Write(&pPal[(nActivePaletteIndex * 4) + 2], 1);
+                    HPALFile.Write(&pPal[(nActivePaletteIndex * 4) + 1], 1);
+                    HPALFile.Write(&pPal[(nActivePaletteIndex * 4)], 1);
+                    HPALFile.Write(&pPal[(nActivePaletteIndex * 4) + 3], 1);
                 }
             }
         }
@@ -252,7 +241,6 @@ void CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGeneric
         }
 
         HPALFile.Close();
-
         fSuccess = true;
     }
 

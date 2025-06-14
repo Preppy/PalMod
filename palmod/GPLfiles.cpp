@@ -182,7 +182,7 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
 
                             if (rgfGPLHasColorsForThisPalette[nCurrentPalette])
                             {
-                                iCurrentIndexInPalette = 1;
+                                iCurrentIndexInPalette = 0;
                                 pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
                             }
                             else
@@ -190,6 +190,18 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                                 break;
                             }
                         }
+                    }
+
+                    if ((iGPLIndex == 0) && (iAbsolutePaletteIndex < nTotalNumberOfCurrentColors))
+                    {
+                        // GPLs have no lead transparency bit, so when we loop an application, inject a dummy color
+                        pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(0);
+                        pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(0);
+                        pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(0);
+                        pPal[(iCurrentIndexInPalette * 4) + 3] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(0xFF);
+                        iAbsolutePaletteIndex++;
+                        iCurrentIndexInPalette++;
+                        nTotalColorsUsed++;
                     }
                 }
 
@@ -226,40 +238,32 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
 
 void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
 {
+    // The design here is that we export out the maximum possible number of palettes to the palette file,
+    // up to a maximum of 256 colors.
+
     CFile GPLFile;
     bool fSuccess = false;
 
     // Save to GPL file.
     if (GPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite))
     {
+        const uint16_t k_nColorsPerPalette = 256; // An HPAL has 256 colors.  Fill with black as needed.
+        int nTotalColorsToWrite = 0;
         char szBuffer[MAX_PATH];
-        uint8_t* pPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
-        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-        int nColumnCount = nWorkingAmt; // This tracks the numbers of colors listed in the file
-        uint8_t nDesiredPalettePageCount = 0;
-        uint8_t nAllowedPalettePageCount = 1;
 
-        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
-        {
-            nDesiredPalettePageCount = m_PalHost.GetCurrentPageCount();
-        }
-        else
-        {
-            nDesiredPalettePageCount = 1;
-        }
+        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
 
-        for (uint8_t nCurrentPage = 1; nCurrentPage < nDesiredPalettePageCount; nCurrentPage++)
+        for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
         {
-            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+            CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 
-            if (pPalCtrlNextPage)
+            if (pPalette)
             {
-                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+                const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
 
-                if ((nNextPageWorkingAmt + nWorkingAmt) < 256)
+                if ((nPaletteWorkingAmt + nTotalColorsToWrite) < k_nColorsPerPalette)
                 {
-                    nWorkingAmt += nNextPageWorkingAmt;
-                    nAllowedPalettePageCount++;
+                    nTotalColorsToWrite += nPaletteWorkingAmt;
                 }
             }
         }
@@ -269,31 +273,41 @@ void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
         GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
         _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "Name: %S\n", m_PalHost.GetPalName(0));
         GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
-        _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "Columns: %u\n", nWorkingAmt);
+        _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "Columns: %u\n", nTotalColorsToWrite);
         GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
         strcpy(szBuffer, "# Created by PalMod\n");
         GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
 
         // Write out the colors...
-        // Skip the first color for GIMP's usage
-        int nTotalColorsUsed = 1;
-        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
-        {
-            _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-            GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
-        }
+        int nTotalColorsUsed = 0;
 
-        for (uint8_t nCurrentPage = 1; nCurrentPage < nAllowedPalettePageCount; nCurrentPage++)
+        for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
         {
-            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+            CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 
-            if (pPalCtrlNextPage)
+            if (pPalette)
             {
-                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+                const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
 
-                for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
+                if ((nTotalColorsUsed + nPaletteWorkingAmt) > k_nColorsPerPalette)
                 {
-                    _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
+                    break;
+                }
+
+                uint8_t* pPal = reinterpret_cast<uint8_t*>(pPalette->GetBasePal());
+
+                int nActivePaletteIndex = 0;
+
+                if (nCurrentPalette == 0)
+                {
+                    // Skip the first color of the first palette for GIMP's usage
+                    nActivePaletteIndex = 1;
+                    nTotalColorsUsed++;
+                }
+
+                for (; nActivePaletteIndex < nPaletteWorkingAmt; nActivePaletteIndex++)
+                {
+                    _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[(nActivePaletteIndex * 4)], pPal[(nActivePaletteIndex * 4) + 1], pPal[(nActivePaletteIndex * 4) + 2]);
                     GPLFile.Write(szBuffer, static_cast<UINT>(strlen(szBuffer)));
                     nTotalColorsUsed++;
                 }
