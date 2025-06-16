@@ -670,25 +670,25 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_SAGAT_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_ZANGIEF_NODE[] =
 {
-    { L"Factory Background 1", 0xb7fe, 0xb89e },
-    { L"Factory Background 2", 0xb8be, 0xb95e },
-    { L"Factory Background 3", 0xb97e, 0xb99e },
-    { L"Background Fence", 0x68fe, 0x691e },
-    { L"Background Fence & Background Chain", 0x691e, 0x693e },
-    { L"Background Fence, Background Chain, Floor", 0x693e, 0x695e },
-    { L"Background Fence & Floor", 0x67fe, 0x681e },
-    { L"Background Fence & Beams", 0x68de, 0x68fe },
-    { L"Floor", 0x6b7e, 0x6b9e },
-    { L"Floor & Beams", 0x681e, 0x683e },
-    { L"Crowd 1", 0x6a9e, 0x6ade },
-    { L"Crowd 2", 0x6afe, 0x6b7e },
-    { L"Crowd 3", 0x6b9e, 0x6bde },
-    { L"Crowd & Beams 1", 0x685e, 0x687e },
-    { L"Crowd & Beams 2", 0x6a7e, 0x6a9e },
-    { L"Crowd & Beams 3", 0x6ade, 0x6afe },
-    { L"Crowd & Beams 4", 0x6bde, 0x6bfe },
-    { L"Foreground Chain", 0x183e, 0x185e },
-    { L"Foreground Fence", 0x17fe, 0x181e },
+    { L"Factory Background 1", 0xb7fe, 0xb89e, indexSF2HFSprites_Stages, 0x56, &pairFullyLinkedNode },
+    { L"Factory Background 2", 0xb8be, 0xb95e, indexSF2HFSprites_Stages, 0x57 },
+    { L"Factory Background 3", 0xb97e, 0xb99e, indexSF2HFSprites_Stages, 0x58 },
+    { L"Background Fence", 0x68fe, 0x691e, indexSF2HFSprites_Stages, 0x59 },
+    { L"Background Fence & Background Chain", 0x691e, 0x693e, indexSF2HFSprites_Stages, 0x5a },
+    { L"Background Fence, Background Chain, Floor", 0x693e, 0x695e, indexSF2HFSprites_Stages, 0x5b },
+    { L"Background Fence & Floor", 0x67fe, 0x681e, indexSF2HFSprites_Stages, 0x5c },
+    { L"Background Fence & Beams", 0x68de, 0x68fe, indexSF2HFSprites_Stages, 0x5d },
+    { L"Floor", 0x6b7e, 0x6b9e, indexSF2HFSprites_Stages, 0x5e },
+    { L"Floor & Beams", 0x681e, 0x683e, indexSF2HFSprites_Stages, 0x5f },
+    { L"Crowd 1", 0x6a9e, 0x6ade, indexSF2HFSprites_Stages, 0x60 },
+    { L"Crowd 2", 0x6afe, 0x6b7e, indexSF2HFSprites_Stages, 0x61 },
+    { L"Crowd 3", 0x6b9e, 0x6bde, indexSF2HFSprites_Stages, 0x62 },
+    { L"Crowd & Beams 1", 0x685e, 0x687e, indexSF2HFSprites_Stages, 0x63 },
+    { L"Crowd & Beams 2", 0x6a7e, 0x6a9e, indexSF2HFSprites_Stages, 0x64 },
+    { L"Crowd & Beams 3", 0x6ade, 0x6afe, indexSF2HFSprites_Stages, 0x65 },
+    { L"Crowd & Beams 4", 0x6bde, 0x6bfe, indexSF2HFSprites_Stages, 0x66 },
+    { L"Foreground Chain", 0x183e, 0x185e, indexSF2HFSprites_Stages, 0x67 },
+    { L"Foreground Fence", 0x17fe, 0x181e, indexSF2HFSprites_Stages, 0x68 },
 };
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSCAR_NODE[] =
@@ -807,30 +807,30 @@ const sDescTreeNode SF2HF_A_22_BONUS_COLLECTION[] =
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSCAR_NODE[] =
 {
-    { L"Car 1", 0x2f5be, 0x2f63e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
-    { L"Car 2", 0x2f65e, 0x2f67e },
+    { L"Car 1", 0x2f5be, 0x2f63e, indexSF2HFSprites_Stages, 0x4e, &pairFullyLinkedNode },
+    { L"Car 2", 0x2f65e, 0x2f67e, indexSF2HFSprites_Stages, 0x4f },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSCASKS_NODE[] =
 {
-    { L"P2 Scoreboard", 0x2f7fe, 0x2f81e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
-    { L"Scoreboard Tallies", 0x2f81e, 0x2f83e },
-    { L"Rolling Casks", 0x2f85e, 0x2f87e },
+    { L"P2 Scoreboard", 0x2f7fe, 0x2f81e, indexSF2HFSprites_Stages, 0x50, &pairFullyLinkedNode },
+    { L"Scoreboard Tallies", 0x2f81e, 0x2f83e, indexSF2HFSprites_Stages, 0x51 },
+    { L"Rolling Casks", 0x2f85e, 0x2f87e, indexSF2HFSprites_Stages, 0x52 },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BONUSDRUMS_NODE[] =
 {
-    { L"Drums", 0x2fa5e, 0x2fa7e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
-    { L"Flames", 0x2fa3e, 0x2fa5e },
+    { L"Drums", 0x2fa5e, 0x2fa7e, indexSF2HFSprites_Stages, 0x53, &pairFullyLinkedNode },
+    { L"Flames", 0x2fa3e, 0x2fa5e, indexSF2HFSprites_Stages, 0x54 },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BLANKA_NODE[] =
 {
-    { L"Posts", 0x2e1de, 0x2e1fe, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
-    { L"Crowd & Stump", 0x2e1fe, 0x2e21e },
-    { L"Crowd & Right Hut", 0x2e21e, 0x2e23e },
-    { L"Crowd", 0x2e23e, 0x2e25e },
-    { L"Fish", 0x2e25e, 0x2e27e },
+    { L"Posts", 0x2e1de, 0x2e1fe, indexSF2HFSprites_Stages, 0x49, &pairFullyLinkedNode },
+    { L"Crowd & Stump", 0x2e1fe, 0x2e21e, indexSF2HFSprites_Stages, 0x4a },
+    { L"Crowd & Right Hut", 0x2e21e, 0x2e23e, indexSF2HFSprites_Stages, 0x4b },
+    { L"Crowd", 0x2e23e, 0x2e25e, indexSF2HFSprites_Stages, 0x4c },
+    { L"Fish", 0x2e25e, 0x2e27e, indexSF2HFSprites_Stages, 0x4d },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_BOXER_NODE[] =
@@ -852,7 +852,7 @@ const sGame_PaletteDataset SF2HF_A_22_STAGES_DHALSIM_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_DICTATOR_NODE[] =
 {
-    { L"Statues (Destroyed)", 0x2ee5e, 0x2ee7e },
+    { L"Statues (Destroyed)", 0x2ee5e, 0x2ee7e, indexSF2HFSprites_Stages, 0x55 },
 };
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_EHONDA_NODE[] =
@@ -886,7 +886,8 @@ const sGame_PaletteDataset SF2HF_A_22_STAGES_RYU_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_22_STAGES_ZANGIEF_NODE[] =
 {
-    { L"Chain and extinguisher", 0x2e9de, 0x2ea1e, indexSF2Sprites_Stages, 0xa6 },
+    { L"Chain", 0x2e9de, 0x2e9fe, indexSF2HFSprites_Stages, 0x69, &pairNext },
+    { L"Extinguisher", 0x2e9fe, 0x2ea1e, indexSF2HFSprites_Stages, 0x6a },
 };
 
 const sDescTreeNode SF2HF_A_22_STAGES_COLLECTION[] =

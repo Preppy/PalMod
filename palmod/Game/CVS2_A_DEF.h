@@ -805,80 +805,80 @@ const sDescTreeNode CVS2_A_BLANKA_COLLECTION[] =
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_LP[] =
 {
-    { L"Main Sprite", 0x1bfe160, 0x1bfe180, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe180, 0x1bfe1a0 },
+    { L"Main Sprite", 0x1bfe160, 0x1bfe180, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe180, 0x1bfe1a0, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe1a0, 0x1bfe1c0 },
-    { L"Extra 3", 0x1bfe1c0, 0x1bfe1e0 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe1c0, 0x1bfe1e0, indexCVS2Sprites_Vega, 0x03 },
     { L"Extra 4", 0x1bfe1e0, 0x1bfe200 },
     { L"Extra 5", 0x1bfe200, 0x1bfe220 },
 };
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_MP[] =
 {
-    { L"Main Sprite", 0x1bfe220, 0x1bfe240, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe240, 0x1bfe260 },
+    { L"Main Sprite", 0x1bfe220, 0x1bfe240, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe240, 0x1bfe260, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe260, 0x1bfe280 },
-    { L"Extra 3", 0x1bfe280, 0x1bfe2a0 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe280, 0x1bfe2a0, indexCVS2Sprites_Vega, 0x03 },
     { L"Extra 4", 0x1bfe2a0, 0x1bfe2c0 },
     { L"Extra 5", 0x1bfe2c0, 0x1bfe2e0 },
 };
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_HP[] =
 {
-    { L"Main Sprite", 0x1bfe2e0, 0x1bfe300, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe300, 0x1bfe320 },
+    { L"Main Sprite", 0x1bfe2e0, 0x1bfe300, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe300, 0x1bfe320, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe320, 0x1bfe340 },
-    { L"Extra 3", 0x1bfe340, 0x1bfe360 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe340, 0x1bfe360, indexCVS2Sprites_Vega, 0x03 },
     { L"Extra 4", 0x1bfe360, 0x1bfe380 },
     { L"Extra 5", 0x1bfe380, 0x1bfe3a0 },
 };
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_LK[] =
 {
-    { L"Main Sprite", 0x1bfe3a0, 0x1bfe3c0, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe3c0, 0x1bfe3e0 },
+    { L"Main Sprite", 0x1bfe3a0, 0x1bfe3c0, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe3c0, 0x1bfe3e0, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe3e0, 0x1bfe400 },
-    { L"Extra 3", 0x1bfe400, 0x1bfe420 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe400, 0x1bfe420, indexCVS2Sprites_Vega, 0x03 },
     { L"Extra 4", 0x1bfe420, 0x1bfe440 },
     { L"Extra 5", 0x1bfe440, 0x1bfe460 },
 };
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_MK[] =
 {
-    { L"Main Sprite", 0x1bfe460, 0x1bfe480, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe480, 0x1bfe4a0 },
+    { L"Main Sprite", 0x1bfe460, 0x1bfe480, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe480, 0x1bfe4a0, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe4a0, 0x1bfe4c0 },
-    { L"Extra 3", 0x1bfe4c0, 0x1bfe4e0 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe4c0, 0x1bfe4e0, indexCVS2Sprites_Vega, 0x03 },
     { L"Extra 4", 0x1bfe4e0, 0x1bfe500 },
     { L"Extra 5", 0x1bfe500, 0x1bfe520 },
 };
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_HK[] =
 {
-    { L"Main Sprite", 0x1bfe520, 0x1bfe540, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe540, 0x1bfe560 },
+    { L"Main Sprite", 0x1bfe520, 0x1bfe540, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe540, 0x1bfe560, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe560, 0x1bfe580 },
-    { L"Extra 3", 0x1bfe580, 0x1bfe5a0 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe580, 0x1bfe5a0 , indexCVS2Sprites_Vega, 0x03},
     { L"Extra 4", 0x1bfe5a0, 0x1bfe5c0 },
     { L"Extra 5", 0x1bfe5c0, 0x1bfe5e0 },
 };
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_3P[] =
 {
-    { L"Main Sprite", 0x1bfe5e0, 0x1bfe600, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe600, 0x1bfe620 },
+    { L"Main Sprite", 0x1bfe5e0, 0x1bfe600, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe600, 0x1bfe620, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe620, 0x1bfe640 },
-    { L"Extra 3", 0x1bfe640, 0x1bfe660 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe640, 0x1bfe660, indexCVS2Sprites_Vega, 0x03 },
     { L"Extra 4", 0x1bfe660, 0x1bfe680 },
     { L"Extra 5", 0x1bfe680, 0x1bfe6a0 },
 };
 
 const sGame_PaletteDataset CVS2_A_VEGA_PALETTES_3K[] =
 {
-    { L"Main Sprite", 0x1bfe6a0, 0x1bfe6c0, indexCVS2Sprites_Vega },
-    { L"Extra 1", 0x1bfe6c0, 0x1bfe6e0 },
+    { L"Main Sprite", 0x1bfe6a0, 0x1bfe6c0, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x1bfe6c0, 0x1bfe6e0, indexCVS2Sprites_Vega, 0x01 },
     { L"Extra 2", 0x1bfe6e0, 0x1bfe700 },
-    { L"Extra 3", 0x1bfe700, 0x1bfe720 },
+    { L"Extra 3: Snake Win Pose", 0x1bfe700, 0x1bfe720, indexCVS2Sprites_Vega, 0x03 },
     { L"Extra 4", 0x1bfe720, 0x1bfe740 },
     { L"Extra 5", 0x1bfe740, 0x1bfe760 },
 };
@@ -1542,7 +1542,7 @@ const sDescTreeNode CVS2_A_EVILRYU_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x23a5180, 0x23a51a0, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a51a0, 0x23a51c0, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a51a0, 0x23a51c0, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a51c0, 0x23a51e0, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a51e0, 0x23a5200 },
     { L"Extra 4", 0x23a5200, 0x23a5220 },
@@ -1552,7 +1552,7 @@ const sGame_PaletteDataset CVS2_A_KYO_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x23a5240, 0x23a5260, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a5260, 0x23a5280, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a5260, 0x23a5280, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a5280, 0x23a52a0, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a52a0, 0x23a52c0 },
     { L"Extra 4", 0x23a52c0, 0x23a52e0 },
@@ -1562,7 +1562,7 @@ const sGame_PaletteDataset CVS2_A_KYO_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x23a5300, 0x23a5320, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a5320, 0x23a5340, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a5320, 0x23a5340, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a5340, 0x23a5360, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a5360, 0x23a5380 },
     { L"Extra 4", 0x23a5380, 0x23a53a0 },
@@ -1572,7 +1572,7 @@ const sGame_PaletteDataset CVS2_A_KYO_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x23a53c0, 0x23a53e0, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a53e0, 0x23a5400, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a53e0, 0x23a5400, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a5400, 0x23a5420, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a5420, 0x23a5440 },
     { L"Extra 4", 0x23a5440, 0x23a5460 },
@@ -1582,7 +1582,7 @@ const sGame_PaletteDataset CVS2_A_KYO_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x23a5480, 0x23a54a0, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a54a0, 0x23a54c0, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a54a0, 0x23a54c0, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a54c0, 0x23a54e0, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a54e0, 0x23a5500 },
     { L"Extra 4", 0x23a5500, 0x23a5520 },
@@ -1592,7 +1592,7 @@ const sGame_PaletteDataset CVS2_A_KYO_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x23a5540, 0x23a5560, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a5560, 0x23a5580, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a5560, 0x23a5580, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a5580, 0x23a55a0, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a55a0, 0x23a55c0 },
     { L"Extra 4", 0x23a55c0, 0x23a55e0 },
@@ -1602,7 +1602,7 @@ const sGame_PaletteDataset CVS2_A_KYO_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x23a5600, 0x23a5620, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a5620, 0x23a5640, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a5620, 0x23a5640, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a5640, 0x23a5660, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a5660, 0x23a5680 },
     { L"Extra 4", 0x23a5680, 0x23a56a0 },
@@ -1612,7 +1612,7 @@ const sGame_PaletteDataset CVS2_A_KYO_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_KYO_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x23a56c0, 0x23a56e0, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x23a56e0, 0x23a5700, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x23a56e0, 0x23a5700, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x23a5700, 0x23a5720, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x23a5720, 0x23a5740 },
     { L"Extra 4", 0x23a5740, 0x23a5760 },

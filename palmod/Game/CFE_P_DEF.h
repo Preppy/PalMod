@@ -4,10 +4,10 @@ const std::vector<uint16_t> CFE_P_IMG_UNITS =
 {
     // Darkstalker versions
     indexCPS2Sprites_Anakaris,      // 0x04
-    indexCPS2Sprites_Vamp_Demitri,   // 0x6A
+    indexCPS2Sprites_Vamp_Demitri,  // 0x6A
     indexCPS2Sprites_Felicia,       // 0x20
-    indexCPS2Sprites_Vamp_Jedah,     // 0x6D
-    indexCPS2Sprites_Vamp_Pyron,     // 0x72
+    indexCPS2Sprites_Vamp_Jedah,    // 0x6D
+    indexCPS2Sprites_Vamp_Pyron,    // 0x72
 
     // "sf2" cvs2 versions
     indexCVS2Sprites_Guile,         // 0xc8
@@ -17,10 +17,13 @@ const std::vector<uint16_t> CFE_P_IMG_UNITS =
     indexCVS2Sprites_Zangief,       // 0xe8
 
     // sfa versions
-    indexCPS2Sprites_Sakura,       // 0x22
-    indexCPS2Sprites_Guy,          // 0x3F
-    indexCPS2Sprites_Rose,         // 0x41
-    indexCPS2Sprites_Karin,        // 0x4B
+    indexCPS2Sprites_Sakura,        // 0x22
+    indexCPS2Sprites_Guy,           // 0x3F
+    indexCPS2Sprites_Rose,          // 0x41
+    indexCPS2Sprites_Karin,         // 0x4B
+
+    // cfe unique
+    indexCFJSprites_Ingrid,         // 0x102
 
     // Yes, this is CPS3 SF3.  We have code in LoadSpecificPalette to swap image sets as needed
     index3SSprites_Alex,      // 0x00
@@ -28,7 +31,7 @@ const std::vector<uint16_t> CFE_P_IMG_UNITS =
     index3SSprites_Urien,     // 0x0c
     index3SSprites_ChunLi,    // 0x0f
 
-    // Red Earth peeps
+    // Red Earth peeps.  We also swap for these as needed.
     indexRedEarthSprites_Hauzer,    // 0x02
     indexRedEarthSprites_Hydron,    // 0x03
     indexRedEarthSprites_Kenji,     // 0x04
@@ -183,13 +186,13 @@ const sGame_PaletteDataset CFE_P_KARIN_KICK[] =
 
 const sGame_PaletteDataset CFE_P_INGRID_PUNCH[] =
 {
-    { L"Ingrid Punch", 0x1e59d0, 0x1e5a50 },
+    { L"Ingrid Punch", 0x1e59d0, 0x1e5a50, indexCFJSprites_Ingrid, 0x00 },
 };
 
 // Street Fighter III (Scrambled palettes)
 const sGame_PaletteDataset CFE_P_INGRID_KICK[] =
 {
-    { L"Ingrid Kick", 0x1e5a50, 0x1e5ad0 },
+    { L"Ingrid Kick", 0x1e5a50, 0x1e5ad0, indexCFJSprites_Ingrid, 0x00 },
 };
 
 const sGame_PaletteDataset CFE_P_CHUNLI_PUNCH[] =

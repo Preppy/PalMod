@@ -43,6 +43,16 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Blanka =
     { L"Extra 5", 0xa0 },
 };
 
+const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Vega =
+{
+    { L"Main Sprite", 0x00, indexCVS2Sprites_Vega, 0x00, &pairNext },
+    { L"Extra 1: Claw", 0x20, indexCVS2Sprites_Vega, 0x01 },
+    { L"Extra 2", 0x40 },
+    { L"Extra 3: SNake Win Pose", 0x60, indexCVS2Sprites_Vega, 0x03 },
+    { L"Extra 4", 0x80 },
+    { L"Extra 5", 0xa0 },
+};
+
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Bison =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_MBison },
@@ -76,7 +86,7 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_EvilRyu =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Kyo =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Kyo },
-    { L"Extra 1", 0x20, indexCVS2Sprites_Kyo, 0x01 },
+    { L"Extra 1: Shiki", 0x20, indexCVS2Sprites_Kyo, 0x01 },
     { L"Extra 2", 0x40, indexCVS2Sprites_Kyo, 0x02 },
     { L"Extra 3", 0x60 },
     { L"Extra 4", 0x80 },
@@ -359,7 +369,7 @@ const std::vector<sGCBUPF_BasicFileData> CVS2_D_CharacterData =
     { L"PL05PAK.BIN",    L"Dhalsim",        1238880, CVS2_NormalNode, CVS2CorePalettes_D, 1238880 - 0x600, indexCVS2Sprites_Dhalsim, 0x00 },
     { L"PL06PAK.BIN",    L"E.Honda",        542112, CVS2_NormalNode, CVS2CorePalettes_D, 542112 - 0x600, indexCVS2Sprites_EHonda, 0x00 },
     { L"PL07PAK.BIN",    L"Blanka",         1044576, CVS2_NormalNode, CVS2CorePalettes_D_Blanka, 1044576 - 0x600 },
-    { L"PL08PAK.BIN",    L"Vega",           834560, CVS2_NormalNode, CVS2CorePalettes_D, 834560 - 0x600, indexCVS2Sprites_Vega, 0x00 },
+    { L"PL08PAK.BIN",    L"Vega",           834560, CVS2_NormalNode, CVS2CorePalettes_D_Vega, 834560 - 0x600 },
     { L"PL09PAK.BIN",    L"Sagat",          644544, CVS2_NormalNode, CVS2CorePalettes_D, 644544 - 0x600, indexCVS2Sprites_Sagat, 0x00 },
     { L"PL0APAK.BIN",    L"M.Bison",        877376, CVS2_NormalNode, CVS2CorePalettes_D_Bison, 877376 - 0x600 },
     { L"PL0BPAK.BIN",    L"Sakura",         1197888, CVS2_NormalNode, CVS2CorePalettes_D, 1197888 - 0x600, indexCVS2Sprites_Sakura, 0x00 },
@@ -411,7 +421,7 @@ const std::vector<sGCBUPF_BasicFileData> CVS2_P_CharacterData =
     { L"PL05PAK.BIN",    L"Dhalsim",        1169212, CVS2_NormalNode, CVS2CorePalettes_D, 1169212 - 0x600, indexCVS2Sprites_Dhalsim, 0x00 },
     { L"PL06PAK.BIN",    L"E.Honda",        566112, CVS2_NormalNode, CVS2CorePalettes_D, 566112 - 0x600, indexCVS2Sprites_EHonda, 0x00 },
     { L"PL07PAK.BIN",    L"Blanka",         1080488, CVS2_NormalNode, CVS2CorePalettes_D_Blanka, 1080488 - 0x600 },
-    { L"PL08PAK.BIN",    L"Vega",           843440, CVS2_NormalNode, CVS2CorePalettes_D, 843440 - 0x600, indexCVS2Sprites_Vega, 0x00 },
+    { L"PL08PAK.BIN",    L"Vega",           843440, CVS2_NormalNode, CVS2CorePalettes_D_Vega, 843440 - 0x600 },
     { L"PL09PAK.BIN",    L"Sagat",          660940, CVS2_NormalNode, CVS2CorePalettes_D, 660940 - 0x600, indexCVS2Sprites_Sagat, 0x00 },
     { L"PL0APAK.BIN",    L"M.Bison",        888952, CVS2_NormalNode, CVS2CorePalettes_D_Bison, 888952 - 0x600 },
     { L"PL0BPAK.BIN",    L"Sakura",         1100740, CVS2_NormalNode, CVS2CorePalettes_D, 1100740 - 0x600, indexCVS2Sprites_Sakura, 0x00 },

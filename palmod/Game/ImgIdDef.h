@@ -35,325 +35,351 @@ enum eIMGDat_Sections
 
 enum CHARACTERS_CPS2
 {
-    indexCPS2Sprites_Ryu,          // 0x00
-    indexCPS2Sprites_Zangief,      // 0x01
-    indexCPS2Sprites_Guile,        // 0x02
-    indexCPS2Sprites_Morrigan,     // 0x03
-    indexCPS2Sprites_Anakaris,     // 0x04
-    indexCPS2Sprites_Strider,      // 0x05
-    indexCPS2Sprites_Cyclops,      // 0x06
-    indexCPS2Sprites_Wolverine,    // 0x07
-    indexCPS2Sprites_Psylocke,     // 0x08
-    indexCPS2Sprites_Iceman,       // 0x09
-    indexCPS2Sprites_Rogue,        // 0x0A
-    indexCPS2Sprites_CapAm,        // 0x0B, // Captain America
-    indexCPS2Sprites_Spidey,       // 0x0C, // Spider-Man
-    indexCPS2Sprites_Hulk,         // 0x0D
-    indexCPS2Sprites_Venom,        // 0x0E
-    indexCPS2Sprites_DrDoom,       // 0x0F
-    indexCPS2Sprites_Tron,         // 0x10, // Tron Bonne
-    indexCPS2Sprites_Jill,         // 0x11
-    indexCPS2Sprites_Hayato,       // 0x12
-    indexCPS2Sprites_Ruby,         // 0x13
-    indexCPS2Sprites_SonSon,       // 0x14
-    indexCPS2Sprites_Amingo,       // 0x15
-    indexCPS2Sprites_Marrow,       // 0x16
-    indexCPS2Sprites_Cable,        // 0x17
-    indexCPS2Sprites_Abyss1,       // 0x18
-    indexCPS2Sprites_Abyss2,       // 0x19
-    indexCPS2Sprites_Abyss3,       // 0x1A
-    indexCPS2Sprites_ChunLi,       // 0x1B
-    indexCPS2Sprites_Megaman,      // 0x1C
-    indexCPS2Sprites_Roll,         // 0x1D
-    indexCPS2Sprites_Akuma,        // 0x1E, // Gouki
-    indexCPS2Sprites_BBHood,       // 0x1F
-    indexCPS2Sprites_Felicia,      // 0x20
-    indexCPS2Sprites_Charlie,      // 0x21, // Charlie/Nash/Shadow
-    indexCPS2Sprites_Sakura,       // 0x22
-    indexCPS2Sprites_Dan,          // 0x23
-    indexCPS2Sprites_Cammy,        // 0x24
-    indexCPS2Sprites_Dhalsim,      // 0x25
-    indexCPS2Sprites_Bison,        // 0x26
-    indexCPS2Sprites_Ken,          // 0x27
-    indexCPS2Sprites_Gambit,       // 0x28
-    indexCPS2Sprites_Juggy,        // 0x29, // Juggernaut
-    indexCPS2Sprites_Storm,        // 0x2A
-    indexCPS2Sprites_Sabretooth,   // 0x2B
-    indexCPS2Sprites_Magneto,      // 0x2C
-    indexCPS2Sprites_Shuma,        // 0x2D
-    indexCPS2Sprites_WarMachine,   // 0x2E
-    indexCPS2Sprites_SilverSamurai, // 0x2F
-    indexCPS2Sprites_OmegaRed,     // 0x30
-    indexCPS2Sprites_Spiral,       // 0x31
-    indexCPS2Sprites_Colossus,     // 0x32
-    indexCPS2Sprites_IronMan,      // 0x33
-    indexCPS2Sprites_Sentinel,     // 0x34
-    indexCPS2Sprites_Blackheart,   // 0x35
-    indexCPS2Sprites_Thanos,       // 0x36
-    indexCPS2Sprites_Jin,          // 0x37
-    indexCPS2Sprites_CapCom,       // 0x38, // Captain Commando
-    indexCPS2Sprites_Bonerine,     // 0x39
-    indexCPS2Sprites_Kobun,        // 0x3A
+    indexCPS2Sprites_Ryu,                   // 0x00
+    indexCPS2Sprites_Zangief,               // 0x01
+    indexCPS2Sprites_Guile,                 // 0x02
+    indexCPS2Sprites_Morrigan,              // 0x03
+    indexCPS2Sprites_Anakaris,              // 0x04
+    indexCPS2Sprites_Strider,               // 0x05
+    indexCPS2Sprites_Cyclops,               // 0x06
+    indexCPS2Sprites_Wolverine,             // 0x07
+    indexCPS2Sprites_Psylocke,              // 0x08
+    indexCPS2Sprites_Iceman,                // 0x09
+    indexCPS2Sprites_Rogue,                 // 0x0A
+    indexCPS2Sprites_CapAm,                 // 0x0B, // Captain America
+    indexCPS2Sprites_Spidey,                // 0x0C, // Spider-Man
+    indexCPS2Sprites_Hulk,                  // 0x0D
+    indexCPS2Sprites_Venom,                 // 0x0E
+    indexCPS2Sprites_DrDoom,                // 0x0F
+    indexCPS2Sprites_Tron,                  // 0x10, // Tron Bonne
+    indexCPS2Sprites_Jill,                  // 0x11
+    indexCPS2Sprites_Hayato,                // 0x12
+    indexCPS2Sprites_Ruby,                  // 0x13
+    indexCPS2Sprites_SonSon,                // 0x14
+    indexCPS2Sprites_Amingo,                // 0x15
+    indexCPS2Sprites_Marrow,                // 0x16
+    indexCPS2Sprites_Cable,                 // 0x17
+    indexCPS2Sprites_Abyss1,                // 0x18
+    indexCPS2Sprites_Abyss2,                // 0x19
+    indexCPS2Sprites_Abyss3,                // 0x1A
+    indexCPS2Sprites_ChunLi,                // 0x1B
+    indexCPS2Sprites_Megaman,               // 0x1C
+    indexCPS2Sprites_Roll,                  // 0x1D
+    indexCPS2Sprites_Akuma,                 // 0x1E, // Gouki
+    indexCPS2Sprites_BBHood,                // 0x1F
+    indexCPS2Sprites_Felicia,               // 0x20
+    indexCPS2Sprites_Charlie,               // 0x21, // Charlie/Nash/Shadow
+    indexCPS2Sprites_Sakura,                // 0x22
+    indexCPS2Sprites_Dan,                   // 0x23
+    indexCPS2Sprites_Cammy,                 // 0x24
+    indexCPS2Sprites_Dhalsim,               // 0x25
+    indexCPS2Sprites_Bison,                 // 0x26
+    indexCPS2Sprites_Ken,                   // 0x27
+    indexCPS2Sprites_Gambit,                // 0x28
+    indexCPS2Sprites_Juggy,                 // 0x29, // Juggernaut
+    indexCPS2Sprites_Storm,                 // 0x2A
+    indexCPS2Sprites_Sabretooth,            // 0x2B
+    indexCPS2Sprites_Magneto,               // 0x2C
+    indexCPS2Sprites_Shuma,                 // 0x2D
+    indexCPS2Sprites_WarMachine,            // 0x2E
+    indexCPS2Sprites_SilverSamurai,         // 0x2F
+    indexCPS2Sprites_OmegaRed,              // 0x30
+    indexCPS2Sprites_Spiral,                // 0x31
+    indexCPS2Sprites_Colossus,              // 0x32
+    indexCPS2Sprites_IronMan,               // 0x33
+    indexCPS2Sprites_Sentinel,              // 0x34
+    indexCPS2Sprites_Blackheart,            // 0x35
+    indexCPS2Sprites_Thanos,                // 0x36
+    indexCPS2Sprites_Jin,                   // 0x37
+    indexCPS2Sprites_CapCom,                // 0x38, // Captain Commando
+    indexCPS2Sprites_Bonerine,              // 0x39
+    indexCPS2Sprites_Kobun,                 // 0x3A
 
-    indexCPS2Sprites_Onslaught,    // 0x3B
-    indexCPS2Sprites_MVCAssets,    // 0x3C
-    indexCPS2Sprites_Adon,         // 0x3D
-    indexCPS2Sprites_Sodom,        // 0x3E
-    indexCPS2Sprites_Guy,          // 0x3F
-    indexCPS2Sprites_Birdie,       // 0x40
-    indexCPS2Sprites_Rose,         // 0x41
-    indexCPS2Sprites_Sagat,        // 0x42
-    indexCPS2Sprites_Rolento,      // 0x43
-    indexCPS2Sprites_Gen,          // 0x44
-    indexCPS2Sprites_Balrog,       // 0x45
-    indexCPS2Sprites_EHonda,       // 0x46, // E.Honda
-    indexCPS2Sprites_Blanka,       // 0x47
-    indexCPS2Sprites_RMika,        // 0x48, // R.Mika
-    indexCPS2Sprites_Cody,         // 0x49
-    indexCPS2Sprites_Vega,         // 0x4A
-    indexCPS2Sprites_Karin,        // 0x4B
-    indexCPS2Sprites_Juni,         // 0x4C
-    indexCPS2Sprites_Juli,         // 0x4D
-    indexCPS2Sprites_SFA3Assets,   // 0x4e - SFA3 HUD, stages
-    indexCPS2Sprites_Apocalypse,   // 0x4f
-    indexCPS2Sprites_XMVSFAssets,  // 0x50 - XMVSF HUD, stages
-    indexCPS2Sprites_Anita,        // 0x51
-    indexCPS2Sprites_MSHAssets,    // 0x52 - MSH HUD, stages
-    indexCPS2Sprites_Norimaro,     // 0x53
-    indexCPS2Sprites_CyberAkuma,   // 0x54 - Cyber Gouki
-    indexCPS2Sprites_MSHVSFAssets, // 0x55 - HUD, stages
-    indexCPS2Sprites_COTAAssets,   // 0x56 - HUD, stages, etc
-    indexCPS2Sprites_STAkuma,      // 0x57 - ST Akuma
-    indexCPS2Sprites_SFA2Portraits, // 0x58
+    indexCPS2Sprites_Onslaught,             // 0x3B
+    indexCPS2Sprites_MVCAssets,             // 0x3C
+    indexCPS2Sprites_Adon,                  // 0x3D
+    indexCPS2Sprites_Sodom,                 // 0x3E
+    indexCPS2Sprites_Guy,                   // 0x3F
+    indexCPS2Sprites_Birdie,                // 0x40
+    indexCPS2Sprites_Rose,                  // 0x41
+    indexCPS2Sprites_Sagat,                 // 0x42
+    indexCPS2Sprites_Rolento,               // 0x43
+    indexCPS2Sprites_Gen,                   // 0x44
+    indexCPS2Sprites_Balrog,                // 0x45
+    indexCPS2Sprites_EHonda,                // 0x46, // E.Honda
+    indexCPS2Sprites_Blanka,                // 0x47
+    indexCPS2Sprites_RMika,                 // 0x48, // R.Mika
+    indexCPS2Sprites_Cody,                  // 0x49
+    indexCPS2Sprites_Vega,                  // 0x4A
+    indexCPS2Sprites_Karin,                 // 0x4B
+    indexCPS2Sprites_Juni,                  // 0x4C
+    indexCPS2Sprites_Juli,                  // 0x4D
+    indexCPS2Sprites_SFA3Assets,            // 0x4e - SFA3 HUD, stages
+    indexCPS2Sprites_Apocalypse,            // 0x4f
+    indexCPS2Sprites_XMVSFAssets,           // 0x50 - XMVSF HUD, stages
+    indexCPS2Sprites_Anita,                 // 0x51
+    indexCPS2Sprites_MSHAssets,             // 0x52 - MSH HUD, stages
+    indexCPS2Sprites_Norimaro,              // 0x53
+    indexCPS2Sprites_CyberAkuma,            // 0x54 - Cyber Gouki
+    indexCPS2Sprites_MSHVSFAssets,          // 0x55 - HUD, stages
+    indexCPS2Sprites_COTAAssets,            // 0x56 - HUD, stages, etc
+    indexCPS2Sprites_STAkuma,               // 0x57 - ST Akuma
+    indexCPS2Sprites_SFA2Portraits,         // 0x58
 
-    indexCPS2Sprites_SPF_Ryu,      // 0x59
-    indexCPS2Sprites_SPF_Ken,      // 0x5a
-    indexCPS2Sprites_SPF_ChunLi,   // 0x5b
-    indexCPS2Sprites_SPF_Sakura,   // 0x5c
-    indexCPS2Sprites_SPF_Morrigan, // 0x5d
-    indexCPS2Sprites_SPF_HsienKo,  // 0x5e
-    indexCPS2Sprites_SPF_Felicia,  // 0x5f
-    indexCPS2Sprites_SPF_Tessa,    // 0x60
-    indexCPS2Sprites_SPF_Ibuki,    // 0x61
-    indexCPS2Sprites_SPF_Zangief,  // 0x62
-    indexCPS2Sprites_SPF_Dan,      // 0x63
-    indexCPS2Sprites_SPF_Akuma,    // 0x64
+    indexCPS2Sprites_SPF_Ryu,               // 0x59
+    indexCPS2Sprites_SPF_Ken,               // 0x5a
+    indexCPS2Sprites_SPF_ChunLi,            // 0x5b
+    indexCPS2Sprites_SPF_Sakura,            // 0x5c
+    indexCPS2Sprites_SPF_Morrigan,          // 0x5d
+    indexCPS2Sprites_SPF_HsienKo,           // 0x5e
+    indexCPS2Sprites_SPF_Felicia,           // 0x5f
+    indexCPS2Sprites_SPF_Tessa,             // 0x60
+    indexCPS2Sprites_SPF_Ibuki,             // 0x61
+    indexCPS2Sprites_SPF_Zangief,           // 0x62
+    indexCPS2Sprites_SPF_Dan,               // 0x63
+    indexCPS2Sprites_SPF_Akuma,             // 0x64
 
-    indexCPS2Sprites_SFA1_Portraits, // 0x65
-    indexCPS2Sprites_SFA3_Portraits, // 0x66
+    indexCPS2Sprites_SFA1_Portraits,        // 0x65
+    indexCPS2Sprites_SFA3_Portraits,        // 0x66
 
-    indexCPS2Sprites_Vamp_Aulbath,   // 0x67
-    indexCPS2Sprites_Vamp_Bishamon,  // 0x68
-    indexCPS2Sprites_Vamp_Dee,       // 0x69
-    indexCPS2Sprites_Vamp_Demitri,   // 0x6A
-    indexCPS2Sprites_Vamp_Donovan,   // 0x6B
-    indexCPS2Sprites_Vamp_Gallon,    // 0x6C
-    indexCPS2Sprites_Vamp_Jedah,     // 0x6D
-    indexCPS2Sprites_Vamp_LeiLei,    // 0x6E
-    indexCPS2Sprites_Vamp_Lilith,    // 0x6F
-    indexCPS2Sprites_Vamp_Marionette, // 0x70
-    indexCPS2Sprites_Vamp_Phobos,    // 0x71
-    indexCPS2Sprites_Vamp_Pyron,     // 0x72
-    indexCPS2Sprites_Vamp_QBee,      // 0x73
-    indexCPS2Sprites_Vamp_Sasquatch, // 0x74
-    indexCPS2Sprites_Vamp_Shadow,    // 0x75
-    indexCPS2Sprites_Vamp_Victor,    // 0x76
-    indexCPS2Sprites_Vamp_Zabel,     // 0x77
-    indexCPS2Sprites_VSAV1_WinPortraits, // 0x78
-    indexCPS2Sprites_VSAV1_MidnightBliss, // 0x79
+    indexCPS2Sprites_Vamp_Aulbath,          // 0x67
+    indexCPS2Sprites_Vamp_Bishamon,         // 0x68
+    indexCPS2Sprites_Vamp_Dee,              // 0x69
+    indexCPS2Sprites_Vamp_Demitri,          // 0x6A
+    indexCPS2Sprites_Vamp_Donovan,          // 0x6B
+    indexCPS2Sprites_Vamp_Gallon,           // 0x6C
+    indexCPS2Sprites_Vamp_Jedah,            // 0x6D
+    indexCPS2Sprites_Vamp_LeiLei,           // 0x6E
+    indexCPS2Sprites_Vamp_Lilith,           // 0x6F
+    indexCPS2Sprites_Vamp_Marionette,       // 0x70
+    indexCPS2Sprites_Vamp_Phobos,           // 0x71
+    indexCPS2Sprites_Vamp_Pyron,            // 0x72
+    indexCPS2Sprites_Vamp_QBee,             // 0x73
+    indexCPS2Sprites_Vamp_Sasquatch,        // 0x74
+    indexCPS2Sprites_Vamp_Shadow,           // 0x75
+    indexCPS2Sprites_Vamp_Victor,           // 0x76
+    indexCPS2Sprites_Vamp_Zabel,            // 0x77
+    indexCPS2Sprites_VSAV1_WinPortraits,    // 0x78
+    indexCPS2Sprites_VSAV1_MidnightBliss,   // 0x79
 
-    indexCPS2Sprites_Vamp_DarkGallon,    // 0x7a
-    indexCPS2Sprites_Vamp_OboroBishamon, // 0x7b
-    indexCPS2Sprites_VSAV1_Bonus,  // 0x7c
+    indexCPS2Sprites_Vamp_DarkGallon,       // 0x7a
+    indexCPS2Sprites_Vamp_OboroBishamon,    // 0x7b
+    indexCPS2Sprites_VSAV1_Bonus,           // 0x7c
 
-    indexCPS2Sprites_SPF_Bonus,    // 0x7d
-    indexCPS2Sprites_SPF_Stages,   // 0x7e
-    indexCPS2Sprites_SFA2_Bonus,   // 0x7f
-    indexCPS2Sprites_SFA2_Stages,  // 0x80
-    indexCPS2Sprites_VSAV1_Stages, // 0x81
+    indexCPS2Sprites_SPF_Bonus,             // 0x7d
+    indexCPS2Sprites_SPF_Stages,            // 0x7e
+    indexCPS2Sprites_SFA2_Bonus,            // 0x7f
+    indexCPS2Sprites_SFA2_Stages,           // 0x80
+    indexCPS2Sprites_VSAV1_Stages,          // 0x81
 
-    indexSM2Sprites_Biff,       // 0x82
-    indexSM2Sprites_Grater,     // 0x83
-    indexSM2Sprites_Gunloc,     // 0x84
-    indexSM2Sprites_Haggar,     // 0x85
-    indexSM2Sprites_Jumbo,      // 0x86
-    indexSM2Sprites_Oni,        // 0x87
-    indexSM2Sprites_Ortega,     // 0x88
-    indexSM2Sprites_Rasta,      // 0x89
-    indexSM2Sprites_Rip,        // 0x8a
-    indexSM2Sprites_Scorpion,   // 0x8b
-    indexSM2Sprites_Stingray,   // 0x8c
-    indexSM2Sprites_Tim,        // 0x8d
-    indexSM2Sprites_Widow,      // 0x8e
-    indexSM2Sprites_Wraith,     // 0x8f
-    indexSM2Sprites_Bonus,      // 0x90
-    indexSM2Sprites_Stages,     // 0x91
+    indexSM2Sprites_Biff,                   // 0x82
+    indexSM2Sprites_Grater,                 // 0x83
+    indexSM2Sprites_Gunloc,                 // 0x84
+    indexSM2Sprites_Haggar,                 // 0x85
+    indexSM2Sprites_Jumbo,                  // 0x86
+    indexSM2Sprites_Oni,                    // 0x87
+    indexSM2Sprites_Ortega,                 // 0x88
+    indexSM2Sprites_Rasta,                  // 0x89
+    indexSM2Sprites_Rip,                    // 0x8a
+    indexSM2Sprites_Scorpion,               // 0x8b
+    indexSM2Sprites_Stingray,               // 0x8c
+    indexSM2Sprites_Tim,                    // 0x8d
+    indexSM2Sprites_Widow,                  // 0x8e
+    indexSM2Sprites_Wraith,                 // 0x8f
+    indexSM2Sprites_Bonus,                  // 0x90
+    indexSM2Sprites_Stages,                 // 0x91
 
-    indexCPS2Sprites_DeeJay,           // 0x92
-    indexCPS2Sprites_Eagle,            // 0x93
-    indexCPS2Sprites_FeiLong,          // 0x94
-    indexCPS2Sprites_THawk,            // 0x95
+    indexCPS2Sprites_DeeJay,                // 0x92
+    indexCPS2Sprites_Eagle,                 // 0x93
+    indexCPS2Sprites_FeiLong,               // 0x94
+    indexCPS2Sprites_THawk,                 // 0x95
 
-    indexPuzzleFighter_Akuma,       // 0x96
-    indexPuzzleFighter_Anita,       // 0x97
-    indexPuzzleFighter_ChunLi,      // 0x98
-    indexPuzzleFighter_Dan,         // 0x99
-    indexPuzzleFighter_Devilotte,   // 0x9A
-    indexPuzzleFighter_Donovan,     // 0x9B
-    indexPuzzleFighter_Felicia,     // 0x9C
-    indexPuzzleFighter_HsienKo,     // 0x9D
-    indexPuzzleFighter_Ken,         // 0x9E
-    indexPuzzleFighter_LeiLei,      // 0x9F
-    indexPuzzleFighter_Morrigan,    // 0xA0
-    indexPuzzleFighter_Ryu,         // 0xA1
-    indexPuzzleFighter_Sakura,      // 0xA2
-    indexPuzzleFighter_Bonus,       // 0xA3 
-    indexPuzzleFighter_Stages,      // 0xA4
+    indexPuzzleFighter_Akuma,               // 0x96
+    indexPuzzleFighter_Anita,               // 0x97
+    indexPuzzleFighter_ChunLi,              // 0x98
+    indexPuzzleFighter_Dan,                 // 0x99
+    indexPuzzleFighter_Devilotte,           // 0x9A
+    indexPuzzleFighter_Donovan,             // 0x9B
+    indexPuzzleFighter_Felicia,             // 0x9C
+    indexPuzzleFighter_HsienKo,             // 0x9D
+    indexPuzzleFighter_Ken,                 // 0x9E
+    indexPuzzleFighter_LeiLei,              // 0x9F
+    indexPuzzleFighter_Morrigan,            // 0xA0
+    indexPuzzleFighter_Ryu,                 // 0xA1
+    indexPuzzleFighter_Sakura,              // 0xA2
+    indexPuzzleFighter_Bonus,               // 0xA3 
+    indexPuzzleFighter_Stages,              // 0xA4
 
-    indexCyberbots_Blodia,          // 0xA5
-    indexCyberbots_Cyclone,         // 0xA6
-    indexCyberbots_Fordy,           // 0xA7
-    indexCyberbots_Gaits,           // 0xA8
-    indexCyberbots_Guldin,          // 0xA9
-    indexCyberbots_Helion,          // 0xAA
-    indexCyberbots_Jackal,          // 0xAB
-    indexCyberbots_KillerBee,       // 0xAC
-    indexCyberbots_Lightning,       // 0xAD
-    indexCyberbots_Reptos,          // 0xAE
-    indexCyberbots_Riot,            // 0xAF
-    indexCyberbots_Super8,          // 0xB0
-    indexCyberbots_Swordsman,       // 0xB1
-    indexCyberbots_Tarantula,       // 0xB2
-    indexCyberbots_Unknown,         // 0xB3
-    indexCyberbots_Vise,            // 0xB4
-    indexCyberbots_Warlock,         // 0xB5
-    indexCyberbots_Pilots,          // 0xB6
-    indexCyberbots_Stages,          // 0xB7
-    indexCyberbots_Bonus,           // 0xB8
+    indexCyberbots_Blodia,                  // 0xA5
+    indexCyberbots_Cyclone,                 // 0xA6
+    indexCyberbots_Fordy,                   // 0xA7
+    indexCyberbots_Gaits,                   // 0xA8
+    indexCyberbots_Guldin,                  // 0xA9
+    indexCyberbots_Helion,                  // 0xAA
+    indexCyberbots_Jackal,                  // 0xAB
+    indexCyberbots_KillerBee,               // 0xAC
+    indexCyberbots_Lightning,               // 0xAD
+    indexCyberbots_Reptos,                  // 0xAE
+    indexCyberbots_Riot,                    // 0xAF
+    indexCyberbots_Super8,                  // 0xB0
+    indexCyberbots_Swordsman,               // 0xB1
+    indexCyberbots_Tarantula,               // 0xB2
+    indexCyberbots_Unknown,                 // 0xB3
+    indexCyberbots_Vise,                    // 0xB4
+    indexCyberbots_Warlock,                 // 0xB5
+    indexCyberbots_Pilots,                  // 0xB6
+    indexCyberbots_Stages,                  // 0xB7
+    indexCyberbots_Bonus,                   // 0xB8
 
-    indexCVS2Sprites_Akuma,         // 0xb9
-    indexCVS2Sprites_Athena,        // 0xba
-    indexCVS2Sprites_Balrog,        // 0xbb
-    indexCVS2Sprites_Benimaru,      // 0xbc
-    indexCVS2Sprites_Blanka,        // 0xbd
-    indexCVS2Sprites_Cammy,         // 0xbe
-    indexCVS2Sprites_Chang,         // 0xbf
-    indexCVS2Sprites_ChunLi,        // 0xc0
-    indexCVS2Sprites_Dan,           // 0xc1
-    indexCVS2Sprites_Dhalsim,       // 0xc2
-    indexCVS2Sprites_EHonda,        // 0xc3
-    indexCVS2Sprites_Eagle,         // 0xc4
-    indexCVS2Sprites_EvilRyu,       // 0xc5
-    indexCVS2Sprites_Geese,         // 0xc6
-    indexCVS2Sprites_GodRugal,      // 0xc7
-    indexCVS2Sprites_Guile,         // 0xc8
-    indexCVS2Sprites_Haohmaru,      // 0xc9
-    indexCVS2Sprites_Hibiki,        // 0xca
-    indexCVS2Sprites_Iori,          // 0xcb
-    indexCVS2Sprites_Joe,           // 0xcc
-    indexCVS2Sprites_Ken,           // 0xcd
-    indexCVS2Sprites_Kim,           // 0xce
-    indexCVS2Sprites_King,          // 0xcf
-    indexCVS2Sprites_Kyo,           // 0xd0
-    indexCVS2Sprites_Kyosuke,       // 0xd1
-    indexCVS2Sprites_MBison,        // 0xd2
-    indexCVS2Sprites_Mai,           // 0xd3
-    indexCVS2Sprites_Maki,          // 0xd4
-    indexCVS2Sprites_Morrigan,      // 0xd5
-    indexCVS2Sprites_Nakoruru,      // 0xd6
-    indexCVS2Sprites_OrochiIori,    // 0xd7
-    indexCVS2Sprites_Raiden,        // 0xd8
-    indexCVS2Sprites_Rock,          // 0xd9
-    indexCVS2Sprites_Rolento,       // 0xda
-    indexCVS2Sprites_Rugal,         // 0xdb
-    indexCVS2Sprites_Ryo,           // 0xdc
-    indexCVS2Sprites_Ryu,           // 0xdd
-    indexCVS2Sprites_RyuhakuTodoh,  // 0xde
-    indexCVS2Sprites_RyujiYamazaki, // 0xdf
-    indexCVS2Sprites_Sagat,         // 0xe0
-    indexCVS2Sprites_Sakura,        // 0xe1
-    indexCVS2Sprites_ShinAkuma,     // 0xe2
-    indexCVS2Sprites_Terry,         // 0xe3
-    indexCVS2Sprites_Vega,          // 0xe4
-    indexCVS2Sprites_Vice,          // 0xe5
-    indexCVS2Sprites_Yun,           // 0xe6
-    indexCVS2Sprites_Yuri,          // 0xe7
-    indexCVS2Sprites_Zangief,       // 0xe8
-    indexCVS2Sprites_Bonus,         // 0xe9
+    indexCVS2Sprites_Akuma,                 // 0xb9
+    indexCVS2Sprites_Athena,                // 0xba
+    indexCVS2Sprites_Balrog,                // 0xbb
+    indexCVS2Sprites_Benimaru,              // 0xbc
+    indexCVS2Sprites_Blanka,                // 0xbd
+    indexCVS2Sprites_Cammy,                 // 0xbe
+    indexCVS2Sprites_Chang,                 // 0xbf
+    indexCVS2Sprites_ChunLi,                // 0xc0
+    indexCVS2Sprites_Dan,                   // 0xc1
+    indexCVS2Sprites_Dhalsim,               // 0xc2
+    indexCVS2Sprites_EHonda,                // 0xc3
+    indexCVS2Sprites_Eagle,                 // 0xc4
+    indexCVS2Sprites_EvilRyu,               // 0xc5
+    indexCVS2Sprites_Geese,                 // 0xc6
+    indexCVS2Sprites_GodRugal,              // 0xc7
+    indexCVS2Sprites_Guile,                 // 0xc8
+    indexCVS2Sprites_Haohmaru,              // 0xc9
+    indexCVS2Sprites_Hibiki,                // 0xca
+    indexCVS2Sprites_Iori,                  // 0xcb
+    indexCVS2Sprites_Joe,                   // 0xcc
+    indexCVS2Sprites_Ken,                   // 0xcd
+    indexCVS2Sprites_Kim,                   // 0xce
+    indexCVS2Sprites_King,                  // 0xcf
+    indexCVS2Sprites_Kyo,                   // 0xd0
+    indexCVS2Sprites_Kyosuke,               // 0xd1
+    indexCVS2Sprites_MBison,                // 0xd2
+    indexCVS2Sprites_Mai,                   // 0xd3
+    indexCVS2Sprites_Maki,                  // 0xd4
+    indexCVS2Sprites_Morrigan,              // 0xd5
+    indexCVS2Sprites_Nakoruru,              // 0xd6
+    indexCVS2Sprites_OrochiIori,            // 0xd7
+    indexCVS2Sprites_Raiden,                // 0xd8
+    indexCVS2Sprites_Rock,                  // 0xd9
+    indexCVS2Sprites_Rolento,               // 0xda
+    indexCVS2Sprites_Rugal,                 // 0xdb
+    indexCVS2Sprites_Ryo,                   // 0xdc
+    indexCVS2Sprites_Ryu,                   // 0xdd
+    indexCVS2Sprites_RyuhakuTodoh,          // 0xde
+    indexCVS2Sprites_RyujiYamazaki,         // 0xdf
+    indexCVS2Sprites_Sagat,                 // 0xe0
+    indexCVS2Sprites_Sakura,                // 0xe1
+    indexCVS2Sprites_ShinAkuma,             // 0xe2
+    indexCVS2Sprites_Terry,                 // 0xe3
+    indexCVS2Sprites_Vega,                  // 0xe4
+    indexCVS2Sprites_Vice,                  // 0xe5
+    indexCVS2Sprites_Yun,                   // 0xe6
+    indexCVS2Sprites_Yuri,                  // 0xe7
+    indexCVS2Sprites_Zangief,               // 0xe8
+    indexCVS2Sprites_Bonus,                 // 0xe9
 
-    indexCPS2Sprites_Bonus,         // 0xea
-    indexSFA3Sprites_Stages,        // 0xeb
+    indexCPS2Sprites_Bonus,                 // 0xea
+    indexSFA3Sprites_Stages,                // 0xeb
+
+    indexCPS2Sprites_ChunLi_Xism,           // 0xEC
+    indexCPS2Sprites_EvilRyu,               // 0xED
+    indexCPS2Sprites_NewAdon,               // 0xEE
+    indexCPS2Sprites_NewAkuma,              // 0xEF
+    indexCPS2Sprites_NewBirdie,             // 0xF0
+    indexCPS2Sprites_NewCammy,              // 0xF1
+    indexCPS2Sprites_NewChunLi,             // 0xF2
+    indexCPS2Sprites_NewChunLi_Xism,        // 0xF3
+    indexCPS2Sprites_NewCody,               // 0xF4
+    indexCPS2Sprites_NewDan,                // 0xF5
+    indexCPS2Sprites_NewDhalsim,            // 0xF6
+
+    indexCPS2Sprites_NewEHonda,             // 0xF7
+    indexCPS2Sprites_NewGuy,                // 0xF8
+    indexCPS2Sprites_NewKarin,              // 0xF9
+    indexCPS2Sprites_NewRMika,              // 0xFA
+    indexCPS2Sprites_NewRolento,            // 0xFB
+    indexCPS2Sprites_NewRyu,                // 0xFC
+    indexCPS2Sprites_NewSagat,              // 0xFD
+    indexCPS2Sprites_NewSakura,             // 0xFE
+    indexCPS2Sprites_NewSodom,              // 0xFF
+    indexCPS2Sprites_NewVega,               // 0x100
+    indexCPS2Sprites_SodomS_Xism,           // 0x101
+
+    indexCFJSprites_Ingrid,                 // 0x102
 };
 
 enum CHARACTERS_3S_CPS3
 {
-    index3SSprites_Alex,      // 0x00
-    index3SSprites_Ryu,       // 0x01
-    index3SSprites_Yun,       // 0x02
-    index3SSprites_Dudley,    // 0x03
-    index3SSprites_Necro,     // 0x04
-    index3SSprites_Hugo,      // 0x05
-    index3SSprites_Ibuki,     // 0x06
-    index3SSprites_Elena,     // 0x07
-    index3SSprites_Oro,       // 0x08
-    index3SSprites_Yang,      // 0x09
-    index3SSprites_Ken,       // 0x0a
-    index3SSprites_Sean,      // 0x0b
-    index3SSprites_Urien,     // 0x0c
-    index3SSprites_Gouki,     // 0x0d
-    index3SSprites_ShinGouki, // 0x0e
-    index3SSprites_ChunLi,    // 0x0f
-    index3SSprites_Makoto,    // 0x10
-    index3SSprites_Q,         // 0x11
-    index3SSprites_Twelve,    // 0x12
-    index3SSprites_Remy,      // 0x13
-    index3SSprites_Bonus,     // 0x14
-    index3SSprites_Stages,    // 0x15
-    index3SSprites_Gill,      // 0x16
-    indexSF2ISprites_Bonus,   // 0x17
-    indexSF3NGSprites_Bonus,   // 0x18
+    index3SSprites_Alex,        // 0x00
+    index3SSprites_Ryu,         // 0x01
+    index3SSprites_Yun,         // 0x02
+    index3SSprites_Dudley,      // 0x03
+    index3SSprites_Necro,       // 0x04
+    index3SSprites_Hugo,        // 0x05
+    index3SSprites_Ibuki,       // 0x06
+    index3SSprites_Elena,       // 0x07
+    index3SSprites_Oro,         // 0x08
+    index3SSprites_Yang,        // 0x09
+    index3SSprites_Ken,         // 0x0a
+    index3SSprites_Sean,        // 0x0b
+    index3SSprites_Urien,       // 0x0c
+    index3SSprites_Gouki,       // 0x0d
+    index3SSprites_ShinGouki,   // 0x0e
+    index3SSprites_ChunLi,      // 0x0f
+    index3SSprites_Makoto,      // 0x10
+    index3SSprites_Q,           // 0x11
+    index3SSprites_Twelve,      // 0x12
+    index3SSprites_Remy,        // 0x13
+    index3SSprites_Bonus,       // 0x14
+    index3SSprites_Stages,      // 0x15
+    index3SSprites_Gill,        // 0x16
+    indexSF2ISprites_Bonus,     // 0x17
+    indexSF3NGSprites_Bonus,    // 0x18
 };
 
 enum SF2Sprites
 {
-    indexSF2Sprites_Ryu = 0,
-    indexSF2Sprites_EHonda, // 0x01
-    indexSF2Sprites_Blanka, // 0x02
-    indexSF2Sprites_Guile,  // 0x03
-    indexSF2Sprites_Ken,    // 0x04
-    indexSF2Sprites_ChunLi, // 0x05
-    indexSF2Sprites_Zangief, // 0x06
-    indexSF2Sprites_Dhalsim, // 0x07
-    indexSF2Sprites_Bison,  // 0x08
-    indexSF2Sprites_Sagat,  // 0x09
-    indexSF2Sprites_Balrog, // 0x0a
-    indexSF2Sprites_Vega,   // 0x0b
-    indexSF2Sprites_Cammy,  // 0x0c
-    indexSF2Sprites_THawk,  // 0x0d
-    indexSF2Sprites_FeiLong, // 0x0e
-    indexSF2Sprites_DeeJay, // 0x0f
-    indexSF2Sprites_Gouki,  // 0x10
-    indexSF2Sprites_Bonus,  // 0x11
-    indexSF2Sprites_Stages, // 0x12
+    indexSF2Sprites_Ryu             = 0,
+    indexSF2Sprites_EHonda,         // 0x01
+    indexSF2Sprites_Blanka,         // 0x02
+    indexSF2Sprites_Guile,          // 0x03
+    indexSF2Sprites_Ken,            // 0x04
+    indexSF2Sprites_ChunLi,         // 0x05
+    indexSF2Sprites_Zangief,        // 0x06
+    indexSF2Sprites_Dhalsim,        // 0x07
+    indexSF2Sprites_Bison,          // 0x08
+    indexSF2Sprites_Sagat,          // 0x09
+    indexSF2Sprites_Balrog,         // 0x0a
+    indexSF2Sprites_Vega,           // 0x0b
+    indexSF2Sprites_Cammy,          // 0x0c
+    indexSF2Sprites_THawk,          // 0x0d
+    indexSF2Sprites_FeiLong,        // 0x0e
+    indexSF2Sprites_DeeJay,         // 0x0f
+    indexSF2Sprites_Gouki,          // 0x10
+    indexSF2Sprites_Bonus,          // 0x11
+    indexSF2Sprites_Stages,         // 0x12
 
-    indexSF2GBASprites_Ryu = 0x20,
-    indexSF2GBASprites_EHonda,
-    indexSF2GBASprites_Blanka,
-    indexSF2GBASprites_Guile,
-    indexSF2GBASprites_Ken,
-    indexSF2GBASprites_ChunLi,
-    indexSF2GBASprites_Zangief,
-    indexSF2GBASprites_Dhalsim,
-    indexSF2GBASprites_Bison,
-    indexSF2GBASprites_Sagat,
-    indexSF2GBASprites_Balrog,
-    indexSF2GBASprites_Vega,
-    indexSF2GBASprites_Cammy,
-    indexSF2GBASprites_THawk,
-    indexSF2GBASprites_FeiLong,
-    indexSF2GBASprites_DeeJay,
-    indexSF2GBASprites_Gouki,
-    indexSF2GBASprites_ShinGouki,
+    indexSF2GBASprites_Ryu          = 0x20,
+    indexSF2GBASprites_EHonda,      // 0x21
+    indexSF2GBASprites_Blanka,      // 0x22
+    indexSF2GBASprites_Guile,       // 0x23
+    indexSF2GBASprites_Ken,         // 0x24
+    indexSF2GBASprites_ChunLi,      // 0x25
+    indexSF2GBASprites_Zangief,     // 0x26
+    indexSF2GBASprites_Dhalsim,     // 0x27
+    indexSF2GBASprites_Bison,       // 0x28
+    indexSF2GBASprites_Sagat,       // 0x29
+    indexSF2GBASprites_Balrog,      // 0x2a
+    indexSF2GBASprites_Vega,        // 0x2b
+    indexSF2GBASprites_Cammy,       // 0x2c
+    indexSF2GBASprites_THawk,       // 0x2d
+    indexSF2GBASprites_FeiLong,     // 0x2e
+    indexSF2GBASprites_DeeJay,      // 0x2f
+    indexSF2GBASprites_Gouki,       // 0x30
+    indexSF2GBASprites_ShinGouki,   // 0x31
     indexSF2GBASprites_Bonus,       // 0x32, // GBA_Bonus
     indexSF2GBASprites_Stages,      // 0x33, // GBA_Stages
     indexSF2HFSprites_Stages,       // 0x34, // SF2HF stages

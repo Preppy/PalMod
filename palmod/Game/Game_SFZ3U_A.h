@@ -71,14 +71,14 @@ private:
         ColMode::COLMODE_RGB555_BE,
         m_sFileLoadingData,
         m_rgCRC32Data,
-        SFZ3U_A_UNITS,
-        ARRAYSIZE(SFZ3U_A_UNITS),
+        SFZ3U_S_UNITS,
+        ARRAYSIZE(SFZ3U_S_UNITS),
         L"SFZ3USE.txt",            // Extra filename
-        1140,                      // Count of palettes listed in the header
-        0x5ff0000,                 // Lowest known location used for palettes
+        1794,                      // Count of palettes listed in the header
+        0x199940,                  // Lowest known location used for palettes
     };
 
-    std::array<int32_t, ARRAYSIZE(SFZ3U_A_UNITS)> m_activeSteamShiftTable =
+    std::array<int32_t, ARRAYSIZE(SFZ3U_S_UNITS)> m_activeSteamShiftTable =
     {
         /* Ryu */                   0x5ff0000 - 0x76f840,
         /* Ken */                   0x60bd800 - 0x81c040,
@@ -119,6 +119,9 @@ private:
         /* T-Hawk */                0x87b6800 - 0x291a840,
             /* Shin Akuma */            0x627b000 - 0x29f1040,
             /* Balrog (Finished) */     0x76ec000 - 0x2acd840,
+            0,
+            0,
+            0,
     };
 
 public:

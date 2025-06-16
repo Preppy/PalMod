@@ -1897,10 +1897,10 @@ const sGame_PaletteDataset SSF2T_A_DEEJAY_STAGE_NODE_4[] =
 
 const sGame_PaletteDataset SSF2T_A_THAWK_STAGE_NODE_4[] =
 {
-    { L"Birds", 0x5759a, 0x575ba, indexSF2Sprites_Stages, -1, &pairNext },
-    { L"Feet cycle 1/3", 0x575ba, 0x575da },
-    { L"Feet cycle 2/3", 0x575da, 0x575fa },
-    { L"Feet cycle 3/3", 0x575fa, 0x5761a },
+    { L"Birds", 0x5759a, 0x575ba, indexSF2Sprites_Stages, 0xaf, &pairNext },
+    { L"Feet cycle 1/3", 0x575ba, 0x575da, indexSF2Sprites_Stages, 0xb0 },
+    { L"Feet cycle 2/3", 0x575da, 0x575fa, indexSF2Sprites_Stages, 0xb0 },
+    { L"Feet cycle 3/3", 0x575fa, 0x5761a, indexSF2Sprites_Stages, 0xb0 },
 };
 
 const sGame_PaletteDataset SSF2T_A_FEILONG_STAGE_NODE_4[] =
@@ -2246,13 +2246,13 @@ const sGame_PaletteDataset SSF2T_A_FEILONG_STAGE_NODE_8[] =
 
 const sGame_PaletteDataset SSF2T_A_BLANKA_STAGE_NODE_8[] =
 {
-    { L"Blanka Stage 1/6", 0x607de, 0x6083e, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Blanka Stage 1/6", 0x607de, 0x6083e, indexSF2Sprites_Stages, 0xab, &pairFullyLinkedNode },
 
-    { L"Blanka Stage 2/6", 0x687fe, 0x6895e, indexSF2Sprites_Stages, -1 },
+    { L"Blanka Stage 2/6", 0x687fe, 0x6895e, indexSF2Sprites_Stages, 0xac },
 
-    { L"Blanka Stage 3/6 left water sparkle 1/3", 0x689fe, 0x68a1e, indexSF2Sprites_Stages, -1 },
-        { L"Blanka Stage 3/6 left water sparkle 2/3", 0x68a1e, 0x68a3e, indexSF2Sprites_Stages, -1 },
-        { L"Blanka Stage 3/6 left water sparkle 3/3", 0x68a3e, 0x68a5e, indexSF2Sprites_Stages, -1 },
+    { L"Blanka Stage 3/6 left water sparkle 1/3", 0x689fe, 0x68a1e, indexSF2Sprites_Stages, 0xad },
+        { L"Blanka Stage 3/6 left water sparkle 2/3", 0x68a1e, 0x68a3e, indexSF2Sprites_Stages, 0xad },
+        { L"Blanka Stage 3/6 left water sparkle 3/3", 0x68a3e, 0x68a5e, indexSF2Sprites_Stages, 0xad },
 
     { L"Blanka Stage 4/6 right water sparkle 1/4", 0x68a5e, 0x68a7e, indexSF2Sprites_Stages, 0x27 },
         { L"Blanka Stage 4/6 right water sparkle 2/4", 0x68a7e, 0x68a9e, indexSF2Sprites_Stages, 0x27 },
@@ -2261,7 +2261,7 @@ const sGame_PaletteDataset SSF2T_A_BLANKA_STAGE_NODE_8[] =
 
     { L"Blanka Stage 5/6 tree and right side stuff", 0x70bfe, 0x70dfe, indexSF2Sprites_Stages, 0x28 },
 
-    { L"Blanka Stage 6/6", 0x70dfe, 0x70e3e, indexSF2Sprites_Stages, -1 },
+    { L"Blanka Stage 6/6", 0x70dfe, 0x70e3e, indexSF2Sprites_Stages, 0xae },
 };
 
 const sGame_PaletteDataset SSF2T_A_GUILE_STAGE_NODE_8[] =

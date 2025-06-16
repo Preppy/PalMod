@@ -112,7 +112,7 @@ private:
         SF2HF_A_22_UNITS,
         ARRAYSIZE(SF2HF_A_22_UNITS),
         L"SF2HF-22e.txt",        // Extra filename
-        74,                      // Count of palettes listed in the header
+        75,                      // Count of palettes listed in the header
         0x1e6a6,                 // Lowest known location used for palettes
     };
 
@@ -152,7 +152,7 @@ private:
         SF2HF_A_22_UNITS,
         ARRAYSIZE(SF2HF_A_22_UNITS),
         L"SF2HF-22e.txt",        // Extra filename
-        74,                      // Count of palettes listed in the header
+        75,                      // Count of palettes listed in the header
         0x1e6a6,                 // Lowest known location used for palettes
     };
 
@@ -196,7 +196,7 @@ private:
         SF2HF_A_UNITS_MONO,
         ARRAYSIZE(SF2HF_A_UNITS_MONO),
         L"SF2HFS.txt",        // Extra filename
-        410,                  // Count of palettes listed in the header
+        411,                  // Count of palettes listed in the header
         0x601aec,             // Lowest known location used for palettes
     };
 

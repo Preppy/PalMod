@@ -25,7 +25,7 @@ std::array<eIMGDat_Sections, ARRAYSIZE(CFJ_S_UNITS)> activeImageSetTable =
     /* Karin */         IMGDAT_SECTION_CPS2,
 
     // sfiii
-    /* Ingrid */        IMGDAT_SECTION_SF3,
+    /* Ingrid */        IMGDAT_SECTION_CPS2,    // It's in CPS2 not CPS3, but it all works out
     /* Chun-Li */       IMGDAT_SECTION_SF3,
     /* Yun */           IMGDAT_SECTION_SF3,
     /* Alex */          IMGDAT_SECTION_SF3,
