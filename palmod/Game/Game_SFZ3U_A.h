@@ -30,14 +30,63 @@ private:
         SFZ3U_A_UNITS,
         ARRAYSIZE(SFZ3U_A_UNITS),
         L"SFZ3UE.txt",             // Extra filename
-        1140,                      // Count of palettes listed in the header
-        0x5ff0000,                 // Lowest known location used for palettes
+        1794,                      // Count of palettes listed in the header
+        0x3319a80,                 // Lowest known location used for palettes
+    };
+
+    std::array<int32_t, ARRAYSIZE(SFZ3U_A_UNITS)> m_activeNAOMIShiftTable =
+    {
+        /* Ryu */                   0,
+        /* Ken */                   0,
+        /* Akuma */                 0,
+        /* Charlie */               0,
+        /* Chun-Li */               0,
+        /* Adon */                  0,
+        /* Sodom */                 0,
+        /* Guy */                   0,
+        /* Birdie */                0,
+
+        /* Rose */                  0,
+        /* M.Bison */               0,
+        /* Sagat */                 0,
+        /* Dan */                   0,
+        /* Sakura */                0,
+        /* Rolento */               0,
+        /* Dhalsim */               0,
+        /* Zangief */               0,
+        /* Gen */                   0,
+        /* Chun-Li (X-Ism) */       0,
+        /* Gen (Crane stance) */    0,
+        /* Sodom (X-Ism) */         0,
+        /* Balrog */                0,
+        /* Cammy */                 0,
+        /* Evil Ryu */              0,
+        /* E.Honda */               0,
+        /* Blanka */                0,
+        /* R.Mika */                0,
+        /* Cody */                  0,
+        /* Vega */                  0,
+        /* Karin */                 0,
+        /* Juli */                  0,
+        /* Juni */                  0,
+        /* Guile */                 0,
+        /* Fei Long */              0,
+        /* Dee Jay */               0,
+        /* T-Hawk */                0,
+        /* Shin Akuma */            0,
+        /* Balrog (Finished) */     0,
+        /* select portraits */      -0x8A847C0,
+        /* intro portraits */       0x1901040,
+        /* win portraits */         0x1901040,
+        0,
     };
 
     static void DumpAllCharacters();
 
 public:
     CGame_SFZ3U_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
@@ -74,8 +123,8 @@ private:
         SFZ3U_S_UNITS,
         ARRAYSIZE(SFZ3U_S_UNITS),
         L"SFZ3USE.txt",            // Extra filename
-        1794,                      // Count of palettes listed in the header
-        0x199940,                  // Lowest known location used for palettes
+        2002,                      // Count of palettes listed in the header
+        0x197180,                  // Lowest known location used for palettes
     };
 
     std::array<int32_t, ARRAYSIZE(SFZ3U_S_UNITS)> m_activeSteamShiftTable =
@@ -117,11 +166,12 @@ private:
         /* Fei Long */              0x8562000 - 0x270c040,
         /* Dee Jay */               0x8660000 - 0x27e5040,
         /* T-Hawk */                0x87b6800 - 0x291a840,
-            /* Shin Akuma */            0x627b000 - 0x29f1040,
-            /* Balrog (Finished) */     0x76ec000 - 0x2acd840,
-            0,
-            0,
-            0,
+            /* Shin Akuma */        0x627b000 - 0x29f1040,
+            /* Balrog (Finished) */ 0x76ec000 - 0x2acd840,
+            /* select portraits */  0,
+            /* intro portraits */   0,
+            /* win portraits */     0,
+            /* bonus */             0x8c1b940 - 0x197180,
     };
 
 public:
