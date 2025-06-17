@@ -30,7 +30,7 @@ private:
         SFZ3U_A_UNITS,
         ARRAYSIZE(SFZ3U_A_UNITS),
         L"SFZ3UE.txt",             // Extra filename
-        2002,                      // Count of palettes listed in the header
+        2224,                      // Count of palettes listed in the header
         0x3319a80,                 // Lowest known location used for palettes
     };
 
@@ -77,6 +77,7 @@ private:
         /* Balrog (Finished) */     0,
         /* select portraits */      -0x8A847C0,
         /* intro portraits */       0x1901040,
+        /* charsel palettes */      0x1a0860 - 0x8c25020,
         /* win portraits */         0x1901040,
         0,
     };
@@ -123,7 +124,7 @@ private:
         SFZ3U_S_UNITS,
         ARRAYSIZE(SFZ3U_S_UNITS),
         L"SFZ3USE.txt",            // Extra filename
-        2002,                      // Count of palettes listed in the header
+        2224,                      // Count of palettes listed in the header
         0x197180,                  // Lowest known location used for palettes
     };
 
@@ -169,6 +170,7 @@ private:
             /* Shin Akuma */        0x627b000 - 0x29f1040,
             /* Balrog (Finished) */ 0x76ec000 - 0x2acd840,
             /* select portraits */  0,
+            /* charsel palettes */  0,
             /* intro portraits */   0,
             /* win portraits */     0,
             /* bonus */             0x8c1b940 - 0x197180,
