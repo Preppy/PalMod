@@ -419,7 +419,7 @@ const sGame_PaletteDataset SF2HF_A_BONUS21_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_BLANKA_NODE[] =
 {
-    { L"Sky", 0x7fe, 0x83e },
+    { L"Sky", 0x7fe, 0x83e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Left Hut 1", 0x583e, 0x585e },
     { L"Left Hut 2", 0x591e, 0x595e },
     { L"Left Hut 3", 0x58be, 0x58de },
@@ -444,6 +444,48 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_BLANKA_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_BOXER_NODE[] =
 {
+    { L"Wedding Chapel & Sky 1/4", 0x28de, 0x28fe, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
+        { L"Wedding Chapel & Sky 2/4", 0x28fe, 0x291e },
+        { L"Wedding Chapel & Sky 3/4", 0x291e, 0x293e },
+        { L"Wedding Chapel & Sky 4/4", 0x293e, 0x295e },
+    { L"Sassy Sally's Signage 1/2", 0x2a9e, 0x2abe },
+        { L"Sassy Sally's Signage 2/2", 0x2abe, 0x2ade },
+    { L"Misc. Signage & Sky 1/4", 0x2ade, 0x2afe },
+        { L"Misc. Signage & Sky 2/4", 0x2afe, 0x2b1e },
+        { L"Misc. Signage & Sky 3/4", 0x2b1e, 0x2b3e },
+        { L"Misc. Signage & Sky 4/4", 0x2b3e, 0x2b5e },
+
+    { L"Capcom 1/3", 0x799e, 0x79be },
+        { L"Capcom 2/3", 0x79be, 0x79de },
+        { L"Capcom 3/3", 0x79de, 0x79fe },
+    { L"Golden Nugget", 0x797e, 0x799e },
+    { L"Golden Nugget & Central Building 1/3", 0x791e, 0x793e },
+        { L"Golden Nugget & Central Building 2/3", 0x793e, 0x795e },
+        { L"Golden Nugget & Central Building 3/3", 0x795e, 0x797e },
+    { L"Central Building 1", 0x79fe, 0x7a1e },
+    { L"Central Building 2", 0x7a9e, 0x7abe },
+    { L"Central Building 3", 0x7bbe, 0x7bde },
+    { L"Golden Goose & Central Building 1/4", 0x7a1e, 0x7a3e },
+        { L"Golden Goose & Central Building 2/4", 0x7a3e, 0x7a5e },
+        { L"Golden Goose & Central Building 3/4", 0x7a5e, 0x7a7e },
+        { L"Golden Goose & Central Building 4/4", 0x7a7e, 0x7a9e },
+    { L"Street & Central Building", 0x7bde, 0x7bfe },
+    { L"Misc. Signage", 0x7ade, 0x7afe },
+    { L"Side Buildings & Neon 1/2", 0x78be, 0x78de },
+        { L"Side Buildings & Neon 2/2", 0x78de, 0x78fe },
+    { L"Casino, Side Buildings, Street 1/6", 0x77fe, 0x781e },
+        { L"Casino, Side Buildings, Street 2/6", 0x781e, 0x783e },
+        { L"Casino, Side Buildings, Street 3/6", 0x783e, 0x785e },
+        { L"Casino, Side Buildings, Street 4/6", 0x785e, 0x787e },
+        { L"Casino, Side Buildings, Street 5/6", 0x787e, 0x789e },
+        { L"Casino, Side Buildings, Street 6/6", 0x789e, 0x78be },
+
+    { L"Floor: LAS VEGAS and Ground 1/3", 0x7afe, 0x7b1e },
+        { L"Floor: LAS VEGAS and Ground 2/3", 0x7b1e, 0x7b3e },
+        { L"Floor: LAS VEGAS and Ground 3/3", 0x7b3e, 0x7b5e },
+    { L"Floor: Lights 1/3", 0x7b5e, 0x7b7e },
+        { L"Floor: Lights 2/3", 0x7b7e, 0x7b9e },
+        { L"Floor: Lights 3/3", 0x7b9e, 0x7bbe },
     { L"Crowd 1", 0xc81e, 0xc83e },
     { L"Crowd 2", 0xc85e, 0xc87e },
     { L"Crowd 3", 0xc8be, 0xc8de },
@@ -455,29 +497,17 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_BOXER_NODE[] =
     { L"Crowd & Right Car 2", 0xca5e, 0xca7e },
     { L"Crowd & Right Car 3", 0xca9e, 0xcade },
     { L"Crowd & Right Car 4", 0xcafe, 0xcb1e },
-    { L"Capcom", 0x799e, 0x79fe },
-    { L"Golden Nugget", 0x797e, 0x799e },
-    { L"Golden Nugget & Central Building", 0x791e, 0x797e },
-    { L"Central Building 1", 0x79fe, 0x7a1e },
-    { L"Central Building 2", 0x7a9e, 0x7abe },
-    { L"Central Building 3", 0x7bbe, 0x7bde },
-    { L"Golden Goose & Central Building", 0x7a1e, 0x7a9e },
-    { L"Street & Central Building", 0x7bde, 0x7bfe },
-    { L"Wedding Chapel & Sky", 0x28de, 0x295e },
-    { L"Misc. Signage & Sky", 0x2a9e, 0x2b5e },
-    { L"Misc. Signage", 0x7ade, 0x7afe },
-    { L"Side Buildings & Neon", 0x78be, 0x78fe },
-    { L"Casino, Side Buildings, Street", 0x77fe, 0x78be },
-    { L"Floor", 0x7afe, 0x7bbe },
 };
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_CHUNLI_NODE[] =
 {
+    { L"Taiping Road Sign", 0x147e, 0x149e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Sky", 0xb4fe, 0xb51e },
     { L"Sky & Alley Buildings 1", 0xb3fe, 0xb41e },
     { L"Sky & Alley Buildings 2", 0xb51e, 0xb55e },
     { L"Alley Buildings 1", 0xb43e, 0xb49e },
     { L"Alley Buildings 2", 0xb59e, 0xb5be },
+
     { L"Deliveryman", 0x663e, 0x665e },
     { L"Deliveryman, Ground, Middle Shop, Right Shop", 0x63fe, 0x641e },
     { L"Ground & Right Shop", 0x651e, 0x653e },
@@ -502,24 +532,38 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_CHUNLI_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_CLAW_NODE[] =
 {
-    { L"Performers", 0xcd1e, 0xcd5e },
-    { L"Performers & Stage", 0xcc7e, 0xccde },
-    { L"Crowd 1", 0xccfe, 0xcd1e },
-    { L"Crowd 2", 0xcd9e, 0xcdfe },
-    { L"Wall 1", 0x7efe, 0x7f1e },
-    { L"Wall 2", 0x7cfe, 0x7d5e },
-    { L"Wall & Sign", 0x7bfe, 0x7c9e },
-    { L"Wall & Mural", 0x7f1e, 0x7f3e },
-    { L"Wall, Mural, Platform", 0x7f5e, 0x7f7e },
-    { L"Wall, Crowd, Platform", 0x7ede, 0x7efe },
-    { L"Platform", 0x7fbe, 0x7fde },
-    { L"Platform & Floor", 0x7fde, 0x7ffe },
-    { L"Fence & Pillars", 0x2bfe, 0x2c1e },
+    { L"Wall & Sign, part 1 (\"Meson\")",               0x7bfe, 0x7c1e, indexSF2Sprites_Stages, 0x32, &pairFullyLinkedNode },
+        { L"Wall & Sign, part 2 (\"Meson de\")",            0x7c1e, 0x7c3e, indexSF2Sprites_Stages, 0x32 },
+        { L"Wall & Sign, part 3 (\"Meson de la\")",         0x7c3e, 0x7c5e, indexSF2Sprites_Stages, 0x32 },
+        { L"Wall & Sign, part 5 (blank)",                   0x7c7e, 0x7c9e, indexSF2Sprites_Stages, 0x32 },
+        // Displaying last for layering
+        { L"Wall & Sign, part 4 (\"Meson de la Taberna\")", 0x7c5e, 0x7c7e, indexSF2Sprites_Stages, 0x32 },
+    { L"Background wall, lamp wall (darkest shade)",     0x7cfe, 0x7d1e, indexSF2Sprites_Stages, 0x34 },
+        { L"Background wall, lamp wall (middle shade)",     0x7d1e, 0x7d3e, indexSF2Sprites_Stages, 0x34 },
+        { L"Background wall, lamp wall (lightest shade)",   0x7d3e, 0x7d5e, indexSF2Sprites_Stages, 0x34 },
+    { L"Background wall, archway lower part + people + red trimming on top of Foreground wall", 0x7ede, 0x7efe, indexSF2Sprites_Stages, 0x37 },
+    { L"Background wall, archway upper part", 0x7efe, 0x7f1e, indexSF2Sprites_Stages, 0x38 },
+    { L"Background wall, torero & bull painting", 0x7f1e, 0x7f3e, indexSF2Sprites_Stages, 0x39 },
+    { L"Background wall, torero & bull painting(footer) + red trimming on top of Foreground wall + side wall pieces", 0x7f5e, 0x7f7e, indexSF2Sprites_Stages, 0x3a },
+    { L"Parallaxed ground", 0x7fde, 0x7ffe, indexSF2Sprites_Stages, 0x3b },
+    { L"Middle layer, neon footer + feet of dancers/guitar players, part 1", 0xcc7e, 0xcc9e, indexSF2Sprites_Stages, 0x3c },
+        { L"Middle layer, neon footer + feet of dancers/guitar players, part 2", 0xcc9e, 0xccbe, indexSF2Sprites_Stages, 0x3c },
+        { L"Middle layer, neon footer + feet of dancers/guitar players, part 3", 0xccbe, 0xccde, indexSF2Sprites_Stages, 0x3c },
+    { L"Middle layer, people cheering on the table", 0xccfe, 0xcd1e, indexSF2Sprites_Stages, 0x3d },
+    { L"Middle layer, dancers", 0xcd1e, 0xcd3e, indexSF2Sprites_Stages, 0x3e },
+    { L"Middle layer, guitar players", 0xcd3e, 0xcd5e, indexSF2Sprites_Stages, 0x3f },
+    { L"Middle layer, people cheering on the table", 0xcd9e, 0xcdbe, indexSF2Sprites_Stages, 0x40 },
+    { L"Middle layer, dancers", 0xcdbe, 0xcdde, indexSF2Sprites_Stages, 0x41 },
+    { L"Middle layer, guitar players", 0xcdde, 0xcdfe, indexSF2Sprites_Stages, 0x42 },
+
+    { L"Platform?", 0x7fbe, 0x7fde },
+    //BUGBUGBUGBUGBUGBUGBUG: no cage?
+    { L"Cage + Brown wall on the sides", 0x2bfe, 0x2c1e, indexSF2Sprites_Stages, 0x31 },
 };
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_DHALSIM_NODE[] =
 {
-    { L"Painting", 0x6bfe, 0x6c1e },
+    { L"Painting", 0x6bfe, 0x6c1e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Painting & Column", 0x6f1e, 0x6f3e },
     { L"Painting & Curtain", 0x6f3e, 0x6f9e },
     { L"Curtain & Column 1", 0x6c1e, 0x6c5e },
@@ -536,6 +580,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_DHALSIM_NODE[] =
     { L"Back Elephant, Curtain, Floor", 0x6d1e, 0x6d3e },
     { L"Back Elephant & Curtain", 0x6d7e, 0x6e3e },
     { L"Back Elephant & Lattice", 0x6e3e, 0x6e5e },
+    { L"Back Elephant Rear & Lattice", 0x6e5e, 0x6e9e },
     { L"Back Elephant Trunk Animation, Curtain, Column", 0x6f9e, 0x6ffe },
     { L"Middle Elephant", 0xbbfe, 0xbc1e },
     { L"Middle Elephant & Floor", 0xbc1e, 0xbc3e },
@@ -545,7 +590,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_DHALSIM_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_DICTATOR_NODE[] =
 {
-    { L"Ceiling 1", 0x6ffe, 0x701e },
+    { L"Ceiling 1", 0x6ffe, 0x701e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Ceiling 2", 0x703e, 0x705e },
     { L"Temple 1", 0x713e, 0x717e },
     { L"Temple 2", 0x71fe, 0x721e },
@@ -560,7 +605,6 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_DICTATOR_NODE[] =
     { L"Right Wall", 0x711e, 0x713e },
     { L"Right Wall & Grass", 0x721e, 0x723e },
     { L"Floor", 0x72fe, 0x737e },
-    { L"Statues", 0x1ffe, 0x205e },
     { L"Bell 1", 0xc01e, 0xc05e },
     { L"Bell 2", 0xc13e, 0xc15e },
     { L"Bell 3", 0xc23e, 0xc25e },
@@ -569,6 +613,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_DICTATOR_NODE[] =
     { L"Crowd 3", 0xc21e, 0xc23e },
     { L"Crowd 4", 0xc27e, 0xc29e },
     { L"Columns", 0xc29e, 0xc2be },
+    { L"Statues", 0x1ffe, 0x205e },
 };
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_EHONDA_NODE[] =
@@ -649,7 +694,9 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_RYU_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_SAGAT_NODE[] =
 {
+    { L"Bosses", 0xc3fe, 0xc43e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Sky & Temple", 0x253e, 0x255e },
+    { L"Grass & Pavement 1", 0x741e, 0x743e },
     { L"Buddha 1", 0x73fe, 0x741e },
     { L"Buddha 2", 0x747e, 0x749e },
     { L"Buddha 3", 0x74be, 0x761e },
@@ -662,7 +709,6 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_SAGAT_NODE[] =
     { L"Buddha & Grass 3", 0x76fe, 0x771e },
     { L"Buddha & Grass 4", 0x773e, 0x775e },
     { L"Grass", 0x24be, 0x24de },
-    { L"Grass & Pavement 1", 0x741e, 0x743e },
     { L"Grass & Pavement 2", 0x749e, 0x74be },
     { L"Grass & Right Structure 1", 0x743e, 0x745e },
     { L"Grass & Right Structure 2", 0x765e, 0x767e },
@@ -693,20 +739,20 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_ZANGIEF_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSCAR_NODE[] =
 {
-    { L"Water & Sky", 0x801e, 0x803e },
+    { L"Water & Sky", 0x801e, 0x803e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Water & Yacht 1", 0x80de, 0x80fe },
     { L"Water & Yacht 2", 0x813e, 0x815e },
     { L"Yacht, Flagpole, Sky", 0x80be, 0x80de },
     { L"Trees, Yacht, Sky", 0x809e, 0x80be },
     { L"Trees & Sky", 0x805e, 0x807e },
     { L"Flag, Flagpole, Sky", 0x803e, 0x805e },
-    { L"Car & Car Shadow", 0x2ffe, 0x30be },
     { L"Floor", 0x81de, 0x81fe },
+    { L"Car & Car Shadow", 0x2ffe, 0x30be },
 };
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSCASKS_NODE[] =
 {
-    { L"Background Casks & Pallets", 0xd3fe, 0xd41e },
+    { L"Background Casks & Pallets", 0xd3fe, 0xd41e, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Background Casks & Gate", 0xd41e, 0xd43e },
     { L"Beams", 0x849e, 0x84be },
     { L"Beams, Conveyor, P1 Scoreboard", 0x83fe, 0x841e },
@@ -718,7 +764,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSCASKS_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_STAGES21_BONUSDRUMS_NODE[] =
 {
-    { L"Sky", 0x3bbe, 0x3bde },
+    { L"Sky", 0x3bbe, 0x3bde, indexSF2HFSprites_Stages, -1, &pairFullyLinkedNode },
     { L"Crowd 1", 0x8a9e, 0x8ade },
     { L"Crowd 2", 0x8afe, 0x8b7e },
     { L"Crowd 3", 0x8b9e, 0x8bde },
