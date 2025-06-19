@@ -140,8 +140,8 @@ private:
         SF2CE_A_21_UNITS,
         ARRAYSIZE(SF2CE_A_21_UNITS),
         L"SF2CE-21e.txt",     // Extra filename
-        36,                   // Count of palettes listed in the header
-        0x93fe,               // Lowest known location used for palettes
+        340,                  // Count of palettes listed in the header
+        0x3be,                // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM22
@@ -160,7 +160,7 @@ private:
         SF2CE_A_22_UNITS,
         ARRAYSIZE(SF2CE_A_22_UNITS),
         L"SF2CE-22e.txt",         // Extra filename
-        43,                       // Count of palettes listed in the header
+        76,                       // Count of palettes listed in the header
         0x16792,                  // Lowest known location used for palettes
     };
 
@@ -230,7 +230,7 @@ private:
         SF2CE_A_UNITS_MONO,
         ARRAYSIZE(SF2CE_A_UNITS_MONO),
         L"SF2CESe.txt",           // Extra filename
-        96,                       // Count of palettes listed in the header
+        433,                      // Count of palettes listed in the header
         0x16792,                  // Lowest known location used for palettes
     };
 

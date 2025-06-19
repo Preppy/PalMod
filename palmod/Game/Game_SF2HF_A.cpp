@@ -98,7 +98,7 @@ void CGame_SF2HF_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         {
             m_nCurrentPaletteROMLocation += 0x68009e;
         }
-        else if (nUnitId < (ARRAYSIZE(SF2HF_A_22_UNITS) + ARRAYSIZE(SF2HF_A_21_UNITS)))
+        else if (nUnitId < (ARRAYSIZE(SF2HF_A_22_UNITS) + ARRAYSIZE(SF2HF_A_21_UNITS))) // ROM 23
         {
             m_nCurrentPaletteROMLocation += 0x70009e;
         }
