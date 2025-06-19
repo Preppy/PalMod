@@ -590,7 +590,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     if (nImageLayersToUse > 1)
                     {
                         // This naming logic is in line with the multi-RAW export names
-                        strCurrentNodeName.Format(L"-%02x", nImageLayerIndex);
+                        strCurrentNodeName.Format(L"_%02u", nImageLayerIndex);
                     }
                 }
                 else
@@ -599,7 +599,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     if (nImageLayersToUse > 1)
                     {
                         // This naming logic is in line with the multi-RAW export names
-                        strCurrentNodeName.Format(L"-%02x %s", nImageLayerIndex, m_pButtonLabelSet[nNodeIndex]);
+                        strCurrentNodeName.Format(L"_%02u %s", nImageLayerIndex, m_pButtonLabelSet[nNodeIndex]);
                     }
                     else
                     {
@@ -775,7 +775,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
         strWarning.Append(L"PalMod will need to export each of those RAWs to its own RAW file.\n");
         strWarning.Append(L"\nIf you wish to continue, click OK.");
 
-        fShouldExport = (MessageBox(strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING) == IDOK);
+        fShouldExport = (SHMessageBoxCheck(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING, IDOK, L"{2788E83C-EC41-4131-AA75-488B1436F885}") == IDOK);
     }
 
     if (fShouldExport)
@@ -804,7 +804,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
             }
             else
             {
-                strOutputFilename.Format(L"%s-%02x%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
+                strOutputFilename.Format(L"%s_%02u%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
             }
 
             bool fHasErrorAndShouldFix = false;

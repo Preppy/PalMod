@@ -278,6 +278,12 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
 
     pNewNode->eBlendMode = eBlendMode;
 
+    if (nIndex >=  MAX_IMAGES_DISPLAYABLE)
+    {
+        DebugBreak();
+        return;
+    }
+
     if (m_pImgBuffer[nIndex])
     {
         FlushImageNode(nIndex);
