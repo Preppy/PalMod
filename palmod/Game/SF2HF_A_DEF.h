@@ -100,7 +100,8 @@ const sGame_PaletteDataset SF2HF_A_DHALSIM_START_NODE[] =
     { L"Dhalsim", 0x1e796 - 0x02, 0x1e7b6 - 0x02, indexSF2Sprites_Dhalsim },
 };
 
-const sGame_PaletteDataset SF2HF_A_DICTATOR_NORMAL_NODE[] =
+// Note that Dictator is flipped Start/Normal instead of Normal/Start
+const sGame_PaletteDataset SF2HF_A_DICTATOR_START_NODE[] =
 {
     { L"Dictator", 0x1E7B6, 0x1e7d6, indexSF2Sprites_Bison, 0x08, &pairNext2 },
     { L"Cape", 0x1e7d6, 0x1e7f6, indexSF2Sprites_Bison, 0x01 },
@@ -109,7 +110,7 @@ const sGame_PaletteDataset SF2HF_A_DICTATOR_NORMAL_NODE[] =
     { L"Psycho Crusher", 0x1e7f6, 0x1e836, indexSF2Sprites_Bison, 0x03 },
 };
 
-const sGame_PaletteDataset SF2HF_A_DICTATOR_START_NODE[] =
+const sGame_PaletteDataset SF2HF_A_DICTATOR_NORMAL_NODE[] = 
 {
     { L"Dictator", 0x1E95e, 0x1E97e, indexSF2Sprites_Bison, 0x08, &pairNext2 },
     { L"Cape", 0x1E97e, 0x1E99e, indexSF2Sprites_Bison, 0x01 },
@@ -203,10 +204,11 @@ const sGame_PaletteDataset SF2HF_A_DHALSIM_PORTRAITS_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_DICTATOR_PORTRAITS_NODE[] =
 {
-    { L"Dictator Normal 1/2", 0x9700 - 0x02, 0x9720 - 0x02, indexSF2Sprites_Bison, 0x24, &pairNext },
-    { L"Dictator Normal 2/2", 0x97c0 - 0x02, 0x97E0 - 0x02, indexSF2Sprites_Bison, 0x25 },
-    { L"Dictator Start 1/2", 0x9500 - 0x02, 0x9520 - 0x02, indexSF2Sprites_Bison, 0x24, &pairNext },
-    { L"Dictator Start 2/2", 0x95c0 - 0x02, 0x95e0 - 0x02, indexSF2Sprites_Bison, 0x25 },
+    // Note that Dictator is flipped Start/Normal instead of Normal/Start
+    { L"Dictator Normal 1/2", 0x9500 - 0x02, 0x9520 - 0x02, indexSF2Sprites_Bison, 0x24, &pairNext },
+    { L"Dictator Normal 2/2", 0x95c0 - 0x02, 0x95e0 - 0x02, indexSF2Sprites_Bison, 0x25 },
+    { L"Dictator Start 1/2", 0x9700 - 0x02, 0x9720 - 0x02, indexSF2Sprites_Bison, 0x24, &pairNext },
+    { L"Dictator Start 2/2", 0x97c0 - 0x02, 0x97E0 - 0x02, indexSF2Sprites_Bison, 0x25 },
 };
 
 const sGame_PaletteDataset SF2HF_A_BOXER_PORTRAITS_NODE[] =
