@@ -530,9 +530,10 @@ const sDescTreeNode SF2CE_A_21_UNITS[] =
     { L"Select Screen",  DESC_NODETYPE_TREE, (void*)SF2CE_A_SELSCREEN_COLLECTION, ARRAYSIZE(SF2CE_A_SELSCREEN_COLLECTION) },
     // NOTE: These are being picked up from the Hyper Fighting definitions as they are identical
     { L"Stages",         DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_COLLECTION,  ARRAYSIZE(SF2HF_A_STAGES21_COLLECTION) },
+    // NOTE: These are being picked up from the Hyper Fighting definitions as they are identical
+    { L"Endings",        DESC_NODETYPE_TREE, (void*)SF2HF_A_ENDINGS21_COLLECTION, ARRAYSIZE(SF2HF_A_ENDINGS21_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS21_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS21_COLLECTION) },
 };
-
 //FILE 21 UNITS END
 
 //FILE 22 UNITS START
@@ -563,7 +564,6 @@ const sDescTreeNode SF2CE_A_23_UNITS[] =
 {
     { L"Continue Portraits", DESC_NODETYPE_TREE, (void*)SF2CE_A_23_PORTRAITS_COLLECTION, ARRAYSIZE(SF2CE_A_23_PORTRAITS_COLLECTION) },
 };
-
 //FILE 23 UNITS END
 
 const sDescTreeNode SF2CE_A_UNITS_MONO[] =
@@ -593,10 +593,12 @@ const sDescTreeNode SF2CE_A_UNITS_MONO[] =
     // ROM 21
     { L"Portraits",      DESC_NODETYPE_TREE, (void*)SF2CE_A_PORTRAITS_COLLECTION, ARRAYSIZE(SF2CE_A_PORTRAITS_COLLECTION) },
     { L"Select Screen",  DESC_NODETYPE_TREE, (void*)SF2CE_A_SELSCREEN_COLLECTION, ARRAYSIZE(SF2CE_A_SELSCREEN_COLLECTION) },
+    // NOTE: These are being picked up from the Hyper Fighting definitions as they are identical
     { L"Stages (ROM21 Parts)",          DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_COLLECTION,  ARRAYSIZE(SF2HF_A_STAGES21_COLLECTION) },
+    // NOTE: These are being picked up from the Hyper Fighting definitions as they are identical
+    { L"Endings",        DESC_NODETYPE_TREE, (void*)SF2HF_A_ENDINGS21_COLLECTION, ARRAYSIZE(SF2HF_A_ENDINGS21_COLLECTION) },
     { L"Bonus Palettes (ROM21 parts)",  DESC_NODETYPE_TREE, (void*)SF2HF_A_BONUS21_COLLECTION, ARRAYSIZE(SF2HF_A_BONUS21_COLLECTION) },
 
     // ROM 23 
     { L"Continue Portraits", DESC_NODETYPE_TREE, (void*)SF2CE_A_23_PORTRAITS_COLLECTION, ARRAYSIZE(SF2CE_A_23_PORTRAITS_COLLECTION) },
-
 };

@@ -140,7 +140,7 @@ private:
         SF2CE_A_21_UNITS,
         ARRAYSIZE(SF2CE_A_21_UNITS),
         L"SF2CE-21e.txt",     // Extra filename
-        340,                  // Count of palettes listed in the header
+        343,                  // Count of palettes listed in the header
         0x3be,                // Lowest known location used for palettes
     };
 
@@ -230,7 +230,7 @@ private:
         SF2CE_A_UNITS_MONO,
         ARRAYSIZE(SF2CE_A_UNITS_MONO),
         L"SF2CESe.txt",           // Extra filename
-        433,                      // Count of palettes listed in the header
+        436,                      // Count of palettes listed in the header
         0x16792,                  // Lowest known location used for palettes
     };
 
