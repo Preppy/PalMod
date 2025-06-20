@@ -1033,6 +1033,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         nTotalPalSize += m_pImgBuffer[nStartPalette]->uPalSz;
     }
 
+    const PALWriteOutputOptions currTransparencyWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
     bool fCurrentPaletteIsNotMappingFriendly = false;
     int nCheckColor = 1, nCheckAgainstColor = 2;
     int nStartCheckPalette = 0, nCheckAgainstPalette = 0;
@@ -1041,6 +1042,13 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     {
         for (nCheckColor = 1; nCheckColor < m_pImgBuffer[nStartCheckPalette]->uPalSz; nCheckColor++)
         {
+            if ((currTransparencyWriteMode == PALWriteOutputOptions::WRITE_16) &&
+                ((nCheckColor % 16) == 0))
+            {
+                // ignore transparency bytes
+                continue;
+            }
+
             const COLORREF clrChecking = m_pImgBuffer[nStartCheckPalette]->pPalette[nCheckColor];
             nCheckAgainstColor = nCheckColor + 1;
 
@@ -1080,7 +1088,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
     _ResizeAndBlankCustomPreviews(nPositionToLoadTo, nDataLen);
 
-    ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
+    const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
     const bool fGameSuportedByKawaks = ((currColMode == ColMode::COLMODE_RGB444_BE) || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
     bool fUseWinKawaksShift = fGameSuportedByKawaks && GetPreviewDropWinKawaksFirst();
 
@@ -1127,6 +1135,13 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             {
                 for (uint16_t iPalPos = 1; iPalPos < m_pImgBuffer[nCurrentPalette]->uPalSz; iPalPos++)
                 {
+                    if ((currTransparencyWriteMode == PALWriteOutputOptions::WRITE_16) &&
+                        ((iPalPos % 16) == 0))
+                    {
+                        // ignore transparency bytes
+                        continue;
+                    }
+
                     // filter out alpha for now at least: screenshotting would distort that
                     if ((0xffffff & m_pImgBuffer[nCurrentPalette]->pPalette[iPalPos]) == colThisColor)
                     {
