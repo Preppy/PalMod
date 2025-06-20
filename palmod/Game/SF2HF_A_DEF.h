@@ -114,9 +114,9 @@ const sGame_PaletteDataset SF2HF_A_DICTATOR_NORMAL_NODE[] =
 {
     { L"Dictator", 0x1E95e, 0x1E97e, indexSF2Sprites_Bison, 0x08, &pairNext2 },
     { L"Cape", 0x1E97e, 0x1E99e, indexSF2Sprites_Bison, 0x01 },
-    { L"Psycho Attacks 1", 0x1e9dc, 0x1ea1c, indexSF2Sprites_Bison, 0x09, &pairPrevious2 },
-    { L"Psycho Attacks 2", 0x1ea1c, 0x1ea5c, indexSF2Sprites_Bison, 0x09, &pairPrevious3 },
-    { L"Psycho Crusher", 0x1E99e, 0x1e9dc, indexSF2Sprites_Bison, 0x03 },
+    { L"Psycho Attacks 1", 0x1e9de, 0x1ea1e, indexSF2Sprites_Bison, 0x09, &pairPrevious2 },
+    { L"Psycho Attacks 2", 0x1ea1e, 0x1ea5e, indexSF2Sprites_Bison, 0x09, &pairPrevious3 },
+    { L"Psycho Crusher", 0x1E99e, 0x1e9de, indexSF2Sprites_Bison, 0x03 },
 };
 
 const sGame_PaletteDataset SF2HF_A_SAGAT_NORMAL_NODE[] =
