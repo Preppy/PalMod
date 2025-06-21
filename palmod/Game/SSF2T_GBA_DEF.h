@@ -2,24 +2,26 @@
 
 const std::vector<uint16_t> SSF2T_GBA_IMGIDS_USED =
 {
-    indexSF2GBASprites_Ryu,
-    indexSF2GBASprites_EHonda,
-    indexSF2GBASprites_Blanka,
-    indexSF2GBASprites_Guile,
-    indexSF2GBASprites_Ken,
-    indexSF2GBASprites_ChunLi,
-    indexSF2GBASprites_Zangief,
-    indexSF2GBASprites_Dhalsim,
-    indexSF2GBASprites_Bison,
-    indexSF2GBASprites_Sagat,
-    indexSF2GBASprites_Balrog,
-    indexSF2GBASprites_Vega,
-    indexSF2GBASprites_Cammy,
-    indexSF2GBASprites_THawk,
-    indexSF2GBASprites_FeiLong,
-    indexSF2GBASprites_DeeJay,
-    indexSF2GBASprites_Gouki,
-    indexSF2GBASprites_ShinGouki,
+    indexSF2GBASprites_Ryu,         // = 0x20,
+    indexSF2GBASprites_EHonda,      // 0x21
+    indexSF2GBASprites_Blanka,      // 0x22
+    indexSF2GBASprites_Guile,       // 0x23
+    indexSF2GBASprites_Ken,         // 0x24
+    indexSF2GBASprites_ChunLi,      // 0x25
+    indexSF2GBASprites_Zangief,     // 0x26
+    indexSF2GBASprites_Dhalsim,     // 0x27
+    indexSF2GBASprites_Bison,       // 0x28
+    indexSF2GBASprites_Sagat,       // 0x29
+    indexSF2GBASprites_Balrog,      // 0x2a
+    indexSF2GBASprites_Vega,        // 0x2b
+    indexSF2GBASprites_Cammy,       // 0x2c
+    indexSF2GBASprites_THawk,       // 0x2d
+    indexSF2GBASprites_FeiLong,     // 0x2e
+    indexSF2GBASprites_DeeJay,      // 0x2f
+    indexSF2GBASprites_Gouki,       // 0x30
+    indexSF2GBASprites_ShinGouki,   // 0x31
+    indexSF2GBASprites_Bonus,       // 0x32, // GBA_Bonus
+    indexSF2GBASprites_Stages,      // 0x33, // GBA_Stages
 };
 
 const sGame_PaletteDataset SSF2T_GBA_RYU_BTNA_NODE[] =
@@ -128,15 +130,56 @@ const sGame_PaletteDataset SSF2T_GBA_DHALSIM_BTNA_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNA_NODE[] =
 {
-    { L"Dictator A", 0x7F31E4, 0x7F3204, indexSF2GBASprites_Bison },
-    { L"Dictator L", 0x7F3204, 0x7F3224, indexSF2GBASprites_Bison },
-    { L"Dictator R", 0x7F3224, 0x7F3244, indexSF2GBASprites_Bison },
-    { L"Dictator B", 0x7F3244, 0x7F3264, indexSF2GBASprites_Bison },
-    { L"Dictator Select + A", 0x7F3264, 0x7F3284, indexSF2GBASprites_Bison },
-    { L"Dictator Select + L", 0x7F3284, 0x7F32A4, indexSF2GBASprites_Bison },
-    { L"Dictator Select + R", 0x7F32A4, 0x7F32C4, indexSF2GBASprites_Bison },
-    { L"Dictator Select + B", 0x7F32C4, 0x7F32E4, indexSF2GBASprites_Bison },
-    { L"Dictator Start", 0x7F32E4, 0x7F3304, indexSF2GBASprites_Bison },
+    { L"Dictator A", 0x7F31E4, 0x7F3204, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e64a8, 0x4e64c8 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNL_NODE[] =
+{
+    { L"Dictator L", 0x7F3204, 0x7F3224, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e64c8, 0x4e64e8 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNR_NODE[] =
+{
+    { L"Dictator R", 0x7F3224, 0x7F3244, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e64e8, 0x4e6508 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNB_NODE[] =
+{
+    { L"Dictator B", 0x7F3244, 0x7F3264, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e6508, 0x4e6528 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNSA_NODE[] =
+{
+    { L"Dictator Select + A", 0x7F3264, 0x7F3284, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e6528, 0x4e6548 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNSL_NODE[] =
+{
+    { L"Dictator Select + L", 0x7F3284, 0x7F32A4, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e6548, 0x4e6568 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNSR_NODE[] =
+{
+    { L"Dictator Select + R", 0x7F32A4, 0x7F32C4, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e6568, 0x4e6588 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNSB_NODE[] =
+{
+    { L"Dictator Select + B", 0x7F32C4, 0x7F32E4, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e6588, 0x4e65a8 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_BTNS_NODE[] =
+{
+    { L"Dictator Start", 0x7F32E4, 0x7F3304, indexSF2GBASprites_Bison, 0x00, &pairNext },
+    { L"Psycho fist", 0x4e65a8, 0x4e65c8 },
 };
 
 const sGame_PaletteDataset SSF2T_GBA_SAGAT_BTNA_NODE[] =
@@ -313,7 +356,15 @@ const sDescTreeNode SSF2T_GBA_SAGAT_COLLECTION[] =
 
 const sDescTreeNode SSF2T_GBA_DICTATOR_COLLECTION[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNA_NODE) },
+    { L"A", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNA_NODE) },
+    { L"L", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNL_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNL_NODE) },
+    { L"R", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNR_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNR_NODE) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNB_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNB_NODE) },
+    { L"Select + A", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNSA_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNSA_NODE) },
+    { L"Select + L", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNSL_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNSL_NODE) },
+    { L"Select + R", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNSR_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNSR_NODE) },
+    { L"Select + B", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNSB_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNSB_NODE) },
+    { L"Start", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNS_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNS_NODE) },
 };
 
 const sDescTreeNode SSF2T_GBA_CAMMY_COLLECTION[] =
@@ -346,6 +397,391 @@ const sDescTreeNode SSF2T_GBA_SHINGOUKI_COLLECTION[] =
     { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SHINGOUKI_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_SHINGOUKI_BTNA_NODE) },
 };
 
+const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_VS_NODE[] =
+{
+    { L"Ryu",       0x4b114c, 0x4b124c },
+    { L"E.Honda",   0x4b124c, 0x4b134c },
+    { L"Blanka",    0x4b134c, 0x4b144c },
+    { L"Guile",     0x4b144c, 0x4b154c },
+
+    { L"Ken",       0x4b154c, 0x4b164c },
+    { L"Chun-Li",   0x4b164c, 0x4b174c },
+    { L"Zangief",   0x4b174c, 0x4b184c },
+    { L"Dhalsim",   0x4b184c, 0x4b194c },
+
+    { L"Dictator",  0x4b194c, 0x4b1a4c },
+    { L"Sagat",     0x4b1a4c, 0x4b1b4c },
+    { L"Boxer",     0x4b1b4c, 0x4b1c4c },
+    { L"Claw",      0x4b1c4c, 0x4b1d4c },
+
+    { L"Cammy",     0x4b1d4c, 0x4b1e4c },
+    { L"T.Hawk",    0x4b1e4c, 0x4b1f4c },
+    { L"Dee Jay",   0x4b1f4c, 0x4b204c },
+    { L"Fei Long",  0x4b204c, 0x4b214c },
+
+    { L"Gouki",     0x4b214c, 0x4b224c },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_CHARSEL_NODE[] =
+{
+    { L"Inactive", 0x4aefac, 0x4af02c },
+};
+
+const sDescTreeNode SSF2T_GBA_PORTRAITS_COLLECTION[] =
+{
+    { L"Vs",                DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_VS_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_VS_NODE) },
+    { L"Character Select",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_CHARSEL_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_CHARSEL_NODE) },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_RYU_NODE[] =
+{
+    { L"Background Sky", 0x7e7c48, 0x7e7c88, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Mid Left Temple", 0x7e7ba8, 0x7e7c28 },
+    { L"Front Right Temple", 0x7e7c28, 0x7e7c48},
+    { L"Front Floor", 0x7e7b88, 0x7e7ba8 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_EHONDA_NODE[] =
+{
+    { L"Normal: Part 1", 0x4ddf90, 0x4de010, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Normal: Part 2", 0x4de030, 0x4de090 },
+    { L"Normal: Front Tub", 0x4de010, 0x4de030 },
+
+    { L"Flashing Mural 1/2: Part 1", 0x4de190, 0x4de210, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Flashing Mural 1/2: Part 2", 0x4de230, 0x4de290 },
+    { L"Flashing Mural 1/2: Front Tub", 0x4de210, 0x4de230 },
+
+    { L"Flashing Mural 2/2: Part 1", 0x4de390, 0x4de410, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Flashing Mural 2/2: Part 2", 0x4de430, 0x4de490 },
+    { L"Flashing Mural 2/2: Front Tub", 0x4de410, 0x4de430 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_BLANKA_NODE[] =
+{
+    { L"Palette 1: Sparkles 1/2", 0x4abd20, 0x4abe20 },
+    { L"Palette 2: Sparkles 2/2", 0x4abf20, 0x4ac020 },
+    { L"Palette 3: water?", 0x4abe60, 0x4abea0 },
+    { L"Palette 4: water?", 0x4ac040, 0x4ac060 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_GUILE_NODE[] =
+{
+    { L"Palette 1/3: Background",   0x4dcb50, 0x4dcbd0, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Palette 1/3: Jet",          0x4dcb30, 0x4dcb50 },
+    { L"Palette 1/3: Foreground",   0x4dcad0, 0x4dcb30 },
+
+
+    { L"Palette 2/3: Background",   0x4dcd50, 0x4dcdd0, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Palette 2/3: Jet",          0x4dcd30, 0x4dcd50 },
+    { L"Palette 2/3: Foreground",   0x4dccd0, 0x4dcd30 },
+
+    { L"Palette 3/3: Background",   0x4dcf50, 0x4dcfd0, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Palette 3/3: Jet",          0x4dcf30, 0x4dcf50 },
+    { L"Palette 3/3: Foreground",   0x4dced0, 0x4dcf30 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_KEN_NODE[] =
+{
+    { L"Palette 1: Foreground", 0x4df68c, 0x4df76c, indexSF2GBASprites_Stages, -1, &pairNext },
+    { L"Palette 2: Background", 0x4df88c, 0x4df96c },
+    { L"Palette 3: Unused? 1", 0x4df84c, 0x4df86c },
+    { L"Palette 4: Unused? 2", 0x4df96c, 0x4df9cc },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_CHUNLI_NODE[] =
+{
+    { L"Sky", 0x4af0ac, 0x4af0cc, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Bright Buildings", 0x4af04c, 0x4af0ac },
+    { L"Buildings and Ground", 0x4af0cc, 0x4af10c },
+    { L"Bikers", 0x4af10c, 0x4af12c },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_ZANGIEF_NODE[] =
+{
+    { L"Background 1/2: Light", 0x7fd9b0, 0x7fd9f0, indexSF2GBASprites_Stages, -1, &pairNext5Palettes },
+    { L"Background 2/2: Dark",  0x7fdbb0, 0x7fdbf0 },
+
+    { L"Factory",               0x7fd7b0, 0x7fd830 },
+    { L"People",                0x7fd850, 0x7fd890 },
+    { L"Chain",                 0x7fd830, 0x7fd850 },
+    // FINAL BIT
+    { L"Mechanism and Legs",    0x7fd890, 0x7fd8b0 },
+
+    { L"Unused?",               0x7fd9f0, 0x7fda10 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_DHALSIM_NODE[] =
+{
+    { L"Background",            0x4af3f4, 0x4af4b4, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Mid Elephant",          0x4af3d4, 0x4af3f4 },
+    { L"Foreground Elephant",   0x4af4b4, 0x4af4d4 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_DICTATOR_NODE[] =
+{
+    { L"Background",            0x4aa9d8, 0x4aaab8, indexSF2GBASprites_Stages, -1, &pairNext },
+    { L"Foreground 1/3",        0x4aa7d8, 0x4aa858 },
+    { L"Foreground 2/3",        0x4aa898, 0x4aa918 },
+    { L"Foreground 3/3",        0x4aa938, 0x4aa9b8 },
+    { L"Unused?",               0x4aa918, 0x4aa938 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_SAGAT_NODE[] =
+{
+    { L"Background",            0x7e7de8, 0x7e7e08, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Statue",                0x7e7da8, 0x7e7de8 },
+    { L"Foreground",            0x7e7e08, 0x7e7e88 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_BOXER_NODE[] =
+{
+    { L"Background 1/3: Bunny",         0x4aae38, 0x4aae58, indexSF2GBASprites_Stages, -1, &pairNext8Palettes },
+    { L"Background 1/3: Stars",         0x4aae78, 0x4aae98 },
+    { L"Background 1/3: Sky",           0x4aaeb8, 0x4aaed8 },
+
+    { L"Ground 2/3",                    0x4aaed8, 0x4aaf18, indexSF2GBASprites_Stages, -1, &pairNext },
+    { L"Middle 1/3: Sign",              0x4aae18, 0x4aae38 },
+    { L"Middle 1/3: Lower Signage",     0x4aae58, 0x4aae78 },
+    { L"Middle 1/3: Ground",            0x4aae98, 0x4aaeb8 },
+
+    { L"Crowd 1/2",                     0x4aac18, 0x4aacd8, indexSF2GBASprites_Stages, -1, &pairNext },
+    { L"Crowd feet",                    0x4aacd8, 0x4aacf8 },
+    { L"Crowd 2/2",                     0x4aaf58, 0x4ab018, indexSF2GBASprites_Stages, -1, &pairPrevious },
+
+    { L"Background 2/3: Bunny",         0x4ab038, 0x4ab058, indexSF2GBASprites_Stages, -1, &pairNext6Palettes },
+    { L"Background 2/3: Stars",         0x4ab078, 0x4ab098 },
+    { L"Background 2/3: Sky",           0x4ab0b8, 0x4ab0d8 },
+    { L"Ground 1/3",                    0x4aad18, 0x4aad58 },
+    { L"Middle 2/3: Sign",              0x4ab018, 0x4ab038 },
+    { L"Middle 2/3: Lower Signage",     0x4ab058, 0x4ab078 },
+    { L"Middle 2/3: Ground",            0x4ab098, 0x4ab0b8 },
+
+    { L"Background 3/3: Bunny",         0x4ab158, 0x4ab178, indexSF2GBASprites_Stages, -1, &pairNext6Palettes },
+    { L"Background 3/3: Stars",         0x4ab198, 0x4ab1b8 },
+    { L"Background 3/3: Sky",           0x4ab1d8, 0x4ab1f8 },
+    { L"Ground 3/3",                    0x4ab0d8, 0x4ab118 },
+    { L"Middle 3/3: Sign",              0x4ab138, 0x4ab158 },
+    { L"Middle 3/3: Lower Signage",     0x4ab178, 0x4ab198 },
+    { L"Middle 3/3: Ground",            0x4ab1b8, 0x4ab1d8 },
+    
+    { L"Unused?",                       0x4aacf8, 0x4aad18 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_CLAW_NODE[] =
+{
+    { L"1/3: Back Walls",               0x4aa498, 0x4aa4b8, indexSF2GBASprites_Stages, -1, &pairNext6Palettes },
+    { L"1/3: Mural",                    0x4aa4b8, 0x4aa4d8 },
+    { L"1/3: Stand",                    0x4aa3f8, 0x4aa418 },
+    { L"1/3: Customers",                0x4aa418, 0x4aa438 },
+    { L"1/3: Waiters",                  0x4aa458, 0x4aa478 },
+    { L"1/3: Floor and Fencing",        0x4aa438, 0x4aa458 },
+    { L"1/3: Fence and Left of Tables", 0x4aa478, 0x4aa498 },
+
+    { L"2/3: Back Walls",               0x4aa698, 0x4aa6b8, indexSF2GBASprites_Stages, -1, &pairNext6Palettes },
+    { L"2/3: Mural",                    0x4aa6b8, 0x4aa6d8 },
+    { L"2/3: Stand",                    0x4aa5f8, 0x4aa618 },
+    { L"2/3: Customers",                0x4aa618, 0x4aa638 },
+    { L"2/3: Waiters",                  0x4aa658, 0x4aa678 },
+    { L"2/3: Floor and Fencing",        0x4aa638, 0x4aa658 },
+    { L"2/3: Fence and Left of Tables", 0x4aa678, 0x4aa698 },
+
+    { L"3/3: Back Walls",               0x4aa798, 0x4aa7b8, indexSF2GBASprites_Stages, -1, &pairNext6Palettes },
+    { L"3/3: Mural",                    0x4aa7b8, 0x4aa7d8 },
+    { L"3/3: Stand",                    0x4aa6f8, 0x4aa718 },
+    { L"3/3: Customers",                0x4aa718, 0x4aa738 },
+    { L"3/3: Waiters",                  0x4aa758, 0x4aa778 },
+    { L"3/3: Floor and Fencing",        0x4aa738, 0x4aa758 },
+    { L"3/3: Fence and Left of Tables", 0x4aa778, 0x4aa798 },
+
+    { L"Stand? 1/3",                    0x4aa4d8, 0x4aa4f8 },
+    { L"Stand? 2/3",                    0x4aa4f8, 0x4aa518 },
+    { L"Stand? 3/3",                    0x4aa518, 0x4aa538 },
+
+    { L"Wall sign part 1/5 (\"Meson\")",  0x4aa538, 0x4aa558 },
+    { L"Wall sign part 2/5 (\"Meson de\")",  0x4aa558, 0x4aa578 },
+    { L"Wall sign part 3/5 (\"Meson de la\")",  0x4aa578, 0x4aa598 },
+    { L"Wall sign part 4/5 (\"Meson de la Taberna\")",  0x4aa598, 0x4aa5b8 },
+    { L"Wall sign part 5/5 (blank)",    0x4aa5b8, 0x4aa5d8 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_CAMMY_NODE[] =
+{
+    { L"Background 1/2",                0x4ad63c, 0x4ad6fc, indexSF2GBASprites_Stages, -1, &pairNext4Palettes},
+    { L"Cycle 1/8: Sparkles 1/8",       0x4ac71c, 0x4ac73c },
+
+    { L"Cycle 1/8: Aurora",             0x4ac67c, 0x4ac69c },
+    { L"Cycle 1/8: Castles",            0x4ac69c, 0x4ac6fc },
+    { L"Cycle 1/8: Bridge",             0x4ac63c, 0x4ac67c },
+
+    { L"Cycle 1/8: Sparkles 2/8",       0x4ac73c, 0x4ac75c },
+    { L"Cycle 1/8: Sparkles 3/8",       0x4ac75c, 0x4ac77c },
+    { L"Cycle 1/8: Sparkles 4/8",       0x4ac77c, 0x4ac79c },
+    { L"Cycle 1/8: Sparkles 5/8",       0x4ac79c, 0x4ac7bc },
+    { L"Cycle 1/8: Sparkles 6/8",       0x4ac7bc, 0x4ac7dc },
+    { L"Cycle 1/8: Sparkles 7/8",       0x4ac7dc, 0x4ac7fc },
+    { L"Cycle 1/8: Sparkles 8/8",       0x4ac7fc, 0x4ac81c },
+
+    // no sparkle palettes for cycle 2
+    { L"Cycle 2/8: Aurora",   0x4ac87c, 0x4ac89c, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Cycle 2/8: Castles",   0x4ac89c, 0x4ac8fc },
+    { L"Cycle 2/8: Bridge",   0x4ac83c, 0x4ac87c },
+
+    { L"Cycle 3/8: Aurora",             0x4ac67c + (2 * 0x200), 0x4ac69c + (2 * 0x200), indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Cycle 3/8: Castles",            0x4ac69c + (2 * 0x200), 0x4ac6fc + (2 * 0x200) },
+    { L"Cycle 3/8: Bridge",             0x4ac63c + (2 * 0x200), 0x4ac67c + (2 * 0x200) },
+    { L"Cycle 3/8: Sparkles 1/4",       0x4ac71c + (2 * 0x200), 0x4ac73c + (2 * 0x200) },
+
+    { L"Cycle 3/8: Sparkles 2/8",       0x4ac73c + (2 * 0x200), 0x4ac75c + (2 * 0x200) },
+    { L"Cycle 3/8: Sparkles 3/8",       0x4ac75c + (2 * 0x200), 0x4ac77c + (2 * 0x200) },
+    { L"Cycle 3/8: Sparkles 4/8",       0x4ac77c + (2 * 0x200), 0x4ac79c + (2 * 0x200) },
+    { L"Cycle 3/8: Sparkles 5/8",       0x4ac79c + (2 * 0x200), 0x4ac7bc + (2 * 0x200) },
+    { L"Cycle 3/8: Sparkles 6/8",       0x4ac7bc + (2 * 0x200), 0x4ac7dc + (2 * 0x200) },
+    { L"Cycle 3/8: Sparkles 7/8",       0x4ac7dc + (2 * 0x200), 0x4ac7fc + (2 * 0x200) },
+    { L"Cycle 3/8: Sparkles 8/8",       0x4ac7fc + (2 * 0x200), 0x4ac81c + (2 * 0x200) },
+
+    { L"Cycle 4/8: Aurora",             0x4ac67c + (3 * 0x200), 0x4ac69c + (3 * 0x200), indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Cycle 4/8: Castles",            0x4ac69c + (3 * 0x200), 0x4ac6fc + (3 * 0x200) },
+    { L"Cycle 4/8: Bridge",             0x4ac63c + (3 * 0x200), 0x4ac67c + (3 * 0x200) },
+    { L"Cycle 4/8: Sparkles 1/8",       0x4ac71c + (3 * 0x200), 0x4ac73c + (3 * 0x200) },
+
+    { L"Cycle 4/8: Sparkles 2/8",       0x4ac73c + (3 * 0x200), 0x4ac75c + (3 * 0x200) },
+    { L"Cycle 4/8: Sparkles 3/8",       0x4ac75c + (3 * 0x200), 0x4ac77c + (3 * 0x200) },
+    { L"Cycle 4/8: Sparkles 4/8",       0x4ac77c + (3 * 0x200), 0x4ac79c + (3 * 0x200) },
+    { L"Cycle 4/8: Sparkles 5/8",       0x4ac79c + (3 * 0x200), 0x4ac7bc + (3 * 0x200) },
+    { L"Cycle 4/8: Sparkles 6/8",       0x4ac7bc + (3 * 0x200), 0x4ac7dc + (3 * 0x200) },
+    { L"Cycle 4/8: Sparkles 7/8",       0x4ac7dc + (3 * 0x200), 0x4ac7fc + (3 * 0x200) },
+    { L"Cycle 4/8: Sparkles 8/8",       0x4ac7fc + (3 * 0x200), 0x4ac81c + (3 * 0x200) },
+
+    { L"Cycle 5/8: Aurora",             0x4ac67c + (4 * 0x200), 0x4ac69c + (4 * 0x200), indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Cycle 5/8: Castles",            0x4ac69c + (4 * 0x200), 0x4ac6fc + (4 * 0x200) },
+    { L"Cycle 5/8: Bridges",            0x4ac63c + (4 * 0x200), 0x4ac67c + (4 * 0x200) },
+    { L"Cycle 5/8: Sparkles 1/8",       0x4ac71c + (4 * 0x200), 0x4ac73c + (4 * 0x200) },
+
+    { L"Cycle 5/8: Sparkles 2/8",       0x4ac73c + (4 * 0x200), 0x4ac75c + (4 * 0x200) },
+    { L"Cycle 5/8: Sparkles 3/8",       0x4ac75c + (4 * 0x200), 0x4ac77c + (4 * 0x200) },
+    { L"Cycle 5/8: Sparkles 4/8",       0x4ac77c + (4 * 0x200), 0x4ac79c + (4 * 0x200) },
+    { L"Cycle 5/8: Sparkles 5/8",       0x4ac79c + (4 * 0x200), 0x4ac7bc + (4 * 0x200) },
+    { L"Cycle 5/8: Sparkles 6/8",       0x4ac7bc + (4 * 0x200), 0x4ac7dc + (4 * 0x200) },
+    { L"Cycle 5/8: Sparkles 7/8",       0x4ac7dc + (4 * 0x200), 0x4ac7fc + (4 * 0x200) },
+    { L"Cycle 5/8: Sparkles 8/8",       0x4ac7fc + (4 * 0x200), 0x4ac81c + (4 * 0x200) },
+
+    { L"Cycle 6/8: Aurora",             0x4ac67c + (5 * 0x200), 0x4ac69c + (5 * 0x200), indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Cycle 6/8: Castles",            0x4ac69c + (5 * 0x200), 0x4ac6fc + (5 * 0x200) },
+    { L"Cycle 6/8: Bridges",            0x4ac63c + (5 * 0x200), 0x4ac67c + (5 * 0x200) },
+    { L"Cycle 6/8: Sparkles 1/8",       0x4ac71c + (5 * 0x200), 0x4ac73c + (5 * 0x200) },
+
+    { L"Cycle 6/8: Sparkles 2/8",       0x4ac73c + (5 * 0x200), 0x4ac75c + (5 * 0x200) },
+    { L"Cycle 6/8: Sparkles 3/8",       0x4ac75c + (5 * 0x200), 0x4ac77c + (5 * 0x200) },
+    { L"Cycle 6/8: Sparkles 4/8",       0x4ac77c + (5 * 0x200), 0x4ac79c + (5 * 0x200) },
+    { L"Cycle 6/8: Sparkles 5/8",       0x4ac79c + (5 * 0x200), 0x4ac7bc + (5 * 0x200) },
+    { L"Cycle 6/8: Sparkles 6/8",       0x4ac7bc + (5 * 0x200), 0x4ac7dc + (5 * 0x200) },
+    { L"Cycle 6/8: Sparkles 7/8",       0x4ac7dc + (5 * 0x200), 0x4ac7fc + (5 * 0x200) },
+    { L"Cycle 6/8: Sparkles 8/8",       0x4ac7fc + (5 * 0x200), 0x4ac81c + (5 * 0x200) },
+
+    { L"Cycle 7/8: Aurora",             0x4ac67c + (6 * 0x200), 0x4ac69c + (6 * 0x200), indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Cycle 7/8: Castles",            0x4ac69c + (6 * 0x200), 0x4ac6fc + (6 * 0x200) },
+    { L"Cycle 7/8: Bridges",            0x4ac63c + (6 * 0x200), 0x4ac67c + (6 * 0x200) },
+    { L"Cycle 7/8: Sparkles 1/8",       0x4ac71c + (6 * 0x200), 0x4ac73c + (6 * 0x200) },
+
+    { L"Cycle 7/8: Sparkles 2/8",       0x4ac73c + (6 * 0x200), 0x4ac75c + (6 * 0x200) },
+    { L"Cycle 7/8: Sparkles 3/8",       0x4ac75c + (6 * 0x200), 0x4ac77c + (6 * 0x200) },
+    { L"Cycle 7/8: Sparkles 4/8",       0x4ac77c + (6 * 0x200), 0x4ac79c + (6 * 0x200) },
+    { L"Cycle 7/8: Sparkles 5/8",       0x4ac79c + (6 * 0x200), 0x4ac7bc + (6 * 0x200) },
+    { L"Cycle 7/8: Sparkles 6/8",       0x4ac7bc + (6 * 0x200), 0x4ac7dc + (6 * 0x200) },
+    { L"Cycle 7/8: Sparkles 7/8",       0x4ac7dc + (6 * 0x200), 0x4ac7fc + (6 * 0x200) },
+    { L"Cycle 7/8: Sparkles 8/8",       0x4ac7fc + (6 * 0x200), 0x4ac81c + (6 * 0x200) },
+
+    { L"Cycle 8/8: Aurora",             0x4ac67c + (7 * 0x200), 0x4ac69c + (7 * 0x200), indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Cycle 8/8: Castles",            0x4ac69c + (7 * 0x200), 0x4ac6fc + (7 * 0x200) },
+    { L"Cycle 8/8: Bridges",            0x4ac63c + (7 * 0x200), 0x4ac67c + (7 * 0x200) },
+    { L"Cycle 8/8: Sparkles 1/8",       0x4ac71c + (7 * 0x200), 0x4ac73c + (7 * 0x200) },
+
+    { L"Cycle 8/8: Sparkles 2/8",       0x4ac73c + (7 * 0x200), 0x4ac75c + (7 * 0x200) },
+    { L"Cycle 8/8: Sparkles 3/8",       0x4ac75c + (7 * 0x200), 0x4ac77c + (7 * 0x200) },
+    { L"Cycle 8/8: Sparkles 4/8",       0x4ac77c + (7 * 0x200), 0x4ac79c + (7 * 0x200) },
+    { L"Cycle 8/8: Sparkles 5/8",       0x4ac79c + (7 * 0x200), 0x4ac7bc + (7 * 0x200) },
+    { L"Cycle 8/8: Sparkles 6/8",       0x4ac7bc + (7 * 0x200), 0x4ac7dc + (7 * 0x200) },
+    { L"Cycle 8/8: Sparkles 7/8",       0x4ac7dc + (7 * 0x200), 0x4ac7fc + (7 * 0x200) },
+    { L"Cycle 8/8: Sparkles 8/8",       0x4ac7fc + (7 * 0x200), 0x4ac81c + (7 * 0x200) },
+
+    { L"Background 2/2",    0x4ad83c, 0x4ad8fc },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_THAWK_NODE[] =
+{
+    { L"Background: Building",      0x7f24ec, 0x7f250c, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Ground",                    0x7f252c, 0x7f254c },
+    { L"Tent 1/2",                  0x7f250c, 0x7f252c },
+    { L"People",                    0x7f246c, 0x7f24ec },
+
+    { L"Tent 2/2",                  0x7f25ac, 0x7f25cc },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_DEEJAY_NODE[] =
+{
+    { L"Sky 1/5", 0x4af9d4, 0x4afa34, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Ground 1/3", 0x4af634, 0x4af654 },
+    { L"Trees and people 1/2", 0x4af5d4, 0x4af634 },
+    { L"Gazebo and grass 1/2", 0x4af654, 0x4af694 },
+
+    { L"Sky 2/5", 0x4afbd4, 0x4afc34, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Ground 2/3", 0x4af834, 0x4af854 },
+    { L"Trees and people 2/2", 0x4af7d4, 0x4af834 },
+    { L"Gazebo and grass 2/2", 0x4af854, 0x4af894 },
+
+    { L"Sky 3/5", 0x4afdd4, 0x4afe34 },
+    { L"Sky 4/5", 0x4affd4, 0x4b0034 },
+    { L"Sky 5/5", 0x4b01d4, 0x4b0234 },
+
+    { L"Ground 3/3", 0x4afa34, 0x4afa54 },
+
+    { L"Unused?", 0x4b03d4, 0x4b03f4 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_FEILONG_NODE[] =
+{
+    { L"Normal: Background Upper Left",             0x4b3e24, 0x4b3e44, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Normal: Background, Ring, Right Dragon",    0x4b3e64, 0x4b3ee4 },
+    { L"Normal: Middle Dragon",                     0x4b3e04, 0x4b3e24 },
+    { L"Normal: Left Dragon",                       0x4b3e44, 0x4b3e64 },
+
+    { L"Light: Background Upper Left",              0x4b3c24, 0x4b3c44, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Light: Background, Ring, Right Dragon",     0x4b3c64, 0x4b3ce4 },
+    { L"Light: Middle Dragon",                      0x4b3c04, 0x4b3c24 },
+    { L"Light: Left Dragon",                        0x4b3c44, 0x4b3c64 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_GOUKI_NODE[] =
+{
+    { L"Sky", 0x4dc990, 0x4dc9d0, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Left temple", 0x4dc970, 0x4dc990 },
+    { L"Right temple", 0x4dc8f0, 0x4dc970 },
+    { L"Flooring 1/2", 0x4dc8d0, 0x4dc8f0 },
+    { L"Flooring 2/2?", 0x4dc9f0, 0x4dca10 },
+    { L"Unused?", 0x4dca30, 0x4dcab0 },
+};
+
+const sDescTreeNode SSF2T_GBA_STAGES_COLLECTION[] =
+{
+    { L"Ryu",       DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_RYU_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_RYU_NODE) },
+    { L"E.Honda",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_EHONDA_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_EHONDA_NODE) },
+    { L"Blanka",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_BLANKA_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_BLANKA_NODE) },
+    { L"Guile",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_GUILE_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_GUILE_NODE) },
+    { L"Chun-Li",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_CHUNLI_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_CHUNLI_NODE) },
+    { L"Zangief",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_ZANGIEF_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_ZANGIEF_NODE) },
+    { L"Dhalsim",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_DHALSIM_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_DHALSIM_NODE) },
+    { L"Dictator",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_DICTATOR_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_DICTATOR_NODE) },
+    { L"Sagat",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_SAGAT_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_SAGAT_NODE) },
+    { L"Boxer",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_BOXER_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_BOXER_NODE) },
+    { L"Claw",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_CLAW_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_CLAW_NODE) },
+    { L"Cammy",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_CAMMY_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_CAMMY_NODE) },
+    { L"T.Hawk",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_THAWK_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_THAWK_NODE) },
+    { L"Dee Jay",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_DEEJAY_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_DEEJAY_NODE) },
+    { L"Fei Long",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_FEILONG_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_FEILONG_NODE) },
+
+    { L"Gouki",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_GOUKI_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_GOUKI_NODE) },
+};
+
 const sDescTreeNode SSF2T_GBA_UNITS[] =
 {
     { L"Blanka",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BLANKA_COLLECTION, ARRAYSIZE(SSF2T_GBA_BLANKA_COLLECTION) },
@@ -367,4 +803,7 @@ const sDescTreeNode SSF2T_GBA_UNITS[] =
     { L"Sagat",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SAGAT_COLLECTION, ARRAYSIZE(SSF2T_GBA_SAGAT_COLLECTION) },
     { L"Dictator",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_COLLECTION, ARRAYSIZE(SSF2T_GBA_DICTATOR_COLLECTION) },
     { L"Shin Gouki", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SHINGOUKI_COLLECTION, ARRAYSIZE(SSF2T_GBA_SHINGOUKI_COLLECTION) },
+
+    { L"Portraits",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_COLLECTION, ARRAYSIZE(SSF2T_GBA_PORTRAITS_COLLECTION) },
+    { L"Stages",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_COLLECTION, ARRAYSIZE(SSF2T_GBA_STAGES_COLLECTION) },
 };

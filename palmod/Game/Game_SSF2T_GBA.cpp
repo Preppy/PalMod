@@ -20,16 +20,15 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     //Change the image id if we need to
     int nTargetImgId = 0;
-    uint32_t nImgUnitId = NodeGet->uUnitId;
-
-    uint32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nImgUnitId = -1;
+    uint32_t nSrcStart = -1;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fUsingSpecialpairing = false;
 
     //Select the image
     if (m_nExtraUnit != NodeGet->uUnitId)
@@ -45,6 +44,7 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 nNodeIncrement = 1;
                 // The starting point is the absolute first palette for the sprite in question which is found in A
                 nSrcStart = 0;
+                fUsingSpecialpairing = true;
             }
             else // Extras or Extra Range
             {
@@ -60,7 +60,7 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         }
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (fUsingSpecialpairing)
     {
         //Create the default palette
         CreateDefPal(NodeGet, 0);
@@ -69,6 +69,10 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    }
+    else
+    {
+        return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
     }
 
     return TRUE;
