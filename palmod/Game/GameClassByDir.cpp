@@ -105,7 +105,14 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
-    m_pszExtraFilename = m_strCurrentExtraFilename.c_str();
+    if (m_strCurrentExtraFilename.length() > 2)
+    {
+        m_pszExtraFilename = m_strCurrentExtraFilename.c_str();
+    }
+    else
+    {
+        m_pszExtraFilename = nullptr;
+    }
 
     //We need the proper unit amt before we init the main buffer
     m_nTotalInternalUnits = static_cast<uint32_t>(m_rgCurrentGameUnits.size());
