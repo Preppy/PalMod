@@ -592,6 +592,9 @@
     <Filter Include="Games\SNK Games\KOF %2799">
       <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Street Fighter 30th Anniversary Collection">
+      <UniqueIdentifier>{363c49fc-8995-46f4-8e0a-8cb23ca69d69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -989,6 +992,9 @@
     </ClCompile>
     <ClCompile Include="TPLfiles.cpp">
       <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII30th_S.cpp">
+      <Filter>Games\Capcom Games\Street Fighter 30th Anniversary Collection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2107,6 +2113,9 @@
     </ClInclude>
     <ClInclude Include="Game\Game_CFE_P.h">
       <Filter>Games\Capcom Games\Capcom Fighting Evolution %28PS2%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII30th_S.h">
+      <Filter>Games\Capcom Games\Street Fighter 30th Anniversary Collection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

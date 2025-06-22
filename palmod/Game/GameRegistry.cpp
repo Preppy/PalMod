@@ -142,6 +142,7 @@
 #include "Game_SFIII3_A.h"
 #include "Game_SFIII3_A_DIR.h"
 #include "Game_SFIII3_D.h"
+#include "Game_SFIII30th_S.h"
 #include "Game_SF2CE_A.h"
 #include "Game_SF2HF_A.h"
 #include "Game_SFTM_A.h"
@@ -357,13 +358,13 @@ namespace KnownGameInfo
     CGameClass* Make_SFA3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_A(nConfirmedROMSize); }
     CGameClass* Make_SFA3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_S(nConfirmedROMSize); }
     CGameClass* Make_SFIII1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_S(nConfirmedROMSize); }
+    CGameClass* Make_SFIII1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII1_NG); }
     CGameClass* Make_SFIII1_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_SFIII2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_S(nConfirmedROMSize); }
+    CGameClass* Make_SFIII2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII2_SI); }
     CGameClass* Make_SFIII2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_SFIII3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_S(nConfirmedROMSize); }
+    CGameClass* Make_SFIII3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S); }
     CGameClass* Make_SFIII3_A_DIR_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10); }
     CGameClass* Make_SFIII3_A_DIR_4rd(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51_4rd); }
     CGameClass* Make_SFIII3_A_DIR_4rd_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10_4rd); }
@@ -1801,15 +1802,13 @@ namespace KnownGameInfo
             CGame_SFIII1_A_DIR::GetRuleCtr,
             CGame_SFIII1_A_DIR::ResetRuleCtr,
         },
-#ifdef cps3_weirdness_solved
         {
             SFIII1_S,
             L"SFIII:NG (Steam)",
             { SFIII1_S,         L"SFIII:NG", L"SFIII:NG (Steam)|bundleStreetFighterIII.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
             Make_SFIII1_S,
-            CGame_SFIII1_S::GetRule,
+            CGame_SFIII30th_S::GetRule_NG,
         },
-#endif
         {
             SFIII2_A,
             L"SFIII:2I (CPS3 Arcade)",
@@ -1827,6 +1826,14 @@ namespace KnownGameInfo
             CGame_SFIII2_A_DIR::GetRuleCtr,
             CGame_SFIII2_A_DIR::ResetRuleCtr,
         },
+        {
+            SFIII2_S,
+            L"SFIII:SI (Steam)",
+            { SFIII2_S,         L"SFIII:SI", L"SFIII:SI (Steam)|bundleStreetFighterIII_2ndImpact.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFIII2_S,
+            CGame_SFIII30th_S::GetRule_SI,
+        },
+
         {
             SFIII3_A,
             L"SFIII:3S (CPS3 Arcade)",
@@ -1893,6 +1900,13 @@ namespace KnownGameInfo
             CGame_SFIII3_D::GetNextRule,
             CGame_SFIII3_D::GetRuleCtr,
             CGame_SFIII3_D::ResetRuleCtr,
+        },
+        {
+            SFIII3_S,
+            L"SFIII:3S (Steam)",
+            { SFIII3_S,         L"SFIII:3S", L"SFIII:3S (Steam)|bundleStreetFighterIII_3rdStrike.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFIII3_S,
+            CGame_SFIII30th_S::GetRule_3S,
         },
         {
             SF1_A,
