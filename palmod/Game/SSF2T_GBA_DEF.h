@@ -422,6 +422,31 @@ const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_VS_NODE[] =
     { L"Gouki",     0x4b214c, 0x4b224c },
 };
 
+const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_WIN_NODE[] =
+{
+    { L"Ryu",       0x7f4c20, 0x7f4e20 },
+    { L"E.Honda",   0x7f5228, 0x7f5428 },
+    { L"Blanka",    0x7f5830, 0x7f5a30 },
+    { L"Guile",     0x7f5e58, 0x7f6058 },
+
+    { L"Ken",       0x7f6448, 0x7f6648 },
+    { L"Chun-Li",   0x7f69e0, 0x7f6be0 },
+    { L"Zangief",   0x7f6f9c, 0x7f719c },
+    { L"Dhalsim",   0x7f7514, 0x7f7714 },
+
+    { L"Dictator",  0x7f7a34, 0x7f7c34 },
+    { L"Sagat",     0x7f80a0, 0x7f82a0 },
+    { L"Boxer",     0x7f85f0, 0x7f87f0 },
+    { L"Claw",      0x7f8bc4, 0x7f8dc4 },
+
+    { L"Cammy",     0x7f9180, 0x7f9380 },
+    { L"T.Hawk",    0x7f96a0, 0x7f98a0 },
+    { L"Dee Jay",   0x7fa208, 0x7fa408 },
+    { L"Fei Long",  0x7f9cc0, 0x7f9ec0 },
+
+    { L"Gouki",     0x7fa780, 0x7fa980 },
+};
+
 const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_CHARSEL_NODE[] =
 {
     { L"Inactive", 0x4aefac, 0x4af02c },
@@ -430,6 +455,10 @@ const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_CHARSEL_NODE[] =
 const sDescTreeNode SSF2T_GBA_PORTRAITS_COLLECTION[] =
 {
     { L"Vs",                DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_VS_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_VS_NODE) },
+    
+    // NOTE: These are not turned on because they don't save correctly.  In-game there is something wrong with what we're doing.
+    // Sort that out before turning these on.
+    //{ L"Win",               DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_WIN_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_WIN_NODE) },
     { L"Character Select",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_CHARSEL_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_CHARSEL_NODE) },
 };
 
@@ -458,10 +487,11 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_EHONDA_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_BLANKA_NODE[] =
 {
-    { L"Palette 1: Sparkles 1/2", 0x4abd20, 0x4abe20 },
-    { L"Palette 2: Sparkles 2/2", 0x4abf20, 0x4ac020 },
-    { L"Palette 3: water?", 0x4abe60, 0x4abea0 },
-    { L"Palette 4: water?", 0x4ac040, 0x4ac060 },
+    { L"Sky",           0x4abb20, 0x4abb80, indexSF2GBASprites_Stages, -1, &pairNext },
+    { L"Sparkles 1/2",  0x4abd20, 0x4abe20 },
+    { L"Sparkles 2/2",  0x4abf20, 0x4ac020 },
+    { L"Water?",        0x4abe60, 0x4abea0 },
+    { L"Water?",        0x4ac040, 0x4ac060 },
 };
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_GUILE_NODE[] =
@@ -761,6 +791,24 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_GOUKI_NODE[] =
     { L"Unused?", 0x4dca30, 0x4dcab0 },
 };
 
+const sGame_PaletteDataset SSF2T_GBA_STAGES_BONUSCAR_NODE[] =
+{
+    { L"Background", 0x4ab618, 0x4ab6d8, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+
+    { L"Car Undercarriage", 0x4ab2f8, 0x4ab318, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Car Frame",         0x4ab278, 0x4ab2b8 },
+    { L"Car Body",          0x4ab218, 0x4ab278 },
+
+    { L"Version 2: Car Undercarriage", 0x4ab4f8, 0x4ab518 , indexSF2GBASprites_Stages, -1, &pairNextAndNext},
+    { L"Version 2: Car Frame",         0x4ab478, 0x4ab4b8 },
+    { L"Version 2: Car Body",          0x4ab418, 0x4ab478 },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_STAGES_BONUSCASKS_NODE[] =
+{
+    { L"Stage", 0x7f2168, 0x7f2268 },
+};
+
 const sDescTreeNode SSF2T_GBA_STAGES_COLLECTION[] =
 {
     { L"Ryu",       DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_RYU_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_RYU_NODE) },
@@ -780,6 +828,9 @@ const sDescTreeNode SSF2T_GBA_STAGES_COLLECTION[] =
     { L"Fei Long",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_FEILONG_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_FEILONG_NODE) },
 
     { L"Gouki",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_GOUKI_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_GOUKI_NODE) },
+
+    { L"Bonus Stage: Car",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_BONUSCAR_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_BONUSCAR_NODE) },
+    { L"Bonus Stage: Casks",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_BONUSCASKS_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_BONUSCASKS_NODE) },
 };
 
 const sDescTreeNode SSF2T_GBA_UNITS[] =
