@@ -176,7 +176,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 238, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 239, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -364,7 +364,8 @@ namespace KnownGameInfo
     CGameClass* Make_SFIII2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII2_SI); }
     CGameClass* Make_SFIII2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_SFIII3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S); }
+    CGameClass* Make_SFIII3_10_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S_10); }
+    CGameClass* Make_SFIII3_51_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S_51); }
     CGameClass* Make_SFIII3_A_DIR_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10); }
     CGameClass* Make_SFIII3_A_DIR_4rd(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51_4rd); }
     CGameClass* Make_SFIII3_A_DIR_4rd_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10_4rd); }
@@ -1902,11 +1903,18 @@ namespace KnownGameInfo
             CGame_SFIII3_D::ResetRuleCtr,
         },
         {
-            SFIII3_S,
+            SFIII3_S_10,
             L"SFIII:3S (Steam)",
-            { SFIII3_S,         L"SFIII:3S", L"SFIII:3S (Steam)|bundleStreetFighterIII_3rdStrike.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
-            Make_SFIII3_S,
-            CGame_SFIII30th_S::GetRule_3S,
+            { SFIII3_S_10,         L"SFIII:3S Gill glow/X.C.O.P.Y.", L"SFIII:3S Gill glow/X.C.O.P.Y. (Steam)|bundleStreetFighterIII_3rdStrike.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFIII3_10_S,
+            CGame_SFIII30th_S::GetRule_3S_10,
+        },
+        {
+            SFIII3_S_51,
+            L"SFIII:3S (Steam)",
+            { SFIII3_S_51,         L"SFIII:3S", L"SFIII:3S (51) (Steam)|bundleStreetFighterIII_3rdStrike.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFIII3_51_S,
+            CGame_SFIII30th_S::GetRule_3S_51,
         },
         {
             SF1_A,
@@ -2246,7 +2254,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 238, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 239, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

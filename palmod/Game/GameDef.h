@@ -251,7 +251,7 @@ enum SupportedGamesList
     SFA3_S,
     SFIII1_S,
     SFIII2_S,
-    SFIII3_S,
+    SFIII3_S_51,
     MVC2_S_DIR,
     GGXXACR_S_EXCHAR,
     GGXXACR_S_EXTRAS,
@@ -260,6 +260,7 @@ enum SupportedGamesList
     SFZ3U_S,
     CFJ_S,
     SSF2T_NL,
+    SFIII3_S_10,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
