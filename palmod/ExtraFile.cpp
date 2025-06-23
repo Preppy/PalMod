@@ -152,7 +152,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
             memcpy(prgTempExtraBuffer, STOCKEXTRALIST_EXTRA, ARRAYSIZE(STOCKEXTRALIST_EXTRA) * sizeof(stExtraDef));
         }
 
-        if ((m_nLoadedFileViewSize != -1) && (m_nLoadedFileViewSize > 0) && pszExtraFileName) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.
+        if ((m_nLoadedFileViewSize != -1) && (m_nLoadedFileViewSize > 0) && pszExtraFileName && (pszExtraFileName[0] != 0)) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.
         {
             // Now we look for the Extra extension file.
             GetModuleFileName(nullptr, szTargetFile, static_cast<DWORD>(MAX_PATH));
@@ -617,12 +617,13 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
         }
         else
         {
-            OutputDebugString(L"\tExtras file will not be loaded as the ROM size is unknown.\n");
+            OutputDebugString(L"\tExtras file will not be loaded as the ROM size is unknown or an Extra filename was not specified.\n");
         }
     }
 
-    if (*pCompleteExtraDefs == nullptr)
+    if (*pCompleteExtraDefs == nullptr) 
     {
+        // We always set this up as we want the stub for reference.
         const int nExtraArraySize = min(nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3), nMaxExtraBufferSize);
 
         // These allocations are cleaned up in CGameLoad::~CGameLoad
@@ -632,7 +633,14 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
         (*pCompleteExtraDefs)[nExtraArraySize].uUnitN = INVALID_UNIT_VALUE;
 
-        strOutputText.Format(L"\tAdded %u palette Extras total, including the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
+        if (pszExtraFileName[0] == 0)
+        {
+            strOutputText = L"\tCreated a stub Extras array for this game.\n";
+        }
+        else
+        {
+            strOutputText.Format(L"\tAdded %u palette Extras total, including the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
+        }
         OutputDebugString(strOutputText);
     }
 

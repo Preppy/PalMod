@@ -149,7 +149,8 @@ uint32_t CGameClassByDir::GetExtraLoc(uint32_t nUnitId)
 
 sDescTreeNode* CGameClassByDir::InitDescTree(ColMode eColMode)
 {
-    //Load extra file if we're using it
+    // Load extra file if we're using it
+    // Even if we're not using it, we want the stub for reference
     LoadExtraFileForGame(m_strCurrentExtraFilename.c_str(), &m_prgCurrentExtrasLoaded, m_nCurrentExtraUnitId, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(eColMode));
 
     const bool fHaveExtras = (GetExtraCt(m_nCurrentExtraUnitId) > 0);
