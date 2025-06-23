@@ -8,8 +8,7 @@ enum class SFIII30th_LoadingKey
 {
     SFIII1_NG,
     SFIII2_SI,
-    SFIII3_3S_10,
-    SFIII3_3S_51,
+    SFIII3_3S,
 };
 
 class CGame_SFIII30th_S : public CGameClassByDir
@@ -79,30 +78,10 @@ private:
         0x9cc168,               // Lowest known location used for palettes
     };
 
-    const sCoreGameData m_sCoreGameData_SFIII_3S_10
-    {
-        L"SFIII:3S Gill glow/X.C.O.P.Y. (Steam)",
-        SFIII3_S_10,
-        IMGDAT_SECTION_SF3,
-        SFIII3_A_IMGIDS_USED,
-        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
-        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL7_SF3,
-        AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
-        m_sFileLoadingData_SFIII3_3S,
-        {},
-        SFIII3_A_10_UNITS,
-        ARRAYSIZE(SFIII3_A_10_UNITS),
-        {},
-        171,                    // Count of palettes listed in the header
-        0xdaea3f3,              // Lowest known location used for palettes
-    };
-
-    const sCoreGameData m_sCoreGameData_SFIII_3S_51
+    const sCoreGameData m_sCoreGameData_SFIII_3S
     {
         L"SFIII:3S (Steam)",
-        SFIII3_S_51,
+        SFIII3_S,
         IMGDAT_SECTION_SF3,
         SFIII3_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
@@ -112,26 +91,25 @@ private:
         ColMode::COLMODE_RGB555_LE,
         m_sFileLoadingData_SFIII3_3S,
         {},
-        SFIII3_A_51_UNITS,
-        ARRAYSIZE(SFIII3_A_51_UNITS),
+        SFIII3_A_MONO_UNITS,
+        ARRAYSIZE(SFIII3_A_MONO_UNITS),
         {},
-        1438,                   // Count of palettes listed in the header
-        0x11109c20,             // Lowest known location used for palettes
+        171 + 1438,            // Count of palettes listed in the header
+        0xdaea3f3,             // Lowest known location used for palettes
     };
 
 public:
     static SFIII30th_LoadingKey m_eVersionToLoad;
 
-    static bool IsROMEncrypted() { return (m_eVersionToLoad == SFIII30th_LoadingKey::SFIII3_3S_10); };
+    static bool IsUnitEncrypted(uint32_t nUnitId) { return (m_eVersionToLoad == SFIII30th_LoadingKey::SFIII3_3S) && (nUnitId >= ARRAYSIZE(SFIII3_A_51_UNITS)); };
 
-    CGame_SFIII30th_S(uint32_t nConfirmedROMSize, SFIII30th_LoadingKey eGameToLoad = SFIII30th_LoadingKey::SFIII3_3S_51);
+    CGame_SFIII30th_S(uint32_t nConfirmedROMSize, SFIII30th_LoadingKey eGameToLoad = SFIII30th_LoadingKey::SFIII3_3S);
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
     static sFileRule GetRule_NG(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SFIII1_NG); };
     static sFileRule GetRule_SI(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SFIII2_SI); };
-    static sFileRule GetRule_3S_10(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SFIII3_3S); };
-    static sFileRule GetRule_3S_51(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SFIII3_3S); };
+    static sFileRule GetRule_3S(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SFIII3_3S); };
 
     // MBundle packaging uses linear simms, and SFIII3S ROM10 uses encryption, so we have to account for that
     BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId) override;

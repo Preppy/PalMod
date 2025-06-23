@@ -364,8 +364,7 @@ namespace KnownGameInfo
     CGameClass* Make_SFIII2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII2_SI); }
     CGameClass* Make_SFIII2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_SFIII3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII3_10_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S_10); }
-    CGameClass* Make_SFIII3_51_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S_51); }
+    CGameClass* Make_SFIII3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S); }
     CGameClass* Make_SFIII3_A_DIR_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10); }
     CGameClass* Make_SFIII3_A_DIR_4rd(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51_4rd); }
     CGameClass* Make_SFIII3_A_DIR_4rd_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10_4rd); }
@@ -886,7 +885,7 @@ namespace KnownGameInfo
         {
             HSF2_S,
             L"Hyper Street Fighter 2",
-            { HSF2_S,           L"HSF2", L"HSF2 (Steam)|hsf2.21D3D8A7;hsf2j.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            { HSF2_S,           L"Hyper Street Fighter 2", L"HSF2 (Steam)|hsf2.21D3D8A7;hsf2j.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
             Make_HSF2_S,
             CGame_HSF2_S::GetRule,
         },
@@ -1636,8 +1635,6 @@ namespace KnownGameInfo
             CGame_RedEarth_A_DIR::GetRuleCtr,
             CGame_RedEarth_A_DIR::ResetRuleCtr,
         },
-#ifdef dontuse
-        // ... I can't find the colors in the ROM.  maybe a color format shift...?
         {
             REDEARTH_S,
             L"Red Earth (Steam)",
@@ -1645,7 +1642,6 @@ namespace KnownGameInfo
             Make_REDEARTH_S,
             CGame_REDEARTH_S::GetRule,
         },
-#endif
         {
             RODSM2_A,
             L"Ring of Destruction: Slam Master's II",
@@ -1903,18 +1899,11 @@ namespace KnownGameInfo
             CGame_SFIII3_D::ResetRuleCtr,
         },
         {
-            SFIII3_S_10,
+            SFIII3_S,
             L"SFIII:3S (Steam)",
-            { SFIII3_S_10,         L"SFIII:3S Gill glow/X.C.O.P.Y.", L"SFIII:3S Gill glow/X.C.O.P.Y. (Steam)|bundleStreetFighterIII_3rdStrike.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
-            Make_SFIII3_10_S,
-            CGame_SFIII30th_S::GetRule_3S_10,
-        },
-        {
-            SFIII3_S_51,
-            L"SFIII:3S (Steam)",
-            { SFIII3_S_51,         L"SFIII:3S", L"SFIII:3S (51) (Steam)|bundleStreetFighterIII_3rdStrike.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
-            Make_SFIII3_51_S,
-            CGame_SFIII30th_S::GetRule_3S_51,
+            { SFIII3_S,         L"SFIII:3S", L"SFIII:3S (Steam)|bundleStreetFighterIII_3rdStrike.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SFIII3_S,
+            CGame_SFIII30th_S::GetRule_3S,
         },
         {
             SF1_A,
@@ -2038,14 +2027,14 @@ namespace KnownGameInfo
         {
             GEMFIGHTER_A,
             L"Super Gem Fighter Mini Mix (USA 970904)",
-            { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter (CPS2)|pcf*.07|", GamePlatform::CapcomCPS12 },
+            { GEMFIGHTER_A,     L"Super Gem Fighter Minimix", L"Super Gem Fighter (CPS2)|pcf*.07|", GamePlatform::CapcomCPS12 },
             Make_GEMFIGHTER_A,
             CGame_GEMFIGHTER_A::GetRule,
         },
         {
             GEMFIGHTER_S,
             L"Super Gem Fighter Mini Mix (USA 970904)",
-            { GEMFIGHTER_S,     L"Super Gem Fighter", L"Super Gem Fighter (Steam)|pfghtj.21D3D8A7;sgemf.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            { GEMFIGHTER_S,     L"Super Gem Fighter Minimix", L"Super Gem Fighter (Steam)|pfghtj.21D3D8A7;sgemf.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
             Make_GEMFIGHTER_S,
             CGame_GEMFIGHTER_S::GetRule,
         },

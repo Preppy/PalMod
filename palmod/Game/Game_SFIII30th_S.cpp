@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_SFIII30th_S.h"
 
-SFIII30th_LoadingKey CGame_SFIII30th_S::m_eVersionToLoad = SFIII30th_LoadingKey::SFIII3_3S_51;
+SFIII30th_LoadingKey CGame_SFIII30th_S::m_eVersionToLoad = SFIII30th_LoadingKey::SFIII3_3S;
 
 extern uint32_t cps3_mask(uint32_t address, uint32_t key1, uint32_t key2);
 const auto SF30thCollection_ROM10_StartingOffset = 0xda78249;
@@ -12,19 +12,16 @@ CGame_SFIII30th_S::CGame_SFIII30th_S(uint32_t nConfirmedROMSize, SFIII30th_Loadi
 
     switch (m_eVersionToLoad)
     {
-        case SFIII30th_LoadingKey::SFIII1_NG:
-            InitializeGame(nConfirmedROMSize, m_sCoreGameData_SFIII_NG);
-            break;
-        case SFIII30th_LoadingKey::SFIII2_SI:
-            InitializeGame(nConfirmedROMSize, m_sCoreGameData_SFIII_2I);
-            break;
-        case SFIII30th_LoadingKey::SFIII3_3S_10:
-            InitializeGame(nConfirmedROMSize, m_sCoreGameData_SFIII_3S_10);
-            break;
-        case SFIII30th_LoadingKey::SFIII3_3S_51:
-        default:
-            InitializeGame(nConfirmedROMSize, m_sCoreGameData_SFIII_3S_51);
-            break;
+    case SFIII30th_LoadingKey::SFIII1_NG:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_SFIII_NG);
+        break;
+    case SFIII30th_LoadingKey::SFIII2_SI:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_SFIII_2I);
+        break;
+    case SFIII30th_LoadingKey::SFIII3_3S:
+    default:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_SFIII_3S);
+        break;
     }
 }
 
@@ -46,21 +43,24 @@ void CGame_SFIII30th_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
             // Alex LP00 starts at 0x398700 in the naomi rom
             m_nCurrentPaletteROMLocation = (m_nCurrentPaletteROMLocation / 2) + 0x9cc4e8 - 0x1CC380;
             break;
-        case SFIII30th_LoadingKey::SFIII3_3S_10:
-            // 10 starts at 0xda78249 in the bundle
-            m_nCurrentPaletteROMLocation = (m_nCurrentPaletteROMLocation / 4) + SF30thCollection_ROM10_StartingOffset;
-            break;
-        case SFIII30th_LoadingKey::SFIII3_3S_51:
+        case SFIII30th_LoadingKey::SFIII3_3S:
         default:
             // Alex LP00 starts at 0x11309f20 in the normal mbundle
             // Alex LP00 starts at 0x700600 in the naomi rom
-            m_nCurrentPaletteROMLocation = (m_nCurrentPaletteROMLocation / 2) + 0x11109f20 - 0x380300;
+            if (IsUnitEncrypted(nUnitId))
+            {
+                m_nCurrentPaletteROMLocation = (m_nCurrentPaletteROMLocation / 4) + SF30thCollection_ROM10_StartingOffset;
+            }
+            else
+            {
+                m_nCurrentPaletteROMLocation = (m_nCurrentPaletteROMLocation / 2) + 0x11109f20 - 0x380300;
+            }
             break;
         }
     }
 }
 
-BOOL CGame_SFIII30th_S::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+BOOL CGame_SFIII30th_S::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
@@ -77,7 +77,7 @@ BOOL CGame_SFIII30th_S::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
             m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
 
-            if (IsROMEncrypted())
+            if (IsUnitEncrypted(nUnitCtr))
             {
                 const uint32_t nLocationAsUsedForMath = (m_nCurrentPaletteROMLocation - SF30thCollection_ROM10_StartingOffset) * 4;
                 const uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
@@ -139,7 +139,7 @@ BOOL CGame_SFIII30th_S::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     return TRUE;
 }
 
-BOOL CGame_SFIII30th_S::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+BOOL CGame_SFIII30th_S::SaveFile(CFile* SaveFile, uint32_t /* nUnitId */)
 {
     uint32_t nTotalPalettesSaved = 0;
 
@@ -153,7 +153,7 @@ BOOL CGame_SFIII30th_S::SaveFile(CFile* SaveFile, uint32_t nUnitId)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                if (IsROMEncrypted())
+                if (IsUnitEncrypted(nUnitCtr))
                 {
                     const uint32_t nLocationAsUsedForMath = (m_nCurrentPaletteROMLocation - SF30thCollection_ROM10_StartingOffset) * 4;
                     const uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;

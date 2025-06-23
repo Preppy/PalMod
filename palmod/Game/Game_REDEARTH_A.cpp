@@ -65,21 +65,99 @@ void CGame_REDEARTH_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
 {
     CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
 
-    if (nUnitId != m_nCurrentExtraUnitId)
+    if (nUnitId != m_nExtraUnit)
     {
-        // For Steam, we can handle the split ROMs as one unit.
-        // Adjust each chunk by the offsets once they are known
-        if (nUnitId <= ARRAYSIZE(REDEARTH_A_UNITS_31))
+        if (nUnitId < ARRAYSIZE(REDEARTH_A_UNITS_31))
         {
-            //m_nCurrentPaletteROMLocation += 0x80000;
+            // ROM31: starts at 0x2880040 in steam
+            // naomi LP Leo is at 0x2c88040
+            m_nCurrentPaletteROMLocation = m_nCurrentPaletteROMLocation + 0x2880040;
         }
-        else if (nUnitId <= (ARRAYSIZE(REDEARTH_A_UNITS_31) + ARRAYSIZE(REDEARTH_A_UNITS_30)))
+        else if (nUnitId < (ARRAYSIZE(REDEARTH_A_UNITS_31) + ARRAYSIZE(REDEARTH_A_UNITS_30)))
         {
-            //m_nCurrentPaletteROMLocation += 0x80000;
+            // ROM30: start 0x2080040
+            // Leo Vs Text starts in naomi at 0x7eb000
+            // Leo Vs Text starts in steam at 0x286b040
+            m_nCurrentPaletteROMLocation = m_nCurrentPaletteROMLocation + 0x2080040;
         }
         else // REDEARTH_A_UNITS_50
         {
-            //m_nCurrentPaletteROMLocation += 0x80000;
+            // ROM50: starts at 0x4080040
+            // Coming Next? starts at 0x358000 for naomi
+            // Coming Next? starts at 0x43d8040 for steam
+            m_nCurrentPaletteROMLocation = m_nCurrentPaletteROMLocation + 0x4080040;
         }
     }
+}
+
+BOOL CGame_REDEARTH_S::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
+{
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
+    {
+        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+        m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
+
+        // Layout is presorted
+        m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
+
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        {
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
+
+            // RedEarth is simply linear, happily
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+
+            for (uint32_t iRead = 0; iRead < m_nCurrentPaletteSizeInColors; iRead++)
+            {
+                uint16_t nByteSwap;
+
+                LoadedFile->Read(&nByteSwap, 2);
+                nByteSwap = _byteswap_ushort(nByteSwap);
+                m_pppDataBuffer[nUnitCtr][nPalCtr][iRead] = nByteSwap;
+            }
+        }
+    }
+
+    CheckForErrorsInTables();
+
+    return TRUE;
+}
+
+BOOL CGame_REDEARTH_S::SaveFile(CFile* SaveFile, uint32_t /* nUnitId */)
+{
+    uint32_t nTotalPalettesSaved = 0;
+
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
+    {
+        const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        {
+            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+            {
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                // RedEarth is simply linear, happily
+                SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+
+                for (uint32_t iWrite = 0; iWrite < m_nCurrentPaletteSizeInColors; iWrite++)
+                {
+                    const uint16_t nByteSwap = _byteswap_ushort(m_pppDataBuffer[nUnitCtr][nPalCtr][iWrite]);
+
+                    SaveFile->Write(&nByteSwap, 2);
+                }
+
+                nTotalPalettesSaved++;
+            }
+        }
+    }
+
+    CString strMsg;
+    strMsg.Format(L"CGame_REDEARTH_S::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, m_nUnitAmt);
+    OutputDebugString(strMsg);
+
+    return TRUE;
 }

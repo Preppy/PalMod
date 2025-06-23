@@ -134,8 +134,8 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Red Earth (Steam Red Earth 961121)", L"redearth.21D3D8A7", 0x074cab4d, 0 },
-        { L"Red Earth (Steam Warzard 961121)",   L"warzard.21D3D8A7", 0x14e2cad4, 0 },
+        { L"Red Earth (Steam USA 961121)", L"redearth.21D3D8A7", 0x074cab4d, 0 },
+        { L"Warzard (Steam Japan 961121)", L"warzard.21D3D8A7", 0x14e2cad4, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
@@ -153,15 +153,18 @@ private:
         m_rgCRC32Data,
         REDEARTH_A_UNITS_MONO,
         ARRAYSIZE(REDEARTH_A_UNITS_MONO),
-        L"RedEarthSe.txt",              // Extra filename
-        REDEARTH_30_PALETTE_COUNT,      // Count of palettes listed in the header
-        REDEARTH_30_LOWEST_OFFSET,      // Lowest known location used for palettes
+        {},
+        5728,                   // Count of palettes listed in the header
+        0x27b4040,              // Lowest known location used for palettes
     };
 
 public:
     CGame_REDEARTH_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId) override;
 };
