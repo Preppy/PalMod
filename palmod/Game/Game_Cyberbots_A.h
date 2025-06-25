@@ -80,7 +80,7 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         {
-            { L"Cyberbots: Fullmetal Madness (Steam USA 950424)", L"cybotsj.21D3D8A7", 0xec1fe4f9, 0xd0432 - 0x50406 },
+            { L"Cyberbots: Fullmetal Madness (Steam Japan 950424)", L"cybotsj.21D3D8A7", 0xec1fe4f9, 0xd0432 - 0x50406 },
             { L"Cyberbots: Fullmetal Madness (Steam USA 950424)", L"cybotsu.21D3D8A7", 0xeec68ac,  0xd0432 - 0x50406 },
             }
     };
