@@ -371,3 +371,34 @@ const sDescTreeNode SF2WW_A_UNITS_10[] =
     // This is a very slight modification of the SF2HF 21 Bonus collection
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SF2WW_A_10_BONUS_COLLECTION, ARRAYSIZE(SF2WW_A_10_BONUS_COLLECTION) },
 };
+
+const sDescTreeNode SF2WW_A_UNITS_MONO[] =
+{
+//ROM09
+    { L"Ryu",        DESC_NODETYPE_TREE, (void*)SF2WW_A_RYU_09_COLLECTION, ARRAYSIZE(SF2WW_A_RYU_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+    { L"E.Honda",    DESC_NODETYPE_TREE, (void*)SF2WW_A_EHONDA_09_COLLECTION, ARRAYSIZE(SF2WW_A_EHONDA_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+    { L"Blanka",     DESC_NODETYPE_TREE, (void*)SF2WW_A_BLANKA_09_COLLECTION, ARRAYSIZE(SF2WW_A_BLANKA_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+    { L"Guile",      DESC_NODETYPE_TREE, (void*)SF2WW_A_GUILE_09_COLLECTION, ARRAYSIZE(SF2WW_A_GUILE_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+    { L"Ken",        DESC_NODETYPE_TREE, (void*)SF2WW_A_KEN_09_COLLECTION, ARRAYSIZE(SF2WW_A_KEN_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+    { L"Chun-Li",    DESC_NODETYPE_TREE, (void*)SF2WW_A_CHUNLI_09_COLLECTION, ARRAYSIZE(SF2WW_A_CHUNLI_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+    { L"Zangief",    DESC_NODETYPE_TREE, (void*)SF2WW_A_ZANGIEF_09_COLLECTION, ARRAYSIZE(SF2WW_A_ZANGIEF_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+    { L"Dhalsim",    DESC_NODETYPE_TREE, (void*)SF2WW_A_DHALSIM_09_COLLECTION, ARRAYSIZE(SF2WW_A_DHALSIM_09_COLLECTION), 0x6fee5ba - 0xacf8 },
+
+    { L"Stages (ROM09)",    DESC_NODETYPE_TREE, (void*)SF2WW_A_09_STAGES_COLLECTION, ARRAYSIZE(SF2WW_A_09_STAGES_COLLECTION), 0x6fee5ba - 0xacf8 },
+
+    // This is an offset version of the HF ROM 22 Bonus collection, except minus Bison
+    { L"Bonus Palettes (ROM09)", DESC_NODETYPE_TREE, (void*)SF2WW_A_09_BONUS_COLLECTION, ARRAYSIZE(SF2WW_A_09_BONUS_COLLECTION), 0x6fee5ba - 0xacf8 },
+
+//ROM10
+    // This ROM loosely maps to CE ROM 21 and the HF ROM 21, except they're one player only more or less
+    { L"Portraits",         DESC_NODETYPE_TREE, (void*)SF2WW_A_10_PORTRAITS_COLLECTION, ARRAYSIZE(SF2WW_A_10_PORTRAITS_COLLECTION), 0x702ccdc - 0x943e },
+    { L"Select Screen",     DESC_NODETYPE_TREE, (void*)SF2WW_A_10_SELECTSCREEN_COLLECTION, ARRAYSIZE(SF2WW_A_10_SELECTSCREEN_COLLECTION), 0x702ccdc - 0x943e },
+
+    // NOTE: These are being picked up from the Hyper Fighting definitions as they are identical
+    { L"Stages (ROM10)",    DESC_NODETYPE_TREE, (void*)SF2HF_A_STAGES21_COLLECTION,  ARRAYSIZE(SF2HF_A_STAGES21_COLLECTION), 0x702ccdc - 0x943e },
+    // NOTE: These are being picked up from the Hyper Fighting definitions as they are identical
+    { L"Endings",           DESC_NODETYPE_TREE, (void*)SF2HF_A_ENDINGS21_COLLECTION, ARRAYSIZE(SF2HF_A_ENDINGS21_COLLECTION), 0x702ccdc - 0x943e },
+
+    // This is a very slight modification of the SF2HF 21 Bonus collection
+    { L"Bonus Palettes (ROM10)", DESC_NODETYPE_TREE, (void*)SF2WW_A_10_BONUS_COLLECTION, ARRAYSIZE(SF2WW_A_10_BONUS_COLLECTION), 0x702ccdc - 0x943e },
+};

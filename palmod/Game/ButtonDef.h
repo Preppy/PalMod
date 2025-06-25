@@ -172,6 +172,11 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_CVS2 =
    L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"3P", L"3K"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_SSF2_08 =
+{
+   L"Jab", L"Strong", L"Fierce", L"Short", L"Forward", L"RH", L"Start", L"Hold"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_ST10 =
 {
    L"Jab", L"Strong", L"Fierce", L"Short", L"Forward", L"RH", L"Start", L"Hold", L"Old 1P", L"Old 2P"

@@ -37,9 +37,9 @@ private:
         SF2WW_A,
         IMGDAT_SECTION_SF2,
         SF2WW_A_IMGIDS_USED,
-        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2,
+        DEF_NOBUTTONS,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_LE,
         m_sFileLoadingData_09,
@@ -57,9 +57,9 @@ private:
         SF2WW_A,
         IMGDAT_SECTION_SF2,
         SF2WW_A_IMGIDS_USED,
-        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2,
+        DEF_NOBUTTONS,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_LE,
         m_sFileLoadingData_10,
@@ -77,4 +77,46 @@ public:
     static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     static sFileRule GetRule(uint32_t nRuleId);
+};
+
+class CGame_SF2WW_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleStreetFighterII.mbundle", 0x7475983 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Street Fighter II: World Warrior (Steam)", L"bundleStreetFighterII.mbundle", 0x7f422388, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Street Fighter II: World Warrior (Steam)",
+        SF2WW_S,
+        IMGDAT_SECTION_SF2,
+        SF2WW_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SF2WW_A_UNITS_MONO,
+        ARRAYSIZE(SF2WW_A_UNITS_MONO),
+        L"SF2WW-Se.txt",        // Extra filename
+        366,                    // Count of palettes listed in the header
+        0x6fee57a,              // Lowest known location used for palettes
+    }; 
+
+public:
+    CGame_SF2WW_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

@@ -61,7 +61,7 @@ private:
         SSF2_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_ST10,
+        DEF_BUTTONLABEL_SSF2_08,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData_ROM03,
@@ -81,7 +81,7 @@ private:
         SSF2_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_ST10,
+        DEF_BUTTONLABEL_SSF2_08,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData_ROM04,
@@ -101,7 +101,7 @@ private:
         SSF2_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_NOBUTTONS,
+        DEF_BUTTONLABEL_SSF2_08,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData_ROM07,
@@ -121,3 +121,44 @@ public:
     static sFileRule GetRule(uint32_t nRuleId);
 };
 
+class CGame_SSF2_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"bundleSuperStreetFighterII.mbundle", 0x1077a89b },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Super Street Fighter II (Steam)", L"bundleSuperStreetFighterII.mbundle", 0xb39c0b73, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Super Street Fighter II (Steam)",
+        SSF2_S,
+        IMGDAT_SECTION_SF2,
+        SSF2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SSF2_08,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SSF2_A_UNITS_MONO,
+        ARRAYSIZE(SSF2_A_UNITS_MONO),
+        L"SSF2-Se.txt",         // Extra filename
+        661,                    // Count of palettes listed in the header
+        0x925f5d7,              // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SSF2_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

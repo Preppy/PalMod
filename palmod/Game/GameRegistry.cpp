@@ -178,7 +178,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 240, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 243, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -210,6 +210,7 @@ namespace KnownGameInfo
     CGameClass* Make_CVS2_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_P(nConfirmedROMSize); }
     CGameClass* Make_CVS2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_S(nConfirmedROMSize); }
     CGameClass* Make_CYBERBOTS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Cyberbots_A(nConfirmedROMSize); }
+    CGameClass* Make_CYBERBOTS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Cyberbots_S(nConfirmedROMSize); }
     CGameClass* Make_DaemonBrideAG_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBrideAG_NL(nConfirmedROMSize); }
     CGameClass* Make_DaemonBride_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBride_NL(nConfirmedROMSize); }
     CGameClass* Make_DANKUGA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DanKuGa_A_DIR(-1); }
@@ -349,6 +350,7 @@ namespace KnownGameInfo
     CGameClass* Make_SF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_A(nConfirmedROMSize); }
     CGameClass* Make_SF1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_S(nConfirmedROMSize); }
     CGameClass* Make_SF2WW_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2WW_A(nConfirmedROMSize); }
+    CGameClass* Make_SF2WW_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2WW_S(nConfirmedROMSize); }
     CGameClass* Make_SF2CE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_A(nConfirmedROMSize); }
     CGameClass* Make_SF2CE_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_S(nConfirmedROMSize); }
     CGameClass* Make_SF2HF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2HF_A(nConfirmedROMSize); }
@@ -381,6 +383,7 @@ namespace KnownGameInfo
     CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_A(nConfirmedROMSize); }
+    CGameClass* Make_SSF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_GBA(nConfirmedROMSize); }
@@ -635,13 +638,19 @@ namespace KnownGameInfo
             Make_CVS2_S,
             CGame_CVS2_S::GetRule,
         },
-
         {
             CYBERBOTS_A,
             L"Cyberbots: Fullmetal Madness (CPS2 Arcade)",
-            { CYBERBOTS_A,      L"Cyberbots", L"Cyberbots|cyb?.04|", GamePlatform::CapcomCPS12 },
+            { CYBERBOTS_A,      L"Cyberbots", L"Cyberbots (CPS2)|cyb?.04|", GamePlatform::CapcomCPS12 },
             Make_CYBERBOTS_A,
             CGame_Cyberbots_A::GetRule,
+        },
+        {
+            CYBERBOTS_S,
+            L"Cyberbots: Fullmetal Madness (Steam)",
+            { CYBERBOTS_S,      L"Cyberbots", L"Cyberbots (Steam)|cybots?.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection },
+            Make_CYBERBOTS_S,
+            CGame_Cyberbots_S::GetRule,
         },
         {
             DaemonBride_NL,
@@ -1931,6 +1940,13 @@ namespace KnownGameInfo
             CGame_SF2WW_A::GetRule,
         },
         {
+            SF2WW_S,
+            L"Street Fighter II World Warrior (Steam)",
+            { SF2WW_S,            L"SF2:WW", L"SF2:WW (Steam)|bundleStreetFighterII.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SF2WW_S,
+            CGame_SF2WW_S::GetRule,
+        },
+        {
             SF2CE_A,
             L"SF2:CE (CPS1 Arcade)",
             { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23) (CPS1)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
@@ -2006,6 +2022,13 @@ namespace KnownGameInfo
             { SSF2_A,            L"SSF2", L"SSF2 (CPS2): Portraits (03), Characters (04), Stages (07)|ssfe-03b;ssfe.04;ssfe.07|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SSF2_A,
             CGame_SSF2_A::GetRule,
+        },
+        {
+            SSF2_S,
+            L"Super Street Fighter II (Steam)",
+            { SSF2_S,            L"SSF2", L"SSF2 (Steam)|bundleSuperStreetFighterII.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
+            Make_SSF2_S,
+            CGame_SSF2_S::GetRule,
         },
         {
             SSF2T_A,
@@ -2261,7 +2284,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 240, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 243, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
