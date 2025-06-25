@@ -145,9 +145,11 @@
 #include "Game_SFIII30th_S.h"
 #include "Game_SF2CE_A.h"
 #include "Game_SF2HF_A.h"
+#include "Game_SF2WW_A.h"
 #include "Game_SFTM_A.h"
 #include "Game_SHAQFU_SNES.h"
 #include "Game_SPF2T_A.h"
+#include "Game_SSF2_A.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
 #include "Game_StreetFighter_A.h"
@@ -176,7 +178,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 239, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 240, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -346,6 +348,7 @@ namespace KnownGameInfo
     CGameClass* Make_SDODGEBALL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SDODGEBALL_A(nConfirmedROMSize); }
     CGameClass* Make_SF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_A(nConfirmedROMSize); }
     CGameClass* Make_SF1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_S(nConfirmedROMSize); }
+    CGameClass* Make_SF2WW_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2WW_A(nConfirmedROMSize); }
     CGameClass* Make_SF2CE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_A(nConfirmedROMSize); }
     CGameClass* Make_SF2CE_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_S(nConfirmedROMSize); }
     CGameClass* Make_SF2HF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2HF_A(nConfirmedROMSize); }
@@ -377,6 +380,7 @@ namespace KnownGameInfo
     CGameClass* Make_SHAQFU_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SHAQFU_SNES(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
+    CGameClass* Make_SSF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_A(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_GBA(nConfirmedROMSize); }
@@ -1920,6 +1924,13 @@ namespace KnownGameInfo
             CGame_StreetFighter_S::GetRule,
         },
         {
+            SF2WW_A,
+            L"Street Fighter 2 World Warrior (CPS1)",
+            { SF2WW_A,            L"SF2:WW", L"SF2:WW (CPS1)|sf2e_28g.9e;sf2_29b.10e|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            Make_SF2WW_A,
+            CGame_SF2WW_A::GetRule,
+        },
+        {
             SF2CE_A,
             L"SF2:CE (CPS1 Arcade)",
             { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23) (CPS1)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
@@ -1988,6 +1999,13 @@ namespace KnownGameInfo
             { SVC_S,       L"SNK VS. CAPCOM SVC CHAOS", L"SNK VS. CAPCOM SVC CHAOS (Steam)|p1.bin|", GamePlatform::Steam },
             Make_SVCPLUSA_A,
             CGame_SVCPLUSA_A::GetRule_Steam,
+        },
+        {
+            SSF2_A,
+            L"Super Street Fighter 2 (CPS2)",
+            { SSF2_A,            L"SSF2", L"SSF2 (CPS2): Portraits (03), Characters (04), Stages (07)|ssfe-03b;ssfe.04;ssfe.07|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            Make_SSF2_A,
+            CGame_SSF2_A::GetRule,
         },
         {
             SSF2T_A,
@@ -2243,7 +2261,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 239, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 240, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
@@ -2404,8 +2422,14 @@ namespace KnownGameInfo
         case SF2CE_A:
             CGame_SF2CE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
+        case SF2WW_A:
+            CGame_SF2WW_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case SFTM_A:
             CGame_SFTM_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case SSF2_A:
+            CGame_SSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case SSF2T_A:
         case SSF2T_NL:

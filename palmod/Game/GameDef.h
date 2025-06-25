@@ -260,7 +260,8 @@ enum SupportedGamesList
     SFZ3U_S,
     CFJ_S,
     SSF2T_NL,
-    UNUSED_REUSE_ME, // temporarily used for the consolidated rom 10 sf3 steam support
+    SF2WW_A,
+    SSF2_A,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

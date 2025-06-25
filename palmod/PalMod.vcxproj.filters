@@ -595,6 +595,12 @@
     <Filter Include="Games\Capcom Games\Street Fighter 30th Anniversary Collection">
       <UniqueIdentifier>{363c49fc-8995-46f4-8e0a-8cb23ca69d69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\SF2WW">
+      <UniqueIdentifier>{9a9f3254-6518-4b14-bf61-e4e771a5e3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Capcom Games\SSF2_A">
+      <UniqueIdentifier>{79c7b2eb-6372-4b43-8b1c-d7cc30b6ce10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -995,6 +1001,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII30th_S.cpp">
       <Filter>Games\Capcom Games\Street Fighter 30th Anniversary Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SSF2_A.cpp">
+      <Filter>Games\Capcom Games\SSF2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SF2WW_A.cpp">
+      <Filter>Games\Capcom Games\SF2WW</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2116,6 +2128,18 @@
     </ClInclude>
     <ClInclude Include="Game\Game_SFIII30th_S.h">
       <Filter>Games\Capcom Games\Street Fighter 30th Anniversary Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SF2WW_A.h">
+      <Filter>Games\Capcom Games\SF2WW</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SF2WW_A_DEF.h">
+      <Filter>Games\Capcom Games\SF2WW</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SSF2_A.h">
+      <Filter>Games\Capcom Games\SSF2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SSF2_A_DEF.h">
+      <Filter>Games\Capcom Games\SSF2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
