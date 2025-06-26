@@ -38,7 +38,7 @@ private:
         SSF2T_GBA_UNITS,
         ARRAYSIZE(SSF2T_GBA_UNITS),
         L"SSF2T-GBAe.txt",         // Extra filename
-        414,                       // Count of palettes listed in the header
+        431,                       // Count of palettes listed in the header
         0x4aa3f8,                  // Lowest known location used for palettes
     };
 

@@ -422,29 +422,32 @@ const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_VS_NODE[] =
     { L"Gouki",     0x4b214c, 0x4b224c },
 };
 
+// These are slightly quirky.  The visible palette in the mGBA palette viewer is exactly 0x7f4c20, BUT
+// the exported palette is clearly 0x7f4c1e *and* the color at 0x7f4c20 is absolutely used.  So account for
+// that weird logic as you would expect by stepping back to 0x7f4c1e
 const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_WIN_NODE[] =
 {
-    { L"Ryu",       0x7f4c20, 0x7f4e20 },
-    { L"E.Honda",   0x7f5228, 0x7f5428 },
-    { L"Blanka",    0x7f5830, 0x7f5a30 },
-    { L"Guile",     0x7f5e58, 0x7f6058 },
+    { L"Ryu",       0x7f4c20 - 0x02, 0x7f4e20 - 0x02 },
+    { L"E.Honda",   0x7f5228 - 0x02, 0x7f5428 - 0x02 },
+    { L"Blanka",    0x7f5830 - 0x02, 0x7f5a30 - 0x02 },
+    { L"Guile",     0x7f5e58 - 0x02, 0x7f6058 - 0x02 },
 
-    { L"Ken",       0x7f6448, 0x7f6648 },
-    { L"Chun-Li",   0x7f69e0, 0x7f6be0 },
-    { L"Zangief",   0x7f6f9c, 0x7f719c },
-    { L"Dhalsim",   0x7f7514, 0x7f7714 },
+    { L"Ken",       0x7f6448 - 0x02, 0x7f6648 - 0x02 },
+    { L"Chun-Li",   0x7f69e0 - 0x02, 0x7f6be0 - 0x02 },
+    { L"Zangief",   0x7f6f9c - 0x02, 0x7f719c - 0x02 },
+    { L"Dhalsim",   0x7f7514 - 0x02, 0x7f7714 - 0x02 },
 
-    { L"Dictator",  0x7f7a34, 0x7f7c34 },
-    { L"Sagat",     0x7f80a0, 0x7f82a0 },
-    { L"Boxer",     0x7f85f0, 0x7f87f0 },
-    { L"Claw",      0x7f8bc4, 0x7f8dc4 },
+    { L"Dictator",  0x7f7a34 - 0x02, 0x7f7c34 - 0x02 },
+    { L"Sagat",     0x7f80a0 - 0x02, 0x7f82a0 - 0x02 },
+    { L"Boxer",     0x7f85f0 - 0x02, 0x7f87f0 - 0x02 },
+    { L"Claw",      0x7f8bc4 - 0x02, 0x7f8dc4 - 0x02 },
 
-    { L"Cammy",     0x7f9180, 0x7f9380 },
-    { L"T.Hawk",    0x7f96a0, 0x7f98a0 },
-    { L"Dee Jay",   0x7fa208, 0x7fa408 },
-    { L"Fei Long",  0x7f9cc0, 0x7f9ec0 },
+    { L"Cammy",     0x7f9180 - 0x02, 0x7f9380 - 0x02 },
+    { L"T.Hawk",    0x7f96a0 - 0x02, 0x7f98a0 - 0x02 },
+    { L"Dee Jay",   0x7fa208 - 0x02, 0x7fa408 - 0x02 },
+    { L"Fei Long",  0x7f9cc0 - 0x02, 0x7f9ec0 - 0x02 },
 
-    { L"Gouki",     0x7fa780, 0x7fa980 },
+    { L"Gouki",     0x7fa780 - 0x02, 0x7fa980 - 0x02 },
 };
 
 const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_CHARSEL_NODE[] =
@@ -455,10 +458,7 @@ const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_CHARSEL_NODE[] =
 const sDescTreeNode SSF2T_GBA_PORTRAITS_COLLECTION[] =
 {
     { L"Vs",                DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_VS_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_VS_NODE) },
-    
-    // NOTE: These are not turned on because they don't save correctly.  In-game there is something wrong with what we're doing.
-    // Sort that out before turning these on.
-    //{ L"Win",               DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_WIN_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_WIN_NODE) },
+    { L"Win",               DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_WIN_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_WIN_NODE) },
     { L"Character Select",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_CHARSEL_NODE, ARRAYSIZE(SSF2T_GBA_PORTRAITS_CHARSEL_NODE) },
 };
 
