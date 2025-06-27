@@ -474,6 +474,7 @@ const stPairedPaletteInfo pairNext4Palettes =                       { 1, {}, 5 }
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, {}, 5, 2, 3, 8 };     // quint display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, {}, 5, 2, 3, 12 };    // quint display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, {}, 5, 2, 3, 16 };    // quint display... requires special handling in code
+const stPairedPaletteInfo pairNext1245Palettes =                    { 1, {}, 5, 2, 4, 5 }; // quint-display -- specially handled
 const stPairedPaletteInfo pairNext2346Palettes =                    { 2, {}, 5, 3, 4, 6 }; // quint-display -- specially handled
 
 const stPairedPaletteInfo pairNext5Palettes =                       { 1, {}, 6 }; // six-display -- specially handled

@@ -641,9 +641,12 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_RYU_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_EHONDA_NODE[] =
 {
-    { L"Normal: Part 1", 0x4ddf90, 0x4de010, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
-    { L"Normal: Part 2", 0x4de030, 0x4de090 },
+    { L"Normal: Part 1",    0x4ddf90, 0x4de010, indexSF2GBASprites_Stages, -1, &pairNext4Palettes },
+    { L"Normal: Part 2",    0x4de030, 0x4de090 },
     { L"Normal: Front Tub", 0x4de010, 0x4de030 },
+    { L"Right lantern",     0x4dd19c, 0x4dd1bc },
+    { L"Left Floor 1/2",    0x4b076a, 0x4b078a },
+    { L"Left Floor 2/2",    0x4b078a, 0x4b07aa },
 
     { L"Flashing Mural 1/2: Part 1", 0x4de190, 0x4de210, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
     { L"Flashing Mural 1/2: Part 2", 0x4de230, 0x4de290 },
@@ -656,11 +659,12 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_EHONDA_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_BLANKA_NODE[] =
 {
-    { L"Sky",           0x4abb20, 0x4abb80, indexSF2GBASprites_Stages, -1, &pairNext },
-    { L"Sparkles 1/2",  0x4abd20, 0x4abe20 },
-    { L"Sparkles 2/2",  0x4abf20, 0x4ac020 },
-    { L"Water?",        0x4abe60, 0x4abea0 },
-    { L"Water?",        0x4ac040, 0x4ac060 },
+    { L"Sky",               0x4abb20, 0x4abb80, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Foreground 1/2",    0x4abd20, 0x4abe20 },
+    { L"Fish",              0x7e7f88, 0x7e7fa8 },
+    { L"Foreground 2/2",    0x4abf20, 0x4ac020 },
+    { L"Water?",            0x4abe60, 0x4abea0 },
+    { L"Water?",            0x4ac040, 0x4ac060 },
 };
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_GUILE_NODE[] =
@@ -681,10 +685,13 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_GUILE_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_KEN_NODE[] =
 {
-    { L"Palette 1: Foreground", 0x4df68c, 0x4df76c, indexSF2GBASprites_Stages, -1, &pairNext },
-    { L"Palette 2: Background", 0x4df88c, 0x4df96c },
-    { L"Palette 3: Unused? 1", 0x4df84c, 0x4df86c },
-    { L"Palette 4: Unused? 2", 0x4df96c, 0x4df9cc },
+    { L"Background",           0x4df88c, 0x4df8cc, indexSF2GBASprites_Stages, -1, &pairNext1245Palettes },
+    { L"Background Buildings", 0x4df8cc, 0x4df96c },
+    { L"Building Inset 1/2",   0x4df96c, 0x4df98c },
+    { L"Building Inset 2/2",   0x4df9ac, 0x4df9cc },
+    { L"Foreground",           0x4df68c, 0x4df76c },
+    { L"Stop Sign",            0x4dfa8c, 0x4dfaac },
+    { L"Unused?",              0x4df84c, 0x4df86c },
 };
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_CHUNLI_NODE[] =
@@ -768,13 +775,15 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_BOXER_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_CLAW_NODE[] =
 {
-    { L"1/3: Back Walls",               0x4aa498, 0x4aa4b8, indexSF2GBASprites_Stages, -1, &pairNext6Palettes },
+    { L"1/3: Back Walls",               0x4aa498, 0x4aa4b8, indexSF2GBASprites_Stages, -1, &pairNext7Palettes },
     { L"1/3: Mural",                    0x4aa4b8, 0x4aa4d8 },
     { L"1/3: Stand",                    0x4aa3f8, 0x4aa418 },
     { L"1/3: Customers",                0x4aa418, 0x4aa438 },
     { L"1/3: Waiters",                  0x4aa458, 0x4aa478 },
     { L"1/3: Floor and Fencing",        0x4aa438, 0x4aa458 },
+    { L"Dancers",                       0x4af310, 0x4af330 },
     { L"1/3: Fence and Left of Tables", 0x4aa478, 0x4aa498 },
+
 
     { L"2/3: Back Walls",               0x4aa698, 0x4aa6b8, indexSF2GBASprites_Stages, -1, &pairNext6Palettes },
     { L"2/3: Mural",                    0x4aa6b8, 0x4aa6d8 },
@@ -805,12 +814,13 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_CLAW_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_CAMMY_NODE[] =
 {
-    { L"Background 1/2",                0x4ad63c, 0x4ad6fc, indexSF2GBASprites_Stages, -1, &pairNext4Palettes},
+    { L"Background 1/2",                0x4ad63c, 0x4ad6fc, indexSF2GBASprites_Stages, -1, &pairNext5Palettes},
     { L"Cycle 1/8: Sparkles 1/8",       0x4ac71c, 0x4ac73c },
 
     { L"Cycle 1/8: Aurora",             0x4ac67c, 0x4ac69c },
     { L"Cycle 1/8: Castles",            0x4ac69c, 0x4ac6fc },
     { L"Cycle 1/8: Bridge",             0x4ac63c, 0x4ac67c },
+    { L"Crow",                          0x4af228, 0x4af248 },
 
     { L"Cycle 1/8: Sparkles 2/8",       0x4ac73c, 0x4ac75c },
     { L"Cycle 1/8: Sparkles 3/8",       0x4ac75c, 0x4ac77c },
@@ -821,9 +831,9 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_CAMMY_NODE[] =
     { L"Cycle 1/8: Sparkles 8/8",       0x4ac7fc, 0x4ac81c },
 
     // no sparkle palettes for cycle 2
-    { L"Cycle 2/8: Aurora",   0x4ac87c, 0x4ac89c, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
-    { L"Cycle 2/8: Castles",   0x4ac89c, 0x4ac8fc },
-    { L"Cycle 2/8: Bridge",   0x4ac83c, 0x4ac87c },
+    { L"Cycle 2/8: Aurora",             0x4ac87c, 0x4ac89c, indexSF2GBASprites_Stages, -1, &pairNextAndNext },
+    { L"Cycle 2/8: Castles",            0x4ac89c, 0x4ac8fc },
+    { L"Cycle 2/8: Bridge",             0x4ac83c, 0x4ac87c },
 
     { L"Cycle 3/8: Aurora",             0x4ac67c + (2 * 0x200), 0x4ac69c + (2 * 0x200), indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
     { L"Cycle 3/8: Castles",            0x4ac69c + (2 * 0x200), 0x4ac6fc + (2 * 0x200) },
@@ -908,10 +918,11 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_CAMMY_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_THAWK_NODE[] =
 {
-    { L"Background: Building",      0x7f24ec, 0x7f250c, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Background: Building",      0x7f24ec, 0x7f250c, indexSF2GBASprites_Stages, -1, &pairNext4Palettes },
     { L"Ground",                    0x7f252c, 0x7f254c },
     { L"Tent 1/2",                  0x7f250c, 0x7f252c },
     { L"People",                    0x7f246c, 0x7f24ec },
+    { L"Birds and Dancer",          0x4ddf1c, 0x4ddf3c },
 
     { L"Tent 2/2",                  0x7f25ac, 0x7f25cc },
 };
@@ -939,10 +950,12 @@ const sGame_PaletteDataset SSF2T_GBA_STAGES_DEEJAY_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_STAGES_FEILONG_NODE[] =
 {
-    { L"Normal: Background Upper Left",             0x4b3e24, 0x4b3e44, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
+    { L"Normal: Background Upper Left",             0x4b3e24, 0x4b3e44, indexSF2GBASprites_Stages, -1, &pairNext5Palettes },
     { L"Normal: Background, Ring, Right Dragon",    0x4b3e64, 0x4b3ee4 },
     { L"Normal: Middle Dragon",                     0x4b3e04, 0x4b3e24 },
     { L"Normal: Left Dragon",                       0x4b3e44, 0x4b3e64 },
+    { L"Post Caps",                                 0x4dd268, 0x4dd288 },
+    { L"Ring Corners",                              0x4dd288, 0x4dd2a8 },
 
     { L"Light: Background Upper Left",              0x4b3c24, 0x4b3c44, indexSF2GBASprites_Stages, -1, &pairNext3Palettes },
     { L"Light: Background, Ring, Right Dragon",     0x4b3c64, 0x4b3ce4 },
@@ -984,6 +997,7 @@ const sDescTreeNode SSF2T_GBA_STAGES_COLLECTION[] =
     { L"E.Honda",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_EHONDA_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_EHONDA_NODE) },
     { L"Blanka",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_BLANKA_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_BLANKA_NODE) },
     { L"Guile",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_GUILE_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_GUILE_NODE) },
+    { L"Ken",       DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_KEN_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_KEN_NODE) },
     { L"Chun-Li",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_CHUNLI_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_CHUNLI_NODE) },
     { L"Zangief",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_ZANGIEF_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_ZANGIEF_NODE) },
     { L"Dhalsim",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_STAGES_DHALSIM_NODE, ARRAYSIZE(SSF2T_GBA_STAGES_DHALSIM_NODE) },
