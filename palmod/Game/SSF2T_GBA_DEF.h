@@ -299,59 +299,203 @@ const sGame_PaletteDataset SSF2T_GBA_SHINGOUKI_BTNA_NODE[] =
     { L"Shin Gouki Start", 0x7F3D04, 0x7F3D24, indexSF2GBASprites_Gouki },
 };
 
-const sDescTreeNode SSF2T_GBA_BLANKA_COLLECTION[] =
+// Status effects.  
+// Fire is as in the Dhalsim fireball
+// Psycho burned as in hit by Dictator psycho attacks
+const sGame_PaletteDataset SSF2T_GBA_RYU_STATUSEFFECTS_NODE[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BLANKA_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_BLANKA_BTNA_NODE) },
+    { L"Burning 1",         0x4e7104 + (0x00 * 0x80), 0x4e7124 + (0x00 * 0x80), indexSF2GBASprites_Ryu },
+    { L"Burning 2",         0x4e7124 + (0x00 * 0x80), 0x4e7144 + (0x00 * 0x80), indexSF2GBASprites_Ryu },
+    { L"Psycho Burned 1",   0x4e7144 + (0x00 * 0x80), 0x4e7164 + (0x00 * 0x80), indexSF2GBASprites_Ryu },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x00 * 0x80), 0x4e7184 + (0x00 * 0x80), indexSF2GBASprites_Ryu },
 };
 
-const sDescTreeNode SSF2T_GBA_CHUNLI_COLLECTION[] =
+const sGame_PaletteDataset SSF2T_GBA_EHONDA_STATUSEFFECTS_NODE[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CHUNLI_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_CHUNLI_BTNA_NODE) },
+    { L"Burning 1",         0x4e7104 + (0x01 * 0x80), 0x4e7124 + (0x01 * 0x80), indexSF2GBASprites_EHonda },
+    { L"Burning 2",         0x4e7124 + (0x01 * 0x80), 0x4e7144 + (0x01 * 0x80), indexSF2GBASprites_EHonda },
+    { L"Psycho Burned 1",   0x4e7144 + (0x01 * 0x80), 0x4e7164 + (0x01 * 0x80), indexSF2GBASprites_EHonda },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x01 * 0x80), 0x4e7184 + (0x01 * 0x80), indexSF2GBASprites_EHonda },
 };
 
-const sDescTreeNode SSF2T_GBA_DHALSIM_COLLECTION[] =
+const sGame_PaletteDataset SSF2T_GBA_BLANKA_STATUSEFFECTS_NODE[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DHALSIM_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_DHALSIM_BTNA_NODE) },
+    { L"Burning 1",         0x4e7104 + (0x02 * 0x80), 0x4e7124 + (0x02 * 0x80), indexSF2GBASprites_Blanka },
+    { L"Burning 2",         0x4e7124 + (0x02 * 0x80), 0x4e7144 + (0x02 * 0x80), indexSF2GBASprites_Blanka },
+    { L"Psycho Burned 1",   0x4e7144 + (0x02 * 0x80), 0x4e7164 + (0x02 * 0x80), indexSF2GBASprites_Blanka },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x02 * 0x80), 0x4e7184 + (0x02 * 0x80), indexSF2GBASprites_Blanka },
 };
 
-const sDescTreeNode SSF2T_GBA_EHONDA_COLLECTION[] =
+const sGame_PaletteDataset SSF2T_GBA_GUILE_STATUSEFFECTS_NODE[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_EHONDA_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_EHONDA_BTNA_NODE) },
+    { L"Burning 1",         0x4e7104 + (0x03 * 0x80), 0x4e7124 + (0x03 * 0x80), indexSF2GBASprites_Guile },
+    { L"Burning 2",         0x4e7124 + (0x03 * 0x80), 0x4e7144 + (0x03 * 0x80), indexSF2GBASprites_Guile },
+    { L"Psycho Burned 1",   0x4e7144 + (0x03 * 0x80), 0x4e7164 + (0x03 * 0x80), indexSF2GBASprites_Guile },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x03 * 0x80), 0x4e7184 + (0x03 * 0x80), indexSF2GBASprites_Guile },
 };
 
-const sDescTreeNode SSF2T_GBA_GUILE_COLLECTION[] =
+const sGame_PaletteDataset SSF2T_GBA_KEN_STATUSEFFECTS_NODE[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GUILE_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_GUILE_BTNA_NODE) },
+    { L"Burning 1",         0x4e7104 + (0x04 * 0x80), 0x4e7124 + (0x04 * 0x80), indexSF2GBASprites_Ken },
+    { L"Burning 2",         0x4e7124 + (0x04 * 0x80), 0x4e7144 + (0x04 * 0x80), indexSF2GBASprites_Ken },
+    { L"Psycho Burned 1",   0x4e7144 + (0x04 * 0x80), 0x4e7164 + (0x04 * 0x80), indexSF2GBASprites_Ken },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x04 * 0x80), 0x4e7184 + (0x04 * 0x80), indexSF2GBASprites_Ken },
 };
 
-const sDescTreeNode SSF2T_GBA_KEN_COLLECTION[] =
+const sGame_PaletteDataset SSF2T_GBA_CHUNLI_STATUSEFFECTS_NODE[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_KEN_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_KEN_BTNA_NODE) },
+    { L"Burning 1",         0x4e7104 + (0x05 * 0x80), 0x4e7124 + (0x05 * 0x80), indexSF2GBASprites_ChunLi },
+    { L"Burning 2",         0x4e7124 + (0x05 * 0x80), 0x4e7144 + (0x05 * 0x80), indexSF2GBASprites_ChunLi },
+    { L"Psycho Burned 1",   0x4e7144 + (0x05 * 0x80), 0x4e7164 + (0x05 * 0x80), indexSF2GBASprites_ChunLi },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x05 * 0x80), 0x4e7184 + (0x05 * 0x80), indexSF2GBASprites_ChunLi },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_ZANGIEF_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x06 * 0x80), 0x4e7124 + (0x06 * 0x80), indexSF2GBASprites_Zangief },
+    { L"Burning 2",         0x4e7124 + (0x06 * 0x80), 0x4e7144 + (0x06 * 0x80), indexSF2GBASprites_Zangief },
+    { L"Psycho Burned 1",   0x4e7144 + (0x06 * 0x80), 0x4e7164 + (0x06 * 0x80), indexSF2GBASprites_Zangief },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x06 * 0x80), 0x4e7184 + (0x06 * 0x80), indexSF2GBASprites_Zangief },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DHALSIM_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x07 * 0x80), 0x4e7124 + (0x07 * 0x80), indexSF2GBASprites_Dhalsim },
+    { L"Burning 2",         0x4e7124 + (0x07 * 0x80), 0x4e7144 + (0x07 * 0x80), indexSF2GBASprites_Dhalsim },
+    { L"Psycho Burned 1",   0x4e7144 + (0x07 * 0x80), 0x4e7164 + (0x07 * 0x80), indexSF2GBASprites_Dhalsim },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x07 * 0x80), 0x4e7184 + (0x07 * 0x80), indexSF2GBASprites_Dhalsim },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DICTATOR_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x08 * 0x80), 0x4e7124 + (0x08 * 0x80), indexSF2GBASprites_Bison },
+    { L"Burning 2",         0x4e7124 + (0x08 * 0x80), 0x4e7144 + (0x08 * 0x80), indexSF2GBASprites_Bison },
+    { L"Psycho Burned 1",   0x4e7144 + (0x08 * 0x80), 0x4e7164 + (0x08 * 0x80), indexSF2GBASprites_Bison },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x08 * 0x80), 0x4e7184 + (0x08 * 0x80), indexSF2GBASprites_Bison },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_SAGAT_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x09 * 0x80), 0x4e7124 + (0x09 * 0x80), indexSF2GBASprites_Sagat },
+    { L"Burning 2",         0x4e7124 + (0x09 * 0x80), 0x4e7144 + (0x09 * 0x80), indexSF2GBASprites_Sagat },
+    { L"Psycho Burned 1",   0x4e7144 + (0x09 * 0x80), 0x4e7164 + (0x09 * 0x80), indexSF2GBASprites_Sagat },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x09 * 0x80), 0x4e7184 + (0x09 * 0x80), indexSF2GBASprites_Sagat },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_BOXER_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x0a * 0x80), 0x4e7124 + (0x0a * 0x80), indexSF2GBASprites_Balrog },
+    { L"Burning 2",         0x4e7124 + (0x0a * 0x80), 0x4e7144 + (0x0a * 0x80), indexSF2GBASprites_Balrog },
+    { L"Psycho Burned 1",   0x4e7144 + (0x0a * 0x80), 0x4e7164 + (0x0a * 0x80), indexSF2GBASprites_Balrog },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x0a * 0x80), 0x4e7184 + (0x0a * 0x80), indexSF2GBASprites_Balrog },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_CLAW_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x0b * 0x80), 0x4e7124 + (0x0b * 0x80), indexSF2GBASprites_Vega },
+    { L"Burning 2",         0x4e7124 + (0x0b * 0x80), 0x4e7144 + (0x0b * 0x80), indexSF2GBASprites_Vega },
+    { L"Psycho Burned 1",   0x4e7144 + (0x0b * 0x80), 0x4e7164 + (0x0b * 0x80), indexSF2GBASprites_Vega },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x0b * 0x80), 0x4e7184 + (0x0b * 0x80), indexSF2GBASprites_Vega },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_CAMMY_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x0c * 0x80), 0x4e7124 + (0x0c * 0x80), indexSF2GBASprites_Cammy },
+    { L"Burning 2",         0x4e7124 + (0x0c * 0x80), 0x4e7144 + (0x0c * 0x80), indexSF2GBASprites_Cammy },
+    { L"Psycho Burned 1",   0x4e7144 + (0x0c * 0x80), 0x4e7164 + (0x0c * 0x80), indexSF2GBASprites_Cammy },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x0c * 0x80), 0x4e7184 + (0x0c * 0x80), indexSF2GBASprites_Cammy },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_THAWK_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x0d * 0x80), 0x4e7124 + (0x0d * 0x80), indexSF2GBASprites_THawk },
+    { L"Burning 2",         0x4e7124 + (0x0d * 0x80), 0x4e7144 + (0x0d * 0x80), indexSF2GBASprites_THawk },
+    { L"Psycho Burned 1",   0x4e7144 + (0x0d * 0x80), 0x4e7164 + (0x0d * 0x80), indexSF2GBASprites_THawk },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x0d * 0x80), 0x4e7184 + (0x0d * 0x80), indexSF2GBASprites_THawk },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_DEEJAY_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x0e * 0x80), 0x4e7124 + (0x0e * 0x80), indexSF2GBASprites_DeeJay },
+    { L"Burning 2",         0x4e7124 + (0x0e * 0x80), 0x4e7144 + (0x0e * 0x80), indexSF2GBASprites_DeeJay },
+    { L"Psycho Burned 1",   0x4e7144 + (0x0e * 0x80), 0x4e7164 + (0x0e * 0x80), indexSF2GBASprites_DeeJay },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x0e * 0x80), 0x4e7184 + (0x0e * 0x80), indexSF2GBASprites_DeeJay },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_FEILONG_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x0f * 0x80), 0x4e7124 + (0x0f * 0x80), indexSF2GBASprites_FeiLong },
+    { L"Burning 2",         0x4e7124 + (0x0f * 0x80), 0x4e7144 + (0x0f * 0x80), indexSF2GBASprites_FeiLong },
+    { L"Psycho Burned 1",   0x4e7144 + (0x0f * 0x80), 0x4e7164 + (0x0f * 0x80), indexSF2GBASprites_FeiLong },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x0f * 0x80), 0x4e7184 + (0x0f * 0x80), indexSF2GBASprites_FeiLong },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_GOUKI_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e7104 + (0x10 * 0x80), 0x4e7124 + (0x10 * 0x80), indexSF2GBASprites_Gouki },
+    { L"Burning 2",         0x4e7124 + (0x10 * 0x80), 0x4e7144 + (0x10 * 0x80), indexSF2GBASprites_Gouki },
+    { L"Psycho Burned 1",   0x4e7144 + (0x10 * 0x80), 0x4e7164 + (0x10 * 0x80), indexSF2GBASprites_Gouki },
+    { L"Pyscho Burned 2",   0x4e7164 + (0x10 * 0x80), 0x4e7184 + (0x10 * 0x80), indexSF2GBASprites_Gouki },
+    { L"? 1",               0x4e7984, 0x4e79a4, indexSF2GBASprites_Gouki },
+    { L"? 2",               0x4e79a4, 0x4e79c4, indexSF2GBASprites_Gouki },
+};
+
+const sGame_PaletteDataset SSF2T_GBA_SHINGOUKI_STATUSEFFECTS_NODE[] =
+{
+    { L"Burning 1",         0x4e79c4, 0x4e79e4, indexSF2GBASprites_Gouki },
+    { L"Burning 2",         0x4e79e4, 0x4e7a04, indexSF2GBASprites_Gouki },
+    { L"Psycho Burned 1",   0x4e7a04, 0x4e7a24, indexSF2GBASprites_Gouki },
+    { L"Pyscho Burned 2",   0x4e7a24, 0x4e7a44, indexSF2GBASprites_Gouki },
+    { L"? 1",               0x4e7a44, 0x4e7a64, indexSF2GBASprites_Gouki },
+    { L"? 2",               0x4e7a64, 0x4e7a84, indexSF2GBASprites_Gouki },
 };
 
 const sDescTreeNode SSF2T_GBA_RYU_COLLECTION[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_RYU_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_RYU_BTNA_NODE) },
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_RYU_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_RYU_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_RYU_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_RYU_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_EHONDA_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_EHONDA_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_EHONDA_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_EHONDA_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_EHONDA_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_BLANKA_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BLANKA_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_BLANKA_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BLANKA_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_BLANKA_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_GUILE_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GUILE_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_GUILE_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GUILE_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_GUILE_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_KEN_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_KEN_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_KEN_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_KEN_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_KEN_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_CHUNLI_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CHUNLI_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_CHUNLI_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CHUNLI_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_CHUNLI_STATUSEFFECTS_NODE) },
 };
 
 const sDescTreeNode SSF2T_GBA_ZANGIEF_COLLECTION[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_ZANGIEF_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_ZANGIEF_BTNA_NODE) },
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_ZANGIEF_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_ZANGIEF_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_ZANGIEF_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_ZANGIEF_STATUSEFFECTS_NODE) },
 };
 
-const sDescTreeNode SSF2T_GBA_BOXER_COLLECTION[] =
+const sDescTreeNode SSF2T_GBA_DHALSIM_COLLECTION[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BOXER_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_BOXER_BTNA_NODE) },
-};
-
-const sDescTreeNode SSF2T_GBA_CLAW_COLLECTION[] =
-{
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CLAW_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_CLAW_BTNA_NODE) },
-};
-
-const sDescTreeNode SSF2T_GBA_SAGAT_COLLECTION[] =
-{
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SAGAT_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_SAGAT_BTNA_NODE) },
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DHALSIM_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_DHALSIM_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DHALSIM_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_DHALSIM_STATUSEFFECTS_NODE) },
 };
 
 const sDescTreeNode SSF2T_GBA_DICTATOR_COLLECTION[] =
@@ -365,36 +509,61 @@ const sDescTreeNode SSF2T_GBA_DICTATOR_COLLECTION[] =
     { L"Select + R", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNSR_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNSR_NODE) },
     { L"Select + B", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNSB_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNSB_NODE) },
     { L"Start", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_BTNS_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_BTNS_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_DICTATOR_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_SAGAT_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SAGAT_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_SAGAT_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SAGAT_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_SAGAT_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_BOXER_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BOXER_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_BOXER_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BOXER_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_BOXER_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_CLAW_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CLAW_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_CLAW_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CLAW_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_CLAW_STATUSEFFECTS_NODE) },
 };
 
 const sDescTreeNode SSF2T_GBA_CAMMY_COLLECTION[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CAMMY_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_CAMMY_BTNA_NODE) },
-};
-
-const sDescTreeNode SSF2T_GBA_DEEJAY_COLLECTION[] =
-{
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DEEJAY_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_DEEJAY_BTNA_NODE) },
-};
-
-const sDescTreeNode SSF2T_GBA_FEILONG_COLLECTION[] =
-{
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_FEILONG_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_FEILONG_BTNA_NODE) },
-};
-
-const sDescTreeNode SSF2T_GBA_GOUKI_COLLECTION[] =
-{
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GOUKI_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_GOUKI_BTNA_NODE) },
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CAMMY_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_CAMMY_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CAMMY_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_CAMMY_STATUSEFFECTS_NODE) },
 };
 
 const sDescTreeNode SSF2T_GBA_THAWK_COLLECTION[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_THAWK_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_THAWK_BTNA_NODE) },
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_THAWK_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_THAWK_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_THAWK_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_THAWK_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_DEEJAY_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DEEJAY_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_DEEJAY_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DEEJAY_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_DEEJAY_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_FEILONG_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_FEILONG_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_FEILONG_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_FEILONG_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_FEILONG_STATUSEFFECTS_NODE) },
+};
+
+const sDescTreeNode SSF2T_GBA_GOUKI_COLLECTION[] =
+{
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GOUKI_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_GOUKI_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GOUKI_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_GOUKI_STATUSEFFECTS_NODE) },
 };
 
 const sDescTreeNode SSF2T_GBA_SHINGOUKI_COLLECTION[] =
 {
-    { L"Colors",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SHINGOUKI_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_SHINGOUKI_BTNA_NODE) },
+    { L"Colors",            DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SHINGOUKI_BTNA_NODE, ARRAYSIZE(SSF2T_GBA_SHINGOUKI_BTNA_NODE) },
+    { L"Status Effects",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SHINGOUKI_STATUSEFFECTS_NODE, ARRAYSIZE(SSF2T_GBA_SHINGOUKI_STATUSEFFECTS_NODE) },
 };
 
 const sGame_PaletteDataset SSF2T_GBA_PORTRAITS_VS_NODE[] =
@@ -835,24 +1004,25 @@ const sDescTreeNode SSF2T_GBA_STAGES_COLLECTION[] =
 
 const sDescTreeNode SSF2T_GBA_UNITS[] =
 {
-    { L"Blanka",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BLANKA_COLLECTION, ARRAYSIZE(SSF2T_GBA_BLANKA_COLLECTION) },
-    { L"Cammy",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CAMMY_COLLECTION, ARRAYSIZE(SSF2T_GBA_CAMMY_COLLECTION) },
-    { L"Chun-Li",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CHUNLI_COLLECTION, ARRAYSIZE(SSF2T_GBA_CHUNLI_COLLECTION) },
-    { L"Dee Jay",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DEEJAY_COLLECTION, ARRAYSIZE(SSF2T_GBA_DEEJAY_COLLECTION) },
-    { L"Dhalsim",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DHALSIM_COLLECTION, ARRAYSIZE(SSF2T_GBA_DHALSIM_COLLECTION) },
+    { L"Ryu",        DESC_NODETYPE_TREE, (void*)SSF2T_GBA_RYU_COLLECTION, ARRAYSIZE(SSF2T_GBA_RYU_COLLECTION) },
     { L"E.Honda",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_EHONDA_COLLECTION, ARRAYSIZE(SSF2T_GBA_EHONDA_COLLECTION) },
-    { L"Fei Long",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_FEILONG_COLLECTION, ARRAYSIZE(SSF2T_GBA_FEILONG_COLLECTION) },
-    { L"Gouki",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GOUKI_COLLECTION, ARRAYSIZE(SSF2T_GBA_GOUKI_COLLECTION) },
+    { L"Blanka",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BLANKA_COLLECTION, ARRAYSIZE(SSF2T_GBA_BLANKA_COLLECTION) },
     { L"Guile",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GUILE_COLLECTION, ARRAYSIZE(SSF2T_GBA_GUILE_COLLECTION) },
     { L"Ken",        DESC_NODETYPE_TREE, (void*)SSF2T_GBA_KEN_COLLECTION, ARRAYSIZE(SSF2T_GBA_KEN_COLLECTION) },
-    { L"Ryu",        DESC_NODETYPE_TREE, (void*)SSF2T_GBA_RYU_COLLECTION, ARRAYSIZE(SSF2T_GBA_RYU_COLLECTION) },
-    { L"T.Hawk",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_THAWK_COLLECTION, ARRAYSIZE(SSF2T_GBA_THAWK_COLLECTION) },
+    { L"Chun-Li",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CHUNLI_COLLECTION, ARRAYSIZE(SSF2T_GBA_CHUNLI_COLLECTION) },
     { L"Zangief",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_ZANGIEF_COLLECTION, ARRAYSIZE(SSF2T_GBA_ZANGIEF_COLLECTION) },
-
+    { L"Dhalsim",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DHALSIM_COLLECTION, ARRAYSIZE(SSF2T_GBA_DHALSIM_COLLECTION) },
+    { L"Dictator",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_COLLECTION, ARRAYSIZE(SSF2T_GBA_DICTATOR_COLLECTION) },
+    { L"Sagat",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SAGAT_COLLECTION, ARRAYSIZE(SSF2T_GBA_SAGAT_COLLECTION) },
     { L"Boxer",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_BOXER_COLLECTION, ARRAYSIZE(SSF2T_GBA_BOXER_COLLECTION) },
     { L"Claw",       DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CLAW_COLLECTION, ARRAYSIZE(SSF2T_GBA_CLAW_COLLECTION) },
-    { L"Sagat",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SAGAT_COLLECTION, ARRAYSIZE(SSF2T_GBA_SAGAT_COLLECTION) },
-    { L"Dictator",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DICTATOR_COLLECTION, ARRAYSIZE(SSF2T_GBA_DICTATOR_COLLECTION) },
+    { L"Cammy",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_CAMMY_COLLECTION, ARRAYSIZE(SSF2T_GBA_CAMMY_COLLECTION) },
+    { L"T.Hawk",     DESC_NODETYPE_TREE, (void*)SSF2T_GBA_THAWK_COLLECTION, ARRAYSIZE(SSF2T_GBA_THAWK_COLLECTION) },
+    { L"Dee Jay",    DESC_NODETYPE_TREE, (void*)SSF2T_GBA_DEEJAY_COLLECTION, ARRAYSIZE(SSF2T_GBA_DEEJAY_COLLECTION) },
+    { L"Fei Long",   DESC_NODETYPE_TREE, (void*)SSF2T_GBA_FEILONG_COLLECTION, ARRAYSIZE(SSF2T_GBA_FEILONG_COLLECTION) },
+
+    { L"Gouki",      DESC_NODETYPE_TREE, (void*)SSF2T_GBA_GOUKI_COLLECTION, ARRAYSIZE(SSF2T_GBA_GOUKI_COLLECTION) },
+
     { L"Shin Gouki", DESC_NODETYPE_TREE, (void*)SSF2T_GBA_SHINGOUKI_COLLECTION, ARRAYSIZE(SSF2T_GBA_SHINGOUKI_COLLECTION) },
 
     { L"Portraits",  DESC_NODETYPE_TREE, (void*)SSF2T_GBA_PORTRAITS_COLLECTION, ARRAYSIZE(SSF2T_GBA_PORTRAITS_COLLECTION) },

@@ -5,6 +5,15 @@
 class CGame_SSF2T_GBA : public CGameClassByDir
 {
 private:
+    enum class SSF2T_GBA_LoadingKey
+    {
+        USA,
+        Japan,
+        Euro,
+    };
+
+    static SSF2T_GBA_LoadingKey m_eVersionToLoad;
+
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
@@ -17,9 +26,9 @@ private:
     {
         // If we need further differentiation, we can bytesniff at 0xa0
         { L"SSF2T - Revival (USA GBA)", L"Super Street Fighter II Turbo - Revival (USA).gba", 0x63045aa, 0 },
-        { L"SSF2X - Revival (Japan)", L"Super Street Fighter II X - Revival (Japan).gba", 0x7a2c0d61, 0x1690 },
-        { L"SSF2T - Revival (Euro GBA)", L"Super_Street_Fighter_II_Turbo_-_Revival_Europe.gba", 0x461b4590, -0x418 },
-        { L"SSF2T - Revival (Euro GBA)", L"Super Street Fighter II Turbo - Revival (Europe).gba", 0x461b4590, -0x418 },
+        { L"SSF2X - Revival (Japan)", L"Super Street Fighter II X - Revival (Japan).gba", 0x7a2c0d61, 0 },
+        { L"SSF2T - Revival (Euro GBA)", L"Super_Street_Fighter_II_Turbo_-_Revival_Europe.gba", 0x461b4590, 0 },
+        { L"SSF2T - Revival (Euro GBA)", L"Super Street Fighter II Turbo - Revival (Europe).gba", 0x461b4590, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
@@ -38,14 +47,18 @@ private:
         SSF2T_GBA_UNITS,
         ARRAYSIZE(SSF2T_GBA_UNITS),
         L"SSF2T-GBAe.txt",         // Extra filename
-        431,                       // Count of palettes listed in the header
+        507,                       // Count of palettes listed in the header
         0x4aa3f8,                  // Lowest known location used for palettes
     };
 
 public:
     CGame_SSF2T_GBA(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
+
+    BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

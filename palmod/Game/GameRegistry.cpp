@@ -2454,6 +2454,9 @@ namespace KnownGameInfo
         case SSF2_A:
             CGame_SSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
+        case SSF2T_GBA:
+            CGame_SSF2T_GBA::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case SSF2T_A:
         case SSF2T_NL:
             CGame_SSF2T_A::SetSpecialRuleForFileName(pszFileNameLowercase);
