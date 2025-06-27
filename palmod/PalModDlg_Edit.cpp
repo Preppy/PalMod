@@ -605,7 +605,17 @@ void CPalModDlg::OnEditCopy()
                 strUnicodeData.Append(strFormatU);
             }
 
-            strUnicodeData.Append(L"PalMod's version of the data in the ROM at that location reads:\r\n\t");
+            // Certain GBA games handle alpha uniquely.
+            const bool fAlphaIsChaotic = ((CurrGame->GetAlphaMode() == AlphaMode::GameUsesChaoticAlpha) && (cbColor == 2));
+
+            if (fAlphaIsChaotic)
+            {
+                strUnicodeData.Append(L"\r\nWARNING: This game stores the Alpha value chaotically, so binary searches may fail.\r\n\r\n*PalMod*'s version of the data in the ROM at that location reads:\r\n\t");
+            }
+            else
+            {
+                strUnicodeData.Append(L"PalMod's version of the data in the ROM at that location reads:\r\n\t");
+            }
 
             for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
             {
@@ -624,7 +634,7 @@ void CPalModDlg::OnEditCopy()
                     }
                     case 3:
                     {
-                        uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
+                        const uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
                         // we deliberately drop alpha here
                         strFormatU.Format(L"%02X %02X %02X ", (uCurrData & 0xFF0000) >> 16, (uCurrData & 0xFF00) >> 8, (uCurrData & 0xFF));
                         break;
@@ -644,8 +654,29 @@ void CPalModDlg::OnEditCopy()
                 }
             }
 
+            if (fAlphaIsChaotic)
+            {
+                strUnicodeData.Append(L"\r\n\r\nSince this game's use of the alpha value is chaotic, the data might instead be stored as:\r\n\t");
+
+                for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                {
+                    if (pSelIndex[iPalIndex] || fCopyAll)
+                    {
+                        uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                        uCurrData = _byteswap_ushort(uCurrData);
+
+                        // Strip alpha via 0x7f mask
+                        strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x007F);
+
+                        strUnicodeData.Append(strFormatU);
+                    }
+                }
+
+                strUnicodeData += "\r\nYou will have better binary search results by searching for smaller color segments as opposed to the full palette.";
+            }
+
             SupportedGamesList gameFlag = CurrGame->GetGameFlag();
-            bool fWantArcanaFormattedData = (gameFlag == MBAACC_S) || (gameFlag == MBTL_A) || (gameFlag == UNICLR_A) || (gameFlag == DBFCI_A);
+            const bool fWantArcanaFormattedData = (gameFlag == MBAACC_S) || (gameFlag == MBTL_A) || (gameFlag == UNICLR_A) || (gameFlag == DBFCI_A);
 
             if (fWantArcanaFormattedData)
             {
