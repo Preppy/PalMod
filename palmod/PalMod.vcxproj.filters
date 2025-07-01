@@ -1008,6 +1008,9 @@
     <ClCompile Include="Game\Game_SF2WW_A.cpp">
       <Filter>Games\Capcom Games\SF2WW</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_VHUNT2_A.cpp">
+      <Filter>Games\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "VSAV_A_DEF.h" // for stage data
+
 // To add characters or palette lists:
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the lines of VHUNT2_A_MORRIGAN_PALETTES. 
@@ -36,6 +38,7 @@ const std::vector<uint16_t> VHUNT2_A_IMGIDS_USED =
     indexCPS2Sprites_VSAV1_MidnightBliss,
     indexCPS2Sprites_Vamp_DarkGallon,
 
+    indexCPS2Sprites_VSAV1_Stages,  // 0x81
 };
 
 // This dataset is functionally identical to the VSAV2 dataset, except that for VHUNT2
@@ -2080,4 +2083,13 @@ const sDescTreeNode VHUNT2_A_UNITS[] =
     { L"Q-Bee (unplayable)", DESC_NODETYPE_TREE, (void*)VHUNT2_A_QUEENBEE_COLLECTION,      ARRAYSIZE(VHUNT2_A_QUEENBEE_COLLECTION) },
     { L"Lilith (unplayable)",DESC_NODETYPE_TREE, (void*)VHUNT2_A_LILITH_COLLECTION,        ARRAYSIZE(VHUNT2_A_LILITH_COLLECTION) },
     { L"Jedah (unplayable)", DESC_NODETYPE_TREE, (void*)VHUNT2_A_JEDAH_COLLECTION,         ARRAYSIZE(VHUNT2_A_JEDAH_COLLECTION) },
+};
+
+const sDescTreeNode VHUNT2_10_A_UNITS[] =
+{
+    // This doesn't work and so it's not exposed in GameRegistry
+    // Various stuff *does* align via our handling of shifts, but there are a looooot of shifts
+    // plus the whole "new" Revenger's Roost stage so it'd be a significant pain to perfect this
+    // such that it's ready to use.
+    { L"Stages",            DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_COLLECTION,         ARRAYSIZE(VSAV_A_STAGE_COLLECTION) },
 };

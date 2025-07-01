@@ -47,6 +47,20 @@ const std::vector<uint16_t> VSAV_A_IMGIDS_USED =
 // the color schemes are different and might be worth a look.  
 // You could import them into VSAV2 or VHUNT2, but the Gallon stuff is just copy-paste of what's already in the game. 
 
+// The general stage storage order is:
+//      Feast of the Damned
+//      Concrete Cave
+//      Tower of Arrogance
+//      Red Thirst
+//      Deserted Chateau
+//      Abaraya
+//      Vanity Paradise
+//      War Agony
+//      Forever Torment
+//      Green Scream
+//      Iron Horse Iron Terror
+//      Fetus of God
+
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_LP[] =
 {
     { L"LP Bulleta", 0x0C1Aa, 0x0C1Ca, indexCPS2Sprites_BBHood, 0 },
