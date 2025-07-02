@@ -1086,6 +1086,7 @@ void CGameWithExtrasFile::_WriteHeaderForPaletteListFile(CFile& OutputFile, Pale
 // Usage is simply:
 //      sPaletteTrackingInformation* pListRoot = _AssembleTrackingListFromGameUnits(true);
 //      _OutputPaletteListToType(pListRoot, PaletteListOutputType::Extras);
+//      <list deletion here>
 // An additional useful feature for this path would be an option to select which Units to export.
 
 void CGameWithExtrasFile::_OutputPaletteListToType(sPaletteTrackingInformation* pListRoot, PaletteListOutputType outputType)
@@ -1150,11 +1151,11 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
     const uint32_t c_nUnitCount = GetUnitCt();
 
-    std::forward_list<sPaletteTrackingInformation> rgPalList;
+    sPaletteTrackingInformation* pListRoot = nullptr;
 
     if (sCreationOptions.fAddKnownAsComments || sCreationOptions.fShowUnknownRegions)
     {
-        _AssembleTrackingListFromGameUnits(rgPalList, sCreationOptions.fSortKnownPalettes);
+        pListRoot = _AssembleTrackingListFromGameUnits(sCreationOptions.fSortKnownPalettes);
     }
 
     // Write the header
