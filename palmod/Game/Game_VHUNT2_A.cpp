@@ -55,13 +55,12 @@ void CGame_VHUNT2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         // What is not great but somewhat expected is that that data is shifted in different segment lengths,
         // since VSAV2 and VHUNT2 add Revenger's Roost palettes.
 
-
         // VHUNT2 vs VSAV deltas:
         // base delta -0x8a7c for start
-        // *** new palettes (RR?): 0x1814e - 0x1828e
+        // new palettes (RR?): 0x1814e - 0x1828e
         /// (recolors 0x198ae - 0x199ae)
-        // *** new palettes 0x199ae - 0x199ee
-        // *** new palettes 0x19dae - 0x19eee
+        // new palettes 0x199ae - 0x199ee
+        // new palettes 0x19dae - 0x19eee
         // recolors 0x1a70e - 0x1a70e
         // MASSIVE CHANGES 0x1ab0e - 0x1aece 
             // vsav "change area" mapping here is 0x2330a - 0x236ca
@@ -111,6 +110,10 @@ void CGame_VHUNT2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         // color change 0x33856 - 0x33bb6
         // new palettes 0x36d76 - 0x37176 (VSAV 0x402d2)
         // notes end here!  there's a loooot more of changes
+        // Finishing the analysis and coding up the associated shifts are left as an exercise to the reader.
+        // Note that if we *did* finish this logic, it would be beneficial to output the 
+        // updated offsets and craft unique VHUNT2 palette (ending reuse of VSAV.h) so that
+        // we could more easily add in Revenger's Roost support.
 
         if (m_nCurrentPaletteROMLocation < 0x20c4a)
         {

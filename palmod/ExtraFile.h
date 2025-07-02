@@ -38,6 +38,31 @@ private:
     int GetDupeCountInExtrasDataset();
     int GetDupeCountInDataset();
 
+    void _WriteToFileAsANSI(CFile& ExtraFile, CString strData);
+
+    struct sPaletteTrackingInformation
+    {
+        uint32_t nPaletteOffset = -1;
+        uint32_t nTerminalOffset = -1;
+        std::wstring strUnitName;
+        std::wstring strCollectionName;
+        std::wstring strPaletteName;
+        struct sPaletteTrackingInformation* pNext = nullptr;
+    };
+
+    sPaletteTrackingInformation* _AssembleTrackingListFromGameUnits(bool fSort);
+
+    enum class PaletteListOutputType
+    {
+        CSV,
+        Extras,
+    };
+
+    void _WriteHeaderForPaletteListFile(CFile& OutputFile, PaletteListOutputType outputType);
+    void _OutputPaletteListToType(sPaletteTrackingInformation* pListRoot, PaletteListOutputType outputType);
+
+    bool _CreateNewExtrasFile(LPCWSTR pszFilePath);
+
     struct sExtrasFileCreationOptions
     {
         BOOL fAddKnownAsComments = FALSE;
@@ -47,9 +72,7 @@ private:
         BOOL fShowPostUnknown = FALSE;
     };
 
-    bool _CreateNewExtrasFile(LPCWSTR pszFilePath);
     bool _GetExtrasOptionsFromUser(sExtrasFileCreationOptions& sCreationOptions);
-    void _WriteToFileAsANSI(CFile& ExtraFile, CString strData);
     void _CreateExtrasFileWithOptions(CFile& ExtraFile, sExtrasFileCreationOptions& sCreationOptions);
 
 public:

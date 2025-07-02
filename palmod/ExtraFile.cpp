@@ -653,12 +653,12 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalI
     CString strDupeText;
 
     // If we're in Extras territory, check it against itself.
-    uint32_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
+    const uint32_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
 
     //Go through each character
     for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
     {
-        uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        const uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
         for (uint32_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
@@ -746,7 +746,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
             break;
         }
 
-        uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        const uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
         for (uint32_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
@@ -795,14 +795,14 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
     bool fHaveShownDupeWarning = false;
 
     //Go through the Extras
-    uint32_t nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
+    const uint32_t nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
     for (uint16_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
     {
         LoadSpecificPaletteData(m_nExtraUnit, nPalCtr);
         nTotalPalettesChecked++;
 
-        uint32_t nCurrentROMOffset = m_nCurrentPaletteROMLocation;
-        uint32_t nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+        const uint32_t nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+        const uint32_t nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
         LPCWSTR pszExtraPaletteBeingChecked = m_pszCurrentPaletteName;
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 
@@ -826,6 +826,74 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
+}
+
+CGameWithExtrasFile::sPaletteTrackingInformation* CGameWithExtrasFile::_AssembleTrackingListFromGameUnits(bool fSort)
+{
+    sPaletteTrackingInformation* pListRoot = nullptr;
+    const uint32_t c_nUnitCount = GetUnitCt();
+    sDescTreeNode* pRootTree = GetMainTree()->GetDescTree(-1);
+
+    for (uint32_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
+    {
+        if (nUnitIndex == m_nExtraUnit)
+        {
+            // If you have palmod open with an extras file loaded but then blank it,
+            // we should ignore those entries when creating your new file
+            continue;
+        }
+
+        sDescTreeNode* UnitTree = &((sDescTreeNode*)pRootTree->ChildNodes)[nUnitIndex];
+
+        for (uint32_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
+        {
+            sDescTreeNode* CollectionTree = &((sDescTreeNode*)UnitTree->ChildNodes)[nCollectionIndex];
+
+            for (uint32_t nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
+            {
+                sDescNode* DescNode = &((sDescNode*)CollectionTree->ChildNodes)[nPaletteIndex];
+
+                LoadSpecificPaletteData(DescNode->uUnitId, DescNode->uPalId);
+
+                if (m_nCurrentPaletteSizeInColors == 0)
+                {
+                    // We use virtual zero length palettes for MvC2 Team Views
+                    continue;
+                }
+
+                sPaletteTrackingInformation* pNewListEntry = new sPaletteTrackingInformation;
+
+                pNewListEntry->nPaletteOffset = m_nCurrentPaletteROMLocation;
+                pNewListEntry->nTerminalOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                pNewListEntry->strUnitName = UnitTree->szDesc;
+                pNewListEntry->strCollectionName = CollectionTree->szDesc;
+                pNewListEntry->strPaletteName = m_pszCurrentPaletteName;
+
+                sPaletteTrackingInformation* pCurrent = pListRoot;
+
+                if (!pCurrent ||
+                    !fSort ||
+                    (pCurrent->nPaletteOffset > pNewListEntry->nPaletteOffset))
+                {
+                    pNewListEntry->pNext = pCurrent;
+                    pListRoot = pNewListEntry;
+                }
+                else
+                {
+                    while (pCurrent->pNext &&
+                        (pCurrent->pNext->nPaletteOffset < pNewListEntry->nPaletteOffset))
+                    {
+                        pCurrent = pCurrent->pNext;
+                    }
+
+                    pNewListEntry->pNext = pCurrent->pNext;
+                    pCurrent->pNext = pNewListEntry;
+                }
+            }
+        }
+    }
+
+    return pListRoot;
 }
 
 void CGameWithExtrasFile::CheckForErrorsInTables()
@@ -953,6 +1021,123 @@ void CGameWithExtrasFile::_WriteToFileAsANSI(CFile& ExtraFile, CString strData)
     delete[] paszBuffer;
 };
 
+void CGameWithExtrasFile::_WriteHeaderForPaletteListFile(CFile& OutputFile, PaletteListOutputType outputType)
+{
+    CString strFileText;
+
+    if (outputType == PaletteListOutputType::Extras)
+    {
+        if (GetGameName())
+        {
+            strFileText.Format(L"%S%s\r\n", m_kpszGameNameKey, GetGameName());
+            _WriteToFileAsANSI(OutputFile, strFileText);
+        }
+
+        LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(GetColorMode());
+        if (paszColorFormat)
+        {
+            strFileText.Format(L"%S%S\r\n", m_kpszColorFormatKey, paszColorFormat);
+            _WriteToFileAsANSI(OutputFile, strFileText);
+        }
+
+        LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(GetAlphaMode());
+        if (paszAlphaMode)
+        {
+            strFileText.Format(L"%S%S\r\n", m_kpszAlphaModeKey, paszAlphaMode);
+            _WriteToFileAsANSI(OutputFile, strFileText);
+        }
+
+        strFileText = L"\r\n";
+        _WriteToFileAsANSI(OutputFile, strFileText);
+    }
+    else
+    {
+        CString strOutputText = L"#";
+        CString strTemp;
+
+        // For the first line let's put our metadata as a comment
+        if (GetGameName())
+        {
+            strOutputText.Append(GetGameName());
+        }
+        strOutputText.Append(L", ");
+
+        LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(GetColorMode());
+        if (paszColorFormat)
+        {
+            strTemp.Format(L"%S", paszColorFormat);
+            strOutputText.Append(strTemp);
+        }
+        strOutputText.Append(L", ");
+
+        LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(GetAlphaMode());
+        if (paszAlphaMode)
+        {
+            strTemp.Format(L"%S", paszAlphaMode);
+            strOutputText.Append(strTemp);
+        }
+        strOutputText.Append(L"\r\n");
+
+        _WriteToFileAsANSI(OutputFile, strOutputText);
+    }
+}
+
+// Note that this is unreachable.  But I wanted to prototype it at least: we can plug it in later if useful.
+// Usage is simply:
+//      sPaletteTrackingInformation* pListRoot = _AssembleTrackingListFromGameUnits(true);
+//      _OutputPaletteListToType(pListRoot, PaletteListOutputType::Extras);
+// An additional useful feature for this path would be an option to select which Units to export.
+
+void CGameWithExtrasFile::_OutputPaletteListToType(sPaletteTrackingInformation* pListRoot, PaletteListOutputType outputType)
+{
+    CString strSuggestedName = m_pszLoadedPathOrFile;
+    strSuggestedName.Append(L"E.txt");
+
+    CFileDialog OutputDialog(
+        FALSE,
+        nullptr,
+        strSuggestedName,
+        OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY
+    );
+
+    if (OutputDialog.DoModal() == IDOK)
+    {
+        OPENFILENAME ofn = OutputDialog.GetOFN();
+        CFile OutputFile;
+
+        if (OutputFile.Open(ofn.lpstrFile, CFile::modeCreate | CFile::modeWrite))
+        {
+            CString strOutputText = L"#";
+
+            _WriteHeaderForPaletteListFile(OutputFile, outputType);
+
+            sPaletteTrackingInformation* pCurrent = pListRoot;
+
+            // Output the list
+            while (pCurrent)
+            {
+                if (outputType == PaletteListOutputType::CSV)
+                {
+                    strOutputText.Format(L"%s, %s, \"%s\", 0x%x, 0x%x\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str(), pCurrent->nPaletteOffset, pCurrent->nTerminalOffset);
+                }
+                else
+                {
+
+                    strOutputText.Format(L"%s: %s: \"%s\"\r\n0x%x\r\n0x%x\r\n\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str(), pCurrent->nPaletteOffset, pCurrent->nTerminalOffset);
+
+                }
+                _WriteToFileAsANSI(OutputFile, strOutputText);
+
+                sPaletteTrackingInformation* pTemp = pCurrent->pNext;
+                pCurrent = pTemp;
+            }
+
+            // Close the file
+            OutputFile.Close();
+        }
+    }
+}
+
 void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtrasFileCreationOptions& sCreationOptions)
 {
     if (GetIsDir())
@@ -965,78 +1150,11 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
     const uint32_t c_nUnitCount = GetUnitCt();
 
-    struct sPaletteTrackingInformation
-    {
-        uint32_t nPaletteOffset = -1;
-        uint32_t nTerminalOffset = -1;
-        std::wstring strUnitName;
-        std::wstring strCollectionName;
-        std::wstring strPaletteName;
-        struct sPaletteTrackingInformation* pNext = nullptr;
-    };
-
-    sPaletteTrackingInformation* pListRoot = nullptr;
+    std::forward_list<sPaletteTrackingInformation> rgPalList;
 
     if (sCreationOptions.fAddKnownAsComments || sCreationOptions.fShowUnknownRegions)
     {
-        for (uint32_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
-        {
-            if (nUnitIndex == m_nExtraUnit)
-            {
-                // If you have palmod open with an extras file loaded but then blank it,
-                // we should ignore those entries when creating your new file
-                continue;
-            }
-
-            sDescTreeNode* UnitTree = &((sDescTreeNode*)pRootTree->ChildNodes)[nUnitIndex];
-
-            for (uint32_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
-            {
-                sDescTreeNode* CollectionTree = &((sDescTreeNode*)UnitTree->ChildNodes)[nCollectionIndex];
-
-                for (uint32_t nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
-                {
-                    sDescNode* DescNode = &((sDescNode*)CollectionTree->ChildNodes)[nPaletteIndex];
-
-                    LoadSpecificPaletteData(DescNode->uUnitId, DescNode->uPalId);
-
-                    if (m_nCurrentPaletteSizeInColors == 0)
-                    {
-                        // We use virtual zero length palettes for MvC2 Team Views
-                        continue;
-                    }
-
-                    sPaletteTrackingInformation* pNewListEntry = new sPaletteTrackingInformation;
-
-                    pNewListEntry->nPaletteOffset = m_nCurrentPaletteROMLocation;
-                    pNewListEntry->nTerminalOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
-                    pNewListEntry->strUnitName = UnitTree->szDesc;
-                    pNewListEntry->strCollectionName = CollectionTree->szDesc;
-                    pNewListEntry->strPaletteName = m_pszCurrentPaletteName;
-
-                    sPaletteTrackingInformation* pCurrent = pListRoot;
-
-                    if (!pCurrent ||
-                        !sCreationOptions.fSortKnownPalettes ||
-                        (pCurrent->nPaletteOffset > pNewListEntry->nPaletteOffset))
-                    {
-                        pNewListEntry->pNext = pCurrent;
-                        pListRoot = pNewListEntry;
-                    }
-                    else
-                    {
-                        while (pCurrent->pNext &&
-                            (pCurrent->pNext->nPaletteOffset < pNewListEntry->nPaletteOffset))
-                        {
-                            pCurrent = pCurrent->pNext;
-                        }
-
-                        pNewListEntry->pNext = pCurrent->pNext;
-                        pCurrent->pNext = pNewListEntry;
-                    }
-                }
-            }
-        }
+        _AssembleTrackingListFromGameUnits(rgPalList, sCreationOptions.fSortKnownPalettes);
     }
 
     // Write the header
@@ -1048,29 +1166,7 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
 
     // Add in the basic game information
-
-    if (GetGameName())
-    {
-        strExtraFileText.Format(L"%S%s\r\n", m_kpszGameNameKey, GetGameName());
-        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-    }
-
-    LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(GetColorMode());
-    if (paszColorFormat)
-    {
-        strExtraFileText.Format(L"%S%S\r\n", m_kpszColorFormatKey, paszColorFormat);
-        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-    }
-
-    LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(GetAlphaMode());
-    if (paszAlphaMode)
-    {
-        strExtraFileText.Format(L"%S%S\r\n", m_kpszAlphaModeKey, paszAlphaMode);
-        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-    }
-
-    strExtraFileText = L"\r\n";
-    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+    _WriteHeaderForPaletteListFile(ExtraFile, PaletteListOutputType::Extras);
 
     if (sCreationOptions.fAddKnownAsComments || sCreationOptions.fShowUnknownRegions)
     {
@@ -1086,7 +1182,7 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
         sPaletteTrackingInformation* pCurrent = pListRoot;
 
-        // Output the list
+        // Output the list and clean up and delete as we go
         while (pCurrent)
         {
             if (sCreationOptions.fAddKnownAsComments)
