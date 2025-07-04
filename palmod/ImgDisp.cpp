@@ -691,14 +691,35 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
         bool fIsDoubleSizeGIMPRAW = false;
         int nSizeIfThisIsRAW = 0;
 
-        if ((pszDataW != nullptr) && (pszDataH != nullptr) && (pszTermination != nullptr))
+        if (pszTermination != nullptr)
         {
-            pszDataW += ARRAYSIZE(L"W-");
-            pszDataH[0] = 0;
-            pszDataH += ARRAYSIZE(L"H-");
+            uint32_t nScannedH = 0, nScannedW = 0;
+
             pszTermination[0] = 0;
 
-            uint32_t nScannedH = 0, nScannedW = 0;
+            if (pszDataH)
+            {
+                pszDataH[0] = 0;
+                pszDataH += ARRAYSIZE(L"H-");
+            }
+
+            if (pszDataW)
+            {
+                pszDataW[0] = 0;
+                pszDataW += ARRAYSIZE(L"W-");
+            }
+
+            if (pszDataH && _stscanf_s(pszDataH, L"%u", &nScannedH))
+            {
+                m_nTextureOverrideH[nPositionToLoadTo] = static_cast<uint16_t>(nScannedH);
+            }
+
+            if (pszDataW && _stscanf_s(pszDataW, L"%u", &nScannedW))
+            {
+                m_nTextureOverrideW[nPositionToLoadTo] = static_cast<uint16_t>(nScannedW);
+            }
+
+            nSizeIfThisIsRAW = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
 
             if (pszCompType)
             {
@@ -725,16 +746,9 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 }
             }
 
-            if (_stscanf_s(pszDataW, L"%u", &nScannedW) && _stscanf_s(pszDataH, L"%u", &nScannedH))
-            {
-                m_nTextureOverrideW[nPositionToLoadTo] = static_cast<uint16_t>(nScannedW);
-                m_nTextureOverrideH[nPositionToLoadTo] = static_cast<uint16_t>(nScannedH);
-                nSizeIfThisIsRAW = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
-            }
-
             if ((eCompType == RAWCompressionChoice::NoCompression) &&
-                (m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
-                (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
+                (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
+                (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
             {
                 // Validate that the RAW dimensions are viable
                 fHaveViableDimensions = true;
@@ -752,18 +766,17 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 }
                 else if ((nSizeIfThisIsRAW != nFileSize) && (nFileSize > cbMinimumReasonableFileSize))
                 {
+                    CString strHelpText = L"RAW texture files do not contain header information, so we don't know what height or width to use.  To work around this, please name your filenames in the form:\r\n        WHATEVER-W-width-H-height.raw";
+
+                    if (fHaveViableDimensions)
+                    {
+                        strHelpText.Append(L"\r\n\r\nWe'll present you some H/W combos that might work if this is a normal RAW file, but please update your filename.");
+                    }
+
+                    SHMessageBoxCheck(g_appHWnd, strHelpText, GetHost()->GetAppName(), MB_OK | MB_ICONERROR, IDOK, L"{468EB2CC-58A2-48a1-B4D0-7FAFE1FDD9B7}");
+
                     fHaveViableDimensions = _FindAlternateDimensionsForTextureOverride(nFileSize, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
                 }
-            }
-        }
-        else
-        {
-            if (nFileSize > cbMinimumReasonableFileSize)
-            {
-                CString strHelpText = L"RAW texture files do not contain header information, so we don't know what height or width to use.  To work around this, please name your filenames in the form WHATEVER-W-width-H-height.raw .  "
-                                      L"We'll present you some H/W combos that might work if this is a normal RAW file, but please update your filename.";
-
-                SHMessageBoxCheck(g_appHWnd, strHelpText, GetHost()->GetAppName(), MB_OK | MB_ICONERROR, IDOK, L"{468EB2CC-58A2-48a1-B4D0-7FAFE1FDD9B7}");
             }
         }
 
