@@ -371,8 +371,35 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
     m_bUsed[nIndex] = 1;
 
     // The zero image defines the bounding rect
+    int nMaxWidth = uImgW, nMaxHeight = uImgH;
+
     if (nIndex == 0)
     {
+        // If the user custom loads am unexpectedly sized image for layer 0, we do weird things in terms of offset.
+        // Without this logic, image 0 is centered, and then further images are drawn within that specific bounding rect.
+        // That results in most of their content being shown in the upper right of the composition.
+        // We can do a quick pass here to ensure that the bounding rect for 0 is optimized.
+        // Note that mismatched image sizes is a bad plan in general, but this should make it slightly less annoying.
+        // The logic here isn't perfect, but it at least is a more presentable preview.
+        if (m_ppSpriteOverrideTexture[0])
+        {
+            for (int iLayer = 1; iLayer < MAX_IMAGES_DISPLAYABLE; iLayer++)
+            {
+                if (m_pImgBuffer[iLayer])
+                {
+                    nMaxWidth = max(nMaxWidth, m_pImgBuffer[iLayer]->uImgW);
+                    nMaxHeight = max(nMaxHeight, m_pImgBuffer[iLayer]->uImgH);
+                }
+            }
+        }
+
+        if ((nMaxWidth != uImgW) || (nMaxHeight != uImgH))
+        {
+            CString strInfo;
+            strInfo.Format(L"ERROR: Paired preview size mismatch!  Image 0 is %u x %u, but there is a larger %u x %u image in the stack!\r\n", uImgW, uImgH, nMaxWidth, nMaxHeight);
+            OutputDebugString(strInfo.GetString());
+        }
+
         if (nXOffs < m_rImgRct.left)
         {
             m_rImgRct.left = nXOffs;
@@ -386,14 +413,14 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
         }
     }
 
-    if ((nXOffs + uImgW) > m_rImgRct.right)
+    if ((nXOffs + nMaxWidth) > m_rImgRct.right)
     {
-        m_rImgRct.right = nXOffs + uImgW;
+        m_rImgRct.right = nXOffs + nMaxWidth;
     }
 
-    if ((nYOffs + uImgH) > m_rImgRct.bottom)
+    if ((nYOffs + nMaxHeight) > m_rImgRct.bottom)
     {
-        m_rImgRct.bottom = nYOffs + uImgH;
+        m_rImgRct.bottom = nYOffs + nMaxHeight;
     }
 
     m_ptOffs[nIndex].x = nXOffs;
@@ -1116,6 +1143,8 @@ void CImgDisp::_CompositeTexture(uint8_t* pNewOverrideTexture, UINT nPositionToL
             safe_delete_array(pNewOverrideTexture);
         }
     }
+
+    safe_delete_array(pOldOverrideTexture);
 }
 
 bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode /*= false */)
