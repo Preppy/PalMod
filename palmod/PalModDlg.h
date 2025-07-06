@@ -437,7 +437,7 @@ public:
 
     // This should be called after a game's PostSelProc call changes a shown secondary palette
     void RefreshSecondaryPalettesForPaletteChange();
-    bool TryFallbackImageLoad(CGameClass* CurrGame, int nPosition);
+    bool TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition);
 
     static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
     BOOL HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
@@ -469,7 +469,7 @@ public:
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromBMP(LPCWSTR pszFileName);
     bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header);
-    bool LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData);
+    bool ReadPaletteFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData);
     bool LoadPaletteFromGIF(LPCWSTR pszFileName);
     bool LoadPaletteFromGPL(LPCWSTR pszFileName);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);

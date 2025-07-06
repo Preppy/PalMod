@@ -73,18 +73,17 @@ public:
     afx_msg void OnFileExportImg();
     afx_msg void OnSettingsUseBackgroundColor();
     afx_msg void OnSettingsClickToFindColor();
-    afx_msg void OnLoadCustomSprite(UINT nPositionToLoadTo = 0, SpriteImportDirection direction = SpriteImportDirection::TopDown);
+    afx_msg void OnLoadCustomSprite(UINT nPositionToLoadTo = 0, SpriteImportDirection direction = SpriteImportDirection::TopDown, bool fPreferQuietMode = true);
+    afx_msg void OnLoadCustomSpriteWithOptions() { OnLoadCustomSprite(0, SpriteImportDirection::TopDown, false); };
     afx_msg void OnLoadCustomSpriteNormal(UINT nPositionToLoadTo = 0) { OnLoadCustomSprite(nPositionToLoadTo, SpriteImportDirection::TopDown); };
-    afx_msg void OnLoadCustomSpriteFlipped(UINT nPositionToLoadTo = 0)  { OnLoadCustomSprite(nPositionToLoadTo, SpriteImportDirection::UpsideDown); };
     afx_msg void OnLoadCustomSpriteForZero() { OnLoadCustomSprite(0, SpriteImportDirection::TopDown); };
-    afx_msg void OnLoadCustomSpriteForZeroFlipped() { OnLoadCustomSprite(0, SpriteImportDirection::UpsideDown); };
 
-    afx_msg void SetBlendToDefault() { m_ImgDisp.SetForcedBlendMode(BlendMode::Default); m_ImgDisp.UpdateCtrl(); };
-    afx_msg void SetBlendToAlpha()   { m_ImgDisp.SetForcedBlendMode(BlendMode::Alpha); m_ImgDisp.UpdateCtrl(); };
-    afx_msg void SetBlendToAdd()     { m_ImgDisp.SetForcedBlendMode(BlendMode::AdditiveARGB); m_ImgDisp.UpdateCtrl(); };
-    afx_msg void SetBlendToPS1STOn() { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOn); m_ImgDisp.UpdateCtrl(); };
+    afx_msg void SetBlendToDefault()  { m_ImgDisp.SetForcedBlendMode(BlendMode::Default); m_ImgDisp.UpdateCtrl(); };
+    afx_msg void SetBlendToAlpha()    { m_ImgDisp.SetForcedBlendMode(BlendMode::Alpha); m_ImgDisp.UpdateCtrl(); };
+    afx_msg void SetBlendToAdd()      { m_ImgDisp.SetForcedBlendMode(BlendMode::AdditiveARGB); m_ImgDisp.UpdateCtrl(); };
+    afx_msg void SetBlendToPS1STOn()  { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOn); m_ImgDisp.UpdateCtrl(); };
     afx_msg void SetBlendToPS1STOff() { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOff); m_ImgDisp.UpdateCtrl(); };
 
-    void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath);
+    void LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode);
     BOOL GetPreviewDropIsPalette() { return m_ImgDisp.GetPreviewDropIsPalette(); };
 };

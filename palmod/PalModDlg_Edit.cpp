@@ -356,7 +356,8 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             {
                 if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
                 {
-                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, SpriteImportDirection::TopDown, szPath);
+                    UINT nPosition = 0;
+                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&nPosition, SpriteImportDirection::TopDown, szPath, true);
                 }
                 else
                 {
@@ -383,7 +384,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             {
                 if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
                 {
-                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, SpriteImportDirection::TopDown, szPath);
+                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, true);
                 }
                 else
                 {
@@ -392,7 +393,8 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             }
             else if (_wcsicmp(pszExtension, L".raw") == 0)
             {
-                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, SpriteImportDirection::TopDown, szPath);
+                UINT nPosition = 0;
+                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&nPosition, SpriteImportDirection::TopDown, szPath, true);
             }
         }
 

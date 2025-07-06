@@ -1,6 +1,7 @@
 #pragma once
 #include "game\Default.h"
 #include "game\palgroup.h"
+#include <optional>
 
 #define aadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 #define fabs(x) (x < 0.0f ? -x : x)
@@ -35,7 +36,8 @@ struct sImgNode
     BlendMode eBlendMode = BlendMode::Alpha;
 };
 
-enum class SpriteImportDirection { TopDown, UpsideDown };
+enum class SpriteImportDirection { TopDown, UpsideDown, FlipHorizontal };
+enum class SpriteImportCompositionStyle { Replace, MergeAbove, MergeBelow };
 
 // CImgDisp
 
@@ -124,12 +126,19 @@ private:
     int m_nTextureOverrideW[MAX_IMAGES_DISPLAYABLE] = { 0 };
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
 
-    bool _FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight);
-    void _ResizeAndBlankCustomPreviews(UINT nPositionToLoadTo, size_t nNewSize);
-    void _UpdatePreviewForExternalSprite(UINT nPositionToLoadTo);
-    void _FlipCustomPreviewLayerIfNeeded(SpriteImportDirection direction, UINT nPositionToLoadTo);
-    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize);
-    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
+    bool _GetUserOptionsForTextureOverride(int nFileSize, int& nSuggestedImageWidth, int& nSuggestedImageHeight, UINT& nPositionToLoadTo, SpriteImportDirection& spriteDirection, SpriteImportCompositionStyle *pCompositionStyle);
+    void _ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nNewSize);
+
+    void _CompositeTexture(uint8_t* pNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedHeight, int nSuggestedWidth, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
+    void _UpdatePreviewForExternalSprite(UINT* pnPositionToLoadTo);
+
+    void _FlipImageDataIfNeeded(SpriteImportDirection direction, uint8_t*& pImageData, int nWidth, int nHeight);
+
+    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize);
+    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
+
+    uint8_t* _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fPreferQuietMode = true);
+    uint8_t* _LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fUseQuietMode = true);
 
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
@@ -185,9 +194,11 @@ public:
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
-    bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
-    bool LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fUseQuietMode = false);
-    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
+    bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
+    // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
+    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
+    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
+
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     

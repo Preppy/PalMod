@@ -10,16 +10,19 @@
 #include "PalMod.h"
 #include "lodepng\lodepng.h"
 
-class CRAWHeightWidthAdjustmentDialog : public CDialog
+class CPreviewImportDialog : public CDialog
 {
-    DECLARE_DYNAMIC(CRAWHeightWidthAdjustmentDialog)
+    DECLARE_DYNAMIC(CPreviewImportDialog)
 
 public:
-    CRAWHeightWidthAdjustmentDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, CWnd* pParent = NULL);
-    virtual ~CRAWHeightWidthAdjustmentDialog() {};
+    CPreviewImportDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, UINT nSuggestedLayer, SpriteImportDirection suggestedDirection, std::vector<std::pair<int, int>> rgExistingDimensions, bool fAllowComposition, CWnd* pParent = NULL);
+    virtual ~CPreviewImportDialog() {};
 
     BOOL OnInitDialog();
-    afx_msg void OnUpdateCombobox();
+    afx_msg void OnUpdateCombobox_HW() { m_nCurrentSel_HW = m_lbHWOptions.GetCurSel(); };
+    afx_msg void OnUpdateCombobox_Layer();
+    afx_msg void OnUpdateCombobox_Read() { m_nCurrentSel_Read = static_cast<SpriteImportDirection>(m_lbReadOptions.GetCurSel()); };
+    afx_msg void OnUpdateCombobox_Composition() { m_nCurrentSel_Composition = static_cast<SpriteImportCompositionStyle>(m_lbCompositionOptions.GetCurSel()); };
 
     enum { IDD = IDD_RAWFIXUP_DIALOG };
 
@@ -29,23 +32,37 @@ protected:
     DECLARE_MESSAGE_MAP()
 
     CListBox m_lbHWOptions;
+    CListBox m_lbLayerOptions;
     std::vector<CString> m_rgstrHWOptionsList;
+    std::vector<CString> m_rgstrLayerOptionsList;
+    std::vector<std::pair<int, int>> m_rgExistingDimensions;
+
+    CListBox m_lbReadOptions;
+    CListBox m_lbCompositionOptions;
+    bool m_fCompositionAllowed;
 
 public:
-    int m_nCurrentSel = 0;
+    int m_nCurrentSel_HW = 0;
+    UINT m_nCurrentSel_Layer = 0;
+    SpriteImportDirection m_nCurrentSel_Read = SpriteImportDirection::TopDown;
+    SpriteImportCompositionStyle m_nCurrentSel_Composition = SpriteImportCompositionStyle::Replace;
 };
 
-IMPLEMENT_DYNAMIC(CRAWHeightWidthAdjustmentDialog, CDialog)
+IMPLEMENT_DYNAMIC(CPreviewImportDialog, CDialog)
 
-CRAWHeightWidthAdjustmentDialog::CRAWHeightWidthAdjustmentDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, CWnd* pParent /*=NULL*/)
-    : CDialog(CRAWHeightWidthAdjustmentDialog::IDD, pParent)
+CPreviewImportDialog::CPreviewImportDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, UINT nSuggestedLayer, SpriteImportDirection suggestedDirection, std::vector<std::pair<int, int>> rgExistingDimensions, bool fAllowComposition, CWnd* pParent /* = NULL*/)
+    : CDialog(CPreviewImportDialog::IDD, pParent)
 {
     m_rgstrHWOptionsList = rgstrHWOptionsList;
+    m_rgExistingDimensions = rgExistingDimensions;
+    m_fCompositionAllowed = fAllowComposition;
 
-    m_nCurrentSel = nSuggestedIndex;
+    m_nCurrentSel_HW = nSuggestedIndex;
+    m_nCurrentSel_Layer = nSuggestedLayer;
+    m_nCurrentSel_Read = suggestedDirection;
 }
 
-BOOL CRAWHeightWidthAdjustmentDialog::OnInitDialog()
+BOOL CPreviewImportDialog::OnInitDialog()
 {
     CDialog::OnInitDialog();
 
@@ -54,27 +71,86 @@ BOOL CRAWHeightWidthAdjustmentDialog::OnInitDialog()
         m_lbHWOptions.AddString(strColorOption);
     }
 
-    m_lbHWOptions.SetCurSel(m_nCurrentSel);
+    m_lbHWOptions.SetCurSel(m_nCurrentSel_HW);
+
+    m_lbReadOptions.InsertString(0, L"Normal");
+    m_lbReadOptions.InsertString(1, L"Flip Vertical");
+    m_lbReadOptions.InsertString(2, L"Flip Horizontal");
+    m_lbReadOptions.SetCurSel(static_cast<int>(m_nCurrentSel_Read));
+
+    m_lbCompositionOptions.InsertString(0, L"Replace");
+    m_lbCompositionOptions.InsertString(1, L"Merge Above");
+    m_lbCompositionOptions.InsertString(2, L"Merge Below");
+    m_lbCompositionOptions.SetCurSel(static_cast<int>(m_nCurrentSel_Composition));
+
+    bool fHavePreviousItemThisLayer = false;
+    for (auto& item : m_rgExistingDimensions)
+    {
+        if (item.first != 0)
+        {
+            fHavePreviousItemThisLayer = true;
+            break;
+        }
+    }
+
+    if (!fHavePreviousItemThisLayer || !m_fCompositionAllowed)
+    {
+        // so this is interesting since we may or may not have existing previews...
+        // we DO know what data we have already
+        // but if we're paying attention to that then we need to update this as the user changes layers
+        m_lbCompositionOptions.EnableWindow(FALSE);
+    }
+
+    int nLayer = 0;
+    for (auto& strColorOption : m_rgExistingDimensions)
+    {
+        CString strLayer;
+        strLayer.Format(L"%u", nLayer);
+        m_lbLayerOptions.InsertString(nLayer++, strLayer);
+    }
+
+    m_lbLayerOptions.SetCurSel(m_nCurrentSel_Layer);
+
+    if (m_rgExistingDimensions.size() == 1)
+    {
+        m_lbLayerOptions.EnableWindow(FALSE);
+    }
 
     UpdateData();
 
     return TRUE;
 }
 
-void CRAWHeightWidthAdjustmentDialog::OnUpdateCombobox()
+void CPreviewImportDialog::OnUpdateCombobox_Layer()
 {
-    m_nCurrentSel = m_lbHWOptions.GetCurSel();
+    m_nCurrentSel_Layer = m_lbLayerOptions.GetCurSel();
+
+    if (m_rgExistingDimensions.at(m_nCurrentSel_Layer).first && m_fCompositionAllowed)
+    {
+        m_lbCompositionOptions.EnableWindow(TRUE);
+    }
+    else
+    {
+        m_lbCompositionOptions.EnableWindow(FALSE);
+        m_lbCompositionOptions.SetCurSel(0);
+    }
 }
 
-void CRAWHeightWidthAdjustmentDialog::DoDataExchange(CDataExchange* pDX)
+void CPreviewImportDialog::DoDataExchange(CDataExchange* pDX)
 {
     CDialog::DoDataExchange(pDX);
 
     DDX_Control(pDX, IDC_RAWFIXUP_HWOPTIONS, m_lbHWOptions);
+    DDX_Control(pDX, IDC_RAWFIXUP_OPTIONS_LAYER, m_lbLayerOptions);
+    DDX_Control(pDX, IDC_RAWFIXUP_OPTIONS_READ, m_lbReadOptions);
+    DDX_Control(pDX, IDC_RAWFIXUP_OPTIONS_COMPOSITION, m_lbCompositionOptions);
 }
 
-BEGIN_MESSAGE_MAP(CRAWHeightWidthAdjustmentDialog, CDialog)
-    ON_LBN_SELCHANGE(IDC_RAWFIXUP_HWOPTIONS, &OnUpdateCombobox)
+BEGIN_MESSAGE_MAP(CPreviewImportDialog, CDialog)
+    ON_LBN_SELCHANGE(IDC_RAWFIXUP_HWOPTIONS, &OnUpdateCombobox_HW)
+    ON_LBN_SELCHANGE(IDC_RAWFIXUP_OPTIONS_LAYER, &OnUpdateCombobox_Layer)
+    ON_LBN_SELCHANGE(IDC_RAWFIXUP_OPTIONS_READ, &OnUpdateCombobox_Read)
+    ON_LBN_SELCHANGE(IDC_RAWFIXUP_OPTIONS_COMPOSITION, &OnUpdateCombobox_Composition)
 END_MESSAGE_MAP()
 
 // CImgDisp
@@ -598,12 +674,13 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
             m_ppSpriteOverrideTexture[nIndex]);
 }
 
-bool CImgDisp::_FindAlternateDimensionsForTextureOverride(int nFileSize, int& nImageWidth, int& nImageHeight)
+bool CImgDisp::_GetUserOptionsForTextureOverride(int nFileSize, int& nSuggestedImageWidth, int& nSuggestedImageHeight, UINT& nPositionToLoadTo, SpriteImportDirection& spriteDirection, SpriteImportCompositionStyle *pCompositionStyle)
 {
     CString strOutput;
     std::vector<int> rgWidthOptions;
     std::vector<CString> rgstrHWOptions;
-    std::pair<int, int> indexSuggestion = { 0, nImageWidth };
+    // Note that this implementation only checks for solo preferred Width values not for solo preferred Height values
+    std::pair<int, int> indexSuggestion = { 0, nSuggestedImageWidth };
     // Arbitrary assumption that user raws will not be taller than 4000px tall
     const int nUnreasonablyTallImage = 4096;
     // Arbitrary assumption that image size should be less than 25px wide.
@@ -626,12 +703,12 @@ bool CImgDisp::_FindAlternateDimensionsForTextureOverride(int nFileSize, int& nI
             rgWidthOptions.push_back(nPossibleWidth);
             rgstrHWOptions.push_back(strOutput);
 
-            if (nImageWidth)
+            if (nSuggestedImageWidth)
             {
-                if (abs(nImageWidth - nPossibleWidth) < indexSuggestion.second)
+                if (abs(nSuggestedImageWidth - nPossibleWidth) < indexSuggestion.second)
                 {
                     indexSuggestion.first = nFoundMatches;
-                    indexSuggestion.second = abs(nImageWidth - nPossibleWidth);
+                    indexSuggestion.second = abs(nSuggestedImageWidth - nPossibleWidth);
                 }
             }
 
@@ -641,12 +718,36 @@ bool CImgDisp::_FindAlternateDimensionsForTextureOverride(int nFileSize, int& nI
 
     if (rgstrHWOptions.size())
     {
-        CRAWHeightWidthAdjustmentDialog AdjustmentDialog(rgstrHWOptions, indexSuggestion.first);
+        std::vector<std::pair<int, int>> rgExistingDimensions;
+
+        for (int iImgLayer = 0; iImgLayer < m_nImgAmt; iImgLayer++)
+        {
+            if (m_ppSpriteOverrideTexture[iImgLayer])
+            {
+                rgExistingDimensions.push_back({ m_nTextureOverrideW[iImgLayer], m_nTextureOverrideH[iImgLayer] });
+            }
+            else if (m_pImgBuffer[iImgLayer])
+            {
+                rgExistingDimensions.push_back({ m_pImgBuffer[iImgLayer]->uImgW, m_pImgBuffer[iImgLayer]->uImgH });
+            }
+            else
+            {
+                rgExistingDimensions.push_back({ 0, 0 });
+            }
+        }
+
+        CPreviewImportDialog AdjustmentDialog(rgstrHWOptions, indexSuggestion.first, nPositionToLoadTo, spriteDirection, rgExistingDimensions, pCompositionStyle);
 
         if (AdjustmentDialog.DoModal() == IDOK)
         {
-            nImageWidth = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
-            nImageHeight = nFileSize / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+            nSuggestedImageWidth = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel_HW);
+            nSuggestedImageHeight = nFileSize / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel_HW);
+            nPositionToLoadTo = AdjustmentDialog.m_nCurrentSel_Layer;
+            spriteDirection = AdjustmentDialog.m_nCurrentSel_Read;
+            if (pCompositionStyle)
+            {
+                *pCompositionStyle = AdjustmentDialog.m_nCurrentSel_Composition;
+            }
             fHaveViableDimensions = true;
         }
     }
@@ -654,17 +755,19 @@ bool CImgDisp::_FindAlternateDimensionsForTextureOverride(int nFileSize, int& nI
     return fHaveViableDimensions;
 }
 
-bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
+uint8_t* CImgDisp::_LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fPreferQuietMode /* = true */)
 {
+    // We get to have a lot of bonus logic here since RAW files don't contain height/width information...
     CFile TextureFile;
+    bool fHaveViableDimensions = false;
+    uint8_t* pNewOverrideTexture = nullptr;
 
     if (TextureFile.Open(pszTextureLocation, CFile::modeRead | CFile::typeBinary))
     {
-        const int nFileSize = static_cast<int>(TextureFile.GetLength());
+        const int nIncomingFileSize = static_cast<int>(TextureFile.GetLength());
         const int cbMinimumReasonableFileSize = 250;
-        ResetCustomSpriteOverride(nPositionToLoadTo);
-        m_nTextureOverrideW[nPositionToLoadTo] = 0;
-        m_nTextureOverrideH[nPositionToLoadTo] = 0;
+        nSuggestedWidth = 0;
+        nSuggestedHeight = 0;
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
         _wcslwr(pszTextureLocation);
@@ -687,7 +790,6 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             pszTermination = wcsstr(pszTextureLocation, L".raw");
         }
 
-        bool fHaveViableDimensions = false;
         bool fIsDoubleSizeGIMPRAW = false;
         int nSizeIfThisIsRAW = 0;
 
@@ -711,15 +813,15 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
             if (pszDataH && _stscanf_s(pszDataH, L"%u", &nScannedH))
             {
-                m_nTextureOverrideH[nPositionToLoadTo] = static_cast<uint16_t>(nScannedH);
+                nSuggestedHeight = static_cast<uint16_t>(nScannedH);
             }
 
             if (pszDataW && _stscanf_s(pszDataW, L"%u", &nScannedW))
             {
-                m_nTextureOverrideW[nPositionToLoadTo] = static_cast<uint16_t>(nScannedW);
+                nSuggestedWidth = static_cast<uint16_t>(nScannedW);
             }
 
-            nSizeIfThisIsRAW = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
+            nSizeIfThisIsRAW = nSuggestedWidth * nSuggestedHeight;
 
             if (pszCompType)
             {
@@ -731,107 +833,114 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 {
                     switch (nCompType)
                     {
-                        default:
-                            eCompType = RAWCompressionChoice::NoCompression;
-                            break;
-                        case 1:
-                            OutputDebugString(L"RAW is marked as being RLE compressed.\n");
-                            eCompType = RAWCompressionChoice::RLE;
-                            break;
-                        case 2:
-                            OutputDebugString(L"RAW is marked as being BitMask RLE compressed.\n");
-                            eCompType = RAWCompressionChoice::BitMaskRLE;
-                            break;
+                    default:
+                        eCompType = RAWCompressionChoice::NoCompression;
+                        break;
+                    case 1:
+                        OutputDebugString(L"RAW is marked as being RLE compressed.\n");
+                        eCompType = RAWCompressionChoice::RLE;
+                        break;
+                    case 2:
+                        OutputDebugString(L"RAW is marked as being BitMask RLE compressed.\n");
+                        eCompType = RAWCompressionChoice::BitMaskRLE;
+                        break;
                     }
                 }
             }
 
             if ((eCompType == RAWCompressionChoice::NoCompression) &&
-                (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
-                (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
+                (nSuggestedWidth < 10000) &&
+                (nSuggestedHeight < 10000))
             {
                 // Validate that the RAW dimensions are viable
-                fHaveViableDimensions = true;
-
-                if ((3 * nSizeIfThisIsRAW) == nFileSize)
+                if (nSizeIfThisIsRAW == nIncomingFileSize)
+                {
+                    // Perfection!
+                    fHaveViableDimensions = true;
+                }
+                else if ((3 * nSizeIfThisIsRAW) == nIncomingFileSize)
                 {
                     // This is an RGB RAW...
+                    fHaveViableDimensions = true;
                     MessageBox(L"This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
                 }
-                else if ((2 * nSizeIfThisIsRAW) == nFileSize)
+                else if ((2 * nSizeIfThisIsRAW) == nIncomingFileSize)
                 {
                     // I think it's GIMP that doubles the RAW for no apparent reason
                     fIsDoubleSizeGIMPRAW = true;
+                    fHaveViableDimensions = true;
                     GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                 }
-                else if ((nSizeIfThisIsRAW != nFileSize) && (nFileSize > cbMinimumReasonableFileSize))
+                else if ((nSizeIfThisIsRAW != nIncomingFileSize) && (nIncomingFileSize > cbMinimumReasonableFileSize))
                 {
                     CString strHelpText = L"RAW texture files do not contain header information, so we don't know what height or width to use.  To work around this, please name your filenames in the form:\r\n        WHATEVER-W-width-H-height.raw";
-
-                    if (fHaveViableDimensions)
-                    {
-                        strHelpText.Append(L"\r\n\r\nWe'll present you some H/W combos that might work if this is a normal RAW file, but please update your filename.");
-                    }
+                    strHelpText.Append(L"\r\n\r\nWe'll present you some H/W combos that might work if this is a normal RAW file, but please update your filename.");
 
                     SHMessageBoxCheck(g_appHWnd, strHelpText, GetHost()->GetAppName(), MB_OK | MB_ICONERROR, IDOK, L"{468EB2CC-58A2-48a1-B4D0-7FAFE1FDD9B7}");
 
-                    fHaveViableDimensions = _FindAlternateDimensionsForTextureOverride(nFileSize, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
+                    // Try to use the override H/W if available, but if not see if we can reuse the current displays dimensions.
+                    if ((nSuggestedWidth == 0) && m_pImgBuffer[0])
+                    {
+                        nSuggestedWidth = m_pImgBuffer[0]->uImgW;
+                    }
+
+                    if ((nSuggestedHeight == 0) && m_pImgBuffer[0])
+                    {
+                        nSuggestedHeight = m_pImgBuffer[0]->uImgH;
+                    }
+
+                }
+
+                if (!fPreferQuietMode || !fHaveViableDimensions)
+                {
+                    fHaveViableDimensions = _GetUserOptionsForTextureOverride(nIncomingFileSize, nSuggestedWidth, nSuggestedHeight, nPositionToLoadTo, direction, &compositionStyle);
                 }
             }
         }
 
-        bool fFoundData = false;
-
         if (eCompType != RAWCompressionChoice::NoCompression)
         {
             std::vector<uint8_t*> pNewData;
-            pNewData.resize(nFileSize);
+            pNewData.resize(nIncomingFileSize);
 
-            TextureFile.Read(pNewData.data(), nFileSize);
+            TextureFile.Read(pNewData.data(), nIncomingFileSize);
 
-            uint8_t* pRAWData = nullptr;
-            
+            uint8_t* pNewOverrideTexture = nullptr;
+
             switch (eCompType)
             {
                 case RAWCompressionChoice::RLE:
                 {
-                    pRAWData = RLEData::RLEDecodeImg(
+                    pNewOverrideTexture = RLEData::RLEDecodeImg(
                         reinterpret_cast<uint8_t*>(&pNewData[0]),
                         nSizeIfThisIsRAW,
-                        m_nTextureOverrideW[nPositionToLoadTo],
-                        m_nTextureOverrideH[nPositionToLoadTo]
+                        nSuggestedWidth,
+                        nSuggestedHeight
                     );
                     break;
                 }
                 case RAWCompressionChoice::BitMaskRLE:
                 {
-                    pRAWData = RLEData::BitMaskRLEDecodeImg(
+                    pNewOverrideTexture = RLEData::BitMaskRLEDecodeImg(
                         reinterpret_cast<uint8_t*>(&pNewData[0]),
                         nSizeIfThisIsRAW,
-                        m_nTextureOverrideW[nPositionToLoadTo],
-                        m_nTextureOverrideH[nPositionToLoadTo]
+                        nSuggestedWidth,
+                        nSuggestedHeight
                     );
                     break;
                 }
             }
 
-            if (pRAWData)
+            if (pNewOverrideTexture)
             {
-                fFoundData = true;
-                m_ppSpriteOverrideTexture[nPositionToLoadTo] = pRAWData;
                 GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RLE-compressed RAW as a custom preview.");
             }
         }
         else if (fHaveViableDimensions)
         {
-            ResetCustomSpriteOverride(nPositionToLoadTo);
-            m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nFileSize];
-
             CString strInfo;
-            strInfo.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
+            strInfo.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", nSuggestedWidth, nSuggestedHeight);
             OutputDebugString(strInfo);
-
-            fFoundData = true;
 
             TextureFile.SeekToBegin();
 
@@ -843,13 +952,16 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             // If we do need to revisit this, make sure to test both with that new mystery file that 
             // lead to this change as well as the GIMP 2x sample texture I've now put in the archive.
 
+            // Read the data first
+            pNewOverrideTexture = new uint8_t[nIncomingFileSize];
+
             if (direction == SpriteImportDirection::TopDown)
             {
-                TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nFileSize);
+                TextureFile.Read(pNewOverrideTexture, nIncomingFileSize);
             }
-            else
+            else if (direction == SpriteImportDirection::UpsideDown)
             {
-                int nCurrentFilePosition = nFileSize;
+                int nCurrentFilePosition = nIncomingFileSize;
 
                 if (fIsDoubleSizeGIMPRAW)
                 {
@@ -857,66 +969,234 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                 }
 
                 // Skip one line back since we're upside-down and walking backwards
-                nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+                nCurrentFilePosition -= nSuggestedWidth;
 
                 // We need to flip this line by line
-                for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
+                for (int nLinePosition = 0; nLinePosition < nSuggestedHeight; nLinePosition++)
                 {
-                    TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][nCurrentFilePosition], m_nTextureOverrideW[nPositionToLoadTo]);
-                    nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+                    TextureFile.Read(&pNewOverrideTexture[nCurrentFilePosition], nSuggestedWidth);
+                    nCurrentFilePosition -= nSuggestedWidth;
+                }
+            }
+            else // if (direction == SpriteImportDirection::FlipHorizontal)
+            {
+                for (int iLine = 0; iLine < nSuggestedHeight; iLine++)
+                {
+                    for (int iLinePos = nSuggestedWidth; iLinePos > 0; iLinePos--)
+                    {
+                        TextureFile.Read(&pNewOverrideTexture[(iLine * nSuggestedWidth) + (iLinePos - 1)], 1);
+                    }
+                }
+            }
+        }
+    }
+
+    return pNewOverrideTexture;
+}
+
+void CImgDisp::_CompositeTexture(uint8_t* pNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedHeight, int nSuggestedWidth, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle)
+{
+    const int nOldHeight = m_nTextureOverrideH[nPositionToLoadTo];
+    const int nOldWidth = m_nTextureOverrideW[nPositionToLoadTo];
+    uint8_t* pOldOverrideTexture = m_ppSpriteOverrideTexture[nPositionToLoadTo];
+    m_ppSpriteOverrideTexture[nPositionToLoadTo] = nullptr;
+    const int nIncomingFileSize = nSuggestedHeight * nSuggestedWidth;
+    int nCompositedFileSize;
+
+    if (compositionStyle == SpriteImportCompositionStyle::Replace)
+    {
+        ResetCustomSpriteOverride(nPositionToLoadTo);
+
+        m_nTextureOverrideW[nPositionToLoadTo] = nSuggestedWidth;
+        m_nTextureOverrideH[nPositionToLoadTo] = nSuggestedHeight;
+        nCompositedFileSize = nIncomingFileSize;
+    }
+    else // Merge options
+    {
+        if (pOldOverrideTexture)
+        {
+            m_nTextureOverrideW[nPositionToLoadTo] = max(nSuggestedWidth, m_nTextureOverrideW[nPositionToLoadTo]);
+            m_nTextureOverrideH[nPositionToLoadTo] = max(nSuggestedHeight, m_nTextureOverrideH[nPositionToLoadTo]);
+        }
+        else
+        {
+            m_nTextureOverrideW[nPositionToLoadTo] = max(nSuggestedWidth, m_pImgBuffer[nPositionToLoadTo]->uImgW);
+            m_nTextureOverrideH[nPositionToLoadTo] = max(nSuggestedHeight, m_pImgBuffer[nPositionToLoadTo]->uImgH);
+        }
+
+        nCompositedFileSize = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
+    }
+
+    CString strInfo;
+    strInfo.Format(L"CImgDisp::CompositeTexture: texture file is: %u x %u\n", m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
+    OutputDebugString(strInfo);
+
+    // Now composit the data
+    if (compositionStyle == SpriteImportCompositionStyle::Replace)
+    {
+        m_ppSpriteOverrideTexture[nPositionToLoadTo] = pNewOverrideTexture;
+    }
+    else // if ((compositionStyle == SpriteImportCompositionStyle::MergeAbove) || (compositionStyle == SpriteImportCompositionStyle::MergeBelow))
+    {
+        if (pOldOverrideTexture)
+        {
+            const int nMergedFileSize = m_nTextureOverrideH[nPositionToLoadTo] * m_nTextureOverrideW[nPositionToLoadTo];
+            m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nMergedFileSize];
+
+            strInfo.Format(L"\tMerging Above: %u x %u source image with the existing custom %u x %u image, for a %u x %u composited image.\r\n", nSuggestedHeight, nSuggestedWidth, nOldHeight, nOldWidth, m_nTextureOverrideH[nPositionToLoadTo], m_nTextureOverrideW[nPositionToLoadTo]);
+            OutputDebugString(strInfo.GetString());
+
+            for (int iCurrentLine = 0; (iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) < nMergedFileSize; iCurrentLine++)
+            {
+                for (int iCurrentLinePos = 0; iCurrentLinePos < m_nTextureOverrideW[nPositionToLoadTo]; iCurrentLinePos++)
+                {
+                    if ((iCurrentLine >= nOldHeight) || (iCurrentLinePos >= nOldWidth))
+                    {
+                        // We only have the incoming sprite for this pixel
+                        m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos];
+                    }
+                    else if ((iCurrentLine >= nSuggestedHeight) || (iCurrentLinePos >= nSuggestedWidth))
+                    {
+                        // We only have the old sprite for this pixel
+                        m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = pOldOverrideTexture[(iCurrentLine * nOldWidth) + iCurrentLinePos];
+                    }
+                    else
+                    {
+                        // We have both!
+                        if (compositionStyle == SpriteImportCompositionStyle::MergeAbove)
+                        {
+                            m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos] ? pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos] : pOldOverrideTexture[(iCurrentLine * nOldWidth) + iCurrentLinePos];
+                        }
+                        else
+                        {
+                            m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = pOldOverrideTexture[(iCurrentLine * nOldWidth) + iCurrentLinePos] ? pOldOverrideTexture[(iCurrentLine * nOldWidth) + iCurrentLinePos] : pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos];
+                        }
+                    }
                 }
             }
 
-            if (!fIsDoubleSizeGIMPRAW)
-            {
-                GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RAW as a custom preview.");
-            }
+            safe_delete_array(pNewOverrideTexture);
         }
-
-        TextureFile.Close();
-
-        if (fFoundData)
+        else if (m_pImgBuffer[nPositionToLoadTo])
         {
-            _UpdatePreviewForExternalSprite(nPositionToLoadTo);
+            const int nMergedFileSize = m_nTextureOverrideH[nPositionToLoadTo] * m_nTextureOverrideW[nPositionToLoadTo];
+            m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nMergedFileSize];
 
-            return true;
+            strInfo.Format(L"\tMerging Above: %u x %u source image with the existing internal %u x %u image, for a %u %u composited image.\r\n", nSuggestedHeight, nSuggestedWidth, m_pImgBuffer[nPositionToLoadTo]->uImgH, m_pImgBuffer[nPositionToLoadTo]->uImgW, m_nTextureOverrideH[nPositionToLoadTo], m_nTextureOverrideW[nPositionToLoadTo]);
+            OutputDebugString(strInfo.GetString());
+
+            for (int iCurrentLine = 0; (iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) < nMergedFileSize; iCurrentLine++)
+            {
+                for (int iCurrentLinePos = 0; iCurrentLinePos < m_nTextureOverrideW[nPositionToLoadTo]; iCurrentLinePos++)
+                {
+                    if ((iCurrentLine >= m_pImgBuffer[nPositionToLoadTo]->uImgH) || (iCurrentLinePos >= m_pImgBuffer[nPositionToLoadTo]->uImgW))
+                    {
+                        // We only have the incoming sprite for this pixel
+                        m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos];
+                    }
+                    else if ((iCurrentLine >= nSuggestedHeight) || (iCurrentLinePos >= nSuggestedWidth))
+                    {
+                        // We only have the old sprite for this pixel
+                        m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = m_pImgBuffer[nPositionToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nPositionToLoadTo]->uImgW) + iCurrentLinePos];
+                    }
+                    else
+                    {
+                        // We have both!
+                        if (compositionStyle == SpriteImportCompositionStyle::MergeAbove)
+                        {
+                            m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos] ? pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos] : m_pImgBuffer[nPositionToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nPositionToLoadTo]->uImgW) + iCurrentLinePos];
+                        }
+                        else
+                        {
+                            m_ppSpriteOverrideTexture[nPositionToLoadTo][(iCurrentLine * m_nTextureOverrideW[nPositionToLoadTo]) + iCurrentLinePos] = m_pImgBuffer[nPositionToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nPositionToLoadTo]->uImgW) + iCurrentLinePos] ? m_pImgBuffer[nPositionToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nPositionToLoadTo]->uImgW) + iCurrentLinePos] : pNewOverrideTexture[(iCurrentLine * nSuggestedWidth) + iCurrentLinePos];
+                        }
+                    }
+                }
+            }
+            safe_delete_array(pNewOverrideTexture);
         }
     }
-
-    CString strError;
-    if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
-    {
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-    }
-
-    return false;
 }
 
-void CImgDisp::_FlipCustomPreviewLayerIfNeeded(SpriteImportDirection direction, UINT nPositionToLoadTo)
+bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode /*= false */)
 {
-    if (direction == SpriteImportDirection::UpsideDown)
+    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
+    int nSuggestedHeight = 0, nSuggestedWidth = 0;
+
+    uint8_t* pNewOverrideTexture = _LoadTextureFromRAWSprite(pszTextureLocation, nPositionToLoadTo, nSuggestedHeight, nSuggestedWidth, direction, compositionStyle, fPreferQuietMode);
+ 
+    if (pNewOverrideTexture)
     {
-        const int nTotalLength = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
-        uint8_t* pFlippedBuffer = new uint8_t[nTotalLength];
+        _CompositeTexture(pNewOverrideTexture, nPositionToLoadTo, nSuggestedHeight, nSuggestedWidth, direction, compositionStyle);
 
-        // We need to flip this line by line
-        int iPos = 0;
-        for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
+        CString strMsg;
+        strMsg.Format(L"Loaded %u x %u RAW as a preview.", nSuggestedWidth, nSuggestedHeight);
+        GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+
+        _UpdatePreviewForExternalSprite(&nPositionToLoadTo);
+
+        return true;
+    }
+    else
+    {
+        CString strError;
+        if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
         {
-            int nLineStart = (nTotalLength - ((nLinePosition + 1) * m_nTextureOverrideW[nPositionToLoadTo]));
-
-            for (int nColumnPosition = 0; nColumnPosition < m_nTextureOverrideW[nPositionToLoadTo]; nColumnPosition++)
-            {
-                pFlippedBuffer[iPos++] = m_ppSpriteOverrideTexture[nPositionToLoadTo][nLineStart++];
-            }
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
-
-        ResetCustomSpriteOverride(nPositionToLoadTo);
-        m_ppSpriteOverrideTexture[nPositionToLoadTo] = pFlippedBuffer;
+        return false;
     }
 }
 
-void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize)
+void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, uint8_t*& pImageData, int nWidth, int nHeight)
+{
+    switch (direction)
+    {
+        default:
+        case SpriteImportDirection::TopDown:
+            return;
+        case SpriteImportDirection::UpsideDown:
+        {
+            const int nTotalLength = nWidth * nHeight;
+            uint8_t* pFlippedBuffer = new uint8_t[nTotalLength];
+
+            // We need to flip this line by line
+            int iPos = 0;
+            for (int nLinePosition = 0; nLinePosition < nHeight; nLinePosition++)
+            {
+                int nLineStart = (nTotalLength - ((nLinePosition + 1) * nWidth));
+
+                for (int nColumnPosition = 0; nColumnPosition < nWidth; nColumnPosition++)
+                {
+                    pFlippedBuffer[iPos++] = pImageData[nLineStart++];
+                }
+            }
+
+            safe_delete_array(pImageData);
+            pImageData = pFlippedBuffer;
+            return;
+        }
+        case SpriteImportDirection::FlipHorizontal:
+        {
+            const int nTotalLength = nWidth * nHeight;
+            uint8_t* pFlippedBuffer = new uint8_t[nTotalLength];
+
+            for (int iLine = 0; iLine < nHeight; iLine++)
+            {
+                for (int iLinePos = nWidth; iLinePos > 0; iLinePos--)
+                {
+                    pFlippedBuffer[(iLine * nWidth) + (iLinePos - 1)] = pImageData[(iLine * nWidth) + (nWidth - iLinePos)];
+                }
+            }
+
+            safe_delete_array(pImageData);
+            pImageData = pFlippedBuffer;
+            return;
+        }
+    }
+}
+
+void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize)
 {
     // So this is an interesting situation.
     // Incoming we have a palettized image that the user wants to use as a custom preview.
@@ -940,6 +1220,8 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         }
     }
 
+    UINT nLayerToStartWith = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+
     const size_t nDataLen = static_cast<size_t>(width) * static_cast<size_t>(height);
 
     if ((nTotalPalSize > 0xff) ||
@@ -949,17 +1231,18 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         // * maximum color table size: at this point we know that the incoming image could not encompass 
         //   the entire sprite set for this composition.  as such, the palette here should be left alone
         // * this is a single preview and the palette sizes match or at least don't use overflowing references.  Don't touch.
-        ResetCustomSpriteOverride(nPositionToLoadTo);
-        m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nDataLen];
+        ResetCustomSpriteOverride(nLayerToStartWith);
+        m_ppSpriteOverrideTexture[nLayerToStartWith] = new uint8_t[nDataLen];
 
         for (size_t iPos = 0; iPos < nDataLen; iPos++)
         {
-            m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = pImageData[iPos];
+            m_ppSpriteOverrideTexture[nLayerToStartWith][iPos] = pImageData[iPos];
         }
 
-        m_nTextureOverrideW[nPositionToLoadTo] = width;
-        m_nTextureOverrideH[nPositionToLoadTo] = height;
-        _FlipCustomPreviewLayerIfNeeded(direction, nPositionToLoadTo);
+        m_nTextureOverrideW[nLayerToStartWith] = width;
+        m_nTextureOverrideH[nLayerToStartWith] = height;
+
+        _FlipImageDataIfNeeded(direction, m_ppSpriteOverrideTexture[nLayerToStartWith], m_nTextureOverrideW[nLayerToStartWith], m_nTextureOverrideH[nLayerToStartWith]);
     }
     else
     {
@@ -967,12 +1250,12 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         //   * single preview with an incoming palette that overflows: cut out overflow references
         //   * multi-preview composition and the palettes match: cut the previews apart
         //   * direct assignment to a particular position: prune extra and only load for that position
-        for (int nPos = nPositionToLoadTo; nPos < m_nImgAmt; nPos++)
+        for (int nPos = nLayerToStartWith; nPos < m_nImgAmt; nPos++)
         {
             ResetCustomSpriteOverride(nPos);
             m_ppSpriteOverrideTexture[nPos] = new uint8_t[nDataLen];
 
-            if (nPositionToLoadTo)
+            if (pnPositionToLoadTo)
             {
                 break;
             }
@@ -983,7 +1266,7 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         {
             unsigned char nCurrentPalEnd = min(0xff, nCurrentPalStart + m_pImgBuffer[nPos]->uPalSz);
 
-            if (nPos < static_cast<int>(nPositionToLoadTo))
+            if (nPos < static_cast<int>(nLayerToStartWith))
             {
                 // we just wanted the palette math
                 continue;
@@ -1011,9 +1294,9 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
             m_nTextureOverrideW[nPos] = width;
             m_nTextureOverrideH[nPos] = height;
 
-            _FlipCustomPreviewLayerIfNeeded(direction, nPos);
+            _FlipImageDataIfNeeded(direction, m_ppSpriteOverrideTexture[nPos], m_nTextureOverrideW[nPos], m_nTextureOverrideH[nPos]);
 
-            if (nPositionToLoadTo)
+            if (pnPositionToLoadTo)
             {
                 break;
             }
@@ -1021,22 +1304,22 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
     }
 }
 
-void CImgDisp::_ResizeAndBlankCustomPreviews(UINT nPositionToLoadTo, size_t nNewSize)
+void CImgDisp::_ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nNewSize)
 {
-    for (UINT nLayer = nPositionToLoadTo; nLayer < static_cast<size_t>(m_nImgAmt); nLayer++)
+    for (UINT nLayer = pnPositionToLoadTo ? *pnPositionToLoadTo : 0; nLayer < static_cast<size_t>(m_nImgAmt); nLayer++)
     {
         ResetCustomSpriteOverride(nLayer);
         m_ppSpriteOverrideTexture[nLayer] = new uint8_t[nNewSize];
         ZeroMemory(m_ppSpriteOverrideTexture[nLayer], nNewSize);
 
-        if (nPositionToLoadTo)
+        if (pnPositionToLoadTo)
         {
             break;
         }
     }
 }
 
-void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT nPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize)
+void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize)
 {
     // Get the total palette size so we can handle correctly
     size_t nTotalPalSize = 0;
@@ -1099,7 +1382,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     // allocate max size, even though we may be adjusting this for trim
     const unsigned nDataLen = width * height;
 
-    _ResizeAndBlankCustomPreviews(nPositionToLoadTo, nDataLen);
+    _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
 
     const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
     const bool fGameSuportedByKawaks = ((currColMode == ColMode::COLMODE_RGB444_BE) || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
@@ -1141,7 +1424,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
         if (a != 0) // ignore background color
         {
-            int nCurrentPalette = nPositionToLoadTo;
+            int nCurrentPalette = pnPositionToLoadTo  ? *pnPositionToLoadTo : 0;
             bool fFoundThisColor = false;
 
             for (; nCurrentPalette < m_nImgAmt; nCurrentPalette++)
@@ -1174,7 +1457,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                     }
                 }
 
-                if (nPositionToLoadTo || fFoundThisColor)
+                if (pnPositionToLoadTo || fFoundThisColor)
                 {
                     break;
                 }
@@ -1185,7 +1468,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         {
             fUseWinKawaksShift = true;
             iPos = 0;
-            _ResizeAndBlankCustomPreviews(nPositionToLoadTo, nDataLen);
+            _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
         }
     }
 
@@ -1193,10 +1476,10 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     const unsigned true_height = min(height, 1 + (nLastLine - nFirstLine));
     const unsigned trim_length = true_width * true_height;
 
-    // trim only if we want to (allow a user setting?), if there's actual trimming possible, and if we have a reasonably sized object
+    // trim only if we want to (via user setting), if there's actual trimming possible, and if we have a reasonably sized object
     if (GetPreviewDropTrim() && (trim_length != nDataLen) && (trim_length > 16))
     {
-        for (signed int nCurrentLayer = nPositionToLoadTo; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
+        for (signed int nCurrentLayer = pnPositionToLoadTo ? *pnPositionToLoadTo : 0; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
         {
             uint8_t* pTrimmedBuffer = new uint8_t[trim_length];
 
@@ -1225,7 +1508,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             m_nTextureOverrideW[nCurrentLayer] = true_width;
             m_nTextureOverrideH[nCurrentLayer] = true_height;
 
-            if (nPositionToLoadTo)
+            if (pnPositionToLoadTo)
             {
                 break;
             }
@@ -1235,20 +1518,20 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     }
     else
     {
-        m_nTextureOverrideW[nPositionToLoadTo] = width;
-        m_nTextureOverrideH[nPositionToLoadTo] = height;
+        m_nTextureOverrideW[pnPositionToLoadTo ? *pnPositionToLoadTo : 0] = width;
+        m_nTextureOverrideH[pnPositionToLoadTo ? *pnPositionToLoadTo : 0] = height;
 
         strMsg.Format(L"Loaded %u x %u RGB PNG preview.", width, height);
     }
 
-    if (!nPositionToLoadTo)
+    if (!pnPositionToLoadTo)
     {
         for (signed int nCurrentLayer = 0; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
         {
             m_nTextureOverrideW[nCurrentLayer] = m_nTextureOverrideW[0];
             m_nTextureOverrideH[nCurrentLayer] = m_nTextureOverrideH[0];
 
-            _FlipCustomPreviewLayerIfNeeded(direction, nCurrentLayer);
+            _FlipImageDataIfNeeded(direction, m_ppSpriteOverrideTexture[nCurrentLayer], m_nTextureOverrideW[nCurrentLayer], m_nTextureOverrideH[nCurrentLayer]);
 
             AddImageNode(nCurrentLayer, m_nTextureOverrideW[nCurrentLayer], m_nTextureOverrideH[nCurrentLayer], m_ppSpriteOverrideTexture[nCurrentLayer],
                 m_pImgBuffer[nCurrentLayer]->pPalette, m_pImgBuffer[nCurrentLayer]->uPalSz, 0, 0);
@@ -1256,10 +1539,10 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     }
     else
     {
-        _FlipCustomPreviewLayerIfNeeded(direction, nPositionToLoadTo);
+        _FlipImageDataIfNeeded(direction, m_ppSpriteOverrideTexture[*pnPositionToLoadTo], m_nTextureOverrideW[*pnPositionToLoadTo], m_nTextureOverrideH[*pnPositionToLoadTo]);
 
-        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-            m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+        AddImageNode(*pnPositionToLoadTo, m_nTextureOverrideW[*pnPositionToLoadTo], m_nTextureOverrideH[*pnPositionToLoadTo], m_ppSpriteOverrideTexture[*pnPositionToLoadTo],
+            m_pImgBuffer[*pnPositionToLoadTo]->pPalette, m_pImgBuffer[*pnPositionToLoadTo]->uPalSz, 0, 0);
     }
 
     if (fFoundOne && fUseWinKawaksShift)
@@ -1299,13 +1582,14 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     }
 }
 
-bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
+uint8_t* CImgDisp::_LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fPreferQuietMode /* = true */)
 {
     CImage sprite;
+    uint8_t* pNewOverrideTexture = nullptr;
 
     if (SUCCEEDED(sprite.Load(pszTextureLocation)) &&
-        sprite.IsDIBSection() &&
-        sprite.IsIndexed())  // Note that animated GIFs will be DIBSections but not indexed
+                  sprite.IsDIBSection() &&
+                  sprite.IsIndexed())  // Note that animated GIFs will be DIBSections but not indexed
     {
         uint8_t* pBits = reinterpret_cast<uint8_t*>(sprite.GetBits());
 
@@ -1336,26 +1620,25 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
         sprite.SetColorTable(0, nColorTableSize, pColorTable);
         safe_delete_array(pColorTable);
 
-        m_nTextureOverrideW[nPositionToLoadTo] = sprite.GetWidth();
-        m_nTextureOverrideH[nPositionToLoadTo] = sprite.GetHeight();
+        nSuggestedWidth = sprite.GetWidth();
+        nSuggestedHeight = sprite.GetHeight();
 
-        const size_t nPixelCount = static_cast<size_t>(m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]);
+        const size_t nPixelCount = static_cast<size_t>(nSuggestedWidth * nSuggestedHeight);
 
-        ResetCustomSpriteOverride(nPositionToLoadTo);
-        m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nPixelCount];
+        pNewOverrideTexture = new uint8_t[nPixelCount];
 
         if (sprite.GetPitch() > 0)
         {
             size_t iPos = 0;
 
-            for (int yPos = 0; yPos < m_nTextureOverrideH[nPositionToLoadTo]; yPos++)
+            for (int yPos = 0; yPos < nSuggestedHeight; yPos++)
             {
-                for (int xPos = 0; xPos < m_nTextureOverrideW[nPositionToLoadTo]; xPos++)
+                for (int xPos = 0; xPos < nSuggestedWidth; xPos++)
                 {
                     const COLORREF curColor = sprite.GetPixel(xPos, yPos);
                     const uint8_t nColorIndex = (GetRValue(curColor) + GetGValue(curColor) + GetBValue(curColor));
 
-                    m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = nColorIndex;
+                    pNewOverrideTexture[iPos] = nColorIndex;
                     iPos++;
                 }
             }
@@ -1364,40 +1647,72 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
         {
             // We're flipped: flip the logic.
             size_t iPos = nPixelCount - 1;
-            for (int yPos = m_nTextureOverrideH[nPositionToLoadTo] - 1; yPos >= 0; yPos--)
+            for (int yPos = nSuggestedHeight - 1; yPos >= 0; yPos--)
             {
-                for (int xPos = m_nTextureOverrideW[nPositionToLoadTo] - 1; xPos >= 0; xPos--)
+                for (int xPos = nSuggestedWidth - 1; xPos >= 0; xPos--)
                 {
                     const COLORREF curColor = sprite.GetPixel(xPos, yPos);
                     const uint8_t nColorIndex = (GetRValue(curColor) + GetGValue(curColor) + GetBValue(curColor));
 
-                    m_ppSpriteOverrideTexture[nPositionToLoadTo][iPos] = nColorIndex;
+                    pNewOverrideTexture[iPos] = nColorIndex;
                     iPos--;
                 }
             }
         }
 
-        CString strMsg;
-        strMsg.Format(L"Loaded %u x %u image as a preview.", sprite.GetWidth(), sprite.GetHeight());
-        GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+        if (!fPreferQuietMode)
+        {
+            if (!_GetUserOptionsForTextureOverride(nPixelCount, nSuggestedWidth, nSuggestedHeight, nPositionToLoadTo, direction, &compositionStyle))
+            {
+                safe_delete_array(pNewOverrideTexture);
+            }
+        }
 
-        _FlipCustomPreviewLayerIfNeeded(direction, nPositionToLoadTo);
-        _UpdatePreviewForExternalSprite(nPositionToLoadTo);
+        if (pNewOverrideTexture)
+        {
+            // Apply flip options if needed
+            _FlipImageDataIfNeeded(direction, pNewOverrideTexture, nSuggestedWidth, nSuggestedHeight);
+        }
+    }
+
+    return pNewOverrideTexture;
+}
+
+bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode /* = false */)
+{
+    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
+    int nHeight = 0, nWidth= 0;
+
+    uint8_t* pNewOverrideTexture = _LoadTextureFromCImageSprite(pszTextureLocation, nPositionToLoadTo, nHeight, nWidth, direction, compositionStyle, fPreferQuietMode);
+
+    if (pNewOverrideTexture)
+    {
+        _CompositeTexture(pNewOverrideTexture, nPositionToLoadTo, nHeight, nWidth, direction, compositionStyle);
+
+        _UpdatePreviewForExternalSprite(&nPositionToLoadTo);
+
+        CString strInfo;
+        strInfo.Format(L"Loaded %u x %u image as a preview.", nWidth, nHeight);
+        GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
+        strInfo += "\r\n";
+        OutputDebugString(strInfo.GetString());
 
         return true;
     }
     else
     {
-        std::vector<COLORREF> rgclrPaletteData;
-        GetHost()->GetPalModDlg()->LoadDataFromGIFFile(pszTextureLocation, rgclrPaletteData);
-
+        CString strInfo = L"Failed to load this image.  Animated GIFs are not supported as replacement previews.";
+        MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+        strInfo += "\r\n";
+        OutputDebugString(strInfo.GetString());
         return false;
     }
 }
 
-bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fUseQuietMode /* = false */)
+bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode /* = false */)
 {
     bool fSuccess = false;
+    bool fUserCanceled = false;
     lodepng::State state;
 
     lodepng_state_init(&state);
@@ -1412,22 +1727,34 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
         state.decoder.color_convert = 0;
         if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
         {
-            if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
+            // We know the gist of this image: let's confirm user options if appropriate
+            if (!fPreferQuietMode && pnPositionToLoadTo)
             {
-                _ImportAndSplitSpriteComposition(direction, nPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
-
-                // We handle RGB status update inside that logic, since it can be slightly different
-                CString strMsg;
-                strMsg.Format(L"Loaded %u x %u indexed PNG as a preview.", width, height);
-                GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
-
-                fSuccess = true;
+                int intWidth = width, intHeight = height;
+                fUserCanceled = !_GetUserOptionsForTextureOverride(width * height, intWidth, intHeight, *pnPositionToLoadTo, direction, nullptr);
+                width = intWidth;
+                height = intHeight;
             }
-            else if ((state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ||
-                     (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA))
+
+            if (!fUserCanceled)
             {
-                _ImportAndSplitRGBSpriteComposition(direction, nPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
-                fSuccess = true;
+                if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
+                {
+                    _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
+
+                    // We handle RGB status update inside that logic, since it can be slightly different
+                    CString strMsg;
+                    strMsg.Format(L"Loaded %u x %u indexed PNG as a preview.", width, height);
+                    GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+
+                    fSuccess = true;
+                }
+                else if ((state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ||
+                         (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA))
+                {
+                    _ImportAndSplitRGBSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
+                    fSuccess = true;
+                }
             }
 
             free(loadedAsPNG);
@@ -1438,13 +1765,13 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     
     if (fSuccess)
     {
-        _UpdatePreviewForExternalSprite(nPositionToLoadTo);
+        _UpdatePreviewForExternalSprite(pnPositionToLoadTo);
 
         return true;
     }
     else
     {
-        if (!fUseQuietMode)
+        if (!fPreferQuietMode && !fUserCanceled)
         {
             MessageBox(L"Error: this is not a supported PNG.  Indexed PNGs are best suited as replacement previews.", GetHost()->GetAppName(), MB_ICONERROR);
         }
@@ -1453,10 +1780,13 @@ bool CImgDisp::LoadExternalPNGSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     }
 }
 
-void CImgDisp::_UpdatePreviewForExternalSprite(UINT nPositionToLoadTo)
+void CImgDisp::_UpdatePreviewForExternalSprite(UINT* pnPositionToLoadTo)
 {
-    if (nPositionToLoadTo == 0)
+    UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+
+    if (!nPositionToLoadTo)
     {
+        // always need to reset our layout when we're replacing the 0th image
         ResetImageCompositionLayout();
     }
 
@@ -1473,7 +1803,7 @@ void CImgDisp::_UpdatePreviewForExternalSprite(UINT nPositionToLoadTo)
             m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
     }
 
-    if (nPositionToLoadTo == 0)
+    if (!nPositionToLoadTo)
     {
         ResetForNewImage();
     }

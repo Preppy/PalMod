@@ -138,6 +138,11 @@
 #define IDC_BSWAPRB                     1104
 #define IDC_BSWAPRGB                    1105
 #define IDC_BSWAPRBG                    1106
+#define IDC_RAWFIXUP_READ_OPTIONS       1107
+#define IDC_RAWFIXUP_OPTIONS_READ       1108
+#define IDC_RAWFIXUP_OPTIONS_COMPOSITION 1109
+#define IDC_RAWFIXUP_BANNER             1110
+#define IDC_RAWFIXUP_OPTIONS_LAYER      1111
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -332,7 +337,7 @@
 #define ID_FILE_OPENEXTRAS              32893
 #define ID_COLORFORMAT_RGB888           32894
 #define ID_COLORFORMAT_BGR888           32895
-#define ID_FILE_LOADSPRITEFLIPPED       32896
+#define ID_FILE_LOADSPRITECUSTOM        32896
 #define ID_LD_GGXXACR_P                 32897
 #define ID_LD_MBAACC_S                  32898
 #define ID_COLORFORMAT_GRB555_LE        32899
@@ -408,14 +413,13 @@
 #define IDS_TPLSAVE_SUCCESS             32969
 #define IDS_TPLSAVE_FAILURE             32970
 
-
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
 #define _APS_NEXT_COMMAND_VALUE         32971
-#define _APS_NEXT_CONTROL_VALUE         1102
+#define _APS_NEXT_CONTROL_VALUE         1112
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

@@ -217,7 +217,7 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
     }
 }
 
-bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, int nPosition)
+bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
 {
     // Note that used pathing is off CurrentWorkingDirectory\\Previews
     // Note that since we key off of combobox palette names at this point, we can only do this for image 0
@@ -305,7 +305,7 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, int nPosition)
             OutputDebugString(strFile.GetBuffer());
 #endif
 
-            fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
+            fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
         }
     }
 

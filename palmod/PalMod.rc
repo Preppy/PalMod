@@ -320,15 +320,22 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,109,137,43,14
 END
 
-IDD_RAWFIXUP_DIALOG DIALOGEX 0, 0, 197, 175
+IDD_RAWFIXUP_DIALOG DIALOGEX 0, 0, 213, 155
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "RAW Fixup Options"
+CAPTION "Preview Import Options"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,47,151,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,103,151,50,14
-    LTEXT           "The supplied height and width values for this RAW file are not accurate and can not be used.  Please select which possible height and width you want to use.",IDC_STATIC,7,7,183,41
-    LISTBOX         IDC_RAWFIXUP_HWOPTIONS,49,49,102,91,LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,57,126,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,126,50,14
+    LTEXT           "Please select your replacement preview image options.",IDC_RAWFIXUP_BANNER,7,7,185,16
+    LISTBOX         IDC_RAWFIXUP_HWOPTIONS,14,40,65,77,LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_RAWFIXUP_OPTIONS_READ,92,40,62,29,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Import:",IDC_STATIC,90,25,61,8
+    LTEXT           "Composition:",IDC_STATIC,90,76,59,8
+    LISTBOX         IDC_RAWFIXUP_OPTIONS_COMPOSITION,92,88,62,29,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Layer:",IDC_STATIC,165,25,38,8
+    LISTBOX         IDC_RAWFIXUP_OPTIONS_LAYER,168,40,31,77,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Dimensions:",IDC_STATIC,13,25,50,8
 END
 
 IDD_DEVMODE_SELECTFILES DIALOGEX 0, 0, 449, 159
@@ -462,9 +469,9 @@ BEGIN
     IDD_RAWFIXUP_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 190
+        RIGHTMARGIN, 206
         TOPMARGIN, 7
-        BOTTOMMARGIN, 168
+        BOTTOMMARGIN, 148
     END
 
     IDD_DEVMODE_SELECTFILES, DIALOG
@@ -511,9 +518,9 @@ BEGIN
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
             POPUP "Guilty Gear"
             BEGIN
-                MENUITEM "GGXX:AC+R (Steam, Characters)",           ID_LD_GGXXACR_S
-                MENUITEM "GGXX:AC+R (Steam, EX Characters)",        ID_LD_GGXXACR_S_EXCHAR
-                MENUITEM "GGXX:AC+R (Steam, Effects/HUD/Menus)",    ID_LD_GGXXACR_S_EXTRAS
+                MENUITEM "GGXX:AC+R (Steam, Characters)", ID_LD_GGXXACR_S
+                MENUITEM "GGXX:AC+R (Steam, EX Characters)", ID_LD_GGXXACR_S_EXCHAR
+                MENUITEM "GGXX:AC+R (Steam, Effects/HUD/Menus)", ID_LD_GGXXACR_S_EXTRAS
                 MENUITEM SEPARATOR
                 MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
                 MENUITEM "GGXX:AC+ (Wii, ID:R3NEXS)",   ID_LD_GGXXACP_Wii
@@ -713,7 +720,7 @@ BEGIN
     BEGIN
         MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
         MENUITEM "Load Texture",                ID_FILE_LOADSPRITE
-        MENUITEM "Load Texture Flipped",        ID_FILE_LOADSPRITEFLIPPED
+        MENUITEM "Load Texture Advanced...",    ID_FILE_LOADSPRITECUSTOM
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
     END
@@ -735,7 +742,7 @@ BEGIN
         POPUP "Drop Settings"
         BEGIN
             MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
-            MENUITEM "Trim dropped previews", ID_SETTINGS_DROPTRIM
+            MENUITEM "Trim dropped previews",       ID_SETTINGS_DROPTRIM
             MENUITEM "Use WinKawaks correction first for CPS1/CPS2/NeoGeo", ID_SETTINGS_DROPKAWAKS
         END
         MENUITEM SEPARATOR
@@ -1004,7 +1011,8 @@ BEGIN
     IDS_PATCHGAME_MULTI     "%d of %d units patched successfully%s."
     IDS_PATCH_EMPTY         "No changes detected: nothing to patch."
     IDS_CROSSCOPY_SINGLE_SUCCESS "Game crosscopied successfully%s."
-    IDS_CROSSCOPY_MULTI_SUCCESS "%d of %d characters crosscopied successfully%s."
+    IDS_CROSSCOPY_MULTI_SUCCESS 
+                            "%d of %d characters crosscopied successfully%s."
     IDS_CROSSCOPY_NODIR     "No directory specified."
     IDS_IPS_SINGLE          "%u change saved to patch file."
 END
@@ -1030,8 +1038,12 @@ END
 STRINGTABLE
 BEGIN
     IDS_ERROR_ENCRYPTED     "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
-    IDS_TPLSAVE_SUCCESS    "TPL file saved successfully."
-    IDS_TPLSAVE_FAILURE    "Error saving TPL file."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TPLSAVE_SUCCESS     "TPL file saved successfully."
+    IDS_TPLSAVE_FAILURE     "Error saving TPL file."
 END
 
 #endif    // English (United States) resources

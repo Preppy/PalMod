@@ -49,7 +49,7 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_FILE_CLOSE, &CPreviewDlg::OnFileClose)
     ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
     ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSpriteForZero)
-    ON_COMMAND(ID_FILE_LOADSPRITEFLIPPED, &CPreviewDlg::OnLoadCustomSpriteForZeroFlipped)
+    ON_COMMAND(ID_FILE_LOADSPRITECUSTOM, &CPreviewDlg::OnLoadCustomSpriteWithOptions)
 
     ON_COMMAND(ID_SETTINGS_BLINKINVERTS, &CPreviewDlg::OnSetBlinkInverts)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBackgroundCol)
@@ -74,7 +74,6 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_CLICKANDFIND, &CPreviewDlg::OnSettingsClickToFindColor)
 
     ON_COMMAND_RANGE(k_nTextureLoadCommandMask, k_nTextureLoadCommandMask + MAX_IMAGES_DISPLAYABLE, &CPreviewDlg::OnLoadCustomSpriteNormal)
-    ON_COMMAND_RANGE(k_nTextureLoadCommandMask + FLIPPED_IMAGES_MESSAGE_OFFSET, k_nTextureLoadCommandMask + FLIPPED_IMAGES_MESSAGE_OFFSET + MAX_IMAGES_DISPLAYABLE, &CPreviewDlg::OnLoadCustomSpriteFlipped)
 
 END_MESSAGE_MAP()
 
@@ -409,7 +408,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         const bool fGameLoaded = GetHost()->GetCurrGame();
         pPopupMenu->EnableMenuItem(ID_FILE_EXPORTIMAGE, !fGameLoaded);
         pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITE, !fGameLoaded);
-        pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITEFLIPPED, !fGameLoaded);
+        pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITECUSTOM, !fGameLoaded);
 
         if (fGameLoaded)
         {
@@ -418,18 +417,16 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                 int nOriginalMenuId;
                 LPWSTR pszMonoString;
                 LPCWSTR pszMultiFormat;
-                UINT nAdditionalOffset;
             };
 
             ImportMenuOption rgImportMenuOptions[] =
             {
-                { ID_FILE_LOADSPRITE, const_cast<LPWSTR>(L"Load Texture"), L"Load Texture for Palette %u", 0 },
-                { ID_FILE_LOADSPRITEFLIPPED, const_cast<LPWSTR>(L"Load Flipped Texture"), L"Load Flipped Texture for Palette %u", FLIPPED_IMAGES_MESSAGE_OFFSET },
+                { ID_FILE_LOADSPRITE, const_cast<LPWSTR>(L"Load Texture"), L"Load Texture for Palette %u" },
             };
 
             for (UINT iIndex = 0; iIndex < ARRAYSIZE(rgImportMenuOptions); iIndex++)
             {
-                // Since the optional submenu is dynamically sized, reset everything...
+                // Since the optional submenu is dynamically sized, reset the old version...
                 pPopupMenu->DeleteMenu(rgImportMenuOptions[iIndex].nOriginalMenuId, MF_BYCOMMAND);
 
                 const uint32_t nPaletteCount = GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt();
@@ -452,7 +449,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     {
                         mii.cbSize = sizeof(MENUITEMINFO);
                         mii.fMask = MIIM_ID | MIIM_STRING;
-                        mii.wID = (nSpritePos | k_nTextureLoadCommandMask) + rgImportMenuOptions[iIndex].nAdditionalOffset;
+                        mii.wID = (nSpritePos | k_nTextureLoadCommandMask);
                         strMenuName.Format(rgImportMenuOptions[iIndex].pszMultiFormat, nSpritePos);
 
                         mii.dwTypeData = const_cast<LPWSTR>(strMenuName.GetString());
@@ -519,7 +516,7 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode)
 {
     wchar_t* pszExt = wcsrchr(pszPath, L'.');
     bool fSuccess = false;
@@ -528,15 +525,15 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportD
         ((_wcsicmp(pszExt, L".gif") == 0) ||
          (_wcsicmp(pszExt, L".bmp") == 0)))
     {
-        fSuccess = m_ImgDisp.LoadExternalCImageSprite(nPositionToLoadTo, direction, pszPath);
+        fSuccess = m_ImgDisp.LoadExternalCImageSprite(*pnPositionToLoadTo, direction, pszPath, fPreferQuietMode);
     }
     else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
     {
-        fSuccess = m_ImgDisp.LoadExternalPNGSprite(nPositionToLoadTo, direction, pszPath);
+        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fPreferQuietMode);
     }
     else
     {
-        fSuccess = m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath);
+        fSuccess = m_ImgDisp.LoadExternalRAWSprite(*pnPositionToLoadTo, direction, pszPath, fPreferQuietMode);
     }
 
     if (fSuccess)
@@ -545,10 +542,11 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportD
     }
 }
 
-void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */)
+void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */, bool fPreferQuietMode /* = true*/)
 {
     if (GetHost()->GetCurrGame())
     {
+        // Maybe remember selection here...?
         CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Supported texture files|*-W-*-H-*.*;*.png;*.gif|"
                                                        L"RAW Texture file|*-W-*-H-*.*|"
                                                        L"Indexed PNG|*.png|"
@@ -559,12 +557,7 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
             // eliminate the k_nTextureLoadCommandMask mask for usage...
             UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
 
-            if (nCorrectedPosition > MAX_IMAGES_DISPLAYABLE)
-            {
-                nCorrectedPosition -= FLIPPED_IMAGES_MESSAGE_OFFSET;
-            }
-
-            LoadCustomSpriteFromPath(nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer());
+            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fPreferQuietMode);
         }
     }
     else

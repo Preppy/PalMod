@@ -54,7 +54,7 @@ bool CPalModDlg::LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_heade
     return fIsValidGIF;
 }
 
-bool CPalModDlg::LoadDataFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData)
+bool CPalModDlg::ReadPaletteFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData)
 {
     CFile sourceGIF;
 
@@ -94,7 +94,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
     CString strError = L"Unknown error loading GIF file.";
     std::vector<COLORREF> rgclrPaletteData;
 
-    if (LoadDataFromGIFFile(pszFileName, rgclrPaletteData))
+    if (ReadPaletteFromGIFFile(pszFileName, rgclrPaletteData))
     {
         ProcChange();
 
