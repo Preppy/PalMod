@@ -1691,7 +1691,7 @@ uint8_t* CImgDisp::_LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UIN
 
         if (!fPreferQuietMode)
         {
-            if (!_GetUserOptionsForTextureOverride(nPixelCount, nSuggestedWidth, nSuggestedHeight, nPositionToLoadTo, direction, &compositionStyle))
+            if (!_GetUserOptionsForTextureOverride(static_cast<int>(nPixelCount), nSuggestedWidth, nSuggestedHeight, nPositionToLoadTo, direction, &compositionStyle))
             {
                 safe_delete_array(pNewOverrideTexture);
             }

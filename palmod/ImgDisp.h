@@ -1,7 +1,6 @@
 #pragma once
 #include "game\Default.h"
 #include "game\palgroup.h"
-#include <optional>
 
 #define aadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 #define fabs(x) (x < 0.0f ? -x : x)
@@ -12,12 +11,6 @@ constexpr auto SETIMGINDEX = 1;
 constexpr auto IMGDISP_CLASSNAME = L"CImgDisp";
 
 constexpr auto DEF_ZOOM = 1.0f;
-
-struct sImgIndex
-{
-    uint32_t* pIndexAmt = nullptr;
-    POINT** ppIndexes = nullptr;
-};
 
 struct sImgNode
 {
@@ -110,10 +103,6 @@ private:
     int m_nImgRctW = 0;
     int m_nImgRctH = 0;
 
-    uint8_t m_bUsed[MAX_IMAGES_DISPLAYABLE] = {};
-
-    POINT m_ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
-    
     CString m_strBackgroundLoc = L"";
 
     int m_nXOffsTop = 0;
@@ -125,6 +114,8 @@ private:
     uint8_t* m_ppSpriteOverrideTexture[MAX_IMAGES_DISPLAYABLE] = { nullptr };
     int m_nTextureOverrideW[MAX_IMAGES_DISPLAYABLE] = { 0 };
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
+    uint8_t m_bUsed[MAX_IMAGES_DISPLAYABLE] = {};
+    POINT m_ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
 
     bool _GetUserOptionsForTextureOverride(int nFileSize, int& nSuggestedImageWidth, int& nSuggestedImageHeight, UINT& nPositionToLoadTo, SpriteImportDirection& spriteDirection, SpriteImportCompositionStyle *pCompositionStyle);
     void _ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nNewSize);
