@@ -189,7 +189,7 @@ void CPreviewDlg::OnSetBackgroundImage()
     {
         if (m_ImgDisp.LoadBGBmp(OpenDialog.GetPathName().GetBuffer()))
         {
-            szBGLoc = OpenDialog.GetPathName();
+            m_ImgDisp.m_Settings.strPreviewBGBMPPath = OpenDialog.GetPathName();
             m_ImgDisp.SetBGXOffs(0);
             m_ImgDisp.SetBGYOffs(0);
             m_ImgDisp.SetUseBGCol(FALSE);
@@ -227,30 +227,16 @@ void CPreviewDlg::LoadSettings()
 
     LoadSett.LoadReg(eRegistryStoreID::REG_PREV);
 
-    szBGLoc = LoadSett.szPrevBGLoc;
+    m_ImgDisp.m_Settings = LoadSett.m_PreviewSettings;
 
-    m_ImgDisp.SetBGCol(LoadSett.prev_bgcol);
-    m_ImgDisp.SetBlinkCol(LoadSett.prev_blinkcol);
-    m_ImgDisp.SetBlinkInverts(LoadSett.prev_blinkinverts);
-    m_ImgDisp.SetBGTiled(LoadSett.fTileBG);
-    m_ImgDisp.SetBGXOffs(LoadSett.nBGXOffs);
-    m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
-    m_ImgDisp.SetForcedBlendMode(LoadSett.eBlendMode);
-    m_ImgDisp.SetUseBGCol(LoadSett.fUseBGCol);
-    m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
-    m_ImgDisp.SetClickToFindColorSetting(LoadSett.fClickToFind);
-    m_ImgDisp.SetDropIsPalette(LoadSett.fPreviewDropIsPalette);
-    m_ImgDisp.SetPreviewDropTrim(LoadSett.fPreviewDropTrimPreview);
-    m_ImgDisp.SetPreviewDropWinKawaksFirst(LoadSett.fPreviewDropWinKawaksFirst);
-
-    if (LoadSett.fUseBGCol)
+    if (LoadSett.m_PreviewSettings.fUseBGCol)
     {
         // Don't bother loading the image yet: just make sure the right path is in use.
-        m_ImgDisp.SetBGBmpPath(szBGLoc.GetBuffer());
+        m_ImgDisp.SetBGBmpPath(m_ImgDisp.m_Settings.strPreviewBGBMPPath.GetBuffer());
     }
     else
     {
-        m_ImgDisp.LoadBGBmp(szBGLoc.GetBuffer());
+        m_ImgDisp.LoadBGBmp(m_ImgDisp.m_Settings.strPreviewBGBMPPath.GetBuffer());
     }
 
     RECT window_rect;
@@ -302,20 +288,7 @@ void CPreviewDlg::SaveSettings()
 {
     CRegProc SaveSett;
 
-    wcscpy(SaveSett.szPrevBGLoc, szBGLoc.GetBuffer());
-    SaveSett.prev_bgcol = m_ImgDisp.GetBGCol();
-    SaveSett.prev_blinkcol = m_ImgDisp.GetBlinkCol();
-    SaveSett.prev_blinkinverts = m_ImgDisp.GetBlinkInverts();
-    SaveSett.fTileBG = m_ImgDisp.IsBGTiled();
-    SaveSett.nBGXOffs = m_ImgDisp.GetBGXOffs();
-    SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
-    SaveSett.eBlendMode = m_ImgDisp.GetForcedBlendMode();
-    SaveSett.fUseBGCol = m_ImgDisp.IsUsingBGCol();
-    SaveSett.dPreviewZoom = m_ImgDisp.GetZoom();
-    SaveSett.fClickToFind = m_ImgDisp.GetClickToFindColorSetting();
-    SaveSett.fPreviewDropIsPalette = m_ImgDisp.GetPreviewDropIsPalette();
-    SaveSett.fPreviewDropTrimPreview = m_ImgDisp.GetPreviewDropTrim();
-    SaveSett.fPreviewDropWinKawaksFirst = m_ImgDisp.GetPreviewDropWinKawaksFirst();
+    SaveSett.m_PreviewSettings = m_ImgDisp.m_Settings;
 
     RECT window_rect;
 

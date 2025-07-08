@@ -55,7 +55,7 @@ public:
 
     int m_clip_right = 0, m_clip_bottom = 0;
 
-    int m_blt_w = 0, m_blt_h = 0;
+    sImageDimensions m_bltDimensions;
 
     int m_nPalAmt = 0;
     int m_nImageAmt = 0;
@@ -66,14 +66,13 @@ public:
     int m_border_sz = 0;
     int m_outline_sz = 0;
 
-    int m_cl_width = 0, m_cl_height = 0;
+    sImageDimensions m_mainWindowDimensions;
+    sImageDimensions m_clientDimensions;
 
     void UpdateCtrl(BOOL fDraw = TRUE, uint8_t* pDstData = NULL);
     void UpdateClip();
 
     void ClearCtrlBG();
-
-    int m_nMainW = 0, m_nMainH = 0;
 
     int GetImageCountForFirstLine();
     int GetMaxImagesPerLine();

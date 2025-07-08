@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include "ColorSystem.h"
 
 enum class eRegistryStoreID
 {
@@ -18,6 +19,26 @@ constexpr auto c_mainDefaultShowAs32 = FALSE;
 constexpr auto c_mainDefaultProcSupp = TRUE;
 constexpr auto c_mainDefaultExtraCopyData = FALSE;
 constexpr auto c_AppRegistryRoot = L"Software\\knarxed\\PalMod";
+
+struct sPreviewWindowSettings
+{
+    COLORREF prev_bgcol = 0x00D0D0D0;
+    COLORREF prev_blinkcol = 0x00FFFFFF;
+
+    CString strPreviewBGBMPPath;
+    sImageDisplayOffsets nBGBMPOffsets;
+
+    BOOL fTileBG = FALSE;
+    BOOL fUseBGCol = FALSE;
+    BOOL fClickToFindColor = TRUE;
+    BOOL fBlinkInverts = FALSE;
+    BOOL fPreviewDropIsPalette = TRUE;
+    BOOL fPreviewDropTrimPreview = TRUE;
+    BOOL fPreviewDropWinKawaksFirst = FALSE;
+
+    double dPreviewZoom = 0.0;
+    BlendMode eBlendMode = BlendMode::Default;
+};
 
 class CPalModZoom
 {
@@ -84,27 +105,10 @@ public:
     BOOL main_bExtraCopyData = c_mainDefaultExtraCopyData;
 
     //Preview
-
     RECT prev_szpos = { c_badWindowPosValue };
-
-    COLORREF prev_bgcol;
-    COLORREF prev_blinkcol;
-    BOOL prev_blinkinverts;
-
-    wchar_t szPrevBGLoc[MAX_PATH];
-    int nBGXOffs;
-    int nBGYOffs;
-    BOOL fTileBG;
-    BOOL fUseBGCol;
-    BOOL fClickToFind;
-    BOOL fPreviewDropIsPalette;
-    BOOL fPreviewDropTrimPreview;
-    BOOL fPreviewDropWinKawaksFirst;
-    double dPreviewZoom = 0.0;
-    BlendMode eBlendMode = BlendMode::Default;
+    sPreviewWindowSettings m_PreviewSettings;
 
     //New Image
-
     RECT imgout_szpos = { c_badWindowPosValue };
     COLORREF imgout_bgcol;
     DWORD imgout_border;

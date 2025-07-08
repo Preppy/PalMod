@@ -75,36 +75,35 @@ void CImgDumpBmp::InitImgData()
 
     for (int nImgCtr = 0; nImgCtr < m_nImageAmt; nImgCtr++)
     {
-        int nXOffs = m_rgSrcImg[nImgCtr]->nXOffs;
         // We need to flip the vertical offset since we're drawing upside-down.
-        int nYOffs = -1 * m_rgSrcImg[nImgCtr]->nYOffs;
+        sImageDisplayOffsets nOffsets = { m_rgSrcImg[nImgCtr]->offsets.x, -1 * m_rgSrcImg[nImgCtr]->offsets.y };
 
-        if (nXOffs < m_rImgRct.left)
+        if (nOffsets.x < m_rImgRct.left)
         {
-            m_rImgRct.left = nXOffs;
+            m_rImgRct.left = nOffsets.x;
         }
 
-        if (nYOffs < m_rImgRct.top)
+        if (nOffsets.y < m_rImgRct.top)
         {
-            m_rImgRct.top = nYOffs;
+            m_rImgRct.top = nOffsets.y;
         }
 
-        if ((nXOffs + m_rgSrcImg[nImgCtr]->uImgW) > m_rImgRct.right)
+        if ((nOffsets.x + m_rgSrcImg[nImgCtr]->dimensions.width) > m_rImgRct.right)
         {
-            m_rImgRct.right = nXOffs + m_rgSrcImg[nImgCtr]->uImgW;
+            m_rImgRct.right = nOffsets.x + m_rgSrcImg[nImgCtr]->dimensions.width;
         }
 
-        if ((nYOffs + m_rgSrcImg[nImgCtr]->uImgH) > m_rImgRct.bottom)
+        if ((nOffsets.y + m_rgSrcImg[nImgCtr]->dimensions.height) > m_rImgRct.bottom)
         {
-            m_rImgRct.bottom = nYOffs + m_rgSrcImg[nImgCtr]->uImgH;
+            m_rImgRct.bottom = nOffsets.y + m_rgSrcImg[nImgCtr]->dimensions.height;
         }
 
-        m_ptOffs[nImgCtr].x = nXOffs;
-        m_ptOffs[nImgCtr].y = nYOffs;
+        m_ptOffs[nImgCtr].x = nOffsets.x;
+        m_ptOffs[nImgCtr].y = nOffsets.y;
     }
 
-    m_blt_w = m_rImgRct.Width();
-    m_blt_h = m_rImgRct.Height();
+    m_bltDimensions.width = m_rImgRct.Width();
+    m_bltDimensions.height = m_rImgRct.Height();
 
     // Initialize the W/H variables
     GetOutputW();
@@ -154,7 +153,7 @@ void CImgDumpBmp::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     switch (nSBCode)
     {
     case SB_BOTTOM:
-        curr_pos = m_nMainH;
+        curr_pos = m_mainWindowDimensions.height;
         break;
     case SB_ENDSCROLL:
         break;
@@ -219,7 +218,7 @@ void CImgDumpBmp::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
         curr_pos += SCROLL_PAGE_AMT;
         break;
     case SB_RIGHT:
-        curr_pos = m_nMainW;
+        curr_pos = m_mainWindowDimensions.width;
         break;
     case SB_THUMBPOSITION:
         m_HScroll.SetScrollPos(nPos);
@@ -250,7 +249,7 @@ void CImgDumpBmp::UpdateBltRect(BOOL reset_flag)
         const int scroll_w = m_HScroll.GetScrollPos();
 
         m_main_blt.top = 0 + (scroll_h * reset_flag);
-        //m_main_blt.bottom = m_cl_height + scroll_h;
+        //m_main_blt.bottom = m_clientDimensions.height + scroll_h;
 
         m_main_blt.left = 0 + (scroll_w * reset_flag);
 
@@ -259,7 +258,7 @@ void CImgDumpBmp::UpdateBltRect(BOOL reset_flag)
             m_VScroll.SetScrollPos(0, 0);
             m_HScroll.SetScrollPos(0, 0);
         }
-        //m_main_blt.right = m_cl_width + scroll_w;
+        //m_main_blt.right = m_clientDimensions.width + scroll_w;
     }
 }
 
@@ -267,22 +266,22 @@ void CImgDumpBmp::SetClientSize()
 {
     GetClientRect(&m_ctrl_rect);
 
-    m_cl_width = m_ctrl_rect.right - SCROLL_W;
-    m_cl_height = m_ctrl_rect.bottom - SCROLL_W;
+    m_clientDimensions.width = m_ctrl_rect.right - SCROLL_W;
+    m_clientDimensions.height = m_ctrl_rect.bottom - SCROLL_W;
 }
 
 void CImgDumpBmp::UpdateClip()
 {
     if (m_HScroll) // functionally this is a FirstRun check
     {
-        m_clip_right = m_nMainW - m_cl_width;
-        m_clip_bottom = m_nMainH - m_cl_height;
+        m_clip_right = m_mainWindowDimensions.width - m_clientDimensions.width;
+        m_clip_bottom = m_mainWindowDimensions.height - m_clientDimensions.height;
 
         m_HScroll.SetScrollRange(0, m_clip_right);
         m_VScroll.SetScrollRange(0, m_clip_bottom);
 
-        HScroll_Enabled = m_cl_width < m_nMainW;
-        VScroll_Enabled = m_cl_height < m_nMainH;
+        HScroll_Enabled = m_clientDimensions.width < m_mainWindowDimensions.width;
+        VScroll_Enabled = m_clientDimensions.height < m_mainWindowDimensions.height;
 
         m_HScroll.EnableWindow(HScroll_Enabled);
         m_VScroll.EnableWindow(VScroll_Enabled);
@@ -396,11 +395,11 @@ BOOL CImgDumpBmp::OnEraseBkgnd(CDC* pDC)
 
 void CImgDumpBmp::SizeScroll(BOOL resize)
 {
-    m_v_rect.top = m_ctrl_rect.top; m_v_rect.bottom = m_cl_height;
-    m_v_rect.left = m_cl_width; m_v_rect.right = m_ctrl_rect.right;
+    m_v_rect.top = m_ctrl_rect.top; m_v_rect.bottom = m_clientDimensions.height;
+    m_v_rect.left = m_clientDimensions.width; m_v_rect.right = m_ctrl_rect.right;
 
-    m_h_rect.top = m_cl_height; m_h_rect.bottom = m_ctrl_rect.bottom;
-    m_h_rect.left = m_ctrl_rect.left; m_h_rect.right = m_cl_width;
+    m_h_rect.top = m_clientDimensions.height; m_h_rect.bottom = m_ctrl_rect.bottom;
+    m_h_rect.left = m_ctrl_rect.left; m_h_rect.right = m_clientDimensions.width;
 
     if (resize && m_fScrollbarIsReady)
     {
@@ -421,14 +420,14 @@ void CImgDumpBmp::ClearCtrlBG()
         CClientDC* cdc = new CClientDC(this);
 
         COLORREF crCol = GetSysColor(COLOR_3DFACE);
-        if (m_cl_width > m_nMainW)
+        if (m_clientDimensions.width > m_mainWindowDimensions.width)
         {
-            cdc->FillSolidRect(CRect(m_nMainW, 0, m_cl_width, m_cl_height), crCol);
+            cdc->FillSolidRect(CRect(m_mainWindowDimensions.width, 0, m_clientDimensions.width, m_clientDimensions.height), crCol);
         }
 
-        if (m_cl_height > m_nMainH)
+        if (m_clientDimensions.height > m_mainWindowDimensions.height)
         {
-            cdc->FillSolidRect(CRect(0, m_nMainH, m_cl_width, m_cl_height), crCol);
+            cdc->FillSolidRect(CRect(0, m_mainWindowDimensions.height, m_clientDimensions.width, m_clientDimensions.height), crCol);
         }
 
         cdc->FillSolidRect(CRect(m_ctrl_rect.right - SCROLL_W, m_ctrl_rect.bottom - SCROLL_W, m_ctrl_rect.right, m_ctrl_rect.bottom), crCol);
@@ -443,7 +442,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL fDraw, uint8_t* pDstData)
     {
         ClearCtrlBG();
 
-        m_MainDC.FillSolidRect(CRect(0, 0, m_nMainW, m_nMainH), m_crBGCol);
+        m_MainDC.FillSolidRect(CRect(0, 0, m_mainWindowDimensions.width, m_mainWindowDimensions.height), m_crBGCol);
 
         int row_ctr = 0;
         int nPal = 0;
@@ -487,11 +486,11 @@ void CImgDumpBmp::UpdateCtrl(BOOL fDraw, uint8_t* pDstData)
                 CustomBlt(nImgCtr, nPal,
 
                     //Left
-                    static_cast<int>((nTargetX * (m_blt_w * m_flZoomLevel))
+                    static_cast<int>((nTargetX * (m_bltDimensions.width * m_flZoomLevel))
                     + m_border_sz + (m_border_sz * nTargetX) + abs(m_rImgRct.left * m_flZoomLevel) + (m_ptOffs[nImgCtr].x * m_flZoomLevel)),
 
                     //Top
-                    static_cast<int>((row_ctr * (m_blt_h * m_flZoomLevel))
+                    static_cast<int>((row_ctr * (m_bltDimensions.height * m_flZoomLevel))
                     + m_border_sz + (m_border_sz * row_ctr) + abs(m_rImgRct.top * m_flZoomLevel) + (m_ptOffs[nImgCtr].y * m_flZoomLevel)),
 
                     m_flZoomLevel, (pDstData != nullptr)
@@ -519,8 +518,8 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
     if (pDstBmpData)
     {
-        int nWidth = m_rgSrcImg[nSrcIndex]->uImgW;
-        int nHeight = m_rgSrcImg[nSrcIndex]->uImgH;
+        int nWidth = m_rgSrcImg[nSrcIndex]->dimensions.width;
+        int nHeight = m_rgSrcImg[nSrcIndex]->dimensions.height;
         int nSrcX = 0, nSrcY = 0;
 
         double fpXDiff = static_cast<double>(nWidth) / (static_cast<double>(nWidth) * fpZoom);
@@ -543,14 +542,14 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
             nSrcY = abs(nDstY);
         }
 
-        if (rBltRct.right > m_nMainW)
+        if (rBltRct.right > m_mainWindowDimensions.width)
         {
-            rBltRct.right = m_nMainW;
+            rBltRct.right = m_mainWindowDimensions.width;
         }
 
-        if (rBltRct.bottom > m_nMainH)
+        if (rBltRct.bottom > m_mainWindowDimensions.height)
         {
-            rBltRct.bottom = m_nMainH;
+            rBltRct.bottom = m_mainWindowDimensions.height;
         }
 
         int nBltW = rBltRct.right - rBltRct.left;
@@ -566,7 +565,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
             {
                 int nYCtr = static_cast<int>(static_cast<double>(yIndex) * fpYDiff);
 
-                int nStartRow = (yIndex + rBltRct.top) * (m_nMainW * 4) + (rBltRct.left * 4);
+                int nStartRow = (yIndex + rBltRct.top) * (m_mainWindowDimensions.width * 4) + (rBltRct.left * 4);
                 int nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
                 for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
@@ -607,7 +606,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
             {
                 const int nYCtr = static_cast<int>(static_cast<double>(yIndex) * fpYDiff);
 
-                const int nStartRow = (yIndex + rBltRct.top) * (m_nMainW * 4) + (rBltRct.left * 4);
+                const int nStartRow = (yIndex + rBltRct.top) * (m_mainWindowDimensions.width * 4) + (rBltRct.left * 4);
                 const int nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
                 for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
@@ -647,7 +646,7 @@ void CImgDumpBmp::Draw()
     {
         CClientDC* cdc = new CClientDC(this);
 
-        cdc->BitBlt(0, 0, m_cl_width, m_cl_height, &m_MainDC, m_main_blt.left, m_main_blt.top, SRCCOPY);
+        cdc->BitBlt(0, 0, m_clientDimensions.width, m_clientDimensions.height, &m_MainDC, m_main_blt.left, m_main_blt.top, SRCCOPY);
 
         safe_delete(cdc);
     }
@@ -753,9 +752,9 @@ int CImgDumpBmp::GetOutputW()
 {
     const int w_mul = GetMaxImagesPerLine();
 
-    m_nMainW = static_cast<int>(((w_mul * m_border_sz) + m_border_sz) + ((m_blt_w * m_flZoomLevel) * w_mul));
+    m_mainWindowDimensions.width = static_cast<int>(((w_mul * m_border_sz) + m_border_sz) + ((m_bltDimensions.width * m_flZoomLevel) * w_mul));
 
-    return m_nMainW;
+    return m_mainWindowDimensions.width;
 }
 
 int CImgDumpBmp::GetOutputH()
@@ -768,9 +767,9 @@ int CImgDumpBmp::GetOutputH()
         h_mul++;
     }
 
-    m_nMainH = static_cast<int>(((h_mul * m_border_sz) + m_border_sz) + ((m_blt_h * m_flZoomLevel) * h_mul));
+    m_mainWindowDimensions.height = static_cast<int>(((h_mul * m_border_sz) + m_border_sz) + ((m_bltDimensions.height * m_flZoomLevel) * h_mul));
 
-    return m_nMainH;
+    return m_mainWindowDimensions.height;
 }
 
 void CImgDumpBmp::OnTimer(UINT nIDEvent)
@@ -780,15 +779,14 @@ void CImgDumpBmp::OnTimer(UINT nIDEvent)
 
 void CImgDumpBmp::ResizeMainBmp()
 {
-    static int nPrevW = 0;
-    static int nPrevH = 0;
+    static sImageDimensions s_nPrevDimensions;
 
-    if ((m_nMainW != nPrevW) || (m_nMainH != nPrevH))
+    if ((m_mainWindowDimensions.width != s_nPrevDimensions.width) || (m_mainWindowDimensions.height != s_nPrevDimensions.height))
     {
         DeleteObject(m_MainHBmp);
 
-        m_MainBmpi.bmiHeader.biWidth = m_nMainW;
-        m_MainBmpi.bmiHeader.biHeight = -m_nMainH;
+        m_MainBmpi.bmiHeader.biWidth = m_mainWindowDimensions.width;
+        m_MainBmpi.bmiHeader.biHeight = -m_mainWindowDimensions.height;
         m_MainBmpi.bmiHeader.biPlanes = 1;
         m_MainBmpi.bmiHeader.biBitCount = 32;
         m_MainBmpi.bmiHeader.biCompression = BI_RGB;
@@ -805,5 +803,7 @@ void CImgDumpBmp::ResizeMainBmp()
         {
             m_MainDC.SelectObject(m_MainHBmp);
         }
+
+        s_nPrevDimensions = m_mainWindowDimensions;
     }
 }

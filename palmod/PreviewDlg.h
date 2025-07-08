@@ -20,8 +20,6 @@ private:
     void AddZoom();
     void UpdateZoomSetting(double fpNewZoom);
 
-    CString szBGLoc;
-
 public:
     CPreviewDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CPreviewDlg();

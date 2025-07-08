@@ -34,3 +34,22 @@ enum class BlendMode
     PS1SemiTransparencyOff,
     PS1SemiTransparencyOn,
 };
+
+struct sImageDimensions
+{
+    int width = 0;
+    int height = 0;
+};
+
+struct sImageDisplayOffsets
+{
+    int x = 0;
+    int y = 0;
+};
+
+struct sPoint
+{
+    double x = 0.0;
+    double y = 0.0;
+};
+

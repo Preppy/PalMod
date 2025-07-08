@@ -1,6 +1,7 @@
 #pragma once
 #include "game\Default.h"
 #include "game\palgroup.h"
+#include "regproc.h"
 
 #define aadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 #define fabs(x) (x < 0.0f ? -x : x)
@@ -14,11 +15,8 @@ constexpr auto DEF_ZOOM = 1.0f;
 
 struct sImgNode
 {
-    uint16_t uImgW = 0;
-    uint16_t uImgH = 0;
-
-    int nXOffs = 0;
-    int nYOffs = 0;
+    sImageDimensions dimensions;
+    sImageDisplayOffsets offsets;
 
     uint8_t* pImgData = nullptr;
 
@@ -37,85 +35,63 @@ enum class SpriteImportCompositionStyle { Replace, MergeAbove, MergeBelow };
 class CImgDisp : public CWnd
 {
 private:
-    sImgNode* m_pImgBuffer[MAX_IMAGES_DISPLAYABLE] = {};
-    int m_nImgAmt = 0;
-
     CDC* m_MainDC = nullptr;
     CDC* m_ImageDC = nullptr;
 
-    CBitmap m_BGBitmap;
-    HBITMAP m_hBGBitmap = nullptr;
-    CBrush m_BGBrush;
+    CScrollBar m_HScroll;
+    CScrollBar m_VScroll;
 
     BITMAPINFO m_Bmpi;
     HBITMAP m_hBmp = nullptr;
+
+    sImgNode* m_pImgBuffer[MAX_IMAGES_DISPLAYABLE] = {};
+    int m_nImgAmt = 0;
 
     RECT m_rBlt = {};
 
     uint32_t* m_pBmpData = nullptr;
 
-    int m_nBGBmpW = 0;
-    int m_nBGBmpH = 0;
-    int m_nBGXOffs = 0;
-    int m_nBGYOffs = 0;
+    sImageDimensions m_ImgDimensions;
+    sImageDimensions m_MainLayout;
+    sImageDisplayOffsets m_ImageOffsets;
+
+    uint8_t m_bUsed[MAX_IMAGES_DISPLAYABLE] = {};
+    POINT m_ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
 
     BOOL m_fIsBGAvail = FALSE;
-    //BOOL m_fFillBGBmp = FALSE;
-    BOOL m_fShouldTileBGBmp = FALSE;
-    BOOL m_fShouldUseBGCol = FALSE;
-    BOOL m_fNeedFirstInit = TRUE;
-    BOOL m_fClickToFindColor = TRUE;
-    BOOL m_fBlinkInverts = FALSE;
-    BOOL m_fPreviewDropIsPalette = TRUE;
-    BOOL m_fPreviewDropTrim = TRUE;
-    BOOL m_fPreviewDropWinKawaksFirst = FALSE;
-
-    COLORREF m_crBGCol = 0x00FF0000;
-    COLORREF m_crBlinkCol = 0x00FFFFFF;
-    double m_fpZoom = DEF_ZOOM;
-
-    void InitDC(CPaintDC& PaintDC);
-    void DrawMainBG();
-    void InitImgBuffer();
-
-    //void CreateImgBitmap(int nIndex, int nWidth, int nHeight);
-    void ResizeMainBitmap();
-
-    void ModifySrcRect();
-    void ModifyClRect();
-
-    BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseBlinkPal = false);
-
-    CScrollBar m_HScroll;
-    CScrollBar m_VScroll;
+    CBitmap m_BGBitmap;
+    sImageDimensions m_BGBmpDimensions;
+    HBITMAP m_hBGBitmap = nullptr;
+    CBrush m_BGBrush;
 
     BOOL m_bLButtonDown = FALSE;
     BOOL m_bCtrlDown = FALSE;
-
     CPoint m_ptMouseDown = { 0, 0 }, m_ptLastMouse = { 0, 0 };
-    double m_fpDiffX = 0.0, m_fpDiffY = 0.0;
+
+    sPoint m_fpDiffs;
 
     CRect m_rCtrlRct;
     CRect m_rCtrlSrcRct;
     CRect m_rSrcRct;
     CRect m_rImgRct;
 
-    int m_nImgRctW = 0;
-    int m_nImgRctH = 0;
-
-    CString m_strBackgroundLoc = L"";
-
-    int m_nXOffsTop = 0;
-    int m_nYOffsTop = 0;
-
-    int MAIN_W = 0, MAIN_H = 0;
-
     // This should be converted over to an sImageNode probably...
     uint8_t* m_ppSpriteOverrideTexture[MAX_IMAGES_DISPLAYABLE] = { nullptr };
-    int m_nTextureOverrideW[MAX_IMAGES_DISPLAYABLE] = { 0 };
-    int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
-    uint8_t m_bUsed[MAX_IMAGES_DISPLAYABLE] = {};
-    POINT m_ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
+    sImageDimensions m_rgSpriteOverrideDimensions[MAX_IMAGES_DISPLAYABLE];
+
+    sPalDef* m_pBackupPaletteDef = nullptr;
+    COLORREF* m_pBackupBlinkPalette = nullptr;
+
+    void InitDC(CPaintDC& PaintDC);
+    void DrawMainBG();
+    void InitImgBuffer();
+
+    void ResizeMainBitmap();
+
+    void ModifySrcRect();
+    void ModifyClRect();
+
+    BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseBlinkPal = false);
 
     bool _GetUserOptionsForTextureOverride(int nFileSize, int& nSuggestedImageWidth, int& nSuggestedImageHeight, UINT& nPositionToLoadTo, SpriteImportDirection& spriteDirection, SpriteImportCompositionStyle *pCompositionStyle);
     void _ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nNewSize);
@@ -131,52 +107,49 @@ private:
     uint8_t* _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fPreferQuietMode = true);
     uint8_t* _LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fUseQuietMode = true);
 
-    sPalDef* m_pBackupPaletteDef = nullptr;
-    COLORREF* m_pBackupBlinkPalette = nullptr;
-
-    BlendMode m_eForcedBlendMode = BlendMode::Default;
-
 public:
     CImgDisp();
     ~CImgDisp();
+    
+    sPreviewWindowSettings m_Settings;
 
     void AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode = BlendMode::Alpha);
     void FlushImageNode(int nIndex);
     void ClearAllImages();
     void UpdateCtrl(BOOL fRedraw = TRUE, int nUseBlinkPal = 0);
     void Redraw();
-    void SetBGCol(COLORREF crNewCol) { m_crBGCol = crNewCol; };
-    void SetBlinkCol(COLORREF crNewCol) { m_crBlinkCol = crNewCol; };
-    void SetBlinkInverts(BOOL fBlinkInverts) { m_fBlinkInverts = fBlinkInverts; };
-    COLORREF GetBGCol() { return m_crBGCol; };
-    COLORREF GetBlinkCol() { return m_crBlinkCol; };
-    BOOL GetBlinkInverts() { return m_fBlinkInverts; };
+    void SetBGCol(COLORREF crNewCol) { m_Settings.prev_bgcol = crNewCol; };
+    void SetBlinkCol(COLORREF crNewCol) { m_Settings.prev_blinkcol = crNewCol; };
+    void SetBlinkInverts(BOOL fBlinkInverts) { m_Settings.fBlinkInverts = fBlinkInverts; };
+    COLORREF GetBGCol() { return m_Settings.prev_bgcol; };
+    COLORREF GetBlinkCol() { return m_Settings.prev_blinkcol; };
+    BOOL GetBlinkInverts() { return m_Settings.fBlinkInverts; };
     void CenterImg() { ModifySrcRect(); };
 
     void SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette);
 
-    BlendMode GetForcedBlendMode() { return m_eForcedBlendMode; };
-    void SetForcedBlendMode(BlendMode newMode) { m_eForcedBlendMode = newMode; };
+    BlendMode GetForcedBlendMode() { return m_Settings.eBlendMode; };
+    void SetForcedBlendMode(BlendMode newMode) { m_Settings.eBlendMode = newMode; };
 
-    BOOL IsBGTiled() { return m_fShouldTileBGBmp; };
-    BOOL IsUsingBGCol() { return m_fShouldUseBGCol; };
-    BOOL IsUsingBlinkInverts() { return m_fBlinkInverts; };
-    void SetBGXOffs(int nOffs) { m_nBGXOffs = nOffs; };
-    void SetBGYOffs(int nOffs) { m_nBGYOffs = nOffs; };
-    void SetBGTiled(BOOL fTiled) { m_fShouldTileBGBmp = fTiled; };
-    void SetUseBGCol(BOOL fUse) { m_fShouldUseBGCol = fUse; };
-    void SetClickToFindColorSetting(BOOL fClickToFind) { m_fClickToFindColor = fClickToFind; };
-    BOOL GetClickToFindColorSetting() { return m_fClickToFindColor; };
+    BOOL IsBGTiled() { return m_Settings.fTileBG; };
+    BOOL IsUsingBGCol() { return m_Settings.fUseBGCol; };
+    BOOL IsUsingBlinkInverts() { return m_Settings.fBlinkInverts; };
+    void SetBGXOffs(int nOffs) { m_Settings.nBGBMPOffsets.x = nOffs; };
+    void SetBGYOffs(int nOffs) { m_Settings.nBGBMPOffsets.y = nOffs; };
+    void SetBGTiled(BOOL fTiled) { m_Settings.fTileBG = fTiled; };
+    void SetUseBGCol(BOOL fUse) { m_Settings.fUseBGCol = fUse; };
+    void SetClickToFindColorSetting(BOOL fClickToFindColor) { m_Settings.fClickToFindColor = fClickToFindColor; };
+    BOOL GetClickToFindColorSetting() { return m_Settings.fClickToFindColor; };
     BOOL CanForceBGBitmapAvailable();
-    BOOL GetPreviewDropIsPalette() { return m_fPreviewDropIsPalette; };
-    void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_fPreviewDropIsPalette = fPreviewDropIsPalette; };
-    BOOL GetPreviewDropTrim() { return m_fPreviewDropTrim; };
-    void SetPreviewDropTrim(BOOL fPreviewDropTrim) { m_fPreviewDropTrim = fPreviewDropTrim; };
-    BOOL GetPreviewDropWinKawaksFirst() { return m_fPreviewDropWinKawaksFirst; };
-    void SetPreviewDropWinKawaksFirst(BOOL fPreviewDropWinKawaksFirst) { m_fPreviewDropWinKawaksFirst = fPreviewDropWinKawaksFirst; };
+    BOOL GetPreviewDropIsPalette() { return m_Settings.fPreviewDropIsPalette; };
+    void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_Settings.fPreviewDropIsPalette = fPreviewDropIsPalette; };
+    BOOL GetPreviewDropTrim() { return m_Settings.fPreviewDropTrimPreview; };
+    void SetPreviewDropTrim(BOOL fPreviewDropTrim) { m_Settings.fPreviewDropTrimPreview = fPreviewDropTrim; };
+    BOOL GetPreviewDropWinKawaksFirst() { return m_Settings.fPreviewDropWinKawaksFirst; };
+    void SetPreviewDropWinKawaksFirst(BOOL fPreviewDropWinKawaksFirst) { m_Settings.fPreviewDropWinKawaksFirst = fPreviewDropWinKawaksFirst; };
 
-    int GetBGXOffs() { return m_nBGXOffs; };
-    int GetBGYOffs() { return m_nBGYOffs; };
+    int GetBGXOffs() { return m_Settings.nBGBMPOffsets.x; };
+    int GetBGYOffs() { return m_Settings.nBGBMPOffsets.y; };
 
     sImgNode** GetImgBuffer() { return m_pImgBuffer; };
     // Note that we only check for the 0 sprite: export keys off of that.
@@ -198,16 +171,16 @@ public:
     {
         if (fpNewZoom != 0)
         {
-            m_fpZoom = fpNewZoom;
+            m_Settings.dPreviewZoom = fpNewZoom;
             ModifySrcRect();
             Redraw();
         }
     };
 
-    double GetZoom() { return m_fpZoom; };
+    double GetZoom() { return m_Settings.dPreviewZoom; };
 
     BOOL LoadBGBmp(LPCWSTR pszBmpLoc);
-    void SetBGBmpPath(LPCWSTR pszBmpLoc) { m_strBackgroundLoc = pszBmpLoc; };
+    void SetBGBmpPath(LPCWSTR pszBmpLoc) { m_Settings.strPreviewBGBMPPath = pszBmpLoc; };
     //void UseBGCol(){bFillBGBmp = FALSE;};
 
     int GetImgAmt() { return m_nImgAmt; };

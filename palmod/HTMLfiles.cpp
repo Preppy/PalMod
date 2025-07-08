@@ -76,7 +76,7 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                 //strOutput.Format("Palette: %S<br/>\r\n", GetHost()->GetCurrGame()->GetCurrentPaletteName());
                 //rawFile.Write(strOutput.GetString(), strOutput.GetLength());
 
-                strOutput.Format("imageWidth=%u<br/>\r\nimageHeight=%u<br/>\r\n", rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+                strOutput.Format("imageWidth=%u<br/>\r\nimageHeight=%u<br/>\r\n", rgSrcImg[nImageIndex]->dimensions.width, rgSrcImg[nImageIndex]->dimensions.height);
                 rawFile.Write(strOutput.GetString(), strOutput.GetLength());
 
                 strOutput = "\r\n";
@@ -174,12 +174,12 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                 strOutput = "\r\nPreview:<br/>\r\n<table width=\"\" cellpadding=\"0\" cellspacing=\"0\" style=\"border: 1px solid #000000;\">\r\n";
                 rawFile.Write(strOutput.GetString(), strOutput.GetLength());
 
-                for (size_t nRow = 0; nRow < rgSrcImg[nImageIndex]->uImgH; nRow++)
+                for (int nRow = 0; nRow < rgSrcImg[nImageIndex]->dimensions.height; nRow++)
                 {
                     strOutput = " <tr>";
                     rawFile.Write(strOutput.GetString(), strOutput.GetLength());
 
-                    for (size_t nColumn = 0; nColumn < rgSrcImg[nImageIndex]->uImgW; nColumn++)
+                    for (int nColumn = 0; nColumn < rgSrcImg[nImageIndex]->dimensions.width; nColumn++)
                     {
                         if (nColumn % 10 == 0) // Line breaks are nice, but our files are huge so let's limit them
                         {
@@ -187,7 +187,7 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                             rawFile.Write(strOutput.GetString(), strOutput.GetLength());
                         }
 
-                        strOutput.Format(" <td class=\"clr%02x\"/>", rgSrcImg[nImageIndex]->pImgData[(nRow * rgSrcImg[nImageIndex]->uImgW) + nColumn]);
+                        strOutput.Format(" <td class=\"clr%02x\"/>", rgSrcImg[nImageIndex]->pImgData[(nRow * rgSrcImg[nImageIndex]->dimensions.width) + nColumn]);
                         rawFile.Write(strOutput.GetString(), strOutput.GetLength());
                     }
 

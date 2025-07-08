@@ -517,10 +517,10 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
     {
         // this represents the maximum rect, establishing needed skew
-        rectCompleteDimensions.left = min(rectCompleteDimensions.left, 0 + rgSrcImg[nImageIndex]->nXOffs);
-        rectCompleteDimensions.right = max(rectCompleteDimensions.right, rgSrcImg[nImageIndex]->uImgW + rgSrcImg[nImageIndex]->nXOffs);
-        rectCompleteDimensions.top = min(rectCompleteDimensions.top, 0 + rgSrcImg[nImageIndex]->nYOffs);
-        rectCompleteDimensions.bottom = max(rectCompleteDimensions.bottom, rgSrcImg[nImageIndex]->uImgH + rgSrcImg[nImageIndex]->nYOffs);
+        rectCompleteDimensions.left = min(rectCompleteDimensions.left, 0 + rgSrcImg[nImageIndex]->offsets.x);
+        rectCompleteDimensions.right = max(rectCompleteDimensions.right, rgSrcImg[nImageIndex]->dimensions.width + rgSrcImg[nImageIndex]->offsets.x);
+        rectCompleteDimensions.top = min(rectCompleteDimensions.top, 0 + rgSrcImg[nImageIndex]->offsets.y);
+        rectCompleteDimensions.bottom = max(rectCompleteDimensions.bottom, rgSrcImg[nImageIndex]->dimensions.height + rgSrcImg[nImageIndex]->offsets.y);
 
         nTotalPaletteSize += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
     }
@@ -612,12 +612,12 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 // secondary images
                 for (; nImageIndex < nImageCount; nImageIndex++)
                 {
-                    const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
-                    const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
+                    const unsigned srcWidth = rgSrcImg[nImageIndex]->dimensions.width;
+                    const unsigned srcHeight = rgSrcImg[nImageIndex]->dimensions.height;
                     const unsigned srcSize = srcWidth * srcHeight;
 
-                    unsigned skewYForImage = nYSkew + rgSrcImg[nImageIndex]->nYOffs;
-                    unsigned skewXForImage = nXSkew + rgSrcImg[nImageIndex]->nXOffs;
+                    unsigned skewYForImage = nYSkew + rgSrcImg[nImageIndex]->offsets.y;
+                    unsigned skewXForImage = nXSkew + rgSrcImg[nImageIndex]->offsets.x;
 
                     // Handle zoom stretching inline
                     for (unsigned destY = 0; destY < (srcHeight * currentZoom); destY += currentZoom)
@@ -792,7 +792,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
         for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
         {
-            strDimensions.Format(L"-w-%u-h-%u", rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+            strDimensions.Format(L"-w-%u-h-%u", rgSrcImg[nImageIndex]->dimensions.width, rgSrcImg[nImageIndex]->dimensions.height);
 
             // Ensure that the filename includes the W/H values so the RAW is usable
             const bool fNeedDimensions = (wcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
@@ -812,7 +812,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
             std::vector<bool> rgIsIndexUsed;
             rgIsIndexUsed.resize(rgSrcImg[nImageIndex]->uPalSz);
 
-            for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW; nImgIndex++)
+            for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width; nImgIndex++)
             {
                 if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] < rgSrcImg[nImageIndex]->uPalSz)
                 {
@@ -846,7 +846,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
                 bool fShownError = false;
 
-                for (size_t iImgIndex = 0; iImgIndex < static_cast<size_t>(rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW); iImgIndex++)
+                for (size_t iImgIndex = 0; iImgIndex < static_cast<size_t>(rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width); iImgIndex++)
                 {
                     // Validate that all color references are within the bounds of the current palette
                     if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
@@ -885,7 +885,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
             CFile rawFile;
             if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
             {
-                rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
+                rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width);
                 rawFile.Abort();
             }
         }

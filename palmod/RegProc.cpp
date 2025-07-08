@@ -480,65 +480,65 @@ void CRegProc::LoadReg(eRegistryStoreID src)
         {
             RegType = REG_DWORD;
 
-            GetSz = sizeof(prev_bgcol);
-            if (RegQueryValueEx(hKey, L"prev_bgcol", 0, &RegType, reinterpret_cast<LPBYTE>(&prev_bgcol), &GetSz) != ERROR_SUCCESS)
-                prev_bgcol = RGB(0xd0, 0xd0, 0xd0); // Default to grey background
+            GetSz = sizeof(m_PreviewSettings.prev_bgcol);
+            if (RegQueryValueEx(hKey, L"prev_bgcol", 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.prev_bgcol), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.prev_bgcol = RGB(0xd0, 0xd0, 0xd0); // Default to grey background
 
-            GetSz = sizeof(prev_blinkcol);
-            if (RegQueryValueEx(hKey, L"prev_blinkcol", 0, &RegType, reinterpret_cast<LPBYTE>(&prev_blinkcol), &GetSz) != ERROR_SUCCESS)
-                prev_blinkcol = RGB(255, 255, 255); // Default to white blink
+            GetSz = sizeof(m_PreviewSettings.prev_blinkcol);
+            if (RegQueryValueEx(hKey, L"prev_blinkcol", 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.prev_blinkcol), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.prev_blinkcol = RGB(255, 255, 255); // Default to white blink
 
-            GetSz = sizeof(prev_blinkinverts);
-            if (RegQueryValueEx(hKey, L"prev_blinkinverts", 0, &RegType, reinterpret_cast<LPBYTE>(&prev_blinkinverts), &GetSz) != ERROR_SUCCESS)
-                prev_blinkinverts = FALSE; // Default to non-inverting blink
+            GetSz = sizeof(m_PreviewSettings.fBlinkInverts);
+            if (RegQueryValueEx(hKey, L"prev_blinkinverts", 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fBlinkInverts), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fBlinkInverts = FALSE; // Default to non-inverting blink
 
-            GetSz = sizeof(fTileBG);
-            if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, reinterpret_cast<LPBYTE>(&fTileBG), &GetSz) != ERROR_SUCCESS)
-                fTileBG = TRUE;
+            GetSz = sizeof(m_PreviewSettings.fTileBG);
+            if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fTileBG), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fTileBG = TRUE;
 
-            GetSz = sizeof(nBGXOffs);
-            if (RegQueryValueEx(hKey, L"PreviewBGXOffset", 0, &RegType, reinterpret_cast<LPBYTE>(&nBGXOffs), &GetSz) != ERROR_SUCCESS)
-                nBGXOffs = 0;
+            GetSz = sizeof(m_PreviewSettings.nBGBMPOffsets.x);
+            if (RegQueryValueEx(hKey, L"PreviewBGXOffset", 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.nBGBMPOffsets.x), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.nBGBMPOffsets.x = 0;
 
-            GetSz = sizeof(nBGYOffs);
-            if (RegQueryValueEx(hKey, L"PreviewBGYOffset", 0, &RegType, reinterpret_cast<LPBYTE>(&nBGYOffs), &GetSz) != ERROR_SUCCESS)
-                nBGYOffs = 0;
+            GetSz = sizeof(m_PreviewSettings.nBGBMPOffsets.y);
+            if (RegQueryValueEx(hKey, L"PreviewBGYOffset", 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.nBGBMPOffsets.y), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.nBGBMPOffsets.y = 0;
 
-            GetSz = sizeof(fUseBGCol);
-            if (RegQueryValueEx(hKey, L"UseBGCol", 0, &RegType, reinterpret_cast<LPBYTE>(&fUseBGCol), &GetSz) != ERROR_SUCCESS)
-                fUseBGCol = TRUE;
+            GetSz = sizeof(m_PreviewSettings.fUseBGCol);
+            if (RegQueryValueEx(hKey, L"UseBGCol", 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fUseBGCol), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fUseBGCol = TRUE;
 
-            GetSz = sizeof(fClickToFind);
-            if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, reinterpret_cast<LPBYTE>(&fClickToFind), &GetSz) != ERROR_SUCCESS)
-                fClickToFind = TRUE;
+            GetSz = sizeof(m_PreviewSettings.fClickToFindColor);
+            if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fClickToFindColor), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fClickToFindColor = TRUE;
 
-            GetSz = sizeof(fPreviewDropIsPalette);
-            if (RegQueryValueEx(hKey, c_prevPreviewDropsArePalettes, 0, &RegType, reinterpret_cast<LPBYTE>(&fPreviewDropIsPalette), &GetSz) != ERROR_SUCCESS)
-                fPreviewDropIsPalette = TRUE;
+            GetSz = sizeof(m_PreviewSettings.fPreviewDropIsPalette);
+            if (RegQueryValueEx(hKey, c_prevPreviewDropsArePalettes, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropIsPalette), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fPreviewDropIsPalette = TRUE;
 
-            GetSz = sizeof(fPreviewDropTrimPreview);
-            if (RegQueryValueEx(hKey, c_prevPreviewDropsTrim, 0, &RegType, reinterpret_cast<LPBYTE>(&fPreviewDropTrimPreview), &GetSz) != ERROR_SUCCESS)
-                fPreviewDropTrimPreview = TRUE;
+            GetSz = sizeof(m_PreviewSettings.fPreviewDropTrimPreview);
+            if (RegQueryValueEx(hKey, c_prevPreviewDropsTrim, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropTrimPreview), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fPreviewDropTrimPreview = TRUE;
 
-            GetSz = sizeof(fPreviewDropWinKawaksFirst);
-            if (RegQueryValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, &RegType, reinterpret_cast<LPBYTE>(&fPreviewDropWinKawaksFirst), &GetSz) != ERROR_SUCCESS)
-                fPreviewDropWinKawaksFirst = FALSE;
+            GetSz = sizeof(m_PreviewSettings.fPreviewDropWinKawaksFirst);
+            if (RegQueryValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropWinKawaksFirst), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fPreviewDropWinKawaksFirst = FALSE;
 
-            GetSz = sizeof(eBlendMode);
-            if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, reinterpret_cast<LPBYTE>(&eBlendMode), &GetSz) != ERROR_SUCCESS)
+            GetSz = sizeof(m_PreviewSettings.eBlendMode);
+            if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.eBlendMode), &GetSz) != ERROR_SUCCESS)
             {
-                eBlendMode = BlendMode::Default;
+                m_PreviewSettings.eBlendMode = BlendMode::Default;
             }
 
             int nTranslation = 1;
             GetSz = sizeof(nTranslation);
             if (RegQueryValueEx(hKey, L"PreviewZoom", 0, &RegType, reinterpret_cast<LPBYTE>(&nTranslation), &GetSz) == ERROR_SUCCESS)
             {
-                dPreviewZoom = static_cast<double>(nTranslation);
+                m_PreviewSettings.dPreviewZoom = static_cast<double>(nTranslation);
             }
             else
             {
-                dPreviewZoom = 1.0;
+                m_PreviewSettings.dPreviewZoom = 1.0;
             }
 
             RegType = REG_SZ;
@@ -561,12 +561,12 @@ void CRegProc::LoadReg(eRegistryStoreID src)
 
             //Reset get size 
             GetSz = MAX_PATH;
-            if ((RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, reinterpret_cast<LPBYTE>(szPrevBGLoc), &GetSz) != ERROR_SUCCESS)  ||
-                (GetFileAttributes(szPrevBGLoc) == INVALID_FILE_ATTRIBUTES))
+            if ((RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, reinterpret_cast<LPBYTE>(m_PreviewSettings.strPreviewBGBMPPath.GetBufferSetLength(MAX_PATH)), &GetSz) != ERROR_SUCCESS)  ||
+                (GetFileAttributes(m_PreviewSettings.strPreviewBGBMPPath.GetString()) == INVALID_FILE_ATTRIBUTES))
             {
-                CString szTemp;
-                GetModuleFileName(NULL, szTemp.GetBufferSetLength(MAX_PATH), MAX_PATH);
-                wcscpy(szPrevBGLoc, szTemp.Left(szTemp.ReverseFind('\\') + 1) + BGBMPFILE);
+                CString strTemp;
+                GetModuleFileName(NULL, strTemp.GetBufferSetLength(MAX_PATH), MAX_PATH);
+                m_PreviewSettings.strPreviewBGBMPPath = strTemp.Left(strTemp.ReverseFind('\\') + 1) + BGBMPFILE;
             }
         }
         break;
@@ -651,24 +651,24 @@ void CRegProc::SaveReg(eRegistryStoreID src)
 
             case eRegistryStoreID::REG_PREV:
             {
-                RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_bgcol), sizeof(prev_bgcol));
-                RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkcol), sizeof(prev_blinkcol));
-                RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&prev_blinkinverts), sizeof(prev_blinkinverts));
+                RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.prev_bgcol), sizeof(m_PreviewSettings.prev_bgcol));
+                RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.prev_blinkcol), sizeof(m_PreviewSettings.prev_blinkcol));
+                RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fBlinkInverts), sizeof(m_PreviewSettings.fBlinkInverts));
 
                 conv_str = RectToStr(prev_szpos);
 
                 RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
-                RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, reinterpret_cast<LPBYTE>(szPrevBGLoc), static_cast<DWORD>((wcslen(szPrevBGLoc) + 1) * sizeof(wchar_t)));
-                RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTileBG), sizeof(fTileBG));
-                RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGXOffs), sizeof(nBGXOffs));
-                RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nBGYOffs), sizeof(nBGYOffs));
-                RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fUseBGCol), sizeof(fUseBGCol));
-                RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fClickToFind), sizeof(fClickToFind));
-                RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&eBlendMode), sizeof(eBlendMode));
-                RegSetValueEx(hKey, c_prevPreviewDropsArePalettes, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fPreviewDropIsPalette), sizeof(fPreviewDropIsPalette));
-                RegSetValueEx(hKey, c_prevPreviewDropsTrim, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fPreviewDropTrimPreview), sizeof(fPreviewDropTrimPreview));
-                RegSetValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fPreviewDropWinKawaksFirst), sizeof(fPreviewDropWinKawaksFirst));
-                DWORD nTranslation = static_cast<DWORD>(dPreviewZoom);
+                RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, reinterpret_cast<LPBYTE>(m_PreviewSettings.strPreviewBGBMPPath.GetBuffer()), static_cast<DWORD>((m_PreviewSettings.strPreviewBGBMPPath.GetLength() + 1) * sizeof(wchar_t)));
+                RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fTileBG), sizeof(m_PreviewSettings.fTileBG));
+                RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.nBGBMPOffsets.x), sizeof(m_PreviewSettings.nBGBMPOffsets.x));
+                RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.nBGBMPOffsets.y), sizeof(m_PreviewSettings.nBGBMPOffsets.y));
+                RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fUseBGCol), sizeof(m_PreviewSettings.fUseBGCol));
+                RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fClickToFindColor), sizeof(m_PreviewSettings.fClickToFindColor));
+                RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.eBlendMode), sizeof(m_PreviewSettings.eBlendMode));
+                RegSetValueEx(hKey, c_prevPreviewDropsArePalettes, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropIsPalette), sizeof(m_PreviewSettings.fPreviewDropIsPalette));
+                RegSetValueEx(hKey, c_prevPreviewDropsTrim, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropTrimPreview), sizeof(m_PreviewSettings.fPreviewDropTrimPreview));
+                RegSetValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropWinKawaksFirst), sizeof(m_PreviewSettings.fPreviewDropWinKawaksFirst));
+                DWORD nTranslation = static_cast<DWORD>(m_PreviewSettings.dPreviewZoom);
                 RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nTranslation), sizeof(nTranslation));
                 break;
             }
