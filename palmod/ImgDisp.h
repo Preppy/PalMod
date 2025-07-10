@@ -146,7 +146,10 @@ public:
     BOOL GetPreviewDropTrim() { return m_Settings.fPreviewDropTrimPreview; };
     void SetPreviewDropTrim(BOOL fPreviewDropTrim) { m_Settings.fPreviewDropTrimPreview = fPreviewDropTrim; };
     BOOL GetPreviewDropWinKawaksFirst() { return m_Settings.fPreviewDropWinKawaksFirst; };
+    BOOL GetPreviewDropMAMEMathFirst() { return m_Settings.fPreviewDropMAMEMathFirst; };
+
     void SetPreviewDropWinKawaksFirst(BOOL fPreviewDropWinKawaksFirst) { m_Settings.fPreviewDropWinKawaksFirst = fPreviewDropWinKawaksFirst; };
+    void SetPreviewDropMAMEMathFirst(BOOL fPreviewDropMAMEMathFirst) { m_Settings.fPreviewDropMAMEMathFirst = fPreviewDropMAMEMathFirst; };
 
     int GetBGXOffs() { return m_Settings.nBGBMPOffsets.x; };
     int GetBGYOffs() { return m_Settings.nBGBMPOffsets.y; };

@@ -100,6 +100,7 @@ namespace ColorSystem
     uint16_t CONV_32_xBGR555LE(uint32_t inCol);
     uint32_t CONV_xBGR555LE_32(uint16_t inCol);
     uint16_t CONV_32_RGB555LE(uint32_t inCol);
+    // Note that MAME-CPS3 and PalMod use different math here
     uint32_t CONV_RGB555LE_32(uint16_t inCol);
     uint16_t CONV_32_RGB555BE(uint32_t inCol);
     uint32_t CONV_RGB555BE_32(uint16_t inCol);

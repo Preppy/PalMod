@@ -35,6 +35,7 @@ struct sPreviewWindowSettings
     BOOL fPreviewDropIsPalette = TRUE;
     BOOL fPreviewDropTrimPreview = TRUE;
     BOOL fPreviewDropWinKawaksFirst = FALSE;
+    BOOL fPreviewDropMAMEMathFirst = FALSE;
 
     double dPreviewZoom = 0.0;
     BlendMode eBlendMode = BlendMode::Default;

@@ -783,6 +783,7 @@ namespace ColorSystem
         auxb = auxb << 3;
 
         // account for rounding
+        // Note that MAME just ignores rounding issues!
         auxr += auxr / 32;
         auxg += auxg / 32;
         auxb += auxb / 32;

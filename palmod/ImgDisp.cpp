@@ -1416,14 +1416,20 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
 
     const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
-    const bool fGameSuportedByKawaks = ((currColMode == ColMode::COLMODE_RGB444_BE) || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
-    bool fUseWinKawaksShift = fGameSuportedByKawaks && GetPreviewDropWinKawaksFirst();
+    const bool fGameSupportedByKawaks = ((currColMode == ColMode::COLMODE_RGB444_BE) || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
+    // This is loose but currently true for the games we support
+    const bool fGameMayBeMAMECPS3 = currColMode == ColMode::COLMODE_RGB555_LE;
+    bool fUseWinKawaksShift = fGameSupportedByKawaks && GetPreviewDropWinKawaksFirst();
+    bool fUseMAMECP3Shift = fGameMayBeMAMECPS3 && GetPreviewDropMAMEMathFirst();
 
     const bool fIsARGB = ((static_cast<size_t>(nDataLen) * 4) == nImageSize);
     const bool fIsRGB = ((static_cast<size_t>(nDataLen) * 3) == nImageSize);
     bool fFoundOne = false;
     unsigned nFirstLine = height, nLastLine = 0, nLeftMost = width, nRightMost = 0;
     CString strMsg;
+
+    // MAME CPS3 is using 0,0,1,2,3....30 math, with double 0 for some unknown reason.
+    // They also use straight <<>> 3 and ignore rounding.
 
     for (unsigned iPos = 0; iPos < nDataLen; iPos++)
     {
@@ -1448,6 +1454,12 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             r = (r >> 4) * 17;
             g = (g >> 4) * 17;
             b = (b >> 4) * 17;
+        }
+        else if (fUseMAMECP3Shift)
+        {
+            r = (r > 8) ? (static_cast<unsigned char>(min(0xff, static_cast<uint16_t>(r) + (r / 32)))) : 0;
+            g = (g > 8) ? (static_cast<unsigned char>(min(0xff, static_cast<uint16_t>(g) + (g / 32)))) : 0;
+            b = (b > 8) ? (static_cast<unsigned char>(min(0xff, static_cast<uint16_t>(b) + (b / 32)))) : 0;
         }
 
         // filter each color, sadly
@@ -1495,7 +1507,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             }
         }
 
-        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fGameSuportedByKawaks)
+        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fGameSupportedByKawaks)
         {
             fUseWinKawaksShift = true;
             iPos = 0;

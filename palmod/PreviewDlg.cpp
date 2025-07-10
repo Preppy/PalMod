@@ -58,6 +58,7 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_DROPISPALETTE, &CPreviewDlg::OnSetDropIsPalette)
     ON_COMMAND(ID_SETTINGS_DROPTRIM, &CPreviewDlg::OnSetDropTrim)
     ON_COMMAND(ID_SETTINGS_DROPKAWAKS, &CPreviewDlg::OnSetDropWinKawaksFirst)
+    ON_COMMAND(ID_SETTINGS_DROPMAME, &CPreviewDlg::OnSetDropMAMEMathFirst)
 
     ON_COMMAND(ID_ACC_ADDZOOM, &CPreviewDlg::AddZoom)
     ON_COMMAND(ID_ACC_SUBZOOM, &CPreviewDlg::SubZoom)
@@ -219,6 +220,11 @@ void CPreviewDlg::OnSetDropTrim()
 void CPreviewDlg::OnSetDropWinKawaksFirst()
 {
     m_ImgDisp.SetPreviewDropWinKawaksFirst(!m_ImgDisp.GetPreviewDropWinKawaksFirst());
+}
+
+void CPreviewDlg::OnSetDropMAMEMathFirst()
+{
+    m_ImgDisp.SetPreviewDropMAMEMathFirst(!m_ImgDisp.GetPreviewDropMAMEMathFirst());
 }
 
 void CPreviewDlg::LoadSettings()
@@ -455,6 +461,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPISPALETTE, m_ImgDisp.GetPreviewDropIsPalette() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPTRIM, m_ImgDisp.GetPreviewDropTrim() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPKAWAKS, m_ImgDisp.GetPreviewDropWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_DROPMAME, m_ImgDisp.GetPreviewDropMAMEMathFirst() ? MF_CHECKED : MF_UNCHECKED);
 
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
 
