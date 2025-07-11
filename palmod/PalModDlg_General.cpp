@@ -293,7 +293,7 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
             }
             else
             {
-                strPath.Format(L"previews\\%s-%s-%s.png", szUnit, szNode, szPalette);
+                strPath.Format(L"previews\\%s-%s_%s.png", szUnit, szNode, szPalette);
             }
         }
 
@@ -307,6 +307,8 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
 
             fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
         }
+
+        m_strPossiblePreviewStatus.Format(L"\"%s\" %s", strPath, fLoadedImage ? L"loaded" : L"not loaded");
     }
 
     return fLoadedImage;
@@ -334,24 +336,6 @@ void CPalModDlg::PostPalSel()
 
     //Flush the host pal ctrl
     m_PalHost.BeginSetPal();
-
-    CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
-
-    if ((PreviewDlg != nullptr) && (CurrTicket != nullptr))
-    {
-        CString strInformation;
-        // Friendly name would be kind of nice.
-        if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF) ||
-            (CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
-        {
-            strInformation = L"Preview: (no internal preview available)";
-        }
-        else
-        {
-            strInformation.Format(L"Preview: unit 0x%02x, image id 0x%02x", CurrTicket->nUnitId, CurrTicket->nImgId);
-        }
-        PreviewDlg->SetWindowCaption(strInformation);
-    }
 
     for (uint32_t nCurrentPalette = 0; nCurrentPalette < nPalAmt; nCurrentPalette++)
     {
@@ -460,6 +444,28 @@ void CPalModDlg::PostPalSel()
                 s_nLastPalAmt = nPalAmt;
 
                 nImgIndexCtr++;
+            }
+        }
+
+        if (nCurrentPalette == 0)
+        {
+            // Now that we've tried the first image load, update our window title based upon current knowledge
+            CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
+
+            if ((PreviewDlg != nullptr) && (CurrTicket != nullptr))
+            {
+                CString strInformation;
+                // Friendly name would be kind of nice.
+                if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF) ||
+                    (CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
+                {
+                    strInformation.Format(L"Preview: (no internal preview available, %s )", m_strPossiblePreviewStatus.GetString());
+                }
+                else
+                {
+                    strInformation.Format(L"Preview: unit 0x%02x, image id 0x%02x", CurrTicket->nUnitId, CurrTicket->nImgId);
+                }
+                PreviewDlg->SetWindowCaption(strInformation);
             }
         }
 

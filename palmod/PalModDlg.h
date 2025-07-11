@@ -106,6 +106,8 @@ private:
 
     BOOL m_fCanMinMax = FALSE;
 
+    CString m_strPossiblePreviewStatus;
+
     void _WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strData, UINT nForcedLength);
 
     //Program functions
