@@ -8,7 +8,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
     if (ActFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
         int nFileSz = static_cast<int>(ActFile.GetLength());
-        int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
+        size_t nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
 
         // Read data from the ACT...
         if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
@@ -39,7 +39,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             std::vector<uint8_t> rgAct;
             rgAct.resize(nACTColorCount * 3);
 
-            ActFile.Read(&rgAct[0], nACTColorCount * 3);
+            ActFile.Read(&rgAct[0], static_cast<UINT>(nACTColorCount) * 3);
             ActFile.Close();
 
             // Now consume those colors...
@@ -51,7 +51,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                 nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
             }
 
-            uint16_t iACTIndex = 0;
+            size_t iACTIndex = 0;
             uint16_t nCurrentPalette = 0;
             uint16_t nTotalColorsUsed = 0;
             bool fHaveLooped = false;
@@ -90,7 +90,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                     const uint16_t nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
                     for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)
                     {
-                        const int iIndexToUse = fShouldProcessTopdown ? iACTIndex : (nACTColorCount - 1 - iACTIndex);
+                        const size_t iIndexToUse = fShouldProcessTopdown ? iACTIndex : (nACTColorCount - 1 - iACTIndex);
                         if ((rgAct.at(iIndexToUse * 3) != 0) ||
                             (rgAct.at((iIndexToUse * 3) + 1) != 0) ||
                             (rgAct.at((iIndexToUse * 3) + 2) != 0))
@@ -271,7 +271,7 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
 
         const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
 
-        int nTotalColorsUsed = 0;
+        size_t nTotalColorsUsed = 0;
 
         if (fRightsideUp)
         {
@@ -339,7 +339,7 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
 
         // Please note that Photoshop is expecting this big endian, so we byteswap to ensure correct orientation.
         WORD transparencyColorIndex = 0;
-        WORD colorCount = _byteswap_ushort(nTotalColorsUsed);
+        WORD colorCount = _byteswap_ushort(static_cast<unsigned short>(nTotalColorsUsed));
         ActFile.Write(&colorCount, 2);
         ActFile.Write(&transparencyColorIndex, 2);
 
