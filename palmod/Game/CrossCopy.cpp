@@ -238,7 +238,9 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
             {
                 if (TargetFile.GetLength() != 112635968)
                 {
-                    MessageBox(g_appHWnd, L"Error: This is not the expected Steam ROM.  You will need an updated version of PalMod for this.", GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
+                    MessageBox(g_appHWnd, L"Error: This is not the expected Steam ROM.\n\nIf Capcom changed the ROM size, you will need an updated version of PalMod for this.\n\n"
+                                          L"If you made some ROM hacks that changed the ROM size (custom stages, for example), the easiest thing to do is to go back to the original Steam ROM,"
+                                          L"crosscopy colors from Dreamcast to that ROM, and THEN go and insert custom stages.", GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
                     strLoadSaveStr = L"Invalid file specified.";
                     return;
                 }
