@@ -461,7 +461,7 @@ void CPalModDlg::OnEditCopy()
             // RGB444 litle endian
             uCopyFlag1 = DUMMY_RGB444_LE + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_RGB555_LE:
+        case ColMode::COLMODE_RGB555_LE_CPS3:
             // RGB555
             uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
             break;
@@ -1035,7 +1035,7 @@ void CPalModDlg::HandlePasteFromPalMod()
             case REDEARTH_A_DIR_31:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
-                eColModeForPastedColor = ColMode::COLMODE_RGB555_LE;
+                eColModeForPastedColor = ColMode::COLMODE_RGB555_LE_CPS3;
                 break;
             }
             case CVS2_A:

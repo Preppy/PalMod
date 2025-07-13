@@ -16,7 +16,7 @@ class CGame_JOJOS_A : public CGameClassByDir
 {
 private:
     const uint32_t c_nPaletteCount50 = 476;
-    const uint32_t c_nPaletteCount51 = 2075;
+    const uint32_t c_nPaletteCount51 = 2079;
 
 public:
     static JojosLoadingKey m_eVersionToLoad;
@@ -69,7 +69,7 @@ public:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_NOBUTTONS,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
+        ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData_50,
         {},
         JOJOS_UNITS_50,
@@ -89,7 +89,7 @@ public:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_JOJOS_5,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
+        ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData_51,
         {},
         JOJOS_UNITS_51,
@@ -109,7 +109,7 @@ public:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_JOJOS_5,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
+        ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData_51,
         {},
         JOJOS_UNITS_51,
@@ -129,7 +129,7 @@ public:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_NOBUTTONS,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
+        ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData_50Rerip,
         {},
         JOJOS_UNITS_50,
@@ -149,7 +149,7 @@ public:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_JOJOS_5,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
+        ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData_51Rerip,
         {},
         JOJOS_UNITS_51,
@@ -169,7 +169,7 @@ public:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_JOJOS_5,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
+        ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData_51Rerip,
         {},
         JOJOS_UNITS_51,

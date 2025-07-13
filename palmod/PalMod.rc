@@ -664,7 +664,8 @@ BEGIN
                 MENUITEM "BRG555 (little endian)",      ID_COLORFORMAT_BRG555_LE
                 MENUITEM "GRB555 (little endian)",      ID_COLORFORMAT_GRB555_LE
                 MENUITEM "GRB555 (big endian)",         ID_COLORFORMAT_GRB555_BE
-                MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE
+                MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE_CPS3
+                MENUITEM "RGB555 (little endian for non-CPS3)", ID_COLORFORMAT_RGB555_LE_NORMAL
                 MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_BE
                 MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
                 MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
@@ -700,7 +701,7 @@ BEGIN
         END
         MENUITEM "Advanced &Settings...",       ID_SETTINGS_SETTINGS
         MENUITEM SEPARATOR
-        MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
+        MENUITEM "Show 8-bit values for non-8-bit colors (will round!)", ID_SHOW32BITRGB
         MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
     END
     POPUP "&Help"
@@ -744,7 +745,6 @@ BEGIN
             MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
             MENUITEM "Trim dropped previews",       ID_SETTINGS_DROPTRIM
             MENUITEM "Use WinKawaks correction first for CPS1/CPS2/NeoGeo", ID_SETTINGS_DROPKAWAKS
-            MENUITEM "Use MAME math instead for RGB555_LE (CPS3)", ID_SETTINGS_DROPMAME
         END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS

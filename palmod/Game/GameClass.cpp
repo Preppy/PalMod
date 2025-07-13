@@ -135,7 +135,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(29) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+    static_assert(static_cast<ColMode>(30) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
 
     switch (NewMode)
     {
@@ -175,7 +175,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
     case ColMode::COLMODE_BGR555_LE:
     case ColMode::COLMODE_BGR555_BE:
     case ColMode::COLMODE_xBGR555_LE:
-    case ColMode::COLMODE_RGB555_LE:
+    case ColMode::COLMODE_RGB555_LE_NORMAL:
     case ColMode::COLMODE_RGB555_BE:
     case ColMode::COLMODE_BRG555_LE:
     case ColMode::COLMODE_GRB555_LE:
@@ -185,9 +185,20 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_32Steps;
         GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_1Step;
         Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_1Step;
-        GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB555;
+        GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB555_Normal;
         GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
-        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
+        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
+        break;
+
+    case ColMode::COLMODE_RGB555_LE_CPS3:
+        m_nSizeOfColorsInBytes = 2;
+        GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_31Steps;
+        Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_31Steps;
+        GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_1Step;
+        Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_1Step;
+        GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB555_CPS3;
+        GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
+        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_CPS3;
         break;
 
     case ColMode::COLMODE_RGB555_SHARP:
@@ -198,7 +209,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         Get8BitValueForColorStep_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
         GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_SharpCLUT;
         GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_SharpCLUT;
-        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
+        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
         break;
 
     case ColMode::COLMODE_RGB666_NEOGEO:
@@ -209,7 +220,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
         GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
         GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
-        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
+        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
         break;
 
     case ColMode::COLMODE_RGBA8881:
@@ -281,7 +292,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(29) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+    static_assert(static_cast<ColMode>(30) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
 
     switch (NewMode)
     {
@@ -331,9 +342,13 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
         ConvPal16 = &ColorSystem::CONV_xBGR555LE_32;
         ConvCol16 = &ColorSystem::CONV_32_xBGR555LE;
         break;
-    case ColMode::COLMODE_RGB555_LE:
-        ConvPal16 = &ColorSystem::CONV_RGB555LE_32;
-        ConvCol16 = &ColorSystem::CONV_32_RGB555LE;
+    case ColMode::COLMODE_RGB555_LE_CPS3:
+        ConvPal16 = &ColorSystem::CONV_RGB555LE_32_CPS3;
+        ConvCol16 = &ColorSystem::CONV_32_RGB555LE_CPS3;
+        break;
+    case ColMode::COLMODE_RGB555_LE_NORMAL:
+        ConvPal16 = &ColorSystem::CONV_RGB555LE_32_NORMAL;
+        ConvCol16 = &ColorSystem::CONV_32_RGB555LE_NORMAL;
         break;
     case ColMode::COLMODE_RGB555_BE:
         ConvPal16 = &ColorSystem::CONV_RGB555BE_32;

@@ -145,7 +145,8 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
     // This handles the color modes switches for:
     // ID_COLORFORMAT_RGB444_BE
-    // ID_COLORFORMAT_RGB555_LE
+    // ID_COLORFORMAT_RGB555_LE_CPS3
+    // ID_COLORFORMAT_RGB555_LE_NORMAL
     // ID_COLORFORMAT_RGB556
     // ID_COLORFORMAT_RGB666
     // ID_COLORFORMAT_RGB557
@@ -170,7 +171,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     // Update this check once you've decided whether to expose the new color or not.
-    static_assert(static_cast<ColMode>(29) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+    static_assert(static_cast<ColMode>(30) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
 
     switch (NewMode)
     {
@@ -193,7 +194,8 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         break;
 
-    case ColMode::COLMODE_RGB555_LE:
+    case ColMode::COLMODE_RGB555_LE_CPS3:
+    case ColMode::COLMODE_RGB555_LE_NORMAL:
     case ColMode::COLMODE_xBGR555_LE:
     case ColMode::COLMODE_RGB555_BE:
         cbRequiredColorSize = 2;

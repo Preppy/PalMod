@@ -23,7 +23,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL6,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE,
+        ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData,
         {},
         SFIII1_A_50_UNITS,

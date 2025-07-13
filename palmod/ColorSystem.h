@@ -26,7 +26,7 @@ enum class ColMode
     COLMODE_BGR555_LE,      // BGR555 little endian (GBA, PSX, SNES)
     COLMODE_RGB444_BE,      // RGB444 big endian (CPS1/2)
     COLMODE_RGB444_LE,      // RGB444 little endian (SF 30th steam)
-    COLMODE_RGB555_LE,      // RGB555 little endian (CPS3)
+    COLMODE_RGB555_LE_CPS3, // RGB555 little endian (CPS3)
     COLMODE_RGB555_BE,      // RGB555 big endian 
     COLMODE_RGB666_NEOGEO,  // RGB666 using the NeoGeo color table
     COLMODE_RGB333,         // RGB333 for Sega Genesis/MegaDrive
@@ -57,6 +57,7 @@ enum class ColMode
 
     COLMODE_BRG555_LE,      // used by Fists of Fury
     COLMODE_GRB555_BE,      // GRB555 big endian: added for a game that didn't need it, so unused
+    COLMODE_RGB555_LE_NORMAL, // RGB555 little endian (Normal, non-CPS3)
 
     COLMODE_LAST,
 };
@@ -99,9 +100,13 @@ namespace ColorSystem
     uint32_t CONV_BGR555BE_32(uint16_t inCol);
     uint16_t CONV_32_xBGR555LE(uint32_t inCol);
     uint32_t CONV_xBGR555LE_32(uint16_t inCol);
-    uint16_t CONV_32_RGB555LE(uint32_t inCol);
-    // Note that MAME-CPS3 and PalMod use different math here
-    uint32_t CONV_RGB555LE_32(uint16_t inCol);
+    // Note that MAME/CPS3 and FBNeo use different math here
+    uint16_t CONV_32_RGB555LE_Common(uint32_t inCol, bool fUseRounding);
+    uint32_t CONV_RGB555LE_32_Common(uint16_t inCol, bool fUseRounding);
+    uint16_t CONV_32_RGB555LE_CPS3(uint32_t inCol);
+    uint32_t CONV_RGB555LE_32_CPS3(uint16_t inCol);
+    uint16_t CONV_32_RGB555LE_NORMAL(uint32_t inCol);
+    uint32_t CONV_RGB555LE_32_NORMAL(uint16_t inCol);
     uint16_t CONV_32_RGB555BE(uint32_t inCol);
     uint32_t CONV_RGB555BE_32(uint16_t inCol);
     uint16_t CONV_32_GRB555LE(uint32_t inCol);
@@ -147,6 +152,8 @@ namespace ColorSystem
     int Get8BitValueForColorStep_8Steps(int nColorStep);
     int GetColorStepFor8BitValue_16Steps(int nColorValue);
     int Get8BitValueForColorStep_16Steps(int nColorStep);
+    int GetColorStepFor8BitValue_31Steps(int nColorValue);
+    int Get8BitValueForColorStep_31Steps(int nColorStep);
     int GetColorStepFor8BitValue_32Steps(int nColorValue);
     int Get8BitValueForColorStep_32Steps(int nColorStep);
     int GetColorStepFor8BitValue_32Steps_SharpCLUT(int nColorValue);
@@ -161,7 +168,8 @@ namespace ColorSystem
     int GetNearestLegalColorValue_RGB111(int nColorValue);
     int GetNearestLegalColorValue_RGB333(int nColorValue);
     int GetNearestLegalColorValue_RGB444(int nColorValue);
-    int GetNearestLegalColorValue_RGB555(int nColorValue);
+    int GetNearestLegalColorValue_RGB555_CPS3(int nColorValue);
+    int GetNearestLegalColorValue_RGB555_Normal(int nColorValue);
     int GetNearestLegalColorValue_SharpCLUT(int nColorValue);
     int GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue);
     int GetNearestLegalColorValue_ARGB7888(int nColorValue);
@@ -169,7 +177,8 @@ namespace ColorSystem
 
     int ValidateColorStep_RGB333(int nColorStep);
     int ValidateColorStep_RGB444(int nColorStep);
-    int ValidateColorStep_RGB555(int nColorStep);
+    int ValidateColorStep_RGB555_CPS3(int nColorStep);
+    int ValidateColorStep_RGB555_Normal(int nColorStep);
     int ValidateColorStep_RGB888(int nColorStep);
 
     AlphaMode GetAlphaMode();

@@ -3496,13 +3496,11 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { L"Draw", 0x30CC80, 0x30CCA0, indexJojos51Bonus, 0x1d },
     { L"Time Up", 0x30CCC0, 0x30CCE0, indexJojos51Bonus, 0x1e },
     { L"Here Comes A New Challenger", 0x30CD00, 0x30CD20, indexJojos51Bonus, 0x25 },
-    { L"Story Mode Episodes Text", 0x30CC00, 0x30CC20, indexJojos51Bonus, 0x24 },
     { L"Stand Summon & Tandem Aura", 0x335920, 0x335940, indexJojos51Bonus, 0x3F },
     { L"S.Dio 2c Stone & Requiem Zzz", 0x335940, 0x335980, indexJojos51Bonus, 0x41 },
     { L"Base Char Dust & Floor Bounce", 0x335B40, 0x335B60 },
     // Folded into another one
     //{ L"Extra Char Dust & Floor Bounce", 0x335860, 0x335878 },
-    { L"Story Mode Metal Objects", 0x335B20, 0x335B40 },
     { L"Speedwagon Pilot", 0x335880, 0x3358A0, indexJojos51Bonus, 0x58 },
     // Duped to "Various..."
     //{ L"Chaka s.236a/236aa Effects", 0x3358E0, 0x335900 },
@@ -3674,15 +3672,6 @@ const sGame_PaletteDataset JOJOS_BONUS_PORTRAITS_RANKING[] =
     { L"Khan Ranking Portrait", 0x314480, 0x3144a0,                  indexJojos51Khan, 0x30 },
 };
 
-const sGame_PaletteDataset JOJOS_BONUS_51_STORYMODE_PALETTES[] =
-{
-    { L"Storymode Egypt Map (1/4)", 0x313a00, 0x313a80, indexJojos51Bonus, 0x4e },
-    { L"Storymode Egypt Map (2/4)", 0x313b00, 0x313b80, indexJojos51Bonus, 0x4e },
-    { L"Storymode Egypt Map (3/4)", 0x313b80, 0x313c00, indexJojos51Bonus, 0x4e },
-    { L"Storymode Egypt Map (4/4)", 0x313c00, 0x313c80, indexJojos51Bonus, 0x4e },
-    { L"Storymode Japan Map", 0x313a80, 0x313b00, indexJojos51Bonus, 0x4f },
-};
-
 const sGame_PaletteDataset JOJOS_A_TEMP_GCS_PALETTES[] =
 {
     { L"Jotaro & Star Platinum A Guard Cancel Stance", 0x336b00, 0x336b80, indexJojos51Jotaro },
@@ -3825,7 +3814,6 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
     { L"Tarot Cards", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_TAROT_CARDS, ARRAYSIZE(JOJOS_BONUS_TAROT_CARDS) },
     { L"Ranking Portraits", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_PORTRAITS_RANKING, ARRAYSIZE(JOJOS_BONUS_PORTRAITS_RANKING) },
     { L"Stage Shadows", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_STAGESHADOWS, ARRAYSIZE(JOJOS_BONUS_STAGESHADOWS) },
-    { L"Story Mode", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_51_STORYMODE_PALETTES, ARRAYSIZE(JOJOS_BONUS_51_STORYMODE_PALETTES) },
 };
 
 #pragma endregion Bonus
@@ -4200,6 +4188,21 @@ const sGame_PaletteDataset JOJOS_A_KHAN_STORY_PALETTES[] =
     { L"Khan Ending Scene Portrait", 0x2fd500, 0x2fd580, indexJojos51StoryMode, 0x07 },
 };
 
+const sGame_PaletteDataset JOJOS_A_MAPS_STORY_PALETTES[] =
+{
+    { L"Storymode Egypt Map (1/4)", 0x313a00, 0x313a80, indexJojos51Bonus, 0x4e },
+    { L"Storymode Egypt Map (2/4)", 0x313b00, 0x313b80, indexJojos51Bonus, 0x4e },
+    { L"Storymode Egypt Map (3/4)", 0x313b80, 0x313c00, indexJojos51Bonus, 0x4e },
+    { L"Storymode Egypt Map (4/4)", 0x313c00, 0x313c80, indexJojos51Bonus, 0x4e },
+    { L"Storymode Japan Map", 0x313a80, 0x313b00, indexJojos51Bonus, 0x4f },
+
+    { L"Destination text 1/2", 0x313800, 0x313820, indexJojos51StoryMode, -1 },
+    { L"Travel Arrow", 0x313820, 0x313840, indexJojos51StoryMode, -1 },
+    { L"\"Travel Map\"", 0x313840, 0x313860, indexJojos51StoryMode, -1 },
+
+    { L"Map elements", 0x313880, 0x313980, indexJojos51StoryMode, -1 },
+};
+
 const sGame_PaletteDataset JOJOS_A_SHARED_STORY_PALETTES[] =
 {
     { L"DIO's Curse (Crusaders)", 0x2ea400, 0x2ea480, indexJojos51StoryMode, 0x1a },
@@ -4211,6 +4214,8 @@ const sGame_PaletteDataset JOJOS_A_SHARED_STORY_PALETTES[] =
     { L"Nukesaku In The Coffin BG", 0x2eb600, 0x2eb680 },
     { L"Cloaked DIO 1/2", 0x2eba00, 0x2ebc00, indexJojos51StoryMode, 0x16 },
     { L"Cloaked DIO 2/2", 0x2ebc00, 0x2ebd00, indexJojos51StoryMode, 0x17 },
+    { L"Episodes Text", 0x30CC00, 0x30CC20, indexJojos51Bonus, 0x24 },
+    { L"Metal Objects", 0x335B20, 0x335B40 },
 };
 
 const sDescTreeNode JOJOS_A_STORYMODE_COLLECTION[] =
@@ -4225,6 +4230,7 @@ const sDescTreeNode JOJOS_A_STORYMODE_COLLECTION[] =
     { L"Vanilla Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_VICE_STORY_PALETTES, ARRAYSIZE(JOJOS_A_VICE_STORY_PALETTES) },
     { L"Mariah", DESC_NODETYPE_TREE, (void*)JOJOS_A_MARIAH_STORY_PALETTES, ARRAYSIZE(JOJOS_A_MARIAH_STORY_PALETTES) },
     { L"Khan", DESC_NODETYPE_TREE, (void*)JOJOS_A_KHAN_STORY_PALETTES, ARRAYSIZE(JOJOS_A_KHAN_STORY_PALETTES) },
+    { L"Map Stuff", DESC_NODETYPE_TREE, (void*)JOJOS_A_MAPS_STORY_PALETTES, ARRAYSIZE(JOJOS_A_MAPS_STORY_PALETTES) },
     { L"Shared Aspects", DESC_NODETYPE_TREE, (void*)JOJOS_A_SHARED_STORY_PALETTES, ARRAYSIZE(JOJOS_A_SHARED_STORY_PALETTES) },
 };
 

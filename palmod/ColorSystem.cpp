@@ -17,7 +17,8 @@ namespace ColorSystem
     // We're using floor() for math, so use .429 instead of .428
     const double k_nRGBPlaneMulForRGB333 = 36.429;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
-    const double k_nRGBPlaneMulForRGB555 = 8.225;
+    const int k_nRGBPlaneMulForRGB555_CPS3 = 8;
+    const double k_nRGBPlaneMulForRGB555_Normal = 8.225;
     const double k_nRGBPlaneMulForRGB777 = 2;
     const double k_nRGBPlaneMulForRGB888 = 1;
 
@@ -25,7 +26,8 @@ namespace ColorSystem
     const int k_nRGBPlaneAmtForRGB111 = 1;
     const int k_nRGBPlaneAmtForRGB333 = 7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
-    const int k_nRGBPlaneAmtForRGB555 = 31;
+    const int k_nRGBPlaneAmtForRGB555_CPS3 = 30;
+    const int k_nRGBPlaneAmtForRGB555_Normal = 31;
     // The 64 color NeoGeo color table is split bright/dark, but we only use bright
     const int k_nRGBPlaneAmtForNeoGeo = 31;
     const int k_nRGBPlaneAmtForHalfAlpha = 0x80;
@@ -59,7 +61,8 @@ namespace ColorSystem
         case ColMode::COLMODE_BGR555_LE:
         case ColMode::COLMODE_BGR555_BE:
         case ColMode::COLMODE_xBGR555_LE:
-        case ColMode::COLMODE_RGB555_LE:
+        case ColMode::COLMODE_RGB555_LE_CPS3:
+        case ColMode::COLMODE_RGB555_LE_NORMAL:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_RGB555_SHARP:
 
@@ -93,7 +96,7 @@ namespace ColorSystem
         { "BGR555LE", ColMode::COLMODE_BGR555_LE },             // BGR555 little endian (GBA)
         { "RGB444BE", ColMode::COLMODE_RGB444_BE },             // RGB444 big endian (CPS1/2)
         { "RGB444LE", ColMode::COLMODE_RGB444_LE },             // RGB444 little endian (SF 30th steam)
-        { "RGB555LE", ColMode::COLMODE_RGB555_LE },             // RGB555 little endian (CPS3)
+        { "RGB555LE", ColMode::COLMODE_RGB555_LE_CPS3 },        // RGB555 little endian (CPS3: 555 on a 29bit display)
         { "RGB555BE", ColMode::COLMODE_RGB555_BE },             // RGB555 big endian 
         { "RGB666", ColMode::COLMODE_RGB666_NEOGEO },           // RGB666 using the NeoGeo color table
         { "RGB333", ColMode::COLMODE_RGB333 },                  // RGB333 for Sega Genesis/MegaDrive
@@ -120,6 +123,7 @@ namespace ColorSystem
         { "BRG888", ColMode::COLMODE_BRG888 },
         { "xBGR555LE", ColMode::COLMODE_xBGR555_LE },            // Different packing used by Sega Saturn, Asura Buster / Fuuki
         { "BRG555LE", ColMode::COLMODE_BRG555_LE },              // BRG555 little endian, used by Fists of Fury
+        { "RGB555LE_Normal", ColMode::COLMODE_RGB555_LE_NORMAL }, // RGB555 little endian (non-true-CPS3, or 555 on a 32bit display)
     };
 
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
@@ -308,7 +312,7 @@ namespace ColorSystem
         case ColMode::COLMODE_BGR555_LE:
         case ColMode::COLMODE_BGR555_BE:
         case ColMode::COLMODE_xBGR555_LE:
-        case ColMode::COLMODE_RGB555_LE:
+        case ColMode::COLMODE_RGB555_LE_NORMAL:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_GRB555_BE:
@@ -320,7 +324,16 @@ namespace ColorSystem
             }
             else
             {
-                return k_nRGBPlaneAmtForRGB555;
+                return k_nRGBPlaneAmtForRGB555_Normal;
+            }
+        case ColMode::COLMODE_RGB555_LE_CPS3:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB555_CPS3;
             }
 
         case ColMode::COLMODE_RGB666_NEOGEO:
@@ -342,7 +355,7 @@ namespace ColorSystem
             }
             else
             {
-                return k_nRGBPlaneAmtForRGB555;
+                return k_nRGBPlaneAmtForRGB555_Normal;
             }
         case ColMode::COLMODE_RGBA8887:
             if (Flag == ColFlag::COL_A)
@@ -764,7 +777,7 @@ namespace ColorSystem
         return SWAP_16(auxb | auxg | auxr);
     }
 
-    uint32_t CONV_RGB555LE_32(uint16_t inCol)
+    uint32_t CONV_RGB555LE_32_Common(uint16_t inCol, bool fUseRounding)
     {
         uint16_t swapped = SWAP_16(inCol);
 
@@ -782,11 +795,16 @@ namespace ColorSystem
         auxg = auxg << 3;
         auxb = auxb << 3;
 
-        // account for rounding
-        // Note that MAME just ignores rounding issues!
-        auxr += auxr / 32;
-        auxg += auxg / 32;
-        auxb += auxb / 32;
+        if (fUseRounding)
+        {
+            // account for rounding
+            // The fork here is interesting.  Since ~2006 PalMod has been using rounding.
+            // This is in line with the current (2024) FBNeo implementation.  However, both
+            // Capcom's SF3 on CFC for Steam and MAME are not using rounding.
+            auxr += auxr / 32;
+            auxg += auxg / 32;
+            auxb += auxb / 32;
+        }
 
         //auxr = auxr;
         auxg = auxg << 8;
@@ -796,15 +814,24 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_RGB555LE(uint32_t inCol)
+    uint16_t CONV_32_RGB555LE_Common(uint32_t inCol, bool fUseRounding)
     {
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = static_cast<uint16_t>(round(auxb / 8));
-        auxg = static_cast<uint16_t>(round(auxg / 8));
-        auxr = static_cast<uint16_t>(round(auxr / 8));
+        if (fUseRounding)
+        {
+            auxb = static_cast<uint16_t>(round(auxb / 8));
+            auxg = static_cast<uint16_t>(round(auxg / 8));
+            auxr = static_cast<uint16_t>(round(auxr / 8));
+        }
+        else
+        {
+            auxb = static_cast<uint16_t>(auxb / 8);
+            auxg = static_cast<uint16_t>(auxg / 8);
+            auxr = static_cast<uint16_t>(auxr / 8);
+        }
 
         //auxr = auxr; no-op
         auxg = auxg << 5;
@@ -812,6 +839,11 @@ namespace ColorSystem
 
         return SWAP_16(auxb | auxg | auxr);
     }
+
+    uint16_t CONV_32_RGB555LE_CPS3(uint32_t inCol) { return CONV_32_RGB555LE_Common(inCol, false); };
+    uint32_t CONV_RGB555LE_32_CPS3(uint16_t inCol) { return CONV_RGB555LE_32_Common(inCol, false); };
+    uint16_t CONV_32_RGB555LE_NORMAL(uint32_t inCol) { return CONV_32_RGB555LE_Common(inCol, true); };
+    uint32_t CONV_RGB555LE_32_NORMAL(uint16_t inCol) { return CONV_RGB555LE_32_Common(inCol, true); };
 
     uint32_t CONV_GRB555LE_32(uint16_t inCol)
     {
@@ -1523,20 +1555,38 @@ namespace ColorSystem
         return nColorValue;
     }
 
+    int GetColorStepFor8BitValue_31Steps(int nColorValue)
+    {
+        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555_CPS3));
+
+        return nStep;
+    }
+
+    int Get8BitValueForColorStep_31Steps(int nColorStep)
+    {
+        nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555_CPS3);
+        nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555_CPS3);
+
+        // establish about where we should be
+        const int nColorValue = k_nRGBPlaneMulForRGB555_CPS3 * nColorStep;
+
+        return nColorValue;
+    }
+
     int GetColorStepFor8BitValue_32Steps(int nColorValue)
     {
-        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555));
+        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555_Normal));
 
         return nStep;
     }
 
     int Get8BitValueForColorStep_32Steps(int nColorStep)
     {
-        nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555);
-        nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555);
+        nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555_Normal);
+        nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555_Normal);
 
         // establish about where we should be
-        const int nColorValue = ROUND_8(static_cast<int>(round(k_nRGBPlaneMulForRGB555 * static_cast<double>(nColorStep))));
+        const int nColorValue = ROUND_8(static_cast<int>(round(k_nRGBPlaneMulForRGB555_Normal * static_cast<double>(nColorStep))));
 
         return nColorValue;
     }
@@ -1644,7 +1694,12 @@ namespace ColorSystem
         return ROUND_17(nColorValue);
     }
 
-    int GetNearestLegalColorValue_RGB555(int nColorValue)
+    int GetNearestLegalColorValue_RGB555_CPS3(int nColorValue)
+    {
+        return (nColorValue / 8) * 8;
+    }
+
+    int GetNearestLegalColorValue_RGB555_Normal(int nColorValue)
     {
         return ROUND_8(nColorValue);
     }
@@ -1706,10 +1761,16 @@ namespace ColorSystem
         return min(nColorStep, k_nRGBPlaneAmtForRGB444);
     }
 
-    int ValidateColorStep_RGB555(int nColorStep)
+    int ValidateColorStep_RGB555_CPS3(int nColorStep)
     {
         nColorStep = max(0, nColorStep);
-        return min(nColorStep, k_nRGBPlaneAmtForRGB555);
+        return min(nColorStep, k_nRGBPlaneAmtForRGB555_CPS3);
+    }
+
+    int ValidateColorStep_RGB555_Normal(int nColorStep)
+    {
+        nColorStep = max(0, nColorStep);
+        return min(nColorStep, k_nRGBPlaneAmtForRGB555_Normal);
     }
 
     int ValidateColorStep_RGB888(int nColorStep)

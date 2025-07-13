@@ -59,7 +59,6 @@ public:
     afx_msg void OnSetDropIsPalette();
     afx_msg void OnSetDropTrim();
     afx_msg void OnSetDropWinKawaksFirst();
-    afx_msg void OnSetDropMAMEMathFirst();
     afx_msg void OnDestroy();
     afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
     afx_msg void OnClose();
