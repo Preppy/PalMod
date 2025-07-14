@@ -1420,6 +1420,11 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     // This is loose but currently true for the games we support
     bool fUseWinKawaksShift = fGameSupportedByKawaks && GetPreviewDropWinKawaksFirst();
 
+    if (fUseWinKawaksShift)
+    {
+        OutputDebugString(L"Using WinKawaks math for matching.\r\n");
+    }
+
     const bool fIsARGB = ((static_cast<size_t>(nDataLen) * 4) == nImageSize);
     const bool fIsRGB = ((static_cast<size_t>(nDataLen) * 3) == nImageSize);
     bool fFoundOne = false;
@@ -1499,6 +1504,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fGameSupportedByKawaks)
         {
             fUseWinKawaksShift = true;
+            OutputDebugString(L"No color matches found: trying again using WinKawaks math.\r\n");
             iPos = 0;
             _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
         }
