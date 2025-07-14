@@ -238,8 +238,12 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
             {
                 if (TargetFile.GetLength() != 112635968)
                 {
+                    // Note that the bytes for the first (Ryu) palette file are:
+                    // 20 00 00 00 20 7F 06 00 20 E4 06 00 40 EB 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                    // starting at 0x7be840 in the standard ROM
+
                     MessageBox(g_appHWnd, L"Error: This is not the expected Steam ROM.\n\nIf Capcom changed the ROM size, you will need an updated version of PalMod for this.\n\n"
-                                          L"If you made some ROM hacks that changed the ROM size (custom stages, for example), the easiest thing to do is to go back to the original Steam ROM,"
+                                          L"If you made some ROM hacks that changed the ROM size (custom stages, for example), the easiest thing to do is to go back to the original Steam ROM, "
                                           L"crosscopy colors from Dreamcast to that ROM, and THEN go and insert custom stages.", GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
                     strLoadSaveStr = L"Invalid file specified.";
                     return;
