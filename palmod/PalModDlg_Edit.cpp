@@ -66,16 +66,90 @@ void CPalModDlg::OnCopyColorAtPointer()
     CopyColorToClipboard(GetColorAtCurrentMouseCursorPosition());
 }
 
+void CPalModDlg::OnPaste15ColorsAtPointer()
+{
+    HDC hdc = ::GetWindowDC(0);
+
+    if (hdc && CurrPalCtrl && GetHost()->GetCurrGame())
+    {
+        if (CurrPalCtrl->GetSelAmt() != 1)
+        {
+            SetStatusText(L"Select the starting color before bulk copying.");
+        }
+        else
+        {
+            POINT ptCursor = { -1, -1 };
+
+            if (GetCursorPos(&ptCursor) && (ptCursor.x != -1))
+            {
+                const size_t nMaxColorsToCopy = 15;
+                const LONG ptMinimumStep = 4;
+                LONG ptColorStep = ptMinimumStep;
+                LONG ptFirstColorStep = 0;
+
+                // *Really* get the cursor out of the way so we don't track the cursor design by accident
+                POINT ptOriginalCursor = ptCursor;
+                ShowCursor(FALSE);
+                SetCursorPos(0, 0);
+                // Look!  The horrific Sleep!
+                // We're doing a SetCursorPos here, and we need to pause for redraw so we don't read the in-transit 
+                // 000000 cursor redraw color (or similar).
+                Sleep(100);
+
+                for (size_t nColorCount = 1; nColorCount <= nMaxColorsToCopy; nColorCount++)
+                {
+                    CString strOutput;
+                    const COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+                    // COLORREF is aaBBggRR we want aaRRggBB
+                    const DWORD colorAsDWORD = (0xFF << 24) | (GetRValue(colorAtPixel) << 16) | (GetGValue(colorAtPixel) << 8) | GetBValue(colorAtPixel);
+
+                    PasteToPaletteFromRGB(colorAsDWORD, true, (nColorCount == nMaxColorsToCopy));
+
+                    // arbitrarily stepping by 4(?) to minimize spins
+                    for (; ptColorStep < 100; ptColorStep += ptMinimumStep)
+                    {
+                        const COLORREF colorNext = GetPixel(hdc, ptCursor.x + ptColorStep, ptCursor.y);
+
+                        if (colorNext != colorAtPixel)
+                        {
+                            if (ptFirstColorStep == 0)
+                            {
+                                // establish a minimum baseline of step distance
+                                ptFirstColorStep = ptColorStep;
+
+                                if (colorNext == 0x0000ff00)
+                                {
+                                    // one time check to ignore our green selection border
+                                    ptColorStep += 5;
+                                    continue;
+                                }
+                            }
+
+                            break;
+                        }
+                    }
+
+                    ptCursor.x += ptColorStep;
+                    ptColorStep = ptFirstColorStep;
+                }
+
+                ShowCursor(TRUE);
+                SetCursorPos(ptOriginalCursor.x, ptOriginalCursor.y);
+            }
+
+            ::ReleaseDC(::GetDesktopWindow(), hdc);
+        }
+    }
+}
+
 void CPalModDlg::OnPasteColorAtPointer()
 {
-    OnCopyColorAtPointer();
-    OnEditPaste();
+    PasteToPaletteFromRGB(GetColorAtCurrentMouseCursorPosition());
 }
 
 void CPalModDlg::OnPasteWalkColorAtPointer()
 {
-    OnPasteColorAtPointer();
-    OnPalSelShiftRight();
+    PasteToPaletteFromRGB(GetColorAtCurrentMouseCursorPosition(), true);
 }
 
 void CPalModDlg::OnFindColorAtPointer()
@@ -933,8 +1007,6 @@ BOOL CPalModDlg::IsPasteSupported()
 
 void CPalModDlg::HandlePasteFromPalMod()
 {
-    COleDataObject obj;
-
     char* szPasteBuff = m_strPasteStr.GetBuffer();
 
     // Do something with the data in 'buffer'
@@ -948,8 +1020,8 @@ void CPalModDlg::HandlePasteFromPalMod()
     if (uPasteAmt)
     {
         CGameClass* CurrGame = GetHost()->GetCurrGame();
-        uint8_t uCurrGFlag = CurrGame->GetGameFlag();
-        ColMode eCurrColMode = CurrGame->GetColorMode();
+        const uint8_t uCurrGFlag = CurrGame->GetGameFlag();
+        const ColMode eCurrColMode = CurrGame->GetColorMode();
         ColMode eColModeForPastedColor = eCurrColMode;
 
         COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
@@ -1251,7 +1323,7 @@ void CPalModDlg::HandlePasteFromPalMod()
         }
         else
         {
-            uint8_t* rgSelIndex = CurrPalCtrl->GetSelIndex();
+            const uint8_t* rgSelIndex = CurrPalCtrl->GetSelIndex();
             COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
 
             for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
@@ -1293,14 +1365,18 @@ void CPalModDlg::HandlePasteFromPalMod()
     }
 }
 
-void CPalModDlg::HandlePasteFromRGB()
+void CPalModDlg::PasteToPaletteFromRGB(COLORREF clrIn, bool fAdvanceNext /* = false */, bool fRefreshUI /* = true */)
+{
+    m_strPasteStr.Format("%08x", clrIn);
+    HandlePasteFromRGB(fAdvanceNext, fRefreshUI);
+}
+
+void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefreshUI /* = true */)
 {
     // By the time we get here we know the incoming string is of one of these forms:
     //   #rrggbb    #aarrggbb   rrggbb  aarrggbb    0xrrggbb    0xaarrggbb
-    COleDataObject obj;
-
-    char* szPasteBuff = m_strPasteStr.GetBuffer();
-    uint32_t nCountChars = static_cast<uint32_t>(strlen(szPasteBuff));
+    const char* szPasteBuff = m_strPasteStr.GetBuffer();
+    const uint32_t nCountChars = static_cast<uint32_t>(strlen(szPasteBuff));
     uint32_t nOffset = 0;
 
     if (szPasteBuff[0] == '#')
@@ -1319,19 +1395,19 @@ void CPalModDlg::HandlePasteFromRGB()
         }
     }
 
-    uint32_t nCountColorChars = nCountChars - nXPos;
+    const uint32_t nCountColorChars = nCountChars - nXPos;
 
     // Allow for either RGB or ARGB pastes
-    bool fIsARGB = (nCountColorChars == 8);
+    const bool fIsARGB = (nCountColorChars == 8);
 
     char szFormatStrRGB[] = "0x000000";
     char szFormatStrARGB[] = "0x00000000";
 
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    uint8_t uCurrGFlag = CurrGame->GetGameFlag();
-    ColMode eCurrColMode = CurrGame->GetColorMode();
+    const uint8_t uCurrGFlag = CurrGame->GetGameFlag();
+    const ColMode eCurrColMode = CurrGame->GetColorMode();
 
-    int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+    const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
 
     //Notify the change data
     ProcChange();
@@ -1386,7 +1462,7 @@ void CPalModDlg::HandlePasteFromRGB()
     }
     else
     {
-        uint8_t* rgSelIndex = CurrPalCtrl->GetSelIndex();
+        const uint8_t* rgSelIndex = CurrPalCtrl->GetSelIndex();
         COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
 
         for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
@@ -1399,14 +1475,23 @@ void CPalModDlg::HandlePasteFromRGB()
         }
     }
 
-    CurrPalCtrl->UpdateIndexAll();
+    if (fAdvanceNext)
+    {
+        // Walk palette cursor
+        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
+    }
 
-    ImgDispCtrl->UpdateCtrl();
-    CurrPalCtrl->UpdateCtrl();
+    if (fRefreshUI)
+    {
+        CurrPalCtrl->UpdateIndexAll();
 
-    UpdateSliderSel();
+        ImgDispCtrl->UpdateCtrl();
+        CurrPalCtrl->UpdateCtrl();
 
-    SetStatusText(IDS_PASTE_RGB);
+        UpdateSliderSel();
+
+        SetStatusText(IDS_PASTE_RGB);
+    }
 }
 
 void CPalModDlg::OnEditPaste()
@@ -1440,7 +1525,7 @@ void CPalModDlg::NewUndoData(BOOL fUndo)
 
         CUndoNode* NewNode = fUndo ? UndoProc.NewUndo() : UndoProc.NewRedo();
 
-        int nPalSz = srcSep->nAmt;
+        const int nPalSz = srcSep->nAmt;
 
         NewNode->nPalIndex = static_cast<int>(m_nCurrSelPal);
         NewNode->nPalSz = nPalSz;

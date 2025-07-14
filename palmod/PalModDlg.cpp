@@ -181,6 +181,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_ACC_SAVEPALETTE, &CPalModDlg::OnExportPalette)
     ON_COMMAND(ID_ACC_SNIFFCOLOR, &CPalModDlg::OnCopyColorAtPointer)
     ON_COMMAND(ID_ACC_SNIFFPASTE, &CPalModDlg::OnPasteColorAtPointer)
+    ON_COMMAND(ID_ACC_SNIFFPASTE15, &CPalModDlg::OnPaste15ColorsAtPointer)
     ON_COMMAND(ID_ACC_SNIFFPASTEWALK, &CPalModDlg::OnPasteWalkColorAtPointer)
     ON_COMMAND(ID_ACC_FINDCOLOR, &CPalModDlg::OnFindColorAtPointer)
 

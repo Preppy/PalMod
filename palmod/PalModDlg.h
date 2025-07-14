@@ -235,7 +235,8 @@ private:
     void StopBlink();
 
     void HandlePasteFromPalMod();
-    void HandlePasteFromRGB();
+    void HandlePasteFromRGB(bool fAdvanceNext = false, bool fRefreshUI = true);
+    void PasteToPaletteFromRGB(COLORREF clrIn, bool fAdvanceNext = false, bool fRefreshUI = true);
 
     bool CurrentBBCFCharacterIsInBBTAG();
 
@@ -288,12 +289,14 @@ private:
     static BOOL IsPasteFromPalMod();
     static BOOL IsPasteRGB();
 
-    afx_msg void OnEditCopy();
+    afx_msg void OnFindColorAtPointer();
     afx_msg void OnCopyColorAtPointer();
+    afx_msg void OnPaste15ColorsAtPointer();
     afx_msg void OnPasteColorAtPointer();
     afx_msg void OnPasteWalkColorAtPointer();
+
+    afx_msg void OnEditCopy();
     afx_msg void OnEditCopyOffset();
-    afx_msg void OnFindColorAtPointer();
 
     afx_msg void OnPalSelShiftLeft();
     afx_msg void OnPalSelShiftRight();
