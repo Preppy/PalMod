@@ -113,6 +113,7 @@
 #include "Game_P4AU_NESICA.h"
 #include "Game_P4AU_STEAM.h"
 #include "Game_PrimalRage_SNES.h"
+#include "Game_Punisher_A.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_RanmaCRH_SNES.h"
 #include "Game_RanmaHB_SNES.h"
@@ -178,7 +179,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 243, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 245, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -325,6 +326,8 @@ namespace KnownGameInfo
     CGameClass* Make_P4AU_NESICA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_NESICA(nConfirmedROMSize); }
     CGameClass* Make_P4AU_STEAM(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_STEAM(nConfirmedROMSize); }
     CGameClass* Make_PrimalRage_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_PrimalRage_SNES(nConfirmedROMSize); }
+    CGameClass* Make_Punisher_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Punisher_A(nConfirmedROMSize); }
+    CGameClass* Make_Punisher_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Punisher_S(nConfirmedROMSize); }
     CGameClass* Make_RANMACRH_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RANMACRH_SNES(nConfirmedROMSize); }
     CGameClass* Make_RANMAHB_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RANMAHB_SNES(nConfirmedROMSize); }
     CGameClass* Make_RBFF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF1_A(nConfirmedROMSize); }
@@ -1569,6 +1572,20 @@ namespace KnownGameInfo
             CGame_PrimalRage_SNES::GetRule,
         },
         {
+            PUNISHER_A,
+            L"The Punisher (CPS Dash)",
+            { PUNISHER_A,    L"The Punisher", L"The Punisher (CPS Dash)|pse_29.10f|", GamePlatform::CapcomCPS12 },
+            Make_Punisher_A,
+            CGame_Punisher_A::GetRule,
+        },
+        {
+            PUNISHER_S,
+            L"The Punisher (Steam)",
+            { PUNISHER_S,    L"The Punisher", L"The Punisher (Steam)|punisher?.21D3D8A7|", GamePlatform::Steam, GameSeries::MvCSteam },
+            Make_Punisher_S,
+            CGame_Punisher_S::GetRule,
+        },
+        {
             ROTD_A,
             L"Rage of the Dragons (Neo-Geo)",
             { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.*|", GamePlatform::NEOGEO },
@@ -2285,7 +2302,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 243, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 245, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

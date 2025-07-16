@@ -601,6 +601,9 @@
     <Filter Include="Games\Capcom Games\SSF2_A">
       <UniqueIdentifier>{79c7b2eb-6372-4b43-8b1c-d7cc30b6ce10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Punisher %28Arcade%29">
+      <UniqueIdentifier>{9fdd6cfb-62d8-4219-86a9-62b61a43aa9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2143,6 +2146,12 @@
     </ClInclude>
     <ClInclude Include="Game\SSF2_A_DEF.h">
       <Filter>Games\Capcom Games\SSF2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Punisher_A.h">
+      <Filter>Games\Capcom Games\Punisher %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Punisher_A_DEF.h">
+      <Filter>Games\Capcom Games\Punisher %28Arcade%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

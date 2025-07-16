@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 243, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 245, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {

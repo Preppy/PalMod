@@ -528,6 +528,7 @@
     <ClInclude Include="Game\Game_P4AU_NESICA.h" />
     <ClInclude Include="Game\Game_P4AU_STEAM.h" />
     <ClInclude Include="Game\Game_PrimalRage_SNES.h" />
+    <ClInclude Include="Game\Game_Punisher_A.h" />
     <ClInclude Include="Game\Game_RanmaCRH_SNES.h" />
     <ClInclude Include="Game\Game_RanmaHB_SNES.h" />
     <ClInclude Include="Game\Game_RBFF1_A.h" />
@@ -669,6 +670,7 @@
     <ClInclude Include="Game\PalGroup.h" />
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
     <ClInclude Include="Game\PrimalRage_SNES_DEF.h" />
+    <ClInclude Include="Game\Punisher_A_DEF.h" />
     <ClInclude Include="Game\RanmaCRH_SNES_DEF.h" />
     <ClInclude Include="Game\RanmaHB_SNES_DEF.h" />
     <ClInclude Include="Game\RBFF1_A_DEF.h" />
