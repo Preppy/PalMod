@@ -1407,14 +1407,21 @@ const sDescTreeNode GEMFIGHTER_A_INTROS_COLLECTION[] =
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_COMMON_PALETTES[] =
 {
     // 0: bomb power
-    // 1: 
+    // 1: PERFECT water splash
     // 2: 
     // 3: 
     // 4: lightning powerup?
     // 5: Treasure chest
     // 6: Red dropped gems | yellow dropped gems
     // 7: blue dropped gems
-    { L"HUD Jewels and etc", 0x1b812, 0x1b912 },
+    { L"Stage Items and Effects", 0x1b812, 0x1b8f2 },
+
+    // 0: sonson
+    // 1: pig: tonton?: drops food
+    // 2: kappa: suisui?: drops items
+    // 3: prince...? sanjou?
+    // 4: Kaminari, red shock demon
+    { L"Support Clouds", 0x33e9a, 0x33f3a },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_CAPCOMCAFE_PALETTES[] =
