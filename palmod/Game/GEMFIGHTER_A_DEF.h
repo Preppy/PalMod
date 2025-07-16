@@ -31,6 +31,17 @@ const std::vector<uint16_t> GEMFIGHTER_A_IMGIDS_USED =
     indexPuzzleFighter_Sakura,      // 0xA2
 };
 
+// Stage layout order:
+//    Capcom Cafe
+//    Shopping Center
+//    Slopes
+//    Dock
+//    Chinatown
+//    Fireplace
+//    Morrigan's Castle
+//    Demitri's Castle
+//    
+
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_A[] =
 {
     { L"Ryu A", 0x99e6, 0x9a06, indexCPS2Sprites_SPF_Ryu, 0x00 },
@@ -1327,34 +1338,12 @@ const sDescTreeNode GEMFIGHTER_A_AKUMA_COLLECTION[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CARDS_ARCADE_PALETTES[] =
 {
-    { L"Ryu Arcade Card", 0xd4e6, 0xd506 },
-    { L"Ken Arcade Card", 0xd506, 0xd526 },
-    { L"Chun-Li Arcade Card", 0xd526, 0xd546 },
-    { L"Sakura Arcade Card", 0xd546, 0xd566 },
-    { L"Morrigan Arcade Card", 0xd566, 0xd586 },
-    { L"Hsien-Ko Arcade Card", 0xd586, 0xd5a6 },
-    { L"Felicia Arcade Card", 0xd5a6, 0xd5c6 },
-    { L"Tessa Arcade Card", 0xd5c6, 0xd5e6 },
-    { L"Ibuki Arcade Card", 0xd5e6, 0xd606 },
-    { L"Zangief Arcade Card", 0xd606, 0xd626 },
-    { L"Dan Arcade Card", 0xd626, 0xd646 },
-    { L"Akuma Arcade Card", 0xd646, 0xd666 }, 
+    { L"Arcade Cards", 0xd4e6, 0xd666 }, 
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_CARDS_DEFEATED_PALETTES[] =
 {
-    { L"Ryu Defeated Card", 0xd926, 0xd946 },
-    { L"Ken Defeated Card", 0xd946, 0xd966 },
-    { L"Chun-Li Defeated Card", 0xd966, 0xd986 },
-    { L"Sakura Defeated Card", 0xd986, 0xd9a6 },
-    { L"Morrigan Defeated Card", 0xd9a6, 0xd9c6 },
-    { L"Hsien-Ko Defeated Card", 0xd9c6, 0xd9e6 },
-    { L"Felicia Defeated Card", 0xd9e6, 0xda06 },
-    { L"Tessa Defeated Card", 0xda06, 0xda26 },
-    { L"Ibuki Defeated Card", 0xda26, 0xda46 },
-    { L"Zangief Defeated Card", 0xda46, 0xda66 },
-    { L"Dan Defeated Card", 0xda66, 0xda86 },
-    { L"Akuma Defeated Card", 0xda86, 0xdaa6 },
+    { L"Defeated Cards", 0xd926, 0xdaa6 },
 };
 
 const sDescTreeNode GEMFIGHTER_A_CARDS_COLLECTION[] =
@@ -1367,22 +1356,24 @@ const sGame_PaletteDataset GEMFIGHTER_A_INTRO_PALETTES[] =
 {
     { L"Intro/Menu/??? Text", 0xe042, 0xe102 },
     { L"Intro Big Gem", 0xe102, 0xe142 },
-    { L"Ken Intro", 0xe142, 0xe1a2 },
-    { L"Ryu Intro", 0xe242, 0xe2a2 },
+    { L"Ken Intro", 0xe142, 0xe1a2, indexCPS2Sprites_SPF_Ken, 0x40 },
+    { L"Ryu Intro", 0xe242, 0xe2a2, indexCPS2Sprites_SPF_Ryu, 0x40 },
+    // These (Blue Ken) are probably off by one
     { L"Blue Ken 1/2 Intro", 0xe1a2, 0xe1e2 },
     { L"Blue Ken 2/2 Intro", 0xe2a2, 0xe2c2 },
-    { L"Blue Ryu Intro", 0xe1e2, 0xe242 },
+    { L"Blue Ryu Intro", 0xe1e2, 0xe242, indexCPS2Sprites_SPF_Ryu, 0x40 },
     { L"Intro Bars", 0xe2c2, 0xe2e2 },
     { L"Lightning Intro", 0xe2e2, 0xe302 },
-    { L"Morrigan 1 Intro", 0xe302, 0xe362 },
+    { L"Morrigan 1 Intro", 0xe302, 0xe362, indexCPS2Sprites_SPF_Morrigan, 0x40  },
     { L"Morrigan Bats & Effects Intro", 0xe6c2, 0xe702 },
     { L"Geisha Morrigan Intro", 0xe362, 0xe402 },
     { L"Pastry Chef Morrigan Intro", 0xe402, 0xe4a2 },
     { L"Maid Morrigan Intro", 0xe4a2, 0xe562 },
     { L"Nurse Morrigan Intro", 0xe562, 0xe6c2 },
+    // This mostly matches the Ibuki portrait palette
     { L"Ibuki 1/2 Intro", 0xe702, 0xe7a2 },
     { L"Ibuki 2/2 Intro", 0xe802, 0xe822 },
-    { L"Chun-Li Intro", 0xe7a2, 0xe802 },
+    { L"Chun-Li Intro", 0xe7a2, 0xe802, indexCPS2Sprites_SPF_ChunLi, 0x40 },
     { L"Bench Chair Intro", 0xe862, 0xe882 },
     { L"Felicia Intro", 0xe822, 0xe862 },
     { L"Tessa Gem Intro", 0xe882, 0xe8a2 },
@@ -1391,16 +1382,16 @@ const sGame_PaletteDataset GEMFIGHTER_A_INTRO_PALETTES[] =
     { L"Chun-Li & Felicia Shadow Intro", 0xe922, 0xe942 },
     { L"NO MERCY Text Intro", 0xea82, 0xeb02 },
 
-    { L"Ryu End Intro", 0xeb02, 0xeb62 },
-    { L"Ken End Intro", 0xeb62, 0xebc2 },
-    { L"Chun-Li End Intro", 0xebc2, 0xec22 },
-    { L"Sakura End Intro", 0xec22, 0xec82 },
-    { L"Morrigan End Intro", 0xec82, 0xece2 },
-    { L"Hsien-Ko End Intro", 0xece2, 0xed42 },
-    { L"Felicia End Intro", 0xed42, 0xeda2 },
-    { L"Tessa End Intro", 0xeda2, 0xee02 },
-    { L"Ibuki End Intro", 0xee02, 0xee62 },
-    { L"Zangief End Intro", 0xee62, 0xeec2 },
+    { L"Ryu End Intro", 0xeb02, 0xeb62, indexCPS2Sprites_SPF_Ryu, 0x40 },
+    { L"Ken End Intro", 0xeb62, 0xebc2, indexCPS2Sprites_SPF_Ken, 0x40 },
+    { L"Chun-Li End Intro", 0xebc2, 0xec22, indexCPS2Sprites_SPF_ChunLi, 0x40 },
+    { L"Sakura End Intro", 0xec22, 0xec82, indexCPS2Sprites_SPF_Sakura, 0x40 },
+    { L"Morrigan End Intro", 0xec82, 0xece2, indexCPS2Sprites_SPF_Morrigan, 0x40 },
+    { L"Hsien-Ko End Intro", 0xece2, 0xed42, indexCPS2Sprites_SPF_HsienKo, 0x40 },
+    { L"Felicia End Intro", 0xed42, 0xeda2, indexCPS2Sprites_SPF_Felicia, 0x40 },
+    { L"Tessa End Intro", 0xeda2, 0xee02, indexCPS2Sprites_SPF_Tessa, 0x40 },
+    { L"Ibuki End Intro", 0xee02, 0xee62, indexCPS2Sprites_SPF_Ibuki, 0x40 },
+    { L"Zangief End Intro", 0xee62, 0xeec2, indexCPS2Sprites_SPF_Zangief, 0x40 },
     { L"Bikini Sakura Intro", 0xef02, 0xefa2 },
     { L"Sun's Light", 0xefa2, 0xefc2 },
     { L"??? Intro", 0xea42, 0xea82 },
@@ -1411,6 +1402,180 @@ const sGame_PaletteDataset GEMFIGHTER_A_INTRO_PALETTES[] =
 const sDescTreeNode GEMFIGHTER_A_INTROS_COLLECTION[] =
 {
     { L"Intro Palettes", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_INTRO_PALETTES, ARRAYSIZE(GEMFIGHTER_A_INTRO_PALETTES) },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_COMMON_PALETTES[] =
+{
+    // 0: bomb power
+    // 1: 
+    // 2: 
+    // 3: 
+    // 4: lightning powerup?
+    // 5: Treasure chest
+    // 6: Red dropped gems | yellow dropped gems
+    // 7: blue dropped gems
+    { L"HUD Jewels and etc", 0x1b812, 0x1b912 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_CAPCOMCAFE_PALETTES[] =
+{
+    { L"Background 1", 0x1fdce, 0x1ffce, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background 2", 0x1ffce, 0x201ce },
+
+    { L"Side door: animation cycle 1/2", 0x3564a, 0x3566a },
+        { L"Side door: animation cycle 2/2", 0x3566a, 0x3568a },
+
+    { L"Middle layer 1", 0x1b912, 0x1bb12 },
+    { L"Middle layer 2", 0x1bb12, 0x1bd12 },
+    { L"Animated elements 1", 0x262ca, 0x264ca },
+    { L"Animated elements 2", 0x264ca, 0x266ca },
+
+    {L"Bartender DeeJay Base", 0xb7e6, 0xb8a6 },
+        {L"Bartender DeeJay 1 (Unused?)", 0x15752, 0x15812 },
+        {L"Bartender DeeJay 2 (Unused?)", 0x15b52, 0x15c12 },
+        {L"Bartender DeeJay 3 (Unused?)", 0x15f52, 0x16012 },
+        {L"Bartender DeeJay 4 (Unused?)", 0x16352, 0x16412 },
+
+    { L"Ceiling lights: animation cycle 1/2", 0x33f72, 0x33f92 },
+        { L"Ceiling lights: animation cycle 2/2", 0x33f92, 0x33fb2 },
+
+    { L"Capcom sign: animation cycle 1/3", 0x3568a, 0x356aa },
+        { L"Capcom sign: animation cycle 2/3", 0x356aa, 0x356ca },
+        { L"Capcom sign: animation cycle 3/3", 0x356ca, 0x356ea },
+
+    { L"THAN sign: animation cycle 1/2", 0x3723e, 0x3725e },
+        { L"THAN sign: animation cycle 1/2", 0x3725e, 0x3727e },
+
+    { L"TOILET sign: animation cycle 1/6", 0x3727e, 0x3729e },
+        { L"TOILET sign: animation cycle 1/6", 0x3729e, 0x372be },
+        { L"TOILET sign: animation cycle 1/6", 0x372be, 0x372de },
+        { L"TOILET sign: animation cycle 1/6", 0x372de, 0x372fe },
+        { L"TOILET sign: animation cycle 1/6", 0x372fe, 0x3731e },
+        { L"TOILET sign: animation cycle 1/6", 0x3731e, 0x3733e },
+
+    { L"MAXIMUM sign: animation cycle 1/5", 0x3733e, 0x3735e },
+        { L"MAXIMUM sign: animation cycle 2/5", 0x3735e, 0x3737e },
+        { L"MAXIMUM sign: animation cycle 3/5", 0x3737e, 0x3739e },
+        { L"MAXIMUM sign: animation cycle 4/5", 0x3739e, 0x373be },
+        { L"MAXIMUM sign: animation cycle 5/5", 0x373be, 0x373de },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_SHOPPINGCENTER_PALETTES[] =
+{
+    { L"Background 1", 0x1bd12, 0x1bf12, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background 2", 0x1bf12, 0x1c0b2 },
+    { L"Mid 1", 0x266ca, 0x268ca },
+    { L"Mid 2", 0x268ca, 0x26aca },
+    { L"Foreground 1", 0x201ce, 0x203ce },
+    { L"Foreground 2", 0x203ce, 0x205ce },
+    { L"Sprite Elements", 0xb8a6, 0xb966 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_SLOPES_PALETTES[] =
+{
+    { L"Background", 0x26aca, 0x26b0a, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+        // UNUSED { L"Background 2", 0x26b0a, 0x26eca },
+    { L"Mid", 0x1c112, 0x1c2f2 },
+        // UNUSED { L"Mid 2", 0x1c2f2, 0x1c512 },
+    { L"Foreground 1", 0x205ce, 0x207ce },
+    { L"Foreground 2", 0x207ce, 0x2096e },
+    { L"Sprite Elements", 0xb966, 0xba26 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_DOCK_PALETTES[] =
+{
+    { L"Background", 0x1c512, 0x1c692, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+        // Unused { L"Background 2", 0x1c712, 0x1c912 },
+    { L"Mid 1", 0x209ce, 0x20bce },
+    { L"Mid 2", 0x20bce, 0x20dce },
+    { L"Foreground 1", 0x26eca, 0x270ca },
+    { L"Foreground 2", 0x270ca, 0x2724a },
+    { L"Sprite Elements", 0xba26, 0xbae6 },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_CHINATOWN_PALETTES[] =
+{
+    { L"Background", 0x1c912, 0x1ca92, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+        // UNUSED { L"Background 2", 0x1cb12, 0x1cd12 },
+    { L"Mid 1", 0x20dce, 0x20fce },
+    { L"Mid 2", 0x20fce, 0x211ce },
+    { L"Foreground 1", 0x272ca, 0x274ca },
+    { L"Foreground 2", 0x274ca, 0x276ca },
+    { L"Sprite Elements", 0xba26 + (0x01 * 6 * 0x20), 0xbae6 + (0x01 * 6 * 0x20) },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_FIREPLACE_PALETTES[] =
+{
+    { L"Background Sky 1", 0x276ca, 0x278ca, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background Sky 2", 0x278ca, 0x27aca },
+
+    { L"Mid 1", 0x211ce, 0x213ce },
+    { L"Mid 2", 0x213ce, 0x215ce },
+
+    { L"Foreground 1", 0x1cd12, 0x1cf12 },
+    { L"Foreground 2", 0x1cf12, 0x1d112 },
+
+    { L"Sprite Elements", 0xba26 + (0x02 * 6 * 0x20), 0xbae6 + (0x02 * 6 * 0x20) },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_MORRIGANCASTLE_PALETTES[] =
+{
+    { L"Background Sky 1", 0x27aca, 0x27cca, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background Sky 2", 0x27cca, 0x27eca },
+
+    { L"Background Water 1: Animation cycle 1/8", 0x34152, 0x34172 },
+        { L"Background Water 1: Animation cycle 2/8", 0x34172, 0x34192 },
+        { L"Background Water 1: Animation cycle 3/8", 0x34192, 0x341b2 },
+        { L"Background Water 1: Animation cycle 4/8", 0x341b2, 0x341d2 },
+        { L"Background Water 1: Animation cycle 5/8", 0x341d2, 0x341f2 },
+        { L"Background Water 1: Animation cycle 6/8", 0x341f2, 0x34212 },
+        { L"Background Water 1: Animation cycle 7/8", 0x34212, 0x34232 },
+        { L"Background Water 1: Animation cycle 8/8", 0x34232, 0x34252 },
+    
+    { L"Background Water 2: Animation cycle 1/8", 0x34252, 0x34272 },
+        { L"Background Water 2: Animation cycle 2/8", 0x34272, 0x34292 },
+        { L"Background Water 2: Animation cycle 3/8", 0x34292, 0x342b2 },
+        { L"Background Water 2: Animation cycle 4/8", 0x342b2, 0x342d2 },
+        { L"Background Water 2: Animation cycle 5/8", 0x342d2, 0x342f2 },
+        { L"Background Water 2: Animation cycle 6/8", 0x342f2, 0x34312 },
+        { L"Background Water 2: Animation cycle 7/8", 0x34312, 0x34332 },
+        { L"Background Water 2: Animation cycle 8/8", 0x34332, 0x34352 },
+
+    { L"Mid 1", 0x1d112, 0x1d312 },
+    { L"Mid 2", 0x1d312, 0x1d512 },
+
+    { L"Foreground 1" ,0x215ce, 0x217ce },
+    { L"Foreground 2", 0x217ce, 0x219ce },
+
+    { L"Sprite Elements", 0xba26 + (0x03 * 6 * 0x20), 0xbae6 + (0x03 * 6 * 0x20) },
+};
+
+const sGame_PaletteDataset GEMFIGHTER_A_STAGES_DEMITRICASTLE_PALETTES[] =
+{
+    { L"Background Sky", 0x27eca, 0x27eea, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    
+    { L"Mid", 0x219ce, 0x21b8e },
+        // NOTE: game memory actually loads at 0x21bce.  But ... we have clearly misaligned palettes if we do that, 
+        // so let's party on as if 0x21be6 is the starting point since that's where it should be
+        // UNUSED { L"Mid 2", 0x21be6, 0x21de6 },
+
+    { L"Foreground", 0x1d512, 0x1d692 },
+        // UNUSED: { L"Foreground 2", 0x1d712, 0x1d912 },
+
+    { L"Sprite Elements", 0xbd26, 0xbde6 },
+};
+
+const sDescTreeNode GEMFIGHTER_A_STAGE_COLLECTION[] =
+{
+    { L"Shared Elements", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_COMMON_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_COMMON_PALETTES) },
+    { L"Capcom Cafe", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_CAPCOMCAFE_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_CAPCOMCAFE_PALETTES) },
+    { L"Shopping Center", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_SHOPPINGCENTER_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_SHOPPINGCENTER_PALETTES) },
+    { L"Slopes", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_SLOPES_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_SLOPES_PALETTES) },
+    { L"Dock", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_DOCK_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_DOCK_PALETTES) },
+    { L"Chinatown", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_CHINATOWN_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_CHINATOWN_PALETTES) },
+    { L"Fireplace", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_FIREPLACE_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_FIREPLACE_PALETTES) },
+    { L"Morrigan's Castle", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_MORRIGANCASTLE_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_MORRIGANCASTLE_PALETTES) },
+    { L"Demitri's Castle", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGES_DEMITRICASTLE_PALETTES, ARRAYSIZE(GEMFIGHTER_A_STAGES_DEMITRICASTLE_PALETTES) },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_BONUS_PALETTES[] =
@@ -1469,6 +1634,8 @@ const sDescTreeNode GEMFIGHTER_A_UNITS[] =
     { L"Cards", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_CARDS_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_CARDS_COLLECTION) },
 
     { L"Intros", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_INTROS_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_INTROS_COLLECTION) },
+
+    { L"Stages", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_STAGE_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_STAGE_COLLECTION) },
 
     { L"Bonus Stuff", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_BONUS_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_BONUS_COLLECTION) },
 };
