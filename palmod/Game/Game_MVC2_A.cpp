@@ -286,6 +286,84 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
+int32_t CGame_MVC2_A::GetSteamLoadingOffsetForModifiedFile(CFile* TargetFile, uint32_t nUnitId)
+{
+    // The PAL files start at file 209 in the AFS.
+    const uint32_t nPALFileLocation = 0x40 /* IBIS header */ + 0x08 /* AFS header */ + (0x08 * (nUnitId + 209));
+    int32_t nPALFileStart = 0;
+
+    std::vector<uint32_t> normalPALStarts =
+    {
+        // These are the normal/expected locations for the Steam PL_DAT files within 
+        // the ARC.
+        // We then check the actual locations, and further shift as needed.
+        /* 00 */ 0x7be800,
+        /* 01 */ 0x83d800,
+        /* 02 */ 0x915800,
+        /* 03 */ 0x9a8800,
+        /* 04 */ 0xa6f000,
+        /* 05 */ 0xb88800,
+        /* 06 */ 0xc60800,
+        /* 07 */ 0xd48800,
+        /* 08 */ 0xe43800,
+        /* 09 */ 0xf45800,
+        /* 0a */ 0x1031800,
+        /* 0b */ 0x1118000,
+        /* 0c */ 0x120a800,
+        /* 0d */ 0x12e5800,
+        /* 0e */ 0x13ff800,
+        /* 0f */ 0x1523800,
+        /* 10 */ 0x1637800,
+        /* 11 */ 0x174e800,
+        /* 12 */ 0x182a800,
+        /* 13 */ 0x1928000,
+        /* 14 */ 0x1a31800,
+        /* 15 */ 0x1b4b800,
+        /* 16 */ 0x1c64800,
+        /* 17 */ 0x1d59800,
+        /* 18 */ 0x1e66000,
+        /* 19 */ 0x1f52000,
+        /* 1a */ 0x1fdf800,
+        /* 1b */ 0x20b9800,
+        /* 1c */ 0x213a000,
+        /* 1d */ 0x21d1800,
+        /* 1e */ 0x2245800,
+        /* 1f */ 0x22cb000,
+        /* 20 */ 0x23e5800,
+        /* 21 */ 0x250c800,
+        /* 22 */ 0x257a000,
+        /* 23 */ 0x2641000,
+        /* 24 */ 0x268f800,
+        /* 25 */ 0x2730000,
+        /* 26 */ 0x27e7000,
+        /* 27 */ 0x286c000,
+        /* 28 */ 0x28f2800,
+        /* 29 */ 0x29dc800,
+        /* 2a */ 0x2b09800,
+        /* 2b */ 0x2c18000,
+        /* 2c */ 0x2d19800,
+        /* 2d */ 0x2e30800,
+        /* 2e */ 0x2f1b800,
+        /* 2f */ 0x301a000,
+        /* 30 */ 0x3138000,
+        /* 31 */ 0x3234800,
+        /* 32 */ 0x334b800,
+        /* 33 */ 0x3477800,
+        /* 34 */ 0x3579000,
+        /* 35 */ 0x369f800,
+        /* 36 */ 0x37c7000,
+        /* 37 */ 0x38b5800,
+        /* 38 */ 0x399b000,
+        /* 39 */ 0x3a8a000,
+        /* 3a */ 0x3b89800,
+    };
+
+    TargetFile->Seek(nPALFileLocation, CFile::begin);
+    TargetFile->Read(&nPALFileStart, sizeof(nPALFileStart));
+
+    return (normalPALStarts.at(nUnitId) - nPALFileStart);
+}
+
 BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
@@ -294,10 +372,6 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
         if (UseSteamMode() && (nUnitCtr < indexMVC2ATeamView))
         {
-            // The PAL files start at file 209 in the AFS.
-            const uint32_t nPALFileLocation = 0x40 /* IBIS header */ + 0x08 /* AFS header */ + (0x08 * (nUnitCtr + 209));
-            int32_t nPALFileStart = 0;
-
             // Our offsets should shift as needed if the ARC has been rebuilt in such a fashion as to move the location of the PL_DAT files.
             const std::vector<int32_t> baseSteamShiftTable =
             {
@@ -366,76 +440,7 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                 0,  // Team View virtual unit
             };
 
-            std::vector<uint32_t> normalPALStarts =
-            {
-                // These are the normal/expected locations for the Steam PL_DAT files within 
-                // the ARC.
-                // We then check the actual locations, and further shift as needed.
-                /* 00 */ 0x7be800,
-                /* 01 */ 0x83d800,
-                /* 02 */ 0x915800,
-                /* 03 */ 0x9a8800,
-                /* 04 */ 0xa6f000,
-                /* 05 */ 0xb88800,
-                /* 06 */ 0xc60800,
-                /* 07 */ 0xd48800,
-                /* 08 */ 0xe43800,
-                /* 09 */ 0xf45800,
-                /* 0a */ 0x1031800,
-                /* 0b */ 0x1118000,
-                /* 0c */ 0x120a800,
-                /* 0d */ 0x12e5800,
-                /* 0e */ 0x13ff800,
-                /* 0f */ 0x1523800,
-                /* 10 */ 0x1637800,
-                /* 11 */ 0x174e800,
-                /* 12 */ 0x182a800,
-                /* 13 */ 0x1928000,
-                /* 14 */ 0x1a31800,
-                /* 15 */ 0x1b4b800,
-                /* 16 */ 0x1c64800,
-                /* 17 */ 0x1d59800,
-                /* 18 */ 0x1e66000,
-                /* 19 */ 0x1f52000,
-                /* 1a */ 0x1fdf800,
-                /* 1b */ 0x20b9800,
-                /* 1c */ 0x213a000,
-                /* 1d */ 0x21d1800,
-                /* 1e */ 0x2245800,
-                /* 1f */ 0x22cb000,
-                /* 20 */ 0x23e5800,
-                /* 21 */ 0x250c800,
-                /* 22 */ 0x257a000,
-                /* 23 */ 0x2641000,
-                /* 24 */ 0x268f800,
-                /* 25 */ 0x2730000,
-                /* 26 */ 0x27e7000,
-                /* 27 */ 0x286c000,
-                /* 28 */ 0x28f2800,
-                /* 29 */ 0x29dc800,
-                /* 2a */ 0x2b09800,
-                /* 2b */ 0x2c18000,
-                /* 2c */ 0x2d19800,
-                /* 2d */ 0x2e30800,
-                /* 2e */ 0x2f1b800,
-                /* 2f */ 0x301a000,
-                /* 30 */ 0x3138000,
-                /* 31 */ 0x3234800,
-                /* 32 */ 0x334b800,
-                /* 33 */ 0x3477800,
-                /* 34 */ 0x3579000,
-                /* 35 */ 0x369f800,
-                /* 36 */ 0x37c7000,
-                /* 37 */ 0x38b5800,
-                /* 38 */ 0x399b000,
-                /* 39 */ 0x3a8a000,
-                /* 3a */ 0x3b89800,
-            };
-
-            LoadedFile->Seek(nPALFileLocation, CFile::begin);
-            LoadedFile->Read(&nPALFileStart, sizeof(nPALFileStart));
-
-            m_activeSteamShiftTable.at(nUnitCtr) = baseSteamShiftTable.at(nUnitCtr) + (normalPALStarts.at(nUnitCtr) - nPALFileStart);
+            m_activeSteamShiftTable.at(nUnitCtr) = baseSteamShiftTable.at(nUnitCtr) + GetSteamLoadingOffsetForModifiedFile(LoadedFile, nUnitCtr);
         }
 
         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];

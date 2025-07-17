@@ -64,5 +64,7 @@ public:
 
     inline bool UseSteamMode() { return m_nGameFlag == MVC2_S; };
 
+    static int32_t GetSteamLoadingOffsetForModifiedFile(CFile* TargetFile, uint32_t nUnitId);
+
     static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };

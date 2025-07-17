@@ -3,6 +3,7 @@
 #include "GameRegistry.h"
 #include "Game_MVC2_D.h" // for Team View
 #include "Game_MVC2_P.h" // for Cross Copy
+#include "Game_MVC2_A.h" // for Steam location offsets
 #include "..\palmod.h"
 
 struct sDCToSteamMapEntry
@@ -234,19 +235,21 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
 
         if (CurrGame->GetIsDir() || (eCurGame == MVC2_S)) // just a sanity check
         {
-            if (TargetFile.Open(ofn.lpstrFile, CFile::modeWrite | CFile::typeBinary))
+            if (TargetFile.Open(ofn.lpstrFile, CFile::modeReadWrite | CFile::typeBinary))
             {
                 if (TargetFile.GetLength() != 112635968)
                 {
-                    // Note that the bytes for the first (Ryu) palette file are:
-                    // 20 00 00 00 20 7F 06 00 20 E4 06 00 40 EB 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-                    // starting at 0x7be840 in the standard ROM
+                    CString strMessage = L"Error: This is not the expected size for the Steam ROM.\n\nIf Capcom changed the ROM size, you will need an updated version of PalMod for this.\n\n"
+                                         L"If you made some ROM hacks that changed the ROM size (custom stages, for example), the easiest thing to do is to go back to the original Steam ROM, "
+                                         L"crosscopy colors from Dreamcast to that ROM, and THEN go and insert custom stages."
+                                         L"\n\nWe should be able to figure it out, though.  Should we continue anyways?";
 
-                    MessageBox(g_appHWnd, L"Error: This is not the expected Steam ROM.\n\nIf Capcom changed the ROM size, you will need an updated version of PalMod for this.\n\n"
-                                          L"If you made some ROM hacks that changed the ROM size (custom stages, for example), the easiest thing to do is to go back to the original Steam ROM, "
-                                          L"crosscopy colors from Dreamcast to that ROM, and THEN go and insert custom stages.", GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
-                    strLoadSaveStr = L"Invalid file specified.";
-                    return;
+                    if (IDYES != MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2))
+                    {
+                        strLoadSaveStr = L"Invalid file specified.";
+                        TargetFile.Abort();
+                        return;
+                    }
                 }
 
                 const uint32_t nChunksToCopy = static_cast<uint32_t>(rgDreamcastToSteamPortMap.size());
@@ -286,7 +289,7 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
 
                                         if (eCurGame == MVC2_S)
                                         {
-                                            SourceFile.Seek(rgDreamcastToSteamPortMap[nTargetUnit].nSteamOffset, CFile::begin);
+                                            SourceFile.Seek(rgDreamcastToSteamPortMap[nTargetUnit].nSteamOffset - CGame_MVC2_A::GetSteamLoadingOffsetForModifiedFile(&SourceFile, nTargetUnit), CFile::begin);
                                         }
                                         else
                                         {
@@ -300,7 +303,7 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
                                             SourceFile.Abort();
                                         }
 
-                                        TargetFile.Seek(rgDreamcastToSteamPortMap[nTargetUnit].nSteamOffset, CFile::begin);
+                                        TargetFile.Seek(rgDreamcastToSteamPortMap[nTargetUnit].nSteamOffset - CGame_MVC2_A::GetSteamLoadingOffsetForModifiedFile(&TargetFile, nTargetUnit), CFile::begin);
                                         TargetFile.Write(pByte, rgDreamcastToSteamPortMap[nTargetUnit].nPaletteLength);
 
                                         safe_delete_array(pByte);
@@ -413,7 +416,7 @@ void CGameLoad::CrosscopyGame_SteamToDC(CGameClass* CurrGame)
         // this tracks the last file that failed
         CString strErrorFile;
 
-        for (auto& item : rgDreamcastToSteamPortMap)
+        for (size_t iIndex = 0; iIndex < rgDreamcastToSteamPortMap.size(); iIndex++)
         {
             // We don't have to worry about TeamView because we're walking the map directly
             nSaveLoadCount++;
@@ -427,7 +430,7 @@ void CGameLoad::CrosscopyGame_SteamToDC(CGameClass* CurrGame)
             }
             else
             {
-                strCurrentSource.Format(L"%s\\%s", CurrGame->GetLoadedDirOrFile(), item.strFileName.c_str());
+                strCurrentSource.Format(L"%s\\%s", CurrGame->GetLoadedDirOrFile(), rgDreamcastToSteamPortMap.at(iIndex).strFileName.c_str());
             }
 
             if (SourceFile.Open(strCurrentSource, CFile::modeReadWrite | CFile::typeBinary))
@@ -435,11 +438,11 @@ void CGameLoad::CrosscopyGame_SteamToDC(CGameClass* CurrGame)
                 CFile DestinationFile;
                 CString strDestinationFile;
 
-                strDestinationFile.Format(L"%s\\%s", strTargetDirectory.GetString(), item.strFileName.c_str());
+                strDestinationFile.Format(L"%s\\%s", strTargetDirectory.GetString(), rgDreamcastToSteamPortMap.at(iIndex).strFileName.c_str());
 
                 if (DestinationFile.Open(strDestinationFile, CFile::modeReadWrite | CFile::typeBinary))
                 {
-                    BYTE* pByte = new BYTE[item.nPaletteLength];
+                    BYTE* pByte = new BYTE[rgDreamcastToSteamPortMap.at(iIndex).nPaletteLength];
                     uint32_t nDreamcastPalOffset = 0;
                     uint32_t nSteamPalOffset = 0;
 
@@ -452,18 +455,18 @@ void CGameLoad::CrosscopyGame_SteamToDC(CGameClass* CurrGame)
                     else
                     {
                         // ... deal with the assembled archive offsets
-                        nSteamPalOffset = item.nSteamOffset;
+                        nSteamPalOffset = rgDreamcastToSteamPortMap.at(iIndex).nSteamOffset - CGame_MVC2_A::GetSteamLoadingOffsetForModifiedFile(&SourceFile, static_cast<uint32_t>(iIndex));
                     }
 
                     DestinationFile.Seek(0x08, CFile::begin);
                     DestinationFile.Read(&nDreamcastPalOffset, sizeof(nDreamcastPalOffset));
 
-                    if (nDreamcastPalOffset == item.nDreamcastOffset)
+                    if (nDreamcastPalOffset == rgDreamcastToSteamPortMap.at(iIndex).nDreamcastOffset)
                     {
                         SourceFile.Seek(nSteamPalOffset, CFile::begin);
-                        SourceFile.Read(pByte, item.nPaletteLength);
-                        DestinationFile.Seek(item.nDreamcastOffset, CFile::begin);
-                        DestinationFile.Write(pByte, item.nPaletteLength);
+                        SourceFile.Read(pByte, rgDreamcastToSteamPortMap.at(iIndex).nPaletteLength);
+                        DestinationFile.Seek(rgDreamcastToSteamPortMap.at(iIndex).nDreamcastOffset, CFile::begin);
+                        DestinationFile.Write(pByte, rgDreamcastToSteamPortMap.at(iIndex).nPaletteLength);
 
                         nSaveLoadSucc++;
                     }
