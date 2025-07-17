@@ -146,8 +146,7 @@ public:
 
     // Currently only used by MVC2
     uint16_t*** GetDataBuffer() { return m_pppDataBuffer; };
-    // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
-    uint32_t GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (m_createPalOptions.nStartingPosition * GetGameColorByteLength()); };
+    uint32_t GetROMLocationForSpecificPalette(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetLowestExpectedPaletteLocation();
 
     inline uint8_t GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };

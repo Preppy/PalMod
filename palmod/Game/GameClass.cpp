@@ -444,6 +444,15 @@ bool CGameClass::_SetColorMode(ColMode NewMode)
     return fUpdatedColorConverters && fUpdatedColorSteps;
 }
 
+uint32_t CGameClass::GetROMLocationForSpecificPalette(uint32_t nUnitId, uint32_t nPalId)
+{
+    // Ensure we're dealing with the current selection
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
+    return m_nCurrentPaletteROMLocation - (m_createPalOptions.nStartingPosition * GetGameColorByteLength()); 
+}
+
 uint32_t CGameClass::GetLowestExpectedPaletteLocation()
 {
     uint32_t nAdjustedLocation = m_nLowestKnownPaletteRomLocation;

@@ -700,14 +700,15 @@ void CPalModDlg::OnEditCopy()
             strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
             strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
 
-            // Bug/limitation: this location is in reference to palette 0, not the palette issuing the notification
+            const sPalDef* activePal = MainPalGroup->GetPalDef(m_nCurrSelPal);
+            const uint32_t nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
 
-            strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation());
+            strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", nPaletteStartingLocation);
             strUnicodeData.Append(strFormatU);
 
             if (nInitialOffsetDelta != 0)
             {
-                strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
+                strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", nPaletteStartingLocation + (nInitialOffsetDelta * cbColor));
                 strUnicodeData.Append(strFormatU);
             }
 
@@ -860,10 +861,13 @@ void CPalModDlg::OnEditCopyOffset()
                 CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
                 CStringA CopyText;
 
-                uint8_t cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
-                int nInitialOffsetDelta = CurrPal->GetHighlightIndex();
+                const uint8_t cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
+                const int nInitialOffsetDelta = CurrPal->GetHighlightIndex();
+                const sPalDef* activePal = MainPalGroup->GetPalDef(m_nCurrSelPal);
+                const uint32_t nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
+                const uint32_t nLocationForUserSelection = nPaletteStartingLocation + (nInitialOffsetDelta * cbColor);
 
-                CopyText.Format("0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
+                CopyText.Format("0x%x", nLocationForUserSelection);
 
                 sf.Write(CopyText, CopyText.GetLength());
 
@@ -875,10 +879,7 @@ void CPalModDlg::OnEditCopyOffset()
 
                 CString strUnicodeData;
 
-                // Bug/limitation: this location is in reference to palette 0, not the palette issueing the notification
-                strUnicodeData.Format(L"0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
-
-                OutputDebugString(strUnicodeData.GetString());
+                strUnicodeData.Format(L"0x%x", nLocationForUserSelection);
 
                 CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
 
@@ -894,6 +895,10 @@ void CPalModDlg::OnEditCopyOffset()
                 pSource->SetClipboard();
                 pSource->FlushClipboard();
                 CloseClipboard();
+
+                // linebreak for our own display usage
+                strUnicodeData.Append(L"\r\n");
+                OutputDebugString(strUnicodeData.GetString());
             }
         }
     }
@@ -927,7 +932,7 @@ BOOL CPalModDlg::IsPasteFromPalMod()
             if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
             {
                 uint16_t nPaletteCount = 0;
-                uint8_t cbColorSize = ColorSystem::GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
+                const uint8_t cbColorSize = ColorSystem::GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
 
                 if (cbColorSize != 0)
                 {
