@@ -84,13 +84,16 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
             {
                 const size_t nMaxColorsToCopy = 15;
                 const LONG ptMinimumStep = 4;
-                LONG ptColorStep = ptMinimumStep;
-                LONG ptFirstColorStep = 0;
+                const POINT ptHideCursorAt = { 0, 0 };
+                LONG ptColorStep = 0;
+                bool fFoundFirstColorStep = false, fFoundSecondColorStep = false;
+                std::vector<DWORD> rgColorSet;
 
                 // *Really* get the cursor out of the way so we don't track the cursor design by accident
-                POINT ptOriginalCursor = ptCursor;
+                const POINT ptOriginalCursor = ptCursor;
                 ShowCursor(FALSE);
-                SetCursorPos(0, 0);
+                SetCursorPos(ptHideCursorAt.x, ptHideCursorAt.y);
+
                 // Look!  The horrific Sleep!
                 // We're doing a SetCursorPos here, and we need to pause for redraw so we don't read the in-transit 
                 // 000000 cursor redraw color (or similar).
@@ -98,43 +101,70 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
 
                 for (size_t nColorCount = 1; nColorCount <= nMaxColorsToCopy; nColorCount++)
                 {
-                    CString strOutput;
                     const COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
                     // COLORREF is aaBBggRR we want aaRRggBB
                     const DWORD colorAsDWORD = (0xFF << 24) | (GetRValue(colorAtPixel) << 16) | (GetGValue(colorAtPixel) << 8) | GetBValue(colorAtPixel);
 
-                    PasteToPaletteFromRGB(colorAsDWORD, true, (nColorCount == nMaxColorsToCopy));
+                    rgColorSet.push_back(colorAsDWORD);
 
-                    // arbitrarily stepping by 4(?) to minimize spins
-                    for (; ptColorStep < 100; ptColorStep += ptMinimumStep)
+                    if (!fFoundFirstColorStep)
                     {
-                        const COLORREF colorNext = GetPixel(hdc, ptCursor.x + ptColorStep, ptCursor.y);
-
-                        if (colorNext != colorAtPixel)
+                        // arbitrarily stepping by 4(?) to minimize spins
+                        for (ptColorStep = ptMinimumStep; ptColorStep < 100; ptColorStep += ptMinimumStep)
                         {
-                            if (ptFirstColorStep == 0)
+                            const COLORREF colorNext = GetPixel(hdc, ptCursor.x + ptColorStep, ptCursor.y);
+
+                            if (colorNext != colorAtPixel)
                             {
                                 // establish a minimum baseline of step distance
-                                ptFirstColorStep = ptColorStep;
-
-                                if (colorNext == 0x0000ff00)
+                                // but also try to step past borders
+                                if ((colorNext == 0x00ff00) || (colorNext == 0x0)) // if it's our selection border color OR if it's a possible black border
                                 {
-                                    // one time check to ignore our green selection border
-                                    ptColorStep += 5;
-                                    continue;
+                                    ptColorStep += 3;
                                 }
-                            }
 
-                            break;
+                                break;
+                            }
                         }
+
+                        fFoundFirstColorStep = true;
+                    }
+                    else if (!fFoundSecondColorStep)
+                    {
+                        // Now we know a minimum distance to the next color: it's that or greater to the next color
+                        for (; ptColorStep < 100; ptColorStep += ptMinimumStep)
+                        {
+                            const COLORREF colorNext = GetPixel(hdc, ptCursor.x + ptColorStep, ptCursor.y);
+
+                            if (colorNext != colorAtPixel)
+                            {
+                                // still try to step past borders
+                                if ((colorNext == 0x00ff00) || (colorNext == 0x0)) // if it's our selection border color OR if it's a possible black border
+                                {
+                                    ptColorStep += 3;
+                                }
+
+                                break;
+                            }
+                        }
+
+                        fFoundSecondColorStep = true;
                     }
 
                     ptCursor.x += ptColorStep;
-                    ptColorStep = ptFirstColorStep;
                 }
 
                 ShowCursor(TRUE);
-                SetCursorPos(ptOriginalCursor.x, ptOriginalCursor.y);
+                // Don't move the cursor back to origin if they've already moved it elsewhere
+                if ((GetCursorPos(&ptCursor)) && (ptCursor.x == ptHideCursorAt.x) && (ptCursor.y == ptHideCursorAt.y))
+                {
+                    SetCursorPos(ptOriginalCursor.x, ptOriginalCursor.y);
+                }
+
+                for (size_t iIndex = 0; iIndex < rgColorSet.size(); iIndex++)
+                {
+                    PasteToPaletteFromRGB(rgColorSet.at(iIndex), true, (iIndex == (rgColorSet.size() - 1)));
+                }
             }
 
             ::ReleaseDC(::GetDesktopWindow(), hdc);
