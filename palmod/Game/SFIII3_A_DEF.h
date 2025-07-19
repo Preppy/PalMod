@@ -4807,6 +4807,16 @@ const sDescTreeNode SFIII3_A_GILL_COLLECTION[] = // This is Gill glow from ROM 1
     { L"Right",   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_RIGHT, ARRAYSIZE(SFIII3_A_GILL_PALETTES_RIGHT) },
 };
 
+const sGame_PaletteDataset SFIII3_A_MAKOTO_SA3_PALETTE[] =
+{
+    { L"Powered Up Skin", 0x1cb084, 0x1cb104, index3SSprites_Makoto, 0x00 },
+};
+
+const sDescTreeNode SFIII3_A_MAKOTO_SA3_COLLECTION[] = // This is one partial effect in ROM 10
+{
+    { L"Palette",    DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_SA3_PALETTE, ARRAYSIZE(SFIII3_A_MAKOTO_SA3_PALETTE) },
+};
+
 // We're shifting here to counter the normal shift needed for the SFIII3_10_990512 base ROM that 4rd Strke uses
 const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_4rd_LP[] =
 {
@@ -5045,6 +5055,7 @@ const sDescTreeNode SFIII3_A_XCOPY_COLLECTION[] =
 const sDescTreeNode SFIII3_A_10_UNITS[] =
 {
     { L"Gill (glow)",           DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
+    { L"Makoto's SA3 Glow",     DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_SA3_COLLECTION, ARRAYSIZE(SFIII3_A_MAKOTO_SA3_COLLECTION) },
     { L"Twelve's X.C.O.P.Y.",   DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_COLLECTION, ARRAYSIZE(SFIII3_A_XCOPY_COLLECTION) },
 };
 
@@ -5058,6 +5069,7 @@ const sDescTreeNode SFIII3_A_10_UNITS[] =
 const sDescTreeNode SFIII3_A_14_UNITS[] =
 {
     { k_sf3NameKey_Gill,        DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_4rd_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_4rd_COLLECTION) },
+    { L"Makoto's SA3 Glow",     DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_SA3_COLLECTION, ARRAYSIZE(SFIII3_A_MAKOTO_SA3_COLLECTION) },
     { L"Twelve's X.C.O.P.Y.",   DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_COLLECTION, ARRAYSIZE(SFIII3_A_XCOPY_COLLECTION) },
 };
 

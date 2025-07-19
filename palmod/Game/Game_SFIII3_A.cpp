@@ -141,6 +141,33 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         }
     }
 
+#ifdef WANT_DECRYPTED
+    // This dumb code was put in place so I could work with an easy-to-read easy-to-search copy of 10.
+    // I'll leave it here in case it's needed in the future.
+    CFile UnscrambledOutput;
+    if (UnscrambledOutput.Open(L"10-decrypt", CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+    {
+        const ULONGLONG fourByteBlocks = LoadedFile->GetLength() >> 1;
+        const uint8_t cbStride = 4;
+
+        LoadedFile->Seek(0, CFile::begin);
+        uint32_t nNewData = 0;
+
+        for (ULONGLONG nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
+        {
+            // this rom is encrypted
+            LoadedFile->Read(&nNewData, cbStride);
+            nNewData = _byteswap_ulong(nNewData);
+            nNewData ^= (cps3_mask(0x6000000 + (nBlockCount * cbStride), 0xA55432B4, 0x0C129981));
+            nNewData = _byteswap_ulong(nNewData);
+
+            UnscrambledOutput.Write(&nNewData, cbStride);
+        }
+
+        UnscrambledOutput.Abort();
+    }
+#endif
+
     CheckForErrorsInTables();
 
     return TRUE;
