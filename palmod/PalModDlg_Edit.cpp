@@ -700,7 +700,7 @@ void CPalModDlg::OnEditCopy()
             strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
             strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
 
-            const sPalDef* activePal = MainPalGroup->GetPalDef(m_nCurrSelPal);
+            const sPalDef* activePal = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
             const uint32_t nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
 
             strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", nPaletteStartingLocation);
@@ -863,7 +863,7 @@ void CPalModDlg::OnEditCopyOffset()
 
                 const uint8_t cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
                 const int nInitialOffsetDelta = CurrPal->GetHighlightIndex();
-                const sPalDef* activePal = MainPalGroup->GetPalDef(m_nCurrSelPal);
+                const sPalDef* activePal = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
                 const uint32_t nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
                 const uint32_t nLocationForUserSelection = nPaletteStartingLocation + (nInitialOffsetDelta * cbColor);
 

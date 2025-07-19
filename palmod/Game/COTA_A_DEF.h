@@ -1127,19 +1127,92 @@ const sGame_PaletteDataset COTA_A_HUD_PALETTES[] =
     { L"HUD", 0x29cfc, 0x29d1c, indexCPS2Sprites_COTAAssets , 0x12 },
 };
 
+const sGame_PaletteDataset COTA_A_STAGE_PALETTES_WOLVERINE[] =
+{
+    { L"Background Layer 1", 0x37f76, 0x38176, -1, -1, &pairFullyLinkedNode },
+    { L"Background Layer 2", 0x38176, 0x38376 },
+    { L"Background: Animation Cycle 1/7", 0x38376, 0x38396 },
+        { L"Background: Animation Cycle 2/7", 0x38396, 0x383b6 },
+        { L"Background: Animation Cycle 3/7", 0x383b6, 0x383d6 },
+        { L"Background: Animation Cycle 4/7", 0x383d6, 0x383f6 },
+        { L"Background: Animation Cycle 5/7", 0x383f6, 0x38416 },
+        { L"Background: Animation Cycle 6/7", 0x38416, 0x38436 },
+        { L"Background: Animation Cycle 7/7", 0x38436, 0x38456 },
+    // Stage elements breakdown:
+    // 1: triceratops 
+    // 2: gallimimus
+    // 3: overgrowth covering
+    // 4: tyrannosaurus rex
+    { L"Stage Elements: Gallimimus", 0x2abc8, 0x2abe8 },
+    { L"Stage Elements: Tyrannosaurus Rex", 0x2ac08, 0x2ac28 },
+
+    { L"Middle Layer 1", 0x33032, 0x33232 },
+    { L"Middle Layer 2", 0x33232, 0x33292 },
+    { L"Mid Layer: Animation Cycle 1/7", 0x33432, 0x33452 },
+        { L"Mid Layer: Animation Cycle 2/7", 0x33452, 0x33472 },
+        { L"Mid Layer: Animation Cycle 3/7", 0x33472, 0x33492 },
+        { L"Mid Layer: Animation Cycle 4/7", 0x33492, 0x334b2 },
+        { L"Mid Layer: Animation Cycle 5/7", 0x334b2, 0x334d2 },
+        { L"Mid Layer: Animation Cycle 6/7", 0x334d2, 0x334f2 },
+        { L"Mid Layer: Animation Cycle 7/7", 0x334f2, 0x33512 },
+
+    { L"Stage Elements: Overgrowth", 0x2abe8, 0x2ac08 },
+    { L"Stage Elements: Triceratops", 0x2aba8, 0x2abc8 },
+
+    { L"FIGHT text", 0x2ace8, 0x2ad08 },
+    { L"Unknown", 0x2deee, 0x2df6e },
+    { L"Foreground", 0x2df6e, 0x2dfae },
+    // Stage elements breakdown:
+    // 1: Victory birds
+    // 2: Lava Splashes
+    // 3: Rock projectiles
+    // 4: Dust clouds
+    // 5: ?
+    { L"Stage Elements: Foreground", 0x2ac28, 0x2ace8 },
+};
+
+const sGame_PaletteDataset COTA_A_STAGE_PALETTES_PSYLOCKE[] =
+{
+    { L"Background layer 1?", 0x38456, 0x38656 },
+    { L"Background layer 2?", 0x38656, 0x38856 },
+
+    { L"Middle layer 1?", 0x33512, 0x33712 },
+    { L"Middle layer 2?", 0x33712, 0x33912 },
+
+    { L"Unknown?", 0x2e2ee, 0x2e36e },
+    
+    { L"Foreground?", 0x2e36e, 0x2e50e },
+    { L"Animation Cycles? 1/2", 0x2e6ee, 0x2e8ee },
+    { L"Animation Cycles? 2/2", 0x2e8ee, 0x2e92e },
+};
+
+const sGame_PaletteDataset COTA_A_STAGE_PALETTES_COLOSSUS[] =
+{
+    { L"Background 1?", 0x38936, 0x38b36},
+    { L"Background 2?", 0x38b36, 0x38d36},
+    { L"Background animation cycles?", 0x38d36, 0x38e56 },
+    
+    { L"Middle layer 1?", 0x33912, 0x33952 },
+    
+    { L"Foreground 1?",    0x2e92e, 0x2eb2e },
+    { L"Foreground 2?",    0x2eb2e, 0x2ec2e },
+    { L"Foreground Animation cycles 1/2?", 0x2ed2e, 0x2ef2e },
+    { L"Foreground Animation cycles 2/2?", 0x2ef2e, 0x2efee },
+};
+
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_PALETTES_P1,           ARRAYSIZE(COTA_A_COLOSSUS_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_PALETTES_P2,           ARRAYSIZE(COTA_A_COLOSSUS_PALETTES_P2) },
-    { L"Status Effects", DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_PALETTES_STATUS,           ARRAYSIZE(COTA_A_COLOSSUS_PALETTES_STATUS) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_PALETTES_P1,                    ARRAYSIZE(COTA_A_COLOSSUS_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_PALETTES_P2,                    ARRAYSIZE(COTA_A_COLOSSUS_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_PALETTES_STATUS,    ARRAYSIZE(COTA_A_COLOSSUS_PALETTES_STATUS) },
 };
 
 const sDescTreeNode COTA_A_CYCLOPS_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P1,           ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P2,           ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P2) },
-    { L"Shared", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_EXTRAS,   ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_EXTRAS) },
-    { L"Status Effects", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_STATUS,           ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_STATUS) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P1,                 ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P2,                 ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_EXTRAS,         ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_EXTRAS) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_STATUS, ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_STATUS) },
 };
 
 const sDescTreeNode COTA_A_ICEMAN_COLLECTION[] =
@@ -1223,6 +1296,24 @@ const sDescTreeNode COTA_A_AKUMA_COLLECTION[] =
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)COTA_A_AKUMA_PALETTES_STATUS,           ARRAYSIZE(COTA_A_AKUMA_PALETTES_STATUS) },
 };
 
+const sDescTreeNode COTA_A_STAGE_COLLECTION[] =
+{
+    { L"Wolverine: Savage Land", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_WOLVERINE,     ARRAYSIZE(COTA_A_STAGE_PALETTES_WOLVERINE) },
+    { L"Psylocke: Moon Night", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_PSYLOCKE,     ARRAYSIZE(COTA_A_STAGE_PALETTES_PSYLOCKE) },
+    { L"Colossus: Mutant Hunting", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_COLOSSUS,     ARRAYSIZE(COTA_A_STAGE_PALETTES_COLOSSUS) },
+#ifdef COTA_STAGES_READY
+    { L"Cyclops / Gouki: Danger Room", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_CYCLOPS,     ARRAYSIZE(COTA_A_STAGE_PALETTES_CYCLOPS) },
+    { L"Storm: On the Blackbird", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_STORM,     ARRAYSIZE(COTA_A_STAGE_PALETTES_STORM) },
+    { L"Iceman: Ice on the Beach", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_ICEMAN,     ARRAYSIZE(COTA_A_STAGE_PALETTES_ICEMAN) },
+    { L"Spiral: Mojo World", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_SPIRAL,     ARRAYSIZE(COTA_A_STAGE_PALETTES_SPIRAL) },
+    { L"Silver Samurai: Samurai Shrine", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_SILVERSAMURAI,     ARRAYSIZE(COTA_A_STAGE_PALETTES_SILVERSAMURAI) },
+    { L"Omega Red: The Deep", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_OMEGARED,     ARRAYSIZE(COTA_A_STAGE_PALETTES_OMEGARED) },
+    { L"Sentinel: Genosha", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_SENTINEL,     ARRAYSIZE(COTA_A_STAGE_PALETTES_SENTINEL) },
+    { L"Juggernaut: Space Port", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_JUGGERNAUT,     ARRAYSIZE(COTA_A_STAGE_PALETTES_JUGGERNAUT) },
+    { L"Magneto: Avalon", DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_PALETTES_MAGNETO,     ARRAYSIZE(COTA_A_STAGE_PALETTES_MAGNETO) },
+#endif
+};
+
 const sDescTreeNode COTA_A_BONUS_COLLECTION[] =
 {
     { L"HUD", DESC_NODETYPE_TREE, (void*)COTA_A_HUD_PALETTES, ARRAYSIZE(COTA_A_HUD_PALETTES) },
@@ -1248,5 +1339,6 @@ const sDescTreeNode COTA_A_UNITS[] =
     { L"Storm",                     DESC_NODETYPE_TREE, (void*)COTA_A_STORM_COLLECTION,         ARRAYSIZE(COTA_A_STORM_COLLECTION) },
     { L"Wolverine",                 DESC_NODETYPE_TREE, (void*)COTA_A_WOLVERINE_COLLECTION,     ARRAYSIZE(COTA_A_WOLVERINE_COLLECTION) },
     { L"Akuma",                     DESC_NODETYPE_TREE, (void*)COTA_A_AKUMA_COLLECTION,         ARRAYSIZE(COTA_A_AKUMA_COLLECTION) },
+    { L"Stages",                    DESC_NODETYPE_TREE, (void*)COTA_A_STAGE_COLLECTION,         ARRAYSIZE(COTA_A_STAGE_COLLECTION) },
     { L"Bonus Stuff",               DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_COLLECTION,         ARRAYSIZE(COTA_A_BONUS_COLLECTION) },
 };
