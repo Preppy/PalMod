@@ -1562,12 +1562,12 @@ const sGame_PaletteDataset MVC2_A_ROGUE_PALETTES_EXTRAS[] =
     { L"1a: A1 Shadows 2", 0x2ee2a60, 0x2ee2a80, indexCPS2Sprites_Rogue, 4 },
     { L"1b: A2 Shadows 1", 0x2ee2a80, 0x2ee2aa0, indexCPS2Sprites_Rogue, 4 },
     { L"1c: A2 Shadows 2", 0x2ee2aa0, 0x2ee2ac0, indexCPS2Sprites_Rogue, 4 },
-    { L"1d: LP - Winpose", 0x2ee2ac0, 0x2ee2ae0, indexCPS2Sprites_Rogue, 11 },
-    { L"1e: LK - Winpose", 0x2ee2ae0, 0x2ee2b00, indexCPS2Sprites_Rogue, 11 },
-    { L"1f: HP - Winpose", 0x2ee2b00, 0x2ee2b20, indexCPS2Sprites_Rogue, 11 },
-    { L"20: HK - Winpose", 0x2ee2b20, 0x2ee2b40, indexCPS2Sprites_Rogue, 11 },
-    { L"21: A1 - Winpose", 0x2ee2b40, 0x2ee2b60, indexCPS2Sprites_Rogue, 11 },
-    { L"22: A2 - Winpose", 0x2ee2b60, 0x2ee2b80, indexCPS2Sprites_Rogue, 11 },
+    { L"1d: Shared (LP) - Winpose", 0x2ee2ac0, 0x2ee2ae0, indexCPS2Sprites_Rogue, 11 },
+    { L"1e: Unused (LK - Winpose)", 0x2ee2ae0, 0x2ee2b00, indexCPS2Sprites_Rogue, 11 },
+    { L"1f: Unused (HP - Winpose)", 0x2ee2b00, 0x2ee2b20, indexCPS2Sprites_Rogue, 11 },
+    { L"20: Unused (HK - Winpose)", 0x2ee2b20, 0x2ee2b40, indexCPS2Sprites_Rogue, 11 },
+    { L"21: Unused (A1 - Winpose)", 0x2ee2b40, 0x2ee2b60, indexCPS2Sprites_Rogue, 11 },
+    { L"22: Unused (A2 - Winpose)", 0x2ee2b60, 0x2ee2b80, indexCPS2Sprites_Rogue, 11 },
 };
 
 const sDescTreeNode MVC2_A_ROGUE_COLLECTION[] =

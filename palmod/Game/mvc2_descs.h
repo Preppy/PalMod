@@ -1340,12 +1340,12 @@ const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_ROGUE =
     { 0x1A, L"A1 - Dash Shadows 2 (Unused)", 0x04 },
     { 0x1B, L"A2 - Dash Shadows 1 (Unused)", 0x04 },
     { 0x1C, L"A2 - Dash Shadows 2 (Unused)", 0x04 },
-    { 0x1D, L"LP - Winpose", 0x0b },
-    { 0x1E, L"LK - Winpose", 0x0b },
-    { 0x1F, L"HP - Winpose", 0x0b },
-    { 0x20, L"HK - Winpose", 0x0b },
-    { 0x21, L"A1 - Winpose", 0x0b },
-    { 0x22, L"A2 - Winpose", 0x0b },
+    { 0x1D, L"LP - Winpose (Normally used for all)", 0x0b },
+    { 0x1E, L"LK - Winpose (Unused unless patched)", 0x0b },
+    { 0x1F, L"HP - Winpose (Unused unless patched)", 0x0b },
+    { 0x20, L"HK - Winpose (Unused unless patched)", 0x0b },
+    { 0x21, L"A1 - Winpose (Unused unless patched)", 0x0b },
+    { 0x22, L"A2 - Winpose (Unused unless patched)", 0x0b },
 };
 
 // The palette expansion version removed her dash shadows Extras
