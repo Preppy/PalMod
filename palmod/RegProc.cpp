@@ -22,6 +22,7 @@ constexpr auto c_prevBlendMode = L"PreviewBlendMode";
 constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
 constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
+constexpr auto c_LoadCustomSpriteOFNValueName = L"pref_LoadCustomSpriteIndex";
 constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
 constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes";
 constexpr auto c_prevPreviewDropsTrim = L"prev_DropsTrimPreview";
@@ -749,7 +750,7 @@ void CPalModZoom::DecrementZoom(double *fpPreviousZoom)
     *fpPreviousZoom = m_nZoomSizes[nCurrentPosition];
 }
 
-DWORD CRegProc::GetOFNIndexForPaletteExport(bool fUsingBBCFOptions)
+DWORD CRegProc::GetOFNIndexForKeyName(LPCWSTR pszKeyName)
 {
     HKEY hKey;
     DWORD nPreferredIndex = 0;
@@ -760,7 +761,7 @@ DWORD CRegProc::GetOFNIndexForPaletteExport(bool fUsingBBCFOptions)
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 
-        if (RegQueryValueEx(hKey, fUsingBBCFOptions? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, &RegType, reinterpret_cast<LPBYTE>(&nPreferredIndex), &GetSz) != ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, pszKeyName, 0, &RegType, reinterpret_cast<LPBYTE>(&nPreferredIndex), &GetSz) != ERROR_SUCCESS)
         {
             nPreferredIndex = 0;
         }
@@ -769,50 +770,46 @@ DWORD CRegProc::GetOFNIndexForPaletteExport(bool fUsingBBCFOptions)
     }
 
     return nPreferredIndex;
+}
+
+void CRegProc::StoreOFNIndexForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, pszKeyName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredIndex), sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
+}
+
+DWORD CRegProc::GetOFNIndexForPaletteExport(bool fUsingBBCFOptions)
+{
+    return GetOFNIndexForKeyName(fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName);
 }
 
 void CRegProc::StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPreferredIndex)
 {
-    HKEY hKey;
-    
-    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
-        == ERROR_SUCCESS)
-    {
-        RegSetValueEx(hKey, fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredIndex), sizeof(DWORD));
-        RegCloseKey(hKey);
-    }
+    StoreOFNIndexForKeyName(fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, nPreferredIndex);
 }
 
 DWORD CRegProc::GetOFNIndexForImageExport()
 {
-    HKEY hKey;
-    DWORD nPreferredIndex = 0;
-
-    if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey)
-        == ERROR_SUCCESS)
-    {
-        DWORD RegType = REG_DWORD;
-        DWORD GetSz = sizeof(DWORD);
-
-        if (RegQueryValueEx(hKey, c_exportImageOFNValueName, 0, &RegType, reinterpret_cast<LPBYTE>(&nPreferredIndex), &GetSz) != ERROR_SUCCESS)
-        {
-            nPreferredIndex = 0;
-        }
-
-        RegCloseKey(hKey);
-    }
-
-    return nPreferredIndex;
+    return GetOFNIndexForKeyName(c_exportImageOFNValueName);
 }
 
 void CRegProc::StoreOFNIndexForImageExport(DWORD nPreferredIndex)
 {
-    HKEY hKey;
+    StoreOFNIndexForKeyName(c_exportImageOFNValueName, nPreferredIndex);
+}
 
-    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
-        == ERROR_SUCCESS)
-    {
-        RegSetValueEx(hKey, c_exportImageOFNValueName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredIndex), sizeof(DWORD));
-        RegCloseKey(hKey);
-    }
+DWORD CRegProc::GetOFNIndexForLoadCustomSprite()
+{
+    return GetOFNIndexForKeyName(c_LoadCustomSpriteOFNValueName);
+}
+
+void CRegProc::StoreOFNIndexForLoadCustomSprite(DWORD nPreferredIndex)
+{
+    StoreOFNIndexForKeyName(c_LoadCustomSpriteOFNValueName, nPreferredIndex);
 }

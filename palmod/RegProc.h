@@ -56,6 +56,10 @@ public:
 
 class CRegProc
 {
+private:
+    static DWORD GetOFNIndexForKeyName(LPCWSTR pszKeyName);
+    static void StoreOFNIndexForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex);
+
 public:
     CRegProc(eRegistryStoreID nSrcType = eRegistryStoreID::REG_UNKNOWN);
     ~CRegProc();
@@ -82,6 +86,9 @@ public:
 
     static DWORD GetOFNIndexForImageExport();
     static void StoreOFNIndexForImageExport(DWORD nPreferredIndex);    
+
+    static DWORD GetOFNIndexForLoadCustomSprite();
+    static void StoreOFNIndexForLoadCustomSprite(DWORD nPreferredIndex);
 
     static int GetUserSavePaletteToMemoryPreference();
     static void SetUserSavePaletteToMemoryPreference(int nPreference);

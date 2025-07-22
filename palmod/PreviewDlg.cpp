@@ -525,12 +525,16 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
                                                        L"Indexed PNG|*.png|"
                                                        L"GIF|*.gif|", this);
 
+        OpenDialog.GetOFN().nFilterIndex = CRegProc::GetOFNIndexForLoadCustomSprite();
+
         if (OpenDialog.DoModal() == IDOK)
         {
             // eliminate the k_nTextureLoadCommandMask mask for usage...
             UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
 
             LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fPreferQuietMode);
+
+            CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);
         }
     }
     else
