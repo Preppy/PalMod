@@ -690,12 +690,12 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
                 case CUSTOM_MS:
                 {
                     OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
-                    break;
+                    return TRUE;
                 }
                 case CUSTOM_HLCHANGE:
                 {
                     OnPalHLChange(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
-                    break;
+                    return TRUE;
                 }
                 case CUSTOM_SELHLCHANGE:
                 {
@@ -709,7 +709,7 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
                 case CUSTOM_COPYOFFSET:
                 {
                     CustomEditProc(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
-                    break;
+                    return TRUE;
                 }
             }
 

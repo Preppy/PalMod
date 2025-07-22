@@ -1182,7 +1182,7 @@ BOOL CJunk::OnCommand(WPARAM wParam, LPARAM lParam)
         case CUSTOM_COPYOFFSET:
         {
             NotifyParent(LOWORD(wParam));
-            break;
+            return TRUE;
         }
     }
     return CWnd::OnCommand(wParam, lParam);

@@ -477,44 +477,44 @@ BOOL CPalTool::PreTranslateMessage(MSG* pMsg)
 {
     switch (pMsg->message)
     {
-    case WM_NOTIFY:
-    {
-        switch (((LPNMHDR)pMsg->lParam)->code)
+        case WM_NOTIFY:
         {
-        case CUSTOM_SS:
-        case CUSTOM_MS:
-        {
-            OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
+            switch (((LPNMHDR)pMsg->lParam)->code)
+            {
+                case CUSTOM_SS:
+                case CUSTOM_MS:
+                {
+                    OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
 
-            SendPalMsg(m_nActivePaletteCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
-        }
-        break;
+                    SendPalMsg(m_nActivePaletteCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
+                    return TRUE;
+                }
 
-        case CUSTOM_HLCHANGE:
-        case CUSTOM_SELHLCHANGE:
-        {
-            SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
-        }
-        break;
+                case CUSTOM_HLCHANGE:
+                case CUSTOM_SELHLCHANGE:
+                {
+                    SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
+                    return TRUE;
+                }
 
-        case CUSTOM_COPY:
-        case CUSTOM_PASTE:
-        case CUSTOM_SALL:
-        case CUSTOM_SNONE:
-        case CUSTOM_COPYOFFSET:
-        {
-            SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
+                case CUSTOM_COPY:
+                case CUSTOM_PASTE:
+                case CUSTOM_SALL:
+                case CUSTOM_SNONE:
+                case CUSTOM_COPYOFFSET:
+                {
+                    SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
+                    return TRUE;
+                }
+
+                default:
+                    break;
+            }
         }
         break;
 
         default:
             break;
-        }
-    }
-    break;
-
-    default:
-        break;
     }
 
     return CWnd::PreTranslateMessage(pMsg);

@@ -338,16 +338,16 @@ BOOL CPreviewDlg::PreTranslateMessage(MSG* pMsg)
 
     switch (pMsg->message)
     {
-    case WM_KEYDOWN:
-    {
-        if ((pMsg->wParam == VK_RETURN) || (pMsg->wParam == VK_ESCAPE))
+        case WM_KEYDOWN:
         {
-            pMsg->wParam = NULL;
+            if ((pMsg->wParam == VK_RETURN) || (pMsg->wParam == VK_ESCAPE))
+            {
+                pMsg->wParam = NULL;
+            }
         }
+        break;
     }
-    break;
 
-    }
     return CDialog::PreTranslateMessage(pMsg);
 }
 
