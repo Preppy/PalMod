@@ -579,6 +579,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 lodepng::State state;
                 std::vector<unsigned char> image(destWidth * destHeight);
                 bool fWrittenTheOneTransparencyColor = false;
+                bool fHaveContentThisLayer = false;
 
                 // The output filename options are:
                 //   Character.png
@@ -642,6 +643,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                                     if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
                                     {
                                         image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
+                                        fHaveContentThisLayer = true;
                                     }
                                 }
                             }
@@ -751,10 +753,16 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
                     OutputDebugString(strError);
                 }
-                else
+                else if (fHaveContentThisLayer)
                 {
                     output_str.Format(L"%s%s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
                     lodepng::save_file(buffer, output_str.GetString());
+                }
+                else
+                {
+                    CString strMsg;
+                    strMsg.Format(L"Layer %u is empty: skipping.\r\n");
+                    OutputDebugString(strMsg.GetString());
                 }
             }
         }
@@ -792,101 +800,104 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
         for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
         {
-            strDimensions.Format(L"-w-%u-h-%u", rgSrcImg[nImageIndex]->dimensions.width, rgSrcImg[nImageIndex]->dimensions.height);
-
-            // Ensure that the filename includes the W/H values so the RAW is usable
-            const bool fNeedDimensions = (wcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
-
-            // RAW export
-            if (nImageCount == 1)
+            if (rgSrcImg[nImageIndex]->dimensions.width && rgSrcImg[nImageIndex]->dimensions.height)
             {
-                strOutputFilename.Format(L"%s%s%s", save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
-            }
-            else
-            {
-                strOutputFilename.Format(L"%s_%02u%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
-            }
+                strDimensions.Format(L"-w-%u-h-%u", rgSrcImg[nImageIndex]->dimensions.width, rgSrcImg[nImageIndex]->dimensions.height);
 
-            bool fHasErrorAndShouldFix = false;
+                // Ensure that the filename includes the W/H values so the RAW is usable
+                const bool fNeedDimensions = (wcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
 
-            std::vector<bool> rgIsIndexUsed;
-            rgIsIndexUsed.resize(rgSrcImg[nImageIndex]->uPalSz);
-
-            for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width; nImgIndex++)
-            {
-                if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] < rgSrcImg[nImageIndex]->uPalSz)
+                // RAW export
+                if (nImageCount == 1)
                 {
-                    rgIsIndexUsed.at(rgSrcImg[nImageIndex]->pImgData[nImgIndex]) = true;
+                    strOutputFilename.Format(L"%s%s%s", save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
                 }
                 else
                 {
-                    fHasErrorAndShouldFix = true;
+                    strOutputFilename.Format(L"%s_%02u%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
                 }
-            }
 
-            if (fHasErrorAndShouldFix)
-            {
-                CString strMsg = L"This preview uses non-standard color references.  Do you want PalMod to export it using normalized and recommended color references instead?";
-                fHasErrorAndShouldFix = (MessageBox(strMsg.GetString(), GetHost()->GetAppName(), MB_YESNO) == IDYES);
-            }
+                bool fHasErrorAndShouldFix = false;
 
-            if (fHasErrorAndShouldFix)
-            {
-                // Default to the last color in the palette: we'll optimize to an actually unused color index if possible.
-                uint8_t nUnusedPaletteIndex = static_cast<uint8_t>(rgSrcImg[nImageIndex]->uPalSz - 1);
+                std::vector<bool> rgIsIndexUsed;
+                rgIsIndexUsed.resize(rgSrcImg[nImageIndex]->uPalSz);
 
-                for (uint8_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
+                for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width; nImgIndex++)
                 {
-                    if (!rgIsIndexUsed.at(nColorUsageIndex))
+                    if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] < rgSrcImg[nImageIndex]->uPalSz)
                     {
-                        nUnusedPaletteIndex = nColorUsageIndex;
-                        break;
+                        rgIsIndexUsed.at(rgSrcImg[nImageIndex]->pImgData[nImgIndex]) = true;
+                    }
+                    else
+                    {
+                        fHasErrorAndShouldFix = true;
                     }
                 }
 
-                bool fShownError = false;
-
-                for (size_t iImgIndex = 0; iImgIndex < static_cast<size_t>(rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width); iImgIndex++)
+                if (fHasErrorAndShouldFix)
                 {
-                    // Validate that all color references are within the bounds of the current palette
-                    if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
+                    CString strMsg = L"This preview uses non-standard color references.  Do you want PalMod to export it using normalized and recommended color references instead?";
+                    fHasErrorAndShouldFix = (MessageBox(strMsg.GetString(), GetHost()->GetAppName(), MB_YESNO) == IDYES);
+                }
+
+                if (fHasErrorAndShouldFix)
+                {
+                    // Default to the last color in the palette: we'll optimize to an actually unused color index if possible.
+                    uint8_t nUnusedPaletteIndex = static_cast<uint8_t>(rgSrcImg[nImageIndex]->uPalSz - 1);
+
+                    for (uint8_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
                     {
-                        uint8_t nOldColor = rgSrcImg[nImageIndex]->pImgData[iImgIndex];
-                        uint8_t nNewColor;
-
-                        // In some specific cases people were using out-of-bounds colors to color "shadow" / inferred sprites
-                        // Adjust those to something *in* the palette.  This is still "wrong" but at least more 
-                        // technically correct.
-                        if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] == 0xfe)
+                        if (!rgIsIndexUsed.at(nColorUsageIndex))
                         {
-                            nNewColor = nUnusedPaletteIndex;
+                            nUnusedPaletteIndex = nColorUsageIndex;
+                            break;
                         }
-                        else
-                        {
-                            // this is likely a paired palette that is indexed to be using colors from the second palette.
-                            // for purposes of RAW, that is incorrect: this should be referencing the palette as color[0]
-                            nNewColor = nOldColor % rgSrcImg[nImageIndex]->uPalSz;
-                        }
+                    }
 
-                        if (!fShownError)
-                        {
-                            fShownError = true;
-                            CString strError;
-                            strError.Format(L"WARNING: adjusting image to make it actually functional! 0x%x to 0x%x (out of 0x%x)\r\n",
-                                nOldColor, nNewColor, rgSrcImg[nImageIndex]->uPalSz);
-                            OutputDebugString(strError.GetString());
-                        }
+                    bool fShownError = false;
 
-                        rgSrcImg[nImageIndex]->pImgData[iImgIndex] = nNewColor;
+                    for (size_t iImgIndex = 0; iImgIndex < static_cast<size_t>(rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width); iImgIndex++)
+                    {
+                        // Validate that all color references are within the bounds of the current palette
+                        if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
+                        {
+                            uint8_t nOldColor = rgSrcImg[nImageIndex]->pImgData[iImgIndex];
+                            uint8_t nNewColor;
+
+                            // In some specific cases people were using out-of-bounds colors to color "shadow" / inferred sprites
+                            // Adjust those to something *in* the palette.  This is still "wrong" but at least more 
+                            // technically correct.
+                            if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] == 0xfe)
+                            {
+                                nNewColor = nUnusedPaletteIndex;
+                            }
+                            else
+                            {
+                                // this is likely a paired palette that is indexed to be using colors from the second palette.
+                                // for purposes of RAW, that is incorrect: this should be referencing the palette as color[0]
+                                nNewColor = nOldColor % rgSrcImg[nImageIndex]->uPalSz;
+                            }
+
+                            if (!fShownError)
+                            {
+                                fShownError = true;
+                                CString strError;
+                                strError.Format(L"WARNING: adjusting image to make it actually functional! 0x%x to 0x%x (out of 0x%x)\r\n",
+                                    nOldColor, nNewColor, rgSrcImg[nImageIndex]->uPalSz);
+                                OutputDebugString(strError.GetString());
+                            }
+
+                            rgSrcImg[nImageIndex]->pImgData[iImgIndex] = nNewColor;
+                        }
                     }
                 }
-            }
 
-            CFile rawFile;
-            if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
-            {
-                rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width);
-                rawFile.Abort();
+                CFile rawFile;
+                if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+                {
+                    rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width);
+                    rawFile.Abort();
+                }
             }
         }
     }
