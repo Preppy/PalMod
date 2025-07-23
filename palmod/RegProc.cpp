@@ -27,6 +27,7 @@ constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
 constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes";
 constexpr auto c_prevPreviewDropsTrim = L"prev_DropsTrimPreview";
 constexpr auto c_prevPreviewDropsKawaksFirst = L"prev_DropsTryKawaksFirst";
+constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback";
 
 extern int GetDpiForScreen();
 
@@ -525,6 +526,10 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             if (RegQueryValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropWinKawaksFirst), &GetSz) != ERROR_SUCCESS)
                 m_PreviewSettings.fPreviewDropWinKawaksFirst = FALSE;
 
+            GetSz = sizeof(m_PreviewSettings.fAllowAutoPreviewFallback);
+            if (RegQueryValueEx(hKey, c_prevAllowAutoPreviewFallback, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fAllowAutoPreviewFallback), &GetSz) != ERROR_SUCCESS)
+                m_PreviewSettings.fAllowAutoPreviewFallback = TRUE;
+
             GetSz = sizeof(m_PreviewSettings.eBlendMode);
             if (RegQueryValueEx(hKey, c_prevBlendMode, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.eBlendMode), &GetSz) != ERROR_SUCCESS)
             {
@@ -669,6 +674,7 @@ void CRegProc::SaveReg(eRegistryStoreID src)
                 RegSetValueEx(hKey, c_prevPreviewDropsArePalettes, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropIsPalette), sizeof(m_PreviewSettings.fPreviewDropIsPalette));
                 RegSetValueEx(hKey, c_prevPreviewDropsTrim, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropTrimPreview), sizeof(m_PreviewSettings.fPreviewDropTrimPreview));
                 RegSetValueEx(hKey, c_prevPreviewDropsKawaksFirst, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropWinKawaksFirst), sizeof(m_PreviewSettings.fPreviewDropWinKawaksFirst));
+                RegSetValueEx(hKey, c_prevAllowAutoPreviewFallback, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fAllowAutoPreviewFallback), sizeof(m_PreviewSettings.fAllowAutoPreviewFallback));
                 DWORD nTranslation = static_cast<DWORD>(m_PreviewSettings.dPreviewZoom);
                 RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nTranslation), sizeof(nTranslation));
                 break;

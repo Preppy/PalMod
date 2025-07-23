@@ -1151,24 +1151,32 @@ void CImgDisp::_CompositeTexture(uint8_t* pNewOverrideTexture, UINT nPositionToL
 
 bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode /*= false */)
 {
-    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
-    int nSuggestedHeight = 0, nSuggestedWidth = 0;
-
-    uint8_t* pNewOverrideTexture = _LoadTextureFromRAWSprite(pszTextureLocation, nPositionToLoadTo, nSuggestedHeight, nSuggestedWidth, direction, compositionStyle, fPreferQuietMode);
- 
-    if (pNewOverrideTexture)
+    uint8_t* pNewOverrideTexture = nullptr;
+    
     {
-        _CompositeTexture(pNewOverrideTexture, nPositionToLoadTo, nSuggestedHeight, nSuggestedWidth, direction, compositionStyle);
+        CWaitCursor wait; // Show a wait cursor in this scope since this can be a lot of parsing
+        GetHost()->GetPalModDlg()->SetStatusText(L"Analyzing this preview...");
 
-        CString strMsg;
-        strMsg.Format(L"Loaded %u x %u RAW as a preview.", nSuggestedWidth, nSuggestedHeight);
-        GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+        SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
+        int nSuggestedHeight = 0, nSuggestedWidth = 0;
 
-        _UpdatePreviewForExternalSprite(&nPositionToLoadTo);
+        pNewOverrideTexture = _LoadTextureFromRAWSprite(pszTextureLocation, nPositionToLoadTo, nSuggestedHeight, nSuggestedWidth, direction, compositionStyle, fPreferQuietMode);
 
-        return true;
+        if (pNewOverrideTexture)
+        {
+            _CompositeTexture(pNewOverrideTexture, nPositionToLoadTo, nSuggestedHeight, nSuggestedWidth, direction, compositionStyle);
+
+            CString strMsg;
+            strMsg.Format(L"Loaded %u x %u RAW as a preview.", nSuggestedWidth, nSuggestedHeight);
+            GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+
+            _UpdatePreviewForExternalSprite(&nPositionToLoadTo);
+
+            return true;
+        }
     }
-    else
+    
+    if (!pNewOverrideTexture)
     {
         CString strError;
         if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
@@ -1751,54 +1759,60 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
 {
     bool fSuccess = false;
     bool fUserCanceled = false;
-    lodepng::State state;
 
-    lodepng_state_init(&state);
-
-    size_t nSize = 0;
-    unsigned char* loadedAsFile = nullptr;
-    unsigned char* loadedAsPNG = nullptr;
-
-    if (lodepng_load_file(&loadedAsFile, &nSize, pszTextureLocation) == 0)
     {
-        unsigned width = 0, height = 0;
-        state.decoder.color_convert = 0;
-        if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
+        CWaitCursor wait; // Show a wait cursor in this scope since this can be a lot of parsing
+        GetHost()->GetPalModDlg()->SetStatusText(L"Analyzing this preview...");
+
+        lodepng::State state;
+
+        lodepng_state_init(&state);
+
+        size_t nSize = 0;
+        unsigned char* loadedAsFile = nullptr;
+        unsigned char* loadedAsPNG = nullptr;
+
+        if (lodepng_load_file(&loadedAsFile, &nSize, pszTextureLocation) == 0)
         {
-            // We know the gist of this image: let's confirm user options if appropriate
-            if (!fPreferQuietMode && pnPositionToLoadTo)
+            unsigned width = 0, height = 0;
+            state.decoder.color_convert = 0;
+            if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
             {
-                int intWidth = width, intHeight = height;
-                fUserCanceled = !_GetUserOptionsForTextureOverride(width * height, intWidth, intHeight, *pnPositionToLoadTo, direction, nullptr);
-                width = intWidth;
-                height = intHeight;
+                // We know the gist of this image: let's confirm user options if appropriate
+                if (!fPreferQuietMode && pnPositionToLoadTo)
+                {
+                    int intWidth = width, intHeight = height;
+                    fUserCanceled = !_GetUserOptionsForTextureOverride(width * height, intWidth, intHeight, *pnPositionToLoadTo, direction, nullptr);
+                    width = intWidth;
+                    height = intHeight;
+                }
+
+                if (!fUserCanceled)
+                {
+                    if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
+                    {
+                        _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
+
+                        // We handle RGB status update inside that logic, since it can be slightly different
+                        CString strMsg;
+                        strMsg.Format(L"Loaded %u x %u indexed PNG as a preview.", width, height);
+                        GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+
+                        fSuccess = true;
+                    }
+                    else if ((state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ||
+                           (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA))
+                    {
+                        _ImportAndSplitRGBSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
+                        fSuccess = true;
+                    }
+                }
+
+                free(loadedAsPNG);
             }
 
-            if (!fUserCanceled)
-            {
-                if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
-                {
-                    _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
-
-                    // We handle RGB status update inside that logic, since it can be slightly different
-                    CString strMsg;
-                    strMsg.Format(L"Loaded %u x %u indexed PNG as a preview.", width, height);
-                    GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
-
-                    fSuccess = true;
-                }
-                else if ((state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ||
-                         (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA))
-                {
-                    _ImportAndSplitRGBSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
-                    fSuccess = true;
-                }
-            }
-
-            free(loadedAsPNG);
+            free(loadedAsFile);
         }
-
-        free(loadedAsFile);
     }
     
     if (fSuccess)

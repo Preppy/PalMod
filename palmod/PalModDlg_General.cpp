@@ -220,95 +220,101 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
 bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
 {
     // Note that used pathing is off CurrentWorkingDirectory\\Previews
-    // Note that since we key off of combobox palette names at this point, we can only do this for image 0
-    wchar_t szUnit[MAX_DESCRIPTION_LENGTH], szNode[MAX_DESCRIPTION_LENGTH], szPalette[MAX_DESCRIPTION_LENGTH];
     bool fLoadedImage = false;
 
-    if (CurrGame &&
-        (m_CBUnitSel.GetLBText(m_CBUnitSel.GetCurSel(), szUnit) != CB_ERR) &&
-        (m_CBChildSel1.GetLBText(m_CBChildSel1.GetCurSel(), szNode) != CB_ERR) &&
-        (m_CBChildSel2.GetLBText(m_CBChildSel2.GetCurSel(), szPalette) != CB_ERR))
+    if (ImgDispCtrl && ImgDispCtrl->GetAllowAutoPreviewFallback())
     {
-        CString strPath;
+        wchar_t szUnit[MAX_DESCRIPTION_LENGTH], szNode[MAX_DESCRIPTION_LENGTH], szPalette[MAX_DESCRIPTION_LENGTH];
 
-        SanitizeString(szNode);
-        wcsncpy(szPalette, m_PalHost.GetPalName(nPosition), ARRAYSIZE(szPalette));
-        szPalette[ARRAYSIZE(szPalette) - 1] = 0;
-
-        if (_wcsicmp(CurrGame->GetExtraUnitDescription(), szUnit) == 0)
+        if (CurrGame &&
+            (m_CBUnitSel.GetLBText(m_CBUnitSel.GetCurSel(), szUnit) != CB_ERR) &&
+            (m_CBChildSel1.GetLBText(m_CBChildSel1.GetCurSel(), szNode) != CB_ERR) &&
+            (m_CBChildSel2.GetLBText(m_CBChildSel2.GetCurSel(), szPalette) != CB_ERR))
         {
-            SanitizeString(szUnit);
+            CString strPath;
 
-            for (size_t iChar = 2; iChar < wcslen(szPalette); iChar++)
+            SanitizeString(szNode);
+            wcsncpy(szPalette, m_PalHost.GetPalName(nPosition), ARRAYSIZE(szPalette));
+            szPalette[ARRAYSIZE(szPalette) - 1] = 0;
+
+            if (_wcsicmp(CurrGame->GetExtraUnitDescription(), szUnit) == 0)
             {
-                // For the purposes of finding palettes, you might have a lengthy multipalette search chunk
-                // Within PalMod we break that up by appending (x/y) to [search chunk]
-                // To avoid needing the user to have Y number of [search chunk].png files, we can just
-                // remove that specific suffix.
-                if (szPalette[iChar] == L'(')
+                SanitizeString(szUnit);
+
+                for (size_t iChar = 2; iChar < wcslen(szPalette); iChar++)
                 {
-                    for (size_t iSlash = iChar + 1; iSlash < wcslen(szPalette); iSlash++)
+                    // For the purposes of finding palettes, you might have a lengthy multipalette search chunk
+                    // Within PalMod we break that up by appending (x/y) to [search chunk]
+                    // To avoid needing the user to have Y number of [search chunk].png files, we can just
+                    // remove that specific suffix.
+                    if (szPalette[iChar] == L'(')
                     {
-                        if (szPalette[iSlash] == L'/')
+                        for (size_t iSlash = iChar + 1; iSlash < wcslen(szPalette); iSlash++)
                         {
-                            if (szPalette[iChar - 1] == L' ')
+                            if (szPalette[iSlash] == L'/')
                             {
-                                szPalette[iChar - 1] = 0;
+                                if (szPalette[iChar - 1] == L' ')
+                                {
+                                    szPalette[iChar - 1] = 0;
+                                }
+
+                                break;
                             }
-
-                            break;
                         }
+
+                        break;
                     }
-
-                    break;
-                }               
-            }
-
-            SanitizeString(szPalette);
-            strPath.Format(L"previews\\%s.png", szPalette);
-        }
-        else
-        {
-            bool fIsButtonNode = false;
-            SanitizeString(szUnit);
-
-            std::vector<LPCWSTR> pButtonLabelSet = CurrGame->GetButtonDescSet();
-
-            SanitizeString(szPalette);
-
-            for (LPCWSTR pszButtonLabel : pButtonLabelSet)
-            {
-                if (_wcsicmp(pszButtonLabel, szNode) == 0)
-                {
-                    fIsButtonNode = true;
-                    break;
                 }
-            }
 
-            if (fIsButtonNode)
-            {
-                CleanseButtonNodeString(szUnit, szNode, szPalette);
-
-                strPath.Format(L"previews\\%s-%s.png", szUnit, szPalette);
+                SanitizeString(szPalette);
+                strPath.Format(L"previews\\%s.png", szPalette);
             }
             else
             {
-                strPath.Format(L"previews\\%s-%s_%s.png", szUnit, szNode, szPalette);
-            }
-        }
+                bool fIsButtonNode = false;
+                SanitizeString(szUnit);
 
-        if (GetFileAttributes(strPath.GetBuffer()) != INVALID_FILE_ATTRIBUTES)
-        {
+                std::vector<LPCWSTR> pButtonLabelSet = CurrGame->GetButtonDescSet();
+
+                SanitizeString(szPalette);
+
+                for (LPCWSTR pszButtonLabel : pButtonLabelSet)
+                {
+                    if (_wcsicmp(pszButtonLabel, szNode) == 0)
+                    {
+                        fIsButtonNode = true;
+                        break;
+                    }
+                }
+
+                if (fIsButtonNode)
+                {
+                    CleanseButtonNodeString(szUnit, szNode, szPalette);
+
+                    strPath.Format(L"previews\\%s-%s.png", szUnit, szPalette);
+                }
+                else
+                {
+                    strPath.Format(L"previews\\%s-%s_%s.png", szUnit, szNode, szPalette);
+                }
+            }
+
+            if (GetFileAttributes(strPath.GetBuffer()) != INVALID_FILE_ATTRIBUTES)
+            {
 #ifdef DEBUG
-            CString strFile;
-            strFile.Format(L"CPalModDlg::TryFallbackImageLoad: Loading \"%s\" to position %u\n", strPath.GetBuffer(), nPosition);
-            OutputDebugString(strFile.GetBuffer());
+                CString strFile;
+                strFile.Format(L"CPalModDlg::TryFallbackImageLoad: Loading \"%s\" to position %u\n", strPath.GetBuffer(), nPosition);
+                OutputDebugString(strFile.GetBuffer());
 #endif
 
-            fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
+                fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
+                m_strPossiblePreviewStatus.Format(L", \"%s\" %s", strPath.GetString(), fLoadedImage ? L"loaded" : L"not loaded");
+            }
+            else
+            {
+                m_strPossiblePreviewStatus.Format(L", \"%s\" not found", strPath.GetString());
+            }
         }
-
-        m_strPossiblePreviewStatus.Format(L"\"%s\" %s", strPath, fLoadedImage ? L"loaded" : L"not loaded");
     }
 
     return fLoadedImage;
@@ -459,7 +465,7 @@ void CPalModDlg::PostPalSel()
                 if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF) ||
                     (CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
                 {
-                    strInformation.Format(L"Preview: (no internal preview available, %s )", m_strPossiblePreviewStatus.GetString());
+                    strInformation.Format(L"Preview: (no internal preview available%s)", m_strPossiblePreviewStatus.GetString());
                 }
                 else
                 {

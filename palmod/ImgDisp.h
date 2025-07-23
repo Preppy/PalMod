@@ -140,6 +140,8 @@ public:
     void SetUseBGCol(BOOL fUse) { m_Settings.fUseBGCol = fUse; };
     void SetClickToFindColorSetting(BOOL fClickToFindColor) { m_Settings.fClickToFindColor = fClickToFindColor; };
     BOOL GetClickToFindColorSetting() { return m_Settings.fClickToFindColor; };
+    void SetAllowAutoPreviewFallback(BOOL fAllowAutoPreviewFallback) { m_Settings.fAllowAutoPreviewFallback = fAllowAutoPreviewFallback; };
+    BOOL GetAllowAutoPreviewFallback() { return m_Settings.fAllowAutoPreviewFallback; };
     BOOL CanForceBGBitmapAvailable();
     BOOL GetPreviewDropIsPalette() { return m_Settings.fPreviewDropIsPalette; };
     void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_Settings.fPreviewDropIsPalette = fPreviewDropIsPalette; };

@@ -414,6 +414,7 @@
 #define IDS_TPLSAVE_FAILURE             32970
 #define ID_COLORFORMAT_RGB555_LE_NORMAL 32971
 #define ID_ACC_SNIFFPASTE15             32972
+#define ID_SETTINGS_PREVIEWFALLBACK     32793
 
 // Next default values for new objects
 // 

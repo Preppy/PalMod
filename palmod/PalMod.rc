@@ -752,6 +752,7 @@ BEGIN
         MENUITEM "Tile Image Background",       ID_SETTINGS_TILEIMAGEBACKGROUND
         MENUITEM "Reset Background Offset",     ID_SETTINGS_RESETBACKGROUNDOFFSET
         MENUITEM "Clicks show color in palette", ID_SETTINGS_CLICKANDFIND
+        MENUITEM "Autoload fallback previews",  ID_SETTINGS_PREVIEWFALLBACK
     END
     POPUP "&Zoom"
     BEGIN

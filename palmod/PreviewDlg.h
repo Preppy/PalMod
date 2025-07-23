@@ -70,7 +70,8 @@ public:
     afx_msg void OnResetBackgroundOffset();
     afx_msg void OnFileExportImg();
     afx_msg void OnSettingsUseBackgroundColor();
-    afx_msg void OnSettingsClickToFindColor();
+    afx_msg void OnSettingsClickToFindColor() { m_ImgDisp.SetClickToFindColorSetting(!m_ImgDisp.GetClickToFindColorSetting()); };
+    afx_msg void OnSettingsAllowAutoPreviewFallback() { m_ImgDisp.SetAllowAutoPreviewFallback(!m_ImgDisp.GetAllowAutoPreviewFallback()); };;
     afx_msg void OnLoadCustomSprite(UINT nPositionToLoadTo = 0, SpriteImportDirection direction = SpriteImportDirection::TopDown, bool fPreferQuietMode = true);
     afx_msg void OnLoadCustomSpriteWithOptions() { OnLoadCustomSprite(0, SpriteImportDirection::TopDown, false); };
     afx_msg void OnLoadCustomSpriteNormal(UINT nPositionToLoadTo = 0) { OnLoadCustomSprite(nPositionToLoadTo, SpriteImportDirection::TopDown); };

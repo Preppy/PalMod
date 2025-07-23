@@ -72,6 +72,7 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBackgroundOffset)
     ON_COMMAND(ID_SETTINGS_USEBGCOLOR, &CPreviewDlg::OnSettingsUseBackgroundColor)
     ON_COMMAND(ID_SETTINGS_CLICKANDFIND, &CPreviewDlg::OnSettingsClickToFindColor)
+    ON_COMMAND(ID_SETTINGS_PREVIEWFALLBACK, &CPreviewDlg::OnSettingsAllowAutoPreviewFallback)
 
     ON_COMMAND_RANGE(k_nTextureLoadCommandMask, k_nTextureLoadCommandMask + MAX_IMAGES_DISPLAYABLE, &CPreviewDlg::OnLoadCustomSpriteNormal)
 
@@ -455,6 +456,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPISPALETTE, m_ImgDisp.GetPreviewDropIsPalette() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPTRIM, m_ImgDisp.GetPreviewDropTrim() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPKAWAKS, m_ImgDisp.GetPreviewDropWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_PREVIEWFALLBACK, m_ImgDisp.GetAllowAutoPreviewFallback() ? MF_CHECKED : MF_UNCHECKED);
 
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
 
@@ -625,9 +627,4 @@ void CPreviewDlg::OnSettingsUseBackgroundColor()
     {
         m_ImgDisp.UpdateCtrl();
     }
-}
-
-void CPreviewDlg::OnSettingsClickToFindColor()
-{
-    m_ImgDisp.SetClickToFindColorSetting(!m_ImgDisp.GetClickToFindColorSetting());
 }
