@@ -45,6 +45,34 @@ const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettes_S =
     //slash dust, reload dust
 };
 
+// Sort order for CFPL is different, so provide a map to help us get back to what the user wants to apply to
+const std::vector<std::pair<std::wstring, std::wstring>> GGXXACR_CFPL_ButtonColorMap =
+{
+    { L"None",      L"" },
+    { L"Default P", L"Punch" },
+    { L"Default K", L"Kick" },
+    { L"Default S", L"Slash" },
+    { L"Default H", L"Heavy Slash" },
+    { L"Default D", L"Dust" },
+    { L"EX P",      L"EX Punch" },
+    { L"EX K",      L"EX Kick" },
+    { L"EX S",      L"EX Slash" },
+    { L"EX H",      L"EX Heavy Slash" },
+    { L"EX D",      L"EX Dust" },
+    { L"Slash P",   L"Slash Punch" },
+    { L"Slash K",   L"Slash Kick" },
+    { L"Slash S",   L"Slash Slash" },
+    { L"Slash H",   L"Slash Heavy Slash" },
+    { L"Golden",    L"Gold" },
+    { L"Reload P",  L"Reload Punch" },
+    { L"Reload K",  L"Reload Kick" },
+    { L"Reload S",  L"Reload Slash" },
+    { L"Reload H",  L"Reload Heavy Slash" },
+    { L"Shadow",    L"Shadow" },
+    { L"Slash D",   L"Slash Dust" },
+    { L"Reload D",  L"Reload Dust" },
+};
+
 const std::vector<sGCBUPF_RelativePaletteData> GGXXACRCorePalettesEx_S =
 {
     { L"Punch" },
@@ -2505,3 +2533,5 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_MissionIcons =
 extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_CharacterData;
 extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_ExtrasData;
 extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_EXCharData;
+
+uint32_t TranslateACRGameIdToPalModSpriteId(uint8_t nGameId);

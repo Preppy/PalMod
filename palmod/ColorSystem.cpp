@@ -1644,7 +1644,7 @@ namespace ColorSystem
     int GetColorStepFor8BitValue_HalfAlpha(int nColorValue)
     {
         // 0...0x80
-        int nAdjustmentValue = (nColorValue < 0) ? -1 : 1;
+        const int nAdjustmentValue = (nColorValue < 0) ? -1 : 1;
     
         if ((nColorValue % 2) == 1)
         {
@@ -1653,17 +1653,30 @@ namespace ColorSystem
 
         int nColorStep = nColorValue  / 2;
 
+        if (abs(nColorStep) > 255)
+        {
+            nColorValue = min(nColorStep, 255);
+            nColorValue = max(nColorStep, -255);
+        }
+
         return nColorStep;
     }
 
     int Get8BitValueForColorStep_HalfAlpha(int nColorStep)
     {
-        int nAdjustmentValue = (nColorStep < 0) ? 1 : -1;
+        // 0...0x80
+        const int nAdjustmentValue = (nColorStep < 0) ? 1 : -1;
         int nColorValue = nColorStep * 2;
 
         if (nColorStep)
         {
             nColorValue += nAdjustmentValue;
+        }
+
+        if (abs(nColorValue) > 255)
+        {
+            nColorValue = min(nColorValue, 255);
+            nColorValue = max(nColorValue, -255);
         }
 
         return nColorValue;
@@ -1731,19 +1744,15 @@ namespace ColorSystem
         return nConvertedVal * (fIsNegative ? -1 : 1);
     }
     
-    int GetNearestLegalColorValue_ARGB7888(int nColorValue)
+    int GetNearestLegal8bitColorValue_FromACR8Bit(int nColorValue)
     {
-        int nAdjustmentValue = (nColorValue < 0) ? -1 : 1;
+        // Weird 0...0x80 option
+        nColorValue = (nColorValue * 255) / 128;
 
-        if ((nColorValue % 2) == 1)
+        if (abs(nColorValue) > 255)
         {
-            nColorValue += nAdjustmentValue;
-
-            if (abs(nColorValue) > 255)
-            {
-                nColorValue = min(nColorValue, 255);
-                nColorValue = max(nColorValue, -255);
-            }
+            nColorValue = min(nColorValue, 255);
+            nColorValue = max(nColorValue, -255);
         }
 
         return nColorValue;

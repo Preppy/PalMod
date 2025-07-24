@@ -1176,15 +1176,12 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
         }
     }
     
-    if (!pNewOverrideTexture)
+    CString strError;
+    if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
     {
-        CString strError;
-        if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
-        {
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-        }
-        return false;
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
+    return false;
 }
 
 void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, uint8_t*& pImageData, int nWidth, int nHeight)

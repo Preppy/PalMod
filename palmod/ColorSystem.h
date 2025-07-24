@@ -172,7 +172,8 @@ namespace ColorSystem
     int GetNearestLegalColorValue_RGB555_Normal(int nColorValue);
     int GetNearestLegalColorValue_SharpCLUT(int nColorValue);
     int GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue);
-    int GetNearestLegalColorValue_ARGB7888(int nColorValue);
+    // This is a weird 0...0x80 nonsense space.
+    int GetNearestLegal8bitColorValue_FromACR8Bit(int nColorValue);
     int GetNearestLegalColorValue_RGB888(int nColorValue);
 
     int ValidateColorStep_RGB333(int nColorStep);

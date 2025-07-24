@@ -437,3 +437,48 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
     return fSuccess;
 }
+
+// Currently unused
+std::map<uint32_t, uint8_t> mapACRSpriteIdToACRGameId =
+{
+    // "None",         //00
+    { indexGGXXSprites_ACR_Sol,       1 },
+    { indexGGXXSprites_ACR_Ky,        2 },
+    { indexGGXXSprites_ACR_May,       3 },
+    { indexGGXXSprites_ACR_Millia,    4 },
+    { indexGGXXSprites_ACR_Axl,       5 },
+    { indexGGXXSprites_ACR_Potemkin,  6 },
+    { indexGGXXSprites_ACR_Chipp,     7 },
+    { indexGGXXSprites_ACR_Eddie,     8 },
+    { indexGGXXSprites_ACR_Baiken,    9 },
+    { indexGGXXSprites_ACR_Faust,     10 },
+    { indexGGXXSprites_ACR_Testament, 11 },
+    { indexGGXXSprites_ACR_Jam,       12 },
+    { indexGGXXSprites_ACR_Anji,      13 },
+    { indexGGXXSprites_ACR_Johnny,    14 },
+    { indexGGXXSprites_ACR_Venom,     15 },
+    { indexGGXXSprites_ACR_Dizzy,     16 },
+    { indexGGXXSprites_ACR_Slayer,    17 },
+    { indexGGXXSprites_ACR_Ino,       18 },
+    { indexGGXXSprites_ACR_Zappa,     19 },
+    { indexGGXXSprites_ACR_Bridget,   20 },
+    { indexGGXXSprites_ACR_RoboKy,    21 },
+    { indexGGXXSprites_ACR_ABA,       22 },
+    { indexGGXXSprites_ACR_OrderSol,  23 },
+    { indexGGXXSprites_ACR_Kliff,     24 },
+    { indexGGXXSprites_ACR_Justice,   25 },
+};
+
+uint32_t TranslateACRGameIdToPalModSpriteId(uint8_t nGameId)
+{
+    for (auto it = mapACRSpriteIdToACRGameId.begin(); it != mapACRSpriteIdToACRGameId.end(); it++)
+    {
+        if (it->second == nGameId)
+        {
+            return it->first;
+        }
+    }
+
+    OutputDebugString(L"Error: invalid ACR ID.\r\n");
+    return 0;
+}

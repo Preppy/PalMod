@@ -2,22 +2,24 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "Game\BlazBlueCF_S_DEF.h"
+#include "Game\GGXXACR_S_DEF.h"
 #include "RegProc.h" // save/restore creator name
 
 // CFPL and HPAL are BBCF color palette files.
 // HPAL is for one 256 color ABGR palette.
 // CFPL is a collection of eight 256 color BGRA palettes: exactly enough for one full character
 
-const uint8_t k_nCFPLSignatureLength = 0x10;
-const uint8_t k_nPalettesPerFile = 8;
-const uint16_t k_nColorsPerPalette = 256; // An CFPL has 8 sets of 256 (1024 bytes / 4 bytes per color) colors.
+const uint8_t k_nCFPLSignatureLength = 0xc;
+const uint8_t k_nPalettesPerNode_BBCF = 8;
+const uint8_t k_nPalettesPerNode_ACR = 1;
+const uint16_t k_nColorsPerPalette = 256; // An CFPL has N sets of 256 (1024 bytes / 4 bytes per color) colors.
 const uint8_t k_nBytesPerColor = 4;
 const size_t k_nColorDataSize = k_nColorsPerPalette * k_nBytesPerColor;
 
 const std::array<uint8_t, k_nCFPLSignatureLength> k_rgCFPLSignature =
 {
     0x49, 0x4d, 0x50, 0x4c, 0x43, 0x46, 0x00, 0x00, // I M P L C F
-    0x14, 0x00, 0x00, 0x00, 0x81, 0x20, 0x00, 0x00, // header size, data size: we're going to lock to 0x2098 files for now.
+    0x14, 0x00, 0x00, 0x00 // int for headerlen.  We'll lock to 0x14 headers since otherwise we need code updates.
 };
 
 class CCFPLFileImportDialog : public CDialog
@@ -222,13 +224,16 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             // 0x34-0x54 optional creator name 
             // 0x54-0x94 optional description
             // 0x94      "has bloom"
-        const size_t k_nRequiredFileSize = 0x2098;
+        const size_t k_nRequiredFileSize_ACR = 0x498;
+        const size_t k_nRequiredFileSize_BBCF = 0x2098;
         const uint8_t k_nCFPLHeaderLength = 0x95;
 
         bool fFileIsValidCFPL = false;
+        const SupportedGamesList gameID = GetHost()->GetCurrGame()->GetGameFlag();
+        const bool k_fUseACRLogic = (gameID == GGXXACR_S);
 
         // Read data from the CFPL...
-        if (CFPLFile.GetLength() == k_nRequiredFileSize)
+        if (!k_fUseACRLogic ? (CFPLFile.GetLength() == k_nRequiredFileSize_BBCF) : (CFPLFile.GetLength() == k_nRequiredFileSize_ACR))
         {
             std::array<uint8_t, k_nCFPLSignatureLength> rgHeaderBytes = {};
 
@@ -254,24 +259,50 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             }
         }
 
+        int nDataLen = 0;
+        CFPLFile.Read(&nDataLen, 4);
+
         uint16_t nCollectionIndex = 0;
         bool fCanUseCharacterAssignment = false;
+
+        if (k_fUseACRLogic ? (nDataLen != 0x481) : (nDataLen != 0x2081))
+        {
+            // lock down to either 1 or 8 given our current knowledge
+            fFileIsValidCFPL = false;
+        }
 
         if (fFileIsValidCFPL)
         {
             uint8_t nCharacterToApplyTo = 0;
             CFPLFile.Read(&nCharacterToApplyTo, 1);
 
-            const uint32_t nSpriteId = TranslateBBCFGameIdToPalModSpriteId(nCharacterToApplyTo);
-
-            for (; nCollectionIndex < BlazBlueCF_S_CharacterData.size(); nCollectionIndex++)
+            if (!k_fUseACRLogic)
             {
-                if (BlazBlueCF_S_CharacterData[nCollectionIndex].nImageUnitIndex == nSpriteId)
+                const uint32_t nSpriteId = TranslateBBCFGameIdToPalModSpriteId(nCharacterToApplyTo);
+
+                for (; nCollectionIndex < BlazBlueCF_S_CharacterData.size(); nCollectionIndex++)
                 {
-                    fCanUseCharacterAssignment = true;
-                    break;
+                    if (BlazBlueCF_S_CharacterData[nCollectionIndex].nImageUnitIndex == nSpriteId)
+                    {
+                        fCanUseCharacterAssignment = true;
+                        break;
+                    }
                 }
             }
+            else
+            {
+                const uint32_t nSpriteId = TranslateACRGameIdToPalModSpriteId(nCharacterToApplyTo);
+
+                for (; nCollectionIndex < GGXXACR_S_CharacterData.size(); nCollectionIndex++)
+                {
+                    if (GGXXACR_S_CharacterData[nCollectionIndex].nImageUnitIndex == nSpriteId)
+                    {
+                        fCanUseCharacterAssignment = true;
+                        break;
+                    }
+                }
+            }
+
         }
 
         uint8_t nColorPositionToWriteTo = -1;
@@ -287,52 +318,97 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
                 nColorPositionToWriteTo = 0;
             }
 
-            if (nColorPositionToWriteTo < BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames.size())
+            if (!k_fUseACRLogic)
             {
-                CCFPLFileImportDialog cfplFileDialog(BlazBlueCF_S_CharacterData[nCollectionIndex].strCharacter,
-                                                     BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames,
-                                                     nColorPositionToWriteTo);
-
-                if (cfplFileDialog.DoModal() == IDOK)
+                if (nColorPositionToWriteTo < BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames.size())
                 {
-                    nColorPositionToWriteTo = static_cast<uint8_t>(cfplFileDialog.m_nCurrentSel);
+                    CCFPLFileImportDialog cfplFileDialog(BlazBlueCF_S_CharacterData[nCollectionIndex].strCharacter,
+                                                         BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames,
+                                                         nColorPositionToWriteTo);
+
+                    if (cfplFileDialog.DoModal() == IDOK)
+                    {
+                        nColorPositionToWriteTo = static_cast<uint8_t>(cfplFileDialog.m_nCurrentSel);
+                    }
+                    else
+                    {
+                        fUserWantsToApply = false;
+                    }
                 }
                 else
                 {
-                    fUserWantsToApply = false;
+                    fCanUseCharacterAssignment = false;
                 }
             }
             else
             {
-                fCanUseCharacterAssignment = false;
+                if (nColorPositionToWriteTo < GGXXACR_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames.size())
+                {
+                    CCFPLFileImportDialog cfplFileDialog(GGXXACR_S_CharacterData[nCollectionIndex].strCharacter,
+                                                         GGXXACRPaletteNamesShort,
+                                                         nColorPositionToWriteTo);
+
+                    if (cfplFileDialog.DoModal() == IDOK)
+                    {
+                        nColorPositionToWriteTo = static_cast<uint8_t>(cfplFileDialog.m_nCurrentSel);
+                    }
+                    else
+                    {
+                        fUserWantsToApply = false;
+                    }
+                }
+                else
+                {
+                    fCanUseCharacterAssignment = false;
+                }
             }
         }
 
         if (fCanUseCharacterAssignment && fUserWantsToApply)
         {
-            const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerFile * nColorPositionToWriteTo;
+            // 8 palettes for BBCF, 1 for ACR currently.  This is gated in the nDataLen check above.
+            const uint8_t k_nPalettesPerNodeThisGame = (!k_fUseACRLogic) ? k_nPalettesPerNode_BBCF : k_nPalettesPerNode_ACR;
+            const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerNodeThisGame * nColorPositionToWriteTo;
 
             std::array<uint8_t, k_nColorDataSize> rgCFPL = {};
 
             CFPLFile.Seek(k_nCFPLHeaderLength, CFile::begin);
 
-            for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerFile; nPaletteId++)
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+            for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerNodeThisGame; nPaletteId++)
             {
                 uint8_t rgConvertedPalette[k_nColorDataSize] = {};
 
                 CFPLFile.Read(&rgCFPL, static_cast<UINT>(rgCFPL.size()));
 
-                for (size_t nPaletteIndex = 0; nPaletteIndex < k_nColorsPerPalette; nPaletteIndex++)
+
+                if (!k_fUseACRLogic)
                 {
-                    // incoming is BGRA, so flip to be RBGA
-                    rgConvertedPalette[(nPaletteIndex * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor)]);
-                    rgConvertedPalette[(nPaletteIndex * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 1]);
-                    rgConvertedPalette[(nPaletteIndex * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 2]);
-                    rgConvertedPalette[(nPaletteIndex * 4) + 3] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 3]);
+                    for (size_t nPaletteIndex = 0; nPaletteIndex < k_nColorsPerPalette; nPaletteIndex++)
+                    {
+                        // incoming is BGRA, so flip to be RBGA
+                        rgConvertedPalette[(nPaletteIndex * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 0]);
+                        rgConvertedPalette[(nPaletteIndex * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 1]);
+                        rgConvertedPalette[(nPaletteIndex * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 2]);
+                        rgConvertedPalette[(nPaletteIndex * 4) + 3] = CurrGame->GetNearestLegal8BitColorValue_A(rgCFPL[(  nPaletteIndex * k_nBytesPerColor) + 3]);
+                    }
+                }
+                else
+                {
+                    for (size_t nPaletteIndex = 0; nPaletteIndex < k_nColorsPerPalette; nPaletteIndex++)
+                    {
+                        // this is RGBA already
+                        rgConvertedPalette[(nPaletteIndex * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 2]);
+                        rgConvertedPalette[(nPaletteIndex * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 1]);
+                        rgConvertedPalette[(nPaletteIndex * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 0]);
+                        // This is 1bit alpha I don't know why either
+                        rgConvertedPalette[(nPaletteIndex * 4) + 3] = rgCFPL[(nPaletteIndex * k_nBytesPerColor) + 3] ? 0xff : 0;
+                    }
                 }
 
-                GetHost()->GetCurrGame()->WritePal(nCollectionIndex, nPaletteId + k_nStartingPaletteAdjustment, (COLORREF*)&rgConvertedPalette, k_nColorsPerPalette);
-                GetHost()->GetCurrGame()->MarkPaletteDirty(nCollectionIndex, nPaletteId + k_nStartingPaletteAdjustment);
+                CurrGame->WritePal(nCollectionIndex, nPaletteId + k_nStartingPaletteAdjustment, (COLORREF*)&rgConvertedPalette, k_nColorsPerPalette);
+                CurrGame->MarkPaletteDirty(nCollectionIndex, nPaletteId + k_nStartingPaletteAdjustment);
             }
 
             CFPLFile.Close();
@@ -349,7 +425,15 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 
             fSuccess = true;
             CString strStatus;
-            strStatus.Format(IDS_CFPL_LOADED, BlazBlueCF_S_CharacterData.at(nCollectionIndex).strCharacter.c_str(), BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames.at(nColorPositionToWriteTo));
+
+            if (!k_fUseACRLogic)
+            {
+                strStatus.Format(IDS_CFPL_LOADED, k_nPalettesPerNode_BBCF, BlazBlueCF_S_CharacterData.at(nCollectionIndex).strCharacter.c_str(), BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames.at(nColorPositionToWriteTo));
+            }
+            else
+            {
+                strStatus.Format(IDS_CFPL_LOADED, k_nPalettesPerNode_ACR, GGXXACR_S_CharacterData.at(nCollectionIndex).strCharacter.c_str(), GGXXACRPaletteNamesShort.at(nColorPositionToWriteTo));
+            }
             SetStatusText(strStatus);
         }
     }
@@ -451,10 +535,10 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
             // "is bloom" : gives the in-game character display a shine.
             CFPLFile.Write(&cfplFileDialog.m_fEnableBloom, 1);
 
-            const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerFile * m_nPrevChildSel1;
+            const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerNode_BBCF * m_nPrevChildSel1;
 
             // Now write the actual palettes
-            for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerFile; nPaletteId++)
+            for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerNode_BBCF; nPaletteId++)
             {
                 COLORREF* rgCurrentPalette = GetHost()->GetCurrGame()->CreatePal(m_nPrevUnitSel, nPaletteId + k_nStartingPaletteAdjustment);
 

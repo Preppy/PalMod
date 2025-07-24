@@ -252,7 +252,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_HalfAlpha;
         Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_HalfAlpha;
         GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_ARGB7888;
+        GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegal8bitColorValue_FromACR8Bit;
         ValidateColorStep = &ColorSystem::ValidateColorStep_RGB888;
         break;
 

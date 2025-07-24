@@ -820,6 +820,21 @@ void CPalModDlg::OnImportPalette()
     // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version
     if (m_fEnabled)
     {
+        // This is the core set plus CFPL
+        static LPCWSTR rgszACROpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
+                                                L"ACT Palette|*.act|"
+                                                L"Indexed PNG|*.png|"
+                                                L"Microsoft PAL|*.pal|"
+                                                L"Upside-down ACT Palette|*.act|"
+                                                L"Upside-down Indexed PNG|*.png|"
+                                                L"Indexed BMP|*.bmp|"
+                                                L"GIF|*.gif|"
+                                                L"GIMP palette file|*.gpl|"
+                                                L"HipPalette|*.hpl|"
+                                                L"BBCF/ACR palette set|*.cfpl|" // It's just BBCF but they're reusing it so.....
+                                                L"|" };
+
+        // This is the core set plus CFPL/IMPL
         static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
                                                 L"ACT Palette|*.act|"
                                                 L"Indexed PNG|*.png|"
@@ -834,6 +849,7 @@ void CPalModDlg::OnImportPalette()
                                                 L"BBTAG palette set|*.impl|"
                                                 L"|" };
 
+        // This is the core set plus txt.dat
         static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*txt.dat;*.gpl;*.hpl|"
                                                L"ACT Palette|*.act|"
                                                L"Indexed PNG|*.png|"
@@ -875,6 +891,9 @@ void CPalModDlg::OnImportPalette()
             case SFIII1_A_DIR:
             case SFIII2_A_DIR:
                 pszFilterInUse = *rgszSF3OpenFilter;
+                break;
+            case GGXXACR_S:
+                pszFilterInUse = *rgszACROpenFilter;
                 break;
             case BlazBlueCF_S:
                 pszFilterInUse = *rgszBBCFOpenFilter;

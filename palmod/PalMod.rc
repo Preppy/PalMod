@@ -978,7 +978,7 @@ BEGIN
     IDS_SVC_UNKNOWNCRYPTO   "This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to this encrypted ROMs"
     IDS_SVC_WARNENCRYPT     "This ROM is encrypted.  In order to save these changes, we will need to re-encrypt everything, which can cause issues.\n\nAre you sure you wish to continue?  Please make sure you have backups."
     IDS_SVC_CRYPTO_RO       "This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to this encrypted ROM.\n\nAre you sure you wish to continue?  Decryption will take a minute."
-    IDS_CFPL_LOADED         "Loaded 8 palettes for %s %s."
+    IDS_CFPL_LOADED         "Loaded %u palettes for %s %s."
     IDS_CFPL_LOADFAILURE    "Failed loading CFPL file."
     IDS_HPAL_LOADED         "Loaded %u colors from %u color HPAL file."
     IDS_HPAL_LOADFAILURE    "Failed loading HPAL file."

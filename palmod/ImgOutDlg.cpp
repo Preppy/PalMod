@@ -761,7 +761,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 else
                 {
                     CString strMsg;
-                    strMsg.Format(L"Layer %u is empty: skipping.\r\n");
+                    strMsg.Format(L"Layer %u is empty: skipping.\r\n", nImageLayerIndex);
                     OutputDebugString(strMsg.GetString());
                 }
             }
