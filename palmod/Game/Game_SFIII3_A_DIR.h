@@ -16,6 +16,7 @@ class CGame_SFIII3_A_DIR :
     public CGame_SFIII3_A
 {
 private:
+    // Note that these values are overridden in GetRuleInternal
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM10_DIR =
     {
         {
@@ -27,6 +28,7 @@ private:
         FileReadType::Sequential,
     };
 
+    // Note that these values are overridden in GetRuleInternal
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM10_4rd_DIR =
     {
         {
@@ -38,6 +40,7 @@ private:
         FileReadType::Sequential,
     };
 
+    // Note that these values are overridden in GetRuleInternal
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM51_DIR =
     {
         {
@@ -49,6 +52,7 @@ private:
         FileReadType::Sequential,
     };
 
+    // Note that these values are overridden in GetRuleInternal
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM51_4rd_DIR =
     {
         {
@@ -58,6 +62,7 @@ private:
         FileReadType::Sequential,
     };
 
+    // Note that these values are overridden in GetRuleInternal
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM70_DIR =
     {
         {
