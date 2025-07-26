@@ -208,6 +208,10 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
     bool fUserWantsToApply = true;
+    bool fCrossGameApplication = false;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+    const SupportedGamesList gameID = CurrGame->GetGameFlag();
+    const bool k_fUseACRLogic = (gameID == GGXXACR_S);
 
     CFile CFPLFile;
     if (CFPLFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
@@ -229,11 +233,10 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
         const uint8_t k_nCFPLHeaderLength = 0x95;
 
         bool fFileIsValidCFPL = false;
-        const SupportedGamesList gameID = GetHost()->GetCurrGame()->GetGameFlag();
-        const bool k_fUseACRLogic = (gameID == GGXXACR_S);
+        const ULONGLONG nCFPLFileSize = CFPLFile.GetLength();
 
         // Read data from the CFPL...
-        if (!k_fUseACRLogic ? (CFPLFile.GetLength() == k_nRequiredFileSize_BBCF) : (CFPLFile.GetLength() == k_nRequiredFileSize_ACR))
+        if (k_fUseACRLogic ? (nCFPLFileSize == k_nRequiredFileSize_ACR) : (nCFPLFileSize == k_nRequiredFileSize_BBCF))
         {
             std::array<uint8_t, k_nCFPLSignatureLength> rgHeaderBytes = {};
 
@@ -258,16 +261,21 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
                 fFileIsValidCFPL = true;
             }
         }
+        else if (k_fUseACRLogic ? (nCFPLFileSize == k_nRequiredFileSize_BBCF) : (nCFPLFileSize == k_nRequiredFileSize_ACR))
+        {
+            fCrossGameApplication = true;
+        }
 
         int nDataLen = 0;
         CFPLFile.Read(&nDataLen, 4);
 
         uint16_t nCollectionIndex = 0;
         bool fCanUseCharacterAssignment = false;
+        const bool fIsValidACRDataLen = (nDataLen == 0x481);
+        const bool fIsValidBBCFDataLen = (nDataLen == 0x2081);
 
-        if (k_fUseACRLogic ? (nDataLen != 0x481) : (nDataLen != 0x2081))
+        if (!((k_fUseACRLogic && fIsValidACRDataLen)) && !((!k_fUseACRLogic && fIsValidBBCFDataLen)))
         {
-            // lock down to either 1 or 8 given our current knowledge
             fFileIsValidCFPL = false;
         }
 
@@ -374,8 +382,6 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 
             CFPLFile.Seek(k_nCFPLHeaderLength, CFile::begin);
 
-            CGameClass* CurrGame = GetHost()->GetCurrGame();
-
             for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerNodeThisGame; nPaletteId++)
             {
                 uint8_t rgConvertedPalette[k_nColorDataSize] = {};
@@ -443,6 +449,18 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
         CString strError;
         if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
         {
+            if (fCrossGameApplication)
+            {
+                if (k_fUseACRLogic)
+                {
+                    strError.Append(L"\r\n\r\nThis CFPL is intended for use with BBCF not GGXXACR.");
+                }
+                else
+                {
+                    strError.Append(L"\r\n\r\nThis CFPL is intended for use with GGXXACR not BBCF.");
+                }
+            }
+
             MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
         SetStatusText(IDS_CFPL_LOADFAILURE);
@@ -489,7 +507,12 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
     bool fSuccess = false;
     fShouldShowGenericError = false;
 
-    CCFPLFileExportDialog cfplFileDialog(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).strCharacter.c_str());
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+    const SupportedGamesList gameID = CurrGame->GetGameFlag();
+    const bool k_fUseACRLogic = (gameID == GGXXACR_S);
+
+    CCFPLFileExportDialog cfplFileDialog(k_fUseACRLogic ? GGXXACR_S_CharacterData.at(m_nPrevUnitSel).strCharacter.c_str() :
+                                                          BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).strCharacter.c_str());
 
     bool fShouldAllowExport = (cfplFileDialog.DoModal() == IDOK);
 
@@ -506,9 +529,10 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
     {
         if (CFPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
         {
-            // CFPLs are 8344 bytes (0x2098 bytes) long.
+            // BBCF CFPLs are 8344 bytes (0x2098 bytes) long.
+            // ACR CFPLs are 1176 bytes (0x498 bytes) long.
             // There is a 32 byte header followed by a text section (32b per section) followed by
-            // 8 sets of 256 ARGB colors.
+            // 8 sets of 256 ARGB colors (BBCF) or 1 set of 256 ABGR colors (ACR).
             // Header:
                 // 0x00-0x08 IMPLCF signature
                 // 0x08-0x0c header length
@@ -521,11 +545,29 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
             const UINT k_nRequiredLength = 0x20;
             const UINT k_nDescRequiredLength = 0x40;
             const std::array<BYTE, k_nDescRequiredLength> k_rgFillBytes = { };
-            const uint8_t nBBFCIMId = TranslatePalModSpriteIdToBBCFGameId(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex);
+
+            uint8_t nCharacterId;
+            uint32_t nCFPLDataLen;
+            if (k_fUseACRLogic)
+            {
+                nCharacterId = TranslatePalModSpriteIdToACRGameId(GGXXACR_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex);
+                // N sets of 256 color palettes comprised of 4 byte colors
+                //  + 0x81 bytes which is everything in the header past character ID to Has Bloom
+                nCFPLDataLen = (1 * 4 * 256) + 0x81;
+            }
+            else
+            {
+                nCharacterId = TranslatePalModSpriteIdToBBCFGameId(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex);
+                // N sets of 256 color palettes comprised of 4 byte colors
+                //  + 0x81 bytes which is everything in the header past character ID to Has Bloom
+                nCFPLDataLen = (8 * 4 * 256) + 0x81;
+            }
 
             CFPLFile.Write(&k_rgCFPLSignature, static_cast<UINT>(k_rgCFPLSignature.size()));
+            
+            CFPLFile.Write(&nCFPLDataLen, 4);
 
-            CFPLFile.Write(&nBBFCIMId, 1);
+            CFPLFile.Write(&nCharacterId, 1);
             CFPLFile.Write(&k_rgFillBytes, 3);
 
             _WriteToFileAsANSIWithForcedLength(CFPLFile, cfplFileDialog.m_strPaletteName, k_nRequiredLength);
@@ -535,27 +577,48 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
             // "is bloom" : gives the in-game character display a shine.
             CFPLFile.Write(&cfplFileDialog.m_fEnableBloom, 1);
 
-            const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerNode_BBCF * m_nPrevChildSel1;
+            const uint8_t k_nPalettesPerNodeThisGame = k_fUseACRLogic ? k_nPalettesPerNode_ACR : k_nPalettesPerNode_BBCF;
+            uint16_t nStartingPaletteAdjustment;
+            
+            if (k_fUseACRLogic)
+            {
+                // This is just steps of 1, so easy enough
+                nStartingPaletteAdjustment = m_nPrevChildSel2;
+            }
+            else
+            {
+                // Make sure we've stepped by units of 8
+                nStartingPaletteAdjustment = k_nPalettesPerNode_BBCF * m_nPrevChildSel1;
+            }
 
             // Now write the actual palettes
-            for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerNode_BBCF; nPaletteId++)
+            for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerNodeThisGame; nPaletteId++)
             {
-                COLORREF* rgCurrentPalette = GetHost()->GetCurrGame()->CreatePal(m_nPrevUnitSel, nPaletteId + k_nStartingPaletteAdjustment);
+                const COLORREF* rgCurrentPalette = CurrGame->CreatePal(m_nPrevUnitSel, nPaletteId + nStartingPaletteAdjustment);
 
                 for (size_t nPaletteIndex = 0; nPaletteIndex < k_nColorsPerPalette; nPaletteIndex++)
                 {
-                    // we store as RBGA, CFPLs want BGRA, so flip here.
-                    // incoming is BGRA, so flip to be RBGA
-
-                    uint8_t alpha = static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0xFF000000) >> 24);
-                    uint8_t blue =  static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0x00FF0000) >> 16);
-                    uint8_t green = static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0x0000FF00) >> 8);
-                    uint8_t red =   static_cast<uint8_t>(rgCurrentPalette[nPaletteIndex] & 0xFF);
+                    // we store as RBGA, CFPLs want BGRA, so flip here for BBCF.
+                    // for ACR we're fine
+                    const uint8_t alpha = static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0xFF000000) >> 24);
+                    const uint8_t blue =  static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0x00FF0000) >> 16);
+                    const uint8_t green = static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0x0000FF00) >> 8);
+                    const uint8_t red =   static_cast<uint8_t>(rgCurrentPalette[nPaletteIndex] & 0xFF);
                    
-                    CFPLFile.Write(&blue, 1);
-                    CFPLFile.Write(&green, 1);
-                    CFPLFile.Write(&red, 1);
-                    CFPLFile.Write(&alpha, 1);
+                    if (k_fUseACRLogic)
+                    {
+                        CFPLFile.Write(&red, 1);
+                        CFPLFile.Write(&green, 1);
+                        CFPLFile.Write(&blue, 1);
+                        CFPLFile.Write(&alpha, 1);
+                    }
+                    else
+                    {
+                        CFPLFile.Write(&blue, 1);
+                        CFPLFile.Write(&green, 1);
+                        CFPLFile.Write(&red, 1);
+                        CFPLFile.Write(&alpha, 1);
+                    }
                 }
 
                 delete[] rgCurrentPalette;

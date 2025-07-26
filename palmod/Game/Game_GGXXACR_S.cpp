@@ -469,6 +469,23 @@ std::map<uint32_t, uint8_t> mapACRSpriteIdToACRGameId =
     { indexGGXXSprites_ACR_Justice,   25 },
 };
 
+uint8_t TranslatePalModSpriteIdToACRGameId(uint32_t nSpriteId)
+{
+    std::map<uint32_t, uint8_t>::iterator it;
+
+    it = mapACRSpriteIdToACRGameId.find(nSpriteId);
+
+    if (it != mapACRSpriteIdToACRGameId.end())
+    {
+        return it->second;
+    }
+    else
+    {
+        OutputDebugString(L"Error: invalid ACR ID.\r\n");
+        return 0;
+    }
+}
+
 uint32_t TranslateACRGameIdToPalModSpriteId(uint8_t nGameId)
 {
     for (auto it = mapACRSpriteIdToACRGameId.begin(); it != mapACRSpriteIdToACRGameId.end(); it++)

@@ -2535,3 +2535,4 @@ extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_ExtrasData;
 extern std::vector<sGCBUPF_BasicFileData> GGXXACR_S_EXCharData;
 
 uint32_t TranslateACRGameIdToPalModSpriteId(uint8_t nGameId);
+uint8_t TranslatePalModSpriteIdToACRGameId(uint32_t nGameId);

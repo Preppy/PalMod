@@ -974,8 +974,8 @@ void CPalModDlg::OnExportPalette()
                                         L"TileLayer Pro palette|*.tpl|"
                                         L"|" };
 
-    static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
-                                            L"BlazBlue Central Fiction Palette Set|*.cfpl|"
+    static LPCWSTR rgszACRSaveFilter[] = { L"HipPalette|*.hpl|"
+                                            L"GGXXACR CFPL Palette|*.cfpl|"
                                             L"ACT Palette|*.act|"
                                             L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
                                             L"GIMP Palette File|*.gpl|"
@@ -983,19 +983,29 @@ void CPalModDlg::OnExportPalette()
                                             L"TileLayer Pro palette|*.tpl|"
                                             L"|" };
 
+    static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
+                                                L"BlazBlue Central Fiction Palette Set|*.cfpl|"
+                                                L"ACT Palette|*.act|"
+                                                L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                                L"GIMP Palette File|*.gpl|"
+                                                L"Microsoft PAL|*.pal|"
+                                                L"TileLayer Pro palette|*.tpl|"
+                                                L"|" };
+
     static LPCWSTR rgszBBCFAndBBTAGSaveFilter[] = { L"HipPalette|*.hpl|"
-                                            L"BlazBlue Central Fiction Palette Set|*.cfpl|"
-                                            L"ACT Palette|*.act|"
-                                            L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
-                                            L"BlazBlue Cross Tag Battle Palette Set|*.impl|"
-                                            L"GIMP Palette File|*.gpl|"
-                                            L"Microsoft PAL|*.pal|"
-                                            L"TileLayer Pro palette|*.tpl|"
-                                            L"|" };
+                                                    L"BlazBlue Central Fiction Palette Set|*.cfpl|"
+                                                    L"ACT Palette|*.act|"
+                                                    L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                                    L"BlazBlue Cross Tag Battle Palette Set|*.impl|"
+                                                    L"GIMP Palette File|*.gpl|"
+                                                    L"Microsoft PAL|*.pal|"
+                                                    L"TileLayer Pro palette|*.tpl|"
+                                                    L"|" };
 
     LPCWSTR pszDefaultExt = L"act";
     LPCWSTR pszFilterToUse = *rgszSaveFilter;
-    bool fUseBBCFLogic = (GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
+    const bool fUseBBCFLogic = (GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
+    const bool fUseACRLogic =  (GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->GetGameFlag() == GGXXACR_S) && (m_nPrevChildSel1 == 0);
 
     if (fUseBBCFLogic)
     {
@@ -1009,6 +1019,10 @@ void CPalModDlg::OnExportPalette()
         {
             pszFilterToUse = *rgszBBCFSaveFilter;
         }
+    }
+    else if (fUseACRLogic)
+    {
+        pszFilterToUse = *rgszACRSaveFilter;
     }
 
     CFileDialog ActSave(FALSE, pszDefaultExt, nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, pszFilterToUse);
@@ -1031,7 +1045,7 @@ void CPalModDlg::OnExportPalette()
         {
             SavePaletteToGPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
-        else if (fUseBBCFLogic && (_wcsicmp(szExtension, L".cfpl") == 0)) // only allow cfpl for BBCF
+        else if ((fUseACRLogic || fUseBBCFLogic) && (_wcsicmp(szExtension, L".cfpl") == 0)) // only allow cfpl for ACR or BBCF
         {
             SavePaletteToCFPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
