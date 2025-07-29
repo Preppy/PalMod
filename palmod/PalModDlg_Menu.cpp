@@ -38,7 +38,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"Select the main \"Aquapazza: Aquaplus Dream Match\" folder containing the USRDIR folder.";
             break;
         case BlazBlueCF_S:
-            pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.";
+            pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.\nNote: make sure these are patched files.  See the Read Me.";
             break;
         case DaemonBride_NL:
         case DaemonBrideAG_NL:
@@ -59,7 +59,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case GGXXACR_S:
         case GGXXACR_S_EXCHAR:
         case GGXXACR_S_EXTRAS:
-            pszExtraInfo = L"Guilty Gear (Steam): Select the 'Guilty Gear XX Accent Core Plus R' folder under your steam library.";
+            pszExtraInfo = L"Guilty Gear (Steam): Select the 'Guilty Gear XX Accent Core Plus R' folder under your steam library.\nNote: make sure these are decrypted files.  See the Read Me.";
             break;
         case GGXXACR_P:
             break; 
@@ -123,10 +123,10 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"Select the \"data\" folder.";
             break;
         case P4AU_NESICA:
-            pszExtraInfo = L"Select the \"data\" folder.";
+            pszExtraInfo = L"Select the \"data\" folder.\nNote: Make sure the files are decrypted.  See the Read Me.";
             break;
         case P4AU_STEAM:
-            pszExtraInfo = L"Select the \"asset\" folder.";
+            pszExtraInfo = L"Select the \"asset\" folder.\nNote: Make sure the files are decrypted.  See the Read Me.";
             break;
         case REDEARTH_A_DIR_30:
             pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
