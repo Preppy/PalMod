@@ -1732,7 +1732,16 @@ DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition(int ptX /* = -1 */, int p
 
         if (ptCursor.x != -1)
         {
-            COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+            ShowCursor(FALSE);
+            SetCursorPos(0, 0);
+            // Look!  The horrific Sleep!
+            // We need the cursor hidden, so give time for the redraw to the actual pixel they want, not the cursor
+            // color
+            Sleep(100);
+
+            const COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+            ShowCursor(TRUE);
+            SetCursorPos(ptCursor.x, ptCursor.y);
             // COLORREF is aaBBggRR we want aaRRggBB
             colorAsDWORD = (0xFF << 24) | (GetRValue(colorAtPixel) << 16) | (GetGValue(colorAtPixel) << 8) | GetBValue(colorAtPixel);
 
