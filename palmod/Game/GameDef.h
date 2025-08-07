@@ -267,6 +267,7 @@ enum SupportedGamesList
     CYBERBOTS_S,
     PUNISHER_A,
     PUNISHER_S,
+    SFZ3M_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

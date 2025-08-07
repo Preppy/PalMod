@@ -179,7 +179,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 245, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 246, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -382,6 +382,7 @@ namespace KnownGameInfo
     CGameClass* Make_SFTM_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFTM_A(nConfirmedROMSize); }
     CGameClass* Make_SFZ3U_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3U_A(nConfirmedROMSize); }
     CGameClass* Make_SFZ3U_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3U_S(nConfirmedROMSize); }
+    CGameClass* Make_SFZ3M_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3M_S(nConfirmedROMSize); }
     CGameClass* Make_SHAQFU_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SHAQFU_SNES(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
@@ -1813,6 +1814,13 @@ namespace KnownGameInfo
             CGame_SFZ3U_S::GetRule,
         },
         {
+            SFZ3M_S,
+            L"Street Fighter Alpha 3 Max (Steam)",
+            { SFZ3M_S,           L"SFA3/SFZ3 Max", L"SFA3/SFZ3 Max (Steam)|z3uu.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            Make_SFZ3M_S,
+            CGame_SFZ3M_S::GetRule,
+        },
+        {
             SFIII1_A,
             L"SFIII:NG (CPS3 Arcade)",
             { SFIII1_A,         L"SFIII:NG", L"SFIII:NG (CPS3)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
@@ -2302,7 +2310,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 245, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 246, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

@@ -105,7 +105,7 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Street Fighter Zero 3 Upper (Steam)", L"z3u.21D3D8A7",  0x867c6e9d, 0 },
+        { L"Street Fighter Zero 3 Upper (Steam)", L"z3u.21D3D8A7", 0x867c6e9d, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
@@ -170,14 +170,113 @@ private:
             /* Shin Akuma */        0x627b000 - 0x29f1040,
             /* Balrog (Finished) */ 0x76ec000 - 0x2acd840,
             /* select portraits */  0,
-            /* charsel palettes */  0,
-            /* intro portraits */   0,
+            /* intro  palettes */   0,
+            /* charsel portraits */ 0,
             /* win portraits */     0,
             /* bonus */             0x8c1b940 - 0x197180,
     };
 
 public:
     CGame_SFZ3U_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};
+
+class CGame_SFZ3M_S : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"z3uu.21D3D8A7", 0x86e5040 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Street Fighter Zero 3 Max (Steam)", L"z3u.21D3D8A7", 0x805b1f4d, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Street Fighter Zero 3 Max (Steam)",
+        SFZ3M_S,
+        IMGDAT_SECTION_CPS2,
+        SFZ3M_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_ISMS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_BGR555_LE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SFZ3M_S_UNITS,
+        ARRAYSIZE(SFZ3M_S_UNITS),
+        L"SFZ3MSE.txt",            // Extra filename
+        2254,                      // Count of palettes listed in the header
+        0x197180,                  // Lowest known location used for palettes
+    };
+
+    std::array<int32_t, ARRAYSIZE(SFZ3M_S_UNITS)> m_activeSteamShiftTable =
+    {
+        /* Ryu */                   0x5ff0000 - 0x66B5840,
+        /* Ken */                   0x60bd800 - 0x673F840,
+        /* Akuma */                 0x61b7000 - 0x67e3040,
+        /* Charlie */               0x634b000 - 0x6870840,
+        /* Chun-Li */               0x6428000 - 0x68fe840,
+        /* Adon */                  0x65d7000 - 0x6999040,
+        /* Sodom */                 0x66de000 - 0x6a42840,
+        /* Guy */                   0x68bd000 - 0x6ac2840,
+        /* Birdie */                0x69d4000 - 0x6b83040,
+
+        /* Rose */                  0x6b01000 - 0x6c46040,
+        /* M.Bison */               0x6c3d000 - 0x6d1b040,
+        /* Sagat */                 0x6d43800 - 0x6db8840,
+        /* Dan */                   0x6e09800 - 0x6e23040,
+        /* Sakura */                0x6f54000 - 0x6ef8040,
+        /* Rolento */               0x7076800 - 0x6fb3040,
+        /* Dhalsim */               0x7190000 - 0x7071840,
+        /* Zangief */               0x732c000 - 0x7192840,
+        /* Gen */                   0x7451000 - 0x725b840,
+        /* Chun-Li (X-Ism) */       0x64eb000 - 0x72f0840,
+        /* Gen (Crane stance) */    0x7546800 - 0x73b5040,
+        /* Sodom (X-Ism) */         0x67ec000 - 0x7490040,
+        /* Balrog */                0x75fd000 - 0x74fe840,
+        /* Cammy */                 0x77ee000 - 0x75a8040,
+        /* Evil Ryu */              0x791e000 - 0x7683840,
+        /* E.Honda */               0x7a0b800 - 0x7728040,
+        /* Blanka */                0x7b8a800 - 0x7827840,
+        /* R.Mika */                0x7d0e800 - 0x792f840,
+        /* Cody */                  0x7e78000 - 0x7a2d040,
+        /* Vega */                  0x7fb4000 - 0x7b13040,
+        /* Karin */                 0x80eb000 - 0x7be5840,
+        /* Juli */                  0x820f800 - 0x7c9a840,
+        /* Juni */                  0x831e000 - 0x7d57040,
+        /* Guile */                 0x8444000 - 0x7e26040,
+        /* Fei Long */              0x8562000 - 0x7ed5040,
+        /* Dee Jay */               0x8660000 - 0x7f82040,
+        /* T-Hawk */                0x87b6800 - 0x805d840,
+        /* Shin Akuma */            0x627b000 - 0x80ff040,
+        /* Balrog (Finished) */     0x76ec000 - 0x81b6840,
+
+        // eagle?
+        // maki?
+        // yun?
+        // ingrid
+        0,
+
+        /* select portraits */  0x199940 - 0x84c940,
+        /* intro palettes */  0x4c1aac0 - 0x2c072c0,
+        /* charsel portraits */   0x1a0840 - 0x854740,
+        /* win portraits */     0x51d7840 - 0x2a521c0,
+        /* bonus */             0x8c1b940 - 0x84a180,
+    };
+
+public:
+    CGame_SFZ3M_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 

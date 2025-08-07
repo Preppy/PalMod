@@ -66,6 +66,78 @@ const std::vector<uint16_t> SFZ3U_A_IMGIDS_USED =
     indexCPS2Sprites_SodomS_Xism,   // 0x101
 };
 
+const std::vector<uint16_t> SFZ3M_S_IMGIDS_USED =
+{
+    // MVC2 Assets
+    indexCPS2Sprites_Ryu,          // 0x00
+    indexCPS2Sprites_Zangief,      // 0x01
+    indexCPS2Sprites_Guile,        // 0x02
+    indexCPS2Sprites_ChunLi,       // 0x1B
+    indexCPS2Sprites_Akuma,        // 0x1E
+    indexCPS2Sprites_Charlie,      // 0x21
+    indexCPS2Sprites_Sakura,       // 0x22
+    indexCPS2Sprites_Dan,          // 0x23
+    indexCPS2Sprites_Cammy,        // 0x24
+    indexCPS2Sprites_Dhalsim,      // 0x25
+    indexCPS2Sprites_Bison,        // 0x26
+    indexCPS2Sprites_Ken,          // 0x27
+    // SFA3 Unique
+    indexCPS2Sprites_Adon,         // 0x3D
+    indexCPS2Sprites_Sodom,        // 0x3E
+    indexCPS2Sprites_Guy,          // 0x3F
+    indexCPS2Sprites_Birdie,       // 0x40
+    indexCPS2Sprites_Rose,         // 0x41
+    indexCPS2Sprites_Sagat,        // 0x42
+    indexCPS2Sprites_Rolento,      // 0x43
+    indexCPS2Sprites_Gen,          // 0x44
+    indexCPS2Sprites_Balrog,       // 0x45
+    indexCPS2Sprites_EHonda,       // 0x46
+    indexCPS2Sprites_Blanka,       // 0x47
+    indexCPS2Sprites_RMika,        // 0x48
+    indexCPS2Sprites_Cody,         // 0x49
+    indexCPS2Sprites_Vega,         // 0x4A
+    indexCPS2Sprites_Karin,        // 0x4B
+    indexCPS2Sprites_Juni,         // 0x4C
+    indexCPS2Sprites_Juli,         // 0x4D
+    indexCPS2Sprites_SFA3Assets,   // 0x4E
+    indexCPS2Sprites_SFA3_Portraits, // 0x66
+
+    indexCPS2Sprites_DeeJay,       // 0x92
+    indexCPS2Sprites_Eagle,        // 0x93
+    indexCPS2Sprites_FeiLong,      // 0x94
+    indexCPS2Sprites_THawk,        // 0x95
+
+    indexCPS2Sprites_ChunLi_Xism,   // 0xEC
+    indexCPS2Sprites_EvilRyu,       // 0xED
+    indexCPS2Sprites_NewAdon,       // 0xEE
+    indexCPS2Sprites_NewAkuma,      // 0xEF
+    indexCPS2Sprites_NewBirdie,     // 0xF0
+    indexCPS2Sprites_NewCammy,      // 0xF1
+    indexCPS2Sprites_NewChunLi,     // 0xF2
+    indexCPS2Sprites_NewChunLi_Xism, // 0xF3
+    indexCPS2Sprites_NewCody,        // 0xF4
+    indexCPS2Sprites_NewDan,        // 0xF5
+    indexCPS2Sprites_NewDhalsim,    // 0xF6
+
+    indexCPS2Sprites_NewEHonda,     // 0xF7
+    indexCPS2Sprites_NewGuy,        // 0xF8
+    indexCPS2Sprites_NewKarin,      // 0xF9
+    indexCPS2Sprites_NewRMika,      // 0xFA
+    indexCPS2Sprites_NewRolento,    // 0xFB
+    indexCPS2Sprites_NewRyu,        // 0xFC
+    indexCPS2Sprites_NewSagat,      // 0xFD
+    indexCPS2Sprites_NewSakura,     // 0xFE
+    indexCPS2Sprites_NewSodom,      // 0xFF
+    indexCPS2Sprites_NewVega,       // 0x100
+    indexCPS2Sprites_SodomS_Xism,   // 0x101
+
+    // New Max-specific characters
+    indexCVS2Sprites_Eagle,         // 0xc4
+    indexCVS2Sprites_Maki,          // 0xd4
+    indexCVS2Sprites_Yun,           // 0xe6
+    indexCFJSprites_Ingrid,         // 0x102
+};
+
 // The following are the PAL IDs CapCom used for the file structure on the DC disc.  
 // They also represent the order you should expect to see character data arranged by.
 
@@ -5115,6 +5187,71 @@ const sDescTreeNode SFZ3U_A_BONUS_COLLECTION[] =
     //{ L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_BONUS,        ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_BONUS) },
 };
 
+const sGame_PaletteDataset SFZ3M_S_INGRID_PALETTES_XISMPUNCH[] =
+{
+    { L"X-Ism Punch", 0x86da840, 0x86da840 + 0x40 },
+    { L"X-Ism Punch Extra 1", 0x86da880, 0x86da880 + 0x20 },
+    { L"X-Ism Punch Extra 2", 0x86da8a0, 0x86da8a0 + 0x20 },
+    { L"X-Ism Punch Super Trail Light", 0x86da8c0, 0x86da8c0 + 0x40 },
+    { L"X-Ism Punch Super Trail Dark", 0x86da900, 0x86da900 + 0x40 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_PALETTES_XISMKICK[] =
+{
+    { L"X-Ism Kick", 0x86da940, 0x86da940 + 0x40 },
+    { L"X-Ism Kick Extra 1", 0x86da980, 0x86da980 + 0x20 },
+    { L"X-Ism Kick Extra 2", 0x86da9a0, 0x86da9a0 + 0x20 },
+    { L"X-Ism Kick Super Trail Light", 0x86da9c0, 0x86da9c0 + 0x40  },
+    { L"X-Ism Kick Super Trail Dark", 0x86daa00, 0x86daa00 + 0x40  },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_PALETTES_AISMPUNCH[] =
+{
+    { L"A-Ism Punch", 0x86daa40, 0x86daa40 + 0x40 },
+    { L"A-Ism Punch Extra 1", 0x86daa80, 0x86daa80 + 0x20 },
+    { L"A-Ism Punch Extra 2", 0x86daaa0, 0x86daaa0 + 0x20 },
+    { L"A-Ism Punch Super Trail Light", 0x86daac0, 0x86daac0 + 0x40 },
+    { L"A-Ism Punch Super Trail Dark", 0x86dab00, 0x86dab00 + 0x40 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_PALETTES_AISMKICK[] =
+{
+    { L"A-Ism Kick", 0x86dab40, 0x86dab40 + 0x40 },
+    { L"A-Ism Kick Extra 1", 0x86dab80, 0x86dab80 + 0x20 },
+    { L"A-Ism Kick Extra 2", 0x86daba0, 0x86daba0 + 0x20 },
+    { L"A-Ism Kick Super Trail Light", 0x86dabc0, 0x86dabc0 + 0x40 },
+    { L"A-Ism Kick Super Trail Dark", 0x86dac00, 0x86dac00 + 0x40 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_PALETTES_VISMPUNCH[] =
+{
+    { L"V-Ism Punch", 0x86dac40, 0x86dac40 + 0x40 },
+    { L"V-Ism Punch Extra 1", 0x86dac80, 0x86dac80 + 0x20 },
+    { L"V-Ism Punch Extra 2", 0x86daca0, 0x86daca0 + 0x20 },
+    { L"V-Ism Punch Super Trail Light", 0x86dacc0, 0x86dacc0 + 0x40 },
+    { L"V-Ism Punch Super Trail Dark", 0x86dad00, 0x86dad00 + 0x40 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_PALETTES_VISMKICK[] =
+{
+    { L"V-Ism Kick", 0x86dad40, 0x86dad40 + 0x40 },
+    { L"V-Ism Kick Extra 1", 0x86dad80, 0x86dad80 + 0x20 },
+    { L"V-Ism Kick Extra 2", 0x86dada0, 0x86dada0 + 0x20 },
+    { L"V-Ism Kick Super Trail Light", 0x86dadc0, 0x86dadc0 + 0x40 },
+    { L"V-Ism Kick Super Trail Dark", 0x86dae00, 0x86dae00 + 0x40 },
+};
+
+const sDescTreeNode SFZ3M_S_INGRID_COLLECTION[] =
+{
+    {  L"X-Ism Punch", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_PALETTES_XISMPUNCH, ARRAYSIZE(SFZ3M_S_INGRID_PALETTES_XISMPUNCH) },
+    {  L"X-Ism Kick", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_PALETTES_XISMKICK, ARRAYSIZE(SFZ3M_S_INGRID_PALETTES_XISMKICK) },
+    {  L"A-Ism Punch", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_PALETTES_AISMPUNCH, ARRAYSIZE(SFZ3M_S_INGRID_PALETTES_AISMPUNCH) },
+    {  L"A-Ism Kick", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_PALETTES_AISMKICK, ARRAYSIZE(SFZ3M_S_INGRID_PALETTES_AISMKICK) },
+    {  L"V-Ism Punch", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_PALETTES_VISMPUNCH, ARRAYSIZE(SFZ3M_S_INGRID_PALETTES_VISMPUNCH) },
+    {  L"V-Ism Kick", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_PALETTES_VISMKICK, ARRAYSIZE(SFZ3M_S_INGRID_PALETTES_VISMKICK) },
+};
+
+
 const sDescTreeNode SFZ3U_A_UNITS[] =
 {
     { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_A_RYU_COLLECTION, ARRAYSIZE(SFZ3U_A_RYU_COLLECTION) },
@@ -5207,6 +5344,64 @@ const sDescTreeNode SFZ3U_S_UNITS[] =
     { L"T-Hawk", DESC_NODETYPE_TREE, (void*)SFZ3U_A_THAWK_COLLECTION, ARRAYSIZE(SFZ3U_A_THAWK_COLLECTION) },
     { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_A_SHINAKUMA_COLLECTION, ARRAYSIZE(SFZ3U_A_SHINAKUMA_COLLECTION) },
     { L"Balrog", DESC_NODETYPE_TREE, (void*)SFZ3U_A_BALROGFINISHED_COLLECTION, ARRAYSIZE(SFZ3U_A_BALROGFINISHED_COLLECTION) },
+    { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_PORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_PORTRAITS_COLLECTION) },
+    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_INTROPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_INTROPORTRAITS_COLLECTION) },
+    { L"Character Select Palettes", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHARASCREEN_COLLECTION, ARRAYSIZE(SFZ3U_S_CHARASCREEN_COLLECTION) },
+    // We forked Win Portraits to handle the NAOMI vs Steam sub-shifts
+    { L"Win Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_WINPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_WINPORTRAITS_COLLECTION) },
+
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION) },
+};
+
+const sDescTreeNode SFZ3M_S_UNITS[] =
+{
+    { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_A_RYU_COLLECTION, ARRAYSIZE(SFZ3U_A_RYU_COLLECTION) },
+    { L"Ken", DESC_NODETYPE_TREE, (void*)SFZ3U_A_KEN_COLLECTION, ARRAYSIZE(SFZ3U_A_KEN_COLLECTION) },
+    { L"Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_A_AKUMA_COLLECTION, ARRAYSIZE(SFZ3U_A_AKUMA_COLLECTION) },
+    { L"Charlie", DESC_NODETYPE_TREE, (void*)SFZ3U_A_CHARLIE_COLLECTION, ARRAYSIZE(SFZ3U_A_CHARLIE_COLLECTION) },
+    { L"Chun-Li", DESC_NODETYPE_TREE, (void*)SFZ3U_A_CHUNLI_COLLECTION, ARRAYSIZE(SFZ3U_A_CHUNLI_COLLECTION) },
+    { L"Adon", DESC_NODETYPE_TREE, (void*)SFZ3U_A_ADON_COLLECTION, ARRAYSIZE(SFZ3U_A_ADON_COLLECTION) },
+    { L"Sodom", DESC_NODETYPE_TREE, (void*)SFZ3U_A_SODOM_COLLECTION, ARRAYSIZE(SFZ3U_A_SODOM_COLLECTION) },
+    { L"Guy", DESC_NODETYPE_TREE, (void*)SFZ3U_A_GUY_COLLECTION, ARRAYSIZE(SFZ3U_A_GUY_COLLECTION) },
+    { L"Birdie", DESC_NODETYPE_TREE, (void*)SFZ3U_A_BIRDIE_COLLECTION, ARRAYSIZE(SFZ3U_A_BIRDIE_COLLECTION) },
+    { L"Rose", DESC_NODETYPE_TREE, (void*)SFZ3U_A_ROSE_COLLECTION, ARRAYSIZE(SFZ3U_A_ROSE_COLLECTION) },
+
+    { L"M.Bison", DESC_NODETYPE_TREE, (void*)SFZ3U_A_MBISON_COLLECTION, ARRAYSIZE(SFZ3U_A_MBISON_COLLECTION) },
+    { L"Sagat", DESC_NODETYPE_TREE, (void*)SFZ3U_A_SAGAT_COLLECTION, ARRAYSIZE(SFZ3U_A_SAGAT_COLLECTION) },
+    { L"Dan", DESC_NODETYPE_TREE, (void*)SFZ3U_A_DAN_COLLECTION, ARRAYSIZE(SFZ3U_A_DAN_COLLECTION) },
+    { L"Sakura", DESC_NODETYPE_TREE, (void*)SFZ3U_A_SAKURA_COLLECTION, ARRAYSIZE(SFZ3U_A_SAKURA_COLLECTION) },
+    { L"Rolento", DESC_NODETYPE_TREE, (void*)SFZ3U_A_ROLENTO_COLLECTION, ARRAYSIZE(SFZ3U_A_ROLENTO_COLLECTION) },
+    { L"Dhalsim", DESC_NODETYPE_TREE, (void*)SFZ3U_A_DHALSIM_COLLECTION, ARRAYSIZE(SFZ3U_A_DHALSIM_COLLECTION) },
+    { L"Zangief", DESC_NODETYPE_TREE, (void*)SFZ3U_A_ZANGIEF_COLLECTION, ARRAYSIZE(SFZ3U_A_ZANGIEF_COLLECTION) },
+    { L"Gen", DESC_NODETYPE_TREE, (void*)SFZ3U_A_GEN_COLLECTION, ARRAYSIZE(SFZ3U_A_GEN_COLLECTION) },
+    { L"Chun-Li (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3U_A_CHUNLIXISM_COLLECTION, ARRAYSIZE(SFZ3U_A_CHUNLIXISM_COLLECTION) },
+    { L"Gen (Crane stance)", DESC_NODETYPE_TREE, (void*)SFZ3U_A_GENCRANESTANCE_COLLECTION, ARRAYSIZE(SFZ3U_A_GENCRANESTANCE_COLLECTION) },
+
+    { L"Sodom (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3U_A_SODOMXISM_COLLECTION, ARRAYSIZE(SFZ3U_A_SODOMXISM_COLLECTION) },
+    { L"Balrog (Unused)", DESC_NODETYPE_TREE, (void*)SFZ3U_A_BALROG_COLLECTION, ARRAYSIZE(SFZ3U_A_BALROG_COLLECTION) },
+    { L"Cammy", DESC_NODETYPE_TREE, (void*)SFZ3U_A_CAMMY_COLLECTION, ARRAYSIZE(SFZ3U_A_CAMMY_COLLECTION) },
+    { L"Evil Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_A_EVILRYU_COLLECTION, ARRAYSIZE(SFZ3U_A_EVILRYU_COLLECTION) },
+    { L"E.Honda", DESC_NODETYPE_TREE, (void*)SFZ3U_A_EHONDA_COLLECTION, ARRAYSIZE(SFZ3U_A_EHONDA_COLLECTION) },
+    { L"Blanka", DESC_NODETYPE_TREE, (void*)SFZ3U_A_BLANKA_COLLECTION, ARRAYSIZE(SFZ3U_A_BLANKA_COLLECTION) },
+    { L"R.Mika", DESC_NODETYPE_TREE, (void*)SFZ3U_A_RMIKA_COLLECTION, ARRAYSIZE(SFZ3U_A_RMIKA_COLLECTION) },
+    { L"Cody", DESC_NODETYPE_TREE, (void*)SFZ3U_A_CODY_COLLECTION, ARRAYSIZE(SFZ3U_A_CODY_COLLECTION) },
+    { L"Vega", DESC_NODETYPE_TREE, (void*)SFZ3U_A_VEGA_COLLECTION, ARRAYSIZE(SFZ3U_A_VEGA_COLLECTION) },
+    { L"Karin", DESC_NODETYPE_TREE, (void*)SFZ3U_A_KARIN_COLLECTION, ARRAYSIZE(SFZ3U_A_KARIN_COLLECTION) },
+
+    { L"Juli", DESC_NODETYPE_TREE, (void*)SFZ3U_A_JULI_COLLECTION, ARRAYSIZE(SFZ3U_A_JULI_COLLECTION) },
+    { L"Juni", DESC_NODETYPE_TREE, (void*)SFZ3U_A_JUNI_COLLECTION, ARRAYSIZE(SFZ3U_A_JUNI_COLLECTION) },
+    { L"Guile", DESC_NODETYPE_TREE, (void*)SFZ3U_A_GUILE_COLLECTION, ARRAYSIZE(SFZ3U_A_GUILE_COLLECTION) },
+    { L"Fei Long", DESC_NODETYPE_TREE, (void*)SFZ3U_A_FEILONG_COLLECTION, ARRAYSIZE(SFZ3U_A_FEILONG_COLLECTION) },
+    { L"Dee Jay", DESC_NODETYPE_TREE, (void*)SFZ3U_A_DEEJAY_COLLECTION, ARRAYSIZE(SFZ3U_A_DEEJAY_COLLECTION) },
+    { L"T-Hawk", DESC_NODETYPE_TREE, (void*)SFZ3U_A_THAWK_COLLECTION, ARRAYSIZE(SFZ3U_A_THAWK_COLLECTION) },
+    { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_A_SHINAKUMA_COLLECTION, ARRAYSIZE(SFZ3U_A_SHINAKUMA_COLLECTION) },
+    { L"Balrog", DESC_NODETYPE_TREE, (void*)SFZ3U_A_BALROGFINISHED_COLLECTION, ARRAYSIZE(SFZ3U_A_BALROGFINISHED_COLLECTION) },
+
+    // maki
+    // eagle
+    { L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_COLLECTION, ARRAYSIZE(SFZ3M_S_INGRID_COLLECTION) },
+
+
     { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_PORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_PORTRAITS_COLLECTION) },
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_INTROPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_INTROPORTRAITS_COLLECTION) },
     { L"Character Select Palettes", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHARASCREEN_COLLECTION, ARRAYSIZE(SFZ3U_S_CHARASCREEN_COLLECTION) },
