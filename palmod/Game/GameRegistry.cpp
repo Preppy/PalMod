@@ -1802,14 +1802,14 @@ namespace KnownGameInfo
         {
             SFZ3U_A,
             L"Street Fighter Zero 3 Upper (NAOMI)",
-            { SFZ3U_A,          L"SFA3U/SFZ3U", L"SFA3U/SFZ3U (NAOMI)|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
+            { SFZ3U_A,          L"SFA3/SFZ3 Upper", L"SFA3/SFZ3 Upper (NAOMI)|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
             Make_SFZ3U_A,
             CGame_SFZ3U_A::GetRule,
         },
         {
             SFZ3U_S,
             L"Street Fighter Zero 3 Upper (Steam)",
-            { SFZ3U_S,           L"SFA3U/SFZ3U", L"SFA3U/SFZ3U (Steam)|z3u.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
+            { SFZ3U_S,           L"SFA3/SFZ3 Upper", L"SFA3/SFZ3 Upper (Steam)|z3u.21D3D8A7|", GamePlatform::Steam, GameSeries::CapcomFightCollection2 },
             Make_SFZ3U_S,
             CGame_SFZ3U_S::GetRule,
         },

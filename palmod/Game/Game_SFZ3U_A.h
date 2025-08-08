@@ -216,7 +216,7 @@ private:
         SFZ3M_S_UNITS,
         ARRAYSIZE(SFZ3M_S_UNITS),
         L"SFZ3MSE.txt",            // Extra filename
-        3172,                      // Count of palettes listed in the header
+        3136,                      // Count of palettes listed in the header
         0x84a180,                  // Lowest known location used for palettes
     };
 

@@ -4238,6 +4238,8 @@ const sGame_PaletteDataset SFZ3M_S_SHINAKUMA_WINPORTRAIT_PALETTES[] =
     { L"V-Ism Kick",  0x2bc1ec0, 0x2bc1ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
 };
 
+// bugbug: these are wrong.  there's also another possible winport set at 0x2bc21c0
+
 const sGame_PaletteDataset SFZ3M_S_EAGLE_WINPORTRAIT_PALETTES[] =
 {
     { L"X-Ism Punch", 0x2bd39c0, 0x2bd39c0 + 0x100 },
@@ -5443,44 +5445,43 @@ const sGame_PaletteDataset SFZ3M_S_SHINAKUMA_INTROPORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES[] =
 {
-    { L"X-Ism Punch", 0x51B02C0 + (1 * 0x29000), 0x51B02C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
-    { L"X-Ism Kick",  0x51B03C0 + (1 * 0x29000), 0x51B03C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
-    { L"A-Ism Punch", 0x51B04C0 + (1 * 0x29000), 0x51B04C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
-    { L"A-Ism Kick",  0x51B05C0 + (1 * 0x29000), 0x51B05C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
-    { L"V-Ism Punch", 0x51B06C0 + (1 * 0x29000), 0x51B06C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
-    { L"V-Ism Kick",  0x51B07C0 + (1 * 0x29000), 0x51B07C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
+    { L"X-Ism Punch", 0x31d9ac0 + 0x000, 0x31d9ac0 + 0x100, indexCVS2Sprites_Eagle, 0xb8 },
+    { L"X-Ism Kick",  0x31d9ac0 + 0x100, 0x31d9ac0 + 0x200, indexCVS2Sprites_Eagle, 0xb8 },
+    { L"A-Ism Punch", 0x31d9ac0 + 0x200, 0x31d9ac0 + 0x300, indexCVS2Sprites_Eagle, 0xb8 },
+    { L"A-Ism Kick",  0x31d9ac0 + 0x300, 0x31d9ac0 + 0x400, indexCVS2Sprites_Eagle, 0xb8 },
+    { L"V-Ism Punch", 0x31d9ac0 + 0x400, 0x31d9ac0 + 0x500, indexCVS2Sprites_Eagle, 0xb8 },
+    { L"V-Ism Kick",  0x31d9ac0 + 0x500, 0x31d9ac0 + 0x600, indexCVS2Sprites_Eagle, 0xb8 },
 };
 
 const sGame_PaletteDataset SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES[] =
 {
-    { L"X-Ism Punch", 0x51B02C0 + (2 * 0x29000), 0x51B02C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
-    { L"X-Ism Kick",  0x51B03C0 + (2 * 0x29000), 0x51B03C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
-    { L"A-Ism Punch", 0x51B04C0 + (2 * 0x29000), 0x51B04C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
-    { L"A-Ism Kick",  0x51B05C0 + (2 * 0x29000), 0x51B05C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
-    { L"V-Ism Punch", 0x51B06C0 + (2 * 0x29000), 0x51B06C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
-    { L"V-Ism Kick",  0x51B07C0 + (2 * 0x29000), 0x51B07C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
+    { L"X-Ism Punch", 0x3202ac0 + 0x000, 0x3202ac0 + 0x100, indexCVS2Sprites_Maki, 0xb8 },
+    { L"X-Ism Kick",  0x3202ac0 + 0x100, 0x3202ac0 + 0x200, indexCVS2Sprites_Maki, 0xb8 },
+    { L"A-Ism Punch", 0x3202ac0 + 0x200, 0x3202ac0 + 0x300, indexCVS2Sprites_Maki, 0xb8 },
+    { L"A-Ism Kick",  0x3202ac0 + 0x300, 0x3202ac0 + 0x400, indexCVS2Sprites_Maki, 0xb8 },
+    { L"V-Ism Punch", 0x3202ac0 + 0x400, 0x3202ac0 + 0x500, indexCVS2Sprites_Maki, 0xb8 },
+    { L"V-Ism Kick",  0x3202ac0 + 0x500, 0x3202ac0 + 0x600, indexCVS2Sprites_Maki, 0xb8 },
 };
 
 const sGame_PaletteDataset SFZ3M_S_YUN_INTROPORTRAIT_PALETTES[] =
 {
-    { L"X-Ism Punch", 0x51B02C0 + (3 * 0x29000), 0x51B02C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
-    { L"X-Ism Kick",  0x51B03C0 + (3 * 0x29000), 0x51B03C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
-    { L"A-Ism Punch", 0x51B04C0 + (3 * 0x29000), 0x51B04C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
-    { L"A-Ism Kick",  0x51B05C0 + (3 * 0x29000), 0x51B05C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
-    { L"V-Ism Punch", 0x51B06C0 + (3 * 0x29000), 0x51B06C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
-    { L"V-Ism Kick",  0x51B07C0 + (3 * 0x29000), 0x51B07C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
+    { L"X-Ism Punch", 0x322b2c0 + 0x000, 0x322b2c0 + 0x100, indexCVS2Sprites_Yun, 0xb8 },
+    { L"X-Ism Kick",  0x322b2c0 + 0x100, 0x322b2c0 + 0x200, indexCVS2Sprites_Yun, 0xb8 },
+    { L"A-Ism Punch", 0x322b2c0 + 0x200, 0x322b2c0 + 0x300, indexCVS2Sprites_Yun, 0xb8 },
+    { L"A-Ism Kick",  0x322b2c0 + 0x300, 0x322b2c0 + 0x400, indexCVS2Sprites_Yun, 0xb8 },
+    { L"V-Ism Punch", 0x322b2c0 + 0x400, 0x322b2c0 + 0x500, indexCVS2Sprites_Yun, 0xb8 },
+    { L"V-Ism Kick",  0x322b2c0 + 0x500, 0x322b2c0 + 0x600, indexCVS2Sprites_Yun, 0xb8 },
 };
 
 const sGame_PaletteDataset SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES[] =
 {
-    { L"X-Ism Punch", 0x51B02C0 + (4 * 0x29000), 0x51B02C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
-    { L"X-Ism Kick",  0x51B03C0 + (4 * 0x29000), 0x51B03C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
-    { L"A-Ism Punch", 0x51B04C0 + (4 * 0x29000), 0x51B04C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
-    { L"A-Ism Kick",  0x51B05C0 + (4 * 0x29000), 0x51B05C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
-    { L"V-Ism Punch", 0x51B06C0 + (4 * 0x29000), 0x51B06C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
-    { L"V-Ism Kick",  0x51B07C0 + (4 * 0x29000), 0x51B07C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
+    { L"X-Ism Punch", 0x32552c0 + 0x000, 0x32552c0 + 0x100, indexCFJSprites_Ingrid, 0xb8 },
+    { L"X-Ism Kick",  0x32552c0 + 0x100, 0x32552c0 + 0x200, indexCFJSprites_Ingrid, 0xb8 },
+    { L"A-Ism Punch", 0x32552c0 + 0x200, 0x32552c0 + 0x300, indexCFJSprites_Ingrid, 0xb8 },
+    { L"A-Ism Kick",  0x32552c0 + 0x300, 0x32552c0 + 0x400, indexCFJSprites_Ingrid, 0xb8 },
+    { L"V-Ism Punch", 0x32552c0 + 0x400, 0x32552c0 + 0x500, indexCFJSprites_Ingrid, 0xb8 },
+    { L"V-Ism Kick",  0x32552c0 + 0x500, 0x32552c0 + 0x600, indexCFJSprites_Ingrid, 0xb8 },
 };
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -6116,7 +6117,7 @@ const sDescTreeNode SFZ3M_S_WINPORTRAITS_COLLECTION[] =
     //{ L"Eagle",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_EAGLE_WINPORTRAIT_PALETTES) },
     //{ L"Maki",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_MAKI_WINPORTRAIT_PALETTES) },
     //{ L"Yun",               DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_YUN_WINPORTRAIT_PALETTES) },
-    //{ L"Ingrid",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_INGRID_WINPORTRAIT_PALETTES) },
+    { L"Ingrid",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_INGRID_WINPORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFZ3U_S_PORTRAITS_COLLECTION[] =
@@ -6286,11 +6287,10 @@ const sDescTreeNode SFZ3M_S_INTROPORTRAITS_COLLECTION[] =
     { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3M_S_SHINAKUMA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_SHINAKUMA_INTROPORTRAIT_PALETTES) },
     
     // Max-unique
-    // These locations are wrong still.
-    //{ L"Eagle", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES) },
-    //{ L"Maki", DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES) },
-    //{ L"Yun", DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_YUN_INTROPORTRAIT_PALETTES) },
-    //{ L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES) },
+    { L"Eagle", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES) },
+    { L"Maki", DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES) },
+    { L"Yun", DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_YUN_INTROPORTRAIT_PALETTES) },
+    { L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFZ3U_A_BONUS_COLLECTION[] =
