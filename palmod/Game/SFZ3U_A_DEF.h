@@ -3313,6 +3313,10 @@ const sDescTreeNode SFZ3U_A_SELECT_COLLECTION[] =
     { L"Blanka Select Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_A_BLANKA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFZ3U_A_BLANKA_PORTRAIT_SELECT_PALETTES) },
     { L"R.Mika Select Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_A_RMIKA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFZ3U_A_RMIKA_PORTRAIT_SELECT_PALETTES) },
 };
+ 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////// WIN PORTRAITS
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const sGame_PaletteDataset SFZ3U_S_RYU_WINPORTRAIT_PALETTES[] =
 {
@@ -3863,6 +3867,421 @@ const sGame_PaletteDataset SFZ3U_S_SHINAKUMA_WINPORTRAIT_PALETTES[] =
     { L"V-Ism Kick", 0x7cf5d40, 0x7cf5d40 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
 };
 
+//////////////////////////////////////////////////////////////////////////////////////
+/////////////// Max fork of Win Portraits
+//////////////////////////////////////////////////////////////////////////////////////
+const sGame_PaletteDataset SFZ3M_S_RYU_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a521c0, 0x2a521c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ryu },
+    { L"X-Ism Kick",  0x2a522c0, 0x2a522c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ryu },
+    { L"A-Ism Punch", 0x2a523c0, 0x2a523c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ryu },
+    { L"A-Ism Kick",  0x2a524c0, 0x2a524c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ryu },
+    { L"V-Ism Punch", 0x2a525c0, 0x2a525c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ryu },
+    { L"V-Ism Kick",  0x2a526c0, 0x2a526c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ryu },
+};
+
+const sGame_PaletteDataset SFZ3M_S_KEN_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a5b1c0, 0x2a5b1c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ken },
+    { L"X-Ism Kick",  0x2a5b2c0, 0x2a5b2c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ken },
+    { L"A-Ism Punch", 0x2a5b3c0, 0x2a5b3c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ken },
+    { L"A-Ism Kick",  0x2a5b4c0, 0x2a5b4c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ken },
+    { L"V-Ism Punch", 0x2a5b5c0, 0x2a5b5c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ken },
+    { L"V-Ism Kick",  0x2a5b6c0, 0x2a5b6c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Ken },
+};
+
+const sGame_PaletteDataset SFZ3M_S_AKUMA_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a639c0, 0x2a639c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"X-Ism Kick",  0x2a63ac0, 0x2a63ac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"A-Ism Punch", 0x2a63bc0, 0x2a63bc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"A-Ism Kick",  0x2a63cc0, 0x2a63cc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"V-Ism Punch", 0x2a63dc0, 0x2a63dc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"V-Ism Kick",  0x2a63ec0, 0x2a63ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CHARLIE_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a6e1c0, 0x2a6e1c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Charlie },
+    { L"X-Ism Kick",  0x2a6e2c0, 0x2a6e2c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Charlie },
+    { L"A-Ism Punch", 0x2a6e3c0, 0x2a6e3c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Charlie },
+    { L"A-Ism Kick",  0x2a6e4c0, 0x2a6e4c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Charlie },
+    { L"V-Ism Punch", 0x2a6e5c0, 0x2a6e5c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Charlie },
+    { L"V-Ism Kick",  0x2a6e6c0, 0x2a6e6c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Charlie },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CHUNLI_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a759c0, 0x2a759c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_ChunLi },
+    { L"X-Ism Kick",  0x2a75ac0, 0x2a75ac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_ChunLi },
+    { L"A-Ism Punch", 0x2a75bc0, 0x2a75bc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_ChunLi },
+    { L"A-Ism Kick",  0x2a75cc0, 0x2a75cc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_ChunLi },
+    { L"V-Ism Punch", 0x2a75dc0, 0x2a75dc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_ChunLi },
+    { L"V-Ism Kick",  0x2a75ec0, 0x2a75ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_ChunLi },
+};
+
+//Adon has a new win portrait
+const sGame_PaletteDataset SFZ3M_S_ADON_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a7e9c0, 0x2a7e9c0 + 0x100, indexCPS2Sprites_NewAdon, 0xba },
+    { L"X-Ism Kick",  0x2a7eac0, 0x2a7eac0 + 0x100, indexCPS2Sprites_NewAdon, 0xba },
+    { L"A-Ism Punch", 0x2a7ebc0, 0x2a7ebc0 + 0x100, indexCPS2Sprites_NewAdon, 0xba },
+    { L"A-Ism Kick",  0x2a7ecc0, 0x2a7ecc0 + 0x100, indexCPS2Sprites_NewAdon, 0xba },
+    { L"V-Ism Punch", 0x2a7edc0, 0x2a7edc0 + 0x100, indexCPS2Sprites_NewAdon, 0xba },
+    { L"V-Ism Kick",  0x2a7eec0, 0x2a7eec0 + 0x100, indexCPS2Sprites_NewAdon, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SODOM_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a889c0, 0x2a889c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sodom },
+    { L"X-Ism Kick",  0x2a88ac0, 0x2a88ac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sodom },
+    { L"A-Ism Punch", 0x2a88bc0, 0x2a88bc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sodom },
+    { L"A-Ism Kick",  0x2a88cc0, 0x2a88cc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sodom },
+    { L"V-Ism Punch", 0x2a88dc0, 0x2a88dc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sodom },
+    { L"V-Ism Kick",  0x2a88ec0, 0x2a88ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sodom },
+};
+
+const sGame_PaletteDataset SFZ3M_S_GUY_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a911c0, 0x2a911c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Guy },
+    { L"X-Ism Kick",  0x2a912c0, 0x2a912c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Guy },
+    { L"A-Ism Punch", 0x2a913c0, 0x2a913c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Guy },
+    { L"A-Ism Kick",  0x2a914c0, 0x2a914c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Guy },
+    { L"V-Ism Punch", 0x2a915c0, 0x2a915c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Guy },
+    { L"V-Ism Kick",  0x2a916c0, 0x2a916c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Guy },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BIRDIE_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2a9c1c0, 0x2a9c1c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Birdie },
+    { L"X-Ism Kick",  0x2a9c2c0, 0x2a9c2c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Birdie },
+    { L"A-Ism Punch", 0x2a9c3c0, 0x2a9c3c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Birdie },
+    { L"A-Ism Kick",  0x2a9c4c0, 0x2a9c4c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Birdie },
+    { L"V-Ism Punch", 0x2a9c5c0, 0x2a9c5c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Birdie },
+    { L"V-Ism Kick",  0x2a9c6c0, 0x2a9c6c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Birdie },
+};
+
+const sGame_PaletteDataset SFZ3M_S_ROSE_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2aaa1c0, 0x2aaa1c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rose },
+    { L"X-Ism Kick",  0x2aaa2c0, 0x2aaa2c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rose },
+    { L"A-Ism Punch", 0x2aaa3c0, 0x2aaa3c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rose },
+    { L"A-Ism Kick",  0x2aaa4c0, 0x2aaa4c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rose },
+    { L"V-Ism Punch", 0x2aaa5c0, 0x2aaa5c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rose },
+    { L"V-Ism Kick",  0x2aaa6c0, 0x2aaa6c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rose },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BISON_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2ab59c0, 0x2ab59c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Bison },
+    { L"X-Ism Kick",  0x2ab5ac0, 0x2ab5ac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Bison },
+    { L"A-Ism Punch", 0x2ab5bc0, 0x2ab5bc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Bison },
+    { L"A-Ism Kick",  0x2ab5cc0, 0x2ab5cc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Bison },
+    { L"V-Ism Punch", 0x2ab5dc0, 0x2ab5dc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Bison },
+    { L"V-Ism Kick",  0x2ab5ec0, 0x2ab5ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Bison },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SAGAT_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2abe9c0, 0x2abe9c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sagat },
+    { L"X-Ism Kick",  0x2abeac0, 0x2abeac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sagat },
+    { L"A-Ism Punch", 0x2abebc0, 0x2abebc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sagat },
+    { L"A-Ism Kick",  0x2abecc0, 0x2abecc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sagat },
+    { L"V-Ism Punch", 0x2abedc0, 0x2abedc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sagat },
+    { L"V-Ism Kick",  0x2abeec0, 0x2abeec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Sagat },
+};
+
+const sGame_PaletteDataset SFZ3M_S_DAN_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2ac71c0, 0x2ac71c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dan },
+    { L"X-Ism Kick",  0x2ac72c0, 0x2ac72c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dan },
+    { L"A-Ism Punch", 0x2ac73c0, 0x2ac73c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dan },
+    { L"A-Ism Kick",  0x2ac74c0, 0x2ac74c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dan },
+    { L"V-Ism Punch", 0x2ac75c0, 0x2ac75c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dan },
+    { L"V-Ism Kick",  0x2ac76c0, 0x2ac76c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dan },
+};
+
+// unknown palettes here at 0x2ad29c0
+
+//Sakura has a new sprite
+const sGame_PaletteDataset SFZ3M_S_SAKURA_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2add1c0, 0x2add1c0 + 0x100, indexCPS2Sprites_NewSakura, 0xba },
+    { L"X-Ism Kick",  0x2add2c0, 0x2add2c0 + 0x100, indexCPS2Sprites_NewSakura, 0xba },
+    { L"A-Ism Punch", 0x2add3c0, 0x2add3c0 + 0x100, indexCPS2Sprites_NewSakura, 0xba },
+    { L"A-Ism Kick",  0x2add4c0, 0x2add4c0 + 0x100, indexCPS2Sprites_NewSakura, 0xba },
+    { L"V-Ism Punch", 0x2add5c0, 0x2add5c0 + 0x100, indexCPS2Sprites_NewSakura, 0xba },
+    { L"V-Ism Kick",  0x2add6c0, 0x2add6c0 + 0x100, indexCPS2Sprites_NewSakura, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_ROLENTO_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2adc9c0, 0x2adc9c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rolento },
+    { L"X-Ism Kick",  0x2adcac0, 0x2adcac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rolento },
+    { L"A-Ism Punch", 0x2adcbc0, 0x2adcbc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rolento },
+    { L"A-Ism Kick",  0x2adccc0, 0x2adccc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rolento },
+    { L"V-Ism Punch", 0x2adcdc0, 0x2adcdc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rolento },
+    { L"V-Ism Kick",  0x2adcec0, 0x2adcec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Rolento },
+};
+
+const sGame_PaletteDataset SFZ3M_S_DHALSIM_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2ae89c0, 0x2ae89c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dhalsim },
+    { L"X-Ism Kick",  0x2ae8ac0, 0x2ae8ac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dhalsim },
+    { L"A-Ism Punch", 0x2ae8bc0, 0x2ae8bc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dhalsim },
+    { L"A-Ism Kick",  0x2ae8cc0, 0x2ae8cc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dhalsim },
+    { L"V-Ism Punch", 0x2ae8dc0, 0x2ae8dc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dhalsim },
+    { L"V-Ism Kick",  0x2ae8ec0, 0x2ae8ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Dhalsim },
+};
+
+const sGame_PaletteDataset SFZ3M_S_ZANGIEF_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2af71c0, 0x2af71c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Zangief },
+    { L"X-Ism Kick",  0x2af72c0, 0x2af72c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Zangief },
+    { L"A-Ism Punch", 0x2af73c0, 0x2af73c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Zangief },
+    { L"A-Ism Kick",  0x2af74c0, 0x2af74c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Zangief },
+    { L"V-Ism Punch", 0x2af75c0, 0x2af75c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Zangief },
+    { L"V-Ism Kick",  0x2af76c0, 0x2af76c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Zangief },
+};
+
+//Both stances use this
+const sGame_PaletteDataset SFZ3M_S_GEN_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b011c0, 0x2b011c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Gen },
+    { L"X-Ism Kick",  0x2b012c0, 0x2b012c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Gen },
+    { L"A-Ism Punch", 0x2b013c0, 0x2b013c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Gen },
+    { L"A-Ism Kick",  0x2b014c0, 0x2b014c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Gen },
+    { L"V-Ism Punch", 0x2b015c0, 0x2b015c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Gen },
+    { L"V-Ism Kick",  0x2b016c0, 0x2b016c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Gen },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CHUNLIXISM_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b099c0, 0x2b099c0 + 0x100, indexCPS2Sprites_NewChunLi_Xism, 0xba },
+    { L"X-Ism Kick",  0x2b09ac0, 0x2b09ac0 + 0x100, indexCPS2Sprites_NewChunLi_Xism, 0xba },
+    { L"A-Ism Punch", 0x2b09bc0, 0x2b09bc0 + 0x100, indexCPS2Sprites_NewChunLi_Xism, 0xba },
+    { L"A-Ism Kick",  0x2b09cc0, 0x2b09cc0 + 0x100, indexCPS2Sprites_NewChunLi_Xism, 0xba },
+    { L"V-Ism Punch", 0x2b09dc0, 0x2b09dc0 + 0x100, indexCPS2Sprites_NewChunLi_Xism, 0xba },
+    { L"V-Ism Kick",  0x2b09ec0, 0x2b09ec0 + 0x100, indexCPS2Sprites_NewChunLi_Xism, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SODOMXISM_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b149c0, 0x2b149c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, 0x3c },
+    { L"X-Ism Kick",  0x2b14ac0, 0x2b14ac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, 0x3c },
+    { L"A-Ism Punch", 0x2b14bc0, 0x2b14bc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, 0x3c },
+    { L"A-Ism Kick",  0x2b14cc0, 0x2b14cc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, 0x3c },
+    { L"V-Ism Punch", 0x2b14dc0, 0x2b14dc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, 0x3c },
+    { L"V-Ism Kick",  0x2b14ec0, 0x2b14ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, 0x3c },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BALROG_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b201c0, 0x2b201c0 + 0x100, indexCPS2Sprites_Balrog, 0xba },
+    { L"X-Ism Kick",  0x2b202c0, 0x2b202c0 + 0x100, indexCPS2Sprites_Balrog, 0xba },
+    { L"A-Ism Punch", 0x2b203c0, 0x2b203c0 + 0x100, indexCPS2Sprites_Balrog, 0xba },
+    { L"A-Ism Kick",  0x2b204c0, 0x2b204c0 + 0x100, indexCPS2Sprites_Balrog, 0xba },
+    { L"V-Ism Punch", 0x2b205c0, 0x2b205c0 + 0x100, indexCPS2Sprites_Balrog, 0xba },
+    { L"V-Ism Kick",  0x2b206c0, 0x2b206c0 + 0x100, indexCPS2Sprites_Balrog, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CAMMY_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b2b1c0, 0x2b2b1c0 + 0x100, indexCPS2Sprites_NewCammy, 0xba },
+    { L"X-Ism Kick",  0x2b2b2c0, 0x2b2b2c0 + 0x100, indexCPS2Sprites_NewCammy, 0xba },
+    { L"A-Ism Punch", 0x2b2b3c0, 0x2b2b3c0 + 0x100, indexCPS2Sprites_NewCammy, 0xba },
+    { L"A-Ism Kick",  0x2b2b4c0, 0x2b2b4c0 + 0x100, indexCPS2Sprites_NewCammy, 0xba },
+    { L"V-Ism Punch", 0x2b2b5c0, 0x2b2b5c0 + 0x100, indexCPS2Sprites_NewCammy, 0xba },
+    { L"V-Ism Kick",  0x2b2b6c0, 0x2b2b6c0 + 0x100, indexCPS2Sprites_NewCammy, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_EVILRYU_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b341c0, 0x2b341c0 + 0x100, indexCPS2Sprites_EvilRyu, 0xba },
+    { L"X-Ism Kick",  0x2b342c0, 0x2b342c0 + 0x100, indexCPS2Sprites_EvilRyu, 0xba },
+    { L"A-Ism Punch", 0x2b343c0, 0x2b343c0 + 0x100, indexCPS2Sprites_EvilRyu, 0xba },
+    { L"A-Ism Kick",  0x2b344c0, 0x2b344c0 + 0x100, indexCPS2Sprites_EvilRyu, 0xba },
+    { L"V-Ism Punch", 0x2b345c0, 0x2b345c0 + 0x100, indexCPS2Sprites_EvilRyu, 0xba },
+    { L"V-Ism Kick",  0x2b346c0, 0x2b346c0 + 0x100, indexCPS2Sprites_EvilRyu, 0xba },
+};
+
+//Honda has a new sprite
+const sGame_PaletteDataset SFZ3M_S_EHONDA_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b3e9c0, 0x2b3e9c0 + 0x100, indexCPS2Sprites_NewEHonda, 0xba },
+    { L"X-Ism Kick",  0x2b3eac0, 0x2b3eac0 + 0x100, indexCPS2Sprites_NewEHonda, 0xba },
+    { L"A-Ism Punch", 0x2b3ebc0, 0x2b3ebc0 + 0x100, indexCPS2Sprites_NewEHonda, 0xba },
+    { L"A-Ism Kick",  0x2b3ecc0, 0x2b3ecc0 + 0x100, indexCPS2Sprites_NewEHonda, 0xba },
+    { L"V-Ism Punch", 0x2b3edc0, 0x2b3edc0 + 0x100, indexCPS2Sprites_NewEHonda, 0xba },
+    { L"V-Ism Kick",  0x2b3eec0, 0x2b3eec0 + 0x100, indexCPS2Sprites_NewEHonda, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BLANKA_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b4b9c0, 0x2b4b9c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Blanka },
+    { L"X-Ism Kick",  0x2b4bac0, 0x2b4bac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Blanka },
+    { L"A-Ism Punch", 0x2b4bbc0, 0x2b4bbc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Blanka },
+    { L"A-Ism Kick",  0x2b4bcc0, 0x2b4bcc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Blanka },
+    { L"V-Ism Punch", 0x2b4bdc0, 0x2b4bdc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Blanka },
+    { L"V-Ism Kick",  0x2b4bec0, 0x2b4bec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Blanka },
+};
+
+//Mika has a new sprite
+const sGame_PaletteDataset SFZ3M_S_RMIKA_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b589c0, 0x2b589c0 + 0x100, indexCPS2Sprites_NewRMika, 0xba },
+    { L"X-Ism Kick",  0x2b58ac0, 0x2b58ac0 + 0x100, indexCPS2Sprites_NewRMika, 0xba },
+    { L"A-Ism Punch", 0x2b58bc0, 0x2b58bc0 + 0x100, indexCPS2Sprites_NewRMika, 0xba },
+    { L"A-Ism Kick",  0x2b58cc0, 0x2b58cc0 + 0x100, indexCPS2Sprites_NewRMika, 0xba },
+    { L"V-Ism Punch", 0x2b58dc0, 0x2b58dc0 + 0x100, indexCPS2Sprites_NewRMika, 0xba },
+    { L"V-Ism Kick",  0x2b58ec0, 0x2b58ec0 + 0x100, indexCPS2Sprites_NewRMika, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CODY_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b621c0, 0x2b621c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Cody },
+    { L"X-Ism Kick",  0x2b622c0, 0x2b622c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Cody },
+    { L"A-Ism Punch", 0x2b623c0, 0x2b623c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Cody },
+    { L"A-Ism Kick",  0x2b624c0, 0x2b624c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Cody },
+    { L"V-Ism Punch", 0x2b625c0, 0x2b625c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Cody },
+    { L"V-Ism Kick",  0x2b626c0, 0x2b626c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Cody },
+};
+
+//Vega/Claw has a new sprite
+const sGame_PaletteDataset SFZ3M_S_VEGA_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b6d1c0, 0x2b6d1c0 + 0x100, indexCPS2Sprites_NewVega, 0xba },
+    { L"X-Ism Kick",  0x2b6d2c0, 0x2b6d2c0 + 0x100, indexCPS2Sprites_NewVega, 0xba },
+    { L"A-Ism Punch", 0x2b6d3c0, 0x2b6d3c0 + 0x100, indexCPS2Sprites_NewVega, 0xba },
+    { L"A-Ism Kick",  0x2b6d4c0, 0x2b6d4c0 + 0x100, indexCPS2Sprites_NewVega, 0xba },
+    { L"V-Ism Punch", 0x2b6d5c0, 0x2b6d5c0 + 0x100, indexCPS2Sprites_NewVega, 0xba },
+    { L"V-Ism Kick",  0x2b6d6c0, 0x2b6d6c0 + 0x100, indexCPS2Sprites_NewVega, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_KARIN_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b771c0, 0x2b771c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Karin },
+    { L"X-Ism Kick",  0x2b772c0, 0x2b772c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Karin },
+    { L"A-Ism Punch", 0x2b773c0, 0x2b773c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Karin },
+    { L"A-Ism Kick",  0x2b774c0, 0x2b774c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Karin },
+    { L"V-Ism Punch", 0x2b775c0, 0x2b775c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Karin },
+    { L"V-Ism Kick",  0x2b776c0, 0x2b776c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Karin },
+};
+
+const sGame_PaletteDataset SFZ3M_S_JULI_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b809c0, 0x2b809c0 + 0x100, indexCPS2Sprites_Juli, 0xba },
+    { L"X-Ism Kick",  0x2b80ac0, 0x2b80ac0 + 0x100, indexCPS2Sprites_Juli, 0xba },
+    { L"A-Ism Punch", 0x2b80bc0, 0x2b80bc0 + 0x100, indexCPS2Sprites_Juli, 0xba },
+    { L"A-Ism Kick",  0x2b80cc0, 0x2b80cc0 + 0x100, indexCPS2Sprites_Juli, 0xba },
+    { L"V-Ism Punch", 0x2b80dc0, 0x2b80dc0 + 0x100, indexCPS2Sprites_Juli, 0xba },
+    { L"V-Ism Kick",  0x2b80ec0, 0x2b80ec0 + 0x100, indexCPS2Sprites_Juli, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_JUNI_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b8a9c0, 0x2b8a9c0 + 0x100, indexCPS2Sprites_Juni, 0xba },
+    { L"X-Ism Kick",  0x2b8aac0, 0x2b8aac0 + 0x100, indexCPS2Sprites_Juni, 0xba },
+    { L"A-Ism Punch", 0x2b8abc0, 0x2b8abc0 + 0x100, indexCPS2Sprites_Juni, 0xba },
+    { L"A-Ism Kick",  0x2b8acc0, 0x2b8acc0 + 0x100, indexCPS2Sprites_Juni, 0xba },
+    { L"V-Ism Punch", 0x2b8adc0, 0x2b8adc0 + 0x100, indexCPS2Sprites_Juni, 0xba },
+    { L"V-Ism Kick",  0x2b8aec0, 0x2b8aec0 + 0x100, indexCPS2Sprites_Juni, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_GUILE_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2b969c0, 0x2b969c0 + 0x100, indexCPS2Sprites_Guile, 0xba },
+    { L"X-Ism Kick",  0x2b96ac0, 0x2b96ac0 + 0x100, indexCPS2Sprites_Guile, 0xba },
+    { L"A-Ism Punch", 0x2b96bc0, 0x2b96bc0 + 0x100, indexCPS2Sprites_Guile, 0xba },
+    { L"A-Ism Kick",  0x2b96cc0, 0x2b96cc0 + 0x100, indexCPS2Sprites_Guile, 0xba },
+    { L"V-Ism Punch", 0x2b96dc0, 0x2b96dc0 + 0x100, indexCPS2Sprites_Guile, 0xba },
+    { L"V-Ism Kick",  0x2b96ec0, 0x2b96ec0 + 0x100, indexCPS2Sprites_Guile, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_FEILONG_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2ba31c0, 0x2ba31c0 + 0x100, indexCPS2Sprites_FeiLong, 0xba },
+    { L"X-Ism Kick",  0x2ba32c0, 0x2ba32c0 + 0x100, indexCPS2Sprites_FeiLong, 0xba },
+    { L"A-Ism Punch", 0x2ba33c0, 0x2ba33c0 + 0x100, indexCPS2Sprites_FeiLong, 0xba },
+    { L"A-Ism Kick",  0x2ba34c0, 0x2ba34c0 + 0x100, indexCPS2Sprites_FeiLong, 0xba },
+    { L"V-Ism Punch", 0x2ba35c0, 0x2ba35c0 + 0x100, indexCPS2Sprites_FeiLong, 0xba },
+    { L"V-Ism Kick",  0x2ba36c0, 0x2ba36c0 + 0x100, indexCPS2Sprites_FeiLong, 0xba},
+};
+
+const sGame_PaletteDataset SFZ3M_S_DEEJAY_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2bad9c0, 0x2bad9c0 + 0x100, indexCPS2Sprites_DeeJay, 0xba },
+    { L"X-Ism Kick",  0x2badac0, 0x2badac0 + 0x100, indexCPS2Sprites_DeeJay, 0xba },
+    { L"A-Ism Punch", 0x2badbc0, 0x2badbc0 + 0x100, indexCPS2Sprites_DeeJay, 0xba },
+    { L"A-Ism Kick",  0x2badcc0, 0x2badcc0 + 0x100, indexCPS2Sprites_DeeJay, 0xba },
+    { L"V-Ism Punch", 0x2baddc0, 0x2baddc0 + 0x100, indexCPS2Sprites_DeeJay, 0xba },
+    { L"V-Ism Kick",  0x2badec0, 0x2badec0 + 0x100, indexCPS2Sprites_DeeJay, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_THAWK_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2bb79c0, 0x2bb79c0 + 0x100, indexCPS2Sprites_THawk, 0xba },
+    { L"X-Ism Kick",  0x2bb7ac0, 0x2bb7ac0 + 0x100, indexCPS2Sprites_THawk, 0xba },
+    { L"A-Ism Punch", 0x2bb7bc0, 0x2bb7bc0 + 0x100, indexCPS2Sprites_THawk, 0xba },
+    { L"A-Ism Kick",  0x2bb7cc0, 0x2bb7cc0 + 0x100, indexCPS2Sprites_THawk, 0xba },
+    { L"V-Ism Punch", 0x2bb7dc0, 0x2bb7dc0 + 0x100, indexCPS2Sprites_THawk, 0xba },
+    { L"V-Ism Kick",  0x2bb7ec0, 0x2bb7ec0 + 0x100, indexCPS2Sprites_THawk, 0xba },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SHINAKUMA_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2bc19c0, 0x2bc19c0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"X-Ism Kick",  0x2bc1ac0, 0x2bc1ac0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"A-Ism Punch", 0x2bc1bc0, 0x2bc1bc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"A-Ism Kick",  0x2bc1cc0, 0x2bc1cc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"V-Ism Punch", 0x2bc1dc0, 0x2bc1dc0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+    { L"V-Ism Kick",  0x2bc1ec0, 0x2bc1ec0 + 0x100, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Akuma },
+};
+
+const sGame_PaletteDataset SFZ3M_S_EAGLE_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2bd39c0, 0x2bd39c0 + 0x100 },
+    { L"X-Ism Kick",  0x2bd3ac0, 0x2bd3ac0 + 0x100 },
+    { L"A-Ism Punch", 0x2bd3bc0, 0x2bd3bc0 + 0x100 },
+    { L"A-Ism Kick",  0x2bd3cc0, 0x2bd3cc0 + 0x100 },
+    { L"V-Ism Punch", 0x2bd3dc0, 0x2bd3dc0 + 0x100 },
+    { L"V-Ism Kick",  0x2bd3ec0, 0x2bd3ec0 + 0x100 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_MAKI_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2be41c0, 0x2be41c0 + 0x100 },
+    { L"X-Ism Kick",  0x2be42c0, 0x2be42c0 + 0x100 },
+    { L"A-Ism Punch", 0x2be43c0, 0x2be43c0 + 0x100 },
+    { L"A-Ism Kick",  0x2be44c0, 0x2be44c0 + 0x100 },
+    { L"V-Ism Punch", 0x2be45c0, 0x2be45c0 + 0x100 },
+    { L"V-Ism Kick",  0x2be46c0, 0x2be46c0 + 0x100 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_YUN_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2bf09c0, 0x2bf09c0 + 0x100 },
+    { L"X-Ism Kick",  0x2bf0ac0, 0x2bf0ac0 + 0x100 },
+    { L"A-Ism Punch", 0x2bf0bc0, 0x2bf0bc0 + 0x100 },
+    { L"A-Ism Kick",  0x2bf0cc0, 0x2bf0cc0 + 0x100 },
+    { L"V-Ism Punch", 0x2bf0dc0, 0x2bf0dc0 + 0x100 },
+    { L"V-Ism Kick",  0x2bf0ec0, 0x2bf0ec0 + 0x100 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_WINPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2bfc9c0, 0x2bfc9c0 + 0x100 },
+    { L"X-Ism Kick",  0x2bfcac0, 0x2bfcac0 + 0x100 },
+    { L"A-Ism Punch", 0x2bfcbc0, 0x2bfcbc0 + 0x100 },
+    { L"A-Ism Kick",  0x2bfccc0, 0x2bfccc0 + 0x100 },
+    { L"V-Ism Punch", 0x2bfcdc0, 0x2bfcdc0 + 0x100 },
+    { L"V-Ism Kick",  0x2bfcec0, 0x2bfcec0 + 0x100 },
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////// SELECT PORTRAITS
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //New portrait
 const sGame_PaletteDataset SFZ3U_S_RYU_SELECTPORTRAIT_PALETTES[] =
 {
@@ -4234,6 +4653,54 @@ const sGame_PaletteDataset SFZ3U_S_SHINAKUMA_SELECTPORTRAIT_PALETTES[] =
     { L"V-Ism Kick",  0x1a07c0, 0x1a07c0 + 0x80, indexCPS2Sprites_NewAkuma, 0xb9 },
 };
 
+// for Max:
+    // ??? ryu-esque
+// Then the new 4
+
+const sGame_PaletteDataset SFZ3M_S_EAGLE_SELECTPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a0b40 + 0x000, 0x1a0b40 + 0x080, indexCVS2Sprites_Eagle, 0xb9 },
+    { L"X-Ism Kick",  0x1a0b40 + 0x080, 0x1a0b40 + 0x100, indexCVS2Sprites_Eagle, 0xb9 },
+    { L"A-Ism Punch", 0x1a0b40 + 0x100, 0x1a0b40 + 0x180, indexCVS2Sprites_Eagle, 0xb9 },
+    { L"A-Ism Kick",  0x1a0b40 + 0x180, 0x1a0b40 + 0x200, indexCVS2Sprites_Eagle, 0xb9 },
+    { L"V-Ism Punch", 0x1a0b40 + 0x200, 0x1a0b40 + 0x280, indexCVS2Sprites_Eagle, 0xb9 },
+    { L"V-Ism Kick",  0x1a0b40 + 0x280, 0x1a0b40 + 0x300, indexCVS2Sprites_Eagle, 0xb9 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_MAKI_SELECTPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a0b40 + 0x300, 0x1a0b40 + 0x380, indexCVS2Sprites_Maki, 0xb9 },
+    { L"X-Ism Kick",  0x1a0b40 + 0x380, 0x1a0b40 + 0x400, indexCVS2Sprites_Maki, 0xb9 },
+    { L"A-Ism Punch", 0x1a0b40 + 0x400, 0x1a0b40 + 0x480, indexCVS2Sprites_Maki, 0xb9 },
+    { L"A-Ism Kick",  0x1a0b40 + 0x480, 0x1a0b40 + 0x500, indexCVS2Sprites_Maki, 0xb9 },
+    { L"V-Ism Punch", 0x1a0b40 + 0x500, 0x1a0b40 + 0x580, indexCVS2Sprites_Maki, 0xb9 },
+    { L"V-Ism Kick",  0x1a0b40 + 0x580, 0x1a0b40 + 0x600, indexCVS2Sprites_Maki, 0xb9 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_YUN_SELECTPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a0b40 + 0x600, 0x1a0b40 + 0x680, indexCVS2Sprites_Yun, 0xb9 },
+    { L"X-Ism Kick",  0x1a0b40 + 0x680, 0x1a0b40 + 0x700, indexCVS2Sprites_Yun, 0xb9 },
+    { L"A-Ism Punch", 0x1a0b40 + 0x700, 0x1a0b40 + 0x780, indexCVS2Sprites_Yun, 0xb9 },
+    { L"A-Ism Kick",  0x1a0b40 + 0x780, 0x1a0b40 + 0x800, indexCVS2Sprites_Yun, 0xb9 },
+    { L"V-Ism Punch", 0x1a0b40 + 0x800, 0x1a0b40 + 0x880, indexCVS2Sprites_Yun, 0xb9 },
+    { L"V-Ism Kick",  0x1a0b40 + 0x880, 0x1a0b40 + 0x900, indexCVS2Sprites_Yun, 0xb9 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_SELECTPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a0b40 + 0x900, 0x1a0b40 + 0x980, indexCFJSprites_Ingrid, 0xb9 },
+    { L"X-Ism Kick",  0x1a0b40 + 0x980, 0x1a0b40 + 0xa00, indexCFJSprites_Ingrid, 0xb9 },
+    { L"A-Ism Punch", 0x1a0b40 + 0xa00, 0x1a0b40 + 0xa80, indexCFJSprites_Ingrid, 0xb9 },
+    { L"A-Ism Kick",  0x1a0b40 + 0xa80, 0x1a0b40 + 0xb00, indexCFJSprites_Ingrid, 0xb9 },
+    { L"V-Ism Punch", 0x1a0b40 + 0xb00, 0x1a0b40 + 0xb80, indexCFJSprites_Ingrid, 0xb9 },
+    { L"V-Ism Kick",  0x1a0b40 + 0xb80, 0x1a0b40 + 0xc00, indexCFJSprites_Ingrid, 0xb9 },
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////  Intro Portraits
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const sGame_PaletteDataset SFZ3U_S_RYU_INTROPORTRAIT_PALETTES[] =
 {
     { L"X-Ism Punch", 0x4c1aac0, 0x4c1aac0 + 0x100, indexCPS2Sprites_Ryu, 0xb8 },
@@ -4593,6 +5060,432 @@ const sGame_PaletteDataset SFZ3U_S_SHINAKUMA_INTROPORTRAIT_PALETTES[] =
     { L"V-Ism Punch", 0x51B06C0, 0x51B06C0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
     { L"V-Ism Kick",  0x51B07C0, 0x51B07C0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
 };
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////////////////// Fork for SFA3 Max
+/////////////////////////////////////////////////////////////////////////////////////
+
+const sGame_PaletteDataset SFZ3M_S_RYU_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2c072c0, 0x2c072c0 + 0x100, indexCPS2Sprites_Ryu, 0xb8 },
+    { L"X-Ism Kick",  0x2c073c0, 0x2c073c0 + 0x100, indexCPS2Sprites_Ryu, 0xb8 },
+    { L"A-Ism Punch", 0x2c074c0, 0x2c074c0 + 0x100, indexCPS2Sprites_Ryu, 0xb8 },
+    { L"A-Ism Kick",  0x2c075c0, 0x2c075c0 + 0x100, indexCPS2Sprites_Ryu, 0xb8 },
+    { L"V-Ism Punch", 0x2c076c0, 0x2c076c0 + 0x100, indexCPS2Sprites_Ryu, 0xb8 },
+    { L"V-Ism Kick",  0x2c077c0, 0x2c077c0 + 0x100, indexCPS2Sprites_Ryu, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_KEN_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2c312c0, 0x2c312c0 + 0x100, indexCPS2Sprites_Ken, 0xb8 },
+    { L"X-Ism Kick",  0x2c313c0, 0x2c313c0 + 0x100, indexCPS2Sprites_Ken, 0xb8 },
+    { L"A-Ism Punch", 0x2c314c0, 0x2c314c0 + 0x100, indexCPS2Sprites_Ken, 0xb8 },
+    { L"A-Ism Kick",  0x2c315c0, 0x2c315c0 + 0x100, indexCPS2Sprites_Ken, 0xb8 },
+    { L"V-Ism Punch", 0x2c316c0, 0x2c316c0 + 0x100, indexCPS2Sprites_Ken, 0xb8 },
+    { L"V-Ism Kick",  0x2c317c0, 0x2c317c0 + 0x100, indexCPS2Sprites_Ken, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_AKUMA_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2c5b2c0, 0x2c5b2c0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"X-Ism Kick",  0x2c5b3c0, 0x2c5b3c0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"A-Ism Punch", 0x2c5b4c0, 0x2c5b4c0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"A-Ism Kick",  0x2c5b5c0, 0x2c5b5c0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"V-Ism Punch", 0x2c5b6c0, 0x2c5b6c0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"V-Ism Kick",  0x2c5b7c0, 0x2c5b7c0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
+};
+
+// and here's where we start using math....
+const sGame_PaletteDataset SFZ3M_S_CHARLIE_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2c83ac0 + 0x000, 0x2c83ac0 + 0x100, indexCPS2Sprites_Charlie, 0xb8 },
+    { L"X-Ism Kick",  0x2c83ac0 + 0x100, 0x2c83ac0 + 0x200, indexCPS2Sprites_Charlie, 0xb8 },
+    { L"A-Ism Punch", 0x2c83ac0 + 0x200, 0x2c83ac0 + 0x300, indexCPS2Sprites_Charlie, 0xb8 },
+    { L"A-Ism Kick",  0x2c83ac0 + 0x300, 0x2c83ac0 + 0x400, indexCPS2Sprites_Charlie, 0xb8 },
+    { L"V-Ism Punch", 0x2c83ac0 + 0x400, 0x2c83ac0 + 0x500, indexCPS2Sprites_Charlie, 0xb8 },
+    { L"V-Ism Kick",  0x2c83ac0 + 0x500, 0x2c83ac0 + 0x600, indexCPS2Sprites_Charlie, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CHUNLI_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2cac2c0 + 0x000, 0x2cac2c0 + 0x100, indexCPS2Sprites_ChunLi, 0xb8 },
+    { L"X-Ism Kick",  0x2cac2c0 + 0x100, 0x2cac2c0 + 0x200, indexCPS2Sprites_ChunLi, 0xb8 },
+    { L"A-Ism Punch", 0x2cac2c0 + 0x200, 0x2cac2c0 + 0x300, indexCPS2Sprites_ChunLi, 0xb8 },
+    { L"A-Ism Kick",  0x2cac2c0 + 0x300, 0x2cac2c0 + 0x400, indexCPS2Sprites_ChunLi, 0xb8 },
+    { L"V-Ism Punch", 0x2cac2c0 + 0x400, 0x2cac2c0 + 0x500, indexCPS2Sprites_ChunLi, 0xb8 },
+    { L"V-Ism Kick",  0x2cac2c0 + 0x500, 0x2cac2c0 + 0x600, indexCPS2Sprites_ChunLi, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_ADON_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2cd5ac0 + 0x000, 0x2cd5ac0 + 0x100, indexCPS2Sprites_Adon, 0xb8 },
+    { L"X-Ism Kick",  0x2cd5ac0 + 0x100, 0x2cd5ac0 + 0x200, indexCPS2Sprites_Adon, 0xb8 },
+    { L"A-Ism Punch", 0x2cd5ac0 + 0x200, 0x2cd5ac0 + 0x300, indexCPS2Sprites_Adon, 0xb8 },
+    { L"A-Ism Kick",  0x2cd5ac0 + 0x300, 0x2cd5ac0 + 0x400, indexCPS2Sprites_Adon, 0xb8 },
+    { L"V-Ism Punch", 0x2cd5ac0 + 0x400, 0x2cd5ac0 + 0x500, indexCPS2Sprites_Adon, 0xb8 },
+    { L"V-Ism Kick",  0x2cd5ac0 + 0x500, 0x2cd5ac0 + 0x600, indexCPS2Sprites_Adon, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SODOM_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2cff2c0 + 0x000, 0x2cff2c0 + 0x100, indexCPS2Sprites_Sodom, 0xb8 },
+    { L"X-Ism Kick",  0x2cff2c0 + 0x100, 0x2cff2c0 + 0x200, indexCPS2Sprites_Sodom, 0xb8 },
+    { L"A-Ism Punch", 0x2cff2c0 + 0x200, 0x2cff2c0 + 0x300, indexCPS2Sprites_Sodom, 0xb8 },
+    { L"A-Ism Kick",  0x2cff2c0 + 0x300, 0x2cff2c0 + 0x400, indexCPS2Sprites_Sodom, 0xb8 },
+    { L"V-Ism Punch", 0x2cff2c0 + 0x400, 0x2cff2c0 + 0x500, indexCPS2Sprites_Sodom, 0xb8 },
+    { L"V-Ism Kick",  0x2cff2c0 + 0x500, 0x2cff2c0 + 0x600, indexCPS2Sprites_Sodom, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_GUY_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2d292c0 + 0x000, 0x2d292c0 + 0x100, indexCPS2Sprites_Guy, 0xb8 },
+    { L"X-Ism Kick",  0x2d292c0 + 0x100, 0x2d292c0 + 0x200, indexCPS2Sprites_Guy, 0xb8 },
+    { L"A-Ism Punch", 0x2d292c0 + 0x200, 0x2d292c0 + 0x300, indexCPS2Sprites_Guy, 0xb8 },
+    { L"A-Ism Kick",  0x2d292c0 + 0x300, 0x2d292c0 + 0x400, indexCPS2Sprites_Guy, 0xb8 },
+    { L"V-Ism Punch", 0x2d292c0 + 0x400, 0x2d292c0 + 0x500, indexCPS2Sprites_Guy, 0xb8 },
+    { L"V-Ism Kick",  0x2d292c0 + 0x500, 0x2d292c0 + 0x600, indexCPS2Sprites_Guy, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BIRDIE_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2d53ac0 + 0x000, 0x2d53ac0 + 0x100, indexCPS2Sprites_Birdie, 0xb8 },
+    { L"X-Ism Kick",  0x2d53ac0 + 0x100, 0x2d53ac0 + 0x200, indexCPS2Sprites_Birdie, 0xb8 },
+    { L"A-Ism Punch", 0x2d53ac0 + 0x200, 0x2d53ac0 + 0x300, indexCPS2Sprites_Birdie, 0xb8 },
+    { L"A-Ism Kick",  0x2d53ac0 + 0x300, 0x2d53ac0 + 0x400, indexCPS2Sprites_Birdie, 0xb8 },
+    { L"V-Ism Punch", 0x2d53ac0 + 0x400, 0x2d53ac0 + 0x500, indexCPS2Sprites_Birdie, 0xb8 },
+    { L"V-Ism Kick",  0x2d53ac0 + 0x500, 0x2d53ac0 + 0x600, indexCPS2Sprites_Birdie, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_ROSE_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2d7e2c0 + 0x000, 0x2d7e2c0 + 0x100, indexCPS2Sprites_Rose, 0xb8 },
+    { L"X-Ism Kick",  0x2d7e2c0 + 0x100, 0x2d7e2c0 + 0x200, indexCPS2Sprites_Rose, 0xb8 },
+    { L"A-Ism Punch", 0x2d7e2c0 + 0x200, 0x2d7e2c0 + 0x300, indexCPS2Sprites_Rose, 0xb8 },
+    { L"A-Ism Kick",  0x2d7e2c0 + 0x300, 0x2d7e2c0 + 0x400, indexCPS2Sprites_Rose, 0xb8 },
+    { L"V-Ism Punch", 0x2d7e2c0 + 0x400, 0x2d7e2c0 + 0x500, indexCPS2Sprites_Rose, 0xb8 },
+    { L"V-Ism Kick",  0x2d7e2c0 + 0x500, 0x2d7e2c0 + 0x600, indexCPS2Sprites_Rose, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BISON_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2da72c0 + 0x000, 0x2da72c0 + 0x100, indexCPS2Sprites_Bison, 0xb8 },
+    { L"X-Ism Kick",  0x2da72c0 + 0x100, 0x2da72c0 + 0x200, indexCPS2Sprites_Bison, 0xb8 },
+    { L"A-Ism Punch", 0x2da72c0 + 0x200, 0x2da72c0 + 0x300, indexCPS2Sprites_Bison, 0xb8 },
+    { L"A-Ism Kick",  0x2da72c0 + 0x300, 0x2da72c0 + 0x400, indexCPS2Sprites_Bison, 0xb8 },
+    { L"V-Ism Punch", 0x2da72c0 + 0x400, 0x2da72c0 + 0x500, indexCPS2Sprites_Bison, 0xb8 },
+    { L"V-Ism Kick",  0x2da72c0 + 0x500, 0x2da72c0 + 0x600, indexCPS2Sprites_Bison, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SAGAT_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2dceac0 + 0x000, 0x2dceac0 + 0x100, indexCPS2Sprites_Sagat, 0xb8 },
+    { L"X-Ism Kick",  0x2dceac0 + 0x100, 0x2dceac0 + 0x200, indexCPS2Sprites_Sagat, 0xb8 },
+    { L"A-Ism Punch", 0x2dceac0 + 0x200, 0x2dceac0 + 0x300, indexCPS2Sprites_Sagat, 0xb8 },
+    { L"A-Ism Kick",  0x2dceac0 + 0x300, 0x2dceac0 + 0x400, indexCPS2Sprites_Sagat, 0xb8 },
+    { L"V-Ism Punch", 0x2dceac0 + 0x400, 0x2dceac0 + 0x500, indexCPS2Sprites_Sagat, 0xb8 },
+    { L"V-Ism Kick",  0x2dceac0 + 0x500, 0x2dceac0 + 0x600, indexCPS2Sprites_Sagat, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_DAN_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2dfa2c0 + 0x000, 0x2dfa2c0 + 0x100, indexCPS2Sprites_Dan, 0xb8 },
+    { L"X-Ism Kick",  0x2dfa2c0 + 0x100, 0x2dfa2c0 + 0x200, indexCPS2Sprites_Dan, 0xb8 },
+    { L"A-Ism Punch", 0x2dfa2c0 + 0x200, 0x2dfa2c0 + 0x300, indexCPS2Sprites_Dan, 0xb8 },
+    { L"A-Ism Kick",  0x2dfa2c0 + 0x300, 0x2dfa2c0 + 0x400, indexCPS2Sprites_Dan, 0xb8 },
+    { L"V-Ism Punch", 0x2dfa2c0 + 0x400, 0x2dfa2c0 + 0x500, indexCPS2Sprites_Dan, 0xb8 },
+    { L"V-Ism Kick",  0x2dfa2c0 + 0x500, 0x2dfa2c0 + 0x600, indexCPS2Sprites_Dan, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SAKURA_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2e23ac0 + 0x000, 0x2e23ac0 + 0x100, indexCPS2Sprites_Sakura, 0xb8 },
+    { L"X-Ism Kick",  0x2e23ac0 + 0x100, 0x2e23ac0 + 0x200, indexCPS2Sprites_Sakura, 0xb8 },
+    { L"A-Ism Punch", 0x2e23ac0 + 0x200, 0x2e23ac0 + 0x300, indexCPS2Sprites_Sakura, 0xb8 },
+    { L"A-Ism Kick",  0x2e23ac0 + 0x300, 0x2e23ac0 + 0x400, indexCPS2Sprites_Sakura, 0xb8 },
+    { L"V-Ism Punch", 0x2e23ac0 + 0x400, 0x2e23ac0 + 0x500, indexCPS2Sprites_Sakura, 0xb8 },
+    { L"V-Ism Kick",  0x2e23ac0 + 0x500, 0x2e23ac0 + 0x600, indexCPS2Sprites_Sakura, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_ROLENTO_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2e4e2c0 + 0x000, 0x2e4e2c0 + 0x100, indexCPS2Sprites_Rolento, 0xb8 },
+    { L"X-Ism Kick",  0x2e4e2c0 + 0x100, 0x2e4e2c0 + 0x200, indexCPS2Sprites_Rolento, 0xb8 },
+    { L"A-Ism Punch", 0x2e4e2c0 + 0x200, 0x2e4e2c0 + 0x300, indexCPS2Sprites_Rolento, 0xb8 },
+    { L"A-Ism Kick",  0x2e4e2c0 + 0x300, 0x2e4e2c0 + 0x400, indexCPS2Sprites_Rolento, 0xb8 },
+    { L"V-Ism Punch", 0x2e4e2c0 + 0x400, 0x2e4e2c0 + 0x500, indexCPS2Sprites_Rolento, 0xb8 },
+    { L"V-Ism Kick",  0x2e4e2c0 + 0x500, 0x2e4e2c0 + 0x600, indexCPS2Sprites_Rolento, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_DHALSIM_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2e76ac0 + 0x000, 0x2e76ac0 + 0x100, indexCPS2Sprites_Dhalsim, 0xb8 },
+    { L"X-Ism Kick",  0x2e76ac0 + 0x100, 0x2e76ac0 + 0x200, indexCPS2Sprites_Dhalsim, 0xb8 },
+    { L"A-Ism Punch", 0x2e76ac0 + 0x200, 0x2e76ac0 + 0x300, indexCPS2Sprites_Dhalsim, 0xb8 },
+    { L"A-Ism Kick",  0x2e76ac0 + 0x300, 0x2e76ac0 + 0x400, indexCPS2Sprites_Dhalsim, 0xb8 },
+    { L"V-Ism Punch", 0x2e76ac0 + 0x400, 0x2e76ac0 + 0x500, indexCPS2Sprites_Dhalsim, 0xb8 },
+    { L"V-Ism Kick",  0x2e76ac0 + 0x500, 0x2e76ac0 + 0x600, indexCPS2Sprites_Dhalsim, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_ZANGIEF_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2e9f2c0 + 0x000, 0x2e9f2c0 + 0x100, indexCPS2Sprites_Zangief, 0xb8 },
+    { L"X-Ism Kick",  0x2e9f2c0 + 0x100, 0x2e9f2c0 + 0x200, indexCPS2Sprites_Zangief, 0xb8 },
+    { L"A-Ism Punch", 0x2e9f2c0 + 0x200, 0x2e9f2c0 + 0x300, indexCPS2Sprites_Zangief, 0xb8 },
+    { L"A-Ism Kick",  0x2e9f2c0 + 0x300, 0x2e9f2c0 + 0x400, indexCPS2Sprites_Zangief, 0xb8 },
+    { L"V-Ism Punch", 0x2e9f2c0 + 0x400, 0x2e9f2c0 + 0x500, indexCPS2Sprites_Zangief, 0xb8 },
+    { L"V-Ism Kick",  0x2e9f2c0 + 0x500, 0x2e9f2c0 + 0x600, indexCPS2Sprites_Zangief, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_GEN_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2ec7ac0 + 0x000, 0x2ec7ac0 + 0x100, indexCPS2Sprites_Gen, 0xb8 },
+    { L"X-Ism Kick",  0x2ec7ac0 + 0x100, 0x2ec7ac0 + 0x200, indexCPS2Sprites_Gen, 0xb8 },
+    { L"A-Ism Punch", 0x2ec7ac0 + 0x200, 0x2ec7ac0 + 0x300, indexCPS2Sprites_Gen, 0xb8 },
+    { L"A-Ism Kick",  0x2ec7ac0 + 0x300, 0x2ec7ac0 + 0x400, indexCPS2Sprites_Gen, 0xb8 },
+    { L"V-Ism Punch", 0x2ec7ac0 + 0x400, 0x2ec7ac0 + 0x500, indexCPS2Sprites_Gen, 0xb8 },
+    { L"V-Ism Kick",  0x2ec7ac0 + 0x500, 0x2ec7ac0 + 0x600, indexCPS2Sprites_Gen, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CHUNLIXISM_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2ef02c0 + 0x000, 0x2ef02c0 + 0x100, indexCPS2Sprites_ChunLi_Xism, 0xb8 },
+    { L"X-Ism Kick",  0x2ef02c0 + 0x100, 0x2ef02c0 + 0x200, indexCPS2Sprites_ChunLi_Xism, 0xb8 },
+    { L"A-Ism Punch", 0x2ef02c0 + 0x200, 0x2ef02c0 + 0x300, indexCPS2Sprites_ChunLi_Xism, 0xb8 },
+    { L"A-Ism Kick",  0x2ef02c0 + 0x300, 0x2ef02c0 + 0x400, indexCPS2Sprites_ChunLi_Xism, 0xb8 },
+    { L"V-Ism Punch", 0x2ef02c0 + 0x400, 0x2ef02c0 + 0x500, indexCPS2Sprites_ChunLi_Xism, 0xb8 },
+    { L"V-Ism Kick",  0x2ef02c0 + 0x500, 0x2ef02c0 + 0x600, indexCPS2Sprites_ChunLi_Xism, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_SODOMXISM_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2f19ac0 + 0x000, 0x2f19ac0 + 0x100, indexCPS2Sprites_SodomS_Xism, 0xb8 },
+    { L"X-Ism Kick",  0x2f19ac0 + 0x100, 0x2f19ac0 + 0x200, indexCPS2Sprites_SodomS_Xism, 0xb8 },
+    { L"A-Ism Punch", 0x2f19ac0 + 0x200, 0x2f19ac0 + 0x300, indexCPS2Sprites_SodomS_Xism, 0xb8 },
+    { L"A-Ism Kick",  0x2f19ac0 + 0x300, 0x2f19ac0 + 0x400, indexCPS2Sprites_SodomS_Xism, 0xb8 },
+    { L"V-Ism Punch", 0x2f19ac0 + 0x400, 0x2f19ac0 + 0x500, indexCPS2Sprites_SodomS_Xism, 0xb8 },
+    { L"V-Ism Kick",  0x2f19ac0 + 0x500, 0x2f19ac0 + 0x600, indexCPS2Sprites_SodomS_Xism, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BALROG_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2f442c0 + 0x000, 0x2f442c0 + 0x100, indexCPS2Sprites_Balrog, 0xb8 },
+    { L"X-Ism Kick",  0x2f442c0 + 0x100, 0x2f442c0 + 0x200, indexCPS2Sprites_Balrog, 0xb8 },
+    { L"A-Ism Punch", 0x2f442c0 + 0x200, 0x2f442c0 + 0x300, indexCPS2Sprites_Balrog, 0xb8 },
+    { L"A-Ism Kick",  0x2f442c0 + 0x300, 0x2f442c0 + 0x400, indexCPS2Sprites_Balrog, 0xb8 },
+    { L"V-Ism Punch", 0x2f442c0 + 0x400, 0x2f442c0 + 0x500, indexCPS2Sprites_Balrog, 0xb8 },
+    { L"V-Ism Kick",  0x2f442c0 + 0x500, 0x2f442c0 + 0x600, indexCPS2Sprites_Balrog, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CAMMY_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2f6d2c0 + 0x000, 0x2f6d2c0 + 0x100, indexCPS2Sprites_Cammy, 0xb8 },
+    { L"X-Ism Kick",  0x2f6d2c0 + 0x100, 0x2f6d2c0 + 0x200, indexCPS2Sprites_Cammy, 0xb8 },
+    { L"A-Ism Punch", 0x2f6d2c0 + 0x200, 0x2f6d2c0 + 0x300, indexCPS2Sprites_Cammy, 0xb8 },
+    { L"A-Ism Kick",  0x2f6d2c0 + 0x300, 0x2f6d2c0 + 0x400, indexCPS2Sprites_Cammy, 0xb8 },
+    { L"V-Ism Punch", 0x2f6d2c0 + 0x400, 0x2f6d2c0 + 0x500, indexCPS2Sprites_Cammy, 0xb8 },
+    { L"V-Ism Kick",  0x2f6d2c0 + 0x500, 0x2f6d2c0 + 0x600, indexCPS2Sprites_Cammy, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_EVILRYU_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2f972c0 + 0x000, 0x2f972c0 + 0x100, indexCPS2Sprites_EvilRyu, 0xb8 },
+    { L"X-Ism Kick",  0x2f972c0 + 0x100, 0x2f972c0 + 0x200, indexCPS2Sprites_EvilRyu, 0xb8 },
+    { L"A-Ism Punch", 0x2f972c0 + 0x200, 0x2f972c0 + 0x300, indexCPS2Sprites_EvilRyu, 0xb8 },
+    { L"A-Ism Kick",  0x2f972c0 + 0x300, 0x2f972c0 + 0x400, indexCPS2Sprites_EvilRyu, 0xb8 },
+    { L"V-Ism Punch", 0x2f972c0 + 0x400, 0x2f972c0 + 0x500, indexCPS2Sprites_EvilRyu, 0xb8 },
+    { L"V-Ism Kick",  0x2f972c0 + 0x500, 0x2f972c0 + 0x600, indexCPS2Sprites_EvilRyu, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_EHONDA_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2fbfac0 + 0x000, 0x2fbfac0 + 0x100, indexCPS2Sprites_EHonda, 0xb8 },
+    { L"X-Ism Kick",  0x2fbfac0 + 0x100, 0x2fbfac0 + 0x200, indexCPS2Sprites_EHonda, 0xb8 },
+    { L"A-Ism Punch", 0x2fbfac0 + 0x200, 0x2fbfac0 + 0x300, indexCPS2Sprites_EHonda, 0xb8 },
+    { L"A-Ism Kick",  0x2fbfac0 + 0x300, 0x2fbfac0 + 0x400, indexCPS2Sprites_EHonda, 0xb8 },
+    { L"V-Ism Punch", 0x2fbfac0 + 0x400, 0x2fbfac0 + 0x500, indexCPS2Sprites_EHonda, 0xb8 },
+    { L"V-Ism Kick",  0x2fbfac0 + 0x500, 0x2fbfac0 + 0x600, indexCPS2Sprites_EHonda, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_BLANKA_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x2feaac0 + 0x000, 0x2feaac0 + 0x100, indexCPS2Sprites_Blanka, 0xb8 },
+    { L"X-Ism Kick",  0x2feaac0 + 0x100, 0x2feaac0 + 0x200, indexCPS2Sprites_Blanka, 0xb8 },
+    { L"A-Ism Punch", 0x2feaac0 + 0x200, 0x2feaac0 + 0x300, indexCPS2Sprites_Blanka, 0xb8 },
+    { L"A-Ism Kick",  0x2feaac0 + 0x300, 0x2feaac0 + 0x400, indexCPS2Sprites_Blanka, 0xb8 },
+    { L"V-Ism Punch", 0x2feaac0 + 0x400, 0x2feaac0 + 0x500, indexCPS2Sprites_Blanka, 0xb8 },
+    { L"V-Ism Kick",  0x2feaac0 + 0x500, 0x2feaac0 + 0x600, indexCPS2Sprites_Blanka, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_RMIKA_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x30162c0 + 0x000, 0x30162c0 + 0x100, indexCPS2Sprites_RMika, 0xb8 },
+    { L"X-Ism Kick",  0x30162c0 + 0x100, 0x30162c0 + 0x200, indexCPS2Sprites_RMika, 0xb8 },
+    { L"A-Ism Punch", 0x30162c0 + 0x200, 0x30162c0 + 0x300, indexCPS2Sprites_RMika, 0xb8 },
+    { L"A-Ism Kick",  0x30162c0 + 0x300, 0x30162c0 + 0x400, indexCPS2Sprites_RMika, 0xb8 },
+    { L"V-Ism Punch", 0x30162c0 + 0x400, 0x30162c0 + 0x500, indexCPS2Sprites_RMika, 0xb8 },
+    { L"V-Ism Kick",  0x30162c0 + 0x500, 0x30162c0 + 0x600, indexCPS2Sprites_RMika, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_CODY_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x303fac0 + 0x000, 0x303fac0 + 0x100, indexCPS2Sprites_Cody, 0xb8 },
+    { L"X-Ism Kick",  0x303fac0 + 0x100, 0x303fac0 + 0x200, indexCPS2Sprites_Cody, 0xb8 },
+    { L"A-Ism Punch", 0x303fac0 + 0x200, 0x303fac0 + 0x300, indexCPS2Sprites_Cody, 0xb8 },
+    { L"A-Ism Kick",  0x303fac0 + 0x300, 0x303fac0 + 0x400, indexCPS2Sprites_Cody, 0xb8 },
+    { L"V-Ism Punch", 0x303fac0 + 0x400, 0x303fac0 + 0x500, indexCPS2Sprites_Cody, 0xb8 },
+    { L"V-Ism Kick",  0x303fac0 + 0x500, 0x303fac0 + 0x600, indexCPS2Sprites_Cody, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_VEGA_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x3069ac0 + 0x000, 0x3069ac0 + 0x100, indexCPS2Sprites_Vega, 0xb8 },
+    { L"X-Ism Kick",  0x3069ac0 + 0x100, 0x3069ac0 + 0x200, indexCPS2Sprites_Vega, 0xb8 },
+    { L"A-Ism Punch", 0x3069ac0 + 0x200, 0x3069ac0 + 0x300, indexCPS2Sprites_Vega, 0xb8 },
+    { L"A-Ism Kick",  0x3069ac0 + 0x300, 0x3069ac0 + 0x400, indexCPS2Sprites_Vega, 0xb8 },
+    { L"V-Ism Punch", 0x3069ac0 + 0x400, 0x3069ac0 + 0x500, indexCPS2Sprites_Vega, 0xb8 },
+    { L"V-Ism Kick",  0x3069ac0 + 0x500, 0x3069ac0 + 0x600, indexCPS2Sprites_Vega, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_KARIN_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x30922c0 + 0x000, 0x30922c0 + 0x100, indexCPS2Sprites_Karin, 0xb8 },
+    { L"X-Ism Kick",  0x30922c0 + 0x100, 0x30922c0 + 0x200, indexCPS2Sprites_Karin, 0xb8 },
+    { L"A-Ism Punch", 0x30922c0 + 0x200, 0x30922c0 + 0x300, indexCPS2Sprites_Karin, 0xb8 },
+    { L"A-Ism Kick",  0x30922c0 + 0x300, 0x30922c0 + 0x400, indexCPS2Sprites_Karin, 0xb8 },
+    { L"V-Ism Punch", 0x30922c0 + 0x400, 0x30922c0 + 0x500, indexCPS2Sprites_Karin, 0xb8 },
+    { L"V-Ism Kick",  0x30922c0 + 0x500, 0x30922c0 + 0x600, indexCPS2Sprites_Karin, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_JULI_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x30baac0 + 0x000, 0x30baac0 + 0x100, indexCPS2Sprites_Juli, 0xb8 },
+    { L"X-Ism Kick",  0x30baac0 + 0x100, 0x30baac0 + 0x200, indexCPS2Sprites_Juli, 0xb8 },
+    { L"A-Ism Punch", 0x30baac0 + 0x200, 0x30baac0 + 0x300, indexCPS2Sprites_Juli, 0xb8 },
+    { L"A-Ism Kick",  0x30baac0 + 0x300, 0x30baac0 + 0x400, indexCPS2Sprites_Juli, 0xb8 },
+    { L"V-Ism Punch", 0x30baac0 + 0x400, 0x30baac0 + 0x500, indexCPS2Sprites_Juli, 0xb8 },
+    { L"V-Ism Kick",  0x30baac0 + 0x500, 0x30baac0 + 0x600, indexCPS2Sprites_Juli, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_JUNI_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x30e2ac0 + 0x000, 0x30e2ac0 + 0x100, indexCPS2Sprites_Juni, 0xb8 },
+    { L"X-Ism Kick",  0x30e2ac0 + 0x100, 0x30e2ac0 + 0x200, indexCPS2Sprites_Juni, 0xb8 },
+    { L"A-Ism Punch", 0x30e2ac0 + 0x200, 0x30e2ac0 + 0x300, indexCPS2Sprites_Juni, 0xb8 },
+    { L"A-Ism Kick",  0x30e2ac0 + 0x300, 0x30e2ac0 + 0x400, indexCPS2Sprites_Juni, 0xb8 },
+    { L"V-Ism Punch", 0x30e2ac0 + 0x400, 0x30e2ac0 + 0x500, indexCPS2Sprites_Juni, 0xb8 },
+    { L"V-Ism Kick",  0x30e2ac0 + 0x500, 0x30e2ac0 + 0x600, indexCPS2Sprites_Juni, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_GUILE_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x310bac0 + 0x000, 0x310bac0 + 0x100, indexCPS2Sprites_Guile, 0xb8 },
+    { L"X-Ism Kick",  0x310bac0 + 0x100, 0x310bac0 + 0x200, indexCPS2Sprites_Guile, 0xb8 },
+    { L"A-Ism Punch", 0x310bac0 + 0x200, 0x310bac0 + 0x300, indexCPS2Sprites_Guile, 0xb8 },
+    { L"A-Ism Kick",  0x310bac0 + 0x300, 0x310bac0 + 0x400, indexCPS2Sprites_Guile, 0xb8 },
+    { L"V-Ism Punch", 0x310bac0 + 0x400, 0x310bac0 + 0x500, indexCPS2Sprites_Guile, 0xb8 },
+    { L"V-Ism Kick",  0x310bac0 + 0x500, 0x310bac0 + 0x600, indexCPS2Sprites_Guile, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_FEILONG_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x3133ac0 + 0x000, 0x3133ac0 + 0x100, indexCPS2Sprites_FeiLong, 0xb8 },
+    { L"X-Ism Kick",  0x3133ac0 + 0x100, 0x3133ac0 + 0x200, indexCPS2Sprites_FeiLong, 0xb8 },
+    { L"A-Ism Punch", 0x3133ac0 + 0x200, 0x3133ac0 + 0x300, indexCPS2Sprites_FeiLong, 0xb8 },
+    { L"A-Ism Kick",  0x3133ac0 + 0x300, 0x3133ac0 + 0x400, indexCPS2Sprites_FeiLong, 0xb8 },
+    { L"V-Ism Punch", 0x3133ac0 + 0x400, 0x3133ac0 + 0x500, indexCPS2Sprites_FeiLong, 0xb8 },
+    { L"V-Ism Kick",  0x3133ac0 + 0x500, 0x3133ac0 + 0x600, indexCPS2Sprites_FeiLong, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_DEEJAY_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x315cac0 + 0x000, 0x315cac0 + 0x100, indexCPS2Sprites_DeeJay, 0xb8 },
+    { L"X-Ism Kick",  0x315cac0 + 0x100, 0x315cac0 + 0x200, indexCPS2Sprites_DeeJay, 0xb8 },
+    { L"A-Ism Punch", 0x315cac0 + 0x200, 0x315cac0 + 0x300, indexCPS2Sprites_DeeJay, 0xb8 },
+    { L"A-Ism Kick",  0x315cac0 + 0x300, 0x315cac0 + 0x400, indexCPS2Sprites_DeeJay, 0xb8 },
+    { L"V-Ism Punch", 0x315cac0 + 0x400, 0x315cac0 + 0x500, indexCPS2Sprites_DeeJay, 0xb8 },
+    { L"V-Ism Kick",  0x315cac0 + 0x500, 0x315cac0 + 0x600, indexCPS2Sprites_DeeJay, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_THAWK_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x31872c0 + 0x000, 0x31872c0 + 0x100, indexCPS2Sprites_THawk, 0xb8 },
+    { L"X-Ism Kick",  0x31872c0 + 0x100, 0x31872c0 + 0x200, indexCPS2Sprites_THawk, 0xb8 },
+    { L"A-Ism Punch", 0x31872c0 + 0x200, 0x31872c0 + 0x300, indexCPS2Sprites_THawk, 0xb8 },
+    { L"A-Ism Kick",  0x31872c0 + 0x300, 0x31872c0 + 0x400, indexCPS2Sprites_THawk, 0xb8 },
+    { L"V-Ism Punch", 0x31872c0 + 0x400, 0x31872c0 + 0x500, indexCPS2Sprites_THawk, 0xb8 },
+    { L"V-Ism Kick",  0x31872c0 + 0x500, 0x31872c0 + 0x600, indexCPS2Sprites_THawk, 0xb8 },
+};
+
+// unknown: 0x31d9ac0
+// unknown: 0x3202ac0
+// unknown: 0x322b2c0
+// unknown: 0x32552c0
+// shin akuma? 0x327f2c0 different colors!
+// eagle? 0x32872c0
+// unknown akuma-ish 0x3287ac0
+// unknown 0x32a02c0
+// unknown 0x32a1ac0
+// actual shin akuma? 0x32a8ac0
+// eagle? 0x32a92c0
+// ? 0x32a9c20 4 deep
+// 0x32aa2c0
+
+const sGame_PaletteDataset SFZ3M_S_SHINAKUMA_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x32a8ac0 + 0x000, 0x32a8ac0 + 0x100, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"X-Ism Kick",  0x32a8ac0 + 0x100, 0x32a8ac0 + 0x200, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"A-Ism Punch", 0x32a8ac0 + 0x200, 0x32a8ac0 + 0x300, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"A-Ism Kick",  0x32a8ac0 + 0x300, 0x32a8ac0 + 0x400, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"V-Ism Punch", 0x32a8ac0 + 0x400, 0x32a8ac0 + 0x500, indexCPS2Sprites_Akuma, 0xb8 },
+    { L"V-Ism Kick",  0x32a8ac0 + 0x500, 0x32a8ac0 + 0x600, indexCPS2Sprites_Akuma, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x51B02C0 + (1 * 0x29000), 0x51B02C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
+    { L"X-Ism Kick",  0x51B03C0 + (1 * 0x29000), 0x51B03C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
+    { L"A-Ism Punch", 0x51B04C0 + (1 * 0x29000), 0x51B04C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
+    { L"A-Ism Kick",  0x51B05C0 + (1 * 0x29000), 0x51B05C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
+    { L"V-Ism Punch", 0x51B06C0 + (1 * 0x29000), 0x51B06C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
+    { L"V-Ism Kick",  0x51B07C0 + (1 * 0x29000), 0x51B07C0 + 0x100 + (1 * 0x29000), indexCVS2Sprites_Eagle, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x51B02C0 + (2 * 0x29000), 0x51B02C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
+    { L"X-Ism Kick",  0x51B03C0 + (2 * 0x29000), 0x51B03C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
+    { L"A-Ism Punch", 0x51B04C0 + (2 * 0x29000), 0x51B04C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
+    { L"A-Ism Kick",  0x51B05C0 + (2 * 0x29000), 0x51B05C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
+    { L"V-Ism Punch", 0x51B06C0 + (2 * 0x29000), 0x51B06C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
+    { L"V-Ism Kick",  0x51B07C0 + (2 * 0x29000), 0x51B07C0 + 0x100 + (2 * 0x29000), indexCVS2Sprites_Maki, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_YUN_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x51B02C0 + (3 * 0x29000), 0x51B02C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
+    { L"X-Ism Kick",  0x51B03C0 + (3 * 0x29000), 0x51B03C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
+    { L"A-Ism Punch", 0x51B04C0 + (3 * 0x29000), 0x51B04C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
+    { L"A-Ism Kick",  0x51B05C0 + (3 * 0x29000), 0x51B05C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
+    { L"V-Ism Punch", 0x51B06C0 + (3 * 0x29000), 0x51B06C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
+    { L"V-Ism Kick",  0x51B07C0 + (3 * 0x29000), 0x51B07C0 + 0x100 + (3 * 0x29000), indexCVS2Sprites_Yun, 0xb8 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x51B02C0 + (4 * 0x29000), 0x51B02C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
+    { L"X-Ism Kick",  0x51B03C0 + (4 * 0x29000), 0x51B03C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
+    { L"A-Ism Punch", 0x51B04C0 + (4 * 0x29000), 0x51B04C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
+    { L"A-Ism Kick",  0x51B05C0 + (4 * 0x29000), 0x51B05C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
+    { L"V-Ism Punch", 0x51B06C0 + (4 * 0x29000), 0x51B06C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
+    { L"V-Ism Kick",  0x51B07C0 + (4 * 0x29000), 0x51B07C0 + 0x100 + (4 * 0x29000), indexCFJSprites_Ingrid, 0xb8 },
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////  Character Select Screen Portraits
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const sGame_PaletteDataset SFZ3U_S_RYU_CHARASCREEN_PALETTES[] =
 {
@@ -4960,13 +5853,55 @@ const sGame_PaletteDataset SFZ3U_S_THAWK_CHARASCREEN_PALETTES[] =
 //Appears in random select
 const sGame_PaletteDataset SFZ3U_S_SHINAKUMA_CHARASCREEN_PALETTES[] =
 {
-
     { L"X-Ism Punch", 0x1a2340, 0x1a2340 + 0x20, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Kick",  0x1a2360, 0x1a2360 + 0x20, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Punch", 0x1a2380, 0x1a2380 + 0x20, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Kick",  0x1a23a0, 0x1a23a0 + 0x20, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Punch", 0x1a23c0, 0x1a23c0 + 0x20, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Kick",  0x1a23e0, 0x1a23e0 + 0x20, indexCPS2Sprites_Akuma, 0x00 },
+};
+
+// ... another akuma?
+// ... unknown
+
+const sGame_PaletteDataset SFZ3M_S_EAGLE_CHARASCREEN_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a24c0 + 0x000, 0x1a24c0 + 0x020, indexCVS2Sprites_Eagle, 0x00 },
+    { L"X-Ism Kick",  0x1a24c0 + 0x020, 0x1a24c0 + 0x040, indexCVS2Sprites_Eagle, 0x00 },
+    { L"A-Ism Punch", 0x1a24c0 + 0x040, 0x1a24c0 + 0x060, indexCVS2Sprites_Eagle, 0x00 },
+    { L"A-Ism Kick",  0x1a24c0 + 0x060, 0x1a24c0 + 0x080, indexCVS2Sprites_Eagle, 0x00 },
+    { L"V-Ism Punch", 0x1a24c0 + 0x080, 0x1a24c0 + 0x0a0, indexCVS2Sprites_Eagle, 0x00 },
+    { L"V-Ism Kick",  0x1a24c0 + 0x0a0, 0x1a24c0 + 0x0c0, indexCVS2Sprites_Eagle, 0x00 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_MAKI_CHARASCREEN_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a24c0 + 0x0c0, 0x1a24c0 + 0x0e0, indexCVS2Sprites_Maki, 0x00 },
+    { L"X-Ism Kick",  0x1a24c0 + 0x0e0, 0x1a24c0 + 0x100, indexCVS2Sprites_Maki, 0x00 },
+    { L"A-Ism Punch", 0x1a24c0 + 0x100, 0x1a24c0 + 0x120, indexCVS2Sprites_Maki, 0x00 },
+    { L"A-Ism Kick",  0x1a24c0 + 0x120, 0x1a24c0 + 0x140, indexCVS2Sprites_Maki, 0x00 },
+    { L"V-Ism Punch", 0x1a24c0 + 0x140, 0x1a24c0 + 0x160, indexCVS2Sprites_Maki, 0x00 },
+    { L"V-Ism Kick",  0x1a24c0 + 0x160, 0x1a24c0 + 0x180, indexCVS2Sprites_Maki, 0x00 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_YUN_CHARASCREEN_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a24c0 + 0x180, 0x1a24c0 + 0x1a0, indexCVS2Sprites_Yun, 0x00 },
+    { L"X-Ism Kick",  0x1a24c0 + 0x1a0, 0x1a24c0 + 0x1c0, indexCVS2Sprites_Yun, 0x00 },
+    { L"A-Ism Punch", 0x1a24c0 + 0x1c0, 0x1a24c0 + 0x1e0, indexCVS2Sprites_Yun, 0x00 },
+    { L"A-Ism Kick",  0x1a24c0 + 0x1e0, 0x1a24c0 + 0x200, indexCVS2Sprites_Yun, 0x00 },
+    { L"V-Ism Punch", 0x1a24c0 + 0x200, 0x1a24c0 + 0x220, indexCVS2Sprites_Yun, 0x00 },
+    { L"V-Ism Kick",  0x1a24c0 + 0x220, 0x1a24c0 + 0x240, indexCVS2Sprites_Yun, 0x00 },
+};
+
+const sGame_PaletteDataset SFZ3M_S_INGRID_CHARASCREEN_PALETTES[] =
+{
+    { L"X-Ism Punch", 0x1a24c0 + 0x240, 0x1a24c0 + 0x280, indexCFJSprites_Ingrid, 0x00 },
+    { L"X-Ism Kick",  0x1a24c0 + 0x280, 0x1a24c0 + 0x2c0, indexCFJSprites_Ingrid, 0x00 },
+    { L"A-Ism Punch", 0x1a24c0 + 0x2c0, 0x1a24c0 + 0x300, indexCFJSprites_Ingrid, 0x00 },
+    { L"A-Ism Kick",  0x1a24c0 + 0x300, 0x1a24c0 + 0x340, indexCFJSprites_Ingrid, 0x00 },
+    { L"V-Ism Punch", 0x1a24c0 + 0x340, 0x1a24c0 + 0x380, indexCFJSprites_Ingrid, 0x00 },
+    { L"V-Ism Kick",  0x1a24c0 + 0x380, 0x1a24c0 + 0x3c0, indexCFJSprites_Ingrid, 0x00 },
 };
 
 const sDescTreeNode SFZ3U_S_CHARASCREEN_COLLECTION[] =
@@ -5008,6 +5943,52 @@ const sDescTreeNode SFZ3U_S_CHARASCREEN_COLLECTION[] =
     { L"Dee Jay", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DEEJAY_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_DEEJAY_CHARASCREEN_PALETTES) },
     { L"T-Hawk", DESC_NODETYPE_TREE, (void*)SFZ3U_S_THAWK_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_THAWK_CHARASCREEN_PALETTES) },
     { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SHINAKUMA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_SHINAKUMA_CHARASCREEN_PALETTES) },
+};
+
+const sDescTreeNode SFZ3M_S_CHARASCREEN_COLLECTION[] =
+{
+    { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_S_RYU_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_RYU_CHARASCREEN_PALETTES) },
+    { L"Ken", DESC_NODETYPE_TREE, (void*)SFZ3U_S_KEN_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_KEN_CHARASCREEN_PALETTES) },
+    { L"Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_S_AKUMA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_AKUMA_CHARASCREEN_PALETTES) },
+    { L"Charlie", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHARLIE_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_CHARLIE_CHARASCREEN_PALETTES) },
+    { L"Chun Li", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHUNLI_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_CHUNLI_CHARASCREEN_PALETTES) },
+    { L"Adon", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ADON_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_ADON_CHARASCREEN_PALETTES) },
+    { L"Sodom", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SODOM_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_SODOM_CHARASCREEN_PALETTES) },
+    { L"Guy", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GUY_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_GUY_CHARASCREEN_PALETTES) },
+    { L"Birdie", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BIRDIE_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_BIRDIE_CHARASCREEN_PALETTES) },
+    { L"Rose", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ROSE_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_ROSE_CHARASCREEN_PALETTES) },
+    { L"M.Bison", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BISON_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_BISON_CHARASCREEN_PALETTES) },
+    { L"Sagat", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SAGAT_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_SAGAT_CHARASCREEN_PALETTES) },
+    { L"Dan", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DAN_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_DAN_CHARASCREEN_PALETTES) },
+    { L"Sakura", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SAKURA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_SAKURA_CHARASCREEN_PALETTES) },
+    { L"Rolento", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ROLENTO_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_ROLENTO_CHARASCREEN_PALETTES) },
+    { L"Dhalsim", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DHALSIM_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_DHALSIM_CHARASCREEN_PALETTES) },
+    { L"Zangief", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ZANGIEF_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_ZANGIEF_CHARASCREEN_PALETTES) },
+    { L"Gen", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GEN_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_GEN_CHARASCREEN_PALETTES) },
+    { L"Chun-Li (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHUNLIXISM_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_CHUNLIXISM_CHARASCREEN_PALETTES) },
+    { L"Gen (Crane Stance)", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GENCRANESTANCE_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_GENCRANESTANCE_CHARASCREEN_PALETTES) },
+    { L"Sodom (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SODOMXISM_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_SODOMXISM_CHARASCREEN_PALETTES) },
+    { L"Balrog", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BALROG_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_BALROG_CHARASCREEN_PALETTES) },
+    { L"Cammy", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CAMMY_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_CAMMY_CHARASCREEN_PALETTES) },
+    { L"Evil Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_S_EVILRYU_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_EVILRYU_CHARASCREEN_PALETTES) },
+    { L"E. Honda", DESC_NODETYPE_TREE, (void*)SFZ3U_S_EHONDA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_EHONDA_CHARASCREEN_PALETTES) },
+    { L"Blanka", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BLANKA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_BLANKA_CHARASCREEN_PALETTES) },
+    { L"R. Mika", DESC_NODETYPE_TREE, (void*)SFZ3U_S_RMIKA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_RMIKA_CHARASCREEN_PALETTES) },
+    { L"Cody", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CODY_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_CODY_CHARASCREEN_PALETTES) },
+    { L"Vega", DESC_NODETYPE_TREE, (void*)SFZ3U_S_VEGA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_VEGA_CHARASCREEN_PALETTES) },
+    { L"Karin", DESC_NODETYPE_TREE, (void*)SFZ3U_S_KARIN_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_KARIN_CHARASCREEN_PALETTES) },
+    { L"Juli", DESC_NODETYPE_TREE, (void*)SFZ3U_S_JULI_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_JULI_CHARASCREEN_PALETTES) },
+    { L"Juni", DESC_NODETYPE_TREE, (void*)SFZ3U_S_JUNI_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_JUNI_CHARASCREEN_PALETTES) },
+    { L"Guile", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GUILE_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_GUILE_CHARASCREEN_PALETTES) },
+    { L"Fei Long", DESC_NODETYPE_TREE, (void*)SFZ3U_S_FEILONG_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_FEILONG_CHARASCREEN_PALETTES) },
+    { L"Dee Jay", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DEEJAY_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_DEEJAY_CHARASCREEN_PALETTES) },
+    { L"T-Hawk", DESC_NODETYPE_TREE, (void*)SFZ3U_S_THAWK_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_THAWK_CHARASCREEN_PALETTES) },
+    { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SHINAKUMA_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3U_S_SHINAKUMA_CHARASCREEN_PALETTES) },
+
+    { L"Eagle", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3M_S_EAGLE_CHARASCREEN_PALETTES) },
+    { L"Maki", DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3M_S_MAKI_CHARASCREEN_PALETTES) },
+    { L"Yun", DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3M_S_YUN_CHARASCREEN_PALETTES) },
+    { L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_CHARASCREEN_PALETTES, ARRAYSIZE(SFZ3M_S_INGRID_CHARASCREEN_PALETTES) },
 };
 
 // For Win Portraits we have to fork between NAOMI and Steam as there's a mid-unit shift starting at Chun-Li Xism.
@@ -5091,6 +6072,52 @@ const sDescTreeNode SFZ3U_S_WINPORTRAITS_COLLECTION[] =
     { L"Shin Akuma",        DESC_NODETYPE_TREE, (void*)SFZ3U_S_SHINAKUMA_WINPORTRAIT_PALETTES,  ARRAYSIZE(SFZ3U_S_SHINAKUMA_WINPORTRAIT_PALETTES) },
 };
 
+// And another fork for Max with the 4 new characters
+const sDescTreeNode SFZ3M_S_WINPORTRAITS_COLLECTION[] =
+{
+    { L"Ryu",               DESC_NODETYPE_TREE, (void*)SFZ3M_S_RYU_WINPORTRAIT_PALETTES,        ARRAYSIZE(SFZ3M_S_RYU_WINPORTRAIT_PALETTES) },
+    { L"Ken",               DESC_NODETYPE_TREE, (void*)SFZ3M_S_KEN_WINPORTRAIT_PALETTES,        ARRAYSIZE(SFZ3M_S_KEN_WINPORTRAIT_PALETTES) },
+    { L"Akuma",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_AKUMA_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_AKUMA_WINPORTRAIT_PALETTES) },
+    { L"Charlie",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_CHARLIE_WINPORTRAIT_PALETTES,    ARRAYSIZE(SFZ3M_S_CHARLIE_WINPORTRAIT_PALETTES) },
+    { L"Chun Li",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_CHUNLI_WINPORTRAIT_PALETTES,     ARRAYSIZE(SFZ3M_S_CHUNLI_WINPORTRAIT_PALETTES) },
+    { L"Adon",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_ADON_WINPORTRAIT_PALETTES,       ARRAYSIZE(SFZ3M_S_ADON_WINPORTRAIT_PALETTES) },
+    { L"Sodom",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_SODOM_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_SODOM_WINPORTRAIT_PALETTES) },
+    { L"Guy",               DESC_NODETYPE_TREE, (void*)SFZ3M_S_GUY_WINPORTRAIT_PALETTES,        ARRAYSIZE(SFZ3M_S_GUY_WINPORTRAIT_PALETTES) },
+    { L"Birdie",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_BIRDIE_WINPORTRAIT_PALETTES,     ARRAYSIZE(SFZ3M_S_BIRDIE_WINPORTRAIT_PALETTES) },
+    { L"Rose",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_ROSE_WINPORTRAIT_PALETTES,       ARRAYSIZE(SFZ3M_S_ROSE_WINPORTRAIT_PALETTES) },
+    { L"M.Bison",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_BISON_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_BISON_WINPORTRAIT_PALETTES) },
+    { L"Sagat",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_SAGAT_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_SAGAT_WINPORTRAIT_PALETTES) },
+    { L"Dan",               DESC_NODETYPE_TREE, (void*)SFZ3M_S_DAN_WINPORTRAIT_PALETTES,        ARRAYSIZE(SFZ3M_S_DAN_WINPORTRAIT_PALETTES) },
+    { L"Sakura",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_SAKURA_WINPORTRAIT_PALETTES,     ARRAYSIZE(SFZ3M_S_SAKURA_WINPORTRAIT_PALETTES) },
+    { L"Rolento",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_ROLENTO_WINPORTRAIT_PALETTES,    ARRAYSIZE(SFZ3M_S_ROLENTO_WINPORTRAIT_PALETTES) },
+    { L"Dhalsim",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_DHALSIM_WINPORTRAIT_PALETTES,    ARRAYSIZE(SFZ3M_S_DHALSIM_WINPORTRAIT_PALETTES) },
+    { L"Zangief",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_ZANGIEF_WINPORTRAIT_PALETTES,    ARRAYSIZE(SFZ3M_S_ZANGIEF_WINPORTRAIT_PALETTES) },
+    { L"Gen",               DESC_NODETYPE_TREE, (void*)SFZ3M_S_GEN_WINPORTRAIT_PALETTES,        ARRAYSIZE(SFZ3M_S_GEN_WINPORTRAIT_PALETTES) },
+    { L"Chun-Li (X-Ism)",   DESC_NODETYPE_TREE, (void*)SFZ3M_S_CHUNLIXISM_WINPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_CHUNLIXISM_WINPORTRAIT_PALETTES) },
+    { L"Sodom (X-Ism)",     DESC_NODETYPE_TREE, (void*)SFZ3M_S_SODOMXISM_WINPORTRAIT_PALETTES,  ARRAYSIZE(SFZ3M_S_SODOMXISM_WINPORTRAIT_PALETTES) },
+    { L"Balrog",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_BALROG_WINPORTRAIT_PALETTES,     ARRAYSIZE(SFZ3M_S_BALROG_WINPORTRAIT_PALETTES) },
+    { L"Cammy",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_CAMMY_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_CAMMY_WINPORTRAIT_PALETTES) },
+    { L"Evil Ryu",          DESC_NODETYPE_TREE, (void*)SFZ3M_S_EVILRYU_WINPORTRAIT_PALETTES,    ARRAYSIZE(SFZ3M_S_EVILRYU_WINPORTRAIT_PALETTES) },
+    { L"E. Honda",          DESC_NODETYPE_TREE, (void*)SFZ3M_S_EHONDA_WINPORTRAIT_PALETTES,     ARRAYSIZE(SFZ3M_S_EHONDA_WINPORTRAIT_PALETTES) },
+    { L"Blanka",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_BLANKA_WINPORTRAIT_PALETTES,     ARRAYSIZE(SFZ3M_S_BLANKA_WINPORTRAIT_PALETTES) },
+    { L"R. Mika",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_RMIKA_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_RMIKA_WINPORTRAIT_PALETTES) },
+    { L"Cody",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_CODY_WINPORTRAIT_PALETTES,       ARRAYSIZE(SFZ3M_S_CODY_WINPORTRAIT_PALETTES) },
+    { L"Vega",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_VEGA_WINPORTRAIT_PALETTES,       ARRAYSIZE(SFZ3M_S_VEGA_WINPORTRAIT_PALETTES) },
+    { L"Karin",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_KARIN_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_KARIN_WINPORTRAIT_PALETTES) },
+    { L"Juli",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_JULI_WINPORTRAIT_PALETTES,       ARRAYSIZE(SFZ3M_S_JULI_WINPORTRAIT_PALETTES) },
+    { L"Juni",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_JUNI_WINPORTRAIT_PALETTES,       ARRAYSIZE(SFZ3M_S_JUNI_WINPORTRAIT_PALETTES) },
+    { L"Guile",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_GUILE_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_GUILE_WINPORTRAIT_PALETTES) },
+    { L"Fei Long",          DESC_NODETYPE_TREE, (void*)SFZ3M_S_FEILONG_WINPORTRAIT_PALETTES,    ARRAYSIZE(SFZ3M_S_FEILONG_WINPORTRAIT_PALETTES) },
+    { L"Dee Jay",           DESC_NODETYPE_TREE, (void*)SFZ3M_S_DEEJAY_WINPORTRAIT_PALETTES,     ARRAYSIZE(SFZ3M_S_DEEJAY_WINPORTRAIT_PALETTES) },
+    { L"T-Hawk",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_THAWK_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_THAWK_WINPORTRAIT_PALETTES) },
+    { L"Shin Akuma",        DESC_NODETYPE_TREE, (void*)SFZ3M_S_SHINAKUMA_WINPORTRAIT_PALETTES,  ARRAYSIZE(SFZ3M_S_SHINAKUMA_WINPORTRAIT_PALETTES) },
+    
+    { L"Eagle",             DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_EAGLE_WINPORTRAIT_PALETTES) },
+    { L"Maki",              DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_MAKI_WINPORTRAIT_PALETTES) },
+    { L"Yun",               DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_YUN_WINPORTRAIT_PALETTES) },
+    { L"Ingrid",            DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_WINPORTRAIT_PALETTES,      ARRAYSIZE(SFZ3M_S_INGRID_WINPORTRAIT_PALETTES) },
+};
+
 const sDescTreeNode SFZ3U_S_PORTRAITS_COLLECTION[] =
 {
     { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_S_RYU_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_RYU_SELECTPORTRAIT_PALETTES) },
@@ -5132,6 +6159,52 @@ const sDescTreeNode SFZ3U_S_PORTRAITS_COLLECTION[] =
     { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SHINAKUMA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_SHINAKUMA_SELECTPORTRAIT_PALETTES) },
 };
 
+const sDescTreeNode SFZ3M_S_PORTRAITS_COLLECTION[] =
+{
+    { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_S_RYU_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_RYU_SELECTPORTRAIT_PALETTES) },
+    { L"Ken", DESC_NODETYPE_TREE, (void*)SFZ3U_S_KEN_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_KEN_SELECTPORTRAIT_PALETTES) },
+    { L"Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_S_AKUMA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_AKUMA_SELECTPORTRAIT_PALETTES) },
+    { L"Charlie", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHARLIE_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_CHARLIE_SELECTPORTRAIT_PALETTES) },
+    { L"Chun Li", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHUNLI_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_CHUNLI_SELECTPORTRAIT_PALETTES) },
+    { L"Adon", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ADON_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_ADON_SELECTPORTRAIT_PALETTES) },
+    { L"Sodom", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SODOM_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_SODOM_SELECTPORTRAIT_PALETTES) },
+    { L"Guy", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GUY_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_GUY_SELECTPORTRAIT_PALETTES) },
+    { L"Birdie", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BIRDIE_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_BIRDIE_SELECTPORTRAIT_PALETTES) },
+    { L"Rose", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ROSE_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_ROSE_SELECTPORTRAIT_PALETTES) },
+    { L"M.Bison", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BISON_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_BISON_SELECTPORTRAIT_PALETTES) },
+    { L"Sagat", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SAGAT_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_SAGAT_SELECTPORTRAIT_PALETTES) },
+    { L"Dan", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DAN_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_DAN_SELECTPORTRAIT_PALETTES) },
+    { L"Sakura", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SAKURA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_SAKURA_SELECTPORTRAIT_PALETTES) },
+    { L"Rolento", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ROLENTO_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_ROLENTO_SELECTPORTRAIT_PALETTES) },
+    { L"Dhalsim", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DHALSIM_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_DHALSIM_SELECTPORTRAIT_PALETTES) },
+    { L"Zangief", DESC_NODETYPE_TREE, (void*)SFZ3U_S_ZANGIEF_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_ZANGIEF_SELECTPORTRAIT_PALETTES) },
+    { L"Gen", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GEN_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_GEN_SELECTPORTRAIT_PALETTES) },
+    { L"Chun-Li (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHUNLIXISM_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_CHUNLIXISM_SELECTPORTRAIT_PALETTES) },
+    { L"Gen (Crane Stance)", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GENCRANESTANCE_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_GENCRANESTANCE_SELECTPORTRAIT_PALETTES) },
+    { L"Sodom (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SODOMXISM_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_SODOMXISM_SELECTPORTRAIT_PALETTES) },
+    { L"Balrog", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BALROG_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_BALROG_SELECTPORTRAIT_PALETTES) },
+    { L"Cammy", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CAMMY_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_CAMMY_SELECTPORTRAIT_PALETTES) },
+    { L"Evil Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_S_EVILRYU_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_EVILRYU_SELECTPORTRAIT_PALETTES) },
+    { L"E. Honda", DESC_NODETYPE_TREE, (void*)SFZ3U_S_EHONDA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_EHONDA_SELECTPORTRAIT_PALETTES) },
+    { L"Blanka", DESC_NODETYPE_TREE, (void*)SFZ3U_S_BLANKA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_BLANKA_SELECTPORTRAIT_PALETTES) },
+    { L"R. Mika", DESC_NODETYPE_TREE, (void*)SFZ3U_S_RMIKA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_RMIKA_SELECTPORTRAIT_PALETTES) },
+    { L"Cody", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CODY_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_CODY_SELECTPORTRAIT_PALETTES) },
+    { L"Vega", DESC_NODETYPE_TREE, (void*)SFZ3U_S_VEGA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_VEGA_SELECTPORTRAIT_PALETTES) },
+    { L"Karin", DESC_NODETYPE_TREE, (void*)SFZ3U_S_KARIN_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_KARIN_SELECTPORTRAIT_PALETTES) },
+    { L"Juli", DESC_NODETYPE_TREE, (void*)SFZ3U_S_JULI_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_JULI_SELECTPORTRAIT_PALETTES) },
+    { L"Juni", DESC_NODETYPE_TREE, (void*)SFZ3U_S_JUNI_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_JUNI_SELECTPORTRAIT_PALETTES) },
+    { L"Guile", DESC_NODETYPE_TREE, (void*)SFZ3U_S_GUILE_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_GUILE_SELECTPORTRAIT_PALETTES) },
+    { L"Fei Long", DESC_NODETYPE_TREE, (void*)SFZ3U_S_FEILONG_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_FEILONG_SELECTPORTRAIT_PALETTES) },
+    { L"Dee Jay", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DEEJAY_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_DEEJAY_SELECTPORTRAIT_PALETTES) },
+    { L"T-Hawk", DESC_NODETYPE_TREE, (void*)SFZ3U_S_THAWK_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_THAWK_SELECTPORTRAIT_PALETTES) },
+    { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SHINAKUMA_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_SHINAKUMA_SELECTPORTRAIT_PALETTES) },
+
+    { L"Eagle", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_EAGLE_SELECTPORTRAIT_PALETTES) },
+    { L"Maki", DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_MAKI_SELECTPORTRAIT_PALETTES) },
+    { L"Yun", DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_YUN_SELECTPORTRAIT_PALETTES) },
+    { L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_SELECTPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_INGRID_SELECTPORTRAIT_PALETTES) },
+};
+
 const sDescTreeNode SFZ3U_S_INTROPORTRAITS_COLLECTION[] =
 {
     { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_S_RYU_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_RYU_INTROPORTRAIT_PALETTES) },
@@ -5170,6 +6243,53 @@ const sDescTreeNode SFZ3U_S_INTROPORTRAITS_COLLECTION[] =
     { L"Dee Jay", DESC_NODETYPE_TREE, (void*)SFZ3U_S_DEEJAY_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_DEEJAY_INTROPORTRAIT_PALETTES) },
     { L"T-Hawk", DESC_NODETYPE_TREE, (void*)SFZ3U_S_THAWK_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_THAWK_INTROPORTRAIT_PALETTES) },
     { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_S_SHINAKUMA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3U_S_SHINAKUMA_INTROPORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode SFZ3M_S_INTROPORTRAITS_COLLECTION[] =
+{
+    { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3M_S_RYU_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_RYU_INTROPORTRAIT_PALETTES) },
+    { L"Ken", DESC_NODETYPE_TREE, (void*)SFZ3M_S_KEN_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_KEN_INTROPORTRAIT_PALETTES) },
+    { L"Akuma", DESC_NODETYPE_TREE, (void*)SFZ3M_S_AKUMA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_AKUMA_INTROPORTRAIT_PALETTES) },
+    { L"Charlie", DESC_NODETYPE_TREE, (void*)SFZ3M_S_CHARLIE_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_CHARLIE_INTROPORTRAIT_PALETTES) },
+    { L"Chun Li", DESC_NODETYPE_TREE, (void*)SFZ3M_S_CHUNLI_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_CHUNLI_INTROPORTRAIT_PALETTES) },
+    { L"Adon", DESC_NODETYPE_TREE, (void*)SFZ3M_S_ADON_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_ADON_INTROPORTRAIT_PALETTES) },
+    { L"Sodom", DESC_NODETYPE_TREE, (void*)SFZ3M_S_SODOM_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_SODOM_INTROPORTRAIT_PALETTES) },
+    { L"Guy", DESC_NODETYPE_TREE, (void*)SFZ3M_S_GUY_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_GUY_INTROPORTRAIT_PALETTES) },
+    { L"Birdie", DESC_NODETYPE_TREE, (void*)SFZ3M_S_BIRDIE_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_BIRDIE_INTROPORTRAIT_PALETTES) },
+    { L"Rose", DESC_NODETYPE_TREE, (void*)SFZ3M_S_ROSE_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_ROSE_INTROPORTRAIT_PALETTES) },
+    { L"M.Bison", DESC_NODETYPE_TREE, (void*)SFZ3M_S_BISON_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_BISON_INTROPORTRAIT_PALETTES) },
+    { L"Sagat", DESC_NODETYPE_TREE, (void*)SFZ3M_S_SAGAT_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_SAGAT_INTROPORTRAIT_PALETTES) },
+    { L"Dan", DESC_NODETYPE_TREE, (void*)SFZ3M_S_DAN_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_DAN_INTROPORTRAIT_PALETTES) },
+    { L"Sakura", DESC_NODETYPE_TREE, (void*)SFZ3M_S_SAKURA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_SAKURA_INTROPORTRAIT_PALETTES) },
+    { L"Rolento", DESC_NODETYPE_TREE, (void*)SFZ3M_S_ROLENTO_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_ROLENTO_INTROPORTRAIT_PALETTES) },
+    { L"Dhalsim", DESC_NODETYPE_TREE, (void*)SFZ3M_S_DHALSIM_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_DHALSIM_INTROPORTRAIT_PALETTES) },
+    { L"Zangief", DESC_NODETYPE_TREE, (void*)SFZ3M_S_ZANGIEF_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_ZANGIEF_INTROPORTRAIT_PALETTES) },
+    { L"Gen", DESC_NODETYPE_TREE, (void*)SFZ3M_S_GEN_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_GEN_INTROPORTRAIT_PALETTES) },
+    { L"Chun-Li (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3M_S_CHUNLIXISM_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_CHUNLIXISM_INTROPORTRAIT_PALETTES) },
+    { L"Sodom (X-Ism)", DESC_NODETYPE_TREE, (void*)SFZ3M_S_SODOMXISM_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_SODOMXISM_INTROPORTRAIT_PALETTES) },
+    { L"Balrog", DESC_NODETYPE_TREE, (void*)SFZ3M_S_BALROG_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_BALROG_INTROPORTRAIT_PALETTES) },
+    { L"Cammy", DESC_NODETYPE_TREE, (void*)SFZ3M_S_CAMMY_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_CAMMY_INTROPORTRAIT_PALETTES) },
+    { L"Evil Ryu", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EVILRYU_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_EVILRYU_INTROPORTRAIT_PALETTES) },
+    { L"E. Honda", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EHONDA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_EHONDA_INTROPORTRAIT_PALETTES) },
+    { L"Blanka", DESC_NODETYPE_TREE, (void*)SFZ3M_S_BLANKA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_BLANKA_INTROPORTRAIT_PALETTES) },
+    { L"R. Mika", DESC_NODETYPE_TREE, (void*)SFZ3M_S_RMIKA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_RMIKA_INTROPORTRAIT_PALETTES) },
+    { L"Cody", DESC_NODETYPE_TREE, (void*)SFZ3M_S_CODY_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_CODY_INTROPORTRAIT_PALETTES) },
+    { L"Vega", DESC_NODETYPE_TREE, (void*)SFZ3M_S_VEGA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_VEGA_INTROPORTRAIT_PALETTES) },
+    { L"Karin", DESC_NODETYPE_TREE, (void*)SFZ3M_S_KARIN_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_KARIN_INTROPORTRAIT_PALETTES) },
+    { L"Juli", DESC_NODETYPE_TREE, (void*)SFZ3M_S_JULI_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_JULI_INTROPORTRAIT_PALETTES) },
+    { L"Juni", DESC_NODETYPE_TREE, (void*)SFZ3M_S_JUNI_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_JUNI_INTROPORTRAIT_PALETTES) },
+    { L"Guile", DESC_NODETYPE_TREE, (void*)SFZ3M_S_GUILE_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_GUILE_INTROPORTRAIT_PALETTES) },
+    { L"Fei Long", DESC_NODETYPE_TREE, (void*)SFZ3M_S_FEILONG_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_FEILONG_INTROPORTRAIT_PALETTES) },
+    { L"Dee Jay", DESC_NODETYPE_TREE, (void*)SFZ3M_S_DEEJAY_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_DEEJAY_INTROPORTRAIT_PALETTES) },
+    { L"T-Hawk", DESC_NODETYPE_TREE, (void*)SFZ3M_S_THAWK_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_THAWK_INTROPORTRAIT_PALETTES) },
+    { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3M_S_SHINAKUMA_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_SHINAKUMA_INTROPORTRAIT_PALETTES) },
+    
+    // Max-unique
+    { L"Eagle", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_EAGLE_INTROPORTRAIT_PALETTES) },
+    { L"Maki", DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_MAKI_INTROPORTRAIT_PALETTES) },
+    { L"Yun", DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_YUN_INTROPORTRAIT_PALETTES) },
+    { L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES) },
+
 };
 
 const sDescTreeNode SFZ3U_A_BONUS_COLLECTION[] =
@@ -5588,19 +6708,15 @@ const sDescTreeNode SFZ3M_S_UNITS[] =
     { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SFZ3U_A_SHINAKUMA_COLLECTION, ARRAYSIZE(SFZ3U_A_SHINAKUMA_COLLECTION) },
     { L"Balrog", DESC_NODETYPE_TREE, (void*)SFZ3U_A_BALROGFINISHED_COLLECTION, ARRAYSIZE(SFZ3U_A_BALROGFINISHED_COLLECTION) },
 
-    // maki
-    // eagle
     { L"Eagle", DESC_NODETYPE_TREE, (void*)SFZ3M_S_EAGLE_COLLECTION, ARRAYSIZE(SFZ3M_S_EAGLE_COLLECTION) },
     { L"Maki", DESC_NODETYPE_TREE, (void*)SFZ3M_S_MAKI_COLLECTION, ARRAYSIZE(SFZ3M_S_MAKI_COLLECTION) },
     { L"Yun", DESC_NODETYPE_TREE, (void*)SFZ3M_S_YUN_COLLECTION, ARRAYSIZE(SFZ3M_S_YUN_COLLECTION) },
     { L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_COLLECTION, ARRAYSIZE(SFZ3M_S_INGRID_COLLECTION) },
 
-
-    { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_PORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_PORTRAITS_COLLECTION) },
-    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_INTROPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_INTROPORTRAITS_COLLECTION) },
-    { L"Character Select Palettes", DESC_NODETYPE_TREE, (void*)SFZ3U_S_CHARASCREEN_COLLECTION, ARRAYSIZE(SFZ3U_S_CHARASCREEN_COLLECTION) },
-    // We forked Win Portraits to handle the NAOMI vs Steam sub-shifts
-    { L"Win Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_WINPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_WINPORTRAITS_COLLECTION) },
+    { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFZ3M_S_PORTRAITS_COLLECTION, ARRAYSIZE(SFZ3M_S_PORTRAITS_COLLECTION) },
+    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INTROPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3M_S_INTROPORTRAITS_COLLECTION) },
+    { L"Character Select Palettes", DESC_NODETYPE_TREE, (void*)SFZ3M_S_CHARASCREEN_COLLECTION, ARRAYSIZE(SFZ3M_S_CHARASCREEN_COLLECTION) },
+    { L"Win Portraits", DESC_NODETYPE_TREE, (void*)SFZ3M_S_WINPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3M_S_WINPORTRAITS_COLLECTION) },
 
     { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION) },
 };

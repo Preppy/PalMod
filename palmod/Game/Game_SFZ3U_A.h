@@ -216,8 +216,8 @@ private:
         SFZ3M_S_UNITS,
         ARRAYSIZE(SFZ3M_S_UNITS),
         L"SFZ3MSE.txt",            // Extra filename
-        2344,                      // Count of palettes listed in the header
-        0x197180,                  // Lowest known location used for palettes
+        2440,                      // Count of palettes listed in the header
+        0x84a180,                  // Lowest known location used for palettes
     };
 
     std::array<int32_t, ARRAYSIZE(SFZ3M_S_UNITS)> m_activeSteamShiftTable =
@@ -271,10 +271,18 @@ private:
         // ingrid
         0,
 
+        // The 4 Max characters are tacked on here using "old" locations to account for the shift
         /* select portraits */      0x199940 - 0x84c940,
-        /* intro palettes */        0x4c1aac0 - 0x2c072c0,
+        
+        // Intro portraits had to be forked for Max
+        /* intro palettes */        0,
+
+        // The 4 Max characters are tacked on here using "old" locations to account for the shift
         /* charsel portraits */     0x1a0840 - 0x854740,
-        /* win portraits */         0x51d7840 - 0x2a521c0,
+        
+        // Win portraits had to be forked for Max
+        /* win portraits */         0,
+
         /* bonus */                 0x8c1b940 - 0x84a180,
     };
 
