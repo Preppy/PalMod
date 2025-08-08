@@ -216,7 +216,7 @@ private:
         SFZ3M_S_UNITS,
         ARRAYSIZE(SFZ3M_S_UNITS),
         L"SFZ3MSE.txt",            // Extra filename
-        3136,                      // Count of palettes listed in the header
+        3154,                      // Count of palettes listed in the header
         0x84a180,                  // Lowest known location used for palettes
     };
 
@@ -275,14 +275,15 @@ private:
         // these are the JPN locations
         /* select portraits */      0x199940 - 0x84c940,
         /* select palettes */       0x1a0840 - 0x854740,
-        // Win portraits had to be forked for Max
-        /* win portraits */         0x2a521c0 - 0x32af040, // JPN
+        // Win portraits.  Forked for Max *and* different between JPN/US
+        /* win portraits */         0, // JPN.  Range starts at 0x32af040
 
         // these are the USA locations: note we're using the same units again, just re-shifted
         /* select portraits */      0x199940 - 0xa5f140,
         /* select palettes */       0x1a0840 - 0xa66f40,
-        // Win portraits had to be forked for Max
-        /* win portraits */         0, // USA
+        // Win portraits.  Forked for Max *and* different between JPN/US
+        // Note US doesn't contain the Eagle / Maki / Yun apparently
+        /* win portraits */         0, // USA.  Range starts at 0x2a521c0
 
         // Intro portraits had to be forked for Max
         /* intro palettes */        0,
