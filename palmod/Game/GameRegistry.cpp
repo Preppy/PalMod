@@ -174,12 +174,13 @@
 #include "Game_VSAV2_A.h"
 #include "Game_WakuWaku7_A.h"
 #include "Game_Windjammers_A.h"
+#include "Game_WorldHeroesPerfect_A.h"
 #include "Game_XMMA_SNES.h"
 #include "Game_XMVSF_A.h"
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 247, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 248, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -418,6 +419,7 @@ namespace KnownGameInfo
     CGameClass* Make_VSAV2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_S(nConfirmedROMSize); }
     CGameClass* Make_WakuWaku7_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_A(nConfirmedROMSize); }
     CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Windjammers_A(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroesPerfect_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_A(nConfirmedROMSize); }
     CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_A(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_P(nConfirmedROMSize); }
@@ -2281,6 +2283,13 @@ namespace KnownGameInfo
             CGame_Windjammers_A::GetRule,
         },
         {
+            WorldHeroesPerfect_A,
+            L"World Heroes Perfect (Neo-Geo)",
+            { WorldHeroesPerfect_A, L"World Heroes Perfect", L"World Heroes Perfect|090-p1.*|", GamePlatform::NEOGEO },
+            Make_WorldHeroesPerfect_A,
+            CGame_WorldHeroesPerfect_A::GetRule,
+        },
+        {
             XMMA_SNES,
             L"X-Men: Mutant Apocalypse (SNES)",
             { XMMA_SNES,        L"X-Men: Mutant Apocalypse", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -2321,7 +2330,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 247, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 248, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

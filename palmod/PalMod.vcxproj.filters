@@ -604,6 +604,9 @@
     <Filter Include="Games\Capcom Games\Punisher %28Arcade%29">
       <UniqueIdentifier>{9fdd6cfb-62d8-4219-86a9-62b61a43aa9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\World Heroes Perfect">
+      <UniqueIdentifier>{955195cd-aefa-4b5a-a6f3-98eb4b106fe5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2152,6 +2155,12 @@
     </ClInclude>
     <ClInclude Include="Game\Punisher_A_DEF.h">
       <Filter>Games\Capcom Games\Punisher %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\WorldHeroesPerfect_A_DEF.h">
+      <Filter>Games\SNK Games\World Heroes Perfect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_WorldHeroesPerfect_A.h">
+      <Filter>Games\SNK Games\World Heroes Perfect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
