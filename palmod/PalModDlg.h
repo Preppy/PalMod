@@ -126,7 +126,7 @@ private:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert(static_cast<ColMode>(30) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
 
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
@@ -164,6 +164,7 @@ private:
     void SetColorFormatToRGBA8888_LE() { SetColorFormatTo(ColMode::COLMODE_RGBA8888_LE); };
     void SetColorFormatToBGRA8888_BE() { SetColorFormatTo(ColMode::COLMODE_BGRA8888_BE); };
     void SetColorFormatToBGRA8888_LE() { SetColorFormatTo(ColMode::COLMODE_BGRA8888_LE); };
+    void SetColorFormatToRBGA8888_LE() { SetColorFormatTo(ColMode::COLMODE_RBGA8888_LE); };
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption);
     void SetMaximumWriteTo16Colors() { SetMaximumWritePerEachTransparency(PALWriteOutputOptions::WRITE_16); };

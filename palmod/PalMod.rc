@@ -682,6 +682,7 @@ BEGIN
             BEGIN
                 MENUITEM "BGRA8888 (little endian)",    ID_COLORFORMAT_BGRA8888_LE
                 MENUITEM "BGRA8888 (big endian for PS3)", ID_COLORFORMAT_BGRA8888_BE
+                MENUITEM "RBGA8888 (little endian)",    ID_COLORFORMAT_RBGA8888_LE
                 MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_RGBA8881
                 MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_RGBA8887
                 MENUITEM "RGBA8888 (little endian)",    ID_COLORFORMAT_RGBA8888_LE

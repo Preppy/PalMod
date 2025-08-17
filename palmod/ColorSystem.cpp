@@ -85,6 +85,7 @@ namespace ColorSystem
         case ColMode::COLMODE_RGBA8888_LE:
         case ColMode::COLMODE_BGRA8888_BE:
         case ColMode::COLMODE_BGRA8888_LE:
+        case ColMode::COLMODE_RBGA8888_LE:
             return 4;
         }
 
@@ -121,9 +122,10 @@ namespace ColorSystem
         { "BRG444", ColMode::COLMODE_BRG444 },
         { "RGB444", ColMode::COLMODE_RBG444 },
         { "BRG888", ColMode::COLMODE_BRG888 },
-        { "xBGR555LE", ColMode::COLMODE_xBGR555_LE },            // Different packing used by Sega Saturn, Asura Buster / Fuuki
-        { "BRG555LE", ColMode::COLMODE_BRG555_LE },              // BRG555 little endian, used by Fists of Fury
+        { "xBGR555LE", ColMode::COLMODE_xBGR555_LE },           // Different packing used by Sega Saturn, Asura Buster / Fuuki
+        { "BRG555LE", ColMode::COLMODE_BRG555_LE },             // BRG555 little endian, used by Fists of Fury
         { "RGB555LE_Normal", ColMode::COLMODE_RGB555_LE_NORMAL }, // RGB555 little endian (non-true-CPS3, or 555 on a 32bit display)
+        { "RBGA888_LE", ColMode::COLMODE_RBGA8888_LE },         // 32bit variant used for Fighters History
     };
 
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
@@ -375,6 +377,7 @@ namespace ColorSystem
         case ColMode::COLMODE_BRG888:
         case ColMode::COLMODE_GRB888:
         case ColMode::COLMODE_RGB888:
+        case ColMode::COLMODE_RBGA8888_LE:
             return k_nRGBPlaneAmtForRGB888;
         default:
             OutputDebugString(L"ERROR: unsupported color mode in GetPlaneAmtForColor.\r\n");
@@ -1366,6 +1369,46 @@ namespace ColorSystem
         //auxr = auxr;
         auxg = auxg << 8;
         auxb = auxb << 16;
+        auxa = auxa << 24;
+
+        return (auxb | auxg | auxr | auxa);
+    }
+
+    uint32_t CONV_RBGA8888LE_32(uint32_t inCol)
+    {
+        uint32_t auxg = GetBValue(inCol);
+        uint32_t auxb = GetGValue(inCol);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxa = GetAValue(inCol);
+
+        if (!IsAlphaModeMutable(CurrAlphaMode))
+        {
+            auxa = 0xFF;
+        }
+
+        //auxr = auxr;
+        auxg = auxg << 8;
+        auxb = auxb << 16;
+        auxa = auxa << 24;
+
+        return (auxb | auxg | auxr | auxa);
+    }
+
+    uint32_t CONV_32_RBGA8888LE(uint32_t inCol)
+    {
+        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
+
+        if (!IsAlphaModeMutable(CurrAlphaMode))
+        {
+            auxa = 0xff;
+        }
+
+        //auxr = auxr;
+        auxb = auxb << 8;
+        auxg = auxg << 16;
         auxa = auxa << 24;
 
         return (auxb | auxg | auxr | auxa);

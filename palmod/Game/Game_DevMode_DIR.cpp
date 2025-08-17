@@ -630,11 +630,13 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
     // ID_COLORFORMAT_BGR555_BE
     // ID_COLORFORMAT_xBGR555_LE
     // ID_COLORFORMAT_BRG555_LE
+    // ID_COLORFORMAT_GRB555_BE
+    // ID_COLORFORMAT_RBGA8888_LE
     // I am explicitly and needlessly listing out all of those string IDs because Visual Studio search sometimes misses the color modes below,
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     // Update this check once you've decided whether to expose the new color or not.
-    static_assert(static_cast<ColMode>(30) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+    static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
 
     switch (NewMode)
     {
@@ -685,6 +687,7 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
         case ColMode::COLMODE_RGBA8888_LE:
         case ColMode::COLMODE_BGRA8888_BE:
         case ColMode::COLMODE_BGRA8888_LE:
+        case ColMode::COLMODE_RBGA8888_LE:
             cbRequiredColorSize = 4;
             suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
             m_fGameUsesAlphaValue = true;

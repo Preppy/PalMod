@@ -416,13 +416,14 @@
 #define ID_ACC_SNIFFPASTE15             32972
 #define ID_SETTINGS_PREVIEWFALLBACK     32973
 #define ID_LOADDIRECTORY_SFA3MAX        32974
+#define ID_COLORFORMAT_RBGA8888_LE      32975
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32975
+#define _APS_NEXT_COMMAND_VALUE         32976
 #define _APS_NEXT_CONTROL_VALUE         1112
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

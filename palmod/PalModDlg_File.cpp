@@ -288,7 +288,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         PALWriteOutputOptions currWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
         canChangeAlpha = canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
 
-        static_assert(static_cast<ColMode>(30) == ColMode::COLMODE_LAST, "New color formats need checking/unchecking in the menus here.");
+        static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats need checking/unchecking in the menus here.");
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR333) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RBG333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RBG333) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB333) ? MF_CHECKED : MF_UNCHECKED));
@@ -324,7 +324,8 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8888_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBA8888_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRA8888_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRA8888_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRA8888_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRA8888_LE) ? MF_CHECKED : MF_UNCHECKED));
-
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RBGA8888_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RBGA8888_LE) ? MF_CHECKED : MF_UNCHECKED));
+        
         // There's no allowance for alpha with NEOGEO colors, nor with 24-bit color
         canChangeAlpha = canChangeAlpha && ColorSystem::CouldColorModeHaveAlpha(currColMode);
 
@@ -374,7 +375,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         }
     }
 
-    static_assert(static_cast<ColMode>(30) == ColMode::COLMODE_LAST, "New color formats need enabling/disabling in the menus here.");
+    static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats need enabling/disabling in the menus here.");
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RBG333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB333_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
@@ -405,6 +406,7 @@ void CPalModDlg::UpdateColorFormatMenu()
 
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8881, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8887, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RBGA8888_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8888_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8888_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGRA8888_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);

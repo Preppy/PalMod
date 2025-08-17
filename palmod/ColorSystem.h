@@ -58,6 +58,7 @@ enum class ColMode
     COLMODE_BRG555_LE,      // used by Fists of Fury
     COLMODE_GRB555_BE,      // GRB555 big endian: added for a game that didn't need it, so unused
     COLMODE_RGB555_LE_NORMAL, // RGB555 little endian (Normal, non-CPS3)
+    COLMODE_RBGA8888_LE,    // 32bit color used for Fighters History
 
     COLMODE_LAST,
 };
@@ -145,6 +146,8 @@ namespace ColorSystem
     uint32_t CONV_BGRA8888BE_32(uint32_t inCol);
     uint32_t CONV_32_BGRA8888LE(uint32_t inCol);
     uint32_t CONV_BGRA8888LE_32(uint32_t inCol);
+    uint32_t CONV_32_RBGA8888LE(uint32_t inCol);
+    uint32_t CONV_RBGA8888LE_32(uint32_t inCol);
 
     int GetColorStepFor8BitValue_1Step(int nColorValue);
     int Get8BitValueForColorStep_1Step(int nColorStep);
