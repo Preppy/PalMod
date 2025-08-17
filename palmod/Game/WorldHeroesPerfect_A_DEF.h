@@ -286,14 +286,13 @@ const sDescTreeNode WorldHeroesPerfect_A_Brocken_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE,   (void*)WorldHeroesPerfect_A_Brocken_A_PALETTES, ARRAYSIZE(WorldHeroesPerfect_A_Brocken_A_PALETTES) },
     { L"D", DESC_NODETYPE_TREE,   (void*)WorldHeroesPerfect_A_Brocken_D_PALETTES, ARRAYSIZE(WorldHeroesPerfect_A_Brocken_D_PALETTES) },
-    { L"Shared", DESC_NODETYPE_TREE, (void*)WorldHeroesPerfect_A_Rasputin_Shared_PALETTES, ARRAYSIZE(WorldHeroesPerfect_A_Rasputin_Shared_PALETTES) },
-    
 };
 
 const sDescTreeNode WorldHeroesPerfect_A_Rasputin_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE,   (void*)WorldHeroesPerfect_A_Rasputin_A_PALETTES, ARRAYSIZE(WorldHeroesPerfect_A_Rasputin_A_PALETTES) },
     { L"D", DESC_NODETYPE_TREE,   (void*)WorldHeroesPerfect_A_Rasputin_D_PALETTES, ARRAYSIZE(WorldHeroesPerfect_A_Rasputin_D_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)WorldHeroesPerfect_A_Rasputin_Shared_PALETTES, ARRAYSIZE(WorldHeroesPerfect_A_Rasputin_Shared_PALETTES) },
 };
 
 const sDescTreeNode WorldHeroesPerfect_A_Shura_COLLECTION[] =
