@@ -388,8 +388,8 @@ private:
         /* intro palettes */        0,
 
 
-        /* bonus */                 0x8c1b940 - 0x84a180,
 #endif
+        /* bonus */                 0x8c1b940 - 0xb6940, // Note that this is just Select screen palettes which makes our life way easier
     };
 
 public:
