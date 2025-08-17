@@ -259,3 +259,28 @@ void CGame_SFZ3M_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
+
+void CGame_SFA3MAX_PSP_DIR::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+{
+    if (nUnitId != m_nExtraUnit)
+    {
+        int cbPaletteSizeOnDisc = 0;
+        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
+
+        if (paletteData)
+        {
+            cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
+
+            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            m_nCurrentPaletteROMLocation -= m_activePSPShiftTable.at(nUnitId);
+        }
+        else
+        {
+            // A bogus palette was requested: this is unrecoverable.
+            DebugBreak();
+        }
+    }
+}

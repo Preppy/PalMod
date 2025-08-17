@@ -575,6 +575,7 @@ BEGIN
                 MENUITEM "Red Earth / Warzard (Arcade, Characters)", ID_LOADDIRECTORY_REDEARTH_31
                 MENUITEM "Red Earth / Warzard (Arcade, Coming Next)", ID_LOADDIRECTORY_REDEARTH_50
             END
+            MENUITEM "Street Fighter Alpha 3 MAX (PSP)", ID_LOADDIRECTORY_SFA3MAX
             POPUP "Street Fighter III"
             BEGIN
                 MENUITEM "New Generation (Arcade)",     ID_LD_SFIII1

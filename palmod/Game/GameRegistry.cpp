@@ -179,7 +179,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 246, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 247, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -365,6 +365,7 @@ namespace KnownGameInfo
     CGameClass* Make_SFA2_Hack_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA2_A(nConfirmedROMSize); }
     CGameClass* Make_SFA3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_A(nConfirmedROMSize); }
     CGameClass* Make_SFA3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_S(nConfirmedROMSize); }
+    CGameClass* Make_SFA3MAX_PSP_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3MAX_PSP_DIR(nConfirmedROMSize); }
     CGameClass* Make_SFIII1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A(nConfirmedROMSize); }
     CGameClass* Make_SFIII1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII1_NG); }
     CGameClass* Make_SFIII1_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A_DIR(nConfirmedROMSize); }
@@ -1792,6 +1793,16 @@ namespace KnownGameInfo
             Make_SFA3_A,
             CGame_SFA3_A::GetRule,
         },
+        { 
+            SFA3MAX_PSP_D,
+            L"SFA3 MAX (PSP)",
+            {},
+            Make_SFA3MAX_PSP_DIR,
+            CGame_SFA3MAX_PSP_DIR::GetRule,
+            CGame_SFA3MAX_PSP_DIR::GetNextRule,
+            CGame_SFA3MAX_PSP_DIR::GetRuleCtr,
+            CGame_SFA3MAX_PSP_DIR::ResetRuleCtr,
+        },
         {
             SFA3_S,
             L"SFA3 (Steam)",
@@ -2310,7 +2321,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 246, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 247, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 246, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 247, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -133,6 +133,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             break;
         case REDEARTH_A_DIR_31:
             pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
+            break;
+        case SFA3MAX_PSP_D:
+            pszExtraInfo = L"We need the PL*.PAC files from USRDIR\\usa\\data.";
             break;
         case SFIII3_D:
             pszExtraInfo = L"We need the PLxxPL.bin files from the game image.\nFor the PS3 version, select the \"Colors\" folder under \"NPUB30301-RTM\\USRDIR\".";

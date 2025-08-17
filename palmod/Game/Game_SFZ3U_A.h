@@ -1,5 +1,6 @@
 #pragma once
 #include "GameClassByDir.h"
+#include "GameClassByFile.h"
 #include "SFZ3U_A_DEF.h"
 
 class CGame_SFZ3U_A : public CGameClassByDir
@@ -298,4 +299,105 @@ public:
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};
+
+class CGame_SFA3MAX_PSP_DIR : public CGameClassByFile
+{
+private:
+    const sGCBF_CoreGameData m_sCoreGameData
+    {
+        L"Street Fighter Alpha 3 MAX (PSP)",
+        SFA3MAX_PSP_D,
+        IMGDAT_SECTION_CPS2,
+        SFZ3M_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        DEF_BUTTONLABEL_ISMS,
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_BGR555_LE,
+        SFA3MAX_PSP_UNITS,
+    };
+
+    std::array<int32_t, ARRAYSIZE(SFZ3M_S_UNITS)> m_activePSPShiftTable =
+    {
+        /* Ryu */                   0x5ff0000 - 0x9b000,
+        /* Ken */                   0x60bd800 - 0x82000,
+        /* Akuma */                 0x61b7000 - 0x9a800,
+        /* Charlie */               0x634b000 - 0x84800,
+        /* Chun-Li */               0x6428000 - 0x86000,
+        /* Adon */                  0x65d7000 - 0x92800,
+        /* Sodom */                 0x66de000 - 0xa2000,
+        /* Guy */                   0x68bd000 - 0x78800,
+        /* Birdie */                0x69d4000 - 0xb7800,
+
+        /* Rose */                  0x6b01000 - 0xb9800,
+        /* M.Bison */               0x6c3d000 - 0xcd800, // file 0a
+        /* Sagat */                 0x6d43800 - 0x96800,
+        /* Dan */                   0x6e09800 - 0x62000, // 0c
+        /* Sakura */                0x6f54000 - 0xcd000,
+        /* Rolento */               0x7076800 - 0xb3800, // 0e
+        /* Dhalsim */               0x7190000 - 0xb5800,
+        /* Zangief */               0x732c000 - 0x118000, // 10
+        /* Gen */                   0x7451000 - 0xbd000,
+        /* Chun-Li (X-Ism) */       0x64eb000 - 0x88800, // 12
+        /* Gen (Crane stance) */    0x7546800 - 0xbd000,
+        /* Sodom (X-Ism) */         0x67ec000 - 0xce800, // 14
+        /* Balrog */                0x75fd000 - 0x67000,
+        /* Cammy */                 0x77ee000 - 0xa3000, // 16
+        /* Evil Ryu */              0x791e000 - 0xd0800,
+        /* E.Honda */               0x7a0b800 - 0x9b800, // 18
+        /* Blanka */                0x7b8a800 - 0xf7800,
+        /* R.Mika */                0x7d0e800 - 0x100000, // 1a
+        /* Cody */                  0x7e78000 - 0xf2000,
+        /* Vega */                  0x7fb4000 - 0xdd800, // 1c
+        /* Karin */                 0x80eb000 - 0xc8000,
+        /* Juli */                  0x820f800 - 0xab800, // 1e
+        /* Juni */                  0x831e000 - 0xb2000,
+        /* Guile */                 0x8444000 - 0xc4800, // 20
+        /* Fei Long */              0x8562000 - 0xa7800,
+        /* Dee Jay */               0x8660000 - 0xa4800, // 22
+        /* T-Hawk */                0x87b6800 - 0xd4000,
+        /* Shin Akuma */            0x627b000 - 0x9a800, // 24
+        /* Balrog (Finished) */     0x76ec000 - 0xae800,
+
+        // eagle: 0x856400
+        0x82ea040 - 0x12c800, // 26
+        // maki: 0x840f980
+        0x840f840 - 0x11a000,
+        // yun: 0x8561980
+        0x8561840 - 0x145800, // 28
+        // ingrid
+        0x86da840 - 0x171800,
+
+#ifdef FOUND
+        // The 4 Max characters are tacked on here using "old" locations to account for the shift
+        // these are the JPN locations
+        /* select portraits */      0x199940 - 0x84c940,
+        /* select palettes */       0x1a0840 - 0x854740,
+        // Win portraits.  Forked for Max *and* different between JPN/US
+        /* win portraits */         0, // JPN.  Range starts at 0x32af040
+
+        // these are the USA locations: note we're using the same units again, just re-shifted
+        /* select portraits */      0x199940 - 0xa5f140,
+        /* select palettes */       0x1a0840 - 0xa66f40,
+        // Win portraits.  Forked for Max *and* different between JPN/US
+        // Note US doesn't contain the Eagle / Maki / Yun apparently
+        /* win portraits */         0, // USA.  Range starts at 0x2a521c0
+
+        // Intro portraits had to be forked for Max
+        /* intro palettes */        0,
+
+
+        /* bonus */                 0x8c1b940 - 0x84a180,
+#endif
+    };
+
+public:
+    CGame_SFA3MAX_PSP_DIR(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    ~CGame_SFA3MAX_PSP_DIR() { ClearDataBuffer(); FlushChangeTrackingArray(); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByFile::GetRule(nRuleId, SFA3MAX_PSP_UNITS); };
+    static sFileRule GetNextRule() { return CGameClassByFile::GetNextRule(SFA3MAX_PSP_UNITS); };
 };
