@@ -908,6 +908,7 @@ void CPalModDlg::SetSliderDescEdit()
     UpdateData(FALSE);
 }
 
+// color picker
 void CPalModDlg::OnBnNewCol()
 {
     CColorDialog* ColorDlg = nullptr;
@@ -916,7 +917,7 @@ void CPalModDlg::OnBnNewCol()
 
     UpdateData();
 
-    int nAVal = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_Edit_A));
+    const int nAVal = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_Edit_A));
 
     if (nSelAmt > 1)
     {
@@ -952,11 +953,18 @@ void CPalModDlg::OnBnNewCol()
     }
 
     UpdateData(FALSE);
+
     if (ColorDlg->DoModal() == IDOK)
     {
         ProcChange();
 
-        const COLORREF crNewCol = ColorDlg->GetColor();
+        const COLORREF crRawColor = ColorDlg->GetColor();
+        
+        const uint8_t red = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(crRawColor));
+        const uint8_t green = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(crRawColor));
+        const uint8_t blue = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(crRawColor));
+
+        const COLORREF crNewCol = (blue << 16) | (green << 8) | red;
 
         if (nSelAmt == 1)
         {
