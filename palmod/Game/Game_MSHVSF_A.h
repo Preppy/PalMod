@@ -107,7 +107,7 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         MSHVSF_A_UNITS_6A,
         ARRAYSIZE(MSHVSF_A_UNITS_6A),
         L"mshvsf-6ae.txt",      // Extra filename
-        1099,                   // Count of palettes listed in the header
+        1123,                   // Count of palettes listed in the header
         0x56EF2,                // Lowest known location used for palettes
     };
 
@@ -128,7 +128,7 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         ARRAYSIZE(MSHVSF_A_UNITS_MONO),
         L"mshvsfSe.txt",    // Extra filename
         // 06 + 07 parts - the rejoin of CapAm
-        1099 + 228 - 1,         // Count of palettes listed in the header
+        1123 + 228 - 1,         // Count of palettes listed in the header
         0x1d6f32 - 0x180040,    // Lowest known location used for palettes
     };
 
