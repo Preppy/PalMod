@@ -355,6 +355,15 @@ const sGame_PaletteDataset FotNS_P_MAMIYA_PALETTES_EFFECTS[] =
     { L"Spike and Bowgun HUD", 0x368f820, 0x368f840 },
 };
 
+const sGame_PaletteDataset FotNS_P_BONUS_PALETTES_BONUS[] =
+{
+    { L"Font/Time/Low HP lifebar", 0x4c0f020, 0x4c0f040 },
+    { L"HUD", 0x754c864, 0x754c884 },
+    { L"\"DEADLY FIST BLOW\"/Max HP lifebar", 0x754c890, 0x754c8b0 },
+    { L"Stun joystick/notifications", 0x754c8bc, 0x754c8dc },
+    { L"Strikes/Hokuto Stars/Recoverable HP", 0x754c914, 0x754c934 },
+};
+
 const sDescTreeNode FotNS_P_KENSHIRO_COLLECTION[] =
 {
     { L"P", DESC_NODETYPE_TREE, (void*)FotNS_P_KENSHIRO_PALETTES_P, ARRAYSIZE(FotNS_P_KENSHIRO_PALETTES_P) },
@@ -456,6 +465,11 @@ const sDescTreeNode FotNS_P_MAMIYA_COLLECTION[] =
     { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_MAMIYA_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_MAMIYA_PALETTES_EFFECTS) },
 };
 
+const sDescTreeNode FotNS_P_BONUS_COLLECTION[] =
+{
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)FotNS_P_BONUS_PALETTES_BONUS, ARRAYSIZE(FotNS_P_BONUS_PALETTES_BONUS) },
+};
+
 const sDescTreeNode FotNS_P_UNITS[] =
 {
     { L"Kenshiro", DESC_NODETYPE_TREE, (void*)FotNS_P_KENSHIRO_COLLECTION, ARRAYSIZE(FotNS_P_KENSHIRO_COLLECTION) },
@@ -468,4 +482,5 @@ const sDescTreeNode FotNS_P_UNITS[] =
     { L"Thouther", DESC_NODETYPE_TREE, (void*)FotNS_P_THOUTHER_COLLECTION, ARRAYSIZE(FotNS_P_THOUTHER_COLLECTION) },
     { L"Mr. Heart", DESC_NODETYPE_TREE, (void*)FotNS_P_MRHEART_COLLECTION, ARRAYSIZE(FotNS_P_MRHEART_COLLECTION) },
     { L"Mamiya", DESC_NODETYPE_TREE, (void*)FotNS_P_MAMIYA_COLLECTION, ARRAYSIZE(FotNS_P_MAMIYA_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)FotNS_P_BONUS_COLLECTION, ARRAYSIZE(FotNS_P_BONUS_COLLECTION) },
 };

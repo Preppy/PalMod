@@ -13,6 +13,13 @@ private:
         FileReadType::Sequential,
     };
 
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Hokuto no Ken (PS2)", L"hk_b.bin", 0xCAACB262, 0 },
+        // rom size 0x1000000
+        //{ L"Hokuto no Ken (Atomiswave)", L"ax1901m01.ic11", 0xFF5A1642, 0x3000 },
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Hokuto no Ken (PS2)",
@@ -24,12 +31,13 @@ private:
         DEF_BUTTONLABEL_FotNS,
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
+        // atomiswave: ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
-        {},
+        m_rgCRC32Data,
         FotNS_P_UNITS,
         ARRAYSIZE(FotNS_P_UNITS),
         L"HK_BE.txt",           // Extra filename
-        88,                     // Count of palettes listed in the header
+        93,                     // Count of palettes listed in the header
         0x30,                   // Lowest known location used for palettes
     };
 
