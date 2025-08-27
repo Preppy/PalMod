@@ -1604,56 +1604,6 @@ const sGame_PaletteDataset MSHVSF_A_CSP_PALETTES_7B[] =
     { L"Shadow", 0x1d2c, 0x1dac, indexCPS2Sprites_Charlie, indexMSHVSF_VSP },
 };
 
-const sGame_PaletteDataset MSHVSF_A_STAGES_RIVER_PALETTES[] =
-{
-    { L"Background Sky",            0x56EF2, 0x570F2, indexCPS2Sprites_MSHVSFAssets, 0x00, &pairFullyLinkedNode },
-    { L"Background Reflection",     0x570F2, 0x572F2, indexCPS2Sprites_MSHVSFAssets, 0x01 },
-    { L"Ridge Trees",               0x5F552, 0x5F652, indexCPS2Sprites_MSHVSFAssets, 0x02 },
-    { L"Bridge",                    0x5A2F2, 0x5A352, indexCPS2Sprites_MSHVSFAssets, 0x03 },
-    { L"People Crater Water Posts", 0x7846c, 0x7854c, indexCPS2Sprites_MSHVSFAssets, 0x04 },
-    { L"Unknown",                   0x5A4F2, 0x5A6F2 },
-};
-
-const sGame_PaletteDataset MSHVSF_A_STAGES_MALLMAYHEM_PALETTES[] =
-{
-    { L"Mall PL#400.1",                     0x5EC32, 0x5ee32, indexCPS2Sprites_MSHVSFAssets, 0x05, &pairFullyLinkedNode },
-    { L"Mall PL#400.2",                     0x5Ee32, 0x5F032, indexCPS2Sprites_MSHVSFAssets, 0x06 },
-    { L"Mall PL#200.1",                     0x59AF2, 0x59cF2, indexCPS2Sprites_MSHVSFAssets, 0x07 },
-    { L"Mall PL#200.2",                     0x59cF2, 0x59EF2, indexCPS2Sprites_MSHVSFAssets, 0x08 },
-    { L"Mall PL#190 [Megaman]",             0x7926C, 0x7930C, indexCPS2Sprites_MSHVSFAssets, 0x0c },
-    { L"Mall PL#600.1",                     0x63952, 0x63b52, indexCPS2Sprites_MSHVSFAssets, 0x0a },
-    { L"Mall PL#600.2",                     0x63b52, 0x63D52, indexCPS2Sprites_MSHVSFAssets, 0x0b },
-    { L"Mall PL#190 [Spectators LS]",       0x7930C, 0x7934C, indexCPS2Sprites_MSHVSFAssets, 0x09 },
-    { L"Mall PL#190 [RS Sprites: Lady]",    0x7934C, 0x7936C, indexCPS2Sprites_MSHVSFAssets, 0x0d },
-};
-
-const sGame_PaletteDataset MSHVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
-{
-    { L"Death Valley 1 - Sky BG",                               0x573F2, 0x57412, indexCPS2Sprites_MSHVSFAssets, 0x0e, &pairFullyLinkedNode },
-    { L"Death Valley 1 - Mountain MG",                          0x5F972, 0x5F992, indexCPS2Sprites_MSHVSFAssets, 0x0f },
-    { L"Death Valley 1 - Floor/Cave FG",                        0x5A6F2, 0x5A712, indexCPS2Sprites_MSHVSFAssets, 0x10 },
-    { L"Death Valley 1 - CenterPiece FG",                       0x5A752, 0x5A772, indexCPS2Sprites_MSHVSFAssets, 0x11 },
-    { L"Death Valley 1 - Sprites [Beast, Blanka, Fire/Smoke]",  0x7854C, 0x785AC, indexCPS2Sprites_MSHVSFAssets, 0x12 },
-};
-
-const sGame_PaletteDataset MSHVSF_A_STAGES_HILLTOP_PALETTES[] =
-{
-    { L"On the Hilltop - SkyBG",        0x57AF2, 0x57B52 },
-    { L"On the Hilltop - TreeTrunk",    0x5B2F2, 0x5B392 },
-    { L"On the Hilltop - LeavesMG",     0x60612, 0x60672 },
-    { L"On the Hilltop - Base Leaves",  0x787EC, 0x7880C },
-    { L"On the Hilltop - Owls",         0x7882C, 0x7886C },
-//    { L"On the Hilltop PL#200.2 Unknown", 0x57E12, 0x57EB2 },
-};
-
-const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
-{
-    { L"Temple of Fists - Sky BG [PL#600.1]",           0x60152, 0x602B2, indexCPS2Sprites_MSHVSFAssets, 0x13, &pairFullyLinkedNode },
-    { L"Temple of Fists - Floor Buildings [PL#400.1]",  0x5AEF2, 0x5B0F2, indexCPS2Sprites_MSHVSFAssets, 0x14 },
-    { L"Temple of Fists - Big Statue [PL#400.2]",       0x5B0F2, 0x5B2B2, indexCPS2Sprites_MSHVSFAssets, 0x15 },
-    { L"Temple of Fists - Sprites [PL#190]",            0x7870C, 0x787EC, indexCPS2Sprites_MSHVSFAssets, 0x16 },
-};
-
 // Extra - Not Needed v
 //    { L"Temple of Fists - Uknown [PL#600.2]", 0x60472, 0x60552 },
 
@@ -2373,19 +2323,334 @@ const sDescTreeNode MSHVSF_A_7B_BONUS_COLLECTION[] =
     { L"Bonus Palettes", DESC_NODETYPE_TREE,   (void*)MSHVSF_A_BONUS_7bBONUS_PALETTES,    ARRAYSIZE(MSHVSF_A_BONUS_7bBONUS_PALETTES) },
 };
 
+const sGame_PaletteDataset MSHVSF_A_STAGES_APOCALYPSE_PALETTES[] =
+{
+    { L"Sky",                   0x5f032, 0x5f092, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    
+    // these are sets of 3-step cycles until the end of 9
+    { L"Animation Cycles 1/9",  0x55db2, 0x55f92 },
+    { L"Animation Cycles 2/9",  0x55f92, 0x56172 },
+    // this one truncates
+    { L"Animation Cycles 3/9",  0x56172, 0x562f2 },
+
+    { L"Animation Cycles 4/9",  0x56352, 0x56532 },
+    { L"Animation Cycles 5/9",  0x56532, 0x56712 },
+    { L"Animation Cycles 6/9",  0x56712, 0x568f2 },
+    { L"Animation Cycles 7/9",  0x568f2, 0x56ad2 },
+    { L"Animation Cycles 8/9",  0x56ad2, 0x56cb2 },
+    { L"Animation Cycles 9/9",  0x56cb2, 0x56e32 },
+
+    { L"Floor Animation 1 1/3",     0x5f432, 0x5f452 },
+        { L"Floor Animation 1 2/3", 0x5f452, 0x5f472 },
+        { L"Floor Animation 1 3/3", 0x5f472, 0x5f492 },
+    { L"Floor Animation 2 1/3",     0x5f492, 0x5f4b2 },
+        { L"Floor Animation 2 2/3", 0x5f4b2, 0x5f4d2 },
+        { L"Floor Animation 2 3/3", 0x5f4d2, 0x5f4f2 },
+    { L"Floor Animation 3 1/3",     0x5f4f2, 0x5f512 },
+        { L"Floor Animation 3 2/3", 0x5f512, 0x5f532 },
+        { L"Floor Animation 3 3/3", 0x5f532, 0x5f552 },
+    
+    { L"Cells and Floor 1/2",       0x7814c, 0x7834c },
+    { L"Cells and Floor 2/2",       0x7834c, 0x7846c },
+
+    // after sky: lines 4-7 seem like floor animation cycle palettes?
+    { L"Unused? 1",                 0x5f092, 0x5f232 },
+
+    // after the many animation cycles
+    { L"Unused? Animation Cycle",   0x56e32, 0x56ef2 },
+
+    { L"Unused? 2", 0x559b2, 0x55bb2 },
+    { L"Unused? 3", 0x55bb2, 0x55db2 },
+
+    { L"Unused? 4", 0x5f232, 0x5f432 },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_RIVER_PALETTES[] =
+{
+    { L"Background Sky",            0x56EF2, 0x570F2, indexCPS2Sprites_MSHVSFAssets, 0x00, &pairFullyLinkedNode },
+    { L"Background Reflection",     0x570F2, 0x572F2, indexCPS2Sprites_MSHVSFAssets, 0x01 },
+    { L"Ridge Trees",               0x5F552, 0x5F652, indexCPS2Sprites_MSHVSFAssets, 0x02 },
+    { L"Bridge",                    0x5A2F2, 0x5A352, indexCPS2Sprites_MSHVSFAssets, 0x03 },
+    { L"People Crater Water Posts", 0x7846c, 0x7854c, indexCPS2Sprites_MSHVSFAssets, 0x04 },
+    { L"Unknown",                   0x5A4F2, 0x5A6F2 },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
+{
+    { L"Sky BG",                               0x573F2, 0x57412, indexCPS2Sprites_MSHVSFAssets, 0x0e, &pairFullyLinkedNode },
+    { L"Mountain MG",                          0x5F972, 0x5F992, indexCPS2Sprites_MSHVSFAssets, 0x0f },
+    { L"Floor/Cave FG",                        0x5A6F2, 0x5A712, indexCPS2Sprites_MSHVSFAssets, 0x10 },
+    { L"CenterPiece FG",                       0x5A752, 0x5A772, indexCPS2Sprites_MSHVSFAssets, 0x11 },
+    { L"Sprites [Beast, Blanka, Fire/Smoke]",  0x7854C, 0x785AC, indexCPS2Sprites_MSHVSFAssets, 0x12 },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_CATARACT_PALETTES[] =
+{
+    { L"Background",            0x57812, 0x57a12, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background (Unused?)",  0x57a12, 0x57af2 },
+    { L"Middle 1/2",            0x5ab72, 0x5ad72 },
+    { L"Middle 2/2",            0x5ad72, 0x5aef2 },
+    
+    { L"Foreground Plants",     0x5fe92, 0x60092 },
+    { L"Foreground",            0x60092, 0x60152 },
+
+    { L"Sprites?",              0x785ac, 0x7870c },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_HILLTOP_PALETTES[] =
+{
+    { L"Background Sky",            0x57AF2, 0x57B52, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Foreground plants 1/2?",    0x57b52, 0x57d52 },
+    { L"Foreground plants 2/2?",    0x57d52, 0x57ef2 },
+
+    { L"Middle Leaves",             0x605f2, 0x60672 },
+
+    { L"Tree Trunk",                0x5B2F2, 0x5B392 },
+
+    { L"Base Leaves",               0x787EC, 0x7880C },
+    { L"Owls",                      0x7882C, 0x7886C },
+    { L"Unknown 2?",                0x7886c, 0x7888c },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_MANHATTAN_PALETTES[] =
+{
+    { L"Sky",               0x5b972, 0x5b9b2, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Sewer Inset",       0x58172, 0x581b2 },
+
+    { L"Back Sewer Walls",  0x60c32, 0x60d52 },
+
+    { L"Building Skyline and Sewer Walls",  0x5b8f2, 0x5b972 },
+
+    { L"Middle Buildings",                  0x57ef2, 0x57f92 },
+
+    { L"Tunnel and Ground Animation Cycle 1/6",             0x5b9b2, 0x5ba92 },
+        // Also has some coverage of police car aspects, lines 2 and 7 of 7
+        { L"Tunnel and Ground Animation Cycle 2/6",         0x5baf2, 0x5bbd2 },
+
+    { L"Tunnel and Ground Animation Cycle 3/6",             0x5bbd2, 0x5bcb2 },
+        { L"Tunnel and Ground Animation Cycle 4/6",         0x5bcb2, 0x5bd92 },
+        { L"Tunnel and Ground Animation Cycle 5/6",         0x5bd92, 0x5be72 },
+        { L"Tunnel and Ground Animation Cycle 6/6",         0x581b2, 0x58292 },
+    
+    { L"Background Hole Edge Animation Cycle 1/10",         0x5ba92, 0x5bab2 },
+        { L"Background Hole Edge Animation Cycle 2/10",     0x58292, 0x582b2 },
+        { L"Underground Hole Edge Animation Cycle 3/10",    0x5bef2, 0x5bf12 },
+        { L"Underground Hole Edge Animation Cycle 4/10",    0x5bf12, 0x5bf32 },
+        { L"Underground Hole Edge Animation Cycle 5/10",    0x5bf32, 0x5bf52 },
+        { L"Underground Hole Edge Animation Cycle 6/10",    0x5bf52, 0x5bf72 },
+        { L"Underground Hole Edge Animation Cycle 7/10",    0x5bf72, 0x5bf92 },
+        { L"Underground Hole Edge Animation Cycle 8/10",    0x5bf92, 0x5bfb2 },
+        { L"Underground Hole Edge Animation Cycle 9/10",    0x5bfb2, 0x5bfd2 },
+        { L"Underground Hole Edge Animation Cycle 10/10",   0x5bfd2, 0x5bff2 },
+
+    { L"Animation Cycle?",  0x5be72, 0x5bef2 },
+
+    { L"Left Buildings",    0x60952, 0x60b52 },
+    // Lines 1234 building
+    // Line 5 stoplight
+    { L"Right Buildings",   0x60b52, 0x60c32 },
+
+    { L"Cafe and Bar Animation Cycle 1/16",         0x60d52, 0x60d72 },
+        { L"Cafe and Bar Animation Cycle 2/16",     0x60d72, 0x60d92 },
+        { L"Cafe and Bar Animation Cycle 3/16",     0x60d92, 0x60db2 },
+        { L"Cafe and Bar Animation Cycle 4/16",     0x60db2, 0x60dd2 },
+        { L"Cafe and Bar Animation Cycle 5/16",     0x60dd2, 0x60df2 },
+        { L"Cafe and Bar Animation Cycle 6/16",     0x60df2, 0x60e12 },
+        { L"Cafe and Bar Animation Cycle 7/16",     0x60e12, 0x60e32 },
+        { L"Cafe and Bar Animation Cycle 8/16",     0x60e32, 0x60e52 },
+        { L"Cafe and Bar Animation Cycle 9/16",     0x60e52, 0x60e72 },
+        { L"Cafe and Bar Animation Cycle 10/16",    0x60e72, 0x60e92 },
+        { L"Cafe and Bar Animation Cycle 11/16",    0x60e92, 0x60eb2 },
+        { L"Cafe and Bar Animation Cycle 12/16",    0x60eb2, 0x60ed2 },
+        { L"Cafe and Bar Animation Cycle 13/16",    0x60ed2, 0x60ef2 },
+        { L"Cafe and Bar Animation Cycle 14/16",    0x60ef2, 0x60f12 },
+        { L"Cafe and Bar Animation Cycle 15/16",    0x60f12, 0x60f32 },
+        { L"Cafe and Bar Animation Cycle 16/16",    0x60f32, 0x60f52 },
+
+    { L"Police Cars",                       0x5b6f2, 0x5b8f2 },
+
+    { L"Ground Animation Cycle 1/2",        0x5bab2, 0x5baf2 },
+        { L"Ground Animation Cycle 2/2",    0x582b2, 0x582f2 },
+
+    { L"Window Lighting Animation Cycles",  0x60f52, 0x61152 },
+
+    { L"Sprites",                           0x788cc, 0x789cc },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_MIDNIGHTPLANT_PALETTES[] =
+{
+    { L"Background: Sky and Factory",   0x582f2, 0x58332, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+
+    { L"Middle Layer 1/2",              0x61152, 0x61352 },
+    { L"Middle Layer 2/2",              0x61352, 0x61552 },
+
+    { L"Foreground",                    0x5c6f2, 0x5c7f2 },
+
+    { L"Animation cycle 1",             0x61552, 0x61652 },
+    { L"Animation cycle 2",             0x61672, 0x61712 },
+
+    { L"Sprites",                       0x78a8c, 0x78b4c },
+};
+
+// For Raging Inferno we are missing some of the fire palettes.  
+// They loosely do not appear to be in rom 06 or 07...?
+const sGame_PaletteDataset MSHVSF_A_STAGES_RAGINGINFERNO_PALETTES[] =
+{
+    { L"Background",                        0x586f2, 0x58732, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background Animation Cycle",        0x58732, 0x587f2 },
+
+    { L"Middle Buildings 1/2",              0x61952, 0x61b52 },
+    { L"Middle Buildings 2/2",              0x61b52, 0x61d52 },
+    { L"Middle Animation Cycles 1/8",       0x61d52, 0x61f52 },
+    { L"Middle Animation Cycles 2/8",       0x61f52, 0x62152 },
+    { L"Middle Animation Cycles 3/8",       0x62152, 0x62352 },
+    { L"Middle Animation Cycles 4/8",       0x62352, 0x62552 },
+    { L"Middle Animation Cycles 5/8",       0x62552, 0x62752 },
+    { L"Middle Animation Cycles 6/8",       0x62752, 0x62952 },
+    { L"Middle Animation Cycles 7/8",       0x62952, 0x62b52 },
+    { L"Middle Animation Cycles 8/8",       0x62b52, 0x62d52 },
+
+    { L"Unused? Foreground 1/2",            0x5ccb2, 0x5ceb2 },
+    { L"Unused? Foreground 2/2",            0x5ceb2, 0x5cef2 },
+
+    { L"Foreground Animation Cycles 1/6",   0x5cef2, 0x5d0f2 },
+    { L"Foreground Animation Cycles 2/6",   0x5d0f2, 0x5d292 },
+    { L"Foreground Animation Cycles 3/6",   0x5d2f2, 0x5d4f2 },
+    { L"Foreground Animation Cycles 4/6",   0x5d4f2, 0x5d692 },
+    { L"Foreground Animation Cycles 5/6",   0x5d6f2, 0x5d8f2 },
+    { L"Foreground Animation Cycles 6/6",   0x5d8f2, 0x5da92 },
+
+    { L"Sprites (helicopters)",             0x78b4c, 0x78c0c },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_CODERED_PALETTES[] =
+{
+    { L"Sky",               0x58af2, 0x58b72, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Animation Cycle 1", 0x58ef2, 0x58fd2 },
+    { L"Animation Cycle 2", 0x58fd2, 0x590b2 },
+    { L"Hangar 1/2",        0x5daf2, 0x5dcf2 },
+    { L"Hangar 2/2",        0x5dcf2, 0x5ded2 },
+    { L"Animation Cycle 3", 0x5ded2, 0x5dfd2 },
+    { L"Animation Cycle 4", 0x5dfd2, 0x5e1d2 },
+    { L"Animation Cycle 5", 0x5e1d2, 0x5e3d2 },
+    { L"Animation Cycle 6", 0x5e3d2, 0x5e432 },
+    
+    // Jet looks like a very intense animation cycle, plus 3 unknown palettes
+    { L"Jet 1/2",           0x62d52, 0x62f52 },
+    { L"Jet 2/2",           0x62f52, 0x63152 },
+
+    { L"Sprites (trucks)",  0x78cac, 0x78ccc },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_NIGHTCOOKING_PALETTES[] =
+{
+    { L"Background 1/2",                    0x63152, 0x63352, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background 2/2",                    0x63352, 0x63552 },
+    { L"Left Box Animation 1/2",            0x63552, 0x63572 },
+        { L"Left Box Animation 2/2",        0x63572, 0x63592 },
+    { L"Right Balcony Animation 1/2",       0x63592, 0x635b2 },
+        { L"Right Balcony Animation 2/2",   0x635b2, 0x635d2 },
+    { L"Right Bleachers Animation 1/2",     0x635d2, 0x635f2 },
+        { L"Right Bleachers Animation 2/2", 0x635f2, 0x63612 },
+    { L"TV Screen Animations",              0x63612, 0x63712 },
+
+    { L"People and Items",          0x5e432, 0x5e632 },
+    { L"More People",               0x5e632, 0x5e6b2 },
+    { L"Unknown Animation Cycle",   0x5e6b2, 0x5e6d2 },
+    { L"Ceiling Animation 1/2",     0x5e832, 0x5e852 },
+        { L"Ceiling Animation 2/2", 0x5e852, 0x5e872 },
+    { L"Moon Animation 1/2",        0x5e872, 0x5e892 },
+        { L"Moon Animation 2/2",    0x5e892, 0x5e8b2 },
+
+    { L"Cooking Items 1/2", 0x592f2, 0x594f2 },
+    { L"Cooking Items 2/2", 0x594f2, 0x595f2 },
+    
+    { L"Left NIGHT COOKING Sign Animation 1/6",     0x596f2, 0x59712 },
+        { L"Left NIGHT COOKING Sign Animation 2/6", 0x59712, 0x59732 },
+        { L"Left NIGHT COOKING Sign Animation 3/6", 0x59732, 0x59752 },
+        { L"Left NIGHT COOKING Sign Animation 4/6", 0x59752, 0x59772 },
+        { L"Left NIGHT COOKING Sign Animation 5/6", 0x59772, 0x59792 },
+        { L"Left NIGHT COOKING Sign Animation 6/6", 0x59792, 0x597b2 },
+
+    { L"Stars Animation 1/8", 0x597b2, 0x597d2 },
+        { L"Stars Animation 2/8", 0x597d2, 0x597f2 },
+        { L"Stars Animation 3/8", 0x597f2, 0x59812 },
+        { L"Stars Animation 4/8", 0x59812, 0x59832 },
+        { L"Stars Animation 5/8", 0x59832, 0x59852 },
+        { L"Stars Animation 6/8", 0x59852, 0x59872 },
+        { L"Stars Animation 7/8", 0x59872, 0x59892 },
+        { L"Stars Animation 8/8", 0x59892, 0x598b2 },
+    
+    { L"Right NIGHT COOKING Sign Animation 1/8", 0x598b2, 0x598d2 },
+        { L"Right NIGHT COOKING Sign Animation 2/8", 0x598d2, 0x598f2 },
+        { L"Right NIGHT COOKING Sign Animation 3/8", 0x598f2, 0x59912 },
+        { L"Right NIGHT COOKING Sign Animation 4/8", 0x59912, 0x59932 },
+        { L"Right NIGHT COOKING Sign Animation 5/8", 0x59932, 0x59952 },
+        { L"Right NIGHT COOKING Sign Animation 6/8", 0x59952, 0x59972 },
+        { L"Right NIGHT COOKING Sign Animation 7/8", 0x59972, 0x59992 },
+        { L"Right NIGHT COOKING Sign Animation 8/8", 0x59992, 0x599b2 },
+
+    { L"Sprites", 0x78d8c, 0x78ecc },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_MALLMAYHEM_PALETTES[] =
+{
+    { L"Mall PL#400.1",                     0x5EC32, 0x5ee32, indexCPS2Sprites_MSHVSFAssets, 0x05, &pairFullyLinkedNode },
+    { L"Mall PL#400.2",                     0x5Ee32, 0x5F032, indexCPS2Sprites_MSHVSFAssets, 0x06 },
+    { L"Mall PL#200.1",                     0x59AF2, 0x59cF2, indexCPS2Sprites_MSHVSFAssets, 0x07 },
+    { L"Mall PL#200.2",                     0x59cF2, 0x59EF2, indexCPS2Sprites_MSHVSFAssets, 0x08 },
+    { L"Mall PL#190 [Megaman]",             0x7926C, 0x7930C, indexCPS2Sprites_MSHVSFAssets, 0x0c },
+    { L"Mall PL#600.1",                     0x63952, 0x63b52, indexCPS2Sprites_MSHVSFAssets, 0x0a },
+    { L"Mall PL#600.2",                     0x63b52, 0x63D52, indexCPS2Sprites_MSHVSFAssets, 0x0b },
+    { L"Mall PL#190 [Spectators LS]",       0x7930C, 0x7934C, indexCPS2Sprites_MSHVSFAssets, 0x09 },
+    { L"Mall PL#190 [RS Sprites: Lady]",    0x7934C, 0x7936C, indexCPS2Sprites_MSHVSFAssets, 0x0d },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
+{
+    { L"Temple of Fists - Sky BG [PL#600.1]",           0x60152, 0x602B2, indexCPS2Sprites_MSHVSFAssets, 0x13, &pairFullyLinkedNode },
+    { L"Temple of Fists - Floor Buildings [PL#400.1]",  0x5AEF2, 0x5B0F2, indexCPS2Sprites_MSHVSFAssets, 0x14 },
+    { L"Temple of Fists - Big Statue [PL#400.2]",       0x5B0F2, 0x5B2B2, indexCPS2Sprites_MSHVSFAssets, 0x15 },
+    { L"Temple of Fists - Sprites [PL#190]",            0x7870C, 0x787EC, indexCPS2Sprites_MSHVSFAssets, 0x16 },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_PREVIEW_PALETTES[] =
+{
+    // Previews are a silghtly different order and I don't know why
+    { L"Apocalypse Now",    0x64f32, 0x65132 },
+    { L"River Bridge",      0x65132, 0x65332 },
+    { L"Death Valley",      0x65332, 0x65532 },
+    { L"The Cataract",      0x65532, 0x65732 },
+    { L"Temple of Fists",   0x65732, 0x65932 },
+    { L"On the Hilltop",    0x65932, 0x65b32 },
+    { L"Manhattan",         0x65b32, 0x65d32 },
+    // the two "factory" preview palettes are almost the same
+    { L"Midnight Plant",    0x65d32, 0x65f32 },
+    { L"Code Red",          0x65f32, 0x66132 },
+    { L"Night Cooking",     0x66132, 0x66332 },
+    { L"Mall Mayhem",       0x66332, 0x66532 },
+    { L"Raging Inferno",    0x66532, 0x66732 },
+};
+
 const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =
 {
-    //{ L"The Cataract",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_CATARACT_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_CATARACT_PALETTES) },
+    { L"Apocalypse Now",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_APOCALYPSE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_APOCALYPSE_PALETTES) },
+    { L"River Bridge (Showdown in the Park)", DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RIVER_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RIVER_PALETTES) },
     { L"Death Valley",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_DEATHVALLEY_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_DEATHVALLEY_PALETTES) },
-    //{ L"Manhattan",                     DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MANHATTAN_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MANHATTAN_PALETTES) },
-    
-    { L"Mall Mayhem",                   DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MALLMAYHEM_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MALLMAYHEM_PALETTES) },
-    // Battle on the hilltop?
+    { L"The Cataract",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_CATARACT_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_CATARACT_PALETTES) },
     { L"On the Hilltop",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_HILLTOP_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_HILLTOP_PALETTES) },
-    { L"River Bridge",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RIVER_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RIVER_PALETTES) },
-    //{ L"Raging Inferno: Night Time",    DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_INFERNO_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_INFERNO_PALETTES) },
-    //{ L"Showdown in the Park",          DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_SHOWDOWN_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_SHOWDOWN_PALETTES) },
+    { L"Manhattan",                     DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MANHATTAN_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MANHATTAN_PALETTES) },
+    { L"Midnight Plant",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MIDNIGHTPLANT_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MIDNIGHTPLANT_PALETTES) },
+    // Midnight Plant exploded
+    { L"Raging Inferno",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RAGINGINFERNO_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RAGINGINFERNO_PALETTES) },
+    // Airplane hangar stage
+    { L"Code Red",                      DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_CODERED_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_CODERED_PALETTES) },
+    // TV show
+    { L"Dead Or Live The Show",         DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_NIGHTCOOKING_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_NIGHTCOOKING_PALETTES) },
+    { L"Mall Mayhem",                   DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MALLMAYHEM_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MALLMAYHEM_PALETTES) },
     { L"Temple of Fists",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_TEMPLE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_TEMPLE_PALETTES) },
+
+    { L"Stage Previews",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_PREVIEW_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_PREVIEW_PALETTES) },
 };
 
 #define k_pszBlackheartUnit L"Blackheart/Mephisto"
