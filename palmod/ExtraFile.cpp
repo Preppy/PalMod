@@ -886,8 +886,16 @@ CGameWithExtrasFile::sPaletteTrackingInformation* CGameWithExtrasFile::_Assemble
                         pCurrent = pCurrent->pNext;
                     }
 
-                    pNewListEntry->pNext = pCurrent->pNext;
-                    pCurrent->pNext = pNewListEntry;
+                    if (!pCurrent->pNext || (pCurrent->pNext->nPaletteOffset != pNewListEntry->nPaletteOffset))
+                    {
+                        pNewListEntry->pNext = pCurrent->pNext;
+                        pCurrent->pNext = pNewListEntry;
+                    }
+                    else // this should only happen during development or very weird situations
+                    {
+                        pCurrent->pNext->nTerminalOffset = max(pCurrent->pNext->nTerminalOffset, pNewListEntry->nTerminalOffset);
+                        safe_delete(pNewListEntry);
+                    }
                 }
             }
         }
