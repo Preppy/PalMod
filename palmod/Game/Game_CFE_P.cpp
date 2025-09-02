@@ -185,7 +185,7 @@ BOOL CGame_CFE_P::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                 else
                 {
                     SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    SaveFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
+                    SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
                 }
 
                 nTotalPalettesSaved++;
