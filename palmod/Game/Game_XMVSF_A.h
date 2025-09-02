@@ -62,7 +62,7 @@ GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         XMVSF_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2,
+        DEF_BUTTONLABEL_2_PK,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
@@ -70,8 +70,8 @@ GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         XMVSF_A_UNITS,
         ARRAYSIZE(XMVSF_A_UNITS),
         L"XMVSFe.txt",               // Extra filename
-        876,                         // Count of palettes listed in the header
-        0x606c,                      // Lowest known location used for palettes
+        1001,                         // Count of palettes listed in the header
+        0x19ac,                      // Lowest known location used for palettes
     };
 
 public:
@@ -117,7 +117,7 @@ private:
         XMVSF_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2,
+        DEF_BUTTONLABEL_2_PK,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
@@ -125,8 +125,8 @@ private:
         XMVSF_A_UNITS,
         ARRAYSIZE(XMVSF_A_UNITS),
         L"XMVSFSe.txt",             // Extra filename
-        876,                        // Count of palettes listed in the header
-        0x606c,                     // Lowest known location used for palettes
+        1001,                        // Count of palettes listed in the header
+        0x19ac,                     // Lowest known location used for palettes
     };
 
 public:

@@ -2617,7 +2617,7 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
 const sGame_PaletteDataset MSHVSF_A_STAGES_PREVIEW_PALETTES[] =
 {
     // Previews are a silghtly different order and I don't know why
-    { L"Apocalypse Now",    0x64f32, 0x65132 },
+    { L"Apocalypse Now!",   0x64f32, 0x65132 },
     { L"River Bridge",      0x65132, 0x65332 },
     { L"Death Valley",      0x65332, 0x65532 },
     { L"The Cataract",      0x65532, 0x65732 },
@@ -2634,7 +2634,7 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_PREVIEW_PALETTES[] =
 
 const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =
 {
-    { L"Apocalypse Now",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_APOCALYPSE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_APOCALYPSE_PALETTES) },
+    { L"Apocalypse Now!",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_APOCALYPSE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_APOCALYPSE_PALETTES) },
     { L"River Bridge (Showdown in the Park)", DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RIVER_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RIVER_PALETTES) },
     { L"Death Valley",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_DEATHVALLEY_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_DEATHVALLEY_PALETTES) },
     { L"The Cataract",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_CATARACT_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_CATARACT_PALETTES) },
