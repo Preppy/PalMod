@@ -1971,8 +1971,8 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                     if (!fShownErrorForThisImage)
                     {
                         CString strError;
-                        strError.Format(L"ERROR: This %u by %u image has out-of-bound color references and should be fixed.  Requested 0x%x but palette maxes at 0x%x.\r\n",
-                                            nWidth, nHeight, nCurrentColorPosition, nPalSizeInUint8);
+                        strError.Format(L"ERROR: This %u by %u image at image load index %u has out-of-bound color references and should be fixed.  Requested 0x%x but palette maxes at 0x%x.\r\n",
+                                            nWidth, nHeight, nSrcIndex, nCurrentColorPosition, nPalSizeInUint8);
                         OutputDebugString(strError.GetString());
                         fShownErrorForThisImage = true;
                     }
