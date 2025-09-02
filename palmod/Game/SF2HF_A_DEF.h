@@ -430,7 +430,7 @@ const sGame_PaletteDataset SF2HF_A_BONUS21_NODE[] =
 const sGame_PaletteDataset SF2HF_A_STAGES21_RYU_NODE[] =
 {
     { L"Moon & Sky", 0x3be, 0x3de, indexSF2HFSprites_Stages, 0x00, &pairFullyLinkedNode },
-    { L"Intermediate Rooftop", 0xa03e, 0xa09e, indexSF2HFSprites_Stages, 0x03 },
+    { L"Intermediate Rooftop", 0xa03e, 0xa09e, indexSF2HFSprites_Stages, 0x02 },
     { L"Front Rooftop 1", 0x501e, 0x507e, indexSF2HFSprites_Stages, 0x05 },
     { L"Front Rooftop 2", 0x50be, 0x511e, indexSF2HFSprites_Stages, 0x06 },
     { L"Floor", 0x4ffe, 0x501e, indexSF2HFSprites_Stages, 0x04 },
