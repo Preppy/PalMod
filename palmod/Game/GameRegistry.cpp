@@ -12,6 +12,7 @@
 #include "Game_BlazBlueCF_S.h"
 #include "Game_Bleach_DS.h"
 #include "Game_BMKNS_SNES.h"
+#include "Game_BnK_P.h"
 #include "Game_Breakers_A.h"
 #include "Game_BSSMSJR_SNES.h"
 #include "Game_BtlKRoad_A_DIR.h"
@@ -180,7 +181,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 248, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 249, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -196,6 +197,7 @@ namespace KnownGameInfo
     CGameClass* Make_BlazBlueCF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BlazBlueCF_S(nConfirmedROMSize); }
     CGameClass* Make_BLEACH_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BLEACH_DS(nConfirmedROMSize); }
     CGameClass* Make_BMKNS_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BMKNS_SNES(nConfirmedROMSize); }
+    CGameClass* Make_BnK_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BnK_P(nConfirmedROMSize); }
     CGameClass* Make_BREAKERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BREAKERS_A(nConfirmedROMSize); }
     CGameClass* Make_BREAKERS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BREAKERS_S(nConfirmedROMSize); }
     CGameClass* Make_BSSMSJR_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BSSMSJR_SNES(nConfirmedROMSize); }
@@ -1754,6 +1756,13 @@ namespace KnownGameInfo
             CGame_BASARA_P::GetRule,
         },
         {
+            BnK_P,
+            L"Sengoku BASARA X (PS2)",
+            { BnK_P,         L"Shin Gouketsuji Ichizoku: Bonnou no Kaihou", L"Shin Gouketsuji Ichizoku: Bonnou no Kaihou (PS2)|SLPM_662.78|", GamePlatform::PS2 },
+            Make_BnK_P,
+            CGame_BnK_P::GetRule,
+        },
+        {
             SFA1_A,
             L"SFA1 (CPS2 Arcade)",
             { SFA1_A,           L"SFA1", L"SFA1 (CPS2)|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
@@ -2330,7 +2339,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 248, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 249, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

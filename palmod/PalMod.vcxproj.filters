@@ -607,6 +607,9 @@
     <Filter Include="Games\SNK Games\World Heroes Perfect">
       <UniqueIdentifier>{955195cd-aefa-4b5a-a6f3-98eb4b106fe5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\PS2\Bonnou no Kaihou">
+      <UniqueIdentifier>{bea9cff4-3876-4e2f-a281-91772ad65b0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2161,6 +2164,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_WorldHeroesPerfect_A.h">
       <Filter>Games\SNK Games\World Heroes Perfect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BnK_P_DEF.h">
+      <Filter>Games\PS2\Bonnou no Kaihou</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_BnK_P.h">
+      <Filter>Games\PS2\Bonnou no Kaihou</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1356,6 +1356,32 @@ enum SupportedBreakersSprites
     indexBreakersSprites_Bonus,     // 0x0A
 };
 
+enum SupportedMatriM_A_PaletteListIndex
+{
+    indexMatriMSprites_Anny,        // 0x00
+    indexMatriMSprites_Buntaro,     // 0x01
+    indexMatriMSprites_Chinnen,     // 0x02
+    indexMatriMSprites_Clara,       // 0x03
+    indexMatriMSprites_Elias,       // 0x04
+    indexMatriMSprites_Hikaru,      // 0x05
+    indexMatriMSprites_Jimmy,       // 0x06
+    indexMatriMSprites_Jones,       // 0x07
+    indexMatriMSprites_Kanji,       // 0x08
+    indexMatriMSprites_Keith,       // 0x09
+    indexMatriMSprites_Lynn,        // 0x0a
+    indexMatriMSprites_Olof,        // 0x0b
+    indexMatriMSprites_Poochy,      // 0x0c
+    indexMatriMSprites_PrincessSissy, // 0x0d
+    indexMatriMSprites_Reiji,       // 0x0e
+    indexMatriMSprites_Saizo,       // 0x0f
+    indexMatriMSprites_Shintaro,    // 0x10
+    indexMatriMSprites_Tane,        // 0x11
+    indexMatriMSprites_Ume,         // 0x12
+    indexMatriMSprites_White,       // 0x13
+    indexMatriMSprites_Bonus,       // 0x14
+    indexMatriMSprites_Stages,      // 0x15
+};
+
 enum SamuraiShodownSpriteList
 {
     indexSamSho5Sprites_Amakusa = 0,
