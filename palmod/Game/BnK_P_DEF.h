@@ -187,7 +187,7 @@ const sGame_PaletteDataset BnK_P_ANNY_WHITE_PALETTES[] =
     { L"Rainbow Energy White (Unused)", 0x260338, 0x260358, indexMatriMSprites_Anny, 0x04, &pairPrevious },
     { L"Rolling/Super Jump Trail White", 0x260358, 0x260378, indexMatriMSprites_Anny, 0x00 },
     { L"EX/Super Trail White", 0x260378, 0x260398, indexMatriMSprites_Anny, 0x00 },
-    { L"Guard Cancel Trail White (Unused)", 0x260398, 0x2603b8, indexMatriMSprites_Anny, 0x31 },
+    { L"Guard Cancel Trail White (Unused)", 0x260398, 0x2603b8, indexMatriMSprites_Anny, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_A_PALETTES[] =
@@ -836,7 +836,7 @@ const sGame_PaletteDataset BnK_P_HIKARU_SUMMER_PALETTES[] =
     { L"Hikaru Summer", 0x2654ac, 0x2654cc, indexMatriMSprites_Hikaru, 0x00 },
     { L"Rolling/Super Jump Trail Summer", 0x2654cc, 0x2654ec, indexMatriMSprites_Hikaru, 0x00 },
     { L"EX/Super Trail Summer", 0x2654ec, 0x26550c, indexMatriMSprites_Hikaru, 0x00 },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26550c, 0x26552c, indexMatriMSprites_Hikaru, 0x31 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26550c, 0x26552c, indexMatriMSprites_Hikaru, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_HIKARU_ZOMBIE_PALETTES[] =
@@ -1134,7 +1134,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_A_PALETTES[] =
     { L"Unused Extra 3 A", 0x269b80, 0x269ba0 },
     { L"Stress Shot Bear A", 0x269ba0, 0x269bc0 },
     { L"Unused Extra 4 A", 0x269bc0, 0x269be0 },
-    { L"Poochy A (Transformation)", 0x269be0, 0x269c00 },
+    { L"Poochy A (Transformation)", 0x269be0, 0x269c00, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail A", 0x269c00, 0x269c20 },
     { L"EX/Super Trail A", 0x269c20, 0x269c40 },
     { L"Guard Cancel Trail A (Unused)", 0x269c40, 0x269c60 },
@@ -1149,7 +1149,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_B_PALETTES[] =
     { L"Unused Extra 3 B", 0x269ce0, 0x269d00 },
     { L"Stress Shot Bear B", 0x269d00, 0x269d20 },
     { L"Unused Extra 4 B", 0x269d20, 0x269d40 },
-    { L"Poochy B (Transformation)", 0x269d40, 0x269d60 },
+    { L"Poochy B (Transformation)", 0x269d40, 0x269d60, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail B", 0x269d60, 0x269d80 },
     { L"EX/Super Trail B", 0x269d80, 0x269da0 },
     { L"Guard Cancel Trail B (Unused)", 0x269da0, 0x269dc0 },
@@ -1164,7 +1164,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_C_PALETTES[] =
     { L"Unused Extra 3 C", 0x269e40, 0x269e60 },
     { L"Stress Shot Bear C", 0x269e60, 0x269e80 },
     { L"Unused Extra 4 C", 0x269e80, 0x269ea0 },
-    { L"Poochy C (Transformation)", 0x269ea0, 0x269ec0 },
+    { L"Poochy C (Transformation)", 0x269ea0, 0x269ec0, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail C", 0x269ec0, 0x269ee0 },
     { L"EX/Super Trail C", 0x269ee0, 0x269f00 },
     { L"Guard Cancel Trail C (Unused)", 0x269f00, 0x269f20 },
@@ -1179,7 +1179,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_D_PALETTES[] =
     { L"Unused Extra 3 D", 0x269fa0, 0x269fc0 },
     { L"Stress Shot Bear D", 0x269fc0, 0x269fe0 },
     { L"Unused Extra 4 D", 0x269fe0, 0x26a000 },
-    { L"Poochy D (Transformation)", 0x26a000, 0x26a020 },
+    { L"Poochy D (Transformation)", 0x26a000, 0x26a020, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail D", 0x26a020, 0x26a040 },
     { L"EX/Super Trail D", 0x26a040, 0x26a060 },
     { L"Guard Cancel Trail D (Unused)", 0x26a060, 0x26a080 },
@@ -1194,7 +1194,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_SUMMER_PALETTES[] =
     { L"Unused Extra 3 Summer", 0x26a100, 0x26a120 },
     { L"Stress Shot Bear Summer", 0x26a120, 0x26a140 },
     { L"Unused Extra 4 Summer", 0x26a140, 0x26a160 },
-    { L"Poochy Summer (Transformation)", 0x26a160, 0x26a180 },
+    { L"Poochy Summer (Transformation)", 0x26a160, 0x26a180, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail Summer", 0x26a180, 0x26a1a0 },
     { L"EX/Super Trail Summer", 0x26a1a0, 0x26a1c0 },
     { L"Guard Cancel Trail Summer (Unused)", 0x26a1c0, 0x26a1e0 },
@@ -1209,7 +1209,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_ZOMBIE_PALETTES[] =
     { L"Unused Extra 3 Zombie", 0x26a260, 0x26a280 },
     { L"Stress Shot Bear Zombie", 0x26a280, 0x26a2a0 },
     { L"Unused Extra 4 Zombie", 0x26a2a0, 0x26a2c0 },
-    { L"Poochy Zombie (Transformation)", 0x26a2c0, 0x26a2e0 },
+    { L"Poochy Zombie (Transformation)", 0x26a2c0, 0x26a2e0, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail Zombie", 0x26a2e0, 0x26a300 },
     { L"EX/Super Trail Zombie", 0x26a300, 0x26a320 },
     { L"Guard Cancel Trail Zombie (Unused)", 0x26a320, 0x26a340 },
@@ -1224,7 +1224,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_EXTREME_PALETTES[] =
     { L"Unused Extra 3 Extreme", 0x26a3c0, 0x26a3e0 },
     { L"Stress Shot Bear Extreme", 0x26a3e0, 0x26a400 },
     { L"Unused Extra 4 Extreme", 0x26a400, 0x26a420 },
-    { L"Poochy Extreme (Transformation)", 0x26a420, 0x26a440 },
+    { L"Poochy Extreme (Transformation)", 0x26a420, 0x26a440, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail Extreme", 0x26a440, 0x26a460 },
     { L"EX/Super Trail Extreme", 0x26a460, 0x26a480 },
     { L"Guard Cancel Trail Extreme (Unused)", 0x26a480, 0x26a4a0 },
@@ -1239,7 +1239,7 @@ const sGame_PaletteDataset BnK_P_KINTARO_WHITE_PALETTES[] =
     { L"Unused Extra 3 White", 0x26a520, 0x26a540 },
     { L"Stress Shot Bear White", 0x26a540, 0x26a560 },
     { L"Unused Extra 4 White", 0x26a560, 0x26a580 },
-    { L"Poochy White (Transformation)", 0x26a580, 0x26a5a0 },
+    { L"Poochy White (Transformation)", 0x26a580, 0x26a5a0, indexMatriMSprites_Poochy, 0x00 },
     { L"Rolling/Super Jump Trail White", 0x26a5a0, 0x26a5c0 },
     { L"EX/Super Trail White", 0x26a5c0, 0x26a5e0 },
     { L"Guard Cancel Trail White (Unused)", 0x26a5e0, 0x26a600 },
@@ -2289,7 +2289,7 @@ const sGame_PaletteDataset BnK_P_OUME_C_PALETTES[] =
     { L"Rolling/Super Jump Trail C", 0x2638c2, 0x2638e2, indexMatriMSprites_Ume, 0x00 },
     { L"EX/Super Trail C", 0x2638e2, 0x263902, indexMatriMSprites_Ume, 0x00 },
     { L"Guard Cancel Trail C (Unused)", 0x263902, 0x263922, indexMatriMSprites_Ume, 0x00 },
-    { L"HUD Portrait C (Unused)", 0x263922, 0x263942, indexMatriMSprites_Ume, 0x00 },
+    { L"HUD Portrait C (Unused)", 0x263922, 0x263942, indexMatriMSprites_Ume, 0x31 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_D_PALETTES[] =
