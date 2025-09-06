@@ -9,6 +9,7 @@ private:
     {
         ROM03,
         ROM04,
+        ROM10,
     };
 
     static HSF2LoadingKey m_eVersionToLoad;
@@ -29,10 +30,19 @@ private:
         FileReadType::Sequential,
     };
 
+    static inline const sDirectoryLoadingData m_sFileLoadingData_10 =
+    {
+        {
+            { L"hs2.10", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         { L"HSF2 (CPS2 Portraits)", L"hs2u.03", 0xb308151e, 0 },
         { L"HSF2 (CPS2 Characters)", L"hs2u.04", 0x327aa49c, 0 },
+        { L"HSF2 (CPS2 Stages)", L"hs2.10", 0x20D0F9E4, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_03
@@ -71,8 +81,28 @@ private:
         HSF2_A_UNITS_04,
         ARRAYSIZE(HSF2_A_UNITS_04),
         L"HSF2-04e.txt",   // Extra filename
-        654,               // Count of palettes listed in the header
+        655,               // Count of palettes listed in the header
         0x43f9e,           // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_10
+    {
+        L"HSF2 (CPS2 Stages)",
+        HSF2_A,
+        IMGDAT_SECTION_SF2,
+        HSF2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_10,
+        m_rgCRC32Data,
+        HSF2_A_UNITS_10,
+        ARRAYSIZE(HSF2_A_UNITS_10),
+        L"HSF2-10e.txt",    // Extra filename
+        3,                  // Count of palettes listed in the header
+        0x43a0,             // Lowest known location used for palettes
     };
 
 public:
@@ -116,7 +146,7 @@ private:
         HSF2_A_UNITS_MONO,
         ARRAYSIZE(HSF2_A_UNITS_MONO),
         L"HSF2S.txt",   // Extra filename
-        1039,           // Count of palettes listed in the header
+        1043,           // Count of palettes listed in the header
         0x2ce98,        // Lowest known location used for palettes
     };
 

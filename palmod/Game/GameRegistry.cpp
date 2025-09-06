@@ -900,7 +900,7 @@ namespace KnownGameInfo
         {
             HSF2_A,
             L"Hyper Street Fighter 2",
-            { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04) (CPS2)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04), Stages (*.10) (CPS2)|hs2u.03;hs2u.04;hs2.10|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_HSF2_A,
             CGame_HSF2_A::GetRule,
         },
