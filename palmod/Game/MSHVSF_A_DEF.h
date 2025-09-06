@@ -2349,20 +2349,18 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_APOCALYPSE_PALETTES[] =
     { L"Floor Animation 3 1/3",     0x5f4f2, 0x5f512 },
         { L"Floor Animation 3 2/3", 0x5f512, 0x5f532 },
         { L"Floor Animation 3 3/3", 0x5f532, 0x5f552 },
-    
-    { L"Cells and Floor 1/2",       0x7814c, 0x7834c },
+
+    { L"Cells and Floor 1/2",       0x7814c, 0x7834c, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext },
     { L"Cells and Floor 2/2",       0x7834c, 0x7846c },
 
+    // Leaving out unused/unknown chunks
     // after sky: lines 4-7 seem like floor animation cycle palettes?
-    { L"Unused? 1",                 0x5f092, 0x5f232 },
-
+    //{ L"Unused? 1",                 0x5f092, 0x5f232 },
     // after the many animation cycles
-    { L"Unused? Animation Cycle",   0x56e32, 0x56ef2 },
-
-    { L"Unused? 2", 0x559b2, 0x55bb2 },
-    { L"Unused? 3", 0x55bb2, 0x55db2 },
-
-    { L"Unused? 4", 0x5f232, 0x5f432 },
+    //{ L"Unused? Animation Cycle",   0x56e32, 0x56ef2 },
+    //{ L"Unused? 2", 0x559b2, 0x55bb2 },
+    //{ L"Unused? 3", 0x55bb2, 0x55db2 },
+    //{ L"Unused? 4", 0x5f232, 0x5f432 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_RIVER_PALETTES[] =
@@ -2372,7 +2370,8 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_RIVER_PALETTES[] =
     { L"Ridge Trees",               0x5F552, 0x5F652, indexCPS2Sprites_MSHVSFAssets, 0x02 },
     { L"Bridge",                    0x5A2F2, 0x5A352, indexCPS2Sprites_MSHVSFAssets, 0x03 },
     { L"People Crater Water Posts", 0x7846c, 0x7854c, indexCPS2Sprites_MSHVSFAssets, 0x04 },
-    { L"Unknown",                   0x5A4F2, 0x5A6F2 },
+    // We think it's for Showdown, but it seems unused
+    //{ L"Unknown",                   0x5A4F2, 0x5A6F2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
@@ -2387,14 +2386,15 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
 const sGame_PaletteDataset MSHVSF_A_STAGES_CATARACT_PALETTES[] =
 {
     { L"Background",            0x57812, 0x57a12, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Background (Unused?)",  0x57a12, 0x57af2 },
+    // Commenting out since we don't have an assocation
+    //{ L"Background (Unused?)",  0x57a12, 0x57af2 },
     { L"Middle 1/2",            0x5ab72, 0x5ad72 },
     { L"Middle 2/2",            0x5ad72, 0x5aef2 },
     
     { L"Foreground Plants",     0x5fe92, 0x60092 },
     { L"Foreground",            0x60092, 0x60152 },
 
-    { L"Sprites?",              0x785ac, 0x7870c },
+    { L"Sprites",               0x785ac, 0x7870c },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_HILLTOP_PALETTES[] =
@@ -2407,9 +2407,10 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_HILLTOP_PALETTES[] =
 
     { L"Tree Trunk",                0x5B2F2, 0x5B392 },
 
-    { L"Base Leaves",               0x787EC, 0x7880C },
-    { L"Owls",                      0x7882C, 0x7886C },
-    { L"Unknown 2?",                0x7886c, 0x7888c },
+    // First line is the ground leaves
+    { L"Sprites",                   0x787EC, 0x7888c },
+    //{ L"Owls",                      0x7882C, 0x7886C },
+    //{ L"Unknown 2?",                0x7886c, 0x7888c },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_MANHATTAN_PALETTES[] =
@@ -2443,10 +2444,9 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_MANHATTAN_PALETTES[] =
         { L"Underground Hole Edge Animation Cycle 9/10",    0x5bfb2, 0x5bfd2 },
         { L"Underground Hole Edge Animation Cycle 10/10",   0x5bfd2, 0x5bff2 },
 
-    { L"Animation Cycle?",  0x5be72, 0x5bef2 },
-
     { L"Left Buildings",    0x60952, 0x60b52 },
     // Lines 1234 building
+    // Lines 23 rat
     // Line 5 stoplight
     { L"Right Buildings",   0x60b52, 0x60c32 },
 
@@ -2472,7 +2472,10 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_MANHATTAN_PALETTES[] =
     { L"Ground Animation Cycle 1/2",        0x5bab2, 0x5baf2 },
         { L"Ground Animation Cycle 2/2",    0x582b2, 0x582f2 },
 
+    // window and water
     { L"Window Lighting Animation Cycles",  0x60f52, 0x61152 },
+
+    { L"Ripple Animation",                  0x5be72, 0x5bef2 },
 
     { L"Sprites",                           0x788cc, 0x789cc },
 };
@@ -2484,12 +2487,12 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_MIDNIGHTPLANT_PALETTES[] =
     { L"Middle Layer 1/2",              0x61152, 0x61352 },
     { L"Middle Layer 2/2",              0x61352, 0x61552 },
 
-    { L"Foreground",                    0x5c6f2, 0x5c7f2 },
-
     { L"Animation cycle 1",             0x61552, 0x61652 },
     { L"Animation cycle 2",             0x61672, 0x61712 },
 
     { L"Sprites",                       0x78a8c, 0x78b4c },
+
+    { L"Foreground",                    0x5c6f2, 0x5c7f2 },
 };
 
 // For Raging Inferno we are missing some of the fire palettes.  
@@ -2510,8 +2513,9 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_RAGINGINFERNO_PALETTES[] =
     { L"Middle Animation Cycles 7/8",       0x62952, 0x62b52 },
     { L"Middle Animation Cycles 8/8",       0x62b52, 0x62d52 },
 
-    { L"Unused? Foreground 1/2",            0x5ccb2, 0x5ceb2 },
-    { L"Unused? Foreground 2/2",            0x5ceb2, 0x5cef2 },
+    // Commenting out since we don't know where these are used if at all
+    //{ L"Unused? Foreground 1/2",            0x5ccb2, 0x5ceb2 },
+    //{ L"Unused? Foreground 2/2",            0x5ceb2, 0x5cef2 },
 
     { L"Foreground Animation Cycles 1/6",   0x5cef2, 0x5d0f2 },
     { L"Foreground Animation Cycles 2/6",   0x5d0f2, 0x5d292 },
@@ -2535,7 +2539,7 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_CODERED_PALETTES[] =
     { L"Animation Cycle 5", 0x5e1d2, 0x5e3d2 },
     { L"Animation Cycle 6", 0x5e3d2, 0x5e432 },
     
-    // Jet looks like a very intense animation cycle, plus 3 unknown palettes
+    // Jet (their Blackbird) looks like a very intense animation cycle, plus 3 unknown palettes
     { L"Jet 1/2",           0x62d52, 0x62f52 },
     { L"Jet 2/2",           0x62f52, 0x63152 },
 
@@ -2618,7 +2622,7 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_PREVIEW_PALETTES[] =
 {
     // Previews are a silghtly different order and I don't know why
     { L"Apocalypse Now!",   0x64f32, 0x65132 },
-    { L"River Bridge",      0x65132, 0x65332 },
+    { L"Showdown in the Park", 0x65132, 0x65332 },
     { L"Death Valley",      0x65332, 0x65532 },
     { L"The Cataract",      0x65532, 0x65732 },
     { L"Temple of Fists",   0x65732, 0x65932 },
@@ -2635,7 +2639,7 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_PREVIEW_PALETTES[] =
 const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =
 {
     { L"Apocalypse Now!",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_APOCALYPSE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_APOCALYPSE_PALETTES) },
-    { L"River Bridge (Showdown in the Park)", DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RIVER_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RIVER_PALETTES) },
+    { L"Showdown in the Park",          DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RIVER_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RIVER_PALETTES) },
     { L"Death Valley",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_DEATHVALLEY_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_DEATHVALLEY_PALETTES) },
     { L"The Cataract",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_CATARACT_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_CATARACT_PALETTES) },
     { L"On the Hilltop",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_HILLTOP_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_HILLTOP_PALETTES) },
