@@ -1580,7 +1580,11 @@ const sGame_PaletteDataset XMVSF_A_STAGES_APOCALYPSE_PALETTES[] =
 
     { L"Floor",                 0xb5ac, 0xb6cc },
 
-    { L"Sprites",               0x18d5a, 0x18f5a },
+    { L"Sprites 1/2",           0x18d5a, 0x18f5a, indexCPS2Sprites_XMVSFAssets, -1, &pairNext },
+    { L"Sprites 2/2",           0x18f5a, 0x1907a },
+
+    //{ L"Sprites: Cells 1/2",    0x2e2c, 0x302c },
+    //{ L"Sprites: Cells 2/2",    0x302c, 0x306c },
 };
 
 // Showdown in the Park
@@ -1589,13 +1593,14 @@ const sGame_PaletteDataset XMVSF_A_STAGES_RIVER_PALETTES[] =
     { L"Sky",           0x31ac, 0x326c, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
     { L"Background",    0x326c, 0x346c},
 
-    { L"Unused?",       0x66ec, 0x686c },
+    // Commenting out since it's not understood
+    //{ L"Unused?",       0x66ec, 0x686c },
 
     { L"Trees",         0xb76c, 0xb78c },
 
-    { L"Ground",        0x64ac , 0x64cc },
-
     { L"Sprites",       0x1907a, 0x190ba },
+
+    { L"Ground",        0x64ac , 0x64cc },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
@@ -1606,8 +1611,9 @@ const sGame_PaletteDataset XMVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
     
     { L"Foreground",    0x686c, 0x696c },
     
-    { L"Unused? 1",     0x6a2c, 0x6c2c },
-    { L"Unused? 2",     0x6c2c, 0x6c6c },
+    // Commenting out since we don't know what these are
+    //{ L"Unused? 1",     0x6a2c, 0x6c2c },
+    //{ L"Unused? 2",     0x6c2c, 0x6c6c },
     
     // These is a Beast version and a Blanka version
     { L"Sprites",       0x1915a, 0x1923a },
@@ -1617,9 +1623,8 @@ const sGame_PaletteDataset XMVSF_A_STAGES_CATARACT_PALETTES[] =
 {
     { L"Sky",           0x3a6c, 0x3bcc, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
     { L"Foliage",       0x6e2c, 0x702c },
+    { L"Sprites",       0x1923a, 0x1931a },
     { L"Foreground",    0xc0cc, 0xc2cc },
-
-    { L"Sprites?",      0x1923a, 0x1931a }, // likely sprites?
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_HILLTOP_PALETTES[] =
@@ -1630,8 +1635,8 @@ const sGame_PaletteDataset XMVSF_A_STAGES_HILLTOP_PALETTES[] =
 
     { L"Sprites",       0x193fa, 0x194ba },
 
-    // These are in the loaded palettes, not sure where they're used
-    { L"Unused?",       0x3f8c, 0x3fcc },
+    // Fairly subtle
+    { L"Leaves",        0x3f8c, 0x3fcc },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_MANHATTAN_PALETTES[] =
@@ -1668,12 +1673,12 @@ const sGame_PaletteDataset XMVSF_A_STAGES_MANHATTAN_PALETTES[] =
 
     { L"Police Cars and Moon",      0x786c, 0x7a6c },
 
-    { L"Sprites 1/2",               0x194da, 0x195fa },
-    { L"Sprites 2/2",               0x195fa, 0x196fa},
+    { L"Sprites 1/2",               0x194da, 0x195fa, indexCPS2Sprites_XMVSFAssets, -1, &pairNext },
+    { L"Sprites 2/2",               0x195fa, 0x196fa },
 
-    // below is speculative
-    { L"Unused? 1",                 0x7fec, 0x806c },
-    { L"Unused? 2",                 0x432c, 0x446c },
+    { L"Ripple Animation",          0x7fec, 0x806c },
+    // Unclear
+    //{ L"Unused? 2",                 0x432c, 0x446c },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_MIDNIGHTPLANT_PALETTES[] =
@@ -1686,7 +1691,8 @@ const sGame_PaletteDataset XMVSF_A_STAGES_MIDNIGHTPLANT_PALETTES[] =
     // Note that the left smokestack starts smoking after a little damage is done
     { L"Sprites",       0x196fa, 0x197da },
 
-    { L"Unused?",       0x478c, 0x486c },
+    // This doesn't seem used
+    //{ L"Unused?",       0x478c, 0x486c },
 };
 
 // Note that the transition is a color wash across all palettes
