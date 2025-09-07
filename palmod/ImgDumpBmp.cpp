@@ -69,6 +69,7 @@ void CImgDumpBmp::InitImgData()
     m_rgSrcImg = m_pMainImgCtrl->GetImgBuffer();
     m_nImageAmt = m_pMainImgCtrl->GetImgAmt();
     //m_rImgRct = m_pMainImgCtrl->GetImgRct();
+    m_lastPaintedDimensions = {};
 
     //Init blit data here
     m_rImgRct.SetRect(0, 0, 0, 0);
@@ -779,9 +780,7 @@ void CImgDumpBmp::OnTimer(UINT nIDEvent)
 
 void CImgDumpBmp::ResizeMainBmp()
 {
-    static sImageDimensions s_nPrevDimensions;
-
-    if ((m_mainWindowDimensions.width != s_nPrevDimensions.width) || (m_mainWindowDimensions.height != s_nPrevDimensions.height))
+    if ((m_mainWindowDimensions.width != m_lastPaintedDimensions.width) || (m_mainWindowDimensions.height != m_lastPaintedDimensions.height))
     {
         DeleteObject(m_MainHBmp);
 
@@ -804,6 +803,6 @@ void CImgDumpBmp::ResizeMainBmp()
             m_MainDC.SelectObject(m_MainHBmp);
         }
 
-        s_nPrevDimensions = m_mainWindowDimensions;
+        m_lastPaintedDimensions = m_mainWindowDimensions;
     }
 }

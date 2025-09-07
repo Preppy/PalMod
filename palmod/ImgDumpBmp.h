@@ -56,6 +56,7 @@ public:
     int m_clip_right = 0, m_clip_bottom = 0;
 
     sImageDimensions m_bltDimensions;
+    sImageDimensions m_lastPaintedDimensions;
 
     int m_nPalAmt = 0;
     int m_nImageAmt = 0;
