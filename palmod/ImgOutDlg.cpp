@@ -788,8 +788,6 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
     if (fShouldExport)
     {
-        CString strOutputFilename;
-        CString strDimensions;
         const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
         sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
@@ -802,31 +800,22 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
         {
             if (rgSrcImg[nImageIndex]->dimensions.width && rgSrcImg[nImageIndex]->dimensions.height)
             {
-                strDimensions.Format(L"-w-%u-h-%u", rgSrcImg[nImageIndex]->dimensions.width, rgSrcImg[nImageIndex]->dimensions.height);
-
-                // Ensure that the filename includes the W/H values so the RAW is usable
-                const bool fNeedDimensions = (wcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
-
-                // RAW export
-                if (nImageCount == 1)
-                {
-                    strOutputFilename.Format(L"%s%s%s", save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
-                }
-                else
-                {
-                    strOutputFilename.Format(L"%s_%02u%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
-                }
-
+                bool fThisLayerUsed = false;
                 bool fHasErrorAndShouldFix = false;
 
-                std::vector<bool> rgIsIndexUsed;
-                rgIsIndexUsed.resize(rgSrcImg[nImageIndex]->uPalSz);
+                std::vector<bool> rgIsPaletteIndexUsed;
+                rgIsPaletteIndexUsed.resize(rgSrcImg[nImageIndex]->uPalSz);
 
                 for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width; nImgIndex++)
                 {
                     if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] < rgSrcImg[nImageIndex]->uPalSz)
                     {
-                        rgIsIndexUsed.at(rgSrcImg[nImageIndex]->pImgData[nImgIndex]) = true;
+                        rgIsPaletteIndexUsed.at(rgSrcImg[nImageIndex]->pImgData[nImgIndex]) = true;
+
+                        if (!fThisLayerUsed && rgSrcImg[nImageIndex]->pImgData[nImgIndex])
+                        {
+                            fThisLayerUsed = true;
+                        }
                     }
                     else
                     {
@@ -834,20 +823,20 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                     }
                 }
 
-                if (fHasErrorAndShouldFix)
+                if (fHasErrorAndShouldFix && fThisLayerUsed)
                 {
                     CString strMsg = L"This preview uses non-standard color references.  Do you want PalMod to export it using normalized and recommended color references instead?";
                     fHasErrorAndShouldFix = (MessageBox(strMsg.GetString(), GetHost()->GetAppName(), MB_YESNO) == IDYES);
                 }
 
-                if (fHasErrorAndShouldFix)
+                if (fHasErrorAndShouldFix && fThisLayerUsed)
                 {
                     // Default to the last color in the palette: we'll optimize to an actually unused color index if possible.
                     uint8_t nUnusedPaletteIndex = static_cast<uint8_t>(rgSrcImg[nImageIndex]->uPalSz - 1);
 
-                    for (uint8_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
+                    for (uint8_t nColorUsageIndex = 1; nColorUsageIndex < rgIsPaletteIndexUsed.size(); nColorUsageIndex++)
                     {
-                        if (!rgIsIndexUsed.at(nColorUsageIndex))
+                        if (!rgIsPaletteIndexUsed.at(nColorUsageIndex))
                         {
                             nUnusedPaletteIndex = nColorUsageIndex;
                             break;
@@ -892,11 +881,39 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                     }
                 }
 
-                CFile rawFile;
-                if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+                // don't export empty RAWs unless somehow this is nonsensically a single layer
+                // loading and trying to export an empty raw would just be weird
+                if (fThisLayerUsed || (nImageCount == 1)) 
                 {
-                    rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width);
-                    rawFile.Abort();
+                    CFile rawFile;
+                    CString strOutputFilename;
+                    CString strDimensions;
+                    strDimensions.Format(L"-w-%u-h-%u", rgSrcImg[nImageIndex]->dimensions.width, rgSrcImg[nImageIndex]->dimensions.height);
+
+                    // Ensure that the filename includes the W/H values so the RAW is usable
+                    const bool fNeedDimensions = (wcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
+
+                    // RAW export
+                    if (nImageCount == 1)
+                    {
+                        strOutputFilename.Format(L"%s%s%s", save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
+                    }
+                    else
+                    {
+                        strOutputFilename.Format(L"%s_%02u%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
+                    }
+
+                    if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+                    {
+                        rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->dimensions.height * rgSrcImg[nImageIndex]->dimensions.width);
+                        rawFile.Abort();
+                    }
+                }
+                else
+                {
+                    CString strOutput;
+                    strOutput.Format(L"CImgOutDlg::ExportToRAW: Layer %u has no content, skipping.\r\n", nImageIndex);
+                    OutputDebugString(strOutput.GetString());
                 }
             }
         }
