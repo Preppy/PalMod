@@ -112,9 +112,16 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         { L"SSF2T (CPS2 USA 940223 04)", L"sfxu.04a", 0x532b5ffd, 0 },
         { L"SSF2T (CPS2 USA 940223 08)", L"sfxu.08", 0xb3c71810, 0 },
 
-        { L"SSF2X:GMC (CPS2 Japan 03)", L"sfxj.03c", 0xa7417b79, 0 },
+        { L"SSF2X:GMC (CPS2 Japan 940223 03)", L"sfxj.03c", 0xa7417b79, 0 },
+        { L"SSF2X:GMC (CPS2 Japan 940311 03)", L"sfxj.03d", 0x50B52B37, 0 },
+        // can be either
         { L"SSF2X:GMC (CPS2 Japan 04)", L"sfxj.04a", 0xaf7767b4, 0 },
+        // can be either
         { L"SSF2X:GMC (CPS2 Japan 08)", L"sfxj.08", 0x2de76f10, 0 },
+
+        { L"SSF2X:GMC (CPS2 Japan Rental 940223 03)", L"sfxo.03c", 0x2BA33DC6, 0 },
+        { L"SSF2X:GMC (CPS2 Japan Rental 940223 04)", L"sfxo.04a", 0xBA663DD7, 0 },
+        { L"SSF2X:GMC (CPS2 Japan Rental 940223 08)", L"sfxo.08", 0xB60F4B58, 0 },
 
         { L"SSF2T (CPS2 Asia 940223 bootleg 03)", L"sfxad.03c", 0xe3c92ece, 0 },
         { L"SSF2T (CPS2 Asia 940223 bootleg 04)", L"sfxad.04a", 0x9bf3bb2e, 0 },
