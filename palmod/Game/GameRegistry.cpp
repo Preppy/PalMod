@@ -1757,7 +1757,7 @@ namespace KnownGameInfo
         },
         {
             BnK_P,
-            L"Sengoku BASARA X (PS2)",
+            L"Bonnou no Kaihou (PS2)",
             { BnK_P,         L"Shin Gouketsuji Ichizoku: Bonnou no Kaihou", L"Shin Gouketsuji Ichizoku: Bonnou no Kaihou (PS2)|SLPM_662.78|", GamePlatform::PS2 },
             Make_BnK_P,
             CGame_BnK_P::GetRule,
