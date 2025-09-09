@@ -1791,12 +1791,12 @@ const sDescTreeNode HSF2_A_DEEJAY_PORTRAIT_COLLECTION[] =
     { L"ST/SSF2",   DESC_NODETYPE_TREE,    (void*)HSF2_A_DEEJAY_ST_PORTRAIT_PALETTES,    ARRAYSIZE(HSF2_A_DEEJAY_ST_PORTRAIT_PALETTES) },
 };
 
-const sGame_PaletteDataset HSF2_A_04_STAGES_RYU_PALETTES[] =
+const sGame_PaletteDataset HSF2_A_STAGES_RYU_PALETTES_04[] =
 {
     { L"Background Castle", 0x4D2B4, 0x4D314, indexSF2Sprites_Stages, 0x0b },
 };
 
-const sGame_PaletteDataset HSF2_A_10_STAGES_RYU_PALETTES[] =
+const sGame_PaletteDataset HSF2_A_STAGES_RYU_PALETTES_10[] =
 {
     { L"Sky", 0x43A0, 0x43C0, indexSF2Sprites_Stages, 0x08, &pairFullyLinkedNode },
     { L"Wall", 0x143E0, 0x14480, indexSF2Sprites_Stages, 0x09 },
@@ -1805,12 +1805,12 @@ const sGame_PaletteDataset HSF2_A_10_STAGES_RYU_PALETTES[] =
 
 const sDescTreeNode HSF2_A_04_STAGES_COLLECTION[] =
 {
-    { L"Ryu (ROM04 parts)",   DESC_NODETYPE_TREE,    (void*)HSF2_A_04_STAGES_RYU_PALETTES,    ARRAYSIZE(HSF2_A_04_STAGES_RYU_PALETTES) },
+    { L"Ryu (ROM04 parts)",   DESC_NODETYPE_TREE,    (void*)HSF2_A_STAGES_RYU_PALETTES_04,    ARRAYSIZE(HSF2_A_STAGES_RYU_PALETTES_04) },
 };
 
 const sDescTreeNode HSF2_A_10_STAGES_COLLECTION[] =
 {
-    { L"Ryu (ROM10 parts)",   DESC_NODETYPE_TREE,    (void*)HSF2_A_10_STAGES_RYU_PALETTES,    ARRAYSIZE(HSF2_A_10_STAGES_RYU_PALETTES) },
+    { L"Ryu (ROM10 parts)",   DESC_NODETYPE_TREE,    (void*)HSF2_A_STAGES_RYU_PALETTES_10,    ARRAYSIZE(HSF2_A_STAGES_RYU_PALETTES_10) },
 };
 
 const sDescTreeNode HSF2_A_UNITS_03[] =
