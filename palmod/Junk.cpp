@@ -1111,6 +1111,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, L"Select &None");
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(m_nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYOFFSET, L"Copy Offset");
+        PopupMenu.AppendMenu(m_nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYBINARY, L"Copy Binary Data");
 
         const int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
 
@@ -1119,6 +1120,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         case CUSTOM_COPY:
         case CUSTOM_PASTE:
         case CUSTOM_COPYOFFSET:
+        case CUSTOM_COPYBINARY:
             NotifyParent(result);
             break;
         case CUSTOM_GRADIENT_HSL:
@@ -1180,6 +1182,7 @@ BOOL CJunk::OnCommand(WPARAM wParam, LPARAM lParam)
         case CUSTOM_SALL:
         case CUSTOM_SNONE:
         case CUSTOM_COPYOFFSET:
+        case CUSTOM_COPYBINARY:
         {
             NotifyParent(LOWORD(wParam));
             return TRUE;

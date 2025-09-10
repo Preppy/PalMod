@@ -296,7 +296,10 @@ private:
     afx_msg void OnPasteColorAtPointer();
     afx_msg void OnPasteWalkColorAtPointer();
 
-    afx_msg void OnEditCopy();
+    void HandleCopyToClipboard(bool fIncludeNonBinaryText = true);
+
+    afx_msg void OnEditCopy() { HandleCopyToClipboard(true); };
+    afx_msg void OnEditCopyBinary() { HandleCopyToClipboard(false); };
     afx_msg void OnEditCopyOffset();
 
     afx_msg void OnPalSelShiftLeft();

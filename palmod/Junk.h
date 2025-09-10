@@ -17,6 +17,7 @@ constexpr auto CUSTOM_GRADIENT_HSL    = WM_USER + 18;
 constexpr auto CUSTOM_GRADIENT_HSV    = WM_USER + 19;
 constexpr auto CUSTOM_GRADIENT_LAB    = WM_USER + 20;
 constexpr auto CUSTOM_GRADIENT_XYZ    = WM_USER + 21;
+constexpr auto CUSTOM_COPYBINARY      = WM_USER + 22;
 
 class CJunk :
     public CWnd

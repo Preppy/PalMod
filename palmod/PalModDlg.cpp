@@ -709,6 +709,7 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
                 case CUSTOM_SALL:
                 case CUSTOM_SNONE:
                 case CUSTOM_COPYOFFSET:
+                case CUSTOM_COPYBINARY:
                 {
                     CustomEditProc(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
                     return TRUE;

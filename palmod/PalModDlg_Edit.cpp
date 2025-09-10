@@ -515,7 +515,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
     return TRUE;
 }
 
-void CPalModDlg::OnEditCopy()
+void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
 {
     if (m_fEnabled)
     {
@@ -532,17 +532,17 @@ void CPalModDlg::OnEditCopy()
 
         CGameClass* CurrGame = GetHost()->GetCurrGame();
         CJunk* CurrPal = m_PalHost.GetNotifyPal();
-        int nWorkingAmt = CurrPal->GetWorkingAmt();
+        const int nWorkingAmt = CurrPal->GetWorkingAmt();
         uint8_t* pSelIndex = CurrPal->GetSelIndex();
 
-        uint16_t nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
+        const uint16_t nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
         uint8_t uCopyFlag1;
         // We use a wchar_t as a uint8_t value to store the size.  This is compatible with all versions of palmod.
         // For the new large palette support, this would overflow, so we're just going to set it to 0.
         // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
         uint8_t uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? static_cast<uint8_t>(nPaletteSelectionLength) : k_nASCIICharacterOffset;
 
-        bool fCopyAll = (CurrPal->GetSelAmt() == 0);
+        const bool fCopyAll = (CurrPal->GetSelAmt() == 0);
         bool fHitError = false;
 
         // This table so that older or newer versions of PalMod know the bpp of the copied colors.
@@ -652,7 +652,7 @@ void CPalModDlg::OnEditCopy()
                 default:
                 case 2:
                 {
-                    uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                    const uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
 
                     FormatTxt.Format("%04X", uCurrData);
 
@@ -662,13 +662,13 @@ void CPalModDlg::OnEditCopy()
                 }
                 case 3:
                 {
-                    uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
+                    const uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
                     FormatTxt.Format("%06X", uCurrData);
                     break;
                 }
                 case 4:
                 {
-                    uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                    const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
 
                     FormatTxt.Format("%08X", uCurrData);
                     break;
@@ -695,37 +695,47 @@ void CPalModDlg::OnEditCopy()
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
 
-        strUnicodeData.Format(L"%S", CopyText.GetString());
-        if (m_fShowExtraCopyData)
+        if (fIncludeNonBinaryText)
+        {
+            strUnicodeData.Format(L"%S", CopyText.GetString());
+        }
+
+        if (m_fShowExtraCopyData || !fIncludeNonBinaryText)
         {
             CString strFormatU;
 
-            strUnicodeData.Append(L"\r\n\r\nThe above data starting at '(' and ending at ')' is the color string you give to PalMod to copy a color, as in (\"\"0000) .");
-            strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
-            strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
-
-            const sPalDef* activePal = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
-            const uint32_t nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
-
-            strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", nPaletteStartingLocation);
-            strUnicodeData.Append(strFormatU);
-
-            if (nInitialOffsetDelta != 0)
+            if (fIncludeNonBinaryText)
             {
-                strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", nPaletteStartingLocation + (nInitialOffsetDelta * cbColor));
+                strUnicodeData.Append(L"\r\n\r\nThe above data starting at '(' and ending at ')' is the color string you give to PalMod to copy a color, as in (\"\"0000) .");
+                strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
+                strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
+
+                const sPalDef* activePal = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
+                const uint32_t nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
+
+                strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", nPaletteStartingLocation);
                 strUnicodeData.Append(strFormatU);
+
+                if (nInitialOffsetDelta != 0)
+                {
+                    strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", nPaletteStartingLocation + (nInitialOffsetDelta * cbColor));
+                    strUnicodeData.Append(strFormatU);
+                }
             }
 
             // Certain GBA games handle alpha uniquely.
             const bool fAlphaIsChaotic = ((CurrGame->GetAlphaMode() == AlphaMode::GameUsesChaoticAlpha) && (cbColor == 2));
 
-            if (fAlphaIsChaotic)
+            if (fIncludeNonBinaryText)
             {
-                strUnicodeData.Append(L"\r\nWARNING: This game stores the Alpha value chaotically, so binary searches may fail.\r\n\r\n*PalMod*'s version of the data in the ROM at that location reads:\r\n\t");
-            }
-            else
-            {
-                strUnicodeData.Append(L"PalMod's version of the data in the ROM at that location reads:\r\n\t");
+                if (fAlphaIsChaotic)
+                {
+                    strUnicodeData.Append(L"\r\nWARNING: This game stores the Alpha value chaotically, so binary searches may fail.\r\n\r\n*PalMod*'s version of the data in the ROM at that location reads:\r\n\t");
+                }
+                else
+                {
+                    strUnicodeData.Append(L"PalMod's version of the data in the ROM at that location reads:\r\n\t");
+                }
             }
 
             for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
@@ -765,7 +775,7 @@ void CPalModDlg::OnEditCopy()
                 }
             }
 
-            if (fAlphaIsChaotic)
+            if (fIncludeNonBinaryText && fAlphaIsChaotic)
             {
                 strUnicodeData.Append(L"\r\n\r\nSince this game's use of the alpha value is chaotic, the data might instead be stored as:\r\n\t");
 
@@ -789,7 +799,7 @@ void CPalModDlg::OnEditCopy()
             SupportedGamesList gameFlag = CurrGame->GetGameFlag();
             const bool fWantArcanaFormattedData = (gameFlag == MBAACC_S) || (gameFlag == MBTL_A) || (gameFlag == UNICLR_A) || (gameFlag == DBFCI_A);
 
-            if (fWantArcanaFormattedData)
+            if (fIncludeNonBinaryText && fWantArcanaFormattedData)
             {
                 bool haveShownOneColor = false;
 
@@ -806,19 +816,19 @@ void CPalModDlg::OnEditCopy()
 
                         switch (cbColor)
                         {
-                        default:
-                        case 2:
-                        case 3:
-                            // Unsupported
-                            break;
-                        case 4:
-                        {
-                            uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
-                            strFormatU.Format(L"[ %u,%u,%u ]", uCurrData & 0xFF,
-                                                               (uCurrData & 0xFF00) >> 8,
-                                                               (uCurrData & 0xFF0000) >> 16);
-                            break;
-                        }
+                            default:
+                            case 2:
+                            case 3:
+                                // Unsupported
+                                break;
+                            case 4:
+                            {
+                                const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                                strFormatU.Format(L"[ %u,%u,%u ]", uCurrData & 0xFF,
+                                                                   (uCurrData & 0xFF00) >> 8,
+                                                                   (uCurrData & 0xFF0000) >> 16);
+                                break;
+                            }
                         }
 
                         strUnicodeData.Append(strFormatU);
@@ -829,7 +839,10 @@ void CPalModDlg::OnEditCopy()
                 strUnicodeData.Append(L" ],\r\n");
             }
 
-            strUnicodeData.Append(L"\r\n\r\nYou can turn off this secret extended data by going to PalMod's Settings menu.\r\n");
+            if (fIncludeNonBinaryText)
+            {
+                strUnicodeData.Append(L"\r\n\r\nYou can turn off this secret extended data by going to PalMod's Settings menu.\r\n");
+            }
         }
 
         OutputDebugString(strUnicodeData.GetString());
@@ -1780,6 +1793,9 @@ void CPalModDlg::CustomEditProc(void* pPalCtrl, UINT_PTR nCtrlId, int nMethod)
         break;
     case CUSTOM_COPYOFFSET:
         OnEditCopyOffset();
+        break;
+    case CUSTOM_COPYBINARY:
+        OnEditCopyBinary();
         break;
     case CUSTOM_PASTE:
         OnEditPaste();

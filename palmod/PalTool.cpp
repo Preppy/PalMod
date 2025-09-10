@@ -502,6 +502,7 @@ BOOL CPalTool::PreTranslateMessage(MSG* pMsg)
                 case CUSTOM_SALL:
                 case CUSTOM_SNONE:
                 case CUSTOM_COPYOFFSET:
+                case CUSTOM_COPYBINARY:
                 {
                     SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
                     return TRUE;
