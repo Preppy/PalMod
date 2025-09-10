@@ -1707,19 +1707,19 @@ const sGame_PaletteDataset SSF2T_A_BONUS_NODE_03[] =
 
 const sGame_PaletteDataset SSF2T_A_BONUS_BONUS_NODE_04[] =
 {
-    { L"Insert Coin Ryu Stage", 0x53e3c, 0x53e5c },
-    { L"Ryu Ending (Ryu walking)", 0x5987a, 0x5989a },
-    { L"Ken Portrait 2", 0x5c8ba, 0x5c9ba },
-    { L"Cammy End Portrait 2", 0x5c63a, 0x5c81a },
-    { L"M.Bison Ending Portrait Fingers 1/3", 0x4a432, 0x4a452 },
-    { L"M.Bison Ending Portrait Fingers 2/3", 0x4a478, 0x4a498 },
-    { L"M.Bison Ending Portrait Fingers 3/3", 0x4a4be, 0x4a4de },
-    { L"M.Bison Ending Portrait Body 1/3", 0x4a454, 0x4a474 },
-    { L"M.Bison Ending Portrait Body 2/3", 0x4a49a, 0x4a4ba },
-    { L"M.Bison Ending Portrait Body 3/3", 0x4a4e0, 0x4a500 },
-    { L"Vega Ending Portrait 1", 0x5a4fa, 0x5a57a },
-    { L"Vega Ending Portrait 2", 0x5a5da, 0x5a61a },
-    { L"M.Bison Ending 2", 0x5c3da, 0x5c4ba },
+    { L"Insert Coin Ryu Stage",                 0x53e3c, 0x53e5c },
+    { L"Ryu Ending (Ryu walking)",              0x5987a, 0x5989a },
+    { L"Ken Portrait 2",                        0x5c8ba, 0x5c9ba },
+    { L"Cammy End Portrait 2",                  0x5c63a, 0x5c81a },
+    { L"M.Bison Ending Portrait Fingers 1/3",   0x4a432, 0x4a452 },
+    { L"M.Bison Ending Portrait Fingers 2/3",   0x4a478, 0x4a498 },
+    { L"M.Bison Ending Portrait Fingers 3/3",   0x4a4be, 0x4a4de },
+    { L"M.Bison Ending Portrait Body 1/3",      0x4a454, 0x4a474 },
+    { L"M.Bison Ending Portrait Body 2/3",      0x4a49a, 0x4a4ba },
+    { L"M.Bison Ending Portrait Body 3/3",      0x4a4e0, 0x4a500 },
+    { L"Vega Ending Portrait 1",                0x5a4fa, 0x5a57a },
+    { L"Vega Ending Portrait 2",                0x5a5da, 0x5a61a },
+    { L"M.Bison Ending 2",                      0x5c3da, 0x5c4ba },
 };
 
 const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
@@ -1766,21 +1766,21 @@ const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
 
 const sGame_PaletteDataset SSF2T_A_BONUS_NODE_04[] =
 {
-    { L"Akuma Intro", 0x05bf5a, 0x05bf7a, indexSF2Sprites_Bonus, 0x01 },
-    { L"Chun-Li Intro", 0x05bf7a, 0x05c09a, indexSF2Sprites_Bonus, 0x02 },
-    { L"Cammy Intro", 0x05be5a, 0x05bf5a, indexSF2Sprites_Bonus, 0x00 },
+    { L"Akuma Intro",                   0x5bf5a, 0x5bf7a, indexSF2Sprites_Bonus, 0x01 },
+    { L"Chun-Li Intro",                 0x5bf7a, 0x5c09a, indexSF2Sprites_Bonus, 0x02 },
+    { L"Cammy Intro",                   0x5be5a, 0x5bf5a, indexSF2Sprites_Bonus, 0x00 },
 
-    { L"Intro Ryu Part 5", 0x5917a, 0x5919a, indexSF2Sprites_Bonus, 0x34 },
-    { L"Intro Ryu Part 6", 0x5919a, 0x591BA },
+    { L"Intro Ryu Part 5",              0x5917a, 0x5919a, indexSF2Sprites_Bonus, 0x34 },
+    { L"Intro Ryu Part 6",              0x5919a, 0x591BA },
 
-    { L"Intro Ryu Charging Hadouken", 0x591da, 0x591fa },
+    { L"Intro Ryu Charging Hadouken",   0x591da, 0x591fa },
 };
 
 const sGame_PaletteDataset SSF2T_A_BONUS_TITLESCREEN_NODE_04[] =
 {
-    { L"Title Screen \"X\"", 0x59098, 0x590b8, indexSF2Sprites_Bonus, 0x20, &pairFullyLinkedNode },
-    { L"Street Fighter II Text", 0x5921a, 0x5923a, indexSF2Sprites_Bonus, 0x1f },
-    { L"Grand Master Challenge Text", 0x5915a, 0x5917a, indexSF2Sprites_Bonus, 0x1e },
+    { L"Title Screen \"X\"",            0x59098, 0x590b8, indexSF2Sprites_Bonus, 0x20, &pairFullyLinkedNode },
+    { L"Street Fighter II Text",        0x5921a, 0x5923a, indexSF2Sprites_Bonus, 0x1f },
+    { L"Grand Master Challenge Text",   0x5915a, 0x5917a, indexSF2Sprites_Bonus, 0x1e },
     // this is now "charging hadouken" { L"Title Screen Lightning", 0x591da, 0x591fa },
 };
 
@@ -8549,6 +8549,7 @@ const sDescTreeNode SSF2T_A_HYBRID_STAGES_COLLECTION_UNIQUE_04[] =
     { L"Stage Super Trails",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_SUPERTRAILS_NODE_04, ARRAYSIZE(SSF2T_A_BONUS_SUPERTRAILS_NODE_04) },
 };
 
+// These collections are mirrored between HSF2 and SSF2T due to varying locations
 const sDescTreeNode SSF2T_A_03_BONUS_COLLECTION[] =
 {
     { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE_03,          ARRAYSIZE(SSF2T_A_BONUS_NODE_03) },
@@ -8643,45 +8644,49 @@ const sDescTreeNode SSF2T_A_HYBRID_STAGES_COLLECTION_UNIQUE_08[] =
 
 const sDescTreeNode SSF2T_A_UNITS_3C[] =
 {
-    { L"Balrog",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_BALROG_PORTRAIT_COLLECTION) },
-    { L"Blanka",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_BLANKA_PORTRAIT_COLLECTION) },
-    { L"Cammy",             DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_PORTRAIT_COLLECTION,           ARRAYSIZE(SSF2T_A_CAMMY_PORTRAIT_COLLECTION) },
-    { L"Chun-Li",           DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_CHUNLI_PORTRAIT_COLLECTION) },
-    { L"Dee Jay",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_DEEJAY_PORTRAIT_COLLECTION) },
-    { L"Dhalsim",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_PORTRAIT_COLLECTION,         ARRAYSIZE(SSF2T_A_DHALSIM_PORTRAIT_COLLECTION) },
+    { L"Ryu",               DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_PORTRAIT_COLLECTION,             ARRAYSIZE(SSF2T_A_RYU_PORTRAIT_COLLECTION) },
     { L"E. Honda",          DESC_NODETYPE_TREE, (void*)SSF2T_A_EHONDA_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_EHONDA_PORTRAIT_COLLECTION) },
-    { L"Fei Long",          DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_PORTRAIT_COLLECTION,         ARRAYSIZE(SSF2T_A_FEILONG_PORTRAIT_COLLECTION) },
+    { L"Blanka",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_BLANKA_PORTRAIT_COLLECTION) },
     { L"Guile",             DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_PORTRAIT_COLLECTION,           ARRAYSIZE(SSF2T_A_GUILE_PORTRAIT_COLLECTION) },
     { L"Ken",               DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_PORTRAIT_COLLECTION,             ARRAYSIZE(SSF2T_A_KEN_PORTRAIT_COLLECTION) },
-    { L"M. Bison",          DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_MBISON_PORTRAIT_COLLECTION) },
-    { L"Ryu",               DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_PORTRAIT_COLLECTION,             ARRAYSIZE(SSF2T_A_RYU_PORTRAIT_COLLECTION) },
-    { L"Sagat",             DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_PORTRAIT_COLLECTION,           ARRAYSIZE(SSF2T_A_SAGAT_PORTRAIT_COLLECTION) },
-    { L"T-Hawk",            DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_PORTRAIT_COLLECTION,           ARRAYSIZE(SSF2T_A_THAWK_PORTRAIT_COLLECTION) },
-    { L"Vega",              DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_PORTRAIT_COLLECTION,            ARRAYSIZE(SSF2T_A_VEGA_PORTRAIT_COLLECTION) },
+    { L"Chun-Li",           DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_CHUNLI_PORTRAIT_COLLECTION) },
     { L"Zangief",           DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_PORTRAIT_COLLECTION,         ARRAYSIZE(SSF2T_A_ZANGIEF_PORTRAIT_COLLECTION) },
+    { L"Dhalsim",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_PORTRAIT_COLLECTION,         ARRAYSIZE(SSF2T_A_DHALSIM_PORTRAIT_COLLECTION) },
+    { L"M. Bison",          DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_MBISON_PORTRAIT_COLLECTION) },
+    { L"Sagat",             DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_PORTRAIT_COLLECTION,           ARRAYSIZE(SSF2T_A_SAGAT_PORTRAIT_COLLECTION) },
+    { L"Balrog",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_BALROG_PORTRAIT_COLLECTION) },
+    { L"Vega",              DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_PORTRAIT_COLLECTION,            ARRAYSIZE(SSF2T_A_VEGA_PORTRAIT_COLLECTION) },
+    { L"Cammy",             DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_PORTRAIT_COLLECTION,           ARRAYSIZE(SSF2T_A_CAMMY_PORTRAIT_COLLECTION) },
+    { L"T-Hawk",            DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_PORTRAIT_COLLECTION,           ARRAYSIZE(SSF2T_A_THAWK_PORTRAIT_COLLECTION) },
+    { L"Fei Long",          DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_PORTRAIT_COLLECTION,         ARRAYSIZE(SSF2T_A_FEILONG_PORTRAIT_COLLECTION) },
+    { L"Dee Jay",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_DEEJAY_PORTRAIT_COLLECTION) },
+
     { L"Stages",            DESC_NODETYPE_TREE, (void*)SSF2T_A_03_STAGES_COLLECTION,                ARRAYSIZE(SSF2T_A_03_STAGES_COLLECTION) },
+
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)SSF2T_A_03_BONUS_COLLECTION,                 ARRAYSIZE(SSF2T_A_03_BONUS_COLLECTION) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_03_NL[] =
 {
-    { L"Balrog",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_BALROG_03NL_PORTRAIT_COLLECTION) },
-    { L"Blanka",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_BLANKA_03NL_PORTRAIT_COLLECTION) },
-    { L"Cammy",             DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_03NL_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_CAMMY_03NL_PORTRAIT_COLLECTION) },
-    { L"Chun-Li",           DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_CHUNLI_03NL_PORTRAIT_COLLECTION) },
-    { L"Dee Jay",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_DEEJAY_03NL_PORTRAIT_COLLECTION) },
-    { L"Dhalsim",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_03NL_PORTRAIT_COLLECTION,    ARRAYSIZE(SSF2T_A_DHALSIM_03NL_PORTRAIT_COLLECTION) },
+    { L"Ryu",               DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_03NL_PORTRAIT_COLLECTION,        ARRAYSIZE(SSF2T_A_RYU_03NL_PORTRAIT_COLLECTION) },
     { L"E. Honda",          DESC_NODETYPE_TREE, (void*)SSF2T_A_EHONDA_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_EHONDA_03NL_PORTRAIT_COLLECTION) },
-    { L"Fei Long",          DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_03NL_PORTRAIT_COLLECTION,    ARRAYSIZE(SSF2T_A_FEILONG_03NL_PORTRAIT_COLLECTION) },
+    { L"Blanka",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_BLANKA_03NL_PORTRAIT_COLLECTION) },
     { L"Guile",             DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_03NL_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_GUILE_03NL_PORTRAIT_COLLECTION) },
     { L"Ken",               DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_03NL_PORTRAIT_COLLECTION,        ARRAYSIZE(SSF2T_A_KEN_03NL_PORTRAIT_COLLECTION) },
-    { L"M. Bison",          DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_MBISON_03NL_PORTRAIT_COLLECTION) },
-    { L"Ryu",               DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_03NL_PORTRAIT_COLLECTION,        ARRAYSIZE(SSF2T_A_RYU_03NL_PORTRAIT_COLLECTION) },
-    { L"Sagat",             DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_03NL_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_SAGAT_03NL_PORTRAIT_COLLECTION) },
-    { L"T-Hawk",            DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_03NL_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_THAWK_03NL_PORTRAIT_COLLECTION) },
-    { L"Vega",              DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_03NL_PORTRAIT_COLLECTION,       ARRAYSIZE(SSF2T_A_VEGA_03NL_PORTRAIT_COLLECTION) },
+    { L"Chun-Li",           DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_CHUNLI_03NL_PORTRAIT_COLLECTION) },
     { L"Zangief",           DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_03NL_PORTRAIT_COLLECTION,    ARRAYSIZE(SSF2T_A_ZANGIEF_03NL_PORTRAIT_COLLECTION) },
+    { L"Dhalsim",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_03NL_PORTRAIT_COLLECTION,    ARRAYSIZE(SSF2T_A_DHALSIM_03NL_PORTRAIT_COLLECTION) },
+    { L"M. Bison",          DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_MBISON_03NL_PORTRAIT_COLLECTION) },
+    { L"Sagat",             DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_03NL_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_SAGAT_03NL_PORTRAIT_COLLECTION) },
+    { L"Balrog",            DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_BALROG_03NL_PORTRAIT_COLLECTION) },
+    { L"Vega",              DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_03NL_PORTRAIT_COLLECTION,       ARRAYSIZE(SSF2T_A_VEGA_03NL_PORTRAIT_COLLECTION) },
+    { L"Cammy",             DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_03NL_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_CAMMY_03NL_PORTRAIT_COLLECTION) },
+    { L"T-Hawk",            DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_03NL_PORTRAIT_COLLECTION,      ARRAYSIZE(SSF2T_A_THAWK_03NL_PORTRAIT_COLLECTION) },
+    { L"Fei Long",          DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_03NL_PORTRAIT_COLLECTION,    ARRAYSIZE(SSF2T_A_FEILONG_03NL_PORTRAIT_COLLECTION) },
+    { L"Dee Jay",           DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_03NL_PORTRAIT_COLLECTION,     ARRAYSIZE(SSF2T_A_DEEJAY_03NL_PORTRAIT_COLLECTION) },
+
     { L"Stages",            DESC_NODETYPE_TREE, (void*)SSF2T_A_03_STAGES_COLLECTION,                ARRAYSIZE(SSF2T_A_03_STAGES_COLLECTION) },
+
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)SSF2T_A_03_BONUS_COLLECTION,                 ARRAYSIZE(SSF2T_A_03_BONUS_COLLECTION) },
 };
 

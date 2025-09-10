@@ -23,6 +23,8 @@ const std::vector<uint16_t> HSF2_A_IMGIDS_USED =
     indexSF2Sprites_DeeJay,
     indexSF2Sprites_Gouki,
     indexSF2Sprites_Stages,
+    
+    indexSF2Sprites_Bonus,
 };
 
 const sGame_PaletteDataset HSF2_A_RYU_WW_PALETTES[] =
@@ -1813,6 +1815,112 @@ const sDescTreeNode HSF2_A_10_STAGES_COLLECTION[] =
     { L"Ryu (ROM10 parts)",   DESC_NODETYPE_TREE,    (void*)HSF2_A_STAGES_RYU_PALETTES_10,    ARRAYSIZE(HSF2_A_STAGES_RYU_PALETTES_10) },
 };
 
+// The HSF2 and ST Bonus palette locations shift around a bunch, so we are unable to do any constant shift here.
+// Instead all the below locations were hand-generated.
+const sGame_PaletteDataset HSF2_A_BONUS_NODE_03[] =
+{
+    { L"Character Select icons", 0xcb5e, 0xcd5e, indexSF2Sprites_Bonus, 0x23 },
+};
+
+const sGame_PaletteDataset HSF2_A_BONUS_NODE_04[] =
+{
+    { L"Akuma Intro",                   0x51f74, 0x51f94, indexSF2Sprites_Bonus, 0x01 },
+    // NOTE: The Chun-Li intro uses a slightly different / truncated palette
+    { L"Chun-Li Intro",                 0x51f94, 0x52074, indexSF2Sprites_Bonus, 0x02 },
+    { L"Cammy Intro",                   0x51e74, 0x51f74, indexSF2Sprites_Bonus, 0x00 },
+
+    { L"Intro Ryu Part 5",              0x4f194, 0x4f1b4, indexSF2Sprites_Bonus, 0x34 },
+    { L"Intro Ryu Part 6",              0x4f1b4, 0x4f1d4 },
+
+    { L"Intro Ryu Charging Hadouken",   0x4f1f4, 0x4f214 },
+};
+
+const sGame_PaletteDataset HSF2_A_BONUS_BONUS_NODE_04[] =
+{
+    { L"Insert Coin Ryu Stage",                 0x4d036, 0x4d056 },
+    { L"Ryu Ending (Ryu walking)",              0x4f894, 0x4f8b4 },
+    { L"Ken Portrait 2",                        0x528d4, 0x529d4 },
+    { L"Cammy End Portrait 2",                  0x52654, 0x52834 },
+    { L"M.Bison Ending Portrait Fingers 1/3",   0x58214, 0x58234 },
+    { L"M.Bison Ending Portrait Fingers 2/3",   0x5825a, 0x5827a },
+    { L"M.Bison Ending Portrait Fingers 3/3",   0x582a0, 0x582c0 },
+    { L"M.Bison Ending Portrait Body 1/3",      0x58236, 0x58256 },
+    { L"M.Bison Ending Portrait Body 2/3",      0x5827c, 0x5829c },
+    { L"M.Bison Ending Portrait Body 3/3",      0x582c2, 0x582e2 },
+    { L"Vega Ending Portrait 1",                0x50514, 0x50594 },
+    { L"Vega Ending Portrait 2",                0x505f4, 0x50634 },
+    { L"M.Bison Ending 2",                      0x523f4, 0x524d4 },
+};
+
+const sGame_PaletteDataset HSF2_A_BONUS_TITLESCREEN_NODE_04[] =
+{
+    { L"Title Screen \"X\"",            0x4f0b2, 0x4f0d2, indexSF2Sprites_Bonus, 0x20, &pairFullyLinkedNode },
+    { L"Street Fighter II Text",        0x4f234, 0x4f254, indexSF2Sprites_Bonus, 0x1f },
+    { L"Grand Master Challenge Text",   0x4f174, 0x4f194, indexSF2Sprites_Bonus, 0x1e },
+};
+
+const sGame_PaletteDataset HSF2_A_10_BONUS_NODE[] =
+{
+    { L"Intro Ryu Part 1", 0x110a0, 0x111e0, indexSF2Sprites_Bonus, 0x31 },
+    { L"Intro Ryu Part 2", 0x112a0, 0x11360, indexSF2Sprites_Bonus, 0x32 },
+    { L"Intro Ryu Part 3", 0x113a0, 0x113c0 },
+    { L"Intro Ryu Part 4", 0x195c0, 0x195e0, indexSF2Sprites_Bonus, 0x33 },
+
+    { L"Blue SUPER Text",                   0x19600, 0x19640},
+    { L"Yellow Flash SUPER Text Part 1",    0x19540, 0x195c0 },
+    { L"Yellow Flash SUPER Text Part 2",    0x19640, 0x197e0 },
+    { L"Intro Ryu Hadouken Blast",          0x11260, 0x11280 },
+
+    { L"Character Select Background (1/2)", 0x183e0, 0x18400, indexSF2Sprites_Bonus, 0x1c, &pairNext },
+    { L"Character Select Background (2/2)", 0x18420, 0x18440, indexSF2Sprites_Bonus, 0x1d },
+    { L"Vs Background",                     0x18b00, 0x18b20, indexSF2Sprites_Bonus, 0x21 },
+
+    { L"Super KO 1",    0x1b000, 0x1b020 },
+    { L"Super KO 2",    0x1b020, 0x1b040 },
+    { L"Super KO 3",    0x1b040, 0x1b060 },
+    { L"Super KO 4",    0x1b060, 0x1b080 },
+    { L"Super KO 5",    0x1b080, 0x1b0a0 },
+    { L"Super KO 6",    0x1b0a0, 0x1b0c0 },
+    { L"Super KO 7",    0x1b0c0, 0x1b0e0 },
+    { L"Super KO 8",    0x1b0e0, 0x1b100 },
+    { L"Super KO 9",    0x1b100, 0x1b120 },
+    { L"Super KO 10",   0x1b120, 0x1b140 },
+    { L"Super KO 11",   0x1b140, 0x1b160 },
+    { L"Super KO 12",   0x1b160, 0x1b180 },
+    { L"Super KO 13",   0x1b180, 0x1b1a0 },
+    { L"Super KO 14",   0x1b1a0, 0x1b1c0 },
+    { L"Super KO 15",   0x1b1c0, 0x1b1e0 },
+
+    { L"World Tour Huds",                       0x185e0, 0x187e0 },
+    { L"Ryu Ending Portrait 1 Winners Poster",  0x117e0, 0x11800 },
+    { L"Ryu Ending Portrait 2",                 0x11800, 0x11820 },
+    { L"Ryu Ending Foreground",                 0x11882, 0x118a2 },
+    { L"Ryu Ending 1 Bg",                       0x19c42, 0x19c62 },
+    { L"Ryu Ending Portrait Sunset Bg",         0x11822, 0x11842 },
+    { L"Cammy Ending 1 Section (Delta Red)",    0x11fe2, 0x12002 },
+    { L"M.Bison Ending Fade In",                0x125e0, 0x12600 },
+};
+
+// These collections are mirrored between HSF2 and SSF2T due to varying locations
+const sDescTreeNode HSF2_A_03_BONUS_COLLECTION[] =
+{
+    { L"Palettes",                  DESC_NODETYPE_TREE, (void*)HSF2_A_BONUS_NODE_03,          ARRAYSIZE(HSF2_A_BONUS_NODE_03) },
+};
+
+const sDescTreeNode HSF2_A_04_BONUS_COLLECTION[] =
+{
+    { L"Intro Palettes",            DESC_NODETYPE_TREE, (void*)HSF2_A_BONUS_NODE_04,          ARRAYSIZE(HSF2_A_BONUS_NODE_04) },
+
+    { L"Title Screen",              DESC_NODETYPE_TREE, (void*)HSF2_A_BONUS_TITLESCREEN_NODE_04, ARRAYSIZE(HSF2_A_BONUS_TITLESCREEN_NODE_04) },
+    { L"Bonus",                     DESC_NODETYPE_TREE, (void*)HSF2_A_BONUS_BONUS_NODE_04,     ARRAYSIZE(HSF2_A_BONUS_BONUS_NODE_04) },
+};
+
+const sDescTreeNode HSF2_A_10_BONUS_COLLECTION[] =
+{
+    { L"Palettes",                  DESC_NODETYPE_TREE, (void*)HSF2_A_10_BONUS_NODE,   ARRAYSIZE(HSF2_A_10_BONUS_NODE) },
+};
+
+// This unit is largely mirrored in the MONO unit for Steam below
 const sDescTreeNode HSF2_A_UNITS_03[] =
 {
     { L"Ryu",       DESC_NODETYPE_TREE, (void*)HSF2_A_RYU_PORTRAIT_COLLECTION,      ARRAYSIZE(HSF2_A_RYU_PORTRAIT_COLLECTION) },
@@ -1831,8 +1939,11 @@ const sDescTreeNode HSF2_A_UNITS_03[] =
     { L"T-Hawk",    DESC_NODETYPE_TREE, (void*)HSF2_A_THAWK_PORTRAIT_COLLECTION,    ARRAYSIZE(HSF2_A_THAWK_PORTRAIT_COLLECTION) },
     { L"Fei Long",  DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_PORTRAIT_COLLECTION,  ARRAYSIZE(HSF2_A_FEILONG_PORTRAIT_COLLECTION) },
     { L"Dee Jay",   DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_PORTRAIT_COLLECTION,   ARRAYSIZE(HSF2_A_DEEJAY_PORTRAIT_COLLECTION) },
+
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)HSF2_A_03_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_03_BONUS_COLLECTION) },
 };
 
+// This unit is largely mirrored in the MONO unit for Steam below
 const sDescTreeNode HSF2_A_UNITS_04[] =
 {
     { L"Ryu",             DESC_NODETYPE_TREE, (void*)HSF2_A_RYU_COLLECTION,             ARRAYSIZE(HSF2_A_RYU_COLLECTION) },
@@ -1852,14 +1963,20 @@ const sDescTreeNode HSF2_A_UNITS_04[] =
     { L"Fei Long",        DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_COLLECTION,         ARRAYSIZE(HSF2_A_FEILONG_COLLECTION) },
     { L"Dee Jay",         DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_COLLECTION,          ARRAYSIZE(HSF2_A_DEEJAY_COLLECTION) },
     { L"Gouki",           DESC_NODETYPE_TREE, (void*)HSF2_A_GOUKI_COLLECTION,           ARRAYSIZE(HSF2_A_GOUKI_COLLECTION) },
+
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)HSF2_A_04_BONUS_COLLECTION,        ARRAYSIZE(HSF2_A_04_BONUS_COLLECTION) },
+
     { L"Stages",          DESC_NODETYPE_TREE, (void*)HSF2_A_04_STAGES_COLLECTION,       ARRAYSIZE(HSF2_A_04_STAGES_COLLECTION) },
 };
 
+// This unit is largely mirrored in the MONO unit for Steam below
 const sDescTreeNode HSF2_A_UNITS_10[] =
 {
     { L"Stages",          DESC_NODETYPE_TREE, (void*)HSF2_A_10_STAGES_COLLECTION,       ARRAYSIZE(HSF2_A_10_STAGES_COLLECTION) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)HSF2_A_10_BONUS_COLLECTION,        ARRAYSIZE(HSF2_A_10_BONUS_COLLECTION) },
 };
 
+// This unit functions as a union of the above 3 units
 const sDescTreeNode HSF2_A_UNITS_MONO[] =
 {
     { L"Ryu",             DESC_NODETYPE_TREE, (void*)HSF2_A_RYU_COLLECTION,             ARRAYSIZE(HSF2_A_RYU_COLLECTION) },
@@ -1879,6 +1996,7 @@ const sDescTreeNode HSF2_A_UNITS_MONO[] =
     { L"Fei Long",        DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_COLLECTION,         ARRAYSIZE(HSF2_A_FEILONG_COLLECTION) },
     { L"Dee Jay",         DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_COLLECTION,          ARRAYSIZE(HSF2_A_DEEJAY_COLLECTION) },
     { L"Gouki",           DESC_NODETYPE_TREE, (void*)HSF2_A_GOUKI_COLLECTION,           ARRAYSIZE(HSF2_A_GOUKI_COLLECTION) },
+    { L"Bonus Palettes (ROM04 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_04_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_04_BONUS_COLLECTION) },
     { L"Stages (ROM04 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_04_STAGES_COLLECTION,         ARRAYSIZE(HSF2_A_04_STAGES_COLLECTION) },
     { L"Portraits: Ryu",       DESC_NODETYPE_TREE, (void*)HSF2_A_RYU_PORTRAIT_COLLECTION,      ARRAYSIZE(HSF2_A_RYU_PORTRAIT_COLLECTION) },
     { L"Portraits: E.Honda",   DESC_NODETYPE_TREE, (void*)HSF2_A_EHONDA_PORTRAIT_COLLECTION,   ARRAYSIZE(HSF2_A_EHONDA_PORTRAIT_COLLECTION) },
@@ -1896,5 +2014,7 @@ const sDescTreeNode HSF2_A_UNITS_MONO[] =
     { L"Portraits: T-Hawk",    DESC_NODETYPE_TREE, (void*)HSF2_A_THAWK_PORTRAIT_COLLECTION,    ARRAYSIZE(HSF2_A_THAWK_PORTRAIT_COLLECTION) },
     { L"Portraits: Fei Long",  DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_PORTRAIT_COLLECTION,  ARRAYSIZE(HSF2_A_FEILONG_PORTRAIT_COLLECTION) },
     { L"Portraits: Dee Jay",   DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_PORTRAIT_COLLECTION,   ARRAYSIZE(HSF2_A_DEEJAY_PORTRAIT_COLLECTION) },
+    { L"Bonus Palettes (ROM03 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_03_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_03_BONUS_COLLECTION) },
     { L"Stages (ROM10 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_10_STAGES_COLLECTION,         ARRAYSIZE(HSF2_A_10_STAGES_COLLECTION) },
+    { L"Bonus Palettes (ROM10 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_10_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_10_BONUS_COLLECTION) },
 };

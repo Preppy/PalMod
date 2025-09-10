@@ -61,8 +61,8 @@ private:
         HSF2_A_UNITS_03,
         ARRAYSIZE(HSF2_A_UNITS_03),
         L"HSF2-03e.txt",     // Extra filename
-        385,                 // Count of palettes listed in the header
-        0x2ce98,             // Lowest known location used for palettes
+        386,                 // Count of palettes listed in the header
+        0xcb5e,             // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_04
@@ -81,7 +81,7 @@ private:
         HSF2_A_UNITS_04,
         ARRAYSIZE(HSF2_A_UNITS_04),
         L"HSF2-04e.txt",   // Extra filename
-        655,               // Count of palettes listed in the header
+        677,               // Count of palettes listed in the header
         0x43f9e,           // Lowest known location used for palettes
     };
 
@@ -101,7 +101,7 @@ private:
         HSF2_A_UNITS_10,
         ARRAYSIZE(HSF2_A_UNITS_10),
         L"HSF2-10e.txt",    // Extra filename
-        3,                  // Count of palettes listed in the header
+        37,                 // Count of palettes listed in the header
         0x43a0,             // Lowest known location used for palettes
     };
 
@@ -146,8 +146,9 @@ private:
         HSF2_A_UNITS_MONO,
         ARRAYSIZE(HSF2_A_UNITS_MONO),
         L"HSF2S.txt",   // Extra filename
-        1043,           // Count of palettes listed in the header
-        0x2ce98,        // Lowest known location used for palettes
+        // The Steam version is just a flat aggregate of the individual 3 HSF2 roms at this point
+        386 + 677 + 37, // Count of palettes listed in the header
+        0xcb5e,         // Lowest known location used for palettes
     };
 
 public:
