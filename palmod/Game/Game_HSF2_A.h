@@ -40,9 +40,15 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"HSF2 (CPS2 03: Portraits)", L"hs2u.03", 0xb308151e, 0 },
-        { L"HSF2 (CPS2 04: Characters)", L"hs2u.04", 0x327aa49c },
-        { L"HSF2 (CPS2 10: Stages)", L"hs2.10", 0x20D0F9E4, 0 },
+        { L"HSF2 (CPS2 USA 03: Portraits)", L"hs2u.03", 0xb308151e, 0 },
+        { L"HSF2 (CPS2 USA 04: Characters)", L"hs2u.04", 0x327aa49c, 0 },
+        { L"HSF2 (CPS2 USA 10: Stages)", L"hs2.10", 0x20D0F9E4, 0 },
+
+        { L"HSF2 (CPS2 Japan 03: Portraits)", L"hs2j.03", 0x6EFE661F, 0 },
+        { L"HSF2 (CPS2 Japan 03: Portraits)", L"hs2j.03c", 0x6EFE661F, 0 },
+        { L"HSF2 (CPS2 Japan 04: Characters)", L"hs2j.04", 0x93F2500A, 0 },
+        { L"HSF2 (CPS2 Japan 04: Characters)", L"hs2j.04b", 0x93F2500A, 0 },
+        { L"HSF2 (CPS2 Japan 10: Stages)", L"hs2j.10", 0x20D0F9E4, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_03

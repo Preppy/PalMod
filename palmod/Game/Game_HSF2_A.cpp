@@ -9,8 +9,13 @@ void CGame_HSF2_A::SetSpecialRuleForFileName(std::wstring strFileName)
     {
         // these should be all lower case
         { L"hs2u.03", HSF2LoadingKey::ROM03 },
+        { L"hs2j.03", HSF2LoadingKey::ROM03 },
+        { L"hs2j.03c", HSF2LoadingKey::ROM03 },
         { L"hs2u.04", HSF2LoadingKey::ROM04 },
+        { L"hs2j.04", HSF2LoadingKey::ROM04 },
+        { L"hs2j.04b", HSF2LoadingKey::ROM04 },
         { L"hs2.10", HSF2LoadingKey::ROM10 },
+        { L"hs2j.10", HSF2LoadingKey::ROM10 },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();
