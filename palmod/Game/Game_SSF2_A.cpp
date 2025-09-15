@@ -165,10 +165,30 @@ void CGame_SSF2_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
     const std::map<std::wstring, SSF2LoadingKey> m_rgFileNameToVersion =
     {
+        // World 930911
         { L"ssfe-03b", SSF2LoadingKey::ROM03 },
         { L"ssfe.04", SSF2LoadingKey::ROM04 },
         { L"ssfe.07", SSF2LoadingKey::ROM07 },
 
+        // USA 930911
+        { L"ssfu.03a", SSF2LoadingKey::ROM03 },
+        { L"ssfu.04a", SSF2LoadingKey::ROM04 },
+        { L"ssfu.07", SSF2LoadingKey::ROM07 },
+
+        // Tournament Battle World 931119
+        { L"ssfe.03tc", SSF2LoadingKey::ROM03 },
+        { L"ssfe.04tc", SSF2LoadingKey::ROM04 },
+        { L"ssfe.07t", SSF2LoadingKey::ROM07 },
+
+        // Tournament Battle World 930911
+        { L"ssfe.3t", SSF2LoadingKey::ROM03 },
+        { L"ssfe.4t", SSF2LoadingKey::ROM04 },
+        { L"ssfe.7t", SSF2LoadingKey::ROM07 },
+
+        // Tournament Battle Japan 930911
+        { L"ssfj.3t", SSF2LoadingKey::ROM03 },
+        { L"ssfj.4t", SSF2LoadingKey::ROM04 },
+        { L"ssfj.7t", SSF2LoadingKey::ROM07 },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();

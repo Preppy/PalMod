@@ -40,17 +40,29 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data_03 =
     {
-        { L"SSF2 (CPS2 03 Portraits)", L"ssfe-03b", 0xaf654792 },
+        { L"SSF2 (CPS2 World 930911 03 Portraits)", L"ssfe-03b", 0xaf654792 },
+        { L"SSF2 (CPS2 USA 930911 03 Portraits)", L"ssfu.03a", 0x72F29C33 },
+        { L"SSF2:TB (CPS2 World 931119 03 Portraits)", L"ssfe.03tc", 0x496A8409, 0x2eeec - 0x2e370 },
+        { L"SSF2:TB (CPS2 World 930911 03 Portraits)", L"ssfe.3t", 0x1E018E34, 0x2ee14 - 0x2e370 },
+        { L"SSF2:TB (CPS2 Japan 930911 03 Portraits)", L"ssfj.3t", 0x980D4450, 0x2ee14 - 0x2e370 },
     };
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data_04 =
     {
-        { L"SSF2 (CPS2 04 Characters)", L"ssfe.04b", 0xb082aa67 },
+        { L"SSF2 (CPS2 World 930911 04 Characters)", L"ssfe.04", 0xb082aa67 },
+        { L"SSF2 (CPS2 USA 930911 04 Characters)", L"ssfu.04a", 0x935CEA44 },
+        { L"SSF2:TB (CPS2 World 931119 04 Characters)", L"ssfe.04tc", 0x4B45C18B, 0x1487e - 0x13d0c },
+        { L"SSF2:TB (CPS2 World 930911 04 Characters)", L"ssfe.4t", 0xAC92EFAF, 0x147b0 - 0x13d0c },
+        { L"SSF2:TB (CPS2 Japan 930911 04 Characters)", L"ssfj.4t", 0xB4DC1906, 0x147b0 - 0x13d0c },
     };
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data_07 =
     {
-        { L"SSF2 (CPS2 07 Stages)", L"ssfe.07", 0x2409001d },
+        { L"SSF2 (CPS2 World 930911 07 Stages)", L"ssfe.07", 0x2409001d },
+        { L"SSF2 (CPS2 USA 930911 07 Stages)", L"ssfu.07", 0xE6066077 },
+        { L"SSF2:TB (CPS2 World 931119 07 Stages)", L"ssfe.07tc", 0x2C9F4782 },
+        { L"SSF2:TB (CPS2 World 930911 07 Stages)", L"ssfe.7t", 0x2C9F4782 },
+        { L"SSF2:TB (CPS2 Japan 930911 07 Stages)", L"ssfj.7t", 0x1F239515 },
     };
 
     const sCoreGameData m_sCoreGameData_ROM03
@@ -95,7 +107,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_ROM07
     {
-        L"SSF2 (CPS2 08 Stages)",
+        L"SSF2 (CPS2 07 Stages)",
         SSF2_A,
         IMGDAT_SECTION_SF2,
         SSF2_A_IMGIDS_USED,

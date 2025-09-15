@@ -2065,8 +2065,8 @@ namespace KnownGameInfo
         },
         {
             SSF2_A,
-            L"Super Street Fighter 2 (CPS2)",
-            { SSF2_A,            L"SSF2", L"SSF2 (CPS2): Portraits (03), Characters (04), Stages (07)|ssfe-03b;ssfe.04;ssfe.07|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+            L"Super Street Fighter II (CPS2)",
+            { SSF2_A,            L"SSF2", L"SSF2 (CPS2): Portraits (03), Characters (04), Stages (07)|ssfe-03b;ssf?.03*;ssf?.3t;ssf?.04*;ssf?.4t;ssf?.07*;ssf?.7t|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
             Make_SSF2_A,
             CGame_SSF2_A::GetRule,
         },
