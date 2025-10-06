@@ -5,6 +5,7 @@
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
 #include "Game_AquaPlus_P.h"
+#include "Game_AquaPlus_S.h"
 #include "Game_AsuraBuster_A_DIR.h"
 #include "Game_AvgrsGS_A_DIR.h"
 #include "Game_BASARA_P.h"
@@ -166,6 +167,7 @@
 #include "Game_UMK3_DS.h"
 #include "Game_UMK3_SNES.h"
 #include "Game_UNICLR_A.h"
+#include "Game_UNI2_S.h"
 #include "Game_Venture_A.h"
 #include "Game_Venture_A_DIR.h"
 #include "Game_VampireHunter_A.h"
@@ -181,7 +183,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 249, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 251, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -190,6 +192,7 @@ namespace KnownGameInfo
     CGameClass* Make_AOF3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AOF3_A(nConfirmedROMSize); }
     CGameClass* Make_AquaPlus_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AquaPlus_NL(nConfirmedROMSize); }
     CGameClass* Make_AquaPlus_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AquaPlus_P(nConfirmedROMSize); }
+    CGameClass* Make_AquaPlus_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AquaPlus_S(nConfirmedROMSize); }
     CGameClass* Make_AsuraBuster_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AsuraBuster_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_AvgrsGS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AvgrsGS_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_BASARA_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BASARA_P(nConfirmedROMSize); }
@@ -406,6 +409,7 @@ namespace KnownGameInfo
     CGameClass* Make_UMK3_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_DS(nConfirmedROMSize); }
     CGameClass* Make_UMK3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_SNES(nConfirmedROMSize); }
     CGameClass* Make_UNICLR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UNICLR_A(nConfirmedROMSize); }
+	CGameClass* Make_UNI2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UNI2_S(nConfirmedROMSize); }
     CGameClass* Make_VampireHunter_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireHunter_A(nConfirmedROMSize); }
     CGameClass* Make_VampireHunter_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireHunter_S(nConfirmedROMSize); }
     CGameClass* Make_VampireNightWarriors_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireNightWarriors_A(nConfirmedROMSize); }
@@ -490,6 +494,13 @@ namespace KnownGameInfo
             CGame_AquaPlus_P::GetNextRule,
             CGame_AquaPlus_P::GetRuleCtr,
             CGame_AquaPlus_P::ResetRuleCtr,
+        },
+	    {
+            AquaPlus_S,
+            L"Aquapazza: Aquaplus Dream Match (Steam)",
+            { AquaPlus_S,    L"Aquapazza: Aquaplus Dream Match (Steam)", L"Aquapazza: Aquaplus Dream Match (Steam)|a0.arc|", GamePlatform::Steam },
+            Make_AquaPlus_S,
+            CGame_AquaPlus_S::GetRule,
         },
         {
             AsuraBuster_A,
@@ -2199,6 +2210,16 @@ namespace KnownGameInfo
             CGame_UNICLR_A::GetRuleCtr,
             CGame_UNICLR_A::ResetRuleCtr,
         },
+		{
+            UNI2_S,
+            L"Under Night In-Birth II Sys:Celes",
+            {},
+            Make_UNI2_S,
+            CGame_UNI2_S::GetRule,
+            CGame_UNI2_S::GetNextRule,
+            CGame_UNI2_S::GetRuleCtr,
+            CGame_UNI2_S::ResetRuleCtr,
+        },
         {
             VampireNightWarriors_A,
             L"Vampire: The Night Warriors (CPS2)",
@@ -2339,7 +2360,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 249, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 251, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
