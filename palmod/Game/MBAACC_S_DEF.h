@@ -40,15 +40,15 @@ const std::vector<uint16_t> MBAACC_S_IMGIDS_USED =
 
 const std::vector<LPCWSTR> MBAACCButtonLabelsNormal =
 {
-    L"Palette 1",
-    L"Palette 2",
-    L"Palette 3",
-    L"Palette 4",
-    L"Palette 5",
-    L"Palette 6",
-    L"Palette 7",
-    L"Palette 8",
-    L"Palette 9",
+    L"Palette 01",
+    L"Palette 02",
+    L"Palette 03",
+    L"Palette 04",
+    L"Palette 05",
+    L"Palette 06",
+    L"Palette 07",
+    L"Palette 08",
+    L"Palette 09",
     L"Palette 10",
     L"Palette 11",
     L"Palette 12",
@@ -114,51 +114,59 @@ const sGCBUPF_BasicNodeData MBAACCPaletteNodes =
 
 const std::vector<sGCBUPF_BasicFileData> MBAACCCharacterData =
 {
-    //Following the order found in 0004.p/charaselect.txt
-    { L"sion.pal",              L"Sion Eltnam Atlasia",         65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_SionEltnamAtlasia },
-    { L"arc.pal",               L"Arcueid Brunestud",           65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ArcueidBrunestud },
+    //css start
+    { L"aoko.pal",              L"Aozaki Aoko",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AokoAozaki },
+    { L"shiki.pal",             L"Tohno Shiki",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiTohno },
+    { L"p_arc.pal",             L"Archetype: Earth (Hime)",		65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Hime },
+    { L"p_arc_D.pal",			L"Archetype: Earth (Arcueid Revertion)",	65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet, 0x4, indexMBAACCSprites_Hime },
+    //p_arc_D.pal is used by the Arcueid Sprites that show up when Archetype Earth has lost a set (NOT a round) and "died". Palette layout looks identical to Archetype Earth's, but it may need a different preview to focus on the fact it only has arc sprites.
+    { L"nanaya.pal",            L"Nanaya Shiki",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiNanaya },
+    { L"kishima.pal",           L"Kishima Kouma",               65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KoumaKishima },
+    { L"miyako.pal",            L"Arima Miyako",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MiyakoArima },
     { L"ciel.pal",              L"Ciel",                        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Ciel },
-    { L"akiha.pal",             L"Akiha Tohno",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AkihaTohno },
-    { L"hisui.pal",             L"Hisui",                       65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Hisui },
-    { L"kohaku.pal",            L"Kohaku",                      65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Kohaku },
-
-    //Name = HISUI_AND_KOHAKU // "Maids" share palette data with their solo counterparts, unlike the other tag style characters 
-
-    { L"shiki.pal",             L"Shiki Tohno",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiTohno },
-    { L"miyako.pal",            L"Miyako Arima",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MiyakoArima },
-    { L"warakia.pal",           L"Warachia",                    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Warachia },
-    { L"nero.pal",              L"Nero Chaos",                  65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NeroChaos },
-    { L"V_sion.pal",            L"Sion TATARI",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_SionTATARI },
-    { L"warc.pal",              L"Red Arcueid",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_RedArcueid },
-    { L"akaakiha.pal",          L"Akiha Vermillion",            65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AkihaVermillion },
-    { L"m_hisui.pal",           L"Mech-Hisui",                  65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
-    { L"nanaya.pal",            L"Shiki Nanaya",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiNanaya },
-    { L"satsuki.pal",           L"Satsuki Yumiduka",            65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_SatsukiYumiduka },
-    { L"len.pal",               L"Len",                         65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Len },
-    { L"p_ciel.pal",            L"Powerd Ciel",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_PowerdCiel },
-    { L"neco.pal",              L"Neco-Arc",                    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArc },
-    { L"aoko.pal",              L"Aoko Aozaki",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AokoAozaki },
-    { L"wlen.pal",              L"White Len",                   65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_WhiteLen },
-    { L"nechaos.pal",           L"Neco-Arc Chaos",              65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArcChaos },
-    //G_CHAOS, NECO CHAOS BLACK G666 is mentioned in code but doesnt seem to have a .pal file, will leave here for now
-    { L"kishima.pal",           L"Kouma Kishima",               65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KoumaKishima },
-    { L"s_akiha.pal",           L"Akiha Tohno (Seifuku)",       65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AkihaTohnoSeifuku },
+    { L"sion.pal",              L"Sion Eltnam Atlasia",         65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_SionEltnamAtlasia },
     { L"ries.pal",              L"Riesbyfe Stridberg",          65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_RiesbyfeStridberg },
-    { L"roa.pal",               L"Roa",                         65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Roa },
-
+    { L"V_sion.pal",            L"Sion Tatari",					65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_SionTATARI },
+    { L"warakia.pal",           L"Warachia",					65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Warachia },
+    { L"roa.pal",               L"Micheal Roa Valdamjong",		65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Roa },
+    //Name = HISUI_AND_KOHAKU // "Maids" share palette data with their solo counterparts, unlike the other tag style characters 
+    { L"hisui.pal",             L"Hisui (Solo & Maids)",        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Hisui },
+    { L"kohaku.pal",            L"Kohaku (Solo & Maids)",       65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Kohaku },
+    { L"akiha.pal",             L"Tohno Akiha",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AkihaTohno },
+    { L"arc.pal",               L"Arcueid=Brunestud",           65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ArcueidBrunestud },
+    { L"p_ciel.pal",            L"Powerd Ciel",					65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_PowerdCiel },
+    { L"warc.pal",              L"Red Arcueid",					65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_RedArcueid },
+    { L"akaakiha.pal",          L"Akiha Vermillion",			65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AkihaVermillion },
+    { L"m_hisui.pal",           L"Mech-Hisui (Solo)",			65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
+    { L"s_akiha.pal",           L"Tohno Akiha (Seifuku)",       65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AkihaTohnoSeifuku },
+    { L"satsuki.pal",           L"Yumizuka Satsuki",            65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_SatsukiYumiduka },
+    { L"len.pal",               L"Len",                         65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Len },
+    { L"ryougi.pal",            L"Ryougi Shiki",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiRyougi },
+    { L"wlen.pal",              L"White Len",                   65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_WhiteLen },
+    { L"nero.pal",              L"Nrvnqsr Chaos",				65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NeroChaos },
+    { L"nechaos.pal",           L"Neco-Arc Chaos",              65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArcChaos },
+    //Name = MECH_AND_KOHAKU (koha and mech swapped positions from the og ver of this file)
+    { L"kohaku_m.pal",          L"Kohaku (Kohaku & Mech)",		65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KohaMechKohaku },
+    { L"m_hisui_p.pal",         L"Mech-Hisui (Kohaku & Mech)",	65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
+    { L"neco.pal",              L"Neco-Arc",                    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArc },
     //Name = MECH_AND_NECO
-    { L"m_hisui_m.pal",         L"Mech-Hisui (Neco & Mech)",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
-    { L"neco_p.pal",            L"Neco-Arc (Neco & Mech)",      65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArc },
+    { L"m_hisui_m.pal",         L"Mech-Hisui (Neco-Arc & Mech)",65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
+    { L"neco_p.pal",            L"Neco-Arc (Neco-Arc & Mech)",	65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArc },
+    //end of css
 
-    //Name = MECH_AND_KOHAKU
-    { L"m_hisui_p.pal",         L"Mech-Hisui (Koha & Mech)",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
-    { L"kohaku_m.pal",          L"Kohaku (Koha & Mech)",        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KohaMechKohaku },
+    { L"hermes.pal",            L"Dust of Osiris",				65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_DustOfOsiris },
+    { L"damien.pal",			L"(Unused) Damien Armies",		65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArcChaos },
+    //G_CHAOS, NECO CHAOS BLACK G666 is mentioned in code but doesnt seem to have a .pal file, will leave here for now
 
-    { L"ryougi.pal",            L"Shiki Ryougi",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiRyougi },
-    //Hime 1/3 arent used, Hime (2) is used
-    //{ L"b_arc.pal",           L"Archetype: Earth (Hime)1",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet, 0x4, indexMBAACCSprites_Hime },
-    { L"p_arc.pal",             L"Archetype: Earth (Hime)",     65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Hime },
-    //{ L"p_arc_D.pal",         L"Archetype: Earth (Hime)3",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet, 0x4, indexMBAACCSprites_Hime },
-    { L"damien.pal",            L"Damien (Unused)",             65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_NecoArcChaos },
-    { L"hermes.pal",            L"Dust of Osiris (Unused?)",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_DustOfOsiris },
+//BOSS CHARACTER SECTION, these were all meant to appear in the cut Boss Rush gamemode
+    { L"b_akiha.pal",			L"(Unused) Boss Tohno Akiha",					65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AkihaTohno },
+    { L"b_miyako.pal",			L"(Unused) Boss Arima Miyako",			        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MiyakoArima },
+    { L"b_warakia.pal",			L"(Unused) Boss Warachia",	                    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Warachia },
+    { L"b_aoko.pal",			L"(Unused) Boss Aozaki Aoko",			        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AokoAozaki },
+    { L"b_wlen.pal",			L"(Unused) Boss White Len",				        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_WhiteLen },
+    { L"b_ryougi.pal",			L"(Unused) Boss Ryougi Shiki",                  65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiRyougi },
+    { L"b_kohaku_m.pal",		L"(Unused) Boss Kohaku (Kohaku & Mech)",        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KohaMechKohaku },
+    { L"b_m_hisui_p.pal",		L"(Unused) Boss Mech-Hisui (Kohaku & Mech)",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
+    { L"b_arc.pal",				L"(Unused) MBAA Boss Arcueid",			        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ArcueidBrunestud },
+    //It is unclear if B.Arc fills pos 51 or pos 101 due to conflicting evidence
 };
