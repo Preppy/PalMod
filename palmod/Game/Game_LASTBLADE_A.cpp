@@ -9,6 +9,26 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(uint32_t nConfirmedROMSize, SupportedGamesL
     InitializeGame(nConfirmedROMSize, (nROMToLoad == LASTBLADE_A) ? m_sCoreGameData_NeoGeo : m_sCoreGameData_Steam);
 }
 
+sFileRule CGame_LASTBLADE_A::GetRule(SupportedGamesList nGameId, uint32_t nUnitId)
+{
+    sFileRule NewFileRule;
+
+    if (nGameId == LASTBLADE_S)
+    {
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, LASTBLADE_A_FileLoadingData_Steam.rgRuleList.at(0).szFileName); // Update with the primary expected ROM name here.
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(LASTBLADE_A_FileLoadingData_Steam.rgRuleList.at(0).uVerifyVar);
+    }
+    else
+    {
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, LASTBLADE_A_FileLoadingData_NeoGeo.rgRuleList.at(0).szFileName); // Update with the primary expected ROM name here.
+        NewFileRule.uVerifyVar = static_cast<uint32_t>(LASTBLADE_A_FileLoadingData_NeoGeo.rgRuleList.at(0).uVerifyVar);
+    }
+
+    NewFileRule.uUnitId = 0;
+
+    return NewFileRule;
+}
+
 void CGame_LASTBLADE_A::DumpAllCharacters()
 {
     struct sLASTBLADE_A_CharacterDump
@@ -162,25 +182,4 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_%s_COLLECTION, ARRAYSIZE(LASTBLADE_A_%s_COLLECTION) },\r\n", LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
-}
-
-sFileRule CGame_LASTBLADE_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    if (nUnitId == LASTBLADE_S)
-    {
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, LASTBLADE_A_FileLoadingData_Steam.rgRuleList.at(0).szFileName); // Update with the primary expected ROM name here.
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(LASTBLADE_A_FileLoadingData_Steam.rgRuleList.at(0).uVerifyVar);
-    }
-    else
-    {
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, LASTBLADE_A_FileLoadingData_NeoGeo.rgRuleList.at(0).szFileName); // Update with the primary expected ROM name here.
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(LASTBLADE_A_FileLoadingData_NeoGeo.rgRuleList.at(0).uVerifyVar);
-    }
-
-    NewFileRule.uUnitId = 0;
-
-    return NewFileRule;
 }

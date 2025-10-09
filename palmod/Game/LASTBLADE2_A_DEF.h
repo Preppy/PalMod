@@ -4291,11 +4291,11 @@ const sGame_PaletteDataset LASTBLADE2_A_Shigen_PALETTES_PA[] =
         { L"Weapon Frozen", 0x00c7c80, 0x00c7ca0, indexLastBlade2_Shigen, 0x09 },
     { L"Shocked", 0x00c7aa0, 0x00c7ac0, indexLastBlade2_Shigen, 0x08, &pairNext },
         { L"Weapon Shocked", 0x00c7ca0, 0x00c7cc0, indexLastBlade2_Shigen, 0x09 },
-    { L"Zombie", 0x00c7ac0, 0x00c7ae0, indexLastBlade2_Shigen, 0x00 },
+    { L"Zombie (Unused)", 0x00c7ac0, 0x00c7ae0, indexLastBlade2_Shigen, 0x00 },
     //Weapon Zombie is used for arm
-    { L"Blink", 0x00c7ae0, 0x00c7b00, indexLastBlade2_Shigen, 0x00 },
+    { L"Blink (Unused)", 0x00c7ae0, 0x00c7b00, indexLastBlade2_Shigen, 0x00 },
     //Weapon Blink is used for arm
-    { L"Deflect", 0x00c7b00, 0x00c7b20, indexLastBlade2_Shigen, 0x00 },
+    { L"Deflect (Unused)", 0x00c7b00, 0x00c7b20, indexLastBlade2_Shigen, 0x00 },
     //Weapon Deflect is used for arm
 
     { L"Extra 1", 0x00c7b20, 0x00c7b40 },
@@ -4358,11 +4358,11 @@ const sGame_PaletteDataset LASTBLADE2_A_Shigen_PALETTES_SA[] =
         { L"Weapon Frozen", 0x00c8380, 0x00c83a0, indexLastBlade2_Shigen, 0x09 },
     { L"Shocked", 0x00c81a0, 0x00c81c0, indexLastBlade2_Shigen, 0x08, &pairNext },
         { L"Weapon Shocked", 0x00c83a0, 0x00c83c0, indexLastBlade2_Shigen, 0x09 },
-    { L"Zombie", 0x00c81c0, 0x00c81e0, indexLastBlade2_Shigen, 0x00 },
+    { L"Zombie (Unused)", 0x00c81c0, 0x00c81e0, indexLastBlade2_Shigen, 0x00 },
     //Weapon Zombie is used for arm
-    { L"Blink", 0x00c81e0, 0x00c8200, indexLastBlade2_Shigen, 0x00 },
+    { L"Blink (Unused)", 0x00c81e0, 0x00c8200, indexLastBlade2_Shigen, 0x00 },
     //Weapon Blink is used for arm
-    { L"Deflect", 0x00c8200, 0x00c8220, indexLastBlade2_Shigen, 0x00 },
+    { L"Deflect (Unused)", 0x00c8200, 0x00c8220, indexLastBlade2_Shigen, 0x00 },
     //Weapon Deflect is used for arm
 
     { L"Extra 1", 0x00c8220, 0x00c8240 },
@@ -4425,11 +4425,11 @@ const sGame_PaletteDataset LASTBLADE2_A_Shigen_PALETTES_EA[] =
         { L"Weapon Frozen", 0x00c8a80, 0x00c8aa0, indexLastBlade2_Shigen, 0x09 },
     { L"Shocked", 0x00c88a0, 0x00c88c0, indexLastBlade2_Shigen, 0x08, &pairNext },
         { L"Weapon Shocked", 0x00c8aa0, 0x00c8ac0, indexLastBlade2_Shigen, 0x09 },
-    { L"Zombie", 0x00c88c0, 0x00c88e0, indexLastBlade2_Shigen, 0x00 },
+    { L"Zombie (Unused)", 0x00c88c0, 0x00c88e0, indexLastBlade2_Shigen, 0x00 },
     //Weapon Zombie is used for arm
-    { L"Blink", 0x00c88e0, 0x00c8900, indexLastBlade2_Shigen, 0x00 },
+    { L"Blink (Unused)", 0x00c88e0, 0x00c8900, indexLastBlade2_Shigen, 0x00 },
     //Weapon Blink is used for arm
-    { L"Deflect", 0x00c8900, 0x00c8920, indexLastBlade2_Shigen, 0x00 },
+    { L"Deflect (Unused)", 0x00c8900, 0x00c8920, indexLastBlade2_Shigen, 0x00 },
     //Weapon Deflect is used for arm
 
     { L"Extra 1", 0x00c8920, 0x00c8940 },

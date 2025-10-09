@@ -24,6 +24,8 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         { L"The Last Blade 2 (Neo-Geo)", L"LB2_P1.ROM", 0xaf1e6554, 0 },
+        { L"The Last Blade 2 (Neo-Geo)", L"243-pg1.bin", 0xaf1e6554, 0 },
+        { L"The Last Blade 2 (Neo-Geo)", L"243-pg1.p1", 0xaf1e6554, 0 },
         { L"The Last Blade 2 (Steam)", L"P1.bin", 0x839893c2, 0 },
     };
 

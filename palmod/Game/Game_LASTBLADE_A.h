@@ -24,7 +24,7 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         { L"The Last Blade (Neo-Geo)", L"234-p1.p1", 0xe123a5a3, 0 },
-        { L"The Last Blade (Steam)", L"lastblad_game_m68k", 0xe72943de, 0 },
+        { L"The Last Blade (Steam)", L"lastblad_game_m68k", 0x5DED714E, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_NeoGeo
@@ -43,7 +43,7 @@ private:
         LASTBLADE_A_UNITS,
         ARRAYSIZE(LASTBLADE_A_UNITS),
         L"LastBladeE.txt",             // Extra filename
-        1394,                          // Count of palettes listed in the header
+        2444,                          // Count of palettes listed in the header
         0xaac00,                       // Lowest known location used for palettes
     };
 
@@ -63,7 +63,7 @@ private:
         LASTBLADE_A_UNITS,
         ARRAYSIZE(LASTBLADE_A_UNITS),
         L"LastBladeE.txt",             // Extra filename
-        1394,                          // Count of palettes listed in the header
+        2444,                          // Count of palettes listed in the header
         0xaac00,                       // Lowest known location used for palettes
     };
 
@@ -72,6 +72,7 @@ private:
 public:
     CGame_LASTBLADE_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE2_A */);
 
-    // There are different filenames for NeoGeo and Steam, but we've just been using the NeoGeo info here
-    static sFileRule GetRule(uint32_t nRuleId);
+    static sFileRule GetRule(SupportedGamesList nGameId, uint32_t nRuleId);
+    static sFileRule GetRule_A(uint32_t nRuleId) { return GetRule(LASTBLADE_A, nRuleId); };
+    static sFileRule GetRule_S(uint32_t nRuleId) { return GetRule(LASTBLADE_S, nRuleId); };
 };
