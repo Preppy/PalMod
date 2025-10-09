@@ -317,6 +317,7 @@
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp" />
     <ClCompile Include="Game\Game_UMK3_A.cpp" />
+    <ClCompile Include="Game\Game_UNI2_2.cpp" />
     <ClCompile Include="Game\Game_UNICLR_A.cpp" />
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp" />
     <ClCompile Include="Game\Game_Venture_A.cpp" />
@@ -374,6 +375,7 @@
     <ClInclude Include="Game\AOF1_A_DEF.h" />
     <ClInclude Include="Game\AOF3_A_DEF.h" />
     <ClInclude Include="Game\AquaPlus_P_DEF.h" />
+    <ClInclude Include="Game\AquaPlus_S_DEF.h" />
     <ClInclude Include="Game\AsuraBuster_A_DIR_DEF.h" />
     <ClInclude Include="Game\AvgrsGS_A_DIR_DEF.h" />
     <ClInclude Include="Game\BASARA_P_DEF.h" />
@@ -422,6 +424,7 @@
     <ClInclude Include="Game\Game_AOF1_A.h" />
     <ClInclude Include="Game\Game_AOF3_A.h" />
     <ClInclude Include="Game\Game_AquaPlus_P.h" />
+    <ClInclude Include="Game\Game_AquaPlus_S.h" />
     <ClInclude Include="Game\Game_AsuraBuster_A_DIR.h" />
     <ClInclude Include="Game\Game_AvgrsGS_A_DIR.h" />
     <ClInclude Include="Game\Game_BASARA_P.h" />
@@ -580,6 +583,7 @@
     <ClInclude Include="Game\Game_UMK3_A.h" />
     <ClInclude Include="Game\Game_UMK3_DS.h" />
     <ClInclude Include="Game\Game_UMK3_SNES.h" />
+    <ClInclude Include="Game\Game_UNI2_S.h" />
     <ClInclude Include="Game\Game_UNICLR_A.h" />
     <ClInclude Include="Game\Game_VampireHunter_A.h" />
     <ClInclude Include="Game\Game_VampireNightWarriors_A.h" />
@@ -720,6 +724,7 @@
     <ClInclude Include="Game\UMK3_A_DEF.h" />
     <ClInclude Include="Game\UMK3_DS_DEF.h" />
     <ClInclude Include="Game\UMK3_SNES_DEF.h" />
+    <ClInclude Include="Game\UNI2_S_DEF.h" />
     <ClInclude Include="Game\UNICLR_S_DEF.h" />
     <ClInclude Include="Game\VampireHunter_A_DEF.h" />
     <ClInclude Include="Game\VampireNightWarriors_A_DEF.h" />

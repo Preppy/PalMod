@@ -610,6 +610,12 @@
     <Filter Include="Games\PS2\Bonnou no Kaihou">
       <UniqueIdentifier>{bea9cff4-3876-4e2f-a281-91772ad65b0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Under Night In-Birth II Sys:Celes %28Steam%29">
+      <UniqueIdentifier>{3b8f0d3f-0799-4117-bf2c-3055c0537ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29">
+      <UniqueIdentifier>{347653ad-b96a-4a0f-88cf-93e996a4015d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1019,6 +1025,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_VHUNT2_A.cpp">
       <Filter>Games\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_UNI2_2.cpp">
+      <Filter>Games\Other Platforms\Under Night In-Birth II Sys:Celes %28Steam%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2170,6 +2179,18 @@
     </ClInclude>
     <ClInclude Include="Game\Game_BnK_P.h">
       <Filter>Games\PS2\Bonnou no Kaihou</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UNI2_S_DEF.h">
+      <Filter>Games\Other Platforms\Under Night In-Birth II Sys:Celes %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_UNI2_S.h">
+      <Filter>Games\Other Platforms\Under Night In-Birth II Sys:Celes %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_AquaPlus_S.h">
+      <Filter>Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AquaPlus_S_DEF.h">
+      <Filter>Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

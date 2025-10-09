@@ -590,7 +590,11 @@ BEGIN
                 MENUITEM "4rd Strike",                  ID_LD_SFIII3ARCADE4rd
                 MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
             END
-            MENUITEM "Under Night In-Birth Exe:Late[cl-r]", ID_LD_UNICLR
+            POPUP "Under Night in Birth"
+            BEGIN
+                MENUITEM "Under Night In-Birth Exe:Late[cl-r]", ID_LD_UNICLR
+                MENUITEM "Under Night In-Birth II Sys:Celes", ID_LD_UNI2
+            END
             MENUITEM "XMvSF (PSX)",                 ID_LD_XMVSFP
             MENUITEM "Developer Mode",              ID_LD_DEVMODE
         END

@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 249, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 251, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -163,6 +163,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             break;
         case UNICLR_A:
             pszExtraInfo = L"For UNICLR, please select the \"UNDER NIGHT In-Birth Exe Late[st]\" folder.\nThe folder is normally located in steamapps\\common.";
+            break;
+	    case UNI2_S:
+            pszExtraInfo = L"For UNI2, please select the \"UNDER NIGHT IN-BIRTH II Sys Celes\" folder.\nThe folder is normally located in steamapps\\common.";
             break;
         case XMVSF_P:
             pszExtraInfo = L"We need the PLxx_10.BIN files from the P\\P0 folder of the game image.";
