@@ -242,6 +242,7 @@
     <ClCompile Include="Game\GameLoad.cpp" />
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
+    <ClCompile Include="Game\Game_AquaPlus_S.cpp" />
     <ClCompile Include="game\Game_AvgrsGS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />

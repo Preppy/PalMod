@@ -762,87 +762,106 @@ const sGame_PaletteDataset AquaPlus_MARYANBOSS_PALETTES[] =
 	{ L"Dreamy Miracle Prism", 0x296E3044, 0x296E3044 + 0x400, indexAquaPlusSprites_Partner, 0x00 },
 };
 
-
 const sDescTreeNode AquaPlus_ARAWN_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_ARAWN_PALETTES,           ARRAYSIZE(AquaPlus_ARAWN_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_CHIZURU_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_CHIZURU_PALETTES,           ARRAYSIZE(AquaPlus_CHIZURU_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_CHIZURUBLOOD_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_CHIZURUBLOOD_PALETTES,           ARRAYSIZE(AquaPlus_CHIZURUBLOOD_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_HAKUOWLO_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_HAKUOWLO_PALETTES,           ARRAYSIZE(AquaPlus_HAKUOWLO_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_HAKUOWLOEXTRAS_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_HAKUOWLOEXTRAS_PALETTES,           ARRAYSIZE(AquaPlus_HAKUOWLOEXTRAS_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_KARULAU_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_KARULAU_PALETTES,           ARRAYSIZE(AquaPlus_KARULAU_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_KONOMI_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_KONOMI_PALETTES,           ARRAYSIZE(AquaPlus_KONOMI_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_KONOMIEXTRAS_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_KONOMIEXTRAS_PALETTES,           ARRAYSIZE(AquaPlus_KONOMIEXTRAS_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_MANAKA_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_MANAKA_PALETTES,           ARRAYSIZE(AquaPlus_MANAKA_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_MORGAN_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_MORGAN_PALETTES,           ARRAYSIZE(AquaPlus_MORGAN_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_MULTI_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_MULTI_PALETTES,           ARRAYSIZE(AquaPlus_MULTI_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_MULTIBROOM_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_MULTIBROOM_PALETTES,           ARRAYSIZE(AquaPlus_MULTIBROOM_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_OBORO_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_OBORO_PALETTES,           ARRAYSIZE(AquaPlus_OBORO_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_OBOROEXTRAS_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_OBOROEXTRAS_PALETTES,           ARRAYSIZE(AquaPlus_OBOROEXTRAS_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_RIANNON_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_RIANNON_PALETTES,           ARRAYSIZE(AquaPlus_RIANNON_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_SASARA_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_SASARA_PALETTES,           ARRAYSIZE(AquaPlus_SASARA_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_SASARAEFFECT_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_SASARAEFFECT_PALETTES,           ARRAYSIZE(AquaPlus_SASARAEFFECT_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_SASARAFROG_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_SASARAFROG_PALETTES,           ARRAYSIZE(AquaPlus_SASARAFROG_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_TAMAKI_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_TAMAKI_PALETTES,           ARRAYSIZE(AquaPlus_TAMAKI_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_TAMAKIDOG_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_TAMAKIDOG_PALETTES,           ARRAYSIZE(AquaPlus_TAMAKIDOG_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_TOUKA_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_TOUKA_PALETTES,           ARRAYSIZE(AquaPlus_TOUKA_PALETTES) },
@@ -853,59 +872,74 @@ const sDescTreeNode AquaPlus_CAMYU_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_CAMYU_PALETTES,           ARRAYSIZE(AquaPlus_CAMYU_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_LLYR_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_LLYR_PALETTES,           ARRAYSIZE(AquaPlus_LLYR_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_MARYAN_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_MARYAN_PALETTES,           ARRAYSIZE(AquaPlus_MARYAN_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_MIZUKI_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_MIZUKI_PALETTES,           ARRAYSIZE(AquaPlus_MIZUKI_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_OCTAVIA_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_OCTAVIA_PALETTES,           ARRAYSIZE(AquaPlus_OCTAVIA_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_RATHLY_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_RATHLY_PALETTES,           ARRAYSIZE(AquaPlus_RATHLY_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_RINA_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_RINA_PALETTES,           ARRAYSIZE(AquaPlus_RINA_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_SATSUKI_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_SATSUKI_PALETTES,           ARRAYSIZE(AquaPlus_SATSUKI_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_SERIKA_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_SERIKA_PALETTES,           ARRAYSIZE(AquaPlus_SERIKA_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_ULTHURY_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_ULTHURY_PALETTES,           ARRAYSIZE(AquaPlus_ULTHURY_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_YU_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_YU_PALETTES,           ARRAYSIZE(AquaPlus_YU_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_YUKI_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_YUKI_PALETTES,           ARRAYSIZE(AquaPlus_YUKI_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_YUMA_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_YUMA_PALETTES,           ARRAYSIZE(AquaPlus_YUMA_PALETTES) },
 };
+
 const sDescTreeNode AquaPlus_MARYANBOSS_COLLECTION[] =
 {
 	{ L"Palettes", DESC_NODETYPE_TREE, (void*)AquaPlus_MARYANBOSS_PALETTES,           ARRAYSIZE(AquaPlus_MARYANBOSS_PALETTES) },
 };
 
+#define c_strMultiBroom L"Multi (Broom Swing Trails)"
+#define c_strSasara5A	L"Sasara (5A Attack Trail)"
 
 const sDescTreeNode AquaPlus_S_UNITS[] =
 {
@@ -920,12 +954,12 @@ const sDescTreeNode AquaPlus_S_UNITS[] =
 	{ L"Manaka",        DESC_NODETYPE_TREE, (void*)AquaPlus_MANAKA_COLLECTION,        ARRAYSIZE(AquaPlus_MANAKA_COLLECTION) },
 	{ L"Morgan",        DESC_NODETYPE_TREE, (void*)AquaPlus_MORGAN_COLLECTION,        ARRAYSIZE(AquaPlus_MORGAN_COLLECTION) },
 	{ L"Multi",         DESC_NODETYPE_TREE, (void*)AquaPlus_MULTI_COLLECTION,         ARRAYSIZE(AquaPlus_MULTI_COLLECTION) },
-	{ L"Multi (Broom Swing Trails)",         DESC_NODETYPE_TREE, (void*)AquaPlus_MULTIBROOM_COLLECTION,         ARRAYSIZE(AquaPlus_MULTIBROOM_COLLECTION) },
+	{ c_strMultiBroom,  DESC_NODETYPE_TREE, (void*)AquaPlus_MULTIBROOM_COLLECTION,         ARRAYSIZE(AquaPlus_MULTIBROOM_COLLECTION) },
 	{ L"Oboro",         DESC_NODETYPE_TREE, (void*)AquaPlus_OBORO_COLLECTION,         ARRAYSIZE(AquaPlus_OBORO_COLLECTION) },
 	{ L"Oboro (Dorry & Guraa)",         DESC_NODETYPE_TREE, (void*)AquaPlus_OBOROEXTRAS_COLLECTION,         ARRAYSIZE(AquaPlus_OBOROEXTRAS_COLLECTION) },
 	{ L"Riannon",         DESC_NODETYPE_TREE, (void*)AquaPlus_RIANNON_COLLECTION,         ARRAYSIZE(AquaPlus_RIANNON_COLLECTION) },
 	{ L"Sasara",         DESC_NODETYPE_TREE, (void*)AquaPlus_SASARA_COLLECTION,         ARRAYSIZE(AquaPlus_SASARA_COLLECTION) },
-	{ L"Sasara (5A Attack Trail)",         DESC_NODETYPE_TREE, (void*)AquaPlus_SASARAEFFECT_COLLECTION,         ARRAYSIZE(AquaPlus_SASARAEFFECT_COLLECTION) },
+	{ c_strSasara5A,     DESC_NODETYPE_TREE, (void*)AquaPlus_SASARAEFFECT_COLLECTION,         ARRAYSIZE(AquaPlus_SASARAEFFECT_COLLECTION) },
 	{ L"Sasara (Frog Outro)",         DESC_NODETYPE_TREE, (void*)AquaPlus_SASARAFROG_COLLECTION,         ARRAYSIZE(AquaPlus_SASARAFROG_COLLECTION) },
 	{ L"Tamaki",        DESC_NODETYPE_TREE, (void*)AquaPlus_TAMAKI_COLLECTION,        ARRAYSIZE(AquaPlus_TAMAKI_COLLECTION) },
 	{ L"Tamaki (Genjimaru Outro)",        DESC_NODETYPE_TREE, (void*)AquaPlus_TAMAKIDOG_COLLECTION,        ARRAYSIZE(AquaPlus_TAMAKIDOG_COLLECTION) },

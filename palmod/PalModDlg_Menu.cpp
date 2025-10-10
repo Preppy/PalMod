@@ -165,7 +165,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"For UNICLR, please select the \"UNDER NIGHT In-Birth Exe Late[st]\" folder.\nThe folder is normally located in steamapps\\common.";
             break;
 	    case UNI2_S:
-            pszExtraInfo = L"For UNI2, please select the \"UNDER NIGHT IN-BIRTH II Sys Celes\" folder.\nThe folder is normally located in steamapps\\common.";
+            pszExtraInfo = L"For UNI2, please select the \"UNDER NIGHT IN-BIRTH II Sys Celes\" folder.\nThe folder is normally located in steamapps\\common.  If you didn't come from the guide refer to the Read Me for more details.";
             break;
         case XMVSF_P:
             pszExtraInfo = L"We need the PLxx_10.BIN files from the P\\P0 folder of the game image.";
