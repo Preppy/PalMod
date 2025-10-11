@@ -1793,6 +1793,233 @@ const sDescTreeNode HSF2_A_DEEJAY_PORTRAIT_COLLECTION[] =
     { L"ST/SSF2",   DESC_NODETYPE_TREE,    (void*)HSF2_A_DEEJAY_ST_PORTRAIT_PALETTES,    ARRAYSIZE(HSF2_A_DEEJAY_ST_PORTRAIT_PALETTES) },
 };
 
+///////////////////////////////////////////////
+////////////// Stages /////////////////////////
+/////////////////////////////////////////////// f37bf
+const sGame_PaletteDataset HSF2_A_STAGEHUD_NODE_04[] =
+{
+    { L"Ryu Stage HUD and Extras",      0x4e396, 0x4e456, indexSF2Sprites_Bonus, 0x22 },
+    { L"E. Honda Stage HUD and Extras", 0x4e796, 0x4e856, indexSF2Sprites_Bonus, 0x22 },
+    { L"Blanka Stage HUD and Extras",   0x4eb96, 0x4ec56, indexSF2Sprites_Bonus, 0x22 },
+    { L"Guile Stage HUD and Extras",    0x4ef96, 0x4f056, indexSF2Sprites_Bonus, 0x22 },
+    { L"Ken Stage HUD and Extras",      0x4f396, 0x4f456, indexSF2Sprites_Bonus, 0x22 },
+    { L"Chun-Li Stage HUD and Extras",  0x4f796, 0x4f856, indexSF2Sprites_Bonus, 0x22 },
+    { L"Zangief Stage HUD and Extras",  0x4fb96, 0x4fc56, indexSF2Sprites_Bonus, 0x22 },
+    { L"Dhalsim Stage HUD and Extras",  0x4ff96, 0x50056, indexSF2Sprites_Bonus, 0x22 },
+    { L"M. Bison Stage HUD and Extras", 0x50396, 0x50456, indexSF2Sprites_Bonus, 0x22 },
+};
+
+const sGame_PaletteDataset HSF2_A_BALROG_STAGE_NODE_03[] =
+{
+    { L"Nin Nin Hall Sign (animation cycle 1/3)", 0x3f24e, 0x3f26e, indexSF2Sprites_Stages, 0x19 },
+    { L"Nin Nin Hall Sign (animation cycle 2/3)", 0x3f26e, 0x3f28e, indexSF2Sprites_Stages, 0x19 },
+    { L"Nin Nin Hall Sign (animation cycle 3/3)", 0x3f28e, 0x3f2ae, indexSF2Sprites_Stages, 0x19 },
+};
+
+const sGame_PaletteDataset HSF2_A_BALROG_STAGE_NODE_04[] =
+{
+    { L"Girls & Nin Nin Hall Sign", 0x4d9d4, 0x4da94, indexSF2Sprites_Stages, 0x1b, &pairNext },
+    { L"Casino Sign cycle 1/6", 0x58142, 0x58162, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 2/6", 0x58166, 0x58186, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 3/6", 0x5818a, 0x581aa, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 4/6", 0x581ae, 0x581ce, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 5/6", 0x581d2, 0x581f2, indexSF2Sprites_Stages, 0x1a },
+    { L"Casino Sign cycle 6/6", 0x5811e, 0x5813e, indexSF2Sprites_Stages, 0x1a },
+};
+
+const sGame_PaletteDataset HSF2_A_BALROG_STAGE_NODE_10[] =
+{
+    { L"Wedding Chapel background 1/2", 0x68c0, 0x6940, indexSF2Sprites_Stages, 0x1d, &pairFullyLinkedNode },
+    // We only have coverage for one line here
+    { L"Wedding Chapel background 2/2", 0x6a80, 0x6b40, indexSF2Sprites_Stages, 0x1e },
+
+    { L"Street",                0x67e0, 0x6800, indexSF2Sprites_Stages, 0x25 },
+    // This also should be chopped up: there's multiple animation cycles here
+    { L"Casino signs",          0xe900, 0xeaa0, indexSF2Sprites_Stages, 0x1f },
+    // This also should be chopped up: there's multiple animation cycles here
+    { L"Ground / casinos",      0xeac0, 0xebe0, indexSF2Sprites_Stages, 0x20 },
+    { L"Cars / people",         0x16c60, 0x16de0, indexSF2Sprites_Stages, 0x21 },
+    { L"Guy's torso",           0x16e60, 0x16e80, indexSF2Sprites_Stages, 0x22 },
+    { L"Green car hood",        0x16ee0, 0x16f00, indexSF2Sprites_Stages, 0x23 },
+    { L"Blue car hood",         0x16f20, 0x16f40, indexSF2Sprites_Stages, 0x24 },
+
+    // This also should be chopped up: there's multiple animation cycles here
+    { L"Side casino signs",     0xe7e0, 0xe8e0, indexSF2Sprites_Stages, 0x1c },
+};
+
+const sGame_PaletteDataset HSF2_A_BLANKA_STAGE_NODE_04[] =
+{
+    // BUGBUG: Different slicing: could use new preview
+    // The ST preview we have has 0x40 extraneous header colors that don't seem to be part of this.
+    // So we can't use that preview, aaaand probably that should be updated.
+    { L"Fish and feet", 0x4d3d4, 0x4d494 },
+};
+
+const sGame_PaletteDataset HSF2_A_BLANKA_STAGE_NODE_10[] =
+{
+    { L"Blanka Stage 1/6", 0x47c0, 0x4820, indexSF2Sprites_Stages, 0xab, &pairFullyLinkedNode },
+
+    { L"Blanka Stage 2/6", 0xc7e0, 0xc940, indexSF2Sprites_Stages, 0xac },
+
+    { L"Blanka Stage 3/6 left water sparkle 1/3",       0xc9e0, 0xca00, indexSF2Sprites_Stages, 0xad },
+        { L"Blanka Stage 3/6 left water sparkle 2/3",   0xca00, 0xca20, indexSF2Sprites_Stages, 0xad },
+        { L"Blanka Stage 3/6 left water sparkle 3/3",   0xca20, 0xca40, indexSF2Sprites_Stages, 0xad },
+
+    { L"Blanka Stage 4/6 right water sparkle 1/4",      0xca40, 0xca60, indexSF2Sprites_Stages, 0x27 },
+        { L"Blanka Stage 4/6 right water sparkle 2/4",  0xca60, 0xca80, indexSF2Sprites_Stages, 0x27 },
+        { L"Blanka Stage 4/6 right water sparkle 3/4",  0xca80, 0xcaa0, indexSF2Sprites_Stages, 0x27 },
+        { L"Blanka Stage 4/6 right water sparkle 4/4",  0xcaa0, 0xcac0, indexSF2Sprites_Stages, 0x27 },
+
+    { L"Blanka Stage 5/6 tree and right side stuff", 0x14be0, 0x14de0, indexSF2Sprites_Stages, 0x28 },
+
+    { L"Blanka Stage 6/6", 0x14de0, 0x14e20, indexSF2Sprites_Stages, 0xae },
+};
+
+const sGame_PaletteDataset HSF2_A_GUILE_STAGE_NODE_04[] =
+{
+    // BUGBUG: Different slicing: could use new preview
+    { L"Fin and box", 0x4d494, 0x4d554 },
+};
+
+const sGame_PaletteDataset HSF2_A_GUILE_STAGE_NODE_10[] =
+{
+    { L"Guile Stage 1/8", 0x4be0, 0x4cc0, indexSF2Sprites_Stages, 0x95, &pairFullyLinkedNode },
+
+    { L"Guile Stage 2/8",               0xcbe0, 0xccc0, indexSF2Sprites_Stages, 0x96 },
+    { L"Guile Stage 3/8 ground tiles",  0xccc0, 0xcd00, indexSF2Sprites_Stages, 0x97 },
+    { L"Guile Stage 4/8 plane bits",    0xcd20, 0xcd40, indexSF2Sprites_Stages, 0x98 },
+    { L"Guile Stage 5/8 sky",           0xcde0, 0xce00, indexSF2Sprites_Stages, 0x99 },
+
+    { L"Guile Stage 6/8",        0x14fe0, 0x15060, indexSF2Sprites_Stages, 0x9a },
+    { L"Guile Stage 7/8",        0x15060, 0x151a0, indexSF2Sprites_Stages, 0x9b },
+    { L"Guile Stage 8/8 stereo", 0x153a0, 0x153e0, indexSF2Sprites_Stages, 0x9c },
+};
+
+const sGame_PaletteDataset HSF2_A_CHUNLI_STAGE_NODE_04[] =
+{
+    { L"Blue Biker",    0x4d674, 0x4d694, indexSF2Sprites_Stages, 0x29, &pairFullyLinkedNode },
+    { L"Green Biker",   0x4d694, 0x4d6b4, indexSF2Sprites_Stages, 0x2a },
+    { L"Red Biker",     0x4d6b4, 0x4d6d4, indexSF2Sprites_Stages, 0x2b },
+};
+
+const sGame_PaletteDataset HSF2_A_CHUNLI_STAGE_NODE_10[] =
+{
+    { L"Chun-Li's Stage 1/5", 0x157e0, 0x15940, indexSF2Sprites_Stages, 0x2c, &pairFullyLinkedNode },
+    { L"Chun-Li's Stage 2/5", 0x159e0, 0x15a00, indexSF2Sprites_Stages, 0x2d },
+    { L"Chun-Li's Stage 3/5", 0xd3e0, 0xd5e0, indexSF2Sprites_Stages, 0x2e },
+    { L"Chun-Li's Stage 4/5", 0xd5e0, 0xd780, indexSF2Sprites_Stages, 0x2f },
+    { L"Chun-Li's Stage 5/5", 0xd7c0, 0xd7e0, indexSF2Sprites_Stages, 0x30 },
+};
+
+const sGame_PaletteDataset HSF2_A_GIEF_STAGE_NODE_04[] =
+{
+    { L"Chain and extinguisher", 0x4d6f4, 0x4d734, indexSF2Sprites_Stages, 0xa6 },
+};
+
+const sGame_PaletteDataset HSF2_A_GIEF_STAGE_NODE_10[] =
+{
+    { L"Zangief's Stage 1/4", 0x15be0, 0x15d80, indexSF2Sprites_Stages, 0xa7, &pairFullyLinkedNode },
+    { L"Zangief's Stage 2/4", 0xd7e0, 0xd940, indexSF2Sprites_Stages, 0xa8 },
+    { L"Zangief's Stage 3/4", 0xda40, 0xdbe0, indexSF2Sprites_Stages, 0xa9 },
+    { L"Zangief's Stage 4/4", 0x57c0, 0x5840, indexSF2Sprites_Stages, 0xaa },
+};
+
+const sGame_PaletteDataset HSF2_A_DEEJAY_STAGE_NODE_04[] =
+{
+    { L"Left gazebo 1/39", 0x56fea, 0x5700a, indexSF2Sprites_Stages, 0x44, &pairFullyLinkedNode },
+    { L"Left gazebo 2/39", 0x56fea + (0x01 * 0x22), 0x5700a + (0x01 * 0x22), indexSF2Sprites_Stages, 0x45 },
+        { L"Unused: Left gazebo 3/39", 0x56fea + (0x02 * 0x22), 0x5700a + (0x02 * 0x22) },
+    { L"Left gazebo 4/39", 0x56fea + (0x03 * 0x22), 0x5700a + (0x03 * 0x22), indexSF2Sprites_Stages, 0x46 },
+    { L"Left gazebo 5/39", 0x56fea + (0x04 * 0x22), 0x5700a + (0x04 * 0x22), indexSF2Sprites_Stages, 0x47 },
+    { L"Left gazebo 6/39", 0x56fea + (0x05 * 0x22), 0x5700a + (0x05 * 0x22), indexSF2Sprites_Stages, 0x48 },
+    { L"Left gazebo 7/39", 0x56fea + (0x06 * 0x22), 0x5700a + (0x06 * 0x22), indexSF2Sprites_Stages, 0x49 },
+    { L"Left gazebo 8/39", 0x56fea + (0x07 * 0x22), 0x5700a + (0x07 * 0x22), indexSF2Sprites_Stages, 0x4a },
+    { L"Left gazebo 9/39", 0x56fea + (0x08 * 0x22), 0x5700a + (0x08 * 0x22), indexSF2Sprites_Stages, 0x4b },
+    { L"Left gazebo 10/39", 0x56fea + (0x09 * 0x22), 0x5700a + (0x09 * 0x22), indexSF2Sprites_Stages, 0x4c },
+    { L"Left gazebo 11/39", 0x56fea + (0x0a * 0x22), 0x5700a + (0x0a * 0x22), indexSF2Sprites_Stages, 0x4d },
+    { L"Left gazebo 12/39", 0x56fea + (0x0b * 0x22), 0x5700a + (0x0b * 0x22), indexSF2Sprites_Stages, 0x4e },
+    { L"Left gazebo 13/39", 0x56fea + (0x0c * 0x22), 0x5700a + (0x0c * 0x22), indexSF2Sprites_Stages, 0x4f },
+        { L"Unused: Left gazebo 14/39", 0x56fea + (0x0d * 0x22), 0x5700a + (0x0d * 0x22) },
+        { L"Unused: Left gazebo 15/39", 0x56fea + (0x0e * 0x22), 0x5700a + (0x0e * 0x22) },
+    { L"Left gazebo 16/39", 0x56fea + (0x0f * 0x22), 0x5700a + (0x0f * 0x22), indexSF2Sprites_Stages, 0x50 },
+        { L"Unused: Left gazebo 17/39", 0x56fea + (0x10 * 0x22), 0x5700a + (0x10 * 0x22) },
+        { L"Unused: Left gazebo 18/39", 0x56fea + (0x11 * 0x22), 0x5700a + (0x11 * 0x22) },
+        { L"Unused: Left gazebo 19/39", 0x56fea + (0x12 * 0x22), 0x5700a + (0x12 * 0x22) },
+        { L"Unused: Left gazebo 20/39", 0x56fea + (0x13 * 0x22), 0x5700a + (0x13 * 0x22) },
+        { L"Unused: Left gazebo 21/39", 0x56fea + (0x14 * 0x22), 0x5700a + (0x14 * 0x22) },
+        { L"Unused: Left gazebo 22/39", 0x56fea + (0x15 * 0x22), 0x5700a + (0x15 * 0x22) },
+        { L"Unused: Left gazebo 23/39", 0x56fea + (0x16 * 0x22), 0x5700a + (0x16 * 0x22) },
+        { L"Unused: Left gazebo 24/39", 0x56fea + (0x17 * 0x22), 0x5700a + (0x17 * 0x22) },
+        { L"Unused: Left gazebo 25/39", 0x56fea + (0x18 * 0x22), 0x5700a + (0x18 * 0x22) },
+        { L"Unused: Left gazebo 26/39", 0x56fea + (0x19 * 0x22), 0x5700a + (0x19 * 0x22) },
+        { L"Unused: Left gazebo 27/39", 0x56fea + (0x1a * 0x22), 0x5700a + (0x1a * 0x22) },
+        { L"Unused: Left gazebo 28/39", 0x56fea + (0x1b * 0x22), 0x5700a + (0x1b * 0x22) },
+        { L"Unused: Left gazebo 29/39", 0x56fea + (0x1c * 0x22), 0x5700a + (0x1c * 0x22) },
+        { L"Unused: Left gazebo 30/39", 0x56fea + (0x1d * 0x22), 0x5700a + (0x1d * 0x22) },
+    { L"Left gazebo 31/39", 0x56fea + (0x1e * 0x22), 0x5700a + (0x1e * 0x22), indexSF2Sprites_Stages, 0x51 },
+        { L"Unused: Left gazebo 32/39", 0x56fea + (0x1f * 0x22), 0x5700a + (0x1f * 0x22) },
+        { L"Unused: Left gazebo 33/39", 0x56fea + (0x20 * 0x22), 0x5700a + (0x20 * 0x22) },
+        { L"Unused: Left gazebo 34/39", 0x56fea + (0x21 * 0x22), 0x5700a + (0x21 * 0x22) },
+        { L"Unused: Left gazebo 35/39", 0x56fea + (0x22 * 0x22), 0x5700a + (0x22 * 0x22) },
+        { L"Unused: Left gazebo 36/39", 0x56fea + (0x23 * 0x22), 0x5700a + (0x23 * 0x22) },
+        { L"Unused: Left gazebo 37/39", 0x56fea + (0x24 * 0x22), 0x5700a + (0x24 * 0x22) },
+        { L"Unused: Left gazebo 38/39", 0x56fea + (0x25 * 0x22), 0x5700a + (0x25 * 0x22) },
+        { L"Unused: Left gazebo 39/39", 0x56fea + (0x26 * 0x22), 0x5700a + (0x26 * 0x22) },
+    // BUGBUG: Different slicing: could use new preview
+    { L"Dancers", 0x4dd94, 0x4de54 },
+};
+
+const sGame_PaletteDataset HSF2_A_DEEJAY_STAGE_NODE_10[] =
+{
+    { L"Dee Jay Stage Sky And Mid Foreground",  0x7be0, 0x7ca0, indexSF2Sprites_Stages, 0x52, &pairFullyLinkedNode },
+
+    { L"Dee Jay Stage Front Water 1/5",         0x7de0, 0x7e00, indexSF2Sprites_Stages, 0x53 },
+        { L"Dee Jay Stage Front Water 2/5",     0x7e00, 0x7e20, indexSF2Sprites_Stages, 0x53 },
+        { L"Dee Jay Stage Front Water 3/5",     0x7e20, 0x7e40, indexSF2Sprites_Stages, 0x53 },
+        { L"Dee Jay Stage Front Water 4/5",     0x7e40, 0x7e60, indexSF2Sprites_Stages, 0x53 },
+        { L"Dee Jay Stage Front Water 5/5",     0x7e60, 0x7e80, indexSF2Sprites_Stages, 0x53 },
+
+    { L"Dee Jay Stage BG Water 1/5",            0x7ea0, 0x7ec0, indexSF2Sprites_Stages, 0x54 },
+        { L"Dee Jay Stage BG Water 2/5",        0x7ec0, 0x7ee0, indexSF2Sprites_Stages, 0x54 },
+        { L"Dee Jay Stage BG Water 3/5",        0x7ee0, 0x7f00, indexSF2Sprites_Stages, 0x54 },
+        { L"Dee Jay Stage BG Water 4/5",        0x7f00, 0x7f20, indexSF2Sprites_Stages, 0x54 },
+        { L"Dee Jay Stage BG Water 5/5",        0x7f20, 0x7f40, indexSF2Sprites_Stages, 0x54 },
+
+    { L"Dee Jay Stage Gazebo and palm trees",   0x17fe0, 0x18060, indexSF2Sprites_Stages, 0x55 },
+
+    { L"Dee Jay Stage Grass right gazebo and people 1/2", 0xfda0, 0xffa0, indexSF2Sprites_Stages, 0x56 },
+    { L"Dee Jay Stage Grass right gazebo and people 2/2", 0xffa0, 0xffe0, indexSF2Sprites_Stages, 0x57 },
+};
+
+const sGame_PaletteDataset HSF2_A_THAWK_STAGE_NODE_04[] =
+{
+    { L"Birds",             0x4dc34, 0x4dc54, indexSF2Sprites_Stages, 0xaf, &pairNext },
+    { L"Feet cycle 1/3",    0x4dc54, 0x4dc74, indexSF2Sprites_Stages, 0xb0 },
+    { L"Feet cycle 2/3",    0x4dc74, 0x4dc94, indexSF2Sprites_Stages, 0xb0 },
+    { L"Feet cycle 3/3",    0x4dc94, 0x4dcb4, indexSF2Sprites_Stages, 0xb0 },
+};
+
+const sGame_PaletteDataset HSF2_A_THAWK_STAGE_NODE_10[] =
+{
+    { L"T-Hawk Stage 1/4 background",           0x73e0, 0x7560, indexSF2Sprites_Stages, 0xa2, &pairFullyLinkedNode },
+    { L"T-Hawk Stage 2/4 market and people",    0x177e0, 0x17920, indexSF2Sprites_Stages, 0xa3 },
+    { L"T-Hawk Stage 3/4 NPCs and ground 1/2",  0xf3e0, 0xf5e0, indexSF2Sprites_Stages, 0xa4 },
+    { L"T-Hawk Stage 4/4 NPCs 2/2",             0xf5e0, 0xf780, indexSF2Sprites_Stages, 0xa5 },
+};
+
+const sGame_PaletteDataset HSF2_A_FEILONG_STAGE_NODE_04[] =
+{
+    { L"Dragon", 0x4dcd4, 0x4dd34, indexSF2Sprites_Stages, 0x8f },
+};
+
+const sGame_PaletteDataset HSF2_A_FEILONG_STAGE_NODE_10[] =
+{
+    { L"Fei Long Stage 1/4 background 1/2", 0x17be0, 0x17de0, indexSF2Sprites_Stages, 0x90, &pairFullyLinkedNode },
+    { L"Fei Long Stage 2/4 background 2/2", 0x17de0, 0x17fe0, indexSF2Sprites_Stages, 0x91 },
+    { L"Fei Long Stage 3/4 tree",           0x77e0, 0x78c0, indexSF2Sprites_Stages, 0x92 },
+    { L"Fei Long Stage 4/4 ring ",          0xf7e0, 0xf820, indexSF2Sprites_Stages, 0x93 },
+};
+
 const sGame_PaletteDataset HSF2_A_STAGES_RYU_PALETTES_04[] =
 {
     { L"Background Castle", 0x4D2B4, 0x4D314, indexSF2Sprites_Stages, 0x0b },
@@ -1805,14 +2032,270 @@ const sGame_PaletteDataset HSF2_A_STAGES_RYU_PALETTES_10[] =
     { L"Foreground", 0xBFE0, 0xC100, indexSF2Sprites_Stages, 0x0a },
 };
 
+const sGame_PaletteDataset HSF2_A_CAMMY_STAGE_NODE_04[] =
+{
+    { L"Bird Castle Entrance", 0x4db54, 0x4dc14, indexSF2Sprites_Stages, 0x13 },
+};
+
+const sGame_PaletteDataset HSF2_A_CAMMY_STAGE_NODE_10[] =
+{
+    { L"Cammy Town BG",             0x173e0, 0x175e0, indexSF2Sprites_Stages, 0x0e, &pairFullyLinkedNode },
+    { L"Cammy Town BG - mansions",  0x175e0, 0x177e0, indexSF2Sprites_Stages, 0x0d },
+    { L"Cammy Bridge",              0xefe0, 0xf1e0, indexSF2Sprites_Stages, 0x10 },
+    { L"Cammy Sky",                 0xf1e0, 0xf3e0, indexSF2Sprites_Stages, 0x0f },
+    { L"Cammy Castle",              0x6fe0, 0x71e0, indexSF2Sprites_Stages, 0x12 },
+    { L"Cammy Castle",              0x71e0, 0x73e0, indexSF2Sprites_Stages, 0x11 },
+};
+
+#ifdef NOT_PRESENT
+// This palette does not appear to be present in ROM03
+const sGame_PaletteDataset HSF2_A_DHALSIM_STAGE_NODE_03[] =
+{
+    { L"front elephant, legs/shadow", 0x61C20, 0x61C20 + 0x20 },
+};
+#endif
+
+const sGame_PaletteDataset HSF2_A_DHALSIM_STAGE_NODE_04[] =
+{
+    { L"left vase and right vase", 0x4d816, 0x4d856, indexSF2Sprites_Stages, 0x58 },
+};
+
+// TODO: these are the old ST locations, not the ones for HSF2
+const sGame_PaletteDataset HSF2_A_DHALSIM_STAGE_NODE_10[] =
+{
+    { L"BG wall painting",                                      0x69C00 + (0x00 * 0x20), 0x69C00 + (0x01 * 0x20), indexSF2Sprites_Stages, 0x59, &pairFullyLinkedNode },
+    { L"BG curtains + lamp",                                    0x69C20 + (0x01 * 0x20), 0x69C20 + (0x02 * 0x20), indexSF2Sprites_Stages, 0x5a },
+    { L"BG columns",                                            0x69C40 + (0x02 * 0x20), 0x69C40 + (0x03 * 0x20), indexSF2Sprites_Stages, 0x5b },
+    { L"BG elephant (static part)",                             0x69C60 + (0x03 * 0x20), 0x69C60 + (0x04 * 0x20), indexSF2Sprites_Stages, 0x5c },
+    { L"BG topmost curtain + column piece",                     0x69C80 + (0x04 * 0x20), 0x69C80 + (0x05 * 0x20), indexSF2Sprites_Stages, 0x5d },
+    { L"BG stairs",                                             0x69CA0 + (0x05 * 0x20), 0x69CA0 + (0x06 * 0x20), indexSF2Sprites_Stages, 0x5e },
+    { L"parallaxed ground, stones",                             0x69CC0 + (0x06 * 0x20), 0x69CC0 + (0x07 * 0x20), indexSF2Sprites_Stages, 0x5f },
+    { L"BG curtains + BG elephant ivory fangs (static part)",   0x69CE0 + (0x07 * 0x20), 0x69CE0 + (0x08 * 0x20), indexSF2Sprites_Stages, 0x60 },
+    { L"BG purpley grid",                                       0x69D00 + (0x08 * 0x20), 0x69D00 + (0x09 * 0x20), indexSF2Sprites_Stages, 0x61 },
+    { L"BG elephant feet",                                      0x69D20 + (0x09 * 0x20), 0x69D20 + (0x0a * 0x20), indexSF2Sprites_Stages, 0x62 },
+    { L"?",                                                     0x69D40 + (0x0a * 0x20), 0x69D40 + (0x0b * 0x20) },
+    { L"BG wall, after the purple grid",                        0x69D60 + (0x0b * 0x20), 0x69D60 + (0x0c * 0x20), indexSF2Sprites_Stages, 0x63 },
+
+    { L"BG elephant head + curtain 1",                          0x69D80 + (0x0c * 0x20), 0x69D80 + (0x0d * 0x20), indexSF2Sprites_Stages, 0x64 },
+    { L"BG elephant head + curtain 2",                          0x69DA0 + (0x0d * 0x20), 0x69DA0 + (0x0e * 0x20), indexSF2Sprites_Stages, 0x65 },
+    { L"BG elephant head + curtain 3",                          0x69DC0 + (0x0e * 0x20), 0x69DC0 + (0x0f * 0x20), indexSF2Sprites_Stages, 0x66 },
+    { L"BG elephant head + curtain 4",                          0x69DE0 + (0x0f * 0x20), 0x69DE0 + (0x10 * 0x20), indexSF2Sprites_Stages, 0x67 },
+    { L"BG elephant head + curtain 5",                          0x69E00 + (0x10 * 0x20), 0x69E00 + (0x11 * 0x20), indexSF2Sprites_Stages, 0x68 },
+    { L"BG elephant trunk + curtain",                           0x69E20 + (0x11 * 0x20), 0x69E20 + (0x12 * 0x20), indexSF2Sprites_Stages, 0x69 },
+    { L"BG elephant back + purpley grid",                       0x69E40 + (0x12 * 0x20), 0x69E40 + (0x13 * 0x20), indexSF2Sprites_Stages, 0x6a },
+    { L"BG elephant back + purpley grid",                       0x69E60 + (0x13 * 0x20), 0x69E60 + (0x14 * 0x20), indexSF2Sprites_Stages, 0x6b },
+    { L"BG elephant back + purpley grid",                       0x69E80 + (0x14 * 0x20), 0x69E80 + (0x15 * 0x20), indexSF2Sprites_Stages, 0x6c },
+    { L"BG wall, after the purple grid, but on the footer",     0x69EA0 + (0x15 * 0x20), 0x69EA0 + (0x16 * 0x20), indexSF2Sprites_Stages, 0x6d },
+
+    { L"parallaxed ground, carpet",                             0x69EC0 + (0x16 * 0x20), 0x69EC0 + (0x17 * 0x20), indexSF2Sprites_Stages, 0x6e },
+    { L"parallaxed ground, border between carpet and stones",   0x69EE0 + (0x17 * 0x20), 0x69EE0 + (0x18 * 0x20), indexSF2Sprites_Stages, 0x6f },
+    { L"parallaxed ground, border between carpet and stones, topmost part", 0x69F00 + (0x18 * 0x20), 0x69F00 + (0x19 * 0x20), indexSF2Sprites_Stages, 0x70 },
+    { L"BG wall painting, frame/border",                        0x69F20 + (0x19 * 0x20), 0x69F20 + (0x1a * 0x20), indexSF2Sprites_Stages, 0x71 },
+    { L"BG wall painting, topmost part",                        0x69F40 + (0x1a * 0x20), 0x69F40 + (0x1b * 0x20), indexSF2Sprites_Stages, 0x72 },
+    { L"BG curtains above the wall painting",                   0x69F60 + (0x1b * 0x20), 0x69F60 + (0x1c * 0x20), indexSF2Sprites_Stages, 0x73 },
+    { L"BG wall painting, frame/border, topmost part",          0x69F80 + (0x1c * 0x20), 0x69F80 + (0x1d * 0x20), indexSF2Sprites_Stages, 0x74 },
+            { L"BG elephant trunk, when it's raised (in front of column)",          0x69FA0 + (0x1d * 0x20), 0x69FA0 + (0x1e * 0x20) },
+            { L"BG elephant trunk, when it's raised (in front of curtain)",         0x69FC0 + (0x1e * 0x20), 0x69FC0 + (0x1f * 0x20) },
+            { L"BG elephant trunk, when it's raised (in front of foremost column)", 0x69FE0 + (0x1f * 0x20), 0x69FE0 + (0x20 * 0x20) },
+
+    { L"Mid layer elephant",                0x15fe0, 0x16000, indexSF2Sprites_Stages, 0x75 },
+    { L"Mid layer elephant, legs/shadow",   0x16000, 0x16020, indexSF2Sprites_Stages, 0x76 },
+
+    { L"Front layer elephant", 0x5be2, 0x5c22, indexSF2Sprites_Stages, 0x77 },
+};
+
+const sGame_PaletteDataset HSF2_A_STAGES_HONDA_PALETTES_04[] =
+{
+    { L"water drips (ceiling / pool)",      0x4d354, 0x4d374, indexSF2Sprites_Stages, 0x7b, &pairFullyLinkedNode },
+    { L"bucket / tub",                      0x4d374, 0x4d394, indexSF2Sprites_Stages, 0x78 },
+    { L"door (glass area - lower part)",    0x4d394, 0x4d3b4, indexSF2Sprites_Stages, 0x79 },
+    { L"lamp",                              0x4d3b4, 0x4d3d4, indexSF2Sprites_Stages, 0x7a },
+};
+
+const sGame_PaletteDataset HSF2_A_STAGES_HONDA_PALETTES_10[] =
+{
+    { L"floor",             0xc3e0, 0xc400, indexSF2Sprites_Stages, 0x7d, &pairFullyLinkedNode },
+    { L"ceiling",           0xc400, 0xc420, indexSF2Sprites_Stages, 0x7e },
+    { L"floor, background", 0xc420, 0xc440, indexSF2Sprites_Stages, 0x7f },
+
+    { L"UNUSED: wall painting",                         0x147e0, 0x14800 },
+    { L"wall tiling (3rd row)",                         0x14800, 0x14820, indexSF2Sprites_Stages, 0x82 },
+    { L"wall color (above door)",                       0x14820, 0x14840, indexSF2Sprites_Stages, 0x83 },
+
+    { L"wall tiling (1st row) + wall color (around the door) + step near the wall", 0x149e0, 0x14a00, indexSF2Sprites_Stages, 0x85 },
+    { L"wall tiling (2nd row)",                         0x14a00, 0x14a20, indexSF2Sprites_Stages, 0x86 },
+    { L"wall tiling (4th row)",                         0x14a20, 0x14a40, indexSF2Sprites_Stages, 0x87 },
+    { L"step near wall (parts with the wood props)",    0x14a40, 0x14a60, indexSF2Sprites_Stages, 0x88 },
+    { L"step near wall",                                0x14a60, 0x14a80, indexSF2Sprites_Stages, 0x89 },
+    
+    { L"door (upper part of the red area)",             0x14ac0, 0x14ae0, indexSF2Sprites_Stages, 0x8a },
+    { L"door (lower part of the red area)",             0x14ae0, 0x14b00, indexSF2Sprites_Stages, 0x8b },
+    { L"door (glass area - upper part)",                0x14b00, 0x14b20, indexSF2Sprites_Stages, 0x8c },
+    { L"door (between red area and glass part)",        0x14b20, 0x14b40, indexSF2Sprites_Stages, 0x8d },
+
+        { L"UNUSED: wall painting (end round animation - frame 1)", 0x14940, 0x14960 },
+        { L"UNUSED: wall painting (end round animation - frame 2)", 0x14960, 0x14980 },
+
+    { L"UNUSED: wall painting (top)",                   0x149c0, 0x149e0 },
+
+        { L"UNUSED: wall painting (end round animation - frame 1)", 0x14b40, 0x14b60 },
+        { L"UNUSED: wall painting (end round animation - frame 2)", 0x14b60, 0x14b80 },
+    { L"UNUSED: wall painting (center)",                0x14bc0, 0x14be0 },
+
+    { L"side of the pool",                  0x45E0, 0x4600, indexSF2Sprites_Stages, 0x7c },
+    { L"pool (+water dripping animation)",  0xC460, 0xC480, indexSF2Sprites_Stages, 0x80 },
+};
+
+const sGame_PaletteDataset HSF2_A_SAGAT_STAGE_NODE_10[] =
+{
+    { L"Background",    0x167e0, 0x16900, indexSF2Sprites_Stages, 0x00, &pairFullyLinkedNode },
+    { L"Midground",     0x65e0, 0x67e0, indexSF2Sprites_Stages, 0x01 },
+    { L"Buddha 1",      0xe3e0, 0xe5e0, indexSF2Sprites_Stages, 0x04 },
+    { L"Buddha 2",      0xe5e0, 0xe740, indexSF2Sprites_Stages, 0x03 },
+};
+
+// TODO: these are the old ST locations, not the ones for HSF2
+const sGame_PaletteDataset HSF2_A_VEGA_STAGE_NODE_10[] =
+{
+    { L"Wall sign, part 1 (\"Meson\")", 0x6AC00 - 0x02, 0x6AC20 - 0x02, indexSF2Sprites_Stages, 0x32, &pairFullyLinkedNode },
+        { L"Wall sign, part 2 (\"Meson de\")", 0x6AC20 - 0x02, 0x6AC40 - 0x02, indexSF2Sprites_Stages, 0x32 },
+        { L"Wall sign, part 3 (\"Meson de la\")", 0x6AC40 - 0x02, 0x6AC60 - 0x02, indexSF2Sprites_Stages, 0x32 },
+        { L"Wall sign, part 5 (blank)", 0x6AC80 - 0x02, 0x6ACA0 - 0x02, indexSF2Sprites_Stages, 0x32 },
+        // putting last for layering
+        { L"Wall sign, part 4 (\"Meson de la Taberna\")", 0x6AC60 - 0x02, 0x6AC80 - 0x02, indexSF2Sprites_Stages, 0x32 },
+    { L"Foreground wall, stairs (darkest shade)", 0x6ACA0 - 0x02, 0x6ACC0 - 0x02, indexSF2Sprites_Stages, 0x33 },
+        { L"Foreground wall, stairs (middle shade)", 0x6ACC0 - 0x02, 0x6ACE0 - 0x02, indexSF2Sprites_Stages, 0x33 },
+        { L"Foreground wall, stairs (lightest shade)", 0x6ACE0 - 0x02, 0x6AD00 - 0x02, indexSF2Sprites_Stages, 0x33 },
+    { L"Background wall, lamp wall (middle shade)", 0x6AD00 - 0x02, 0x6AD20 - 0x02, indexSF2Sprites_Stages, 0x34 },
+        { L"Background wall, lamp wall (lightest shade)", 0x6AD20 - 0x02, 0x6AD40 - 0x02, indexSF2Sprites_Stages, 0x34 },
+        { L"Background wall, lamp wall (darkest shade)", 0x6AD40 - 0x02, 0x6AD60 - 0x02, indexSF2Sprites_Stages, 0x34 },
+        // { L"Unused", 0x6AD60 - 0x02, 0x6AD80 - 0x02 },
+    { L"Foreground wall, lamp wall (darkest shade)", 0x6AD80 - 0x02, 0x6ADA0 - 0x02, indexSF2Sprites_Stages, 0x35 },
+        { L"Foreground wall, lamp wall (middle shade)", 0x6ADA0 - 0x02, 0x6ADC0 - 0x02, indexSF2Sprites_Stages, 0x35 },
+        { L"Foreground wall, lamp wall (lightest shade)", 0x6ADC0 - 0x02, 0x6ADE0 - 0x02, indexSF2Sprites_Stages, 0x35 },
+    { L"Foreground wall, footer + ground", 0x6ADE0 - 0x02, 0x6AE00 - 0x02, indexSF2Sprites_Stages, 0x36 },
+        { L"????", 0x6AE00 - 0x02, 0x6AE20 - 0x02 },
+        { L"????", 0x6AE20 - 0x02, 0x6AE40 - 0x02 },
+        // { L"Unused", 0x6AE40 - 0x02, 0x6AE60 - 0x02 },
+        // { L"Unused", 0x6AE60 - 0x02, 0x6AE80 - 0x02 },
+        // { L"Unused", 0x6AE80 - 0x02, 0x6AEA0 - 0x02 },
+        // { L"Unused", 0x6AEA0 - 0x02, 0x6AEC0 - 0x02 },
+        // { L"Unused", 0x6AEC0 - 0x02, 0x6AEE0 - 0x02 },
+    { L"Background wall, archway lower part + people + red trimming on top of Foreground wall", 0x6AEE0 - 0x02, 0x6AF00 - 0x02, indexSF2Sprites_Stages, 0x37 },
+    { L"Background wall, archway upper part", 0x6AF00 - 0x02, 0x6AF20 - 0x02, indexSF2Sprites_Stages, 0x38 },
+    { L"Background wall, torero & bull painting", 0x6AF20 - 0x02, 0x6AF40 - 0x02, indexSF2Sprites_Stages, 0x39 },
+    { L"Unused, but in ram it will have the values of palettes 8, 9 & A (BG lamp wall)", 0x6AF40 - 0x02, 0x6AF60 - 0x02 },
+    { L"Background wall, torero & bull painting (footer) + red trimming on top of Foreground wall + side wall pieces", 0x6AF60 - 0x02, 0x6AF80 - 0x02, indexSF2Sprites_Stages, 0x3a },
+        { L"Unused, but in ram it will have the values of palettes 0 - 0x02, 1, 2, 3 & 4 (Wall sign)", 0x6AF80 - 0x02, 0x6AFA0 - 0x02 },
+        { L"Unused", 0x6AFA0 - 0x02, 0x6AFC0 - 0x02 },
+        { L"Unused from CPS1", 0x6AFC0 - 0x02, 0x6AFE0 - 0x02 },
+    { L"Parallaxed ground", 0x6AFE0 - 0x02, 0x6B000 - 0x02, indexSF2Sprites_Stages, 0x3b },
+    //{ L"Unused", 0x6B000 - 0x02, 0x6B020 - 0x02 },
+    //{ L"Unused", 0x6B020 - 0x02, 0x6B040 - 0x02 },
+    //{ L"Unused", 0x6B040 - 0x02, 0x6B060 - 0x02 },
+    //{ L"Unused", 0x6B060 - 0x02, 0x6B080 - 0x02 },
+
+    // { L"Unused", 0x73000 - 0x02, 0x73020 - 0x02 },
+    // { L"Unused", 0x73020 - 0x02, 0x73040 - 0x02 },
+    // { L"Unused", 0x73040 - 0x02, 0x73060 - 0x02 },
+    // { L"Unused", 0x73060 - 0x02, 0x73080 - 0x02 },
+    { L"Middle layer, neon footer + feet of dancers/guitar players, part 1", 0x73080 - 0x02, 0x730A0 - 0x02, indexSF2Sprites_Stages, 0x3c },
+        { L"Middle layer, neon footer + feet of dancers/guitar players, part 2", 0x730A0 - 0x02, 0x730C0 - 0x02, indexSF2Sprites_Stages, 0x3c },
+        { L"Middle layer, neon footer + feet of dancers/guitar players, part 3", 0x730C0 - 0x02, 0x730E0 - 0x02, indexSF2Sprites_Stages, 0x3c },
+    // { L"Unused", 0x730E0 - 0x02, 0x73100 - 0x02 },
+    { L"Middle layer, people cheering on the table", 0x73100 - 0x02, 0x73120 - 0x02, indexSF2Sprites_Stages, 0x3d },
+    { L"Middle layer, dancers", 0x73120 - 0x02, 0x73140 - 0x02, indexSF2Sprites_Stages, 0x3e },
+    { L"Middle layer, guitar players", 0x73140 - 0x02, 0x73160 - 0x02, indexSF2Sprites_Stages, 0x3f },
+    // { L"Unused", 0x73160 - 0x02, 0x73180 - 0x02 },
+    // { L"Unused", 0x73180 - 0x02, 0x731A0 - 0x02 },
+    { L"Middle layer, people cheering on the table", 0x731A0 - 0x02, 0x731C0 - 0x02, indexSF2Sprites_Stages, 0x40 },
+    { L"Middle layer, people cheering on the table + pink waiter", 0x731C0 - 0x02, 0x731E0 - 0x02, indexSF2Sprites_Stages, 0x41 },
+    { L"Middle layer, red waiter", 0x731E0 - 0x02, 0x73200 - 0x02, indexSF2Sprites_Stages, 0x42 },
+    { L"Cage + Brown wall on the sides", 0x62C00 - 0x02, 0x62C20 - 0x02, indexSF2Sprites_Stages, 0x31 },
+};
+
+#ifdef NOT_PRESENT
+// not currently found
+const sGame_PaletteDataset HSF2_A_KEN_STAGE_NODE_04[] =
+{
+    { L"Barrel & Metal things", 0x5519a, 0x5523a, indexSF2Sprites_Stages, 0x18 },
+};
+#endif
+
+const sGame_PaletteDataset HSF2_A_KEN_STAGE_NODE_10[] =
+{
+    { L"Ken Background/Foreground", 0xcfe0, 0xd1e0, indexSF2Sprites_Stages, 0x15 },
+    { L"Ken Boat 1/2", 0x153e0, 0x155e0, indexSF2Sprites_Stages, 0x16, &pairNext },
+    { L"Ken Boat 2/2", 0x155e0, 0x157a0, indexSF2Sprites_Stages, 0x17, &pairPrevious },
+};
+
+const sGame_PaletteDataset HSF2_A_MBISON_STAGE_NODE_10[] =
+{
+    { L"M.Bison Stage 1/5",         0xdfe0, 0xe1e0, indexSF2Sprites_Stages, 0x9d, &pairFullyLinkedNode },
+    { L"M.Bison Stage 2/5",         0xe1e0, 0xe3e0, indexSF2Sprites_Stages, 0x9e },
+    { L"M.Bison Stage 3/5 Bell",    0x16400, 0x16600, indexSF2Sprites_Stages, 0x9f },
+    { L"M.Bison Stage 4/5",         0x16600, 0x167e0, indexSF2Sprites_Stages, 0xa0 },
+    { L"M.Bison Stage 5/5 Statue",  0x5fc2, 0x6042, indexSF2Sprites_Stages, 0xa1 },
+};
+
+const sDescTreeNode HSF2_A_03_STAGES_COLLECTION[] =
+{
+    { L"Balrog (03 parts)",  DESC_NODETYPE_TREE, (void*)HSF2_A_BALROG_STAGE_NODE_03,   ARRAYSIZE(HSF2_A_BALROG_STAGE_NODE_03) },
+#ifdef NOT_PRESENT
+    // This palette does not appear to be present in ROM03
+    { L"Dhalsim's Stage (03 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_DHALSIM_STAGE_NODE_03,  ARRAYSIZE(HSF2_A_DHALSIM_STAGE_NODE_03) },
+#endif
+};
+
 const sDescTreeNode HSF2_A_04_STAGES_COLLECTION[] =
 {
-    { L"Ryu (ROM04 parts)",   DESC_NODETYPE_TREE,    (void*)HSF2_A_STAGES_RYU_PALETTES_04,    ARRAYSIZE(HSF2_A_STAGES_RYU_PALETTES_04) },
+    { L"Stage HUDs and Effects",    DESC_NODETYPE_TREE, (void*)HSF2_A_STAGEHUD_NODE_04, ARRAYSIZE(HSF2_A_STAGEHUD_NODE_04) },
+
+    { L"Balrog (04 parts)",         DESC_NODETYPE_TREE, (void*)HSF2_A_BALROG_STAGE_NODE_04, ARRAYSIZE(HSF2_A_BALROG_STAGE_NODE_04) },
+    { L"Blanka (04 parts)",         DESC_NODETYPE_TREE, (void*)HSF2_A_BLANKA_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_BLANKA_STAGE_NODE_04) },
+    { L"Cammy (04 parts)",          DESC_NODETYPE_TREE, (void*)HSF2_A_CAMMY_STAGE_NODE_04,  ARRAYSIZE(HSF2_A_CAMMY_STAGE_NODE_04) },
+    { L"Chun-Li (04 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_CHUNLI_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_CHUNLI_STAGE_NODE_04) },
+    { L"Dee Jay (04 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_DEEJAY_STAGE_NODE_04) },
+    { L"Dhalsim (04 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_DHALSIM_STAGE_NODE_04,  ARRAYSIZE(HSF2_A_DHALSIM_STAGE_NODE_04) },
+    { L"E.Honda (04 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_STAGES_HONDA_PALETTES_04,    ARRAYSIZE(HSF2_A_STAGES_HONDA_PALETTES_04) },
+    { L"Fei Long (04 parts)",       DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_FEILONG_STAGE_NODE_04) },
+    { L"Guile (04 parts)",          DESC_NODETYPE_TREE, (void*)HSF2_A_GUILE_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_GUILE_STAGE_NODE_04) },
+#ifdef NOT_PRESENT
+    // not currently found
+    { L"Ken (04 parts)",            DESC_NODETYPE_TREE, (void*)HSF2_A_KEN_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_KEN_STAGE_NODE_04) },
+#endif
+    { L"Ryu (04 parts)",            DESC_NODETYPE_TREE, (void*)HSF2_A_STAGES_RYU_PALETTES_04,    ARRAYSIZE(HSF2_A_STAGES_RYU_PALETTES_04) },
+    { L"T-Hawk (04 parts)",         DESC_NODETYPE_TREE, (void*)HSF2_A_THAWK_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_THAWK_STAGE_NODE_04) },
+    { L"Zangief (04 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_GIEF_STAGE_NODE_04,    ARRAYSIZE(HSF2_A_GIEF_STAGE_NODE_04) },
+
+    // Stage trails palettes aren't present
 };
 
 const sDescTreeNode HSF2_A_10_STAGES_COLLECTION[] =
 {
     { L"Ryu (ROM10 parts)",   DESC_NODETYPE_TREE,    (void*)HSF2_A_STAGES_RYU_PALETTES_10,    ARRAYSIZE(HSF2_A_STAGES_RYU_PALETTES_10) },
+
+    { L"E. Honda (08 parts)",       DESC_NODETYPE_TREE, (void*)HSF2_A_STAGES_HONDA_PALETTES_10,    ARRAYSIZE(HSF2_A_STAGES_HONDA_PALETTES_10) },
+    { L"Blanka (08 parts)",         DESC_NODETYPE_TREE, (void*)HSF2_A_BLANKA_STAGE_NODE_10,    ARRAYSIZE(HSF2_A_BLANKA_STAGE_NODE_10) },
+    { L"Guile (08 parts)",          DESC_NODETYPE_TREE, (void*)HSF2_A_GUILE_STAGE_NODE_10,     ARRAYSIZE(HSF2_A_GUILE_STAGE_NODE_10) },
+    { L"Ken (08 parts)",            DESC_NODETYPE_TREE, (void*)HSF2_A_KEN_STAGE_NODE_10,       ARRAYSIZE(HSF2_A_KEN_STAGE_NODE_10) },
+    { L"Chun-Li (08 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_CHUNLI_STAGE_NODE_10,    ARRAYSIZE(HSF2_A_CHUNLI_STAGE_NODE_10) },
+    { L"Zangief (08 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_GIEF_STAGE_NODE_10,      ARRAYSIZE(HSF2_A_GIEF_STAGE_NODE_10) },
+#ifdef NOT_CONVERTED_YET
+    // Just a lot to do here: saving this for some future person with time and energy
+    { L"Dhalsim (08 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_DHALSIM_STAGE_NODE_10,   ARRAYSIZE(HSF2_A_DHALSIM_STAGE_NODE_10) },
+#endif
+    { L"M. Bison",                  DESC_NODETYPE_TREE, (void*)HSF2_A_MBISON_STAGE_NODE_10,    ARRAYSIZE(HSF2_A_MBISON_STAGE_NODE_10) },
+    { L"Sagat",                     DESC_NODETYPE_TREE, (void*)HSF2_A_SAGAT_STAGE_NODE_10,     ARRAYSIZE(HSF2_A_SAGAT_STAGE_NODE_10) },
+    { L"Balrog's Casino Stage (08 parts)",  DESC_NODETYPE_TREE, (void*)HSF2_A_BALROG_STAGE_NODE_10,    ARRAYSIZE(HSF2_A_BALROG_STAGE_NODE_10) },
+#ifdef NOT_CONVERTED_YET
+    // Just a lot to do here: saving this for some future person with time and energy
+    { L"Vega",                      DESC_NODETYPE_TREE, (void*)HSF2_A_VEGA_STAGE_NODE_10,      ARRAYSIZE(HSF2_A_VEGA_STAGE_NODE_10) },
+#endif
+    { L"Cammy",                     DESC_NODETYPE_TREE, (void*)HSF2_A_CAMMY_STAGE_NODE_10,     ARRAYSIZE(HSF2_A_CAMMY_STAGE_NODE_10) },
+    { L"T-Hawk (08 parts)",         DESC_NODETYPE_TREE, (void*)HSF2_A_THAWK_STAGE_NODE_10,     ARRAYSIZE(HSF2_A_THAWK_STAGE_NODE_10) },
+    { L"Fei Long (08 parts)",       DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_STAGE_NODE_10,   ARRAYSIZE(HSF2_A_FEILONG_STAGE_NODE_10) },
+    { L"Dee Jay (08 parts)",        DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_STAGE_NODE_10,    ARRAYSIZE(HSF2_A_DEEJAY_STAGE_NODE_10) },
 };
 
 // The HSF2 and ST Bonus palette locations shift around a bunch, so we are unable to do any constant shift here.
@@ -1940,6 +2423,8 @@ const sDescTreeNode HSF2_A_UNITS_03[] =
     { L"Fei Long",  DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_PORTRAIT_COLLECTION,  ARRAYSIZE(HSF2_A_FEILONG_PORTRAIT_COLLECTION) },
     { L"Dee Jay",   DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_PORTRAIT_COLLECTION,   ARRAYSIZE(HSF2_A_DEEJAY_PORTRAIT_COLLECTION) },
 
+    { L"Stages",    DESC_NODETYPE_TREE, (void*)HSF2_A_03_STAGES_COLLECTION,         ARRAYSIZE(HSF2_A_03_STAGES_COLLECTION) },
+
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)HSF2_A_03_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_03_BONUS_COLLECTION) },
 };
 
@@ -1964,9 +2449,9 @@ const sDescTreeNode HSF2_A_UNITS_04[] =
     { L"Dee Jay",         DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_COLLECTION,          ARRAYSIZE(HSF2_A_DEEJAY_COLLECTION) },
     { L"Gouki",           DESC_NODETYPE_TREE, (void*)HSF2_A_GOUKI_COLLECTION,           ARRAYSIZE(HSF2_A_GOUKI_COLLECTION) },
 
-    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)HSF2_A_04_BONUS_COLLECTION,        ARRAYSIZE(HSF2_A_04_BONUS_COLLECTION) },
-
     { L"Stages",          DESC_NODETYPE_TREE, (void*)HSF2_A_04_STAGES_COLLECTION,       ARRAYSIZE(HSF2_A_04_STAGES_COLLECTION) },
+
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)HSF2_A_04_BONUS_COLLECTION,        ARRAYSIZE(HSF2_A_04_BONUS_COLLECTION) },
 };
 
 // This unit is largely mirrored in the MONO unit for Steam below
@@ -1996,8 +2481,8 @@ const sDescTreeNode HSF2_A_UNITS_MONO[] =
     { L"Fei Long",        DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_COLLECTION,         ARRAYSIZE(HSF2_A_FEILONG_COLLECTION) },
     { L"Dee Jay",         DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_COLLECTION,          ARRAYSIZE(HSF2_A_DEEJAY_COLLECTION) },
     { L"Gouki",           DESC_NODETYPE_TREE, (void*)HSF2_A_GOUKI_COLLECTION,           ARRAYSIZE(HSF2_A_GOUKI_COLLECTION) },
-    { L"Bonus Palettes (ROM04 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_04_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_04_BONUS_COLLECTION) },
     { L"Stages (ROM04 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_04_STAGES_COLLECTION,         ARRAYSIZE(HSF2_A_04_STAGES_COLLECTION) },
+    { L"Bonus Palettes (ROM04 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_04_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_04_BONUS_COLLECTION) },
     { L"Portraits: Ryu",       DESC_NODETYPE_TREE, (void*)HSF2_A_RYU_PORTRAIT_COLLECTION,      ARRAYSIZE(HSF2_A_RYU_PORTRAIT_COLLECTION) },
     { L"Portraits: E.Honda",   DESC_NODETYPE_TREE, (void*)HSF2_A_EHONDA_PORTRAIT_COLLECTION,   ARRAYSIZE(HSF2_A_EHONDA_PORTRAIT_COLLECTION) },
     { L"Portraits: Blanka",    DESC_NODETYPE_TREE, (void*)HSF2_A_BLANKA_PORTRAIT_COLLECTION,   ARRAYSIZE(HSF2_A_BLANKA_PORTRAIT_COLLECTION) },
@@ -2014,6 +2499,7 @@ const sDescTreeNode HSF2_A_UNITS_MONO[] =
     { L"Portraits: T-Hawk",    DESC_NODETYPE_TREE, (void*)HSF2_A_THAWK_PORTRAIT_COLLECTION,    ARRAYSIZE(HSF2_A_THAWK_PORTRAIT_COLLECTION) },
     { L"Portraits: Fei Long",  DESC_NODETYPE_TREE, (void*)HSF2_A_FEILONG_PORTRAIT_COLLECTION,  ARRAYSIZE(HSF2_A_FEILONG_PORTRAIT_COLLECTION) },
     { L"Portraits: Dee Jay",   DESC_NODETYPE_TREE, (void*)HSF2_A_DEEJAY_PORTRAIT_COLLECTION,   ARRAYSIZE(HSF2_A_DEEJAY_PORTRAIT_COLLECTION) },
+    { L"Stages (ROM03 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_03_STAGES_COLLECTION,         ARRAYSIZE(HSF2_A_03_STAGES_COLLECTION) },
     { L"Bonus Palettes (ROM03 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_03_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_03_BONUS_COLLECTION) },
     { L"Stages (ROM10 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_10_STAGES_COLLECTION,         ARRAYSIZE(HSF2_A_10_STAGES_COLLECTION) },
     { L"Bonus Palettes (ROM10 parts)", DESC_NODETYPE_TREE, (void*)HSF2_A_10_BONUS_COLLECTION,  ARRAYSIZE(HSF2_A_10_BONUS_COLLECTION) },

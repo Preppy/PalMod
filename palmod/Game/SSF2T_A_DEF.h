@@ -2016,8 +2016,8 @@ const sGame_PaletteDataset SSF2T_A_THAWK_STAGE_NODE_08[] =
 {
     { L"T-Hawk Stage 1/4 background", 0x633fe, 0x6357e, indexSF2Sprites_Stages, 0xa2, &pairFullyLinkedNode },
     { L"T-Hawk Stage 2/4 market and people", 0x737fe, 0x7393e, indexSF2Sprites_Stages, 0xa3 },
-    { L"T Hawk Stage 3/4 NPCs and ground 1/2", 0x6b3fe, 0x6b5fe, indexSF2Sprites_Stages, 0xa4 },
-    { L"T Hawk Stage 4/4 NPCs 2/2", 0x6b5fe, 0x6b79e, indexSF2Sprites_Stages, 0xa5 },
+    { L"T-Hawk Stage 3/4 NPCs and ground 1/2", 0x6b3fe, 0x6b5fe, indexSF2Sprites_Stages, 0xa4 },
+    { L"T-Hawk Stage 4/4 NPCs 2/2", 0x6b5fe, 0x6b79e, indexSF2Sprites_Stages, 0xa5 },
 };
 
 const sGame_PaletteDataset SSF2T_A_FEILONG_STAGE_NODE_04[] =
