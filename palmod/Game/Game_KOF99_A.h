@@ -40,7 +40,7 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data_Base =
     {
-        // 152-p2.bin can "'99ND" (Millennium Battle (decrypted C)) or "The King of Fighters '99: Millennium Battle (Korean)" crc 0x274ef47a
+        // 152-p2.bin can be "'99ND" (Millennium Battle (decrypted C)) or "The King of Fighters '99: Millennium Battle (Korean)" crc 0x274ef47a
         { L"KOF '99 various (Neo-Geo)", L"152-p2.bin", 0, 0 },
         { L"The King of Fighters '99: Millennium Battle (Neo-Geo Korea)", L"152-p2.sp2", 0x274ef47a, 0 },
         { L"The King of Fighters '99: Millennium Battle (Neo-Geo prototype)", L"251-p2p.bin", 0x739742ad, 0 },
@@ -72,7 +72,7 @@ private:
         KOF99AE_A_P2_UNITS,
         ARRAYSIZE(KOF99AE_A_P2_UNITS),
         L"KOF99e.txt",          // Extra filename
-        1468,                   // Count of palettes listed in the header
+        1470,                   // Count of palettes listed in the header
         0x2d97f0,               // Lowest known location used for palettes
     };
 

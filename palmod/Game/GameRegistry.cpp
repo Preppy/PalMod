@@ -183,7 +183,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 251, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 253, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -263,6 +263,7 @@ namespace KnownGameInfo
     CGameClass* Make_KabukiKlash_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KabukiKlash_A(nConfirmedROMSize); }
     CGameClass* Make_KarnovsR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KarnovsR_A(nConfirmedROMSize); }
     CGameClass* Make_KIZUNA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_A(nConfirmedROMSize); }
+    CGameClass* Make_KIZUNA_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_S(nConfirmedROMSize); }
     CGameClass* Make_KI_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KI_SNES(nConfirmedROMSize); }
     CGameClass* Make_KOF00N_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF00N_A(nConfirmedROMSize); }
     CGameClass* Make_KOF01_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF01_A(nConfirmedROMSize); }
@@ -338,6 +339,7 @@ namespace KnownGameInfo
     CGameClass* Make_RANMAHB_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RANMAHB_SNES(nConfirmedROMSize); }
     CGameClass* Make_RBFF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF1_A(nConfirmedROMSize); }
     CGameClass* Make_RBFF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_A(nConfirmedROMSize); }
+    CGameClass* Make_RBFF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_S(nConfirmedROMSize); }
     CGameClass* Make_RBFFS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFFS_A(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_A(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_S(nConfirmedROMSize); }
@@ -1045,9 +1047,16 @@ namespace KnownGameInfo
         {
             KIZUNA_A,
             L"Kizuna Encounter (Neo-Geo)",
-            { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
+            { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter (Neo-Geo)|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
             Make_KIZUNA_A,
             CGame_Kizuna_A::GetRule,
+        },
+        {
+            KIZUNA_S,
+            L"Kizuna Encounter (Steam)",
+            { KIZUNA_S,         L"Kizuna Encounter", L"Kizuna Encounter (Steam)|p1.bin|", GamePlatform::Steam },
+            Make_KIZUNA_S,
+            CGame_Kizuna_S::GetRule,
         },
         {
             KOF94_A,
@@ -1633,9 +1642,16 @@ namespace KnownGameInfo
         {
             RBFF2_A,
             L"Real Bout Fatal Fury 2 (Neo-Geo)",
-            { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;240-pg1.*;rb2_p1.rom;140-p1k.*;240-p1fc.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+            { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2 (Neo-Geo)|240-p1.*;240-pg1.*;rb2_p1.rom;140-p1k.*;240-p1fc.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_RBFF2_A,
             CGame_RBFF2_A::GetRule,
+        },
+        {
+            RBFF2_S,
+            L"Real Bout Fatal Fury 2 (Steam)",
+            { RBFF2_S,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2 (Steam)|p1.bin|", GamePlatform::Steam },
+            Make_RBFF2_S,
+            CGame_RBFF2_S::GetRule,
         },
         {
             RBFFS_A,
@@ -2360,7 +2376,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 251, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 253, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
@@ -2467,6 +2483,7 @@ namespace KnownGameInfo
             CGame_KOF96_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case KOF99_A:
+        case KOF99AE_A:
             CGame_KOF99_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case KOF02UM_S:

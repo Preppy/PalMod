@@ -8,13 +8,14 @@ void CGame_KOF99_A::SetSpecialRuleForFileName(std::wstring strFileName)
     const std::map<std::wstring, KOF99LoadingKey> m_rgFileNameToVersion =
     {
         // these should be all lower case
-        { L"kof99ae_p2.bin", KOF99LoadingKey::AE02 },
         { L"152-p2.bin", KOF99LoadingKey::Base },
+        { L"152-p2.sp2", KOF99LoadingKey::Base },
         { L"251-p2p.bin", KOF99LoadingKey::Base },
         { L"251-p2p.p2", KOF99LoadingKey::Base },
         { L"proto_251-p2.bin", KOF99LoadingKey::Base },
         { L"proto_251-p2.p2", KOF99LoadingKey::Base },
         { L"kf99eur.p2", KOF99LoadingKey::Base },
+        { L"kof99ae_p2.bin", KOF99LoadingKey::AE02 },
         { L"kof99ae_p3.bin", KOF99LoadingKey::AE03 },
     };
 
@@ -29,7 +30,7 @@ void CGame_KOF99_A::SetSpecialRuleForFileName(std::wstring strFileName)
     }
     else
     {
-        m_eVersionToLoad = KOF99LoadingKey::AE02;
+        m_eVersionToLoad = KOF99LoadingKey::Base;
     }
 
     return;
