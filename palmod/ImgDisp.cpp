@@ -1421,9 +1421,10 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
 
     const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
-    const bool fGameSupportedByKawaks = ((currColMode == ColMode::COLMODE_RGB444_BE) || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
+    const bool fMightBeKawaksCPSScreenshot = (currColMode == ColMode::COLMODE_RGB444_BE);
     // This is loose but currently true for the games we support
-    bool fUseWinKawaksShift = fGameSupportedByKawaks && GetPreviewDropWinKawaksFirst();
+    // Kawaks uses skewed CPS1/2 color math.  It just outright *dithers* NeoGeo screenshots, so those would be completely unusable.
+    bool fUseWinKawaksShift = fMightBeKawaksCPSScreenshot && GetPreviewDropWinKawaksFirst();
 
     if (fUseWinKawaksShift)
     {
@@ -1506,7 +1507,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             }
         }
 
-        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fGameSupportedByKawaks)
+        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fMightBeKawaksCPSScreenshot)
         {
             fUseWinKawaksShift = true;
             OutputDebugString(L"No color matches found: trying again using WinKawaks math.\r\n");
