@@ -591,7 +591,7 @@ const sGame_PaletteDataset Kizuna_A_JAZU_PALETTES_PORTRAITS[] =
     { L"Victory A", 0x17c8e0, 0x17c940 },
     { L"Select/HUD A", 0x17c520, 0x17c540 },
     { L"Victory B", 0x17cce0, 0x17cd40 },
-    { L"Select/HUD B", 0x17cf20, 0x17cf40 }, //bugbug
+    { L"Select/HUD B", 0x17cf20, 0x17cf40 },
 };
 
 const sGame_PaletteDataset Kizuna_A_BONUS_IGE_PALETTES[] =
