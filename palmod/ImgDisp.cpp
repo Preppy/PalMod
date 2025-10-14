@@ -1421,10 +1421,12 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
 
     const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
-    const bool fMightBeKawaksCPSScreenshot = (currColMode == ColMode::COLMODE_RGB444_BE);
+    const bool fMayBeCPSSource = currColMode == ColMode::COLMODE_RGB444_BE;
+    const bool fMightBeKawaksScreenshot = (fMayBeCPSSource || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
     // This is loose but currently true for the games we support
-    // Kawaks uses skewed CPS1/2 color math.  It just outright *dithers* NeoGeo screenshots, so those would be completely unusable.
-    bool fUseWinKawaksShift = fMightBeKawaksCPSScreenshot && GetPreviewDropWinKawaksFirst();
+    // Kawaks uses skewed CPS1/2 color math.
+    // For NeoGeo Kawaks is using a RGB555 sprite layer
+    bool fUseWinKawaksShift = fMightBeKawaksScreenshot && GetPreviewDropWinKawaksFirst();
 
     if (fUseWinKawaksShift)
     {
@@ -1457,9 +1459,21 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
         if (fUseWinKawaksShift)
         {
-            r = (r >> 4) * 17;
-            g = (g >> 4) * 17;
-            b = (b >> 4) * 17;
+            if (fMayBeCPSSource)
+            {
+                r = (r >> 4) * 17;
+                g = (g >> 4) * 17;
+                b = (b >> 4) * 17;
+            }
+            else // NeoGeo confusion
+            {
+                // they're using RGB555 for RGB666
+                // that's a functional collapse of the bright/dark bit, just using the bright colors
+                // so just map back to bright NG colors
+                r = ColorSystem::GetNEOGEOColorFromWinKawaksRGB555(r);
+                g = ColorSystem::GetNEOGEOColorFromWinKawaksRGB555(g);
+                b = ColorSystem::GetNEOGEOColorFromWinKawaksRGB555(b);
+            }
         }
 
         // filter each color, sadly
@@ -1507,7 +1521,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             }
         }
 
-        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fMightBeKawaksCPSScreenshot)
+        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fMightBeKawaksScreenshot)
         {
             fUseWinKawaksShift = true;
             OutputDebugString(L"No color matches found: trying again using WinKawaks math.\r\n");

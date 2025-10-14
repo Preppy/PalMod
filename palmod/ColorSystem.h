@@ -197,6 +197,8 @@ namespace ColorSystem
     LPCSTR GetColorFormatStringForColorFormat(ColMode cmColorMode);
     LPCSTR GetAlphaModeStringForAlphaMode(AlphaMode amAlphaMode);
 
+    uint8_t GetNEOGEOColorFromWinKawaksRGB555(uint8_t inColor);
+
     using ColorStepFunction = COLORREF(*)(COLORREF, COLORREF, uint16_t, uint16_t);
 
     void     RGBtoHSV(const COLORREF rgb, double& h, double& s, double& v);

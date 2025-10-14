@@ -1014,7 +1014,7 @@ namespace ColorSystem
         return auxb | auxg | auxr | auxa;
     }
 
-    uint8_t NGColorVals[] = {
+    const uint8_t NGColorVals[] = {
         //--Dark,Bright
             0x00,0x00,    //--00
             0x08,0x08,    //--01
@@ -1049,6 +1049,11 @@ namespace ColorSystem
             0xf4,0xf7,    //--1e
             0xfb,0xff     //--1f
     };
+
+    uint8_t GetNEOGEOColorFromWinKawaksRGB555(uint8_t inColor)
+    {
+        return NGColorVals[min(63, ((inColor >> 3)) * 2 )+ 1];
+    }
 
     bool IsNEOGEOColorDark(uint8_t redIndex, uint8_t greenIndex, uint8_t blueIndex)
     {
@@ -1126,7 +1131,7 @@ namespace ColorSystem
         return outColor;
     }
 
-    uint8_t SharpRGBColorVals[] = {
+    const uint8_t SharpRGBColorVals[] = {
         0x00, 0x2e, 0x34, 0x3a, 0x40, 0x44, 0x48, 0x4e,
         0x54, 0x5a, 0x60, 0x66, 0x6c, 0x72, 0x78, 0x7e,
         0x84, 0x8a, 0x90, 0x98, 0xa0, 0xa8, 0xb0, 0xb8,
