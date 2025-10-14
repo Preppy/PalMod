@@ -1053,8 +1053,8 @@ namespace KnownGameInfo
         },
         {
             KIZUNA_S,
-            L"Kizuna Encounter (Steam)",
-            { KIZUNA_S,         L"Kizuna Encounter", L"Kizuna Encounter (Steam)|p1.bin|", GamePlatform::Steam },
+            L"Kizuna Encounter Super Tag Battle (Steam)",
+            { KIZUNA_S,         L"Kizuna Encounter Super Tag Battle", L"Kizuna Encounter Super Tag Battle (Steam)|p1.bin|", GamePlatform::Steam },
             Make_KIZUNA_S,
             CGame_Kizuna_S::GetRule,
         },
