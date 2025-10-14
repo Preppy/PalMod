@@ -37,8 +37,8 @@ const stPairedPaletteInfo pairAsuraPortraitABCtoShared = { 3, PalettePairOptions
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_A[] =
 {
     { L"Base A", 0x93492, 0x934b2, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
-    { L"Weapon Effects A", 0x934b2, 0x934d2, indexAsuraBuster_Yashaou, 0x01 },
-    { L"Weapon A", 0x934d2, 0x934f2, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon Effects A", 0x934b2, 0x934d2, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon A", 0x934d2, 0x934f2, indexAsuraBuster_Yashaou, 0x01 },
     { L"Nanami A", 0x934f2, 0x93512, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused A", 0x93512, 0x93532, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait A", 0x93532, 0x93552, indexAsuraBuster_Nanami, 0x41 },
@@ -51,8 +51,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_A[] =
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_B[] =
 {
     { L"Base B", 0x93eb2, 0x93ed2, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
-    { L"Weapon Effects B", 0x93ed2, 0x93ef2, indexAsuraBuster_Yashaou, 0x01 },
-    { L"Weapon B", 0x93ef2, 0x93f12, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon Effects B", 0x93ed2, 0x93ef2, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon B", 0x93ef2, 0x93f12, indexAsuraBuster_Yashaou, 0x01 },
     { L"Nanami B", 0x93f12, 0x93f32, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused B", 0x93f32, 0x93f52, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait B", 0x93f52, 0x93f72, indexAsuraBuster_Nanami, 0x41 },
@@ -64,8 +64,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_B[] =
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_AB[] =
 {
     { L"Base AB", 0x948d2, 0x948f2, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
-    { L"Weapon Effects AB", 0x948f2, 0x94912, indexAsuraBuster_Yashaou, 0x01 },
-    { L"Weapon AB", 0x94912, 0x94932, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon Effects AB", 0x948f2, 0x94912, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon AB", 0x94912, 0x94932, indexAsuraBuster_Yashaou, 0x01 },
     { L"Nanami AB", 0x94932, 0x94952, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused AB", 0x94952, 0x94972, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait AB", 0x94972, 0x94992, indexAsuraBuster_Nanami, 0x41 },
@@ -77,8 +77,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AB[] =
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_C[] =
 {
     { L"Base C", 0x952f2, 0x95312, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
-    { L"Weapon Effects C", 0x95312, 0x95332, indexAsuraBuster_Yashaou, 0x01 },
-    { L"Weapon C", 0x95332, 0x95352, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon Effects C", 0x95312, 0x95332, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon C", 0x95332, 0x95352, indexAsuraBuster_Yashaou, 0x01 },
     { L"Nanami C", 0x95352, 0x95372, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused C", 0x95372, 0x95392, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait C", 0x95392, 0x953b2, indexAsuraBuster_Nanami, 0x41 },
@@ -91,8 +91,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_C[] =
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_AC[] =
 {
     { L"Base AC", 0x95d12, 0x95d32, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
-    { L"Weapon Effects AC", 0x95d32, 0x95d52, indexAsuraBuster_Yashaou, 0x01 },
-    { L"Weapon AC", 0x95d52, 0x95d72, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon Effects AC", 0x95d32, 0x95d52, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon AC", 0x95d52, 0x95d72, indexAsuraBuster_Yashaou, 0x01 },
     { L"Nanami AC", 0x95d72, 0x95d92, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused AC", 0x95d92, 0x95db2, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait AC", 0x95db2, 0x95dd2, indexAsuraBuster_Nanami, 0x41 },
@@ -105,8 +105,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AC[] =
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_BC[] =
 {
     { L"Base BC", 0x96732, 0x96752, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
-    { L"Weapon Effects BC", 0x96752, 0x96772, indexAsuraBuster_Yashaou, 0x01 },
-    { L"Weapon BC", 0x96772, 0x96792, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon Effects BC", 0x96752, 0x96772, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon BC", 0x96772, 0x96792, indexAsuraBuster_Yashaou, 0x01 },
     { L"Nanami BC", 0x96792, 0x967b2, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused BC", 0x967b2, 0x967d2, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait BC", 0x967d2, 0x967f2, indexAsuraBuster_Nanami, 0x41 },
@@ -119,8 +119,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_BC[] =
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_ABC[] =
 {
     { L"Base ABC", 0x97152, 0x97172, indexAsuraBuster_Yashaou, 0x00, &pairNext2 },
-    { L"Weapon Effects ABC", 0x97172, 0x97192, indexAsuraBuster_Yashaou, 0x01 },
-    { L"Weapon ABC", 0x97192, 0x971b2, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon Effects ABC", 0x97172, 0x97192, indexAsuraBuster_Yashaou, 0x02 },
+    { L"Weapon ABC", 0x97192, 0x971b2, indexAsuraBuster_Yashaou, 0x01 },
     { L"Nanami ABC", 0x971b2, 0x971d2, indexAsuraBuster_Nanami, 0x00 },
     { L"Unused ABC", 0x971d2, 0x971f2, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait ABC", 0x971f2, 0x97212, indexAsuraBuster_Nanami, 0x41 },
