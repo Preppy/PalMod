@@ -355,6 +355,7 @@
     <ClCompile Include="PalTool.cpp" />
     <ClCompile Include="PNGfiles.cpp" />
     <ClCompile Include="PreviewDlg.cpp" />
+    <ClCompile Include="PRPLfiles.cpp" />
     <ClCompile Include="PS3OEfiles.cpp" />
     <ClCompile Include="RegProc.cpp" />
     <ClCompile Include="RLEData.cpp" />

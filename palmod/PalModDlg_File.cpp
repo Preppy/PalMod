@@ -822,8 +822,8 @@ void CPalModDlg::OnImportPalette()
     // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version
     if (m_fEnabled)
     {
-        // This is the core set plus CFPL
-        static LPCWSTR rgszACROpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
+        // This is the core set plus PRPL
+        static LPCWSTR rgszACROpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.prpl|"
                                                 L"ACT Palette|*.act|"
                                                 L"Indexed PNG|*.png|"
                                                 L"Microsoft PAL|*.pal|"
@@ -833,7 +833,7 @@ void CPalModDlg::OnImportPalette()
                                                 L"GIF|*.gif|"
                                                 L"GIMP palette file|*.gpl|"
                                                 L"HipPalette|*.hpl|"
-                                                L"BBCF/ACR palette set|*.cfpl|" // It's just BBCF but they're reusing it so.....
+                                                L"ACR palette set|*.prpl|"
                                                 L"|" };
 
         // This is the core set plus CFPL/IMPL
@@ -951,6 +951,10 @@ void CPalModDlg::OnImportPalette()
             {
                 LoadPaletteFromIMPL(strFileName);
             }
+            else if (_wcsicmp(szExtension, L".prpl") == 0)
+            {
+                LoadPaletteFromPRPL(strFileName);
+            }
             else if ((_wcsicmp(szExtension, L".url") == 0) ||
                      (_wcsicmp(szExtension, L".lnk") == 0))
             {
@@ -977,7 +981,7 @@ void CPalModDlg::OnExportPalette()
                                         L"|" };
 
     static LPCWSTR rgszACRSaveFilter[] = { L"HipPalette|*.hpl|"
-                                            L"GGXXACR CFPL Palette|*.cfpl|"
+                                            L"GGXXACR PRPL Palette|*.prpl|"
                                             L"ACT Palette|*.act|"
                                             L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
                                             L"GIMP Palette File|*.gpl|"
@@ -1047,7 +1051,7 @@ void CPalModDlg::OnExportPalette()
         {
             SavePaletteToGPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
-        else if ((fUseACRLogic || fUseBBCFLogic) && (_wcsicmp(szExtension, L".cfpl") == 0)) // only allow cfpl for ACR or BBCF
+        else if (fUseBBCFLogic && (_wcsicmp(szExtension, L".cfpl") == 0)) // only allow cfpl for BBCF
         {
             SavePaletteToCFPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
@@ -1062,6 +1066,10 @@ void CPalModDlg::OnExportPalette()
         else if (_wcsicmp(szExtension, L".pal") == 0)
         {
             SavePaletteToPAL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
+        }
+        else if (fUseACRLogic && (_wcsicmp(szExtension, L".prpl") == 0)) // only allow prpl for ACR
+        {
+            SavePaletteToPRPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
         else if (_wcsicmp(szExtension, L".tpl") == 0)
         {

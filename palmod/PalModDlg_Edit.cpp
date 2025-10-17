@@ -287,7 +287,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                         // act, bmp, gif, pal, png, raw
                         // 3S: txt.dat: not supported for drag and drop
                         // BBCF: cfpl, hpal, some IMPLs
-                        // ACR: cfpl
+                        // ACR: prpl
                         LPCWSTR pszExtension = wcsrchr(szPath, L'.');
                         const SupportedGamesList gameId = GetHost()->GetCurrGame()->GetGameFlag();
 
@@ -306,7 +306,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                                 (_wcsicmp(pszExtension, L".gpl") == 0) ||
                                 (_wcsicmp(pszExtension, L".hpl") == 0) ||
                                 (fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".impl") == 0))) ||
-                                (fAllowACRDrop && (_wcsicmp(pszExtension, L".cfpl") == 0)))
+                                (fAllowACRDrop && (_wcsicmp(pszExtension, L".prpl") == 0)))
                             {
                                 m_currentEffectState = DROPEFFECT_COPY;
                             }
@@ -498,6 +498,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                 {
                     GetHost()->GetPalModDlg()->LoadPaletteFromPNG(szPath);
                 }
+            }
+            else if (_wcsicmp(pszExtension, L".prpl") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromPRPL(szPath);
             }
             else if (_wcsicmp(pszExtension, L".raw") == 0)
             {

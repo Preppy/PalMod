@@ -192,6 +192,7 @@ private:
     void SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToIMPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
+    void SavePaletteToPRPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
     void SavePaletteToTPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
 
     void UpdateSliderSel(BOOL fModeChange = FALSE, BOOL fResetRF = FALSE);
@@ -491,6 +492,8 @@ public:
     bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
     bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromIMPL(LPCWSTR pszFileName);
+    // ACR palette files
+    bool LoadPaletteFromPRPL(LPCWSTR pszFileName);
     // PS3 palette files
     bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
     // if you add a new palette type here, please update the CPalDropTarget support in PalModDlg_Edit

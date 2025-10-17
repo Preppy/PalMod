@@ -1032,6 +1032,9 @@
     <ClCompile Include="Game\Game_AquaPlus_S.cpp">
       <Filter>Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29</Filter>
     </ClCompile>
+    <ClCompile Include="PRPLfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

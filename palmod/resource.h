@@ -43,7 +43,9 @@
 #define IDD_CFPL_IMPORT                 143
 #define IDD_CFPL_EXPORT                 144
 #define IDD_RAWFIXUP_DIALOG             145
-#define IDD_DEVMODE_SELECTFILES         147
+#define IDD_DEVMODE_SELECTFILES         146
+#define IDD_PRPL_IMPORT                 147
+#define IDD_PRPL_EXPORT                 148
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -143,6 +145,11 @@
 #define IDC_RAWFIXUP_OPTIONS_COMPOSITION 1109
 #define IDC_RAWFIXUP_BANNER             1110
 #define IDC_RAWFIXUP_OPTIONS_LAYER      1111
+#define IDC_PRPL_COLOROPTIONS           1112
+#define IDC_PRPL_CHARACTERNAME          1113
+#define IDC_PRPL_PALNAME                1114
+#define IDC_PRPL_CREATOR                1115
+#define IDC_PRPL_DESCRIPTION            1116
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -419,6 +426,9 @@
 #define ID_COLORFORMAT_RBGA8888_LE      32975
 #define ID_LOADDIRECTORY_UNDERNIGHTINBIRTH 32976
 #define ID_LD_UNI2                      32977
+#define IDS_PRPL_LOADFAILURE            32978
+#define IDS_PRPLSAVE_SUCCESS            32979
+#define IDS_PRPLSAVE_FAILURE            32980
 
 // Next default values for new objects
 // 
@@ -426,7 +436,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
 #define _APS_NEXT_COMMAND_VALUE         32981
-#define _APS_NEXT_CONTROL_VALUE         1112
+#define _APS_NEXT_CONTROL_VALUE         1117
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif
