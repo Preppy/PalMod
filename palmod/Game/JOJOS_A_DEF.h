@@ -1392,7 +1392,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
     { L"Joseph - Burning A (2/2)", 0x339700, 0x339780, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC A (1/2)", 0x339980, 0x339a00, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC A (2/2)", 0x339a00, 0x339a80, indexJojos51Joseph, indexJojos51Character_BurnZap },
-    { L"Joseph - Stand Tech A", 0x339a80, 0x339b00 },
+    { L"Joseph - Stand Tech A", 0x339a80, 0x339b00, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Guard Cancel/Child Transformation A", 0x339c80, 0x339d00, indexJojos51Joseph, indexJojos51Character_BurnZap },
 };
 
@@ -1407,7 +1407,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_B[] =
     { L"Joseph - Burning B (2/2)", 0x34dc00, 0x34dc80, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC B (1/2)", 0x34de80, 0x34df00, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC B (2/2)", 0x34df00, 0x34df80, indexJojos51Joseph, indexJojos51Character_BurnZap },
-    { L"Joseph - Stand Tech B", 0x34df80, 0x34e000 },
+    { L"Joseph - Stand Tech B", 0x34df80, 0x34e000, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Guard Cancel/Child Transformation B", 0x34e180, 0x34e200, indexJojos51Joseph, indexJojos51Character_BurnZap },
 };
 
@@ -1422,7 +1422,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_C[] =
     { L"Joseph - Burning C (2/2)", 0x362100, 0x362180, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC C (1/2)", 0x362380, 0x362400, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC C (2/2)", 0x362400, 0x362480, indexJojos51Joseph, indexJojos51Character_BurnZap },
-    { L"Joseph - Stand Tech C", 0x362480, 0x362500 },
+    { L"Joseph - Stand Tech C", 0x362480, 0x362500, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Guard Cancel/Child Transformation C", 0x362680, 0x362700, indexJojos51Joseph, indexJojos51Character_BurnZap },
 };
 
@@ -1437,7 +1437,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_S[] =
     { L"Joseph - Burning S (2/2)", 0x376600, 0x376680, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC S (1/2)", 0x376880, 0x376900, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC S (2/2)", 0x376900, 0x376980, indexJojos51Joseph, indexJojos51Character_BurnZap },
-    { L"Joseph - Stand Tech S", 0x376980, 0x376a00 },
+    { L"Joseph - Stand Tech S", 0x376980, 0x376a00, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Guard Cancel/Child Transformation S", 0x376b80, 0x376c00, indexJojos51Joseph, indexJojos51Character_BurnZap },
 };
 
@@ -1452,14 +1452,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Start[] =
     { L"Joseph - Burning Start (2/2)", 0x38ab00, 0x38ab80, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC Start (1/2)", 0x38ad80, 0x38ae00, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Tech/Zap/CC Start (2/2)", 0x38ae00, 0x38ae80, indexJojos51Joseph, indexJojos51Character_BurnZap },
-    { L"Joseph - Stand Tech Start", 0x38ae80, 0x38af00 },
+    { L"Joseph - Stand Tech Start", 0x38ae80, 0x38af00, indexJojos51Joseph, indexJojos51Character_BurnZap },
     { L"Joseph - Guard Cancel/Child Transformation Start", 0x38b080, 0x38b100, indexJojos51Joseph, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Shared[] =
 {
     { L"Iggy - Raging Demon Static", 0x30D300, 0x30D320, indexJojos51Iggy, 0x02 },
-    { L"Iggy - Raging Demon Kanji", 0x30d320, 0x30d340 },
+    { L"Iggy - Raging Demon Kanji", 0x30d320, 0x30d340, indexJojos51Iggy, 0x10 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_A[] =
@@ -1476,7 +1476,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_A[] =
     { L"Iggy - Burning A (2/2)", 0x33a380, 0x33a400, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap A (1/2)", 0x33a600, 0x33a680, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap A (2/2)", 0x33a680, 0x33a700, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy - Stand Tech/Guard Cancel A", 0x33a700, 0x33a780, indexJojos51Iggy, indexJojos51Character_Main },
+    { L"Iggy - Stand Tech/Guard Cancel A", 0x33a700, 0x33a780, indexJojos51Iggy, 0x07 },
     { L"Iggy - Guard Cancel/Child Transformation A", 0x33a900, 0x33a980, indexJojos51Iggy, indexJojos51Character_BurnZap },
 };
 
@@ -1494,7 +1494,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_B[] =
     { L"Iggy - Burning B (2/2)", 0x34e880, 0x34e900, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap B (1/2)", 0x34eb00, 0x34eb80, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap B (2/2)", 0x34eb80, 0x34ec00, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy - Stand Tech/Guard Cancel B", 0x34ec00, 0x34ec80, indexJojos51Iggy, indexJojos51Character_Main },
+    { L"Iggy - Stand Tech/Guard Cancel B", 0x34ec00, 0x34ec80, indexJojos51Iggy, 0x07 },
     { L"Iggy - Guard Cancel/Child Transformation B", 0x34ee00, 0x34ee80, indexJojos51Iggy, indexJojos51Character_BurnZap },
 };
 
@@ -1512,7 +1512,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_C[] =
     { L"Iggy - Burning C (2/2)", 0x362d80, 0x362e00, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap C (1/2)", 0x363000, 0x363080, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap C (2/2)", 0x363080, 0x363100, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy - Stand Tech/Guard Cancel C", 0x363100, 0x363180, indexJojos51Iggy, indexJojos51Character_Main },
+    { L"Iggy - Stand Tech/Guard Cancel C", 0x363100, 0x363180, indexJojos51Iggy, 0x07 },
     { L"Iggy - Guard Cancel/Child Transformation C", 0x363300, 0x363380, indexJojos51Iggy, indexJojos51Character_BurnZap },
 };
 
@@ -1530,7 +1530,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_S[] =
     { L"Iggy - Burning S (2/2)", 0x377280, 0x377300, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap S (1/2)", 0x377500, 0x377580, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap S (2/2)", 0x377580, 0x377600, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy - Stand Tech/Guard Cancel S", 0x377600, 0x377680, indexJojos51Iggy, indexJojos51Character_Main },
+    { L"Iggy - Stand Tech/Guard Cancel S", 0x377600, 0x377680, indexJojos51Iggy, 0x07 },
     { L"Iggy - Guard Cancel/Child Transformation S", 0x377800, 0x377880, indexJojos51Iggy, indexJojos51Character_BurnZap },
 };
 
@@ -1548,7 +1548,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
     { L"Iggy - Burning Start (2/2)", 0x38b780, 0x38b800, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap Start (1/2)", 0x38ba00, 0x38ba80, indexJojos51Iggy, indexJojos51Character_BurnZap },
     { L"Iggy - Tech/Zap Start (2/2)", 0x38ba80, 0x38bb00, indexJojos51Iggy, indexJojos51Character_BurnZap },
-    { L"Iggy - Stand Tech/Guard Cancel Start", 0x38bb00, 0x38bb80, indexJojos51Iggy, indexJojos51Character_Main },
+    { L"Iggy - Stand Tech/Guard Cancel Start", 0x38bb00, 0x38bb80, indexJojos51Iggy, 0x07 },
     { L"Iggy - Guard Cancel/Child Transformation Start", 0x38bd00, 0x38bd80, indexJojos51Iggy, indexJojos51Character_BurnZap },
 };
 
@@ -1565,7 +1565,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
     { L"Alessi - Burning A (2/2)", 0x33b000, 0x33b080, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC A (1/2)", 0x33b280, 0x33b300, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC A (2/2)", 0x33b300, 0x33b380, indexJojos51Alessi, indexJojos51Character_BurnZap },
-    { L"Alessi - Stand Tech A", 0x33b380, 0x33b400 },
+    { L"Alessi - Stand Tech A", 0x33b380, 0x33b400, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Guard Cancel/Child Transformation A", 0x33b580, 0x33b600, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
@@ -1582,7 +1582,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
     { L"Alessi - Burning B (2/2)", 0x34f500, 0x34f580, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC B (1/2)", 0x34f780, 0x34f800, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC B (2/2)", 0x34f800, 0x34f880, indexJojos51Alessi, indexJojos51Character_BurnZap },
-    { L"Alessi - Stand Tech B", 0x34f880, 0x34f900 },
+    { L"Alessi - Stand Tech B", 0x34f880, 0x34f900, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Guard Cancel/Child Transformation B", 0x34fa80, 0x34fb00, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
@@ -1599,7 +1599,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
     { L"Alessi - Burning C (2/2)", 0x363a00, 0x363a80, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC C (1/2)", 0x363c80, 0x363d00, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC C (2/2)", 0x363d00, 0x363d80, indexJojos51Alessi, indexJojos51Character_BurnZap },
-    { L"Alessi - Stand Tech C", 0x363d80, 0x363e00 },
+    { L"Alessi - Stand Tech C", 0x363d80, 0x363e00, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Guard Cancel/Child Transformation C", 0x363f80, 0x364000, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
@@ -1616,7 +1616,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
     { L"Alessi - Burning S (2/2)", 0x377f00, 0x377f80, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC S (1/2)", 0x378180, 0x378200, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC S (2/2)", 0x378200, 0x378280, indexJojos51Alessi, indexJojos51Character_BurnZap },
-    { L"Alessi - Stand Tech S", 0x378280, 0x378300 },
+    { L"Alessi - Stand Tech S", 0x378280, 0x378300, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Guard Cancel/Child Transformation S", 0x378480, 0x378500, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
@@ -1633,7 +1633,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
     { L"Alessi - Burning Start (2/2)", 0x38c400, 0x38c480, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC Start (1/2)", 0x38c680, 0x38c700, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Tech/Zap/CC Start (2/2)", 0x38c700, 0x38c780, indexJojos51Alessi, indexJojos51Character_BurnZap },
-    { L"Alessi - Stand Tech Start", 0x38c780, 0x38c800 },
+    { L"Alessi - Stand Tech Start", 0x38c780, 0x38c800, indexJojos51Alessi, indexJojos51Character_BurnZap },
     { L"Alessi - Guard Cancel/Child Transformation Start", 0x38c980, 0x38ca00, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
@@ -1648,7 +1648,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
     { L"Chaka - Burning A (2/2)", 0x33bc80, 0x33bd00, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter A (1/2)", 0x33bf00, 0x33bf80, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter A (2/2)", 0x33bf80, 0x33c000, indexJojos51Chaka, indexJojos51Character_BurnZap },
-    { L"Chaka - Stand Tech/Initial Counter A", 0x33c000, 0x33c080 },
+    { L"Chaka - Stand Tech/Initial Counter A", 0x33c000, 0x33c080, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Guard Cancel/Child Transformation A", 0x33c200, 0x33c280, indexJojos51Chaka, indexJojos51Character_BurnZap },
 };
 
@@ -1663,7 +1663,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_B[] =
     { L"Chaka - Burning B (2/2)", 0x350180, 0x350200, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter B (1/2)", 0x350400, 0x350480, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter B (2/2)", 0x350480, 0x350500, indexJojos51Chaka, indexJojos51Character_BurnZap },
-    { L"Chaka - Stand Tech/Initial Counter B", 0x350500, 0x350580 },
+    { L"Chaka - Stand Tech/Initial Counter B", 0x350500, 0x350580, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Guard Cancel/Child Transformation B", 0x350700, 0x350780, indexJojos51Chaka, indexJojos51Character_BurnZap },
 };
 
@@ -1678,7 +1678,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
     { L"Chaka - Burning C (2/2)", 0x364680, 0x364700, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter C (1/2)", 0x364900, 0x364980, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter C (2/2)", 0x364980, 0x364a00, indexJojos51Chaka, indexJojos51Character_BurnZap },
-    { L"Chaka - Stand Tech/Initial Counter C", 0x364a00, 0x364a80 },
+    { L"Chaka - Stand Tech/Initial Counter C", 0x364a00, 0x364a80, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Guard Cancel/Child Transformation C", 0x364c00, 0x364c80, indexJojos51Chaka, indexJojos51Character_BurnZap },
 };
 
@@ -1693,7 +1693,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_S[] =
     { L"Chaka - Burning S (2/2)", 0x378b80, 0x378c00, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter S (1/2)", 0x378e00, 0x378e80, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter S (2/2)", 0x378e80, 0x378f00, indexJojos51Chaka, indexJojos51Character_BurnZap },
-    { L"Chaka - Stand Tech/Initial Counter S (1/9) 0x378f00", 0x378f00, 0x378f80 },
+    { L"Chaka - Stand Tech/Initial Counter S (1/9) 0x378f00", 0x378f00, 0x378f80, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Guard Cancel/Child Transformation S", 0x379100, 0x379180, indexJojos51Chaka, indexJojos51Character_BurnZap },
 };
 
@@ -1708,7 +1708,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
     { L"Chaka - Burning Start (2/2)", 0x38d080, 0x38d100, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter Start (1/2)", 0x38d300, 0x38d380, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Tech/Zap/CC/Counter Start (2/2)", 0x38d380, 0x38d400, indexJojos51Chaka, indexJojos51Character_BurnZap },
-    { L"Chaka - Stand Tech/Initial Counter Start", 0x38d400, 0x38d480 },
+    { L"Chaka - Stand Tech/Initial Counter Start", 0x38d400, 0x38d480, indexJojos51Chaka, indexJojos51Character_BurnZap },
     { L"Chaka - Guard Cancel/Child Transformation Start", 0x38d600, 0x38d680, indexJojos51Chaka, indexJojos51Character_BurnZap },
 };
 
@@ -2037,7 +2037,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
     { L"Evil Incarnate Dio - Burning A (2/2)", 0x341400, 0x341480, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap A (1/2)", 0x341680, 0x341700, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap A (2/2)", 0x341700, 0x341780, indexJojos51SDio, indexJojos51Character_BurnZap },
-    { L"Evil Incarnate Dio - Stand Guard Cancel A", 0x3417c0, 0x3417e0 },
+    { L"Evil Incarnate Dio - Stand Guard Cancel A", 0x3417c0, 0x3417e0, indexJojos51SDio, 0x07 },
     { L"Evil Incarnate Dio - Guard Cancel/Child Transformation A", 0x341980, 0x341a00, indexJojos51SDio, indexJojos51Character_BurnZap },
 };
 
@@ -2056,7 +2056,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_B[] =
     { L"Evil Incarnate Dio - Burning B (2/2)", 0x355900, 0x355980, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap B (1/2)", 0x355b80, 0x355c00, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap B (2/2)", 0x355c00, 0x355c80, indexJojos51SDio, indexJojos51Character_BurnZap },
-    { L"Evil Incarnate Dio - Stand Guard Cancel B", 0x355cc0, 0x355ce0 },
+    { L"Evil Incarnate Dio - Stand Guard Cancel B", 0x355cc0, 0x355ce0, indexJojos51SDio, 0x07 },
     { L"Evil Incarnate Dio - Guard Cancel/Child Transformation B", 0x355e80, 0x355f00, indexJojos51SDio, indexJojos51Character_BurnZap },
 };
 
@@ -2075,7 +2075,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
     { L"Evil Incarnate Dio - Burning C (2/2)", 0x369e00, 0x369e80, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap C (1/2)", 0x36a080, 0x36a100, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap C (2/2)", 0x36a100, 0x36a180, indexJojos51SDio, indexJojos51Character_BurnZap },
-    { L"Evil Incarnate Dio - Stand Guard Cancel C", 0x36a1c0, 0x36a1e0 },
+    { L"Evil Incarnate Dio - Stand Guard Cancel C", 0x36a1c0, 0x36a1e0, indexJojos51SDio, 0x07 },
     { L"Evil Incarnate Dio - Guard Cancel/Child Transformation C", 0x36a380, 0x36a400, indexJojos51SDio, indexJojos51Character_BurnZap },
 };
 
@@ -2094,7 +2094,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_S[] =
     { L"Evil Incarnate Dio - Burning S (2/2)", 0x37e300, 0x37e380, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap S (1/2)", 0x37e580, 0x37e600, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap S (2/2)", 0x37e600, 0x37e680, indexJojos51SDio, indexJojos51Character_BurnZap },
-    { L"Evil Incarnate Dio - Stand Guard Cancel S", 0x37e6c0, 0x37e6e0 },
+    { L"Evil Incarnate Dio - Stand Guard Cancel S", 0x37e6c0, 0x37e6e0, indexJojos51SDio, 0x07 },
     { L"Evil Incarnate Dio - Guard Cancel/Child Transformation S", 0x37e880, 0x37e900, indexJojos51SDio, indexJojos51Character_BurnZap },
 };
 
@@ -2113,7 +2113,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_Start[] =
     { L"Evil Incarnate Dio - Burning Start (2/2)", 0x392800, 0x392880, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap Start (1/2)", 0x392a80, 0x392b00, indexJojos51SDio, indexJojos51Character_BurnZap },
     { L"Evil Incarnate Dio - Tech/Zap Start (2/2)", 0x392b00, 0x392b80, indexJojos51SDio, indexJojos51Character_BurnZap },
-    { L"Evil Incarnate Dio - Stand Guard Cancel Start", 0x392bc0, 0x392be0 },
+    { L"Evil Incarnate Dio - Stand Guard Cancel Start", 0x392bc0, 0x392be0, indexJojos51SDio, 0x07 },
     { L"Evil Incarnate Dio - Guard Cancel/Child Transformation Start", 0x392d80, 0x392e00, indexJojos51SDio, indexJojos51Character_BurnZap },
 };
 
@@ -2478,7 +2478,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_A[] =
     { L"Anubis Polnareff - Burning A (2/2)", 0x345280, 0x345300, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap A (1/2)", 0x345500, 0x345580, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap A (2/2)", 0x345580, 0x345600, indexJojos51Anubis, indexJojos51Character_BurnZap },
-    { L"Anubis Polnareff - Stand Guard Cancel A", 0x345600, 0x345680 },
+    { L"Anubis Polnareff - Stand Guard Cancel A", 0x345600, 0x345680, indexJojos51Anubis, 0x01 },
     { L"Anubis Polnareff - Guard Cancel/Child Transformation A", 0x345800, 0x345880, indexJojos51Anubis, indexJojos51Character_BurnZap },
 };
 
@@ -2493,7 +2493,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_B[] =
     { L"Anubis Polnareff - Burning B (2/2)", 0x359780, 0x359800, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap B (1/2)", 0x359a00, 0x359a80, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap B (2/2)", 0x359a80, 0x359b00, indexJojos51Anubis, indexJojos51Character_BurnZap },
-    { L"Anubis Polnareff - Stand Guard Cancel B", 0x359b00, 0x359b80 },
+    { L"Anubis Polnareff - Stand Guard Cancel B", 0x359b00, 0x359b80, indexJojos51Anubis, 0x01 },
     { L"Anubis Polnareff - Guard Cancel/Child Transformation B", 0x359d00, 0x359d80, indexJojos51Anubis, indexJojos51Character_BurnZap },
 };
 
@@ -2508,7 +2508,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_C[] =
     { L"Anubis Polnareff - Burning C (2/2)", 0x36dc80, 0x36dd00, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap C (1/2)", 0x36df00, 0x36df80, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap C (2/2)", 0x36df80, 0x36e000, indexJojos51Anubis, indexJojos51Character_BurnZap },
-    { L"Anubis Polnareff - Stand Guard Cancel C", 0x36e000, 0x36e080 },
+    { L"Anubis Polnareff - Stand Guard Cancel C", 0x36e000, 0x36e080, indexJojos51Anubis, 0x01 },
     { L"Anubis Polnareff - Guard Cancel/Child Transformation C", 0x36e200, 0x36e280, indexJojos51Anubis, indexJojos51Character_BurnZap },
 };
 
@@ -2523,7 +2523,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_S[] =
     { L"Anubis Polnareff - Burning S (2/2)", 0x382180, 0x382200, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap S (1/2)", 0x382400, 0x382480, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap S (2/2)", 0x382480, 0x382500, indexJojos51Anubis, indexJojos51Character_BurnZap },
-    { L"Anubis Polnareff - Stand Guard Cancel S", 0x382500, 0x382580 },
+    { L"Anubis Polnareff - Stand Guard Cancel S", 0x382500, 0x382580, indexJojos51Anubis, 0x01 },
     { L"Anubis Polnareff - Guard Cancel/Child Transformation S", 0x382700, 0x382780, indexJojos51Anubis, indexJojos51Character_BurnZap },
 };
 
@@ -2538,7 +2538,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_Start[] =
     { L"Anubis Polnareff - Burning Start (2/2)", 0x396680, 0x396700, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap Start (1/2)", 0x396900, 0x396980, indexJojos51Anubis, indexJojos51Character_BurnZap },
     { L"Anubis Polnareff - Tech/Zap Start (2/2)", 0x396980, 0x396a00, indexJojos51Anubis, indexJojos51Character_BurnZap },
-    { L"Anubis Polnareff - Stand Guard Cancel Start", 0x396a00, 0x396a80 },
+    { L"Anubis Polnareff - Stand Guard Cancel Start", 0x396a00, 0x396a80, indexJojos51Anubis, 0x01 },
     { L"Anubis Polnareff - Guard Cancel/Child Transformation Start", 0x396c00, 0x396c80, indexJojos51Anubis, indexJojos51Character_BurnZap },
 };
 
@@ -2793,7 +2793,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
     { L"Rubber Soul - Burning A (2/2)", 0x349100, 0x349180, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap A (1/2)", 0x349400, 0x349480, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap A (2/2)", 0x349380, 0x349400, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul - Stand Guard Cancel A", 0x349480, 0x349500 },
+    { L"Rubber Soul - Stand Guard Cancel A", 0x349480, 0x349500, indexJojos51RSoul, 0x07 },
     { L"Rubber Soul - Guard Cancel/Child Transformation", 0x349680, 0x349700, indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
@@ -2808,7 +2808,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
     { L"Rubber Soul - Burning B (2/2)", 0x35d600, 0x35d680, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap B (1/2)", 0x349400 + (0x14500 * 1), 0x349480 + (0x14500 * 1), indexJojos51RSoul, indexJojos51Character_BurnZap},
     { L"Rubber Soul - Tech/Zap B (2/2)", 0x349380 + (0x14500 * 1), 0x349400 + (0x14500 * 1), indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul - Stand Guard Cancel B", 0x35d980, 0x35da00 },
+    { L"Rubber Soul - Stand Guard Cancel B", 0x35d980, 0x35da00, indexJojos51RSoul, 0x07 },
     { L"Rubber Soul - Guard Cancel/Child Transformation B", 0x35db80, 0x35dc00, indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
@@ -2823,7 +2823,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
     { L"Rubber Soul - Burning C (2/2)", 0x371b00, 0x371b80, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap C (1/2)", 0x349400 + (0x14500 * 2), 0x349480 + (0x14500 * 2), indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap C (2/2)", 0x349380 + (0x14500 * 2), 0x349400 + (0x14500 * 2), indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul - Stand Guard Cancel C", 0x371e80, 0x371f00 },
+    { L"Rubber Soul - Stand Guard Cancel C", 0x371e80, 0x371f00, indexJojos51RSoul, 0x07 },
     { L"Rubber Soul - Guard Cancel/Child Transformation C", 0x372080, 0x372100, indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
@@ -2838,7 +2838,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
     { L"Rubber Soul - Burning S (2/2)", 0x386000, 0x386080, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap S (1/2)", 0x349400 + (0x14500 * 3), 0x349480 + (0x14500 * 3), indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap S (2/2)", 0x349380 + (0x14500 * 3), 0x349400 + (0x14500 * 3), indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul - Stand Guard Cancel S", 0x386380, 0x386400 },
+    { L"Rubber Soul - Stand Guard Cancel S", 0x386380, 0x386400, indexJojos51RSoul, 0x07 },
     { L"Rubber Soul - Guard Cancel/Child Transformation S", 0x386580, 0x386600, indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
@@ -2853,7 +2853,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
     { L"Rubber Soul - Burning Start (2/2)", 0x39a500, 0x39a580, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap Start (1/2)", 0x349400 + (0x14500 * 4), 0x349480 + (0x14500 * 4), indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul - Tech/Zap Start (2/2)", 0x349380 + (0x14500 * 4), 0x349400 + (0x14500 * 4), indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul - Stand Guard Cancel Start", 0x39a880, 0x39a900 },
+    { L"Rubber Soul - Stand Guard Cancel Start", 0x39a880, 0x39a900, indexJojos51RSoul, 0x07 },
     { L"Rubber Soul - Guard Cancel/Child Transformation Start", 0x39aa80, 0x39ab00, indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
@@ -4196,11 +4196,11 @@ const sGame_PaletteDataset JOJOS_A_MAPS_STORY_PALETTES[] =
     { L"Storymode Egypt Map (4/4)", 0x313c00, 0x313c80, indexJojos51Bonus, 0x4e },
     { L"Storymode Japan Map", 0x313a80, 0x313b00, indexJojos51Bonus, 0x4f },
 
-    { L"Destination text 1/2", 0x313800, 0x313820, indexJojos51StoryMode, -1 },
-    { L"Travel Arrow", 0x313820, 0x313840, indexJojos51StoryMode, -1 },
-    { L"\"Travel Map\"", 0x313840, 0x313860, indexJojos51StoryMode, -1 },
+    { L"Destination text 1/2", 0x313800, 0x313820, indexJojos51StoryMode, 0x27 },
+    { L"Travel Arrow", 0x313820, 0x313840, indexJojos51StoryMode, 0x28 },
+    { L"\"Travel Map\"", 0x313840, 0x313860, indexJojos51StoryMode, 0x2a },
 
-    { L"Map elements", 0x313880, 0x313980, indexJojos51StoryMode, -1 },
+    { L"Map elements", 0x313880, 0x313980, indexJojos51StoryMode, 0x29 },
 };
 
 const sGame_PaletteDataset JOJOS_A_SHARED_STORY_PALETTES[] =

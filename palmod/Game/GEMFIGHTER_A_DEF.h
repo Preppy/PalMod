@@ -8,20 +8,21 @@
 
 const std::vector<uint16_t> GEMFIGHTER_A_IMGIDS_USED =
 {
-    indexCPS2Sprites_SPF_Ryu,      // 0x59
-    indexCPS2Sprites_SPF_Ken,      // 0x5a
-    indexCPS2Sprites_SPF_ChunLi,   // 0x5b
-    indexCPS2Sprites_SPF_Sakura,   // 0x5c
-    indexCPS2Sprites_SPF_Morrigan, // 0x5d
-    indexCPS2Sprites_SPF_HsienKo,  // 0x5e
-    indexCPS2Sprites_SPF_Felicia,  // 0x5f
-    indexCPS2Sprites_SPF_Tessa,    // 0x60
-    indexCPS2Sprites_SPF_Ibuki,    // 0x61
-    indexCPS2Sprites_SPF_Zangief,  // 0x62
-    indexCPS2Sprites_SPF_Dan,      // 0x63
-    indexCPS2Sprites_SPF_Akuma,    // 0x64
+    indexCPS2Sprites_SPF_Ryu,       // 0x59
+    indexCPS2Sprites_SPF_Ken,       // 0x5a
+    indexCPS2Sprites_SPF_ChunLi,    // 0x5b
+    indexCPS2Sprites_SPF_Sakura,    // 0x5c
+    indexCPS2Sprites_SPF_Morrigan,  // 0x5d
+    indexCPS2Sprites_SPF_HsienKo,   // 0x5e
+    indexCPS2Sprites_SPF_Felicia,   // 0x5f
+    indexCPS2Sprites_SPF_Tessa,     // 0x60
+    indexCPS2Sprites_SPF_Ibuki,     // 0x61
+    indexCPS2Sprites_SPF_Zangief,   // 0x62
+    indexCPS2Sprites_SPF_Dan,       // 0x63
+    indexCPS2Sprites_SPF_Akuma,     // 0x64
 
-    indexCPS2Sprites_SPF_Bonus,    // 0x7d
+    indexCPS2Sprites_SPF_Bonus,     // 0x7d
+    indexCPS2Sprites_SPF_Stages,    // 0x7e
 
     indexPuzzleFighter_Akuma,       // 0x96
     indexPuzzleFighter_ChunLi,      // 0x98
@@ -1338,7 +1339,7 @@ const sDescTreeNode GEMFIGHTER_A_AKUMA_COLLECTION[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CARDS_ARCADE_PALETTES[] =
 {
-    { L"Arcade Cards", 0xd4e6, 0xd666 }, 
+    { L"Arcade Cards", 0xd4e6, 0xd666, indexCPS2Sprites_SPF_Bonus, 0x01 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_CARDS_DEFEATED_PALETTES[] =
@@ -1413,162 +1414,162 @@ const sGame_PaletteDataset GEMFIGHTER_A_STAGES_COMMON_PALETTES[] =
     // 4: Poison
     // 5: Treasure chest, red, yellow gems
     // 6: blue dropped gems
-    { L"Stage Items and Effects", 0x1b812, 0x1b8f2 },
+    { L"Stage Items and Effects", 0x1b812, 0x1b8f2, indexCPS2Sprites_SPF_Stages, 0x2c },
 
     // 0: SonSon
     // 1: TonTon, the pig
     // 2: SuiSui, the kappa
     // 3: Sanjou, SonSon's master
     // 4: Kaminari, red shock demon
-    { L"Support Clouds", 0x33e9a, 0x33f3a },
+    { L"Support Clouds", 0x33e9a, 0x33f3a, indexCPS2Sprites_SPF_Stages, 0x2d },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_CAPCOMCAFE_PALETTES[] =
 {
-    { L"Background 1", 0x1fdce, 0x1ffce, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
-    { L"Background 2", 0x1ffce, 0x201ce },
+    { L"Background 1", 0x1fdce, 0x1ffce, indexCPS2Sprites_SPF_Stages, 0x00, &pairFullyLinkedNode },
+    { L"Background 2", 0x1ffce, 0x201ce, indexCPS2Sprites_SPF_Stages, 0x01 },
 
-    { L"Side door: animation cycle 1/2", 0x3564a, 0x3566a },
-        { L"Side door: animation cycle 2/2", 0x3566a, 0x3568a },
+    { L"Side door: animation cycle 1/2", 0x3564a, 0x3566a, indexCPS2Sprites_SPF_Stages, 0x02 },
+        { L"Side door: animation cycle 2/2", 0x3566a, 0x3568a, indexCPS2Sprites_SPF_Stages, 0x02 },
 
-    { L"Middle layer 1", 0x1b912, 0x1bb12 },
-    { L"Middle layer 2", 0x1bb12, 0x1bd12 },
-    { L"Animated elements 1", 0x262ca, 0x264ca },
-    { L"Animated elements 2", 0x264ca, 0x266ca },
+    { L"Middle layer 1", 0x1b912, 0x1bb12, indexCPS2Sprites_SPF_Stages, 0x03 },
+    { L"Middle layer 2", 0x1bb12, 0x1bd12, indexCPS2Sprites_SPF_Stages, 0x04 },
+    { L"Animated elements 1", 0x262ca, 0x264ca, indexCPS2Sprites_SPF_Stages, 0x05 },
+    { L"Animated elements 2", 0x264ca, 0x266ca, indexCPS2Sprites_SPF_Stages, 0x6 },
 
-    {L"Bartender DeeJay Base", 0xb7e6, 0xb8a6 },
-        {L"Bartender DeeJay 1 (Unused?)", 0x15752, 0x15812 },
-        {L"Bartender DeeJay 2 (Unused?)", 0x15b52, 0x15c12 },
-        {L"Bartender DeeJay 3 (Unused?)", 0x15f52, 0x16012 },
-        {L"Bartender DeeJay 4 (Unused?)", 0x16352, 0x16412 },
+    {L"Bartender DeeJay Base", 0xb7e6, 0xb8a6, indexCPS2Sprites_SPF_Stages, 0x07 },
+        {L"Bartender DeeJay 1 (Unused?)", 0x15752, 0x15812, indexCPS2Sprites_SPF_Stages, 0x07 },
+        {L"Bartender DeeJay 2 (Unused?)", 0x15b52, 0x15c12, indexCPS2Sprites_SPF_Stages, 0x07 },
+        {L"Bartender DeeJay 3 (Unused?)", 0x15f52, 0x16012, indexCPS2Sprites_SPF_Stages, 0x07 },
+        {L"Bartender DeeJay 4 (Unused?)", 0x16352, 0x16412, indexCPS2Sprites_SPF_Stages, 0x07 },
 
-    { L"Ceiling lights: animation cycle 1/2", 0x33f72, 0x33f92 },
-        { L"Ceiling lights: animation cycle 2/2", 0x33f92, 0x33fb2 },
+    { L"Ceiling lights: animation cycle 1/2", 0x33f72, 0x33f92, indexCPS2Sprites_SPF_Stages, 0x08 },
+        { L"Ceiling lights: animation cycle 2/2", 0x33f92, 0x33fb2, indexCPS2Sprites_SPF_Stages, 0x08 },
 
-    { L"Capcom sign: animation cycle 1/3", 0x3568a, 0x356aa },
-        { L"Capcom sign: animation cycle 2/3", 0x356aa, 0x356ca },
-        { L"Capcom sign: animation cycle 3/3", 0x356ca, 0x356ea },
+    { L"Capcom sign: animation cycle 1/3", 0x3568a, 0x356aa, indexCPS2Sprites_SPF_Stages, 0x09 },
+        { L"Capcom sign: animation cycle 2/3", 0x356aa, 0x356ca, indexCPS2Sprites_SPF_Stages, 0x09 },
+        { L"Capcom sign: animation cycle 3/3", 0x356ca, 0x356ea, indexCPS2Sprites_SPF_Stages, 0x09 },
 
-    { L"THAN sign: animation cycle 1/2", 0x3723e, 0x3725e },
-        { L"THAN sign: animation cycle 1/2", 0x3725e, 0x3727e },
+    { L"THAN sign: animation cycle 1/2", 0x3723e, 0x3725e, indexCPS2Sprites_SPF_Stages, 0x0a },
+        { L"THAN sign: animation cycle 1/2", 0x3725e, 0x3727e, indexCPS2Sprites_SPF_Stages, 0x0a },
 
-    { L"TOILET sign: animation cycle 1/6", 0x3727e, 0x3729e },
-        { L"TOILET sign: animation cycle 1/6", 0x3729e, 0x372be },
-        { L"TOILET sign: animation cycle 1/6", 0x372be, 0x372de },
-        { L"TOILET sign: animation cycle 1/6", 0x372de, 0x372fe },
-        { L"TOILET sign: animation cycle 1/6", 0x372fe, 0x3731e },
-        { L"TOILET sign: animation cycle 1/6", 0x3731e, 0x3733e },
+    { L"TOILET sign: animation cycle 1/6", 0x3727e, 0x3729e, indexCPS2Sprites_SPF_Stages, 0x0b },
+        { L"TOILET sign: animation cycle 1/6", 0x3729e, 0x372be, indexCPS2Sprites_SPF_Stages, 0x0b },
+        { L"TOILET sign: animation cycle 1/6", 0x372be, 0x372de, indexCPS2Sprites_SPF_Stages, 0x0b },
+        { L"TOILET sign: animation cycle 1/6", 0x372de, 0x372fe, indexCPS2Sprites_SPF_Stages, 0x0b },
+        { L"TOILET sign: animation cycle 1/6", 0x372fe, 0x3731e, indexCPS2Sprites_SPF_Stages, 0x0b },
+        { L"TOILET sign: animation cycle 1/6", 0x3731e, 0x3733e, indexCPS2Sprites_SPF_Stages, 0x0b },
 
-    { L"MAXIMUM sign: animation cycle 1/5", 0x3733e, 0x3735e },
-        { L"MAXIMUM sign: animation cycle 2/5", 0x3735e, 0x3737e },
-        { L"MAXIMUM sign: animation cycle 3/5", 0x3737e, 0x3739e },
-        { L"MAXIMUM sign: animation cycle 4/5", 0x3739e, 0x373be },
-        { L"MAXIMUM sign: animation cycle 5/5", 0x373be, 0x373de },
+    { L"MAXIMUM sign: animation cycle 1/5", 0x3733e, 0x3735e, indexCPS2Sprites_SPF_Stages, 0x0c },
+        { L"MAXIMUM sign: animation cycle 2/5", 0x3735e, 0x3737e, indexCPS2Sprites_SPF_Stages, 0x0c },
+        { L"MAXIMUM sign: animation cycle 3/5", 0x3737e, 0x3739e, indexCPS2Sprites_SPF_Stages, 0x0c },
+        { L"MAXIMUM sign: animation cycle 4/5", 0x3739e, 0x373be, indexCPS2Sprites_SPF_Stages, 0x0c },
+        { L"MAXIMUM sign: animation cycle 5/5", 0x373be, 0x373de, indexCPS2Sprites_SPF_Stages, 0x0c },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_SHOPPINGCENTER_PALETTES[] =
 {
-    { L"Background 1", 0x1bd12, 0x1bf12, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
-    { L"Background 2", 0x1bf12, 0x1c0b2 },
-    { L"Mid 1", 0x266ca, 0x268ca },
-    { L"Mid 2", 0x268ca, 0x26aca },
-    { L"Foreground 1", 0x201ce, 0x203ce },
-    { L"Foreground 2", 0x203ce, 0x205ce },
-    { L"Sprite Elements", 0xb8a6, 0xb966 },
+    { L"Background 1", 0x1bd12, 0x1bf12, indexCPS2Sprites_SPF_Stages, 0x2e, &pairFullyLinkedNode },
+    { L"Background 2", 0x1bf12, 0x1c0b2, indexCPS2Sprites_SPF_Stages, 0x2f },
+    { L"Mid 1", 0x266ca, 0x268ca, indexCPS2Sprites_SPF_Stages, 0x30 },
+    { L"Mid 2", 0x268ca, 0x26aca, indexCPS2Sprites_SPF_Stages, 0x31 },
+    { L"Foreground 1", 0x201ce, 0x203ce, indexCPS2Sprites_SPF_Stages, 0x32 },
+    { L"Foreground 2", 0x203ce, 0x205ce, indexCPS2Sprites_SPF_Stages, 0x33 },
+    { L"Sprite Elements", 0xb8a6, 0xb966, indexCPS2Sprites_SPF_Stages, 0x34 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_SLOPES_PALETTES[] =
 {
-    { L"Background", 0x26aca, 0x26b0a, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background", 0x26aca, 0x26b0a, indexCPS2Sprites_SPF_Stages, 0x35, &pairFullyLinkedNode },
         // UNUSED { L"Background 2", 0x26b0a, 0x26eca },
-    { L"Mid", 0x1c112, 0x1c2f2 },
+    { L"Mid", 0x1c112, 0x1c2f2, indexCPS2Sprites_SPF_Stages, 0x36 },
         // UNUSED { L"Mid 2", 0x1c2f2, 0x1c512 },
-    { L"Foreground 1", 0x205ce, 0x207ce },
-    { L"Foreground 2", 0x207ce, 0x2096e },
-    { L"Sprite Elements", 0xb966, 0xba26 },
+    { L"Foreground 1", 0x205ce, 0x207ce, indexCPS2Sprites_SPF_Stages, 0x37 },
+    { L"Foreground 2", 0x207ce, 0x2096e, indexCPS2Sprites_SPF_Stages, 0x38 },
+    { L"Sprite Elements", 0xb966, 0xba26, indexCPS2Sprites_SPF_Stages, 0x39 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_DOCK_PALETTES[] =
 {
-    { L"Background", 0x1c512, 0x1c692, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background", 0x1c512, 0x1c692, indexCPS2Sprites_SPF_Stages, 0x17, &pairFullyLinkedNode },
         // Unused { L"Background 2", 0x1c712, 0x1c912 },
-    { L"Mid 1", 0x209ce, 0x20bce },
-    { L"Mid 2", 0x20bce, 0x20dce },
-    { L"Foreground 1", 0x26eca, 0x270ca },
-    { L"Foreground 2", 0x270ca, 0x2724a },
-    { L"Sprite Elements", 0xba26, 0xbae6 },
+    { L"Mid 1", 0x209ce, 0x20bce, indexCPS2Sprites_SPF_Stages, 0x18 },
+    { L"Mid 2", 0x20bce, 0x20dce, indexCPS2Sprites_SPF_Stages, 0x19 },
+    { L"Foreground 1", 0x26eca, 0x270ca, indexCPS2Sprites_SPF_Stages, 0x1a },
+    { L"Foreground 2", 0x270ca, 0x2724a, indexCPS2Sprites_SPF_Stages, 0x1b },
+    { L"Sprite Elements", 0xba26, 0xbae6, indexCPS2Sprites_SPF_Stages, 0x1c },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_CHINATOWN_PALETTES[] =
 {
-    { L"Background", 0x1c912, 0x1ca92, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background", 0x1c912, 0x1ca92, indexCPS2Sprites_SPF_Stages, 0x0d, &pairFullyLinkedNode },
         // UNUSED { L"Background 2", 0x1cb12, 0x1cd12 },
-    { L"Mid 1", 0x20dce, 0x20fce },
-    { L"Mid 2", 0x20fce, 0x211ce },
-    { L"Foreground 1", 0x272ca, 0x274ca },
-    { L"Foreground 2", 0x274ca, 0x276ca },
-    { L"Sprite Elements", 0xba26 + (0x01 * 6 * 0x20), 0xbae6 + (0x01 * 6 * 0x20) },
+    { L"Mid 1", 0x20dce, 0x20fce, indexCPS2Sprites_SPF_Stages, 0x0e },
+    { L"Mid 2", 0x20fce, 0x211ce, indexCPS2Sprites_SPF_Stages, 0x0f },
+    { L"Foreground 1", 0x272ca, 0x274ca, indexCPS2Sprites_SPF_Stages, 0x10 },
+    { L"Foreground 2", 0x274ca, 0x276ca, indexCPS2Sprites_SPF_Stages, 0x11 },
+    { L"Sprite Elements", 0xba26 + (0x01 * 6 * 0x20), 0xbae6 + (0x01 * 6 * 0x20), indexCPS2Sprites_SPF_Stages, 0x12 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_FIREPLACE_PALETTES[] =
 {
-    { L"Background Sky 1", 0x276ca, 0x278ca, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background Sky 1", 0x276ca, 0x278ca, indexCPS2Sprites_SPF_Stages, 0x1d, &pairFullyLinkedNode },
     { L"Background Sky 2", 0x278ca, 0x27aca },
 
-    { L"Mid 1", 0x211ce, 0x213ce },
-    { L"Mid 2", 0x213ce, 0x215ce },
+    { L"Mid 1", 0x211ce, 0x213ce, indexCPS2Sprites_SPF_Stages, 0x1e },
+    { L"Mid 2", 0x213ce, 0x215ce, indexCPS2Sprites_SPF_Stages, 0x1f },
 
-    { L"Foreground 1", 0x1cd12, 0x1cf12 },
-    { L"Foreground 2", 0x1cf12, 0x1d112 },
+    { L"Foreground 1", 0x1cd12, 0x1cf12, indexCPS2Sprites_SPF_Stages, 0x20 },
+    { L"Foreground 2", 0x1cf12, 0x1d112, indexCPS2Sprites_SPF_Stages, 0x21 },
 
-    { L"Sprite Elements", 0xba26 + (0x02 * 6 * 0x20), 0xbae6 + (0x02 * 6 * 0x20) },
+    { L"Sprite Elements", 0xba26 + (0x02 * 6 * 0x20), 0xbae6 + (0x02 * 6 * 0x20), indexCPS2Sprites_SPF_Stages, 0x22 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_MORRIGANCASTLE_PALETTES[] =
 {
-    { L"Background Sky 1", 0x27aca, 0x27cca, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
-    { L"Background Sky 2", 0x27cca, 0x27eca },
+    { L"Background Sky 1", 0x27aca, 0x27cca, indexCPS2Sprites_SPF_Stages, 0x23, &pairFullyLinkedNode },
+    { L"Background Sky 2", 0x27cca, 0x27eca, indexCPS2Sprites_SPF_Stages, 0x24 },
 
-    { L"Background Water 1: Animation cycle 1/8", 0x34152, 0x34172 },
-        { L"Background Water 1: Animation cycle 2/8", 0x34172, 0x34192 },
-        { L"Background Water 1: Animation cycle 3/8", 0x34192, 0x341b2 },
-        { L"Background Water 1: Animation cycle 4/8", 0x341b2, 0x341d2 },
-        { L"Background Water 1: Animation cycle 5/8", 0x341d2, 0x341f2 },
-        { L"Background Water 1: Animation cycle 6/8", 0x341f2, 0x34212 },
-        { L"Background Water 1: Animation cycle 7/8", 0x34212, 0x34232 },
-        { L"Background Water 1: Animation cycle 8/8", 0x34232, 0x34252 },
+    { L"Background Water 1: Animation cycle 1/8", 0x34152, 0x34172, indexCPS2Sprites_SPF_Stages, 0x25 },
+        { L"Background Water 1: Animation cycle 2/8", 0x34172, 0x34192, indexCPS2Sprites_SPF_Stages, 0x25 },
+        { L"Background Water 1: Animation cycle 3/8", 0x34192, 0x341b2, indexCPS2Sprites_SPF_Stages, 0x25 },
+        { L"Background Water 1: Animation cycle 4/8", 0x341b2, 0x341d2, indexCPS2Sprites_SPF_Stages, 0x25 },
+        { L"Background Water 1: Animation cycle 5/8", 0x341d2, 0x341f2, indexCPS2Sprites_SPF_Stages, 0x25 },
+        { L"Background Water 1: Animation cycle 6/8", 0x341f2, 0x34212, indexCPS2Sprites_SPF_Stages, 0x25 },
+        { L"Background Water 1: Animation cycle 7/8", 0x34212, 0x34232, indexCPS2Sprites_SPF_Stages, 0x25 },
+        { L"Background Water 1: Animation cycle 8/8", 0x34232, 0x34252, indexCPS2Sprites_SPF_Stages, 0x25 },
     
-    { L"Background Water 2: Animation cycle 1/8", 0x34252, 0x34272 },
-        { L"Background Water 2: Animation cycle 2/8", 0x34272, 0x34292 },
-        { L"Background Water 2: Animation cycle 3/8", 0x34292, 0x342b2 },
-        { L"Background Water 2: Animation cycle 4/8", 0x342b2, 0x342d2 },
-        { L"Background Water 2: Animation cycle 5/8", 0x342d2, 0x342f2 },
-        { L"Background Water 2: Animation cycle 6/8", 0x342f2, 0x34312 },
-        { L"Background Water 2: Animation cycle 7/8", 0x34312, 0x34332 },
-        { L"Background Water 2: Animation cycle 8/8", 0x34332, 0x34352 },
+    { L"Background Water 2: Animation cycle 1/8", 0x34252, 0x34272, indexCPS2Sprites_SPF_Stages, 0x26 },
+        { L"Background Water 2: Animation cycle 2/8", 0x34272, 0x34292, indexCPS2Sprites_SPF_Stages, 0x26 },
+        { L"Background Water 2: Animation cycle 3/8", 0x34292, 0x342b2, indexCPS2Sprites_SPF_Stages, 0x26 },
+        { L"Background Water 2: Animation cycle 4/8", 0x342b2, 0x342d2, indexCPS2Sprites_SPF_Stages, 0x26 },
+        { L"Background Water 2: Animation cycle 5/8", 0x342d2, 0x342f2, indexCPS2Sprites_SPF_Stages, 0x26 },
+        { L"Background Water 2: Animation cycle 6/8", 0x342f2, 0x34312, indexCPS2Sprites_SPF_Stages, 0x26 },
+        { L"Background Water 2: Animation cycle 7/8", 0x34312, 0x34332, indexCPS2Sprites_SPF_Stages, 0x26 },
+        { L"Background Water 2: Animation cycle 8/8", 0x34332, 0x34352, indexCPS2Sprites_SPF_Stages, 0x26 },
 
-    { L"Mid 1", 0x1d112, 0x1d312 },
-    { L"Mid 2", 0x1d312, 0x1d512 },
+    { L"Mid 1", 0x1d112, 0x1d312, indexCPS2Sprites_SPF_Stages, 0x27 },
+    { L"Mid 2", 0x1d312, 0x1d512, indexCPS2Sprites_SPF_Stages, 0x28 },
 
-    { L"Foreground 1" ,0x215ce, 0x217ce },
-    { L"Foreground 2", 0x217ce, 0x219ce },
+    { L"Foreground 1" ,0x215ce, 0x217ce, indexCPS2Sprites_SPF_Stages, 0x29 },
+    { L"Foreground 2", 0x217ce, 0x219ce, indexCPS2Sprites_SPF_Stages, 0x2a },
 
-    { L"Sprite Elements", 0xba26 + (0x03 * 6 * 0x20), 0xbae6 + (0x03 * 6 * 0x20) },
+    { L"Sprite Elements", 0xba26 + (0x03 * 6 * 0x20), 0xbae6 + (0x03 * 6 * 0x20), indexCPS2Sprites_SPF_Stages, 0x2b },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_STAGES_DEMITRICASTLE_PALETTES[] =
 {
-    { L"Background Sky", 0x27eca, 0x27eea, indexCPS2Sprites_SPF_Bonus, -1, &pairFullyLinkedNode },
+    { L"Background Sky", 0x27eca, 0x27eea, indexCPS2Sprites_SPF_Stages, 0x13, &pairFullyLinkedNode },
     
-    { L"Mid", 0x219ce, 0x21b8e },
+    { L"Mid", 0x219ce, 0x21b8e, indexCPS2Sprites_SPF_Stages, 0x14 },
         // NOTE: game memory actually loads at 0x21bce.  But ... we have clearly misaligned palettes if we do that, 
         // so let's party on as if 0x21be6 is the starting point since that's where it should be
         // UNUSED { L"Mid 2", 0x21be6, 0x21de6 },
 
-    { L"Foreground", 0x1d512, 0x1d692 },
+    { L"Foreground", 0x1d512, 0x1d692, indexCPS2Sprites_SPF_Stages, 0x15 },
         // UNUSED: { L"Foreground 2", 0x1d712, 0x1d912 },
 
-    { L"Sprite Elements", 0xbd26, 0xbde6 },
+    { L"Sprite Elements", 0xbd26, 0xbde6, indexCPS2Sprites_SPF_Stages, 0x16 },
 };
 
 const sDescTreeNode GEMFIGHTER_A_STAGE_COLLECTION[] =

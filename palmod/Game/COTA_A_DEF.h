@@ -1129,46 +1129,46 @@ const sGame_PaletteDataset COTA_A_HUD_PALETTES[] =
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_WOLVERINE[] =
 {
-    { L"Background Layer 1", 0x37f76, 0x38176, -1, -1, &pairFullyLinkedNode },
-    { L"Background Layer 2", 0x38176, 0x38376 },
-    { L"Background: Animation Cycle 1/7", 0x38376, 0x38396 },
-        { L"Background: Animation Cycle 2/7", 0x38396, 0x383b6 },
-        { L"Background: Animation Cycle 3/7", 0x383b6, 0x383d6 },
-        { L"Background: Animation Cycle 4/7", 0x383d6, 0x383f6 },
-        { L"Background: Animation Cycle 5/7", 0x383f6, 0x38416 },
-        { L"Background: Animation Cycle 6/7", 0x38416, 0x38436 },
-        { L"Background: Animation Cycle 7/7", 0x38436, 0x38456 },
+    { L"Background Layer 1", 0x37f76, 0x38176, indexCPS2Sprites_COTAAssets, 0x13, &pairFullyLinkedNode },
+    { L"Background Layer 2", 0x38176, 0x38376, indexCPS2Sprites_COTAAssets, 0x14 },
+    { L"Background: Animation Cycle 1/7", 0x38376, 0x38396, indexCPS2Sprites_COTAAssets, 0x15 },
+        { L"Background: Animation Cycle 2/7", 0x38396, 0x383b6, indexCPS2Sprites_COTAAssets, 0x15 },
+        { L"Background: Animation Cycle 3/7", 0x383b6, 0x383d6, indexCPS2Sprites_COTAAssets, 0x15 },
+        { L"Background: Animation Cycle 4/7", 0x383d6, 0x383f6, indexCPS2Sprites_COTAAssets, 0x15 },
+        { L"Background: Animation Cycle 5/7", 0x383f6, 0x38416, indexCPS2Sprites_COTAAssets, 0x15 },
+        { L"Background: Animation Cycle 6/7", 0x38416, 0x38436, indexCPS2Sprites_COTAAssets, 0x15 },
+        { L"Background: Animation Cycle 7/7", 0x38436, 0x38456, indexCPS2Sprites_COTAAssets, 0x15 },
     // Stage elements breakdown:
     // 1: triceratops 
     // 2: gallimimus
     // 3: overgrowth covering
     // 4: tyrannosaurus rex
-    { L"Stage Elements: Gallimimus", 0x2abc8, 0x2abe8 },
-    { L"Stage Elements: Tyrannosaurus Rex", 0x2ac08, 0x2ac28 },
+    { L"Stage Elements: Gallimimus", 0x2abc8, 0x2abe8, indexCPS2Sprites_COTAAssets, 0x16 },
+    { L"Stage Elements: Tyrannosaurus Rex", 0x2ac08, 0x2ac28, indexCPS2Sprites_COTAAssets, 0x17 },
 
-    { L"Middle Layer 1", 0x33032, 0x33232 },
-    { L"Middle Layer 2", 0x33232, 0x33292 },
-    { L"Mid Layer: Animation Cycle 1/7", 0x33432, 0x33452 },
-        { L"Mid Layer: Animation Cycle 2/7", 0x33452, 0x33472 },
-        { L"Mid Layer: Animation Cycle 3/7", 0x33472, 0x33492 },
-        { L"Mid Layer: Animation Cycle 4/7", 0x33492, 0x334b2 },
-        { L"Mid Layer: Animation Cycle 5/7", 0x334b2, 0x334d2 },
-        { L"Mid Layer: Animation Cycle 6/7", 0x334d2, 0x334f2 },
-        { L"Mid Layer: Animation Cycle 7/7", 0x334f2, 0x33512 },
+    { L"Middle Layer 1", 0x33032, 0x33232, indexCPS2Sprites_COTAAssets, 0x18 },
+    { L"Middle Layer 2", 0x33232, 0x33292, indexCPS2Sprites_COTAAssets, 0x19 },
+    { L"Mid Layer: Animation Cycle 1/7", 0x33432, 0x33452, indexCPS2Sprites_COTAAssets, 0x1a },
+        { L"Mid Layer: Animation Cycle 2/7", 0x33452, 0x33472, indexCPS2Sprites_COTAAssets, 0x1a },
+        { L"Mid Layer: Animation Cycle 3/7", 0x33472, 0x33492, indexCPS2Sprites_COTAAssets, 0x1a },
+        { L"Mid Layer: Animation Cycle 4/7", 0x33492, 0x334b2, indexCPS2Sprites_COTAAssets, 0x1a },
+        { L"Mid Layer: Animation Cycle 5/7", 0x334b2, 0x334d2, indexCPS2Sprites_COTAAssets, 0x1a },
+        { L"Mid Layer: Animation Cycle 6/7", 0x334d2, 0x334f2, indexCPS2Sprites_COTAAssets, 0x1a },
+        { L"Mid Layer: Animation Cycle 7/7", 0x334f2, 0x33512, indexCPS2Sprites_COTAAssets, 0x1a },
 
-    { L"Stage Elements: Overgrowth", 0x2abe8, 0x2ac08 },
-    { L"Stage Elements: Triceratops", 0x2aba8, 0x2abc8 },
+    { L"Stage Elements: Overgrowth", 0x2abe8, 0x2ac08, indexCPS2Sprites_COTAAssets, 0x1b },
+    { L"Stage Elements: Triceratops", 0x2aba8, 0x2abc8, indexCPS2Sprites_COTAAssets, 0x1c },
 
     { L"FIGHT text", 0x2ace8, 0x2ad08 },
     { L"Unknown", 0x2deee, 0x2df6e },
-    { L"Foreground", 0x2df6e, 0x2dfae },
+    { L"Foreground", 0x2df6e, 0x2dfae, indexCPS2Sprites_COTAAssets, 0x1d },
     // Stage elements breakdown:
     // 1: Victory birds
     // 2: Lava Splashes
     // 3: Rock projectiles
     // 4: Dust clouds
     // 5: ?
-    { L"Stage Elements: Foreground", 0x2ac28, 0x2ace8 },
+    { L"Stage Elements: Foreground", 0x2ac28, 0x2ace8, indexCPS2Sprites_COTAAssets, 0x1e },
 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_PSYLOCKE[] =

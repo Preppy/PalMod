@@ -297,10 +297,10 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         // here we keep track of the imgdat version we expect.
         // not super critical for daily updates, but still useful
         const uint16_t nExpectedYear = 2025;
-        const uint8_t nExpectedMonth = 06;
-        const uint8_t nExpectedDay = 15;
+        const uint8_t nExpectedMonth = 10;
+        const uint8_t nExpectedDay = 16;
         const uint8_t nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 233153046;
+        const ULONGLONG nExpectedFileSize = 247854486;
 
         const uint32_t nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 

@@ -12,7 +12,7 @@ const std::vector<uint16_t> FightFever_A_IMGIDS_USED =
     indexFightFeverSprites_Miyuki,          // 0xd6
     indexFightFeverSprites_NickCommando,    // 0xd7
     indexFightFeverSprites_RophenHeimer,    // 0xd8
-
+    indexFightFeverSprites_Bonus,           // 0xd9
 };
 
 const sGame_PaletteDataset FightFever_A_HAN_PALETTES_A[] =

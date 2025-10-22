@@ -309,6 +309,9 @@ enum CHARACTERS_CPS2
     indexCPS2Sprites_SodomS_Xism,           // 0x101
 
     indexCFJSprites_Ingrid,                 // 0x102
+    indexSFAZ3U_Bonus,                      // 0x103
+    indexCPS2Sprites_Maki,                  // 0x104
+    indexCPS2Sprites_Yun,                   // 0x105
 };
 
 enum CHARACTERS_3S_CPS3
@@ -383,6 +386,8 @@ enum SF2Sprites
     indexSF2GBASprites_Bonus,       // 0x32, // GBA_Bonus
     indexSF2GBASprites_Stages,      // 0x33, // GBA_Stages
     indexSF2HFSprites_Stages,       // 0x34, // SF2HF stages
+    indexSF2HFSprites_Bonus,        // 0x35
+    indexSF2HFSprites_Stages21,     // 0x36 // for rom 21 sprites
 };
 
 enum SPECIFIC_GAME_SPRITESETS
@@ -2105,6 +2110,7 @@ enum SupportedNEOGEO_PaletteListIndex
     indexFightFeverSprites_Miyuki,          // 0xd6
     indexFightFeverSprites_NickCommando,    // 0xd7
     indexFightFeverSprites_RophenHeimer,    // 0xd8
+    indexFightFeverSprites_Bonus,           // 0xd9
 };
 
 enum SupportedGGXX_PaletteListIndex

@@ -184,12 +184,12 @@ const sGame_PaletteDataset CFE_P_KARIN_KICK[] =
     { L"Karin Kick", 0x1e51b0, 0x1e51d0, indexCPS2Sprites_Karin },
 };
 
+// Street Fighter III (Scrambled palettes)
 const sGame_PaletteDataset CFE_P_INGRID_PUNCH[] =
 {
     { L"Ingrid Punch", 0x1e59d0, 0x1e5a50, indexCFJSprites_Ingrid, 0x00 },
 };
 
-// Street Fighter III (Scrambled palettes)
 const sGame_PaletteDataset CFE_P_INGRID_KICK[] =
 {
     { L"Ingrid Kick", 0x1e5a50, 0x1e5ad0, indexCFJSprites_Ingrid, 0x00 },
@@ -716,12 +716,12 @@ const sGame_PaletteDataset CFJ_S_KARIN_KICK[] =
 
 const sGame_PaletteDataset CFJ_S_INGRID_PUNCH[] =
 {
-    { L"Ingrid Punch", 0x2bc8e14, 0x2bc8e14 + 0x80 },
+    { L"Ingrid Punch", 0x2bc8e14, 0x2bc8e14 + 0x80, indexCFJSprites_Ingrid, 0x00 },
 };
 
 const sGame_PaletteDataset CFJ_S_INGRID_KICK[] =
 {
-    { L"Ingrid Kick", 0x2bc9114, 0x2bc9114 + 0x80 },
+    { L"Ingrid Kick", 0x2bc9114, 0x2bc9114 + 0x80, indexCFJSprites_Ingrid, 0x00 },
 };
 
 const sGame_PaletteDataset CFJ_S_CHUNLI_PUNCH[] =

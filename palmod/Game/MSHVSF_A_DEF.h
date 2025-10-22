@@ -2325,33 +2325,33 @@ const sDescTreeNode MSHVSF_A_7B_BONUS_COLLECTION[] =
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_APOCALYPSE_PALETTES[] =
 {
-    { L"Sky",                   0x5f032, 0x5f092, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Sky",                   0x5f032, 0x5f092, indexCPS2Sprites_MSHVSFAssets, 0x51, &pairFullyLinkedNode },
     
     // these are sets of 3-step cycles until the end of 9
-    { L"Animation Cycles 1/9",  0x55db2, 0x55f92 },
-    { L"Animation Cycles 2/9",  0x55f92, 0x56172 },
+    { L"Animation Cycles 1/9",  0x55db2, 0x55f92, indexCPS2Sprites_MSHVSFAssets, 0x45 },
+    { L"Animation Cycles 2/9",  0x55f92, 0x56172, indexCPS2Sprites_MSHVSFAssets, 0x46 },
     // this one truncates
-    { L"Animation Cycles 3/9",  0x56172, 0x562f2 },
+    { L"Animation Cycles 3/9",  0x56172, 0x562f2, indexCPS2Sprites_MSHVSFAssets, 0x47 },
 
-    { L"Animation Cycles 4/9",  0x56352, 0x56532 },
-    { L"Animation Cycles 5/9",  0x56532, 0x56712 },
-    { L"Animation Cycles 6/9",  0x56712, 0x568f2 },
-    { L"Animation Cycles 7/9",  0x568f2, 0x56ad2 },
-    { L"Animation Cycles 8/9",  0x56ad2, 0x56cb2 },
-    { L"Animation Cycles 9/9",  0x56cb2, 0x56e32 },
+    { L"Animation Cycles 4/9",  0x56352, 0x56532, indexCPS2Sprites_MSHVSFAssets, 0x48 },
+    { L"Animation Cycles 5/9",  0x56532, 0x56712, indexCPS2Sprites_MSHVSFAssets, 0x49 },
+    { L"Animation Cycles 6/9",  0x56712, 0x568f2, indexCPS2Sprites_MSHVSFAssets, 0x4a },
+                { L"Animation Cycles 7/9",  0x568f2, 0x56ad2 },
+                { L"Animation Cycles 8/9",  0x56ad2, 0x56cb2 },
+    { L"Animation Cycles 9/9",  0x56cb2, 0x56e32, indexCPS2Sprites_MSHVSFAssets, 0x4b },
 
-    { L"Floor Animation 1 1/3",     0x5f432, 0x5f452 },
-        { L"Floor Animation 1 2/3", 0x5f452, 0x5f472 },
-        { L"Floor Animation 1 3/3", 0x5f472, 0x5f492 },
-    { L"Floor Animation 2 1/3",     0x5f492, 0x5f4b2 },
-        { L"Floor Animation 2 2/3", 0x5f4b2, 0x5f4d2 },
-        { L"Floor Animation 2 3/3", 0x5f4d2, 0x5f4f2 },
-    { L"Floor Animation 3 1/3",     0x5f4f2, 0x5f512 },
-        { L"Floor Animation 3 2/3", 0x5f512, 0x5f532 },
-        { L"Floor Animation 3 3/3", 0x5f532, 0x5f552 },
+    { L"Floor Animation 1 1/3",     0x5f432, 0x5f452, indexCPS2Sprites_MSHVSFAssets, 0x4e },
+        { L"Floor Animation 1 2/3", 0x5f452, 0x5f472, indexCPS2Sprites_MSHVSFAssets, 0x4e },
+        { L"Floor Animation 1 3/3", 0x5f472, 0x5f492, indexCPS2Sprites_MSHVSFAssets, 0x4e },
+    { L"Floor Animation 2 1/3",     0x5f492, 0x5f4b2, indexCPS2Sprites_MSHVSFAssets, 0x4f },
+        { L"Floor Animation 2 2/3", 0x5f4b2, 0x5f4d2, indexCPS2Sprites_MSHVSFAssets, 0x4f },
+        { L"Floor Animation 2 3/3", 0x5f4d2, 0x5f4f2, indexCPS2Sprites_MSHVSFAssets, 0x4f },
+    { L"Floor Animation 3 1/3",     0x5f4f2, 0x5f512, indexCPS2Sprites_MSHVSFAssets, 0x50 },
+        { L"Floor Animation 3 2/3", 0x5f512, 0x5f532, indexCPS2Sprites_MSHVSFAssets, 0x50 },
+        { L"Floor Animation 3 3/3", 0x5f532, 0x5f552, indexCPS2Sprites_MSHVSFAssets, 0x50 },
 
-    { L"Cells and Floor 1/2",       0x7814c, 0x7834c, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext },
-    { L"Cells and Floor 2/2",       0x7834c, 0x7846c },
+    { L"Cells and Floor 1/2",       0x7814c, 0x7834c, indexCPS2Sprites_MSHVSFAssets, 0x4c, &pairNext },
+    { L"Cells and Floor 2/2",       0x7834c, 0x7846c, indexCPS2Sprites_MSHVSFAssets, 0x4d },
 
     // Leaving out unused/unknown chunks
     // after sky: lines 4-7 seem like floor animation cycle palettes?
@@ -2385,216 +2385,216 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_CATARACT_PALETTES[] =
 {
-    { L"Background",            0x57812, 0x57a12, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background",            0x57812, 0x57a12, indexCPS2Sprites_MSHVSFAssets, 0xa1, &pairFullyLinkedNode },
     // Commenting out since we don't have an assocation
     //{ L"Background (Unused?)",  0x57a12, 0x57af2 },
-    { L"Middle 1/2",            0x5ab72, 0x5ad72 },
-    { L"Middle 2/2",            0x5ad72, 0x5aef2 },
+    { L"Middle 1/2",            0x5ab72, 0x5ad72, indexCPS2Sprites_MSHVSFAssets, 0xa4 },
+    { L"Middle 2/2",            0x5ad72, 0x5aef2, indexCPS2Sprites_MSHVSFAssets, 0xa5 },
     
-    { L"Foreground Plants",     0x5fe92, 0x60092 },
-    { L"Foreground",            0x60092, 0x60152 },
+    { L"Foreground Plants",     0x5fe92, 0x60092, indexCPS2Sprites_MSHVSFAssets, 0xa3 },
+    { L"Foreground",            0x60092, 0x60152, indexCPS2Sprites_MSHVSFAssets, 0xa2 },
 
-    { L"Sprites",               0x785ac, 0x7870c },
+    { L"Sprites",               0x785ac, 0x7870c, indexCPS2Sprites_MSHVSFAssets, 0xa6 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_HILLTOP_PALETTES[] =
 {
-    { L"Background Sky",            0x57AF2, 0x57B52, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background Sky",            0x57AF2, 0x57B52, indexCPS2Sprites_MSHVSFAssets, 0x7f, &pairFullyLinkedNode },
     { L"Foreground plants 1/2?",    0x57b52, 0x57d52 },
     { L"Foreground plants 2/2?",    0x57d52, 0x57ef2 },
 
-    { L"Middle Leaves",             0x605f2, 0x60672 },
+    { L"Middle Leaves",             0x605f2, 0x60672, indexCPS2Sprites_MSHVSFAssets, 0x80 },
 
-    { L"Tree Trunk",                0x5B2F2, 0x5B392 },
+    { L"Tree Trunk",                0x5B2F2, 0x5B392, indexCPS2Sprites_MSHVSFAssets, 0x82 },
 
     // First line is the ground leaves
-    { L"Sprites",                   0x787EC, 0x7888c },
+    { L"Sprites",                   0x787EC, 0x7888c, indexCPS2Sprites_MSHVSFAssets, 0x81 },
     //{ L"Owls",                      0x7882C, 0x7886C },
     //{ L"Unknown 2?",                0x7886c, 0x7888c },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_MANHATTAN_PALETTES[] =
 {
-    { L"Sky",               0x5b972, 0x5b9b2, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Sewer Inset",       0x58172, 0x581b2 },
+    { L"Sky",               0x5b972, 0x5b9b2, indexCPS2Sprites_MSHVSFAssets, 0x75, &pairFullyLinkedNode },
+    { L"Sewer Inset",       0x58172, 0x581b2, indexCPS2Sprites_MSHVSFAssets, 0x74 },
 
-    { L"Back Sewer Walls",  0x60c32, 0x60d52 },
+    { L"Back Sewer Walls",  0x60c32, 0x60d52, indexCPS2Sprites_MSHVSFAssets, 0x6b },
 
-    { L"Building Skyline and Sewer Walls",  0x5b8f2, 0x5b972 },
+    { L"Building Skyline and Sewer Walls",  0x5b8f2, 0x5b972, indexCPS2Sprites_MSHVSFAssets, 0x6c },
 
-    { L"Middle Buildings",                  0x57ef2, 0x57f92 },
+    { L"Middle Buildings",                  0x57ef2, 0x57f92, indexCPS2Sprites_MSHVSFAssets, 0x70 },
 
-    { L"Tunnel and Ground Animation Cycle 1/6",             0x5b9b2, 0x5ba92 },
+    { L"Tunnel and Ground Animation Cycle 1/6",             0x5b9b2, 0x5ba92, indexCPS2Sprites_MSHVSFAssets, 0x77 },
         // Also has some coverage of police car aspects, lines 2 and 7 of 7
-        { L"Tunnel and Ground Animation Cycle 2/6",         0x5baf2, 0x5bbd2 },
+        { L"Tunnel and Ground Animation Cycle 2/6",         0x5baf2, 0x5bbd2, indexCPS2Sprites_MSHVSFAssets, 0x77 },
 
-    { L"Tunnel and Ground Animation Cycle 3/6",             0x5bbd2, 0x5bcb2 },
-        { L"Tunnel and Ground Animation Cycle 4/6",         0x5bcb2, 0x5bd92 },
-        { L"Tunnel and Ground Animation Cycle 5/6",         0x5bd92, 0x5be72 },
-        { L"Tunnel and Ground Animation Cycle 6/6",         0x581b2, 0x58292 },
+    { L"Tunnel and Ground Animation Cycle 3/6",             0x5bbd2, 0x5bcb2, indexCPS2Sprites_MSHVSFAssets, 0x77 },
+        { L"Tunnel and Ground Animation Cycle 4/6",         0x5bcb2, 0x5bd92, indexCPS2Sprites_MSHVSFAssets, 0x77 },
+        { L"Tunnel and Ground Animation Cycle 5/6",         0x5bd92, 0x5be72, indexCPS2Sprites_MSHVSFAssets, 0x77 },
+        { L"Tunnel and Ground Animation Cycle 6/6",         0x581b2, 0x58292, indexCPS2Sprites_MSHVSFAssets, 0x77 },
     
-    { L"Background Hole Edge Animation Cycle 1/10",         0x5ba92, 0x5bab2 },
-        { L"Background Hole Edge Animation Cycle 2/10",     0x58292, 0x582b2 },
-        { L"Underground Hole Edge Animation Cycle 3/10",    0x5bef2, 0x5bf12 },
-        { L"Underground Hole Edge Animation Cycle 4/10",    0x5bf12, 0x5bf32 },
-        { L"Underground Hole Edge Animation Cycle 5/10",    0x5bf32, 0x5bf52 },
-        { L"Underground Hole Edge Animation Cycle 6/10",    0x5bf52, 0x5bf72 },
-        { L"Underground Hole Edge Animation Cycle 7/10",    0x5bf72, 0x5bf92 },
-        { L"Underground Hole Edge Animation Cycle 8/10",    0x5bf92, 0x5bfb2 },
-        { L"Underground Hole Edge Animation Cycle 9/10",    0x5bfb2, 0x5bfd2 },
-        { L"Underground Hole Edge Animation Cycle 10/10",   0x5bfd2, 0x5bff2 },
+    { L"Background Hole Edge Animation Cycle 1/10",         0x5ba92, 0x5bab2, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Background Hole Edge Animation Cycle 2/10",     0x58292, 0x582b2, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 3/10",    0x5bef2, 0x5bf12, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 4/10",    0x5bf12, 0x5bf32, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 5/10",    0x5bf32, 0x5bf52, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 6/10",    0x5bf52, 0x5bf72, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 7/10",    0x5bf72, 0x5bf92, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 8/10",    0x5bf92, 0x5bfb2, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 9/10",    0x5bfb2, 0x5bfd2, indexCPS2Sprites_MSHVSFAssets, 0x6a },
+        { L"Underground Hole Edge Animation Cycle 10/10",   0x5bfd2, 0x5bff2, indexCPS2Sprites_MSHVSFAssets, 0x6a },
 
-    { L"Left Buildings",    0x60952, 0x60b52 },
+    { L"Left Buildings",    0x60952, 0x60b52, indexCPS2Sprites_MSHVSFAssets, 0x6f },
     // Lines 1234 building
     // Lines 23 rat
     // Line 5 stoplight
-    { L"Right Buildings",   0x60b52, 0x60c32 },
+    { L"Right Buildings",   0x60b52, 0x60c32, indexCPS2Sprites_MSHVSFAssets, 0x72 },
 
-    { L"Cafe and Bar Animation Cycle 1/16",         0x60d52, 0x60d72 },
-        { L"Cafe and Bar Animation Cycle 2/16",     0x60d72, 0x60d92 },
-        { L"Cafe and Bar Animation Cycle 3/16",     0x60d92, 0x60db2 },
-        { L"Cafe and Bar Animation Cycle 4/16",     0x60db2, 0x60dd2 },
-        { L"Cafe and Bar Animation Cycle 5/16",     0x60dd2, 0x60df2 },
-        { L"Cafe and Bar Animation Cycle 6/16",     0x60df2, 0x60e12 },
-        { L"Cafe and Bar Animation Cycle 7/16",     0x60e12, 0x60e32 },
-        { L"Cafe and Bar Animation Cycle 8/16",     0x60e32, 0x60e52 },
-        { L"Cafe and Bar Animation Cycle 9/16",     0x60e52, 0x60e72 },
-        { L"Cafe and Bar Animation Cycle 10/16",    0x60e72, 0x60e92 },
-        { L"Cafe and Bar Animation Cycle 11/16",    0x60e92, 0x60eb2 },
-        { L"Cafe and Bar Animation Cycle 12/16",    0x60eb2, 0x60ed2 },
-        { L"Cafe and Bar Animation Cycle 13/16",    0x60ed2, 0x60ef2 },
-        { L"Cafe and Bar Animation Cycle 14/16",    0x60ef2, 0x60f12 },
-        { L"Cafe and Bar Animation Cycle 15/16",    0x60f12, 0x60f32 },
-        { L"Cafe and Bar Animation Cycle 16/16",    0x60f32, 0x60f52 },
+    { L"Cafe and Bar Animation Cycle 1/16",         0x60d52, 0x60d72, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 2/16",     0x60d72, 0x60d92, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 3/16",     0x60d92, 0x60db2, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 4/16",     0x60db2, 0x60dd2, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 5/16",     0x60dd2, 0x60df2, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 6/16",     0x60df2, 0x60e12, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 7/16",     0x60e12, 0x60e32, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 8/16",     0x60e32, 0x60e52, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 9/16",     0x60e52, 0x60e72, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 10/16",    0x60e72, 0x60e92, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 11/16",    0x60e92, 0x60eb2, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 12/16",    0x60eb2, 0x60ed2, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 13/16",    0x60ed2, 0x60ef2, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 14/16",    0x60ef2, 0x60f12, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 15/16",    0x60f12, 0x60f32, indexCPS2Sprites_MSHVSFAssets, 0x6d },
+        { L"Cafe and Bar Animation Cycle 16/16",    0x60f32, 0x60f52, indexCPS2Sprites_MSHVSFAssets, 0x6d },
 
-    { L"Police Cars",                       0x5b6f2, 0x5b8f2 },
+    { L"Police Cars",                       0x5b6f2, 0x5b8f2, indexCPS2Sprites_MSHVSFAssets, 0x71 },
 
-    { L"Ground Animation Cycle 1/2",        0x5bab2, 0x5baf2 },
-        { L"Ground Animation Cycle 2/2",    0x582b2, 0x582f2 },
+    { L"Ground Animation Cycle 1/2",        0x5bab2, 0x5baf2, indexCPS2Sprites_MSHVSFAssets, 0x6e },
+        { L"Ground Animation Cycle 2/2",    0x582b2, 0x582f2, indexCPS2Sprites_MSHVSFAssets, 0x6e },
 
     // window and water
     { L"Window Lighting Animation Cycles",  0x60f52, 0x61152 },
 
-    { L"Ripple Animation",                  0x5be72, 0x5bef2 },
+    { L"Ripple Animation",                  0x5be72, 0x5bef2, indexCPS2Sprites_MSHVSFAssets, 0x73 },
 
-    { L"Sprites",                           0x788cc, 0x789cc },
+    { L"Sprites",                           0x788cc, 0x789cc, indexCPS2Sprites_MSHVSFAssets, 0x76 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_MIDNIGHTPLANT_PALETTES[] =
 {
-    { L"Background: Sky and Factory",   0x582f2, 0x58332, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background: Sky and Factory",   0x582f2, 0x58332, indexCPS2Sprites_MSHVSFAssets, 0x7a, &pairFullyLinkedNode },
 
-    { L"Middle Layer 1/2",              0x61152, 0x61352 },
-    { L"Middle Layer 2/2",              0x61352, 0x61552 },
+    { L"Middle Layer 1/2",              0x61152, 0x61352, indexCPS2Sprites_MSHVSFAssets, 0x7c },
+    { L"Middle Layer 2/2",              0x61352, 0x61552, indexCPS2Sprites_MSHVSFAssets, 0x7d },
 
-    { L"Animation cycle 1",             0x61552, 0x61652 },
-    { L"Animation cycle 2",             0x61672, 0x61712 },
+    { L"Animation cycle 1",             0x61552, 0x61652, indexCPS2Sprites_MSHVSFAssets, 0x78 },
+    { L"Animation cycle 2",             0x61672, 0x61712, indexCPS2Sprites_MSHVSFAssets, 0x79 },
 
-    { L"Sprites",                       0x78a8c, 0x78b4c },
+    { L"Sprites",                       0x78a8c, 0x78b4c, indexCPS2Sprites_MSHVSFAssets, 0x7e },
 
-    { L"Foreground",                    0x5c6f2, 0x5c7f2 },
+    { L"Foreground",                    0x5c6f2, 0x5c7f2, indexCPS2Sprites_MSHVSFAssets, 0x7b },
 };
 
 // For Raging Inferno we are missing some of the fire palettes.  
 // They loosely do not appear to be in rom 06 or 07...?
 const sGame_PaletteDataset MSHVSF_A_STAGES_RAGINGINFERNO_PALETTES[] =
 {
-    { L"Background",                        0x586f2, 0x58732, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background",                        0x586f2, 0x58732, indexCPS2Sprites_MSHVSFAssets, 0x83, &pairFullyLinkedNode },
     { L"Background Animation Cycle",        0x58732, 0x587f2 },
 
-    { L"Middle Buildings 1/2",              0x61952, 0x61b52 },
-    { L"Middle Buildings 2/2",              0x61b52, 0x61d52 },
-    { L"Middle Animation Cycles 1/8",       0x61d52, 0x61f52 },
-    { L"Middle Animation Cycles 2/8",       0x61f52, 0x62152 },
-    { L"Middle Animation Cycles 3/8",       0x62152, 0x62352 },
-    { L"Middle Animation Cycles 4/8",       0x62352, 0x62552 },
-    { L"Middle Animation Cycles 5/8",       0x62552, 0x62752 },
-    { L"Middle Animation Cycles 6/8",       0x62752, 0x62952 },
-    { L"Middle Animation Cycles 7/8",       0x62952, 0x62b52 },
-    { L"Middle Animation Cycles 8/8",       0x62b52, 0x62d52 },
+    { L"Middle Buildings 1/2",              0x61952, 0x61b52, indexCPS2Sprites_MSHVSFAssets, 0x92 },
+    { L"Middle Buildings 2/2",              0x61b52, 0x61d52, indexCPS2Sprites_MSHVSFAssets, 0x93 },
+    { L"Middle Animation Cycles 1/8",       0x61d52, 0x61f52, indexCPS2Sprites_MSHVSFAssets, 0x8a },
+    { L"Middle Animation Cycles 2/8",       0x61f52, 0x62152, indexCPS2Sprites_MSHVSFAssets, 0x8b },
+    { L"Middle Animation Cycles 3/8",       0x62152, 0x62352, indexCPS2Sprites_MSHVSFAssets, 0x8c },
+    { L"Middle Animation Cycles 4/8",       0x62352, 0x62552, indexCPS2Sprites_MSHVSFAssets, 0x8d },
+    { L"Middle Animation Cycles 5/8",       0x62552, 0x62752, indexCPS2Sprites_MSHVSFAssets, 0x8e },
+    { L"Middle Animation Cycles 6/8",       0x62752, 0x62952, indexCPS2Sprites_MSHVSFAssets, 0x8f },
+    { L"Middle Animation Cycles 7/8",       0x62952, 0x62b52, indexCPS2Sprites_MSHVSFAssets, 0x90 },
+    { L"Middle Animation Cycles 8/8",       0x62b52, 0x62d52, indexCPS2Sprites_MSHVSFAssets, 0x91 },
 
     // Commenting out since we don't know where these are used if at all
     //{ L"Unused? Foreground 1/2",            0x5ccb2, 0x5ceb2 },
     //{ L"Unused? Foreground 2/2",            0x5ceb2, 0x5cef2 },
 
-    { L"Foreground Animation Cycles 1/6",   0x5cef2, 0x5d0f2 },
-    { L"Foreground Animation Cycles 2/6",   0x5d0f2, 0x5d292 },
-    { L"Foreground Animation Cycles 3/6",   0x5d2f2, 0x5d4f2 },
-    { L"Foreground Animation Cycles 4/6",   0x5d4f2, 0x5d692 },
-    { L"Foreground Animation Cycles 5/6",   0x5d6f2, 0x5d8f2 },
-    { L"Foreground Animation Cycles 6/6",   0x5d8f2, 0x5da92 },
+    { L"Foreground Animation Cycles 1/6",   0x5cef2, 0x5d0f2, indexCPS2Sprites_MSHVSFAssets, 0x84 },
+    { L"Foreground Animation Cycles 2/6",   0x5d0f2, 0x5d292, indexCPS2Sprites_MSHVSFAssets, 0x85 },
+    { L"Foreground Animation Cycles 3/6",   0x5d2f2, 0x5d4f2, indexCPS2Sprites_MSHVSFAssets, 0x86 },
+    { L"Foreground Animation Cycles 4/6",   0x5d4f2, 0x5d692, indexCPS2Sprites_MSHVSFAssets, 0x87 },
+    { L"Foreground Animation Cycles 5/6",   0x5d6f2, 0x5d8f2, indexCPS2Sprites_MSHVSFAssets, 0x88 },
+    { L"Foreground Animation Cycles 6/6",   0x5d8f2, 0x5da92, indexCPS2Sprites_MSHVSFAssets, 0x89 },
 
-    { L"Sprites (helicopters)",             0x78b4c, 0x78c0c },
+    { L"Sprites (helicopters)",             0x78b4c, 0x78c0c, indexCPS2Sprites_MSHVSFAssets, 0x94 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_CODERED_PALETTES[] =
 {
-    { L"Sky",               0x58af2, 0x58b72, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Sky",               0x58af2, 0x58b72, indexCPS2Sprites_MSHVSFAssets, 0x58, &pairFullyLinkedNode },
     { L"Animation Cycle 1", 0x58ef2, 0x58fd2 },
     { L"Animation Cycle 2", 0x58fd2, 0x590b2 },
-    { L"Hangar 1/2",        0x5daf2, 0x5dcf2 },
-    { L"Hangar 2/2",        0x5dcf2, 0x5ded2 },
-    { L"Animation Cycle 3", 0x5ded2, 0x5dfd2 },
-    { L"Animation Cycle 4", 0x5dfd2, 0x5e1d2 },
-    { L"Animation Cycle 5", 0x5e1d2, 0x5e3d2 },
+    { L"Hangar 1/2",        0x5daf2, 0x5dcf2, indexCPS2Sprites_MSHVSFAssets, 0x55 },
+    { L"Hangar 2/2",        0x5dcf2, 0x5ded2, indexCPS2Sprites_MSHVSFAssets, 0x56 },
+    { L"Animation Cycle 3", 0x5ded2, 0x5dfd2, indexCPS2Sprites_MSHVSFAssets, 0x52 },
+    { L"Animation Cycle 4", 0x5dfd2, 0x5e1d2, indexCPS2Sprites_MSHVSFAssets, 0x53 },
+    { L"Animation Cycle 5", 0x5e1d2, 0x5e3d2, indexCPS2Sprites_MSHVSFAssets, 0x54 },
     { L"Animation Cycle 6", 0x5e3d2, 0x5e432 },
     
     // Jet (their Blackbird) looks like a very intense animation cycle, plus 3 unknown palettes
-    { L"Jet 1/2",           0x62d52, 0x62f52 },
+    { L"Jet 1/2",           0x62d52, 0x62f52, indexCPS2Sprites_MSHVSFAssets, 0x57 },
     { L"Jet 2/2",           0x62f52, 0x63152 },
 
-    { L"Sprites (trucks)",  0x78cac, 0x78ccc },
+    { L"Sprites (trucks)",  0x78cac, 0x78ccc, indexCPS2Sprites_MSHVSFAssets, 0x59 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_NIGHTCOOKING_PALETTES[] =
 {
-    { L"Background 1/2",                    0x63152, 0x63352, indexCPS2Sprites_MSHVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Background 2/2",                    0x63352, 0x63552 },
-    { L"Left Box Animation 1/2",            0x63552, 0x63572 },
-        { L"Left Box Animation 2/2",        0x63572, 0x63592 },
-    { L"Right Balcony Animation 1/2",       0x63592, 0x635b2 },
-        { L"Right Balcony Animation 2/2",   0x635b2, 0x635d2 },
-    { L"Right Bleachers Animation 1/2",     0x635d2, 0x635f2 },
-        { L"Right Bleachers Animation 2/2", 0x635f2, 0x63612 },
-    { L"TV Screen Animations",              0x63612, 0x63712 },
+    { L"Background 1/2",                    0x63152, 0x63352, indexCPS2Sprites_MSHVSFAssets, 0x5a, &pairFullyLinkedNode },
+    { L"Background 2/2",                    0x63352, 0x63552, indexCPS2Sprites_MSHVSFAssets, 0x5b },
+    { L"Left Box Animation 1/2",            0x63552, 0x63572, indexCPS2Sprites_MSHVSFAssets, 0x5f },
+        { L"Left Box Animation 2/2",        0x63572, 0x63592, indexCPS2Sprites_MSHVSFAssets, 0x5f },
+    { L"Right Balcony Animation 1/2",       0x63592, 0x635b2, indexCPS2Sprites_MSHVSFAssets, 0x64 },
+        { L"Right Balcony Animation 2/2",   0x635b2, 0x635d2, indexCPS2Sprites_MSHVSFAssets, 0x64 },
+    { L"Right Bleachers Animation 1/2",     0x635d2, 0x635f2, indexCPS2Sprites_MSHVSFAssets, 0x65 },
+        { L"Right Bleachers Animation 2/2", 0x635f2, 0x63612, indexCPS2Sprites_MSHVSFAssets, 0x65 },
+    { L"TV Screen Animations",              0x63612, 0x63712, indexCPS2Sprites_MSHVSFAssets, 0x69 },
 
-    { L"People and Items",          0x5e432, 0x5e632 },
-    { L"More People",               0x5e632, 0x5e6b2 },
+    { L"People and Items",          0x5e432, 0x5e632, indexCPS2Sprites_MSHVSFAssets, 0x63 },
+    { L"More People",               0x5e632, 0x5e6b2, indexCPS2Sprites_MSHVSFAssets, 0x62 },
     { L"Unknown Animation Cycle",   0x5e6b2, 0x5e6d2 },
-    { L"Ceiling Animation 1/2",     0x5e832, 0x5e852 },
-        { L"Ceiling Animation 2/2", 0x5e852, 0x5e872 },
-    { L"Moon Animation 1/2",        0x5e872, 0x5e892 },
-        { L"Moon Animation 2/2",    0x5e892, 0x5e8b2 },
+    { L"Ceiling Animation 1/2",     0x5e832, 0x5e852, indexCPS2Sprites_MSHVSFAssets, 0x5c },
+        { L"Ceiling Animation 2/2", 0x5e852, 0x5e872, indexCPS2Sprites_MSHVSFAssets, 0x5c },
+    { L"Moon Animation 1/2",        0x5e872, 0x5e892, indexCPS2Sprites_MSHVSFAssets, 0x61 },
+        { L"Moon Animation 2/2",    0x5e892, 0x5e8b2, indexCPS2Sprites_MSHVSFAssets, 0x61 },
 
-    { L"Cooking Items 1/2", 0x592f2, 0x594f2 },
-    { L"Cooking Items 2/2", 0x594f2, 0x595f2 },
+    { L"Cooking Items 1/2", 0x592f2, 0x594f2, indexCPS2Sprites_MSHVSFAssets, 0x5d },
+    { L"Cooking Items 2/2", 0x594f2, 0x595f2, indexCPS2Sprites_MSHVSFAssets, 0x5e },
     
-    { L"Left NIGHT COOKING Sign Animation 1/6",     0x596f2, 0x59712 },
-        { L"Left NIGHT COOKING Sign Animation 2/6", 0x59712, 0x59732 },
-        { L"Left NIGHT COOKING Sign Animation 3/6", 0x59732, 0x59752 },
-        { L"Left NIGHT COOKING Sign Animation 4/6", 0x59752, 0x59772 },
-        { L"Left NIGHT COOKING Sign Animation 5/6", 0x59772, 0x59792 },
-        { L"Left NIGHT COOKING Sign Animation 6/6", 0x59792, 0x597b2 },
+    { L"Left NIGHT COOKING Sign Animation 1/6",     0x596f2, 0x59712, indexCPS2Sprites_MSHVSFAssets, 0x60 },
+        { L"Left NIGHT COOKING Sign Animation 2/6", 0x59712, 0x59732, indexCPS2Sprites_MSHVSFAssets, 0x60 },
+        { L"Left NIGHT COOKING Sign Animation 3/6", 0x59732, 0x59752, indexCPS2Sprites_MSHVSFAssets, 0x60 },
+        { L"Left NIGHT COOKING Sign Animation 4/6", 0x59752, 0x59772, indexCPS2Sprites_MSHVSFAssets, 0x60 },
+        { L"Left NIGHT COOKING Sign Animation 5/6", 0x59772, 0x59792, indexCPS2Sprites_MSHVSFAssets, 0x60 },
+        { L"Left NIGHT COOKING Sign Animation 6/6", 0x59792, 0x597b2, indexCPS2Sprites_MSHVSFAssets, 0x60 },
 
-    { L"Stars Animation 1/8", 0x597b2, 0x597d2 },
-        { L"Stars Animation 2/8", 0x597d2, 0x597f2 },
-        { L"Stars Animation 3/8", 0x597f2, 0x59812 },
-        { L"Stars Animation 4/8", 0x59812, 0x59832 },
-        { L"Stars Animation 5/8", 0x59832, 0x59852 },
-        { L"Stars Animation 6/8", 0x59852, 0x59872 },
-        { L"Stars Animation 7/8", 0x59872, 0x59892 },
-        { L"Stars Animation 8/8", 0x59892, 0x598b2 },
+    { L"Stars Animation 1/8", 0x597b2, 0x597d2, indexCPS2Sprites_MSHVSFAssets, 0x68 },
+        { L"Stars Animation 2/8", 0x597d2, 0x597f2, indexCPS2Sprites_MSHVSFAssets, 0x68 },
+        { L"Stars Animation 3/8", 0x597f2, 0x59812, indexCPS2Sprites_MSHVSFAssets, 0x68 },
+        { L"Stars Animation 4/8", 0x59812, 0x59832, indexCPS2Sprites_MSHVSFAssets, 0x68 },
+        { L"Stars Animation 5/8", 0x59832, 0x59852, indexCPS2Sprites_MSHVSFAssets, 0x68 },
+        { L"Stars Animation 6/8", 0x59852, 0x59872, indexCPS2Sprites_MSHVSFAssets, 0x68 },
+        { L"Stars Animation 7/8", 0x59872, 0x59892, indexCPS2Sprites_MSHVSFAssets, 0x68 },
+        { L"Stars Animation 8/8", 0x59892, 0x598b2, indexCPS2Sprites_MSHVSFAssets, 0x68 },
     
-    { L"Right NIGHT COOKING Sign Animation 1/8", 0x598b2, 0x598d2 },
-        { L"Right NIGHT COOKING Sign Animation 2/8", 0x598d2, 0x598f2 },
-        { L"Right NIGHT COOKING Sign Animation 3/8", 0x598f2, 0x59912 },
-        { L"Right NIGHT COOKING Sign Animation 4/8", 0x59912, 0x59932 },
-        { L"Right NIGHT COOKING Sign Animation 5/8", 0x59932, 0x59952 },
-        { L"Right NIGHT COOKING Sign Animation 6/8", 0x59952, 0x59972 },
-        { L"Right NIGHT COOKING Sign Animation 7/8", 0x59972, 0x59992 },
-        { L"Right NIGHT COOKING Sign Animation 8/8", 0x59992, 0x599b2 },
+    { L"Right NIGHT COOKING Sign Animation 1/8", 0x598b2, 0x598d2, indexCPS2Sprites_MSHVSFAssets, 0x66 },
+        { L"Right NIGHT COOKING Sign Animation 2/8", 0x598d2, 0x598f2, indexCPS2Sprites_MSHVSFAssets, 0x66 },
+        { L"Right NIGHT COOKING Sign Animation 3/8", 0x598f2, 0x59912, indexCPS2Sprites_MSHVSFAssets, 0x66 },
+        { L"Right NIGHT COOKING Sign Animation 4/8", 0x59912, 0x59932, indexCPS2Sprites_MSHVSFAssets, 0x66 },
+        { L"Right NIGHT COOKING Sign Animation 5/8", 0x59932, 0x59952, indexCPS2Sprites_MSHVSFAssets, 0x66 },
+        { L"Right NIGHT COOKING Sign Animation 6/8", 0x59952, 0x59972, indexCPS2Sprites_MSHVSFAssets, 0x66 },
+        { L"Right NIGHT COOKING Sign Animation 7/8", 0x59972, 0x59992, indexCPS2Sprites_MSHVSFAssets, 0x66 },
+        { L"Right NIGHT COOKING Sign Animation 8/8", 0x59992, 0x599b2, indexCPS2Sprites_MSHVSFAssets, 0x66 },
 
-    { L"Sprites", 0x78d8c, 0x78ecc },
+    { L"Sprites", 0x78d8c, 0x78ecc, indexCPS2Sprites_MSHVSFAssets, 0x67 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_MALLMAYHEM_PALETTES[] =
@@ -2621,19 +2621,19 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
 const sGame_PaletteDataset MSHVSF_A_STAGES_PREVIEW_PALETTES[] =
 {
     // Previews are a silghtly different order and I don't know why
-    { L"Apocalypse Now!",   0x64f32, 0x65132 },
-    { L"Showdown in the Park", 0x65132, 0x65332 },
-    { L"Death Valley",      0x65332, 0x65532 },
-    { L"The Cataract",      0x65532, 0x65732 },
-    { L"Temple of Fists",   0x65732, 0x65932 },
-    { L"On the Hilltop",    0x65932, 0x65b32 },
-    { L"Manhattan",         0x65b32, 0x65d32 },
+    { L"Apocalypse Now!",   0x64f32, 0x65132, indexCPS2Sprites_MSHVSFAssets, 0x95 },
+    { L"Showdown in the Park", 0x65132, 0x65332, indexCPS2Sprites_MSHVSFAssets, 0x9e },
+    { L"Death Valley",      0x65332, 0x65532, indexCPS2Sprites_MSHVSFAssets, 0x97 },
+    { L"The Cataract",      0x65532, 0x65732, indexCPS2Sprites_MSHVSFAssets, 0xa0 },
+    { L"Temple of Fists",   0x65732, 0x65932, indexCPS2Sprites_MSHVSFAssets, 0x9f },
+    { L"On the Hilltop",    0x65932, 0x65b32, indexCPS2Sprites_MSHVSFAssets, 0x9c },
+    { L"Manhattan",         0x65b32, 0x65d32, indexCPS2Sprites_MSHVSFAssets, 0x99 },
     // the two "factory" preview palettes are almost the same
-    { L"Midnight Plant",    0x65d32, 0x65f32 },
-    { L"Code Red",          0x65f32, 0x66132 },
-    { L"Night Cooking",     0x66132, 0x66332 },
-    { L"Mall Mayhem",       0x66332, 0x66532 },
-    { L"Raging Inferno",    0x66532, 0x66732 },
+    { L"Midnight Plant",    0x65d32, 0x65f32, indexCPS2Sprites_MSHVSFAssets, 0x9a },
+    { L"Code Red",          0x65f32, 0x66132, indexCPS2Sprites_MSHVSFAssets, 0x96 },
+    { L"Night Cooking",     0x66132, 0x66332, indexCPS2Sprites_MSHVSFAssets, 0x9b },
+    { L"Mall Mayhem",       0x66332, 0x66532, indexCPS2Sprites_MSHVSFAssets, 0x98 },
+    { L"Raging Inferno",    0x66532, 0x66732, indexCPS2Sprites_MSHVSFAssets, 0x9d },
 };
 
 const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =

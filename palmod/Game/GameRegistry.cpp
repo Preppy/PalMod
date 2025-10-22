@@ -1851,6 +1851,7 @@ namespace KnownGameInfo
         {
             SFZ3U_A,
             L"Street Fighter Zero 3 Upper (NAOMI)",
+            // Note that zero3rom.bin from the Fightcade/Flycast CHD seems to be encrypted
             { SFZ3U_A,          L"SFA3/SFZ3 Upper", L"SFA3/SFZ3 Upper (NAOMI)|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
             Make_SFZ3U_A,
             CGame_SFZ3U_A::GetRule,

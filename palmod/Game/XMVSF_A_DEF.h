@@ -1561,27 +1561,27 @@ const sDescTreeNode XMVSF_A_BONUS_COLLECTION[] =
 
 const sGame_PaletteDataset XMVSF_A_STAGES_APOCALYPSE_PALETTES[] =
 {
-    { L"Backgrounds 1/2",       0xb1ac, 0xb3ac, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Backgrounds 2/2",       0xb3ac, 0xb5ac },
+    { L"Backgrounds 1/2",       0xb1ac, 0xb3ac, indexCPS2Sprites_XMVSFAssets, 0x3c, &pairFullyLinkedNode },
+    { L"Backgrounds 2/2",       0xb3ac, 0xb5ac, indexCPS2Sprites_XMVSFAssets, 0x3d },
 
     // these are sets of 3-step cycles until the end of 9
-    { L"Animation Cycles 1/9",  0x1dac, 0x1f8c },
-    { L"Animation Cycles 2/9",  0x1f8c, 0x216c },
+    { L"Animation Cycles 1/9",  0x1dac, 0x1f8c, indexCPS2Sprites_XMVSFAssets, 0x35 },
+    { L"Animation Cycles 2/9",  0x1f8c, 0x216c, indexCPS2Sprites_XMVSFAssets, 0x36 },
     // this one truncates
-    { L"Animation Cycles 3/9",  0x216c, 0x22ec },
+    { L"Animation Cycles 3/9",  0x216c, 0x22ec, indexCPS2Sprites_XMVSFAssets, 0x37 },
 
-    { L"Animation Cycles 4/9",  0x234c, 0x252c },
-    { L"Animation Cycles 5/9",  0x252c, 0x270c },
-    { L"Animation Cycles 6/9",  0x270c, 0x28ec },
+    { L"Animation Cycles 4/9",  0x234c, 0x252c, indexCPS2Sprites_XMVSFAssets, 0x38 },
+    { L"Animation Cycles 5/9",  0x252c, 0x270c, indexCPS2Sprites_XMVSFAssets, 0x39 },
+    { L"Animation Cycles 6/9",  0x270c, 0x28ec, indexCPS2Sprites_XMVSFAssets, 0x3a },
         // Are these used?  I don't see usage.
         { L"Animation Cycles 7/9",  0x28ec, 0x2acc },
         { L"Animation Cycles 8/9",  0x2acc, 0x2cac },
-    { L"Animation Cycles 9/9",  0x2cac, 0x2e2c },
+    { L"Animation Cycles 9/9",  0x2cac, 0x2e2c, indexCPS2Sprites_XMVSFAssets, 0x3b },
 
-    { L"Floor",                 0xb5ac, 0xb6cc },
+    { L"Floor",                 0xb5ac, 0xb6cc, indexCPS2Sprites_XMVSFAssets, 0x3e },
 
-    { L"Sprites 1/2",           0x18d5a, 0x18f5a, indexCPS2Sprites_XMVSFAssets, -1, &pairNext },
-    { L"Sprites 2/2",           0x18f5a, 0x1907a },
+    { L"Sprites 1/2",           0x18d5a, 0x18f5a, indexCPS2Sprites_XMVSFAssets, 0x3f, &pairNext },
+    { L"Sprites 2/2",           0x18f5a, 0x1907a, indexCPS2Sprites_XMVSFAssets, 0x40 },
 
     //{ L"Sprites: Cells 1/2",    0x2e2c, 0x302c },
     //{ L"Sprites: Cells 2/2",    0x302c, 0x306c },
@@ -1590,69 +1590,69 @@ const sGame_PaletteDataset XMVSF_A_STAGES_APOCALYPSE_PALETTES[] =
 // Showdown in the Park
 const sGame_PaletteDataset XMVSF_A_STAGES_RIVER_PALETTES[] =
 {
-    { L"Sky",           0x31ac, 0x326c, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Background",    0x326c, 0x346c},
+    { L"Sky",           0x31ac, 0x326c, indexCPS2Sprites_XMVSFAssets, 0x8a, &pairFullyLinkedNode },
+    { L"Background",    0x326c, 0x346c, indexCPS2Sprites_XMVSFAssets, 0x88 },
 
     // Commenting out since it's not understood
     //{ L"Unused?",       0x66ec, 0x686c },
 
-    { L"Trees",         0xb76c, 0xb78c },
+    { L"Trees",         0xb76c, 0xb78c, indexCPS2Sprites_XMVSFAssets, 0x8c },
 
-    { L"Sprites",       0x1907a, 0x190ba },
+    { L"Sprites",       0x1907a, 0x190ba, indexCPS2Sprites_XMVSFAssets, 0x8b },
 
-    { L"Ground",        0x64ac , 0x64cc },
+    { L"Ground",        0x64ac , 0x64cc, indexCPS2Sprites_XMVSFAssets, 0x89 },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
 {
-    { L"Sky",           0x346c, 0x356c, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Sky",           0x346c, 0x356c, indexCPS2Sprites_XMVSFAssets, 0x54, &pairFullyLinkedNode },
     
-    { L"Mountains",     0xbacc, 0xbc0c },
+    { L"Mountains",     0xbacc, 0xbc0c, indexCPS2Sprites_XMVSFAssets, 0x53 },
     
-    { L"Foreground",    0x686c, 0x696c },
+    { L"Foreground",    0x686c, 0x696c, indexCPS2Sprites_XMVSFAssets, 0x52 },
     
     // Commenting out since we don't know what these are
     //{ L"Unused? 1",     0x6a2c, 0x6c2c },
     //{ L"Unused? 2",     0x6c2c, 0x6c6c },
     
     // These is a Beast version and a Blanka version
-    { L"Sprites",       0x1915a, 0x1923a },
+    { L"Sprites",       0x1915a, 0x1923a, indexCPS2Sprites_XMVSFAssets, 0x55 },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_CATARACT_PALETTES[] =
 {
-    { L"Sky",           0x3a6c, 0x3bcc, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Foliage",       0x6e2c, 0x702c },
-    { L"Sprites",       0x1923a, 0x1931a },
-    { L"Foreground",    0xc0cc, 0xc2cc },
+    { L"Sky",           0x3a6c, 0x3bcc, indexCPS2Sprites_XMVSFAssets, 0x9e, &pairFullyLinkedNode },
+    { L"Foliage",       0x6e2c, 0x702c, indexCPS2Sprites_XMVSFAssets, 0x9c },
+    { L"Sprites",       0x1923a, 0x1931a, indexCPS2Sprites_XMVSFAssets, 0x9f },
+    { L"Foreground",    0xc0cc, 0xc2cc, indexCPS2Sprites_XMVSFAssets, 0x9d },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_HILLTOP_PALETTES[] =
 {
-    { L"Sky",           0x3c6c, 0x3ccc, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Middle Layer",  0xc76c, 0xc7ec },
-    { L"Tree",          0x746c, 0x74ac },
+    { L"Sky",           0x3c6c, 0x3ccc, indexCPS2Sprites_XMVSFAssets, 0x6c, &pairFullyLinkedNode },
+    { L"Middle Layer",  0xc76c, 0xc7ec, indexCPS2Sprites_XMVSFAssets, 0x6e },
+    { L"Tree",          0x746c, 0x74ac, indexCPS2Sprites_XMVSFAssets, 0x6b }, // BUG BUG: This is not using the right preview
 
-    { L"Sprites",       0x193fa, 0x194ba },
+    { L"Sprites",       0x193fa, 0x194ba, indexCPS2Sprites_XMVSFAssets, 0x6d },
 
     // Fairly subtle
-    { L"Leaves",        0x3f8c, 0x3fcc },
+    { L"Leaves",        0x3f8c, 0x3fcc, indexCPS2Sprites_XMVSFAssets, 0x6a },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_MANHATTAN_PALETTES[] =
 {
-    { L"Sky Animation Cycle", 0x846c, 0x862c, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Background Buildings Animation Cycle", 0x866c, 0x884c },
+    { L"Sky Animation Cycle", 0x846c, 0x862c, indexCPS2Sprites_XMVSFAssets, 0x65, &pairFullyLinkedNode },
+    { L"Background Buildings Animation Cycle", 0x866c, 0x884c, indexCPS2Sprites_XMVSFAssets, 0x5e },
 
     { L"Sewer Inset",           0x42ec, 0x432c },
 
-    { L"Background Buildings",  0x406c, 0x41cc },
+    { L"Background Buildings",  0x406c, 0x41cc, indexCPS2Sprites_XMVSFAssets, 0x5d },
 
     // also stoplight and street ground
-    { L"Back Sewer Walls",  0xcdac, 0xcecc },
+    { L"Back Sewer Walls",  0xcdac, 0xcecc, indexCPS2Sprites_XMVSFAssets, 0x5f },
 
     // NOTE: These are used on different layers (512/2048), need to merge!
-    { L"Tunnel and Ground Animation Cycle 1/5",         0x7b2c, 0x7c6c},
+    { L"Tunnel and Ground Animation Cycle 1/5",         0x7b2c, 0x7c6c, indexCPS2Sprites_XMVSFAssets, 0x69 }, // BUGBUG: Maybe fork now that we need new images?
         { L"Tunnel and Ground Animation Cycle 2/5",     0x7c6c, 0x7d4c },
         { L"Tunnel and Ground Animation Cycle 3/5",     0x7d4c, 0x7e2c },
         { L"Tunnel and Ground Animation Cycle 4/5",     0x7e2c, 0x7f0c },
@@ -1661,20 +1661,20 @@ const sGame_PaletteDataset XMVSF_A_STAGES_MANHATTAN_PALETTES[] =
     { L"Hole Edge Animation Cycle", 0x806c, 0x816c },
 
     //{ L"Police Cars and Smoon", 0x79ac, 0x7a6c },
-    { L"Sewer Walls",               0x7a6c, 0x7b2c },
+    { L"Sewer Walls",               0x7a6c, 0x7b2c, indexCPS2Sprites_XMVSFAssets, 0x64 },
 
-    { L"Building Parts",            0xcacc, 0xcccc },
+    { L"Building Parts",            0xcacc, 0xcccc, indexCPS2Sprites_XMVSFAssets, 0x60 },
     { L"Stoplight Animation",       0xcccc, 0xccec },
 
-    { L"Left Buildings Animation Cycle 1/2", 0xd0cc, 0xd28c },
-    { L"Left Buildings Animation Cycle 2/2", 0xcecc, 0xd0cc },
+    { L"Left Buildings Animation Cycle 1/2", 0xd0cc, 0xd28c, indexCPS2Sprites_XMVSFAssets, 0x61 },
+        { L"Left Buildings Animation Cycle 2/2", 0xcecc, 0xd0cc, indexCPS2Sprites_XMVSFAssets, 0x61 },
 
-    { L"Right Building Animation Cycle",  0xd2cc, 0xd4ac },
+    { L"Right Building Animation Cycle",  0xd2cc, 0xd4ac, indexCPS2Sprites_XMVSFAssets, 0x63 },
 
-    { L"Police Cars and Moon",      0x786c, 0x7a6c },
+    { L"Police Cars and Moon",      0x786c, 0x7a6c, indexCPS2Sprites_XMVSFAssets, 0x62 },
 
-    { L"Sprites 1/2",               0x194da, 0x195fa, indexCPS2Sprites_XMVSFAssets, -1, &pairNext },
-    { L"Sprites 2/2",               0x195fa, 0x196fa },
+    { L"Sprites 1/2",               0x194da, 0x195fa, indexCPS2Sprites_XMVSFAssets, 0x66, &pairNext },
+    { L"Sprites 2/2",               0x195fa, 0x196fa, indexCPS2Sprites_XMVSFAssets, 0x68 },
 
     { L"Ripple Animation",          0x7fec, 0x806c },
     // Unclear
@@ -1683,13 +1683,13 @@ const sGame_PaletteDataset XMVSF_A_STAGES_MANHATTAN_PALETTES[] =
 
 const sGame_PaletteDataset XMVSF_A_STAGES_MIDNIGHTPLANT_PALETTES[] =
 {
-    { L"Sky",           0x446c, 0x44ac, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Factory 1/2",   0xd4cc, 0xd6ac },
-    { L"Factory 2/2",   0xd6ac, 0xd88c },
-    { L"Foreground",    0x886c, 0x896c },
+    { L"Sky",           0x446c, 0x44ac, indexCPS2Sprites_XMVSFAssets, 0x86, &pairFullyLinkedNode },
+    { L"Factory 1/2",   0xd4cc, 0xd6ac, indexCPS2Sprites_XMVSFAssets, 0x83 },
+    { L"Factory 2/2",   0xd6ac, 0xd88c, indexCPS2Sprites_XMVSFAssets, 0x84 },
+    { L"Foreground",    0x886c, 0x896c, indexCPS2Sprites_XMVSFAssets, 0x85 },
 
     // Note that the left smokestack starts smoking after a little damage is done
-    { L"Sprites",       0x196fa, 0x197da },
+    { L"Sprites",       0x196fa, 0x197da, indexCPS2Sprites_XMVSFAssets, 0x87 },
 
     // This doesn't seem used
     //{ L"Unused?",       0x478c, 0x486c },
@@ -1698,108 +1698,108 @@ const sGame_PaletteDataset XMVSF_A_STAGES_MIDNIGHTPLANT_PALETTES[] =
 // Note that the transition is a color wash across all palettes
 const sGame_PaletteDataset XMVSF_A_STAGES_RAGINGINFERNO_PALETTES[] =
 {
-    { L"Background Animation Cycle", 0x486c, 0x49cc, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Background Animation Cycle", 0x486c, 0x49cc, indexCPS2Sprites_XMVSFAssets, 0x6f, &pairFullyLinkedNode },
 
-    { L"Middle Buildings 1/2",      0xd8cc, 0xdaac },
-    { L"Middle Buildings 2/2",      0xdaac, 0xdc6c },
-    { L"Middle Animation Cycles 1/7", 0xdccc, 0xdecc },
-    { L"Middle Animation Cycles 2/7", 0xdecc, 0xe06c },
+    { L"Middle Buildings 1/2",      0xd8cc, 0xdaac, indexCPS2Sprites_XMVSFAssets, 0x7e },
+    { L"Middle Buildings 2/2",      0xdaac, 0xdc6c, indexCPS2Sprites_XMVSFAssets, 0x7f },
+    { L"Middle Animation Cycles 1/7", 0xdccc, 0xdecc, indexCPS2Sprites_XMVSFAssets, 0x77 },
+    { L"Middle Animation Cycles 2/7", 0xdecc, 0xe06c, indexCPS2Sprites_XMVSFAssets, 0x78 },
     //{ L"anim3", 0xe0cc, 0xe06c },
-    { L"Middle Animation Cycles 3/7", 0xe0cc, 0xe2cc },
-    { L"Middle Animation Cycles 4/7", 0xe2cc, 0xe46c },
-    { L"Middle Animation Cycles 5/7", 0xe4cc, 0xe6cc },
-    { L"Middle Animation Cycles 6/7", 0xe6cc, 0xe86c },
+    { L"Middle Animation Cycles 3/7", 0xe0cc, 0xe2cc, indexCPS2Sprites_XMVSFAssets, 0x79 },
+    { L"Middle Animation Cycles 4/7", 0xe2cc, 0xe46c, indexCPS2Sprites_XMVSFAssets, 0x7a },
+    { L"Middle Animation Cycles 5/7", 0xe4cc, 0xe6cc, indexCPS2Sprites_XMVSFAssets, 0x7b },
+    { L"Middle Animation Cycles 6/7", 0xe6cc, 0xe86c, indexCPS2Sprites_XMVSFAssets, 0x7c },
 
-    { L"Middle Animation Cycles 7/7", 0xe8cc, 0xe96c },
+    { L"Middle Animation Cycles 7/7", 0xe8cc, 0xe96c, indexCPS2Sprites_XMVSFAssets, 0x7d },
 
-    { L"Structure 1/2 Animation Cycles", 0x912c, 0x928c },
-    { L"Structure 2/2 Animation Cycles", 0x92ac, 0x942c },
+    { L"Structure 1/2 Animation Cycles", 0x912c, 0x928c, indexCPS2Sprites_XMVSFAssets, 0x81 },
+    { L"Structure 2/2 Animation Cycles", 0x92ac, 0x942c, indexCPS2Sprites_XMVSFAssets, 0x82 },
 
-    { L"Factory",                   0x8c6c, 0x8e2c },
-    { L"Factory Animations 1",      0x946c, 0x95cc },
-    { L"Factory Animations 2",      0x95ec, 0x974c },
-    { L"Factory Animations 3",      0x976c, 0x980c },
-    { L"Factory Animations 4",      0x986c, 0x99cc },
-    { L"Factory Animations 5",      0x99ec, 0x9b4c },
+    { L"Factory",                   0x8c6c, 0x8e2c, indexCPS2Sprites_XMVSFAssets, 0x70 },
+    { L"Factory Animations 1",      0x946c, 0x95cc, indexCPS2Sprites_XMVSFAssets, 0x71 },
+    { L"Factory Animations 2",      0x95ec, 0x974c, indexCPS2Sprites_XMVSFAssets, 0x72 },
+    { L"Factory Animations 3",      0x976c, 0x980c, indexCPS2Sprites_XMVSFAssets, 0x73 },
+    { L"Factory Animations 4",      0x986c, 0x99cc, indexCPS2Sprites_XMVSFAssets, 0x74 },
+    { L"Factory Animations 5",      0x99ec, 0x9b4c, indexCPS2Sprites_XMVSFAssets, 0x75 },
 
-    { L"Ground Animation Cycle",    0x904c, 0x910c },
+    { L"Ground Animation Cycle",    0x904c, 0x910c, indexCPS2Sprites_XMVSFAssets, 0x76 },
 
     // helicopters
-    { L"Sprites",                   0x197fa, 0x1981a },
+    { L"Helicopters",               0x197fa, 0x1981a, indexCPS2Sprites_XMVSFAssets, 0x80 },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_CODERED_PALETTES[] =
 {
-    { L"Sky",               0x4c6c, 0x4cec, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
+    { L"Sky",               0x4c6c, 0x4cec, indexCPS2Sprites_XMVSFAssets, 0x47, &pairFullyLinkedNode },
     { L"Animation Cycle 1", 0x506c, 0x514c },
     { L"Animation Cycle 2", 0x514c, 0x522c },
-    { L"Hangar 1/2",        0x9c6c, 0x9e6c },
-    { L"Hangar 2/2",        0x9e6c, 0xa04c },
-    { L"Animation Cycle 3", 0xa04c, 0xa14c },
-    { L"Animation Cycle 4", 0xa14c, 0xa34c },
-    { L"Animation Cycle 5", 0xa34c, 0xa54c },
+    { L"Hangar 1/2",        0x9c6c, 0x9e6c, indexCPS2Sprites_XMVSFAssets, 0x44 },
+    { L"Hangar 2/2",        0x9e6c, 0xa04c, indexCPS2Sprites_XMVSFAssets, 0x45 },
+    { L"Animation Cycle 3", 0xa04c, 0xa14c, indexCPS2Sprites_XMVSFAssets, 0x41 },
+    { L"Animation Cycle 4", 0xa14c, 0xa34c, indexCPS2Sprites_XMVSFAssets, 0x42 },
+    { L"Animation Cycle 5", 0xa34c, 0xa54c, indexCPS2Sprites_XMVSFAssets, 0x43 },
     { L"Animation Cycle 6", 0xa54c, 0xa5ac },
 
     // Jet looks like a very intense animation cycle, plus 3 unknown palettes
-    { L"Jet 1/2",           0xeccc, 0xeecc },
+    { L"Jet 1/2",           0xeccc, 0xeecc, indexCPS2Sprites_XMVSFAssets, 0x46 },
     { L"Jet 2/2",           0xeecc, 0xf0cc },
 
-    { L"Sprites",           0x198ba, 0x1999a },
+    { L"Sprites",           0x198ba, 0x1999a, indexCPS2Sprites_XMVSFAssets, 0x48 },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_DEADORLIVE_PALETTES[] =
 {
-    { L"Background 1/3",    0xf0cc, 0xf2cc, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Background 2/3",    0xf2cc, 0xf4cc },
-    { L"Background 3/3",    0xf4cc, 0xf62c },
+    { L"Background 1/3",    0xf0cc, 0xf2cc, indexCPS2Sprites_XMVSFAssets, 0x49, &pairFullyLinkedNode },
+    { L"Background 2/3",    0xf2cc, 0xf4cc, indexCPS2Sprites_XMVSFAssets, 0x4a },
+    { L"Background 3/3",    0xf4cc, 0xf62c, indexCPS2Sprites_XMVSFAssets, 0x4b },
 
-    { L"Stage Elements 1/3", 0x546c, 0x552c },
-    { L"Stage Elements 2/3", 0x586c, 0x598c },
-    { L"Stage Elements 3/3", 0x598c, 0x5b4c},
+    { L"Stage Elements 1/3", 0x546c, 0x552c, indexCPS2Sprites_XMVSFAssets, 0x4f },
+    { L"Stage Elements 2/3", 0x586c, 0x598c, indexCPS2Sprites_XMVSFAssets, 0x50 },
+    { L"Stage Elements 3/3", 0x598c, 0x5b4c, indexCPS2Sprites_XMVSFAssets, 0x51 },
 
-    { L"People",            0xa5ac, 0xa70c },
-    { L"Skylights",         0xa9ac, 0xa9ec },
+    { L"People",            0xa5ac, 0xa70c, indexCPS2Sprites_XMVSFAssets, 0x4c },
+    { L"Skylights",         0xa9ac, 0xa9ec, indexCPS2Sprites_XMVSFAssets, 0x4d },
 
-    { L"Sprites",           0x1999a, 0x19a7a },
+    { L"Sprites",           0x1999a, 0x19a7a, indexCPS2Sprites_XMVSFAssets, 0x4e },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_MALLMAYHEM_PALETTES[] =
 {
-    { L"Mall 1/2",      0xadac, 0xafac, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Mall 2/2",      0xafac, 0xb1ac },
+    { L"Mall 1/2",      0xadac, 0xafac, indexCPS2Sprites_XMVSFAssets, 0x56, &pairFullyLinkedNode },
+    { L"Mall 2/2",      0xafac, 0xb1ac, indexCPS2Sprites_XMVSFAssets, 0x57 },
 
-    { L"Middle 1/2",    0x5c6c, 0x5e6c },
-    { L"Middle 2/2",    0x5e6c, 0x606c },
+    { L"Middle 1/2",    0x5c6c, 0x5e6c, indexCPS2Sprites_XMVSFAssets, 0x58 },
+    { L"Middle 2/2",    0x5e6c, 0x606c, indexCPS2Sprites_XMVSFAssets, 0x59 },
 
-    { L"People 1/2",    0xf8cc, 0xfacc },
-    { L"People 2/2",    0xfacc, 0xfccc},
+    { L"People 1/2",    0xf8cc, 0xfacc, indexCPS2Sprites_XMVSFAssets, 0x5a },
+    { L"People 2/2",    0xfacc, 0xfccc, indexCPS2Sprites_XMVSFAssets, 0x5b },
 
-    { L"Sprites",       0x19a7a, 0x19b5a },
+    { L"Sprites",       0x19a7a, 0x19b5a, indexCPS2Sprites_XMVSFAssets, 0x5c },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_TEMPLE_PALETTES[] =
 {
-    { L"Sky",               0xc2cc, 0xc3ec, indexCPS2Sprites_XMVSFAssets, -1, &pairFullyLinkedNode },
-    { L"Floor Buildings",   0x706c, 0x726c },
-    { L"Big Statue",        0x726c, 0x746c },
+    { L"Sky",               0xc2cc, 0xc3ec, indexCPS2Sprites_XMVSFAssets, 0x9a, &pairFullyLinkedNode },
+    { L"Floor Buildings",   0x706c, 0x726c, indexCPS2Sprites_XMVSFAssets, 0x99 },
+    { L"Big Statue",        0x726c, 0x746c, indexCPS2Sprites_XMVSFAssets, 0x98 },
 
-    { L"Sprites",           0x1931a, 0x193fa },
+    { L"Sprites",           0x1931a, 0x193fa, indexCPS2Sprites_XMVSFAssets, 0x9b },
 };
 
 const sGame_PaletteDataset XMVSF_A_STAGES_PREVIEW_PALETTES[] =
 {
     // Previews are a silghtly different order and I don't know why
-    { L"Apocalypse Now!",       0xfd8c, 0xfe8c },
-    { L"Showdown in the Park",  0xfe8c, 0xff8c },
-    { L"Death Valley",          0xff8c, 0x1008c },
-    { L"The Cataract",          0x1008c, 0x1018c },
-    { L"Temple of Fists",       0x1018c, 0x1028c },
-    { L"On the Hilltop",        0x1028c, 0x1034c },
-    { L"Manhattan",             0x1038c, 0x103ec },
-    { L"Raging Inferno",        0x1048c, 0x1058c },
-    { L"Code Red",              0x1058c, 0x1068c },
-    { L"Dead or Live The Show", 0x1068c, 0x1078c },
-    { L"Mall Mayhem",           0x1078c, 0x1088c },
+    { L"Apocalypse Now!",       0xfd8c, 0xfe8c, indexCPS2Sprites_XMVSFAssets, 0x8d },
+    { L"Showdown in the Park",  0xfe8c, 0xff8c, indexCPS2Sprites_XMVSFAssets, 0x95 },
+    { L"Death Valley",          0xff8c, 0x1008c, indexCPS2Sprites_XMVSFAssets, 0x90 },
+    { L"The Cataract",          0x1008c, 0x1018c, indexCPS2Sprites_XMVSFAssets, 0x97 },
+    { L"Temple of Fists",       0x1018c, 0x1028c, indexCPS2Sprites_XMVSFAssets, 0x96 },
+    { L"On the Hilltop",        0x1028c, 0x1034c, indexCPS2Sprites_XMVSFAssets, 0x93 },
+    { L"Manhattan",             0x1038c, 0x103ec, indexCPS2Sprites_XMVSFAssets, 0x92 },
+    { L"Raging Inferno",        0x1048c, 0x1058c, indexCPS2Sprites_XMVSFAssets, 0x94 },
+    { L"Code Red",              0x1058c, 0x1068c, indexCPS2Sprites_XMVSFAssets, 0x8e },
+    { L"Dead or Live The Show", 0x1068c, 0x1078c, indexCPS2Sprites_XMVSFAssets, 0x8f },
+    { L"Mall Mayhem",           0x1078c, 0x1088c, indexCPS2Sprites_XMVSFAssets, 0x91 },
 };
 
 const sDescTreeNode XMVSF_A_STAGE_COLLECTION[] =
