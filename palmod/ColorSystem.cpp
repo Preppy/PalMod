@@ -1014,7 +1014,7 @@ namespace ColorSystem
         return auxb | auxg | auxr | auxa;
     }
 
-    const uint8_t NGColorVals[] = {
+    const std::vector<uint8_t> NGColorVals = {
         //--Dark,Bright
             0x00,0x00,    //--00
             0x08,0x08,    //--01
@@ -1052,7 +1052,7 @@ namespace ColorSystem
 
     uint8_t GetNEOGEOColorFromWinKawaksRGB555(uint8_t inColor)
     {
-        return NGColorVals[min(63, ((inColor >> 3)) * 2 )+ 1];
+        return NGColorVals[min(63, ((inColor >> 3)) * 2 ) + 1];
     }
 
     bool IsNEOGEOColorDark(uint8_t redIndex, uint8_t greenIndex, uint8_t blueIndex)
@@ -1076,7 +1076,7 @@ namespace ColorSystem
     {
         uint8_t nColorIndex = 0;
 
-        for (; nColorIndex < ARRAYSIZE(NGColorVals); nColorIndex++)
+        for (; nColorIndex < NGColorVals.size(); nColorIndex++)
         {
             if (NGColorVals[nColorIndex] >= nColor)
             {
@@ -1659,7 +1659,7 @@ namespace ColorSystem
         bool fIsNegative = (nColorValue < 0);
         uint8_t nColorIndex = 1;
 
-        for (; nColorIndex < ARRAYSIZE(NGColorVals); nColorIndex += 2)
+        for (; nColorIndex < NGColorVals.size(); nColorIndex += 2)
         {
             if (NGColorVals[nColorIndex] >= abs(nColorValue))
             {
@@ -1667,7 +1667,7 @@ namespace ColorSystem
             }
         }
 
-        nColorIndex = min(nColorIndex, ARRAYSIZE(NGColorVals));
+        nColorIndex = min(nColorIndex, static_cast<uint8_t>(NGColorVals.size()));
         nColorIndex = (nColorIndex / 2);
 
         return nColorIndex * (fIsNegative ? -1 : 1);
@@ -1679,7 +1679,7 @@ namespace ColorSystem
 
         // We step by 2 in the NeoGeo color table
         int nAdjustedColorStep = (abs(nColorStep) + 1) * 2;
-        nAdjustedColorStep = min(nAdjustedColorStep, ARRAYSIZE(NGColorVals));
+        nAdjustedColorStep = min(nAdjustedColorStep, static_cast<int>(NGColorVals.size()));
         nAdjustedColorStep = max(0, nAdjustedColorStep - 1);
 
         // the neogeo color table is 32 dark 32 bright colors interleaved
@@ -1780,7 +1780,7 @@ namespace ColorSystem
         bool fIsNegative = (nColorValue < 0);
         uint8_t nColorIndex = 1;
 
-        for (; nColorIndex < ARRAYSIZE(NGColorVals); nColorIndex += 2)
+        for (; nColorIndex < NGColorVals.size(); nColorIndex += 2)
         {
             if (NGColorVals[nColorIndex] >= abs(nColorValue))
             {
