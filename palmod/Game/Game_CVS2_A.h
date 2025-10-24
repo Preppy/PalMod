@@ -78,7 +78,7 @@ private:
         ARRAYSIZE(CVS2_A_UNITS),
         L"CVS2SE.txt",          // Extra filename
         2296,                   // Count of palettes listed in the header
-        0x1488e80,              // Lowest known location used for palettes
+        0xd92400,               // Lowest known location used for palettes
     };
 
     std::array<int32_t, ARRAYSIZE(CVS2_A_UNITS)> m_activeSteamShiftTable =
