@@ -429,13 +429,14 @@
 #define IDS_PRPL_LOADFAILURE            32978
 #define IDS_PRPLSAVE_SUCCESS            32979
 #define IDS_PRPLSAVE_FAILURE            32980
+#define ID_COLORFORMAT_RGB666DYNAMIC    32981
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32981
+#define _APS_NEXT_COMMAND_VALUE         32982
 #define _APS_NEXT_CONTROL_VALUE         1117
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

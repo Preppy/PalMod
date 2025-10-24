@@ -616,6 +616,9 @@
     <Filter Include="Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29">
       <UniqueIdentifier>{347653ad-b96a-4a0f-88cf-93e996a4015d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Neo Turf Masters">
+      <UniqueIdentifier>{515e6fb9-6f8c-445c-b9e7-274d02d67072}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1034,6 +1037,9 @@
     </ClCompile>
     <ClCompile Include="PRPLfiles.cpp">
       <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_TurfMasters_A.cpp">
+      <Filter>Games\SNK Games\Neo Turf Masters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2197,6 +2203,12 @@
     </ClInclude>
     <ClInclude Include="Game\AquaPlus_S_DEF.h">
       <Filter>Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TurfMasters_A.h">
+      <Filter>Games\SNK Games\Neo Turf Masters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TurfMasters_A_DEF.h">
+      <Filter>Games\SNK Games\Neo Turf Masters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

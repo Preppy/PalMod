@@ -107,7 +107,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 
     GetHost()->GetPalModDlg()->SetStatusText(L"Opening file...");
 
-    if (CurrFile.Open(pszLoadFile, CFile::modeRead | CFile::typeBinary))
+    if (CurrFile.Open(pszLoadFile, CFile::modeRead | CFile::typeBinary | CFile::shareDenyWrite))
     {
         const ULONGLONG nGameFileLength = CurrFile.GetLength();
         bool isSafeToRunGame = (static_cast<short int>(CurrRule.uVerifyVar) == -1) || (nGameFileLength == CurrRule.uVerifyVar);

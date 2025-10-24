@@ -168,11 +168,12 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     // ID_COLORFORMAT_BRG555_LE
     // ID_COLORFORMAT_GRB555_BE
     // ID_COLORFORMAT_RBGA8888_LE
+    // ID_COLORFORMAT_RGB666DYNAMIC
     // I am explicitly and needlessly listing out all of those string IDs because Visual Studio search sometimes misses the color modes below,
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     // Update this check once you've decided whether to expose the new color or not.
-    static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+    static_assert(static_cast<ColMode>(32) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
 
     switch (NewMode)
     {

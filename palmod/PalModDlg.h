@@ -126,7 +126,7 @@ private:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert(static_cast<ColMode>(32) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
 
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
@@ -149,6 +149,7 @@ private:
     void SetColorFormatToxBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_xBGR555_LE); };
 
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
+    // Deliberately not exposing the RGB666 Dynamic CLUT: that requires knowledge of where to get the CLUT from
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
 
     void SetColorFormatToBGR888() { SetColorFormatTo(ColMode::COLMODE_BGR888); };

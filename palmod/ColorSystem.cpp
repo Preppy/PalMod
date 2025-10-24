@@ -86,6 +86,8 @@ namespace ColorSystem
         case ColMode::COLMODE_BGRA8888_BE:
         case ColMode::COLMODE_BGRA8888_LE:
         case ColMode::COLMODE_RBGA8888_LE:
+        // This is a very weird one
+        case ColMode::COLMODE_RGB666_DYNAMIC:
             return 4;
         }
 
@@ -126,6 +128,7 @@ namespace ColorSystem
         { "BRG555LE", ColMode::COLMODE_BRG555_LE },             // BRG555 little endian, used by Fists of Fury
         { "RGB555LE_Normal", ColMode::COLMODE_RGB555_LE_NORMAL }, // RGB555 little endian (non-true-CPS3, or 555 on a 32bit display)
         { "RBGA888_LE", ColMode::COLMODE_RBGA8888_LE },         // 32bit variant used for Fighters History
+        { "RGB666_Dynamic", ColMode::COLMODE_RGB666_DYNAMIC },  // Very weird.  32bit value converted to RGB555 filtered into a CLUT
     };
 
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
@@ -181,7 +184,8 @@ namespace ColorSystem
     {
         // no for 24bit color and color tables that can't have alpha
         return ((GetCbForColMode(cmColorMode) != 3) &&
-                (cmColorMode != ColMode::COLMODE_RGB666_NEOGEO));
+                (cmColorMode != ColMode::COLMODE_RGB666_NEOGEO) &&
+                (cmColorMode != ColMode::COLMODE_RGB666_DYNAMIC));
     }
 
     bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode)
@@ -339,6 +343,7 @@ namespace ColorSystem
             }
 
         case ColMode::COLMODE_RGB666_NEOGEO:
+        case ColMode::COLMODE_RGB666_DYNAMIC:
             return k_nRGBPlaneAmtForNeoGeo;
 
         case ColMode::COLMODE_RGBA8881:
@@ -1129,6 +1134,90 @@ namespace ColorSystem
         uint16_t outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
 
         return outColor;
+    }
+
+    std::vector<uint16_t> k_dynamicRGB666CLUT;
+
+    // Neo Turf Masters uses a very odd color format.
+    // They have their own NeoGeo-compatible color table located at 
+    //   0x1ba030 - 0x1ca030
+    // in file 200-p1.p1 (or .bin).  That 0x10000 length table contains
+    // 0x8000 2 byte color values.
+    // Palette lookup values are 4 bytes and are stored:
+    //   GG BB xx RR
+
+    bool PopulateRGB666DynamicCLUT(LPWSTR pszCLUTFile, size_t nOffset)
+    {
+        k_dynamicRGB666CLUT.clear();
+
+        CFile CLUTFile;
+
+        if (CLUTFile.Open(pszCLUTFile, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone))
+        {
+            uint16_t newColor;
+            CLUTFile.Seek(nOffset, CFile::begin);
+
+            while (k_dynamicRGB666CLUT.size() < 0x10000)
+            {
+                CLUTFile.Read(&newColor, 2);
+                // neogeo is big endian
+                newColor = SWAP_16(newColor);
+                k_dynamicRGB666CLUT.push_back(newColor);
+            }
+
+            CLUTFile.Abort(); 
+        }
+
+        return k_dynamicRGB666CLUT.size() != 0;
+    }
+
+    // This is a weird one.
+    // We load into memory the entire color lookup table as laid out in the ROM
+    // The color values in are RGB555.
+    // We then translate a given RGB555 color into the RGB666 NeoGeo color space by
+    // using DynamicCLUT[RGB55_Val], and then use the values from there
+    uint32_t CONV_RGB666NeoGeoDynamic_32(uint32_t nColorData)
+    {
+        // NOTE: It would be marginally more efficient to OR with 0x1f, but MAME 
+        // is definitely using the MIN logic, as can be seen by injecting overflow
+        // values
+        const uint8_t auxr5 = min(0x1f, (0x00001f00 & nColorData) >> 8);
+        const uint8_t auxg5 = min(0x1f, (0x0000001f & nColorData));
+        const uint8_t auxb5 = min(0x1f, ((0x1f000000 & nColorData) >> 24));
+
+        const uint16_t nColorAsBGR555 = (((auxr5 << 5) + auxg5) << 5) + auxb5;
+
+        // We're stepping by colors, but you want the table offset, it's:
+        //const uint32_t nByteOffset = nColorAsBGR555 * 2;
+
+        const uint16_t nRGB666Val_BE = k_dynamicRGB666CLUT.at(nColorAsBGR555);
+        const uint16_t nRGB666Val_LE = SWAP_16(nRGB666Val_BE);
+
+        return CONV_RGB666NeoGeo_32(nRGB666Val_LE);
+    }
+
+    uint32_t CONV_32_RGB666NeoGeoDynamic(uint32_t inCol)
+    {
+        const uint16_t nColorAsNeoGeo = CONV_32_RGB666NeoGeo(inCol);
+        const uint16_t nRGB666Val_BE = SWAP_16(nColorAsNeoGeo);
+
+        size_t iPos = 0;
+        
+        for (; iPos < k_dynamicRGB666CLUT.size(); iPos++)
+        {
+            if (k_dynamicRGB666CLUT.at(iPos) == nRGB666Val_BE)
+            {
+                break;
+            }
+        }
+
+        const uint8_t red5 =   ((iPos >> 10) & 0x1f);
+        const uint8_t green5 = ((iPos >> 5) & 0x1f);
+        const uint8_t blue5 =  (iPos & 0x1f);
+
+        const uint32_t nRGB555IndexValue = (blue5 << 24) | (red5 << 8) | (green5);        
+
+        return nRGB555IndexValue;
     }
 
     const uint8_t SharpRGBColorVals[] = {

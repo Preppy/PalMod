@@ -163,6 +163,7 @@
 #include "Game_TekkenAdvance_GBA.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
+#include "Game_TurfMasters_A.h"
 #include "Game_UMK3_A.h"
 #include "Game_UMK3_DS.h"
 #include "Game_UMK3_SNES.h"
@@ -183,7 +184,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 253, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 254, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -326,6 +327,7 @@ namespace KnownGameInfo
     CGameClass* Make_NBHID_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_P(nConfirmedROMSize); }
     CGameClass* Make_NBHID_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_S(nConfirmedROMSize); }
     CGameClass* Make_NeoBomberman_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NeoBomberman_A(nConfirmedROMSize); }
+    CGameClass* Make_TurfMasters_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TurfMasters_A(nConfirmedROMSize, pszFilePath); }
     CGameClass* Make_NEOGEO_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NEOGEO_A(nConfirmedROMSize, pszFilePath); }
     CGameClass* Make_NGBC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NGBC_A(nConfirmedROMSize); }
     CGameClass* Make_NINJAMASTERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NINJAMASTERS_A(nConfirmedROMSize); }
@@ -1547,6 +1549,13 @@ namespace KnownGameInfo
             CGame_NeoBomberman_A::GetRule,
         },
         {
+            TURFMASTERS_A,
+            L"Neo Turf Masters (Neo-Geo)",
+            { TURFMASTERS_A,   L"Neo Turf Masters", L"Neo Turf Masters|200-p1.*|", GamePlatform::NEOGEO },
+            Make_TurfMasters_A,
+            CGame_TurfMasters_A::GetRule,
+        },
+        {
             NGBC_A,
             L"NGBC (Atomiswave)",
             { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", GamePlatform::SammyAtomiswave },
@@ -2377,7 +2386,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 253, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 254, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

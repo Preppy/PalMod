@@ -135,7 +135,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+    static_assert(static_cast<ColMode>(32) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
 
     switch (NewMode)
     {
@@ -223,6 +223,17 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
         break;
 
+    case ColMode::COLMODE_RGB666_DYNAMIC:
+        m_nSizeOfColorsInBytes = 4; // Yes, this color format is very strange
+        GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
+        Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
+        GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
+        Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
+        GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
+        GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
+        ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
+        break;
+
     case ColMode::COLMODE_RGBA8881:
         m_nSizeOfColorsInBytes = 4;
         GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_256Steps;
@@ -293,7 +304,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(31) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+    static_assert(static_cast<ColMode>(32) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
 
     switch (NewMode)
     {
@@ -371,6 +382,12 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
     case ColMode::COLMODE_RGB555_SHARP:
         ConvPal16 = &ColorSystem::CONV_RGB555Sharp_32;
         ConvCol16 = &ColorSystem::CONV_32_RGB555Sharp;
+        break;
+
+    case ColMode::COLMODE_RGB666_DYNAMIC:
+        // Game owns initialization of the lookup table used by these
+        ConvPal32 = &ColorSystem::CONV_RGB666NeoGeoDynamic_32;
+        ConvCol32 = &ColorSystem::CONV_32_RGB666NeoGeoDynamic;
         break;
     case ColMode::COLMODE_RGB666_NEOGEO:
         ConvPal16 = &ColorSystem::CONV_RGB666NeoGeo_32;
