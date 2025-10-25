@@ -985,6 +985,7 @@ BEGIN
                             "Save failed: output file '%s' does not exist."
     IDS_ROMMISMATCH_CHECK   "ERROR!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nAre you sure you wish to continue?"
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM. You probably want to click NO now and then use PalMod's Venture support instead.\n\nAre you sure you wish to load this ROM as HFTF instead of Venture?"
+    IDS_MVC2_ROMMISMATCH_CHECK "WARNING!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nSince this is MvC2 for Steam, we should be able to figure out where things are.  The size change is likely due to game modifications you made.  BUT if things do not look right, please exit and contact the PalMod team.\n\nAre you sure you wish to continue?"
 END
 
 STRINGTABLE

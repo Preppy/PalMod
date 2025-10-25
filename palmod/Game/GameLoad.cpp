@@ -127,6 +127,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304
         {
             CString strQuestion;
+            UINT uIconChoice = MB_ICONSTOP;
 
             strQuestion.Format(L"Internal warning: Game file size is 0x%x, but 0x%x is the expected size. You may just need to update the value of m_nExpectedGameROMSize for your game.\n", static_cast<int>(nGameFileLength), CurrRule.uVerifyVar);
             OutputDebugString(strQuestion);
@@ -135,12 +136,17 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             {
                 (void)strQuestion.LoadString(IDS_ROMISVENTURE);
             }
+            else if (nGameFlag == MVC2_S)
+            {
+                strQuestion.Format(IDS_MVC2_ROMMISMATCH_CHECK, CurrRule.uVerifyVar, nGameFileLength);
+                uIconChoice = MB_ICONWARNING;
+            }
             else
             {
                 strQuestion.Format(IDS_ROMMISMATCH_CHECK, CurrRule.uVerifyVar, nGameFileLength);
             }
 
-            switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
+            switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | uIconChoice | MB_DEFBUTTON2))
             {
                 case IDYES:
                 {
