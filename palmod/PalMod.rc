@@ -723,7 +723,7 @@ BEGIN
                 MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_RGBA8887
                 MENUITEM "RGBA8888 (little endian)",    ID_COLORFORMAT_RGBA8888_LE
                 MENUITEM "RGBA8888 (big endian)",       ID_COLORFORMAT_RGBA8888_BE
-                MENUITEM "RGB666 (Dynamic color table)", ID_COLORFORMAT_RGB666DYNAMIC
+                MENUITEM "Neo Turf Masters (color table)", ID_COLORFORMAT_NEOTURFMASTERS
             END
             MENUITEM SEPARATOR
             POPUP "Alpha"

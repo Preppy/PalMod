@@ -29,7 +29,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_NOBUTTONS,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB666_DYNAMIC,
+        ColMode::COLMODE_NEOTURFMASTERS,
         m_sFileLoadingData,
         m_rgCRC32Data,
         TurfMasters_A_UNITS,

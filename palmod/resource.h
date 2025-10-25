@@ -430,7 +430,7 @@
 #define IDS_PRPL_LOADFAILURE            32978
 #define IDS_PRPLSAVE_SUCCESS            32979
 #define IDS_PRPLSAVE_FAILURE            32980
-#define ID_COLORFORMAT_RGB666DYNAMIC    32981
+#define ID_COLORFORMAT_NEOTURFMASTERS   32981
 
 // Next default values for new objects
 // 

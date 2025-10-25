@@ -59,7 +59,7 @@ enum class ColMode
     COLMODE_GRB555_BE,      // GRB555 big endian: added for a game that didn't need it, so unused
     COLMODE_RGB555_LE_NORMAL, // RGB555 little endian (Normal, non-CPS3)
     COLMODE_RBGA8888_LE,    // 32bit color used for Fighters History
-    COLMODE_RGB666_DYNAMIC, // Very weird.  32bit value converted to RGB555 filtered into a CLUT
+    COLMODE_NEOTURFMASTERS, // Very weird.  32bit value converted to RGB555 filtered into a CLUT
 
     COLMODE_LAST,
 };
@@ -124,10 +124,10 @@ namespace ColorSystem
     uint16_t CONV_32_RGB555Sharp(uint32_t inCol);
     uint32_t CONV_RGB555Sharp_32(uint16_t inCol);
 
-    // Very special lookup table for this odd format
-    bool PopulateRGB666DynamicCLUT(LPWSTR pszCLUTFile, size_t nOffset);
-    uint32_t CONV_32_RGB666NeoGeoDynamic(uint32_t inCol);
-    uint32_t CONV_RGB666NeoGeoDynamic_32(uint32_t inCol);
+    // Very special lookup table for the weird Neo Turf Masters format
+    bool PopulateNTMDynamicCLUT(LPWSTR pszCLUTFile, size_t nOffset);
+    uint32_t CONV_32_NeoTurfMasters(uint32_t inCol);
+    uint32_t CONV_NeoTurfMasters_32(uint32_t inCol);
 
     // 24-bit
     uint32_t CONV_32_BGR888(uint32_t inCol);

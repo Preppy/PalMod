@@ -223,7 +223,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
         break;
 
-    case ColMode::COLMODE_RGB666_DYNAMIC:
+    case ColMode::COLMODE_NEOTURFMASTERS:
         m_nSizeOfColorsInBytes = 4; // Yes, this color format is very strange
         GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
         Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
@@ -384,10 +384,10 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
         ConvCol16 = &ColorSystem::CONV_32_RGB555Sharp;
         break;
 
-    case ColMode::COLMODE_RGB666_DYNAMIC:
+    case ColMode::COLMODE_NEOTURFMASTERS:
         // Game owns initialization of the lookup table used by these
-        ConvPal32 = &ColorSystem::CONV_RGB666NeoGeoDynamic_32;
-        ConvCol32 = &ColorSystem::CONV_32_RGB666NeoGeoDynamic;
+        ConvPal32 = &ColorSystem::CONV_NeoTurfMasters_32;
+        ConvCol32 = &ColorSystem::CONV_32_NeoTurfMasters;
         break;
     case ColMode::COLMODE_RGB666_NEOGEO:
         ConvPal16 = &ColorSystem::CONV_RGB666NeoGeo_32;

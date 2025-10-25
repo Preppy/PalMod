@@ -149,7 +149,7 @@ private:
     void SetColorFormatToxBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_xBGR555_LE); };
 
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
-    // Deliberately not exposing the RGB666 Dynamic CLUT: that requires knowledge of where to get the CLUT from
+    // Deliberately not exposing the Neo Turf Masters CLUT: that requires knowledge of where to get the CLUT from
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
 
     void SetColorFormatToBGR888() { SetColorFormatTo(ColMode::COLMODE_BGR888); };
