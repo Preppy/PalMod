@@ -671,6 +671,11 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADACTPALETTE
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
+        POPUP "Mapping Palette"
+        BEGIN
+            MENUITEM "Use, Step by 1",          ID_TOOLS_MAPPING_USE_STEP1
+            MENUITEM "Use, Step by 2",          ID_TOOLS_MAPPING_USE_STEP2
+        END
         MENUITEM SEPARATOR
         MENUITEM "&Generate IPS Patch File",    ID_TOOLS_GENERATEPATCHFILE
     END

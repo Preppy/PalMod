@@ -486,7 +486,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
     }
     else if (pPopupMenu == m_SubToolMenu)
     {
-        // Enable everything... but then double-check since some games have no previews available at this time.
+        // Enable everything in the Tools menu... but then double-check since some games have no previews available at this time.
         int iPos = 0;
         const int iMenuEntries = pPopupMenu->GetMenuItemCount();
 
@@ -496,6 +496,23 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             if (nMenuID != -1) // -1 is the return for invalid entries or submenus such as the Gradient submenu
             {
                 pPopupMenu->EnableMenuItem(nMenuID, m_fEnabled ? MF_ENABLED : MF_GRAYED);
+            }
+            else
+            {
+                CMenu* pSubMenu = pPopupMenu->GetSubMenu(iPos);
+                
+                const int iSubMenuEntries = pSubMenu->GetMenuItemCount();
+                int iSubPos = 0;
+
+                while (iSubPos < iSubMenuEntries)
+                {
+                    const int nSubMenuID = pSubMenu->GetMenuItemID(iSubPos);
+                    if (nSubMenuID != -1)
+                    {
+                        pSubMenu->EnableMenuItem(nSubMenuID, m_fEnabled ? MF_ENABLED : MF_GRAYED);
+                    }
+                    iSubPos++;
+                }
             }
             iPos++;
         }

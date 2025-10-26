@@ -344,6 +344,7 @@
     <ClCompile Include="IMPLfiles.cpp" />
     <ClCompile Include="Junk.cpp" />
     <ClCompile Include="lodepng\lodepng.cpp" />
+    <ClCompile Include="MappingPalettes.cpp" />
     <ClCompile Include="PALfiles.cpp" />
     <ClCompile Include="PalMod.cpp" />
     <ClCompile Include="PalModDlg.cpp" />
@@ -749,6 +750,7 @@
     <ClInclude Include="ImgInfoList.h" />
     <ClInclude Include="ImgOutDlg.h" />
     <ClInclude Include="Junk.h" />
+    <ClInclude Include="MappingPalettes.h" />
     <ClInclude Include="PalMod.h" />
     <ClInclude Include="PalModDlg.h" />
     <ClInclude Include="PalTool.h" />

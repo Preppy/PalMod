@@ -1829,6 +1829,30 @@ namespace ColorSystem
         return nColorStep;
     };
 
+    int Get8BitValueForColorStep_ByPlaneLength(int nPlaneLength, int nColorStep)
+    {
+        switch (nPlaneLength)
+        {
+        default:
+            OutputDebugString(L"ERROR: You're not handling a new plane length!\r\n");
+        case k_nRGBPlaneAmtForRGB111:
+            return Get8BitValueForColorStep_1Step(nColorStep);
+        case k_nRGBPlaneAmtForRGB333:
+            return Get8BitValueForColorStep_8Steps(nColorStep);
+        case k_nRGBPlaneAmtForRGB444 :
+            return Get8BitValueForColorStep_16Steps(nColorStep);
+        case k_nRGBPlaneAmtForRGB555_CPS3: // 30
+            return Get8BitValueForColorStep_31Steps(nColorStep);
+        case k_nRGBPlaneAmtForRGB555_Normal: //31
+            // case k_nRGBPlaneAmtForNeoGeo: // also 31
+            return Get8BitValueForColorStep_32Steps(nColorStep);
+        case k_nRGBPlaneAmtForHalfAlpha:
+            return Get8BitValueForColorStep_HalfAlpha(nColorStep);
+        case k_nRGBPlaneAmtForRGB888:
+            return Get8BitValueForColorStep_256Steps(nColorStep);
+        };
+    }
+
     int GetNearestLegalColorValue_RGB111(int nColorValue)
     {
         return (nColorValue ? 255 : 0);

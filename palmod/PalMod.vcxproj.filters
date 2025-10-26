@@ -1041,6 +1041,9 @@
     <ClCompile Include="Game\Game_TurfMasters_A.cpp">
       <Filter>Games\SNK Games\Neo Turf Masters</Filter>
     </ClCompile>
+    <ClCompile Include="MappingPalettes.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -2209,6 +2212,9 @@
     </ClInclude>
     <ClInclude Include="Game\TurfMasters_A_DEF.h">
       <Filter>Games\SNK Games\Neo Turf Masters</Filter>
+    </ClInclude>
+    <ClInclude Include="MappingPalettes.h">
+      <Filter>Palette file storage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

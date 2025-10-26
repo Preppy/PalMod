@@ -11,6 +11,7 @@
 #include "ImgDat.h"
 #include "UndoRedo.h"
 #include "ColorSystem.h"
+#include "MappingPalettes.h"
 
 #include "afxcmn.h"
 #include <afxole.h> // for drag and drop support
@@ -80,6 +81,7 @@ private:
     CImgDisp* ImgDispCtrl = nullptr;
     CImgDat* ImgFile = nullptr;
     CPalDropTarget m_dropTarget;
+    CMappingPaletteManager PaletteMapper;
     CUndoRedo UndoProc;
 
     sPalDef* CurrPalDef = nullptr;
@@ -346,6 +348,9 @@ private:
     afx_msg void OnExportPalette();
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnChangeExtendedCopyData();
+    void OnMappingPaletteUse(uint8_t nStep);
+    afx_msg void OnMappingPaletteUse_Step1() { OnMappingPaletteUse(1); };
+    afx_msg void OnMappingPaletteUse_Step2() { OnMappingPaletteUse(2); };
 
     enum class ColorSwap
     {

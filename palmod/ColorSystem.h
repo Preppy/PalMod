@@ -174,6 +174,8 @@ namespace ColorSystem
     int GetColorStepFor8BitValue_256Steps(int nColorValue);
     int Get8BitValueForColorStep_256Steps(int nColorStep);
 
+    int Get8BitValueForColorStep_ByPlaneLength(int nPlaneLength, int nColorStep);
+
     int GetNearestLegalColorValue_RGB111(int nColorValue);
     int GetNearestLegalColorValue_RGB333(int nColorValue);
     int GetNearestLegalColorValue_RGB444(int nColorValue);
