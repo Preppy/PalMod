@@ -70,14 +70,16 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
 {
     HDC hdc = ::GetWindowDC(0);
 
-    if (hdc && CurrPalCtrl && GetHost()->GetCurrGame())
+    if (hdc)
     {
-        if (CurrPalCtrl->GetSelAmt() != 1)
+        if (CurrPalCtrl && GetHost()->GetCurrGame())
         {
-            SetStatusText(L"Select the starting color before bulk copying.");
-        }
-        else
-        {
+            if (CurrPalCtrl->GetSelAmt() != 1)
+            {
+                // Ideally they select the injection point, but we can just contextual knowledge to start at palette index 01
+                CurrPalCtrl->SelectFirstColor();
+            }
+
             POINT ptCursor = { -1, -1 };
 
             if (GetCursorPos(&ptCursor) && (ptCursor.x != -1))
@@ -92,12 +94,13 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
                 // *Really* get the cursor out of the way so we don't track the cursor design by accident
                 const POINT ptOriginalCursor = ptCursor;
                 ShowCursor(FALSE);
-                SetCursorPos(ptHideCursorAt.x, ptHideCursorAt.y);
 
-                // Look!  The horrific Sleep!
-                // We're doing a SetCursorPos here, and we need to pause for redraw so we don't read the in-transit 
-                // 000000 cursor redraw color (or similar).
-                Sleep(100);
+                // Same as above:
+                // We need the cursor hidden.  Some apps don't redraw off of SetCursor, so use SendInput to force a redraw of
+                // any under-cursor highlights the app might be doing.  (Notably MSPaint shows the brush/pen tip underneath the 
+                // cursor until it's moved away.)
+                INPUT input = { INPUT_MOUSE, 0, 0, 0, MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_VIRTUALDESK };
+                SendInput(1, &input, sizeof(input));
 
                 for (size_t nColorCount = 1; nColorCount <= nMaxColorsToCopy; nColorCount++)
                 {
@@ -155,11 +158,7 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
                 }
 
                 ShowCursor(TRUE);
-                // Don't move the cursor back to origin if they've already moved it elsewhere
-                if ((GetCursorPos(&ptCursor)) && (ptCursor.x == ptHideCursorAt.x) && (ptCursor.y == ptHideCursorAt.y))
-                {
-                    SetCursorPos(ptOriginalCursor.x, ptOriginalCursor.y);
-                }
+                SetCursorPos(ptOriginalCursor.x, ptOriginalCursor.y);
 
                 for (size_t iIndex = 0; iIndex < rgColorSet.size(); iIndex++)
                 {
@@ -1750,15 +1749,18 @@ DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition(int ptX /* = -1 */, int p
         if (ptCursor.x != -1)
         {
             ShowCursor(FALSE);
-            SetCursorPos(0, 0);
-            // Look!  The horrific Sleep!
-            // We need the cursor hidden, so give time for the redraw to the actual pixel they want, not the cursor
-            // color
-            Sleep(100);
+
+            // We need the cursor hidden.  Some apps don't redraw off of SetCursor, so use SendInput to force a redraw of
+            // any under-cursor highlights the app might be doing.  (Notably MSPaint shows the brush/pen tip underneath the 
+            // cursor until it's moved away.)
+            INPUT input = { INPUT_MOUSE, 0, 0, 0, MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_VIRTUALDESK };
+            SendInput(1, &input, sizeof(input));
 
             const COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+
             ShowCursor(TRUE);
             SetCursorPos(ptCursor.x, ptCursor.y);
+
             // COLORREF is aaBBggRR we want aaRRggBB
             colorAsDWORD = (0xFF << 24) | (GetRValue(colorAtPixel) << 16) | (GetGValue(colorAtPixel) << 8) | GetBValue(colorAtPixel);
 

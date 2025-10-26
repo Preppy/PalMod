@@ -197,6 +197,7 @@ public:
     void ClearSelected();
     void ClearSelView();
     void ClearHighlighted();
+    void SelectFirstColor();
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
 
     void SelectAll();

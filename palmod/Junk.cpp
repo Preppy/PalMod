@@ -958,6 +958,12 @@ void CJunk::UpdateSelAmt()
     }
 }
 
+void CJunk::SelectFirstColor()
+{
+    SetSelected(L"SelectFirstColor", 1, TRUE);
+    UpdateSelAmt();
+}
+
 void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 {
     if (!m_bEnabled)
