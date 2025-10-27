@@ -1,23 +1,23 @@
 #include "StdAfx.h"
 #include "GameRegistry.h"
-#include "Game_NEOGEO_A.h"
+#include "Game_DevMode_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-stExtraDef* CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_NEOGEO_A::m_MainDescTree = nullptr;
+CDescTree CGame_DevMode_A::m_MainDescTree = nullptr;
 
-uint32_t CGame_NEOGEO_A::m_rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
-uint32_t CGame_NEOGEO_A::m_rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
+uint32_t CGame_DevMode_A::m_rgExtraCountAll[DEVMODE_A_NUMUNIT + 1];
+uint32_t CGame_DevMode_A::m_rgExtraLoc[DEVMODE_A_NUMUNIT + 1];
 
-uint32_t CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
-uint32_t CGame_NEOGEO_A::m_nConfirmedROMSize = -1;
-wchar_t CGame_NEOGEO_A::m_pszExtraNameOverride[MAX_PATH] = L"";
+uint32_t CGame_DevMode_A::m_nTotalPaletteCountForNEOGEO = 0;
+uint32_t CGame_DevMode_A::m_nConfirmedROMSize = -1;
+wchar_t CGame_DevMode_A::m_pszExtraNameOverride[MAX_PATH] = L"";
 
-void CGame_NEOGEO_A::InitializeStatics(LPCWSTR pszFileLoaded)
+void CGame_DevMode_A::InitializeStatics(LPCWSTR pszFileLoaded)
 {
-    safe_delete_array(CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM);
 
     memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
     memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
@@ -25,9 +25,9 @@ void CGame_NEOGEO_A::InitializeStatics(LPCWSTR pszFileLoaded)
     m_MainDescTree.SetRootTree(InitDescTree(pszFileLoaded));
 }
 
-CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded)
+CGame_DevMode_A::CGame_DevMode_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded)
 {
-    OutputDebugString(L"CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n");
+    OutputDebugString(L"CGame_DevMode_A::CGame_DevMode_A: Loading ROM...\n");
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -54,7 +54,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded
     }
 
     m_pszExtraFilename = m_pszExtraNameOverride;
-    m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
+    m_nTotalInternalUnits = DEVMODE_A_NUMUNIT;
     m_nExtraUnit = static_cast<uint16_t>(m_nTotalInternalUnits);
 
     m_nSafeCountForThisRom = GetExtraCountForUnit(m_nExtraUnit) + 1;
@@ -68,7 +68,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded
     InitDataBuffer();
 
     //Set game information
-    m_nGameFlag = NEOGEO_A;
+    m_nGameFlag = DEVMODE_A;
     m_nImgGameFlag = IMGDAT_SECTION_GAROU;
     m_prgGameImageSet.clear();
 
@@ -86,32 +86,32 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded
     PrepChangeTrackingArray();
 }
 
-CGame_NEOGEO_A::~CGame_NEOGEO_A()
+CGame_DevMode_A::~CGame_DevMode_A()
 {
-    safe_delete_array(CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_NEOGEO_A::GetMainTree()
+CDescTree* CGame_DevMode_A::GetMainTree()
 {
-    return &CGame_NEOGEO_A::m_MainDescTree;
+    return &CGame_DevMode_A::m_MainDescTree;
 }
 
-uint32_t CGame_NEOGEO_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
+uint32_t CGame_DevMode_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
-    return _GetExtraCount(m_rgExtraCountAll, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
+    return _GetExtraCount(m_rgExtraCountAll, DEVMODE_A_NUMUNIT, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
-void CGame_NEOGEO_A::SetAlphaModeInternal(AlphaMode NewMode)
+void CGame_DevMode_A::SetAlphaModeInternal(AlphaMode NewMode)
 {
     m_fGameUsesAlphaValue = (NewMode == AlphaMode::GameUsesVariableAlpha);
 
     return CGameClass::SetAlphaMode(NewMode);
 }
 
-void CGame_NEOGEO_A::SetAlphaMode(AlphaMode NewMode)
+void CGame_DevMode_A::SetAlphaMode(AlphaMode NewMode)
 {
     // This is called from the Settings : Color Mode : Alpha menu
     // Stomp the setting for posterity
@@ -128,7 +128,7 @@ void CGame_NEOGEO_A::SetAlphaMode(AlphaMode NewMode)
     GetHost()->GetPalModDlg()->OnPalSelChange(0);
 }
 
-bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting)
+bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting)
 {
     // ColorMode and AlphaMode need to be loosely tied together.  However, we do want to allow
     // people to override alpha mode for a given color mode.  The logic here allows for this.
@@ -278,7 +278,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     }
 }
 
-bool CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
+bool CGame_DevMode_A::SetColorMode(ColMode NewMode)
 {
     // Reset alpha mode since we're switching color formats...
     CRegProc::SetAlphaModeForUnknownGame(AlphaMode::Unknown);
@@ -286,7 +286,7 @@ bool CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
     return SetAlphaAndColorModeInternal(NewMode, AlphaMode::Unknown);
 }
 
-void CGame_NEOGEO_A::SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption)
+void CGame_DevMode_A::SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption)
 {
     // Store for next launch
     CRegProc::SetMaxWriteForUnknownGame(eUpdatedOption);
@@ -294,12 +294,12 @@ void CGame_NEOGEO_A::SetMaximumWritePerEachTransparency(PALWriteOutputOptions eU
     return CGameClass::SetMaximumWritePerEachTransparency(eUpdatedOption);
 }
 
-uint32_t CGame_NEOGEO_A::GetExtraLoc(uint32_t nUnitId)
+uint32_t CGame_DevMode_A::GetExtraLoc(uint32_t nUnitId)
 {
-    return _GetExtraLocation(m_rgExtraLoc, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
+    return _GetExtraLocation(m_rgExtraLoc, DEVMODE_A_NUMUNIT, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
-sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
+sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
 {
     //Load extra file if we're using it
     if (pszFileLoaded)
@@ -321,42 +321,42 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
                     pszDot[0] = 0;
 
                     wcsncat(m_pszExtraNameOverride, pszNewSuffix, ARRAYSIZE(m_pszExtraNameOverride) - wcslen(m_pszExtraNameOverride));
-                    LoadExtraFileForGame(m_pszExtraNameOverride, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+                    LoadExtraFileForGame(m_pszExtraNameOverride, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
                 }
             }
         }
     }
 
-    if (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) == 0)
+    if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
     {
-        safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
+        safe_delete_array(DEVMODE_A_EXTRA_CUSTOM);
         memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
         memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
 
         wcsncpy_s(m_pszExtraNameOverride, EXTRA_FILENAME_UNKNOWN_A, ARRAYSIZE(m_pszExtraNameOverride));
-        LoadExtraFileForGame(m_pszExtraNameOverride, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+        LoadExtraFileForGame(m_pszExtraNameOverride, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
     }
 
-    if (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) == 0)
+    if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
     {
         // Fall over to the old filename option
-        safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
+        safe_delete_array(DEVMODE_A_EXTRA_CUSTOM);
         memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
         memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
 
-        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
-        if (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) == 0)
+        if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
         {
             // Load the stock dummy Extra
-            safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
+            safe_delete_array(DEVMODE_A_EXTRA_CUSTOM);
             memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
             memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
 
             uint32_t nExtraArraySize = ARRAYSIZE(UNKNOWN_GAME_EXTRAS_LIST);
 
-            NEOGEO_A_EXTRA_CUSTOM = new stExtraDef[nExtraArraySize];
-            memcpy(NEOGEO_A_EXTRA_CUSTOM, UNKNOWN_GAME_EXTRAS_LIST, nExtraArraySize * sizeof(stExtraDef));
+            DEVMODE_A_EXTRA_CUSTOM = new stExtraDef[nExtraArraySize];
+            memcpy(DEVMODE_A_EXTRA_CUSTOM, UNKNOWN_GAME_EXTRAS_LIST, nExtraArraySize * sizeof(stExtraDef));
 
             CString strIntro;
             strIntro = L"Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random game ROM that PalMod does not already support. \n\n";
@@ -368,30 +368,30 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
         }
     }
 
-    uint16_t nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = DEVMODE_A_NUMUNIT + (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", KnownGameInfo::GetGameNameForGameID(NEOGEO_A));
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", KnownGameInfo::GetGameNameForGameID(DEVMODE_A));
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     m_nTotalPaletteCountForNEOGEO = _InitDescTree(NewDescTree,
-        NEOGEO_A_UNITS,
-        NEOGEO_A_EXTRALOC,
-        NEOGEO_A_NUMUNIT,
+        DEVMODE_A_UNITS,
+        DEVMODE_A_EXTRALOC,
+        DEVMODE_A_NUMUNIT,
         m_rgExtraCountAll,
         m_rgExtraLoc,
-        NEOGEO_A_EXTRA_CUSTOM
+        DEVMODE_A_EXTRA_CUSTOM
     );
 
     return NewDescTree;
 }
 
-sFileRule CGame_NEOGEO_A::GetRule(uint32_t nUnitId)
+sFileRule CGame_DevMode_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -404,44 +404,44 @@ sFileRule CGame_NEOGEO_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-uint32_t CGame_NEOGEO_A::GetCollectionCountForUnit(uint32_t nUnitId)
+uint32_t CGame_DevMode_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
-    return _GetCollectionCountForUnit(NEOGEO_A_UNITS, m_rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
+    return _GetCollectionCountForUnit(DEVMODE_A_UNITS, m_rgExtraCountAll, DEVMODE_A_NUMUNIT, DEVMODE_A_EXTRALOC, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
-uint32_t CGame_NEOGEO_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
+uint32_t CGame_DevMode_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _GetNodeCountForCollection(NEOGEO_A_UNITS, m_rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, nCollectionId, NEOGEO_A_EXTRA_CUSTOM);
+    return _GetNodeCountForCollection(DEVMODE_A_UNITS, m_rgExtraCountAll, DEVMODE_A_NUMUNIT, DEVMODE_A_EXTRALOC, nUnitId, nCollectionId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_NEOGEO_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
+LPCWSTR CGame_DevMode_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _GetDescriptionForCollection(NEOGEO_A_UNITS, NEOGEO_A_EXTRALOC, nUnitId, nCollectionId);
+    return _GetDescriptionForCollection(DEVMODE_A_UNITS, DEVMODE_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-uint32_t CGame_NEOGEO_A::GetPaletteCountForUnit(uint32_t nUnitId)
+uint32_t CGame_DevMode_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
-    return _GetPaletteCountForUnit(NEOGEO_A_UNITS, m_rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
+    return _GetPaletteCountForUnit(DEVMODE_A_UNITS, m_rgExtraCountAll, DEVMODE_A_NUMUNIT, DEVMODE_A_EXTRALOC, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_NEOGEO_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
+const sGame_PaletteDataset* CGame_DevMode_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _GetPaletteSet(NEOGEO_A_UNITS, nUnitId, nCollectionId);
+    return _GetPaletteSet(DEVMODE_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_NEOGEO_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_DevMode_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
-    return _GetNodeFromPaletteId(NEOGEO_A_UNITS, m_rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, nPaletteId, NEOGEO_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
+    return _GetNodeFromPaletteId(DEVMODE_A_UNITS, m_rgExtraCountAll, DEVMODE_A_NUMUNIT, DEVMODE_A_EXTRALOC, nUnitId, nPaletteId, DEVMODE_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_NEOGEO_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
+const sGame_PaletteDataset* CGame_DevMode_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
-    return _GetSpecificPalette(NEOGEO_A_UNITS, m_rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, nPaletteId, NEOGEO_A_EXTRA_CUSTOM);
+    return _GetSpecificPalette(DEVMODE_A_UNITS, m_rgExtraCountAll, DEVMODE_A_NUMUNIT, DEVMODE_A_EXTRALOC, nUnitId, nPaletteId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
-void CGame_NEOGEO_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+void CGame_DevMode_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
-     if (nUnitId != NEOGEO_A_EXTRALOC)
+     if (nUnitId != DEVMODE_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -460,10 +460,10 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             DebugBreak();
         }
     }
-    else // NEOGEO_A_EXTRALOC
+    else // DEVMODE_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &NEOGEO_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &DEVMODE_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes;
@@ -471,12 +471,12 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
-BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_DevMode_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    return _UpdatePalImg(NEOGEO_A_UNITS, m_rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, NEOGEO_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
+    return _UpdatePalImg(DEVMODE_A_UNITS, m_rgExtraCountAll, DEVMODE_A_NUMUNIT, DEVMODE_A_EXTRALOC, DEVMODE_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }
 
-LPCWSTR CGame_NEOGEO_A::GetGameName()
+LPCWSTR CGame_DevMode_A::GetGameName()
 {
     uint32_t nOverrideLength = static_cast<uint32_t>(strlen(m_paszGameNameOverride));
 

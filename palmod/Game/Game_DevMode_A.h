@@ -1,16 +1,16 @@
 #pragma once
 #include "gameclass.h"
-#include "NEOGEO_A_DEF.h"
+#include "DevMode_A_DEF.h"
 #include "..\extrafile.h"
 
-class CGame_NEOGEO_A : public CGameWithExtrasFile
+class CGame_DevMode_A : public CGameWithExtrasFile
 {
 private:
     static uint32_t m_nTotalPaletteCountForNEOGEO;
 
-    static uint32_t m_rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
-    static uint32_t m_rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
-    const static uint8_t NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
+    static uint32_t m_rgExtraCountAll[DEVMODE_A_NUMUNIT + 1];
+    static uint32_t m_rgExtraLoc[DEVMODE_A_NUMUNIT + 1];
+    const static uint8_t DEVMODE_A_EXTRALOC = DEVMODE_A_NUMUNIT;
     static wchar_t m_pszExtraNameOverride[MAX_PATH];
 
     static void InitializeStatics(LPCWSTR pszFileLoaded);
@@ -24,13 +24,14 @@ private:
     void SetAlphaModeInternal(AlphaMode NewMode);
     bool SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting);
 
+    // The Unknown Game / Dev Mode was formerly known as NeoGeo Mode
     static constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
     static constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
 
 public:
 
-    CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded);
-    ~CGame_NEOGEO_A();
+    CGame_DevMode_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded);
+    ~CGame_DevMode_A();
 
     //Static functions / variables
     static CDescTree m_MainDescTree;
@@ -61,7 +62,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static stExtraDef* NEOGEO_A_EXTRA_CUSTOM;
+    static stExtraDef* DEVMODE_A_EXTRA_CUSTOM;
 
     LPCWSTR GetGameName() override;
 };

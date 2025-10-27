@@ -285,7 +285,7 @@
     <ClCompile Include="Game\Game_MVC2_D.cpp" />
     <ClCompile Include="Game\Game_MVC2_P.cpp" />
     <ClCompile Include="Game\Game_MVC_A.cpp" />
-    <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
+    <ClCompile Include="Game\Game_DevMode_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
@@ -530,7 +530,7 @@
     <ClInclude Include="Game\Game_MWarr_A_DIR.h" />
     <ClInclude Include="Game\Game_NBHID_S.h" />
     <ClInclude Include="Game\Game_NeoBomberman_A.h" />
-    <ClInclude Include="Game\Game_NEOGEO_A.h" />
+    <ClInclude Include="Game\Game_DevMode_A.h" />
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_NGBC_A.h" />
     <ClInclude Include="Game\Game_NinjaMasters_A.h" />
@@ -673,7 +673,7 @@
     <ClInclude Include="Game\MWARR_A_DIR_DEF.h" />
     <ClInclude Include="Game\NBHID_S_DEF.h" />
     <ClInclude Include="Game\NeoBomberman_A_DEF.h" />
-    <ClInclude Include="Game\NEOGEO_A_DEF.h" />
+    <ClInclude Include="Game\DevMode_A_DEF.h" />
     <ClInclude Include="Game\NGBC_A_DEF.h" />
     <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
     <ClInclude Include="Game\P4AU_Common.h" />

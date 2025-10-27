@@ -582,7 +582,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
             break;
         case ColMode::COLMODE_RGB666_NEOGEO:
             // RGB666
-            uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = DEVMODE_A + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_RGB555_SHARP:
             uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
@@ -1196,7 +1196,7 @@ void CPalModDlg::HandlePasteFromPalMod()
             case LASTBLADE2_A:
             case MATRIMELEE_A:
             case NeoBomberman_A:
-            case NEOGEO_A:
+            case DEVMODE_A:
             case NINJAMASTERS_A:
             case RBFF1_A:
             case RBFF2_A:

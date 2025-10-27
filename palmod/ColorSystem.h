@@ -20,7 +20,7 @@ enum class AlphaMode
 
 enum class ColMode
 {
-    // If you add new color modes that users would want to use, you need to update CGame_NEOGEO_A::SetAlphaAndColorModeInternal
+    // If you add new color modes that users would want to use, you need to update CGame_DevMode_A::SetAlphaAndColorModeInternal
     // as well as rgColorNameToFormatMap
     // Don't change the order of this list: we emit copy strings that rely upon the ordering
     COLMODE_BGR555_LE,      // BGR555 little endian (GBA, PSX, SNES)

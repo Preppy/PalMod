@@ -717,7 +717,7 @@
     <ClCompile Include="Game\Game_Garou_A.cpp">
       <Filter>Games\SNK Games\Garou_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_NEOGEO_A.cpp">
+    <ClCompile Include="Game\Game_DevMode_A.cpp">
       <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF98_A.cpp">
@@ -1178,10 +1178,10 @@
     <ClInclude Include="Game\Garou_A_DEF.h">
       <Filter>Games\SNK Games\Garou_A</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game_NEOGEO_A.h">
+    <ClInclude Include="Game\Game_DevMode_A.h">
       <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\NEOGEO_A_DEF.h">
+    <ClInclude Include="Game\DevMode_A_DEF.h">
       <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF98_A.h">

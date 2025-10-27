@@ -108,7 +108,7 @@
 #include "Game_MWarr_A_DIR.h"
 #include "Game_NBHID_S.h"
 #include "Game_NeoBomberman_A.h"
-#include "Game_NEOGEO_A.h"
+#include "Game_DevMode_A.h"
 #include "Game_NGBC_A.h"
 #include "Game_NINJAMASTERS_A.h"
 #include "Game_P4AU_FightClub.h"
@@ -328,7 +328,7 @@ namespace KnownGameInfo
     CGameClass* Make_NBHID_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_S(nConfirmedROMSize); }
     CGameClass* Make_NeoBomberman_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NeoBomberman_A(nConfirmedROMSize); }
     CGameClass* Make_TurfMasters_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TurfMasters_A(nConfirmedROMSize, pszFilePath); }
-    CGameClass* Make_NEOGEO_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NEOGEO_A(nConfirmedROMSize, pszFilePath); }
+    CGameClass* Make_DEVMODE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DevMode_A(nConfirmedROMSize, pszFilePath); }
     CGameClass* Make_NGBC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NGBC_A(nConfirmedROMSize); }
     CGameClass* Make_NINJAMASTERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NINJAMASTERS_A(nConfirmedROMSize); }
     CGameClass* Make_P4AU_FightClub(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_FightClub(nConfirmedROMSize); }
@@ -2378,11 +2378,11 @@ namespace KnownGameInfo
         },
 
         {
-            NEOGEO_A,
+            DEVMODE_A,
             L"Unknown Game",
-            { NEOGEO_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
-            Make_NEOGEO_A,
-            CGame_NEOGEO_A::GetRule,
+            { DEVMODE_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
+            Make_DEVMODE_A,
+            CGame_DevMode_A::GetRule,
         },
     };
 

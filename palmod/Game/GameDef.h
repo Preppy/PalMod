@@ -36,7 +36,7 @@ enum SupportedGamesList
     COTA_A,
     MVC2_A,
     Garou_A,
-    NEOGEO_A,
+    DEVMODE_A,
     KOF98_A,
     KOF02UM_S,
     CVS2_A,
