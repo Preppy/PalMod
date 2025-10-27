@@ -70,7 +70,7 @@ void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
 
     if (CurrGame)
     {
-        sPalDef* PalDef = MainPalGroup->GetPalDef(m_nCurrSelPal);
+        sPalDef* PalDef = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
         uint8_t* pPal = reinterpret_cast<uint8_t*>(PalDef->pPal);
         const uint16_t nPalLength = PalDef->uPalSz;
         const int nAlphaLocation = static_cast<int>(CurrGame->GetMaximumWritePerEachTransparency());
