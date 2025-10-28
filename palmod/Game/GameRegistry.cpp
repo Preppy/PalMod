@@ -2455,6 +2455,59 @@ namespace KnownGameInfo
         return false;
     }
 
+    std::vector<SupportedGamesList> GetMatchingGamesFromFilePath(LPCWSTR pszPath)
+    {
+        LPCWSTR pszJustFileName = wcsrchr(pszPath, L'\\');
+        std::vector<SupportedGamesList> matchingGames;
+
+        if (pszJustFileName)
+        {
+            pszJustFileName = pszJustFileName + 1;
+
+            for (const CoreGameData& thisGame : GameRegistry)
+            {
+                if ((thisGame.rgFileOpenData.nInternalGameIndex != DEVMODE_A) &&
+                    (thisGame.rgFileOpenData.nInternalGameIndex != NUM_GAMES))
+                {
+                    wchar_t szSpecString[MAX_PATH];
+                    wcscpy(szSpecString, thisGame.rgFileOpenData.szGameFilterString);
+                    LPWSTR pszCurrent = szSpecString;
+                    LPWSTR pszBars = wcsstr(pszCurrent, L"|");
+
+                    if (pszBars)
+                    {
+                        // We have pattern(s)
+                        pszCurrent = pszBars + 1;
+                        pszBars = wcsstr(pszCurrent, L"|");
+                        if (pszBars)
+                        {
+                            pszBars[0] = L';'; // by swapping it out we simplify the stride
+
+                            LPWSTR pszSemi = wcsstr(pszCurrent, L";");
+                            while (pszSemi)
+                            {
+                                pszSemi[0] = 0;
+
+                                if (PathMatchSpec(pszJustFileName, pszCurrent))
+                                {
+                                    CString strMatched;
+                                    strMatched.Format(L"Matches: %s\r\n", thisGame.rgFileOpenData.szGameFriendlyName);
+                                    OutputDebugString(strMatched);
+                                    matchingGames.push_back(static_cast<SupportedGamesList>(thisGame.rgFileOpenData.nInternalGameIndex));
+                                }
+
+                                pszCurrent = pszSemi + 1;
+                                pszSemi = wcsstr(pszCurrent, L";");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return matchingGames;
+    }
+
     void SetExtraLoadingDataForGame(int nGameFlag, LPCWSTR pszFileNameLowercase, int& nGameRule)
     {
         switch (nGameFlag)

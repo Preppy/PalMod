@@ -10,6 +10,8 @@
 
 #include "Game\GameDef.h"
 #include "Game\GameClass.h"
+#include "Game\GameRegistry.h"
+#include "GameChoice.h"
 
 #include "debugutil.h"
 
@@ -256,32 +258,34 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 {
     m_currentEffectState = DROPEFFECT_NONE;
 
-    if (GetHost()->GetCurrGame())
+    bool fMightBeFirefox = false;
+    
+    if (pDataObject->IsDataAvailable(CF_HDROP))
     {
-        bool fMightBeFirefox = false;
+        // Get the HDROP data from the data object.
+        const HGLOBAL hg = pDataObject->GetGlobalData(CF_HDROP);
 
-        if (pDataObject->IsDataAvailable(CF_HDROP))
+        if (!hg)
         {
-            // Get the HDROP data from the data object.
-            const HGLOBAL hg = pDataObject->GetGlobalData(CF_HDROP);
+            return DROPEFFECT_NONE;
+        }
 
-            if (!hg)
+        const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
+
+        if (hDrop)
+        {
+            const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+
+            if (nFilesAvailable == 1)
             {
-                return DROPEFFECT_NONE;
-            }
+                wchar_t szPath[MAX_PATH];
 
-            const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
-
-            if (hDrop)
-            {
-                const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
-
-                if (nFilesAvailable == 1)
+                if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
                 {
-                    wchar_t szPath[MAX_PATH];
-
-                    if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
+                    if (GetHost()->GetCurrGame())
                     {
+                        // Handle palettes
+
                         // It's a file: is it a file type we know about?
                         // act, bmp, gif, pal, png, raw
                         // 3S: txt.dat: not supported for drag and drop
@@ -298,57 +302,110 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                             // There's a smaller list in _IsDataObjectFromFirefox that needs to mirror all image types 
                             // that Firefox might hand us.
                             if ((_wcsicmp(pszExtension, L".act") == 0) ||
-                                (_wcsicmp(pszExtension, L".gif") == 0) ||
                                 (_wcsicmp(pszExtension, L".pal") == 0) ||
-                                (_wcsicmp(pszExtension, L".png") == 0) ||
-                                (_wcsicmp(pszExtension, L".raw") == 0) ||
                                 (_wcsicmp(pszExtension, L".gpl") == 0) ||
                                 (_wcsicmp(pszExtension, L".hpl") == 0) ||
                                 (fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".impl") == 0))) ||
                                 (fAllowACRDrop && (_wcsicmp(pszExtension, L".prpl") == 0)))
                             {
                                 m_currentEffectState = DROPEFFECT_COPY;
+                                GetHost()->GetPalModDlg()->SetStatusText(L"This appears to be a usable palette.");
+                            }
+                            else if (_wcsicmp(pszExtension, L".raw") == 0)
+                            {
+                                m_currentEffectState = DROPEFFECT_COPY;
+                                GetHost()->GetPalModDlg()->SetStatusText(L"This appears to be a usable preview.");
+                            }
+                            else if ((_wcsicmp(pszExtension, L".gif") == 0) ||
+                                     (_wcsicmp(pszExtension, L".png") == 0))
+                            {
+                                m_currentEffectState = DROPEFFECT_COPY;
+                                bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
+
+                                if (fPreviewDropIsPalette)
+                                {
+                                    GetHost()->GetPalModDlg()->SetStatusText(L"This appears to be a usable palette. (Update Drop Settings if you want it as a Preview.)");
+                                }
+                                else
+                                {
+                                    if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()))
+                                    {
+                                        GetHost()->GetPalModDlg()->SetStatusText(L"This appears to be a usable preview. (Drop on main window to use as a palette.)");
+                                    }
+                                    else
+                                    {
+                                        GetHost()->GetPalModDlg()->SetStatusText(L"This appears to be a usable palette. (Drop on Preview window to use as a preview.)");
+                                    }
+                                }
                             }
                             else if (_wcsicmp(pszExtension, L".bmp") == 0)
                             {
                                 // Firefox does bad things as regards image drag and drop, so flag them
                                 fMightBeFirefox = true;
                                 m_currentEffectState = DROPEFFECT_COPY;
+                                GetHost()->GetPalModDlg()->SetStatusText(L"This appears to be a usable palette.");
                             }
+                        }
+                    }
+                    
+                    if (m_currentEffectState != DROPEFFECT_COPY)
+                    {
+                        std::vector<SupportedGamesList> rgGameMatches;
+
+                        rgGameMatches = KnownGameInfo::GetMatchingGamesFromFilePath(szPath);
+
+                        if (rgGameMatches.size())
+                        {
+                            m_currentEffectState = DROPEFFECT_COPY;
+                            CString strMsg;
+
+                            if (rgGameMatches.size() == 1)
+                            {
+                                strMsg.Format(L"We may be able to load this as '%s'.", KnownGameInfo::GetGameNameForGameID(rgGameMatches.at(0)));
+                            }
+                            else
+                            {
+                                strMsg.Format(L"This file may be from %u games that we know about.", static_cast<uint16_t>(rgGameMatches.size()));
+                            }
+                            GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+                        }
+                        else
+                        {
+                            GetHost()->GetPalModDlg()->SetStatusText(L"This specific file is not known.  You may want to manually load this file.");
                         }
                     }
                 }
             }
-
-            GlobalUnlock(hg);
-
-            if (fMightBeFirefox)
+            else
             {
-                bool fIsSupportable = false;
-
-                if (_IsDataObjectFromFirefox(pDataObject, fIsSupportable))
-                {
-                    if (fIsSupportable)
-                    {
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Firefox is weird: will create temp file for this.");
-                    }
-                    else
-                    {
-                        GetHost()->GetPalModDlg()->SetStatusText(L"This is not a supported palette source.");
-                        m_currentEffectState = DROPEFFECT_NONE;
-                    }
-                }
+                GetHost()->GetPalModDlg()->SetStatusText(L"We only support single-file drops, not multi-file drops.");
             }
         }
-        else
+
+        GlobalUnlock(hg);
+
+        if (fMightBeFirefox)
         {
-            // https://issues.chromium.org/issues/40083002
-            GetHost()->GetPalModDlg()->SetStatusText(L"Chromium's drag and drop is broken: if you use Firefox that would have worked.");
+            bool fIsSupportable = false;
+
+            if (_IsDataObjectFromFirefox(pDataObject, fIsSupportable))
+            {
+                if (fIsSupportable)
+                {
+                    GetHost()->GetPalModDlg()->SetStatusText(L"Firefox is weird: will create temp file for this.");
+                }
+                else
+                {
+                    GetHost()->GetPalModDlg()->SetStatusText(L"This is not a supported palette source.");
+                    m_currentEffectState = DROPEFFECT_NONE;
+                }
+            }
         }
     }
     else
     {
-        GetHost()->GetPalModDlg()->SetStatusText(L"Load a game first.");
+        // https://issues.chromium.org/issues/40083002
+        GetHost()->GetPalModDlg()->SetStatusText(L"Chromium's drag and drop is broken: if you use Firefox that would have worked.");
     }
 
     return m_currentEffectState;
@@ -357,6 +414,8 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point)
 {
     // This handles palette import via drag/drop: PalModDlg::OnImportPalette is the Tools menu version
+    bool fHandledDrop = false;
+
     if (GetHost()->GetCurrGame())
     {
         bool fHaveData = false;
@@ -450,14 +509,17 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             if (_wcsicmp(pszExtension, L".act") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromACT(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".bmp") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromBMP(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".cfpl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".gif") == 0)
             {
@@ -465,53 +527,152 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                 {
                     UINT nPosition = 0;
                     GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&nPosition, SpriteImportDirection::TopDown, szPath, true);
+                    fHandledDrop = true;
                 }
                 else
                 {
                     GetHost()->GetPalModDlg()->LoadPaletteFromGIF(szPath);
+                    fHandledDrop = true;
                 }
             }
             else if (_wcsicmp(pszExtension, L".gpl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromGPL(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".hpl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromHPAL(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".impl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromIMPL(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".pal") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromPAL(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".png") == 0)
             {
                 if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
                 {
                     GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, true);
+                    fHandledDrop = true;
                 }
                 else
                 {
                     GetHost()->GetPalModDlg()->LoadPaletteFromPNG(szPath);
+                    fHandledDrop = true;
                 }
             }
             else if (_wcsicmp(pszExtension, L".prpl") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromPRPL(szPath);
+                fHandledDrop = true;
             }
             else if (_wcsicmp(pszExtension, L".raw") == 0)
             {
                 UINT nPosition = 0;
                 GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&nPosition, SpriteImportDirection::TopDown, szPath, true);
+                fHandledDrop = true;
             }
         }
 
         if (fUsingFirefoxTempFile)
         {
             DeleteFile(szPath);
+        }
+    }
+    
+    if (!fHandledDrop)
+    {
+        if (pDataObject->IsDataAvailable(CF_HDROP))
+        {
+            // Get the HDROP data from the data object.
+            const HGLOBAL hg = pDataObject->GetGlobalData(CF_HDROP);
+            wchar_t szPath[MAX_PATH];
+            bool fHaveData = false;
+
+            if (hg)
+            {
+                const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
+
+                if (hDrop)
+                {
+                    const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+
+                    if (nFilesAvailable == 1)
+                    {
+                        if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
+                        {
+                            // we just need the filename right now: test later
+                            fHaveData = true;
+                        }
+                    }
+                }
+
+                GlobalUnlock(hg);
+            }
+
+            if (fHaveData)
+            {
+                std::vector<SupportedGamesList> rgGameMatches;
+
+                rgGameMatches = KnownGameInfo::GetMatchingGamesFromFilePath(szPath);
+
+                if (rgGameMatches.size())
+                {
+                    SupportedGamesList nGameChoice = NUM_GAMES;
+
+                    if (rgGameMatches.size() > 1)
+                    {
+                        // for normal usage, prompt the user to make a choice...
+                        // UNLESS it's LastLoaded, in which case just presume.
+                        SupportedGamesList nLastGame = NUM_GAMES;
+
+                        CRegProc::GetLastUsedGameFlag(nLastGame);
+
+                        for (auto& nPossibleGame : rgGameMatches)
+                        {
+                            if (nLastGame == nPossibleGame)
+                            {
+                                nGameChoice = nLastGame;
+                                break;
+                            }
+                        }
+
+                        if (nGameChoice == NUM_GAMES)
+                        {
+                            CGameChoiceDialog choiceDialog(rgGameMatches);
+
+                            if (choiceDialog.DoModal() == IDOK)
+                            {
+                                nGameChoice = rgGameMatches.at(choiceDialog.m_nCurrentSel);
+                            }
+                            else
+                            {
+                                nGameChoice = NUM_GAMES;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        nGameChoice = rgGameMatches.at(0);
+                    }
+
+                    if (nGameChoice != NUM_GAMES)
+                    {
+                        GetHost()->GetPalModDlg()->LoadGameFile(nGameChoice, szPath);
+                    }
+                    else
+                    {
+                        GetHost()->GetPalModDlg()->SetStatusText(L"Load cancelled.");
+                    }
+                }
+            }
         }
     }
 

@@ -397,6 +397,18 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,207,105,235,10
 END
 
+IDD_GAMECHOICE DIALOGEX 0, 0, 223, 88
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Load Game"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Load options",IDC_STATIC,10,7,205,78
+    LTEXT           "Load this file as:",IDC_STATIC,15,22,185,11
+    COMBOBOX        IDC_GAMECHOICE_OPTIONS,45,35,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "OK",IDOK,63,62,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,107,62,43,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -512,6 +524,10 @@ BEGIN
         RIGHTMARGIN, 442
         TOPMARGIN, 7
         BOTTOMMARGIN, 152
+    END
+
+    IDD_GAMECHOICE, DIALOG
+    BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -673,8 +689,8 @@ BEGIN
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
         POPUP "Mapping Palette"
         BEGIN
-            MENUITEM "Use, Step by 1",          ID_TOOLS_MAPPING_USE_STEP1
-            MENUITEM "Use, Step by 2",          ID_TOOLS_MAPPING_USE_STEP2
+            MENUITEM "Use, Step by 1",              ID_TOOLS_MAPPING_USE_STEP1
+            MENUITEM "Use, Step by 2",              ID_TOOLS_MAPPING_USE_STEP2
         END
         MENUITEM SEPARATOR
         MENUITEM "&Generate IPS Patch File",    ID_TOOLS_GENERATEPATCHFILE
@@ -919,6 +935,11 @@ BEGIN
     0
 END
 
+IDD_GAMECHOICE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -990,7 +1011,20 @@ BEGIN
                             "Save failed: output file '%s' does not exist."
     IDS_ROMMISMATCH_CHECK   "ERROR!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nAre you sure you wish to continue?"
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM. You probably want to click NO now and then use PalMod's Venture support instead.\n\nAre you sure you wish to load this ROM as HFTF instead of Venture?"
-    IDS_MVC2_ROMMISMATCH_CHECK "WARNING!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nSince this is MvC2 for Steam, we should be able to figure out where things are.  The size change is likely due to game modifications you made.  BUT if things do not look right, please exit and contact the PalMod team.\n\nAre you sure you wish to continue?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFPLSAVE_FAILURE    "Error saving CFPL file."
+    IDS_GPL_LOADED          "Loaded %u colors from %u color GPL file."
+    IDS_GPL_LOADFAILURE     "Failed loading GPL file."
+    IDS_IMPL_LOADED         "Loaded 8 palettes for %s %s."
+    IDS_IMPL_LOADFAILURE    "Failed loading IMPL file."
+    IDS_IMPLSAVE_SUCCESS    "IMPL file saved successfully."
+    IDS_IMPLSAVE_FAILURE    "Error saving IMPL file."
+    IDS_BBGTAGBBCF_MISMATCH "This palette is for a character that is not in this version of the game.  Do you want to apply this palette to the current character?  It will probably not look right."
+    IDS_MVC2_ROMMISMATCH_CHECK 
+                            "WARNING!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nSince this is MvC2 for Steam, we should be able to figure out where things are.  The size change is likely due to game modifications you made.  BUT if things do not look right, please exit and contact the PalMod team.\n\nAre you sure you wish to continue?"
 END
 
 STRINGTABLE
@@ -1025,23 +1059,11 @@ BEGIN
     IDS_SVC_CRYPTO_RO       "This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to this encrypted ROM.\n\nAre you sure you wish to continue?  Decryption will take a minute."
     IDS_CFPL_LOADED         "Loaded %u palettes for %s %s."
     IDS_CFPL_LOADFAILURE    "Failed loading CFPL file."
-    IDS_CFPLSAVE_SUCCESS    "CFPL file saved successfully."
-    IDS_CFPLSAVE_FAILURE    "Error saving CFPL file."
-END
-
-STRINGTABLE
-BEGIN
-    IDS_GPL_LOADED          "Loaded %u colors from %u color GPL file."
-    IDS_GPL_LOADFAILURE     "Failed loading GPL file."
     IDS_HPAL_LOADED         "Loaded %u colors from %u color HPAL file."
     IDS_HPAL_LOADFAILURE    "Failed loading HPAL file."
     IDS_HPALSAVE_SUCCESS    "HPL file saved successfully."
     IDS_HPALSAVE_FAILURE    "Error saving HPL file."
-    IDS_IMPL_LOADED         "Loaded 8 palettes for %s %s."
-    IDS_IMPL_LOADFAILURE    "Failed loading IMPL file."
-    IDS_IMPLSAVE_SUCCESS    "IMPL file saved successfully."
-    IDS_IMPLSAVE_FAILURE    "Error saving IMPL file."
-    IDS_BBGTAGBBCF_MISMATCH "This palette is for a character that is not in this version of the game.  Do you want to apply this palette to the current character?  It will probably not look right."
+    IDS_CFPLSAVE_SUCCESS    "CFPL file saved successfully."
 END
 
 STRINGTABLE
@@ -1092,6 +1114,10 @@ STRINGTABLE
 BEGIN
     IDS_TPLSAVE_SUCCESS     "TPL file saved successfully."
     IDS_TPLSAVE_FAILURE     "Error saving TPL file."
+END
+
+STRINGTABLE
+BEGIN
     IDS_PRPL_LOADFAILURE    "Failed loading PRPL file."
     IDS_PRPLSAVE_SUCCESS    "PRPL file saved successfully."
     IDS_PRPLSAVE_FAILURE    "Error saving PRPL file."

@@ -46,6 +46,7 @@
 #define IDD_DEVMODE_SELECTFILES         146
 #define IDD_PRPL_IMPORT                 147
 #define IDD_PRPL_EXPORT                 148
+#define IDD_GAMECHOICE                  149
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -150,6 +151,7 @@
 #define IDC_PRPL_PALNAME                1114
 #define IDC_PRPL_CREATOR                1115
 #define IDC_PRPL_DESCRIPTION            1116
+#define IDC_GAMECHOICE_OPTIONS          1117
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -438,9 +440,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        149
+#define _APS_NEXT_RESOURCE_VALUE        150
 #define _APS_NEXT_COMMAND_VALUE         32984
-#define _APS_NEXT_CONTROL_VALUE         1117
+#define _APS_NEXT_CONTROL_VALUE         1118
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

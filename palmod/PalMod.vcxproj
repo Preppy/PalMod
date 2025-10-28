@@ -231,6 +231,7 @@
     <ClCompile Include="CRC32.cpp" />
     <ClCompile Include="debugutil.cpp" />
     <ClCompile Include="ExtraFile.cpp" />
+    <ClCompile Include="GameChoice.cpp" />
     <ClCompile Include="Game\ColorScale.cpp" />
     <ClCompile Include="Game\CrossCopy.cpp" />
     <ClCompile Include="Game\DescTree.cpp" />
@@ -375,6 +376,7 @@
     <ClInclude Include="ColorSystem.h" />
     <ClInclude Include="CRC32.h" />
     <ClInclude Include="ExtraFile.h" />
+    <ClInclude Include="GameChoice.h" />
     <ClInclude Include="Game\AoDK_A_DEF.h" />
     <ClInclude Include="Game\AOF1_A_DEF.h" />
     <ClInclude Include="Game\AOF3_A_DEF.h" />

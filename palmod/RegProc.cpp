@@ -389,6 +389,21 @@ void CRegProc::ClearExtraFileLoadingCanary(LPCWSTR pszExtraFileName)
     }
 }
 
+void CRegProc::GetLastUsedGameFlag(SupportedGamesList& nGameFlag)
+{
+    CRegKey extraKey;
+    nGameFlag = NUM_GAMES;
+
+    if (extraKey.Open(HKEY_CURRENT_USER, c_AppRegistryRoot) == ERROR_SUCCESS)
+    {
+        DWORD dwLastGame;
+        if (extraKey.QueryDWORDValue(c_strLastUsedGFlag, dwLastGame) == ERROR_SUCCESS)
+        {
+            nGameFlag = static_cast<SupportedGamesList>(dwLastGame);
+        }
+    }
+}
+
 bool CRegProc::UserIsOnWINE()
 {
     HMODULE ntdll = GetModuleHandle(L"ntdll.dll");

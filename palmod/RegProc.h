@@ -2,6 +2,7 @@
 
 #include <array>
 #include "ColorSystem.h"
+#include "Game\GameRegistry.h"
 
 enum class eRegistryStoreID
 {
@@ -19,6 +20,7 @@ constexpr auto c_mainDefaultShowAs32 = FALSE;
 constexpr auto c_mainDefaultProcSupp = TRUE;
 constexpr auto c_mainDefaultExtraCopyData = FALSE;
 constexpr auto c_AppRegistryRoot = L"Software\\knarxed\\PalMod";
+constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 
 struct sPreviewWindowSettings
 {
@@ -100,6 +102,8 @@ public:
     static void SetExtraFileLoadingCanary(LPCWSTR pszExtraFileName, DWORD nExtraFileSize);
     static bool WasExtraFileCanaryKilledLastTime(LPCWSTR pszExtraFileName, DWORD nExtraFileSize);
     static void ClearExtraFileLoadingCanary(LPCWSTR pszExtraFileName);
+
+    static void GetLastUsedGameFlag(SupportedGamesList& nGameFlag);
 
     static bool UserIsOnWINE();
 

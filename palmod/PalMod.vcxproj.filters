@@ -1044,6 +1044,9 @@
     <ClCompile Include="MappingPalettes.cpp">
       <Filter>Palette file storage</Filter>
     </ClCompile>
+    <ClCompile Include="GameChoice.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -2215,6 +2218,9 @@
     </ClInclude>
     <ClInclude Include="MappingPalettes.h">
       <Filter>Palette file storage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameChoice.h">
+      <Filter>Main DLG/APP\Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

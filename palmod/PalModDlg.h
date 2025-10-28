@@ -120,8 +120,6 @@ private:
 
     void UpdateAppTitle();
 
-    void LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile);
-
     void LoadLastDir();
 
     void SetColorsPerLineTo8();
@@ -461,6 +459,8 @@ public:
 
     static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
     BOOL HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
+
+    void LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile);
 
     BOOL IsActivePaletteChanged() { return m_fPalChanged; };
 

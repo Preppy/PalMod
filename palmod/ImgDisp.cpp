@@ -1761,6 +1761,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     {
         CString strInfo = L"Failed to load this image.  Animated GIFs are not supported as replacement previews.";
         MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+        GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
         strInfo += "\r\n";
         OutputDebugString(strInfo.GetString());
         return false;

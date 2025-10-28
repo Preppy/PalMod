@@ -5,7 +5,6 @@
 #include "Game\GameRegistry.h"
 
 constexpr auto c_strLastUsedPath = L"LastUsedPath";
-constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
@@ -616,15 +615,7 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
         //Grab the game flag
         if (nGameFlag)
         {
-            *nGameFlag = NUM_GAMES;
-
-            dwRegType = REG_DWORD;
-            cbDataSize = sizeof(int);
-
-            if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strLastUsedGFlag, 0, &dwRegType, reinterpret_cast<LPBYTE>(nGameFlag), &cbDataSize)))
-            {
-                //fFound = TRUE;
-            }
+            CRegProc::GetLastUsedGameFlag(*nGameFlag);
         }
 
         RegCloseKey(hKey);
