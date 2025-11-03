@@ -358,8 +358,10 @@
     <ClCompile Include="PalTool.cpp" />
     <ClCompile Include="PNGfiles.cpp" />
     <ClCompile Include="PreviewDlg.cpp" />
+    <ClCompile Include="PreviewImport.cpp" />
     <ClCompile Include="PRPLfiles.cpp" />
     <ClCompile Include="PS3OEfiles.cpp" />
+    <ClCompile Include="RAWfiles.cpp" />
     <ClCompile Include="RegProc.cpp" />
     <ClCompile Include="RLEData.cpp" />
     <ClCompile Include="SettDlg.cpp" />
@@ -757,6 +759,8 @@
     <ClInclude Include="PalModDlg.h" />
     <ClInclude Include="PalTool.h" />
     <ClInclude Include="PreviewDlg.h" />
+    <ClInclude Include="PreviewImport.h" />
+    <ClInclude Include="RAWfiles.h" />
     <ClInclude Include="RegProc.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="RLEData.h" />

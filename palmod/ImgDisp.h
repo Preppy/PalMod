@@ -76,8 +76,7 @@ private:
     CRect m_rImgRct;
 
     // This should be converted over to an sImageNode probably...
-    uint8_t* m_ppSpriteOverrideTexture[MAX_IMAGES_DISPLAYABLE] = { nullptr };
-    sImageDimensions m_rgSpriteOverrideDimensions[MAX_IMAGES_DISPLAYABLE];
+    std::array<sTextureData, MAX_IMAGES_DISPLAYABLE> m_vSpriteOverrideTextures;
 
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupBlinkPalette = nullptr;
@@ -93,19 +92,17 @@ private:
 
     BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseBlinkPal = false);
 
-    bool _GetUserOptionsForTextureOverride(int nFileSize, int& nSuggestedImageWidth, int& nSuggestedImageHeight, UINT& nPositionToLoadTo, SpriteImportDirection& spriteDirection, SpriteImportCompositionStyle *pCompositionStyle);
     void _ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nNewSize);
 
-    void _CompositeTexture(uint8_t* pNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedHeight, int nSuggestedWidth, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
+    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedHeight, int nSuggestedWidth, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
     void _UpdatePreviewForExternalSprite(UINT* pnPositionToLoadTo);
 
-    void _FlipImageDataIfNeeded(SpriteImportDirection direction, uint8_t*& pImageData, int nWidth, int nHeight);
+    void _FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, int nWidth, int nHeight);
 
     void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize);
     void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
-    uint8_t* _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fPreferQuietMode = true);
-    uint8_t* _LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, int& nSuggestedHeight, int& nSuggestedWidth, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fUseQuietMode = true);
+    std::vector<uint8_t> _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fPreferQuietMode = true);
 
 public:
     CImgDisp();
@@ -193,7 +190,7 @@ public:
     void FlushUnused();
     // Just reset custom loaded sprites
     void FlushCustomSpriteOverrides();
-    void ResetCustomSpriteOverride(int nPosition);
+    void ResetCustomSpriteOverride(size_t nPosition);
 
     void ResetForNewImage();
 

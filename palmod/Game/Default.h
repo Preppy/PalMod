@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 constexpr auto MAX_DESCRIPTION_LENGTH = 96;
 
 constexpr auto UNIT_START_VALUE   = 0xf000;
@@ -51,5 +53,11 @@ struct sPoint
 {
     double x = 0.0;
     double y = 0.0;
+};
+
+struct sTextureData
+{
+    sImageDimensions dimensions;
+    std::vector<uint8_t> pixels;
 };
 

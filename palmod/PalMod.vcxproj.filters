@@ -1047,6 +1047,12 @@
     <ClCompile Include="GameChoice.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RAWfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewImport.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -2221,6 +2227,12 @@
     </ClInclude>
     <ClInclude Include="GameChoice.h">
       <Filter>Main DLG/APP\Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewImport.h">
+      <Filter>Palette file storage</Filter>
+    </ClInclude>
+    <ClInclude Include="RAWfiles.h">
+      <Filter>Palette file storage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
