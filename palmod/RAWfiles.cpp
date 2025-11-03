@@ -153,7 +153,7 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
 
         if (eCompType != RAWCompressionChoice::NoCompression)
         {
-            std::vector<uint8_t*> pNewData;
+            std::vector<uint8_t> pNewData;
             pNewData.resize(nIncomingFileSize);
 
             TextureFile.Read(pNewData.data(), nIncomingFileSize);
@@ -186,7 +186,9 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
 
             if (pNewOverrideTexture)
             {
-                GetHost()->GetPalModDlg()->SetStatusText(L"Loaded RLE-compressed RAW as a custom preview.");
+                // in theory we should let the user know that this was a compressed RAW in the status bar,
+                // but the caller is updating the status bar shortly so we won't
+                OutputDebugString(L"Loaded RLE-compressed RAW as a custom preview.");
             }
         }
         else if (fHaveViableDimensions)
