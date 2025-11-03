@@ -2,6 +2,20 @@
 #include "GameClass.h"
 #include "MVC2_D_Def.h"
 
+enum class MvC2_NumberOfColors
+{
+    // All normal releases are 6 colors only.
+    Six = 6,
+    // For Dreamcast, Jed added in palette expansion options.  The first implementation was 16 colors,
+    // which can be a little confusing to users since just A1 or A2 by itself does nothing.
+    // The second implementation is 12 colors, where it's normal (any button) and then Start + (any button).
+    // These differences are all handled via 1st_read.bin code: the palette files for both version of the
+    // palette expansions actually contain 16 palettes.  There's no way for us to detect which version the
+    // user is using - the only real option would be to prompt the user and use whichever strings match
+    // their preference.
+    Twelve_Or_Sixteen = 16,
+};
+
 class CGame_MVC2_D : public CGameClass
 {
 private:
@@ -29,7 +43,7 @@ public:
     static std::vector<std::vector<sMoveDescription>> m_pCurrentMoveDescriptions;
     static std::vector<uint16_t> m_pCurrentExtrasLayout;
     static uint8_t _nCurrentTotalColorOptions;
-    void SetNumberOfColorOptions(uint8_t nColorOptions);
+    void SetNumberOfColorOptions(MvC2_NumberOfColors nColorOptions);
 
     static uint32_t GetRuleCtr() { return m_uRuleCtr; };
     static void ResetRuleCtr() { m_uRuleCtr = 0; };

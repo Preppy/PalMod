@@ -139,6 +139,18 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL6_MVC2 =
 };
 
 // palette expansion
+#ifdef SEE_COMMENT
+// So the palette files for 12/16 are the same.  The only difference is how
+// 1st_read interacts with the file.  So we're not able to label these
+// correctly without understanding which 1st_read they're using.  So default to 
+// 16 color since that was first.
+const std::vector<LPCWSTR> DEF_BUTTONLABEL12_MVC2 =
+{
+   L"LP", L"LK", L"HP", L"HK", L"A1", L"A2",
+   L"Start+LP", L"Start+LK", L"Start+HP", L"Start+HK", L"Start+A1", L"Start+A2"
+};
+#endif
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL16_MVC2 =
 {
    L"LP", L"LK", L"HP", L"HK",

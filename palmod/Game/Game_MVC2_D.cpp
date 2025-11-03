@@ -35,12 +35,12 @@ void CGame_MVC2_D::InitializeStatics()
     m_MainDescTree.SetRootTree(CGame_MVC2_D::InitDescTree());
 }
 
-void CGame_MVC2_D::SetNumberOfColorOptions(uint8_t nColorOptions)
+void CGame_MVC2_D::SetNumberOfColorOptions(MvC2_NumberOfColors nColorOptions)
 {
     switch (nColorOptions)
     {
     default:
-    case 6:
+    case MvC2_NumberOfColors::Six:
         _nCurrentTotalColorOptions = 6;
         k_mvc2_character_coloroption_count = 6;
         m_pCurrentButtonLabelSet = m_pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
@@ -48,7 +48,7 @@ void CGame_MVC2_D::SetNumberOfColorOptions(uint8_t nColorOptions)
         m_pCurrentExtrasLayout = MVC2_D_6COLORS_EXTRADEF;
         break;
 
-    case 16:
+    case MvC2_NumberOfColors::Twelve_Or_Sixteen:
         _nCurrentTotalColorOptions = 16;
         k_mvc2_character_coloroption_count = 16;
         m_pCurrentButtonLabelSet = m_pButtonLabelSet = DEF_BUTTONLABEL16_MVC2;
@@ -78,12 +78,12 @@ CGame_MVC2_D::CGame_MVC2_D(uint32_t nConfirmedROMSize, SupportedGamesList eGameV
         {
             // We detect this at runtime, so enforce correct gameflag here
             m_nGameFlag = MVC2_D_16;
-            SetNumberOfColorOptions(16);
+            SetNumberOfColorOptions(MvC2_NumberOfColors::Twelve_Or_Sixteen);
         }
         else
         {
             m_nGameFlag = eGameVersion;
-            SetNumberOfColorOptions(6);
+            SetNumberOfColorOptions(MvC2_NumberOfColors::Six);
         }
     }
    
