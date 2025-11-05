@@ -723,3 +723,5 @@ palmod/Debug/HSF2-04e.txt
 palmod/x64/Release/KizunaE.txt
 palmod/x64/Release/KizunaSE.txt
 palmod/Debug/TurfMastersE.txt
+palmod/Viewers/Viewer_RAW.cpp
+palmod/Viewers/Viewer_RAW.h
