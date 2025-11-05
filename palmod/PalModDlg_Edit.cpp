@@ -351,8 +351,11 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     if (m_currentEffectState != DROPEFFECT_COPY)
                     {
                         std::vector<SupportedGamesList> rgGameMatches;
+                        std::vector<SupportedGamesList> rgGameDirectoryMatches;
 
-                        rgGameMatches = KnownGameInfo::GetMatchingGamesFromFilePath(szPath);
+                        KnownGameInfo::GetMatchingGamesFromFilePath(szPath, rgGameMatches, rgGameDirectoryMatches);
+
+                        rgGameMatches.insert(std::end(rgGameMatches), std::begin(rgGameDirectoryMatches), std::end(rgGameDirectoryMatches));
 
                         if (rgGameMatches.size())
                         {
@@ -619,38 +622,43 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
             if (fHaveData)
             {
-                std::vector<SupportedGamesList> rgGameMatches;
+                std::vector<SupportedGamesList> rgGameFileMatches;
+                std::vector<SupportedGamesList> rgGameDirectoryMatches;
 
-                rgGameMatches = KnownGameInfo::GetMatchingGamesFromFilePath(szPath);
+                KnownGameInfo::GetMatchingGamesFromFilePath(szPath, rgGameFileMatches, rgGameDirectoryMatches);
 
-                if (rgGameMatches.size())
+                std::vector<SupportedGamesList> rgGameTotalMatches = rgGameFileMatches;
+                rgGameTotalMatches.insert(std::end(rgGameTotalMatches), std::begin(rgGameDirectoryMatches), std::end(rgGameDirectoryMatches));
+
+                if (rgGameTotalMatches.size())
                 {
                     SupportedGamesList nGameChoice = NUM_GAMES;
+                    int nUserSelection = 0;
 
-                    if (rgGameMatches.size() > 1)
+                    if (rgGameTotalMatches.size() > 1)
                     {
                         // for normal usage, prompt the user to make a choice...
                         // UNLESS it's LastLoaded, in which case just presume.
-                        SupportedGamesList nLastGame = NUM_GAMES;
+                        SupportedGamesList nLastUsedGame = NUM_GAMES;
 
-                        CRegProc::GetLastUsedGameFlag(nLastGame);
+                        CRegProc::GetLastUsedGameFlag(nLastUsedGame);
 
-                        for (auto& nPossibleGame : rgGameMatches)
+                        for (auto& nPossibleGame : rgGameTotalMatches)
                         {
-                            if (nLastGame == nPossibleGame)
+                            if (nLastUsedGame == nPossibleGame)
                             {
-                                nGameChoice = nLastGame;
+                                nGameChoice = nLastUsedGame;
                                 break;
                             }
                         }
 
                         if (nGameChoice == NUM_GAMES)
                         {
-                            CGameChoiceDialog choiceDialog(rgGameMatches);
+                            CGameChoiceDialog choiceDialog(rgGameTotalMatches);
 
                             if (choiceDialog.DoModal() == IDOK)
                             {
-                                nGameChoice = rgGameMatches.at(choiceDialog.m_nCurrentSel);
+                                nGameChoice = rgGameTotalMatches.at(choiceDialog.m_nCurrentSel);
                             }
                             else
                             {
@@ -660,12 +668,28 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else
                     {
-                        nGameChoice = rgGameMatches.at(0);
+                        nGameChoice = rgGameTotalMatches.at(0);
                     }
 
                     if (nGameChoice != NUM_GAMES)
                     {
-                        GetHost()->GetPalModDlg()->LoadGameFile(nGameChoice, szPath);
+                        auto it = std::find(rgGameFileMatches.begin(), rgGameFileMatches.end(), nGameChoice);
+                        if (it != rgGameFileMatches.end())
+                        {
+                            GetHost()->GetPalModDlg()->LoadGameFile(nGameChoice, szPath);
+                        }
+                        else
+                        {
+                            // need just the path
+                            wchar_t* pszSlash = wcsrchr(szPath, L'\\');
+
+                            if (pszSlash)
+                            {
+                                pszSlash[0] = 0;
+                            }
+
+                            GetHost()->GetPalModDlg()->LoadGameDir(nGameChoice, szPath);
+                        }
                     }
                     else
                     {

@@ -113,8 +113,6 @@ private:
     void _WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strData, UINT nForcedLength);
 
     //Program functions
-
-    void LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir);
     void OnLoadGameByDirectory(SupportedGamesList nGameFlag);
     void OnLoadGameByUnknownFileSet();
 
@@ -460,6 +458,7 @@ public:
     static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
     BOOL HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
 
+    void LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir);
     void LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile);
 
     BOOL IsActivePaletteChanged() { return m_fPalChanged; };

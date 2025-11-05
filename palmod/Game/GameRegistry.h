@@ -17,5 +17,5 @@ namespace KnownGameInfo
 
     void SetExtraLoadingDataForGame(int nGameFlag, LPCWSTR pszFileNameLowercase, int& nGameRule);
 
-    std::vector<SupportedGamesList> GetMatchingGamesFromFilePath(LPCWSTR pszPath);
+    void GetMatchingGamesFromFilePath(LPCWSTR pszPath, std::vector<SupportedGamesList>& vMatchingFileGames, std::vector<SupportedGamesList>& vMatchingDirectoryGames);
 };

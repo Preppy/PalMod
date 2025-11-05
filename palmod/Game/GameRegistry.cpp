@@ -455,7 +455,7 @@ namespace KnownGameInfo
         ResetRuleCtrFunc ResetRuleCtr = nullptr;
     };
 
-    // Please note that this is sorted by the File Open Data display string, *not* by gameID.
+// Please note that this is sorted by the File Open Data display string, *not* by gameID.
     std::vector<CoreGameData> GameRegistry =
     {
         {
@@ -1306,7 +1306,7 @@ namespace KnownGameInfo
         {
             MSH_A,
             L"MSH (CPS2 Arcade)",
-            { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b) (CPS2)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
+            { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b) (CPS2)|msh.05*;msh.06b|", GamePlatform::CapcomCPS12 },
             Make_MSH_A,
             CGame_MSH_A::GetRule,
         },
@@ -1407,7 +1407,7 @@ namespace KnownGameInfo
         {
             MSHVSF_A,
             L"MSHvSF (CPS2 Arcade)",
-            { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
+            { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|mvs*.06a;mvs*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
             Make_MSHVSF_A,
             CGame_MSHVSF_A::GetRule,
         },
@@ -1836,7 +1836,7 @@ namespace KnownGameInfo
         {
             SFA3_A,
             L"SFA3 (CPS2 Arcade)",
-            { SFA3_A,           L"SFA3", L"SFA3 (CPS2)|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+            { SFA3_A,           L"SFA3", L"SFA3 (CPS2)|sz3*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
             Make_SFA3_A,
             CGame_SFA3_A::GetRule,
         },
@@ -2455,10 +2455,9 @@ namespace KnownGameInfo
         return false;
     }
 
-    std::vector<SupportedGamesList> GetMatchingGamesFromFilePath(LPCWSTR pszPath)
+    void GetMatchingGamesFromFilePath(LPCWSTR pszPath, std::vector<SupportedGamesList>& vMatchingFileGames, std::vector<SupportedGamesList>& vMatchingDirectoryGames)
     {
         LPCWSTR pszJustFileName = wcsrchr(pszPath, L'\\');
-        std::vector<SupportedGamesList> matchingGames;
 
         if (pszJustFileName)
         {
@@ -2466,11 +2465,16 @@ namespace KnownGameInfo
 
             for (const CoreGameData& thisGame : GameRegistry)
             {
-                if ((thisGame.rgFileOpenData.nInternalGameIndex != DEVMODE_A) &&
-                    (thisGame.rgFileOpenData.nInternalGameIndex != NUM_GAMES))
+                if ((thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_A) ||
+                    (thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_DIR))
+                {
+                    // These are very special and would just match everything
+                    continue;
+                }
+                else if (thisGame.rgFileOpenData.nInternalGameIndex != NUM_GAMES) // file-based
                 {
                     wchar_t szSpecString[MAX_PATH];
-                    wcscpy(szSpecString, thisGame.rgFileOpenData.szGameFilterString);
+                    wcscpy(szSpecString, thisGame.rgFileOpenData.strGameFilterString.data());
                     LPWSTR pszCurrent = szSpecString;
                     LPWSTR pszBars = wcsstr(pszCurrent, L"|");
 
@@ -2491,9 +2495,9 @@ namespace KnownGameInfo
                                 if (PathMatchSpec(pszJustFileName, pszCurrent))
                                 {
                                     CString strMatched;
-                                    strMatched.Format(L"Matches: %s\r\n", thisGame.rgFileOpenData.szGameFriendlyName);
+                                    strMatched.Format(L"Drop matches FILE: %s\r\n", thisGame.rgFileOpenData.strGameFriendlyName.data());
                                     OutputDebugString(strMatched);
-                                    matchingGames.push_back(static_cast<SupportedGamesList>(thisGame.rgFileOpenData.nInternalGameIndex));
+                                    vMatchingFileGames.push_back(static_cast<SupportedGamesList>(thisGame.rgFileOpenData.nInternalGameIndex));
                                 }
 
                                 pszCurrent = pszSemi + 1;
@@ -2502,10 +2506,23 @@ namespace KnownGameInfo
                         }
                     }
                 }
+                else // directory-based
+                {
+                    sFileRule firstRule = thisGame.GetRule(0);
+
+                    if ((PathMatchSpec(pszJustFileName, firstRule.szFileName)) ||
+                        (firstRule.fHasAltName && PathMatchSpec(pszJustFileName, firstRule.szAltFileName)))
+                    {
+                        CString strMatched;
+                        strMatched.Format(L"Drop matches DIRECTORY: %s\r\n", thisGame.strGameDescription.data());
+                        OutputDebugString(strMatched);
+                        vMatchingDirectoryGames.push_back(static_cast<SupportedGamesList>(thisGame.nGameId));
+                    }
+                }
             }
         }
 
-        return matchingGames;
+        return;
     }
 
     void SetExtraLoadingDataForGame(int nGameFlag, LPCWSTR pszFileNameLowercase, int& nGameRule)
