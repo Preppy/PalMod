@@ -296,7 +296,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         mii.cbSize = sizeof(MENUITEMINFO);
                         mii.fMask = MIIM_ID | MIIM_STRING;
                         mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
-                        mii.dwTypeData = const_cast<LPWSTR>(sGametoFileData.szGameFriendlyName);
+                        mii.dwTypeData = const_cast<LPWSTR>(sGametoFileData.strGameFriendlyName.data());
 
                         if (sGametoFileData.seriesKey != GameSeries::Unknown)
                         {
@@ -346,13 +346,13 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     mii.cbSize = sizeof(MENUITEMINFO);
                     mii.fMask = MIIM_ID | MIIM_STRING;
                     mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
-                    mii.dwTypeData = const_cast<LPWSTR>(sGametoFileData.szGameFriendlyName);
+                    mii.dwTypeData = const_cast<LPWSTR>(sGametoFileData.strGameFriendlyName.data());
 
                     if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
                     {
                         // This logic is used to insert our submenu mostly alphabetically
-                        if ((ppszCapcomSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
-                            (ppszCapcomSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
+                        if ((ppszCapcomSubMenu[nMenuIndex][0] <= sGametoFileData.strGameFriendlyName[0]) &&
+                            (ppszCapcomSubMenu[nMenuIndex][1] <= sGametoFileData.strGameFriendlyName[1]))
                         {
                             platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszCapcomSubMenu[nMenuIndex]);
                             nMenuIndex++;
@@ -361,8 +361,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     }
                     else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
                     {
-                        if ((ppszSNKSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
-                            (ppszSNKSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
+                        if ((ppszSNKSubMenu[nMenuIndex][0] <= sGametoFileData.strGameFriendlyName[0]) &&
+                            (ppszSNKSubMenu[nMenuIndex][1] <= sGametoFileData.strGameFriendlyName[1]))
                         {
                             platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszSNKSubMenu[nMenuIndex]);
                             nMenuIndex++;
@@ -371,8 +371,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     }
                     else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszNintendoSubMenu))))
                     {
-                        if ((ppszNintendoSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
-                            (ppszNintendoSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
+                        if ((ppszNintendoSubMenu[nMenuIndex][0] <= sGametoFileData.strGameFriendlyName[0]) &&
+                            (ppszNintendoSubMenu[nMenuIndex][1] <= sGametoFileData.strGameFriendlyName[1]))
                         {
                             platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszNintendoSubMenu[nMenuIndex]);
                             nMenuIndex++;
@@ -381,8 +381,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     }
                     else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszSteamSubMenu))))
                     {
-                        if ((ppszSteamSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
-                            (ppszSteamSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
+                        if ((ppszSteamSubMenu[nMenuIndex][0] <= sGametoFileData.strGameFriendlyName[0]) &&
+                            (ppszSteamSubMenu[nMenuIndex][1] <= sGametoFileData.strGameFriendlyName[1]))
                         {
                             platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszSteamSubMenu[nMenuIndex]);
                             nMenuIndex++;

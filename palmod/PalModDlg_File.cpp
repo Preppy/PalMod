@@ -667,7 +667,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
             LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
 
             wchar_t szGameFilter[MAX_DESCRIPTION_LENGTH];
-            wcsncpy(szGameFilter, KnownGameInfo::GetGameToFileMap().at(0).szGameFilterString, ARRAYSIZE(szGameFilter));
+            wcsncpy(szGameFilter, KnownGameInfo::GetGameToFileMap().at(0).strGameFilterString.data(), ARRAYSIZE(szGameFilter));
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
 
             LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
@@ -698,7 +698,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     // Add all the games, and make sure we know how to map index to game code
     for (int nArrayPosition = 0; nArrayPosition < static_cast<int>(rgGameToFileMap.size()); nArrayPosition++)
     {
-        szGameFileDef.Append(rgGameToFileMap.at(nArrayPosition).szGameFilterString);
+        szGameFileDef.Append(rgGameToFileMap.at(nArrayPosition).strGameFilterString.data());
         rgGameToFileMap.at(nArrayPosition).nListedGameIndex = nArrayPosition;
 
         if (rgGameToFileMap.at(nArrayPosition).nInternalGameIndex == nDefaultGameFilter)

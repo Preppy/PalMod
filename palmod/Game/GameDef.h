@@ -14,6 +14,8 @@
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase = false);
 void StruprRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput);
 
+#include <string>
+
 #include "ButtonDef.h"
 #include "ImgIdDef.h"
 #include "SuppProc.h"
@@ -328,8 +330,8 @@ constexpr auto k_nEncodedColorStringOverflowIndicator = '~';
 struct sSupportedGameToFileMap
 {
     int nInternalGameIndex = NUM_GAMES;
-    LPCWSTR szGameFriendlyName = L"uninit";
-    LPCWSTR szGameFilterString = L"uninit";
+    std::wstring strGameFriendlyName;
+    std::wstring strGameFilterString;
     GamePlatform publisherKey = GamePlatform::DevMode;
     GameSeries seriesKey = GameSeries::Unknown;
     int nListedGameIndex = INVALID_UNIT_VALUE;
