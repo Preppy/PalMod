@@ -24,6 +24,7 @@ const std::array<uint8_t, k_nHPALHeaderLength> k_rgHPALHeader =
 bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     CFile HPALFile;
     if (HPALFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
@@ -119,10 +120,10 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
             for (size_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
             {
                 // incoming is ABGR, so flip to be RBGA
-                pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor)]);
-                pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 1]);
-                pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 2]);
-                pPal[(iCurrentIndexInPalette * 4) + 3] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 3]);
+                pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor)]);
+                pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 1]);
+                pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 2]);
+                pPal[(iCurrentIndexInPalette * 4) + 3] = CurrGame->GetNearestLegal8BitColorValue_A(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 3]);
 
                 if (++iHPALIndex >= k_nHPALColorCount)
                 {

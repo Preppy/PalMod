@@ -103,9 +103,9 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
 
                             for (int iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nDLCColorCount; iCurrentIndexInPalette++)
                             {
-                                pVisiblePalette[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(rgDLCColors.at(iCurrentIndexInPalette)));
-                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(rgDLCColors.at(iCurrentIndexInPalette)));
-                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(rgDLCColors.at(iCurrentIndexInPalette)));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(GetRValue(rgDLCColors.at(iCurrentIndexInPalette)));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetGValue(rgDLCColors.at(iCurrentIndexInPalette)));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(rgDLCColors.at(iCurrentIndexInPalette)));
                             }
                         }
                         else

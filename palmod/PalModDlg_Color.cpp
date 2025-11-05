@@ -404,6 +404,8 @@ void CPalModDlg::OnRadioRGB()
 
 void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
 {
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+
     if (m_fShowAsRGBNotHSL != fShowAsRGB)
     {
         if (m_nPalSelAmt == 1)
@@ -419,15 +421,15 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
 
                 COLORREF crRGBVal = HLStoRGB(dH, dL, dS);
 
-                m_Edit_RH = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(crRGBVal));
-                m_Edit_GS = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(crRGBVal));
-                m_Edit_BL = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(crRGBVal));
+                m_Edit_RH = CurrGame->GetNearestLegal8BitColorValue_RGB(GetRValue(crRGBVal));
+                m_Edit_GS = CurrGame->GetNearestLegal8BitColorValue_RGB(GetGValue(crRGBVal));
+                m_Edit_BL = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(crRGBVal));
 
                 if (!m_fForceShowAs32bitColor)
                 {
-                    m_Edit_RH = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(m_Edit_RH);
-                    m_Edit_GS = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(m_Edit_GS);
-                    m_Edit_BL = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(m_Edit_BL);
+                    m_Edit_RH = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_RH);
+                    m_Edit_GS = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_GS);
+                    m_Edit_BL = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_BL);
                 }
             }
             else //RGBtoHLS
@@ -440,9 +442,9 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
                 }
                 else
                 {
-                    uint8_t red = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_RH);
-                    uint8_t green = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_GS);
-                    uint8_t blue = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_BL);
+                    uint8_t red = CurrGame->Get8BitValueForColorStep_RGB(m_Edit_RH);
+                    uint8_t green = CurrGame->Get8BitValueForColorStep_RGB(m_Edit_GS);
+                    uint8_t blue = CurrGame->Get8BitValueForColorStep_RGB(m_Edit_BL);
 
                     crRGBVal = RGB(red, green, blue);
                 }
@@ -486,8 +488,9 @@ void CPalModDlg::UpdateSliderPos(int nCtrlId)
 void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
 {
     UpdateData();
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-    bool fGameIsLoaded = GetHost()->GetCurrGame();
+    bool fGameIsLoaded = CurrGame;
     int* editControl = &m_Edit_RH;
 
     int nColMax = 0;
@@ -552,11 +555,11 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
             {
                 if (nCtrlId == IDC_EDIT_A)
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(LimitRGB(*editControl));
+                    *editControl = CurrGame->GetNearestLegal8BitColorValue_A(LimitRGB(*editControl));
                 }
                 else
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(LimitRGB(*editControl));
+                    *editControl = CurrGame->GetNearestLegal8BitColorValue_RGB(LimitRGB(*editControl));
                 }
             }
             else
@@ -580,11 +583,11 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
 
                 if (nCtrlId == IDC_EDIT_A)
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(LimitRGB(abs(*editControl)));
+                    *editControl = CurrGame->GetNearestLegal8BitColorValue_A(LimitRGB(abs(*editControl)));
                 }
                 else
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(LimitRGB(abs(*editControl)));
+                    *editControl = CurrGame->GetNearestLegal8BitColorValue_RGB(LimitRGB(abs(*editControl)));
                 }
 
                 *editControl = fNeg ? *editControl - *editControl - *editControl : *editControl;
@@ -612,11 +615,11 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         {
             if (nCtrlId == IDC_EDIT_A)
             {
-                nNewPos = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_A(*editControl);
+                nNewPos = CurrGame->GetColorStepFor8BitValue_A(*editControl);
             }
             else
             {
-                nNewPos = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(*editControl);
+                nNewPos = CurrGame->GetColorStepFor8BitValue_RGB(*editControl);
             }
         }
     }
@@ -664,10 +667,12 @@ void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
         }
         else
         {
-            nRH = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(nRH);
-            nGS = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(nGS);
-            nBL = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(nBL);
-            nA = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_A(nA);
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+            nRH = CurrGame->GetColorStepFor8BitValue_RGB(nRH);
+            nGS = CurrGame->GetColorStepFor8BitValue_RGB(nGS);
+            nBL = CurrGame->GetColorStepFor8BitValue_RGB(nBL);
+            nA = CurrGame->GetColorStepFor8BitValue_A(nA);
         }
     }
     else
@@ -710,11 +715,13 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
 
             if (m_fShowAsRGBNotHSL)
             {
+                CGameClass* CurrGame = GetHost()->GetCurrGame();
+
                 MainPalGroup->SetRGBA(crTarget,
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_RHSlider.GetPos()),
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_GSSlider.GetPos()),
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_BLSlider.GetPos()),
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
+                    CurrGame->Get8BitValueForColorStep_RGB(m_RHSlider.GetPos()),
+                    CurrGame->Get8BitValueForColorStep_RGB(m_GSSlider.GetPos()),
+                    CurrGame->Get8BitValueForColorStep_RGB(m_BLSlider.GetPos()),
+                    CurrGame->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                 );
             }
             else
@@ -809,15 +816,17 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
 
             if (m_fShowAsRGBNotHSL)
             {
+                CGameClass* CurrGame = GetHost()->GetCurrGame();
+
                 for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
                 {
                     if (uSelBuffer[nICtr])
                     {
                         MainPalGroup->SetRGBA(&crTarget[nICtr],
-                            GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_RHSlider.GetPos()),
-                            GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_GSSlider.GetPos()),
-                            GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_BLSlider.GetPos()),
-                            GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
+                            CurrGame->Get8BitValueForColorStep_RGB(m_RHSlider.GetPos()),
+                            CurrGame->Get8BitValueForColorStep_RGB(m_GSSlider.GetPos()),
+                            CurrGame->Get8BitValueForColorStep_RGB(m_BLSlider.GetPos()),
+                            CurrGame->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                         );
 
                         CurrPalCtrl->UpdateIndex(nICtr);
@@ -914,10 +923,11 @@ void CPalModDlg::OnBnNewCol()
     CColorDialog* ColorDlg = nullptr;
     const int nSelAmt = CurrPalCtrl->GetSelAmt();
     const DWORD colorFlags = CC_FULLOPEN | CC_RGBINIT;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     UpdateData();
 
-    const int nAVal = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_Edit_A));
+    const int nAVal = CurrGame->GetNearestLegal8BitColorValue_A(CurrGame->Get8BitValueForColorStep_A(m_Edit_A));
 
     if (nSelAmt > 1)
     {
@@ -934,9 +944,9 @@ void CPalModDlg::OnBnNewCol()
             else
             {
                 ColorDlg = new CColorDialog(RGB(
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_RH),
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_GS),
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_BL)),
+                    CurrGame->Get8BitValueForColorStep_RGB(m_Edit_RH),
+                    CurrGame->Get8BitValueForColorStep_RGB(m_Edit_GS),
+                    CurrGame->Get8BitValueForColorStep_RGB(m_Edit_BL)),
                 colorFlags);
             }
         }
@@ -960,9 +970,9 @@ void CPalModDlg::OnBnNewCol()
 
         const COLORREF crRawColor = ColorDlg->GetColor();
         
-        const uint8_t red = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(crRawColor));
-        const uint8_t green = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(crRawColor));
-        const uint8_t blue = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(crRawColor));
+        const uint8_t red = CurrGame->GetNearestLegal8BitColorValue_RGB(GetRValue(crRawColor));
+        const uint8_t green = CurrGame->GetNearestLegal8BitColorValue_RGB(GetGValue(crRawColor));
+        const uint8_t blue = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(crRawColor));
 
         const COLORREF crNewCol = (blue << 16) | (green << 8) | red;
 
@@ -1018,26 +1028,27 @@ void CPalModDlg::OnBnNewCol()
 
 void CPalModDlg::OnChangeShowAs32BitColor()
 {
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
     m_fForceShowAs32bitColor = !m_fForceShowAs32bitColor;
     // Currently only a few games have alpha setting support in the code as seen in the Game_%GAME%.cpp files
 
     UpdateData();
 
-    if (m_fShowAsRGBNotHSL && GetHost()->GetCurrGame())
+    if (m_fShowAsRGBNotHSL && CurrGame)
     {
         if (m_fForceShowAs32bitColor)
         {
-            m_Edit_RH = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_RH);
-            m_Edit_GS = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_GS);
-            m_Edit_BL = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_BL);
-            m_Edit_A = GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_Edit_A);
+            m_Edit_RH = CurrGame->Get8BitValueForColorStep_RGB(m_Edit_RH);
+            m_Edit_GS = CurrGame->Get8BitValueForColorStep_RGB(m_Edit_GS);
+            m_Edit_BL = CurrGame->Get8BitValueForColorStep_RGB(m_Edit_BL);
+            m_Edit_A = CurrGame->Get8BitValueForColorStep_A(m_Edit_A);
         }
         else
         {
-            m_Edit_RH = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(m_Edit_RH);
-            m_Edit_GS = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(m_Edit_GS);
-            m_Edit_BL = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(m_Edit_BL);
-            m_Edit_A = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_A(m_Edit_A);
+            m_Edit_RH = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_RH);
+            m_Edit_GS = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_GS);
+            m_Edit_BL = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_BL);
+            m_Edit_A = CurrGame->GetColorStepFor8BitValue_A(m_Edit_A);
         }
     }
 
@@ -1251,6 +1262,8 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
             const COLORREF colorStart = CurrPalCtrl->GetBasePal()[iInitialPos];
             const COLORREF colorFinish = CurrPalCtrl->GetBasePal()[iTerminalPos];
 
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+
             for (uint16_t iPos = 1, nCurrentStep = 0; iPos < CurrPalCtrl->GetWorkingAmt(); iPos++)
             {
                 if (rgSel[iPos] || fSelectAll)
@@ -1261,9 +1274,9 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
                     const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nSelectionAmt - 1);
                     nCurrentStep++;
 
-                    pBasePal[nPaletteIndex] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(colorStep));
-                    pBasePal[nPaletteIndex + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(colorStep));
-                    pBasePal[nPaletteIndex + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(colorStep));
+                    pBasePal[nPaletteIndex]     = CurrGame->GetNearestLegal8BitColorValue_RGB(GetRValue(colorStep));
+                    pBasePal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetGValue(colorStep));
+                    pBasePal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(colorStep));
                     pBasePal[nPaletteIndex + 3] = static_cast<uint8_t>(round(GetAValue(colorStart) + (nCurrentPercent * (GetAValue(colorFinish) - GetAValue(colorStart)))));
 
                     CurrPalCtrl->UpdateIndex(iPos);
@@ -1405,7 +1418,7 @@ void CPalModDlg::HandleColorSwap(ColorSwap action)
                 {
                     case ColorSwap::Invert:
                     {
-                        pCurrPal[nPaletteIndex] = CurrGame->GetNearestLegal8BitColorValue_RGB(static_cast<uint8_t>(~pCurrPal[nPaletteIndex]));
+                        pCurrPal[nPaletteIndex]     = CurrGame->GetNearestLegal8BitColorValue_RGB(static_cast<uint8_t>(~pCurrPal[nPaletteIndex]));
                         pCurrPal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(static_cast<uint8_t>(~pCurrPal[nPaletteIndex + 1]));
                         pCurrPal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(static_cast<uint8_t>(~pCurrPal[nPaletteIndex + 2]));
                         break;

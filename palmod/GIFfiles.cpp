@@ -85,7 +85,7 @@ bool CPalModDlg::ReadPaletteFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLO
         sourceGIF.Close();
     }
 
-    return (rgclrPaletteData.size() != 0);
+    return (!rgclrPaletteData.empty());
 }
 
 bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
@@ -96,6 +96,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
 
     if (ReadPaletteFromGIFFile(pszFileName, rgclrPaletteData))
     {
+        CGameClass* CurrGame = GetHost()->GetCurrGame();
         ProcChange();
 
         const uint8_t nActivePaletteCount = MainPalGroup->GetPalAmt();
@@ -141,9 +142,9 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
 
         for (uint32_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
         {
-            pPal[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(rgclrPaletteData.at(iGIFIndex)));
-            pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(rgclrPaletteData.at(iGIFIndex)));
-            pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(rgclrPaletteData.at(iGIFIndex)));
+            pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(GetRValue(rgclrPaletteData.at(iGIFIndex)));
+            pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetGValue(rgclrPaletteData.at(iGIFIndex)));
+            pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(rgclrPaletteData.at(iGIFIndex)));
 
             if (++iGIFIndex >= rgclrPaletteData.size())
             {

@@ -6,6 +6,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
     bool fFoundPALChunk = false;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     HMMIO hRIFFFile = mmioOpen((LPTSTR)pszFileName, nullptr, MMIO_READ);
 
@@ -64,9 +65,9 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                             for (int iAbsoluteColorIndex = 0; iAbsoluteColorIndex < nTotalNumberOfCurrentPaletteColors; iAbsoluteColorIndex++, nTotalColorsUsed++)
                             {
                                 // copy over the RGB data, skipping the A value
-                                pPal[iCurrentIndexInPalette * 4]       = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at(iPALDataIndex * 4));
-                                pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at((iPALDataIndex * 4) + 1));
-                                pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at((iPALDataIndex * 4) + 2));
+                                pPal[iCurrentIndexInPalette * 4]       = CurrGame->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at(iPALDataIndex * 4));
+                                pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at((iPALDataIndex * 4) + 1));
+                                pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at((iPALDataIndex * 4) + 2));
 
                                 if (++iPALDataIndex >= nPALColorCount)
                                 {

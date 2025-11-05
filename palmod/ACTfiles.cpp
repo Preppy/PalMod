@@ -4,7 +4,9 @@
 bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
 {
     bool fSuccess = false;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
     CFile ActFile;
+
     if (ActFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
         int nFileSz = static_cast<int>(ActFile.GetLength());
@@ -114,9 +116,9 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                 for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                 {
-                    pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
-                    pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
-                    pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
+                    pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
+                    pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
+                    pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
 
                     if (++iACTIndex >= nACTColorCount)
                     {
@@ -167,9 +169,9 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                 for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                 {
-                    pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
-                    pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
-                    pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
+                    pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
+                    pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
+                    pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
 
                     // This code exists because Fighter Factory writes upside-down color tables.
                     if (--iACTIndex >= nACTColorCount)

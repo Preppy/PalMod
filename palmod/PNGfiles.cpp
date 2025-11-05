@@ -6,6 +6,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
     bool fSuccess = false;
     bool fFoundPaletteData = false;
     CFile PNGFile;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     if (PNGFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
@@ -164,9 +165,9 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                         for (uint32_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {
-                            pPal[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at(iPNGIndex * 3));
-                            pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 1));
-                            pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 2));
+                            pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at(iPNGIndex * 3));
+                            pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 1));
+                            pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 2));
 
                             if (++iPNGIndex >= nPNGColorCount)
                             {
@@ -217,9 +218,9 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                         for (uint32_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {
-                            pPal[(iCurrentIndexInPalette * 4)] =     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at(iPNGIndex * 3));
-                            pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 1));
-                            pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 2));
+                            pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at(iPNGIndex * 3));
+                            pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 1));
+                            pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgchPaletteData.at((iPNGIndex * 3) + 2));
 
                             // This code exists because Fighter Factory writes upside-down color tables.
                             if (--iPNGIndex >= nPNGColorCount)

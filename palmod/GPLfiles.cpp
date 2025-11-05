@@ -19,6 +19,7 @@ constexpr auto k_GPLColumns = "Columns: ";
 bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     std::ifstream gplFile = {};
 
@@ -154,10 +155,10 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
 
                 for (size_t iAbsolutePaletteIndex = 1; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                 {
-                    pPal[(iCurrentIndexInPalette * 4)    ] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
-                    pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
-                    pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
-                    pPal[(iCurrentIndexInPalette * 4) + 3] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(0xFF);
+                    pPal[(iCurrentIndexInPalette * 4)    ] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
+                    pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
+                    pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
+                    pPal[(iCurrentIndexInPalette * 4) + 3] = CurrGame->GetNearestLegal8BitColorValue_A(0xFF);
 
                     if (iGPLIndex >= (nColorsFound * 3))
                     {
@@ -195,10 +196,10 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                     if ((iGPLIndex == 0) && (iAbsolutePaletteIndex < nTotalNumberOfCurrentColors))
                     {
                         // GPLs have no lead transparency bit, so when we loop an application, inject a dummy color
-                        pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(0);
-                        pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(0);
-                        pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(0);
-                        pPal[(iCurrentIndexInPalette * 4) + 3] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(0xFF);
+                        pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(0);
+                        pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(0);
+                        pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(0);
+                        pPal[(iCurrentIndexInPalette * 4) + 3] = CurrGame->GetNearestLegal8BitColorValue_A(0xFF);
                         iAbsolutePaletteIndex++;
                         iCurrentIndexInPalette++;
                         nTotalColorsUsed++;

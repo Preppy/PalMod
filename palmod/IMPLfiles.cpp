@@ -347,6 +347,7 @@ bool CPalModDlg::LoadPaletteFromIMPL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
     bool fUserWantsToApply = true;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     CFile IMPLFile;
     if (IMPLFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
@@ -499,10 +500,10 @@ bool CPalModDlg::LoadPaletteFromIMPL(LPCWSTR pszFileName)
                 for (size_t nPaletteIndex = 0; nPaletteIndex < k_nColorsPerPalette; nPaletteIndex++)
                 {
                     // incoming is BGRA, so flip to be RBGA
-                    rgConvertedPalette[(nPaletteIndex * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgIMPL[(nPaletteIndex * k_nBytesPerColor)]);
-                    rgConvertedPalette[(nPaletteIndex * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgIMPL[(nPaletteIndex * k_nBytesPerColor) + 1]);
-                    rgConvertedPalette[(nPaletteIndex * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgIMPL[(nPaletteIndex * k_nBytesPerColor) + 2]);
-                    rgConvertedPalette[(nPaletteIndex * 4) + 3] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(rgIMPL[(nPaletteIndex * k_nBytesPerColor) + 3]);
+                    rgConvertedPalette[(nPaletteIndex * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgIMPL[(nPaletteIndex * k_nBytesPerColor)]);
+                    rgConvertedPalette[(nPaletteIndex * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgIMPL[(nPaletteIndex * k_nBytesPerColor) + 1]);
+                    rgConvertedPalette[(nPaletteIndex * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgIMPL[(nPaletteIndex * k_nBytesPerColor) + 2]);
+                    rgConvertedPalette[(nPaletteIndex * 4) + 3] = CurrGame->GetNearestLegal8BitColorValue_A(rgIMPL[(nPaletteIndex * k_nBytesPerColor) + 3]);
                 }
 
                 GetHost()->GetCurrGame()->WritePal(nCollectionIndex, nPaletteId + k_nStartingPaletteAdjustment, (COLORREF*)&rgConvertedPalette, k_nColorsPerPalette);
