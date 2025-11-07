@@ -619,6 +619,9 @@
     <Filter Include="Games\SNK Games\Neo Turf Masters">
       <UniqueIdentifier>{515e6fb9-6f8c-445c-b9e7-274d02d67072}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Daraku %28Psikyo%29">
+      <UniqueIdentifier>{91444729-2d74-49b1-bc85-321d2b7148cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2233,6 +2236,12 @@
     </ClInclude>
     <ClInclude Include="RAWfiles.h">
       <Filter>Palette file storage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Daraku_A_DEF.h">
+      <Filter>Games\Other Platforms\Daraku %28Psikyo%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Daraku_A.h">
+      <Filter>Games\Other Platforms\Daraku %28Psikyo%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

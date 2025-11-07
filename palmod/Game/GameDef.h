@@ -278,6 +278,7 @@ enum SupportedGamesList
     KIZUNA_S,
     RBFF2_S,
     TURFMASTERS_A,
+    Daraku_A,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

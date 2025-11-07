@@ -27,6 +27,7 @@
 #include "Game_DaemonBride_NL.h"
 #include "Game_DaemonBrideAG_NL.h"
 #include "Game_DanKuGa_A.h"
+#include "Game_Daraku_A.h"
 #include "Game_DBFCI_A.h"
 #include "Game_DBZEB_DS.h"
 #include "Game_DBZHD_SNES.h"
@@ -184,7 +185,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 254, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 255, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -222,6 +223,7 @@ namespace KnownGameInfo
     CGameClass* Make_DaemonBrideAG_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBrideAG_NL(nConfirmedROMSize); }
     CGameClass* Make_DaemonBride_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBride_NL(nConfirmedROMSize); }
     CGameClass* Make_DANKUGA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DanKuGa_A_DIR(-1); }
+    CGameClass* Make_Daraku_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Daraku_A(nConfirmedROMSize); }
     CGameClass* Make_DBFCI_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DBFCI_A(nConfirmedROMSize); }
     CGameClass* Make_DBZEB_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DBZEB_DS(nConfirmedROMSize); }
     CGameClass* Make_DBZHD_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DBZHD_SNES(nConfirmedROMSize); }
@@ -705,6 +707,13 @@ namespace KnownGameInfo
             CGame_DanKuGa_A_DIR::GetNextRule,
             CGame_DanKuGa_A_DIR::GetRuleCtr,
             CGame_DanKuGa_A_DIR::ResetRuleCtr,
+        },
+        {
+            Daraku_A,
+            L"Daraku Tenshi (Psikyo)",
+            { Daraku_A,         L"Daraku Tenshi (Psikyo)", L"Daraku Tenshi (Psikyo)|prog.u16|", GamePlatform::OtherPlatform },
+            Make_Daraku_A,
+            CGame_Daraku_A::GetRule,
         },
         {
             DBFCI_A,
@@ -2386,7 +2395,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 254, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 255, "New GameID defined: please updated GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
