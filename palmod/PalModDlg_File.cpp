@@ -287,7 +287,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         PALWriteOutputOptions currWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
         canChangeAlpha = canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
 
-        static_assert(static_cast<ColMode>(32) == ColMode::COLMODE_LAST, "New color formats need checking/unchecking in the menus here.");
+        static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "New color formats need checking/unchecking in the menus here.");
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR333) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RBG333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RBG333) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB333) ? MF_CHECKED : MF_UNCHECKED));
@@ -321,6 +321,7 @@ void CPalModDlg::UpdateColorFormatMenu()
             MF_BYCOMMAND | (((currColMode == ColMode::COLMODE_RGBA8881) || (currColMode == ColMode::COLMODE_RGBA8881_32STEPS))? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8887, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBA8887) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8888_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBA8888_BE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8888_BE16, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBA8888_BE16) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8888_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBA8888_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRA8888_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRA8888_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRA8888_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRA8888_LE) ? MF_CHECKED : MF_UNCHECKED));
@@ -375,7 +376,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         }
     }
 
-    static_assert(static_cast<ColMode>(32) == ColMode::COLMODE_LAST, "New color formats need enabling/disabling in the menus here.");
+    static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "New color formats need enabling/disabling in the menus here.");
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RBG333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB333_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
@@ -409,6 +410,7 @@ void CPalModDlg::UpdateColorFormatMenu()
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8887, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RBGA8888_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8888_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8888_BE16, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8888_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGRA8888_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGRA8888_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);

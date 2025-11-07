@@ -86,6 +86,7 @@ namespace ColorSystem
         case ColMode::COLMODE_BGRA8888_BE:
         case ColMode::COLMODE_BGRA8888_LE:
         case ColMode::COLMODE_RBGA8888_LE:
+        case ColMode::COLMODE_RGBA8888_BE16:
         // This is a very weird one
         case ColMode::COLMODE_NEOTURFMASTERS:
             return 4;
@@ -129,6 +130,7 @@ namespace ColorSystem
         { "RGB555LE_Normal", ColMode::COLMODE_RGB555_LE_NORMAL }, // RGB555 little endian (non-true-CPS3, or 555 on a 32bit display)
         { "RBGA888_LE", ColMode::COLMODE_RBGA8888_LE },         // 32bit variant used for Fighters History
         { "NeoTurfMasters", ColMode::COLMODE_NEOTURFMASTERS },  // Very weird.  32bit value converted to RGB555 filtered into a CLUT
+        { "RGBA8888BE_16", ColMode::COLMODE_RGBA8888_BE16 },    // Psikyo variant: BE on 16bit reads
     };
 
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
@@ -383,6 +385,7 @@ namespace ColorSystem
         case ColMode::COLMODE_GRB888:
         case ColMode::COLMODE_RGB888:
         case ColMode::COLMODE_RBGA8888_LE:
+        case ColMode::COLMODE_RGBA8888_BE16:
             return k_nRGBPlaneAmtForRGB888;
         default:
             OutputDebugString(L"ERROR: unsupported color mode in GetPlaneAmtForColor.\r\n");
@@ -1556,6 +1559,40 @@ namespace ColorSystem
     uint32_t CONV_32_RGBA8888BE(uint32_t inCol)
     {
         return _byteswap_ulong(CONV_32_RGBA8888LE(inCol));
+    }
+
+    uint32_t CONV_RGBA8888BE16_32(uint32_t inCol)
+    {
+        const uint32_t auxb = (inCol & 0xFF000000) >> 24;
+        const uint32_t auxa = IsAlphaModeMutable(CurrAlphaMode) ? (inCol & 0x00FF0000) >> 16 : 0xff;
+        const uint32_t auxr = (inCol & 0x0000FF00) >> 8;
+        const uint32_t auxg = (inCol & 0x000000FF);
+
+        return (((((auxa << 8) + auxb) << 8) + auxg) << 8) + auxr;
+    }
+
+    uint32_t CONV_32_RGBA8888BE16(uint32_t inCol)
+    {
+        uint32_t auxa;
+        
+        switch (CurrAlphaMode)
+        {
+        case AlphaMode::GameUsesFixedAlpha:
+            auxa = 0xFF;
+            break;
+        case AlphaMode::GameDoesNotUseAlpha:
+            auxa = 0x00;
+            break;
+        default:
+            auxa = (inCol & 0xFF000000) >> 24;
+            break;
+        }
+
+        const uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        const uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        const uint32_t auxr = (inCol & 0x000000FF);
+        
+        return (((((auxb << 8) + auxa) << 8) + auxr) << 8) + auxg;
     }
 
     uint32_t CONV_BGRA8888BE_32(uint32_t inCol)

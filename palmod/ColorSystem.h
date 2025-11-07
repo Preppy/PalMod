@@ -61,6 +61,8 @@ enum class ColMode
     COLMODE_RBGA8888_LE,    // 32bit color used for Fighters History
     COLMODE_NEOTURFMASTERS, // Very weird.  32bit value converted to RGB555 filtered into a CLUT
 
+    COLMODE_RGBA8888_BE16,  // BE on 16bit read boundaries
+
     COLMODE_LAST,
 };
 
@@ -148,6 +150,8 @@ namespace ColorSystem
     uint32_t CONV_RGBA8888LE_32(uint32_t inCol);
     uint32_t CONV_32_RGBA8888BE(uint32_t inCol);
     uint32_t CONV_RGBA8888BE_32(uint32_t inCol);
+    uint32_t CONV_32_RGBA8888BE16(uint32_t inCol);
+    uint32_t CONV_RGBA8888BE16_32(uint32_t inCol);
     uint32_t CONV_32_BGRA8888BE(uint32_t inCol);
     uint32_t CONV_BGRA8888BE_32(uint32_t inCol);
     uint32_t CONV_32_BGRA8888LE(uint32_t inCol);

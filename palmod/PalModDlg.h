@@ -124,7 +124,7 @@ private:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert(static_cast<ColMode>(32) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
 
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
@@ -160,6 +160,7 @@ private:
     // it's only currently used for MBAACC.
     void SetColorFormatToRGBA8887() { SetColorFormatTo(ColMode::COLMODE_RGBA8887); };
     void SetColorFormatToRGBA8888_BE() { SetColorFormatTo(ColMode::COLMODE_RGBA8888_BE); };
+    void SetColorFormatToRGBA8888_BE16() { SetColorFormatTo(ColMode::COLMODE_RGBA8888_BE16); };
     void SetColorFormatToRGBA8888_LE() { SetColorFormatTo(ColMode::COLMODE_RGBA8888_LE); };
     void SetColorFormatToBGRA8888_BE() { SetColorFormatTo(ColMode::COLMODE_BGRA8888_BE); };
     void SetColorFormatToBGRA8888_LE() { SetColorFormatTo(ColMode::COLMODE_BGRA8888_LE); };
