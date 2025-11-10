@@ -44,7 +44,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                 READFROMFILEANDDECREMENT(chunkType, sizeof(chunkType) - 1);
                 chunkType[sizeof(chunkType) - 1] = 0;
 
-                strInfo.Format(L"Chunk: %4S, size 0x%x\n", chunkType, chunkLength);
+                strInfo.Format(L"\tChunk: %4S, size 0x%x\n", chunkType, chunkLength);
                 OutputDebugString(strInfo);
 
                 char crcBuffer[4];
@@ -69,16 +69,18 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                     if ((colorType == 0) || (colorType == 4)) // grayscale options
                     {
                         // PLTE entry cannot appear for this type
-                        OutputDebugString(L"pngreader: grayscale: PLTE cannot be present.\n");
+                        strInfo.Format(L"\t\tpngreader: type %u (grayscale%s): PLTE cannot be present.\n", colorType, (colorType == 0) ? L"" : L" with alpha");
+                        OutputDebugString(strInfo.GetString());
                         break;
                     }
                     else if (colorType == 3) // indexed color
                     {
-                        OutputDebugString(L"pngreader: indexed: PLTE must be present.\n");
+                        OutputDebugString(L"\t\tpngreader: type 3 (indexed): PLTE must be present.\n");
                     }
                     else // 2 - truecolor and 6 - truecolor with alpha
                     {
-                        OutputDebugString(L"pngreader: truecolor: PLTE may be present.\n");
+                        strInfo.Format(L"\t\tpngreader: type %u (truecolor%s): PLTE may be present.\n", colorType, (colorType == 2) ? L"" : L" with alpha");
+                        OutputDebugString(strInfo.GetString());
                     }
                 }
                 else if (strcmp(chunkType, "PLTE") == 0)
@@ -94,12 +96,12 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                     READFROMFILEANDDECREMENT(&rgchPaletteData[0], chunkLength);
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
-                    OutputDebugString(L"pngreader: processing PLTE header...\n");
+                    OutputDebugString(L"\t\tpngreader: processing PLTE header...\n");
 
                     const uint8_t nActivePaletteCount = MainPalGroup->GetPalAmt();
                     const int nPNGColorCount = (chunkLength / 3);
 
-                    strInfo.Format(L"\tpngreader: processing %u colors...\n", nPNGColorCount);
+                    strInfo.Format(L"\t\tpngreader: processing %u colors...\n", nPNGColorCount);
                     OutputDebugString(strInfo);
 
                     uint32_t nTotalNumberOfCurrentPaletteColors = 0;
@@ -293,7 +295,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                 else if (strcmp(chunkType, "IDAT") == 0)
                 {
                     // PLTE data if present must be present before the IDAT chunks
-                    OutputDebugString(L"pngreader: IDAT section hit: PLTE cannot be present from here on out.\n");
+                    OutputDebugString(L"\t\tpngreader: IDAT section hit: PLTE cannot be present from here on out.\n");
                     break;
                 }
                 else
@@ -315,18 +317,20 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
     if (!fFoundPaletteData)
     {
+        SetStatusText(IDS_PNGLOAD_NOTABLE);
+
         CString strMessage;
         strMessage = L"Error: This PNG file is not using indexed color and cannot be used.  Only type 3 (indexed color) PNGs contain the palette information PalMod needs.\n";
         strMessage.Append(L"\nYou might want to ask the person who made this to provide you an indexed color PNG or the ACT.\n");
         strMessage.Append(L"Failing that, open up the PNG in a picture viewer.  While PalMod is the foreground application, select a color in PalMod. ");
         strMessage.Append(L"Then hover your mouse over the \"new\" color in your image, and press CTRL+SHIFT+N to copy that color to PalMod.  Then mouse over the next color, and repeat until you're done.");
         MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(IDS_PNGLOAD_NOTABLE);
     }
     else if (!fSuccess)
     {
-        MessageBox(L"Error: This is not a valid PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
         SetStatusText(IDS_PNG_LOADFAILURE);
+
+        MessageBox(L"Error: This is not a valid PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
     }
 
     return fSuccess;

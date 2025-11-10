@@ -395,7 +395,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             {
                 if (fIsSupportable)
                 {
-                    GetHost()->GetPalModDlg()->SetStatusText(L"Firefox is weird: will create temp file for this.");
+                    GetHost()->GetPalModDlg()->SetStatusText(L"Firefox is weird: will create a temp file for this.");
                 }
                 else
                 {
