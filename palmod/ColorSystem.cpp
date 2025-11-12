@@ -1293,7 +1293,6 @@ namespace ColorSystem
     }
 
     // 24bit color conversions
-
     uint32_t CONV_BGR888_32(uint32_t inCol)
     {
         uint32_t auxr = (inCol & 0x00FF0000) >> 16;
@@ -1382,6 +1381,20 @@ namespace ColorSystem
         return (auxb | auxg | auxr);
     }
 
+    // 32 bit color options
+    inline uint32_t GetAdjustedNative32bitAlpha(uint32_t inAlpha, uint8_t nFullValueAlpha = 0xFF)
+    {
+        switch (CurrAlphaMode)
+        {
+        case AlphaMode::GameUsesFixedAlpha:
+            return nFullValueAlpha;
+        case AlphaMode::GameDoesNotUseAlpha:
+            return 0;
+        default:
+            return IsAlphaModeMutable(CurrAlphaMode) ? inAlpha : nFullValueAlpha;
+        }
+    }
+
     uint32_t CONV_RGBA8881_32(uint32_t inCol)
     {
         uint32_t auxb = GetBValue(inCol);
@@ -1404,19 +1417,10 @@ namespace ColorSystem
 
     uint32_t CONV_32_RGBA8881(uint32_t inCol)
     {
-        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24, 0x1);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
-
-        if (!IsAlphaModeMutable(CurrAlphaMode))
-        {
-            auxa = 0x01;
-        }
-        else
-        {
-            auxa = auxa ? 1 : 0;
-        }
 
         auxr = auxr;
         auxg = auxg << 8;
@@ -1455,7 +1459,7 @@ namespace ColorSystem
 
         if (!IsAlphaModeMutable(CurrAlphaMode))
         {
-            auxa = 0x80;
+            auxa = GetAdjustedNative32bitAlpha(0x80, 0x80);
         }
         else
         {
@@ -1493,15 +1497,10 @@ namespace ColorSystem
 
     uint32_t CONV_32_RBGA8888LE(uint32_t inCol)
     {
-        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
-
-        if (!IsAlphaModeMutable(CurrAlphaMode))
-        {
-            auxa = 0xff;
-        }
 
         //auxr = auxr;
         auxb = auxb << 8;
@@ -1533,15 +1532,10 @@ namespace ColorSystem
 
     uint32_t CONV_32_RGBA8888LE(uint32_t inCol)
     {
-        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
-
-        if (!IsAlphaModeMutable(CurrAlphaMode))
-        {
-            auxa = 0xff;
-        }
 
         //auxr = auxr;
         auxg = auxg << 8;
@@ -1564,7 +1558,7 @@ namespace ColorSystem
     uint32_t CONV_RGBA8888BE16_32(uint32_t inCol)
     {
         const uint32_t auxb = (inCol & 0xFF000000) >> 24;
-        const uint32_t auxa = IsAlphaModeMutable(CurrAlphaMode) ? (inCol & 0x00FF0000) >> 16 : 0xff;
+        const uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0x00FF0000) >> 16);
         const uint32_t auxr = (inCol & 0x0000FF00) >> 8;
         const uint32_t auxg = (inCol & 0x000000FF);
 
@@ -1573,21 +1567,7 @@ namespace ColorSystem
 
     uint32_t CONV_32_RGBA8888BE16(uint32_t inCol)
     {
-        uint32_t auxa;
-        
-        switch (CurrAlphaMode)
-        {
-        case AlphaMode::GameUsesFixedAlpha:
-            auxa = 0xFF;
-            break;
-        case AlphaMode::GameDoesNotUseAlpha:
-            auxa = 0x00;
-            break;
-        default:
-            auxa = (inCol & 0xFF000000) >> 24;
-            break;
-        }
-
+        const uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
         const uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         const uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         const uint32_t auxr = (inCol & 0x000000FF);
@@ -1628,15 +1608,10 @@ namespace ColorSystem
 
     uint32_t CONV_32_BGRA8888LE(uint32_t inCol)
     {
-        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
-
-        if (!IsAlphaModeMutable(CurrAlphaMode))
-        {
-            auxa = 0xff;
-        }
 
         //auxb = auxb;
         auxg = auxg << 8;
