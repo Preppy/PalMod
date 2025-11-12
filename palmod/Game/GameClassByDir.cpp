@@ -1148,7 +1148,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 32bit color read, 2 bytes from each file at a time
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        // This is an untested good faith implementation in case we run into this load type
+                        // This is an lightly tested good faith implementation in case we run into this load type
+                        // currently only used by Fighter's History
                          const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -1191,22 +1192,14 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             {
                                 uint16_t high = 0, low = 0;
 
-                                if ((nColorsRead % 2) == 0)
-                                {
-                                    rgFileHandles.at(iHandle1)->Read(&low, sizeof(low));
-                                    rgFileHandles.at(iHandle1)->Read(&high, sizeof(high));
-                                }
-                                else
-                                {
-                                    rgFileHandles.at(iHandle2)->Read(&low, sizeof(low));
-                                    rgFileHandles.at(iHandle2)->Read(&high, sizeof(high));
-                                }
+                                rgFileHandles.at(iHandle1)->Read(&low, sizeof(low));
+                                rgFileHandles.at(iHandle2)->Read(&high, sizeof(high));
 
                                 uint32_t nColorValue = (high << 16) | low;
 
-                                if (fIsLittleEndian)
+                                if (!fIsLittleEndian)
                                 {
-                                    nColorValue = _byteswap_ushort(nColorValue);
+                                    nColorValue = _byteswap_ulong(nColorValue);
                                 }
 
                                 m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsRead] = nColorValue;
@@ -1868,7 +1861,10 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 32bit color write
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        // This is an untested good faith implementation in case we run into this load type
+                        // This is a lightly tested good faith implementation in case we run into this load type
+                        // currently only used for Fighter's History
+                        const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
+
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             if (IsPaletteDirty(nUnitCtr, nPalCtr))
@@ -1906,22 +1902,19 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
                                 {
-                                    const uint32_t nColorValue = m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsWritten];
+                                    uint32_t nColorValue = m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsWritten];
                                     const bool fColorPairRemaining = (m_nCurrentPaletteSizeInColors - nColorsWritten) > 1;
+
+                                    if (!fIsLittleEndian)
+                                    {
+                                        nColorValue = _byteswap_ulong(nColorValue);
+                                    }
 
                                     const uint16_t high = (nColorValue & 0xFFFF0000) >> 16;
                                     const uint16_t low =  (nColorValue & 0xFFFF);
 
-                                    if ((nColorsWritten % 2) == 0)
-                                    {
-                                        rgFileHandles.at(iHandle1)->Write(&low, sizeof(low));
-                                        rgFileHandles.at(iHandle1)->Write(&high, sizeof(high));
-                                    }
-                                    else
-                                    {
-                                        rgFileHandles.at(iHandle2)->Write(&low, sizeof(low));
-                                        rgFileHandles.at(iHandle2)->Write(&high, sizeof(high));
-                                    }
+                                    rgFileHandles.at(iHandle1)->Write(&low, sizeof(low));
+                                    rgFileHandles.at(iHandle2)->Write(&high, sizeof(high));
                                 }
                             }
                         }
