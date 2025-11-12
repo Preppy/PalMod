@@ -622,6 +622,9 @@
     <Filter Include="Games\Other Platforms\Daraku %28Psikyo%29">
       <UniqueIdentifier>{91444729-2d74-49b1-bc85-321d2b7148cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Fighter%27s History">
+      <UniqueIdentifier>{47820c66-0a04-4016-be3b-813bde09de5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2242,6 +2245,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_Daraku_A.h">
       <Filter>Games\Other Platforms\Daraku %28Psikyo%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FightersHistory_A_DIR_DEF.h">
+      <Filter>Games\SNK Games\Fighter%27s History</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FightersHistory_A_DIR.h">
+      <Filter>Games\SNK Games\Fighter%27s History</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

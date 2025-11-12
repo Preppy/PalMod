@@ -39,6 +39,7 @@
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_FatalFury3_A.h"
 #include "Game_FightFever_A.h"
+#include "Game_FightersHistory_A_DIR.h"
 #include "Game_FotNS_P.h"
 #include "Game_GalaxyFight_A.h"
 #include "Game_Garou_A.h"
@@ -185,7 +186,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 255, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 256, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -235,6 +236,7 @@ namespace KnownGameInfo
     CGameClass* Make_FatalFuryS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_A(nConfirmedROMSize); }
     CGameClass* Make_FatalFuryS_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_SNES(nConfirmedROMSize); }
     CGameClass* Make_FightFever_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightFever_A(nConfirmedROMSize); }
+    CGameClass* Make_FightersHistory_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_FotNS_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_P(nConfirmedROMSize); }
     CGameClass* Make_GalaxyFight_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GalaxyFight_A(nConfirmedROMSize); }
     CGameClass* Make_GarouP_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GarouP_A(nConfirmedROMSize); }
@@ -794,6 +796,13 @@ namespace KnownGameInfo
             { FightFever_A,     L"Fight Fever", L"Fight Fever|060-p1.p1;060-p1.bin|", GamePlatform::NEOGEO },
             Make_FightFever_A,
             CGame_FightFever_A::GetRule,
+        },
+        {
+            FightersHistory_A,
+            L"Fighter's History",
+            { FightersHistory_A,       L"Fighter's History (Data East DECO32)", L"Fighter's History|lc00-1.1f|", GamePlatform::OtherPlatform }, // DataEast
+            Make_FightersHistory_A,
+            CGame_FightersHistory_A_DIR::GetRule,
         },
         {
             GalaxyFight_A,
@@ -2395,7 +2404,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 255, "New GameID defined: please updated GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 256, "New GameID defined: please update GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
