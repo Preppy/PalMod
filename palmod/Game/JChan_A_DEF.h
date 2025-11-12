@@ -202,6 +202,20 @@ const sGame_PaletteDataset JCHAN_A_BONUS_PALETTES_BONUS[] =
     { L"KANEKO Logo", 0xE0A40, 0xE0A60 },
     { L"Icons next to \"PLAYER SELECT\" text", 0xE0A80, 0xE0AA0 },
     { L"Win Icon", 0xE0C80, 0xE0CA0 },
+
+    { L"Small font color 1", 0xe0000, 0xe0020 },
+    { L"Small font color 2", 0xe0200, 0xe0220 },
+    { L"Small font color 3", 0xe0400, 0xe0420 },
+    { L"Small font color 4", 0xe0600, 0xe0620 },
+    { L"Lifebar", 0xe1320, 0xe1340 },
+    { L"Set/Fight text", 0xe1a00, 0xe1be0 },
+    { L"HUD time", 0xe1c20, 0xe1c40 },
+    { L"Intro names", 0xe1c40, 0xe1c60 },
+    { L"Boss intro names", 0xe1c60, 0xe1c80 },
+    { L"Pre-intro text", 0xe1ca0, 0xe1cc0 },
+    { L"Post-round announcements", 0xe1cc0, 0xe1ce0 },
+    { L"HUD time running out", 0xe1e20, 0xe1e40 },
+    { L"MAX super meter", 0xe1340, 0xe1360 },
 };
 
 const sDescTreeNode JCHAN_A_LAU_COLLECTION[] =
