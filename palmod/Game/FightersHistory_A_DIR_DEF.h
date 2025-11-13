@@ -139,8 +139,7 @@ const sGame_PaletteDataset FightersHistory_A_Karnov_Kick[] =
 
 const sGame_PaletteDataset FightersHistory_A_Bonus[] =
 {
-    { L"Character Select Icons (1/2) 0xba940", 0xba940, 0xbab40, -1, -1, &pairNext },
-    { L"Character Select Icons (2/2) 0xbab40", 0xbab40, 0xbab80 },
+    { L"Character Select Icons", 0xba940, 0xbab80 },
 };
 
 // Portraits labeled 1-2 are meant to be "merged"

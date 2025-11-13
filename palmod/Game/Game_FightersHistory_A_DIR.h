@@ -30,7 +30,7 @@ private:
         FightersHistory_A_UNITS,
         ARRAYSIZE(FightersHistory_A_UNITS),
         L"FightersHistoryE.txt",        // Extra filename
-        82,                             // Count of palettes listed in the header
+        81,                             // Count of palettes listed in the header
         0xb7140,                        // Lowest known location used for palettes
     };
 
