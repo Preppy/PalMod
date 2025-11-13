@@ -1558,7 +1558,7 @@ namespace ColorSystem
     uint32_t CONV_RGBA8888BE16_32(uint32_t inCol)
     {
         const uint32_t auxb = (inCol & 0xFF000000) >> 24;
-        const uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0x00FF0000) >> 16);
+        const uint32_t auxa = IsAlphaModeMutable(CurrAlphaMode) ? (inCol & 0x00FF0000) >> 16 : 0xff;
         const uint32_t auxr = (inCol & 0x0000FF00) >> 8;
         const uint32_t auxg = (inCol & 0x000000FF);
 
