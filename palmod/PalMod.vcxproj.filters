@@ -1059,6 +1059,9 @@
     <ClCompile Include="PreviewImport.cpp">
       <Filter>Palette file storage</Filter>
     </ClCompile>
+    <ClCompile Include="DropTarget.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -2231,9 +2234,6 @@
     <ClInclude Include="MappingPalettes.h">
       <Filter>Palette file storage</Filter>
     </ClInclude>
-    <ClInclude Include="GameChoice.h">
-      <Filter>Main DLG/APP\Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="PreviewImport.h">
       <Filter>Palette file storage</Filter>
     </ClInclude>
@@ -2251,6 +2251,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_FightersHistory_A_DIR.h">
       <Filter>Games\SNK Games\Fighter%27s History</Filter>
+    </ClInclude>
+    <ClInclude Include="GameChoice.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DropTarget.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

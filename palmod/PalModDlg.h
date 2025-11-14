@@ -12,9 +12,9 @@
 #include "UndoRedo.h"
 #include "ColorSystem.h"
 #include "MappingPalettes.h"
+#include "DropTarget.h"
 
 #include "afxcmn.h"
-#include <afxole.h> // for drag and drop support
 
 #define round(x)(x > 0.0 ? x + 0.5 : x + -0.5)
 
@@ -43,20 +43,6 @@ struct GIFHeader
     byte aspectratio;
 };
 #pragma pack(pop)
-
-class CPalDropTarget : public COleDropTarget
-{
-public:
-    DROPEFFECT OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point) override;
-    BOOL OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point) override;
-    // maintain state until we have a new enter event
-    DROPEFFECT OnDragOver(CWnd*, COleDataObject*, DWORD, CPoint) override{ return m_currentEffectState; };
-
-private:
-    DROPEFFECT m_currentEffectState = DROPEFFECT_NONE;
-
-    bool _IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename = nullptr);
-};
 
 // CPalModDlg dialog
 class CPalModDlg : public CDialog
@@ -502,7 +488,7 @@ public:
     bool LoadPaletteFromPRPL(LPCWSTR pszFileName);
     // PS3 palette files
     bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
-    // if you add a new palette type here, please update the CPalDropTarget support in PalModDlg_Edit
+    // if you add a new palette type here, please update the CPalDropTarget support in DropTarget.cpp
 
     DECLARE_MESSAGE_MAP()
 };
