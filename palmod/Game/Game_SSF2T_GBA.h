@@ -40,7 +40,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_GBA,
-        AlphaMode::GameUsesChaoticAlpha,
+        AlphaMode::GameUsesChaoticAlpha,    // This is ONLY used for ST GBA: updated colors will move to full alpha.
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
         m_rgCRC32Data,

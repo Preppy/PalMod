@@ -29,7 +29,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_NOBUTTONS,
-        AlphaMode::GameUsesChaoticAlpha,
+        AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
         m_rgCRC32Data,
