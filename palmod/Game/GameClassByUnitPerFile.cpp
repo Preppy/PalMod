@@ -1096,7 +1096,14 @@ BOOL CGameClassPerUnitPerFile::SaveFile(CFile* SaveFile, uint32_t nFileUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for unit %u\n", nTotalPalettesSaved, nFileUnitId);
+    if (nTotalPalettesSaved)
+    {
+        strMsg.Format(L"CGameClassPerUnitPerFile::SaveFile: Saved 0x%x palettes to disk for unit %u\n", nTotalPalettesSaved, nFileUnitId);
+    }
+    else
+    {
+        strMsg.Format(L"CGameClassPerUnitPerFile::SaveFile: No changes found for unit %u\n", nFileUnitId);
+    }
     OutputDebugString(strMsg);
 
     return TRUE;
