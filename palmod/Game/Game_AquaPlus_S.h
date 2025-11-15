@@ -22,6 +22,9 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_NOBUTTONS,
+        // This is a stub setting: the actual alpha is set in CGame_AquaPlus_S::LoadSpecificPaletteData
+        // because Aqua is doing weird things with Alpha.  In theory this is more Chaotic than anything 
+        // else, but we've gone with this so far so I'll leave this in place.
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGRA8888_LE,
         m_sFileLoadingData,
