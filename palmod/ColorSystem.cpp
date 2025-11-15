@@ -120,6 +120,7 @@ namespace ColorSystem
         { "GRB888", ColMode::COLMODE_GRB888 },                  // 24bit
         // This section added to enable user exploration in dev mode: not needed directly for any games yet
         { "BGR333", ColMode::COLMODE_BGR333 },
+        { "RBG333", ColMode::COLMODE_RBG333 },
         { "RGB333", ColMode::COLMODE_RBG333 },
         { "BGR444", ColMode::COLMODE_BGR444 },
         { "BRG444", ColMode::COLMODE_BRG444 },
@@ -469,6 +470,19 @@ namespace ColorSystem
         return (auxb << 1) | (auxr << 9) | (auxg << 13);
     }
 
+    inline uint8_t GetAdjustedNativeAlpha(uint16_t inAlpha, uint8_t nFullValueAlpha)
+    {
+        switch (CurrAlphaMode)
+        {
+        case AlphaMode::GameUsesFixedAlpha:
+            return nFullValueAlpha;
+        case AlphaMode::GameDoesNotUseAlpha:
+            return 0;
+        default:
+            return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nFullValueAlpha;
+        }
+    }
+
     uint32_t CONV_BGR555LE_32(uint16_t inCol)
     {
         uint32_t red = (inCol & 31) << 3;
@@ -491,19 +505,10 @@ namespace ColorSystem
 
     uint16_t CONV_32_BGR555LE(uint32_t inCol)
     {
-        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
-        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
-        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
-        uint16_t auxr = ((inCol & 0x000000FF));
-
-        if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
-        {
-            auxa = 0;
-        }
-        else
-        {
-            auxa = (auxa == 0xFF) ? 0x1 : 0;
-        }
+        const uint16_t auxa = GetAdjustedNativeAlpha(((inCol & 0xFF000000) >> 24), 0x01);
+        const uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        const uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        const uint16_t auxr = ((inCol & 0x000000FF));
 
         return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
     }
@@ -558,15 +563,7 @@ namespace ColorSystem
         auxg = auxg << 4;
         //auxr = auxr;
 
-        if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
-        {
-            auxa = 0;
-        }
-        else
-        {
-            auxa = static_cast<uint16_t>(round(auxa / 17.0));
-            auxa = auxa << 12;
-        }
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -607,19 +604,10 @@ namespace ColorSystem
         auxg = static_cast<uint16_t>(round(auxg / 17.0));
         auxb = static_cast<uint16_t>(round(auxb / 17.0));
 
-        //auxb = auxb;
-        auxg = auxg << 8;
+        //auxg = auxg;
         auxr = auxr << 4;
-
-        if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
-        {
-            auxa = 0;
-        }
-        else
-        {
-            auxa = static_cast<uint16_t>(round(auxa / 17.0));
-            auxa = auxa << 12;
-        }
+        auxb = auxb << 8;
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -664,15 +652,7 @@ namespace ColorSystem
         //auxg = auxg;
         auxr = auxr << 8;
 
-        if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
-        {
-            auxa = 0;
-        }
-        else
-        {
-            auxa = static_cast<uint16_t>(round(auxa / 17.0));
-            auxa = auxa << 12;
-        }
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -717,15 +697,7 @@ namespace ColorSystem
         auxg = auxg << 4;
         auxr = auxr << 8;
 
-        if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
-        {
-            auxa = 0;
-        }
-        else
-        {
-            auxa = static_cast<uint16_t>(round(auxa / 17.0));
-            auxa = auxa << 12;
-        }
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -1009,15 +981,7 @@ namespace ColorSystem
         auxg = auxg << 5;
         //auxb = auxb; no-op
 
-        if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
-        {
-            auxa = 0;
-        }
-        else
-        {
-            auxa = (auxa != 0) ? 1 : 0;
-            auxa = auxa << 15;
-        }
+        auxa = GetAdjustedNativeAlpha(auxa, 0x1) << 15;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -1382,19 +1346,6 @@ namespace ColorSystem
     }
 
     // 32 bit color options
-    inline uint32_t GetAdjustedNative32bitAlpha(uint32_t inAlpha, uint8_t nFullValueAlpha = 0xFF)
-    {
-        switch (CurrAlphaMode)
-        {
-        case AlphaMode::GameUsesFixedAlpha:
-            return nFullValueAlpha;
-        case AlphaMode::GameDoesNotUseAlpha:
-            return 0;
-        default:
-            return IsAlphaModeMutable(CurrAlphaMode) ? inAlpha : nFullValueAlpha;
-        }
-    }
-
     uint32_t CONV_RGBA8881_32(uint32_t inCol)
     {
         uint32_t auxb = GetBValue(inCol);
@@ -1417,7 +1368,7 @@ namespace ColorSystem
 
     uint32_t CONV_32_RGBA8881(uint32_t inCol)
     {
-        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24, 0x1);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0x1);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -1459,7 +1410,7 @@ namespace ColorSystem
 
         if (!IsAlphaModeMutable(CurrAlphaMode))
         {
-            auxa = GetAdjustedNative32bitAlpha(0x80, 0x80);
+            auxa = GetAdjustedNativeAlpha(0x80, 0x80);
         }
         else
         {
@@ -1497,7 +1448,7 @@ namespace ColorSystem
 
     uint32_t CONV_32_RBGA8888LE(uint32_t inCol)
     {
-        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -1532,7 +1483,7 @@ namespace ColorSystem
 
     uint32_t CONV_32_RGBA8888LE(uint32_t inCol)
     {
-        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -1567,7 +1518,7 @@ namespace ColorSystem
 
     uint32_t CONV_32_RGBA8888BE16(uint32_t inCol)
     {
-        const uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
+        const uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
         const uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         const uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         const uint32_t auxr = (inCol & 0x000000FF);
@@ -1608,7 +1559,7 @@ namespace ColorSystem
 
     uint32_t CONV_32_BGRA8888LE(uint32_t inCol)
     {
-        uint32_t auxa = GetAdjustedNative32bitAlpha((inCol & 0xFF000000) >> 24);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -2317,5 +2268,129 @@ namespace ColorSystem
         const COLORREF colorStep = XYZtoRGB(xStep, yStep, zStep);
 
         return colorStep;
+    }
+
+    void Test16BitConverters(ColMode cmColorMode, uint32_t (*from16to32)(uint16_t), uint16_t (*from32to16)(uint32_t))
+    {
+        CString strOutput;
+        strOutput.Format(L"Output for %S:\r\n", GetColorFormatStringForColorFormat(cmColorMode));
+        OutputDebugString(strOutput.GetString());
+
+        std::array<AlphaMode, 3> alphaModes = { AlphaMode::GameDoesNotUseAlpha , AlphaMode::GameUsesFixedAlpha, AlphaMode::GameUsesVariableAlpha };
+
+        for (AlphaMode& currAlphaMode : alphaModes)
+        {
+            SetAlphaMode(currAlphaMode);
+
+            std::array<uint32_t, 3> rgSampleNumbers = { 0, 0x1f5fafff, 0xffffffff };
+
+            for (uint32_t& nIn32 : rgSampleNumbers)
+            {
+                const uint16_t nAs16 = from32to16(nIn32);
+                const uint32_t nOut32 = from16to32(nAs16);
+                const uint16_t nBack16 = from32to16(nOut32);
+
+                strOutput.Format(L"\t%10S:\tIn: 0x%04x Display: 0x%08x Out: 0x%04x\r\n", GetAlphaModeStringForAlphaMode(currAlphaMode), nAs16, nOut32, nBack16);
+                OutputDebugString(strOutput.GetString());
+
+                if ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) && (nAs16 != nBack16))
+                {
+                    OutputDebugString(L"ERROR! Math is wrong.\r\n");
+                    DebugBreak();
+                }
+            }
+        }
+
+        OutputDebugString(L"\r\n");
+    }
+
+    void Test32BitConverters(ColMode cmColorMode, uint32_t(*from32toScreen32)(uint32_t), uint32_t(*fromScreen32to32)(uint32_t))
+    {
+        CString strOutput;
+        strOutput.Format(L"Output for %S:\r\n", GetColorFormatStringForColorFormat(cmColorMode));
+        OutputDebugString(strOutput.GetString());
+
+        std::array<AlphaMode, 3> alphaModes = { AlphaMode::GameDoesNotUseAlpha , AlphaMode::GameUsesFixedAlpha, AlphaMode::GameUsesVariableAlpha };
+
+        for (AlphaMode& currAlphaMode : alphaModes)
+        {
+            SetAlphaMode(currAlphaMode);
+
+            std::array<uint32_t, 3> rgSampleNumbers = { 0, 0x1f5fafff, 0xffffffff };
+
+            for (uint32_t& nIn32 : rgSampleNumbers)
+            {
+                const uint32_t nAs32 = fromScreen32to32(nIn32);
+                const uint32_t nOut32 = from32toScreen32(nAs32);
+                const uint32_t nBack32 = fromScreen32to32(nOut32);
+
+                strOutput.Format(L"\t%10S:\tIn: 0x%08x Display: 0x%08x Out: 0x%08x\r\n", GetAlphaModeStringForAlphaMode(currAlphaMode), nAs32, nOut32, nBack32);
+                OutputDebugString(strOutput.GetString());
+
+                if ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) && (nAs32 != nBack32))
+                {
+
+                    OutputDebugString(L"ERROR! Math is wrong.\r\n");
+                    DebugBreak();
+                }
+            }
+        }
+
+        OutputDebugString(L"\r\n");
+    }
+
+    void TestColorConversions()
+    {
+        static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "Please add the new color format to this table and run this check once to double-check your math.");
+
+        Test16BitConverters(ColMode::COLMODE_BGR333, &ColorSystem::CONV_BGR333_32, &ColorSystem::CONV_32_BGR333);
+        Test16BitConverters(ColMode::COLMODE_RBG333, &ColorSystem::CONV_RBG333_32, &ColorSystem::CONV_32_RBG333);
+        Test16BitConverters(ColMode::COLMODE_RGB333, &ColorSystem::CONV_RGB333_32, &ColorSystem::CONV_32_RGB333);
+
+        Test16BitConverters(ColMode::COLMODE_BGR444, &ColorSystem::CONV_BGR444_32, &ColorSystem::CONV_32_BGR444);
+        Test16BitConverters(ColMode::COLMODE_BRG444, &ColorSystem::CONV_BRG444_32, &ColorSystem::CONV_32_BRG444);
+        Test16BitConverters(ColMode::COLMODE_RBG444, &ColorSystem::CONV_RBG444_32, &ColorSystem::CONV_32_RBG444);
+        
+        Test16BitConverters(ColMode::COLMODE_RGB444_BE, &ColorSystem::CONV_RGB444BE_32, &ColorSystem::CONV_32_RGB444BE);
+        Test16BitConverters(ColMode::COLMODE_RGB444_LE, &ColorSystem::CONV_RGB444LE_32, &ColorSystem::CONV_32_RGB444LE);
+        Test16BitConverters(ColMode::COLMODE_BGR555_LE, &ColorSystem::CONV_BGR555LE_32, &ColorSystem::CONV_32_BGR555LE);
+
+        Test16BitConverters(ColMode::COLMODE_BGR555_BE, &ColorSystem::CONV_BGR555BE_32, &ColorSystem::CONV_32_BGR555BE);
+        Test16BitConverters(ColMode::COLMODE_xBGR555_LE, &ColorSystem::CONV_xBGR555LE_32, &ColorSystem::CONV_32_xBGR555LE);
+        Test16BitConverters(ColMode::COLMODE_RGB555_LE_CPS3, &ColorSystem::CONV_RGB555LE_32_CPS3, &ColorSystem::CONV_32_RGB555LE_CPS3);
+
+        Test16BitConverters(ColMode::COLMODE_RGB555_LE_NORMAL, &ColorSystem::CONV_RGB555LE_32_NORMAL, &ColorSystem::CONV_32_RGB555LE_NORMAL);
+        Test16BitConverters(ColMode::COLMODE_RGB555_BE, &ColorSystem::CONV_RGB555BE_32, &ColorSystem::CONV_32_RGB555BE);
+        Test16BitConverters(ColMode::COLMODE_BRG555_LE, &ColorSystem::CONV_BRG555LE_32, &ColorSystem::CONV_32_BRG555LE);
+
+        Test16BitConverters(ColMode::COLMODE_GRB555_LE, &ColorSystem::CONV_GRB555LE_32, &ColorSystem::CONV_32_GRB555LE);
+        Test16BitConverters(ColMode::COLMODE_GRB555_BE, &ColorSystem::CONV_GRB555BE_32, &ColorSystem::CONV_32_GRB555BE);
+        Test16BitConverters(ColMode::COLMODE_RGB555_SHARP, &ColorSystem::CONV_RGB555Sharp_32, &ColorSystem::CONV_32_RGB555Sharp);
+
+        // Skip NeoTurf Masters
+        // Skip NeoGeo
+
+        // 24bit
+        Test32BitConverters(ColMode::COLMODE_RGB888, &ColorSystem::CONV_RGB888_32, &ColorSystem::CONV_32_RGB888);
+        Test32BitConverters(ColMode::COLMODE_BGR888, &ColorSystem::CONV_BGR888_32, &ColorSystem::CONV_32_BGR888);
+        Test32BitConverters(ColMode::COLMODE_BRG888, &ColorSystem::CONV_BRG888_32, &ColorSystem::CONV_32_BRG888);
+        Test32BitConverters(ColMode::COLMODE_GRB888, &ColorSystem::CONV_GRB888_32, &ColorSystem::CONV_32_GRB888);
+
+        // 32bit
+        Test32BitConverters(ColMode::COLMODE_RGBA8881, &ColorSystem::CONV_RGBA8881_32, &ColorSystem::CONV_32_RGBA8881);
+
+        // This is handled by UI clamps only.
+        // Test32BitConverters(ColMode::COLMODE_RGBA8881_32STEPS, &ColorSystem::CONV_RGBA8881_32, &ColorSystem::CONV_32_RGBA8881);
+
+        Test32BitConverters(ColMode::COLMODE_RGBA8887, &ColorSystem::CONV_RGBA8887_32, &ColorSystem::CONV_32_RGBA8887);
+
+        Test32BitConverters(ColMode::COLMODE_RGBA8888_BE, &ColorSystem::CONV_RGBA8888BE_32, &ColorSystem::CONV_32_RGBA8888BE);
+        Test32BitConverters(ColMode::COLMODE_RGBA8888_BE16, &ColorSystem::CONV_RGBA8888BE16_32, &ColorSystem::CONV_32_RGBA8888BE16);
+        Test32BitConverters(ColMode::COLMODE_RGBA8888_LE, &ColorSystem::CONV_RGBA8888LE_32, &ColorSystem::CONV_32_RGBA8888LE);
+        Test32BitConverters(ColMode::COLMODE_BGRA8888_BE, &ColorSystem::CONV_BGRA8888BE_32, &ColorSystem::CONV_32_BGRA8888BE);
+        Test32BitConverters(ColMode::COLMODE_RBGA8888_LE, &ColorSystem::CONV_RBGA8888LE_32, &ColorSystem::CONV_32_RBGA8888LE);
+        Test32BitConverters(ColMode::COLMODE_BGRA8888_LE, &ColorSystem::CONV_BGRA8888LE_32, &ColorSystem::CONV_32_BGRA8888LE);
+
+        return;
     }
 }

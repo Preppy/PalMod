@@ -99,6 +99,10 @@ CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
 #endif
 
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+#ifdef DEBUG
+    ColorSystem::TestColorConversions();
+#endif
 }
 
 void CPalModDlg::DoDataExchange(CDataExchange* pDX)
