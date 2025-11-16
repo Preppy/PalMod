@@ -16,6 +16,7 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         { L"Virtua Fighter 2 (Genesis)", L"mpr-19107+mpr-19108.bin", 0x937380F3, 0 },
+        { L"Virtua Fighter 2 (Genesis)", L"virtua fighter 2 (usa, europe).md", 0x937380F3, 0 },
     };
 
     const sCoreGameData m_sCoreGameData

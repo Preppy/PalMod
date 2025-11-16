@@ -1469,7 +1469,7 @@ namespace KnownGameInfo
             L"MvC2 (NAOMI Arcade)",
             // MarvelVsCapcom2.bin
             // Unlocked\MarvelVsCapcom2_unlocked.bin
-            { MVC2_A,           L"MvC2", L"MvC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", GamePlatform::SegaNAOMI },
+            { MVC2_A,           L"MvC2", L"MvC2 Arcade (MarvelVsCapcom2_unlocked.bin)|marvel vs. capcom 2.dat;marvel*2*.bin|", GamePlatform::SegaNAOMI },
             Make_MVC2_A,
             CGame_MVC2_A::GetRule_A,
         },
@@ -2349,7 +2349,7 @@ namespace KnownGameInfo
         {
             VirtuaFighter2_GEN,
             L"Virtua Fighter 2 (Genesis)",
-            { VirtuaFighter2_GEN,          L"Virtua Fighter 2 (Genesis)", L"Virtua Fighter 2 (Genesis)|mpr-19107+mpr-19108.bin|", GamePlatform::OtherPlatform },
+            { VirtuaFighter2_GEN,          L"Virtua Fighter 2 (Genesis)", L"Virtua Fighter 2 (Genesis)|mpr-19107+mpr-19108.bin;Virtua Fighter 2 (USA, Europe).md|", GamePlatform::OtherPlatform },
             Make_VirtuaFighter2_GEN,
             CGame_VirtuaFighter2_GEN::GetRule,
         },
