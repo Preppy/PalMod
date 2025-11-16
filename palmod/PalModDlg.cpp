@@ -902,6 +902,7 @@ void CPalModDlg::ClearGameVar()
 
     // Indicate no game is loaded
     Enable(FALSE);
+    SetStatusText(L"No game loaded.");
 
     UpdateAppTitle();
 }
