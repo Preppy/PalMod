@@ -279,3 +279,13 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_STNL20 =
    L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20",
     L"21", L"21", L"23", L"24", L"25", L"26", L"27", L"28", L"29", L"30",
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_VF2GEN =
+{
+    L"P1", L"P2", L"Up+A", L"Down+A", L"Up+C", L"Down+C"
+};
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_FH3SNES =
+{
+    L"Y", L"X", L"B", L"A", L"Start", L"L/R+Y", L"L/R+X", L"L/R+B", L"L/R+A", L"L/R+Start"
+};

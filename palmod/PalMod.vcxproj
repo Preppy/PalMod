@@ -421,6 +421,7 @@
     <ClInclude Include="Game\FatalFury3_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h" />
+    <ClInclude Include="Game\FightersHistory3_SNES_DEF.h" />
     <ClInclude Include="Game\FightersHistory_A_DIR_DEF.h" />
     <ClInclude Include="Game\FightFever_A_DEF.h" />
     <ClInclude Include="Game\FotNS_P_DEF.h" />
@@ -468,6 +469,7 @@
     <ClInclude Include="Game\Game_FatalFury3_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
+    <ClInclude Include="Game\Game_FightersHistory3_SNES.h" />
     <ClInclude Include="Game\Game_FightersHistory_A_DIR.h" />
     <ClInclude Include="Game\Game_FightFever_A.h" />
     <ClInclude Include="Game\Game_FotNS_P.h" />
@@ -605,6 +607,7 @@
     <ClInclude Include="Game\Game_Venture_A.h" />
     <ClInclude Include="Game\Game_Venture_A_DIR.h" />
     <ClInclude Include="Game\Game_VHUNT2_A.h" />
+    <ClInclude Include="Game\Game_VirtuaFighter2_GEN.h" />
     <ClInclude Include="Game\Game_VSAV2_A.h" />
     <ClInclude Include="Game\Game_VSAV_A.h" />
     <ClInclude Include="Game\Game_WakuWaku7_A.h" />
@@ -746,6 +749,7 @@
     <ClInclude Include="Game\VampireNightWarriors_A_DEF.h" />
     <ClInclude Include="Game\Venture_A_DEF.h" />
     <ClInclude Include="Game\VHUNT2_A_DEF.h" />
+    <ClInclude Include="Game\VirtuaFighter2_GEN_DEF.h" />
     <ClInclude Include="Game\VSAV2_A_DEF.h" />
     <ClInclude Include="Game\VSAV_A_DEF.h" />
     <ClInclude Include="Game\WakuWaku7_A_DEF.h" />

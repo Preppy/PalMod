@@ -142,7 +142,6 @@ const sGame_PaletteDataset FightersHistory_A_Bonus[] =
     { L"Character Select Icons", 0xba940, 0xbab80 },
 };
 
-// Portraits labeled 1-2 are meant to be "merged"
 const sGame_PaletteDataset FightersHistory_A_Portraits_Ray[] =
 {
     { L"Ray Punch 1", 0xc1940, 0xc1980, -1, -1, &pairNext },

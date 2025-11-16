@@ -280,6 +280,8 @@ enum SupportedGamesList
     TURFMASTERS_A,
     Daraku_A,
     FightersHistory_A,
+    FightersHistory3_SNES,
+    VirtuaFighter2_GEN,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

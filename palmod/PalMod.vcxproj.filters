@@ -625,6 +625,12 @@
     <Filter Include="Games\SNK Games\Fighter%27s History">
       <UniqueIdentifier>{47820c66-0a04-4016-be3b-813bde09de5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Fighters History 3 %28SNES%29">
+      <UniqueIdentifier>{73164b62-b21a-4eb7-b8f2-bd88b32b85fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Sega\Virtua Fighter 2 %28Genesis%29">
+      <UniqueIdentifier>{d2b0a483-bb22-4e0d-a5fb-d341928adb67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2257,6 +2263,18 @@
     </ClInclude>
     <ClInclude Include="DropTarget.h">
       <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FightersHistory3_SNES_DEF.h">
+      <Filter>Games\Nintendo\Fighters History 3 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FightersHistory3_SNES.h">
+      <Filter>Games\Nintendo\Fighters History 3 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VirtuaFighter2_GEN.h">
+      <Filter>Games\Sega\Virtua Fighter 2 %28Genesis%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VirtuaFighter2_GEN_DEF.h">
+      <Filter>Games\Sega\Virtua Fighter 2 %28Genesis%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

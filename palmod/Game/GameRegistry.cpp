@@ -40,6 +40,7 @@
 #include "Game_FatalFury3_A.h"
 #include "Game_FightFever_A.h"
 #include "Game_FightersHistory_A_DIR.h"
+#include "Game_FightersHistory3_SNES.h"
 #include "Game_FotNS_P.h"
 #include "Game_GalaxyFight_A.h"
 #include "Game_Garou_A.h"
@@ -178,6 +179,7 @@
 #include "Game_VHUNT2_A.h"
 #include "Game_VSAV_A.h"
 #include "Game_VSAV2_A.h"
+#include "Game_VirtuaFighter2_GEN.h"
 #include "Game_WakuWaku7_A.h"
 #include "Game_Windjammers_A.h"
 #include "Game_WorldHeroesPerfect_A.h"
@@ -186,7 +188,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 256, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 258, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -237,6 +239,7 @@ namespace KnownGameInfo
     CGameClass* Make_FatalFuryS_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_SNES(nConfirmedROMSize); }
     CGameClass* Make_FightFever_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightFever_A(nConfirmedROMSize); }
     CGameClass* Make_FightersHistory_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_FightersHistory3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory3_SNES(nConfirmedROMSize); }
     CGameClass* Make_FotNS_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_P(nConfirmedROMSize); }
     CGameClass* Make_GalaxyFight_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GalaxyFight_A(nConfirmedROMSize); }
     CGameClass* Make_GarouP_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GarouP_A(nConfirmedROMSize); }
@@ -431,6 +434,7 @@ namespace KnownGameInfo
     CGameClass* Make_VSAV_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV_S(nConfirmedROMSize); }
     CGameClass* Make_VSAV2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_A(nConfirmedROMSize); }
     CGameClass* Make_VSAV2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_S(nConfirmedROMSize); }
+    CGameClass* Make_VirtuaFighter2_GEN(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VirtuaFighter2_GEN(nConfirmedROMSize); }
     CGameClass* Make_WakuWaku7_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_A(nConfirmedROMSize); }
     CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Windjammers_A(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroesPerfect_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_A(nConfirmedROMSize); }
@@ -803,6 +807,13 @@ namespace KnownGameInfo
             { FightersHistory_A,       L"Fighter's History (Data East DECO32)", L"Fighter's History|lc00-1.1f|", GamePlatform::OtherPlatform }, // DataEast
             Make_FightersHistory_A,
             CGame_FightersHistory_A_DIR::GetRule,
+        },
+        {
+            FightersHistory3_SNES,
+            L"Fighter's History - Mizoguchi Kikiippatsu!! (SNES)",
+            { FightersHistory3_SNES,       L"Fighter's History - Mizoguchi Kikiippatsu!! (Japan)", L"Fighter's History - Mizoguchi Kikiippatsu!! (SNES JPN)|Fighter's History - Mizoguchi Kikiippatsu!! (Japan).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
+            Make_FightersHistory3_SNES,
+            CGame_FightersHistory3_SNES::GetRule,
         },
         {
             GalaxyFight_A,
@@ -2336,6 +2347,13 @@ namespace KnownGameInfo
             CGame_VSAV2_S::GetRule,
         },
         {
+            VirtuaFighter2_GEN,
+            L"Virtua Fighter 2 (Genesis)",
+            { VirtuaFighter2_GEN,          L"Virtua Fighter 2 (Genesis)", L"Virtua Fighter 2 (Genesis)|mpr-19107+mpr-19108.bin|", GamePlatform::OtherPlatform },
+            Make_VirtuaFighter2_GEN,
+            CGame_VirtuaFighter2_GEN::GetRule,
+        },
+        {
             Gowcaizer_A,
             L"Voltage Fighter Gowcaizer (Neo-Geo)",
             { Gowcaizer_A,      L"Voltage Fighter Gowcaizer", L"Voltage Fighter Gowcaizer|094-p1.*|", GamePlatform::NEOGEO },
@@ -2404,7 +2422,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 256, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 258, "New GameID defined: please update GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
