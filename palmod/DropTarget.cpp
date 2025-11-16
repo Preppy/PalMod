@@ -178,7 +178,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
             if (!strMessageOut.IsEmpty())
             {
-                if (!GetHost()->GetCurrGame())
+                if (!fGameIsLoaded)
                 {
                     strMessageOut = L"Load a game first! " + strMessageOut;
                     m_currentEffectState = DROPEFFECT_NONE;

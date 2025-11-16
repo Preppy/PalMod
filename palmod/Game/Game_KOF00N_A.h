@@ -29,7 +29,7 @@ private:
         KOF00N_A_UNITS,
         ARRAYSIZE(KOF00N_A_UNITS),
         L"KOF00nE.txt",     // Extra filename
-        1160,               // Count of palettes listed in the header
+        1343,               // Count of palettes listed in the header
         0xc97f0,            // Lowest known location used for palettes
     };
 
