@@ -561,4 +561,8 @@ const stPaletteProcessingInformation secondaryGreyTintEffects_Skip31{ paletteBud
 
 const stPaletteProcessingInformation effects_AdditiveBlend{ {}, BlendMode::AdditiveARGB };
 
+const std::vector<std::vector<uint16_t>> palettePostProc_CopyToNext = { { SUPP_NODE, 0x01, /* this 3rd value unused outside of mvc2 */ 0xff }, };
+
+const stPaletteProcessingInformation secondaryProcCopyToNext{ palettePostProc_CopyToNext };
+
 #pragma endregion

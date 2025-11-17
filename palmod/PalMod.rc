@@ -208,7 +208,7 @@ BEGIN
     GROUPBOX        "Settings",IDC_STATIC,4,0,251,140
     CONTROL         "Allow changing transparency for games that support it.\n(Not Recommended)",IDC_CALPHATRANS,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,20,230,20
-    CONTROL         "Process Supplement Palettes for MvC2, SF3 (Arcade), COTA, MBTL, MSH, MSHVSF, MVC, UNICLR, and XMVSF.\n(ex: Cyclops HK, Spider-Man win poses, etc)\n(Recommended)",IDC_CUPDSUPP,
+    CONTROL         "Process Supplement Palettes for MvC2, SF3 (Arcade), COTA, KOF02UM_S, MBTL, MSH, MSHVSF, MVC, UNICLR, and XMVSF.\n(ex: Cyclops HK, Spider-Man win poses, etc)\n(Recommended)",IDC_CUPDSUPP,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,44,230,41
     PUSHBUTTON      "OK",IDOK,87,117,43,14
     PUSHBUTTON      "Cancel",IDCANCEL,131,117,43,14

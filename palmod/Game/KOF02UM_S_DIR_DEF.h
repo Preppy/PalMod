@@ -414,7 +414,8 @@ const sDescTreeNode KOF02UM_S_STAGES_COLLECTION_IGNIZ[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Andy[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Andy, 0x40, &pairNext },
+    // The victory palettes use replicated palettes: handle those on Update
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Andy, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Andy, 0x41, &pairPrevious },
 };
 
@@ -425,7 +426,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Andy[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Angel[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Angel, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Angel, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Angel, 0x41, &pairPrevious },
 };
 
@@ -436,7 +437,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Angel[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Athena[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Athena, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Athena, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Athena, 0x41, &pairPrevious },
 };
 
@@ -447,7 +448,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Athena[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Bao[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Bao, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Bao, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Bao, 0x41, &pairPrevious },
 };
 
@@ -458,7 +459,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Bao[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Benimaru[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Benimaru, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Benimaru, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Benimaru, 0x41, &pairPrevious },
 };
 
@@ -469,7 +470,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Benimaru[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Billy[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Billy, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Billy, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Billy, 0x41, &pairPrevious },
 };
 
@@ -480,7 +481,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Billy[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_BlueMary[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_BlueMary, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_BlueMary, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_BlueMary, 0x41, &pairPrevious },
 };
 
@@ -491,7 +492,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_BlueMary[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chang[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Chang, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Chang, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Chang, 0x41, &pairPrevious },
 };
 
@@ -502,7 +503,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Chang[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chin[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Chin, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Chin, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Chin, 0x41, &pairPrevious },
 };
 
@@ -513,7 +514,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Chin[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Choi[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Choi, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Choi, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Choi, 0x41, &pairPrevious },
 };
 
@@ -524,7 +525,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Choi[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chris[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Chris, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Chris, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Chris, 0x41, &pairPrevious },
 };
 
@@ -535,7 +536,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Chris[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ChrisOChi[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_ChrisOChi, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_ChrisOChi, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_ChrisOChi, 0x41, &pairPrevious },
 };
 
@@ -546,7 +547,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_ChrisOChi[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Clark[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Clark, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Clark, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Clark, 0x41, &pairPrevious },
 };
 
@@ -557,7 +558,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Clark[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_CloneZero[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_CloneZero, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_CloneZero, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_CloneZero, 0x41, &pairPrevious },
 };
 
@@ -568,7 +569,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_CloneZero[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Daimon[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Daimon, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Daimon, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Daimon, 0x41, &pairPrevious },
 };
 
@@ -579,7 +580,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Daimon[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Foxy[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Foxy, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Foxy, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Foxy, 0x41, &pairPrevious },
 };
 
@@ -590,7 +591,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Foxy[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Geese[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Geese, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Geese, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Geese, 0x41, &pairPrevious },
 };
 
@@ -601,7 +602,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Geese[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_GeeseNM[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_GeeseNM, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_GeeseNM, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_GeeseNM, 0x41, &pairPrevious },
 };
 
@@ -612,7 +613,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_GeeseNM[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Goenitz[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Goenitz, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Goenitz, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Goenitz, 0x41, &pairPrevious },
 };
 
@@ -623,7 +624,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Goenitz[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Heidern[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Heidern, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Heidern, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Heidern, 0x41, &pairPrevious },
 };
 
@@ -634,7 +635,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Heidern[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Hinako[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Hinako, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Hinako, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Hinako, 0x41, &pairPrevious },
 };
 
@@ -645,7 +646,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Hinako[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Igniz[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Igniz, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Igniz, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Igniz, 0x41, &pairPrevious },
 };
 
@@ -656,7 +657,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Igniz[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Iori[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Iori, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Iori, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Iori, 0x41, &pairPrevious },
 };
 
@@ -667,7 +668,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Iori[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Jhun[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Jhun, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Jhun, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Jhun, 0x41, &pairPrevious },
 };
 
@@ -678,7 +679,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Jhun[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Joe[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Joe, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Joe, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Joe, 0x41, &pairPrevious },
 };
 
@@ -689,7 +690,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Joe[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_K[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_K, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_K, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_K, 0x41, &pairPrevious },
 };
 
@@ -700,7 +701,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_K[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_K9999[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_K9999, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_K9999, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_K9999, 0x41, &pairPrevious },
 };
 
@@ -711,7 +712,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_K9999[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kasumi[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kasumi, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kasumi, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kasumi, 0x41, &pairPrevious },
 };
 
@@ -722,7 +723,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kasumi[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kensou[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kensou, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kensou, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kensou, 0x41, &pairPrevious },
 };
 
@@ -733,7 +734,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kensou[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_KensouEX[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_KensouEX, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_KensouEX, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_KensouEX, 0x41, &pairPrevious },
 };
 
@@ -744,7 +745,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_KensouEX[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kim[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kim, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kim, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kim, 0x41, &pairPrevious },
 };
 
@@ -755,7 +756,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kim[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_King[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_King, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_King, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_King, 0x41, &pairPrevious },
 };
 
@@ -766,7 +767,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_King[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Krizalid[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Krizalid, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Krizalid, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Krizalid, 0x41, &pairPrevious },
 };
 
@@ -777,7 +778,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Krizalid[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kula[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kula, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kula, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kula, 0x41, &pairPrevious },
 };
 
@@ -788,7 +789,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kula[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kusanagi[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kusanagi, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kusanagi, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kusanagi, 0x41, &pairPrevious },
 };
 
@@ -799,7 +800,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kusanagi[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_KyoKusa[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_KyoKusa, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_KyoKusa, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_KyoKusa, 0x41, &pairPrevious },
 };
 
@@ -810,7 +811,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_KyoKusa[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kyo1[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kyo1, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kyo1, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kyo1, 0x41, &pairPrevious },
 };
 
@@ -821,7 +822,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kyo1[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kyo2[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kyo2, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kyo2, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kyo2, 0x41, &pairPrevious },
 };
 
@@ -832,7 +833,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kyo2[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Leona[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Leona, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Leona, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Leona, 0x41, &pairPrevious },
 };
 
@@ -843,7 +844,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Leona[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Lin[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Lin, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Lin, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Lin, 0x41, &pairPrevious },
 };
 
@@ -854,7 +855,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Lin[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Mai[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mai, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mai, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Mai, 0x41, &pairPrevious },
 };
 
@@ -865,7 +866,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Mai[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Mature[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mature, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mature, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Mature, 0x41, &pairPrevious },
 };
 
@@ -876,7 +877,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Mature[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Maxima[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Maxima, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Maxima, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Maxima, 0x41, &pairPrevious },
 };
 
@@ -887,7 +888,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Maxima[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_MayLee[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_MayLee, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_MayLee, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_MayLee, 0x41, &pairPrevious },
 };
 
@@ -898,7 +899,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_MayLee[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Nameless[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Nameless, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Nameless, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Nameless, 0x41, &pairPrevious },
 };
 
@@ -909,7 +910,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Nameless[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_OmegaRugal[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_OmegaRugal, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_OmegaRugal, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_OmegaRugal, 0x41, &pairPrevious },
 };
 
@@ -920,7 +921,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_OmegaRugal[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ralf[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Ralf, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Ralf, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Ralf, 0x41, &pairPrevious },
 };
 
@@ -931,7 +932,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Ralf[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ramon[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Ramon, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Ramon, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Ramon, 0x41, &pairPrevious },
 };
 
@@ -942,7 +943,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Ramon[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Robert[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Robert, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Robert, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Robert, 0x41, &pairPrevious },
 };
 
@@ -953,7 +954,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Robert[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_RobertEX[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_RobertEX, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_RobertEX, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_RobertEX, 0x41, &pairPrevious },
 };
 
@@ -964,7 +965,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_RobertEX[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ryo[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Ryo, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Ryo, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Ryo, 0x41, &pairPrevious },
 };
 
@@ -975,7 +976,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Ryo[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Seth[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Seth, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Seth, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Seth, 0x41, &pairPrevious },
 };
 
@@ -986,7 +987,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Seth[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Shermie[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Shermie, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Shermie, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Shermie, 0x41, &pairPrevious },
 };
 
@@ -997,7 +998,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Shermie[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ShermieOChi[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_ShermieOChi, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_ShermieOChi, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_ShermieOChi, 0x41, &pairPrevious },
 };
 
@@ -1008,7 +1009,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_ShermieOChi[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Shingo[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Shingo, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Shingo, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Shingo, 0x41, &pairPrevious },
 };
 
@@ -1019,7 +1020,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Shingo[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Takuma[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Takuma, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Takuma, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Takuma, 0x41, &pairPrevious },
 };
 
@@ -1030,7 +1031,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Takuma[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_TakumaEX[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_TakumaEX, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_TakumaEX, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_TakumaEX, 0x41, &pairPrevious },
 };
 
@@ -1041,7 +1042,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_TakumaEX[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Terry[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Terry, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Terry, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Terry, 0x41, &pairPrevious },
 };
 
@@ -1052,7 +1053,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Terry[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Vanessa[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Vanessa, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Vanessa, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Vanessa, 0x41, &pairPrevious },
 };
 
@@ -1063,7 +1064,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Vanessa[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Vice[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Vice, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Vice, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Vice, 0x41, &pairPrevious },
 };
 
@@ -1074,7 +1075,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Vice[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Whip[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Whip, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Whip, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Whip, 0x41, &pairPrevious },
 };
 
@@ -1085,7 +1086,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Whip[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Xiangfei[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Xiangfei, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Xiangfei, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Xiangfei, 0x41, &pairPrevious },
 };
 
@@ -1096,7 +1097,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Xiangfei[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yamazaki[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Yamazaki, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Yamazaki, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Yamazaki, 0x41, &pairPrevious },
 };
 
@@ -1107,7 +1108,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Yamazaki[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yashiro[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Yashiro, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Yashiro, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Yashiro, 0x41, &pairPrevious },
 };
 
@@ -1118,7 +1119,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Yashiro[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_YashiroOChi[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_YashiroOChi, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_YashiroOChi, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_YashiroOChi, 0x41, &pairPrevious },
 };
 
@@ -1129,7 +1130,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_YashiroOChi[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yuri[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Yuri, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Yuri, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Yuri, 0x41, &pairPrevious },
 };
 
@@ -1140,7 +1141,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Yuri[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ZeroOG[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_ZeroOG, 0x40, &pairNext },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_ZeroOG, 0x40, &pairNext, &secondaryProcCopyToNext },
     { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_ZeroOG, 0x41, &pairPrevious },
 };
 
@@ -1151,7 +1152,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_ZeroOG[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Leona[] =
 {
-    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Leona, 0x42, &pairNext },
+    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Leona, 0x42, &pairNext, &secondaryProcCopyToNext },
     { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Leona, 0x43, &pairPrevious },
 };
 
@@ -1161,7 +1162,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona[] =
 };
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_MayLee[] =
 {
-    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_MayLee, 0x42, &pairNext },
+    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_MayLee, 0x42, &pairNext, &secondaryProcCopyToNext },
     { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_MayLee, 0x43, &pairPrevious },
 };
 
@@ -1172,7 +1173,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Kula[] =
 {
-    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kula, 0x42, &pairNext },
+    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kula, 0x42, &pairNext, &secondaryProcCopyToNext },
     { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kula, 0x43, &pairPrevious },
 };
 
@@ -1183,7 +1184,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Nameless[] =
 {
-    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Nameless, 0x42, &pairNext },
+    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Nameless, 0x42, &pairNext, &secondaryProcCopyToNext },
     { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Nameless, 0x43, &pairPrevious },
 };
 
@@ -1194,7 +1195,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Kasumi[] =
 {
-    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kasumi, 0x42, &pairNext },
+    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kasumi, 0x42, &pairNext, &secondaryProcCopyToNext },
     { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kasumi, 0x43, &pairPrevious },
 };
 
@@ -1205,7 +1206,7 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai[] =
 {
-    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mai, 0x42, &pairNext },
+    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mai, 0x42, &pairNext, &secondaryProcCopyToNext },
     { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Mai, 0x43, &pairPrevious },
 };
 
