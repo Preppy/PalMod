@@ -91,71 +91,71 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
         return;
     }
 
-if (nCurrChildSel1 != m_nPrevChildSel1)
-{
-    sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
-
-    //Clear the 1st child list
-    while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
-
-    for (uint32_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
+    if (nCurrChildSel1 != m_nPrevChildSel1)
     {
-        m_CBChildSel2.AddString(reinterpret_cast<sDescNode*>(ChildTree->ChildNodes)[nDescCtr].szDesc);
+        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
+
+        //Clear the 1st child list
+        while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
+
+        for (uint32_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
+        {
+            m_CBChildSel2.AddString(reinterpret_cast<sDescNode*>(ChildTree->ChildNodes)[nDescCtr].szDesc);
+        }
+
+        //Set to 0 since update
+        m_CBChildSel2.SetCurSel(0);
+        m_nPrevChildSel1 = nCurrChildSel1;
+
+        //Reset the next selection
+        m_nPrevChildSel2 = 0xFFFF;
     }
 
-    //Set to 0 since update
-    m_CBChildSel2.SetCurSel(0);
-    m_nPrevChildSel1 = nCurrChildSel1;
+    int nCurrChildSel2 = m_CBChildSel2.GetCurSel();
 
-    //Reset the next selection
-    m_nPrevChildSel2 = 0xFFFF;
-}
-
-int nCurrChildSel2 = m_CBChildSel2.GetCurSel();
-
-if (nCurrChildSel2 == -1)
-{
-    return;
-}
-
-if ((nCurrChildSel2 != m_nPrevChildSel2) || fForceUpdate)
-{
-    //Clear the undo data
-    UndoProc.Clear();
-
-    //Get the selected palette
-    GetHost()->GetCurrGame()->UpdatePalImg(
-        CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, nCurrChildSel2);
-
-    PostPalSel();
-
-    m_nPrevChildSel2 = nCurrChildSel2;
-
-    //Select None
-    //OnEditSelectNone();
-
-    //Update the display palette selection
-    const UINT_PTR nActivePaletteIndex = m_PalHost.GetActivePaletteIndex();
-
-    if (m_PalHost.GetPalCtrl(nActivePaletteIndex))
+    if (nCurrChildSel2 == -1)
     {
-        OnPalSelChange(nActivePaletteIndex);
+        return;
     }
-    else
+
+    if ((nCurrChildSel2 != m_nPrevChildSel2) || fForceUpdate)
     {
-        OnEditSelectNone();
-        OnPalSelChange(0);
+        //Clear the undo data
+        UndoProc.Clear();
+
+        //Get the selected palette
+        GetHost()->GetCurrGame()->UpdatePalImg(
+            CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, nCurrChildSel2);
+
+        PostPalSel();
+
+        m_nPrevChildSel2 = nCurrChildSel2;
+
+        //Select None
+        //OnEditSelectNone();
+
+        //Update the display palette selection
+        const UINT_PTR nActivePaletteIndex = m_PalHost.GetActivePaletteIndex();
+
+        if (m_PalHost.GetPalCtrl(nActivePaletteIndex))
+        {
+            OnPalSelChange(nActivePaletteIndex);
+        }
+        else
+        {
+            OnEditSelectNone();
+            OnPalSelChange(0);
+        }
     }
-}
 
-sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), -1);
-sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
-sDescNode PaletteNode = (reinterpret_cast<sDescNode*>(ButtonTree->ChildNodes))[nCurrChildSel2];
+    sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), -1);
+    sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
+    sDescNode PaletteNode = (reinterpret_cast<sDescNode*>(ButtonTree->ChildNodes))[nCurrChildSel2];
 
-m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
-m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);
-m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO2), PaletteNode.szDesc);
-SetStatusText(PaletteNode.szDesc);
+    m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
+    m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);
+    m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO2), PaletteNode.szDesc);
+    SetStatusText(PaletteNode.szDesc);
 }
 
 void SanitizeString(wchar_t* pszString)
