@@ -18,7 +18,7 @@ namespace MVC2_SupplementProcessing
     CGame_MVC2_D* CurrMVC2 = nullptr;
     CGame_MVC2_A* CurrMVC2_Arcade = nullptr;
 
-    bool VerifyWriteIsSafe(uint32_t nCharId, uint8_t nCopyLength)
+    bool VerifyWriteIsSafe(uint32_t nCharId, uint16_t nCopyLength)
     {
         // We can copy all 16 colors if we start at 0, but if we're shifting colors we need to not stomp on the transparency color
         if (nCopyLength > 16)
@@ -70,7 +70,7 @@ namespace MVC2_SupplementProcessing
         }
     }
 
-    int supp_copy_index(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt)
+    int supp_copy_index(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt)
     {
         CString strDebugInfo;
         if ((src_index == 0) && (index_amt == 0x10))
@@ -93,13 +93,13 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_white(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc)
+    int supp_mod_white(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint16_t index_amt)
     {
         OutputDebugString(L"\t\t\t\tsupp_mod_white being applied\n");
 
         uint16_t* dst_16 = get_pal_16(char_id, destination_palette);
 
-        for (int iPos = index_start; iPos < index_start + index_inc; iPos++)
+        for (int iPos = index_start; iPos < index_start + index_amt; iPos++)
         {
             dst_16[iPos] |= 0xFFFF;
         }
@@ -107,7 +107,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_hsl(uint32_t char_id, uint16_t mod_type, int mod_amt, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc)
+    int supp_mod_hsl(uint32_t char_id, uint16_t mod_type, int mod_amt, uint32_t destination_palette, uint8_t index_start, uint16_t index_amt)
     {
         COLORREF input_col;
 
@@ -118,7 +118,7 @@ namespace MVC2_SupplementProcessing
         mod_amt = AdjustNumberForPossibleNegation(mod_amt);
 
         CString strDebugInfo;
-        strDebugInfo.Format(L"\t\t\t\tsupp_mod_hsl being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? L"MOD_LUM" : L"MOD_SAT", mod_amt, destination_palette, index_start, index_inc);
+        strDebugInfo.Format(L"\t\t\t\tsupp_mod_hsl being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? L"MOD_LUM" : L"MOD_SAT", mod_amt, destination_palette, index_start, index_amt);
         OutputDebugString(strDebugInfo);
 
         switch (mod_type)
@@ -135,7 +135,7 @@ namespace MVC2_SupplementProcessing
             break;
         }
 
-        for (int iPos = index_start; iPos < (index_start + index_inc); iPos++)
+        for (int iPos = index_start; iPos < (index_start + index_amt); iPos++)
         {
             input_col = CurrMVC2->ConvPal16(dst_16[iPos]);
 
@@ -156,7 +156,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_tint(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt,
+    int supp_mod_tint(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt,
         int tint_factor_r, int tint_factor_g, int tint_factor_b)
     {
         uint16_t* src_16 = get_pal_16(char_id, source_palette);
@@ -171,7 +171,7 @@ namespace MVC2_SupplementProcessing
             tint_factor_r, tint_factor_g, tint_factor_b, source_palette, src_index, destination_palette, dst_index, index_amt);
         OutputDebugString(strDebugInfo);
 
-        for (uint8_t offset = 0; offset < index_amt; offset++)
+        for (uint16_t offset = 0; offset < index_amt; offset++)
         {
             COLORREF input_col = CurrMVC2->ConvPal16(src_16[offset + src_index]);
 
@@ -188,7 +188,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_copy_crosscharacter(uint32_t source_id, uint32_t source_palette, uint32_t destination_id, uint32_t destination_palette, uint8_t source_index, uint8_t destination_index, uint8_t copy_amount)
+    int supp_copy_crosscharacter(uint32_t source_id, uint32_t source_palette, uint32_t destination_id, uint32_t destination_palette, uint8_t source_index, uint8_t destination_index, uint16_t copy_amount)
     {
         CString strDebugInfo;
         strDebugInfo.Format(L"\t\t\t\tsupp_copy_crosscharacter being applied: Copying source unit 0x%02x (%s) palette 0x%02x to destination unit 0x%02x (%s) palette 0x%02x\n", source_id, MVC2_D_UNITDESC[source_id], source_palette, destination_id, MVC2_D_UNITDESC[destination_id], destination_palette);
@@ -202,7 +202,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t source_index /* = 0 */, uint8_t destination_index /* = 0 */, uint8_t copy_amount /* = 0x10 */)
+    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t source_index /* = 0 */, uint8_t destination_index /* = 0 */, uint16_t copy_amount /* = 0x10 */)
     {
         return supp_copy_crosscharacter(char_id, source_palette, indexCPS2Sprites_Spiral /*0x31, spiral*/, destination_palette, source_index, destination_index, copy_amount);
     }
@@ -561,13 +561,13 @@ namespace MVC2_SupplementProcessing
 
                             //pi = palette index - value should be from 0-15.
                             uint8_t pi_start = static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 1]);
-                            uint8_t pi_amt = static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 2]);
+                            uint16_t pi_amt = supplementalEffectsData[indexCounterForEffects + 2];
 
                             switch (supplementalEffectsData[indexCounterForEffects])
                             {
                                 case MOD_TINT:
                                 {
-                                    if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3] + pi_amt)))
+                                    if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
                                     {
                                         nLinkedPalettesUpdated += supp_mod_tint(char_no, pal_no, destination_palette, static_cast<uint8_t>(supplementalEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
                                             supplementalEffectsData[indexCounterForEffects + 4], supplementalEffectsData[indexCounterForEffects + 5], supplementalEffectsData[indexCounterForEffects + 6]);

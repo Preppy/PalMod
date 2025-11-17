@@ -32,7 +32,7 @@ namespace MVC2_SupplementProcessing
 
     uint16_t* get_pal_16(uint32_t char_id, uint32_t pal_no);
 
-    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t source_index = 0, uint8_t destination_index = 0, uint8_t copy_amount = 0x10);
+    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t source_index = 0, uint8_t destination_index = 0, uint16_t copy_amount = 0x10);
 
     void prep_supp(bool forDreamcast = true);
     int proc_supp(uint32_t char_no, uint32_t pal_no);

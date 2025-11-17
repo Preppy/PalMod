@@ -17,7 +17,7 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber)
     return nPossiblyNegativeNumber;
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt)
+void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt)
 {
     CString strDebugInfo;
     if ((src_index == 0) && (index_amt == 0))
@@ -50,7 +50,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(uint32_t char_id
     safe_delete(pDestinationPalette);
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc)
+void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint16_t index_amt)
 {
     OutputDebugString(L"\t\tProcessSecondaryWhite being applied\n");
 
@@ -58,7 +58,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32
 
     if (pDestinationPalette)
     {
-        for (int iPos = index_start; iPos < (index_start + index_inc); iPos++)
+        for (int iPos = index_start; iPos < (index_start + index_amt); iPos++)
         {
             pDestinationPalette[iPos] = 0xFF000000 | RGB(0xff, 0xff, 0xff);
         }
@@ -73,7 +73,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32
     }
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, uint16_t mod_type, int mod_amt, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc)
+void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, uint16_t mod_type, int mod_amt, uint32_t destination_palette, uint8_t index_start, uint16_t index_amt)
 {
     COLORREF* pDestinationPalette = CreatePal(char_id, destination_palette);
 
@@ -84,7 +84,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, u
         mod_amt = AdjustNumberForPossibleNegation(mod_amt);
 
         CString strDebugInfo;
-        strDebugInfo.Format(L"\t\tProcessSecondaryHSLEffects being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? L"MOD_LUM" : L"MOD_SAT", mod_amt, destination_palette, index_start, index_inc);
+        strDebugInfo.Format(L"\t\tProcessSecondaryHSLEffects being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? L"MOD_LUM" : L"MOD_SAT", mod_amt, destination_palette, index_start, index_amt);
         OutputDebugString(strDebugInfo);
 
         switch (mod_type)
@@ -101,7 +101,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, u
             break;
         }
 
-        for (int iPos = index_start; iPos < (index_start + index_inc); iPos++)
+        for (int iPos = index_start; iPos < (index_start + index_amt); iPos++)
         {
             COLORREF input_col = pDestinationPalette[iPos];
 
@@ -128,7 +128,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, u
     }
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt,
+void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt,
     int tint_factor_r, int tint_factor_g, int tint_factor_b)
 {
     COLORREF* pSourcePalette = CreatePal(char_id, source_palette);
@@ -145,7 +145,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(uint32_t char_id, 
             tint_factor_r, tint_factor_g, tint_factor_b, source_palette, src_index, destination_palette, dst_index, index_amt);
         OutputDebugString(strDebugInfo);
 
-        for (uint8_t offset = 0; offset < index_amt; offset++)
+        for (uint16_t offset = 0; offset < index_amt; offset++)
         {
             COLORREF input_col = pSourcePalette[offset + src_index];
 
@@ -167,7 +167,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(uint32_t char_id, 
     safe_delete(pDestinationPalette);
 }
 
-void CSecondaryPaletteProcessing::ProcessBlendEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt,
+void CSecondaryPaletteProcessing::ProcessBlendEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt,
     uint8_t blending_r, uint8_t blending_g, uint8_t blending_b)
 {
     COLORREF* pSourcePalette = CreatePal(char_id, source_palette);
@@ -182,7 +182,7 @@ void CSecondaryPaletteProcessing::ProcessBlendEffects(uint32_t char_id, uint32_t
 
         const double dlBlendPercent = 0.4;
 
-        for (uint8_t offset = 0; offset < index_amt; offset++)
+        for (uint16_t offset = 0; offset < index_amt; offset++)
         {
             COLORREF input_col = pSourcePalette[offset + src_index];
 
@@ -268,7 +268,7 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
                 int copy_start = 0;
                 int copy_dst = 0;
 
-                ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, copy_dst, copy_start, static_cast<uint8_t>(copy_amt_max));
+                ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, copy_dst, copy_start, copy_amt_max);
             }
 
             // Minimum set of data for a SUPP_NODE entry: <node_type>, <palette distance>, <unused>
@@ -290,7 +290,7 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
 
                 //pi = palette index - value should be from 0 to <palette length>, maxing at 255.
                 uint8_t pi_start = static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 1]);
-                uint8_t pi_amt = static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 2]);
+                uint16_t pi_amt = static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 2]);
 
                 // While this would normally be error-checking, this also has the side effect of allowing us to 
                 // specify max palette size possible for variable length portrait/stage/csi palettes that we want to

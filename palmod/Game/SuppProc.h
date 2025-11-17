@@ -34,12 +34,12 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber);
 class CSecondaryPaletteProcessing
 {
 protected:
-    void ProcessSecondaryCopyWithIndex(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt);
-    void ProcessSecondaryWhite(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc);
-    void ProcessSecondaryHSLEffects(uint32_t char_id, uint16_t mod_type, int mod_amt, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc);
-    void ProcessSecondaryTintEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt,
+    void ProcessSecondaryCopyWithIndex(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt);
+    void ProcessSecondaryWhite(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint16_t index_amt);
+    void ProcessSecondaryHSLEffects(uint32_t char_id, uint16_t mod_type, int mod_amt, uint32_t destination_palette, uint8_t index_start, uint16_t index_amt);
+    void ProcessSecondaryTintEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt,
         int tint_factor_r, int tint_factor_g, int tint_factor_b);
-    void ProcessBlendEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt,
+    void ProcessBlendEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint16_t index_amt,
         uint8_t blending_r, uint8_t blending_g, uint8_t blending_b);
 
 public:
