@@ -622,14 +622,14 @@
     <Filter Include="Games\Other Platforms\Daraku %28Psikyo%29">
       <UniqueIdentifier>{91444729-2d74-49b1-bc85-321d2b7148cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\Fighter%27s History">
-      <UniqueIdentifier>{47820c66-0a04-4016-be3b-813bde09de5d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Nintendo\Fighters History 3 %28SNES%29">
       <UniqueIdentifier>{73164b62-b21a-4eb7-b8f2-bd88b32b85fc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Games\Sega\Virtua Fighter 2 %28Genesis%29">
       <UniqueIdentifier>{d2b0a483-bb22-4e0d-a5fb-d341928adb67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Fighter%27s History %28Data East%29">
+      <UniqueIdentifier>{47820c66-0a04-4016-be3b-813bde09de5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1067,6 +1067,9 @@
     </ClCompile>
     <ClCompile Include="DropTarget.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FightersHistory_A_DIR.cpp">
+      <Filter>Games\Other Platforms\Fighter%27s History %28Data East%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2253,10 +2256,10 @@
       <Filter>Games\Other Platforms\Daraku %28Psikyo%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\FightersHistory_A_DIR_DEF.h">
-      <Filter>Games\SNK Games\Fighter%27s History</Filter>
+      <Filter>Games\Other Platforms\Fighter%27s History %28Data East%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_FightersHistory_A_DIR.h">
-      <Filter>Games\SNK Games\Fighter%27s History</Filter>
+      <Filter>Games\Other Platforms\Fighter%27s History %28Data East%29</Filter>
     </ClInclude>
     <ClInclude Include="GameChoice.h">
       <Filter>Main DLG/APP\Header Files</Filter>

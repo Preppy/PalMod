@@ -254,6 +254,7 @@
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />
     <ClCompile Include="Game\Game_DevMode_DIR.cpp" />
     <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
+    <ClCompile Include="Game\Game_FightersHistory_A_DIR.cpp" />
     <ClCompile Include="Game\Game_FightFever_A.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />

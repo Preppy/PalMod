@@ -804,7 +804,7 @@ namespace KnownGameInfo
         {
             FightersHistory_A,
             L"Fighter's History",
-            { FightersHistory_A,       L"Fighter's History (Data East DECO32)", L"Fighter's History|lc00-1.1f|", GamePlatform::OtherPlatform }, // DataEast
+            { FightersHistory_A,       L"Fighter's History (Data East DECO32)", L"Fighter's History|??00*.1f|", GamePlatform::OtherPlatform }, // DataEast
             Make_FightersHistory_A,
             CGame_FightersHistory_A_DIR::GetRule,
         },
@@ -2579,6 +2579,9 @@ namespace KnownGameInfo
             break;
         case FightFever_A:
             CGame_FightFever_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case FightersHistory_A:
+            CGame_FightersHistory_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case HSF2_A:
             CGame_HSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
