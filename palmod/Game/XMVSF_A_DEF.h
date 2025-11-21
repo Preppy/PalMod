@@ -1651,14 +1651,24 @@ const sGame_PaletteDataset XMVSF_A_STAGES_MANHATTAN_PALETTES[] =
     // also stoplight and street ground
     { L"Back Sewer Walls",  0xcdac, 0xcecc, indexCPS2Sprites_XMVSFAssets, 0x5f },
 
-    // NOTE: These are used on different layers (512/2048), need to merge!
-    { L"Tunnel and Ground Animation Cycle 1/5",         0x7b2c, 0x7c6c, indexCPS2Sprites_XMVSFAssets, 0x69 }, // BUGBUG: Maybe fork now that we need new images?
-        { L"Tunnel and Ground Animation Cycle 2/5",     0x7c6c, 0x7d4c },
-        { L"Tunnel and Ground Animation Cycle 3/5",     0x7d4c, 0x7e2c },
-        { L"Tunnel and Ground Animation Cycle 4/5",     0x7e2c, 0x7f0c },
-        { L"Tunnel and Ground Animation Cycle 5/5",     0x7f0c, 0x7fec },
+    // NOTE: These are used on different layers (512/2048), this required a merge
+    { L"Tunnel Animation Cycle 1/5",         0x7b2c, 0x7c0c, indexCPS2Sprites_XMVSFAssets, 0x69 },
+        { L"Tunnel Animation Cycle 2/5",     0x7c6c, 0x7d4c, indexCPS2Sprites_XMVSFAssets, 0x69 },
+        { L"Tunnel Animation Cycle 3/5",     0x7d4c, 0x7e2c, indexCPS2Sprites_XMVSFAssets, 0x69 },
+        { L"Tunnel Animation Cycle 4/5",     0x7e2c, 0x7f0c, indexCPS2Sprites_XMVSFAssets, 0x69 },
+        { L"Tunnel Animation Cycle 5/5",     0x7f0c, 0x7fec, indexCPS2Sprites_XMVSFAssets, 0x69 },
 
-    { L"Hole Edge Animation Cycle", 0x806c, 0x816c },
+    { L"Ground", 0x7c2c, 0x7c6c, indexCPS2Sprites_XMVSFAssets, 0xa0 },
+
+    { L"Hole Edge Animation Cycle 1/9", 0x7c0c, 0x7c2c, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+    { L"Hole Edge Animation Cycle 2/9", 0x806c, 0x808c, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+        { L"Hole Edge Animation Cycle 3/9", 0x808c, 0x80ac, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+        { L"Hole Edge Animation Cycle 4/9", 0x80ac, 0x80cc, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+        { L"Hole Edge Animation Cycle 5/9", 0x80cc, 0x80ec, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+        { L"Hole Edge Animation Cycle 6/9", 0x80ec, 0x810c, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+        { L"Hole Edge Animation Cycle 7/9", 0x810c, 0x812c, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+        { L"Hole Edge Animation Cycle 8/9", 0x812c, 0x814c, indexCPS2Sprites_XMVSFAssets, 0xa1 },
+        { L"Hole Edge Animation Cycle 9/9", 0x814c, 0x816c, indexCPS2Sprites_XMVSFAssets, 0xa1 },
 
     //{ L"Police Cars and Smoon", 0x79ac, 0x7a6c },
     { L"Sewer Walls",               0x7a6c, 0x7b2c, indexCPS2Sprites_XMVSFAssets, 0x64 },

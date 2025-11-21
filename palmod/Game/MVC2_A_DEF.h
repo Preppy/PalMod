@@ -8958,11 +8958,15 @@ const MVC2_TEAM_GROUPING mvc2TeamList[] =
     { L"Duc", indexMVC2ASpiral, indexMVC2ACable, indexMVC2ASentinel },
     { L"Clockw0rk", indexMVC2ASentinel, indexMVC2AStrider, indexMVC2ADrDoom },
     { L"Combofiend", indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel },
+    { L"Thrillah", indexMVC2AIronMan, indexMVC2AWarMachine, indexMVC2ACable },
+    { L"Roundhouse", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2AIronMan },
     { L"Watts", indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando },
-    
+
     { L"VDO", indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen },
-//    { L"MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
+    // The problem with Tron is that she's already a joined palette...
+    //{ L"MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
     { L"Shoto", indexMVC2ARyu, indexMVC2AKen, indexMVC2AAkuma},
+    { L"Joe Zaza", indexMVC2AWolverine, indexMVC2ASentinel, indexMVC2ABonerine },
 };
 
 const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
@@ -8977,12 +8981,15 @@ const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
     { L"Duc", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Clockw0rk", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Combofiend", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Thrillah", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Roundhouse", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Watts", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 
     { L"VDO", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     // The problem with Tron is that she's already a joined palette...
 //    { L"MikeZ", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Shoto", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Joe Zaza", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 };
 
 const uint8_t MVC2_A_UNITSORT[MVC2_A_NUMUNIT + 1] // Plus for extras
