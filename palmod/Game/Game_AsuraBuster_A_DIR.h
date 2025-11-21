@@ -22,7 +22,7 @@ private:
         AsuraBuster_A,
         IMGDAT_SECTION_OTHER,
         AsuraBuster_A_IMGIDS_USED,
-        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_ASURABUSTER,
         AlphaMode::GameUsesFixedAlpha,
@@ -32,7 +32,7 @@ private:
         AsuraBuster_A_UNITS,
         ARRAYSIZE(AsuraBuster_A_UNITS),
         L"AsuraBusterE.txt",             // Extra filename
-        874,                             // Count of palettes listed in the header
+        972,                             // Count of palettes listed in the header
         0x4c350,                         // Lowest known location used for palettes
     };
 

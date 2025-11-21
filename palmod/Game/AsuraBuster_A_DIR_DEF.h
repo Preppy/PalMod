@@ -1340,6 +1340,115 @@ const sGame_PaletteDataset AsuraBuster_A_Vebel_ABC[] =
     { L"Nanami ABC", 0x97b12, 0x97b32, indexAsuraBuster_Nanami, 0x00 },
 };
 
+const sGame_PaletteDataset AsuraBuster_A_Yashaou_Effects[] =
+{
+    // Yashaou
+    { L"Burn", 0x547b8, 0x547d8 },
+    { L"Purple Burn", 0x549b8, 0x549d8 },
+    { L"Shock", 0x54bb8, 0x54bd8 },
+    { L"Boost Mode Trail", 0x97b32, 0x97b52 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Goat_Effects[] =
+{
+    // Goat
+    { L"Burn", 0x547d8, 0x547f8 },
+    { L"Purple Burn", 0x549d8, 0x549f8 },
+    { L"Shock", 0x54bd8, 0x54bf8 },
+    { L"Boost Mode Hyper Body", 0x54dd8, 0x54df8 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Leon_Effects[] =
+{
+    // :Leon
+    { L"Burn", 0x547f8, 0x54818 },
+    { L"Purple Burn", 0x549f8, 0x54a18 },
+    { L"Shock", 0x54bf8, 0x54c18 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_ChenMao_Effects[] =
+{
+    // Chen-Mao
+    { L"Burn", 0x54818, 0x54838 },
+    { L"Purple Burn", 0x54a18, 0x54a38 },
+    { L"Shock", 0x54c18, 0x54c38 },
+    { L"Boost Mode Trail", 0x97bf2, 0x97c12 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_ZamB_Effects[] =
+{
+    // Zam-B
+    { L"Burn", 0x54838, 0x54858 },
+    { L"Purple Burn", 0x54a38, 0x54a58 },
+    { L"Shock", 0x54c38, 0x54c58 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Taros_Effects[] =
+{
+    // Taros
+    { L"Burn", 0x54858, 0x54878 },
+    { L"Purple Burn", 0x54a58, 0x54a78 },
+    { L"Shock", 0x54c58, 0x54c78 },
+    { L"Boost Mode Super Armor", 0x54e58, 0x54e78 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Alice_Effects[] =
+{
+    // Alice
+    { L"Burn", 0x54878, 0x54898 },
+    { L"Purple Burn", 0x54a78, 0x54a98 },
+    { L"Shock", 0x54c78, 0x54c98 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_RoseMary_Effects[] =
+{
+    // Rose Mary
+    { L"Burn", 0x54898, 0x548b8 },
+    { L"Purple Burn", 0x54a98, 0x54ab8 },
+    { L"Shock", 0x54c98, 0x54cb8 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Sittara_Effects[] =
+{
+    // Sittara
+    { L"Burn", 0x548b8, 0x548d8 },
+    { L"Purple Burn", 0x54ab8, 0x54ad8 },
+    { L"Shock", 0x54cb8, 0x54cd8 },
+    { L"Boost Mode Trail", 0x97cb2, 0x97cd2 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Rokurouta_Effects[] =
+{
+    // Rokurouta
+    { L"Burn", 0x548d8, 0x548f8 },
+    { L"Purple Burn", 0x54ad8, 0x54af8 },
+    { L"Shock", 0x54cd8, 0x54cf8 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Zinsuke_Effects[] =
+{
+    // Zinsuke
+    { L"Burn", 0x548f8, 0x54918 },
+    { L"Purple Burn", 0x54af8, 0x54b18 },
+    { L"Shock", 0x54cf8, 0x54d18 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_AliceBang_Effects[] =
+{
+    // Alice!
+    { L"Burn", 0x54918, 0x54938 },
+    { L"Purple Burn", 0x54b18, 0x54b38 },
+    { L"Shock", 0x54d18, 0x54d38 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Vebel_Effects[] =
+{
+    // Vebel
+    { L"Burn", 0x54958, 0x54978 },
+    { L"Purple Burn", 0x54b58, 0x54b78 },
+    { L"Shock", 0x54d58, 0x54d78 },
+};
+
 const sGame_PaletteDataset AsuraBuster_A_Nanami_PORTRAITS[] =
 {
     { L"Nanami A Portrait", 0x8b32c, 0x8b34c, indexAsuraBuster_Nanami, 0x40 },
@@ -1381,15 +1490,81 @@ const sGame_PaletteDataset AsuraBuster_A_Stages[] =
     { L"Zinsuke Stage Extra", 0x4d910, 0x4d930 },
     { L"Vebel Stage (1/2) 0x4ef10", 0x4ef10, 0x4f110 },
     { L"Vebel Stage (2/2) 0x4f110", 0x4f110, 0x4f310 },
-    { L"Vebel Stage Extra", 0x4f310, 0x4f350 },
+    { L"Vebel Stage Extra", 0x4f310, 0x4f330 },
     { L"Story Mode Stage 1 (1/2) 0x4d0f0", 0x4d0f0, 0x4d2f0 },
     { L"Story Mode Stage 1 (2/2) 0x4d2f0", 0x4d2f0, 0x4d4f0 },
     { L"Story Mode Stage 1 Extra", 0x4d4f0, 0x4d510 },
     { L"Bonus Game Stage (1/2) 0x4f530", 0x4f530, 0x4f730 },
     { L"Bonus Game Stage (2/2) 0x4f730", 0x4f730, 0x4f930 },
     { L"Bonus Game Stage Extra", 0x4f930, 0x4f950 },
-    { L"King Stage", 0x4fe50, 0x50050 },
-    { L"King Stage Extra", 0x50050, 0x50070 },
+    { L"King Stage", 0x4fc50, 0x4fe50 },
+    { L"King Stage Extra", 0x4fe50, 0x4fe70 },
+    { L"Last Stand Void", 0x4fe70, 0x50070 },
+    { L"Boost Mode Background", 0x4f330, 0x4f350 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_Intro[] =
+{
+    { L"Fuuki Logo", 0x66932, 0x66952 },
+    { L"Character Name Text", 0x66992, 0x669b2 },
+    { L"Text 1", 0x66952, 0x66972 },
+    { L"Text 2", 0x66f12, 0x66f32 },
+    { L"Yashaou", 0x669b2, 0x669f2 },
+    { L"Sittara", 0x66a12, 0x66a52 },
+    { L"Rokurouta", 0x66a72, 0x66a92 },
+    { L"Leon", 0x66ab2, 0x66ad2 },
+    { L"Zinsuke", 0x66af2, 0x66b32 },
+    { L"Goat", 0x66b52, 0x66b72 },
+    { L"Taros", 0x66b92, 0x66bb2 },
+    { L"Zam-B", 0x66bd2, 0x66c12 },
+    { L"Chen-Mao", 0x66c32, 0x66c52 },
+    { L"Alice", 0x66c72, 0x66cb2 },
+    { L"Rose Mary", 0x66cd2, 0x66cf2 },
+    { L"Yashaou (Intro Ending)", 0x66d12, 0x66d52 },
+    { L"Sittara (Intro Ending)", 0x66d52, 0x66d92 },
+    { L"Yashaou VS Sittara Background", 0x64fd2, 0x651d2 },
+    { L"Character Background Colors", 0x66d92, 0x66ef2 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_Title[] =
+{
+    { L"ASURA BUSTER Impact Text", 0x66ef2, 0x66f12 },
+    { L"Game Title", 0x655d2, 0x657d2 },
+    { L"Background", 0x653d2, 0x655d2 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_Record[] =
+{
+    { L"Statistics", 0x67092, 0x670b2 },
+    { L"Character Name", 0x67332, 0x67352 },
+    { L"THE BEST RECORD", 0x670b2, 0x670d2 },
+    { L"Yashaou", 0x670d2, 0x670f2 },
+    { L"Yashaou Weapon", 0x670f2, 0x67112 },
+    { L"Goat", 0x67112, 0x67132 },
+    { L"Goat Weapon", 0x67132, 0x67152 },
+    { L"Leon", 0x67152, 0x67172 },
+    { L"Chen-Mao", 0x67172, 0x67192 },
+    { L"Zam-B", 0x67192, 0x671b2 },
+    { L"Zam-B Extra", 0x671b2, 0x671d2 },
+    { L"Rose Mary", 0x671d2, 0x671f2 },
+    { L"Alice", 0x671f2, 0x67212 },
+    { L"Alice (Skeleton)", 0x67212, 0x67232 },
+    { L"Taros", 0x67232, 0x67252 },
+    { L"Zinsuke", 0x67252, 0x67272 },
+    { L"Zinsuke Hat", 0x67272, 0x67292 },
+    { L"Sittara", 0x67292, 0x672b2 },
+    { L"Sittara Weapon", 0x672b2, 0x672d2 },
+    { L"Rokurouta", 0x672d2, 0x672f2 },
+    { L"Alice!", 0x672f2, 0x67312 },
+    { L"Nanami", 0x67312, 0x67332 },
+    { L"Best Record Background 1", 0x657d2, 0x657f2 },
+    { L"Best Record Background 2", 0x659d2, 0x659f2 },
+    { L"Best Record Background 3", 0x65bd2, 0x65bf2 },
+    { L"Best Record Background 4", 0x65dd2, 0x65df2 },
+    { L"Best Record Background 5", 0x65fd2, 0x65ff2 },
+    { L"Best Record Background 6", 0x661d2, 0x661f2 },
+    { L"Best Record Background 7", 0x663d2, 0x663f2 },
+    { L"Best Record Background 8", 0x665d2, 0x665f2 },
 };
 
 const sDescTreeNode AsuraBuster_A_Yashaou_COLLECTION[] =
@@ -1402,6 +1577,7 @@ const sDescTreeNode AsuraBuster_A_Yashaou_COLLECTION[] =
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Yashaou_BC, ARRAYSIZE(AsuraBuster_A_Yashaou_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Yashaou_ABC, ARRAYSIZE(AsuraBuster_A_Yashaou_ABC) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Yashaou_Shared, ARRAYSIZE(AsuraBuster_A_Yashaou_Shared) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Yashaou_Effects, ARRAYSIZE(AsuraBuster_A_Yashaou_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Goat_COLLECTION[] =
@@ -1414,6 +1590,7 @@ const sDescTreeNode AsuraBuster_A_Goat_COLLECTION[] =
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Goat_BC, ARRAYSIZE(AsuraBuster_A_Goat_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Goat_ABC, ARRAYSIZE(AsuraBuster_A_Goat_ABC) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Goat_Shared, ARRAYSIZE(AsuraBuster_A_Goat_Shared) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Goat_Effects, ARRAYSIZE(AsuraBuster_A_Goat_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Leon_COLLECTION[] =
@@ -1425,6 +1602,7 @@ const sDescTreeNode AsuraBuster_A_Leon_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Leon_AC, ARRAYSIZE(AsuraBuster_A_Leon_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Leon_BC, ARRAYSIZE(AsuraBuster_A_Leon_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Leon_ABC, ARRAYSIZE(AsuraBuster_A_Leon_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Leon_Effects, ARRAYSIZE(AsuraBuster_A_Leon_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_ChenMao_COLLECTION[] =
@@ -1436,6 +1614,7 @@ const sDescTreeNode AsuraBuster_A_ChenMao_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ChenMao_AC, ARRAYSIZE(AsuraBuster_A_ChenMao_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ChenMao_BC, ARRAYSIZE(AsuraBuster_A_ChenMao_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ChenMao_ABC, ARRAYSIZE(AsuraBuster_A_ChenMao_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ChenMao_Effects, ARRAYSIZE(AsuraBuster_A_ChenMao_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_ZamB_COLLECTION[] =
@@ -1447,6 +1626,7 @@ const sDescTreeNode AsuraBuster_A_ZamB_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ZamB_AC, ARRAYSIZE(AsuraBuster_A_ZamB_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ZamB_BC, ARRAYSIZE(AsuraBuster_A_ZamB_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ZamB_ABC, ARRAYSIZE(AsuraBuster_A_ZamB_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_ZamB_Effects, ARRAYSIZE(AsuraBuster_A_ZamB_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Taros_COLLECTION[] =
@@ -1458,6 +1638,7 @@ const sDescTreeNode AsuraBuster_A_Taros_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Taros_AC, ARRAYSIZE(AsuraBuster_A_Taros_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Taros_BC, ARRAYSIZE(AsuraBuster_A_Taros_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Taros_ABC, ARRAYSIZE(AsuraBuster_A_Taros_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Taros_Effects, ARRAYSIZE(AsuraBuster_A_Taros_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Alice_COLLECTION[] =
@@ -1469,6 +1650,7 @@ const sDescTreeNode AsuraBuster_A_Alice_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Alice_AC, ARRAYSIZE(AsuraBuster_A_Alice_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Alice_BC, ARRAYSIZE(AsuraBuster_A_Alice_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Alice_ABC, ARRAYSIZE(AsuraBuster_A_Alice_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Alice_Effects, ARRAYSIZE(AsuraBuster_A_Alice_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_AliceBang_COLLECTION[] =
@@ -1480,6 +1662,7 @@ const sDescTreeNode AsuraBuster_A_AliceBang_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_AliceBang_AC, ARRAYSIZE(AsuraBuster_A_AliceBang_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_AliceBang_BC, ARRAYSIZE(AsuraBuster_A_AliceBang_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_AliceBang_ABC, ARRAYSIZE(AsuraBuster_A_AliceBang_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_AliceBang_Effects, ARRAYSIZE(AsuraBuster_A_AliceBang_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_RoseMary_COLLECTION[] =
@@ -1491,6 +1674,7 @@ const sDescTreeNode AsuraBuster_A_RoseMary_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_RoseMary_AC, ARRAYSIZE(AsuraBuster_A_RoseMary_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_RoseMary_BC, ARRAYSIZE(AsuraBuster_A_RoseMary_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_RoseMary_ABC, ARRAYSIZE(AsuraBuster_A_RoseMary_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_RoseMary_Effects, ARRAYSIZE(AsuraBuster_A_RoseMary_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Sittara_COLLECTION[] =
@@ -1503,6 +1687,7 @@ const sDescTreeNode AsuraBuster_A_Sittara_COLLECTION[] =
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Sittara_BC, ARRAYSIZE(AsuraBuster_A_Sittara_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Sittara_ABC, ARRAYSIZE(AsuraBuster_A_Sittara_ABC) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Sittara_Shared, ARRAYSIZE(AsuraBuster_A_Sittara_Shared) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Sittara_Effects, ARRAYSIZE(AsuraBuster_A_Sittara_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Rokurouta_COLLECTION[] =
@@ -1514,6 +1699,7 @@ const sDescTreeNode AsuraBuster_A_Rokurouta_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Rokurouta_AC, ARRAYSIZE(AsuraBuster_A_Rokurouta_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Rokurouta_BC, ARRAYSIZE(AsuraBuster_A_Rokurouta_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Rokurouta_ABC, ARRAYSIZE(AsuraBuster_A_Rokurouta_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Rokurouta_Effects, ARRAYSIZE(AsuraBuster_A_Rokurouta_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Zinsuke_COLLECTION[] =
@@ -1526,6 +1712,7 @@ const sDescTreeNode AsuraBuster_A_Zinsuke_COLLECTION[] =
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Zinsuke_BC, ARRAYSIZE(AsuraBuster_A_Zinsuke_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Zinsuke_ABC, ARRAYSIZE(AsuraBuster_A_Zinsuke_ABC) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Zinsuke_Shared, ARRAYSIZE(AsuraBuster_A_Zinsuke_Shared) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Zinsuke_Effects, ARRAYSIZE(AsuraBuster_A_Zinsuke_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Vebel_COLLECTION[] =
@@ -1537,11 +1724,19 @@ const sDescTreeNode AsuraBuster_A_Vebel_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_AC, ARRAYSIZE(AsuraBuster_A_Vebel_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_BC, ARRAYSIZE(AsuraBuster_A_Vebel_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_ABC, ARRAYSIZE(AsuraBuster_A_Vebel_ABC) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_Effects, ARRAYSIZE(AsuraBuster_A_Vebel_Effects) },
 };
 
 const sDescTreeNode AsuraBuster_A_Nanami_COLLECTION[] =
 {
     { L"Portraits", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Nanami_PORTRAITS, ARRAYSIZE(AsuraBuster_A_Nanami_PORTRAITS) },
+};
+
+const sDescTreeNode AsuraBuster_A_Bonus_COLLECTION[] =
+{
+    { L"Intro",         DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Intro, ARRAYSIZE(AsuraBuster_A_Bonus_Intro) },
+    { L"Title Screen",  DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Title, ARRAYSIZE(AsuraBuster_A_Bonus_Title) },
+    { L"Best Record",   DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Record, ARRAYSIZE(AsuraBuster_A_Bonus_Record) },
 };
 
 const sDescTreeNode AsuraBuster_A_Stages_COLLECTION[] =
@@ -1555,11 +1750,11 @@ static_assert(ARRAYSIZE(AsuraBuster_A_Goat_A) == k_nPalettesPerAsuraNode, "Pleas
 static_assert(ARRAYSIZE(AsuraBuster_A_Sittara_A) == k_nPalettesPerAsuraNode, "Please update the pairing logic for Asura Buster.");
 static_assert(ARRAYSIZE(AsuraBuster_A_Zinsuke_A) == k_nPalettesPerAsuraNode, "Please update the pairing logic for Asura Buster.");
 
-// +1 for the Shared node.
-static_assert(ARRAYSIZE(AsuraBuster_A_Yashaou_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
-static_assert(ARRAYSIZE(AsuraBuster_A_Goat_COLLECTION)    == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
-static_assert(ARRAYSIZE(AsuraBuster_A_Sittara_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
-static_assert(ARRAYSIZE(AsuraBuster_A_Zinsuke_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 1), "Please update the pairing logic for Asura Buster.");
+// +1 for the Shared node.  +1 for the Effects node.
+static_assert(ARRAYSIZE(AsuraBuster_A_Yashaou_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 2), "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Goat_COLLECTION)    == (k_nCoreNodesPerAsuraCollection + 2), "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Sittara_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 2), "Please update the pairing logic for Asura Buster.");
+static_assert(ARRAYSIZE(AsuraBuster_A_Zinsuke_COLLECTION) == (k_nCoreNodesPerAsuraCollection + 2), "Please update the pairing logic for Asura Buster.");
 
 const sDescTreeNode AsuraBuster_A_UNITS[] =
 {
@@ -1578,4 +1773,5 @@ const sDescTreeNode AsuraBuster_A_UNITS[] =
     { L"Vebel", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_COLLECTION, ARRAYSIZE(AsuraBuster_A_Vebel_COLLECTION) },
     { L"Nanami", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Nanami_COLLECTION, ARRAYSIZE(AsuraBuster_A_Nanami_COLLECTION) },
     { L"Stages", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Stages_COLLECTION, ARRAYSIZE(AsuraBuster_A_Stages_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_COLLECTION, ARRAYSIZE(AsuraBuster_A_Bonus_COLLECTION) },
 };
