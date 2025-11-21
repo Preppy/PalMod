@@ -57,7 +57,7 @@ bool CImgDat::FlushImageBuffer()
     return true;
 }
 
-bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8_t uGameFlag)
+bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint16_t uGameFlag)
 {
     if (!imageBufferFlushed)
     {
@@ -155,7 +155,7 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
     return nullptr;
 }
 
-uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId)
+uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -283,12 +283,12 @@ void CImgDat::CloseImgFile()
     }
 }
 
-bool CImgDat::sameGameAlreadyLoaded(uint8_t uGameFlag, uint8_t uImgGameFlag)
+bool CImgDat::sameGameAlreadyLoaded(uint16_t uGameFlag, uint8_t uImgDatGameSectionFlag)
 {
-    return (uImgGameFlag == nCurImgGameFlag) && (uGameFlag == nCurGameFlag);
+    return (uImgDatGameSectionFlag == nCurImgDatGameSectionFlag) && (uGameFlag == nCurGameFlag);
 }
 
-void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp, uint8_t nNumGames)
+void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp, uint8_t nNumGameSections)
 {
     static bool s_havePerformedVersionCheck = false;
 
@@ -307,7 +307,7 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         CString strMsg;
 
         s_havePerformedVersionCheck = true;
-        if (nNumGames != IMGDAT_SECTION_LAST)
+        if (nNumGameSections != IMGDAT_SECTION_LAST)
         {
             strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly as the number of game sets has changed.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
@@ -333,17 +333,17 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
     }
 }
 
-BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll)
+BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint16_t uGameFlag, uint8_t uImgDatGameSectionFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll)
 {
-    uint8_t uNumGames = 0xFF;
+    uint8_t uNumGameSections = 0xFF;
 
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::LoadGameImages : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, KnownGameInfo::GetGameNameForGameID(uGameFlag), uImgGameFlag, uGameUnitAmt, static_cast<int>(prgGameImageSet.size()));
+    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and ImgDatGameSectionFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, KnownGameInfo::GetGameNameForGameID(uGameFlag), uImgDatGameSectionFlag, uGameUnitAmt, static_cast<int>(prgGameImageSet.size()));
     OutputDebugString(strDebugInfo);
 
-    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (prgGameImageSet.empty()))
+    if (sameGameAlreadyLoaded(uGameFlag, uImgDatGameSectionFlag) || (prgGameImageSet.empty()))
     {
         return TRUE;
     }
@@ -351,7 +351,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
     {
 
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(L"CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.\n", uGameFlag, uImgGameFlag);
+        strDebugInfo.Format(L"CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.\n", uGameFlag, uImgDatGameSectionFlag);
         OutputDebugString(strDebugInfo);
 #endif
 
@@ -380,32 +380,32 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
     ImgDatFile.Read(&nDay, 0x01);
     ImgDatFile.Read(&nDailyRevision, 0x01);
 
-    ImgDatFile.Read(&uNumGames, 0x01);
+    ImgDatFile.Read(&uNumGameSections, 0x01);
 
-    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, static_cast<uint32_t>(ImgDatFile.GetLength()));
+    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGameSections, static_cast<uint32_t>(ImgDatFile.GetLength()));
     OutputDebugString(strDebugInfo);
 
-    if (uNumGames)
+    if (uNumGameSections)
     {
-        SanityCheckImgDat(ImgDatFile.GetLength(), (nYear << 16) | (nMonth << 8) | (nDay), uNumGames);
+        SanityCheckImgDat(ImgDatFile.GetLength(), (nYear << 16) | (nMonth << 8) | (nDay), uNumGameSections);
 
-        for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
+        for (int nGameCtr = 0; nGameCtr < uNumGameSections; nGameCtr++)
         {
-            ImgDatFile.Read(&uReadGameFlag, 0x01);
+            ImgDatFile.Read(&uReadGameSectionFlag, 0x01);
             ImgDatFile.Read(&uReadNumImgs, 0x02);
             ImgDatFile.Read(&uReadNextImgLoc, 0x04);
 
 #if IMGDAT_DEBUG
-            strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Detected gameID 0x%02X ; game has %u images; first imgLoc is 0x%X .\n", uReadGameFlag, uReadNumImgs, uReadNextImgLoc);
+            strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Detected gameID 0x%02X ; game has %u images; first imgLoc is 0x%X .\n", uReadGameSectionFlag, uReadNumImgs, uReadNextImgLoc);
             OutputDebugString(strDebugInfo);
 #endif
 
-            if (uReadGameFlag == uImgGameFlag)
+            if (uReadGameSectionFlag == uImgDatGameSectionFlag)
             {
                 nCurGameImgAmt = uReadNumImgs;
 
 #if IMGDAT_DEBUG
-                strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Read matching uImgGameFlag: 0x%X for current uGameFlag: 0x%02X \n", uImgGameFlag, uGameFlag);
+                strDebugInfo.Format(L"\tCImgDat::LoadGameImages : Read matching uImgDatGameSectionFlag: 0x%X for current uGameFlag: 0x%02X \n", uImgDatGameSectionFlag, uGameFlag);
                 OutputDebugString(strDebugInfo);
 #endif
 
@@ -450,7 +450,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
                         if (pCurrImg->uDataSize == 0)
                         {
                             CString strError;
-                            strError.Format(L"WARNING: Probable imgdat corruption at gameflag 0x%02x unit 0x%02x imgid 0x%02x: data size is 0x%x.\n\tNext location is 0x%x\n.", uImgGameFlag, uCurrUnitId, uCurrImgId, pCurrImg->uDataSize, uReadNextImgLoc);
+                            strError.Format(L"WARNING: Probable imgdat corruption at gameflag 0x%02x unit 0x%02x imgid 0x%02x: data size is 0x%x.\n\tNext location is 0x%x\n.", uImgDatGameSectionFlag, uCurrUnitId, uCurrImgId, pCurrImg->uDataSize, uReadNextImgLoc);
                             OutputDebugString(strError);
                         }
 
@@ -462,7 +462,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
 #endif
                         if (fLoadAll)
                         {
-                            GetImgData(pCurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
+                            GetImgData(pCurrImg, uReadGameSectionFlag, uCurrUnitId, uCurrImgId);
                         }
                     }
                     else
@@ -488,7 +488,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t u
         }
 
         nCurGameFlag = uGameFlag;
-        nCurImgGameFlag = uImgGameFlag;
+        nCurImgDatGameSectionFlag = uImgDatGameSectionFlag;
 
         if (fLoadAll)
         {

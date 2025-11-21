@@ -76,7 +76,10 @@ namespace ColorSystem
 {
     ColMode DecodeColorFlag(uint8_t uPossibleColorFlag);
     uint8_t GetCbForColMode(ColMode colorMode);
-    uint8_t GetCbForColorForGameFlag(uint8_t uGameFlag, uint8_t uPossibleColorFlag);
+    // The first parameter will generally be ignored as we overflow uint8_t with our list of game options
+    // Thus for almost all cases we only use the second parameter
+    // It's only called for Paste operations, where the incoming value is guaranteed to be uint8_t.
+    uint8_t GetCbForColorForGameFlag(uint8_t uMostlyObsoleteGameFlag, uint8_t uPossibleColorFlag);
     int GetPlaneAmtForColor(ColMode colorMode, ColFlag colorFlag);
 
     // 16-bit

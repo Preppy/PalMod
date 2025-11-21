@@ -277,9 +277,9 @@ namespace ColorSystem
         return colorMode;
     }
 
-    uint8_t GetCbForColorForGameFlag(uint8_t uGameFlag, uint8_t uPossibleColorFlag)
+    uint8_t GetCbForColorForGameFlag(uint8_t uMostlyObsoleteGameFlag, uint8_t uPossibleColorFlag)
     {
-        switch (uGameFlag)
+        switch (uMostlyObsoleteGameFlag)
         {
         case DBFCI_A:
         case GGXXACR_S:
@@ -291,7 +291,7 @@ namespace ColorSystem
         case DUMMY_BGR888:
             return 3;
         default:
-            if (uGameFlag == k_nRawColorStringOverflowIndicator)
+            if (uMostlyObsoleteGameFlag == k_nRawColorStringOverflowIndicator)
             {
                 ColMode colorMode = DecodeColorFlag(uPossibleColorFlag);
 
