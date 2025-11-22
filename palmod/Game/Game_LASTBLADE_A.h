@@ -43,7 +43,7 @@ private:
         LASTBLADE_A_UNITS,
         ARRAYSIZE(LASTBLADE_A_UNITS),
         L"LastBladeE.txt",             // Extra filename
-        2444,                          // Count of palettes listed in the header
+        2447,                          // Count of palettes listed in the header
         0xaac00,                       // Lowest known location used for palettes
     };
 
@@ -63,7 +63,7 @@ private:
         LASTBLADE_A_UNITS,
         ARRAYSIZE(LASTBLADE_A_UNITS),
         L"LastBladeE.txt",             // Extra filename
-        2444,                          // Count of palettes listed in the header
+        2447,                          // Count of palettes listed in the header
         0xaac00,                       // Lowest known location used for palettes
     };
 

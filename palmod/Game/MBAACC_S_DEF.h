@@ -36,6 +36,9 @@ const std::vector<uint16_t> MBAACC_S_IMGIDS_USED =
     indexMBAACCSprites_KohaMechKohaku,              // 0x7D #Koha - Mech, Kohaku
     indexMBAACCSprites_NecoMechHisui,               // 0x7E #Neco - Mech, Mech - Hisui
     indexMBAACCSprites_NecoMechNeco,                // 0x7F #Nech - Mech, NecoArc
+
+    indexMBAACCSprites_BossArcueid,         // 0x82
+    indexMBAACCSprites_ArchetypeEarthHime,  // 0x83
 };
 
 const std::vector<LPCWSTR> MBAACCButtonLabelsNormal =
@@ -118,7 +121,7 @@ const std::vector<sGCBUPF_BasicFileData> MBAACCCharacterData =
     { L"aoko.pal",              L"Aozaki Aoko",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_AokoAozaki },
     { L"shiki.pal",             L"Tohno Shiki",                 65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiTohno },
     { L"p_arc.pal",             L"Archetype: Earth (Hime)",		65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_Hime },
-    { L"p_arc_D.pal",			L"Archetype: Earth (Arcueid Revertion)",	65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet, 0x4, indexMBAACCSprites_Hime },
+    { L"p_arc_D.pal",			L"Archetype: Earth (Arcueid Revertion)",	65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet, 0x4, indexMBAACCSprites_ArchetypeEarthHime },
     //p_arc_D.pal is used by the Arcueid Sprites that show up when Archetype Earth has lost a set (NOT a round) and "died". Palette layout looks identical to Archetype Earth's, but it may need a different preview to focus on the fact it only has arc sprites.
     { L"nanaya.pal",            L"Nanaya Shiki",                65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiNanaya },
     { L"kishima.pal",           L"Kishima Kouma",               65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KoumaKishima },
@@ -167,6 +170,6 @@ const std::vector<sGCBUPF_BasicFileData> MBAACCCharacterData =
     { L"b_ryougi.pal",			L"(Unused) Boss Ryougi Shiki",                  65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ShikiRyougi },
     { L"b_kohaku_m.pal",		L"(Unused) Boss Kohaku (Kohaku & Mech)",        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_KohaMechKohaku },
     { L"b_m_hisui_p.pal",		L"(Unused) Boss Mech-Hisui (Kohaku & Mech)",    65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_MechHisui },
-    { L"b_arc.pal",				L"(Unused) MBAA Boss Arcueid",			        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_ArcueidBrunestud },
+    { L"b_arc.pal",				L"(Unused) MBAA Boss Arcueid",			        65540, MBAACCPaletteNodes, GCBUPF_UseButtonLabelsAsPaletteSet,  0x4, indexMBAACCSprites_BossArcueid },
     //It is unclear if B.Arc fills pos 51 or pos 101 due to conflicting evidence
 };

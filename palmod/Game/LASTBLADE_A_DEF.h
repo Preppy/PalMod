@@ -2567,103 +2567,103 @@ const sGame_PaletteDataset LASTBLADE_A_ZANTETSU_PALETTES_EX[] =
 
 const sGame_PaletteDataset LASTBLADE_A_KAEDE_PALETTES_PORTRAITS[] =
 {
-    { L"O. Kaede VS/Win A", 0xd22a0, 0xd2360 },
-    { L"Kaede VS/Win A", 0xd43a0, 0xd44a0 },
-    { L"O. Kaede VS/Win D", 0xd2360, 0xd2420 },
-    { L"Kaede VS/Win D", 0xd44a0, 0xd45a0 },
-    { L"O. Kaede VS/Win EX", 0xd2420, 0xd24e0 },
-    { L"Kaede VS/Win EX", 0xd45a0, 0xd46a0 },
+    { L"O. Kaede VS/Win A", 0xd22a0, 0xd2360, indexLastBladeSprites_KaedeO, 0x40 },
+    { L"Kaede VS/Win A", 0xd43a0, 0xd44a0, indexLastBladeSprites_Kaede, 0x40 },
+    { L"O. Kaede VS/Win D", 0xd2360, 0xd2420, indexLastBladeSprites_KaedeO, 0x40 },
+    { L"Kaede VS/Win D", 0xd44a0, 0xd45a0, indexLastBladeSprites_Kaede, 0x40 },
+    { L"O. Kaede VS/Win EX", 0xd2420, 0xd24e0, indexLastBladeSprites_KaedeO, 0x40 },
+    { L"Kaede VS/Win EX", 0xd45a0, 0xd46a0, indexLastBladeSprites_Kaede, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_MORIYA_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd24e0, 0xd25c0 },
-    { L"VS/Win D", 0xd25c0, 0xd26a0 },
-    { L"VS/Win EX", 0xd26a0, 0xd2780 },
+    { L"VS/Win A", 0xd24e0, 0xd25c0, indexLastBladeSprites_Moriya, 0x40 },
+    { L"VS/Win D", 0xd25c0, 0xd26a0, indexLastBladeSprites_Moriya, 0x40 },
+    { L"VS/Win EX", 0xd26a0, 0xd2780, indexLastBladeSprites_Moriya, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_YUKI_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd2780, 0xd2880 },
-    { L"VS/Win D", 0xd2880, 0xd2980 },
-    { L"VS/Win EX", 0xd2980, 0xd2a80 },
+    { L"VS/Win A", 0xd2780, 0xd2880, indexLastBladeSprites_Yuki, 0x40 },
+    { L"VS/Win D", 0xd2880, 0xd2980, indexLastBladeSprites_Yuki, 0x40 },
+    { L"VS/Win EX", 0xd2980, 0xd2a80, indexLastBladeSprites_Yuki, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_OKINA_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd2a80, 0xd2b60 },
-    { L"VS/Win D", 0xd2b60, 0xd2c40 },
-    { L"VS/Win EX", 0xd2c40, 0xd2d20 },
+    { L"VS/Win A", 0xd2a80, 0xd2b60, indexLastBladeSprites_Okina, 0x40 },
+    { L"VS/Win D", 0xd2b60, 0xd2c40, indexLastBladeSprites_Okina, 0x40 },
+    { L"VS/Win EX", 0xd2c40, 0xd2d20, indexLastBladeSprites_Okina, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_AKARI_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd2d20, 0xd2e20 },
-    { L"VS/Win D", 0xd2e20, 0xd2f20 },
-    { L"VS/Win EX", 0xd2f20, 0xd3020 },
+    { L"VS/Win A", 0xd2d20, 0xd2e20, indexLastBladeSprites_Akari, 0x40 },
+    { L"VS/Win D", 0xd2e20, 0xd2f20, indexLastBladeSprites_Akari, 0x40 },
+    { L"VS/Win EX", 0xd2f20, 0xd3020, indexLastBladeSprites_Akari, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_JUZOH_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3020, 0xd30c0 },
-    { L"VS/Win D", 0xd30c0, 0xd3160 },
-    { L"VS/Win EX", 0xd3160, 0xd3200 },
+    { L"VS/Win A", 0xd3020, 0xd30c0, indexLastBladeSprites_Juzoh, 0x40 },
+    { L"VS/Win D", 0xd30c0, 0xd3160, indexLastBladeSprites_Juzoh, 0x40 },
+    { L"VS/Win EX", 0xd3160, 0xd3200, indexLastBladeSprites_Juzoh, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_WASHIZUKA_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3200, 0xd3300 },
-    { L"VS/Win D", 0xd3300, 0xd3400 },
-    { L"VS/Win EX", 0xd3400, 0xd3500 },
+    { L"VS/Win A", 0xd3200, 0xd3300, indexLastBladeSprites_Washizuka, 0x40 },
+    { L"VS/Win D", 0xd3300, 0xd3400, indexLastBladeSprites_Washizuka, 0x40 },
+    { L"VS/Win EX", 0xd3400, 0xd3500, indexLastBladeSprites_Washizuka, 0x40 },
 };
 
-const sGame_PaletteDataset LASTBLADE_A_SHIKYOJ_PALETTES_PORTRAITS[] =
+const sGame_PaletteDataset LASTBLADE_A_SHIKYOH_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3500, 0xd35c0 },
-    { L"VS/Win D", 0xd35c0, 0xd3680 },
-    { L"VS/Win EX", 0xd3680, 0xd3740 },
+    { L"VS/Win A", 0xd3500, 0xd35c0, indexLastBladeSprites_Shikyoh, 0x40 },
+    { L"VS/Win D", 0xd35c0, 0xd3680, indexLastBladeSprites_Shikyoh, 0x40 },
+    { L"VS/Win EX", 0xd3680, 0xd3740, indexLastBladeSprites_Shikyoh, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_AMANO_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3740, 0xd37a0 },
-    { L"VS/Win D", 0xd37a0, 0xd3800 },
-    { L"VS/Win EX", 0xd3800, 0xd3860 },
+    { L"VS/Win A", 0xd3740, 0xd37a0, indexLastBladeSprites_Amano, 0x40 },
+    { L"VS/Win D", 0xd37a0, 0xd3800, indexLastBladeSprites_Amano, 0x40 },
+    { L"VS/Win EX", 0xd3800, 0xd3860, indexLastBladeSprites_Amano, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_LEE_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3860, 0xd3920 },
-    { L"VS/Win D", 0xd3920, 0xd39e0 },
-    { L"VS/Win EX", 0xd39e0, 0xd3aa0 },
+    { L"VS/Win A", 0xd3860, 0xd3920, indexLastBladeSprites_Lee, 0x40 },
+    { L"VS/Win D", 0xd3920, 0xd39e0, indexLastBladeSprites_Lee, 0x40 },
+    { L"VS/Win EX", 0xd39e0, 0xd3aa0, indexLastBladeSprites_Lee, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_ZANTETSU_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3aa0, 0xd3b40 },
-    { L"VS/Win D", 0xd3b40, 0xd3be0 },
-    { L"VS/Win EX", 0xd3be0, 0xd3c80 },
+    { L"VS/Win A", 0xd3aa0, 0xd3b40, indexLastBladeSprites_Zantetsu, 0x40 },
+    { L"VS/Win D", 0xd3b40, 0xd3be0, indexLastBladeSprites_Zantetsu, 0x40 },
+    { L"VS/Win EX", 0xd3be0, 0xd3c80, indexLastBladeSprites_Zantetsu, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_SHIGEN_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3c80, 0xd3d60 },
-    { L"VS/Win D", 0xd3d60, 0xd3e40 },
-    { L"VS/Win EX", 0xd3e40, 0xd3f20 },
+    { L"VS/Win A", 0xd3c80, 0xd3d60, indexLastBladeSprites_Shigen, 0x40 },
+    { L"VS/Win D", 0xd3d60, 0xd3e40, indexLastBladeSprites_Shigen, 0x40 },
+    { L"VS/Win EX", 0xd3e40, 0xd3f20, indexLastBladeSprites_Shigen, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_MUSASHI_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd3f20, 0xd3fe0 },
-    { L"VS/Win D", 0xd3fe0, 0xd40a0 },
-    { L"VS/Win EX", 0xd40a0, 0xd4160 },
+    { L"VS/Win A", 0xd3f20, 0xd3fe0, indexLastBladeSprites_Musashi, 0x40 },
+    { L"VS/Win D", 0xd3fe0, 0xd40a0, indexLastBladeSprites_Musashi, 0x40 },
+    { L"VS/Win EX", 0xd40a0, 0xd4160, indexLastBladeSprites_Musashi, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_KAGAMI_PALETTES_PORTRAITS[] =
 {
-    { L"VS/Win A", 0xd4160, 0xd4220 },
-    { L"VS/Win D", 0xd4220, 0xd42e0 },
-    { L"VS/Win EX", 0xd42e0, 0xd43a0 },
+    { L"VS/Win A", 0xd4160, 0xd4220, indexLastBladeSprites_Kagami, 0x40 },
+    { L"VS/Win D", 0xd4220, 0xd42e0, indexLastBladeSprites_Kagami, 0x40 },
+    { L"VS/Win EX", 0xd42e0, 0xd43a0, indexLastBladeSprites_Kagami, 0x40 },
 };
 
 const sGame_PaletteDataset LASTBLADE_A_BONUS_PALETTES_STAGES[] =
@@ -2781,6 +2781,7 @@ const sDescTreeNode LASTBLADE_A_MUKURO_COLLECTION[] =
     { L"Power A", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_MUKURO_PALETTES_PA, ARRAYSIZE(LASTBLADE_A_MUKURO_PALETTES_PA) },
     { L"Power D", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_MUKURO_PALETTES_PD, ARRAYSIZE(LASTBLADE_A_MUKURO_PALETTES_PD) },
     { L"EX", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_MUKURO_PALETTES_EX, ARRAYSIZE(LASTBLADE_A_MUKURO_PALETTES_EX) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_SHIKYOH_PALETTES_PORTRAITS, ARRAYSIZE(LASTBLADE_A_SHIKYOH_PALETTES_PORTRAITS) },
 };
 
 const sDescTreeNode LASTBLADE_A_MUSASHI_COLLECTION[] =

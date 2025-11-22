@@ -31,6 +31,35 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load
 };
 
+// for internal reference only at this time
+const std::vector<std::string> g_rgImgDatSectionNames =
+{
+    { "Arcana" },
+    { "ArcSys" },
+    { "BreakRev" },
+    { "CPS2" },
+    { "DS" },
+    { "FrenchBread" },
+    { "Garou" },
+    { "GuiltyGear" },
+    { "JOJO" },
+    { "KarnovR" },
+    { "KOF" },
+    { "MatriM" },
+    { "NEOGEO" },
+    { "Other" },
+    { "PGM" },
+    { "RedEarth" },
+    { "SamSho" },
+    { "SEGA" },
+    { "SF2" },
+    { "SFIII" },
+    { "SNES" },
+    { "Taito" },
+    { "WakuWaku7" },
+    { "WindJamm" }
+};
+
 // These numbers refer to the indexes within the appropriate IMGDAT sections
 
 enum CHARACTERS_CPS2
@@ -2326,6 +2355,9 @@ enum SupportedFrenchBread_PaletteListIndex
 
     indexFrenchBreadSprites_MBTL_Edmond,            // 0x80
     indexFrenchBreadSprites_MBTL_Ushi,              // 0x81
+
+    indexMBAACCSprites_BossArcueid,         // 0x82
+    indexMBAACCSprites_ArchetypeEarthHime,  // 0x83
 };
 
 enum SupportedTaito_PaletteListIndex
@@ -2801,4 +2833,28 @@ enum SupportedOther_SpriteListIndex
     indexBKRoadSprites_MuayThai,            // 0x92
     indexBKRoadSprites_Sumo,                // 0x93
     indexBKRoadSprites_Bonus,               // 0x94
+
+    indexVF2GenSprites_Akira,           // 0x95
+    indexVF2GenSprites_Dural,           // 0x96
+    indexVF2GenSprites_Jacky,           // 0x97
+    indexVF2GenSprites_Jeffry,          // 0x98
+    indexVF2GenSprites_Kage,            // 0x99
+    indexVF2GenSprites_Lau,             // 0x9a
+    indexVF2GenSprites_Pai,             // 0x9b
+    indexVF2GenSprites_Sarah,           // 0x9c
+    indexVF2GenSprites_Wolf,            // 0x9d
+    indexVF2GenSprites_Stages,          // 0x9e
+    indexVF2GenSprites_Bonus,           // 0x9f
+
+    indexDarakuSprites_Carlos,          // 0xa0
+    indexDarakuSprites_Cool,            // 0xa1
+    indexDarakuSprites_Haiji,           // 0xa2
+    indexDarakuSprites_Harry,           // 0xa3
+    indexDarakuSprites_Roche,           // 0xa4
+    indexDarakuSprites_Taro,            // 0xa5
+    indexDarakuSprites_Torao,           // 0xa6
+    indexDarakuSprites_Trigger,         // 0xa7
+    indexDarakuSprites_Yuiran,          // 0xa8
+    indexDarakuSprites_Yuiren,          // 0xa9
+    indexDarakuSprites_Bonus,           // 0xaa
 };

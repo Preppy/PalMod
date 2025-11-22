@@ -297,10 +297,10 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         // here we keep track of the imgdat version we expect.
         // not super critical for daily updates, but still useful
         const uint16_t nExpectedYear = 2025;
-        const uint8_t nExpectedMonth = 10;
-        const uint8_t nExpectedDay = 16;
+        const uint8_t nExpectedMonth = 11;
+        const uint8_t nExpectedDay = 22;
         const uint8_t nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 247854486;
+        const ULONGLONG nExpectedFileSize = 257135065;
 
         const uint32_t nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -340,7 +340,7 @@ BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint16_t uGameFlag, uint8_t 
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::LoadGameImages : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and ImgDatGameSectionFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, KnownGameInfo::GetGameNameForGameID(uGameFlag), uImgDatGameSectionFlag, uGameUnitAmt, static_cast<int>(prgGameImageSet.size()));
+    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and ImgDatGameSectionFlag is '%u' (\'%S\').  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, KnownGameInfo::GetGameNameForGameID(uGameFlag), uImgDatGameSectionFlag, g_rgImgDatSectionNames.at(uImgDatGameSectionFlag).c_str(), uGameUnitAmt, static_cast<int>(prgGameImageSet.size()));
     OutputDebugString(strDebugInfo);
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgDatGameSectionFlag) || (prgGameImageSet.empty()))

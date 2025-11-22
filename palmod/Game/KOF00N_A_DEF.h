@@ -1645,10 +1645,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KASUMI_Striker[] =
     { L"Xiangfei A Electric Shock Effect", 0xcf190, 0xcf1b0, indexKOF00Sprites_Kasumi, 0x08 },
     { L"Xiangfei B", 0xcf350, 0xcf370, indexKOF00Sprites_Kasumi, 0x08 },
     { L"Xiangfei B Electric Shock Effect", 0xcf390, 0xcf3b0, indexKOF00Sprites_Kasumi, 0x08 },
-    { L"Unknown A", 0xdcff0, 0xdd010 },
-    { L"Unknown A Electric Shock Effect", 0xdd030, 0xdd050 },
-    { L"Unknown B", 0xdd070, 0xdd090 },
-    { L"Unknown B Electric Shock Effect", 0xdd0b0, 0xdd0d0 },
+    { L"Unknown A", 0xdcff0, 0xdd010, indexKOF00Sprites_Kasumi, 0x0a },
+    { L"Unknown A Electric Shock Effect", 0xdd030, 0xdd050, indexKOF00Sprites_Kasumi, 0x0a },
+    { L"Unknown B", 0xdd070, 0xdd090, indexKOF00Sprites_Kasumi, 0x0a },
+    { L"Unknown B Electric Shock Effect", 0xdd0b0, 0xdd0d0, indexKOF00Sprites_Kasumi, 0x0a },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KASUMI_Moves[] =
