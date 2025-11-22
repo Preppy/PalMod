@@ -236,6 +236,7 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
         // We can do a quick pass here to ensure that the bounding rect for 0 is optimized.
         // Note that mismatched image sizes is a bad plan in general, but this should make it slightly less annoying.
         // The logic here isn't perfect, but it at least is a more presentable preview.
+        // Note that mismatched preview sizes is going to cause problems, so avoid that.
         if (m_vSpriteOverrideTextures.at(0).pixels.size())
         {
             for (int iLayer = 1; iLayer < MAX_IMAGES_DISPLAYABLE; iLayer++)
@@ -1337,22 +1338,36 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
 
                 if (!fUserCanceled)
                 {
-                    if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
+                    // overly simplified check to avoid crazed autolayouts
+                    if (fPreferQuietMode && pnPositionToLoadTo &&
+                        (((*pnPositionToLoadTo != 0) && m_pImgBuffer[0] && ((m_pImgBuffer[0]->dimensions.height != height) || (m_pImgBuffer[0]->dimensions.width != width))) ||
+                         ((*pnPositionToLoadTo == 0) && m_pImgBuffer[1] && ((m_pImgBuffer[1]->dimensions.height != height) || (m_pImgBuffer[1]->dimensions.width != width)))))
                     {
-                        _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
-
-                        // We handle RGB status update inside that logic, since it can be slightly different
-                        CString strMsg;
-                        strMsg.Format(L"Loaded %u x %u indexed PNG as a preview.", width, height);
-                        GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
-
-                        fSuccess = true;
+                        // In theory even if the user injects something here we shouldn't load it, but this at least prevents the bad auto case.
+                        OutputDebugString(L"ERROR: custom preview not loaded due to bad dimensions.\r\n");
+                        // Note that the status text won't show up during auto-import of a bad preview since we set status to the palette name at end of load.
+                        GetHost()->GetPalModDlg()->SetStatusText(L"Custom preview not loaded due to dimensions not matching.");
+                        fSuccess = false;
                     }
-                    else if ((state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ||
-                           (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA))
+                    else
                     {
-                        _ImportAndSplitRGBSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
-                        fSuccess = true;
+                        if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
+                        {
+                            _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
+
+                            // We handle RGB status update inside that logic, since it can be slightly different
+                            CString strMsg;
+                            strMsg.Format(L"Loaded %u x %u indexed PNG as a preview.", width, height);
+                            GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
+
+                            fSuccess = true;
+                        }
+                        else if ((state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ||
+                                 (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA))
+                        {
+                            _ImportAndSplitRGBSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
+                            fSuccess = true;
+                        }
                     }
                 }
 
@@ -1504,8 +1519,8 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
 
     for (int yIndex = 0; yIndex < nBltH; yIndex++)
     {
-        int nStartRow = (rBltRct.top + ((nBltH - 1) - yIndex)) * (m_MainLayout.width * 4) + (rBltRct.left * 4);
-        int nSrcStartRow = ((yIndex + nSrcY) * nWidth) + nSrcX;
+        const int nStartRow = (rBltRct.top + ((nBltH - 1) - yIndex)) * (m_MainLayout.width * 4) + (rBltRct.left * 4);
+        const int nSrcStartRow = ((yIndex + nSrcY) * nWidth) + nSrcX;
 
         for (int xIndex = 0; xIndex < nBltW * 4; xIndex += 4)
         {
