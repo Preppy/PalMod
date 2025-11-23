@@ -1340,6 +1340,11 @@ const sGame_PaletteDataset AsuraBuster_A_Vebel_ABC[] =
     { L"Nanami ABC", 0x97b12, 0x97b32, indexAsuraBuster_Nanami, 0x00 },
 };
 
+const sGame_PaletteDataset AsuraBuster_A_Vebel_Shared[] =
+{
+    { L"Dialogue Portrait", 0x8b42c, 0x8b44c },
+};
+
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_Effects[] =
 {
     // Yashaou
@@ -1494,11 +1499,16 @@ const sGame_PaletteDataset AsuraBuster_A_Stages[] =
     { L"Story Mode Stage 1 (1/2) 0x4d0f0", 0x4d0f0, 0x4d2f0 },
     { L"Story Mode Stage 1 (2/2) 0x4d2f0", 0x4d2f0, 0x4d4f0 },
     { L"Story Mode Stage 1 Extra", 0x4d4f0, 0x4d510 },
+    { L"Story Mode Stage 2 (1/2) 0x4ccd0", 0x4ccd0, 0x4ced0 },
+    { L"Story Mode Stage 2 (2/2) 0x4ced0", 0x4ced0, 0x4d0d0 },
+    { L"Story Mode Stage 2 Extra", 0x4d0d0, 0x4d0f0 },
     { L"Bonus Game Stage (1/2) 0x4f530", 0x4f530, 0x4f730 },
     { L"Bonus Game Stage (2/2) 0x4f730", 0x4f730, 0x4f930 },
     { L"Bonus Game Stage Extra", 0x4f930, 0x4f950 },
-    { L"King Stage", 0x4fc50, 0x4fe50 },
-    { L"King Stage Extra", 0x4fe50, 0x4fe70 },
+    { L"King Stage", 0x4fa10, 0x4fc10 },
+    { L"King Stage Extra 1", 0x4f950, 0x4f9f0 },
+    { L"King Stage Extra 2", 0x4fc10, 0x4fc50 },
+    { L"King Stage Background (VS King)", 0x4fe50, 0x4fe70 },
     { L"Last Stand Void", 0x4fe70, 0x50070 },
     { L"Boost Mode Background", 0x4f330, 0x4f350 },
 };
@@ -1565,6 +1575,81 @@ const sGame_PaletteDataset AsuraBuster_A_Bonus_Record[] =
     { L"Best Record Background 6", 0x661d2, 0x661f2 },
     { L"Best Record Background 7", 0x663d2, 0x663f2 },
     { L"Best Record Background 8", 0x665d2, 0x665f2 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_CharSel[] =
+{
+    { L"Background", 0x6b884, 0x6b8a4 },
+    { L"Goat", 0x6b8a4, 0x6b8c4 },
+    { L"Leon", 0x6b8c4, 0x6b8e4 },
+    { L"Yashaou", 0x6b8e4, 0x6b904 },
+    { L"Sittara", 0x6b924, 0x6b944 },
+    { L"Rose Mary", 0x6b944, 0x6b964 },
+    { L"Alice", 0x6b964, 0x6b984 },
+    { L"Chen-Mao", 0x6b984, 0x6b9a4 },
+    { L"Taros", 0x6b9a4, 0x6b9c4 },
+    { L"Zam-B", 0x6b9e4, 0x6ba04 },
+    { L"Rokurouta", 0x6ba04, 0x6ba24 },
+    { L"Zinsuke", 0x6ba24, 0x6ba44 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_WorldMap[] =
+{
+    { L"Stage Icons (1/2) 0x67c2e", 0x67c2e, 0x67e2e },
+    { L"Stage Icons (2/2) 0x67e2e", 0x67e2e, 0x67eae },
+    { L"Water Border 1/4", 0x67ece, 0x67eee },
+    { L"Water Border 2/4", 0x67eee, 0x67f0e },
+    { L"Water Border 3/4", 0x67f0e, 0x67f2e },
+    { L"Water Border 4/4", 0x67f2e, 0x67f4e },
+    { L"Clouds and Dust", 0x67f4e, 0x67f6e },
+    { L"Real World Banner", 0x67f6e, 0x67f8e },
+    { L"Arrow Pointer", 0x67f8e, 0x67fae },
+    { L"Stage Name", 0x67fae, 0x67fce },
+    { L"Map Background", 0x67fce, 0x67fee },
+    { L"NEXT STAGE", 0x67fee, 0x6800e },
+    { L"Border", 0x6800e, 0x6820e },
+    { L"Map", 0x6820e, 0x6840e },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_Endings[] =
+{
+    { L"Ending Illustrations", 0x8e620, 0x8e820 },
+    { L"Ending Character Art", 0x8ff72, 0x90172 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_Continue[] =
+{
+    { L"CONTINUE", 0x4c230, 0x4c250 },
+    { L"Numbers", 0x4c250, 0x4c290 },
+    { L"GAME OVER", 0x72456, 0x72476 },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_WolfBG[] =
+{
+    { L"Palette 1",             0x815ae, 0x815ce },
+    { L"Palette 2",             0x815ce, 0x815ee },
+    { L"Palette 3 (Unused)",    0x815ee, 0x8160e },
+    { L"Palette 4 (Unused)",    0x8160e, 0x8162e },
+    { L"Palette 5 (Unused)",    0x8162e, 0x8164e },
+    { L"Palette 6 (Unused)",    0x8166e, 0x8168e },
+    { L"Palette 7 (Unused)",    0x8168e, 0x816ae },
+    { L"Palette 8 (Unused)",    0x816ae, 0x816ce },
+    { L"Palette 9 (Unused)",    0x816ce, 0x816ee },
+    { L"Palette 10 (Unused)",   0x816ee, 0x8170e },
+    { L"Palette 11 (Unused)",   0x8170e, 0x8172e },
+    { L"KO Count",              0x8164e, 0x8166e },
+};
+
+const sGame_PaletteDataset AsuraBuster_A_Bonus_King[] =
+{
+    { L"King (Pre-Fight/Post-Fight)",   0x4f9f0, 0x4fa10 },
+    { L"King",                          0x4fc50, 0x4fe50 },
+    { L"Woman's Hand",                  0x97db2, 0x97dd2 },
+    { L"Man's Hand",                    0x97dd2, 0x97df2 },
+    { L"Meteors",                       0x97df2, 0x97e12 },
+    { L"Dagger",                        0x97e12, 0x97e32 },
+    { L"Lifebar Portrait",              0x97d92, 0x97db2 },
+    { L"Dialogue Portrait",             0x8b52c, 0x8b54c },
 };
 
 const sDescTreeNode AsuraBuster_A_Yashaou_COLLECTION[] =
@@ -1724,6 +1809,7 @@ const sDescTreeNode AsuraBuster_A_Vebel_COLLECTION[] =
     { L"AC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_AC, ARRAYSIZE(AsuraBuster_A_Vebel_AC) },
     { L"BC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_BC, ARRAYSIZE(AsuraBuster_A_Vebel_BC) },
     { L"ABC", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_ABC, ARRAYSIZE(AsuraBuster_A_Vebel_ABC) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_Shared, ARRAYSIZE(AsuraBuster_A_Vebel_Shared) },
     { L"Effects", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Vebel_Effects, ARRAYSIZE(AsuraBuster_A_Vebel_Effects) },
 };
 
@@ -1737,6 +1823,14 @@ const sDescTreeNode AsuraBuster_A_Bonus_COLLECTION[] =
     { L"Intro",         DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Intro, ARRAYSIZE(AsuraBuster_A_Bonus_Intro) },
     { L"Title Screen",  DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Title, ARRAYSIZE(AsuraBuster_A_Bonus_Title) },
     { L"Best Record",   DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Record, ARRAYSIZE(AsuraBuster_A_Bonus_Record) },
+
+    { L"Character Select",  DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_CharSel, ARRAYSIZE(AsuraBuster_A_Bonus_CharSel) },
+    { L"Real World Map",    DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_WorldMap, ARRAYSIZE(AsuraBuster_A_Bonus_WorldMap) },
+    { L"Endings",           DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Endings, ARRAYSIZE(AsuraBuster_A_Bonus_Endings) },
+    { L"Continue",          DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_Continue, ARRAYSIZE(AsuraBuster_A_Bonus_Continue) },
+
+    { L"Wolf (Bonus Game)", DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_WolfBG, ARRAYSIZE(AsuraBuster_A_Bonus_WolfBG) },
+    { L"King",              DESC_NODETYPE_TREE, (void*)AsuraBuster_A_Bonus_King, ARRAYSIZE(AsuraBuster_A_Bonus_King) },
 };
 
 const sDescTreeNode AsuraBuster_A_Stages_COLLECTION[] =
