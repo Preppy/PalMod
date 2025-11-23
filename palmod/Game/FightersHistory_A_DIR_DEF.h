@@ -18,7 +18,6 @@ const sGame_PaletteDataset FightersHistory_A_Ray_Kick[] =
 
 const sGame_PaletteDataset FightersHistory_A_Feilin_Punch[] =
 {
-
     { L"Feilin Punch", 0xb7180, 0xb71c0, -1, -1, &pairNext },
     { L"Feilin Punch weakspot", 0xbf980, 0xbf9c0 },
 };

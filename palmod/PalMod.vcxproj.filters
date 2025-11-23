@@ -1071,6 +1071,9 @@
     <ClCompile Include="Game\Game_FightersHistory_A_DIR.cpp">
       <Filter>Games\Other Platforms\Fighter%27s History %28Data East%29</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_AsuraBuster_A_DIR.cpp">
+      <Filter>Games\Other Platforms\Asura Buster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

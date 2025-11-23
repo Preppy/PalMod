@@ -2568,6 +2568,9 @@ namespace KnownGameInfo
         case AOF3_A:
             CGame_AOF3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
+        case AsuraBuster_A:
+            CGame_AsuraBuster_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case AvgrsGS_A:
             CGame_AvgrsGS_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
