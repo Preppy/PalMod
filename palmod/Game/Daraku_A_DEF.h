@@ -48,11 +48,11 @@ const sGame_PaletteDataset Daraku_A_Yuiren_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_Yuiren_SHARED_PALETTES[] =
 {
     // -Shared (Yuiren/Yuiran)-
-    { L"???1", 0x8ac8, 0x8b48 },
-    { L"Harry Stage Outline/Burning", 0x8b48, 0x8bc8 },
-    { L"MAX/Super Flash", 0x8bc8, 0x8c48 },
-    { L"Trigger Stage Outline", 0x8c48, 0x8cc8 },
-    { L"???2", 0x8cc8, 0x8d48 },
+    { L"???1", 0x8ac8, 0x8b48, indexDarakuSprites_Yuiren, 0x00 },
+    { L"Harry Stage Outline/Burning", 0x8b48, 0x8bc8, indexDarakuSprites_Yuiren, 0x00 },
+    { L"MAX/Super Flash", 0x8bc8, 0x8c48, indexDarakuSprites_Yuiren, 0x00 },
+    { L"Trigger Stage Outline", 0x8c48, 0x8cc8, indexDarakuSprites_Yuiren, 0x00 },
+    { L"???2", 0x8cc8, 0x8d48, indexDarakuSprites_Yuiren, 0x00 },
 };
 
 const sGame_PaletteDataset Daraku_A_Yuiren_PORTRAIT_PALETTES[] =
@@ -100,7 +100,7 @@ const sGame_PaletteDataset Daraku_A_Yuiran_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_Yuiran_SHARED_PALETTES[] =
 {
     // -Shared (Yuiran)-
-    { L"???1", 0x95c8, 0x9608 },
+    { L"???1", 0x95c8, 0x9608, indexDarakuSprites_Yuiran, 0x00 },
 };
 
 const sGame_PaletteDataset Daraku_A_Yuiran_PORTRAIT_PALETTES[] =
@@ -148,11 +148,11 @@ const sGame_PaletteDataset Daraku_A_Cool_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_Cool_SHARED_PALETTES[] =
 {
     // -Shared-
-    { L"???1", 0x9b88, 0x9bc8 },
-    { L"Harry Stage Outline/Burning", 0x9bc8, 0x9c08 },
-    { L"MAX/Super Flash", 0x9c08, 0x9c48 },
-    { L"Trigger Stage Outline", 0x9c48, 0x9c88 },
-    { L"???2", 0x9c88, 0x9cc8 },
+    { L"???1", 0x9b88, 0x9bc8, indexDarakuSprites_Cool, 0x00 },
+    { L"Harry Stage Outline/Burning", 0x9bc8, 0x9c08, indexDarakuSprites_Cool, 0x00 },
+    { L"MAX/Super Flash", 0x9c08, 0x9c48, indexDarakuSprites_Cool, 0x00 },
+    { L"Trigger Stage Outline", 0x9c48, 0x9c88, indexDarakuSprites_Cool, 0x00 },
+    { L"???2", 0x9c88, 0x9cc8, indexDarakuSprites_Cool, 0x00 },
     { L"Darts and Feathers 1", 0x9fc8, 0xa008, indexDarakuSprites_Cool, 0x01 },
     { L"Darts and Feathers 2", 0xa008, 0xa048, indexDarakuSprites_Cool, 0x01 },
 };
@@ -202,11 +202,11 @@ const sGame_PaletteDataset Daraku_A_HarryNess_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_HarryNess_SHARED_PALETTES[] =
 {
     // -Shared-
-    { L"???1", 0xa2c8, 0xa308 },
-    { L"Harry Stage Outline/Burning", 0xa308, 0xa348 },
-    { L"MAX/Super Flash", 0xa348, 0xa388 },
-    { L"Trigger Stage Outline", 0xa388, 0xa3c8 },
-    { L"???2", 0xa3c8, 0xa408 },
+    { L"???1", 0xa2c8, 0xa308, indexDarakuSprites_Harry, 0x00 },
+    { L"Harry Stage Outline/Burning", 0xa308, 0xa348, indexDarakuSprites_Harry, 0x00 },
+    { L"MAX/Super Flash", 0xa348, 0xa388, indexDarakuSprites_Harry, 0x00 },
+    { L"Trigger Stage Outline", 0xa388, 0xa3c8, indexDarakuSprites_Harry, 0x00 },
+    { L"???2", 0xa3c8, 0xa408, indexDarakuSprites_Harry, 0x00 },
     { L"Wild Boar Flash/Ring", 0xa708, 0xa748 },
     { L"Wild Boar Dust", 0xa748, 0xa788 },
     { L"Rockets", 0xa788, 0xa808, indexDarakuSprites_Harry, 0x01 },
@@ -257,15 +257,15 @@ const sGame_PaletteDataset Daraku_A_TARO_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_TARO_SHARED_PALETTES[] =
 {
     // -Shared-
-    { L"???1", 0xad08, 0xad88 },
-    { L"Harry Stage Outline/Burning", 0xad88, 0xae08 },
-    { L"MAX/Super Flash", 0xae08, 0xae88 },
-    { L"Trigger Stage Outline", 0xae88, 0xaf08 },
-    { L"???2", 0xaf08, 0xaf88 },
-    { L"???3", 0xb508, 0xb588 },
-    { L"???4", 0xb608, 0xb688 },
+    { L"???1", 0xad08, 0xad88, indexDarakuSprites_Taro, 0x00 },
+    { L"Harry Stage Outline/Burning", 0xad88, 0xae08, indexDarakuSprites_Taro, 0x00 },
+    { L"MAX/Super Flash", 0xae08, 0xae88, indexDarakuSprites_Taro, 0x00 },
+    { L"Trigger Stage Outline", 0xae88, 0xaf08, indexDarakuSprites_Taro, 0x00 },
+    { L"???2", 0xaf08, 0xaf88, indexDarakuSprites_Taro, 0x00 },
+    { L"???3", 0xb508, 0xb588, indexDarakuSprites_Taro, 0x00 },
+    { L"???4", 0xb608, 0xb688, indexDarakuSprites_Taro, 0x00 },
     { L"Intro Cat", 0xb688, 0xb6c8, indexDarakuSprites_Taro, 0x01 },
-    { L"???6", 0xb6c8, 0xb748 },
+    { L"???6", 0xb6c8, 0xb748, indexDarakuSprites_Taro, 0x00 },
 };
 
 const sGame_PaletteDataset Daraku_A_TARO_PORTRAIT_PALETTES[] =
@@ -313,11 +313,11 @@ const sGame_PaletteDataset Daraku_A_RuccioRoche_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_RuccioRoche_SHARED_PALETTES[] =
 {
     // -Shared-
-    { L"???1", 0xb9c8, 0xba08 },
-    { L"Harry Stage Outline/Burning", 0xba08, 0xba48 },
-    { L"MAX/Super Flash", 0xba48, 0xba88 },
-    { L"Trigger Stage Outline", 0xba88, 0xbac8 },
-    { L"???2", 0xbac8, 0xbb08 },
+    { L"???1", 0xb9c8, 0xba08, indexDarakuSprites_Roche, 0x00 },
+    { L"Harry Stage Outline/Burning", 0xba08, 0xba48, indexDarakuSprites_Roche, 0x00 },
+    { L"MAX/Super Flash", 0xba48, 0xba88, indexDarakuSprites_Roche, 0x00 },
+    { L"Trigger Stage Outline", 0xba88, 0xbac8, indexDarakuSprites_Roche, 0x00 },
+    { L"???2", 0xbac8, 0xbb08, indexDarakuSprites_Roche, 0x00 },
 };
 
 const sGame_PaletteDataset Daraku_A_RuccioRoche_PORTRAIT_PALETTES[] =
@@ -365,15 +365,15 @@ const sGame_PaletteDataset Daraku_A_ToraoOnigawara_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_ToraoOnigawara_SHARED_PALETTES[] =
 {
     // -Shared-
-    { L"???1", 0xc088, 0xc0c8 },
-    { L"Harry Stage Outline/Burning", 0xc0c8, 0xc108 },
-    { L"MAX/Super Flash", 0xc108, 0xc148 },
-    { L"Trigger Stage Outline", 0xc148, 0xc188 },
-    { L"???2", 0xc188, 0xc1c8 },
-    { L"???3", 0xc4c8, 0xc508 },
+    { L"???1", 0xc088, 0xc0c8, indexDarakuSprites_Torao, 0x00 },
+    { L"Harry Stage Outline/Burning", 0xc0c8, 0xc108, indexDarakuSprites_Torao, 0x00 },
+    { L"MAX/Super Flash", 0xc108, 0xc148, indexDarakuSprites_Torao, 0x00 },
+    { L"Trigger Stage Outline", 0xc148, 0xc188, indexDarakuSprites_Torao, 0x00 },
+    { L"???2", 0xc188, 0xc1c8, indexDarakuSprites_Torao, 0x00 },
+    { L"???3", 0xc4c8, 0xc508, indexDarakuSprites_Torao, 0x00 },
     { L"Intro Rock", 0xc508, 0xc548, indexDarakuSprites_Torao, 0x01 },
-    { L"???5", 0xc548, 0xc588 },
-    { L"Red Flash", 0xc588, 0xc5c8 },
+    { L"???5", 0xc548, 0xc588, indexDarakuSprites_Torao, 0x00 },
+    { L"Red Flash", 0xc588, 0xc5c8, indexDarakuSprites_Torao, 0x00 },
 };
 
 const sGame_PaletteDataset Daraku_A_ToraoOnigawara_PORTRAIT_PALETTES[] =
@@ -421,12 +421,12 @@ const sGame_PaletteDataset Daraku_A_HaijiMibu_P2_PALETTES[] =
 const sGame_PaletteDataset Daraku_A_HaijiMibu_SHARED_PALETTES[] =
 {
     // -Shared-
-    { L"???1", 0xc848, 0xc888 },
-    { L"Harry Stage Outline/Burning", 0xc888, 0xc8c8 },
-    { L"MAX/Super Flash", 0xc8c8, 0xc908 },
-    { L"Trigger Stage Outline", 0xc908, 0xc948 },
-    { L"???2", 0xc948, 0xc988 },
-    { L"Red Flash", 0xcc48, 0xcc88 },
+    { L"???1", 0xc848, 0xc888, indexDarakuSprites_Haiji, 0x00 },
+    { L"Harry Stage Outline/Burning", 0xc888, 0xc8c8, indexDarakuSprites_Haiji, 0x00 },
+    { L"MAX/Super Flash", 0xc8c8, 0xc908, indexDarakuSprites_Haiji, 0x00 },
+    { L"Trigger Stage Outline", 0xc908, 0xc948, indexDarakuSprites_Haiji, 0x00 },
+    { L"???2", 0xc948, 0xc988, indexDarakuSprites_Haiji, 0x00 },
+    { L"Red Flash", 0xcc48, 0xcc88, indexDarakuSprites_Haiji, 0x00 },
 };
 
 const sGame_PaletteDataset Daraku_A_HaijiMibu_PORTRAIT_PALETTES[] =
@@ -638,7 +638,7 @@ const sGame_PaletteDataset Daraku_A_BonusPalettes_HUD[] =
 {
     // -HUD-
     { L"Lifebar", 0xdbc8, 0xdfc8, indexDarakuSprites_Bonus, 0x18 },
-    { L"Lifebar (Low Health)", 0xd548, 0xd948, indexDarakuSprites_Bonus, 0x19 },
+    { L"Lifebar (Low Health)", 0xd548, 0xd948, indexDarakuSprites_Bonus, 0x18 },
     { L"Lifebar (Low Health Flash)", 0xd948, 0xd9c8, indexDarakuSprites_Bonus, 0x1a },
     { L"Lifebar (Damage Taken)", 0xd9c8, 0xda08, indexDarakuSprites_Bonus, 0x1b },
     { L"Character Names", 0xe288, 0xe2c8, indexDarakuSprites_Bonus, 0x1c },

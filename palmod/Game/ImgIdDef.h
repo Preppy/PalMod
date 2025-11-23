@@ -1414,6 +1414,14 @@ enum SupportedMatriM_A_PaletteListIndex
     indexMatriMSprites_White,       // 0x13
     indexMatriMSprites_Bonus,       // 0x14
     indexMatriMSprites_Stages,      // 0x15
+
+    indexBnKSprites_Angela,         // 0x16
+    indexBnKSprites_Bobby,          // 0x17
+    indexBnKSprites_Kanji,          // 0x18
+    indexBnKSprites_Kintaro,        // 0x19
+    indexBnKSprites_OtaneYoung,     // 0x1a
+    indexBnKSprites_OumeYoung,      // 0x1b
+    indexBnKSprites_SuperKurara,    // 0x1c
 };
 
 enum SamuraiShodownSpriteList
@@ -2140,6 +2148,28 @@ enum SupportedNEOGEO_PaletteListIndex
     indexFightFeverSprites_NickCommando,    // 0xd7
     indexFightFeverSprites_RophenHeimer,    // 0xd8
     indexFightFeverSprites_Bonus,           // 0xd9
+
+    indexWHPSprites_Brocken,                // 0xda
+    indexWHPSprites_CaptainKidd,            // 0xdb
+    indexWHPSprites_Dragon,                 // 0xdc
+    indexWHPSprites_Erick,                  // 0xdd
+    indexWHPSprites_Fuuma,                  // 0xde
+    indexWHPSprites_Hanzou,                 // 0xdf
+    indexWHPSprites_Jack,                   // 0xe0
+    indexWHPSprites_JCarn,                  // 0xe1
+    indexWHPSprites_Jeanne,                 // 0xe2
+    indexWHPSprites_JMax,                   // 0xe3
+    indexWHPSprites_Mudman,                 // 0xe4
+    indexWHPSprites_MusclePower,            // 0xe5
+    indexWHPSprites_NeoDio,                 // 0xe6
+    indexWHPSprites_Rasputin,               // 0xe7
+    indexWHPSprites_Ryofu,                  // 0xe8
+    indexWHPSprites_Ryoko,                  // 0xe9
+    indexWHPSprites_Shura,                  // 0xea
+    indexWHPSprites_SonGokuu,               // 0xeb
+    indexWHPSprites_Zeus,                   // 0xec
+    indexWHPSprites_Stages,                 // 0xed
+    indexWHPSprites_Bonus,                  // 0xee
 };
 
 enum SupportedGGXX_PaletteListIndex

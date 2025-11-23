@@ -24,86 +24,94 @@ const std::vector<uint16_t> BnK_P_IMGIDS_USED =
     indexMatriMSprites_White,       // 0x13
     indexMatriMSprites_Bonus,       // 0x14
     indexMatriMSprites_Stages,      // 0x15
+
+    indexBnKSprites_Angela,         // 0x16
+    indexBnKSprites_Bobby,          // 0x17
+    indexBnKSprites_Kanji,          // 0x18
+    indexBnKSprites_Kintaro,        // 0x19
+    indexBnKSprites_OtaneYoung,     // 0x1a
+    indexBnKSprites_OumeYoung,      // 0x1b
+    indexBnKSprites_SuperKurara,    // 0x1c
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_A_PALETTES[] =
 {
-    { L"Angela A", 0x2690fc, 0x26911c },
+    { L"Angela A", 0x2690fc, 0x26911c, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra A", 0x26911c, 0x26913c },
-    { L"Love Me Whip A", 0x26913c, 0x26915c },
-    { L"Rolling/Super Jump Trail A", 0x26915c, 0x26917c },
-    { L"EX/Super Trail A", 0x26917c, 0x26919c },
-    { L"Guard Cancel Trail A (Unused)", 0x26919c, 0x2691bc },
+    { L"Love Me Whip A", 0x26913c, 0x26915c, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail A", 0x26915c, 0x26917c, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail A", 0x26917c, 0x26919c, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail A (Unused)", 0x26919c, 0x2691bc, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_B_PALETTES[] =
 {
-    { L"Angela B", 0x2691bc, 0x2691dc },
+    { L"Angela B", 0x2691bc, 0x2691dc, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra B", 0x2691dc, 0x2691fc },
-    { L"Love Me Whip B", 0x2691fc, 0x26921c },
-    { L"Rolling/Super Jump Trail B", 0x26921c, 0x26923c },
-    { L"EX/Super Trail B", 0x26923c, 0x26925c },
-    { L"Guard Cancel Trail B (Unused)", 0x26925c, 0x26927c },
+    { L"Love Me Whip B", 0x2691fc, 0x26921c, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail B", 0x26921c, 0x26923c, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail B", 0x26923c, 0x26925c, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail B (Unused)", 0x26925c, 0x26927c, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_C_PALETTES[] =
 {
-    { L"Angela C", 0x26927c, 0x26929c },
+    { L"Angela C", 0x26927c, 0x26929c, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra C", 0x26929c, 0x2692bc },
-    { L"Love Me Whip C", 0x2692bc, 0x2692dc },
-    { L"Rolling/Super Jump Trail C", 0x2692dc, 0x2692fc },
-    { L"EX/Super Trail C", 0x2692fc, 0x26931c },
-    { L"Guard Cancel Trail C (Unused)", 0x26931c, 0x26933c },
+    { L"Love Me Whip C", 0x2692bc, 0x2692dc, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail C", 0x2692dc, 0x2692fc, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail C", 0x2692fc, 0x26931c, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail C (Unused)", 0x26931c, 0x26933c, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_D_PALETTES[] =
 {
-    { L"Angela D", 0x26933c, 0x26935c },
+    { L"Angela D", 0x26933c, 0x26935c, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra D", 0x26935c, 0x26937c },
-    { L"Love Me Whip D", 0x26937c, 0x26939c },
-    { L"Rolling/Super Jump Trail D", 0x26939c, 0x2693bc },
-    { L"EX/Super Trail D", 0x2693bc, 0x2693dc },
-    { L"Guard Cancel Trail D (Unused)", 0x2693dc, 0x2693fc },
+    { L"Love Me Whip D", 0x26937c, 0x26939c, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail D", 0x26939c, 0x2693bc, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail D", 0x2693bc, 0x2693dc, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail D (Unused)", 0x2693dc, 0x2693fc, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_SUMMER_PALETTES[] =
 {
-    { L"Angela Summer", 0x2693fc, 0x26941c },
+    { L"Angela Summer", 0x2693fc, 0x26941c, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra Summer", 0x26941c, 0x26943c },
-    { L"Love Me Whip Summer", 0x26943c, 0x26945c },
-    { L"Rolling/Super Jump Trail Summer", 0x26945c, 0x26947c },
-    { L"EX/Super Trail Summer", 0x26947c, 0x26949c },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26949c, 0x2694bc },
+    { L"Love Me Whip Summer", 0x26943c, 0x26945c, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail Summer", 0x26945c, 0x26947c, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail Summer", 0x26947c, 0x26949c, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26949c, 0x2694bc, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_ZOMBIE_PALETTES[] =
 {
-    { L"Angela Zombie", 0x2694bc, 0x2694dc },
+    { L"Angela Zombie", 0x2694bc, 0x2694dc, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra Zombie", 0x2694dc, 0x2694fc },
-    { L"Love Me Whip Zombie", 0x2694fc, 0x26951c },
-    { L"Rolling/Super Jump Trail Zombie", 0x26951c, 0x26953c },
-    { L"EX/Super Trail Zombie", 0x26953c, 0x26955c },
-    { L"Guard Cancel Trail Zombie (Unused)", 0x26955c, 0x26957c },
+    { L"Love Me Whip Zombie", 0x2694fc, 0x26951c, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail Zombie", 0x26951c, 0x26953c, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail Zombie", 0x26953c, 0x26955c, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail Zombie (Unused)", 0x26955c, 0x26957c, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_EXTREME_PALETTES[] =
 {
-    { L"Angela Extreme", 0x26957c, 0x26959c },
+    { L"Angela Extreme", 0x26957c, 0x26959c, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra Extreme", 0x26959c, 0x2695bc },
-    { L"Love Me Whip Extreme", 0x2695bc, 0x2695dc },
-    { L"Rolling/Super Jump Trail Extreme", 0x2695dc, 0x2695fc },
-    { L"EX/Super Trail Extreme", 0x2695fc, 0x26961c },
-    { L"Guard Cancel Trail Extreme (Unused)", 0x26961c, 0x26963c },
+    { L"Love Me Whip Extreme", 0x2695bc, 0x2695dc, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail Extreme", 0x2695dc, 0x2695fc, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail Extreme", 0x2695fc, 0x26961c, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail Extreme (Unused)", 0x26961c, 0x26963c, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANGELA_WHITE_PALETTES[] =
 {
-    { L"Angela White", 0x26963c, 0x26965c },
+    { L"Angela White", 0x26963c, 0x26965c, indexBnKSprites_Angela, 0x00 },
     { L"Unused Extra White", 0x26965c, 0x26967c },
-    { L"Love Me Whip White", 0x26967c, 0x26969c },
-    { L"Rolling/Super Jump Trail White", 0x26969c, 0x2696bc },
-    { L"EX/Super Trail White", 0x2696bc, 0x2696dc },
-    { L"Guard Cancel Trail White (Unused)", 0x2696dc, 0x2696fc },
+    { L"Love Me Whip White", 0x26967c, 0x26969c, indexBnKSprites_Angela, 0x01 },
+    { L"Rolling/Super Jump Trail White", 0x26969c, 0x2696bc, indexBnKSprites_Angela, 0x00 },
+    { L"EX/Super Trail White", 0x2696bc, 0x2696dc, indexBnKSprites_Angela, 0x00 },
+    { L"Guard Cancel Trail White (Unused)", 0x2696dc, 0x2696fc, indexBnKSprites_Angela, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ANNY_A_PALETTES[] =
@@ -192,114 +200,114 @@ const sGame_PaletteDataset BnK_P_ANNY_WHITE_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_BOBBY_A_PALETTES[] =
 {
-    { L"Bobby A", 0x26bf28, 0x26bf48 },
-    { L"Abiku! Powder! A", 0x26bf48, 0x26bf68 },
-    { L"Jet Balloon A", 0x26bf68, 0x26bf88 },
-    { L"Jet Beam Flash 1 A", 0x26bf88, 0x26bfa8 },
-    { L"Jet Beam Flash 2 A", 0x26bfa8, 0x26bfc8 },
-    { L"Intro Clothes A", 0x26bfc8, 0x26bfe8 },
-    { L"C+D Attack A", 0x26bfe8, 0x26c008 },
-    { L"Rolling/Super Jump Trail A", 0x26c008, 0x26c028 },
-    { L"EX/Super Trail A", 0x26c028, 0x26c048 },
-    { L"Guard Cancel Trail A (Unused)", 0x26c048, 0x26c068 },
+    { L"Bobby A", 0x26bf28, 0x26bf48, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! A", 0x26bf48, 0x26bf68, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon A", 0x26bf68, 0x26bf88, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 A", 0x26bf88, 0x26bfa8, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 A", 0x26bfa8, 0x26bfc8, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes A", 0x26bfc8, 0x26bfe8, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack A", 0x26bfe8, 0x26c008, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail A", 0x26c008, 0x26c028, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail A", 0x26c028, 0x26c048, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail A (Unused)", 0x26c048, 0x26c068, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_B_PALETTES[] =
 {
-    { L"Bobby B", 0x26c068, 0x26c088 },
-    { L"Abiku! Powder! B", 0x26c088, 0x26c0a8 },
-    { L"Jet Balloon B", 0x26c0a8, 0x26c0c8 },
-    { L"Jet Beam Flash 1 B", 0x26c0c8, 0x26c0e8 },
-    { L"Jet Beam Flash 2 B", 0x26c0e8, 0x26c108 },
-    { L"Intro Clothes B", 0x26c108, 0x26c128 },
-    { L"C+D Attack B", 0x26c128, 0x26c148 },
-    { L"Rolling/Super Jump Trail B", 0x26c148, 0x26c168 },
-    { L"EX/Super Trail B", 0x26c168, 0x26c188 },
-    { L"Guard Cancel Trail B (Unused)", 0x26c188, 0x26c1a8 },
+    { L"Bobby B", 0x26c068, 0x26c088, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! B", 0x26c088, 0x26c0a8, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon B", 0x26c0a8, 0x26c0c8, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 B", 0x26c0c8, 0x26c0e8, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 B", 0x26c0e8, 0x26c108, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes B", 0x26c108, 0x26c128, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack B", 0x26c128, 0x26c148, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail B", 0x26c148, 0x26c168, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail B", 0x26c168, 0x26c188, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail B (Unused)", 0x26c188, 0x26c1a8, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_C_PALETTES[] =
 {
-    { L"Bobby C", 0x26c1a8, 0x26c1c8 },
-    { L"Abiku! Powder! C", 0x26c1c8, 0x26c1e8 },
-    { L"Jet Balloon C", 0x26c1e8, 0x26c208 },
-    { L"Jet Beam Flash 1 C", 0x26c208, 0x26c228 },
-    { L"Jet Beam Flash 2 C", 0x26c228, 0x26c248 },
-    { L"Intro Clothes C", 0x26c248, 0x26c268 },
-    { L"C+D Attack C", 0x26c268, 0x26c288 },
-    { L"Rolling/Super Jump Trail C", 0x26c288, 0x26c2a8 },
-    { L"EX/Super Trail C", 0x26c2a8, 0x26c2c8 },
-    { L"Guard Cancel Trail C (Unused)", 0x26c2c8, 0x26c2e8 },
+    { L"Bobby C", 0x26c1a8, 0x26c1c8, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! C", 0x26c1c8, 0x26c1e8, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon C", 0x26c1e8, 0x26c208, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 C", 0x26c208, 0x26c228, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 C", 0x26c228, 0x26c248, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes C", 0x26c248, 0x26c268, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack C", 0x26c268, 0x26c288, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail C", 0x26c288, 0x26c2a8, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail C", 0x26c2a8, 0x26c2c8, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail C (Unused)", 0x26c2c8, 0x26c2e8, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_D_PALETTES[] =
 {
-    { L"Bobby D", 0x26c2e8, 0x26c308 },
-    { L"Abiku! Powder! D", 0x26c308, 0x26c328 },
-    { L"Jet Balloon D", 0x26c328, 0x26c348 },
-    { L"Jet Beam Flash 1 D", 0x26c348, 0x26c368 },
-    { L"Jet Beam Flash 2 D", 0x26c368, 0x26c388 },
-    { L"Intro Clothes D", 0x26c388, 0x26c3a8 },
-    { L"C+D Attack D", 0x26c3a8, 0x26c3c8 },
-    { L"Rolling/Super Jump Trail D", 0x26c3c8, 0x26c3e8 },
-    { L"EX/Super Trail D", 0x26c3e8, 0x26c408 },
-    { L"Guard Cancel Trail D (Unused)", 0x26c408, 0x26c428 },
+    { L"Bobby D", 0x26c2e8, 0x26c308, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! D", 0x26c308, 0x26c328, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon D", 0x26c328, 0x26c348, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 D", 0x26c348, 0x26c368, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 D", 0x26c368, 0x26c388, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes D", 0x26c388, 0x26c3a8, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack D", 0x26c3a8, 0x26c3c8, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail D", 0x26c3c8, 0x26c3e8, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail D", 0x26c3e8, 0x26c408, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail D (Unused)", 0x26c408, 0x26c428, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_SUMMER_PALETTES[] =
 {
-    { L"Bobby Summer", 0x26c428, 0x26c448 },
-    { L"Abiku! Powder! Summer", 0x26c448, 0x26c468 },
-    { L"Jet Balloon Summer", 0x26c468, 0x26c488 },
-    { L"Jet Beam Flash 1 Summer", 0x26c488, 0x26c4a8 },
-    { L"Jet Beam Flash 2 Summer", 0x26c4a8, 0x26c4c8 },
-    { L"Intro Clothes Summer", 0x26c4c8, 0x26c4e8 },
-    { L"C+D Attack Summer", 0x26c4e8, 0x26c508 },
-    { L"Rolling/Super Jump Trail Summer", 0x26c508, 0x26c528 },
-    { L"EX/Super Trail Summer", 0x26c528, 0x26c548 },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26c548, 0x26c568 },
+    { L"Bobby Summer", 0x26c428, 0x26c448, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! Summer", 0x26c448, 0x26c468, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon Summer", 0x26c468, 0x26c488, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 Summer", 0x26c488, 0x26c4a8, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 Summer", 0x26c4a8, 0x26c4c8, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes Summer", 0x26c4c8, 0x26c4e8, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack Summer", 0x26c4e8, 0x26c508, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail Summer", 0x26c508, 0x26c528, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail Summer", 0x26c528, 0x26c548, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26c548, 0x26c568, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_ZOMBIE_PALETTES[] =
 {
-    { L"Bobby Zombie", 0x26c568, 0x26c588 },
-    { L"Abiku! Powder! Zombie", 0x26c588, 0x26c5a8 },
-    { L"Jet Balloon Zombie", 0x26c5a8, 0x26c5c8 },
-    { L"Jet Beam Flash 1 Zombie", 0x26c5c8, 0x26c5e8 },
-    { L"Jet Beam Flash 2 Zombie", 0x26c5e8, 0x26c608 },
-    { L"Intro Clothes Zombie", 0x26c608, 0x26c628 },
-    { L"C+D Attack Zombie", 0x26c628, 0x26c648 },
-    { L"Rolling/Super Jump Trail Zombie", 0x26c648, 0x26c668 },
-    { L"EX/Super Trail Zombie", 0x26c668, 0x26c688 },
-    { L"Guard Cancel Trail Zombie (Unused)", 0x26c688, 0x26c6a8 },
+    { L"Bobby Zombie", 0x26c568, 0x26c588, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! Zombie", 0x26c588, 0x26c5a8, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon Zombie", 0x26c5a8, 0x26c5c8, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 Zombie", 0x26c5c8, 0x26c5e8, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 Zombie", 0x26c5e8, 0x26c608, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes Zombie", 0x26c608, 0x26c628, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack Zombie", 0x26c628, 0x26c648, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail Zombie", 0x26c648, 0x26c668, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail Zombie", 0x26c668, 0x26c688, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail Zombie (Unused)", 0x26c688, 0x26c6a8, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_EXTREME_PALETTES[] =
 {
-    { L"Bobby Extreme", 0x26c6a8, 0x26c6c8 },
-    { L"Abiku! Powder! Extreme", 0x26c6c8, 0x26c6e8 },
-    { L"Jet Balloon Extreme", 0x26c6e8, 0x26c708 },
-    { L"Jet Beam Flash 1 Extreme", 0x26c708, 0x26c728 },
-    { L"Jet Beam Flash 2 Extreme", 0x26c728, 0x26c748 },
-    { L"Intro Clothes Extreme", 0x26c748, 0x26c768 },
-    { L"C+D Attack Extreme", 0x26c768, 0x26c788 },
-    { L"Rolling/Super Jump Trail Extreme", 0x26c788, 0x26c7a8 },
-    { L"EX/Super Trail Extreme", 0x26c7a8, 0x26c7c8 },
-    { L"Guard Cancel Trail Extreme (Unused)", 0x26c7c8, 0x26c7e8 },
+    { L"Bobby Extreme", 0x26c6a8, 0x26c6c8, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! Extreme", 0x26c6c8, 0x26c6e8, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon Extreme", 0x26c6e8, 0x26c708, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 Extreme", 0x26c708, 0x26c728, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 Extreme", 0x26c728, 0x26c748, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes Extreme", 0x26c748, 0x26c768, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack Extreme", 0x26c768, 0x26c788, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail Extreme", 0x26c788, 0x26c7a8, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail Extreme", 0x26c7a8, 0x26c7c8, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail Extreme (Unused)", 0x26c7c8, 0x26c7e8, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BOBBY_WHITE_PALETTES[] =
 {
-    { L"Bobby White", 0x26c7e8, 0x26c808 },
-    { L"Abiku! Powder! White", 0x26c808, 0x26c828 },
-    { L"Jet Balloon White", 0x26c828, 0x26c848 },
-    { L"Jet Beam Flash 1 White", 0x26c848, 0x26c868 },
-    { L"Jet Beam Flash 2 White", 0x26c868, 0x26c888 },
-    { L"Intro Clothes White", 0x26c888, 0x26c8a8 },
-    { L"C+D Attack White", 0x26c8a8, 0x26c8c8 },
-    { L"Rolling/Super Jump Trail White", 0x26c8c8, 0x26c8e8 },
-    { L"EX/Super Trail White", 0x26c8e8, 0x26c908 },
-    { L"Guard Cancel Trail White (Unused)", 0x26c908, 0x26c928 },
+    { L"Bobby White", 0x26c7e8, 0x26c808, indexBnKSprites_Bobby, 0x00 },
+    { L"Abiku! Powder! White", 0x26c808, 0x26c828, indexBnKSprites_Bobby, 0x01 },
+    { L"Jet Balloon White", 0x26c828, 0x26c848, indexBnKSprites_Bobby, 0x02 },
+    { L"Jet Beam Flash 1 White", 0x26c848, 0x26c868, indexBnKSprites_Bobby, 0x03 },
+    { L"Jet Beam Flash 2 White", 0x26c868, 0x26c888, indexBnKSprites_Bobby, 0x04 },
+    { L"Intro Clothes White", 0x26c888, 0x26c8a8, indexBnKSprites_Bobby, 0x05 },
+    { L"C+D Attack White", 0x26c8a8, 0x26c8c8, indexBnKSprites_Bobby, 0x06 },
+    { L"Rolling/Super Jump Trail White", 0x26c8c8, 0x26c8e8, indexBnKSprites_Bobby, 0x00 },
+    { L"EX/Super Trail White", 0x26c8e8, 0x26c908, indexBnKSprites_Bobby, 0x00 },
+    { L"Guard Cancel Trail White (Unused)", 0x26c908, 0x26c928, indexBnKSprites_Bobby, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_BUNTARO_A_PALETTES[] =
@@ -620,122 +628,122 @@ const sGame_PaletteDataset BnK_P_CLARA_WHITE_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_A_PALETTES[] =
 {
-    { L"Super Kurara A", 0x26b426, 0x26b446 },
+    { L"Super Kurara A", 0x26b426, 0x26b446, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 A", 0x26b446, 0x26b466 },
     { L"Kurara Transformation Flash 1 A", 0x26b466, 0x26b486, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 A", 0x26b486, 0x26b4a6, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 A", 0x26b4a6, 0x26b4c6, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 A", 0x26b4c6, 0x26b4e6 },
-    { L"Super Kurara Flash 1 A", 0x26b4e6, 0x26b506 },
-    { L"Super Kurara Flash 2 A", 0x26b506, 0x26b526 },
-    { L"Rolling/Super Jump Trail A", 0x26b526, 0x26b546 },
-    { L"EX/Super Trail A", 0x26b546, 0x26b566 },
-    { L"Guard Cancel Trail A (Unused)", 0x26b566, 0x26b586 },
+    { L"Super Kurara Flash 1 A", 0x26b4e6, 0x26b506, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 A", 0x26b506, 0x26b526, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail A", 0x26b526, 0x26b546, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail A", 0x26b546, 0x26b566, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail A (Unused)", 0x26b566, 0x26b586, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_B_PALETTES[] =
 {
-    { L"Super Kurara B", 0x26b586, 0x26b5a6 },
+    { L"Super Kurara B", 0x26b586, 0x26b5a6, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 B", 0x26b5a6, 0x26b5c6 },
     { L"Kurara Transformation Flash 1 B", 0x26b5c6, 0x26b5e6, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 B", 0x26b5e6, 0x26b606, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 B", 0x26b606, 0x26b626, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 B", 0x26b626, 0x26b646 },
-    { L"Super Kurara Flash 1 B", 0x26b646, 0x26b666 },
-    { L"Super Kurara Flash 2 B", 0x26b666, 0x26b686 },
-    { L"Rolling/Super Jump Trail B", 0x26b686, 0x26b6a6 },
-    { L"EX/Super Trail B", 0x26b6a6, 0x26b6c6 },
-    { L"Guard Cancel Trail B (Unused)", 0x26b6c6, 0x26b6e6 },
+    { L"Super Kurara Flash 1 B", 0x26b646, 0x26b666, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 B", 0x26b666, 0x26b686, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail B", 0x26b686, 0x26b6a6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail B", 0x26b6a6, 0x26b6c6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail B (Unused)", 0x26b6c6, 0x26b6e6, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_C_PALETTES[] =
 {
-    { L"Super Kurara C", 0x26b6e6, 0x26b706 },
+    { L"Super Kurara C", 0x26b6e6, 0x26b706, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 C", 0x26b706, 0x26b726 },
     { L"Kurara Transformation Flash 1 C", 0x26b726, 0x26b746, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 C", 0x26b746, 0x26b766, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 C", 0x26b766, 0x26b786, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 C", 0x26b786, 0x26b7a6 },
-    { L"Super Kurara Flash 1 C", 0x26b7a6, 0x26b7c6 },
-    { L"Super Kurara Flash 2 C", 0x26b7c6, 0x26b7e6 },
-    { L"Rolling/Super Jump Trail C", 0x26b7e6, 0x26b806 },
-    { L"EX/Super Trail C", 0x26b806, 0x26b826 },
-    { L"Guard Cancel Trail C (Unused)", 0x26b826, 0x26b846 },
+    { L"Super Kurara Flash 1 C", 0x26b7a6, 0x26b7c6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 C", 0x26b7c6, 0x26b7e6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail C", 0x26b7e6, 0x26b806, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail C", 0x26b806, 0x26b826, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail C (Unused)", 0x26b826, 0x26b846, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_D_PALETTES[] =
 {
-    { L"Super Kurara D", 0x26b846, 0x26b866 },
+    { L"Super Kurara D", 0x26b846, 0x26b866, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 D", 0x26b866, 0x26b886 },
     { L"Kurara Transformation Flash 1 D", 0x26b886, 0x26b8a6, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 D", 0x26b8a6, 0x26b8c6, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 D", 0x26b8c6, 0x26b8e6, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 D", 0x26b8e6, 0x26b906 },
-    { L"Super Kurara Flash 1 D", 0x26b906, 0x26b926 },
-    { L"Super Kurara Flash 2 D", 0x26b926, 0x26b946 },
-    { L"Rolling/Super Jump Trail D", 0x26b946, 0x26b966 },
-    { L"EX/Super Trail D", 0x26b966, 0x26b986 },
-    { L"Guard Cancel Trail D (Unused)", 0x26b986, 0x26b9a6 },
+    { L"Super Kurara Flash 1 D", 0x26b906, 0x26b926, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 D", 0x26b926, 0x26b946, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail D", 0x26b946, 0x26b966, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail D", 0x26b966, 0x26b986, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail D (Unused)", 0x26b986, 0x26b9a6, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_SUMMER_PALETTES[] =
 {
-    { L"Super Kurara Summer", 0x26b9a6, 0x26b9c6 },
+    { L"Super Kurara Summer", 0x26b9a6, 0x26b9c6, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 Summer", 0x26b9c6, 0x26b9e6 },
     { L"Kurara Transformation Flash 1 Summer", 0x26b9e6, 0x26ba06, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 Summer", 0x26ba06, 0x26ba26, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 Summer", 0x26ba26, 0x26ba46, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 Summer", 0x26ba46, 0x26ba66 },
-    { L"Super Kurara Flash 1 Summer", 0x26ba66, 0x26ba86 },
-    { L"Super Kurara Flash 2 Summer", 0x26ba86, 0x26baa6 },
-    { L"Rolling/Super Jump Trail Summer", 0x26baa6, 0x26bac6 },
-    { L"EX/Super Trail Summer", 0x26bac6, 0x26bae6 },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26bae6, 0x26bb06 },
+    { L"Super Kurara Flash 1 Summer", 0x26ba66, 0x26ba86, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 Summer", 0x26ba86, 0x26baa6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail Summer", 0x26baa6, 0x26bac6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail Summer", 0x26bac6, 0x26bae6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26bae6, 0x26bb06, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_ZOMBIE_PALETTES[] =
 {
-    { L"Super Kurara Zombie", 0x26bb06, 0x26bb26 },
+    { L"Super Kurara Zombie", 0x26bb06, 0x26bb26, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 Zombie", 0x26bb26, 0x26bb46 },
     { L"Kurara Transformation Flash 1 Zombie", 0x26bb46, 0x26bb66, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 Zombie", 0x26bb66, 0x26bb86, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 Zombie", 0x26bb86, 0x26bba6, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 Zombie", 0x26bba6, 0x26bbc6 },
-    { L"Super Kurara Flash 1 Zombie", 0x26bbc6, 0x26bbe6 },
-    { L"Super Kurara Flash 2 Zombie", 0x26bbe6, 0x26bc06 },
-    { L"Rolling/Super Jump Trail Zombie", 0x26bc06, 0x26bc26 },
-    { L"EX/Super Trail Zombie", 0x26bc26, 0x26bc46 },
-    { L"Guard Cancel Trail Zombie (Unused)", 0x26bc46, 0x26bc66 },
+    { L"Super Kurara Flash 1 Zombie", 0x26bbc6, 0x26bbe6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 Zombie", 0x26bbe6, 0x26bc06, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail Zombie", 0x26bc06, 0x26bc26, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail Zombie", 0x26bc26, 0x26bc46, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail Zombie (Unused)", 0x26bc46, 0x26bc66, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_EXTREME_PALETTES[] =
 {
-    { L"Super Kurara Extreme", 0x26bc66, 0x26bc86 },
+    { L"Super Kurara Extreme", 0x26bc66, 0x26bc86, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 Extreme", 0x26bc86, 0x26bca6 },
     { L"Kurara Transformation Flash 1 Extreme", 0x26bca6, 0x26bcc6, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 Extreme", 0x26bcc6, 0x26bce6, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 Extreme", 0x26bce6, 0x26bd06, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 Extreme", 0x26bd06, 0x26bd26 },
-    { L"Super Kurara Flash 1 Extreme", 0x26bd26, 0x26bd46 },
-    { L"Super Kurara Flash 2 Extreme", 0x26bd46, 0x26bd66 },
-    { L"Rolling/Super Jump Trail Extreme", 0x26bd66, 0x26bd86 },
-    { L"EX/Super Trail Extreme", 0x26bd86, 0x26bda6 },
-    { L"Guard Cancel Trail Extreme (Unused)", 0x26bda6, 0x26bdc6 },
+    { L"Super Kurara Flash 1 Extreme", 0x26bd26, 0x26bd46, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 Extreme", 0x26bd46, 0x26bd66, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail Extreme", 0x26bd66, 0x26bd86, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail Extreme", 0x26bd86, 0x26bda6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail Extreme (Unused)", 0x26bda6, 0x26bdc6, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_SUPERKURARA_WHITE_PALETTES[] =
 {
-    { L"Super Kurara White", 0x26bdc6, 0x26bde6 },
+    { L"Super Kurara White", 0x26bdc6, 0x26bde6, indexBnKSprites_SuperKurara, 0x00 },
     { L"Unused Extra 1 White", 0x26bde6, 0x26be06 },
     { L"Kurara Transformation Flash 1 White", 0x26be06, 0x26be26, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 2 White", 0x26be26, 0x26be46, indexMatriMSprites_Clara, 0x00 },
     { L"Kurara Transformation Flash 3 White", 0x26be46, 0x26be66, indexMatriMSprites_Clara, 0x00 },
     { L"Unused Extra 2 White", 0x26be66, 0x26be86 },
-    { L"Super Kurara Flash 1 White", 0x26be86, 0x26bea6 },
-    { L"Super Kurara Flash 2 White", 0x26bea6, 0x26bec6 },
-    { L"Rolling/Super Jump Trail White", 0x26bec6, 0x26bee6 },
-    { L"EX/Super Trail White", 0x26bee6, 0x26bf06 },
-    { L"Guard Cancel Trail White (Unused)", 0x26bf06, 0x26bf26 },
+    { L"Super Kurara Flash 1 White", 0x26be86, 0x26bea6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Super Kurara Flash 2 White", 0x26bea6, 0x26bec6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Rolling/Super Jump Trail White", 0x26bec6, 0x26bee6, indexBnKSprites_SuperKurara, 0x00 },
+    { L"EX/Super Trail White", 0x26bee6, 0x26bf06, indexBnKSprites_SuperKurara, 0x00 },
+    { L"Guard Cancel Trail White (Unused)", 0x26bf06, 0x26bf26, indexBnKSprites_SuperKurara, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_ELIAS_A_PALETTES[] =
@@ -1063,186 +1071,186 @@ const sGame_PaletteDataset BnK_P_KANJI_WEAK_WHITE_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_A_PALETTES[] =
 {
-    { L"Kanji A (Strong)", 0x2696fe, 0x26971e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail A", 0x26971e, 0x26973e, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail A", 0x26973e, 0x26975e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail A (Unused)", 0x26975e, 0x26977e, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji A (Strong)", 0x2696fe, 0x26971e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail A", 0x26971e, 0x26973e, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail A", 0x26973e, 0x26975e, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail A (Unused)", 0x26975e, 0x26977e, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_B_PALETTES[] =
 {
-    { L"Kanji B (Strong)", 0x26977e, 0x26979e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail B", 0x26979e, 0x2697be, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail B", 0x2697be, 0x2697de, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail B (Unused)", 0x2697de, 0x2697fe, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji B (Strong)", 0x26977e, 0x26979e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail B", 0x26979e, 0x2697be, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail B", 0x2697be, 0x2697de, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail B (Unused)", 0x2697de, 0x2697fe, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_C_PALETTES[] =
 {
-    { L"Kanji C (Strong)", 0x2697fe, 0x26981e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail C", 0x26981e, 0x26983e, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail C", 0x26983e, 0x26985e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail C (Unused)", 0x26985e, 0x26987e, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji C (Strong)", 0x2697fe, 0x26981e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail C", 0x26981e, 0x26983e, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail C", 0x26983e, 0x26985e, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail C (Unused)", 0x26985e, 0x26987e, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_D_PALETTES[] =
 {
-    { L"Kanji D (Strong)", 0x26987e, 0x26989e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail D", 0x26989e, 0x2698be, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail D", 0x2698be, 0x2698de, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail D (Unused)", 0x2698de, 0x2698fe, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji D (Strong)", 0x26987e, 0x26989e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail D", 0x26989e, 0x2698be, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail D", 0x2698be, 0x2698de, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail D (Unused)", 0x2698de, 0x2698fe, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_SUMMER_PALETTES[] =
 {
-    { L"Kanji Summer (Strong)", 0x2698fe, 0x26991e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail Summer", 0x26991e, 0x26993e, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail Summer", 0x26993e, 0x26995e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26995e, 0x26997e, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji Summer (Strong)", 0x2698fe, 0x26991e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail Summer", 0x26991e, 0x26993e, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail Summer", 0x26993e, 0x26995e, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26995e, 0x26997e, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_ZOMBIE_PALETTES[] =
 {
-    { L"Kanji Zombie (Strong)", 0x26997e, 0x26999e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail Zombie", 0x26999e, 0x2699be, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail Zombie", 0x2699be, 0x2699de, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail Zombie (Unused)", 0x2699de, 0x2699fe, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji Zombie (Strong)", 0x26997e, 0x26999e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail Zombie", 0x26999e, 0x2699be, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail Zombie", 0x2699be, 0x2699de, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail Zombie (Unused)", 0x2699de, 0x2699fe, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_EXTREME_PALETTES[] =
 {
-    { L"Kanji Extreme (Strong)", 0x2699fe, 0x269a1e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail Extreme", 0x269a1e, 0x269a3e, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail Extreme", 0x269a3e, 0x269a5e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail Extreme (Unused)", 0x269a5e, 0x269a7e, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji Extreme (Strong)", 0x2699fe, 0x269a1e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail Extreme", 0x269a1e, 0x269a3e, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail Extreme", 0x269a3e, 0x269a5e, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail Extreme (Unused)", 0x269a5e, 0x269a7e, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KANJI_STRONG_WHITE_PALETTES[] =
 {
-    { L"Kanji White (Strong)", 0x269a7e, 0x269a9e, indexMatriMSprites_Kanji, 0x00 },
-    { L"Rolling/Super Jump Trail White", 0x269a9e, 0x269abe, indexMatriMSprites_Kanji, 0x00 },
-    { L"EX/Super Trail White", 0x269abe, 0x269ade, indexMatriMSprites_Kanji, 0x00 },
-    { L"Guard Cancel Trail White (Unused)", 0x269ade, 0x269afe, indexMatriMSprites_Kanji, 0x00 },
+    { L"Kanji White (Strong)", 0x269a7e, 0x269a9e, indexBnKSprites_Kanji, 0x00 },
+    { L"Rolling/Super Jump Trail White", 0x269a9e, 0x269abe, indexBnKSprites_Kanji, 0x00 },
+    { L"EX/Super Trail White", 0x269abe, 0x269ade, indexBnKSprites_Kanji, 0x00 },
+    { L"Guard Cancel Trail White (Unused)", 0x269ade, 0x269afe, indexBnKSprites_Kanji, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_A_PALETTES[] =
 {
-    { L"Kintaro A", 0x269b00, 0x269b20 },
+    { L"Kintaro A", 0x269b00, 0x269b20, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 A", 0x269b20, 0x269b40 },
     { L"Unused Extra 2 A", 0x269b40, 0x269b60 },
-    { L"Boon Swing A", 0x269b60, 0x269b80 },
+    { L"Boon Swing A", 0x269b60, 0x269b80, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 A", 0x269b80, 0x269ba0 },
-    { L"Stress Shot Bear A", 0x269ba0, 0x269bc0 },
+    { L"Stress Shot Bear A", 0x269ba0, 0x269bc0, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 A", 0x269bc0, 0x269be0 },
     { L"Poochy A (Transformation)", 0x269be0, 0x269c00, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail A", 0x269c00, 0x269c20 },
-    { L"EX/Super Trail A", 0x269c20, 0x269c40 },
-    { L"Guard Cancel Trail A (Unused)", 0x269c40, 0x269c60 },
+    { L"Rolling/Super Jump Trail A", 0x269c00, 0x269c20, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail A", 0x269c20, 0x269c40, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail A (Unused)", 0x269c40, 0x269c60, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_B_PALETTES[] =
 {
-    { L"Kintaro B", 0x269c60, 0x269c80 },
+    { L"Kintaro B", 0x269c60, 0x269c80, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 B", 0x269c80, 0x269ca0 },
     { L"Unused Extra 2 B", 0x269ca0, 0x269cc0 },
-    { L"Boon Swing B", 0x269cc0, 0x269ce0 },
+    { L"Boon Swing B", 0x269cc0, 0x269ce0, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 B", 0x269ce0, 0x269d00 },
-    { L"Stress Shot Bear B", 0x269d00, 0x269d20 },
+    { L"Stress Shot Bear B", 0x269d00, 0x269d20, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 B", 0x269d20, 0x269d40 },
     { L"Poochy B (Transformation)", 0x269d40, 0x269d60, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail B", 0x269d60, 0x269d80 },
-    { L"EX/Super Trail B", 0x269d80, 0x269da0 },
-    { L"Guard Cancel Trail B (Unused)", 0x269da0, 0x269dc0 },
+    { L"Rolling/Super Jump Trail B", 0x269d60, 0x269d80, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail B", 0x269d80, 0x269da0, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail B (Unused)", 0x269da0, 0x269dc0, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_C_PALETTES[] =
 {
-    { L"Kintaro C", 0x269dc0, 0x269de0 },
+    { L"Kintaro C", 0x269dc0, 0x269de0, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 C", 0x269de0, 0x269e00 },
     { L"Unused Extra 2 C", 0x269e00, 0x269e20 },
-    { L"Boon Swing C", 0x269e20, 0x269e40 },
+    { L"Boon Swing C", 0x269e20, 0x269e40, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 C", 0x269e40, 0x269e60 },
-    { L"Stress Shot Bear C", 0x269e60, 0x269e80 },
+    { L"Stress Shot Bear C", 0x269e60, 0x269e80, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 C", 0x269e80, 0x269ea0 },
     { L"Poochy C (Transformation)", 0x269ea0, 0x269ec0, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail C", 0x269ec0, 0x269ee0 },
-    { L"EX/Super Trail C", 0x269ee0, 0x269f00 },
-    { L"Guard Cancel Trail C (Unused)", 0x269f00, 0x269f20 },
+    { L"Rolling/Super Jump Trail C", 0x269ec0, 0x269ee0, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail C", 0x269ee0, 0x269f00, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail C (Unused)", 0x269f00, 0x269f20, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_D_PALETTES[] =
 {
-    { L"Kintaro D", 0x269f20, 0x269f40 },
+    { L"Kintaro D", 0x269f20, 0x269f40, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 D", 0x269f40, 0x269f60 },
     { L"Unused Extra 2 D", 0x269f60, 0x269f80 },
-    { L"Boon Swing D", 0x269f80, 0x269fa0 },
+    { L"Boon Swing D", 0x269f80, 0x269fa0, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 D", 0x269fa0, 0x269fc0 },
-    { L"Stress Shot Bear D", 0x269fc0, 0x269fe0 },
+    { L"Stress Shot Bear D", 0x269fc0, 0x269fe0, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 D", 0x269fe0, 0x26a000 },
     { L"Poochy D (Transformation)", 0x26a000, 0x26a020, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail D", 0x26a020, 0x26a040 },
-    { L"EX/Super Trail D", 0x26a040, 0x26a060 },
-    { L"Guard Cancel Trail D (Unused)", 0x26a060, 0x26a080 },
+    { L"Rolling/Super Jump Trail D", 0x26a020, 0x26a040, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail D", 0x26a040, 0x26a060, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail D (Unused)", 0x26a060, 0x26a080, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_SUMMER_PALETTES[] =
 {
-    { L"Kintaro Summer", 0x26a080, 0x26a0a0 },
+    { L"Kintaro Summer", 0x26a080, 0x26a0a0, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 Summer", 0x26a0a0, 0x26a0c0 },
     { L"Unused Extra 2 Summer", 0x26a0c0, 0x26a0e0 },
-    { L"Boon Swing Summer", 0x26a0e0, 0x26a100 },
+    { L"Boon Swing Summer", 0x26a0e0, 0x26a100, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 Summer", 0x26a100, 0x26a120 },
-    { L"Stress Shot Bear Summer", 0x26a120, 0x26a140 },
+    { L"Stress Shot Bear Summer", 0x26a120, 0x26a140, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 Summer", 0x26a140, 0x26a160 },
     { L"Poochy Summer (Transformation)", 0x26a160, 0x26a180, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail Summer", 0x26a180, 0x26a1a0 },
-    { L"EX/Super Trail Summer", 0x26a1a0, 0x26a1c0 },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26a1c0, 0x26a1e0 },
+    { L"Rolling/Super Jump Trail Summer", 0x26a180, 0x26a1a0, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail Summer", 0x26a1a0, 0x26a1c0, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26a1c0, 0x26a1e0, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_ZOMBIE_PALETTES[] =
 {
-    { L"Kintaro Zombie", 0x26a1e0, 0x26a200 },
+    { L"Kintaro Zombie", 0x26a1e0, 0x26a200, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 Zombie", 0x26a200, 0x26a220 },
     { L"Unused Extra 2 Zombie", 0x26a220, 0x26a240 },
-    { L"Boon Swing Zombie", 0x26a240, 0x26a260 },
+    { L"Boon Swing Zombie", 0x26a240, 0x26a260, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 Zombie", 0x26a260, 0x26a280 },
-    { L"Stress Shot Bear Zombie", 0x26a280, 0x26a2a0 },
+    { L"Stress Shot Bear Zombie", 0x26a280, 0x26a2a0, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 Zombie", 0x26a2a0, 0x26a2c0 },
     { L"Poochy Zombie (Transformation)", 0x26a2c0, 0x26a2e0, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail Zombie", 0x26a2e0, 0x26a300 },
-    { L"EX/Super Trail Zombie", 0x26a300, 0x26a320 },
-    { L"Guard Cancel Trail Zombie (Unused)", 0x26a320, 0x26a340 },
+    { L"Rolling/Super Jump Trail Zombie", 0x26a2e0, 0x26a300, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail Zombie", 0x26a300, 0x26a320, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail Zombie (Unused)", 0x26a320, 0x26a340, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_EXTREME_PALETTES[] =
 {
-    { L"Kintaro Extreme", 0x26a340, 0x26a360 },
+    { L"Kintaro Extreme", 0x26a340, 0x26a360, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 Extreme", 0x26a360, 0x26a380 },
     { L"Unused Extra 2 Extreme", 0x26a380, 0x26a3a0 },
-    { L"Boon Swing Extreme", 0x26a3a0, 0x26a3c0 },
+    { L"Boon Swing Extreme", 0x26a3a0, 0x26a3c0, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 Extreme", 0x26a3c0, 0x26a3e0 },
-    { L"Stress Shot Bear Extreme", 0x26a3e0, 0x26a400 },
+    { L"Stress Shot Bear Extreme", 0x26a3e0, 0x26a400, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 Extreme", 0x26a400, 0x26a420 },
     { L"Poochy Extreme (Transformation)", 0x26a420, 0x26a440, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail Extreme", 0x26a440, 0x26a460 },
-    { L"EX/Super Trail Extreme", 0x26a460, 0x26a480 },
-    { L"Guard Cancel Trail Extreme (Unused)", 0x26a480, 0x26a4a0 },
+    { L"Rolling/Super Jump Trail Extreme", 0x26a440, 0x26a460, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail Extreme", 0x26a460, 0x26a480, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail Extreme (Unused)", 0x26a480, 0x26a4a0, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KINTARO_WHITE_PALETTES[] =
 {
-    { L"Kintaro White", 0x26a4a0, 0x26a4c0 },
+    { L"Kintaro White", 0x26a4a0, 0x26a4c0, indexBnKSprites_Kintaro, 0x00 },
     { L"Unused Extra 1 White", 0x26a4c0, 0x26a4e0 },
     { L"Unused Extra 2 White", 0x26a4e0, 0x26a500 },
-    { L"Boon Swing White", 0x26a500, 0x26a520 },
+    { L"Boon Swing White", 0x26a500, 0x26a520, indexBnKSprites_Kintaro, 0x01 },
     { L"Unused Extra 3 White", 0x26a520, 0x26a540 },
-    { L"Stress Shot Bear White", 0x26a540, 0x26a560 },
+    { L"Stress Shot Bear White", 0x26a540, 0x26a560, indexBnKSprites_Kintaro, 0x02 },
     { L"Unused Extra 4 White", 0x26a560, 0x26a580 },
     { L"Poochy White (Transformation)", 0x26a580, 0x26a5a0, indexMatriMSprites_Poochy, 0x00 },
-    { L"Rolling/Super Jump Trail White", 0x26a5a0, 0x26a5c0 },
-    { L"EX/Super Trail White", 0x26a5c0, 0x26a5e0 },
-    { L"Guard Cancel Trail White (Unused)", 0x26a5e0, 0x26a600 },
+    { L"Rolling/Super Jump Trail White", 0x26a5a0, 0x26a5c0, indexBnKSprites_Kintaro, 0x00 },
+    { L"EX/Super Trail White", 0x26a5c0, 0x26a5e0, indexBnKSprites_Kintaro, 0x00 },
+    { L"Guard Cancel Trail White (Unused)", 0x26a5e0, 0x26a600, indexBnKSprites_Kintaro, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_KEITH_A_PALETTES[] =
@@ -2157,91 +2165,91 @@ const sGame_PaletteDataset BnK_P_OTANE_WHITE_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_A_PALETTES[] =
 {
-    { L"Otane A (Young)", 0x26ad04, 0x26ad24, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane A (Young)", 0x26ad04, 0x26ad24, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 A", 0x26ad24, 0x26ad44 },
     { L"Unused Extra 2 A", 0x26ad44, 0x26ad64 },
-    { L"Otane A (Transformation)", 0x26ad64, 0x26ad84, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail A", 0x26ad84, 0x26ada4, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail A", 0x26ada4, 0x26adc4, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail A (Unused)", 0x26adc4, 0x26ade4, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane A (Transformation)", 0x26ad64, 0x26ad84, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail A", 0x26ad84, 0x26ada4, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail A", 0x26ada4, 0x26adc4, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail A (Unused)", 0x26adc4, 0x26ade4, indexBnKSprites_OtaneYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_B_PALETTES[] =
 {
-    { L"Otane B (Young)", 0x26ade4, 0x26ae04, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane B (Young)", 0x26ade4, 0x26ae04, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 B", 0x26ae04, 0x26ae24 },
     { L"Unused Extra 2 B", 0x26ae24, 0x26ae44 },
-    { L"Otane B (Transformation)", 0x26ae44, 0x26ae64, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail B", 0x26ae64, 0x26ae84, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail B", 0x26ae84, 0x26aea4, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail B (Unused)", 0x26aea4, 0x26aec4, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane B (Transformation)", 0x26ae44, 0x26ae64, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail B", 0x26ae64, 0x26ae84, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail B", 0x26ae84, 0x26aea4, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail B (Unused)", 0x26aea4, 0x26aec4, indexBnKSprites_OtaneYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_C_PALETTES[] =
 {
-    { L"Otane C (Young)", 0x26aec4, 0x26aee4, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane C (Young)", 0x26aec4, 0x26aee4, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 C", 0x26aee4, 0x26af04 },
     { L"Unused Extra 2 C", 0x26af04, 0x26af24 },
-    { L"Otane C (Transformation)", 0x26af24, 0x26af44, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail C", 0x26af44, 0x26af64, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail C", 0x26af64, 0x26af84, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail C (Unused)", 0x26af84, 0x26afa4, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane C (Transformation)", 0x26af24, 0x26af44, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail C", 0x26af44, 0x26af64, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail C", 0x26af64, 0x26af84, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail C (Unused)", 0x26af84, 0x26afa4, indexBnKSprites_OtaneYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_D_PALETTES[] =
 {
-    { L"Otane D (Young)", 0x26afa4, 0x26afc4, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane D (Young)", 0x26afa4, 0x26afc4, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 D", 0x26afc4, 0x26afe4 },
     { L"Unused Extra 2 D", 0x26afe4, 0x26b004 },
-    { L"Otane D (Transformation)", 0x26b004, 0x26b024, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail D", 0x26b024, 0x26b044, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail D", 0x26b044, 0x26b064, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail D (Unused)", 0x26b064, 0x26b084, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane D (Transformation)", 0x26b004, 0x26b024, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail D", 0x26b024, 0x26b044, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail D", 0x26b044, 0x26b064, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail D (Unused)", 0x26b064, 0x26b084, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Guard Cancel Trail 2? D (Unused)", 0x26b084, 0x26b0a4 },
 };
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_SUMMER_PALETTES[] =
 {
-    { L"Otane Summer (Young)", 0x26b0a4, 0x26b0c4, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane Summer (Young)", 0x26b0a4, 0x26b0c4, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 Summer", 0x26b0c4, 0x26b0e4 },
     { L"Unused Extra 2 Summer", 0x26b0e4, 0x26b104 },
-    { L"Otane Summer (Transformation)", 0x26b104, 0x26b124, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail Summer", 0x26b124, 0x26b144, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail Summer", 0x26b144, 0x26b164, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26b164, 0x26b184, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane Summer (Transformation)", 0x26b104, 0x26b124, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail Summer", 0x26b124, 0x26b144, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail Summer", 0x26b144, 0x26b164, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26b164, 0x26b184, indexBnKSprites_OtaneYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_ZOMBIE_PALETTES[] =
 {
-    { L"Otane Zombie (Young)", 0x26b184, 0x26b1a4, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane Zombie (Young)", 0x26b184, 0x26b1a4, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 Zombie", 0x26b1a4, 0x26b1c4 },
     { L"Unused Extra 2 Zombie", 0x26b1c4, 0x26b1e4 },
-    { L"Otane Zombie (Transformation)", 0x26b1e4, 0x26b204, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail Zombie", 0x26b204, 0x26b224, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail Zombie", 0x26b224, 0x26b244, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail Zombie (Unused)", 0x26b244, 0x26b264, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane Zombie (Transformation)", 0x26b1e4, 0x26b204, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail Zombie", 0x26b204, 0x26b224, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail Zombie", 0x26b224, 0x26b244, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail Zombie (Unused)", 0x26b244, 0x26b264, indexBnKSprites_OtaneYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_EXTREME_PALETTES[] =
 {
-    { L"Otane Extreme (Young)", 0x26b264, 0x26b284, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane Extreme (Young)", 0x26b264, 0x26b284, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 Extreme", 0x26b284, 0x26b2a4 },
     { L"Unused Extra 2 Extreme", 0x26b2a4, 0x26b2c4 },
-    { L"Otane Extreme (Transformation)", 0x26b2c4, 0x26b2e4, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail Extreme", 0x26b2e4, 0x26b304, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail Extreme", 0x26b304, 0x26b324, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail Extreme (Unused)", 0x26b324, 0x26b344, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane Extreme (Transformation)", 0x26b2c4, 0x26b2e4, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail Extreme", 0x26b2e4, 0x26b304, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail Extreme", 0x26b304, 0x26b324, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail Extreme (Unused)", 0x26b324, 0x26b344, indexBnKSprites_OtaneYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OTANE_YOUNG_WHITE_PALETTES[] =
 {
-    { L"Otane White (Young)", 0x26b344, 0x26b364, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane White (Young)", 0x26b344, 0x26b364, indexBnKSprites_OtaneYoung, 0x00 },
     { L"Unused Extra 1 White", 0x26b364, 0x26b384 },
     { L"Unused Extra 2 White", 0x26b384, 0x26b3a4 },
-    { L"Otane White (Transformation)", 0x26b3a4, 0x26b3c4, indexMatriMSprites_Tane, 0x00 },
-    { L"Rolling/Super Jump Trail White", 0x26b3c4, 0x26b3e4, indexMatriMSprites_Tane, 0x00 },
-    { L"EX/Super Trail White", 0x26b3e4, 0x26b404, indexMatriMSprites_Tane, 0x00 },
-    { L"Guard Cancel Trail White (Unused)", 0x26b404, 0x26b424, indexMatriMSprites_Tane, 0x00 },
+    { L"Otane White (Transformation)", 0x26b3a4, 0x26b3c4, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Rolling/Super Jump Trail White", 0x26b3c4, 0x26b3e4, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"EX/Super Trail White", 0x26b3e4, 0x26b404, indexBnKSprites_OtaneYoung, 0x00 },
+    { L"Guard Cancel Trail White (Unused)", 0x26b404, 0x26b424, indexBnKSprites_OtaneYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_A_PALETTES[] =
@@ -2365,90 +2373,90 @@ const sGame_PaletteDataset BnK_P_OUME_WHITE_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_A_PALETTES[] =
 {
-    { L"Oume A (Young)", 0x26a602, 0x26a622, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume A (Young)", 0x26a602, 0x26a622, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 A", 0x26a622, 0x26a642 },
     { L"Unused Extra 2 A", 0x26a642, 0x26a662 },
-    { L"Oume A (Transformation)", 0x26a662, 0x26a682, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail A", 0x26a682, 0x26a6a2, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail A", 0x26a6a2, 0x26a6c2, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail A (Unused)", 0x26a6c2, 0x26a6e2, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume A (Transformation)", 0x26a662, 0x26a682, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail A", 0x26a682, 0x26a6a2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail A", 0x26a6a2, 0x26a6c2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail A (Unused)", 0x26a6c2, 0x26a6e2, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_B_PALETTES[] =
 {
-    { L"Oume B (Young)", 0x26a6e2, 0x26a702, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume B (Young)", 0x26a6e2, 0x26a702, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 B", 0x26a702, 0x26a722 },
     { L"Unused Extra 2 B", 0x26a722, 0x26a742 },
-    { L"Oume B (Transformation)", 0x26a742, 0x26a762, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail B", 0x26a762, 0x26a782, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail B", 0x26a782, 0x26a7a2, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail B (Unused)", 0x26a7a2, 0x26a7c2, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume B (Transformation)", 0x26a742, 0x26a762, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail B", 0x26a762, 0x26a782, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail B", 0x26a782, 0x26a7a2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail B (Unused)", 0x26a7a2, 0x26a7c2, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_C_PALETTES[] =
 {
-    { L"Oume C (Young)", 0x26a7c2, 0x26a7e2, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume C (Young)", 0x26a7c2, 0x26a7e2, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 C", 0x26a7e2, 0x26a802 },
     { L"Unused Extra 2 C", 0x26a802, 0x26a822 },
-    { L"Oume C (Transformation)", 0x26a822, 0x26a842, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail C", 0x26a842, 0x26a862, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail C", 0x26a862, 0x26a882, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail C (Unused)", 0x26a882, 0x26a8a2, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume C (Transformation)", 0x26a822, 0x26a842, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail C", 0x26a842, 0x26a862, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail C", 0x26a862, 0x26a882, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail C (Unused)", 0x26a882, 0x26a8a2, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_D_PALETTES[] =
 {
-    { L"Oume D (Young)", 0x26a8a2, 0x26a8c2, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume D (Young)", 0x26a8a2, 0x26a8c2, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 D", 0x26a8c2, 0x26a8e2 },
     { L"Unused Extra 2 D", 0x26a8e2, 0x26a902 },
-    { L"Oume D (Transformation)", 0x26a902, 0x26a922, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail D", 0x26a922, 0x26a942, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail D", 0x26a942, 0x26a962, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail D (Unused)", 0x26a962, 0x26a982, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume D (Transformation)", 0x26a902, 0x26a922, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail D", 0x26a922, 0x26a942, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail D", 0x26a942, 0x26a962, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail D (Unused)", 0x26a962, 0x26a982, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_SUMMER_PALETTES[] =
 {
-    { L"Oume Summer (Young)", 0x26a982, 0x26a9a2, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume Summer (Young)", 0x26a982, 0x26a9a2, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 Summer", 0x26a9a2, 0x26a9c2 },
     { L"Unused Extra 2 Summer", 0x26a9c2, 0x26a9e2 },
-    { L"Oume Summer (Transformation)", 0x26a9e2, 0x26aa02, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail Summer", 0x26aa02, 0x26aa22, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail Summer", 0x26aa22, 0x26aa42, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail Summer (Unused)", 0x26aa42, 0x26aa62, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume Summer (Transformation)", 0x26a9e2, 0x26aa02, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail Summer", 0x26aa02, 0x26aa22, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail Summer", 0x26aa22, 0x26aa42, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail Summer (Unused)", 0x26aa42, 0x26aa62, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_ZOMBIE_PALETTES[] =
 {
-    { L"Oume Zombie (Young)", 0x26aa62, 0x26aa82, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume Zombie (Young)", 0x26aa62, 0x26aa82, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 Zombie", 0x26aa82, 0x26aaa2 },
     { L"Unused Extra 2 Zombie", 0x26aaa2, 0x26aac2 },
-    { L"Oume Zombie (Transformation)", 0x26aac2, 0x26aae2, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail Zombie", 0x26aae2, 0x26ab02, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail Zombie", 0x26ab02, 0x26ab22, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail Zombie (Unused)", 0x26ab22, 0x26ab42, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume Zombie (Transformation)", 0x26aac2, 0x26aae2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail Zombie", 0x26aae2, 0x26ab02, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail Zombie", 0x26ab02, 0x26ab22, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail Zombie (Unused)", 0x26ab22, 0x26ab42, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_EXTREME_PALETTES[] =
 {
-    { L"Oume Extreme (Young)", 0x26ab42, 0x26ab62, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume Extreme (Young)", 0x26ab42, 0x26ab62, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 Extreme", 0x26ab62, 0x26ab82 },
     { L"Unused Extra 2 Extreme", 0x26ab82, 0x26aba2 },
-    { L"Oume Extreme (Transformation)", 0x26aba2, 0x26abc2, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail Extreme", 0x26abc2, 0x26abe2, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail Extreme", 0x26abe2, 0x26ac02, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail Extreme (Unused)", 0x26ac02, 0x26ac22, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume Extreme (Transformation)", 0x26aba2, 0x26abc2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail Extreme", 0x26abc2, 0x26abe2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail Extreme", 0x26abe2, 0x26ac02, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail Extreme (Unused)", 0x26ac02, 0x26ac22, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_OUME_YOUNG_WHITE_PALETTES[] =
 {
-    { L"Oume White (Young)", 0x26ac22, 0x26ac42, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume White (Young)", 0x26ac22, 0x26ac42, indexBnKSprites_OumeYoung, 0x00 },
     { L"Unused Extra 1 White", 0x26ac42, 0x26ac62 },
     { L"Unused Extra 2 White", 0x26ac62, 0x26ac82 },
-    { L"Oume White (Transformation)", 0x26ac82, 0x26aca2, indexMatriMSprites_Ume, 0x00 },
-    { L"Rolling/Super Jump Trail White", 0x26aca2, 0x26acc2, indexMatriMSprites_Ume, 0x00 },
-    { L"EX/Super Trail White", 0x26acc2, 0x26ace2, indexMatriMSprites_Ume, 0x00 },
-    { L"Guard Cancel Trail White (Unused)", 0x26ace2, 0x26ad02, indexMatriMSprites_Ume, 0x00 },
+    { L"Oume White (Transformation)", 0x26ac82, 0x26aca2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Rolling/Super Jump Trail White", 0x26aca2, 0x26acc2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"EX/Super Trail White", 0x26acc2, 0x26ace2, indexBnKSprites_OumeYoung, 0x00 },
+    { L"Guard Cancel Trail White (Unused)", 0x26ace2, 0x26ad02, indexBnKSprites_OumeYoung, 0x00 },
 };
 
 const sGame_PaletteDataset BnK_P_WHITE_A_PALETTES[] =

@@ -2,106 +2,127 @@
 
 const std::vector<uint16_t> WORLDHEROESPERFECT_A_IMGIDS_USED =
 {
+    indexWHPSprites_Brocken,                // 0xda
+    indexWHPSprites_CaptainKidd,            // 0xdb
+    indexWHPSprites_Dragon,                 // 0xdc
+    indexWHPSprites_Erick,                  // 0xdd
+    indexWHPSprites_Fuuma,                  // 0xde
+    indexWHPSprites_Hanzou,                 // 0xdf
+    indexWHPSprites_Jack,                   // 0xe0
+    indexWHPSprites_JCarn,                  // 0xe1
+    indexWHPSprites_Jeanne,                 // 0xe2
+    indexWHPSprites_JMax,                   // 0xe3
+    indexWHPSprites_Mudman,                 // 0xe4
+    indexWHPSprites_MusclePower,            // 0xe5
+    indexWHPSprites_NeoDio,                 // 0xe6
+    indexWHPSprites_Rasputin,               // 0xe7
+    indexWHPSprites_Ryofu,                  // 0xe8
+    indexWHPSprites_Ryoko,                  // 0xe9
+    indexWHPSprites_Shura,                  // 0xea
+    indexWHPSprites_SonGokuu,               // 0xeb
+    indexWHPSprites_Zeus,                   // 0xec
+    indexWHPSprites_Stages,                 // 0xed
+    indexWHPSprites_Bonus,                  // 0xee
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Hanzou_A_PALETTES[] =
 {
-    { L"Hanzou A", 0x101200, 0x101220 },
-    { L"Portrait A ", 0x101c00, 0x101c20 },
+    { L"Hanzou A", 0x101200, 0x101220, indexWHPSprites_Hanzou, 0x00 },
+    { L"Portrait A ", 0x101c00, 0x101c20, indexWHPSprites_Hanzou, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Hanzou_D_PALETTES[] =
 {
-    { L"Hanzou D", 0x101220, 0x101240 },
-    { L"Portrait D", 0x101c20, 0x101c40 },
+    { L"Hanzou D", 0x101220, 0x101240, indexWHPSprites_Hanzou, 0x00 },
+    { L"Portrait D", 0x101c20, 0x101c40, indexWHPSprites_Hanzou, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Fuuma_A_PALETTES[] =
 {
-    { L"Fuuma A", 0x101240, 0x101260 },
-    { L"Portrait A", 0x101c40, 0x101c60 },
+    { L"Fuuma A", 0x101240, 0x101260, indexWHPSprites_Fuuma, 0x00 },
+    { L"Portrait A", 0x101c40, 0x101c60, indexWHPSprites_Fuuma, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Fuuma_D_PALETTES[] =
 {
-    { L"Fuuma D", 0x101260, 0x101280 },
-    { L"Portrait D", 0x101c60, 0x101c80 },
+    { L"Fuuma D", 0x101260, 0x101280, indexWHPSprites_Fuuma, 0x00 },
+    { L"Portrait D", 0x101c60, 0x101c80, indexWHPSprites_Fuuma, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Kim_A_PALETTES[] =
 {
-    { L"Dragon A", 0x101280, 0x1012a0 },
-    { L"Portrait A", 0x101c80, 0x101ca0 },
+    { L"Dragon A", 0x101280, 0x1012a0, indexWHPSprites_Dragon, 0x00 },
+    { L"Portrait A", 0x101c80, 0x101ca0, indexWHPSprites_Dragon, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Kim_D_PALETTES[] =
 {
-    { L"Dragon D", 0x1012a0, 0x1012c0 },
-    { L"Portrait D", 0x101ca0, 0x101cc0 },
+    { L"Dragon D", 0x1012a0, 0x1012c0, indexWHPSprites_Dragon, 0x00 },
+    { L"Portrait D", 0x101ca0, 0x101cc0, indexWHPSprites_Dragon, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Jeanne_A_PALETTES[] =
 {
-    { L"Jeanne A", 0x1012c0, 0x1012e0 },
-    { L"Portrait A", 0x101d00, 0x101d20 },
+    { L"Jeanne A", 0x1012c0, 0x1012e0, indexWHPSprites_Jeanne, 0x00 },
+    { L"Portrait A", 0x101d00, 0x101d20, indexWHPSprites_Jeanne, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Jeanne_D_PALETTES[] =
 {
-    { L"Jeanne D", 0x1012e0, 0x101300 },
-    { L"Portrait D", 0x101d20, 0x101d40 },
+    { L"Jeanne D", 0x1012e0, 0x101300, indexWHPSprites_Jeanne, 0x00 },
+    { L"Portrait D", 0x101d20, 0x101d40, indexWHPSprites_Jeanne, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Julius_A_PALETTES[] =
 {
-    { L"J. Carn A", 0x101300, 0x101320 },
-    { L"Portrait A", 0x101cc0, 0x101ce0 },
+    { L"J. Carn A", 0x101300, 0x101320, indexWHPSprites_JCarn, 0x00 },
+    { L"Portrait A", 0x101cc0, 0x101ce0, indexWHPSprites_JCarn, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Julius_D_PALETTES[] =
 {
-    { L"J. Carn D", 0x101320, 0x101340 },
-    { L"Portrait D", 0x101ce0, 0x101d00 },
+    { L"J. Carn D", 0x101320, 0x101340, indexWHPSprites_JCarn, 0x00 },
+    { L"Portrait D", 0x101ce0, 0x101d00, indexWHPSprites_JCarn, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Muscle_A_PALETTES[] =
 {
-    { L"Muscle Power A", 0x101340, 0x101360 },
-    { L"Portrait A", 0x101dc0, 0x101de0 },
+    { L"Muscle Power A", 0x101340, 0x101360, indexWHPSprites_MusclePower, 0x00 },
+    { L"Portrait A", 0x101dc0, 0x101de0, indexWHPSprites_MusclePower, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Muscle_D_PALETTES[] =
 {
-    { L"Muscle Power D", 0x101360, 0x101380 },
-    { L"Portrait D", 0x101de0, 0x101e00 },
+    { L"Muscle Power D", 0x101360, 0x101380, indexWHPSprites_MusclePower, 0x00 },
+    { L"Portrait D", 0x101de0, 0x101e00, indexWHPSprites_MusclePower, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Brocken_A_PALETTES[] =
 {
-    { L"Brocken A", 0x101380, 0x1013a0 },
-    { L"Rocket Punch A", 0x102660, 0x102680 },
-    { L"Attack Effects A", 0x102480, 0x1024a0 },
-    { L"Portrait A", 0x101d40, 0x101d60 },
+    { L"Brocken A", 0x101380, 0x1013a0, indexWHPSprites_Brocken, 0x00, &pairNext2 },
+    { L"Rocket Punch A", 0x102660, 0x102680, indexWHPSprites_Brocken, 0x01 },
+    { L"Attack Effects A", 0x102480, 0x1024a0, indexWHPSprites_Brocken, 0x02 },
+    { L"Portrait A", 0x101d40, 0x101d60, indexWHPSprites_Brocken, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Brocken_D_PALETTES[] =
 {
-    { L"Brocken D", 0x1013a0, 0x1013c0 },
-    { L"Rocket Punch D", 0x102680, 0x1026a0 },
-    { L"Attack Effects D", 0x1024a0, 0x1024c0 },
-    { L"Portrait D", 0x101d60, 0x101d80 },
+    { L"Brocken D", 0x1013a0, 0x1013c0, indexWHPSprites_Brocken, 0x00, &pairNext2 },
+    { L"Rocket Punch D", 0x102680, 0x1026a0, indexWHPSprites_Brocken, 0x01 },
+    { L"Attack Effects D", 0x1024a0, 0x1024c0, indexWHPSprites_Brocken, 0x02 },
+    { L"Portrait D", 0x101d60, 0x101d80, indexWHPSprites_Brocken, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Rasputin_A_PALETTES[] =
 {
-    { L"Rasputin A", 0x1013c0, 0x1013e0 },
-    { L"Portrait A", 0x101d80, 0x101da0 },
+    { L"Rasputin A", 0x1013c0, 0x1013e0, indexWHPSprites_Rasputin, 0x00 },
+    { L"Portrait A", 0x101d80, 0x101da0, indexWHPSprites_Rasputin, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Rasputin_D_PALETTES[] =
 {
-    { L"Rasputin D", 0x1013e0, 0x101400 },
-    { L"Portrait D", 0x101da0, 0x101dc0 },
+    { L"Rasputin D", 0x1013e0, 0x101400, indexWHPSprites_Rasputin, 0x00 },
+    { L"Portrait D", 0x101da0, 0x101dc0, indexWHPSprites_Rasputin, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Rasputin_Shared_PALETTES[] =
@@ -112,138 +133,138 @@ const sGame_PaletteDataset WorldHeroesPerfect_A_Rasputin_Shared_PALETTES[] =
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Shura_A_PALETTES[] =
 {
-    { L"Shura A", 0x101400, 0x101420 },
-    { L"Portrait A", 0x101e80, 0x101ea0 },
+    { L"Shura A", 0x101400, 0x101420, indexWHPSprites_Shura, 0x00 },
+    { L"Portrait A", 0x101e80, 0x101ea0, indexWHPSprites_Shura, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Shura_D_PALETTES[] =
 {
-    { L"Shura D", 0x101420, 0x101440 },
-    { L"Portrait D", 0x101ea0, 0x101ec0 },
+    { L"Shura D", 0x101420, 0x101440, indexWHPSprites_Shura, 0x00 },
+    { L"Portrait D", 0x101ea0, 0x101ec0, indexWHPSprites_Shura, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Ryoko_A_PALETTES[] =
 {
-    { L"Ryoko A", 0x101440, 0x101460 },
-    { L"Portrait A", 0x101e00, 0x101e20 },
+    { L"Ryoko A", 0x101440, 0x101460, indexWHPSprites_Ryoko, 0x00 },
+    { L"Portrait A", 0x101e00, 0x101e20, indexWHPSprites_Ryoko, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Ryoko_D_PALETTES[] =
 {
-    { L"Ryoko D", 0x101460, 0x101480 },
-    { L"Portrait D", 0x101e20, 0x101e40 },
+    { L"Ryoko D", 0x101460, 0x101480, indexWHPSprites_Ryoko, 0x00 },
+    { L"Portrait D", 0x101e20, 0x101e40, indexWHPSprites_Ryoko, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Kidd_A_PALETTES[] =
 {
-    { L"Captain Kidd A", 0x101480, 0x1014a0 },
-    { L"Portrait A", 0x101e40, 0x101e60 },
+    { L"Captain Kidd A", 0x101480, 0x1014a0, indexWHPSprites_CaptainKidd, 0x00 },
+    { L"Portrait A", 0x101e40, 0x101e60, indexWHPSprites_CaptainKidd, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Kidd_D_PALETTES[] =
 {
-    { L"Captain Kidd D", 0x1014a0, 0x1014c0 },
-    { L"Portrait D", 0x101e60, 0x101e80 },
+    { L"Captain Kidd D", 0x1014a0, 0x1014c0, indexWHPSprites_CaptainKidd, 0x00 },
+    { L"Portrait D", 0x101e60, 0x101e80, indexWHPSprites_CaptainKidd, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Mudman_A_PALETTES[] =
 {
-    { L"Mudman A", 0x1014c0, 0x1014e0 },
+    { L"Mudman A", 0x1014c0, 0x1014e0, indexWHPSprites_Mudman, 0x00 },
     { L"Heaven's Blows Mask A (Shared Bongos)", 0x102280, 0x1022a0 },
-    { L"Portrait A", 0x101f40, 0x101f60 },
+    { L"Portrait A", 0x101f40, 0x101f60, indexWHPSprites_Mudman, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Mudman_D_PALETTES[] =
 {
-    { L"Mudman D", 0x1014e0, 0x101500 },
+    { L"Mudman D", 0x1014e0, 0x101500, indexWHPSprites_Mudman, 0x00 },
     { L"Heaven's Blows Mask D", 0x1022a0, 0x1022c0 },
-    { L"Portrait D", 0x101f60, 0x101f80 },
+    { L"Portrait D", 0x101f60, 0x101f80, indexWHPSprites_Mudman, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Erick_A_PALETTES[] =
 {
-    { L"Erick A", 0x101500, 0x101520 },
-    { L"Portrait A", 0x101ec0, 0x101ee0 },
+    { L"Erick A", 0x101500, 0x101520, indexWHPSprites_Erick, 0x00 },
+    { L"Portrait A", 0x101ec0, 0x101ee0, indexWHPSprites_Erick, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Erick_D_PALETTES[] =
 {
-    { L"Erick D", 0x101520, 0x101540 },
-    { L"Portrait D", 0x101ee0, 0x101f00 },
+    { L"Erick D", 0x101520, 0x101540, indexWHPSprites_Erick, 0x00 },
+    { L"Portrait D", 0x101ee0, 0x101f00, indexWHPSprites_Erick, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Johnny_A_PALETTES[] =
 {
-    { L"J. Max A", 0x101540, 0x101560 },
-    { L"Portrait A", 0x101f00, 0x101f20 },
+    { L"J. Max A", 0x101540, 0x101560, indexWHPSprites_JMax, 0x00 },
+    { L"Portrait A", 0x101f00, 0x101f20, indexWHPSprites_JMax, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Johnny_D_PALETTES[] =
 {
-    { L"J. Max D", 0x101560, 0x101580 },
-    { L"Portrait D", 0x101f20, 0x101f40 },
+    { L"J. Max D", 0x101560, 0x101580, indexWHPSprites_JMax, 0x00 },
+    { L"Portrait D", 0x101f20, 0x101f40, indexWHPSprites_JMax, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Jack_A_PALETTES[] =
 {
-    { L"Jack A", 0x101580, 0x1015a0 },
-    { L"Portrait A (Unused)", 0x101f80, 0x101fa0 },
+    { L"Jack A", 0x101580, 0x1015a0, indexWHPSprites_Jack, 0x00 },
+    { L"Portrait A (Unused)", 0x101f80, 0x101fa0, indexWHPSprites_Jack, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Jack_D_PALETTES[] =
 {
-    { L"Jack D", 0x1015a0, 0x1015c0 },
-    { L"Portrait D (Unused)", 0x101fa0, 0x101fc0 },
+    { L"Jack D", 0x1015a0, 0x1015c0, indexWHPSprites_Jack, 0x00 },
+    { L"Portrait D (Unused)", 0x101fa0, 0x101fc0, indexWHPSprites_Jack, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Ryofu_A_PALETTES[] =
 {
-    { L"Ryofu A", 0x1015c0, 0x1015e0 },
-    { L"90-Proof Power State A", 0x102440, 0x102460 },
-    { L"Portrait A", 0x101fc0, 0x101fe0 },
+    { L"Ryofu A", 0x1015c0, 0x1015e0, indexWHPSprites_Ryofu, 0x00 },
+    { L"90-Proof Power State A", 0x102440, 0x102460, indexWHPSprites_Ryofu, 0x00 },
+    { L"Portrait A", 0x101fc0, 0x101fe0, indexWHPSprites_Ryofu, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Ryofu_D_PALETTES[] =
 {
-    { L"Ryofu D", 0x1015e0, 0x101600 },
-    { L"90-Proof Power State D", 0x102460, 0x102480 },
-    { L"Portrait D", 0x101fe0, 0x102000 },
+    { L"Ryofu D", 0x1015e0, 0x101600, indexWHPSprites_Ryofu, 0x00 },
+    { L"90-Proof Power State D", 0x102460, 0x102480, indexWHPSprites_Ryofu, 0x00 },
+    { L"Portrait D", 0x101fe0, 0x102000, indexWHPSprites_Ryofu, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Son_A_PALETTES[] =
 {
-    { L"Son Gokuu A", 0x101600, 0x101620 },
-    { L"Portrait A", 0x101b80, 0x101ba0 },
+    { L"Son Gokuu A", 0x101600, 0x101620, indexWHPSprites_SonGokuu, 0x00 },
+    { L"Portrait A", 0x101b80, 0x101ba0, indexWHPSprites_SonGokuu, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Son_D_PALETTES[] =
 {
-    { L"Son Gokuu D", 0x101620, 0x101640 },
-    { L"Portrait D", 0x101ba0, 0x101bc0 },
+    { L"Son Gokuu D", 0x101620, 0x101640, indexWHPSprites_SonGokuu, 0x00 },
+    { L"Portrait D", 0x101ba0, 0x101bc0, indexWHPSprites_SonGokuu, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_NeoDio_A_PALETTES[] =
 {
-    { L"Neo Dio A", 0x101640, 0x101660 },
-    { L"Breaking Claw Thunder A", 0x1026a0, 0x1026c0 },
-    { L"Portrait A", 0x101bc0, 0x101be0 },
+    { L"Neo Dio A", 0x101640, 0x101660, indexWHPSprites_NeoDio, 0x00 },
+    { L"Breaking Claw Thunder A", 0x1026a0, 0x1026c0, indexWHPSprites_NeoDio, 0x00 },
+    { L"Portrait A", 0x101bc0, 0x101be0, indexWHPSprites_NeoDio, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_NeoDio_D_PALETTES[] =
 {
-    { L"Neo Dio D", 0x101660, 0x101680 },
-    { L"Breaking Claw Thunder D", 0x1026c0, 0x1026e0 },
-    { L"Portrait D", 0x101be0, 0x101c00 },
+    { L"Neo Dio D", 0x101660, 0x101680, indexWHPSprites_NeoDio, 0x00 },
+    { L"Breaking Claw Thunder D", 0x1026c0, 0x1026e0, indexWHPSprites_NeoDio, 0x00 },
+    { L"Portrait D", 0x101be0, 0x101c00, indexWHPSprites_NeoDio, 0x10 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Zeus_A_PALETTES[] =
 {
-    { L"Zeus A", 0x101680, 0x1016a0 },
+    { L"Zeus A", 0x101680, 0x1016a0, indexWHPSprites_Zeus, 0x00 },
 };
 
 const sGame_PaletteDataset WorldHeroesPerfect_A_Zeus_D_PALETTES[] =
 {
-    { L"Zeus D", 0x1016a0, 0x1016c0 },
+    { L"Zeus D", 0x1016a0, 0x1016c0, indexWHPSprites_Zeus, 0x00 },
 };
 
 const sDescTreeNode WorldHeroesPerfect_A_Hanzou_COLLECTION[] =

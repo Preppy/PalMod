@@ -296,8 +296,8 @@ const sGame_PaletteDataset VirtuaFighter2_GEN_Bonus_MainMenu[] =
 const sGame_PaletteDataset VirtuaFighter2_GEN_Bonus_CharSel[] =
 {
     // -Character Select-
-    { L"Background (Arcade)", 0xd202, 0xd222, indexVF2GenSprites_Bonus, 0x06 },
-    { L"Background (VS)", 0xd222, 0xd242, indexVF2GenSprites_Bonus, 0x06 },
+    { L"Background (Arcade)", 0xd202, 0xd222, indexVF2GenSprites_Bonus, 0x06, &pairNext2 },
+    { L"Background (VS)", 0xd222, 0xd242, indexVF2GenSprites_Bonus, 0x06, &pairNext },
     { L"Select Portraits", 0xd242, 0xd262, indexVF2GenSprites_Bonus, 0x08 },
 };
 

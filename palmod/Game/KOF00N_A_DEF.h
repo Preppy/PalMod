@@ -2214,329 +2214,329 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CLONEZERO_WinPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_StrikerPortraits[] =
 {
-    { L"K' A Striker Portrait", 0xe5810, 0xe5830 },
-    { L"K' B Striker Portrait", 0xe5c90, 0xe5cb0 },
-    { L"K' CD Striker Portrait", 0xe6110, 0xe6130 },
-    { L"Another K' A Striker Portrait", 0xe65f0, 0xe6610 },
-    { L"Another K' B Striker Portrait", 0xe6b90, 0xe6bb0 },
-    { L"Another K' CD Striker Portrait ", 0xe7130, 0xe7150 },
+    { L"K' A Striker Portrait", 0xe5810, 0xe5830, indexKOF00Sprites_K, 0x40 },
+    { L"K' B Striker Portrait", 0xe5c90, 0xe5cb0, indexKOF00Sprites_K, 0x40 },
+    { L"K' CD Striker Portrait", 0xe6110, 0xe6130, indexKOF00Sprites_K, 0x40 },
+    { L"Another K' A Striker Portrait", 0xe65f0, 0xe6610, indexKOF00Sprites_K, 0x41 },
+    { L"Another K' B Striker Portrait", 0xe6b90, 0xe6bb0, indexKOF00Sprites_K, 0x41 },
+    { L"Another K' CD Striker Portrait ", 0xe7130, 0xe7150, indexKOF00Sprites_K, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Maxima_StrikerPortraits[] =
 {
-    { L"Maxima A Striker Portrait", 0xe5830, 0xe5850 },
-    { L"Maxima B Striker Portrait", 0xe5cb0, 0xe5cd0 },
-    { L"Rocky A Striker Portrait", 0xe6610, 0xe6630 },
-    { L"Rocky B Striker Portrait", 0xe6bb0, 0xe6bd0 },
+    { L"Maxima A Striker Portrait", 0xe5830, 0xe5850, indexKOF00Sprites_Maxima, 0x40 },
+    { L"Maxima B Striker Portrait", 0xe5cb0, 0xe5cd0, indexKOF00Sprites_Maxima, 0x40 },
+    { L"Rocky A Striker Portrait", 0xe6610, 0xe6630, indexKOF00Sprites_Maxima, 0x41 },
+    { L"Rocky B Striker Portrait", 0xe6bb0, 0xe6bd0, indexKOF00Sprites_Maxima, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Benimaru_StrikerPortraits[] =
 {
-    { L"Benimaru A Striker Portrait", 0xe5850, 0xe5870 },
-    { L"Benimaru B Striker Portrait", 0xe5cd0, 0xe5cf0 },
-    { L"Benimaru CD Striker Portrait", 0xe6150, 0xe6170 },
-    { L"Another Benimaru A Striker Portrait", 0xe6630, 0xe6650 },
-    { L"Another Benimaru B Striker Portrait", 0xe6bd0, 0xe6bf0 },
-    { L"Another Benimaru CD Striker Portrait", 0xe7170, 0xe7190 },
+    { L"Benimaru A Striker Portrait", 0xe5850, 0xe5870, indexKOF00Sprites_Benimaru, 0x40 },
+    { L"Benimaru B Striker Portrait", 0xe5cd0, 0xe5cf0, indexKOF00Sprites_Benimaru, 0x40 },
+    { L"Benimaru CD Striker Portrait", 0xe6150, 0xe6170, indexKOF00Sprites_Benimaru, 0x40 },
+    { L"Another Benimaru A Striker Portrait", 0xe6630, 0xe6650, indexKOF00Sprites_Benimaru, 0x41 },
+    { L"Another Benimaru B Striker Portrait", 0xe6bd0, 0xe6bf0, indexKOF00Sprites_Benimaru, 0x41 },
+    { L"Another Benimaru CD Striker Portrait", 0xe7170, 0xe7190, indexKOF00Sprites_Benimaru, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Shingo_StrikerPortraits[] =
 {
-    { L"Shingo A Striker Portrait", 0xe5870, 0xe5890 },
-    { L"Shingo B Striker Portrait", 0xe5cf0, 0xe5d10 },
-    { L"Kyoko A Striker Portrait", 0xe6650, 0xe6670 },
-    { L"Kyoko B Striker Portrait", 0xe6bf0, 0xe6c10 },
+    { L"Shingo A Striker Portrait", 0xe5870, 0xe5890, indexKOF00Sprites_Shingo, 0x40 },
+    { L"Shingo B Striker Portrait", 0xe5cf0, 0xe5d10, indexKOF00Sprites_Shingo, 0x40 },
+    { L"Kyoko A Striker Portrait", 0xe6650, 0xe6670, indexKOF00Sprites_Shingo, 0x41 },
+    { L"Kyoko B Striker Portrait", 0xe6bf0, 0xe6c10, indexKOF00Sprites_Shingo, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Terry_StrikerPortraits[] =
 {
-    { L"Terry A Striker Portrait", 0xe5890, 0xe58b0 },
-    { L"Terry B Striker Portrait", 0xe5d10, 0xe5d30 },
-    { L"Terry CD Striker Portrait", 0xe6190, 0xe61b0 },
-    { L"Geese A Striker Portrait", 0xe6670, 0xe6690 },
-    { L"Geese B Striker Portrait", 0xe6c10, 0xe6c30 },
-    { L"Geese CD Striker Portrait", 0xe71b0, 0xe71d0 },
+    { L"Terry A Striker Portrait", 0xe5890, 0xe58b0, indexKOF00Sprites_Terry, 0x40 },
+    { L"Terry B Striker Portrait", 0xe5d10, 0xe5d30, indexKOF00Sprites_Terry, 0x40 },
+    { L"Terry CD Striker Portrait", 0xe6190, 0xe61b0, indexKOF00Sprites_Terry, 0x40 },
+    { L"Geese A Striker Portrait", 0xe6670, 0xe6690, indexKOF00Sprites_Terry, 0x41 },
+    { L"Geese B Striker Portrait", 0xe6c10, 0xe6c30, indexKOF00Sprites_Terry, 0x41 },
+    { L"Geese CD Striker Portrait", 0xe71b0, 0xe71d0, indexKOF00Sprites_Terry, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Andy_StrikerPortraits[] =
 {
-    { L"Andy A Striker Portrait", 0xe58b0, 0xe58d0 },
-    { L"Andy B Striker Portrait", 0xe5d30, 0xe5d50 },
-    { L"Billy A Striker Portrait", 0xe6690, 0xe66b0 },
-    { L"Billy B Striker Portrait", 0xe6c30, 0xe6c50 },
+    { L"Andy A Striker Portrait", 0xe58b0, 0xe58d0, indexKOF00Sprites_Andy, 0x40 },
+    { L"Andy B Striker Portrait", 0xe5d30, 0xe5d50, indexKOF00Sprites_Andy, 0x40 },
+    { L"Billy A Striker Portrait", 0xe6690, 0xe66b0, indexKOF00Sprites_Andy, 0x41 },
+    { L"Billy B Striker Portrait", 0xe6c30, 0xe6c50, indexKOF00Sprites_Andy, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Joe_StrikerPortraits[] =
 {
-    { L"Joe A Striker Portrait", 0xe58d0, 0xe58f0 },
-    { L"Joe B Striker Portrait", 0xe5d50, 0xe5d70 },
-    { L"Duck King A Striker Portrait", 0xe66b0, 0xe66d0 },
-    { L"Duck King B Striker Portrait", 0xe6c50, 0xe6c70 },
+    { L"Joe A Striker Portrait", 0xe58d0, 0xe58f0, indexKOF00Sprites_Joe, 0x40 },
+    { L"Joe B Striker Portrait", 0xe5d50, 0xe5d70, indexKOF00Sprites_Joe, 0x40 },
+    { L"Duck King A Striker Portrait", 0xe66b0, 0xe66d0, indexKOF00Sprites_Joe, 0x41 },
+    { L"Duck King B Striker Portrait", 0xe6c50, 0xe6c70, indexKOF00Sprites_Joe, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Mai_StrikerPortraits[] =
 {
-    { L"Mai A Striker Portrait", 0xe58f0, 0xe5910 },
-    { L"Mai B Striker Portrait", 0xe5d70, 0xe5d90 },
-    { L"Mai CD Striker Portrait", 0xe61f0, 0xe6210 },
-    { L"Chizuru A Striker Portrait", 0xe66d0, 0xe66f0 },
-    { L"Chizuru B Striker Portrait", 0xe6c70, 0xe6c90 },
-    { L"Chizuru CD Striker Portrait", 0xe7210, 0xe7230 },
+    { L"Mai A Striker Portrait", 0xe58f0, 0xe5910, indexKOF00Sprites_Mai, 0x40 },
+    { L"Mai B Striker Portrait", 0xe5d70, 0xe5d90, indexKOF00Sprites_Mai, 0x40 },
+    { L"Mai CD Striker Portrait", 0xe61f0, 0xe6210, indexKOF00Sprites_Mai, 0x40 },
+    { L"Chizuru A Striker Portrait", 0xe66d0, 0xe66f0, indexKOF00Sprites_Mai, 0x41 },
+    { L"Chizuru B Striker Portrait", 0xe6c70, 0xe6c90, indexKOF00Sprites_Mai, 0x41 },
+    { L"Chizuru CD Striker Portrait", 0xe7210, 0xe7230, indexKOF00Sprites_Mai, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Ryo_StrikerPortraits[] =
 {
-    { L"Ryo A Striker Portrait", 0xe5910, 0xe5930 },
-    { L"Ryo B Striker Portrait", 0xe5d90, 0xe5db0 },
-    { L"Ryo CD Striker Portrait", 0xe6210, 0xe6230 },
-    { L"Kaede A Striker Portrait", 0xe66f0, 0xe6710 },
-    { L"Kaede B Striker Portrait", 0xe6c90, 0xe6cb0 },
-    { L"Kaede CD Striker Portrait", 0xe7230, 0xe7250 },
-    { L"G-Mantle A Striker Portrait", 0xe6b30, 0xe6b50 },
-    { L"G-Mantle B Striker Portrait", 0xe70d0, 0xe70f0 },
-    { L"G-Mantle CD Striker Portrait", 0xe7670, 0xe7690 },
+    { L"Ryo A Striker Portrait", 0xe5910, 0xe5930, indexKOF00Sprites_Ryo, 0x40 },
+    { L"Ryo B Striker Portrait", 0xe5d90, 0xe5db0, indexKOF00Sprites_Ryo, 0x40 },
+    { L"Ryo CD Striker Portrait", 0xe6210, 0xe6230, indexKOF00Sprites_Ryo, 0x40 },
+    { L"Kaede A Striker Portrait", 0xe66f0, 0xe6710, indexKOF00Sprites_Ryo, 0x41 },
+    { L"Kaede B Striker Portrait", 0xe6c90, 0xe6cb0, indexKOF00Sprites_Ryo, 0x41 },
+    { L"Kaede CD Striker Portrait", 0xe7230, 0xe7250, indexKOF00Sprites_Ryo, 0x41 },
+    { L"G-Mantle A Striker Portrait", 0xe6b30, 0xe6b50, indexKOF00Sprites_Ryo, 0x42 },
+    { L"G-Mantle B Striker Portrait", 0xe70d0, 0xe70f0, indexKOF00Sprites_Ryo, 0x42 },
+    { L"G-Mantle CD Striker Portrait", 0xe7670, 0xe7690, indexKOF00Sprites_Ryo, 0x42 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Robert_StrikerPortraits[] =
 {
-    { L"Robert A Striker Portrait", 0xe5930, 0xe5950 },
-    { L"Robert B Striker Portrait", 0xe5db0, 0xe5dd0 },
-    { L"Another Robert A Striker Portrait", 0xe6710, 0xe6730 },
-    { L"Another Robert B Striker Portrait", 0xe6cb0, 0xe6cd0 },
+    { L"Robert A Striker Portrait", 0xe5930, 0xe5950, indexKOF00Sprites_Robert, 0x40 },
+    { L"Robert B Striker Portrait", 0xe5db0, 0xe5dd0, indexKOF00Sprites_Robert, 0x40 },
+    { L"Another Robert A Striker Portrait", 0xe6710, 0xe6730, indexKOF00Sprites_Robert, 0x41 },
+    { L"Another Robert B Striker Portrait", 0xe6cb0, 0xe6cd0, indexKOF00Sprites_Robert, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Yuri_StrikerPortraits[] =
 {
-    { L"Yuri A Striker Portrait", 0xe5950, 0xe5970 },
-    { L"Yuri B Striker Portrait", 0xe5dd0, 0xe5df0 },
-    { L"Nakoruru A Striker Portrait", 0xe6730, 0xe6750 },
-    { L"Nakoruru B Striker Portrait", 0xe6cd0, 0xe6cf0 },
+    { L"Yuri A Striker Portrait", 0xe5950, 0xe5970, indexKOF00Sprites_Yuri, 0x40 },
+    { L"Yuri B Striker Portrait", 0xe5dd0, 0xe5df0, indexKOF00Sprites_Yuri, 0x40 },
+    { L"Nakoruru A Striker Portrait", 0xe6730, 0xe6750, indexKOF00Sprites_Yuri, 0x41 },
+    { L"Nakoruru B Striker Portrait", 0xe6cd0, 0xe6cf0, indexKOF00Sprites_Yuri, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Takuma_StrikerPortraits[] =
 {
-    { L"Takuma A Striker Portrait", 0xe5970, 0xe5990 },
-    { L"Takuma B Striker Portrait", 0xe5df0, 0xe5e10 },
-    { L"Gai A Striker Portrait", 0xe6750, 0xe6770 },
-    { L"Gai B Striker Portrait", 0xe6cf0, 0xe6d10 },
+    { L"Takuma A Striker Portrait", 0xe5970, 0xe5990, indexKOF00Sprites_Takuma, 0x40 },
+    { L"Takuma B Striker Portrait", 0xe5df0, 0xe5e10, indexKOF00Sprites_Takuma, 0x40 },
+    { L"Gai A Striker Portrait", 0xe6750, 0xe6770, indexKOF00Sprites_Takuma, 0x41 },
+    { L"Gai B Striker Portrait", 0xe6cf0, 0xe6d10, indexKOF00Sprites_Takuma, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Leona_StrikerPortraits[] =
 {
-    { L"Leona A Striker Portrait", 0xe5990, 0xe59b0 },
-    { L"Leona B Striker Portrait", 0xe5e10, 0xe5e30 },
-    { L"Goenitz A Striker Portrait", 0xe6770, 0xe6790 },
-    { L"Goenitz B Striker Portrait", 0xe6d10, 0xe6d30 },
+    { L"Leona A Striker Portrait", 0xe5990, 0xe59b0, indexKOF00Sprites_Leona, 0x40 },
+    { L"Leona B Striker Portrait", 0xe5e10, 0xe5e30, indexKOF00Sprites_Leona, 0x40 },
+    { L"Goenitz A Striker Portrait", 0xe6770, 0xe6790, indexKOF00Sprites_Leona, 0x41 },
+    { L"Goenitz B Striker Portrait", 0xe6d10, 0xe6d30, indexKOF00Sprites_Leona, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Ralf_StrikerPortraits[] =
 {
-    { L"Ralf A Striker Portrait", 0xe59b0, 0xe59d0 },
-    { L"Ralf B Striker Portrait", 0xe5e30, 0xe5e50 },
-    { L"Yashiro A Striker Portrait", 0xe6790, 0xe67b0 },
-    { L"Yashiro B Striker Portrait", 0xe6d30, 0xe6d50 },
+    { L"Ralf A Striker Portrait", 0xe59b0, 0xe59d0, indexKOF00Sprites_Ralf, 0x40 },
+    { L"Ralf B Striker Portrait", 0xe5e30, 0xe5e50, indexKOF00Sprites_Ralf, 0x40 },
+    { L"Yashiro A Striker Portrait", 0xe6790, 0xe67b0, indexKOF00Sprites_Ralf, 0x41 },
+    { L"Yashiro B Striker Portrait", 0xe6d30, 0xe6d50, indexKOF00Sprites_Ralf, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Clark_StrikerPortraits[] =
 {
-    { L"Clark A Striker Portrait", 0xe59d0, 0xe59f0 },
-    { L"Clark B Striker Portrait", 0xe5e50, 0xe5e70 },
-    { L"Shermie A Striker Portrait", 0xe67b0, 0xe67d0 },
-    { L"Shermie B Striker Portrait", 0xe6d50, 0xe6d70 },
+    { L"Clark A Striker Portrait", 0xe59d0, 0xe59f0, indexKOF00Sprites_Clark, 0x40 },
+    { L"Clark B Striker Portrait", 0xe5e50, 0xe5e70, indexKOF00Sprites_Clark, 0x40 },
+    { L"Shermie A Striker Portrait", 0xe67b0, 0xe67d0, indexKOF00Sprites_Clark, 0x41 },
+    { L"Shermie B Striker Portrait", 0xe6d50, 0xe6d70, indexKOF00Sprites_Clark, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Whip_StrikerPortraits[] =
 {
-    { L"Whip A Striker Portrait", 0xe59f0, 0xe5a10 },
-    { L"Whip B Striker Portrait", 0xe5e70, 0xe5e90 },
-    { L"Whip CD Striker Portrait", 0xe62f0, 0xe6310 },
-    { L"Chris A Striker Portrait", 0xe67d0, 0xe67f0 },
-    { L"Chris B Striker Portrait", 0xe6d70, 0xe6d90 },
-    { L"Chris CD Striker Portrait", 0xe7310, 0xe7330 },
+    { L"Whip A Striker Portrait", 0xe59f0, 0xe5a10, indexKOF00Sprites_Whip, 0x40 },
+    { L"Whip B Striker Portrait", 0xe5e70, 0xe5e90, indexKOF00Sprites_Whip, 0x40 },
+    { L"Whip CD Striker Portrait", 0xe62f0, 0xe6310, indexKOF00Sprites_Whip, 0x40 },
+    { L"Chris A Striker Portrait", 0xe67d0, 0xe67f0, indexKOF00Sprites_Whip, 0x41 },
+    { L"Chris B Striker Portrait", 0xe6d70, 0xe6d90, indexKOF00Sprites_Whip, 0x41 },
+    { L"Chris CD Striker Portrait", 0xe7310, 0xe7330, indexKOF00Sprites_Whip, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Athena_StrikerPortraits[] =
 {
-    { L"Athena A Striker Portrait", 0xe5a10, 0xe5a30 },
-    { L"Athena B Striker Portrait", 0xe5e90, 0xe5eb0 },
-    { L"Goddess Athena A Striker Portrait", 0xe67f0, 0xe6810 },
-    { L"Goddess Athenat B Striker Portrai", 0xe6d90, 0xe6db0 },
+    { L"Athena A Striker Portrait", 0xe5a10, 0xe5a30, indexKOF00Sprites_Athena, 0x40 },
+    { L"Athena B Striker Portrait", 0xe5e90, 0xe5eb0, indexKOF00Sprites_Athena, 0x40 },
+    { L"Goddess Athena A Striker Portrait", 0xe67f0, 0xe6810, indexKOF00Sprites_Athena, 0x41 },
+    { L"Goddess Athenat B Striker Portrai", 0xe6d90, 0xe6db0, indexKOF00Sprites_Athena, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Kensou_StrikerPortraits[] =
 {
-    { L"Kensou A Striker Portrait", 0xe5a30, 0xe5a50 },
-    { L"Kensou B Striker Portrait", 0xe5eb0, 0xe5ed0 },
-    { L"Kensou CD Striker Portrait", 0xe6330, 0xe6350 },
-    { L"Psycho Kensou A Striker Portrait", 0xe6810, 0xe6830 },
-    { L"Psycho Kensou B Striker Portrait", 0xe6db0, 0xe6dd0 },
-    { L"Psycho Kensou CD Striker Portrait", 0xe7350, 0xe7370 },
+    { L"Kensou A Striker Portrait", 0xe5a30, 0xe5a50, indexKOF00Sprites_Kensou, 0x40 },
+    { L"Kensou B Striker Portrait", 0xe5eb0, 0xe5ed0, indexKOF00Sprites_Kensou, 0x40 },
+    { L"Kensou CD Striker Portrait", 0xe6330, 0xe6350, indexKOF00Sprites_Kensou, 0x40 },
+    { L"Psycho Kensou A Striker Portrait", 0xe6810, 0xe6830, indexKOF00Sprites_Kensou, 0x41 },
+    { L"Psycho Kensou B Striker Portrait", 0xe6db0, 0xe6dd0, indexKOF00Sprites_Kensou, 0x41 },
+    { L"Psycho Kensou CD Striker Portrait", 0xe7350, 0xe7370, indexKOF00Sprites_Kensou, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Chin_StrikerPortraits[] =
 {
-    { L"Chin A Striker Portrait", 0xe5a50, 0xe5a70 },
-    { L"Chin B Striker Portrait", 0xe5ed0, 0xe5ef0 },
-    { L"Baitang A Striker Portrait", 0xe6830, 0xe6850 },
-    { L"Baitang B Striker Portrait", 0xe6dd0, 0xe6df0 },
+    { L"Chin A Striker Portrait", 0xe5a50, 0xe5a70, indexKOF00Sprites_Chin, 0x40 },
+    { L"Chin B Striker Portrait", 0xe5ed0, 0xe5ef0, indexKOF00Sprites_Chin, 0x40 },
+    { L"Baitang A Striker Portrait", 0xe6830, 0xe6850, indexKOF00Sprites_Chin, 0x41 },
+    { L"Baitang B Striker Portrait", 0xe6dd0, 0xe6df0, indexKOF00Sprites_Chin, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Bao_StrikerPortraits[] =
 {
-    { L"Bao A Striker Portrait", 0xe5a70, 0xe5a90 },
-    { L"Bao B Striker Portrait", 0xe5ef0, 0xe5f10 },
-    { L"Kaoru A Striker Portrait", 0xe6850, 0xe6870 },
-    { L"Kaoru B Striker Portrait", 0xe6df0, 0xe6e10 },
+    { L"Bao A Striker Portrait", 0xe5a70, 0xe5a90, indexKOF00Sprites_Bao, 0x40 },
+    { L"Bao B Striker Portrait", 0xe5ef0, 0xe5f10, indexKOF00Sprites_Bao, 0x40 },
+    { L"Kaoru A Striker Portrait", 0xe6850, 0xe6870, indexKOF00Sprites_Bao, 0x41 },
+    { L"Kaoru B Striker Portrait", 0xe6df0, 0xe6e10, indexKOF00Sprites_Bao, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_King_StrikerPortraits[] =
 {
-    { L"King A Striker Portrait", 0xe5a90, 0xe5ab0 },
-    { L"King B Striker Portrait", 0xe5f10, 0xe5f30 },
-    { L"King Lion A Striker Portrait", 0xe6870, 0xe6890 },
-    { L"King Lion B Striker Portrait", 0xe6e10, 0xe6e30 },
+    { L"King A Striker Portrait", 0xe5a90, 0xe5ab0, indexKOF00Sprites_King, 0x40 },
+    { L"King B Striker Portrait", 0xe5f10, 0xe5f30, indexKOF00Sprites_King, 0x40 },
+    { L"King Lion A Striker Portrait", 0xe6870, 0xe6890, indexKOF00Sprites_King, 0x41 },
+    { L"King Lion B Striker Portrait", 0xe6e10, 0xe6e30, indexKOF00Sprites_King, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BlueMary_StrikerPortraits[] =
 {
-    { L"Blue Mary A Striker Portrait", 0xe5ab0, 0xe5ad0 },
-    { L"Blue Mary B Striker Portrait", 0xe5f30, 0xe5f50 },
-    { L"Blue Mary CD Striker Portrait", 0xe63b0, 0xe63d0 },
-    { L"Yamazaki A Striker Portrait", 0xe6890, 0xe68b0 },
-    { L"Yamazaki B Striker Portrait", 0xe6e30, 0xe6e50 },
-    { L"Yamazaki CD Striker Portrait", 0xe73d0, 0xe73f0 },
+    { L"Blue Mary A Striker Portrait", 0xe5ab0, 0xe5ad0, indexKOF00Sprites_BlueMary, 0x40 },
+    { L"Blue Mary B Striker Portrait", 0xe5f30, 0xe5f50, indexKOF00Sprites_BlueMary, 0x40 },
+    { L"Blue Mary CD Striker Portrait", 0xe63b0, 0xe63d0, indexKOF00Sprites_BlueMary, 0x40 },
+    { L"Yamazaki A Striker Portrait", 0xe6890, 0xe68b0, indexKOF00Sprites_BlueMary, 0x41 },
+    { L"Yamazaki B Striker Portrait", 0xe6e30, 0xe6e50, indexKOF00Sprites_BlueMary, 0x41 },
+    { L"Yamazaki CD Striker Portrait", 0xe73d0, 0xe73f0, indexKOF00Sprites_BlueMary, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Kasumi_StrikerPortraits[] =
 {
-    { L"Kasumi A Striker Portrait", 0xe5ad0, 0xe5af0 },
-    { L"Kasumi B Striker Portrait", 0xe5f50, 0xe5f70 },
-    { L"Xiangfei A Striker Portrait", 0xe68b0, 0xe68d0 },
-    { L"Xiangfei B Striker Portrait", 0xe6e50, 0xe6e70 },
-    { L"Unknown A Striker Portrait", 0xe6af0, 0xe6b10 },
-    { L"Unknown B Striker Portrait", 0xe7090, 0xe70b0 },
+    { L"Kasumi A Striker Portrait", 0xe5ad0, 0xe5af0, indexKOF00Sprites_Kasumi, 0x40 },
+    { L"Kasumi B Striker Portrait", 0xe5f50, 0xe5f70, indexKOF00Sprites_Kasumi, 0x40 },
+    { L"Xiangfei A Striker Portrait", 0xe68b0, 0xe68d0, indexKOF00Sprites_Kasumi, 0x41 },
+    { L"Xiangfei B Striker Portrait", 0xe6e50, 0xe6e70, indexKOF00Sprites_Kasumi, 0x41 },
+    { L"Unknown A Striker Portrait", 0xe6af0, 0xe6b10, indexKOF00Sprites_Kasumi, 0x42 },
+    { L"Unknown B Striker Portrait", 0xe7090, 0xe70b0, indexKOF00Sprites_Kasumi, 0x42 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Hinako_StrikerPortraits[] =
 {
-    { L"Hinako A Striker Portrait", 0xe5af0, 0xe5b10 },
-    { L"Hinako B Striker Portrait", 0xe5f70, 0xe5f90 },
-    { L"Lilly A Striker Portrait", 0xe68d0, 0xe68f0 },
-    { L"Lilly B Striker Portrait", 0xe6e70, 0xe6e90 },
+    { L"Hinako A Striker Portrait", 0xe5af0, 0xe5b10, indexKOF00Sprites_Hinako, 0x40 },
+    { L"Hinako B Striker Portrait", 0xe5f70, 0xe5f90, indexKOF00Sprites_Hinako, 0x40 },
+    { L"Lilly A Striker Portrait", 0xe68d0, 0xe68f0, indexKOF00Sprites_Hinako, 0x41 },
+    { L"Lilly B Striker Portrait", 0xe6e70, 0xe6e90, indexKOF00Sprites_Hinako, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Kim_StrikerPortraits[] =
 {
-    { L"Kim A Striker Portrait", 0xe5b10, 0xe5b30 },
-    { L"Kim B Striker Portrait", 0xe5f90, 0xe5fb0 },
-    { L"Sue-Il A Striker Portrait", 0xe68f0, 0xe6910 },
-    { L"Sue-Il B Striker Portrait", 0xe6e90, 0xe6eb0 },
+    { L"Kim A Striker Portrait", 0xe5b10, 0xe5b30, indexKOF00Sprites_Kim, 0x40 },
+    { L"Kim B Striker Portrait", 0xe5f90, 0xe5fb0, indexKOF00Sprites_Kim, 0x40 },
+    { L"Sue-Il A Striker Portrait", 0xe68f0, 0xe6910, indexKOF00Sprites_Kim, 0x41 },
+    { L"Sue-Il B Striker Portrait", 0xe6e90, 0xe6eb0, indexKOF00Sprites_Kim, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Chang_StrikerPortraits[] =
 {
-    { L"Chang A Striker Portrait", 0xe5b30, 0xe5b50 },
-    { L"Chang B Striker Portrait", 0xe5fb0, 0xe5fd0 },
-    { L"Dong Hwan A Striker Portrait", 0xe6910, 0xe6930 },
-    { L"Dong Hwan B Striker Portrait", 0xe6eb0, 0xe6ed0 },
-    { L"Smart Chang A Striker Portrait", 0xe6b50, 0xe6b70 },
-    { L"Smart Chang B Striker Portrait", 0xe70f0, 0xe7110 },
+    { L"Chang A Striker Portrait", 0xe5b30, 0xe5b50, indexKOF00Sprites_Chang, 0x40 },
+    { L"Chang B Striker Portrait", 0xe5fb0, 0xe5fd0, indexKOF00Sprites_Chang, 0x40 },
+    { L"Dong Hwan A Striker Portrait", 0xe6910, 0xe6930, indexKOF00Sprites_Chang, 0x41 },
+    { L"Dong Hwan B Striker Portrait", 0xe6eb0, 0xe6ed0, indexKOF00Sprites_Chang, 0x41 },
+    { L"Smart Chang A Striker Portrait", 0xe6b50, 0xe6b70, indexKOF00Sprites_Chang, 0x42 },
+    { L"Smart Chang B Striker Portrait", 0xe70f0, 0xe7110, indexKOF00Sprites_Chang, 0x42 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Choi_StrikerPortraits[] =
 {
-    { L"Choi A Striker Portrait", 0xe5b50, 0xe5b70 },
-    { L"Choi B Striker Portrait", 0xe5fd0, 0xe5ff0 },
-    { L"Choi CD Striker Portrait", 0xe6450, 0xe6470 },
-    { L"Jae Hoon A Striker Portrait", 0xe6930, 0xe6950 },
-    { L"Jae Hoon B Striker Portrait", 0xe6ed0, 0xe6ef0 },
-    { L"Jae Hoon CD Striker Portrait", 0xe7470, 0xe7490 },
-    { L"Cool Choi A Striker Portrait", 0xe6b70, 0xe6b90 },
-    { L"Cool Choi B Striker Portrait", 0xe7110, 0xe7130 },
-    { L"Cool Choi CD Striker Portrait", 0xe76b0, 0xe76d0 },
+    { L"Choi A Striker Portrait", 0xe5b50, 0xe5b70, indexKOF00Sprites_Choi, 0x40 },
+    { L"Choi B Striker Portrait", 0xe5fd0, 0xe5ff0, indexKOF00Sprites_Choi, 0x40 },
+    { L"Choi CD Striker Portrait", 0xe6450, 0xe6470, indexKOF00Sprites_Choi, 0x40 },
+    { L"Jae Hoon A Striker Portrait", 0xe6930, 0xe6950, indexKOF00Sprites_Choi, 0x41 },
+    { L"Jae Hoon B Striker Portrait", 0xe6ed0, 0xe6ef0, indexKOF00Sprites_Choi, 0x41 },
+    { L"Jae Hoon CD Striker Portrait", 0xe7470, 0xe7490, indexKOF00Sprites_Choi, 0x41 },
+    { L"Cool Choi A Striker Portrait", 0xe6b70, 0xe6b90, indexKOF00Sprites_Choi, 0x42 },
+    { L"Cool Choi B Striker Portrait", 0xe7110, 0xe7130, indexKOF00Sprites_Choi, 0x42 },
+    { L"Cool Choi CD Striker Portrait", 0xe76b0, 0xe76d0, indexKOF00Sprites_Choi, 0x42 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_JhunHoon_StrikerPortraits[] =
 {
-    { L"Jhun A Striker Portrait", 0xe5b70, 0xe5b90 },
-    { L"Jhun B Striker Portrait", 0xe5ff0, 0xe6010 },
-    { L"Baedal A Striker Portrait", 0xe6950, 0xe6970 },
-    { L"Baedal B Striker Portrait", 0xe6ef0, 0xe6f10 },
+    { L"Jhun A Striker Portrait", 0xe5b70, 0xe5b90, indexKOF00Sprites_JhunHoon, 0x40 },
+    { L"Jhun B Striker Portrait", 0xe5ff0, 0xe6010, indexKOF00Sprites_JhunHoon, 0x40 },
+    { L"Baedal A Striker Portrait", 0xe6950, 0xe6970, indexKOF00Sprites_JhunHoon, 0x41 },
+    { L"Baedal B Striker Portrait", 0xe6ef0, 0xe6f10, indexKOF00Sprites_JhunHoon, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Kyo_StrikerPortraits[] =
 {
-    { L"Kyo A Striker Portrait", 0xe5b90, 0xe5bb0 },
-    { L"Kyo B Striker Portrait", 0xe6010, 0xe6030 },
-    { L"Kyo CD Striker Portrait", 0xe6490, 0xe64b0 },
-    { L"Syo A Striker Portrait", 0xe6970, 0xe6990 },
-    { L"Syo B Striker Portrait", 0xe6f10, 0xe6f30 },
-    { L"Syo CD Striker Portrait", 0xe74b0, 0xe74d0 },
-    { L"Saisyu A Striker Portrait", 0xe6b10, 0xe6b30 },
-    { L"Saisyu B Striker Portrait", 0xe70b0, 0xe70d0 },
-    { L"Saisyu CD Striker Portrait", 0xe7650, 0xe7670 },
+    { L"Kyo A Striker Portrait", 0xe5b90, 0xe5bb0, indexKOF00Sprites_Kyo, 0x40 },
+    { L"Kyo B Striker Portrait", 0xe6010, 0xe6030, indexKOF00Sprites_Kyo, 0x40 },
+    { L"Kyo CD Striker Portrait", 0xe6490, 0xe64b0, indexKOF00Sprites_Kyo, 0x40 },
+    { L"Syo A Striker Portrait", 0xe6970, 0xe6990, indexKOF00Sprites_Kyo, 0x41 },
+    { L"Syo B Striker Portrait", 0xe6f10, 0xe6f30, indexKOF00Sprites_Kyo, 0x41 },
+    { L"Syo CD Striker Portrait", 0xe74b0, 0xe74d0, indexKOF00Sprites_Kyo, 0x41 },
+    { L"Saisyu A Striker Portrait", 0xe6b10, 0xe6b30, indexKOF00Sprites_Kyo, 0x42 },
+    { L"Saisyu B Striker Portrait", 0xe70b0, 0xe70d0, indexKOF00Sprites_Kyo, 0x42 },
+    { L"Saisyu CD Striker Portrait", 0xe7650, 0xe7670, indexKOF00Sprites_Kyo, 0x42 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Ramon_StrikerPortraits[] =
 {
-    { L"Ramon A Striker Portrait", 0xe5bb0, 0xe5bd0 },
-    { L"Ramon B Striker Portrait", 0xe6030, 0xe6050 },
-    { L"Duke A Striker Portrait", 0xe6990, 0xe69b0 },
-    { L"Duke B Striker Portrait", 0xe6f30, 0xe6f50 },
-    { L"Neo and Geo A Striker Portrait", 0xe6ab0, 0xe6ad0 },
-    { L"Neo and Geo B Striker Portrait", 0xe7050, 0xe7070 },
+    { L"Ramon A Striker Portrait", 0xe5bb0, 0xe5bd0, indexKOF00Sprites_Ramon, 0x40 },
+    { L"Ramon B Striker Portrait", 0xe6030, 0xe6050, indexKOF00Sprites_Ramon, 0x40 },
+    { L"Duke A Striker Portrait", 0xe6990, 0xe69b0, indexKOF00Sprites_Ramon, 0x41 },
+    { L"Duke B Striker Portrait", 0xe6f30, 0xe6f50, indexKOF00Sprites_Ramon, 0x41 },
+    { L"Neo and Geo A Striker Portrait", 0xe6ab0, 0xe6ad0, indexKOF00Sprites_Ramon, 0x42 },
+    { L"Neo and Geo B Striker Portrait", 0xe7050, 0xe7070, indexKOF00Sprites_Ramon, 0x42 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Iori_StrikerPortraits[] =
 {
-    { L"Iori A Striker Portrait", 0xe5bd0, 0xe5bf0 },
-    { L"Iori B Striker Portrait", 0xe6050, 0xe6070 },
-    { L"Mature & Vice A Striker Portrait", 0xe69b0, 0xe69d0 },
-    { L"Mature & Vice B Striker Portrait", 0xe6f50, 0xe6f70 },
-    { L"Another Iori A Striker Portrait", 0xe6a90, 0xe6ab0 },
-    { L"Another Iori B Striker Portrait ", 0xe7030, 0xe7050 },
+    { L"Iori A Striker Portrait", 0xe5bd0, 0xe5bf0, indexKOF00Sprites_Iori, 0x40 },
+    { L"Iori B Striker Portrait", 0xe6050, 0xe6070, indexKOF00Sprites_Iori, 0x40 },
+    { L"Mature & Vice A Striker Portrait", 0xe69b0, 0xe69d0, indexKOF00Sprites_Iori, 0x41 },
+    { L"Mature & Vice B Striker Portrait", 0xe6f50, 0xe6f70, indexKOF00Sprites_Iori, 0x41 },
+    { L"Another Iori A Striker Portrait", 0xe6a90, 0xe6ab0, indexKOF00Sprites_Iori, 0x42 },
+    { L"Another Iori B Striker Portrait ", 0xe7030, 0xe7050, indexKOF00Sprites_Iori, 0x42 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Vanessa_StrikerPortraits[] =
 {
-    { L"Vanessa A Striker Portrait", 0xe5bf0, 0xe5c10 },
-    { L"Vanessa B Striker Portrait", 0xe6070, 0xe6090 },
-    { L"Fio A Striker Portrait", 0xe69d0, 0xe69f0 },
-    { L"Fio B Striker Portrait", 0xe6f70, 0xe6f90 },
+    { L"Vanessa A Striker Portrait", 0xe5bf0, 0xe5c10, indexKOF00Sprites_Vanessa, 0x40 },
+    { L"Vanessa B Striker Portrait", 0xe6070, 0xe6090, indexKOF00Sprites_Vanessa, 0x40 },
+    { L"Fio A Striker Portrait", 0xe69d0, 0xe69f0, indexKOF00Sprites_Vanessa, 0x41 },
+    { L"Fio B Striker Portrait", 0xe6f70, 0xe6f90, indexKOF00Sprites_Vanessa, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Lin_StrikerPortraits[] =
 {
-    { L"Lin A Striker Portrait", 0xe5c10, 0xe5c30 },
-    { L"Lin B Striker Portrait", 0xe6090, 0xe60b0 },
-    { L"Eiji A Striker Portrait", 0xe69f0, 0xe6a10 },
-    { L"Eiji B Striker Portrait", 0xe6f90, 0xe6fb0 },
+    { L"Lin A Striker Portrait", 0xe5c10, 0xe5c30, indexKOF00Sprites_Lin, 0x40 },
+    { L"Lin B Striker Portrait", 0xe6090, 0xe60b0, indexKOF00Sprites_Lin, 0x40 },
+    { L"Eiji A Striker Portrait", 0xe69f0, 0xe6a10, indexKOF00Sprites_Lin, 0x41 },
+    { L"Eiji B Striker Portrait", 0xe6f90, 0xe6fb0, indexKOF00Sprites_Lin, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Seth_StrikerPortraits[] =
 {
-    { L"Seth A Striker Portrait", 0xe5c30, 0xe5c50 },
-    { L"Seth B Striker Portrait", 0xe60b0, 0xe60d0 },
-    { L"Daimon A Striker Portrait", 0xe6a10, 0xe6a30 },
-    { L"Daimon B Striker Portrait", 0xe6fb0, 0xe6fd0 },
+    { L"Seth A Striker Portrait", 0xe5c30, 0xe5c50, indexKOF00Sprites_Seth, 0x40 },
+    { L"Seth B Striker Portrait", 0xe60b0, 0xe60d0, indexKOF00Sprites_Seth, 0x40 },
+    { L"Daimon A Striker Portrait", 0xe6a10, 0xe6a30, indexKOF00Sprites_Seth, 0x41 },
+    { L"Daimon B Striker Portrait", 0xe6fb0, 0xe6fd0, indexKOF00Sprites_Seth, 0x41 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Kula_StrikerPortraits[] =
 {
-    { L"Kula A Striker Portrait", 0xe5c50, 0xe5c70 },
-    { L"Kula B Striker Portrait", 0xe60d0, 0xe60f0 },
-    { L"Foxy A Striker Portrait", 0xe6a30, 0xe6a50 },
-    { L"Foxy B Striker Portrait", 0xe6fd0, 0xe6ff0 },
-    { L"Candy A Striker Portrait", 0xe6a70, 0xe6a90 },
-    { L"Candy B Striker Portrait", 0xe7010, 0xe7030 },
-    { L"Rugal A Striker Portrait", 0xe6ad0, 0xe6af0 },
-    { L"Rugal B Striker Portrait", 0xe7070, 0xe7090 },
+    { L"Kula A Striker Portrait", 0xe5c50, 0xe5c70, indexKOF00Sprites_Kula, 0x40 },
+    { L"Kula B Striker Portrait", 0xe60d0, 0xe60f0, indexKOF00Sprites_Kula, 0x40 },
+    { L"Foxy A Striker Portrait", 0xe6a30, 0xe6a50, indexKOF00Sprites_Kula, 0x41 },
+    { L"Foxy B Striker Portrait", 0xe6fd0, 0xe6ff0, indexKOF00Sprites_Kula, 0x41 },
+    { L"Candy A Striker Portrait", 0xe6a70, 0xe6a90, indexKOF00Sprites_Kula, 0x42 },
+    { L"Candy B Striker Portrait", 0xe7010, 0xe7030, indexKOF00Sprites_Kula, 0x42 },
+    { L"Rugal A Striker Portrait", 0xe6ad0, 0xe6af0, indexKOF00Sprites_Kula, 0x43 },
+    { L"Rugal B Striker Portrait", 0xe7070, 0xe7090, indexKOF00Sprites_Kula, 0x43 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_Zero_StrikerPortraits[] =
 {
-    { L"Zero A Striker Portrait", 0xe5c70, 0xe5c90 },
-    { L"Zero B Striker Portrait", 0xe60f0, 0xe6110 },
+    { L"Zero A Striker Portrait", 0xe5c70, 0xe5c90, indexKOF00Sprites_CloneZero, 0x40 },
+    { L"Zero B Striker Portrait", 0xe60f0, 0xe6110, indexKOF00Sprites_CloneZero, 0x40 },
 };
 
 //-BONUS-
