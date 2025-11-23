@@ -990,7 +990,7 @@ enum KOFSpriteList
     indexKOF01Sprites_Takuma,       // 0x1cf
     indexKOF01Sprites_Terry,        // 0x1d0
     indexKOF01Sprites_Vanessa,      // 0x1d1
-    // indexKOF01Sprites_Xiangfei,  // 47
+    // indexKOF01Sprites_Xiangfei,  // 0x47
     indexKOF01Sprites_Whip,         // 0x1d2
     indexKOF01Sprites_Yuri,         // 0x1d3
     indexKOF01Sprites_Zero,         // 0x1d4
