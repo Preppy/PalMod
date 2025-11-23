@@ -44,8 +44,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_A[] =
     { L"Nanami Lifebar Portrait A", 0x93532, 0x93552, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Yashaou A Portrait", 0x8a4ac, 0x8a4cc, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitAtoShared },
-    { L"Yashaou A Super Portrait", 0x7fab0, 0x7fad0 },
-    { L"Yashaou A Super Portrait Trail", 0x7fad0, 0x7faf0 },
+    { L"Yashaou A Super Portrait", 0x7fab0, 0x7fad0, indexAsuraBuster_Yashaou, 0x30, &pairNext },
+    { L"Yashaou A Super Portrait Trail", 0x7fad0, 0x7faf0, indexAsuraBuster_Yashaou, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_B[] =
@@ -57,8 +57,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_B[] =
     { L"Unused B", 0x93f32, 0x93f52, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait B", 0x93f52, 0x93f72, indexAsuraBuster_Nanami, 0x41 },
     { L"Yashaou B Portrait", 0x8a4cc, 0x8a4ec, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitBtoShared },
-    { L"Yashaou B Super Portrait", 0x7faf0, 0x7fb10 },
-    { L"Yashaou B Super Portrait Trail", 0x7fb10, 0x7fb30 },
+    { L"Yashaou B Super Portrait", 0x7faf0, 0x7fb10, indexAsuraBuster_Yashaou, 0x30, &pairNext },
+    { L"Yashaou B Super Portrait Trail", 0x7fb10, 0x7fb30, indexAsuraBuster_Yashaou, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_AB[] =
@@ -70,8 +70,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AB[] =
     { L"Unused AB", 0x94952, 0x94972, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait AB", 0x94972, 0x94992, indexAsuraBuster_Nanami, 0x41 },
     { L"Yashaou AB Portrait", 0x8a4ec, 0x8a50c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitABtoShared },
-    { L"Yashaou AB Super Portrait", 0x7fb30, 0x7fb50 },
-    { L"Yashaou AB Super Portrait Trail", 0x7fb50, 0x7fb70 },
+    { L"Yashaou AB Super Portrait", 0x7fb30, 0x7fb50, indexAsuraBuster_Yashaou, 0x30, &pairNext },
+    { L"Yashaou AB Super Portrait Trail", 0x7fb50, 0x7fb70, indexAsuraBuster_Yashaou, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_C[] =
@@ -84,8 +84,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_C[] =
     { L"Nanami Lifebar Portrait C", 0x95392, 0x953b2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Yashaou C Portrait", 0x8a50c, 0x8a52c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitCtoShared },
-    { L"Yashaou C Super Portrait", 0x7fb70, 0x7fb90 },
-    { L"Yashaou C Super Portrait Trail", 0x7fb90, 0x7fbb0 },
+    { L"Yashaou C Super Portrait", 0x7fb70, 0x7fb90, indexAsuraBuster_Yashaou, 0x30, &pairNext },
+    { L"Yashaou C Super Portrait Trail", 0x7fb90, 0x7fbb0, indexAsuraBuster_Yashaou, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_AC[] =
@@ -98,8 +98,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x95db2, 0x95dd2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Yashaou AC Portrait", 0x8a52c, 0x8a54c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitACtoShared },
-    { L"Yashaou AC Super Portrait", 0x7fbb0, 0x7fbd0 },
-    { L"Yashaou AC Super Portrait Trail", 0x7fbd0, 0x7fbf0 },
+    { L"Yashaou AC Super Portrait", 0x7fbb0, 0x7fbd0, indexAsuraBuster_Yashaou, 0x30, &pairNext },
+    { L"Yashaou AC Super Portrait Trail", 0x7fbd0, 0x7fbf0, indexAsuraBuster_Yashaou, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_BC[] =
@@ -112,8 +112,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x967d2, 0x967f2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Yashaou BC Portrait", 0x8a54c, 0x8a56c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitBCtoShared },
-    { L"Yashaou BC Super Portrait", 0x7fbf0, 0x7fc10 },
-    { L"Yashaou BC Super Portrait Trail", 0x7fc10, 0x7fc30 },
+    { L"Yashaou BC Super Portrait", 0x7fbf0, 0x7fc10, indexAsuraBuster_Yashaou, 0x30, &pairNext },
+    { L"Yashaou BC Super Portrait Trail", 0x7fc10, 0x7fc30, indexAsuraBuster_Yashaou, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_ABC[] =
@@ -125,8 +125,8 @@ const sGame_PaletteDataset AsuraBuster_A_Yashaou_ABC[] =
     { L"Unused ABC", 0x971d2, 0x971f2, indexAsuraBuster_Yashaou, 0x04 },
     { L"Nanami Lifebar Portrait ABC", 0x971f2, 0x97212, indexAsuraBuster_Nanami, 0x41 },
     { L"Yashaou ABC Portrait", 0x8a56c, 0x8a58c, indexAsuraBuster_Yashaou, 0x40, &pairAsuraPortraitABCtoShared },
-    { L"Yashaou ABC Super Portrait", 0x7fc30, 0x7fc50 },
-    { L"Yashaou ABC Super Portrait Trail", 0x7fc50, 0x7fc70 },
+    { L"Yashaou ABC Super Portrait", 0x7fc30, 0x7fc50, indexAsuraBuster_Yashaou, 0x30, &pairNext },
+    { L"Yashaou ABC Super Portrait Trail", 0x7fc50, 0x7fc70, indexAsuraBuster_Yashaou, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Yashaou_Shared[] =
@@ -146,8 +146,8 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_A[] =
     { L"Nanami Lifebar Portrait A", 0x935f2, 0x93612, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Goat A Portrait", 0x8a5cc, 0x8a5ec, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitAtoShared },
-    { L"Goat A Super Portrait", 0x7fc70, 0x7fc90 },
-    { L"Goat A Super Portrait Trail", 0x7fc90, 0x7fcb0 },
+    { L"Goat A Super Portrait", 0x7fc70, 0x7fc90, indexAsuraBuster_Goat, 0x30, &pairNext },
+    { L"Goat A Super Portrait Trail", 0x7fc90, 0x7fcb0, indexAsuraBuster_Goat, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_B[] =
@@ -160,8 +160,8 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_B[] =
     { L"Nanami Lifebar Portrait B", 0x94012, 0x94032, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Goat B Portrait", 0x8a5ec, 0x8a60c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitBtoShared },
-    { L"Goat B Super Portrait", 0x7fcb0, 0x7fcd0 },
-    { L"Goat B Super Portrait Trail", 0x7fcd0, 0x7fcf0 },
+    { L"Goat B Super Portrait", 0x7fcb0, 0x7fcd0, indexAsuraBuster_Goat, 0x30, &pairNext },
+    { L"Goat B Super Portrait Trail", 0x7fcd0, 0x7fcf0, indexAsuraBuster_Goat, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_AB[] =
@@ -174,8 +174,8 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x94a32, 0x94a52, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Goat AB Portrait", 0x8a60c, 0x8a62c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitABtoShared },
-    { L"Goat AB Super Portrait", 0x7fcf0, 0x7fd10 },
-    { L"Goat AB Super Portrait Trail", 0x7fd10, 0x7fd30 },
+    { L"Goat AB Super Portrait", 0x7fcf0, 0x7fd10, indexAsuraBuster_Goat, 0x30, &pairNext },
+    { L"Goat AB Super Portrait Trail", 0x7fd10, 0x7fd30, indexAsuraBuster_Goat, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_C[] =
@@ -188,8 +188,8 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_C[] =
     { L"Nanami Lifebar Portrait C", 0x95452, 0x95472, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Goat C Portrait", 0x8a62c, 0x8a64c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitCtoShared },
-    { L"Goat C Super Portrait", 0x7fd30, 0x7fd50 },
-    { L"Goat C Super Portrait Trail", 0x7fd50, 0x7fd70 },
+    { L"Goat C Super Portrait", 0x7fd30, 0x7fd50, indexAsuraBuster_Goat, 0x30, &pairNext },
+    { L"Goat C Super Portrait Trail", 0x7fd50, 0x7fd70, indexAsuraBuster_Goat, 0x30, &pairNext },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_AC[] =
@@ -202,8 +202,8 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x95e72, 0x95e92, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Goat AC Portrait", 0x8a64c, 0x8a66c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitACtoShared },
-    { L"Goat AC Super Portrait", 0x7fd70, 0x7fd90 },
-    { L"Goat AC Super Portrait Trail", 0x7fd90, 0x7fdb0 },
+    { L"Goat AC Super Portrait", 0x7fd70, 0x7fd90, indexAsuraBuster_Goat, 0x30, &pairNext },
+    { L"Goat AC Super Portrait Trail", 0x7fd90, 0x7fdb0, indexAsuraBuster_Goat, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_BC[] =
@@ -216,8 +216,8 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96892, 0x968b2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Goat BC Portrait", 0x8a66c, 0x8a68c, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitBCtoShared },
-    { L"Goat BC Super Portrait", 0x7fdb0, 0x7fdd0 },
-    { L"Goat BC Super Portrait Trail", 0x7fdd0, 0x7fdf0 },
+    { L"Goat BC Super Portrait", 0x7fdb0, 0x7fdd0, indexAsuraBuster_Goat, 0x30, &pairNext },
+    { L"Goat BC Super Portrait Trail", 0x7fdd0, 0x7fdf0, indexAsuraBuster_Goat, 0x30, &pairNext },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_ABC[] =
@@ -230,8 +230,8 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x972b2, 0x972d2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Goat ABC Portrait", 0x8a68c, 0x8a6ac, indexAsuraBuster_Goat, 0x40, &pairAsuraPortraitABCtoShared },
-    { L"Goat ABC Super Portrait", 0x7fdf0, 0x7fe10 },
-    { L"Goat ABC Super Portrait Trail", 0x7fe10, 0x7fe30 },
+    { L"Goat ABC Super Portrait", 0x7fdf0, 0x7fe10, indexAsuraBuster_Goat, 0x30, &pairNext },
+    { L"Goat ABC Super Portrait Trail", 0x7fe10, 0x7fe30, indexAsuraBuster_Goat, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_Shared[] =
@@ -251,8 +251,8 @@ const sGame_PaletteDataset AsuraBuster_A_Leon_A[] =
     { L"Nanami Lifebar Portrait A", 0x936b2, 0x936d2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Leon A Portrait", 0x8a6ec, 0x8a70c, indexAsuraBuster_Leon, 0x40 },
-    { L"Leon A Super Portrait", 0x7fe30, 0x7fe50 },
-    { L"Leon A Super Portrait Trail", 0x7fe50, 0x7fe70 },
+    { L"Leon A Super Portrait", 0x7fe30, 0x7fe50, indexAsuraBuster_Leon, 0x30, &pairNext },
+    { L"Leon A Super Portrait Trail", 0x7fe50, 0x7fe70, indexAsuraBuster_Leon, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Leon_B[] =
@@ -265,8 +265,8 @@ const sGame_PaletteDataset AsuraBuster_A_Leon_B[] =
     { L"Nanami Lifebar Portrait B", 0x940d2, 0x940f2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Leon B Portrait", 0x8a70c, 0x8a72c, indexAsuraBuster_Leon, 0x40 },
-    { L"Leon B Super Portrait", 0x7fe70, 0x7fe90 },
-    { L"Leon B Super Portrait Trail", 0x7fe90, 0x7feb0 },
+    { L"Leon B Super Portrait", 0x7fe70, 0x7fe90, indexAsuraBuster_Leon, 0x30, &pairNext },
+    { L"Leon B Super Portrait Trail", 0x7fe90, 0x7feb0, indexAsuraBuster_Leon, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Leon_AB[] =
@@ -279,8 +279,8 @@ const sGame_PaletteDataset AsuraBuster_A_Leon_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x94af2, 0x94b12, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Leon AB Portrait", 0x8a72c, 0x8a74c, indexAsuraBuster_Leon, 0x40 },
-    { L"Leon AB Super Portrait", 0x7feb0, 0x7fed0 },
-    { L"Leon AB Super Portrait Trail", 0x7fed0, 0x7fef0 },
+    { L"Leon AB Super Portrait", 0x7feb0, 0x7fed0, indexAsuraBuster_Leon, 0x30, &pairNext },
+    { L"Leon AB Super Portrait Trail", 0x7fed0, 0x7fef0, indexAsuraBuster_Leon, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Leon_C[] =
@@ -293,8 +293,8 @@ const sGame_PaletteDataset AsuraBuster_A_Leon_C[] =
     { L"Nanami Lifebar Portrait C", 0x95512, 0x95532, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Leon C Portrait", 0x8a74c, 0x8a76c, indexAsuraBuster_Leon, 0x40 },
-    { L"Leon C Super Portrait", 0x7fef0, 0x7ff10 },
-    { L"Leon C Super Portrait Trail", 0x7ff10, 0x7ff30 },
+    { L"Leon C Super Portrait", 0x7fef0, 0x7ff10, indexAsuraBuster_Leon, 0x30, &pairNext },
+    { L"Leon C Super Portrait Trail", 0x7ff10, 0x7ff30, indexAsuraBuster_Leon, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Leon_AC[] =
@@ -307,8 +307,8 @@ const sGame_PaletteDataset AsuraBuster_A_Leon_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x95f32, 0x95f52, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Leon AC Portrait", 0x8a76c, 0x8a78c, indexAsuraBuster_Leon, 0x40 },
-    { L"Leon AC Super Portrait", 0x7ff30, 0x7ff50 },
-    { L"Leon AC Super Portrait Trail", 0x7ff50, 0x7ff70 },
+    { L"Leon AC Super Portrait", 0x7ff30, 0x7ff50, indexAsuraBuster_Leon, 0x30, &pairNext },
+    { L"Leon AC Super Portrait Trail", 0x7ff50, 0x7ff70, indexAsuraBuster_Leon, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Leon_BC[] =
@@ -321,8 +321,8 @@ const sGame_PaletteDataset AsuraBuster_A_Leon_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96952, 0x96972, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Leon BC Portrait", 0x8a78c, 0x8a7ac, indexAsuraBuster_Leon, 0x40 },
-    { L"Leon BC Super Portrait", 0x7ff70, 0x7ff90 },
-    { L"Leon BC Super Portrait Trail", 0x7ff90, 0x7ffb0 },
+    { L"Leon BC Super Portrait", 0x7ff70, 0x7ff90, indexAsuraBuster_Leon, 0x30, &pairNext },
+    { L"Leon BC Super Portrait Trail", 0x7ff90, 0x7ffb0, indexAsuraBuster_Leon, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Leon_ABC[] =
@@ -335,8 +335,8 @@ const sGame_PaletteDataset AsuraBuster_A_Leon_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x97372, 0x97392, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Leon ABC Portrait", 0x8a7ac, 0x8a7cc, indexAsuraBuster_Leon, 0x40 },
-    { L"Leon ABC Super Portrait", 0x7ffb0, 0x7ffd0 },
-    { L"Leon ABC Super Portrait Trail", 0x7ffd0, 0x7fff0 },
+    { L"Leon ABC Super Portrait", 0x7ffb0, 0x7ffd0, indexAsuraBuster_Leon, 0x30, &pairNext },
+    { L"Leon ABC Super Portrait Trail", 0x7ffd0, 0x7fff0, indexAsuraBuster_Leon, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ChenMao_A[] =
@@ -350,8 +350,8 @@ const sGame_PaletteDataset AsuraBuster_A_ChenMao_A[] =
     { L"Nanami Lifebar Portrait A", 0x93772, 0x93792, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Chen-Mao A Portrait", 0x8a7ec, 0x8a80c, indexAsuraBuster_ChenMao, 0x40 },
-    { L"Chen-Mao A Super Portrait", 0x7fff0, 0x80010 },
-    { L"Chen-Mao A Super Portrait Trail", 0x80010, 0x80030 },
+    { L"Chen-Mao A Super Portrait", 0x7fff0, 0x80010, indexAsuraBuster_ChenMao, 0x30, &pairNext },
+    { L"Chen-Mao A Super Portrait Trail", 0x80010, 0x80030, indexAsuraBuster_ChenMao, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ChenMao_B[] =
@@ -364,8 +364,8 @@ const sGame_PaletteDataset AsuraBuster_A_ChenMao_B[] =
     { L"Nanami Lifebar Portrait B", 0x94192, 0x941b2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Chen-Mao B Portrait", 0x8a80c, 0x8a82c, indexAsuraBuster_ChenMao, 0x40 },
-    { L"Chen-Mao B Super Portrait", 0x80030, 0x80050 },
-    { L"Chen-Mao B Super Portrait Trail", 0x80050, 0x80070 },
+    { L"Chen-Mao B Super Portrait", 0x80030, 0x80050, indexAsuraBuster_ChenMao, 0x30, &pairNext },
+    { L"Chen-Mao B Super Portrait Trail", 0x80050, 0x80070, indexAsuraBuster_ChenMao, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ChenMao_AB[] =
@@ -378,8 +378,8 @@ const sGame_PaletteDataset AsuraBuster_A_ChenMao_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x94bb2, 0x94bd2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Chen-Mao AB Portrait", 0x8a82c, 0x8a84c, indexAsuraBuster_ChenMao, 0x40 },
-    { L"Chen-Mao AB Super Portrait", 0x80070, 0x80090 },
-    { L"Chen-Mao AB Super Portrait Trail", 0x80090, 0x800b0 },
+    { L"Chen-Mao AB Super Portrait", 0x80070, 0x80090, indexAsuraBuster_ChenMao, 0x30, &pairNext },
+    { L"Chen-Mao AB Super Portrait Trail", 0x80090, 0x800b0, indexAsuraBuster_ChenMao, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ChenMao_C[] =
@@ -392,8 +392,8 @@ const sGame_PaletteDataset AsuraBuster_A_ChenMao_C[] =
     { L"Nanami Lifebar Portrait C", 0x955d2, 0x955f2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Chen-Mao C Portrait", 0x8a84c, 0x8a86c, indexAsuraBuster_ChenMao, 0x40 },
-    { L"Chen-Mao C Super Portrait", 0x800b0, 0x800d0 },
-    { L"Chen-Mao C Super Portrait Trail", 0x800d0, 0x800f0 },
+    { L"Chen-Mao C Super Portrait", 0x800b0, 0x800d0, indexAsuraBuster_ChenMao, 0x30, &pairNext },
+    { L"Chen-Mao C Super Portrait Trail", 0x800d0, 0x800f0, indexAsuraBuster_ChenMao, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ChenMao_AC[] =
@@ -406,8 +406,8 @@ const sGame_PaletteDataset AsuraBuster_A_ChenMao_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x95ff2, 0x96012, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Chen-Mao AC Portrait", 0x8a86c, 0x8a88c, indexAsuraBuster_ChenMao, 0x40 },
-    { L"Chen-Mao AC Super Portrait", 0x800f0, 0x80110 },
-    { L"Chen-Mao AC Super Portrait Trail", 0x80110, 0x80130 },
+    { L"Chen-Mao AC Super Portrait", 0x800f0, 0x80110, indexAsuraBuster_ChenMao, 0x30, &pairNext },
+    { L"Chen-Mao AC Super Portrait Trail", 0x80110, 0x80130, indexAsuraBuster_ChenMao, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ChenMao_BC[] =
@@ -420,8 +420,8 @@ const sGame_PaletteDataset AsuraBuster_A_ChenMao_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96a12, 0x96a32, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Chen-Mao BC Portrait", 0x8a88c, 0x8a8ac, indexAsuraBuster_ChenMao, 0x40 },
-    { L"Chen-Mao BC Super Portrait", 0x80130, 0x80150 },
-    { L"Chen-Mao BC Super Portrait Trail", 0x80150, 0x80170 },
+    { L"Chen-Mao BC Super Portrait", 0x80130, 0x80150, indexAsuraBuster_ChenMao, 0x30, &pairNext },
+    { L"Chen-Mao BC Super Portrait Trail", 0x80150, 0x80170, indexAsuraBuster_ChenMao, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ChenMao_ABC[] =
@@ -434,8 +434,8 @@ const sGame_PaletteDataset AsuraBuster_A_ChenMao_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x97432, 0x97452, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Chen-Mao ABC Portrait", 0x8a8ac, 0x8a8cc, indexAsuraBuster_ChenMao, 0x40 },
-    { L"Chen-Mao ABC Super Portrait", 0x80170, 0x80190 },
-    { L"Chen-Mao ABC Super Portrait Trail", 0x80190, 0x801b0 },
+    { L"Chen-Mao ABC Super Portrait", 0x80170, 0x80190, indexAsuraBuster_ChenMao, 0x30, &pairNext },
+    { L"Chen-Mao ABC Super Portrait Trail", 0x80190, 0x801b0, indexAsuraBuster_ChenMao, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ZamB_A[] =
@@ -450,9 +450,9 @@ const sGame_PaletteDataset AsuraBuster_A_ZamB_A[] =
 
     { L"Zam-B A Portrait 1", 0x8a8ec, 0x8a90c, indexAsuraBuster_ZamB, 0x40, &pairNext },
     { L"Zam-B A Portrait 2", 0x8a9ec, 0x8aa0c, indexAsuraBuster_ZamB, 0x41 },
-    { L"Zam-B A Super Portrait 1", 0x801b0, 0x801d0 },
-    { L"Zam-B A Super Portrait Trail 1", 0x801d0, 0x801f0 },
-    { L"Zam-B X Super Portrait 2", 0x801f0, 0x80210 },
+    { L"Zam-B A Super Portrait 1", 0x801b0, 0x801d0, indexAsuraBuster_ZamB, 0x30, &pairNextAndNext },
+    { L"Zam-B A Super Portrait Trail 1", 0x801d0, 0x801f0, indexAsuraBuster_ZamB, 0x31 },
+    { L"Zam-B X Super Portrait 2", 0x801f0, 0x80210, indexAsuraBuster_ZamB, 0x32 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ZamB_B[] =
@@ -466,9 +466,9 @@ const sGame_PaletteDataset AsuraBuster_A_ZamB_B[] =
 
     { L"Zam-B B Portrait 1", 0x8a90c, 0x8a92c, indexAsuraBuster_ZamB, 0x40, &pairNext },
     { L"Zam-B B Portrait 2", 0x8aa0c, 0x8aa2c, indexAsuraBuster_ZamB, 0x41 },
-    { L"Zam-B B Super Portrait", 0x80210, 0x80230 },
-    { L"Zam-B B Super Portrait Trail", 0x80230, 0x80250 },
-    { L"Zam-B X Super Portrait 2", 0x80250, 0x80270 },
+    { L"Zam-B B Super Portrait", 0x80210, 0x80230, indexAsuraBuster_ZamB, 0x30, &pairNextAndNext },
+    { L"Zam-B B Super Portrait Trail", 0x80230, 0x80250, indexAsuraBuster_ZamB, 0x31 },
+    { L"Zam-B X Super Portrait 2", 0x80250, 0x80270, indexAsuraBuster_ZamB, 0x32 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ZamB_AB[] =
@@ -482,9 +482,9 @@ const sGame_PaletteDataset AsuraBuster_A_ZamB_AB[] =
 
     { L"Zam-B AB Portrait 1", 0x8a92c, 0x8a94c, indexAsuraBuster_ZamB, 0x40, &pairNext },
     { L"Zam-B AB Portrait 2", 0x8aa2c, 0x8aa4c, indexAsuraBuster_ZamB, 0x41 },
-    { L"Zam-B AB Super Portrait", 0x80270, 0x80290 },
-    { L"Zam-B AB Super Portrait Trail", 0x80290, 0x802b0 },
-    { L"Zam-B AB Super Portrait 2", 0x802b0, 0x802d0 },
+    { L"Zam-B AB Super Portrait", 0x80270, 0x80290, indexAsuraBuster_ZamB, 0x30, &pairNextAndNext },
+    { L"Zam-B AB Super Portrait Trail", 0x80290, 0x802b0, indexAsuraBuster_ZamB, 0x31 },
+    { L"Zam-B AB Super Portrait 2", 0x802b0, 0x802d0, indexAsuraBuster_ZamB, 0x32 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ZamB_C[] =
@@ -498,9 +498,9 @@ const sGame_PaletteDataset AsuraBuster_A_ZamB_C[] =
 
     { L"Zam-B C Portrait 1", 0x8a94c, 0x8a96c, indexAsuraBuster_ZamB, 0x40, &pairNext },
     { L"Zam-B C Portrait 2", 0x8aa4c, 0x8aa6c, indexAsuraBuster_ZamB, 0x41 },
-    { L"Zam-B C Super Portrait", 0x802d0, 0x802f0 },
-    { L"Zam-B C Super Portrait Trail", 0x802f0, 0x80310 },
-    { L"Zam-B C Super Portrait 2", 0x80310, 0x80330 },
+    { L"Zam-B C Super Portrait", 0x802d0, 0x802f0, indexAsuraBuster_ZamB, 0x30, &pairNextAndNext },
+    { L"Zam-B C Super Portrait Trail", 0x802f0, 0x80310, indexAsuraBuster_ZamB, 0x31 },
+    { L"Zam-B C Super Portrait 2", 0x80310, 0x80330, indexAsuraBuster_ZamB, 0x32 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ZamB_AC[] =
@@ -514,9 +514,9 @@ const sGame_PaletteDataset AsuraBuster_A_ZamB_AC[] =
 
     { L"Zam-B AC Portrait 1", 0x8a96c, 0x8a98c, indexAsuraBuster_ZamB, 0x40, &pairNext },
     { L"Zam-B AC Portrait 2", 0x8aa6c, 0x8aa8c, indexAsuraBuster_ZamB, 0x41 },
-    { L"Zam-B AC Super Portrait", 0x80330, 0x80350 },
-    { L"Zam-B AC Super Portrait Trail", 0x80350, 0x80370 },
-    { L"Zam-B AC Super Portrait 2", 0x80370, 0x80390 },
+    { L"Zam-B AC Super Portrait", 0x80330, 0x80350, indexAsuraBuster_ZamB, 0x30, &pairNextAndNext },
+    { L"Zam-B AC Super Portrait Trail", 0x80350, 0x80370, indexAsuraBuster_ZamB, 0x31 },
+    { L"Zam-B AC Super Portrait 2", 0x80370, 0x80390, indexAsuraBuster_ZamB, 0x32 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ZamB_BC[] =
@@ -530,9 +530,9 @@ const sGame_PaletteDataset AsuraBuster_A_ZamB_BC[] =
 
     { L"Zam-B BC Portrait 1", 0x8a98c, 0x8a9ac, indexAsuraBuster_ZamB, 0x40, &pairNext },
     { L"Zam-B BC Portrait 2", 0x8aa8c, 0x8aaac, indexAsuraBuster_ZamB, 0x41 },
-    { L"Zam-B BC Super Portrait", 0x80390, 0x803b0 },
-    { L"Zam-B BC Super Portrait Trail", 0x803b0, 0x803d0 },
-    { L"Zam-B BC Super Portrait 2", 0x803d0, 0x803f0 },
+    { L"Zam-B BC Super Portrait", 0x80390, 0x803b0, indexAsuraBuster_ZamB, 0x30, &pairNextAndNext },
+    { L"Zam-B BC Super Portrait Trail", 0x803b0, 0x803d0, indexAsuraBuster_ZamB, 0x31 },
+    { L"Zam-B BC Super Portrait 2", 0x803d0, 0x803f0, indexAsuraBuster_ZamB, 0x32 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_ZamB_ABC[] =
@@ -546,9 +546,9 @@ const sGame_PaletteDataset AsuraBuster_A_ZamB_ABC[] =
 
     { L"Zam-B ABC Portrait 1", 0x8a9ac, 0x8a9cc, indexAsuraBuster_ZamB, 0x40, &pairNext },
     { L"Zam-B ABC Portrait 2", 0x8aaac, 0x8aacc, indexAsuraBuster_ZamB, 0x41 },
-    { L"Zam-B ABC Super Portrait", 0x803f0, 0x80410 },
-    { L"Zam-B ABC Super Portrait Trail", 0x80410, 0x80430 },
-    { L"Zam-B ABC Super Portrait 2", 0x80430, 0x80450 },
+    { L"Zam-B ABC Super Portrait", 0x803f0, 0x80410, indexAsuraBuster_ZamB, 0x30, &pairNextAndNext },
+    { L"Zam-B ABC Super Portrait Trail", 0x80410, 0x80430, indexAsuraBuster_ZamB, 0x31 },
+    { L"Zam-B ABC Super Portrait 2", 0x80430, 0x80450, indexAsuraBuster_ZamB, 0x32 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Taros_A[] =
@@ -562,8 +562,8 @@ const sGame_PaletteDataset AsuraBuster_A_Taros_A[] =
     { L"Nanami Lifebar Portrait A", 0x938f2, 0x93912, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Taros A Portrait", 0x8adec, 0x8ae0c, indexAsuraBuster_Taros, 0x40 },
-    { L"Taros A Super Portrait", 0x807d0, 0x807f0 },
-    { L"Taros A Super Portrait Trail", 0x807f0, 0x80810 },
+    { L"Taros A Super Portrait", 0x807d0, 0x807f0, indexAsuraBuster_Taros, 0x30, &pairNext },
+    { L"Taros A Super Portrait Trail", 0x807f0, 0x80810, indexAsuraBuster_Taros, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Taros_B[] =
@@ -576,8 +576,8 @@ const sGame_PaletteDataset AsuraBuster_A_Taros_B[] =
     { L"Nanami Lifebar Portrait B", 0x94312, 0x94332, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Taros B Portrait", 0x8ae0c, 0x8ae2c, indexAsuraBuster_Taros, 0x40 },
-    { L"Taros B Super Portrait", 0x80810, 0x80830 },
-    { L"Taros B Super Portrait Trail", 0x80830, 0x80850 },
+    { L"Taros B Super Portrait", 0x80810, 0x80830, indexAsuraBuster_Taros, 0x30, &pairNext },
+    { L"Taros B Super Portrait Trail", 0x80830, 0x80850, indexAsuraBuster_Taros, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Taros_AB[] =
@@ -590,8 +590,8 @@ const sGame_PaletteDataset AsuraBuster_A_Taros_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x94d32, 0x94d52, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Taros AB Portrait", 0x8ae2c, 0x8ae4c, indexAsuraBuster_Taros, 0x40 },
-    { L"Taros AB Super Portrait", 0x80850, 0x80870 },
-    { L"Taros AB Super Portrait Trail", 0x80870, 0x80890 },
+    { L"Taros AB Super Portrait", 0x80850, 0x80870, indexAsuraBuster_Taros, 0x30, &pairNext },
+    { L"Taros AB Super Portrait Trail", 0x80870, 0x80890, indexAsuraBuster_Taros, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Taros_C[] =
@@ -604,8 +604,8 @@ const sGame_PaletteDataset AsuraBuster_A_Taros_C[] =
     { L"Nanami Lifebar Portrait C", 0x95752, 0x95772, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Taros C Portrait", 0x8ae4c, 0x8ae6c, indexAsuraBuster_Taros, 0x40 },
-    { L"Taros C Super Portrait", 0x80890, 0x808b0 },
-    { L"Taros C Super Portrait Trail", 0x808b0, 0x808d0 },
+    { L"Taros C Super Portrait", 0x80890, 0x808b0, indexAsuraBuster_Taros, 0x30, &pairNext },
+    { L"Taros C Super Portrait Trail", 0x808b0, 0x808d0, indexAsuraBuster_Taros, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Taros_AC[] =
@@ -618,8 +618,8 @@ const sGame_PaletteDataset AsuraBuster_A_Taros_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x96172, 0x96192, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Taros AC Portrait", 0x8ae6c, 0x8ae8c, indexAsuraBuster_Taros, 0x40 },
-    { L"Taros AC Super Portrait", 0x808d0, 0x808f0 },
-    { L"Taros AC Super Portrait Trail", 0x808f0, 0x80910 },
+    { L"Taros AC Super Portrait", 0x808d0, 0x808f0, indexAsuraBuster_Taros, 0x30, &pairNext },
+    { L"Taros AC Super Portrait Trail", 0x808f0, 0x80910, indexAsuraBuster_Taros, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Taros_BC[] =
@@ -632,8 +632,8 @@ const sGame_PaletteDataset AsuraBuster_A_Taros_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96b92, 0x96bb2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Taros BC Portrait", 0x8ae8c, 0x8aeac, indexAsuraBuster_Taros, 0x40 },
-    { L"Taros BC Super Portrait", 0x80910, 0x80930 },
-    { L"Taros BC Super Portrait Trail", 0x80930, 0x80950 },
+    { L"Taros BC Super Portrait", 0x80910, 0x80930, indexAsuraBuster_Taros, 0x30, &pairNext },
+    { L"Taros BC Super Portrait Trail", 0x80930, 0x80950, indexAsuraBuster_Taros, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Taros_ABC[] =
@@ -646,8 +646,8 @@ const sGame_PaletteDataset AsuraBuster_A_Taros_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x975b2, 0x975d2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Taros ABC Portrait", 0x8aeac, 0x8aecc, indexAsuraBuster_Taros, 0x40 },
-    { L"Taros ABC Super Portrait", 0x80950, 0x80970 },
-    { L"Taros ABC Super Portrait Trail", 0x80970, 0x80990 },
+    { L"Taros ABC Super Portrait", 0x80950, 0x80970, indexAsuraBuster_Taros, 0x30, &pairNext },
+    { L"Taros ABC Super Portrait Trail", 0x80970, 0x80990, indexAsuraBuster_Taros, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_A[] =
@@ -660,11 +660,11 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_A[] =
     { L"Effects 2 A", 0x93992, 0x939b2, indexAsuraBuster_Alice, 0x04 },
     { L"Nanami Lifebar Portrait A", 0x939b2, 0x939d2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Alice Skeleton A", 0x93d92, 0x93db2 },
+    { L"Alice Skeleton A", 0x93d92, 0x93db2, indexAsuraBuster_Alice, 0x03 },
     { L"Alice A Portrait 1", 0x8abec, 0x8ac0c, indexAsuraBuster_Alice, 0x40, &pairNext },
     { L"Alice A Portrait 2", 0x8acec, 0x8ad0c, indexAsuraBuster_Alice, 0x41 },
-    { L"Alice A Super Portrait", 0x80610, 0x80630 },
-    { L"Alice A Super Portrait Trail", 0x80630, 0x80650 },
+    { L"Alice A Super Portrait", 0x80610, 0x80630, indexAsuraBuster_Alice, 0x30, &pairNext },
+    { L"Alice A Super Portrait Trail", 0x80630, 0x80650, indexAsuraBuster_Alice, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_B[] =
@@ -676,11 +676,11 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_B[] =
     { L"Effects 2 B", 0x943b2, 0x943d2, indexAsuraBuster_Alice, 0x04 },
     { L"Nanami Lifebar Portrait B", 0x943d2, 0x943f2, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Alice Skeleton B", 0x947b2, 0x947d2 },
+    { L"Alice Skeleton B", 0x947b2, 0x947d2, indexAsuraBuster_Alice, 0x03 },
     { L"Alice B Portrait 1", 0x8ac0c, 0x8ac2c, indexAsuraBuster_Alice, 0x40, &pairNext },
     { L"Alice B Portrait 2", 0x8ad0c, 0x8ad2c, indexAsuraBuster_Alice, 0x41 },
-    { L"Alice B Super Portrait", 0x80650, 0x80670 },
-    { L"Alice B Super Portrait Trail", 0x80670, 0x80690 },
+    { L"Alice B Super Portrait", 0x80650, 0x80670, indexAsuraBuster_Alice, 0x30, &pairNext },
+    { L"Alice B Super Portrait Trail", 0x80670, 0x80690, indexAsuraBuster_Alice, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_AB[] =
@@ -692,11 +692,11 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_AB[] =
     { L"Effects 2 AB", 0x94dd2, 0x94df2, indexAsuraBuster_Alice, 0x04 },
     { L"Nanami Lifebar Portrait AB", 0x94df2, 0x94e12, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Alice Skeleton AB", 0x951d2, 0x951f2 },
+    { L"Alice Skeleton AB", 0x951d2, 0x951f2, indexAsuraBuster_Alice, 0x03 },
     { L"Alice AB Portrait 1", 0x8ac2c, 0x8ac4c, indexAsuraBuster_Alice, 0x40, &pairNext },
     { L"Alice AB Portrait 2", 0x8ad2c, 0x8ad4c, indexAsuraBuster_Alice, 0x41 },
-    { L"Alice AB Super Portrait", 0x80690, 0x806b0 },
-    { L"Alice AB Super Portrait Trail", 0x806b0, 0x806d0 },
+    { L"Alice AB Super Portrait", 0x80690, 0x806b0, indexAsuraBuster_Alice, 0x30, &pairNext },
+    { L"Alice AB Super Portrait Trail", 0x806b0, 0x806d0, indexAsuraBuster_Alice, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_C[] =
@@ -708,11 +708,11 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_C[] =
     { L"Effects 2 C", 0x957f2, 0x95812, indexAsuraBuster_Alice, 0x04 },
     { L"Nanami Lifebar Portrait C", 0x95812, 0x95832, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Alice Skeleton C", 0x95bf2, 0x95c12 },
+    { L"Alice Skeleton C", 0x95bf2, 0x95c12, indexAsuraBuster_Alice, 0x03 },
     { L"Alice C Portrait 1", 0x8ac4c, 0x8ac6c, indexAsuraBuster_Alice, 0x40, &pairNext },
     { L"Alice C Portrait 2", 0x8ad4c, 0x8ad6c, indexAsuraBuster_Alice, 0x41 },
-    { L"Alice C Super Portrait", 0x806d0, 0x806f0 },
-    { L"Alice C Super Portrait Trail", 0x806f0, 0x80710 },
+    { L"Alice C Super Portrait", 0x806d0, 0x806f0, indexAsuraBuster_Alice, 0x30, &pairNext },
+    { L"Alice C Super Portrait Trail", 0x806f0, 0x80710, indexAsuraBuster_Alice, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_AC[] =
@@ -724,11 +724,11 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_AC[] =
     { L"Effects 2 AC", 0x96212, 0x96232, indexAsuraBuster_Alice, 0x04 },
     { L"Nanami Lifebar Portrait AC", 0x96232, 0x96252, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Alice Skeleton AC", 0x96612, 0x96632 },
+    { L"Alice Skeleton AC", 0x96612, 0x96632, indexAsuraBuster_Alice, 0x03 },
     { L"Alice AC Portrait 1", 0x8ac6c, 0x8ac8c, indexAsuraBuster_Alice, 0x40, &pairNext },
     { L"Alice AC Portrait 2", 0x8ad6c, 0x8ad8c, indexAsuraBuster_Alice, 0x41 },
-    { L"Alice AC Super Portrait", 0x80710, 0x80730 },
-    { L"Alice AC Super Portrait Trail", 0x80730, 0x80750 },
+    { L"Alice AC Super Portrait", 0x80710, 0x80730, indexAsuraBuster_Alice, 0x30, &pairNext },
+    { L"Alice AC Super Portrait Trail", 0x80730, 0x80750, indexAsuraBuster_Alice, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_BC[] =
@@ -740,11 +740,11 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_BC[] =
     { L"Effects 2 BC", 0x96c32, 0x96c52, indexAsuraBuster_Alice, 0x04 },
     { L"Nanami Lifebar Portrait BC", 0x96c52, 0x96c72, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Alice Skeleton BC", 0x97032, 0x97052 },
+    { L"Alice Skeleton BC", 0x97032, 0x97052, indexAsuraBuster_Alice, 0x03 },
     { L"Alice BC Portrait 1", 0x8ac8c, 0x8acac, indexAsuraBuster_Alice, 0x40, &pairNext },
     { L"Alice BC Portrait 2", 0x8ad8c, 0x8adac, indexAsuraBuster_Alice, 0x41 },
-    { L"Alice BC Super Portrait", 0x80750, 0x80770 },
-    { L"Alice BC Super Portrait Trail", 0x80770, 0x80790 },
+    { L"Alice BC Super Portrait", 0x80750, 0x80770, indexAsuraBuster_Alice, 0x30, &pairNext },
+    { L"Alice BC Super Portrait Trail", 0x80770, 0x80790, indexAsuraBuster_Alice, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_ABC[] =
@@ -756,11 +756,11 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_ABC[] =
     { L"Effects 2 ABC", 0x97652, 0x97672, indexAsuraBuster_Alice, 0x04 },
     { L"Nanami Lifebar Portrait ABC", 0x97672, 0x97692, indexAsuraBuster_Nanami, 0x41 },
 
-    { L"Alice Skeleton ABC", 0x97a52, 0x97a72 },
+    { L"Alice Skeleton ABC", 0x97a52, 0x97a72, indexAsuraBuster_Alice, 0x03 },
     { L"Alice ABC Portrait 1", 0x8acac, 0x8accc, indexAsuraBuster_Alice, 0x40, &pairNext },
     { L"Alice ABC Portrait 2", 0x8adac, 0x8adcc, indexAsuraBuster_Alice, 0x41 },
-    { L"Alice ABC Super Portrait", 0x80790, 0x807b0 },
-    { L"Alice ABC Super Portrait Trail", 0x807b0, 0x807d0 },
+    { L"Alice ABC Super Portrait", 0x80790, 0x807b0, indexAsuraBuster_Alice, 0x30, &pairNext },
+    { L"Alice ABC Super Portrait Trail", 0x807b0, 0x807d0, indexAsuraBuster_Alice, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_RoseMary_A[] =
@@ -774,8 +774,8 @@ const sGame_PaletteDataset AsuraBuster_A_RoseMary_A[] =
     { L"Nanami Lifebar Portrait A", 0x93a72, 0x93a92, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rose Mary A Portrait", 0x8aaec, 0x8ab0c, indexAsuraBuster_RoseMary, 0x40 },
-    { L"Rose Mary A Super Portrait", 0x80450, 0x80470 },
-    { L"Rose Mary A Super Portrait Trail", 0x80470, 0x80490 },
+    { L"Rose Mary A Super Portrait", 0x80450, 0x80470, indexAsuraBuster_RoseMary, 0x30, &pairNext },
+    { L"Rose Mary A Super Portrait Trail", 0x80470, 0x80490, indexAsuraBuster_RoseMary, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_RoseMary_B[] =
@@ -788,8 +788,8 @@ const sGame_PaletteDataset AsuraBuster_A_RoseMary_B[] =
     { L"Nanami Lifebar Portrait B", 0x94492, 0x944b2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rose Mary B Portrait", 0x8ab0c, 0x8ab2c, indexAsuraBuster_RoseMary, 0x40 },
-    { L"Rose Mary B Super Portrait", 0x80490, 0x804b0 },
-    { L"Rose Mary B Super Portrait Trail", 0x804b0, 0x804d0 },
+    { L"Rose Mary B Super Portrait", 0x80490, 0x804b0, indexAsuraBuster_RoseMary, 0x30, &pairNext },
+    { L"Rose Mary B Super Portrait Trail", 0x804b0, 0x804d0, indexAsuraBuster_RoseMary, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_RoseMary_AB[] =
@@ -802,8 +802,8 @@ const sGame_PaletteDataset AsuraBuster_A_RoseMary_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x94eb2, 0x94ed2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rose Mary AB Portrait", 0x8ab2c, 0x8ab4c, indexAsuraBuster_RoseMary, 0x40 },
-    { L"Rose Mary AB Super Portrait", 0x804d0, 0x804f0 },
-    { L"Rose Mary AB Super Portrait Trail", 0x804f0, 0x80510 },
+    { L"Rose Mary AB Super Portrait", 0x804d0, 0x804f0, indexAsuraBuster_RoseMary, 0x30, &pairNext },
+    { L"Rose Mary AB Super Portrait Trail", 0x804f0, 0x80510, indexAsuraBuster_RoseMary, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_RoseMary_C[] =
@@ -816,8 +816,8 @@ const sGame_PaletteDataset AsuraBuster_A_RoseMary_C[] =
     { L"Nanami Lifebar Portrait C", 0x958d2, 0x958f2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rose Mary C Portrait", 0x8ab4c, 0x8ab6c, indexAsuraBuster_RoseMary, 0x40 },
-    { L"Rose Mary C Super Portrait", 0x80510, 0x80530 },
-    { L"Rose Mary C Super Portrait Trail", 0x80530, 0x80550 },
+    { L"Rose Mary C Super Portrait", 0x80510, 0x80530, indexAsuraBuster_RoseMary, 0x30, &pairNext },
+    { L"Rose Mary C Super Portrait Trail", 0x80530, 0x80550, indexAsuraBuster_RoseMary, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_RoseMary_AC[] =
@@ -830,8 +830,8 @@ const sGame_PaletteDataset AsuraBuster_A_RoseMary_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x962f2, 0x96312, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rose Mary AC Portrait", 0x8ab6c, 0x8ab8c, indexAsuraBuster_RoseMary, 0x40 },
-    { L"Rose Mary AC Super Portrait", 0x80550, 0x80570 },
-    { L"Rose Mary AC Super Portrait Trail", 0x80570, 0x80590 },
+    { L"Rose Mary AC Super Portrait", 0x80550, 0x80570, indexAsuraBuster_RoseMary, 0x30, &pairNext },
+    { L"Rose Mary AC Super Portrait Trail", 0x80570, 0x80590, indexAsuraBuster_RoseMary, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_RoseMary_BC[] =
@@ -844,8 +844,8 @@ const sGame_PaletteDataset AsuraBuster_A_RoseMary_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96d12, 0x96d32, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rose Mary BC Portrait", 0x8ab8c, 0x8abac, indexAsuraBuster_RoseMary, 0x40 },
-    { L"Rose Mary BC Super Portrait", 0x80590, 0x805b0 },
-    { L"Rose Mary BC Super Portrait Trail", 0x805b0, 0x805d0 },
+    { L"Rose Mary BC Super Portrait", 0x80590, 0x805b0, indexAsuraBuster_RoseMary, 0x30, &pairNext },
+    { L"Rose Mary BC Super Portrait Trail", 0x805b0, 0x805d0, indexAsuraBuster_RoseMary, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_RoseMary_ABC[] =
@@ -858,8 +858,8 @@ const sGame_PaletteDataset AsuraBuster_A_RoseMary_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x97732, 0x97752, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rose Mary ABC Portrait", 0x8abac, 0x8abcc, indexAsuraBuster_RoseMary, 0x40 },
-    { L"Rose Mary ABC Super Portrait", 0x805d0, 0x805f0 },
-    { L"Rose Mary ABC Super Portrait Trail", 0x805f0, 0x80610 },
+    { L"Rose Mary ABC Super Portrait", 0x805d0, 0x805f0, indexAsuraBuster_RoseMary, 0x30, &pairNext },
+    { L"Rose Mary ABC Super Portrait Trail", 0x805f0, 0x80610, indexAsuraBuster_RoseMary, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_A[] =
@@ -873,8 +873,8 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_A[] =
     { L"Nanami Lifebar Portrait A", 0x93b32, 0x93b52, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Sittara A Portrait", 0x8aeec, 0x8af0c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitAtoShared },
-    { L"Sittara A Super Portrait", 0x80990, 0x809b0 },
-    { L"Sittara A Super Portrait Trail", 0x809b0, 0x809d0 },
+    { L"Sittara A Super Portrait", 0x80990, 0x809b0, indexAsuraBuster_Sittara, 0x30, &pairNext },
+    { L"Sittara A Super Portrait Trail", 0x809b0, 0x809d0, indexAsuraBuster_Sittara, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_B[] =
@@ -887,8 +887,8 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_B[] =
     { L"Nanami Lifebar Portrait B", 0x94552, 0x94572, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Sittara B Portrait", 0x8af0c, 0x8af2c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitBtoShared },
-    { L"Sittara B Super Portrait", 0x809d0, 0x809f0 },
-    { L"Sittara B Super Portrait Trail", 0x809f0, 0x80a10 },
+    { L"Sittara B Super Portrait", 0x809d0, 0x809f0, indexAsuraBuster_Sittara, 0x30, &pairNext },
+    { L"Sittara B Super Portrait Trail", 0x809f0, 0x80a10, indexAsuraBuster_Sittara, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_AB[] =
@@ -901,8 +901,8 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x94f72, 0x94f92, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Sittara AB Portrait", 0x8af2c, 0x8af4c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitABtoShared },
-    { L"Sittara AB Super Portrait", 0x80a10, 0x80a30 },
-    { L"Sittara AB Super Portrait Trail", 0x80a30, 0x80a50 },
+    { L"Sittara AB Super Portrait", 0x80a10, 0x80a30, indexAsuraBuster_Sittara, 0x30, &pairNext },
+    { L"Sittara AB Super Portrait Trail", 0x80a30, 0x80a50, indexAsuraBuster_Sittara, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_C[] =
@@ -915,8 +915,8 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_C[] =
     { L"Nanami Lifebar Portrait C", 0x95992, 0x959b2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Sittara C Portrait", 0x8af4c, 0x8af6c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitCtoShared },
-    { L"Sittara C Super Portrait", 0x80a50, 0x80a70 },
-    { L"Sittara C Super Portrait Trail", 0x80a70, 0x80a90 },
+    { L"Sittara C Super Portrait", 0x80a50, 0x80a70, indexAsuraBuster_Sittara, 0x30, &pairNext },
+    { L"Sittara C Super Portrait Trail", 0x80a70, 0x80a90, indexAsuraBuster_Sittara, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_AC[] =
@@ -929,8 +929,8 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x963b2, 0x963d2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Sittara AC Portrait", 0x8af6c, 0x8af8c, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitACtoShared },
-    { L"Sittara AC Super Portrait", 0x80a90, 0x80ab0 },
-    { L"Sittara AC Super Portrait Trail", 0x80ab0, 0x80ad0 },
+    { L"Sittara AC Super Portrait", 0x80a90, 0x80ab0, indexAsuraBuster_Sittara, 0x30, &pairNext },
+    { L"Sittara AC Super Portrait Trail", 0x80ab0, 0x80ad0, indexAsuraBuster_Sittara, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_BC[] =
@@ -943,8 +943,8 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96dd2, 0x96df2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Sittara BC Portrait", 0x8af8c, 0x8afac, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitBCtoShared },
-    { L"Sittara BC Super Portrait", 0x80ad0, 0x80af0 },
-    { L"Sittara BC Super Portrait Trail", 0x80af0, 0x80b10 },
+    { L"Sittara BC Super Portrait", 0x80ad0, 0x80af0, indexAsuraBuster_Sittara, 0x30, &pairNext },
+    { L"Sittara BC Super Portrait Trail", 0x80af0, 0x80b10, indexAsuraBuster_Sittara, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_ABC[] =
@@ -957,8 +957,8 @@ const sGame_PaletteDataset AsuraBuster_A_Sittara_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x977f2, 0x97812, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Sittara ABC Portrait", 0x8afac, 0x8afcc, indexAsuraBuster_Sittara, 0x40, &pairAsuraPortraitABCtoShared },
-    { L"Sittara ABC Super Portrait", 0x80b10, 0x80b30 },
-    { L"Sittara ABC Super Portrait Trail", 0x80b30, 0x80b50 },
+    { L"Sittara ABC Super Portrait", 0x80b10, 0x80b30, indexAsuraBuster_Sittara, 0x30, &pairNext },
+    { L"Sittara ABC Super Portrait Trail", 0x80b30, 0x80b50, indexAsuraBuster_Sittara, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Sittara_Shared[] =
@@ -978,8 +978,8 @@ const sGame_PaletteDataset AsuraBuster_A_Rokurouta_A[] =
     { L"Nanami Lifebar Portrait A", 0x93bf2, 0x93c12, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rokurouta A Portrait", 0x8b00c, 0x8b02c, indexAsuraBuster_Rokurouta, 0x40 },
-    { L"Rokurouta A Super Portrait", 0x80b50, 0x80b70 },
-    { L"Rokurouta A Super Portrait Trail", 0x80b70, 0x80b90 },
+    { L"Rokurouta A Super Portrait", 0x80b50, 0x80b70, indexAsuraBuster_Rokurouta, 0x30, &pairNext },
+    { L"Rokurouta A Super Portrait Trail", 0x80b70, 0x80b90, indexAsuraBuster_Rokurouta, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Rokurouta_B[] =
@@ -992,8 +992,8 @@ const sGame_PaletteDataset AsuraBuster_A_Rokurouta_B[] =
     { L"Nanami Lifebar Portrait B", 0x94612, 0x94632, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rokurouta B Portrait", 0x8b02c, 0x8b04c, indexAsuraBuster_Rokurouta, 0x40 },
-    { L"Rokurouta B Super Portrait", 0x80b90, 0x80bb0 },
-    { L"Rokurouta B Super Portrait Trail", 0x80bb0, 0x80bd0 },
+    { L"Rokurouta B Super Portrait", 0x80b90, 0x80bb0, indexAsuraBuster_Rokurouta, 0x30, &pairNext },
+    { L"Rokurouta B Super Portrait Trail", 0x80bb0, 0x80bd0, indexAsuraBuster_Rokurouta, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Rokurouta_AB[] =
@@ -1006,8 +1006,8 @@ const sGame_PaletteDataset AsuraBuster_A_Rokurouta_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x95032, 0x95052, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rokurouta AB Portrait", 0x8b04c, 0x8b06c, indexAsuraBuster_Rokurouta, 0x40 },
-    { L"Rokurouta AB Super Portrait", 0x80bd0, 0x80bf0 },
-    { L"Rokurouta AB Super Portrait Trail", 0x80bf0, 0x80c10 },
+    { L"Rokurouta AB Super Portrait", 0x80bd0, 0x80bf0, indexAsuraBuster_Rokurouta, 0x30, &pairNext },
+    { L"Rokurouta AB Super Portrait Trail", 0x80bf0, 0x80c10, indexAsuraBuster_Rokurouta, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Rokurouta_C[] =
@@ -1020,8 +1020,8 @@ const sGame_PaletteDataset AsuraBuster_A_Rokurouta_C[] =
     { L"Nanami Lifebar Portrait C", 0x95a52, 0x95a72, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rokurouta C Portrait", 0x8b06c, 0x8b08c, indexAsuraBuster_Rokurouta, 0x40 },
-    { L"Rokurouta C Super Portrait", 0x80c10, 0x80c30 },
-    { L"Rokurouta C Super Portrait Trail", 0x80c30, 0x80c50 },
+    { L"Rokurouta C Super Portrait", 0x80c10, 0x80c30, indexAsuraBuster_Rokurouta, 0x30, &pairNext },
+    { L"Rokurouta C Super Portrait Trail", 0x80c30, 0x80c50, indexAsuraBuster_Rokurouta, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Rokurouta_AC[] =
@@ -1034,8 +1034,8 @@ const sGame_PaletteDataset AsuraBuster_A_Rokurouta_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x96472, 0x96492, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rokurouta AC Portrait", 0x8b08c, 0x8b0ac, indexAsuraBuster_Rokurouta, 0x40 },
-    { L"Rokurouta AC Super Portrait", 0x80c50, 0x80c70 },
-    { L"Rokurouta AC Super Portrait Trail", 0x80c70, 0x80c90 },
+    { L"Rokurouta AC Super Portrait", 0x80c50, 0x80c70, indexAsuraBuster_Rokurouta, 0x30, &pairNext },
+    { L"Rokurouta AC Super Portrait Trail", 0x80c70, 0x80c90, indexAsuraBuster_Rokurouta, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Rokurouta_BC[] =
@@ -1048,8 +1048,8 @@ const sGame_PaletteDataset AsuraBuster_A_Rokurouta_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96e92, 0x96eb2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rokurouta BC Portrait", 0x8b0ac, 0x8b0cc },
-    { L"Rokurouta BC Super Portrait", 0x80c90, 0x80cb0 },
-    { L"Rokurouta BC Super Portrait Trail", 0x80cb0, 0x80cd0 },
+    { L"Rokurouta BC Super Portrait", 0x80c90, 0x80cb0, indexAsuraBuster_Rokurouta, 0x30, &pairNext },
+    { L"Rokurouta BC Super Portrait Trail", 0x80cb0, 0x80cd0, indexAsuraBuster_Rokurouta, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Rokurouta_ABC[] =
@@ -1062,8 +1062,8 @@ const sGame_PaletteDataset AsuraBuster_A_Rokurouta_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x978b2, 0x978d2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Rokurouta ABC Portrait", 0x8b0cc, 0x8b0ec, indexAsuraBuster_Rokurouta, 0x40 },
-    { L"Rokurouta ABC Super Portrait", 0x80cd0, 0x80cf0 },
-    { L"Rokurouta ABC Super Portrait Trail", 0x80cf0, 0x80d10 },
+    { L"Rokurouta ABC Super Portrait", 0x80cd0, 0x80cf0, indexAsuraBuster_Rokurouta, 0x30, &pairNext },
+    { L"Rokurouta ABC Super Portrait Trail", 0x80cf0, 0x80d10, indexAsuraBuster_Rokurouta, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_A[] =
@@ -1077,8 +1077,8 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_A[] =
     { L"Nanami Lifebar Portrait A", 0x93cb2, 0x93cd2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Zinsuke A Portrait", 0x8b10c, 0x8b12c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitAtoShared },
-    { L"Zinsuke A Super Portrait", 0x80d10, 0x80d30 },
-    { L"Zinsuke A Super Portrait Trail", 0x80d30, 0x80d50 },
+    { L"Zinsuke A Super Portrait", 0x80d10, 0x80d30, indexAsuraBuster_Zinsuke, 0x30, &pairNext },
+    { L"Zinsuke A Super Portrait Trail", 0x80d30, 0x80d50, indexAsuraBuster_Zinsuke, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_B[] =
@@ -1091,8 +1091,8 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_B[] =
     { L"Nanami Lifebar Portrait B", 0x946d2, 0x946f2, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Zinsuke B Portrait", 0x8b12c, 0x8b14c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitBtoShared },
-    { L"Zinsuke B Super Portrait", 0x80d50, 0x80d70 },
-    { L"Zinsuke B Super Portrait Trail", 0x80d70, 0x80d90 },
+    { L"Zinsuke B Super Portrait", 0x80d50, 0x80d70, indexAsuraBuster_Zinsuke, 0x30, &pairNext },
+    { L"Zinsuke B Super Portrait Trail", 0x80d70, 0x80d90, indexAsuraBuster_Zinsuke, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_AB[] =
@@ -1105,8 +1105,8 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_AB[] =
     { L"Nanami Lifebar Portrait AB", 0x950f2, 0x95112, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Zinsuke AB Portrait", 0x8b14c, 0x8b16c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitABtoShared },
-    { L"Zinsuke AB Super Portrait", 0x80d90, 0x80db0 },
-    { L"Zinsuke AB Super Portrait Trail", 0x80db0, 0x80dd0 },
+    { L"Zinsuke AB Super Portrait", 0x80d90, 0x80db0, indexAsuraBuster_Zinsuke, 0x30, &pairNext },
+    { L"Zinsuke AB Super Portrait Trail", 0x80db0, 0x80dd0, indexAsuraBuster_Zinsuke, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_C[] =
@@ -1119,8 +1119,8 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_C[] =
     { L"Nanami Lifebar Portrait C", 0x95b12, 0x95b32, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Zinsuke C Portrait", 0x8b16c, 0x8b18c, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitCtoShared },
-    { L"Zinsuke C Super Portrait", 0x80dd0, 0x80df0 },
-    { L"Zinsuke C Super Portrait Trail", 0x80df0, 0x80e10 },
+    { L"Zinsuke C Super Portrait", 0x80dd0, 0x80df0, indexAsuraBuster_Zinsuke, 0x30, &pairNext },
+    { L"Zinsuke C Super Portrait Trail", 0x80df0, 0x80e10, indexAsuraBuster_Zinsuke, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_AC[] =
@@ -1133,8 +1133,8 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_AC[] =
     { L"Nanami Lifebar Portrait AC", 0x96532, 0x96552, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Zinsuke AC Portrait", 0x8b18c, 0x8b1ac, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitACtoShared },
-    { L"Zinsuke AC Super Portrait", 0x80e10, 0x80e30 },
-    { L"Zinsuke AC Super Portrait Trail", 0x80e30, 0x80e50 },
+    { L"Zinsuke AC Super Portrait", 0x80e10, 0x80e30, indexAsuraBuster_Zinsuke, 0x30, &pairNext },
+    { L"Zinsuke AC Super Portrait Trail", 0x80e30, 0x80e50, indexAsuraBuster_Zinsuke, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_BC[] =
@@ -1147,8 +1147,8 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_BC[] =
     { L"Nanami Lifebar Portrait BC", 0x96f52, 0x96f72, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Zinsuke BC Portrait", 0x8b1ac, 0x8b1cc, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitBCtoShared },
-    { L"Zinsuke BC Super Portrait", 0x80e50, 0x80e70 },
-    { L"Zinsuke BC Super Portrait Trail", 0x80e70, 0x80e90 },
+    { L"Zinsuke BC Super Portrait", 0x80e50, 0x80e70, indexAsuraBuster_Zinsuke, 0x30, &pairNext },
+    { L"Zinsuke BC Super Portrait Trail", 0x80e70, 0x80e90, indexAsuraBuster_Zinsuke, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_ABC[] =
@@ -1161,8 +1161,8 @@ const sGame_PaletteDataset AsuraBuster_A_Zinsuke_ABC[] =
     { L"Nanami Lifebar Portrait ABC", 0x97972, 0x97992, indexAsuraBuster_Nanami, 0x41 },
 
     { L"Zinsuke ABC Portrait", 0x8b1cc, 0x8b1ec, indexAsuraBuster_Zinsuke, 0x40, &pairAsuraPortraitABCtoShared },
-    { L"Zinsuke ABC Super Portrait", 0x80e90, 0x80eb0 },
-    { L"Zinsuke ABC Super Portrait Trail", 0x80eb0, 0x80ed0 },
+    { L"Zinsuke ABC Super Portrait", 0x80e90, 0x80eb0, indexAsuraBuster_Zinsuke, 0x30, &pairNext },
+    { L"Zinsuke ABC Super Portrait Trail", 0x80eb0, 0x80ed0, indexAsuraBuster_Zinsuke, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Zinsuke_Shared[] =
@@ -1182,8 +1182,8 @@ const sGame_PaletteDataset AsuraBuster_A_AliceBang_A[] =
     { L"Nanami A", 0x93d72, 0x93d92, indexAsuraBuster_Nanami, 0x00 },
 
     { L"Alice! A Portrait", 0x8b22c, 0x8b24c, indexAsuraBuster_AliceBang, 0x40 },
-    { L"Alice! A Super Portrait", 0x80ed0, 0x80ef0 },
-    { L"Alice! A Super Portrait Trail", 0x80ef0, 0x80f10 },
+    { L"Alice! A Super Portrait", 0x80ed0, 0x80ef0, indexAsuraBuster_AliceBang, 0x30, &pairNext },
+    { L"Alice! A Super Portrait Trail", 0x80ef0, 0x80f10, indexAsuraBuster_AliceBang, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_AliceBang_B[] =
@@ -1196,8 +1196,8 @@ const sGame_PaletteDataset AsuraBuster_A_AliceBang_B[] =
     { L"Nanami B", 0x94792, 0x947b2, indexAsuraBuster_Nanami, 0x00 },
 
     { L"Alice! B Portrait", 0x8b24c, 0x8b26c, indexAsuraBuster_AliceBang, 0x40 },
-    { L"Alice! B Super Portrait", 0x80f10, 0x80f30 },
-    { L"Alice! B Super Portrait Trail", 0x80f30, 0x80f50 },
+    { L"Alice! B Super Portrait", 0x80f10, 0x80f30, indexAsuraBuster_AliceBang, 0x30, &pairNext },
+    { L"Alice! B Super Portrait Trail", 0x80f30, 0x80f50, indexAsuraBuster_AliceBang, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_AliceBang_AB[] =
@@ -1210,8 +1210,8 @@ const sGame_PaletteDataset AsuraBuster_A_AliceBang_AB[] =
     { L"Nanami AB", 0x951b2, 0x951d2, indexAsuraBuster_Nanami, 0x00 },
 
     { L"Alice! AB Portrait", 0x8b26c, 0x8b28c, indexAsuraBuster_AliceBang, 0x40 },
-    { L"Alice! AB Super Portrait", 0x80f50, 0x80f70 },
-    { L"Alice! AB Super Portrait Trail", 0x80f70, 0x80f90 },
+    { L"Alice! AB Super Portrait", 0x80f50, 0x80f70, indexAsuraBuster_AliceBang, 0x30, &pairNext },
+    { L"Alice! AB Super Portrait Trail", 0x80f70, 0x80f90, indexAsuraBuster_AliceBang, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_AliceBang_C[] =
@@ -1224,8 +1224,8 @@ const sGame_PaletteDataset AsuraBuster_A_AliceBang_C[] =
     { L"Nanami C", 0x95bd2, 0x95bf2, indexAsuraBuster_Nanami, 0x00 },
 
     { L"Alice! C Portrait", 0x8b28c, 0x8b2ac, indexAsuraBuster_AliceBang, 0x40 },
-    { L"Alice! C Super Portrait", 0x80f90, 0x80fb0 },
-    { L"Alice! C Super Portrait Trail", 0x80fb0, 0x80fd0 },
+    { L"Alice! C Super Portrait", 0x80f90, 0x80fb0, indexAsuraBuster_AliceBang, 0x30, &pairNext },
+    { L"Alice! C Super Portrait Trail", 0x80fb0, 0x80fd0, indexAsuraBuster_AliceBang, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_AliceBang_AC[] =
@@ -1238,8 +1238,8 @@ const sGame_PaletteDataset AsuraBuster_A_AliceBang_AC[] =
     { L"Nanami AC", 0x965f2, 0x96612, indexAsuraBuster_Nanami, 0x00 },
 
     { L"Alice! AC Portrait", 0x8b2ac, 0x8b2cc, indexAsuraBuster_AliceBang, 0x40 },
-    { L"Alice! AC Super Portrait", 0x80fd0, 0x80ff0 },
-    { L"Alice! AC Super Portrait Trail", 0x80ff0, 0x81010 },
+    { L"Alice! AC Super Portrait", 0x80fd0, 0x80ff0, indexAsuraBuster_AliceBang, 0x30, &pairNext },
+    { L"Alice! AC Super Portrait Trail", 0x80ff0, 0x81010, indexAsuraBuster_AliceBang, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_AliceBang_BC[] =
@@ -1252,8 +1252,8 @@ const sGame_PaletteDataset AsuraBuster_A_AliceBang_BC[] =
     { L"Nanami BC", 0x97012, 0x97032, indexAsuraBuster_Nanami, 0x00 },
 
     { L"Alice! BC Portrait", 0x8b2cc, 0x8b2ec, indexAsuraBuster_AliceBang, 0x40 },
-    { L"Alice! BC Super Portrait", 0x81010, 0x81030 },
-    { L"Alice! BC Super Portrait Trail", 0x81030, 0x81050 },
+    { L"Alice! BC Super Portrait", 0x81010, 0x81030, indexAsuraBuster_AliceBang, 0x30, &pairNext },
+    { L"Alice! BC Super Portrait Trail", 0x81030, 0x81050, indexAsuraBuster_AliceBang, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_AliceBang_ABC[] =
@@ -1266,8 +1266,8 @@ const sGame_PaletteDataset AsuraBuster_A_AliceBang_ABC[] =
     { L"Nanami ABC", 0x97a32, 0x97a52, indexAsuraBuster_Nanami, 0x00 },
 
     { L"Alice! ABC Portrait", 0x8b2ec, 0x8b30c, indexAsuraBuster_AliceBang, 0x40 },
-    { L"Alice! ABC Super Portrait", 0x81050, 0x81070 },
-    { L"Alice! ABC Super Portrait Trail", 0x81070, 0x81090 },
+    { L"Alice! ABC Super Portrait", 0x81050, 0x81070, indexAsuraBuster_AliceBang, 0x30, &pairNext },
+    { L"Alice! ABC Super Portrait Trail", 0x81070, 0x81090, indexAsuraBuster_AliceBang, 0x31 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Vebel_A[] =
@@ -1456,159 +1456,173 @@ const sGame_PaletteDataset AsuraBuster_A_Vebel_Effects[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Nanami_PORTRAITS[] =
 {
-    { L"Nanami A Portrait", 0x8b32c, 0x8b34c, indexAsuraBuster_Nanami, 0x40 },
-    { L"Nanami B Portrait", 0x8b34c, 0x8b36c, indexAsuraBuster_Nanami, 0x40 },
-    { L"Nanami AB Portrait", 0x8b36c, 0x8b38c, indexAsuraBuster_Nanami, 0x40 },
-    { L"Nanami C Portrait", 0x8b38c, 0x8b3ac, indexAsuraBuster_Nanami, 0x40 },
-    { L"Nanami AC Portrait", 0x8b3ac, 0x8b3cc, indexAsuraBuster_Nanami, 0x40 },
-    { L"Nanami BC Portrait", 0x8b3cc, 0x8b3ec, indexAsuraBuster_Nanami, 0x40 },
-    { L"Nanami ABC Portrait", 0x8b3ec, 0x8b40c, indexAsuraBuster_Nanami, 0x40 },
+    { L"Nanami A Portrait",     0x8b32c, 0x8b34c, indexAsuraBuster_Nanami, 0x40 },
+    { L"Nanami B Portrait",     0x8b34c, 0x8b36c, indexAsuraBuster_Nanami, 0x40 },
+    { L"Nanami AB Portrait",    0x8b36c, 0x8b38c, indexAsuraBuster_Nanami, 0x40 },
+    { L"Nanami C Portrait",     0x8b38c, 0x8b3ac, indexAsuraBuster_Nanami, 0x40 },
+    { L"Nanami AC Portrait",    0x8b3ac, 0x8b3cc, indexAsuraBuster_Nanami, 0x40 },
+    { L"Nanami BC Portrait",    0x8b3cc, 0x8b3ec, indexAsuraBuster_Nanami, 0x40 },
+    { L"Nanami ABC Portrait",   0x8b3ec, 0x8b40c, indexAsuraBuster_Nanami, 0x40 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Stages[] =
 {
-    { L"Yashaou/Sittara Stage (1/2) 0x4eaf0", 0x4eaf0, 0x4ecf0 },
-    { L"Yashaou/Sittara Stage (2/2) 0x4ecf0", 0x4ecf0, 0x4eef0 },
-    { L"Yashaou/Sittara Stage Extras 1", 0x4ea50, 0x4eaf0 },
-    { L"Yashaou/Sittara Stage Extras 2", 0x4eef0, 0x4ef10 },
-    { L"Goat Stage (1/2) 0x4d930", 0x4d930, 0x4db30 },
-    { L"Goat Stage (2/2) 0x4db30", 0x4db30, 0x4dd30 },
-    { L"Goat Stage Extra", 0x4dd30, 0x4dd50 },
-    { L"Leon/Rose Mary Stage (1/2) 0x4e210", 0x4e210, 0x4e410 },
-    { L"Leon/Rose Mary Stage (2/2) 0x4e410", 0x4e410, 0x4e610 },
-    { L"Leon/Rose Mary Stage Extra 1", 0x4e190, 0x4e210 },
-    { L"Leon/Rose Mary Stage Extra 2", 0x4e610, 0x4e630 },
-    { L"Chen-Mao Stage (1/2) 0x4dd50", 0x4dd50, 0x4df50 },
-    { L"Chen-Mao Stage (2/2) 0x4df50", 0x4df50, 0x4e150 },
-    { L"Chen-Mao Extra", 0x4e150, 0x4e170 },
-    { L"Zam-B/Rokurouta Stage (1/2) 0x4c850", 0x4c850, 0x4ca50 },
-    { L"Zam-B/Rokurouta Stage (2/2) 0x4ca50", 0x4ca50, 0x4cc50 },
-    { L"Zam-B/Rokurouta Stage Extra", 0x4cc50, 0x4ccd0 },
-    { L"Taros Stage (1/2) 0x4e630", 0x4e630, 0x4e830 },
-    { L"Taros Stage (2/2) 0x4e830", 0x4e830, 0x4ea30 },
-    { L"Taros Stage Extra", 0x4ea30, 0x4ea50 },
-    { L"Alice Stage (1/2) 0x4c350", 0x4c350, 0x4c550 },
-    { L"Alice Stage (2/2) 0x4c550", 0x4c550, 0x4c750 },
-    { L"Alice Stage Extra", 0x4c750, 0x4c7b0 },
-    { L"Zinsuke Stage (1/2) 0x4d510", 0x4d510, 0x4d710 },
-    { L"Zinsuke Stage (2/2) 0x4d710", 0x4d710, 0x4d910 },
-    { L"Zinsuke Stage Extra", 0x4d910, 0x4d930 },
-    { L"Vebel Stage (1/2) 0x4ef10", 0x4ef10, 0x4f110 },
-    { L"Vebel Stage (2/2) 0x4f110", 0x4f110, 0x4f310 },
-    { L"Vebel Stage Extra", 0x4f310, 0x4f330 },
-    { L"Story Mode Stage 1 (1/2) 0x4d0f0", 0x4d0f0, 0x4d2f0 },
-    { L"Story Mode Stage 1 (2/2) 0x4d2f0", 0x4d2f0, 0x4d4f0 },
-    { L"Story Mode Stage 1 Extra", 0x4d4f0, 0x4d510 },
-    { L"Story Mode Stage 2 (1/2) 0x4ccd0", 0x4ccd0, 0x4ced0 },
-    { L"Story Mode Stage 2 (2/2) 0x4ced0", 0x4ced0, 0x4d0d0 },
-    { L"Story Mode Stage 2 Extra", 0x4d0d0, 0x4d0f0 },
-    { L"Bonus Game Stage (1/2) 0x4f530", 0x4f530, 0x4f730 },
-    { L"Bonus Game Stage (2/2) 0x4f730", 0x4f730, 0x4f930 },
-    { L"Bonus Game Stage Extra", 0x4f930, 0x4f950 },
-    { L"King Stage", 0x4fa10, 0x4fc10 },
-    { L"King Stage Extra 1", 0x4f950, 0x4f9f0 },
-    { L"King Stage Extra 2", 0x4fc10, 0x4fc50 },
-    { L"King Stage Background (VS King)", 0x4fe50, 0x4fe70 },
-    { L"Last Stand Void", 0x4fe70, 0x50070 },
-    { L"Boost Mode Background", 0x4f330, 0x4f350 },
+    { L"Yashaou/Sittara Stage (1/2)",       0x4eaf0, 0x4ecf0, indexAsuraBuster_Stages, 0x00 },
+    { L"Yashaou/Sittara Stage (2/2)",       0x4ecf0, 0x4eef0, indexAsuraBuster_Stages, 0x01 },
+    { L"Yashaou/Sittara Stage Extras 1",    0x4ea50, 0x4eaf0, indexAsuraBuster_Stages, 0x02 },
+    { L"Yashaou/Sittara Stage Extras 2",    0x4eef0, 0x4ef10, indexAsuraBuster_Stages, 0x03 },
+
+    { L"Goat Stage (1/2)",                  0x4d930, 0x4db30, indexAsuraBuster_Stages, 0x04 },
+    { L"Goat Stage (2/2)",                  0x4db30, 0x4dd30, indexAsuraBuster_Stages, 0x05 },
+    { L"Goat Stage Extra",                  0x4dd30, 0x4dd50, indexAsuraBuster_Stages, 0x06 },
+
+    { L"Leon/Rose Mary Stage (1/2)",        0x4e210, 0x4e410, indexAsuraBuster_Stages, 0x07 },
+    { L"Leon/Rose Mary Stage (2/2)",        0x4e410, 0x4e610, indexAsuraBuster_Stages, 0x08 },
+    { L"Leon/Rose Mary Stage Extra 1",      0x4e190, 0x4e210, indexAsuraBuster_Stages, 0x09 },
+    { L"Leon/Rose Mary Stage Extra 2",      0x4e610, 0x4e630, indexAsuraBuster_Stages, 0x0a },
+
+    { L"Chen-Mao Stage (1/2)",              0x4dd50, 0x4df50, indexAsuraBuster_Stages, 0x0b },
+    { L"Chen-Mao Stage (2/2)",              0x4df50, 0x4e150, indexAsuraBuster_Stages, 0x0c },
+    { L"Chen-Mao Extra",                    0x4e150, 0x4e170, indexAsuraBuster_Stages, 0x0d },
+
+    { L"Zam-B/Rokurouta Stage (1/2)",       0x4c850, 0x4ca50, indexAsuraBuster_Stages, 0x0e },
+    { L"Zam-B/Rokurouta Stage (2/2)",       0x4ca50, 0x4cc50, indexAsuraBuster_Stages, 0x0f },
+    { L"Zam-B/Rokurouta Stage Extra",       0x4cc50, 0x4ccd0, indexAsuraBuster_Stages, 0x10 },
+
+    { L"Taros Stage (1/2)",                 0x4e630, 0x4e830, indexAsuraBuster_Stages, 0x11 },
+    { L"Taros Stage (2/2)",                 0x4e830, 0x4ea30, indexAsuraBuster_Stages, 0x12 },
+    { L"Taros Stage Extra",                 0x4ea30, 0x4ea50, indexAsuraBuster_Stages, 0x13 },
+
+    { L"Alice Stage (1/2)",                 0x4c350, 0x4c550, indexAsuraBuster_Stages, 0x14 },
+    { L"Alice Stage (2/2)",                 0x4c550, 0x4c750, indexAsuraBuster_Stages, 0x15 },
+    { L"Alice Stage Extra",                 0x4c750, 0x4c7b0, indexAsuraBuster_Stages, 0x16 },
+
+    { L"Zinsuke Stage (1/2)",               0x4d510, 0x4d710, indexAsuraBuster_Stages, 0x17 },
+    { L"Zinsuke Stage (2/2)",               0x4d710, 0x4d910, indexAsuraBuster_Stages, 0x18 },
+    { L"Zinsuke Stage Extra",               0x4d910, 0x4d930, indexAsuraBuster_Stages, 0x19 },
+
+    { L"Vebel Stage (1/2)",                 0x4ef10, 0x4f110, indexAsuraBuster_Stages, 0x1a },
+    { L"Vebel Stage (2/2)",                 0x4f110, 0x4f310, indexAsuraBuster_Stages, 0x1b },
+    { L"Vebel Stage Extra",                 0x4f310, 0x4f330, indexAsuraBuster_Stages, 0x1c },
+
+    { L"Story Mode Stage 1 (1/2)",          0x4d0f0, 0x4d2f0, indexAsuraBuster_Stages, 0x1d },
+    { L"Story Mode Stage 1 (2/2)",          0x4d2f0, 0x4d4f0, indexAsuraBuster_Stages, 0x1e },
+    { L"Story Mode Stage 1 Extra",          0x4d4f0, 0x4d510, indexAsuraBuster_Stages, 0x1f },
+
+    { L"Story Mode Stage 2 (1/2)",          0x4ccd0, 0x4ced0, indexAsuraBuster_Stages, 0x20 },
+    { L"Story Mode Stage 2 (2/2)",          0x4ced0, 0x4d0d0, indexAsuraBuster_Stages, 0x21 },
+    { L"Story Mode Stage 2 Extra",          0x4d0d0, 0x4d0f0, indexAsuraBuster_Stages, 0x22 },
+
+    { L"Bonus Game Stage (1/2)",            0x4f530, 0x4f730, indexAsuraBuster_Stages, 0x23 },
+    { L"Bonus Game Stage (2/2)",            0x4f730, 0x4f930, indexAsuraBuster_Stages, 0x24 },
+    { L"Bonus Game Stage Extra",            0x4f930, 0x4f950, indexAsuraBuster_Stages, 0x25 },
+
+    { L"King Stage",                        0x4fa10, 0x4fc10, indexAsuraBuster_Stages, 0x26 },
+    { L"King Stage Extra 1",                0x4f950, 0x4f9f0, indexAsuraBuster_Stages, 0x27 },
+    { L"King Stage Extra 2",                0x4fc10, 0x4fc50, indexAsuraBuster_Stages, 0x28 },
+    { L"King Stage Background (VS King)",   0x4fe50, 0x4fe70, indexAsuraBuster_Stages, 0x29 },
+
+    { L"Last Stand Void",                   0x4fe70, 0x50070, indexAsuraBuster_Stages, 0x2a },
+
+    { L"Boost Mode Background",             0x4f330, 0x4f350, indexAsuraBuster_Stages, 0x2b },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Bonus_Intro[] =
 {
-    { L"Fuuki Logo", 0x66932, 0x66952 },
-    { L"Character Name Text", 0x66992, 0x669b2 },
-    { L"Text 1", 0x66952, 0x66972 },
-    { L"Text 2", 0x66f12, 0x66f32 },
-    { L"Yashaou", 0x669b2, 0x669f2 },
-    { L"Sittara", 0x66a12, 0x66a52 },
-    { L"Rokurouta", 0x66a72, 0x66a92 },
-    { L"Leon", 0x66ab2, 0x66ad2 },
-    { L"Zinsuke", 0x66af2, 0x66b32 },
-    { L"Goat", 0x66b52, 0x66b72 },
-    { L"Taros", 0x66b92, 0x66bb2 },
-    { L"Zam-B", 0x66bd2, 0x66c12 },
-    { L"Chen-Mao", 0x66c32, 0x66c52 },
-    { L"Alice", 0x66c72, 0x66cb2 },
-    { L"Rose Mary", 0x66cd2, 0x66cf2 },
-    { L"Yashaou (Intro Ending)", 0x66d12, 0x66d52 },
-    { L"Sittara (Intro Ending)", 0x66d52, 0x66d92 },
+    { L"Fuuki Logo",                    0x66932, 0x66952 },
+    { L"Character Name Text",           0x66992, 0x669b2 },
+    { L"Text 1",                        0x66952, 0x66972 },
+    { L"Text 2",                        0x66f12, 0x66f32 },
+    { L"Yashaou",                       0x669b2, 0x669f2 },
+    { L"Sittara",                       0x66a12, 0x66a52 },
+    { L"Rokurouta",                     0x66a72, 0x66a92 },
+    { L"Leon",                          0x66ab2, 0x66ad2 },
+    { L"Zinsuke",                       0x66af2, 0x66b32 },
+    { L"Goat",                          0x66b52, 0x66b72 },
+    { L"Taros",                         0x66b92, 0x66bb2 },
+    { L"Zam-B",                         0x66bd2, 0x66c12 },
+    { L"Chen-Mao",                      0x66c32, 0x66c52 },
+    { L"Alice",                         0x66c72, 0x66cb2 },
+    { L"Rose Mary",                     0x66cd2, 0x66cf2 },
+    { L"Yashaou (Intro Ending)",        0x66d12, 0x66d52 },
+    { L"Sittara (Intro Ending)",        0x66d52, 0x66d92 },
     { L"Yashaou VS Sittara Background", 0x64fd2, 0x651d2 },
-    { L"Character Background Colors", 0x66d92, 0x66ef2 },
+    { L"Character Background Colors",   0x66d92, 0x66ef2 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Bonus_Title[] =
 {
-    { L"ASURA BUSTER Impact Text", 0x66ef2, 0x66f12 },
-    { L"Game Title", 0x655d2, 0x657d2 },
-    { L"Background", 0x653d2, 0x655d2 },
+    { L"ASURA BUSTER Impact Text",  0x66ef2, 0x66f12 },
+    { L"Game Title",                0x655d2, 0x657d2 },
+    { L"Background",                0x653d2, 0x655d2 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Bonus_Record[] =
 {
-    { L"Statistics", 0x67092, 0x670b2 },
-    { L"Character Name", 0x67332, 0x67352 },
-    { L"THE BEST RECORD", 0x670b2, 0x670d2 },
-    { L"Yashaou", 0x670d2, 0x670f2 },
-    { L"Yashaou Weapon", 0x670f2, 0x67112 },
-    { L"Goat", 0x67112, 0x67132 },
-    { L"Goat Weapon", 0x67132, 0x67152 },
-    { L"Leon", 0x67152, 0x67172 },
-    { L"Chen-Mao", 0x67172, 0x67192 },
-    { L"Zam-B", 0x67192, 0x671b2 },
-    { L"Zam-B Extra", 0x671b2, 0x671d2 },
-    { L"Rose Mary", 0x671d2, 0x671f2 },
-    { L"Alice", 0x671f2, 0x67212 },
-    { L"Alice (Skeleton)", 0x67212, 0x67232 },
-    { L"Taros", 0x67232, 0x67252 },
-    { L"Zinsuke", 0x67252, 0x67272 },
-    { L"Zinsuke Hat", 0x67272, 0x67292 },
-    { L"Sittara", 0x67292, 0x672b2 },
-    { L"Sittara Weapon", 0x672b2, 0x672d2 },
-    { L"Rokurouta", 0x672d2, 0x672f2 },
-    { L"Alice!", 0x672f2, 0x67312 },
-    { L"Nanami", 0x67312, 0x67332 },
-    { L"Best Record Background 1", 0x657d2, 0x657f2 },
-    { L"Best Record Background 2", 0x659d2, 0x659f2 },
-    { L"Best Record Background 3", 0x65bd2, 0x65bf2 },
-    { L"Best Record Background 4", 0x65dd2, 0x65df2 },
-    { L"Best Record Background 5", 0x65fd2, 0x65ff2 },
-    { L"Best Record Background 6", 0x661d2, 0x661f2 },
-    { L"Best Record Background 7", 0x663d2, 0x663f2 },
-    { L"Best Record Background 8", 0x665d2, 0x665f2 },
+    { L"Statistics",                0x67092, 0x670b2 },
+    { L"Character Name",            0x67332, 0x67352 },
+    { L"THE BEST RECORD",           0x670b2, 0x670d2 },
+    { L"Yashaou",                   0x670d2, 0x670f2 },
+    { L"Yashaou Weapon",            0x670f2, 0x67112 },
+    { L"Goat",                      0x67112, 0x67132 },
+    { L"Goat Weapon",               0x67132, 0x67152 },
+    { L"Leon",                      0x67152, 0x67172 },
+    { L"Chen-Mao",                  0x67172, 0x67192 },
+    { L"Zam-B",                     0x67192, 0x671b2 },
+    { L"Zam-B Extra",               0x671b2, 0x671d2 },
+    { L"Rose Mary",                 0x671d2, 0x671f2 },
+    { L"Alice",                     0x671f2, 0x67212 },
+    { L"Alice (Skeleton)",          0x67212, 0x67232 },
+    { L"Taros",                     0x67232, 0x67252 },
+    { L"Zinsuke",                   0x67252, 0x67272 },
+    { L"Zinsuke Hat",               0x67272, 0x67292 },
+    { L"Sittara",                   0x67292, 0x672b2 },
+    { L"Sittara Weapon",            0x672b2, 0x672d2 },
+    { L"Rokurouta",                 0x672d2, 0x672f2 },
+    { L"Alice!",                    0x672f2, 0x67312 },
+    { L"Nanami",                    0x67312, 0x67332 },
+    { L"Best Record Background 1",  0x657d2, 0x657f2 },
+    { L"Best Record Background 2",  0x659d2, 0x659f2 },
+    { L"Best Record Background 3",  0x65bd2, 0x65bf2 },
+    { L"Best Record Background 4",  0x65dd2, 0x65df2 },
+    { L"Best Record Background 5",  0x65fd2, 0x65ff2 },
+    { L"Best Record Background 6",  0x661d2, 0x661f2 },
+    { L"Best Record Background 7",  0x663d2, 0x663f2 },
+    { L"Best Record Background 8",  0x665d2, 0x665f2 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Bonus_CharSel[] =
 {
-    { L"Background", 0x6b884, 0x6b8a4 },
-    { L"Goat", 0x6b8a4, 0x6b8c4 },
-    { L"Leon", 0x6b8c4, 0x6b8e4 },
-    { L"Yashaou", 0x6b8e4, 0x6b904 },
-    { L"Sittara", 0x6b924, 0x6b944 },
-    { L"Rose Mary", 0x6b944, 0x6b964 },
-    { L"Alice", 0x6b964, 0x6b984 },
-    { L"Chen-Mao", 0x6b984, 0x6b9a4 },
-    { L"Taros", 0x6b9a4, 0x6b9c4 },
-    { L"Zam-B", 0x6b9e4, 0x6ba04 },
-    { L"Rokurouta", 0x6ba04, 0x6ba24 },
-    { L"Zinsuke", 0x6ba24, 0x6ba44 },
+    { L"Background",        0x6b884, 0x6b8a4 },
+    { L"Goat",              0x6b8a4, 0x6b8c4 },
+    { L"Leon",              0x6b8c4, 0x6b8e4 },
+    { L"Yashaou",           0x6b8e4, 0x6b904 },
+    { L"Sittara",           0x6b924, 0x6b944 },
+    { L"Rose Mary",         0x6b944, 0x6b964 },
+    { L"Alice",             0x6b964, 0x6b984 },
+    { L"Chen-Mao",          0x6b984, 0x6b9a4 },
+    { L"Taros",             0x6b9a4, 0x6b9c4 },
+    { L"Zam-B",             0x6b9e4, 0x6ba04 },
+    { L"Rokurouta",         0x6ba04, 0x6ba24 },
+    { L"Zinsuke",           0x6ba24, 0x6ba44 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Bonus_WorldMap[] =
 {
-    { L"Stage Icons (1/2) 0x67c2e", 0x67c2e, 0x67e2e },
-    { L"Stage Icons (2/2) 0x67e2e", 0x67e2e, 0x67eae },
-    { L"Water Border 1/4", 0x67ece, 0x67eee },
-    { L"Water Border 2/4", 0x67eee, 0x67f0e },
-    { L"Water Border 3/4", 0x67f0e, 0x67f2e },
-    { L"Water Border 4/4", 0x67f2e, 0x67f4e },
-    { L"Clouds and Dust", 0x67f4e, 0x67f6e },
+    { L"Stage Icons (1/2)", 0x67c2e, 0x67e2e },
+    { L"Stage Icons (2/2)", 0x67e2e, 0x67eae },
+    { L"Water Border 1/4",  0x67ece, 0x67eee },
+    { L"Water Border 2/4",  0x67eee, 0x67f0e },
+    { L"Water Border 3/4",  0x67f0e, 0x67f2e },
+    { L"Water Border 4/4",  0x67f2e, 0x67f4e },
+    { L"Clouds and Dust",   0x67f4e, 0x67f6e },
     { L"Real World Banner", 0x67f6e, 0x67f8e },
-    { L"Arrow Pointer", 0x67f8e, 0x67fae },
-    { L"Stage Name", 0x67fae, 0x67fce },
-    { L"Map Background", 0x67fce, 0x67fee },
-    { L"NEXT STAGE", 0x67fee, 0x6800e },
-    { L"Border", 0x6800e, 0x6820e },
-    { L"Map", 0x6820e, 0x6840e },
+    { L"Arrow Pointer",     0x67f8e, 0x67fae },
+    { L"Stage Name",        0x67fae, 0x67fce },
+    { L"Map Background",    0x67fce, 0x67fee },
+    { L"NEXT STAGE",        0x67fee, 0x6800e },
+    { L"Border",            0x6800e, 0x6820e },
+    { L"Map",               0x6820e, 0x6840e, indexAsuraBuster_Bonus, 0x00 },
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Bonus_Endings[] =

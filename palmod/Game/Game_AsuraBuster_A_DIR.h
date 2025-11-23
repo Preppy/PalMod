@@ -117,6 +117,7 @@ private:
         1029,                            // Count of palettes listed in the header
         0x4c230,                         // Lowest known location used for palettes
     };
+
 public:
     CGame_AsuraBuster_A_DIR(uint32_t nConfirmedROMSize);
 
