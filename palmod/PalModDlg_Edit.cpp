@@ -624,7 +624,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
             }
         }
 
-        OutputDebugString(L"Binary data is:\r\n\t");
+        OutputDebugString(L"Copy data is:\r\n\t");
         OutputDebugString(strUnicodeData.GetString());
 
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);

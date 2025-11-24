@@ -259,83 +259,143 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         switch (uUnitId)
         {
-        default:
-            // Only TeamView requires special logic: everything else is defined in the MoveDescription arrays
-            break;
-        case MVC2_D_TEAMVIEW_LOCATION: // Team View: generated.
-        {
-            fLoadDefPal = FALSE;
-
-            uint16_t nJoinedUnit1 = indexMVC2AMagneto;
-            uint16_t nJoinedUnit2 = indexMVC2AStorm;
-            uint16_t nJoinedUnit3 = indexMVC2APsylocke;
-            bool fTeamFound = false;
-
-            const uint16_t nTeamViewNode = static_cast<uint16_t>(floor(NodeGet->uPalId / static_cast<uint16_t>(m_pCurrentButtonLabelSet.size())));
-            const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
-
-            for (uint16_t nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
+            default:
+                // Only TeamView requires special logic: everything else is defined in the MoveDescription arrays
+                break;
+            case MVC2_D_TEAMVIEW_LOCATION: // Team View: generated.
             {
-                if (_wcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
+                // This code path is analogous but very much not identical to that in game_mvc2_a.cpp
+                // This is used for only the DC version - that version is used for Steam and etc
+                fLoadDefPal = FALSE;
+
+                uint16_t nJoinedUnit1 = indexMVC2AMagneto;
+                uint16_t nJoinedUnit2 = indexMVC2AStorm;
+                uint16_t nJoinedUnit3 = indexMVC2APsylocke;
+                bool fTeamFound = false;
+
+                const uint16_t nTeamViewNode = static_cast<uint16_t>(floor(NodeGet->uPalId / static_cast<uint16_t>(m_pCurrentButtonLabelSet.size())));
+                const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
+                uint16_t nTeamIndex = 0;
+
+                for (; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
                 {
-                    nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
-                    nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;
-                    nJoinedUnit3 = mvc2TeamList[nTeamIndex].nCharacterThree;
-                    fTeamFound = true;
-                    break;
+                    if (_wcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
+                    {
+                        nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
+                        nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;
+                        nJoinedUnit3 = mvc2TeamList[nTeamIndex].nCharacterThree;
+                        fTeamFound = true;
+                        break;
+                    }
                 }
+
+                if (!fTeamFound)
+                {
+                    OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
+                }
+
+                const uint32_t nNodeIndex = ((NodeGet->uPalId) % m_pCurrentButtonLabelSet.size());
+
+                // Get the image dimensions so that we can collate them into one contiguous strip
+                std::vector<sImgDef*> pImgDefSet;
+                uint16_t nPosition2 = 1;
+
+                pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex));
+                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                {
+                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex));
+                    nPosition2++;
+                }
+
+                pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex));
+                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                {
+                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex));
+                }
+
+                pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex));
+                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                {
+                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex));
+                }
+
+                // Height is always 186, so we can't use image height to adjust positions: ignore Y for now.
+                const int nXOffsetForFirst = 0;
+                const int nXOffsetForSecond = pImgDefSet[0]->uImgWidth;
+                const int nXOffsetForThird = pImgDefSet[0]->uImgWidth + pImgDefSet[nPosition2]->uImgWidth;
+
+                // Load the ticket in full reverse order
+                sImgTicket* pImgTicket = nullptr;
+
+                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                {
+                    pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForThird);
+                }
+                pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForThird);
+
+                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                {
+                    pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForSecond);
+                }
+                pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForSecond);
+
+                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                {
+                    pImgTicket = CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForFirst);
+                }
+                pImgTicket = CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForFirst);
+
+                ClearSetImgTicket(pImgTicket);
+
+                //Set each palette
+                std::vector<sDescNode*> JoinedNode;
+                
+                JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1));
+                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                {
+                    JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 1, -1));
+                }
+                JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1));
+                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                {
+                    JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 1, -1));
+                }
+                JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1));
+                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                {
+                    JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 1, -1));
+                }
+
+                //Set each palette
+                for (size_t iNodePos = 0; iNodePos < JoinedNode.size(); iNodePos++)
+                {
+                    CreateDefPal(JoinedNode[iNodePos], iNodePos);
+                }
+
+                const uint32_t nSrcAmt = _nCurrentTotalColorOptions;
+                const uint32_t nNodeIncrement = 8; // 8 palettes per main character color set
+
+                size_t iSourcePalPos = 0;
+                SetSourcePal(iSourcePalPos++, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
+                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                {
+                    SetSourcePal(iSourcePalPos++, nJoinedUnit1, 1, nSrcAmt, nNodeIncrement);
+                }
+
+                SetSourcePal(iSourcePalPos++, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
+                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                {
+                    SetSourcePal(iSourcePalPos++, nJoinedUnit2, 1, nSrcAmt, nNodeIncrement);
+                }
+
+                SetSourcePal(iSourcePalPos++, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
+                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                {
+                    SetSourcePal(iSourcePalPos++, nJoinedUnit3, 1, nSrcAmt, nNodeIncrement);
+                }
+
+                break;
             }
-
-            if (!fTeamFound)
-            {
-                OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
-            }
-
-            uint32_t nNodeIndex = ((NodeGet->uPalId) % m_pCurrentButtonLabelSet.size());
-            uint32_t nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
-
-            // Get the image dimensions so that we can collate them into one contiguous strip
-            std::array<sImgDef*, 3> pImgDefSet = {
-                                                GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex),
-                                                GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex),
-                                                GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex)
-            };
-
-            const int nXOffsetForFirst = 0;
-            const int nXOffsetForSecond = pImgDefSet[0]->uImgWidth;
-            const int nXOffsetForThird = pImgDefSet[0]->uImgWidth + pImgDefSet[1]->uImgWidth;
-
-            // Height is always 186, so we can't use image height to adjust positions: ignore Y for now.
-
-            ClearSetImgTicket(
-                CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex,
-                    CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex,
-                        CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex, nullptr, nXOffsetForThird),
-                        nXOffsetForSecond),
-                    nXOffsetForFirst
-                )
-            );
-
-            //Set each palette
-            std::vector<sDescNode*> JoinedNode = {
-                GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1),
-                GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1),
-                GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1)
-            };
-
-            //Set each palette
-            CreateDefPal(JoinedNode[0], 0);
-            CreateDefPal(JoinedNode[1], 1);
-            CreateDefPal(JoinedNode[2], 2);
-
-            uint32_t nSrcAmt = _nCurrentTotalColorOptions;
-            uint32_t nNodeIncrement = 8; // 8 palettes per main character color set
-            SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
-            SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
-            SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
-    
-            break;
-        }
         }
     }
 

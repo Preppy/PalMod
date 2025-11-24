@@ -8940,37 +8940,45 @@ struct MVC2_TEAM_GROUPING
 {
     LPCWSTR pszTeamName = nullptr;
     uint16_t nCharacterOne = indexMVC2ARyu;
+    bool fFirstRequiresSecondPart = false;
     uint16_t nCharacterTwo = indexMVC2ARyu;
+    bool fSecondRequiresSecondPart = false;
     uint16_t nCharacterThree = indexMVC2ARyu;
+    bool fThirdRequiresSecondPart = false;
 };
 
 constexpr auto k_nSpecialTeamSpriteImageIndex = 0x80;
+constexpr auto k_nSpecialTeamSpriteImagePairIndex = 0x81;
 
 const MVC2_TEAM_GROUPING mvc2TeamList[] =
 {
-    { L"MSP", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2APsylocke },
-    { L"MSS", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ASentinel },
-    { L"Santhrax", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACaptainCommando },
-    { L"Scrub", indexMVC2ACable, indexMVC2ASentinel, indexMVC2ACaptainCommando },
-    { L"SSCable", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACable },
-    { L"Rowtron", indexMVC2AMagneto, indexMVC2ACable, indexMVC2ASentinel },
-    { L"Matrix", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACyclops },
-    { L"Duc", indexMVC2ASpiral, indexMVC2ACable, indexMVC2ASentinel },
-    { L"Clockw0rk", indexMVC2ASentinel, indexMVC2AStrider, indexMVC2ADrDoom },
-    { L"Combofiend", indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel },
-    { L"Thrillah", indexMVC2AIronMan, indexMVC2AWarMachine, indexMVC2ACable },
-    { L"Roundhouse", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2AIronMan },
-    { L"Watts", indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando },
+    // Best teams
+    { L"MSP", indexMVC2AMagneto, false, indexMVC2AStorm, false, indexMVC2APsylocke },
+    { L"MSS", indexMVC2AMagneto, false, indexMVC2AStorm, false, indexMVC2ASentinel },
+    { L"MST", indexMVC2AMagneto, false, indexMVC2AStorm, false, indexMVC2ATron, true },
+    { L"Santhrax", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2ACaptainCommando },
+    { L"Scrub", indexMVC2ACable, false, indexMVC2ASentinel, false, indexMVC2ACaptainCommando },
+    { L"SSCable", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2ACable },
+    { L"Rowtron", indexMVC2AMagneto, false, indexMVC2ACable, false, indexMVC2ASentinel },
+    { L"Matrix", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2ACyclops },
+    // Contenders
+    { L"Duc", indexMVC2ASpiral, false, indexMVC2ACable, false, indexMVC2ASentinel },
+    { L"Clockw0rk", indexMVC2ASentinel, false, indexMVC2AStrider, false, indexMVC2ADrDoom },
+    { L"Combofiend", indexMVC2AMagneto, false, indexMVC2AIronMan, false, indexMVC2ASentinel },
+    { L"Thrillah", indexMVC2AIronMan, false, indexMVC2AWarMachine, false, indexMVC2ACable },
+    { L"Roundhouse", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2AIronMan },
+    { L"Watts", indexMVC2ABlackheart, false, indexMVC2ASentinel, false, indexMVC2ACaptainCommando },
 
-    { L"VDO", indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen },
-    // The problem with Tron is that she's already a joined palette...
-    //{ L"MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
-    { L"Shoto", indexMVC2ARyu, indexMVC2AKen, indexMVC2AAkuma},
-    { L"Joe Zaza", indexMVC2AWolverine, indexMVC2ASentinel, indexMVC2ABonerine },
+    // Low tierish
+    { L"VDO", indexMVC2ARogue, false, indexMVC2AColossus, false, indexMVC2AKen },
+    { L"MikeZ", indexMVC2AJuggernaut, false, indexMVC2ADrDoom, false, indexMVC2ATron, true },
+    { L"Shoto", indexMVC2ARyu, false, indexMVC2AKen, false, indexMVC2AAkuma },
+    { L"Joe Zaza", indexMVC2AWolverine, true, indexMVC2ASentinel, false, indexMVC2ABonerine, true },
 };
 
 const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
 {
+    // Best teams
     { L"MSP", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"MSS", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Santhrax", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
@@ -8978,16 +8986,18 @@ const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
     { L"SSCable", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Rowtron", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Matrix", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    // Contenders
     { L"Duc", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Clockw0rk", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Combofiend", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Thrillah", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Roundhouse", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"MST", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Watts", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 
+    // Low tierish
     { L"VDO", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
-    // The problem with Tron is that she's already a joined palette...
-//    { L"MikeZ", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"MikeZ", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Shoto", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Joe Zaza", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 };
