@@ -7,15 +7,6 @@
 // If you want multiple "0" locations for the Extras file, create a new sCoreGameData set that references that additional
 // palette information.
 
-enum class FileReadType
-{
-    Sequential,
-    Interleaved_2FileSets,
-    Interleaved_4FileSets,
-    Interleaved_Read2Bytes_LE,
-    Interleaved_Read2Bytes_BE,
-};
-
 struct sDirectoryLoadingData
 {
     std::vector<sFileRule> rgRuleList;
@@ -59,7 +50,6 @@ public:
     static SupportedGamesList m_snCurrentGameFlag;
 
     static const sDirectoryLoadingData* m_psCurrentFileLoadingData;
-    FileReadType m_eValidatedFileJoinType = FileReadType::Sequential;
 
     static size_t m_nConfirmedROMSize;
 

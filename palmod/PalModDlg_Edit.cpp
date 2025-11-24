@@ -379,7 +379,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
             if (fIncludeNonBinaryText)
             {
                 strUnicodeData.Append(L"\r\n\r\nThe above data starting at '(' and ending at ')' is the color string you give to PalMod to copy a color, as in (\"\"0000) .");
-                strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
+                strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C and CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
                 strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
 
                 const sPalDef* activePal = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
@@ -416,31 +416,31 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                 {
                     switch (cbColor)
                     {
-                    default:
-                    case 2:
-                    {
-                        uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
-                        uCurrData = _byteswap_ushort(uCurrData);
+                        default:
+                        case 2:
+                        {
+                            uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                            uCurrData = _byteswap_ushort(uCurrData);
 
-                        strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
-                        break;
-                    }
-                    case 3:
-                    {
-                        const uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
-                        // we deliberately drop alpha here
-                        strFormatU.Format(L"%02X %02X %02X ", (uCurrData & 0xFF0000) >> 16, (uCurrData & 0xFF00) >> 8, (uCurrData & 0xFF));
-                        break;
-                    }
-                    case 4:
-                    {
-                        uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
-                        uCurrData = _byteswap_ulong(uCurrData);
+                            strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
+                            break;
+                        }
+                        case 3:
+                        {
+                            const uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
+                            // we deliberately drop alpha here
+                            strFormatU.Format(L"%02X %02X %02X ", (uCurrData & 0xFF0000) >> 16, (uCurrData & 0xFF00) >> 8, (uCurrData & 0xFF));
+                            break;
+                        }
+                        case 4:
+                        {
+                            uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                            uCurrData = _byteswap_ulong(uCurrData);
 
-                        strFormatU.Format(L"%02X %02X %02X %02X ", (uCurrData & 0xFF000000) >> 24, (uCurrData & 0xFF0000) >> 16,
-                                                                   (uCurrData & 0xFF00) >> 8, uCurrData & 0xFF);
-                        break;
-                    }
+                            strFormatU.Format(L"%02X %02X %02X %02X ", (uCurrData & 0xFF000000) >> 24, (uCurrData & 0xFF0000) >> 16,
+                                                                       (uCurrData & 0xFF00) >> 8, uCurrData & 0xFF);
+                            break;
+                        }
                     }
 
                     strUnicodeData.Append(strFormatU);
@@ -466,6 +466,113 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                 }
 
                 strUnicodeData += "\r\nYou will have better binary search results by searching for smaller color segments as opposed to the full palette.";
+            }
+
+            const FileReadType eReadType = CurrGame->GetFileReadType();
+
+            // I'm only worrying about 2byte colors for right now.
+            if (fIncludeNonBinaryText && (eReadType != FileReadType::Sequential) && (cbColor == 2))
+            {
+                strUnicodeData.Append(L"\r\n\r\nSince this data is interleaved, what you would expect on the ROM is:");
+
+                CString strByte1Collection, strByte2Collection, strByte3Collection, strByte4Collection;
+                CString strFormatByte2;
+
+                for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                {
+                    if (pSelIndex[iPalIndex] || fCopyAll)
+                    {
+                        switch (cbColor)
+                        {
+                            default:
+                            case 2:
+                            {
+                                uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                                uCurrData = _byteswap_ushort(uCurrData);
+
+                                switch (eReadType)
+                                {
+                                    case FileReadType::Interleaved_2FileSets:
+                                        strFormatU.Format(L"%02X ", (uCurrData & 0xFF00) >> 8);
+                                        strFormatByte2.Format(L"%02X ", uCurrData & 0x00FF);
+
+                                        strByte1Collection.Append(strFormatU);
+                                        strByte2Collection.Append(strFormatByte2);
+                                        break;
+                                    case FileReadType::Interleaved_4FileSets:
+                                        strFormatU.Format(L"%02X ", (uCurrData & 0xFF00) >> 8);
+                                        strFormatByte2.Format(L"%02X ", uCurrData & 0x00FF);
+
+                                        if (iPalIndex % 2 == 0)
+                                        {
+                                            strByte1Collection.Append(strFormatU);
+                                            strByte2Collection.Append(strFormatByte2);
+                                        }
+                                        else
+                                        {
+                                            strByte3Collection.Append(strFormatU);
+                                            strByte4Collection.Append(strFormatByte2);
+                                        }
+                                        break;
+                                    case FileReadType::Interleaved_Read2Bytes_LE:
+                                        strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
+                                        if (iPalIndex % 2 == 0)
+                                        {
+                                            strByte1Collection.Append(strFormatU);
+                                        }
+                                        else
+                                        {
+                                            strByte2Collection.Append(strFormatU);
+                                        }
+
+                                        break;
+                                    case FileReadType::Interleaved_Read2Bytes_BE:
+                                        strFormatU.Format(L"%02X %02X ", uCurrData & 0x00FF, (uCurrData & 0xFF00) >> 8);
+                                        if (iPalIndex % 2 == 0)
+                                        {
+                                            strByte1Collection.Append(strFormatU);
+                                        }
+                                        else
+                                        {
+                                            strByte2Collection.Append(strFormatU);
+                                        }
+                                        break;
+                                }
+                                break;
+                            }
+                            case 3:
+                            case 4:
+                            {
+                                strUnicodeData.Append(L"\r\n(This view not implemented at this.");
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (strByte1Collection.GetLength())
+                {
+                    strUnicodeData.Append(L"\r\n\tROM 1: ");
+                    strUnicodeData.Append(strByte1Collection);
+                }
+
+                if (strByte2Collection.GetLength())
+                {
+                    strUnicodeData.Append(L"\r\n\tROM 2: ");
+                    strUnicodeData.Append(strByte2Collection);
+                }
+
+                if (strByte3Collection.GetLength())
+                {
+                    strUnicodeData.Append(L"\r\n\tROM 3: ");
+                    strUnicodeData.Append(strByte3Collection);
+                }
+
+                if (strByte4Collection.GetLength())
+                {
+                    strUnicodeData.Append(L"\r\n\tROM 4: ");
+                    strUnicodeData.Append(strByte4Collection);
+                }
             }
 
             SupportedGamesList gameFlag = CurrGame->GetGameFlag();
@@ -517,6 +624,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
             }
         }
 
+        OutputDebugString(L"Binary data is:\r\n\t");
         OutputDebugString(strUnicodeData.GetString());
 
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
@@ -586,7 +694,7 @@ void CPalModDlg::OnEditCopyOffset()
                 CloseClipboard();
 
                 // linebreak for our own display usage
-                strUnicodeData.Append(L"\r\n");
+                strUnicodeData.Format(L"Selected offset is %s\r\n", strUnicodeData.GetString());
                 OutputDebugString(strUnicodeData.GetString());
             }
         }

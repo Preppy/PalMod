@@ -22,6 +22,15 @@ struct sFileRule
     size_t uAltVerifyVar = static_cast<size_t>(-1);
 };
 
+enum class FileReadType
+{
+    Sequential,
+    Interleaved_2FileSets,
+    Interleaved_4FileSets,
+    Interleaved_Read2Bytes_LE,
+    Interleaved_Read2Bytes_BE,
+};
+
 const uint32_t k_nBogusHighValue = 0x7FEEDFED;
 
 const uint16_t RULE_COUNTER_MASK = 0xF000;
@@ -46,6 +55,8 @@ protected:
 
     BOOL m_fIsDirectoryBasedGame = FALSE;
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
+    // Only set by GameClassByDir, but exposed at this level so that we can emit proper binary data
+    FileReadType m_eValidatedFileJoinType = FileReadType::Sequential;
 
     uint32_t m_nUnitAmt = 0;
     SupportedGamesList m_nGameFlag = NUM_GAMES;
@@ -217,6 +228,7 @@ public:
     BOOL GetIsDir() { return m_fIsDirectoryBasedGame; };
     BOOL GetGameMapsUnitsToFiles() { return m_fGameUnitsMapToIndividualFiles; };
     bool AllowIPSPatchGeneration();
+    FileReadType GetFileReadType() { return m_eValidatedFileJoinType; };
 
     int GetPlaneAmt(ColFlag Flag);
 
