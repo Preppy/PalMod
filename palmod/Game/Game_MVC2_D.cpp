@@ -30,6 +30,15 @@ uint32_t CGame_MVC2_D::m_uRuleCtr = 0;
 
 uint32_t CGame_MVC2_D::m_rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
 
+bool MvC2CharacterIsTwoPartCorePreview(uint16_t nCharacterId)
+{
+    return (nCharacterId == indexMVC2AWolverine) ||
+           (nCharacterId == indexMVC2ACaptainAmerica) ||
+           (nCharacterId == indexMVC2ATron) ||
+           (nCharacterId == indexMVC2AHayato) ||
+           (nCharacterId == indexMVC2ABonerine);
+}
+
 void CGame_MVC2_D::InitializeStatics()
 {
     m_MainDescTree.SetRootTree(CGame_MVC2_D::InitDescTree());

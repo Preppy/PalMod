@@ -8940,40 +8940,40 @@ struct MVC2_TEAM_GROUPING
 {
     LPCWSTR pszTeamName = nullptr;
     uint16_t nCharacterOne = indexMVC2ARyu;
-    bool fFirstRequiresSecondPart = false;
     uint16_t nCharacterTwo = indexMVC2ARyu;
-    bool fSecondRequiresSecondPart = false;
     uint16_t nCharacterThree = indexMVC2ARyu;
-    bool fThirdRequiresSecondPart = false;
 };
 
 constexpr auto k_nSpecialTeamSpriteImageIndex = 0x80;
 constexpr auto k_nSpecialTeamSpriteImagePairIndex = 0x81;
 
+bool MvC2CharacterIsTwoPartCorePreview(uint16_t nCharacterId);
+
 const MVC2_TEAM_GROUPING mvc2TeamList[] =
 {
     // Best teams
-    { L"MSP", indexMVC2AMagneto, false, indexMVC2AStorm, false, indexMVC2APsylocke },
-    { L"MSS", indexMVC2AMagneto, false, indexMVC2AStorm, false, indexMVC2ASentinel },
-    { L"MST", indexMVC2AMagneto, false, indexMVC2AStorm, false, indexMVC2ATron, true },
-    { L"Santhrax", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2ACaptainCommando },
-    { L"Scrub", indexMVC2ACable, false, indexMVC2ASentinel, false, indexMVC2ACaptainCommando },
-    { L"SSCable", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2ACable },
-    { L"Rowtron", indexMVC2AMagneto, false, indexMVC2ACable, false, indexMVC2ASentinel },
-    { L"Matrix", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2ACyclops },
+    { L"MSP", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2APsylocke },
+    { L"MSS", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ASentinel },
+    { L"MST", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ATron },
+    { L"Santhrax", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACaptainCommando },
+    { L"Scrub", indexMVC2ACable, indexMVC2ASentinel, indexMVC2ACaptainCommando },
+    { L"SSCable", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACable },
+    { L"Rowtron", indexMVC2AMagneto, indexMVC2ACable, indexMVC2ASentinel },
+    { L"Matrix", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACyclops },
+
     // Contenders
-    { L"Duc", indexMVC2ASpiral, false, indexMVC2ACable, false, indexMVC2ASentinel },
-    { L"Clockw0rk", indexMVC2ASentinel, false, indexMVC2AStrider, false, indexMVC2ADrDoom },
-    { L"Combofiend", indexMVC2AMagneto, false, indexMVC2AIronMan, false, indexMVC2ASentinel },
-    { L"Thrillah", indexMVC2AIronMan, false, indexMVC2AWarMachine, false, indexMVC2ACable },
-    { L"Roundhouse", indexMVC2AStorm, false, indexMVC2ASentinel, false, indexMVC2AIronMan },
-    { L"Watts", indexMVC2ABlackheart, false, indexMVC2ASentinel, false, indexMVC2ACaptainCommando },
+    { L"Duc", indexMVC2ASpiral, indexMVC2ACable, indexMVC2ASentinel },
+    { L"Clockw0rk", indexMVC2ASentinel, indexMVC2AStrider, indexMVC2ADrDoom },
+    { L"Combofiend", indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel },
+    { L"Thrillah", indexMVC2AIronMan, indexMVC2AWarMachine, indexMVC2ACable },
+    { L"Roundhouse", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2AIronMan },
+    { L"Watts", indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando },
 
     // Low tierish
-    { L"VDO", indexMVC2ARogue, false, indexMVC2AColossus, false, indexMVC2AKen },
-    { L"MikeZ", indexMVC2AJuggernaut, false, indexMVC2ADrDoom, false, indexMVC2ATron, true },
-    { L"Shoto", indexMVC2ARyu, false, indexMVC2AKen, false, indexMVC2AAkuma },
-    { L"Joe Zaza", indexMVC2AWolverine, true, indexMVC2ASentinel, false, indexMVC2ABonerine, true },
+    { L"VDO", indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen },
+    { L"MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
+    { L"Shoto", indexMVC2ARyu, indexMVC2AKen, indexMVC2AAkuma },
+    { L"Joe Zaza", indexMVC2AWolverine, indexMVC2ASentinel, indexMVC2ABonerine },
 };
 
 const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
@@ -8986,6 +8986,7 @@ const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
     { L"SSCable", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Rowtron", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Matrix", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+
     // Contenders
     { L"Duc", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Clockw0rk", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },

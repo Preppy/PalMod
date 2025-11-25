@@ -539,7 +539,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     int nTargetImgId = 0;
     uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fUsingAlternateLoadLogic = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -560,13 +560,13 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     // This code path is analogous but very much not identical to that in mvc2_palsel.cpp
                     // This is used for Steam and etc - that version is used for DC
+                    fUsingAlternateLoadLogic = true;
 
                     uint16_t nJoinedUnit1 = indexMVC2AMagneto;
                     uint16_t nJoinedUnit2 = indexMVC2AStorm;
                     uint16_t nJoinedUnit3 = indexMVC2APsylocke;
                     bool fTeamFound = false;
 
-                    fShouldUseAlternateLoadLogic = true;
                     uint16_t nTeamIndex = 0;
 
                     for (; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
@@ -583,7 +583,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     if (!fTeamFound)
                     {
-                        OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
+                        OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\r\n");
                     }
 
                     // Reset just in case
@@ -592,34 +592,31 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nNodeIncrement = 8; // 8 palettes per main character color set
 
                     const uint16_t nNodeIndex = (NodeGet->uPalId % static_cast<uint16_t>(m_pButtonLabelSet.size()));
-                    // there are 8 palettes per main character button/color section
-                    const uint16_t nPaletteIndex = nNodeIndex * 8;
-                    // We're just using the indexImgToUse value from these PaletteDatasets
-                    const sGame_PaletteDataset* palette1ToJoin = GetSpecificPalette(nJoinedUnit1, nPaletteIndex);
-                    const sGame_PaletteDataset* palette2ToJoin = GetSpecificPalette(nJoinedUnit2, nPaletteIndex);
-                    const sGame_PaletteDataset* palette3ToJoin = GetSpecificPalette(nJoinedUnit3, nPaletteIndex);
 
                     std::vector<sImgDef*> pImgDefSet;
-                    uint16_t nPosition2 = 1, nPosition3 = 2;
+                    uint16_t nPosition2 = 1;
+                    const bool fFirstRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit1);
+                    const bool fSecondRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit2);
+                    const bool fThirdRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit3);
 
                     // Get the image dimensions so that we can collate them into one contiguous strip
-                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(palette1ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex));
-                    if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex));
+                    if (fFirstRequiresSecondPart)
                     {
-                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(palette1ToJoin->indexImgToUse, k_nSpecialTeamSpriteImagePairIndex));
+                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex));
                         nPosition2++;
                     }
 
-                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(palette2ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex));
-                    if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex));
+                    if (fSecondRequiresSecondPart)
                     {
-                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(palette2ToJoin->indexImgToUse, k_nSpecialTeamSpriteImagePairIndex));
+                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex));
                     }
 
-                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(palette3ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex));
-                    if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex));
+                    if (fThirdRequiresSecondPart)
                     {
-                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(palette3ToJoin->indexImgToUse, k_nSpecialTeamSpriteImagePairIndex));
+                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex));
                     }
 
                     // Height is always 186, so we can't use image height to adjust positions: ignore Y for now.
@@ -630,23 +627,23 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // Load the ticket in full reverse order
                     sImgTicket* pImgTicket = nullptr;
 
-                    if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                    if (fThirdRequiresSecondPart)
                     {
-                        pImgTicket = CreateImgTicket(palette3ToJoin->indexImgToUse, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForThird);
+                        pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForThird);
                     }
-                    pImgTicket = CreateImgTicket(palette3ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForThird);
+                    pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForThird);
 
-                    if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                    if (fSecondRequiresSecondPart)
                     {
-                        pImgTicket = CreateImgTicket(palette2ToJoin->indexImgToUse, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForSecond);
+                        pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForSecond);
                     }
-                    pImgTicket = CreateImgTicket(palette2ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForSecond);
+                    pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForSecond);
 
-                    if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                    if (fFirstRequiresSecondPart)
                     {
-                        pImgTicket = CreateImgTicket(palette1ToJoin->indexImgToUse, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForFirst);
+                        pImgTicket = CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForFirst);
                     }
-                    pImgTicket = CreateImgTicket(palette1ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForFirst);
+                    pImgTicket = CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForFirst);
 
                     ClearSetImgTicket(pImgTicket);
 
@@ -654,42 +651,42 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     std::vector<sDescNode*> JoinedNode;
 
                     JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1));
-                    if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                    if (fFirstRequiresSecondPart)
                     {
                         JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 1, -1));
                     }
                     JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1));
-                    if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                    if (fSecondRequiresSecondPart)
                     {
                         JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 1, -1));
                     }
                     JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1));
-                    if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                    if (fThirdRequiresSecondPart)
                     {
                         JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 1, -1));
                     }
 
                     //Set each palette
-                    for (size_t iNodePos = 0; iNodePos < JoinedNode.size(); iNodePos++)
+                    for (uint32_t iNodePos = 0; iNodePos < static_cast<uint32_t>(JoinedNode.size()); iNodePos++)
                     {
                         CreateDefPal(JoinedNode[iNodePos], iNodePos);
                     }
 
-                    size_t iSourcePalPos = 0;
+                    uint32_t iSourcePalPos = 0;
                     SetSourcePal(iSourcePalPos++, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
-                    if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                    if (fFirstRequiresSecondPart)
                     {
                         SetSourcePal(iSourcePalPos++, nJoinedUnit1, 1, nSrcAmt, nNodeIncrement);
                     }
 
                     SetSourcePal(iSourcePalPos++, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
-                    if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                    if (fSecondRequiresSecondPart)
                     {
                         SetSourcePal(iSourcePalPos++, nJoinedUnit2, 1, nSrcAmt, nNodeIncrement);
                     }
 
                     SetSourcePal(iSourcePalPos++, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
-                    if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                    if (fThirdRequiresSecondPart)
                     {
                         SetSourcePal(iSourcePalPos++, nJoinedUnit3, 1, nSrcAmt, nNodeIncrement);
                     }
@@ -734,7 +731,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     const uint32_t nPaletteCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    fShouldUseAlternateLoadLogic = true;
+                    fUsingAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
                     for (uint32_t nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
@@ -843,7 +840,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     if (fAllNodesFound)
                     {
-                        fShouldUseAlternateLoadLogic = true;
+                        fUsingAlternateLoadLogic = true;
 
                         std::vector<sImgTicket*> vsImagePairs;
                         sImgTicket* pPreviousImage = nullptr;
@@ -872,7 +869,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (!fUsingAlternateLoadLogic)
     {
         //Create the default palette
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));

@@ -99,7 +99,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    BOOL fLoadDefPal = TRUE;
+    bool fUsingAlternateLoadLogic = false;
     bool fImgIsFromNewImgDatRange = false;
 
     sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
@@ -210,7 +210,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (fAllNodesFound)
             {
-                fLoadDefPal = FALSE;
+                fUsingAlternateLoadLogic = true;
                 fUsingDataFromDescriptionSet = true;
 
                 std::vector<sImgTicket*> vsImagePairs;
@@ -264,17 +264,19 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 break;
             case MVC2_D_TEAMVIEW_LOCATION: // Team View: generated.
             {
+                const uint16_t nTeamViewNode = static_cast<uint16_t>(floor(NodeGet->uPalId / static_cast<uint16_t>(m_pCurrentButtonLabelSet.size())));
+                const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
+                const uint16_t nNodeIndex = (NodeGet->uPalId % static_cast<uint16_t>(m_pCurrentButtonLabelSet.size()));
+
                 // This code path is analogous but very much not identical to that in game_mvc2_a.cpp
                 // This is used for only the DC version - that version is used for Steam and etc
-                fLoadDefPal = FALSE;
+                fUsingAlternateLoadLogic = true;
 
                 uint16_t nJoinedUnit1 = indexMVC2AMagneto;
                 uint16_t nJoinedUnit2 = indexMVC2AStorm;
                 uint16_t nJoinedUnit3 = indexMVC2APsylocke;
                 bool fTeamFound = false;
 
-                const uint16_t nTeamViewNode = static_cast<uint16_t>(floor(NodeGet->uPalId / static_cast<uint16_t>(m_pCurrentButtonLabelSet.size())));
-                const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
                 uint16_t nTeamIndex = 0;
 
                 for (; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
@@ -291,30 +293,31 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (!fTeamFound)
                 {
-                    OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
+                    OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\r\n");
                 }
-
-                const uint32_t nNodeIndex = ((NodeGet->uPalId) % m_pCurrentButtonLabelSet.size());
 
                 // Get the image dimensions so that we can collate them into one contiguous strip
                 std::vector<sImgDef*> pImgDefSet;
                 uint16_t nPosition2 = 1;
+                const bool fFirstRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit1);
+                const bool fSecondRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit2);
+                const bool fThirdRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit3);
 
                 pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex));
-                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                if (fFirstRequiresSecondPart)
                 {
                     pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex));
                     nPosition2++;
                 }
 
                 pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex));
-                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                if (fSecondRequiresSecondPart)
                 {
                     pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex));
                 }
 
                 pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex));
-                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                if (fThirdRequiresSecondPart)
                 {
                     pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex));
                 }
@@ -327,19 +330,19 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 // Load the ticket in full reverse order
                 sImgTicket* pImgTicket = nullptr;
 
-                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                if (fThirdRequiresSecondPart)
                 {
                     pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForThird);
                 }
                 pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForThird);
 
-                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                if (fSecondRequiresSecondPart)
                 {
                     pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForSecond);
                 }
                 pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForSecond);
 
-                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                if (fFirstRequiresSecondPart)
                 {
                     pImgTicket = CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForFirst);
                 }
@@ -351,23 +354,23 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 std::vector<sDescNode*> JoinedNode;
                 
                 JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1));
-                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                if (fFirstRequiresSecondPart)
                 {
                     JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 1, -1));
                 }
                 JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1));
-                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                if (fSecondRequiresSecondPart)
                 {
                     JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 1, -1));
                 }
                 JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1));
-                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                if (fThirdRequiresSecondPart)
                 {
                     JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 1, -1));
                 }
 
                 //Set each palette
-                for (size_t iNodePos = 0; iNodePos < JoinedNode.size(); iNodePos++)
+                for (uint32_t iNodePos = 0; iNodePos < static_cast<uint32_t>(JoinedNode.size()); iNodePos++)
                 {
                     CreateDefPal(JoinedNode[iNodePos], iNodePos);
                 }
@@ -375,21 +378,21 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 const uint32_t nSrcAmt = _nCurrentTotalColorOptions;
                 const uint32_t nNodeIncrement = 8; // 8 palettes per main character color set
 
-                size_t iSourcePalPos = 0;
+                uint32_t iSourcePalPos = 0;
                 SetSourcePal(iSourcePalPos++, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
-                if (mvc2TeamList[nTeamIndex].fFirstRequiresSecondPart)
+                if (fFirstRequiresSecondPart)
                 {
                     SetSourcePal(iSourcePalPos++, nJoinedUnit1, 1, nSrcAmt, nNodeIncrement);
                 }
 
                 SetSourcePal(iSourcePalPos++, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
-                if (mvc2TeamList[nTeamIndex].fSecondRequiresSecondPart)
+                if (fSecondRequiresSecondPart)
                 {
                     SetSourcePal(iSourcePalPos++, nJoinedUnit2, 1, nSrcAmt, nNodeIncrement);
                 }
 
                 SetSourcePal(iSourcePalPos++, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
-                if (mvc2TeamList[nTeamIndex].fThirdRequiresSecondPart)
+                if (fThirdRequiresSecondPart)
                 {
                     SetSourcePal(iSourcePalPos++, nJoinedUnit3, 1, nSrcAmt, nNodeIncrement);
                 }
@@ -399,7 +402,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
     }
 
-    if (fLoadDefPal)
+    if (!fUsingAlternateLoadLogic)
     {
         const uint32_t nBasicOffset = GetBasicOffset(uPalId);
 
