@@ -1792,7 +1792,7 @@ namespace ColorSystem
         return nColorStep;
     };
 
-    int Get8BitValueForColorStep_ByPlaneLength(int nPlaneLength, int nColorStep)
+    int Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep)
     {
         switch (nPlaneLength)
         {
@@ -1808,7 +1808,14 @@ namespace ColorSystem
             return Get8BitValueForColorStep_31Steps(nColorStep);
         case k_nRGBPlaneAmtForRGB555_Normal: //31
             // case k_nRGBPlaneAmtForNeoGeo: // also 31
-            return Get8BitValueForColorStep_32Steps(nColorStep);
+            if (colorMode == ColMode::COLMODE_RGB666_NEOGEO)
+            {
+                return Get8BitValueForColorStep_NeoGeoCLUT(nColorStep);
+            }
+            else
+            {
+                return Get8BitValueForColorStep_32Steps(nColorStep);
+            }
         case k_nRGBPlaneAmtForHalfAlpha:
             return Get8BitValueForColorStep_HalfAlpha(nColorStep);
         case k_nRGBPlaneAmtForRGB888:

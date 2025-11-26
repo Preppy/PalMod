@@ -11,6 +11,7 @@ void CMappingPaletteManager::_Reset(ColMode colorMode)
 
 std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode colorMode, PALWriteOutputOptions alpha, uint16_t nWriteLength, uint8_t nStepLength)
 {
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
     std::vector<uint32_t> colorMap;
 
     if (colorMode != m_lastColorMode)
@@ -25,9 +26,9 @@ std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode 
     {
         if ((iWritePos % nAlphaLocation) != 0)
         {
-            const uint16_t nRedColor = ColorSystem::Get8BitValueForColorStep_ByPlaneLength(nPlaneLength, m_nRedStep);
-            const uint16_t nGreenColor = ColorSystem::Get8BitValueForColorStep_ByPlaneLength(nPlaneLength, m_nGreenStep);
-            const uint16_t nBlueColor = ColorSystem::Get8BitValueForColorStep_ByPlaneLength(nPlaneLength, m_nBlueStep);
+            const uint16_t nRedColor   = CurrGame->GetNearestLegal8BitColorValue_RGB(ColorSystem::Get8BitValueForColorStep_ByPlaneLength(colorMode, nPlaneLength, m_nRedStep));
+            const uint16_t nGreenColor = CurrGame->GetNearestLegal8BitColorValue_RGB(ColorSystem::Get8BitValueForColorStep_ByPlaneLength(colorMode, nPlaneLength, m_nGreenStep));
+            const uint16_t nBlueColor  = CurrGame->GetNearestLegal8BitColorValue_RGB(ColorSystem::Get8BitValueForColorStep_ByPlaneLength(colorMode, nPlaneLength, m_nBlueStep));
 
             const uint32_t argb888 = (0xFF << 24) | (nBlueColor << 16) | (nGreenColor << 8) | nRedColor;
 
@@ -42,8 +43,8 @@ std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode 
                 {
                     m_nGreenStep = m_fAvoidPureColors ? 1 : 0;
                     m_nBlueStep += nStepLength;
-                    // We use == instead of > here so that we avoid pure white
-                    if (m_nBlueStep == nPlaneLength)
+                    // We use >= instead of > here so that we avoid pure white
+                    if (m_nBlueStep >= nPlaneLength)
                     {
                         m_nBlueStep = m_fAvoidPureColors ? 1 : 0;
                         // completely loop the table
@@ -81,9 +82,9 @@ void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
         {
             if ((iCurrentIndexInPalette % nAlphaLocation) != 0)
             {
-                pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(GetRValue(colorMap.at(iCurrentIndexInPalette)));
-                pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetGValue(colorMap.at(iCurrentIndexInPalette)));
-                pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(colorMap.at(iCurrentIndexInPalette)));
+                pPal[(iCurrentIndexInPalette * 4)]     = GetRValue(colorMap.at(iCurrentIndexInPalette));
+                pPal[(iCurrentIndexInPalette * 4) + 1] = GetGValue(colorMap.at(iCurrentIndexInPalette));
+                pPal[(iCurrentIndexInPalette * 4) + 2] = GetBValue(colorMap.at(iCurrentIndexInPalette));
             }
         }
 
