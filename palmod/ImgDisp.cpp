@@ -903,7 +903,8 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     bool fCurrentPaletteIsNotMappingFriendly = false;
     int nCheckColor = 1, nCheckAgainstColor = 2;
     int nStartCheckPalette = 0, nCheckAgainstPalette = 0;
-    
+    CString strMsg;
+
     for (nStartCheckPalette = 0; nStartCheckPalette < m_nImgAmt; nStartCheckPalette++)
     {
         for (nCheckColor = 1; nCheckColor < m_pImgBuffer[nStartCheckPalette]->uPalSz; nCheckColor++)
@@ -925,6 +926,10 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                     if (clrChecking == m_pImgBuffer[nCheckAgainstPalette]->pPalette[nCheckAgainstColor])
                     {
                         fCurrentPaletteIsNotMappingFriendly = true;
+
+                        strMsg.Format(L"This is not a mapping-safe palette.  The colors at palette %u color %u and palette %u color %u (0x%x) are the same.\r\n", nStartCheckPalette, nCheckColor, nCheckAgainstPalette, nCheckAgainstColor, clrChecking);
+                        OutputDebugString(strMsg.GetString());
+
                         break;
                     }
                 }
@@ -971,7 +976,6 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     const bool fIsRGB = ((static_cast<size_t>(nDataLen) * 3) == nImageSize);
     bool fFoundOne = false;
     unsigned nFirstLine = height, nLastLine = 0, nLeftMost = width, nRightMost = 0;
-    CString strMsg;
 
     for (unsigned iPos = 0; iPos < nDataLen; iPos++)
     {

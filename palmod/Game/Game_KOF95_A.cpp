@@ -10,7 +10,9 @@ void CGame_KOF95_A::SetSpecialRuleForFileName(std::wstring strFileName)
         // these should be all lower case
         { L"084-p1.p1", KOF95LoadingKey::Normal },
         { L"084-p1.bin", KOF95LoadingKey::Normal },
+        { L"084-pg1.p1", KOF95LoadingKey::Normal },
         { L"084-p2sp.p2", KOF95LoadingKey::Hack },
+        { L"084-epr.ep4", KOF95LoadingKey::Split },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();
@@ -32,12 +34,33 @@ void CGame_KOF95_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
 CGame_KOF95_A::CGame_KOF95_A(uint32_t nConfirmedROMSize)
 {
-    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == KOF95LoadingKey::Normal) ? m_sCoreGameData_Normal : m_sCoreGameData_Hack);
+    switch (m_eVersionToLoad)
+    {
+        case KOF95LoadingKey::Normal:
+        default:
+                InitializeGame(nConfirmedROMSize, m_sCoreGameData_Normal);
+                break;
+        case KOF95LoadingKey::Hack:
+                InitializeGame(nConfirmedROMSize, m_sCoreGameData_Hack);
+                break;
+        case KOF95LoadingKey::Split:
+                InitializeGame(nConfirmedROMSize, m_sCoreGameData_Split);
+                break;
+    }
 }
 
 sFileRule CGame_KOF95_A::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KOF95LoadingKey::Normal) ? m_sFileLoadingData_Normal : m_sFileLoadingData_Hack);
+    switch (m_eVersionToLoad)
+    {
+        case KOF95LoadingKey::Normal:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Normal);
+        case KOF95LoadingKey::Hack:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Hack);
+        case KOF95LoadingKey::Split:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Split);
+    }
 }
 
 struct sKOF95_A_PaletteData

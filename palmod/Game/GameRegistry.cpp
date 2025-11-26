@@ -1099,7 +1099,7 @@ namespace KnownGameInfo
         {
             KOF95_A,
             L"King of Fighters '95 (Neo-Geo)",
-            { KOF95_A,          L"KOF95", L"KOF95|084-p1.*;084-p2sp.p2|", GamePlatform::NEOGEO, GameSeries::KOF },
+            { KOF95_A,          L"KOF95", L"KOF95|084-p*1.*;084-p2sp.p2;084-epr.ep4|", GamePlatform::NEOGEO, GameSeries::KOF },
             Make_KOF95_A,
             CGame_KOF95_A::GetRule,
         },

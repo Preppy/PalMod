@@ -953,6 +953,19 @@ const sDescTreeNode KOF94_A_RUGAL_COLLECTION[] =
 
 const sGame_PaletteDataset KOF94_A_BONUS_PALETTES[] =
 {
+    { L"Effects 1", 0x16fc80, 0x16fca0, indexKOF94Sprites_Bonus, 0x00 },
+    { L"Effects 2", 0x16fca0, 0x16fcc0, indexKOF94Sprites_Bonus, 0x01 },
+    { L"Effects 3", 0x16fcc0, 0x16fce0, indexKOF94Sprites_Bonus, 0x02 },
+    { L"Effects 4", 0x16fce0, 0x16fd00, indexKOF94Sprites_Bonus, 0x03 },
+    { L"Effects 5", 0x16fd00, 0x16fd20, indexKOF94Sprites_Bonus, 0x04 },
+    { L"Effects 6", 0x16fd20, 0x16fd40, indexKOF94Sprites_Bonus, 0x05 },
+    { L"Effects 7", 0x16fd40, 0x16fd60, indexKOF94Sprites_Bonus, 0x06 },
+    { L"Effects 8", 0x16fd60, 0x16fd80, indexKOF94Sprites_Bonus, 0x07 },
+    { L"Effects 9", 0x16fd80, 0x16fda0, indexKOF94Sprites_Bonus, 0x08 },
+    { L"Effects 10", 0x16fda0, 0x16fdc0, indexKOF94Sprites_Bonus, 0x09 },
+    { L"Effects 11", 0x16fdc0, 0x16fde0, indexKOF94Sprites_Bonus, 0x0a },
+    { L"Effects 12", 0x16fde0, 0x16fe00, indexKOF94Sprites_Bonus, 0x0b },
+
     { L"Fire Palette", 0x17b780, 0x17b980 },
     { L"Gigantic Pressure Palette", 0x17bb00, 0x17bd00 },
 };

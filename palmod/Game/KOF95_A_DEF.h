@@ -21,6 +21,8 @@ const std::vector<uint16_t> KOF95_A_IMGIDS_USED =
     indexKOF94Sprites_Robert,       // 0x177
     indexKOF94Sprites_Takuma,       // 0x17a
     indexKOF94Sprites_Yuri,         // 0x17c
+
+    indexKOF94Sprites_Bonus,        // 0x17e
     
     indexKOF95Sprites_Andy,         // 0x22D
     indexKOF95Sprites_Athena,       // 0x22E
@@ -1027,36 +1029,46 @@ const sGame_PaletteDataset KOF95_A_BONUS_HITEFFECTS_PALETTES[] =
     { L"Extra Hitspark Effects #1", 0xd7e60, 0xd7e80 },
     { L"Extra Hitspark Effects #2", 0xd7e80, 0xd7ea0 },
     { L"Extra Hitspark Effects #3", 0xd7f00, 0xd7f20 },
-    { L"Blocksparks", 0xd7fe0, 0xd8000 },
-    { L"Stun Effects", 0xd7fc0, 0xd7fe0 },
+    { L"Blocksparks",               0xd7fe0, 0xd8000 },
+    { L"Stun Effects",              0xd7fc0, 0xd7fe0 },
 };
 
 const sGame_PaletteDataset KOF95_A_BONUS_SHAREDEFFECTS_PALETTES[] =
 {
-    { L"ABC Charge", 0xd7f80, 0xd7fa0 },
-    { L"Fire Projectile Startup", 0xd7f60, 0xd7f80 },
-    { L"Fire Projectiles", 0xd8000, 0xd8020 },
-    { L"Fire Projectile Impact", 0xd8060, 0xd8080 },
-    { L"Shared Fire Effects #1", 0xd7ec0, 0xd7ee0 },
-    { L"Shared Fire Effects #2", 0xd7f20, 0xd7f40 },
-    { L"Blue Projectiles", 0xd8080, 0xd80a0 },
-    { L"Wind Effects", 0xd80e0, 0xd8100 },
-    { L"Red Flashes", 0xd83a0, 0xd83c0 },
-    { L"Athena/Yuri Effects", 0xd80c0, 0xd80e0 },
+    { L"ABC Charge",                0xd7f80, 0xd7fa0 },
+    { L"Fire Projectile Startup",   0xd7f60, 0xd7f80 },
+    { L"Fire Projectiles",          0xd8000, 0xd8020, indexKOF94Sprites_Bonus, 0x03 }, // Ryo ko-ou ken
+    { L"Fire Projectile Impact",    0xd8060, 0xd8080 },
+    { L"Shared Fire Effects #1",    0xd7ec0, 0xd7ee0 },
+    { L"Shared Fire Effects #2",    0xd7f20, 0xd7f40 },
+    { L"Blue Projectiles",          0xd8080, 0xd80a0 },
+    { L"Wind Effects",              0xd80e0, 0xd8100 },
+    { L"Red Flashes",               0xd83a0, 0xd83c0 },
+    { L"Athena/Yuri Effects",       0xd80c0, 0xd80e0 },
+};
+
+const sGame_PaletteDataset KOF95_A_BONUS_CHARSEL_PALETTES[] =
+{
+    { L"Character select 1/2",      0xe6000, 0xe6200, indexKOF95Sprites_Bonus, 0x00,  &pairNext },
+    { L"Character select 2/2",      0xe6200, 0xe6340, indexKOF95Sprites_Bonus, 0x01 },
+    { L"Character select 2 1/2",    0xe6340, 0xe6540, indexKOF95Sprites_Bonus, 0x00, &pairNext },
+    { L"Character select 2 2/2",    0xe6540, 0xe6680, indexKOF95Sprites_Bonus, 0x01 },
+    { L"Defeated palettes",         0xe6680, 0xe67c0, indexKOF95Sprites_Bonus, 0x02 },
 };
 
 const sGame_PaletteDataset KOF95_A_BONUS_MENU_PALETTES[] =
 {
-    { L"READY! GO!", 0xd82c0, 0xd82e0 },
-    { L"Generic Font #1", 0xd7020, 0xd7040 },
-    { L"Generic Font #2", 0xd7040, 0xd7060 },
-    { L"P1 Order", 0xe4020, 0xe4040 },
-    { L"P2 Order", 0xe4040, 0xe4060 },
-    { L"VS Icon", 0xe4060, 0xe4080 },
+    { L"READY! GO!",        0xd82c0, 0xd82e0 },
+    { L"Generic Font #1",   0xd7020, 0xd7040 },
+    { L"Generic Font #2",   0xd7040, 0xd7060 },
+    { L"P1 Order",          0xe4020, 0xe4040 },
+    { L"P2 Order",          0xe4040, 0xe4060 },
+    { L"VS Icon",           0xe4060, 0xe4080 },
 };
 
 const sDescTreeNode KOF95_A_BONUS_COLLECTION[] =
 {
+    { L"Character Select", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_CHARSEL_PALETTES, ARRAYSIZE(KOF95_A_BONUS_CHARSEL_PALETTES) },
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF95_A_BONUS_EFFECTS_PALETTES) },
     { L"Hit Effects", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_HITEFFECTS_PALETTES, ARRAYSIZE(KOF95_A_BONUS_HITEFFECTS_PALETTES) },
     { L"Shared Effects", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_SHAREDEFFECTS_PALETTES, ARRAYSIZE(KOF95_A_BONUS_SHAREDEFFECTS_PALETTES) },

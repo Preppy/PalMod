@@ -63,8 +63,8 @@ private:
         KOF94_A_UNITS,
         ARRAYSIZE(KOF94_A_UNITS),
         L"KOF94E.txt",      // Extra filename
-        589,                // Count of palettes listed in the header
-        0x16fe00,           // Lowest known location used for palettes
+        601,                // Count of palettes listed in the header
+        0x16fc80,           // Lowest known location used for palettes
     };
 
     // Developer-only mode to regenerate the header file quickly.
