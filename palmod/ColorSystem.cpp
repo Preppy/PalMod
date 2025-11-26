@@ -1794,6 +1794,8 @@ namespace ColorSystem
 
     int Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep)
     {
+        static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "If you've added a new CLUT, make sure you handle the different stepping here.");
+
         switch (nPlaneLength)
         {
         default:
@@ -1808,9 +1810,14 @@ namespace ColorSystem
             return Get8BitValueForColorStep_31Steps(nColorStep);
         case k_nRGBPlaneAmtForRGB555_Normal: //31
             // case k_nRGBPlaneAmtForNeoGeo: // also 31
-            if (colorMode == ColMode::COLMODE_RGB666_NEOGEO)
+            if ((colorMode == ColMode::COLMODE_RGB666_NEOGEO) ||
+                (colorMode == ColMode::COLMODE_NEOTURFMASTERS))
             {
                 return Get8BitValueForColorStep_NeoGeoCLUT(nColorStep);
+            }
+            else if (colorMode == ColMode::COLMODE_RGB555_SHARP)
+            {
+                return Get8BitValueForColorStep_32Steps_SharpCLUT(nColorStep);
             }
             else
             {
