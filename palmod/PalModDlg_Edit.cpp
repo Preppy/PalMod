@@ -86,10 +86,9 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
             if (GetCursorPos(&ptCursor) && (ptCursor.x != -1))
             {
                 const size_t nMaxColorsToCopy = 15;
-                const LONG ptMinimumStep = 4;
+                const LONG ptMinimumStep = 1;
                 const POINT ptHideCursorAt = { 0, 0 };
                 LONG ptColorStep = 0;
-                bool fFoundFirstColorStep = false, fFoundSecondColorStep = false;
                 std::vector<DWORD> rgColorSet;
 
                 // *Really* get the cursor out of the way so we don't track the cursor design by accident
@@ -103,59 +102,69 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
                 INPUT input = { INPUT_MOUSE, 0, 0, 0, MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_VIRTUALDESK };
                 SendInput(1, &input, sizeof(input));
 
+                struct PixelWidth
+                {
+                    LONG left = 0;
+                    LONG right = 0;
+                };
+
+                LONG borderWidth = 0;
+
                 for (size_t nColorCount = 1; nColorCount <= nMaxColorsToCopy; nColorCount++)
                 {
-                    const COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
-                    // COLORREF is aaBBggRR we want aaRRggBB
-                    const DWORD colorAsDWORD = (0xFF << 24) | (GetRValue(colorAtPixel) << 16) | (GetGValue(colorAtPixel) << 8) | GetBValue(colorAtPixel);
+                    const COLORREF thisColor = GetPixel(hdc, ptCursor.x, ptCursor.y);
 
+                    // COLORREF is aaBBggRR we want aaRRggBB
+                    const DWORD colorAsDWORD = (0xFF << 24) | (GetRValue(thisColor) << 16) | (GetGValue(thisColor) << 8) | GetBValue(thisColor);
                     rgColorSet.push_back(colorAsDWORD);
 
-                    if (!fFoundFirstColorStep)
+                    if (nColorCount == 1)
                     {
-                        // arbitrarily stepping by 4(?) to minimize spins
+                        const COLORREF firstColor = thisColor;
+                        PixelWidth firstColorWidth = { ptCursor.x, ptCursor.x };
+
+                        // Establish the bounds
+                        for (LONG iLeftStep = 1; iLeftStep < 100; iLeftStep++)
+                        {
+                            COLORREF readColor = GetPixel(hdc, ptCursor.x - iLeftStep, ptCursor.y);
+
+                            if (readColor != firstColor)
+                            {
+                                firstColorWidth.left = ptCursor.x - iLeftStep + 1;
+                                break;
+                            }
+                        }
+
                         for (ptColorStep = ptMinimumStep; ptColorStep < 100; ptColorStep += ptMinimumStep)
                         {
                             const COLORREF colorNext = GetPixel(hdc, ptCursor.x + ptColorStep, ptCursor.y);
 
-                            if (colorNext != colorAtPixel)
+                            if (colorNext != firstColor)
                             {
-                                // establish a minimum baseline of step distance
-                                // but also try to step past borders
-                                if ((colorNext == 0x00ff00) || (colorNext == 0x0)) // if it's our selection border color OR if it's a possible black border
+                                firstColorWidth.right = ptCursor.x + ptColorStep;
+                                ptColorStep = firstColorWidth.right - firstColorWidth.left;
+
+                                // Guard against border
+                                for (LONG iBorderWidth = 1; iBorderWidth < 4; iBorderWidth++)
                                 {
-                                    ptColorStep += 3;
+                                    const COLORREF colorNextNext = GetPixel(hdc, ptCursor.x + ptColorStep + iBorderWidth, ptCursor.y);
+                                    if (colorNext != colorNextNext)
+                                    {
+                                        borderWidth = iBorderWidth;
+                                        break;
+                                    }
                                 }
 
                                 break;
                             }
                         }
 
-                        fFoundFirstColorStep = true;
-                    }
-                    else if (!fFoundSecondColorStep)
-                    {
-                        // Now we know a minimum distance to the next color: it's that or greater to the next color
-                        for (; ptColorStep < 100; ptColorStep += ptMinimumStep)
-                        {
-                            const COLORREF colorNext = GetPixel(hdc, ptCursor.x + ptColorStep, ptCursor.y);
-
-                            if (colorNext != colorAtPixel)
-                            {
-                                // still try to step past borders
-                                if ((colorNext == 0x00ff00) || (colorNext == 0x0)) // if it's our selection border color OR if it's a possible black border
-                                {
-                                    ptColorStep += 3;
-                                }
-
-                                break;
-                            }
-                        }
-
-                        fFoundSecondColorStep = true;
+                        CString strInfo;
+                        strInfo.Format(L"Color 0x%08x: from %d to %d (width %d). Border width %u\r\n", firstColor, firstColorWidth.left, firstColorWidth.right, firstColorWidth.right - firstColorWidth.left, borderWidth);
+                        OutputDebugString(strInfo);
                     }
 
-                    ptCursor.x += ptColorStep;
+                    ptCursor.x += ptColorStep + borderWidth;
                 }
 
                 ShowCursor(TRUE);
