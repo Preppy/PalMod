@@ -225,73 +225,73 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
 
         switch (CurrGame->GetColorMode())
         {
-        case ColMode::COLMODE_RGB333:
-            // RGB333
-            uCopyFlag1 = TOPF2005_SEGA + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_BGR555_LE:
-            // BGR555
-            uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGB444_BE:
-            // RGB444
-            uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGB444_LE:
-            // RGB444 litle endian
-            uCopyFlag1 = DUMMY_RGB444_LE + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGB555_LE_CPS3:
-            // RGB555
-            uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGB555_BE:
-            // RGB555
-            uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGB666_NEOGEO:
-            // RGB666
-            uCopyFlag1 = DEVMODE_A + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGB555_SHARP:
-            uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGBA8881:
-            cbColor = 4;
-            uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGBA8887:
-            cbColor = 4;
-            uCopyFlag1 = GGXXACR_S + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_RGBA8888_LE:
-            cbColor = 4;
-            uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
-            break;
-        case ColMode::COLMODE_BGR333:
-        case ColMode::COLMODE_RBG333:
-        case ColMode::COLMODE_BGR444:
-        case ColMode::COLMODE_BRG444:
-        case ColMode::COLMODE_RBG444:
-        case ColMode::COLMODE_BGR888:
-        case ColMode::COLMODE_BRG888:
-        case ColMode::COLMODE_GRB888:
-        case ColMode::COLMODE_RGB888:
-        case ColMode::COLMODE_RGBA8881_32STEPS:
-        case ColMode::COLMODE_RGBA8888_BE:
-        case ColMode::COLMODE_GRB555_LE:
-        case ColMode::COLMODE_BGRA8888_BE:
-        case ColMode::COLMODE_BGRA8888_LE:
-        case ColMode::COLMODE_BGR555_BE:
-        default:
-            {
-                // OK, this overflows the 127 character ascii table we use.
-                // But since we've made copyflag2 obsolete, let's just hijack that and stuff the color mode there.
-                uCopyFlag1 = k_nEncodedColorStringOverflowIndicator;
-                uCopyFlag2 = min(k_nASCIIMaxValue, static_cast<uint8_t>(CurrGame->GetColorMode()) + k_nASCIICharacterOffset);
-                cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
+            case ColMode::COLMODE_RGB333:
+                // RGB333
+                uCopyFlag1 = TOPF2005_SEGA + k_nASCIICharacterOffset;
                 break;
-            }
+            case ColMode::COLMODE_BGR555_LE:
+                // BGR555
+                uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGB444_BE:
+                // RGB444
+                uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGB444_LE:
+                // RGB444 litle endian
+                uCopyFlag1 = DUMMY_RGB444_LE + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGB555_LE_CPS3:
+                // RGB555
+                uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGB555_BE:
+                // RGB555
+                uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGB666_NEOGEO:
+                // RGB666
+                uCopyFlag1 = DEVMODE_A + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGB555_SHARP:
+                uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGBA8881:
+                cbColor = 4;
+                uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGBA8887:
+                cbColor = 4;
+                uCopyFlag1 = GGXXACR_S + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_RGBA8888_LE:
+                cbColor = 4;
+                uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
+                break;
+            case ColMode::COLMODE_BGR333:
+            case ColMode::COLMODE_RBG333:
+            case ColMode::COLMODE_BGR444:
+            case ColMode::COLMODE_BRG444:
+            case ColMode::COLMODE_RBG444:
+            case ColMode::COLMODE_BGR888:
+            case ColMode::COLMODE_BRG888:
+            case ColMode::COLMODE_GRB888:
+            case ColMode::COLMODE_RGB888:
+            case ColMode::COLMODE_RGBA8881_32STEPS:
+            case ColMode::COLMODE_RGBA8888_BE:
+            case ColMode::COLMODE_GRB555_LE:
+            case ColMode::COLMODE_BGRA8888_BE:
+            case ColMode::COLMODE_BGRA8888_LE:
+            case ColMode::COLMODE_BGR555_BE:
+            default:
+                {
+                    // OK, this overflows the 127 character ascii table we use.
+                    // But since we've made copyflag2 obsolete, let's just hijack that and stuff the color mode there.
+                    uCopyFlag1 = k_nEncodedColorStringOverflowIndicator;
+                    uCopyFlag2 = min(k_nASCIIMaxValue, static_cast<uint8_t>(CurrGame->GetColorMode()) + k_nASCIICharacterOffset);
+                    cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
+                    break;
+                }
         }
 
         // If we've got an unhandled game OR we've overflowed past the printable character limit, warn the developer
@@ -321,30 +321,30 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
 
                 switch (cbColor)
                 {
-                default:
-                case 2:
-                {
-                    const uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                    default:
+                    case 2:
+                    {
+                        const uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
 
-                    FormatTxt.Format("%04X", uCurrData);
+                        FormatTxt.Format("%04X", uCurrData);
 
-                    //Only changed:
-                    //FormatTxt.Format("%04X", static_cast<uint16_t>((uCurrData << 8) | (uCurrData >> 8) & static_cast<uint16_t>(0xFF0F)));
-                    break;
-                }
-                case 3:
-                {
-                    const uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
-                    FormatTxt.Format("%06X", uCurrData);
-                    break;
-                }
-                case 4:
-                {
-                    const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                        //Only changed:
+                        //FormatTxt.Format("%04X", static_cast<uint16_t>((uCurrData << 8) | (uCurrData >> 8) & static_cast<uint16_t>(0xFF0F)));
+                        break;
+                    }
+                    case 3:
+                    {
+                        const uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
+                        FormatTxt.Format("%06X", uCurrData);
+                        break;
+                    }
+                    case 4:
+                    {
+                        const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
 
-                    FormatTxt.Format("%08X", uCurrData);
-                    break;
-                }
+                        FormatTxt.Format("%08X", uCurrData);
+                        break;
+                    }
                 }
 
                 CopyText.Append(FormatTxt);
@@ -367,6 +367,9 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
 
+        uint32_t nPaletteStartingLocation = 0;
+        uint32_t nPaletteSelectionOffset = 0;
+
         if (fIncludeNonBinaryText)
         {
             strUnicodeData.Format(L"%S", CopyText.GetString());
@@ -383,14 +386,15 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                 strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
 
                 const sPalDef* activePal = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
-                const uint32_t nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
+                nPaletteStartingLocation = CurrGame->GetROMLocationForSpecificPalette(activePal->uUnitId, activePal->uPalId);
 
                 strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", nPaletteStartingLocation);
                 strUnicodeData.Append(strFormatU);
 
                 if (nInitialOffsetDelta != 0)
                 {
-                    strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", nPaletteStartingLocation + (nInitialOffsetDelta * cbColor));
+                    nPaletteSelectionOffset = nPaletteStartingLocation + (nInitialOffsetDelta * cbColor);
+                    strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", nPaletteSelectionOffset);
                     strUnicodeData.Append(strFormatU);
                 }
             }
@@ -470,13 +474,27 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
 
             const FileReadType eReadType = CurrGame->GetFileReadType();
 
-            // I'm only worrying about 2byte colors for right now.
-            if (fIncludeNonBinaryText && (eReadType != FileReadType::Sequential) && (cbColor == 2))
+            if (fIncludeNonBinaryText && (eReadType != FileReadType::Sequential))
             {
-                strUnicodeData.Append(L"\r\n\r\nSince this data is interleaved, what you would expect on the ROM is:");
+                uint32_t nInterleavedLocationOffsetToUse = nPaletteSelectionOffset ? nPaletteSelectionOffset : nPaletteStartingLocation;
+                switch (eReadType)
+                {
+                    case FileReadType::Interleaved_2FileSets:
+                    case FileReadType::Interleaved_Read2Bytes_LE:
+                    case FileReadType::Interleaved_Read2Bytes_BE:
+                        nInterleavedLocationOffsetToUse = static_cast<uint32_t>(nInterleavedLocationOffsetToUse / 2);
+                        break;
+                    case FileReadType::Interleaved_4FileSets:
+                        nInterleavedLocationOffsetToUse = static_cast<uint32_t>(nInterleavedLocationOffsetToUse / 4);
+                        break;
+                }
 
-                CString strByte1Collection, strByte2Collection, strByte3Collection, strByte4Collection;
-                CString strFormatByte2;
+                strFormatU.Format(L"\r\n\r\nSince this data is interleaved, what you would expect on each ROM at location 0x%x is:", nInterleavedLocationOffsetToUse);
+                strUnicodeData.Append(strFormatU);
+
+                std::array<CString, 4> rgStrByteCollection;
+                CString strFormatByte2, strFormatByte3, strFormatByte4;
+                size_t iWritePos = 0;
 
                 for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
                 {
@@ -493,85 +511,193 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                                 switch (eReadType)
                                 {
                                     case FileReadType::Interleaved_2FileSets:
+                                        // Jojo's SIMM version, etc
                                         strFormatU.Format(L"%02X ", (uCurrData & 0xFF00) >> 8);
                                         strFormatByte2.Format(L"%02X ", uCurrData & 0x00FF);
 
-                                        strByte1Collection.Append(strFormatU);
-                                        strByte2Collection.Append(strFormatByte2);
+                                        rgStrByteCollection.at(0).Append(strFormatU);
+                                        rgStrByteCollection.at(1).Append(strFormatByte2);
                                         break;
+
                                     case FileReadType::Interleaved_4FileSets:
+                                        // Asura Buster
                                         strFormatU.Format(L"%02X ", (uCurrData & 0xFF00) >> 8);
                                         strFormatByte2.Format(L"%02X ", uCurrData & 0x00FF);
 
                                         if (iPalIndex % 2 == 0)
                                         {
-                                            strByte1Collection.Append(strFormatU);
-                                            strByte2Collection.Append(strFormatByte2);
+                                            rgStrByteCollection.at(0).Append(strFormatU);
+                                            rgStrByteCollection.at(1).Append(strFormatByte2);
                                         }
                                         else
                                         {
-                                            strByte3Collection.Append(strFormatU);
-                                            strByte4Collection.Append(strFormatByte2);
+                                            rgStrByteCollection.at(2).Append(strFormatU);
+                                            rgStrByteCollection.at(3).Append(strFormatByte2);
                                         }
                                         break;
+
                                     case FileReadType::Interleaved_Read2Bytes_LE:
+                                        // Avengers: Galactic Storm
                                         strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
                                         if (iPalIndex % 2 == 0)
                                         {
-                                            strByte1Collection.Append(strFormatU);
+                                            rgStrByteCollection.at(0).Append(strFormatU);
                                         }
                                         else
                                         {
-                                            strByte2Collection.Append(strFormatU);
+                                            rgStrByteCollection.at(1).Append(strFormatU);
                                         }
 
                                         break;
+
                                     case FileReadType::Interleaved_Read2Bytes_BE:
-                                        strFormatU.Format(L"%02X %02X ", uCurrData & 0x00FF, (uCurrData & 0xFF00) >> 8);
+                                        // Battle K-Road.
+                                        // Note that the lead transparency color will likely be 0000 not 0080
+                                        strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
                                         if (iPalIndex % 2 == 0)
                                         {
-                                            strByte1Collection.Append(strFormatU);
+                                            rgStrByteCollection.at(0).Append(strFormatU);
                                         }
                                         else
                                         {
-                                            strByte2Collection.Append(strFormatU);
+                                            rgStrByteCollection.at(1).Append(strFormatU);
                                         }
                                         break;
                                 }
                                 break;
                             }
                             case 3:
+                            {
+                                // This has been tested with Tattoo Assassins (Read2Bytes_LE) and SFTM (Interleaved_4FileSets),
+                                // but we don't have a lot of games using 24bit interleave at this time.
+                                uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
+
+                                strFormatU.Format(L"%02X ", (uCurrData & 0xFF0000) >> 16);
+                                strFormatByte2.Format(L"%02X ", (uCurrData & 0xFF00) >> 8 );
+                                strFormatByte3.Format(L"%02X ", uCurrData & 0xFF);
+
+                                switch (eReadType)
+                                {
+                                    case FileReadType::Interleaved_2FileSets:
+                                        rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatU);
+                                        rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte2);
+                                        rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte3);
+                                        break;
+
+                                    case FileReadType::Interleaved_4FileSets:
+                                        rgStrByteCollection.at(iWritePos++ % 4).Append(strFormatU);
+                                        rgStrByteCollection.at(iWritePos++ % 4).Append(strFormatByte2);
+                                        rgStrByteCollection.at(iWritePos++ % 4).Append(strFormatByte3);
+                                        break;
+
+                                    case FileReadType::Interleaved_Read2Bytes_LE:
+                                        if (iPalIndex % 2 == 0)
+                                        {
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatU);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatByte3);
+                                        }
+                                        else
+                                        {
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatU);
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte3);
+                                        }
+
+                                        break;
+
+                                    case FileReadType::Interleaved_Read2Bytes_BE:
+                                        if (iPalIndex % 2 == 0)
+                                        {
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatByte3);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatU);
+                                        }
+                                        else
+                                        {
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte3);
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatU);
+                                        }
+                                        break;
+                                }
+                                break;
+                            }
                             case 4:
                             {
-                                strUnicodeData.Append(L"\r\n(This view not implemented at this.");
-                                break;
+                                {
+                                    // This has been tested with Tattoo Assassins (Read2Bytes_LE) and SFTM (Interleaved_4FileSets),
+                                    // but we don't have a lot of games using 24bit interleave at this time.
+                                    uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+
+                                    strFormatU.Format(L"%02X ", (uCurrData & 0xFF000000) >> 24);
+                                    strFormatByte2.Format(L"%02X ", (uCurrData & 0xFF0000) >> 16);
+                                    strFormatByte3.Format(L"%02X ", (uCurrData & 0xFF00) >> 8);
+                                    strFormatByte4.Format(L"%02X ", uCurrData & 0xFF);
+
+                                    switch (eReadType)
+                                    {
+                                        case FileReadType::Interleaved_2FileSets:
+                                            // As used by Tattoo Assassins
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatU);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte3);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte4);
+                                            break;
+
+                                        case FileReadType::Interleaved_4FileSets:
+                                            // currently unused
+                                            rgStrByteCollection.at(iWritePos++ % 4).Append(strFormatU);
+                                            rgStrByteCollection.at(iWritePos++ % 4).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos++ % 4).Append(strFormatByte3);
+                                            rgStrByteCollection.at(iWritePos++ % 4).Append(strFormatByte4);
+                                            break;
+
+                                        case FileReadType::Interleaved_Read2Bytes_LE:
+                                            // As used by Fighters History
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatByte4);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte3);
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatU);
+                                            break;
+
+                                        case FileReadType::Interleaved_Read2Bytes_BE:
+                                            // currently unused
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatU);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte2);
+                                            rgStrByteCollection.at(iWritePos % 2).Append(strFormatByte3);
+                                            rgStrByteCollection.at(iWritePos++ % 2).Append(strFormatByte4);
+                                            break;
+                                    }
+                                    break;
+                                }
                             }
                         }
                     }
                 }
 
-                if (strByte1Collection.GetLength())
+                if (rgStrByteCollection.at(0).GetLength())
                 {
                     strUnicodeData.Append(L"\r\n\tROM 1: ");
-                    strUnicodeData.Append(strByte1Collection);
+                    strUnicodeData.Append(rgStrByteCollection.at(0));
                 }
 
-                if (strByte2Collection.GetLength())
+                if (rgStrByteCollection.at(1).GetLength())
                 {
                     strUnicodeData.Append(L"\r\n\tROM 2: ");
-                    strUnicodeData.Append(strByte2Collection);
+                    strUnicodeData.Append(rgStrByteCollection.at(1));
                 }
 
-                if (strByte3Collection.GetLength())
+                if (rgStrByteCollection.at(2).GetLength())
                 {
                     strUnicodeData.Append(L"\r\n\tROM 3: ");
-                    strUnicodeData.Append(strByte3Collection);
+                    strUnicodeData.Append(rgStrByteCollection.at(2));
                 }
 
-                if (strByte4Collection.GetLength())
+                if (rgStrByteCollection.at(3).GetLength())
                 {
                     strUnicodeData.Append(L"\r\n\tROM 4: ");
-                    strUnicodeData.Append(strByte4Collection);
+                    strUnicodeData.Append(rgStrByteCollection.at(3));
                 }
             }
 
