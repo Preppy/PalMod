@@ -214,10 +214,20 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 int nCurrEnd = 0;
                 DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
 #ifdef DUMP_EXTRAS_ON_LOAD
-                std::unordered_map<std::wstring, size_t> vstrUnits;
-                std::vector<std::wstring> vstrUnitFriendlyNames;
-                std::vector<std::wstring> vstrNodes;
-                std::vector<std::wstring> vstrNodeFriendlyNames;
+                struct NodeData
+                {
+                    std::wstring strPrintName;
+                    std::wstring strDisplayName;
+                };
+
+                struct UnitData
+                {
+                    std::wstring strPrintName;
+                    std::wstring strDisplayName;
+                    std::vector<NodeData> vNodeData;
+                };
+
+                std::vector<UnitData> vUnitData;
 #endif
 
                 if (CRegProc::GetMaxColorsPerPageOverride() != 0)
@@ -513,16 +523,30 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                         {
 #ifdef DUMP_EXTRAS_ON_LOAD
                             static CString strCurrentUnit = L"Unknown";
-                            if (strncmp(aszFinalLine, ";---", 4) == 0)
+                            if (strncmp(aszFinalLine, ";---", 4) == 0) // Unit
                             {
                                 wchar_t szPrintable[MAX_PATH];
                                 strCurrentUnit.Format(L"%S", aszFinalLine + 4);
-                                vstrUnitFriendlyNames.push_back(strCurrentUnit.GetString());
                                 StrRemoveNonASCII(szPrintable, MAX_PATH, strCurrentUnit.GetString());
-                                strCurrentUnit = szPrintable;
-                                vstrUnits.emplace(strCurrentUnit.GetString(), 0);
+
+                                bool fFoundExisting = false;
+
+                                for (UnitData& unitCheck : vUnitData)
+                                {
+                                    if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                    {
+                                        fFoundExisting = true;
+                                        break;
+                                    }
+                                }
+
+                                if (!fFoundExisting)
+                                {
+                                    UnitData thisUnit = { szPrintable, strCurrentUnit.GetString() };
+                                    vUnitData.push_back(thisUnit);
+                                }
                             }
-                            else if (strncmp(aszFinalLine, ";--", 3) == 0)
+                            else if (strncmp(aszFinalLine, ";--", 3) == 0) // Node
                             {
                                 CString strText, strFriendlyName;
                                 wchar_t szPrintableNodeName[MAX_PATH];
@@ -530,23 +554,32 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 strFriendlyName.Format(L"%S", aszFinalLine + 3);
                                 StrRemoveNonASCII(szPrintableNodeName, MAX_PATH, strFriendlyName.GetString());
 
-                                if (vstrNodes.size())
+                                if (vUnitData.size())
                                 {
                                     OutputDebugString(L"};\r\n\r\n");
+                                }
+
+                                if (vUnitData.empty())
+                                {
+                                    // force a dummy unit
+                                    strCurrentUnit = L"UNNAMED";
+                                    UnitData thisUnit = { strCurrentUnit.GetString(), strCurrentUnit.GetString() };
+                                    vUnitData.push_back(thisUnit);
                                 }
 
                                 CString strNodeRef;
                                 strNodeRef.Format(L"GAMENAME_%s_%s", strCurrentUnit.GetString(), szPrintableNodeName);
                                 strText.Format(L"const sGame_PaletteDataset %s[] =\r\n{\r\n", strNodeRef.GetString());
                                 OutputDebugString(strText);
-                                
-                                std::unordered_map<std::wstring, size_t>::iterator it = vstrUnits.find(strCurrentUnit.GetString());
 
-                                if (it != vstrUnits.end())
+                                for (UnitData& unitCheck : vUnitData)
                                 {
-                                    it->second++;
-                                    vstrNodes.push_back(strNodeRef.GetString());
-                                    vstrNodeFriendlyNames.push_back(strFriendlyName.GetString());
+                                    if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                    {
+                                        NodeData thisNode = { strNodeRef.GetString(), strFriendlyName.GetString() };
+                                        unitCheck.vNodeData.push_back(thisNode);
+                                        break;
+                                    }
                                 }
                             }
                             else if (aszFinalLine[0] == ';')
@@ -561,23 +594,22 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 }
 
 #ifdef DUMP_EXTRAS_ON_LOAD
-                if (vstrNodes.size())
+                if (vUnitData.size())
                 {
                     size_t nNodeIndex = 0;
                     CString strText;
-                    std::unordered_map<std::wstring, size_t>::iterator it = vstrUnits.begin();
 
                     // Close existing node
                     OutputDebugString(L"};\r\n\r\n");
 
-                    for (; it != vstrUnits.end(); it++)
+                    for (auto& unitEntry : vUnitData)
                     {
-                        strText.Format(L"const sDescTreeNode GAMENAME_%s_COLLECTION[] =\r\n{\r\n", it->first.c_str());
+                        strText.Format(L"const sDescTreeNode GAMENAME_%s_COLLECTION[] =\r\n{\r\n", unitEntry.strPrintName.c_str());
                         OutputDebugString(strText.GetString());
 
-                        for (size_t nCurrent = 0; nCurrent < it->second; nCurrent++)
+                        for (auto& nodeEntry : unitEntry.vNodeData)
                         {
-                            strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)%s, ARRAYSIZE(%s) },\r\n", vstrNodeFriendlyNames.at(nNodeIndex).c_str(), vstrNodes.at(nNodeIndex).c_str(), vstrNodes.at(nNodeIndex).c_str());
+                            strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)%s, ARRAYSIZE(%s) },\r\n", nodeEntry.strDisplayName.c_str(), nodeEntry.strPrintName.c_str(), nodeEntry.strPrintName.c_str());
                             OutputDebugString(strText.GetString());
                             nNodeIndex++;
                         }
@@ -587,11 +619,9 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                     OutputDebugString(L"const sDescTreeNode GAMENAME_UNITS[] =\r\n{\r\n");
 
-                    size_t nUnitIndex = 0;
-
-                    for (it = vstrUnits.begin(); it != vstrUnits.end(); it++)
+                    for (auto& unitEntry : vUnitData)
                     {
-                        strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)GAMENAME_%s_COLLECTION, ARRAYSIZE(GAMENAME_%s_COLLECTION) },\r\n", vstrUnitFriendlyNames.at(nUnitIndex++).c_str(), it->first.c_str(), it->first.c_str());
+                        strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)GAMENAME_%s_COLLECTION, ARRAYSIZE(GAMENAME_%s_COLLECTION) },\r\n", unitEntry.strDisplayName.c_str(), unitEntry.strPrintName.c_str(), unitEntry.strPrintName.c_str());
                         OutputDebugString(strText.GetString());
                     }
 
