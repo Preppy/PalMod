@@ -8968,12 +8968,20 @@ const MVC2_TEAM_GROUPING mvc2TeamList[] =
     { L"Thrillah", indexMVC2AIronMan, indexMVC2AWarMachine, indexMVC2ACable },
     { L"Roundhouse", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2AIronMan },
     { L"Watts", indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando },
+    { L"Team Japan", indexMVC2AIronMan, indexMVC2AStorm, indexMVC2ACable },
+    { L"Illan", indexMVC2AIronMan, indexMVC2ACable, indexMVC2ADrDoom },
 
     // Low tierish
     { L"VDO", indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen },
     { L"MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
     { L"Shoto", indexMVC2ARyu, indexMVC2AKen, indexMVC2AAkuma },
     { L"Joe Zaza", indexMVC2AWolverine, indexMVC2ASentinel, indexMVC2ABonerine },
+    { L"MagusOld", indexMVC2ASpiderman, indexMVC2AHulk, indexMVC2AHayato },
+
+    { L"Anakaris Curse", indexMVC2AAnakaris, indexMVC2ARuby, indexMVC2ASonson },
+    { L"Maddroo", indexMVC2AAnakaris, indexMVC2ADhalsim, indexMVC2ASentinel },
+    { L"Paxtez", indexMVC2ABlackheart, indexMVC2ACable, indexMVC2AGuile },
+    { L"Preppy", indexMVC2AMegaman, indexMVC2ACable, indexMVC2ATron },
 };
 
 const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
@@ -8995,12 +9003,20 @@ const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
     { L"Roundhouse", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"MST", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Watts", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Team Japan", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Illan", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 
     // Low tierish
     { L"VDO", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"MikeZ", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Shoto", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Joe Zaza", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"MagusOld", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+
+    { L"Anakaris Curse", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Maddroo", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Paxtez", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { L"Preppy", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 };
 
 const uint8_t MVC2_A_UNITSORT[MVC2_A_NUMUNIT + 1] // Plus for extras
