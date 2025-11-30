@@ -174,6 +174,16 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     m_currentEffectState = DROPEFFECT_COPY;
                     strMessageOut = L"This appears to be a usable palette.";
                 }
+                else if (_wcsicmp(pszExtension, L".lnk") == 0)
+                {
+                    strMessageOut = L"You dragged a shortcut: go to the actual file and then use that directly.";
+                    m_currentEffectState = DROPEFFECT_NONE;
+                }
+                else if (_wcsicmp(pszExtension, L".url") == 0)
+                {
+                    strMessageOut = L"You dragged a URL: save the file to disk first and then use it.";
+                    m_currentEffectState = DROPEFFECT_NONE;
+                }
             }
 
             if (!strMessageOut.IsEmpty())
@@ -253,7 +263,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
         if (fConfirmedURL)
         {
-            GetHost()->GetPalModDlg()->SetStatusText(L"You dragged a URL: save it to disk first and then use it.");
+            GetHost()->GetPalModDlg()->SetStatusText(L"You dragged a URL: save the file to disk first and then use it.");
         }
         else
         {
