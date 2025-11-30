@@ -6,8 +6,10 @@
 #include "ExtraFile.h"
 #include <unordered_map>
 
-// Uncomment this to have this file help convert an Extra file to our header style
-//#define DUMP_EXTRAS_ON_LOAD
+// Use this to have this file help convert an Extra file to our header style
+#ifdef DEBUG
+#define DUMP_EXTRAS_ON_LOAD
+#endif
 
 uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 size_t CGameWithExtrasFile::m_nUsableFileViewStart = 0;
@@ -213,11 +215,19 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 int nCurrStart = 0;
                 int nCurrEnd = 0;
                 DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
+
 #ifdef DUMP_EXTRAS_ON_LOAD
                 struct NodeData
                 {
                     std::wstring strPrintName;
                     std::wstring strDisplayName;
+
+                    void PrintPaletteSetHeader()
+                    {
+                        CString strText;
+                        strText.Format(L"const sGame_PaletteDataset %s[] =\r\n{\r\n", strPrintName.c_str());
+                        OutputDebugString(strText);
+                    }
                 };
 
                 struct UnitData
@@ -228,6 +238,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 };
 
                 std::vector<UnitData> vUnitData;
+
+                CString strCurrentUnit = L"UNNAMED";
 #endif
 
                 if (CRegProc::GetMaxColorsPerPageOverride() != 0)
@@ -269,7 +281,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                             {
                                 if ((nTotalExtensionExtraLinesHandled % 3) == 1)
                                 {
-                                    // We *should* be at an offset.  But sometimes put extra comments in, so let's work around that if we can.
+                                    // We *should* be at an offset.  But sometimes users put extra comments in, so let's work around that if we can.
                                     size_t nGoodFaithCheckLength = min(nCurStrLen, 4);
                                     bool fFoundHexDigit = false;
                                     bool fFoundInvalidEntry = false;
@@ -313,282 +325,311 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                             switch (nTotalExtensionExtraLinesHandled % 3)
                             {
-                            case 0:
-                            {
-                                // We will clip in wide palette view at about base 40 characters
-                                // This includes space for " (x/y) n"
-                                // The combobox itself starts clipping at about 30 characters
-                                // The status bar fits about 128 characters
+                                case 0:
+                                {
+                                    // We will clip in wide palette view at about base 40 characters
+                                    // This includes space for " (x/y) n"
+                                    // The combobox itself starts clipping at about 30 characters
+                                    // The status bar fits about 128 characters
 #ifdef DUMP_EXTRAS_ON_LOAD
-                                // allow UI clipping since this just for debugging
-                                constexpr auto nMaxDescLen = sizeof(aszCurrDesc) - 1;
+                                    // allow UI clipping since this just for debugging
+                                    constexpr auto nMaxDescLen = sizeof(aszCurrDesc) - 1;
 #else
-                                constexpr auto nMaxDescLen = min(40, MAX_DESCRIPTION_LENGTH - 8 - 8 - 8 - 6);
+                                    constexpr auto nMaxDescLen = min(40, MAX_DESCRIPTION_LENGTH - 8 - 8 - 8 - 6);
 #endif
-                                if (iswspace(aszFinalLine[0]) && (strlen(aszFinalLine) == 1))
-                                {
-                                    strOutputText.Format(L"Warning: Bogus entry in extension file with text '%S'.  Skipping.\n", aszFinalLine);
-                                    OutputDebugString(strOutputText);
-                                    continue;
-                                }
-
-                                memcpy(aszCurrDesc, aszFinalLine, nMaxDescLen);
-                                aszCurrDesc[nMaxDescLen] = '\0';
-                                break;
-                            }
-                            case 1:
-                            {
-                                nCurrStart = strtoul(aszFinalLine, nullptr, 16);
-                                break;
-                            }
-                            case 2:
-                            {
-                                int nPos = 0;
-
-                                nCurrEnd = strtoul(aszFinalLine, nullptr, 16);
-
-                                if (nCurrEnd == nCurrStart)
-                                {
-                                    CString strError;
-                                    strError.Format(L"In file \"%s\", Extra \"%S\" is broken: starting offset 0x%x to ending offset 0x%x is zero-length.\n\n"
-                                        L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
-                                    MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
-
-                                    CStringA strFormat;
-                                    strFormat.Format("Broken: Zero-Length: %s", aszCurrDesc);
-                                    _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
-                                    nCurrEnd = nCurrStart + (1 * cbColorSize);
-                                }
-                                else if (nCurrEnd < nCurrStart)
-                                {
-                                    CString strError;
-                                    strError.Format(L"In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%x to ending offset 0x%x:"
-                                        L" that ending offset actually starts before the starting offset!\n\n"
-                                        L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
-                                    MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
-
-                                    CStringA strFormat;
-                                    strFormat.Format("Broken: Negative: %s", aszCurrDesc);
-                                    _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
-
-                                    nCurrEnd = nCurrStart + (1 * cbColorSize);
-                                }
-
-                                // Validate that they're not trying to read off the end of the ROM...
-                                if ((nCurrEnd > static_cast<int>(m_nLoadedFileViewSize)) || 
-                                    (nCurrStart >= static_cast<int>(m_nLoadedFileViewSize)) ||
-                                    (nCurrStart < static_cast<int>(m_nUsableFileViewStart))
-                                    )
-                                {
-                                    if (!fAlertedToTruncation)
+                                    if (iswspace(aszFinalLine[0]) && (strlen(aszFinalLine) == 1))
                                     {
-                                        CString strQuestion, strAddendum;
-                                        strQuestion.Format(L"In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%x bytes. This Extra starts at offset 0x%x and ends at offset 0x%x.",
-                                                             pszExtraFileName, aszCurrDesc, static_cast<int>(m_nLoadedFileViewSize), nCurrStart, nCurrEnd);
-
-                                        if (nCurrStart < static_cast<int>(m_nUsableFileViewStart))
-                                        {
-                                            strAddendum.Format(L"That won't work: the minimum offset usable for palettes is 0x%x.", static_cast<int>(m_nUsableFileViewStart));
-                                        }
-                                        else
-                                        {
-                                            strAddendum.Format(L"That won't work: the maximum ending offset possible is 0x%x.", static_cast<int>(nGameROMSize));
-                                        }
-                                        
-                                        strQuestion += strAddendum;
-                                        strQuestion += L"\n\nPlease fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.";
-
-                                        MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
-                                        fAlertedToTruncation = true;
+                                        strOutputText.Format(L"Warning: Bogus entry in extension file with text '%S'.  Skipping.\n", aszFinalLine);
+                                        OutputDebugString(strOutputText);
+                                        continue;
                                     }
 
-                                    CStringA strFormat;
-                                    strFormat.Format("Broken: Truncated: %s", aszCurrDesc);
-                                    _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
-                                    nCurrStart = min(nCurrStart, static_cast<int>(m_nLoadedFileViewSize) - (16 * cbColorSize));
-                                    nCurrStart = max(nCurrStart, static_cast<int>(m_nUsableFileViewStart));
-                                    nCurrEnd = min(nCurrEnd, static_cast<int>(m_nLoadedFileViewSize));
-                                    nCurrEnd = max(nCurrEnd, static_cast<int>(nCurrStart) + (2 * cbColorSize));
+                                    memcpy(aszCurrDesc, aszFinalLine, nMaxDescLen);
+                                    aszCurrDesc[nMaxDescLen] = '\0';
+                                    break;
                                 }
+                                case 1:
+                                {
+                                    nCurrStart = strtoul(aszFinalLine, nullptr, 16);
+                                    break;
+                                }
+                                case 2:
+                                {
+                                    int nPos = 0;
 
-                                uint32_t nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
-                                const int nTotalPagesNeeded = static_cast<int>(ceil(static_cast<double>(nColorsUsed) / static_cast<double>(k_colorsPerPage)));
-                                int nCurrentPage = 1;
+                                    nCurrEnd = strtoul(aszFinalLine, nullptr, 16);
+
+                                    if (nCurrEnd == nCurrStart)
+                                    {
+                                        CString strError;
+                                        strError.Format(L"In file \"%s\", Extra \"%S\" is broken: starting offset 0x%x to ending offset 0x%x is zero-length.\n\n"
+                                            L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
+                                        MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+
+                                        CStringA strFormat;
+                                        strFormat.Format("Broken: Zero-Length: %s", aszCurrDesc);
+                                        _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
+                                        nCurrEnd = nCurrStart + (1 * cbColorSize);
+                                    }
+                                    else if (nCurrEnd < nCurrStart)
+                                    {
+                                        CString strError;
+                                        strError.Format(L"In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%x to ending offset 0x%x:"
+                                            L" that ending offset actually starts before the starting offset!\n\n"
+                                            L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
+                                        MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+
+                                        CStringA strFormat;
+                                        strFormat.Format("Broken: Negative: %s", aszCurrDesc);
+                                        _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
+
+                                        nCurrEnd = nCurrStart + (1 * cbColorSize);
+                                    }
+
+                                    // Validate that they're not trying to read off the end of the ROM...
+                                    if ((nCurrEnd > static_cast<int>(m_nLoadedFileViewSize)) || 
+                                        (nCurrStart >= static_cast<int>(m_nLoadedFileViewSize)) ||
+                                        (nCurrStart < static_cast<int>(m_nUsableFileViewStart))
+                                        )
+                                    {
+                                        if (!fAlertedToTruncation)
+                                        {
+                                            CString strQuestion, strAddendum;
+                                            strQuestion.Format(L"In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%x bytes. This Extra starts at offset 0x%x and ends at offset 0x%x.",
+                                                                 pszExtraFileName, aszCurrDesc, static_cast<int>(m_nLoadedFileViewSize), nCurrStart, nCurrEnd);
+
+                                            if (nCurrStart < static_cast<int>(m_nUsableFileViewStart))
+                                            {
+                                                strAddendum.Format(L"That won't work: the minimum offset usable for palettes is 0x%x.", static_cast<int>(m_nUsableFileViewStart));
+                                            }
+                                            else
+                                            {
+                                                strAddendum.Format(L"That won't work: the maximum ending offset possible is 0x%x.", static_cast<int>(nGameROMSize));
+                                            }
+                                        
+                                            strQuestion += strAddendum;
+                                            strQuestion += L"\n\nPlease fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.";
+
+                                            MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
+                                            fAlertedToTruncation = true;
+                                        }
+
+                                        CStringA strFormat;
+                                        strFormat.Format("Broken: Truncated: %s", aszCurrDesc);
+                                        _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
+                                        nCurrStart = min(nCurrStart, static_cast<int>(m_nLoadedFileViewSize) - (16 * cbColorSize));
+                                        nCurrStart = max(nCurrStart, static_cast<int>(m_nUsableFileViewStart));
+                                        nCurrEnd = min(nCurrEnd, static_cast<int>(m_nLoadedFileViewSize));
+                                        nCurrEnd = max(nCurrEnd, static_cast<int>(nCurrStart) + (2 * cbColorSize));
+                                    }
+
+                                    uint32_t nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
+                                    const int nTotalPagesNeeded = static_cast<int>(ceil(static_cast<double>(nColorsUsed) / static_cast<double>(k_colorsPerPage)));
+                                    int nCurrentPage = 1;
 
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
-                                CString strText;
+                                    CString strText;
 
-                                // Do we want to autoslice at 128 or 256 colors...?  Probably 128, so let's use that here.
-                                bool fPaletteUsesMultiplePages = (nColorsUsed > PAL_MAXAMT_8COLORSPERLINE);
+                                    // ensure we have node/units here
+                                    if (vUnitData.empty())
+                                    {
+                                        // force a dummy unit
+                                        UnitData thisUnit = { strCurrentUnit.GetString(), strCurrentUnit.GetString() };
+                                        vUnitData.push_back(thisUnit);
+                                    }
 
-                                if (!fPaletteUsesMultiplePages)
-                                {
-                                    strText.Format(L"    { L\"%S\", 0x%x, 0x%x },\r\n", aszCurrDesc, nCurrStart, nCurrEnd);
-                                    OutputDebugString(strText);
-                                }
+                                    if (vUnitData.back().vNodeData.empty())
+                                    {
+                                        if (vUnitData.size() != 1)
+                                        {
+                                            // Close previous set
+                                            OutputDebugString(L"};\r\n\r\n");
+                                        }
+
+                                        strText.Format(L"GAMENAME_%s_Default", vUnitData.back().strPrintName.c_str());
+                                        
+                                        NodeData thisNode = { strText.GetString(), L"Palettes" };
+                                        vUnitData.back().vNodeData.push_back(thisNode);
+                                        
+                                        thisNode.PrintPaletteSetHeader();
+                                    }
+
+                                    // Do we want to autoslice at 128 or 256 colors...?  Probably 128, so let's use that here.
+                                    bool fPaletteUsesMultiplePages = (nColorsUsed > PAL_MAXAMT_8COLORSPERLINE);
+
+                                    if (!fPaletteUsesMultiplePages)
+                                    {
+                                        strText.Format(L"    { L\"%S\", 0x%x, 0x%x },\r\n", aszCurrDesc, nCurrStart, nCurrEnd);
+                                        OutputDebugString(strText);
+                                    }
 #endif
 
-                                // I don't believe we care about color mode right here since we only support
-                                // COLMODE12 and COLMODE_15 right now.
-                                while (nColorsUsed > 0)
-                                {
-                                    int nCurrentPaletteEntries = 0;
-
-                                    if (nPos)
+                                    // I don't believe we care about color mode right here since we only support
+                                    // COLMODE12 and COLMODE_15 right now.
+                                    while (nColorsUsed > 0)
                                     {
-                                        // Create a new extra node item if the range for this complete item is over PAL_MAXAMT_8COLORSPERLINE.
-                                        nTotalExtensionExtraLinesHandled += 3;
-                                    }
+                                        int nCurrentPaletteEntries = 0;
 
-                                    // If you wanted to fit long palettes on one page you would need to remove this 
-                                    // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
-                                    // call that from CGame_*::UpdatePalImg
-                                    if (nColorsUsed > k_colorsPerPage)
-                                    {
-                                        nCurrentPaletteEntries = k_colorsPerPage;
-
-                                        nColorsUsed -= k_colorsPerPage;
-                                    }
-                                    else
-                                    {
-                                        nCurrentPaletteEntries = nColorsUsed;
-                                        nColorsUsed = 0;
-                                    }
-
-                                    nArrayOffsetDesired = nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3);
-
-                                    if (nArrayOffsetDesired < nMaxExtraBufferSize)
-                                    {
-                                        stExtraDef* pDefToSplit = &prgTempExtraBuffer[nArrayOffsetDesired];
-
-                                        pDefToSplit->uUnitN = nExtraUnitStart;
-                                        if (nTotalPagesNeeded > 1)
+                                        if (nPos)
                                         {
-                                            //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                            _snwprintf(pDefToSplit->szDesc, sizeof(pDefToSplit->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
+                                            // Create a new extra node item if the range for this complete item is over PAL_MAXAMT_8COLORSPERLINE.
+                                            nTotalExtensionExtraLinesHandled += 3;
+                                        }
+
+                                        // If you wanted to fit long palettes on one page you would need to remove this 
+                                        // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
+                                        // call that from CGame_*::UpdatePalImg
+                                        if (nColorsUsed > k_colorsPerPage)
+                                        {
+                                            nCurrentPaletteEntries = k_colorsPerPage;
+
+                                            nColorsUsed -= k_colorsPerPage;
                                         }
                                         else
                                         {
-                                            _snwprintf(pDefToSplit->szDesc, sizeof(pDefToSplit->szDesc), L"%S", aszCurrDesc);
-                                            //pCurrDef->isInvisible = false;
+                                            nCurrentPaletteEntries = nColorsUsed;
+                                            nColorsUsed = 0;
                                         }
 
-                                        pDefToSplit->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
-                                        pDefToSplit->cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
-                                        pDefToSplit->isInvisible = false;
+                                        nArrayOffsetDesired = nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3);
+
+                                        if (nArrayOffsetDesired < nMaxExtraBufferSize)
+                                        {
+                                            stExtraDef* pDefToSplit = &prgTempExtraBuffer[nArrayOffsetDesired];
+
+                                            pDefToSplit->uUnitN = nExtraUnitStart;
+                                            if (nTotalPagesNeeded > 1)
+                                            {
+                                                //pCurrDef->isInvisible = (nCurrentPage == 1);
+                                                _snwprintf(pDefToSplit->szDesc, sizeof(pDefToSplit->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
+                                            }
+                                            else
+                                            {
+                                                _snwprintf(pDefToSplit->szDesc, sizeof(pDefToSplit->szDesc), L"%S", aszCurrDesc);
+                                                //pCurrDef->isInvisible = false;
+                                            }
+
+                                            pDefToSplit->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
+                                            pDefToSplit->cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
+                                            pDefToSplit->isInvisible = false;
 
 #ifdef DUMP_EXTRAS_ON_LOAD
-                                        if (fPaletteUsesMultiplePages)
-                                        {
-                                            strText.Format(L"    { L\"%s\", 0x%x, 0x%x },\r\n", pDefToSplit->szDesc, pDefToSplit->uOffset, pDefToSplit->uOffset + pDefToSplit->cbPaletteSize);
-                                            OutputDebugString(strText);
-                                        }
+                                            if (fPaletteUsesMultiplePages)
+                                            {
+                                                strText.Format(L"    { L\"%s\", 0x%x, 0x%x },\r\n", pDefToSplit->szDesc, pDefToSplit->uOffset, pDefToSplit->uOffset + pDefToSplit->cbPaletteSize);
+                                                OutputDebugString(strText);
+                                            }
 #endif
-                                    }
+                                        }
 
-                                    // Ensure that if we loop through here again we are using a new Extra node item
-                                    nPos++;
-                                }
-                                break;
-                            } // end case 2
+                                        // Ensure that if we loop through here again we are using a new Extra node item
+                                        nPos++;
+                                    }
+                                    break;
+                                } // end case 2
                             } // end switch
 
                             nTotalExtensionExtraLinesHandled++;
                         }
-                        else if ((nExtraUnitStart == 0) && // Only allow overrides for developer mode
-                                (nTotalExtensionExtraLinesHandled == 0)) // Only allow overrides before we parse color entries
-                        {
-                            typedef void (*overrideFunction)(LPCSTR);
-
-                            std::map<LPCSTR, overrideFunction> rgOverrideMap =
-                            {
-                                { m_kpszGameNameKey, SetGameNameOverride },
-                                { m_kpszColorFormatKey, SetColorFormatOverride },
-                                { m_kpszAlphaModeKey, SetAlphaOverride },
-                            };
-
-                            for (const auto& [key, override] : rgOverrideMap)
-                            {
-                                // Special allowance here for super secret items
-                                const uint32_t nKeyLength = static_cast<uint32_t>(strlen(key));
-                                if (_strnicmp(aszFinalLine, key, nKeyLength) == 0)
-                                {
-                                    uint32_t nNameLength = static_cast<uint32_t>(strlen(aszFinalLine + nKeyLength));
-                                    override(aszFinalLine + nKeyLength);
-                                    break;
-                                }
-                            }
-                        }
                         else
                         {
+                            bool fHandled = false;
+
+                            if ((nExtraUnitStart == 0) && // Only allow overrides for developer mode
+                                (nTotalExtensionExtraLinesHandled == 0)) // Only allow overrides before we parse color entries
+                            {
+                                typedef void (*overrideFunction)(LPCSTR);
+
+                                std::map<LPCSTR, overrideFunction> rgOverrideMap =
+                                {
+                                    { m_kpszGameNameKey, SetGameNameOverride },
+                                    { m_kpszColorFormatKey, SetColorFormatOverride },
+                                    { m_kpszAlphaModeKey, SetAlphaOverride },
+                                };
+
+                                for (const auto& [key, override] : rgOverrideMap)
+                                {
+                                    // Special allowance here for super secret items
+                                    const uint32_t nKeyLength = static_cast<uint32_t>(strlen(key));
+                                    if (_strnicmp(aszFinalLine, key, nKeyLength) == 0)
+                                    {
+                                        uint32_t nNameLength = static_cast<uint32_t>(strlen(aszFinalLine + nKeyLength));
+                                        override(aszFinalLine + nKeyLength);
+                                        fHandled = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        
+                            if (!fHandled)
+                            {
 #ifdef DUMP_EXTRAS_ON_LOAD
-                            static CString strCurrentUnit = L"Unknown";
-                            if (strncmp(aszFinalLine, ";---", 4) == 0) // Unit
-                            {
-                                wchar_t szPrintable[MAX_PATH];
-                                strCurrentUnit.Format(L"%S", aszFinalLine + 4);
-                                StrRemoveNonASCII(szPrintable, MAX_PATH, strCurrentUnit.GetString());
-
-                                bool fFoundExisting = false;
-
-                                for (UnitData& unitCheck : vUnitData)
+                                if ((strncmp(aszFinalLine, ";---", 4) == 0) && (aszFinalLine[4] != '-')) // Unit
                                 {
-                                    if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                    wchar_t szPrintable[MAX_PATH];
+                                    strCurrentUnit.Format(L"%S", aszFinalLine + 4);
+                                    StrRemoveNonASCII(szPrintable, MAX_PATH, strCurrentUnit.GetString());
+
+                                    bool fFoundExisting = false;
+
+                                    for (UnitData& unitCheck : vUnitData)
                                     {
-                                        fFoundExisting = true;
-                                        break;
+                                        if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                        {
+                                            fFoundExisting = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (!fFoundExisting)
+                                    {
+                                        UnitData thisUnit = { szPrintable, strCurrentUnit.GetString() };
+                                        vUnitData.push_back(thisUnit);
                                     }
                                 }
-
-                                if (!fFoundExisting)
+                                else if ((strncmp(aszFinalLine, ";--", 3) == 0) && (aszFinalLine[3] != '-')) // Node
                                 {
-                                    UnitData thisUnit = { szPrintable, strCurrentUnit.GetString() };
-                                    vUnitData.push_back(thisUnit);
-                                }
-                            }
-                            else if (strncmp(aszFinalLine, ";--", 3) == 0) // Node
-                            {
-                                CString strText, strFriendlyName;
-                                wchar_t szPrintableNodeName[MAX_PATH];
+                                    CString strText, strFriendlyName;
+                                    wchar_t szPrintableNodeName[MAX_PATH];
 
-                                strFriendlyName.Format(L"%S", aszFinalLine + 3);
-                                StrRemoveNonASCII(szPrintableNodeName, MAX_PATH, strFriendlyName.GetString());
+                                    strFriendlyName.Format(L"%S", aszFinalLine + 3);
+                                    StrRemoveNonASCII(szPrintableNodeName, MAX_PATH, strFriendlyName.GetString());
 
-                                if (vUnitData.size())
-                                {
-                                    OutputDebugString(L"};\r\n\r\n");
-                                }
-
-                                if (vUnitData.empty())
-                                {
-                                    // force a dummy unit
-                                    strCurrentUnit = L"UNNAMED";
-                                    UnitData thisUnit = { strCurrentUnit.GetString(), strCurrentUnit.GetString() };
-                                    vUnitData.push_back(thisUnit);
-                                }
-
-                                CString strNodeRef;
-                                strNodeRef.Format(L"GAMENAME_%s_%s", strCurrentUnit.GetString(), szPrintableNodeName);
-                                strText.Format(L"const sGame_PaletteDataset %s[] =\r\n{\r\n", strNodeRef.GetString());
-                                OutputDebugString(strText);
-
-                                for (UnitData& unitCheck : vUnitData)
-                                {
-                                    if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                    if (vUnitData.size())
                                     {
-                                        NodeData thisNode = { strNodeRef.GetString(), strFriendlyName.GetString() };
-                                        unitCheck.vNodeData.push_back(thisNode);
-                                        break;
+                                        OutputDebugString(L"};\r\n\r\n");
+                                    }
+
+                                    if (vUnitData.empty())
+                                    {
+                                        // force a dummy unit
+                                        UnitData thisUnit = { strCurrentUnit.GetString(), strCurrentUnit.GetString() };
+                                        vUnitData.push_back(thisUnit);
+                                    }
+
+                                    CString strNodeRef;
+                                    strNodeRef.Format(L"GAMENAME_%s_%s", strCurrentUnit.GetString(), szPrintableNodeName);
+
+                                    NodeData thisNode = { strNodeRef.GetString(), strFriendlyName.GetString() };
+                                    thisNode.PrintPaletteSetHeader();
+
+                                    for (UnitData& unitCheck : vUnitData)
+                                    {
+                                        if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                        {
+                                            unitCheck.vNodeData.push_back(thisNode);
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            else if (aszFinalLine[0] == ';')
-                            {
-                                CString strComment;
-                                strComment.Format(L"// %S\r\n", aszFinalLine + 1);
-                                OutputDebugString(strComment);
-                            }
+                                else if (aszFinalLine[0] == ';')
+                                {
+                                    CString strComment;
+                                    strComment.Format(L"// %S\r\n", aszFinalLine + 1);
+                                    OutputDebugString(strComment);
+                                }
 #endif
+                            }
                         }
                     }
                 }
@@ -604,25 +645,36 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                     for (auto& unitEntry : vUnitData)
                     {
-                        strText.Format(L"const sDescTreeNode GAMENAME_%s_COLLECTION[] =\r\n{\r\n", unitEntry.strPrintName.c_str());
-                        OutputDebugString(strText.GetString());
-
-                        for (auto& nodeEntry : unitEntry.vNodeData)
+                        if (!unitEntry.vNodeData.empty())
                         {
-                            strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)%s, ARRAYSIZE(%s) },\r\n", nodeEntry.strDisplayName.c_str(), nodeEntry.strPrintName.c_str(), nodeEntry.strPrintName.c_str());
+                            strText.Format(L"const sDescTreeNode GAMENAME_%s_COLLECTION[] =\r\n{\r\n", unitEntry.strPrintName.c_str());
                             OutputDebugString(strText.GetString());
-                            nNodeIndex++;
-                        }
 
-                        OutputDebugString(L"};\r\n\r\n");
+                            for (auto& nodeEntry : unitEntry.vNodeData)
+                            {
+                                strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)%s, ARRAYSIZE(%s) },\r\n", nodeEntry.strDisplayName.c_str(), nodeEntry.strPrintName.c_str(), nodeEntry.strPrintName.c_str());
+                                OutputDebugString(strText.GetString());
+                                nNodeIndex++;
+                            }
+
+                            OutputDebugString(L"};\r\n\r\n");
+                        }
                     }
 
                     OutputDebugString(L"const sDescTreeNode GAMENAME_UNITS[] =\r\n{\r\n");
 
                     for (auto& unitEntry : vUnitData)
                     {
-                        strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)GAMENAME_%s_COLLECTION, ARRAYSIZE(GAMENAME_%s_COLLECTION) },\r\n", unitEntry.strDisplayName.c_str(), unitEntry.strPrintName.c_str(), unitEntry.strPrintName.c_str());
-                        OutputDebugString(strText.GetString());
+                        if (!unitEntry.vNodeData.empty())
+                        {
+                            strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)GAMENAME_%s_COLLECTION, ARRAYSIZE(GAMENAME_%s_COLLECTION) },\r\n", unitEntry.strDisplayName.c_str(), unitEntry.strPrintName.c_str(), unitEntry.strPrintName.c_str());
+                            OutputDebugString(strText.GetString());
+                        }
+                        else
+                        {
+                            strText.Format(L"// WARNING: unit \'%s\' is empty and has no nodes.\r\n", unitEntry.strPrintName.c_str());
+                            OutputDebugString(strText.GetString());
+                        }
                     }
 
                     OutputDebugString(L"};\r\n\r\n");
