@@ -45,51 +45,51 @@ namespace ColorSystem
     {
         switch (colorMode)
         {
-        default:
-            OutputDebugString(L"ERROR: Unsupported color mode: this will not work correctly.\r\n");
-            __fallthrough;
-        case ColMode::COLMODE_BGR333:
-        case ColMode::COLMODE_RBG333:
-        case ColMode::COLMODE_RGB333:
+            default:
+                OutputDebugString(L"ERROR: Unsupported color mode: this will not work correctly.\r\n");
+                __fallthrough;
+            case ColMode::COLMODE_BGR333:
+            case ColMode::COLMODE_RBG333:
+            case ColMode::COLMODE_RGB333:
 
-        case ColMode::COLMODE_BGR444:
-        case ColMode::COLMODE_BRG444:
-        case ColMode::COLMODE_RBG444:
-        case ColMode::COLMODE_RGB444_BE:
-        case ColMode::COLMODE_RGB444_LE:
+            case ColMode::COLMODE_BGR444:
+            case ColMode::COLMODE_BRG444:
+            case ColMode::COLMODE_RBG444:
+            case ColMode::COLMODE_RGB444_BE:
+            case ColMode::COLMODE_RGB444_LE:
 
-        case ColMode::COLMODE_BGR555_LE:
-        case ColMode::COLMODE_BGR555_BE:
-        case ColMode::COLMODE_xBGR555_LE:
-        case ColMode::COLMODE_RGB555_LE_CPS3:
-        case ColMode::COLMODE_RGB555_LE_NORMAL:
-        case ColMode::COLMODE_RGB555_BE:
-        case ColMode::COLMODE_RGB555_SHARP:
+            case ColMode::COLMODE_BGR555_LE:
+            case ColMode::COLMODE_BGR555_BE:
+            case ColMode::COLMODE_xBGR555_LE:
+            case ColMode::COLMODE_RGB555_LE_CPS3:
+            case ColMode::COLMODE_RGB555_LE_NORMAL:
+            case ColMode::COLMODE_RGB555_BE:
+            case ColMode::COLMODE_RGB555_SHARP:
 
-        case ColMode::COLMODE_GRB555_LE:
-        case ColMode::COLMODE_GRB555_BE:
-        case ColMode::COLMODE_BRG555_LE:
-        case ColMode::COLMODE_RGB666_NEOGEO:
-            return 2;
+            case ColMode::COLMODE_GRB555_LE:
+            case ColMode::COLMODE_GRB555_BE:
+            case ColMode::COLMODE_BRG555_LE:
+            case ColMode::COLMODE_RGB666_NEOGEO:
+                return 2;
 
-        case ColMode::COLMODE_BGR888:
-        case ColMode::COLMODE_BRG888:
-        case ColMode::COLMODE_GRB888:
-        case ColMode::COLMODE_RGB888:
-            return 3;
+            case ColMode::COLMODE_BGR888:
+            case ColMode::COLMODE_BRG888:
+            case ColMode::COLMODE_GRB888:
+            case ColMode::COLMODE_RGB888:
+                return 3;
 
-        case ColMode::COLMODE_RGBA8887:
-        case ColMode::COLMODE_RGBA8881:
-        case ColMode::COLMODE_RGBA8881_32STEPS:
-        case ColMode::COLMODE_RGBA8888_BE:
-        case ColMode::COLMODE_RGBA8888_LE:
-        case ColMode::COLMODE_BGRA8888_BE:
-        case ColMode::COLMODE_BGRA8888_LE:
-        case ColMode::COLMODE_RBGA8888_LE:
-        case ColMode::COLMODE_RGBA8888_BE16:
-        // This is a very weird one
-        case ColMode::COLMODE_NEOTURFMASTERS:
-            return 4;
+            case ColMode::COLMODE_RGBA8887:
+            case ColMode::COLMODE_RGBA8881:
+            case ColMode::COLMODE_RGBA8881_32STEPS:
+            case ColMode::COLMODE_RGBA8888_BE:
+            case ColMode::COLMODE_RGBA8888_LE:
+            case ColMode::COLMODE_BGRA8888_BE:
+            case ColMode::COLMODE_BGRA8888_LE:
+            case ColMode::COLMODE_RBGA8888_LE:
+            case ColMode::COLMODE_RGBA8888_BE16:
+            // This is a very weird one
+            case ColMode::COLMODE_NEOTURFMASTERS:
+                return 4;
         }
 
         return 2;
@@ -281,24 +281,24 @@ namespace ColorSystem
     {
         switch (uMostlyObsoleteGameFlag)
         {
-        case DBFCI_A:
-        case GGXXACR_S:
-        case GGXXACR_P:
-        case MBAACC_S:
-        case UNICLR_A:
-            return 4;
-        case DUMMY_RGB888:
-        case DUMMY_BGR888:
-            return 3;
-        default:
-            if (uMostlyObsoleteGameFlag == k_nRawColorStringOverflowIndicator)
-            {
-                ColMode colorMode = DecodeColorFlag(uPossibleColorFlag);
+            case DBFCI_A:
+            case GGXXACR_S:
+            case GGXXACR_P:
+            case MBAACC_S:
+            case UNICLR_A:
+                return 4;
+            case DUMMY_RGB888:
+            case DUMMY_BGR888:
+                return 3;
+            default:
+                if (uMostlyObsoleteGameFlag == k_nRawColorStringOverflowIndicator)
+                {
+                    ColMode colorMode = DecodeColorFlag(uPossibleColorFlag);
 
-                return GetCbForColMode(colorMode);
-            }
+                    return GetCbForColMode(colorMode);
+                }
 
-            return 2;
+                return 2;
         }
     }
 
@@ -306,91 +306,91 @@ namespace ColorSystem
     {
         switch (colorMode)
         {
-        case ColMode::COLMODE_BGR333:
-        case ColMode::COLMODE_RBG333:
-        case ColMode::COLMODE_RGB333:
-            return k_nRGBPlaneAmtForRGB333;
+            case ColMode::COLMODE_BGR333:
+            case ColMode::COLMODE_RBG333:
+            case ColMode::COLMODE_RGB333:
+                return k_nRGBPlaneAmtForRGB333;
 
-        case ColMode::COLMODE_BGR444:
-        case ColMode::COLMODE_BRG444:
-        case ColMode::COLMODE_RBG444:
-        case ColMode::COLMODE_RGB444_BE:
-        case ColMode::COLMODE_RGB444_LE:
-            return k_nRGBPlaneAmtForRGB444;
+            case ColMode::COLMODE_BGR444:
+            case ColMode::COLMODE_BRG444:
+            case ColMode::COLMODE_RBG444:
+            case ColMode::COLMODE_RGB444_BE:
+            case ColMode::COLMODE_RGB444_LE:
+                return k_nRGBPlaneAmtForRGB444;
 
-        case ColMode::COLMODE_BGR555_LE:
-        case ColMode::COLMODE_BGR555_BE:
-        case ColMode::COLMODE_xBGR555_LE:
-        case ColMode::COLMODE_RGB555_LE_NORMAL:
-        case ColMode::COLMODE_RGB555_BE:
-        case ColMode::COLMODE_GRB555_LE:
-        case ColMode::COLMODE_GRB555_BE:
-        case ColMode::COLMODE_BRG555_LE:
-        case ColMode::COLMODE_RGB555_SHARP:
-            if (Flag == ColFlag::COL_A)
-            {
-                return k_nRGBPlaneAmtForRGB111;
-            }
-            else
-            {
-                return k_nRGBPlaneAmtForRGB555_Normal;
-            }
-        case ColMode::COLMODE_RGB555_LE_CPS3:
-            if (Flag == ColFlag::COL_A)
-            {
-                return k_nRGBPlaneAmtForRGB111;
-            }
-            else
-            {
-                return k_nRGBPlaneAmtForRGB555_CPS3;
-            }
+            case ColMode::COLMODE_BGR555_LE:
+            case ColMode::COLMODE_BGR555_BE:
+            case ColMode::COLMODE_xBGR555_LE:
+            case ColMode::COLMODE_RGB555_LE_NORMAL:
+            case ColMode::COLMODE_RGB555_BE:
+            case ColMode::COLMODE_GRB555_LE:
+            case ColMode::COLMODE_GRB555_BE:
+            case ColMode::COLMODE_BRG555_LE:
+            case ColMode::COLMODE_RGB555_SHARP:
+                if (Flag == ColFlag::COL_A)
+                {
+                    return k_nRGBPlaneAmtForRGB111;
+                }
+                else
+                {
+                    return k_nRGBPlaneAmtForRGB555_Normal;
+                }
+            case ColMode::COLMODE_RGB555_LE_CPS3:
+                if (Flag == ColFlag::COL_A)
+                {
+                    return k_nRGBPlaneAmtForRGB111;
+                }
+                else
+                {
+                    return k_nRGBPlaneAmtForRGB555_CPS3;
+                }
 
-        case ColMode::COLMODE_RGB666_NEOGEO:
-        case ColMode::COLMODE_NEOTURFMASTERS:
-            return k_nRGBPlaneAmtForNeoGeo;
+            case ColMode::COLMODE_RGB666_NEOGEO:
+            case ColMode::COLMODE_NEOTURFMASTERS:
+                return k_nRGBPlaneAmtForNeoGeo;
 
-        case ColMode::COLMODE_RGBA8881:
-            if (Flag == ColFlag::COL_A)
-            {
-                return k_nRGBPlaneAmtForRGB111;
-            }
-            else
-            {
+            case ColMode::COLMODE_RGBA8881:
+                if (Flag == ColFlag::COL_A)
+                {
+                    return k_nRGBPlaneAmtForRGB111;
+                }
+                else
+                {
+                    return k_nRGBPlaneAmtForRGB888;
+                }
+            case ColMode::COLMODE_RGBA8881_32STEPS:
+                if (Flag == ColFlag::COL_A)
+                {
+                    return k_nRGBPlaneAmtForRGB111;
+                }
+                else
+                {
+                    return k_nRGBPlaneAmtForRGB555_Normal;
+                }
+            case ColMode::COLMODE_RGBA8887:
+                if (Flag == ColFlag::COL_A)
+                {
+                    return k_nRGBPlaneAmtForHalfAlpha;
+                }
+                else
+                {
+                    return k_nRGBPlaneAmtForRGB888;
+                }
+
+            case ColMode::COLMODE_RGBA8888_BE:
+            case ColMode::COLMODE_RGBA8888_LE:
+            case ColMode::COLMODE_BGRA8888_BE:
+            case ColMode::COLMODE_BGRA8888_LE:
+            case ColMode::COLMODE_BGR888:
+            case ColMode::COLMODE_BRG888:
+            case ColMode::COLMODE_GRB888:
+            case ColMode::COLMODE_RGB888:
+            case ColMode::COLMODE_RBGA8888_LE:
+            case ColMode::COLMODE_RGBA8888_BE16:
                 return k_nRGBPlaneAmtForRGB888;
-            }
-        case ColMode::COLMODE_RGBA8881_32STEPS:
-            if (Flag == ColFlag::COL_A)
-            {
-                return k_nRGBPlaneAmtForRGB111;
-            }
-            else
-            {
-                return k_nRGBPlaneAmtForRGB555_Normal;
-            }
-        case ColMode::COLMODE_RGBA8887:
-            if (Flag == ColFlag::COL_A)
-            {
-                return k_nRGBPlaneAmtForHalfAlpha;
-            }
-            else
-            {
-                return k_nRGBPlaneAmtForRGB888;
-            }
-
-        case ColMode::COLMODE_RGBA8888_BE:
-        case ColMode::COLMODE_RGBA8888_LE:
-        case ColMode::COLMODE_BGRA8888_BE:
-        case ColMode::COLMODE_BGRA8888_LE:
-        case ColMode::COLMODE_BGR888:
-        case ColMode::COLMODE_BRG888:
-        case ColMode::COLMODE_GRB888:
-        case ColMode::COLMODE_RGB888:
-        case ColMode::COLMODE_RBGA8888_LE:
-        case ColMode::COLMODE_RGBA8888_BE16:
-            return k_nRGBPlaneAmtForRGB888;
-        default:
-            OutputDebugString(L"ERROR: unsupported color mode in GetPlaneAmtForColor.\r\n");
-            return 0;
+            default:
+                OutputDebugString(L"ERROR: unsupported color mode in GetPlaneAmtForColor.\r\n");
+                return 0;
         }
     }
 
@@ -474,12 +474,12 @@ namespace ColorSystem
     {
         switch (CurrAlphaMode)
         {
-        case AlphaMode::GameUsesFixedAlpha:
-            return nFullValueAlpha;
-        case AlphaMode::GameDoesNotUseAlpha:
-            return 0;
-        default:
-            return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nFullValueAlpha;
+            case AlphaMode::GameUsesFixedAlpha:
+                return nFullValueAlpha;
+            case AlphaMode::GameDoesNotUseAlpha:
+                return 0;
+            default:
+                return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nFullValueAlpha;
         }
     }
 
@@ -1798,36 +1798,36 @@ namespace ColorSystem
 
         switch (nPlaneLength)
         {
-        default:
-            OutputDebugString(L"ERROR: You're not handling a new plane length!\r\n");
-        case k_nRGBPlaneAmtForRGB111:
-            return Get8BitValueForColorStep_1Step(nColorStep);
-        case k_nRGBPlaneAmtForRGB333:
-            return Get8BitValueForColorStep_8Steps(nColorStep);
-        case k_nRGBPlaneAmtForRGB444 :
-            return Get8BitValueForColorStep_16Steps(nColorStep);
-        case k_nRGBPlaneAmtForRGB555_CPS3: // 30
-            return Get8BitValueForColorStep_31Steps(nColorStep);
-        case k_nRGBPlaneAmtForRGB555_Normal: //31
-            // case k_nRGBPlaneAmtForNeoGeo: // also 31
-            if ((colorMode == ColMode::COLMODE_RGB666_NEOGEO) ||
-                (colorMode == ColMode::COLMODE_NEOTURFMASTERS))
-            {
-                return Get8BitValueForColorStep_NeoGeoCLUT(nColorStep);
-            }
-            else if (colorMode == ColMode::COLMODE_RGB555_SHARP)
-            {
-                return Get8BitValueForColorStep_32Steps_SharpCLUT(nColorStep);
-            }
-            else
-            {
-                return Get8BitValueForColorStep_32Steps(nColorStep);
-            }
-        case k_nRGBPlaneAmtForHalfAlpha:
-            return Get8BitValueForColorStep_HalfAlpha(nColorStep);
-        case k_nRGBPlaneAmtForRGB888:
-            return Get8BitValueForColorStep_256Steps(nColorStep);
-        };
+            default:
+                OutputDebugString(L"ERROR: You're not handling a new plane length!\r\n");
+            case k_nRGBPlaneAmtForRGB111:
+                return Get8BitValueForColorStep_1Step(nColorStep);
+            case k_nRGBPlaneAmtForRGB333:
+                return Get8BitValueForColorStep_8Steps(nColorStep);
+            case k_nRGBPlaneAmtForRGB444 :
+                return Get8BitValueForColorStep_16Steps(nColorStep);
+            case k_nRGBPlaneAmtForRGB555_CPS3: // 30
+                return Get8BitValueForColorStep_31Steps(nColorStep);
+            case k_nRGBPlaneAmtForRGB555_Normal: //31
+                // case k_nRGBPlaneAmtForNeoGeo: // also 31
+                if ((colorMode == ColMode::COLMODE_RGB666_NEOGEO) ||
+                    (colorMode == ColMode::COLMODE_NEOTURFMASTERS))
+                {
+                    return Get8BitValueForColorStep_NeoGeoCLUT(nColorStep);
+                }
+                else if (colorMode == ColMode::COLMODE_RGB555_SHARP)
+                {
+                    return Get8BitValueForColorStep_32Steps_SharpCLUT(nColorStep);
+                }
+                else
+                {
+                    return Get8BitValueForColorStep_32Steps(nColorStep);
+                }
+            case k_nRGBPlaneAmtForHalfAlpha:
+                return Get8BitValueForColorStep_HalfAlpha(nColorStep);
+            case k_nRGBPlaneAmtForRGB888:
+                return Get8BitValueForColorStep_256Steps(nColorStep);
+        }
     }
 
     int GetNearestLegalColorValue_RGB111(int nColorValue)
@@ -2011,25 +2011,26 @@ namespace ColorSystem
 
             uint8_t Vint = static_cast<uint8_t>(V);
 
-            switch (i) {
-            case 0:
-                r = Vint; g = t; b = p;
-                break;
-            case 1:
-                r = q; g = Vint; b = p;
-                break;
-            case 2:
-                r = p; g = Vint; b = t;
-                break;
-            case 3:
-                r = p; g = q; b = Vint;
-                break;
-            case 4:
-                r = t; g = p; b = Vint;
-                break;
-            case 5:
-                r = Vint; g = p; b = q;
-                break;
+            switch (i)
+            {
+                case 0:
+                    r = Vint; g = t; b = p;
+                    break;
+                case 1:
+                    r = q; g = Vint; b = p;
+                    break;
+                case 2:
+                    r = p; g = Vint; b = t;
+                    break;
+                case 3:
+                    r = p; g = q; b = Vint;
+                    break;
+                case 4:
+                    r = t; g = p; b = Vint;
+                    break;
+                case 5:
+                    r = Vint; g = p; b = q;
+                    break;
             }
         }
 

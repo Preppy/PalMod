@@ -17,15 +17,15 @@ sFileRule CGame_JOJOS_A_DIR::GetRuleInternal(uint32_t nUnitId, JojosLoadingKey n
 
     switch (nVersionToLoad)
     {
-    case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
-        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
-        break;
-    case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
-    default:
-        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_51Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_51Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
-        break;
+        case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
+            wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
+            NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
+            break;
+        case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
+        default:
+            wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_51Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
+            NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_51Rerip.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
+            break;
     }
 
     NewFileRule.uUnitId = nUnitId;
@@ -42,13 +42,13 @@ sFileRule CGame_JOJOS_A_DIR::GetNextRuleInternal(JojosLoadingKey nVersionToLoad)
 
     switch (nVersionToLoad)
     {
-    case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
-        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_50Rerip.rgRuleList.size());
-        break;
-    case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
-    default:
-        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_51Rerip.rgRuleList.size());
-        break;
+        case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
+            nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_50Rerip.rgRuleList.size());
+            break;
+        case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
+        default:
+            nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_51Rerip.rgRuleList.size());
+            break;
     }
 
     if (m_uRuleCtr >= nMaxRuleNumber)
@@ -69,13 +69,13 @@ uint32_t CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     // 51 maps to 5.4-5.7
     switch (m_eVersionToLoad)
     {
-    case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
-        // We want the first four files
-        break;
-    case JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP:
-    default:
-        nSIMMNumber = 4;
-        break;
+        case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
+            // We want the first four files
+            break;
+        case JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP:
+        default:
+            nSIMMNumber = 4;
+            break;
     }
 
     // OK, so the old 51 ROM in the SIMM redump is interleaved.

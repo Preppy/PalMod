@@ -177,63 +177,63 @@ bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cu
 
     switch (NewMode)
     {
-    case ColMode::COLMODE_BGR333:
-    case ColMode::COLMODE_RBG333:
-    case ColMode::COLMODE_RGB333:
-    case ColMode::COLMODE_RGB555_SHARP:
-    case ColMode::COLMODE_BGR444:
-    case ColMode::COLMODE_BRG444:
-    case ColMode::COLMODE_RBG444:
-    case ColMode::COLMODE_RGB444_BE:
-    case ColMode::COLMODE_RGB444_LE:
+        case ColMode::COLMODE_BGR333:
+        case ColMode::COLMODE_RBG333:
+        case ColMode::COLMODE_RGB333:
+        case ColMode::COLMODE_RGB555_SHARP:
+        case ColMode::COLMODE_BGR444:
+        case ColMode::COLMODE_BRG444:
+        case ColMode::COLMODE_RBG444:
+        case ColMode::COLMODE_RGB444_BE:
+        case ColMode::COLMODE_RGB444_LE:
 
-    case ColMode::COLMODE_BGR555_LE:
-    case ColMode::COLMODE_BGR555_BE:
-    case ColMode::COLMODE_GRB555_LE:
-    case ColMode::COLMODE_GRB555_BE:
-    case ColMode::COLMODE_BRG555_LE:
-        cbRequiredColorSize = 2;
-        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        break;
+        case ColMode::COLMODE_BGR555_LE:
+        case ColMode::COLMODE_BGR555_BE:
+        case ColMode::COLMODE_GRB555_LE:
+        case ColMode::COLMODE_GRB555_BE:
+        case ColMode::COLMODE_BRG555_LE:
+            cbRequiredColorSize = 2;
+            suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+            break;
 
-    case ColMode::COLMODE_RGB555_LE_CPS3:
-    case ColMode::COLMODE_RGB555_LE_NORMAL:
-    case ColMode::COLMODE_xBGR555_LE:
-    case ColMode::COLMODE_RGB555_BE:
-        cbRequiredColorSize = 2;
-        suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        break;
+        case ColMode::COLMODE_RGB555_LE_CPS3:
+        case ColMode::COLMODE_RGB555_LE_NORMAL:
+        case ColMode::COLMODE_xBGR555_LE:
+        case ColMode::COLMODE_RGB555_BE:
+            cbRequiredColorSize = 2;
+            suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
+            break;
 
-    case ColMode::COLMODE_BGR888:
-    case ColMode::COLMODE_BRG888:
-    case ColMode::COLMODE_GRB888:
-    case ColMode::COLMODE_RGB888:
-        cbRequiredColorSize = 3;
-        fMustOverrideAlphaSetting = true; // 24bit, no room
-        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        break;        
+        case ColMode::COLMODE_BGR888:
+        case ColMode::COLMODE_BRG888:
+        case ColMode::COLMODE_GRB888:
+        case ColMode::COLMODE_RGB888:
+            cbRequiredColorSize = 3;
+            fMustOverrideAlphaSetting = true; // 24bit, no room
+            suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+            break;        
 
-    case ColMode::COLMODE_RGBA8881:
-    case ColMode::COLMODE_RGBA8881_32STEPS:
-    case ColMode::COLMODE_RGBA8887:
-    case ColMode::COLMODE_RGBA8888_BE:
-    case ColMode::COLMODE_RGBA8888_BE16:
-    case ColMode::COLMODE_RGBA8888_LE:
-    case ColMode::COLMODE_BGRA8888_BE:
-    case ColMode::COLMODE_BGRA8888_LE:
-    case ColMode::COLMODE_RBGA8888_LE:
-        cbRequiredColorSize = 4;
-        suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
-        break;
+        case ColMode::COLMODE_RGBA8881:
+        case ColMode::COLMODE_RGBA8881_32STEPS:
+        case ColMode::COLMODE_RGBA8887:
+        case ColMode::COLMODE_RGBA8888_BE:
+        case ColMode::COLMODE_RGBA8888_BE16:
+        case ColMode::COLMODE_RGBA8888_LE:
+        case ColMode::COLMODE_BGRA8888_BE:
+        case ColMode::COLMODE_BGRA8888_LE:
+        case ColMode::COLMODE_RBGA8888_LE:
+            cbRequiredColorSize = 4;
+            suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
+            break;
 
-    default: // Something is wrong: reset
-        MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
-        __fallthrough;
-    case ColMode::COLMODE_RGB666_NEOGEO:
-        cbRequiredColorSize = 2;
-        fMustOverrideAlphaSetting = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
-        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        break;
+        default: // Something is wrong: reset
+            MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
+            __fallthrough;
+        case ColMode::COLMODE_RGB666_NEOGEO:
+            cbRequiredColorSize = 2;
+            fMustOverrideAlphaSetting = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
+            suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+            break;
     };
 
     if (cbRequiredColorSize != cbPreviousColorSize)

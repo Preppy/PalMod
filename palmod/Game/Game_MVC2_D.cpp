@@ -48,22 +48,22 @@ void CGame_MVC2_D::SetNumberOfColorOptions(MvC2_NumberOfColors nColorOptions)
 {
     switch (nColorOptions)
     {
-    default:
-    case MvC2_NumberOfColors::Six:
-        _nCurrentTotalColorOptions = 6;
-        k_mvc2_character_coloroption_count = 6;
-        m_pCurrentButtonLabelSet = m_pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
-        m_pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
-        m_pCurrentExtrasLayout = MVC2_D_6COLORS_EXTRADEF;
-        break;
+        default:
+        case MvC2_NumberOfColors::Six:
+            _nCurrentTotalColorOptions = 6;
+            k_mvc2_character_coloroption_count = 6;
+            m_pCurrentButtonLabelSet = m_pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+            m_pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
+            m_pCurrentExtrasLayout = MVC2_D_6COLORS_EXTRADEF;
+            break;
 
-    case MvC2_NumberOfColors::Twelve_Or_Sixteen:
-        _nCurrentTotalColorOptions = 16;
-        k_mvc2_character_coloroption_count = 16;
-        m_pCurrentButtonLabelSet = m_pButtonLabelSet = DEF_BUTTONLABEL16_MVC2;
-        m_pCurrentMoveDescriptions = MVC2_16COLOR_MOVE_DESCRIPTIONS;
-        m_pCurrentExtrasLayout = MVC2_D_16COLORS_EXTRADEF;
-        break;
+        case MvC2_NumberOfColors::Twelve_Or_Sixteen:
+            _nCurrentTotalColorOptions = 16;
+            k_mvc2_character_coloroption_count = 16;
+            m_pCurrentButtonLabelSet = m_pButtonLabelSet = DEF_BUTTONLABEL16_MVC2;
+            m_pCurrentMoveDescriptions = MVC2_16COLOR_MOVE_DESCRIPTIONS;
+            m_pCurrentExtrasLayout = MVC2_D_16COLORS_EXTRADEF;
+            break;
     }
 
     // Reset these, as they need to be (button_colors * palettes_per_button) - 1 (zero-based)

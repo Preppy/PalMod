@@ -89,16 +89,16 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, u
 
         switch (mod_type)
         {
-            /*
-        case MOD_HUE:
-            add_h = static_cast<double>(mod_amt) / 360.0;
-            */
-        case MOD_LUM:
-            add_l = static_cast<double>(mod_amt) / 100.0;
-            break;
-        case MOD_SAT:
-            add_s = static_cast<double>(mod_amt) / 255.0;
-            break;
+                /*
+            case MOD_HUE:
+                add_h = static_cast<double>(mod_amt) / 360.0;
+                */
+            case MOD_LUM:
+                add_l = static_cast<double>(mod_amt) / 100.0;
+                break;
+            case MOD_SAT:
+                add_s = static_cast<double>(mod_amt) / 255.0;
+                break;
         }
 
         for (int iPos = index_start; iPos < (index_start + index_amt); iPos++)
@@ -302,56 +302,56 @@ int CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const u
 
                 switch (currentEffectsToken)
                 {
-                case MOD_TINT:
-                {
-                    ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt,
-                        currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 4], currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 5], currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 6]);
+                    case MOD_TINT:
+                    {
+                        ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt,
+                            currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 4], currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 5], currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 6]);
 
-                    indexCounterForEffects += 7;
-                    break;
-                }
+                        indexCounterForEffects += 7;
+                        break;
+                    }
 
-                case MOD_BLEND:
-                {
-                    ProcessBlendEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt,
-                        static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 4]), static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 5]), static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 6]));
+                    case MOD_BLEND:
+                    {
+                        ProcessBlendEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt,
+                            static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 4]), static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 5]), static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 6]));
 
-                    indexCounterForEffects += 7;
-                    break;
-                }
+                        indexCounterForEffects += 7;
+                        break;
+                    }
 
-                case MOD_WHITE:
-                {
-                    ProcessSecondaryWhite(nUnitId, destination_palette, pi_start, pi_amt);
+                    case MOD_WHITE:
+                    {
+                        ProcessSecondaryWhite(nUnitId, destination_palette, pi_start, pi_amt);
 
-                    indexCounterForEffects += 3;
-                    break;
-                }
+                        indexCounterForEffects += 3;
+                        break;
+                    }
 
-                case MOD_COPY:
-                {
-                    ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt);
+                    case MOD_COPY:
+                    {
+                        ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<uint8_t>(currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3]), pi_start, pi_amt);
 
-                    indexCounterForEffects += 4;
-                    break;
-                }
+                        indexCounterForEffects += 4;
+                        break;
+                    }
 
-                case MOD_LUM:
-                case MOD_SAT:
-                {
-                    // We have first done a full copy of the source palette to dest palette here, and now we apply desired LUM/SAT tweaks.
-                    uint16_t mod_type = currentEffectsData[indexCounterForEffects];
-                    uint16_t mod_amt = currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3];
+                    case MOD_LUM:
+                    case MOD_SAT:
+                    {
+                        // We have first done a full copy of the source palette to dest palette here, and now we apply desired LUM/SAT tweaks.
+                        uint16_t mod_type = currentEffectsData[indexCounterForEffects];
+                        uint16_t mod_amt = currentEffectsData[static_cast<size_t>(indexCounterForEffects) + 3];
 
-                    ProcessSecondaryHSLEffects(nUnitId, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
+                        ProcessSecondaryHSLEffects(nUnitId, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
 
-                    indexCounterForEffects += 4;
-                    break;
-                }
-                default:
-                    OutputDebugString(L"Error: bogus token in supp_proc commands.\n");
-                    indexCounterForEffects++;
-                    break;
+                        indexCounterForEffects += 4;
+                        break;
+                    }
+                    default:
+                        OutputDebugString(L"Error: bogus token in supp_proc commands.\n");
+                        indexCounterForEffects++;
+                        break;
                 }
             }
         }

@@ -110,21 +110,21 @@ void CGame_CVS2_A::DumpAllCharacters()
 
                 switch (iCurrentExtra)
                 {
-                case 1:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra1);
-                    break;
-                case 2:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra2);
-                    break;
-                case 3:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra3);
-                    break;
-                case 4:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra4);
-                    break;
-                case 5:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra5);
-                    break;
+                    case 1:
+                        extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra1);
+                        break;
+                    case 2:
+                        extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra2);
+                        break;
+                    case 3:
+                        extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra3);
+                        break;
+                    case 4:
+                        extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra4);
+                        break;
+                    case 5:
+                        extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra5);
+                        break;
                 }
 
                 if (extraPairInfo && extraPairInfo->pszExtraName)

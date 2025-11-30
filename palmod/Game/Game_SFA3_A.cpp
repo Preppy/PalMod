@@ -55,24 +55,24 @@ void CGame_SFA3_A::DumpHeaderPalettes()
 
             switch (nColorIndex)
             {
-            case 0:
-                strColorName = L"X-Ism Punch";
-                break;
-            case 1:
-                strColorName = L"X-Ism Kick";
-                break;
-            case 2:
-                strColorName = L"A-Ism Punch";
-                break;
-            case 3:
-                strColorName = L"A-Ism Kick";
-                break;
-            case 4:
-                strColorName = L"V-Ism Punch";
-                break;
-            case 5:
-                strColorName = L"V-Ism Kick";
-                break;
+                case 0:
+                    strColorName = L"X-Ism Punch";
+                    break;
+                case 1:
+                    strColorName = L"X-Ism Kick";
+                    break;
+                case 2:
+                    strColorName = L"A-Ism Punch";
+                    break;
+                case 3:
+                    strColorName = L"A-Ism Kick";
+                    break;
+                case 4:
+                    strColorName = L"V-Ism Punch";
+                    break;
+                case 5:
+                    strColorName = L"V-Ism Kick";
+                    break;
             }
 
             strOutput.Format(L"    { \"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", strColorName.GetString(), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * nColorIndex), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * (nColorIndex + 1)), SFA3_A_PortraitDataArray[nIndex].pszImageSet, SFA3_A_PortraitDataArray[nIndex].nImageSetIndex);
@@ -243,34 +243,34 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     {
                         switch (nPairIndex)
                         {
-                        case 0:
-                            vnPeerPaletteDistances.push_back(0);
-                            break;
-                        case 1:
-                            vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner);
-                            break;
-                        case 2:
-                            vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner);
-                            break;
-                        case 3:
-                            vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo3rdPartner);
-                            break;
-                        case 4:
-                            vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo4thPartner);
-                            break;
-                        case 5:
-                            vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo5thPartner);
-                            break;
-                        case 6:
-                            vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo6thPartner);
-                            break;
-                        case 7:
-                            vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo7thPartner);
-                            break;
-                        default:
-                            // Anything past this just gets default pairing
-                            vnPeerPaletteDistances.push_back(nPairIndex);
-                            break;
+                            case 0:
+                                vnPeerPaletteDistances.push_back(0);
+                                break;
+                            case 1:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner);
+                                break;
+                            case 2:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner);
+                                break;
+                            case 3:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo3rdPartner);
+                                break;
+                            case 4:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo4thPartner);
+                                break;
+                            case 5:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo5thPartner);
+                                break;
+                            case 6:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo6thPartner);
+                                break;
+                            case 7:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo7thPartner);
+                                break;
+                            default:
+                                // Anything past this just gets default pairing
+                                vnPeerPaletteDistances.push_back(nPairIndex);
+                                break;
                         }
 
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + vnPeerPaletteDistances[nPairIndex]);

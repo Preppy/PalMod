@@ -123,16 +123,16 @@ namespace MVC2_SupplementProcessing
 
         switch (mod_type)
         {
-            /*
-        case MOD_HUE:
-            add_h = static_cast<double>(mod_amt) / 360.0;
-            */
-        case MOD_LUM:
-            add_l = static_cast<double>(mod_amt) / 100.0;
-            break;
-        case MOD_SAT:
-            add_s = static_cast<double>(mod_amt) / 255.0;
-            break;
+                /*
+            case MOD_HUE:
+                add_h = static_cast<double>(mod_amt) / 360.0;
+                */
+            case MOD_LUM:
+                add_l = static_cast<double>(mod_amt) / 100.0;
+                break;
+            case MOD_SAT:
+                add_s = static_cast<double>(mod_amt) / 255.0;
+                break;
         }
 
         for (int iPos = index_start; iPos < (index_start + index_amt); iPos++)

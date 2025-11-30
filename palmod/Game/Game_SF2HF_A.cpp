@@ -49,19 +49,19 @@ CGame_SF2HF_A::CGame_SF2HF_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eVersionToLoad)
     {
-    case SF2HFLoadingKey::ROM21:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM21);
-        break;
-    case SF2HFLoadingKey::ROM22:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM22);
-        break;
-    case SF2HFLoadingKey::ROM23:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM23);
-        break;
-    case SF2HFLoadingKey::SF30th:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_SF30th);
-        break;
+        case SF2HFLoadingKey::ROM21:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM21);
+            break;
+        case SF2HFLoadingKey::ROM22:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM22);
+            break;
+        case SF2HFLoadingKey::ROM23:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM23);
+            break;
+        case SF2HFLoadingKey::SF30th:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_SF30th);
+            break;
     }
 }
 
@@ -69,15 +69,15 @@ sFileRule CGame_SF2HF_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eVersionToLoad)
     {
-    case SF2HFLoadingKey::ROM21:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM21);
-    case SF2HFLoadingKey::ROM22:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM22);
-    case SF2HFLoadingKey::ROM23:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM23);
-    case SF2HFLoadingKey::SF30th:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SF30th);
+        case SF2HFLoadingKey::ROM21:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM21);
+        case SF2HFLoadingKey::ROM22:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM22);
+        case SF2HFLoadingKey::ROM23:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM23);
+        case SF2HFLoadingKey::SF30th:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_SF30th);
     }
 }
 

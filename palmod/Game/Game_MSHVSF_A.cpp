@@ -36,17 +36,17 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eVersionToLoad)
     {
-    case MSHVSFLoadingKey::ROM06:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM06);
-        break;
-    case MSHVSFLoadingKey::ROM07:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM07);
-        break;
-    case MSHVSFLoadingKey::Steam_J:
-    case MSHVSFLoadingKey::Steam_U:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_Steam);
-        break;
+        case MSHVSFLoadingKey::ROM06:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM06);
+            break;
+        case MSHVSFLoadingKey::ROM07:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM07);
+            break;
+        case MSHVSFLoadingKey::Steam_J:
+        case MSHVSFLoadingKey::Steam_U:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Steam);
+            break;
     }
 }
 
@@ -54,14 +54,14 @@ sFileRule CGame_MSHVSF_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eVersionToLoad)
     {
-    case MSHVSFLoadingKey::ROM06:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM06);
-    case MSHVSFLoadingKey::ROM07:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM07);
-    case MSHVSFLoadingKey::Steam_J:
-    case MSHVSFLoadingKey::Steam_U:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Steam);
+        case MSHVSFLoadingKey::ROM06:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM06);
+        case MSHVSFLoadingKey::ROM07:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM07);
+        case MSHVSFLoadingKey::Steam_J:
+        case MSHVSFLoadingKey::Steam_U:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Steam);
     }
 }
 

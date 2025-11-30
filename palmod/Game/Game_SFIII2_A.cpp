@@ -73,20 +73,20 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             switch (NodeGet->uUnitId)
             {
-            case index3SSprites_ShinGouki: //Shin Gouki: only have two versions in this game
-            {
-                nSrcAmt = 2;
-                nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
-
-                while (nSrcStart >= nNodeIncrement)
+                case index3SSprites_ShinGouki: //Shin Gouki: only has two versions in this game
                 {
-                    nSrcStart -= nNodeIncrement;
-                }
+                    nSrcAmt = 2;
+                    nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                break;
-            }
-            default:
-                break;
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        nSrcStart -= nNodeIncrement;
+                    }
+
+                    break;
+                }
+                default:
+                    break;
             }
 
             if (paletteDataSet->pPalettePairingInfo)

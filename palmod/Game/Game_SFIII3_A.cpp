@@ -35,13 +35,13 @@ CGame_SFIII3_A::CGame_SFIII3_A(uint32_t nConfirmedROMSize, bool fShouldLoadNorma
     {
         switch (m_eVersionToLoad)
         {
-        case SFIII3LoadingKey::ROM10:
-            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10);
-            break;
-        case SFIII3LoadingKey::ROM51:
-        default:
-            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51);
-            break;
+            case SFIII3LoadingKey::ROM10:
+                InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10);
+                break;
+            case SFIII3LoadingKey::ROM51:
+            default:
+                InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51);
+                break;
         }
     }
 }
@@ -50,11 +50,11 @@ sFileRule CGame_SFIII3_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eVersionToLoad)
     {
-    case SFIII3LoadingKey::ROM10:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM10);
-    case SFIII3LoadingKey::ROM51:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM51);
+        case SFIII3LoadingKey::ROM10:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM10);
+        case SFIII3LoadingKey::ROM51:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM51);
     }
 }
 

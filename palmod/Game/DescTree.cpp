@@ -38,22 +38,22 @@ void CDescTree::FlushTree(sDescTreeNode* CurrTree)
     {
         switch (CurrTree->uChildType)
         {
-        case DESC_NODETYPE_TREE:
-        {
-            for (uint16_t nChildCtr = 0; nChildCtr < CurrTree->uChildAmt; nChildCtr++)
+            case DESC_NODETYPE_TREE:
             {
-                FlushTree(&((sDescTreeNode*)CurrTree->ChildNodes)[nChildCtr]);
+                for (uint16_t nChildCtr = 0; nChildCtr < CurrTree->uChildAmt; nChildCtr++)
+                {
+                    FlushTree(&((sDescTreeNode*)CurrTree->ChildNodes)[nChildCtr]);
+                }
+
+               safe_delete_array(CurrTree->ChildNodes);
+               break;
             }
 
-           safe_delete_array(CurrTree->ChildNodes);
-           break;
-        }
-
-        case DESC_NODETYPE_NODE:
-        {
-            safe_delete_array(CurrTree->ChildNodes);
-            break;
-        }
+            case DESC_NODETYPE_NODE:
+            {
+                safe_delete_array(CurrTree->ChildNodes);
+                break;
+            }
         }
     }
 }
@@ -69,35 +69,35 @@ void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
 
         switch (pTreeToEnumerate->uChildType)
         {
-        case DESC_NODETYPE_NODE:
-            strOutput.Format(L"\tButton '%s'.  It has 0x%x children.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
-            OutputDebugString(strOutput);
+            case DESC_NODETYPE_NODE:
+                strOutput.Format(L"\tButton '%s'.  It has 0x%x children.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
+                OutputDebugString(strOutput);
 
-            for (uint16_t iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
-            {
-                sDescNode* pChildNode = &((sDescNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
-
-                if (pChildNode)
+                for (uint16_t iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
                 {
-                    strOutput.Format(L"\t\tNode '%s'.  This is UnitId 0x%x, PaletteId 0x%x.\n", pChildNode->szDesc, pChildNode->uUnitId, pChildNode->uPalId);
-                    OutputDebugString(strOutput);
+                    sDescNode* pChildNode = &((sDescNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
+
+                    if (pChildNode)
+                    {
+                        strOutput.Format(L"\t\tNode '%s'.  This is UnitId 0x%x, PaletteId 0x%x.\n", pChildNode->szDesc, pChildNode->uUnitId, pChildNode->uPalId);
+                        OutputDebugString(strOutput);
+                    }
                 }
-            }
-            break;
-        case DESC_NODETYPE_TREE:
-            strOutput.Format(L"Entering unit '%s'. It has 0x%x child Buttons.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
-            OutputDebugString(strOutput);
+                break;
+            case DESC_NODETYPE_TREE:
+                strOutput.Format(L"Entering unit '%s'. It has 0x%x child Buttons.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
+                OutputDebugString(strOutput);
 
-            for (uint16_t iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
-            {
-                sDescTreeNode* pChildTreeSet = &((sDescTreeNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
-
-                if (pChildTreeSet)
+                for (uint16_t iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
                 {
-                    DumpTree(pChildTreeSet);
+                    sDescTreeNode* pChildTreeSet = &((sDescTreeNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
+
+                    if (pChildTreeSet)
+                    {
+                        DumpTree(pChildTreeSet);
+                    }
                 }
-            }
-            break;
+                break;
         }
     }
     else
@@ -125,14 +125,14 @@ sDescTreeNode* CDescTree::GetDescTree(int nChildId, ...)
     {
         switch (OutTree->uChildType)
         {
-        case DESC_NODETYPE_NODE:
-            fChildIsNode = TRUE;
-            // Caller needs to cast to sDescNode
-            OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
-            break;
-        case DESC_NODETYPE_TREE:
-            OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
-            break;
+            case DESC_NODETYPE_NODE:
+                fChildIsNode = TRUE;
+                // Caller needs to cast to sDescNode
+                OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
+                break;
+            case DESC_NODETYPE_TREE:
+                OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
+                break;
         }
 
         nCurrId = va_arg(args, int);
@@ -161,25 +161,25 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
     {
         switch (CurrTree->uChildType)
         {
-        case DESC_NODETYPE_NODE:
-        {
-            fFoundNode = TRUE;
-
-            if (nCurrId < CurrTree->uChildAmt)
+            case DESC_NODETYPE_NODE:
             {
-                OutNode = &((sDescNode*)CurrTree->ChildNodes)[nCurrId];
-            }
-        }
-        break;
+                fFoundNode = TRUE;
 
-        case DESC_NODETYPE_TREE:
-        {
-            if (nCurrId < CurrTree->uChildAmt)
-            {
-                CurrTree = &((sDescTreeNode*)CurrTree->ChildNodes)[nCurrId];
+                if (nCurrId < CurrTree->uChildAmt)
+                {
+                    OutNode = &((sDescNode*)CurrTree->ChildNodes)[nCurrId];
+                }
             }
-        }
-        break;
+            break;
+
+            case DESC_NODETYPE_TREE:
+            {
+                if (nCurrId < CurrTree->uChildAmt)
+                {
+                    CurrTree = &((sDescTreeNode*)CurrTree->ChildNodes)[nCurrId];
+                }
+            }
+            break;
         }
 
         nCurrId = va_arg(args, int);

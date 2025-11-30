@@ -49,7 +49,7 @@ CGame_HSF2_A::CGame_HSF2_A(uint32_t nConfirmedROMSize)
         case HSF2LoadingKey::ROM10:
             InitializeGame(nConfirmedROMSize, m_sCoreGameData_10);
             break;
-    };
+    }
 }
 
 sFileRule CGame_HSF2_A::GetRule(uint32_t nRuleId)
@@ -63,7 +63,7 @@ sFileRule CGame_HSF2_A::GetRule(uint32_t nRuleId)
             return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_04);
         case HSF2LoadingKey::ROM10:
             return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_10);
-    };
+    }
 }
 
 void CGame_HSF2_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)

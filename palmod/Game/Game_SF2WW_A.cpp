@@ -33,13 +33,13 @@ CGame_SF2WW_A::CGame_SF2WW_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eVersionToLoad)
     {
-    case SF2WWLoadingKey::ROM09:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_09);
-        break;
-    case SF2WWLoadingKey::ROM10:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_10);
-        break;
+        case SF2WWLoadingKey::ROM09:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_09);
+            break;
+        case SF2WWLoadingKey::ROM10:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_10);
+            break;
     }
 }
 
@@ -47,10 +47,10 @@ sFileRule CGame_SF2WW_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eVersionToLoad)
     {
-    case SF2WWLoadingKey::ROM09:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_09);
-    case SF2WWLoadingKey::ROM10:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_10);
+        case SF2WWLoadingKey::ROM09:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_09);
+        case SF2WWLoadingKey::ROM10:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_10);
     }
 }

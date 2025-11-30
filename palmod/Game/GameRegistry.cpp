@@ -2565,134 +2565,134 @@ namespace KnownGameInfo
     {
         switch (nGameFlag)
         {
-        case AOF3_A:
-            CGame_AOF3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case AsuraBuster_A:
-            CGame_AsuraBuster_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case AvgrsGS_A:
-            CGame_AvgrsGS_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case CVS1_A:
-            CGame_CVS1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case FatalFury2_A:
-            CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case FightFever_A:
-            CGame_FightFever_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case FightersHistory_A:
-            CGame_FightersHistory_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case HSF2_A:
-            CGame_HSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case JOJOS_A:
-            nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_A_51_ROMKEY);
-            break;
-        case JOJOS_US_A:
-            nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_US_A_51_ROMKEY);
-            break;
-        case KarnovsR_A:
-            CGame_KarnovsR_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case KOF95_A:
-            CGame_KOF95_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case KOF96_A:
-            CGame_KOF96_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case KOF99_A:
-        case KOF99AE_A:
-            CGame_KOF99_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case KOF02UM_S:
-            CGame_KOF02UM_S::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case KOF03_A:
-            CGame_KOF03_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case MK1_A:
-            CGame_MK1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case MK2_A:
-            CGame_MK2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case MK2_SNES:
-            CGame_MK2_SNES::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case MSH_A:
-            CGame_MSH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case MSHVSF_A:
-        case MSHVSF_S:
-            CGame_MSHVSF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case REDEARTH_A:
-            CGame_REDEARTH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SAMSHO1_A:
-            CGame_SAMSHO1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SAMSHO5_A:
-        case SAMSHO5X_A:
-            CGame_SAMSHO5_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SAMSHO5SP_A:
-        case SAMSHO5SP_S:
-            CGame_SAMSHO5SP_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SFA2_A:
-        case SFA2_Hack_A:
-            CGame_SFA2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SFIII3_A:
-            CGame_SFIII3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SF1_A:
-            CGame_StreetFighter_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SF2HF_A:
-            CGame_SF2HF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SF2CE_A:
-            CGame_SF2CE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SF2WW_A:
-            CGame_SF2WW_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SFTM_A:
-            CGame_SFTM_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SSF2_A:
-            CGame_SSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SSF2T_GBA:
-            CGame_SSF2T_GBA::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SSF2T_A:
-        case SSF2T_NL:
-            CGame_SSF2T_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case SurvivalArts_A:
-            CGame_SurvivalArts_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case UMK3_A:
-            CGame_UMK3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case VampireNightWarriors_A:
-            CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case VHUNT2_A:
-            CGame_VHUNT2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        case VENTURE_A:
-            CGame_VENTURE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
-            break;
-        default:
-            break;
+            case AOF3_A:
+                CGame_AOF3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case AsuraBuster_A:
+                CGame_AsuraBuster_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case AvgrsGS_A:
+                CGame_AvgrsGS_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case CVS1_A:
+                CGame_CVS1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case FatalFury2_A:
+                CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case FightFever_A:
+                CGame_FightFever_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case FightersHistory_A:
+                CGame_FightersHistory_A_DIR::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case HSF2_A:
+                CGame_HSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case JOJOS_A:
+                nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_A_51_ROMKEY);
+                break;
+            case JOJOS_US_A:
+                nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_US_A_51_ROMKEY);
+                break;
+            case KarnovsR_A:
+                CGame_KarnovsR_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case KOF95_A:
+                CGame_KOF95_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case KOF96_A:
+                CGame_KOF96_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case KOF99_A:
+            case KOF99AE_A:
+                CGame_KOF99_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case KOF02UM_S:
+                CGame_KOF02UM_S::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case KOF03_A:
+                CGame_KOF03_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case MK1_A:
+                CGame_MK1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case MK2_A:
+                CGame_MK2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case MK2_SNES:
+                CGame_MK2_SNES::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case MSH_A:
+                CGame_MSH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case MSHVSF_A:
+            case MSHVSF_S:
+                CGame_MSHVSF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case REDEARTH_A:
+                CGame_REDEARTH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SAMSHO1_A:
+                CGame_SAMSHO1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SAMSHO5_A:
+            case SAMSHO5X_A:
+                CGame_SAMSHO5_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SAMSHO5SP_A:
+            case SAMSHO5SP_S:
+                CGame_SAMSHO5SP_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SFA2_A:
+            case SFA2_Hack_A:
+                CGame_SFA2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SFIII3_A:
+                CGame_SFIII3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SF1_A:
+                CGame_StreetFighter_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SF2HF_A:
+                CGame_SF2HF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SF2CE_A:
+                CGame_SF2CE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SF2WW_A:
+                CGame_SF2WW_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SFTM_A:
+                CGame_SFTM_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SSF2_A:
+                CGame_SSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SSF2T_GBA:
+                CGame_SSF2T_GBA::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SSF2T_A:
+            case SSF2T_NL:
+                CGame_SSF2T_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case SurvivalArts_A:
+                CGame_SurvivalArts_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case UMK3_A:
+                CGame_UMK3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case VampireNightWarriors_A:
+                CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case VHUNT2_A:
+                CGame_VHUNT2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case VENTURE_A:
+                CGame_VENTURE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            default:
+                break;
         }
     }
 };

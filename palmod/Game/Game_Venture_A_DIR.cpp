@@ -11,13 +11,13 @@ CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR(uint32_t nConfirmedROMSize, VentureDirL
 
     switch (m_eVersionToLoad)
     {
-    case VentureDirLoadingKey::ROM31:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_31);
-        break;
-    case VentureDirLoadingKey::ROM50:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_50);
-        break;
+        case VentureDirLoadingKey::ROM31:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_31);
+            break;
+        case VentureDirLoadingKey::ROM50:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_50);
+            break;
     }
 }
 
@@ -28,15 +28,15 @@ sFileRule CGame_VENTURE_A_DIR::GetRuleInternal(VentureDirLoadingKey nGameMode, u
 
     switch (nGameMode)
     {
-    case VentureDirLoadingKey::ROM31:
-        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_31.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_31.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
-        break;
-    case VentureDirLoadingKey::ROM50:
-    default:
-        wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
-        NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
-        break;
+        case VentureDirLoadingKey::ROM31:
+            wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_31.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
+            NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_31.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
+            break;
+        case VentureDirLoadingKey::ROM50:
+        default:
+            wcsncpy(NewFileRule.szFileName, m_sFileLoadingData_50.rgRuleList.at(nAdjustedSIMMFileNumber).szFileName, ARRAYSIZE(NewFileRule.szFileName));
+            NewFileRule.uVerifyVar = static_cast<uint32_t>(m_sFileLoadingData_50.rgRuleList.at(nAdjustedSIMMFileNumber).uVerifyVar);
+            break;
     }
 
     NewFileRule.uUnitId = nUnitId;
@@ -53,13 +53,13 @@ sFileRule CGame_VENTURE_A_DIR::GetNextRuleInternal(VentureDirLoadingKey nGameMod
 
     switch (nGameMode)
     {
-    case VentureDirLoadingKey::ROM31:
-        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_31.rgRuleList.size());
-        break;
-    case VentureDirLoadingKey::ROM50:
-    default:
-        nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_50.rgRuleList.size());
-        break;
+        case VentureDirLoadingKey::ROM31:
+            nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_31.rgRuleList.size());
+            break;
+        case VentureDirLoadingKey::ROM50:
+        default:
+            nMaxRuleNumber = static_cast<uint16_t>(m_sFileLoadingData_50.rgRuleList.size());
+            break;
     }
 
     if (m_uRuleCtr >= nMaxRuleNumber)

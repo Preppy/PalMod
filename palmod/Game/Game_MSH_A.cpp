@@ -35,13 +35,13 @@ CGame_MSH_A::CGame_MSH_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eVersionToLoad)
     {
-    case MSHLoadingKey::ROM05:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM05);
-        break;
-    case MSHLoadingKey::ROM06:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM06);
-        break;
+        case MSHLoadingKey::ROM05:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM05);
+            break;
+        case MSHLoadingKey::ROM06:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM06);
+            break;
     }
 }
 
@@ -49,11 +49,11 @@ sFileRule CGame_MSH_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eVersionToLoad)
     {
-    case MSHLoadingKey::ROM05:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM05);
-    case MSHLoadingKey::ROM06:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM06);
+        case MSHLoadingKey::ROM05:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM05);
+        case MSHLoadingKey::ROM06:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM06);
     }
 }
 

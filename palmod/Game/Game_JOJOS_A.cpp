@@ -11,24 +11,24 @@ CGame_JOJOS_A::CGame_JOJOS_A(uint32_t nConfirmedROMSize, JojosLoadingKey nJojosM
          
     switch (m_eVersionToLoad)
     {
-    case JojosLoadingKey::JOJOS_A_50_ROMKEY:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_50);
-        break;
-    case JojosLoadingKey::JOJOS_A_51_ROMKEY:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_51);
-        break;
-    case JojosLoadingKey::JOJOS_US_A_51_ROMKEY:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_51RegOn);
-        break;
-    case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_50Rerip);
-        break;
-    case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_51Rerip);
-        break;
-    case JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_51RegOnRerip);
-        break;
+        case JojosLoadingKey::JOJOS_A_50_ROMKEY:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_50);
+            break;
+        case JojosLoadingKey::JOJOS_A_51_ROMKEY:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_51);
+            break;
+        case JojosLoadingKey::JOJOS_US_A_51_ROMKEY:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_51RegOn);
+            break;
+        case JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_50Rerip);
+            break;
+        case JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_51Rerip);
+            break;
+        case JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_51RegOnRerip);
+            break;
     }
 }
 

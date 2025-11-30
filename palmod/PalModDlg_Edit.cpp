@@ -1705,23 +1705,23 @@ void CPalModDlg::CustomEditProc(void* pPalCtrl, UINT_PTR nCtrlId, int nMethod)
 {
     switch (nMethod)
     {
-    case CUSTOM_COPY:
-        OnEditCopy();
-        break;
-    case CUSTOM_COPYOFFSET:
-        OnEditCopyOffset();
-        break;
-    case CUSTOM_COPYBINARY:
-        OnEditCopyBinary();
-        break;
-    case CUSTOM_PASTE:
-        OnEditPaste();
-        break;
-    case CUSTOM_SALL:
-        OnEditSelectAll();
-        break;
-    case CUSTOM_SNONE:
-        OnEditSelectNone();
-        break;
+        case CUSTOM_COPY:
+            OnEditCopy();
+            break;
+        case CUSTOM_COPYOFFSET:
+            OnEditCopyOffset();
+            break;
+        case CUSTOM_COPYBINARY:
+            OnEditCopyBinary();
+            break;
+        case CUSTOM_PASTE:
+            OnEditPaste();
+            break;
+        case CUSTOM_SALL:
+            OnEditSelectAll();
+            break;
+        case CUSTOM_SNONE:
+            OnEditSelectNone();
+            break;
     }
 }

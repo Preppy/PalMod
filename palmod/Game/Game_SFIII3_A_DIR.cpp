@@ -23,30 +23,30 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize, SFIII3Loading
 
     switch (nSF3ModeToLoad)
     {
-    case SFIII3LoadingKey::ROM10:
-        m_nFileAmt = 4;
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_DIR);
-        break;
-    case SFIII3LoadingKey::ROM10_4rd:
-        m_nFileAmt = 4;
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_4rd_DIR);
-        break;
-    case SFIII3LoadingKey::ROM51:
-    default:
-        // TODO: enable if we ever want to test this
-        //m_fAllowIPSPatching = true;
-        //m_nSIMMLength = 0x200000;
-        m_nFileAmt = 8;
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_DIR);
-        break;
-    case SFIII3LoadingKey::ROM51_4rd:
-        m_nFileAmt = 2;
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_4rd_DIR);
-        break;
-    case SFIII3LoadingKey::ROM70_EX:
-        m_nFileAmt = 4;
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM70_DIR);
-        break;
+        case SFIII3LoadingKey::ROM10:
+            m_nFileAmt = 4;
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_DIR);
+            break;
+        case SFIII3LoadingKey::ROM10_4rd:
+            m_nFileAmt = 4;
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_4rd_DIR);
+            break;
+        case SFIII3LoadingKey::ROM51:
+        default:
+            // TODO: enable if we ever want to test this
+            //m_fAllowIPSPatching = true;
+            //m_nSIMMLength = 0x200000;
+            m_nFileAmt = 8;
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_DIR);
+            break;
+        case SFIII3LoadingKey::ROM51_4rd:
+            m_nFileAmt = 2;
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_4rd_DIR);
+            break;
+        case SFIII3LoadingKey::ROM70_EX:
+            m_nFileAmt = 4;
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM70_DIR);
+            break;
     }
 
     FlushChangeTrackingArray();
@@ -156,17 +156,17 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* Loade
     {
         switch (m_eVersionToLoad)
         {
-        default:
-            OutputDebugString(L"Warning: unrecognized ROM.\n");
-            __fallthrough;
-        case SFIII3LoadingKey::ROM51:
-            return SFIII3_SupportedROMRevision::SFIII3_51;
-        case SFIII3LoadingKey::ROM51_4rd:
-            return SFIII3_SupportedROMRevision::SFIII3_4rd;
-        case SFIII3LoadingKey::ROM70_EX:
-            return SFIII3_SupportedROMRevision::SFIII3_3Ex;
-        case SFIII3LoadingKey::ROM10_4rd:
-            return SFIII3_SupportedROMRevision::SFIII3_10_4rd;
+            default:
+                OutputDebugString(L"Warning: unrecognized ROM.\n");
+                __fallthrough;
+            case SFIII3LoadingKey::ROM51:
+                return SFIII3_SupportedROMRevision::SFIII3_51;
+            case SFIII3LoadingKey::ROM51_4rd:
+                return SFIII3_SupportedROMRevision::SFIII3_4rd;
+            case SFIII3LoadingKey::ROM70_EX:
+                return SFIII3_SupportedROMRevision::SFIII3_3Ex;
+            case SFIII3LoadingKey::ROM10_4rd:
+                return SFIII3_SupportedROMRevision::SFIII3_10_4rd;
         }
     }
 
@@ -283,25 +283,25 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
     switch (m_eVersionToLoad)
     {
-    case SFIII3LoadingKey::ROM10:
-        // we need to make sure which subversion we're loading
-        m_currentSFIII3ROMRevision = GetSFIII3ROMVersion(LoadedFile);
-        break;
-    case SFIII3LoadingKey::ROM10_4rd:
-        m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_10_4rd;
-        break;
-    default:
-        OutputDebugString(L"Warning: unrecognized ROM.\n");
-        __fallthrough;
-    case SFIII3LoadingKey::ROM51:
-        m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_51;
-        break;
-    case SFIII3LoadingKey::ROM51_4rd:
-        m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_4rd;
-        break;
-    case SFIII3LoadingKey::ROM70_EX:
-        m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_3Ex;
-        break;
+        case SFIII3LoadingKey::ROM10:
+            // we need to make sure which subversion we're loading
+            m_currentSFIII3ROMRevision = GetSFIII3ROMVersion(LoadedFile);
+            break;
+        case SFIII3LoadingKey::ROM10_4rd:
+            m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_10_4rd;
+            break;
+        default:
+            OutputDebugString(L"Warning: unrecognized ROM.\n");
+            __fallthrough;
+        case SFIII3LoadingKey::ROM51:
+            m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_51;
+            break;
+        case SFIII3LoadingKey::ROM51_4rd:
+            m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_4rd;
+            break;
+        case SFIII3LoadingKey::ROM70_EX:
+            m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_3Ex;
+            break;
     }
 
     // OK, so the old 51 ROM in the SIMM redump is interleaved.
@@ -528,18 +528,18 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
 
     switch (m_eVersionToLoad)
     {
-    case SFIII3LoadingKey::ROM10:
-    case SFIII3LoadingKey::ROM10_4rd:
-    case SFIII3LoadingKey::ROM70_EX:
-        // We want the first four files
-        break;
-    default:
-        OutputDebugString(L"Warning: unrecognized ROM.\n");
-        __fallthrough;
-    case SFIII3LoadingKey::ROM51:
-    case SFIII3LoadingKey::ROM51_4rd:        // We want the last four files
-        nSIMMSetAdjustment += 4;
-        break;
+        case SFIII3LoadingKey::ROM10:
+        case SFIII3LoadingKey::ROM10_4rd:
+        case SFIII3LoadingKey::ROM70_EX:
+            // We want the first four files
+            break;
+        default:
+            OutputDebugString(L"Warning: unrecognized ROM.\n");
+            __fallthrough;
+        case SFIII3LoadingKey::ROM51:
+        case SFIII3LoadingKey::ROM51_4rd:        // We want the last four files
+            nSIMMSetAdjustment += 4;
+            break;
     }
 
     if ((nSIMMNumber % 2) == 1)
@@ -583,28 +583,28 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
 
     switch (m_nGameFlag)
     {
-    case SFIII3_A_DIR_4rd_10:
-        pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
-        nSIMMSetBaseNumber = 1;
-        break;
-    case SFIII3_A_DIR_4rd:
-        pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
-        nSIMMSetBaseNumber = 5; // the 4rd Strikes characters roms are solely 5.6 and 5.7
-        break;
-    case SFIII3_A_DIR_EX:
-        pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;
-        nSIMMSetBaseNumber = 7;
-        break;
-    case SFIII3_A_DIR_10:
-        pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
-        pszSpecial3rdExtension = m_fUseJPNFileNames ? L"a" : L"";
-        nSIMMSetBaseNumber = 1;
-        break;
-    default:
-    case SFIII3_A_DIR_51:
-        pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
-        nSIMMSetBaseNumber = 5;
-        break;
+        case SFIII3_A_DIR_4rd_10:
+            pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
+            nSIMMSetBaseNumber = 1;
+            break;
+        case SFIII3_A_DIR_4rd:
+            pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
+            nSIMMSetBaseNumber = 5; // the 4rd Strikes characters roms are solely 5.6 and 5.7
+            break;
+        case SFIII3_A_DIR_EX:
+            pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;
+            nSIMMSetBaseNumber = 7;
+            break;
+        case SFIII3_A_DIR_10:
+            pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
+            pszSpecial3rdExtension = m_fUseJPNFileNames ? L"a" : L"";
+            nSIMMSetBaseNumber = 1;
+            break;
+        default:
+        case SFIII3_A_DIR_51:
+            pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
+            nSIMMSetBaseNumber = 5;
+            break;
     }
 
     strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
@@ -748,45 +748,45 @@ LPCWSTR CGame_SFIII3_A_DIR::GetGameName()
     {
         switch (m_currentSFIII3ROMRevision)
         {
-        case SFIII3_SupportedROMRevision::SFIII3_10_990512:
-            return L"SFIII:3S Gill Glow (CPS3 990512 Rerip Japan)";
-        case SFIII3_SupportedROMRevision::SFIII3_10_990608:
-            return L"SFIII:3S Gill Glow (CPS3 990608 Rerip Japan)";
-        default:
-        case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
-            OutputDebugString(L"Warning: unknown ROM\n");
-            __fallthrough;
-        case SFIII3_SupportedROMRevision::SFIII3_51:
-            return L"SFIII:3S (CPS3 Rerip Japan)";
-        case SFIII3_SupportedROMRevision::SFIII3_4rd:
-            return L"SFIII:4rd (CPS3 3S Hack Japan)";
-        case SFIII3_SupportedROMRevision::SFIII3_3Ex:
-            return L"SFIII:3S Ex (CPS3 Japan)";
-        case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
-            return L"SFIII:4rd Gill Glow (CPS3 Rerip Japan)";
-        };
+            case SFIII3_SupportedROMRevision::SFIII3_10_990512:
+                return L"SFIII:3S Gill Glow (CPS3 990512 Rerip Japan)";
+            case SFIII3_SupportedROMRevision::SFIII3_10_990608:
+                return L"SFIII:3S Gill Glow (CPS3 990608 Rerip Japan)";
+            default:
+            case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
+                OutputDebugString(L"Warning: unknown ROM\n");
+                __fallthrough;
+            case SFIII3_SupportedROMRevision::SFIII3_51:
+                return L"SFIII:3S (CPS3 Rerip Japan)";
+            case SFIII3_SupportedROMRevision::SFIII3_4rd:
+                return L"SFIII:4rd (CPS3 3S Hack Japan)";
+            case SFIII3_SupportedROMRevision::SFIII3_3Ex:
+                return L"SFIII:3S Ex (CPS3 Japan)";
+            case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
+                return L"SFIII:4rd Gill Glow (CPS3 Rerip Japan)";
+        }
     }
     else
     {
         switch (m_currentSFIII3ROMRevision)
         {
-        case SFIII3_SupportedROMRevision::SFIII3_10_990512:
-            return L"SFIII:3S Gill Glow (CPS3 990512 Rerip)";
-        case SFIII3_SupportedROMRevision::SFIII3_10_990608:
-            return L"SFIII:3S Gill Glow (CPS3 990608 Rerip)";
-        default:
-        case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
-            OutputDebugString(L"Warning: unknown ROM\n");
-            __fallthrough;
-        case SFIII3_SupportedROMRevision::SFIII3_51:
-            return L"SFIII:3S (CPS3 Rerip)";
-        case SFIII3_SupportedROMRevision::SFIII3_4rd:
-            return L"SFIII:4rd (CPS3 3S Hack)";
-        case SFIII3_SupportedROMRevision::SFIII3_3Ex:
-            return L"SFIII:3S Ex";
-        case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
-            return L"SFIII:4rd Gill Glow (CPS3 Rerip)";
-        };
+            case SFIII3_SupportedROMRevision::SFIII3_10_990512:
+                return L"SFIII:3S Gill Glow (CPS3 990512 Rerip)";
+            case SFIII3_SupportedROMRevision::SFIII3_10_990608:
+                return L"SFIII:3S Gill Glow (CPS3 990608 Rerip)";
+            default:
+            case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
+                OutputDebugString(L"Warning: unknown ROM\n");
+                __fallthrough;
+            case SFIII3_SupportedROMRevision::SFIII3_51:
+                return L"SFIII:3S (CPS3 Rerip)";
+            case SFIII3_SupportedROMRevision::SFIII3_4rd:
+                return L"SFIII:4rd (CPS3 3S Hack)";
+            case SFIII3_SupportedROMRevision::SFIII3_3Ex:
+                return L"SFIII:3S Ex";
+            case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
+                return L"SFIII:4rd Gill Glow (CPS3 Rerip)";
+        }
     }
 }
 
@@ -801,15 +801,15 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     // Adjust up to the 5.4 set for 3S/4rd Strike
     switch (m_eVersionToLoad)
     {
-    case SFIII3LoadingKey::ROM10:
-    case SFIII3LoadingKey::ROM10_4rd:
-    case SFIII3LoadingKey::ROM70_EX:
-        // We want the first four files
-        break;
-    default:
-        // for 51, we want the last four
-        nSIMMNumber = 4;
-        break;
+        case SFIII3LoadingKey::ROM10:
+        case SFIII3LoadingKey::ROM10_4rd:
+        case SFIII3LoadingKey::ROM70_EX:
+            // We want the first four files
+            break;
+        default:
+            // for 51, we want the last four
+            nSIMMNumber = 4;
+            break;
     }
 
     // OK, so the old 51 ROM in the SIMM redump is interleaved.
@@ -827,27 +827,27 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
 
     switch (m_nGameFlag)
     {
-    case SFIII3_A_DIR_4rd_10:
-        pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
-        nSIMMSetBaseNumber = 1;
-        break;
-    case SFIII3_A_DIR_4rd:
-        pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
-        nSIMMSetBaseNumber = 5; // the 4rd Strikes characters roms are solely 5.6 and 5.7
-        break;
-    case SFIII3_A_DIR_EX:
-        pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;
-        nSIMMSetBaseNumber = 7;
-        break;
-    case SFIII3_A_DIR_10:
-        pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
-        nSIMMSetBaseNumber = 1;
-        break;
-    default:
-    case SFIII3_A_DIR_51:
-        pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
-        nSIMMSetBaseNumber = 5;
-        break;
+        case SFIII3_A_DIR_4rd_10:
+            pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
+            nSIMMSetBaseNumber = 1;
+            break;
+        case SFIII3_A_DIR_4rd:
+            pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
+            nSIMMSetBaseNumber = 5; // the 4rd Strikes characters roms are solely 5.6 and 5.7
+            break;
+        case SFIII3_A_DIR_EX:
+            pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;
+            nSIMMSetBaseNumber = 7;
+            break;
+        case SFIII3_A_DIR_10:
+            pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
+            nSIMMSetBaseNumber = 1;
+            break;
+        default:
+        case SFIII3_A_DIR_51:
+            pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
+            nSIMMSetBaseNumber = 5;
+            break;
     }
 
     const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();

@@ -55,24 +55,24 @@ void CGame_SFA1_A::DumpHeaderPalettes()
 
             switch (nColorIndex)
             {
-            case 0:
-                strColorName = L"X-Ism Punch";
-                break;
-            case 1:
-                strColorName = L"X-Ism Kick";
-                break;
-            case 2:
-                strColorName = L"A-Ism Punch";
-                break;
-            case 3:
-                strColorName = L"A-Ism Kick";
-                break;
-            case 4:
-                strColorName = L"V-Ism Punch";
-                break;
-            case 5:
-                strColorName = L"V-Ism Kick";
-                break;
+                case 0:
+                    strColorName = L"X-Ism Punch";
+                    break;
+                case 1:
+                    strColorName = L"X-Ism Kick";
+                    break;
+                case 2:
+                    strColorName = L"A-Ism Punch";
+                    break;
+                case 3:
+                    strColorName = L"A-Ism Kick";
+                    break;
+                case 4:
+                    strColorName = L"V-Ism Punch";
+                    break;
+                case 5:
+                    strColorName = L"V-Ism Kick";
+                    break;
             }
 
             strOutput.Format(L"    { \"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", strColorName.GetString(), SFA1_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * nColorIndex), SFA1_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * (nColorIndex + 1)), SFA1_A_PortraitDataArray[nIndex].pszImageSet, SFA1_A_PortraitDataArray[nIndex].nImageSetIndex);

@@ -423,22 +423,22 @@ void CGameClassByDir::SetValidatedFileReadType()
 
     switch (m_eValidatedFileJoinType)
     {
-    case FileReadType::Sequential:
-        break;
-    case FileReadType::Interleaved_2FileSets:
-    case FileReadType::Interleaved_Read2Bytes_LE:
-    case FileReadType::Interleaved_Read2Bytes_BE:
-        if ((m_psCurrentFileLoadingData->rgRuleList.size() % 2) != 0)
-        {
-            m_eValidatedFileJoinType = FileReadType::Sequential;
-        }
-        break;
-    case FileReadType::Interleaved_4FileSets:
-        if ((m_psCurrentFileLoadingData->rgRuleList.size() % 4) != 0)
-        {
-            m_eValidatedFileJoinType = FileReadType::Sequential;
-        }
-        break;
+        case FileReadType::Sequential:
+            break;
+        case FileReadType::Interleaved_2FileSets:
+        case FileReadType::Interleaved_Read2Bytes_LE:
+        case FileReadType::Interleaved_Read2Bytes_BE:
+            if ((m_psCurrentFileLoadingData->rgRuleList.size() % 2) != 0)
+            {
+                m_eValidatedFileJoinType = FileReadType::Sequential;
+            }
+            break;
+        case FileReadType::Interleaved_4FileSets:
+            if ((m_psCurrentFileLoadingData->rgRuleList.size() % 4) != 0)
+            {
+                m_eValidatedFileJoinType = FileReadType::Sequential;
+            }
+            break;
     }
 
     if (m_eValidatedFileJoinType != m_psCurrentFileLoadingData->eReadType)
@@ -922,40 +922,40 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             // Advance the read heads relative to where we're actually starting the read
                             switch (m_nCurrentPaletteROMLocation % 4)
                             {
-                            case 0:
-                                break;
-                            case 1:
-                                nTempHandle = nFirstHandle;
-                                nFirstHandle = nSecondHandle;
-                                nSecondHandle = nThirdHandle;
-                                nThirdHandle = nFourthHandle;
-                                nFourthHandle = nTempHandle;
+                                case 0:
+                                    break;
+                                case 1:
+                                    nTempHandle = nFirstHandle;
+                                    nFirstHandle = nSecondHandle;
+                                    nSecondHandle = nThirdHandle;
+                                    nThirdHandle = nFourthHandle;
+                                    nFourthHandle = nTempHandle;
 
-                                nShift3 = 1;
-                                break;
-                            case 2: 
-                                nTempHandle = nThirdHandle;
-                                nThirdHandle = nFirstHandle;
-                                nFirstHandle = nTempHandle;
+                                    nShift3 = 1;
+                                    break;
+                                case 2: 
+                                    nTempHandle = nThirdHandle;
+                                    nThirdHandle = nFirstHandle;
+                                    nFirstHandle = nTempHandle;
 
-                                nTempHandle = nFourthHandle;
-                                nFourthHandle = nSecondHandle;
-                                nSecondHandle = nTempHandle;
+                                    nTempHandle = nFourthHandle;
+                                    nFourthHandle = nSecondHandle;
+                                    nSecondHandle = nTempHandle;
 
-                                nShift3 = 1;
-                                nShift2 = 1;
-                                break;
-                            case 3:
-                                nTempHandle = nFourthHandle;
-                                nFourthHandle = nThirdHandle;
-                                nThirdHandle = nSecondHandle;
-                                nSecondHandle = nFirstHandle;
-                                nFirstHandle = nTempHandle;
+                                    nShift3 = 1;
+                                    nShift2 = 1;
+                                    break;
+                                case 3:
+                                    nTempHandle = nFourthHandle;
+                                    nFourthHandle = nThirdHandle;
+                                    nThirdHandle = nSecondHandle;
+                                    nSecondHandle = nFirstHandle;
+                                    nFirstHandle = nTempHandle;
 
-                                nShift3 = 1;
-                                nShift2 = 1;
-                                nShift1 = 1;
-                                break;
+                                    nShift3 = 1;
+                                    nShift2 = 1;
+                                    nShift1 = 1;
+                                    break;
                             }
                             
                             m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
@@ -1648,40 +1648,40 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 // Advance the read heads relative to where we're actually starting the write
                                 switch (m_nCurrentPaletteROMLocation % 4)
                                 {
-                                case 0:
-                                    break;
-                                case 1:
-                                    nTempHandle = nFirstHandle;
-                                    nFirstHandle = nSecondHandle;
-                                    nSecondHandle = nThirdHandle;
-                                    nThirdHandle = nFourthHandle;
-                                    nFourthHandle = nTempHandle;
+                                    case 0:
+                                        break;
+                                    case 1:
+                                        nTempHandle = nFirstHandle;
+                                        nFirstHandle = nSecondHandle;
+                                        nSecondHandle = nThirdHandle;
+                                        nThirdHandle = nFourthHandle;
+                                        nFourthHandle = nTempHandle;
 
-                                    nShift3 = 1;
-                                    break;
-                                case 2:
-                                    nTempHandle = nThirdHandle;
-                                    nThirdHandle = nFirstHandle;
-                                    nFirstHandle = nTempHandle;
+                                        nShift3 = 1;
+                                        break;
+                                    case 2:
+                                        nTempHandle = nThirdHandle;
+                                        nThirdHandle = nFirstHandle;
+                                        nFirstHandle = nTempHandle;
 
-                                    nTempHandle = nFourthHandle;
-                                    nFourthHandle = nSecondHandle;
-                                    nSecondHandle = nTempHandle;
+                                        nTempHandle = nFourthHandle;
+                                        nFourthHandle = nSecondHandle;
+                                        nSecondHandle = nTempHandle;
 
-                                    nShift3 = 1;
-                                    nShift2 = 1;
-                                    break;
-                                case 3:
-                                    nTempHandle = nFourthHandle;
-                                    nFourthHandle = nThirdHandle;
-                                    nThirdHandle = nSecondHandle;
-                                    nSecondHandle = nFirstHandle;
-                                    nFirstHandle = nTempHandle;
+                                        nShift3 = 1;
+                                        nShift2 = 1;
+                                        break;
+                                    case 3:
+                                        nTempHandle = nFourthHandle;
+                                        nFourthHandle = nThirdHandle;
+                                        nThirdHandle = nSecondHandle;
+                                        nSecondHandle = nFirstHandle;
+                                        nFirstHandle = nTempHandle;
 
-                                    nShift3 = 1;
-                                    nShift2 = 1;
-                                    nShift1 = 1;
-                                    break;
+                                        nShift3 = 1;
+                                        nShift2 = 1;
+                                        nShift1 = 1;
+                                        break;
                                 }
 
                                 m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);

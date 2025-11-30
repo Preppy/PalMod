@@ -34,13 +34,13 @@ sFileRule CGame_REDEARTH_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eROMToLoad)
     {
-    case RedEarthLoadingKey::RedEarthROM30:
-        return CGameClassByDir::GetRule(nRuleId, RedEarth_A_FileLoadingData_30);
-    case RedEarthLoadingKey::RedEarthROM31:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, RedEarth_A_FileLoadingData_31);
-    case RedEarthLoadingKey::RedEarthROM50:
-        return CGameClassByDir::GetRule(nRuleId, RedEarth_A_FileLoadingData_50);
+        case RedEarthLoadingKey::RedEarthROM30:
+            return CGameClassByDir::GetRule(nRuleId, RedEarth_A_FileLoadingData_30);
+        case RedEarthLoadingKey::RedEarthROM31:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, RedEarth_A_FileLoadingData_31);
+        case RedEarthLoadingKey::RedEarthROM50:
+            return CGameClassByDir::GetRule(nRuleId, RedEarth_A_FileLoadingData_50);
     }
 }
 
@@ -48,16 +48,16 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eROMToLoad)
     {
-    case RedEarthLoadingKey::RedEarthROM30:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_30);
-        break;
-    case RedEarthLoadingKey::RedEarthROM31:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_31);
-        break;
-    case RedEarthLoadingKey::RedEarthROM50:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_50);
-        break;
+        case RedEarthLoadingKey::RedEarthROM30:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_30);
+            break;
+        case RedEarthLoadingKey::RedEarthROM31:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_31);
+            break;
+        case RedEarthLoadingKey::RedEarthROM50:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_50);
+            break;
     }
 }
 
