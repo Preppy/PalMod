@@ -64,7 +64,7 @@ sFileRule CGame_VENTURE_A_DIR::GetNextRuleInternal(VentureDirLoadingKey nGameMod
 
     if (m_uRuleCtr >= nMaxRuleNumber)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

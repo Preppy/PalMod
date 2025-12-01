@@ -147,7 +147,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 // Start
                 { UNIT_START_VALUE },
 
-                { INVALID_UNIT_VALUE }
+                { INVALID_UNIT_VALUE_16 }
             };
 
             nStockExtrasCount = 1; // count the empty starting value
@@ -215,6 +215,9 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 int nCurrStart = 0;
                 int nCurrEnd = 0;
                 DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
+                uint16_t indexImgToUse = INVALID_UNIT_VALUE_16; // the major character/collection index
+                uint8_t indexOffsetToUse = 0x0; // subsprites within that collection
+
 
 #ifdef DUMP_EXTRAS_ON_LOAD
                 struct NodeData
@@ -346,6 +349,10 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                                     memcpy(aszCurrDesc, aszFinalLine, nMaxDescLen);
                                     aszCurrDesc[nMaxDescLen] = '\0';
+
+                                    // reset image settings
+                                    indexImgToUse = INVALID_UNIT_VALUE_16; // the major character/collection index
+                                    indexOffsetToUse = 0x0; // subsprites within that collection
                                     break;
                                 }
                                 case 1:
@@ -358,6 +365,23 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     int nPos = 0;
 
                                     nCurrEnd = strtoul(aszFinalLine, nullptr, 16);
+
+                                    char* pszComma = strchr(aszFinalLine, ',');
+
+                                    if (pszComma)
+                                    {
+                                        pszComma++;
+                                        indexImgToUse = static_cast<uint16_t>(strtoul(pszComma, nullptr, 16));
+
+                                        pszComma = strchr(pszComma, ',');
+
+                                        if (pszComma)
+                                        {
+                                            pszComma++;
+                                            indexOffsetToUse = static_cast<uint8_t>(strtoul(pszComma, nullptr, 16));
+                                        }
+                                    }
+
 
                                     if (nCurrEnd == nCurrStart)
                                     {
@@ -512,6 +536,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                             pDefToSplit->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
                                             pDefToSplit->cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
                                             pDefToSplit->isInvisible = false;
+                                            pDefToSplit->indexImgToUse = indexImgToUse;
+                                            pDefToSplit->indexOffsetToUse = indexOffsetToUse;
 
 #ifdef DUMP_EXTRAS_ON_LOAD
                                             if (fPaletteUsesMultiplePages)
@@ -713,7 +739,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
         memcpy(*pCompleteExtraDefs, prgTempExtraBuffer, nExtraArraySize * sizeof(stExtraDef));
 
-        (*pCompleteExtraDefs)[nExtraArraySize].uUnitN = INVALID_UNIT_VALUE;
+        (*pCompleteExtraDefs)[nExtraArraySize].uUnitN = INVALID_UNIT_VALUE_16;
 
         if (pszExtraFileName[0] == 0)
         {
@@ -836,7 +862,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
             uint32_t nCurrentROMOffset = m_nCurrentPaletteROMLocation;
 
-            if (nCurrentROMOffset == INVALID_UNIT_VALUE)
+            if (nCurrentROMOffset == INVALID_UNIT_VALUE_16)
             {
                 // virtual palette: ignore
                 continue;

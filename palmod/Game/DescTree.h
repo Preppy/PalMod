@@ -10,7 +10,7 @@ struct sDescNode
 {
     wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
 
-    uint32_t uUnitId = INVALID_UNIT_VALUE;
+    uint32_t uUnitId = INVALID_UNIT_VALUE_16;
     uint32_t uPalId = 0;
 };
 

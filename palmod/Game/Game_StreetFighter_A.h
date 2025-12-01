@@ -265,7 +265,7 @@ class CGame_StreetFighter_S : public CGameClassByDir
         {
             {
                 L"bundleStreetFighter.mbundle", 0x5e5eb50,
-                INVALID_UNIT_VALUE, true,
+                INVALID_UNIT_VALUE_16, true,
                 L"StreetFighter.u.68k", 0x60000
             },
         },

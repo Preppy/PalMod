@@ -31,7 +31,7 @@ sFileRule CGame_MVC2_P::GetNextRule()
 
     if (m_uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

@@ -39,7 +39,7 @@ sFileRule CGameClassPerUnitPerFile::GetNextRule(const std::vector<sGCBUPF_BasicF
 
     if (++m_uRuleCtr >= gameLoadingData.size())
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;
@@ -875,8 +875,8 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
     m_BasePalGroup.FlushPalAll();
 
     //Change the image id if we need to
-    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
-    uint32_t nTargetImgId = 0;
+    uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
+    uint8_t nTargetImgId = 0;
     uint32_t nSrcStart = 0;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
@@ -919,8 +919,8 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.size())
             {
                 // For image unit ID, use the basic palette specified value if present, otherwise use the general value for file
-                // If the client wants us to ignore the local value, they should specify INVALID_UNIT_VALUE for image unit ID.
-                if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit != INVALID_UNIT_VALUE)
+                // If the client wants us to ignore the local value, they should specify INVALID_UNIT_VALUE_16 for image unit ID.
+                if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit != INVALID_UNIT_VALUE_16)
                 {
                     nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit;
                 }

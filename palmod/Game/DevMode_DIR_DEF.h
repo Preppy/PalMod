@@ -22,5 +22,5 @@ const stExtraDef UNKNOWN_GAME_DIR_EXTRAS_LIST[] =
 
     { 0, L"Configure your Extras file.", 0, 0x20 },
 
-    { INVALID_UNIT_VALUE }
+    { INVALID_UNIT_VALUE_16 }
 };

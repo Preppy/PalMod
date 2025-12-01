@@ -71,7 +71,7 @@ sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(RedEarthLoadingKey nGameMode
 
     if (m_uRuleCtr >= nMaxRuleNumber)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

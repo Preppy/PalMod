@@ -462,7 +462,7 @@ void CGame_MVC2_D::InitExtraRg()
 // Returns a count of the extra sprites available for a given unit/character
 uint32_t CGame_MVC2_D::CountExtraRg(uint32_t nUnitId, BOOL fCountIsOfSharedExtras)
 {
-    //(MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32;
+    //(MVC2_D_PALDATASZ[nImgUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32;
     if (!m_rgExtraChrLoc[nUnitId])
     {
         if (_nCurrentTotalColorOptions == 6)
@@ -596,7 +596,7 @@ sFileRule CGame_MVC2_D::GetNextRuleDC()
 
     if (m_uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;
@@ -610,7 +610,7 @@ sFileRule CGame_MVC2_D::GetNextRuleSteam()
 
     if (m_uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

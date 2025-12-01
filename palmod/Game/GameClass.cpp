@@ -98,11 +98,11 @@ BOOL CGameClass::SpecSel(int* nRelativizedPalId, int nPalId, int nRelativePalIdT
     return TRUE;
 }
 
-sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs, BlendMode nBlendMode)
+sImgTicket* CGameClass::CreateImgTicket(uint16_t nImgUnitId, uint8_t nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs, BlendMode nBlendMode)
 {
     sImgTicket* NewTicket = new sImgTicket;
 
-    NewTicket->nUnitId = nUnitId;
+    NewTicket->nImgUnitId = nImgUnitId;
     NewTicket->nImgId = nImgId;
     NewTicket->nXOffs = nXOffs;
     NewTicket->nYOffs = nYOffs;
@@ -562,7 +562,7 @@ void CGameClass::SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart
 
 #if GAMECLASS_DBG
     CString strMsg;
-    strMsg.Format(L"CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n", nUnitId, nStart, nAmt, nInc);
+    strMsg.Format(L"CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n", nImgUnitId, nStart, nAmt, nInc);
     OutputDebugString(strMsg);
 
     if ((nAmt > 1) && // If this game wants to allow multisprite export
@@ -1044,7 +1044,7 @@ uint32_t CGameClass::_GetExtraCount(uint32_t* rgExtraCount, uint32_t nNormalUnit
 
         if (pCurrDef)
         {
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE_16)
             {
                 if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
                     !pCurrDef->isInvisible)
@@ -1071,7 +1071,7 @@ uint32_t CGameClass::_GetExtraLocation(uint32_t* rgExtraLocations, uint32_t nNor
 
         stExtraDef* pCurrDef = &ppExtraDef[0];
 
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE_16)
         {
             if (pCurrDef->uUnitN != nCurrUnit)
             {
@@ -1118,7 +1118,7 @@ uint32_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, ui
 
 #if GAMECLASS_DBG
         CString strMsg;
-        strMsg.Format(L"CGameClass::_GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGameClass::_GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nImgUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -1434,7 +1434,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
                     strMsg.Format(L", 0x%x to 0x%x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
+                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE_16)
                     {
                         strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
@@ -1543,8 +1543,8 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
-    int nTargetImgId = 0;
-    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
+    uint8_t nTargetImgId = 0;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -1852,6 +1852,12 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                 }
             }
         }
+    }
+    else // extra section
+    {
+        //the first extradef is a dummy placeholder
+        nImgUnitId = ppExtraDef[Node03 + 1].indexImgToUse;
+        nTargetImgId = ppExtraDef[Node03 + 1].indexOffsetToUse;
     }
 
     if (!fShouldUseAlternateLoadLogic)

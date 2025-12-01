@@ -5,8 +5,9 @@
 constexpr auto MAX_DESCRIPTION_LENGTH = 96;
 
 constexpr auto UNIT_START_VALUE   = 0xf000;
-constexpr auto INVALID_UNIT_VALUE = 0xffff;
-constexpr auto INVALID_UNIT_VALUE32 = 0xffffffff;
+constexpr auto INVALID_UNIT_VALUE_8 = 0xff;
+constexpr auto INVALID_UNIT_VALUE_16 = 0xffff;
+constexpr auto INVALID_VALUE_32 = 0xffffffff;
 
 // We should rarely get anywhere near here, but we'll bound here.
 constexpr auto MAX_IMAGES_DISPLAYABLE = 64;

@@ -29,7 +29,7 @@ sFileRule CGameClassByFile::GetNextRule(const std::vector<sGameUnitsByFile>& gam
 
     if (++m_uRuleCtr >= gameLoadingData.size())
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;
@@ -328,8 +328,8 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
-    int nTargetImgId = 0;
-    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
+    uint8_t nTargetImgId = 0;
 
     bool fShouldUseAlternateLoadLogic = false;
 

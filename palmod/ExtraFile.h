@@ -9,7 +9,7 @@ protected:
     // This value is set to be "(known internal palette count) + (loaded extras count)".  If that matches with the m_nTotalPaletteCount value, 
     // we then skip runtime palette table anti-dupe validation.
     uint32_t m_nSafeCountForThisRom = 0;
-    uint16_t m_nExtraUnit = INVALID_UNIT_VALUE;
+    uint16_t m_nExtraUnit = INVALID_UNIT_VALUE_16;
     uint32_t m_nLowestRomLocationThisPass = k_nBogusHighValue;
     uint32_t m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
     LPCWSTR m_pszExtraFilename = nullptr;

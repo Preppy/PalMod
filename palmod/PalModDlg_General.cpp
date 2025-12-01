@@ -366,13 +366,13 @@ void CPalModDlg::PostPalSel()
             if (CurrTicket != nullptr)
             {
                 // This is where we load our images from img.dat .
-                // nUnitId is the character/palette index.
+                // nImgUnitId is the character/palette index.
                 // nImgId is the extra offset for that character.
-                const int nImgKey = (static_cast<uint16_t>(CurrTicket->nUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
+                const int nImgKey = (static_cast<uint16_t>(CurrTicket->nImgUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
                 static int s_nLastPalAmt = 1;
                 const bool fChangingVisualLayout = (nPrevImgIndex[nImgIndexCtr] != nImgKey) || (s_nLastPalAmt != nPalAmt);
 
-                CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
+                CurrImgDef = ImgFile->GetImageDef(CurrTicket->nImgUnitId, CurrTicket->nImgId);
 
                 if (fChangingVisualLayout && (nImgIndexCtr == 0))
                 {
@@ -397,7 +397,7 @@ void CPalModDlg::PostPalSel()
                             nImgIndexCtr,
                             CurrImgDef->uImgWidth,
                             CurrImgDef->uImgHeight,
-                            ImgFile->GetImgData(CurrImgDef, CurrGame->GetGameFlag(), CurrTicket->nUnitId, CurrTicket->nImgId),
+                            ImgFile->GetImgData(CurrImgDef, CurrGame->GetGameFlag(), CurrTicket->nImgUnitId, CurrTicket->nImgId),
                             MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
                             MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz,
                             CurrTicket->nXOffs,
@@ -462,14 +462,14 @@ void CPalModDlg::PostPalSel()
             {
                 CString strInformation;
                 // Friendly name would be kind of nice.
-                if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF) ||
-                    (CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
+                if ((CurrTicket->nImgUnitId == INVALID_UNIT_VALUE_16) ||
+                    (CurrTicket->nImgId == INVALID_UNIT_VALUE_8))
                 {
                     strInformation.Format(L"Preview: (no internal preview available%s)", m_strPossiblePreviewStatus.GetString());
                 }
                 else
                 {
-                    strInformation.Format(L"Preview: unit 0x%02x, image id 0x%02x", CurrTicket->nUnitId, CurrTicket->nImgId);
+                    strInformation.Format(L"Preview: unit 0x%02x, image id 0x%02x", CurrTicket->nImgUnitId, CurrTicket->nImgId);
                 }
                 PreviewDlg->SetWindowCaption(strInformation);
             }

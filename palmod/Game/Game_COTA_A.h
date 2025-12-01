@@ -92,7 +92,7 @@ private:
         {
             {
                 L"xmcotaj.21D3D8A7", 0x2C50040, // ARC form
-                INVALID_UNIT_VALUE, true,
+                INVALID_UNIT_VALUE_16, true,
                 L"f000.bin", 0x800000  // extracted-from-AFS form
             }
         },

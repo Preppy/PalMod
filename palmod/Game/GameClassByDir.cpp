@@ -399,7 +399,7 @@ sFileRule CGameClassByDir::GetNextRule(const sDirectoryLoadingData& gameLoadingD
 
     if (m_uRuleCtr >= gameLoadingData.rgRuleList.size())
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

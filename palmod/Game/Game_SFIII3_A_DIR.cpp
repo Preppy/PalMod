@@ -115,7 +115,7 @@ sFileRule CGame_SFIII3_A_DIR::GetNextRuleInternal(SFIII3LoadingKey nSF3ModeToLoa
 
     if (m_uRuleCtr >= nFilesNeeded)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

@@ -6,11 +6,11 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D =
 {
     // Use the parent's default preview for main sprite, and explicitly turn off previews for the Extras
     { L"Main Sprite", 0x00 },
-    { L"Extra 1", 0x20, INVALID_UNIT_VALUE, static_cast<uint16_t>(-1) },
-    { L"Extra 2", 0x40, INVALID_UNIT_VALUE, static_cast<uint16_t>(-1) },
-    { L"Extra 3", 0x60, INVALID_UNIT_VALUE, static_cast<uint16_t>(-1) },
-    { L"Extra 4", 0x80, INVALID_UNIT_VALUE, static_cast<uint16_t>(-1) },
-    { L"Extra 5", 0xa0, INVALID_UNIT_VALUE, static_cast<uint16_t>(-1) },
+    { L"Extra 1", 0x20, INVALID_UNIT_VALUE_16 },
+    { L"Extra 2", 0x40, INVALID_UNIT_VALUE_16 },
+    { L"Extra 3", 0x60, INVALID_UNIT_VALUE_16 },
+    { L"Extra 4", 0x80, INVALID_UNIT_VALUE_16 },
+    { L"Extra 5", 0xa0, INVALID_UNIT_VALUE_16 },
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Ken =

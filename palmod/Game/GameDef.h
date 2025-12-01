@@ -338,7 +338,7 @@ struct sSupportedGameToFileMap
     std::wstring strGameFilterString;
     GamePlatform publisherKey = GamePlatform::DevMode;
     GameSeries seriesKey = GameSeries::Unknown;
-    int nListedGameIndex = INVALID_UNIT_VALUE;
+    int nListedGameIndex = INVALID_UNIT_VALUE_16;
 };
 
 const int k_nTextureLoadCommandMask = 0xff00;
@@ -353,13 +353,13 @@ enum class eImageOutputSpriteDisplay
 
 struct stExtraDef
 {
-    uint32_t uUnitN = INVALID_UNIT_VALUE;
+    uint32_t uUnitN = INVALID_UNIT_VALUE_16;
     wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
     uint32_t uOffset = 0;
     uint16_t cbPaletteSize = 0;
     bool isInvisible = false;
-    uint16_t indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    uint16_t indexOffsetToUse = 0x0; // subsprites within that collection
+    uint16_t indexImgToUse = INVALID_UNIT_VALUE_16; // the major character/collection index
+    uint8_t indexOffsetToUse = 0x0; // subsprites within that collection
 };
 
 enum class PalettePairOptions
@@ -402,8 +402,8 @@ struct sGame_PaletteDataset
     const LPCWSTR szPaletteName = L"uninit";
     const uint32_t nPaletteOffset = 0;
     const uint32_t nPaletteOffsetEnd = 0;
-    const uint16_t indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    const uint16_t indexOffsetToUse = 0x0; // subsprites within that collection
+    const uint16_t indexImgToUse = INVALID_UNIT_VALUE_16; // the major character/collection index
+    const uint8_t indexOffsetToUse = 0x0; // subsprites within that collection
     const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
     const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };

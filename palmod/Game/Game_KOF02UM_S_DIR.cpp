@@ -38,7 +38,7 @@ sFileRule CGame_KOF02UM_S_DIR::GetNextRule_8888()
 
     if (m_uRuleCtr >= KOF02UM_S_DIR_8888_UNITS.size())
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;
@@ -64,7 +64,7 @@ sFileRule CGame_KOF02UM_S_DIR::GetNextRule_BGR555()
 
     if (m_uRuleCtr >= KOF02UM_S_DIR_BGR555_UNITS.size())
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;
@@ -90,7 +90,7 @@ sFileRule CGame_KOF02UM_S_DIR::GetNextRule_RGB555()
 
     if (m_uRuleCtr >= KOF02UM_S_DIR_RGB555_UNITS.size())
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

@@ -53,7 +53,7 @@ sFileRule CGame_JOJOS_A_DIR::GetNextRuleInternal(JojosLoadingKey nVersionToLoad)
 
     if (m_uRuleCtr >= nMaxRuleNumber)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

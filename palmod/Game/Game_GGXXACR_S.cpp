@@ -6,20 +6,20 @@
 
 std::vector<sGCBUPF_BasicFileData> GGXXACR_S_ExtrasData =
 {
-    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"Effects",             3041088, {}, {},   0x1806f0,        static_cast<uint32_t>(-1), 0, GGXXACR_S_EFFECTS_JPF },
-    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"Effects",             3041088, {}, {},   0x1806f0,        static_cast<uint32_t>(-1), 0, GGXXACR_S_DUSTS_JPF },
-    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"Effects",             3041088, {}, {},   0x1806f0,        static_cast<uint32_t>(-1), 0, GGXXACR_S_HITSPARKS_JPF },
-    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"HUD",                 3041088, {}, {},   0x2e0,           static_cast<uint32_t>(-1), 0, GGXXACR_S_HUDMenu },
-    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"HUD",                 3041088, {}, {},   0x1efc0,         static_cast<uint32_t>(-1), 0, GGXXACR_S_RoundMessages },
-    { L"Resource\\pr\\ver_100\\demo\\select.bin",       L"Character Select Screen", 2960672, {}, {}, 0xe3260,       static_cast<uint32_t>(-1), 0, GGXXACR_S_SelectScreen },
-    { L"Resource\\pr\\ver_100\\demo\\select.bin",       L"Character Select Screen", 2960672, {}, {}, 0x125b50,      static_cast<uint32_t>(-1), 0, GGXXACR_S_SelectScreenStages },
-    { L"Resource\\pr\\ver_100\\demo\\select.bin",       L"Character Select Screen", 2960672, {}, {}, 0x2f0,         static_cast<uint32_t>(-1), 0, GGXXACR_S_SelectScreenPortraits },
-    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0x110,           static_cast<uint32_t>(-1), 0, GGXXACR_S_Sidebar_Portraits_TypeA },
-    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0x2D850,         static_cast<uint32_t>(-1), 0, GGXXACR_S_Sidebar_Portraits_TypeB },
-    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0x599D0,         static_cast<uint32_t>(-1), 0, GGXXACR_S_Sidebar_Portraits_TypeC },
-    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0xd4cf0,         static_cast<uint32_t>(-1), 0, GGXXACR_S_Sidebar_Portraits_TypeD },
-    { L"Resource\\pr\\ver_100\\demo\\titleall.bin",     L"Bonus Palettes",      5281296, {}, {},   0x7AC70,         static_cast<uint32_t>(-1), 0, GGXXACR_S_Title },
-    { L"Resource\\mission\\missionall.bin",             L"Bonus Palettes",      402800,  {}, {},   0x50530,         static_cast<uint32_t>(-1), 0, GGXXACR_S_MissionIcons },
+    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"Effects",             3041088, {}, {},   0x1806f0,        INVALID_UNIT_VALUE_16, 0, GGXXACR_S_EFFECTS_JPF },
+    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"Effects",             3041088, {}, {},   0x1806f0,        INVALID_UNIT_VALUE_16, 0, GGXXACR_S_DUSTS_JPF },
+    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"Effects",             3041088, {}, {},   0x1806f0,        INVALID_UNIT_VALUE_16, 0, GGXXACR_S_HITSPARKS_JPF },
+    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"HUD",                 3041088, {}, {},   0x2e0,           INVALID_UNIT_VALUE_16, 0, GGXXACR_S_HUDMenu },
+    { L"Resource\\pr\\ver_100\\demo\\archive_jpf.bin",  L"HUD",                 3041088, {}, {},   0x1efc0,         INVALID_UNIT_VALUE_16, 0, GGXXACR_S_RoundMessages },
+    { L"Resource\\pr\\ver_100\\demo\\select.bin",       L"Character Select Screen", 2960672, {}, {}, 0xe3260,       INVALID_UNIT_VALUE_16, 0, GGXXACR_S_SelectScreen },
+    { L"Resource\\pr\\ver_100\\demo\\select.bin",       L"Character Select Screen", 2960672, {}, {}, 0x125b50,      INVALID_UNIT_VALUE_16, 0, GGXXACR_S_SelectScreenStages },
+    { L"Resource\\pr\\ver_100\\demo\\select.bin",       L"Character Select Screen", 2960672, {}, {}, 0x2f0,         INVALID_UNIT_VALUE_16, 0, GGXXACR_S_SelectScreenPortraits },
+    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0x110,           INVALID_UNIT_VALUE_16, 0, GGXXACR_S_Sidebar_Portraits_TypeA },
+    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0x2D850,         INVALID_UNIT_VALUE_16, 0, GGXXACR_S_Sidebar_Portraits_TypeB },
+    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0x599D0,         INVALID_UNIT_VALUE_16, 0, GGXXACR_S_Sidebar_Portraits_TypeC },
+    { L"Resource\\demo\\side_belt.bin",                 L"Sidebar",             2794128, {}, {},   0xd4cf0,         INVALID_UNIT_VALUE_16, 0, GGXXACR_S_Sidebar_Portraits_TypeD },
+    { L"Resource\\pr\\ver_100\\demo\\titleall.bin",     L"Bonus Palettes",      5281296, {}, {},   0x7AC70,         INVALID_UNIT_VALUE_16, 0, GGXXACR_S_Title },
+    { L"Resource\\mission\\missionall.bin",             L"Bonus Palettes",      402800,  {}, {},   0x50530,         INVALID_UNIT_VALUE_16, 0, GGXXACR_S_MissionIcons },
 };
 
 std::vector<sGCBUPF_BasicFileData> GGXXACR_S_EXCharData =

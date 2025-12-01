@@ -33,7 +33,7 @@ public:
     CGame_MVC2_D(uint32_t nConfirmedROMSize, SupportedGamesList eGameVersion);
     ~CGame_MVC2_D();
 
-    uint32_t nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
+    uint16_t nImgUnitId = MVC2_D_NUMUNIT; // Unit Image Id
 
     //Static functions
     static uint32_t m_uRuleCtr;

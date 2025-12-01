@@ -74,7 +74,7 @@ sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(uint32_t nUnitId, uint32_
         {
             uint32_t uPalIdPostExtras = nPalId - EXTRA_OMNI;
 
-            // SKip past the core 8 palettes into extras space and see if we have a match
+            // Skip past the core 8 palettes into extras space and see if we have a match
             for (uint32_t uPalPos = 8; uPalPos < m_pCurrentMoveDescriptions[nUnitId].size(); uPalPos++)
             {
                 if (m_pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uPalIdPostExtras)
@@ -114,8 +114,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     bool fUsingDataFromDescriptionSet = false;
 
     //Change the image id if we need to
-    int nTargetImgId = -1;
-    nImgUnitId = uUnitId;
+    nImgUnitId = static_cast<uint16_t>(uUnitId);
+    // This must be 16bit for compatability with old extras code
+    uint16_t nTargetImgId = INVALID_UNIT_VALUE_16;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -218,10 +219,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 for (int nNodeIndex = static_cast<int>(pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                 {
-                    const uint32_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != USE_DEFAULT_PREVIEW) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
-                    const uint16_t nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != USE_DEFAULT_PREVIEW) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
+                    const uint16_t nImgUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != USE_DEFAULT_PREVIEW) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
+                    const uint8_t nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != USE_DEFAULT_PREVIEW) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
 
-                    sImgTicket* pThisImage = CreateImgTicket(nUnitToUse, nImageToUse, pPreviousImage);
+                    sImgTicket* pThisImage = CreateImgTicket(nImgUnitToUse, nImageToUse, pPreviousImage);
 
                     vsImagePairs.push_back(pThisImage);
 
@@ -411,12 +412,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         const int nBitFlagToUse = fImgIsFromNewImgDatRange ? 0xFF : 0x0F;
 
         // Old extra targetimgids will be 0xFF0x, so allow for that.
-        if ((nTargetImgId != -1) && ((0xFF & nTargetImgId) > nBitFlagToUse))
+        if ((nTargetImgId != INVALID_UNIT_VALUE_16) && ((0xFF & nTargetImgId) > nBitFlagToUse))
         {
             OutputDebugString(L"WARNING: The desired nTargetImgId is out of range and is being modified\n");
         }
 
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, (nTargetImgId != -1) ? (nTargetImgId & nBitFlagToUse) : nBasicOffset));
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, static_cast<uint8_t>((nTargetImgId != INVALID_UNIT_VALUE_16) ? (nTargetImgId & nBitFlagToUse) : nBasicOffset)));
 
         CreateDefPal(NodeGet, 0);
 

@@ -142,14 +142,14 @@ const sGCBUPF_BasicNodeData BlazBlueCFCollection26 =
 
 const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListGeneric =
 {
-    { L"Main", 0x0, INVALID_UNIT_VALUE, 0x00 },
-    { L"Extra 1", 0x420, INVALID_UNIT_VALUE, 0x01 },
-    { L"Extra 2", 0x840, INVALID_UNIT_VALUE, 0x02 },
-    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE, 0x03 },
-    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE, 0x04 },
-    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE, 0x05 },
-    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE, 0x06 },
-    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE, 0x07 },
+    { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
+    { L"Extra 1", 0x420, INVALID_UNIT_VALUE_16, 0x01 },
+    { L"Extra 2", 0x840, INVALID_UNIT_VALUE_16, 0x02 },
+    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x03 },
+    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
+    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
+    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE_16, 0x06 },
+    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
 };
 
 uint8_t TranslatePalModSpriteIdToBBCFGameId(uint32_t nSpriteId);

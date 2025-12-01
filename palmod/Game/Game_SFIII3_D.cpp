@@ -160,7 +160,7 @@ sFileRule CGame_SFIII3_D::GetNextRule()
 
     if (m_uRuleCtr >= SFIII3_D_NUMUNIT)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

@@ -258,7 +258,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
 
     GetHost()->GetPalModDlg()->SetStatusText(L"Opening files...");
 
-    while (nCurrRuleCtr != INVALID_UNIT_VALUE)
+    while (nCurrRuleCtr != INVALID_UNIT_VALUE_16)
     {
         nSaveLoadCount++;
 

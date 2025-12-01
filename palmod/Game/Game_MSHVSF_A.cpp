@@ -121,8 +121,8 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     m_BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
-    int nTargetImgId = 0;
-    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
+    uint8_t nTargetImgId = 0;
 
     bool fShouldUseAlternateLoadLogic = false;
 

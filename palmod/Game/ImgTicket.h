@@ -2,8 +2,8 @@
 
 struct sImgTicket
 {
-    int32_t nUnitId = 0;
-    int32_t nImgId = 0;
+    uint16_t nImgUnitId = 0;
+    uint8_t nImgId = 0;
 
     int nXOffs = 0;
     int nYOffs = 0;

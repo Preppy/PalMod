@@ -22,7 +22,7 @@ struct sMoveDescription
 {
     uint16_t nCharacterIndex = 0;
     LPCWSTR szMoveName = L"uninit";
-    uint16_t nImageIndex = USE_DEFAULT_PREVIEW;
+    uint8_t nImageIndex = USE_DEFAULT_PREVIEW;
     uint16_t nImageUnitOverride = USE_DEFAULT_PREVIEW;
     const stPairedPaletteInfo *pPairedPaletteInfo = nullptr;
 };

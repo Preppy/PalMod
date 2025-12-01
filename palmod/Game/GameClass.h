@@ -16,7 +16,7 @@ struct sFileRule
 {
     wchar_t szFileName[MAX_FILENAME_LENGTH] = L"uninit";
     size_t uVerifyVar = 0;
-    uint32_t uUnitId = INVALID_UNIT_VALUE;
+    uint32_t uUnitId = INVALID_UNIT_VALUE_16;
     bool fHasAltName = false;
     wchar_t szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
     size_t uAltVerifyVar = static_cast<size_t>(-1);
@@ -46,7 +46,7 @@ protected:
     std::vector<bool> m_rgFileChanged;
     uint32_t m_nFileAmt = 0;
 
-    uint32_t m_nTotalInternalUnits = INVALID_UNIT_VALUE;
+    uint32_t m_nTotalInternalUnits = INVALID_UNIT_VALUE_16;
     uint32_t m_nCurrentPaletteROMLocation = 0;
     uint32_t m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     uint16_t m_nCurrentPaletteSizeInColors = 0;
@@ -235,7 +235,7 @@ public:
     void SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart, uint32_t nAmt, uint32_t nInc);
     void ClearSrcPal();
 
-    sImgTicket* CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0, BlendMode nBlendMode = BlendMode::Alpha);
+    sImgTicket* CreateImgTicket(uint16_t nImgUnitId, uint8_t nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0, BlendMode nBlendMode = BlendMode::Alpha);
     void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
 
     uint32_t GetCurrentPaletteIncrement() { return m_nSrcPalInc[0]; };
@@ -276,7 +276,7 @@ public:
     virtual void ValidateMixExtraColors(BOOL& fChangesWereMade) {};
     virtual int PostSetPal(uint32_t nUnitId, uint32_t nPalId) { return 0; };
     virtual void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) {};
-    virtual uint32_t GetPaletteCountForUnit(uint32_t nUnitId) { return INVALID_UNIT_VALUE; };
+    virtual uint32_t GetPaletteCountForUnit(uint32_t nUnitId) { return INVALID_UNIT_VALUE_16; };
 
     virtual void CreateDefPal(sDescNode* srcNode, uint32_t nSepId);
 

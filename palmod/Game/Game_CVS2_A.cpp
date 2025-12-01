@@ -7,7 +7,7 @@
 struct sCVS2_ExtraPair
 {
     LPCWSTR pszExtraName = nullptr;
-    uint16_t nImgIndex = 0;
+    uint8_t nImgIndex = 0;
 };
 
 struct sCVS2_CharacterDump

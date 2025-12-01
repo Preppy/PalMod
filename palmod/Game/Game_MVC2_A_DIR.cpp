@@ -51,7 +51,7 @@ sFileRule CGame_MVC2_A_DIR::GetNextRule()
 
     if (m_uRuleCtr >= MVC2_Arcade_NumberOfSIMMs)
     {
-        m_uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }
 
     return NewFileRule;

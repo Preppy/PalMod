@@ -100,15 +100,15 @@ bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint1
     return true;
 }
 
-sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
+sImgDef* CImgDat::GetImageDef(uint16_t uImgUnitId, uint8_t uImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
-    strDebugInfo.Format(L"CImgDat::GetImageDef : Attempting to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
+    strDebugInfo.Format(L"CImgDat::GetImageDef : Attempting to get ImageDef for unit 0x%02x img 0x%x.\n", uImgUnitId, uImgId);
     OutputDebugString(strDebugInfo);
 #endif
 
-    //if ((uUnitId >= uCurrUnitAmt) || (uImgId > uCurrImgAmt))
+    //if ((uImgUnitId >= uCurrUnitAmt) || (uImgId > uCurrImgAmt))
 
     if (nImgMap)
     {
@@ -117,33 +117,33 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
         OutputDebugString(strDebugInfo);
 #endif
 
-        imgMapIter it = nImgMap->find(static_cast<uint16_t>(uUnitId));
+        imgMapIter it = nImgMap->find(static_cast<uint16_t>(uImgUnitId));
         if (it != nImgMap->cend())
         {
             // it->second->listAllImgIDs();
 #if IMGDAT_DEBUG
-            strDebugInfo.Format(L"\tCImgDat::GetImageDef : ppImgData[0x%02X] exists containings 0x%x items\n", uUnitId, it->second->size());
+            strDebugInfo.Format(L"\tCImgDat::GetImageDef : ppImgData[0x%02X] exists containings 0x%x items\n", uImgUnitId, it->second->size());
             OutputDebugString(strDebugInfo);
 #endif
             if (it->second->valueExists(uImgId))
             {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format(L"\tCImgDat::GetImageDef : Found imgID 0x%02X in list for unitID 0x%02X \n", uImgId, uUnitId);
+                strDebugInfo.Format(L"\tCImgDat::GetImageDef : Found imgID 0x%02X in list for unitID 0x%02X \n", uImgId, uImgUnitId);
                 OutputDebugString(strDebugInfo);
 #endif
                 return it->second->getImgDef(uImgId);
             }
 #if IMGDAT_DEBUG
-            strDebugInfo.Format(L"\t\tCImgDat::GetImageDef : Could not find imgID:0x%02X in list for unitID:0x%02X\n", uImgId, uUnitId);
+            strDebugInfo.Format(L"\t\tCImgDat::GetImageDef : Could not find imgID:0x%02X in list for unitID:0x%02X\n", uImgId, uImgUnitId);
             OutputDebugString(strDebugInfo);
 #endif
         }
         else
         {
-            if ((uUnitId != INVALID_UNIT_VALUE) && (uUnitId != INVALID_UNIT_VALUE32))
+            if (uImgUnitId != INVALID_UNIT_VALUE_16)
             {
                 CString strWarning;
-                strWarning.Format(L"\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update this game's array in gamedef.h?\n    **************\n", uUnitId);
+                strWarning.Format(L"\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update this game's array in gamedef.h?\n    **************\n", uImgUnitId);
                 OutputDebugString(strWarning);
             }
         }
@@ -155,7 +155,7 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
     return nullptr;
 }
 
-uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId)
+uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCurrentImgUnitId, uint8_t nCurrentImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -163,7 +163,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCu
     if (pCurrImg->pImgData)
     {
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(L"CImgDat::GetImgData : Image at position '0x%x' for unit 0x%02x img 0x%x is already loaded.\n", pCurrImg->uThisImgLoc, nCurrentUnitId, nCurrentImgId);
+        strDebugInfo.Format(L"CImgDat::GetImgData : Image at position '0x%x' for unit 0x%02x img 0x%x is already loaded.\n", pCurrImg->uThisImgLoc, nCurrentImgUnitId, nCurrentImgId);
         OutputDebugString(strDebugInfo);
 
         strDebugInfo.Format(L"\tImage data: W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
@@ -177,7 +177,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCu
     uint8_t* pNewImgData = new uint8_t[pCurrImg->uDataSize];
 
 #if IMGDAT_DEBUG
-    strDebugInfo.Format(L"CImgDat::GetImgData : Making pNewImgData for unitID:0x%X, imgID:0x%X .\n", nCurrentUnitId, nCurrentImgId);
+    strDebugInfo.Format(L"CImgDat::GetImgData : Making pNewImgData for unitID:0x%X, imgID:0x%X .\n", nCurrentImgUnitId, nCurrentImgId);
     OutputDebugString_ImgDat(strDebugInfo);
     strDebugInfo.Format(L"\tImage data: W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
     OutputDebugString_ImgDat(strDebugInfo);
@@ -235,7 +235,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCu
         // We could use known CurrentUnitId offsets to get back to the friendly character name...
         // We previously included the offset ( pCurrImg->uThisImgLoc ) in the filename, but that's probably not useful overall.
         CString strFilePath;
-        strFilePath.Format(L".\\Assets\\%s-unit-0x%02x-imgid-0x%02x-W-%i-H-%i.raw", strThisGameName, nCurrentUnitId, nCurrentImgId, pCurrImg->uImgWidth, pCurrImg->uImgHeight);
+        strFilePath.Format(L".\\Assets\\%s-unit-0x%02x-imgid-0x%02x-W-%i-H-%i.raw", strThisGameName, nCurrentImgUnitId, nCurrentImgId, pCurrImg->uImgWidth, pCurrImg->uImgHeight);
 
         CString strDebugInfo;
         strDebugInfo.Format(L"Special Export: Image '0x%x', H %u W %u for LEN %u to %s\n", pCurrImg->uThisImgLoc, pCurrImg->uImgHeight, pCurrImg->uImgWidth, uLengthToWrite, strFilePath);
