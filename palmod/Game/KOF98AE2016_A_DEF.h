@@ -2159,7 +2159,7 @@ const sGame_PaletteDataset KOF98AE2016_A_OChris_A[] =
     { L"Extra 3", 0x1ed870, 0x1ed890 },
     { L"Extra 4", 0x1ed890, 0x1ed8b0 },
     { L"Order Select", 0x1ed8b0, 0x1ed8d0, indexKOF98Sprites_OrderSelect, 0x4f },
-    { L"Life Bar Portrait", 0x1ed8d0, 0x1ed8f0, indexKOF98Sprites_Lifebar, 0x41f },
+    { L"Life Bar Portrait", 0x1ed8d0, 0x1ed8f0, indexKOF98Sprites_Lifebar, 0x4f },
     { L"Win Screen Portrait", 0x1ed8f0, 0x1ed9f0, indexKOF98Sprites_WinPortrait, 0x4f },
 };
 
@@ -2173,7 +2173,7 @@ const sGame_PaletteDataset KOF98AE2016_A_OChris_B[] =
     { L"Extra 4", 0x1eda90, 0x1edab0 },
     { L"Order Select", 0x1edab0, 0x1edad0, indexKOF98Sprites_OrderSelect, 0x4f },
     { L"Life Bar Portrait", 0x1edad0, 0x1edaf0, indexKOF98Sprites_Lifebar, 0x4f },
-    { L"Win Screen Portrait", 0x1edaf0, 0x1edbf0, indexKOF98Sprites_WinPortrait, 0xf },
+    { L"Win Screen Portrait", 0x1edaf0, 0x1edbf0, indexKOF98Sprites_WinPortrait, 0x4f },
 };
 
 const sGame_PaletteDataset KOF98AE2016_A_OChris_C[] =
@@ -2184,9 +2184,9 @@ const sGame_PaletteDataset KOF98AE2016_A_OChris_C[] =
     { L"Max Mode", 0x1edc50, 0x1edc70, indexKOF98Sprites_Chris },
     { L"Extra 3", 0x1edc70, 0x1edc90 },
     { L"Extra 4", 0x1edc90, 0x1edcb0 },
-    { L"Order Select", 0x1edcb0, 0x1edcd0, indexKOF98Sprites_OrderSelect, 0xf },
-    { L"Life Bar Portrait", 0x1edcd0, 0x1edcf0, indexKOF98Sprites_Lifebar, 0xf },
-    { L"Win Screen Portrait", 0x1edcf0, 0x1eddf0, indexKOF98Sprites_WinPortrait, 0xf },
+    { L"Order Select", 0x1edcb0, 0x1edcd0, indexKOF98Sprites_OrderSelect, 0x4f },
+    { L"Life Bar Portrait", 0x1edcd0, 0x1edcf0, indexKOF98Sprites_Lifebar, 0x4f },
+    { L"Win Screen Portrait", 0x1edcf0, 0x1eddf0, indexKOF98Sprites_WinPortrait, 0x4f },
 };
 
 const sGame_PaletteDataset KOF98AE2016_A_OChris_D[] =
@@ -2197,9 +2197,9 @@ const sGame_PaletteDataset KOF98AE2016_A_OChris_D[] =
     { L"Max Mode", 0x1ede50, 0x1ede70, indexKOF98Sprites_Chris },
     { L"Extra 3", 0x1ede70, 0x1ede90 },
     { L"Extra 4", 0x1ede90, 0x1edeb0 },
-    { L"Order Select", 0x1edeb0, 0x1eded0, indexKOF98Sprites_OrderSelect, 0xf },
-    { L"Life Bar Portrait", 0x1eded0, 0x1edef0, indexKOF98Sprites_Lifebar, 0xf },
-    { L"Win Screen Portrait", 0x1edef0, 0x1edff0, indexKOF98Sprites_WinPortrait, 0xf },
+    { L"Order Select", 0x1edeb0, 0x1eded0, indexKOF98Sprites_OrderSelect, 0x4f },
+    { L"Life Bar Portrait", 0x1eded0, 0x1edef0, indexKOF98Sprites_Lifebar, 0x4f },
+    { L"Win Screen Portrait", 0x1edef0, 0x1edff0, indexKOF98Sprites_WinPortrait, 0x4f },
 };
 
 const sGame_PaletteDataset KOF98AE2016_A_OmegaRugal_A[] =
