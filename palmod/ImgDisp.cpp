@@ -1528,21 +1528,21 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
 
         for (int xIndex = 0; xIndex < nBltW * 4; xIndex += 4)
         {
-            uint8_t uIndex = pImgData[nSrcStartRow + (xIndex / 4)];
+            const uint8_t uPaletteIndex = pImgData[nSrcStartRow + (xIndex / 4)];
 
-            if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
+            if ((uPaletteIndex % nMaxWritePerTransparency) != nTransparencyPosition)
             {
                 int nDstPos = nStartRow + xIndex;
-                const int nCurrentColorPosition = uIndex * 4; // we walk the uint8_t array at COLORREF size strides
+                const int nCurrentColorPosition = uPaletteIndex * 4; // we walk the uint8_t array at COLORREF size strides
 
                 if (nCurrentColorPosition > nPalSizeInUint8)
                 {
-                    // this is a badly crafted image for this palette.  
+                    // this is a badly crafted image for this palette.
                     if (!fShownErrorForThisImage)
                     {
                         CString strError;
                         strError.Format(L"ERROR: This %u by %u image at image load index %u has out-of-bound color references and should be fixed.  Requested 0x%x but palette maxes at 0x%x.\r\n",
-                                            nWidth, nHeight, nSrcIndex, nCurrentColorPosition, nPalSizeInUint8);
+                                            nWidth, nHeight, nSrcIndex, uPaletteIndex, static_cast<uint16_t>(nPalSizeInUint8 / 4));
                         OutputDebugString(strError.GetString());
                         fShownErrorForThisImage = true;
                     }
