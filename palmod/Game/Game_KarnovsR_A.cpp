@@ -76,7 +76,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
     uint8_t nTargetImgId = 0;
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fWasImageLoadHandled = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -132,7 +132,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                         if (wcscmp(unitWeakpoint->szDesc, k_krNameKey_WeakpointUnit) == 0)
                         {
-                            fShouldUseAlternateLoadLogic = true;
+                            fWasImageLoadHandled = true;
                             const int8_t nPeerPaletteDistance = 1;
 
                             ClearSetImgTicket(
@@ -167,7 +167,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                         if (paletteDataSetToJoin)
                         {
-                            fShouldUseAlternateLoadLogic = true;
+                            fWasImageLoadHandled = true;
 
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
@@ -194,15 +194,12 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
         }
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (fWasImageLoadHandled)
     {
-        //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        CreateDefPal(NodeGet, 0);
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        return TRUE;
     }
-
-    return TRUE;
+    else
+    {
+        return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
+    }
 }

@@ -286,7 +286,7 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
     uint8_t nTargetImgId = 0;
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fWasImageLoadHandled = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -341,7 +341,7 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 {
                     const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    fShouldUseAlternateLoadLogic = true;
+                    fWasImageLoadHandled = true;
                     sImgTicket* pImgArray = nullptr;
 
                     for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
@@ -369,7 +369,7 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
                     if (paletteDataSetToJoin)
                     {
-                        fShouldUseAlternateLoadLogic = true;
+                        fWasImageLoadHandled = true;
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
@@ -395,15 +395,12 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         }
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (fWasImageLoadHandled)
     {
-        //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        CreateDefPal(NodeGet, 0);
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        return TRUE;
     }
-
-    return TRUE;
+    else
+    {
+        return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
+    }
 }

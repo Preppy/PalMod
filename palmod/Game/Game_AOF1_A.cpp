@@ -30,7 +30,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
     uint8_t nTargetImgId = 0;
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fWasImageLoadHandled = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -87,7 +87,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
-                    fShouldUseAlternateLoadLogic = true;
+                    fWasImageLoadHandled = true;
 
                     if ((wcsstr(charUnit->szDesc, k_aof1NameKey_King)) && (wcsstr(paletteDataSet->szPaletteName, L"Damaged")))
                     {
@@ -183,15 +183,12 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (fWasImageLoadHandled)
     {
-        //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        CreateDefPal(NodeGet, 0);
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        return TRUE;
     }
-
-    return TRUE;
+    else
+    {
+        return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
+    }
 }

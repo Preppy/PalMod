@@ -1546,7 +1546,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
     uint8_t nTargetImgId = 0;
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fWasImageLoadHandled = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -1655,7 +1655,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                     {
                         const uint32_t nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
 
-                        fShouldUseAlternateLoadLogic = true;
+                        fWasImageLoadHandled = true;
                         sImgTicket* pImgArray = nullptr;
 
                         for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
@@ -1779,7 +1779,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
 
                     if (fAllNodesFound)
                     {
-                        fShouldUseAlternateLoadLogic = true;
+                        fWasImageLoadHandled = true;
 
                         std::vector<sImgTicket*> vsImagePairs;
                         sImgTicket* pPreviousImage = nullptr;
@@ -1860,7 +1860,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
         nTargetImgId = ppExtraDef[Node03 + 1].indexOffsetToUse;
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (!fWasImageLoadHandled)
     {
         //Create the default palette
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId, nullptr, 0, 0, nBlendMode));

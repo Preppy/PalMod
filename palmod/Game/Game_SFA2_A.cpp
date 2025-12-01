@@ -934,7 +934,7 @@ BOOL CGame_SFA2_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
     uint8_t nTargetImgId = 0;
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fWasImageLoadHandled = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -1006,7 +1006,7 @@ BOOL CGame_SFA2_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 {
                     const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    fShouldUseAlternateLoadLogic = true;
+                    fWasImageLoadHandled = true;
                     sImgTicket* pImgArray = nullptr;
 
                     for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
@@ -1030,54 +1030,47 @@ BOOL CGame_SFA2_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 {
                     int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
-                    fShouldUseAlternateLoadLogic = true;
+                    fWasImageLoadHandled = true;
 
                     uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
-
                     uint32_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 
-                    if (fShouldUseAlternateLoadLogic)
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
+
+                    if (paletteDataSetToJoin)
                     {
-                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
+                            )
+                        );
 
-                        if (paletteDataSetToJoin)
-                        {
-                            ClearSetImgTicket(
-                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
-                                )
-                            );
+                        //Set each palette
+                        std::vector<sDescNode*> JoinedNode = {
+                            GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
+                        };
 
-                            //Set each palette
-                            std::vector<sDescNode*> JoinedNode = {
-                                GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
-                                GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
-                            };
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
 
-                            //Set each palette
-                            CreateDefPal(JoinedNode[0], 0);
-                            CreateDefPal(JoinedNode[1], 1);
-
-                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
-                        }
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
                     }
                 }
             }
         }
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (fWasImageLoadHandled)
     {
-        //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        CreateDefPal(NodeGet, 0);
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        return TRUE;
     }
-
-    return TRUE;
+    else
+    {
+        return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
+    }
 }
 
 void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)

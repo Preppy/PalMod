@@ -253,7 +253,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fWasImageLoadHandled = false;
 
     //Select the image
     if (m_nExtraUnit != NodeGet->uUnitId)
@@ -328,7 +328,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             {
                 if (wcscmp(charUnit->szDesc, k_sf3NameKey_Oro) == 0)
                 {
-                    fShouldUseAlternateLoadLogic = true;
+                    fWasImageLoadHandled = true;
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -348,7 +348,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 {
                     const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    fShouldUseAlternateLoadLogic = true;
+                    fWasImageLoadHandled = true;
                     sImgTicket* pImgArray = nullptr;
 
                     for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
@@ -374,7 +374,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     const int8_t nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
                     const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
                     const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
-                    fShouldUseAlternateLoadLogic = true;
+                    fWasImageLoadHandled = true;
 
                     ClearSetImgTicket(
                         CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
@@ -406,7 +406,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nDeltaToSecondElement);
                     if (paletteDataSetToJoin)
                     {
-                        fShouldUseAlternateLoadLogic = true;
+                        fWasImageLoadHandled = true;
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
@@ -442,7 +442,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         }
         else
         {
-            fShouldUseAlternateLoadLogic = true;
+            fWasImageLoadHandled = true;
 
             CreateDefPal(NodeGet, 0);
 
@@ -453,16 +453,12 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         }
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (fWasImageLoadHandled)
     {
-        //Create the default palette
-        CreateDefPal(NodeGet, 0);
-
-        // Only internal units get sprites
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        return TRUE;
     }
-
-    return TRUE;
+    else
+    {
+        return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
+    }
 }

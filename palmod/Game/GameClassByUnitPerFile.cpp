@@ -882,7 +882,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
     uint32_t nNodeIncrement = 1;
     BlendMode nBlendMode = m_psCurrentGameLoadingData->defaultBlendMode;
 
-    bool fShouldUseAlternateLoadLogic = false;
+    bool fWasImageLoadHandled = false;
 
     uint32_t nFileUnitId = 0;
     uint32_t nFilePalId = 0;
@@ -937,7 +937,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
                     nBlendMode = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pExtraProcessing->eBlendMode;
                 }
 
-                fShouldUseAlternateLoadLogic = CreateImageIfPaired(ImagePairing::ForBasic, Node01, Node02, Node03, Node04, nFileUnitId, nSrcStart, m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pPalettePairingInfo);
+                fWasImageLoadHandled = CreateImageIfPaired(ImagePairing::ForBasic, Node01, Node02, Node03, Node04, nFileUnitId, nSrcStart, m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).pPalettePairingInfo);
             }
             else
             {
@@ -963,10 +963,10 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nBlendMode = paletteDataSet->pExtraProcessing->eBlendMode;
         }
 
-        fShouldUseAlternateLoadLogic = CreateImageIfPaired(ImagePairing::ForExtras, Node01, Node02, Node03, Node04, nFileUnitId, nPalIdInFileNode, m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode).pPalettePairingInfo);
+        fWasImageLoadHandled = CreateImageIfPaired(ImagePairing::ForExtras, Node01, Node02, Node03, Node04, nFileUnitId, nPalIdInFileNode, m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode).pPalettePairingInfo);
     }
 
-    if (!fShouldUseAlternateLoadLogic)
+    if (!fWasImageLoadHandled)
     {
         //Create the default palette
         CreateDefPal(CharacterNode, 0);
