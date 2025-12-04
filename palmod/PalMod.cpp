@@ -46,7 +46,7 @@ CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
 
     // Temporary(?) tweak to avoid needing to increment the build number to 1.80 since
     // there's no meaningful core changes yet.
-    const int nDisplayMonth = ((buildDate.tm_year - 2023) * 12) + buildDate.tm_mon;
+    const int nDisplayMonth = ((buildDate.tm_year - 2025) * 12) + buildDate.tm_mon - 12;
 
     strAppName.Format(L"%s.%02u%02u", strPalModString.GetString(), nDisplayMonth, buildDate.tm_mday);
  
