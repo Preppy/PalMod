@@ -8954,7 +8954,6 @@ const MVC2_TEAM_GROUPING mvc2TeamList[] =
     // Best teams
     { L"MSP", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2APsylocke },
     { L"MSS", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ASentinel },
-    { L"MST", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ATron },
     { L"Santhrax", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACaptainCommando },
     { L"Scrub", indexMVC2ACable, indexMVC2ASentinel, indexMVC2ACaptainCommando },
     { L"SSCable", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACable },
@@ -8967,6 +8966,7 @@ const MVC2_TEAM_GROUPING mvc2TeamList[] =
     { L"Combofiend", indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel },
     { L"Thrillah", indexMVC2AIronMan, indexMVC2AWarMachine, indexMVC2ACable },
     { L"Roundhouse", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2AIronMan },
+    { L"MST", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ATron },
     { L"Watts", indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando },
     { L"Team Japan", indexMVC2AIronMan, indexMVC2AStorm, indexMVC2ACable },
     { L"Illan", indexMVC2AIronMan, indexMVC2ACable, indexMVC2ADrDoom },
