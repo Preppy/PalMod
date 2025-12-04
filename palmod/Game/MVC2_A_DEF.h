@@ -40,35 +40,35 @@ enum SupportedMVC2_A_PaletteListIndex
     indexMVC2ARoll,             // 0x1d
     indexMVC2AAkuma,            // 0x1e
     indexMVC2ABBHood,           // 0x1f
-    indexMVC2AFelicia,          
-    indexMVC2ANash,             
-    indexMVC2ASakura,           
-    indexMVC2ADan,              
-    indexMVC2ACammy,            
-    indexMVC2ADhalsim,          
-    indexMVC2MBison,            
-    indexMVC2AKen,              
-    indexMVC2AGambit,           
-    indexMVC2AJuggernaut,       
-    indexMVC2AStorm,            
-    indexMVC2ASabretooth,       
-    indexMVC2AMagneto,          
-    indexMVC2AShuma,            
-    indexMVC2AWarMachine,       
-    indexMVC2ASilverSamurai,    
-    indexMVC2AOmegaRed,         
-    indexMVC2ASpiral,           
-    indexMVC2AColossus,         
-    indexMVC2AIronMan,          
-    indexMVC2ASentinel,         
-    indexMVC2ABlackheart,       
-    indexMVC2AThanos,           
-    indexMVC2AJin,              
-    indexMVC2ACaptainCommando,      
-    indexMVC2ABonerine,
-    indexMVC2AServbot,
-    indexMVC2ATeamView,
-    indexMVC2ALast
+    indexMVC2AFelicia,          // 0x20
+    indexMVC2ANash,             // 0x21
+    indexMVC2ASakura,           // 0x22
+    indexMVC2ADan,              // 0x23
+    indexMVC2ACammy,            // 0x24
+    indexMVC2ADhalsim,          // 0x25
+    indexMVC2MBison,            // 0x26
+    indexMVC2AKen,              // 0x27
+    indexMVC2AGambit,           // 0x28
+    indexMVC2AJuggernaut,       // 0x29
+    indexMVC2AStorm,            // 0x2a
+    indexMVC2ASabretooth,       // 0x2b
+    indexMVC2AMagneto,          // 0x2c
+    indexMVC2AShuma,            // 0x2d
+    indexMVC2AWarMachine,       // 0x2e
+    indexMVC2ASilverSamurai,    // 0x2f
+    indexMVC2AOmegaRed,         // 0x30
+    indexMVC2ASpiral,           // 0x31
+    indexMVC2AColossus,         // 0x32
+    indexMVC2AIronMan,          // 0x33
+    indexMVC2ASentinel,         // 0x34
+    indexMVC2ABlackheart,       // 0x35
+    indexMVC2AThanos,           // 0x36
+    indexMVC2AJin,              // 0x37
+    indexMVC2ACaptainCommando,  // 0x38
+    indexMVC2ABonerine,         // 0x39
+    indexMVC2AServbot,          // 0x3a
+    indexMVC2ATeamView,         // 0x3b
+    indexMVC2ALast              // 0x3c
 };
 
 constexpr auto MVC2_A_NUMUNIT = indexMVC2ALast;
@@ -8939,51 +8939,114 @@ const sGame_PaletteDataset MVC2_A_GENERICSET_PALETTES[] =
 struct MVC2_TEAM_GROUPING
 {
     LPCWSTR pszTeamName = nullptr;
-    uint16_t nCharacterOne = indexMVC2ARyu;
-    uint16_t nCharacterTwo = indexMVC2ARyu;
-    uint16_t nCharacterThree = indexMVC2ARyu;
+    std::vector<uint16_t> characterReferences;
 };
 
 constexpr auto k_nSpecialTeamSpriteImageIndex = 0x80;
 constexpr auto k_nSpecialTeamSpriteImagePairIndex = 0x81;
 
+// Certain characters such as Captain America (main/shield) require two sprites
+// to be able to preview usefully.
 bool MvC2CharacterIsTwoPartCorePreview(uint16_t nCharacterId);
 
 const MVC2_TEAM_GROUPING mvc2TeamList[] =
 {
     // Best teams
-    { L"MSP", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2APsylocke },
-    { L"MSS", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ASentinel },
-    { L"Santhrax", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACaptainCommando },
-    { L"Scrub", indexMVC2ACable, indexMVC2ASentinel, indexMVC2ACaptainCommando },
-    { L"SSCable", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACable },
-    { L"Rowtron", indexMVC2AMagneto, indexMVC2ACable, indexMVC2ASentinel },
-    { L"Matrix", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACyclops },
+    { L"MSP", { indexMVC2AMagneto, indexMVC2AStorm, indexMVC2APsylocke } },
+    { L"MSS", { indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ASentinel } },
+    { L"Santhrax", { indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACaptainCommando } },
+    { L"Scrub", { indexMVC2ACable, indexMVC2ASentinel, indexMVC2ACaptainCommando } },
+    { L"SSCable", { indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACable } },
+    { L"Rowtron", { indexMVC2AMagneto, indexMVC2ACable, indexMVC2ASentinel } },
+    { L"Matrix", { indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACyclops } },
 
     // Contenders
-    { L"Duc", indexMVC2ASpiral, indexMVC2ACable, indexMVC2ASentinel },
-    { L"Clockw0rk", indexMVC2ASentinel, indexMVC2AStrider, indexMVC2ADrDoom },
-    { L"Combofiend", indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel },
-    { L"Thrillah", indexMVC2AIronMan, indexMVC2AWarMachine, indexMVC2ACable },
-    { L"Roundhouse", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2AIronMan },
-    { L"MST", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ATron },
-    { L"Watts", indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando },
-    { L"Team Japan", indexMVC2AIronMan, indexMVC2AStorm, indexMVC2ACable },
-    { L"Illan", indexMVC2AIronMan, indexMVC2ACable, indexMVC2ADrDoom },
+    { L"Duc", { indexMVC2ASpiral, indexMVC2ACable, indexMVC2ASentinel } },
+    { L"Clockw0rk", { indexMVC2ASentinel, indexMVC2AStrider, indexMVC2ADrDoom } },
+    { L"Combofiend", { indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel } },
+    { L"Thrillah", { indexMVC2AIronMan, indexMVC2AWarMachine, indexMVC2ACable } },
+    { L"Roundhouse", { indexMVC2AStorm, indexMVC2ASentinel, indexMVC2AIronMan } },
+    { L"MST", { indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ATron } },
+    { L"Watts", { indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando } },
+    { L"Team Japan", { indexMVC2AIronMan, indexMVC2AStorm, indexMVC2ACable } },
+    { L"Illan", { indexMVC2AIronMan, indexMVC2ACable, indexMVC2ADrDoom } },
 
     // Low tierish
-    { L"VDO", indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen },
-    { L"MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
-    { L"Shoto", indexMVC2ARyu, indexMVC2AKen, indexMVC2AAkuma },
-    { L"Joe Zaza", indexMVC2AWolverine, indexMVC2ASentinel, indexMVC2ABonerine },
-    { L"MagusOld", indexMVC2ASpiderman, indexMVC2AHulk, indexMVC2AHayato },
+    { L"VDO", { indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen } },
+    { L"MikeZ", { indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron } },
+    { L"Shoto", { indexMVC2ARyu, indexMVC2AKen, indexMVC2AAkuma } },
+    { L"Joe Zaza", { indexMVC2AWolverine, indexMVC2ASentinel, indexMVC2ABonerine } },
+    { L"MagusOld", { indexMVC2ASpiderman, indexMVC2AHulk, indexMVC2AHayato } },
 
-    { L"Anakaris Curse", indexMVC2AAnakaris, indexMVC2ARuby, indexMVC2ASonson },
-    { L"Maddroo", indexMVC2AAnakaris, indexMVC2ADhalsim, indexMVC2ASentinel },
-    { L"Paxtez", indexMVC2ABlackheart, indexMVC2ACable, indexMVC2AGuile },
-    { L"Preppy", indexMVC2AMegaman, indexMVC2ACable, indexMVC2ATron },
+    { L"Anakaris Curse", { indexMVC2AAnakaris, indexMVC2ARuby, indexMVC2ASonson } },
+    { L"Maddroo", { indexMVC2AAnakaris, indexMVC2ADhalsim, indexMVC2ASentinel } },
+    { L"Paxtez", { indexMVC2ABlackheart, indexMVC2ACable, indexMVC2AGuile } },
+    { L"Preppy", { indexMVC2AMegaman, indexMVC2ACable, indexMVC2ATron } },
+
+    // This is mostly a proof of concept, but ... it is kind of remotely useful so I'm leaving it in for now.
+    { L"Everybody", {
+                        indexMVC2ARyu,              // 0x00
+                        indexMVC2AZangief,          // 0x01
+                        indexMVC2AGuile,            // 0x02
+                        indexMVC2AMorrigan,         // 0x03
+                        indexMVC2AAnakaris,         // 0x04
+                        indexMVC2AStrider,          // 0x05
+                        indexMVC2ACyclops,          // 0x06
+                        indexMVC2AWolverine,        // 0x07
+                        indexMVC2APsylocke,         // 0x08
+                        indexMVC2AIceman,           // 0x09
+                        indexMVC2ARogue,            // 0x0a
+                        indexMVC2ACaptainAmerica,   // 0x0b
+                        indexMVC2ASpiderman,        // 0x0c
+                        indexMVC2AHulk,             // 0x0d
+                        indexMVC2AVenom,            // 0x0e
+                        indexMVC2ADrDoom,           // 0x0f
+                        indexMVC2ATron,             // 0x10
+                        indexMVC2AJill,             // 0x11
+                        indexMVC2AHayato,           // 0x12
+                        indexMVC2ARuby,             // 0x13
+                        indexMVC2ASonson,           // 0x14
+                        indexMVC2AAmingo,           // 0x15
+                        indexMVC2AMarrow,           // 0x16
+                        indexMVC2ACable,            // 0x17
+
+                        indexMVC2AChunLi,           // 0x1b
+                        indexMVC2AMegaman,          // 0x1c
+                        indexMVC2ARoll,             // 0x1d
+                        indexMVC2AAkuma,            // 0x1e
+                        indexMVC2ABBHood,           // 0x1f
+                        indexMVC2AFelicia,          // 0x20
+                        indexMVC2ANash,             // 0x21
+                        indexMVC2ASakura,           // 0x22
+                        indexMVC2ADan,              // 0x23
+                        indexMVC2ACammy,            // 0x24
+                        indexMVC2ADhalsim,          // 0x25
+                        indexMVC2MBison,            // 0x26
+                        indexMVC2AKen,              // 0x27
+                        indexMVC2AGambit,           // 0x28
+                        indexMVC2AJuggernaut,       // 0x29
+                        indexMVC2AStorm,            // 0x2a
+                        indexMVC2ASabretooth,       // 0x2b
+                        indexMVC2AMagneto,          // 0x2c
+                        indexMVC2AShuma,            // 0x2d
+                        indexMVC2AWarMachine,       // 0x2e
+                        indexMVC2ASilverSamurai,    // 0x2f
+                        indexMVC2AOmegaRed,         // 0x30
+                        indexMVC2ASpiral,           // 0x31
+                        indexMVC2AColossus,         // 0x32
+                        indexMVC2AIronMan,          // 0x33
+                        indexMVC2ASentinel,         // 0x34
+                        indexMVC2ABlackheart,       // 0x35
+                        indexMVC2AThanos,           // 0x36
+                        indexMVC2AJin,              // 0x37
+                        indexMVC2ACaptainCommando,  // 0x38
+                        indexMVC2ABonerine,         // 0x39
+                        indexMVC2AServbot,          // 0x3a
+    } },
 };
 
+// This unit is compatible with our creaky old unit code.  The listed names are then matched into mvc2TeamList
+// and then we go from there.
 const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
 {
     // Best teams
@@ -9017,6 +9080,8 @@ const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
     { L"Maddroo", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Paxtez", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { L"Preppy", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+
+    { L"Everybody", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 };
 
 const uint8_t MVC2_A_UNITSORT[MVC2_A_NUMUNIT + 1] // Plus for extras

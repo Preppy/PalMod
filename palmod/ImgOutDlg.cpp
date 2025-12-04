@@ -71,128 +71,128 @@ BOOL CImgOutDlg::OnInitDialog()
     // Update here as needed to add new division options
     switch (m_nPalAmt)
     {
-    default:
-        OutputDebugString(L"WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n");
-        OutputDebugString(L"WARNING BUGBUG: You may want to update CImgDumpBmp::GetMaxImagesPerLine as well!\n");
-        __fallthrough;
-    case 1:
-        // By default, we export out only the one sprite
-        m_CB_Amt.EnableWindow(FALSE);
-        break;
-    case 2: // MSH, XMvSF
-        m_CB_Amt.AddString(L"2");
-        break;
-    case 3: // DanKuGa
-        m_CB_Amt.AddString(L"3");
-        break;
-    case 4: // Garou
-        m_CB_Amt.AddString(L"4");
-        break;
-    case 5: // Jojos & Garou
-        if (CurrGame->GetGameFlag() == GGML_P) //Give the option to hide the Mirror palette
-        {
+        default:
+            OutputDebugString(L"WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n");
+            OutputDebugString(L"WARNING BUGBUG: You may want to update CImgDumpBmp::GetMaxImagesPerLine as well!\n");
+            __fallthrough;
+        case 1:
+            // By default, we export out only the one sprite
+            m_CB_Amt.EnableWindow(FALSE);
+            break;
+        case 2: // MSH, XMvSF
+            m_CB_Amt.AddString(L"2");
+            break;
+        case 3: // DanKuGa
+            m_CB_Amt.AddString(L"3");
+            break;
+        case 4: // Garou
             m_CB_Amt.AddString(L"4");
-        }
-        m_CB_Amt.AddString(L"5");
-        break;
-    case 6: 
-    case 7: // 3S
-        if ((CurrGame->GetGameFlag() == SFA2_A) || (CurrGame->GetGameFlag() == GGDS_NDS)) // SFA2's 5-6 colors are only with autoguard on, and likewise GGDS has a natural 4/6 split
-        {
+            break;
+        case 5: // Jojos & Garou
+            if (CurrGame->GetGameFlag() == GGML_P) //Give the option to hide the Mirror palette
+            {
+                m_CB_Amt.AddString(L"4");
+            }
+            m_CB_Amt.AddString(L"5");
+            break;
+        case 6: 
+        case 7: // 3S
+            if ((CurrGame->GetGameFlag() == SFA2_A) || (CurrGame->GetGameFlag() == GGDS_NDS)) // SFA2's 5-6 colors are only with autoguard on, and likewise GGDS has a natural 4/6 split
+            {
+                m_CB_Amt.AddString(L"4");
+            }
+            m_CB_Amt.AddString(L"6");
+            // Allow the user to export either the "normal" 6 sprite set or to export
+            // the entire 7 sprite set
+            m_nPalAmt == 7 ? m_CB_Amt.AddString(L"7") : NULL;
+            break;
+        case 8: // status effects or cvs2
+            m_CB_Amt.AddString(L"6");
+            m_CB_Amt.AddString(L"8");
+            break;
+        case 9: // GBA!
             m_CB_Amt.AddString(L"4");
-        }
-        m_CB_Amt.AddString(L"6");
-        // Allow the user to export either the "normal" 6 sprite set or to export
-        // the entire 7 sprite set
-        m_nPalAmt == 7 ? m_CB_Amt.AddString(L"7") : NULL;
-        break;
-    case 8: // status effects or cvs2
-        m_CB_Amt.AddString(L"6");
-        m_CB_Amt.AddString(L"8");
-        break;
-    case 9: // GBA!
-        m_CB_Amt.AddString(L"4");
-        m_CB_Amt.AddString(L"8");
-        m_CB_Amt.AddString(L"9");
-        break;
-    case 10: // ST
-        m_CB_Amt.AddString(L"6");
-        m_CB_Amt.AddString(L"10");
-        break;
-    case 12:
-        m_CB_Amt.AddString(L"4");
-        m_CB_Amt.AddString(L"8");
-        m_CB_Amt.AddString(L"12");
-        break;
-    case 16:
-        m_CB_Amt.AddString(L"6");
-        m_CB_Amt.AddString(L"16");
-        break;
-    case 20:
-        m_CB_Amt.AddString(L"5");
-        m_CB_Amt.AddString(L"10");
-        m_CB_Amt.AddString(L"15");
-        m_CB_Amt.AddString(L"20");
-        break;
-    case 21: // MAAB
-        m_CB_Amt.AddString(L"5");
-        m_CB_Amt.AddString(L"10");
-        m_CB_Amt.AddString(L"15");
-        m_CB_Amt.AddString(L"19");
-        m_CB_Amt.AddString(L"21"); // Last two are unused typically
-        break;
-    case 22:
-        m_CB_Amt.AddString(L"5");
-        m_CB_Amt.AddString(L"10");
-        m_CB_Amt.AddString(L"15");
-        m_CB_Amt.AddString(L"20");
-        m_CB_Amt.AddString(L"22");
-        break;
-    case 24:
-        m_CB_Amt.AddString(L"6");
-        m_CB_Amt.AddString(L"12");
-        m_CB_Amt.AddString(L"24");
-        break;
-    case 25:
-        m_CB_Amt.AddString(L"6");
-        m_CB_Amt.AddString(L"12");
-        m_CB_Amt.AddString(L"24");
-        m_CB_Amt.AddString(L"25");
-        break;
-    case 26:
-        m_CB_Amt.AddString(L"6");
-        m_CB_Amt.AddString(L"12");
-        m_CB_Amt.AddString(L"24");
-        m_CB_Amt.AddString(L"26");
-        break;
-    case 30: // MBTL
-        m_CB_Amt.AddString(L"30");
-        break;
-    case 32:
-        m_CB_Amt.AddString(L"4");
-        m_CB_Amt.AddString(L"8");
-        m_CB_Amt.AddString(L"16");
-        m_CB_Amt.AddString(L"32");
-        break;
-    case 38: // MBTL: Neco
-        m_CB_Amt.AddString(L"30");
-        m_CB_Amt.AddString(L"38");
-        break;
-    case 42:
-        m_CB_Amt.AddString(L"4");
-        m_CB_Amt.AddString(L"8");
-        m_CB_Amt.AddString(L"16");
-        m_CB_Amt.AddString(L"32");
-        m_CB_Amt.AddString(L"42");
-        break;
-    case 64:
-        m_CB_Amt.AddString(L"4");
-        m_CB_Amt.AddString(L"8");
-        m_CB_Amt.AddString(L"16");
-        m_CB_Amt.AddString(L"32");
-        m_CB_Amt.AddString(L"36");
-        m_CB_Amt.AddString(L"64");
-        break;
+            m_CB_Amt.AddString(L"8");
+            m_CB_Amt.AddString(L"9");
+            break;
+        case 10: // ST
+            m_CB_Amt.AddString(L"6");
+            m_CB_Amt.AddString(L"10");
+            break;
+        case 12:
+            m_CB_Amt.AddString(L"4");
+            m_CB_Amt.AddString(L"8");
+            m_CB_Amt.AddString(L"12");
+            break;
+        case 16:
+            m_CB_Amt.AddString(L"6");
+            m_CB_Amt.AddString(L"16");
+            break;
+        case 20:
+            m_CB_Amt.AddString(L"5");
+            m_CB_Amt.AddString(L"10");
+            m_CB_Amt.AddString(L"15");
+            m_CB_Amt.AddString(L"20");
+            break;
+        case 21: // MAAB
+            m_CB_Amt.AddString(L"5");
+            m_CB_Amt.AddString(L"10");
+            m_CB_Amt.AddString(L"15");
+            m_CB_Amt.AddString(L"19");
+            m_CB_Amt.AddString(L"21"); // Last two are unused typically
+            break;
+        case 22:
+            m_CB_Amt.AddString(L"5");
+            m_CB_Amt.AddString(L"10");
+            m_CB_Amt.AddString(L"15");
+            m_CB_Amt.AddString(L"20");
+            m_CB_Amt.AddString(L"22");
+            break;
+        case 24:
+            m_CB_Amt.AddString(L"6");
+            m_CB_Amt.AddString(L"12");
+            m_CB_Amt.AddString(L"24");
+            break;
+        case 25:
+            m_CB_Amt.AddString(L"6");
+            m_CB_Amt.AddString(L"12");
+            m_CB_Amt.AddString(L"24");
+            m_CB_Amt.AddString(L"25");
+            break;
+        case 26:
+            m_CB_Amt.AddString(L"6");
+            m_CB_Amt.AddString(L"12");
+            m_CB_Amt.AddString(L"24");
+            m_CB_Amt.AddString(L"26");
+            break;
+        case 30: // MBTL
+            m_CB_Amt.AddString(L"30");
+            break;
+        case 32:
+            m_CB_Amt.AddString(L"4");
+            m_CB_Amt.AddString(L"8");
+            m_CB_Amt.AddString(L"16");
+            m_CB_Amt.AddString(L"32");
+            break;
+        case 38: // MBTL: Neco
+            m_CB_Amt.AddString(L"30");
+            m_CB_Amt.AddString(L"38");
+            break;
+        case 42:
+            m_CB_Amt.AddString(L"4");
+            m_CB_Amt.AddString(L"8");
+            m_CB_Amt.AddString(L"16");
+            m_CB_Amt.AddString(L"32");
+            m_CB_Amt.AddString(L"42");
+            break;
+        case 64:
+            m_CB_Amt.AddString(L"4");
+            m_CB_Amt.AddString(L"8");
+            m_CB_Amt.AddString(L"16");
+            m_CB_Amt.AddString(L"32");
+            m_CB_Amt.AddString(L"36");
+            m_CB_Amt.AddString(L"64");
+            break;
     }
 
     FillPalCombo();

@@ -65,7 +65,7 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMTo
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6442;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6448;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
 
@@ -558,24 +558,28 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             {
                 if (NodeGet->uUnitId == indexMVC2ATeamView)
                 {
-                    // This code path is analogous but very much not identical to that in mvc2_palsel.cpp
+                    // Reset just in case
+                    m_pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+
+                    const uint16_t nNodeIndex = (NodeGet->uPalId % static_cast<uint16_t>(m_pButtonLabelSet.size()));
+
+                    nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size()); // 6 button colors
+                    nNodeIncrement = 8; // 8 palettes per main character color set
+
+                    // The code above is unique to this version.
+                    // The code that below in this section is now identical to that in  mvc2_palsel.cpp
                     // This is used for Steam and etc - that version is used for DC
                     fUsingAlternateLoadLogic = true;
 
-                    uint16_t nJoinedUnit1 = indexMVC2AMagneto;
-                    uint16_t nJoinedUnit2 = indexMVC2AStorm;
-                    uint16_t nJoinedUnit3 = indexMVC2APsylocke;
                     bool fTeamFound = false;
 
-                    uint16_t nTeamIndex = 0;
+                    const MVC2_TEAM_GROUPING* pGroupingToUse = &mvc2TeamList[0];
 
-                    for (; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
+                    for (uint16_t nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
                     {
                         if (_wcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
                         {
-                            nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
-                            nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;
-                            nJoinedUnit3 = mvc2TeamList[nTeamIndex].nCharacterThree;
+                            pGroupingToUse = &mvc2TeamList[nTeamIndex];
                             fTeamFound = true;
                             break;
                         }
@@ -586,111 +590,84 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\r\n");
                     }
 
-                    // Reset just in case
-                    m_pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
-                    nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size()); // 6 button colors
-                    nNodeIncrement = 8; // 8 palettes per main character color set
+                    // Height is always 186, so we can't use "true" image height to adjust positions: ignore Y for now.  But adjust X to avoid overlap.
+                    std::vector<sImageDisplayOffsets> rgImageOffsets;
 
-                    const uint16_t nNodeIndex = (NodeGet->uPalId % static_cast<uint16_t>(m_pButtonLabelSet.size()));
-
-                    std::vector<sImgDef*> pImgDefSet;
-                    uint16_t nPosition2 = 1;
-                    const bool fFirstRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit1);
-                    const bool fSecondRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit2);
-                    const bool fThirdRequiresSecondPart = MvC2CharacterIsTwoPartCorePreview(nJoinedUnit3);
-
-                    // Get the image dimensions so that we can collate them into one contiguous strip
-                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex));
-                    if (fFirstRequiresSecondPart)
+                    uint16_t nCurrentPosition = 0;
+                    sImageDisplayOffsets sTotalOffset;
+                    for (auto& character : pGroupingToUse->characterReferences)
                     {
-                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex));
-                        nPosition2++;
+                        rgImageOffsets.push_back(sTotalOffset);
+                        nCurrentPosition++;
+
+                        if (MvC2CharacterIsTwoPartCorePreview(character))
+                        {
+                            rgImageOffsets.push_back(sTotalOffset);
+                            nCurrentPosition++;
+                        }
+
+                        // Get the image dimensions so that we can collate them into one contiguous strip
+                        sImgDef* pImgDef = GetHost()->GetImgFile()->GetImageDef(character, k_nSpecialTeamSpriteImageIndex);
+                        sTotalOffset.x += pImgDef->uImgWidth;
+
+                        // You can only currently hit this in Everybody view.
+                        if (sTotalOffset.x > 900)
+                        {
+                            sTotalOffset.x = 0;
+                            // We want to walk top down, but this going to lay us out into negative space of course.
+                            // We will thus adjust the offsets later for the total calculated offset, centering us on ~0 again.
+                            sTotalOffset.y -= 150;
+                        }
                     }
 
-                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex));
-                    if (fSecondRequiresSecondPart)
+                    if (sTotalOffset.y != 0)
                     {
-                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex));
+                        // Center the presentation
+                        int nTotalDistance = abs(sTotalOffset.y);
+                        for (auto& curOffset : rgImageOffsets)
+                        {
+                            curOffset.y += nTotalDistance;
+                        }
                     }
-
-                    pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex));
-                    if (fThirdRequiresSecondPart)
-                    {
-                        pImgDefSet.push_back(GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex));
-                    }
-
-                    // Height is always 186, so we can't use image height to adjust positions: ignore Y for now.
-                    const int nXOffsetForFirst = 0;
-                    const int nXOffsetForSecond = pImgDefSet[0]->uImgWidth;
-                    const int nXOffsetForThird = pImgDefSet[0]->uImgWidth + pImgDefSet[nPosition2]->uImgWidth;
 
                     // Load the ticket in full reverse order
                     sImgTicket* pImgTicket = nullptr;
 
-                    if (fThirdRequiresSecondPart)
+                    size_t iGroupingIndex = pGroupingToUse->characterReferences.size() - 1;
+                    for (int iXOffsetsIndex = static_cast<int>(rgImageOffsets.size() - 1); iXOffsetsIndex >= 0; iXOffsetsIndex--)
                     {
-                        pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForThird);
+                        if (MvC2CharacterIsTwoPartCorePreview(pGroupingToUse->characterReferences.at(iGroupingIndex)))
+                        {
+                            pImgTicket = CreateImgTicket(pGroupingToUse->characterReferences.at(iGroupingIndex), k_nSpecialTeamSpriteImagePairIndex, pImgTicket, rgImageOffsets.at(iXOffsetsIndex).x, rgImageOffsets.at(iXOffsetsIndex).y);
+                            iXOffsetsIndex--;
+                        }
+                        pImgTicket = CreateImgTicket(pGroupingToUse->characterReferences.at(iGroupingIndex), k_nSpecialTeamSpriteImageIndex, pImgTicket, rgImageOffsets.at(iXOffsetsIndex).x, rgImageOffsets.at(iXOffsetsIndex).y);
+                        iGroupingIndex--;
                     }
-                    pImgTicket = CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForThird);
-
-                    if (fSecondRequiresSecondPart)
-                    {
-                        pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForSecond);
-                    }
-                    pImgTicket = CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForSecond);
-
-                    if (fFirstRequiresSecondPart)
-                    {
-                        pImgTicket = CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImagePairIndex, pImgTicket, nXOffsetForFirst);
-                    }
-                    pImgTicket = CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex, pImgTicket, nXOffsetForFirst);
 
                     ClearSetImgTicket(pImgTicket);
 
-                    //Set each palette
                     std::vector<sDescNode*> JoinedNode;
 
-                    JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1));
-                    if (fFirstRequiresSecondPart)
+                    uint32_t iSourcePalPos = 0;
+                    for (size_t iGroupIndex = 0; iGroupIndex < pGroupingToUse->characterReferences.size(); iGroupIndex++)
                     {
-                        JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 1, -1));
-                    }
-                    JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1));
-                    if (fSecondRequiresSecondPart)
-                    {
-                        JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 1, -1));
-                    }
-                    JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1));
-                    if (fThirdRequiresSecondPart)
-                    {
-                        JoinedNode.push_back(GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 1, -1));
+                        // Set descriptors
+                        JoinedNode.push_back(GetMainTree()->GetDescNode(pGroupingToUse->characterReferences.at(iGroupIndex), nNodeIndex, 0, -1));
+                        // Set each palette
+                        SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 0, nSrcAmt, nNodeIncrement);
+                        if (MvC2CharacterIsTwoPartCorePreview(pGroupingToUse->characterReferences.at(iGroupIndex)))
+                        {
+                            JoinedNode.push_back(GetMainTree()->GetDescNode(pGroupingToUse->characterReferences.at(iGroupIndex), nNodeIndex, 1, -1));
+                            SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 1, nSrcAmt, nNodeIncrement);
+                        }
                     }
 
-                    //Set each palette
+                    // Assign each palette now
                     for (uint32_t iNodePos = 0; iNodePos < static_cast<uint32_t>(JoinedNode.size()); iNodePos++)
                     {
                         CreateDefPal(JoinedNode[iNodePos], iNodePos);
                     }
-
-                    uint32_t iSourcePalPos = 0;
-                    SetSourcePal(iSourcePalPos++, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
-                    if (fFirstRequiresSecondPart)
-                    {
-                        SetSourcePal(iSourcePalPos++, nJoinedUnit1, 1, nSrcAmt, nNodeIncrement);
-                    }
-
-                    SetSourcePal(iSourcePalPos++, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
-                    if (fSecondRequiresSecondPart)
-                    {
-                        SetSourcePal(iSourcePalPos++, nJoinedUnit2, 1, nSrcAmt, nNodeIncrement);
-                    }
-
-                    SetSourcePal(iSourcePalPos++, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
-                    if (fThirdRequiresSecondPart)
-                    {
-                        SetSourcePal(iSourcePalPos++, nJoinedUnit3, 1, nSrcAmt, nNodeIncrement);
-                    }
-
                 }
                 else  if ((_wcsicmp(pCurrentNode->szDesc, L"LP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"LK") == 0) ||
                           (_wcsicmp(pCurrentNode->szDesc, L"HP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"HK") == 0) ||
