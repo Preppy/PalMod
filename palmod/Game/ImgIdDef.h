@@ -2887,4 +2887,20 @@ enum SupportedOther_SpriteListIndex
     indexDarakuSprites_Yuiran,          // 0xa8
     indexDarakuSprites_Yuiren,          // 0xa9
     indexDarakuSprites_Bonus,           // 0xaa
+
+    indexMCI_BetaRayBill,       //0xab
+    indexMCI_BlackPanther,      //0xac
+    indexMCI_CaptainAmerica,    //0xad
+    indexMCI_CosmicGhostRider,  //0xae
+    indexMCI_IronMan,           //0xaf
+    indexMCI_Nova,              //0xb0
+    indexMCI_Phoenix,           //0xb1
+    indexMCI_PhylaVell,         //0xb2
+    indexMCI_Rocket,            //0xb3
+    indexMCI_SheHulk,           //0xb4
+    indexMCI_SpiderMan,         //0xb5
+    indexMCI_Storm,             //0xb6
+    indexMCI_SilverSurfer,      //0xb7
+    indexMCI_Venom,             //0xb8
+    indexMCI_Wolverine,         //0xb9
 };

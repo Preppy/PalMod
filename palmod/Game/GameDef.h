@@ -282,6 +282,7 @@ enum SupportedGamesList
     FightersHistory_A,
     FightersHistory3_SNES,
     VirtuaFighter2_GEN,
+    MCI_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
