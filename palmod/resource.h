@@ -436,6 +436,7 @@
 #define ID_TOOLS_MAPPING_USE_STEP1      32982
 #define ID_TOOLS_MAPPING_USE_STEP2      32983
 #define ID_COLORFORMAT_RGBA8888_BE16    32984
+#define ID_LD_MCI_S						32985
 
 // Next default values for new objects
 // 

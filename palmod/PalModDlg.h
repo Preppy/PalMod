@@ -382,6 +382,7 @@ private:
     afx_msg void OnLoadDir_MAAB_S()         { OnLoadGameByDirectory(MAAB_A); };
     afx_msg void OnLoadDir_MBTL_A()         { OnLoadGameByDirectory(MBTL_A); };
     afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };
+    afx_msg void OnLoadDir_MCI_S()          { OnLoadGameByDirectory(MCI_S); };
     afx_msg void OnLoadDir_MSHVSF_P()       { OnLoadGameByDirectory(MSHVSF_P); };
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
     afx_msg void OnLoadDir_MVCPSXUSA()      { OnLoadGameByDirectory(MVC_P); };

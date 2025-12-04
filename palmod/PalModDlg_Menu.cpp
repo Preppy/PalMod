@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 258, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 259, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -92,6 +92,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             break;
         case NBHID_S:
             pszExtraInfo = L"Select the main \"Nitroplus Blasterz Heroines Infinite Duel\" folder in your steamapps\\common directory.";
+            break;
+        case MCI_S:
+            pszExtraInfo = L"Select the \'MARVEL Cosmic Invasion\' folder after running the setup script. Check the Read Me for more details.";
             break;
         case MVC2_A_DIR:
             pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";

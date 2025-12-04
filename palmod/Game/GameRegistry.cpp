@@ -90,6 +90,7 @@
 #include "Game_MAAB_A.h"
 #include "Game_MBAACC_S.h"
 #include "Game_MBTL_A.h"
+#include "Game_MCI_S.h"
 #include "Game_MK1_A.h"
 #include "Game_MK1_SNES.h"
 #include "Game_MK2_A.h"
@@ -188,7 +189,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 258, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 259, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -305,6 +306,7 @@ namespace KnownGameInfo
     CGameClass* Make_MATRIMELEE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Matrimelee_A(nConfirmedROMSize); }
     CGameClass* Make_MBAACC_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MBAACC_S(nConfirmedROMSize); }
     CGameClass* Make_MBTL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MBTL_A(nConfirmedROMSize); }
+    CGameClass* Make_MCI_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MCI_S(nConfirmedROMSize); }
     CGameClass* Make_MK1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_A(nConfirmedROMSize); }
     CGameClass* Make_MK1_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_SNES(nConfirmedROMSize); }
     CGameClass* Make_MK2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_A(nConfirmedROMSize); }
@@ -1406,6 +1408,16 @@ namespace KnownGameInfo
             CGame_MMPR_SNES::GetRule,
         },
         {
+            MCI_S,
+            L"MARVEL Cosmic Invasion (Steam)",
+            {},
+            Make_MCI_S,
+            CGame_MCI_S::GetRule,
+            CGame_MCI_S::GetNextRule,
+            CGame_MCI_S::GetRuleCtr,
+            CGame_MCI_S::ResetRuleCtr,
+            },
+        {
             MK1_A,
             L"Mortal Kombat (Midway, Arcade)",
             { MK1_A,            L"Mortal Kombat (Midway)", L"Mortal Kombat (Arcade)|l5_mortal_kombat_t-unit_uj12_game_rom.uj12;mkt-uj12.bin|", GamePlatform::OtherPlatform },
@@ -2422,7 +2434,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 258, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 259, "New GameID defined: please update GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
