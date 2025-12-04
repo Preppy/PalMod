@@ -15,7 +15,8 @@ private:
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_RGBA8888_LE,
         MCI_S_CharacterData,
-        PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
+        PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet,
+        0x400,
     };
 
 public:

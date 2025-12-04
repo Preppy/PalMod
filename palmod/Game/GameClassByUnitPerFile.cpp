@@ -903,6 +903,20 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImageUnitIndex;
             nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImagePreviewIndex;
 
+            // Allow for local overrides
+            if ((nFileUnitId < m_psCurrentGameLoadingData->srgLoadingData.size()) && (nFilePalId < m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.size()))
+            {
+                if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nFilePalId).indexImageUnit != INVALID_UNIT_VALUE_16)
+                {
+                    nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nFilePalId).indexImageUnit;
+                }
+                
+                if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nFilePalId).indexImageSprite != INVALID_UNIT_VALUE_8)
+                {
+                    nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nFilePalId).indexImageSprite;
+                }
+            }
+
             nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
 
             nNodeIncrement = 1;

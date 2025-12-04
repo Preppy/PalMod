@@ -24,28 +24,28 @@ const std::vector<uint16_t> MCI_S_IMGIDS_USED =
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerPalettes_S =
 {
-    { L"Base 1", 0x000 },
-    { L"Base 2", 0x400 },
-    { L"Base 3", 0x800},
-    { L"Base 4", 0xC00 },
-    { L"Special 1", 0x1000 },
-    { L"Special 2", 0x1400 },
-    { L"Special 3", 0x1800 },
-    { L"Special 4", 0x1C00 },
-    { L"Unused/Single sprite preview", -0x400, INVALID_UNIT_VALUE_16, 0x1 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
+    { L"Base 1" },
+    { L"Base 2" },
+    { L"Base 3" },
+    { L"Base 4" },
+    { L"Special 1" },
+    { L"Special 2" },
+    { L"Special 3" },
+    { L"Special 4" },
+    { L"Unused/Single sprite preview", -0x2400, INVALID_UNIT_VALUE_16, 0x01 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_BossPlayerPalettes_S =
 {
     { L"Base 1 / Boss (Cutscene animations only)", 0x0, INVALID_UNIT_VALUE_16, 0x02, }, // we want unique previews for the boss characters, since those other palettes wont ever use these sprites
-    { L"Base 2", 0x400 },
-    { L"Base 3", 0x800},
-    { L"Base 4", 0xC00 },
-    { L"Special 1", 0x1000 },
-    { L"Special 2", 0x1400 },
-    { L"Special 3", 0x1800 },
-    { L"Special 4", 0x1C00 },
-    { L"Unused/Single sprite preview", -0x400, INVALID_UNIT_VALUE_16, 0x01 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
+    { L"Base 2" },
+    { L"Base 3" },
+    { L"Base 4" },
+    { L"Special 1" },
+    { L"Special 2" },
+    { L"Special 3" },
+    { L"Special 4" },
+    { L"Unused/Single sprite preview", -0x2400, INVALID_UNIT_VALUE_16, 0x01 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
 };
 
 // For the smaller Export listbox
@@ -64,7 +64,7 @@ const std::vector<LPCWSTR> MCI_SPaletteNamesShort =
 
 const sGCBUPF_BasicNodeData MCI_S_NormalNode =
 {
-    { L"Palettes" }, 0x0, MCI_SPaletteNamesShort
+    { L"Palettes" }, 0x00, MCI_SPaletteNamesShort
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_ExtrasPalettes_S =
@@ -74,7 +74,7 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_ExtrasPalettes_S =
 
 const sGCBUPF_BasicNodeData MCI_S_ExtrasNode =
 {
-    { L"Preview Only" }, 0x0
+    { L"Preview Only" }
 };
 
 std::vector<sGCBUPF_BasicFileData> MCI_S_CharacterData =
