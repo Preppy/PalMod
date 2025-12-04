@@ -14,6 +14,15 @@ struct sGCBUPF_RelativePaletteData
     const LPCWSTR pszPaletteName;
     // this reflects all accrued buffer space from pal(0) up until this palette's start location
     const int32_t nPaletteShiftFromBase = 0;
+    // Usage of these image lookup values forks between 
+    //   PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet
+    // and 
+    //   PaletteArrangementStyle::OneButtonLabelEntryPerEachNode
+    // In the former case these values here CANNOT be used.  This is because the assertion is that each palette
+    // is identical to all other palettes in that node.  Thus the parent BasicFileData image lookup 
+    // specification is common to all and will be used.
+    // In the latter case, they can differentiate.  If this indexImageUnit value is specified, this
+    // local value will be used.  Otherwise the parent BasicFileData image lookup will be used.
     const uint16_t indexImageUnit = INVALID_UNIT_VALUE_16; // the major character/collection index
     const uint8_t indexImageSprite = 0; // subsprites within that collection
     const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
@@ -37,6 +46,16 @@ struct sGCBUPF_BasicFileData
     const sGCBUPF_BasicNodeData sNodeData;
     const std::vector<sGCBUPF_RelativePaletteData> prgBasicPalettes;
     uint32_t nInitialLocation = 0;
+    
+    // Usage of these image lookup values forks between 
+    //   PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet
+    // and 
+    //   PaletteArrangementStyle::OneButtonLabelEntryPerEachNode
+    // In the former case these values here will ALWAYS be used.  This is because the assertion is that each palette
+    // is identical to all other palettes in that node.  Thus this parent BasicFileData image lookup 
+    // specification is common to all and will be used.
+    // In the latter case, they can differentiate.  If the prgBasicPalettes indexImageUnit value is 
+    // specified, that  local value will be used.  Otherwise this parent BasicFileData image lookup will be used.
     uint16_t nImageUnitIndex = INVALID_UNIT_VALUE_16;
     uint8_t nImagePreviewIndex = 0;
     sGCBUPF_ExtrasCollection sExtrasNodeData;
