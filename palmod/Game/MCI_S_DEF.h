@@ -4,21 +4,22 @@
 
 const std::vector<uint16_t> MCI_S_IMGIDS_USED =
 {
-    indexMCI_BetaRayBill,       //0xab
-    indexMCI_BlackPanther,      //0xac
-    indexMCI_CaptainAmerica,    //0xad
-    indexMCI_CosmicGhostRider,  //0xae
-    indexMCI_IronMan,           //0xaf
-    indexMCI_Nova,              //0xb0
-    indexMCI_Phoenix,           //0xb1
-    indexMCI_PhylaVell,         //0xb2
-    indexMCI_Rocket,            //0xb3
-    indexMCI_SheHulk,           //0xb4
-    indexMCI_SpiderMan,         //0xb5
-    indexMCI_Storm,             //0xb6
-    indexMCI_SilverSurfer,      //0xb7
-    indexMCI_Venom,             //0xb8
-    indexMCI_Wolverine,         //0xb9
+    indexMCI_BetaRayBill,       // 0xab
+    indexMCI_BlackPanther,      // 0xac
+    indexMCI_CaptainAmerica,    // 0xad
+    indexMCI_CosmicGhostRider,  // 0xae
+    indexMCI_IronMan,           // 0xaf
+    indexMCI_Nova,              // 0xb0
+    indexMCI_Phoenix,           // 0xb1
+    indexMCI_PhylaVell,         // 0xb2
+    indexMCI_Rocket,            // 0xb3
+    indexMCI_SheHulk,           // 0xb4
+    indexMCI_SpiderMan,         // 0xb5
+    indexMCI_Storm,             // 0xb6
+    indexMCI_SilverSurfer,      // 0xb7
+    indexMCI_Venom,             // 0xb8
+    indexMCI_Wolverine,         // 0xb9
+    indexMCI_Bonus,             // 0xba
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerPalettes_S =
@@ -31,12 +32,12 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerPalettes_S =
     { L"Special 2", 0x1400 },
     { L"Special 3", 0x1800 },
     { L"Special 4", 0x1C00 },
-    { L"Unused/Single sprite preview", -0x400, INVALID_UNIT_VALUE_16, 0x1 }, //palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
+    { L"Unused/Single sprite preview", -0x400, INVALID_UNIT_VALUE_16, 0x1 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_BossPlayerPalettes_S =
 {
-    { L"Base 1 / Boss (Cutscene animations only)", 0x0, INVALID_UNIT_VALUE_16, 0x2, }, // we want unique previews for the boss characters, since those other palettes wont ever use these sprites
+    { L"Base 1 / Boss (Cutscene animations only)", 0x0, INVALID_UNIT_VALUE_16, 0x02, }, // we want unique previews for the boss characters, since those other palettes wont ever use these sprites
     { L"Base 2", 0x400 },
     { L"Base 3", 0x800},
     { L"Base 4", 0xC00 },
@@ -44,7 +45,7 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_BossPlayerPalettes_S =
     { L"Special 2", 0x1400 },
     { L"Special 3", 0x1800 },
     { L"Special 4", 0x1C00 },
-    { L"Unused/Single sprite preview", -0x400, INVALID_UNIT_VALUE_16, 0x1 }, //palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
+    { L"Unused/Single sprite preview", -0x400, INVALID_UNIT_VALUE_16, 0x01 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
 };
 
 // For the smaller Export listbox
@@ -68,12 +69,12 @@ const sGCBUPF_BasicNodeData MCI_S_NormalNode =
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_ExtrasPalettes_S =
 {
-    { L"Bifrost Rainbow" },
+    { L"Bifrost Rainbow", 0x00, indexMCI_Bonus, 0x00 },
 };
 
 const sGCBUPF_BasicNodeData MCI_S_ExtrasNode =
 {
-    { L"Preview Only" }, 0x0, MCI_SPaletteNamesShort
+    { L"Preview Only" }, 0x0
 };
 
 std::vector<sGCBUPF_BasicFileData> MCI_S_CharacterData =
