@@ -315,7 +315,7 @@
 #define ID_ACC_SNIFFCOLOR               32861
 #define ID_ACC_SNIFFPASTE               32862
 #define ID_SETTINGS_CLICKANDFIND        32863
-#define ID_COLORFORMAT_xBGR555_LE       32864
+#define ID_COLORFORMAT_xBGR1555_BE      32864
 #define ID_LD_SFIII3ARCADE4rd           32865
 #define ID_ALPHASETTING_FIXED           32866
 #define ID_ALPHASETTING_VARIABLE        32867
@@ -436,14 +436,15 @@
 #define ID_TOOLS_MAPPING_USE_STEP1      32982
 #define ID_TOOLS_MAPPING_USE_STEP2      32983
 #define ID_COLORFORMAT_RGBA8888_BE16    32984
-#define ID_LD_MCI_S						32985
+#define ID_LD_MCI_S                     32985
+#define ID_COLORFORMAT_BGRx5551_BE      32986
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        150
-#define _APS_NEXT_COMMAND_VALUE         32985
+#define _APS_NEXT_COMMAND_VALUE         32987
 #define _APS_NEXT_CONTROL_VALUE         1118
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

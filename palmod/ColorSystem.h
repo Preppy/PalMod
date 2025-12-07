@@ -50,7 +50,7 @@ enum class ColMode
     COLMODE_RBG444,
     COLMODE_BRG888,
 
-    COLMODE_xBGR555_LE,     // Different packing used by Sega Saturn, Asura Buster / Fuuki
+    COLMODE_xBGR1555_BE,    // Different packing used by Sega Saturn, Asura Buster / Fuuki
 
     COLMODE_RGBA8888_BE,    // 32bit color
     COLMODE_BGRA8888_BE,    // 32bit color (ps3)
@@ -62,6 +62,8 @@ enum class ColMode
     COLMODE_NEOTURFMASTERS, // Very weird.  32bit value converted to RGB555 filtered into a CLUT
 
     COLMODE_RGBA8888_BE16,  // BE on 16bit read boundaries
+
+    COLMODE_BGRx5551_BE,    // Nintendo 64 z64
 
     COLMODE_LAST,
 };
@@ -90,38 +92,41 @@ namespace ColorSystem
     uint16_t CONV_32_RGB333(uint32_t inCol);
     uint32_t CONV_RGB333_32(uint16_t inCol);
 
-    uint16_t CONV_32_BGR444(uint32_t inCol);
-    uint32_t CONV_BGR444_32(uint16_t inCol);
-    uint16_t CONV_32_BRG444(uint32_t inCol);
-    uint32_t CONV_BRG444_32(uint16_t inCol);
-    uint16_t CONV_32_RBG444(uint32_t inCol);
-    uint32_t CONV_RBG444_32(uint16_t inCol);
-    uint16_t CONV_32_RGB444BE(uint32_t inCol);
-    uint32_t CONV_RGB444BE_32(uint16_t inCol);
-    uint16_t CONV_32_RGB444LE(uint32_t inCol);
-    uint32_t CONV_RGB444LE_32(uint16_t inCol);
+    uint16_t CONV_32_xBGR4444(uint32_t inCol);
+    uint32_t CONV_xBGR4444_32(uint16_t inCol);
+    uint16_t CONV_32_xBRG4444(uint32_t inCol);
+    uint32_t CONV_xBRG4444_32(uint16_t inCol);
+    uint16_t CONV_32_xRBG4444(uint32_t inCol);
+    uint32_t CONV_xRBG4444_32(uint16_t inCol);
+    uint16_t CONV_32_xRGB4444BE(uint32_t inCol);
+    uint32_t CONV_xRGB4444BE_32(uint16_t inCol);
+    uint16_t CONV_32_xRGB4444LE(uint32_t inCol);
+    uint32_t CONV_xRGB4444LE_32(uint16_t inCol);
 
-    uint16_t CONV_32_BGR555LE(uint32_t inCol);
-    uint32_t CONV_BGR555LE_32(uint16_t inCol);
-    uint16_t CONV_32_BGR555BE(uint32_t inCol);
-    uint32_t CONV_BGR555BE_32(uint16_t inCol);
-    uint16_t CONV_32_xBGR555LE(uint32_t inCol);
-    uint32_t CONV_xBGR555LE_32(uint16_t inCol);
+    uint16_t CONV_32_xBGR1555LE(uint32_t inCol);
+    uint32_t CONV_xBGR1555LE_32(uint16_t inCol);
+    uint16_t CONV_32_xBGR1555BE_Normal(uint32_t inCol);
+    uint32_t CONV_xBGR1555BE_32_Normal(uint16_t inCol);
+    uint16_t CONV_32_xBGR1555BE_Sega(uint32_t inCol);
+    uint32_t CONV_xBGR1555BE_32_Sega(uint16_t inCol);
+    uint16_t CONV_32_BGRx5551BE(uint32_t inCol);
+    uint32_t CONV_BGRx5551BE_32(uint16_t inCol);
+
     // Note that MAME/CPS3 and FBNeo use different math here
-    uint16_t CONV_32_RGB555LE_Common(uint32_t inCol, bool fUseRounding);
-    uint32_t CONV_RGB555LE_32_Common(uint16_t inCol, bool fUseRounding);
-    uint16_t CONV_32_RGB555LE_CPS3(uint32_t inCol);
-    uint32_t CONV_RGB555LE_32_CPS3(uint16_t inCol);
-    uint16_t CONV_32_RGB555LE_NORMAL(uint32_t inCol);
-    uint32_t CONV_RGB555LE_32_NORMAL(uint16_t inCol);
-    uint16_t CONV_32_RGB555BE(uint32_t inCol);
-    uint32_t CONV_RGB555BE_32(uint16_t inCol);
-    uint16_t CONV_32_GRB555LE(uint32_t inCol);
-    uint32_t CONV_GRB555LE_32(uint16_t inCol);
-    uint16_t CONV_32_GRB555BE(uint32_t inCol);
-    uint32_t CONV_GRB555BE_32(uint16_t inCol);
-    uint16_t CONV_32_BRG555LE(uint32_t inCol);
-    uint32_t CONV_BRG555LE_32(uint16_t inCol);
+    uint16_t CONV_32_xRGB1555LE_Common(uint32_t inCol, bool fUseRounding);
+    uint32_t CONV_xRGB1555LE_32_Common(uint16_t inCol, bool fUseRounding);
+    uint16_t CONV_32_xRGB1555LE_CPS3(uint32_t inCol);
+    uint32_t CONV_xRGB1555LE_32_CPS3(uint16_t inCol);
+    uint16_t CONV_32_xRGB1555LE_NORMAL(uint32_t inCol);
+    uint32_t CONV_xRGB1555LE_32_NORMAL(uint16_t inCol);
+    uint16_t CONV_32_xRGB1555BE(uint32_t inCol);
+    uint32_t CONV_xRGB1555BE_32(uint16_t inCol);
+    uint16_t CONV_32_xGRB1555LE(uint32_t inCol);
+    uint32_t CONV_xGRB1555LE_32(uint16_t inCol);
+    uint16_t CONV_32_xGRB1555BE(uint32_t inCol);
+    uint32_t CONV_xGRB1555BE_32(uint16_t inCol);
+    uint16_t CONV_32_xBRG1555LE(uint32_t inCol);
+    uint32_t CONV_xBRG1555LE_32(uint16_t inCol);
 
     // Lookup tables
     uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol);

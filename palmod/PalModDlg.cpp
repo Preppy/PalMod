@@ -100,7 +100,7 @@ CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
 
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
-    static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "Please make sure to test new color format via TestColorConversions.");
+    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "Please make sure to test new color format via TestColorConversions.");
     //ColorSystem::TestColorConversions();
 }
 
@@ -129,7 +129,7 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
 #pragma warning( push )
 #pragma warning( disable : 26454 ) // bug in Microsoft headers
 
-static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
+static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
 
 // CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
@@ -229,7 +229,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_RGB555_LE_CPS3, &CPalModDlg::SetColorFormatToRGB555_LE_CPS3)
     ON_COMMAND(ID_COLORFORMAT_RGB555_LE_NORMAL, &CPalModDlg::SetColorFormatToRGB555_LE_Normal)
     ON_COMMAND(ID_COLORFORMAT_RGB555_BE, &CPalModDlg::SetColorFormatToRGB555_BE)
-    ON_COMMAND(ID_COLORFORMAT_xBGR555_LE, &CPalModDlg::SetColorFormatToxBGR555_LE)
+    ON_COMMAND(ID_COLORFORMAT_xBGR1555_BE, &CPalModDlg::SetColorFormatToxBGR1555_BE)
+    ON_COMMAND(ID_COLORFORMAT_BGRx5551_BE, &CPalModDlg::SetColorFormatToBGRx5551_BE)
     
     ON_COMMAND(ID_COLORFORMAT_RGB666, &CPalModDlg::SetColorFormatToNEOGEO)
     ON_COMMAND(ID_COLORFORMAT_SHARPRGB, &CPalModDlg::SetColorFormatToSharpRGB)

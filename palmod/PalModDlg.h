@@ -110,7 +110,7 @@ private:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
 
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
@@ -130,7 +130,8 @@ private:
     void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
     void SetColorFormatToRGB555_LE_CPS3() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE_CPS3); };
     void SetColorFormatToRGB555_LE_Normal() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE_NORMAL); };
-    void SetColorFormatToxBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_xBGR555_LE); };
+    void SetColorFormatToxBGR1555_BE() { SetColorFormatTo(ColMode::COLMODE_xBGR1555_BE); };
+    void SetColorFormatToBGRx5551_BE() { SetColorFormatTo(ColMode::COLMODE_BGRx5551_BE); };
 
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
     // Deliberately not exposing the Neo Turf Masters CLUT: that requires knowledge of where to get the CLUT from

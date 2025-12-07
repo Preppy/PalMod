@@ -135,7 +135,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
 
     switch (NewMode)
     {
@@ -174,7 +174,8 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 
         case ColMode::COLMODE_BGR555_LE:
         case ColMode::COLMODE_BGR555_BE:
-        case ColMode::COLMODE_xBGR555_LE:
+        case ColMode::COLMODE_xBGR1555_BE:
+        case ColMode::COLMODE_BGRx5551_BE:
         case ColMode::COLMODE_RGB555_LE_NORMAL:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_BRG555_LE:
@@ -305,7 +306,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(33) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
 
     switch (NewMode)
     {
@@ -323,61 +324,65 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
             break;
 
         case ColMode::COLMODE_BGR444:
-            ConvPal16 = &ColorSystem::CONV_BGR444_32;
-            ConvCol16 = &ColorSystem::CONV_32_BGR444;
+            ConvPal16 = &ColorSystem::CONV_xBGR4444_32;
+            ConvCol16 = &ColorSystem::CONV_32_xBGR4444;
             break;
         case ColMode::COLMODE_BRG444:
-            ConvPal16 = &ColorSystem::CONV_BRG444_32;
-            ConvCol16 = &ColorSystem::CONV_32_BRG444;
+            ConvPal16 = &ColorSystem::CONV_xBRG4444_32;
+            ConvCol16 = &ColorSystem::CONV_32_xBRG4444;
             break;
         case ColMode::COLMODE_RBG444:
-            ConvPal16 = &ColorSystem::CONV_RBG444_32;
-            ConvCol16 = &ColorSystem::CONV_32_RBG444;
+            ConvPal16 = &ColorSystem::CONV_xRBG4444_32;
+            ConvCol16 = &ColorSystem::CONV_32_xRBG4444;
             break;
         case ColMode::COLMODE_RGB444_BE:
-            ConvPal16 = &ColorSystem::CONV_RGB444BE_32;
-            ConvCol16 = &ColorSystem::CONV_32_RGB444BE;
+            ConvPal16 = &ColorSystem::CONV_xRGB4444BE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB4444BE;
             break;
         case ColMode::COLMODE_RGB444_LE:
-            ConvPal16 = &ColorSystem::CONV_RGB444LE_32;
-            ConvCol16 = &ColorSystem::CONV_32_RGB444LE;
+            ConvPal16 = &ColorSystem::CONV_xRGB4444LE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB4444LE;
             break;
 
         case ColMode::COLMODE_BGR555_LE:
-            ConvPal16 = &ColorSystem::CONV_BGR555LE_32;
-            ConvCol16 = &ColorSystem::CONV_32_BGR555LE;
+            ConvPal16 = &ColorSystem::CONV_xBGR1555LE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xBGR1555LE;
             break;
         case ColMode::COLMODE_BGR555_BE:
-            ConvPal16 = &ColorSystem::CONV_BGR555BE_32;
-            ConvCol16 = &ColorSystem::CONV_32_BGR555BE;
+            ConvPal16 = &ColorSystem::CONV_xBGR1555BE_32_Normal;
+            ConvCol16 = &ColorSystem::CONV_32_xBGR1555BE_Normal;
             break;
-        case ColMode::COLMODE_xBGR555_LE:
-            ConvPal16 = &ColorSystem::CONV_xBGR555LE_32;
-            ConvCol16 = &ColorSystem::CONV_32_xBGR555LE;
+        case ColMode::COLMODE_xBGR1555_BE:
+            ConvPal16 = &ColorSystem::CONV_xBGR1555BE_32_Sega;
+            ConvCol16 = &ColorSystem::CONV_32_xBGR1555BE_Sega;
+            break;
+        case ColMode::COLMODE_BGRx5551_BE:
+            ConvPal16 = &ColorSystem::CONV_BGRx5551BE_32;
+            ConvCol16 = &ColorSystem::CONV_32_BGRx5551BE;
             break;
         case ColMode::COLMODE_RGB555_LE_CPS3:
-            ConvPal16 = &ColorSystem::CONV_RGB555LE_32_CPS3;
-            ConvCol16 = &ColorSystem::CONV_32_RGB555LE_CPS3;
+            ConvPal16 = &ColorSystem::CONV_xRGB1555LE_32_CPS3;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB1555LE_CPS3;
             break;
         case ColMode::COLMODE_RGB555_LE_NORMAL:
-            ConvPal16 = &ColorSystem::CONV_RGB555LE_32_NORMAL;
-            ConvCol16 = &ColorSystem::CONV_32_RGB555LE_NORMAL;
+            ConvPal16 = &ColorSystem::CONV_xRGB1555LE_32_NORMAL;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB1555LE_NORMAL;
             break;
         case ColMode::COLMODE_RGB555_BE:
-            ConvPal16 = &ColorSystem::CONV_RGB555BE_32;
-            ConvCol16 = &ColorSystem::CONV_32_RGB555BE;
+            ConvPal16 = &ColorSystem::CONV_xRGB1555BE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB1555BE;
             break;
         case ColMode::COLMODE_BRG555_LE:
-            ConvPal16 = &ColorSystem::CONV_BRG555LE_32;
-            ConvCol16 = &ColorSystem::CONV_32_BRG555LE;
+            ConvPal16 = &ColorSystem::CONV_xBRG1555LE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xBRG1555LE;
             break;
         case ColMode::COLMODE_GRB555_LE:
-            ConvPal16 = &ColorSystem::CONV_GRB555LE_32;
-            ConvCol16 = &ColorSystem::CONV_32_GRB555LE;
+            ConvPal16 = &ColorSystem::CONV_xGRB1555LE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xGRB1555LE;
             break;
         case ColMode::COLMODE_GRB555_BE:
-            ConvPal16 = &ColorSystem::CONV_GRB555BE_32;
-            ConvCol16 = &ColorSystem::CONV_32_GRB555BE;
+            ConvPal16 = &ColorSystem::CONV_xGRB1555BE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xGRB1555BE;
             break;
 
         case ColMode::COLMODE_RGB555_SHARP:

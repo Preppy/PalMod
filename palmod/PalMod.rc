@@ -711,21 +711,23 @@ BEGIN
                 MENUITEM "RBG333 (big endian)",         ID_COLORFORMAT_RBG333
                 MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333_BE
                 MENUITEM SEPARATOR
-                MENUITEM "BGR444 (big endian)",         ID_COLORFORMAT_BGR444
-                MENUITEM "BRG444 (big endian)",         ID_COLORFORMAT_BRG444
-                MENUITEM "RBG444 (big endian)",         ID_COLORFORMAT_RBG444
-                MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444_BE
-                MENUITEM "RGB444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
+                MENUITEM "xBGR4444 (big endian)",         ID_COLORFORMAT_BGR444
+                MENUITEM "xBRG4444 (big endian)",         ID_COLORFORMAT_BRG444
+                MENUITEM "xRBG4444 (big endian)",         ID_COLORFORMAT_RBG444
+                MENUITEM "xRGB4444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444_BE
+                MENUITEM "xRGB4444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
                 MENUITEM SEPARATOR
-                MENUITEM "BGR555 (little endian for GBA, most PSX, SNES)", ID_COLORFORMAT_BGR555_LE
-                MENUITEM "BGR555 (little endian for Sega Saturn, Fuuki)", ID_COLORFORMAT_xBGR555_LE
-                MENUITEM "BGR555 (big endian for Motorola 68000)", ID_COLORFORMAT_BGR555_BE
-                MENUITEM "BRG555 (little endian)",      ID_COLORFORMAT_BRG555_LE
-                MENUITEM "GRB555 (little endian)",      ID_COLORFORMAT_GRB555_LE
-                MENUITEM "GRB555 (big endian)",         ID_COLORFORMAT_GRB555_BE
-                MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE_CPS3
-                MENUITEM "RGB555 (little endian for non-CPS3)", ID_COLORFORMAT_RGB555_LE_NORMAL
-                MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_BE
+                MENUITEM "xBGR1555 (little endian for GBA, most PSX, SNES)", ID_COLORFORMAT_BGR555_LE
+                MENUITEM "xBGR1555 (big endian for Sega Saturn, Fuuki)", ID_COLORFORMAT_xBGR1555_BE
+                MENUITEM "xBGR1555 (big endian for Motorola 68000)", ID_COLORFORMAT_BGR555_BE
+                MENUITEM "BGRx5551 (big endian for Nintendo 64 z64)", ID_COLORFORMAT_BGRx5551_BE
+                MENUITEM "xBRG1555 (little endian)",      ID_COLORFORMAT_BRG555_LE
+                MENUITEM "xGRB1555 (little endian)",      ID_COLORFORMAT_GRB555_LE
+                MENUITEM "xGRB1555 (big endian)",         ID_COLORFORMAT_GRB555_BE
+                MENUITEM "xRGB1555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE_CPS3
+                MENUITEM "xRGB1555 (little endian for non-CPS3)", ID_COLORFORMAT_RGB555_LE_NORMAL
+                MENUITEM "xRGB1555 (big endian)",         ID_COLORFORMAT_RGB555_BE
+                MENUITEM SEPARATOR
                 MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
                 MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
             END
