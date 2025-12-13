@@ -2109,7 +2109,7 @@ namespace KnownGameInfo
         {
             SFTM_A,
             L"Street Fighter: The Movie (Incredible Technologies)",
-            { SFTM_A,           L"Street Fighter: The Movie (Incredible Technologies)", L"Street Fighter: The Movie (Arcade)|sfm_0_v1.1.prom0;sfm_0_v1.11.prom0;sfm_0_v1.12.prom0;sfmn_0_v1.12.prom0;sfmn_0_v1.14.prom0|", GamePlatform::OtherPlatform },
+            { SFTM_A,           L"Street Fighter: The Movie (Incredible Technologies)", L"Street Fighter: The Movie (Arcade)|sfm*_prom0_v1.1*.prom0;sfm_0_v1.1.prom0;sfm_0_v1.11.prom0;sfm_0_v1.12.prom0;sfmn_0_v1.12.prom0;sfmn_0_v1.14.prom0|", GamePlatform::OtherPlatform },
             Make_SFTM_A,
             CGame_SFTM_A::GetRule,
         },

@@ -7,6 +7,12 @@ class CGame_SFTM_A : public CGameClassByDir
 private:
     enum class SFTMLoadingKey
     {
+        MAME110,
+        MAME111,
+        MAME112,
+        MAME112j,
+        MAME112k,
+        MAME114,
         V110,
         V111,
         V112Normal,
@@ -15,6 +21,72 @@ private:
     };
 
     static SFTMLoadingKey m_eVersionToLoad;
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_MAME110 =
+    {
+        {
+            { L"sfm_prom0_v1.1.prom0", 0x40000 },
+            { L"sfm_prom1_v1.1.prom1", 0x40000 },
+            { L"sfm_prom2_v1.1.prom2", 0x40000 },
+            { L"sfm_prom3_v1.1.prom3", 0x40000 },
+        },
+        FileReadType::Interleaved_4FileSets,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_MAME111 =
+    {
+        {
+            { L"sfm_prom0_v1.11.prom0", 0x40000 },
+            { L"sfm_prom1_v1.11.prom1", 0x40000 },
+            { L"sfm_prom2_v1.11.prom2", 0x40000 },
+            { L"sfm_prom3_v1.11.prom3", 0x40000 },
+        },
+        FileReadType::Interleaved_4FileSets,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_MAME112 =
+    {
+        {
+            { L"sfm_prom0_v1.12.prom0", 0x40000 },
+            { L"sfm_prom1_v1.12.prom1", 0x40000 },
+            { L"sfm_prom2_v1.12.prom2", 0x40000 },
+            { L"sfm_prom3_v1.12.prom3", 0x40000 },
+        },
+        FileReadType::Interleaved_4FileSets,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_MAME112j =
+    {
+        {
+            { L"sfmn_prom0_v1.12.prom0", 0x40000 },
+            { L"sfmn_prom1_v1.12.prom1", 0x40000 },
+            { L"sfmn_prom2_v1.12.prom2", 0x40000 },
+            { L"sfmn_prom3_v1.12.prom3", 0x40000 },
+        },
+        FileReadType::Interleaved_4FileSets,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_MAME112k =
+    {
+        {
+            { L"sfmk_prom0_v1.12.prom0", 0x40000 },
+            { L"sfmk_prom1_v1.12.prom1", 0x40000 },
+            { L"sfmk_prom2_v1.12.prom2", 0x40000 },
+            { L"sfmk_prom3_v1.12.prom3", 0x40000 },
+        },
+        FileReadType::Interleaved_4FileSets,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_MAME114 =
+    {
+        {
+            { L"sfmn_prom0_v1.14.prom0", 0x40000 },
+            { L"sfmn_prom1_v1.14.prom1", 0x40000 },
+            { L"sfmn_prom2_v1.14.prom2", 0x40000 },
+            { L"sfmn_prom3_v1.14.prom3", 0x40000 },
+        },
+        FileReadType::Interleaved_4FileSets,
+    };
 
     static inline const sDirectoryLoadingData m_sFileLoadingData_V110 =
     {
@@ -69,6 +141,126 @@ private:
             { L"sfmn_3_v1.14.prom3", 0x40000 },
         },
         FileReadType::Interleaved_4FileSets,
+    };
+
+    const sCoreGameData m_sCoreGameData_MAME110
+    {
+        L"Street Fighter: The Movie (v1.10, Incredible Technologies)",
+        SFTM_A,
+        IMGDAT_SECTION_OTHER,
+        SFTM_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR888,
+        m_sFileLoadingData_MAME110,
+        {},
+        SFTM_A_UNITS,
+        ARRAYSIZE(SFTM_A_UNITS),
+        L"SFTME.txt",          // Extra filename
+        36,                    // Count of palettes listed in the header
+        0xff1c,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_MAME111
+    {
+        L"Street Fighter: The Movie (v1.11, Incredible Technologies)",
+        SFTM_A,
+        IMGDAT_SECTION_OTHER,
+        SFTM_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR888,
+        m_sFileLoadingData_MAME111,
+        {},
+        SFTM_A_UNITS,
+        ARRAYSIZE(SFTM_A_UNITS),
+        L"SFTME.txt",          // Extra filename
+        36,                    // Count of palettes listed in the header
+        0xff1c,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_MAME112
+    {
+        L"Street Fighter: The Movie (v1.12, Incredible Technologies)",
+        SFTM_A,
+        IMGDAT_SECTION_OTHER,
+        SFTM_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR888,
+        m_sFileLoadingData_MAME112,
+        {},
+        SFTM_A_UNITS,
+        ARRAYSIZE(SFTM_A_UNITS),
+        L"SFTME.txt",          // Extra filename
+        36,                    // Count of palettes listed in the header
+        0xff1c,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_MAME112k
+    {
+        L"Street Fighter: The Movie (v1.12K (Korea), Incredible Technologies)",
+        SFTM_A,
+        IMGDAT_SECTION_OTHER,
+        SFTM_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR888,
+        m_sFileLoadingData_MAME112k,
+        {},
+        SFTM_A_UNITS,
+        ARRAYSIZE(SFTM_A_UNITS),
+        L"SFTME.txt",          // Extra filename
+        36,                    // Count of palettes listed in the header
+        0xff1c,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_MAME112j
+    {
+        L"Street Fighter: The Movie (v1.12N (Japan), Incredible Technologies)",
+        SFTM_A,
+        IMGDAT_SECTION_OTHER,
+        SFTM_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR888,
+        m_sFileLoadingData_MAME112j,
+        {},
+        SFTM_A_UNITS,
+        ARRAYSIZE(SFTM_A_UNITS),
+        L"SFTME.txt",          // Extra filename
+        36,                    // Count of palettes listed in the header
+        0xff1c,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_MAME114
+    {
+        L"Street Fighter: The Movie (v1.14N (Japan), Incredible Technologies)",
+        SFTM_A,
+        IMGDAT_SECTION_OTHER,
+        SFTM_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR888,
+        m_sFileLoadingData_MAME114,
+        {},
+        SFTM_A_UNITS,
+        ARRAYSIZE(SFTM_A_UNITS),
+        L"SFTME.txt",          // Extra filename
+        36,                    // Count of palettes listed in the header
+        0xff1c,                // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V110
