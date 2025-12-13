@@ -174,8 +174,8 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 
         case ColMode::COLMODE_BGR555_LE:
         case ColMode::COLMODE_BGR555_BE:
-        case ColMode::COLMODE_xBGR1555_BE:
-        case ColMode::COLMODE_BGRx5551_BE:
+        case ColMode::COLMODE_xRGB1555_BE:
+        case ColMode::COLMODE_RGBx5551_BE:
         case ColMode::COLMODE_RGB555_LE_NORMAL:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_BRG555_LE:
@@ -349,16 +349,12 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
             ConvCol16 = &ColorSystem::CONV_32_xBGR1555LE;
             break;
         case ColMode::COLMODE_BGR555_BE:
-            ConvPal16 = &ColorSystem::CONV_xBGR1555BE_32_Normal;
-            ConvCol16 = &ColorSystem::CONV_32_xBGR1555BE_Normal;
+            ConvPal16 = &ColorSystem::CONV_xBGR1555BE_32;
+            ConvCol16 = &ColorSystem::CONV_32_xBGR1555BE;
             break;
-        case ColMode::COLMODE_xBGR1555_BE:
-            ConvPal16 = &ColorSystem::CONV_xBGR1555BE_32_Sega;
-            ConvCol16 = &ColorSystem::CONV_32_xBGR1555BE_Sega;
-            break;
-        case ColMode::COLMODE_BGRx5551_BE:
-            ConvPal16 = &ColorSystem::CONV_BGRx5551BE_32;
-            ConvCol16 = &ColorSystem::CONV_32_BGRx5551BE;
+        case ColMode::COLMODE_RGBx5551_BE:
+            ConvPal16 = &ColorSystem::CONV_RGBx5551BE_32;
+            ConvCol16 = &ColorSystem::CONV_32_RGBx5551BE;
             break;
         case ColMode::COLMODE_RGB555_LE_CPS3:
             ConvPal16 = &ColorSystem::CONV_xRGB1555LE_32_CPS3;
@@ -371,6 +367,10 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
         case ColMode::COLMODE_RGB555_BE:
             ConvPal16 = &ColorSystem::CONV_xRGB1555BE_32;
             ConvCol16 = &ColorSystem::CONV_32_xRGB1555BE;
+            break;
+        case ColMode::COLMODE_xRGB1555_BE:
+            ConvPal16 = &ColorSystem::CONV_xRGB1555BE_32_Sega;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB1555BE_Sega;
             break;
         case ColMode::COLMODE_BRG555_LE:
             ConvPal16 = &ColorSystem::CONV_xBRG1555LE_32;

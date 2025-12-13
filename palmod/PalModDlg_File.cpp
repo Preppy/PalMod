@@ -300,8 +300,8 @@ void CPalModDlg::UpdateColorFormatMenu()
 
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_LE_CPS3, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_LE_CPS3) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_LE_NORMAL, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_LE_NORMAL) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_xBGR1555_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xBGR1555_BE) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRx5551_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRx5551_BE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_xBGR1555_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xRGB1555_BE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRx5551_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBx5551_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR555_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_BE) ? MF_CHECKED : MF_UNCHECKED));

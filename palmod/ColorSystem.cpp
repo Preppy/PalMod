@@ -33,14 +33,6 @@ namespace ColorSystem
     const int k_nRGBPlaneAmtForHalfAlpha = 0x80;
     const int k_nRGBPlaneAmtForRGB888 = 255;
 
-    uint16_t SWAP_16(uint16_t palv)
-    {
-        uint16_t aux = 0;
-        aux |= palv << 8;
-        aux |= palv >> 8;
-        return aux;
-    }
-
     uint8_t GetCbForColMode(ColMode colorMode)
     {
         switch (colorMode)
@@ -60,8 +52,8 @@ namespace ColorSystem
 
             case ColMode::COLMODE_BGR555_LE:
             case ColMode::COLMODE_BGR555_BE:
-            case ColMode::COLMODE_xBGR1555_BE:
-            case ColMode::COLMODE_BGRx5551_BE:
+            case ColMode::COLMODE_xRGB1555_BE:
+            case ColMode::COLMODE_RGBx5551_BE:
             case ColMode::COLMODE_RGB555_LE_CPS3:
             case ColMode::COLMODE_RGB555_LE_NORMAL:
             case ColMode::COLMODE_RGB555_BE:
@@ -112,7 +104,7 @@ namespace ColorSystem
 
         { "BGR555LE", ColMode::COLMODE_BGR555_LE },             // aBGR555 little endian (GBA)
         { "BGR555BE", ColMode::COLMODE_BGR555_BE },             // aBGR555 big endian: Motorola 68000 games
-        { "xBGR555BE", ColMode::COLMODE_xBGR1555_BE },          // xBGR (Different packing used by Sega Saturn, Asura Buster / Fuuki)
+        { "xBGR555BE", ColMode::COLMODE_xRGB1555_BE },          // xBGR (Different packing used by Sega Saturn, Asura Buster / Fuuki)
         { "BRG555LE", ColMode::COLMODE_BRG555_LE },             // aBRG555 little endian, used by Fists of Fury
         { "GRB555LE", ColMode::COLMODE_GRB555_LE },             // aGRB555 little endian
         { "GRB555BE", ColMode::COLMODE_GRB555_BE },             // aGRB555 big endian
@@ -327,8 +319,8 @@ namespace ColorSystem
 
             case ColMode::COLMODE_BGR555_LE:
             case ColMode::COLMODE_BGR555_BE:
-            case ColMode::COLMODE_xBGR1555_BE:
-            case ColMode::COLMODE_BGRx5551_BE:
+            case ColMode::COLMODE_xRGB1555_BE:
+            case ColMode::COLMODE_RGBx5551_BE:
             case ColMode::COLMODE_RGB555_LE_NORMAL:
             case ColMode::COLMODE_RGB555_BE:
             case ColMode::COLMODE_GRB555_LE:
@@ -402,6 +394,7 @@ namespace ColorSystem
         }
     }
 
+    // COLMODE_BGR333
     uint32_t CONV_BGR333_32(uint16_t inCol)
     {
         // big endian:
@@ -427,6 +420,7 @@ namespace ColorSystem
         return (auxr << 1) | (auxb << 9) | (auxg << 13);
     }
 
+    // COLMODE_RBG333
     uint32_t CONV_RBG333_32(uint16_t inCol)
     {
         // big endian:
@@ -452,6 +446,7 @@ namespace ColorSystem
         return (auxg << 1) | (auxr << 9) | (auxb << 13);
     }
 
+    // COLMODE_RGB333
     uint32_t CONV_RGB333_32(uint16_t inCol)
     {
         // big endian:
@@ -491,11 +486,12 @@ namespace ColorSystem
         }
     }
 
+    // COLMODE_BGR555_LE
     uint32_t CONV_xBGR1555LE_32(uint16_t inCol)
     {
-        uint32_t red = (inCol & 31) << 3;
+        uint32_t red   =  (inCol & 31) << 3;
         uint32_t green = ((inCol >> 5) & 31) << 3;
-        uint32_t blue = ((inCol >> 10) & 31) << 3;
+        uint32_t blue  = ((inCol >> 10) & 31) << 3;
         uint32_t alpha = ((inCol >> 15) & 1) << 3;
 
         // account for rounding
@@ -521,16 +517,18 @@ namespace ColorSystem
         return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
     }
 
-    uint32_t CONV_xBGR1555BE_32_Normal(uint16_t inCol)
+    // COLMODE_BGR555_BE
+    uint32_t CONV_xBGR1555BE_32(uint16_t inCol)
     {
         return CONV_xBGR1555LE_32(_byteswap_ushort(inCol));
     }
 
-    uint16_t CONV_32_xBGR1555BE_Normal(uint32_t inCol)
+    uint16_t CONV_32_xBGR1555BE(uint32_t inCol)
     {
         return _byteswap_ushort(CONV_32_xBGR1555LE(inCol));
     }
 
+    // COLMODE_BGR444
     uint32_t CONV_xBGR4444_32(uint16_t inCol)
     {
         uint32_t auxr = (inCol & 0xF);
@@ -576,6 +574,7 @@ namespace ColorSystem
         return auxb | auxg | auxr | auxa;
     }
 
+    // COLMODE_BRG444
     uint32_t CONV_xBRG4444_32(uint16_t inCol)
     {
         uint32_t auxg = (inCol & 0xF);
@@ -620,6 +619,7 @@ namespace ColorSystem
         return auxb | auxg | auxr | auxa;
     }
 
+    // COLMODE_RBG444_LE
     uint32_t CONV_xRBG4444_32(uint16_t inCol)
     {
         uint32_t auxg = (inCol & 0xF);
@@ -665,8 +665,10 @@ namespace ColorSystem
         return auxb | auxg | auxr | auxa;
     }
 
+    // COLMODE_RGB444_BE
     uint32_t CONV_xRGB4444BE_32(uint16_t inCol)
     {
+        // TODO: cleanup
         uint32_t auxb = (inCol & 0xF);
         uint32_t auxg = (inCol & 0xF0) >> 4;
         uint32_t auxr = (inCol & 0xF00) >> 8;
@@ -710,6 +712,7 @@ namespace ColorSystem
         return auxb | auxg | auxr | auxa;
     }
 
+    // COLMODE_RGB444_LE
     uint32_t CONV_xRGB4444LE_32(uint16_t inCol)
     {
         return CONV_xRGB4444BE_32(_byteswap_ushort(inCol));
@@ -720,14 +723,15 @@ namespace ColorSystem
         return _byteswap_ushort(CONV_32_xRGB4444BE(inCol));
     }
 
-    uint32_t CONV_xBGR1555BE_32_Sega(uint16_t inCol)
+    // COLMODE_xRGB1555_BE
+    uint32_t CONV_xRGB1555BE_32_Sega(uint16_t inCol)
     {
-        uint16_t swapped = SWAP_16(inCol);
+        uint16_t swapped = _byteswap_ushort(inCol);
 
+        uint32_t auxa = (swapped & 0x8000) ? 0xFF : 0x0;
         uint32_t auxr = (swapped & 0x7C00) >> 10;
         uint32_t auxg = (swapped & 0x3E0) >> 5;
         uint32_t auxb = (swapped & 0x1F);
-        uint32_t auxa = 0x0;
 
         if (!IsAlphaModeMutable(CurrAlphaMode))
         {
@@ -751,28 +755,29 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xBGR1555BE_Sega(uint32_t inCol)
+    uint16_t CONV_32_xRGB1555BE_Sega(uint32_t inCol)
     {
-        uint16_t auxr = (inCol & 0x00FF0000) >> 16;
+        uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
-        uint16_t auxb = (inCol & 0x000000FF);
+        uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = static_cast<uint16_t>(round(auxb / 8));
-        auxg = static_cast<uint16_t>(round(auxg / 8));
         auxr = static_cast<uint16_t>(round(auxr / 8));
+        auxg = static_cast<uint16_t>(round(auxg / 8));
+        auxb = static_cast<uint16_t>(round(auxb / 8));
 
-        //auxr = auxr; no-op
+        //auxb = auxb; no-op
         auxg = auxg << 5;
-        auxb = auxb << 10;
+        auxr = auxr << 10;
 
         //BUGBUG this part drops alpha
 
-        return SWAP_16(auxb | auxg | auxr);
+        return _byteswap_ushort(auxr | auxg | auxb);
     }
 
-    uint32_t CONV_BGRx5551BE_32(uint16_t inCol)
+    // COLMODE_RGBx5551_BE
+    uint32_t CONV_RGBx5551BE_32(uint16_t inCol)
     {
-        const uint16_t as_little_endian = SWAP_16(inCol);
+        const uint16_t as_little_endian = _byteswap_ushort(inCol);
 
         uint32_t auxr = 8 * ((as_little_endian >> 11) & 31);
         uint32_t auxg = 8 * ((as_little_endian >> 6) & 31);
@@ -787,38 +792,39 @@ namespace ColorSystem
         //auxr = auxr;
         auxg = auxg << 8;
         auxb = auxb << 16;
-        auxa = auxa << 24;
+        auxa = auxa << 24;        
 
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_BGRx5551BE(uint32_t inCol)
+    uint16_t CONV_32_RGBx5551BE(uint32_t inCol)
     {
         uint16_t auxa = ((inCol & 0xFF000000) >> 24) ? 0x1 : 0x0;
-        uint16_t auxr = (inCol & 0x00FF0000) >> 16;
+        uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
-        uint16_t auxb = (inCol & 0x000000FF);
+        uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = static_cast<uint16_t>(round(auxb / 8));
-        auxg = static_cast<uint16_t>(round(auxg / 8));
         auxr = static_cast<uint16_t>(round(auxr / 8));
+        auxg = static_cast<uint16_t>(round(auxg / 8));
+        auxb = static_cast<uint16_t>(round(auxb / 8));
 
         auxa = GetAdjustedNativeAlpha(auxa, 0x1);
-        auxr = auxr << 1;
+        auxb = auxb << 1;
         auxg = auxg << 6;
-        auxb = auxb << 11;
+        auxr = auxr << 11;
 
-        return SWAP_16(auxb | auxg | auxr | auxa);
+        return _byteswap_ushort(auxr | auxg | auxb | auxa);
     }
 
     uint32_t CONV_xRGB1555LE_32_Common(uint16_t inCol, bool fUseRounding)
     {
-        uint16_t swapped = SWAP_16(inCol);
+        // TODO: cleanup
+        uint16_t swapped = _byteswap_ushort(inCol);
 
+        uint32_t auxa = (swapped & 0x8000) ? 0xFF : 0x0;
         uint32_t auxb = (swapped & 0x7C00) >> 10;
         uint32_t auxg = (swapped & 0x3E0) >> 5;
         uint32_t auxr = (swapped & 0x1F);
-        uint32_t auxa = 0x0;
 
         if (!IsAlphaModeMutable(CurrAlphaMode))
         {
@@ -873,22 +879,25 @@ namespace ColorSystem
 
         //BUGBUG this part drops alpha
 
-        return SWAP_16(auxb | auxg | auxr);
+        return _byteswap_ushort(auxb | auxg | auxr);
     }
 
+    // COLMODE_RGB555_LE_CPS3
     uint16_t CONV_32_xRGB1555LE_CPS3(uint32_t inCol) { return CONV_32_xRGB1555LE_Common(inCol, false); };
     uint32_t CONV_xRGB1555LE_32_CPS3(uint16_t inCol) { return CONV_xRGB1555LE_32_Common(inCol, false); };
+    // COLMODE_RGB555_LE_NORMAL
     uint16_t CONV_32_xRGB1555LE_NORMAL(uint32_t inCol) { return CONV_32_xRGB1555LE_Common(inCol, true); };
     uint32_t CONV_xRGB1555LE_32_NORMAL(uint16_t inCol) { return CONV_xRGB1555LE_32_Common(inCol, true); };
 
+    // COLMODE_GRB555_LE
     uint32_t CONV_xGRB1555LE_32(uint16_t inCol)
     {
-        uint16_t swapped = SWAP_16(inCol);
+        uint16_t swapped = _byteswap_ushort(inCol);
 
+        uint32_t auxa = (swapped & 0x8000) ? 0xFF : 0x00;
         uint32_t auxb = (swapped & 0x7C00) >> 10;
         uint32_t auxr = (swapped & 0x3E0) >> 5;
         uint32_t auxg = (swapped & 0x1F);
-        uint32_t auxa = 0x0;
 
         if (!IsAlphaModeMutable(CurrAlphaMode))
         {
@@ -928,9 +937,10 @@ namespace ColorSystem
 
         //BUGBUG this part drops alpha
 
-        return SWAP_16(auxb | auxg | auxr);
+        return _byteswap_ushort(auxb | auxg | auxr);
     }
 
+    // COLMODE_GRB555_BE
     uint32_t CONV_xGRB1555BE_32(uint16_t inCol)
     {
         return CONV_xGRB1555LE_32(_byteswap_ushort(inCol));
@@ -941,14 +951,15 @@ namespace ColorSystem
         return _byteswap_ushort(CONV_32_xGRB1555LE(inCol));
     }
 
+    // COLMODE_BRG555_LE
     uint32_t CONV_xBRG1555LE_32(uint16_t inCol)
     {
-        uint16_t swapped = SWAP_16(inCol);
+        uint16_t swapped = _byteswap_ushort(inCol);
 
+        uint32_t auxa = (swapped & 0x8000) ? 0xFF : 0x00;
         uint32_t auxg = (swapped & 0x7C00) >> 10;
         uint32_t auxr = (swapped & 0x3E0) >> 5;
         uint32_t auxb = (swapped & 0x1F);
-        uint32_t auxa = 0x0;
 
         if (!IsAlphaModeMutable(CurrAlphaMode))
         {
@@ -988,11 +999,13 @@ namespace ColorSystem
 
         //BUGBUG this part drops alpha
 
-        return SWAP_16(auxb | auxg | auxr);
+        return _byteswap_ushort(auxb | auxg | auxr);
     }
 
+    // COLMODE_RGB555_BE
     uint32_t CONV_xRGB1555BE_32(uint16_t inCol)
     {
+        // TODO: cleanup
         uint32_t auxa = (inCol & 0x8000) >> 15;
         uint32_t auxr = (inCol & 0x7C00) >> 10;
         uint32_t auxg = (inCol & 0x3E0) >> 5;
@@ -1025,6 +1038,7 @@ namespace ColorSystem
 
     uint16_t CONV_32_xRGB1555BE(uint32_t inCol)
     {
+        // TODO: cleanup
         uint16_t auxa = (inCol & 0xFF000000) >> 24;
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
@@ -1116,6 +1130,7 @@ namespace ColorSystem
         return nColorIndex;
     }
 
+    // COLMODE_RGB666_NEOGEO
     uint32_t CONV_RGB666NeoGeo_32(uint16_t nColorData)
     {
         uint8_t darkbit = (nColorData >> 0xf) & 0x01;
@@ -1185,7 +1200,7 @@ namespace ColorSystem
             {
                 CLUTFile.Read(&newColor, 2);
                 // neogeo is big endian
-                newColor = SWAP_16(newColor);
+                newColor = _byteswap_ushort(newColor);
                 k_NeoTurfMastersCLUT.push_back(newColor);
             }
 
@@ -1195,6 +1210,7 @@ namespace ColorSystem
         return k_NeoTurfMastersCLUT.size() != 0;
     }
 
+    // COLMODE_NEOTURFMASTERS
     // This is a weird one.
     // We load into memory the entire color lookup table as laid out in the ROM
     // The color values in are RGB555.
@@ -1215,7 +1231,7 @@ namespace ColorSystem
         //const uint32_t nByteOffset = nColorAsBGR555 * 2;
 
         const uint16_t nRGB666Val_BE = k_NeoTurfMastersCLUT.at(nColorAsBGR555);
-        const uint16_t nRGB666Val_LE = SWAP_16(nRGB666Val_BE);
+        const uint16_t nRGB666Val_LE = _byteswap_ushort(nRGB666Val_BE);
 
         return CONV_RGB666NeoGeo_32(nRGB666Val_LE);
     }
@@ -1223,7 +1239,7 @@ namespace ColorSystem
     uint32_t CONV_32_NeoTurfMasters(uint32_t inCol)
     {
         const uint16_t nColorAsNeoGeo = CONV_32_RGB666NeoGeo(inCol);
-        const uint16_t nRGB666Val_BE = SWAP_16(nColorAsNeoGeo);
+        const uint16_t nRGB666Val_BE = _byteswap_ushort(nColorAsNeoGeo);
 
         size_t iPos = 0;
         
@@ -1266,6 +1282,7 @@ namespace ColorSystem
         return nColorIndex;
     }
 
+    // COLMODE_RGB555_SHARP
     uint32_t CONV_RGB555Sharp_32(uint16_t nColorData)
     {
         // raw view
@@ -2425,19 +2442,20 @@ namespace ColorSystem
         
         Test16BitConverters(ColMode::COLMODE_RGB444_BE, &ColorSystem::CONV_xRGB4444BE_32, &ColorSystem::CONV_32_xRGB4444BE);
         Test16BitConverters(ColMode::COLMODE_RGB444_LE, &ColorSystem::CONV_xRGB4444LE_32, &ColorSystem::CONV_32_xRGB4444LE);
+
         Test16BitConverters(ColMode::COLMODE_BGR555_LE, &ColorSystem::CONV_xBGR1555LE_32, &ColorSystem::CONV_32_xBGR1555LE);
-
-        Test16BitConverters(ColMode::COLMODE_BGR555_BE, &ColorSystem::CONV_xBGR1555BE_32_Normal, &ColorSystem::CONV_32_xBGR1555BE_Normal);
-        Test16BitConverters(ColMode::COLMODE_xBGR1555_BE, &ColorSystem::CONV_xBGR1555BE_32_Sega, &ColorSystem::CONV_32_xBGR1555BE_Sega);
-        Test16BitConverters(ColMode::COLMODE_BGRx5551_BE, &ColorSystem::CONV_BGRx5551BE_32, &ColorSystem::CONV_32_BGRx5551BE);
-        Test16BitConverters(ColMode::COLMODE_RGB555_LE_CPS3, &ColorSystem::CONV_xRGB1555LE_32_CPS3, &ColorSystem::CONV_32_xRGB1555LE_CPS3);
-
-        Test16BitConverters(ColMode::COLMODE_RGB555_LE_NORMAL, &ColorSystem::CONV_xRGB1555LE_32_NORMAL, &ColorSystem::CONV_32_xRGB1555LE_NORMAL);
-        Test16BitConverters(ColMode::COLMODE_RGB555_BE, &ColorSystem::CONV_xRGB1555BE_32, &ColorSystem::CONV_32_xRGB1555BE);
+        Test16BitConverters(ColMode::COLMODE_BGR555_BE, &ColorSystem::CONV_xBGR1555BE_32, &ColorSystem::CONV_32_xBGR1555BE);
         Test16BitConverters(ColMode::COLMODE_BRG555_LE, &ColorSystem::CONV_xBRG1555LE_32, &ColorSystem::CONV_32_xBRG1555LE);
 
         Test16BitConverters(ColMode::COLMODE_GRB555_LE, &ColorSystem::CONV_xGRB1555LE_32, &ColorSystem::CONV_32_xGRB1555LE);
         Test16BitConverters(ColMode::COLMODE_GRB555_BE, &ColorSystem::CONV_xGRB1555BE_32, &ColorSystem::CONV_32_xGRB1555BE);
+
+        Test16BitConverters(ColMode::COLMODE_RGBx5551_BE, &ColorSystem::CONV_RGBx5551BE_32, &ColorSystem::CONV_32_RGBx5551BE);
+        Test16BitConverters(ColMode::COLMODE_RGB555_LE_CPS3, &ColorSystem::CONV_xRGB1555LE_32_CPS3, &ColorSystem::CONV_32_xRGB1555LE_CPS3);
+        Test16BitConverters(ColMode::COLMODE_RGB555_LE_NORMAL, &ColorSystem::CONV_xRGB1555LE_32_NORMAL, &ColorSystem::CONV_32_xRGB1555LE_NORMAL);
+        Test16BitConverters(ColMode::COLMODE_RGB555_BE, &ColorSystem::CONV_xRGB1555BE_32, &ColorSystem::CONV_32_xRGB1555BE);
+        Test16BitConverters(ColMode::COLMODE_xRGB1555_BE, &ColorSystem::CONV_xRGB1555BE_32_Sega, &ColorSystem::CONV_32_xRGB1555BE_Sega);
+
         Test16BitConverters(ColMode::COLMODE_RGB555_SHARP, &ColorSystem::CONV_RGB555Sharp_32, &ColorSystem::CONV_32_RGB555Sharp);
 
         // Skip NeoTurf Masters

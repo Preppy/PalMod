@@ -130,8 +130,8 @@ private:
     void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
     void SetColorFormatToRGB555_LE_CPS3() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE_CPS3); };
     void SetColorFormatToRGB555_LE_Normal() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE_NORMAL); };
-    void SetColorFormatToxBGR1555_BE() { SetColorFormatTo(ColMode::COLMODE_xBGR1555_BE); };
-    void SetColorFormatToBGRx5551_BE() { SetColorFormatTo(ColMode::COLMODE_BGRx5551_BE); };
+    void SetColorFormatToxBGR1555_BE() { SetColorFormatTo(ColMode::COLMODE_xRGB1555_BE); };
+    void SetColorFormatToBGRx5551_BE() { SetColorFormatTo(ColMode::COLMODE_RGBx5551_BE); };
 
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
     // Deliberately not exposing the Neo Turf Masters CLUT: that requires knowledge of where to get the CLUT from

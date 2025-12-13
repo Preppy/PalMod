@@ -198,8 +198,8 @@ bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cu
 
         case ColMode::COLMODE_RGB555_LE_CPS3:
         case ColMode::COLMODE_RGB555_LE_NORMAL:
-        case ColMode::COLMODE_xBGR1555_BE:
-        case ColMode::COLMODE_BGRx5551_BE:
+        case ColMode::COLMODE_xRGB1555_BE:
+        case ColMode::COLMODE_RGBx5551_BE:
         case ColMode::COLMODE_RGB555_BE:
             cbRequiredColorSize = 2;
             suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;

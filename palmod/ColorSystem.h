@@ -50,7 +50,7 @@ enum class ColMode
     COLMODE_RBG444,
     COLMODE_BRG888,
 
-    COLMODE_xBGR1555_BE,    // Different packing used by Sega Saturn, Asura Buster / Fuuki
+    COLMODE_xRGB1555_BE,    // Different packing used by Sega Saturn, Asura Buster / Fuuki
 
     COLMODE_RGBA8888_BE,    // 32bit color
     COLMODE_BGRA8888_BE,    // 32bit color (ps3)
@@ -63,7 +63,7 @@ enum class ColMode
 
     COLMODE_RGBA8888_BE16,  // BE on 16bit read boundaries
 
-    COLMODE_BGRx5551_BE,    // Nintendo 64 z64
+    COLMODE_RGBx5551_BE,    // Nintendo 64 z64
 
     COLMODE_LAST,
 };
@@ -105,12 +105,12 @@ namespace ColorSystem
 
     uint16_t CONV_32_xBGR1555LE(uint32_t inCol);
     uint32_t CONV_xBGR1555LE_32(uint16_t inCol);
-    uint16_t CONV_32_xBGR1555BE_Normal(uint32_t inCol);
-    uint32_t CONV_xBGR1555BE_32_Normal(uint16_t inCol);
-    uint16_t CONV_32_xBGR1555BE_Sega(uint32_t inCol);
-    uint32_t CONV_xBGR1555BE_32_Sega(uint16_t inCol);
-    uint16_t CONV_32_BGRx5551BE(uint32_t inCol);
-    uint32_t CONV_BGRx5551BE_32(uint16_t inCol);
+    uint16_t CONV_32_xBGR1555BE(uint32_t inCol);
+    uint32_t CONV_xBGR1555BE_32(uint16_t inCol);
+    uint16_t CONV_32_xRGB1555BE_Sega(uint32_t inCol);
+    uint32_t CONV_xRGB1555BE_32_Sega(uint16_t inCol);
+    uint16_t CONV_32_RGBx5551BE(uint32_t inCol);
+    uint32_t CONV_RGBx5551BE_32(uint16_t inCol);
 
     // Note that MAME/CPS3 and FBNeo use different math here
     uint16_t CONV_32_xRGB1555LE_Common(uint32_t inCol, bool fUseRounding);
