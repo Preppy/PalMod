@@ -14,6 +14,20 @@ private:
         PSel,
         Rank,
         Conte,
+        OrderSelect,
+        Victory_ArcadeMode_Team,
+        Victory_ArcadeMode_Loss,
+        Victory_ArcadeMode_Single,
+        Victory_VSMode_Team,
+        Victory_VSMode_Single,
+        WinQuotes_ENU_Win,
+        WinQuotes_ENU_Loss,
+        WinQuotes_JPN_Win,
+        WinQuotes_JPN_Loss,
+        WinQuotes_BRS_Win,
+        WinQuotes_BRS_Loss,
+        WinQuotes_SPN_Win,
+        WinQuotes_SPN_Loss,
     };
 
     static KOF02UMLoadingKey m_eVersionToLoad;
@@ -71,6 +85,118 @@ private:
     {
         {
             { L"conte.bin", 0x131244 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_OrderSelect =
+    {
+        {
+            { L"osel.bin-n", 0x28cbb8 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Victory_ArcadeMode_Team =
+    {
+        {
+            { L"vic0_00.bin-n", 0x479bae },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Victory_ArcadeMode_Loss =
+    {
+        {
+            { L"vic1_00.bin-n", 0x4784c6 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Victory_ArcadeMode_Single =
+    {
+        {
+            { L"vic3_00.bin-n", 0x478fe2 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Victory_VSMode_Team =
+    {
+        {
+            { L"vic2_00.bin-n", 0x4790ea },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Victory_VSMode_Single =
+    {
+        {
+            { L"vic4_00.bin-n", 0x47851a },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_ENU_Win =
+    {
+        {
+            { L"messe_r.dat", 38766 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_ENU_Loss =
+    {
+        {
+            { L"messe.dat", 38766 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_JPN_Win =
+    {
+        {
+            { L"mess_r.dat-n", 167770 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_JPN_Loss =
+    {
+        {
+            { L"mess.dat-n", 167770 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_BRS_Win =
+    {
+        {
+            { L"messb_r.dat", 39920 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_BRS_Loss =
+    {
+        {
+            { L"messb.dat", 39920 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_SPN_Win =
+    {
+        {
+            { L"messs_r.dat", 40360 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_WinQuotes_SPN_Loss =
+    {
+        {
+            { L"messs.dat", 40388 },
         },
         FileReadType::Sequential,
     };
@@ -151,7 +277,7 @@ private:
         KOF02UM_S_UNITS_CLEAR,
         ARRAYSIZE(KOF02UM_S_UNITS_CLEAR),
         L"KOF02UMClearE.txt",       // Extra filename
-        3,                          // Count of palettes listed in the header
+        4,                          // Count of palettes listed in the header
         0x80,                       // Lowest known location used for palettes
     };
 
@@ -213,6 +339,286 @@ private:
         L"KOF02UMContE.txt",    // Extra filename
         6,                      // Count of palettes listed in the header
         0xc0,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_OrderSelect
+    {
+        L"King of Fighters 2002UM (Steam, Order Select)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_OrderSelect,
+        {},
+        KOF02UM_S_UNITS_ORDER,
+        ARRAYSIZE(KOF02UM_S_UNITS_ORDER),
+        L"KOF02UMOrderE.txt",   // Extra filename
+        38,                     // Count of palettes listed in the header
+        0x100,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Victory_ArcadeMode_Team
+    {
+        L"King of Fighters 2002UM (Steam, Arcade Mode (Team))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Victory_ArcadeMode_Team,
+        {},
+        KOF02UM_S_UNITS_VICTORY,
+        ARRAYSIZE(KOF02UM_S_UNITS_VICTORY),
+        L"KOF02UMVicE.txt",     // Extra filename
+        59,                     // Count of palettes listed in the header
+        0x200,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Victory_ArcadeMode_Loss
+    {
+        L"King of Fighters 2002UM (Steam, Arcade Mode (Loss))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Victory_ArcadeMode_Loss,
+        {},
+        KOF02UM_S_UNITS_VICTORY,
+        ARRAYSIZE(KOF02UM_S_UNITS_VICTORY),
+        L"KOF02UMVicE.txt",     // Extra filename
+        59,                     // Count of palettes listed in the header
+        0x200,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Victory_ArcadeMode_Single
+    {
+        L"King of Fighters 2002UM (Steam, Arcade Mode (Single))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Victory_ArcadeMode_Single,
+        {},
+        KOF02UM_S_UNITS_VICTORY,
+        ARRAYSIZE(KOF02UM_S_UNITS_VICTORY),
+        L"KOF02UMVicE.txt",     // Extra filename
+        59,                     // Count of palettes listed in the header
+        0x200,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Victory_VSMode_Team
+    {
+        L"King of Fighters 2002UM (Steam, VS Mode (Team))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Victory_VSMode_Team,
+        {},
+        KOF02UM_S_UNITS_VICTORY,
+        ARRAYSIZE(KOF02UM_S_UNITS_VICTORY),
+        L"KOF02UMVicE.txt",     // Extra filename
+        59,                     // Count of palettes listed in the header
+        0x200,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Victory_VSMode_Single
+    {
+        L"King of Fighters 2002UM (Steam, VS Mode (Single))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Victory_VSMode_Single,
+        {},
+        KOF02UM_S_UNITS_VICTORY,
+        ARRAYSIZE(KOF02UM_S_UNITS_VICTORY),
+        L"KOF02UMVicE.txt",     // Extra filename
+        59,                     // Count of palettes listed in the header
+        0x200,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_ENU_Win
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes English Win)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_ENU_Win,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_ENU_Loss
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes English Loss)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_ENU_Loss,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_JPN_Win
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes Japan Win)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_JPN_Win,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_JPN_Loss
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes Japan Loss)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_JPN_Loss,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_BRS_Win
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes Portugese-Brazil Win)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_BRS_Win,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_BRS_Loss
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes Portugese-Brazil Loss)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_BRS_Loss,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_SPN_Win
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes SPN Win)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_SPN_Win,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_WinQuotes_SPN_Loss
+    {
+        L"King of Fighters 2002UM (Steam, Win Quotes Spanish Loss)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_WinQuotes_SPN_Loss,
+        {},
+        KOF02UM_S_UNITS_WINQUOTES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        L"KOF02UMWinQE.txt",    // Extra filename
+        1,                      // Count of palettes listed in the header
+        0x10,                   // Lowest known location used for palettes
     };
 
 public:

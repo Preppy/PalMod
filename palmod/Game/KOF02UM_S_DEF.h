@@ -5384,6 +5384,7 @@ const sGame_PaletteDataset KOF02UM_S_CLEAR_PALETTES[] =
     { L"Clear", 0x80, 0x100 },
     { L"Clear Bright 1", 0x100, 0x180 },
     { L"Clear Bright 2", 0x180, 0x200 },
+    { L"Failed", 0x10480, 0x10580 },
 };
 
 const sDescTreeNode KOF02UM_S_CLEAR_COLLECTION[] =
@@ -5561,6 +5562,168 @@ const sDescTreeNode KOF02UM_S_UNITS_CONTE[] =
 };
 
 #pragma endregion CONTE
+
+#pragma region WINQUOTES
+
+const sGame_PaletteDataset KOF02UM_S_WINQUOTES_PALETTES[] =
+{
+    { L"Palette", 0x10, 0x50 },
+};
+
+const sDescTreeNode KOF02UM_S_WINQUOTES_COLLECTION[] =
+{
+    { L"Palette", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_PALETTES, ARRAYSIZE(KOF02UM_S_WINQUOTES_PALETTES) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_WINQUOTES[] =
+{
+    { L"Win Quotes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+};
+
+#pragma endregion WINQUOTES
+
+#pragma region ORDER
+
+const sGame_PaletteDataset KOF02UM_S_ORDERSELECT_MainStuff[] =
+{
+    { L"Background", 0x100, 0x500 },
+    { L"Floor (Selecting)", 0x10500, 0x10900 },
+    { L"Floor (Selected)", 0x41100, 0x41500 },
+    { L"Text and Selecting Order", 0x30d00, 0x30f00 },
+    { L"Intro Flash Overlay", 0x20900, 0x20d00 },
+};
+
+const sGame_PaletteDataset KOF02UM_S_ORDERSELECT_Portraits[] =
+{
+    { L"Kyo and Benimaru", 0x51500, 0x51900 },
+    { L"Daimon and Mature", 0x61900, 0x61d00 },
+    { L"Vice and Iori", 0x71d00, 0x72100 },
+    { L"Terry and Andy", 0x82100, 0x82500 },
+    { L"Joe and Nameless", 0x92500, 0x92900 },
+    { L"Yuri and Robert", 0xa2900, 0xa2d00 },
+    { L"Ryo and Athena", 0xb2d00, 0xb3100 },
+    { L"Kensou and Bao", 0xc3100, 0xc3500 },
+    { L"Ramon and Seth", 0xd3500, 0xd3900 },
+    { L"Vanessa and Leona", 0xe3900, 0xe3d00 },
+    { L"Ralf and Clark", 0xf3d00, 0xf4100 },
+    { L"Chris and Shermie", 0x104100, 0x104500 },
+    { L"Yashiro and K'", 0x114500, 0x114900 },
+    { L"Maxima and Whip", 0x124900, 0x124d00 },
+    { L"Angel and Foxy", 0x134d00, 0x135100 },
+    { L"Kula and Kim", 0x145100, 0x145500 },
+    { L"Chang and Choi", 0x155500, 0x155900 },
+    { L"Shingo and Lin", 0x165940, 0x165d40 },
+    { L"Jhun Hoon and Yamazaki", 0x175d00, 0x176100 },
+    { L"Blue Mary and Billy", 0x186100, 0x186500 },
+    { L"Chin and Takuma", 0x196500, 0x196900 },
+    { L"Heidern and May Lee", 0x1a6900, 0x1a6d00 },
+    { L"Hinako and Xiangfei", 0x1b6d00, 0x1b7100 },
+    { L"KUSANAGI and Kasumi", 0x1c7100, 0x1c7500 },
+    { L"Mai and King", 0x1d7500, 0x1d7900 },
+    { L"Kyo;--1 and Kyo;--2", 0x1e7900, 0x1e7d00 },
+    { L"Goenitz and Krizalid", 0x1f7d00, 0x1f8100 },
+    { L"Clone Zero and Omega Rugal", 0x208100, 0x208500 },
+    { L"Original Zero and Igniz", 0x218500, 0x218900 },
+    { L"Geese and EX Robert", 0x228900, 0x228d00 },
+    { L"EX Kensou and Orochi Chris", 0x238d00, 0x239100 },
+    { L"Orochi Shermie and Orochi Yashiro", 0x249100, 0x249500 },
+    { L"EX Takuma and Nightmare Geese", 0x259500, 0x259900 },
+};
+
+const sDescTreeNode KOF02UM_S_ORDERSELECT_COLLECTION[] =
+{
+    { L"Main Stuff", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORDERSELECT_MainStuff, ARRAYSIZE(KOF02UM_S_ORDERSELECT_MainStuff) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORDERSELECT_Portraits, ARRAYSIZE(KOF02UM_S_ORDERSELECT_Portraits) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_ORDER[] =
+{
+    { L"Order Select", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORDERSELECT_COLLECTION, ARRAYSIZE(KOF02UM_S_ORDERSELECT_COLLECTION) },
+};
+
+#pragma endregion ORDER
+
+#pragma region VICTORY
+
+const sGame_PaletteDataset KOF02UM_S_VictorySequence_Palettes[] =
+{
+    { L"Assist Names", 0x200, 0x600 },
+    { L"Stage Winner/Stats Blurb", 0x20a00, 0x20e00 },
+    { L"Assist Background 1 and Winner Textbox", 0x30e00, 0x31200 },
+    { L"Textbox Border/EX Names, Loser Textbox", 0x41200, 0x41600 },
+    { L"Player Score Border", 0x51600, 0x51a00 },
+    { L"Scoring Box/Assist Background 2", 0x61a00, 0x61e00 },
+    { L"Stage Completion Screen", 0x71e00, 0x72200 },
+    { L"Background 1/2", 0x82200, 0x82600 },
+    { L"Background 2/2", 0x92600, 0x92a00 },
+    { L"Assist Portrait Effect", 0xb2e00, 0xb3200 },
+    { L"Stage Winner Bar", 0xc3200, 0xc3600 },
+    { L"Stage Winner Border", 0xd3600, 0xd3a00 },
+    { L"Textbox Border Names 1/2", 0x3efa00, 0x3efe00 },
+    { L"Textbox Border Names 2/2", 0x3ffe00, 0x400200 },
+    { L"Textbox Border Names EX/Personal Info", 0x430a00, 0x430e00 },
+};
+
+const sGame_PaletteDataset KOF02UM_S_VictorySequence_VictoryAssistPortraits[] =
+{
+    { L"Kyo and Benimaru 1/2", 0x124a00, 0x124e00 },
+    { L"Benimaru 2/2 and Daimon", 0x134e00, 0x135200 },
+    { L"Terry and Andy 1/2", 0x145200, 0x145600 },
+    { L"Andy 2/2 and Joe", 0x155600, 0x155a00 },
+    { L"Athena and Kensou 1/2", 0x165a00, 0x165e00 },
+    { L"Kensou 2/2 and Bao", 0x175e00, 0x176200 },
+    { L"Leona and Ralf 1/2", 0x186200, 0x186600 },
+    { L"Ralf 2/2 and Clark", 0x196600, 0x196a00 },
+    { L"K' and Maxima 1/2", 0x1a6a00, 0x1a6e00 },
+    { L"Maxima 2/2 and Whip", 0x1b6e00, 0x1b7200 },
+    { L"Kim and Chang 1/2", 0x1c7200, 0x1c7600 },
+    { L"Chang 2/2 and Choi", 0x1d7600, 0x1d7a00 },
+    { L"Yamazaki and Blue Mary 1/2", 0x1e7a00, 0x1e7e00 },
+    { L"Blue Mary 2/2 and Billy", 0x1f7e00, 0x1f8200 },
+    { L"May Lee and Hinako 1/2", 0x208200, 0x208600 },
+    { L"Hinako 2/2 and Xiangfei", 0x218600, 0x218a00 },
+    { L"Iori and Mature 1/2", 0x228a00, 0x228e00 },
+    { L"Mature 2/2 and Vice", 0x238e00, 0x239200 },
+    { L"Ryo and Robert 1/2", 0x249200, 0x249600 },
+    { L"Robert 2/2 and Yuri", 0x259600, 0x259a00 },
+    { L"Vanessa and Seth 1/2", 0x269a00, 0x269e00 },
+    { L"Seth 2/2 and Ramon", 0x279e00, 0x27a200 },
+    { L"Yashiro and Shermie 1/2", 0x28a200, 0x28a600 },
+    { L"Shermie 2/2 and Chris", 0x29a600, 0x29aa00 },
+    { L"Kula and Foxy 1/2", 0x2aaa00, 0x2aae00 },
+    { L"Foxy 2/2 and Angel", 0x2bae00, 0x2bb200 },
+    { L"Jhun Hoon and Lin 1/2", 0x2cb200, 0x2cb600 },
+    { L"Lin 2/2 and Shingo", 0x2db600, 0x2dba00 },
+    { L"Heidern and Takuma 1/2", 0x2eba00, 0x2ebe00 },
+    { L"Takuma 2/2 and Chin", 0x2fbe00, 0x2fc200 },
+    { L"King and Mai 1/2", 0x30c200, 0x30c600 },
+    { L"Mai 2/2 and Kasumi", 0x31c600, 0x31ca00 },
+    { L"KUSANAGI and Kyo-1 1/2", 0x32ca00, 0x32ce00 },
+    { L"Kyo-1 1/2 and Kyo-2", 0x33ce00, 0x33d200 },
+    { L"Nameless and Goenitz 1/2", 0x34d200, 0x34d600 },
+    { L"Goenitz 2/2 and Geese", 0x35d600, 0x35da00 },
+    { L"Krizalid and Clone Zero 1/2", 0x36da00, 0x36de00 },
+    { L"Clone Zero 2/2 and Original Zero", 0x37de00, 0x37e200 },
+    { L"Igniz and Omega Rugal 1/2", 0x38e200, 0x38e600 },
+    { L"Omega Rugal 2/2 and Orochi Yashiro", 0x39e600, 0x39ea00 },
+    { L"Orochi Shermie and Orochi Chris 1/2", 0x3aea00, 0x3aee00 },
+    { L"Orochi Chris 2/2", 0x3bee00, 0x3bf200 },
+    { L"Nightmare Geese", 0x3cf200, 0x3cf600 },
+    { L"Orochi Leona (Unused)", 0x440e00, 0x441200 },
+};
+
+const sDescTreeNode KOF02UM_S_VictorySequence_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_VictorySequence_Palettes, ARRAYSIZE(KOF02UM_S_VictorySequence_Palettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_S_VictorySequence_VictoryAssistPortraits) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_VICTORY[] =
+{
+    { L"Victory Sequences", DESC_NODETYPE_TREE, (void*)KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+};
+
+#pragma endregion VICTORY
 
 #pragma region MAIN
 

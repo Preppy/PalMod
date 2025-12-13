@@ -15,6 +15,20 @@ void CGame_KOF02UM_S::SetSpecialRuleForFileName(std::wstring strFileName)
         { L"psel.bin-n", KOF02UMLoadingKey::PSel },
         { L"rank.bin", KOF02UMLoadingKey::Rank },
         { L"conte.bin", KOF02UMLoadingKey::Conte },
+        { L"osel.bin-n", KOF02UMLoadingKey::OrderSelect },
+        { L"vic0_00.bin-n", KOF02UMLoadingKey::Victory_ArcadeMode_Team },
+        { L"vic1_00.bin-n", KOF02UMLoadingKey::Victory_ArcadeMode_Loss },
+        { L"vic3_00.bin-n", KOF02UMLoadingKey::Victory_ArcadeMode_Single },
+        { L"vic2_00.bin-n", KOF02UMLoadingKey::Victory_VSMode_Team },
+        { L"vic4_00.bin-n", KOF02UMLoadingKey::Victory_VSMode_Single },
+        { L"messe_r.dat", KOF02UMLoadingKey::WinQuotes_ENU_Win },
+        { L"messe.dat", KOF02UMLoadingKey::WinQuotes_ENU_Loss },
+        { L"mess_r.dat-n", KOF02UMLoadingKey::WinQuotes_JPN_Win },
+        { L"mess.dat-n", KOF02UMLoadingKey::WinQuotes_JPN_Loss },
+        { L"messb_r.dat", KOF02UMLoadingKey::WinQuotes_BRS_Win },
+        { L"messb.dat", KOF02UMLoadingKey::WinQuotes_BRS_Loss },
+        { L"messs_r.dat", KOF02UMLoadingKey::WinQuotes_SPN_Win },
+        { L"messs.dat", KOF02UMLoadingKey::WinQuotes_SPN_Loss },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();
@@ -60,6 +74,48 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(uint32_t nConfirmedROMSize)
         case KOF02UMLoadingKey::Conte:
             InitializeGame(nConfirmedROMSize, m_sCoreGameData_Conte);
             break;
+        case KOF02UMLoadingKey::OrderSelect:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_OrderSelect);
+            break;
+        case KOF02UMLoadingKey::Victory_ArcadeMode_Team:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Victory_ArcadeMode_Team);
+            break;
+        case KOF02UMLoadingKey::Victory_ArcadeMode_Loss:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Victory_ArcadeMode_Loss);
+            break;
+        case KOF02UMLoadingKey::Victory_ArcadeMode_Single:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Victory_ArcadeMode_Single);
+            break;
+        case KOF02UMLoadingKey::Victory_VSMode_Team:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Victory_VSMode_Team);
+            break;
+        case KOF02UMLoadingKey::Victory_VSMode_Single:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Victory_VSMode_Single);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_ENU_Win:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_ENU_Win);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_ENU_Loss:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_ENU_Loss);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_JPN_Win:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_JPN_Win);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_JPN_Loss:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_JPN_Loss);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_BRS_Win:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_BRS_Win);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_BRS_Loss:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_BRS_Loss);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_SPN_Win:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_SPN_Win);
+            break;
+        case KOF02UMLoadingKey::WinQuotes_SPN_Loss:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_WinQuotes_SPN_Loss);
+            break;
     }
 }
 
@@ -82,6 +138,34 @@ sFileRule CGame_KOF02UM_S::GetRule(uint32_t nRuleId)
             return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Rank);
         case KOF02UMLoadingKey::Conte:
             return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Conte);
+        case KOF02UMLoadingKey::OrderSelect:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_OrderSelect);
+        case KOF02UMLoadingKey::Victory_ArcadeMode_Team:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Victory_ArcadeMode_Team);
+        case KOF02UMLoadingKey::Victory_ArcadeMode_Loss:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Victory_ArcadeMode_Loss);
+        case KOF02UMLoadingKey::Victory_ArcadeMode_Single:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Victory_ArcadeMode_Single);
+        case KOF02UMLoadingKey::Victory_VSMode_Team:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Victory_VSMode_Team);
+        case KOF02UMLoadingKey::Victory_VSMode_Single:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Victory_VSMode_Single);
+        case KOF02UMLoadingKey::WinQuotes_ENU_Win:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_ENU_Win);
+        case KOF02UMLoadingKey::WinQuotes_ENU_Loss:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_ENU_Loss);
+        case KOF02UMLoadingKey::WinQuotes_JPN_Win:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_JPN_Win);
+        case KOF02UMLoadingKey::WinQuotes_JPN_Loss:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_JPN_Loss);
+        case KOF02UMLoadingKey::WinQuotes_BRS_Win:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_BRS_Win);
+        case KOF02UMLoadingKey::WinQuotes_BRS_Loss:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_BRS_Loss);
+        case KOF02UMLoadingKey::WinQuotes_SPN_Win:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_SPN_Win);
+        case KOF02UMLoadingKey::WinQuotes_SPN_Loss:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_WinQuotes_SPN_Loss);
     }
 }
 

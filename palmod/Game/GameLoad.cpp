@@ -299,6 +299,10 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
             if (!fActualFileSizeIsSafe && (nSaveLoadErr == 0))
             {
                 CString strError;
+
+                strError.Format(L"WARNING: The file \"%s\" was found but is not the expected size.  We expect the file to be 0x%x bytes, but this file is 0x%x bytes.\n", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(nGameFileLength));
+                OutputDebugString(strError);
+
                 strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(nGameFileLength));
 
                 if (nGameFlag == GGXXACR_S)
@@ -317,9 +321,6 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 {
                     fActualFileSizeIsSafe = (MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONERROR) == IDYES);
                 }
-
-                strError.Format(L"WARNING: The file \"%s\" was found but is not the expected size.  We expect the file to be 0x%x bytes, but this file is 0x%x bytes.\n", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(CurrFile.GetLength()));
-                OutputDebugString(strError);
             }
 
             if (fActualFileSizeIsSafe)

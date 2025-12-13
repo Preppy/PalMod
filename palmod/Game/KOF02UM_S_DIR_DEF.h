@@ -1331,6 +1331,23 @@ const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_8888_UNITS =
     { L"game\\b\\bg\\bgn0.bin", 3697732, L"Clone Zero Stage", KOF02UM_S_STAGES_COLLECTION_CLONEZERO, ARRAYSIZE(KOF02UM_S_STAGES_COLLECTION_CLONEZERO) },
     { L"game\\b\\bg\\bgo0.bin", 9768482, L"Original Zero Stage", KOF02UM_S_STAGES_COLLECTION_ORIGINALZERO, ARRAYSIZE(KOF02UM_S_STAGES_COLLECTION_ORIGINALZERO) },
     { L"game\\b\\bg\\bgp0.bin", 6064262, L"Igniz Stage", KOF02UM_S_STAGES_COLLECTION_IGNIZ, ARRAYSIZE(KOF02UM_S_STAGES_COLLECTION_IGNIZ) },
+
+    { L"game\\demo\\osel.bin-n", 0x28cbb8, L"Order Select", KOF02UM_S_ORDERSELECT_COLLECTION, ARRAYSIZE(KOF02UM_S_ORDERSELECT_COLLECTION) },
+
+    { L"game\\vic\\vic0_00.bin-n", 0x479bae, L"Victory Screens: Arcade Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    { L"game\\vic\\vic1_00.bin-n", 0x4784c6, L"Victory Screens: Arcade Mode (Loss)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    { L"game\\vic\\vic3_00.bin-n", 0x478fe2, L"Victory Screens: Arcade Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    { L"game\\vic\\vic2_00.bin-n", 0x4790ea, L"Victory Screens: VS Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    { L"game\\vic\\vic4_00.bin-n", 0x47851a, L"Victory Screens: VS Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+
+    { L"game\\vic\\messe_r.dat", 38766, L"Win Quotes Text: English Win", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"game\\vic\\messe.dat", 38766, L"Win Quotes Text: English Loss", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"game\\vic\\mess_r.dat-n", 167770, L"Win Quotes Text: Japanese Win", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"game\\vic\\mess.dat-n", 167770, L"Win Quotes Text: Japanese Loss", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"game\\vic\\messb_r.dat", 39920, L"Win Quotes Text: Portugese-Brazil Win", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"game\\vic\\messb.dat", 39920, L"Win Quotes Text: Portugese-Brazil Loss", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"game\\vic\\messs_r.dat", 40360, L"Win Quotes Text: Spanish Win", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"game\\vic\\messs.dat", 40388, L"Win Quotes Text: Spanish Loss", KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
 };
 
 const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_RGB555_UNITS =
