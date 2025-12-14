@@ -12,7 +12,12 @@ namespace RLEData
         uint16_t multiplier = 0;
 
         bitMask = *(inputData + i_byteCtr++);
-        // printf("New Group - \n  BitMask: 0x%02X\n", bitMask);
+
+#ifdef RLE_DEBUG
+        CString strInfo;
+        strInfo.Format(L"\tNew Group - \r\n\t  BitMask: 0x%02X\n", bitMask);
+        OutputDebugString(strInfo.GetString());
+#endif
 
         for (uint8_t chunk = 0; chunk < chunkSize; chunk++)
         {
@@ -38,7 +43,12 @@ namespace RLEData
             }
 
             data = inputData[i_byteCtr++];
-            // printf("    Payload - Count: 0x%08X, Data: 0x%02X\n", count, data);
+             
+#ifdef RLE_DEBUG
+            strInfo.Format(L"\t    Payload - Count: 0x%08X, Data: 0x%02X\r\n", count, data);
+            OutputDebugString(strInfo.GetString());
+#endif
+
             if (count != 0)
             {
                 for (uint32_t writing = 0; writing < (count - 1); writing++)
@@ -100,6 +110,12 @@ namespace RLEData
         uint8_t* output_data = nullptr;
         const auto nRequiredDataSize = uiImgWidth * uiImgHeight;
 
+#ifdef RLE_DEBUG
+        CString strInfo;
+        strInfo.Format(L"New image decode requested: %u x %u\n", uiImgWidth, uiImgHeight);
+        OutputDebugString(strInfo.GetString());
+#endif
+
         if (nRequiredDataSize)
         {
             output_data = new uint8_t[nRequiredDataSize];
@@ -114,7 +130,10 @@ namespace RLEData
             i_byteCtr += 4;
             extraChunks = *(pSrcImgData + i_byteCtr++);
 
-            // printf("byteGroups: 0x%08X\n  extraChunks: 0x%02X\n", byteGroups, extraChunks);
+#ifdef RLE_DEBUG
+            strInfo.Format(L"\tbyteGroups:  0x%08X\r\n\textraChunks: 0x%02X\r\n", byteGroups, extraChunks);
+            OutputDebugString(strInfo.GetString());
+#endif
 
             for (uint32_t group = 0; group < byteGroups; group++)
             {

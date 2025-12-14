@@ -188,39 +188,39 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCu
 
     switch (pCurrImg->nCompressionType)
     {
-    case 0: // No compression
-        break;
-    case 1: // RLE
-    {
-        uint8_t* pTmpData = pNewImgData;
+        case 0: // No compression
+            break;
+        case 1: // RLE
+        {
+            uint8_t* pTmpData = pNewImgData;
 
-        pNewImgData = RLEData::RLEDecodeImg(
-            pTmpData,
-            pCurrImg->uDataSize,
-            pCurrImg->uImgWidth,
-            pCurrImg->uImgHeight
-        );
+            pNewImgData = RLEData::RLEDecodeImg(
+                pTmpData,
+                pCurrImg->uDataSize,
+                pCurrImg->uImgWidth,
+                pCurrImg->uImgHeight
+            );
 
-        safe_delete_array(pTmpData);
-        break;
-    }
-    case 2: // BitmaskRLE
-    {
-        uint8_t* pTmpData = pNewImgData;
+            safe_delete_array(pTmpData);
+            break;
+        }
+        case 2: // BitmaskRLE
+        {
+            uint8_t* pTmpData = pNewImgData;
 
-        pNewImgData = RLEData::BitMaskRLEDecodeImg(
-            pTmpData,
-            pCurrImg->uDataSize,
-            pCurrImg->uImgWidth,
-            pCurrImg->uImgHeight
-        );
+            pNewImgData = RLEData::BitMaskRLEDecodeImg(
+                pTmpData,
+                pCurrImg->uDataSize,
+                pCurrImg->uImgWidth,
+                pCurrImg->uImgHeight
+            );
 
-        safe_delete_array(pTmpData);
-        break;
-    }
-    default:
-        OutputDebugString(L"CImgDat::GetImgData : WARNING: Unhandled compression type.  Skipping loading this image\n");
-        return nullptr;
+            safe_delete_array(pTmpData);
+            break;
+        }
+        default:
+            OutputDebugString(L"CImgDat::GetImgData : WARNING: Unhandled compression type.  Skipping loading this image\n");
+            return nullptr;
     }
 
 #ifdef EXPORT_IMG_DAT_TO_DISK
