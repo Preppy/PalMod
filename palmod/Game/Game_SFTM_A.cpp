@@ -16,6 +16,7 @@ void CGame_SFTM_A::SetSpecialRuleForFileName(std::wstring strFileName)
         { L"sfmn_prom0_v1.12.prom0", SFTMLoadingKey::MAME112j },
         { L"sfmn_prom0_v1.14.prom0", SFTMLoadingKey::MAME114 },
 
+        // These are the older names
         { L"sfm_0_v1.1.prom0", SFTMLoadingKey::V110 },
         { L"sfm_0_v1.11.prom0", SFTMLoadingKey::V111 },
 

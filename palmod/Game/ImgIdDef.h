@@ -2904,4 +2904,22 @@ enum SupportedOther_SpriteListIndex
     indexMCI_Venom,             // 0xb8
     indexMCI_Wolverine,         // 0xb9
     indexMCI_Bonus,             // 0xba
+
+    indexOtherSprites_Akuma,    // 0xbb
+    indexOtherSprites_Arkane,   // 0xbc
+    indexOtherSprites_Balrog,   // 0xbd
+    indexOtherSprites_Blade,    // 0xbe
+    indexOtherSprites_Cammy,    // 0xbf
+    indexOtherSprites_ChunLi,   // 0xc0
+    indexOtherSprites_EHonda,   // 0xc1
+    indexOtherSprites_F7,       // 0xc2
+    indexOtherSprites_Guile,    // 0xc3
+    indexOtherSprites_Ken,      // 0xc4
+    indexOtherSprites_Khyber,   // 0xc5
+    indexOtherSprites_MBison,   // 0xc6
+    indexOtherSprites_Ryu,      // 0xc7
+    indexOtherSprites_Sagat,    // 0xc8
+    indexOtherSprites_Sawada,   // 0xc9
+    indexOtherSprites_Vega,     // 0xca
+    indexOtherSprites_Zangief,  // 0xcb
 };
