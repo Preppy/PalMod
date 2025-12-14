@@ -707,6 +707,8 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
             _UpdatePreviewForExternalSprite(&nPositionToLoadTo);
 
+            safe_delete_array(pNewOverrideTexture);
+
             return true;
         }
     }
