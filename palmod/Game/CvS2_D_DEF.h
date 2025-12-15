@@ -57,19 +57,19 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Bison =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_MBison },
     { L"Extra 1", 0x20 },
-    { L"Extra 2", 0x40, indexCVS2Sprites_MBison, 2 },
-    { L"Extra 3", 0x60, indexCVS2Sprites_MBison, 3 },
-    { L"Extra 4", 0x80, indexCVS2Sprites_MBison, 4 },
+    { L"Extra 2", 0x40, indexCVS2Sprites_MBison, 0x02 },
+    { L"Extra 3", 0x60, indexCVS2Sprites_MBison, 0x03 },
+    { L"Extra 4", 0x80, indexCVS2Sprites_MBison, 0x04 },
     { L"Extra 5", 0xa0},
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Akuma =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Akuma },
-    { L"Hadouken", 0x20, indexCVS2Sprites_Akuma, 1 },
-    { L"Shakunetsu", 0x40, indexCVS2Sprites_Akuma, 2 },
-    { L"Dictator Smoke", 0x60, indexCVS2Sprites_Akuma, 3 },
-    { L"Power Up", 0x80, indexCVS2Sprites_Akuma, 4 },
+    { L"Hadouken", 0x20, indexCVS2Sprites_Akuma, 0x01 },
+    { L"Shakunetsu", 0x40, indexCVS2Sprites_Akuma, 0x02 },
+    { L"Dictator Smoke", 0x60, indexCVS2Sprites_Akuma, 0x03 },
+    { L"Power Up", 0x80, indexCVS2Sprites_Akuma, 0x04 },
     { L"Extra 5", 0xa0 },
 };
 
@@ -77,7 +77,7 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_EvilRyu =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_EvilRyu },
     { L"Extra 1: Hadouken / Shinkuu Hadouken", 0x20, indexCVS2Sprites_Bonus, 0x00 },
-    { L"Extra 2: Shakunetsu", 0x40, indexCVS2Sprites_Akuma, 2 },
+    { L"Extra 2: Shakunetsu", 0x40, indexCVS2Sprites_Akuma, 0x02 },
     { L"Extra 3: Kanji Smoke", 0x60, indexCVS2Sprites_EvilRyu, 0x03 },
     { L"Extra 4: Metsu Hadouken", 0x80, indexCVS2Sprites_EvilRyu, 0x04 },
     { L"Extra 5", 0xa0 },
@@ -96,9 +96,9 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_Kyo =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_IORI =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Extra 1", 0x20, indexCVS2Sprites_Iori, 0x01 },
-    { L"Extra 2", 0x40 },
-    { L"Extra 3", 0x60 },
+    { L"Extra 1: Teeth", 0x20, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road Ground Effect", 0x40, indexCVS2Sprites_Iori, 0x02 },
+    { L"Extra 3: Dark Thrust", 0x60, indexCVS2Sprites_Iori, 0x03 },
     { L"Extra 4: One for the Road Blast", 0x80, indexCVS2Sprites_Iori, 0x04 },
     { L"Extra 5", 0xa0 },
 };
@@ -116,9 +116,9 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_TERRY =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_RYO =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Ryo },
-    { L"Extra 1", 0x20, indexCVS2Sprites_Ryo, 1 },
-    { L"Extra 2", 0x40, indexCVS2Sprites_Ryo, 2 },
-    { L"Extra 3", 0x60, indexCVS2Sprites_Ryo, 3 },
+    { L"Extra 1", 0x20, indexCVS2Sprites_Ryo, 0x01 },
+    { L"Extra 2", 0x40, indexCVS2Sprites_Ryo, 0x02 },
+    { L"Extra 3", 0x60, indexCVS2Sprites_Ryo, 0x03 },
     { L"Extra 4", 0x80 },
     { L"Extra 5", 0xa0 },
 };
@@ -146,17 +146,17 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_KIM =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_GEESE =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Geese, 0, &pairNext3 },
-    { L"Extra 1", 0x20, indexCVS2Sprites_Geese, 1 },
-    { L"Extra 2", 0x40, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3: Coat", 0x60, indexCVS2Sprites_Geese, 3 },
-    { L"Extra 4", 0x80, indexCVS2Sprites_Geese, 4 },
+    { L"Extra 1", 0x20, indexCVS2Sprites_Geese, 0x01 },
+    { L"Extra 2", 0x40, indexCVS2Sprites_Geese, 0x02 },
+    { L"Extra 3: Coat", 0x60, indexCVS2Sprites_Geese, 0x03 },
+    { L"Extra 4", 0x80, indexCVS2Sprites_Geese, 0x04 },
     { L"Extra 5", 0xa0 },
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_YAMAZAKI =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_RyujiYamazaki, 0, &pairNext },
-    { L"Extra 1", 0x20, indexCVS2Sprites_RyujiYamazaki, 1 },
+    { L"Extra 1", 0x20, indexCVS2Sprites_RyujiYamazaki, 0x01 },
     { L"Extra 2", 0x40 },
     { L"Extra 3", 0x60 },
     { L"Extra 4", 0x80 },
@@ -206,19 +206,19 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_YURI =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_NAKORURU =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Nakoruru, 0, &pairNextAndNext },
-    { L"Slashes", 0x20, indexCVS2Sprites_Nakoruru, 1 },
-    { L"Mamahaha", 0x40, indexCVS2Sprites_Nakoruru, 2 },
-    { L"Fireball", 0x60, indexCVS2Sprites_Nakoruru, 3 },
-    { L"Energy Attacks", 0x80, indexCVS2Sprites_Nakoruru, 4 },
-    { L"Falling", 0xa0, indexCVS2Sprites_Nakoruru, 5 },
+    { L"Slashes", 0x20, indexCVS2Sprites_Nakoruru, 0x01 },
+    { L"Mamahaha", 0x40, indexCVS2Sprites_Nakoruru, 0x02 },
+    { L"Fireball", 0x60, indexCVS2Sprites_Nakoruru, 0x03 },
+    { L"Energy Attacks", 0x80, indexCVS2Sprites_Nakoruru, 0x04 },
+    { L"Falling", 0xa0, indexCVS2Sprites_Nakoruru, 0x05 },
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_OROCHIIORI =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_OrochiIori, 0, &pairNext },
-    { L"Extra 1: Teeth", 0x20, indexCVS2Sprites_OrochiIori, 1 },
-    { L"Extra 2", 0x40 },
-    { L"Extra 3", 0x60 },
+    { L"Extra 1: Teeth", 0x20, indexCVS2Sprites_OrochiIori, 0x01 },
+    { L"Extra 2: One for the Road Ground Effect", 0x40, indexCVS2Sprites_Iori, 0x02 },
+    { L"Extra 3: Dark Thrust", 0x60, indexCVS2Sprites_Iori, 0x03 },
     { L"Extra 4: One for the Road Blast", 0x80, indexCVS2Sprites_Iori, 0x04 },
     { L"Extra 5", 0xa0 },
 };
@@ -236,8 +236,8 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_BALROG =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_DAN =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Dan },
-    { L"Extra 1", 0x20, indexCVS2Sprites_Dan, 1 },
-    { L"Extra 2", 0x40, indexCVS2Sprites_Dan, 2 },
+    { L"Extra 1", 0x20, indexCVS2Sprites_Dan, 0x01 },
+    { L"Extra 2", 0x40, indexCVS2Sprites_Dan, 0x02 },
     { L"Extra 3", 0x60 },
     { L"Extra 4", 0x80 },
     { L"Extra 5", 0xa0 },
@@ -266,19 +266,19 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_KYOSUKE =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_ATHENA =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
-    { L"Pink Energy", 0x20, indexCVS2Sprites_Athena, 1, &pairNext2 },
-    { L"School Outfit 1", 0x40, indexCVS2Sprites_Athena, 2 },
-    { L"Blue Energy", 0x60, indexCVS2Sprites_Athena, 3 },
-    { L"School Outfit 2", 0x80, indexCVS2Sprites_Athena, 4 },
+    { L"Pink Energy", 0x20, indexCVS2Sprites_Athena, 0x01, &pairNext2 },
+    { L"School Outfit 1", 0x40, indexCVS2Sprites_Athena, 0x02 },
+    { L"Blue Energy", 0x60, indexCVS2Sprites_Athena, 0x03 },
+    { L"School Outfit 2", 0x80, indexCVS2Sprites_Athena, 0x04 },
     { L"Extra 5", 0xa0 },
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_CHANG =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Chang, 0, &pairNextAndNext },
-    { L"Extra 1: Wrecking Ball", 0x20, indexCVS2Sprites_Chang, 1 },
-    { L"Extra 2: Choi", 0x40, indexCVS2Sprites_Chang, 2 },
-    { L"Extra 3", 0x60, indexCVS2Sprites_Chang, 2 },
+    { L"Extra 1: Wrecking Ball", 0x20, indexCVS2Sprites_Chang, 0x01 },
+    { L"Extra 2: Choi", 0x40, indexCVS2Sprites_Chang, 0x02 },
+    { L"Extra 3", 0x60, indexCVS2Sprites_Chang, 0x02 },
     { L"Extra 4", 0x80 },
     { L"Extra 5", 0xa0 },
 };
@@ -316,9 +316,9 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_HIBIKI =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_HAOHMARU =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_Haohmaru, 0, &pairNextAndNext },
-    { L"Extra 1: Sword", 0x20, indexCVS2Sprites_Haohmaru, 1 },
-    { L"Extra 2: Dust", 0x40, indexCVS2Sprites_Haohmaru, 2 },
-    { L"Extra 3", 0x60 },
+    { L"Extra 1: Sword", 0x20, indexCVS2Sprites_Haohmaru, 0x01 },
+    { L"Extra 2: Dust", 0x40, indexCVS2Sprites_Haohmaru, 0x02 },
+    { L"Extra 3: Kougetsu Zan", 0x60, indexCVS2Sprites_Haohmaru, 0x03 },
     { L"Extra 4", 0x80 },
     { L"Extra 5", 0xa0 },
 };
@@ -336,11 +336,11 @@ const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_YUN =
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_SHINAKUMA =
 {
     { L"Main Sprite", 0x00, indexCVS2Sprites_ShinAkuma },
-    { L"Purple Fireball", 0x20, indexCVS2Sprites_ShinAkuma, 1 },
-    { L"Red Fireball", 0x40, indexCVS2Sprites_ShinAkuma, 2 },
-    { L"Dictator Smoke", 0x60, indexCVS2Sprites_ShinAkuma, 3 },
-    { L"Power Up", 0x80, indexCVS2Sprites_ShinAkuma, 4 },
-    { L"Extra 5", 0xa0 },
+    { L"Purple Fireball", 0x20, indexCVS2Sprites_ShinAkuma, 0x01 },
+    { L"Red Fireball", 0x40, indexCVS2Sprites_ShinAkuma, 0x01 },
+    { L"Dictator Smoke", 0x60, indexCVS2Sprites_ShinAkuma, 0x03 },
+    { L"Power Up", 0x80, indexCVS2Sprites_ShinAkuma, 0x04 },
+    { L"Extra 5", 0xa0, indexCVS2Sprites_ShinAkuma, 0x05 },
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> CVS2CorePalettes_D_GODRUGAL =

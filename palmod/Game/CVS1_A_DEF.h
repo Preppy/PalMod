@@ -24,7 +24,6 @@ const std::vector<uint16_t> CVS1_A_IMGIDS_USED =
     indexCVS2Sprites_Geese,
     indexCVS2Sprites_GodRugal,
     indexCVS2Sprites_Guile,
-    indexCVS2Sprites_Haohmaru,
     indexCVS2Sprites_Hibiki,
     indexCVS2Sprites_Iori,
     indexCVS2Sprites_Joe,
@@ -1278,73 +1277,73 @@ const sGame_PaletteDataset CVS1_A_KYO_PALETTES_3K[] =
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_LP[] =
 {
     { L"Iori LP", 0x14dd0c0, 0x14dd0e0, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori LP Extra 1", 0x14dd0e0, 0x14dd100, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori LP Extra 2", 0x14dd100, 0x14dd120, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori LP Extra 3", 0x14dd120, 0x14dd140, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori LP Extra 4", 0x14dd140, 0x14dd160 },
+    { L"Extra 1: Teeth", 0x14dd0e0, 0x14dd100, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd100, 0x14dd120, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd120, 0x14dd140, indexCVS2Sprites_Iori, 0x03 },
+    { L"Extra 4", 0x14dd140, 0x14dd160 },
 };
 
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_MP[] =
 {
     { L"Iori MP", 0x14dd160, 0x14dd180, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori MP Extra 1", 0x14dd180, 0x14dd1a0, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori MP Extra 2", 0x14dd1a0, 0x14dd1c0, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori MP Extra 3", 0x14dd1c0, 0x14dd1e0, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori MP Extra 4", 0x14dd1e0, 0x14dd200 },
+    { L"Extra 1: Teeth", 0x14dd180, 0x14dd1a0, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd1a0, 0x14dd1c0, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd1c0, 0x14dd1e0, indexCVS2Sprites_Iori, 0x03 },
+    { L"Extra 4", 0x14dd1e0, 0x14dd200 },
 };
 
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_HP[] =
 {
     { L"Iori HP", 0x14dd200, 0x14dd220, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori HP Extra 1", 0x14dd220, 0x14dd240, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori HP Extra 2", 0x14dd240, 0x14dd260, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori HP Extra 3", 0x14dd260, 0x14dd280, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori HP Extra 4", 0x14dd280, 0x14dd2a0 },
+    { L"Extra 1: Teeth", 0x14dd220, 0x14dd240, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd240, 0x14dd260, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd260, 0x14dd280, indexCVS2Sprites_Iori, 0x03 },
+    { L"Extra 4", 0x14dd280, 0x14dd2a0 },
 };
 
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_LK[] =
 {
     { L"Iori LK", 0x14dd2a0, 0x14dd2c0, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori LK Extra 1", 0x14dd2c0, 0x14dd2e0, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori LK Extra 2", 0x14dd2e0, 0x14dd300, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori LK Extra 3", 0x14dd300, 0x14dd320, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori LK Extra 4", 0x14dd320, 0x14dd340 },
+    { L"Extra 1: Teeth", 0x14dd2c0, 0x14dd2e0, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd2e0, 0x14dd300, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd300, 0x14dd320, indexCVS2Sprites_Iori, 0x03 },
+    { L"LK Extra 4", 0x14dd320, 0x14dd340 },
 };
 
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_MK[] =
 {
     { L"Iori MK", 0x14dd340, 0x14dd360, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori MK Extra 1", 0x14dd360, 0x14dd380, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori MK Extra 2", 0x14dd380, 0x14dd3a0, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori MK Extra 3", 0x14dd3a0, 0x14dd3c0, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori MK Extra 4", 0x14dd3c0, 0x14dd3e0 },
+    { L"Extra 1: Teeth", 0x14dd360, 0x14dd380, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd380, 0x14dd3a0, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd3a0, 0x14dd3c0, indexCVS2Sprites_Iori, 0x03 },
+    { L"Extra 4", 0x14dd3c0, 0x14dd3e0 },
 };
 
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_HK[] =
 {
     { L"Iori HK", 0x14dd3e0, 0x14dd400, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori HK Extra 1", 0x14dd400, 0x14dd420, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori HK Extra 2", 0x14dd420, 0x14dd440, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori HK Extra 3", 0x14dd440, 0x14dd460, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori HK Extra 4", 0x14dd460, 0x14dd480 },
+    { L"Extra 1: Teeth", 0x14dd400, 0x14dd420, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd420, 0x14dd440, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd440, 0x14dd460, indexCVS2Sprites_Iori, 0x03 },
+    { L"Extra 4", 0x14dd460, 0x14dd480 },
 };
 
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_3P[] =
 {
     { L"Iori 3P", 0x14dd480, 0x14dd4a0, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori 3P Extra 1", 0x14dd4a0, 0x14dd4c0, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori 3P Extra 2", 0x14dd4c0, 0x14dd4e0, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori 3P Extra 3", 0x14dd4e0, 0x14dd500, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori 3P Extra 4", 0x14dd500, 0x14dd520 },
+    { L"Extra 1: Teeth", 0x14dd4a0, 0x14dd4c0, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd4c0, 0x14dd4e0, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd4e0, 0x14dd500, indexCVS2Sprites_Iori, 0x03 },
+    { L"Extra 4", 0x14dd500, 0x14dd520 },
 };
 
 const sGame_PaletteDataset CVS1_A_IORI_PALETTES_3K[] =
 {
     { L"Iori 3K", 0x14dd520, 0x14dd540, indexCVS2Sprites_Iori, 0x00, &pairNext },
-    { L"Iori 3K Extra 1", 0x14dd540, 0x14dd560, indexCVS2Sprites_Iori, 0x01 },
-    { L"Iori 3K Extra 2", 0x14dd560, 0x14dd580, indexCVS2Sprites_Iori, 0x02 },
-    { L"Iori 3K Extra 3", 0x14dd580, 0x14dd5a0, indexCVS2Sprites_Iori, 0x03 },
-    { L"Iori 3K Extra 4", 0x14dd5a0, 0x14dd5c0 },
+    { L"Extra 1: Teeth", 0x14dd540, 0x14dd560, indexCVS2Sprites_Iori, 0x01 },
+    { L"Extra 2: One for the Road", 0x14dd560, 0x14dd580, indexCVS2Sprites_Iori, 0x04 },
+    { L"Extra 3: Dark Thrust", 0x14dd580, 0x14dd5a0, indexCVS2Sprites_Iori, 0x03 },
+    { L"Extra 4", 0x14dd5a0, 0x14dd5c0 },
 };
 
 const sGame_PaletteDataset CVS1_A_TERRY_PALETTES_LP[] =
