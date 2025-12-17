@@ -5612,7 +5612,7 @@ const sGame_PaletteDataset KOF02UM_S_ORDERSELECT_Portraits[] =
     { L"Angel and Foxy", 0x134d00, 0x135100 },
     { L"Kula and Kim", 0x145100, 0x145500 },
     { L"Chang and Choi", 0x155500, 0x155900 },
-    { L"Shingo and Lin", 0x165940, 0x165d40 },
+    { L"Shingo and Lin", 0x165900, 0x165d00 },
     { L"Jhun Hoon and Yamazaki", 0x175d00, 0x176100 },
     { L"Blue Mary and Billy", 0x186100, 0x186500 },
     { L"Chin and Takuma", 0x196500, 0x196900 },
