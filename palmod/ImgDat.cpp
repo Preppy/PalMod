@@ -3,6 +3,7 @@
 #include "RLEData.h"
 #include "Game\GameRegistry.h"
 #include "PalMod.h"
+#include "lodepng\lodepng.h"
 
 #define IMGDAT_DEBUG 0
 
@@ -192,30 +193,43 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCu
             break;
         case 1: // RLE
         {
-            uint8_t* pTmpData = pNewImgData;
+            uint8_t* pDecompressedData = nullptr;
 
-            pNewImgData = RLEData::RLEDecodeImg(
-                pTmpData,
+            pDecompressedData = RLEData::RLEDecodeImg(
+                pNewImgData,
                 pCurrImg->uDataSize,
                 pCurrImg->uImgWidth,
                 pCurrImg->uImgHeight
             );
 
-            safe_delete_array(pTmpData);
+            safe_delete_array(pNewImgData);
+            pNewImgData = pDecompressedData;
             break;
         }
         case 2: // BitmaskRLE
         {
-            uint8_t* pTmpData = pNewImgData;
+            uint8_t* pDecompressedData = nullptr;
 
-            pNewImgData = RLEData::BitMaskRLEDecodeImg(
-                pTmpData,
+            pDecompressedData = RLEData::BitMaskRLEDecodeImg(
+                pNewImgData,
                 pCurrImg->uDataSize,
                 pCurrImg->uImgWidth,
                 pCurrImg->uImgHeight
             );
 
-            safe_delete_array(pTmpData);
+            safe_delete_array(pNewImgData);
+            pNewImgData = pDecompressedData;
+            break;
+        }
+        case 3: // ZLib
+        {
+            size_t nZLibExtractedSize = 0;
+            uint8_t* pDecompressedData = nullptr;
+
+            lodepng_inflate(&pDecompressedData, &nZLibExtractedSize, pNewImgData, pCurrImg->uDataSize, &lodepng_default_decompress_settings);
+
+            safe_delete_array(pNewImgData);
+            pNewImgData = pDecompressedData;
             break;
         }
         default:

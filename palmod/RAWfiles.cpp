@@ -3,6 +3,7 @@
 #include "RLEData.h"
 #include "PalMod.h"
 #include "PreviewImport.h"
+#include "lodepng\lodepng.h"
 
 uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions& suggestedImageSize,
                                   int nImgAmt, sImgNode** ppImgBuffer, std::array<sTextureData, MAX_IMAGES_DISPLAYABLE> vSpriteOverrideTextures,
@@ -32,6 +33,7 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
             NoCompression,
             RLE,
             BitMaskRLE,
+            ZLib,
         };
 
         RAWCompressionChoice eCompType = RAWCompressionChoice::NoCompression;
@@ -94,6 +96,10 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
                     case 2:
                         OutputDebugString(L"RAW is marked as being BitMask RLE compressed.\n");
                         eCompType = RAWCompressionChoice::BitMaskRLE;
+                        break;
+                    case 3:
+                        OutputDebugString(L"RAW is marked as being ZLib compressed.\n");
+                        eCompType = RAWCompressionChoice::ZLib;
                         break;
                     }
                 }
@@ -180,6 +186,12 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
                         suggestedImageSize.width,
                         suggestedImageSize.height
                     );
+                    break;
+                }
+                case RAWCompressionChoice::ZLib:
+                {
+                    size_t nZLibExtractedSize = 0;
+                    lodepng_inflate(&pNewOverrideTexture, &nZLibExtractedSize, &pNewData[0], pNewData.size(), &lodepng_default_decompress_settings);
                     break;
                 }
             }
