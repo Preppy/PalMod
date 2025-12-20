@@ -139,6 +139,10 @@ public:
     BOOL GetClickToFindColorSetting() { return m_Settings.fClickToFindColor; };
     void SetAllowAutoPreviewFallback(BOOL fAllowAutoPreviewFallback) { m_Settings.fAllowAutoPreviewFallback = fAllowAutoPreviewFallback; };
     BOOL GetAllowAutoPreviewFallback() { return m_Settings.fAllowAutoPreviewFallback; };
+    // This is turned off at the caller level (see comments there).  The initial thought was "just for BBCF".
+    // If we wanted to go further we'd want to establish some UI on this.  But per comments, probably a 
+    // flawed idea.
+    BOOL GetAllowPreviewOverride(SupportedGamesList gameFlag) { return (gameFlag == BlazBlueCF_S); };
     BOOL CanForceBGBitmapAvailable();
     BOOL GetPreviewDropIsPalette() { return m_Settings.fPreviewDropIsPalette; };
     void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_Settings.fPreviewDropIsPalette = fPreviewDropIsPalette; };

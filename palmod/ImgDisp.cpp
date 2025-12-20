@@ -1396,6 +1396,10 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
         {
             MessageBox(L"Error: this is not a supported PNG.  Indexed PNGs are best suited as replacement previews.", GetHost()->GetAppName(), MB_ICONERROR);
         }
+        else
+        {
+            GetHost()->GetPalModDlg()->SetStatusText(L"This PNG could not be loaded.");
+        }
 
         return false;
     }

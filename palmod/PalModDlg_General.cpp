@@ -217,10 +217,10 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
     }
 }
 
-bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
+bool CPalModDlg::GetPathForUserFallbackImage(CGameClass* CurrGame, UINT nPosition, CString& strFoundImage)
 {
     // Note that used pathing is off CurrentWorkingDirectory\\Previews
-    bool fLoadedImage = false;
+    bool fImageExists = false;
 
     if (ImgDispCtrl && ImgDispCtrl->GetAllowAutoPreviewFallback())
     {
@@ -233,13 +233,13 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
         {
             CString strPath;
 
-            SanitizeString(szNode);
             wcsncpy(szPalette, m_PalHost.GetPalName(nPosition), ARRAYSIZE(szPalette));
             szPalette[ARRAYSIZE(szPalette) - 1] = 0;
 
             if (_wcsicmp(CurrGame->GetExtraUnitDescription(), szUnit) == 0)
             {
                 SanitizeString(szUnit);
+                SanitizeString(szNode);
 
                 for (size_t iChar = 2; iChar < wcslen(szPalette); iChar++)
                 {
@@ -287,6 +287,9 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
                     }
                 }
 
+                // Sanitize after compares so we don't break the string match
+                SanitizeString(szNode);
+
                 if (fIsButtonNode)
                 {
                     CleanseButtonNodeString(szUnit, szNode, szPalette);
@@ -299,25 +302,53 @@ bool CPalModDlg::TryFallbackImageLoad(CGameClass* CurrGame, UINT nPosition)
                 }
             }
 
-            if (GetFileAttributes(strPath.GetBuffer()) != INVALID_FILE_ATTRIBUTES)
-            {
-#ifdef DEBUG
-                CString strFile;
-                strFile.Format(L"CPalModDlg::TryFallbackImageLoad: Loading \"%s\" to position %u\n", strPath.GetBuffer(), nPosition);
-                OutputDebugString(strFile.GetBuffer());
-#endif
+            fImageExists = GetFileAttributes(strPath.GetBuffer()) != INVALID_FILE_ATTRIBUTES;
 
-                fLoadedImage = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strPath.GetBuffer(), true);
-                m_strPossiblePreviewStatus.Format(L", \"%s\" %s", strPath.GetString(), fLoadedImage ? L"loaded" : L"not loaded");
-            }
-            else
-            {
-                m_strPossiblePreviewStatus.Format(L", \"%s\" not found", strPath.GetString());
-            }
+            // Always set for reference so that the user knows what we're looking for
+            strFoundImage = strPath;
         }
     }
 
-    return fLoadedImage;
+    return fImageExists;
+}
+
+bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGame, UINT nPosition)
+{
+    CString strImagePath;
+
+    if (strImageToLoad.GetLength())
+    {
+        strImagePath = strImageToLoad;
+    }
+    else
+    {
+        if (!GetPathForUserFallbackImage(CurrGame, nPosition, strImagePath))
+        {
+            if (strImagePath.IsEmpty())
+            {
+                m_strOverridePreviewStatus.Empty();
+            }
+            else
+            {
+                m_strOverridePreviewStatus.Format(L"\"%s\" not found", strImagePath.GetString());
+            }
+            return false;
+        }
+    }
+
+#ifdef DEBUG
+    CString strFile;
+    strFile.Format(L"CPalModDlg::TryFallbackImageLoad: Attempting to load \"%s\" to position %u\r\n\t", strImagePath.GetString(), nPosition);
+    OutputDebugString(strFile.GetBuffer());
+#endif
+
+    bool fSuccess = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), true);
+
+    m_strOverridePreviewStatus.Format(L"\"%s\" %s", strImagePath.GetBuffer(), fSuccess ? L"loaded" : L"not loaded");
+    OutputDebugString(m_strOverridePreviewStatus.GetString());
+    OutputDebugString(L"\r\n");
+
+    return fSuccess;
 }
 
 void CPalModDlg::PostPalSel()
@@ -370,9 +401,33 @@ void CPalModDlg::PostPalSel()
                 // nImgId is the extra offset for that character.
                 const int nImgKey = (static_cast<uint16_t>(CurrTicket->nImgUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
                 static int s_nLastPalAmt = 1;
-                const bool fChangingVisualLayout = (nPrevImgIndex[nImgIndexCtr] != nImgKey) || (s_nLastPalAmt != nPalAmt);
+                bool fChangingVisualLayout = (nPrevImgIndex[nImgIndexCtr] != nImgKey) || (s_nLastPalAmt != nPalAmt);
+                CString strOverrideImage;
+                bool fHaveOverrideImage = false;
+                m_strOverridePreviewStatus.Empty();
 
-                CurrImgDef = ImgFile->GetImageDef(CurrTicket->nImgUnitId, CurrTicket->nImgId);
+#ifdef ALLOW_BBCF_OVERRIDES
+                // This code path was added speculatively.  The concern is that allowing a user override
+                // would permanently override the built-in option even if updated or improved.
+                // Buuuuuut... this logic is here and works if it turns out to be useful.
+                if (ImgDispCtrl->GetAllowPreviewOverride(CurrGame->GetGameFlag()))
+                {
+                    static bool s_fLastOverrideStatus = false;
+                    fHaveOverrideImage = GetPathForUserFallbackImage(CurrGame, nCurrentPalette, strOverrideImage);
+
+                    // Catch them turning it off: turning it on is auto-handled
+                    if (s_fLastOverrideStatus != fHaveOverrideImage)
+                    {
+                        fChangingVisualLayout = true;
+                        s_fLastOverrideStatus = fHaveOverrideImage;
+                    }
+                }
+#endif
+
+                if (!fHaveOverrideImage)
+                {
+                    CurrImgDef = ImgFile->GetImageDef(CurrTicket->nImgUnitId, CurrTicket->nImgId);
+                }
 
                 if (fChangingVisualLayout && (nImgIndexCtr == 0))
                 {
@@ -418,7 +473,7 @@ void CPalModDlg::PostPalSel()
                             CurrTicket->nYOffs,
                             CurrTicket->nBlendMode);
 
-                        if (TryFallbackImageLoad(CurrGame, nCurrentPalette))
+                        if (TryFallbackImageLoad(strOverrideImage, CurrGame, nCurrentPalette))
                         {
                             fShouldKeepImageCache = true;
                         }
@@ -435,7 +490,7 @@ void CPalModDlg::PostPalSel()
                     if (!CurrImgDef)
                     {
                         // This is a little loose, but here we're checking to see if we have anything more precise to load
-                        if (TryFallbackImageLoad(CurrGame, nCurrentPalette))
+                        if (TryFallbackImageLoad(strOverrideImage, CurrGame, nCurrentPalette))
                         {
                             fShouldKeepImageCache = true;
                         }
@@ -465,11 +520,25 @@ void CPalModDlg::PostPalSel()
                 if ((CurrTicket->nImgUnitId == INVALID_UNIT_VALUE_16) ||
                     (CurrTicket->nImgId == INVALID_UNIT_VALUE_8))
                 {
-                    strInformation.Format(L"Preview: (no internal preview available%s)", m_strPossiblePreviewStatus.GetString());
+                    if (m_strOverridePreviewStatus.IsEmpty())
+                    {
+                        strInformation = L"Preview: (no internal preview available)";
+                    }
+                    else
+                    {
+                        strInformation.Format(L"Preview: (no internal preview available, %s)", m_strOverridePreviewStatus.GetString());
+                    }
                 }
                 else
                 {
-                    strInformation.Format(L"Preview: unit 0x%02x, image id 0x%02x", CurrTicket->nImgUnitId, CurrTicket->nImgId);
+                    if (m_strOverridePreviewStatus.IsEmpty())
+                    {
+                        strInformation.Format(L"Preview: unit 0x%02x, image id 0x%02x", CurrTicket->nImgUnitId, CurrTicket->nImgId);
+                    }
+                    else
+                    {
+                        strInformation.Format(L"Preview: %s", m_strOverridePreviewStatus.GetString());
+                    }
                 }
                 PreviewDlg->SetWindowCaption(strInformation);
             }
