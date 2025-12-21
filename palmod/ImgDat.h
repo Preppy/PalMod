@@ -1,8 +1,5 @@
 #pragma once
 
-#define MAX_GAMES 4
-#define MAX_IMAGE 16
-
 #include <map>
 #include "ImgInfoList.h"
 

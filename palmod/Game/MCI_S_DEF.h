@@ -77,6 +77,16 @@ const sGCBUPF_BasicNodeData MCI_S_ExtrasNode =
     { L"Preview Only" }
 };
 
+const std::vector<sGCBUPF_RelativePaletteData> MCI_BossesPalettes_S =
+{
+    { L"Palette", 0x00, indexMCI_Bonus, 0x01 },
+};
+
+const sGCBUPF_BasicNodeData MCI_S_BossesNode =
+{
+    { L"Palette" },
+};
+
 std::vector<sGCBUPF_BasicFileData> MCI_S_CharacterData =
 {
     { L"Content\\Animations\\Players\\BetaRayBill\\BetaRayBillPalette.xnb",             L"Beta Ray Bill",       0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_BetaRayBill },
@@ -94,5 +104,6 @@ std::vector<sGCBUPF_BasicFileData> MCI_S_CharacterData =
     { L"Content\\Animations\\Players\\Storm\\StormPalette.xnb",                         L"Storm",               0x2455,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Storm },
     { L"Content\\Animations\\Players\\Venom\\VenomPalette.xnb",                         L"Venom",               0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Venom },
     { L"Content\\Animations\\Players\\Wolverine\\WolverinePalette.xnb",                 L"Wolverine",           0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Wolverine },
-    { L"Content\\Animations\\Players\\PalModExtrasPalette",                             L"Bonus",               0x2855,    MCI_S_ExtrasNode, MCI_ExtrasPalettes_S,      0x0, },
+    { L"Content\\Animations\\Bosses\\Annihilus\\AnnihilusPalette.xnb",                  L"Annihilus",           0x0455,    MCI_S_BossesNode, MCI_BossesPalettes_S,      0x00055,  indexMCI_Bonus },
+    { L"Content\\Animations\\Players\\PalModExtrasPalette",                             L"Bonus",               0x2855,    MCI_S_ExtrasNode, MCI_ExtrasPalettes_S,      0x0,  indexMCI_Bonus },
 };
