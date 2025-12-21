@@ -1300,11 +1300,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
     { L"Polnareff - Challenger A", 0x410980, 0x410a00, indexJojos51Pol, 0x03 },
     { L"Polnareff - Select/Winning A (1/2)", 0x410a00, 0x410a80, indexJojos51Pol, 0x4, &pairNext },
     { L"Polnareff - Select/Winning A (2/2)", 0x410a80, 0x410b00, indexJojos51Pol, 0x05, &pairPrevious },
-    { L"Polnareff - Burning A (1/2)", 0x338a00, 0x338a80, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Burning A (2/2)", 0x338a80, 0x338b00, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap A (1/2)", 0x338d00, 0x338d80, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap A (2/2)", 0x338d80, 0x338e00, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Guard Cancel/Child Transformation A", 0x339000, 0x339080, indexJojos51Pol, 0x07 },
+    { L"Polnareff - Burning A (1/2)", 0x338a00, 0x338a80, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Burning A (2/2)", 0x338a80, 0x338b00, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap A (1/2)", 0x338d00, 0x338d80, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap A (2/2)", 0x338d80, 0x338e00, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Guard Cancel/Child Transformation A", 0x339000, 0x339080, indexJojos51Pol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
@@ -1317,11 +1317,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
     { L"Polnareff - Challenger B", 0x415780, 0x415800, indexJojos51Pol, 0x03 },
     { L"Polnareff - Select/Winning B (1/2)", 0x415800, 0x415880, indexJojos51Pol, 0x4, &pairNext },
     { L"Polnareff - Select/Winning B (2/2)", 0x415880, 0x415900, indexJojos51Pol, 0x05, &pairPrevious },
-    { L"Polnareff - Burning B (1/2)", 0x34cf00, 0x34cf80, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Burning B (2/2)", 0x34cf80, 0x34d000, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap B (1/2)", 0x34d200, 0x34d280, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap B (2/2)", 0x34d280, 0x34d300, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Guard Cancel/Child Transformation B", 0x34d500, 0x34d580, indexJojos51Pol, 0x07 },
+    { L"Polnareff - Burning B (1/2)", 0x34cf00, 0x34cf80, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Burning B (2/2)", 0x34cf80, 0x34d000, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap B (1/2)", 0x34d200, 0x34d280, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap B (2/2)", 0x34d280, 0x34d300, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Guard Cancel/Child Transformation B", 0x34d500, 0x34d580, indexJojos51Pol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
@@ -1334,11 +1334,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
     { L"Polnareff - Challenger C", 0x41a580, 0x41a600, indexJojos51Pol, 0x03 },
     { L"Polnareff - Select/Winning C (1/2)", 0x41a600, 0x41a680, indexJojos51Pol, 0x4, &pairNext },
     { L"Polnareff - Select/Winning C (2/2)", 0x41a680, 0x41a700, indexJojos51Pol, 0x05, &pairPrevious },
-    { L"Polnareff - Burning C (1/2)", 0x361400, 0x361480, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Burning C (2/2)", 0x361480, 0x361500, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap C (1/2)", 0x361700, 0x361780, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap C (2/2)", 0x361780, 0x361800, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Guard Cancel/Child Transformation C", 0x361a00, 0x361a80, indexJojos51Pol, 0x07 },
+    { L"Polnareff - Burning C (1/2)", 0x361400, 0x361480, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Burning C (2/2)", 0x361480, 0x361500, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap C (1/2)", 0x361700, 0x361780, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap C (2/2)", 0x361780, 0x361800, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Guard Cancel/Child Transformation C", 0x361a00, 0x361a80, indexJojos51Pol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
@@ -1351,11 +1351,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
     { L"Polnareff - Challenger S", 0x41f380, 0x41f400, indexJojos51Pol, 0x03 },
     { L"Polnareff - Select/Winning S (1/2)", 0x41f400, 0x41f480, indexJojos51Pol, 0x4, &pairNext },
     { L"Polnareff - Select/Winning S (2/2)", 0x41f480, 0x41f500, indexJojos51Pol, 0x05, &pairPrevious },
-    { L"Polnareff - Burning S (1/2)", 0x375900, 0x375980, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Burning S (2/2)", 0x375980, 0x375a00, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap S (1/2)", 0x375c00, 0x375c80, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap S (2/2)", 0x375c80, 0x375d00, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Guard Cancel/Child Transformation S", 0x375f00, 0x375f80, indexJojos51Pol, 0x07 },
+    { L"Polnareff - Burning S (1/2)", 0x375900, 0x375980, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Burning S (2/2)", 0x375980, 0x375a00, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap S (1/2)", 0x375c00, 0x375c80, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap S (2/2)", 0x375c80, 0x375d00, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Guard Cancel/Child Transformation S", 0x375f00, 0x375f80, indexJojos51Pol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
@@ -1368,11 +1368,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
     { L"Polnareff - Challenger Start", 0x424180, 0x424200, indexJojos51Pol, 0x03 },
     { L"Polnareff - Select/Winning Start (1/2)", 0x424200, 0x424280, indexJojos51Pol, 0x4, &pairNext },
     { L"Polnareff - Select/Winning Start (2/2)", 0x424280, 0x424300, indexJojos51Pol, 0x05, &pairPrevious },
-    { L"Polnareff - Burning Start (1/2)", 0x389e00, 0x389e80, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Burning Start (2/2)", 0x389e80, 0x389f00, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap Start (1/2)", 0x38a100, 0x38a180, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Tech/Zap Start (2/2)", 0x38a180, 0x38a200, indexJojos51Pol, 0x07 },
-    { L"Polnareff - Guard Cancel/Child Transformation Start", 0x38a400, 0x38a480, indexJojos51Pol, 0x07 },
+    { L"Polnareff - Burning Start (1/2)", 0x389e00, 0x389e80, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Burning Start (2/2)", 0x389e80, 0x389f00, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap Start (1/2)", 0x38a100, 0x38a180, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Tech/Zap Start (2/2)", 0x38a180, 0x38a200, indexJojos51Pol, indexJojos51Character_BurnZap },
+    { L"Polnareff - Guard Cancel/Child Transformation Start", 0x38a400, 0x38a480, indexJojos51Pol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Shared[]
@@ -1835,7 +1835,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
     { L"Midler - Tech/Zap A (1/2)", 0x33e480, 0x33e500, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap A (2/2)", 0x33e500, 0x33e580, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel A", 0x33e580, 0x33e600, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation A", 0x33e780, 0x33e800, indexJojos51Midler, indexJojos51Character_BurnZap },
+    { L"Midler - Guard Cancel/Child Transformation A", 0x33e780, 0x33e800, indexJojos51Midler, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
@@ -1856,7 +1856,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
     { L"Midler - Tech/Zap B (1/2)", 0x352980, 0x352a00, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap B (2/2)", 0x352a00, 0x352a80, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel B", 0x352a80, 0x352b00, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation B", 0x352c80, 0x352d00, indexJojos51Midler, indexJojos51Character_BurnZap },
+    { L"Midler - Guard Cancel/Child Transformation B", 0x352c80, 0x352d00, indexJojos51Midler, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
@@ -1877,7 +1877,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
     { L"Midler - Tech/Zap C (1/2)", 0x366e80, 0x366f00, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap C (2/2)", 0x366f00, 0x366f80, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel C", 0x366f80, 0x367000, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation C", 0x367180, 0x367200, indexJojos51Midler, indexJojos51Character_BurnZap },
+    { L"Midler - Guard Cancel/Child Transformation C", 0x367180, 0x367200, indexJojos51Midler, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
@@ -1898,7 +1898,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
     { L"Midler - Tech/Zap S (1/2)", 0x37b380, 0x37b400, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap S (2/2)", 0x37b400, 0x37b480, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel S", 0x37b480, 0x37b500, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation S", 0x37b680, 0x37b700, indexJojos51Midler, indexJojos51Character_BurnZap },
+    { L"Midler - Guard Cancel/Child Transformation S", 0x37b680, 0x37b700, indexJojos51Midler, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
@@ -1919,7 +1919,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
     { L"Midler - Tech/Zap Start (1/2)", 0x38f880, 0x38f900, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap Start (2/2)", 0x38f900, 0x38f980, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel Start", 0x38f980, 0x38fa00, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation Start", 0x38fb80, 0x38fc00, indexJojos51Midler, indexJojos51Character_BurnZap },
+    { L"Midler - Guard Cancel/Child Transformation Start", 0x38fb80, 0x38fc00, indexJojos51Midler, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
@@ -2197,11 +2197,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
     { L"Hol Horse - VS/Super A", 0x413000, 0x413080, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger A", 0x413080, 0x413100, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning A", 0x413100, 0x413180, indexJojos51Hol, 0x06 },
-    { L"Hol Horse - Burning A (1/2)", 0x342c80, 0x342d00, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Burning A (2/2)", 0x342d00, 0x342d80, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap A (1/2)", 0x342f80, 0x343000, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap A (2/2)", 0x343000, 0x343080, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Guard Cancel/Child Transformation A", 0x343280, 0x343300, indexJojos51Hol, 0x07 },
+    { L"Hol Horse - Burning A (1/2)", 0x342c80, 0x342d00, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Burning A (2/2)", 0x342d00, 0x342d80, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap A (1/2)", 0x342f80, 0x343000, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap A (2/2)", 0x343000, 0x343080, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Guard Cancel/Child Transformation A", 0x343280, 0x343300, indexJojos51Hol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
@@ -2214,11 +2214,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
     { L"Hol Horse - VS/Super B", 0x417e00, 0x417e80, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger B", 0x417e80, 0x417f00, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning B", 0x417f00, 0x417f80, indexJojos51Hol, 0x06 },
-    { L"Hol Horse - Burning B (1/2)", 0x357180, 0x357200, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Burning B (2/2)", 0x357200, 0x357280, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap B (1/2)", 0x357480, 0x357500, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap B (2/2)", 0x357500, 0x357580, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Guard Cancel/Child Transformation B", 0x357780, 0x357800, indexJojos51Hol, 0x07 },
+    { L"Hol Horse - Burning B (1/2)", 0x357180, 0x357200, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Burning B (2/2)", 0x357200, 0x357280, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap B (1/2)", 0x357480, 0x357500, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap B (2/2)", 0x357500, 0x357580, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Guard Cancel/Child Transformation B", 0x357780, 0x357800, indexJojos51Hol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
@@ -2231,11 +2231,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
     { L"Hol Horse - VS/Super C", 0x41cc00, 0x41cc80, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger C", 0x41cc80, 0x41cd00, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning C", 0x41cd00, 0x41cd80, indexJojos51Hol, 0x06 },
-    { L"Hol Horse - Burning C (1/2)", 0x36b680, 0x36b700, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Burning C (2/2)", 0x36b700, 0x36b780, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap C (1/2)", 0x36b980, 0x36ba00, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap C (2/2)", 0x36ba00, 0x36ba80, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Guard Cancel/Child Transformation C", 0x36bc80, 0x36bd00, indexJojos51Hol, 0x07 },
+    { L"Hol Horse - Burning C (1/2)", 0x36b680, 0x36b700, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Burning C (2/2)", 0x36b700, 0x36b780, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap C (1/2)", 0x36b980, 0x36ba00, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap C (2/2)", 0x36ba00, 0x36ba80, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Guard Cancel/Child Transformation C", 0x36bc80, 0x36bd00, indexJojos51Hol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
@@ -2248,11 +2248,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
     { L"Hol Horse - VS/Super S", 0x421a00, 0x421a80, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger S", 0x421a80, 0x421b00, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning S", 0x421b00, 0x421b80, indexJojos51Hol, 0x06 },
-    { L"Hol Horse - Burning S (1/2)", 0x37fb80, 0x37fc00, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Burning S (2/2)", 0x37fc00, 0x37fc80, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap S (1/2)", 0x37fe80, 0x37ff00, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap S (2/2)", 0x37ff00, 0x37ff80, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Guard Cancel/Child Transformation S", 0x380180, 0x380200, indexJojos51Hol, 0x07 },
+    { L"Hol Horse - Burning S (1/2)", 0x37fb80, 0x37fc00, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Burning S (2/2)", 0x37fc00, 0x37fc80, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap S (1/2)", 0x37fe80, 0x37ff00, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap S (2/2)", 0x37ff00, 0x37ff80, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Guard Cancel/Child Transformation S", 0x380180, 0x380200, indexJojos51Hol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
@@ -2265,11 +2265,11 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
     { L"Hol Horse - VS/Super Start", 0x426800, 0x426880, indexJojos51Hol, 0x04 },
     { L"Hol Horse - Challenger Start", 0x426880, 0x426900, indexJojos51Hol, 0x05 },
     { L"Hol Horse - Select/Winning Screen Start", 0x426900, 0x426980, indexJojos51Hol, 0x06 },
-    { L"Hol Horse - Burning Start (1/2)", 0x394080, 0x394100, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Burning Start (2/2)", 0x394100, 0x394180, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap Start (1/2)", 0x394380, 0x394400, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Tech/Zap Start (2/2)", 0x394400, 0x394480, indexJojos51Hol, 0x07 },
-    { L"Hol Horse - Guard Cancel/Child Transformation Start", 0x394680, 0x394700, indexJojos51Hol, 0x07 },
+    { L"Hol Horse - Burning Start (1/2)", 0x394080, 0x394100, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Burning Start (2/2)", 0x394100, 0x394180, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap Start (1/2)", 0x394380, 0x394400, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Tech/Zap Start (2/2)", 0x394400, 0x394480, indexJojos51Hol, indexJojos51Character_BurnZap },
+    { L"Hol Horse - Guard Cancel/Child Transformation Start", 0x394680, 0x394700, indexJojos51Hol, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
@@ -2284,7 +2284,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
     { L"Vanilla Ice - Tech/Zap A (1/2)", 0x343c00, 0x343c80, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap A (2/2)", 0x343c80, 0x343d00, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel A", 0x343d00, 0x343d80, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation A", 0x343f00, 0x343f80, indexJojos51VIce, indexJojos51Character_BurnZap },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation A", 0x343f00, 0x343f80, indexJojos51VIce, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
@@ -2299,7 +2299,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
     { L"Vanilla Ice - Tech/Zap B (1/2)", 0x358100, 0x358180, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap B (2/2)", 0x358180, 0x358200, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel B", 0x358200, 0x358280, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation B", 0x358400, 0x358480, indexJojos51VIce, indexJojos51Character_BurnZap },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation B", 0x358400, 0x358480, indexJojos51VIce, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_C[] =
@@ -2314,7 +2314,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_C[] =
     { L"Vanilla Ice - Tech/Zap C (1/2)", 0x36c600, 0x36c680, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap C (2/2)", 0x36c680, 0x36c700, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel C", 0x36c700, 0x36c780, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation C", 0x36c900, 0x36c980, indexJojos51VIce, indexJojos51Character_BurnZap },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation C", 0x36c900, 0x36c980, indexJojos51VIce, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_S[] =
@@ -2329,7 +2329,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_S[] =
     { L"Vanilla Ice - Tech/Zap S (1/2)", 0x380b00, 0x380b80, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap S (2/2)", 0x380b80, 0x380c00, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel S", 0x380c00, 0x380c80, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation S", 0x380e00, 0x380e80, indexJojos51VIce, indexJojos51Character_BurnZap },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation S", 0x380e00, 0x380e80, indexJojos51VIce, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
@@ -2344,7 +2344,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
     { L"Vanilla Ice - Tech/Zap Start (1/2)", 0x395000, 0x395080, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap Start (2/2)", 0x395080, 0x395100, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel Start", 0x395100, 0x395180, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation Start", 0x395300, 0x395380, indexJojos51VIce, indexJojos51Character_BurnZap },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation Start", 0x395300, 0x395380, indexJojos51VIce, 0x0b },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =

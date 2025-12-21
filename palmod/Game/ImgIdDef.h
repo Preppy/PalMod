@@ -475,11 +475,11 @@ enum JOJOS_51_CHARACTER_PALETTES
 {
     indexJojos51Character_Main = 0,
     // 1 and 2 are reserved for character specific nonsense
-    indexJojos51Character_VsSuper = 3,
-    indexJojos51Character_Challenger, // 4
-    indexJojos51Character_SelectWin1, // 0x05
-    indexJojos51Character_SelectWin2, // 0x06
-    indexJojos51Character_BurnZap, // 0x07
+    indexJojos51Character_VsSuper = 0x03,
+    indexJojos51Character_Challenger,   // 0x04
+    indexJojos51Character_SelectWin1,   // 0x05
+    indexJojos51Character_SelectWin2,   // 0x06
+    indexJojos51Character_BurnZap,      // 0x07
 };
 
 enum SupportedGarou_A_PaletteListIndex
