@@ -152,6 +152,42 @@ const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListGeneric =
     { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
 };
 
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListLitchi =
+{
+    { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
+    { L"Extra 1", 0x420, INVALID_UNIT_VALUE_16, 0x01 },
+    { L"Extra 2", 0x840, INVALID_UNIT_VALUE_16, 0x01 },
+    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x01 },
+    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
+    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
+    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE_16, 0x06 },
+    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListNu13 =
+{
+    { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Nu13, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_Nu13, 0x01 },
+    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x03 },
+    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
+    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
+    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE_16, 0x06 },
+    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListArakune =
+{
+    { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
+    { L"Extra 1", 0x420, INVALID_UNIT_VALUE_16, 0x01 },
+    { L"Extra 2", 0x840, INVALID_UNIT_VALUE_16, 0x02 },
+    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x02 },
+    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
+    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
+    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE_16, 0x06 },
+    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
+};
+
 uint8_t TranslatePalModSpriteIdToBBCFGameId(uint32_t nSpriteId);
 uint32_t TranslateBBCFGameIdToPalModSpriteId(uint8_t nGameId);
 
@@ -159,7 +195,7 @@ const std::vector<sGCBUPF_BasicFileData> BlazBlueCF_S_CharacterData =
 {
     //Alphabetical by character name, not by file name
     { L"data\\char\\char_am_pal.pac", L"Amane Nishiki",           226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_AmaneNishiki },
-    { L"data\\char\\char_ar_pal.pac", L"Arakune",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Arakune },
+    { L"data\\char\\char_ar_pal.pac", L"Arakune",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListArakune,  0x1A40, indexBBCFSprites_Arakune },
     { L"data\\char\\char_az_pal.pac", L"Azrael",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Azrael },
     { L"data\\char\\char_bn_pal.pac", L"Bang Shishigami",         226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_BangShishigami },
     { L"data\\char\\char_bl_pal.pac", L"Bullet",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Bullet },
@@ -176,15 +212,15 @@ const std::vector<sGCBUPF_BasicFileData> BlazBlueCF_S_CharacterData =
     { L"data\\char\\char_jb_pal.pac", L"Jubei",                   226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Jubei },
     { L"data\\char\\char_kg_pal.pac", L"Kagura Mutsuki",          226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_KaguraMutsuki },
     { L"data\\char\\char_kk_pal.pac", L"Kokonoe",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Kokonoe },
-    { L"data\\char\\char_rm_pal.pac", L"Lambda-11 (Λ-No.11-)",    226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Lambda11 },
-    { L"data\\char\\char_lc_pal.pac", L"Litchi Faye Ling",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_LitchiFayeLing },
+    { L"data\\char\\char_rm_pal.pac", L"Lambda-11 (Λ-No.11-)",    226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListNu13,  0x1A40, indexBBCFSprites_Lambda11 },
+    { L"data\\char\\char_lc_pal.pac", L"Litchi Faye Ling",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListLitchi,  0x1A40, indexBBCFSprites_LitchiFayeLing },
     { L"data\\char\\char_ma_pal.pac", L"Mai Natsume",             217632, BlazBlueCFCollection25,   BlazBlueCFPaletteListGeneric,  0x1940, indexBBCFSprites_MaiNatsume },   //-1 Colors
     { L"data\\char\\char_mk_pal.pac", L"Makoto Nanaya",           226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_MakotoNanaya },
     { L"data\\char\\char_mu_pal.pac", L"Mu-12 (μ-No.12-)",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Mu12 },
     { L"data\\char\\char_nt_pal.pac", L"Naoto Kurogane",          217632, BlazBlueCFCollection25,   BlazBlueCFPaletteListGeneric,  0x1940, indexBBCFSprites_NaotoKurogane },   //-1 Colors
     { L"data\\char\\char_ph_pal.pac", L"Nine The Phantom",        208928, BlazBlueCFCollection24,   BlazBlueCFPaletteListGeneric,  0x1840, indexBBCFSprites_NineThePhantom },   //-2 Colors
     { L"data\\char\\char_no_pal.pac", L"Noel Vermillion",         226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_NoelVermillion },
-    { L"data\\char\\char_ny_pal.pac", L"Nu-13 (ν-No.13-)",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Nu13 },
+    { L"data\\char\\char_ny_pal.pac", L"Nu-13 (ν-No.13-)",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListNu13,  0x1A40, indexBBCFSprites_Nu13 },
     { L"data\\char\\char_pt_pal.pac", L"Platinum the Trinity",    226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_PlatinumtheTrinity },
     { L"data\\char\\char_rc_pal.pac", L"Rachel Alucard",          226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_RachelAlucard },
     { L"data\\char\\char_rg_pal.pac", L"Ragna The Bloodedge",     226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_RagnaTheBloodedge },
