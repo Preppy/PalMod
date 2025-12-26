@@ -3,22 +3,24 @@
 
 const std::vector<uint16_t> SF2WW_A_IMGIDS_USED =
 {
-    indexSF2Sprites_Ryu,
-    indexSF2Sprites_EHonda,
-    indexSF2Sprites_Blanka,
-    indexSF2Sprites_Guile,
-    indexSF2Sprites_Ken,
-    indexSF2Sprites_ChunLi,
-    indexSF2Sprites_Zangief,
-    indexSF2Sprites_Dhalsim,
-    indexSF2Sprites_Bison,
-    indexSF2Sprites_Sagat,
-    indexSF2Sprites_Balrog,
-    indexSF2Sprites_Vega,
-    indexSF2Sprites_Bonus,
-    indexSF2HFSprites_Stages,
+    indexSF2Sprites_Ryu,            // = 0,
+    indexSF2Sprites_EHonda,         // 0x01
+    indexSF2Sprites_Blanka,         // 0x02
+    indexSF2Sprites_Guile,          // 0x03
+    indexSF2Sprites_Ken,            // 0x04
+    indexSF2Sprites_ChunLi,         // 0x05
+    indexSF2Sprites_Zangief,        // 0x06
+    indexSF2Sprites_Dhalsim,        // 0x07
+    indexSF2Sprites_Bison,          // 0x08
+    indexSF2Sprites_Sagat,          // 0x09
+    indexSF2Sprites_Balrog,         // 0x0a
+    indexSF2Sprites_Vega,           // 0x0b
+    indexSF2Sprites_Bonus,          // 0x11
+    indexSF2Sprites_Stages,         // 0x12
 
-    indexSF2Sprites_Stages, // 0x12
+    indexSF2HFSprites_Stages,       // 0x34, // SF2HF stages
+    indexSF2HFSprites_Bonus,        // 0x35
+    indexSF2HFSprites_Stages21,     // 0x36 // for rom 21 sprites
 };
 
 const sGame_PaletteDataset SF2WW_A_RYU_09_NODE[] =

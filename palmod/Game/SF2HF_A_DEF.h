@@ -413,9 +413,9 @@ const sDescTreeNode SF2HF_A_PORTRAITS_COLLECTION[] =
 
 const sGame_PaletteDataset SF2HF_A_ENDINGS_GUILE_NODE[] =
 {
-    { L"Part One: Jane and Amy", 0xeafe, 0xeb5e, indexSF2HFSprites_Bonus, 0x00 },
-    { L"Part Two: Fireplace", 0xeb5e, 0xeb9e, indexSF2Sprites_Bonus, 0x01, &pairNext },
-    { L"Part Two: Couch", 0x9b5e, 0x9bfe, indexSF2HFSprites_Bonus, 0x02 },
+    { L"Part One: Jane and Amy",    0xeafe, 0xeb5e, indexSF2HFSprites_Bonus, 0x00 },
+    { L"Part Two: Fireplace",       0xeb5e, 0xeb9e, indexSF2HFSprites_Bonus, 0x01, &pairNext },
+    { L"Part Two: Couch",           0x9b5e, 0x9bfe, indexSF2HFSprites_Bonus, 0x02 },
 };
 
 const sGame_PaletteDataset SF2HF_A_BONUS21_NODE[] =
