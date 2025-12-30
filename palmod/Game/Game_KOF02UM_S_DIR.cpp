@@ -5,17 +5,17 @@ CGame_KOF02UM_S_DIR::CGame_KOF02UM_S_DIR(uint32_t nConfirmedROMSize, SupportedGa
 {
     switch (nKOF02UMROMSetToLoad)
     {
-    case KOF02UM_S_DIR_8888:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_888);
-        return;
-    case KOF02UM_S_DIR_BGR555:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_BGR555);
-        return;
-    default:
-    case KOF02UM_S_DIR_RGB555:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_RGB555);
-        return;
-    };
+        case KOF02UM_S_DIR_8888:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_888);
+            return;
+        case KOF02UM_S_DIR_BGR555:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_BGR555);
+            return;
+        default:
+        case KOF02UM_S_DIR_RGB555:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RGB555);
+            return;
+    }
 }
 
 sFileRule CGame_KOF02UM_S_DIR::GetRule_8888(uint32_t nUnitId)

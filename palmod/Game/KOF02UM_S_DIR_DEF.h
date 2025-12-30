@@ -1223,10 +1223,19 @@ const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_BGR555_UNITS =
 
 const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_8888_UNITS =
 {
-    { L"game\\demo\\psel.bin-n", 5697572, L"Character Select", KOF02UM_S_PSEL_COLLECTION, ARRAYSIZE(KOF02UM_S_PSEL_COLLECTION) },
-    { L"game\\demo\\osel.bin-n", 0x28cbb8, L"Order Select", KOF02UM_S_ORDERSELECT_COLLECTION, ARRAYSIZE(KOF02UM_S_ORDERSELECT_COLLECTION) },
-    { L"game\\demo\\conte.bin", 1249860, L"Continue palettes", KOF02UM_S_CONTE_COLLECTION, ARRAYSIZE(KOF02UM_S_CONTE_COLLECTION) },
-    { L"game\\demo\\rank.bin", 769318, L"Rank screens", KOF02UM_S_RANK_COLLECTION, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION) },
+    { L"game\\demo\\psel.bin-n", 5697572, L"Character Select (ENG, JPN, PT-BR)", KOF02UM_S_PSEL_COLLECTION, ARRAYSIZE(KOF02UM_S_PSEL_COLLECTION) },
+    { L"game\\demo\\psels.bin-n", 5697572, L"Character Select (Spanish)", KOF02UM_S_PSEL_COLLECTION, ARRAYSIZE(KOF02UM_S_PSEL_COLLECTION) },
+
+    { L"game\\demo\\osel.bin-n", 0x28cbb8, L"Order Select (ENG, JPN, PT-BR)", KOF02UM_S_ORDERSELECT_COLLECTION, ARRAYSIZE(KOF02UM_S_ORDERSELECT_COLLECTION) },
+    { L"game\\demo\\osels.bin-n", 0x28cbb8, L"Order Select (Spanish)", KOF02UM_S_ORDERSELECT_COLLECTION, ARRAYSIZE(KOF02UM_S_ORDERSELECT_COLLECTION) },
+
+    { L"game\\demo\\conte.bin", 1249860, L"Continue Screen (English)", KOF02UM_S_CONTE_COLLECTION, ARRAYSIZE(KOF02UM_S_CONTE_COLLECTION) },
+    { L"game\\demo\\cont.bin-n", 1249820, L"Continue Screen (Japanese)", KOF02UM_S_CONTE_COLLECTION, ARRAYSIZE(KOF02UM_S_CONTE_COLLECTION) },
+    { L"game\\demo\\contb.bin", 1249860, L"Continue Screen (Portuguese-Brazil)", KOF02UM_S_CONTE_COLLECTION, ARRAYSIZE(KOF02UM_S_CONTE_COLLECTION) },
+    { L"game\\demo\\conts.bin", 1249860, L"Continue Screen (Spanish)", KOF02UM_S_CONTE_COLLECTION, ARRAYSIZE(KOF02UM_S_CONTE_COLLECTION) },
+
+    { L"game\\demo\\rank.bin", 769318, L"Rankings (ENG, JPN, PT-BR)", KOF02UM_S_RANK_COLLECTION, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION) },
+    { L"game\\demo\\ranks.bin", 769318, L"Rankings (Spanish)", KOF02UM_S_RANK_COLLECTION, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION) },
 
     { L"game\\menu\\clear.bin", 137422, L"Clear", KOF02UM_S_CLEAR_COLLECTION, ARRAYSIZE(KOF02UM_S_CLEAR_COLLECTION)},
 

@@ -5384,6 +5384,7 @@ const sGame_PaletteDataset KOF02UM_S_CLEAR_PALETTES[] =
     { L"Clear", 0x80, 0x100 },
     { L"Clear Bright 1", 0x100, 0x180 },
     { L"Clear Bright 2", 0x180, 0x200 },
+    { L"Clear Flash", 0x200, 0x280 },
     { L"Failed", 0x10480, 0x10580 },
 };
 
@@ -5467,13 +5468,27 @@ const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES_BIG[] =
     { L"Lin Select Portrait",               0x4e35c0, 0x4e39c0, indexKOF02UMSprites_Lin, 0x30 },
 };
 
-const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES[] =
+const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES_SELICON[] =
+{
+    { L"Select Icons Main", 0x209c0, 0x20a40 },
+    { L"Select Icons P2 Spawn", 0x30dc0, 0x30e40 },
+    { L"Select Icons Random 1/6", 0x4f39c0, 0x4f3a40 },
+    { L"Select Icons Random 2/6", 0x503dc0, 0x503e40 },
+    { L"Select Icons Random 3/6", 0x5141c0, 0x514240 },
+    { L"Select Icons Random 4/6", 0x5245c0, 0x524640 },
+    { L"Select Icons Random 5/6", 0x5349c0, 0x534a40 },
+    { L"Select Icons Random 6/6", 0x544dc0, 0x544e40 }, };
+
+const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES_MISC[] =
 {
     { L"Background 1",                  0x1c0, 0x5c0 },
     { L"Background 2",                  0x105c0, 0x109c0 },
-    { L"Player Select Icons",           0x209c0, 0x20a40 },
-    { L"Character Select Center",       0x619c0, 0x61ac0 },
-    { L"Character Select Center Red",   0x61ac0, 0x61bc0 },
+    { L"Background Border",             0x30fc0, 0x311c0 },
+    { L"Character Select Center",       0x619c0, 0x61dc0 },
+    { L"Selected Character Nameplates", 0x5551c0, 0x5555c0 },
+    { L"Names 1/2",                     0x411c0, 0x415c0 },
+    { L"Names 2/2",                     0x515c0, 0x519c0 },
+    { L"Misc. Text",                    0x30e40, 0x30f40 },
     { L"Select Portraits 1",            0x71dc0, 0x721c0, indexKOF02UMSprites_Bonus, 0x40, &pairNext3Palettes },
     { L"Select Portraits 2",            0x821c0, 0x825c0, indexKOF02UMSprites_Bonus, 0x41 },
     { L"Select Portraits 3",            0x925c0, 0x929c0, indexKOF02UMSprites_Bonus, 0x42 },
@@ -5484,7 +5499,8 @@ const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES[] =
 const sDescTreeNode KOF02UM_S_PSEL_COLLECTION[] =
 {
     { L"Big Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES_BIG, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES_BIG) },
-    { L"Misc", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES) },
+    { L"Select Icons", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES_SELICON, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES_SELICON) },
+    { L"Misc", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES_MISC, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES_MISC) },
 };
 
 const sDescTreeNode KOF02UM_S_UNITS_PSEL[] =
@@ -5516,15 +5532,19 @@ const sDescTreeNode KOF02UM_S_UNITS_MAX2[] =
 
 const sGame_PaletteDataset KOF02UM_S_RANK_PALETTES[] =
 {
-    { L"Rank Background", 0x80, 0x480 },
-    { L"Rank Background 2", 0x10480, 0x10880 },
-    { L"Rank Background 3", 0x41080, 0x41480 },
-    { L"Rank Extra", 0x20880, 0x20c80 },
+    { L"Background 1", 0x80, 0x480, -1, -1, &pairNext },
+    { L"Background 2", 0x10480, 0x10880 },
+// Merged preview like other screens
+    { L"Borders and Text", 0x20880, 0x20c80 },
+    { L"Ranking Text Fade 1", 0x30c80, 0x31080, -1, -1, &pairNext },
+    { L"Ranking Text Fade 2", 0xa2880, 0xa2c80 },
+// Merged Preview for Ranking Text Fades
+    { L"Background Extra", 0x41080, 0x41480 },
     { L"Rank Portraits 1", 0x51480, 0x51880 },
     { L"Rank Portraits 2", 0x61880, 0x61c80 },
     { L"Rank Portraits 3", 0x71c80, 0x72080 },
     { L"Rank Portraits 4", 0x82080, 0x82480 },
-    { L"Rank Portraits EX", 0x92480, 0x92880 },
+    { L"Rank Portraits EX and Text", 0x92480, 0x92880 },
 };
 
 const sDescTreeNode KOF02UM_S_RANK_COLLECTION[] =
@@ -5543,12 +5563,26 @@ const sDescTreeNode KOF02UM_S_UNITS_RANK[] =
 
 const sGame_PaletteDataset KOF02UM_S_CONTE_PALETTES[] =
 {
-    { L"Continue Screen", 0xc0, 0x4c0 },
+    { L"Continue Screen 1", 0xc0, 0x4c0, -1, -1, &pairNext },
     { L"Continue Screen 2", 0x104c0, 0x108c0 },
-    { L"TRY NEXT MATCH/SERVICE Text", 0x208c0, 0x20cc0 },
-    { L"TRY NEXT MATCH Screen", 0x410c0, 0x414c0 },
-    { L"TRY NEXT MATCH Extra", 0x820c0, 0x824c0 },
+// Merged Preview like other screens
+    { L"Continue/Service Text, Countdown 1", 0x208c0, 0x20cc0 },
+    { L"GOOD LUCK!, Countdown 2", 0x30cc0, 0x310c0 },
+    { L"Service Border, Countdown 3", 0x410c0, 0x414c0 },
+    { L"Service Stuff 1, Countdown 4", 0x514c0, 0x518c0 },
+    { L"Service Stuff 2, Countdown 5", 0x618c0, 0x61cc0 },
+    { L"Unselected Service Lines, Countdown 6", 0x71cc0, 0x720c0 },
+    { L"Selected Service Line,  Countdown 7", 0x820c0, 0x824c0 },
+    { L"Countdown 8", 0x924c0, 0x928c0 },
+    { L"Countdown 9", 0xa28c0, 0xa2cc0 },
+// Why so many Countdown-based hexes?
     { L"GAME OVER Border", 0xb2cc0, 0xb30c0 },
+    { L"GAME OVER Center, Service A/B Selected", 0xc30c0, 0xc34c0 },
+    { L"TRY NEXT MATCH Background 1", 0xd34c0, 0xd38c0, -1, -1, &pairNextAndNext },
+    { L"Service Background 1", 0xe38c0, 0xe3cc0 },
+    { L"TNM/Service BG 2, Service C/D Selected", 0xf3cc0, 0xf40c0 },
+// TRY NEXT MATCH and Service Background 2, Service C/D Selected; merged preview for all three hexes.
+    { L"Selectable Services", 0x1040c0, 0x1044c0 },
 };
 
 const sDescTreeNode KOF02UM_S_CONTE_COLLECTION[] =

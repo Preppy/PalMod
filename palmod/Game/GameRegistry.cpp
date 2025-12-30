@@ -1193,7 +1193,7 @@ namespace KnownGameInfo
         {
             KOF02UM_S,
             L"King of Fighters 2002UM (Steam)",
-            { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin;mess*.dat-n;mess*.dat;clear.bin;o-sel.bin-n;psel.bin-n;rank.bin;conte.bin;vic?_00.bin-n|", GamePlatform::Steam },
+            { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin;mess*.dat-n;mess*.dat;clear.bin;osel*.bin-n;psel*.bin-n;rank*.bin;cont*.bin*;vic?_00.bin-n|", GamePlatform::Steam },
             Make_KOF02UM_S,
             CGame_KOF02UM_S::GetRule,
         },
