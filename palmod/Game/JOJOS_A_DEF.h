@@ -1835,7 +1835,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
     { L"Midler - Tech/Zap A (1/2)", 0x33e480, 0x33e500, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap A (2/2)", 0x33e500, 0x33e580, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel A", 0x33e580, 0x33e600, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation A", 0x33e780, 0x33e800, indexJojos51Midler, 0x0b },
+    { L"Midler - Guard Cancel/Child Transformation A", 0x33e780, 0x33e800, indexJojos51Midler, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
@@ -1856,7 +1856,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
     { L"Midler - Tech/Zap B (1/2)", 0x352980, 0x352a00, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap B (2/2)", 0x352a00, 0x352a80, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel B", 0x352a80, 0x352b00, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation B", 0x352c80, 0x352d00, indexJojos51Midler, 0x0b },
+    { L"Midler - Guard Cancel/Child Transformation B", 0x352c80, 0x352d00, indexJojos51Midler, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
@@ -1877,7 +1877,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
     { L"Midler - Tech/Zap C (1/2)", 0x366e80, 0x366f00, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap C (2/2)", 0x366f00, 0x366f80, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel C", 0x366f80, 0x367000, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation C", 0x367180, 0x367200, indexJojos51Midler, 0x0b },
+    { L"Midler - Guard Cancel/Child Transformation C", 0x367180, 0x367200, indexJojos51Midler, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
@@ -1898,7 +1898,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
     { L"Midler - Tech/Zap S (1/2)", 0x37b380, 0x37b400, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap S (2/2)", 0x37b400, 0x37b480, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel S", 0x37b480, 0x37b500, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation S", 0x37b680, 0x37b700, indexJojos51Midler, 0x0b },
+    { L"Midler - Guard Cancel/Child Transformation S", 0x37b680, 0x37b700, indexJojos51Midler, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
@@ -1919,7 +1919,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
     { L"Midler - Tech/Zap Start (1/2)", 0x38f880, 0x38f900, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Tech/Zap Start (2/2)", 0x38f900, 0x38f980, indexJojos51Midler, indexJojos51Character_BurnZap },
     { L"Midler - Stand Tech/Guard Cancel Start", 0x38f980, 0x38fa00, indexJojos51Midler, 0x0b },
-    { L"Midler - Guard Cancel/Child Transformation Start", 0x38fb80, 0x38fc00, indexJojos51Midler, 0x0b },
+    { L"Midler - Guard Cancel/Child Transformation Start", 0x38fb80, 0x38fc00, indexJojos51Midler, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
@@ -2284,7 +2284,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
     { L"Vanilla Ice - Tech/Zap A (1/2)", 0x343c00, 0x343c80, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap A (2/2)", 0x343c80, 0x343d00, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel A", 0x343d00, 0x343d80, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation A", 0x343f00, 0x343f80, indexJojos51VIce, 0x0b },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation A", 0x343f00, 0x343f80, indexJojos51VIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
@@ -2299,7 +2299,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
     { L"Vanilla Ice - Tech/Zap B (1/2)", 0x358100, 0x358180, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap B (2/2)", 0x358180, 0x358200, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel B", 0x358200, 0x358280, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation B", 0x358400, 0x358480, indexJojos51VIce, 0x0b },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation B", 0x358400, 0x358480, indexJojos51VIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_C[] =
@@ -2314,7 +2314,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_C[] =
     { L"Vanilla Ice - Tech/Zap C (1/2)", 0x36c600, 0x36c680, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap C (2/2)", 0x36c680, 0x36c700, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel C", 0x36c700, 0x36c780, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation C", 0x36c900, 0x36c980, indexJojos51VIce, 0x0b },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation C", 0x36c900, 0x36c980, indexJojos51VIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_S[] =
@@ -2329,7 +2329,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_S[] =
     { L"Vanilla Ice - Tech/Zap S (1/2)", 0x380b00, 0x380b80, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap S (2/2)", 0x380b80, 0x380c00, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel S", 0x380c00, 0x380c80, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation S", 0x380e00, 0x380e80, indexJojos51VIce, 0x0b },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation S", 0x380e00, 0x380e80, indexJojos51VIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
@@ -2344,7 +2344,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
     { L"Vanilla Ice - Tech/Zap Start (1/2)", 0x395000, 0x395080, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Tech/Zap Start (2/2)", 0x395080, 0x395100, indexJojos51VIce, indexJojos51Character_BurnZap },
     { L"Vanilla Ice - Stand Tech/Guard Cancel Start", 0x395100, 0x395180, indexJojos51VIce, 0x0b },
-    { L"Vanilla Ice - Guard Cancel/Child Transformation Start", 0x395300, 0x395380, indexJojos51VIce, 0x0b },
+    { L"Vanilla Ice - Guard Cancel/Child Transformation Start", 0x395300, 0x395380, indexJojos51VIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =
@@ -3021,12 +3021,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_A[] =
     { L"Boss Ice - Challenger A", 0x412480, 0x412500 },
     { L"Boss Ice - Select/Winning A (1/2)", 0x412500, 0x412580 },
     { L"Boss Ice - Select/Winning A (2/2)", 0x412580, 0x412600 },
-    { L"Boss Ice - Burning A (1/2)", 0x33fa80, 0x33fb00 },
-    { L"Boss Ice - Burning A (2/2)", 0x33fb00, 0x33fb80 },
-    { L"Boss Ice - Tech/Zap A (1/2)", 0x33fd80, 0x33fe00 },
-    { L"Boss Ice - Tech/Zap A (2/2)", 0x33fe00, 0x33fe80 },
-    { L"Boss Ice - Stand Tech/Guard Cancel A", 0x33fe80, 0x33ff00, indexJojos51BIce, indexJojos51Character_BurnZap },
-    { L"Boss Ice - Guard Cancel/Child Transformation A", 0x340080, 0x340100 },
+    { L"Boss Ice - Burning A (1/2)", 0x33fa80, 0x33fb00, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Burning A (2/2)", 0x33fb00, 0x33fb80, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap A (1/2)", 0x33fd80, 0x33fe00, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap A (2/2)", 0x33fe00, 0x33fe80, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Stand Tech/Guard Cancel A", 0x33fe80, 0x33ff00, indexJojos51BIce, 0x0b },
+    { L"Boss Ice - Guard Cancel/Child Transformation A", 0x340080, 0x340100, indexJojos51BIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_B[] =
@@ -3036,12 +3036,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_B[] =
     { L"Boss Ice - Challenger B", 0x417280, 0x417300 },
     { L"Boss Ice - Select/Winning B (1/2)", 0x417300, 0x417380 },
     { L"Boss Ice - Select/Winning B (2/2)", 0x417380, 0x417400 },
-    { L"Boss Ice - Burning B (1/2)", 0x353f80, 0x354000 },
-    { L"Boss Ice - Burning B (2/2)", 0x354000, 0x354080 },
-    { L"Boss Ice - Tech/Zap B (1/2)", 0x354280, 0x354300 },
-    { L"Boss Ice - Tech/Zap B (2/2)", 0x354300, 0x354380 },
-    { L"Boss Ice - Stand Tech/Guard Cancel B", 0x354380, 0x354400, indexJojos51BIce, indexJojos51Character_BurnZap },
-    { L"Boss Ice - Guard Cancel/Child Transformation B", 0x354580, 0x354600 },
+    { L"Boss Ice - Burning B (1/2)", 0x353f80, 0x354000, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Burning B (2/2)", 0x354000, 0x354080, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap B (1/2)", 0x354280, 0x354300, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap B (2/2)", 0x354300, 0x354380, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Stand Tech/Guard Cancel B", 0x354380, 0x354400, indexJojos51BIce, 0x0b },
+    { L"Boss Ice - Guard Cancel/Child Transformation B", 0x354580, 0x354600, indexJojos51BIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_C[] =
@@ -3051,12 +3051,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_C[] =
     { L"Boss Ice - Challenger C", 0x41c080, 0x41c100 },
     { L"Boss Ice - Select/Winning C (1/2)", 0x41c100, 0x41c180 },
     { L"Boss Ice - Select/Winning C (2/2)", 0x41c180, 0x41c200 },
-    { L"Boss Ice - Burning C (1/2)", 0x368480, 0x368500 },
-    { L"Boss Ice - Burning C (2/2)", 0x368500, 0x368580 },
-    { L"Boss Ice - Tech/Zap C (1/2)", 0x368780, 0x368800 },
-    { L"Boss Ice - Tech/Zap C (2/2)", 0x368800, 0x368880 },
-    { L"Boss Ice - Stand Tech/Guard Cancel C", 0x368880, 0x368900, indexJojos51BIce, indexJojos51Character_BurnZap },
-    { L"Boss Ice - Guard Cancel/Child Transformation C", 0x368a80, 0x368b00 },
+    { L"Boss Ice - Burning C (1/2)", 0x368480, 0x368500, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Burning C (2/2)", 0x368500, 0x368580, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap C (1/2)", 0x368780, 0x368800, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap C (2/2)", 0x368800, 0x368880, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Stand Tech/Guard Cancel C", 0x368880, 0x368900, indexJojos51BIce, 0x0b },
+    { L"Boss Ice - Guard Cancel/Child Transformation C", 0x368a80, 0x368b00, indexJojos51BIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_S[] =
@@ -3066,12 +3066,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_S[] =
     { L"Boss Ice - Challenger S", 0x420e80, 0x420f00 },
     { L"Boss Ice - Select/Winning S (1/2)", 0x420f00, 0x420f80 },
     { L"Boss Ice - Select/Winning S (2/2)", 0x420f80, 0x421000 },
-    { L"Boss Ice - Burning S (1/2)", 0x37c980, 0x37ca00 },
-    { L"Boss Ice - Burning S (2/2)", 0x37ca00, 0x37ca80 },
-    { L"Boss Ice - Tech/Zap S (1/2)", 0x37cc80, 0x37cd00 },
-    { L"Boss Ice - Tech/Zap S (2/2)", 0x37cd00, 0x37cd80 },
-    { L"Boss Ice - Stand Tech/Guard Cancel S", 0x37cd80, 0x37ce00, indexJojos51BIce, indexJojos51Character_BurnZap },
-    { L"Boss Ice - Guard Cancel/Child Transformation S", 0x37cf80, 0x37d000 },
+    { L"Boss Ice - Burning S (1/2)", 0x37c980, 0x37ca00, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Burning S (2/2)", 0x37ca00, 0x37ca80, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap S (1/2)", 0x37cc80, 0x37cd00, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap S (2/2)", 0x37cd00, 0x37cd80, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Stand Tech/Guard Cancel S", 0x37cd80, 0x37ce00, indexJojos51BIce, 0x0b },
+    { L"Boss Ice - Guard Cancel/Child Transformation S", 0x37cf80, 0x37d000, indexJojos51BIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_Start[] =
@@ -3081,12 +3081,12 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_Start[] =
     { L"Boss Ice - Challenger Start", 0x425c80, 0x425d00 },
     { L"Boss Ice - Select/Winning Start (1/2)", 0x425d00, 0x425d80 },
     { L"Boss Ice - Select/Winning Start (2/2)", 0x425d80, 0x425e00 },
-    { L"Boss Ice - Burning Start (1/2)", 0x390e80, 0x390f00 },
-    { L"Boss Ice - Burning Start (2/2)", 0x390f00, 0x390f80 },
-    { L"Boss Ice - Tech/Zap Start (1/2)", 0x391180, 0x391200 },
-    { L"Boss Ice - Tech/Zap Start (2/2)", 0x391200, 0x391280 },
-    { L"Boss Ice - Stand Tech/Guard Cancel Start", 0x391280, 0x391300, indexJojos51BIce, indexJojos51Character_BurnZap },
-    { L"Boss Ice - Guard Cancel/Child Transformation Start", 0x391480, 0x391500 },
+    { L"Boss Ice - Burning Start (1/2)", 0x390e80, 0x390f00, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Burning Start (2/2)", 0x390f00, 0x390f80, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap Start (1/2)", 0x391180, 0x391200, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Tech/Zap Start (2/2)", 0x391200, 0x391280, indexJojos51BIce, indexJojos51Character_BurnZap },
+    { L"Boss Ice - Stand Tech/Guard Cancel Start", 0x391280, 0x391300, indexJojos51BIce, 0x0b },
+    { L"Boss Ice - Guard Cancel/Child Transformation Start", 0x391480, 0x391500, indexJojos51BIce, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_A[] =
