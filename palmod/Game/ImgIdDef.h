@@ -997,8 +997,8 @@ enum KOFSpriteList
 
     indexKOFSprites_01_Bonus,       // 0x1d5
     indexKOFSprites_01_Stages,      // 0x1d6
-    indexKOF02UMSprites_Bonus,     // 0x1d7
-    indexKOF02UMSprites_Stages,    // 0x1d8
+    indexKOF02UMSprites_Bonus,      // 0x1d7
+    indexKOF02UMSprites_Stages,     // 0x1d8
 
     indexLastBlade2_Akari,          // 0x1D9
     indexLastBlade2_GenbuOkina,     // 0x1DA 
