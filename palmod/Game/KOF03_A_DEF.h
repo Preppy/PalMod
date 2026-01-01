@@ -1751,18 +1751,18 @@ const sGame_PaletteDataset KOF03_A_GORO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_A[] =
 {
-    { L"Athena A", 0xe000, 0xe020, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena A", 0xe000, 0xe020, indexKOF03Sprites_Athena, 0x00, &pairNext8And9And10 },
     { L"Athena Extra 1 A", 0xe020, 0xe040 },
-    { L"Athena Electricity A", 0xe040, 0xe060, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Electricity A", 0xe040, 0xe060, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 2 A", 0xe060, 0xe080 },
-    { L"Athena Super Trail A", 0xe080, 0xe0a0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Super Trail A", 0xe080, 0xe0a0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 3 A", 0xe0a0, 0xe0c0 },
-    { L"Athena Shikai Palette A", 0xe0c0, 0xe0e0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Shikai Palette A", 0xe0c0, 0xe0e0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 4 A", 0xe0e0, 0xe100 },
 
-    { L"Psychic 10 Transformations 94-99 A", 0xe100, 0xe120 },
-    { L"Psychic 10 Transformations 00-02 A", 0xe120, 0xe140 },
-    { L"Maria and Asuka A", 0xe140, 0xe160 },
+    { L"Psychic 10 Transformations 94-99 A", 0xe100, 0xe120, indexKOF03Sprites_Athena, 0x01 },
+    { L"Psychic 10 Transformations 00-02 A", 0xe120, 0xe140, indexKOF03Sprites_Athena, 0x02 },
+    { L"Maria and Asuka A", 0xe140, 0xe160, indexKOF03Sprites_Athena, 0x03 },
     { L"Sailor Uniform A", 0xe160, 0xe180 },
     { L"Goddess Armor A", 0xe180, 0xe1a0 },
     { L"Bikini Outfit A", 0xe1a0, 0xe1c0 },
@@ -1774,18 +1774,18 @@ const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_B[] =
 {
-    { L"Athena B", 0xe200, 0xe220, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena B", 0xe200, 0xe220, indexKOF03Sprites_Athena, 0x00, &pairNext8And9And10 },
     { L"Athena Extra 1 B", 0xe220, 0xe240 },
-    { L"Athena Electricity B", 0xe240, 0xe260, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Electricity B", 0xe240, 0xe260, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 2 B", 0xe260, 0xe280 },
-    { L"Athena Super Trail B", 0xe280, 0xe2a0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Super Trail B", 0xe280, 0xe2a0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 3 B", 0xe2a0, 0xe2c0 },
-    { L"Athena Shikai Palette B", 0xe2c0, 0xe2e0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Shikai Palette B", 0xe2c0, 0xe2e0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 4 B", 0xe2e0, 0xe300 },
 
-    { L"Psychic 10 Transformations 94-99 B", 0xe300, 0xe320 },
-    { L"Psychic 10 Transformations 00-02 B", 0xe320, 0xe340 },
-    { L"Maria and Asuka B", 0xe340, 0xe360 },
+    { L"Psychic 10 Transformations 94-99 B", 0xe300, 0xe320, indexKOF03Sprites_Athena, 0x01 },
+    { L"Psychic 10 Transformations 00-02 B", 0xe320, 0xe340, indexKOF03Sprites_Athena, 0x02 },
+    { L"Maria and Asuka B", 0xe340, 0xe360, indexKOF03Sprites_Athena, 0x03 },
     { L"Sailor Uniform B", 0xe360, 0xe380 },
     { L"Goddess Armor B", 0xe380, 0xe3a0 },
     { L"Bikini Outfit B", 0xe3a0, 0xe3c0 },
@@ -1797,18 +1797,18 @@ const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_C[] =
 {
-    { L"Athena C", 0xe400, 0xe420, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena C", 0xe400, 0xe420, indexKOF03Sprites_Athena, 0x00, &pairNext8And9And10 },
     { L"Athena Extra 1 C", 0xe420, 0xe440 },
-    { L"Athena Electricity C", 0xe440, 0xe460, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Electricity C", 0xe440, 0xe460, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 2 C", 0xe460, 0xe480 },
-    { L"Athena Super Trail C", 0xe480, 0xe4a0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Super Trail C", 0xe480, 0xe4a0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 3 C", 0xe4a0, 0xe4c0 },
-    { L"Athena Shikai Palette C", 0xe4c0, 0xe4e0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Shikai Palette C", 0xe4c0, 0xe4e0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 4 C", 0xe4e0, 0xe500 },
 
-    { L"Psychic 10 Transformations 94-99 C", 0xe500, 0xe520 },
-    { L"Psychic 10 Transformations 00-02 C", 0xe520, 0xe540 },
-    { L"Maria and Asuka C", 0xe540, 0xe560 },
+    { L"Psychic 10 Transformations 94-99 C", 0xe500, 0xe520, indexKOF03Sprites_Athena, 0x01 },
+    { L"Psychic 10 Transformations 00-02 C", 0xe520, 0xe540, indexKOF03Sprites_Athena, 0x02 },
+    { L"Maria and Asuka C", 0xe540, 0xe560, indexKOF03Sprites_Athena, 0x03 },
     { L"Sailor Uniform C", 0xe560, 0xe580 },
     { L"Goddess Armor C", 0xe580, 0xe5a0 },
     { L"Bikini Outfit C", 0xe5a0, 0xe5c0 },
@@ -1820,18 +1820,18 @@ const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_D[] =
 {
-    { L"Athena D", 0xe600, 0xe620, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena D", 0xe600, 0xe620, indexKOF03Sprites_Athena, 0x00, &pairNext8And9And10 },
     { L"Athena Extra 1 D", 0xe620, 0xe640 },
-    { L"Athena Electricity D", 0xe640, 0xe660, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Electricity D", 0xe640, 0xe660, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 2 D", 0xe660, 0xe680 },
-    { L"Athena Super Trail D", 0xe680, 0xe6a0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Super Trail D", 0xe680, 0xe6a0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 3 D", 0xe6a0, 0xe6c0 },
-    { L"Athena Shikai Palette D", 0xe6c0, 0xe6e0, indexKOF03Sprites_Athena, 0x00 },
+    { L"Athena Shikai Palette D", 0xe6c0, 0xe6e0, indexKOF03Sprites_Athena, 0x08 },
     { L"Athena Extra 4 D", 0xe6e0, 0xe700 },
 
-    { L"Psychic 10 Transformations 94-99 D", 0xe700, 0xe720 },
-    { L"Psychic 10 Transformations 00-02 D", 0xe720, 0xe740 },
-    { L"Maria and Asuka D", 0xe740, 0xe760 },
+    { L"Psychic 10 Transformations 94-99 D", 0xe700, 0xe720, indexKOF03Sprites_Athena, 0x01 },
+    { L"Psychic 10 Transformations 00-02 D", 0xe720, 0xe740, indexKOF03Sprites_Athena, 0x02 },
+    { L"Maria and Asuka D", 0xe740, 0xe760, indexKOF03Sprites_Athena, 0x03 },
     { L"Sailor Uniform D", 0xe760, 0xe780 },
     { L"Goddess Armor D", 0xe780, 0xe7a0 },
     { L"Bikini Outfit D", 0xe7a0, 0xe7c0 },

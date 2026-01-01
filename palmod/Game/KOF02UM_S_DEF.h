@@ -5522,7 +5522,7 @@ const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES_MISC_SPN[] =
     { L"Select Portraits 1",            0x71dc0, 0x721c0, indexKOF02UMSprites_Bonus, 0x40, &pairNext3Palettes },
     { L"Select Portraits 2",            0x821c0, 0x825c0, indexKOF02UMSprites_Bonus, 0x41 },
     { L"Select Portraits 3",            0x925c0, 0x929c0, indexKOF02UMSprites_Bonus, 0x42 },
-    { L"Select Portraits 4",            0xa29c0, 0xa2dc0, indexKOF02UMSprites_Bonus, 0x43 },
+    { L"Select Portraits 4",            0xa29c0, 0xa2dc0, indexKOF02UMSprites_Bonus, 0xbb },
     { L"Select Portraits EX",           0xb2dc0, 0xb31c0, indexKOF02UMSprites_Bonus, 0x4e },
 };
 
