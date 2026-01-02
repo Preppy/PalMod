@@ -108,34 +108,34 @@ const std::vector<uint16_t> KOF02UM_S_IMGIDS_USED =
     indexKOF02Sprites_Andy,     // 48
     indexKOF02Sprites_Angel,    // 0x26
     indexKOF02Sprites_Athena,   // 0x27
-    indexKOF02Sprites_Chin,
-    indexKOF02Sprites_Clark,
-    indexKOF02Sprites_K,
-    indexKOF02Sprites_Kula,
-    indexKOF02Sprites_Kyo,
-    indexKOF02Sprites_Maxima,
-    indexKOF02Sprites_MayLee,
-    indexKOF02Sprites_Ralf,
-    indexKOF02Sprites_Ramon,
-    indexKOF02Sprites_Seth,
-    indexKOF02Sprites_Vanessa,
-    indexKOF02Sprites_Whip,
-    indexKOF02Sprites_Lin,
-    indexKOF02Sprites_Nameless,
-    indexKOF02Sprites_King,
-    indexKOF02Sprites_Robert,
-    indexKOF02Sprites_Xiangfei,
-    indexKOF02Sprites_Goenitz,
-    indexKOF02Sprites_Bao,
-    indexKOF02Sprites_Foxy,
-    indexKOF02Sprites_Geese,
-    indexKOF02Sprites_Hinako,
-    indexKOF02Sprites_Igniz,
-    indexKOF02Sprites_Jhun,
-    indexKOF02Sprites_Kasumi,
-    indexKOF02Sprites_Krizalid,
-    indexKOF02Sprites_OZero,
-    indexKOF02Sprites_Yuri,
+    indexKOF02Sprites_Chin,     // 49
+    indexKOF02Sprites_Clark,    // 0x28
+    indexKOF02Sprites_K,        // 0x29
+    indexKOF02Sprites_Kula,     // 0x2a
+    indexKOF02Sprites_Kyo,      // 0x2b
+    indexKOF02Sprites_Maxima,   // 0x2c
+    indexKOF02Sprites_MayLee,   // 0x2d
+    indexKOF02Sprites_Ralf,     // 0x2e
+    indexKOF02Sprites_Ramon,    // 0x2f
+    indexKOF02Sprites_Seth,     // 0x30
+    indexKOF02Sprites_Vanessa,  // 0x31
+    indexKOF02Sprites_Whip,     // 0x32
+    indexKOF02Sprites_Lin,      // 0x33
+    indexKOF02Sprites_Nameless, // 0x34
+    indexKOF02Sprites_King,     // 0x35
+    indexKOF02Sprites_Robert,   // 4b
+    indexKOF02Sprites_Xiangfei, // 0x36
+    indexKOF02Sprites_Goenitz,  // 0x37
+    indexKOF02Sprites_Bao,      // 38
+    indexKOF02Sprites_Foxy,     // 39
+    indexKOF02Sprites_Geese,    // 3a
+    indexKOF02Sprites_Hinako,   // 3b
+    indexKOF02Sprites_Igniz,    // 3c
+    indexKOF02Sprites_Jhun,     // 3d
+    indexKOF02Sprites_Kasumi,   // 3e
+    indexKOF02Sprites_Krizalid, // 3f
+    indexKOF02Sprites_OZero,    // 40
+    indexKOF02Sprites_Yuri,     // 4c
 
     indexKOF02UMSprites_Andy,      // 0x79
     indexKOF02UMSprites_Angel,     // 0x7A
@@ -5228,72 +5228,72 @@ const sDescTreeNode KOF02UM_S_OROCHIIORI_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_S_MAX2PORTRAIT_PALETTES[] =
 {
-    { L"Kyo MAX2 portrait", 0x57ee0, 0x580e0 },
-    { L"Benimaru MAX2 portrait", 0x580e0, 0x582e0 },
-    { L"Daimon MAX2 portrait", 0x582e0, 0x584e0 },
-    { L"Terry MAX2 portrait", 0x584e0, 0x586e0 },
-    { L"Andy MAX2 portrait", 0x586e0, 0x588e0 },
-    { L"Joe MAX2 portrait", 0x588e0, 0x58ae0 },
-    { L"Kim MAX2 portrait", 0x58ae0, 0x58ce0 },
-    { L"Chang MAX2 portrait", 0x58ce0, 0x58ee0 },
-    { L"Choi MAX2 portrait", 0x58ee0, 0x590e0 },
-    { L"Athena MAX2 portrait", 0x590e0, 0x592e0 },
-    { L"Kensou MAX2 portrait", 0x592e0, 0x594e0 },
-    { L"Chin MAX2 portrait", 0x594e0, 0x596e0 },
-    { L"Leona MAX2 portrait", 0x596e0, 0x598e0 },
-    { L"Ralf MAX2 portrait", 0x598e0, 0x59ae0 },
-    { L"Clark MAX2 portrait", 0x59ae0, 0x59ce0 },
-    { L"Ryo MAX2 portrait", 0x59ce0, 0x59ee0 },
-    { L"Robert MAX2 portrait", 0x59ee0, 0x5a0e0 },
-    { L"Takuma MAX2 portrait", 0x5a0e0, 0x5a2e0 },
-    { L"Mai MAX2 portrait", 0x5a2e0, 0x5a4e0 },
-    { L"Yuri MAX2 portrait", 0x5a4e0, 0x5a6e0 },
-    { L"May Lee MAX2 portrait", 0x5a6e0, 0x5a8e0 },
-    { L"Iori MAX2 portrait", 0x5a8e0, 0x5aae0 },
-    { L"Mature MAX2 portrait", 0x5aae0, 0x5ace0 },
-    { L"Vice MAX2 portrait", 0x5ace0, 0x5aee0 },
-    { L"Yamazaki MAX2 portrait", 0x5aee0, 0x5b0e0 },
-    { L"Blue Mary MAX2 portrait", 0x5b0e0, 0x5b2e0 },
-    { L"Billy MAX2 portrait", 0x5b2e0, 0x5b4e0 },
-    { L"Yashiro MAX2 portrait", 0x5b4e0, 0x5b6e0 },
-    { L"Shermie MAX2 portrait", 0x5b6e0, 0x5b8e0 },
-    { L"Chris MAX2 portrait", 0x5b8e0, 0x5bae0 },
-    { L"K' MAX2 portrait", 0x5bae0, 0x5bce0 },
-    { L"Maxima MAX2 portrait", 0x5bce0, 0x5bee0 },
-    { L"Whip MAX2 portrait", 0x5bee0, 0x5c0e0 },
-    { L"Vanessa MAX2 portrait", 0x5c0e0, 0x5c2e0 },
-    { L"Seth MAX2 portrait", 0x5c2e0, 0x5c4e0 },
-    { L"Ramon MAX2 portrait", 0x5c4e0, 0x5c6e0 },
-    { L"Kula MAX2 portrait", 0x5c6e0, 0x5c8e0 },
-    { L"Nameless MAX2 portrait", 0x5c8e0, 0x5cae0 },
-    { L"Angel MAX2 portrait", 0x5cae0, 0x5cce0 },
-    { L"Omega Rugal MAX2 portrait", 0x5cce0, 0x5cee0 },
-    { L"KUSANAGI MAX2 portrait", 0x5cee0, 0x5d0e0 },
-    { L"Shingo MAX2 portrait", 0x5d0e0, 0x5d2e0 },
-    { L"King MAX2 portrait", 0x5d2e0, 0x5d4e0 },
-    { L"Xiangfei MAX2 portrait", 0x5d4e0, 0x5d6e0 },
-    { L"Hinako MAX2 portrait", 0x5d6e0, 0x5d8e0 },
-    { L"Heidern MAX2 portrait", 0x5d8e0, 0x5dae0 },
-    { L"Lin MAX2 portrait", 0x5dae0, 0x5dce0 },
-    { L"EX Takuma MAX2 portrait", 0x5dce0, 0x5dee0 },
-    { L"Bao MAX2 portrait", 0x5dee0, 0x5e0e0 },
-    { L"Jhun MAX2 portrait", 0x5e0e0, 0x5e2e0 },
-    { L"Kyo-1 MAX2 portrait", 0x5e2e0, 0x5e4e0 },
-    { L"Foxy MAX2 portrait", 0x5e4e0, 0x5e6e0 },
-    { L"Kasumi MAX2 portrait", 0x5e6e0, 0x5e8e0 },
-    { L"Geese MAX2 portrait", 0x5e8e0, 0x5eae0 },
-    { L"Nightmare Geese MAX2 portrait", 0x5eae0, 0x5ece0 },
-    { L"EX Robert MAX2 portrait", 0x5ece0, 0x5eee0 },
-    { L"EX Kensou MAX2 portrait", 0x5eee0, 0x5f0e0 },
-    { L"Kyo-2 MAX2 portrait", 0x5f0e0, 0x5f2e0 },
-    { L"Goenitz MAX2 portrait", 0x5f2e0, 0x5f4e0 },
-    { L"Krizalid MAX2 portrait", 0x5f4e0, 0x5f6e0 },
-    { L"Clone Zero MAX2 portrait", 0x5f6e0, 0x5f8e0 },
-    { L"Original Zero MAX2 portrait", 0x5f8e0, 0x5fae0 },
-    { L"Igniz MAX2 portrait", 0x5fae0, 0x5fce0 },
-    { L"Orochi Yashiro MAX2 portrait", 0x5fee0, 0x600e0 },
-    { L"Orochi Shermie MAX2 portrait", 0x600e0, 0x602e0 },
-    { L"Orochi Chris MAX2 portrait", 0x602e0, 0x604e0 },
+    { L"Kyo MAX2 portrait",             0x57ee0, 0x580e0, indexKOF02UMSprites_KyoKusa, 0x50 },
+    { L"Benimaru MAX2 portrait",        0x580e0, 0x582e0, indexKOF02UMSprites_Benimaru, 0x50 },
+    { L"Daimon MAX2 portrait",          0x582e0, 0x584e0, indexKOF02UMSprites_Daimon, 0x50 },
+    { L"Terry MAX2 portrait",           0x584e0, 0x586e0, indexKOF02UMSprites_Terry, 0x50 },
+    { L"Andy MAX2 portrait",            0x586e0, 0x588e0, indexKOF02UMSprites_Andy, 0x50 },
+    { L"Joe MAX2 portrait",             0x588e0, 0x58ae0, indexKOF02UMSprites_Joe, 0x50 },
+    { L"Kim MAX2 portrait",             0x58ae0, 0x58ce0, indexKOF02UMSprites_Kim, 0x50 },
+    { L"Chang MAX2 portrait",           0x58ce0, 0x58ee0, indexKOF02UMSprites_Chang, 0x50 },
+    { L"Choi MAX2 portrait",            0x58ee0, 0x590e0, indexKOF02UMSprites_Choi, 0x50 },
+    { L"Athena MAX2 portrait",          0x590e0, 0x592e0, indexKOF02UMSprites_Athena, 0x50 },
+    { L"Kensou MAX2 portrait",          0x592e0, 0x594e0, indexKOF02UMSprites_Kensou, 0x50 },
+    { L"Chin MAX2 portrait",            0x594e0, 0x596e0, indexKOF02UMSprites_Chin, 0x50 },
+    { L"Leona MAX2 portrait",           0x596e0, 0x598e0, indexKOF02UMSprites_Leona, 0x50 },
+    { L"Ralf MAX2 portrait",            0x598e0, 0x59ae0, indexKOF02UMSprites_Ralf, 0x50 },
+    { L"Clark MAX2 portrait",           0x59ae0, 0x59ce0, indexKOF02UMSprites_Clark, 0x50 },
+    { L"Ryo MAX2 portrait",             0x59ce0, 0x59ee0, indexKOF02UMSprites_Ryo, 0x50 },
+    { L"Robert MAX2 portrait",          0x59ee0, 0x5a0e0, indexKOF02UMSprites_Robert, 0x50 },
+    { L"Takuma MAX2 portrait",          0x5a0e0, 0x5a2e0, indexKOF02UMSprites_Takuma, 0x50 },
+    { L"Mai MAX2 portrait",             0x5a2e0, 0x5a4e0, indexKOF02UMSprites_Mai, 0x50 },
+    { L"Yuri MAX2 portrait",            0x5a4e0, 0x5a6e0, indexKOF02UMSprites_Yuri, 0x50 },
+    { L"May Lee MAX2 portrait",         0x5a6e0, 0x5a8e0, indexKOF02UMSprites_MayLee, 0x50 },
+    { L"Iori MAX2 portrait",            0x5a8e0, 0x5aae0, indexKOF02UMSprites_Iori, 0x50 },
+    { L"Mature MAX2 portrait",          0x5aae0, 0x5ace0, indexKOF02UMSprites_Mature, 0x50 },
+    { L"Vice MAX2 portrait",            0x5ace0, 0x5aee0, indexKOF02UMSprites_Vice, 0x50 },
+    { L"Yamazaki MAX2 portrait",        0x5aee0, 0x5b0e0, indexKOF02UMSprites_Yamazaki, 0x50 },
+    { L"Blue Mary MAX2 portrait",       0x5b0e0, 0x5b2e0, indexKOF02UMSprites_BlueMary, 0x50 },
+    { L"Billy MAX2 portrait",           0x5b2e0, 0x5b4e0, indexKOF02UMSprites_Billy, 0x50 },
+    { L"Yashiro MAX2 portrait",         0x5b4e0, 0x5b6e0, indexKOF02UMSprites_Yashiro, 0x50 },
+    { L"Shermie MAX2 portrait",         0x5b6e0, 0x5b8e0, indexKOF02UMSprites_Shermie, 0x50 },
+    { L"Chris MAX2 portrait",           0x5b8e0, 0x5bae0, indexKOF02UMSprites_Chris, 0x50 },
+    { L"K' MAX2 portrait",              0x5bae0, 0x5bce0, indexKOF02UMSprites_K, 0x50 },
+    { L"Maxima MAX2 portrait",          0x5bce0, 0x5bee0, indexKOF02UMSprites_Maxima, 0x50 },
+    { L"Whip MAX2 portrait",            0x5bee0, 0x5c0e0, indexKOF02UMSprites_Whip, 0x50 },
+    { L"Vanessa MAX2 portrait",         0x5c0e0, 0x5c2e0, indexKOF02UMSprites_Vanessa, 0x50 },
+    { L"Seth MAX2 portrait",            0x5c2e0, 0x5c4e0, indexKOF02UMSprites_Seth, 0x50 },
+    { L"Ramon MAX2 portrait",           0x5c4e0, 0x5c6e0, indexKOF02UMSprites_Ramon, 0x50 },
+    { L"Kula MAX2 portrait",            0x5c6e0, 0x5c8e0, indexKOF02UMSprites_Kula, 0x50 },
+    { L"Nameless MAX2 portrait",        0x5c8e0, 0x5cae0, indexKOF02UMSprites_Nameless, 0x50 },
+    { L"Angel MAX2 portrait",           0x5cae0, 0x5cce0, indexKOF02UMSprites_Angel, 0x50 },
+    { L"Omega Rugal MAX2 portrait",     0x5cce0, 0x5cee0, indexKOF02UMSprites_OmegaRugal, 0x50 },
+    { L"KUSANAGI MAX2 portrait",        0x5cee0, 0x5d0e0, indexKOF02UMSprites_Kusanagi, 0x50 },
+    { L"Shingo MAX2 portrait",          0x5d0e0, 0x5d2e0, indexKOF02UMSprites_Shingo, 0x50 },
+    { L"King MAX2 portrait",            0x5d2e0, 0x5d4e0, indexKOF02UMSprites_King, 0x50 },
+    { L"Xiangfei MAX2 portrait",        0x5d4e0, 0x5d6e0, indexKOF02UMSprites_Xiangfei, 0x50 },
+    { L"Hinako MAX2 portrait",          0x5d6e0, 0x5d8e0, indexKOF02UMSprites_Hinako, 0x50 },
+    { L"Heidern MAX2 portrait",         0x5d8e0, 0x5dae0, indexKOF02UMSprites_Heidern, 0x50 },
+    { L"Lin MAX2 portrait",             0x5dae0, 0x5dce0, indexKOF02UMSprites_Lin, 0x50 },
+    { L"EX Takuma MAX2 portrait",       0x5dce0, 0x5dee0, indexKOF02UMSprites_TakumaEX, 0x50 },
+    { L"Bao MAX2 portrait",             0x5dee0, 0x5e0e0, indexKOF02UMSprites_Bao, 0x50 },
+    { L"Jhun MAX2 portrait",            0x5e0e0, 0x5e2e0, indexKOF02UMSprites_Jhun, 0x50 },
+    { L"Kyo-1 MAX2 portrait",           0x5e2e0, 0x5e4e0, indexKOF02UMSprites_Kyo1, 0x50 },
+    { L"Foxy MAX2 portrait",            0x5e4e0, 0x5e6e0, indexKOF02UMSprites_Foxy, 0x50 },
+    { L"Kasumi MAX2 portrait",          0x5e6e0, 0x5e8e0, indexKOF02UMSprites_Kasumi, 0x50 },
+    { L"Geese MAX2 portrait",           0x5e8e0, 0x5eae0, indexKOF02UMSprites_Geese, 0x50 },
+    { L"Nightmare Geese MAX2 portrait", 0x5eae0, 0x5ece0, indexKOF02UMSprites_GeeseNM, 0x50 },
+    { L"EX Robert MAX2 portrait",       0x5ece0, 0x5eee0, indexKOF02UMSprites_RobertEX, 0x50 },
+    { L"EX Kensou MAX2 portrait",       0x5eee0, 0x5f0e0, indexKOF02UMSprites_KensouEX, 0x50 },
+    { L"Kyo-2 MAX2 portrait",           0x5f0e0, 0x5f2e0, indexKOF02UMSprites_Kyo2, 0x50 },
+    { L"Goenitz MAX2 portrait",         0x5f2e0, 0x5f4e0, indexKOF02UMSprites_Goenitz, 0x50 },
+    { L"Krizalid MAX2 portrait",        0x5f4e0, 0x5f6e0, indexKOF02UMSprites_Krizalid, 0x50 },
+    { L"Clone Zero MAX2 portrait",      0x5f6e0, 0x5f8e0, indexKOF02UMSprites_CloneZero, 0x50 },
+    { L"Original Zero MAX2 portrait",   0x5f8e0, 0x5fae0, indexKOF02UMSprites_ZeroOG, 0x50 },
+    { L"Igniz MAX2 portrait",           0x5fae0, 0x5fce0, indexKOF02UMSprites_Igniz, 0x50 },
+    { L"Orochi Yashiro MAX2 portrait",  0x5fee0, 0x600e0, indexKOF02UMSprites_YashiroOChi, 0x50 },
+    { L"Orochi Shermie MAX2 portrait",  0x600e0, 0x602e0, indexKOF02UMSprites_ShermieOChi, 0x50 },
+    { L"Orochi Chris MAX2 portrait",    0x602e0, 0x604e0, indexKOF02UMSprites_ChrisOChi, 0x50 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =

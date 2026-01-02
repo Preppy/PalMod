@@ -580,7 +580,7 @@ enum KOFSpriteList
     indexKOF02Sprites_Shingo,   // 46
     indexKOF01Sprites_Xiangfei, // 47
     indexKOF02Sprites_Andy,     // 48
-    indexKOF02Sprites_Chin,     // 49 
+    indexKOF02Sprites_Chin,     // 49
     indexKOF02Sprites_UNUSED,   // 4a old Kusanagi definition - see at 0x156 KUSANAGI
     indexKOF02Sprites_Robert,   // 4b
     indexKOF02Sprites_Yuri,     // 4c
