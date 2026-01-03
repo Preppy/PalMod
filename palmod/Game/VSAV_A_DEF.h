@@ -5862,8 +5862,6 @@ const sDescTreeNode VSAV_A_STAGE_COLLECTION[] =
     { L"War Agony: Animation palettes",             DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY_PARTS) },
     { L"EX War Agony",                              DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY_EX) },
     { L"EX War Agony: Animation palettes",          DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY_EX_PARTS) },
-
-    // Fetus of God
 };
 
 const sDescTreeNode VSAV_A_UNITS[] =
