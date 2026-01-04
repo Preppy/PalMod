@@ -1908,7 +1908,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     {
         for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
-            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
@@ -1930,7 +1930,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     {
         for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
         {
-            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             m_pppDataBuffer24[nUnitCtr] = new uint32_t * [nPalAmt];
 
