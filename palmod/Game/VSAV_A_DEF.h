@@ -32,9 +32,9 @@ const std::vector<uint16_t> VSAV_A_IMGIDS_USED =
 
     indexCPS2Sprites_VSAV1_WinPortraits, // 0x78
     indexCPS2Sprites_VSAV1_MidnightBliss, // 0x79
-    indexCPS2Sprites_Vamp_DarkGallon,
+    indexCPS2Sprites_Vamp_DarkGallon,       // 0x7a
     indexCPS2Sprites_Vamp_OboroBishamon, // 0x7b
-    indexCPS2Sprites_Anita,
+    indexCPS2Sprites_Anita,                 // 0x51
     indexCPS2Sprites_VSAV1_Bonus,   // 0x7c
     indexCPS2Sprites_VSAV1_Stages,  // 0x81
 };
@@ -4650,7 +4650,6 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_EX_PARTS[] =
 
     { L"SS.3.0.1", 0x2170a + 0x1b20,  0x217ea + 0x1b20 },
 };
-
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FOREVER[] =
 {
