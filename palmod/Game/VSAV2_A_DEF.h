@@ -1226,6 +1226,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_LP[] =
 // Warning: the remapped delta shifts from 0xabf0 to 0x163b0!
   // Match at 0x3233a, 0x3235a (delta 0x163b0)
   // Match at 0x344fa, 0x3451a (delta 0x18570)
+  // TODO: the palettes after each Intro/ES entry are the wing palettes!
     { L"LP Intro/ES 412PP 1", 0x3233a, 0x3235a, indexCPS2Sprites_Vamp_QBee, 0x00 }, /* Delta: 0x163b0 */
     { L"LP Intro/ES 412PP 2", 0x3237a, 0x3239a, indexCPS2Sprites_Vamp_QBee, 0x00 }, /* Delta: 0x163b0 */
     { L"LP Intro/ES 412PP 3", 0x323ba, 0x323da, indexCPS2Sprites_Vamp_QBee, 0x00 }, /* Delta: 0x163b0 */
@@ -6537,6 +6538,40 @@ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
     { L"SS.4.6.1", 0x3a2fa, 0x3a31a, indexCPS2Sprites_VSAV1_Stages, 0x25 },
  };
 
+ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FETUS[] =
+ {
+     // these are all hand-tweaked
+    { L"32BG.0.0.1", 0x6c032, 0x6c0d2, indexCPS2Sprites_VSAV1_Stages, 0xa9, &pairFullyLinkedNode },
+    { L"32BG.0.0.2", 0x6c232, 0x6c252, indexCPS2Sprites_VSAV1_Stages, 0xaa },
+    { L"8BG.0.0.1", 0x4eb62, 0x4ed42, indexCPS2Sprites_VSAV1_Stages, 0xab },
+    { L"8BG.0.0.2", 0x4ed62, 0x4ede2, indexCPS2Sprites_VSAV1_Stages, 0xac },
+    { L"16BG.0.0.1", 0x5bbca, 0x5bd8a, indexCPS2Sprites_VSAV1_Stages, 0xad },
+    { L"16BG.0.0.2", 0x5bdca, 0x5bf0a, indexCPS2Sprites_VSAV1_Stages, 0xae },
+    { L"SS.0.0.0", 0x3803a, 0x3817a, indexCPS2Sprites_VSAV1_Stages, 0xaf },
+ };
+
+ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FETUS_PARTS[] =
+ {
+     // these are all hand-tweaked
+    { L"16x16 Fades", 0x5bfca, 0x5c06a },
+    // This looks wrong but is mapped correctly?
+    { L"32BG Fades", 0x75a32, 0x75a92 },
+    { L"32BG.0.0.2", 0x69e32, 0x69e72 },
+    { L"8BG (Unknown 2)", 0x4ed42, 0x4ed62 },
+    { L"32BG.1.1.1", 0x6e712, 0x6e732, indexCPS2Sprites_VSAV1_Stages, -1, &pairNextAndNext },
+    { L"32BG.1.1.2", 0x6e752, 0x6e772 },
+    { L"32BG.1.1.3", 0x6e792, 0x6e7b2 },
+    { L"32BG.1.2.1", 0x6e732, 0x6e752, indexCPS2Sprites_VSAV1_Stages, -1, &pairNextAndNext },
+    { L"32BG.1.2.2", 0x6e772, 0x6e792 },
+    { L"32BG.1.2.3", 0x6e7b2, 0x6e7d2 },
+    { L"8BG.1.1.1", 0x4f362, 0x4f442, indexCPS2Sprites_VSAV1_Stages, -1, &pairNext },
+    { L"8BG.1.1.2", 0x4f442, 0x4f522 },
+    { L"SS.1.0.1", 0x38d7a, 0x38dba, indexCPS2Sprites_VSAV1_Stages, -1, &pairNext },
+    { L"SS.1.0.2", 0x38dba, 0x38dfa },
+    { L"SS.2.0.1", 0x38cba, 0x38d7a },
+    { L"SS.3.0.1", 0x38dfa, 0x38eda },
+ };
+     
 const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FETUS_EX[] =
 {
     { L"32BG.0.0.1", 0x73292, 0x73332, indexCPS2Sprites_VSAV1_Stages, 0xa9, &pairFullyLinkedNode },
@@ -6551,9 +6586,10 @@ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FETUS_EX[] =
 const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FETUS_EX_PARTS[] =
 {
     { L"16x16 Fades", 0x621ca, 0x6226a },
-    { L"32BG Fades", 0x75a32, 0x75a92 },
     // hand-swapped
-    { L"32BG.0.0.2", 0x71092, 0x710d2 }, /* Delta: 0x11ad0 */
+    { L"32BG Fades", 0x6e7d2, 0x6e832 },
+    // hand-swapped
+        { L"32BG.0.0.2", 0x71092, 0x710d2 }, /* Delta: 0x11ad0 */
     { L"8BG (Unknown 2)", 0x54662, 0x54682 },
     { L"32BG.1.1.1", 0x75972, 0x75992, indexCPS2Sprites_VSAV1_Stages, -1, &pairNextAndNext },
     { L"32BG.1.1.2", 0x759b2, 0x759d2 },
@@ -8453,7 +8489,7 @@ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_IRONHORSE_EX_PARTS[] =
   // Match at 0x6cf12, 0x6cf32 (delta 0x116d0)
     { L"32BG.1.1.1", 0x6cf12, 0x6cf32, indexCPS2Sprites_VSAV1_Stages, 0x69, &pairNext3Palettes }, /* Delta: 0xf830 */
     // hand-tweaked due to color change
-     { L"32BG.1.1.2", 0x5b8e2 + 0x116d0, 0x5B902 + 0x116d0, indexCPS2Sprites_VSAV1_Stages, 0x6a }, /* Delta: 0xf830 */
+    { L"32BG.1.1.2", 0x5b8e2 + 0x116d0, 0x5B902 + 0x116d0, indexCPS2Sprites_VSAV1_Stages, 0x6a }, /* Delta: 0xf830 */
 // Warning: the remapped delta shifts from 0xf830 to 0xf870!
   // Match at 0x6b1f2, 0x6b212 (delta 0xf870)
   // Match at 0x6d052, 0x6d072 (delta 0x116d0)
@@ -8592,6 +8628,122 @@ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_IRONHORSE_EX_PARTS[] =
     { L"SS.1.5.1", 0x3a71a, 0x3a73a, indexCPS2Sprites_VSAV1_Stages, 0x73 }, /* Delta: 0x17830 */
  };
 
+ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FOREVER[] =
+ {
+    { L"16BG.0.0.0", 0x5afca, 0x5b14a, indexCPS2Sprites_VSAV1_Stages, 0x4a, &pairFullyLinkedNode },
+
+    { L"32BG.0.0.1", 0x6b432, 0x6b592, indexCPS2Sprites_VSAV1_Stages, 0x4c },
+    { L"32BG.0.0.2", 0x6b592, 0x6b6f2, indexCPS2Sprites_VSAV1_Stages, 0x4d },
+
+    { L"SS.0.0.0", 0x37c7a, 0x37dba, indexCPS2Sprites_VSAV1_Stages, 0x58 },
+
+    { L"8BG.0.0.1", 0x4df62, 0x4e0c2, indexCPS2Sprites_VSAV1_Stages, 0x5f },
+    { L"8BG.0.0.2", 0x4e0c2, 0x4e282, indexCPS2Sprites_VSAV1_Stages, 0x60 },
+ };
+
+ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FOREVER_PARTS[] =
+ {
+    { L"32BG.1.1.1", 0x6cc32, 0x6cc52, indexCPS2Sprites_VSAV1_Stages, 0x4e, &pairNext7Palettes }, /* Delta: 0x116d0 */
+    { L"32BG.1.1.2", 0x6cc72, 0x6cc92, indexCPS2Sprites_VSAV1_Stages, 0x4f }, /* Delta: 0x116d0 */
+    { L"32BG.1.1.3", 0x6ccb2, 0x6ccd2, indexCPS2Sprites_VSAV1_Stages, 0x50 }, /* Delta: 0x116d0 */
+    { L"32BG.1.1.4", 0x6ccf2, 0x6cd12, indexCPS2Sprites_VSAV1_Stages, 0x51 }, /* Delta: 0x116d0 */
+    { L"32BG.1.1.5", 0x6cd32, 0x6cd52, indexCPS2Sprites_VSAV1_Stages, 0x52 }, /* Delta: 0x116d0 */
+    //Palette "32BG.1.1.6" not found in new ROM.
+    { L"32BG.1.1.6", 0x6cd72, 0x6cd92, indexCPS2Sprites_VSAV1_Stages, 0x53 }, /* Delta: 0x116d0 */
+    { L"32BG.1.1.7", 0x6cdb2, 0x6cdd2, indexCPS2Sprites_VSAV1_Stages, 0x54 }, /* Delta: 0x116d0 */
+    { L"32BG.1.1.8", 0x6cdf2, 0x6ce12, indexCPS2Sprites_VSAV1_Stages, 0x55 }, /* Delta: 0x116d0 */
+    { L"32BG.1.2.1", 0x6cc52, 0x6cc72, indexCPS2Sprites_VSAV1_Stages, 0x4e, &pairNext7Palettes }, /* Delta: 0x116d0 */
+    { L"32BG.1.2.2", 0x6cc92, 0x6ccb2, indexCPS2Sprites_VSAV1_Stages, 0x4f }, /* Delta: 0x116d0 */
+    { L"32BG.1.2.3", 0x6ccd2, 0x6ccf2, indexCPS2Sprites_VSAV1_Stages, 0x50 }, /* Delta: 0x116d0 */
+    { L"32BG.1.2.4", 0x6cd12, 0x6cd32, indexCPS2Sprites_VSAV1_Stages, 0x51 }, /* Delta: 0x116d0 */
+    { L"32BG.1.2.5", 0x6cd52, 0x6cd72, indexCPS2Sprites_VSAV1_Stages, 0x52 }, /* Delta: 0x116d0 */
+    //Palette "32BG.1.2.6" not found in new ROM.
+    { L"32BG.1.2.6", 0x6cd92, 0x6cdb2, indexCPS2Sprites_VSAV1_Stages, 0x53 }, /* Delta: 0x116d0 */
+    { L"32BG.1.2.7", 0x6cdd2, 0x6cdf2, indexCPS2Sprites_VSAV1_Stages, 0x54 }, /* Delta: 0x116d0 */
+    { L"32BG.1.2.8", 0x6ce12, 0x6ce32, indexCPS2Sprites_VSAV1_Stages, 0x55 }, /* Delta: 0x116d0 */
+    { L"32BG.2.1.1", 0x6ce32, 0x6ce52, indexCPS2Sprites_VSAV1_Stages, 0x56, &pairNext }, /* Delta: 0x116d0 */
+    // Warning: the remapped delta shifts from 0x116d0 to 0xfe90!
+    // Match at 0x6b632, 0x6b652 (delta 0xfe90)
+    // Match at 0x6ce72, 0x6ce92 (delta 0x116d0) <-- swapped to use this one
+    { L"32BG.2.1.2", 0x6ce72, 0x6ce92, indexCPS2Sprites_VSAV1_Stages, 0x57 }, /* Delta: 0x116d0 */
+    { L"32BG.2.2.1", 0x6ce52, 0x6ce72, indexCPS2Sprites_VSAV1_Stages, 0x56, &pairNext }, /* Delta: 0x116d0 */
+    { L"32BG.2.2.2", 0x6ce92, 0x6ceb2, indexCPS2Sprites_VSAV1_Stages, 0x57 }, /* Delta: 0x116d0 */
+
+    { L"16BG.1.1.1", 0x5c06a, 0x5c08a, indexCPS2Sprites_VSAV1_Stages, 0x4b },
+    { L"16BG.1.2.1", 0x5c22a, 0x5c24a, indexCPS2Sprites_VSAV1_Stages, 0x4b },
+
+    { L"SS.1.1.1", 0x38ada, 0x38afa, indexCPS2Sprites_VSAV1_Stages, 0x59, &pairNext5Palettes },
+    { L"SS.1.1.2", 0x38b1a, 0x38b3a, indexCPS2Sprites_VSAV1_Stages, 0x5a },
+    { L"SS.1.1.3", 0x38b5a, 0x38b7a, indexCPS2Sprites_VSAV1_Stages, 0x5b },
+    { L"SS.1.1.4", 0x38b9a, 0x38bba, indexCPS2Sprites_VSAV1_Stages, 0x5c },
+    { L"SS.1.1.5", 0x38bda, 0x38bfa, indexCPS2Sprites_VSAV1_Stages, 0x5d },
+    { L"SS.1.1.6", 0x38c1a, 0x38c3a, indexCPS2Sprites_VSAV1_Stages, 0x5e },
+
+    { L"SS.1.2.1", 0x38afa, 0x38b1a, indexCPS2Sprites_VSAV1_Stages, 0x59, &pairNext5Palettes },
+    { L"SS.1.2.2", 0x38b3a, 0x38b5a, indexCPS2Sprites_VSAV1_Stages, 0x5a },
+    { L"SS.1.2.3", 0x38b7a, 0x38b9a, indexCPS2Sprites_VSAV1_Stages, 0x5b },
+    { L"SS.1.2.4", 0x38bba, 0x38bda, indexCPS2Sprites_VSAV1_Stages, 0x5c },
+    { L"SS.1.2.5", 0x38bfa, 0x38c1a, indexCPS2Sprites_VSAV1_Stages, 0x5d },
+    { L"SS.1.2.6", 0x38c3a, 0x38c5a, indexCPS2Sprites_VSAV1_Stages, 0x5e },
+ };
+
+ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FOREVER_EX[] =
+ {
+    { L"16BG.0.0.0", 0x611ca, 0x6134a, indexCPS2Sprites_VSAV1_Stages, 0x4a, &pairFullyLinkedNode },
+
+    { L"32BG.0.0.1", 0x72692, 0x727f2, indexCPS2Sprites_VSAV1_Stages, 0x4c },
+    { L"32BG.0.0.2", 0x727f2, 0x72952, indexCPS2Sprites_VSAV1_Stages, 0x4d },
+
+    { L"SS.0.0.0", 0x398da, 0x39a1a, indexCPS2Sprites_VSAV1_Stages, 0x58 },
+
+    { L"8BG.0.0.1", 0x53882, 0x539e2, indexCPS2Sprites_VSAV1_Stages, 0x5f },
+    { L"8BG.0.0.2", 0x539e2, 0x53ba2, indexCPS2Sprites_VSAV1_Stages, 0x60 },
+ };
+
+ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_FOREVER_EX_PARTS[] =
+ {
+    // these are recolored for VSAV2
+    { L"32BG.1.1.1", 0x73e92, 0x73eb2, indexCPS2Sprites_VSAV1_Stages, 0x4e, &pairNext7Palettes },
+    { L"32BG.1.1.2", 0x73ed2, 0x73ef2, indexCPS2Sprites_VSAV1_Stages, 0x4f },
+    { L"32BG.1.1.3", 0x73f12, 0x73f32, indexCPS2Sprites_VSAV1_Stages, 0x50 },
+    { L"32BG.1.1.4", 0x73f52, 0x73f72, indexCPS2Sprites_VSAV1_Stages, 0x51 },
+    { L"32BG.1.1.5", 0x73f92, 0x73fb2, indexCPS2Sprites_VSAV1_Stages, 0x52 },
+    { L"32BG.1.1.6", 0x73fd2, 0x73ff2, indexCPS2Sprites_VSAV1_Stages, 0x53 },
+    { L"32BG.1.1.7", 0x74012, 0x74032, indexCPS2Sprites_VSAV1_Stages, 0x54 },
+    { L"32BG.1.1.8", 0x74052, 0x74072, indexCPS2Sprites_VSAV1_Stages, 0x55 },
+
+    { L"32BG.1.2.1", 0x73eb2, 0x73ed2, indexCPS2Sprites_VSAV1_Stages, 0x4e, &pairNext7Palettes },
+    { L"32BG.1.2.2", 0x73ef2, 0x73f12, indexCPS2Sprites_VSAV1_Stages, 0x4f },
+    { L"32BG.1.2.3", 0x73f32, 0x73f52, indexCPS2Sprites_VSAV1_Stages, 0x50 },
+    { L"32BG.1.2.4", 0x73f72, 0x73f92, indexCPS2Sprites_VSAV1_Stages, 0x51 },
+    { L"32BG.1.2.5", 0x73fb2, 0x73fd2, indexCPS2Sprites_VSAV1_Stages, 0x52 },
+    { L"32BG.1.2.6", 0x73ff2, 0x74012, indexCPS2Sprites_VSAV1_Stages, 0x53 },
+    { L"32BG.1.2.7", 0x74032, 0x74052, indexCPS2Sprites_VSAV1_Stages, 0x54 },
+    { L"32BG.1.2.8", 0x74072, 0x74092, indexCPS2Sprites_VSAV1_Stages, 0x55 },
+
+    { L"32BG.2.1.1", 0x74092, 0x740b2, indexCPS2Sprites_VSAV1_Stages, 0x56, &pairNext },
+    { L"32BG.2.1.2", 0x740d2, 0x740f2, indexCPS2Sprites_VSAV1_Stages, 0x57 },
+    { L"32BG.2.2.1", 0x740b2, 0x740d2, indexCPS2Sprites_VSAV1_Stages, 0x56, &pairNext },
+    { L"32BG.2.2.2", 0x740f2, 0x74112, indexCPS2Sprites_VSAV1_Stages, 0x57 },
+
+    { L"16BG.1.1.1", 0x6226a, 0x6228a, indexCPS2Sprites_VSAV1_Stages, 0x4b },
+    { L"16BG.1.2.1", 0x6242a, 0x6244a, indexCPS2Sprites_VSAV1_Stages, 0x4b },
+
+    { L"SS.1.1.1", 0x3a73a, 0x3a75a, indexCPS2Sprites_VSAV1_Stages, 0x59, &pairNext5Palettes },
+    { L"SS.1.1.2", 0x3a77a, 0x3a79a, indexCPS2Sprites_VSAV1_Stages, 0x5a },
+    { L"SS.1.1.3", 0x3a7ba, 0x3a7da, indexCPS2Sprites_VSAV1_Stages, 0x5b },
+    { L"SS.1.1.4", 0x3a7fa, 0x3a81a, indexCPS2Sprites_VSAV1_Stages, 0x5c },
+    { L"SS.1.1.5", 0x3a83a, 0x3a85a, indexCPS2Sprites_VSAV1_Stages, 0x5d },
+    { L"SS.1.1.6", 0x3a87a, 0x3a89a, indexCPS2Sprites_VSAV1_Stages, 0x5e },
+
+    { L"SS.1.2.1", 0x3a75a, 0x3a77a, indexCPS2Sprites_VSAV1_Stages, 0x59, &pairNext5Palettes },
+    { L"SS.1.2.2", 0x3a79a, 0x3a7ba, indexCPS2Sprites_VSAV1_Stages, 0x5a },
+    { L"SS.1.2.3", 0x3a7da, 0x3a7fa, indexCPS2Sprites_VSAV1_Stages, 0x5b },
+    { L"SS.1.2.4", 0x3a81a, 0x3a83a, indexCPS2Sprites_VSAV1_Stages, 0x5c },
+    { L"SS.1.2.5", 0x3a85a, 0x3a87a, indexCPS2Sprites_VSAV1_Stages, 0x5d },
+    { L"SS.1.2.6", 0x3a89a, 0x3a8ba, indexCPS2Sprites_VSAV1_Stages, 0x5e },
+ };
+
 const sDescTreeNode VSAV2_A_STAGE_COLLECTION[] =
 {
     // Note that VSAV2 flips the EX stage switch from VSAV!
@@ -8613,17 +8765,15 @@ const sDescTreeNode VSAV2_A_STAGE_COLLECTION[] =
     { L"EX: Feast of the Damned",                       DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FEAST, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FEAST) },
     { L"EX: Feast of the Damned: Animation palettes",   DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FEAST_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FEAST_PARTS) },
 
-    // Fetus non-EX doesn't seem to exist in this form?  There's a few of the Animation Parts though
     { L"Fetus of God",                    DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FETUS_EX, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FETUS_EX) },
     { L"Fetus of God: Animation palettes", DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FETUS_EX_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FETUS_EX_PARTS) },
-    //{ L"EX: Fetus of God",                       DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FETUS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FETUS) },
-    //{ L"EX: Fetus of God: Animation palettes",   DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FETUS_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FETUS_PARTS) },
+    { L"EX: Fetus of God",                       DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FETUS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FETUS) },
+    { L"EX: Fetus of God: Animation palettes",   DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FETUS_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FETUS_PARTS) },
 
-    // Most of these can't be found: color shift?
-    //{ L"Forever Torment",                    DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER_EX, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER_EX) },
-    //{ L"Forever Torment: Animation palettes", DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER_EX_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER_EX_PARTS) },
-    //{ L"EX: Forever Torment",                       DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER) },
-    //{ L"EX: Forever Torment: Animation palettes",   DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER_PARTS) },
+    { L"Forever Torment",                    DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER_EX, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER_EX) },
+    { L"Forever Torment: Animation palettes", DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER_EX_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER_EX_PARTS) },
+    { L"EX: Forever Torment",                       DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER) },
+    { L"EX: Forever Torment: Animation palettes",   DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_FOREVER_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_FOREVER_PARTS) },
 
     { L"Green Scream",                           DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_SCREAM_EX, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_SCREAM_EX) },
     { L"Green Scream: Animation palettes",       DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_SCREAM_EX_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_SCREAM_EX_PARTS) },

@@ -4588,17 +4588,6 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS[] =
     { L"SS.0.0.0", 0x20A8A, 0x20BCA, indexCPS2Sprites_VSAV1_Stages, 0xaf },
 };
 
-const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_EX[] =
-{
-    { L"32BG.0.0.1", 0x5a962 + 0x6e60, 0x5aa02 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, 0xa9, &pairFullyLinkedNode },
-    { L"32BG.0.0.2", 0x5ab62 + 0x6e60, 0x5ab82 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, 0xaa },
-    { L"8BG.0.0.1", 0x38492 + 0x5520, 0x38672 + 0x5520, indexCPS2Sprites_VSAV1_Stages, 0xab },
-    { L"8BG.0.0.2", 0x38692 + 0x5520, 0x38712 + 0x5520, indexCPS2Sprites_VSAV1_Stages, 0xac },
-    { L"16BG.0.0.1", 0x484fa + 0x5e00, 0x486ba + 0x5e00, indexCPS2Sprites_VSAV1_Stages, 0xad },
-    { L"16BG.0.0.2", 0x486fa + 0x5e00, 0x4883a + 0x5e00, indexCPS2Sprites_VSAV1_Stages, 0xae },
-    { L"SS.0.0.0", 0x20A8A + 0x1b20, 0x20BCA + 0x1b20, indexCPS2Sprites_VSAV1_Stages, 0xaf },
-};
-
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_PARTS[] =
 {
     { L"16x16 Fades", 0x488fa, 0x4899a },
@@ -4625,9 +4614,21 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_PARTS[] =
     { L"SS.3.0.1", 0x2170a,  0x217ea },
 };
 
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_EX[] =
+{
+    { L"32BG.0.0.1", 0x5a962 + 0x6e60, 0x5aa02 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, 0xa9, &pairFullyLinkedNode },
+    { L"32BG.0.0.2", 0x5ab62 + 0x6e60, 0x5ab82 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, 0xaa },
+    { L"8BG.0.0.1", 0x38492 + 0x5520, 0x38672 + 0x5520, indexCPS2Sprites_VSAV1_Stages, 0xab },
+    { L"8BG.0.0.2", 0x38692 + 0x5520, 0x38712 + 0x5520, indexCPS2Sprites_VSAV1_Stages, 0xac },
+    { L"16BG.0.0.1", 0x484fa + 0x5e00, 0x486ba + 0x5e00, indexCPS2Sprites_VSAV1_Stages, 0xad },
+    { L"16BG.0.0.2", 0x486fa + 0x5e00, 0x4883a + 0x5e00, indexCPS2Sprites_VSAV1_Stages, 0xae },
+    { L"SS.0.0.0", 0x20A8A + 0x1b20, 0x20BCA + 0x1b20, indexCPS2Sprites_VSAV1_Stages, 0xaf },
+};
+
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_EX_PARTS[] =
 {
     { L"16x16 Fades", 0x488fa + 0x5e00, 0x4899a + 0x5e00 },
+    // This looks wrong but is mapped correctly?
     { L"32BG Fades", 0x5d102 + 0x6e60, 0x5d162 + 0x6e60 },
     { L"32BG.0.0.2", 0x58762 + 0x6e60, 0x587a2 + 0x6e60 },
     { L"8BG (Unknown 2)", 0x38672 + 0x5520, 0x38692 + 0x5520 },
