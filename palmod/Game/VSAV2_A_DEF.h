@@ -4991,10 +4991,15 @@ const sGame_PaletteDataset VSAV2_A_BONUS_TITLES_PALETTES[] =
 
 const sGame_PaletteDataset VSAV2_A_HUD_PALETTES[] =
 {
-    // bugbugbugbugbugbug check: these were a set of 8
-    { L"Life Bar Blending 1", 0x3dcba, 0x3dcda }, /* Delta: 0x14830 */
-    { L"Life Bar Blending 2", 0x3dcda, 0x3dcfa }, /* Delta: 0x14830 */
-    { L"Life Bar Blending 3", 0x3dcfa, 0x3dd1a }, /* Delta: 0x14830 */
+    { L"Lifebar and super meter", 0x3091a, 0x3093a }, // hand-crafted: color-changed
+    { L"Life Bar Blending 1/8", 0x3dc1a, 0x3dc3a }, // these next 5 hand-crafted
+    { L"Life Bar Blending 2/8", 0x3dc3a, 0x3dc5a },
+    { L"Life Bar Blending 3/8", 0x3dc5a, 0x3dc7a },
+    { L"Life Bar Blending 4/8", 0x3dc7a, 0x3dc9a },
+    { L"Life Bar Blending 5/8", 0x3dc9a, 0x3dcba },
+    { L"Life Bar Blending 6/8", 0x3dcba, 0x3dcda }, /* Delta: 0x14830 */
+    { L"Life Bar Blending 7/8", 0x3dcda, 0x3dcfa }, /* Delta: 0x14830 */
+    { L"Life Bar Blending 8/8", 0x3dcfa, 0x3dd1a }, /* Delta: 0x14830 */
     { L"Fire", 0x3097a, 0x3099a, indexCPS2Sprites_VSAV1_Bonus, 0x00 }, /* Delta: 0x16230 */
     { L"Fire Glow 1", 0x3e47a, 0x3e49a, indexCPS2Sprites_VSAV1_Bonus, 0x00 }, /* Delta: 0x14830 */
     { L"Fire Glow 2", 0x3e49a, 0x3e4ba, indexCPS2Sprites_VSAV1_Bonus, 0x00 }, /* Delta: 0x14830 */
