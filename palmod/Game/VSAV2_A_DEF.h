@@ -8744,6 +8744,32 @@ const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_IRONHORSE_EX_PARTS[] =
     { L"SS.1.2.6", 0x3a89a, 0x3a8ba, indexCPS2Sprites_VSAV1_Stages, 0x5e },
  };
 
+const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_ROOST[] =
+{
+    // This stage is unique to vsav2/vhunt2
+    // This is all silver but is loaded into memory
+    { L"Background (512) 1/3", 0x64fca, 0x651ca, indexCPS2Sprites_VSAV1_Stages, 0xb0, &pairFullyLinkedNode },
+    { L"Background (512) 2/3", 0x56da2, 0x56fa2, indexCPS2Sprites_VSAV1_Stages, 0xb1 },
+    { L"Background (512) 3/3", 0x56fa2, 0x571a2, indexCPS2Sprites_VSAV1_Stages, 0xb2 },
+    { L"Unused?", 0x776f2, 0x778f2, indexCPS2Sprites_VSAV1_Stages, 0xb3 },
+    { L"Throne/coffin", 0x774f2, 0x776f2, indexCPS2Sprites_VSAV1_Stages, 0xb4 },
+    { L"Statues", 0x39dda, 0x39f1a, indexCPS2Sprites_VSAV1_Stages, 0xb5 },
+    { L"Bridge (1024)", 0x651ca, 0x653ca, indexCPS2Sprites_VSAV1_Stages, 0xb6 },
+};
+
+const sGame_PaletteDataset VSAV2_A_STAGE_PALETTES_ROOST_EX[] =
+{
+    // This stage is unique to vsav2/vhunt2
+    // This is all silver but is loaded into memory
+    { L"Background (512) 1/3", 0x5edca, 0x5efca, indexCPS2Sprites_VSAV1_Stages, 0xb0, &pairFullyLinkedNode },
+    { L"Background (512) 2/3", 0x51482, 0x51682, indexCPS2Sprites_VSAV1_Stages, 0xb1 },
+    { L"Background (512) 3/3", 0x51682, 0x51882, indexCPS2Sprites_VSAV1_Stages, 0xb2 },
+    { L"Unused?", 0x70492, 0x70692, indexCPS2Sprites_VSAV1_Stages, 0xb3 },
+    { L"Throne/coffin", 0x70292, 0x70492, indexCPS2Sprites_VSAV1_Stages, 0xb4 },
+    { L"Statues", 0x3817a, 0x382ba, indexCPS2Sprites_VSAV1_Stages, 0xb5 },
+    { L"Bridge (1024)", 0x5efca, 0x5f1ca, indexCPS2Sprites_VSAV1_Stages, 0xb6 },
+};
+
 const sDescTreeNode VSAV2_A_STAGE_COLLECTION[] =
 {
     // Note that VSAV2 flips the EX stage switch from VSAV!
@@ -8790,7 +8816,11 @@ const sDescTreeNode VSAV2_A_STAGE_COLLECTION[] =
     { L"EX: Red Thirst",                                DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_REDTHIRST, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_REDTHIRST) },
     { L"EX: Red Thirst: Animation palettes",            DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_REDTHIRST_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_REDTHIRST_PARTS) },
 
-    // Revenger's Roost
+    // Revenger's Roost: VHUNT2/VSAV2 unique
+    // Note that this is the only stage set using logic normal<->normal ex<->ex mapping.  Everything else 
+    // is flipped since I was too lazy to move all the palettes around to match VSAV2 flipping normal<->ex.
+    { L"Revenger's Roost",                      DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_ROOST, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_ROOST) },
+    { L"EX Revenger's Roost",                   DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_ROOST_EX, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_ROOST_EX) },
 
     { L"Tower of Arrogance",                     DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_TOWER_EX, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_TOWER_EX) },
     { L"Tower of Arrogance: Animation palettes", DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_PALETTES_TOWER_EX_PARTS, ARRAYSIZE(VSAV2_A_STAGE_PALETTES_TOWER_EX_PARTS) },
