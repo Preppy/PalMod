@@ -2318,8 +2318,7 @@ namespace KnownGameInfo
         {
             VHUNT2_A,
             L"Vampire Hunter 2 (CPS2 Arcade)",
-            // vh2j.10 (the Stages ROM) is deliberately not exposed as we haven't built out a map for the many many shifts in locations from VSAV
-            { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2 (CPS2)|vh2j.09|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+            { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2 (CPS2: Characters (09), Stages (10))|vh2j.09;vh2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
             Make_VHUNT2_A,
             CGame_VHUNT2_A::GetRule,
         },

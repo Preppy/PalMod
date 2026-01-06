@@ -573,7 +573,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_AK[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LP[] =
 {
     { L"LP Morrigan", 0x1859a, 0x185ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LP Sparkles/Darkness Illusion", 0x185ba, 0x185da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"LP Sparkles/Darkness Illusion", 0x185ba, 0x185da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"LP Bats", 0x185da, 0x185fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LP Unknown Extra", 0x185fa, 0x1861a },
     { L"LP Select Portrait", 0x4121a, 0x4123a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -583,7 +583,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LP[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MP[] =
 {
     { L"MP Morrigan", 0x1861a, 0x1863a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MP Sparkles/Darkness Illusion", 0x1863a, 0x1865a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"MP Sparkles/Darkness Illusion", 0x1863a, 0x1865a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"MP Bats", 0x1865a, 0x1867a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MP Unknown Extra", 0x1867a, 0x1869a },
     { L"MP Select Portrait", 0x4141a, 0x4143a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -593,7 +593,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MP[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HP[] =
 {
     { L"HP Morrigan", 0x1869a, 0x186ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HP Sparkles/Darkness Illusion", 0x186ba, 0x186da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"HP Sparkles/Darkness Illusion", 0x186ba, 0x186da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"HP Bats", 0x186da, 0x186fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HP Unknown Extra", 0x186fa, 0x1871a },
     { L"HP Select Portrait", 0x4161a, 0x4163a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -603,7 +603,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HP[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LK[] =
 {
     { L"LK Morrigan", 0x1871a, 0x1873a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LK Sparkles/Darkness Illusion", 0x1873a, 0x1875a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"LK Sparkles/Darkness Illusion", 0x1873a, 0x1875a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"LK Bats", 0x1875a, 0x1877a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LK Unknown Extra", 0x1877a, 0x1879a },
     { L"LK Select Portrait", 0x4181a, 0x4183a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -613,7 +613,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LK[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MK[] =
 {
     { L"MK Morrigan", 0x1879a, 0x187ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MK Sparkles/Darkness Illusion", 0x187ba, 0x187da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"MK Sparkles/Darkness Illusion", 0x187ba, 0x187da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"MK Bats", 0x187da, 0x187fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MK Unknown Extra", 0x187fa, 0x1881a },
     { L"MK Select Portrait", 0x41a1a, 0x41a3a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -623,7 +623,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MK[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HK[] =
 {
     { L"HK Morrigan", 0x1881a, 0x1883a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HK Sparkles/Darkness Illusion", 0x1883a, 0x1885a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"HK Sparkles/Darkness Illusion", 0x1883a, 0x1885a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"HK Bats", 0x1885a, 0x1887a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HK Unknown Extra", 0x1887a, 0x1889a },
     { L"HK Select Portrait", 0x41c1a, 0x41c3a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -633,7 +633,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_PP[] =
 {
     { L"PP Morrigan", 0x1889a, 0x188ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"PP Sparkles/Darkness Illusion", 0x188ba, 0x188da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"PP Sparkles/Darkness Illusion", 0x188ba, 0x188da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"PP Bats", 0x188da, 0x188fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"PP Unknown Extra", 0x188fa, 0x1891a },
     { L"PP Select Portrait", 0x41e1a, 0x41e3a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -643,7 +643,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_PP[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_KK[] =
 {
     { L"KK Morrigan", 0x1891a, 0x1893a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"KK Sparkles/Darkness Illusion", 0x1893a, 0x1895a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"KK Sparkles/Darkness Illusion", 0x1893a, 0x1895a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"KK Bats", 0x1895a, 0x1897a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"KK Unknown Extra", 0x1897a, 0x1899a },
     { L"KK Select Portrait", 0x4201a, 0x4203a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -653,7 +653,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_KK[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AP[] =
 {
     { L"AP Morrigan", 0x1899a, 0x189ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AP Sparkles/Darkness Illusion", 0x189ba, 0x189da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"AP Sparkles/Darkness Illusion", 0x189ba, 0x189da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"AP Bats", 0x189da, 0x189fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AP Unknown Extra", 0x189fa, 0x18a1a },
     { L"AP Select Portrait", 0x4221a, 0x4223a, indexCPS2Sprites_Morrigan, 0x20 },
@@ -663,7 +663,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AP[] =
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AK[] =
 {
     { L"AK Morrigan", 0x18a1a, 0x18a3a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AK Sparkles/Darkness Illusion", 0x18a3a, 0x18a5a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"AK Sparkles/Darkness Illusion", 0x18a3a, 0x18a5a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"AK Bats", 0x18a5a, 0x18a7a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AK Unknown Extra", 0x18a7a, 0x18a9a },
     { L"AK Select Portrait", 0x4241a, 0x4243a, indexCPS2Sprites_Morrigan, 0x20 },

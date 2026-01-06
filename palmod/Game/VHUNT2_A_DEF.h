@@ -1,6 +1,6 @@
 #pragma once
 
-#include "VSAV_A_DEF.h" // for stage data
+#include "VSAV2_A_DEF.h" // for stage data
 
 // To add characters or palette lists:
 // * Update the SupportedPaletteListIndex with the new index name.
@@ -449,7 +449,7 @@ const sGame_PaletteDataset VHUNT2_A_ZABEL_PALETTES_AK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LP[] =
 {
     { L"LP Morrigan", 0x1859a, 0x185ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LP Sparkles/Darkness Illusion", 0x185ba, 0x185da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"LP Sparkles/Darkness Illusion", 0x185ba, 0x185da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"LP Bats", 0x185da, 0x185fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LP Unknown Extra", 0x185fa, 0x1861a },
 };
@@ -457,7 +457,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MP[] =
 {
     { L"MP Morrigan", 0x1861a, 0x1863a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MP Sparkles/Darkness Illusion", 0x1863a, 0x1865a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"MP Sparkles/Darkness Illusion", 0x1863a, 0x1865a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"MP Bats", 0x1865a, 0x1867a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MP Unknown Extra", 0x1867a, 0x1869a },
 };
@@ -465,7 +465,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HP[] =
 {
     { L"HP Morrigan", 0x1869a, 0x186ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HP Sparkles/Darkness Illusion", 0x186ba, 0x186da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"HP Sparkles/Darkness Illusion", 0x186ba, 0x186da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"HP Bats", 0x186da, 0x186fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HP Unknown Extra", 0x186fa, 0x1871a },
 };
@@ -473,7 +473,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LK[] =
 {
     { L"LK Morrigan", 0x1871a, 0x1873a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LK Sparkles/Darkness Illusion", 0x1873a, 0x1875a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"LK Sparkles/Darkness Illusion", 0x1873a, 0x1875a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"LK Bats", 0x1875a, 0x1877a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LK Unknown Extra", 0x1877a, 0x1879a },
 };
@@ -481,7 +481,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MK[] =
 {
     { L"MK Morrigan", 0x1879a, 0x187ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MK Sparkles/Darkness Illusion", 0x187ba, 0x187da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"MK Sparkles/Darkness Illusion", 0x187ba, 0x187da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"MK Bats", 0x187da, 0x187fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MK Unknown Extra", 0x187fa, 0x1881a },
 };
@@ -489,7 +489,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HK[] =
 {
     { L"HK Morrigan", 0x1881a, 0x1883a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HK Sparkles/Darkness Illusion", 0x1883a, 0x1885a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"HK Sparkles/Darkness Illusion", 0x1883a, 0x1885a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"HK Bats", 0x1885a, 0x1887a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HK Unknown Extra", 0x1887a, 0x1889a },
 };
@@ -497,7 +497,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_PP[] =
 {
     { L"PP Morrigan", 0x1889a, 0x188ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"PP Sparkles/Darkness Illusion", 0x188ba, 0x188da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"PP Sparkles/Darkness Illusion", 0x188ba, 0x188da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"PP Bats", 0x188da, 0x188fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"PP Unknown Extra", 0x188fa, 0x1891a },
 };
@@ -505,7 +505,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_PP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_KK[] =
 {
     { L"KK Morrigan", 0x1891a, 0x1893a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"KK Sparkles/Darkness Illusion", 0x1893a, 0x1895a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"KK Sparkles/Darkness Illusion", 0x1893a, 0x1895a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"KK Bats", 0x1895a, 0x1897a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"KK Unknown Extra", 0x1897a, 0x1899a },
 };
@@ -513,7 +513,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_KK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_AP[] =
 {
     { L"AP Morrigan", 0x1899a, 0x189ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AP Sparkles/Darkness Illusion", 0x189ba, 0x189da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"AP Sparkles/Darkness Illusion", 0x189ba, 0x189da, indexCPS2Sprites_Morrigan, 0x02 },
     { L"AP Bats", 0x189da, 0x189fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AP Unknown Extra", 0x189fa, 0x18a1a },
 };
@@ -521,7 +521,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_AP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_AK[] =
 {
     { L"AK Morrigan", 0x18a1a, 0x18a3a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AK Sparkles/Darkness Illusion", 0x18a3a, 0x18a5a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"AK Sparkles/Darkness Illusion", 0x18a3a, 0x18a5a, indexCPS2Sprites_Morrigan, 0x02 },
     { L"AK Bats", 0x18a5a, 0x18a7a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AK Unknown Extra", 0x18a7a, 0x18a9a },
 };
@@ -2087,9 +2087,38 @@ const sDescTreeNode VHUNT2_A_UNITS[] =
 
 const sDescTreeNode VHUNT2_10_A_UNITS[] =
 {
-    // This doesn't work and so it's not exposed in GameRegistry
-    // Various stuff *does* align via our handling of shifts, but there are a looooot of shifts
-    // plus the whole "new" Revenger's Roost stage so it'd be a significant pain to perfect this
-    // such that it's ready to use.
-    { L"Stages",            DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_COLLECTION,         ARRAYSIZE(VSAV_A_STAGE_COLLECTION) },
+    // We get to reuse all the VSAV2 data, luckily enough
+    { L"Stages",            DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_COLLECTION,         ARRAYSIZE(VSAV2_A_STAGE_COLLECTION) },
+};
+
+const sDescTreeNode VHUNT2_S_MONO_UNITS[] =
+{
+    { L"Demitri",            DESC_NODETYPE_TREE, (void*)VHUNT2_A_DEMITRI_COLLECTION,       ARRAYSIZE(VHUNT2_A_DEMITRI_COLLECTION) },
+    { L"Gallon",             DESC_NODETYPE_TREE, (void*)VHUNT2_A_GALLON_COLLECTION,        ARRAYSIZE(VHUNT2_A_GALLON_COLLECTION) }, // Jon Talbain
+    { L"Victor",             DESC_NODETYPE_TREE, (void*)VHUNT2_A_VICTOR_COLLECTION,        ARRAYSIZE(VHUNT2_A_VICTOR_COLLECTION) },
+    { L"Zabel",              DESC_NODETYPE_TREE, (void*)VHUNT2_A_ZABEL_COLLECTION,         ARRAYSIZE(VHUNT2_A_ZABEL_COLLECTION) }, // Lord Raptor
+    { L"Morrigan",           DESC_NODETYPE_TREE, (void*)VHUNT2_A_MORRIGAN_COLLECTION,      ARRAYSIZE(VHUNT2_A_MORRIGAN_COLLECTION) },
+    { L"Anakaris",           DESC_NODETYPE_TREE, (void*)VHUNT2_A_ANAKARIS_COLLECTION,      ARRAYSIZE(VHUNT2_A_ANAKARIS_COLLECTION) },
+    { L"Felicia",            DESC_NODETYPE_TREE, (void*)VHUNT2_A_FELICIA_COLLECTION,       ARRAYSIZE(VHUNT2_A_FELICIA_COLLECTION) },
+    { L"Bishamon",           DESC_NODETYPE_TREE, (void*)VHUNT2_A_BISHAMON_COLLECTION,      ARRAYSIZE(VHUNT2_A_BISHAMON_COLLECTION) },
+    { L"Aulbath",            DESC_NODETYPE_TREE, (void*)VHUNT2_A_AULBATH_COLLECTION,       ARRAYSIZE(VHUNT2_A_AULBATH_COLLECTION) }, // Rikuo
+    { L"Sasquatch",          DESC_NODETYPE_TREE, (void*)VHUNT2_A_SASQUATCH_COLLECTION,     ARRAYSIZE(VHUNT2_A_SASQUATCH_COLLECTION) },
+
+    { L"Alt Zabel",          DESC_NODETYPE_TREE, (void*)VHUNT2_A_ALTZABEL_COLLECTION,      ARRAYSIZE(VHUNT2_A_ALTZABEL_COLLECTION) },
+
+    { L"Lei-Lei",            DESC_NODETYPE_TREE, (void*)VHUNT2_A_LEILEI_COLLECTION,        ARRAYSIZE(VHUNT2_A_LEILEI_COLLECTION) }, // Hsien-Ko
+
+    { L"Phobos",             DESC_NODETYPE_TREE, (void*)VHUNT2_A_PHOBOS_COLLECTION,        ARRAYSIZE(VHUNT2_A_PHOBOS_COLLECTION) },
+    { L"Pyron",              DESC_NODETYPE_TREE, (void*)VHUNT2_A_PYRON_COLLECTION,         ARRAYSIZE(VHUNT2_A_PYRON_COLLECTION) },
+    { L"Dark Gallon",        DESC_NODETYPE_TREE, (void*)VHUNT2_A_DARKGALLON_COLLECTION,    ARRAYSIZE(VHUNT2_A_DARKGALLON_COLLECTION) },
+    { L"Donovan",            DESC_NODETYPE_TREE, (void*)VHUNT2_A_DONOVAN_COLLECTION,       ARRAYSIZE(VHUNT2_A_DONOVAN_COLLECTION) },
+    //{ L"Unknown",          DESC_NODETYPE_TREE, (void*)VHUNT2_A_SHADOW_COLLECTION,        ARRAYSIZE(VHUNT2_A_SHADOW_COLLECTION) },
+    { L"Oboro Bishamon",     DESC_NODETYPE_TREE, (void*)VHUNT2_A_OBOROBISHAMON_COLLECTION, ARRAYSIZE(VHUNT2_A_OBOROBISHAMON_COLLECTION) },
+
+    { L"Bulleta (unplayable)", DESC_NODETYPE_TREE, (void*)VHUNT2_A_BULLETA_COLLECTION,     ARRAYSIZE(VHUNT2_A_BULLETA_COLLECTION) }, // BB-Hood
+    { L"Q-Bee (unplayable)", DESC_NODETYPE_TREE, (void*)VHUNT2_A_QUEENBEE_COLLECTION,      ARRAYSIZE(VHUNT2_A_QUEENBEE_COLLECTION) },
+    { L"Lilith (unplayable)",DESC_NODETYPE_TREE, (void*)VHUNT2_A_LILITH_COLLECTION,        ARRAYSIZE(VHUNT2_A_LILITH_COLLECTION) },
+    { L"Jedah (unplayable)", DESC_NODETYPE_TREE, (void*)VHUNT2_A_JEDAH_COLLECTION,         ARRAYSIZE(VHUNT2_A_JEDAH_COLLECTION) },
+
+    { L"Stages",             DESC_NODETYPE_TREE, (void*)VSAV2_A_STAGE_COLLECTION,          ARRAYSIZE(VSAV2_A_STAGE_COLLECTION) },
 };

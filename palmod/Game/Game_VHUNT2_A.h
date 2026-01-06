@@ -2,6 +2,9 @@
 #include "GameClassByDir.h"
 #include "VHUNT2_A_DEF.h"
 
+const uint32_t c_ROM09PaletteCount = 808;
+const uint32_t c_ROM10PaletteCount = 1170;
+
 class CGame_VHUNT2_A : public CGameClassByDir
 {
 private:
@@ -34,13 +37,13 @@ private:
         // We use a significant shift here as we're reusing palette locations from another VS game
         { L"Vampire Hunter 2 (CPS2 Japan 970929 Characters)", L"vh2j.09", 0x11730952, 0x5FFD4 },  //0x4714 }, // bbhood
         
-        // For this one we've got a bunch of math to do
-        { L"Vampire Hunter 2 (CPS2 Stages: Bad support)", L"vh2j.10", 0x11730952, 0 },
+        // We reuse VSAV2's stage support here, as they align
+        { L"Vampire Hunter 2 (CPS2 ROM 10: Stages)", L"vh2j.10", 0x11730952, 0x4a806 - 0x6a832 },
     };
 
     const sCoreGameData m_sCoreGameData_09
     {
-        L"Vampire Hunter 2 (CPS2 Characters)",
+        L"Vampire Hunter 2 (CPS2 ROM 09: Characters)",
         VHUNT2_A,
         IMGDAT_SECTION_CPS2,
         VHUNT2_A_IMGIDS_USED,
@@ -54,13 +57,13 @@ private:
         VHUNT2_A_UNITS,
         ARRAYSIZE(VHUNT2_A_UNITS),
         L"VHUNT2e.txt",            // Extra filename
-        808,                       // Count of palettes listed in the header
+        c_ROM09PaletteCount,       // Count of palettes listed in the header
         0x16c9a,                   // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_10
     {
-        L"Vampire Hunter 2 (CPS2 Stages: Hacky support)",
+        L"Vampire Hunter 2 (CPS2 ROM 10: Stages)",
         VHUNT2_A,
         IMGDAT_SECTION_CPS2,
         VHUNT2_A_IMGIDS_USED,
@@ -74,16 +77,14 @@ private:
         VHUNT2_10_A_UNITS,
         ARRAYSIZE(VHUNT2_10_A_UNITS),
         L"VHUNT2-10e.txt",          // Extra filename
-        1156,                       // Count of palettes listed in the header
-        0x1724e,                    // Lowest known location used for palettes
+        c_ROM10PaletteCount,        // Count of palettes listed in the header
+        0x2002c,                    // Lowest known location used for palettes
     };
 
 public:
     CGame_VHUNT2_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
@@ -117,11 +118,11 @@ private:
         ColMode::COLMODE_RGB444_BE,
         m_sFileLoadingData,
         m_rgCRC32Data,
-        VHUNT2_A_UNITS,
-        ARRAYSIZE(VHUNT2_A_UNITS),
-        L"VHUNT2Se.txt",           // Extra filename
-        808,                       // Count of palettes listed in the header
-        0x16c9a,                   // Lowest known location used for palettes
+        VHUNT2_S_MONO_UNITS,
+        ARRAYSIZE(VHUNT2_S_MONO_UNITS),
+        L"VHUNT2Se.txt",                            // Extra filename
+        c_ROM09PaletteCount + c_ROM10PaletteCount,  // Count of palettes listed in the header
+        0x16c9a,                                    // Lowest known location used for palettes
     };
 
 public:

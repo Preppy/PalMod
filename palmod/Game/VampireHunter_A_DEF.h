@@ -321,7 +321,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_HK[] =
     { L"Unknown",                    0x5d5ec + (160 * 0x20), 0x5d60c + (160 * 0x20) },
     { L"Bats",                       0x5d60c + (160 * 0x20), 0x5d62c + (160 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (160 * 0x20), 0x5d64c + (160 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (160 * 0x20), 0x5d66c + (160 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (160 * 0x20), 0x5d66c + (160 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_Start[] =
@@ -330,7 +330,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_Start[] =
     { L"Unknown",                    0x5d5ec + (165 * 0x20), 0x5d60c + (165 * 0x20) },
     { L"Bats",                       0x5d60c + (165 * 0x20), 0x5d62c + (165 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (165 * 0x20), 0x5d64c + (165 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (165 * 0x20), 0x5d66c + (165 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (165 * 0x20), 0x5d66c + (165 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_LP[] =
@@ -339,7 +339,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_LP[] =
     { L"Unknown",                    0x5d5ec + (170 * 0x20), 0x5d60c + (170 * 0x20) },
     { L"Bats",                       0x5d60c + (170 * 0x20), 0x5d62c + (170 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (170 * 0x20), 0x5d64c + (170 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (170 * 0x20), 0x5d66c + (170 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (170 * 0x20), 0x5d66c + (170 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_MP[] =
@@ -348,7 +348,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_MP[] =
     { L"Unknown",                    0x5d5ec + (175 * 0x20), 0x5d60c + (175 * 0x20) },
     { L"Bats",                       0x5d60c + (175 * 0x20), 0x5d62c + (175 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (175 * 0x20), 0x5d64c + (175 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (175 * 0x20), 0x5d66c + (175 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (175 * 0x20), 0x5d66c + (175 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_HP[] =
@@ -357,7 +357,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_HP[] =
     { L"Unknown",                    0x5d5ec + (180 * 0x20), 0x5d60c + (180 * 0x20) },
     { L"Bats",                       0x5d60c + (180 * 0x20), 0x5d62c + (180 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (180 * 0x20), 0x5d64c + (180 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (180 * 0x20), 0x5d66c + (180 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (180 * 0x20), 0x5d66c + (180 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_LK[] =
@@ -366,7 +366,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_LK[] =
     { L"Unknown",                    0x5d5ec + (185 * 0x20), 0x5d60c + (185 * 0x20) },
     { L"Bats",                       0x5d60c + (185 * 0x20), 0x5d62c + (185 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (185 * 0x20), 0x5d64c + (185 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (185 * 0x20), 0x5d66c + (185 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (185 * 0x20), 0x5d66c + (185 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_MK[] =
@@ -375,7 +375,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_MK[] =
     { L"Unknown",                    0x5d5ec + (190 * 0x20), 0x5d60c + (190 * 0x20) },
     { L"Bats",                       0x5d60c + (190 * 0x20), 0x5d62c + (190 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (190 * 0x20), 0x5d64c + (190 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (190 * 0x20), 0x5d66c + (190 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (190 * 0x20), 0x5d66c + (190 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_LPMK[] =
@@ -384,7 +384,7 @@ const sGame_PaletteDataset VampireHunter_A_MORRIGAN_PALETTES_LPMK[] =
     { L"Unknown",                    0x5d5ec + (195 * 0x20), 0x5d60c + (195 * 0x20) },
     { L"Bats",                       0x5d60c + (195 * 0x20), 0x5d62c + (195 * 0x20), indexCPS2Sprites_Morrigan, 0x09 },
     { L"Unknown Extra",              0x5d62c + (195 * 0x20), 0x5d64c + (195 * 0x20) },
-    { L"Sparkles/Darkness Illusion", 0x5d64c + (195 * 0x20), 0x5d66c + (195 * 0x20), indexCPS2Sprites_Morrigan, 0x2 },
+    { L"Sparkles/Darkness Illusion", 0x5d64c + (195 * 0x20), 0x5d66c + (195 * 0x20), indexCPS2Sprites_Morrigan, 0x02 },
 };
 
 const sGame_PaletteDataset VampireHunter_A_ANAKARIS_PALETTES_HK[] =
