@@ -483,7 +483,17 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                                     if (!fPaletteUsesMultiplePages)
                                     {
-                                        strText.Format(L"    { L\"%S\", 0x%x, 0x%x },\r\n", aszCurrDesc, nCurrStart, nCurrEnd);
+                                        strText.Format(L"    { L\"%S\", 0x%x, 0x%x", aszCurrDesc, nCurrStart, nCurrEnd);
+
+                                        if (indexImgToUse != INVALID_UNIT_VALUE_16)
+                                        {
+                                            CString strImageInfo;
+                                            strImageInfo.Format(L", /* ImageId */ 0x%x, 0x%02x", indexImgToUse, indexOffsetToUse);
+                                            strText += strImageInfo;
+                                        }
+
+                                        strText += " },\r\n";
+
                                         OutputDebugString(strText);
                                     }
 #endif

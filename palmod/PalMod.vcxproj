@@ -366,6 +366,7 @@
     <ClCompile Include="PS3OEfiles.cpp" />
     <ClCompile Include="RAWfiles.cpp" />
     <ClCompile Include="RegProc.cpp" />
+    <ClCompile Include="Remap.cpp" />
     <ClCompile Include="RLEData.cpp" />
     <ClCompile Include="SettDlg.cpp" />
     <ClCompile Include="stdafx.cpp">

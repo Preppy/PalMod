@@ -123,6 +123,8 @@ protected:
     uint32_t*** m_pppDataBuffer24 = nullptr;
     uint32_t*** m_pppDataBuffer32 = nullptr;
 
+    static const sDescTreeNode* m_pRawUnitTree;
+
     struct ROMRevisionLookupData
     {
         uint16_t nRevisionID;
@@ -269,6 +271,7 @@ public:
     void WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount);
 
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
+    std::vector<BYTE> GetRawPaletteBytes(uint32_t nUnitId, uint32_t nPalId);
     virtual COLORREF* CreatePal(uint32_t nUnitId, uint32_t nPalId);
     virtual void UpdatePalData();
     void FlushChangeTrackingArray() { m_rgFileChanged.clear(); ClearDirtyPaletteTracker(); };
@@ -300,6 +303,8 @@ public:
     void DumpTreeSorted();
 
     static uint32_t _InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount, uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef *ppExtraDef);
+
+    const sDescTreeNode* GetRawGameTree() { return m_pRawUnitTree; };
 
     void MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId);
     void MarkPaletteClean(uint32_t nUnit, uint32_t nPaletteId);

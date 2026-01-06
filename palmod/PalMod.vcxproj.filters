@@ -1074,6 +1074,9 @@
     <ClCompile Include="Game\Game_AsuraBuster_A_DIR.cpp">
       <Filter>Games\Other Platforms\Asura Buster</Filter>
     </ClCompile>
+    <ClCompile Include="Remap.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

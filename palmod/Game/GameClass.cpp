@@ -10,6 +10,8 @@ BOOL CGameClass::m_ShouldUsePostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparencyEdits = FALSE;
 bool CGameClass::m_fGameSizeAllowsIPSPatching = true;
 uint8_t CGameClass::m_nSizeOfColorsInBytes = 2;
+const sDescTreeNode* CGameClass::m_pRawUnitTree = nullptr;
+
 #define GAMECLASS_DBG DEFAULT_GAME_DEBUG_STATE
 
 bool ArePalettePairsEqual(const stPairedPaletteInfo* plhs, const stPairedPaletteInfo* prhs)
@@ -38,6 +40,7 @@ CGameClass::CGameClass()
 
 CGameClass::~CGameClass()
 {
+    m_pRawUnitTree = nullptr;
     ClearSetImgTicket(NULL);
 
     safe_delete(m_pszLoadedPathOrFile);
@@ -612,6 +615,48 @@ void CGameClass::RevertChanges(int nPalId)
     }
 }
 
+std::vector<BYTE> CGameClass::GetRawPaletteBytes(uint32_t nUnitId, uint32_t nPalId)
+{
+    std::vector<BYTE> vColorBytes;
+
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - m_createPalOptions.nStartingPosition); iPos++)
+    {
+        const uint16_t nCurrentPos = iPos + m_createPalOptions.nStartingPosition;
+
+        switch (GetGameColorByteLength())
+        {
+            case 2:
+            {
+                const uint16_t nThisColor = m_pppDataBuffer[nUnitId][nPalId][iPos];
+                vColorBytes.push_back(nThisColor & 0xff);
+                vColorBytes.push_back(nThisColor >> 8);
+                break;
+            }
+            case 3:
+            {
+                const uint32_t nThisColor = m_pppDataBuffer24[nUnitId][nPalId][iPos];
+                vColorBytes.push_back(nThisColor >> 16);
+                vColorBytes.push_back((nThisColor & 0xff00) >> 8);
+                vColorBytes.push_back(nThisColor & 0xff);
+                break;
+            }
+            case 4:
+            {
+                const uint32_t nThisColor = m_pppDataBuffer32[nUnitId][nPalId][iPos];
+                vColorBytes.push_back(nThisColor & 0xff);
+                vColorBytes.push_back((nThisColor & 0xff00) >> 8);
+                vColorBytes.push_back((nThisColor & 0xff0000) >> 16);
+                vColorBytes.push_back(nThisColor >> 24);
+                break;
+            }
+        }
+    }
+
+    return vColorBytes;
+}
+
 COLORREF* CGameClass::CreatePal(uint32_t nUnitId, uint32_t nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
@@ -1160,8 +1205,15 @@ LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits
 
 const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGameUnits, uint32_t nUnitId, uint32_t nCollectionId)
 {
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)pGameUnits[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    if (pGameUnits)
+    {
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)pGameUnits[nUnitId].ChildNodes;
+        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef)
@@ -1369,6 +1421,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
     uint32_t nTotalPaletteCount = 0;
 
     OutputDebugString(L"CGameClass::_InitDescTree: Building desc tree for game...\n");
+    m_pRawUnitTree = pGameUnits;
 
     //Go through each character
     for (uint32_t iUnitCtr = 0; iUnitCtr < pNewDescTree->uChildAmt; iUnitCtr++)

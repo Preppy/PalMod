@@ -295,13 +295,15 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
     }
 
     static bool s_fHaveShownWarning = false;
+    CString strInfo;
+
+    strInfo.Format(L"Error: location 0x%x is outside the expected size for this ROM and appears to be an invalid reference.  This can cause problems, so be careful.\r\n", nROMLocation);
+    OutputDebugString(strInfo.GetString());
 
     if (!s_fHaveShownWarning)
     {
         s_fHaveShownWarning = true;
 
-        CString strInfo;
-        strInfo.Format(L"Error: location 0x%x is outside the expected range for this ROM.  This can cause problems, so be careful.", nROMLocation);
         MessageBox(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
     }
 

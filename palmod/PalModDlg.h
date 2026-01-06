@@ -332,6 +332,7 @@ private:
     afx_msg void OnExportPalette();
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnChangeExtendedCopyData();
+    afx_msg void OnRemapUnit();
     void OnMappingPaletteUse(uint8_t nStep);
     afx_msg void OnMappingPaletteUse_Step1() { OnMappingPaletteUse(1); };
     afx_msg void OnMappingPaletteUse_Step2() { OnMappingPaletteUse(2); };
