@@ -17,6 +17,32 @@ void OutputDebugString_ImgDat(LPCWSTR pszString)
 
 typedef std::map<uint16_t, ImgInfoList*>::iterator imgMapIter;
 
+bool GetImageSectionIDForImageSectionString(LPCSTR paszImageSectionString, eIMGDat_Sections& eImageSection)
+{
+    // In theory we could also allow the user to specify the image section ID value (0/1/2/3/4...) but
+    // that would lock our ordering in.
+    bool fFoundMatch = false;
+
+    for (uint16_t iSectionIndex = 0; iSectionIndex < g_rgImgDatSectionNames.size(); iSectionIndex++)
+    {
+        if (_stricmp(paszImageSectionString, g_rgImgDatSectionNames.at(iSectionIndex).c_str()) == 0)
+        {
+            eImageSection = static_cast<eIMGDat_Sections>(iSectionIndex);
+            fFoundMatch = true;
+            break;
+        }
+    }
+
+    if (!fFoundMatch)
+    {
+        CStringA strInfo;
+        strInfo.Format("ERROR: ImageSection value \"%s\" not recognized.\r\n", paszImageSectionString);
+        OutputDebugStringA(strInfo.GetString());
+    }
+
+    return fFoundMatch;
+}
+
 CImgDat::CImgDat()
 {
 }
@@ -72,13 +98,13 @@ bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint1
 
     if (prgGameImageSet.empty())
     {
-        OutputDebugString(L"CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n");
+        OutputDebugString(L"CImgDat::PrepImageBuffer : WARNING: Requested image list is empty.  You won't get images for this game.\n");
         return false;
     }
 
     nImgMap = new std::map<uint16_t, ImgInfoList*>;
 
-    // We have an individual entry here for every game so we can optimize image loads
+    // We have an individual entry here for every game unit so we can optimize image loads
     for (uint16_t nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++)
     {
         const uint16_t nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
@@ -108,8 +134,6 @@ sImgDef* CImgDat::GetImageDef(uint16_t uImgUnitId, uint8_t uImgId)
     strDebugInfo.Format(L"CImgDat::GetImageDef : Attempting to get ImageDef for unit 0x%02x img 0x%x.\n", uImgUnitId, uImgId);
     OutputDebugString(strDebugInfo);
 #endif
-
-    //if ((uImgUnitId >= uCurrUnitAmt) || (uImgId > uCurrImgAmt))
 
     if (nImgMap)
     {

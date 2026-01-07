@@ -18,10 +18,12 @@ protected:
     static constexpr LPCSTR m_kpszGameNameKey = ";GameName=";
     static constexpr LPCSTR m_kpszColorFormatKey = ";ColorFormat=";
     static constexpr LPCSTR m_kpszAlphaModeKey = ";AlphaMode=";
+    static constexpr LPCSTR m_kpszImageSectionKey = ";ImageSection=";
 
     static char m_paszGameNameOverride[MAX_PATH];
     static AlphaMode m_AlphaModeOverride;
     static ColMode m_ColorModeOverride;
+    static eIMGDat_Sections m_ImageSectionOverride;
 
     // Allow for unusable offset if we have an offset shift built into a game load
     static size_t m_nUsableFileViewStart;
@@ -32,6 +34,7 @@ protected:
     static void SetGameNameOverride(LPCSTR paszGameNameString);
     static void SetAlphaOverride(LPCSTR paszAlphaString);
     static void SetColorFormatOverride(LPCSTR paszColorString);
+    static void SetImageSectionOverride(LPCSTR paszImageSectionString);
 
 private:
     bool IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalId, uint32_t nStartingOffsetToCheck, uint32_t nEndOfRegionToCheck = 0);

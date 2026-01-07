@@ -69,8 +69,18 @@ CGame_DevMode_A::CGame_DevMode_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoad
 
     //Set game information
     m_nGameFlag = DEVMODE_A;
-    m_nImgGameFlag = IMGDAT_SECTION_GAROU;
+    // We *do* always just set this here, but at the same time it's never useful without user guidance
+    m_nImgGameFlag = static_cast<int>(m_ImageSectionOverride);
+
     m_prgGameImageSet.clear();
+     
+    if (m_ImageSectionOverride != IMGDAT_SECTION_LAST)
+    {
+        for (uint16_t iLoadableImage = 0; iLoadableImage < 0x100; iLoadableImage++)
+        {
+            m_prgGameImageSet.push_back(iLoadableImage);
+        }
+    }
 
     m_nFileAmt = 1;
 

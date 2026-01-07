@@ -17,6 +17,7 @@ size_t CGameWithExtrasFile::m_nLoadedFileViewSize = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
 AlphaMode CGameWithExtrasFile::m_AlphaModeOverride = AlphaMode::Unknown;
 ColMode CGameWithExtrasFile::m_ColorModeOverride = ColMode::COLMODE_LAST;
+eIMGDat_Sections CGameWithExtrasFile::m_ImageSectionOverride = eIMGDat_Sections::IMGDAT_SECTION_LAST;
 
 class CCreateExtraFileDlg : public CDialog
 {
@@ -92,6 +93,7 @@ void CGameWithExtrasFile::ResetStaticOverrideVariables()
     strcpy(m_paszGameNameOverride, "");
     m_AlphaModeOverride = AlphaMode::Unknown;
     m_ColorModeOverride = ColMode::COLMODE_LAST;
+    m_ImageSectionOverride = eIMGDat_Sections::IMGDAT_SECTION_LAST;
 }
 
 void CGameWithExtrasFile::SetGameNameOverride(LPCSTR paszAlphaString)
@@ -105,6 +107,16 @@ void CGameWithExtrasFile::SetAlphaOverride(LPCSTR paszAlphaString)
     {
         CStringA astrMsg;
         astrMsg.Format("\tCGameWithExtrasFile: Extras file is setting Alpha mode to %s\n", paszAlphaString);
+        OutputDebugStringA(astrMsg);
+    }
+}
+
+void CGameWithExtrasFile::SetImageSectionOverride(LPCSTR paszImageSectionString)
+{
+    if (GetImageSectionIDForImageSectionString(paszImageSectionString, m_ImageSectionOverride))
+    {
+        CStringA astrMsg;
+        astrMsg.Format("\tCGameWithExtrasFile: Extras file is using image section %u (\"%s\")\n", m_ImageSectionOverride, g_rgImgDatSectionNames.at(m_ImageSectionOverride).c_str());
         OutputDebugStringA(astrMsg);
     }
 }
@@ -581,6 +593,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     { m_kpszGameNameKey, SetGameNameOverride },
                                     { m_kpszColorFormatKey, SetColorFormatOverride },
                                     { m_kpszAlphaModeKey, SetAlphaOverride },
+                                    { m_kpszImageSectionKey, SetImageSectionOverride },
                                 };
 
                                 for (const auto& [key, override] : rgOverrideMap)

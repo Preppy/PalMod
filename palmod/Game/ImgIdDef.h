@@ -57,8 +57,11 @@ const std::vector<std::string> g_rgImgDatSectionNames =
     { "SNES" },
     { "Taito" },
     { "WakuWaku7" },
-    { "WindJamm" }
+    { "WindJamm" },
+    { "(None)" }, // Dummy for last value in set
 };
+
+bool GetImageSectionIDForImageSectionString(LPCSTR paszImageSectionString, eIMGDat_Sections& eImageSection);
 
 // These numbers refer to the indexes within the appropriate IMGDAT sections
 
