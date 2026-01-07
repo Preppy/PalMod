@@ -6,7 +6,7 @@
 class CGame_DevMode_A : public CGameWithExtrasFile
 {
 private:
-    static uint32_t m_nTotalPaletteCountForNEOGEO;
+    static uint32_t m_nTotalPaletteCountForDevMode_Mono;
 
     static uint32_t m_rgExtraCountAll[DEVMODE_A_NUMUNIT + 1];
     static uint32_t m_rgExtraLoc[DEVMODE_A_NUMUNIT + 1];
@@ -25,7 +25,7 @@ private:
     bool SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting);
 
     // The Unknown Game / Dev Mode was formerly known as NeoGeo Mode
-    static constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
+    static constexpr auto EXTRA_FILENAME_DEV_MODE_A_OLD = L"NEOGEOE.txt";
     static constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
 
 public:

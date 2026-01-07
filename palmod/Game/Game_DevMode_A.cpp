@@ -11,7 +11,7 @@ CDescTree CGame_DevMode_A::m_MainDescTree = nullptr;
 uint32_t CGame_DevMode_A::m_rgExtraCountAll[DEVMODE_A_NUMUNIT + 1];
 uint32_t CGame_DevMode_A::m_rgExtraLoc[DEVMODE_A_NUMUNIT + 1];
 
-uint32_t CGame_DevMode_A::m_nTotalPaletteCountForNEOGEO = 0;
+uint32_t CGame_DevMode_A::m_nTotalPaletteCountForDevMode_Mono = 0;
 uint32_t CGame_DevMode_A::m_nConfirmedROMSize = -1;
 wchar_t CGame_DevMode_A::m_pszExtraNameOverride[MAX_PATH] = L"";
 
@@ -58,7 +58,7 @@ CGame_DevMode_A::CGame_DevMode_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoad
     m_nExtraUnit = static_cast<uint16_t>(m_nTotalInternalUnits);
 
     m_nSafeCountForThisRom = GetExtraCountForUnit(m_nExtraUnit) + 1;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForDevMode_Mono;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x0; // Don't worry about locations for a stubbed game...
 
@@ -356,7 +356,7 @@ sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
         memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
         memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
 
-        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+        LoadExtraFileForGame(EXTRA_FILENAME_DEV_MODE_A, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
         if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
         {
@@ -391,7 +391,7 @@ sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    m_nTotalPaletteCountForNEOGEO = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForDevMode_Mono = _InitDescTree(NewDescTree,
         DEVMODE_A_UNITS,
         DEVMODE_A_EXTRALOC,
         DEVMODE_A_NUMUNIT,
