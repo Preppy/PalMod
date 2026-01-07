@@ -292,6 +292,7 @@ public:
     static uint32_t _GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef);
     static LPCWSTR _GetDescriptionForCollection(const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nCollectionId);
     static const sGame_PaletteDataset* _GetPaletteSet(const sDescTreeNode* pGameUnits, uint32_t nUnitId, uint32_t nCollectionId);
+    virtual const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
     static const sGame_PaletteDataset* _GetSpecificPalette(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef);
 
     uint32_t _GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, stExtraDef* ppExtraDef);
@@ -303,8 +304,6 @@ public:
     void DumpTreeSorted();
 
     static uint32_t _InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount, uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef *ppExtraDef);
-
-    const sDescTreeNode* GetRawGameTree() { return m_pRawUnitTree; };
 
     void MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId);
     void MarkPaletteClean(uint32_t nUnit, uint32_t nPaletteId);

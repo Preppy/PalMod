@@ -1,8 +1,12 @@
 #pragma once
 #include "Default.h"
 
-constexpr auto DESC_NODETYPE_TREE = 0;
-constexpr auto DESC_NODETYPE_NODE = 1;
+enum DescNodeType
+{
+    DESC_NODETYPE_TREE,         // sDescTreeNode is the basic layout structure of games.
+    DESC_NODETYPE_NODE,         // We store most of the modern palettes as sGame_PaletteDataset
+    DESC_NODETYPE_NODE_REF,     // Loaded sGame_PaletteDatasets are stored as sDescNode for quick reference
+};
 
 //Description tree definition
 
@@ -18,7 +22,7 @@ struct sDescTreeNode
 {
     wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
 
-    uint8_t uChildType = DESC_NODETYPE_TREE;
+    DescNodeType uChildType = DESC_NODETYPE_TREE;
     void* ChildNodes = nullptr;
     uint32_t uChildAmt = 0;
     // Solely used within CGameClassByDir

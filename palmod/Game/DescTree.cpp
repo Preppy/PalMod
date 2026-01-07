@@ -50,6 +50,7 @@ void CDescTree::FlushTree(sDescTreeNode* CurrTree)
             }
 
             case DESC_NODETYPE_NODE:
+            default:
             {
                 safe_delete_array(CurrTree->ChildNodes);
                 break;
@@ -70,6 +71,7 @@ void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
         switch (pTreeToEnumerate->uChildType)
         {
             case DESC_NODETYPE_NODE:
+            default:
                 strOutput.Format(L"\tButton '%s'.  It has 0x%x children.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
                 OutputDebugString(strOutput);
 
@@ -126,6 +128,7 @@ sDescTreeNode* CDescTree::GetDescTree(int nChildId, ...)
         switch (OutTree->uChildType)
         {
             case DESC_NODETYPE_NODE:
+            default:
                 fChildIsNode = TRUE;
                 // Caller needs to cast to sDescNode
                 OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
@@ -162,6 +165,7 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
         switch (CurrTree->uChildType)
         {
             case DESC_NODETYPE_NODE:
+            default:
             {
                 fFoundNode = TRUE;
 

@@ -102,15 +102,24 @@ void CPalModDlg::OnRemapUnit()
 
                 for (uint32_t iCollectionIndex = 0; iCollectionIndex < pSelectedUnit->uChildAmt; iCollectionIndex++)
                 {
+                    const sGame_PaletteDataset* paletteDataSet = CurrGame->GetPaletteSet(nSelectedUnit, iCollectionIndex);
+
+                    if (!paletteDataSet)
+                    {
+                        // TODO: this blocks GameClassByUnitPerFile iteration through this code, but
+                        // we should solve it differently.
+                        strOutput += L"ERROR: Remapping not currently supported for this specific game version: PalMod needs to update the game layout.\r\n";
+                        break;
+                    }
+
                     sDescTreeNode* pCurrentCollection = &((sDescTreeNode*)pSelectedUnit->ChildNodes)[iCollectionIndex];
                     sDescNode* pCurrentNode = nullptr;
-                    const sGame_PaletteDataset* paletteDataSet = CurrGame->_GetPaletteSet(CurrGame->GetRawGameTree(), nSelectedUnit, iCollectionIndex);
                     const sGame_PaletteDataset* thisPalette = nullptr;
 
                     strInfo.Format(L"\r\n%s\tCollection \"%s\": %u palettes found in old collection.\r\n", strActiveCommentStyle.c_str(), pCurrentCollection->szDesc, pCurrentCollection->uChildAmt);
                     strOutput += strInfo;
 
-                    strInfo.Format(L"Remapping collection \"%s\".  %u palettes in this collection.", pCurrentCollection->szDesc, pCurrentCollection->uChildAmt);
+                    strInfo.Format(L"Remapping collection \"%s\" (%u/%u).  %u palettes in this collection.", pCurrentCollection->szDesc, iCollectionIndex, pSelectedUnit->uChildAmt, pCurrentCollection->uChildAmt);
                     SetStatusText(strInfo.GetString());
 
                     if (fUseExtrasMode)
@@ -131,7 +140,10 @@ void CPalModDlg::OnRemapUnit()
                         //strInfo.Format(L"\t\tPalette \"%s\" (%u, %u) %u colors.\r\n", pCurrentNode->szDesc, pCurrentNode->uUnitId, pCurrentNode->uPalId, searchBytes.size());
                         //strOutput += strInfo;
 
-                        rgSearchBytes.push_back({ thisPalette, searchBytes });
+                        if (thisPalette)
+                        {
+                            rgSearchBytes.push_back({ thisPalette, searchBytes });
+                        }
                     }
 
                     strInfo.Format(L"%s Remapped locations for \"%s\" in new ROM (note this is speculative):\r\n", strActiveCommentStyle.c_str(), pCurrentCollection->szDesc);

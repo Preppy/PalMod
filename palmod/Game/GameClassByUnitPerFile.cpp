@@ -152,7 +152,7 @@ sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(nCurrentCharacterIndex, iCollectionCtr));
             //Collection children have nodes
             const uint32_t nTotalPalettesForCollection = GetNodeCountForCollection(nCurrentCharacterIndex, iCollectionCtr);
-            CollectionNode->uChildType = DESC_NODETYPE_NODE;
+            CollectionNode->uChildType = DESC_NODETYPE_NODE_REF;
             CollectionNode->uChildAmt = nTotalPalettesForCollection;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nTotalPalettesForCollection];
 
@@ -236,6 +236,8 @@ sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
 
     strMsg.Format(L"CGameClassPerUnitPerFile::InitDescTree: Loaded %u palettes for %u characters in %u files.\r\n", nTotalPaletteCountForGame, nTotalCharacters, nTotalFiles);
     OutputDebugString(strMsg);
+
+    m_pRawUnitTree = reinterpret_cast<const sDescTreeNode*>(NewDescTree->ChildNodes);
 
     return NewDescTree;
 }
