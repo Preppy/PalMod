@@ -356,7 +356,7 @@ sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
         memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
         memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
 
-        LoadExtraFileForGame(EXTRA_FILENAME_DEV_MODE_A, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+        LoadExtraFileForGame(EXTRA_FILENAME_DEV_MODE_A_OLD, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
         if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
         {
