@@ -23,8 +23,8 @@ public:
     {
         const std::wstring strGameFriendlyName;
         const SupportedGamesList nGameID;
-        const eIMGDat_Sections eImgDatSectionID;
-        const std::vector<uint16_t> rgGameImageSet;
+        eIMGDat_Sections eImgDatSectionID;
+        std::vector<uint16_t> rgGameImageSet;
         sCreatePalOptions createPalOptions;
         const eImageOutputSpriteDisplay displayStyle;
         const std::vector<LPCWSTR> rgszButtonLabelSet;

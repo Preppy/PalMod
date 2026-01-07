@@ -421,6 +421,17 @@ CGame_DevMode_DIR::CGame_DevMode_DIR(uint32_t nConfirmedROMSize)
     m_sCoreGameData_UseExtrasFile.createPalOptions = m_createPalOptions;
     m_sCoreGameData_UseExtrasFile.eAlphaMode = amCurrentDefault;
     m_sCoreGameData_UseExtrasFile.eColMode = cmCurrentDefault;
+    m_sCoreGameData_UseExtrasFile.eImgDatSectionID = m_ImageSectionOverride;
+
+    m_sCoreGameData_UseExtrasFile.rgGameImageSet.clear();
+
+    if (m_ImageSectionOverride != IMGDAT_SECTION_LAST)
+    {
+        for (uint16_t iLoadableImage = 0; iLoadableImage < 0x100; iLoadableImage++)
+        {
+            m_sCoreGameData_UseExtrasFile.rgGameImageSet.push_back(iLoadableImage);
+        }
+    }
 
     m_fCurrentlyInitializing = true;
 
