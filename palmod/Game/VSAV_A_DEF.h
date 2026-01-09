@@ -48,18 +48,24 @@ const std::vector<uint16_t> VSAV_A_IMGIDS_USED =
 // You could import them into VSAV2 or VHUNT2, but the Gallon stuff is just copy-paste of what's already in the game. 
 
 // The general stage storage order is:
-//      Feast of the Damned
-//      Concrete Cave
-//      Tower of Arrogance
-//      Red Thirst
-//      Deserted Chateau
-//      Abaraya
-//      Vanity Paradise
-//      War Agony
-//      Forever Torment
-//      Green Scream
+//      Feast of the Damned (Demitri)
+//      Concrete Cave (Talbain / Bulleta / Lilith)
+//      Tower of Arrogance (Felicia / Huitzil)
+//      Red Thirst (Anakaris)
+//      Deserted Chateau (Morrigan / Lilith)
+//      Abaraya (Bishamon)
+//      Vanity Paradise (Day: Hsien-Ko, Night: Sasquatch)
+//      War Agony *Victor / Bulleta)
+//      Forever Torment (Lord Raptor / Victor)
+//      Green Scream (Rikuo / Q-Bee / Sasquatch)
 //      Iron Horse Iron Terror
-//      Fetus of God
+//      Fetus of God (Jedah)
+
+// Each stage has an alternative EX version.  
+// For VSAV2, the normal/EX versions were flipped.
+
+// The stage Revenger's Roost is VSAV2/VHUNT2 only.  It doesn't appear to have a fixed
+// position in sort order and was instead just put wherever the palettes would fit.
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_LP[] =
 {
