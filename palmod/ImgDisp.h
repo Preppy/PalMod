@@ -165,7 +165,7 @@ public:
     bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
     // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
     // A null pointer passed in indicates to us to replace the full stack: a pointer of value 0 means just the first layer.
-    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
+    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fForceNonIndexed = false, bool fPreferQuietMode = false);
     bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
 
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);

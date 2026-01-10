@@ -83,6 +83,6 @@ public:
     afx_msg void SetBlendToPS1STOn()  { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOn); m_ImgDisp.UpdateCtrl(); };
     afx_msg void SetBlendToPS1STOff() { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOff); m_ImgDisp.UpdateCtrl(); };
 
-    void LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode);
+    void LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode, bool fForceNonIndexed = false);
     BOOL GetPreviewDropIsPalette() { return m_ImgDisp.GetPreviewDropIsPalette(); };
 };

@@ -491,7 +491,7 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode, bool fForceNonIndexed /* = false */)
 {
     wchar_t* pszExt = wcsrchr(pszPath, L'.');
     bool fSuccess = false;
@@ -504,7 +504,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImpor
     }
     else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
     {
-        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fPreferQuietMode);
+        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fForceNonIndexed, fPreferQuietMode);
     }
     else
     {
@@ -521,11 +521,12 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
 {
     if (GetHost()->GetCurrGame())
     {
-        // Maybe remember selection here...?
         CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Supported texture files|*-W-*-H-*.*;*.png;*.gif|"
                                                        L"RAW Texture file|*-W-*-H-*.*|"
-                                                       L"Indexed PNG|*.png|"
-                                                       L"GIF|*.gif|", this);
+                                                       L"PNG|*.png|"
+                                                       L"GIF|*.gif|"
+                                                       L"PNG (treat as non-indexed)|*.png|"
+                                                       L"|", this);
 
         OpenDialog.GetOFN().nFilterIndex = CRegProc::GetOFNIndexForLoadCustomSprite();
 
@@ -534,7 +535,7 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
             // eliminate the k_nTextureLoadCommandMask mask for usage...
             UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
 
-            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fPreferQuietMode);
+            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fPreferQuietMode, (OpenDialog.GetOFN().nFilterIndex == 5));
 
             CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);
         }

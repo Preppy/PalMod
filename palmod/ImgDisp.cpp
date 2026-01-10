@@ -1310,7 +1310,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     }
 }
 
-bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode /* = false */)
+bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fForceNonIndexed /* = false */ , bool fPreferQuietMode /* = false */)
 {
     bool fSuccess = false;
     bool fUserCanceled = false;
@@ -1330,9 +1330,24 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
         if (lodepng_load_file(&loadedAsFile, &nSize, pszTextureLocation) == 0)
         {
             unsigned width = 0, height = 0;
-            state.decoder.color_convert = 0;
+            
+            if (fForceNonIndexed)
+            {
+                OutputDebugString(L"Forcing image to be imported as non-indexed!\r\n");
+                state.decoder.color_convert = 1;
+                state.info_raw.colortype = LodePNGColorType::LCT_RGB;
+            }
+            else
+            {
+                state.decoder.color_convert = 0;
+            }
+
             if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
             {
+                // Confusion: why isn't lodepng doing this?
+                // Simple test to show the problem here: convert from Indexed to RGB: state.info_png is Indexed @_@ 
+                state.info_png.color.colortype = state.info_raw.colortype;
+
                 // We know the gist of this image: let's confirm user options if appropriate
                 if (!fPreferQuietMode && pnPositionToLoadTo)
                 {
