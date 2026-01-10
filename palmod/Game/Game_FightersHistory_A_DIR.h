@@ -71,7 +71,7 @@ private:
     {
         L"Fighter's History US4209 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -91,7 +91,7 @@ private:
     {
         L"Fighter's History World4309 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -111,7 +111,7 @@ private:
     {
         L"Fighter's History US4206 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -131,7 +131,7 @@ private:
     {
         L"Fighter's History US4205 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -151,7 +151,7 @@ private:
     {
         L"Fighter's History Japan4107 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -171,7 +171,7 @@ private:
     {
         L"Fighter's History World4307 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -191,7 +191,7 @@ private:
     {
         L"Fighter's History World4305 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -211,7 +211,7 @@ private:
     {
         L"Fighter's History US4203 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -231,7 +231,7 @@ private:
     {
         L"Fighter's History Japan4105 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -251,7 +251,7 @@ private:
     {
         L"Fighter's History Japan4104 (Data East DECO32)",
         FightersHistory_A,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,

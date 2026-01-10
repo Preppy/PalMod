@@ -2,65 +2,73 @@
 
 const std::vector<uint16_t> FightersHistory3_SNES_IMGIDS_USED =
 {
+    indexKarnovsRSprites_Clown,         // 0x00
+    indexKarnovsRSprites_Feilin,        // 0x01
+    indexKarnovsRSprites_Karnov,        // 0x03
+    indexKarnovsRSprites_Lee,           // 0x04
+    indexKarnovsRSprites_Mizoguchi,     // 0x07
+    indexKarnovsRSprites_Ryoko,         // 0x09
+    indexKarnovsRSprites_Yungmie,       // 0x0b
+    indexKarnovsRSprites_Zazie,         // 0x0c
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_Y[] =
 {
-    { L"Mizoguchi Y", 0x845a0, 0x845c0, -1, -1, &pairNext },
+    { L"Mizoguchi Y", 0x845a0, 0x845c0, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi Y weakspot", 0x845c0, 0x845e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_X[] =
 {
-    { L"Mizoguchi X", 0x845e0, 0x84600, -1, -1, &pairNext },
+    { L"Mizoguchi X", 0x845e0, 0x84600, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi X weakspot", 0x84600, 0x84620 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_B[] =
 {
-    { L"Mizoguchi B", 0x84620, 0x84640, -1, -1, &pairNext },
+    { L"Mizoguchi B", 0x84620, 0x84640, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi B weakspot", 0x84640, 0x84660 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_A[] =
 {
-    { L"Mizoguchi A", 0x84660, 0x84680, -1, -1, &pairNext },
+    { L"Mizoguchi A", 0x84660, 0x84680, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi A weakspot", 0x84680, 0x846a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_START[] =
 {
-    { L"Mizoguchi START", 0x846a0, 0x846c0, -1, -1, &pairNext },
+    { L"Mizoguchi START", 0x846a0, 0x846c0, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi START weakspot", 0x846c0, 0x846e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_LRY[] =
 {
-    { L"Mizoguchi L/R+Y", 0x846e0, 0x84700, -1, -1, &pairNext },
+    { L"Mizoguchi L/R+Y", 0x846e0, 0x84700, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi L/R+Y weakspot", 0x84700, 0x84720 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_LRX[] =
 {
-    { L"Mizoguchi L/R+X", 0x84720, 0x84740, -1, -1, &pairNext },
+    { L"Mizoguchi L/R+X", 0x84720, 0x84740, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi L/R+X weakspot", 0x84740, 0x84760 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_LRB[] =
 {
-    { L"Mizoguchi L/R+B", 0x84760, 0x84780, -1, -1, &pairNext },
+    { L"Mizoguchi L/R+B", 0x84760, 0x84780, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi L/R+B weakspot", 0x84780, 0x847a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_LRA[] =
 {
-    { L"Mizoguchi L/R+A", 0x847a0, 0x847c0, -1, -1, &pairNext },
+    { L"Mizoguchi L/R+A", 0x847a0, 0x847c0, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi L/R+A weakspot", 0x847c0, 0x847e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_LRSTART[] =
 {
-    { L"Mizoguchi L/R+START", 0x847e0, 0x84800, -1, -1, &pairNext },
+    { L"Mizoguchi L/R+START", 0x847e0, 0x84800, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi L/R+START weakspot", 0x84800, 0x84820 },
 };
 
@@ -80,61 +88,61 @@ const sDescTreeNode FightersHistory3_SNES_Mizoguchi_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_Y[] =
 {
-    { L"Yungmie Y", 0x84860, 0x84880, -1, -1, &pairNext },
+    { L"Yungmie Y", 0x84860, 0x84880, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie Y weakspot", 0x84880, 0x848a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_X[] =
 {
-    { L"Yungmie X", 0x848a0, 0x848c0, -1, -1, &pairNext },
+    { L"Yungmie X", 0x848a0, 0x848c0, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie X weakspot", 0x848c0, 0x848e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_B[] =
 {
-    { L"Yungmie B", 0x848e0, 0x84900, -1, -1, &pairNext },
+    { L"Yungmie B", 0x848e0, 0x84900, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie B weakspot", 0x84900, 0x84920 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_A[] =
 {
-    { L"Yungmie A", 0x84920, 0x84940, -1, -1, &pairNext },
+    { L"Yungmie A", 0x84920, 0x84940, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie A weakspot", 0x84940, 0x84960 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_START[] =
 {
-    { L"Yungmie START", 0x84960, 0x84980, -1, -1, &pairNext },
+    { L"Yungmie START", 0x84960, 0x84980, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie START weakspot", 0x84980, 0x849a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_LRY[] =
 {
-    { L"Yungmie L/R+Y", 0x849a0, 0x849c0, -1, -1, &pairNext },
+    { L"Yungmie L/R+Y", 0x849a0, 0x849c0, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie L/R+Y weakspot", 0x849c0, 0x849e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_LRX[] =
 {
-    { L"Yungmie L/R+X", 0x849e0, 0x84a00, -1, -1, &pairNext },
+    { L"Yungmie L/R+X", 0x849e0, 0x84a00, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie L/R+X weakspot", 0x84a00, 0x84a20 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_LRB[] =
 {
-    { L"Yungmie L/R+B", 0x84a20, 0x84a40, -1, -1, &pairNext },
+    { L"Yungmie L/R+B", 0x84a20, 0x84a40, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie L/R+B weakspot", 0x84a40, 0x84a60 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_LRA[] =
 {
-    { L"Yungmie L/R+A", 0x84a60, 0x84a80, -1, -1, &pairNext },
+    { L"Yungmie L/R+A", 0x84a60, 0x84a80, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie L/R+A weakspot", 0x84a80, 0x84aa0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Yungmie_LRSTART[] =
 {
-    { L"Yungmie L/R+START", 0x84aa0, 0x84ac0, -1, -1, &pairNext },
+    { L"Yungmie L/R+START", 0x84aa0, 0x84ac0, indexKarnovsRSprites_Yungmie, 0x00, &pairNext },
     { L"Yungmie L/R+START weakspot", 0x84ac0, 0x84ae0 },
 };
 
@@ -154,61 +162,61 @@ const sDescTreeNode FightersHistory3_SNES_Yungmie_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_Y[] =
 {
-    { L"Lee Y", 0x84b20, 0x84b40, -1, -1, &pairNext },
+    { L"Lee Y", 0x84b20, 0x84b40, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee Y weakspot", 0x84b40, 0x84b60 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_X[] =
 {
-    { L"Lee X", 0x84b60, 0x84b80, -1, -1, &pairNext },
+    { L"Lee X", 0x84b60, 0x84b80, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee X weakspot", 0x84b80, 0x84ba0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_B[] =
 {
-    { L"Lee B", 0x84ba0, 0x84bc0, -1, -1, &pairNext },
+    { L"Lee B", 0x84ba0, 0x84bc0, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee B weakspot", 0x84bc0, 0x84be0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_A[] =
 {
-    { L"Lee A", 0x84be0, 0x84c00, -1, -1, &pairNext },
+    { L"Lee A", 0x84be0, 0x84c00, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee A weakspot", 0x84c00, 0x84c20 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_START[] =
 {
-    { L"Lee START", 0x84c20, 0x84c40, -1, -1, &pairNext },
+    { L"Lee START", 0x84c20, 0x84c40, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee START weakspot", 0x84c40, 0x84c60 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_LRY[] =
 {
-    { L"Lee L/R+Y", 0x84c60, 0x84c80, -1, -1, &pairNext },
+    { L"Lee L/R+Y", 0x84c60, 0x84c80, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee L/R+Y weakspot", 0x84c80, 0x84ca0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_LRX[] =
 {
-    { L"Lee L/R+X", 0x84ca0, 0x84cc0, -1, -1, &pairNext },
+    { L"Lee L/R+X", 0x84ca0, 0x84cc0, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee L/R+X weakspot", 0x84cc0, 0x84ce0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_LRB[] =
 {
-    { L"Lee L/R+B", 0x84ce0, 0x84d00, -1, -1, &pairNext },
+    { L"Lee L/R+B", 0x84ce0, 0x84d00, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee L/R+B weakspot", 0x84d00, 0x84d20 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_LRA[] =
 {
-    { L"Lee L/R+A", 0x84d20, 0x84d40, -1, -1, &pairNext },
+    { L"Lee L/R+A", 0x84d20, 0x84d40, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee L/R+A weakspot", 0x84d40, 0x84d60 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Lee_LRSTART[] =
 {
-    { L"Lee L/R+START", 0x84d60, 0x84d80, -1, -1, &pairNext },
+    { L"Lee L/R+START", 0x84d60, 0x84d80, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee L/R+START weakspot", 0x84d80, 0x84da0 },
 };
 
@@ -228,62 +236,62 @@ const sDescTreeNode FightersHistory3_SNES_Lee_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_Y[] =
 {
-    { L"Zazie Y", 0x84de0, 0x84e00, -1, -1, &pairNext },
-    { L"Zazie Y weakspot", 0x84e00, 0x84e20 },
+    { L"Zazie Y", 0x84de0, 0x84e00, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie Y weakspot", 0x84e00, 0x84e20, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_X[] =
 {
-    { L"Zazie X", 0x84e20, 0x84e40, -1, -1, &pairNext },
-    { L"Zazie X weakspot", 0x84e40, 0x84e60 },
+    { L"Zazie X", 0x84e20, 0x84e40, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie X weakspot", 0x84e40, 0x84e60, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_B[] =
 {
-    { L"Zazie B", 0x84e60, 0x84e80, -1, -1, &pairNext },
-    { L"Zazie B weakspot", 0x84e80, 0x84ea0 },
+    { L"Zazie B", 0x84e60, 0x84e80, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie B weakspot", 0x84e80, 0x84ea0, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_A[] =
 {
-    { L"Zazie A", 0x84ea0, 0x84ec0, -1, -1, &pairNext },
-    { L"Zazie A weakspot", 0x84ec0, 0x84ee0 },
+    { L"Zazie A", 0x84ea0, 0x84ec0, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie A weakspot", 0x84ec0, 0x84ee0, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_START[] =
 {
-    { L"Zazie START", 0x84ee0, 0x84f00, -1, -1, &pairNext },
-    { L"Zazie START weakspot", 0x84f00, 0x84f20 },
+    { L"Zazie START", 0x84ee0, 0x84f00, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie START weakspot", 0x84f00, 0x84f20, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_LRY[] =
 {
-    { L"Zazie L/R+Y", 0x84f20, 0x84f40, -1, -1, &pairNext },
-    { L"Zazie L/R+Y weakspot", 0x84f40, 0x84f60 },
+    { L"Zazie L/R+Y", 0x84f20, 0x84f40, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie L/R+Y weakspot", 0x84f40, 0x84f60, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_LRX[] =
 {
-    { L"Zazie L/R+X", 0x84f60, 0x84f80, -1, -1, &pairNext },
-    { L"Zazie L/R+X weakspot", 0x84f80, 0x84fa0 },
+    { L"Zazie L/R+X", 0x84f60, 0x84f80, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie L/R+X weakspot", 0x84f80, 0x84fa0, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_LRB[] =
 {
-    { L"Zazie L/R+B", 0x84fa0, 0x84fc0, -1, -1, &pairNext },
-    { L"Zazie L/R+B weakspot", 0x84fc0, 0x84fe0 },
+    { L"Zazie L/R+B", 0x84fa0, 0x84fc0, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie L/R+B weakspot", 0x84fc0, 0x84fe0, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_LRA[] =
 {
-    { L"Zazie L/R+A", 0x84fe0, 0x85000, -1, -1, &pairNext },
-    { L"Zazie L/R+A weakspot", 0x85000, 0x85020 },
+    { L"Zazie L/R+A", 0x84fe0, 0x85000, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie L/R+A weakspot", 0x85000, 0x85020, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Zazie_LRSTART[] =
 {
-    { L"Zazie L/R+START", 0x85020, 0x85040, -1, -1, &pairNext },
-    { L"Zazie L/R+START weakspot", 0x85040, 0x85060 },
+    { L"Zazie L/R+START", 0x85020, 0x85040, indexKarnovsRSprites_Zazie, 0x00, &pairNext },
+    { L"Zazie L/R+START weakspot", 0x85040, 0x85060, indexKarnovsRSprites_Zazie, 0x01 },
 };
 
 const sDescTreeNode FightersHistory3_SNES_Zazie_COLLECTION[] =
@@ -302,62 +310,62 @@ const sDescTreeNode FightersHistory3_SNES_Zazie_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_Y[] =
 {
-    { L"Feilin Y", 0x850a0, 0x850c0, -1, -1, &pairNext },
-    { L"Feilin Y weakspot", 0x850c0, 0x850e0 },
+    { L"Feilin Y", 0x850a0, 0x850c0, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin Y weakspot", 0x850c0, 0x850e0, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_X[] =
 {
-    { L"Feilin X", 0x850e0, 0x85100, -1, -1, &pairNext },
-    { L"Feilin X weakspot", 0x85100, 0x85120 },
+    { L"Feilin X", 0x850e0, 0x85100, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin X weakspot", 0x85100, 0x85120, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_B[] =
 {
-    { L"Feilin B", 0x85120, 0x85140, -1, -1, &pairNext },
-    { L"Feilin B weakspot", 0x85140, 0x85160 },
+    { L"Feilin B", 0x85120, 0x85140, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin B weakspot", 0x85140, 0x85160, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_A[] =
 {
-    { L"Feilin A", 0x85160, 0x85180, -1, -1, &pairNext },
-    { L"Feilin A weakspot", 0x85180, 0x851a0 },
+    { L"Feilin A", 0x85160, 0x85180, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin A weakspot", 0x85180, 0x851a0, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_START[] =
 {
-    { L"Feilin START", 0x851a0, 0x851c0, -1, -1, &pairNext },
-    { L"Feilin START weaskpot", 0x851c0, 0x851e0 },
+    { L"Feilin START", 0x851a0, 0x851c0, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin START weaskpot", 0x851c0, 0x851e0, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_LRY[] =
 {
-    { L"Feilin L/R+Y", 0x851e0, 0x85200, -1, -1, &pairNext },
-    { L"Feilin L/R+Y weakspot", 0x85200, 0x85220 },
+    { L"Feilin L/R+Y", 0x851e0, 0x85200, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin L/R+Y weakspot", 0x85200, 0x85220, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_LRX[] =
 {
-    { L"Feilin L/R+X", 0x85220, 0x85240, -1, -1, &pairNext },
-    { L"Feilin L/R+X weakspot", 0x85240, 0x85260 },
+    { L"Feilin L/R+X", 0x85220, 0x85240, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin L/R+X weakspot", 0x85240, 0x85260, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_LRB[] =
 {
-    { L"Feilin L/R+B", 0x85260, 0x85280, -1, -1, &pairNext },
-    { L"Feilin L/R+B weakspot", 0x85280, 0x852a0 },
+    { L"Feilin L/R+B", 0x85260, 0x85280, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin L/R+B weakspot", 0x85280, 0x852a0, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_LRA[] =
 {
-    { L"Feilin L/R+A", 0x852a0, 0x852c0, -1, -1, &pairNext },
-    { L"Feilin L/R+A weakspot", 0x852c0, 0x852e0 },
+    { L"Feilin L/R+A", 0x852a0, 0x852c0, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin L/R+A weakspot", 0x852c0, 0x852e0, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Feilin_LRSTART[] =
 {
-    { L"Feilin L/R+START", 0x852e0, 0x85300, -1, -1, &pairNext },
-    { L"Feilin L/R+START weakspot", 0x85300, 0x85320 },
+    { L"Feilin L/R+START", 0x852e0, 0x85300, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin L/R+START weakspot", 0x85300, 0x85320, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sDescTreeNode FightersHistory3_SNES_Feilin_COLLECTION[] =
@@ -376,61 +384,61 @@ const sDescTreeNode FightersHistory3_SNES_Feilin_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_Y[] =
 {
-    { L"Ryoko Y", 0x85360, 0x85380, -1, -1, &pairNext },
+    { L"Ryoko Y", 0x85360, 0x85380, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko Y weakspot", 0x85380, 0x853a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_X[] =
 {
-    { L"Ryoko X", 0x853a0, 0x853c0, -1, -1, &pairNext },
+    { L"Ryoko X", 0x853a0, 0x853c0, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko X weakspot", 0x853c0, 0x853e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_B[] =
 {
-    { L"Ryoko B", 0x853e0, 0x85400, -1, -1, &pairNext },
+    { L"Ryoko B", 0x853e0, 0x85400, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko B weakspot", 0x85400, 0x85420 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_A[] =
 {
-    { L"Ryoko A", 0x85420, 0x85440, -1, -1, &pairNext },
+    { L"Ryoko A", 0x85420, 0x85440, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko A weakspot", 0x85440, 0x85460 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_START[] =
 {
-    { L"Ryoko START", 0x85460, 0x85480, -1, -1, &pairNext },
+    { L"Ryoko START", 0x85460, 0x85480, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko START weakspot", 0x85480, 0x854a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_LRY[] =
 {
-    { L"Ryoko L/R+Y", 0x854a0, 0x854c0, -1, -1, &pairNext },
+    { L"Ryoko L/R+Y", 0x854a0, 0x854c0, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko L/R+Y weakspot", 0x854c0, 0x854e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_LRX[] =
 {
-    { L"Ryoko L/R+X", 0x854e0, 0x85500, -1, -1, &pairNext },
+    { L"Ryoko L/R+X", 0x854e0, 0x85500, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko L/R+X weakspot", 0x85500, 0x85520 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_LRB[] =
 {
-    { L"Ryoko L/R+B", 0x85520, 0x85540, -1, -1, &pairNext },
+    { L"Ryoko L/R+B", 0x85520, 0x85540, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko L/R+B weakspot", 0x85540, 0x85560 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_LRA[] =
 {
-    { L"Ryoko L/R+A", 0x85560, 0x85580, -1, -1, &pairNext },
+    { L"Ryoko L/R+A", 0x85560, 0x85580, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko L/R+A weakspot", 0x85580, 0x855a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Ryoko_LRSTART[] =
 {
-    { L"Ryoko L/R+START", 0x855a0, 0x855c0, -1, -1, &pairNext },
+    { L"Ryoko L/R+START", 0x855a0, 0x855c0, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko L/R+START weakspot", 0x855c0, 0x855e0 },
 };
 
@@ -450,61 +458,61 @@ const sDescTreeNode FightersHistory3_SNES_Ryoko_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_Y[] =
 {
-    { L"Clown Y", 0x85620, 0x85640, -1, -1, &pairNext },
+    { L"Clown Y", 0x85620, 0x85640, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown Y weakspot", 0x85640, 0x85660 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_X[] =
 {
-    { L"Clown X", 0x85660, 0x85680, -1, -1, &pairNext },
+    { L"Clown X", 0x85660, 0x85680, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown X weakspot", 0x85680, 0x856a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_B[] =
 {
-    { L"Clown B", 0x856a0, 0x856c0, -1, -1, &pairNext },
+    { L"Clown B", 0x856a0, 0x856c0, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown B weakspot", 0x856c0, 0x856e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_A[] =
 {
-    { L"Clown A", 0x856e0, 0x85700, -1, -1, &pairNext },
+    { L"Clown A", 0x856e0, 0x85700, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown A weakspot", 0x85700, 0x85720 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_START[] =
 {
-    { L"Clown START", 0x85720, 0x85740, -1, -1, &pairNext },
+    { L"Clown START", 0x85720, 0x85740, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown START weakspot", 0x85740, 0x85760 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_LRY[] =
 {
-    { L"Clown L/R+Y", 0x85760, 0x85780, -1, -1, &pairNext },
+    { L"Clown L/R+Y", 0x85760, 0x85780, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown L/R+Y weakspot", 0x85780, 0x857a0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_LRX[] =
 {
-    { L"Clown L/R+X", 0x857a0, 0x857c0, -1, -1, &pairNext },
+    { L"Clown L/R+X", 0x857a0, 0x857c0, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown L/R+X weakspot", 0x857c0, 0x857e0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_LRB[] =
 {
-    { L"Clown L/R+B", 0x857e0, 0x85800, -1, -1, &pairNext },
+    { L"Clown L/R+B", 0x857e0, 0x85800, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown L/R+B weakspot", 0x85800, 0x85820 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_LRA[] =
 {
-    { L"Clown L/R+A", 0x85820, 0x85840, -1, -1, &pairNext },
+    { L"Clown L/R+A", 0x85820, 0x85840, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown L/R+A weakspot", 0x85840, 0x85860 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Clown_LRSTART[] =
 {
-    { L"Clown L/R+START", 0x85860, 0x85880, -1, -1, &pairNext },
+    { L"Clown L/R+START", 0x85860, 0x85880, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown L/R+START weakspot", 0x85880, 0x858a0 },
 };
 
@@ -524,62 +532,62 @@ const sDescTreeNode FightersHistory3_SNES_Clown_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_Y[] =
 {
-    { L"Karnov Y", 0x858e0, 0x85900, -1, -1, &pairNext },
-    { L"Karnov Y weakspot", 0x85900, 0x85920 },
+    { L"Karnov Y", 0x858e0, 0x85900, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov Y weakspot", 0x85900, 0x85920, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_X[] =
 {
-    { L"Karnov X", 0x85920, 0x85940, -1, -1, &pairNext },
-    { L"Karnov X weakspot", 0x85940, 0x85960 },
+    { L"Karnov X", 0x85920, 0x85940, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov X weakspot", 0x85940, 0x85960, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_B[] =
 {
-    { L"Karnov B", 0x85960, 0x85980, -1, -1, &pairNext },
-    { L"Karnov B weakspot", 0x85980, 0x859a0 },
+    { L"Karnov B", 0x85960, 0x85980, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov B weakspot", 0x85980, 0x859a0, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_A[] =
 {
-    { L"Karnov A", 0x859a0, 0x859c0, -1, -1, &pairNext },
-    { L"Karnov A weakspot", 0x859c0, 0x859e0 },
+    { L"Karnov A", 0x859a0, 0x859c0, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov A weakspot", 0x859c0, 0x859e0, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_START[] =
 {
-    { L"Karnov START", 0x859e0, 0x85a00, -1, -1, &pairNext },
-    { L"Karnov START weakspot", 0x85a00, 0x85a20 },
+    { L"Karnov START", 0x859e0, 0x85a00, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov START weakspot", 0x85a00, 0x85a20, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_LRY[] =
 {
-    { L"Karnov L/R+Y", 0x85a20, 0x85a40, -1, -1, &pairNext },
-    { L"Karnov L/R+Y weakspot", 0x85a40, 0x85a60 },
+    { L"Karnov L/R+Y", 0x85a20, 0x85a40, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov L/R+Y weakspot", 0x85a40, 0x85a60, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_LRX[] =
 {
-    { L"Karnov L/R+X", 0x85a60, 0x85a80, -1, -1, &pairNext },
-    { L"Karnov L/R+X weakspot", 0x85a80, 0x85aa0 },
+    { L"Karnov L/R+X", 0x85a60, 0x85a80, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov L/R+X weakspot", 0x85a80, 0x85aa0, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_LRB[] =
 {
-    { L"Karnov L/R+B", 0x85aa0, 0x85ac0, -1, -1, &pairNext },
-    { L"Karnov L/R+B weakspot", 0x85ac0, 0x85ae0 },
+    { L"Karnov L/R+B", 0x85aa0, 0x85ac0, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov L/R+B weakspot", 0x85ac0, 0x85ae0, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_LRA[] =
 {
-    { L"Karnov L/R+A", 0x85ae0, 0x85b00, -1, -1, &pairNext },
-    { L"Karnov L/R+A weakspot", 0x85b00, 0x85b20 },
+    { L"Karnov L/R+A", 0x85ae0, 0x85b00, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov L/R+A weakspot", 0x85b00, 0x85b20, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Karnov_LRSTART[] =
 {
-    { L"Karnov L/R+START", 0x85b20, 0x85b40, -1, -1, &pairNext },
-    { L"Karnov L/R+START weakspot", 0x85b40, 0x85b60 },
+    { L"Karnov L/R+START", 0x85b20, 0x85b40, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov L/R+START weakspot", 0x85b40, 0x85b60, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sDescTreeNode FightersHistory3_SNES_Karnov_COLLECTION[] =

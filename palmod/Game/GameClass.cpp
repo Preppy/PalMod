@@ -1440,7 +1440,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
         const uint32_t nExtraCt = _GetExtraCount(rgExtraCount, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
         const BOOL fUseExtra = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef) != 0;
 
-        uint32_t nUnitChildCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, ppExtraDef);
+        const uint32_t nUnitChildCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, ppExtraDef);
 
         UnitNode = &((sDescTreeNode*)pNewDescTree->ChildNodes)[iUnitCtr];
 
@@ -1481,6 +1481,14 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
 #endif
 
                 const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
+                    
+                if (!paletteSetToUse)
+                {
+                    // We should never hit this, but I added this to work around a bug in the MSVC optimizer I was running into.
+                    // With this check it doesn't optimize away the paletteSetTouse variable and we don't crash.  Ugh.
+                    MessageBox(g_appHWnd, L"Catastrophic error happened: please report this error so it can be properly fixed.\r\nPalMod will now close.", GetHost()->GetAppName(), MB_ICONERROR);
+                    DebugBreak();
+                }
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
                 for (uint32_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)

@@ -2,138 +2,149 @@
 
 const std::vector<uint16_t> FightersHistory_A_IMGIDS_USED =
 {
+    indexKarnovsRSprites_Clown,         // 0x00
+    indexKarnovsRSprites_Feilin,        // 0x01
+    indexKarnovsRSprites_Jean,          // 0x02
+    indexKarnovsRSprites_Karnov,        // 0x03
+    indexKarnovsRSprites_Lee,           // 0x04
+    indexKarnovsRSprites_Marstorius,    // 0x05
+    indexKarnovsRSprites_Matlok,        // 0x06
+    indexKarnovsRSprites_Mizoguchi,     // 0x07
+    indexKarnovsRSprites_Ray,           // 0x08
+    indexKarnovsRSprites_Ryoko,         // 0x09
+    indexKarnovsRSprites_Samchay,       // 0x0a
 };
 
 const sGame_PaletteDataset FightersHistory_A_Ray_Punch[] =
 {
-    { L"Ray Punch", 0xb7140, 0xb7180, -1, -1, &pairNext },
+    { L"Ray Punch", 0xb7140, 0xb7180, indexKarnovsRSprites_Ray, 0x00, &pairNext },
     { L"Ray Punch weakspot", 0xbf940, 0xbf980 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Ray_Kick[] =
 {
-    { L"Ray Kick", 0xb7540, 0xb7580, -1, -1, &pairNext },
+    { L"Ray Kick", 0xb7540, 0xb7580, indexKarnovsRSprites_Ray, 0x00, &pairNext },
     { L"Ray Kick weakspot", 0xc1540, 0xc1580 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Feilin_Punch[] =
 {
-    { L"Feilin Punch", 0xb7180, 0xb71c0, -1, -1, &pairNext },
-    { L"Feilin Punch weakspot", 0xbf980, 0xbf9c0 },
+    { L"Feilin Punch", 0xb7180, 0xb71c0, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin Punch weakspot", 0xbf980, 0xbf9c0, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Feilin_Kick[] =
 {
-    { L"Feilin Kick", 0xb7580, 0xb75c0, -1, -1, &pairNext },
-    { L"Feilin Kick weakspot", 0xc1580, 0xc15c0 },
+    { L"Feilin Kick", 0xb7580, 0xb75c0, indexKarnovsRSprites_Feilin, 0x00, &pairNext },
+    { L"Feilin Kick weakspot", 0xc1580, 0xc15c0, indexKarnovsRSprites_Feilin, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Ryoko_Punch[] =
 {
-    { L"Ryoko Punch", 0xb71c0, 0xb7200, -1, -1, &pairNext },
+    { L"Ryoko Punch", 0xb71c0, 0xb7200, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko Punch weakspot", 0xbf9c0, 0xbfa00 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Ryoko_Kick[] =
 {
-    { L"Ryoko Kick", 0xb75c0, 0xb7600, -1, -1, &pairNext },
+    { L"Ryoko Kick", 0xb75c0, 0xb7600, indexKarnovsRSprites_Ryoko, 0x00, &pairNext },
     { L"Ryoko Kick weakspot", 0xc15c0, 0xc1600 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Matlok_Punch[] =
 {
-    { L"Matlok Punch", 0xb7200, 0xb7240, -1, -1, &pairNext },
-    { L"Matlok Punch weakspot", 0xbfa00, 0xbfa40 },
+    { L"Matlok Punch", 0xb7200, 0xb7240, indexKarnovsRSprites_Matlok, 0x00, &pairNext },
+    { L"Matlok Punch weakspot", 0xbfa00, 0xbfa40, indexKarnovsRSprites_Matlok, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Matlok_Kick[] =
 {
-    { L"Matlok Kick", 0xb7600, 0xb7640, -1, -1, &pairNext },
-    { L"Matlok Kick weakspot", 0xc1600, 0xc1640 },
+    { L"Matlok Kick", 0xb7600, 0xb7640, indexKarnovsRSprites_Matlok, 0x00, &pairNext },
+    { L"Matlok Kick weakspot", 0xc1600, 0xc1640, indexKarnovsRSprites_Matlok, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Samchay_Punch[] =
 {
-    { L"Samchay Punch", 0xb7240, 0xb7280, -1, -1, &pairNext },
+    { L"Samchay Punch", 0xb7240, 0xb7280, indexKarnovsRSprites_Samchay, 0x00, &pairNext },
     { L"Samchay Punch weakspot", 0xbfa40, 0xbfa80 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Samchay_Kick[] =
 {
-    { L"Samchay Kick", 0xb7640, 0xb7680, -1, -1, &pairNext },
+    { L"Samchay Kick", 0xb7640, 0xb7680, indexKarnovsRSprites_Samchay, 0x00, &pairNext },
     { L"Samchay Kick weakspot", 0xc1640, 0xc1680 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Lee_Punch[] =
 {
-    { L"Lee Punch", 0xb7280, 0xb72c0, -1, -1, &pairNext },
+    { L"Lee Punch", 0xb7280, 0xb72c0, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee Punch weakspot", 0xbfa80, 0xbfac0 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Lee_Kick[] =
 {
-    { L"Lee Kick", 0xb7680, 0xb76c0, -1, -1, &pairNext },
+    { L"Lee Kick", 0xb7680, 0xb76c0, indexKarnovsRSprites_Lee, 0x00, &pairNext },
     { L"Lee Kick weakspot", 0xc1680, 0xc16c0 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Mizoguchi_Punch[] =
 {
-    { L"Mizoguchi Punch", 0xb72c0, 0xb7300, -1, -1, &pairNext },
+    { L"Mizoguchi Punch", 0xb72c0, 0xb7300, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi Punch weakspot", 0xbfac0, 0xbfb00 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Mizoguchi_Kick[] =
 {
-    { L"Mizoguchi Kick", 0xb76c0, 0xb7700, -1, -1, &pairNext },
+    { L"Mizoguchi Kick", 0xb76c0, 0xb7700, indexKarnovsRSprites_Mizoguchi, 0x00, &pairNext },
     { L"Mizoguchi Kick weakspot", 0xc16c0, 0xc1700 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Jean_Punch[] =
 {
-    { L"Jean Punch", 0xb7300, 0xb7340, -1, -1, &pairNext },
-    { L"Jean Punch weakspot", 0xbfb00, 0xbfb40 },
+    { L"Jean Punch", 0xb7300, 0xb7340, indexKarnovsRSprites_Jean, 0x00, &pairNext },
+    { L"Jean Punch weakspot", 0xbfb00, 0xbfb40, indexKarnovsRSprites_Jean, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Jean_Kick[] =
 {
-    { L"Jean Kick", 0xb7700, 0xb7740, -1, -1, &pairNext },
-    { L"Jean Kick weakspot", 0xc1700, 0xc1740 },
+    { L"Jean Kick", 0xb7700, 0xb7740, indexKarnovsRSprites_Jean, 0x00, &pairNext },
+    { L"Jean Kick weakspot", 0xc1700, 0xc1740, indexKarnovsRSprites_Jean, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Marstorius_Punch[] =
 {
-    { L"Marstorius Punch", 0xb7340, 0xb7380, -1, -1, &pairNext },
+    { L"Marstorius Punch", 0xb7340, 0xb7380, indexKarnovsRSprites_Marstorius, 0x00, &pairNext },
     { L"Marstorius Punch weakspot", 0xbfb40, 0xbfb80 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Marstorius_Kick[] =
 {
-    { L"Marstorius Kick", 0xb7740, 0xb7780, -1, -1, &pairNext },
+    { L"Marstorius Kick", 0xb7740, 0xb7780, indexKarnovsRSprites_Marstorius, 0x00, &pairNext },
     { L"Marstorius Kick weakspot", 0xc1740, 0xc1780 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Clown_Punch[] =
 {
-    { L"Clown Punch", 0xb7380, 0xb73c0, -1, -1, &pairNext },
+    { L"Clown Punch", 0xb7380, 0xb73c0, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown Punch weakspot", 0xbfb80, 0xbfbc0 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Clown_Kick[] =
 {
-    { L"Clown Kick", 0xb7780, 0xb77c0, -1, -1, &pairNext },
+    { L"Clown Kick", 0xb7780, 0xb77c0, indexKarnovsRSprites_Clown, 0x00, &pairNext },
     { L"Clown Kick weakspot", 0xc1780, 0xc17c0 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Karnov_Punch[] =
 {
-    { L"Karnov Punch", 0xb73c0, 0xb7400, -1, -1, &pairNext },
-    { L"Karnov Punch weakspot", 0xbfbc0, 0xbfc00 },
+    { L"Karnov Punch", 0xb73c0, 0xb7400, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov Punch weakspot", 0xbfbc0, 0xbfc00, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Karnov_Kick[] =
 {
-    { L"Karnov Kick", 0xb77c0, 0xb7800, -1, -1, &pairNext },
-    { L"Karnov Kick weakspot", 0xc17c0, 0xc1800 },
+    { L"Karnov Kick", 0xb77c0, 0xb7800, indexKarnovsRSprites_Karnov, 0x00, &pairNext },
+    { L"Karnov Kick weakspot", 0xc17c0, 0xc1800, indexKarnovsRSprites_Karnov, 0x01 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Bonus[] =
@@ -159,8 +170,8 @@ const sGame_PaletteDataset FightersHistory_A_Portraits_Feilin[] =
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Ryoko[] =
 {
-    { L"Ryoko Punch", 0xc19c0, 0xc1a00 },
-    { L"Ryoko Kick", 0xc1dc0, 0xc1e00 },
+    { L"Ryoko Punch", 0xc19c0, 0xc1a00, indexKarnovsRSprites_Ryoko, 0x03 },
+    { L"Ryoko Kick", 0xc1dc0, 0xc1e00, indexKarnovsRSprites_Ryoko, 0x03 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Matlok[] =
@@ -187,8 +198,8 @@ const sGame_PaletteDataset FightersHistory_A_Portraits_Lee[] =
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Mizoguchi[] =
 {
-    { L"Mizoguchi Punch", 0xc1ac0, 0xc1b00 },
-    { L"Mizoguchi Kick", 0xc1ec0, 0xc1f00 },
+    { L"Mizoguchi Punch", 0xc1ac0, 0xc1b00, indexKarnovsRSprites_Mizoguchi, 0x03 },
+    { L"Mizoguchi Kick", 0xc1ec0, 0xc1f00, indexKarnovsRSprites_Mizoguchi, 0x03 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Jean[] =

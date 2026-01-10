@@ -22,7 +22,7 @@ private:
     {
         L"Fighter's History - Mizoguchi Kikiippatsu!! (Japan)",
         FightersHistory3_SNES,
-        IMGDAT_SECTION_SNES,
+        IMGDAT_SECTION_KARNOVSR,
         FightersHistory3_SNES_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
