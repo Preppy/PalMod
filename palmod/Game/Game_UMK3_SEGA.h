@@ -17,7 +17,7 @@ private:
     {
         // this PAL shift is correct for most but incorrect for Bonus Fonts which appears to be 0xf0.  
         // but just not exposing this for now as it's imperfect
-        { L"Ultimate Mortal Kombat 3 (Mega Drive PAL)", L"pal_ultimate_mk3.bin", 0xECFB5CB4, 0, 0x10c },
+        { L"Ultimate Mortal Kombat 3 (Mega Drive PAL)", L"pal_ultimate_mk3.bin", 0xECFB5CB4, 0x10c },
         { L"Ultimate Mortal Kombat 3 (Mega Drive USA)", L"ultimate mortal kombat 3 (usa).bin", 0x7290770D, 0 },
     };
 
