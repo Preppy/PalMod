@@ -29,7 +29,7 @@ private:
         UMK3_SNES_UNITS,
         ARRAYSIZE(UMK3_SNES_UNITS),
         L"UMK3_SNES_E.txt",           // Extra filename
-        70,                           // Count of palettes listed in the header
+        74,                           // Count of palettes listed in the header
         0x7155,                       // Lowest known location used for palettes
     };
 

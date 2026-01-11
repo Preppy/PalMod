@@ -316,7 +316,15 @@ const sGame_PaletteDataset UMK3_SNES_STAGE_PALETTES_WATERFRONT[] =
     { L"River Kombat (Waterfront)", 0x83D0C, 0x83DEC },
 };
 
-const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES[] =
+const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES_SECRETGAME[] =
+{
+    { L"Enemies", 0x3f071b, 0x3f073b },
+    { L"Main Ships", 0x3f073b, 0x3f075b },
+    { L"Explosions", 0x3f075b, 0x3f077b },
+    { L"Background", 0x38c384, 0x38c38c },
+};
+
+const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES_BONUS[] =
 {
     { L"Title", 0x7797A, 0x77A7A },
     { L"Options Title", 0x96559, 0x965F9 },
@@ -502,7 +510,8 @@ const sDescTreeNode UMK3_SNES_STAGE_COLLECTION[] =
 
 const sDescTreeNode UMK3_SNES_BONUS_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)UMK3_SNES_BONUS_PALETTES, ARRAYSIZE(UMK3_SNES_BONUS_PALETTES) },
+    { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_SNES_BONUS_PALETTES_SECRETGAME, ARRAYSIZE(UMK3_SNES_BONUS_PALETTES_SECRETGAME) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)UMK3_SNES_BONUS_PALETTES_BONUS, ARRAYSIZE(UMK3_SNES_BONUS_PALETTES_BONUS) },
 };
 
 const sDescTreeNode UMK3_SNES_UNITS[] =
