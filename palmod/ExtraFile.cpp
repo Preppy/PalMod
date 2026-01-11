@@ -254,7 +254,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                 std::vector<UnitData> vUnitData;
 
-                CString strCurrentUnit = L"UNNAMED";
+                CString strCurrentUnitDisplayName = L"UNNAMED";
+                wchar_t szPrintableUnitName[MAX_PATH] = L"UNNAMED";
 #endif
 
                 if (CRegProc::GetMaxColorsPerPageOverride() != 0)
@@ -470,7 +471,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     if (vUnitData.empty())
                                     {
                                         // force a dummy unit
-                                        UnitData thisUnit = { strCurrentUnit.GetString(), strCurrentUnit.GetString() };
+                                        UnitData thisUnit = { strCurrentUnitDisplayName.GetString(), strCurrentUnitDisplayName.GetString() };
                                         vUnitData.push_back(thisUnit);
                                     }
 
@@ -615,15 +616,14 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 #ifdef DUMP_EXTRAS_ON_LOAD
                                 if ((strncmp(aszFinalLine, ";---", 4) == 0) && (aszFinalLine[4] != '-')) // Unit
                                 {
-                                    wchar_t szPrintable[MAX_PATH];
-                                    strCurrentUnit.Format(L"%S", aszFinalLine + 4);
-                                    StrRemoveNonASCII(szPrintable, MAX_PATH, strCurrentUnit.GetString());
+                                    strCurrentUnitDisplayName.Format(L"%S", aszFinalLine + 4);
+                                    StrRemoveNonASCII(szPrintableUnitName, MAX_PATH, strCurrentUnitDisplayName.GetString());
 
                                     bool fFoundExisting = false;
 
                                     for (UnitData& unitCheck : vUnitData)
                                     {
-                                        if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                        if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnitDisplayName.GetString()) == 0)
                                         {
                                             fFoundExisting = true;
                                             break;
@@ -632,7 +632,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                                     if (!fFoundExisting)
                                     {
-                                        UnitData thisUnit = { szPrintable, strCurrentUnit.GetString() };
+                                        UnitData thisUnit = { szPrintableUnitName, strCurrentUnitDisplayName.GetString() };
                                         vUnitData.push_back(thisUnit);
                                     }
                                 }
@@ -652,19 +652,19 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     if (vUnitData.empty())
                                     {
                                         // force a dummy unit
-                                        UnitData thisUnit = { strCurrentUnit.GetString(), strCurrentUnit.GetString() };
+                                        UnitData thisUnit = { szPrintableUnitName, strCurrentUnitDisplayName.GetString() };
                                         vUnitData.push_back(thisUnit);
                                     }
 
                                     CString strNodeRef;
-                                    strNodeRef.Format(L"GAMENAME_%s_%s", strCurrentUnit.GetString(), szPrintableNodeName);
+                                    strNodeRef.Format(L"GAMENAME_%s_%s", szPrintableUnitName, szPrintableNodeName);
 
                                     NodeData thisNode = { strNodeRef.GetString(), strFriendlyName.GetString() };
                                     thisNode.PrintPaletteSetHeader();
 
                                     for (UnitData& unitCheck : vUnitData)
                                     {
-                                        if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnit.GetString()) == 0)
+                                        if (wcscmp(unitCheck.strDisplayName.c_str(), strCurrentUnitDisplayName.GetString()) == 0)
                                         {
                                             unitCheck.vNodeData.push_back(thisNode);
                                             break;
