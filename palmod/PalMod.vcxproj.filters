@@ -631,6 +631,12 @@
     <Filter Include="Games\Other Platforms\Fighter%27s History %28Data East%29">
       <UniqueIdentifier>{47820c66-0a04-4016-be3b-813bde09de5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Sega\Mortal Kombat 3">
+      <UniqueIdentifier>{c0041706-7166-4f39-b1ea-4afa1bcecc50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Sega\Ultimate Mortal Kombat 3">
+      <UniqueIdentifier>{f5353b27-ab9b-4b0e-9614-2155dafa1531}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2284,6 +2290,18 @@
     </ClInclude>
     <ClInclude Include="Game\VirtuaFighter2_GEN_DEF.h">
       <Filter>Games\Sega\Virtua Fighter 2 %28Genesis%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MK3_SEGA.h">
+      <Filter>Games\Sega\Mortal Kombat 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MK3_SEGA_DEF.h">
+      <Filter>Games\Sega\Mortal Kombat 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_UMK3_SEGA.h">
+      <Filter>Games\Sega\Ultimate Mortal Kombat 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UMK3_SEGA_DEF.h">
+      <Filter>Games\Sega\Ultimate Mortal Kombat 3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

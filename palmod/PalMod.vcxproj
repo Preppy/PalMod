@@ -528,6 +528,7 @@
     <ClInclude Include="Game\Game_MK1_SNES.h" />
     <ClInclude Include="Game\Game_MK2_A.h" />
     <ClInclude Include="Game\Game_MK2_SNES.h" />
+    <ClInclude Include="Game\Game_MK3_SEGA.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MMX2_SNES.h" />
     <ClInclude Include="Game\Game_MMX3_SNES.h" />
@@ -602,6 +603,7 @@
     <ClInclude Include="Game\Game_TurfMasters_A.h" />
     <ClInclude Include="Game\Game_UMK3_A.h" />
     <ClInclude Include="Game\Game_UMK3_DS.h" />
+    <ClInclude Include="Game\Game_UMK3_SEGA.h" />
     <ClInclude Include="Game\Game_UMK3_SNES.h" />
     <ClInclude Include="Game\Game_UNI2_S.h" />
     <ClInclude Include="Game\Game_UNICLR_A.h" />
@@ -672,6 +674,7 @@
     <ClInclude Include="Game\MK1_SNES_DEF.h" />
     <ClInclude Include="Game\MK2_A_DEF.h" />
     <ClInclude Include="Game\MK2_SNES_DEF.h" />
+    <ClInclude Include="Game\MK3_SEGA_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
     <ClInclude Include="Game\MMX2_SNES_DEF.h" />
     <ClInclude Include="Game\MMX3_SNES_DEF.h" />
@@ -745,6 +748,7 @@
     <ClInclude Include="Game\TurfMasters_A_DEF.h" />
     <ClInclude Include="Game\UMK3_A_DEF.h" />
     <ClInclude Include="Game\UMK3_DS_DEF.h" />
+    <ClInclude Include="Game\UMK3_SEGA_DEF.h" />
     <ClInclude Include="Game\UMK3_SNES_DEF.h" />
     <ClInclude Include="Game\UNI2_S_DEF.h" />
     <ClInclude Include="Game\UNICLR_S_DEF.h" />

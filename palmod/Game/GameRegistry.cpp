@@ -95,6 +95,7 @@
 #include "Game_MK1_SNES.h"
 #include "Game_MK2_A.h"
 #include "Game_MK2_SNES.h"
+#include "Game_MK3_SEGA.h"
 #include "Game_MMPR_SNES.h"
 #include "Game_MMX_SNES.h"
 #include "Game_MMX2_SNES.h"
@@ -170,6 +171,7 @@
 #include "Game_TurfMasters_A.h"
 #include "Game_UMK3_A.h"
 #include "Game_UMK3_DS.h"
+#include "Game_UMK3_SEGA.h"
 #include "Game_UMK3_SNES.h"
 #include "Game_UNICLR_A.h"
 #include "Game_UNI2_S.h"
@@ -189,7 +191,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 259, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 261, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -311,6 +313,7 @@ namespace KnownGameInfo
     CGameClass* Make_MK1_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_SNES(nConfirmedROMSize); }
     CGameClass* Make_MK2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_A(nConfirmedROMSize); }
     CGameClass* Make_MK2_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MK3_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK3_SEGA(nConfirmedROMSize); }
     CGameClass* Make_MMPR_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMPR_SNES(nConfirmedROMSize); }
     CGameClass* Make_MMX2_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMX2_SNES(nConfirmedROMSize); }
     CGameClass* Make_MMX3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMX3_SNES(nConfirmedROMSize); }
@@ -420,6 +423,7 @@ namespace KnownGameInfo
     CGameClass* Make_TOPF2005_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TOPF2005_SEGA(nConfirmedROMSize); }
     CGameClass* Make_UMK3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_A(nConfirmedROMSize); }
     CGameClass* Make_UMK3_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_DS(nConfirmedROMSize); }
+    CGameClass* Make_UMK3_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_SEGA(nConfirmedROMSize); }
     CGameClass* Make_UMK3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_SNES(nConfirmedROMSize); }
     CGameClass* Make_UNICLR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UNICLR_A(nConfirmedROMSize); }
 	CGameClass* Make_UNI2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UNI2_S(nConfirmedROMSize); }
@@ -1446,6 +1450,13 @@ namespace KnownGameInfo
             CGame_MK2_SNES::GetRule,
         },
         {
+            MK3_SEGA,
+            L"Mortal Kombat 3 (Sega Mega Drive)",
+            { MK3_SEGA,         L"Mortal Kombat 3 (Mega Drive)", L"Mortal Kombat 3 (Mega Drive)|mortal kombat 3 (usa).bin|", GamePlatform::OtherPlatform },
+            Make_MK3_SEGA,
+            CGame_MK3_SEGA::GetRule,
+        },
+        {
             MSHVSF_A,
             L"MSHvSF (CPS2 Arcade)",
             { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|mvs*.06a;mvs*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvCNormal },
@@ -2261,6 +2272,13 @@ namespace KnownGameInfo
             CGame_UMK3_DS::GetRule,
         },
         {
+            UMK3_SEGA,
+            L"Ultimate Mortal Kombat 3 (USA Sega Mega Drive)",
+            { UMK3_SEGA,         L"Ultimate Mortal Kombat 3 (Mega Drive)", L"Ultimate Mortal Kombat 3 (Mega Drive)|ultimate mortal kombat 3 (usa).bin|", GamePlatform::OtherPlatform },
+            Make_UMK3_SEGA,
+            CGame_UMK3_SEGA::GetRule,
+        },
+        {
             UMK3_SNES,
             L"Ultimate Mortal Kombat 3 (USA SNES)",
             { UMK3_SNES,        L"Ultimate Mortal Kombat 3", L"Ultimate Mortal Kombat 3 (SNES)|Ultimate Mortal Kombat 3 (USA).sfc;sns-a3ze.u1|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -2433,7 +2451,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 259, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 261, "New GameID defined: please update GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
