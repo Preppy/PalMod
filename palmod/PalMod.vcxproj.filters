@@ -637,6 +637,9 @@
     <Filter Include="Games\Sega\Ultimate Mortal Kombat 3">
       <UniqueIdentifier>{f5353b27-ab9b-4b0e-9614-2155dafa1531}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Street Fighter EX2 Plus %28Arcade%29">
+      <UniqueIdentifier>{87284029-6c10-4bbb-b508-a378dd2c9349}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2302,6 +2305,12 @@
     </ClInclude>
     <ClInclude Include="Game\UMK3_SEGA_DEF.h">
       <Filter>Games\Sega\Ultimate Mortal Kombat 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFEX2P_A.h">
+      <Filter>Games\Capcom Games\Street Fighter EX2 Plus %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFEX2P_A_DEF.h">
+      <Filter>Games\Capcom Games\Street Fighter EX2 Plus %28Arcade%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

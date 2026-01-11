@@ -612,10 +612,11 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     }
                                 }
 
-                                m_paszGameNameOverride;
+#ifdef DUMP_EXTRAS_ON_LOAD
                                 CString strWideGameName;
                                 strWideGameName.Format(L"%S", m_paszGameNameOverride);
                                 StrRemoveNonASCII(szPrintableGameName, MAX_PATH, strWideGameName.GetString());
+#endif
                             }
                         
                             if (!fHandled)

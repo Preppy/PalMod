@@ -142,6 +142,7 @@
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
+#include "Game_SFEX2P_A.h"
 #include "Game_SFZ3U_A.h"
 #include "Game_SFIII1_A.h"
 #include "Game_SFIII1_A_DIR.h"
@@ -191,7 +192,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 261, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 262, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -388,6 +389,7 @@ namespace KnownGameInfo
     CGameClass* Make_SFA3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_A(nConfirmedROMSize); }
     CGameClass* Make_SFA3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_S(nConfirmedROMSize); }
     CGameClass* Make_SFA3MAX_PSP_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3MAX_PSP_DIR(nConfirmedROMSize); }
+    CGameClass* Make_SFEX2P_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFEX2P_A(nConfirmedROMSize); }
     CGameClass* Make_SFIII1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A(nConfirmedROMSize); }
     CGameClass* Make_SFIII1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII1_NG); }
     CGameClass* Make_SFIII1_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A_DIR(nConfirmedROMSize); }
@@ -1932,6 +1934,13 @@ namespace KnownGameInfo
             CGame_SFZ3M_S::GetRule,
         },
         {
+            SFEX2P_A,
+            L"Street Fighter EX2 Plus (Arcade)",
+            { SFEX2P_A,           L"Street Fighter EX2 Plus (ZN1)", L"Street Fighter EX2 Plus (Arcade) |x2p-05m.3h|", GamePlatform::OtherPlatform },
+            Make_SFEX2P_A,
+            CGame_SFEX2P_A::GetRule,
+        },
+        {
             SFIII1_A,
             L"SFIII:NG (CPS3 Arcade)",
             { SFIII1_A,         L"SFIII:NG", L"SFIII:NG (CPS3)|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
@@ -2451,7 +2460,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 261, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 262, "New GameID defined: please update GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
