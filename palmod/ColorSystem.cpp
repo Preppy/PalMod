@@ -499,7 +499,11 @@ namespace ColorSystem
         green += green / 32;
         blue += blue / 32;
 
-        if ((alpha != 0) || (!IsAlphaModeMutable(CurrAlphaMode)) && (CurrAlphaMode != AlphaMode::GameUsesSTPNotAlpha))
+        if (CurrAlphaMode == AlphaMode::GameUsesSTPNotAlpha) // This is PS1 BRG555_LE only
+        {
+            alpha = alpha ? 0xaf : 0xff;
+        }
+        else if ((alpha != 0) || (!IsAlphaModeMutable(CurrAlphaMode)))
         {
             alpha = 0xFF;
         }
