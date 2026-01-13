@@ -9,186 +9,195 @@
 
 const std::vector<uint16_t> JCHAN_A_IMGIDS_USED =
 {
+    indexJChanSprites_JChanAdmiral,     // 0xce
+    indexJChanSprites_JChanDrunkenFist, // 0xcf
+    indexJChanSprites_JChanSpiritual,   // 0xd0
+    indexJChanSprites_KimMaree,         // 0xd1
+    indexJChanSprites_Lau,              // 0xd2
+    indexJChanSprites_Lion,             // 0xd3
+    indexJChanSprites_Sam,              // 0xd4
+    indexJChanSprites_Thorsten,         // 0xd5
+    indexJChanSprites_Yeung,            // 0xd6
 };
 
 const sGame_PaletteDataset JCHAN_A_THORSTEN_PALETTES_LPHP[] =
 {
-    { L"Thorsten", 0xc0000, 0xc0200 },
+    { L"Thorsten", 0xc0000, 0xc0200, indexJChanSprites_Thorsten, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_THORSTEN_PALETTES_LKHK[] =
 {
-    { L"Thorsten", 0xc0200, 0xc0400 },
+    { L"Thorsten", 0xc0200, 0xc0400, indexJChanSprites_Thorsten, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_THORSTEN_PALETTES_BOSS1[] =
 {
-    { L"Demon Thorsten", 0xc0400, 0xc0600 },
+    { L"Demon Thorsten", 0xc0400, 0xc0600, indexJChanSprites_Thorsten, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_THORSTEN_PALETTES_BOSS2[] =
 {
-    { L"Demon Thorsten", 0xc0600, 0xc0800 },
+    { L"Demon Thorsten", 0xc0600, 0xc0800, indexJChanSprites_Thorsten, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SAM_PALETTES_LPHP[] =
 {
-    { L"Sam", 0xc0800, 0xc0a00 },
+    { L"Sam", 0xc0800, 0xc0a00, indexJChanSprites_Sam, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SAM_PALETTES_LKHK[] =
 {
-    { L"Sam", 0xc0a00, 0xc0c00 },
+    { L"Sam", 0xc0a00, 0xc0c00, indexJChanSprites_Sam, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SAM_PALETTES_BOSS1[] =
 {
-    { L"Black Sam", 0xc0c00, 0xc0e00 },
+    { L"Black Sam", 0xc0c00, 0xc0e00, indexJChanSprites_Sam, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SAM_PALETTES_BOSS2[] =
 {
-    { L"Black Sam", 0xc0e00, 0xc1000 },
+    { L"Black Sam", 0xc0e00, 0xc1000, indexJChanSprites_Sam, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SPIRITJCHAN_PALETTES_LPHP[] =
 {
-    { L"Spiritual Kung-Fu Jackie", 0xc1000, 0xc1200 },
+    { L"Spiritual Kung-Fu Jackie", 0xc1000, 0xc1200, indexJChanSprites_JChanSpiritual, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SPIRITJCHAN_PALETTES_LKHK[] =
 {
-    { L"Spiritual Kung-Fu Jackie", 0xc1200, 0xc1400 },
+    { L"Spiritual Kung-Fu Jackie", 0xc1200, 0xc1400, indexJChanSprites_JChanSpiritual, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SPIRITJCHAN_PALETTES_BOSS1[] =
 {
-    { L"Hyper Dragonball Jackie", 0xc1400, 0xc1600 },
+    { L"Hyper Dragonball Jackie", 0xc1400, 0xc1600, indexJChanSprites_JChanSpiritual, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_SPIRITJCHAN_PALETTES_BOSS2[] =
 {
-    { L"Hyper Dragonball Jackie", 0xc1600, 0xc1800 },
+    { L"Hyper Dragonball Jackie", 0xc1600, 0xc1800, indexJChanSprites_JChanSpiritual, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_DRUNKJCHAN_PALETTES_LPHP[] =
 {
-    { L"Drunken Master Jackie", 0xc1800, 0xc1a00 },
+    { L"Drunken Master Jackie", 0xc1800, 0xc1a00, indexJChanSprites_JChanDrunkenFist, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_DRUNKJCHAN_PALETTES_LKHK[] =
 {
-    { L"Drunken Master Jackie", 0xc1a00, 0xc1c00 },
+    { L"Drunken Master Jackie", 0xc1a00, 0xc1c00, indexJChanSprites_JChanDrunkenFist, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_DRUNKJCHAN_PALETTES_BOSS1[] =
 {
-    { L"Hyper Drunken Jackie", 0xc1c00, 0xc1e00 },
+    { L"Hyper Drunken Jackie", 0xc1c00, 0xc1e00, indexJChanSprites_JChanDrunkenFist, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_DRUNKJCHAN_PALETTES_BOSS2[] =
 {
-    { L"Hyper Drunken Jackie", 0xc1e00, 0xc2000 },
+    { L"Hyper Drunken Jackie", 0xc1e00, 0xc2000, indexJChanSprites_JChanDrunkenFist, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_YEUNG_PALETTES_LPHP[] =
 {
-    { L"Yeung", 0xc2000, 0xc2200 },
+    { L"Yeung", 0xc2000, 0xc2200, indexJChanSprites_Yeung, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_YEUNG_PALETTES_LKHK[] =
 {
-    { L"Yeung", 0xc2200, 0xc2400 },
+    { L"Yeung", 0xc2200, 0xc2400, indexJChanSprites_Yeung, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_YEUNG_PALETTES_BOSS1[] =
 {
-    { L"Shadow Yeung", 0xc2400, 0xc2600 },
+    { L"Shadow Yeung", 0xc2400, 0xc2600, indexJChanSprites_Yeung, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_YEUNG_PALETTES_BOSS2[] =
 {
-    { L"Shadow Yeung", 0xc2600, 0xc2800 },
+    { L"Shadow Yeung", 0xc2600, 0xc2800, indexJChanSprites_Yeung, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_ADMIRALJCHAN_PALETTES_LPHP[] =
 {
-    { L"Admiral Jackie", 0xc2800, 0xc2a00 },
+    { L"Admiral Jackie", 0xc2800, 0xc2a00, indexJChanSprites_JChanAdmiral, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_ADMIRALJCHAN_PALETTES_LKHK[] =
 {
-    { L"Admiral Jackie", 0xc2a00, 0xc2c00 },
+    { L"Admiral Jackie", 0xc2a00, 0xc2c00, indexJChanSprites_JChanAdmiral, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_ADMIRALJCHAN_PALETTES_BOSS1[] =
 {
-    { L"Hyper Admiral Jackie", 0xc2c00, 0xc2e00 },
+    { L"Hyper Admiral Jackie", 0xc2c00, 0xc2e00, indexJChanSprites_JChanAdmiral, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_ADMIRALJCHAN_PALETTES_BOSS2[] =
 {
-    { L"Hyper Admiral Jackie", 0xc2e00, 0xc3000 },
+    { L"Hyper Admiral Jackie", 0xc2e00, 0xc3000, indexJChanSprites_JChanAdmiral, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LION_PALETTES_LPHP[] =
 {
-    { L"Lion", 0xc3000, 0xc3200 },
+    { L"Lion", 0xc3000, 0xc3200, indexJChanSprites_Lion, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LION_PALETTES_LKHK[] =
 {
-    { L"Lion", 0xc3200, 0xc3400 },
+    { L"Lion", 0xc3200, 0xc3400, indexJChanSprites_Lion, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LION_PALETTES_BOSS1[] =
 {
-    { L"Evil Lion", 0xc3400, 0xc3600 },
+    { L"Evil Lion", 0xc3400, 0xc3600, indexJChanSprites_Lion, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LION_PALETTES_BOSS2[] =
 {
-    { L"Evil Lion", 0xc3600, 0xc3800 },
+    { L"Evil Lion", 0xc3600, 0xc3800, indexJChanSprites_Lion, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_KIMMAREE_PALETTES_LPHP[] =
 {
-    { L"Kim-Maree", 0xc3800, 0xc3a00 },
+    { L"Kim-Maree", 0xc3800, 0xc3a00, indexJChanSprites_KimMaree, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_KIMMAREE_PALETTES_LKHK[] =
 {
-    { L"Kim-Maree", 0xc3a00, 0xc3c00 },
+    { L"Kim-Maree", 0xc3a00, 0xc3c00, indexJChanSprites_KimMaree, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_KIMMAREE_PALETTES_BOSS1[] =
 {
-    { L"Dirty Maree", 0xc3c00, 0xc3e00 },
+    { L"Dirty Maree", 0xc3c00, 0xc3e00, indexJChanSprites_KimMaree, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_KIMMAREE_PALETTES_BOSS2[] =
 {
-    { L"Palette", 0xc3e00, 0xc4000 },
+    { L"Palette", 0xc3e00, 0xc4000, indexJChanSprites_KimMaree, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LAU_PALETTES_LPHP[] =
 {
-    { L"Lau", 0xc4000, 0xc4200 },
+    { L"Lau", 0xc4000, 0xc4200, indexJChanSprites_Lau, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LAU_PALETTES_LKHK[] =
 {
-    { L"Lau", 0xc4200, 0xc4400 },
+    { L"Lau", 0xc4200, 0xc4400, indexJChanSprites_Lau, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LAU_PALETTES_BOSS1[] =
 {
-    { L"Dark Lau", 0xc4400, 0xc4600 },
+    { L"Dark Lau", 0xc4400, 0xc4600, indexJChanSprites_Lau, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_LAU_PALETTES_BOSS2[] =
 {
-    { L"Dark Lau", 0xc4600, 0xc4800 },
+    { L"Dark Lau", 0xc4600, 0xc4800, indexJChanSprites_Lau, 0x00 },
 };
 
 const sGame_PaletteDataset JCHAN_A_BONUS_PALETTES_BONUS[] =

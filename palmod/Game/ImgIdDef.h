@@ -2908,21 +2908,35 @@ enum SupportedOther_SpriteListIndex
     indexMCI_Wolverine,         // 0xb9
     indexMCI_Bonus,             // 0xba
 
-    indexOtherSprites_Akuma,    // 0xbb
-    indexOtherSprites_Arkane,   // 0xbc
-    indexOtherSprites_Balrog,   // 0xbd
-    indexOtherSprites_Blade,    // 0xbe
-    indexOtherSprites_Cammy,    // 0xbf
-    indexOtherSprites_ChunLi,   // 0xc0
-    indexOtherSprites_EHonda,   // 0xc1
-    indexOtherSprites_F7,       // 0xc2
-    indexOtherSprites_Guile,    // 0xc3
-    indexOtherSprites_Ken,      // 0xc4
-    indexOtherSprites_Khyber,   // 0xc5
-    indexOtherSprites_MBison,   // 0xc6
-    indexOtherSprites_Ryu,      // 0xc7
-    indexOtherSprites_Sagat,    // 0xc8
-    indexOtherSprites_Sawada,   // 0xc9
-    indexOtherSprites_Vega,     // 0xca
-    indexOtherSprites_Zangief,  // 0xcb
+    indexSFTMSprites_Akuma,     // 0xbb
+    indexSFTMSprites_Arkane,    // 0xbc
+    indexSFTMSprites_Balrog,    // 0xbd
+    indexSFTMSprites_Blade,     // 0xbe
+    indexSFTMSprites_Cammy,     // 0xbf
+    indexSFTMSprites_ChunLi,    // 0xc0
+    indexSFTMSprites_EHonda,    // 0xc1
+    indexSFTMSprites_F7,        // 0xc2
+    indexSFTMSprites_Guile,     // 0xc3
+    indexSFTMSprites_Ken,       // 0xc4
+    indexSFTMSprites_Khyber,    // 0xc5
+    indexSFTMSprites_MBison,    // 0xc6
+    indexSFTMSprites_Ryu,       // 0xc7
+    indexSFTMSprites_Sagat,     // 0xc8
+    indexSFTMSprites_Sawada,    // 0xc9
+    indexSFTMSprites_Vega,      // 0xca
+    indexSFTMSprites_Zangief,   // 0xcb
+    indexSFTMSprites_Stages,    // 0xcc
+    indexSFTMSprites_Bonus,     // 0xcd
+
+    indexJChanSprites_JChanAdmiral,     // 0xce
+    indexJChanSprites_JChanDrunkenFist, // 0xcf
+    indexJChanSprites_JChanSpiritual,   // 0xd0
+    indexJChanSprites_KimMaree,         // 0xd1
+    indexJChanSprites_Lau,              // 0xd2
+    indexJChanSprites_Lion,             // 0xd3
+    indexJChanSprites_Sam,              // 0xd4
+    indexJChanSprites_Thorsten,         // 0xd5
+    indexJChanSprites_Yeung,            // 0xd6
+    indexJChanSprites_Stages,           // 0xd7
+    indexJChanSprites_Bonus,            // 0xd8
 };
