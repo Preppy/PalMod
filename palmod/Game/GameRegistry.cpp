@@ -1454,7 +1454,7 @@ namespace KnownGameInfo
         {
             MK3_SEGA,
             L"Mortal Kombat 3 (Sega Mega Drive)",
-            { MK3_SEGA,         L"Mortal Kombat 3 (Mega Drive)", L"Mortal Kombat 3 (Mega Drive)|mortal kombat 3 (usa).bin|", GamePlatform::OtherPlatform },
+            { MK3_SEGA,         L"Mortal Kombat 3 (Mega Drive)", L"Mortal Kombat 3 (Mega Drive)|mortal kombat 3 (usa).*|", GamePlatform::OtherPlatform },
             Make_MK3_SEGA,
             CGame_MK3_SEGA::GetRule,
         },
@@ -2283,7 +2283,7 @@ namespace KnownGameInfo
         {
             UMK3_SEGA,
             L"Ultimate Mortal Kombat 3 (USA Sega Mega Drive)",
-            { UMK3_SEGA,         L"Ultimate Mortal Kombat 3 (Mega Drive)", L"Ultimate Mortal Kombat 3 (Mega Drive)|ultimate mortal kombat 3 (usa).bin|", GamePlatform::OtherPlatform },
+            { UMK3_SEGA,         L"Ultimate Mortal Kombat 3 (Mega Drive)", L"Ultimate Mortal Kombat 3 (Mega Drive)|ultimate mortal kombat 3 (usa).*|", GamePlatform::OtherPlatform },
             Make_UMK3_SEGA,
             CGame_UMK3_SEGA::GetRule,
         },

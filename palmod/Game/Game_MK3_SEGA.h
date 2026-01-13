@@ -17,7 +17,11 @@ private:
     {
         // This *almost* but not quite works (bonus has a further shift) so not exposing this at this time
         { L"Mortal Kombat 3 (Mega Drive PAL)", L"mortal_kombat_3_pal.bin", 0xAF6DE3E8, 0 },
+        { L"Mortal Kombat 3 (Mega Drive PAL)", L"mortal_kombat_3_pal.gen", 0xAF6DE3E8, 0 },
+        { L"Mortal Kombat 3 (Mega Drive PAL)", L"mortal_kombat_3_pal.md", 0xAF6DE3E8, 0 },
         { L"Mortal Kombat 3 (Mega Drive USA)", L"mortal kombat 3 (usa).bin", 0xDD638AF6, 0 },
+        { L"Mortal Kombat 3 (Mega Drive USA)", L"mortal kombat 3 (usa).gen", 0xDD638AF6, 0 },
+        { L"Mortal Kombat 3 (Mega Drive USA)", L"mortal kombat 3 (usa).md", 0xDD638AF6, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
