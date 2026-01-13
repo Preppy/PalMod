@@ -85,58 +85,58 @@ namespace ColorSystem
     int GetPlaneAmtForColor(ColMode colorMode, ColFlag colorFlag);
 
     // 16-bit
-    uint16_t CONV_32_BGR333(uint32_t inCol);
+    uint16_t CONV_32_BGR333(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_BGR333_32(uint16_t inCol);
-    uint16_t CONV_32_RBG333(uint32_t inCol);
+    uint16_t CONV_32_RBG333(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_RBG333_32(uint16_t inCol);
-    uint16_t CONV_32_RGB333(uint32_t inCol);
+    uint16_t CONV_32_RGB333(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_RGB333_32(uint16_t inCol);
 
-    uint16_t CONV_32_xBGR4444(uint32_t inCol);
+    uint16_t CONV_32_xBGR4444(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xBGR4444_32(uint16_t inCol);
-    uint16_t CONV_32_xBRG4444(uint32_t inCol);
+    uint16_t CONV_32_xBRG4444(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xBRG4444_32(uint16_t inCol);
-    uint16_t CONV_32_xRBG4444(uint32_t inCol);
+    uint16_t CONV_32_xRBG4444(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRBG4444_32(uint16_t inCol);
-    uint16_t CONV_32_xRGB4444BE(uint32_t inCol);
+    uint16_t CONV_32_xRGB4444BE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRGB4444BE_32(uint16_t inCol);
-    uint16_t CONV_32_xRGB4444LE(uint32_t inCol);
+    uint16_t CONV_32_xRGB4444LE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRGB4444LE_32(uint16_t inCol);
 
-    uint16_t CONV_32_xBGR1555LE(uint32_t inCol);
+    uint16_t CONV_32_xBGR1555LE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xBGR1555LE_32(uint16_t inCol);
-    uint16_t CONV_32_xBGR1555BE(uint32_t inCol);
+    uint16_t CONV_32_xBGR1555BE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xBGR1555BE_32(uint16_t inCol);
-    uint16_t CONV_32_xRGB1555BE_Sega(uint32_t inCol);
+    uint16_t CONV_32_xRGB1555BE_Sega(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRGB1555BE_32_Sega(uint16_t inCol);
-    uint16_t CONV_32_RGBx5551BE(uint32_t inCol);
+    uint16_t CONV_32_RGBx5551BE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_RGBx5551BE_32(uint16_t inCol);
 
     // Note that MAME/CPS3 and FBNeo use different math here
-    uint16_t CONV_32_xRGB1555LE_Common(uint32_t inCol, bool fUseRounding);
+    uint16_t CONV_32_xRGB1555LE_Common(uint32_t inCol, uint16_t oldCol, bool fUseRounding);
     uint32_t CONV_xRGB1555LE_32_Common(uint16_t inCol, bool fUseRounding);
-    uint16_t CONV_32_xRGB1555LE_CPS3(uint32_t inCol);
+    uint16_t CONV_32_xRGB1555LE_CPS3(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRGB1555LE_32_CPS3(uint16_t inCol);
-    uint16_t CONV_32_xRGB1555LE_NORMAL(uint32_t inCol);
+    uint16_t CONV_32_xRGB1555LE_NORMAL(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRGB1555LE_32_NORMAL(uint16_t inCol);
-    uint16_t CONV_32_xRGB1555BE(uint32_t inCol);
+    uint16_t CONV_32_xRGB1555BE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRGB1555BE_32(uint16_t inCol);
-    uint16_t CONV_32_xGRB1555LE(uint32_t inCol);
+    uint16_t CONV_32_xGRB1555LE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xGRB1555LE_32(uint16_t inCol);
-    uint16_t CONV_32_xGRB1555BE(uint32_t inCol);
+    uint16_t CONV_32_xGRB1555BE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xGRB1555BE_32(uint16_t inCol);
-    uint16_t CONV_32_xBRG1555LE(uint32_t inCol);
+    uint16_t CONV_32_xBRG1555LE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xBRG1555LE_32(uint16_t inCol);
 
     // Lookup tables
-    uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol);
+    uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_RGB666NeoGeo_32(uint16_t inCol);
-    uint16_t CONV_32_RGB555Sharp(uint32_t inCol);
+    uint16_t CONV_32_RGB555Sharp(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_RGB555Sharp_32(uint16_t inCol);
 
     // Very special lookup table for the weird Neo Turf Masters format
     bool PopulateNTMDynamicCLUT(LPWSTR pszCLUTFile, size_t nOffset);
-    uint32_t CONV_32_NeoTurfMasters(uint32_t inCol);
+    uint32_t CONV_32_NeoTurfMasters(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_NeoTurfMasters_32(uint32_t inCol);
 
     // 24-bit
@@ -150,21 +150,21 @@ namespace ColorSystem
     uint32_t CONV_RGB888_32(uint32_t inCol);
 
     // 32-bit
-    uint32_t CONV_32_RGBA8881(uint32_t inCol);
+    uint32_t CONV_32_RGBA8881(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_RGBA8881_32(uint32_t inCol);
-    uint32_t CONV_32_RGBA8887(uint32_t inCol);
+    uint32_t CONV_32_RGBA8887(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_RGBA8887_32(uint32_t inCol);
-    uint32_t CONV_32_RGBA8888LE(uint32_t inCol);
+    uint32_t CONV_32_RGBA8888LE(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_RGBA8888LE_32(uint32_t inCol);
-    uint32_t CONV_32_RGBA8888BE(uint32_t inCol);
+    uint32_t CONV_32_RGBA8888BE(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_RGBA8888BE_32(uint32_t inCol);
-    uint32_t CONV_32_RGBA8888BE16(uint32_t inCol);
+    uint32_t CONV_32_RGBA8888BE16(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_RGBA8888BE16_32(uint32_t inCol);
-    uint32_t CONV_32_BGRA8888BE(uint32_t inCol);
+    uint32_t CONV_32_BGRA8888BE(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_BGRA8888BE_32(uint32_t inCol);
-    uint32_t CONV_32_BGRA8888LE(uint32_t inCol);
+    uint32_t CONV_32_BGRA8888LE(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_BGRA8888LE_32(uint32_t inCol);
-    uint32_t CONV_32_RBGA8888LE(uint32_t inCol);
+    uint32_t CONV_32_RBGA8888LE(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_RBGA8888LE_32(uint32_t inCol);
 
     int GetColorStepFor8BitValue_1Step(int nColorValue);

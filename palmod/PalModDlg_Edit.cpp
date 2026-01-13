@@ -333,7 +333,8 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                     default:
                     case 2:
                     {
-                        const uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                        // Using the original source alpha here would be better, but let's just stomp to full at this level
+                        const uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex], 0xffff);
 
                         FormatTxt.Format("%04X", uCurrData);
 
@@ -349,7 +350,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                     }
                     case 4:
                     {
-                        const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                        const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], CurrPal->GetBasePal()[iPalIndex]);
 
                         FormatTxt.Format("%08X", uCurrData);
                         break;
@@ -432,7 +433,8 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                         default:
                         case 2:
                         {
-                            uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                            // Using the original source alpha here would be better, but let's just stomp to full at this level
+                            uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex], 0xffff);
                             uCurrData = _byteswap_ushort(uCurrData);
 
                             strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
@@ -447,7 +449,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                         }
                         case 4:
                         {
-                            uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                            uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], CurrPal->GetBasePal()[iPalIndex]);
                             uCurrData = _byteswap_ulong(uCurrData);
 
                             strFormatU.Format(L"%02X %02X %02X %02X ", (uCurrData & 0xFF000000) >> 24, (uCurrData & 0xFF0000) >> 16,
@@ -468,7 +470,8 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                 {
                     if (pSelIndex[iPalIndex] || fCopyAll)
                     {
-                        uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                        // Using the original source alpha here would be better, but let's just stomp to full at this level
+                        uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex], 0xffff);
                         uCurrData = _byteswap_ushort(uCurrData);
 
                         // Strip alpha via 0x7f mask
@@ -514,7 +517,8 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                             default:
                             case 2:
                             {
-                                uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
+                                // Using the original source alpha here would be better, but let's just stomp to full at this level
+                                uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex], 0xffff);
                                 uCurrData = _byteswap_ushort(uCurrData);
 
                                 switch (eReadType)
@@ -637,7 +641,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                                 {
                                     // This has been tested with Tattoo Assassins (Read2Bytes_LE) and SFTM (Interleaved_4FileSets),
                                     // but we don't have a lot of games using 24bit interleave at this time.
-                                    uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                                    const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], CurrPal->GetBasePal()[iPalIndex]);
 
                                     strFormatU.Format(L"%02X ", (uCurrData & 0xFF000000) >> 24);
                                     strFormatByte2.Format(L"%02X ", (uCurrData & 0xFF0000) >> 16);
@@ -737,7 +741,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                                 break;
                             case 4:
                             {
-                                const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                                const uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], CurrPal->GetBasePal()[iPalIndex]);
                                 strFormatU.Format(L"[ %u,%u,%u ]", uCurrData & 0xFF,
                                                                    (uCurrData & 0xFF00) >> 8,
                                                                    (uCurrData & 0xFF0000) >> 16);
@@ -1224,7 +1228,8 @@ void CPalModDlg::HandlePasteFromPalMod()
 
                     for (uint16_t iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
                     {
-                        rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPasteCol[iPasteIndex]));
+                        // We don't actually have alpha to work with from a paste, so just max
+                        rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPasteCol[iPasteIndex], 0xFFFF));
                     }
                 }
                 break;
@@ -1274,7 +1279,7 @@ void CPalModDlg::HandlePasteFromPalMod()
 
                     for (uint16_t iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
                     {
-                        rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(CurrGame->ConvCol32(rgPasteCol[iPasteIndex]));
+                        rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(CurrGame->ConvCol32(rgPasteCol[iPasteIndex], rgPasteCol[iPasteIndex]));
                     }
                 }
                 break;
@@ -1404,7 +1409,8 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
 
     if (CurrGame->GameIsUsing16BitColor())
     {
-        colPasteCol = CurrGame->ConvPal16(CurrGame->ConvCol16(colPasteCol));
+        // ideally we would use rom-source alpha, but for paste purposes let's just stomp to Set
+        colPasteCol = CurrGame->ConvPal16(CurrGame->ConvCol16(colPasteCol, 0xffff));
     }
     else if (CurrGame->GameIsUsing24BitColor())
     {
@@ -1412,7 +1418,7 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
     }
     else if (CurrGame->GameIsUsing32BitColor())
     {
-        colPasteCol = CurrGame->ConvPal32(CurrGame->ConvCol32(colPasteCol));
+        colPasteCol = CurrGame->ConvPal32(CurrGame->ConvCol32(colPasteCol, colPasteCol));
     }
 
     if (!CurrPalCtrl->GetSelAmt())

@@ -101,7 +101,9 @@ CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
     static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "Please make sure to test new color format via TestColorConversions.");
-    //ColorSystem::TestColorConversions();
+#ifdef DEBUG
+    ColorSystem::TestColorConversions();
+#endif
 }
 
 void CPalModDlg::DoDataExchange(CDataExchange* pDX)

@@ -806,12 +806,12 @@ void CGame_MVC2_D::UpdatePalData()
             {
                 if (m_fAllowTransparencyEdits)
                 {
-                    m_ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol16(crSrc[nPICtr]);
+                    m_ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol16(crSrc[nPICtr], m_ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr]);
                 }
                 else
                 {
                     // Force opaque
-                    m_ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ((ConvCol16(crSrc[nPICtr]) & 0x0FFF) | 0xF000);
+                    m_ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ((ConvCol16(crSrc[nPICtr], m_ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr]) & 0x0FFF) | 0xF000);
                 }
             }
 

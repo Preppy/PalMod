@@ -150,7 +150,7 @@ namespace MVC2_SupplementProcessing
             src_l = LimitHLS(src_l);
 
             dst_16[iPos] &= 0xF000;
-            dst_16[iPos] |= CurrMVC2->ConvCol16(HLStoRGB(src_h, src_l, src_s));
+            dst_16[iPos] |= CurrMVC2->ConvCol16(HLStoRGB(src_h, src_l, src_s), dst_16[iPos]);
         }
 
         return 1;

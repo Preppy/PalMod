@@ -170,9 +170,9 @@ public:
     uint16_t GetCurrentPaletteSizeInColors() { return m_nCurrentPaletteSizeInColors; };
     LPCWSTR GetCurrentPaletteName() { return m_pszCurrentPaletteName; };
 
-    uint16_t(*ConvCol16)(uint32_t inCol);
+    uint16_t(*ConvCol16)(uint32_t inCol, uint16_t oldCol);
     uint32_t(*ConvCol24)(uint32_t inCol);
-    uint32_t(*ConvCol32)(uint32_t inCol);
+    uint32_t(*ConvCol32)(uint32_t inCol, uint32_t oldCol);
     uint32_t(*ConvPal16)(uint16_t inCol);
     uint32_t(*ConvPal24)(uint32_t inCol);
     uint32_t(*ConvPal32)(uint32_t inCol);

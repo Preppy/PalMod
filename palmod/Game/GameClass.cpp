@@ -712,7 +712,7 @@ void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors,
         {
             case 2:
             {
-                m_pppDataBuffer[nUnitId][nPalId][iPos] = ConvCol16(rgColors[iPos]);
+                m_pppDataBuffer[nUnitId][nPalId][iPos] = ConvCol16(rgColors[iPos], m_pppDataBuffer[nUnitId][nPalId][iPos]);
                 break;
             }
             case 3:
@@ -722,7 +722,7 @@ void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors,
             }
             case 4:
             {
-                m_pppDataBuffer32[nUnitId][nPalId][iPos] = ConvCol32(rgColors[iPos]);
+                m_pppDataBuffer32[nUnitId][nPalId][iPos] = ConvCol32(rgColors[iPos], m_pppDataBuffer32[nUnitId][nPalId][iPos]);
                 break;
             }
         }
@@ -809,7 +809,7 @@ void CGameClass::UpdatePalData()
                     {
                         case 2:
                         {
-                            m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iPalPosition] = ConvCol16(crSrc[iCurrentArrayOffset]);
+                            m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iPalPosition] = ConvCol16(crSrc[iCurrentArrayOffset], m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iPalPosition]);
                             break;
                         }
                         case 3:
@@ -819,7 +819,7 @@ void CGameClass::UpdatePalData()
                         }
                         case 4:
                         {
-                            m_pppDataBuffer32[srcDef->uUnitId][srcDef->uPalId][iPalPosition] = ConvCol32(crSrc[iCurrentArrayOffset]);
+                            m_pppDataBuffer32[srcDef->uUnitId][srcDef->uPalId][iPalPosition] = ConvCol32(crSrc[iCurrentArrayOffset], m_pppDataBuffer32[srcDef->uUnitId][srcDef->uPalId][iPalPosition]);
                             break;
                         }
                     }

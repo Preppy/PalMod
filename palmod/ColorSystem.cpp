@@ -407,7 +407,7 @@ namespace ColorSystem
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    uint16_t CONV_32_BGR333(uint32_t inCol)
+    uint16_t CONV_32_BGR333(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -433,7 +433,7 @@ namespace ColorSystem
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    uint16_t CONV_32_RBG333(uint32_t inCol)
+    uint16_t CONV_32_RBG333(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -459,7 +459,7 @@ namespace ColorSystem
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    uint16_t CONV_32_RGB333(uint32_t inCol)
+    uint16_t CONV_32_RGB333(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -473,7 +473,7 @@ namespace ColorSystem
         return (auxb << 1) | (auxr << 9) | (auxg << 13);
     }
 
-    inline uint8_t GetAdjustedNativeAlpha(uint16_t inAlpha, uint8_t nFullValueAlpha)
+    inline uint8_t GetAdjustedNativeAlpha(uint16_t inAlpha, uint8_t nOriginalAlpha, uint8_t nFullValueAlpha)
     {
         switch (CurrAlphaMode)
         {
@@ -482,7 +482,7 @@ namespace ColorSystem
             case AlphaMode::GameDoesNotUseAlpha:
                 return 0;
             default:
-                return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nFullValueAlpha;
+                return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nOriginalAlpha;
         }
     }
 
@@ -511,9 +511,9 @@ namespace ColorSystem
         return ((alpha << 24) | (blue << 16) | (green << 8) | (red));
     }
 
-    uint16_t CONV_32_xBGR1555LE(uint32_t inCol)
+    uint16_t CONV_32_xBGR1555LE(uint32_t inCol, uint16_t oldCol)
     {
-        const uint16_t auxa = GetAdjustedNativeAlpha(((inCol & 0xFF000000) >> 24), 0x01);
+        const uint16_t auxa = GetAdjustedNativeAlpha(((inCol & 0xFF000000) >> 24), (oldCol >> 15) & 1, 0x01);
         const uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
         const uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
         const uint16_t auxr = ((inCol & 0x000000FF));
@@ -527,9 +527,9 @@ namespace ColorSystem
         return CONV_xBGR1555LE_32(_byteswap_ushort(inCol));
     }
 
-    uint16_t CONV_32_xBGR1555BE(uint32_t inCol)
+    uint16_t CONV_32_xBGR1555BE(uint32_t inCol, uint16_t oldCol)
     {
-        return _byteswap_ushort(CONV_32_xBGR1555LE(inCol));
+        return _byteswap_ushort(CONV_32_xBGR1555LE(inCol, oldCol));
     }
 
     // COLMODE_BGR444
@@ -558,7 +558,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xBGR4444(uint32_t inCol)
+    uint16_t CONV_32_xBGR4444(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxa = ((inCol & 0xFF000000) >> 24);
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
@@ -573,7 +573,7 @@ namespace ColorSystem
         auxg = auxg << 4;
         //auxr = auxr;
 
-        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), ((oldCol & 0xF000) >> 12) * 17, 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -604,7 +604,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xBRG4444(uint32_t inCol)
+    uint16_t CONV_32_xBRG4444(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxa = ((inCol & 0xFF000000) >> 24);
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
@@ -618,7 +618,7 @@ namespace ColorSystem
         //auxg = auxg;
         auxr = auxr << 4;
         auxb = auxb << 8;
-        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), ((oldCol & 0xF000) >> 12) * 17, 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -649,7 +649,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xRBG4444(uint32_t inCol)
+    uint16_t CONV_32_xRBG4444(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxa = ((inCol & 0xFF000000) >> 24);
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
@@ -664,7 +664,7 @@ namespace ColorSystem
         //auxg = auxg;
         auxr = auxr << 8;
 
-        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), ((oldCol & 0xF000) >> 12) * 17, 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -696,7 +696,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xRGB4444BE(uint32_t inCol)
+    uint16_t CONV_32_xRGB4444BE(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxa = ((inCol & 0xFF000000) >> 24);
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
@@ -711,7 +711,7 @@ namespace ColorSystem
         auxg = auxg << 4;
         auxr = auxr << 8;
 
-        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), 0xf) << 12;
+        auxa = GetAdjustedNativeAlpha(static_cast<uint16_t>(round(auxa / 17.0)), ((oldCol & 0xF000) >> 12) * 17, 0xf) << 12;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -722,9 +722,9 @@ namespace ColorSystem
         return CONV_xRGB4444BE_32(_byteswap_ushort(inCol));
     }
 
-    uint16_t CONV_32_xRGB4444LE(uint32_t inCol)
+    uint16_t CONV_32_xRGB4444LE(uint32_t inCol, uint16_t oldCol)
     {
-        return _byteswap_ushort(CONV_32_xRGB4444BE(inCol));
+        return _byteswap_ushort(CONV_32_xRGB4444BE(inCol, oldCol));
     }
 
     // COLMODE_xRGB1555_BE
@@ -759,11 +759,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xRGB1555BE_Sega(uint32_t inCol)
+    uint16_t CONV_32_xRGB1555BE_Sega(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
+        const uint16_t auxa = (oldCol & 0x0080);
 
         auxr = static_cast<uint16_t>(round(auxr / 8));
         auxg = static_cast<uint16_t>(round(auxg / 8));
@@ -773,9 +774,7 @@ namespace ColorSystem
         auxg = auxg << 5;
         auxr = auxr << 10;
 
-        //BUGBUG this part drops alpha
-
-        return _byteswap_ushort(auxr | auxg | auxb);
+        return _byteswap_ushort(auxa | auxr | auxg | auxb);
     }
 
     // COLMODE_RGBx5551_BE
@@ -801,7 +800,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_RGBx5551BE(uint32_t inCol)
+    uint16_t CONV_32_RGBx5551BE(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxa = ((inCol & 0xFF000000) >> 24) ? 0x1 : 0x0;
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
@@ -812,7 +811,7 @@ namespace ColorSystem
         auxg = static_cast<uint16_t>(round(auxg / 8));
         auxb = static_cast<uint16_t>(round(auxb / 8));
 
-        auxa = GetAdjustedNativeAlpha(auxa, 0x1);
+        auxa = GetAdjustedNativeAlpha(auxa, _byteswap_ushort(inCol) & 0x1, 0x1);
         auxb = auxb << 1;
         auxg = auxg << 6;
         auxr = auxr << 11;
@@ -858,11 +857,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xRGB1555LE_Common(uint32_t inCol, bool fUseRounding)
+    uint16_t CONV_32_xRGB1555LE_Common(uint32_t inCol, uint16_t oldCol, bool fUseRounding)
     {
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
+        const uint32_t auxa = (oldCol & 0x0080);
 
         if (fUseRounding)
         {
@@ -881,16 +881,14 @@ namespace ColorSystem
         auxg = auxg << 5;
         auxb = auxb << 10;
 
-        //BUGBUG this part drops alpha
-
-        return _byteswap_ushort(auxb | auxg | auxr);
+        return _byteswap_ushort(auxa | auxb | auxg | auxr);
     }
 
     // COLMODE_RGB555_LE_CPS3
-    uint16_t CONV_32_xRGB1555LE_CPS3(uint32_t inCol) { return CONV_32_xRGB1555LE_Common(inCol, false); };
+    uint16_t CONV_32_xRGB1555LE_CPS3(uint32_t inCol, uint16_t oldCol) { return CONV_32_xRGB1555LE_Common(inCol, oldCol, false); };
     uint32_t CONV_xRGB1555LE_32_CPS3(uint16_t inCol) { return CONV_xRGB1555LE_32_Common(inCol, false); };
     // COLMODE_RGB555_LE_NORMAL
-    uint16_t CONV_32_xRGB1555LE_NORMAL(uint32_t inCol) { return CONV_32_xRGB1555LE_Common(inCol, true); };
+    uint16_t CONV_32_xRGB1555LE_NORMAL(uint32_t inCol, uint16_t oldCol) { return CONV_32_xRGB1555LE_Common(inCol, oldCol, true); };
     uint32_t CONV_xRGB1555LE_32_NORMAL(uint16_t inCol) { return CONV_xRGB1555LE_32_Common(inCol, true); };
 
     // COLMODE_GRB555_LE
@@ -925,11 +923,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xGRB1555LE(uint32_t inCol)
+    uint16_t CONV_32_xGRB1555LE(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
+        const uint16_t auxa = (oldCol & 0x0080);
 
         auxb = static_cast<uint16_t>(round(auxb / 8));
         auxg = static_cast<uint16_t>(round(auxg / 8));
@@ -939,9 +938,7 @@ namespace ColorSystem
         auxg = auxg; // no-op
         auxb = auxb << 10;
 
-        //BUGBUG this part drops alpha
-
-        return _byteswap_ushort(auxb | auxg | auxr);
+        return _byteswap_ushort(auxa | auxb | auxg | auxr);
     }
 
     // COLMODE_GRB555_BE
@@ -950,9 +947,9 @@ namespace ColorSystem
         return CONV_xGRB1555LE_32(_byteswap_ushort(inCol));
     }
 
-   uint16_t CONV_32_xGRB1555BE(uint32_t inCol)
+   uint16_t CONV_32_xGRB1555BE(uint32_t inCol, uint16_t oldCol)
     {
-        return _byteswap_ushort(CONV_32_xGRB1555LE(inCol));
+        return _byteswap_ushort(CONV_32_xGRB1555LE(inCol, oldCol));
     }
 
     // COLMODE_BRG555_LE
@@ -987,11 +984,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xBRG1555LE(uint32_t inCol)
+    uint16_t CONV_32_xBRG1555LE(uint32_t inCol, uint16_t oldCol)
     {
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
+        const uint16_t auxa = (oldCol & 0x0080);
 
         auxb = static_cast<uint16_t>(round(auxb / 8));
         auxg = static_cast<uint16_t>(round(auxg / 8));
@@ -1001,9 +999,7 @@ namespace ColorSystem
         auxg = auxg << 10;
         auxb = auxb; // no-op
 
-        //BUGBUG this part drops alpha
-
-        return _byteswap_ushort(auxb | auxg | auxr);
+        return _byteswap_ushort(auxa | auxb | auxg | auxr);
     }
 
     // COLMODE_RGB555_BE
@@ -1040,7 +1036,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xRGB1555BE(uint32_t inCol)
+    uint16_t CONV_32_xRGB1555BE(uint32_t inCol, uint16_t oldCol)
     {
         // TODO: cleanup
         uint16_t auxa = (inCol & 0xFF000000) >> 24;
@@ -1056,7 +1052,7 @@ namespace ColorSystem
         auxg = auxg << 5;
         //auxb = auxb; no-op
 
-        auxa = GetAdjustedNativeAlpha(auxa, 0x1) << 15;
+        auxa = GetAdjustedNativeAlpha(auxa, ((oldCol & 0x8000) >> 15), 0x1) << 15;
 
         return auxb | auxg | auxr | auxa;
     }
@@ -1155,7 +1151,7 @@ namespace ColorSystem
         return color;
     }
 
-    uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol)
+    uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol, uint16_t /* oldCol */)
     {
         uint8_t auxb = ((inCol & 0x00FF0000) >> 16);
         uint8_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -1240,9 +1236,9 @@ namespace ColorSystem
         return CONV_RGB666NeoGeo_32(nRGB666Val_LE);
     }
 
-    uint32_t CONV_32_NeoTurfMasters(uint32_t inCol)
+    uint32_t CONV_32_NeoTurfMasters(uint32_t inCol, uint32_t oldCol)
     {
-        const uint16_t nColorAsNeoGeo = CONV_32_RGB666NeoGeo(inCol);
+        const uint16_t nColorAsNeoGeo = CONV_32_RGB666NeoGeo(inCol, 0x0000);
         const uint16_t nRGB666Val_BE = _byteswap_ushort(nColorAsNeoGeo);
 
         size_t iPos = 0;
@@ -1312,7 +1308,7 @@ namespace ColorSystem
         return color;
     }
 
-    uint16_t CONV_32_RGB555Sharp(uint32_t inCol)
+    uint16_t CONV_32_RGB555Sharp(uint32_t inCol, uint16_t oldCol)
     {
         uint8_t auxr = ((inCol & 0x00FF0000) >> 16);
         uint8_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -1444,9 +1440,9 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_32_RGBA8881(uint32_t inCol)
+    uint32_t CONV_32_RGBA8881(uint32_t inCol, uint32_t oldCol)
     {
-        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0x1);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, GetAValue(oldCol), 0x1);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -1479,7 +1475,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_32_RGBA8887(uint32_t inCol)
+    uint32_t CONV_32_RGBA8887(uint32_t inCol, uint32_t oldCol)
     {
         uint32_t auxa = (inCol & 0xFF000000) >> 24;
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
@@ -1488,7 +1484,7 @@ namespace ColorSystem
 
         if (!IsAlphaModeMutable(CurrAlphaMode))
         {
-            auxa = GetAdjustedNativeAlpha(0x80, 0x80);
+            auxa = GetAdjustedNativeAlpha(0x80, GetAValue(oldCol), 0x80);
         }
         else
         {
@@ -1524,9 +1520,9 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_32_RBGA8888LE(uint32_t inCol)
+    uint32_t CONV_32_RBGA8888LE(uint32_t inCol, uint32_t oldCol)
     {
-        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, GetAValue(oldCol), 0xff);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -1559,9 +1555,9 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_32_RGBA8888LE(uint32_t inCol)
+    uint32_t CONV_32_RGBA8888LE(uint32_t inCol, uint32_t oldCol)
     {
-        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, GetAValue(oldCol), 0xff);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -1579,9 +1575,9 @@ namespace ColorSystem
         return CONV_RGBA8888LE_32(_byteswap_ulong(inCol));
     }
 
-    uint32_t CONV_32_RGBA8888BE(uint32_t inCol)
+    uint32_t CONV_32_RGBA8888BE(uint32_t inCol, uint32_t oldCol)
     {
-        return _byteswap_ulong(CONV_32_RGBA8888LE(inCol));
+        return _byteswap_ulong(CONV_32_RGBA8888LE(inCol, oldCol));
     }
 
     uint32_t CONV_RGBA8888BE16_32(uint32_t inCol)
@@ -1594,9 +1590,9 @@ namespace ColorSystem
         return (((((auxa << 8) + auxb) << 8) + auxg) << 8) + auxr;
     }
 
-    uint32_t CONV_32_RGBA8888BE16(uint32_t inCol)
+    uint32_t CONV_32_RGBA8888BE16(uint32_t inCol, uint32_t oldCol)
     {
-        const uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
+        const uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, (oldCol & 0x00FF0000) >> 16, 0xff);
         const uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         const uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         const uint32_t auxr = (inCol & 0x000000FF);
@@ -1609,9 +1605,9 @@ namespace ColorSystem
         return CONV_BGRA8888LE_32(_byteswap_ulong(inCol));
     }
 
-    uint32_t CONV_32_BGRA8888BE(uint32_t inCol)
+    uint32_t CONV_32_BGRA8888BE(uint32_t inCol, uint32_t oldCol)
     {
-        return _byteswap_ulong(CONV_32_BGRA8888LE(inCol));
+        return _byteswap_ulong(CONV_32_BGRA8888LE(inCol, oldCol));
     }
 
     uint32_t CONV_BGRA8888LE_32(uint32_t inCol)
@@ -1635,9 +1631,9 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_32_BGRA8888LE(uint32_t inCol)
+    uint32_t CONV_32_BGRA8888LE(uint32_t inCol, uint32_t oldCol)
     {
-        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, 0xff);
+        uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, GetAValue(oldCol), 0xff);
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
@@ -2363,7 +2359,7 @@ namespace ColorSystem
         return colorStep;
     }
 
-    void Test16BitConverters(ColMode cmColorMode, uint32_t (*from16to32)(uint16_t), uint16_t (*from32to16)(uint32_t))
+    void Test16BitConverters(ColMode cmColorMode, uint32_t (*from16to32)(uint16_t), uint16_t (*from32to16)(uint32_t, uint16_t))
     {
         CString strOutput;
         strOutput.Format(L"Output for %S:\r\n", GetColorFormatStringForColorFormat(cmColorMode));
@@ -2379,15 +2375,57 @@ namespace ColorSystem
 
             for (uint32_t& nIn32 : rgSampleNumbers)
             {
-                const uint16_t nAs16 = from32to16(nIn32);
-                const uint32_t nOut32 = from16to32(nAs16);
-                const uint16_t nBack16 = from32to16(nOut32);
+                // We can't know which bit is alpha at this abstraction level, so just set/unset them all \o/
+                std::array<uint16_t, 2> rgSampleAlpha = { 0, 0xffff };
 
-                strOutput.Format(L"\t%10S:\tIn: 0x%04x Display: 0x%08x Out: 0x%04x\r\n", GetAlphaModeStringForAlphaMode(currAlphaMode), nAs16, nOut32, nBack16);
+                for (uint16_t& nAlphaToTest : rgSampleAlpha)
+                {
+                    const uint16_t nAs16 = from32to16(nIn32, nAlphaToTest);
+                    const uint32_t nOut32 = from16to32(nAs16);
+                    const uint16_t nBack16 = from32to16(nOut32, nAlphaToTest);
+                    const uint32_t n32Again = from16to32(nBack16);
+
+                    strOutput.Format(L"\tAMode: %10S. AValue: %u:\tIn: 0x%04x Display1: 0x%08x Out: 0x%04x Display2: 0x%08x \r\n", GetAlphaModeStringForAlphaMode(currAlphaMode), nAlphaToTest ? 1 : 0, nAs16, nOut32, nBack16, n32Again);
+                    OutputDebugString(strOutput.GetString());
+
+                    if ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) && (nAs16 != nBack16) || (nOut32 != n32Again))
+                    {
+                        OutputDebugString(L"ERROR! Math is wrong.\r\n");
+                        DebugBreak();
+                    }
+                }
+            }
+        }
+
+        OutputDebugString(L"\r\n");
+    }
+
+    void Test24BitConverters(ColMode cmColorMode, uint32_t(*from24toScreen32)(uint32_t), uint32_t(*fromScreen32to24)(uint32_t))
+    {
+        CString strOutput;
+        strOutput.Format(L"Output for %S:\r\n", GetColorFormatStringForColorFormat(cmColorMode));
+        OutputDebugString(strOutput.GetString());
+
+        std::array<AlphaMode, 3> alphaModes = { AlphaMode::GameDoesNotUseAlpha , AlphaMode::GameUsesFixedAlpha, AlphaMode::GameUsesVariableAlpha };
+
+        for (AlphaMode& currAlphaMode : alphaModes)
+        {
+            SetAlphaMode(currAlphaMode);
+
+            std::array<uint32_t, 3> rgSampleNumbers = { 0, 0x1f5fafff, 0xffffffff };
+
+            for (uint32_t& nIn32 : rgSampleNumbers)
+            {
+                const uint32_t nAs32 = fromScreen32to24(nIn32);
+                const uint32_t nOut32 = from24toScreen32(nAs32);
+                const uint32_t nBack32 = fromScreen32to24(nOut32);
+
+                strOutput.Format(L"\t%10S:\tIn: 0x%08x Display: 0x%08x Out: 0x%08x\r\n", GetAlphaModeStringForAlphaMode(currAlphaMode), nAs32, nOut32, nBack32);
                 OutputDebugString(strOutput.GetString());
 
-                if ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) && (nAs16 != nBack16))
+                if ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) && (nAs32 != nBack32))
                 {
+
                     OutputDebugString(L"ERROR! Math is wrong.\r\n");
                     DebugBreak();
                 }
@@ -2397,7 +2435,7 @@ namespace ColorSystem
         OutputDebugString(L"\r\n");
     }
 
-    void Test32BitConverters(ColMode cmColorMode, uint32_t(*from32toScreen32)(uint32_t), uint32_t(*fromScreen32to32)(uint32_t))
+    void Test32BitConverters(ColMode cmColorMode, uint32_t(*from32toScreen32)(uint32_t), uint32_t(*fromScreen32to32)(uint32_t, uint32_t))
     {
         CString strOutput;
         strOutput.Format(L"Output for %S:\r\n", GetColorFormatStringForColorFormat(cmColorMode));
@@ -2413,9 +2451,9 @@ namespace ColorSystem
 
             for (uint32_t& nIn32 : rgSampleNumbers)
             {
-                const uint32_t nAs32 = fromScreen32to32(nIn32);
+                const uint32_t nAs32 = fromScreen32to32(nIn32, nIn32);
                 const uint32_t nOut32 = from32toScreen32(nAs32);
-                const uint32_t nBack32 = fromScreen32to32(nOut32);
+                const uint32_t nBack32 = fromScreen32to32(nOut32, nOut32);
 
                 strOutput.Format(L"\t%10S:\tIn: 0x%08x Display: 0x%08x Out: 0x%08x\r\n", GetAlphaModeStringForAlphaMode(currAlphaMode), nAs32, nOut32, nBack32);
                 OutputDebugString(strOutput.GetString());
@@ -2466,10 +2504,10 @@ namespace ColorSystem
         // Skip NeoGeo
 
         // 24bit
-        Test32BitConverters(ColMode::COLMODE_RGB888, &ColorSystem::CONV_RGB888_32, &ColorSystem::CONV_32_RGB888);
-        Test32BitConverters(ColMode::COLMODE_BGR888, &ColorSystem::CONV_BGR888_32, &ColorSystem::CONV_32_BGR888);
-        Test32BitConverters(ColMode::COLMODE_BRG888, &ColorSystem::CONV_BRG888_32, &ColorSystem::CONV_32_BRG888);
-        Test32BitConverters(ColMode::COLMODE_GRB888, &ColorSystem::CONV_GRB888_32, &ColorSystem::CONV_32_GRB888);
+        Test24BitConverters(ColMode::COLMODE_RGB888, &ColorSystem::CONV_RGB888_32, &ColorSystem::CONV_32_RGB888);
+        Test24BitConverters(ColMode::COLMODE_BGR888, &ColorSystem::CONV_BGR888_32, &ColorSystem::CONV_32_BGR888);
+        Test24BitConverters(ColMode::COLMODE_BRG888, &ColorSystem::CONV_BRG888_32, &ColorSystem::CONV_32_BRG888);
+        Test24BitConverters(ColMode::COLMODE_GRB888, &ColorSystem::CONV_GRB888_32, &ColorSystem::CONV_32_GRB888);
 
         // 32bit
         Test32BitConverters(ColMode::COLMODE_RGBA8881, &ColorSystem::CONV_RGBA8881_32, &ColorSystem::CONV_32_RGBA8881);
