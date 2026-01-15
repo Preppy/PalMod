@@ -318,10 +318,10 @@ const sGame_PaletteDataset UMK3_SNES_STAGE_PALETTES_WATERFRONT[] =
 
 const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES_SECRETGAME[] =
 {
-    { L"Enemies", 0x3f071b, 0x3f073b },
-    { L"Main Ships", 0x3f073b, 0x3f075b },
-    { L"Explosions", 0x3f075b, 0x3f077b },
-    { L"Background", 0x38c384, 0x38c38c },
+    { L"Enemies", 0x3f071b, 0x3f073b, indexUMK3Sprites_Bonus, 0x02, &pairFullyLinkedNode },
+    { L"Main Ships", 0x3f073b, 0x3f075b, indexUMK3Sprites_Bonus, 0x03 },
+    { L"Explosions", 0x3f075b, 0x3f077b, indexUMK3Sprites_Bonus, 0x04 },
+    { L"Background", 0x38c384, 0x38c38c, indexUMK3Sprites_Bonus, 0x05 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES_BONUS[] =

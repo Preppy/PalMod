@@ -29,7 +29,7 @@ private:
     {
         L"Ultimate Mortal Kombat 3 (Mega Drive)",
         UMK3_SEGA,
-        IMGDAT_SECTION_SNES,
+        IMGDAT_SECTION_SEGA,
         UMK3_SEGA_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,

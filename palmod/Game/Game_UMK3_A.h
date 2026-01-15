@@ -133,7 +133,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -153,7 +153,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -173,7 +173,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -193,7 +193,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -213,7 +213,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -233,7 +233,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -253,7 +253,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -273,7 +273,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 
@@ -293,7 +293,7 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_A_E.txt",             // Extra filename
-        49,                         // Count of palettes listed in the header
+        52,                         // Count of palettes listed in the header
         0x60b3c,                    // Lowest known location used for palettes
     };
 

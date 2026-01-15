@@ -9,6 +9,36 @@
 const std::vector<uint16_t> UMK3_A_IMGIDS_USED =
 {
     indexMK2ASprites_ShaoKahn,          // 0x7a
+
+    indexUMK3ArcadeSprites_Kitana,      // 0xd9
+    indexUMK3ArcadeSprites_Reptile,     // 0xda
+    indexUMK3ArcadeSprites_Sonya,       // 0xdb
+    indexUMK3ArcadeSprites_Jax,         // 0xdc
+    indexUMK3ArcadeSprites_Nightwolf,   // 0xdd
+    indexUMK3ArcadeSprites_Jade,        // 0xde
+    indexUMK3ArcadeSprites_Scorpion,    // 0xdf
+    indexUMK3ArcadeSprites_Kano,        // 0xe0
+    indexUMK3ArcadeSprites_SubZero,     // 0xe1
+    indexUMK3ArcadeSprites_Sektor,      // 0xe2
+    indexUMK3ArcadeSprites_Sindel,      // 0xe3
+    indexUMK3ArcadeSprites_Stryker,     // 0xe4
+    indexUMK3ArcadeSprites_Cyrax,       // 0xe5
+    indexUMK3ArcadeSprites_KungLao,     // 0xe6
+    indexUMK3ArcadeSprites_Kabal,       // 0xe7
+    indexUMK3ArcadeSprites_Sheeva,      // 0xe8
+    indexUMK3ArcadeSprites_ShangTsung,  // 0xe9
+    indexUMK3ArcadeSprites_LiuKang,     // 0xea
+    indexUMK3ArcadeSprites_Smoke,       // 0xeb
+    indexUMK3ArcadeSprites_HumanSmoke,  // 0xec
+    indexUMK3ArcadeSprites_ClassicSubZero, // 0xed
+    indexUMK3ArcadeSprites_Ermac,       // 0xee
+    indexUMK3ArcadeSprites_Mileena,     // 0xef
+    indexUMK3ArcadeSprites_Motaro,      // 0xf0
+    indexUMK3ArcadeSprites_ShaoKhan,    // 0xf1
+    indexUMK3ArcadeSprites_NoobSaibot,  // 0xf2
+    indexUMK3ArcadeSprites_Rain,        // 0xf3
+    indexUMK3ArcadeSprites_Stages,      // 0xf4
+    indexUMK3ArcadeSprites_Bonus,       // 0xf5
 };
 
 const sGame_PaletteDataset UMK3_A_LIUKANG_PALETTES_P1[] =
@@ -256,6 +286,13 @@ const sGame_PaletteDataset UMK3_A_RAIN_PALETTES[] =
     { L"Rain", 0x67658, 0x676d8 },
 };
 
+const sGame_PaletteDataset UMK3_A_BONUS_PALETTES_HIDDENGAME[] =
+{
+    { L"Explosions", 0xbacf4, 0xbad14, indexUMK3ArcadeSprites_Bonus, 0x01, &pairFullyLinkedNode },
+    { L"Main Ships", 0xbad14, 0xbad34, indexUMK3ArcadeSprites_Bonus, 0x02 },
+    { L"Enemies", 0xbad34, 0xbad54, indexUMK3ArcadeSprites_Bonus, 0x00 },
+};
+
 const sDescTreeNode UMK3_A_LIUKANG_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_LIUKANG_PALETTES_P1, ARRAYSIZE(UMK3_A_LIUKANG_PALETTES_P1) },
@@ -413,6 +450,11 @@ const sDescTreeNode UMK3_A_CLASSUB_COLLECTION[] =
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_CLASSUB_PALETTES_P2, ARRAYSIZE(UMK3_A_CLASSUB_PALETTES_P2) },
 };
 
+const sDescTreeNode UMK3_A_BONUS_COLLECTION[] =
+{
+    { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_HIDDENGAME, ARRAYSIZE(UMK3_A_BONUS_PALETTES_HIDDENGAME) },
+};
+
 const sDescTreeNode UMK3_A_UNITS[] =
 {
     { L"Kitana", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_COLLECTION, ARRAYSIZE(UMK3_A_KITANA_COLLECTION) },
@@ -445,4 +487,6 @@ const sDescTreeNode UMK3_A_UNITS[] =
 
     { L"Noob Saibot", DESC_NODETYPE_TREE, (void*)UMK3_A_NOOB_COLLECTION, ARRAYSIZE(UMK3_A_NOOB_COLLECTION) },
     { L"Rain", DESC_NODETYPE_TREE, (void*)UMK3_A_RAIN_COLLECTION, ARRAYSIZE(UMK3_A_RAIN_COLLECTION) },
+
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_COLLECTION, ARRAYSIZE(UMK3_A_BONUS_COLLECTION) },
 };

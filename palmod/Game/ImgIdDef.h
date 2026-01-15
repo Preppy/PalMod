@@ -1640,6 +1640,43 @@ enum SupportedSega_PaletteListIndex
     indexTopF2k5Sprites_MichaelJoden,   // 0x05
     indexTopF2k5Sprites_Ryo,            // 0x06
     indexTopF2k5Sprites_Ryu,            // 0x07
+    indexTopF2k5Sprites_Bonus,          // 0x08
+    indexTopF2k5Sprites_Stages,         // 0x09
+
+    indexSegaMK3Sprites_Cyrax,          // 0x0a
+    indexSegaMK3Sprites_Jax,            // 0x0b
+    indexSegaMK3Sprites_Kabal,          // 0x0c
+    indexSegaMK3Sprites_Kano,           // 0x0d
+    indexSegaMK3Sprites_KungLao,        // 0x0e
+    indexSegaMK3Sprites_LiuKang,        // 0x0f
+    indexSegaMK3Sprites_Motaro,         // 0x10
+    indexSegaMK3Sprites_Nightwolf,      // 0x11
+    indexSegaMK3Sprites_Noob,           // 0x12
+    indexSegaMK3Sprites_RSmoke,         // 0x13
+    indexSegaMK3Sprites_Sektor,         // 0x14
+    indexSegaMK3Sprites_ShangTsung,     // 0x15
+    indexSegaMK3Sprites_ShaoKhan,       // 0x16
+    indexSegaMK3Sprites_Sheeva,         // 0x17
+    indexSegaMK3Sprites_Sonya,          // 0x18
+    indexSegaMK3Sprites_Stryker,        // 0x19
+    indexSegaMK3Sprites_UnSubZero,      // 0x1a
+    indexSegaMK3Sprites_Bonus,          // 0x1b
+    indexSegaMK3Sprites_Stages,         // 0x1c
+
+    indexSegaUMK3Sprites_CSubZero,      // 0x1d
+    indexSegaUMK3Sprites_Ermac,         // 0x1e
+    indexSegaUMK3Sprites_HSmoke,        // 0x1f
+    indexSegaUMK3Sprites_Jade,          // 0x20
+    indexSegaUMK3Sprites_Kitana,        // 0x21
+    indexSegaUMK3Sprites_Mileena,       // 0x22
+    indexSegaUMK3Sprites_Noob,          // 0x23
+    indexSegaUMK3Sprites_Rain,          // 0x24
+    indexSegaUMK3Sprites_Reptile,       // 0x25
+    indexSegaUMK3Sprites_Scorpion,      // 0x26
+    indexSegaUMK3Sprites_Bonus,         // 0x27
+    indexSegaUMK3Sprites_Stages,        // 0x28
+
+    indexSegaMK3Sprites_Sindel,         // 0x29
 };
 
 enum SupportedSNES_PaletteListIndex
@@ -1915,6 +1952,8 @@ enum SupportedSNES_PaletteListIndex
     indexShaqFuSprites_Shaq,             // 0xF6
     indexShaqFuSprites_Voodoo,           // 0xF7
     indexShaqFuSprites_Bonus,            // 0xF8
+
+    indexMK3MDSprites
 };
 
 enum SupportedNEOGEO_PaletteListIndex
@@ -2939,4 +2978,34 @@ enum SupportedOther_SpriteListIndex
     indexJChanSprites_Yeung,            // 0xd6
     indexJChanSprites_Stages,           // 0xd7
     indexJChanSprites_Bonus,            // 0xd8
+
+    indexUMK3ArcadeSprites_Kitana,      // 0xd9
+    indexUMK3ArcadeSprites_Reptile,     // 0xda
+    indexUMK3ArcadeSprites_Sonya,       // 0xdb
+    indexUMK3ArcadeSprites_Jax,         // 0xdc
+    indexUMK3ArcadeSprites_Nightwolf,   // 0xdd
+    indexUMK3ArcadeSprites_Jade,        // 0xde
+    indexUMK3ArcadeSprites_Scorpion,    // 0xdf
+    indexUMK3ArcadeSprites_Kano,        // 0xe0
+    indexUMK3ArcadeSprites_SubZero,     // 0xe1
+    indexUMK3ArcadeSprites_Sektor,      // 0xe2
+    indexUMK3ArcadeSprites_Sindel,      // 0xe3
+    indexUMK3ArcadeSprites_Stryker,     // 0xe4
+    indexUMK3ArcadeSprites_Cyrax,       // 0xe5
+    indexUMK3ArcadeSprites_KungLao,     // 0xe6
+    indexUMK3ArcadeSprites_Kabal,       // 0xe7
+    indexUMK3ArcadeSprites_Sheeva,      // 0xe8
+    indexUMK3ArcadeSprites_ShangTsung,  // 0xe9
+    indexUMK3ArcadeSprites_LiuKang,     // 0xea
+    indexUMK3ArcadeSprites_Smoke,       // 0xeb
+    indexUMK3ArcadeSprites_HumanSmoke,  // 0xec
+    indexUMK3ArcadeSprites_ClassicSubZero, // 0xed
+    indexUMK3ArcadeSprites_Ermac,       // 0xee
+    indexUMK3ArcadeSprites_Mileena,     // 0xef
+    indexUMK3ArcadeSprites_Motaro,      // 0xf0
+    indexUMK3ArcadeSprites_ShaoKhan,    // 0xf1
+    indexUMK3ArcadeSprites_NoobSaibot,  // 0xf2
+    indexUMK3ArcadeSprites_Rain,        // 0xf3
+    indexUMK3ArcadeSprites_Stages,      // 0xf4
+    indexUMK3ArcadeSprites_Bonus,       // 0xf5
 };
