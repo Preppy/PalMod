@@ -281,7 +281,9 @@ private:
             { L"mess_c.dat", 194478 },
         },
         FileReadType::Sequential,
-    };    const sCoreGameData m_sCoreGameData_Main
+    };
+
+    const sCoreGameData m_sCoreGameData_Main
     {
         L"King of Fighters 2002UM (Steam)",
         KOF02UM_S,

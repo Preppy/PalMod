@@ -80,8 +80,8 @@ void CPalModDlg::OnRemapUnit()
                 const bool fUseExtrasMode = SaveFileOFN.nFilterIndex != 2;
                 const std::wstring strExtrasComment = L";";
                 const std::wstring strCodeComment = L"//";
-
                 const std::wstring strActiveCommentStyle = fUseExtrasMode ? strExtrasComment : strCodeComment;
+                uint32_t nCountPalettesMapped = 0, nCountPalettesExisting = 0;
 
                 CString strOutput;
 
@@ -143,6 +143,7 @@ void CPalModDlg::OnRemapUnit()
                         if (thisPalette)
                         {
                             rgSearchBytes.push_back({ thisPalette, searchBytes });
+                            nCountPalettesExisting++;
                         }
                     }
 
@@ -163,6 +164,8 @@ void CPalModDlg::OnRemapUnit()
 
                             if (it_foundcoloroffset != newROMBytes.end())
                             {
+                                nCountPalettesMapped++;
+
                                 uint32_t nStartingMappedOffset = static_cast<uint32_t>(std::distance(newROMBytes.begin(), it_foundcoloroffset));
 
                                 if (nStartingMappedOffset > cbColorSize)
@@ -298,14 +301,16 @@ void CPalModDlg::OnRemapUnit()
 
                 if (fUseExtrasMode)
                 {
-                    strInfo.Format(L"\r\n%s Remapping complete.  You'll want to double-check the remap.\r\n", strActiveCommentStyle.c_str());
+                    strInfo.Format(L"\r\n%s Remapping complete: %u of %u palettes found.  You'll want to double-check the remap.\r\n", strActiveCommentStyle.c_str(), nCountPalettesMapped, nCountPalettesExisting);
                 }
                 else
                 {
-                    strInfo.Format(L"\r\n%s Remapping complete.  You'll want to update ImageId and palette pair references as well as double-checking the remap.\r\n", strActiveCommentStyle.c_str());
+                    strInfo.Format(L"\r\n%s Remapping complete: %u of %u palettes found.  You'll want to update ImageId and palette pair references as well as double-checking the remap.\r\n", strActiveCommentStyle.c_str(), nCountPalettesMapped, nCountPalettesExisting);
                 }
                 strOutput += strInfo;
-                SetStatusText(L"Remap process complete.");
+
+                strInfo.Format(L"Remapping complete: %u of %u palettes found.", nCountPalettesMapped, nCountPalettesExisting);
+                SetStatusText(strInfo.GetString());
                 //const auto foobar = strOutput.GetLength();
                 // this doesn't work: overflows shared memory
                 //OutputDebugString(strOutput.GetString());
