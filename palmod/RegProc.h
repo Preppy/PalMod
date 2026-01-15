@@ -34,7 +34,7 @@ struct sPreviewWindowSettings
     BOOL fUseBGCol = FALSE;
     BOOL fClickToFindColor = TRUE;
     BOOL fBlinkInverts = FALSE;
-    BOOL fPreviewDropIsPalette = TRUE;
+    BOOL fPreviewDropIsPalette = FALSE;
     BOOL fPreviewDropTrimPreview = TRUE;
     BOOL fPreviewDropWinKawaksFirst = FALSE;
     BOOL fAllowAutoPreviewFallback = TRUE;

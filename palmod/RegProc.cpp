@@ -24,7 +24,8 @@ constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
 constexpr auto c_LoadCustomSpriteOFNValueName = L"pref_LoadCustomSpriteIndex";
 constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
-constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes";
+// Incremented this because we are changing it to ON at this time.
+constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes2";
 constexpr auto c_prevPreviewDropsTrim = L"prev_DropsTrimPreview";
 constexpr auto c_prevPreviewDropsKawaksFirst = L"prev_DropsTryKawaksFirst";
 constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback";
@@ -531,7 +532,7 @@ void CRegProc::LoadReg(eRegistryStoreID src)
 
             GetSz = sizeof(m_PreviewSettings.fPreviewDropIsPalette);
             if (RegQueryValueEx(hKey, c_prevPreviewDropsArePalettes, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropIsPalette), &GetSz) != ERROR_SUCCESS)
-                m_PreviewSettings.fPreviewDropIsPalette = TRUE;
+                m_PreviewSettings.fPreviewDropIsPalette = FALSE;
 
             GetSz = sizeof(m_PreviewSettings.fPreviewDropTrimPreview);
             if (RegQueryValueEx(hKey, c_prevPreviewDropsTrim, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropTrimPreview), &GetSz) != ERROR_SUCCESS)

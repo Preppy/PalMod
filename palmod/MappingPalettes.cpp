@@ -76,6 +76,9 @@ void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
         const uint16_t nPalLength = PalDef->uPalSz;
         const int nAlphaLocation = static_cast<int>(CurrGame->GetMaximumWritePerEachTransparency());
 
+        ProcChange();
+        CurrGame->MarkPaletteDirty(PalDef->uUnitId, PalDef->uPalId);
+
         std::vector<uint32_t> colorMap = PaletteMapper.GetMappingPaletteSequence(CurrGame->GetColorMode(), CurrGame->GetMaximumWritePerEachTransparency(), nPalLength, nStep);
 
         for (uint32_t iCurrentIndexInPalette = 0; iCurrentIndexInPalette < colorMap.size(); iCurrentIndexInPalette++)
@@ -90,8 +93,6 @@ void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
 
         ImgDispCtrl->UpdateCtrl();
         m_PalHost.UpdateAllPalCtrls();
-
-        ProcChange();
 
         UpdateMultiEdit(TRUE);
         UpdateSliderSel();
