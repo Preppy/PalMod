@@ -8,7 +8,7 @@ void CPalModDlg::OnRemapUnit()
 
     if (CurrGame)
     {
-        const int nSelectedUnit = m_CBUnitSel.GetCurSel();
+        const int nSelectedUnit = CurrGame->m_rgUnitRedir.at(m_CBUnitSel.GetCurSel());
 
         sDescTreeNode* pSelectedUnit = CurrGame->GetMainTree()->GetDescTree(nSelectedUnit, -1);
 
