@@ -44,49 +44,49 @@ const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P1[] =
 {
-    { L"Ralph P1", 0x04882c, 0x04884C, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
+    { L"Ralph P1", 0x04882c, 0x04884C, indexTMNTTFSprites_Raphael, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P2[] =
 {
-    { L"Ralph P2", 0x04884c, 0x04886C, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
+    { L"Ralph P2", 0x04884c, 0x04886C, indexTMNTTFSprites_Raphael, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
 {
-    { L"Ralph Sais", 0x04886c, 0x04887c },
+    { L"Ralph Sais", 0x04886c, 0x04887c, indexTMNTTFSprites_Raphael, 0x01 },
     { L"Ralph Jamboree", 0x04887c, 0x04888C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P1[] =
 {
-    { L"Don P1", 0x04890c, 0x04892C, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
+    { L"Don P1", 0x04890c, 0x04892C, indexTMNTTFSprites_Donatello, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P2[] =
 {
-    { L"Don P2", 0x04892c, 0x04894C, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
+    { L"Don P2", 0x04892c, 0x04894C, indexTMNTTFSprites_Donatello, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
 {
-    { L"Don Bo", 0x04894c, 0x04895c },
+    { L"Don Bo", 0x04894c, 0x04895c, indexTMNTTFSprites_Donatello, 0x01 },
     { L"Don FX", 0x04895c, 0x04897C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P1[] =
 {
-    { L"Mike P1", 0x04889c, 0x0488BC, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
+    { L"Mike P1", 0x04889c, 0x0488BC, indexTMNTTFSprites_Michelangelo, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P2[] =
 {
-    { L"Mike P2", 0x0488Bc, 0x0488DC, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
+    { L"Mike P2", 0x0488Bc, 0x0488DC, indexTMNTTFSprites_Michelangelo, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_SHARED[] =
 {
-    { L"Mike Nunchakus", 0x0488dc, 0x0488eC },
+    { L"Mike Nunchakus", 0x0488dc, 0x0488eC, indexTMNTTFSprites_Michelangelo, 0x01 },
     { L"Mike Dragon Breath", 0x0488Ec, 0x0488FC },
 };
 
@@ -212,17 +212,17 @@ const sGame_PaletteDataset TMNTTF_SNES_RATKING_PALETTES_P2[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P1[] =
 {
-    { L"Fake Brother P1", 0x048cbc, 0x048cdc, indexTMNTTFSprites_FakeBrother },
+    { L"Fake Brother P1", 0x048cbc, 0x048cdc, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P2[] =
 {
-    { L"Fake Brother P2", 0x048cdc, 0x048cfc, indexTMNTTFSprites_FakeBrother },
+    { L"Fake Brother P2", 0x048cdc, 0x048cfc, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_SHARED[] =
 {
-    { L"Fake Brother Weapon", 0x048cfc, 0x048d0c },
+    { L"Fake Brother Weapon", 0x048cfc, 0x048d0c, indexTMNTTFSprites_Leonardo, 0x01 },
     { L"Fake Brother Leo FX", 0x048d0c, 0x048d2c },
     { L"Fake Brother Ralph FX", 0x048d6c, 0x048d8c },
     { L"Fake Brother Don FX", 0x048d4c, 0x048d6c },
@@ -367,15 +367,15 @@ const sGame_PaletteDataset TMNTTF_SNES_STAGE_THUNDERDOME_PALETTES[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECT[] =
 {
-    { L"Turtles Portrait Weapons",  0x049860, 0x049880, indexTMNTTFSprites_Bonus, 0x08 },
-    { L"Leo Portrait P1",           0x049882, 0x0498A2, indexTMNTTFSprites_Bonus, 0x05 },
-    { L"Leo Portrait P2",           0x049A1A, 0x049A3A, indexTMNTTFSprites_Bonus, 0x05 },
+    { L"Leo Portrait P1",           0x049882, 0x0498A2, indexTMNTTFSprites_Bonus, 0x05, &pairNext2468Palettes },
+    { L"Leo Portrait P2",           0x049A1A, 0x049A3A, indexTMNTTFSprites_Bonus, 0x05, &pairNext2467Palettes },
     { L"Ralph Portrait P1",         0x0498C6, 0x0498E6, indexTMNTTFSprites_Bonus, 0x07 },
     { L"Ralph Portrait P2",         0x049A5E, 0x049A7E, indexTMNTTFSprites_Bonus, 0x07 },
     { L"Don Portrait P1",           0x0498E8, 0x049908, indexTMNTTFSprites_Bonus, 0x04 },
     { L"Don Portrait P2",           0x049A80, 0x049AA0, indexTMNTTFSprites_Bonus, 0x04 },
     { L"Mike Portrait P1",          0x0498A4, 0x0498C4, indexTMNTTFSprites_Bonus, 0x06 },
     { L"Mike Portrait P2",          0x049A3c, 0x049A5C, indexTMNTTFSprites_Bonus, 0x06 },
+    { L"Turtles Portrait Weapons",  0x049860, 0x049880, indexTMNTTFSprites_Bonus, 0x08 },
     { L"C. Shredder Portrait P1",   0x04994E, 0x04996E, indexTMNTTFSprites_Bonus, 0x03 },
     { L"C. Shredder Portrait P2",   0x049AE6, 0x049B06, indexTMNTTFSprites_Bonus, 0x03 },
     { L"War Portrait P1",           0x049992, 0x0499B2, indexTMNTTFSprites_Bonus, 0x09 },
@@ -388,10 +388,10 @@ const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECT[] =
     { L"Wingnut Portrait P2",       0x049B6E, 0x049B8E, indexTMNTTFSprites_Bonus, 0x0a },
     { L"Armaggon Portrait P1",      0x049AA2, 0x049AC2, indexTMNTTFSprites_Bonus, 0x00 },
     { L"Armaggon Portrait P2",      0x04990A, 0x04992A, indexTMNTTFSprites_Bonus, 0x00 },
-    { L"Karai Portrait P1",         0x0499f8, 0x049a18 },
-    { L"Karai Portrait P2",         0x049B90, 0x049Bb0 },
-    { L"Rat King Portrait P1",      0x049970, 0x049990 },
-    { L"Rat King Portrait P2",      0x049b08, 0x049b28 },
+    { L"Karai Portrait P1",         0x0499f8, 0x049a18, indexTMNTTFSprites_Bonus, 0x0b },
+    { L"Karai Portrait P2",         0x049B90, 0x049Bb0, indexTMNTTFSprites_Bonus, 0x0b },
+    { L"Rat King Portrait P1",      0x049970, 0x049990, indexTMNTTFSprites_Bonus, 0x0c },
+    { L"Rat King Portrait P2",      0x049b08, 0x049b28, indexTMNTTFSprites_Bonus, 0x0c },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECTICONS[] =

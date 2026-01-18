@@ -492,12 +492,14 @@ const stPairedPaletteInfo pairNext4AndNext7AndNext8 =               { 4, {}, 4, 
 const stPairedPaletteInfo pairNext4AndNext6AndNext7 =               { 4, {}, 4, 6, 7 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext8And9And10 =                      { 8, {}, 4, 9, 10 };    // quad display... requires special handling in code
 
-const stPairedPaletteInfo pairNext4Palettes =                       { 1, {}, 5 }; // quint-display -- specially handled
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, {}, 5, 2, 3, 8 };     // quint display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, {}, 5, 2, 3, 12 };    // quint display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, {}, 5, 2, 3, 16 };    // quint display... requires special handling in code
-const stPairedPaletteInfo pairNext1245Palettes =                    { 1, {}, 5, 2, 4, 5 }; // quint-display -- specially handled
-const stPairedPaletteInfo pairNext2346Palettes =                    { 2, {}, 5, 3, 4, 6 }; // quint-display -- specially handled
+const stPairedPaletteInfo pairNext4Palettes =                       { 1, {}, 5 };               // quint-display -- specially handled
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, {}, 5, 2, 3, 8 };      // quint display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, {}, 5, 2, 3, 12 };     // quint display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, {}, 5, 2, 3, 16 };     // quint display... requires special handling in code
+const stPairedPaletteInfo pairNext1245Palettes =                    { 1, {}, 5, 2, 4, 5 };      // quint-display -- specially handled
+const stPairedPaletteInfo pairNext2346Palettes =                    { 2, {}, 5, 3, 4, 6 };      // quint-display -- specially handled
+const stPairedPaletteInfo pairNext2467Palettes =                    { 2, {}, 5, 4, 6, 7 };      // quint-display -- specially handled
+const stPairedPaletteInfo pairNext2468Palettes =                    { 2, {}, 5, 4, 6, 8 };      // quint-display -- specially handled
 
 const stPairedPaletteInfo pairNext5Palettes =                       { 1, {}, 6 }; // six-display -- specially handled
 
