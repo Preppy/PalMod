@@ -320,7 +320,6 @@
     <ClCompile Include="Game\Game_StreetFighter_A.cpp" />
     <ClCompile Include="Game\Game_SurvivalArts_A.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
-    <ClCompile Include="Game\Game_TMNTTF_SNES.cpp" />
     <ClCompile Include="Game\Game_TurfMasters_A.cpp" />
     <ClCompile Include="Game\Game_UMK3_A.cpp" />
     <ClCompile Include="Game\Game_UNI2_2.cpp" />

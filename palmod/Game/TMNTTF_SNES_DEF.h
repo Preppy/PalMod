@@ -28,12 +28,12 @@ const std::vector<uint16_t> TMNTTF_SNES_IMGIDS_USED =
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_P1[] =
 {
-     { L"Leo P1", 0x0487bc, 0x0487dc, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2 },
+     { L"Leo P1", 0x0487bc, 0x0487dc, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_P2[] =
 {
-    { L"Leo P2", 0x0487Dc, 0x0487FC, indexTMNTTFSprites_Leonardo, 0x00, &pairNext },
+    { L"Leo P2", 0x0487Dc, 0x0487FC, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_SHARED[] =
@@ -44,12 +44,12 @@ const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P1[] =
 {
-    { L"Ralph P1", 0x04882c, 0x04884C, indexTMNTTFSprites_Leonardo },
+    { L"Ralph P1", 0x04882c, 0x04884C, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P2[] =
 {
-    { L"Ralph P2", 0x04884c, 0x04886C, indexTMNTTFSprites_Leonardo },
+    { L"Ralph P2", 0x04884c, 0x04886C, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
@@ -60,12 +60,12 @@ const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P1[] =
 {
-    { L"Don P1", 0x04890c, 0x04892C, indexTMNTTFSprites_Leonardo },
+    { L"Don P1", 0x04890c, 0x04892C, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P2[] =
 {
-    { L"Don P2", 0x04892c, 0x04894C, indexTMNTTFSprites_Leonardo },
+    { L"Don P2", 0x04892c, 0x04894C, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
@@ -76,12 +76,12 @@ const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P1[] =
 {
-    { L"Mike P1", 0x04889c, 0x0488BC, indexTMNTTFSprites_Leonardo },
+    { L"Mike P1", 0x04889c, 0x0488BC, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P2[] =
 {
-    { L"Mike P2", 0x0488Bc, 0x0488DC, indexTMNTTFSprites_Leonardo },
+    { L"Mike P2", 0x0488Bc, 0x0488DC, indexTMNTTFSprites_Leonardo, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_SHARED[] =

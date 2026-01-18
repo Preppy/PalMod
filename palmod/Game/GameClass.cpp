@@ -853,8 +853,8 @@ void CGameClass::UpdatePalData()
 
 void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 {
-    uint32_t nUnitId = srcNode->uUnitId;
-    uint32_t nPalId = srcNode->uPalId;
+    const uint32_t nUnitId = srcNode->uUnitId;
+    const uint32_t nPalId = srcNode->uPalId;
     static uint16_t s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     LoadSpecificPaletteData(nUnitId, nPalId);

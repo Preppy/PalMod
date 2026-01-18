@@ -861,9 +861,6 @@
     <ClCompile Include="Game\Game_UNICLR_A.cpp">
       <Filter>Games\Other Platforms\UNICLR - Under Night In-Birth</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_TMNTTF_SNES.cpp">
-      <Filter>Games\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp">
       <Filter>Games\SNK Games\Last Blade</Filter>
     </ClCompile>
