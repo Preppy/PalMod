@@ -127,7 +127,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     // Stub in the palette buffer that we will LoadFile into
     InitDataBuffer();
 
-    // This lets LoadGame and SaveGame know how many files it needs to interact with
+    // This lets LoadFile and SaveFile know how many files it needs to interact with
     m_nFileAmt = static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.size());
 
     //Create the redirect buffer

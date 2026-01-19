@@ -558,7 +558,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
     switch (m_loadedROMRevision.rev)
     {
-    case eSVCRevisionName::SVCSPlus:
+        case eSVCRevisionName::SVCSPlus:
         {
             decryptedROM = new uint8_t[m_nConfirmedROMSize * 2];
             ZeroMemory(decryptedROM, m_nConfirmedROMSize * 2);
@@ -631,7 +631,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             }
         }
         break;
-    case eSVCRevisionName::SVCPlus: // svc-p2p.bin
+        case eSVCRevisionName::SVCPlus: // svc-p2p.bin
         {
             const uint32_t nROMSetSize = 0x600000;
             decryptedROM = new uint8_t[nROMSetSize];
@@ -716,7 +716,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             }
         }
         break;
-    case eSVCRevisionName::SVC:
+        case eSVCRevisionName::SVC:
         {
             CString strMsg;
             
@@ -726,8 +726,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             }
         }
         __fallthrough;
-    default:
-    case eSVCRevisionName::SVCPlusA:
+        default:
+        case eSVCRevisionName::SVCPlusA:
         {
             // SVCPlusA is already decrypted
             for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)

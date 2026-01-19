@@ -27,6 +27,28 @@ const std::vector<uint16_t> SFTM_A_IMGIDS_USED =
     indexSFTMSprites_Zangief,  // 0xcb
 };
 
+// Stages and notes
+    // Bison's Lair
+        // Bad for captures: Ground reflects, lighting effects
+    // Metal walkway w/ Screens
+        // Good for captures: no effects
+    // Barbed Wire Pit
+        // Bad for captures: stage clips the feet
+    // Dhalsim's Lab
+        // Good for captures: no effects
+    // Dungeon
+        // Good for captures: no effects.  Has 3 background characters too using their main palettes, but spikes obscure parts of them
+    // Jungle/Pond (Day)
+        // Good for captures: no effects
+    // Unit Headquarters (Night)
+        // Bad for captures: lighting effects.  Guard in background using their main palette
+    // Jungle/Pond (Night)
+        // Bad for captures: lighting effects 
+    // Debug Room*****
+        // Best for captures: special debug stage!
+    // Unit Headquarters (Day)
+        // Good for captures: no effects.  Guard in background using their main palette
+
 // these two are in flipped order on the rom
 const sGame_PaletteDataset SFTM_A_SAGAT_PALETTE_P2[] =
 {
@@ -50,14 +72,14 @@ const sGame_PaletteDataset SFTM_A_RYU_PALETTE_P2[] =
 
 const sGame_PaletteDataset SFTM_A_VEGA_PALETTE_P1[] =
 {
-    // WARNING: uneven pairing.  this should not be paired and is turned off at the Collection level
-    { L"Vega", 0x10b1f, 0x10e1f, indexSFTMSprites_Vega, 0x00, &pairNext2 },
+    // WARNING: uneven pairing.  this is not allowed multisprite export
+    { L"Vega", 0x10b1f, 0x10e1f, indexSFTMSprites_Vega, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset SFTM_A_VEGA_PALETTE_P2[] =
 {
-    // WARNING: uneven pairing.  this should not be paired and is turned off at the Collection level
-    { L"Vega", 0x10e1f, 0x1111f, indexSFTMSprites_Vega, 0x00, &pairNext },
+    // WARNING: uneven pairing.  this is not allowed multisprite export
+    { L"Vega", 0x10e1f, 0x1111f, indexSFTMSprites_Vega, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset SFTM_A_VEGA_PALETTE_MASK[] =
@@ -219,9 +241,8 @@ const sDescTreeNode SFTM_A_RYU_COLLECTION[] =
 
 const sDescTreeNode SFTM_A_VEGA_COLLECTION[] =
 {
-    // Suffix added to prevent auto-pairing
-    { L"P1_", DESC_NODETYPE_TREE, (void*)SFTM_A_VEGA_PALETTE_P1, ARRAYSIZE(SFTM_A_VEGA_PALETTE_P1) },
-    { L"P2_", DESC_NODETYPE_TREE, (void*)SFTM_A_VEGA_PALETTE_P2, ARRAYSIZE(SFTM_A_VEGA_PALETTE_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)SFTM_A_VEGA_PALETTE_P1, ARRAYSIZE(SFTM_A_VEGA_PALETTE_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)SFTM_A_VEGA_PALETTE_P2, ARRAYSIZE(SFTM_A_VEGA_PALETTE_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)SFTM_A_VEGA_PALETTE_MASK, ARRAYSIZE(SFTM_A_VEGA_PALETTE_MASK) },
 };
 
