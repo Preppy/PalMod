@@ -1,10 +1,20 @@
 #include "stdafx.h"
 #include "PalMod.h"
+#include "lodepng\lodepng.h"
 
 bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 {
     bool fSuccess = false;
-    bool fFoundPaletteData = false;
+
+    enum ePNGLoadResults
+    {
+        PNG_NotLoaded = 0,
+        PNG_LoadedAsIndexed,
+        PNG_LoadedAsRGB,
+        PNG_LoadedAsRGBImperfect,
+    };
+
+    ePNGLoadResults pngLoadResults = ePNGLoadResults::PNG_NotLoaded;
     CFile PNGFile;
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
@@ -89,7 +99,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                     // and create a save state
                     ProcChange();
 
-                    fFoundPaletteData = true;
+                    pngLoadResults = ePNGLoadResults::PNG_LoadedAsIndexed;
                     std::vector<uint8_t> rgchPaletteData;
                     rgchPaletteData.resize(chunkLength);
 
@@ -315,7 +325,299 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
         PNGFile.Close();
     }
 
-    if (!fFoundPaletteData)
+    if (pngLoadResults != ePNGLoadResults::PNG_LoadedAsIndexed)
+    {
+        // OK, we can't do it the easy indexed PNG way. 
+        // For previews produced by us (using our previews), we *probably* can do it the hard way
+        // by comparing color index usage count in the preview to actual color usage count in the PNG.
+        lodepng::State state;
+        lodepng_state_init(&state);
+
+        size_t nSize = 0;
+        unsigned char* loadedAsFile = nullptr;
+
+        if (lodepng_load_file(&loadedAsFile, &nSize, pszFileName) == 0)
+        {
+            unsigned width = 0, height = 0;
+            unsigned char* loadedAsPNG = nullptr;
+
+            if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
+            {
+                if (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA)
+                {
+                    std::vector<std::pair<uint32_t, uint32_t>> rgColorCounts;
+                    const size_t nPixelCount = height * width;
+
+                    for (size_t iPos = 0; iPos < nPixelCount; iPos++)
+                    {
+                        const uint32_t nCurrentColor = (loadedAsPNG[(iPos * 4) + 3] << 24) |
+                                                       (loadedAsPNG[(iPos * 4) + 0] << 16) |
+                                                       (loadedAsPNG[(iPos * 4) + 1] << 8) |
+                                                       (loadedAsPNG[(iPos * 4) + 2]);
+
+                        auto it = std::find_if(rgColorCounts.begin(), rgColorCounts.end(),
+                            [&nCurrentColor](const std::pair<uint32_t, uint32_t>& elem) {
+                                return elem.first == nCurrentColor;
+                            });
+
+                        if (it == rgColorCounts.end())
+                        {
+                            rgColorCounts.push_back(std::make_pair(nCurrentColor, 1));
+                        }
+                        else
+                        {
+                            it->second++;
+                        }
+                    }
+
+                    CString strInfo;
+#ifdef DEBUG
+                    strInfo.Format(L"PNG Color Format: %s.  %u colors used in this PNG.\r\n", (state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ? L"RGB" : L"RGBA", rgColorCounts.size());
+                    OutputDebugString(strInfo.GetString());
+
+                    for (auto& color : rgColorCounts)
+                    {
+                        strInfo.Format(L"\tColor 0x%08x: %u instances.\r\n", color.first, color.second);
+                        OutputDebugString(strInfo.GetString());
+                    }
+#endif
+
+                    // This specifically checks that we have an image at 0
+                    if (ImgDispCtrl->HaveImageData())
+                    {
+                        sImgNode** ppImgNodes = ImgDispCtrl->GetImgBuffer();
+
+                        const bool fDimensionsMatch = (ppImgNodes[0]->dimensions.width == width) &&
+                                                      (ppImgNodes[0]->dimensions.height == height);
+
+                        if (fDimensionsMatch)
+                        {
+                            std::vector<std::pair<uint32_t, uint32_t>> rgIndexCounts;
+
+                            for (size_t iIndexIndex = 0; iIndexIndex < nPixelCount; iIndexIndex++)
+                            {
+                                const uint32_t nCurrentIndex = ppImgNodes[0]->pImgData[iIndexIndex];
+
+                                auto it = std::find_if(rgIndexCounts.begin(), rgIndexCounts.end(),
+                                    [&nCurrentIndex](const std::pair<uint32_t, uint32_t>& elem) {
+                                        return elem.first == nCurrentIndex;
+                                    });
+
+                                if (it == rgIndexCounts.end())
+                                {
+                                    rgIndexCounts.push_back(std::make_pair(nCurrentIndex, 1));
+                                }
+                                else
+                                {
+                                    it->second++;
+                                }
+                            }
+
+#ifdef DEBUG
+                            strInfo.Format(L"PalMod preview check: %u table indexes used.\r\n", rgIndexCounts.size());
+                            OutputDebugString(strInfo.GetString());
+
+                            for (auto& pixels : rgIndexCounts)
+                            {
+                                strInfo.Format(L"\tIndex %02x: %u instances.\r\n", pixels.first, pixels.second);
+                                OutputDebugString(strInfo.GetString());
+                            }
+#endif
+
+                            if (ppImgNodes[0]->uPalSz >= rgColorCounts.size())
+                            {
+                                // Matchers
+                                std::vector<uint32_t> vIndexToColorMap;
+                                vIndexToColorMap.resize(ppImgNodes[0]->uPalSz);
+
+                                // First do the simple mapping for exact matches
+                                for (size_t iIndexIndex = 0; iIndexIndex < rgIndexCounts.size(); )
+                                {
+                                    bool fMatchFound = false;
+                                    for (size_t iColorIndex = 0; iColorIndex < rgColorCounts.size(); iColorIndex++)
+                                    {
+                                        // If counts match exactly, this *should* be this color
+                                        if (rgColorCounts.at(iColorIndex).second == rgIndexCounts.at(iIndexIndex).second)
+                                        {
+                                            fMatchFound = true;
+                                            const uint16_t nSpecifiedIndex = rgIndexCounts.at(iIndexIndex).first;
+
+                                            // Ignore for now if it's using any index outside of the first palette.
+                                            if (nSpecifiedIndex < vIndexToColorMap.size())
+                                            {
+                                                vIndexToColorMap.at(nSpecifiedIndex) = rgColorCounts.at(iColorIndex).first;
+                                            }
+                                            rgColorCounts.erase(rgColorCounts.begin() + iColorIndex);
+                                            break;
+                                        }
+                                    }
+
+                                    if (fMatchFound)
+                                    {
+                                        rgIndexCounts.erase(rgIndexCounts.begin() + iIndexIndex);
+                                    }
+                                    else
+                                    {
+                                        iIndexIndex++;
+                                    }
+                                }
+
+                                // If we have anything left, we know this is an imperfect map.
+                                if (rgColorCounts.size() == 0)
+                                {
+                                    fSuccess = true;
+                                    pngLoadResults = ePNGLoadResults::PNG_LoadedAsRGB;
+                                }
+                                else
+                                {
+#ifdef DEBUG
+                                    strInfo.Format(L"WARNING: Palette shares color for indexes.  %u colors still unmapped.\r\n", rgColorCounts.size());
+                                    OutputDebugString(strInfo.GetString());
+
+                                    OutputDebugString(L"Pre Second Chance Mapping:\r\n");
+                                    for (size_t iMappedIndex = 0; iMappedIndex < vIndexToColorMap.size(); iMappedIndex++)
+                                    {
+                                        strInfo.Format(L"\tIndex %02u is 0x%08x\r\n", iMappedIndex, vIndexToColorMap.at(iMappedIndex));
+                                        OutputDebugString(strInfo.GetString());
+                                    }
+#endif
+
+                                    if (rgIndexCounts.size())
+                                    {
+                                        // OK, now we're trying to detangle multiple references.  The neat thing about this is that
+                                        // anything we catch here should be correct: both indexes would normally be using that color.
+                                        for (size_t iColorIndex = 0; iColorIndex < rgColorCounts.size(); )
+                                        {
+                                            bool fMatchFound = false;
+
+                                            for (size_t iFirstIndexIndex = 0; iFirstIndexIndex < rgIndexCounts.size(); iFirstIndexIndex++)
+                                            {
+                                                if (rgColorCounts.at(iColorIndex).second < rgIndexCounts.at(iFirstIndexIndex).second)
+                                                {
+                                                    continue;
+                                                }
+
+                                                for (size_t iSecondIndexIndex = iFirstIndexIndex + 1; iSecondIndexIndex < rgIndexCounts.size(); iSecondIndexIndex++)
+                                                {
+                                                    // You can have multiple matches, of course, this just worries about two
+                                                    if ((rgColorCounts.at(iColorIndex).second == (rgIndexCounts.at(iFirstIndexIndex).second + rgIndexCounts.at(iSecondIndexIndex).second)))
+                                                    {
+                                                        fMatchFound = true;
+
+                                                        const uint16_t nFirstSpecifiedIndex = rgIndexCounts.at(iFirstIndexIndex).first;
+                                                        const uint16_t nSecondSpecifiedIndex = rgIndexCounts.at(iSecondIndexIndex).first;
+
+                                                        if (nFirstSpecifiedIndex < vIndexToColorMap.size())
+                                                        {
+                                                            vIndexToColorMap.at(nFirstSpecifiedIndex) = rgColorCounts.at(iColorIndex).first;
+#ifdef DEBUG
+                                                            strInfo.Format(L"\tFIXUPS: fixed up index %u.\r\n", nFirstSpecifiedIndex);
+                                                            OutputDebugString(strInfo.GetString());
+#endif
+                                                        }
+
+                                                        if (nSecondSpecifiedIndex < vIndexToColorMap.size())
+                                                        {
+                                                            vIndexToColorMap.at(nSecondSpecifiedIndex) = rgColorCounts.at(iColorIndex).first;
+#ifdef DEBUG
+                                                            strInfo.Format(L"\tFIXUPS: fixed up index %u.\r\n", nSecondSpecifiedIndex);
+                                                            OutputDebugString(strInfo.GetString());
+#endif
+                                                        }
+
+                                                        rgIndexCounts.erase(rgIndexCounts.begin() + iSecondIndexIndex);
+                                                        rgIndexCounts.erase(rgIndexCounts.begin() + iFirstIndexIndex);
+
+                                                        break;
+                                                    }
+                                                }
+
+                                                if (fMatchFound)
+                                                {
+                                                    break;
+                                                }
+                                            }
+
+                                            if (fMatchFound)
+                                            {
+                                                rgColorCounts.erase(rgColorCounts.begin() + iColorIndex);
+                                            }
+                                            else
+                                            {
+                                                iColorIndex++;
+                                            }
+                                        }
+
+                                        if (rgColorCounts.size())
+                                        {
+                                            pngLoadResults = ePNGLoadResults::PNG_LoadedAsRGBImperfect;
+                                        }
+                                        else
+                                        {
+                                            pngLoadResults = ePNGLoadResults::PNG_LoadedAsRGB;
+                                        }
+
+                                        fSuccess = true;
+#ifdef DEBUG
+                                        strInfo.Format(L"After second mapping pass: %u colors left unmatched.\r\n", rgColorCounts.size());
+                                        OutputDebugString(strInfo.GetString());
+#endif
+                                    }
+                                }
+
+#ifdef DEBUG
+                                OutputDebugString(L"RESULTS OF THE MAPPING:\r\n");
+                                for (size_t iMappedIndex = 0; iMappedIndex < vIndexToColorMap.size(); iMappedIndex++)
+                                {
+                                    strInfo.Format(L"\tIndex %02u should now be 0x%08x\r\n", iMappedIndex, vIndexToColorMap.at(iMappedIndex));
+                                    OutputDebugString(strInfo.GetString());
+                                }
+#endif
+
+                                ProcChange();
+
+                                strInfo.Format(L"Loaded %u colors from RGB PNG file.%s", MainPalGroup->GetPalDef(0)->uPalSz, (pngLoadResults == ePNGLoadResults::PNG_LoadedAsRGB) ? L"" : L"  Imported imperfectly: palette is not mapping safe.");
+                                SetStatusText(strInfo.GetString());
+#ifdef DEBUG
+                                strInfo += L"\r\n";
+                                OutputDebugString(strInfo.GetString());
+#endif
+
+                                uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(0)->pPal);
+
+                                for (uint16_t iPalIndex = 0; iPalIndex < MainPalGroup->GetPalDef(0)->uPalSz; iPalIndex++)
+                                {
+                                    const uint32_t nCurrentColor = vIndexToColorMap.at(iPalIndex);
+                                    if (nCurrentColor) // anything full 0 was not found, as otherwise it would have alpha set
+                                    {
+                                        pPal[(iPalIndex * 4)] = CurrGame->GetNearestLegal8BitColorValue_RGB((nCurrentColor >> 16) & 0xff);
+                                        pPal[(iPalIndex * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB((nCurrentColor >> 8) & 0xff);
+                                        pPal[(iPalIndex * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB((nCurrentColor) & 0xff);
+                                    }
+                                }
+
+                                ImgDispCtrl->UpdateCtrl();
+                                m_PalHost.UpdateAllPalCtrls();
+
+                                UpdateMultiEdit(TRUE);
+                                UpdateSliderSel();
+                            }
+                            else
+                            {
+                                OutputDebugString(L"UNSUPPORTED: There are more colors in the image than we could possibly map currently.\r\n");
+                            }
+                        }
+                    }
+                }
+
+                free(loadedAsPNG);
+            }
+
+            free(loadedAsFile);
+        }
+    }
+
+    if (pngLoadResults == ePNGLoadResults::PNG_NotLoaded)
     {
         SetStatusText(IDS_PNGLOAD_NOTABLE);
 

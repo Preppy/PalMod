@@ -1310,7 +1310,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     }
 }
 
-bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fForceNonIndexed /* = false */ , bool fPreferQuietMode /* = false */)
+bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fForceNonIndexed /* = false */, bool fPreferQuietMode /* = false */)
 {
     bool fSuccess = false;
     bool fUserCanceled = false;
