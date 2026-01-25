@@ -3008,4 +3008,6 @@ enum SupportedOther_SpriteListIndex
     indexUMK3ArcadeSprites_Rain,        // 0xf3
     indexUMK3ArcadeSprites_Stages,      // 0xf4
     indexUMK3ArcadeSprites_Bonus,       // 0xf5
+
+    indexDaemonBrideSprites_Bonus,      // 0xf6
 };
