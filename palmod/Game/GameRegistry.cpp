@@ -1435,7 +1435,7 @@ namespace KnownGameInfo
         {
             MK1_SEGA,
             L"Mortal Kombat (Sega Mega Drive)",
-            { MK1_SEGA,         L"Mortal Kombat (Mega Drive)", L"Mortal Kombat (Mega Drive)|mortal kombat (world) (v1.1).*|", GamePlatform::OtherPlatform },
+            { MK1_SEGA,         L"Mortal Kombat (Mega Drive)", L"Mortal Kombat (Mega Drive)|mortal kombat (world)*.*;mortal kombat.smd|", GamePlatform::OtherPlatform },
             Make_MK1_SEGA,
             CGame_MK1_SEGA::GetRule,
         },

@@ -15,9 +15,11 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Mortal Kombat (Sega Genesis)", L"mortal kombat (world) (v1.1).bin", 0x33F19AB6, 0 },
-        { L"Mortal Kombat (Sega Genesis)", L"mortal kombat (world) (v1.1).gen", 0x33F19AB6, 0 },
-        { L"Mortal Kombat (Sega Mega Drive)", L"mortal kombat (world) (v1.1).md", 0x33F19AB6, 0 },
+        { L"Mortal Kombat (Sega Genesis v1.1)", L"mortal kombat (world) (v1.1).bin", 0x33F19AB6, 0 },
+        { L"Mortal Kombat (Sega Genesis v1.1)", L"mortal kombat (world) (v1.1).gen", 0x33F19AB6, 0 },
+        { L"Mortal Kombat (Sega Mega Drive v1.1)", L"mortal kombat (world) (v1.1).md", 0x33F19AB6, 0 },
+        { L"Mortal Kombat (Sega Mega Drive v1.0)", L"mortal kombat (world).md", 0x1AA3A207, 0 },
+        { L"Mortal Kombat (Sega Mega Drive v1.0)", L"mortal kombat.smd", 0x5172F663, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
