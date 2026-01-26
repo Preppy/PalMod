@@ -166,7 +166,7 @@ const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES_TESTYOURMIGHT[] =
 {
     { L"Johnny Cage", 0x131C90, 0x131CD0 },
     { L"Kano", 0x131CD0, 0x131D10 },
-    { L"Rayden", 0x131D10, 0x131D50 },
+    { L"Raiden", 0x131D10, 0x131D50 },
     { L"Liu Kang", 0x131D50, 0x131D90 },
     { L"Scorpion", 0x131D90, 0x131DD0 },
     { L"Sub-Zero", 0x131DD0, 0x131E10 },

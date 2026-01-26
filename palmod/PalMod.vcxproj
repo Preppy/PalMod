@@ -528,6 +528,7 @@
     <ClInclude Include="Game\Game_MK2_A.h" />
     <ClInclude Include="Game\Game_MK2_SNES.h" />
     <ClInclude Include="Game\Game_MK3_SEGA.h" />
+    <ClInclude Include="Game\Game_MK_SEGA.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MMX2_SNES.h" />
     <ClInclude Include="Game\Game_MMX3_SNES.h" />
@@ -675,6 +676,7 @@
     <ClInclude Include="Game\MK2_A_DEF.h" />
     <ClInclude Include="Game\MK2_SNES_DEF.h" />
     <ClInclude Include="Game\MK3_SEGA_DEF.h" />
+    <ClInclude Include="Game\MK_SEGA_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
     <ClInclude Include="Game\MMX2_SNES_DEF.h" />
     <ClInclude Include="Game\MMX3_SNES_DEF.h" />

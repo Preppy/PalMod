@@ -1677,6 +1677,20 @@ enum SupportedSega_PaletteListIndex
     indexSegaUMK3Sprites_Stages,        // 0x28
 
     indexSegaMK3Sprites_Sindel,         // 0x29
+
+    indexSegaMK1Sprites_Goro,           // 0x2a
+    indexSegaMK1Sprites_JohnnyCage,     // 0x2b
+    indexSegaMK1Sprites_Kano,           // 0x2c
+    indexSegaMK1Sprites_LiuKang,        // 0x2d
+    indexSegaMK1Sprites_Raiden,         // 0x2e
+    indexSegaMK1Sprites_Reptile,        // 0x2f
+    indexSegaMK1Sprites_Scorpion,       // 0x30
+    indexSegaMK1Sprites_ShangTsung,     // 0x31
+    indexSegaMK1Sprites_SonyaBlade,     // 0x32
+    indexSegaMK1Sprites_SubZero,        // 0x33
+
+    indexSegaMK1Sprites_Bonus,          // 0x34
+    indexSegaMK1Sprites_Stages,         // 0x35
 };
 
 enum SupportedSNES_PaletteListIndex

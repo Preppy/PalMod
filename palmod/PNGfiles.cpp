@@ -6,7 +6,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 {
     bool fSuccess = false;
 
-    enum ePNGLoadResults
+    enum class ePNGLoadResults
     {
         PNG_NotLoaded = 0,
         PNG_LoadedAsIndexed,

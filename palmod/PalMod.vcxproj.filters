@@ -640,6 +640,9 @@
     <Filter Include="Games\Capcom Games\Street Fighter EX2 Plus %28Arcade%29">
       <UniqueIdentifier>{87284029-6c10-4bbb-b508-a378dd2c9349}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Sega\Mortal Kombat 1">
+      <UniqueIdentifier>{83e6387e-f0f6-4cf3-9854-e162be0fbf68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2308,6 +2311,12 @@
     </ClInclude>
     <ClInclude Include="Game\SFEX2P_A_DEF.h">
       <Filter>Games\Capcom Games\Street Fighter EX2 Plus %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MK_SEGA.h">
+      <Filter>Games\Sega\Mortal Kombat 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MK_SEGA_DEF.h">
+      <Filter>Games\Sega\Mortal Kombat 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

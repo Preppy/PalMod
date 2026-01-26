@@ -92,6 +92,7 @@
 #include "Game_MBTL_A.h"
 #include "Game_MCI_S.h"
 #include "Game_MK1_A.h"
+#include "Game_MK_SEGA.h"
 #include "Game_MK1_SNES.h"
 #include "Game_MK2_A.h"
 #include "Game_MK2_SNES.h"
@@ -192,7 +193,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 262, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 263, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -311,6 +312,7 @@ namespace KnownGameInfo
     CGameClass* Make_MBTL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MBTL_A(nConfirmedROMSize); }
     CGameClass* Make_MCI_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MCI_S(nConfirmedROMSize); }
     CGameClass* Make_MK1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_A(nConfirmedROMSize); }
+    CGameClass* Make_MK1_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_SEGA(nConfirmedROMSize); }
     CGameClass* Make_MK1_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_SNES(nConfirmedROMSize); }
     CGameClass* Make_MK2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_A(nConfirmedROMSize); }
     CGameClass* Make_MK2_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_SNES(nConfirmedROMSize); }
@@ -1431,6 +1433,13 @@ namespace KnownGameInfo
             CGame_MK2_A::GetRule,
         },
         {
+            MK1_SEGA,
+            L"Mortal Kombat (Sega Mega Drive)",
+            { MK1_SEGA,         L"Mortal Kombat (Mega Drive)", L"Mortal Kombat (Mega Drive)|mortal kombat (world) (v1.1).*|", GamePlatform::OtherPlatform },
+            Make_MK1_SEGA,
+            CGame_MK1_SEGA::GetRule,
+        },
+        {
             MK1_SNES,
             L"Mortal Kombat (SNES)",
             { MK1_SNES,         L"Mortal Kombat", L"Mortal Kombat (SNES)|Mortal Kombat (USA).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -2460,7 +2469,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 262, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 263, "New GameID defined: please update GameRegistry with the associated data.");
 
     LPCWSTR GetGameNameForGameID(int nGameID)
     {

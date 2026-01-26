@@ -409,7 +409,7 @@ const sGame_PaletteDataset MK3_SEGA_SharedExtras_FatalityMoveExtras[] =
 {
     { L"Bones", 0xc86cc, 0xc86ec },
     { L"Flaming Skeleton", 0xf49a2, 0xf49c2, indexSegaMK3Sprites_Bonus, 0x00 },
-    { L"Rayden and Arcade Cabinet", 0x1581a8, 0x1581c8, indexSegaMK3Sprites_Bonus, 0x02 },
+    { L"Raiden and Arcade Cabinet", 0x1581a8, 0x1581c8, indexSegaMK3Sprites_Bonus, 0x02 },
     { L"Nightwolf/Stryker Skeleton", 0x1a7a18, 0x1a7a38, indexSegaMK3Sprites_Bonus, 0x01 },
     { L"Spin Effect", 0x1d6876, 0x1d6896, indexSegaMK3Sprites_Bonus, 0x03 },
 };
