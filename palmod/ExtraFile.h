@@ -30,6 +30,30 @@ protected:
     // We may be navigating over a set of files, so track that total size if we get it
     static size_t m_nLoadedFileViewSize;
 
+    struct NodeData
+    {
+        std::wstring strPrintName;
+        std::wstring strDisplayName;
+
+        void PrintPaletteSetHeader()
+        {
+            CString strText;
+            strText.Format(L"const sGame_PaletteDataset %s[] =\r\n{\r\n", strPrintName.c_str());
+            OutputDebugString(strText);
+        }
+    };
+
+    struct UnitData
+    {
+        std::wstring strPrintName;
+        std::wstring strDisplayName;
+        std::vector<NodeData> vNodeData;
+    };
+
+    // This was moved to class scope from local scope in anticipation of further rework 
+    // that may or may not happen at some point in the future.
+    static std::vector<UnitData> m_vUnitData;
+
     static void ResetStaticOverrideVariables();
     static void SetGameNameOverride(LPCSTR paszGameNameString);
     static void SetAlphaOverride(LPCSTR paszAlphaString);

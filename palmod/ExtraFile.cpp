@@ -18,6 +18,7 @@ char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
 AlphaMode CGameWithExtrasFile::m_AlphaModeOverride = AlphaMode::Unknown;
 ColMode CGameWithExtrasFile::m_ColorModeOverride = ColMode::COLMODE_LAST;
 eIMGDat_Sections CGameWithExtrasFile::m_ImageSectionOverride = eIMGDat_Sections::IMGDAT_SECTION_LAST;
+std::vector<CGameWithExtrasFile::UnitData> CGameWithExtrasFile::m_vUnitData = {};
 
 class CCreateExtraFileDlg : public CDialog
 {
@@ -150,6 +151,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
     // Reset for a new extras file load.
     ResetStaticOverrideVariables();
 
+    m_vUnitData.clear();
+
     if (prgTempExtraBuffer)
     {
         {
@@ -230,35 +233,10 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 uint16_t indexImgToUse = INVALID_UNIT_VALUE_16; // the major character/collection index
                 uint8_t indexOffsetToUse = 0x0; // subsprites within that collection
 
-
-#ifdef DUMP_EXTRAS_ON_LOAD
-                struct NodeData
-                {
-                    std::wstring strPrintName;
-                    std::wstring strDisplayName;
-
-                    void PrintPaletteSetHeader()
-                    {
-                        CString strText;
-                        strText.Format(L"const sGame_PaletteDataset %s[] =\r\n{\r\n", strPrintName.c_str());
-                        OutputDebugString(strText);
-                    }
-                };
-
-                struct UnitData
-                {
-                    std::wstring strPrintName;
-                    std::wstring strDisplayName;
-                    std::vector<NodeData> vNodeData;
-                };
-
-                std::vector<UnitData> vUnitData;
-
                 // NOTE: PrintableGameName is only usable in Developer Mode as we only process overrides there.
                 wchar_t szPrintableGameName[MAX_PATH] = L"GAMENAME";
                 CString strCurrentUnitDisplayName = L"UNNAMED";
                 wchar_t szCurrentUnitPrintName[MAX_PATH] = L"UNNAMED";
-#endif
 
                 if (CRegProc::GetMaxColorsPerPageOverride() != 0)
                 {
@@ -466,33 +444,37 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     const int nTotalPagesNeeded = static_cast<int>(ceil(static_cast<double>(nColorsUsed) / static_cast<double>(k_colorsPerPage)));
                                     int nCurrentPage = 1;
 
-#ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
                                     CString strText;
 
                                     // ensure we have node/units here
-                                    if (vUnitData.empty())
+                                    if (m_vUnitData.empty())
                                     {
                                         // force a dummy unit
                                         UnitData thisUnit = { szCurrentUnitPrintName, strCurrentUnitDisplayName.GetString() };
-                                        vUnitData.push_back(thisUnit);
+                                        m_vUnitData.push_back(thisUnit);
                                     }
 
-                                    if (vUnitData.back().vNodeData.empty())
+                                    if (m_vUnitData.back().vNodeData.empty())
                                     {
-                                        if (vUnitData.size() != 1)
+#ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
+                                        if (m_vUnitData.size() != 1)
                                         {
                                             // Close previous set
                                             OutputDebugString(L"};\r\n\r\n");
                                         }
+#endif
 
-                                        strText.Format(L"%s_%s_Default", szPrintableGameName, vUnitData.back().strPrintName.c_str());
+                                        strText.Format(L"%s_%s_Default", szPrintableGameName, m_vUnitData.back().strPrintName.c_str());
                                         
                                         NodeData thisNode = { strText.GetString(), L"Palettes" };
-                                        vUnitData.back().vNodeData.push_back(thisNode);
+                                        m_vUnitData.back().vNodeData.push_back(thisNode);
                                         
+#ifdef DUMP_EXTRAS_ON_LOAD
                                         thisNode.PrintPaletteSetHeader();
+#endif
                                     }
 
+#ifdef DUMP_EXTRAS_ON_LOAD
                                     // Do we want to autoslice at 128 or 256 colors...?  Probably 128, so let's use that here.
                                     bool fPaletteUsesMultiplePages = (nColorsUsed > PAL_MAXAMT_8COLORSPERLINE);
 
@@ -621,7 +603,6 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                         
                             if (!fHandled)
                             {
-#ifdef DUMP_EXTRAS_ON_LOAD
                                 if ((strncmp(aszFinalLine, ";---", 4) == 0) && (aszFinalLine[4] != '-')) // Unit
                                 {
                                     strCurrentUnitDisplayName.Format(L"%S", aszFinalLine + 4);
@@ -629,7 +610,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                                     bool fFoundExisting = false;
 
-                                    for (UnitData& unitCheck : vUnitData)
+                                    for (UnitData& unitCheck : m_vUnitData)
                                     {
                                         if (wcscmp(unitCheck.strPrintName.c_str(), strCurrentUnitDisplayName.GetString()) == 0)
                                         {
@@ -641,7 +622,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     if (!fFoundExisting)
                                     {
                                         UnitData thisUnit = { szCurrentUnitPrintName, strCurrentUnitDisplayName.GetString() };
-                                        vUnitData.push_back(thisUnit);
+                                        m_vUnitData.push_back(thisUnit);
                                     }
                                 }
                                 else if ((strncmp(aszFinalLine, ";--", 3) == 0) && (aszFinalLine[3] != '-')) // Node
@@ -652,25 +633,29 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     strFriendlyName.Format(L"%S", aszFinalLine + 3);
                                     StrRemoveNonASCII(szPrintableNodeName, MAX_PATH, strFriendlyName.GetString());
 
-                                    if (vUnitData.size())
+#ifdef DUMP_EXTRAS_ON_LOAD
+                                    if (m_vUnitData.size())
                                     {
                                         OutputDebugString(L"};\r\n\r\n");
                                     }
+#endif
 
-                                    if (vUnitData.empty())
+                                    if (m_vUnitData.empty())
                                     {
                                         // force a dummy unit
                                         UnitData thisUnit = { szCurrentUnitPrintName, strCurrentUnitDisplayName.GetString() };
-                                        vUnitData.push_back(thisUnit);
+                                        m_vUnitData.push_back(thisUnit);
                                     }
 
                                     CString strNodeRef;
                                     strNodeRef.Format(L"%s_%s_%s", szPrintableGameName, szCurrentUnitPrintName, szPrintableNodeName);
 
                                     NodeData thisNode = { strNodeRef.GetString(), strFriendlyName.GetString() };
+#ifdef DUMP_EXTRAS_ON_LOAD
                                     thisNode.PrintPaletteSetHeader();
+#endif
 
-                                    for (UnitData& unitCheck : vUnitData)
+                                    for (UnitData& unitCheck : m_vUnitData)
                                     {
                                         if (wcscmp(unitCheck.strDisplayName.c_str(), strCurrentUnitDisplayName.GetString()) == 0)
                                         {
@@ -679,6 +664,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                         }
                                     }
                                 }
+#ifdef DUMP_EXTRAS_ON_LOAD
                                 else if (aszFinalLine[0] == ';')
                                 {
                                     CString strComment;
@@ -692,7 +678,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 }
 
 #ifdef DUMP_EXTRAS_ON_LOAD
-                if (vUnitData.size())
+                if (m_vUnitData.size())
                 {
                     size_t nNodeIndex = 0;
                     CString strText;
@@ -700,7 +686,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                     // Close existing node
                     OutputDebugString(L"};\r\n\r\n");
 
-                    for (auto& unitEntry : vUnitData)
+                    for (auto& unitEntry : m_vUnitData)
                     {
                         if (!unitEntry.vNodeData.empty())
                         {
@@ -718,12 +704,11 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                         }
                     }
 
-
                     strText.Format(L"const sDescTreeNode %s_UNITS[] =\r\n{\r\n", szPrintableGameName);
 
                     OutputDebugString(strText.GetString());
 
-                    for (auto& unitEntry : vUnitData)
+                    for (auto& unitEntry : m_vUnitData)
                     {
                         if (!unitEntry.vNodeData.empty())
                         {
