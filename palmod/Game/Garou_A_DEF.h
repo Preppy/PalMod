@@ -1,12 +1,5 @@
 #pragma once
 
-// This is all hand-crafted.
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of Garou_A_ROCK_PALETTES. 
-// * Update every array using Garou_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> GAROU_A_IMGIDS_USED =
 {
     indexGarouARockHoward,  // 0x00

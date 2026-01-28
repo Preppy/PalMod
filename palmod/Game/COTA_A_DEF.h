@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of COTA_A_SENTINEL_PALETTES. 
-// * Update every array using COTA_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> COTA_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Colossus,     // 0x32

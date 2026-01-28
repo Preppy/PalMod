@@ -1,12 +1,6 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of SFA2_A_RYU_PALETTES. 
-// * Update every array using SFA2_A_NUM_IND below
-// * Update the index lookups in Game_SFA2_A.cpp that are marked 
-//       - look for usage of index_SFA2_Ryu to find them
-// That should be it.  Good luck.
+// Be careful of modifications here: there are a lot of shifty SFA2 revisions
 
 const std::vector<uint16_t> SFA2_A_IMGIDS_USED =
 {

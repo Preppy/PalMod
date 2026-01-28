@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of MSH_A_BLACKHEART_PALETTES. 
-// * Update every array using MSH_A_NUMUNIT below
-// That should be it.  Good luck.
-
 #ifdef LOOKINGFORSORTORDER
 
 const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P1[] =

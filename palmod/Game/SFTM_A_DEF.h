@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of SFTM_A_RYU_PALETTE_P1. 
-// * Update every array using SFTM_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> SFTM_A_IMGIDS_USED =
 {
     indexSFTMSprites_Akuma,    // 0xbb

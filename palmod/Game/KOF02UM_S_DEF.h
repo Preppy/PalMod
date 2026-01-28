@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of KOF02UM_S_KYO_PALETTE_A. 
-// * Update every array using KOF02UM_S_NUMUNIT below
-// That should be it.  Good luck.
-
 struct sKOF02_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;

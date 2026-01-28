@@ -7,12 +7,6 @@
 // 
 // *****************************************************************************************************************
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of MVC_A_RYU_PALETTES. 
-// * Update every array using MVC_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> MVC_A_IMGIDS_USED =
 {
     // Main Roster

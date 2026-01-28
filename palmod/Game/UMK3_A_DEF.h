@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of UMK3_A_LIUKANG_PALETTES_P1. 
-// * Update every array using UMK3_A_NUMUNITS below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> UMK3_A_IMGIDS_USED =
 {
     indexMK2ASprites_ShaoKahn,          // 0x7a

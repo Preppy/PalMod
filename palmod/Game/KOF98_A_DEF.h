@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of KOF98_A_KYO_PALETTE_A. 
-// * Update every array using KOF98_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> KOF98_A_IMGIDS_USED =
 {
     indexKOF98Sprites_Kyo,      // 0x00

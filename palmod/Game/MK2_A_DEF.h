@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of MK2_A_LIUKANG_PALETTES_P1. 
-// * Update every array using MK2_A_NUMUNITS below
-// That should be it.  Good luck.
-
 // Rev 1.1 palettes begin at around 0xa4dd4
 // Rev 1.4: no data
 // Rev 2.1: First official release, adds Smoke and Jade.

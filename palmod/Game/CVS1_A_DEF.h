@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of CVS1_A_KYO_PALETTE_A. 
-// * Update every array using CVS1_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> CVS1_A_IMGIDS_USED =
 {
     indexCVS2Sprites_Akuma,

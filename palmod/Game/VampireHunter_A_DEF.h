@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of VampireHunter_A_MORRIGAN_PALETTES. 
-// * Update every array using VampireHunter_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> VampireHunter_A_IMGIDS_USED =
 {
     // These are the playable characters

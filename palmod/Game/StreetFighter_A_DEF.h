@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of StreetFighter_A_RYU_PALETTES_A. 
-// * Update every array using StreetFighter_A_NUMUNITS below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> StreetFighter_A_IMGIDS_USED =
 {
     indexSF1Sprites_Adon,               // 0x7f

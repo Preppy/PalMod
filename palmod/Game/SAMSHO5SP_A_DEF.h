@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of SAMSHO5SP_A_Amakusa_PALETTE_A. 
-// * Update every array using SAMSHO5SP_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> SAMSHO5SP_A_IMGIDS_USED =
 {
     indexSamSho5Sprites_Amakusa,

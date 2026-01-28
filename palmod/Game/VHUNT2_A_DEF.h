@@ -2,12 +2,6 @@
 
 #include "VSAV2_A_DEF.h" // for stage data
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of VHUNT2_A_MORRIGAN_PALETTES. 
-// * Update every array using VHUNT2_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> VHUNT2_A_IMGIDS_USED =
 {
     // These are the playable characters

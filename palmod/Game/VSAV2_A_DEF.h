@@ -1,11 +1,5 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of VSAV2_A_MORRIGAN_PALETTES. 
-// * Update every array using VSAV2_A_NUMUNIT below
-// That should be it.  Good luck.
-
 const std::vector<uint16_t> VSAV2_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Anakaris,     // 0x04
