@@ -1314,6 +1314,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
 {
     bool fSuccess = false;
     bool fUserCanceled = false;
+    std::wstring strErrorText = L"This PNG could not be loaded.";
 
     {
         CWaitCursor wait; // Show a wait cursor in this scope since this can be a lot of parsing
@@ -1361,13 +1362,13 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
                 {
                     // overly simplified check to avoid crazed autolayouts
                     if (fPreferQuietMode && pnPositionToLoadTo &&
-                        (((*pnPositionToLoadTo != 0) && m_pImgBuffer[0] && ((m_pImgBuffer[0]->dimensions.height != height) || (m_pImgBuffer[0]->dimensions.width != width))) ||
-                         ((*pnPositionToLoadTo == 0) && m_pImgBuffer[1] && ((m_pImgBuffer[1]->dimensions.height != height) || (m_pImgBuffer[1]->dimensions.width != width)))))
+                        (((*pnPositionToLoadTo != 0) && m_pImgBuffer[0] && m_pImgBuffer[0]->pImgData && ((m_pImgBuffer[0]->dimensions.height != height) || (m_pImgBuffer[0]->dimensions.width != width))) ||
+                         ((*pnPositionToLoadTo == 0) && m_pImgBuffer[1] && m_pImgBuffer[1]->pImgData && ((m_pImgBuffer[1]->dimensions.height != height) || (m_pImgBuffer[1]->dimensions.width != width)))))
                     {
                         // In theory even if the user injects something here we shouldn't load it, but this at least prevents the bad auto case.
-                        OutputDebugString(L"ERROR: custom preview not loaded due to bad dimensions.\r\n");
+                        OutputDebugString(L"ERROR: custom preview not loaded due to dimensions not matching image 0 and or 1.\r\n");
                         // Note that the status text won't show up during auto-import of a bad preview since we set status to the palette name at end of load.
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Custom preview not loaded due to dimensions not matching.");
+                        strErrorText = L"Custom preview not loaded due to dimensions not matching.";
                         fSuccess = false;
                     }
                     else
@@ -1413,7 +1414,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
         }
         else
         {
-            GetHost()->GetPalModDlg()->SetStatusText(L"This PNG could not be loaded.");
+            GetHost()->GetPalModDlg()->SetStatusText(strErrorText.c_str());
         }
 
         return false;
