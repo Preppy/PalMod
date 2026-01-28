@@ -416,7 +416,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     }
 
     // And now the units...
-    OutputDebugString(L"const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =\n{\n");
+    OutputDebugString(L"const sDescTreeNode SVCPLUSA_A_UNITS[] =\n{\n");
 
     for (uint32_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
@@ -495,10 +495,10 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
     else // m_nExtraUnit
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
 

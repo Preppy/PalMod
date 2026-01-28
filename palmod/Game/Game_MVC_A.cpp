@@ -25,11 +25,11 @@ void CGame_MVC_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MVC_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 
     // Adjust for ROM-specific variant locations
@@ -93,10 +93,10 @@ void CGame_MVC_D::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MVC_D_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }

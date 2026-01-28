@@ -184,11 +184,11 @@ void CGame_SFZ3U_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
 
@@ -218,11 +218,11 @@ void CGame_SFZ3U_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
 
@@ -252,11 +252,11 @@ void CGame_SFZ3M_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
 

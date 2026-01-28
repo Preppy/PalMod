@@ -15,7 +15,7 @@ std::wstring CGameClassByDir::m_strGameFriendlyName;
 std::wstring CGameClassByDir::m_strCurrentExtraFilename;
 std::vector<uint32_t> CGameClassByDir::m_rgCurrentExtraCounts;
 std::vector<uint32_t> CGameClassByDir::m_rgCurrentExtraLocations;
-stExtraDef* CGameClassByDir::m_prgCurrentExtrasLoaded = nullptr;
+std::vector<stExtraDef> CGameClassByDir::m_prgCurrentExtrasLoaded;
 uint16_t CGameClassByDir::m_nCurrentExtraUnitId;
 SupportedGamesList CGameClassByDir::m_snCurrentGameFlag = SupportedGamesList::NUM_GAMES;
 
@@ -25,13 +25,13 @@ CGameClassByDir::~CGameClassByDir()
 {
     ClearDataBuffer();
     FlushChangeTrackingArray();
-
-    safe_delete_array(m_prgCurrentExtrasLoaded);
 }
 
 void CGameClassByDir::InitializeStatics(const sCoreGameData& gameLoadingData)
 {
-    safe_delete_array(m_prgCurrentExtrasLoaded);
+    m_prgCurrentExtrasLoaded.clear();
+    m_rgCurrentExtraCounts.clear();
+    m_rgCurrentExtraLocations.clear();
 
     m_rgCurrentGameUnits.clear();
     for (size_t nCurUnit = 0; nCurUnit < gameLoadingData.nUnitCount; nCurUnit++)
@@ -40,17 +40,7 @@ void CGameClassByDir::InitializeStatics(const sCoreGameData& gameLoadingData)
     }
 
     m_strCurrentExtraFilename = gameLoadingData.strExtraName;
-    m_rgCurrentExtraCounts.resize(m_rgCurrentGameUnits.size() + 1);
-    for (auto& pCount : m_rgCurrentExtraCounts)
-    {
-        pCount = -1; // Mark as uninitialized: we'll update with actual data later
-    }
 
-    m_rgCurrentExtraLocations.resize(m_rgCurrentGameUnits.size() + 1);
-    for (auto& pLocation : m_rgCurrentExtraLocations)
-    {
-        pLocation = -1; // Mark as uninitialized: we'll update with actual data later
-    }
     m_nCurrentExtraUnitId = static_cast<uint16_t>(m_rgCurrentGameUnits.size());
 
     m_MainDescTree.SetRootTree(CGameClassByDir::InitDescTree(gameLoadingData.eColMode));
@@ -118,10 +108,10 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     m_nTotalInternalUnits = static_cast<uint32_t>(m_rgCurrentGameUnits.size());
     m_nExtraUnit = m_nCurrentExtraUnitId = static_cast<uint16_t>(m_rgCurrentGameUnits.size());
     // Tack on an extra unit if we're loading extras
-    m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+    m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCtForUnit(m_nExtraUnit) ? 1 : 0);
 
     // Game-specific safety checks: if these match what we find at runtime we skip our check for duplicated palettes
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + gameLoadingData.nKnownPaletteCount;
+    m_nSafeCountForThisRom = GetExtraCtForUnit(m_nExtraUnit) + gameLoadingData.nKnownPaletteCount;
     m_nLowestKnownPaletteRomLocation = gameLoadingData.nLowestKnownPaletteLocation;
 
     // Stub in the palette buffer that we will LoadFile into
@@ -137,23 +127,23 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     PrepChangeTrackingArray();
 }
 
-uint32_t CGameClassByDir::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
+uint32_t CGameClassByDir::GetExtraCtForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
-    return _GetExtraCount(&m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), nUnitId, m_prgCurrentExtrasLoaded);
+    return _GetExtraCountForUnit(m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), nUnitId, m_prgCurrentExtrasLoaded);
 }
 
-uint32_t CGameClassByDir::GetExtraLoc(uint32_t nUnitId)
+uint32_t CGameClassByDir::GetExtraLocForUnit(uint32_t nUnitId)
 {
-    return _GetExtraLocation(&m_rgCurrentExtraLocations[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), nUnitId, m_prgCurrentExtrasLoaded);
+    return _GetExtraLocationForUnit(m_rgCurrentExtraLocations, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), nUnitId, m_prgCurrentExtrasLoaded);
 }
 
 sDescTreeNode* CGameClassByDir::InitDescTree(ColMode eColMode)
 {
     // Load extra file if we're using it
     // Even if we're not using it, we want the stub for reference
-    LoadExtraFileForGame(m_strCurrentExtraFilename.c_str(), &m_prgCurrentExtrasLoaded, m_nCurrentExtraUnitId, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(eColMode));
+    LoadExtraFileForGame(m_strCurrentExtraFilename.c_str(), m_prgCurrentExtrasLoaded, m_nCurrentExtraUnitId, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(eColMode));
 
-    const bool fHaveExtras = (GetExtraCt(m_nCurrentExtraUnitId) > 0);
+    const bool fHaveExtras = (GetExtraCtForUnit(m_nCurrentExtraUnitId) > 0);
     const uint32_t nUnitCt = static_cast<uint32_t>(m_rgCurrentGameUnits.size() + (fHaveExtras ? 1 : 0));
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
@@ -169,8 +159,8 @@ sDescTreeNode* CGameClassByDir::InitDescTree(ColMode eColMode)
         m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr,
         m_nCurrentExtraUnitId,
         static_cast<uint32_t>(m_rgCurrentGameUnits.size()),
-        &m_rgCurrentExtraCounts[0],
-        &m_rgCurrentExtraLocations[0],
+        m_rgCurrentExtraCounts,
+        m_rgCurrentExtraLocations,
         m_prgCurrentExtrasLoaded
     );
 
@@ -312,17 +302,17 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
 
 uint32_t CGameClassByDir::GetCollectionCountForUnit(uint32_t nUnitId)
 {
-    return _GetCollectionCountForUnit(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, &m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, m_prgCurrentExtrasLoaded);
+    return _GetCollectionCountForUnit(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, m_prgCurrentExtrasLoaded);
 }
 
 uint32_t CGameClassByDir::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _GetNodeCountForCollection(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, &m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nCollectionId, m_prgCurrentExtrasLoaded);
+    return _GetNodeCountForCollection(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nCollectionId, m_prgCurrentExtrasLoaded);
 }
 
 uint32_t CGameClassByDir::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
-    return _GetNodeSizeFromPaletteId(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, &m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nPaletteId, m_prgCurrentExtrasLoaded);
+    return _GetNodeSizeFromPaletteId(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nPaletteId, m_prgCurrentExtrasLoaded);
 }
 
 LPCWSTR CGameClassByDir::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
@@ -332,7 +322,7 @@ LPCWSTR CGameClassByDir::GetDescriptionForCollection(uint32_t nUnitId, uint32_t 
 
 uint32_t CGameClassByDir::GetPaletteCountForUnit(uint32_t nUnitId)
 {
-    return _GetPaletteCountForUnit(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, &m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, m_prgCurrentExtrasLoaded);
+    return _GetPaletteCountForUnit(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, m_prgCurrentExtrasLoaded);
 }
 
 const sGame_PaletteDataset* CGameClassByDir::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
@@ -342,12 +332,12 @@ const sGame_PaletteDataset* CGameClassByDir::GetPaletteSet(uint32_t nUnitId, uin
 
 const sGame_PaletteDataset* CGameClassByDir::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
-    return _GetSpecificPalette(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, &m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nPaletteId, m_prgCurrentExtrasLoaded);
+    return _GetSpecificPalette(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nPaletteId, m_prgCurrentExtrasLoaded);
 }
 
 const sDescTreeNode* CGameClassByDir::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
-    return _GetNodeFromPaletteId(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, &m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nPaletteId, m_prgCurrentExtrasLoaded, fReturnBasicNodesOnly);
+    return _GetNodeFromPaletteId(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, nUnitId, nPaletteId, m_prgCurrentExtrasLoaded, fReturnBasicNodesOnly);
 }
 
 void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
@@ -375,17 +365,17 @@ void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // m_nCurrentExtraUnitId
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
 
 BOOL CGameClassByDir::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    return _UpdatePalImg(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, &m_rgCurrentExtraCounts[0], static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, m_prgCurrentExtrasLoaded, Node01, Node02, Node03, Node03);
+    return _UpdatePalImg(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, m_prgCurrentExtrasLoaded, Node01, Node02, Node03, Node03);
 }
 
 sFileRule CGameClassByDir::GetRule(uint32_t nUnitId, const sDirectoryLoadingData& gameLoadingData)

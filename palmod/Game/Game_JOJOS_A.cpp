@@ -221,10 +221,10 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
     else //Extra Palettes
     {
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef& currDef = m_prgCurrentExtrasLoaded.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }

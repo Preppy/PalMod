@@ -45,7 +45,7 @@ public:
     static std::wstring m_strCurrentExtraFilename;
     static std::vector<uint32_t> m_rgCurrentExtraCounts;
     static std::vector<uint32_t> m_rgCurrentExtraLocations;
-    static stExtraDef* m_prgCurrentExtrasLoaded;
+    static std::vector<stExtraDef> m_prgCurrentExtrasLoaded;
     static uint16_t m_nCurrentExtraUnitId;
     static SupportedGamesList m_snCurrentGameFlag;
 
@@ -84,8 +84,8 @@ public:
     static sDescTreeNode* InitDescTree(ColMode eColMode);
 
     //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
+    static uint32_t GetExtraCtForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
+    static uint32_t GetExtraLocForUnit(uint32_t nUnitId);
 
     static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
 

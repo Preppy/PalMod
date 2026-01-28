@@ -433,7 +433,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
     else // Extra region
     {
-        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(NodeGet->uUnitId) + NodeGet->uPalId];
+        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLocForUnit(NodeGet->uUnitId) + NodeGet->uPalId];
 
         if (pCurrDef->indexImgToUse != INVALID_UNIT_VALUE_16)
         {

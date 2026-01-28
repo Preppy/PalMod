@@ -7,12 +7,12 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-stExtraDef* CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM = nullptr;
+std::vector<stExtraDef> CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM;
 
 CDescTree CGame_MVC2_A::m_MainDescTree = nullptr;
 
-uint32_t CGame_MVC2_A::m_rgExtraCountAll[MVC2_A_NUMUNIT + 1];
-uint32_t CGame_MVC2_A::m_rgExtraLoc[MVC2_A_NUMUNIT + 1];
+std::vector<uint32_t> CGame_MVC2_A::m_rgExtraCountAll;
+std::vector<uint32_t> CGame_MVC2_A::m_rgExtraLoc;
 
 uint32_t CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
 uint32_t CGame_MVC2_A::m_nConfirmedROMSize = -1;
@@ -20,10 +20,9 @@ size_t CGame_MVC2_A::m_nStartingUsableOffset = 0;
 
 void CGame_MVC2_A::InitializeStatics()
 {
-    safe_delete_array(CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM);
-
-    memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
-    memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
+    MVC2_A_EXTRA_CUSTOM.clear();
+    m_rgExtraCountAll.clear();
+    m_rgExtraLoc.clear();
 
     m_MainDescTree.SetRootTree(CGame_MVC2_A::InitDescTree());
 }
@@ -65,11 +64,11 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMTo
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6448;
+    m_nSafeCountForThisRom = GetExtraCtForUnit(m_nExtraUnit) + 6448;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
 
-    m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+    m_nUnitAmt = m_nTotalInternalUnits + (GetExtraCtForUnit(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
@@ -101,7 +100,6 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMTo
 
 CGame_MVC2_A::~CGame_MVC2_A()
 {
-    safe_delete_array(CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -115,22 +113,22 @@ CDescTree* CGame_MVC2_A::GetMainTree()
     return &CGame_MVC2_A::m_MainDescTree;
 }
 
-uint32_t CGame_MVC2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
+uint32_t CGame_MVC2_A::GetExtraCtForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
-    return _GetExtraCount(m_rgExtraCountAll, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
+    return _GetExtraCountForUnit(m_rgExtraCountAll, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
 }
 
-uint32_t CGame_MVC2_A::GetExtraLoc(uint32_t nUnitId)
+uint32_t CGame_MVC2_A::GetExtraLocForUnit(uint32_t nUnitId)
 {
-    return _GetExtraLocation(m_rgExtraLoc, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
+    return _GetExtraLocationForUnit(m_rgExtraLoc, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_MVC2_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nConfirmedROMSize, 2, m_nStartingUsableOffset);
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nConfirmedROMSize, 2, m_nStartingUsableOffset);
 
-    uint16_t nUnitCt = MVC2_A_NUMUNIT + (GetExtraCt(MVC2_A_EXTRALOC) ? 1 : 0);
+    const uint16_t nUnitCt = MVC2_A_NUMUNIT + (GetExtraCtForUnit(MVC2_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -186,7 +184,7 @@ uint32_t CGame_MVC2_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     if (nUnitId == MVC2_A_EXTRALOC)
     {
-        return GetExtraCt(nUnitId);
+        return GetExtraCtForUnit(nUnitId);
     }
     else
     {
@@ -278,11 +276,11 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MVC2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &MVC2_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+         stExtraDef& currDef = MVC2_A_EXTRA_CUSTOM.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = (currDef.cbPaletteSize / m_nSizeOfColorsInBytes);
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
 

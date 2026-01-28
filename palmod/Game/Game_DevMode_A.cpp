@@ -4,12 +4,12 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-stExtraDef* CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM = nullptr;
+std::vector<stExtraDef> CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM;
 
 CDescTree CGame_DevMode_A::m_MainDescTree = nullptr;
 
-uint32_t CGame_DevMode_A::m_rgExtraCountAll[DEVMODE_A_NUMUNIT + 1];
-uint32_t CGame_DevMode_A::m_rgExtraLoc[DEVMODE_A_NUMUNIT + 1];
+std::vector<uint32_t> CGame_DevMode_A::m_rgExtraCountAll;
+std::vector<uint32_t> CGame_DevMode_A::m_rgExtraLoc;
 
 uint32_t CGame_DevMode_A::m_nTotalPaletteCountForDevMode_Mono = 0;
 uint32_t CGame_DevMode_A::m_nConfirmedROMSize = -1;
@@ -17,10 +17,9 @@ wchar_t CGame_DevMode_A::m_pszExtraNameOverride[MAX_PATH] = L"";
 
 void CGame_DevMode_A::InitializeStatics(LPCWSTR pszFileLoaded)
 {
-    safe_delete_array(CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM);
-
-    memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
-    memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
+    CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM.clear();
+    m_rgExtraCountAll.clear();
+    m_rgExtraLoc.clear();
 
     m_MainDescTree.SetRootTree(InitDescTree(pszFileLoaded));
 }
@@ -98,7 +97,6 @@ CGame_DevMode_A::CGame_DevMode_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoad
 
 CGame_DevMode_A::~CGame_DevMode_A()
 {
-    safe_delete_array(CGame_DevMode_A::DEVMODE_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -111,7 +109,7 @@ CDescTree* CGame_DevMode_A::GetMainTree()
 
 uint32_t CGame_DevMode_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
-    return _GetExtraCount(m_rgExtraCountAll, DEVMODE_A_NUMUNIT, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
+    return _GetExtraCountForUnit(m_rgExtraCountAll, DEVMODE_A_NUMUNIT, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
 void CGame_DevMode_A::SetAlphaModeInternal(AlphaMode NewMode)
@@ -306,9 +304,9 @@ void CGame_DevMode_A::SetMaximumWritePerEachTransparency(PALWriteOutputOptions e
     return CGameClass::SetMaximumWritePerEachTransparency(eUpdatedOption);
 }
 
-uint32_t CGame_DevMode_A::GetExtraLoc(uint32_t nUnitId)
+uint32_t CGame_DevMode_A::GetExtraLocForUnit(uint32_t nUnitId)
 {
-    return _GetExtraLocation(m_rgExtraLoc, DEVMODE_A_NUMUNIT, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
+    return _GetExtraLocationForUnit(m_rgExtraLoc, DEVMODE_A_NUMUNIT, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
@@ -333,7 +331,7 @@ sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
                     pszDot[0] = 0;
 
                     wcsncat(m_pszExtraNameOverride, pszNewSuffix, ARRAYSIZE(m_pszExtraNameOverride) - wcslen(m_pszExtraNameOverride));
-                    LoadExtraFileForGame(m_pszExtraNameOverride, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+                    LoadExtraFileForGame(m_pszExtraNameOverride, DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
                 }
             }
         }
@@ -341,34 +339,31 @@ sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
 
     if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
     {
-        safe_delete_array(DEVMODE_A_EXTRA_CUSTOM);
-        memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
-        memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
+        DEVMODE_A_EXTRA_CUSTOM.clear();
+        m_rgExtraCountAll.clear();
+        m_rgExtraLoc.clear();
 
         wcsncpy_s(m_pszExtraNameOverride, EXTRA_FILENAME_UNKNOWN_A, ARRAYSIZE(m_pszExtraNameOverride));
-        LoadExtraFileForGame(m_pszExtraNameOverride, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+        LoadExtraFileForGame(m_pszExtraNameOverride, DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
     }
 
     if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
     {
         // Fall over to the old filename option
-        safe_delete_array(DEVMODE_A_EXTRA_CUSTOM);
-        memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
-        memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
+        DEVMODE_A_EXTRA_CUSTOM.clear();
+        m_rgExtraCountAll.clear();
+        m_rgExtraLoc.clear();
 
-        LoadExtraFileForGame(EXTRA_FILENAME_DEV_MODE_A_OLD, &DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+        LoadExtraFileForGame(EXTRA_FILENAME_DEV_MODE_A_OLD, DEVMODE_A_EXTRA_CUSTOM, DEVMODE_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
         if (GetExtraCountForUnit(DEVMODE_A_EXTRALOC) == 0)
         {
             // Load the stock dummy Extra
-            safe_delete_array(DEVMODE_A_EXTRA_CUSTOM);
-            memset(m_rgExtraCountAll, -1, sizeof(m_rgExtraCountAll));
-            memset(m_rgExtraLoc, -1, sizeof(m_rgExtraLoc));
+            DEVMODE_A_EXTRA_CUSTOM.clear();
+            m_rgExtraCountAll.clear();
+            m_rgExtraLoc.clear();
 
-            uint32_t nExtraArraySize = ARRAYSIZE(UNKNOWN_GAME_EXTRAS_LIST);
-
-            DEVMODE_A_EXTRA_CUSTOM = new stExtraDef[nExtraArraySize];
-            memcpy(DEVMODE_A_EXTRA_CUSTOM, UNKNOWN_GAME_EXTRAS_LIST, nExtraArraySize * sizeof(stExtraDef));
+            DEVMODE_A_EXTRA_CUSTOM = UNKNOWN_GAME_EXTRAS_LIST;
 
             CString strIntro;
             strIntro = L"Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random game ROM that PalMod does not already support. \n\n";
@@ -475,11 +470,11 @@ void CGame_DevMode_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // DEVMODE_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &DEVMODE_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+         stExtraDef& currDef = DEVMODE_A_EXTRA_CUSTOM.at(GetExtraLocForUnit(nUnitId) + nPalId);
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes;
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        m_nCurrentPaletteROMLocation = currDef.uOffset;
+        m_nCurrentPaletteSizeInColors = currDef.cbPaletteSize / m_nSizeOfColorsInBytes;
+        m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
 

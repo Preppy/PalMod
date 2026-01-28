@@ -1082,66 +1082,73 @@ void CGameClass::WarnIfPaletteIsOversized(uint32_t nUnit, uint32_t nPaletteId, u
     }
 }
 
-uint32_t CGameClass::_GetExtraCount(uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetExtraCountForUnit(std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nUnitId, std::vector<stExtraDef> ppExtraDef)
 {
-    if (rgExtraCount[0] == -1)
+    if (rgExtraCount.empty())
     {
-        uint32_t nDefCtr = 0;
-        // +1 for the extras
-        memset(rgExtraCount, 0, (nNormalUnitCount + 1) * sizeof(uint32_t));
+        // +1 since the Extras unit itself is monolithic
+        rgExtraCount.resize(nNormalUnitCount + 1);
 
-        stExtraDef* pCurrDef = &ppExtraDef[0];
-
-        if (pCurrDef)
+        if (!ppExtraDef.empty())
         {
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE_16)
+            for (stExtraDef& extraDef : ppExtraDef)
             {
-                if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                    !pCurrDef->isInvisible)
+                if ((extraDef.uUnitN != UNIT_START_VALUE) &&
+                    !extraDef.isInvisible)
                 {
-                    rgExtraCount[pCurrDef->uUnitN]++;
+                    rgExtraCount[extraDef.uUnitN]++;
                 }
-
-                nDefCtr++;
-                pCurrDef = (stExtraDef*)&ppExtraDef[nDefCtr];
             }
         }
     }
-
-    return rgExtraCount[nUnitId];
+    
+    if (rgExtraCount.empty())
+    {
+        return 0;
+    }
+    else
+    {
+        return rgExtraCount.at(nUnitId);
+    }
 }
 
-uint32_t CGameClass::_GetExtraLocation(uint32_t* rgExtraLocations, uint32_t nNormalUnitCount, uint32_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetExtraLocationForUnit(std::vector<uint32_t>& rgExtraLocations, uint32_t nNormalUnitCount, uint32_t nUnitId, std::vector<stExtraDef> ppExtraDef)
 {
-    if (rgExtraLocations[0] == -1)
+    if (rgExtraLocations.empty())
     {
+        // +1 since the Extras unit itself is monolithic
+        rgExtraLocations.resize((nNormalUnitCount + 1));
+
         uint32_t nDefCtr = 0;
         uint32_t nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLocations, 0, (nNormalUnitCount + 1) * sizeof(uint32_t));
 
-        stExtraDef* pCurrDef = &ppExtraDef[0];
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE_16)
+        for (size_t iPos = 0; iPos < ppExtraDef.size(); iPos++)
         {
-            if (pCurrDef->uUnitN != nCurrUnit)
+            if (ppExtraDef.at(iPos).uUnitN != nCurrUnit)
             {
-                rgExtraLocations[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
+                rgExtraLocations[ppExtraDef.at(iPos).uUnitN] = nDefCtr;
+                nCurrUnit = ppExtraDef.at(iPos).uUnitN;
             }
 
             nDefCtr++;
-            pCurrDef = (stExtraDef*)&ppExtraDef[nDefCtr];
         }
     }
 
-    return rgExtraLocations[nUnitId];
+    if (rgExtraLocations.empty())
+    {
+        return 0;
+    }
+    else
+    {
+        return rgExtraLocations.at(nUnitId);
+    }
 }
 
-uint32_t CGameClass::_GetCollectionCountForUnit(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetCollectionCountForUnit(const sDescTreeNode* pGameUnits, std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, std::vector<stExtraDef> ppExtraDef)
 {
     if (nUnitId == nExtraUnitLocation)
     {
-        return _GetExtraCount(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
+        return _GetExtraCountForUnit(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
     }
     else
     {
@@ -1149,11 +1156,11 @@ uint32_t CGameClass::_GetCollectionCountForUnit(const sDescTreeNode* pGameUnits,
     }
 }
 
-uint32_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, std::vector<stExtraDef> ppExtraDef)
 {
     if (nUnitId == nExtraUnitLocation)
     {
-        return _GetExtraCount(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
+        return _GetExtraCountForUnit(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
     }
     else
     {
@@ -1176,11 +1183,11 @@ uint32_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, ui
     }
 }
 
-uint32_t CGameClass::_GetNodeCountForCollection(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nCollectionId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetNodeCountForCollection(const sDescTreeNode* pGameUnits, std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nCollectionId, std::vector<stExtraDef> ppExtraDef)
 {
     if (nUnitId == nExtraUnitLocation)
     {
-        return _GetExtraCount(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
+        return _GetExtraCountForUnit(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
     }
     else
     {
@@ -1223,7 +1230,7 @@ const sGame_PaletteDataset* CGameClass::GetPaletteSet(uint32_t nUnitId, uint32_t
     return _GetPaletteSet(m_pRawUnitTree, nUnitId, nCollectionId);
 }
 
-const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef)
+const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode* pGameUnits, std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, std::vector<stExtraDef> ppExtraDef)
 {
     const uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteToUse = nullptr;
@@ -1261,7 +1268,7 @@ const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode*
     return paletteToUse;
 }
 
-uint32_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, std::vector<stExtraDef> ppExtraDef)
 {
     // Don't use this for Extra palettes.
     uint32_t nNodeSize = 0;
@@ -1286,7 +1293,7 @@ uint32_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, 
     return nNodeSize;
 }
 
-const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGameUnits, std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, std::vector<stExtraDef> ppExtraDef, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -1301,7 +1308,7 @@ const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGam
 
         if (nUnitId == nExtraUnitLocation)
         {
-            nNodeCount = _GetExtraCount(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
+            nNodeCount = _GetExtraCountForUnit(rgExtraCount, nNormalUnitCount, nUnitId, ppExtraDef);
 
             if (nDistanceFromZero < nNodeCount)
             {
@@ -1422,7 +1429,7 @@ void CGameClass::DumpTreeSorted()
 }
 
 uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount,
-                                   uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef* ppExtraDef)
+                                   std::vector<uint32_t>& rgExtraCount, std::vector<uint32_t>& rgExtraLocations, std::vector<stExtraDef> ppExtraDef)
 {
     CString strMsg;
     uint32_t nTotalPaletteCount = 0;
@@ -1437,8 +1444,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        const uint32_t nExtraCt = _GetExtraCount(rgExtraCount, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
-        const BOOL fUseExtra = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef) != 0;
+        const uint32_t nExtraCt = _GetExtraCountForUnit(rgExtraCount, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
 
         const uint32_t nUnitChildCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, ppExtraDef);
 
@@ -1454,7 +1460,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if GAMECLASS_DBG
-            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, pNewDescTree->uChildAmt, fUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, pNewDescTree->uChildAmt, nExtraCt ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -1536,9 +1542,9 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
         }
 
         //Set up extra nodes
-        if (fUseExtra)
+        if (nExtraCt)
         {
-            const uint32_t nExtraPos = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
+            const uint32_t nExtraPos = _GetExtraLocationForUnit(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
             uint32_t nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; // Extra node
@@ -1564,7 +1570,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
                 {
                     nCurrExtra++;
 
-                    pCurrDef = (stExtraDef*)&ppExtraDef[nExtraPos + nCurrExtra];
+                    pCurrDef = &ppExtraDef[nExtraPos + nCurrExtra];
                 }
 
                 _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
@@ -1589,7 +1595,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
     return nTotalPaletteCount;
 }
 
-BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, stExtraDef* ppExtraDef, int Node01, int Node02, int Node03, int Node04)
+BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint32_t>& rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, std::vector<stExtraDef> ppExtraDef, int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -1928,9 +1934,8 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     }
     else // extra section
     {
-        //the first extradef is a dummy placeholder
-        nImgUnitId = ppExtraDef[Node03 + 1].indexImgToUse;
-        nTargetImgId = ppExtraDef[Node03 + 1].indexOffsetToUse;
+        nImgUnitId = ppExtraDef[Node03].indexImgToUse;
+        nTargetImgId = ppExtraDef[Node03].indexOffsetToUse;
     }
 
     if (!fWasImageLoadHandled)

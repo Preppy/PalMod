@@ -8,8 +8,8 @@ class CGame_DevMode_A : public CGameWithExtrasFile
 private:
     static uint32_t m_nTotalPaletteCountForDevMode_Mono;
 
-    static uint32_t m_rgExtraCountAll[DEVMODE_A_NUMUNIT + 1];
-    static uint32_t m_rgExtraLoc[DEVMODE_A_NUMUNIT + 1];
+    static std::vector<uint32_t> m_rgExtraCountAll;
+    static std::vector<uint32_t> m_rgExtraLoc;
     const static uint8_t DEVMODE_A_EXTRALOC = DEVMODE_A_NUMUNIT;
     static wchar_t m_pszExtraNameOverride[MAX_PATH];
 
@@ -41,7 +41,7 @@ public:
 
     //Extra palette function
     static uint32_t GetExtraCountForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
+    static uint32_t GetExtraLocForUnit(uint32_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
@@ -62,7 +62,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static stExtraDef* DEVMODE_A_EXTRA_CUSTOM;
+    static std::vector<stExtraDef> DEVMODE_A_EXTRA_CUSTOM;
 
     LPCWSTR GetGameName() override;
 };

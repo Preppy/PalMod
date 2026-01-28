@@ -10,8 +10,8 @@ class CGame_MVC2_A : public CGameWithExtrasFile
 public:
     static uint32_t m_nTotalPaletteCountForMVC2;
 
-    static uint32_t m_rgExtraCountAll[MVC2_A_NUMUNIT + 1];
-    static uint32_t m_rgExtraLoc[MVC2_A_NUMUNIT + 1];
+    static std::vector<uint32_t> m_rgExtraCountAll;
+    static std::vector<uint32_t> m_rgExtraLoc;
 
     static void InitializeStatics();
     static uint32_t m_nConfirmedROMSize;
@@ -39,8 +39,8 @@ public:
     static sFileRule GetRule_S(uint32_t nUnitId);
 
     //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
+    static uint32_t GetExtraCtForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
+    static uint32_t GetExtraLocForUnit(uint32_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
@@ -66,5 +66,5 @@ public:
 
     static int32_t GetSteamLoadingOffsetForModifiedFile(CFile* TargetFile, uint32_t nUnitId);
 
-    static stExtraDef* MVC2_A_EXTRA_CUSTOM;
+    static std::vector<stExtraDef> MVC2_A_EXTRA_CUSTOM;
 };

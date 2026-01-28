@@ -18,12 +18,7 @@ const sDescTreeNode DEVMODE_A_UNITS[] =
 // We want the user to use the extras file, so don't preload.
 constexpr auto DEVMODE_A_NUMUNIT = 0;
 
-const stExtraDef UNKNOWN_GAME_EXTRAS_LIST[] =
+const std::vector<stExtraDef> UNKNOWN_GAME_EXTRAS_LIST =
 {
-    // Start
-    { UNIT_START_VALUE },
-
     { 0, L"Configure your Extras file.", 0, 0x20 },
-
-    { INVALID_UNIT_VALUE_16 }
 };

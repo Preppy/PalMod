@@ -48,6 +48,10 @@ protected:
         std::wstring strPrintName;
         std::wstring strDisplayName;
         std::vector<NodeData> vNodeData;
+
+        // Meta Warning: We probably don't want Print handled here because we benefit from the comments
+        // in the Extra file that may or may not provide insight and directive.  So the in-function print
+        // as currently used avoids us needing to store that data.
     };
 
     // This was moved to class scope from local scope in anticipation of further rework 
@@ -116,5 +120,5 @@ public:
     static ColMode GetExtrasOverrideForColorFormat() { return m_ColorModeOverride; };
     static LPCSTR GetExtrasOverrideForGameName() { return m_paszGameNameOverride; };
 
-    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, size_t nGameROMSize, uint8_t cbColorSize = 2, size_t nUsableStartingOffset = 0);
+    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::vector<stExtraDef>& rgCompleteExtraDefs, uint32_t nExtraUnitStart, size_t nGameROMSize, uint8_t cbColorSize = 2, size_t nUsableStartingOffset = 0);
 };
