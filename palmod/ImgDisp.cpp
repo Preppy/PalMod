@@ -769,7 +769,7 @@ void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, std::vect
     }
 }
 
-void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize)
+void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize, bool fReverseColorTable /* = false */)
 {
     // So this is an interesting situation.
     // Incoming we have a palettized image that the user wants to use as a custom preview.
@@ -809,7 +809,15 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
 
         for (size_t iPos = 0; iPos < nDataLen; iPos++)
         {
-            m_vSpriteOverrideTextures.at(nLayerToStartWith).pixels.at(iPos) = pImageData[iPos];
+            // Dammit Fighter Factory
+            unsigned char nThisIndex = pImageData[iPos];
+
+            if (fReverseColorTable && (nThisIndex < 256))
+            {
+                nThisIndex = 255 - nThisIndex;
+            }
+
+            m_vSpriteOverrideTextures.at(nLayerToStartWith).pixels.at(iPos) = nThisIndex;
         }
 
         m_vSpriteOverrideTextures.at(nLayerToStartWith).dimensions.width = width;
@@ -1310,7 +1318,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     }
 }
 
-bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fForceNonIndexed /* = false */, bool fPreferQuietMode /* = false */)
+bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode /* = false */, bool fForceNonIndexed /* = false */, bool fReversedColorTable /* = false */)
 {
     bool fSuccess = false;
     bool fUserCanceled = false;
@@ -1375,7 +1383,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
                     {
                         if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
                         {
-                            _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize);
+                            _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize, fReversedColorTable);
 
                             // We handle RGB status update inside that logic, since it can be slightly different
                             CString strMsg;

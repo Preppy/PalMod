@@ -601,7 +601,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AMPARK[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SISLAND[] =
 {
-    { L"Small Island (1/6)", 0x7d0a00, 0x7d0c00, indexJojos50Stages, 0x18 },
+    { L"Small Island (1/6)", 0x7d0a00, 0x7d0c00, indexJojos50Stages, 0x18, &pairFullyLinkedNode },
     { L"Small Island (2/6)", 0x7d0c00, 0x7d0e00, indexJojos50Stages, 0x19 },
     { L"Small Island (3/6)", 0x7d0e00, 0x7d1000, indexJojos50Stages, 0x1A },
     { L"Small Island (4/6)", 0x7d1000, 0x7d1200, indexJojos50Stages, 0x1B },
@@ -668,7 +668,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_UWATER[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_INHOUSE[] =
 {
-    { L"Inside House (1/8)", 0x7e2300, 0x7e2500, indexJojos50Stages, 0x34 },
+    { L"Inside House (1/8)", 0x7e2300, 0x7e2500, indexJojos50Stages, 0x34, &pairNext3Palettes },
     { L"Inside House (2/8)", 0x7e2500, 0x7e2700, indexJojos50Stages, 0x35 },
     { L"Inside House (3/8)", 0x7e2700, 0x7e2900, indexJojos50Stages, 0x36 },
     { L"Inside House (4/8)", 0x7e2900, 0x7e2b00, indexJojos50Stages, 0x37 },
@@ -778,19 +778,19 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DTWILIGHT[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DNIGHT[] =
 {
-    { L"Desert Night (1/8)", 0x7d4f00, 0x7d5100, indexJojos50Stages, 0x58, &pairFullyLinkedNode },
-    { L"Desert Night (2/8)", 0x7d5100, 0x7d5300, indexJojos50Stages, 0x59 },
-    { L"Desert Night (3/8)", 0x7d5300, 0x7d5500, indexJojos50Stages, 0x5a },
-    { L"Desert Night (4/8)", 0x7d5500, 0x7d5700, indexJojos50Stages, 0x5b },
-    { L"Desert Night (5/8)", 0x7d5700, 0x7d5900, indexJojos50Stages, 0x5c },
-    { L"Desert Night (6/8)", 0x7d5900, 0x7d5b00, indexJojos50Stages, 0x5d },
-    { L"Desert Night (7/8)", 0x7d5b00, 0x7d5d00, indexJojos50Stages, 0x5e },
-    { L"Desert Night (8/8)", 0x7d5d00, 0x7d5d80 },
+    { L"Desert Night (8/8)", 0x7d5d00, 0x7d5d80, indexJojos50Stages, 0x9e, &pairFullyLinkedNode },
+    { L"Desert Night (1/8)", 0x7d4f00, 0x7d5100, indexJojos50Stages, 0x9f },
+    { L"Desert Night (2/8)", 0x7d5100, 0x7d5300, indexJojos50Stages, 0xa0 },
+    { L"Desert Night (3/8)", 0x7d5300, 0x7d5500, indexJojos50Stages, 0xa1 },
+    { L"Desert Night (4/8)", 0x7d5500, 0x7d5700, indexJojos50Stages, 0xa2 },
+    { L"Desert Night (5/8)", 0x7d5700, 0x7d5900, indexJojos50Stages, 0xa3 },
+    { L"Desert Night (6/8)", 0x7d5900, 0x7d5b00, indexJojos50Stages, 0xa4 },
+    { L"Desert Night (7/8)", 0x7d5b00, 0x7d5d00, indexJojos50Stages, 0xa5 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SISLANDJ[] =
 {
-    { L"Small Island (Joseph) (1/6)", 0x7d1700, 0x7d1900, indexJojos50Stages, 0x18 },
+    { L"Small Island (Joseph) (1/6)", 0x7d1700, 0x7d1900, indexJojos50Stages, 0x18, &pairFullyLinkedNode },
     { L"Small Island (Joseph) (2/6)", 0x7d1900, 0x7d1b00, indexJojos50Stages, 0x19 },
     { L"Small Island (Joseph) (3/6)", 0x7d1b00, 0x7d1d00, indexJojos50Stages, 0x1a },
     { L"Small Island (Joseph) (4/6)", 0x7d1d00, 0x7d1f00, indexJojos50Stages, 0x1b },
@@ -902,7 +902,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW2[] = // aka Hotel (Devil)
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW3[] = // aka Small Island
 {
-    { L"New 3 (1/6)", 0x7d2400, 0x7d2600, indexJojos50Stages, 0x18 },
+    { L"New 3 (1/6)", 0x7d2400, 0x7d2600, indexJojos50Stages, 0x18, &pairFullyLinkedNode },
     { L"New 3 (2/6)", 0x7d2600, 0x7d2800, indexJojos50Stages, 0x19 },
     { L"New 3 (3/6)", 0x7d2800, 0x7d2a00, indexJojos50Stages, 0x1a },
     { L"New 3 (4/6)", 0x7d2a00, 0x7d2c00, indexJojos50Stages, 0x1b },
@@ -933,7 +933,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW5[] = // aka Underground Water
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW6[] = // aka Inside House
 {
-    { L"New 6 (1/8)", 0x7e3300, 0x7e3500, indexJojos50Stages, 0x34 },
+    { L"New 6 (1/8)", 0x7e3300, 0x7e3500, indexJojos50Stages, 0x34, &pairNext3Palettes },
     { L"New 6 (2/8)", 0x7e3500, 0x7e3700, indexJojos50Stages, 0x35 },
     { L"New 6 (3/8)", 0x7e3700, 0x7e3900, indexJojos50Stages, 0x36 },
     { L"New 6 (4/8)", 0x7e3900, 0x7e3b00, indexJojos50Stages, 0x37 },
@@ -3914,7 +3914,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELJ[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SISLAND[] =
 {
-    { L"Small Island / New 3 TS (1/6)", 0x2d8300, 0x2d8500, indexJojos50Stages, 0x18 },
+    { L"Small Island / New 3 TS (1/6)", 0x2d8300, 0x2d8500, indexJojos50Stages, 0x18, &pairFullyLinkedNode },
     { L"Small Island / New 3 TS (2/6)", 0x2d8500, 0x2d8700, indexJojos50Stages, 0x19 },
     { L"Small Island / New 3 TS (3/6)", 0x2d8700, 0x2d8900, indexJojos50Stages, 0x1a },
     { L"Small Island / New 3 TS (4/6)", 0x2d8900, 0x2d8b00, indexJojos50Stages, 0x1b },
@@ -3947,14 +3947,14 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNOON[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNIGHT[] =
 {
-    { L"Desert Night TS (1/8)", 0x2dae00, 0x2db000, indexJojos50Stages, 0x58, &pairFullyLinkedNode },
-    { L"Desert Night TS (2/8)", 0x2db000, 0x2db200, indexJojos50Stages, 0x59 },
-    { L"Desert Night TS (3/8)", 0x2db200, 0x2db400, indexJojos50Stages, 0x5a },
-    { L"Desert Night TS (4/8)", 0x2db400, 0x2db600, indexJojos50Stages, 0x5b },
-    { L"Desert Night TS (5/8)", 0x2db600, 0x2db800, indexJojos50Stages, 0x5c },
-    { L"Desert Night TS (6/8)", 0x2db800, 0x2dba00, indexJojos50Stages, 0x5d },
-    { L"Desert Night TS (7/8)", 0x2dba00, 0x2dbc00, indexJojos50Stages, 0x5e },
-    { L"Desert Night TS (8/8)", 0x2dbc00, 0x2dbc80 },
+    { L"Desert Night TS (8/8)", 0x2dbc00, 0x2dbc80, indexJojos50Stages, 0x9e, &pairFullyLinkedNode },
+    { L"Desert Night TS (1/8)", 0x2dae00, 0x2db000, indexJojos50Stages, 0x9f },
+    { L"Desert Night TS (2/8)", 0x2db000, 0x2db200, indexJojos50Stages, 0xa0 },
+    { L"Desert Night TS (3/8)", 0x2db200, 0x2db400, indexJojos50Stages, 0xa1 },
+    { L"Desert Night TS (4/8)", 0x2db400, 0x2db600, indexJojos50Stages, 0xa2 },
+    { L"Desert Night TS (5/8)", 0x2db600, 0x2db800, indexJojos50Stages, 0xa3 },
+    { L"Desert Night TS (6/8)", 0x2db800, 0x2dba00, indexJojos50Stages, 0xa4 },
+    { L"Desert Night TS (7/8)", 0x2dba00, 0x2dbc00, indexJojos50Stages, 0xa5 },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_RUINS[] =
@@ -4005,7 +4005,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_UWATER[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_INHOUSE[] =
 {
-    { L"Inside House / New 6 TS (1/8)", 0x2e0300, 0x2e0500, indexJojos50Stages, 0x34 },
+    { L"Inside House / New 6 TS (1/8)", 0x2e0300, 0x2e0500, indexJojos50Stages, 0x34, &pairNext3Palettes },
     { L"Inside House / New 6 TS (2/8)", 0x2e0500, 0x2e0700, indexJojos50Stages, 0x35 },
     { L"Inside House / New 6 TS (3/8)", 0x2e0700, 0x2e0900, indexJojos50Stages, 0x36 },
     { L"Inside House / New 6 TS (4/8)", 0x2e0900, 0x2e0b00, indexJojos50Stages, 0x37 },

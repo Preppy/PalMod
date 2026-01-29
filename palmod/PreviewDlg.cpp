@@ -491,7 +491,7 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode, bool fForceNonIndexed /* = false */)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode, bool fForceNonIndexed /* = false */, bool fReverseColorTable /* = false */)
 {
     wchar_t* pszExt = wcsrchr(pszPath, L'.');
     bool fSuccess = false;
@@ -504,7 +504,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImpor
     }
     else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
     {
-        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fForceNonIndexed, fPreferQuietMode);
+        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fPreferQuietMode, fForceNonIndexed, fReverseColorTable);
     }
     else
     {
@@ -526,6 +526,7 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
                                                        L"PNG|*.png|"
                                                        L"GIF|*.gif|"
                                                        L"PNG (treat as non-indexed)|*.png|"
+                                                       L"PNG (upside-down color table)|*.png|"
                                                        L"|", this);
 
         OpenDialog.GetOFN().nFilterIndex = CRegProc::GetOFNIndexForLoadCustomSprite();
@@ -535,7 +536,8 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
             // eliminate the k_nTextureLoadCommandMask mask for usage...
             UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
 
-            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fPreferQuietMode, (OpenDialog.GetOFN().nFilterIndex == 5));
+            // Filter index is 1-based
+            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fPreferQuietMode, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
 
             CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);
         }
