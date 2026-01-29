@@ -764,7 +764,7 @@ namespace ColorSystem
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
-        const uint16_t auxa = (oldCol & 0x0080);
+        uint16_t auxa = (oldCol & 0x0080) ? 1 : 0;
 
         auxr = static_cast<uint16_t>(round(auxr / 8));
         auxg = static_cast<uint16_t>(round(auxg / 8));
@@ -773,6 +773,7 @@ namespace ColorSystem
         //auxb = auxb; no-op
         auxg = auxg << 5;
         auxr = auxr << 10;
+        auxa = auxa << 15;
 
         return _byteswap_ushort(auxa | auxr | auxg | auxb);
     }
@@ -862,7 +863,7 @@ namespace ColorSystem
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
-        const uint32_t auxa = (oldCol & 0x0080);
+        uint32_t auxa = (oldCol & 0x0080) ? 1 : 0;
 
         if (fUseRounding)
         {
@@ -880,6 +881,7 @@ namespace ColorSystem
         //auxr = auxr; no-op
         auxg = auxg << 5;
         auxb = auxb << 10;
+        auxa = auxa << 15;
 
         return _byteswap_ushort(auxa | auxb | auxg | auxr);
     }
@@ -928,15 +930,16 @@ namespace ColorSystem
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
-        const uint16_t auxa = (oldCol & 0x0080);
+        uint16_t auxa = (oldCol & 0x0080) ?  1 : 0;
 
         auxb = static_cast<uint16_t>(round(auxb / 8));
         auxg = static_cast<uint16_t>(round(auxg / 8));
         auxr = static_cast<uint16_t>(round(auxr / 8));
 
-        auxr = auxr << 5;
         auxg = auxg; // no-op
+        auxr = auxr << 5;
         auxb = auxb << 10;
+        auxa = auxa << 15;
 
         return _byteswap_ushort(auxa | auxb | auxg | auxr);
     }
@@ -989,15 +992,16 @@ namespace ColorSystem
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
         uint16_t auxg = (inCol & 0x0000FF00) >> 8;
         uint16_t auxr = (inCol & 0x000000FF);
-        const uint16_t auxa = (oldCol & 0x0080);
+        uint16_t auxa = (oldCol & 0x0080) ? 1 : 0;
 
         auxb = static_cast<uint16_t>(round(auxb / 8));
         auxg = static_cast<uint16_t>(round(auxg / 8));
         auxr = static_cast<uint16_t>(round(auxr / 8));
 
+        // auxb = auxb; // no-op
         auxr = auxr << 5;
         auxg = auxg << 10;
-        auxb = auxb; // no-op
+        auxa = auxa << 15;
 
         return _byteswap_ushort(auxa | auxb | auxg | auxr);
     }
