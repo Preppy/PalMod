@@ -3061,10 +3061,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_A[] =
 {
     { L"Boss Ice & Cream A", 0x33fa00, 0x33fa80, indexJojos51BIce },
-    { L"Boss Ice - VS/Super A", 0x412400, 0x412480 },
-    { L"Boss Ice - Challenger A", 0x412480, 0x412500 },
-    { L"Boss Ice - Select/Winning A (1/2)", 0x412500, 0x412580 },
-    { L"Boss Ice - Select/Winning A (2/2)", 0x412580, 0x412600 },
+    { L"Boss Ice - VS/Super A", 0x412400, 0x412480, indexJojos51VIce, indexJojos51Character_VsSuper },
+    { L"Boss Ice - Challenger A", 0x412480, 0x412500, indexJojos51VIce, indexJojos51Character_Challenger },
+    { L"Boss Ice - Select/Winning A (1/2)", 0x412500, 0x412580, indexJojos51VIce, indexJojos51Character_SelectWin1, &pairNext },
+    { L"Boss Ice - Select/Winning A (2/2)", 0x412580, 0x412600, indexJojos51VIce, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Boss Ice - Burning A (1/2)", 0x33fa80, 0x33fb00, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Burning A (2/2)", 0x33fb00, 0x33fb80, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Tech/Zap A (1/2)", 0x33fd80, 0x33fe00, indexJojos51BIce, indexJojos51Character_BurnZap },
@@ -3076,10 +3076,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_B[] =
 {
     { L"Boss Ice & Cream B", 0x353f00, 0x353f80, indexJojos51BIce },
-    { L"Boss Ice - VS/Super B", 0x417200, 0x417280 },
-    { L"Boss Ice - Challenger B", 0x417280, 0x417300 },
-    { L"Boss Ice - Select/Winning B (1/2)", 0x417300, 0x417380 },
-    { L"Boss Ice - Select/Winning B (2/2)", 0x417380, 0x417400 },
+    { L"Boss Ice - VS/Super B", 0x417200, 0x417280, indexJojos51VIce, indexJojos51Character_VsSuper },
+    { L"Boss Ice - Challenger B", 0x417280, 0x417300, indexJojos51VIce, indexJojos51Character_Challenger },
+    { L"Boss Ice - Select/Winning B (1/2)", 0x417300, 0x417380, indexJojos51VIce, indexJojos51Character_SelectWin1, &pairNext },
+    { L"Boss Ice - Select/Winning B (2/2)", 0x417380, 0x417400, indexJojos51VIce, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Boss Ice - Burning B (1/2)", 0x353f80, 0x354000, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Burning B (2/2)", 0x354000, 0x354080, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Tech/Zap B (1/2)", 0x354280, 0x354300, indexJojos51BIce, indexJojos51Character_BurnZap },
@@ -3091,10 +3091,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_C[] =
 {
     { L"Boss Ice & Cream C", 0x368400, 0x368480, indexJojos51BIce },
-    { L"Boss Ice - VS/Super C", 0x41c000, 0x41c080 },
-    { L"Boss Ice - Challenger C", 0x41c080, 0x41c100 },
-    { L"Boss Ice - Select/Winning C (1/2)", 0x41c100, 0x41c180 },
-    { L"Boss Ice - Select/Winning C (2/2)", 0x41c180, 0x41c200 },
+    { L"Boss Ice - VS/Super C", 0x41c000, 0x41c080, indexJojos51VIce, indexJojos51Character_VsSuper },
+    { L"Boss Ice - Challenger C", 0x41c080, 0x41c100, indexJojos51VIce, indexJojos51Character_Challenger },
+    { L"Boss Ice - Select/Winning C (1/2)", 0x41c100, 0x41c180, indexJojos51VIce, indexJojos51Character_SelectWin1, &pairNext },
+    { L"Boss Ice - Select/Winning C (2/2)", 0x41c180, 0x41c200, indexJojos51VIce, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Boss Ice - Burning C (1/2)", 0x368480, 0x368500, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Burning C (2/2)", 0x368500, 0x368580, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Tech/Zap C (1/2)", 0x368780, 0x368800, indexJojos51BIce, indexJojos51Character_BurnZap },
@@ -3106,10 +3106,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_S[] =
 {
     { L"Boss Ice & Cream S", 0x37c900, 0x37c980, indexJojos51BIce },
-    { L"Boss Ice - VS/Super S", 0x420e00, 0x420e80 },
-    { L"Boss Ice - Challenger S", 0x420e80, 0x420f00 },
-    { L"Boss Ice - Select/Winning S (1/2)", 0x420f00, 0x420f80 },
-    { L"Boss Ice - Select/Winning S (2/2)", 0x420f80, 0x421000 },
+    { L"Boss Ice - VS/Super S", 0x420e00, 0x420e80, indexJojos51VIce, indexJojos51Character_VsSuper },
+    { L"Boss Ice - Challenger S", 0x420e80, 0x420f00, indexJojos51VIce, indexJojos51Character_Challenger },
+    { L"Boss Ice - Select/Winning S (1/2)", 0x420f00, 0x420f80, indexJojos51VIce, indexJojos51Character_SelectWin1, &pairNext },
+    { L"Boss Ice - Select/Winning S (2/2)", 0x420f80, 0x421000, indexJojos51VIce, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Boss Ice - Burning S (1/2)", 0x37c980, 0x37ca00, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Burning S (2/2)", 0x37ca00, 0x37ca80, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Tech/Zap S (1/2)", 0x37cc80, 0x37cd00, indexJojos51BIce, indexJojos51Character_BurnZap },
@@ -3121,10 +3121,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_Start[] =
 {
     { L"Boss Ice & Cream Start", 0x390e00, 0x390e80, indexJojos51BIce },
-    { L"Boss Ice - VS/Super Start", 0x425c00, 0x425c80 },
-    { L"Boss Ice - Challenger Start", 0x425c80, 0x425d00 },
-    { L"Boss Ice - Select/Winning Start (1/2)", 0x425d00, 0x425d80 },
-    { L"Boss Ice - Select/Winning Start (2/2)", 0x425d80, 0x425e00 },
+    { L"Boss Ice - VS/Super Start", 0x425c00, 0x425c80, indexJojos51VIce, indexJojos51Character_VsSuper },
+    { L"Boss Ice - Challenger Start", 0x425c80, 0x425d00, indexJojos51VIce, indexJojos51Character_Challenger },
+    { L"Boss Ice - Select/Winning Start (1/2)", 0x425d00, 0x425d80, indexJojos51VIce, indexJojos51Character_SelectWin1, &pairNext },
+    { L"Boss Ice - Select/Winning Start (2/2)", 0x425d80, 0x425e00, indexJojos51VIce, indexJojos51Character_SelectWin2, &pairPrevious },
     { L"Boss Ice - Burning Start (1/2)", 0x390e80, 0x390f00, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Burning Start (2/2)", 0x390f00, 0x390f80, indexJojos51BIce, indexJojos51Character_BurnZap },
     { L"Boss Ice - Tech/Zap Start (1/2)", 0x391180, 0x391200, indexJojos51BIce, indexJojos51Character_BurnZap },
