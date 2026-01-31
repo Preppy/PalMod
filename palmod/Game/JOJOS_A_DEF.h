@@ -474,6 +474,50 @@ const sDescTreeNode JOJOS_A_50_HUD_COLLECTION[]
 
 #pragma region Stages
 
+// Stage layout order: (stages inset right are not exposed by the game)
+    // 0x00 A Lockup
+    // 0x01 A Health Room
+    // 0x02 In A Airplane
+    // 0x03 Tigerbaum Garden
+    // 0x04 Hotel (Devil)
+    // 0x05 Remains
+    // 0x06 Hotel (Justice)
+    // 0x07 Amusement Park
+    // 0x08 Small Island
+    // 0x09 Desert Noon
+    // 0x0a Ruins
+    // 0x0b Country Town Noon
+    // 0x0c Underground Water
+    // 0x0d Inside House
+    // 0x0e Coffin Room
+    // 0x0f Clock Tower
+    // 0x10 Suburbs
+    // 0x11 On The Bridge
+    // 0x12 Country Town Twilight
+    //      // 0x13 Desert Noon 2
+    // 0x14 Desert Morning
+    // 0x15 Desert Twilight
+    // 0x16 Desert Night
+                // 0x17 Coffin Room 2
+                // 0x18 Remains 2
+    // 0x19 Small Island (Joseph)
+    // 0x1a Country Town Night
+                // 0x1b Inside House 2
+    // 0x1c Suburbs 2
+    // 0x1d Suburbs 3
+                // 0x1e Clock Tower 2
+                // 0x1f House of Dio (?)
+                // 0x20 Travel (?)
+    // 0x21 New 1 - Copy of Remains
+    // 0x22 New 2 - Copy of Hotel (Devil)
+    // 0x23 New 3 - Copy of Small Island
+    // 0x24 New 4 - Copy of Ruins
+    // 0x25 New 5 - Copy of Underground Water
+    // 0x26 New 6 - Copy of Inside House
+    // 0x27 New 7 - Copy of Coffin Room
+    // 0x28 New 8 - Copy of Clock Tower
+    // 0x29 New 9 - Copy of On The Bridge
+
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_ALOCKUP[] =
 {
     { L"A Lockup (1/7)", 0x7c3000, 0x7c3200, indexJojos50Stages, 0x3c, &pairFullyLinkedNode },
@@ -570,33 +614,33 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_HOTELJ[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AMPARK[] =
 {
-    { L"Amusement Park (1/27)", 0x7cd400, 0x7cd600 },
-    { L"Amusement Park (2/27)", 0x7cd600, 0x7cd800 },
-    { L"Amusement Park (3/27)", 0x7cd800, 0x7cda00 },
-    { L"Amusement Park (4/27)", 0x7cda00, 0x7cdc00 },
-    { L"Amusement Park (5/27)", 0x7cdc00, 0x7cde00 },
-    { L"Amusement Park (6/27)", 0x7cde00, 0x7ce000 },
-    { L"Amusement Park (7/27)", 0x7ce000, 0x7ce200 },
-    { L"Amusement Park (8/27)", 0x7ce200, 0x7ce400 },
-    { L"Amusement Park (9/27)", 0x7ce400, 0x7ce600 },
-    { L"Amusement Park (10/27)", 0x7ce600, 0x7ce800 },
-    { L"Amusement Park (11/27)", 0x7ce800, 0x7cea00 },
-    { L"Amusement Park (12/27)", 0x7cea00, 0x7cec00 },
-    { L"Amusement Park (13/27)", 0x7cec00, 0x7cee00 },
-    { L"Amusement Park (14/27)", 0x7cee00, 0x7cf000 },
-    { L"Amusement Park (15/27)", 0x7cf000, 0x7cf200 },
-    { L"Amusement Park (16/27)", 0x7cf200, 0x7cf400 },
-    { L"Amusement Park (17/27)", 0x7cf400, 0x7cf600 },
-    { L"Amusement Park (18/27)", 0x7cf600, 0x7cf800 },
-    { L"Amusement Park (19/27)", 0x7cf800, 0x7cfa00 },
-    { L"Amusement Park (20/27)", 0x7cfa00, 0x7cfc00 },
-    { L"Amusement Park (21/27)", 0x7cfc00, 0x7cfe00 },
-    { L"Amusement Park (22/27)", 0x7cfe00, 0x7d0000 },
-    { L"Amusement Park (23/27)", 0x7d0000, 0x7d0200 },
-    { L"Amusement Park (24/27)", 0x7d0200, 0x7d0400 },
-    { L"Amusement Park (25/27)", 0x7d0400, 0x7d0600 },
-    { L"Amusement Park (26/27)", 0x7d0600, 0x7d0800 },
-    { L"Amusement Park (27/27)", 0x7d0800, 0x7d0900 },
+    { L"Amusement Park (1/27)", 0x7cd400, 0x7cd600, indexJojos50Stages, 0xa6, &pairFullyLinkedNode },
+    { L"Amusement Park (2/27)", 0x7cd600, 0x7cd800, indexJojos50Stages, 0xa7 },
+    { L"Amusement Park (3/27)", 0x7cd800, 0x7cda00, indexJojos50Stages, 0xa8 },
+    { L"Amusement Park (4/27)", 0x7cda00, 0x7cdc00, indexJojos50Stages, 0xa9 },
+    { L"Amusement Park (5/27)", 0x7cdc00, 0x7cde00, indexJojos50Stages, 0xaa },
+    { L"Amusement Park (6/27)", 0x7cde00, 0x7ce000, indexJojos50Stages, 0xab },
+    { L"Amusement Park (7/27)", 0x7ce000, 0x7ce200, indexJojos50Stages, 0xac },
+    { L"Amusement Park (8/27)", 0x7ce200, 0x7ce400, indexJojos50Stages, 0xad },
+    { L"Amusement Park (9/27)", 0x7ce400, 0x7ce600, indexJojos50Stages, 0xae },
+    { L"Amusement Park (10/27)", 0x7ce600, 0x7ce800, indexJojos50Stages, 0xaf },
+    { L"Amusement Park (11/27)", 0x7ce800, 0x7cea00, indexJojos50Stages, 0xb0 },
+    { L"Amusement Park (12/27)", 0x7cea00, 0x7cec00, indexJojos50Stages, 0xb1 },
+    { L"Amusement Park (13/27)", 0x7cec00, 0x7cee00, indexJojos50Stages, 0xb2 },
+    { L"Amusement Park (14/27)", 0x7cee00, 0x7cf000, indexJojos50Stages, 0xb3 },
+    { L"Amusement Park (15/27)", 0x7cf000, 0x7cf200, indexJojos50Stages, 0xb4 },
+    { L"Amusement Park (16/27)", 0x7cf200, 0x7cf400, indexJojos50Stages, 0xb5 },
+    { L"Amusement Park (17/27)", 0x7cf400, 0x7cf600, indexJojos50Stages, 0xb6 },
+    { L"Amusement Park (18/27)", 0x7cf600, 0x7cf800, indexJojos50Stages, 0xb7 },
+    { L"Amusement Park (19/27)", 0x7cf800, 0x7cfa00, indexJojos50Stages, 0xb8 },
+    { L"Amusement Park (20/27)", 0x7cfa00, 0x7cfc00, indexJojos50Stages, 0xb9 },
+    { L"Amusement Park (21/27)", 0x7cfc00, 0x7cfe00, indexJojos50Stages, 0xba },
+    { L"Amusement Park (22/27)", 0x7cfe00, 0x7d0000, indexJojos50Stages, 0xbb },
+    { L"Amusement Park (23/27)", 0x7d0000, 0x7d0200, indexJojos50Stages, 0xbc },
+    { L"Amusement Park (24/27)", 0x7d0200, 0x7d0400, indexJojos50Stages, 0xbd },
+    { L"Amusement Park (25/27)", 0x7d0400, 0x7d0600, indexJojos50Stages, 0xbe },
+    { L"Amusement Park (26/27)", 0x7d0600, 0x7d0800, indexJojos50Stages, 0xbf },
+    { L"Amusement Park (27/27)", 0x7d0800, 0x7d0900, indexJojos50Stages, 0xc0 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SISLAND[] =
