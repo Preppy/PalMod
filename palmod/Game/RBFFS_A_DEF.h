@@ -1125,11 +1125,204 @@ const sGame_PaletteDataset RBFFS_A_KRAUSER_PALETTES_LIFEBAR[] =
     { L"Krauser P2 Lifebar Portrait", 0xf84e0, 0xf8500, indexRBFFSSprites_Krauser, 0x10 },
 };
 
+const sGame_PaletteDataset RBFFS_A_Terry_BigPortraits[] =
+{
+    { L"Terry P1 Portrait",       0xfc200, 0xfc220, indexRBFFSSprites_Terry, 0x70, &pairNext },
+    { L"Terry P1 Portrait Extra", 0xfd000, 0xfd020, indexRBFFSSprites_Terry, 0x71, &pairPrevious },
+    { L"Terry P2 Portrait",       0xfc220, 0xfc240, indexRBFFSSprites_Terry, 0x70, &pairNext },
+    { L"Terry P2 Portrait Extra", 0xfd020, 0xfd040, indexRBFFSSprites_Terry, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Andy_BigPortraits[] =
+{
+    { L"Andy P1 Portrait",       0xfc240, 0xfc260, indexRBFFSSprites_Andy, 0x70, &pairNext },
+    { L"Andy P1 Portrait Extra", 0xfd040, 0xfd060, indexRBFFSSprites_Andy, 0x71, &pairPrevious },
+    { L"Andy P2 Portrait",       0xfc260, 0xfc280, indexRBFFSSprites_Andy, 0x70, &pairNext },
+    { L"Andy P2 Portrait Extra", 0xfd060, 0xfd080, indexRBFFSSprites_Andy, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Joe_BigPortraits[] =
+{
+    { L"Joe P1 Portrait",       0xfc280, 0xfc2a0, indexRBFFSSprites_Joe, 0x70, &pairNext },
+    { L"Joe P1 Portrait Extra", 0xfd080, 0xfd0a0, indexRBFFSSprites_Joe, 0x71, &pairPrevious },
+    { L"Joe P2 Portrait",       0xfc2a0, 0xfc2c0, indexRBFFSSprites_Joe, 0x70, &pairNext },
+    { L"Joe P2 Portrait Extra", 0xfd0a0, 0xfd0c0, indexRBFFSSprites_Joe, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Mai_BigPortraits[] =
+{
+    { L"Mai P1 Portrait",       0xfc2c0, 0xfc2e0, indexRBFFSSprites_Mai, 0x70, &pairNext },
+    { L"Mai P1 Portrait Extra", 0xfd0c0, 0xfd0e0, indexRBFFSSprites_Mai, 0x71, &pairPrevious },
+    { L"Mai P2 Portrait",       0xfc2e0, 0xfc300, indexRBFFSSprites_Mai, 0x70, &pairNext },
+    { L"Mai P2 Portrait Extra", 0xfd0e0, 0xfd100, indexRBFFSSprites_Mai, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Franco_BigPortraits[] =
+{
+    { L"Franco P1 Portrait",       0xfc300, 0xfc320, indexRBFFSSprites_Franco, 0x70, &pairNext },
+    { L"Franco P1 Portrait Extra", 0xfd100, 0xfd120, indexRBFFSSprites_Franco, 0x71, &pairPrevious },
+    { L"Franco P2 Portrait",       0xfc320, 0xfc340, indexRBFFSSprites_Franco, 0x70, &pairNext },
+    { L"Franco P2 Portrait Extra", 0xfd120, 0xfd140, indexRBFFSSprites_Franco, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_HonFu_BigPortraits[] =
+{
+    { L"Hon-Fu P1 Portrait",       0xfc340, 0xfc360, indexRBFFSSprites_Hon, 0x70, &pairNext },
+    { L"Hon-Fu P1 Portrait Extra", 0xfd140, 0xfd160, indexRBFFSSprites_Hon, 0x71, &pairPrevious },
+    { L"Hon-Fu P2 Portrait",       0xfc360, 0xfc380, indexRBFFSSprites_Hon, 0x70, &pairNext },
+    { L"Hon-Fu P2 Portrait Extra", 0xfd160, 0xfd180, indexRBFFSSprites_Hon, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Bob_BigPortraits[] =
+{
+    { L"Bob P1 Portrait",       0xfc380, 0xfc3a0, indexRBFFSSprites_Bob, 0x70, &pairNext },
+    { L"Bob P1 Portrait Extra", 0xfd180, 0xfd1a0, indexRBFFSSprites_Bob, 0x71, &pairPrevious },
+    { L"Bob P2 Portrait",       0xfc3a0, 0xfc3c0, indexRBFFSSprites_Bob, 0x70, &pairNext },
+    { L"Bob P2 Portrait Extra", 0xfd1a0, 0xfd1c0, indexRBFFSSprites_Bob, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_BlueMary_BigPortraits[] =
+{
+    { L"Blue Mary P1 Portrait",       0xfc3c0, 0xfc3e0, indexRBFFSSprites_BlueMary, 0x70, &pairNext },
+    { L"Blue Mary P1 Portrait Extra", 0xfd1c0, 0xfd1e0, indexRBFFSSprites_BlueMary, 0x71, &pairPrevious },
+    { L"Blue Mary P2 Portrait",       0xfc3e0, 0xfc400, indexRBFFSSprites_BlueMary, 0x70, &pairNext },
+    { L"Blue Mary P2 Portrait Extra", 0xfd1e0, 0xfd200, indexRBFFSSprites_BlueMary, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Sokaku_BigPortraits[] =
+{
+    { L"Sokaku P1 Portrait",       0xfc400, 0xfc420, indexRBFFSSprites_Sokaku, 0x70, &pairNext },
+    { L"Sokaku P1 Portrait Extra", 0xfd200, 0xfd220, indexRBFFSSprites_Sokaku, 0x71, &pairPrevious },
+    { L"Sokaku P2 Portrait",       0xfc420, 0xfc440, indexRBFFSSprites_Sokaku, 0x70, &pairNext },
+    { L"Sokaku P2 Portrait Extra", 0xfd220, 0xfd240, indexRBFFSSprites_Sokaku, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Geese_BigPortraits[] =
+{
+    { L"Geese P1 Portrait",       0xfc440, 0xfc460, indexRBFFSSprites_Geese, 0x70, &pairNext },
+    { L"Geese P1 Portrait Extra", 0xfd240, 0xfd260, indexRBFFSSprites_Geese, 0x71, &pairPrevious },
+    { L"Geese P2 Portrait",       0xfc460, 0xfc480, indexRBFFSSprites_Geese, 0x70, &pairNext },
+    { L"Geese P2 Portrait Extra", 0xfd260, 0xfd280, indexRBFFSSprites_Geese, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Yamazaki_BigPortraits[] =
+{
+    { L"Yamazaki P1 Portrait",       0xfc480, 0xfc4a0, indexRBFFSSprites_Yamazaki, 0x70, &pairNext },
+    { L"Yamazaki P1 Portrait Extra", 0xfd280, 0xfd2a0, indexRBFFSSprites_Yamazaki, 0x71, &pairPrevious },
+    { L"Yamazaki P2 Portrait",       0xfc4a0, 0xfc4c0, indexRBFFSSprites_Yamazaki, 0x70, &pairNext },
+    { L"Yamazaki P2 Portrait Extra", 0xfd2a0, 0xfd2c0, indexRBFFSSprites_Yamazaki, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Chonrei_BigPortraits[] =
+{
+    { L"Chonrei P1 Portrait",       0xfc4c0, 0xfc4e0, indexRBFFSSprites_Chonrei, 0x70, &pairNext },
+    { L"Chonrei P1 Portrait Extra", 0xfd2c0, 0xfd2e0, indexRBFFSSprites_Chonrei, 0x71, &pairPrevious },
+    { L"Chonrei P2 Portrait",       0xfc4e0, 0xfc500, indexRBFFSSprites_Chonrei, 0x70, &pairNext },
+    { L"Chonrei P2 Portrait Extra", 0xfd2e0, 0xfd300, indexRBFFSSprites_Chonrei, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Chonshu_BigPortraits[] =
+{
+    { L"Chonshu P1 Portrait",       0xfc500, 0xfc520, indexRBFFSSprites_Chonshu, 0x70, &pairNext },
+    { L"Chonshu P1 Portrait Extra", 0xfd300, 0xfd320, indexRBFFSSprites_Chonshu, 0x71, &pairPrevious },
+    { L"Chonshu P2 Portrait",       0xfc520, 0xfc540, indexRBFFSSprites_Chonshu, 0x70, &pairNext },
+    { L"Chonshu P2 Portrait Extra", 0xfd320, 0xfd340, indexRBFFSSprites_Chonshu, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_DuckKing_BigPortraits[] =
+{
+    { L"Duck King P1 Portrait",       0xfc540, 0xfc560, indexRBFFSSprites_DuckKing, 0x70, &pairNext },
+    { L"Duck King P1 Portrait Extra", 0xfd340, 0xfd360, indexRBFFSSprites_DuckKing, 0x71, &pairPrevious },
+    { L"Duck King P2 Portrait",       0xfc560, 0xfc580, indexRBFFSSprites_DuckKing, 0x70, &pairNext },
+    { L"Duck King P2 Portrait Extra", 0xfd360, 0xfd380, indexRBFFSSprites_DuckKing, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Kim_BigPortraits[] =
+{
+    { L"Kim P1 Portrait",       0xfc580, 0xfc5a0, indexRBFFSSprites_Kim, 0x70, &pairNext },
+    { L"Kim P1 Portrait Extra", 0xfd380, 0xfd3a0, indexRBFFSSprites_Kim, 0x71, &pairPrevious },
+    { L"Kim P2 Portrait",       0xfc5a0, 0xfc5c0, indexRBFFSSprites_Kim, 0x70, &pairNext },
+    { L"Kim P2 Portrait Extra", 0xfd3a0, 0xfd3c0, indexRBFFSSprites_Kim, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Billy_BigPortraits[] =
+{
+    { L"Billy P1 Portrait",       0xfc5c0, 0xfc5e0, indexRBFFSSprites_Billy, 0x70, &pairNext },
+    { L"Billy P1 Portrait Extra", 0xfd3c0, 0xfd3e0, indexRBFFSSprites_Billy, 0x71, &pairPrevious },
+    { L"Billy P2 Portrait",       0xfc5e0, 0xfc600, indexRBFFSSprites_Billy, 0x70, &pairNext },
+    { L"Billy P2 Portrait Extra", 0xfd3e0, 0xfd400, indexRBFFSSprites_Billy, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Cheng_BigPortraits[] =
+{
+    { L"Cheng P1 Portrait",       0xfc600, 0xfc620, indexRBFFSSprites_Cheng, 0x70, &pairNext },
+    { L"Cheng P1 Portrait Extra", 0xfd400, 0xfd420, indexRBFFSSprites_Cheng, 0x71, &pairPrevious },
+    { L"Cheng P2 Portrait",       0xfc620, 0xfc640, indexRBFFSSprites_Cheng, 0x70, &pairNext },
+    { L"Cheng P2 Portrait Extra", 0xfd420, 0xfd440, indexRBFFSSprites_Cheng, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Tung_BigPortraits[] =
+{
+    { L"Tung P1 Portrait",       0xfc640, 0xfc660, indexRBFFSSprites_Tung, 0x70, &pairNext },
+    { L"Tung P1 Portrait Extra", 0xfd440, 0xfd460, indexRBFFSSprites_Tung, 0x71, &pairPrevious },
+    { L"Tung P2 Portrait",       0xfc660, 0xfc680, indexRBFFSSprites_Tung, 0x70, &pairNext },
+    { L"Tung P2 Portrait Extra", 0xfd460, 0xfd480, indexRBFFSSprites_Tung, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Laurence_BigPortraits[] =
+{
+    { L"Laurence P1 Portrait",       0xfc680, 0xfc6a0, indexRBFFSSprites_Laurence, 0x70, &pairNext },
+    { L"Laurence P1 Portrait Extra", 0xfd480, 0xfd4a0, indexRBFFSSprites_Laurence, 0x71, &pairPrevious },
+    { L"Laurence P2 Portrait",       0xfc6a0, 0xfc6c0, indexRBFFSSprites_Laurence, 0x70, &pairNext },
+    { L"Laurence P2 Portrait Extra", 0xfd4a0, 0xfd4c0, indexRBFFSSprites_Laurence, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_Krauser_BigPortraits[] =
+{
+    { L"Krauser P1 Portrait",       0xfc6c0, 0xfc6e0, indexRBFFSSprites_Krauser, 0x70, &pairNext },
+    { L"Krauser P1 Portrait Extra", 0xfd4c0, 0xfd4e0, indexRBFFSSprites_Krauser, 0x71, &pairPrevious },
+    { L"Krauser P2 Portrait",       0xfc6e0, 0xfc700, indexRBFFSSprites_Krauser, 0x70, &pairNext },
+    { L"Krauser P2 Portrait Extra", 0xfd4e0, 0xfd500, indexRBFFSSprites_Krauser, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_EXAndy_BigPortraits[] =
+{
+    { L"EX Andy P1 Portrait",       0xfc700, 0xfc720, indexRBFFSSprites_Andy, 0x70, &pairNext },
+    { L"EX Andy P1 Portrait Extra", 0xfd500, 0xfd520, indexRBFFSSprites_Andy, 0x71, &pairPrevious },
+    { L"EX Andy P2 Portrait",       0xfc720, 0xfc740, indexRBFFSSprites_Andy, 0x70, &pairNext },
+    { L"EX Andy P2 Portrait Extra", 0xfd520, 0xfd540, indexRBFFSSprites_Andy, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_EXBlueMary_BigPortraits[] =
+{
+    { L"EX Blue Mary P1 Portrait",       0xfc740, 0xfc760, indexRBFFSSprites_BlueMary, 0x70, &pairNext },
+    { L"EX Blue Mary P1 Portrait Extra", 0xfd540, 0xfd560, indexRBFFSSprites_BlueMary, 0x71, &pairPrevious },
+    { L"EX Blue Mary P2 Portrait",       0xfc760, 0xfc780, indexRBFFSSprites_BlueMary, 0x70, &pairNext },
+    { L"EX Blue Mary P2 Portrait Extra", 0xfd560, 0xfd580, indexRBFFSSprites_BlueMary, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_EXBilly_BigPortraits[] =
+{
+    { L"EX Billy P1 Portrait",       0xfc780, 0xfc7a0, indexRBFFSSprites_Billy, 0x70, &pairNext },
+    { L"EX Billy P1 Portrait Extra", 0xfd580, 0xfd5a0, indexRBFFSSprites_Billy, 0x71, &pairPrevious },
+    { L"EX Billy P2 Portrait",       0xfc7a0, 0xfc7c0, indexRBFFSSprites_Billy, 0x70, &pairNext },
+    { L"EX Billy P2 Portrait Extra", 0xfd5a0, 0xfd5c0, indexRBFFSSprites_Billy, 0x71, &pairPrevious },
+};
+
+const sGame_PaletteDataset RBFFS_A_EXTung_BigPortraits[] =
+{
+    { L"EX Tung P1 Portrait",       0xfc7c0, 0xfc7e0, indexRBFFSSprites_Tung, 0x70, &pairNext },
+    { L"EX Tung P1 Portrait Extra", 0xfd5c0, 0xfd5e0, indexRBFFSSprites_Tung, 0x71, &pairPrevious },
+    { L"EX Tung P2 Portrait",       0xfc7e0, 0xfc800, indexRBFFSSprites_Tung, 0x70, &pairNext },
+    { L"EX Tung P2 Portrait Extra", 0xfd5e0, 0xfd600, indexRBFFSSprites_Tung, 0x71, &pairPrevious },
+};
+
 const sDescTreeNode RBFFS_A_TERRY_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_TERRY_PALETTES_P1, ARRAYSIZE(RBFFS_A_TERRY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_TERRY_PALETTES_P2, ARRAYSIZE(RBFFS_A_TERRY_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_TERRY_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_TERRY_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Terry_BigPortraits, ARRAYSIZE(RBFFS_A_Terry_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_ANDY_COLLECTION[] =
@@ -1137,6 +1330,7 @@ const sDescTreeNode RBFFS_A_ANDY_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_ANDY_PALETTES_P1, ARRAYSIZE(RBFFS_A_ANDY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_ANDY_PALETTES_P2, ARRAYSIZE(RBFFS_A_ANDY_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_ANDY_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_ANDY_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Andy_BigPortraits, ARRAYSIZE(RBFFS_A_Andy_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_JOE_COLLECTION[] =
@@ -1144,6 +1338,7 @@ const sDescTreeNode RBFFS_A_JOE_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_JOE_PALETTES_P1, ARRAYSIZE(RBFFS_A_JOE_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_JOE_PALETTES_P2, ARRAYSIZE(RBFFS_A_JOE_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_JOE_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_JOE_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Joe_BigPortraits, ARRAYSIZE(RBFFS_A_Joe_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_MAI_COLLECTION[] =
@@ -1151,6 +1346,7 @@ const sDescTreeNode RBFFS_A_MAI_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_MAI_PALETTES_P1, ARRAYSIZE(RBFFS_A_MAI_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_MAI_PALETTES_P2, ARRAYSIZE(RBFFS_A_MAI_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_MAI_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_MAI_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Mai_BigPortraits, ARRAYSIZE(RBFFS_A_Mai_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_FRANCO_COLLECTION[] =
@@ -1158,6 +1354,7 @@ const sDescTreeNode RBFFS_A_FRANCO_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_FRANCO_PALETTES_P1, ARRAYSIZE(RBFFS_A_FRANCO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_FRANCO_PALETTES_P2, ARRAYSIZE(RBFFS_A_FRANCO_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_FRANCO_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_FRANCO_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Franco_BigPortraits, ARRAYSIZE(RBFFS_A_Franco_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_HONFU_COLLECTION[] =
@@ -1165,6 +1362,7 @@ const sDescTreeNode RBFFS_A_HONFU_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_HONFU_PALETTES_P1, ARRAYSIZE(RBFFS_A_HONFU_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_HONFU_PALETTES_P2, ARRAYSIZE(RBFFS_A_HONFU_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_HONFU_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_HONFU_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_HonFu_BigPortraits, ARRAYSIZE(RBFFS_A_HonFu_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_BOB_COLLECTION[] =
@@ -1172,6 +1370,7 @@ const sDescTreeNode RBFFS_A_BOB_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_BOB_PALETTES_P1, ARRAYSIZE(RBFFS_A_BOB_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_BOB_PALETTES_P2, ARRAYSIZE(RBFFS_A_BOB_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_BOB_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_BOB_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Bob_BigPortraits, ARRAYSIZE(RBFFS_A_Bob_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_BLUEMARY_COLLECTION[] =
@@ -1179,6 +1378,7 @@ const sDescTreeNode RBFFS_A_BLUEMARY_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_BLUEMARY_PALETTES_P1, ARRAYSIZE(RBFFS_A_BLUEMARY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_BLUEMARY_PALETTES_P2, ARRAYSIZE(RBFFS_A_BLUEMARY_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_BLUEMARY_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_BLUEMARY_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_BlueMary_BigPortraits, ARRAYSIZE(RBFFS_A_BlueMary_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_Sokaku_COLLECTION[] =
@@ -1186,6 +1386,7 @@ const sDescTreeNode RBFFS_A_Sokaku_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_Sokaku_PALETTES_P1, ARRAYSIZE(RBFFS_A_Sokaku_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_Sokaku_PALETTES_P2, ARRAYSIZE(RBFFS_A_Sokaku_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Sokaku_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_Sokaku_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Sokaku_BigPortraits, ARRAYSIZE(RBFFS_A_Sokaku_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_GEESE_COLLECTION[] =
@@ -1193,6 +1394,7 @@ const sDescTreeNode RBFFS_A_GEESE_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_GEESE_PALETTES_P1, ARRAYSIZE(RBFFS_A_GEESE_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_GEESE_PALETTES_P2, ARRAYSIZE(RBFFS_A_GEESE_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_GEESE_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_GEESE_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Geese_BigPortraits, ARRAYSIZE(RBFFS_A_Geese_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_YAMAZAKI_COLLECTION[] =
@@ -1200,6 +1402,7 @@ const sDescTreeNode RBFFS_A_YAMAZAKI_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_YAMAZAKI_PALETTES_P1, ARRAYSIZE(RBFFS_A_YAMAZAKI_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_YAMAZAKI_PALETTES_P2, ARRAYSIZE(RBFFS_A_YAMAZAKI_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_YAMAZAKI_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_YAMAZAKI_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Yamazaki_BigPortraits, ARRAYSIZE(RBFFS_A_Yamazaki_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_CHONREI_COLLECTION[] =
@@ -1207,6 +1410,7 @@ const sDescTreeNode RBFFS_A_CHONREI_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHONREI_PALETTES_P1, ARRAYSIZE(RBFFS_A_CHONREI_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHONREI_PALETTES_P2, ARRAYSIZE(RBFFS_A_CHONREI_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHONREI_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_CHONREI_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Chonrei_BigPortraits, ARRAYSIZE(RBFFS_A_Chonrei_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_CHONSHU_COLLECTION[] =
@@ -1214,6 +1418,7 @@ const sDescTreeNode RBFFS_A_CHONSHU_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHONSHU_PALETTES_P1, ARRAYSIZE(RBFFS_A_CHONSHU_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHONSHU_PALETTES_P2, ARRAYSIZE(RBFFS_A_CHONSHU_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHONSHU_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_CHONSHU_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Chonshu_BigPortraits, ARRAYSIZE(RBFFS_A_Chonshu_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_DUCKKING_COLLECTION[] =
@@ -1221,6 +1426,7 @@ const sDescTreeNode RBFFS_A_DUCKKING_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_DUCKKING_PALETTES_P1, ARRAYSIZE(RBFFS_A_DUCKKING_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_DUCKKING_PALETTES_P2, ARRAYSIZE(RBFFS_A_DUCKKING_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_DUCKKING_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_DUCKKING_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_DuckKing_BigPortraits, ARRAYSIZE(RBFFS_A_DuckKing_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_KIM_COLLECTION[] =
@@ -1228,6 +1434,7 @@ const sDescTreeNode RBFFS_A_KIM_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_KIM_PALETTES_P1, ARRAYSIZE(RBFFS_A_KIM_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_KIM_PALETTES_P2, ARRAYSIZE(RBFFS_A_KIM_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_KIM_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_KIM_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Kim_BigPortraits, ARRAYSIZE(RBFFS_A_Kim_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_BILLY_COLLECTION[] =
@@ -1235,6 +1442,7 @@ const sDescTreeNode RBFFS_A_BILLY_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_BILLY_PALETTES_P1, ARRAYSIZE(RBFFS_A_BILLY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_BILLY_PALETTES_P2, ARRAYSIZE(RBFFS_A_BILLY_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_BILLY_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_BILLY_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Billy_BigPortraits, ARRAYSIZE(RBFFS_A_Billy_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_CHENG_COLLECTION[] =
@@ -1242,6 +1450,7 @@ const sDescTreeNode RBFFS_A_CHENG_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHENG_PALETTES_P1, ARRAYSIZE(RBFFS_A_CHENG_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHENG_PALETTES_P2, ARRAYSIZE(RBFFS_A_CHENG_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_CHENG_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_CHENG_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Cheng_BigPortraits, ARRAYSIZE(RBFFS_A_Cheng_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_TUNG_COLLECTION[] =
@@ -1249,6 +1458,7 @@ const sDescTreeNode RBFFS_A_TUNG_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_TUNG_PALETTES_P1, ARRAYSIZE(RBFFS_A_TUNG_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_TUNG_PALETTES_P2, ARRAYSIZE(RBFFS_A_TUNG_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_TUNG_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_TUNG_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Tung_BigPortraits, ARRAYSIZE(RBFFS_A_Tung_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_LAURENCE_COLLECTION[] =
@@ -1256,6 +1466,7 @@ const sDescTreeNode RBFFS_A_LAURENCE_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_LAURENCE_PALETTES_P1, ARRAYSIZE(RBFFS_A_LAURENCE_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_LAURENCE_PALETTES_P2, ARRAYSIZE(RBFFS_A_LAURENCE_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_LAURENCE_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_LAURENCE_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Laurence_BigPortraits, ARRAYSIZE(RBFFS_A_Laurence_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_KRAUSER_COLLECTION[] =
@@ -1263,30 +1474,35 @@ const sDescTreeNode RBFFS_A_KRAUSER_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_KRAUSER_PALETTES_P1, ARRAYSIZE(RBFFS_A_KRAUSER_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_KRAUSER_PALETTES_P2, ARRAYSIZE(RBFFS_A_KRAUSER_PALETTES_P2) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_KRAUSER_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_KRAUSER_PALETTES_LIFEBAR) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_Krauser_BigPortraits, ARRAYSIZE(RBFFS_A_Krauser_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_EXANDY_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXANDY_PALETTES_P1, ARRAYSIZE(RBFFS_A_EXANDY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXANDY_PALETTES_P2, ARRAYSIZE(RBFFS_A_EXANDY_PALETTES_P2) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXAndy_BigPortraits, ARRAYSIZE(RBFFS_A_EXAndy_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_EXBLUEMARY_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBLUEMARY_PALETTES_P1, ARRAYSIZE(RBFFS_A_EXBLUEMARY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBLUEMARY_PALETTES_P2, ARRAYSIZE(RBFFS_A_EXBLUEMARY_PALETTES_P2) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBlueMary_BigPortraits, ARRAYSIZE(RBFFS_A_EXBlueMary_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_EXBILLY_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBILLY_PALETTES_P1, ARRAYSIZE(RBFFS_A_EXBILLY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBILLY_PALETTES_P2, ARRAYSIZE(RBFFS_A_EXBILLY_PALETTES_P2) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBilly_BigPortraits, ARRAYSIZE(RBFFS_A_EXBilly_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_EXTUNG_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXTUNG_PALETTES_P1, ARRAYSIZE(RBFFS_A_EXTUNG_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXTUNG_PALETTES_P2, ARRAYSIZE(RBFFS_A_EXTUNG_PALETTES_P2) },
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXTung_BigPortraits, ARRAYSIZE(RBFFS_A_EXTung_BigPortraits) },
 };
 
 const sDescTreeNode RBFFS_A_UNITS[] =
