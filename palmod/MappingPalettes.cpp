@@ -49,6 +49,8 @@ std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode 
                         m_nBlueStep = m_fAvoidPureColors ? 1 : 0;
                         // completely loop the table
                         m_nRedStep = m_fAvoidPureColors ? 1 : 0;
+                        // This can be queried by caller to figure out if we've had to loop
+                        m_nLoopCount++;
                     }
                 }
             }
@@ -75,6 +77,7 @@ void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
         uint8_t* pPal = reinterpret_cast<uint8_t*>(PalDef->pPal);
         const uint16_t nPalLength = PalDef->uPalSz;
         const int nAlphaLocation = static_cast<int>(CurrGame->GetMaximumWritePerEachTransparency());
+        const uint32_t nMapLoopCount = PaletteMapper.GetLoopCount();
 
         ProcChange();
         CurrGame->MarkPaletteDirty(PalDef->uUnitId, PalDef->uPalId);
@@ -97,6 +100,13 @@ void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
         UpdateMultiEdit(TRUE);
         UpdateSliderSel();
 
-        GetHost()->GetPalModDlg()->SetStatusText(L"Updated this palette to use a mapping palette.");
+        CString strInfo = L"Updated this palette to use a mapping palette.";
+
+        if (nMapLoopCount != PaletteMapper.GetLoopCount())
+        {
+            strInfo += L"  Reached end of map: restarted map.";
+        }
+
+        GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
     }
 }
