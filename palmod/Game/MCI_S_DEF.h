@@ -48,6 +48,19 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_BossPlayerPalettes_S =
     { L"Unused/Single sprite preview", -0x2400, INVALID_UNIT_VALUE_16, 0x01 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
 };
 
+const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerExtras_S =
+{
+    { L"Base 1", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Base 2", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Base 3", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Base 4", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 1", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 2", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 3", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 4", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Unused/Single sprite preview", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+};
+
 // For the smaller Export listbox
 const std::vector<LPCWSTR> MCI_SPaletteNamesShort =
 {
@@ -98,6 +111,7 @@ std::vector<sGCBUPF_BasicFileData> MCI_S_CharacterData =
     { L"Content\\Animations\\Players\\Phoenix\\PhoenixPalette.xnb",                     L"Phoenix",             0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,  0x00455,  indexMCI_Phoenix },
     { L"Content\\Animations\\Players\\PhylaVell\\PhylaVellPalette.xnb",                 L"Phyla-Vell",          0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,  0x00455,  indexMCI_PhylaVell },
     { L"Content\\Animations\\Players\\Rocket\\RocketPalette.xnb",                       L"Rocket",              0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Rocket },
+    { L"Content\\Animations\\Players\\Rocket\\RocketExtrasPalette.xnb",                 L"Rocket (Extras)",     0x2855,    MCI_S_NormalNode, MCI_PlayerExtras_S,        0x00455,  indexMCI_Rocket },
     { L"Content\\Animations\\Players\\SheHulk\\SheHulkPalette.xnb",                     L"She-Hulk",            0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_SheHulk },
     { L"Content\\Animations\\Players\\SilverSurfer\\SilverSurferPalette.xnb",           L"Silver Surfer",       0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,  0x00455,  indexMCI_SilverSurfer },
     { L"Content\\Animations\\Players\\Spiderman\\SpidermanPalette.xnb",                 L"Spider-Man",          0x2455,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_SpiderMan },
