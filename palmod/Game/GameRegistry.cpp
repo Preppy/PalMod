@@ -2549,7 +2549,9 @@ namespace KnownGameInfo
             for (const CoreGameData& thisGame : GameRegistry)
             {
                 if ((thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_A) ||
-                    (thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_DIR))
+                    (thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_DIR) ||
+                    (thisGame.nGameId == DEVMODE_A) ||
+                    (thisGame.nGameId == DEVMODE_DIR))
                 {
                     // These are very special and would just match everything
                     continue;
@@ -2589,7 +2591,7 @@ namespace KnownGameInfo
                         }
                     }
                 }
-                else // directory-based
+                else // directory-based handler
                 {
                     sFileRule firstRule = thisGame.GetRule(0);
 

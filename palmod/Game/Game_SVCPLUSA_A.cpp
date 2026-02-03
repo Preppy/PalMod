@@ -905,7 +905,6 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     uint16_t nSecondPaletteWithinNode = 0;
 
                     // Zero is interesting and has two different palette joins with shared palettes.
-
                     static_assert(ARRAYSIZE(SVCPLUSA_A_ZERO_PUNCH_PALETTES) == 8, "Zero palette layout changed: Update pairing to match.");
                     static_assert(ARRAYSIZE(SVCPLUSA_A_ZERO_COLLECTION) == 10, "Zero palette layout changed: Update pairing to match.");
 
