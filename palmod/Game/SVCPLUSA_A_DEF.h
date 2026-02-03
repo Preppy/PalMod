@@ -2845,7 +2845,7 @@ const sGame_PaletteDataset SVCPLUSA_A_TESSA_INTRO_PORTRAITS_PALETTES[] =
 // 11 treasure part 1,  12 treasure bit (done)
 
 // Effect 7 needs to be paired with base Zero 
-// Effect 6 needs to be paired with fire effect 2/RA transformation because that what it really is
+// Effect 6 needs to be paired with fire effect 2/RA transformation because that's what it really is
 
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_PUNCH_PALETTES[] =
 {

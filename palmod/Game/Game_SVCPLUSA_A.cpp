@@ -900,20 +900,24 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                 }
                 else if (wcscmp(m_rgCurrentGameUnits.at(NodeGet->uUnitId).szDesc, k_pszUnitNameZero) == 0)
                 {
+                    const auto nSharedNodeLocation = 6; // P/K, Temple Pk/K, then Heaven/Hell P/K, then Extras
                     uint16_t nLocationOfSecondPalette = 1;
                     uint16_t nSecondPaletteWithinNode = 0;
 
                     // Zero is interesting and has two different palette joins with shared palettes.
 
+                    static_assert(ARRAYSIZE(SVCPLUSA_A_ZERO_PUNCH_PALETTES) == 8, "Zero palette layout changed: Update pairing to match.");
+                    static_assert(ARRAYSIZE(SVCPLUSA_A_ZERO_COLLECTION) == 10, "Zero palette layout changed: Update pairing to match.");
+
                     if (nSrcStart == 0) // primary sprite, joined with shared Effect 7 palette
                     {
-                        nLocationOfSecondPalette = 23;
                         nSecondPaletteWithinNode = 7;
+                        nLocationOfSecondPalette = (nSharedNodeLocation * 8) + nSecondPaletteWithinNode; // 8 per 6 nodes + 7 into extras
                     }
                     else if (nSrcStart == 2)
                     {
-                        nLocationOfSecondPalette = 22;
                         nSecondPaletteWithinNode = 6;
+                        nLocationOfSecondPalette = (nSharedNodeLocation * 8) + nSecondPaletteWithinNode;
                     }
                     
                     const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nLocationOfSecondPalette);
@@ -930,7 +934,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                         //Set each palette
                         std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                            GetMainTree()->GetDescNode(Node01, 2, nSecondPaletteWithinNode, -1)
+                            GetMainTree()->GetDescNode(Node01, nSharedNodeLocation, nSecondPaletteWithinNode, -1)
                         };
 
                         //Set each palette
