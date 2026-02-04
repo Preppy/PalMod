@@ -6991,6 +6991,12 @@ const sDescTreeNode SFZ3M_S_INGRID_COLLECTION[] =
     {  L"V-Ism Kick", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_PALETTES_VISMKICK, ARRAYSIZE(SFZ3M_S_INGRID_PALETTES_VISMKICK) },
 };
 
+// Status effects
+// The delta from core palettes to status effects varies between PSP and Steam, and between characters.
+// They generally start with the same set of status effects as SFA3-CPS2: from Burned 1 to Just Defend.
+// Ryu status effects start at 0x66bb5b4 for Max for steam, 0xc8d74 for Max for psp
+// Ken status effects start at 0x6745df4 for Max for steam
+
 const sDescTreeNode SFZ3U_A_UNITS[] =
 {
     { L"Ryu", DESC_NODETYPE_TREE, (void*)SFZ3U_A_RYU_COLLECTION, ARRAYSIZE(SFZ3U_A_RYU_COLLECTION) },
