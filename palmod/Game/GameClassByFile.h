@@ -14,6 +14,9 @@ struct sGameUnitsByFile
     std::wstring strUnitName;
     const sDescTreeNode* prgPaletteSets = nullptr;
     uint32_t nPaletteSetCount = 0;
+    // Normally this can be ignored, but it's useful for constant offset shifts as when
+    // loading a CPS2 game for Steam.
+    int32_t nOffsetShiftForUnit = 0;
 };
 
 class CGameClassByFile : public CGameWithExtrasFile

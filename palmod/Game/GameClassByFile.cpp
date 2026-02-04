@@ -163,9 +163,10 @@ void CGameClassByFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
 
     if (paletteData)  
     {
-        uint32_t cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+        const uint32_t cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
+        m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).nOffsetShiftForUnit;
         m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc) / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
 
