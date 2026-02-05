@@ -74,7 +74,7 @@ private:
         COTA_A_UNITS,
         ARRAYSIZE(COTA_A_UNITS),
         L"CotAe.txt",           // Extra filename
-        521,                    // Count of palettes listed in the header
+        529,                    // Count of palettes listed in the header
         0x2600e,                // Lowest known location used for palettes
     };
 
@@ -123,7 +123,7 @@ private:
         COTA_A_UNITS,
         ARRAYSIZE(COTA_A_UNITS),
         L"CotASe.txt",                  // Extra filename
-        521,                            // Count of palettes listed in the header
+        529,                            // Count of palettes listed in the header
         0x2600e + 0x12687c - 0x2683c,   // Lowest known location used for palettes
     };
 

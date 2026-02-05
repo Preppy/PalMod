@@ -1165,33 +1165,46 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_WOLVERINE[] =
     { L"Stage Elements: Foreground", 0x2ac28, 0x2ace8, indexCPS2Sprites_COTAAssets, 0x1e },
 };
 
+// Up, right, down
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_PSYLOCKE[] =
 {
-    { L"Background layer 1?", 0x38456, 0x38656 },
-    { L"Background layer 2?", 0x38656, 0x38856 },
+    { L"512: Background Moon and City", 0x2e36e, 0x2e46e, indexCPS2Sprites_COTAAssets, 0x1f, &pairFullyLinkedNode },
+    { L"512: Background City Animation Cycles 1/3", 0x2e48e, 0x2e50e, indexCPS2Sprites_COTAAssets, 0x20 },
+    { L"512: Background City Animation Cycles 2/3", 0x2e6ee, 0x2e8ce, indexCPS2Sprites_COTAAssets, 0x21 },
+    { L"512: Background City Animation Cycles 3/3", 0x2e8ce, 0x2e92e, indexCPS2Sprites_COTAAssets, 0x22 },
 
-    { L"Middle layer 1?", 0x33512, 0x33712 },
-    { L"Middle layer 2?", 0x33712, 0x33912 },
+    { L"2048: Building 1",          0x38456, 0x38656, indexCPS2Sprites_COTAAssets, 0x23 },
+    { L"2048: Building 2",          0x38656, 0x38856, indexCPS2Sprites_COTAAssets, 0x24 },
+    { L"2048: Building Animation Cycles 1",    0x38876, 0x388d6, indexCPS2Sprites_COTAAssets, 0x25 },
+    { L"2048: Building Animation Cycles 2",    0x388d6, 0x38936, indexCPS2Sprites_COTAAssets, 0x26 },
 
-    { L"Unknown?", 0x2e2ee, 0x2e36e },
-    
-    { L"Foreground?", 0x2e36e, 0x2e50e },
-    { L"Animation Cycles? 1/2", 0x2e6ee, 0x2e8ee },
-    { L"Animation Cycles? 2/2", 0x2e8ee, 0x2e92e },
+    { L"Unknown",                   0x2e2ee, 0x2e36e, indexCPS2Sprites_COTAAssets, 0x27 },
+
+    { L"512: Steel door",           0x2e46e, 0x2e48e, indexCPS2Sprites_COTAAssets, 0x28 },
+
+    { L"1024: fighting platform",   0x33512, 0x33552, indexCPS2Sprites_COTAAssets, 0x29 },
+    { L"Foreground sprites",        0x2af68, 0x2b0c8, indexCPS2Sprites_COTAAssets, 0x2a },
 };
 
+// Mutant hunting: has a boat sublevel
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_COLOSSUS[] =
 {
-    { L"Background 1?", 0x38936, 0x38b36},
-    { L"Background 2?", 0x38b36, 0x38d36},
-    { L"Background animation cycles?", 0x38d36, 0x38e56 },
+    { L"512: Background 1",                    0x2e92e, 0x2eb2e, indexCPS2Sprites_COTAAssets, 0x2b, &pairFullyLinkedNode },
+    { L"512: Background 2",                    0x2eb2e, 0x2ec2e, indexCPS2Sprites_COTAAssets, 0x2c },
+    { L"512: Background Animation Cycles 1/2", 0x2ed2e, 0x2ef0e, indexCPS2Sprites_COTAAssets, 0x2d },
+    { L"512: Background Animation Cycles 2/2", 0x2ef0e, 0x2efee, indexCPS2Sprites_COTAAssets, 0x2e },
+
+    { L"2048: Background and Buildings",    0x38936, 0x38b36, indexCPS2Sprites_COTAAssets, 0x2f },
+    { L"2048: Buildings",                   0x38b36, 0x38d36, indexCPS2Sprites_COTAAssets, 0x30 },
     
-    { L"Middle layer 1?", 0x33912, 0x33952 },
-    
-    { L"Foreground 1?",    0x2e92e, 0x2eb2e },
-    { L"Foreground 2?",    0x2eb2e, 0x2ec2e },
-    { L"Foreground Animation cycles 1/2?", 0x2ed2e, 0x2ef2e },
-    { L"Foreground Animation cycles 2/2?", 0x2ef2e, 0x2efee },
+    { L"2048: Buildings Animation Cycles",  0x38d36, 0x38ed6, indexCPS2Sprites_COTAAssets, 0x31 },
+    { L"2048: Water and Sewers Animation Cycles", 0x38ed6, 0x39056, indexCPS2Sprites_COTAAssets, 0x32 },
+
+    { L"1024: Middle: background city 1", 0x33552, 0x33712, indexCPS2Sprites_COTAAssets, 0x33 },
+    { L"1024: Middle: background city 2", 0x33712, 0x33912, indexCPS2Sprites_COTAAssets, 0x34 },
+    { L"1024: Middle layer 1?", 0x33912, 0x33952, indexCPS2Sprites_COTAAssets, 0x35 },
+
+    { L"Stage objects?", 0x2b328, 0x2b488, indexCPS2Sprites_COTAAssets, 0x36 },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =
