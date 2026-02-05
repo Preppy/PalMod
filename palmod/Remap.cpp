@@ -2,6 +2,22 @@
 #include "PalModDlg.h"
 #include "PalMod.h"
 
+CString SignedHexAsString(int32_t nHexNumber)
+{
+    CString strDisplayString;
+
+    if (nHexNumber > 0)
+    {
+        strDisplayString.Format(L"0x%x", nHexNumber);
+    }
+    else
+    {
+        strDisplayString.Format(L"-0x%x", nHexNumber * -1);
+    }
+
+    return strDisplayString;
+}
+
 void CPalModDlg::OnRemapUnit()
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
@@ -9,6 +25,11 @@ void CPalModDlg::OnRemapUnit()
     if (CurrGame)
     {
         const int nSelectedUnit = CurrGame->m_rgUnitRedir.at(m_CBUnitSel.GetCurSel());
+        
+#ifdef SINGLE_COLLECTION_ONLY
+        // TODO: Maybe support collection only?  I needed this for SFZ3 Max and had to pipe the support in by hand for my very odd needs.
+        const int nSelectedCollection = CurrGame->m_rgUnitRedir.at(m_CBChildSel1.GetCurSel());
+#endif
 
         sDescTreeNode* pSelectedUnit = CurrGame->GetMainTree()->GetDescTree(nSelectedUnit, -1);
 
@@ -37,7 +58,7 @@ void CPalModDlg::OnRemapUnit()
                           L"\r\n\r\nWant to continue?";
         }
 
-        int answer = MessageBox(strMessage, GetHost()->GetAppName(), uTypes);
+        int answer = SHMessageBoxCheck(g_appHWnd, strMessage, GetHost()->GetAppName(), uTypes, IDYES, L"{F9C68270-8337-4650-B26B-ABF5D50BF664}");
 
         CFileDialog ChooseRemapFileDialog(TRUE, NULL, NULL, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST);
 
@@ -45,15 +66,17 @@ void CPalModDlg::OnRemapUnit()
                                    L"Save as C++ header|*.h||";
         CFileDialog SaveOutputDialog(FALSE, L".txt", nullptr, OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY, pszOutputFilter);
 
-        if ((answer == IDYES) && 
-            (ChooseRemapFileDialog.DoModal() == IDOK) &&
-            (SaveOutputDialog.DoModal() == IDOK))
+        if ((answer == IDYES) &&
+            (ChooseRemapFileDialog.DoModal() == IDOK)
+            // TODO: maybe allow them to set one constant file to be writing to?
+            && (SaveOutputDialog.DoModal() == IDOK)
+            )
         {
             CWaitCursor wait;
-            CString strFileName = ChooseRemapFileDialog.GetOFN().lpstrFile;
             CFile NewROMFile;
             std::vector<BYTE> newROMBytes;
 
+            CString strFileName = ChooseRemapFileDialog.GetOFN().lpstrFile;
             OPENFILENAME SaveFileOFN = SaveOutputDialog.GetOFN();
 
             SetStatusText(L"Starting remap...");
@@ -74,6 +97,9 @@ void CPalModDlg::OnRemapUnit()
             if (!newROMBytes.empty())
             {
                 CString strInfo;
+
+                strInfo.Format(L"Starting remap into file \"%s\"...\r\n", strFileName.GetString());
+                OutputDebugString(strInfo.GetString());
 
                 ColMode currColMode = CurrGame->GetColorMode();
                 const uint8_t cbColorSize = ColorSystem::GetCbForColMode(currColMode);
@@ -102,6 +128,14 @@ void CPalModDlg::OnRemapUnit()
 
                 for (uint32_t iCollectionIndex = 0; iCollectionIndex < pSelectedUnit->uChildAmt; iCollectionIndex++)
                 {
+#ifdef SINGLE_COLLECTION_ONLY
+                    if (nSelectedCollection != iCollectionIndex)
+                    {
+                        continue;
+                    }
+#endif
+                    bool fShowedRemap = false;
+
                     const sGame_PaletteDataset* paletteDataSet = CurrGame->GetPaletteSet(nSelectedUnit, iCollectionIndex);
 
                     if (!paletteDataSet)
@@ -109,6 +143,7 @@ void CPalModDlg::OnRemapUnit()
                         // TODO: this blocks GameClassByUnitPerFile iteration through this code, but
                         // we should solve it differently.
                         strOutput += L"ERROR: Remapping not currently supported for this specific game version: PalMod needs to update the game layout.\r\n";
+                        MessageBox(L"ERROR: The way PalMod currently supports this specific game version disallows remapping units, sorry.", GetHost()->GetAppName(), MB_ICONERROR);
                         break;
                     }
 
@@ -176,6 +211,7 @@ void CPalModDlg::OnRemapUnit()
                                 uint32_t nTerminalOffset = nStartingMappedOffset + static_cast<uint32_t>(searchColors.second.size());
                                 int32_t nThisLocationRemapDelta = nStartingMappedOffset - searchColors.first->nPaletteOffset;
 
+                                CString strDisplayHex;
                                 const int32_t nLastLocationRemapDelta = nLastMappedLocation - nLastStartingLocation;
 
                                 if (nLastLocationRemapDelta != nThisLocationRemapDelta)
@@ -186,13 +222,15 @@ void CPalModDlg::OnRemapUnit()
 
                                     if (it_secondresult != newROMBytes.end())
                                     {
+                                        strDisplayHex = SignedHexAsString(nThisLocationRemapDelta);
+
                                         if (nLastMappedLocation)
                                         {
-                                            strInfo.Format(L"%s Warning: the remapped delta shifts from 0x%x to 0x%x!\r\n", strActiveCommentStyle.c_str(), nLastLocationRemapDelta, nThisLocationRemapDelta);
+                                            strInfo.Format(L"%s Warning: the remapped delta shifts from 0x%x to %s!\r\n", strActiveCommentStyle.c_str(), nLastLocationRemapDelta, strDisplayHex.GetString());
                                             strOutput += strInfo;
                                         }
 
-                                        strInfo.Format(L"%s Match at 0x%x, 0x%x (delta 0x%x)\r\n", strActiveCommentStyle.c_str(), nStartingMappedOffset, nTerminalOffset, nThisLocationRemapDelta);
+                                        strInfo.Format(L"%s Match at 0x%x, 0x%x (delta %s)\r\n", strActiveCommentStyle.c_str(), nStartingMappedOffset, nTerminalOffset, strDisplayHex.GetString());
                                         strOutput += strInfo;
                                     }
 
@@ -234,6 +272,8 @@ void CPalModDlg::OnRemapUnit()
                                 // this is sloppy because of remapping done in LoadPalette
                                 nLastStartingLocation = searchColors.first->nPaletteOffset;
 
+                                strDisplayHex = SignedHexAsString(nThisLocationRemapDelta);
+
                                 if (fUseExtrasMode)
                                 {
                                     strInfo.Format(L"%s\r\n0x%x\r\n0x%x", searchColors.first->szPaletteName, nStartingMappedOffset, nTerminalOffset);
@@ -253,9 +293,16 @@ void CPalModDlg::OnRemapUnit()
                                         strInfo += strExtraData;
                                     }
 
-                                    strExtraData.Format(L"\r\n;Remap Delta: 0x%x\r\n", nThisLocationRemapDelta);
+                                    strExtraData.Format(L"\r\n;Remap Delta: %s\r\n", strDisplayHex.GetString());
 
                                     strInfo += strExtraData;
+
+                                    if (!fShowedRemap)
+                                    {
+                                        strExtraData.Format(L"Collection 0x%02x remap delta %s\r\n", iCollectionIndex, strDisplayHex.GetString());
+                                        OutputDebugString(strExtraData.GetString());
+                                        fShowedRemap = true;
+                                    }
                                 }
                                 else // code
                                 {
@@ -276,7 +323,7 @@ void CPalModDlg::OnRemapUnit()
                                         strInfo += strExtraData;
                                     }
 
-                                    strExtraData.Format(L" }, /* Delta: 0x%x */\r\n", nThisLocationRemapDelta);
+                                    strExtraData.Format(L" }, /* Delta: %s */\r\n", strDisplayHex.GetString());
 
                                     strInfo += strExtraData;
                                 }
@@ -309,10 +356,20 @@ void CPalModDlg::OnRemapUnit()
                 }
                 strOutput += strInfo;
 
-                strInfo.Format(L"Remapping complete: %u of %u palettes found.", nCountPalettesMapped, nCountPalettesExisting);
+                if (nCountPalettesExisting)
+                {
+                    strInfo.Format(L"Remapping complete: %u of %u palettes found.", nCountPalettesMapped, nCountPalettesExisting);
+                }
+                else
+                {
+                    strInfo = L"PalMod's support for this game does not currently support remapping.";
+                }
+
                 SetStatusText(strInfo.GetString());
-                //const auto foobar = strOutput.GetLength();
-                // this doesn't work: overflows shared memory
+                strInfo += L"\r\n";
+                OutputDebugString(strInfo.GetString());
+
+                // Note we can't output strOutput to debug out because it overflows the shared memory buffer size
                 //OutputDebugString(strOutput.GetString());
 
                 CFile OutputFile;
