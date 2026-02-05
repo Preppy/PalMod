@@ -933,6 +933,13 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             {
                 for (; nCheckAgainstColor < m_pImgBuffer[nCheckAgainstPalette]->uPalSz; nCheckAgainstColor++)
                 {
+                    if ((currTransparencyWriteMode == PALWriteOutputOptions::WRITE_16) &&
+                        ((nCheckAgainstColor % 16) == 0))
+                    {
+                        // ignore transparency bytes
+                        continue;
+                    }
+
                     if (clrChecking == m_pImgBuffer[nCheckAgainstPalette]->pPalette[nCheckAgainstColor])
                     {
                         fCurrentPaletteIsNotMappingFriendly = true;
