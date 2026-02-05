@@ -177,6 +177,14 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
             }
 
             ::ReleaseDC(::GetDesktopWindow(), hdc);
+
+            const PALWriteOutputOptions currTransparencyWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+
+            if (currTransparencyWriteMode == PALWriteOutputOptions::WRITE_16)
+            {
+                // Walk to the next actual color
+                CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
+            }
         }
     }
 }
