@@ -18,6 +18,7 @@ constexpr auto CUSTOM_GRADIENT_HSV    = WM_USER + 19;
 constexpr auto CUSTOM_GRADIENT_LAB    = WM_USER + 20;
 constexpr auto CUSTOM_GRADIENT_XYZ    = WM_USER + 21;
 constexpr auto CUSTOM_COPYBINARY      = WM_USER + 22;
+constexpr auto CUSTOM_SMATCHING       = WM_USER + 23;
 
 class CJunk :
     public CWnd
@@ -39,7 +40,8 @@ private:
     void CustomFillRect(RECT* lpRect, uint8_t* crSrcCol, BlendMode bm);
     //Input management
 
-    BOOL ProcessHovered(CPoint hPoint, CPoint& auxPos);
+    BOOL TranslateMousePointToPaletteIndices(CPoint hPoint, CPoint& auxPos);
+    BOOL TranslateMousePointToAbsolutePaletteIndex(CPoint hPoint, int& nPos);
     void LoadDefaultPal();
 
     // Constants
@@ -200,6 +202,7 @@ public:
     void SelectFirstColor();
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
 
+    void SelectMatching(CPoint ptOrigin);
     void SelectAll();
 
     int GetWorkingAmt() { return m_iWorkingAmt; };

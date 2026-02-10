@@ -73,6 +73,7 @@ void CJunk::ClearSelView()
     m_iHLAmt = 0;
 }
 
+// This handles matching a color found in the Preview window
 bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor)
 {
     bool fFoundColor = false;
@@ -476,6 +477,42 @@ void CJunk::DrawBG()
     }
 }
 
+// This handles matching a color selected in the Palette window
+void CJunk::SelectMatching(CPoint ptOrigin)
+{
+    if (m_Selected)
+    {
+        int nOriginIndex = 0;
+
+        if (TranslateMousePointToAbsolutePaletteIndex(ptOrigin, nOriginIndex))
+        {
+            int nMatchesFound = 0;
+            COLORREF clrOfInterest = m_BasePal[nOriginIndex];
+
+            for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
+            {
+                if (m_BasePal[iPos] == clrOfInterest)
+                {
+                    m_Selected[iPos] = TRUE;
+                    nMatchesFound++;
+                }
+                else
+                {
+                    m_Selected[iPos] = FALSE;
+                }
+            }
+
+            CString strMessage;
+            const uint32_t nRGB = ((clrOfInterest & 0xFF) << 16) | (clrOfInterest & 0xff00) | ((clrOfInterest & 0xff0000) >> 16);
+            strMessage.Format(L"Color 0x%06x appears %u times.", nRGB, nMatchesFound);
+            GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
+
+            UpdateSelAmt();
+            UpdateCtrl();
+        }
+    }
+}
+
 void CJunk::SelectAll()
 {
     if (m_Selected)
@@ -808,7 +845,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
     if (!m_LButtonDown)
     {
-        if (ProcessHovered(point, PalIndex))
+        if (TranslateMousePointToPaletteIndices(point, PalIndex))
         {
             if (!((PalIndex.y >= m_iPalH) || (PalIndex.x >= m_iPalW)))
             {
@@ -841,7 +878,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
     }
     else
     {
-        if (ProcessHovered(point, PalIndex))
+        if (TranslateMousePointToPaletteIndices(point, PalIndex))
         {
             if ((m_yHLOld != PalIndex.y) || (m_xHLOld != PalIndex.x))
             {
@@ -867,7 +904,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
                     for (int y = ks; y <= ke; y++)
                     {
-                        SetSelViewItem(L"OnMouseMove::ProcessHovered", y, TRUE);
+                        SetSelViewItem(L"OnMouseMove::TranslateMousePointToPaletteIndices", y, TRUE);
                         m_iHLAmt++;
                     }
                 }
@@ -898,7 +935,7 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
 
     CPoint PalIndex;
 
-    if (ProcessHovered(point, PalIndex))
+    if (TranslateMousePointToPaletteIndices(point, PalIndex))
     {
         m_yInSelStart = PalIndex.y;
         m_xInSelStart = PalIndex.x;
@@ -1023,7 +1060,7 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
     CWnd::OnLButtonUp(nFlags, point);
 }
 
-BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
+BOOL CJunk::TranslateMousePointToPaletteIndices(CPoint hPoint, CPoint& PalPos)
 {
     const int posmod = GetPaletteSquareSize() + BDR_SZ;
     const int xIn = hPoint.x / posmod;
@@ -1041,8 +1078,24 @@ BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
     PalPos.y = yIn;
 
     return TRUE;
-
 }
+
+BOOL CJunk::TranslateMousePointToAbsolutePaletteIndex(CPoint hPoint, int& nPos)
+{
+    CPoint PalIndex;
+
+    if (TranslateMousePointToPaletteIndices(hPoint, PalIndex))
+    {
+        nPos = (PalIndex.y * m_iPalW) + PalIndex.x;
+        if (nPos < m_iWorkingAmt)
+        {
+            return TRUE;
+        }        
+    }
+
+    return FALSE;
+}
+
 void CJunk::OnTimer(UINT_PTR nIDEvent)
 {
     CPoint p(GetMessagePos());
@@ -1082,8 +1135,9 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
     if (PopupMenu.CreatePopupMenu())
     {
         RECT rWnd; GetWindowRect(&rWnd);
-        point.x += rWnd.left;
-        point.y += rWnd.top;
+        CPoint ptAdjusted = point;
+        ptAdjusted.x += rWnd.left;
+        ptAdjusted.y += rWnd.top;
 
         int nCountColorSelected = 0;
 
@@ -1114,47 +1168,51 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SMATCHING, L"Select &Matching");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, L"Select &None");
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(m_nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYOFFSET, L"Copy Offset");
         PopupMenu.AppendMenu(m_nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYBINARY, L"Copy Binary Data");
 
-        const int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
+        const int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, ptAdjusted.x, ptAdjusted.y, this, NULL);
 
         switch (result)
         {
-        case CUSTOM_COPY:
-        case CUSTOM_PASTE:
-        case CUSTOM_COPYOFFSET:
-        case CUSTOM_COPYBINARY:
-            NotifyParent(result);
-            break;
-        case CUSTOM_GRADIENT_HSL:
-            GetHost()->GetPalModDlg()->OnBnClickedGradient_HSL();
-            break;
-        case CUSTOM_GRADIENT_HSV:
-            GetHost()->GetPalModDlg()->OnBnClickedGradient_HSV();
-            break;
-        case CUSTOM_GRADIENT_LAB:
-            GetHost()->GetPalModDlg()->OnBnClickedGradient_LAB();
-            break;
-        case CUSTOM_GRADIENT_RGB:
-            GetHost()->GetPalModDlg()->OnBnClickedGradient_RGB();
-            break;
-        case CUSTOM_GRADIENT_XYZ:
-            GetHost()->GetPalModDlg()->OnBnClickedGradient_XYZ();
-            break;
-        case CUSTOM_SALL:
-            SelectAll();
-            UpdateCtrl();
-            break;
-        case CUSTOM_SNONE:
-            ClearSelected();
-            UpdateCtrl();
-            break;
-        case CUSTOM_REVERSE:
-            GetHost()->GetPalModDlg()->OnBnClickedReverse();
-            break;
+            case CUSTOM_COPY:
+            case CUSTOM_PASTE:
+            case CUSTOM_COPYOFFSET:
+            case CUSTOM_COPYBINARY:
+                NotifyParent(result);
+                break;
+            case CUSTOM_GRADIENT_HSL:
+                GetHost()->GetPalModDlg()->OnBnClickedGradient_HSL();
+                break;
+            case CUSTOM_GRADIENT_HSV:
+                GetHost()->GetPalModDlg()->OnBnClickedGradient_HSV();
+                break;
+            case CUSTOM_GRADIENT_LAB:
+                GetHost()->GetPalModDlg()->OnBnClickedGradient_LAB();
+                break;
+            case CUSTOM_GRADIENT_RGB:
+                GetHost()->GetPalModDlg()->OnBnClickedGradient_RGB();
+                break;
+            case CUSTOM_GRADIENT_XYZ:
+                GetHost()->GetPalModDlg()->OnBnClickedGradient_XYZ();
+                break;
+            case CUSTOM_SALL:
+                SelectAll();
+                UpdateCtrl();
+                break;
+            case CUSTOM_SMATCHING:
+                SelectMatching(point);
+                break;
+            case CUSTOM_SNONE:
+                ClearSelected();
+                UpdateCtrl();
+                break;
+            case CUSTOM_REVERSE:
+                GetHost()->GetPalModDlg()->OnBnClickedReverse();
+                break;
         }
     }
     else
@@ -1186,6 +1244,7 @@ BOOL CJunk::OnCommand(WPARAM wParam, LPARAM lParam)
         case CUSTOM_COPY:
         case CUSTOM_PASTE:
         case CUSTOM_SALL:
+        case CUSTOM_SMATCHING:
         case CUSTOM_SNONE:
         case CUSTOM_COPYOFFSET:
         case CUSTOM_COPYBINARY:

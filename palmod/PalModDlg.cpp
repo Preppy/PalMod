@@ -721,6 +721,7 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
                 case CUSTOM_COPY:
                 case CUSTOM_PASTE:
                 case CUSTOM_SALL:
+                case CUSTOM_SMATCHING:
                 case CUSTOM_SNONE:
                 case CUSTOM_COPYOFFSET:
                 case CUSTOM_COPYBINARY:
