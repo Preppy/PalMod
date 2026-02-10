@@ -2,11 +2,52 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "MappingPalettes.h"
+#include "RegProc.h"
 
 void CMappingPaletteManager::_Reset(ColMode colorMode)
 {
     m_lastColorMode = colorMode;
     m_nRedStep = m_nGreenStep = m_nBlueStep = m_fAvoidPureColors ? 1 : 0;
+}
+
+CMappingPaletteManager::CMappingPaletteManager()
+{
+    HKEY hKey = nullptr;
+
+    if (ERROR_SUCCESS == RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey))
+    {
+        DWORD dwRegType = REG_QWORD;
+        QWORD qwActiveColorSteps = 0;
+        DWORD cbDataSize = sizeof(QWORD);
+
+        if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strRegColorStep.c_str(), 0, &dwRegType, reinterpret_cast<LPBYTE>(&qwActiveColorSteps), &cbDataSize))
+            && (REG_QWORD == dwRegType))
+        {
+            m_lastColorMode = static_cast<ColMode>((qwActiveColorSteps >> 48) & 0xffff);
+            m_nRedStep   = (qwActiveColorSteps >> 32) & 0xffff;
+            m_nGreenStep = (qwActiveColorSteps >> 16) & 0xffff;
+            m_nBlueStep  = qwActiveColorSteps & 0xffff;
+        }
+
+        RegCloseKey(hKey);
+    }
+}
+
+CMappingPaletteManager::~CMappingPaletteManager()
+{
+    if (m_nRedStep || m_nGreenStep || m_nBlueStep)
+    {
+        HKEY hKey = nullptr;
+
+        if (ERROR_SUCCESS == RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, nullptr, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_SET_VALUE, NULL, &hKey, NULL))
+        {
+            QWORD qwActiveColorSteps = (static_cast<QWORD>(m_lastColorMode) << 48) | (static_cast<QWORD>(m_nRedStep) << 32) | (static_cast<QWORD>(m_nGreenStep) << 16) | m_nBlueStep;
+
+            RegSetValueEx(hKey, c_strRegColorStep.c_str(), 0, REG_QWORD, reinterpret_cast<LPBYTE>(&qwActiveColorSteps), static_cast<DWORD>(sizeof(QWORD)));
+
+            RegCloseKey(hKey);
+        }
+    }
 }
 
 std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode colorMode, PALWriteOutputOptions alpha, uint16_t nWriteLength, uint8_t nStepLength)
