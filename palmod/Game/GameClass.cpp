@@ -771,7 +771,7 @@ void CGameClass::UpdatePalData()
     uint32_t nChangedPalettesCount = 0;
 
     // We walk the list backwards so that we know what the first palette's name is
-    for (int16_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
+    for (int32_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
     {
         sPalDef* srcDef = m_BasePalGroup.GetPalDef(nPalCtr);
 
@@ -1222,6 +1222,9 @@ const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGam
         }
     }
 
+    // Injecting this nonsense line to work around an optimizer-induced crash
+    OutputDebugString(L"No PaletteSet found for request.\r\n");
+
     return nullptr;
 }
 
@@ -1490,10 +1493,14 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
                     
                 if (!paletteSetToUse)
                 {
+                    paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
                     // We should never hit this, but I added this to work around a bug in the MSVC optimizer I was running into.
                     // With this check it doesn't optimize away the paletteSetTouse variable and we don't crash.  Ugh.
-                    MessageBox(g_appHWnd, L"Catastrophic error happened: please report this error so it can be properly fixed.\r\nPalMod will now close.", GetHost()->GetAppName(), MB_ICONERROR);
-                    DebugBreak();
+                    if (!paletteSetToUse)
+                    {
+                        MessageBox(g_appHWnd, L"Catastrophic optimization error happened: please report this error so it can be properly fixed.\r\n\r\nPalMod will now close.", GetHost()->GetAppName(), MB_ICONERROR);
+                        DebugBreak();
+                    }
                 }
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
@@ -1728,7 +1735,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
                     nSrcAmt = 1;
                 }
 
-                if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
+                if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == FULLY_PAIRED_NODE)
                 {
                     if (Node03 == 0)
                     {

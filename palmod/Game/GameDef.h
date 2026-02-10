@@ -414,8 +414,10 @@ struct sGame_PaletteDataset
     const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };
 
+const auto FULLY_PAIRED_NODE = 0xffff;
+
 const stPairedPaletteInfo pairHandledInCode = { 0 };
-const stPairedPaletteInfo pairFullyLinkedNode = { 0, {}, -1 };
+const stPairedPaletteInfo pairFullyLinkedNode = { 0, {}, FULLY_PAIRED_NODE };
 
 const stPairedPaletteInfo pairNext = { 1 };
 const stPairedPaletteInfo pairNext2 = { 2 };
