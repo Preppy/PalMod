@@ -45,17 +45,17 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                             // party.
                             ProcChange();
 
-                            const uint8_t nActivePaletteCount = MainPalGroup->GetPalAmt();
+                            const uint32_t nActivePaletteCount = MainPalGroup->GetPalAmt();
                             const int nPALColorCount = (dwDataSize / 4);
 
                             uint16_t iPALDataIndex = 0;
-                            uint16_t nCurrentPalette = 0;
+                            uint32_t nCurrentPalette = 0;
                             uint16_t nTotalColorsUsed = 0;
                             bool fHaveLooped = false;
                             int iCurrentIndexInPalette = 0;
                             int nTotalNumberOfCurrentPaletteColors = 0;
 
-                            for (uint8_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                            for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                             {
                                 nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
                             }

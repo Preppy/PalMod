@@ -73,7 +73,7 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
             HPALFile.Close();
 
             // Now consume those colors...
-            const uint8_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
+            const uint32_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
             uint32_t nTotalNumberOfCurrentColors = 0;
 
             for (uint32_t nPalette = 0; nPalette < nTotalPaletteCount; nPalette++)
@@ -82,7 +82,7 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
             }
 
             uint16_t iHPALIndex = 0;
-            uint16_t nCurrentPalette = 0;
+            uint32_t nCurrentPalette = 0;
             uint16_t nTotalColorsUsed = 0;
             bool fHaveLooped = false;
             uint16_t iCurrentIndexInPalette = 0;
@@ -96,7 +96,7 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
             {
                 // we have multiple palettes: ensure that we only use useful data from the HPAL
                 uint16_t nOffsetThisPass = 0;
-                for (uint8_t iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
+                for (uint32_t iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
                 {
                     for (iHPALIndex = nOffsetThisPass; (iHPALIndex < k_nHPALColorCount) && ((iHPALIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz); iHPALIndex++)
                     {

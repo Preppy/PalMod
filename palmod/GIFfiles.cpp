@@ -99,16 +99,16 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
         CGameClass* CurrGame = GetHost()->GetCurrGame();
         ProcChange();
 
-        const uint8_t nActivePaletteCount = MainPalGroup->GetPalAmt();
+        const uint32_t nActivePaletteCount = MainPalGroup->GetPalAmt();
         uint32_t nTotalNumberOfCurrentPaletteColors = 0;
 
-        for (uint16_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+        for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
         {
             nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
         }
 
         uint16_t iGIFIndex = 0;
-        uint16_t nCurrentPalette = 0;
+        uint32_t nCurrentPalette = 0;
         uint16_t nTotalColorsUsed = 0;
         bool fHaveLooped = false;
         int iCurrentIndexInPalette = 0;
@@ -121,7 +121,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
         if (fHaveMultiplePalettes)
         {
             int nOffsetThisPass = 0;
-            for (int iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+            for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
             {
                 for (iGIFIndex = nOffsetThisPass; (iGIFIndex < nTotalNumberOfCurrentPaletteColors) &&
                                                   ((iGIFIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz) &&

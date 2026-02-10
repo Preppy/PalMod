@@ -117,7 +117,7 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
             if (nColorsFound && ((rgRGBVals.size() / static_cast<float>(nColorsFound)) == 3.0))
             {
                 // Now consume those colors...
-                const uint8_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
+                const uint32_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
                 uint32_t nTotalNumberOfCurrentColors = 0;
 
                 for (uint32_t nPalette = 0; nPalette < nTotalPaletteCount; nPalette++)
@@ -126,7 +126,7 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                 }
 
                 uint16_t iGPLIndex = 0;
-                uint16_t nCurrentPalette = 0;
+                uint32_t nCurrentPalette = 0;
                 uint16_t nTotalColorsUsed = 0;
                 bool fHaveLooped = false;
                 uint16_t iCurrentIndexInPalette = 1; // skip transparency color
@@ -141,7 +141,7 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                 {
                     // we have multiple palettes: ensure that we only use useful data from the GPL
                     uint32_t nTotalColorsNeeded = 0;
-                    for (uint8_t iPalette = 1; iPalette < nTotalPaletteCount; iPalette++)
+                    for (uint32_t iPalette = 1; iPalette < nTotalPaletteCount; iPalette++)
                     {
                         nTotalColorsNeeded += MainPalGroup->GetPalDef(iPalette)->uPalSz;
                         if (nTotalColorsNeeded <= nColorsFound)

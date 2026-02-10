@@ -108,7 +108,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                     OutputDebugString(L"\t\tpngreader: processing PLTE header...\n");
 
-                    const uint8_t nActivePaletteCount = MainPalGroup->GetPalAmt();
+                    const uint32_t nActivePaletteCount = MainPalGroup->GetPalAmt();
                     const int nPNGColorCount = (chunkLength / 3);
 
                     strInfo.Format(L"\t\tpngreader: processing %u colors...\n", nPNGColorCount);
@@ -116,13 +116,13 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                     uint32_t nTotalNumberOfCurrentPaletteColors = 0;
 
-                    for (uint16_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                    for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                     {
                         nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
                     }
 
                     uint16_t iPNGIndex = 0;
-                    uint16_t nCurrentPalette = 0;
+                    uint32_t nCurrentPalette = 0;
                     uint16_t nTotalColorsUsed = 0;
                     uint32_t nBlackColorCount = 0;
                     bool fHaveLooped = false;
@@ -153,7 +153,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                     if (fHaveMultiplePalettes)
                     {
                         int nOffsetThisPass = 0;
-                        for (int iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                        for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                         {
                             for (iPNGIndex = nOffsetThisPass; (iPNGIndex < nTotalNumberOfCurrentPaletteColors) && ((iPNGIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz) && (iPNGIndex < nPNGColorCount); iPNGIndex++)
                             {

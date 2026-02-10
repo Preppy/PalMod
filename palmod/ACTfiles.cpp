@@ -45,16 +45,16 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             ActFile.Close();
 
             // Now consume those colors...
-            const uint8_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
+            const uint32_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
             int nTotalNumberOfCurrentColors = 0;
 
-            for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
+            for (uint32_t iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
             {
                 nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
             }
 
             size_t iACTIndex = 0;
-            uint16_t nCurrentPalette = 0;
+            uint32_t nCurrentPalette = 0;
             uint16_t nTotalColorsUsed = 0;
             bool fHaveLooped = false;
             int iCurrentIndexInPalette = 0;
@@ -87,7 +87,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             {
                 // we have multiple palettes: ensure that we only use useful data from the ACT
                 int nOffsetThisPass = 0;
-                for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
+                for (uint32_t iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
                 {
                     const uint16_t nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
                     for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)

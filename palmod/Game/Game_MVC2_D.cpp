@@ -793,7 +793,7 @@ void CGame_MVC2_D::UpdatePalData()
     int nTotalLinkedPalettesUpdated = 0;
 
     // We walk the list backwards so that we can handle in-preview palette updates such as Servbot main->assist
-    for (int16_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
+    for (int32_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
     {
         sPalDef* srcDef = m_BasePalGroup.GetPalDef(nPalCtr);
 
