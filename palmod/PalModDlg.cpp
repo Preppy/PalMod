@@ -171,8 +171,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_GENERATEPATCHFILE, &CPalModDlg::OnSavePatchFile)
     ON_COMMAND(ID_TOOLS_CHECKMVC2MIX, &CPalModDlg::OnButtonClickCheckEdits)
 
-    ON_COMMAND(ID_TOOLS_MAPPING_USE_STEP1, &CPalModDlg::OnMappingPaletteUse_Step1)
-    ON_COMMAND(ID_TOOLS_MAPPING_USE_STEP2, &CPalModDlg::OnMappingPaletteUse_Step2)
+    ON_COMMAND(ID_TOOLS_MAPPING_USE_CURRENT, &CPalModDlg::OnMappingPaletteUse_Current)
+    ON_COMMAND(ID_TOOLS_MAPPING_USE_ALLPAIRED, &CPalModDlg::OnMappingPaletteUse_AllPaired)
 
     ON_COMMAND(ID_SETTINGS_SETTINGS, &CPalModDlg::OnSettingsSettings)
     ON_COMMAND(ID_SETTINGS_EXTCOPYDATA, &CPalModDlg::OnChangeExtendedCopyData)

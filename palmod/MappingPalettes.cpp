@@ -7,7 +7,9 @@
 void CMappingPaletteManager::_Reset(ColMode colorMode)
 {
     m_lastColorMode = colorMode;
-    m_nRedStep = m_nGreenStep = m_nBlueStep = m_fAvoidPureColors ? 1 : 0;
+    // This lets us avoid colliding with oft-used black while giving us the maximum possible color space to work with
+    m_nRedStep = m_fAvoidPureColors ? 1 : 0;
+    m_nGreenStep = m_nBlueStep = 0;
 }
 
 CMappingPaletteManager::CMappingPaletteManager()
@@ -50,6 +52,40 @@ CMappingPaletteManager::~CMappingPaletteManager()
     }
 }
 
+void CMappingPaletteManager::InitializeForUse()
+{
+    m_nLoopCount = 0;
+    m_nRedStart = m_nRedStep;
+    m_nGreenStart = m_nGreenStep;
+    m_nBlueStart = m_nBlueStep;
+}
+
+bool CMappingPaletteManager::UnsafeLooped()
+{
+    bool fLoopWasUnsafe = false;
+
+    if (m_nLoopCount == 1)
+    {
+        if ((m_nBlueStart > m_nBlueStep) ||
+             ((m_nBlueStart == m_nBlueStep) &&
+               ((m_nGreenStart > m_nGreenStep) ||
+                  (m_nGreenStart == m_nGreenStep) && (m_nRedStart > m_nRedStep))))
+        {
+            fLoopWasUnsafe = false;
+        }
+        else
+        {
+            fLoopWasUnsafe = true;
+        }
+    }
+    else if (m_nLoopCount)
+    {
+        fLoopWasUnsafe = true;
+    }
+
+    return fLoopWasUnsafe;
+}
+
 std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode colorMode, PALWriteOutputOptions alpha, uint16_t nWriteLength, uint8_t nStepLength)
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
@@ -78,16 +114,17 @@ std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode 
             m_nRedStep += nStepLength;
             if (m_nRedStep > nPlaneLength)
             {
+                // We only avoid pure red: that lets us avoid flat black that will match everything
                 m_nRedStep = m_fAvoidPureColors ? 1 : 0;
                 m_nGreenStep += nStepLength;
                 if (m_nGreenStep > nPlaneLength)
                 {
-                    m_nGreenStep = m_fAvoidPureColors ? 1 : 0;
+                    m_nGreenStep = 0;
                     m_nBlueStep += nStepLength;
                     // We use >= instead of > here so that we avoid pure white
                     if (m_nBlueStep >= nPlaneLength)
                     {
-                        m_nBlueStep = m_fAvoidPureColors ? 1 : 0;
+                        m_nBlueStep = 0;
                         // completely loop the table
                         m_nRedStep = m_fAvoidPureColors ? 1 : 0;
                         // This can be queried by caller to figure out if we've had to loop
@@ -108,30 +145,46 @@ std::vector<uint32_t> CMappingPaletteManager::GetMappingPaletteSequence(ColMode 
     return colorMap;
 }
 
-void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
+void CPalModDlg::OnMappingPaletteUse(bool fMapAllCurrentPalettes)
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     if (CurrGame)
     {
-        sPalDef* PalDef = MainPalGroup->GetPalDef(static_cast<uint32_t>(m_nCurrSelPal));
-        uint8_t* pPal = reinterpret_cast<uint8_t*>(PalDef->pPal);
-        const uint16_t nPalLength = PalDef->uPalSz;
-        const int nAlphaLocation = static_cast<int>(CurrGame->GetMaximumWritePerEachTransparency());
-        const uint32_t nMapLoopCount = PaletteMapper.GetLoopCount();
-
         ProcChange();
-        CurrGame->MarkPaletteDirty(PalDef->uUnitId, PalDef->uPalId);
 
-        std::vector<uint32_t> colorMap = PaletteMapper.GetMappingPaletteSequence(CurrGame->GetColorMode(), CurrGame->GetMaximumWritePerEachTransparency(), nPalLength, nStep);
+        const uint32_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
+        const int nAlphaLocation = static_cast<int>(CurrGame->GetMaximumWritePerEachTransparency());
 
-        for (uint32_t iCurrentIndexInPalette = 0; iCurrentIndexInPalette < colorMap.size(); iCurrentIndexInPalette++)
+        PaletteMapper.InitializeForUse();
+        const uint32_t nStartingPalette = fMapAllCurrentPalettes ? 0 : m_nCurrSelPal;
+        // Theoretically we could (should?) allow for maximized mapping to handle emulator color display logic
+        const uint8_t nStepLength = 1;
+
+        for (uint32_t iPalette = nStartingPalette; iPalette < nTotalPaletteCount; iPalette++)
         {
-            if ((iCurrentIndexInPalette % nAlphaLocation) != 0)
+            // use m_nCurrSelPal if you just want active palette
+            sPalDef* PalDef = MainPalGroup->GetPalDef(static_cast<uint32_t>(iPalette));
+            uint8_t* pPal = reinterpret_cast<uint8_t*>(PalDef->pPal);
+            const uint16_t nPalLength = PalDef->uPalSz;
+
+            CurrGame->MarkPaletteDirty(PalDef->uUnitId, PalDef->uPalId);
+
+            std::vector<uint32_t> colorMap = PaletteMapper.GetMappingPaletteSequence(CurrGame->GetColorMode(), CurrGame->GetMaximumWritePerEachTransparency(), nPalLength, nStepLength);
+
+            for (uint32_t iCurrentIndexInPalette = 0; iCurrentIndexInPalette < colorMap.size(); iCurrentIndexInPalette++)
             {
-                pPal[(iCurrentIndexInPalette * 4)]     = GetRValue(colorMap.at(iCurrentIndexInPalette));
-                pPal[(iCurrentIndexInPalette * 4) + 1] = GetGValue(colorMap.at(iCurrentIndexInPalette));
-                pPal[(iCurrentIndexInPalette * 4) + 2] = GetBValue(colorMap.at(iCurrentIndexInPalette));
+                if ((iCurrentIndexInPalette % nAlphaLocation) != 0)
+                {
+                    pPal[(iCurrentIndexInPalette * 4)] = GetRValue(colorMap.at(iCurrentIndexInPalette));
+                    pPal[(iCurrentIndexInPalette * 4) + 1] = GetGValue(colorMap.at(iCurrentIndexInPalette));
+                    pPal[(iCurrentIndexInPalette * 4) + 2] = GetBValue(colorMap.at(iCurrentIndexInPalette));
+                }
+            }
+
+            if (!fMapAllCurrentPalettes)
+            {
+                break;
             }
         }
 
@@ -141,13 +194,21 @@ void CPalModDlg::OnMappingPaletteUse(uint8_t nStep)
         UpdateMultiEdit(TRUE);
         UpdateSliderSel();
 
-        CString strInfo = L"Updated this palette to use a mapping palette.";
+        CString strInfo = L"Updated to use a mapping palette.";
 
-        if (nMapLoopCount != PaletteMapper.GetLoopCount())
+        if (PaletteMapper.UnsafeLooped())
+        {
+            // actually, we should outright show an error here.
+            strInfo += L"  ERROR: Too many colors to map.";
+
+            CString strMsg = L"ERROR!  This palette set has too many color indexes to uniquely map.\r\n\r\nYou will need to map targeted palettes instead.";
+            MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+        else if (PaletteMapper.Looped())
         {
             strInfo += L"  Reached end of map: restarted map.";
         }
 
-        GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
+        SetStatusText(strInfo.GetString());
     }
 }

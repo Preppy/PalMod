@@ -690,8 +690,8 @@ BEGIN
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
         POPUP "Mapping Palette"
         BEGIN
-            MENUITEM "Use, Step by 1",              ID_TOOLS_MAPPING_USE_STEP1
-            MENUITEM "Use, Step by 2",              ID_TOOLS_MAPPING_USE_STEP2
+            MENUITEM "Map Selected Palette",              ID_TOOLS_MAPPING_USE_CURRENT
+            MENUITEM "Map All Paired Palettes",           ID_TOOLS_MAPPING_USE_ALLPAIRED
         END
         MENUITEM SEPARATOR
         MENUITEM "Remap Unit",                  ID_TOOLS_REMAPUNIT
