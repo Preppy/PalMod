@@ -10,7 +10,7 @@ constexpr auto INVALID_UNIT_VALUE_16 = 0xffff;
 constexpr auto INVALID_VALUE_32 = 0xffffffff;
 
 // We should rarely get anywhere near here, but we'll bound here.
-constexpr auto MAX_IMAGES_DISPLAYABLE = 64;
+constexpr auto MAX_IMAGES_DISPLAYABLE = 0x64;
 // MAX_PALETTES_DISPLAYABLE should be 2x images as the slicer will divide large palettes in skinny / 8cpl mode
 constexpr auto MAX_PALETTES_DISPLAYABLE = MAX_IMAGES_DISPLAYABLE * 2;
 constexpr auto MAX_SEPARATORS = MAX_PALETTES_DISPLAYABLE;
