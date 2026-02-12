@@ -491,7 +491,7 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fPreferQuietMode, bool fForceNonIndexed /* = false */, bool fReverseColorTable /* = false */)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fShowAdvancedOptions, bool fForceNonIndexed /* = false */, bool fReverseColorTable /* = false */)
 {
     wchar_t* pszExt = wcsrchr(pszPath, L'.');
     bool fSuccess = false;
@@ -500,15 +500,17 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImpor
         ((_wcsicmp(pszExt, L".gif") == 0) ||
          (_wcsicmp(pszExt, L".bmp") == 0)))
     {
-        fSuccess = m_ImgDisp.LoadExternalCImageSprite(*pnPositionToLoadTo, direction, pszPath, fPreferQuietMode);
+        UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+        fSuccess = m_ImgDisp.LoadExternalCImageSprite(nPositionToLoadTo, direction, pszPath, fShowAdvancedOptions);
     }
     else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
     {
-        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fPreferQuietMode, fForceNonIndexed, fReverseColorTable);
+        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fShowAdvancedOptions, fForceNonIndexed, fReverseColorTable);
     }
     else
     {
-        fSuccess = m_ImgDisp.LoadExternalRAWSprite(*pnPositionToLoadTo, direction, pszPath, fPreferQuietMode);
+        UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+        fSuccess = m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath, fShowAdvancedOptions);
     }
 
     if (fSuccess)
@@ -517,7 +519,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImpor
     }
 }
 
-void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */, bool fPreferQuietMode /* = true*/)
+void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */, bool fShowAdvancedOptions /* = false */)
 {
     if (GetHost()->GetCurrGame())
     {
@@ -537,7 +539,7 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
             UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
 
             // Filter index is 1-based
-            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fPreferQuietMode, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
+            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
 
             CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);
         }

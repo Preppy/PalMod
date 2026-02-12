@@ -85,7 +85,7 @@ private:
     void DrawMainBG();
     void InitImgBuffer();
 
-    void ResizeMainBitmap();
+    void _ResizeMainBitmap();
 
     void ModifySrcRect();
     void ModifyClRect();
@@ -102,7 +102,10 @@ private:
     void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize, bool fReverseColorTable = false);
     void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
-    std::vector<uint8_t> _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fPreferQuietMode = true);
+    void _ResizeImageStack();
+    void _ResetForNewImage();
+
+    std::vector<uint8_t> _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fShowAdvancedOptions = false);
 
 public:
     CImgDisp();
@@ -162,11 +165,11 @@ public:
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
-    bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
+    bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true);
     // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
     // A null pointer passed in indicates to us to replace the full stack: a pointer of value 0 means just the first layer.
-    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false, bool fForceNonIndexed = false, bool fReversedColorTable = false);
-    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fPreferQuietMode = false);
+    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, bool fForceNonIndexed = false, bool fReversedColorTable = false);
+    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fMustShowAdvancedOptions = true);
 
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
@@ -195,8 +198,6 @@ public:
     // Just reset custom loaded sprites
     void FlushCustomSpriteOverrides();
     void ResetCustomSpriteOverride(size_t nPosition);
-
-    void ResetForNewImage();
 
 protected:
     BOOL RegisterWindowClass();

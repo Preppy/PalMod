@@ -7,7 +7,7 @@
 
 uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions& suggestedImageSize,
                                   int nImgAmt, sImgNode** ppImgBuffer, std::array<sTextureData, MAX_IMAGES_DISPLAYABLE> vSpriteOverrideTextures,
-                                  UINT& nPositionToLoadTo, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, sImgNode** pImgBuffer, bool fPreferQuietMode /* = true */)
+                                  UINT& nPositionToLoadTo, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, sImgNode** pImgBuffer, bool fMustShowAdvancedOptions /* = false */)
 {
     // We get to have a lot of bonus logic here since RAW files don't contain height/width information...
     CFile TextureFile;
@@ -148,7 +148,7 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
 
                 }
 
-                if (!fPreferQuietMode || !fHaveViableDimensions)
+                if (fMustShowAdvancedOptions || !fHaveViableDimensions)
                 {
                     fHaveViableDimensions = GetUserOptionsForTextureOverride(nIncomingFileSize, suggestedImageSize,
                                                                              nImgAmt, ppImgBuffer, vSpriteOverrideTextures,

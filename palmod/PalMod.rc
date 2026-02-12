@@ -809,7 +809,7 @@ BEGIN
         POPUP "Drop Settings"
         BEGIN
             MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
-            MENUITEM "Trim dropped previews",       ID_SETTINGS_DROPTRIM
+            MENUITEM "Trim dropped non-indexed previews",       ID_SETTINGS_DROPTRIM
             MENUITEM "Use WinKawaks correction first for CPS1/CPS2/NeoGeo", ID_SETTINGS_DROPKAWAKS
         END
         MENUITEM SEPARATOR

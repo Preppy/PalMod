@@ -342,7 +342,7 @@ bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGa
     OutputDebugString(strFile.GetBuffer());
 #endif
 
-    const bool fSuccess = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), true /* use quiet mode */);
+    const bool fSuccess = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false /* use quiet mode since this is automatic */);
 
     m_strOverridePreviewStatus.Format(L"\"%s\" %s", strImagePath.GetBuffer(), fSuccess ? L"loaded" : L"not loaded");
     OutputDebugString(m_strOverridePreviewStatus.GetString());
