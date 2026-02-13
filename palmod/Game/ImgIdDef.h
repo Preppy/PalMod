@@ -1691,6 +1691,24 @@ enum SupportedSega_PaletteListIndex
 
     indexSegaMK1Sprites_Bonus,          // 0x34
     indexSegaMK1Sprites_Stages,         // 0x35
+
+    indexSegaMK2Sprites_Baraka,         // 0x36
+    indexSegaMK2Sprites_Jax,            // 0x37
+    indexSegaMK2Sprites_JohnnyCage,     // 0x38
+    indexSegaMK2Sprites_Kintaro,        // 0x39
+    indexSegaMK2Sprites_Kitana,         // 0x3a
+    indexSegaMK2Sprites_KungLao,        // 0x3b
+    indexSegaMK2Sprites_LiuKang,        // 0x3c
+    indexSegaMK2Sprites_Mileena,        // 0x3d
+    indexSegaMK2Sprites_Raiden,         // 0x3e
+    indexSegaMK2Sprites_Reptile,        // 0x3f
+    indexSegaMK2Sprites_Scorpion,       // 0x40
+    indexSegaMK2Sprites_ShangTsung,     // 0x41
+    indexSegaMK2Sprites_ShaoKahn,       // 0x42
+    indexSegaMK2Sprites_Smoke,          // 0x43
+    indexSegaMK2Sprites_SubZero,        // 0x44
+    indexSegaMK2Sprites_Bonus,          // 0x45
+    indexSegaMK2Sprites_Jade,           // 0x46
 };
 
 enum SupportedSNES_PaletteListIndex
