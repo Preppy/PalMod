@@ -157,11 +157,11 @@ void CPalModDlg::OnMappingPaletteUse(bool fMapAllCurrentPalettes)
         const int nAlphaLocation = static_cast<int>(CurrGame->GetMaximumWritePerEachTransparency());
 
         PaletteMapper.InitializeForUse();
-        const uint32_t nStartingPalette = fMapAllCurrentPalettes ? 0 : m_nCurrSelPal;
+        const UINT_PTR nStartingPalette = fMapAllCurrentPalettes ? 0 : m_nCurrSelPal;
         // Theoretically we could (should?) allow for maximized mapping to handle emulator color display logic
         const uint8_t nStepLength = 1;
 
-        for (uint32_t iPalette = nStartingPalette; iPalette < nTotalPaletteCount; iPalette++)
+        for (uint32_t iPalette = static_cast<uint32_t>(nStartingPalette); iPalette < nTotalPaletteCount; iPalette++)
         {
             // use m_nCurrSelPal if you just want active palette
             sPalDef* PalDef = MainPalGroup->GetPalDef(static_cast<uint32_t>(iPalette));

@@ -103,8 +103,8 @@ private:
     void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
     void _UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions dimensions);
-    void _TrimLoadedCustomImages();
-    void _ResizeImageStack();
+    void _TrimLoadedCustomImages(bool fIsFullStackReplacement);
+    void _ResizeImageStack(bool fIsFullStackReplacement);
     void _ResetForNewImage();
 
     std::vector<uint8_t> _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fShowAdvancedOptions = false);

@@ -918,11 +918,50 @@ void CImgDisp::_ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nN
 
 // This is run when external images are injected in order to trim absolutely unused whitespace.
 // ResizeImageStack handles normalization via padding
-void CImgDisp::_TrimLoadedCustomImages()
+// When trimming, fIsFullStackReplacement ensures we trim down to minimum needed image stack size,
+// not just trimming each preview down as much as possible.
+void CImgDisp::_TrimLoadedCustomImages(bool fIsFullStackReplacement)
 {
     if (GetPreviewDropTrim())
     {
         CString strInfo;
+        bool fNormalizeForStack = false;
+        int nStackLeftMost = 0, nStackFirstLine = 0, nStackRightMost = 0, nStackLastLine = 0;
+
+        // for full stack (RGB PNG) drops we need to ensure that we don't shift the layers due to trim
+        if (fIsFullStackReplacement && m_pImgBuffer[0] && (m_nImgAmt > 1))
+        {
+            fNormalizeForStack = true;
+            nStackLeftMost = m_pImgBuffer[0]->dimensions.width;
+            nStackFirstLine = m_pImgBuffer[0]->dimensions.height;
+
+            for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
+            {
+                if (m_pImgBuffer[iCurrentPreview])
+                {
+                    for (int iCurrentLine = 0; iCurrentLine < m_pImgBuffer[iCurrentPreview]->dimensions.height; iCurrentLine++)
+                    {
+                        bool fThisLineUsed = false;
+                        for (int iCurrentRow = 0; iCurrentRow < m_pImgBuffer[iCurrentPreview]->dimensions.width; iCurrentRow++)
+                        {
+                            const int currentPixel = (iCurrentLine * m_pImgBuffer[iCurrentPreview]->dimensions.width) + iCurrentRow;
+                            if (m_pImgBuffer[iCurrentPreview]->pImgData[currentPixel])
+                            {
+                                nStackLeftMost = min(nStackLeftMost, iCurrentRow);
+                                nStackRightMost = max(nStackRightMost, iCurrentRow);
+                                fThisLineUsed = true;
+                            }
+                        }
+
+                        if (fThisLineUsed)
+                        {
+                            nStackFirstLine = min(nStackFirstLine, iCurrentLine);
+                            nStackLastLine = max(nStackLastLine, iCurrentLine);
+                        }
+                    }
+                }
+            }
+        }
 
         for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
         {
@@ -963,12 +1002,28 @@ void CImgDisp::_TrimLoadedCustomImages()
                     }
                 }
 
-                strInfo.Format(L"Trimming Analysis: Layer %u used space is %u to %u and %u to %u (%ux%u).\r\n", iCurrentPreview, nLeftMost, nRightMost, nFirstLine, nLastLine, 1 + nRightMost - nLeftMost, 1 + nLastLine - nFirstLine);
+                if (nLastLine && nRightMost)
+                {
+                    strInfo.Format(L"Trimming Analysis: Layer %u used space is %u to %u and %u to %u (%ux%u).\r\n", iCurrentPreview, nLeftMost, nRightMost, nFirstLine, nLastLine, 1 + nRightMost - nLeftMost, 1 + nLastLine - nFirstLine);
+                }
+                else
+                {
+                    strInfo.Format(L"Trimming Analysis: Layer %u is unused.\r\n", iCurrentPreview);
+                }
                 OutputDebugString(strInfo.GetString());
             }
 
+            if (fNormalizeForStack)
+            {
+                nLeftMost = min(nLeftMost, nStackLeftMost);
+                nRightMost = max(nRightMost, nStackRightMost);
+                nFirstLine = min(nFirstLine, nStackFirstLine);
+                nLastLine = max(nLastLine, nStackLastLine);
+            }
+
             // Check if things are modified, but add +1 for the 0-based image layout values
-            if (nLeftMost || nFirstLine || (nCurrentWidth != (nRightMost + 1)) || (nCurrentHeight != (nLastLine + 1)))
+            if (nLastLine && nRightMost &&
+                (nLeftMost || nFirstLine || (nCurrentWidth != (nRightMost + 1)) || (nCurrentHeight != (nLastLine + 1))))
             {
                 // Trim as needed
                 const int true_width = 1 + (nRightMost - nLeftMost);
@@ -982,7 +1037,7 @@ void CImgDisp::_TrimLoadedCustomImages()
                 std::vector<uint8_t> pTrimmedBuffer(trim_length);
 
                 int iFilledPos = 0;
-                const int nDataLen = m_vSpriteOverrideTextures.at(iCurrentPreview).pixels.size();
+                const int nDataLen = static_cast<int>(m_vSpriteOverrideTextures.at(iCurrentPreview).pixels.size());
                 const int width = m_vSpriteOverrideTextures.at(iCurrentPreview).dimensions.width;
 
                 for (int iPos = 0; iPos < nDataLen; iPos++)
@@ -1017,12 +1072,12 @@ void CImgDisp::_TrimLoadedCustomImages()
 }
 
 // This is run to normalize image dimensions to ensure best display and export
-void CImgDisp::_ResizeImageStack()
+void CImgDisp::_ResizeImageStack(bool fIsFullStackReplacement)
 {
     int nMaxWidth = 0, nMaxHeight = 0;
     bool fNeedsChange = false;
 
-    _TrimLoadedCustomImages();
+    _TrimLoadedCustomImages(fIsFullStackReplacement);
 
     for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
     {
@@ -1221,7 +1276,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
         if (a != 0) // ignore background color
         {
-            int nCurrentPalette = pnPositionToLoadTo  ? *pnPositionToLoadTo : 0;
+            int nCurrentPalette = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
             bool fFoundThisColor = false;
 
             for (; nCurrentPalette < m_nImgAmt; nCurrentPalette++)
@@ -1270,12 +1325,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         }
     }
 
-    const unsigned true_width = min(width, 1 + (nRightMost - nLeftMost));
-    const unsigned true_height = min(height, 1 + (nLastLine - nFirstLine));
-    const unsigned trim_length = true_width * true_height;
-
-    m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions.width = width;
-    m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions.height = height;
+    m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions = { static_cast<int>(width), static_cast<int>(height) };
 
     strMsg.Format(L"Loaded %u x %u RGB PNG preview.", width, height);
 
@@ -1283,8 +1333,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     {
         for (signed int nCurrentLayer = 0; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
         {
-            m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.width = m_vSpriteOverrideTextures.at(0).dimensions.width;
-            m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.height = m_vSpriteOverrideTextures.at(0).dimensions.height;
+            m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions = m_vSpriteOverrideTextures.at(0).dimensions;
 
             _FlipImageDataIfNeeded(direction, m_vSpriteOverrideTextures.at(nCurrentLayer).pixels, m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.width, m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.height);
 
@@ -1632,7 +1681,7 @@ void CImgDisp::_UpdatePreviewForExternalSprite(UINT* pnPositionToLoadTo)
         }
     }
 
-    _ResizeImageStack();
+    _ResizeImageStack(pnPositionToLoadTo == nullptr);
 
     if (!nPositionToLoadTo)
     {
