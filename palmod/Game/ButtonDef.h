@@ -43,6 +43,11 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_3_LMH =
     L"Light", L"Medium", L"Heavy"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_3_TEKGBA =
+{
+   L"A", L"R", L"Start"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_4P =
 {
     L"P1", L"P2", L"P3", L"P4"

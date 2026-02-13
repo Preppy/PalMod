@@ -8,7 +8,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_ARCSYS,  // Persona
     IMGDAT_SECTION_BREAKREV,
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 and CVS* NAOMI games
-    IMGDAT_SECTION_DS,      // Nintendo DS
+    IMGDAT_SECTION_DS,      // Nintendo DS and some GBA
     IMGDAT_SECTION_FRENCHBREAD, // Used for DBFCI, UNICLR, MBTL
     IMGDAT_SECTION_GAROU,
     IMGDAT_SECTION_GUILTYGEAR,
@@ -2572,6 +2572,18 @@ enum SupportedNintendoDS_PaletteListIndex
     indexBleachDSSprites_HollowIchigo,      // 0x65
     indexBleachDSSprites_Nurse,             // 0x66
     indexBleachDSSprites_SoulReaper,        // 0x67
+
+    indexTekkenAdvanceGBASprites_Gunjack,       // 0x68
+    indexTekkenAdvanceGBASprites_Heihachi,      // 0x69
+    indexTekkenAdvanceGBASprites_Hwoarang,      // 0x6a
+    indexTekkenAdvanceGBASprites_Jin,           // 0x6b
+    indexTekkenAdvanceGBASprites_King,          // 0x6c
+    indexTekkenAdvanceGBASprites_Law,           // 0x6d
+    indexTekkenAdvanceGBASprites_Nina,          // 0x6e
+    indexTekkenAdvanceGBASprites_Paul,          // 0x6f
+    indexTekkenAdvanceGBASprites_Xiaoyu,        // 0x70
+    indexTekkenAdvanceGBASprites_Yoshimitsu,    // 0x71
+    indexTekkenAdvanceGBASprites_Bonus,         // 0x72
 };
 
 enum SupportedPGM_SpriteListIndex

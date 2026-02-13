@@ -22,11 +22,11 @@ private:
     {
         L"Tekken Advance (USA GBA)",
         TekkenAdvance_GBA,
-        IMGDAT_SECTION_OTHER,
+        IMGDAT_SECTION_DS,
         TekkenAdvance_GBA_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_NOBUTTONS,
+        DEF_BUTTONLABEL_3_TEKGBA,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
         m_sFileLoadingData,
