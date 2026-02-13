@@ -102,6 +102,8 @@ private:
     void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize, bool fReverseColorTable = false);
     void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
+    void _UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions dimensions);
+    void _TrimLoadedCustomImages();
     void _ResizeImageStack();
     void _ResetForNewImage();
 

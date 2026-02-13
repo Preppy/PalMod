@@ -119,6 +119,7 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
 }
 */
 
+// Called before inserting images to clear layout rect settings
 void CImgDisp::ResetImageCompositionLayout()
 {
     memset(m_bUsed, 0, sizeof(uint8_t) * MAX_IMAGES_DISPLAYABLE);
@@ -136,6 +137,7 @@ void CImgDisp::ResetImageCompositionLayout()
     }
 }
 
+// Called after preview images are set in place so that we know what the layout rects should be
 void CImgDisp::_ResetForNewImage()
 {
     m_rImgRct.right += abs(m_rImgRct.left);
@@ -192,6 +194,28 @@ void CImgDisp::FlushUnused()
     }
 
     FlushCustomSpriteOverrides();
+}
+
+void CImgDisp::_UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions dimensions)
+{
+    if (nPosition)
+    {
+        if ((m_ptOffs[nPosition].x + dimensions.width) > m_rImgRct.right)
+        {
+            m_rImgRct.right = m_ptOffs[nPosition].x + dimensions.width;
+        }
+
+        if ((m_ptOffs[nPosition].y + dimensions.height) > m_rImgRct.bottom)
+        {
+            m_rImgRct.bottom = m_ptOffs[nPosition].y + dimensions.height;
+        }
+    }
+    else
+    {
+        // 0th position sets the foundation for display
+        m_rImgRct.right = m_ptOffs[nPosition].x + dimensions.width;
+        m_rImgRct.bottom = m_ptOffs[nPosition].y + dimensions.height;
+    }
 }
 
 void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode /* = BlendMode::Alpha */)
@@ -269,16 +293,9 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
         }
     }
 
-    if ((nXOffs + nMaxWidth) > m_rImgRct.right)
-    {
-        m_rImgRct.right = nXOffs + nMaxWidth;
-    }
+    _UpdateCompositionDisplayRect(nIndex, { nMaxWidth, nMaxHeight });
 
-    if ((nYOffs + nMaxHeight) > m_rImgRct.bottom)
-    {
-        m_rImgRct.bottom = nYOffs + nMaxHeight;
-    }
-
+    // BUGBUG: This seems incoherent for position 0 where we are duplicating the requested offset.
     m_ptOffs[nIndex].x = nXOffs;
     m_ptOffs[nIndex].y = nYOffs;
 
@@ -793,7 +810,7 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         }
     }
 
-    UINT nLayerToStartWith = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+    const UINT nLayerToStartWith = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
 
     const size_t nDataLen = static_cast<size_t>(width) * static_cast<size_t>(height);
 
@@ -899,11 +916,113 @@ void CImgDisp::_ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nN
     }
 }
 
+// This is run when external images are injected in order to trim absolutely unused whitespace.
+// ResizeImageStack handles normalization via padding
+void CImgDisp::_TrimLoadedCustomImages()
+{
+    if (GetPreviewDropTrim())
+    {
+        CString strInfo;
+
+        for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
+        {
+            if (!m_pImgBuffer[iCurrentPreview]  || m_vSpriteOverrideTextures.at(iCurrentPreview).pixels.empty())
+            {
+                // We only trim external drops
+                continue;
+            }
+
+            const int nCurrentWidth = m_pImgBuffer[iCurrentPreview]->dimensions.width;
+            const int nCurrentHeight = m_pImgBuffer[iCurrentPreview]->dimensions.height;
+
+            int nLeftMost = nCurrentWidth;
+            int nFirstLine = nCurrentHeight;
+            int nLastLine = 0, nRightMost = 0;
+
+            // Establish max used dimensions
+            if (m_pImgBuffer[iCurrentPreview])
+            {
+                for (int iCurrentLine = 0; iCurrentLine < m_pImgBuffer[iCurrentPreview]->dimensions.height; iCurrentLine++)
+                {
+                    bool fThisLineUsed = false;
+                    for (int iCurrentRow = 0; iCurrentRow < m_pImgBuffer[iCurrentPreview]->dimensions.width; iCurrentRow++)
+                    {
+                        const int currentPixel = (iCurrentLine * m_pImgBuffer[iCurrentPreview]->dimensions.width) + iCurrentRow;
+                        if (m_pImgBuffer[iCurrentPreview]->pImgData[currentPixel])
+                        {
+                            nLeftMost = min(nLeftMost, iCurrentRow);
+                            nRightMost = max(nRightMost, iCurrentRow);
+                            fThisLineUsed = true;
+                        }
+                    }
+
+                    if (fThisLineUsed)
+                    {
+                        nFirstLine = min(nFirstLine, iCurrentLine);
+                        nLastLine = max(nLastLine, iCurrentLine);
+                    }
+                }
+
+                strInfo.Format(L"Trimming Analysis: Layer %u used space is %u to %u and %u to %u (%ux%u).\r\n", iCurrentPreview, nLeftMost, nRightMost, nFirstLine, nLastLine, 1 + nRightMost - nLeftMost, 1 + nLastLine - nFirstLine);
+                OutputDebugString(strInfo.GetString());
+            }
+
+            // Check if things are modified, but add +1 for the 0-based image layout values
+            if (nLeftMost || nFirstLine || (nCurrentWidth != (nRightMost + 1)) || (nCurrentHeight != (nLastLine + 1)))
+            {
+                // Trim as needed
+                const int true_width = 1 + (nRightMost - nLeftMost);
+                const int true_height = 1 + (nLastLine - nFirstLine);
+                const int trim_length = true_width * true_height;
+
+                strInfo.Format(L"Trimming: converting layer %u's %ux%u image to a %ux%u image.\r\n", iCurrentPreview, m_pImgBuffer[iCurrentPreview]->dimensions.width, m_pImgBuffer[iCurrentPreview]->dimensions.height,
+                    true_width, true_height);
+                OutputDebugString(strInfo.GetString());
+
+                std::vector<uint8_t> pTrimmedBuffer(trim_length);
+
+                int iFilledPos = 0;
+                const int nDataLen = m_vSpriteOverrideTextures.at(iCurrentPreview).pixels.size();
+                const int width = m_vSpriteOverrideTextures.at(iCurrentPreview).dimensions.width;
+
+                for (int iPos = 0; iPos < nDataLen; iPos++)
+                {
+                    const int xPos = (iPos % width);
+                    const int yPos = static_cast<int>(floor(static_cast<double>(iPos) / width));
+
+                    if ((yPos < nFirstLine) || (xPos < nLeftMost) || (xPos > nRightMost))
+                    {
+                        continue;
+                    }
+                    else if (yPos > nLastLine)
+                    {
+                        break;
+                    }
+
+                    pTrimmedBuffer[iFilledPos++] = m_vSpriteOverrideTextures.at(iCurrentPreview).pixels.at(iPos);
+                }
+
+                m_vSpriteOverrideTextures.at(iCurrentPreview).pixels = pTrimmedBuffer;
+
+                m_pImgBuffer[iCurrentPreview]->dimensions = m_vSpriteOverrideTextures.at(iCurrentPreview).dimensions = { static_cast<int>(true_width), static_cast<int>(true_height) };
+                m_pImgBuffer[iCurrentPreview]->pImgData = m_vSpriteOverrideTextures[iCurrentPreview].pixels.data();
+
+                _UpdateCompositionDisplayRect(iCurrentPreview, { true_width, true_height });
+
+                strInfo.Format(L"Trimmed %ux%u preview down to %ux%u.", nCurrentWidth, nCurrentHeight, true_width, true_height);
+                GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
+            }
+        }
+    }
+}
+
 // This is run to normalize image dimensions to ensure best display and export
 void CImgDisp::_ResizeImageStack()
 {
     int nMaxWidth = 0, nMaxHeight = 0;
     bool fNeedsChange = false;
+
+    _TrimLoadedCustomImages();
 
     for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
     {
@@ -934,6 +1053,8 @@ void CImgDisp::_ResizeImageStack()
                     // We're just going to brute force shift everything up to upper left.
                     const int nPadWidth = nMaxWidth - m_pImgBuffer[iCurrentPreview]->dimensions.width;
                     const int nPadHeight = nMaxHeight - m_pImgBuffer[iCurrentPreview]->dimensions.height;
+                    const int oldwidth = m_pImgBuffer[iCurrentPreview]->dimensions.width;
+                    const int oldheight = m_pImgBuffer[iCurrentPreview]->dimensions.height;
 
                     std::vector<unsigned char> rgNewData(nMaxWidth * nMaxHeight);
 
@@ -950,14 +1071,15 @@ void CImgDisp::_ResizeImageStack()
                     m_pImgBuffer[iCurrentPreview]->dimensions = m_vSpriteOverrideTextures[iCurrentPreview].dimensions = { nMaxWidth, nMaxHeight };
                     m_pImgBuffer[iCurrentPreview]->pImgData = m_vSpriteOverrideTextures[iCurrentPreview].pixels.data();
 
-                    strInfo.Format(L"Warning: had to resize image at layer %u!\r\n", iCurrentPreview);
+                    strInfo.Format(L"Warning: had to resize image at layer %u from %ux%u to %ux%u!\r\n", iCurrentPreview, oldwidth, oldheight, nMaxWidth, nMaxHeight);
                     OutputDebugString(strInfo.GetString());
                 }
             }
+
+            _UpdateCompositionDisplayRect(iCurrentPreview, { nMaxWidth, nMaxHeight });
         }
 
-        strInfo.Format(L"Warning: had to resize previews to match preview size %ux%u.", nMaxWidth, nMaxHeight);
-
+        strInfo.Format(L"Resized previews to match total preview size %ux%u.", nMaxWidth, nMaxHeight);
         GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
     }
 }
@@ -1152,54 +1274,10 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     const unsigned true_height = min(height, 1 + (nLastLine - nFirstLine));
     const unsigned trim_length = true_width * true_height;
 
-    // trim only if we want to (via user setting), if there's actual trimming possible, and if we have a reasonably sized object
-    if (GetPreviewDropTrim() && (trim_length != nDataLen) && (trim_length > 16))
-    {
-        for (signed int nCurrentLayer = pnPositionToLoadTo ? *pnPositionToLoadTo : 0; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
-        {
-            std::vector<uint8_t> pTrimmedBuffer;
-            pTrimmedBuffer.resize(trim_length);
+    m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions.width = width;
+    m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions.height = height;
 
-            unsigned iFilledPos = 0;
-
-            for (unsigned iPos = 0; iPos < nDataLen; iPos++)
-            {
-                const unsigned xPos = (iPos % width);
-                const unsigned yPos = static_cast<int>(floor(static_cast<double>(iPos) / width));
-
-                if ((yPos < nFirstLine) || (xPos < nLeftMost) || (xPos > nRightMost))
-                {
-                    continue;
-                }
-                else if (yPos > nLastLine)
-                {
-                    break;
-                }
-
-                pTrimmedBuffer[iFilledPos++] = m_vSpriteOverrideTextures.at(nCurrentLayer).pixels.at(iPos);
-            }
-
-            ResetCustomSpriteOverride(nCurrentLayer);
-            m_vSpriteOverrideTextures.at(nCurrentLayer).pixels = pTrimmedBuffer;
-
-            m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.width = true_width;
-            m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.height = true_height;
-
-            if (pnPositionToLoadTo)
-            {
-                break;
-            }
-        }
-
-        strMsg.Format(L"Loaded %u x %u (trimmed) RGB PNG preview.", true_width, true_height);
-    }
-    else
-    {
-        m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions.width = width;
-        m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions.height = height;
-
-        strMsg.Format(L"Loaded %u x %u RGB PNG preview.", width, height);
-    }
+    strMsg.Format(L"Loaded %u x %u RGB PNG preview.", width, height);
 
     if (!pnPositionToLoadTo)
     {

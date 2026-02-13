@@ -500,7 +500,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImpor
         ((_wcsicmp(pszExt, L".gif") == 0) ||
          (_wcsicmp(pszExt, L".bmp") == 0)))
     {
-        UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+        const UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
         fSuccess = m_ImgDisp.LoadExternalCImageSprite(nPositionToLoadTo, direction, pszPath, fShowAdvancedOptions);
     }
     else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
@@ -509,7 +509,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImpor
     }
     else
     {
-        UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+        const UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
         fSuccess = m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath, fShowAdvancedOptions);
     }
 
