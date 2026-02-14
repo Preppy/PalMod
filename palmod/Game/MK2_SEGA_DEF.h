@@ -18,7 +18,6 @@ const std::vector<uint16_t> MK2_SEGA_IMGIDS_USED =
     indexSegaMK2Sprites_Smoke,          // 0x43
     indexSegaMK2Sprites_SubZero,        // 0x44
     indexSegaMK2Sprites_Bonus,          // 0x45
-    indexSegaMK2Sprites_Jade,           // 0x46
 };
 
 const sGame_PaletteDataset MK2_SEGA_LiuKang_P1[] =
@@ -288,7 +287,7 @@ const sGame_PaletteDataset MK2_SEGA_Smoke_Palettes[] =
 
 const sGame_PaletteDataset MK2_SEGA_Jade_Palettes[] =
 {
-    { L"Jade", 0x70ac0, 0x70ae0, indexSegaMK2Sprites_Jade, 0x00 },
+    { L"Jade", 0x70ac0, 0x70ae0, indexSegaMK2Sprites_Kitana, 0x00 },
 };
 
 const sGame_PaletteDataset MK2_SEGA_Fatalities_Default[] =
@@ -371,7 +370,7 @@ const sGame_PaletteDataset MK2_SEGA_BonusPalettes_Logos[] =
 
 const sGame_PaletteDataset MK2_SEGA_BonusPalettes_TitleScreen[] =
 {
-    { L"Intro Background 1/3", 0x70100, 0x70120, indexSegaMK2Sprites_Bonus, 0x0a, &pairNext3Palettes },
+    { L"Intro Background 1/3", 0x70100, 0x70120, indexSegaMK2Sprites_Bonus, 0x0a, &pairNextAndNext },
     { L"Intro Background 2/3", 0x70120, 0x70140, indexSegaMK2Sprites_Bonus, 0x0b },
     { L"Intro Background 3/3", 0x70140, 0x70160, indexSegaMK2Sprites_Bonus, 0x0c },
     { L"Intro Background Flash", 0x70180, 0x701a0, indexSegaMK2Sprites_Bonus, 0x0d },
@@ -387,7 +386,7 @@ const sGame_PaletteDataset MK2_SEGA_BonusPalettes_CharacterSelect[] =
 
 const sGame_PaletteDataset MK2_SEGA_BonusPalettes_ArcadeTower[] =
 {
-    { L"Mountain", 0x70000, 0x70020, indexSegaMK2Sprites_Bonus, 0x01, &pairNext3Palettes },
+    { L"Mountain", 0x70000, 0x70020, indexSegaMK2Sprites_Bonus, 0x01, &pairNextAndNext },
     { L"Shao Kahn", 0x70040, 0x70060, indexSegaMK2Sprites_Bonus, 0x03 },
     { L"Portraits", 0x70020, 0x70040, indexSegaMK2Sprites_Bonus, 0x02 },
     { L"Kontinue Screen", 0x700e0, 0x70100, indexSegaMK2Sprites_Bonus, 0x00 },

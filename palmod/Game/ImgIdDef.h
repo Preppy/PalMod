@@ -1708,7 +1708,6 @@ enum SupportedSega_PaletteListIndex
     indexSegaMK2Sprites_Smoke,          // 0x43
     indexSegaMK2Sprites_SubZero,        // 0x44
     indexSegaMK2Sprites_Bonus,          // 0x45
-    indexSegaMK2Sprites_Jade,           // 0x46
 };
 
 enum SupportedSNES_PaletteListIndex
