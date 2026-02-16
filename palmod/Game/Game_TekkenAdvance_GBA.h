@@ -34,7 +34,7 @@ private:
         TekkenAdvance_GBA_UNITS,
         ARRAYSIZE(TekkenAdvance_GBA_UNITS),
         L"TekkenAdvance-GBAe.txt",      // Extra filename
-        33,                             // Count of palettes listed in the header
+        97,                             // Count of palettes listed in the header
         0x751984,                       // Lowest known location used for palettes
     };
 
