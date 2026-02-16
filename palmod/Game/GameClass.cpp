@@ -1485,23 +1485,29 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if GAMECLASS_DBG
+//#if GAMECLASS_DBG  Don't change this.  This logging needs to be active.
+                // This logging is just another preventative measure to avoid the optimizer crash
                 strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
-#endif
+//#endif
 
                 const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
                     
                 if (!paletteSetToUse)
                 {
+                    // This is an optimizer-induced failure.  But just adding this error validation path alone seems to kick the optimizer back into working correctly.
+                    // We should never hit this, but with this check it doesn't optimize away the paletteSetTouse variable and we don't crash.  Ugh.
+                    strMsg.Format(L"Critical failure!  Unit: %s.  Unit: 0x%02x.  Collection: 0x%02x.  Attempting to recover.\r\n", pGameUnits ? L"exists" : L"doesn't exist", iUnitCtr, iCollectionCtr);
+                    OutputDebugString(strMsg.GetString());
+
                     paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
-                    // We should never hit this, but I added this to work around a bug in the MSVC optimizer I was running into.
-                    // With this check it doesn't optimize away the paletteSetTouse variable and we don't crash.  Ugh.
-                    if (!paletteSetToUse)
-                    {
-                        MessageBox(g_appHWnd, L"Catastrophic optimization error happened: please report this error so it can be properly fixed.\r\n\r\nPalMod will now close.", GetHost()->GetAppName(), MB_ICONERROR);
-                        DebugBreak();
-                    }
+                }
+
+                if (!paletteSetToUse)
+                {
+                    MessageBox(g_appHWnd, L"Catastrophic optimization error happened: please report this error so it can be properly fixed.\r\n\r\nPalMod will now close.", GetHost()->GetAppName(), MB_ICONERROR);
+                    DebugBreak();
+                    break;
                 }
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
