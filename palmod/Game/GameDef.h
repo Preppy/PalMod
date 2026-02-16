@@ -414,9 +414,14 @@ struct sGame_PaletteDataset
     const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };
 
+const auto FULLY_PAIRED_NODE_UNIQUES = 0xfffe;
 const auto FULLY_PAIRED_NODE = 0xffff;
 
 const stPairedPaletteInfo pairHandledInCode = { 0 };
+// Show every unique preview in the node
+const stPairedPaletteInfo pairAllUniquesInNode = { 0, {}, FULLY_PAIRED_NODE_UNIQUES };
+// Show every preview in the node, even if it means redundant previews from animation
+// cycles
 const stPairedPaletteInfo pairFullyLinkedNode = { 0, {}, FULLY_PAIRED_NODE };
 
 const stPairedPaletteInfo pairNext = { 1 };

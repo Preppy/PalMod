@@ -699,51 +699,55 @@ int CImgDumpBmp::GetMaxImagesPerLine()
 
     switch (m_nTotalImagesToDisplay)
     {
-    case 1:
-        w_mul = 1;
-        break;
-    case 2: // SVC
-    case 4: // Garou
-    case 30: // MBTL
-    case 38: // MBTL: Neco
-        w_mul = 2;
-        break;
-    case 3: // DanKuGa
-    case 5: // NEOGEO, Jojos
-    case 6:
-        w_mul = 3;
-        break;
-    case 7: // SF3
-    case 8: // MBAACC
-    case 16: // MBAACC and MvC2's palette expansion
-    case 32: // MBAACC
-    case 36: // MBAACC
-    case 42: // UNICLR
-    case 64: // MBAACC
-        w_mul = 4;
-        break;
-    case 9:
-    case 10:
-        w_mul = 5;
-        break;
-    case 12:
-        w_mul = 6;
-        break;
-    case 19: // MAAB
-    case 21: // MAAB
-    case 24: // BlazBlueCF
-    case 25: // BlazBlueCF
-    case 26: // BlazBlueCF
-        w_mul = 4;
-        break;
-    default:
-        OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.\n");
-        __fallthrough;
-    case 15: // MAAB
-    case 20: // GGXXACR ex color sets
-    case 22: // GGXXACR core color sets
-        w_mul = 5;
-        break;
+        case 1:
+            w_mul = 1;
+            break;
+        case 2: // SVC
+        case 4: // Garou
+        case 30: // MBTL
+        case 38: // MBTL: Neco
+            w_mul = 2;
+            break;
+        case 3: // DanKuGa
+        case 5: // NEOGEO, Jojos
+        case 6:
+            w_mul = 3;
+            break;
+        case 7: // SF3
+        case 8: // MBAACC
+        case 16: // MBAACC and MvC2's palette expansion
+        case 32: // MBAACC
+        case 36: // MBAACC
+        case 42: // UNICLR
+        case 64: // MBAACC
+            w_mul = 4;
+            break;
+        case 9:
+        case 10:
+            w_mul = 5;
+            break;
+        case 12:
+            w_mul = 6;
+            break;
+        case 19: // MAAB
+        case 21: // MAAB
+        case 24: // BlazBlueCF
+        case 25: // BlazBlueCF
+        case 26: // BlazBlueCF
+            w_mul = 4;
+            break;
+        default:
+        {
+            CString strInfo;
+            strInfo.Format(L"CImgDumpBmp::GetImagesPerLine: You need to add support for the new output option \"%u\".\r\n", m_nTotalImagesToDisplay);
+            OutputDebugString(strInfo.GetString());
+            __fallthrough;
+        }
+        case 15: // MAAB
+        case 20: // GGXXACR ex color sets
+        case 22: // GGXXACR core color sets
+            w_mul = 5;
+            break;
     }
 
     return w_mul;

@@ -80,10 +80,17 @@ BOOL CPalGroup::FlushPal(uint32_t nIndex)
 BOOL CPalGroup::AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_t nAmt)
 {
     // Separators enable us to have multiple groups of palettes within a palette display.
-    if ((m_rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS) || ((nStart + nAmt) > m_rgPalettes[nIndex].uPalSz))
+    if (m_rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS)
     {
         CString strWarning;
         strWarning.Format(L"WARNING: Trying to use too many separators for \"%s\": %u requested, %u allowed. Disallowing this.\n", szDesc, m_rgPalettes[nIndex].uSepAmt, MAX_SEPARATORS);
+        OutputDebugString(strWarning);
+        return FALSE;
+    }
+    else if ((nStart + nAmt) > m_rgPalettes[nIndex].uPalSz)
+    {
+        CString strWarning;
+        strWarning.Format(L"WARNING: Palette count incorrect for \"%s\": %u requested, but actual palette size is %u. Disallowing this.\n", szDesc, (nStart + nAmt), m_rgPalettes[nIndex].uPalSz);
         OutputDebugString(strWarning);
         return FALSE;
     }

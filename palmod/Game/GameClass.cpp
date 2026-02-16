@@ -570,7 +570,7 @@ void CGameClass::SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart
 
 #if GAMECLASS_DBG
     CString strMsg;
-    strMsg.Format(L"CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n", nImgUnitId, nStart, nAmt, nInc);
+    strMsg.Format(L"CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n", nUnitId, nStart, nAmt, nInc);
     OutputDebugString(strMsg);
 
     if ((nAmt > 1) && // If this game wants to allow multisprite export
@@ -1175,7 +1175,7 @@ uint32_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, st
 
 #if GAMECLASS_DBG
         CString strMsg;
-        strMsg.Format(L"CGameClass::_GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nImgUnitId, nCollectionCount);
+        strMsg.Format(L"CGameClass::_GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -1212,6 +1212,7 @@ LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits
 
 const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGameUnits, uint32_t nUnitId, uint32_t nCollectionId)
 {
+
     if (pGameUnits)
     {
         const sDescTreeNode* pCurrentSet = reinterpret_cast<const sDescTreeNode*>(pGameUnits[nUnitId].ChildNodes);
@@ -1735,37 +1736,73 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
                     nSrcAmt = 1;
                 }
 
-                if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == FULLY_PAIRED_NODE)
+                if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin == FULLY_PAIRED_NODE) ||
+                    (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == FULLY_PAIRED_NODE_UNIQUES))
                 {
+                    const bool fIncludeAll = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == FULLY_PAIRED_NODE);
+
                     if (Node03 == 0)
                     {
-                        const uint32_t nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
+                        const uint32_t nPaletteCountInNode = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
 
                         fWasImageLoadHandled = true;
                         sImgTicket* pImgArray = nullptr;
+                        // just start with an unsettable value
+                        uint32_t nLastUsedImageKey = 0x0000ff00;
 
-                        for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                        struct ImgTicketData
+                        {
+                            uint16_t nImgUnit;
+                            uint8_t nImgIndex;
+                            BlendMode nBlendMode;
+                        };
+
+                        std::vector<ImgTicketData> rgPreviewsToInclude;
+
+                        CString strInfo;
+                        uint32_t iUsageCount = 0;
+
+                        for (uint32_t iStageIndex = 0; iStageIndex < nPaletteCountInNode; iStageIndex++)
                         {
                             // The palettes get added forward, but the image tickets need to be generated in reverse order
-                            const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex), ppExtraDef);
+                            // So do the palettes first and then we'll create the images afterwards
+                            const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + iStageIndex, ppExtraDef);
                             if (paletteDataSetToJoin)
                             {
-                                if (paletteDataSetToJoin->pExtraProcessing)
-                                {
-                                    nBlendMode = paletteDataSetToJoin->pExtraProcessing->eBlendMode;
-                                }
-                                else
-                                {
-                                    nBlendMode = BlendMode::Alpha;
-                                }
+                                const uint32_t nCurrentImageKey = (paletteDataSetToJoin->indexImgToUse << 16) | paletteDataSetToJoin->indexOffsetToUse;
 
-                                pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray, 0, 0, nBlendMode);
+                                if (fIncludeAll ||
+                                    (paletteDataSetToJoin->indexImgToUse == INVALID_UNIT_VALUE_16) ||
+                                    (paletteDataSetToJoin->indexOffsetToUse == INVALID_UNIT_VALUE_8) ||
+                                    (nCurrentImageKey != nLastUsedImageKey))
+                                {
+                                    nLastUsedImageKey = nCurrentImageKey;
 
-                                //Set each palette
-                                sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
-                                CreateDefPal(JoinedNode, nStageIndex);
-                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                                    if (paletteDataSetToJoin->pExtraProcessing)
+                                    {
+                                        nBlendMode = paletteDataSetToJoin->pExtraProcessing->eBlendMode;
+                                    }
+                                    else
+                                    {
+                                        nBlendMode = BlendMode::Alpha;
+                                    }
+
+                                    sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + iStageIndex, -1);
+                                    
+                                    CreateDefPal(JoinedNode, iUsageCount);
+                                    SetSourcePal(iUsageCount++, NodeGet->uUnitId, nSrcStart + iStageIndex, nSrcAmt, nNodeIncrement);
+
+                                    rgPreviewsToInclude.push_back({ paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nBlendMode });
+                                }
                             }
+                        }
+
+                        // Reverse the preview list so that the visual layering works as expected
+                        std::reverse(rgPreviewsToInclude.begin(), rgPreviewsToInclude.end());
+
+                        for (uint32_t iCurrentEntry = 0; iCurrentEntry < rgPreviewsToInclude.size(); iCurrentEntry++)
+                        {
+                            pImgArray = CreateImgTicket(rgPreviewsToInclude[iCurrentEntry].nImgUnit, rgPreviewsToInclude[iCurrentEntry].nImgIndex, pImgArray, 0, 0, rgPreviewsToInclude[iCurrentEntry].nBlendMode);
                         }
 
                         ClearSetImgTicket(pImgArray);
