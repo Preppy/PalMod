@@ -5763,19 +5763,64 @@ const sDescTreeNode KOF02UM_S_UNITS_CONT_SPN[] =
 
 #pragma region WINQUOTES
 
-const sGame_PaletteDataset KOF02UM_S_WINQUOTES_PALETTES[] =
+const sGame_PaletteDataset KOF02UM_S_WINQUOTES_PALETTES_EN[] =
 {
-    { L"Palette", 0x10, 0x50 },
+    { L"Palette", 0x10, 0x50, indexKOF02UMSprites_Extras, 0xa0 },
 };
 
-const sDescTreeNode KOF02UM_S_WINQUOTES_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_WINQUOTES_COLLECTION_EN[] =
 {
-    { L"Palette", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_PALETTES, ARRAYSIZE(KOF02UM_S_WINQUOTES_PALETTES) },
+    { L"Palette", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_PALETTES_EN, ARRAYSIZE(KOF02UM_S_WINQUOTES_PALETTES_EN) },
 };
 
-const sDescTreeNode KOF02UM_S_UNITS_WINQUOTES[] =
+const sDescTreeNode KOF02UM_S_UNITS_WINQUOTES_EN[] =
 {
-    { L"Win Quotes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_COLLECTION, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION) },
+    { L"Win Quotes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_COLLECTION_EN, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_EN) },
+};
+
+const sGame_PaletteDataset KOF02UM_S_WINQUOTES_PALETTES_JPN[] =
+{
+    { L"Palette", 0x10, 0x50, indexKOF02UMSprites_Extras, 0xa1 },
+};
+
+const sDescTreeNode KOF02UM_S_WINQUOTES_COLLECTION_JPN[] =
+{
+    { L"Palette", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_PALETTES_JPN, ARRAYSIZE(KOF02UM_S_WINQUOTES_PALETTES_JPN) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_WINQUOTES_JPN[] =
+{
+    { L"Win Quotes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_COLLECTION_JPN, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_JPN) },
+};
+
+const sGame_PaletteDataset KOF02UM_S_WINQUOTES_PALETTES_BRS[] =
+{
+    { L"Palette", 0x10, 0x50, indexKOF02UMSprites_Extras, 0xa2 },
+};
+
+const sDescTreeNode KOF02UM_S_WINQUOTES_COLLECTION_BRS[] =
+{
+    { L"Palette", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_PALETTES_BRS, ARRAYSIZE(KOF02UM_S_WINQUOTES_PALETTES_BRS) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_WINQUOTES_BRS[] =
+{
+    { L"Win Quotes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_COLLECTION_BRS, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_BRS) },
+};
+
+const sGame_PaletteDataset KOF02UM_S_WINQUOTES_PALETTES_ES[] =
+{
+    { L"Palette", 0x10, 0x50, indexKOF02UMSprites_Extras, 0xa3 },
+};
+
+const sDescTreeNode KOF02UM_S_WINQUOTES_COLLECTION_ES[] =
+{
+    { L"Palette", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_PALETTES_ES, ARRAYSIZE(KOF02UM_S_WINQUOTES_PALETTES_ES) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_WINQUOTES_ES[] =
+{
+    { L"Win Quotes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_WINQUOTES_COLLECTION_ES, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_ES) },
 };
 
 #pragma endregion WINQUOTES
@@ -5865,69 +5910,69 @@ const sDescTreeNode KOF02UM_S_UNITS_ORDER_SPN[] =
 
 const sGame_PaletteDataset KOF02UM_S_VictorySequence_Palettes[] =
 {
-    { L"Assist Names", 0x200, 0x600 },
-    { L"Stage Winner/Stats Blurb", 0x20a00, 0x20e00 },
-    { L"Assist Background 1 and Winner Textbox", 0x30e00, 0x31200 },
-    { L"Textbox Border/EX Names, Loser Textbox", 0x41200, 0x41600 },
-    { L"Player Score Border", 0x51600, 0x51a00 },
-    { L"Scoring Box/Assist Background 2", 0x61a00, 0x61e00 },
-    { L"Stage Completion Screen", 0x71e00, 0x72200 },
-    { L"Background 1/2", 0x82200, 0x82600 },
-    { L"Background 2/2", 0x92600, 0x92a00 },
-    { L"Assist Portrait Effect", 0xb2e00, 0xb3200 },
-    { L"Stage Winner Bar", 0xc3200, 0xc3600 },
-    { L"Stage Winner Border", 0xd3600, 0xd3a00 },
-    { L"Textbox Border Names 1/2", 0x3efa00, 0x3efe00 },
-    { L"Textbox Border Names 2/2", 0x3ffe00, 0x400200 },
-    { L"Textbox Border Names EX/Personal Info", 0x430a00, 0x430e00 },
+    { L"Assist Names",                          0x200, 0x600, indexKOF02UMSprites_Extras, 0x61 },
+    { L"Stage Winner/Stats Blurb",              0x20a00, 0x20e00, indexKOF02UMSprites_Extras, 0x6a },
+    { L"Assist Background 1 and Winner Textbox", 0x30e00, 0x31200, indexKOF02UMSprites_Extras, 0x60 },
+    { L"Textbox Border/EX Names, Loser Textbox", 0x41200, 0x41600, indexKOF02UMSprites_Extras, 0x6b },
+    { L"Player Score Border",                   0x51600, 0x51a00, indexKOF02UMSprites_Extras, 0x65 },
+    { L"Scoring Box/Assist Background 2",       0x61a00, 0x61e00, indexKOF02UMSprites_Extras, 0x66 },
+    { L"Stage Completion Screen",               0x71e00, 0x72200, indexKOF02UMSprites_Extras, 0x67 },
+    { L"Background 1/2",                        0x82200, 0x82600, indexKOF02UMSprites_Extras, 0x63, &pairNext },
+    { L"Background 2/2",                        0x92600, 0x92a00, indexKOF02UMSprites_Extras, 0x64, &pairPrevious },
+    { L"Assist Portrait Effect",                0xb2e00, 0xb3200, indexKOF02UMSprites_Extras, 0x62 },
+    { L"Stage Winner Bar",                      0xc3200, 0xc3600, indexKOF02UMSprites_Extras, 0x68, &pairNext },
+    { L"Stage Winner Border",                   0xd3600, 0xd3a00, indexKOF02UMSprites_Extras, 0x69, &pairPrevious },
+    { L"Textbox Border Names 1/2",              0x3efa00, 0x3efe00, indexKOF02UMSprites_Extras, 0x6c },
+    { L"Textbox Border Names 2/2",              0x3ffe00, 0x400200, indexKOF02UMSprites_Extras, 0x6d },
+    { L"Textbox Border Names EX/Personal Info", 0x430a00, 0x430e00, indexKOF02UMSprites_Extras, 0x6e },
 };
 
 const sGame_PaletteDataset KOF02UM_S_VictorySequence_VictoryAssistPortraits[] =
 {
-    { L"Kyo and Benimaru 1/2", 0x124a00, 0x124e00 },
-    { L"Benimaru 2/2 and Daimon", 0x134e00, 0x135200 },
-    { L"Terry and Andy 1/2", 0x145200, 0x145600 },
-    { L"Andy 2/2 and Joe", 0x155600, 0x155a00 },
-    { L"Athena and Kensou 1/2", 0x165a00, 0x165e00 },
-    { L"Kensou 2/2 and Bao", 0x175e00, 0x176200 },
-    { L"Leona and Ralf 1/2", 0x186200, 0x186600 },
-    { L"Ralf 2/2 and Clark", 0x196600, 0x196a00 },
-    { L"K' and Maxima 1/2", 0x1a6a00, 0x1a6e00 },
-    { L"Maxima 2/2 and Whip", 0x1b6e00, 0x1b7200 },
-    { L"Kim and Chang 1/2", 0x1c7200, 0x1c7600 },
-    { L"Chang 2/2 and Choi", 0x1d7600, 0x1d7a00 },
-    { L"Yamazaki and Blue Mary 1/2", 0x1e7a00, 0x1e7e00 },
-    { L"Blue Mary 2/2 and Billy", 0x1f7e00, 0x1f8200 },
-    { L"May Lee and Hinako 1/2", 0x208200, 0x208600 },
-    { L"Hinako 2/2 and Xiangfei", 0x218600, 0x218a00 },
-    { L"Iori and Mature 1/2", 0x228a00, 0x228e00 },
-    { L"Mature 2/2 and Vice", 0x238e00, 0x239200 },
-    { L"Ryo and Robert 1/2", 0x249200, 0x249600 },
-    { L"Robert 2/2 and Yuri", 0x259600, 0x259a00 },
-    { L"Vanessa and Seth 1/2", 0x269a00, 0x269e00 },
-    { L"Seth 2/2 and Ramon", 0x279e00, 0x27a200 },
-    { L"Yashiro and Shermie 1/2", 0x28a200, 0x28a600 },
-    { L"Shermie 2/2 and Chris", 0x29a600, 0x29aa00 },
-    { L"Kula and Foxy 1/2", 0x2aaa00, 0x2aae00 },
-    { L"Foxy 2/2 and Angel", 0x2bae00, 0x2bb200 },
-    { L"Jhun Hoon and Lin 1/2", 0x2cb200, 0x2cb600 },
-    { L"Lin 2/2 and Shingo", 0x2db600, 0x2dba00 },
-    { L"Heidern and Takuma 1/2", 0x2eba00, 0x2ebe00 },
-    { L"Takuma 2/2 and Chin", 0x2fbe00, 0x2fc200 },
-    { L"King and Mai 1/2", 0x30c200, 0x30c600 },
-    { L"Mai 2/2 and Kasumi", 0x31c600, 0x31ca00 },
-    { L"KUSANAGI and Kyo-1 1/2", 0x32ca00, 0x32ce00 },
-    { L"Kyo-1 1/2 and Kyo-2", 0x33ce00, 0x33d200 },
-    { L"Nameless and Goenitz 1/2", 0x34d200, 0x34d600 },
-    { L"Goenitz 2/2 and Geese", 0x35d600, 0x35da00 },
-    { L"Krizalid and Clone Zero 1/2", 0x36da00, 0x36de00 },
-    { L"Clone Zero 2/2 and Original Zero", 0x37de00, 0x37e200 },
-    { L"Igniz and Omega Rugal 1/2", 0x38e200, 0x38e600 },
-    { L"Omega Rugal 2/2 and Orochi Yashiro", 0x39e600, 0x39ea00 },
-    { L"Orochi Shermie and Orochi Chris 1/2", 0x3aea00, 0x3aee00 },
-    { L"Orochi Chris 2/2", 0x3bee00, 0x3bf200 },
-    { L"Nightmare Geese", 0x3cf200, 0x3cf600 },
-    { L"Orochi Leona (Unused)", 0x440e00, 0x441200 },
+    { L"Kyo and Benimaru 1/2",                  0x124a00, 0x124e00, indexKOF02UMSprites_Extras, 0x83, &pairNext },
+    { L"Benimaru 2/2 and Daimon",               0x134e00, 0x135200, indexKOF02UMSprites_Extras, 0x71, &pairPrevious },
+    { L"Terry and Andy 1/2",                    0x145200, 0x145600, indexKOF02UMSprites_Extras, 0x97, &pairNext },
+    { L"Andy 2/2 and Joe",                      0x155600, 0x155a00, indexKOF02UMSprites_Extras, 0x6f, &pairPrevious },
+    { L"Athena and Kensou 1/2",                 0x165a00, 0x165e00, indexKOF02UMSprites_Extras, 0x70, &pairNext },
+    { L"Kensou 2/2 and Bao",                    0x175e00, 0x176200, indexKOF02UMSprites_Extras, 0x7d, &pairPrevious },
+    { L"Leona and Ralf 1/2",                    0x186200, 0x186600, indexKOF02UMSprites_Extras, 0x85, &pairNext },
+    { L"Ralf 2/2 and Clark",                    0x196600, 0x196a00, indexKOF02UMSprites_Extras, 0x91, &pairPrevious },
+    { L"K' and Maxima 1/2",                     0x1a6a00, 0x1a6e00, indexKOF02UMSprites_Extras, 0x7c, &pairNext },
+    { L"Maxima 2/2 and Whip",                   0x1b6e00, 0x1b7200, indexKOF02UMSprites_Extras, 0x89, &pairPrevious },
+    { L"Kim and Chang 1/2",                     0x1c7200, 0x1c7600, indexKOF02UMSprites_Extras, 0x7e, &pairNext },
+    { L"Chang 2/2 and Choi",                    0x1d7600, 0x1d7a00, indexKOF02UMSprites_Extras, 0x73, &pairPrevious },
+    { L"Yamazaki and Blue Mary 1/2",            0x1e7a00, 0x1e7e00, indexKOF02UMSprites_Extras, 0x99, &pairNext },
+    { L"Blue Mary 2/2 and Billy",               0x1f7e00, 0x1f8200, indexKOF02UMSprites_Extras, 0x72, &pairPrevious },
+    { L"May Lee and Hinako 1/2",                0x208200, 0x208600, indexKOF02UMSprites_Extras, 0x8a, &pairNext },
+    { L"Hinako 2/2 and Xiangfei",               0x218600, 0x218a00, indexKOF02UMSprites_Extras, 0x78, &pairPrevious },
+    { L"Iori and Mature 1/2",                   0x228a00, 0x228e00, indexKOF02UMSprites_Extras, 0x7a, &pairNext },
+    { L"Mature 2/2 and Vice",                   0x238e00, 0x239200, indexKOF02UMSprites_Extras, 0x88, &pairPrevious },
+    { L"Ryo and Robert 1/2",                    0x249200, 0x249600, indexKOF02UMSprites_Extras, 0x93, &pairNext },
+    { L"Robert 2/2 and Yuri",                   0x259600, 0x259a00, indexKOF02UMSprites_Extras, 0x92, &pairPrevious },
+    { L"Vanessa and Seth 1/2",                  0x269a00, 0x269e00, indexKOF02UMSprites_Extras, 0x98, &pairNext },
+    { L"Seth 2/2 and Ramon",                    0x279e00, 0x27a200, indexKOF02UMSprites_Extras, 0x94, &pairPrevious },
+    { L"Yashiro and Shermie 1/2",               0x28a200, 0x28a600, indexKOF02UMSprites_Extras, 0x9a, &pairNext },
+    { L"Shermie 2/2 and Chris",                 0x29a600, 0x29aa00, indexKOF02UMSprites_Extras, 0x95, &pairPrevious },
+    { L"Kula and Foxy 1/2",                     0x2aaa00, 0x2aae00, indexKOF02UMSprites_Extras, 0x81, &pairNext },
+    { L"Foxy 2/2 and Angel",                    0x2bae00, 0x2bb200, indexKOF02UMSprites_Extras, 0x75, &pairPrevious },
+    { L"Jhun Hoon and Lin 1/2",                 0x2cb200, 0x2cb600, indexKOF02UMSprites_Extras, 0x7b, &pairNext },
+    { L"Lin 2/2 and Shingo",                    0x2db600, 0x2dba00, indexKOF02UMSprites_Extras, 0x86, &pairPrevious },
+    { L"Heidern and Takuma 1/2",                0x2eba00, 0x2ebe00, indexKOF02UMSprites_Extras, 0x77, &pairNext },
+    { L"Takuma 2/2 and Chin",                   0x2fbe00, 0x2fc200, indexKOF02UMSprites_Extras, 0x96, &pairPrevious },
+    { L"King and Mai 1/2",                      0x30c200, 0x30c600, indexKOF02UMSprites_Extras, 0x7f, &pairNext },
+    { L"Mai 2/2 and Kasumi",                    0x31c600, 0x31ca00, indexKOF02UMSprites_Extras, 0x87, &pairPrevious },
+    { L"KUSANAGI and Kyo-1 1/2",                0x32ca00, 0x32ce00, indexKOF02UMSprites_Extras, 0x82, &pairNext },
+    { L"Kyo-1 1/2 and Kyo-2",                   0x33ce00, 0x33d200, indexKOF02UMSprites_Extras, 0x84, &pairPrevious },
+    { L"Nameless and Goenitz 1/2",              0x34d200, 0x34d600, indexKOF02UMSprites_Extras, 0x8b, &pairNext },
+    { L"Goenitz 2/2 and Geese",                 0x35d600, 0x35da00, indexKOF02UMSprites_Extras, 0x76, &pairPrevious },
+    { L"Krizalid and Clone Zero 1/2",           0x36da00, 0x36de00, indexKOF02UMSprites_Extras, 0x80, &pairNext },
+    { L"Clone Zero 2/2 and Original Zero",      0x37de00, 0x37e200, indexKOF02UMSprites_Extras, 0x74, &pairPrevious },
+    { L"Igniz and Omega Rugal 1/2",             0x38e200, 0x38e600, indexKOF02UMSprites_Extras, 0x79, &pairNext },
+    { L"Omega Rugal 2/2 and Orochi Yashiro",    0x39e600, 0x39ea00, indexKOF02UMSprites_Extras, 0x8d, &pairPrevious },
+    { L"Orochi Shermie and Orochi Chris 1/2",   0x3aea00, 0x3aee00, indexKOF02UMSprites_Extras, 0x90, &pairNext },
+    { L"Orochi Chris 2/2",                      0x3bee00, 0x3bf200, indexKOF02UMSprites_Extras, 0x8e, &pairPrevious },
+    { L"Nightmare Geese",                       0x3cf200, 0x3cf600, indexKOF02UMSprites_Extras, 0x8c },
+    { L"Orochi Leona (Unused)",                 0x440e00, 0x441200, indexKOF02UMSprites_Extras, 0x8f },
 };
 
 const sDescTreeNode KOF02UM_S_VictorySequence_COLLECTION[] =

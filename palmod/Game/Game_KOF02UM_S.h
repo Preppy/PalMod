@@ -676,8 +676,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_ENU_Win,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_EN,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_EN),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -696,8 +696,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_ENU_Loss,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_EN,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_EN),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -716,8 +716,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_JPN_Win,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_JPN,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_JPN),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -736,8 +736,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_JPN_Loss,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_JPN,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_JPN),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -756,8 +756,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_BRS_Win,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_BRS,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_BRS),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -776,8 +776,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_BRS_Loss,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_BRS,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_BRS),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -796,8 +796,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_SPN_Win,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_ES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_ES),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -816,8 +816,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_SPN_Loss,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_ES,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_ES),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -836,8 +836,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_UNK1_Loss,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_EN,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_EN),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -856,8 +856,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_UNK2_Win,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_EN,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_EN),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
@@ -876,8 +876,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_WinQuotes_UNK2_Loss,
         {},
-        KOF02UM_S_UNITS_WINQUOTES,
-        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES),
+        KOF02UM_S_UNITS_WINQUOTES_EN,
+        ARRAYSIZE(KOF02UM_S_UNITS_WINQUOTES_EN),
         L"KOF02UMWinQE.txt",    // Extra filename
         1,                      // Count of palettes listed in the header
         0x10,                   // Lowest known location used for palettes
