@@ -347,10 +347,10 @@ const sGame_PaletteDataset KOF02UM_S_ROBERT_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_PORTRAITS[] =
 {
-    { L"Takuma A Portrait", 0x54a00, 0x54a20, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Takuma - 1 },
-    { L"Takuma B Portrait", 0x54a20, 0x54a40, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Takuma - 1 },
-    { L"Takuma C Portrait", 0x54a40, 0x54a60, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Takuma - 1 },
-    { L"Takuma D Portrait", 0x54a60, 0x54a80, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Takuma - 1 },
+    { L"Takuma A Portrait", 0x54a00, 0x54a20, indexKOF02UMSprites_Extras, indexKOF02UM_S_Takuma }, // formerly 0xaf
+    { L"Takuma B Portrait", 0x54a20, 0x54a40, indexKOF02UMSprites_Extras, indexKOF02UM_S_Takuma },
+    { L"Takuma C Portrait", 0x54a40, 0x54a60, indexKOF02UMSprites_Extras, indexKOF02UM_S_Takuma },
+    { L"Takuma D Portrait", 0x54a60, 0x54a80, indexKOF02UMSprites_Extras, indexKOF02UM_S_Takuma },
 };
 
 const sGame_PaletteDataset KOF02UM_S_MAI_PALETTES_PORTRAITS[] =
@@ -579,18 +579,18 @@ const sGame_PaletteDataset KOF02UM_S_HEIDERN_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_LIN_PALETTES_PORTRAITS[] =
 {
-    { L"Lin A Portrait", 0x56700, 0x56720, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Lin - 1 },
-    { L"Lin B Portrait", 0x56720, 0x56740, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Lin - 1 },
-    { L"Lin C Portrait", 0x56740, 0x56760, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Lin - 1 },
-    { L"Lin D Portrait", 0x56760, 0x56780, indexKOF02UMSprites_Extras, indexKOF02UMSprites_Lin - 1 },
+    { L"Lin A Portrait", 0x56700, 0x56720, indexKOF02UMSprites_Extras, indexKOF02UM_S_Lin },  // formerly 0x9f
+    { L"Lin B Portrait", 0x56720, 0x56740, indexKOF02UMSprites_Extras, indexKOF02UM_S_Lin },
+    { L"Lin C Portrait", 0x56740, 0x56760, indexKOF02UMSprites_Extras, indexKOF02UM_S_Lin },
+    { L"Lin D Portrait", 0x56760, 0x56780, indexKOF02UMSprites_Extras, indexKOF02UM_S_Lin },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXTAKUMA_PALETTES_PORTRAITS[] =
 {
-    { L"EX Takuma A Portrait", 0x56800, 0x56820, indexKOF02UMSprites_Extras, indexKOF02UMSprites_TakumaEX - 1 },
-    { L"EX Takuma B Portrait", 0x56820, 0x56840, indexKOF02UMSprites_Extras, indexKOF02UMSprites_TakumaEX - 1 },
-    { L"EX Takuma C Portrait", 0x56840, 0x56860, indexKOF02UMSprites_Extras, indexKOF02UMSprites_TakumaEX - 1 },
-    { L"EX Takuma D Portrait", 0x56860, 0x56880, indexKOF02UMSprites_Extras, indexKOF02UMSprites_TakumaEX - 1 },
+    { L"EX Takuma A Portrait", 0x56800, 0x56820, indexKOF02UMSprites_Extras, indexKOF02UM_S_EXTakuma }, // formerly 0xb0
+    { L"EX Takuma B Portrait", 0x56820, 0x56840, indexKOF02UMSprites_Extras, indexKOF02UM_S_EXTakuma },
+    { L"EX Takuma C Portrait", 0x56840, 0x56860, indexKOF02UMSprites_Extras, indexKOF02UM_S_EXTakuma },
+    { L"EX Takuma D Portrait", 0x56860, 0x56880, indexKOF02UMSprites_Extras, indexKOF02UM_S_EXTakuma },
 };
 
 const sGame_PaletteDataset KOF02UM_S_BAO_PALETTES_PORTRAITS[] =

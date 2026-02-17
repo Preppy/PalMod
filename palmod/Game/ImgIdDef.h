@@ -1360,22 +1360,24 @@ enum SupportedKOF02UM_S_PaletteListIndex
     indexKOF02UM_S_OZero,       // 31
     indexKOF02UM_S_Ralf,        // 32
     indexKOF02UM_S_Ramon,       // 33
-    indexKOF02UM_S_Robert,
-    indexKOF02UM_S_Ryo,
-    indexKOF02UM_S_Seth,
-    indexKOF02UM_S_Shermie,
-    indexKOF02UM_S_Shingo,
-    indexKOF02UM_S_Takuma,
-    indexKOF02UM_S_Terry,
-    indexKOF02UM_S_Vanessa,
-    indexKOF02UM_S_Vice,
-    indexKOF02UM_S_Whip,
-    indexKOF02UM_S_Xiangfei,
-    indexKOF02UM_S_Yamazaki,
-    indexKOF02UM_S_Yashiro,
-    indexKOF02UM_S_Yuri,
+    indexKOF02UM_S_Robert,      // 34
+    indexKOF02UM_S_Ryo,         // 35
+    indexKOF02UM_S_Seth,        // 36
+    indexKOF02UM_S_Shermie,     // 37
+    indexKOF02UM_S_Shingo,      // 38
+    indexKOF02UM_S_Takuma,      // 39
+    indexKOF02UM_S_Terry,       // 3a
+    indexKOF02UM_S_Vanessa,     // 3b
+    indexKOF02UM_S_Vice,        // 3c
+    indexKOF02UM_S_Whip,        // 3d
+    indexKOF02UM_S_Xiangfei,    // 3e
+    indexKOF02UM_S_Yamazaki,    // 3f
+    indexKOF02UM_S_Yashiro,     // 40
+    indexKOF02UM_S_Yuri,        // 41
 
-    indexKOF02UM_S_Bonus,
+    indexKOF02UM_S_Bonus,       // 42
+
+    // EVERYTHING ABOVE 0x42 IS RESERVED FOR OTHER USAGE
 };
 
 enum SupportedBreakersSprites
