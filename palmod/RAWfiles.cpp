@@ -155,6 +155,17 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
                                                                              nPositionToLoadTo, direction, &compositionStyle);
                 }
             }
+            else
+            {
+                if (fMustShowAdvancedOptions)
+                {
+                    // You should only be get to this error message for compressed previews.  Compressed previews are not (currently) externally available
+                    // outside of the imgdat team, so this should not be possible to get to by any normal user.
+                    MessageBox(g_appHWnd, L"Advanced options are not available for compressed previews.  The default settings will be used.\r\n\r\n"
+                                           L"If you need to set options, export the preview as uncompressed and then use that version.", GetHost()->GetAppName(), MB_ICONSTOP);
+                }
+            }
+
         }
 
         if (eCompType != RAWCompressionChoice::NoCompression)
