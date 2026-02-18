@@ -249,11 +249,16 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
 
+    // reset the buttons
+    m_pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
+
     bool fWasImageLoadHandled = false;
+    bool fUsingSpecialPairing = false;
 
     //Select the image
     if (m_nExtraUnit != NodeGet->uUnitId)
@@ -294,7 +299,10 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 {
                     // The starting point is the absolute first palette for the sprite in question which is found in LP
                     nSrcStart -= nNodeIncrement;
+                    nSelectedPaletteIndex++;
                 }
+
+                fUsingSpecialPairing = true;
             }
             else // Extras or Extra Range
             {
@@ -313,15 +321,19 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             // These characters only have two nodes in this game
             if (((wcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
                  (wcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0)) &&
-                (nSrcAmt > 1))
+                (Node03 < 2))
             {
                 nSrcAmt = 2;
+                m_pButtonLabelSet = DEF_BUTTONLABEL_2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                 while (nSrcStart >= nNodeIncrement)
                 {
                     nSrcStart -= nNodeIncrement;
+                    nSelectedPaletteIndex++;
                 }
+
+                fUsingSpecialPairing = true;
             }
 
             if (paletteDataSet->pPalettePairingInfo)
@@ -342,7 +354,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
+                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1, 0);
                 }
                 else if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairFullyLinkedNode))
                 {
@@ -362,7 +374,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                             //Set each palette
                             sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                             CreateDefPal(JoinedNode, nStageIndex);
-                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
 
@@ -395,9 +407,9 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     CreateDefPal(JoinedNode[1], 1);
                     CreateDefPal(JoinedNode[2], 2);
 
-                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                 }
                 else
                 {
@@ -424,8 +436,8 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         CreateDefPal(JoinedNode[0], 0);
                         CreateDefPal(JoinedNode[1], 1);
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
             }
@@ -449,12 +461,19 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             // Only internal units get sprites
             ClearSetImgTicket(nullptr);
 
-            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1, nSelectedPaletteIndex);
         }
     }
 
     if (fWasImageLoadHandled)
     {
+        return TRUE;
+    }
+    else if (fUsingSpecialPairing)
+    {
+        CreateDefPal(NodeGet, 0);
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
         return TRUE;
     }
     else

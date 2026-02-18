@@ -68,6 +68,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -102,6 +103,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     {
                         // The starting point is the absolute first palette for the sprite in question which is found in P1
                         nSrcStart -= nNodeIncrement;
+                        nSelectedPaletteIndex++;
                     }
                 }
 
@@ -155,8 +157,8 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                             nSrcAmt = 1;
                             nSrcStart = NodeGet->uPalId;
 
-                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                            SetSourcePal(1, nWeakpointUnit, (iPorKIndex * 2) + iCollectionIndex, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, 0);
+                            SetSourcePal(1, nWeakpointUnit, (iPorKIndex * 2) + iCollectionIndex, nSrcAmt, nNodeIncrement, 0);
                         }
                     }
                     else
@@ -185,8 +187,8 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                             CreateDefPal(JoinedNode[0], 0);
                             CreateDefPal(JoinedNode[1], 1);
 
-                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
                 }

@@ -26,8 +26,10 @@ public:
 
 protected:
     HICON m_hIcon;
+    bool m_fShowingUI = true;
 
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void InitCoreData();
     virtual BOOL OnInitDialog();
 
     DECLARE_MESSAGE_MAP()
@@ -56,7 +58,7 @@ public:
 
     int m_nPalAmt = 0;
 
-    int m_pal = 0;
+    int m_PaletteIndexCB = 0;
     int m_zoomSelIndex = 0;
     int m_border_sz = 0;
 
@@ -93,4 +95,7 @@ public:
     afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
     afx_msg void OnSettingsUseTransparentPNG();
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu);
+
+    // Saves using previously established settings
+    void QuickExport();
 };

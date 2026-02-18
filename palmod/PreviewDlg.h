@@ -68,7 +68,9 @@ public:
     afx_msg void OnTileBackground();
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu);
     afx_msg void OnResetBackgroundOffset();
-    afx_msg void OnFileExportImg();
+    afx_msg void OnFileExportImg(bool fShowFullOptions);
+    afx_msg void OnFileExportImgFull() { OnFileExportImg(true); };
+    afx_msg void OnFileExportImgQuick() { OnFileExportImg(false); };
     afx_msg void OnSettingsUseBackgroundColor();
     afx_msg void OnSettingsClickToFindColor() { m_ImgDisp.SetClickToFindColorSetting(!m_ImgDisp.GetClickToFindColorSetting()); };
     afx_msg void OnSettingsAllowAutoPreviewFallback() { m_ImgDisp.SetAllowAutoPreviewFallback(!m_ImgDisp.GetAllowAutoPreviewFallback()); };;

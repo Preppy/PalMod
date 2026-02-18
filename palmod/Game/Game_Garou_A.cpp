@@ -22,15 +22,20 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
-    //Get rid of any palettes if there are any
+    // Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
+
+    // reset the buttons
+    m_pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
 
     // Make sure to reset the image id
     uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
     uint8_t nTargetImgId = 0;
 
     bool fWasImageLoadHandled = false;
+    bool fUsingSpecialPairing = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -47,6 +52,8 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
+                // We need to hook and handle Garou pairing uniquely given the flat portrait nodes and
+                // the unsafe pairing within the Rock Howard portrait node
                 sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
                 if (wcscmp(charUnit->szDesc, k_garouNameKey_Portraits) == 0)
@@ -57,6 +64,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nNodeIncrement = 1;
                     uint32_t nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     nSrcStart = 0;
+                    nSelectedPaletteIndex = Node03; // portraits are flat in one unit
 
                     for (uint32_t nCurrentCollection = 0; nCurrentCollection < nCollectionCount; nCurrentCollection++)
                     {
@@ -67,7 +75,9 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             // Make an allowance for the paired portraits that are using one shared asset
                             if (nNextChunk != nSrcAmt)
                             {
+                                nSrcStart = Node03;
                                 nSrcAmt = 1;
+                                nSelectedPaletteIndex = 0;
                                 m_pButtonLabelSet = DEF_NOBUTTONS;
                             }
                             break;
@@ -75,10 +85,11 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                         nSrcStart += nNextChunk;
                     }
+
+                    fUsingSpecialPairing = true;
                 }
                 else
                 {
-                    m_pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
                     bool fIsCorePalette = false;
 
                     for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
@@ -99,6 +110,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             // The starting point is the absolute first palette for the sprite in question which is found in P1
                             nSrcStart -= nNodeIncrement;
+                            nSelectedPaletteIndex++;
                         }
                     }
                 }
@@ -219,7 +231,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                                 //Set each palette: these were joined forward, so reverse them now
                                 CreateDefPal(vsJoinedNodes[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nPairIndex);
 
-                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                             }
                         }
                         else
@@ -240,7 +252,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                                 //Set each palette
                                 CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                             }
                         }
                     }
@@ -255,6 +267,13 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     
     if (fWasImageLoadHandled)
     {
+        return TRUE;
+    }
+    else if (fUsingSpecialPairing)
+    {
+        CreateDefPal(NodeGet, 0);
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
         return TRUE;
     }
     else

@@ -68,6 +68,7 @@ protected:
     uint32_t m_nSrcPalStart[MAX_PALETTES_DISPLAYABLE] = { 0 };
     uint32_t m_nSrcPalAmt[MAX_PALETTES_DISPLAYABLE] = { 0 };
     uint32_t m_nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    uint32_t m_nSelectedPaletteIndex = 0;
 
     ColMode m_CurrColMode = ColMode::COLMODE_RGB444_BE;
     sImgTicket* m_CurrImgTicket = nullptr;
@@ -234,7 +235,7 @@ public:
 
     int GetPlaneAmt(ColFlag Flag);
 
-    void SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart, uint32_t nAmt, uint32_t nInc);
+    void SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart, uint32_t nAmt, uint32_t nInc, uint32_t nSelectedPaletteIndex);
     void ClearSrcPal();
 
     sImgTicket* CreateImgTicket(uint16_t nImgUnitId, uint8_t nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0, BlendMode nBlendMode = BlendMode::Alpha);
@@ -243,6 +244,7 @@ public:
     uint32_t GetCurrentPaletteIncrement() { return m_nSrcPalInc[0]; };
     eImageOutputSpriteDisplay GetImgDispType() { return m_DisplayType; };
     uint32_t GetImgOutPalAmt() { return m_nSrcPalAmt[0]; };
+    uint32_t GetSelectedPaletteIndex() { return m_nSelectedPaletteIndex; };
 
     const std::vector<LPCWSTR> GetButtonDescSet() { return m_pButtonLabelSet; };
 

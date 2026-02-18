@@ -47,7 +47,8 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_ZOOM_8X, &CPreviewDlg::OnZoom8x)
 
     ON_COMMAND(ID_FILE_CLOSE, &CPreviewDlg::OnFileClose)
-    ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
+    ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImgFull)
+    ON_COMMAND(ID_FILE_QUICKEXPORTIMAGE, &CPreviewDlg::OnFileExportImgQuick)
     ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSpriteForZero)
     ON_COMMAND(ID_FILE_LOADSPRITECUSTOM, &CPreviewDlg::OnLoadCustomSpriteWithOptions)
 
@@ -375,12 +376,20 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 {
     CDialog::OnInitMenuPopup(pPopupMenu, nIndex, fSysMenu);
 
-    CMenu* pFileMenu = GetMenu()->GetSubMenu(0); // edit menu
+    CMenu* pFileMenu   = GetMenu()->GetSubMenu(0); // file/export menu
+    CMenu* pImportMenu = GetMenu()->GetSubMenu(1); // import menu
+    CMenu* pSettMenu   = GetMenu()->GetSubMenu(2); // settings menu
+    CMenu* pZoomMenu   = GetMenu()->GetSubMenu(3); // Zoom menu
 
     if (pFileMenu == pPopupMenu)
     {
         const bool fGameLoaded = GetHost()->GetCurrGame();
         pPopupMenu->EnableMenuItem(ID_FILE_EXPORTIMAGE, !fGameLoaded);
+        pPopupMenu->EnableMenuItem(ID_FILE_QUICKEXPORTIMAGE, !fGameLoaded);
+    }
+    else if (pImportMenu == pPopupMenu)
+    {
+        const bool fGameLoaded = GetHost()->GetCurrGame();
         pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITE, !fGameLoaded);
         pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITECUSTOM, !fGameLoaded);
 
@@ -395,7 +404,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
             ImportMenuOption rgImportMenuOptions[] =
             {
-                { ID_FILE_LOADSPRITE, const_cast<LPWSTR>(L"Load Texture"), L"Load Texture for Palette %u" },
+                { ID_FILE_LOADSPRITE, const_cast<LPWSTR>(L"Load Layout"), L"Load Layout for Palette %u" },
             };
 
             for (UINT iIndex = 0; iIndex < ARRAYSIZE(rgImportMenuOptions); iIndex++)
@@ -410,11 +419,13 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                 miiNew.dwTypeData = rgImportMenuOptions[iIndex].pszMonoString;
                 miiNew.wID = rgImportMenuOptions[iIndex].nOriginalMenuId;
 
+                const UINT nOffsetToLoadTextures = 0; // Load Layout starts this menu
+
                 // For multisprite palettes, enable loading to any given sprite slot
                 if (nPaletteCount > 1)
                 {
                     MENUITEMINFO mii = { 0 };
-                    UINT nCurrentPosition = iIndex + 1; // after Export
+                    UINT nCurrentPosition = iIndex + nOffsetToLoadTextures;
                     CMenu spriteMenu;
                     spriteMenu.CreatePopupMenu();
                     CString strMenuName;
@@ -440,14 +451,11 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     miiNew.hSubMenu = nullptr;
                 }
 
-                pPopupMenu->InsertMenuItem(iIndex + 1, &miiNew, TRUE);
+                pPopupMenu->InsertMenuItem(iIndex + nOffsetToLoadTextures, &miiNew, TRUE);
             }
         }
     }
-
-    CMenu* pSettMenu = GetMenu()->GetSubMenu(1); //1 = settings menu
-
-    if (pSettMenu == pPopupMenu)
+    else if (pSettMenu == pPopupMenu)
     {
         pSettMenu->CheckMenuItem(ID_SETTINGS_BLINKINVERTS, m_ImgDisp.IsUsingBlinkInverts() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_TILEIMAGEBACKGROUND, m_ImgDisp.IsBGTiled() ? MF_CHECKED : MF_UNCHECKED);
@@ -466,10 +474,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDPS1STON,  (m_ImgDisp.GetForcedBlendMode() == BlendMode::PS1SemiTransparencyOn) ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_BLENDPS1STOFF, (m_ImgDisp.GetForcedBlendMode() == BlendMode::PS1SemiTransparencyOff) ? MF_CHECKED : MF_UNCHECKED);
     }
-
-    CMenu* pZoomMenu = GetMenu()->GetSubMenu(2); //2 = Zoom menu
-
-    if (pZoomMenu == pPopupMenu)
+    else if (pZoomMenu == pPopupMenu)
     {
         const double fpCurrZoom = m_ImgDisp.GetZoom();
         pZoomMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | ((fpCurrZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED));
@@ -554,7 +559,7 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
     }
 }
 
-void CPreviewDlg::OnFileExportImg()
+void CPreviewDlg::OnFileExportImg(bool fShowFullOptions)
 {
     if (m_ImgDisp.HaveImageData())
     {
@@ -574,7 +579,15 @@ void CPreviewDlg::OnFileExportImg()
         }
 
         CImgOutDlg imgDlg;
-        imgDlg.DoModal();
+
+        if (fShowFullOptions)
+        {
+            imgDlg.DoModal();
+        }
+        else
+        {
+            imgDlg.QuickExport();
+        }
     }
     else
     {

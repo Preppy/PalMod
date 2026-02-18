@@ -2721,7 +2721,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ABYSS1 =
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ABYSS2 =
 { //19: Abyss (Form 2)" },
-    { 0x00, L"Main Color (button specific)", 0x00, indexCPS2Sprites_Abyss2, &pairNext4AndNextAndNext },
+    { 0x00, L"Main Color (button specific)" },
     { 0x01, L"(02) Not Used" },
     { 0x02, L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used" },
     { 0x03, L"(04) Not Used" },

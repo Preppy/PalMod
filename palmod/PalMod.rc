@@ -218,7 +218,7 @@ END
 
 IDD_IMGDDLG DIALOGEX 0, 0, 344, 278
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Export Image"
+CAPTION "Export Preview"
 MENU IDR_MENUIMGOUT
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
@@ -585,7 +585,7 @@ BEGIN
             END
             POPUP "King of Fighters"
             BEGIN
-                MENUITEM "King of Fighters 02UM (Steam, RGBA8888 parts)", ID_LD_KOF02UM_S_8888
+                MENUITEM "King of Fighters 02UM (Steam, RGBA8887 parts)", ID_LD_KOF02UM_S_8888
                 MENUITEM "King of Fighters 02UM (Steam, BGR555 parts)", ID_LD_KOF02UM_S_BGR555
                 MENUITEM "King of Fighters 02UM (Steam, RGB555 parts, Characters)", ID_LD_KOF02UM_S_RGB555
             END
@@ -783,13 +783,17 @@ END
 
 IDR_MENUPREV MENU
 BEGIN
-    POPUP "&File"
+    POPUP "&Export Preview"
     BEGIN
-        MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
-        MENUITEM "Load Texture",                ID_FILE_LOADSPRITE
-        MENUITEM "Load Texture Advanced...",    ID_FILE_LOADSPRITECUSTOM
+        MENUITEM "Export",                      ID_FILE_QUICKEXPORTIMAGE
+        MENUITEM "Export Advanced...",          ID_FILE_EXPORTIMAGE
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
+   END
+    POPUP "&Import Layout"
+    BEGIN
+        MENUITEM "Load Layout",                ID_FILE_LOADSPRITE
+        MENUITEM "Load Layout Advanced...",    ID_FILE_LOADSPRITECUSTOM
     END
     POPUP "&Settings"
     BEGIN

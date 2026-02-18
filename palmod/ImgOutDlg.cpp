@@ -34,15 +34,13 @@ void CImgOutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_PAL, m_CB_Pal);
     DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom); // see also m_zoomSelIndex
     DDX_Text(pDX, IDC_EDIT_BDRSZ, m_border_sz);
-    DDX_CBIndex(pDX, IDC_PAL, m_pal);
+    DDX_CBIndex(pDX, IDC_PAL, m_PaletteIndexCB);
     DDX_CBIndex(pDX, IDC_ZOOM, m_zoomSelIndex); // see also m_CB_Zoom
     DDX_Control(pDX, IDC_BDRSPN, m_BdrSpn);
 }
 
-BOOL CImgOutDlg::OnInitDialog()
+void CImgOutDlg::InitCoreData()
 {
-    CDialog::OnInitDialog();
-
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     //Set dialog data
@@ -53,6 +51,31 @@ BOOL CImgOutDlg::OnInitDialog()
     m_DumpBmp.m_pppPalettes = CurrGame->CreateImgOutPal();
     m_DumpBmp.m_nPalAmt = CurrGame->GetImgOutPalAmt();
     m_DumpBmp.DispType = CurrGame->GetImgDispType();
+    m_PaletteIndexCB = CurrGame->GetSelectedPaletteIndex();
+
+    m_nPalAmt = m_DumpBmp.m_nPalAmt;
+
+    //Change this if we ever decide to load a default image amount
+    m_iSelectedImageAmount = 1;
+
+    LoadSettings();
+
+    UpdImgVar(FALSE);
+
+    m_DumpBmp.InitImgData();
+
+    UpdateImg();
+}
+
+BOOL CImgOutDlg::OnInitDialog()
+{
+    CDialog::OnInitDialog();
+
+    m_fShowingUI = true;
+
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+    InitCoreData();
 
     // Set the icon
     SetIcon(m_hIcon, TRUE);         // Set big icon
@@ -61,11 +84,9 @@ BOOL CImgOutDlg::OnInitDialog()
     CString tmp_str;
     UpdateData();
 
-    m_nPalAmt = m_DumpBmp.m_nPalAmt;
+    m_CB_Amt.AddString(L"1"); // always show 1
 
-    m_CB_Amt.AddString(L"1");
-
-    tmp_str.Format(L"CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", m_nPalAmt);
+    tmp_str.Format(L"CImgOutDlg::OnInitDialog: preparing to show up to %u sprites. Selection %u will be set as active.\n", m_nPalAmt, CurrGame->GetSelectedPaletteIndex());
     OutputDebugString(tmp_str);
 
     // Update here as needed to add new division options
@@ -206,24 +227,15 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Zoom.AddString(tmp_str);
     }
 
-    //Change this if we ever decide to load a default image amount
-    m_iSelectedImageAmount = 1;
-
     m_BdrSpn.SetRange(0, 999);
     m_BdrSpn.SetBuddy(GetDlgItem(IDC_EDIT_BDRSZ));
 
     //Get the size of the dummy rect so that we offset the preview bitmap correctly
     GetDlgItem(IDC_DUMMY)->GetClientRect(&m_rcDummyRect);
 
-    LoadSettings();
-
     m_fCanSize = TRUE;
 
     UpdateData(FALSE);
-
-    UpdImgVar(FALSE);
-
-    m_DumpBmp.InitImgData();
 
     //Get the rest of the data
     m_fDlgInit = TRUE;
@@ -320,7 +332,10 @@ void CImgOutDlg::OnShowWindow(BOOL fShow, UINT nStatus)
 
     const int nPreferredAmount = sett.GetImageAmountForPalettePreview(m_nPalAmt);
     m_CB_Amt.SetCurSel(nPreferredAmount);
-    m_CB_Pal.SetCurSel(0);
+
+    // Should be impossible for this to be null in the image export path, but hey why not check
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+    m_CB_Pal.SetCurSel(CurrGame ? CurrGame->GetSelectedPaletteIndex() : 0);
 
     OnCbnSelchangeAmt();
 
@@ -329,10 +344,21 @@ void CImgOutDlg::OnShowWindow(BOOL fShow, UINT nStatus)
 
 void CImgOutDlg::UpdImgVar(BOOL fResize)
 {
-    UpdateData();
+    if (m_fShowingUI)
+    {
+        UpdateData();
+    }
 
     m_DumpBmp.m_nTotalImagesToDisplay = m_iSelectedImageAmount;
-    m_DumpBmp.m_nPalIndex = m_pal;
+
+    if (m_fShowingUI)
+    {
+        m_DumpBmp.m_nPalIndex = m_PaletteIndexCB;
+    }
+    else
+    {
+        m_DumpBmp.m_nPalIndex = m_PaletteIndexCB;
+    }
 
     m_zoomSelIndex = min(m_zoomSelIndex, static_cast<int>(CPalModZoom::GetZoomListSize()));
     m_zoomSelIndex = max(m_zoomSelIndex, m_nZoomSelOptionsMin);
@@ -349,7 +375,10 @@ void CImgOutDlg::UpdImgVar(BOOL fResize)
         m_DumpBmp.ResizeMainBmp();
     }
 
-    UpdateData(FALSE);
+    if (m_fShowingUI)
+    {
+        UpdateData(FALSE);
+    }
 
     //m_DumpBmp.UpdateBltRect(FALSE);
 }
@@ -393,6 +422,7 @@ void CImgOutDlg::FillPalCombo()
     if (fShouldShowMultipleOptions && (static_cast<uint32_t>(m_nPalAmt) > m_pButtonLabelSet.size()))
     {
         MessageBox(L"Error: list of output options doesn't match list size.\n\nPlease report this bug in PalMod and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
+        m_nPalAmt = 1;
     }
 
     if (fShouldShowMultipleOptions)
@@ -406,8 +436,6 @@ void CImgOutDlg::FillPalCombo()
     {
         m_CB_Pal.AddString(L"Selected");
     }
-
-    m_CB_Pal.SetCurSel(0);
 }
 
 void CImgOutDlg::OnDeltaposBdrspn(NMHDR* pNMHDR, LRESULT* pResult)
@@ -440,23 +468,29 @@ void CImgOutDlg::LoadSettings()
 
     m_DumpBmp.m_crBGCol = sett.imgout_bgcol;
 
-    m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
-    
-    UpdateData();
+    if (m_fShowingUI)
+    {
+        m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
+
+        UpdateData();
+    }
 
     m_fTransPNG = sett.fTransPNG;
     m_fExportPNGAsJoined = sett.fExportPNGAsJoined;
     m_border_sz = sett.imgout_border;
 
-    UpdateData(FALSE);
-
-    RECT window_rect;
-
-    window_rect = sett.imgout_szpos;
-
-    if (window_rect.top != c_badWindowPosValue)
+    if (m_fShowingUI)
     {
-        MoveWindow(&window_rect);
+        UpdateData(FALSE);
+
+        RECT window_rect;
+
+        window_rect = sett.imgout_szpos;
+
+        if (window_rect.top != c_badWindowPosValue)
+        {
+            MoveWindow(&window_rect);
+        }
     }
 }
 
@@ -979,9 +1013,17 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     }
 }
 
+void CImgOutDlg::QuickExport()
+{
+    m_fShowingUI = false;
+    InitCoreData();
+
+    OnFileSave();
+}
+
 void CImgOutDlg::OnFileSave()
 {
-    static LPCWSTR szSaveFilter[] =
+    static LPCWSTR szFullSaveFilter[] =
     {
         L"Indexed PNG|*.png|"
         L"PNG Image|*.png|"
@@ -993,25 +1035,45 @@ void CImgOutDlg::OnFileSave()
         L"|"
     };
 
+    // Quick export doesn't init the imgdump DC that most other format exports want.
+    // Our options, without further reworks, are iPNG, RAW, and/or HTML
+    static LPCWSTR szQuickSaveFilter[] =
+    {
+        L"Indexed PNG|*.png|"
+        L"RAW texture|*.raw|"
+        L"|"
+    };
+
     CFileDialog sfd(
         FALSE,
         NULL,
         NULL,
         OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
-        *szSaveFilter
+        m_fShowingUI ? *szFullSaveFilter : *szQuickSaveFilter
     );
 
     OPENFILENAME& pOFN = sfd.GetOFN();
 
-    pOFN.nFilterIndex = CRegProc::GetOFNIndexForImageExport();
+    pOFN.nFilterIndex = m_fShowingUI ? CRegProc::GetOFNIndexForImageExport() : 1;
 
     if (sfd.DoModal() == IDOK)
     {
         CString output_ext = L".png";
         GUID img_format = ImageFormatPNG;
         DWORD dwExportFlags = 0;
+        const DWORD c_dwRAWIndex = 6;
 
-        switch (sfd.GetOFN().nFilterIndex)
+        DWORD dwAdjustedIndex = sfd.GetOFN().nFilterIndex;
+
+        if (!m_fShowingUI)
+        {
+            if (dwAdjustedIndex != 1)
+            {
+                dwAdjustedIndex = c_dwRAWIndex;
+            }
+        }
+
+        switch (dwAdjustedIndex)
         {
             default:
             case 1:
@@ -1045,7 +1107,7 @@ void CImgOutDlg::OnFileSave()
                 output_ext = L".jpg";
                 break;
             }
-            case 6:
+            case c_dwRAWIndex:
             {
                 img_format = ImageFormatUndefined;
                 output_ext = L".raw";
@@ -1098,7 +1160,12 @@ void CImgOutDlg::OnFileSave()
             ExportToCImageType(output_str, img_format, dwExportFlags);
         }
 
-        CRegProc::StoreOFNIndexForImageExport(pOFN.nFilterIndex);
+        if (m_fShowingUI)
+        {
+            CRegProc::StoreOFNIndexForImageExport(pOFN.nFilterIndex);
+        }
+
+        GetHost()->GetPalModDlg()->SetStatusText(L"Image saved to disk.");
     }
 }
 

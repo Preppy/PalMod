@@ -116,6 +116,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     int32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     int8_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -125,6 +126,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     uint8_t nTargetImgId = 0;
 
     bool fWasImageLoadHandled = false;
+    bool fUsingSpecialPairing = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -151,19 +153,30 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     {
                         constexpr int32_t nBlackheartNodeSize = ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH);
                         constexpr int32_t nMephistoNodeSize = ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH);
-                        // Blackheart and Mephisto displays
-                        if ((nSrcStart >= nNodeIncrement) && (nSrcStart < (nNodeIncrement * nBlackheartNodeSize)))
+
+                        if (static_cast<uint32_t>(nSrcStart) >= (2 * nBlackheartNodeSize) + nMephistoNodeSize)
                         {
-                            // Blackheart
-                            nSrcStart -= nNodeIncrement;
+                            // Mephisto kick: step back to punch for origin
+                            nSrcStart -= nMephistoNodeSize;
+                            nSelectedPaletteIndex++;
                         }
-                        else // Mephisto
+                        else if (static_cast<uint32_t>(nSrcStart) >= (2 * nBlackheartNodeSize))
                         {
-                            if (static_cast<uint32_t>(nSrcStart) > (nSrcAmt * nBlackheartNodeSize))
-                            {
-                                nSrcStart -= nMephistoNodeSize;
-                            }
+                            // Mephisto punch: no-op
+
                         }
+                        else if (static_cast<uint32_t>(nSrcStart) >= nBlackheartNodeSize)
+                        {
+                            // Blackheart kick: step back to punch for origin
+                            nSrcStart -= nBlackheartNodeSize;
+                            nSelectedPaletteIndex++;
+                        }
+                        else
+                        {
+                            // Blackheart punch: no-op
+                        }
+
+                        fUsingSpecialPairing = true;
                     }
                     else
                     {
@@ -171,7 +184,10 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         {
                             // The starting point is the absolute first palette for the sprite in question which is found in P1
                             nSrcStart -= nNodeIncrement;
+                            nSelectedPaletteIndex++;
                         }
+
+                        fUsingSpecialPairing = true;
                     }
                 }
 
@@ -195,7 +211,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                                 //Set each palette
                                 sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                                 CreateDefPal(JoinedNode, nStageIndex);
-                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                             }
                         }
 
@@ -227,8 +243,8 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                             CreateDefPal(JoinedNode[0], 0);
                             CreateDefPal(JoinedNode[1], 1);
 
-                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
                 }
@@ -238,6 +254,13 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     if (fWasImageLoadHandled)
     {
+        return TRUE;
+    }
+    else if (fUsingSpecialPairing)
+    {
+        CreateDefPal(NodeGet, 0);
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
         return TRUE;
     }
     else

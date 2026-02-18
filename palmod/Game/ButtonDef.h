@@ -38,6 +38,16 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_2_LEFTRIGHT =
     L"Left", L"Right"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_SAMSHO3_2_SLASH =
+{
+    L"S1", L"S2"
+};
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_SAMSHO3_2_BUST =
+{
+    L"B1", L"B2"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_3_LMH =
 {
     L"Light", L"Medium", L"Heavy"

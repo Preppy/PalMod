@@ -111,6 +111,7 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -120,6 +121,7 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint8_t nTargetImgId = 0;
 
     bool fWasImageLoadHandled = false;
+    bool fUsingSpecialPairing = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -138,12 +140,15 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 {
                     // Go back to Punch
                     nSrcStart--;
+                    // but index stays as kick
+                    nSelectedPaletteIndex++;
                 }
 
                 nNodeIncrement = 1;
+                fUsingSpecialPairing = true;
             }
             else if ((_wcsicmp(pCurrentNode->szDesc, L"Punch") == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, L"Kick") == 0))
+                     (_wcsicmp(pCurrentNode->szDesc, L"Kick") == 0))
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -152,7 +157,10 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 {
                     // The starting point is the absolute first palette for the sprite in question which is found in Punch
                     nSrcStart -= nNodeIncrement;
+                    nSelectedPaletteIndex++;
                 }
+
+                fUsingSpecialPairing = true;
             }
             else
             {
@@ -186,7 +194,7 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                             //Set each palette
                             sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                             CreateDefPal(JoinedNode, nStageIndex);
-                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
 
@@ -221,8 +229,8 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                         CreateDefPal(JoinedNode[0], 0);
                         CreateDefPal(JoinedNode[1], 1);
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
             }
@@ -231,6 +239,14 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     if (fWasImageLoadHandled)
     {
+        return TRUE;
+    }
+    else if (fUsingSpecialPairing)
+    {
+        // Use the default logic
+        CreateDefPal(NodeGet, 0);
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
         return TRUE;
     }
     else

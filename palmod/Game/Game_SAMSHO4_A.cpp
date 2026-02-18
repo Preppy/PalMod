@@ -98,6 +98,7 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -106,7 +107,11 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
     uint8_t nTargetImgId = 0;
 
+    // reset the buttons
+    m_pButtonLabelSet = DEF_BUTTONLABEL_SAMSHO3;
+
     bool fWasImageLoadHandled = false;
+    bool fUsingSpecialPairing = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -129,8 +134,9 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 {
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
-                    if ((wcscmp(charUnit->szDesc, L"Galford") == 0) ||
-                        (wcscmp(charUnit->szDesc, L"Kyoshiro") == 0))
+                    if ((wcscmp(charUnit->szDesc, L"Galford") == 0) || // 2 victory palettes vs 1 victory palette: different tree lengths
+                        (wcscmp(charUnit->szDesc, L"Nakoruru") == 0) || // mamahaha or shikuru
+                        (wcscmp(charUnit->szDesc, L"Kyoshiro") == 0)) // Toad or no toad
                     {
                         // These two have different trees between S and B
                         nSrcAmt = 2;
@@ -140,6 +146,16 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                             ((nSrcStart >= (nNodeIncrement * 3)) && (nSrcStart < (nNodeIncrement * 4))))
                         {
                             nSrcStart -= nNodeIncrement;
+                            nSelectedPaletteIndex++;
+                        }
+
+                        if (NodeGet->uPalId < (nNodeIncrement * 2))
+                        {
+                            m_pButtonLabelSet = DEF_BUTTONLABEL_SAMSHO3_2_SLASH;
+                        }
+                        else
+                        {
+                            m_pButtonLabelSet = DEF_BUTTONLABEL_SAMSHO3_2_BUST;
                         }
                     }
                     else
@@ -151,8 +167,11 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                         {
                             // The starting point is the absolute first palette for the sprite in question which is found in Slash 1
                             nSrcStart -= nNodeIncrement;
+                            nSelectedPaletteIndex++;
                         }
                     }
+
+                    fUsingSpecialPairing = true;
                 }
             }
 
@@ -176,7 +195,7 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                             //Set each palette
                             sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                             CreateDefPal(JoinedNode, nStageIndex);
-                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
 
@@ -208,8 +227,8 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                         CreateDefPal(JoinedNode[0], 0);
                         CreateDefPal(JoinedNode[1], 1);
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
             }
@@ -218,6 +237,14 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     if (fWasImageLoadHandled)
     {
+        return TRUE;
+    }
+    else if (fUsingSpecialPairing)
+    {
+        // Use the default logic
+        CreateDefPal(NodeGet, 0);
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
         return TRUE;
     }
     else

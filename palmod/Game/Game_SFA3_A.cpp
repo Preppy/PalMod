@@ -113,6 +113,7 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -122,6 +123,7 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint8_t nTargetImgId = 0;
 
     bool fWasImageLoadHandled = false;
+    bool fUsingSpecialPairing = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -132,8 +134,10 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if ((wcsstr(pCurrentNode->szDesc, L"Select Portraits") != nullptr) ||
-                (wcsstr(pCurrentNode->szDesc, L"Win Portraits") != nullptr))
+            const bool fIsSelectPortraits = (wcsstr(pCurrentNode->szDesc, L"Select Portraits") != nullptr);
+            const bool fIsWinPortraits = (wcsstr(pCurrentNode->szDesc, L"Win Portraits") != nullptr);
+
+            if (fIsSelectPortraits || fIsWinPortraits)
             {
                 // Hm.  These start at an abstract position within the node.  Let's derive that.
                 int nProspectiveStart = NodeGet->uPalId;
@@ -160,12 +164,14 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
                     if ((wcscmp(charUnit->szDesc, k_sfa3NameKey_ChunLi) != 0) &&  // different portraits for X vs non-X
-                        (wcscmp(charUnit->szDesc, k_sfa3NameKey_Sodom) != 0))     // different win portraits for X vs non-X
+                        (!fIsWinPortraits || (wcscmp(charUnit->szDesc, k_sfa3NameKey_Sodom) != 0))) // different win portraits for X vs non-X
                     {
                         // OK, we've arrived where we expected to
                         nSrcAmt = 6;
                         nSrcStart = nProspectiveStart;
                         nNodeIncrement = 1;
+                        nSelectedPaletteIndex = Node03; // absolute position within this flat node
+                        fUsingSpecialPairing = true;
                     }
                 }
                 else
@@ -191,8 +197,15 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     {
                         // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
                         nSrcStart -= nNodeIncrement;
+                        nSelectedPaletteIndex++;
                     }
                 }
+                else
+                {
+                    OutputDebugString(L"Sodom is deliberately unpaired as the Xism sprite differs from the other isms.\r\n");
+                }
+
+                fUsingSpecialPairing = true;
             }
             else
             {
@@ -226,7 +239,7 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                             //Set each palette
                             sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                             CreateDefPal(JoinedNode, nStageIndex);
-                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
 
@@ -345,7 +358,7 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                                 //Set each palette: these were joined forward, so reverse them now
                                 CreateDefPal(vsJoinedNodes[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nPairIndex);
 
-                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                             }
                         }
                         else
@@ -366,7 +379,7 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                                 //Set each palette
                                 CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                             }
                         }
                     }
@@ -383,7 +396,16 @@ BOOL CGame_SFA3_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     {
         return TRUE;
     }
+    else if (fUsingSpecialPairing)
+    {
+        // Use the default logic
+        CreateDefPal(NodeGet, 0);
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+        return TRUE;
+    }
     else
+
     {
         return CGameClassByDir::UpdatePalImg(Node01, Node02, Node03, Node04);
     }

@@ -702,6 +702,7 @@ bool CGameClassPerUnitPerFile::CreateImageIfPaired(ImagePairing pairingType, int
         std::vector<const sGCBUPF_RelativePaletteData*> vsBasicPaletteDataSetToJoin;
         std::vector<const sGame_PaletteDataset*> vsExtraPaletteDataSetToJoin;
         std::vector<int8_t> vnPeerPaletteDistances;
+        uint32_t nSelectedPaletteIndex = 0;
         bool fAllNodesFound = true;
 
         for (uint32_t nPairIndex = 0; nPairIndex < pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
@@ -799,6 +800,7 @@ bool CGameClassPerUnitPerFile::CreateImageIfPaired(ImagePairing pairingType, int
                 nSrcStart = CharacterNode->uPalId % GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId);
                 nSrcAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.rgpszNodeNames.size());
                 nNodeIncrement = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId));
+                nSelectedPaletteIndex = static_cast<uint32_t>(CharacterNode->uPalId / GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId));
             }
             else
             {
@@ -844,7 +846,7 @@ bool CGameClassPerUnitPerFile::CreateImageIfPaired(ImagePairing pairingType, int
                 //Set each palette
                 CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                SetSourcePal(nPairIndex, CharacterNode->uUnitId, nSrcStart + vnPeerPaletteDistances.at(nPairIndex), nSrcAmt, nNodeIncrement);
+                SetSourcePal(nPairIndex, CharacterNode->uUnitId, nSrcStart + vnPeerPaletteDistances.at(nPairIndex), nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
             }
         }
         else
@@ -882,6 +884,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
     uint32_t nSrcStart = 0;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
     BlendMode nBlendMode = m_psCurrentGameLoadingData->defaultBlendMode;
 
     bool fWasImageLoadHandled = false;
@@ -902,6 +905,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             // will need to be updated.
             const int nPaletteSetOfInterest = static_cast<int>(floor(static_cast<double>(nFilePalId) / static_cast<double>(GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId))));
             nSrcStart = CharacterNode->uPalId - nFilePalId;
+            nSelectedPaletteIndex = CharacterNode->uPalId;
             nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImageUnitIndex;
             nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImagePreviewIndex;
 
@@ -927,6 +931,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         {
             // For basic nodes, use the built-in data
             nSrcStart = CharacterNode->uPalId % GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId);
+            nSelectedPaletteIndex = static_cast<uint32_t>(CharacterNode->uPalId / GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId));
             nSrcAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.rgpszNodeNames.size());
             nNodeIncrement = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId));
 
@@ -990,7 +995,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         // Only internal units get sprites
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId, nullptr, 0, 0, nBlendMode));
 
-        SetSourcePal(0, CharacterNode->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, CharacterNode->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
     }
 
     return TRUE;

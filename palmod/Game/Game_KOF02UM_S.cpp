@@ -244,6 +244,7 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -253,6 +254,7 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint8_t nTargetImgId = 0;
 
     bool fWasImageLoadHandled = false;
+    bool fUsingSpecialPairing = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -279,6 +281,7 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     {
                         // The starting point is the absolute first palette for the sprite in question which is found in P1/A
                         nSrcStart -= nNodeIncrement;
+                        nSelectedPaletteIndex++;
                     }
                 }
                 else if (_wcsicmp(pCurrentNode->szDesc, L"Portraits") == 0) // Portraits is last
@@ -286,6 +289,8 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     nSrcAmt = 4;
                     nSrcStart = GetPaletteCountForUnit(NodeGet->uUnitId) - pCurrentNode->uChildAmt;
                     nNodeIncrement = 1;
+                    nSelectedPaletteIndex = Node03;
+                    fUsingSpecialPairing = true;
                 }
             }
 
@@ -318,9 +323,9 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     CreateDefPal(JoinedNode[1], 1);
                     CreateDefPal(JoinedNode[2], 2);
 
-                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                 }
                 else if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 4)
                 {
@@ -354,10 +359,10 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     CreateDefPal(JoinedNode[2], 2);
                     CreateDefPal(JoinedNode[3], 3);
 
-                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance3, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                    SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance3, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                 }
                 else
                 {
@@ -385,8 +390,8 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                         CreateDefPal(JoinedNode[0], 0);
                         CreateDefPal(JoinedNode[1], 1);
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
             }
@@ -395,6 +400,13 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     if (fWasImageLoadHandled)
     {
+        return TRUE;
+    }
+    else if (fUsingSpecialPairing)
+    {
+        CreateDefPal(NodeGet, 0);
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
         return TRUE;
     }
     else

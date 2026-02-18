@@ -22,6 +22,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -73,6 +74,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     {
                         // The starting point is the absolute first palette for the sprite in question which is found in P1
                         nSrcStart -= nNodeIncrement;
+                        nSelectedPaletteIndex++;
                     }
                 }
             }
@@ -119,9 +121,9 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         CreateDefPal(JoinedNode[0], 1);
                         CreateDefPal(JoinedNode[2], 2);
 
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                     else
                     {
@@ -149,6 +151,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             // Jack reaches into a shared node for his bubble gum
                             nSrcAmt = 1;
+                            nSelectedPaletteIndex = 0;
                             nSrcStart = NodeGet->uPalId;
                             nNodeDistance = (Node02 == 0) ? 2 : 1;
                             nPeerNodeDistance = -Node03;
@@ -157,6 +160,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             // King's portrait reaches into the shared node for her bra
                             nSrcAmt = 1;
+                            nSelectedPaletteIndex = 0;
                             nSrcStart = NodeGet->uPalId;
                             nNodeDistance = (Node02 == 0) ? 2 : 1;
                             nPeerNodeDistance = -Node03;
@@ -175,8 +179,8 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         CreateDefPal(JoinedNode[nFirstPalette], 0);
                         CreateDefPal(JoinedNode[nSecondPalette], 1);
 
-                        SetSourcePal(nFirstPalette, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(nSecondPalette, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(nFirstPalette, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(nSecondPalette, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
             }

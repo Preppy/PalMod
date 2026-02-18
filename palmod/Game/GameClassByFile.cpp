@@ -321,9 +321,14 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     }
 
     // Default values for multisprite image display for Export
+    // The first instance of this palette if the palette is repeated
     uint32_t nSrcStart = NodeGet->uPalId;
+    // The number of times the palette is repeated
     uint32_t nSrcAmt = 1;
+    // The number of palettes between each version (P1/P2...) of the palette(s)
     uint32_t nNodeIncrement = 1;
+    // The relative index of this palette (P1/P2/[P3]...)
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -365,6 +370,34 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                 {
                     // The starting point is the absolute first palette for the sprite in question which is found in P1
                     nSrcStart -= nNodeIncrement;
+                    nSelectedPaletteIndex++;
+                }
+            }
+            else
+            {
+                // is it flat?
+                bool fIsItFlatPaletteSet = false;
+
+                for (uint32_t nOptionsToTest = 0; nOptionsToTest < m_pButtonLabelSet.size(); nOptionsToTest++)
+                {
+                    if (wcscmp(paletteDataSet->szPaletteName, m_pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsItFlatPaletteSet = true;
+                        break;
+                    }
+                }
+
+                if (fIsItFlatPaletteSet)
+                {
+                    nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
+                    nNodeIncrement = 1; // flat
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                        nSelectedPaletteIndex++;
+                    }
                 }
             }
         }
@@ -376,7 +409,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                 nSrcAmt = 1;
             }
 
-            if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
+            if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == FULLY_PAIRED_NODE)
             {
                 const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -394,7 +427,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                         //Set each palette
                         sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                         CreateDefPal(JoinedNode, nStageIndex);
-                        SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement, 0);
                     }
                 }
 
@@ -462,7 +495,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     // We need to readjust the nodes here.
                     const uint32_t nNodeSize = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
                     uint32_t nAdjustedCollectionIndex = Node02;
-                    ptrdiff_t nAdjustedButtonIndex = Node03 + vnPeerPaletteDistances[nNodeIndex];
+                    ptrdiff_t nAdjustedButtonIndex = static_cast<ptrdiff_t>(Node03) + vnPeerPaletteDistances[nNodeIndex];
 
                     while (nAdjustedButtonIndex >= 0)
                     {
@@ -511,7 +544,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                         //Set each palette
                         CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                        SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                        SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
                 else
@@ -529,7 +562,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
         CreateDefPal(NodeGet, 0);
 
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
     }
 
     return TRUE;

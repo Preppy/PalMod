@@ -25,7 +25,7 @@ private:
 
     uint16_t** m_ppDataBuffer = nullptr;
 
-    void FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext);
+    void FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext, uint32_t &nSelectedPaletteIndex);
 
     sMoveDescription* GetMoveDescriptionInfo(uint32_t nUnitId, uint32_t nPalId);
 

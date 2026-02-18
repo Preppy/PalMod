@@ -59,10 +59,14 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    // Default values for multisprite image display for Export
+    // The first instance of this palette if the palette is repeated
     uint32_t nSrcStart = NodeGet->uPalId;
+    // The number of times the palette is repeated
     uint32_t nSrcAmt = 1;
+    // The number of palettes between each version (P1/P2...) of the palette(s)
     uint32_t nNodeIncrement = 1;
+    // The relative index of this palette (P1/P2/[P3]...)
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -108,6 +112,7 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     {
                         // The starting point is the absolute first palette for the sprite in question which is found in P1
                         nSrcStart -= nNodeIncrement;
+                        nSelectedPaletteIndex++;
                     }
                 }
             }
@@ -120,7 +125,7 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (paletteDataSetToJoin)
                 {
-                    if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
+                    if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == FULLY_PAIRED_NODE)
                     {
                         const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -138,7 +143,7 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                                 //Set each palette
                                 sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                                 CreateDefPal(JoinedNode, nStageIndex);
-                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement, 0);
                             }
                         }
 
@@ -177,8 +182,8 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         CreateDefPal(JoinedNode[0], 0);
                         CreateDefPal(JoinedNode[1], 1);
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
             }

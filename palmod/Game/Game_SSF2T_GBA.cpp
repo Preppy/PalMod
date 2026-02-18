@@ -101,11 +101,12 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     uint32_t nSrcStart = -1;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
 
-    bool fUsingSpecialpairing = false;
+    bool fUsingSpecialPairing = false;
 
     //Select the image
     if (m_nExtraUnit != NodeGet->uUnitId)
@@ -121,7 +122,8 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 nNodeIncrement = 1;
                 // The starting point is the absolute first palette for the sprite in question which is found in A
                 nSrcStart = 0;
-                fUsingSpecialpairing = true;
+                nSelectedPaletteIndex = NodeGet->uPalId;
+                fUsingSpecialPairing = true;
             }
             else // Extras or Extra Range
             {
@@ -137,15 +139,12 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         }
     }
 
-    if (fUsingSpecialpairing)
+    if (fUsingSpecialPairing)
     {
-        //Create the default palette
+        // Use the default logic
         CreateDefPal(NodeGet, 0);
-
-        // Only internal units get sprites
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
     }
     else
     {

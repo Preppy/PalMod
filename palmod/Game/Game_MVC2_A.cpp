@@ -529,6 +529,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -563,6 +564,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size()); // 6 button colors
                     nNodeIncrement = 8; // 8 palettes per main character color set
+                    nSelectedPaletteIndex = Node03; // Team View is a flat view
 
                     // The code above is unique to this version.
                     // The code that below in this section is now identical to that in  mvc2_palsel.cpp
@@ -653,11 +655,11 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         // Set descriptors
                         JoinedNode.push_back(GetMainTree()->GetDescNode(pGroupingToUse->characterReferences.at(iGroupIndex), nNodeIndex, 0, -1));
                         // Set each palette
-                        SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 0, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 0, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         if (MvC2CharacterIsTwoPartCorePreview(pGroupingToUse->characterReferences.at(iGroupIndex)))
                         {
                             JoinedNode.push_back(GetMainTree()->GetDescNode(pGroupingToUse->characterReferences.at(iGroupIndex), nNodeIndex, 1, -1));
-                            SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 1, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 1, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
 
@@ -681,6 +683,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     {
                         // The starting point is the absolute first palette for the sprite in question which is found in P1
                         nSrcStart -= nNodeIncrement;
+                        nSelectedPaletteIndex++;
                     }
                 }
                 else if (_wcsicmp(pCurrentNode->szDesc, L"Status Effects") == 0)
@@ -694,6 +697,18 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
 
                     nNodeIncrement = paletteDataSet->pPalettePairingInfo ? 2 : 1;
+                    nSelectedPaletteIndex = Node03;
+                    if (paletteDataSet->pPalettePairingInfo)
+                    {
+                        if (nSelectedPaletteIndex % 2)
+                        {
+                            // We're on part 2, but SrcStart points to part 1.  Update to part 2.
+                            nSrcStart++;
+                        }
+
+                        nSelectedPaletteIndex = static_cast<uint32_t>(nSelectedPaletteIndex / paletteDataSet->pPalettePairingInfo->nPalettesToJoin);
+                    }
+
                     // There are 8 status effects
                     m_pButtonLabelSet = DEF_LABEL_STATUS_EFFECTS;
                     nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
@@ -720,7 +735,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             //Set each palette
                             sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteIndex, -1);
                             CreateDefPal(JoinedNode, nPaletteIndex);
-                            SetSourcePal(nPaletteIndex, NodeGet->uUnitId, nSrcStart + nPaletteIndex, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(nPaletteIndex, NodeGet->uUnitId, nSrcStart + nPaletteIndex, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
 
@@ -836,7 +851,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             //Set each palette
                             CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                            SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                            SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                         }
                     }
                 }
@@ -851,7 +866,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         CreateDefPal(NodeGet, 0);
 
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
     }
 
     return TRUE;

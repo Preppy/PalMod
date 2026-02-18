@@ -5,7 +5,7 @@
 
 // This file handles the logic for pairing ( unit id :: palette id ) sets to the best preview we have, if any
 
-void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext)
+void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext, uint32_t& nSelectedPaletteIndex)
 {
     for (uint32_t nButtonCount = 0; nButtonCount < m_pCurrentButtonLabelSet.size(); nButtonCount++)
     {
@@ -42,6 +42,7 @@ void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription*
                         nStart = uPalId + (nButtonCount * (-nStride) * nStepsTaken);
                         nColorOptions = static_cast<uint32_t>(m_pCurrentButtonLabelSet.size());
                         nIncrementToNext = abs(nStepsTaken);
+                        nSelectedPaletteIndex = static_cast<uint32_t>(nAdjustedPalId / nStepsTaken);
                         break;
                     }
                 }
@@ -117,6 +118,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     nImgUnitId = static_cast<uint16_t>(uUnitId);
     // This must be 16bit for compatability with old extras code
     uint16_t nTargetImgId = INVALID_UNIT_VALUE_16;
+    uint32_t nSelectedPaletteIndex = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -235,10 +237,11 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 uint32_t nColorOptions = (NodeGet->uPalId < EXTRA_OMNI) ? _nCurrentTotalColorOptions : 1;
                 uint32_t nSrcStart = GetBasicOffset(NodeGet->uPalId);
                 uint32_t nNodeIncrement = (NodeGet->uPalId < EXTRA_OMNI) ? 8 : 1;
+                nSelectedPaletteIndex = (NodeGet->uPalId < EXTRA_OMNI) ? static_cast<uint32_t>(NodeGet->uPalId / 8) : 0;
 
                 if (NodeGet->uPalId > EXTRA_OMNI)
                 {
-                    FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nSrcStart, nColorOptions, nNodeIncrement);
+                    FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nSrcStart, nColorOptions, nNodeIncrement, nSelectedPaletteIndex);
                 }
 
                 for (uint32_t nPairIndex = 0; nPairIndex < pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nPairIndex++)
@@ -246,7 +249,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     //Set each palette
                     CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                    SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nColorOptions, nNodeIncrement);
+                    SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nColorOptions, nNodeIncrement, nSelectedPaletteIndex);
                 }
             }
             else
@@ -271,6 +274,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 const uint32_t nSrcAmt = _nCurrentTotalColorOptions;
                 const uint32_t nNodeIncrement = 8; // 8 palettes per main character color set
+                nSelectedPaletteIndex = Node03; // Team view is a flat node
 
                 // The code above is unique to mvc2-dc.
                 // The code that below in this section is now identical to that in game_mvc2_a.cpp
@@ -362,11 +366,11 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // Set descriptors
                     JoinedNode.push_back(GetMainTree()->GetDescNode(pGroupingToUse->characterReferences.at(iGroupIndex), nNodeIndex, 0, -1));
                     // Set each palette
-                    SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 0, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 0, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     if (MvC2CharacterIsTwoPartCorePreview(pGroupingToUse->characterReferences.at(iGroupIndex)))
                     {
                         JoinedNode.push_back(GetMainTree()->GetDescNode(pGroupingToUse->characterReferences.at(iGroupIndex), nNodeIndex, 1, -1));
-                        SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 1, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(iSourcePalPos++, pGroupingToUse->characterReferences.at(iGroupIndex), 1, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                     }
                 }
 
@@ -401,7 +405,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         if (nBasicOffset != -1)
         {
-            SetSourcePal(0, uUnitId, nBasicOffset, _nCurrentTotalColorOptions, 8);
+            nSelectedPaletteIndex = (NodeGet->uPalId < EXTRA_OMNI) ? static_cast<uint32_t>(NodeGet->uPalId / 8) : 0;
+            SetSourcePal(0, uUnitId, nBasicOffset, _nCurrentTotalColorOptions, 8, nSelectedPaletteIndex);
         }
         else if (fUsingDataFromDescriptionSet)
         {
@@ -411,9 +416,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             uint32_t nColorOptions = 1;
             uint32_t nIncrementToNext = 1;
 
-            FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nStart, nColorOptions, nIncrementToNext);
+            FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nStart, nColorOptions, nIncrementToNext, nSelectedPaletteIndex);
 
-            SetSourcePal(0, uUnitId, nStart, nColorOptions, nIncrementToNext);
+            SetSourcePal(0, uUnitId, nStart, nColorOptions, nIncrementToNext, nSelectedPaletteIndex);
         }
     }
 

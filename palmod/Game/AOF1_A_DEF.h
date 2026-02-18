@@ -283,8 +283,9 @@ const sDescTreeNode AOF1_A_JOHN_COLLECTION[] =
 
 const sDescTreeNode AOF1_A_MRBIG_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)AOF1_A_MRBIG_P1, ARRAYSIZE(AOF1_A_MRBIG_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)AOF1_A_MRBIG_P2, ARRAYSIZE(AOF1_A_MRBIG_P2) },
+    // These cannot be safely paired due to mr big portrait only existing in p1
+    { L"P1_", DESC_NODETYPE_TREE, (void*)AOF1_A_MRBIG_P1, ARRAYSIZE(AOF1_A_MRBIG_P1) },
+    { L"P2_", DESC_NODETYPE_TREE, (void*)AOF1_A_MRBIG_P2, ARRAYSIZE(AOF1_A_MRBIG_P2) },
 };
 
 const sDescTreeNode AOF1_A_MRKARATE_COLLECTION[] =

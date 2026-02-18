@@ -558,7 +558,7 @@ BOOL CGameClass::SetLoadedPathOrFile(LPCWSTR pszNewPathOrFile)
     }
 }
 
-void CGameClass::SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart, uint32_t nAmt, uint32_t nInc)
+void CGameClass::SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart, uint32_t nAmt, uint32_t nInc, uint32_t nSelectedPaletteIndex)
 {
     if (nIndex >= MAX_PALETTES_DISPLAYABLE)
     {
@@ -584,6 +584,18 @@ void CGameClass::SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart
     m_nSrcPalStart[nIndex] = nStart;
     m_nSrcPalAmt[nIndex] = nAmt;
     m_nSrcPalInc[nIndex] = nInc;
+
+    if (nSelectedPaletteIndex < nAmt)
+    {
+        m_nSelectedPaletteIndex = nSelectedPaletteIndex;
+    }
+    else
+    {
+        // The change to add in using a selected palette instead of always 0 is very invasive.
+        // As such, catch paths that still need to be validated here.
+        // Update the calling code to set an index within bounds
+        m_nSelectedPaletteIndex = 0;
+    }
 }
 
 void CGameClass::RevertChanges(int nPalId)
@@ -1627,9 +1639,14 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
     }
 
     // Default values for multisprite image display for Export
+    // The first instance of this palette if the palette is repeated
     uint32_t nSrcStart = NodeGet->uPalId;
+    // The number of times the palette is repeated
     uint32_t nSrcAmt = 1;
+    // The number of palettes between each version (P1/P2...) of the palette(s)
     uint32_t nNodeIncrement = 1;
+    // The relative index of this palette (P1/P2/[P3]...)
+    uint32_t nSelectedPaletteIndex = 0;
     BlendMode nBlendMode = BlendMode::Alpha;
 
     //Get rid of any palettes if there are any
@@ -1693,6 +1710,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
                         {
                             // The starting point is the absolute first palette for the sprite in question which is found in P1
                             nSrcStart -= nNodeIncrement;
+                            nSelectedPaletteIndex++;
                         }
                     }
                     else
@@ -1796,7 +1814,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
                                     sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + iStageIndex, -1);
                                     
                                     CreateDefPal(JoinedNode, iUsageCount);
-                                    SetSourcePal(iUsageCount++, NodeGet->uUnitId, nSrcStart + iStageIndex, nSrcAmt, nNodeIncrement);
+                                    SetSourcePal(iUsageCount++, NodeGet->uUnitId, nSrcStart + iStageIndex, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
 
                                     rgPreviewsToInclude.push_back({ paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nBlendMode });
                                 }
@@ -1940,7 +1958,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
                                 //Set each palette: these were joined forward, so reverse them now
                                 CreateDefPal(vsJoinedNodes[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nPairIndex);
 
-                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                             }
                         }
                         else
@@ -1970,7 +1988,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
                                 //Set each palette
                                 CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
                             }
                         }
                     }
@@ -1995,7 +2013,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
 
         CreateDefPal(NodeGet, 0);
 
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement, nSelectedPaletteIndex);
     }
 
     return TRUE;

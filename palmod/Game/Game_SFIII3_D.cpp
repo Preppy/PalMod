@@ -158,12 +158,12 @@ sFileRule CGame_SFIII3_D::GetNextRule()
 
     m_uRuleCtr++;
 
-    if (m_uRuleCtr >= SFIII3_D_NUMUNIT)
-    {
-        m_uRuleCtr = INVALID_UNIT_VALUE_16;
-    }
+if (m_uRuleCtr >= SFIII3_D_NUMUNIT)
+{
+    m_uRuleCtr = INVALID_UNIT_VALUE_16;
+}
 
-    return NewFileRule;
+return NewFileRule;
 }
 
 uint32_t CGame_SFIII3_D::GetBasicAmt(uint32_t nUnitId)
@@ -252,13 +252,21 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     uint32_t uUnitId = NodeGet->uUnitId;
     uint32_t uPalId = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    int nSrcStart = Node03;
+    uint32_t nSelectedPaletteIndex = 0;
 
-    //Change the image id if we need to
-    int nTargetImgId = 0;
+    if (Node03 < static_cast<int>(m_pButtonLabelSet.size()))
+    {
+        // Allow multipalette export for core palettes.
+        // We ignore the Second Impact options
+        nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());//GetBasicAmt(uUnitId);
+        nSrcStart = 0;
+        nSelectedPaletteIndex = Node03;
+    }
+
     uint32_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
-
-    int nSrcStart = 0;
-    uint32_t nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());//GetBasicAmt(uUnitId);
+    uint8_t nTargetImgId = 0;
 
     //Get rid of any palettes if there are any
     m_BasePalGroup.FlushPalAll();
@@ -268,7 +276,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     CreateDefPal(NodeGet, 0);
 
-    SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+    SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1, nSelectedPaletteIndex);
 
     return TRUE;
 }
