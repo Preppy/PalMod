@@ -178,22 +178,28 @@ void CImgDisp::FlushCustomSpriteOverrides()
     }
 }
 
-void CImgDisp::FlushUnused()
+void CImgDisp::FlushUnusedAndResize(bool fKeepImageCache)
 {
     if (m_nImgAmt)
     {
-        for (int iImageIndex = 0; iImageIndex < MAX_IMAGES_DISPLAYABLE; iImageIndex++)
+        if (!fKeepImageCache)
         {
-            if (!m_bUsed[iImageIndex])
+            for (int iImageIndex = 0; iImageIndex < MAX_IMAGES_DISPLAYABLE; iImageIndex++)
             {
-                FlushImageNode(iImageIndex);
+                if (!m_bUsed[iImageIndex])
+                {
+                    FlushImageNode(iImageIndex);
+                }
             }
         }
 
         _ResetForNewImage();
     }
 
-    FlushCustomSpriteOverrides();
+    if (!fKeepImageCache)
+    {
+        FlushCustomSpriteOverrides();
+    }
 }
 
 void CImgDisp::_UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions dimensions)
@@ -962,6 +968,12 @@ void CImgDisp::_TrimLoadedCustomImages(bool fIsFullStackReplacement)
                 }
             }
         }
+        // for partial stack replacements, just don't trim if the new dimensions match established dimensions
+        else if (m_pImgBuffer[0] && (m_nImgAmt > 1))
+        {
+            nStackRightMost = m_pImgBuffer[0]->dimensions.width;
+            nStackLastLine = m_pImgBuffer[0]->dimensions.height;
+        }
 
         for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
         {
@@ -973,6 +985,13 @@ void CImgDisp::_TrimLoadedCustomImages(bool fIsFullStackReplacement)
 
             const int nCurrentWidth = m_pImgBuffer[iCurrentPreview]->dimensions.width;
             const int nCurrentHeight = m_pImgBuffer[iCurrentPreview]->dimensions.height;
+
+            if ((nCurrentWidth == nStackRightMost) && (nCurrentHeight == nStackLastLine))
+            {
+                strInfo.Format(L"Trimming Analysis: Layer %u matches expected stack size, skipping trim.\r\n", iCurrentPreview);
+                OutputDebugString(strInfo.GetString());
+                continue;
+            }
 
             int nLeftMost = nCurrentWidth;
             int nFirstLine = nCurrentHeight;

@@ -367,6 +367,7 @@ void CPalModDlg::PostPalSel()
     uint32_t nImgIndexCtr = 0;
     uint32_t nCurrSepAmt = 0;
 
+    // We keep the image cache if we are reusing the same preview (P1->P2, only the palette shifts) OR if we are using a custom preview that we don't want to stomp on
     bool fShouldKeepImageCache = false;
 
     StopBlink();
@@ -556,11 +557,8 @@ void CPalModDlg::PostPalSel()
         ImgDispCtrl->ResetImageCompositionLayout();
     }
 
-    //Get rid of the unused images
-    if (!fShouldKeepImageCache)
-    {
-        ImgDispCtrl->FlushUnused();
-    }
+    //Get rid of the unused images and ensure our DC is the right size
+    ImgDispCtrl->FlushUnusedAndResize(fShouldKeepImageCache);
 
     //Reset the prev indexes
     memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMAGES_DISPLAYABLE - static_cast<size_t>(nImgIndexCtr)));

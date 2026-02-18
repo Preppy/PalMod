@@ -196,7 +196,7 @@ public:
 
     void ResetImageCompositionLayout();
     // Eliminates all unused buffers and resets for new display
-    void FlushUnused();
+    void FlushUnusedAndResize(bool fKeepImageCache);
     // Just reset custom loaded sprites
     void FlushCustomSpriteOverrides();
     void ResetCustomSpriteOverride(size_t nPosition);
