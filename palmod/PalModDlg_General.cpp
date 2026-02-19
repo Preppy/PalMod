@@ -332,6 +332,13 @@ bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGa
             {
                 m_strOverridePreviewStatus.Format(L"\"%s\" not found", strImagePath.GetString());
             }
+
+#ifdef DEBUG
+            CString strInfo;
+            strInfo.Format(L"CPalModDlg::TryFallbackImageLoad: Fallback image \"%s\" not found for position %u\r\n\t", strImagePath.GetString(), nPosition);
+            OutputDebugString(strInfo.GetBuffer());
+#endif
+
             return false;
         }
     }
@@ -557,8 +564,12 @@ void CPalModDlg::PostPalSel()
         ImgDispCtrl->ResetImageCompositionLayout();
     }
 
-    //Get rid of the unused images and ensure our DC is the right size
-    ImgDispCtrl->FlushUnusedAndResize(fShouldKeepImageCache);
+    // Get rid of the unused images and ensure our DC is the right size
+    // For fully custom image layouts we've already handled this
+    if (!fShouldKeepImageCache || (ImgDispCtrl->GetImgAmt() > 1))
+    {
+        ImgDispCtrl->FlushUnusedAndResize(fShouldKeepImageCache);
+    }
 
     //Reset the prev indexes
     memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMAGES_DISPLAYABLE - static_cast<size_t>(nImgIndexCtr)));
