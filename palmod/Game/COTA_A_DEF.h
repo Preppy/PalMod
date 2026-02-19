@@ -910,14 +910,14 @@ const sGame_PaletteDataset COTA_A_CSI_PALETTES[] =
 
 const sGame_PaletteDataset COTA_A_BONUS_SELECT_PALETTES[] =
 {
-    { L"Select Screen World Map",   0x371b2, 0x371d2, indexCPS2Sprites_COTAAssets, 1 },
-    { L"Select Screen Vs Text",     0x371d2, 0x371f2, indexCPS2Sprites_COTAAssets, 0 },
+    { L"Select Screen World Map",   0x371b2, 0x371d2, indexCPS2Sprites_COTAAssets, 0x01 },
+    { L"Select Screen Vs Text",     0x371d2, 0x371f2, indexCPS2Sprites_COTAAssets, 0x00 },
     { L"Select Screen Background",  0x3D434, 0x3D454, indexCPS2Sprites_COTAAssets, 0x0a },
 };
 
 const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
 {
-    { L"Mojo",                      0x2799e, 0x279be, indexCPS2Sprites_COTAAssets, 2 },
+    { L"Mojo",                      0x2799e, 0x279be, indexCPS2Sprites_COTAAssets, 0x02 },
     { L"Professor X",               0x2781c, 0x2783c, indexCPS2Sprites_COTAAssets, 0x07 },
     { L"Forge",                     0x27a1c, 0x27a3c, indexCPS2Sprites_COTAAssets, 0x06 },
     { L"Cyclops (Ending sprite)",   0x2777c, 0x2779c, indexCPS2Sprites_COTAAssets, 0x0D, &pairNext },
@@ -927,12 +927,12 @@ const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
     { L"Psylocke Ending (dress)",   0x2785c, 0x2787c, indexCPS2Sprites_COTAAssets, 0x10, &pairNext },
     { L"Psylocke Ending (undressed)", 0x2783c, 0x2785c, indexCPS2Sprites_COTAAssets, 0x11, &pairPrevious },
     { L"Police (Omega Red ending)", 0x2797c, 0x2799c, indexCPS2Sprites_COTAAssets, 0x0F },
-    { L"Acolytes",                  0x278bc, 0x278fc },
+    { L"Acolytes",                  0x278bc, 0x278fc, indexCPS2Sprites_COTAAssets, 0xa0 },
 };
 
 const sGame_PaletteDataset COTA_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Title Screen Marvel Comics Logo", 0x2631c, 0x2633c },
+    { L"Title Screen Marvel Comics Logo", 0x2631c, 0x2633c, indexCPS2Sprites_COTAAssets, 0xa1 },
 };
 
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_STATUS[] =
@@ -1080,63 +1080,63 @@ const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_STATUS[] =
 
 const sGame_PaletteDataset COTA_A_HUD_PALETTES[] =
 {
-    { L"Ready/Perfect/Sudden Death/Combo Counter/General Text", 0x29c9c, 0x29cbc },
-    { L"Player 1 Healthbar", 0x29cbc, 0x29cdc },
-    { L"Player 2 Healthbar", 0x29cdc, 0x29cfc },
-    { L"Meter Level 1 Cycle (1/5)", 0x2a1bc, 0x2a1dc },
-    { L"Meter Level 1 Cycle (2/5)", 0x2a1dc, 0x2a1fc },
-    { L"Meter Level 1 Cycle (3/5)", 0x2a1fc, 0x2a21c },
-    { L"Meter Level 1 Cycle (4/5)", 0x2a21c, 0x2a23c },
-    { L"Meter Level 1 Cycle (5/5)", 0x2a23c, 0x2a25c },
-    { L"Meter Level 2 Cycle (2/5)", 0x2a09c, 0x2a0bc },
-    { L"Meter Level 2 Cycle (3/5)", 0x2a0bc, 0x2a0dc },
-    { L"Meter Level 2 Cycle (4/5)", 0x2a0dc, 0x2a0fc },
-    { L"Meter Level 2 Cycle (5/5)", 0x2a0fc, 0x2a11c },
-    { L"Meter Level Max Cycle (1/40)", 0x2a25c, 0x2a27c },
-    { L"Meter Level Max Cycle (2/40)", 0x2a27c, 0x2a29c },
-    { L"Meter Level Max Cycle (3/40)", 0x2a29c, 0x2a2bc },
-    { L"Meter Level Max Cycle (4/40)", 0x2a2bc, 0x2a2dc },
-    { L"Meter Level Max Cycle (5/40)", 0x2a2dc, 0x2a2fc },
-    { L"Meter Level Max Cycle (6/40)", 0x2a2fc, 0x2a31c },
-    { L"Meter Level Max Cycle (7/40)", 0x2a31c, 0x2a33c },
-    { L"Meter Level Max Cycle (8/40)", 0x2a33c, 0x2a35c },
-    { L"Meter Level Max Cycle (9/40)", 0x2a35c, 0x2a37c },
-    { L"Meter Level Max Cycle (10/40)", 0x2a37c, 0x2a39c },
-    { L"Meter Level Max Cycle (11/40)", 0x2a39c, 0x2a3bc },
-    { L"Meter Level Max Cycle (12/40)", 0x2a3bc, 0x2a3dc },
-    { L"Meter Level Max Cycle (13/40)", 0x2a3dc, 0x2a3fc },
-    { L"Meter Level Max Cycle (14/40)", 0x2a3fc, 0x2a41c },
-    { L"Meter Level Max Cycle (15/40)", 0x2a41c, 0x2a43c },
-    { L"Meter Level Max Cycle (16/40)", 0x2a43c, 0x2a45c },
-    { L"Meter Level Max Cycle (17/40)", 0x2a45c, 0x2a47c },
-    { L"Meter Level Max Cycle (18/40)", 0x2a47c, 0x2a49c },
-    { L"Meter Level Max Cycle (19/40)", 0x2a49c, 0x2a4bc },
-    { L"Meter Level Max Cycle (20/40)", 0x2a4bc, 0x2a4dc },
-    { L"Meter Level Max Cycle (21/40)", 0x2a4dc, 0x2a4fc },
-    { L"Meter Level Max Cycle (22/40)", 0x2a4fc, 0x2a51c },
-    { L"Meter Level Max Cycle (23/40)", 0x2a51c, 0x2a53c },
-    { L"Meter Level Max Cycle (24/40)", 0x2a53c, 0x2a55c },
-    { L"Meter Level Max Cycle (25/40)", 0x2a55c, 0x2a57c },
-    { L"Meter Level Max Cycle (26/40)", 0x2a57c, 0x2a59c },
-    { L"Meter Level Max Cycle (27/40)", 0x2a59c, 0x2a5bc },
-    { L"Meter Level Max Cycle (28/40)", 0x2a5bc, 0x2a5dc },
-    { L"Meter Level Max Cycle (29/40)", 0x2a5dc, 0x2a5fc },
-    { L"Meter Level Max Cycle (30/40)", 0x2a5fc, 0x2a61c },
-    { L"Meter Level Max Cycle (31/40)", 0x2a61c, 0x2a63c },
-    { L"Meter Level Max Cycle (32/40)", 0x2a63c, 0x2a65c },
-    { L"Meter Level Max Cycle (33/40)", 0x2a65c, 0x2a67c },
-    { L"Meter Level Max Cycle (34/40)", 0x2a67c, 0x2a69c },
-    { L"Meter Level Max Cycle (35/40)", 0x2a69c, 0x2a6bc },
-    { L"Meter Level Max Cycle (36/40)", 0x2a6bc, 0x2a6dc },
-    { L"Meter Level Max Cycle (37/40)", 0x2a6dc, 0x2a6fc },
-    { L"Meter Level Max Cycle (38/40)", 0x2a6fc, 0x2a71c },
-    { L"Meter Level Max Cycle (39/40)", 0x2a71c, 0x2a73c },
-    { L"Meter Level Max Cycle (40/40)", 0x2a73c, 0x2a75c },
-    { L"Meter (Unused) Cycle (1/5)", 0x2a11c, 0x2a13c },
-    { L"Meter (Unused) Cycle (2/5)", 0x2a13c, 0x2a15c },
-    { L"Meter (Unused) Cycle (3/5)", 0x2a15c, 0x2a17c },
-    { L"Meter (Unused) Cycle (4/5)", 0x2a17c, 0x2a19c },
-    { L"Meter (Unused) Cycle (5/5)", 0x2a19c, 0x2a1bc },
+    { L"Perfect/Sudden Death/Combo Counter/General Text", 0x29c9c, 0x29cbc, indexCPS2Sprites_COTAAssets, 0x9f },
+    { L"Player 1 Healthbar", 0x29cbc, 0x29cdc, indexCPS2Sprites_COTAAssets, 0x9a },
+    { L"Player 2 Healthbar", 0x29cdc, 0x29cfc, indexCPS2Sprites_COTAAssets, 0x9b },
+    { L"Meter Level 1 Cycle (1/5)", 0x2a1bc, 0x2a1dc, indexCPS2Sprites_COTAAssets, 0x9c },
+    { L"Meter Level 1 Cycle (2/5)", 0x2a1dc, 0x2a1fc, indexCPS2Sprites_COTAAssets, 0x9c },
+    { L"Meter Level 1 Cycle (3/5)", 0x2a1fc, 0x2a21c, indexCPS2Sprites_COTAAssets, 0x9c },
+    { L"Meter Level 1 Cycle (4/5)", 0x2a21c, 0x2a23c, indexCPS2Sprites_COTAAssets, 0x9c },
+    { L"Meter Level 1 Cycle (5/5)", 0x2a23c, 0x2a25c, indexCPS2Sprites_COTAAssets, 0x9c },
+    { L"Meter Level 2 Cycle (2/5)", 0x2a09c, 0x2a0bc, indexCPS2Sprites_COTAAssets, 0x9d },
+    { L"Meter Level 2 Cycle (3/5)", 0x2a0bc, 0x2a0dc, indexCPS2Sprites_COTAAssets, 0x9d },
+    { L"Meter Level 2 Cycle (4/5)", 0x2a0dc, 0x2a0fc, indexCPS2Sprites_COTAAssets, 0x9d },
+    { L"Meter Level 2 Cycle (5/5)", 0x2a0fc, 0x2a11c, indexCPS2Sprites_COTAAssets, 0x9d },
+    { L"Meter Level Max Cycle (1/40)", 0x2a25c, 0x2a27c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (2/40)", 0x2a27c, 0x2a29c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (3/40)", 0x2a29c, 0x2a2bc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (4/40)", 0x2a2bc, 0x2a2dc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (5/40)", 0x2a2dc, 0x2a2fc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (6/40)", 0x2a2fc, 0x2a31c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (7/40)", 0x2a31c, 0x2a33c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (8/40)", 0x2a33c, 0x2a35c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (9/40)", 0x2a35c, 0x2a37c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (10/40)", 0x2a37c, 0x2a39c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (11/40)", 0x2a39c, 0x2a3bc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (12/40)", 0x2a3bc, 0x2a3dc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (13/40)", 0x2a3dc, 0x2a3fc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (14/40)", 0x2a3fc, 0x2a41c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (15/40)", 0x2a41c, 0x2a43c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (16/40)", 0x2a43c, 0x2a45c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (17/40)", 0x2a45c, 0x2a47c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (18/40)", 0x2a47c, 0x2a49c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (19/40)", 0x2a49c, 0x2a4bc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (20/40)", 0x2a4bc, 0x2a4dc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (21/40)", 0x2a4dc, 0x2a4fc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (22/40)", 0x2a4fc, 0x2a51c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (23/40)", 0x2a51c, 0x2a53c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (24/40)", 0x2a53c, 0x2a55c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (25/40)", 0x2a55c, 0x2a57c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (26/40)", 0x2a57c, 0x2a59c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (27/40)", 0x2a59c, 0x2a5bc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (28/40)", 0x2a5bc, 0x2a5dc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (29/40)", 0x2a5dc, 0x2a5fc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (30/40)", 0x2a5fc, 0x2a61c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (31/40)", 0x2a61c, 0x2a63c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (32/40)", 0x2a63c, 0x2a65c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (33/40)", 0x2a65c, 0x2a67c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (34/40)", 0x2a67c, 0x2a69c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (35/40)", 0x2a69c, 0x2a6bc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (36/40)", 0x2a6bc, 0x2a6dc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (37/40)", 0x2a6dc, 0x2a6fc, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (38/40)", 0x2a6fc, 0x2a71c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (39/40)", 0x2a71c, 0x2a73c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter Level Max Cycle (40/40)", 0x2a73c, 0x2a75c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter (Unused) Cycle (1/5)", 0x2a11c, 0x2a13c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter (Unused) Cycle (2/5)", 0x2a13c, 0x2a15c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter (Unused) Cycle (3/5)", 0x2a15c, 0x2a17c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter (Unused) Cycle (4/5)", 0x2a17c, 0x2a19c, indexCPS2Sprites_COTAAssets, 0x9e },
+    { L"Meter (Unused) Cycle (5/5)", 0x2a19c, 0x2a1bc, indexCPS2Sprites_COTAAssets, 0x9e },
     { L"HUD", 0x29cfc, 0x29d1c, indexCPS2Sprites_COTAAssets , 0x12 },
 };
 
@@ -1219,11 +1219,26 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_COLOSSUS[] =
     { L"2048: Buildings Animation Cycles",  0x38d36, 0x38ed6, indexCPS2Sprites_COTAAssets, 0x31 },
     { L"2048: Water and Sewers Animation Cycles", 0x38ed6, 0x39056, indexCPS2Sprites_COTAAssets, 0x32 },
 
-    { L"1024: Middle: background city 1", 0x33552, 0x33712, indexCPS2Sprites_COTAAssets, 0x33 },
-    { L"1024: Middle: background city 2", 0x33712, 0x33912, indexCPS2Sprites_COTAAssets, 0x34 },
-    { L"1024: Middle layer 1?", 0x33912, 0x33952  },
+    { L"1024: Middle: Background City 1", 0x33552, 0x33712, indexCPS2Sprites_COTAAssets, 0x33 },
+    { L"1024: Middle: Background City 2", 0x33712, 0x33912, indexCPS2Sprites_COTAAssets, 0x34 },
+    { L"1024: Unknown?", 0x33912, 0x33952  },
 
-    { L"Stage objects?", 0x2b328, 0x2b488 },
+    // ? ? ? ?
+    // 2 pillar, stage break rocks, boat left part
+    // down sentinel
+    // building 2
+    { L"Stage Objects 1", 0x2b328, 0x2b3a8, indexCPS2Sprites_COTAAssets, 0xa2 },
+    // ? ? ? ?
+    // water
+    // active sentinels
+    // impact / boat right part
+    // FIGHT text
+    { L"Stage Objects 2", 0x2b3c8, 0x2b488, indexCPS2Sprites_COTAAssets, 0xa3 },
+
+    { L"Soldiers and Van Animation 1/4", 0x2b3a8, 0x2b3c8, indexCPS2Sprites_COTAAssets, 0xa4 },
+    { L"Soldiers and Van Animation 2/4", 0x2b488, 0x2b4a8, indexCPS2Sprites_COTAAssets, 0xa4 },
+    { L"Soldiers and Van Animation 3/4", 0x2b4a8, 0x2b4c8, indexCPS2Sprites_COTAAssets, 0xa4 },
+    { L"Soldiers and Van Animation 4/4", 0x2b4c8, 0x2b4e8, indexCPS2Sprites_COTAAssets, 0xa4 },
 };
 
 // Cyclops / Gouki: Danger Room
@@ -1240,17 +1255,14 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_CYCLOPS_NORMAL[] =
 
     { L"Walls: ???", 0x33c52, 0x33cf2 },
 
-    { L"Background Sprites 1", 0x2b6e8, 0x2b8e8},
-    { L"Background Sprites 2", 0x2b8e8, 0x2b908},
-
-        { L"Wall Elements?", 0x2efee, 0x2f06e },
+        { L"Unused?: Wall Elements", 0x2efee, 0x2f06e },
 
     { L"Door", 0x2f06e, 0x2f0ee, indexCPS2Sprites_COTAAssets, 0x4c },
         { L"Observation Area (All)", 0x2f0ee, 0x2f10e, indexCPS2Sprites_COTAAssets, 0x4e },
     { L"Door Inset", 0x2f10e, 0x2f12e, indexCPS2Sprites_COTAAssets, 0x4f },
 
     // Water only?
-    { L"Observation Area Right Inset: Water",  0x2f5ce, 0x2f5ee },
+    { L"Unused?: Observation Area Right Inset: Water",  0x2f5ce, 0x2f5ee },
 
     // No Space, Jungle matches
     // observed for normal
@@ -1273,20 +1285,24 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_CYCLOPS_NORMAL[] =
     { L"Observation Area Right Lower Inset Animation Cycle 4/5", 0x2f78e, 0x2f7ae, indexCPS2Sprites_COTAAssets, 0x52 },
     { L"Observation Area Right Lower Inset Animation Cycle 5/5", 0x2f7ae, 0x2f7ce, indexCPS2Sprites_COTAAssets, 0x52 },
 
-    { L"Observation Area Middle Left", 0x2f12e, 0x2f14e },
+    { L"Observation Area Middle Left", 0x2f12e, 0x2f14e, indexCPS2Sprites_COTAAssets, 0xa5 },
     { L"Observation Area Middle Inset Animation Cycle", 0x2f14e, 0x2f16e, indexCPS2Sprites_COTAAssets, 0x53 },
-    { L"Observation Area Middle Right Inset", 0x2f16e, 0x2f18e },
-    { L"Observation Area Left Inset Animation Cycle", 0x2f18e, 0x2f1ae },
+    { L"Observation Area Middle Right Inset", 0x2f16e, 0x2f18e, indexCPS2Sprites_COTAAssets, 0xa6 },
+    { L"Observation Area Left Inset Animation Cycle", 0x2f18e, 0x2f1ae, indexCPS2Sprites_COTAAssets, 0xa7 },
     { L"Observation Area Right Inset Animation Cycle", 0x2f1ae, 0x2f1ce, indexCPS2Sprites_COTAAssets, 0x54 },
 
+    // There's another set of 4 door palettes starting at 0x33db2 to 0x34072: unclear if these are used
+
+    { L"Sprites 1", 0x2b6e8, 0x2b8e8, indexCPS2Sprites_COTAAssets, 0xa8 },
+    { L"Unused?: Sprites 2", 0x2b8e8, 0x2b908 },
+
+    // Window animation needs to be after sprites to cover the Professor
     // Common?
     { L"Window Animation Cycle 1/4", 0x39596, 0x395b6, indexCPS2Sprites_COTAAssets, 0x55 },
     { L"Window Animation Cycle 2/4", 0x395b6, 0x395d6, indexCPS2Sprites_COTAAssets, 0x55 },
     { L"Window Animation Cycle 3/4", 0x395d6, 0x395f6, indexCPS2Sprites_COTAAssets, 0x55 },
     { L"Window Animation Cycle 4/4", 0x395f6, 0x39616, indexCPS2Sprites_COTAAssets, 0x55 },
     // Animation cycle element? 0x39956, 0x39976
-
-    // There's another set of 4 door palettes starting at 0x33db2 to 0x34072: unclear if these are used
 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_CYCLOPS_SPACE[] =
@@ -1332,30 +1348,50 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_CYCLOPS_JUNGLE[] =
     // or Night
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_STORM_SUNSET[] =
 {
-    { L"Ocean and Sky: Sunset", 0x39d56, 0x39dd6, indexCPS2Sprites_COTAAssets, 0x41, &pairFullyLinkedNode },
-    { L"Aircraft Carrier: Sunset", 0x2f86e, 0x2f90e, indexCPS2Sprites_COTAAssets, 0x42 },
-    { L"Blackbird: Sunset", 0x34152, 0x341d2, indexCPS2Sprites_COTAAssets, 0x43 },
+    { L"Ocean and Sky (Sunset)", 0x39d56, 0x39dd6, indexCPS2Sprites_COTAAssets, 0x41, &pairFullyLinkedNode },
+    { L"Aircraft Carrier (Sunset)", 0x2f86e, 0x2f90e, indexCPS2Sprites_COTAAssets, 0x42 },
+
+    { L"Crashing Wave (Sunset)", 0x2baa8, 0x2bac8, indexCPS2Sprites_COTAAssets, 0xa9 },
+    { L"Flags (Sunset)", 0x2bac8, 0x2bae8, indexCPS2Sprites_COTAAssets, 0xaa },
+    { L"Helicopter (Sunset)", 0x2bb08, 0x2bb28, indexCPS2Sprites_COTAAssets, 0xac },
+    { L"Blackbird (Sunset)", 0x34152, 0x341d2, indexCPS2Sprites_COTAAssets, 0x43 },
+    { L"Ground Impact (Sunset)", 0x2bae8, 0x2bb08, indexCPS2Sprites_COTAAssets, 0xab },
+
+    { L"Unknown 1?", 0x2bb28, 0x2bb48 },
+    { L"Seabirds", 0x2bb48, 0x2bb68, indexCPS2Sprites_COTAAssets, 0xad },
     { L"Aircraft Carrier Unused?", 0x2f7ee, 0x2f86e },
-    // Sprites A/B set starting at 0x2bc08 to about 0x2bd88
+    { L"Unknown 2?", 0x2bb68, 0x2bbe8 },
+    { L"\"FIGHT\" Text", 0x2bbe8, 0x2bc08, indexCPS2Sprites_COTAAssets, 0xae },
 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_STORM_AFTERNOON[] =
 {
-    { L"Ocean and Sky: Afternoon", 0x3a156, 0x3a1d6, indexCPS2Sprites_COTAAssets, 0x41, &pairFullyLinkedNode },
-    { L"Aircraft Carrier: Afternoon",  0x2fbee, 0x2fc8e, indexCPS2Sprites_COTAAssets, 0x42 },
+    { L"Ocean and Sky (Afternoon)", 0x3a156, 0x3a1d6, indexCPS2Sprites_COTAAssets, 0x41, &pairFullyLinkedNode },
+    { L"Aircraft Carrier (Afternoon)",  0x2fbee, 0x2fc8e, indexCPS2Sprites_COTAAssets, 0x42 },
+
+    { L"Crashing Wave (Afternoon)", 0x2bc48, 0x2bc68, indexCPS2Sprites_COTAAssets, 0xa9 },
+    { L"Flags (Afternoon)", 0x2bc08, 0x2bc28, indexCPS2Sprites_COTAAssets, 0xaa },
+    { L"Helicopter (Unused: Afternoon)", 0x2bd08, 0x2bd28, indexCPS2Sprites_COTAAssets, 0xac },
+    { L"Unknown 3 (Afternoon)", 0x2bc88, 0x2bca8 },
+    { L"Water Inset (Afternoon)", 0x2bd48, 0x2bd68, indexCPS2Sprites_COTAAssets, 0xaf },
+
     { L"Blackbird: Afternoon", 0x34552, 0x345d2, indexCPS2Sprites_COTAAssets, 0x43 },
-    // These are part of an apparent A/B set
-    // Crashing wave: 0x2bc48, 0x2bc68
-    // Stage impacts: 0x2bcc8, 0x2bce8
-    //{ L"Sky Insert: Afternoon", 0x2bd48, 0x2bd68 },
+    { L"Ground Impact (Afternoon)", 0x2bcc8, 0x2bce8, indexCPS2Sprites_COTAAssets, 0xab },
 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_STORM_NIGHT[] =
 {
-    { L"Ocean and Sky: Night", 0x3a1d6, 0x3a256, indexCPS2Sprites_COTAAssets, 0x41, &pairFullyLinkedNode },
-    { L"Aircraft Carrier: Night", 0x2fc8e, 0x2fd2e, indexCPS2Sprites_COTAAssets, 0x42 },
-    { L"Blackbird: Night", 0x345d2, 0x34652, indexCPS2Sprites_COTAAssets, 0x43 },
-    //{ L"Sky Insert: Night", 0x2bd68, 0x2bd88 },
+    { L"Ocean and Sky (Night)", 0x3a1d6, 0x3a256, indexCPS2Sprites_COTAAssets, 0x41, &pairFullyLinkedNode },
+    { L"Aircraft Carrier (Night)", 0x2fc8e, 0x2fd2e, indexCPS2Sprites_COTAAssets, 0x42 },
+
+    { L"Crashing Wave (Night)", 0x2bc68, 0x2bc88, indexCPS2Sprites_COTAAssets, 0xa9 },
+    { L"Flags (Night)", 0x2bc28, 0x2bc48, indexCPS2Sprites_COTAAssets, 0xaa },
+    { L"Helicopter (Unused: Night)", 0x2bd28, 0x2bd48, indexCPS2Sprites_COTAAssets, 0xac },
+    { L"Unknown 3 (Night)", 0x2bca8, 0x2bcc8 },
+    { L"Water Inset (Night)", 0x2bd68, 0x2bd88, indexCPS2Sprites_COTAAssets, 0xb0 },
+
+    { L"Blackbird (Night)", 0x345d2, 0x34652, indexCPS2Sprites_COTAAssets, 0x43 },
+    { L"Ground Impact (Night)", 0x2bce8, 0x2bd08, indexCPS2Sprites_COTAAssets, 0xab },
 };
 
 // Iceman: Ice on the Beach
@@ -1366,16 +1402,55 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_ICEMAN[] =
     { L"Background Ocean and Sky", 0x2fdae, 0x2fe4e, indexCPS2Sprites_COTAAssets, 0x61, &pairFullyLinkedNode },
 
     { L"Island 1", 0x3a256, 0x3a436, indexCPS2Sprites_COTAAssets, 0x62 },
-    { L"Island 2 and Ocean", 0x3a436, 0x3a5d6, indexCPS2Sprites_COTAAssets, 0x63 },
+    { L"Island 2 and Ocean", 0x3a436, 0x3a496, indexCPS2Sprites_COTAAssets, 0x63 },
+    { L"Waves Hitting Rock Animation Cycle 1/8", 0x3a496, 0x3a4b6, indexCPS2Sprites_COTAAssets, 0xb1 },
+        { L"Waves Hitting Rock Animation Cycle 2/8", 0x3a996, 0x3a9b6, indexCPS2Sprites_COTAAssets, 0xb1 },
+        { L"Waves Hitting Rock Animation Cycle 3/8", 0x3a9b6, 0x3a9d6, indexCPS2Sprites_COTAAssets, 0xb1 },
+        { L"Waves Hitting Rock Animation Cycle 4/8", 0x3a9d6, 0x3a9f6, indexCPS2Sprites_COTAAssets, 0xb1 },
+        { L"Waves Hitting Rock Animation Cycle 5/8", 0x3a9f6, 0x3aa16, indexCPS2Sprites_COTAAssets, 0xb1 },
+        { L"Waves Hitting Rock Animation Cycle 6/8", 0x3aa16, 0x3aa36, indexCPS2Sprites_COTAAssets, 0xb1 },
+        { L"Waves Hitting Rock Animation Cycle 7/8", 0x3aa36, 0x3aa56, indexCPS2Sprites_COTAAssets, 0xb1 },
+        { L"Waves Hitting Rock Animation Cycle 8/8", 0x3aa56, 0x3aa76, indexCPS2Sprites_COTAAssets, 0xb1 },
 
-    { L"Shoreline Animation Cycle", 0x3a656, 0x3a756 },
-    { L"Shallow Water Animation Cycle", 0x3a756, 0x3a836 },
-    { L"Lower Water Animation Cycle", 0x3a836, 0x3a8d6 },
-    { L"Upper Water Animation Cycle", 0x3a8d6, 0x3a996 },
-    { L"Waves Hitting Rock Animation Cycle", 0x3a996, 0x3aa76 },
+    { L"Shoreline Animation Cycle 1/8", 0x3a4b6, 0x3a4d6, indexCPS2Sprites_COTAAssets, 0xb2 },
+        { L"Shoreline Animation Cycle 2/8", 0x3a656, 0x3a676, indexCPS2Sprites_COTAAssets, 0xb2 },
+        { L"Shoreline Animation Cycle 3/8", 0x3a676, 0x3a696, indexCPS2Sprites_COTAAssets, 0xb2 },
+        { L"Shoreline Animation Cycle 4/8", 0x3a696, 0x3a6b6, indexCPS2Sprites_COTAAssets, 0xb2 },
+        { L"Shoreline Animation Cycle 5/8", 0x3a6b6, 0x3a6d6, indexCPS2Sprites_COTAAssets, 0xb2 },
+        { L"Shoreline Animation Cycle 6/8", 0x3a6d6, 0x3a6f6, indexCPS2Sprites_COTAAssets, 0xb2 },
+        { L"Shoreline Animation Cycle 7/8", 0x3a6f6, 0x3a716, indexCPS2Sprites_COTAAssets, 0xb2 },
+        { L"Shoreline Animation Cycle 8/8", 0x3a716, 0x3a736, indexCPS2Sprites_COTAAssets, 0xb2 },
+
+    { L"Shallow Water Animation Cycle 1/7", 0x3a4d6, 0x3a4f6, indexCPS2Sprites_COTAAssets, 0xb3 },
+        { L"Shallow Water Animation Cycle 2/7", 0x3a756, 0x3a776, indexCPS2Sprites_COTAAssets, 0xb3 },
+        { L"Shallow Water Animation Cycle 3/7", 0x3a776, 0x3a796, indexCPS2Sprites_COTAAssets, 0xb3 },
+        { L"Shallow Water Animation Cycle 4/7", 0x3a796, 0x3a7b6, indexCPS2Sprites_COTAAssets, 0xb3 },
+        { L"Shallow Water Animation Cycle 5/7", 0x3a7b6, 0x3a7d6, indexCPS2Sprites_COTAAssets, 0xb3 },
+        { L"Shallow Water Animation Cycle 6/7", 0x3a7d6, 0x3a7f6, indexCPS2Sprites_COTAAssets, 0xb3 },
+        { L"Shallow Water Animation Cycle 7/7", 0x3a7f6, 0x3a816, indexCPS2Sprites_COTAAssets, 0xb3 },
+
+    { L"Upper Water Animation Cycle 1/6", 0x3a4f6, 0x3a516, indexCPS2Sprites_COTAAssets, 0xb4 },
+        { L"Upper Water Animation Cycle 2/6", 0x3a8d6, 0x3a8f6, indexCPS2Sprites_COTAAssets, 0xb4 },
+        { L"Upper Water Animation Cycle 3/6", 0x3a8f6, 0x3a916, indexCPS2Sprites_COTAAssets, 0xb4 },
+        { L"Upper Water Animation Cycle 4/6", 0x3a916, 0x3a936, indexCPS2Sprites_COTAAssets, 0xb4 },
+        { L"Upper Water Animation Cycle 5/6", 0x3a936, 0x3a956, indexCPS2Sprites_COTAAssets, 0xb4 },
+        { L"Upper Water Animation Cycle 6/6", 0x3a956, 0x3a976, indexCPS2Sprites_COTAAssets, 0xb4 },
+
+    { L"Upper Deeper Water", 0x3a516, 0x3a536, indexCPS2Sprites_COTAAssets, 0xb5 },
+
+    { L"Lower Water Animation Cycle 1/5", 0x3a536, 0x3a556, indexCPS2Sprites_COTAAssets, 0xb6 },
+        { L"Lower Water Animation Cycle 2/5", 0x3a836, 0x3a856, indexCPS2Sprites_COTAAssets, 0xb6 },
+        { L"Lower Water Animation Cycle 3/5", 0x3a856, 0x3a876, indexCPS2Sprites_COTAAssets, 0xb6 },
+        { L"Lower Water Animation Cycle 4/5", 0x3a876, 0x3a896, indexCPS2Sprites_COTAAssets, 0xb6 },
+        { L"Lower Water Animation Cycle 5/5", 0x3a896, 0x3a8b6, indexCPS2Sprites_COTAAssets, 0xb6 },
+
+    { L"Unknown 1", 0x3a556, 0x3a5d6 },
 
     { L"Middle Parts 1?", 0x34652, 0x346f2 },
     { L"Middle Parts 2?", 0x34712, 0x347b2 },
+
+    { L"Sprites", 0x2be88, 0x2bfc8, indexCPS2Sprites_COTAAssets, 0xb7 },
+
     { L"Iceberg Animation Cycle 1/8", 0x346f2, 0x34712, indexCPS2Sprites_COTAAssets, 0x64 },
     { L"Iceberg Animation Cycle 2/8", 0x34a32, 0x34a52, indexCPS2Sprites_COTAAssets, 0x64 },
     { L"Iceberg Animation Cycle 3/8", 0x34a52, 0x34a72, indexCPS2Sprites_COTAAssets, 0x64 },
@@ -1384,10 +1459,16 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_ICEMAN[] =
     { L"Iceberg Animation Cycle 6/8", 0x34ab2, 0x34ad2, indexCPS2Sprites_COTAAssets, 0x64 },
     { L"Iceberg Animation Cycle 7/8", 0x34ad2, 0x34af2, indexCPS2Sprites_COTAAssets, 0x64 },
     { L"Iceberg Animation Cycle 8/8", 0x34af2, 0x34b12, indexCPS2Sprites_COTAAssets, 0x64 },
-    { L"Unknown", 0x348f2, 0x34a12 },
 
-    { L"Sprites", 0x2be68, 0x2bfc8 },
-    { L"Foreground Ice Animation Cycle?", 0x2c008, 0x2c0c8},
+    { L"Unknown 2", 0x348f2, 0x34a12 },
+
+    { L"Foreground Ice Animation Cycle 1/7", 0x2be68, 0x2be88, indexCPS2Sprites_COTAAssets, 0xb8 },
+        { L"Foreground Ice Animation Cycle 2/7", 0x2c008, 0x2c028, indexCPS2Sprites_COTAAssets, 0xb8 },
+        { L"Foreground Ice Animation Cycle 3/7", 0x2c028, 0x2c048, indexCPS2Sprites_COTAAssets, 0xb8 },
+        { L"Foreground Ice Animation Cycle 4/7", 0x2c048, 0x2c068, indexCPS2Sprites_COTAAssets, 0xb8 },
+        { L"Foreground Ice Animation Cycle 5/7", 0x2c068, 0x2c088, indexCPS2Sprites_COTAAssets, 0xb8 },
+        { L"Foreground Ice Animation Cycle 6/7", 0x2c088, 0x2c0a8, indexCPS2Sprites_COTAAssets, 0xb8 },
+        { L"Foreground Ice Animation Cycle 7/7", 0x2c0a8, 0x2c0c8, indexCPS2Sprites_COTAAssets, 0xb8 },
 };
 
 // Spiral: Mojo World
@@ -1413,13 +1494,26 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SPIRAL[] =
     { L"Pole Animation Cycles 2", 0x305ce, 0x3066e, indexCPS2Sprites_COTAAssets, 0x98 },
 
     { L"Foreground Poles and Stage", 0x34b12, 0x34d12, indexCPS2Sprites_COTAAssets, 0x99 },
+    
+    // 2nd part (yellow) is flooring
     { L"Foreground Animation Cycles 1", 0x34f12, 0x350b2 },
+    // 1st part (yellow) is upper flooring
     { L"Foreground Animation Cycles 2", 0x350b2, 0x352b2 },
     { L"Foreground Animation Cycles 3", 0x352b2, 0x354b2 },
     { L"Foreground Animation Cycles 4", 0x354b2, 0x356b2 },
     { L"Foreground Animation Cycles 5", 0x356b2, 0x357b2 },
 
+    // background hand and pillar insets
+        // hand is pretty much as you see
+        // line 1: stage 1 right falling debris
+        // line 2: stage 1 left falling debris
+        // 3 ?
+        // 4: sky snails (stage 2) can jump to see all
+        // 5: ?
+        // 6: sky snail flames
     { L"Sprites 1?", 0x2c228, 0x2c388 },
+    // first 6: stage 2 bits. line 1 stage 2 falling debris
+            // line 4 also creepy tentacle bit in stage 3
     { L"Sprites 2?", 0x2c388, 0x2c588 },
     { L"Sprites 3?", 0x2c588, 0x2c5c8 },
 };
@@ -1477,8 +1571,8 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SILVERSAMURAI_ANIM[] =
     { L"Background Mountain Flames Animation 2 2/3", 0x3bad6, 0x3baf6, indexCPS2Sprites_COTAAssets, 0x75 },
     { L"Background Mountain Flames Animation 2 3/3", 0x3baf6, 0x3bb16, indexCPS2Sprites_COTAAssets, 0x75 },
 
-    { L"Background Mountain Flames Animation 2 1/2", 0x3bc16, 0x3bc36, indexCPS2Sprites_COTAAssets, 0x75 },
-    { L"Background Mountain Flames Animation 2 1/2", 0x3bc36, 0x3bc56, indexCPS2Sprites_COTAAssets, 0x75 },
+    { L"Background Mountain Flames Animation 3 1/2", 0x3bc16, 0x3bc36, indexCPS2Sprites_COTAAssets, 0x75 },
+    { L"Background Mountain Flames Animation 3 2/2", 0x3bc36, 0x3bc56, indexCPS2Sprites_COTAAssets, 0x75 },
 
     { L"Background Center Forest Flames Animation 1/3", 0x3bb36, 0x3bb56, indexCPS2Sprites_COTAAssets, 0x76 },
     { L"Background Center Forest Flames Animation 2/3", 0x3bb56, 0x3bb76, indexCPS2Sprites_COTAAssets, 0x76 },
@@ -1504,6 +1598,7 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SILVERSAMURAI_ANIM[] =
 
     { L"Shrine Enflamed: Arch Animation 2 1/2", 0x3102e, 0x3104e, indexCPS2Sprites_COTAAssets, 0x79 },
     { L"Shrine Enflamed: Arch Animation 2 2/2", 0x3104e, 0x3106e, indexCPS2Sprites_COTAAssets, 0x79 },
+
     { L"Shrine Enflamed: Footbridge Left Middle Animation 1 1/3", 0x30bee, 0x30c0e, indexCPS2Sprites_COTAAssets, 0x7a },
     { L"Shrine Enflamed: Footbridge Left Middle Animation 1 2/3", 0x30c0e, 0x30c2e, indexCPS2Sprites_COTAAssets, 0x7a },
     { L"Shrine Enflamed: Footbridge Left Middle Animation 1 3/3", 0x30c2e, 0x30c4e, indexCPS2Sprites_COTAAssets, 0x7a },
