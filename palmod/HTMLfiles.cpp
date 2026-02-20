@@ -34,7 +34,9 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
             strOutput = "<!DOCTYPE html>\r\n<html>\r\n<body>\r\n\r\n";
             rawFile.Write(strOutput.GetString(), strOutput.GetLength());
 
-            strOutput = "<i>This is just a proof of concept showing at least a starting point of what we can do here.  Feel free to build or expand upon this.</i><br/><br/>\r\n";
+            strOutput = "<i>This is just a proof of concept showing at least a starting point of what we can do here."
+                        "  Note that this lets you set any possible RGB888 color, which the game itself may not actually support."
+                        "  Feel free to build or expand upon this.</i><br/><br/>\r\n";
 
             // Game information
             rawFile.Write(strOutput.GetString(), strOutput.GetLength());
@@ -67,8 +69,21 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
 
             uint16_t iTotalPaletteEntryCount = 0;
 
+            strOutput = "function BroadcastToUser(colorValue) {\r\n"
+                        "  colorString = \"Copy the following into the clipboard and then paste it into PalMod by pressing CTRL+V in PalMod:\\r\\n\\r\\n\";\r\n"
+                        "  colorString += colorValue.replace(/#/g, \"\");\r\n"
+                        "  alert(colorString);\r\n"
+                        "}\r\n\r\n";
+            rawFile.Write(strOutput.GetString(), strOutput.GetLength());
+
             for (int iImageIndex = 0; iImageIndex < m_DumpBmp.m_pMainImgCtrl->GetImgAmt(); iImageIndex++)
             {
+                CStringA strCopiableValue;
+                CStringA strCurrentEl;
+
+                strCopiableValue.Format("function Copy%04xForPalMod() {\r\n", iImageIndex);
+                strCopiableValue += "  colorString = \"(~-\";\r\n";
+
                 for (uint32_t iCurrentColor = 0; iCurrentColor < static_cast<int>(rgSrcImg[iImageIndex]->uPalSz); iCurrentColor++)
                 {
                     const uint32_t iAdjustedColor = iCurrentColor + iTotalPaletteEntryCount;
@@ -81,7 +96,16 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
 
                     strOutput = "}\r\n\r\n";
                     rawFile.Write(strOutput.GetString(), strOutput.GetLength());
+
+                    strCurrentEl.Format("  colorString += document.getElementById(\"colorPicker%02x\").value;\r\n", iAdjustedColor);
+
+                    strCopiableValue += strCurrentEl;
                 }
+
+                strCopiableValue += "  colorString += \")\";\r\n"
+                                    "  BroadcastToUser(colorString);\r\n"
+                                    "}\r\n\r\n";
+                rawFile.Write(strCopiableValue.GetString(), strCopiableValue.GetLength());
 
                 iTotalPaletteEntryCount += rgSrcImg[iImageIndex]->uPalSz;
             }
@@ -170,6 +194,9 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                 strOutput = "  </tr>\r\n";
                 rawFile.Write(strOutput.GetString(), strOutput.GetLength());
 
+                strOutput.Format("<tr>\r\n  <td colspan=\"16\"><input type=\"button\" onclick=\"Copy%04xForPalMod()\" value=\"Copy for PalMod\"></td>\r\n</tr>\r\n", iImageIndex);
+                rawFile.Write(strOutput.GetString(), strOutput.GetLength());
+
                 strOutput = "</table>\r\n\r\n<br/>\r\n";
                 rawFile.Write(strOutput.GetString(), strOutput.GetLength());
             }
@@ -186,7 +213,7 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
             {
                 nFinalWidth = rgSrcImg[iImageIndex]->dimensions.width;
                 nFinalHeight = rgSrcImg[iImageIndex]->dimensions.height;
-                const size_t nPreviewSize =  nFinalWidth * nFinalHeight;
+                const size_t nPreviewSize = static_cast<size_t>(nFinalWidth) * static_cast<size_t>(nFinalHeight);
                 if (nPreviewSize)
                 {
                     vrgLayeredImage.resize(nPreviewSize);
@@ -216,7 +243,7 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                         rawFile.Write(strOutput.GetString(), strOutput.GetLength());
                     }
 
-                    strOutput.Format(" <td class=\"clr%02x\">", vrgLayeredImage.at((nRow * nFinalWidth) + nColumn));
+                    strOutput.Format(" <td class=\"clr%02x\">", vrgLayeredImage.at((static_cast<size_t>(nRow) * static_cast<size_t>(nFinalWidth)) + static_cast<size_t>(nColumn)));
                     rawFile.Write(strOutput.GetString(), strOutput.GetLength());
                 }
 
