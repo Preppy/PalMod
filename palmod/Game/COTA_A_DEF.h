@@ -1537,6 +1537,10 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SILVERSAMURAI[] =
 
     { L"Shrine: Arch", 0x306ae, 0x306ce, indexCPS2Sprites_COTAAssets, 0x79 },
 
+        { L"Lamp Animation 2/3", 0x2c728, 0x2c748, indexCPS2Sprites_COTAAssets, 0xba },
+        { L"Lamp Animation 3/3", 0x2c748, 0x2c768, indexCPS2Sprites_COTAAssets, 0xba },
+    { L"Lamp Animation 1/3", 0x2c608, 0x2c628, indexCPS2Sprites_COTAAssets, 0xba },
+
     { L"Shrine: Footbridge Left Middle", 0x306ce, 0x306ee, indexCPS2Sprites_COTAAssets, 0x7a },
 
     { L"Shrine: Footbridge Close", 0x306ee, 0x3070e, indexCPS2Sprites_COTAAssets, 0x7b },
@@ -1551,11 +1555,45 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SILVERSAMURAI[] =
     
     { L"Shrine: Statue", 0x3078e, 0x307ae, indexCPS2Sprites_COTAAssets, 0x80 },
 
-    { L"Temple sprites", 0x2c5c8, 0x2c728 },
+    // temple statue parts
+        // animation cycle begins once the fire starts at 1.5 victories
+    { L"Statue Animation Cycle 1", 0x2c648, 0x2c668, indexCPS2Sprites_COTAAssets, 0xbc },
+    // cycle 2 seems to be used for both in all usage.......?
+    // statue animation cycle is at 0x2c788 to 0x2c928
+        { L"Statue Animation Cycle set 3 1/3", 0x2c788, 0x2c7a8, indexCPS2Sprites_COTAAssets, 0xbc },
+        { L"Statue Animation Cycle set 3 2/3", 0x2c7a8, 0x2c7c8, indexCPS2Sprites_COTAAssets, 0xbc },
+        { L"Statue Animation Cycle set 3 3/3", 0x2c7c8, 0x2c7e8, indexCPS2Sprites_COTAAssets, 0xbc },
+
+        { L"Statue Animation Cycle set 4 1/3", 0x2c808, 0x2c828, indexCPS2Sprites_COTAAssets, 0xbc },
+        { L"Statue Animation Cycle set 4 2/3", 0x2c828, 0x2c848, indexCPS2Sprites_COTAAssets, 0xbc },
+        { L"Statue Animation Cycle set 4 3/3", 0x2c848, 0x2c868, indexCPS2Sprites_COTAAssets, 0xbc },
+
+        { L"Statue Animation Cycle set 5 1/2", 0x2c888, 0x2c8a8, indexCPS2Sprites_COTAAssets, 0xbc },
+        { L"Statue Animation Cycle set 5 2/2", 0x2c8a8, 0x2c8c8, indexCPS2Sprites_COTAAssets, 0xbc },
+
+        { L"Statue Animation Cycle set 6 1/2", 0x2c8e8, 0x2c908, indexCPS2Sprites_COTAAssets, 0xbc },
+        { L"Statue Animation Cycle set 6 1/2", 0x2c908, 0x2c928, indexCPS2Sprites_COTAAssets, 0xbc },
+
+     // put this last for visbility via current logic
+    { L"Statue Animation Cycle 2", 0x2c668, 0x2c688, indexCPS2Sprites_COTAAssets, 0xbc },
 
     { L"Unknown?", 0x358f2, 0x35912 },
-
+    
     { L"Stage", 0x357b2, 0x357f2, indexCPS2Sprites_COTAAssets, 0x81 },
+
+    // biwa player
+    // center chest
+    { L"Biwa Players and Chest", 0x2c5c8, 0x2c608, indexCPS2Sprites_COTAAssets, 0xb9 },
+    // stone post
+    // ???
+    { L"Stone Post", 0x2c628, 0x2c648, indexCPS2Sprites_COTAAssets, 0xbb },
+
+    // ninjas
+    // impact
+    // ??
+    // ??
+    // FIGHT text
+    { L"Ninjas, Impact, and FIGHT", 0x2c688, 0x2c728, indexCPS2Sprites_COTAAssets, 0xbd },
 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SILVERSAMURAI_ANIM[] =
