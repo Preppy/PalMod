@@ -2,6 +2,7 @@
 #include "DropTarget.h"
 #include "PalMod.h"
 #include "GameChoice.h"
+#include "Game\GameRegistry.h"
 
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {

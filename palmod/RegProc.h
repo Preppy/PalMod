@@ -2,7 +2,7 @@
 
 #include <array>
 #include "ColorSystem.h"
-#include "Game\GameRegistry.h"
+#include "Game\GameDef.h"
 
 enum class eRegistryStoreID
 {
