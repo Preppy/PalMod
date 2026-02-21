@@ -6,7 +6,11 @@ CString SignedHexAsString(int32_t nHexNumber)
 {
     CString strDisplayString;
 
-    if (nHexNumber > 0)
+    if (nHexNumber == 0)
+    {
+        strDisplayString = L"0";
+    }
+    else if (nHexNumber > 0)
     {
         strDisplayString.Format(L"0x%x", nHexNumber);
     }
@@ -188,7 +192,7 @@ void CPalModDlg::OnRemapUnit()
                     uint32_t nLastStartingLocation = 0;
                     uint32_t nLastMappedLocation = 0;
 
-                    for (auto searchColors : rgSearchBytes)
+                    for (auto& searchColors : rgSearchBytes)
                     {
                         // Search for search strings
                         if (searchColors.second.size() > 4)
