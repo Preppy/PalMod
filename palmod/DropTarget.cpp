@@ -300,7 +300,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
                 if (pDataObject->GetData(s_idContent, &storageContent, &formatContent))
                 {
-                    if (storageContent.tymed == TYMED_ISTREAM)
+                    if (storageContent.tymed & TYMED_ISTREAM)
                     {
                         COleStreamFile streamFile(storageContent.pstm);
                         const UINT nFileSize = static_cast<UINT>(streamFile.GetLength());

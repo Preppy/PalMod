@@ -122,11 +122,12 @@ public:
 
     //New Image
     RECT imgout_szpos = { c_badWindowPosValue };
-    COLORREF imgout_bgcol;
-    DWORD imgout_border;
-    DWORD imgout_zoomindex;
-    BOOL fTransPNG;
-    BOOL fExportPNGAsJoined;
+    // these values are all ignored and set during lookup
+    COLORREF imgout_bgcol = 0;
+    DWORD imgout_border = 0;
+    DWORD imgout_zoomindex = 0;
+    BOOL fTransPNG = TRUE;
+    BOOL fExportPNGAsJoined = TRUE;
 };
 
 CString RectToStr(RECT in_rect);

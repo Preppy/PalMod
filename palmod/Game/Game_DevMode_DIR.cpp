@@ -160,6 +160,7 @@ void CDevModeFilePickerDialog::UpdateOptionsForCurrentSelection()
     {
         case static_cast<int>(FileReadType::Sequential):
             m_fIsConfigurationSupported = fHave1File || fHave2Files || fHave3Files || fHave4Files;
+            break;
         case static_cast<int>(FileReadType::Interleaved_2FileSets):
         case static_cast<int>(FileReadType::Interleaved_Read2Bytes_LE):
         case static_cast<int>(FileReadType::Interleaved_Read2Bytes_BE):
@@ -562,7 +563,7 @@ void CGame_DevMode_DIR::SaveLoadingChoices()
 
             if (iFilePos < m_sFileLoadingData.rgRuleList.size())
             {
-                RegSetValueEx(hKey, strValueName, 0, REG_SZ, reinterpret_cast<const BYTE *>(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName), static_cast<DWORD>(sizeof(wchar_t) * (ARRAYSIZE(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName) + 1)));
+                RegSetValueEx(hKey, strValueName, 0, REG_SZ, reinterpret_cast<const BYTE *>(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName), static_cast<DWORD>(sizeof(wchar_t) * (wcslen(m_sFileLoadingData.rgRuleList.at(iFilePos).szFileName) + 1)));
                 
                 strValueName.Format(c_strRegvalFileSizeFormat, iFilePos);
                 

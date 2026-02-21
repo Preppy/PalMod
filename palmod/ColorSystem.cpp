@@ -1878,6 +1878,7 @@ namespace ColorSystem
         {
             default:
                 OutputDebugString(L"ERROR: You're not handling a new plane length!\r\n");
+                __fallthrough;
             case k_nRGBPlaneAmtForRGB111:
                 return Get8BitValueForColorStep_1Step(nColorStep);
             case k_nRGBPlaneAmtForRGB333:

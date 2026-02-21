@@ -58,7 +58,7 @@ private:
 
     bool m_fHaveDoneInitialColorSet = false;
     bool m_fCurrentlyInitializing = false;
-    wchar_t m_pszGameNameOverride[MAX_PATH];
+    wchar_t m_pszGameNameOverride[MAX_PATH] = L"";
 
     static bool ReloadLoadingChoices();
     static void SaveLoadingChoices();

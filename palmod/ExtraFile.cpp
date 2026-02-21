@@ -743,7 +743,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
         }
         else
         {
-            strOutputText.Format(L"\tAdded %u palette Extras total, including the '%s' Extra file.\n", rgCompleteExtraDefs.size(), pszExtraFileName);
+            strOutputText.Format(L"\tAdded %u palette Extras total, including the '%s' Extra file.\n", static_cast<int>(rgCompleteExtraDefs.size()), pszExtraFileName);
         }
         OutputDebugString(strOutputText);
     }

@@ -737,12 +737,12 @@ int CImgDumpBmp::GetMaxImagesPerLine()
             w_mul = 4;
             break;
         default:
-        {
-            CString strInfo;
-            strInfo.Format(L"CImgDumpBmp::GetImagesPerLine: You need to add support for the new output option \"%u\".\r\n", m_nTotalImagesToDisplay);
-            OutputDebugString(strInfo.GetString());
+            {
+                CString strInfo;
+                strInfo.Format(L"CImgDumpBmp::GetImagesPerLine: You need to add support for the new output option \"%u\".\r\n", m_nTotalImagesToDisplay);
+                OutputDebugString(strInfo.GetString());
+            }
             __fallthrough;
-        }
         case 15: // MAAB
         case 20: // GGXXACR ex color sets
         case 22: // GGXXACR core color sets

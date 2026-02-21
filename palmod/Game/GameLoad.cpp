@@ -129,7 +129,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             CString strQuestion;
             UINT uIconChoice = MB_ICONSTOP;
 
-            strQuestion.Format(L"Internal warning: Game file size is 0x%x, but 0x%x is the expected size. You may just need to update the value of m_nExpectedGameROMSize for your game.\n", static_cast<int>(nGameFileLength), CurrRule.uVerifyVar);
+            strQuestion.Format(L"Internal warning: Game file size is 0x%x, but 0x%x is the expected size. You may just need to update the value of m_nExpectedGameROMSize for your game.\n", static_cast<int>(nGameFileLength), static_cast<int>(CurrRule.uVerifyVar));
             OutputDebugString(strQuestion);
 
             if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (nGameFileLength == 4194304))
@@ -300,10 +300,10 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
             {
                 CString strError;
 
-                strError.Format(L"WARNING: The file \"%s\" was found but is not the expected size.  We expect the file to be 0x%x bytes, but this file is 0x%x bytes.\n", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(nGameFileLength));
+                strError.Format(L"WARNING: The file \"%s\" was found but is not the expected size.  We expect the file to be 0x%x bytes, but this file is 0x%x bytes.\n", strCurrFile.GetString(), static_cast<int>(CurrRule.uVerifyVar), static_cast<int>(nGameFileLength));
                 OutputDebugString(strError);
 
-                strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), CurrRule.uVerifyVar, static_cast<int>(nGameFileLength));
+                strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), static_cast<int>(CurrRule.uVerifyVar), static_cast<int>(nGameFileLength));
 
                 if (nGameFlag == GGXXACR_S)
                 {
