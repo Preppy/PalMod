@@ -1517,7 +1517,10 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
 
                 if (!paletteSetToUse)
                 {
-                    MessageBox(g_appHWnd, L"Catastrophic optimization error happened: please report this error so it can be properly fixed.\r\n\r\nPalMod will now close.", GetHost()->GetAppName(), MB_ICONERROR);
+                    MessageBox(g_appHWnd, L"Catastrophic optimization error happened: please report this error."
+                                          L"  This is an erratic bug in the MSFT compiler/build tools: please report this so I can rebuild and work around the bug if not 'fix' it.\r\n\r\n"
+                                          L"PalMod will now close.",
+                                GetHost()->GetAppName(), MB_ICONERROR);
                     DebugBreak();
                     break;
                 }
