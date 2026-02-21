@@ -234,7 +234,7 @@ private:
         SFA2_A_UNITS_07_REV2,
         ARRAYSIZE(SFA2_A_UNITS_07_REV2),
         L"SFA2e.txt",           // Extra filename
-        1061,                   // Count of palettes listed in the header
+        1077,                   // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
@@ -382,8 +382,8 @@ private:
         ColMode::COLMODE_RGB444_LE,
         m_sFileLoadingData_Rev1,
         m_rgCRC32Data,
-        SFA2_A_UNITS_REV1_MONO,
-        ARRAYSIZE(SFA2_A_UNITS_REV1_MONO),
+        SFA2_STEAM_UNITS_REV1_MONO,
+        ARRAYSIZE(SFA2_STEAM_UNITS_REV1_MONO),
         L"SFA2Se.txt",          // Extra filename
         1214,                   // Count of palettes listed in the header
         0x4cd5afa,              // Lowest known location used for palettes
@@ -392,7 +392,8 @@ private:
 public:
     CGame_SFA2_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData_Rev1_Mono); };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    // Just override back to the default, skipping over the normal SFA2 CPS2 lookup manipulation
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) { CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Rev1); };
 };

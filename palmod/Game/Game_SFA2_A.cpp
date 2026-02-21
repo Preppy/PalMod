@@ -1230,22 +1230,3 @@ void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         m_pszCurrentPaletteName = currDef.szDesc;
     }
 }
-
-void CGame_SFA2_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
-
-    if (nUnitId != m_nCurrentExtraUnitId)
-    {
-        // For Steam, we can handle the split ROMs as one unit.  Adjust offsets as needed
-        if (nUnitId < 21) // rom07 content, except for bonus/stages which is premapped correctly
-        {
-            // This is for characters. We hand-tuned the stages and bonus areas so don't need those tweaked.
-            m_nCurrentPaletteROMLocation += 0x4cd6dba - 0x6f57e;
-        }
-        else if (nUnitId < 0x2f) // Everything from rom08 up to bonus/stages needs a shift
-        {
-            m_nCurrentPaletteROMLocation += 0x4d03b9a - 0x1B17E;
-        }
-    }
-}
