@@ -20,6 +20,9 @@ ColMode CGameWithExtrasFile::m_ColorModeOverride = ColMode::COLMODE_LAST;
 eIMGDat_Sections CGameWithExtrasFile::m_ImageSectionOverride = eIMGDat_Sections::IMGDAT_SECTION_LAST;
 std::vector<CGameWithExtrasFile::UnitData> CGameWithExtrasFile::m_vUnitData = {};
 
+// We're going to start hitting performance problems if this number gets too high, so careful here.
+const uint32_t c_nMaxPalettesToCheckInExtraNodes = 100;
+
 class CCreateExtraFileDlg : public CDialog
 {
     DECLARE_DYNAMIC(CCreateExtraFileDlg)
@@ -141,7 +144,9 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
     int nStockExtrasCount = 0;
     int nArrayOffsetDesired = 0;
     bool fAlertedToTruncation = false;
+    CWaitCursor wait;
 
+    // We start slowing WAY down on high numbers of extra palettes as we try to dedupe everything, so be careful here.
     const int nMaxExtraBufferSize = 10000;
     std::vector<stExtraDef> rgTempExtraBuffer;
 
@@ -165,7 +170,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
         strOutputText.Format(L"Loading extra file for '%s'...\n", pszExtraFileName);
         OutputDebugString(strOutputText);
 
-        DWORD nFileAttrib = GetFileAttributes(szTargetFile);
+        const DWORD nFileAttrib = GetFileAttributes(szTargetFile);
 
         bool fShouldOpenFile = ((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != INVALID_FILE_ATTRIBUTES);
 
@@ -179,7 +184,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
 
                 if (cfExtraFile.GetStatus(extraInfo))
                 {
-                    DWORD nFileSize = static_cast<DWORD>(extraInfo.m_size);
+                    const DWORD nFileSize = static_cast<DWORD>(extraInfo.m_size);
 
                     if (nFileSize == 0)
                     {
@@ -239,6 +244,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
 
                 // Truncate to reasonability
                 strncpy_s(aszCurrLine, strCurrLine.c_str(), ARRAYSIZE(aszCurrLine) - 1);
+                aszCurrLine[ARRAYSIZE(aszCurrLine) - 1] = 0;
 
                 aszFinalLine = aszCurrLine;
                 const size_t nCurStrLen = strnlen(aszFinalLine, ARRAYSIZE(aszCurrLine));
@@ -714,7 +720,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
 
             if (nArrayOffsetDesired >= nMaxExtraBufferSize)
             {
-                strOutputText.Format(L"WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
+                strOutputText.Format(L"WARNING: The '%s' Extra file exceeds our maximum recommended palette count: it wants to use %u palettes.\n\nPalmod has added the first %u palettes.  This still might be extra slow to load, though.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
                 // Note that this crash occurs so early we don't get to load strings.
                 MessageBox(g_appHWnd, strOutputText, L"PalMod", MB_ICONERROR);
             }
@@ -755,13 +761,17 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalI
     CString strDupeText;
 
     // If we're in Extras territory, check it against itself.
-    const uint32_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
+    const bool fRequestIsForExtras = (m_nTotalInternalUnits == nUnitId);
+    const uint32_t nUnitCountToCheck = fRequestIsForExtras ? m_nTotalInternalUnits + 1: m_nTotalInternalUnits;
+    const uint32_t nMaxPalettesToCheckForUnitType = fRequestIsForExtras ? c_nMaxPalettesToCheckInExtraNodes : 0xffff;
 
     //Go through each character
     for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
     {
         const uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (uint32_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        const uint32_t nMaxPalettesToCheck = min(nMaxPalettesToCheckForUnitType, nPalCount);
+
+        for (uint32_t nPalCtr = 0; nPalCtr < nMaxPalettesToCheck; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -849,7 +859,9 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
         }
 
         const uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (uint32_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        const uint32_t nMaxPalettesToCheck = min(c_nMaxPalettesToCheckInExtraNodes, nPalCount);
+
+        for (uint32_t nPalCtr = 0; nPalCtr < nMaxPalettesToCheck; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
             nTotalPalettesChecked++;
@@ -887,8 +899,6 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
 int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 {
-    OutputDebugString(L"\tCGameWithExtrasFile::GetDupeCountInExtrasDataset: Starting dupe check...\n");
-
     uint32_t nTotalPalettesChecked = 0;
     uint32_t nTotalDupesFound = 0;
 
@@ -898,7 +908,23 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
     //Go through the Extras
     const uint32_t nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
-    for (uint16_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+    const uint32_t nMaxPalettesToCheck = min(c_nMaxPalettesToCheckInExtraNodes, nPalCount);
+
+    CString strInfo;
+    strInfo.Format(L"\tCGameWithExtrasFile::GetDupeCountInExtrasDataset: Starting partial dupe check for %u palettes...\n", nPalCount);
+    OutputDebugString(strInfo.GetString());
+
+    if (nMaxPalettesToCheck < nPalCount)
+    {
+        strInfo = L"Starting partial dupe check for the Extra palettes...";
+    }
+    else
+    {
+        strInfo = L"Starting dupe check for the Extra palettes...";
+    }
+    GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
+
+    for (uint16_t nPalCtr = 0; nPalCtr < nMaxPalettesToCheck; nPalCtr++)
     {
         LoadSpecificPaletteData(m_nExtraUnit, nPalCtr);
         nTotalPalettesChecked++;
@@ -1038,7 +1064,14 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     bool fShouldRunDupeCheck = (nPaletteCountForRom != m_nSafeCountForThisRom);
 #endif
 
-    const int nInternalDupeCount = fShouldRunDupeCheck ?  GetDupeCountInDataset() : 0;
+    if (fShouldCheckExtras && (nExtraCount > 100))
+    {
+        CString strWarning;
+        strWarning.Format(L"Should we check the Extras palettes requested for duplication?\r\n\r\nThere are %u Extra palettes listed: this might take a while.", nExtraCount);
+        fShouldCheckExtras = (MessageBox(g_appHWnd, strWarning.GetString(), GetHost()->GetAppName(), MB_ICONQUESTION | MB_YESNO | MB_DEFBUTTON2) == IDYES);
+    }
+
+    const int nInternalDupeCount = fShouldRunDupeCheck ? GetDupeCountInDataset() : 0;
     const int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
 
     if (nInternalDupeCount ||
