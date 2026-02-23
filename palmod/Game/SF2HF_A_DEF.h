@@ -644,7 +644,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_SAGAT_NODE[] =
 {
     { L"Bosses", 0xc3fe, 0xc43e, indexSF2HFSprites_Stages21, 0xc0, &pairFullyLinkedNode },
     { L"Sky & Temple", 0x253e, 0x255e, indexSF2HFSprites_Stages21, 0xaf },
-    { L"Grass & Pavement 1", 0x741e, 0x743e, indexSF2HFSprites_Stages21, 0xb0 },
+    { L"Grass", 0x741e, 0x743e, indexSF2HFSprites_Stages21, 0xb0 },
     { L"Buddha 1", 0x73fe, 0x741e, indexSF2HFSprites_Stages21, 0xb1 },
     { L"Buddha 2", 0x747e, 0x749e, indexSF2HFSprites_Stages21, 0xb2 },
     { L"Buddha 3", 0x74be, 0x761e, indexSF2HFSprites_Stages21, 0xb3 },
@@ -656,7 +656,7 @@ const sGame_PaletteDataset SF2HF_A_STAGES21_SAGAT_NODE[] =
     { L"Buddha & Grass 2", 0x76be, 0x76de, indexSF2HFSprites_Stages21, 0xb9 },
     { L"Buddha & Grass 3", 0x76fe, 0x771e, indexSF2HFSprites_Stages21, 0xba },
     { L"Buddha & Grass 4", 0x773e, 0x775e, indexSF2HFSprites_Stages21, 0xbb },
-    { L"Grass", 0x24be, 0x24de, indexSF2HFSprites_Stages21, 0xbc },
+    { L"Grass & Pavement 1", 0x24be, 0x24de, indexSF2HFSprites_Stages21, 0xbc },
     { L"Grass & Pavement 2", 0x749e, 0x74be, indexSF2HFSprites_Stages21, 0xbd },
     { L"Grass & Right Structure 1", 0x743e, 0x745e, indexSF2HFSprites_Stages21, 0xbe },
     { L"Grass & Right Structure 2", 0x765e, 0x767e, indexSF2HFSprites_Stages21, 0xbf },
