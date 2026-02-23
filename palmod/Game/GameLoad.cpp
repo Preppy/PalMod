@@ -75,6 +75,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
 CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 {
     CGameClass* OutGame = nullptr;
+    CWaitCursor wait;
 
     CFile CurrFile;
     sFileRule CurrRule;
@@ -223,6 +224,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
 {
     CGameClass* OutGame = nullptr;
     sFileRule CurrRule;
+    CWaitCursor wait;
 
     CFile CurrFile;
     CString strCurrFile;
