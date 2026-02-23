@@ -350,32 +350,6 @@ void CPalModDlg::OnRemapUnit()
                     rgSearchBytes.clear();
                 }
 
-                if (fUseExtrasMode)
-                {
-                    strInfo.Format(L"\r\n%s Remapping complete: %u of %u palettes found.  You'll want to double-check the remap.\r\n", strActiveCommentStyle.c_str(), nCountPalettesMapped, nCountPalettesExisting);
-                }
-                else
-                {
-                    strInfo.Format(L"\r\n%s Remapping complete: %u of %u palettes found.  You'll want to update ImageId and palette pair references as well as double-checking the remap.\r\n", strActiveCommentStyle.c_str(), nCountPalettesMapped, nCountPalettesExisting);
-                }
-                strOutput += strInfo;
-
-                if (nCountPalettesExisting)
-                {
-                    strInfo.Format(L"Remapping complete: %u of %u palettes found.", nCountPalettesMapped, nCountPalettesExisting);
-                }
-                else
-                {
-                    strInfo = L"PalMod's support for this game does not currently support remapping.";
-                }
-
-                SetStatusText(strInfo.GetString());
-                strInfo += L"\r\n";
-                OutputDebugString(strInfo.GetString());
-
-                // Note we can't output strOutput to debug out because it overflows the shared memory buffer size
-                //OutputDebugString(strOutput.GetString());
-
                 CFile OutputFile;
                 CString strOutputName = SaveFileOFN.lpstrFile;
 
@@ -390,6 +364,45 @@ void CPalModDlg::OnRemapUnit()
 
                     OutputFile.Close();
                 }
+
+                if (fUseExtrasMode)
+                {
+                    strInfo.Format(L"\r\n%s Remapping complete: %u of %u palettes found.  You'll want to double-check the remap.\r\n", strActiveCommentStyle.c_str(), nCountPalettesMapped, nCountPalettesExisting);
+                }
+                else
+                {
+                    strInfo.Format(L"\r\n%s Remapping complete: %u of %u palettes found.  You'll want to update ImageId and palette pair references as well as double-checking the remap.\r\n", strActiveCommentStyle.c_str(), nCountPalettesMapped, nCountPalettesExisting);
+                }
+                strOutput += strInfo;
+
+                // Note we can't output strOutput to debug out because it overflows the shared memory buffer size
+                //OutputDebugString(strOutput.GetString());
+
+                if (nCountPalettesExisting)
+                {
+                    strInfo.Format(L"Remapping complete: %u of %u palettes found.", nCountPalettesMapped, nCountPalettesExisting);
+                }
+                else
+                {
+                    strInfo = L"PalMod's support for this game does not currently support remapping.";
+                }
+
+                SetStatusText(strInfo.GetString());
+                strInfo += L"\r\n";
+                OutputDebugString(strInfo.GetString());
+
+                if (nCountPalettesMapped == 0)
+                {
+                    strInfo += "\r\nNo matches were found: either you're looking at the wrong file or the other version might be using a different color format.";
+                }
+                else
+                {
+                    CString strAppendMe;
+                    strAppendMe.Format(L"\r\nResults can be found at \'%s\'.", strOutputName.GetString());
+                    strInfo += strAppendMe;
+                }
+
+                MessageBox(strInfo, GetHost()->GetAppName(), MB_OK);
             }
         }
     }
