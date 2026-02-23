@@ -1449,7 +1449,7 @@ const sGame_PaletteDataset MSHVSF_A_BONUS_UNPORT_PALETTES[] =
     { L"Ken", 0x7c46c, 0x7c50c },
     { L"Chun Li", 0x7c50c, 0x7c5ac },
     { L"Dhalsim", 0x7c5ac, 0x7c64c },
-    { L"Zangeif", 0x7c64c, 0x7c6ac },
+    { L"Zangief", 0x7c64c, 0x7c6ac },
     { L"M. Bison", 0x7c6ec, 0x7c78c },
     { L"Akuma", 0x7c78c, 0x7c7ec },
     { L"Sakura", 0x7c82c, 0x7c8cc },

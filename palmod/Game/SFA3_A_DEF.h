@@ -2660,12 +2660,12 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_TITLES[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_BONUS[] =
 {
-    { L"Capcom Intro Logo", 0x40172, 0x40192 },
-    { L"Capcom Logo 2", 0x3bc72, 0x3bc92 },
+    { L"Capcom Intro Logo", 0x40172, 0x40192, indexCPS2Sprites_SFA3Assets, 0xd6 },
+    { L"Capcom Logo 2", 0x3bc72, 0x3bc92, indexCPS2Sprites_SFA3Assets, 0xd6 },
     { L"QSound", 0x49fb2, 0x4a072, indexCPS2Sprites_SFA3Assets, 0xc1 },
-    { L"Title Screen Text 1", 0x3bc52, 0x3bc72 },
-    { L"Title Screen Text 2", 0x3c052, 0x3c072 },
-    { L"Main Text", 0x3c452, 0x3c472 },
+    { L"Title Screen Text 1", 0x3bc52, 0x3bc72, indexCPS2Sprites_SFA3Assets, 0xd7 },
+    { L"Title Screen Text 2", 0x3c052, 0x3c072, indexCPS2Sprites_SFA3Assets, 0xd8 },
+    { L"Main Text", 0x3c452, 0x3c472, indexCPS2Sprites_SFA3Assets, 0xd9 },
     { L"X-Ism Screen Transition", 0x5fad2, 0x5faf2, indexCPS2Sprites_SFA3Assets, 0xc8 },
     { L"A-Ism Screen Transition", 0x5faf2, 0x5fb12, indexCPS2Sprites_SFA3Assets, 0xc6 },
     { L"V-Ism Screen Transition", 0x5fb12, 0x5fb32, indexCPS2Sprites_SFA3Assets, 0xc7 },
@@ -2774,9 +2774,9 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CSEL[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP1[] =
 {
-    { L"Character Select & VS", 0x5e852, 0x5e9b2 },
-    { L"Character Select VS BG 16x16", 0x63cf2, 0x63d12 },
-    { L"Character Select VS BG 32x32", 0x64b32, 0x64b52 },
+    { L"Character Select & VS", 0x5e852, 0x5e9b2, indexCPS2Sprites_SFA3Assets, 0xda },
+    { L"Character Select VS BG 16x16", 0x63cf2, 0x63d12, indexCPS2Sprites_SFA3Assets, 0xbb },
+    { L"Character Select VS BG 32x32", 0x64b32, 0x64b52, indexCPS2Sprites_SFA3Assets, 0xbc },
     { L"Story Mode", 0x5fb32, 0x5fbb2, indexCPS2Sprites_SFA3Assets, 0xc9 },
     { L"Story Mode BG 16x16", 0x63d12, 0x63d32, indexCPS2Sprites_SFA3Assets, 0xbb },
     { L"Story Mode BG 32x32", 0x64b52, 0x64b72, indexCPS2Sprites_SFA3Assets, 0xbc },
@@ -2824,9 +2824,9 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP1[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP2[] =
 {
-    { L"Character Select & VS", 0x5e9b2, 0x5eb12 },
-    { L"Character Select VS BG 16x16", 0x63d52, 0x63d72 },
-    { L"Character Select VS BG 32x32", 0x64b92, 0x64bb2 },
+    { L"Character Select & VS", 0x5e9b2, 0x5eb12, indexCPS2Sprites_SFA3Assets, 0xda },
+    { L"Character Select VS BG 16x16", 0x63d52, 0x63d72, indexCPS2Sprites_SFA3Assets, 0xbb },
+    { L"Character Select VS BG 32x32", 0x64b92, 0x64bb2, indexCPS2Sprites_SFA3Assets, 0xbc },
     { L"Story Mode", 0x5fbb2, 0x5fc32, indexCPS2Sprites_SFA3Assets, 0xc9 },
     { L"Story Mode BG 16x16", 0x63d72, 0x63d92, indexCPS2Sprites_SFA3Assets, 0xbb },
     { L"Story Mode BG 32x32", 0x64bb2, 0x64bd2, indexCPS2Sprites_SFA3Assets, 0xbc },
@@ -2874,9 +2874,9 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP2[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP3[] =
 {
-    { L"Character Select & VS", 0x5eb12, 0x5ec72 },
-    { L"Character Select VS BG 16x16", 0x63db2, 0x63dd2 },
-    { L"Character Select VS BG 32x32", 0x64bf2, 0x64c12 },
+    { L"Character Select & VS", 0x5eb12, 0x5ec72, indexCPS2Sprites_SFA3Assets, 0xda },
+    { L"Character Select VS BG 16x16", 0x63db2, 0x63dd2, indexCPS2Sprites_SFA3Assets, 0xbb },
+    { L"Character Select VS BG 32x32", 0x64bf2, 0x64c12, indexCPS2Sprites_SFA3Assets, 0xbc },
     { L"Story Mode", 0x5fc32, 0x5fcb2, indexCPS2Sprites_SFA3Assets, 0xc9 },
     { L"Story Mode BG 16x16", 0x63dd2, 0x63df2, indexCPS2Sprites_SFA3Assets, 0xbb },
     { L"Story Mode BG 32x32", 0x64c12, 0x64c32, indexCPS2Sprites_SFA3Assets, 0xbc },
@@ -2924,9 +2924,9 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP3[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP4[] =
 {
-    { L"Character Select & VS", 0x5ec72, 0x5edd2 },
-    { L"Character Select VS BG 16x16", 0x63e12, 0x63e32 },
-    { L"Character Select VS BG 32x32", 0x64c52, 0x64c72 },
+    { L"Character Select & VS", 0x5ec72, 0x5edd2, indexCPS2Sprites_SFA3Assets, 0xda },
+    { L"Character Select VS BG 16x16", 0x63e12, 0x63e32, indexCPS2Sprites_SFA3Assets, 0xbb },
+    { L"Character Select VS BG 32x32", 0x64c52, 0x64c72, indexCPS2Sprites_SFA3Assets, 0xbc },
     { L"Story Mode", 0x5fcb2, 0x5fd32, indexCPS2Sprites_SFA3Assets, 0xc9 },
     { L"Story Mode BG 16x16", 0x63e32, 0x63e52, indexCPS2Sprites_SFA3Assets, 0xbb },
     { L"Story Mode BG 32x32", 0x64c72, 0x64c92, indexCPS2Sprites_SFA3Assets, 0xbc },
@@ -2974,9 +2974,9 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP4[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_CGROUP5[] =
 {
-    { L"Character Select & VS", 0x5edd2, 0x5ef32 },
-    { L"Character Select VS BG 16x16", 0x63e72, 0x63e92 },
-    { L"Character Select VS BG 32x32", 0x64cb2, 0x64cd2 },
+    { L"Character Select & VS", 0x5edd2, 0x5ef32, indexCPS2Sprites_SFA3Assets, 0xda },
+    { L"Character Select VS BG 16x16", 0x63e72, 0x63e92, indexCPS2Sprites_SFA3Assets, 0xbb },
+    { L"Character Select VS BG 32x32", 0x64cb2, 0x64cd2, indexCPS2Sprites_SFA3Assets, 0xbc },
     { L"Story Mode", 0x5fd32, 0x5fdb2, indexCPS2Sprites_SFA3Assets, 0xc9 },
     { L"Story Mode BG 16x16", 0x63e92, 0x63eb2, indexCPS2Sprites_SFA3Assets, 0xbb },
     { L"Story Mode BG 32x32", 0x64cd2, 0x64cf2, indexCPS2Sprites_SFA3Assets, 0xbc },
@@ -3056,8 +3056,8 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_ROUND[] =
     { L"USA (Military) - Rolento (Finish)", 0x5f5d2, 0x5f5f2, indexCPS2Sprites_SFA3Assets, 0xcb },
     { L"India - Dhalsim (Start)", 0x5f2f2, 0x5f312, indexCPS2Sprites_SFA3Assets, 0xcc },
     { L"India - Dhalsim (Finish)", 0x5f5f2, 0x5f612, indexCPS2Sprites_SFA3Assets, 0xcb },
-    { L"USSR - Zangeif (Start)", 0x5f312, 0x5f332, indexCPS2Sprites_SFA3Assets, 0xcc },
-    { L"USSR - Zangeif (Finish)", 0x5f612, 0x5f632, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USSR - Zangief (Start)", 0x5f312, 0x5f332, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USSR - Zangief (Finish)", 0x5f612, 0x5f632, indexCPS2Sprites_SFA3Assets, 0xcb },
     { L"Hong Kong - Gen (Start)", 0x5f332, 0x5f352, indexCPS2Sprites_SFA3Assets, 0xcc },
     { L"Hong Kong - Gen (Finish)", 0x5f632, 0x5f652, indexCPS2Sprites_SFA3Assets, 0xcb },
     { L"Greece - Cammy (Start)", 0x5f352, 0x5f372, indexCPS2Sprites_SFA3Assets, 0xcc },
@@ -3076,12 +3076,12 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_ROUND[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_DOLLS[] =
 {
-    { L"X-Ism Punch", 0x4c2d2, 0x4c332 },
-    { L"X-Ism Kick", 0x4c332, 0x4c392 },
-    { L"A-Ism Punch", 0x4c392, 0x4c3f2 },
-    { L"A-Ism Kick", 0x4c3f2, 0x4c452 },
-    { L"V-Ism Punch", 0x4c452, 0x4c4b2 },
-    { L"V-Ism Kick", 0x4c4b2, 0x4c512 },
+    { L"X-Ism Punch", 0x4c2d2, 0x4c332, indexCPS2Sprites_SFA3Assets, 0xdb },
+    { L"X-Ism Kick", 0x4c332, 0x4c392, indexCPS2Sprites_SFA3Assets, 0xdb },
+    { L"A-Ism Punch", 0x4c392, 0x4c3f2, indexCPS2Sprites_SFA3Assets, 0xdb },
+    { L"A-Ism Kick", 0x4c3f2, 0x4c452, indexCPS2Sprites_SFA3Assets, 0xdb },
+    { L"V-Ism Punch", 0x4c452, 0x4c4b2, indexCPS2Sprites_SFA3Assets, 0xdb },
+    { L"V-Ism Kick", 0x4c4b2, 0x4c512, indexCPS2Sprites_SFA3Assets, 0xdb },
 };
 
 #ifdef USE_OLD_STYLE_SFA3_STAGES

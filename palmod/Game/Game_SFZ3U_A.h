@@ -31,7 +31,7 @@ private:
         SFZ3U_A_UNITS,
         ARRAYSIZE(SFZ3U_A_UNITS),
         L"SFZ3UE.txt",             // Extra filename
-        2224,                      // Count of palettes listed in the header
+        2272,                      // Count of palettes listed in the header
         0x3319a80,                 // Lowest known location used for palettes
     };
 
@@ -75,7 +75,7 @@ private:
         SFZ3U_S_UNITS,
         ARRAYSIZE(SFZ3U_S_UNITS),
         L"SFZ3USE.txt",            // Extra filename
-        2224,                      // Count of palettes listed in the header
+        2272,                      // Count of palettes listed in the header
         0x197180,                  // Lowest known location used for palettes
     };
 
@@ -117,7 +117,8 @@ private:
         SFZ3M_S_UNITS,
         ARRAYSIZE(SFZ3M_S_UNITS),
         L"SFZ3MSE.txt",            // Extra filename
-        3154,                      // Count of palettes listed in the header
+        // NOTE: MAX07 has a different set of palettes than UPPER07
+        2224 + 930,                // Count of palettes listed in the header
         0x84a180,                  // Lowest known location used for palettes
     };
 

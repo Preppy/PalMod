@@ -3031,7 +3031,7 @@ const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CSEL[] =
 
 const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP1[] =
 {
-    { L"Character Select & VS", 0x8c1d820, 0x8c1d980 },
+    { L"Character Select & VS", 0x8c1d820, 0x8c1d980, indexCPS2Sprites_SFA3Assets, 0xda },
             // These aren't found yet
             //{ L"Character Select VS BG 16x16", 0x63cf2, 0x63d12 },
             //{ L"Character Select VS BG 32x32", 0x64b32, 0x64b52 },
@@ -3082,7 +3082,7 @@ const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP1[] =
 
 const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP2[] =
 {
-    { L"Character Select & VS", 0x8c1d980, 0x8c1dae0 },
+    { L"Character Select & VS", 0x8c1d980, 0x8c1dae0, indexCPS2Sprites_SFA3Assets, 0xda },
                 // These aren't found yet
                 //{ L"Character Select VS BG 16x16", 0x63d52, 0x63d72 },
                 //{ L"Character Select VS BG 32x32", 0x64b92, 0x64bb2 },
@@ -3133,7 +3133,7 @@ const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP2[] =
 
 const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP3[] =
 {
-    { L"Character Select & VS", 0x5eb12 + 0x8BBEFCE, 0x5ec72 + 0x8BBEFCE },
+    { L"Character Select & VS", 0x5eb12 + 0x8BBEFCE, 0x5ec72 + 0x8BBEFCE, indexCPS2Sprites_SFA3Assets, 0xda },
             // These aren't found yet
             //{ L"Character Select VS BG 16x16", 0x63db2, 0x63dd2 },
             //{ L"Character Select VS BG 32x32", 0x64bf2, 0x64c12 },
@@ -3184,7 +3184,7 @@ const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP3[] =
 
 const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP4[] =
 {
-    { L"Character Select & VS", 0x5ec72 + 0x8BBEFCE, 0x5edd2 + 0x8BBEFCE },
+    { L"Character Select & VS", 0x5ec72 + 0x8BBEFCE, 0x5edd2 + 0x8BBEFCE, indexCPS2Sprites_SFA3Assets, 0xda },
                     // These aren't found yet
                     //{ L"Character Select VS BG 16x16", 0x63e12, 0x63e32 },
                     //{ L"Character Select VS BG 32x32", 0x64c52, 0x64c72 },
@@ -3235,7 +3235,7 @@ const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP4[] =
 
 const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP5[] =
 {
-    { L"Character Select & VS", 0x5edd2 + 0x8BBEFCE, 0x5ef32 + 0x8BBEFCE },
+    { L"Character Select & VS", 0x5edd2 + 0x8BBEFCE, 0x5ef32 + 0x8BBEFCE, indexCPS2Sprites_SFA3Assets, 0xda },
             // These aren't found yet
             //{ L"Character Select VS BG 16x16", 0x63e72, 0x63e92 },
             //{ L"Character Select VS BG 32x32", 0x64cb2, 0x64cd2 },
@@ -3282,6 +3282,59 @@ const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_CGROUP5[] =
     { L"Map Section 3 - 3", 0x5e092 + 0x8BBEFCE, 0x5e0b2 + 0x8BBEFCE, indexCPS2Sprites_SFA3Assets, 0xc5 },
     { L"Map Section 3 - 4", 0x5e0b2 + 0x8BBEFCE, 0x5e0d2 + 0x8BBEFCE, indexCPS2Sprites_SFA3Assets, 0xc5 },
     { L"Map Section 3 - 5", 0x5e0d2 + 0x8BBEFCE, 0x5e0f2 + 0x8BBEFCE, indexCPS2Sprites_SFA3Assets, 0xc5 },
+};
+
+const sGame_PaletteDataset SFZ3U_A_PALETTES_BONUS_ROUND[] =
+{
+    // These locations are shifted from SFA3 CPS2.  There's some minor color differentiation in a few spots
+    { L"Japan (Sunset) - Ryu (Start)", 0x8BC7BAE + 0x5f112, 0x5f132 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Japan (Sunset) - Ryu (Finish)", 0x8BC7BAE + 0x5f412, 0x5f432 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USA (Hotel) - Ken (Start)", 0x8BC7BAE + 0x5f132, 0x5f152 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USA (Hotel) - Ken (Finish)", 0x8BC7BAE + 0x5f432, 0x5f452 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Japan (Cave) - Akuma (Start)", 0x8BC7BAE + 0x5f152, 0x5f172 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Japan (Cave) - Akuma (Finish)", 0x8BC7BAE + 0x5f452, 0x5f472 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USA (Hangar) - Nash (Start)", 0x8BC7BAE + 0x5f172, 0x5f192 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USA (Hangar) - Nash (Finish)", 0x8BC7BAE + 0x5f472, 0x5f492 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"China - Chun-Li (Start)", 0x8BC7BAE + 0x5f192, 0x5f1b2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"China - Chun-Li (Finish)", 0x8BC7BAE + 0x5f492, 0x5f4b2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Thailand (Temple) - Adon (Start)", 0x8BC7BAE + 0x5f1b2, 0x5f1d2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Thailand (Temple) - Adon (Finish)", 0x8BC7BAE + 0x5f4b2, 0x5f4d2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USA (Japanese) - Sodom (Start)", 0x8BC7BAE + 0x5f1d2, 0x5f1f2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USA (Japanese) - Sodom (Finish)", 0x8BC7BAE + 0x5f4d2, 0x5f4f2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USA (Metro City) - Guy (Start)", 0x8BC7BAE + 0x5f1f2, 0x5f212 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USA (Metro City) - Guy (Finish)", 0x8BC7BAE + 0x5f4f2, 0x5f512 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"England - Birdie (Start)", 0x8BC7BAE + 0x5f212, 0x5f232 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"England - Birdie (Finish)", 0x8BC7BAE + 0x5f512, 0x5f532 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Italy - Rose (Start)", 0x8BC7BAE + 0x5f232, 0x5f252 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Italy - Rose (Finish)", 0x8BC7BAE + 0x5f532, 0x5f552 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Point 48106 - M.Bison & Juni/Juli (Start)", 0x8BC7BAE + 0x5f252, 0x5f272 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Point 48106 - M.Bison & Juni/Juli (Finish)", 0x8BC7BAE + 0x5f552, 0x5f572 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Thailand (Statue) - Sagat (Start)", 0x8BC7BAE + 0x5f272, 0x5f292 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Thailand (Statue) - Sagat (Finish)", 0x8BC7BAE + 0x5f572, 0x5f592 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Japan (Swings) - Dan (Start)", 0x8BC7BAE + 0x5f292, 0x5f2b2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Japan (Swings) - Dan (Finish)", 0x8BC7BAE + 0x5f592, 0x5f5b2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Japan (Market) - Karin & Sakura (Start)", 0x8BC7BAE + 0x5f2b2, 0x5f2d2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Japan (Market) - Karin & Sakura (Finish)", 0x8BC7BAE + 0x5f5b2, 0x5f5d2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USA (Military) - Rolento (Start)", 0x8BC7BAE + 0x5f2d2, 0x5f2f2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USA (Military) - Rolento (Finish)", 0x8BC7BAE + 0x5f5d2, 0x5f5f2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"India - Dhalsim (Start)", 0x8BC7BAE + 0x5f2f2, 0x5f312 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"India - Dhalsim (Finish)", 0x8BC7BAE + 0x5f5f2, 0x5f612 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USSR - Zangief (Start)", 0x8BC7BAE + 0x5f312, 0x5f332 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USSR - Zangief (Finish)", 0x8BC7BAE + 0x5f612, 0x5f632 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Hong Kong - Gen (Start)", 0x8BC7BAE + 0x5f332, 0x5f352 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Hong Kong - Gen (Finish)", 0x8BC7BAE + 0x5f632, 0x5f652 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Greece - Cammy (Start)", 0x8BC7BAE + 0x5f352, 0x5f372 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Greece - Cammy (Finish)", 0x8BC7BAE + 0x5f652, 0x5f672 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Japan (Sumo Ring) - E.Honda (Start)", 0x8BC7BAE + 0x5f372, 0x5f392 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Japan (Sumo Ring) - E.Honda (Finish)", 0x8BC7BAE + 0x5f672, 0x5f692 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Brazil - Blanka (Start)", 0x8BC7BAE + 0x5f392, 0x5f3b2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Brazil - Blanka (Finish)", 0x8BC7BAE + 0x5f692, 0x5f6b2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Japan (Seaside) - R.Mika (Start)", 0x8BC7BAE + 0x5f3b2, 0x5f3d2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Japan (Seaside) - R.Mika (Finish)", 0x8BC7BAE + 0x5f6b2, 0x5f6d2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"USA (Prison) - Cody (Start)", 0x8BC7BAE + 0x5f3d2, 0x5f3f2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"USA (Prison) - Cody (Finish)", 0x8BC7BAE + 0x5f6d2, 0x5f6f2 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
+    { L"Spain - Vega (Start)", 0x8BC7BAE + 0x5f3f2, 0x5f412 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcc },
+    { L"Spain - Vega (Finish)", 0x8BC7BAE + 0x5f6f2, 0x5f712 + 0x8BC7BAE, indexCPS2Sprites_SFA3Assets, 0xcb },
 };
 
 const sDescTreeNode SFZ3U_A_SELECT_COLLECTION[] =
@@ -6727,7 +6780,7 @@ const sDescTreeNode SFZ3M_S_INTROPORTRAITS_COLLECTION[] =
     { L"Ingrid", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFZ3M_S_INGRID_INTROPORTRAIT_PALETTES) },
 };
 
-const sDescTreeNode SFZ3U_A_BONUS_COLLECTION[] =
+const sDescTreeNode SFZ3U_A_BONUS_COLLECTION_UPPER[] =
 {
     { L"Character Select", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CSEL,       ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CSEL) },
     { L"Character Group 1", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP1,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP1) },
@@ -6735,8 +6788,25 @@ const sDescTreeNode SFZ3U_A_BONUS_COLLECTION[] =
     { L"Character Group 3", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP3,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP3) },
     { L"Character Group 4", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP4,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP4) },
     { L"Character Group 5", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP5,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP5) },
+    // These locations shift between Upper and MAX
+    { L"Round Text", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_ROUND,            ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_ROUND) },
     // Haven't found these yet
+    //{ L"Shadaloo Dolls", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_DOLLS,        ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_DOLLS) },
+    //{ L"Title Screen", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_TITLES,         ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_TITLES) },
+    //{ L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_BONUS,        ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_BONUS) },
+};
+
+const sDescTreeNode SFZ3U_A_BONUS_COLLECTION_MAX[] =
+{
+    { L"Character Select", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CSEL,       ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CSEL) },
+    { L"Character Group 1", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP1,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP1) },
+    { L"Character Group 2", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP2,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP2) },
+    { L"Character Group 3", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP3,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP3) },
+    { L"Character Group 4", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP4,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP4) },
+    { L"Character Group 5", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_CGROUP5,   ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_CGROUP5) },
+    // These locations shift between Upper and MAX
     //{ L"Round Text", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_ROUND,            ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_ROUND) },
+    // Haven't found these yet
     //{ L"Shadaloo Dolls", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_DOLLS,        ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_DOLLS) },
     //{ L"Title Screen", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_TITLES,         ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_TITLES) },
     //{ L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFZ3U_A_PALETTES_BONUS_BONUS,        ARRAYSIZE(SFZ3U_A_PALETTES_BONUS_BONUS) },
@@ -7050,7 +7120,7 @@ const sDescTreeNode SFZ3U_A_UNITS[] =
     // We forked Win Portraits to handle the NAOMI vs Steam sub-shifts
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_A_WINPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_A_WINPORTRAITS_COLLECTION), -0x1901040 },
 
-    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION_UPPER, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION_UPPER) },
 };
 
 // Street Fighter Zero 3 Upper (Steam)
@@ -7104,7 +7174,7 @@ const sDescTreeNode SFZ3U_S_UNITS[] =
     // We forked Win Portraits to handle the NAOMI vs Steam sub-shifts
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)SFZ3U_S_WINPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3U_S_WINPORTRAITS_COLLECTION) },
 
-    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION), -(0x8c1b940 - 0x197180) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION_UPPER, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION_UPPER), -(0x8c1b940 - 0x197180) },
 };
 
 // Street Fighter Zero 3 Max (Steam)
@@ -7174,7 +7244,7 @@ const sDescTreeNode SFZ3M_S_UNITS[] =
     // Intro portraits had to be forked for Max
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFZ3M_S_INTROPORTRAITS_COLLECTION, ARRAYSIZE(SFZ3M_S_INTROPORTRAITS_COLLECTION) },
 
-    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION), -(0x8c1b940 - 0x84a180) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFZ3U_A_BONUS_COLLECTION_MAX, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION_MAX), -(0x8c1b940 - 0x84a180) },
 };
 
 const sDescTreeNode SFA3MAX_PSP_RYU_COLLECTION_PORTRAITS_INTRO[] =
@@ -7771,5 +7841,5 @@ const std::vector<sGameUnitsByFile> SFA3MAX_PSP_UNITS =
     //{ L"Select Portraits (JPN)", SFZ3M_S_PORTRAITS_COLLECTION, ARRAYSIZE(SFZ3M_S_PORTRAITS_COLLECTION) },
     //{ L"Select Character Palettes (JPN)", SFZ3M_S_CHARASCREEN_COLLECTION, ARRAYSIZE(SFZ3M_S_CHARASCREEN_COLLECTION) },
 
-    { L"select_u.pac", 0x124800, L"Bonus Palettes", SFZ3U_A_BONUS_COLLECTION, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION), -(0x8c1b940 - 0xb6940) },
+    { L"select_u.pac", 0x124800, L"Bonus Palettes", SFZ3U_A_BONUS_COLLECTION_MAX, ARRAYSIZE(SFZ3U_A_BONUS_COLLECTION_MAX), -(0x8c1b940 - 0xb6940)},
 };
