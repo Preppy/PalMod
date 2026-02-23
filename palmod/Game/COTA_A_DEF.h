@@ -1756,6 +1756,17 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SENTINEL[] =
     { L"Background 2", 0x3c6b6, 0x3c8b6, indexCPS2Sprites_COTAAssets, 0x8c },
 
     { L"512: Common colors", 0x3180e, 0x3188e },
+
+    // BG sentinel flight jets
+    // -- slam effects
+    // BG back railing
+    // BG overhead computer
+    { L"BG Sprites 1", 0x2cd68, 0x2cde8, indexCPS2Sprites_COTAAssets, 0xbe },
+    // BG sentinel fire puff?
+        // ??
+        // -- FIGHT text
+    { L"BG Sprites 2", 0x2ce48, 0x2cea8, indexCPS2Sprites_COTAAssets, 0xbf },
+
     { L"512: Big Sentinel Animations 1/4", 0x3188e, 0x3196e, indexCPS2Sprites_COTAAssets, 0x8d },
     { L"512: Big Sentinel Animations 2/4", 0x3196e, 0x31a4e, indexCPS2Sprites_COTAAssets, 0x8d },
     { L"512: Big Sentinel Animations 3/4", 0x31a4e, 0x31b2e, indexCPS2Sprites_COTAAssets, 0x8d },
@@ -1772,7 +1783,12 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SENTINEL[] =
     { L"Computer Console Animations 5/5", 0x36472, 0x36492, indexCPS2Sprites_COTAAssets, 0x90 },
     { L"Facility 3", 0x36272, 0x363f2, indexCPS2Sprites_COTAAssets, 0x91 },
 
-    { L"Sprites", 0x2cd48, 0x2cea8 },
+    // FG electricity on sentinel
+    { L"Sentinel Electricity", 0x2cd48, 0x2cd68, indexCPS2Sprites_COTAAssets, 0xc0 },
+    // FG sentinel internals i think
+    // FG left/right block
+        // ??
+    { L"FG Sprites", 0x2cde8, 0x2ce48, indexCPS2Sprites_COTAAssets, 0xc1 },
 };
 
 // Juggernaut: Space Port

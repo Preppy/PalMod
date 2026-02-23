@@ -21,7 +21,7 @@ eIMGDat_Sections CGameWithExtrasFile::m_ImageSectionOverride = eIMGDat_Sections:
 std::vector<CGameWithExtrasFile::UnitData> CGameWithExtrasFile::m_vUnitData = {};
 
 // We're going to start hitting performance problems if this number gets too high, so careful here.
-const uint32_t c_nMaxPalettesToCheckInExtraNodes = 100;
+const uint32_t c_nMaxPalettesToCheckInExtraNodes = 250;
 
 class CCreateExtraFileDlg : public CDialog
 {
