@@ -121,4 +121,9 @@ public:
     static LPCSTR GetExtrasOverrideForGameName() { return m_paszGameNameOverride; };
 
     static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::vector<stExtraDef>& rgCompleteExtraDefs, uint32_t nExtraUnitStart, size_t nGameROMSize, uint8_t cbColorSize = 2, size_t nUsableStartingOffset = 0);
+
+    static LPCSTR GetExtrasKeyWord_GameName() { return m_kpszGameNameKey; };
+    static LPCSTR GetExtrasKeyWord_ColorFormat() { return m_kpszColorFormatKey; };
+    static LPCSTR GetExtrasKeyWord_AlphaMode() { return m_kpszAlphaModeKey; };
+    static LPCSTR GetExtrasKeyWord_ImageSection() { return m_kpszImageSectionKey; };
 };

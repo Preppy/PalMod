@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PalModDlg.h"
 #include "PalMod.h"
+#include "ExtraFile.h"
 
 CString SignedHexAsString(int32_t nHexNumber)
 {
@@ -105,7 +106,7 @@ void CPalModDlg::OnRemapUnit()
                 strInfo.Format(L"Starting remap into file \"%s\"...\r\n", strFileName.GetString());
                 OutputDebugString(strInfo.GetString());
 
-                ColMode currColMode = CurrGame->GetColorMode();
+                const ColMode currColMode = CurrGame->GetColorMode();
                 const uint8_t cbColorSize = ColorSystem::GetCbForColMode(currColMode);
                 const bool fUseExtrasMode = SaveFileOFN.nFilterIndex != 2;
                 const std::wstring strExtrasComment = L";";
@@ -119,6 +120,37 @@ void CPalModDlg::OnRemapUnit()
                 // Note that we CANNOT reliably search against the transparency color. 
                 // Those tend to vary wildly!
                 std::vector<std::pair<const sGame_PaletteDataset*, std::vector<BYTE>>> rgSearchBytes;
+
+                if (fUseExtrasMode)
+                {
+                    // Write header so that the produced file is easier to work with
+                    if (CurrGame->GetGameName())
+                    {
+                        strInfo.Format(L"%SRemapped %s\r\n", CGameWithExtrasFile::GetExtrasKeyWord_GameName(), CurrGame->GetGameName());
+                        strOutput += strInfo;
+                    }
+
+                    LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(CurrGame->GetColorMode());
+                    if (paszColorFormat)
+                    {
+                        strInfo.Format(L"%S%S\r\n", CGameWithExtrasFile::GetExtrasKeyWord_ColorFormat(), paszColorFormat);
+                        strOutput += strInfo;
+                    }
+
+                    LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(CurrGame->GetAlphaMode());
+                    if (paszAlphaMode)
+                    {
+                        strInfo.Format(L"%S%S\r\n", CGameWithExtrasFile::GetExtrasKeyWord_AlphaMode(), paszAlphaMode);
+                        strOutput += strInfo;
+                    }
+
+                    LPCSTR paszImageSectionName = g_rgImgDatSectionNames.at(CurrGame->GetImgGameFlag()).c_str();
+                    if (paszImageSectionName)
+                    {
+                        strInfo.Format(L"%S%S\r\n", CGameWithExtrasFile::GetExtrasKeyWord_ImageSection(), paszImageSectionName);
+                        strOutput += strInfo;
+                    }
+                }
 
                 strInfo.Format(L"%s Remapping unit \"%s\" to file \"%s\".  %u child nodes found.\r\n", strActiveCommentStyle.c_str(), pSelectedUnit->szDesc, strFileName.GetString(), pSelectedUnit->uChildAmt);
                 strOutput += strInfo;

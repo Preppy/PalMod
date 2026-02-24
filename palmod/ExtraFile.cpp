@@ -1190,6 +1190,13 @@ void CGameWithExtrasFile::_WriteHeaderForPaletteListFile(CFile& OutputFile, Pale
             _WriteToFileAsANSI(OutputFile, strFileText);
         }
 
+        LPCSTR paszImageSectionName = g_rgImgDatSectionNames.at(GetImgGameFlag()).c_str();
+        if (paszImageSectionName)
+        {
+            strFileText.Format(L"%S%S\r\n", m_kpszImageSectionKey, paszImageSectionName);
+            _WriteToFileAsANSI(OutputFile, strFileText);
+        }        
+
         strFileText = L"\r\n";
         _WriteToFileAsANSI(OutputFile, strFileText);
     }
