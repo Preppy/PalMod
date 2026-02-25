@@ -659,7 +659,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
     wchar_t szLastDir[MAX_PATH];
     BOOL fIsDir = FALSE;
-    bool fHaveLastUsedPath = GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &fIsDir);
+    const bool fHaveLastUsedPath = GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &fIsDir);
 
     if (nLastUsedGFlag == NUM_GAMES)
     {
@@ -667,23 +667,40 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         {
             // If we're here, that means that they have never used PalMod to load a game before.  Help them.
             CString strInfo;
-            LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
-            LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
+            CString strBoilerPlate = L"Howdy!  You appear to be new to PalMod.  Welcome!  We highly recommend reading the Read Me file first: "
+                                     L"it has a lot of great data in there to get you started.\n\n"
+                                     L"Now that you have downloaded and extracted out the game ROM you care about, "
+                                     L"the next step is to load that ROM in PalMod. There are a lot of game ROMs out there: "
+                                     L"the filter in the bottom right of the Load ROM dialog that you will see next helps show the right file(s) used by your game.\n\n";
+
+            const UINT nCurrentGameFilter = (nDefaultGameFilter == NUM_GAMES) ? 0 : nDefaultGameFilter;
 
             wchar_t szGameFilter[MAX_DESCRIPTION_LENGTH];
-            wcsncpy(szGameFilter, KnownGameInfo::GetGameToFileMap().at(0).strGameFilterString.data(), ARRAYSIZE(szGameFilter));
+
+            if (nDefaultGameFilter == NUM_GAMES)
+            {
+                // load the default.  but since this isn't sorted normally, force game zero
+                wcsncpy(szGameFilter, KnownGameInfo::GetGameToFileMap().at(0).strGameFilterString.data(), ARRAYSIZE(szGameFilter));
+            }
+            else
+            {
+                wcsncpy(szGameFilter, KnownGameInfo::GetGameNameForGameID(nCurrentGameFilter), ARRAYSIZE(szGameFilter));
+            }
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
 
             LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
 
             if (pszPipe != nullptr)
             {
-                // Truncate off the filter information
+                // Truncate off the filter information if any
                 pszPipe[0] = 0;
             }
 
-            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, KnownGameInfo::GetGameNameForGameID(KnownGameInfo::GetGameToFileMap().at(0).nInternalGameIndex));
-            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
+            strInfo.Format(L"Right now this game filter is going to be set to:\r\n\t\"%s\"\r\nto start with: you can change that "
+                           L"if you want to any game you're interested in so that your ROM shows up.", szGameFilter);
+            strBoilerPlate += strInfo;
+
+            MessageBox(strBoilerPlate, GetHost()->GetAppName(), MB_ICONINFORMATION);
         }
     }
     else
