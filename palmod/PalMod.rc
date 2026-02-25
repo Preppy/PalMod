@@ -794,6 +794,11 @@ BEGIN
     BEGIN
         MENUITEM "Load Layout",                ID_FILE_LOADSPRITE
         MENUITEM "Load Layout Advanced...",    ID_FILE_LOADSPRITECUSTOM
+        POPUP "Import Settings"
+        BEGIN
+            MENUITEM "Trim imported previews",       ID_SETTINGS_DROPTRIM
+            MENUITEM "Use WinKawaks math first when importing CPS1/CPS2/NeoGeo screenshots", ID_SETTINGS_DROPKAWAKS
+        END
     END
     POPUP "&Settings"
     BEGIN
@@ -810,12 +815,7 @@ BEGIN
             MENUITEM "PS1: Semi-Transparency Off",  ID_SETTINGS_BLENDPS1STOFF
         END
         MENUITEM SEPARATOR
-        POPUP "Drop Settings"
-        BEGIN
-            MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
-            MENUITEM "Trim dropped previews",       ID_SETTINGS_DROPTRIM
-            MENUITEM "Use WinKawaks correction first for CPS1/CPS2/NeoGeo", ID_SETTINGS_DROPKAWAKS
-        END
+        MENUITEM "PNG/GIF drops here are palettes", ID_SETTINGS_DROPISPALETTE
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS
         MENUITEM "Use Background Color",        ID_SETTINGS_USEBGCOLOR

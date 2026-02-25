@@ -430,6 +430,16 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     spriteMenu.CreatePopupMenu();
                     CString strMenuName;
 
+                    // Start with "all"
+                    mii.cbSize = sizeof(MENUITEMINFO);
+                    mii.fMask = MIIM_ID | MIIM_STRING;
+                    mii.wID = (MAX_IMAGES_DISPLAYABLE | k_nTextureLoadCommandMask); // use special indicator, uniquely handled in OnLoadCustomSpriteNormal
+                    strMenuName = L"Load Layout for All Layers";
+
+                    mii.dwTypeData = const_cast<LPWSTR>(strMenuName.GetString());
+
+                    spriteMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+
                     for (uint32_t nSpritePos = 0; nSpritePos < nPaletteCount; nSpritePos++)
                     {
                         mii.cbSize = sizeof(MENUITEMINFO);
@@ -454,6 +464,9 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                 pPopupMenu->InsertMenuItem(iIndex + nOffsetToLoadTextures, &miiNew, TRUE);
             }
         }
+
+        pSettMenu->CheckMenuItem(ID_SETTINGS_DROPTRIM, m_ImgDisp.GetPreviewDropTrim() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_DROPKAWAKS, m_ImgDisp.GetPreviewDropWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
     }
     else if (pSettMenu == pPopupMenu)
     {
@@ -462,8 +475,6 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_DROPISPALETTE, m_ImgDisp.GetPreviewDropIsPalette() ? MF_CHECKED : MF_UNCHECKED);
-        pSettMenu->CheckMenuItem(ID_SETTINGS_DROPTRIM, m_ImgDisp.GetPreviewDropTrim() ? MF_CHECKED : MF_UNCHECKED);
-        pSettMenu->CheckMenuItem(ID_SETTINGS_DROPKAWAKS, m_ImgDisp.GetPreviewDropWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_PREVIEWFALLBACK, m_ImgDisp.GetAllowAutoPreviewFallback() ? MF_CHECKED : MF_UNCHECKED);
 
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
@@ -543,8 +554,16 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
             // eliminate the k_nTextureLoadCommandMask mask for usage...
             UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
 
-            // Filter index is 1-based
-            LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
+            if (nCorrectedPosition == MAX_IMAGES_DISPLAYABLE) // This value indicates a full stack replacement
+            {
+                // Filter index is 1-based
+                LoadCustomSpriteFromPath(nullptr, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
+            }
+            else
+            {
+                // Filter index is 1-based
+                LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
+            }
 
             CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);
         }
