@@ -2,9 +2,9 @@
 #include "stdafx.h"
 
 /*
-LodePNG version 20250506
+LodePNG version 20260119
 
-Copyright (c) 2005-2025 Lode Vandevenne
+Copyright (c) 2005-2026 Lode Vandevenne
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any damages
@@ -47,7 +47,7 @@ Rename this file to lodepng.cpp to use it for C++, or to lodepng.c to use it for
 #pragma warning( disable : 4996 ) /*VS does not like fopen, but fopen_s is not standard C so unusable here*/
 #endif /*_MSC_VER */
 
-const char* LODEPNG_VERSION_STRING = "20250506";
+const char* LODEPNG_VERSION_STRING = "20260119";
 
 /*
 This source file is divided into the following large parts. The code sections
@@ -195,8 +195,8 @@ Example: if(!uivector_resize(&lz77_encoded, datasize)) ERROR_BREAK(83);
 
 /*Try the code, if it returns error, also return the error.*/
 #define CERROR_TRY_RETURN(call){\
-  unsigned error = call;\
-  if(error) return error;\
+  unsigned error_ = call;\
+  if(error_) return error_;\
 }
 
 /*Set error var to the error code, and return from the void function.*/
@@ -299,12 +299,6 @@ static ucvector ucvector_init(unsigned char* buffer, size_t size) {
 
 #ifdef LODEPNG_COMPILE_PNG
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
-
-/*free string pointer and set it to NULL*/
-static void string_cleanup(char** out) {
-  lodepng_free(*out);
-  *out = NULL;
-}
 
 /*also appends null termination character*/
 static char* alloc_string_sized(const char* in, size_t insize) {
@@ -1355,7 +1349,7 @@ static unsigned inflateNoCompression(ucvector* out, LodePNGBitReader* reader,
   /*read the literal data: LEN bytes are now stored in the out buffer*/
   if(bytepos + LEN > size) return 23; /*error: reading outside of in buffer*/
 
-  /*out->data can be NULL (when LEN is zero), and arithmetics on NULL ptr is undefined*/
+  /*out->data can be NULL (when LEN is zero), and arithmetic on NULL ptr is undefined*/
   if (LEN) {
     lodepng_memcpy(out->data + out->size - LEN, reader->data + bytepos, LEN);
     bytepos += LEN;
@@ -2776,17 +2770,17 @@ const unsigned char* lodepng_chunk_data_const(const unsigned char* chunk) {
 
 unsigned lodepng_chunk_check_crc(const unsigned char* chunk) {
   unsigned length = lodepng_chunk_length(chunk);
-  unsigned CRC = lodepng_read32bitInt(&chunk[length + 8]);
+  unsigned crc = lodepng_read32bitInt(&chunk[length + 8]);
   /*the CRC is taken of the data and the 4 chunk type letters, not the length*/
   unsigned checksum = lodepng_crc32(&chunk[4], length + 4);
-  if(CRC != checksum) return 1;
+  if(crc != checksum) return 1;
   else return 0;
 }
 
 void lodepng_chunk_generate_crc(unsigned char* chunk) {
   unsigned length = lodepng_chunk_length(chunk);
-  unsigned CRC = lodepng_crc32(&chunk[4], length + 4);
-  lodepng_set32bitInt(chunk + 8 + length, CRC);
+  unsigned crc = lodepng_crc32(&chunk[4], length + 4);
+  lodepng_set32bitInt(chunk + 8 + length, crc);
 }
 
 unsigned char* lodepng_chunk_next(unsigned char* chunk, unsigned char* end) {
@@ -3165,8 +3159,8 @@ static void LodePNGText_init(LodePNGInfo* info) {
 static void LodePNGText_cleanup(LodePNGInfo* info) {
   size_t i;
   for(i = 0; i != info->text_num; ++i) {
-    string_cleanup(&info->text_keys[i]);
-    string_cleanup(&info->text_strings[i]);
+    lodepng_free(info->text_keys[i]);
+    lodepng_free(info->text_strings[i]);
   }
   lodepng_free(info->text_keys);
   lodepng_free(info->text_strings);
@@ -3206,6 +3200,8 @@ unsigned lodepng_add_text(LodePNGInfo* info, const char* key, const char* str) {
 
 void lodepng_clear_text(LodePNGInfo* info) {
   LodePNGText_cleanup(info);
+  /*cleanup only deconstructs, need to init again to set appropriate pointers to NULL*/
+  LodePNGText_init(info);
 }
 
 /******************************************************************************/
@@ -3221,10 +3217,10 @@ static void LodePNGIText_init(LodePNGInfo* info) {
 static void LodePNGIText_cleanup(LodePNGInfo* info) {
   size_t i;
   for(i = 0; i != info->itext_num; ++i) {
-    string_cleanup(&info->itext_keys[i]);
-    string_cleanup(&info->itext_langtags[i]);
-    string_cleanup(&info->itext_transkeys[i]);
-    string_cleanup(&info->itext_strings[i]);
+    lodepng_free(info->itext_keys[i]);
+    lodepng_free(info->itext_langtags[i]);
+    lodepng_free(info->itext_transkeys[i]);
+    lodepng_free(info->itext_strings[i]);
   }
   lodepng_free(info->itext_keys);
   lodepng_free(info->itext_langtags);
@@ -3248,6 +3244,8 @@ static unsigned LodePNGIText_copy(LodePNGInfo* dest, const LodePNGInfo* source) 
 
 void lodepng_clear_itext(LodePNGInfo* info) {
   LodePNGIText_cleanup(info);
+  /*cleanup only deconstructs, need to init again to set appropriate pointers to NULL*/
+  LodePNGIText_init(info);
 }
 
 static unsigned lodepng_add_itext_sized(LodePNGInfo* info, const char* key, const char* langtag,
@@ -3282,7 +3280,7 @@ unsigned lodepng_add_itext(LodePNGInfo* info, const char* key, const char* langt
 unsigned lodepng_set_icc(LodePNGInfo* info, const char* name, const unsigned char* profile, unsigned profile_size) {
   if(info->iccp_defined) lodepng_clear_icc(info);
 
-  if(profile_size == 0) return 100; /*invalid ICC profile size*/
+  if(profile_size == 0) return 123; /*invalid ICC profile size*/
 
   info->iccp_name = alloc_string(name);
   if(!info->iccp_name) return 83; /*alloc fail*/
@@ -3300,12 +3298,17 @@ unsigned lodepng_set_icc(LodePNGInfo* info, const char* name, const unsigned cha
   return 0; /*ok*/
 }
 
-void lodepng_clear_icc(LodePNGInfo* info) {
-  string_cleanup(&info->iccp_name);
-  lodepng_free(info->iccp_profile);
+static void lodepng_init_icc(LodePNGInfo* info) {
+  info->iccp_defined = 0;
+  info->iccp_name = NULL;
   info->iccp_profile = NULL;
   info->iccp_profile_size = 0;
-  info->iccp_defined = 0;
+}
+
+void lodepng_clear_icc(LodePNGInfo* info) {
+  lodepng_free(info->iccp_name);
+  lodepng_free(info->iccp_profile);
+  lodepng_init_icc(info);
 }
 
 unsigned lodepng_set_exif(LodePNGInfo* info, const unsigned char* exif, unsigned exif_size) {
@@ -3321,11 +3324,15 @@ unsigned lodepng_set_exif(LodePNGInfo* info, const unsigned char* exif, unsigned
   return 0; /*ok*/
 }
 
-void lodepng_clear_exif(LodePNGInfo* info) {
-  lodepng_free(info->exif);
+static void lodepng_init_exif(LodePNGInfo* info) {
+  info->exif_defined = 0;
   info->exif = NULL;
   info->exif_size = 0;
-  info->exif_defined = 0;
+}
+
+void lodepng_clear_exif(LodePNGInfo* info) {
+  lodepng_free(info->exif);
+  lodepng_init_exif(info);
 }
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
 
@@ -3340,6 +3347,8 @@ void lodepng_info_init(LodePNGInfo* info) {
 
   LodePNGText_init(info);
   LodePNGIText_init(info);
+  lodepng_init_icc(info);
+  lodepng_init_exif(info);
 
   info->time_defined = 0;
   info->phys_defined = 0;
@@ -3347,9 +3356,6 @@ void lodepng_info_init(LodePNGInfo* info) {
   info->gama_defined = 0;
   info->chrm_defined = 0;
   info->srgb_defined = 0;
-  info->iccp_defined = 0;
-  info->iccp_name = NULL;
-  info->iccp_profile = NULL;
   info->cicp_defined = 0;
   info->cicp_color_primaries = 0;
   info->cicp_transfer_function = 0;
@@ -3369,10 +3375,6 @@ void lodepng_info_init(LodePNGInfo* info) {
   info->clli_defined = 0;
   info->clli_max_cll = 0;
   info->clli_max_fall = 0;
-
-  info->exif_defined = 0;
-  info->exif = NULL;
-  info->exif_size = 0;
 
   info->sbit_defined = 0;
   info->sbit_r = info->sbit_g = info->sbit_b = info->sbit_a = 0;
@@ -3397,24 +3399,30 @@ void lodepng_info_cleanup(LodePNGInfo* info) {
 unsigned lodepng_info_copy(LodePNGInfo* dest, const LodePNGInfo* source) {
   lodepng_info_cleanup(dest);
   lodepng_memcpy(dest, source, sizeof(LodePNGInfo));
-  lodepng_color_mode_init(&dest->color);
-  CERROR_TRY_RETURN(lodepng_color_mode_copy(&dest->color, &source->color));
 
+  /*ensure to initialize all fields pointing to allocated data to NULL first*/
+  lodepng_color_mode_init(&dest->color);
+#ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
+  LodePNGText_init(dest);
+  LodePNGIText_init(dest);
+  lodepng_init_icc(dest);
+  lodepng_init_exif(dest);
+  LodePNGUnknownChunks_init(dest);
+#endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
+
+  CERROR_TRY_RETURN(lodepng_color_mode_copy(&dest->color, &source->color));
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
   CERROR_TRY_RETURN(LodePNGText_copy(dest, source));
   CERROR_TRY_RETURN(LodePNGIText_copy(dest, source));
   if(source->iccp_defined) {
-    dest->iccp_defined = 0; /*the memcpy above set this to 1 while it shouldn't*/
     CERROR_TRY_RETURN(lodepng_set_icc(dest, source->iccp_name, source->iccp_profile, source->iccp_profile_size));
   }
   if(source->exif_defined) {
-    dest->exif_defined = 0; /*the memcpy above set this to 1 while it shouldn't*/
     CERROR_TRY_RETURN(lodepng_set_exif(dest, source->exif, source->exif_size));
   }
-
-  LodePNGUnknownChunks_init(dest);
   CERROR_TRY_RETURN(LodePNGUnknownChunks_copy(dest, source));
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
+
   return 0;
 }
 
@@ -4428,9 +4436,9 @@ unsigned lodepng_inspect(unsigned* w, unsigned* h, LodePNGState* state,
   if(info->interlace_method > 1) CERROR_RETURN_ERROR(state->error, 34);
 
   if(!state->decoder.ignore_crc) {
-    unsigned CRC = lodepng_read32bitInt(&in[29]);
+    unsigned crc = lodepng_read32bitInt(&in[29]);
     unsigned checksum = lodepng_crc32(&in[12], 17);
-    if(CRC != checksum) {
+    if(crc != checksum) {
       CERROR_RETURN_ERROR(state->error, 57); /*invalid CRC*/
     }
   }
@@ -5022,7 +5030,7 @@ static unsigned readChunk_iTXt(LodePNGInfo* info, const LodePNGDecoderSettings* 
       if(!error) error = lodepng_add_itext_sized(info, key, langtag, transkey, (char*)str, size);
       lodepng_free(str);
     } else {
-      error = lodepng_add_itext_sized(info, key, langtag, transkey, (char*)(data + begin), length);
+      error = lodepng_add_itext_sized(info, key, langtag, transkey, (const char*)(data + begin), length);
     }
 
     break;
@@ -5105,7 +5113,6 @@ static unsigned readChunk_iCCP(LodePNGInfo* info, const LodePNGDecoderSettings* 
   unsigned length, string2_begin;
 
   if(info->iccp_defined) lodepng_clear_icc(info);
-  info->iccp_defined = 1;
 
   for(length = 0; length < chunkLength && data[length] != 0; ++length) ;
   if(length + 2 >= chunkLength) return 75; /*no null termination, corrupt?*/
@@ -5130,7 +5137,9 @@ static unsigned readChunk_iCCP(LodePNGInfo* info, const LodePNGDecoderSettings* 
   /*error: ICC profile larger than decoder->max_icc_size*/
   if(error && size > zlibsettings.max_output_size) error = 113;
   info->iccp_profile_size = (unsigned)size;
-  if(!error && !info->iccp_profile_size) error = 100; /*invalid ICC profile size*/
+  if(!error && !info->iccp_profile_size) error = 123; /*invalid ICC profile size*/
+
+  if(!error) info->iccp_defined = 1;
   return error;
 }
 
@@ -5623,13 +5632,15 @@ void lodepng_state_cleanup(LodePNGState* state) {
   lodepng_info_cleanup(&state->info_png);
 }
 
-void lodepng_state_copy(LodePNGState* dest, const LodePNGState* source) {
+unsigned lodepng_state_copy(LodePNGState* dest, const LodePNGState* source) {
   lodepng_state_cleanup(dest);
   *dest = *source;
   lodepng_color_mode_init(&dest->info_raw);
   lodepng_info_init(&dest->info_png);
-  dest->error = lodepng_color_mode_copy(&dest->info_raw, &source->info_raw); if(dest->error) return;
-  dest->error = lodepng_info_copy(&dest->info_png, &source->info_png); if(dest->error) return;
+  dest->error = lodepng_color_mode_copy(&dest->info_raw, &source->info_raw);
+  if(dest->error) return dest->error;
+  dest->error = lodepng_info_copy(&dest->info_png, &source->info_png);
+  return dest->error;
 }
 
 #endif /* defined(LODEPNG_COMPILE_DECODER) || defined(LODEPNG_COMPILE_ENCODER) */
@@ -5728,7 +5739,7 @@ static unsigned addChunk_tRNS(ucvector* out, const LodePNGColorMode* info) {
 }
 
 static unsigned addChunk_IDAT(ucvector* out, const unsigned char* data, size_t datasize,
-                              LodePNGCompressSettings* zlibsettings) {
+                              const LodePNGCompressSettings* zlibsettings) {
   unsigned error = 0;
   unsigned char* zlib = 0;
   size_t pos = 0;
@@ -5770,7 +5781,7 @@ static unsigned addChunk_tEXt(ucvector* out, const char* keyword, const char* te
 }
 
 static unsigned addChunk_zTXt(ucvector* out, const char* keyword, const char* textstring,
-                              LodePNGCompressSettings* zlibsettings) {
+                              const LodePNGCompressSettings* zlibsettings) {
   unsigned error = 0;
   unsigned char* chunk = 0;
   unsigned char* compressed = 0;
@@ -5798,7 +5809,7 @@ static unsigned addChunk_zTXt(ucvector* out, const char* keyword, const char* te
 }
 
 static unsigned addChunk_iTXt(ucvector* out, unsigned compress, const char* keyword, const char* langtag,
-                              const char* transkey, const char* textstring, LodePNGCompressSettings* zlibsettings) {
+                              const char* transkey, const char* textstring, const LodePNGCompressSettings* zlibsettings) {
   unsigned error = 0;
   unsigned char* chunk = 0;
   unsigned char* compressed = 0;
@@ -5915,7 +5926,7 @@ static unsigned addChunk_sRGB(ucvector* out, const LodePNGInfo* info) {
   return lodepng_chunk_createv(out, 1, "sRGB", &data);
 }
 
-static unsigned addChunk_iCCP(ucvector* out, const LodePNGInfo* info, LodePNGCompressSettings* zlibsettings) {
+static unsigned addChunk_iCCP(ucvector* out, const LodePNGInfo* info, const LodePNGCompressSettings* zlibsettings) {
   unsigned error = 0;
   unsigned char* chunk = 0;
   unsigned char* compressed = 0;
@@ -6479,6 +6490,7 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
   LodePNGInfo info;
   const LodePNGInfo* info_png = &state->info_png;
   LodePNGColorMode auto_color;
+  unsigned error = 0;
 
   lodepng_info_init(&info);
   lodepng_color_mode_init(&auto_color);
@@ -6486,7 +6498,6 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
   /*provide some proper output values if error will happen*/
   *out = 0;
   *outsize = 0;
-  state->error = 0;
 
   /*check input values validity*/
   if((info_png->color.colortype == LCT_PALETTE || state->encoder.force_palette)
@@ -6495,24 +6506,24 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
     generate the palette by itself: while allowing this could be possible in theory,
     it may complicate the code or edge cases, and always requiring to give a palette
     when setting this color type is a simpler contract*/
-    state->error = 68; /*invalid palette size, it is only allowed to be 1-256*/
+    error = 68; /*invalid palette size, it is only allowed to be 1-256*/
     goto cleanup;
   }
   if(state->encoder.zlibsettings.btype > 2) {
-    state->error = 61; /*error: invalid btype*/
+    error = 61; /*error: invalid btype*/
     goto cleanup;
   }
   if(info_png->interlace_method > 1) {
-    state->error = 71; /*error: invalid interlace mode*/
+    error = 71; /*error: invalid interlace mode*/
     goto cleanup;
   }
-  state->error = checkColorValidity(info_png->color.colortype, info_png->color.bitdepth);
-  if(state->error) goto cleanup; /*error: invalid color type given*/
-  state->error = checkColorValidity(state->info_raw.colortype, state->info_raw.bitdepth);
-  if(state->error) goto cleanup; /*error: invalid color type given*/
+  error = checkColorValidity(info_png->color.colortype, info_png->color.bitdepth);
+  if(error) goto cleanup; /*error: invalid color type given*/
+  error = checkColorValidity(state->info_raw.colortype, state->info_raw.bitdepth);
+  if(error) goto cleanup; /*error: invalid color type given*/
 
   /* color convert and compute scanline filter types */
-  lodepng_info_copy(&info, &state->info_png);
+  CERROR_TRY_RETURN(lodepng_info_copy(&info, &state->info_png));
   if(state->encoder.auto_convert) {
     LodePNGColorStats stats;
     unsigned allow_convert = 1;
@@ -6530,8 +6541,8 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
       stats.allow_greyscale = 0;
     }
 #endif /* LODEPNG_COMPILE_ANCILLARY_CHUNKS */
-    state->error = lodepng_compute_color_stats(&stats, image, w, h, &state->info_raw);
-    if(state->error) goto cleanup;
+    error = lodepng_compute_color_stats(&stats, image, w, h, &state->info_raw);
+    if(error) goto cleanup;
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
     if(info_png->background_defined) {
       /*the background chunk's color must be taken into account as well*/
@@ -6539,12 +6550,12 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
       LodePNGColorMode mode16 = lodepng_color_mode_make(LCT_RGB, 16);
       lodepng_convert_rgb(&r, &g, &b,
           info_png->background_r, info_png->background_g, info_png->background_b, &mode16, &info_png->color);
-      state->error = lodepng_color_stats_add(&stats, r, g, b, 65535);
-      if(state->error) goto cleanup;
+      error = lodepng_color_stats_add(&stats, r, g, b, 65535);
+      if(error) goto cleanup;
     }
 #endif /* LODEPNG_COMPILE_ANCILLARY_CHUNKS */
-    state->error = auto_choose_color(&auto_color, &state->info_raw, &stats);
-    if(state->error) goto cleanup;
+    error = auto_choose_color(&auto_color, &state->info_raw, &stats);
+    if(error) goto cleanup;
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
     if(info_png->sbit_defined) {
       /*if sbit is defined, due to strict requirements of which sbit values can be present for which color modes,
@@ -6598,7 +6609,7 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
     if(state->encoder.force_palette) {
       if(info.color.colortype != LCT_GREY && info.color.colortype != LCT_GREY_ALPHA &&
          (auto_color.colortype == LCT_GREY || auto_color.colortype == LCT_GREY_ALPHA)) {
-        /*user speficially forced a PLTE palette, so cannot convert to grayscale types because
+        /*user specifically forced a PLTE palette, so cannot convert to grayscale types because
         the PNG specification only allows writing a suggested palette in PLTE for truecolor types*/
         allow_convert = 0;
       }
@@ -6610,7 +6621,7 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
       if(info_png->background_defined) {
         if(lodepng_convert_rgb(&info.background_r, &info.background_g, &info.background_b,
             info_png->background_r, info_png->background_g, info_png->background_b, &info.color, &info_png->color)) {
-          state->error = 104;
+          error = 104;
           goto cleanup;
         }
       }
@@ -6623,13 +6634,13 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
     unsigned rgb_icc = isRGBICCProfile(info_png->iccp_profile, info_png->iccp_profile_size);
     unsigned gray_png = info.color.colortype == LCT_GREY || info.color.colortype == LCT_GREY_ALPHA;
     if(!gray_icc && !rgb_icc) {
-      state->error = 100; /* Disallowed profile color type for PNG */
+      error = 100; /* Disallowed profile color type for PNG */
       goto cleanup;
     }
     if(gray_icc != gray_png) {
       /*Not allowed to use RGB/RGBA/palette with GRAY ICC profile or vice versa,
       or in case of auto_convert, it wasn't possible to find appropriate model*/
-      state->error = state->encoder.auto_convert ? 102 : 101;
+      error = state->encoder.auto_convert ? 102 : 101;
       goto cleanup;
     }
   }
@@ -6639,18 +6650,18 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
     size_t size = ((size_t)w * (size_t)h * (size_t)lodepng_get_bpp(&info.color) + 7u) / 8u;
 
     converted = (unsigned char*)lodepng_malloc(size);
-    if(!converted && size) state->error = 83; /*alloc fail*/
-    if(!state->error) {
-      state->error = lodepng_convert(converted, image, &info.color, &state->info_raw, w, h);
+    if(!converted && size) error = 83; /*alloc fail*/
+    if(!error) {
+      error = lodepng_convert(converted, image, &info.color, &state->info_raw, w, h);
     }
-    if(!state->error) {
-      state->error = preProcessScanlines(&data, &datasize, converted, w, h, &info, &state->encoder);
+    if(!error) {
+      error = preProcessScanlines(&data, &datasize, converted, w, h, &info, &state->encoder);
     }
     lodepng_free(converted);
-    if(state->error) goto cleanup;
+    if(error) goto cleanup;
   } else {
-    state->error = preProcessScanlines(&data, &datasize, image, w, h, &info, &state->encoder);
-    if(state->error) goto cleanup;
+    error = preProcessScanlines(&data, &datasize, image, w, h, &info, &state->encoder);
+    if(error) goto cleanup;
   }
 
   /* output all PNG chunks */ {
@@ -6658,111 +6669,111 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
     size_t i;
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
     /*write signature and chunks*/
-    state->error = writeSignature(&outv);
-    if(state->error) goto cleanup;
+    error = writeSignature(&outv);
+    if(error) goto cleanup;
     /*IHDR*/
-    state->error = addChunk_IHDR(&outv, w, h, info.color.colortype, info.color.bitdepth, info.interlace_method);
-    if(state->error) goto cleanup;
+    error = addChunk_IHDR(&outv, w, h, info.color.colortype, info.color.bitdepth, info.interlace_method);
+    if(error) goto cleanup;
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
     /*unknown chunks between IHDR and PLTE*/
     if(info.unknown_chunks_data[0]) {
-      state->error = addUnknownChunks(&outv, info.unknown_chunks_data[0], info.unknown_chunks_size[0]);
-      if(state->error) goto cleanup;
+      error = addUnknownChunks(&outv, info.unknown_chunks_data[0], info.unknown_chunks_size[0]);
+      if(error) goto cleanup;
     }
     /*color profile chunks must come before PLTE */
     if(info.cicp_defined) {
-      state->error = addChunk_cICP(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_cICP(&outv, &info);
+      if(error) goto cleanup;
     }
     if(info.mdcv_defined) {
-      state->error = addChunk_mDCV(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_mDCV(&outv, &info);
+      if(error) goto cleanup;
     }
     if(info.clli_defined) {
-      state->error = addChunk_cLLI(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_cLLI(&outv, &info);
+      if(error) goto cleanup;
     }
     if(info.iccp_defined) {
-      state->error = addChunk_iCCP(&outv, &info, &state->encoder.zlibsettings);
-      if(state->error) goto cleanup;
+      error = addChunk_iCCP(&outv, &info, &state->encoder.zlibsettings);
+      if(error) goto cleanup;
     }
     if(info.srgb_defined) {
-      state->error = addChunk_sRGB(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_sRGB(&outv, &info);
+      if(error) goto cleanup;
     }
     if(info.gama_defined) {
-      state->error = addChunk_gAMA(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_gAMA(&outv, &info);
+      if(error) goto cleanup;
     }
     if(info.chrm_defined) {
-      state->error = addChunk_cHRM(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_cHRM(&outv, &info);
+      if(error) goto cleanup;
     }
     if(info_png->sbit_defined) {
-      state->error = addChunk_sBIT(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_sBIT(&outv, &info);
+      if(error) goto cleanup;
     }
     if(info.exif_defined) {
-      state->error = addChunk_eXIf(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_eXIf(&outv, &info);
+      if(error) goto cleanup;
     }
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
     /*PLTE*/
     if(info.color.colortype == LCT_PALETTE) {
-      state->error = addChunk_PLTE(&outv, &info.color);
-      if(state->error) goto cleanup;
+      error = addChunk_PLTE(&outv, &info.color);
+      if(error) goto cleanup;
     }
     if(state->encoder.force_palette && (info.color.colortype == LCT_RGB || info.color.colortype == LCT_RGBA)) {
       /*force_palette means: write suggested palette for truecolor in PLTE chunk*/
-      state->error = addChunk_PLTE(&outv, &info.color);
-      if(state->error) goto cleanup;
+      error = addChunk_PLTE(&outv, &info.color);
+      if(error) goto cleanup;
     }
     /*tRNS (this will only add if when necessary) */
-    state->error = addChunk_tRNS(&outv, &info.color);
-    if(state->error) goto cleanup;
+    error = addChunk_tRNS(&outv, &info.color);
+    if(error) goto cleanup;
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
     /*bKGD (must come between PLTE and the IDAt chunks*/
     if(info.background_defined) {
-      state->error = addChunk_bKGD(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_bKGD(&outv, &info);
+      if(error) goto cleanup;
     }
     /*pHYs (must come before the IDAT chunks)*/
     if(info.phys_defined) {
-      state->error = addChunk_pHYs(&outv, &info);
-      if(state->error) goto cleanup;
+      error = addChunk_pHYs(&outv, &info);
+      if(error) goto cleanup;
     }
 
     /*unknown chunks between PLTE and IDAT*/
     if(info.unknown_chunks_data[1]) {
-      state->error = addUnknownChunks(&outv, info.unknown_chunks_data[1], info.unknown_chunks_size[1]);
-      if(state->error) goto cleanup;
+      error = addUnknownChunks(&outv, info.unknown_chunks_data[1], info.unknown_chunks_size[1]);
+      if(error) goto cleanup;
     }
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
     /*IDAT (multiple IDAT chunks must be consecutive)*/
-    state->error = addChunk_IDAT(&outv, data, datasize, &state->encoder.zlibsettings);
-    if(state->error) goto cleanup;
+    error = addChunk_IDAT(&outv, data, datasize, &state->encoder.zlibsettings);
+    if(error) goto cleanup;
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
     /*tIME*/
     if(info.time_defined) {
-      state->error = addChunk_tIME(&outv, &info.time);
-      if(state->error) goto cleanup;
+      error = addChunk_tIME(&outv, &info.time);
+      if(error) goto cleanup;
     }
     /*tEXt and/or zTXt*/
     for(i = 0; i != info.text_num; ++i) {
       if(lodepng_strlen(info.text_keys[i]) > 79) {
-        state->error = 66; /*text chunk too large*/
+        error = 66; /*text chunk too large*/
         goto cleanup;
       }
       if(lodepng_strlen(info.text_keys[i]) < 1) {
-        state->error = 67; /*text chunk too small*/
+        error = 67; /*text chunk too small*/
         goto cleanup;
       }
       if(state->encoder.text_compression) {
-        state->error = addChunk_zTXt(&outv, info.text_keys[i], info.text_strings[i], &state->encoder.zlibsettings);
-        if(state->error) goto cleanup;
+        error = addChunk_zTXt(&outv, info.text_keys[i], info.text_strings[i], &state->encoder.zlibsettings);
+        if(error) goto cleanup;
       } else {
-        state->error = addChunk_tEXt(&outv, info.text_keys[i], info.text_strings[i]);
-        if(state->error) goto cleanup;
+        error = addChunk_tEXt(&outv, info.text_keys[i], info.text_strings[i]);
+        if(error) goto cleanup;
       }
     }
     /*LodePNG version id in text chunk*/
@@ -6778,35 +6789,35 @@ unsigned lodepng_encode(unsigned char** out, size_t* outsize,
         }
       }
       if(already_added_id_text == 0) {
-        state->error = addChunk_tEXt(&outv, "LodePNG", LODEPNG_VERSION_STRING); /*it's shorter as tEXt than as zTXt chunk*/
-        if(state->error) goto cleanup;
+        error = addChunk_tEXt(&outv, "LodePNG", LODEPNG_VERSION_STRING); /*it's shorter as tEXt than as zTXt chunk*/
+        if(error) goto cleanup;
       }
     }
     /*iTXt*/
     for(i = 0; i != info.itext_num; ++i) {
       if(lodepng_strlen(info.itext_keys[i]) > 79) {
-        state->error = 66; /*text chunk too large*/
+        error = 66; /*text chunk too large*/
         goto cleanup;
       }
       if(lodepng_strlen(info.itext_keys[i]) < 1) {
-        state->error = 67; /*text chunk too small*/
+        error = 67; /*text chunk too small*/
         goto cleanup;
       }
-      state->error = addChunk_iTXt(
+      error = addChunk_iTXt(
           &outv, state->encoder.text_compression,
           info.itext_keys[i], info.itext_langtags[i], info.itext_transkeys[i], info.itext_strings[i],
           &state->encoder.zlibsettings);
-      if(state->error) goto cleanup;
+      if(error) goto cleanup;
     }
 
     /*unknown chunks between IDAT and IEND*/
     if(info.unknown_chunks_data[2]) {
-      state->error = addUnknownChunks(&outv, info.unknown_chunks_data[2], info.unknown_chunks_size[2]);
-      if(state->error) goto cleanup;
+      error = addUnknownChunks(&outv, info.unknown_chunks_data[2], info.unknown_chunks_size[2]);
+      if(error) goto cleanup;
     }
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
-    state->error = addChunk_IEND(&outv);
-    if(state->error) goto cleanup;
+    error = addChunk_IEND(&outv);
+    if(error) goto cleanup;
   }
 
 cleanup:
@@ -6818,7 +6829,9 @@ cleanup:
   *out = outv.data;
   *outsize = outv.size;
 
-  return state->error;
+  state->error = error; /*TODO: remove this and make input state const*/
+
+  return error;
 }
 
 unsigned lodepng_encode_memory(unsigned char** out, size_t* outsize, const unsigned char* image,
@@ -6830,8 +6843,7 @@ unsigned lodepng_encode_memory(unsigned char** out, size_t* outsize, const unsig
   state.info_raw.bitdepth = bitdepth;
   state.info_png.color.colortype = colortype;
   state.info_png.color.bitdepth = bitdepth;
-  lodepng_encode(out, outsize, image, w, h, &state);
-  error = state.error;
+  error = lodepng_encode(out, outsize, image, w, h, &state);
   lodepng_state_cleanup(&state);
   return error;
 }
@@ -6959,7 +6971,7 @@ const char* lodepng_error_text(unsigned code) {
     case 68: return "tried to encode a PLTE chunk with a palette that has less than 1 or more than 256 colors";
     case 69: return "unknown chunk type with 'critical' flag encountered by the decoder";
     case 71: return "invalid interlace mode given to encoder (must be 0 or 1)";
-    case 72: return "while decoding, invalid compression method encountering in zTXt or iTXt chunk (it must be 0)";
+    case 72: return "while decoding, invalid compression method encountered in zTXt, iTXt or iCCP chunk (it must be 0)";
     case 73: return "invalid tIME chunk size";
     case 74: return "invalid pHYs chunk size";
     /*length could be wrong, or data chopped off*/
@@ -7016,6 +7028,7 @@ const char* lodepng_error_text(unsigned code) {
     case 120: return "invalid cLLI chunk size";
     case 121: return "invalid chunk type name: may only contain [a-zA-Z]";
     case 122: return "invalid chunk type name: third character must be uppercase";
+    case 123: return "invalid ICC profile size";
   }
   return "unknown error code";
 }
