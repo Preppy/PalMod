@@ -1224,7 +1224,6 @@ LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits
 
 const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGameUnits, uint32_t nUnitId, uint32_t nCollectionId)
 {
-
     if (pGameUnits)
     {
         const sDescTreeNode* pCurrentSet = reinterpret_cast<const sDescTreeNode*>(pGameUnits[nUnitId].ChildNodes);
@@ -1233,10 +1232,23 @@ const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGam
         {
             return reinterpret_cast<sGame_PaletteDataset*>(pCurrentSet[nCollectionId].ChildNodes);
         }
+        else
+        {
+            if (!pCurrentSet)
+            {
+                OutputDebugString(L"CGameClass::_GetPaletteSet: pCurrentSet not available.\r\n");
+            }
+            else
+            {
+                OutputDebugString(L"CGameClass::_GetPaletteSet: uChildType is not set as expected.\r\n");
+            }
+        }
     }
-
-    // Injecting this nonsense line to work around an optimizer-induced crash
-    OutputDebugString(L"No PaletteSet found for request.\r\n");
+    else
+    {
+        // Injecting this nonsense line to work around an optimizer-induced crash
+        OutputDebugString(L"CGameClass::_GetPaletteSet: pGameUnits not available.\r\n");
+    }
 
     return nullptr;
 }

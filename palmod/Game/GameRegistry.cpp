@@ -476,7 +476,7 @@ namespace KnownGameInfo
     };
 
 // Please note that this is sorted by the File Open Data display string, *not* by gameID.
-    std::vector<CoreGameData> GameRegistry =
+    std::vector<CoreGameData> GameRegistryAtoM =
     {
         {
             AODK_A,
@@ -1583,6 +1583,10 @@ namespace KnownGameInfo
             CGame_MWarr_A_DIR::GetRuleCtr,
             CGame_MWarr_A_DIR::ResetRuleCtr,
         },
+    };
+
+    std::vector<CoreGameData> GameRegistryNtoZ =
+    {
         {
             NBHID_NL,
             L"Nitroplus Blasterz: Heroines Infinite Duel (NESICAxLive)",
@@ -2480,8 +2484,21 @@ namespace KnownGameInfo
 
     static_assert(NUM_GAMES == 264, "New GameID defined: please update GameRegistry with the associated data.");
 
+    std::vector<CoreGameData> GameRegistry;
+
+    void InitializeGameRegistry()
+    {
+        if (GameRegistry.empty())
+        {
+            GameRegistry = GameRegistryAtoM;
+            GameRegistry.insert(GameRegistry.end(), GameRegistryNtoZ.begin(), GameRegistryNtoZ.end());
+        }
+    }
+
     LPCWSTR GetGameNameForGameID(int nGameID)
     {
+        InitializeGameRegistry();
+
         for (const CoreGameData& thisGame : GameRegistry)
         {
             if (thisGame.nGameId == nGameID)
@@ -2496,6 +2513,8 @@ namespace KnownGameInfo
     
     bool FindConstructorForGameID(int nGameID, GameConstructor& gameConstructor)
     {
+        InitializeGameRegistry();
+
         for (const CoreGameData& thisGame : GameRegistry)
         {
             if (thisGame.nGameId == nGameID)
@@ -2516,6 +2535,8 @@ namespace KnownGameInfo
     {
         if (rgGameToFileMap.size() == 0)
         {
+            InitializeGameRegistry();
+
             for (const CoreGameData& thisGame : GameRegistry)
             {
                 if (thisGame.rgFileOpenData.nInternalGameIndex != NUM_GAMES)
@@ -2530,6 +2551,8 @@ namespace KnownGameInfo
 
     bool FindRuleDataForGameID(int nGameID, GetRuleFunc& GetRule, GetNextRuleFunc& GetNextRule, GetRuleCtrFunc& GetRuleCtr, ResetRuleCtrFunc& ResetRuleCtr)
     {
+        InitializeGameRegistry();
+
         for (const CoreGameData& thisGame : GameRegistry)
         {
             if (thisGame.nGameId == nGameID)
