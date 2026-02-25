@@ -29,6 +29,8 @@ private:
 
     sMoveDescription* GetMoveDescriptionInfo(uint32_t nUnitId, uint32_t nPalId);
 
+    void _Ensure16ColorMoveDescriptions();
+
 public:
     CGame_MVC2_D(uint32_t nConfirmedROMSize, SupportedGamesList eGameVersion);
     ~CGame_MVC2_D();

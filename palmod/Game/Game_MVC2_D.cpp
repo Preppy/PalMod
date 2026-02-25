@@ -39,9 +39,86 @@ bool MvC2CharacterIsTwoPartCorePreview(uint16_t nCharacterId)
            (nCharacterId == indexMVC2ABonerine);
 }
 
+std::vector<std::vector<sMoveDescription>> MVC2_16COLOR_MOVE_DESCRIPTIONS =
+{
+    { MVC2_MOVE_DESCRIPTIONS_RYU },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_ZANGIEF },
+    { MVC2_MOVE_DESCRIPTIONS_GUILE },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_MORRIGAN },
+    { MVC2_MOVE_DESCRIPTIONS_ANAKARIS },
+    { MVC2_MOVE_DESCRIPTIONS_STRIDER },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_CYCLOPS },
+    { MVC2_MOVE_DESCRIPTIONS_WOLVERINE },
+    { MVC2_MOVE_DESCRIPTIONS_PSYLOCKE },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_ICEMAN },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_ROGUE },
+    { MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SPIDERMAN },
+    { MVC2_MOVE_DESCRIPTIONS_HULK },
+    { MVC2_MOVE_DESCRIPTIONS_VENOM },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_DRDOOM },
+    { MVC2_MOVE_DESCRIPTIONS_TRONBONNE },
+    { MVC2_MOVE_DESCRIPTIONS_JILL },
+    { MVC2_MOVE_DESCRIPTIONS_HAYATO },
+    { MVC2_MOVE_DESCRIPTIONS_RUBYHEART },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SONSON },
+    { MVC2_MOVE_DESCRIPTIONS_AMINGO },
+    { MVC2_MOVE_DESCRIPTIONS_MARROW },
+    { MVC2_MOVE_DESCRIPTIONS_CABLE },
+    { MVC2_MOVE_DESCRIPTIONS_ABYSS1 },
+    { MVC2_MOVE_DESCRIPTIONS_ABYSS2 },
+    { MVC2_MOVE_DESCRIPTIONS_ABYSS3 },
+    { MVC2_MOVE_DESCRIPTIONS_CHUNLI },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_STUB }, // these two are huge so build at runtime to avoid stack overflow
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_STUB }, // these two are huge so build at runtime to avoid stack overflow
+    { MVC2_MOVE_DESCRIPTIONS_GOUKI },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_BBHOOD },
+    { MVC2_MOVE_DESCRIPTIONS_FELICIA },
+    { MVC2_MOVE_DESCRIPTIONS_CHARLIE },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SAKURA },
+    { MVC2_MOVE_DESCRIPTIONS_DAN },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_CAMMY },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_DHALSIM },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_MBISON },
+    { MVC2_MOVE_DESCRIPTIONS_KEN },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_GAMBIT },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_JUGGERNAUT },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_STORM },
+    { MVC2_MOVE_DESCRIPTIONS_SABRETOOTH },
+    { MVC2_MOVE_DESCRIPTIONS_MAGNETO },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SHUMA },
+    { MVC2_MOVE_DESCRIPTIONS_WARMACHINE },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SILVERSAMURAI },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_OMEGARED },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SPIRAL },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_COLOSSUS },
+    { MVC2_MOVE_DESCRIPTIONS_IRONMAN },
+    { MVC2_MOVE_DESCRIPTIONS_SENTINEL },
+    { MVC2_MOVE_DESCRIPTIONS_BLACKHEART },
+    { MVC2_MOVE_DESCRIPTIONS_THANOS },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_JIN },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO },
+    { MVC2_MOVE_DESCRIPTIONS_BONERINE },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_KOBUN },
+};
+
 void CGame_MVC2_D::InitializeStatics()
 {
     m_MainDescTree.SetRootTree(CGame_MVC2_D::InitDescTree());
+}
+
+void CGame_MVC2_D::_Ensure16ColorMoveDescriptions()
+{
+    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman) = MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART1;
+    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman).insert(MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman).end(),
+                                                            MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART2.begin(),
+                                                            MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART2.end());
+
+
+    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll) = MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART1;
+    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll).insert(MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll).end(),
+                                                                MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART2.begin(),
+                                                                MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART2.end());
 }
 
 void CGame_MVC2_D::SetNumberOfColorOptions(MvC2_NumberOfColors nColorOptions)
@@ -58,12 +135,21 @@ void CGame_MVC2_D::SetNumberOfColorOptions(MvC2_NumberOfColors nColorOptions)
             break;
 
         case MvC2_NumberOfColors::Twelve_Or_Sixteen:
+        {
+            static bool s_fInitializedFor16 = false;
+
+            if (!s_fInitializedFor16)
+            {
+                _Ensure16ColorMoveDescriptions();
+                s_fInitializedFor16 = true;
+            }
             _nCurrentTotalColorOptions = 16;
             k_mvc2_character_coloroption_count = 16;
             m_pCurrentButtonLabelSet = m_pButtonLabelSet = DEF_BUTTONLABEL16_MVC2;
             m_pCurrentMoveDescriptions = MVC2_16COLOR_MOVE_DESCRIPTIONS;
             m_pCurrentExtrasLayout = MVC2_D_16COLORS_EXTRADEF;
             break;
+        }
     }
 
     // Reset these, as they need to be (button_colors * palettes_per_button) - 1 (zero-based)

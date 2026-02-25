@@ -3298,7 +3298,12 @@ const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_MEGAMAN =
     { 0x212, L"A2 - Magnetic Shockwave Power Up (MvC1 Ending)", 0, indexCPS2Sprites_Megaman },
 };
 
-const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN =
+const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_STUB =
+{
+    { 0x00, L"Uninitialized" },
+};
+
+const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART1 =
 { //1C: Megaman" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Tornado Hold Special // Rush (stance & after super frame) // FlipTop (stance & after super frame)", 0x01, indexCPS2Sprites_Megaman, &pairNext },
@@ -4012,7 +4017,10 @@ const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN =
     { 0x162 + 0x15c, L"A1+HK - Rush Drill metal 8", 12, indexCPS2Sprites_Roll },
     { 0x163 + 0x15c, L"A1+HK - Roll", 0, indexCPS2Sprites_Roll },
     { 0x164 + 0x15c, L"A1+HK - Magnetic Shockwave Power Up (MvC1 Ending)", 0, indexCPS2Sprites_Megaman },
+};
 
+const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART2 =
+{ //1C: Megaman" },
     { 0x09 + 0x2b8, L"A2+LP - Megaman hair (all buttons)", 0x26, indexCPS2Sprites_Megaman },
     { 0x0A + 0x2b8, L"A2+LP - Death Animation (all buttons)", 0x0b },
     { 0x0B + 0x2b8, L"A2+LP - Megaman Intro 1", 0 },
@@ -5293,7 +5301,7 @@ const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_ROLL =
     { 0x212, L"A2 - Magnetic Shockwave Power Up (MvC1 Ending)", 0, indexCPS2Sprites_Megaman },
 };
 
-const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL =
+const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART1 =
 { //1D: Roll" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Tornado Hold Special // Rush (stance & after super frame) // FlipTop (stance & after super frame)", 1, indexCPS2Sprites_Megaman, &pairNext },
@@ -6053,7 +6061,10 @@ const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL =
     { 0x15B + 7 + 0x15c, L"A1+HK - Rush Drill metal 8", 12, indexCPS2Sprites_Roll },
     { 0x163 + 0x15c, L"A1+HK - Megaman", 0, indexCPS2Sprites_Megaman },
     { 0x164 + 0x15c, L"A1+HK - Magnetic Shockwave Power Up (MvC1 Ending)", 0, indexCPS2Sprites_Megaman },
+};
 
+const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART2 =
+{ //1D: Roll" },
     { 0x09 + 0x2b8, L"A2+LP - Megaman hair (all buttons)", 0x26, indexCPS2Sprites_Megaman },
     { 0x0A + 0x2b8, L"A2+LP - Death Animation (all buttons)", 11, indexCPS2Sprites_Megaman },
     { 0x0B + 0x2b8, L"A2+LP - Roll Intro 1", 0 },
@@ -11727,67 +11738,4 @@ const std::vector<std::vector<sMoveDescription>> MVC2_6COLOR_MOVE_DESCRIPTIONS =
     { MVC2_6COLOR_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO },
     { MVC2_MOVE_DESCRIPTIONS_BONERINE },
     { MVC2_6COLOR_MOVE_DESCRIPTIONS_KOBUN },
-};
-
-const std::vector<std::vector<sMoveDescription>> MVC2_16COLOR_MOVE_DESCRIPTIONS =
-{
-    { MVC2_MOVE_DESCRIPTIONS_RYU },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_ZANGIEF },
-    { MVC2_MOVE_DESCRIPTIONS_GUILE },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_MORRIGAN },
-    { MVC2_MOVE_DESCRIPTIONS_ANAKARIS },
-    { MVC2_MOVE_DESCRIPTIONS_STRIDER },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_CYCLOPS },
-    { MVC2_MOVE_DESCRIPTIONS_WOLVERINE },
-    { MVC2_MOVE_DESCRIPTIONS_PSYLOCKE },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_ICEMAN },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_ROGUE },
-    { MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SPIDERMAN },
-    { MVC2_MOVE_DESCRIPTIONS_HULK },
-    { MVC2_MOVE_DESCRIPTIONS_VENOM },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_DRDOOM },
-    { MVC2_MOVE_DESCRIPTIONS_TRONBONNE },
-    { MVC2_MOVE_DESCRIPTIONS_JILL },
-    { MVC2_MOVE_DESCRIPTIONS_HAYATO },
-    { MVC2_MOVE_DESCRIPTIONS_RUBYHEART },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SONSON },
-    { MVC2_MOVE_DESCRIPTIONS_AMINGO },
-    { MVC2_MOVE_DESCRIPTIONS_MARROW },
-    { MVC2_MOVE_DESCRIPTIONS_CABLE },
-    { MVC2_MOVE_DESCRIPTIONS_ABYSS1 },
-    { MVC2_MOVE_DESCRIPTIONS_ABYSS2 },
-    { MVC2_MOVE_DESCRIPTIONS_ABYSS3 },
-    { MVC2_MOVE_DESCRIPTIONS_CHUNLI },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL },
-    { MVC2_MOVE_DESCRIPTIONS_GOUKI },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_BBHOOD },
-    { MVC2_MOVE_DESCRIPTIONS_FELICIA },
-    { MVC2_MOVE_DESCRIPTIONS_CHARLIE },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SAKURA },
-    { MVC2_MOVE_DESCRIPTIONS_DAN },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_CAMMY },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_DHALSIM },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_MBISON },
-    { MVC2_MOVE_DESCRIPTIONS_KEN },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_GAMBIT },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_JUGGERNAUT },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_STORM },
-    { MVC2_MOVE_DESCRIPTIONS_SABRETOOTH },
-    { MVC2_MOVE_DESCRIPTIONS_MAGNETO },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SHUMA },
-    { MVC2_MOVE_DESCRIPTIONS_WARMACHINE },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SILVERSAMURAI },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_OMEGARED },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_SPIRAL },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_COLOSSUS },
-    { MVC2_MOVE_DESCRIPTIONS_IRONMAN },
-    { MVC2_MOVE_DESCRIPTIONS_SENTINEL },
-    { MVC2_MOVE_DESCRIPTIONS_BLACKHEART },
-    { MVC2_MOVE_DESCRIPTIONS_THANOS },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_JIN },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO },
-    { MVC2_MOVE_DESCRIPTIONS_BONERINE },
-    { MVC2_16COLOR_MOVE_DESCRIPTIONS_KOBUN },
 };
