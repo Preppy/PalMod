@@ -1100,12 +1100,13 @@ void CImgDisp::_ResizeImageStack(bool fIsFullStackReplacement)
 
     for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
     {
-        if (m_pImgBuffer[iCurrentPreview])
+        if (m_pImgBuffer[iCurrentPreview] && m_pImgBuffer[iCurrentPreview]->dimensions.width)
         {
             if (nMaxWidth && ((nMaxWidth != m_pImgBuffer[iCurrentPreview]->dimensions.width) ||
                               (nMaxHeight != m_pImgBuffer[iCurrentPreview]->dimensions.height)))
             {
                 fNeedsChange = true;
+                // keep going: we want to establish max max width
             }
 
             nMaxWidth = max(nMaxWidth, m_pImgBuffer[iCurrentPreview]->dimensions.width);
