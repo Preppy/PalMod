@@ -1689,16 +1689,16 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_SILVERSAMURAI_ANIM[] =
     { L"Stage Flames", 0x357f2, 0x35812, indexCPS2Sprites_COTAAssets, 0x82 },
 };
 
-
 // Omega Red: The Deep
 // Elevator transitions around stage
 // Effects:
     // safety glass cracks once whale swims by
     // lights turn off
     // shutters close then open as we transition from above ground to underwater
+    // At match end we zoom back upwards to the surface
 
 // Super quirky Omega Red stage pairing
-const stPairedPaletteInfo pairOmegaRedStage = { 1, {}, 6, 2, 3, 4, 11 };
+const stPairedPaletteInfo pairOmegaRedStage = { 1, {}, 8, 2, 3, 4, 9, 12, 13 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_OMEGARED_ABOVE[] =
 {
@@ -1712,22 +1712,30 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_OMEGARED_ABOVE[] =
     { L"Background Animation Cycle 4/5", 0x3c1b6, 0x3c1d6, indexCPS2Sprites_COTAAssets, 0x69 },
     { L"Background Animation Cycle 5/5", 0x3c1d6, 0x3c1f6, indexCPS2Sprites_COTAAssets, 0x69 },
 
+    { L"Foreground Building", 0x2ca28, 0x2ca48, indexCPS2Sprites_COTAAssets, 0xc3 },
+
     // This is awkward since this block visibility of the background.  So we'll leave it *unpaired* but accessible.
     { L"512: Metal Screen", 0x3146e, 0x3148e, indexCPS2Sprites_COTAAssets, 0x6a },
 
     // Foreground / stage
-    { L"Background Building?", 0x316ee, 0x317ce },
+    { L"Unknown?", 0x316ee, 0x317ce },
     // This form appears both above and below
     { L"Building (Undamaged)", 0x35812, 0x358f2, indexCPS2Sprites_COTAAssets, 0x6b },
-
-    { L"Sprites 1", 0x2c988, 0x2cb88 },
-    { L"Sprites 2", 0x2cb88, 0x2cca8 },
+    // Note that the hook should really be behind the glass but we don't have a methodology to split this
+    { L"Floor Edge and Hook", 0x2c9c8, 0x2ca08, indexCPS2Sprites_COTAAssets, 0xc2 },
 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_OMEGARED_BELOW[] =
 {
     { L"Background 1", 0x3bd36, 0x3be16, indexCPS2Sprites_COTAAssets, 0x6c, &pairFullyLinkedNode },
-    { L"Background 2", 0x3be36, 0x3be96, indexCPS2Sprites_COTAAssets, 0x6d },
+    
+    { L"Unused?", 0x3be36, 0x3be76 },
+
+    { L"Background 2 Animation Cycle 2/4", 0x3be76, 0x3be96, indexCPS2Sprites_COTAAssets, 0x6d },
+    { L"Background 2 Animation Cycle 2/4", 0x3c1f6, 0x3c216, indexCPS2Sprites_COTAAssets, 0x6d },
+    { L"Background 2 Animation Cycle 3/4", 0x3c216, 0x3c236, indexCPS2Sprites_COTAAssets, 0x6d },
+    { L"Background 2 Animation Cycle 4/4", 0x3c236, 0x3c256, indexCPS2Sprites_COTAAssets, 0x6d },
+
     { L"Background 3", 0x3bed6, 0x3bef6, indexCPS2Sprites_COTAAssets, 0x6e },
     { L"Background 4?", 0x3c016, 0x3c096 },
 
@@ -1737,13 +1745,21 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_OMEGARED_BELOW[] =
     { L"Background Animation Cycle 1 4/5", 0x3c116, 0x3c136, indexCPS2Sprites_COTAAssets, 0x6f },
     { L"Background Animation Cycle 1 5/5", 0x3c136, 0x3c156, indexCPS2Sprites_COTAAssets, 0x6f },
 
-    { L"Background Animation Cycle 2?", 0x3c1f6, 0x3c2b6 },
+    { L"Unknown?", 0x3c256, 0x3c2b6 },
 
     { L"512: Generics", 0x313ce, 0x3144e },
     // Fish / whale / etc
     { L"512: Whale", 0x3144e, 0x3146e, indexCPS2Sprites_COTAAssets, 0x70 },
 
+    { L"Fishes and Squid", 0x2c988, 0x2c9c8, indexCPS2Sprites_COTAAssets, 0xc4 }, // fishes
+        // 0x2c9c8: 2 units: floor edge and hook
+    { L"Floating Branch", 0x2ca08, 0x2ca28, indexCPS2Sprites_COTAAssets, 0xc5 }, // tree branch
+        //0x2ca28: 1 units: foreground building
+
     { L"Building: (Lit, Damaged)", 0x35c12, 0x35cf2, indexCPS2Sprites_COTAAssets, 0x71 },
+
+    { L"Upper Fish", 0x2ca48, 0x2cb88, indexCPS2Sprites_COTAAssets, 0xc6 },
+    { L"???", 0x2cb88, 0x2cca8, indexCPS2Sprites_COTAAssets, 0xc7 },
 };
 
 // Sentinel: Genosha
@@ -1804,14 +1820,16 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_JUGGERNAUT[] =
 
     // The colors at 0x31f0e-0x31f4e and 0x31fce-0x31fee don't seem to be used
     //
-    { L"512: Blackbird Launch", 0x31e8e, 0x31fee, indexCPS2Sprites_COTAAssets, 0x45 },
-    { L"512: Blackbird Place", 0x31fee, 0x320ae, indexCPS2Sprites_COTAAssets, 0x46 },
-        { L"Platform?", 0x2cec8, 0x2d008 },
+    { L"512: Blackbird Launch Pad", 0x31e8e, 0x31fee, indexCPS2Sprites_COTAAssets, 0x45 },
+    { L"512: Blackbird", 0x31fee, 0x320ae, indexCPS2Sprites_COTAAssets, 0x46 },
 
-    // The pillars here get damaged to two further levels as the match goes on
+    // The pillar parts here get damaged as the match goes on
     { L"Stage", 0x36492, 0x36532, indexCPS2Sprites_COTAAssets, 0x47 },
 
-        { L"Background?", 0x3cd56, 0x3ce76 },
+    // The fence here should be behind the pillars but we don't have way to do that
+    { L"Foreground Sprites", 0x2cec8, 0x2d008, indexCPS2Sprites_COTAAssets, 0xc8 },
+
+        { L"Unknown?", 0x3cd56, 0x3ce76 },
         { L"Stock colors?", 0x31cae, 0x31d2e },
 };
 
@@ -1875,7 +1893,7 @@ const sGame_PaletteDataset COTA_A_STAGE_PALETTES_MAGNETO[] =
     { L"Posts Animation Cycle 9/9", 0x3274e, 0x3276e, indexCPS2Sprites_COTAAssets, 0x8a },
 
     // Blackbird and etc
-    { L"Sprites", 0x2d2c8, 0x2d3c8 },
+    { L"Sprites", 0x2d2c8, 0x2d3c8, indexCPS2Sprites_COTAAssets, 0xc9 },
 };
 
 const sGame_PaletteDataset COTA_A_STAGE_PALETTES_PREVIEWS[] =
