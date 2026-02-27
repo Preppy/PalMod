@@ -859,9 +859,8 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
         }
 
         const uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        const uint32_t nMaxPalettesToCheck = min(c_nMaxPalettesToCheckInExtraNodes, nPalCount);
 
-        for (uint32_t nPalCtr = 0; nPalCtr < nMaxPalettesToCheck; nPalCtr++)
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
             nTotalPalettesChecked++;
