@@ -55,7 +55,7 @@ private:
         SAMSHO5_A_UNITS,
         ARRAYSIZE(SAMSHO5_A_UNITS),
         L"SAMSHO5E.txt",          // Extra filename
-        1673,                      // Count of palettes listed in the header
+        1669,                      // Count of palettes listed in the header
         0xd4000,                  // Lowest known location used for palettes
     };
 
@@ -75,7 +75,7 @@ private:
         SAMSHO5_A_UNITS,
         ARRAYSIZE(SAMSHO5_A_UNITS),
         L"SAMSHO5E.txt",          // Extra filename
-        1673,                      // Count of palettes listed in the header
+        1669,                      // Count of palettes listed in the header
         0xd4000,                  // Lowest known location used for palettes
     };
 

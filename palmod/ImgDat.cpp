@@ -336,9 +336,9 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         // not super critical for daily updates, but still useful
         const uint16_t nExpectedYear = 2026;
         const uint8_t nExpectedMonth = 2;
-        const uint8_t nExpectedDay = 26;
+        const uint8_t nExpectedDay = 28;
         const uint8_t nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 143325515;
+        const ULONGLONG nExpectedFileSize = 143610135;
 
         const uint32_t nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -349,11 +349,6 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         {
             strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly as the number of game sets has changed.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-        }
-        else if (nFileSize < nExpectedFileSize) // it's only a significant problem if the file is smaller, which should happen very rarely as a result of partial downloads
-        {
-            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", static_cast<uint32_t>(nExpectedFileSize), static_cast<uint32_t>(nFileSize));
-            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
         }
         else if (nExpectedDatestamp != nCurrentDatestamp)
         {
@@ -367,6 +362,11 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
                 strMsg.Format(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat .  File size is %u bytes.\n", static_cast<uint32_t>(nFileSize));
                 OutputDebugString(strMsg);
             }
+        }
+        else if (nFileSize < nExpectedFileSize) // it's only a significant problem if the file is smaller, which should happen very rarely as a result of partial downloads
+        {
+            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", static_cast<uint32_t>(nExpectedFileSize), static_cast<uint32_t>(nFileSize));
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
         }
     }
 }

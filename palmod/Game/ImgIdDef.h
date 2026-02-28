@@ -1431,7 +1431,7 @@ enum SupportedMatriM_A_PaletteListIndex
 
 enum SamuraiShodownSpriteList
 {
-    indexSamSho5Sprites_Amakusa = 0,
+    indexSamSho5Sprites_Amakusa,    // 0x0
     indexSamSho5Sprites_Basara,     // 1
     indexSamSho5Sprites_Charlotte,  // 2
     indexSamSho5Sprites_Enja,       // 3
@@ -1482,6 +1482,8 @@ enum SamuraiShodownSpriteList
     indexSamSho3Sprites_Bonus,      // 2F
     indexSamSho3Sprites_Stages,     // 30
 
+    // These secondary listings were probably created in error.
+    // In theory we should have just stuck with the core "indexSamSho5Sprites_" listings.
     indexSS5_Basara,        // 0x31
     indexSS5_Charlotte,     // 0x32
     indexSS5_Enja,          // 0x33

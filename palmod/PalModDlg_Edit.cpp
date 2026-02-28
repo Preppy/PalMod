@@ -77,7 +77,7 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
         {
             if (CurrPalCtrl->GetSelAmt() != 1)
             {
-                // Ideally they select the injection point, but we can just contextual knowledge to start at palette index 01
+                // Ideally they select the injection point, but we can just use contextual knowledge to start at palette index 01
                 CurrPalCtrl->SelectFirstColor();
             }
 
