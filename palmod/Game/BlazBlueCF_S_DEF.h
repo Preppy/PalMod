@@ -168,7 +168,7 @@ const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListNu13 =
 {
     { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
     { L"Extra 1", 0x420, indexBBCFSprites_Nu13, 0x01 },
-    { L"Extra 2", 0x840, indexBBCFSprites_Nu13, 0x01 },
+    { L"Extra 2: 236236D Super", 0x840, indexBBCFSprites_Nu13, 0x01 },
     { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x03 },
     { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
     { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
