@@ -200,7 +200,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_ROM07_Rev1
     {
-        L"SFA2 (CPS2 ROM07)",
+        L"SFA2 (CPS2 ROM07 Rev 1)",
         SFA2_A,
         IMGDAT_SECTION_CPS2,
         SFA2_A_IMGIDS_USED,
@@ -220,7 +220,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_ROM07_Rev2
     {
-        L"SFA2 (CPS2 ROM07)",
+        L"SFA2 (CPS2 ROM07 Rev 2)",
         SFA2_A,
         IMGDAT_SECTION_CPS2,
         SFA2_A_IMGIDS_USED,
@@ -234,13 +234,13 @@ private:
         SFA2_A_UNITS_07_REV2,
         ARRAYSIZE(SFA2_A_UNITS_07_REV2),
         L"SFA2e.txt",           // Extra filename
-        1077,                   // Count of palettes listed in the header
+        1120,                   // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM07_SFZ2A
     {
-        L"SFA2 (CPS2 ROM07)",
+        L"SFZ2A (CPS2 ROM07)",
         SFA2_A,
         IMGDAT_SECTION_CPS2,
         SFA2_A_IMGIDS_USED,
@@ -260,7 +260,7 @@ private:
 
     const sCoreGameData m_sCoreGameData_ROM08_Rev1
     {
-        L"SFA2 (CPS2 ROM08)",
+        L"SFA2 (CPS2 ROM08 Rev 1)",
         SFA2_A,
         IMGDAT_SECTION_CPS2,
         SFA2_A_IMGIDS_USED,
@@ -274,13 +274,13 @@ private:
         SFA2_A_UNITS_08_REV1,
         ARRAYSIZE(SFA2_A_UNITS_08_REV1),
         L"SFA2-8e.txt",         // Extra filename
-        275,                    // Count of palettes listed in the header
+        306,                    // Count of palettes listed in the header
         0x125e,                 // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM08_Rev2
     {
-        L"SFA2 (CPS2 ROM08)",
+        L"SFA2 (CPS2 ROM08 Rev 2)",
         SFA2_A,
         IMGDAT_SECTION_CPS2,
         SFA2_A_IMGIDS_USED,
@@ -294,13 +294,13 @@ private:
         SFA2_A_UNITS_08_REV2,
         ARRAYSIZE(SFA2_A_UNITS_08_REV2),
         L"SFA2-8e.txt",         // Extra filename
-        319,                    // Count of palettes listed in the header
-        0x125e,                 // Lowest known location used for palettes
+        477,                    // Count of palettes listed in the header
+        0x1be,                  // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM08_SFZ2A
     {
-        L"SFA2 (CPS2 ROM08)",
+        L"SFZ2A (CPS2 ROM08)",
         SFA2_A,
         IMGDAT_SECTION_CPS2,
         SFA2_A_IMGIDS_USED,
@@ -385,7 +385,7 @@ private:
         SFA2_STEAM_UNITS_REV1_MONO,
         ARRAYSIZE(SFA2_STEAM_UNITS_REV1_MONO),
         L"SFA2Se.txt",          // Extra filename
-        1214,                   // Count of palettes listed in the header
+        1238,                   // Count of palettes listed in the header
         0x4cd5afa,              // Lowest known location used for palettes
     };
 

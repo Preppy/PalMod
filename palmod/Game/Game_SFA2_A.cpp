@@ -1116,16 +1116,15 @@ void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                     {
                         ; // no-op: this is already handled
                     }
+                    else if (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_Stages07) == 0)
+                    {
+                        // Stages are native at this time
+                    }
                     else if ((m_nCurrentPaletteROMLocation < 0x72Dbe) || // Handle up to Gen (Crane Stance)
                         (((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWDhalsim) == 0) || (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_WWZangief) == 0)) &&
                             (m_nCurrentPaletteROMLocation < 0x738fe))) // Second check handles the inserted WW characters
                     {
                         m_nCurrentPaletteROMLocation -= 0x11e0;
-                    }
-                    else if (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_Stages07) == 0)
-                    {
-                        // this is handling stages right now
-                        m_nCurrentPaletteROMLocation -= 0x180;
                     }
                     else
                     {
@@ -1177,9 +1176,9 @@ void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                         // Early bonus/extra range
                         m_nCurrentPaletteROMLocation += 0xD80;
                     }
-                    else
+                    else if (m_nCurrentPaletteROMLocation < 0x23A1e)
                     {
-                        // Later portrait range
+                        // Later portrait range up to stage previews
                         m_nCurrentPaletteROMLocation += 0x900;
                     }
                     break;
