@@ -1525,16 +1525,17 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
                     OutputDebugString(strMsg.GetString());
 
                     paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
-                }
 
-                if (!paletteSetToUse)
-                {
-                    MessageBox(g_appHWnd, L"Catastrophic optimization error happened: please report this error."
-                                          L"  This is an erratic bug in the MSFT compiler/build tools: please report this so I can rebuild and work around the bug if not 'fix' it.\r\n\r\n"
-                                          L"PalMod will now close.",
-                                GetHost()->GetAppName(), MB_ICONERROR);
-                    DebugBreak();
-                    break;
+                    if (!paletteSetToUse)
+                    {
+                        strMsg += L"\r\n\r\nFailed.  Catastrophic error happened: please report this error."
+                                  L"  This is an erratic bug I'm trying to solve: please report this with the screenshot so I can figure it out and fix it.\r\n\r\n"
+                                  L"PalMod will now close.",
+                        MessageBox(g_appHWnd, strMsg.GetString(),
+                                    GetHost()->GetAppName(), MB_ICONERROR);
+                        DebugBreak();
+                        break;
+                    }
                 }
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
