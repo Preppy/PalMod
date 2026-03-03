@@ -124,9 +124,9 @@ const sGame_PaletteDataset Matrimelee_A_BUNTARO_PORTRAIT_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_CHINNEN_A_PALETTES[] =
 {
     { L"Chinnen A", 0x29b824, 0x29b844, indexMatriMSprites_Chinnen, 0x00 },
-    { L"Bonnou Power A", 0x29b844, 0x29b864 },
-    { L"Spirit Orb A", 0x29b864, 0x29b884 },
-    { L"Curse Seal A", 0x29b884, 0x29b8a4 },
+    { L"Bonnou Power A", 0x29b844, 0x29b864, indexMatriMSprites_Chinnen, 0x01 },
+    { L"Spirit Orb A", 0x29b864, 0x29b884, indexMatriMSprites_Chinnen, 0x02 },
+    { L"Curse Seal A", 0x29b884, 0x29b8a4, indexMatriMSprites_Chinnen, 0x03 },
     { L"Rolling/Super Jump Trail A", 0x29b8a4, 0x29b8c4, indexMatriMSprites_Chinnen, 0x00 },
     { L"EX/Super Trail A", 0x29b8c4, 0x29b8e4, indexMatriMSprites_Chinnen, 0x00 },
     { L"Guard Cancel Trail A", 0x29b8e4, 0x29b904, indexMatriMSprites_Chinnen, 0x00 },
@@ -136,9 +136,9 @@ const sGame_PaletteDataset Matrimelee_A_CHINNEN_A_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_CHINNEN_B_PALETTES[] =
 {
     { L"Chinnen B", 0x29b924, 0x29b944, indexMatriMSprites_Chinnen, 0x00 },
-    { L"Bonnou Power B", 0x29b944, 0x29b964 },
-    { L"Spirit Orb B", 0x29b964, 0x29b984 },
-    { L"Curse Seal B", 0x29b984, 0x29b9a4 },
+    { L"Bonnou Power B", 0x29b944, 0x29b964, indexMatriMSprites_Chinnen, 0x01 },
+    { L"Spirit Orb B", 0x29b964, 0x29b984, indexMatriMSprites_Chinnen, 0x02 },
+    { L"Curse Seal B", 0x29b984, 0x29b9a4, indexMatriMSprites_Chinnen, 0x03 },
     { L"Rolling/Super Jump Trail B", 0x29b9a4, 0x29b9c4, indexMatriMSprites_Chinnen, 0x00 },
     { L"EX/Super Trail B", 0x29b9c4, 0x29b9e4, indexMatriMSprites_Chinnen, 0x00 },
     { L"Guard Cancel Trail B", 0x29b9e4, 0x29ba04, indexMatriMSprites_Chinnen, 0x00 },
@@ -148,9 +148,9 @@ const sGame_PaletteDataset Matrimelee_A_CHINNEN_B_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_CHINNEN_C_PALETTES[] =
 {
     { L"Chinnen C", 0x29ba24, 0x29ba44, indexMatriMSprites_Chinnen, 0x00 },
-    { L"Bonnou Power C", 0x29ba44, 0x29ba64 },
-    { L"Spirit Orb C", 0x29ba64, 0x29ba84 },
-    { L"Curse Seal C", 0x29ba84, 0x29baa4 },
+    { L"Bonnou Power C", 0x29ba44, 0x29ba64, indexMatriMSprites_Chinnen, 0x01 },
+    { L"Spirit Orb C", 0x29ba64, 0x29ba84, indexMatriMSprites_Chinnen, 0x02 },
+    { L"Curse Seal C", 0x29ba84, 0x29baa4, indexMatriMSprites_Chinnen, 0x03 },
     { L"Rolling/Super Jump Trail C", 0x29baa4, 0x29bac4, indexMatriMSprites_Chinnen, 0x00 },
     { L"EX/Super Trail C", 0x29bac4, 0x29bae4, indexMatriMSprites_Chinnen, 0x00 },
     { L"Guard Cancel Trail C", 0x29bae4, 0x29bb04, indexMatriMSprites_Chinnen, 0x00 },
@@ -160,9 +160,9 @@ const sGame_PaletteDataset Matrimelee_A_CHINNEN_C_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_CHINNEN_D_PALETTES[] =
 {
     { L"Chinnen D", 0x29bb24, 0x29bb44, indexMatriMSprites_Chinnen, 0x00 },
-    { L"Bonnou Power D", 0x29bb44, 0x29bb64 },
-    { L"Spirit Orb D", 0x29bb64, 0x29bb84 },
-    { L"Curse Seal D", 0x29bb84, 0x29bba4 },
+    { L"Bonnou Power D", 0x29bb44, 0x29bb64, indexMatriMSprites_Chinnen, 0x01 },
+    { L"Spirit Orb D", 0x29bb64, 0x29bb84, indexMatriMSprites_Chinnen, 0x02 },
+    { L"Curse Seal D", 0x29bb84, 0x29bba4, indexMatriMSprites_Chinnen, 0x03 },
     { L"Rolling/Super Jump Trail D", 0x29bba4, 0x29bbc4, indexMatriMSprites_Chinnen, 0x00 },
     { L"EX/Super Trail D", 0x29bbc4, 0x29bbe4, indexMatriMSprites_Chinnen, 0x00 },
     { L"Guard Cancel Trail D", 0x29bbe4, 0x29bc04, indexMatriMSprites_Chinnen, 0x00 },
@@ -264,10 +264,10 @@ const sGame_PaletteDataset Matrimelee_A_CLARA_PORTRAIT_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_ELIAS_A_PALETTES[] =
 {
     { L"Elias Patrick A", 0x2A1240, 0x2A1260, indexMatriMSprites_Elias, 0x00 },
-    { L"Sinful A", 0x2A1260, 0x2A1280 },
-    { L"Magnus A", 0x2A1280, 0x2A12A0 },
-    { L"Maximum Desiderium A", 0x2A12A0, 0x2A12c0 },
-    { L"Holy Flare A", 0x2A12c0, 0x2A12e0 },
+    { L"Sinful A", 0x2A1260, 0x2A1280, indexMatriMSprites_Elias, 0x01 },
+    { L"Magnus A", 0x2A1280, 0x2A12A0, indexMatriMSprites_Elias, 0x02 },
+    { L"Maximum Desiderium A", 0x2A12A0, 0x2A12c0, indexMatriMSprites_Elias, 0x03 },
+    { L"Holy Flare A", 0x2A12c0, 0x2A12e0, indexMatriMSprites_Elias, 0x04 },
     { L"Rolling/Super Jump Trail A", 0x2A12e0, 0x2A1300, indexMatriMSprites_Elias, 0x00 },
     { L"EX/Super Trail A", 0x2A1300, 0x2A1320, indexMatriMSprites_Elias, 0x00 },
     { L"Guard Cancel/632146P A", 0x2A1320, 0x2A1340, indexMatriMSprites_Elias, 0x00 },
@@ -277,10 +277,10 @@ const sGame_PaletteDataset Matrimelee_A_ELIAS_A_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_ELIAS_B_PALETTES[] =
 {
     { L"Elias Patrick B", 0x2A1360, 0x2A1380, indexMatriMSprites_Elias, 0x00 },
-    { L"Sinful B", 0x2A1380, 0x2A13a0 },
-    { L"Magnus B", 0x2A13a0, 0x2A13c0 },
-    { L"Maximum Desiderium B", 0x2A13c0, 0x2A13e0 },
-    { L"Holy Flare B", 0x2A13e0, 0x2A1400 },
+    { L"Sinful B", 0x2A1380, 0x2A13a0, indexMatriMSprites_Elias, 0x01 },
+    { L"Magnus B", 0x2A13a0, 0x2A13c0, indexMatriMSprites_Elias, 0x02 },
+    { L"Maximum Desiderium B", 0x2A13c0, 0x2A13e0, indexMatriMSprites_Elias, 0x03 },
+    { L"Holy Flare B", 0x2A13e0, 0x2A1400, indexMatriMSprites_Elias, 0x04 },
     { L"Rolling/Super Jump Trail B", 0x2A1400, 0x2A1420, indexMatriMSprites_Elias, 0x00 },
     { L"EX/Super Trail B", 0x2A1420, 0x2A1440, indexMatriMSprites_Elias, 0x00 },
     { L"Guard Cancel/632146P B", 0x2A1440, 0x2A1460, indexMatriMSprites_Elias, 0x00 },
@@ -290,10 +290,10 @@ const sGame_PaletteDataset Matrimelee_A_ELIAS_B_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_ELIAS_C_PALETTES[] =
 {
     { L"Elias Patrick C", 0x2A1480, 0x2A14a0, indexMatriMSprites_Elias, 0x00 },
-    { L"Sinful C", 0x2A14a0, 0x2A14c0 },
-    { L"Magnus C", 0x2A14c0, 0x2A14e0 },
-    { L"Maximum Desiderium C", 0x2A14e0, 0x2A1500 },
-    { L"Holy Flare C", 0x2A1500, 0x2A1520 },
+    { L"Sinful C", 0x2A14a0, 0x2A14c0, indexMatriMSprites_Elias, 0x01 },
+    { L"Magnus C", 0x2A14c0, 0x2A14e0, indexMatriMSprites_Elias, 0x02 },
+    { L"Maximum Desiderium C", 0x2A14e0, 0x2A1500, indexMatriMSprites_Elias, 0x03 },
+    { L"Holy Flare C", 0x2A1500, 0x2A1520, indexMatriMSprites_Elias, 0x04 },
     { L"Rolling/Super Jump Trail C", 0x2A1520, 0x2A1540, indexMatriMSprites_Elias, 0x00 },
     { L"EX/Super Trail C", 0x2A1540, 0x2A1560, indexMatriMSprites_Elias, 0x00 },
     { L"Guard Cancel/632146P C", 0x2A1560, 0x2A1580, indexMatriMSprites_Elias, 0x00 },
@@ -303,10 +303,10 @@ const sGame_PaletteDataset Matrimelee_A_ELIAS_C_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_ELIAS_D_PALETTES[] =
 {
     { L"Elias Patrick D", 0x2A15a0, 0x2A15c0, indexMatriMSprites_Elias, 0x00 },
-    { L"Sinful D", 0x2A15c0, 0x2A15e0 },
-    { L"Magnus D", 0x2A15e0, 0x2A1600 },
-    { L"Maximum Desiderium D", 0x2A1600, 0x2A1620 },
-    { L"Holy Flare D", 0x2A1620, 0x2A1640 },
+    { L"Sinful D", 0x2A15c0, 0x2A15e0, indexMatriMSprites_Elias, 0x01 },
+    { L"Magnus D", 0x2A15e0, 0x2A1600, indexMatriMSprites_Elias, 0x02 },
+    { L"Maximum Desiderium D", 0x2A1600, 0x2A1620, indexMatriMSprites_Elias, 0x03 },
+    { L"Holy Flare D", 0x2A1620, 0x2A1640, indexMatriMSprites_Elias, 0x04 },
     { L"Rolling/Super Jump Trail D", 0x2A1640, 0x2A1660, indexMatriMSprites_Elias, 0x00 },
     { L"EX/Super Trail D", 0x2A1660, 0x2A1680, indexMatriMSprites_Elias, 0x00 },
     { L"Guard Cancel/632146P D", 0x2A1680, 0x2A16a0, indexMatriMSprites_Elias, 0x00 },
@@ -411,8 +411,8 @@ const sGame_PaletteDataset Matrimelee_A_JIMMY_PORTRAIT_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_JONES_A_PALETTES[] =
 {
     { L"Mr. Jones A", 0x2A09dc, 0x2A09fc, indexMatriMSprites_Jones, 0x0 },
-    { L"Funky Impact A", 0x2A09fc, 0x2A0a1c },
-    { L"King Kang A", 0x2A0a1c, 0x2A0a3c },
+    { L"Funky Impact A", 0x2A09fc, 0x2A0a1c, indexMatriMSprites_Jones, 0x01 },
+    { L"King Kang A", 0x2A0a1c, 0x2A0a3c, indexMatriMSprites_Jones, 0x02 },
     { L"Rolling/Super Jump Trail A", 0x2A0a3c, 0x2A0a5c, indexMatriMSprites_Jones, 0x0 },
     { L"EX/Super Trail A", 0x2A0a5c, 0x2A0a7c, indexMatriMSprites_Jones, 0x0 },
     { L"Guard Cancel Trail A", 0x2A0a7c, 0x2A0a9c, indexMatriMSprites_Jones, 0x0 },
@@ -422,8 +422,8 @@ const sGame_PaletteDataset Matrimelee_A_JONES_A_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_JONES_B_PALETTES[] =
 {
     { L"Mr. Jones B", 0x2A0abc, 0x2A0adc, indexMatriMSprites_Jones, 0x0 },
-    { L"Funky Impact B", 0x2A0adc, 0x2A0afc },
-    { L"King Kang B", 0x2A0afc, 0x2A0b1c },
+    { L"Funky Impact B", 0x2A0adc, 0x2A0afc, indexMatriMSprites_Jones, 0x01 },
+    { L"King Kang B", 0x2A0afc, 0x2A0b1c, indexMatriMSprites_Jones, 0x02 },
     { L"Rolling/Super Jump Trail B", 0x2A0b1c, 0x2A0b3c, indexMatriMSprites_Jones, 0x0 },
     { L"EX/Super Trail B", 0x2A0b3c, 0x2A0b5c, indexMatriMSprites_Jones, 0x0 },
     { L"Guard Cancel Trail B", 0x2A0b5c, 0x2A0b7c, indexMatriMSprites_Jones, 0x0 },
@@ -433,8 +433,8 @@ const sGame_PaletteDataset Matrimelee_A_JONES_B_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_JONES_C_PALETTES[] =
 {
     { L"Mr. Jones C", 0x2A0b9c, 0x2A0bbc, indexMatriMSprites_Jones, 0x0 },
-    { L"Funky Impact C", 0x2A0bbc, 0x2A0bdc },
-    { L"King Kang C", 0x2A0bdc, 0x2A0bfc },
+    { L"Funky Impact C", 0x2A0bbc, 0x2A0bdc, indexMatriMSprites_Jones, 0x01 },
+    { L"King Kang C", 0x2A0bdc, 0x2A0bfc, indexMatriMSprites_Jones, 0x02 },
     { L"Rolling/Super Jump Trail C", 0x2A0bfc, 0x2A0c1c, indexMatriMSprites_Jones, 0x0 },
     { L"EX/Super Trail C", 0x2A0c1c, 0x2A0c3c, indexMatriMSprites_Jones, 0x0 },
     { L"Guard Cancel Trail C", 0x2A0c3c, 0x2A0c5c, indexMatriMSprites_Jones, 0x0 },
@@ -444,8 +444,8 @@ const sGame_PaletteDataset Matrimelee_A_JONES_C_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_JONES_D_PALETTES[] =
 {
     { L"Mr. Jones D", 0x2A0c7c, 0x2A0c9c, indexMatriMSprites_Jones, 0x0 },
-    { L"Funky Impact D", 0x2A0c9c, 0x2A0cbc },
-    { L"King Kang D", 0x2A0cbc, 0x2A0cdc },
+    { L"Funky Impact D", 0x2A0c9c, 0x2A0cbc, indexMatriMSprites_Jones, 0x01 },
+    { L"King Kang D", 0x2A0cbc, 0x2A0cdc, indexMatriMSprites_Jones, 0x02 },
     { L"Rolling/Super Jump Trail D", 0x2A0cdc, 0x2A0cfc, indexMatriMSprites_Jones, 0x0 },
     { L"EX/Super Trail D", 0x2A0cfc, 0x2A0d1c, indexMatriMSprites_Jones, 0x0 },
     { L"Guard Cancel Trail D", 0x2A0d1c, 0x2A0d3c, indexMatriMSprites_Jones, 0x0 },
@@ -460,10 +460,10 @@ const sGame_PaletteDataset Matrimelee_A_JONES_PORTRAIT_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_KANJI_A_PALETTES[] =
 {
     { L"Kanji Kokuin A", 0x29d450, 0x29d470, indexMatriMSprites_Kanji, 0x00 },
-    { L"Kyosuihizaryou A", 0x29d470, 0x29d490 },
-    { L"Spirit Power A", 0x29d490, 0x29d4b0 },
-    { L"Bakuretsu Houhi A", 0x29d4b0, 0x29d4d0 },
-    { L"Restore to Life A", 0x29d4d0, 0x29d4f0 },
+    { L"Kyosuihizaryou A", 0x29d470, 0x29d490, indexMatriMSprites_Kanji, 0x01 },
+    { L"Spirit Power A", 0x29d490, 0x29d4b0, indexMatriMSprites_Kanji, 0x02 },
+    { L"Bakuretsu Houhi A", 0x29d4b0, 0x29d4d0, indexMatriMSprites_Kanji, 0x03 },
+    { L"Restore to Life A", 0x29d4d0, 0x29d4f0, indexMatriMSprites_Kanji, 0x04 },
     { L"Rolling/Super Jump Trail A", 0x29d4f0, 0x29d510, indexMatriMSprites_Kanji, 0x00 },
     { L"EX/Super Trail A", 0x29d510, 0x29d530, indexMatriMSprites_Kanji, 0x00 },
     { L"Guard Cancel Trail A", 0x29d530, 0x29d550, indexMatriMSprites_Kanji, 0x00 },
@@ -473,10 +473,10 @@ const sGame_PaletteDataset Matrimelee_A_KANJI_A_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_KANJI_B_PALETTES[] =
 {
     { L"Kanji Kokuin B", 0x29d570, 0x29d590, indexMatriMSprites_Kanji, 0x00 },
-    { L"Kyosuihizaryou B", 0x29d590, 0x29d5b0 },
-    { L"Spirit Power B", 0x29d5b0, 0x29d5d0 },
-    { L"Bakuretsu Houhi B", 0x29d5d0, 0x29d5f0 },
-    { L"Restore to Life B", 0x29d5f0, 0x29d610 },
+    { L"Kyosuihizaryou B", 0x29d590, 0x29d5b0, indexMatriMSprites_Kanji, 0x01 },
+    { L"Spirit Power B", 0x29d5b0, 0x29d5d0, indexMatriMSprites_Kanji, 0x02 },
+    { L"Bakuretsu Houhi B", 0x29d5d0, 0x29d5f0, indexMatriMSprites_Kanji, 0x03 },
+    { L"Restore to Life B", 0x29d5f0, 0x29d610, indexMatriMSprites_Kanji, 0x04 },
     { L"Rolling/Super Jump Trail B", 0x29d610, 0x29d630, indexMatriMSprites_Kanji, 0x00 },
     { L"EX/Super Trail B", 0x29d630, 0x29d650, indexMatriMSprites_Kanji, 0x00 },
     { L"Guard Cancel Trail B", 0x29d650, 0x29d670, indexMatriMSprites_Kanji, 0x00 },
@@ -486,10 +486,10 @@ const sGame_PaletteDataset Matrimelee_A_KANJI_B_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_KANJI_C_PALETTES[] =
 {
     { L"Kanji Kokuin C", 0x29d690, 0x29d6b0, indexMatriMSprites_Kanji, 0x00 },
-    { L"Kyosuihizaryou C", 0x29d6b0, 0x29d6d0 },
-    { L"Spirit Power C", 0x29d6d0, 0x29d6f0 },
-    { L"Bakuretsu Houhi C", 0x29d6f0, 0x29d710 },
-    { L"Restore to Life C", 0x29d710, 0x29d730 },
+    { L"Kyosuihizaryou C", 0x29d6b0, 0x29d6d0, indexMatriMSprites_Kanji, 0x01 },
+    { L"Spirit Power C", 0x29d6d0, 0x29d6f0, indexMatriMSprites_Kanji, 0x02 },
+    { L"Bakuretsu Houhi C", 0x29d6f0, 0x29d710, indexMatriMSprites_Kanji, 0x03 },
+    { L"Restore to Life C", 0x29d710, 0x29d730, indexMatriMSprites_Kanji, 0x04 },
     { L"Rolling/Super Jump Trail C", 0x29d730, 0x29d750, indexMatriMSprites_Kanji, 0x00 },
     { L"EX/Super Trail C", 0x29d750, 0x29d770, indexMatriMSprites_Kanji, 0x00 },
     { L"Guard Cancel Trail C", 0x29d770, 0x29d790, indexMatriMSprites_Kanji, 0x00 },
@@ -499,10 +499,10 @@ const sGame_PaletteDataset Matrimelee_A_KANJI_C_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_KANJI_D_PALETTES[] =
 {
     { L"Kanji Kokuin D", 0x29d7b0, 0x29d7d0, indexMatriMSprites_Kanji, 0x00 },
-    { L"Kyosuihizaryou D", 0x29d7d0, 0x29d7f0 },
-    { L"Spirit Power D", 0x29d7f0, 0x29d810 },
-    { L"Bakuretsu Houhi D", 0x29d810, 0x29d830 },
-    { L"Restore to Life D", 0x29d830, 0x29d850 },
+    { L"Kyosuihizaryou D", 0x29d7d0, 0x29d7f0, indexMatriMSprites_Kanji, 0x01 },
+    { L"Spirit Power D", 0x29d7f0, 0x29d810, indexMatriMSprites_Kanji, 0x02 },
+    { L"Bakuretsu Houhi D", 0x29d810, 0x29d830, indexMatriMSprites_Kanji, 0x03 },
+    { L"Restore to Life D", 0x29d830, 0x29d850, indexMatriMSprites_Kanji, 0x04 },
     { L"Rolling/Super Jump Trail D", 0x29d850, 0x29d870, indexMatriMSprites_Kanji, 0x00 },
     { L"EX/Super Trail D", 0x29d870, 0x29d890, indexMatriMSprites_Kanji, 0x00 },
     { L"Guard Cancel Trail D", 0x29d890, 0x29d8b0, indexMatriMSprites_Kanji, 0x00 },
@@ -519,7 +519,7 @@ const sGame_PaletteDataset Matrimelee_A_KEITH_A_PALETTES[] =
     { L"Keith Wayne A", 0x29b3a2, 0x29b3c2, indexMatriMSprites_Keith, 0x00 },
     { L"Lightning Energy A", 0x29b3c2, 0x29b3e2, indexMatriMSprites_Keith, 0x01 },
     { L"Volcano Energy A", 0x29b3e2, 0x29b402, indexMatriMSprites_Keith, 0x02 },
-    { L"Unused Extra A", 0x29b402, 0x29b422 },
+    { L"Unused Extra A", 0x29b402, 0x29b422, indexMatriMSprites_Keith, 0x03 },
     { L"Rolling/Super Jump Trail A", 0x29b422, 0x29b442, indexMatriMSprites_Keith, 0x00 },
     { L"EX/Super Trail A", 0x29b442, 0x29b462, indexMatriMSprites_Keith, 0x00 },
     { L"Guard Cancel Trail A", 0x29b462, 0x29b482, indexMatriMSprites_Keith, 0x00 },
@@ -531,7 +531,7 @@ const sGame_PaletteDataset Matrimelee_A_KEITH_B_PALETTES[] =
     { L"Keith Wayne B", 0x29b4a2, 0x29b4c2, indexMatriMSprites_Keith, 0x00 },
     { L"Lightning Energy B", 0x29b4c2, 0x29b4e2, indexMatriMSprites_Keith, 0x01 },
     { L"Volcano Energy B", 0x29b4e2, 0x29b502, indexMatriMSprites_Keith, 0x02 },
-    { L"Unused Extra B", 0x29b502, 0x29b522 },
+    { L"Unused Extra B", 0x29b502, 0x29b522, indexMatriMSprites_Keith, 0x03 },
     { L"Rolling/Super Jump Trail B", 0x29b522, 0x29b542, indexMatriMSprites_Keith, 0x00 },
     { L"EX/Super Trail B", 0x29b542, 0x29b562, indexMatriMSprites_Keith, 0x00 },
     { L"Guard Cancel Trail B", 0x29b562, 0x29b582, indexMatriMSprites_Keith, 0x00 },
@@ -543,7 +543,7 @@ const sGame_PaletteDataset Matrimelee_A_KEITH_C_PALETTES[] =
     { L"Keith Wayne C", 0x29b5a2, 0x29b5c2, indexMatriMSprites_Keith, 0x00 },
     { L"Lightning Energy C", 0x29b5c2, 0x29b5e2, indexMatriMSprites_Keith, 0x01 },
     { L"Volcano Energy C", 0x29b5e2, 0x29b602, indexMatriMSprites_Keith, 0x02 },
-    { L"Unused Extra C", 0x29b602, 0x29b622 },
+    { L"Unused Extra C", 0x29b602, 0x29b622, indexMatriMSprites_Keith, 0x03 },
     { L"Rolling/Super Jump Trail C", 0x29b622, 0x29b642, indexMatriMSprites_Keith, 0x00 },
     { L"EX/Super Trail C", 0x29b642, 0x29b662, indexMatriMSprites_Keith, 0x00 },
     { L"Guard Cancel Trail C", 0x29b662, 0x29b682, indexMatriMSprites_Keith, 0x00 },
@@ -555,7 +555,7 @@ const sGame_PaletteDataset Matrimelee_A_KEITH_D_PALETTES[] =
     { L"Keith Wayne D", 0x29b6a2, 0x29b6c2, indexMatriMSprites_Keith, 0x00 },
     { L"Lightning Energy D", 0x29b6c2, 0x29b6e2, indexMatriMSprites_Keith, 0x01 },
     { L"Volcano Energy D", 0x29b6e2, 0x29b702, indexMatriMSprites_Keith, 0x02 },
-    { L"Unused Extra D", 0x29b702, 0x29b722 },
+    { L"Unused Extra D", 0x29b702, 0x29b722, indexMatriMSprites_Keith, 0x03 },
     { L"Rolling/Super Jump Trail D", 0x29b722, 0x29b742, indexMatriMSprites_Keith, 0x00 },
     { L"EX/Super Trail D", 0x29b742, 0x29b762, indexMatriMSprites_Keith, 0x00 },
     { L"Guard Cancel Trail D", 0x29b762, 0x29b782, indexMatriMSprites_Keith, 0x00 },
@@ -572,7 +572,7 @@ const sGame_PaletteDataset Matrimelee_A_LYNN_A_PALETTES[] =
     { L"Lynn Baker A", 0x2A0dbe, 0x2A0dde, indexMatriMSprites_Lynn, 0x00 },
     { L"Chi Energy 1 A", 0x2A0dde, 0x2A0dfe, indexMatriMSprites_Lynn, 0x01 },
     { L"Chi Energy 2 A", 0x2A0dfe, 0x2A0e1e, indexMatriMSprites_Lynn, 0x02 },
-    { L"Unused Extra A", 0x2A0e1e, 0x2A0e3e },
+    { L"Unused Extra A", 0x2A0e1e, 0x2A0e3e, indexMatriMSprites_Lynn, 0x03 },
     { L"Rolling/Super Jump Trail A", 0x2A0e3e, 0x2A0e5e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super Trail A", 0x2A0e5e, 0x2A0e7e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail A", 0x2A0e7e, 0x2A0e9e, indexMatriMSprites_Lynn, 0x00 },
@@ -584,7 +584,7 @@ const sGame_PaletteDataset Matrimelee_A_LYNN_B_PALETTES[] =
     { L"Lynn Baker B", 0x2A0ebe, 0x2A0ede, indexMatriMSprites_Lynn, 0x00 },
     { L"Chi Energy 1 B", 0x2A0ede, 0x2A0efe, indexMatriMSprites_Lynn, 0x01 },
     { L"Chi Energy 2 B", 0x2A0efe, 0x2A0f1e, indexMatriMSprites_Lynn, 0x02 },
-    { L"Unused Extra B", 0x2A0f1e, 0x2A0f3e },
+    { L"Unused Extra B", 0x2A0f1e, 0x2A0f3e, indexMatriMSprites_Lynn, 0x03 },
     { L"Rolling/Super Jump Trail B", 0x2A0f3e, 0x2A0f5e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super Trail B", 0x2A0f5e, 0x2A0f7e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail B", 0x2A0f7e, 0x2A0f9e, indexMatriMSprites_Lynn, 0x00 },
@@ -596,7 +596,7 @@ const sGame_PaletteDataset Matrimelee_A_LYNN_C_PALETTES[] =
     { L"Lynn Baker C", 0x2A0fbe, 0x2A0fde, indexMatriMSprites_Lynn, 0x00 },
     { L"Chi Energy 1 C", 0x2A0fde, 0x2A0ffe, indexMatriMSprites_Lynn, 0x01 },
     { L"Chi Energy 2 C", 0x2A0ffe, 0x2A101e, indexMatriMSprites_Lynn, 0x02 },
-    { L"Unused Extra C", 0x2A101e, 0x2A103e },
+    { L"Unused Extra C", 0x2A101e, 0x2A103e, indexMatriMSprites_Lynn, 0x03 },
     { L"Rolling/Super Jump Trail C", 0x2A103e, 0x2A105e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super Trail C", 0x2A105e, 0x2A107e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail C", 0x2A107e, 0x2A109e, indexMatriMSprites_Lynn, 0x00 },
@@ -608,7 +608,7 @@ const sGame_PaletteDataset Matrimelee_A_LYNN_D_PALETTES[] =
     { L"Lynn Baker D",                0x2A10be, 0x2A10de, indexMatriMSprites_Lynn, 0x00 },
     { L"Chi Energy 1 D",              0x2A10de, 0x2A10fe, indexMatriMSprites_Lynn, 0x01 },
     { L"Chi Energy 2 D",              0x2A10fe, 0x2A111e, indexMatriMSprites_Lynn, 0x02 },
-    { L"Unused Extra D",              0x2A111e, 0x2A113e },
+    { L"Unused Extra D",              0x2A111e, 0x2A113e, indexMatriMSprites_Lynn, 0x03 },
     { L"Rolling/Super Jump Trail D",  0x2A113e, 0x2A115e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super Trail D",            0x2A115e, 0x2A117e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail D",        0x2A117e, 0x2A119e, indexMatriMSprites_Lynn, 0x00 },
@@ -684,11 +684,11 @@ const sGame_PaletteDataset Matrimelee_A_OLOF_PORTRAIT_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_POOCHY_A_PALETTES[] =
 {
     { L"Poochy A", 0x29d952, 0x29d972, indexMatriMSprites_Poochy, 0x00 },
-    { L"Heavy Dig Items 1 A", 0x29d972, 0x29d992 },
-    { L"Heavy Dig Items 2 A", 0x29d992, 0x29d9b2 },
-    { L"Doggy Slash A", 0x29d9b2, 0x29d9d2 },
-    { L"Giant Bear Assault A", 0x29d9d2, 0x29d9f2 },
-    { L"Canine Cyclone A", 0x29d9f2, 0x29da12 },
+    { L"Heavy Dig Items 1 A", 0x29d972, 0x29d992, indexMatriMSprites_Poochy, 0x01 },
+    { L"Heavy Dig Items 2 A", 0x29d992, 0x29d9b2, indexMatriMSprites_Poochy, 0x02 },
+    { L"Doggy Slash A", 0x29d9b2, 0x29d9d2, indexMatriMSprites_Poochy, 0x03 },
+    { L"Giant Bear Assault A", 0x29d9d2, 0x29d9f2, indexMatriMSprites_Poochy, 0x04 },
+    { L"Canine Cyclone A", 0x29d9f2, 0x29da12, indexMatriMSprites_Poochy, 0x05 },
     { L"Rolling/Super Jump Trail A", 0x29da12, 0x29da32, indexMatriMSprites_Poochy, 0x00 },
     { L"EX/Super Trail A", 0x29da32, 0x29da52, indexMatriMSprites_Poochy, 0x00 },
     { L"Guard Cancel Trail A", 0x29da52, 0x29da72, indexMatriMSprites_Poochy, 0x00 },
@@ -698,11 +698,11 @@ const sGame_PaletteDataset Matrimelee_A_POOCHY_A_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_POOCHY_B_PALETTES[] =
 {
     { L"Poochy B", 0x29da92, 0x29dab2, indexMatriMSprites_Poochy, 0x00 },
-    { L"Heavy Dig Items 1 B", 0x29dab2, 0x29dad2 },
-    { L"Heavy Dig Items 2 B", 0x29dad2, 0x29daf2 },
-    { L"Doggy Slash B", 0x29daf2, 0x29db12 },
-    { L"Giant Bear Assault B", 0x29db12, 0x29db32 },
-    { L"Canine Cyclone B", 0x29db32, 0x29db52 },
+    { L"Heavy Dig Items 1 B", 0x29dab2, 0x29dad2, indexMatriMSprites_Poochy, 0x01 },
+    { L"Heavy Dig Items 2 B", 0x29dad2, 0x29daf2, indexMatriMSprites_Poochy, 0x02 },
+    { L"Doggy Slash B", 0x29daf2, 0x29db12, indexMatriMSprites_Poochy, 0x03 },
+    { L"Giant Bear Assault B", 0x29db12, 0x29db32, indexMatriMSprites_Poochy, 0x04 },
+    { L"Canine Cyclone B", 0x29db32, 0x29db52, indexMatriMSprites_Poochy, 0x05 },
     { L"Rolling/Super Jump Trail B", 0x29db52, 0x29db72, indexMatriMSprites_Poochy, 0x00 },
     { L"EX/Super Trail B", 0x29db72, 0x29db92, indexMatriMSprites_Poochy, 0x00 },
     { L"Guard Cancel Trail B", 0x29db92, 0x29dbb2, indexMatriMSprites_Poochy, 0x00 },
@@ -712,11 +712,11 @@ const sGame_PaletteDataset Matrimelee_A_POOCHY_B_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_POOCHY_C_PALETTES[] =
 {
     { L"Poochy C", 0x29dbd2, 0x29dbf2, indexMatriMSprites_Poochy, 0x00 },
-    { L"Heavy Dig Items 1 C", 0x29dbf2, 0x29dc12 },
-    { L"Heavy Dig Items 2 C", 0x29dc12, 0x29dc32 },
-    { L"Doggy Slash C", 0x29dc32, 0x29dc52 },
-    { L"Giant Bear Assault C", 0x29dc52, 0x29dc72 },
-    { L"Canine Cyclone C", 0x29dc72, 0x29dc92 },
+    { L"Heavy Dig Items 1 C", 0x29dbf2, 0x29dc12, indexMatriMSprites_Poochy, 0x01 },
+    { L"Heavy Dig Items 2 C", 0x29dc12, 0x29dc32, indexMatriMSprites_Poochy, 0x02 },
+    { L"Doggy Slash C", 0x29dc32, 0x29dc52, indexMatriMSprites_Poochy, 0x03 },
+    { L"Giant Bear Assault C", 0x29dc52, 0x29dc72, indexMatriMSprites_Poochy, 0x04 },
+    { L"Canine Cyclone C", 0x29dc72, 0x29dc92, indexMatriMSprites_Poochy, 0x05 },
     { L"Rolling/Super Jump Trail C", 0x29dc92, 0x29dcb2, indexMatriMSprites_Poochy, 0x00 },
     { L"EX/Super Trail C", 0x29dcb2, 0x29dcd2, indexMatriMSprites_Poochy, 0x00 },
     { L"Guard Cancel Trail C", 0x29dcd2, 0x29dcf2, indexMatriMSprites_Poochy, 0x00 },
@@ -726,11 +726,11 @@ const sGame_PaletteDataset Matrimelee_A_POOCHY_C_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_POOCHY_D_PALETTES[] =
 {
     { L"Poochy D", 0x29dd12, 0x29dd32, indexMatriMSprites_Poochy, 0x00 },
-    { L"Heavy Dig Items 1 D", 0x29dd32, 0x29dd52 },
-    { L"Heavy Dig Items 2 D", 0x29dd52, 0x29dd72 },
-    { L"Doggy Slash D", 0x29dd72, 0x29dd92 },
-    { L"Giant Bear Assault D", 0x29dd92, 0x29ddb2 },
-    { L"Canine Cyclone D", 0x29ddb2, 0x29ddd2 },
+    { L"Heavy Dig Items 1 D", 0x29dd32, 0x29dd52, indexMatriMSprites_Poochy, 0x01 },
+    { L"Heavy Dig Items 2 D", 0x29dd52, 0x29dd72, indexMatriMSprites_Poochy, 0x02 },
+    { L"Doggy Slash D", 0x29dd72, 0x29dd92, indexMatriMSprites_Poochy, 0x03 },
+    { L"Giant Bear Assault D", 0x29dd92, 0x29ddb2, indexMatriMSprites_Poochy, 0x04 },
+    { L"Canine Cyclone D", 0x29ddb2, 0x29ddd2, indexMatriMSprites_Poochy, 0x05 },
     { L"Rolling/Super Jump Trail D", 0x29ddd2, 0x29ddf2, indexMatriMSprites_Poochy, 0x00 },
     { L"EX/Super Trail D", 0x29ddf2, 0x29de12, indexMatriMSprites_Poochy, 0x00 },
     { L"Guard Cancel Trail D", 0x29de12, 0x29de32, indexMatriMSprites_Poochy, 0x00 },
@@ -819,8 +819,8 @@ const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_REIJI_A_PALETTES[] =
 {
     { L"Reiji Oyama A", 0x29afc0, 0x29afe0, indexMatriMSprites_Reiji, 0x00 },
-    { L"KI Energy A", 0x29afe0, 0x29b000 },
-    { L"Geki Ko Sho Shou A", 0x29b000, 0x29b020 },
+    { L"KI Energy A", 0x29afe0, 0x29b000, indexMatriMSprites_Reiji, 0x01 },
+    { L"Geki Ko Sho Shou A", 0x29b000, 0x29b020, indexMatriMSprites_Reiji, 0x02 },
     { L"Rolling/Super Jump Trail A", 0x29b020, 0x29b040, indexMatriMSprites_Reiji, 0x00 },
     { L"EX/Super Trail A", 0x29b040, 0x29b060, indexMatriMSprites_Reiji, 0x00 },
     { L"Guard Cancel Trail A", 0x29b060, 0x29b080, indexMatriMSprites_Reiji, 0x00 },
@@ -830,8 +830,8 @@ const sGame_PaletteDataset Matrimelee_A_REIJI_A_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_REIJI_B_PALETTES[] =
 {
     { L"Reiji Oyama B", 0x29b0a0, 0x29b0c0, indexMatriMSprites_Reiji, 0x00 },
-    { L"KI Energy B", 0x29b0c0, 0x29b0e0 },
-    { L"Geki Ko Sho Shou B", 0x29b0e0, 0x29b100 },
+    { L"KI Energy B", 0x29b0c0, 0x29b0e0, indexMatriMSprites_Reiji, 0x01 },
+    { L"Geki Ko Sho Shou B", 0x29b0e0, 0x29b100, indexMatriMSprites_Reiji, 0x02 },
     { L"Rolling/Super Jump Trail B", 0x29b100, 0x29b120, indexMatriMSprites_Reiji, 0x00 },
     { L"EX/Super Trail B", 0x29b120, 0x29b140, indexMatriMSprites_Reiji, 0x00 },
     { L"Guard Cancel Trail B", 0x29b140, 0x29b160, indexMatriMSprites_Reiji, 0x00 },
@@ -841,8 +841,8 @@ const sGame_PaletteDataset Matrimelee_A_REIJI_B_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_REIJI_C_PALETTES[] =
 {
     { L"Reiji Oyama C", 0x29b180, 0x29b1a0, indexMatriMSprites_Reiji, 0x00 },
-    { L"KI Energy C", 0x29b1a0, 0x29b1c0 },
-    { L"Geki Ko Sho Shou C", 0x29b1c0, 0x29b1e0 },
+    { L"KI Energy C", 0x29b1a0, 0x29b1c0, indexMatriMSprites_Reiji, 0x01 },
+    { L"Geki Ko Sho Shou C", 0x29b1c0, 0x29b1e0, indexMatriMSprites_Reiji, 0x02 },
     { L"Rolling/Super Jump Trail C", 0x29b1e0, 0x29b200, indexMatriMSprites_Reiji, 0x00 },
     { L"EX/Super Trail C", 0x29b200, 0x29b220, indexMatriMSprites_Reiji, 0x00 },
     { L"Guard Cancel Trail C", 0x29b220, 0x29b240, indexMatriMSprites_Reiji, 0x00 },
@@ -852,8 +852,8 @@ const sGame_PaletteDataset Matrimelee_A_REIJI_C_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_REIJI_D_PALETTES[] =
 {
     { L"Reiji Oyama D", 0x29b260, 0x29b280, indexMatriMSprites_Reiji, 0x00 },
-    { L"KI Energy D", 0x29b280, 0x29b2A0 },
-    { L"Geki Ko Sho Shou D", 0x29b2A0, 0x29b2c0 },
+    { L"KI Energy D", 0x29b280, 0x29b2A0, indexMatriMSprites_Reiji, 0x01 },
+    { L"Geki Ko Sho Shou D", 0x29b2A0, 0x29b2c0, indexMatriMSprites_Reiji, 0x02 },
     { L"Rolling/Super Jump Trail D", 0x29b2c0, 0x29b2e0, indexMatriMSprites_Reiji, 0x00 },
     { L"EX/Super Trail D", 0x29b2e0, 0x29b300, indexMatriMSprites_Reiji, 0x00 },
     { L"Guard Cancel Trail D", 0x29b300, 0x29b320, indexMatriMSprites_Reiji, 0x00 },
@@ -973,18 +973,18 @@ const sGame_PaletteDataset Matrimelee_A_SHINTARO_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_TANE_A_PALETTES[] =
 {
-    { L"Tane Goketsuji A", 0x29ded4, 0x29def4, indexMatriMSprites_Tane, 0x00 },
-    { L"Gan Saishi A", 0x29def4, 0x29df14 },
-    { L"Burning Energy A", 0x29df14, 0x29df34 },
-    { L"Purple Energy A", 0x29df34, 0x29df54 },
-    { L"Mirror Attack A", 0x29df54, 0x29df74 },
-    { L"Intro Clothes A", 0x29df74, 0x29df94 },
-    { L"Unused Extra A", 0x29df94, 0x29dfb4 },
-    { L"Winpose Young Form A", 0x29dfb4, 0x29dfd4, indexMatriMSprites_Tane, 0x00 },
+    { L"Tane Goketsuji A", 0x29ded4, 0x29def4, indexMatriMSprites_Tane, 0x00, &pairNext7 },
+    { L"Gan Saishi A", 0x29def4, 0x29df14, indexMatriMSprites_Tane, 0x01 },
+    { L"Burning Energy A", 0x29df14, 0x29df34, indexMatriMSprites_Tane, 0x02 },
+    { L"Purple Energy A", 0x29df34, 0x29df54, indexMatriMSprites_Tane, 0x03 },
+    { L"Mirror Attack A", 0x29df54, 0x29df74, indexMatriMSprites_Tane, 0x04 },
+    { L"Intro Clothes A", 0x29df74, 0x29df94, indexMatriMSprites_Tane, 0x05 },
+    { L"Unused Extra A", 0x29df94, 0x29dfb4, indexMatriMSprites_Tane, 0x06 },
+    { L"Winpose Young Form A", 0x29dfb4, 0x29dfd4, indexMatriMSprites_Tane, 0x07 },
     { L"Winpose Flash 1 A", 0x29dfd4, 0x29dff4, indexMatriMSprites_Tane, 0x00 },
     { L"Winpose Flash 2 A", 0x29dff4, 0x29e014, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 1 A", 0x29e014, 0x29e034, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 2 A", 0x29e034, 0x29e054, indexMatriMSprites_Tane, 0x00 },
+    { L"Winpose Young Form Flash 1 A", 0x29e014, 0x29e034, indexMatriMSprites_Tane, 0x07 },
+    { L"Winpose Young Form Flash 2 A", 0x29e034, 0x29e054, indexMatriMSprites_Tane, 0x07 },
     { L"Rolling/Super Jump Trail A", 0x29e054, 0x29e074, indexMatriMSprites_Tane, 0x00 },
     { L"EX/Super Trail A", 0x29e074, 0x29e094, indexMatriMSprites_Tane, 0x00 },
     { L"Guard Cancel Trail A", 0x29e094, 0x29e0b4, indexMatriMSprites_Tane, 0x00 },
@@ -993,18 +993,18 @@ const sGame_PaletteDataset Matrimelee_A_TANE_A_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_TANE_B_PALETTES[] =
 {
-    { L"Tane Goketsuji B", 0x29e0d4, 0x29e0f4, indexMatriMSprites_Tane, 0x00 },
-    { L"Gan Saishi B", 0x29e0f4, 0x29e114 },
-    { L"Burning Energy B", 0x29e114, 0x29e134 },
-    { L"Purple Energy B", 0x29e134, 0x29e154 },
-    { L"Mirror Attack B", 0x29e154, 0x29e174 },
-    { L"Intro Clothes B", 0x29e174, 0x29e194 },
-    { L"Unused Extra B", 0x29e194, 0x29e1b4 },
-    { L"Winpose Young Form B", 0x29e1b4, 0x29e1d4, indexMatriMSprites_Tane, 0x00 },
+    { L"Tane Goketsuji B", 0x29e0d4, 0x29e0f4, indexMatriMSprites_Tane, 0x00, &pairNext7 },
+    { L"Gan Saishi B", 0x29e0f4, 0x29e114, indexMatriMSprites_Tane, 0x01 },
+    { L"Burning Energy B", 0x29e114, 0x29e134, indexMatriMSprites_Tane, 0x02 },
+    { L"Purple Energy B", 0x29e134, 0x29e154, indexMatriMSprites_Tane, 0x03 },
+    { L"Mirror Attack B", 0x29e154, 0x29e174, indexMatriMSprites_Tane, 0x04 },
+    { L"Intro Clothes B", 0x29e174, 0x29e194, indexMatriMSprites_Tane, 0x05 },
+    { L"Unused Extra B", 0x29e194, 0x29e1b4, indexMatriMSprites_Tane, 0x06 },
+    { L"Winpose Young Form B", 0x29e1b4, 0x29e1d4, indexMatriMSprites_Tane, 0x07 },
     { L"Winpose Flash 1 B", 0x29e1d4, 0x29e1f4, indexMatriMSprites_Tane, 0x00 },
     { L"Winpose Flash 2 B", 0x29e1f4, 0x29e214, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 1 B", 0x29e214, 0x29e234, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 2 B", 0x29e234, 0x29e254, indexMatriMSprites_Tane, 0x00 },
+    { L"Winpose Young Form Flash 1 B", 0x29e214, 0x29e234, indexMatriMSprites_Tane, 0x07 },
+    { L"Winpose Young Form Flash 2 B", 0x29e234, 0x29e254, indexMatriMSprites_Tane, 0x07 },
     { L"Rolling/Super Jump Trail B", 0x29e254, 0x29e274, indexMatriMSprites_Tane, 0x00 },
     { L"EX/Super Trail B", 0x29e274, 0x29e294, indexMatriMSprites_Tane, 0x00 },
     { L"Guard Cancel Trail B", 0x29e294, 0x29e2b4, indexMatriMSprites_Tane, 0x00 },
@@ -1013,18 +1013,18 @@ const sGame_PaletteDataset Matrimelee_A_TANE_B_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_TANE_C_PALETTES[] =
 {
-    { L"Tane Goketsuji C", 0x29e2d4, 0x29e2f4, indexMatriMSprites_Tane, 0x00 },
-    { L"Gan Saishi C", 0x29e2f4, 0x29e314 },
-    { L"Burning Energy C", 0x29e314, 0x29e334 },
-    { L"Purple Energy C", 0x29e334, 0x29e354 },
-    { L"Mirror Attack C", 0x29e354, 0x29e374 },
-    { L"Intro Clothes C", 0x29e374, 0x29e394 },
-    { L"Unused Extra C", 0x29e394, 0x29e3b4 },
-    { L"Winpose Young Form C", 0x29e3b4, 0x29e3d4, indexMatriMSprites_Tane, 0x00 },
+    { L"Tane Goketsuji C", 0x29e2d4, 0x29e2f4, indexMatriMSprites_Tane, 0x00, &pairNext7 },
+    { L"Gan Saishi C", 0x29e2f4, 0x29e314, indexMatriMSprites_Tane, 0x01 },
+    { L"Burning Energy C", 0x29e314, 0x29e334, indexMatriMSprites_Tane, 0x02 },
+    { L"Purple Energy C", 0x29e334, 0x29e354, indexMatriMSprites_Tane, 0x03 },
+    { L"Mirror Attack C", 0x29e354, 0x29e374, indexMatriMSprites_Tane, 0x04 },
+    { L"Intro Clothes C", 0x29e374, 0x29e394, indexMatriMSprites_Tane, 0x05 },
+    { L"Unused Extra C", 0x29e394, 0x29e3b4, indexMatriMSprites_Tane, 0x06 },
+    { L"Winpose Young Form C", 0x29e3b4, 0x29e3d4, indexMatriMSprites_Tane, 0x07 },
     { L"Winpose Flash 1 C", 0x29e3d4, 0x29e3f4, indexMatriMSprites_Tane, 0x00 },
     { L"Winpose Flash 2 C", 0x29e3f4, 0x29e414, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 1 C", 0x29e414, 0x29e434, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 2 C", 0x29e434, 0x29e454, indexMatriMSprites_Tane, 0x00 },
+    { L"Winpose Young Form Flash 1 C", 0x29e414, 0x29e434, indexMatriMSprites_Tane, 0x07 },
+    { L"Winpose Young Form Flash 2 C", 0x29e434, 0x29e454, indexMatriMSprites_Tane, 0x07 },
     { L"Rolling/Super Jump Trail C", 0x29e454, 0x29e474, indexMatriMSprites_Tane, 0x00 },
     { L"EX/Super Trail C", 0x29e474, 0x29e494, indexMatriMSprites_Tane, 0x00 },
     { L"Guard Cancel Trail C", 0x29e494, 0x29e4b4, indexMatriMSprites_Tane, 0x00 },
@@ -1033,18 +1033,18 @@ const sGame_PaletteDataset Matrimelee_A_TANE_C_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_TANE_D_PALETTES[] =
 {
-    { L"Tane Goketsuji D", 0x29e4d4, 0x29e4f4, indexMatriMSprites_Tane, 0x00 },
-    { L"Gan Saishi D", 0x29e4f4, 0x29e514 },
-    { L"Burning Energy D", 0x29e514, 0x29e534 },
-    { L"Purple Energy D", 0x29e534, 0x29e554 },
-    { L"v D", 0x29e554, 0x29e574 },
-    { L"Intro Clothes D", 0x29e574, 0x29e594 },
-    { L"Unused Extra D", 0x29e594, 0x29e5b4 },
-    { L"Winpose Young Form D", 0x29e5b4, 0x29e5d4, indexMatriMSprites_Tane, 0x00 },
+    { L"Tane Goketsuji D", 0x29e4d4, 0x29e4f4, indexMatriMSprites_Tane, 0x00, &pairNext7 },
+    { L"Gan Saishi D", 0x29e4f4, 0x29e514, indexMatriMSprites_Tane, 0x01 },
+    { L"Burning Energy D", 0x29e514, 0x29e534, indexMatriMSprites_Tane, 0x02 },
+    { L"Purple Energy D", 0x29e534, 0x29e554, indexMatriMSprites_Tane, 0x03 },
+    { L"Mirror Attack D", 0x29e554, 0x29e574, indexMatriMSprites_Tane, 0x04 },
+    { L"Intro Clothes D", 0x29e574, 0x29e594, indexMatriMSprites_Tane, 0x05 },
+    { L"Unused Extra D", 0x29e594, 0x29e5b4, indexMatriMSprites_Tane, 0x06 },
+    { L"Winpose Young Form D", 0x29e5b4, 0x29e5d4, indexMatriMSprites_Tane, 0x07 },
     { L"Winpose Flash 1 D", 0x29e5d4, 0x29e5f4, indexMatriMSprites_Tane, 0x00 },
     { L"Winpose Flash 2 D", 0x29e5f4, 0x29e614, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 1 D", 0x29e614, 0x29e634, indexMatriMSprites_Tane, 0x00 },
-    { L"Winpose Young Form Flash 2 D", 0x29e634, 0x29e654, indexMatriMSprites_Tane, 0x00 },
+    { L"Winpose Young Form Flash 1 D", 0x29e614, 0x29e634, indexMatriMSprites_Tane, 0x07 },
+    { L"Winpose Young Form Flash 2 D", 0x29e634, 0x29e654, indexMatriMSprites_Tane, 0x07 },
     { L"Rolling/Super Jump Trail D", 0x29e654, 0x29e674, indexMatriMSprites_Tane, 0x00 },
     { L"EX/Super Trail D", 0x29e674, 0x29e694, indexMatriMSprites_Tane, 0x00 },
     { L"Guard Cancel Trail D", 0x29e694, 0x29e6b4, indexMatriMSprites_Tane, 0x00 },
@@ -1058,13 +1058,13 @@ const sGame_PaletteDataset Matrimelee_A_TANE_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_UME_A_PALETTES[] =
 {
-    { L"Ume Goketsuji A", 0x29e736, 0x29e756, indexMatriMSprites_Ume, 0x00 },
-    { L"Gan Saishi A", 0x29e756, 0x29e776 },
-    { L"Burning Energy A", 0x29e776, 0x29e796 },
-    { L"Purple Energy A", 0x29e796, 0x29e7b6 },
-    { L"Mirror Attack A", 0x29e7b6, 0x29e7d6 },
-    { L"Intro Clothes A", 0x29e7d6, 0x29e7f6 },
-    { L"Unused Extra A", 0x29e7f6, 0x29e816 },
+    { L"Ume Goketsuji A", 0x29e736, 0x29e756, indexMatriMSprites_Ume, 0x00, &pairNext5 },
+    { L"Gan Saishi A", 0x29e756, 0x29e776, indexMatriMSprites_Ume, 0x01 },
+    { L"Burning Energy A", 0x29e776, 0x29e796, indexMatriMSprites_Ume, 0x02 },
+    { L"Purple Energy A", 0x29e796, 0x29e7b6, indexMatriMSprites_Ume, 0x03 },
+    { L"Mirror Attack A", 0x29e7b6, 0x29e7d6, indexMatriMSprites_Ume, 0x04 },
+    { L"Intro Clothes A", 0x29e7d6, 0x29e7f6, indexMatriMSprites_Ume, 0x05 },
+    { L"Unused Extra A", 0x29e7f6, 0x29e816, indexMatriMSprites_Ume, 0x06 },
     //{ L"Unused(?) A", 0x29e816, 0x29e836 },
     //{ L"Unused(?) A", 0x29e836, 0x29e856 },
     //{ L"Unused(?) A", 0x29e856, 0x29e876 },
@@ -1076,13 +1076,13 @@ const sGame_PaletteDataset Matrimelee_A_UME_A_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_UME_B_PALETTES[] =
 {
-    { L"Ume Goketsuji B", 0x29e8f6, 0x29e916, indexMatriMSprites_Ume, 0x00 },
-    { L"Gan Saishi B", 0x29e916, 0x29e936 },
-    { L"Burning Energy B", 0x29e936, 0x29e956 },
-    { L"Purple Energy B", 0x29e956, 0x29e976 },
-    { L"Mirror Attack B", 0x29e976, 0x29e996 },
-    { L"Intro Clothes B", 0x29e996, 0x29e9b6 },
-    { L"Unused Extra B", 0x29e9b6, 0x29e9d6 },
+    { L"Ume Goketsuji B", 0x29e8f6, 0x29e916, indexMatriMSprites_Ume, 0x00, &pairNext5 },
+    { L"Gan Saishi B", 0x29e916, 0x29e936, indexMatriMSprites_Ume, 0x01 },
+    { L"Burning Energy B", 0x29e936, 0x29e956, indexMatriMSprites_Ume, 0x02 },
+    { L"Purple Energy B", 0x29e956, 0x29e976, indexMatriMSprites_Ume, 0x03 },
+    { L"Mirror Attack B", 0x29e976, 0x29e996, indexMatriMSprites_Ume, 0x04 },
+    { L"Intro Clothes B", 0x29e996, 0x29e9b6, indexMatriMSprites_Ume, 0x05 },
+    { L"Unused Extra B", 0x29e9b6, 0x29e9d6, indexMatriMSprites_Ume, 0x06 },
     { L"Rolling/Super Jump Trail B", 0x29e9d6, 0x29e9f6, indexMatriMSprites_Ume, 0x00 },
     { L"EX/Super Trail B", 0x29e9f6, 0x29ea16, indexMatriMSprites_Ume, 0x00 },
     { L"Guard Cancel Trail B", 0x29ea16, 0x29ea36, indexMatriMSprites_Ume, 0x00 },
@@ -1091,13 +1091,13 @@ const sGame_PaletteDataset Matrimelee_A_UME_B_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_UME_C_PALETTES[] =
 {
-    { L"Ume Goketsuji C", 0x29ea56, 0x29ea76, indexMatriMSprites_Ume, 0x00 },
-    { L"Gan Saishi C", 0x29ea76, 0x29ea96 },
-    { L"Burning Energy C", 0x29ea96, 0x29eab6 },
-    { L"Purple Energy C", 0x29eab6, 0x29ead6 },
-    { L"Mirror Attack C", 0x29ead6, 0x29eaf6 },
-    { L"Intro Clothes C", 0x29eaf6, 0x29eb16 },
-    { L"Unused Extra C", 0x29eb16, 0x29eb36 },
+    { L"Ume Goketsuji C", 0x29ea56, 0x29ea76, indexMatriMSprites_Ume, 0x00, &pairNext5 },
+    { L"Gan Saishi C", 0x29ea76, 0x29ea96, indexMatriMSprites_Ume, 0x01 },
+    { L"Burning Energy C", 0x29ea96, 0x29eab6, indexMatriMSprites_Ume, 0x02 },
+    { L"Purple Energy C", 0x29eab6, 0x29ead6, indexMatriMSprites_Ume, 0x03 },
+    { L"Mirror Attack C", 0x29ead6, 0x29eaf6, indexMatriMSprites_Ume, 0x04 },
+    { L"Intro Clothes C", 0x29eaf6, 0x29eb16, indexMatriMSprites_Ume, 0x05 },
+    { L"Unused Extra C", 0x29eb16, 0x29eb36, indexMatriMSprites_Ume, 0x06 },
     { L"Rolling/Super Jump Trail C", 0x29eb36, 0x29eb56, indexMatriMSprites_Ume, 0x00 },
     { L"EX/Super Trail C", 0x29eb56, 0x29eb76, indexMatriMSprites_Ume, 0x00 },
     { L"Guard Cancel Trail C", 0x29eb76, 0x29eb96, indexMatriMSprites_Ume, 0x00 },
@@ -1106,13 +1106,13 @@ const sGame_PaletteDataset Matrimelee_A_UME_C_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_UME_D_PALETTES[] =
 {
-    { L"Ume Goketsuji D", 0x29ebb6, 0x29ebd6, indexMatriMSprites_Ume, 0x00 },
-    { L"Gan Saishi D", 0x29ebd6, 0x29ebf6 },
-    { L"Burning Energy D", 0x29ebf6, 0x29ec16 },
-    { L"Purple Energy D", 0x29ec16, 0x29ec36 },
-    { L"Mirror Attack D", 0x29ec36, 0x29ec56 },
-    { L"Intro Clothes D", 0x29ec56, 0x29ec76 },
-    { L"Unused Extra D", 0x29ec76, 0x29ec96 },
+    { L"Ume Goketsuji D", 0x29ebb6, 0x29ebd6, indexMatriMSprites_Ume, 0x00, &pairNext5 },
+    { L"Gan Saishi D", 0x29ebd6, 0x29ebf6, indexMatriMSprites_Ume, 0x01 },
+    { L"Burning Energy D", 0x29ebf6, 0x29ec16, indexMatriMSprites_Ume, 0x02 },
+    { L"Purple Energy D", 0x29ec16, 0x29ec36, indexMatriMSprites_Ume, 0x03 },
+    { L"Mirror Attack D", 0x29ec36, 0x29ec56, indexMatriMSprites_Ume, 0x04 },
+    { L"Intro Clothes D", 0x29ec56, 0x29ec76, indexMatriMSprites_Ume, 0x05 },
+    { L"Unused Extra D", 0x29ec76, 0x29ec96, indexMatriMSprites_Ume, 0x06 },
     { L"Rolling/Super Jump Trail D", 0x29ec96, 0x29ecb6, indexMatriMSprites_Ume, 0x00 },
     { L"EX/Super Trail D", 0x29ecb6, 0x29ecd6, indexMatriMSprites_Ume, 0x00 },
     { L"Guard Cancel Trail D", 0x29ecd6, 0x29ecf6, indexMatriMSprites_Ume, 0x00 },
@@ -1126,12 +1126,12 @@ const sGame_PaletteDataset Matrimelee_A_UME_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_WHITE_A_PALETTES[] =
 {
-    { L"White Buffalo A", 0x29c2A8, 0x29c2c8, indexMatriMSprites_White, 0x00 },
-    { L"Arrow Attacks A", 0x29c2c8, 0x29c2e8 },
-    { L"Buffalo Storm A", 0x29c2e8, 0x29c308 },
-    { L"Flying Elbow A", 0x29c308, 0x29c328 },
-    { L"Totem Tornado A", 0x29c328, 0x29c348 },
-    { L"Intro Clothes A", 0x29c348, 0x29c368, indexMatriMSprites_White, 0x00 },
+    { L"White Buffalo A", 0x29c2A8, 0x29c2c8, indexMatriMSprites_White, 0x00, &pairNext5 },
+    { L"Arrow Attacks A", 0x29c2c8, 0x29c2e8, indexMatriMSprites_White, 0x01 },
+    { L"Buffalo Storm A", 0x29c2e8, 0x29c308, indexMatriMSprites_White, 0x02 },
+    { L"Flying Elbow A", 0x29c308, 0x29c328, indexMatriMSprites_White, 0x03 },
+    { L"Totem Tornado A", 0x29c328, 0x29c348, indexMatriMSprites_White, 0x04 },
+    { L"Intro Clothes A", 0x29c348, 0x29c368, indexMatriMSprites_White, 0x05 },
     { L"Rolling/Super Jump Trail A", 0x29c368, 0x29c388, indexMatriMSprites_White, 0x00 },
     { L"EX/Super Trail A", 0x29c388, 0x29c3a8, indexMatriMSprites_White, 0x00 },
     { L"Guard Cancel Trail A", 0x29c3a8, 0x29c3c8, indexMatriMSprites_White, 0x00 },
@@ -1140,12 +1140,12 @@ const sGame_PaletteDataset Matrimelee_A_WHITE_A_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_WHITE_B_PALETTES[] =
 {
-    { L"White Buffalo B", 0x29c3e8, 0x29c408, indexMatriMSprites_White, 0x00 },
-    { L"Arrow Attacks B", 0x29c408, 0x29c428 },
-    { L"Buffalo Storm B", 0x29c428, 0x29c448 },
-    { L"Flying Elbow B", 0x29c448, 0x29c468 },
-    { L"Totem Tornado B", 0x29c468, 0x29c488 },
-    { L"Intro Clothes B", 0x29c488, 0x29c4a8, indexMatriMSprites_White, 0x00 },
+    { L"White Buffalo B", 0x29c3e8, 0x29c408, indexMatriMSprites_White, 0x00, &pairNext5 },
+    { L"Arrow Attacks B", 0x29c408, 0x29c428, indexMatriMSprites_White, 0x01 },
+    { L"Buffalo Storm B", 0x29c428, 0x29c448, indexMatriMSprites_White, 0x02 },
+    { L"Flying Elbow B", 0x29c448, 0x29c468, indexMatriMSprites_White, 0x03 },
+    { L"Totem Tornado B", 0x29c468, 0x29c488, indexMatriMSprites_White, 0x04 },
+    { L"Intro Clothes B", 0x29c488, 0x29c4a8, indexMatriMSprites_White, 0x05 },
     { L"Rolling/Super Jump Trail B", 0x29c4a8, 0x29c4c8, indexMatriMSprites_White, 0x00 },
     { L"EX/Super Trail B", 0x29c4c8, 0x29c4e8, indexMatriMSprites_White, 0x00 },
     { L"Guard Cancel Trail B", 0x29c4e8, 0x29c508, indexMatriMSprites_White, 0x00 },
@@ -1154,12 +1154,12 @@ const sGame_PaletteDataset Matrimelee_A_WHITE_B_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_WHITE_C_PALETTES[] =
 {
-    { L"White Buffalo C", 0x29c528, 0x29c548, indexMatriMSprites_White, 0x00 },
-    { L"Arrow Attacks C", 0x29c548, 0x29c568 },
-    { L"Buffalo Storm C", 0x29c568, 0x29c588 },
-    { L"Flying Elbow C", 0x29c588, 0x29c5a8 },
-    { L"Totem Tornado C", 0x29c5a8, 0x29c5c8 },
-    { L"Intro Clothes C", 0x29c5c8, 0x29c5e8, indexMatriMSprites_White, 0x00 },
+    { L"White Buffalo C", 0x29c528, 0x29c548, indexMatriMSprites_White, 0x00, &pairNext5 },
+    { L"Arrow Attacks C", 0x29c548, 0x29c568, indexMatriMSprites_White, 0x01 },
+    { L"Buffalo Storm C", 0x29c568, 0x29c588, indexMatriMSprites_White, 0x02 },
+    { L"Flying Elbow C", 0x29c588, 0x29c5a8, indexMatriMSprites_White, 0x03 },
+    { L"Totem Tornado C", 0x29c5a8, 0x29c5c8, indexMatriMSprites_White, 0x04 },
+    { L"Intro Clothes C", 0x29c5c8, 0x29c5e8, indexMatriMSprites_White, 0x05 },
     { L"Rolling/Super Jump Trail C", 0x29c5e8, 0x29c608, indexMatriMSprites_White, 0x00 },
     { L"EX/Super Trail C", 0x29c608, 0x29c628, indexMatriMSprites_White, 0x00 },
     { L"Guard Cancel Trail C", 0x29c628, 0x29c648, indexMatriMSprites_White, 0x00 },
@@ -1168,12 +1168,12 @@ const sGame_PaletteDataset Matrimelee_A_WHITE_C_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_WHITE_D_PALETTES[] =
 {
-    { L"White Buffalo D", 0x29c668, 0x29c688, indexMatriMSprites_White, 0x00 },
-    { L"Arrow Attacks D", 0x29c688, 0x29c6a8 },
-    { L"Buffalo Storm D", 0x29c6a8, 0x29c6c8 },
-    { L"Flying Elbow D", 0x29c6c8, 0x29c6e8 },
-    { L"Totem Tornado D", 0x29c6e8, 0x29c708 },
-    { L"Intro Clothes D", 0x29c708, 0x29c728, indexMatriMSprites_White, 0x00 },
+    { L"White Buffalo D", 0x29c668, 0x29c688, indexMatriMSprites_White, 0x00, &pairNext5 },
+    { L"Arrow Attacks D", 0x29c688, 0x29c6a8, indexMatriMSprites_White, 0x01 },
+    { L"Buffalo Storm D", 0x29c6a8, 0x29c6c8, indexMatriMSprites_White, 0x02 },
+    { L"Flying Elbow D", 0x29c6c8, 0x29c6e8, indexMatriMSprites_White, 0x03 },
+    { L"Totem Tornado D", 0x29c6e8, 0x29c708, indexMatriMSprites_White, 0x04 },
+    { L"Intro Clothes D", 0x29c708, 0x29c728, indexMatriMSprites_White, 0x05 },
     { L"Rolling/Super Jump Trail D", 0x29c728, 0x29c748, indexMatriMSprites_White, 0x00 },
     { L"EX/Super Trail D", 0x29c748, 0x29c768, indexMatriMSprites_White, 0x00 },
     { L"Guard Cancel Trail D", 0x29c768, 0x29c788, indexMatriMSprites_White, 0x00 },
@@ -1229,14 +1229,14 @@ const sGame_PaletteDataset Matrimelee_A_BBM_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_PALETTES[] =
 {
-    { L"Character Select Icons 1/2", 0x2a2424, 0x2a2624 },
-    { L"Character Select Icons 2/2", 0x2a2624, 0x2a2684 },
+    { L"Character Select Icons 1/2", 0x2a2424, 0x2a2624, indexMatriMSprites_Bonus, 0x07, &pairNext },
+    { L"Character Select Icons 2/2", 0x2a2624, 0x2a2684, indexMatriMSprites_Bonus, 0x08 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_FADED_PALETTES[] =
 {
-    { L"Character Select Icons Faded 1/2", 0x2a21c4, 0x2a23c4 },
-    { L"Character Select Icons Faded 2/2", 0x2a23c4, 0x2a2424 },
+    { L"Character Select Icons Faded 1/2", 0x2a21c4, 0x2a23c4, indexMatriMSprites_Bonus, 0x09, &pairNext },
+    { L"Character Select Icons Faded 2/2", 0x2a23c4, 0x2a2424, indexMatriMSprites_Bonus, 0x0a },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_SCREEN_PALETTES[] =
