@@ -234,7 +234,7 @@ private:
         SFA2_A_UNITS_07_REV2,
         ARRAYSIZE(SFA2_A_UNITS_07_REV2),
         L"SFA2e.txt",           // Extra filename
-        1120,                   // Count of palettes listed in the header
+        1121,                   // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
@@ -294,7 +294,7 @@ private:
         SFA2_A_UNITS_08_REV2,
         ARRAYSIZE(SFA2_A_UNITS_08_REV2),
         L"SFA2-8e.txt",         // Extra filename
-        477,                    // Count of palettes listed in the header
+        488,                    // Count of palettes listed in the header
         0x1be,                  // Lowest known location used for palettes
     };
 
