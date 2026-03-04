@@ -771,27 +771,27 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 
             switch (nUserAnswer)
             {
-            case IDYES:
-            // If you're playing along at home, you'll note that IDOK isn't a legal value.  But WINE
-            // is currently returning IDOK when users press YES, so we'll work with that
-            case IDOK:
-            {
-                OnBnUpdate();
-                return TRUE;
-            }
-            case IDNO:
-            {
-                m_fPalChanged = FALSE;
-                return TRUE;
-            }
-            case IDCANCEL:
-            {
-                m_nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(m_nPrevUnitSel) : NULL;
-                m_nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(m_nPrevChildSel1) : NULL;
-                m_nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(m_nPrevChildSel2) : NULL;
+                case IDYES:
+                // If you're playing along at home, you'll note that IDOK isn't a legal value.  But WINE
+                // is currently returning IDOK when users press YES, so we'll work with that
+                case IDOK:
+                {
+                    OnBnUpdate();
+                    return TRUE;
+                }
+                case IDNO:
+                {
+                    m_fPalChanged = FALSE;
+                    return TRUE;
+                }
+                case IDCANCEL:
+                {
+                    m_nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(m_nPrevUnitSel) : NULL;
+                    m_nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(m_nPrevChildSel1) : NULL;
+                    m_nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(m_nPrevChildSel2) : NULL;
 
-                return FALSE;
-            }
+                    return FALSE;
+                }
             }
         }
         else

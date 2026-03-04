@@ -376,6 +376,7 @@
     </ClCompile>
     <ClCompile Include="TPLfiles.cpp" />
     <ClCompile Include="UndoRedo.cpp" />
+    <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorSystem.h" />
@@ -790,6 +791,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UndoRedo.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bgbmp.bmp" />

@@ -10,6 +10,7 @@
 #include "lodepng\lodepng.h"
 #include "PreviewImport.h"
 #include "RAWfiles.h"
+#include "Util.h"
 
 // CImgDisp
 
@@ -1402,7 +1403,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                                 L"To avoid this problem, please use mapping palettes.", nStartCheckPalette, nCheckColor, nCheckAgainstPalette, nCheckAgainstColor, nStartCheckPalette, nCheckColor);
         }
 
-        SHMessageBoxCheck(g_appHWnd, strMistake, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_OK, 0, L"{11BFAD2C-42CA-40e2-967C-1017C1B2676A}");
+        SafeSHMessageBoxCheck(g_appHWnd, strMistake, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_OK, IDOK, L"{11BFAD2C-42CA-40e2-967C-1017C1B2676A}");
     }
 }
 

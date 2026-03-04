@@ -3,6 +3,7 @@
 #include "PalModDlg.h"
 #include "RegProc.h"
 #include "Game\GameRegistry.h"
+#include "Util.h"
 
 constexpr auto c_strLastUsedPath = L"LastUsedPath";
 
@@ -134,7 +135,7 @@ void CPalModDlg::OnFilePatch()
                       L"\t * Sometimes emulators screw up and desync.  If you're playing versus somebody it can help to be on the same exact edit.  This is an emulator problem.\n"
                       ;
 
-            SHMessageBoxCheck(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_OK | MB_ICONINFORMATION, IDOK, L"{752A4A5C-4AEF-411c-9238-3AB5B55D5877}");
+            SafeSHMessageBoxCheck(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_OK | MB_ICONINFORMATION, IDOK, L"{752A4A5C-4AEF-411c-9238-3AB5B55D5877}");
         }
     }
 }

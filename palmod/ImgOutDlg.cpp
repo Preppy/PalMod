@@ -9,6 +9,7 @@
 #include "RegProc.h"
 #include "CRC32.h"
 #include "lodepng/lodepng.h"
+#include "Util.h"
 
 using namespace Gdiplus;
 
@@ -584,7 +585,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
         strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
 
-        fShouldExportAsIndexed = (SHMessageBoxCheck(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING, IDOK, L"{2788E83C-EC41-4131-AA75-488B1425E085}") == IDOK);
+        fShouldExportAsIndexed = (SafeSHMessageBoxCheck(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING, IDOK, L"{2788E83C-EC41-4131-AA75-488B1425E085}") == IDOK);
     }
 
     if (fShouldExportAsIndexed)
@@ -817,7 +818,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
         strWarning.Append(L"PalMod will need to export each of those RAWs to its own RAW file.\n");
         strWarning.Append(L"\nIf you wish to continue, click OK.");
 
-        fShouldExport = (SHMessageBoxCheck(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING, IDOK, L"{2788E83C-EC41-4131-AA75-488B1436F885}") == IDOK);
+        fShouldExport = (SafeSHMessageBoxCheck(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING, IDOK, L"{2788E83C-EC41-4131-AA75-488B1436F885}") == IDOK);
     }
 
     if (fShouldExport)

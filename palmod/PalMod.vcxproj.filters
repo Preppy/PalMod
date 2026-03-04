@@ -1089,6 +1089,9 @@
     <ClCompile Include="Remap.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -2326,6 +2329,9 @@
     </ClInclude>
     <ClInclude Include="Game\MK2_SEGA_DEF.h">
       <Filter>Games\Sega\Mortal Kombat 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 #include "PalModDlg.h"
 #include "PalMod.h"
 #include "ExtraFile.h"
+#include "Util.h"
 
 CString SignedHexAsString(int32_t nHexNumber)
 {
@@ -63,7 +64,7 @@ void CPalModDlg::OnRemapUnit()
                           L"\r\n\r\nWant to continue?";
         }
 
-        int answer = SHMessageBoxCheck(g_appHWnd, strMessage, GetHost()->GetAppName(), uTypes, IDYES, L"{F9C68270-8337-4650-B26B-ABF5D50BF664}");
+        int answer = SafeSHMessageBoxCheck(g_appHWnd, strMessage, GetHost()->GetAppName(), uTypes, IDYES, L"{F9C68270-8337-4650-B26B-ABF5D50BF664}");
 
         CFileDialog ChooseRemapFileDialog(TRUE, NULL, NULL, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST);
 
