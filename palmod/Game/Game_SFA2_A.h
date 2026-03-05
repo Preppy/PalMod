@@ -11,9 +11,15 @@ class CGame_SFA2_Core : public CGameClassByDir
 class CGame_SFA2_A : public CGame_SFA2_Core
 {
 private:
+    // There's a lot of versions, but the important stuff:
+        // Rev 2 adds DhalsimWW, Evil Eyu, and ZangiefWW
+        // Z2A (Japan) adds ChunLiWW, KenWW, MBisonWW, RyuWW, SagatWW, and SakuraAlt
     enum class SFA2_SupportedROMRevision
     {
-        SFA2_960229,
+
+        SFA2_960229, // rev1, Europe
+        // 960306 is rev 2, USA
+        // 960430 is "rev 3" but is identical for our purposes
         SFA2_960306_or_960430, // 960306 and 960430 are identical for both 07 and 08
         SFZ2A_960805,
         SFZ2A_960826,
@@ -23,11 +29,11 @@ private:
 
     enum class SFA2LoadingKey
     {
-        ROM07_Rev1,
-        ROM07_Rev2,
+        ROM07_Rev1,  // 960229
+        ROM07_Rev2,  // 960306 initially
         ROM07_SFZ2A,
-        ROM08_Rev1,
-        ROM08_Rev2,
+        ROM08_Rev1,  // 960229
+        ROM08_Rev2,  // 960306 initially
         ROM08_SFZ2A,
         ROM09_Hack,
     };
@@ -366,7 +372,7 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"SFA2 Rev 1 (Steam)", L"bundleStreetFighterAlpha2.mbundle", 0x8eddc428, 0 },
+        { L"SFA2 Rev 1 (Steam 960306)", L"bundleStreetFighterAlpha2.mbundle", 0x8eddc428, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_Rev1_Mono
