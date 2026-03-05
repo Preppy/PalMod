@@ -372,7 +372,8 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"SFA2 Rev 1 (Steam 960306)", L"bundleStreetFighterAlpha2.mbundle", 0x8eddc428, 0 },
+        // Kinda Rev1 but also not fully?
+        { L"SFA2 (Steam 960306)", L"bundleStreetFighterAlpha2.mbundle", 0x8eddc428, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_Rev1_Mono
@@ -391,7 +392,7 @@ private:
         SFA2_STEAM_UNITS_REV1_MONO,
         ARRAYSIZE(SFA2_STEAM_UNITS_REV1_MONO),
         L"SFA2Se.txt",          // Extra filename
-        1238,                   // Count of palettes listed in the header
+        1435,                   // Count of palettes listed in the header
         0x4cd5afa,              // Lowest known location used for palettes
     };
 
