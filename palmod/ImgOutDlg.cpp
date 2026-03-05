@@ -626,7 +626,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     if (nImageLayersToUse > 1)
                     {
                         // This naming logic is in line with the multi-RAW export names
-                        strCurrentNodeName.Format(L"_%02u", nImageLayerIndex);
+                        strCurrentNodeName.Format(L"-layer-%02u", nImageLayerIndex);
                     }
                 }
                 else
@@ -635,7 +635,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     if (nImageLayersToUse > 1)
                     {
                         // This naming logic is in line with the multi-RAW export names
-                        strCurrentNodeName.Format(L"_%02u %s", nImageLayerIndex, m_pButtonLabelSet[nNodeIndex]);
+                        strCurrentNodeName.Format(L"-layer-%02u %s", nImageLayerIndex, m_pButtonLabelSet[nNodeIndex]);
                     }
                     else
                     {
@@ -935,7 +935,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                     }
                     else
                     {
-                        strOutputFilename.Format(L"%s_%02u%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
+                        strOutputFilename.Format(L"%s-layer-%02u%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
                     }
 
                     if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))

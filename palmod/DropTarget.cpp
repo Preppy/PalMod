@@ -285,7 +285,7 @@ bool GetDropLayerFromFileName(std::wstring strFileName, UINT& iLayerToDropTo)
     if (token_offset != std::string::npos)
     {
         std::wstring strPostToken = strFileName.substr(token_offset + strLayerToken.length());
-        const int result = _stscanf_s(strPostToken.c_str(), L"%x", &iLayerToDropTo);
+        const int result = _stscanf_s(strPostToken.c_str(), L"%u", &iLayerToDropTo);
 
         if (result == 1)
         {
