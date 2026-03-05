@@ -109,6 +109,8 @@ private:
 
     std::vector<uint8_t> _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fShowAdvancedOptions = false);
 
+    UINT _SanitizeRequestedImageLayer(UINT nLayerToLoadTo);
+
 public:
     CImgDisp();
     ~CImgDisp();

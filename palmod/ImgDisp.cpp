@@ -1119,6 +1119,10 @@ void CImgDisp::_ResizeImageStack(bool fIsFullStackReplacement)
     {
         CString strInfo;
 
+        strInfo.Format(L"Warning: mismatched presentation stack.  All images will be resized to %ux%u!\r\n", nMaxWidth, nMaxHeight);
+        OutputDebugString(strInfo.GetString());
+
+
         for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
         {
             if (m_pImgBuffer[iCurrentPreview] && m_pImgBuffer[iCurrentPreview]->dimensions.width)
@@ -1147,7 +1151,7 @@ void CImgDisp::_ResizeImageStack(bool fIsFullStackReplacement)
                     m_pImgBuffer[iCurrentPreview]->dimensions = m_vSpriteOverrideTextures[iCurrentPreview].dimensions = { nMaxWidth, nMaxHeight };
                     m_pImgBuffer[iCurrentPreview]->pImgData = m_vSpriteOverrideTextures[iCurrentPreview].pixels.data();
 
-                    strInfo.Format(L"Warning: had to resize image at layer %u from %ux%u to %ux%u!\r\n", iCurrentPreview, oldwidth, oldheight, nMaxWidth, nMaxHeight);
+                    strInfo.Format(L"\tWarning: had to resize image at layer %u from %ux%u to %ux%u!\r\n", iCurrentPreview, oldwidth, oldheight, nMaxWidth, nMaxHeight);
                     OutputDebugString(strInfo.GetString());
                 }
             }
@@ -1407,10 +1411,29 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     }
 }
 
+UINT CImgDisp::_SanitizeRequestedImageLayer(UINT nLayerToLoadTo)
+{
+    UINT nLayerAllowed = 0;
+
+    if (m_nImgAmt)
+    {
+        nLayerAllowed = min(nLayerToLoadTo, static_cast<UINT>(m_nImgAmt) - 1);
+    }
+
+    if (nLayerAllowed != nLayerToLoadTo)
+    {
+        OutputDebugString(L"ERROR: invalid layer specified.  Overriding to 0.\r\n");
+    }
+
+    return nLayerAllowed;
+}
+
 std::vector<uint8_t> CImgDisp::_LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fShowAdvancedOptionsIfNeeded /* = false */)
 {
     CImage sprite;
     std::vector<uint8_t> vNewOverrideTexture;
+
+    nPositionToLoadTo = _SanitizeRequestedImageLayer(nPositionToLoadTo);
 
     if (SUCCEEDED(sprite.Load(pszTextureLocation)) &&
                   sprite.IsDIBSection() &&
@@ -1509,6 +1532,8 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
     sImageDimensions imageSize;
 
+    nPositionToLoadTo = _SanitizeRequestedImageLayer(nPositionToLoadTo);
+
     std::vector<uint8_t> vNewOverrideTexture = _LoadTextureFromCImageSprite(pszTextureLocation, nPositionToLoadTo, imageSize, direction, compositionStyle, fShowAdvancedOptionsIfNeeded);
 
     if (vNewOverrideTexture.size())
@@ -1555,6 +1580,16 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
         size_t nSize = 0;
         unsigned char* loadedAsFile = nullptr;
         unsigned char* loadedAsPNG = nullptr;
+
+        if (pnPositionToLoadTo)
+        {
+            // pathological usage case
+            if (*pnPositionToLoadTo >= static_cast<UINT>(m_nImgAmt))
+            {
+                pnPositionToLoadTo = nullptr;
+                OutputDebugString(L"ERROR: invalid image layer requested.  Resetting: will replace the full stack.\r\n");
+            }
+        }
 
         if (lodepng_load_file(&loadedAsFile, &nSize, pszTextureLocation) == 0)
         {
@@ -1675,6 +1710,10 @@ void CImgDisp::_UpdatePreviewForExternalSprite(UINT* pnPositionToLoadTo)
     {
         // always need to reset our layout when we're replacing the 0th image
         ResetImageCompositionLayout();
+    }
+    else
+    {
+        nPositionToLoadTo = _SanitizeRequestedImageLayer(nPositionToLoadTo);
     }
 
     // There are two basic paths here:

@@ -276,6 +276,46 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
     return m_currentEffectState;
 }
 
+bool GetDropLayerFromFileName(std::wstring strFileName, UINT& iLayerToDropTo)
+{
+    const std::wstring strLayerToken = L"-layer-";
+    bool fSuccess = false;
+
+    auto token_offset = strFileName.find(strLayerToken);
+    if (token_offset != std::string::npos)
+    {
+        std::wstring strPostToken = strFileName.substr(token_offset + strLayerToken.length());
+        const int result = _stscanf_s(strPostToken.c_str(), L"%x", &iLayerToDropTo);
+
+        if (result == 1)
+        {
+            fSuccess = true;
+            iLayerToDropTo = min(iLayerToDropTo, MAX_PALETTES_DISPLAYABLE - 1);
+        }
+        else
+        {
+            OutputDebugString(L"ERROR: Bad layer specification in filename!\r\n");
+        }
+    }
+
+    CString strOutput = L"Scanned filename for target layer: ";
+
+    if (fSuccess)
+    {
+        CString strBonusInfo;
+        strBonusInfo.Format(L"found.  Using layer %u.\r\n", iLayerToDropTo);
+        strOutput += strBonusInfo;
+    }
+    else
+    {
+        strOutput += "not found.  Replacing full stack.\r\n";
+    }
+
+    OutputDebugString(strOutput.GetString());
+
+    return fSuccess;
+}
+
 BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point)
 {
     // This handles palette import via drag/drop: PalModDlg::OnImportPalette is the Tools menu version
@@ -371,6 +411,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
         {
             // The handling code here needs to match the "acceptable drop file types" list
             // in OnDragEnter above
+
+            UINT uiTargetLayer = 0;
+            bool fHaveLayerTarget = GetDropLayerFromFileName(szPath, uiTargetLayer);
+
             if (_wcsicmp(pszExtension, L".act") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromACT(szPath);
@@ -390,7 +434,14 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             {
                 if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
                 {
-                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
+                    if (fHaveLayerTarget)
+                    {
+                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&uiTargetLayer, SpriteImportDirection::TopDown, szPath, false);
+                    }
+                    else
+                    {
+                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
+                    }
                     fHandledDrop = true;
                 }
                 else
@@ -423,7 +474,14 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             {
                 if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
                 {
-                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
+                    if (fHaveLayerTarget)
+                    {
+                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&uiTargetLayer, SpriteImportDirection::TopDown, szPath, false);
+                    }
+                    else
+                    {
+                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
+                    }
                     fHandledDrop = true;
                 }
                 else
@@ -439,7 +497,14 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             }
             else if (_wcsicmp(pszExtension, L".raw") == 0)
             {
-                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
+                if (fHaveLayerTarget)
+                {
+                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&uiTargetLayer, SpriteImportDirection::TopDown, szPath, false);
+                }
+                else
+                {
+                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
+                }
                 fHandledDrop = true;
             }
         }
