@@ -1100,7 +1100,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        if (UsePaletteSetForCharacters())
+        if (UsePaletteSetForCharacters()) // ROM07 or ROM09
         {
             switch (m_currentSFA2ROMRevision)
             {
@@ -1164,14 +1164,20 @@ void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                     break;
             }
         }
-        else // (!UsePaletteSetForCharacters()
+        else // (!UsePaletteSetForCharacters() // ROM08
         {
             switch (m_currentSFA2ROMRevision)
             {
                 case SFA2_SupportedROMRevision::SFA2_Unsupported: // Don't touch
                     break;
                 case SFA2_SupportedROMRevision::SFA2_960229: // in 229 portraits start at 0x1bb40
-                    if (m_nCurrentPaletteROMLocation < 0x1c7be)
+                    if ((wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_Stages08) == 0) ||
+                        (wcscmp(m_rgCurrentGameUnits.at(nUnitId).szDesc, k_pszUnitName_Bonus08) == 0))
+                    {
+                        // all stages and bonus have been remapped to native
+                        break;
+                    }
+                    else if (m_nCurrentPaletteROMLocation < 0x1c7be)
                     {
                         // Early bonus/extra range
                         m_nCurrentPaletteROMLocation += 0xD80;

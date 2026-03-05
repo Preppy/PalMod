@@ -1917,62 +1917,138 @@ const sDescTreeNode SFA2_A_WWZANGIEF_COLLECTION[] =
 //  #Australia
 //  #Venezuala
 
-const sGame_PaletteDataset SFA2_A_STAGES07_REV1_ELIZA_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_JAPANWINTER[] =
 {
-    { L"BG - Bridge+Buildings 1/2", 0x7c73e, 0x7c93e, indexCPS2Sprites_SFA2_Stages, 0x02, &pairNext },
-    { L"BG - Bridge+Buildings 2/2", 0x7c93e, 0x7ca5e, indexCPS2Sprites_SFA2_Stages, 0x03 },
+    { L"Sprites", 0x759be, 0x75a9e, indexCPS2Sprites_SFA2_Stages, 0xb5, &pairFullyLinkedNode }, /* Delta: -0x280 */
+    { L"Midground 1/2", 0x7c33e, 0x7c53e, indexCPS2Sprites_SFA2_Stages, 0x50, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7c53e, 0x7c73e }, /* Delta: 0x180 */
 };
 
-const sGame_PaletteDataset SFA2_A_STAGES08_REV1_ELIZA_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_USAPARTY[] =
 {
-    { L"BG - Lights.1", 0x28abe, 0x28ade, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext5 },
-    { L"BG - Lights.2", 0x28ade, 0x28afe, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext5 },
-    { L"BG - Lights.3", 0x28afe, 0x28b1e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext3 },
-    { L"BG - Lights.4", 0x28b1e, 0x28b3e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext3 },
-    { L"BG - Lights.5", 0x28b3e, 0x28b5e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext },
-    { L"BG - Stars.1",  0x28b5e, 0x28b7e, indexCPS2Sprites_SFA2_Stages, 0x00 },
-    { L"BG - Stars.2",  0x28b7e, 0x28b9e, indexCPS2Sprites_SFA2_Stages, 0x00 },
+    { L"Midground 1/2", 0x7c73e, 0x7c93e, indexCPS2Sprites_SFA2_Stages, 0x87, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7c93e, 0x7cb3e, indexCPS2Sprites_SFA2_Stages, 0x88 }, /* Delta: 0x180 */
+    { L"Sprites", 0x75a9e, 0x75b7e, indexCPS2Sprites_SFA2_Stages, 0xb3 }, /* Delta: -0x280 */
 };
 
-const sGame_PaletteDataset SFA2_A_STAGES07_REV2_ELIZA_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_JAPANGOKUENTOU[] =
 {
-    { L"BG - Bridge+Buildings 1/2", 0x7c73e, 0x7c93e, indexCPS2Sprites_SFA2_Stages, 0x02, &pairNext },
-    { L"BG - Bridge+Buildings 2/2", 0x7c93e, 0x7ca5e, indexCPS2Sprites_SFA2_Stages, 0x03 },
+    { L"Midground 1/2", 0x7cb3e, 0x7cd3e, indexCPS2Sprites_SFA2_Stages, 0x45, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7cd3e, 0x7cf3e }, /* Delta: 0x180 */
+    { L"Sprites", 0x75b7e, 0x75c5e, indexCPS2Sprites_SFA2_Stages, 0xa8 }, /* Delta: -0x280 */
 };
 
-const sGame_PaletteDataset SFA2_A_STAGES08_REV2_ELIZA_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_USAPLANE[] =
 {
-    { L"BG - Lights.1", 0x2923e ,0x2925e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext5 },
-    { L"BG - Lights.2", 0x2925e, 0x2927e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext5 },
-    { L"BG - Lights.3", 0x2927e, 0x2929e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext3 },
-    { L"BG - Lights.4", 0x2929e, 0x292be, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext3 },
-    { L"BG - Lights.5", 0x2933e, 0x2935e, indexCPS2Sprites_SFA2_Stages, 0x01, &pairNext },
-    { L"BG - Stars.1",  0x2935e, 0x2937e, indexCPS2Sprites_SFA2_Stages, 0x00 },
-    { L"BG - Stars.2",  0x2937e, 0x2939e, indexCPS2Sprites_SFA2_Stages, 0x00 },
+    { L"Sprites", 0x75cde, 0x75d3e, indexCPS2Sprites_SFA2_Stages, 0xb4, &pairFullyLinkedNode }, /* Delta: -0x280 */
+    { L"Midground: Plane 1/2", 0x7cf3e, 0x7d13e, indexCPS2Sprites_SFA2_Stages, 0x8d, &pairNext }, /* Delta: 0x180 */
+    { L"Midground: Plane 2/2", 0x7d13e, 0x7d33e, indexCPS2Sprites_SFA2_Stages, 0x8e }, /* Delta: 0x180 */
+    { L"Foreground Sprites", 0x75c5e, 0x75cde, indexCPS2Sprites_SFA2_Stages, 0xbb }, /* Delta: -0x280 */
 };
 
-const sGame_PaletteDataset SFA2_A_STAGES07_REV1_KEN_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_CHINASTREET[] =
 {
-    { L"Front Guests", 0x75A9e, 0x75Bbe, indexCPS2Sprites_SFA2_Stages, 0x0a },
+    { L"Midground 1/2", 0x7d33e, 0x7d53e, indexCPS2Sprites_SFA2_Stages, 0x38, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7d53e, 0x7d73e, indexCPS2Sprites_SFA2_Stages, 0x39 }, /* Delta: 0x180 */
+    { L"Sprites", 0x75d3e, 0x75e1e, indexCPS2Sprites_SFA2_Stages, 0xac }, /* Delta: -0x280 */
 };
 
-const sGame_PaletteDataset SFA2_A_STAGES08_REV1_KEN_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_THAILANDLAKE[] =
 {
-    { L"Ken Stage - Tables & Decorations 1/2", 0x6f3e - 0xd80, 0x713e - 0xd80, indexCPS2Sprites_SFA2_Stages, 0x04, &pairFullyLinkedNode },
-    { L"Ken Stage - Tables & Decorations 2/2", 0x713e - 0xd80, 0x733e - 0xd80, indexCPS2Sprites_SFA2_Stages, 0x05  },
-    { L"Ken Stage - Guests & Some Decor 1/2", 0x1173E - 0xd80, 0x1193E - 0xd80, indexCPS2Sprites_SFA2_Stages, 0x08 },
-    { L"Ken Stage - Guests & Some Decor 2/2", 0x1193E - 0xd80, 0x11a7E - 0xd80, indexCPS2Sprites_SFA2_Stages, 0x09 },
+    { L"Midground 1/2", 0x7d73e, 0x7d93e, indexCPS2Sprites_SFA2_Stages, 0x51, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7d93e, 0x7db3e }, /* Delta: 0x180 */
+    { L"Sprites", 0x75e1e, 0x75efe, indexCPS2Sprites_SFA2_Stages, 0xb6 }, /* Delta: -0x280 */
 };
 
-const sGame_PaletteDataset SFA2_A_STAGES07_REV2_KEN_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_USATRUCK[] =
 {
-    { L"Front Guests", 0x75D20 + 0x17e, 0x75E40 + 0x17e, indexCPS2Sprites_SFA2_Stages, 0x0a },
+    { L"Midground 1/2", 0x7db3e, 0x7dd3e, indexCPS2Sprites_SFA2_Stages, 0x90, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7dd3e, 0x7df3e, indexCPS2Sprites_SFA2_Stages, 0x91 }, /* Delta: 0x180 */
+    { L"Sprites", 0x75efe, 0x75fde, indexCPS2Sprites_SFA2_Stages, 0xb9 }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_USAMETROCITY[] =
+{
+    { L"Sprites", 0x75fde, 0x760be, indexCPS2Sprites_SFA2_Stages, 0xb8, &pairFullyLinkedNode }, /* Delta: -0x280 */
+    { L"Midground 1/2", 0x7df3e, 0x7e13e, indexCPS2Sprites_SFA2_Stages, 0x62, &pairNext }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7e13e, 0x7e33e }, /* Delta: 0x180 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_ENGLAND[] =
+{
+    { L"Midground 1/2", 0x7e33e, 0x7e53e, indexCPS2Sprites_SFA2_Stages, 0x7e, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7e53e, 0x7e73e, indexCPS2Sprites_SFA2_Stages, 0x7f }, /* Delta: 0x180 */
+    { L"Sprites", 0x760be, 0x7619e, indexCPS2Sprites_SFA2_Stages, 0xae }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_ITALY[] =
+{
+    { L"Sprites", 0x7619e, 0x7627e, indexCPS2Sprites_SFA2_Stages, 0xb1, &pairFullyLinkedNode }, /* Delta: -0x280 */
+    { L"Midground: Ship 1/2", 0x7e73e, 0x7e93e, indexCPS2Sprites_SFA2_Stages, 0x75, &pairNext }, /* Delta: 0x180 */
+    { L"Midground: Ship 2/2", 0x7e93e, 0x7eb3e, indexCPS2Sprites_SFA2_Stages, 0x76 }, /* Delta: 0x180 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_BRAZIL[] =
+{
+    { L"Midground 1/2", 0x7eb3e, 0x7ed3e, indexCPS2Sprites_SFA2_Stages, 0x34, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7ed3e, 0x7ef3e }, /* Delta: 0x180 */
+    { L"Sprites", 0x7627e, 0x7635e, indexCPS2Sprites_SFA2_Stages, 0xaa }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_THAILANDSTATUE[] =
+{
+    { L"Midground 1/2", 0x7ef3e, 0x7f13e, indexCPS2Sprites_SFA2_Stages, 0x58, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7f13e, 0x7f33e }, /* Delta: 0x180 */
+    { L"Sprites", 0x7635e, 0x7643e, indexCPS2Sprites_SFA2_Stages, 0xb7 }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_HONGKONG[] =
+{
+    { L"Sprites", 0x7643e, 0x7651e, indexCPS2Sprites_SFA2_Stages, 0xaf, &pairFullyLinkedNode }, /* Delta: -0x280 */
+    { L"Midground 1/2", 0x7f33e, 0x7f53e, indexCPS2Sprites_SFA2_Stages, 0x40 }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7f53e, 0x7f73e }, /* Delta: 0x180 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_JAPANHOUSE[] =
+{
+    { L"Midground 1/2", 0x7f73e, 0x7f93e, indexCPS2Sprites_SFA2_Stages, 0x4c, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7f93e, 0x7fb3e, indexCPS2Sprites_SFA2_Stages, 0x4d }, /* Delta: 0x180 */
+    { L"Sprites", 0x7651e, 0x765fe, indexCPS2Sprites_SFA2_Stages, 0xb2 }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_USAELEVATOR[] =
+{
+    { L"Midground 1/2", 0x7fb3e, 0x7fd3e, indexCPS2Sprites_SFA2_Stages, 0x5d, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x7fd3e, 0x7ff3e }, /* Delta: 0x180 */
+    { L"Sprites", 0x765fe, 0x766de, indexCPS2Sprites_SFA2_Stages, 0xad }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_INDIA[] =
+{
+    // Normal "2" is empty and in ROM08
+    { L"Midground", 0x7ff3e, 0x7fffe, indexCPS2Sprites_SFA2_Stages, 0x44, &pairFullyLinkedNode },
+    { L"Sprites", 0x766de, 0x767be, indexCPS2Sprites_SFA2_Stages, 0xb0 }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_USSR[] =
+{
+    { L"Sprites", 0x767be, 0x7689e, indexCPS2Sprites_SFA2_Stages, 0xba }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_CHINAALLEY[] =
+{
+    { L"Sprites", 0x7689e, 0x7697e, indexCPS2Sprites_SFA2_Stages, 0xab }, /* Delta: -0x280 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_AUSTRALIA[] =
+{
+    { L"Sprites", 0x7697e, 0x76a5e, indexCPS2Sprites_SFA2_Stages, 0xa9 }, /* Delta: -0x280 */
 };
 
 const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_JAPANWINTER[] =
 {
     { L"Sprites",       0x75c3e, 0x75d1e, indexCPS2Sprites_SFA2_Stages, 0xb5, &pairFullyLinkedNode },
-    { L"Midground 1/2", 0x7c1be, 0x7c3be, indexCPS2Sprites_SFA2_Stages, 0x50, &pairFullyLinkedNode },
+    { L"Midground 1/2", 0x7c1be, 0x7c3be, indexCPS2Sprites_SFA2_Stages, 0x50, &pairNext },
     { L"Midground 2/2", 0x7c3be, 0x7c5be },
 };
 
@@ -2106,6 +2182,222 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_CHINAALLEY[] =
 const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_AUSTRALIA[] =
 {
     { L"Sprites",       0x76bfe, 0x76cde, indexCPS2Sprites_SFA2_Stages, 0xa9 },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_JAPANWINTER[] =
+{
+    { L"Background 1/2", 0x1133e, 0x1153e, indexCPS2Sprites_SFA2_Stages, 0x4e, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1153e, 0x1171e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x6b3e, 0x6d3e, indexCPS2Sprites_SFA2_Stages, 0x4f, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x6d3e, 0x6f3e }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USAPARTY[] =
+{
+    { L"Sky Animation", 0x28abe, 0x28b9e, indexCPS2Sprites_SFA2_Stages, 0x84, &pairFullyLinkedNode }, /* Delta: 0 */
+    { L"Foreground 1/2", 0x6f3e, 0x713e, indexCPS2Sprites_SFA2_Stages, 0x82, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x713e, 0x733e, indexCPS2Sprites_SFA2_Stages, 0x83 }, /* Delta: 0x580 */
+    { L"Foreground Objects 1/2", 0x1173e, 0x1193e, indexCPS2Sprites_SFA2_Stages, 0x63, &pairNext }, /* Delta: 0x980 */
+    { L"Foreground Objects  2/2", 0x1193e, 0x11b1e, indexCPS2Sprites_SFA2_Stages, 0x64 }, /* Delta: 0x980 */
+    { L"Candle Animations 1", 0x29d1e, 0x29d7e, indexCPS2Sprites_SFA2_Stages, 0x85 }, /* Delta: 0 */
+    { L"Candle Animations 2", 0x29d7e, 0x29dde, indexCPS2Sprites_SFA2_Stages, 0x86 }, /* Delta: 0 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_JAPANGOKUENTOU[] =
+{
+    { L"Foreground 1/2", 0x733e, 0x753e, indexCPS2Sprites_SFA2_Stages, 0x46, &pairFullyLinkedNode }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x753e, 0x773e, indexCPS2Sprites_SFA2_Stages, 0x47 }, /* Delta: 0x580 */
+    { L"Front Layer 1/2", 0x11b3e, 0x11d3e, indexCPS2Sprites_SFA2_Stages, 0x48, &pairNext }, /* Delta: 0x980 */
+    { L"Front Layer 2/2", 0x11d3e, 0x11f1e }, /* Delta: 0x980 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USAPLANE[] =
+{
+    { L"Background 1/2", 0x11f3e, 0x1213e, indexCPS2Sprites_SFA2_Stages, 0x8f, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1213e, 0x1231e }, /* Delta: 0x980 */
+    { L"Background Animations 1", 0x2c4fe, 0x2c63e, indexCPS2Sprites_SFA2_Stages, 0x9f }, /* Delta: 0 */
+    { L"Background Animations 2", 0x2c63e, 0x2c81e, indexCPS2Sprites_SFA2_Stages, 0xa0 }, /* Delta: 0 */
+    { L"Background Animations 3", 0x2c81e, 0x2ca1e, indexCPS2Sprites_SFA2_Stages, 0xa1 }, /* Delta: 0 */
+    { L"Background Animations 4", 0x2ca1e, 0x2cb5e, indexCPS2Sprites_SFA2_Stages, 0xa2 }, /* Delta: 0 */
+    { L"Foreground 1/2", 0x773e, 0x793e, indexCPS2Sprites_SFA2_Stages, 0xa3, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x793e, 0x7b3e, indexCPS2Sprites_SFA2_Stages, 0xa4 }, /* Delta: 0x580 */
+    { L"Ground 1", 0x298be, 0x29abe, indexCPS2Sprites_SFA2_Stages, 0xa5 }, /* Delta: 0 */
+    { L"Ground 2", 0x29abe, 0x29b3e, indexCPS2Sprites_SFA2_Stages, 0xa6 }, /* Delta: 0 */
+    { L"Ground Animation Cycle", 0x1cd9e, 0x1ce3e, indexCPS2Sprites_SFA2_Stages, 0xc6 }, /* Delta: 0x900 */
+    { L"Wing Tip Animation Cycle", 0x2953e, 0x295be, indexCPS2Sprites_SFA2_Stages, 0xa7 }, /* Delta: 0 */
+    { L"Unknown Animation Cycle", 0x295be, 0x2963e }, /* Delta: 0 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_CHINASTREET[] =
+{
+    // Remapped locations for "China (Street)" in new ROM (note this is speculative):
+    { L"Foreground 1/2", 0x7b3e, 0x7d3e, indexCPS2Sprites_SFA2_Stages, 0x3a, &pairFullyLinkedNode }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x7d3e, 0x7f3e, indexCPS2Sprites_SFA2_Stages, 0x3b }, /* Delta: 0x580 */
+    { L"Bicyclists 1/2", 0x1233e, 0x1253e, indexCPS2Sprites_SFA2_Stages, 0x3c, &pairNext }, /* Delta: 0x980 */
+    { L"Bicyclists 2/2", 0x1253e, 0x1271e }, /* Delta: 0x980 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_THAILANDLAKE[] =
+{
+    // Remapped locations for "Thailand (Lake)" in new ROM (note this is speculative):
+    { L"Background 1/2", 0x1273e, 0x1293e, indexCPS2Sprites_SFA2_Stages, 0x54, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1293e, 0x12b1e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x7f3e, 0x813e, indexCPS2Sprites_SFA2_Stages, 0x52, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x813e, 0x833e, indexCPS2Sprites_SFA2_Stages, 0x53 }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USATRUCK[] =
+{
+    { L"Background 1/2", 0x12b3e, 0x12d3e, indexCPS2Sprites_SFA2_Stages, 0x65, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x12d3e, 0x12f1e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x833e, 0x853e, indexCPS2Sprites_SFA2_Stages, 0x66, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x853e, 0x873e }, /* Delta: 0x580 */
+    { L"Animation Cycle 1 ", 0x28fbe, 0x291be, indexCPS2Sprites_SFA2_Stages, 0x8a }, /* Delta: 0 */
+    { L"Animation Cycle 2 ", 0x291be, 0x293be, indexCPS2Sprites_SFA2_Stages, 0x8b }, /* Delta: 0 */
+    { L"Animation Cycle 3", 0x293be, 0x2953e, indexCPS2Sprites_SFA2_Stages, 0x8c }, /* Delta: 0 */
+    { L"Tree and Bush Animation Cycle", 0x1cc5e, 0x1cc9e, indexCPS2Sprites_SFA2_Stages, 0xc5, &pairNext }, /* Delta: 0x900 */
+    { L"Truck Decor Animation Cycle", 0x1cc9e, 0x1cd1e, indexCPS2Sprites_SFA2_Stages, 0xc2 }, /* Delta: 0x900 */
+    { L"Truck Lanterns Animation Cycle", 0x1cd1e, 0x1cd5e, indexCPS2Sprites_SFA2_Stages, 0xc4 }, /* Delta: 0x900 */
+    { L"Truck Fish Streamer Animation Cycle", 0x1cd5e, 0x1cd9e, indexCPS2Sprites_SFA2_Stages, 0xc3 }, /* Delta: 0x900 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USAMETROCITY[] =
+{
+    { L"Background 1/2", 0x12f3e, 0x1313e, indexCPS2Sprites_SFA2_Stages, 0x5e, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1313e, 0x1331e, indexCPS2Sprites_SFA2_Stages, 0x5f }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x873e, 0x893e, indexCPS2Sprites_SFA2_Stages, 0x60, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x893e, 0x8b3e, indexCPS2Sprites_SFA2_Stages, 0x61 }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_ENGLAND[] =
+{
+    { L"Foreground 1/2", 0x8b3e, 0x8d3e, indexCPS2Sprites_SFA2_Stages, 0x7d, &pairFullyLinkedNode }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x8d3e, 0x8f3e }, /* Delta: 0x580 */
+    { L"Animation Cycles", 0x28b9e, 0x28d9e, indexCPS2Sprites_SFA2_Stages, 0x80 }, /* Delta: 0 */
+    { L"Unknown?", 0x28d9e, 0x28e3e }, /* Delta: 0 */
+    { L"Infrastructure 1/2", 0x1333e, 0x1353e, indexCPS2Sprites_SFA2_Stages, 0x81, &pairNext }, /* Delta: 0x980 */
+    { L"Infrastructure 2/2", 0x1353e, 0x1371e }, /* Delta: 0x980 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_ITALY[] =
+{
+    { L"Background 1/2", 0x1373e, 0x1393e, indexCPS2Sprites_SFA2_Stages, 0x71, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1393e, 0x13b1e, indexCPS2Sprites_SFA2_Stages, 0x72 }, /* Delta: 0x980 */
+    { L"Water Animation Cycle 1 1/2", 0x2c0fe, 0x2c2fe, indexCPS2Sprites_SFA2_Stages, 0x77 }, /* Delta: 0 */
+    { L"Water Animation Cycle 1 2/2", 0x2c2fe, 0x2c33e, indexCPS2Sprites_SFA2_Stages, 0x77 }, /* Delta: 0 */
+    { L"Water Animation Cycle 2", 0x2c33e, 0x2c45e, indexCPS2Sprites_SFA2_Stages, 0x78 }, /* Delta: 0 */
+    { L"Foreground 1/2", 0x8f3e, 0x913e, indexCPS2Sprites_SFA2_Stages, 0x73, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x913e, 0x933e, indexCPS2Sprites_SFA2_Stages, 0x74 }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_BRAZIL[] =
+{
+    { L"Background 1/2", 0x13b3e, 0x13d3e, indexCPS2Sprites_SFA2_Stages, 0x37, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x13d3e, 0x13f1e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x933e, 0x953e, indexCPS2Sprites_SFA2_Stages, 0x35, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x953e, 0x973e, indexCPS2Sprites_SFA2_Stages, 0x36 }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_THAILANDSTATUE[] =
+{
+    { L"Background 1/2", 0x13f3e, 0x1413e, indexCPS2Sprites_SFA2_Stages, 0x55, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1413e, 0x1431e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x973e, 0x993e, indexCPS2Sprites_SFA2_Stages, 0x56, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x993e, 0x9b3e, indexCPS2Sprites_SFA2_Stages, 0x57 }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_HONGKONG[] =
+{
+    { L"Background 1/2", 0x1433e, 0x1453e, indexCPS2Sprites_SFA2_Stages, 0x3d, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1453e, 0x1471e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x9b3e, 0x9d3e, indexCPS2Sprites_SFA2_Stages, 0x3e, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0x9d3e, 0x9f3e, indexCPS2Sprites_SFA2_Stages, 0x3f }, /* Delta: 0x580 */
+    { L"People", 0x1cafe, 0x1cb3e, indexCPS2Sprites_SFA2_Stages, 0xbe }, /* Delta: 0x900 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_JAPANHOUSE[] =
+{
+    { L"Background 1/2", 0x1473e, 0x1493e, indexCPS2Sprites_SFA2_Stages, 0x49, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1493e, 0x14b1e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0x9f3e, 0xa13e, indexCPS2Sprites_SFA2_Stages, 0x4a, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0xa13e, 0xa33e, indexCPS2Sprites_SFA2_Stages, 0x4b }, /* Delta: 0x580 */
+    { L"Person Animation Cycle", 0x1d03e, 0x1d0be, indexCPS2Sprites_SFA2_Stages, 0xc0 }, /* Delta: 0x900 */
+    { L"Stove Animation Cycle", 0x1cbbe, 0x1cc5e, indexCPS2Sprites_SFA2_Stages, 0xc1 }, /* Delta: 0x900 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USAELEVATOR[] =
+{
+    { L"Background 1/2", 0x14b3e, 0x14d3e, indexCPS2Sprites_SFA2_Stages, 0x59, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x14d3e, 0x14f1e, indexCPS2Sprites_SFA2_Stages, 0x5a }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0xa33e, 0xa53e, indexCPS2Sprites_SFA2_Stages, 0x5b, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0xa53e, 0xa73e, indexCPS2Sprites_SFA2_Stages, 0x5c }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_INDIA[] =
+{
+    { L"Background 1/2", 0x14f3e, 0x1513e, indexCPS2Sprites_SFA2_Stages, 0x41, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1513e, 0x1531e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0xa73e, 0xa93e, indexCPS2Sprites_SFA2_Stages, 0x42, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0xa93e, 0xab3e, indexCPS2Sprites_SFA2_Stages, 0x43 }, /* Delta: 0x580 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USSR[] =
+{
+    { L"Background 1/2", 0x1533e, 0x1553e, indexCPS2Sprites_SFA2_Stages, 0x92, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x1553e, 0x1571e, indexCPS2Sprites_SFA2_Stages, 0x93 }, /* Delta: 0x980 */
+    { L"More Animations", 0x2cb5e, 0x2cc1e, indexCPS2Sprites_SFA2_Stages, 0x9e }, /* Delta: 0 */
+    { L"Midground 1/2", 0x33e, 0x53e, indexCPS2Sprites_SFA2_Stages, 0x94, &pairNext }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0x53e, 0x73e, indexCPS2Sprites_SFA2_Stages, 0x95 }, /* Delta: 0x180 */
+    { L"Foreground 1/2", 0xab3e, 0xad3e, indexCPS2Sprites_SFA2_Stages, 0x96, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0xad3e, 0xaf3e, indexCPS2Sprites_SFA2_Stages, 0x97 }, /* Delta: 0x580 */
+    { L"Foreground Animation Cycle 1/7", 0x29dde, 0x29fbe, indexCPS2Sprites_SFA2_Stages, 0x98 }, /* Delta: 0 */
+    { L"Foreground Animation Cycle 2/7", 0x29fbe, 0x2a19e, indexCPS2Sprites_SFA2_Stages, 0x99 }, /* Delta: 0 */
+    { L"Foreground Animation Cycle 3/7", 0x2a19e, 0x2a25e, indexCPS2Sprites_SFA2_Stages, 0x9a }, /* Delta: 0 */
+    { L"Foreground Animation Cycle 4/7", 0x2a25e, 0x2a45e, indexCPS2Sprites_SFA2_Stages, 0x9b }, /* Delta: 0 */
+    { L"Foreground Animation Cycle 5/7", 0x2a45e, 0x2a65e, indexCPS2Sprites_SFA2_Stages, 0x9c }, /* Delta: 0 */
+    { L"Foreground Animation Cycle 6/7", 0x2a65e, 0x2a85e, indexCPS2Sprites_SFA2_Stages, 0x9d }, /* Delta: 0 */
+    { L"Foreground Animation Cycle 7/7", 0x2a85e, 0x2a8be, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_CHINAALLEY[] =
+{
+    { L"Background 1/2", 0xaf3e, 0xb13e, indexCPS2Sprites_SFA2_Stages, 0x6a, &pairFullyLinkedNode }, /* Delta: 0x580 */
+    { L"Background 2/2", 0xb13e, 0xb33e, indexCPS2Sprites_SFA2_Stages, 0x6b }, /* Delta: 0x580 */
+    { L"Background Animation Cycle", 0x297de, 0x2981e, indexCPS2Sprites_SFA2_Stages, 0x6c }, /* Delta: 0 */
+    { L"Spotlights 1/2", 0x73e, 0x93e, indexCPS2Sprites_SFA2_Stages, 0x6d, &pairNext }, /* Delta: 0x180 */
+    { L"Spotlights 2/2", 0x93e, 0xb3e, indexCPS2Sprites_SFA2_Stages, 0x6e }, /* Delta: 0x180 */
+    { L"Ground 1/2", 0x1573e, 0x1593e, indexCPS2Sprites_SFA2_Stages, 0x6f, &pairNext }, /* Delta: 0x980 */
+    { L"Ground 2/2", 0x1593e, 0x15b1e, indexCPS2Sprites_SFA2_Stages, 0x70 }, /* Delta: 0x980 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_AUSTRALIA[] =
+{
+    { L"Background 1/2", 0x15b3e, 0x15d3e, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x15d3e, 0x15f1e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x980 */
+    // Match at 0x15b3e, 0x15bbe (delta -0x16920)
+    // Match at 0x2c45e, 0x2c4de (delta 0x0)
+        { L"Background Animation Cycle", 0x2c45e, 0x2c4de, indexCPS2Sprites_SFA2_Stages, 0x79 }, /* Delta: 0 */
+        { L"Midground 1/2", 0xb3e, 0xd3e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x180 */
+        { L"Midground 2/2", 0xd3e, 0xf3e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x180 */
+        { L"Foreground 1/2", 0xb33e, 0xb53e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x580 */
+        { L"Foreground 2/2", 0xb53e, 0xb73e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x580 */
+        { L"Foreground Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a }, /* Delta: 0 */
+        { L"Animation cycle?", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0 */
+        { L"Animation cycle??", 0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0 */
+        { L"Mid sky animation cycle??", 0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0 */
+        { L"Grass Animation Cycle?", 0x1ce3e, 0x1ce5e }, /* Delta: 0x900 */
+        { L"Front Grass Top Animation Cycle", 0x1ce5e, 0x1cefe, indexCPS2Sprites_SFA2_Stages, 0xbc, &pairFullyLinkedNode }, /* Delta: 0x900 */
+        { L"Front Grass Bottom Animation Cycle", 0x1cefe, 0x1cf9e, indexCPS2Sprites_SFA2_Stages, 0xbd }, /* Delta: 0x900 */
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_VENEZUALA[] =
+{
+    { L"Background 1/2", 0xf3e, 0x113e, indexCPS2Sprites_SFA2_Stages, 0x69, &pairFullyLinkedNode }, /* Delta: 0x180 */
+    { L"Background 2/2", 0x113e, 0x133e }, /* Delta: 0x180 */
+    { L"Midground 1/2", 0x15f3e, 0x1613e, indexCPS2Sprites_SFA2_Stages, 0x67, &pairNext }, /* Delta: 0x980 */
+    { L"Midground 2/2", 0x1613e, 0x1631e }, /* Delta: 0x980 */
+    { L"Foreground 1/2", 0xb73e, 0xb93e, indexCPS2Sprites_SFA2_Stages, 0x68, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0xb93e, 0xbb3e }, /* Delta: 0x580 */
 };
 
 const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_JAPANWINTER[] =
@@ -2372,6 +2664,30 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_VENEZUALA[] =
     { L"Foreground 2/2",             0xb3be, 0xb5be },
 };
 
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_SPLASH_PALETTES[] =
+{
+    { L"Japan (Winter)", 0x1171e, 0x1173e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"USA (Party)", 0x11b1e, 0x11b3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Japan (Gokuentou)", 0x11f1e, 0x11f3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"USA (Plane)", 0x1231e, 0x1233e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"China (Street)", 0x1271e, 0x1273e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Thailand (Lake)", 0x12b1e, 0x12b3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"USA (Truck)", 0x12f1e, 0x12f3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"USA (Metro City)", 0x1331e, 0x1333e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"England", 0x1371e, 0x1373e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Italy", 0x13b1e, 0x13b3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Brazil", 0x13f1e, 0x13f3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Thailand (Statue)", 0x1431e, 0x1433e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Hong Kong", 0x1471e, 0x1473e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Japan (House)", 0x14b1e, 0x14b3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"USA (Elevator)", 0x14f1e, 0x14f3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"India", 0x1531e, 0x1533e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"USSR", 0x1571e, 0x1573e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"China (Alley)", 0x15b1e, 0x15b3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Australia", 0x15f1e, 0x15f3e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+    { L"Venezuala", 0x1631e, 0x1633e, indexCPS2Sprites_SFA2_Stages, 0x33 }, /* Delta: 0x980 */
+};
+
 const sGame_PaletteDataset SFA2_A_STAGES08_REV2_SPLASH_PALETTES[] =
 {
     { L"Japan (Winter)",        0x10d9e, 0x10dbe, indexCPS2Sprites_SFA2_Stages, 0x33 },
@@ -2488,17 +2804,54 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PREVIEW_PALETTES[] =
 
 const sDescTreeNode SFA2_A_STAGES07_REV1_COLLECTION[] =
 {
-    { L"Ken Stage Background (ROM 07 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_ELIZA_PALETTES, ARRAYSIZE(SFA2_A_STAGES07_REV1_ELIZA_PALETTES) },
-    { L"Ken Stage (ROM 07 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES07_REV1_KEN_PALETTES) },
+    { L"Japan (Winter)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_JAPANWINTER, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_JAPANWINTER) },
+    { L"USA (Party)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_USAPARTY, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_USAPARTY) },
+    { L"Japan (Gokuentou)",                 DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_JAPANGOKUENTOU, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_JAPANGOKUENTOU) },
+    { L"USA (Plane)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_USAPLANE, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_USAPLANE) },
+    { L"China (Street)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_CHINASTREET, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_CHINASTREET) },
+    { L"Thailand (Lake)",                   DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_THAILANDLAKE, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_THAILANDLAKE) },
+    { L"USA (Truck)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_USATRUCK, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_USATRUCK) },
+    { L"USA (Metro City)",                  DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_USAMETROCITY, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_USAMETROCITY) },
+    { L"England",                           DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_ENGLAND, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_ENGLAND) },
+    { L"Italy",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_ITALY, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_ITALY) },
+    { L"Brazil",                            DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_BRAZIL, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_BRAZIL) },
+    { L"Thailand (Statue)",                 DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_THAILANDSTATUE, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_THAILANDSTATUE) },
+    { L"Hong Kong",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_HONGKONG, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_HONGKONG) },
+    { L"Japan (House)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_JAPANHOUSE, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_JAPANHOUSE) },
+    { L"USA (Elevator)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_USAELEVATOR, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_USAELEVATOR) },
+    { L"India",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_INDIA, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_INDIA) },
+    { L"USSR",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_USSR, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_USSR) },
+    { L"China (Alley)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_CHINAALLEY, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_CHINAALLEY) },
+    { L"Australia",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_AUSTRALIA, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_AUSTRALIA) },
 };
 
 const sDescTreeNode SFA2_A_STAGES08_REV1_COLLECTION[] =
 {
-    { L"Ken Stage Background (ROM 08 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_ELIZA_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV1_ELIZA_PALETTES) },
-    { L"Ken Stage (ROM 08 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV1_KEN_PALETTES) },
+    { L"Japan (Winter)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_JAPANWINTER,   ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_JAPANWINTER) },
+    { L"USA (Party)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_USAPARTY,      ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_USAPARTY) },
+    { L"Japan (Gokuentou)",                 DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_JAPANGOKUENTOU, ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_JAPANGOKUENTOU) },
+    { L"USA (Plane)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_USAPLANE,      ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_USAPLANE) },
+    { L"China (Street)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_CHINASTREET,   ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_CHINASTREET) },
+    { L"Thailand (Lake)",                   DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_THAILANDLAKE,  ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_THAILANDLAKE) },
+    { L"USA (Truck)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_USATRUCK,      ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_USATRUCK) },
+    { L"USA (Metro City)",                  DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_USAMETROCITY,  ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_USAMETROCITY) },
+    { L"England",                           DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_ENGLAND,       ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_ENGLAND) },
+    { L"Italy",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_ITALY,         ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_ITALY) },
+    { L"Brazil",                            DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_BRAZIL,        ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_BRAZIL) },
+    { L"Thailand (Statue)",                 DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_THAILANDSTATUE, ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_THAILANDSTATUE) },
+    { L"Hong Kong",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_HONGKONG,      ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_HONGKONG) },
+    { L"Japan (House)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_JAPANHOUSE,    ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_JAPANHOUSE) },
+    { L"USA (Elevator)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_USAELEVATOR,   ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_USAELEVATOR) },
+    { L"India",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_INDIA,         ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_INDIA) },
+    { L"USSR",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_USSR,          ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_USSR) },
+    { L"China (Alley)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_CHINAALLEY,    ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_CHINAALLEY) },
+    { L"Australia",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_AUSTRALIA,     ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_AUSTRALIA) },
+    { L"Venezuala",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_PALETTES_VENEZUALA,     ARRAYSIZE(SFA2_A_STAGES08_REV1_PALETTES_VENEZUALA) },
+
+    { L"Splash Screens",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_SPLASH_PALETTES,        ARRAYSIZE(SFA2_A_STAGES08_REV1_SPLASH_PALETTES) },
 
     // Using Rev2 since they match
-    { L"Previews",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PREVIEW_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV2_PREVIEW_PALETTES) },
+    { L"Previews",                          DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PREVIEW_PALETTES,       ARRAYSIZE(SFA2_A_STAGES08_REV2_PREVIEW_PALETTES) },
 };
 
 const sDescTreeNode SFA2_A_STAGES07_REV2_COLLECTION[] =
@@ -2526,30 +2879,30 @@ const sDescTreeNode SFA2_A_STAGES07_REV2_COLLECTION[] =
 
 const sDescTreeNode SFA2_A_STAGES08_REV2_COLLECTION[] =
 {
-    { L"Japan (Winter)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_JAPANWINTER, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_JAPANWINTER) },
-    { L"USA (Party)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAPARTY, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAPARTY) },
+    { L"Japan (Winter)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_JAPANWINTER,   ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_JAPANWINTER) },
+    { L"USA (Party)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAPARTY,      ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAPARTY) },
     { L"Japan (Gokuentou)",                 DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_JAPANGOKUENTOU, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_JAPANGOKUENTOU) },
-    { L"USA (Plane)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAPLANE, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAPLANE) },
-    { L"China (Street)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_CHINASTREET, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_CHINASTREET) },
-    { L"Thailand (Lake)",                   DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_THAILANDLAKE, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_THAILANDLAKE) },
-    { L"USA (Truck)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USATRUCK, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USATRUCK) },
-    { L"USA (Metro City)",                  DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAMETROCITY, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAMETROCITY) },
-    { L"England",                           DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_ENGLAND, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_ENGLAND) },
-    { L"Italy",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_ITALY, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_ITALY) },
-    { L"Brazil",                            DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_BRAZIL, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_BRAZIL) },
+    { L"USA (Plane)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAPLANE,      ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAPLANE) },
+    { L"China (Street)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_CHINASTREET,   ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_CHINASTREET) },
+    { L"Thailand (Lake)",                   DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_THAILANDLAKE,  ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_THAILANDLAKE) },
+    { L"USA (Truck)",                       DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USATRUCK,      ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USATRUCK) },
+    { L"USA (Metro City)",                  DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAMETROCITY,  ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAMETROCITY) },
+    { L"England",                           DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_ENGLAND,       ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_ENGLAND) },
+    { L"Italy",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_ITALY,         ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_ITALY) },
+    { L"Brazil",                            DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_BRAZIL,        ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_BRAZIL) },
     { L"Thailand (Statue)",                 DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_THAILANDSTATUE, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_THAILANDSTATUE) },
-    { L"Hong Kong",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_HONGKONG, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_HONGKONG) },
-    { L"Japan (House)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_JAPANHOUSE, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_JAPANHOUSE) },
-    { L"USA (Elevator)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAELEVATOR, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAELEVATOR) },
-    { L"India",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_INDIA, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_INDIA) },
-    { L"USSR",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USSR, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USSR) },
-    { L"China (Alley)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_CHINAALLEY, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_CHINAALLEY) },
-    { L"Australia",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_AUSTRALIA, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_AUSTRALIA) },
-    { L"Venezuala",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_VENEZUALA, ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_VENEZUALA) },
+    { L"Hong Kong",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_HONGKONG,      ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_HONGKONG) },
+    { L"Japan (House)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_JAPANHOUSE,    ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_JAPANHOUSE) },
+    { L"USA (Elevator)",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USAELEVATOR,   ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USAELEVATOR) },
+    { L"India",                             DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_INDIA,         ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_INDIA) },
+    { L"USSR",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_USSR,          ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_USSR) },
+    { L"China (Alley)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_CHINAALLEY,    ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_CHINAALLEY) },
+    { L"Australia",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_AUSTRALIA,     ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_AUSTRALIA) },
+    { L"Venezuala",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PALETTES_VENEZUALA,     ARRAYSIZE(SFA2_A_STAGES08_REV2_PALETTES_VENEZUALA) },
 
-    { L"Splash Screens",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_SPLASH_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV2_SPLASH_PALETTES) },
+    { L"Splash Screens",                    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_SPLASH_PALETTES,        ARRAYSIZE(SFA2_A_STAGES08_REV2_SPLASH_PALETTES) },
 
-    { L"Previews",                          DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PREVIEW_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV2_PREVIEW_PALETTES) },
+    { L"Previews",                          DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_PREVIEW_PALETTES,       ARRAYSIZE(SFA2_A_STAGES08_REV2_PREVIEW_PALETTES) },
 };
 
 const sGame_PaletteDataset SFA2_A_07REV1_CSI_PALETTES[] =
@@ -2604,34 +2957,30 @@ const sGame_PaletteDataset SFA2_A_07ForSFZ2A_INTROPORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_08REV1_INTROPORTRAIT_PALETTES[] =
 {
-    // 13de
-    { L"Birdie",    0x65e, 0x71e, indexCPS2Sprites_SFA2_Bonus, 0x01 },
-    { L"Sagat",     0xBdfe - 0xD7e - 0x02, 0xBe5e - 0xD7e - 0x02, indexCPS2Sprites_SFA2_Bonus, 0x09 },
-
-    { L"Sakura",    0x20E1e, 0x20E7e, indexCPS2Sprites_SFA2_Bonus, 0x0a }, // 2171c, 20e1e,176a0
-    { L"Gen",       0x20D5e, 0x20D9e, indexCPS2Sprites_SFA2_Bonus, 0x05 },
-    { L"Rolento",   0x20F3e, 0x20F7e, indexCPS2Sprites_SFA2_Bonus, 0x07 },
-    { L"Dhalsim",   0x21000 - 0x02, 0x2103e, indexCPS2Sprites_SFA2_Bonus, 0x04 },
-    { L"Zangief",   0x210be, 0x210fe, indexCPS2Sprites_SFA2_Bonus, 0x0b },
-
-    { L"Adon Pants", 0x2119e, 0x211be, indexCPS2Sprites_SFA2_Bonus, 0x00 },
-    { L"Dan Intro", 0x211de, 0x2123e, indexCPS2Sprites_SFA2_Bonus, 0x03 },
-    { L"Dan Intro Rock", 0x2123e, 0x2125e, indexCPS2Sprites_SFA2_Bonus, 0x02 },
-
-    { L"Ryu Intro Faceoff", 0x2127e, 0x2131e, indexCPS2Sprites_SFA2_Bonus, 0x08 },
-    { L"Ken Intro Faceoff", 0x2131e, 0x213be, indexCPS2Sprites_SFA2_Bonus, 0x06 },
-    
-    { L"Ryu Charge Part 1", 0x2b520 - 0x900 - 0x02, 0x2b5C0 - 0x900 - 0x02, indexCPS2Sprites_SFA2_Bonus, 0x14, &pairNext },
-    { L"Ryu Charge Part 2", 0x2b6a0 - 0x900 - 0x02, 0x2b6e0 - 0x900 - 0x02, indexCPS2Sprites_SFA2_Bonus, 0x15 },
-    { L"Ken Charge", 0x2b5C0 - 0x900 - 0x02, 0x2b6A0 - 0x900 - 0x02, indexCPS2Sprites_SFA2_Bonus, 0x13 },
-    { L"Ryu Ken Intro Blast", 0x2b500 - 0x900 - 0x02, 0x2b520 - 0x900 - 0x02, indexCPS2Sprites_SFA2_Bonus, 0x16 },
-
-    { L"Rose",          0xB660 - 0x802, 0xB740 - 0x802, indexCPS2Sprites_SFA2_Bonus, 0x10 },
-    { L"Bison",         0xB740 - 0x802, 0xB880 - 0x802, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
-    { L"Bison pt.2",    0xB900 - 0x802, 0xB920 - 0x802, indexCPS2Sprites_SFA2_Bonus, 0x0d },
-    { L"Intro - Purple BG pt.2", 0x15A20 - 0x3fe, 0x15A40 - 0x3fe },
-    { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e },
-    { L"Intro - Blue BG pt.2", 0x2bD80 + 0x6fe, 0x2bDA0 + 0x6fe },
+    { L"Birdie", 0x13de, 0x149e, indexCPS2Sprites_SFA2_Bonus, 0x01 }, /* Delta: 0x180 */
+    // Match at 0xbdfe, 0xbe5e (delta 0x580)
+    // Match at 0x1d4de, 0x1d53e (delta 0x11c60)
+    { L"Sagat", 0xbdfe, 0xbe5e, indexCPS2Sprites_SFA2_Bonus, 0x09 }, /* Delta: 0x580 */
+    { L"Sakura", 0x2171e, 0x2177e, indexCPS2Sprites_SFA2_Bonus, 0x0a }, /* Delta: 0x900 */
+    { L"Gen", 0x2165e, 0x2169e, indexCPS2Sprites_SFA2_Bonus, 0x05 }, /* Delta: 0x900 */
+    { L"Rolento", 0x2183e, 0x2187e, indexCPS2Sprites_SFA2_Bonus, 0x07 }, /* Delta: 0x900 */
+    { L"Dhalsim", 0x218fe, 0x2193e, indexCPS2Sprites_SFA2_Bonus, 0x04 }, /* Delta: 0x900 */
+    { L"Zangief", 0x219be, 0x219fe, indexCPS2Sprites_SFA2_Bonus, 0x0b }, /* Delta: 0x900 */
+    { L"Adon Pants", 0x21a9e, 0x21abe, indexCPS2Sprites_SFA2_Bonus, 0x00 }, /* Delta: 0x900 */
+    { L"Dan Intro", 0x21ade, 0x21b3e, indexCPS2Sprites_SFA2_Bonus, 0x03 }, /* Delta: 0x900 */
+    { L"Dan Intro Rock", 0x21b3e, 0x21b5e, indexCPS2Sprites_SFA2_Bonus, 0x02 }, /* Delta: 0x900 */
+    { L"Ryu Intro Faceoff", 0x21b7e, 0x21c1e, indexCPS2Sprites_SFA2_Bonus, 0x08 }, /* Delta: 0x900 */
+    { L"Ken Intro Faceoff", 0x21c1e, 0x21cbe, indexCPS2Sprites_SFA2_Bonus, 0x06 }, /* Delta: 0x900 */
+    { L"Ryu Charge Part 1", 0x2b51e, 0x2b5be, indexCPS2Sprites_SFA2_Bonus, 0x14, &pairNext }, /* Delta: 0 */
+    { L"Ryu Charge Part 2", 0x2b69e, 0x2b6de, indexCPS2Sprites_SFA2_Bonus, 0x15 }, /* Delta: 0 */
+    { L"Ken Charge", 0x2b5be, 0x2b69e, indexCPS2Sprites_SFA2_Bonus, 0x13 }, /* Delta: 0 */
+    { L"Ryu Ken Intro Blast", 0x2b4fe, 0x2b51e, indexCPS2Sprites_SFA2_Bonus, 0x16 }, /* Delta: 0 */
+    { L"Rose", 0xbbde, 0xbcbe, indexCPS2Sprites_SFA2_Bonus, 0x10 }, /* Delta: 0x580 */
+    { L"Bison", 0xbcbe, 0xbdfe, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext }, /* Delta: 0x580 */
+    { L"Bison pt.2", 0xbe7e, 0xbe9e, indexCPS2Sprites_SFA2_Bonus, 0x0d }, /* Delta: 0x580 */
+    { L"Intro - Purple BG pt.2", 0x1639e, 0x163be }, /* Delta: 0x980 */
+    { L"Intro - Blue BG pt.1", 0x21a7e, 0x21a9e }, /* Delta: 0x900 */
+    { L"Intro - Blue BG pt.2", 0x2cd7e, 0x2cd9e }, /* Delta: 0 */
 };
 
 const sGame_PaletteDataset SFA2_A_08REV2_INTROPORTRAIT_PALETTES[] =
@@ -2731,10 +3080,10 @@ const sGame_PaletteDataset SFA2_A_07ForSFZ2A_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_08REV1_BONUS_PALETTES[] =
 {
-    { L"Title BG", 0x15A5E - 0x400, 0x15A74 - 0x400, indexCPS2Sprites_SFA2_Bonus, 0x1b },
-    { L"\"Round # Fight\"", 0x21B9E, 0x21BBE, indexCPS2Sprites_SFA2_Bonus, 0x19 },
-    { L"SF Title Logo Pt.2", 0x213BE, 0x213FE, indexCPS2Sprites_SFA2_Bonus, 0x1e },
-    { L"SF Title Logo Pt.3", 0x1ca5e - 0xd80, 0x1ca7e - 0xd80 },
+    { L"Title BG", 0x163de, 0x163fe, indexCPS2Sprites_SFA2_Bonus, 0x1b }, /* Delta: 0x980 */
+    { L"\"Round # Fight\"", 0x2249e, 0x224be, indexCPS2Sprites_SFA2_Bonus, 0x19 }, /* Delta: 0x900 */
+    { L"SF Title Logo Pt.2", 0x21cbe, 0x21cfe, indexCPS2Sprites_SFA2_Bonus, 0x1e }, /* Delta: 0x900 */
+    { L"SF Title Logo Pt.3", 0x1ca5e, 0x1ca7e }, /* Delta: 0x900 */
 };
 
 const sGame_PaletteDataset SFA2_A_08REV2andZ_BONUS_PALETTES[] =
@@ -5010,6 +5359,9 @@ const sDescTreeNode SFZ2A_A_ALTSAKURA_PORTRAIT_COLLECTION[] =
 
 #define k_pszUnitName_AltSakura         L"Sakura (Alt)"
 #define k_pszUnitName_Stages07          L"Stages (ROM07 Parts)"
+#define k_pszUnitName_Stages08          L"Stages (ROM08 Parts)"
+// Note that the name is undifferentiated for now
+#define k_pszUnitName_Bonus08           L"Bonus Palettes"
 #define k_pszUnitName_EvilRyu_Rev2      L"Evil Ryu (US Only)"
 #define k_pszUnitName_EvilRyu_SFZ2A     L"Evil Ryu"
 #define k_pszUnitName_WWMBison          L"M. Bison (WW)"
@@ -5233,8 +5585,8 @@ const sDescTreeNode SFA2_A_UNITS_08_REV1[] =
     { L"Sodom Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_SODOM_PORTRAIT_COLLECTION) },
     { L"Zangief Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_ZANGIEF_PORTRAIT_COLLECTION) },
 
-    { L"Stages (08 Parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV1_COLLECTION) },
-    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08REV1_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08REV1_COLLECTION) },
+    { k_pszUnitName_Stages08, DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV1_COLLECTION) },
+    { k_pszUnitName_Bonus08,    DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08REV1_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08REV1_COLLECTION) },
 };
 
 const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
@@ -5353,7 +5705,7 @@ const sDescTreeNode SFA2_A_STAGES08_MONO_COLLECTION[] =
 {
     { L"Ken Stage (ROM 08 parts)", DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_MONO_REV1_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_MONO_REV1_KEN_PALETTES) },
     
-    { L"Previews",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_MONO_PREVIEW_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV1_MONO_PREVIEW_PALETTES) },
+    { L"Previews",                 DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_MONO_PREVIEW_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV1_MONO_PREVIEW_PALETTES) },
 };
 
 const sGame_PaletteDataset SFA2_A_07REV1_MONO_CSI_PALETTES[] =

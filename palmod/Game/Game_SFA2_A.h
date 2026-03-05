@@ -220,7 +220,7 @@ private:
         SFA2_A_UNITS_07_REV1,
         ARRAYSIZE(SFA2_A_UNITS_07_REV1),
         L"SFA2e.txt",           // Extra filename
-        939,                    // Count of palettes listed in the header
+        987,                    // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
@@ -280,8 +280,8 @@ private:
         SFA2_A_UNITS_08_REV1,
         ARRAYSIZE(SFA2_A_UNITS_08_REV1),
         L"SFA2-8e.txt",         // Extra filename
-        306,                    // Count of palettes listed in the header
-        0x125e,                 // Lowest known location used for palettes
+        447,                    // Count of palettes listed in the header
+        0x33e,                  // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM08_Rev2
