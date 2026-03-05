@@ -115,7 +115,8 @@ void CPalModDlg::OnRemapUnit()
                 const std::wstring strActiveCommentStyle = fUseExtrasMode ? strExtrasComment : strCodeComment;
                 uint32_t nCountPalettesMapped = 0, nCountPalettesExisting = 0;
 
-                CString strOutput;
+                // Unicode marker
+                CString strOutput = L"\xfeff";
 
                 // Assemble the search strings.
                 // Note that we CANNOT reliably search against the transparency color. 
@@ -391,7 +392,7 @@ void CPalModDlg::OnRemapUnit()
                     strOutputName += fUseExtrasMode ? L".txt" : L".h";
                 }
 
-                if (OutputFile.Open(strOutputName, CFile::modeCreate | CFile::modeWrite))
+                if (OutputFile.Open(strOutputName, CFile::modeCreate | CFile::modeWrite | CFile::typeUnicode))
                 {
                     OutputFile.Write(strOutput.GetString(), strOutput.GetLength() * 2 /* wchar */);
 
