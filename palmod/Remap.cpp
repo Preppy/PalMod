@@ -288,7 +288,8 @@ void CPalModDlg::OnRemapUnit()
 
                                         strInfo.Format(L"%s Match at 0x%x, 0x%x (delta 0x%x)", strActiveCommentStyle.c_str(), nSecondMappedOffset, nAltTerminalOffset, alternative_delta);
 
-                                        if (nLastLocationRemapDelta == alternative_delta)
+                                        if ((nLastLocationRemapDelta == alternative_delta) || // it moved the same as the previously analyzed palette
+                                            (alternative_delta == 0)) // it hasn't moved
                                         {
                                             strInfo += L" <-- swapped to use this one";
                                             nStartingMappedOffset = nSecondMappedOffset;
