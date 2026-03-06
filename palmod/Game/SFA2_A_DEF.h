@@ -2045,6 +2045,12 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_AUSTRALIA[] =
     { L"Sprites", 0x7697e, 0x76a5e, indexCPS2Sprites_SFA2_Stages, 0xa9 }, /* Delta: -0x280 */
 };
 
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_VENEZUALA[] =
+{
+    // just the stage shadow
+    { L"Sprites", 0x76cde - 0x280, 0x76dbe - 0x280, indexCPS2Sprites_SFA2_Stages, 0xbf },
+};
+
 const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_JAPANWINTER[] =
 {
     { L"Sprites",       0x75c3e, 0x75d1e, indexCPS2Sprites_SFA2_Stages, 0xb5, &pairFullyLinkedNode },
@@ -2079,6 +2085,8 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_CHINASTREET[] =
 {
     { L"Midground 1/2", 0x7d1be, 0x7d3be, indexCPS2Sprites_SFA2_Stages, 0x38, &pairFullyLinkedNode },
     { L"Midground 2/2", 0x7d3be, 0x7d5be, indexCPS2Sprites_SFA2_Stages, 0x39 },
+    // we're missing sprite coverage of line 5 which is another chunk of bicyclists.
+    // but this is a rough sprite to capture since it's a ton of motioning objects
     { L"Sprites",       0x75fbe, 0x7609e, indexCPS2Sprites_SFA2_Stages, 0xac },
 };
 
@@ -2184,6 +2192,12 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_AUSTRALIA[] =
     { L"Sprites",       0x76bfe, 0x76cde, indexCPS2Sprites_SFA2_Stages, 0xa9 },
 };
 
+const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_VENEZUALA[] =
+{
+    // just the stage shadow
+    { L"Sprites",       0x76cde, 0x76dbe, indexCPS2Sprites_SFA2_Stages, 0xbf },
+};
+
 const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_JAPANWINTER[] =
 {
     { L"Background 1/2", 0x1133e, 0x1153e, indexCPS2Sprites_SFA2_Stages, 0x4e, &pairFullyLinkedNode }, /* Delta: 0x980 */
@@ -2198,7 +2212,7 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USAPARTY[] =
     { L"Foreground 1/2", 0x6f3e, 0x713e, indexCPS2Sprites_SFA2_Stages, 0x82, &pairNext }, /* Delta: 0x580 */
     { L"Foreground 2/2", 0x713e, 0x733e, indexCPS2Sprites_SFA2_Stages, 0x83 }, /* Delta: 0x580 */
     { L"Foreground Objects 1/2", 0x1173e, 0x1193e, indexCPS2Sprites_SFA2_Stages, 0x63, &pairNext }, /* Delta: 0x980 */
-    { L"Foreground Objects  2/2", 0x1193e, 0x11b1e, indexCPS2Sprites_SFA2_Stages, 0x64 }, /* Delta: 0x980 */
+    { L"Foreground Objects 2/2", 0x1193e, 0x11b1e, indexCPS2Sprites_SFA2_Stages, 0x64 }, /* Delta: 0x980 */
     { L"Candle Animations 1", 0x29d1e, 0x29d7e, indexCPS2Sprites_SFA2_Stages, 0x85 }, /* Delta: 0 */
     { L"Candle Animations 2", 0x29d7e, 0x29dde, indexCPS2Sprites_SFA2_Stages, 0x86 }, /* Delta: 0 */
 };
@@ -2223,7 +2237,10 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USAPLANE[] =
     { L"Foreground 2/2", 0x793e, 0x7b3e, indexCPS2Sprites_SFA2_Stages, 0xa4 }, /* Delta: 0x580 */
     { L"Ground 1", 0x298be, 0x29abe, indexCPS2Sprites_SFA2_Stages, 0xa5 }, /* Delta: 0 */
     { L"Ground 2", 0x29abe, 0x29b3e, indexCPS2Sprites_SFA2_Stages, 0xa6 }, /* Delta: 0 */
-    { L"Ground Animation Cycle", 0x1cd9e, 0x1ce3e, indexCPS2Sprites_SFA2_Stages, 0xc6 }, /* Delta: 0x900 */
+    // Note I swapped the order here so it syncs better visually
+    { L"Ground Animation Cycle 2/2", 0x1cdfe, 0x1ce5e, indexCPS2Sprites_SFA2_Stages, 0xc6 }, /* Delta: 0x900 */
+    { L"Ground Animation Cycle 1/2", 0x1cd9e, 0x1cdfe, indexCPS2Sprites_SFA2_Stages, 0xc6 }, /* Delta: 0x900 */
+
     { L"Wing Tip Animation Cycle", 0x2953e, 0x295be, indexCPS2Sprites_SFA2_Stages, 0xa7 }, /* Delta: 0 */
     { L"Unknown Animation Cycle", 0x295be, 0x2963e }, /* Delta: 0 */
 };
@@ -2273,8 +2290,30 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_ENGLAND[] =
 {
     { L"Foreground 1/2", 0x8b3e, 0x8d3e, indexCPS2Sprites_SFA2_Stages, 0x7d, &pairFullyLinkedNode }, /* Delta: 0x580 */
     { L"Foreground 2/2", 0x8d3e, 0x8f3e }, /* Delta: 0x580 */
-    { L"Animation Cycles", 0x28b9e, 0x28d9e, indexCPS2Sprites_SFA2_Stages, 0x80 }, /* Delta: 0 */
-    { L"Unknown?", 0x28d9e, 0x28e3e }, /* Delta: 0 */
+
+    // These are oddly sliced
+    { L"Animation Cycle 1 1/3",    0x28b9e, 0x28bbe }, /* delta 0 on these thankfully */
+    { L"Animation Cycle 1 2/3",    0x28bbe, 0x28bde },
+    { L"Animation Cycle 1 3/3",    0x28d5e, 0x28d7e },
+    { L"Animation Cycle 2 1/3",    0x28bde, 0x28bfe },
+    { L"Animation Cycle 2 2/3",    0x28bfe, 0x28c1e },
+    { L"Animation Cycle 2 3/3",    0x28d7e, 0x28d9e },
+    { L"Animation Cycle 3 1/3",    0x28c1e, 0x28c3e, indexCPS2Sprites_SFA2_Stages, 0x80 },
+    { L"Animation Cycle 3 2/3",    0x28c3e, 0x28c5e, indexCPS2Sprites_SFA2_Stages, 0x80 },
+    { L"Animation Cycle 3 3/3",    0x28d9e, 0x28dbe, indexCPS2Sprites_SFA2_Stages, 0x80 },
+    { L"Animation Cycle 4 1/3",    0x28c5e, 0x28c7e, indexCPS2Sprites_SFA2_Stages, 0xc7 },
+    { L"Animation Cycle 4 2/3",    0x28c7e, 0x28c9e, indexCPS2Sprites_SFA2_Stages, 0xc7 },
+    { L"Animation Cycle 4 3/3",    0x28dbe, 0x28dde, indexCPS2Sprites_SFA2_Stages, 0xc7 },
+    { L"Animation Cycle 5 1/3",    0x28c9e, 0x28cbe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
+    { L"Animation Cycle 5 2/3",    0x28cbe, 0x28cde, indexCPS2Sprites_SFA2_Stages, 0xc8 },
+    { L"Animation Cycle 5 3/3",    0x28dde, 0x28dfe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
+    { L"Animation Cycle 6 1/3",    0x28cde, 0x28cfe },
+    { L"Animation Cycle 6 2/3",    0x28cfe, 0x28d1e },
+    { L"Animation Cycle 6 3/3",    0x28dfe, 0x28e1e },
+    { L"Animation Cycle 7 1/3",    0x28d1e, 0x28d3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
+    { L"Animation Cycle 7 2/3",    0x28d3e, 0x28d5e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
+    { L"Animation Cycle 7 3/3",    0x28e1e, 0x28e3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
+
     { L"Infrastructure 1/2", 0x1333e, 0x1353e, indexCPS2Sprites_SFA2_Stages, 0x81, &pairNext }, /* Delta: 0x980 */
     { L"Infrastructure 2/2", 0x1353e, 0x1371e }, /* Delta: 0x980 */
 };
@@ -2350,13 +2389,18 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_USSR[] =
     { L"Midground 2/2", 0x53e, 0x73e, indexCPS2Sprites_SFA2_Stages, 0x95 }, /* Delta: 0x180 */
     { L"Foreground 1/2", 0xab3e, 0xad3e, indexCPS2Sprites_SFA2_Stages, 0x96, &pairNext }, /* Delta: 0x580 */
     { L"Foreground 2/2", 0xad3e, 0xaf3e, indexCPS2Sprites_SFA2_Stages, 0x97 }, /* Delta: 0x580 */
-    { L"Foreground Animation Cycle 1/7", 0x29dde, 0x29fbe, indexCPS2Sprites_SFA2_Stages, 0x98 }, /* Delta: 0 */
-    { L"Foreground Animation Cycle 2/7", 0x29fbe, 0x2a19e, indexCPS2Sprites_SFA2_Stages, 0x99 }, /* Delta: 0 */
-    { L"Foreground Animation Cycle 3/7", 0x2a19e, 0x2a25e, indexCPS2Sprites_SFA2_Stages, 0x9a }, /* Delta: 0 */
-    { L"Foreground Animation Cycle 4/7", 0x2a25e, 0x2a45e, indexCPS2Sprites_SFA2_Stages, 0x9b }, /* Delta: 0 */
-    { L"Foreground Animation Cycle 5/7", 0x2a45e, 0x2a65e, indexCPS2Sprites_SFA2_Stages, 0x9c }, /* Delta: 0 */
-    { L"Foreground Animation Cycle 6/7", 0x2a65e, 0x2a85e, indexCPS2Sprites_SFA2_Stages, 0x9d }, /* Delta: 0 */
-    { L"Foreground Animation Cycle 7/7", 0x2a85e, 0x2a8be, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0 */
+
+    { L"Foreground Animation Cycles 1/6",   0x29dde, 0x29fbe, indexCPS2Sprites_SFA2_Stages, 0x98 },
+    { L"Foreground Animation Cycles 2/6",   0x29fbe, 0x2a15e, indexCPS2Sprites_SFA2_Stages, 0x99 },
+    { L"Foreground Animation Cycles 3/6",   0x2a19e, 0x2a25e, indexCPS2Sprites_SFA2_Stages, 0x9a },
+    { L"Foreground Animation Cycles 4/6",   0x2a25e, 0x2a45e, indexCPS2Sprites_SFA2_Stages, 0x9b },
+    { L"Foreground Animation Cycles 5/6",   0x2a45e, 0x2a65e, indexCPS2Sprites_SFA2_Stages, 0x9c },
+    { L"Foreground Animation Cycles 6/6",   0x2a65e, 0x2a85e, indexCPS2Sprites_SFA2_Stages, 0x9d },
+    { L"Ground Animation Cycles 1/2",       0x2a15e, 0x2a19e, indexCPS2Sprites_SFA2_Stages, 0xcb },
+    { L"Ground Animation Cycles 2/2",       0x2a85e, 0x2a8be, indexCPS2Sprites_SFA2_Stages, 0xcb },
+
+    { L"Electricity Animation Cycle 1/2", 0x2009e, 0x200de, indexCPS2Sprites_SFA2_Stages, 0xcc }, /* Delta: 0x900 */
+    { L"Electricity Animation Cycle 2/2", 0x1fb7e, 0x1fbde, indexCPS2Sprites_SFA2_Stages, 0xcc }, /* Delta: 0x900 */
 };
 
 const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_CHINAALLEY[] =
@@ -2376,18 +2420,18 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_AUSTRALIA[] =
     { L"Background 2/2", 0x15d3e, 0x15f1e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x980 */
     // Match at 0x15b3e, 0x15bbe (delta -0x16920)
     // Match at 0x2c45e, 0x2c4de (delta 0x0)
-        { L"Background Animation Cycle", 0x2c45e, 0x2c4de, indexCPS2Sprites_SFA2_Stages, 0x79 }, /* Delta: 0 */
-        { L"Midground 1/2", 0xb3e, 0xd3e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x180 */
-        { L"Midground 2/2", 0xd3e, 0xf3e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x180 */
-        { L"Foreground 1/2", 0xb33e, 0xb53e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x580 */
-        { L"Foreground 2/2", 0xb53e, 0xb73e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x580 */
-        { L"Foreground Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a }, /* Delta: 0 */
-        { L"Animation cycle?", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0 */
-        { L"Animation cycle??", 0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0 */
-        { L"Mid sky animation cycle??", 0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0 */
-        { L"Grass Animation Cycle?", 0x1ce3e, 0x1ce5e }, /* Delta: 0x900 */
-        { L"Front Grass Top Animation Cycle", 0x1ce5e, 0x1cefe, indexCPS2Sprites_SFA2_Stages, 0xbc, &pairFullyLinkedNode }, /* Delta: 0x900 */
-        { L"Front Grass Bottom Animation Cycle", 0x1cefe, 0x1cf9e, indexCPS2Sprites_SFA2_Stages, 0xbd }, /* Delta: 0x900 */
+    { L"Background Animation Cycle", 0x2c45e, 0x2c4de, indexCPS2Sprites_SFA2_Stages, 0x79 }, /* Delta: 0 */
+    { L"Midground 1/2", 0xb3e, 0xd3e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x180 */
+    { L"Midground 2/2", 0xd3e, 0xf3e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x180 */
+    { L"Foreground 1/2", 0xb33e, 0xb53e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x580 */
+    { L"Foreground 2/2", 0xb53e, 0xb73e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x580 */
+    { L"Foreground Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a }, /* Delta: 0 */
+    { L"Animation cycle 1?", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0 */
+    { L"Animation cycle 2?", 0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0 */
+    { L"Mid sky animation cycle", 0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0 */
+    { L"Top Grass Animation Cycle", 0x1cf9e, 0x1d03e, indexCPS2Sprites_SFA2_Stages, 0xca }, /* Delta: 0x900 */
+    { L"Front Grass Top Animation Cycle", 0x1ce5e, 0x1cefe, indexCPS2Sprites_SFA2_Stages, 0xbc }, /* Delta: 0x900 */
+    { L"Front Grass Bottom Animation Cycle", 0x1cefe, 0x1cf9e, indexCPS2Sprites_SFA2_Stages, 0xbd }, /* Delta: 0x900 */
 };
 
 const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_VENEZUALA[] =
@@ -2450,7 +2494,9 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_USAPLANE[] =
     { L"Ground 1",                  0x298be, 0x29abe, indexCPS2Sprites_SFA2_Stages, 0xa5 },
     { L"Ground 2",                  0x29abe, 0x29b3e, indexCPS2Sprites_SFA2_Stages, 0xa6 },
 
-    { L"Ground Animation Cycle",    0x1c49e, 0x1c53e, indexCPS2Sprites_SFA2_Stages, 0xc6 },
+    // sprite seems to be missing far left aspects, but it's at least
+    { L"Ground Animation Cycle 1/2",    0x1c49e, 0x1c4fe, indexCPS2Sprites_SFA2_Stages, 0xc6 },
+    { L"Ground Animation Cycle 2/2",    0x1c4fe, 0x1c55e, indexCPS2Sprites_SFA2_Stages, 0xc6 },
 
     { L"Wing Tip Animation Cycle",  0x2953e, 0x295be, indexCPS2Sprites_SFA2_Stages, 0xa7 },
     { L"Unknown Animation Cycle",   0x295be, 0x2963e },
@@ -2510,8 +2556,28 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_ENGLAND[] =
     // rom07 sprites  0x7633e, 0x7641e
     // rom08 animation stuff 0x28b9e, 0x28e1e
 
-    { L"Animation Cycles",      0x28b9e, 0x28d9e, indexCPS2Sprites_SFA2_Stages, 0x80 },
-    { L"Unknown?",              0x28d9e, 0x28e3e },
+    // These are oddly sliced
+    { L"Animation Cycle 1 1/3",    0x28b9e, 0x28bbe },
+    { L"Animation Cycle 1 2/3",    0x28bbe, 0x28bde },
+    { L"Animation Cycle 1 3/3",    0x28d5e, 0x28d7e },
+    { L"Animation Cycle 2 1/3",    0x28bde, 0x28bfe },
+    { L"Animation Cycle 2 2/3",    0x28bfe, 0x28c1e },
+    { L"Animation Cycle 2 3/3",    0x28d7e, 0x28d9e },
+    { L"Animation Cycle 3 1/3",    0x28c1e, 0x28c3e, indexCPS2Sprites_SFA2_Stages, 0x80 },
+    { L"Animation Cycle 3 2/3",    0x28c3e, 0x28c5e, indexCPS2Sprites_SFA2_Stages, 0x80 },
+    { L"Animation Cycle 3 3/3",    0x28d9e, 0x28dbe, indexCPS2Sprites_SFA2_Stages, 0x80 },
+    { L"Animation Cycle 4 1/3",    0x28c5e, 0x28c7e, indexCPS2Sprites_SFA2_Stages, 0xc7 },
+    { L"Animation Cycle 4 2/3",    0x28c7e, 0x28c9e, indexCPS2Sprites_SFA2_Stages, 0xc7 },
+    { L"Animation Cycle 4 3/3",    0x28dbe, 0x28dde, indexCPS2Sprites_SFA2_Stages, 0xc7 },
+    { L"Animation Cycle 5 1/3",    0x28c9e, 0x28cbe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
+    { L"Animation Cycle 5 2/3",    0x28cbe, 0x28cde, indexCPS2Sprites_SFA2_Stages, 0xc8 },
+    { L"Animation Cycle 5 3/3",    0x28dde, 0x28dfe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
+    { L"Animation Cycle 6 1/3",    0x28cde, 0x28cfe },
+    { L"Animation Cycle 6 2/3",    0x28cfe, 0x28d1e },
+    { L"Animation Cycle 6 3/3",    0x28dfe, 0x28e1e },
+    { L"Animation Cycle 7 1/3",    0x28d1e, 0x28d3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
+    { L"Animation Cycle 7 2/3",    0x28d3e, 0x28d5e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
+    { L"Animation Cycle 7 3/3",    0x28e1e, 0x28e3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
 
     { L"Infrastructure 1/2",    0x129be, 0x12bbe, indexCPS2Sprites_SFA2_Stages, 0x81, &pairNext },
     { L"Infrastructure 2/2",    0x12bbe, 0x12d9e },
@@ -2595,7 +2661,7 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_USSR[] =
     { L"Background 1/2",                    0x149be, 0x14bbe, indexCPS2Sprites_SFA2_Stages, 0x92, &pairFullyLinkedNode },
     { L"Background 2/2",                    0x14bbe, 0x14d9e, indexCPS2Sprites_SFA2_Stages, 0x93 },
 
-    { L"More Animations", 0x2cb5e, 0x2cc1e, indexCPS2Sprites_SFA2_Stages, 0x9e },
+    { L"More Animations",                   0x2cb5e, 0x2cc1e, indexCPS2Sprites_SFA2_Stages, 0x9e },
 
     { L"Midground 1/2",                     0x01be, 0x03be, indexCPS2Sprites_SFA2_Stages, 0x94, &pairNext },
     { L"Midground 2/2",                     0x03be, 0x05be, indexCPS2Sprites_SFA2_Stages, 0x95 },
@@ -2603,13 +2669,17 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_USSR[] =
     { L"Foreground 2/2",                    0xa7be, 0xa9be, indexCPS2Sprites_SFA2_Stages, 0x97 },
     // ROM07 Sprites 0x76a3e, 0x76b1e
     // ROM08 foreground lighting animation cycles 0x2a25e, 0x2a8be
-    { L"Foreground Animation Cycle 1/7",    0x29dde, 0x29fbe, indexCPS2Sprites_SFA2_Stages, 0x98 },
-    { L"Foreground Animation Cycle 2/7",    0x29fbe, 0x2a19e, indexCPS2Sprites_SFA2_Stages, 0x99 },
-    { L"Foreground Animation Cycle 3/7",    0x2a19e, 0x2a25e, indexCPS2Sprites_SFA2_Stages, 0x9a },
-    { L"Foreground Animation Cycle 4/7",    0x2a25e, 0x2a45e, indexCPS2Sprites_SFA2_Stages, 0x9b },
-    { L"Foreground Animation Cycle 5/7",    0x2a45e, 0x2a65e, indexCPS2Sprites_SFA2_Stages, 0x9c },
-    { L"Foreground Animation Cycle 6/7",    0x2a65e, 0x2a85e, indexCPS2Sprites_SFA2_Stages, 0x9d },
-    { L"Foreground Animation Cycle 7/7",    0x2a85e, 0x2a8be, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Foreground Animation Cycles 1/6",   0x29dde, 0x29fbe, indexCPS2Sprites_SFA2_Stages, 0x98 },
+    { L"Foreground Animation Cycles 2/6",   0x29fbe, 0x2a15e, indexCPS2Sprites_SFA2_Stages, 0x99 },
+    { L"Foreground Animation Cycles 3/6",   0x2a19e, 0x2a25e, indexCPS2Sprites_SFA2_Stages, 0x9a },
+    { L"Foreground Animation Cycles 4/6",   0x2a25e, 0x2a45e, indexCPS2Sprites_SFA2_Stages, 0x9b },
+    { L"Foreground Animation Cycles 5/6",   0x2a45e, 0x2a65e, indexCPS2Sprites_SFA2_Stages, 0x9c },
+    { L"Foreground Animation Cycles 6/6",   0x2a65e, 0x2a85e, indexCPS2Sprites_SFA2_Stages, 0x9d },
+    { L"Ground Animation Cycles 1/2",       0x2a15e, 0x2a19e, indexCPS2Sprites_SFA2_Stages, 0xcb },
+    { L"Ground Animation Cycles 2/2",       0x2a85e, 0x2a8be, indexCPS2Sprites_SFA2_Stages, 0xcb },
+
+    { L"Electricity Animation Cycle 1/2",   0x1f79e, 0x1f7de, indexCPS2Sprites_SFA2_Stages, 0xcc },
+    { L"Electricity Animation Cycle 2/2",   0x1f27e, 0x1f2de, indexCPS2Sprites_SFA2_Stages, 0xcc },
 };
 
 const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_CHINAALLEY[] =
@@ -2644,12 +2714,13 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_AUSTRALIA[] =
     { L"Foreground 2/2",             0xafbe, 0xb1be, indexCPS2Sprites_SFA2_Stages, -1 },
     { L"Foreground Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a },
 
-    { L"Animation cycle?",          0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b },
-    { L"Animation cycle??",         0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Animation cycle 1?",          0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b },
+    { L"Animation cycle 2?",          0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, -1 },
 
-    { L"Mid sky animation cycle??", 0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c },
+    { L"Mid sky animation cycle",   0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c },
 
-    { L"Grass Animation Cycle?",            0x1c53e, 0x1c55e },
+    { L"Top Grass Animation Cycle", 0x1c69e, 0x1c73e, indexCPS2Sprites_SFA2_Stages, 0xca },
+
     { L"Front Grass Top Animation Cycle",   0x1c55e, 0x1c5fe, indexCPS2Sprites_SFA2_Stages, 0xbc, &pairNext },
     { L"Front Grass Bottom Animation Cycle", 0x1c5fe, 0x1c69e, indexCPS2Sprites_SFA2_Stages, 0xbd },
 };
@@ -2823,6 +2894,7 @@ const sDescTreeNode SFA2_A_STAGES07_REV1_COLLECTION[] =
     { L"USSR",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_USSR, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_USSR) },
     { L"China (Alley)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_CHINAALLEY, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_CHINAALLEY) },
     { L"Australia",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_AUSTRALIA, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_AUSTRALIA) },
+    { L"Venezuala",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_PALETTES_VENEZUALA, ARRAYSIZE(SFA2_A_STAGES07_REV1_PALETTES_VENEZUALA) },
 };
 
 const sDescTreeNode SFA2_A_STAGES08_REV1_COLLECTION[] =
@@ -2875,6 +2947,7 @@ const sDescTreeNode SFA2_A_STAGES07_REV2_COLLECTION[] =
     { L"USSR",                              DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV2_PALETTES_USSR, ARRAYSIZE(SFA2_A_STAGES07_REV2_PALETTES_USSR) },
     { L"China (Alley)",                     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV2_PALETTES_CHINAALLEY, ARRAYSIZE(SFA2_A_STAGES07_REV2_PALETTES_CHINAALLEY) },
     { L"Australia",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV2_PALETTES_AUSTRALIA, ARRAYSIZE(SFA2_A_STAGES07_REV2_PALETTES_AUSTRALIA) },
+    { L"Venezuala",                         DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV2_PALETTES_VENEZUALA, ARRAYSIZE(SFA2_A_STAGES07_REV2_PALETTES_VENEZUALA) },
 };
 
 const sDescTreeNode SFA2_A_STAGES08_REV2_COLLECTION[] =
