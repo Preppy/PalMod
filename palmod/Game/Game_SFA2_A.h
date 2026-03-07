@@ -280,7 +280,7 @@ private:
         SFA2_A_UNITS_08_REV1,
         ARRAYSIZE(SFA2_A_UNITS_08_REV1),
         L"SFA2-8e.txt",         // Extra filename
-        470,                    // Count of palettes listed in the header
+        478,                    // Count of palettes listed in the header
         0x33e,                  // Lowest known location used for palettes
     };
 
@@ -300,7 +300,7 @@ private:
         SFA2_A_UNITS_08_REV2,
         ARRAYSIZE(SFA2_A_UNITS_08_REV2),
         L"SFA2-8e.txt",         // Extra filename
-        511,                    // Count of palettes listed in the header
+        519,                    // Count of palettes listed in the header
         0x1be,                  // Lowest known location used for palettes
     };
 
@@ -320,7 +320,7 @@ private:
         SFZ2A_A_UNITS_08,
         ARRAYSIZE(SFZ2A_A_UNITS_08),
         L"SFA2-8e.txt",         // Extra filename
-        349,                    // Count of palettes listed in the header
+        350,                    // Count of palettes listed in the header
         0x125e,                 // Lowest known location used for palettes
     };
 
@@ -373,7 +373,7 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         // Kinda Rev1 but also not fully?
-        { L"SFA2 (Steam 960306)", L"bundleStreetFighterAlpha2.mbundle", 0x8eddc428, 0 },
+        { L"SFA2 (Steam)", L"bundleStreetFighterAlpha2.mbundle", 0x8eddc428, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_Rev1_Mono
@@ -392,7 +392,7 @@ private:
         SFA2_STEAM_UNITS_REV1_MONO,
         ARRAYSIZE(SFA2_STEAM_UNITS_REV1_MONO),
         L"SFA2Se.txt",          // Extra filename
-        1459,                   // Count of palettes listed in the header
+        1467,                   // Count of palettes listed in the header
         0x4cd5afa,              // Lowest known location used for palettes
     };
 

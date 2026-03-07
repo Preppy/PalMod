@@ -1003,7 +1003,7 @@ BOOL CGame_SFA2_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             }
         }
 
-        if (paletteDataSet)
+        if (paletteDataSet && fUsingSpecialPairing)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
