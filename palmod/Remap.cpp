@@ -164,6 +164,9 @@ void CPalModDlg::OnRemapUnit()
                     strOutput += strInfo;
                 }
 
+                // Track which if any deltas end up being used
+                std::vector<std::pair<uint32_t, uint32_t>> rgDeltaVotes;
+
                 for (uint32_t iCollectionIndex = 0; iCollectionIndex < pSelectedUnit->uChildAmt; iCollectionIndex++)
                 {
 #ifdef SINGLE_COLLECTION_ONLY
@@ -313,6 +316,20 @@ void CPalModDlg::OnRemapUnit()
 
                                 strDisplayHex = SignedHexAsString(nThisLocationRemapDelta);
 
+                                auto it = std::find_if(rgDeltaVotes.begin(), rgDeltaVotes.end(),
+                                    [&nThisLocationRemapDelta](const std::pair<uint32_t, uint32_t>& elem) {
+                                        return elem.first == nThisLocationRemapDelta;
+                                    });
+
+                                if (it == rgDeltaVotes.end())
+                                {
+                                    rgDeltaVotes.push_back(std::make_pair(nThisLocationRemapDelta, 1));
+                                }
+                                else
+                                {
+                                    it->second++;
+                                }
+
                                 if (fUseExtrasMode)
                                 {
                                     strInfo.Format(L"%s\r\n0x%x\r\n0x%x", searchColors.first->szPaletteName, nStartingMappedOffset, nTerminalOffset);
@@ -393,6 +410,16 @@ void CPalModDlg::OnRemapUnit()
                     strOutputName += fUseExtrasMode ? L".txt" : L".h";
                 }
 
+                CString strSpecificDeltaInfoIfFound;
+
+                if (nCountPalettesExisting && rgDeltaVotes.size() == 1)
+                {
+                    strInfo = SignedHexAsString(rgDeltaVotes.at(0).first);
+                    strSpecificDeltaInfoIfFound.Format(L"  Constant delta of %s.", strInfo.GetString());
+                    strInfo.Format(L"\r\n%sNote: this unit uses a constant delta of %s.\r\n\r\n", strActiveCommentStyle.c_str(), strInfo.GetString());
+                    strOutput += strInfo;
+                }
+
                 if (OutputFile.Open(strOutputName, CFile::modeCreate | CFile::modeWrite | CFile::typeUnicode))
                 {
                     OutputFile.Write(strOutput.GetString(), strOutput.GetLength() * 2 /* wchar */);
@@ -415,7 +442,7 @@ void CPalModDlg::OnRemapUnit()
 
                 if (nCountPalettesExisting)
                 {
-                    strInfo.Format(L"Remapping complete: %u of %u palettes found.", nCountPalettesMapped, nCountPalettesExisting);
+                    strInfo.Format(L"Remapping complete: %u of %u palettes found. %s", nCountPalettesMapped, nCountPalettesExisting, strSpecificDeltaInfoIfFound.GetString());
                 }
                 else
                 {
