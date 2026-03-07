@@ -1104,56 +1104,56 @@ void CPalModDlg::PerformBlink()
     {
         switch (m_nBlinkState)
         {
-        case 3:
-        {
-            COLORREF* pPalette =
-                MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex)->pPal;
-            const BOOL fIsUsingInvertingBlink = ImgDispCtrl->GetBlinkInverts();
-
-            for (int iPaletteIndex = 0; iPaletteIndex < nWorkingAmt; iPaletteIndex++)
+            case 3:
             {
-                if (rgSel[iPaletteIndex] || fSelectAll)
+                COLORREF* pPalette =
+                    MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex)->pPal;
+                const BOOL fIsUsingInvertingBlink = ImgDispCtrl->GetBlinkInverts();
+
+                for (int iPaletteIndex = 0; iPaletteIndex < nWorkingAmt; iPaletteIndex++)
                 {
-                    if (fIsUsingInvertingBlink)
+                    if (rgSel[iPaletteIndex] || fSelectAll)
                     {
-                        const COLORREF crBlinkColor = 0xFF000000 | (~pPalette[iPaletteIndex + nOffs]);
-                        m_pTempPalCopy[iPaletteIndex + nOffs] = crBlinkColor;
+                        if (fIsUsingInvertingBlink)
+                        {
+                            const COLORREF crBlinkColor = 0xFF000000 | (~pPalette[iPaletteIndex + nOffs]);
+                            m_pTempPalCopy[iPaletteIndex + nOffs] = crBlinkColor;
+                        }
+                        else
+                        {
+                            m_pTempPalCopy[iPaletteIndex + nOffs] = m_crBlinkCol;
+                        }
                     }
                     else
                     {
-                        m_pTempPalCopy[iPaletteIndex + nOffs] = m_crBlinkCol;
+                        m_pTempPalCopy[iPaletteIndex + nOffs] = pPalette[iPaletteIndex + nOffs];
                     }
+                }
+
+                fSetTimer = true;
+                fRedraw = TRUE;
+                m_nBlinkState = 1;
+                break;
+            }
+            case 2:
+            {
+                m_nBlinkState = 1;
+                break;
+            }
+            case 1:
+            {
+                m_nBlinkCount--;
+
+                if (m_nBlinkCount)
+                {
+                    m_nBlinkState = 2;
                 }
                 else
                 {
-                    m_pTempPalCopy[iPaletteIndex + nOffs] = pPalette[iPaletteIndex + nOffs];
+                    m_nBlinkState = 0;
                 }
+                break;
             }
-
-            fSetTimer = true;
-            fRedraw = TRUE;
-            m_nBlinkState = 1;
-            break;
-        }
-        case 2:
-        {
-            m_nBlinkState = 1;
-            break;
-        }
-        case 1:
-        {
-            m_nBlinkCount--;
-
-            if (m_nBlinkCount)
-            {
-                m_nBlinkState = 2;
-            }
-            else
-            {
-                m_nBlinkState = 0;
-            }
-            break;
-        }
         }
 
         ImgDispCtrl->UpdateCtrl(fRedraw, (((m_nBlinkState == 1) ? (m_nPalImgIndex | 0xFF00) : FALSE)));
@@ -1394,7 +1394,7 @@ void CPalModDlg::OnBnClickedReverse()
     }
 }
 
-void CPalModDlg::HandleColorSwap(ColorSwap action)
+void CPalModDlg::HandleColorTransform(ColorTransform action)
 {
     if (m_fEnabled)
     {
@@ -1416,35 +1416,78 @@ void CPalModDlg::HandleColorSwap(ColorSwap action)
 
                 switch (action)
                 {
-                    case ColorSwap::Invert:
+                    case ColorTransform::Grayscale_Average:
+                    {
+                        const uint8_t grayAverage = static_cast<uint8_t>((static_cast<uint16_t>(pCurrPal[nPaletteIndex + 0]) + static_cast<uint16_t>(pCurrPal[nPaletteIndex + 1]) + static_cast<uint16_t>(pCurrPal[nPaletteIndex + 2])) / 3);
+
+                        pCurrPal[nPaletteIndex + 0] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayAverage);
+                        pCurrPal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayAverage);
+                        pCurrPal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayAverage);
+                        break;
+                    }
+                    case ColorTransform::Grayscale_Maximum:
+                    {
+                        const uint8_t grayMax = max(pCurrPal[nPaletteIndex + 0], max(pCurrPal[nPaletteIndex + 1], pCurrPal[nPaletteIndex + 2]));
+
+                        pCurrPal[nPaletteIndex + 0] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayMax);
+                        pCurrPal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayMax);
+                        pCurrPal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayMax);
+                        break;
+                    }
+                    case ColorTransform::Grayscale_Middle:
+                    {
+                        const uint8_t grayMax = max(pCurrPal[nPaletteIndex + 0], max(pCurrPal[nPaletteIndex + 1], pCurrPal[nPaletteIndex + 2]));
+                        const uint8_t grayMin = min(pCurrPal[nPaletteIndex + 0], min(pCurrPal[nPaletteIndex + 1], pCurrPal[nPaletteIndex + 2]));
+
+                        const uint8_t grayMiddle = static_cast<uint8_t>((static_cast<uint16_t>(grayMax) + static_cast<uint16_t>(grayMin)) / 2);
+
+                        pCurrPal[nPaletteIndex + 0] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayMiddle);
+                        pCurrPal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayMiddle);
+                        pCurrPal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayMiddle);
+                        break;
+                    }
+                    case ColorTransform::Grayscale_Weighted:
+                    {
+                        const double grayR = 0.299 * pCurrPal[nPaletteIndex + 0];
+                        const double grayG = 0.587 * pCurrPal[nPaletteIndex + 1];
+                        const double grayB = 0.114 * pCurrPal[nPaletteIndex + 2];
+
+                        const uint8_t grayWeighted = static_cast<uint8_t>(grayR + grayG + grayB);
+
+                        pCurrPal[nPaletteIndex + 0] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayWeighted);
+                        pCurrPal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayWeighted);
+                        pCurrPal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(grayWeighted);
+                        break;
+                    }
+                    case ColorTransform::Invert:
                     {
                         pCurrPal[nPaletteIndex]     = CurrGame->GetNearestLegal8BitColorValue_RGB(static_cast<uint8_t>(~pCurrPal[nPaletteIndex]));
                         pCurrPal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(static_cast<uint8_t>(~pCurrPal[nPaletteIndex + 1]));
                         pCurrPal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(static_cast<uint8_t>(~pCurrPal[nPaletteIndex + 2]));
                         break;
                     }
-                    case ColorSwap::Swap_RG:
+                    case ColorTransform::Swap_RG:
                     {
                         const uint8_t tempColor = pCurrPal[nPaletteIndex];
                         pCurrPal[nPaletteIndex] = pCurrPal[nPaletteIndex + 1];
                         pCurrPal[nPaletteIndex + 1] = tempColor;
                         break;
                     }
-                    case ColorSwap::Swap_GB:
+                    case ColorTransform::Swap_GB:
                     {
                         const uint8_t tempColor = pCurrPal[nPaletteIndex + 1];
                         pCurrPal[nPaletteIndex + 1] = pCurrPal[nPaletteIndex + 2];
                         pCurrPal[nPaletteIndex + 2] = tempColor;
                         break;
                     }
-                    case ColorSwap::Swap_RB:
+                    case ColorTransform::Swap_RB:
                     {
                         const uint8_t tempColor = pCurrPal[nPaletteIndex];
                         pCurrPal[nPaletteIndex] = pCurrPal[nPaletteIndex + 2];
                         pCurrPal[nPaletteIndex + 2] = tempColor;
                         break;
                     }
-                    case ColorSwap::Swap_RGB:
+                    case ColorTransform::Swap_RGB:
                     {
                         const uint8_t tempColor = pCurrPal[nPaletteIndex];
                         pCurrPal[nPaletteIndex] = pCurrPal[nPaletteIndex + 1];
@@ -1452,7 +1495,7 @@ void CPalModDlg::HandleColorSwap(ColorSwap action)
                         pCurrPal[nPaletteIndex + 2] = tempColor;
                         break;
                     }
-                    case ColorSwap::Swap_RBG:
+                    case ColorTransform::Swap_RBG:
                     {
                         const uint8_t tempColor = pCurrPal[nPaletteIndex];
                         pCurrPal[nPaletteIndex] = pCurrPal[nPaletteIndex + 2];

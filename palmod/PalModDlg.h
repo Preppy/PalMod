@@ -337,7 +337,7 @@ private:
     afx_msg void OnMappingPaletteUse_Current() { OnMappingPaletteUse(false); };
     afx_msg void OnMappingPaletteUse_AllPaired() { OnMappingPaletteUse(true); };
 
-    enum class ColorSwap
+    enum class ColorTransform
     {
         Invert = 0,
         Swap_RB = 1,
@@ -345,16 +345,25 @@ private:
         Swap_RG = 3,
         Swap_RGB = 4,
         Swap_RBG = 5,
+        Grayscale_Average,
+        Grayscale_Maximum,
+        Grayscale_Middle,
+        Grayscale_Weighted,
     };
 
-    void HandleColorSwap(ColorSwap action);
+    void HandleColorTransform(ColorTransform action);
 
-    afx_msg void OnBnClickedBinvert() { HandleColorSwap(ColorSwap::Invert); };
-    afx_msg void OnBnSwapRG() { HandleColorSwap(ColorSwap::Swap_RG); };
-    afx_msg void OnBnSwapGB() { HandleColorSwap(ColorSwap::Swap_GB); };
-    afx_msg void OnBnSwapRB() { HandleColorSwap(ColorSwap::Swap_RB); };
-    afx_msg void OnBnSwapRGB() { HandleColorSwap(ColorSwap::Swap_RGB); };
-    afx_msg void OnBnSwapRBG() { HandleColorSwap(ColorSwap::Swap_RBG); };
+    afx_msg void OnBnClickedBinvert() { HandleColorTransform(ColorTransform::Invert); };
+    afx_msg void OnBnSwapRG() { HandleColorTransform(ColorTransform::Swap_RG); };
+    afx_msg void OnBnSwapGB() { HandleColorTransform(ColorTransform::Swap_GB); };
+    afx_msg void OnBnSwapRB() { HandleColorTransform(ColorTransform::Swap_RB); };
+    afx_msg void OnBnSwapRGB() { HandleColorTransform(ColorTransform::Swap_RGB); };
+    afx_msg void OnBnSwapRBG() { HandleColorTransform(ColorTransform::Swap_RBG); };
+
+    afx_msg void OnBnClickedGrayscale_Average() { HandleColorTransform(ColorTransform::Grayscale_Average); };
+    afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(ColorTransform::Grayscale_Maximum); };
+    afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(ColorTransform::Grayscale_Middle); };
+    afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(ColorTransform::Grayscale_Weighted); };
 
     afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };

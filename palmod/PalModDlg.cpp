@@ -301,6 +301,12 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_GRADIENT_LAB, &CPalModDlg::OnBnClickedGradient_LAB)
     ON_COMMAND(ID_TOOLS_GRADIENT_RGB, &CPalModDlg::OnBnClickedGradient_RGB)
     ON_COMMAND(ID_TOOLS_GRADIENT_XYZ, &CPalModDlg::OnBnClickedGradient_XYZ)
+
+    ON_COMMAND(ID_TOOLS_GRAYSCALE_AVERAGE, &CPalModDlg::OnBnClickedGrayscale_Average)
+    ON_COMMAND(ID_TOOLS_GRAYSCALE_MAXIMUM, &CPalModDlg::OnBnClickedGrayscale_Maximum)
+    ON_COMMAND(ID_TOOLS_GRAYSCALE_MIDDLE, &CPalModDlg::OnBnClickedGrayscale_Middle)
+    ON_COMMAND(ID_TOOLS_GRAYSCALE_WEIGHTED, &CPalModDlg::OnBnClickedGrayscale_Weighted)
+        
     ON_COMMAND(ID_TOOLS_INVERT, &CPalModDlg::OnBnClickedBinvert)
     ON_COMMAND(ID_TOOLS_REVERT, &CPalModDlg::OnBnRevert)
     ON_COMMAND(ID_TOOLS_REVERSE, &CPalModDlg::OnBnClickedReverse)

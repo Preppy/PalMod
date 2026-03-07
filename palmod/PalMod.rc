@@ -681,6 +681,13 @@ BEGIN
             MENUITEM "RGB",                         ID_TOOLS_GRADIENT_RGB
             MENUITEM "XYZ",                         ID_TOOLS_GRADIENT_XYZ
         END
+	POPUP "Grayscale"
+        BEGIN
+            MENUITEM "Average",                 ID_TOOLS_GRAYSCALE_AVERAGE
+            MENUITEM "Maximum",                 ID_TOOLS_GRAYSCALE_MAXIMUM
+            MENUITEM "Middle Value",            ID_TOOLS_GRAYSCALE_MIDDLE
+            MENUITEM "Weighted",                ID_TOOLS_GRAYSCALE_WEIGHTED
+        END
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
         MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
         MENUITEM "&Revert",                     ID_TOOLS_REVERT
