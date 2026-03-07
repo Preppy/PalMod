@@ -260,7 +260,7 @@ private:
         SFZ2A_A_UNITS_07,
         ARRAYSIZE(SFZ2A_A_UNITS_07),
         L"SFA2e.txt",           // Extra filename
-        1346,                   // Count of palettes listed in the header
+        1349,                   // Count of palettes listed in the header
         0x2C000,                // Lowest known location used for palettes
     };
 
@@ -280,7 +280,7 @@ private:
         SFA2_A_UNITS_08_REV1,
         ARRAYSIZE(SFA2_A_UNITS_08_REV1),
         L"SFA2-8e.txt",         // Extra filename
-        478,                    // Count of palettes listed in the header
+        480,                    // Count of palettes listed in the header
         0x33e,                  // Lowest known location used for palettes
     };
 
@@ -300,7 +300,7 @@ private:
         SFA2_A_UNITS_08_REV2,
         ARRAYSIZE(SFA2_A_UNITS_08_REV2),
         L"SFA2-8e.txt",         // Extra filename
-        519,                    // Count of palettes listed in the header
+        532,                    // Count of palettes listed in the header
         0x1be,                  // Lowest known location used for palettes
     };
 
@@ -392,7 +392,7 @@ private:
         SFA2_STEAM_UNITS_REV1_MONO,
         ARRAYSIZE(SFA2_STEAM_UNITS_REV1_MONO),
         L"SFA2Se.txt",          // Extra filename
-        1467,                   // Count of palettes listed in the header
+        1480,                   // Count of palettes listed in the header
         0x4cd5afa,              // Lowest known location used for palettes
     };
 

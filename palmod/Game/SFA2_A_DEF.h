@@ -3131,6 +3131,29 @@ const sGame_PaletteDataset SFA2_A_08REV1_BONUS_PALETTES[] =
     { L"SF Title Logo Pt.3", 0x1ca5e, 0x1ca7e }, /* Delta: 0x900 */
 };
 
+const sGame_PaletteDataset SFA2_A_08REV1_CHARSEL_PALETTES[] =
+{
+    { L"Character Select Tiles and Map", 0xbf7e, 0xbfbe, indexCPS2Sprites_SFA2_Bonus, 0x28 }, /* Delta: 0x580 */
+    { L"Character Select Background", 0x2bffe, 0x2c0fe, indexCPS2Sprites_SFA2_Bonus, 0x29 }, /* Delta: 0 */
+};
+
+const sGame_PaletteDataset SFA2_A_08REV2_CHARSEL_PALETTES[] =
+{
+    { L"Character Select Tiles", 0xb9fe, 0xba1e, indexCPS2Sprites_SFA2_Bonus, 0x28 },
+    { L"Character Select Map Default", 0xba1e, 0xba3e, indexCPS2Sprites_SFA2_Bonus, 0x2a },
+    { L"Character Select Map Animation Cycle?", 0x2af3e, 0x2af5e },
+    { L"Character Select Map Animation Cycle?", 0x2af5e, 0x2af7e },
+    { L"Character Select Map Animation Cycle?", 0x2af7e, 0x2af9e },
+    { L"Character Select Map Animation Cycle?", 0x2af9e, 0x2afbe },
+    { L"Character Select Map Animation Cycle?", 0x2afbe, 0x2afde },
+    { L"Character Select Map Animation Cycle?", 0x2afde, 0x2affe },
+    { L"Character Select Map Animation Cycle?", 0x2affe, 0x2b01e },
+    { L"Character Select Map Animation Cycle?", 0x2b01e, 0x2b03e },
+    { L"Character Select Map Animation Cycle?", 0x2b03e, 0x2b05e },
+    { L"Character Select Map Animation Cycle Selected", 0x2b05e, 0x2b07e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Background", 0x2bffe, 0x2c0fe, indexCPS2Sprites_SFA2_Bonus, 0x29 },
+};
+
 const sGame_PaletteDataset SFA2_A_08REV2_BONUS_PALETTES[] =
 {
     { L"CAPCOM logo", 0x11be, 0x11de, indexCPS2Sprites_SFA2_Bonus, 0x23 },
@@ -3181,12 +3204,14 @@ const sDescTreeNode SFA2_A_BONUS07ForSFZ2A_COLLECTION[] =
 
 const sDescTreeNode SFA2_A_BONUS08REV1_COLLECTION[] =
 {
+    { L"Character Select", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_CHARSEL_PALETTES, ARRAYSIZE(SFA2_A_08REV1_CHARSEL_PALETTES) },
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08REV1_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_BONUS_PALETTES, ARRAYSIZE(SFA2_A_08REV1_BONUS_PALETTES) },
 };
 
 const sDescTreeNode SFA2_A_BONUS08REV2_COLLECTION[] =
 {
+    { L"Character Select", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV2_CHARSEL_PALETTES, ARRAYSIZE(SFA2_A_08REV2_CHARSEL_PALETTES) },
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV2_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08REV2_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV2_BONUS_PALETTES, ARRAYSIZE(SFA2_A_08REV2_BONUS_PALETTES) },
 };
