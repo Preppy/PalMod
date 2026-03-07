@@ -175,8 +175,6 @@ void CPalModDlg::OnRemapUnit()
                         continue;
                     }
 #endif
-                    bool fShowedRemap = false;
-
                     const sGame_PaletteDataset* paletteDataSet = CurrGame->GetPaletteSet(nSelectedUnit, iCollectionIndex);
 
                     if (!paletteDataSet)
@@ -338,7 +336,7 @@ void CPalModDlg::OnRemapUnit()
 
                                     if (searchColors.first->indexImgToUse != INVALID_UNIT_VALUE_16)
                                     {
-                                        // Extras doesn't want the ImageId prefix, so instead use deliberately prepend a searchable triple space
+                                        // Extras doesn't want the ImageId prefix, so instead deliberately prepend a searchable triple space
                                         strExtraData.Format(L",   0x%x, 0x%02x", searchColors.first->indexImgToUse, searchColors.first->indexOffsetToUse);
 
                                         if (searchColors.first->pPalettePairingInfo)
@@ -352,13 +350,6 @@ void CPalModDlg::OnRemapUnit()
                                     strExtraData.Format(L"\r\n;Remap Delta: %s\r\n", strDisplayHex.GetString());
 
                                     strInfo += strExtraData;
-
-                                    if (!fShowedRemap)
-                                    {
-                                        strExtraData.Format(L"Collection 0x%02x remap delta %s\r\n", iCollectionIndex, strDisplayHex.GetString());
-                                        OutputDebugString(strExtraData.GetString());
-                                        fShowedRemap = true;
-                                    }
                                 }
                                 else // code
                                 {
@@ -412,7 +403,7 @@ void CPalModDlg::OnRemapUnit()
 
                 CString strSpecificDeltaInfoIfFound;
 
-                if (nCountPalettesExisting && rgDeltaVotes.size() == 1)
+                if (nCountPalettesExisting && rgDeltaVotes.size() == 1 && (nCountPalettesMapped == nCountPalettesExisting))
                 {
                     strInfo = SignedHexAsString(rgDeltaVotes.at(0).first);
                     strSpecificDeltaInfoIfFound.Format(L"  Constant delta of %s.", strInfo.GetString());
