@@ -568,8 +568,8 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         GrayscaleMenu.CreatePopupMenu();
 
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_AVG == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_AVG, L"Average");
-        GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MID == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MID, L"Middle");
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MAX == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MAX, L"Maximum");
+        GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MID == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MID, L"Middle");
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_WGHT == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_WGHT, L"Weighted");
 
         PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
