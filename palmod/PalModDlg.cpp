@@ -284,6 +284,12 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
 
+    ON_COMMAND(IDC_BTRANSFORM, &CPalModDlg::OnBnClickedTransform)
+    ON_COMMAND(ID_TOOLS_INVERT, &CPalModDlg::OnBnClickedInvert)
+    ON_COMMAND(ID_TOOLS_REVERT, &CPalModDlg::OnBnRevert)
+    ON_COMMAND(ID_TOOLS_REVERSE, &CPalModDlg::OnBnClickedReverse)
+    ON_COMMAND(ID_TOOLS_BLINK, &CPalModDlg::OnBnBlink)
+
     ON_BN_CLICKED(IDC_BSWAPRG, &CPalModDlg::OnBnSwapRG)
     ON_BN_CLICKED(IDC_BSWAPGB, &CPalModDlg::OnBnSwapGB)
     ON_BN_CLICKED(IDC_BSWAPRB, &CPalModDlg::OnBnSwapRB)
@@ -308,10 +314,6 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_GRAYSCALE_MIDDLE, &CPalModDlg::OnBnClickedGrayscale_Middle)
     ON_COMMAND(ID_TOOLS_GRAYSCALE_WEIGHTED, &CPalModDlg::OnBnClickedGrayscale_Weighted)
         
-    ON_COMMAND(IDC_BTRANSFORM, &CPalModDlg::OnBnClickedTransform)
-    ON_COMMAND(ID_TOOLS_REVERT, &CPalModDlg::OnBnRevert)
-    ON_COMMAND(ID_TOOLS_REVERSE, &CPalModDlg::OnBnClickedReverse)
-    ON_COMMAND(ID_TOOLS_BLINK, &CPalModDlg::OnBnBlink)
 
     ON_COMMAND(ID_LD_AQUAPLUS_NL, &CPalModDlg::OnLoadDir_AquaPlus_NL)
     ON_COMMAND(ID_LD_AQUAPLUS_P, &CPalModDlg::OnLoadDir_AquaPlus_P)
@@ -559,6 +561,16 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
         GradientMenu.CreatePopupMenu();
 
+        const bool fIsGradientOption =  (CUSTOM_GRADIENT_RGB == dwDefault) ||
+                                        (CUSTOM_GRADIENT_HSL == dwDefault) ||
+                                        (CUSTOM_GRADIENT_HSV == dwDefault) ||
+                                        (CUSTOM_GRADIENT_LAB == dwDefault) ||
+                                        (CUSTOM_GRADIENT_XYZ == dwDefault);
+        const bool fIsGrayscaleOption = (CUSTOM_GRAYSCALE_AVG == dwDefault) ||
+                                        (CUSTOM_GRAYSCALE_MAX == dwDefault) ||
+                                        (CUSTOM_GRAYSCALE_MID == dwDefault) ||
+                                        (CUSTOM_GRAYSCALE_WGHT == dwDefault);
+
         GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_RGB == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_RGB, L"RGB");
         GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_HSL == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_HSL, L"HSL");
         GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_HSV == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_HSV, L"HSV");
@@ -572,8 +584,8 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MID == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MID, L"Middle");
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_WGHT == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_WGHT, L"Weighted");
 
-        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
-        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GrayscaleMenu.m_hMenu), L"Grayscale");
+        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED | (fIsGradientOption ? MF_CHECKED : 0), reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
+        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED | (fIsGrayscaleOption ? MF_CHECKED : 0), reinterpret_cast<UINT_PTR>(GrayscaleMenu.m_hMenu), L"Grayscale");
 
         dwDefault = static_cast<DWORD>(PopupMenu.TrackPopupMenu(TPM_LEFTALIGN | TPM_TOPALIGN | TPM_NONOTIFY | TPM_RETURNCMD, point.x, point.y, this));
 

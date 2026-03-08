@@ -359,6 +359,7 @@ private:
 
     void HandleColorTransform(ColorTransform action);
 
+    afx_msg void OnBnClickedInvert() { HandleColorTransform(ColorTransform::Invert); };
     afx_msg void OnBnClickedTransform() { HandleColorTransform(ColorTransform::Default); };
     afx_msg void OnBnSwapRG() { HandleColorTransform(ColorTransform::Swap_RG); };
     afx_msg void OnBnSwapGB() { HandleColorTransform(ColorTransform::Swap_GB); };
