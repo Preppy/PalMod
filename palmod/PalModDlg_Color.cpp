@@ -1290,6 +1290,10 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
             UpdateMultiEdit(TRUE);
             UpdateSliderSel();
         }
+        else
+        {
+            SetStatusText(L"Gradients require two or more colors to be selected.");
+        }
     }
 }
 
@@ -1398,6 +1402,43 @@ void CPalModDlg::HandleColorTransform(ColorTransform action)
 {
     if (m_fEnabled)
     {
+        if (action == ColorTransform::Default)
+        {
+            const DWORD dwCurrentTransform = CRegProc::GetDefaultColorTransform(CUSTOM_INVERT);
+            switch (dwCurrentTransform)
+            {
+                default:
+                    OutputDebugString(L"Unhandled transform!\r\n");
+                    __fallthrough;
+                case CUSTOM_INVERT:
+                    action = ColorTransform::Invert;
+                    break;
+                case CUSTOM_GRAYSCALE_AVG:
+                    action = ColorTransform::Grayscale_Average;
+                    break;
+                case CUSTOM_GRAYSCALE_MAX:
+                    action = ColorTransform::Grayscale_Maximum;
+                    break;
+                case CUSTOM_GRAYSCALE_MID:
+                    action = ColorTransform::Grayscale_Middle;
+                    break;
+                case CUSTOM_GRAYSCALE_WGHT:
+                    action = ColorTransform::Grayscale_Weighted;
+                    break;
+                // Gradients have their own code path since they require color sequences not just solo colors
+                case CUSTOM_GRADIENT_RGB:
+                    return OnBnClickedGradient_RGB();
+                case CUSTOM_GRADIENT_HSL:
+                    return OnBnClickedGradient_HSL();
+                case CUSTOM_GRADIENT_HSV:
+                    return OnBnClickedGradient_HSV();
+                case CUSTOM_GRADIENT_LAB:
+                    return OnBnClickedGradient_LAB();
+                case CUSTOM_GRADIENT_XYZ:
+                    return OnBnClickedGradient_XYZ();
+            }
+        }
+
         ProcChange();
 
         const uint8_t* rgSel = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetSelIndex());

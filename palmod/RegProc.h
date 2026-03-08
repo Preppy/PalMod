@@ -21,6 +21,36 @@ constexpr auto c_mainDefaultProcSupp = TRUE;
 constexpr auto c_mainDefaultExtraCopyData = FALSE;
 constexpr auto c_AppRegistryRoot = L"Software\\knarxed\\PalMod";
 constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
+constexpr auto c_previewWndPos = L"prev_wndpos";
+
+// Display options for 8 colors or for 16 colors per line
+constexpr auto c_mainWndPos_8ColorsPerLine = L"main_wndpos_02"; // changed default app size so incrementing this
+constexpr auto c_mainWndPos_16ColorsPerLine = L"main_wndpos_02_16c";
+constexpr auto c_mainAllowAlphaChanges = L"main_AllowAlphaChanges"; // incremented for warning.
+constexpr auto c_mainExtraCopyInfo = L"main_ExtraCopyInfo";
+constexpr auto c_mainWndColorsPerLine = L"main_wndColorsPerLine";
+constexpr auto c_mainWndMaxColorsPerPage = L"extras_MaxColorsPerPage";
+constexpr auto c_mainWndForcePeerPreviewWindow = L"extras_ForcePeerPreviewWindow";
+constexpr auto c_mainUnknownGameAlphaMode = L"main_UnknownGameAlphaMode";
+constexpr auto c_mainUnknownGameColMode = L"main_UnknownGameColMode";
+constexpr auto c_mainUnknownGameMaxWrite = L"main_UnknownGameMaxWrite";
+constexpr auto c_mainExtraFileCanaryKey = L"main_lastExtraFileSize_%s";
+
+constexpr auto c_nPrefSavePaletteToMemory = L"pref_ShouldSavePaletteToMemory";
+constexpr auto c_prevClickToFind = L"PreviewClickToFind";
+constexpr auto c_prevBlendMode = L"PreviewBlendMode";
+constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
+constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
+constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
+constexpr auto c_LoadCustomSpriteOFNValueName = L"pref_LoadCustomSpriteIndex";
+constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
+// Incremented this because we are changing it to ON at this time.
+constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes2";
+constexpr auto c_prevPreviewDropsTrim = L"prev_DropsTrimPreview";
+constexpr auto c_prevPreviewDropsKawaksFirst = L"prev_DropsTryKawaksFirst";
+constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback";
+constexpr auto c_mainDefaultRemapFileTypeStr = L"main_RemapFileType";
+constexpr auto c_mainDefaultColorTransformStr = L"main_ColorTransformType";
 
 struct sPreviewWindowSettings
 {
@@ -60,8 +90,8 @@ public:
 class CRegProc
 {
 private:
-    static DWORD GetOFNIndexForKeyName(LPCWSTR pszKeyName);
-    static void StoreOFNIndexForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex);
+    static DWORD GetDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD dwFallbackValue = 0);
+    static void StoreDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex);
 
 public:
     CRegProc(eRegistryStoreID nSrcType = eRegistryStoreID::REG_UNKNOWN);
@@ -84,14 +114,20 @@ public:
     static void SetForcePeerPreviewWindow(BOOL fForcePeer);
     static BOOL ShouldForcePeerPreviewWindow();
 
-    static DWORD GetOFNIndexForPaletteExport(bool fUsingBBCFOptions);
-    static void StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPreferredIndex);
+    static DWORD GetOFNIndexForPaletteExport(bool fUsingBBCFOptions) { return GetDWORDValueForKeyName(fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName); };
+    static void StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPreferredIndex) { StoreDWORDValueForKeyName(fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, nPreferredIndex); };
 
-    static DWORD GetOFNIndexForImageExport();
-    static void StoreOFNIndexForImageExport(DWORD nPreferredIndex);    
+    static DWORD GetOFNIndexForImageExport() { return GetDWORDValueForKeyName(c_exportImageOFNValueName); };
+    static void StoreOFNIndexForImageExport(DWORD nPreferredIndex) { StoreDWORDValueForKeyName(c_exportImageOFNValueName, nPreferredIndex); };
 
-    static DWORD GetOFNIndexForLoadCustomSprite();
-    static void StoreOFNIndexForLoadCustomSprite(DWORD nPreferredIndex);
+    static DWORD GetOFNIndexForLoadCustomSprite() { return GetDWORDValueForKeyName(c_LoadCustomSpriteOFNValueName); };
+    static void StoreOFNIndexForLoadCustomSprite(DWORD nPreferredIndex) { StoreDWORDValueForKeyName(c_LoadCustomSpriteOFNValueName, nPreferredIndex); };
+
+    static DWORD GetDefaultColorTransform(DWORD dwFallbackValue = 0) { return GetDWORDValueForKeyName(c_mainDefaultColorTransformStr, dwFallbackValue); };
+    static void SetDefaultColorTransform(DWORD dwDefault) { StoreDWORDValueForKeyName(c_mainDefaultColorTransformStr, dwDefault); };
+
+    static DWORD GetDefaultRemapFiletype() { return GetDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr); };
+    static void SetDefaultRemapFiletype(DWORD dwDefault) { StoreDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr, dwDefault); };
 
     static int GetUserSavePaletteToMemoryPreference();
     static void SetUserSavePaletteToMemoryPreference(int nPreference);

@@ -339,31 +339,32 @@ private:
 
     enum class ColorTransform
     {
-        Invert = 0,
-        Swap_RB = 1,
-        Swap_GB = 2,
-        Swap_RG = 3,
-        Swap_RGB = 4,
-        Swap_RBG = 5,
+        Default = 0,
+        Invert,
+        Swap_RB,
+        Swap_GB,
+        Swap_RG,
+        Swap_RGB,
+        Swap_RBG,
         Grayscale_Average,
         Grayscale_Maximum,
         Grayscale_Middle,
         Grayscale_Weighted,
+        Gradient_RGB,
+        Gradient_HSL,
+        Gradient_HSV,
+        Gradient_LAB,
+        Gradient_XYZ,
     };
 
     void HandleColorTransform(ColorTransform action);
 
-    afx_msg void OnBnClickedBinvert() { HandleColorTransform(ColorTransform::Invert); };
+    afx_msg void OnBnClickedTransform() { HandleColorTransform(ColorTransform::Default); };
     afx_msg void OnBnSwapRG() { HandleColorTransform(ColorTransform::Swap_RG); };
     afx_msg void OnBnSwapGB() { HandleColorTransform(ColorTransform::Swap_GB); };
     afx_msg void OnBnSwapRB() { HandleColorTransform(ColorTransform::Swap_RB); };
     afx_msg void OnBnSwapRGB() { HandleColorTransform(ColorTransform::Swap_RGB); };
     afx_msg void OnBnSwapRBG() { HandleColorTransform(ColorTransform::Swap_RBG); };
-
-    afx_msg void OnBnClickedGrayscale_Average() { HandleColorTransform(ColorTransform::Grayscale_Average); };
-    afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(ColorTransform::Grayscale_Maximum); };
-    afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(ColorTransform::Grayscale_Middle); };
-    afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(ColorTransform::Grayscale_Weighted); };
 
     afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };
@@ -439,6 +440,7 @@ private:
     afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
     afx_msg void OnPaint();
     afx_msg HCURSOR OnQueryDragIcon();
+    afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 
 public:
     // Construction
@@ -477,7 +479,14 @@ public:
     afx_msg void OnBnClickedGradient_LAB();
     afx_msg void OnBnClickedGradient_RGB();
     afx_msg void OnBnClickedGradient_XYZ();
+
+    afx_msg void OnBnClickedGrayscale_Average() { HandleColorTransform(ColorTransform::Grayscale_Average); };
+    afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(ColorTransform::Grayscale_Maximum); };
+    afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(ColorTransform::Grayscale_Middle); };
+    afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(ColorTransform::Grayscale_Weighted); };
+
     afx_msg void OnBnClickedReverse();
+
     afx_msg void OnEditPaste();
 
     void OnPalSelChange(UINT_PTR nCtrlId);

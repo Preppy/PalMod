@@ -1,24 +1,29 @@
 #pragma once
 #include "afxwin.h"
 
-constexpr auto CUSTOM_HLCHANGE        = WM_USER + 1;
-constexpr auto CUSTOM_SELHLCHANGE     = WM_USER + 2;
-constexpr auto CUSTOM_SS              = WM_USER + 3; // single select
-constexpr auto CUSTOM_MS              = WM_USER + 4; // multi select
+constexpr auto CUSTOM_HLCHANGE          = WM_USER + 1;
+constexpr auto CUSTOM_SELHLCHANGE       = WM_USER + 2;
+constexpr auto CUSTOM_SS                = WM_USER + 3; // single select
+constexpr auto CUSTOM_MS                = WM_USER + 4; // multi select
 
-constexpr auto CUSTOM_COPY            = WM_USER + 11;
-constexpr auto CUSTOM_PASTE           = WM_USER + 12;
-constexpr auto CUSTOM_SALL            = WM_USER + 13;
-constexpr auto CUSTOM_SNONE           = WM_USER + 14;
-constexpr auto CUSTOM_REVERSE         = WM_USER + 15;
-constexpr auto CUSTOM_COPYOFFSET      = WM_USER + 16;
-constexpr auto CUSTOM_GRADIENT_RGB    = WM_USER + 17;
-constexpr auto CUSTOM_GRADIENT_HSL    = WM_USER + 18;
-constexpr auto CUSTOM_GRADIENT_HSV    = WM_USER + 19;
-constexpr auto CUSTOM_GRADIENT_LAB    = WM_USER + 20;
-constexpr auto CUSTOM_GRADIENT_XYZ    = WM_USER + 21;
-constexpr auto CUSTOM_COPYBINARY      = WM_USER + 22;
-constexpr auto CUSTOM_SMATCHING       = WM_USER + 23;
+constexpr auto CUSTOM_COPY              = WM_USER + 11;
+constexpr auto CUSTOM_PASTE             = WM_USER + 12;
+constexpr auto CUSTOM_SALL              = WM_USER + 13;
+constexpr auto CUSTOM_SNONE             = WM_USER + 14;
+constexpr auto CUSTOM_REVERSE           = WM_USER + 15;
+constexpr auto CUSTOM_COPYOFFSET        = WM_USER + 16;
+constexpr auto CUSTOM_GRADIENT_RGB      = WM_USER + 17;
+constexpr auto CUSTOM_GRADIENT_HSL      = WM_USER + 18;
+constexpr auto CUSTOM_GRADIENT_HSV      = WM_USER + 19;
+constexpr auto CUSTOM_GRADIENT_LAB      = WM_USER + 20;
+constexpr auto CUSTOM_GRADIENT_XYZ      = WM_USER + 21;
+constexpr auto CUSTOM_COPYBINARY        = WM_USER + 22;
+constexpr auto CUSTOM_SMATCHING         = WM_USER + 23;
+constexpr auto CUSTOM_GRAYSCALE_AVG     = WM_USER + 24;
+constexpr auto CUSTOM_GRAYSCALE_MAX     = WM_USER + 25;
+constexpr auto CUSTOM_GRAYSCALE_MID     = WM_USER + 26;
+constexpr auto CUSTOM_GRAYSCALE_WGHT    = WM_USER + 27;
+constexpr auto CUSTOM_INVERT            = WM_USER + 28;
 
 class CJunk :
     public CWnd

@@ -1149,22 +1149,33 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
             }
         }
 
-        PopupMenu.AppendMenu(nCountColorSelected ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, L"&Copy");
-        PopupMenu.AppendMenu(nCountColorSelected ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, L"&Paste");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_COPY, L"&Copy");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_PASTE, L"&Paste");
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
-        PopupMenu.AppendMenu((nCountColorSelected > 1) ? MF_ENABLED : MF_DISABLED, CUSTOM_REVERSE, L"&Reverse");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_REVERSE, L"&Reverse");
 
         CMenu GradientMenu;
         
         GradientMenu.CreatePopupMenu();
 
-        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_RGB, L"RGB");
-        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSL, L"HSL");
-        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSV, L"HSV");
-        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_LAB, L"LAB");
-        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_XYZ, L"XYZ");
+        GradientMenu.AppendMenu((nCountColorSelected != 1) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_RGB, L"RGB");
+        GradientMenu.AppendMenu((nCountColorSelected != 1) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSL, L"HSL");
+        GradientMenu.AppendMenu((nCountColorSelected != 1) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSV, L"HSV");
+        GradientMenu.AppendMenu((nCountColorSelected != 1) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_LAB, L"LAB");
+        GradientMenu.AppendMenu((nCountColorSelected != 1) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_XYZ, L"XYZ");
 
-        PopupMenu.AppendMenu(MF_POPUP | ((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED), reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
+        PopupMenu.AppendMenu(MF_POPUP | ((nCountColorSelected != 1) ? MF_ENABLED : MF_DISABLED), reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
+
+        CMenu GrayscaleMenu;
+
+        GrayscaleMenu.CreatePopupMenu();
+
+        GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_AVG, L"Average");
+        GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_MID, L"Middle");
+        GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_MAX, L"Maximum");
+        GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_WGHT, L"Weight");
+
+        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GrayscaleMenu.m_hMenu), L"Grayscale");
 
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");
@@ -1198,6 +1209,18 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
                 break;
             case CUSTOM_GRADIENT_XYZ:
                 GetHost()->GetPalModDlg()->OnBnClickedGradient_XYZ();
+                break;
+            case CUSTOM_GRAYSCALE_AVG:
+                GetHost()->GetPalModDlg()->OnBnClickedGrayscale_Average();
+                break;
+            case CUSTOM_GRAYSCALE_MAX:
+                GetHost()->GetPalModDlg()->OnBnClickedGrayscale_Maximum();
+                break;
+            case CUSTOM_GRAYSCALE_MID:
+                GetHost()->GetPalModDlg()->OnBnClickedGrayscale_Middle();
+                break;
+            case CUSTOM_GRAYSCALE_WGHT:
+                GetHost()->GetPalModDlg()->OnBnClickedGrayscale_Weighted();
                 break;
             case CUSTOM_SALL:
                 SelectAll();

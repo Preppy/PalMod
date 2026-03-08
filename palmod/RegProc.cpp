@@ -2,34 +2,6 @@
 #include "PalMod.h"
 #include "regproc.h"
 
-constexpr auto c_previewWndPos = L"prev_wndpos";
-// Display options for 8 colors or for 16 colors per line
-constexpr auto c_mainWndPos_8ColorsPerLine = L"main_wndpos_02"; // changed default app size so incrementing this
-constexpr auto c_mainWndPos_16ColorsPerLine = L"main_wndpos_02_16c";
-constexpr auto c_mainAllowAlphaChanges = L"main_AllowAlphaChanges"; // incremented for warning.
-constexpr auto c_mainExtraCopyInfo = L"main_ExtraCopyInfo";
-constexpr auto c_mainWndColorsPerLine = L"main_wndColorsPerLine";
-constexpr auto c_mainWndMaxColorsPerPage = L"extras_MaxColorsPerPage";
-constexpr auto c_mainWndForcePeerPreviewWindow = L"extras_ForcePeerPreviewWindow";
-constexpr auto c_mainUnknownGameAlphaMode = L"main_UnknownGameAlphaMode";
-constexpr auto c_mainUnknownGameColMode = L"main_UnknownGameColMode";
-constexpr auto c_mainUnknownGameMaxWrite = L"main_UnknownGameMaxWrite";
-constexpr auto c_mainExtraFileCanaryKey = L"main_lastExtraFileSize_%s";
-
-constexpr auto c_nPrefSavePaletteToMemory = L"pref_ShouldSavePaletteToMemory";
-constexpr auto c_prevClickToFind = L"PreviewClickToFind";
-constexpr auto c_prevBlendMode = L"PreviewBlendMode";
-constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
-constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
-constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
-constexpr auto c_LoadCustomSpriteOFNValueName = L"pref_LoadCustomSpriteIndex";
-constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
-// Incremented this because we are changing it to ON at this time.
-constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes2";
-constexpr auto c_prevPreviewDropsTrim = L"prev_DropsTrimPreview";
-constexpr auto c_prevPreviewDropsKawaksFirst = L"prev_DropsTryKawaksFirst";
-constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback";
-
 extern int GetDpiForScreen();
 
 DWORD CRegProc::dwColorsPerLine = 0;
@@ -772,10 +744,10 @@ void CPalModZoom::DecrementZoom(double *fpPreviousZoom)
     *fpPreviousZoom = m_nZoomSizes[nCurrentPosition];
 }
 
-DWORD CRegProc::GetOFNIndexForKeyName(LPCWSTR pszKeyName)
+DWORD CRegProc::GetDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD dwFallbackValue /*= 0 */)
 {
     HKEY hKey;
-    DWORD nPreferredIndex = 0;
+    DWORD nPreferredIndex = dwFallbackValue;
 
     if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey)
         == ERROR_SUCCESS)
@@ -785,7 +757,7 @@ DWORD CRegProc::GetOFNIndexForKeyName(LPCWSTR pszKeyName)
 
         if (RegQueryValueEx(hKey, pszKeyName, 0, &RegType, reinterpret_cast<LPBYTE>(&nPreferredIndex), &GetSz) != ERROR_SUCCESS)
         {
-            nPreferredIndex = 0;
+            nPreferredIndex = dwFallbackValue;
         }
 
         RegCloseKey(hKey);
@@ -794,7 +766,7 @@ DWORD CRegProc::GetOFNIndexForKeyName(LPCWSTR pszKeyName)
     return nPreferredIndex;
 }
 
-void CRegProc::StoreOFNIndexForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex)
+void CRegProc::StoreDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex)
 {
     HKEY hKey;
 
@@ -804,34 +776,4 @@ void CRegProc::StoreOFNIndexForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex
         RegSetValueEx(hKey, pszKeyName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredIndex), sizeof(DWORD));
         RegCloseKey(hKey);
     }
-}
-
-DWORD CRegProc::GetOFNIndexForPaletteExport(bool fUsingBBCFOptions)
-{
-    return GetOFNIndexForKeyName(fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName);
-}
-
-void CRegProc::StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPreferredIndex)
-{
-    StoreOFNIndexForKeyName(fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, nPreferredIndex);
-}
-
-DWORD CRegProc::GetOFNIndexForImageExport()
-{
-    return GetOFNIndexForKeyName(c_exportImageOFNValueName);
-}
-
-void CRegProc::StoreOFNIndexForImageExport(DWORD nPreferredIndex)
-{
-    StoreOFNIndexForKeyName(c_exportImageOFNValueName, nPreferredIndex);
-}
-
-DWORD CRegProc::GetOFNIndexForLoadCustomSprite()
-{
-    return GetOFNIndexForKeyName(c_LoadCustomSpriteOFNValueName);
-}
-
-void CRegProc::StoreOFNIndexForLoadCustomSprite(DWORD nPreferredIndex)
-{
-    StoreOFNIndexForKeyName(c_LoadCustomSpriteOFNValueName, nPreferredIndex);
 }

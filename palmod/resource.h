@@ -84,7 +84,7 @@
 #define IDC_INVERT                      1029
 #define IDC_BREVERT                     1030
 #define IDC_BBLINK                      1031
-#define IDC_BINVERT                     1032
+#define IDC_BTRANSFORM                  1032
 #define ID_TOOLS_CHECKMVC2MIX           1033
 #define IDC_WEBSITELINK                 1035
 #define IDC_SPIN_RH                     1036

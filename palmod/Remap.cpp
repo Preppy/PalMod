@@ -70,7 +70,12 @@ void CPalModDlg::OnRemapUnit()
 
         LPCWSTR pszOutputFilter = L"Save as Extras file|*.txt|"
                                    L"Save as C++ header|*.h||";
+
         CFileDialog SaveOutputDialog(FALSE, L".txt", nullptr, OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY, pszOutputFilter);
+
+        const DWORD dwDefault = CRegProc::GetDefaultRemapFiletype();
+        OPENFILENAME& pOFN = SaveOutputDialog.GetOFN();
+        pOFN.nFilterIndex = min(CRegProc::GetDefaultRemapFiletype(), 2);
 
         if ((answer == IDYES) &&
             (ChooseRemapFileDialog.DoModal() == IDOK)
@@ -86,6 +91,8 @@ void CPalModDlg::OnRemapUnit()
             OPENFILENAME SaveFileOFN = SaveOutputDialog.GetOFN();
 
             SetStatusText(L"Starting remap...");
+
+            CRegProc::SetDefaultRemapFiletype(SaveFileOFN.nFilterIndex);
 
             if (NewROMFile.Open(strFileName, CFile::modeRead | CFile::typeBinary))
             {

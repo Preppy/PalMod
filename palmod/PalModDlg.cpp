@@ -141,6 +141,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_WM_INITMENUPOPUP()
     ON_WM_HSCROLL()
     ON_WM_CLOSE()
+    ON_WM_CONTEXTMENU()
     ON_WM_TIMER()
     ON_WM_SETFOCUS()
     ON_WM_ACTIVATE()
@@ -278,7 +279,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 
     ON_BN_CLICKED(IDC_SHOWPREVIEW, &CPalModDlg::OnBnShowPrev)
     ON_BN_CLICKED(IDC_BBLINK, &CPalModDlg::OnBnBlink)
-    ON_BN_CLICKED(IDC_BINVERT, &CPalModDlg::OnBnClickedBinvert)
+    ON_BN_CLICKED(IDC_BTRANSFORM, &CPalModDlg::OnBnClickedTransform)
     ON_BN_CLICKED(IDC_BREVERT, &CPalModDlg::OnBnRevert)
     ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
@@ -307,7 +308,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_GRAYSCALE_MIDDLE, &CPalModDlg::OnBnClickedGrayscale_Middle)
     ON_COMMAND(ID_TOOLS_GRAYSCALE_WEIGHTED, &CPalModDlg::OnBnClickedGrayscale_Weighted)
         
-    ON_COMMAND(ID_TOOLS_INVERT, &CPalModDlg::OnBnClickedBinvert)
+    ON_COMMAND(IDC_BTRANSFORM, &CPalModDlg::OnBnClickedTransform)
     ON_COMMAND(ID_TOOLS_REVERT, &CPalModDlg::OnBnRevert)
     ON_COMMAND(ID_TOOLS_REVERSE, &CPalModDlg::OnBnClickedReverse)
     ON_COMMAND(ID_TOOLS_BLINK, &CPalModDlg::OnBnBlink)
@@ -539,6 +540,48 @@ void CPalModDlg::OnPaint()
 HCURSOR CPalModDlg::OnQueryDragIcon()
 {
     return static_cast<HCURSOR>(m_hIcon);
+}
+
+void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
+{
+    CListCtrl* pList = static_cast<CListCtrl*>(GetDlgItem(IDC_BTRANSFORM));
+
+    if (static_cast<CWnd*>(pList) == pWnd)
+    {
+        CMenu PopupMenu;
+        CMenu GradientMenu;
+        CMenu GrayscaleMenu;
+
+        DWORD dwDefault = CRegProc::GetDefaultColorTransform(CUSTOM_INVERT);
+
+        PopupMenu.CreatePopupMenu();
+        PopupMenu.AppendMenu(MF_ENABLED | ((CUSTOM_INVERT == dwDefault) ? MF_CHECKED : 0), CUSTOM_INVERT, L"Invert");
+
+        GradientMenu.CreatePopupMenu();
+
+        GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_RGB == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_RGB, L"RGB");
+        GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_HSL == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_HSL, L"HSL");
+        GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_HSV == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_HSV, L"HSV");
+        GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_LAB == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_LAB, L"LAB");
+        GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_XYZ == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRADIENT_XYZ, L"XYZ");
+
+        GrayscaleMenu.CreatePopupMenu();
+
+        GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_AVG == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_AVG, L"Average");
+        GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MID == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MID, L"Middle");
+        GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MAX == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MAX, L"Maximum");
+        GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_WGHT == dwDefault) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_WGHT, L"Weighted");
+
+        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
+        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GrayscaleMenu.m_hMenu), L"Grayscale");
+
+        dwDefault = static_cast<DWORD>(PopupMenu.TrackPopupMenu(TPM_LEFTALIGN | TPM_TOPALIGN | TPM_NONOTIFY | TPM_RETURNCMD, point.x, point.y, this));
+
+        if (dwDefault != 0)
+        {
+            CRegProc::SetDefaultColorTransform(dwDefault);
+        }
+    }
 }
 
 void CPalModDlg::Enable(BOOL fEnableFlag)
