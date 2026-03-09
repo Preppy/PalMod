@@ -242,7 +242,7 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
 
     if (nIndex >=  MAX_IMAGES_DISPLAYABLE)
     {
-        DebugBreak();
+        MessageBox(L"ERROR: too many palettes requested.  Please report this issue and what palette you were trying to edit so we can fix this.", GetHost()->GetAppName(), MB_ICONERROR);
         return;
     }
 

@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "DescTree.h"
+#include "PalMod.h"
 
 CDescTree::CDescTree(sDescTreeNode* InputTree)
 {
@@ -190,6 +191,11 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
     }
 
     va_end(args);
+
+    if (!OutNode)
+    {
+        MessageBox(g_appHWnd, L"We just hit an error that will probably crash the app.  Please report this (what game, what palette you were trying to modify) so we can fix it.", GetHost()->GetAppName(), MB_ICONSTOP);
+    }
 
     return OutNode;
 }
