@@ -2292,12 +2292,12 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_ENGLAND[] =
     { L"Foreground 2/2", 0x8d3e, 0x8f3e }, /* Delta: 0x580 */
 
     // These are oddly sliced
-    { L"Animation Cycle 1 1/3",    0x28b9e, 0x28bbe }, /* delta 0 on these thankfully */
-    { L"Animation Cycle 1 2/3",    0x28bbe, 0x28bde },
-    { L"Animation Cycle 1 3/3",    0x28d5e, 0x28d7e },
-    { L"Animation Cycle 2 1/3",    0x28bde, 0x28bfe },
-    { L"Animation Cycle 2 2/3",    0x28bfe, 0x28c1e },
-    { L"Animation Cycle 2 3/3",    0x28d7e, 0x28d9e },
+    { L"Animation Cycle 1 1/3",    0x28b9e, 0x28bbe, indexCPS2Sprites_SFA2_Stages, 0xcd }, /* delta 0 on these thankfully */
+    { L"Animation Cycle 1 2/3",    0x28bbe, 0x28bde, indexCPS2Sprites_SFA2_Stages, 0xcd },
+    { L"Animation Cycle 1 3/3",    0x28d5e, 0x28d7e, indexCPS2Sprites_SFA2_Stages, 0xcd },
+    { L"Animation Cycle 2 1/3",    0x28bde, 0x28bfe, indexCPS2Sprites_SFA2_Stages, 0xce },
+    { L"Animation Cycle 2 2/3",    0x28bfe, 0x28c1e, indexCPS2Sprites_SFA2_Stages, 0xce },
+    { L"Animation Cycle 2 3/3",    0x28d7e, 0x28d9e, indexCPS2Sprites_SFA2_Stages, 0xce },
     { L"Animation Cycle 3 1/3",    0x28c1e, 0x28c3e, indexCPS2Sprites_SFA2_Stages, 0x80 },
     { L"Animation Cycle 3 2/3",    0x28c3e, 0x28c5e, indexCPS2Sprites_SFA2_Stages, 0x80 },
     { L"Animation Cycle 3 3/3",    0x28d9e, 0x28dbe, indexCPS2Sprites_SFA2_Stages, 0x80 },
@@ -2307,9 +2307,9 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_ENGLAND[] =
     { L"Animation Cycle 5 1/3",    0x28c9e, 0x28cbe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
     { L"Animation Cycle 5 2/3",    0x28cbe, 0x28cde, indexCPS2Sprites_SFA2_Stages, 0xc8 },
     { L"Animation Cycle 5 3/3",    0x28dde, 0x28dfe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
-    { L"Animation Cycle 6 1/3",    0x28cde, 0x28cfe },
-    { L"Animation Cycle 6 2/3",    0x28cfe, 0x28d1e },
-    { L"Animation Cycle 6 3/3",    0x28dfe, 0x28e1e },
+    { L"Animation Cycle 6 1/3",    0x28cde, 0x28cfe, indexCPS2Sprites_SFA2_Stages, 0xcf },
+    { L"Animation Cycle 6 2/3",    0x28cfe, 0x28d1e, indexCPS2Sprites_SFA2_Stages, 0xcf },
+    { L"Animation Cycle 6 3/3",    0x28dfe, 0x28e1e, indexCPS2Sprites_SFA2_Stages, 0xcf },
     { L"Animation Cycle 7 1/3",    0x28d1e, 0x28d3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
     { L"Animation Cycle 7 2/3",    0x28d3e, 0x28d5e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
     { L"Animation Cycle 7 3/3",    0x28e1e, 0x28e3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
@@ -2416,21 +2416,26 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_CHINAALLEY[] =
 
 const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_AUSTRALIA[] =
 {
-    { L"Background 1/2", 0x15b3e, 0x15d3e, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode }, /* Delta: 0x980 */
-    { L"Background 2/2", 0x15d3e, 0x15f1e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x980 */
+    { L"Background 1/2: Hidden and Attract Screen Only?", 0x15b3e, 0x15d3e, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x15d3e, 0x15f1e, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0x980 */
     // Match at 0x15b3e, 0x15bbe (delta -0x16920)
     // Match at 0x2c45e, 0x2c4de (delta 0x0)
     { L"Background Animation Cycle", 0x2c45e, 0x2c4de, indexCPS2Sprites_SFA2_Stages, 0x79 }, /* Delta: 0 */
-    { L"Midground 1/2", 0xb3e, 0xd3e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x180 */
-    { L"Midground 2/2", 0xd3e, 0xf3e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x180 */
-    { L"Foreground 1/2", 0xb33e, 0xb53e, indexCPS2Sprites_SFA2_Stages, 0xff, &pairNext }, /* Delta: 0x580 */
-    { L"Foreground 2/2", 0xb53e, 0xb73e, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0x580 */
+    { L"Midground Unused?", 0xd3e, 0xf3e, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0x180 */
+
+    { L"Foreground 1/2: Attract Screen Flash only?", 0xb33e, 0xb53e, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0x580 */
     { L"Foreground Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a }, /* Delta: 0 */
-    { L"Animation cycle 1?", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0 */
-    { L"Animation cycle 2?", 0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, 0xff }, /* Delta: 0 */
-    { L"Mid sky animation cycle", 0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0 */
+    { L"Foreground 2/2: Attract Screen Flash only?", 0xb53e, 0xb73e, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0x580 */
+    { L"Foreground 2/2 Animation cycle?", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0 */
+    
+    { L"Animation cycle?", 0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0 */
+
+    { L"Mid sky animation cycle: Attract Screen Flash only?", 0xb5e, 0xbfe, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0x180 */
+    { L"Mid sky animation cycle: Attract Screen Flash only?", 0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0 */
+    
+    { L"Top Grass Animation Cycle: Unused?", 0xc3e, 0xcbe, indexCPS2Sprites_SFA2_Stages, 0xca }, /* Delta: 0x900 */
     { L"Top Grass Animation Cycle", 0x1cf9e, 0x1d03e, indexCPS2Sprites_SFA2_Stages, 0xca }, /* Delta: 0x900 */
-    { L"Front Grass Top Animation Cycle", 0x1ce5e, 0x1cefe, indexCPS2Sprites_SFA2_Stages, 0xbc }, /* Delta: 0x900 */
+    { L"Front Grass Top Animation Cycle", 0x1ce5e, 0x1cefe, indexCPS2Sprites_SFA2_Stages, 0xbc, &pairNext }, /* Delta: 0x900 */
     { L"Front Grass Bottom Animation Cycle", 0x1cefe, 0x1cf9e, indexCPS2Sprites_SFA2_Stages, 0xbd }, /* Delta: 0x900 */
 };
 
@@ -2494,9 +2499,10 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_USAPLANE[] =
     { L"Ground 1",                  0x298be, 0x29abe, indexCPS2Sprites_SFA2_Stages, 0xa5 },
     { L"Ground 2",                  0x29abe, 0x29b3e, indexCPS2Sprites_SFA2_Stages, 0xa6 },
 
-    // sprite seems to be missing far left aspects, but it's at least
-    { L"Ground Animation Cycle 1/2",    0x1c49e, 0x1c4fe, indexCPS2Sprites_SFA2_Stages, 0xc6 },
+    // sprite seems to be missing far left aspects, but it's at least close
+    // make sure 2/2 is first since 1/2 matches better
     { L"Ground Animation Cycle 2/2",    0x1c4fe, 0x1c55e, indexCPS2Sprites_SFA2_Stages, 0xc6 },
+    { L"Ground Animation Cycle 1/2",    0x1c49e, 0x1c4fe, indexCPS2Sprites_SFA2_Stages, 0xc6 },
 
     { L"Wing Tip Animation Cycle",  0x2953e, 0x295be, indexCPS2Sprites_SFA2_Stages, 0xa7 },
     { L"Unknown Animation Cycle",   0x295be, 0x2963e },
@@ -2557,12 +2563,12 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_ENGLAND[] =
     // rom08 animation stuff 0x28b9e, 0x28e1e
 
     // These are oddly sliced
-    { L"Animation Cycle 1 1/3",    0x28b9e, 0x28bbe },
-    { L"Animation Cycle 1 2/3",    0x28bbe, 0x28bde },
-    { L"Animation Cycle 1 3/3",    0x28d5e, 0x28d7e },
-    { L"Animation Cycle 2 1/3",    0x28bde, 0x28bfe },
-    { L"Animation Cycle 2 2/3",    0x28bfe, 0x28c1e },
-    { L"Animation Cycle 2 3/3",    0x28d7e, 0x28d9e },
+    { L"Animation Cycle 1 1/3",    0x28b9e, 0x28bbe, indexCPS2Sprites_SFA2_Stages, 0xcd },
+    { L"Animation Cycle 1 2/3",    0x28bbe, 0x28bde, indexCPS2Sprites_SFA2_Stages, 0xcd },
+    { L"Animation Cycle 1 3/3",    0x28d5e, 0x28d7e, indexCPS2Sprites_SFA2_Stages, 0xcd },
+    { L"Animation Cycle 2 1/3",    0x28bde, 0x28bfe, indexCPS2Sprites_SFA2_Stages, 0xce },
+    { L"Animation Cycle 2 2/3",    0x28bfe, 0x28c1e, indexCPS2Sprites_SFA2_Stages, 0xce },
+    { L"Animation Cycle 2 3/3",    0x28d7e, 0x28d9e, indexCPS2Sprites_SFA2_Stages, 0xce },
     { L"Animation Cycle 3 1/3",    0x28c1e, 0x28c3e, indexCPS2Sprites_SFA2_Stages, 0x80 },
     { L"Animation Cycle 3 2/3",    0x28c3e, 0x28c5e, indexCPS2Sprites_SFA2_Stages, 0x80 },
     { L"Animation Cycle 3 3/3",    0x28d9e, 0x28dbe, indexCPS2Sprites_SFA2_Stages, 0x80 },
@@ -2572,9 +2578,9 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_ENGLAND[] =
     { L"Animation Cycle 5 1/3",    0x28c9e, 0x28cbe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
     { L"Animation Cycle 5 2/3",    0x28cbe, 0x28cde, indexCPS2Sprites_SFA2_Stages, 0xc8 },
     { L"Animation Cycle 5 3/3",    0x28dde, 0x28dfe, indexCPS2Sprites_SFA2_Stages, 0xc8 },
-    { L"Animation Cycle 6 1/3",    0x28cde, 0x28cfe },
-    { L"Animation Cycle 6 2/3",    0x28cfe, 0x28d1e },
-    { L"Animation Cycle 6 3/3",    0x28dfe, 0x28e1e },
+    { L"Animation Cycle 6 1/3",    0x28cde, 0x28cfe, indexCPS2Sprites_SFA2_Stages, 0xcf },
+    { L"Animation Cycle 6 2/3",    0x28cfe, 0x28d1e, indexCPS2Sprites_SFA2_Stages, 0xcf },
+    { L"Animation Cycle 6 3/3",    0x28dfe, 0x28e1e, indexCPS2Sprites_SFA2_Stages, 0xcf },
     { L"Animation Cycle 7 1/3",    0x28d1e, 0x28d3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
     { L"Animation Cycle 7 2/3",    0x28d3e, 0x28d5e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
     { L"Animation Cycle 7 3/3",    0x28e1e, 0x28e3e, indexCPS2Sprites_SFA2_Stages, 0xc9 },
@@ -2705,20 +2711,21 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_AUSTRALIA[] =
     //ROM08 Foreground Grass?? animation palettes, 0x29b3e, 0x29d1e
     //ROM07 Sprites 0x76bfe, 0x76cde
     // unknown but present -- 0x2bade to 0x2bcde?
-    { L"Background 1/2",             0x151be, 0x153be, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode },
+    { L"Background 1/2: Hidden and Attract Screen Only?", 0x151be, 0x153be, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode },
     { L"Background 2/2",             0x153be, 0x1559e, indexCPS2Sprites_SFA2_Stages, -1 },
     { L"Background Animation Cycle", 0x2c45e, 0x2c4de, indexCPS2Sprites_SFA2_Stages, 0x79 },
-    { L"Midground 1/2",              0x09be, 0x0bbe, indexCPS2Sprites_SFA2_Stages, -1, &pairNext },
-    { L"Midground 2/2",              0x0bbe, 0x0dbe, indexCPS2Sprites_SFA2_Stages, -1 },
-    { L"Foreground 1/2",             0xadbe, 0xafbe, indexCPS2Sprites_SFA2_Stages, -1, &pairNext },
-    { L"Foreground 2/2",             0xafbe, 0xb1be, indexCPS2Sprites_SFA2_Stages, -1 },
-    { L"Foreground Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a },
+    { L"Midground Unused?",          0x0bbe, 0x0dbe, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Foreground 1/2: Attract Screen Flash only?", 0xadbe, 0xafbe, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Foreground 1/2 Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a },
+    { L"Foreground 2/2: Attract Screen Flash only?", 0xafbe, 0xb1be, indexCPS2Sprites_SFA2_Stages, 0x7b },
+    { L"Foreground 2/2 Animation cycle", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b },
 
-    { L"Animation cycle 1?",          0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b },
-    { L"Animation cycle 2?",          0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, -1 },
-
+    { L"Animation cycle?",          0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, -1 },
+    
+    { L"Mid sky animation cycle: Attract Screen Flash only?", 0x9de, 0xa7e, indexCPS2Sprites_SFA2_Stages, 0x7c },
     { L"Mid sky animation cycle",   0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c },
-
+    
+    { L"Top Grass Animation Cycle: Unused?", 0xabe, 0xb3e, indexCPS2Sprites_SFA2_Stages, 0xca },
     { L"Top Grass Animation Cycle", 0x1c69e, 0x1c73e, indexCPS2Sprites_SFA2_Stages, 0xca },
 
     { L"Front Grass Top Animation Cycle",   0x1c55e, 0x1c5fe, indexCPS2Sprites_SFA2_Stages, 0xbc, &pairNext },
@@ -2935,52 +2942,53 @@ const sDescTreeNode SFA2_A_STAGES08_REV2_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_07REV1_CSI_PALETTES[] =
 {
-    { L"Char Select 1", 0x7703E, 0x7723e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
-    { L"Char Select 2", 0x7723e, 0x7727E, indexCPS2Sprites_SFA2_Bonus, 0x12 },
+    { L"Char Select 1/2", 0x7703E, 0x7723e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
+    { L"Char Select 2/2", 0x7723e, 0x7727E, indexCPS2Sprites_SFA2_Bonus, 0x12 },
 };
 
 const sGame_PaletteDataset SFA2_A_07REV2_CSI_PALETTES[] =
 {
-    { L"Char Select 1", 0x772c0 + 0x37e, 0x774c0 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
-    { L"Char Select 2", 0x774c0 + 0x37e, 0x77500 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x12 },
+    { L"Char Select 1/2", 0x772c0 + 0x37e, 0x774c0 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
+    { L"Char Select 2/2", 0x774c0 + 0x37e, 0x77500 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x12 },
 };
 
 const sGame_PaletteDataset SFA2_A_07ForSFZ2A_CSI_PALETTES[] =
 {
-    { L"Char Select 1", 0x772c0 + 0x137e, 0x774c0 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
-    { L"Char Select 2", 0x774c0 + 0x137e, 0x77500 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x12 },
+    { L"Char Select 1/2", 0x772c0 + 0x137e, 0x774c0 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
+    { L"Char Select 2/2", 0x774c0 + 0x137e, 0x77500 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x12 },
 };
 
 // these locations are based off of rev2
 const sGame_PaletteDataset SFA2_A_07REV1_INTROPORTRAIT_PALETTES[] =
 {
     { L"Rose' Tarot Cards (Intro)", 0x770A0 - 0x27e, 0x770C0 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x1a },
-    { L"Intro - Purple BG pt.1", 0x76F60 - 0x27e, 0x76F80 - 0x27e },
 
     { L"Charlie (Intro)", 0x76E80 - 0x27e, 0x76EE0 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x0e },
     { L"Chun-Li (Intro)", 0x76DE0 - 0x27e, 0x76E80 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x0f },
     { L"Foreground Flames (Intro)", 0x76DC0 - 0x27e, 0x76DE0 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x1f },
+    { L"Intro - Purple BG pt.1", 0x76F60 - 0x27e, 0x76F80 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_07REV2_INTROPORTRAIT_PALETTES[] =
 {
     { L"Rose' Tarot Cards (Intro)", 0x770A0 + 0x37e, 0x770C0 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x1a },
-    { L"Intro - Purple BG pt.1", 0x76F60 + 0x37e, 0x76F80 + 0x37e },
 
     { L"Charlie (Intro)", 0x76E80 + 0x37e, 0x76EE0 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x0e },
     { L"Chun-Li (Intro)", 0x76DE0 + 0x37e, 0x76E80 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x0f },
     { L"Foreground Flames (Intro)", 0x76DC0 + 0x37e, 0x76DE0 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x1f },
+    { L"Intro - Purple BG pt.1", 0x76F60 + 0x37e, 0x76F80 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_07ForSFZ2A_INTROPORTRAIT_PALETTES[] =
 {
     { L"Rose' Tarot Cards (Intro)", 0x770A0 + 0x137e, 0x770C0 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x1a },
-    { L"Intro - Purple BG pt.1", 0x76F60 + 0x137e, 0x76F80 + 0x137e },
 
     { L"Charlie (Intro)", 0x76E80 + 0x137e, 0x76EE0 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x0e },
     { L"Chun-Li (Intro)", 0x76DE0 + 0x137e, 0x76E80 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x0f },
     { L"Foreground Flames (Intro)", 0x76DC0 + 0x137e, 0x76DE0 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x1f },
+
     { L"Birdie", 0x774c2 + 0xB11E - 0x02, 0x77582 + 0xB11E - 0x02, indexCPS2Sprites_SFA2_Bonus, 0x01 },
+    { L"Intro - Purple BG pt.1", 0x76F60 + 0x137e, 0x76F80 + 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_08REV1_INTROPORTRAIT_PALETTES[] =
@@ -3011,9 +3019,9 @@ const sGame_PaletteDataset SFA2_A_08REV1_INTROPORTRAIT_PALETTES[] =
     { L"Bison", 0xbcbe, 0xbdfe, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext }, /* Delta: 0x580 */
     { L"Bison pt.2", 0xbe7e, 0xbe9e, indexCPS2Sprites_SFA2_Bonus, 0x0d }, /* Delta: 0x580 */
 
-    { L"Intro - Purple BG pt.2", 0x1639e, 0x163be }, /* Delta: 0x980 */
-    { L"Intro - Blue BG pt.1", 0x21a7e, 0x21a9e }, /* Delta: 0x900 */
-    { L"Intro - Blue BG pt.2", 0x2cd7e, 0x2cd9e }, /* Delta: 0 */
+    { L"Intro - Purple BG pt.2 (behind QSound screen)", 0x1639e, 0x163be, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: 0x980 */
+    { L"Intro - Blue BG pt.1", 0x21a7e, 0x21a9e, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: 0x900 */
+    { L"Intro - Blue BG pt.2", 0x2cd7e, 0x2cd9e, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: 0 */
     { L"Foreground Flames Background (Intro)", 0x137e, 0x139e, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: x180 */
 };
 
@@ -3027,29 +3035,65 @@ const sGame_PaletteDataset SFA2_A_08REV2_INTROPORTRAIT_PALETTES[] =
     { L"Sagat", 0xB87e, 0xB8de, indexCPS2Sprites_SFA2_Bonus, 0x09 },
 
     { L"Sakura",    0x20E1e, 0x20E7e, indexCPS2Sprites_SFA2_Bonus, 0x0a }, // 2171c, 20e1e,176a0
+    { L"Sakura Trail 1", 0x20e7e, 0x20ede, indexCPS2Sprites_SFA2_Bonus, 0x0a }, // 2171c, 20e1e,176a0
+    { L"Sakura Trail 2", 0x20ede, 0x20f3e, indexCPS2Sprites_SFA2_Bonus, 0x0a }, // 2171c, 20e1e,176a0
+
     { L"Gen",       0x20D5e, 0x20D9e, indexCPS2Sprites_SFA2_Bonus, 0x05 },
+    { L"Gen Trail 1", 0x20d9e, 0x20dde, indexCPS2Sprites_SFA2_Bonus, 0x05 },
+    { L"Gen Trail 2", 0x20dde, 0x20e1e, indexCPS2Sprites_SFA2_Bonus, 0x05 },
+
     { L"Rolento",   0x20F3e, 0x20F7e, indexCPS2Sprites_SFA2_Bonus, 0x07 },
+    { L"Rolento Trail 1",   0x20f7e, 0x20fbe, indexCPS2Sprites_SFA2_Bonus, 0x07 },
+    { L"Rolento Trail 2",   0x20fbe, 0x20ffe, indexCPS2Sprites_SFA2_Bonus, 0x07 },
+
     { L"Dhalsim",   0x21000 - 0x02, 0x2103e, indexCPS2Sprites_SFA2_Bonus, 0x04 },
+    { L"Dhalsim Trail 1", 0x2103e, 0x2107e, indexCPS2Sprites_SFA2_Bonus, 0x04 },
+    { L"Dhalsim Trail 2", 0x2107e, 0x210be, indexCPS2Sprites_SFA2_Bonus, 0x04 },
+
     { L"Zangief",   0x210be, 0x210fe, indexCPS2Sprites_SFA2_Bonus, 0x0b },
+    { L"Zangief Trail 1",   0x210fe, 0x2113e, indexCPS2Sprites_SFA2_Bonus, 0x0b },
+    { L"Zangief Trail 2",   0x2113e, 0x2117e, indexCPS2Sprites_SFA2_Bonus, 0x0b },
 
     { L"Adon Pants", 0x2119e, 0x211be, indexCPS2Sprites_SFA2_Bonus, 0x00 },
+
     { L"Dan Intro", 0x211de, 0x2123e, indexCPS2Sprites_SFA2_Bonus, 0x03 },
     { L"Dan Intro Rock", 0x2123e, 0x2125e, indexCPS2Sprites_SFA2_Bonus, 0x02 },
+    { L"Dan Intro Background Animation Cycle 1", 0x2b6de, 0x2b8de, indexCPS2Sprites_SFA2_Bonus, 0x36 },
+    { L"Dan Intro Background Animation Cycle 2", 0x2b8de, 0x2bade, indexCPS2Sprites_SFA2_Bonus, 0x36 },
 
     { L"Ryu Intro Faceoff", 0x2127e, 0x2131e, indexCPS2Sprites_SFA2_Bonus, 0x08 },
     { L"Ken Intro Faceoff", 0x2131e, 0x213be, indexCPS2Sprites_SFA2_Bonus, 0x06 },
     { L"Ryu Charge Part 1", 0x2b51e, 0x2b5be, indexCPS2Sprites_SFA2_Bonus, 0x14, &pairNext },
     { L"Ryu Charge Part 2", 0x2b69e, 0x2b6de, indexCPS2Sprites_SFA2_Bonus, 0x15 },
     { L"Ken Charge", 0x2b5be, 0x2b69e, indexCPS2Sprites_SFA2_Bonus, 0x13 },
+    { L"Ryu Ken Charging Animation", 0x2143e, 0x214be, indexCPS2Sprites_SFA2_Bonus, 0x37 },
+
     { L"Ryu Ken Intro Blast", 0x2b4fe, 0x2b51e, indexCPS2Sprites_SFA2_Bonus, 0x16 },
+    { L"Ryu Ken Intro Fireball Animation Cycle", 0x21ade, 0x21b7e, indexCPS2Sprites_SFA2_Bonus, 0x2c, &pairPreviousFlipped },
+
+    { L"New Characters Flame Background", 0x15A3e, 0x15A5e, indexCPS2Sprites_SFA2_Bonus, 0x34, &pairNext },
+    { L"New Characters Flame", 0x2125e, 0x2127e, indexCPS2Sprites_SFA2_Bonus, 0x35 },
 
     { L"Rose", 0xB65e, 0xB73e, indexCPS2Sprites_SFA2_Bonus, 0x10 },
-    { L"Bison", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
-    { L"Bison pt.2", 0xB900 - 0x02, 0xB91e, indexCPS2Sprites_SFA2_Bonus, 0x0d },
-    { L"Intro - Purple BG pt.2", 0x15A1e, 0x15A3e },
-    { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e },
-    { L"Intro - Blue BG pt.2", 0x2CD7e, 0x2CD9e },
+    { L"Bison 1/2", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
+    { L"Bison 2/2", 0xB900 - 0x02, 0xB91e, indexCPS2Sprites_SFA2_Bonus, 0x0d },
 
+    { L"\"Alpha\" Motion Logo Trail 1", 0x2203e, 0x2205e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext },
+    { L"SF Title Motion Logo Trail 1 1/2", 0x2209e, 0x220be, indexCPS2Sprites_SFA2_Bonus, 0x2d },
+    { L"SF Title Motion Logo Trail 1 2/2", 0x220be, 0x2211e, indexCPS2Sprites_SFA2_Bonus, 0x1c },
+   
+    { L"\"Alpha\" Motion Logo Trail 2", 0x2205e, 0x2207e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext },
+    { L"SF Title Motion Logo Trail 2 1/2", 0x2211e, 0x2213e, indexCPS2Sprites_SFA2_Bonus, 0x2d },
+    { L"SF Title Motion Logo Trail 2 2/2", 0x2213e, 0x2219e, indexCPS2Sprites_SFA2_Bonus, 0x1c },
+
+    { L"\"Alpha\" Motion Logo Trail 3", 0x2207e, 0x2209e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext },
+    { L"SF Title Motion Logo Trail 3 1/2", 0x2219e, 0x221be, indexCPS2Sprites_SFA2_Bonus, 0x2d },
+    { L"SF Title Motion Logo Trail 3 2/2", 0x221be, 0x2221e, indexCPS2Sprites_SFA2_Bonus, 0x1c },
+
+    // behind QSound logo
+    { L"Intro - Purple BG pt.2 (behind QSound screen)", 0x15A1e, 0x15A3e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
+    { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
+    { L"Intro - Blue BG pt.2", 0x2CD7e, 0x2CD9e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
     { L"Foreground Flames Background (Intro)", 0x11fe, 0x121e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
 };
 
@@ -3079,9 +3123,9 @@ const sGame_PaletteDataset SFA2_A_08ForSFZ2A_INTROPORTRAIT_PALETTES[] =
     { L"Rose", 0xB65e, 0xB73e, indexCPS2Sprites_SFA2_Bonus, 0x10 },
     { L"Bison", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
     { L"Bison pt.2", 0xB900 - 0x02, 0xB91e, indexCPS2Sprites_SFA2_Bonus, 0x0d },
-    { L"Intro - Purple BG pt.2", 0x15A1e, 0x15A3e },
-    { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e },
-    { L"Intro - Blue BG pt.2", 0x2CD80 + 0x143e, 0x2CDA0 + 0x143e },
+    { L"Intro - Purple BG pt.2 (behind QSound screen)", 0x15A1e, 0x15A3e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
+    { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e , indexCPS2Sprites_SFA2_Bonus, 0x22},
+    { L"Intro - Blue BG pt.2", 0x2CD80 + 0x143e, 0x2CDA0 + 0x143e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
 };
 
 #ifdef IMGDAT_LOCATIONS
@@ -3092,24 +3136,32 @@ SFA2_Bonus - DanIntroRocks || 0x7F - 0x02
 
 const sGame_PaletteDataset SFA2_A_07REV1_BONUS_PALETTES[] =
 {
-    { L"SF Title Logo Pt.1", 0x76F9E - 0x280, 0x76FDE - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1c, &pairNext },
-    { L"Alpha 2 Logo", 0x76FFE - 0x280, 0x7701E - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1d },
+    { L"Alpha 2 Logo", 0x76FFE - 0x280, 0x7701E - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext },
+    { L"SF Title Logo Pt.1", 0x76F9E - 0x280, 0x76FDE - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1c },
     { L"Character HUD Name / VS / Perfect!! (flash)", 0x75B9E - 0x280, 0x75BBE - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x18 },
     { L"CC Win Icons / Perfect text (filled)", 0x75C1E - 0x280, 0x75C3E - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x17 },
 };
 
 const sGame_PaletteDataset SFA2_A_07REV2_BONUS_PALETTES[] =
 {
-    { L"SF Title Logo Pt.1", 0x76F9E + 0x380, 0x76FDE + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x1c, &pairNext },
-    { L"Alpha 2 Logo", 0x76FFE + 0x380, 0x7701E + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x1d },
+    { L"Alpha 2 Logo", 0x76FFE + 0x380, 0x7701E + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext },
+    { L"SF Title Logo Pt.1", 0x76F9E + 0x380, 0x76FDE + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x1c },
+    { L"SF Title Motion Logo", 0x76f7e + 0x380, 0x76f9e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x2d },
     { L"Character HUD Name / VS / Perfect!! (flash)", 0x75B9E + 0x380, 0x75BBE + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x18 },
     { L"CC Win Icons / Perfect text (filled)", 0x75C1E + 0x380, 0x75C3E + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x17 },
+
+    { L"Bands And Text on Intro Screen", 0x7717e + 0x380, 0x771be + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x30 },
+    { L"HUD Display and Text", 0x75bbe + 0x380, 0x75c1e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x32 },
+    { L"Hit sparks, Dizzies, Text", 0x75ade + 0x380, 0x75b9e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x31 },
+
+    { L"Character Select / Story Mode text", 0x7753e + 0x380, 0x7755e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x38, &pairNext },
+    { L"Story Mode Colors", 0x7759e + 0x380, 0x775be + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x39 },
 };
 
 const sGame_PaletteDataset SFA2_A_07ForSFZ2A_BONUS_PALETTES[] =
 {
-    { L"SF Title Logo Pt.1", 0x76F9E + 0x1380, 0x76FDE + 0x1380, indexCPS2Sprites_SFA2_Bonus, 0x1c, &pairNext },
-    { L"Alpha 2 Logo", 0x76FFE + 0x1380, 0x7701E + 0x1380, indexCPS2Sprites_SFA2_Bonus, 0x1d },
+    { L"Alpha 2 Logo", 0x76FFE + 0x1380, 0x7701E + 0x1380, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext },
+    { L"SF Title Logo Pt.1", 0x76F9E + 0x1380, 0x76FDE + 0x1380, indexCPS2Sprites_SFA2_Bonus, 0x1c },
     { L"Character HUD Name / VS / Perfect!! (flash)", 0x75B9E + 0x1380, 0x75BBE + 0x1380, indexCPS2Sprites_SFA2_Bonus, 0x18 },
     { L"CC Win Icons / Perfect text (filled)", 0x75C1E + 0x1380, 0x75C3E + 0x1380, indexCPS2Sprites_SFA2_Bonus, 0x17 },
 
@@ -3140,22 +3192,28 @@ const sGame_PaletteDataset SFA2_A_08REV1_CHARSEL_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_08REV2_CHARSEL_PALETTES[] =
 {
     { L"Character Select Tiles", 0xb9fe, 0xba1e, indexCPS2Sprites_SFA2_Bonus, 0x28 },
+
     { L"Character Select Map Default", 0xba1e, 0xba3e, indexCPS2Sprites_SFA2_Bonus, 0x2a },
-    { L"Character Select Map Animation Cycle?", 0x2af3e, 0x2af5e },
-    { L"Character Select Map Animation Cycle?", 0x2af5e, 0x2af7e },
-    { L"Character Select Map Animation Cycle?", 0x2af7e, 0x2af9e },
-    { L"Character Select Map Animation Cycle?", 0x2af9e, 0x2afbe },
-    { L"Character Select Map Animation Cycle?", 0x2afbe, 0x2afde },
-    { L"Character Select Map Animation Cycle?", 0x2afde, 0x2affe },
-    { L"Character Select Map Animation Cycle?", 0x2affe, 0x2b01e },
-    { L"Character Select Map Animation Cycle?", 0x2b01e, 0x2b03e },
-    { L"Character Select Map Animation Cycle?", 0x2b03e, 0x2b05e },
+    { L"Character Select Map Animation Cycle?", 0x2af3e, 0x2af5e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2af5e, 0x2af7e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2af7e, 0x2af9e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2af9e, 0x2afbe, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2afbe, 0x2afde, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2afde, 0x2affe, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2affe, 0x2b01e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2b01e, 0x2b03e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"Character Select Map Animation Cycle?", 0x2b03e, 0x2b05e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
     { L"Character Select Map Animation Cycle Selected", 0x2b05e, 0x2b07e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
     { L"Character Select Background", 0x2bffe, 0x2c0fe, indexCPS2Sprites_SFA2_Bonus, 0x29 },
+
+    { L"Character Select background wash", 0x191e, 0x195e, indexCPS2Sprites_SFA2_Bonus, 0x2f },
 };
 
 const sGame_PaletteDataset SFA2_A_08REV2_BONUS_PALETTES[] =
 {
+    { L"Char Portraits 1/2 Defeated", 0x1f2de, 0x1f4de, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
+    { L"Char Portraits 2/2 Defeated", 0x1f4de, 0x1f53e, indexCPS2Sprites_SFA2_Bonus, 0x12 },
+
     { L"CAPCOM logo", 0x11be, 0x11de, indexCPS2Sprites_SFA2_Bonus, 0x23 },
     { L"Winners Don't Use Drugs", 0x11de, 0x11fe, indexCPS2Sprites_SFA2_Bonus, 0x26 },
     { L"QSound Virtual Audio logo", 0xb5be, 0xb61e, indexCPS2Sprites_SFA2_Bonus, 0x24 },
@@ -3166,8 +3224,13 @@ const sGame_PaletteDataset SFA2_A_08REV2_BONUS_PALETTES[] =
     { L"SF Title Logo Pt.2", 0x213BE, 0x213FE, indexCPS2Sprites_SFA2_Bonus, 0x1e },
     { L"SF Title Logo Pt.3", 0x1C15E, 0x1C17E },
 
-    // bugbug: is this correct?
-    //{ L"SF Title Motion Logo", 0x76f7e, 0x76f9e },
+    // low confidence on this
+    // { L"life bar, meter bar, level ??",  0x1c23e, 0x1c2be },
+    { L"VS Screen Name Text", 0x1c17e, 0x1c19e, indexCPS2Sprites_SFA2_Bonus, 0x2e },
+    { L"WINNER", 0x1f7de, 0x1f7fe, indexCPS2Sprites_SFA2_Bonus, 0x33 },
+       
+    // low confidence on this
+    // { L"Backing tile for portraits??", 0x15a9e + 0x380, 0x15abe + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x22 },
 };
 
 // Z is mostly in line with REV2 but some of the early palettes are in rom07 due to shifts
@@ -3184,41 +3247,41 @@ const sGame_PaletteDataset SFA2_A_08SFZ2A_BONUS_PALETTES[] =
 const sDescTreeNode SFA2_A_BONUS07REV1_COLLECTION[] =
 {
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV1_CSI_PALETTES, ARRAYSIZE(SFA2_A_07REV1_CSI_PALETTES) },
-    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV1_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_07REV1_INTROPORTRAIT_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV1_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_07REV1_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV1_BONUS_PALETTES, ARRAYSIZE(SFA2_A_07REV1_BONUS_PALETTES) },
 };
 
 const sDescTreeNode SFA2_A_BONUS07REV2_COLLECTION[] =
 {
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV2_CSI_PALETTES, ARRAYSIZE(SFA2_A_07REV2_CSI_PALETTES) },
-    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV2_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_07REV2_INTROPORTRAIT_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV2_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_07REV2_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_07REV2_BONUS_PALETTES, ARRAYSIZE(SFA2_A_07REV2_BONUS_PALETTES) },
 };
 
 const sDescTreeNode SFA2_A_BONUS07ForSFZ2A_COLLECTION[] =
 {
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)SFA2_A_07ForSFZ2A_CSI_PALETTES, ARRAYSIZE(SFA2_A_07ForSFZ2A_CSI_PALETTES) },
-    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_07ForSFZ2A_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_07ForSFZ2A_INTROPORTRAIT_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)SFA2_A_07ForSFZ2A_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_07ForSFZ2A_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_07ForSFZ2A_BONUS_PALETTES, ARRAYSIZE(SFA2_A_07ForSFZ2A_BONUS_PALETTES) },
 };
 
 const sDescTreeNode SFA2_A_BONUS08REV1_COLLECTION[] =
 {
     { L"Character Select", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_CHARSEL_PALETTES, ARRAYSIZE(SFA2_A_08REV1_CHARSEL_PALETTES) },
-    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08REV1_INTROPORTRAIT_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08REV1_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV1_BONUS_PALETTES, ARRAYSIZE(SFA2_A_08REV1_BONUS_PALETTES) },
 };
 
 const sDescTreeNode SFA2_A_BONUS08REV2_COLLECTION[] =
 {
     { L"Character Select", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV2_CHARSEL_PALETTES, ARRAYSIZE(SFA2_A_08REV2_CHARSEL_PALETTES) },
-    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV2_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08REV2_INTROPORTRAIT_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV2_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08REV2_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_08REV2_BONUS_PALETTES, ARRAYSIZE(SFA2_A_08REV2_BONUS_PALETTES) },
 };
 
 const sDescTreeNode SFA2_A_BONUS08ForSFZ2A_COLLECTION[] =
 {
-    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_08ForSFZ2A_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08ForSFZ2A_INTROPORTRAIT_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)SFA2_A_08ForSFZ2A_INTROPORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_08ForSFZ2A_INTROPORTRAIT_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_08SFZ2A_BONUS_PALETTES, ARRAYSIZE(SFA2_A_08SFZ2A_BONUS_PALETTES) },
 };
 
@@ -3570,7 +3633,7 @@ const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_PUNCH_PALETTES[] =
 {
     { L"Punch", 0x07271e, 0x07273e, indexCPS2Sprites_Ryu, 0x00 },
     { L"Punch Hadoken", 0x07273e, 0x07275e, indexCPS2Sprites_Ryu, 0x01 },
-    { L"Punch Hadoken Fire", 0x07275e, 0x07277e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Punch Hadoken Fire", 0x07275e, 0x07277e, indexCPS2Sprites_Ryu, 0x01 },
     { L"Punch Super Trail Light", 0x07277e, 0x07279e, indexCPS2Sprites_Ryu, 0x00 },
     { L"Punch Super Trail Dark", 0x07279e, 0x0727be, indexCPS2Sprites_Ryu, 0x00 },
 };
@@ -3579,7 +3642,7 @@ const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_KICK_PALETTES[] =
 {
     { L"Kick", 0x0727be, 0x0727de, indexCPS2Sprites_Ryu, 0x00 },
     { L"Kick Hadoken", 0x0727de, 0x0727fe, indexCPS2Sprites_Ryu, 0x01 },
-    { L"Kick Hadoken Fire", 0x0727fe, 0x07281e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Kick Hadoken Fire", 0x0727fe, 0x07281e, indexCPS2Sprites_Ryu, 0x01 },
     { L"Kick Super Trail Light", 0x07281e, 0x07283e, indexCPS2Sprites_Ryu, 0x00 },
     { L"Kick Super Trail Dark", 0x07283e, 0x07285e, indexCPS2Sprites_Ryu, 0x00 },
 };
@@ -3588,7 +3651,7 @@ const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_2PUNCHES_PALETTES[] =
 {
     { L"2 Punches", 0x07285e, 0x07287e, indexCPS2Sprites_Ryu, 0x00 },
     { L"2 Punches Hadoken", 0x07287e, 0x07289e, indexCPS2Sprites_Ryu, 0x01 },
-    { L"2 Punches Hadoken Fire", 0x07289e, 0x0728be, indexCPS2Sprites_Ryu, 0x00 },
+    { L"2 Punches Hadoken Fire", 0x07289e, 0x0728be, indexCPS2Sprites_Ryu, 0x01 },
     { L"2 Punches Super Trail Light", 0x0728be, 0x0728de, indexCPS2Sprites_Ryu, 0x00 },
     { L"2 Punches Super Trail Dark", 0x0728de, 0x072900 - 0x02, indexCPS2Sprites_Ryu, 0x00 },
 };
@@ -3597,7 +3660,7 @@ const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_2KICKS_PALETTES[] =
 {
     { L"2 Kicks", 0x072900 - 0x02, 0x07291e, indexCPS2Sprites_Ryu, 0x00 },
     { L"2 Kicks Hadoken", 0x07291e, 0x07293e, indexCPS2Sprites_Ryu, 0x01 },
-    { L"2 Kicks Hadoken Fire", 0x07293e, 0x07295e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"2 Kicks Hadoken Fire", 0x07293e, 0x07295e, indexCPS2Sprites_Ryu, 0x01 },
     { L"2 Kicks Super Trail Light", 0x07295e, 0x07297e, indexCPS2Sprites_Ryu, 0x00 },
     { L"2 Kicks Super Trail Dark", 0x07297e, 0x07299e, indexCPS2Sprites_Ryu, 0x00 },
 };
@@ -3606,7 +3669,7 @@ const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_AUTOGUARDPUNCH_PALETTES[] =
 {
     { L"Auto Guard Punch", 0x07299e, 0x0729be, indexCPS2Sprites_Ryu, 0x00 },
     { L"Auto Guard Punch Hadoken", 0x0729be, 0x0729de, indexCPS2Sprites_Ryu, 0x01 },
-    { L"Auto Guard Punch Hadoken Fire", 0x0729de, 0x072a00 - 0x02, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Auto Guard Punch Hadoken Fire", 0x0729de, 0x072a00 - 0x02, indexCPS2Sprites_Ryu, 0x01 },
     { L"Auto Guard Punch Super Trail Light", 0x072a00 - 0x02, 0x072a1e, indexCPS2Sprites_Ryu, 0x00 },
     { L"Auto Guard Punch Super Trail Dark", 0x072a1e, 0x072a3e, indexCPS2Sprites_Ryu, 0x00 },
 };
@@ -3615,7 +3678,7 @@ const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_AUTOGUARDKICK_PALETTES[] =
 {
     { L"Auto Guard Kick", 0x072a3e, 0x072a5e, indexCPS2Sprites_Ryu, 0x00 },
     { L"Auto Guard Kick Hadoken", 0x072a5e, 0x072a7e, indexCPS2Sprites_Ryu, 0x01 },
-    { L"Auto Guard Kick Hadoken Fire", 0x072a7e, 0x072a9e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Auto Guard Kick Hadoken Fire", 0x072a7e, 0x072a9e, indexCPS2Sprites_Ryu, 0x01 },
     { L"Auto Guard Kick Super Trail Light", 0x072a9e, 0x072abe, indexCPS2Sprites_Ryu, 0x00 },
     { L"Auto Guard Kick Super Trail Dark", 0x072abe, 0x072ade, indexCPS2Sprites_Ryu, 0x00 },
 };
