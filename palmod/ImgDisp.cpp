@@ -976,6 +976,8 @@ void CImgDisp::_TrimLoadedCustomImages(bool fIsFullStackReplacement)
             nStackLastLine = m_pImgBuffer[0]->dimensions.height;
         }
 
+        bool fToldOfTrimOnce = false;
+
         for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
         {
             if (!m_pImgBuffer[iCurrentPreview]  || m_vSpriteOverrideTextures.at(iCurrentPreview).pixels.empty())
@@ -1084,8 +1086,13 @@ void CImgDisp::_TrimLoadedCustomImages(bool fIsFullStackReplacement)
 
                 _UpdateCompositionDisplayRect(iCurrentPreview, { true_width, true_height });
 
-                strInfo.Format(L"Trimmed %ux%u preview down to %ux%u.", nCurrentWidth, nCurrentHeight, true_width, true_height);
-                GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
+                if (!fToldOfTrimOnce)
+                {
+                    // Don't just keep wildly appending.
+                    strInfo.Format(L"  Trimmed %ux%u preview to %ux%u.", nCurrentWidth, nCurrentHeight, true_width, true_height);
+                    GetHost()->GetPalModDlg()->AppendStatusText(strInfo.GetString());
+                    fToldOfTrimOnce = true;
+                }
             }
         }
     }

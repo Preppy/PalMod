@@ -472,8 +472,9 @@ public:
     void CopyColorToClipboard(COLORREF crColor);
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
 
-    void SetStatusText(CString szText);
+    void SetStatusText(CString strText);
     void SetStatusText(UINT uStrId);
+    void AppendStatusText(CString strText);
 
     afx_msg void OnBnClickedGradient_HSL();
     afx_msg void OnBnClickedGradient_HSV();

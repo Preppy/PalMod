@@ -974,13 +974,13 @@ void CPalModDlg::ClearGameVar()
     UpdateAppTitle();
 }
 
-void CPalModDlg::SetStatusText(CString szText)
+void CPalModDlg::SetStatusText(CString strText)
 {
     //Kill the timer if it exists
     KillTimer(TIMER_STATUS);
 
     //Set text
-    m_StatusBar.SetPaneText(0, szText);
+    m_StatusBar.SetPaneText(0, strText);
 
     //Set timer
     SetTimer(TIMER_STATUS, TIMER_ELAPSE, NULL);
@@ -993,6 +993,13 @@ void CPalModDlg::SetStatusText(UINT uStrId)
     {
         SetStatusText(strMessage);
     }
+}
+
+void CPalModDlg::AppendStatusText(CString strText)
+{
+    CString strJoinedText = m_StatusBar.GetPaneText(0) + strText;
+
+    SetStatusText(strJoinedText);
 }
 
 void CPalModDlg::OnAboutAboutPalMod()
