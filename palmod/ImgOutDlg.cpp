@@ -866,8 +866,13 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
                 if (fHasErrorAndShouldFix && fThisLayerUsed)
                 {
+                    // We COULD set things to an unused color in the palette, but ... that just is different wrong.
+                    // Let's just null "bad" colors for the common case.
+                    const uint8_t nUnusedPaletteIndex = 0;
+                    
+#ifdef WANT_TO_USE_ACTIVE_COLOR
                     // Default to the last color in the palette: we'll optimize to an actually unused color index if possible.
-                    uint8_t nUnusedPaletteIndex = static_cast<uint8_t>(rgSrcImg[nImageIndex]->uPalSz - 1);
+                    nUnusedPaletteIndex == static_cast<uint8_t>(rgSrcImg[nImageIndex]->uPalSz - 1);
 
                     for (uint8_t nColorUsageIndex = 1; nColorUsageIndex < rgIsPaletteIndexUsed.size(); nColorUsageIndex++)
                     {
@@ -877,6 +882,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                             break;
                         }
                     }
+#endif
 
                     bool fShownError = false;
 
@@ -891,7 +897,8 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                             // In some specific cases people were using out-of-bounds colors to color "shadow" / inferred sprites
                             // Adjust those to something *in* the palette.  This is still "wrong" but at least more 
                             // technically correct.
-                            if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] == 0xfe)
+                            if ((rgSrcImg[nImageIndex]->pImgData[iImgIndex] == 0xfe) ||
+                                (rgSrcImg[nImageIndex]->pImgData[iImgIndex] == 0xff))
                             {
                                 nNewColor = nUnusedPaletteIndex;
                             }
@@ -899,6 +906,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                             {
                                 // this is likely a paired palette that is indexed to be using colors from the second palette.
                                 // for purposes of RAW, that is incorrect: this should be referencing the palette as color[0]
+                                // This math lets us force the color to be within the active palette.
                                 nNewColor = nOldColor % rgSrcImg[nImageIndex]->uPalSz;
                             }
 
