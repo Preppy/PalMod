@@ -1036,12 +1036,12 @@ BOOL CGame_SFA2_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 }
                 else
                 {
-                    int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    const int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                     fWasImageLoadHandled = true;
 
-                    uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
-                    uint32_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
+                    const uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
+                    const uint32_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 
                     const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
 

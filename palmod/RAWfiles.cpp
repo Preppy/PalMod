@@ -212,7 +212,7 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
             {
                 // in theory we should let the user know that this was a compressed RAW in the status bar,
                 // but the caller is updating the status bar shortly so we won't
-                OutputDebugString(L"Loaded RLE-compressed RAW as a custom preview.");
+                OutputDebugString(L"Loaded RLE-compressed RAW as a custom preview.\r\n");
             }
         }
         else if (fHaveViableDimensions)
