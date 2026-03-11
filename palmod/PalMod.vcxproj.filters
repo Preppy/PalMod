@@ -646,6 +646,12 @@
     <Filter Include="Games\Sega\Mortal Kombat 2">
       <UniqueIdentifier>{1e67e323-4b75-4ab0-985e-ba4aed5aee1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\CVS2_D">
+      <UniqueIdentifier>{7c934554-f2f0-4e72-8fb3-3df27a797359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Marvel Cosmic Invasion">
+      <UniqueIdentifier>{2fecf65f-44e8-47e8-a916-537feacfe8e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2332,6 +2338,33 @@
     </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="debugutil.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lodepng\lodepng.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_CvS2_D.h">
+      <Filter>Games\Capcom Games\CVS2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CvS2_D_DEF.h">
+      <Filter>Games\Capcom Games\CVS2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\mvc2_validate.h">
+      <Filter>Games\Capcom Games\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_P4AU_FightClub.h">
+      <Filter>Games\Other Platforms\Persona 4 Arena</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\P4AU_FightClub_DEF.h">
+      <Filter>Games\Other Platforms\Persona 4 Arena</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MCI_S_DEF.h">
+      <Filter>Games\Other Platforms\Marvel Cosmic Invasion</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MCI_S.h">
+      <Filter>Games\Other Platforms\Marvel Cosmic Invasion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

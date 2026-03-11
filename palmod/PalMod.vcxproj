@@ -381,6 +381,7 @@
   <ItemGroup>
     <ClInclude Include="ColorSystem.h" />
     <ClInclude Include="CRC32.h" />
+    <ClInclude Include="debugutil.h" />
     <ClInclude Include="DropTarget.h" />
     <ClInclude Include="ExtraFile.h" />
     <ClInclude Include="GameChoice.h" />
@@ -407,6 +408,7 @@
     <ClInclude Include="Game\COTA_A_DEF.h" />
     <ClInclude Include="Game\CVS1_A_DEF.h" />
     <ClInclude Include="Game\CVS2_A_DEF.h" />
+    <ClInclude Include="Game\CvS2_D_DEF.h" />
     <ClInclude Include="Game\Cyberbots_A_DEF.h" />
     <ClInclude Include="Game\DaemonBrideAG_NL_DEF.h" />
     <ClInclude Include="Game\DaemonBride_NL_DEF.h" />
@@ -457,6 +459,7 @@
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS1_A.h" />
     <ClInclude Include="Game\Game_CVS2_A.h" />
+    <ClInclude Include="Game\Game_CvS2_D.h" />
     <ClInclude Include="Game\Game_Cyberbots_A.h" />
     <ClInclude Include="Game\Game_DaemonBrideAG_NL.h" />
     <ClInclude Include="Game\Game_DaemonBride_NL.h" />
@@ -524,6 +527,7 @@
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MBAACC_S.h" />
     <ClInclude Include="Game\Game_MBTL_A.h" />
+    <ClInclude Include="Game\Game_MCI_S.h" />
     <ClInclude Include="Game\Game_MK1_A.h" />
     <ClInclude Include="Game\Game_MK1_SNES.h" />
     <ClInclude Include="Game\Game_MK2_A.h" />
@@ -552,6 +556,7 @@
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_NGBC_A.h" />
     <ClInclude Include="Game\Game_NinjaMasters_A.h" />
+    <ClInclude Include="Game\Game_P4AU_FightClub.h" />
     <ClInclude Include="Game\Game_P4AU_NESICA.h" />
     <ClInclude Include="Game\Game_P4AU_STEAM.h" />
     <ClInclude Include="Game\Game_PrimalRage_SNES.h" />
@@ -673,6 +678,7 @@
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MBAACC_S_DEF.h" />
     <ClInclude Include="Game\MBTL_S_DEF.h" />
+    <ClInclude Include="Game\MCI_S_DEF.h" />
     <ClInclude Include="Game\MK1_A_DEF.h" />
     <ClInclude Include="Game\MK1_SNES_DEF.h" />
     <ClInclude Include="Game\MK2_A_DEF.h" />
@@ -692,6 +698,7 @@
     <ClInclude Include="Game\mvc2_descs.h" />
     <ClInclude Include="Game\MVC2_D_Def.h" />
     <ClInclude Include="Game\mvc2_supp.h" />
+    <ClInclude Include="Game\mvc2_validate.h" />
     <ClInclude Include="Game\MVC_A_DEF.h" />
     <ClInclude Include="Game\MvC_P_DEF.h" />
     <ClInclude Include="Game\MWARR_A_DIR_DEF.h" />
@@ -701,6 +708,7 @@
     <ClInclude Include="Game\NGBC_A_DEF.h" />
     <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
     <ClInclude Include="Game\P4AU_Common.h" />
+    <ClInclude Include="Game\P4AU_FightClub_DEF.h" />
     <ClInclude Include="Game\P4AU_NESICA_DEF.h" />
     <ClInclude Include="Game\P4AU_STEAM_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
@@ -777,6 +785,7 @@
     <ClInclude Include="ImgInfoList.h" />
     <ClInclude Include="ImgOutDlg.h" />
     <ClInclude Include="Junk.h" />
+    <ClInclude Include="lodepng\lodepng.h" />
     <ClInclude Include="MappingPalettes.h" />
     <ClInclude Include="PalMod.h" />
     <ClInclude Include="PalModDlg.h" />
