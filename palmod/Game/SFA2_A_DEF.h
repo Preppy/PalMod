@@ -5,6 +5,14 @@
 // Rev1 most things should work for - not all of Bonus was ported.
 // SFZ versions should mostly work, but also various things have not been ported.
 
+// Stuff not known:
+// Ryu ending palettes begin at about 0x779be in rom07 rev2 if anybody cares to sort Endings out.
+// USSR computer/electrical preview could be redone
+// Sari on India stage is not in preview
+// There's a few composited-by-game palettes not handled fully:
+    //  P2 some some P1 super meter levels
+    //  P1/P2 "select" red/blue
+
 const std::vector<uint16_t> SFA2_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,               // 0x00,
@@ -2687,8 +2695,8 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_USSR[] =
     { L"Ground Animation Cycles 1/2",       0x2a15e, 0x2a19e, indexCPS2Sprites_SFA2_Stages, 0xcb },
     { L"Ground Animation Cycles 2/2",       0x2a85e, 0x2a8be, indexCPS2Sprites_SFA2_Stages, 0xcb },
 
-    { L"Electricity Animation Cycle 1/2",   0x1f79e, 0x1f7de, indexCPS2Sprites_SFA2_Stages, 0xcc },
-    { L"Electricity Animation Cycle 2/2",   0x1f27e, 0x1f2de, indexCPS2Sprites_SFA2_Stages, 0xcc },
+    { L"Electricity/Screen Text Animation Cycle 1/2",   0x1f79e, 0x1f7de, indexCPS2Sprites_SFA2_Stages, 0xcc },
+    { L"Electricity/Screen Text Animation Cycle 2/2",   0x1f27e, 0x1f2de, indexCPS2Sprites_SFA2_Stages, 0xcc },
 };
 
 const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_CHINAALLEY[] =
@@ -3015,9 +3023,9 @@ const sGame_PaletteDataset SFA2_A_STAGES_STEAMMONO_PALETTES_USSR[] =
     { L"Ground Animation Cycles 1/2",       0x2a15e + 0x80000, 0x2a19e + 0x80000, indexCPS2Sprites_SFA2_Stages, 0xcb },
     { L"Ground Animation Cycles 2/2",       0x2a85e + 0x80000, 0x2a8be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0xcb },
 
-    { L"Electricity Animation Cycle 1/2",   0x1f79e + 0x80000, 0x1f7de + 0x80000, indexCPS2Sprites_SFA2_Stages, 0xcc },
-    { L"Electricity Animation Cycle 2/2",   0x1f27e + 0x80000, 0x1f2de + 0x80000, indexCPS2Sprites_SFA2_Stages, 0xcc },
-    { L"Sprites",       0x76a3e, 0x76b1e, indexCPS2Sprites_SFA2_Stages, 0xba },
+    { L"Electricity/Screen Text Animation Cycle 1/2",   0x1f79e + 0x80000, 0x1f7de + 0x80000, indexCPS2Sprites_SFA2_Stages, 0xcc },
+    { L"Electricity/Screen Text Animation Cycle 2/2",   0x1f27e + 0x80000, 0x1f2de + 0x80000, indexCPS2Sprites_SFA2_Stages, 0xcc },
+    { L"Sprites",                           0x76a3e, 0x76b1e, indexCPS2Sprites_SFA2_Stages, 0xba },
 };
 
 const sGame_PaletteDataset SFA2_A_STAGES_STEAMMONO_PALETTES_CHINAALLEY[] =
@@ -3637,17 +3645,6 @@ const sGame_PaletteDataset SFA2_A_08REV2_CHARSEL_PALETTES[] =
     { L"Character Select Tiles", 0xb9fe, 0xba1e, indexCPS2Sprites_SFA2_Bonus, 0x28 },
     { L"Character Select Selection Markers Animation Cycle", 0x1f53e, 0x1f5be, indexCPS2Sprites_SFA2_Bonus, 0x3a },
 
-    { L"Character Select Map Default", 0xba1e, 0xba3e, indexCPS2Sprites_SFA2_Bonus, 0x2a },
-    { L"Character Select Map Animation Cycle?", 0x2af3e, 0x2af5e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2af5e, 0x2af7e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2af7e, 0x2af9e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2af9e, 0x2afbe, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2afbe, 0x2afde, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2afde, 0x2affe, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2affe, 0x2b01e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2b01e, 0x2b03e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle?", 0x2b03e, 0x2b05e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
-    { L"Character Select Map Animation Cycle Selected", 0x2b05e, 0x2b07e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
     { L"Character Select Background", 0x2bffe, 0x2c0fe, indexCPS2Sprites_SFA2_Bonus, 0x29 },
 
     { L"Character Select background wash", 0x191e, 0x195e, indexCPS2Sprites_SFA2_Bonus, 0x2f },
@@ -3664,7 +3661,6 @@ const sGame_PaletteDataset SFA2_A_08REV2_BONUS_PALETTES[] =
     { L"Text Colors: Intro", 0x151e, 0x15be, indexCPS2Sprites_SFA2_Bonus, 0x25 },
 
     { L"SF Title Logo Pt.2", 0x213BE, 0x213FE, indexCPS2Sprites_SFA2_Bonus, 0x1e },
-    { L"SF Title Logo Pt.3?", 0x1C15E, 0x1C17E },
 
     { L"Title BG", 0x15A5E, 0x15A7e, indexCPS2Sprites_SFA2_Bonus, 0x1b },
 
@@ -3675,6 +3671,25 @@ const sGame_PaletteDataset SFA2_A_08REV2_BONUS_PALETTES[] =
     { L"Super Meters",      0x1c23e, 0x1c2be, indexCPS2Sprites_SFA2_Bonus, 0x44 },
     { L"VS Screen Name Text", 0x1c17e, 0x1c19e, indexCPS2Sprites_SFA2_Bonus, 0x2e },
     { L"WINNER", 0x1f7de, 0x1f7fe, indexCPS2Sprites_SFA2_Bonus, 0x33 },
+    { L"WINNER Animation Cycle", 0x1fa9e, 0x1fb9e, indexCPS2Sprites_SFA2_Bonus, 0x33 },
+
+    { L"VS CPU Map Default", 0xba1e, 0xba3e, indexCPS2Sprites_SFA2_Bonus, 0x2a },
+    { L"VS CPU Map Animation Cycle?", 0x2af3e, 0x2af5e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2af5e, 0x2af7e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2af7e, 0x2af9e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2af9e, 0x2afbe, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2afbe, 0x2afde, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2afde, 0x2affe, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2affe, 0x2b01e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2b01e, 0x2b03e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle?", 0x2b03e, 0x2b05e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Animation Cycle Selected", 0x2b05e, 0x2b07e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
+    { L"VS CPU Map Markers",                0x1c19e, 0x1c1be, indexCPS2Sprites_SFA2_Bonus, 0x46 },
+
+    { L"Z Transitions/Screenwipe: Blue",    0x1c0fe, 0x1c11e, indexCPS2Sprites_SFA2_Bonus, 0x47 },
+    { L"Z Transitions/Screenwipe: Red",     0x1c11e, 0x1c13e, indexCPS2Sprites_SFA2_Bonus, 0x47 },
+    { L"Z Transitions/Screenwipe: Green",   0x1c13e, 0x1c15e, indexCPS2Sprites_SFA2_Bonus, 0x47 },
+    { L"Z Transitions/Screenwipe: Orange",  0x1c15e, 0x1c17e, indexCPS2Sprites_SFA2_Bonus, 0x47 },
        
     // low confidence on this
     // { L"Backing tile for portraits??", 0x15a9e + 0x380, 0x15abe + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x22 },
