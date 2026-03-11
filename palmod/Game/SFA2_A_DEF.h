@@ -2753,7 +2753,7 @@ const sGame_PaletteDataset SFA2_A_STAGES_STEAMMONO_PALETTES_JAPANWINTER[] =
     { L"Midground 2/2", 0x7c3be, 0x7c5be },
     { L"Foreground 1/2",        0x65be + 0x80000, 0x67be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x4f, &pairNext },
     { L"Foreground 2/2",        0x67be + 0x80000, 0x69be + 0x80000 },
-    // BUGBUG: really need first line / stage shadow foreground but most background
+    // BUGBUG: ideally we would split up this palette so we can do the join presentation more effectively
     { L"Sprites",       0x75c3e, 0x75d1e, indexCPS2Sprites_SFA2_Stages, 0xb5 },
 };
 
@@ -3403,6 +3403,10 @@ const sGame_PaletteDataset SFA2_A_07REV2_INTROPORTRAIT_PALETTES[] =
     { L"Chun-Li (Intro)", 0x76DE0 + 0x37e, 0x76E80 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x0f },
     { L"Foreground Flames (Intro)", 0x76DC0 + 0x37e, 0x76DE0 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x1f },
     { L"Intro - Purple BG pt.1", 0x76F60 + 0x37e, 0x76F80 + 0x37e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
+
+    // I don't believe this is correct.  It didn't show up in testing even though the palette matches.
+    // { L"Ryu Intro Charging Aura Animation Cycle", 0x7713e + 0x380, 0x7715e + 0x380 },
+    { L"Portrait Tile Colors", 0x7707e + 0x380, 0x7709e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x42 },
 };
 
 const sGame_PaletteDataset SFA2_A_07ForSFZ2A_INTROPORTRAIT_PALETTES[] =
@@ -3481,6 +3485,7 @@ const sGame_PaletteDataset SFA2_A_08REV2_INTROPORTRAIT_PALETTES[] =
     { L"Zangief Trail 2",   0x2113e, 0x2117e, indexCPS2Sprites_SFA2_Bonus, 0x0b },
 
     { L"Adon Pants", 0x2119e, 0x211be, indexCPS2Sprites_SFA2_Bonus, 0x00 },
+    { L"Sodom Intro Body Extension", 0x211be, 0x211de, indexCPS2Sprites_SFA2_Bonus, 0x45 },
 
     { L"Dan Intro", 0x211de, 0x2123e, indexCPS2Sprites_SFA2_Bonus, 0x03 },
     { L"Dan Intro Rock", 0x2123e, 0x2125e, indexCPS2Sprites_SFA2_Bonus, 0x02 },
@@ -3497,6 +3502,9 @@ const sGame_PaletteDataset SFA2_A_08REV2_INTROPORTRAIT_PALETTES[] =
     { L"Ryu Ken Intro Blast", 0x2b4fe, 0x2b51e, indexCPS2Sprites_SFA2_Bonus, 0x16 },
     { L"Ryu Ken Intro Fireball Animation Cycle", 0x21ade, 0x21b7e, indexCPS2Sprites_SFA2_Bonus, 0x2c, &pairPreviousFlipped },
 
+    { L"Ken (Only) Intro Charging Aura Animation Cycle 1", 0x296de, 0x297de, indexCPS2Sprites_SFA2_Bonus, 0x3c },
+    { L"Ryu Ken Intro Charging Aura Animation Cycle 2", 0x2cd9e, 0x2ce9e, indexCPS2Sprites_SFA2_Bonus, 0x3d },
+
     { L"New Characters Flame Background", 0x15A3e, 0x15A5e, indexCPS2Sprites_SFA2_Bonus, 0x34, &pairNext },
     { L"New Characters Flame", 0x2125e, 0x2127e, indexCPS2Sprites_SFA2_Bonus, 0x35 },
 
@@ -3504,10 +3512,12 @@ const sGame_PaletteDataset SFA2_A_08REV2_INTROPORTRAIT_PALETTES[] =
     { L"Bison 1/2", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
     { L"Bison 2/2", 0xB900 - 0x02, 0xB91e, indexCPS2Sprites_SFA2_Bonus, 0x0d },
 
-    { L"\"Alpha\" Motion Logo Trail 1", 0x2203e, 0x2205e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext },
+    { L"\"Alpha\" Motion Logo Trail 1", 0x2203e, 0x2205e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext4Palettes },
     { L"SF Title Motion Logo Trail 1 1/2", 0x2209e, 0x220be, indexCPS2Sprites_SFA2_Bonus, 0x2d },
     { L"SF Title Motion Logo Trail 1 2/2", 0x220be, 0x2211e, indexCPS2Sprites_SFA2_Bonus, 0x1c },
-   
+    { L"Logo Sparkle Animation Cycle 1", 0x214be, 0x216be, indexCPS2Sprites_SFA2_Bonus, 0x3e, &pairNext },
+    { L"Logo Sparkle Animation Cycle 2", 0x216be, 0x2183e, indexCPS2Sprites_SFA2_Bonus, 0x3f },
+
     { L"\"Alpha\" Motion Logo Trail 2", 0x2205e, 0x2207e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext },
     { L"SF Title Motion Logo Trail 2 1/2", 0x2211e, 0x2213e, indexCPS2Sprites_SFA2_Bonus, 0x2d },
     { L"SF Title Motion Logo Trail 2 2/2", 0x2213e, 0x2219e, indexCPS2Sprites_SFA2_Bonus, 0x1c },
@@ -3562,6 +3572,7 @@ SFA2_Bonus - DanIntroRocks || 0x7F - 0x02
 
 const sGame_PaletteDataset SFA2_A_07REV1_BONUS_PALETTES[] =
 {
+    // This is a subset of the Rev2 known palettes.
     { L"Alpha 2 Logo", 0x76FFE - 0x280, 0x7701E - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext },
     { L"SF Title Logo Pt.1", 0x76F9E - 0x280, 0x76FDE - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1c },
     { L"Character HUD Name / VS / Perfect!! (flash)", 0x75B9E - 0x280, 0x75BBE - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x18 },
@@ -3570,11 +3581,16 @@ const sGame_PaletteDataset SFA2_A_07REV1_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_07REV2_BONUS_PALETTES[] =
 {
-    { L"Alpha 2 Logo", 0x76FFE + 0x380, 0x7701E + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext },
+    { L"Alpha 2 Logo", 0x76FFE + 0x380, 0x7701E + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext4Palettes },
     { L"SF Title Logo Pt.1", 0x76F9E + 0x380, 0x76FDE + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x1c },
+    { L"SF Title Logo Pt.2", 0x7701e + 0x380, 0x7703e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x3b },
     { L"SF Title Motion Logo", 0x76f7e + 0x380, 0x76f9e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x2d },
+    { L"Logo Sparkles", 0x7711e + 0x380, 0x7713e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x43 },
+
     { L"Character HUD Name / VS / Perfect!! (flash)", 0x75B9E + 0x380, 0x75BBE + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x18 },
     { L"CC Win Icons / Perfect text (filled)", 0x75C1E + 0x380, 0x75C3E + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x17 },
+
+    { L"VS and Names on VS Screen", 0x7751e + 0x380, 0x7753e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x41 },
 
     { L"Bands And Text on Intro Screen", 0x7717e + 0x380, 0x771be + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x30 },
     { L"HUD Display and Text", 0x75bbe + 0x380, 0x75c1e + 0x380, indexCPS2Sprites_SFA2_Bonus, 0x32 },
@@ -3606,11 +3622,12 @@ const sGame_PaletteDataset SFA2_A_08REV1_BONUS_PALETTES[] =
     { L"Title BG", 0x163de, 0x163fe, indexCPS2Sprites_SFA2_Bonus, 0x1b }, /* Delta: 0x980 */
     { L"\"Round # Fight\"", 0x2249e, 0x224be, indexCPS2Sprites_SFA2_Bonus, 0x19 }, /* Delta: 0x900 */
     { L"SF Title Logo Pt.2", 0x21cbe, 0x21cfe, indexCPS2Sprites_SFA2_Bonus, 0x1e }, /* Delta: 0x900 */
-    { L"SF Title Logo Pt.3", 0x1ca5e, 0x1ca7e }, /* Delta: 0x900 */
+    { L"SF Title Logo Pt.3?", 0x1ca5e, 0x1ca7e }, /* Delta: 0x900 */
 };
 
 const sGame_PaletteDataset SFA2_A_08REV1_CHARSEL_PALETTES[] =
 {
+    // This is a subset of the palettes we know about from Rev2
     { L"Character Select Tiles and Map", 0xbf7e, 0xbfbe, indexCPS2Sprites_SFA2_Bonus, 0x28 }, /* Delta: 0x580 */
     { L"Character Select Background", 0x2bffe, 0x2c0fe, indexCPS2Sprites_SFA2_Bonus, 0x29 }, /* Delta: 0 */
 };
@@ -3618,6 +3635,7 @@ const sGame_PaletteDataset SFA2_A_08REV1_CHARSEL_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_08REV2_CHARSEL_PALETTES[] =
 {
     { L"Character Select Tiles", 0xb9fe, 0xba1e, indexCPS2Sprites_SFA2_Bonus, 0x28 },
+    { L"Character Select Selection Markers Animation Cycle", 0x1f53e, 0x1f5be, indexCPS2Sprites_SFA2_Bonus, 0x3a },
 
     { L"Character Select Map Default", 0xba1e, 0xba3e, indexCPS2Sprites_SFA2_Bonus, 0x2a },
     { L"Character Select Map Animation Cycle?", 0x2af3e, 0x2af5e, indexCPS2Sprites_SFA2_Bonus, 0x2b },
@@ -3645,13 +3663,16 @@ const sGame_PaletteDataset SFA2_A_08REV2_BONUS_PALETTES[] =
     { L"QSound Virtual Audio logo", 0xb5be, 0xb61e, indexCPS2Sprites_SFA2_Bonus, 0x24 },
     { L"Text Colors: Intro", 0x151e, 0x15be, indexCPS2Sprites_SFA2_Bonus, 0x25 },
 
-    { L"Title BG", 0x15A5E, 0x15A7e, indexCPS2Sprites_SFA2_Bonus, 0x1b },
-    { L"\"Round # Fight\"", 0x21B9E, 0x21BBE, indexCPS2Sprites_SFA2_Bonus, 0x19 },
     { L"SF Title Logo Pt.2", 0x213BE, 0x213FE, indexCPS2Sprites_SFA2_Bonus, 0x1e },
-    { L"SF Title Logo Pt.3", 0x1C15E, 0x1C17E },
+    { L"SF Title Logo Pt.3?", 0x1C15E, 0x1C17E },
 
-    // low confidence on this
-    // { L"life bar, meter bar, level ??",  0x1c23e, 0x1c2be },
+    { L"Title BG", 0x15A5E, 0x15A7e, indexCPS2Sprites_SFA2_Bonus, 0x1b },
+
+    { L"VS Animation Cycle 1/2", 0x1fb9e, 0x1fd9e, indexCPS2Sprites_SFA2_Bonus, 0x40 },
+    { L"VS Animation Cycle 2/2", 0x1fd9e, 0x1ff7e, indexCPS2Sprites_SFA2_Bonus, 0x40 },
+
+    { L"\"Round # Fight\"", 0x21B9E, 0x21BBE, indexCPS2Sprites_SFA2_Bonus, 0x19 },
+    { L"Super Meters",      0x1c23e, 0x1c2be, indexCPS2Sprites_SFA2_Bonus, 0x44 },
     { L"VS Screen Name Text", 0x1c17e, 0x1c19e, indexCPS2Sprites_SFA2_Bonus, 0x2e },
     { L"WINNER", 0x1f7de, 0x1f7fe, indexCPS2Sprites_SFA2_Bonus, 0x33 },
        
@@ -3667,7 +3688,7 @@ const sGame_PaletteDataset SFA2_A_08SFZ2A_BONUS_PALETTES[] =
     { L"Title BG", 0x15A5E, 0x15A7e, indexCPS2Sprites_SFA2_Bonus, 0x1b },
     { L"\"Round # Fight\"", 0x21B9E, 0x21BBE, indexCPS2Sprites_SFA2_Bonus, 0x19 },
     { L"SF Title Logo Pt.2", 0x213BE, 0x213FE, indexCPS2Sprites_SFA2_Bonus, 0x1e },
-    { L"SF Title Logo Pt.3", 0x1C15E, 0x1C17E },
+    { L"SF Title Logo Pt.3?", 0x1C15E, 0x1C17E },
 };
 
 const sDescTreeNode SFA2_A_BONUS07REV1_COLLECTION[] =
