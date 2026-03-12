@@ -8,9 +8,8 @@
 // Stuff not known:
 // Ryu ending palettes begin at about 0x779be in rom07 rev2 if anybody cares to sort Endings out.
 // USSR computer/electrical preview could be redone
-// Sari on India stage is not in preview
 // There's a few composited-by-game palettes not handled fully:
-    //  P2 some some P1 super meter levels
+    //  P2 some P1 super meter levels
     //  P1/P2 "select" red/blue
 
 const std::vector<uint16_t> SFA2_A_IMGIDS_USED =
@@ -190,7 +189,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_PUNCH_PALETTES[] =
 {
     { L"Punch", 0x6ea3e, 0x6ea5e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Punch Extra 1", 0x6ea5e, 0x6ea7e, indexCPS2Sprites_Akuma, 0x0c },
-    { L"Punch Extra 2", 0x6ea7e, 0x6ea9e },
+    { L"Punch Extra 2", 0x6ea7e, 0x6ea9e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Punch Super Trail Light", 0x6ea9e, 0x6eabe, indexCPS2Sprites_Akuma, 0x00 },
     { L"Punch Super Trail Dark", 0x6eabe, 0x6eade, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -199,7 +198,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_KICK_PALETTES[] =
 {
     { L"Kick", 0x6eade, 0x6eb00 - 0x02, indexCPS2Sprites_Akuma, 0x00 },
     { L"Kick Extra 1", 0x6eb00 - 0x02, 0x6eb1e, indexCPS2Sprites_Akuma, 0x0c },
-    { L"Kick Extra 2", 0x6eb1e, 0x6eb3e },
+    { L"Kick Extra 2", 0x6eb1e, 0x6eb3e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Kick Super Trail Light", 0x6eb3e, 0x6eb5e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Kick Super Trail Dark", 0x6eb5e, 0x6eb7e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -208,7 +207,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_2PUNCHES_PALETTES[] =
 {
     { L"2 Punches", 0x6eb7e, 0x6eb9e, indexCPS2Sprites_Akuma, 0x00 },
     { L"2 Punches Extra 1", 0x6eb9e, 0x6ebbe, indexCPS2Sprites_Akuma, 0x0c },
-    { L"2 Punches Extra 2", 0x6ebbe, 0x6ebde },
+    { L"2 Punches Extra 2", 0x6ebbe, 0x6ebde, indexCPS2Sprites_Akuma, 0x0c },
     { L"2 Punches Super Trail Light", 0x6ebde, 0x6ec00 - 0x02, indexCPS2Sprites_Akuma, 0x00 },
     { L"2 Punches Super Trail Dark", 0x6ec00 - 0x02, 0x6ec1e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -217,7 +216,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_2KICKS_PALETTES[] =
 {
     { L"2 Kicks", 0x6ec1e, 0x6ec3e, indexCPS2Sprites_Akuma, 0x00 },
     { L"2 Kicks Extra 1", 0x6ec3e, 0x6ec5e, indexCPS2Sprites_Akuma, 0x0c },
-    { L"2 Kicks Extra 2", 0x6ec5e, 0x6ec7e },
+    { L"2 Kicks Extra 2", 0x6ec5e, 0x6ec7e, indexCPS2Sprites_Akuma, 0x0c },
     { L"2 Kicks Super Trail Light", 0x6ec7e, 0x6ec9e, indexCPS2Sprites_Akuma, 0x00 },
     { L"2 Kicks Super Trail Dark", 0x6ec9e, 0x6ecbe, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -226,7 +225,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_AUTOGUARDPUNCH_PALETTES[] =
 {
     { L"Auto Guard Punch", 0x6ecbe, 0x6ecde, indexCPS2Sprites_Akuma, 0x00 },
     { L"Auto Guard Punch Extra 1", 0x6ecde, 0x6ed00 - 0x02, indexCPS2Sprites_Akuma, 0x0c },
-    { L"Auto Guard Punch Extra 2", 0x6ed00 - 0x02, 0x6ed1e },
+    { L"Auto Guard Punch Extra 2", 0x6ed00 - 0x02, 0x6ed1e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Auto Guard Punch Super Trail Light", 0x6ed1e, 0x6ed3e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Auto Guard Punch Super Trail Dark", 0x6ed3e, 0x6ed5e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -235,7 +234,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_AUTOGUARDKICK_PALETTES[] =
 {
     { L"Auto Guard Kick", 0x6ed5e, 0x6ed7e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Auto Guard Kick Extra 1", 0x6ed7e, 0x6ed9e, indexCPS2Sprites_Akuma, 0x0c },
-    { L"Auto Guard Kick Extra 2", 0x6ed9e, 0x6edbe },
+    { L"Auto Guard Kick Extra 2", 0x6ed9e, 0x6edbe, indexCPS2Sprites_Akuma, 0x0c },
     { L"Auto Guard Kick Super Trail Light", 0x6edbe, 0x6edde, indexCPS2Sprites_Akuma, 0x00 },
     { L"Auto Guard Kick Super Trail Dark", 0x6edde, 0x6ee00 - 0x02, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -634,7 +633,7 @@ const sGame_PaletteDataset SFA2_A_BIRDIE_PUNCH_PALETTES[] =
 {
     { L"Punch", 0x700be, 0x700de, indexCPS2Sprites_Birdie, 0x00 },
     { L"Punch Extra 1", 0x700de, 0x700fe, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Punch Extra 2", 0x700fe, 0x7011e },
+    { L"Punch Extra 2: Bullrush Effects", 0x700fe, 0x7011e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Punch Super Trail Light", 0x7011e, 0x7013e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Punch Super Trail Dark", 0x7013e, 0x7015e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -643,7 +642,7 @@ const sGame_PaletteDataset SFA2_A_BIRDIE_KICK_PALETTES[] =
 {
     { L"Kick", 0x7015e, 0x7017e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Kick Extra 1", 0x7017e, 0x7019e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Kick Extra 2", 0x7019e, 0x701be },
+    { L"Kick Extra 2: Bullrush Effects", 0x7019e, 0x701be, indexCPS2Sprites_Birdie, 0x02 },
     { L"Kick Super Trail Light", 0x701be, 0x701de, indexCPS2Sprites_Birdie, 0x00 },
     { L"Kick Super Trail Dark", 0x701de, 0x701fe, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -652,7 +651,7 @@ const sGame_PaletteDataset SFA2_A_BIRDIE_2PUNCHES_PALETTES[] =
 {
     { L"2 Punches", 0x701fe, 0x7021e, indexCPS2Sprites_Birdie, 0x00 },
     { L"2 Punches Extra 1", 0x7021e, 0x7023e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"2 Punches Extra 2", 0x7023e, 0x7025e },
+    { L"2 Punches Extra 2: Bullrush Effects", 0x7023e, 0x7025e, indexCPS2Sprites_Birdie, 0x02 },
     { L"2 Punches Super Trail Light", 0x7025e, 0x7027e, indexCPS2Sprites_Birdie, 0x00 },
     { L"2 Punches Super Trail Dark", 0x7027e, 0x7029e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -661,7 +660,7 @@ const sGame_PaletteDataset SFA2_A_BIRDIE_2KICKS_PALETTES[] =
 {
     { L"2 Kicks", 0x7029e, 0x702be, indexCPS2Sprites_Birdie, 0x00 },
     { L"2 Kicks Extra 1", 0x702be, 0x702de, indexCPS2Sprites_Birdie, 0x00 },
-    { L"2 Kicks Extra 2", 0x702de, 0x702fe },
+    { L"2 Kicks Extra 2: Bullrush Effects", 0x702de, 0x702fe, indexCPS2Sprites_Birdie, 0x02 },
     { L"2 Kicks Super Trail Light", 0x702fe, 0x7031e, indexCPS2Sprites_Birdie, 0x00 },
     { L"2 Kicks Super Trail Dark", 0x7031e, 0x7033e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -670,7 +669,7 @@ const sGame_PaletteDataset SFA2_A_BIRDIE_AUTOGUARDPUNCH_PALETTES[] =
 {
     { L"Auto Guard Punch", 0x7033e, 0x7035e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Auto Guard Punch Extra 1", 0x7035e, 0x7037e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Auto Guard Punch Extra 2", 0x7037e, 0x7039e },
+    { L"Auto Guard Punch Extra 2: Bullrush Effects", 0x7037e, 0x7039e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Auto Guard Punch Super Trail Light", 0x7039e, 0x703be, indexCPS2Sprites_Birdie, 0x00 },
     { L"Auto Guard Punch Super Trail Dark", 0x703be, 0x703de, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -679,7 +678,7 @@ const sGame_PaletteDataset SFA2_A_BIRDIE_AUTOGUARDKICK_PALETTES[] =
 {
     { L"Auto Guard Kick", 0x703de, 0x703fe, indexCPS2Sprites_Birdie, 0x00 },
     { L"Auto Guard Kick Extra 1", 0x703fe, 0x7041e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Auto Guard Kick Extra 2", 0x7041e, 0x7043e },
+    { L"Auto Guard Kick Extra 2: Bullrush Effects", 0x7041e, 0x7043e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Auto Guard Kick Super Trail Light", 0x7043e, 0x7045e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Auto Guard Kick Super Trail Dark", 0x7045e, 0x7047e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1152,7 +1151,7 @@ const sGame_PaletteDataset SFA2_A_DHALSIM_PUNCH_PALETTES[] =
 {
     { L"Punch", 0x71b00 - 0x02, 0x71b1e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Punch Extra 1", 0x71b1e, 0x71b3e, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"Punch Extra 2", 0x71b3e, 0x71b5e, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"Punch Extra 2: Sari", 0x71b3e, 0x71b5e, indexCPS2Sprites_Dhalsim, 0x02 },
     { L"Punch Super Trail Light", 0x71b5e, 0x71b7e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Punch Super Trail Dark", 0x71b7e, 0x71b9e, indexCPS2Sprites_Dhalsim, 0x00 },
 };
@@ -1161,7 +1160,7 @@ const sGame_PaletteDataset SFA2_A_DHALSIM_KICK_PALETTES[] =
 {
     { L"Kick", 0x71b9e, 0x71bbe, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Kick Extra 1", 0x71bbe, 0x71bde, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"Kick Extra 2", 0x71bde, 0x71c00 - 0x02, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"Kick Extra 2: Sari", 0x71bde, 0x71c00 - 0x02, indexCPS2Sprites_Dhalsim, 0x02 },
     { L"Kick Super Trail Light", 0x71c00 - 0x02, 0x71c1e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Kick Super Trail Dark", 0x71c1e, 0x71c3e, indexCPS2Sprites_Dhalsim, 0x00 },
 };
@@ -1170,7 +1169,7 @@ const sGame_PaletteDataset SFA2_A_DHALSIM_2PUNCHES_PALETTES[] =
 {
     { L"2 Punches", 0x71c3e, 0x71c5e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"2 Punches Extra 1", 0x71c5e, 0x71c7e, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"2 Punches Extra 2", 0x71c7e, 0x71c9e, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"2 Punches Extra 2: Sari", 0x71c7e, 0x71c9e, indexCPS2Sprites_Dhalsim, 0x02 },
     { L"2 Punches Super Trail Light", 0x71c9e, 0x71cbe, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"2 Punches Super Trail Dark", 0x71cbe, 0x71cde, indexCPS2Sprites_Dhalsim, 0x00 },
 };
@@ -1179,7 +1178,7 @@ const sGame_PaletteDataset SFA2_A_DHALSIM_2KICKS_PALETTES[] =
 {
     { L"2 Kicks", 0x71cde, 0x71d00 - 0x02, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"2 Kicks Extra 1", 0x71d00 - 0x02, 0x71d1e, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"2 Kicks Extra 2", 0x71d1e, 0x71d3e, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"2 Kicks Extra 2: Sari", 0x71d1e, 0x71d3e, indexCPS2Sprites_Dhalsim, 0x02 },
     { L"2 Kicks Super Trail Light", 0x71d3e, 0x71d5e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"2 Kicks Super Trail Dark", 0x71d5e, 0x71d7e, indexCPS2Sprites_Dhalsim, 0x00 },
 };
@@ -1188,7 +1187,7 @@ const sGame_PaletteDataset SFA2_A_DHALSIM_AUTOGUARDPUNCH_PALETTES[] =
 {
     { L"Auto Guard Punch", 0x71d7e, 0x71d9e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Auto Guard Punch Extra 1", 0x71d9e, 0x71dbe, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"Auto Guard Punch Extra 2", 0x71dbe, 0x71dde, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"Auto Guard Punch Extra 2: Sari", 0x71dbe, 0x71dde, indexCPS2Sprites_Dhalsim, 0x02 },
     { L"Auto Guard Punch Super Trail Light", 0x71dde, 0x71e00 - 0x02, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Auto Guard Punch Super Trail Dark", 0x71e00 - 0x02, 0x71e1e, indexCPS2Sprites_Dhalsim, 0x00 },
 };
@@ -1197,7 +1196,7 @@ const sGame_PaletteDataset SFA2_A_DHALSIM_AUTOGUARDKICK_PALETTES[] =
 {
     { L"Auto Guard Kick", 0x71e1e, 0x71e3e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Auto Guard Kick Extra 1", 0x71e3e, 0x71e5e, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"Auto Guard Kick Extra 2", 0x71e5e, 0x71e7e, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"Auto Guard Kick Extra 2: Sari", 0x71e5e, 0x71e7e, indexCPS2Sprites_Dhalsim, 0x02 },
     { L"Auto Guard Kick Super Trail Light", 0x71e7e, 0x71e9e, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Auto Guard Kick Super Trail Dark", 0x71e9e, 0x71ebe, indexCPS2Sprites_Dhalsim, 0x00 },
 };
@@ -1522,7 +1521,7 @@ const sGame_PaletteDataset SFA2_A_SHINAKUMAREV1_PALETTES[] =
 {
     { L"Shin Akuma", 0x72dbe, 0x72dde, indexCPS2Sprites_Akuma, 0x00 },
     { L"Shin Akuma Extra 1", 0x72dde, 0x72e00 - 0x02, indexCPS2Sprites_Akuma, 1 },
-    { L"Shin Akuma Extra 2", 0x72e00 - 0x02, 0x72e1e },
+    { L"Shin Akuma Extra 2", 0x72e00 - 0x02, 0x72e1e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Shin Akuma Super Trail Light", 0x72e1e, 0x72e3e, indexCPS2Sprites_Akuma },
     { L"Shin Akuma Super Trail Dark", 0x72e3e, 0x72e5e, indexCPS2Sprites_Akuma },
 };
@@ -2038,6 +2037,7 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV1_PALETTES_INDIA[] =
 {
     // Normal "2" is empty and in ROM08
     { L"Midground", 0x7ff3e, 0x7fffe, indexCPS2Sprites_SFA2_Stages, 0x44, &pairFullyLinkedNode },
+    // Note that Sari comes from Dhalsim's extras
     { L"Sprites", 0x766de, 0x767be, indexCPS2Sprites_SFA2_Stages, 0xb0 }, /* Delta: -0x280 */
 };
 
@@ -2185,6 +2185,7 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_INDIA[] =
     //{ L"Australia 2/2",             0x80bbe, 0x80dbe, indexCPS2Sprites_SFA2_Stages, -1 },
     //{ L"Venezuala 1/2",             0x80dbe, 0x80fbe, indexCPS2Sprites_SFA2_Stages, -1, &pairNext },
     //{ L"Venezuala 2/2",             0x80fbe, 0x811be, indexCPS2Sprites_SFA2_Stages, -1 },
+    // Note that Sari comes from Dhalsim's extras
     { L"Sprites",       0x7695e, 0x76a3e, indexCPS2Sprites_SFA2_Stages, 0xb0 },
 };
 
@@ -2999,6 +3000,7 @@ const sGame_PaletteDataset SFA2_A_STAGES_STEAMMONO_PALETTES_INDIA[] =
     { L"Midground 2/2", 0x7ffbe, 0x7fffe, indexCPS2Sprites_SFA2_Stages, -1 },
     { L"Foreground 1/2",                 0xa1be + 0x80000, 0xa3be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x42, &pairNext },
     { L"Foreground 2/2",                 0xa3be + 0x80000, 0xa5be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x43 },
+    // Note that Sari comes from Dhalsim's extras
     { L"Sprites",       0x7695e, 0x76a3e, indexCPS2Sprites_SFA2_Stages, 0xb0 },
 };
 
@@ -3395,12 +3397,12 @@ const sGame_PaletteDataset SFA2_A_07ForSFZ2A_CSI_PALETTES[] =
 // these locations are based off of rev2
 const sGame_PaletteDataset SFA2_A_07REV1_INTROPORTRAIT_PALETTES[] =
 {
-    { L"Rose' Tarot Cards (Intro)", 0x770A0 - 0x27e, 0x770C0 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x1a },
-
-    { L"Charlie (Intro)", 0x76E80 - 0x27e, 0x76EE0 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x0e },
-    { L"Chun-Li (Intro)", 0x76DE0 - 0x27e, 0x76E80 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x0f },
-    { L"Foreground Flames (Intro)", 0x76DC0 - 0x27e, 0x76DE0 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x1f },
-    { L"Intro - Purple BG pt.1", 0x76F60 - 0x27e, 0x76F80 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x22 },
+    { L"Rose' Tarot Cards (Intro)", 0x76e1e, 0x76e3e, indexCPS2Sprites_SFA2_Bonus, 0x1a }, /* Delta: -0x600 */
+    { L"Charlie (Intro)", 0x76bfe, 0x76c5e, indexCPS2Sprites_SFA2_Bonus, 0x0e }, /* Delta: -0x600 */
+    { L"Chun-Li (Intro)", 0x76b5e, 0x76bfe, indexCPS2Sprites_SFA2_Bonus, 0x0f }, /* Delta: -0x600 */
+    { L"Foreground Flames (Intro)", 0x76b3e, 0x76b5e, indexCPS2Sprites_SFA2_Bonus, 0x1f }, /* Delta: -0x600 */
+    { L"Intro - Purple BG pt.1", 0x76cde, 0x76cfe, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: -0x600 */
+    { L"Portrait Tile Colors", 0x76dfe, 0x76e1e, indexCPS2Sprites_SFA2_Bonus, 0x42 }, /* Delta: -0x600 */
 };
 
 const sGame_PaletteDataset SFA2_A_07REV2_INTROPORTRAIT_PALETTES[] =
@@ -3436,31 +3438,74 @@ const sGame_PaletteDataset SFA2_A_08REV1_INTROPORTRAIT_PALETTES[] =
     { L"Akuma", 0x1633e, 0x1639e, indexCPS2Sprites_SFA2_Bonus, 0x27 }, /* Delta: 0x980 */
 
     { L"Birdie", 0x13de, 0x149e, indexCPS2Sprites_SFA2_Bonus, 0x01 }, /* Delta: 0x180 */
-    // Match at 0xbdfe, 0xbe5e (delta 0x580)
-    // Match at 0x1d4de, 0x1d53e (delta 0x11c60)
     { L"Sagat", 0xbdfe, 0xbe5e, indexCPS2Sprites_SFA2_Bonus, 0x09 }, /* Delta: 0x580 */
+
     { L"Sakura", 0x2171e, 0x2177e, indexCPS2Sprites_SFA2_Bonus, 0x0a }, /* Delta: 0x900 */
+    { L"Sakura Trail 1", 0x2177e, 0x217de, indexCPS2Sprites_SFA2_Bonus, 0x0a }, /* Delta: 0x900 */
+    { L"Sakura Trail 2", 0x217de, 0x2183e, indexCPS2Sprites_SFA2_Bonus, 0x0a }, /* Delta: 0x900 */
+
     { L"Gen", 0x2165e, 0x2169e, indexCPS2Sprites_SFA2_Bonus, 0x05 }, /* Delta: 0x900 */
+    { L"Gen Trail 1", 0x2169e, 0x216de, indexCPS2Sprites_SFA2_Bonus, 0x05 }, /* Delta: 0x900 */
+    { L"Gen Trail 2", 0x216de, 0x2171e, indexCPS2Sprites_SFA2_Bonus, 0x05 }, /* Delta: 0x900 */
+
     { L"Rolento", 0x2183e, 0x2187e, indexCPS2Sprites_SFA2_Bonus, 0x07 }, /* Delta: 0x900 */
+    { L"Rolento Trail 1", 0x2187e, 0x218be, indexCPS2Sprites_SFA2_Bonus, 0x07 }, /* Delta: 0x900 */
+    { L"Rolento Trail 2", 0x218be, 0x218fe, indexCPS2Sprites_SFA2_Bonus, 0x07 }, /* Delta: 0x900 */
+
     { L"Dhalsim", 0x218fe, 0x2193e, indexCPS2Sprites_SFA2_Bonus, 0x04 }, /* Delta: 0x900 */
+    { L"Dhalsim Trail 1", 0x2193e, 0x2197e, indexCPS2Sprites_SFA2_Bonus, 0x04 }, /* Delta: 0x900 */
+    { L"Dhalsim Trail 2", 0x2197e, 0x219be, indexCPS2Sprites_SFA2_Bonus, 0x04 }, /* Delta: 0x900 */
+
     { L"Zangief", 0x219be, 0x219fe, indexCPS2Sprites_SFA2_Bonus, 0x0b }, /* Delta: 0x900 */
+    { L"Zangief Trail 1", 0x219fe, 0x21a3e, indexCPS2Sprites_SFA2_Bonus, 0x0b }, /* Delta: 0x900 */
+    { L"Zangief Trail 2", 0x21a3e, 0x21a7e, indexCPS2Sprites_SFA2_Bonus, 0x0b }, /* Delta: 0x900 */
+
     { L"Adon Pants", 0x21a9e, 0x21abe, indexCPS2Sprites_SFA2_Bonus, 0x00 }, /* Delta: 0x900 */
+    { L"Sodom Intro Body Extension", 0x21abe, 0x21ade, indexCPS2Sprites_SFA2_Bonus, 0x45 }, /* Delta: 0x900 */
+
     { L"Dan Intro", 0x21ade, 0x21b3e, indexCPS2Sprites_SFA2_Bonus, 0x03 }, /* Delta: 0x900 */
     { L"Dan Intro Rock", 0x21b3e, 0x21b5e, indexCPS2Sprites_SFA2_Bonus, 0x02 }, /* Delta: 0x900 */
+    { L"Dan Intro Background Animation Cycle 1", 0x2b6de, 0x2b8de, indexCPS2Sprites_SFA2_Bonus, 0x36 }, /* Delta: 0 */
+    { L"Dan Intro Background Animation Cycle 2", 0x2b8de, 0x2bade, indexCPS2Sprites_SFA2_Bonus, 0x36 }, /* Delta: 0 */
+
     { L"Ryu Intro Faceoff", 0x21b7e, 0x21c1e, indexCPS2Sprites_SFA2_Bonus, 0x08 }, /* Delta: 0x900 */
     { L"Ken Intro Faceoff", 0x21c1e, 0x21cbe, indexCPS2Sprites_SFA2_Bonus, 0x06 }, /* Delta: 0x900 */
     { L"Ryu Charge Part 1", 0x2b51e, 0x2b5be, indexCPS2Sprites_SFA2_Bonus, 0x14, &pairNext }, /* Delta: 0 */
     { L"Ryu Charge Part 2", 0x2b69e, 0x2b6de, indexCPS2Sprites_SFA2_Bonus, 0x15 }, /* Delta: 0 */
     { L"Ken Charge", 0x2b5be, 0x2b69e, indexCPS2Sprites_SFA2_Bonus, 0x13 }, /* Delta: 0 */
+    { L"Ryu Ken Charging Animation", 0x21d3e, 0x21dbe, indexCPS2Sprites_SFA2_Bonus, 0x37 }, /* Delta: 0x900 */
+
     { L"Ryu Ken Intro Blast", 0x2b4fe, 0x2b51e, indexCPS2Sprites_SFA2_Bonus, 0x16 }, /* Delta: 0 */
+    { L"Ryu Ken Intro Fireball Animation Cycle", 0x223de, 0x2247e, indexCPS2Sprites_SFA2_Bonus, 0x2c, &pairPreviousFlipped }, /* Delta: 0x900 */
+
+    { L"Ken (Only) Intro Charging Aura Animation Cycle 1", 0x296de, 0x297de, indexCPS2Sprites_SFA2_Bonus, 0x3c }, /* Delta: 0 */
+    { L"Ryu Ken Intro Charging Aura Animation Cycle 2", 0x2cd9e, 0x2ce9e, indexCPS2Sprites_SFA2_Bonus, 0x3d }, /* Delta: 0 */
+
+    { L"New Characters Flame Background", 0x163be, 0x163de, indexCPS2Sprites_SFA2_Bonus, 0x34, &pairNext }, /* Delta: 0x980 */
+    { L"New Characters Flame", 0x21b5e, 0x21b7e, indexCPS2Sprites_SFA2_Bonus, 0x35 }, /* Delta: 0x900 */
+
     { L"Rose", 0xbbde, 0xbcbe, indexCPS2Sprites_SFA2_Bonus, 0x10 }, /* Delta: 0x580 */
-    { L"Bison", 0xbcbe, 0xbdfe, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext }, /* Delta: 0x580 */
-    { L"Bison pt.2", 0xbe7e, 0xbe9e, indexCPS2Sprites_SFA2_Bonus, 0x0d }, /* Delta: 0x580 */
+    { L"Bison 1/2", 0xbcbe, 0xbdfe, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext }, /* Delta: 0x580 */
+    { L"Bison 2/2", 0xbe7e, 0xbe9e, indexCPS2Sprites_SFA2_Bonus, 0x0d }, /* Delta: 0x580 */
+
+    { L"\"Alpha\" Motion Logo Trail 1", 0x2293e, 0x2295e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext4Palettes }, /* Delta: 0x900 */
+    { L"SF Title Motion Logo Trail 1 1/2", 0x2299e, 0x229be, indexCPS2Sprites_SFA2_Bonus, 0x2d }, /* Delta: 0x900 */
+    { L"SF Title Motion Logo Trail 1 2/2", 0x229be, 0x22a1e, indexCPS2Sprites_SFA2_Bonus, 0x1c }, /* Delta: 0x900 */
+    { L"Logo Sparkle Animation Cycle 1", 0x21dbe, 0x21fbe, indexCPS2Sprites_SFA2_Bonus, 0x3e, &pairNext }, /* Delta: 0x900 */
+    { L"Logo Sparkle Animation Cycle 2", 0x21fbe, 0x2213e, indexCPS2Sprites_SFA2_Bonus, 0x3f }, /* Delta: 0x900 */
+
+    { L"\"Alpha\" Motion Logo Trail 2", 0x2295e, 0x2297e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext }, /* Delta: 0x900 */
+    { L"SF Title Motion Logo Trail 2 1/2", 0x22a1e, 0x22a3e, indexCPS2Sprites_SFA2_Bonus, 0x2d }, /* Delta: 0x900 */
+    { L"SF Title Motion Logo Trail 2 2/2", 0x22a3e, 0x22a9e, indexCPS2Sprites_SFA2_Bonus, 0x1c }, /* Delta: 0x900 */
+
+    { L"\"Alpha\" Motion Logo Trail 3", 0x2297e, 0x2299e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNextAndNext }, /* Delta: 0x900 */
+    { L"SF Title Motion Logo Trail 3 1/2", 0x22a9e, 0x22abe, indexCPS2Sprites_SFA2_Bonus, 0x2d }, /* Delta: 0x900 */
+    { L"SF Title Motion Logo Trail 3 2/2", 0x22abe, 0x22b1e, indexCPS2Sprites_SFA2_Bonus, 0x1c }, /* Delta: 0x900 */
 
     { L"Intro - Purple BG pt.2 (behind QSound screen)", 0x1639e, 0x163be, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: 0x980 */
     { L"Intro - Blue BG pt.1", 0x21a7e, 0x21a9e, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: 0x900 */
     { L"Intro - Blue BG pt.2", 0x2cd7e, 0x2cd9e, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: 0 */
-    { L"Foreground Flames Background (Intro)", 0x137e, 0x139e, indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: x180 */
+    { L"Foreground Flames Background (Intro)", 0x137e, 0x139e , indexCPS2Sprites_SFA2_Bonus, 0x22 }, /* Delta: 0x180 */
 };
 
 const sGame_PaletteDataset SFA2_A_08REV2_INTROPORTRAIT_PALETTES[] =
@@ -3580,11 +3625,23 @@ SFA2_Bonus - DanIntroRocks || 0x7F - 0x02
 
 const sGame_PaletteDataset SFA2_A_07REV1_BONUS_PALETTES[] =
 {
-    // This is a subset of the Rev2 known palettes.
-    { L"Alpha 2 Logo", 0x76FFE - 0x280, 0x7701E - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext },
-    { L"SF Title Logo Pt.1", 0x76F9E - 0x280, 0x76FDE - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x1c },
-    { L"Character HUD Name / VS / Perfect!! (flash)", 0x75B9E - 0x280, 0x75BBE - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x18 },
-    { L"CC Win Icons / Perfect text (filled)", 0x75C1E - 0x280, 0x75C3E - 0x280, indexCPS2Sprites_SFA2_Bonus, 0x17 },
+    { L"Alpha 2 Logo", 0x76d7e, 0x76d9e, indexCPS2Sprites_SFA2_Bonus, 0x1d, &pairNext4Palettes }, /* Delta: -0x600 */
+    { L"SF Title Logo Pt.1", 0x76d1e, 0x76d5e, indexCPS2Sprites_SFA2_Bonus, 0x1c }, /* Delta: -0x600 */
+    { L"SF Title Logo Pt.2", 0x76d9e, 0x76dbe, indexCPS2Sprites_SFA2_Bonus, 0x3b }, /* Delta: -0x600 */
+    { L"SF Title Motion Logo", 0x76cfe, 0x76d1e, indexCPS2Sprites_SFA2_Bonus, 0x2d }, /* Delta: -0x600 */
+    { L"Logo Sparkles", 0x76e9e, 0x76ebe, indexCPS2Sprites_SFA2_Bonus, 0x43 }, /* Delta: -0x600 */
+
+    { L"Character HUD Name / VS / Perfect!! (flash)", 0x7591e, 0x7593e, indexCPS2Sprites_SFA2_Bonus, 0x18 }, /* Delta: -0x600 */
+    { L"CC Win Icons / Perfect text (filled)", 0x7599e, 0x759be, indexCPS2Sprites_SFA2_Bonus, 0x17 }, /* Delta: -0x600 */
+
+    { L"VS and Names on VS Screen", 0x7729e, 0x772be, indexCPS2Sprites_SFA2_Bonus, 0x41 }, /* Delta: -0x600 */
+
+    { L"Bands And Text on Intro Screen", 0x76efe, 0x76f3e, indexCPS2Sprites_SFA2_Bonus, 0x30 }, /* Delta: -0x600 */
+    { L"HUD Display and Text", 0x7593e, 0x7599e, indexCPS2Sprites_SFA2_Bonus, 0x32 }, /* Delta: -0x600 */
+    { L"Hit sparks, Dizzies, Text", 0x7585e, 0x7591e, indexCPS2Sprites_SFA2_Bonus, 0x31 }, /* Delta: -0x600 */
+
+    { L"Character Select / Story Mode text", 0x772be, 0x772de, indexCPS2Sprites_SFA2_Bonus, 0x38, &pairNext }, /* Delta: -0x600 */
+    { L"Story Mode Colors", 0x7731e, 0x7733e, indexCPS2Sprites_SFA2_Bonus, 0x39 }, /* Delta: -0x600 */
 };
 
 const sGame_PaletteDataset SFA2_A_07REV2_BONUS_PALETTES[] =
@@ -3620,34 +3677,68 @@ const sGame_PaletteDataset SFA2_A_07ForSFZ2A_BONUS_PALETTES[] =
     { L"Text Colors: Intro", 0x77782 + 0xB11C, 0x77822 + 0xB11C, indexCPS2Sprites_SFA2_Bonus, 0x25 },
 };
 
-const sGame_PaletteDataset SFA2_A_08REV1_BONUS_PALETTES[] =
-{
-    { L"CAPCOM logo", 0x133e, 0x135e, indexCPS2Sprites_SFA2_Bonus, 0x23 }, /* Delta: 0x180 */
-    { L"Winners Don't Use Drugs", 0x135e, 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x26 }, /* Delta: 0x180 */
-    { L"QSound Virtual Audio logo", 0xbb3e, 0xbb9e, indexCPS2Sprites_SFA2_Bonus, 0x24 }, /* Delta: 0x580 */
-    { L"Text Colors: Intro", 0x169e, 0x173e, indexCPS2Sprites_SFA2_Bonus, 0x25 }, /* Delta: 0x180 */
-
-    { L"Title BG", 0x163de, 0x163fe, indexCPS2Sprites_SFA2_Bonus, 0x1b }, /* Delta: 0x980 */
-    { L"\"Round # Fight\"", 0x2249e, 0x224be, indexCPS2Sprites_SFA2_Bonus, 0x19 }, /* Delta: 0x900 */
-    { L"SF Title Logo Pt.2", 0x21cbe, 0x21cfe, indexCPS2Sprites_SFA2_Bonus, 0x1e }, /* Delta: 0x900 */
-    { L"SF Title Logo Pt.3?", 0x1ca5e, 0x1ca7e }, /* Delta: 0x900 */
-};
-
 const sGame_PaletteDataset SFA2_A_08REV1_CHARSEL_PALETTES[] =
 {
-    // This is a subset of the palettes we know about from Rev2
-    { L"Character Select Tiles and Map", 0xbf7e, 0xbfbe, indexCPS2Sprites_SFA2_Bonus, 0x28 }, /* Delta: 0x580 */
+    { L"Character Select Tiles and Map", 0xbf7e, 0xbf9e, indexCPS2Sprites_SFA2_Bonus, 0x28 }, /* Delta: 0x580 */
+    { L"Character Select Selection Markers Animation Cycle", 0x1fe3e, 0x1febe, indexCPS2Sprites_SFA2_Bonus, 0x3a }, /* Delta: 0x900 */
+    { L"Character Select Selected Marker Animation Cycle", 0x1febe, 0x2009e, indexCPS2Sprites_SFA2_Bonus, 0x3a }, /* Delta: 0x900 */
+
     { L"Character Select Background", 0x2bffe, 0x2c0fe, indexCPS2Sprites_SFA2_Bonus, 0x29 }, /* Delta: 0 */
+
+    { L"Character Select background wash", 0x1a9e, 0x1ade, indexCPS2Sprites_SFA2_Bonus, 0x2f }, /* Delta: 0x180 */
 };
 
 const sGame_PaletteDataset SFA2_A_08REV2_CHARSEL_PALETTES[] =
 {
     { L"Character Select Tiles", 0xb9fe, 0xba1e, indexCPS2Sprites_SFA2_Bonus, 0x28 },
     { L"Character Select Selection Markers Animation Cycle", 0x1f53e, 0x1f5be, indexCPS2Sprites_SFA2_Bonus, 0x3a },
+    { L"Character Select Selected Marker Animation Cycle", 0x1f5be, 0x1f79e, indexCPS2Sprites_SFA2_Bonus, 0x3a },
 
     { L"Character Select Background", 0x2bffe, 0x2c0fe, indexCPS2Sprites_SFA2_Bonus, 0x29 },
 
     { L"Character Select background wash", 0x191e, 0x195e, indexCPS2Sprites_SFA2_Bonus, 0x2f },
+};
+
+const sGame_PaletteDataset SFA2_A_08REV1_BONUS_PALETTES[] =
+{
+    { L"Char Portraits 1/2 Defeated", 0x1fbde, 0x1fdde, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext }, /* Delta: 0x900 */
+    { L"Char Portraits 2/2 Defeated", 0x1fdde, 0x1fe3e, indexCPS2Sprites_SFA2_Bonus, 0x12 }, /* Delta: 0x900 */
+
+    { L"CAPCOM logo", 0x133e, 0x135e, indexCPS2Sprites_SFA2_Bonus, 0x23 }, /* Delta: 0x180 */
+    { L"Winners Don't Use Drugs", 0x135e, 0x137e, indexCPS2Sprites_SFA2_Bonus, 0x26 }, /* Delta: 0x180 */
+    { L"QSound Virtual Audio logo", 0xbb3e, 0xbb9e, indexCPS2Sprites_SFA2_Bonus, 0x24 }, /* Delta: 0x580 */
+    { L"Text Colors: Intro", 0x169e, 0x173e, indexCPS2Sprites_SFA2_Bonus, 0x25 }, /* Delta: 0x180 */
+
+    { L"SF Title Logo Pt.2", 0x21cbe, 0x21cfe, indexCPS2Sprites_SFA2_Bonus, 0x1e }, /* Delta: 0x900 */
+
+    { L"Title BG", 0x163de, 0x163fe, indexCPS2Sprites_SFA2_Bonus, 0x1b }, /* Delta: 0x980 */
+
+    { L"VS Animation Cycle 1/2", 0x2049e, 0x2069e, indexCPS2Sprites_SFA2_Bonus, 0x40 }, /* Delta: 0x900 */
+    { L"VS Animation Cycle 2/2", 0x2069e, 0x2087e, indexCPS2Sprites_SFA2_Bonus, 0x40 }, /* Delta: 0x900 */
+
+    { L"\"Round # Fight\"", 0x2249e, 0x224be, indexCPS2Sprites_SFA2_Bonus, 0x19 }, /* Delta: 0x900 */
+    { L"Super Meters", 0x1cb3e, 0x1cbbe, indexCPS2Sprites_SFA2_Bonus, 0x44 }, /* Delta: 0x900 */
+    { L"VS Screen Name Text", 0x1ca7e, 0x1ca9e, indexCPS2Sprites_SFA2_Bonus, 0x2e }, /* Delta: 0x900 */
+    { L"WINNER", 0x200de, 0x200fe, indexCPS2Sprites_SFA2_Bonus, 0x33 }, /* Delta: 0x900 */
+    { L"WINNER Animation Cycle", 0x2039e, 0x2049e, indexCPS2Sprites_SFA2_Bonus, 0x33 }, /* Delta: 0x900 */
+
+    { L"VS CPU Map Default", 0xbf9e, 0xbfbe, indexCPS2Sprites_SFA2_Bonus, 0x2a }, /* Delta: 0x580 */
+    { L"VS CPU Map Animation Cycle?", 0x2af3e, 0x2af5e, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2af5e, 0x2af7e, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2af7e, 0x2af9e, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2af9e, 0x2afbe, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2afbe, 0x2afde, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2afde, 0x2affe, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2affe, 0x2b01e, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2b01e, 0x2b03e, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle?", 0x2b03e, 0x2b05e, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Animation Cycle Selected", 0x2b05e, 0x2b07e, indexCPS2Sprites_SFA2_Bonus, 0x2b }, /* Delta: 0 */
+    { L"VS CPU Map Markers", 0x1ca9e, 0x1cabe, indexCPS2Sprites_SFA2_Bonus, 0x46 }, /* Delta: 0x900 */
+
+    { L"Z Transitions/Screenwipe: Blue", 0x1c9fe, 0x1ca1e, indexCPS2Sprites_SFA2_Bonus, 0x47 }, /* Delta: 0x900 */
+    { L"Z Transitions/Screenwipe: Red", 0x1ca1e, 0x1ca3e, indexCPS2Sprites_SFA2_Bonus, 0x47 }, /* Delta: 0x900 */
+    { L"Z Transitions/Screenwipe: Green", 0x1ca3e, 0x1ca5e, indexCPS2Sprites_SFA2_Bonus, 0x47 }, /* Delta: 0x900 */
+    { L"Z Transitions/Screenwipe: Orange", 0x1ca5e, 0x1ca7e, indexCPS2Sprites_SFA2_Bonus, 0x47 }, /* Delta: 0x900 */
 };
 
 const sGame_PaletteDataset SFA2_A_08REV2_BONUS_PALETTES[] =
@@ -3753,7 +3844,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_PUNCH_MOVE_PALETTES[] =
 {
     { L"Extra 1", 0x1adbe, 0x1adde, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadoken", 0x1adde, 0x1ae00 - 0x02, indexCPS2Sprites_Akuma, 1 },
-    { L"Shoryuken (Flame)", 0x1ae00 - 0x02, 0x1ae1e },
+    { L"Red Hadoken", 0x1ae00 - 0x02, 0x1ae1e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Ashura Senku 1", 0x1ae1e, 0x1ae3e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x1ae3e, 0x1ae5e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -3762,7 +3853,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_KICK_MOVE_PALETTES[] =
 {
     { L"Extra 1", 0x1ae5e, 0x1ae7e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadoken", 0x1ae7e, 0x1ae9e, indexCPS2Sprites_Akuma, 1 },
-    { L"Shoryuken (Flame)", 0x1ae9e, 0x1aebe },
+    { L"Red Hadoken", 0x1ae9e, 0x1aebe, indexCPS2Sprites_Akuma, 0x0c },
     { L"Ashura Senku 1", 0x1aebe, 0x1aede, indexCPS2Sprites_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x1aede, 0x1af00 - 0x02, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -3771,7 +3862,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_2PUNCHES_MOVE_PALETTES[] =
 {
     { L"Extra 1", 0x1af00 - 0x02, 0x1af1e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadoken", 0x1af1e, 0x1af3e, indexCPS2Sprites_Akuma, 1 },
-    { L"Shoryuken (Flame)", 0x1af3e, 0x1af5e },
+    { L"Red Hadoken", 0x1af3e, 0x1af5e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Ashura Senku 1", 0x1af5e, 0x1af7e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x1af7e, 0x1af9e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -3780,7 +3871,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_2KICKS_MOVE_PALETTES[] =
 {
     { L"Extra 1", 0x1af9e, 0x1afbe, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadoken", 0x1afbe, 0x1afde, indexCPS2Sprites_Akuma, 1 },
-    { L"Shoryuken (Flame)", 0x1afde, 0x1b000 - 0x02 },
+    { L"Red Hadoken", 0x1afde, 0x1b000 - 0x02, indexCPS2Sprites_Akuma, 0x0c },
     { L"Ashura Senku 1", 0x1b000 - 0x02, 0x1b01e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x1b01e, 0x1b03e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -3789,7 +3880,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_AUTOGUARDPUNCH_MOVE_PALETTES[] =
 {
     { L"Extra 1", 0x1b03e, 0x1b05e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadoken", 0x1b05e, 0x1b07e, indexCPS2Sprites_Akuma, 1 },
-    { L"Shoryuken (Flame)", 0x1b07e, 0x1b09e },
+    { L"Red Hadoken", 0x1b07e, 0x1b09e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Ashura Senku 1", 0x1b09e, 0x1b0be, indexCPS2Sprites_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x1b0be, 0x1b0de, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -3798,7 +3889,7 @@ const sGame_PaletteDataset SFA2_A_AKUMA_AUTOGUARDKICK_MOVE_PALETTES[] =
 {
     { L"Extra 1", 0x1b0de, 0x1b0fe, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadoken", 0x1b0fe, 0x1b11e, indexCPS2Sprites_Akuma, 1 },
-    { L"Shoryuken (Flame)", 0x1b11e, 0x1b13e },
+    { L"Red Hadoken", 0x1b11e, 0x1b13e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Ashura Senku 1", 0x1b13e, 0x1b15e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x1b15e, 0x1b17e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -5524,7 +5615,7 @@ const sGame_PaletteDataset SFA2_A_SHINAKUMA_MOVE_PALETTES[] =
 {
     { L"Shin Akuma",     0x1bbde, 0x1bbfe, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadoken",        0x1bbfe, 0x1bc1e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Shoryuken",      0x1bc1e, 0x1bc3e },
+    { L"Red Hadoken",    0x1bc1e, 0x1bc3e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Ashura Senku 1", 0x1bc3e, 0x1bc5e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x1bc5e, 0x1bc7e, indexCPS2Sprites_Akuma, 0x00 },
 };

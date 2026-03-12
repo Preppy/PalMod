@@ -90,9 +90,9 @@ const sGame_PaletteDataset SFA1_A_AKUMA_PUNCH_PALETTES[] =
     { L"Super Trail 2",  0x67d9e, 0x67dbe, indexCPS2Sprites_Akuma, 0x00 },
     { L"Super Trail 3",  0x67dbe, 0x67dde, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadouken",       0x67dde, 0x67dfe, indexCPS2Sprites_Akuma, 0x0c },
-    { L"Extra 2",        0x67dfe, 0x67e1e },
+    { L"Red Hadouken",   0x67dfe, 0x67e1e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Psycho Power Burned Effect", 0x67e1e, 0x67e3e, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Burned Status",   0x67e3e, 0x67e5e, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Burned Status",  0x67e3e, 0x67e5e, indexCPS2Sprites_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_AKUMA_KICK_PALETTES[] =
@@ -102,9 +102,9 @@ const sGame_PaletteDataset SFA1_A_AKUMA_KICK_PALETTES[] =
     { L"Super Trail 2",  0x67e9e, 0x67ebe, indexCPS2Sprites_Akuma, 0x00 },
     { L"Super Trail 3",  0x67ebe, 0x67ede, indexCPS2Sprites_Akuma, 0x00 },
     { L"Hadouken",       0x67ede, 0x67efe, indexCPS2Sprites_Akuma, 0x0c },
-    { L"Extra 2",        0x67efe, 0x67f1e },
+    { L"Red Hadouken",   0x67efe, 0x67f1e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Psycho Power Burned Effect", 0x67f1e, 0x67f3e, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Burned Status",   0x67f3e, 0x67f5e, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Burned Status",  0x67f3e, 0x67f5e, indexCPS2Sprites_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_AKUMA_PORTRAIT_PALETTES[] =
@@ -269,8 +269,8 @@ const sGame_PaletteDataset SFA1_A_BIRDIE_PUNCH_PALETTES[] =
     { L"Super Trail 1",  0x6897e, 0x6899e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Super Trail 2",  0x6899e, 0x689be, indexCPS2Sprites_Birdie, 0x00 },
     { L"Super Trail 3",  0x689be, 0x689de, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Extra 1",        0x689de, 0x689fe, indexCPS2Sprites_Birdie, 0x01 },
-    { L"Extra 2",        0x689fe, 0x68a1e },
+    { L"Extra 1",        0x689de, 0x689fe, indexCPS2Sprites_Birdie, 0x00 },
+    { L"Extra 2",        0x689fe, 0x68a1e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Psycho Power Burned Effect", 0x68a1e, 0x68a3e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Burned Status",   0x68a3e, 0x68a5e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -281,8 +281,8 @@ const sGame_PaletteDataset SFA1_A_BIRDIE_KICK_PALETTES[] =
     { L"Super Trail 1",  0x68a7e, 0x68a9e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Super Trail 2",  0x68a9e, 0x68abe, indexCPS2Sprites_Birdie, 0x00 },
     { L"Super Trail 3",  0x68abe, 0x68ade, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Extra 1",        0x68ade, 0x68afe, indexCPS2Sprites_Birdie, 0x01 },
-    { L"Extra 2",        0x68afe, 0x68b1e },
+    { L"Extra 1",        0x68ade, 0x68afe, indexCPS2Sprites_Birdie, 0x00 },
+    { L"Extra 2",        0x68afe, 0x68b1e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Psycho Power Burned Effect", 0x68b1e, 0x68b3e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Burned Status",   0x68b3e, 0x68b5e, indexCPS2Sprites_Birdie, 0x00 },
 };

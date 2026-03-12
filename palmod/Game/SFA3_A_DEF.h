@@ -205,7 +205,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_XISMP[] =
 {
     { L"X-Ism Punch", 0x2c852, 0x2c872, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Punch Extra 1", 0x2c872, 0x2c892, indexCPS2Sprites_Akuma, 0x0c },
-    { L"X-Ism Punch Extra 2", 0x2c892, 0x2c8b2 },
+    { L"X-Ism Punch Extra 2", 0x2c892, 0x2c8b2, indexCPS2Sprites_Akuma, 0x0c },
     { L"X-Ism Punch Teleport 1", 0x4A852, 0x4A872, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Punch Teleport 2", 0x4A872, 0x4A892, indexCPS2Sprites_Akuma, 0x00 },
 
@@ -217,7 +217,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_XISMK[] =
 {
     { L"X-Ism Kick", 0x2c8f2, 0x2c912, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Kick Extra 1", 0x2c912, 0x2c932, indexCPS2Sprites_Akuma, 0x0c },
-    { L"X-Ism Kick Extra 2", 0x2c932, 0x2c952 },
+    { L"X-Ism Kick Extra 2", 0x2c932, 0x2c952, indexCPS2Sprites_Akuma, 0x0c },
     { L"X-Ism Kick Teleport 1", 0x4A8F2, 0x4A912, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Kick Teleport 2", 0x4A912, 0x4A932, indexCPS2Sprites_Akuma, 0x00 },
 
@@ -229,7 +229,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_AISMP[] =
 {
     { L"A-Ism Punch", 0x2c992, 0x2c9b2, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Punch Extra 1", 0x2c9b2, 0x2c9d2, indexCPS2Sprites_Akuma, 0x0c },
-    { L"A-Ism Punch Extra 2", 0x2c9d2, 0x2c9f2 },
+    { L"A-Ism Punch Extra 2", 0x2c9d2, 0x2c9f2, indexCPS2Sprites_Akuma, 0x0c },
     { L"A-Ism Punch Teleport 1", 0x4A992, 0x4A9B2, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Punch Teleport 2", 0x4A9B2, 0x4A9D2, indexCPS2Sprites_Akuma, 0x00 },
 
@@ -241,7 +241,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_AISMK[] =
 {
     { L"A-Ism Kick", 0x2ca32, 0x2ca52, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Kick Extra 1", 0x2ca52, 0x2ca72, indexCPS2Sprites_Akuma, 0x0c },
-    { L"A-Ism Kick Extra 2", 0x2ca72, 0x2ca92 },
+    { L"A-Ism Kick Extra 2", 0x2ca72, 0x2ca92, indexCPS2Sprites_Akuma, 0x0c },
     { L"A-Ism Kick Teleport 1", 0x4AA32, 0x4AA52, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Kick Teleport 2", 0x4AA52, 0x4AA72, indexCPS2Sprites_Akuma, 0x00 },
 
@@ -253,7 +253,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_VISMP[] =
 {
     { L"V-Ism Punch", 0x2cad2, 0x2caf2, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Punch Extra 1", 0x2caf2, 0x2cb12, indexCPS2Sprites_Akuma, 0x0c },
-    { L"V-Ism Punch Extra 2", 0x2cb12, 0x2cb32 },
+    { L"V-Ism Punch Extra 2", 0x2cb12, 0x2cb32, indexCPS2Sprites_Akuma, 0x0c },
     { L"V-Ism Punch Teleport 1", 0x4AAD2, 0x4AAF2, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Punch Teleport 2", 0x4AAF2, 0x4AB12, indexCPS2Sprites_Akuma, 0x00 },
 
@@ -265,7 +265,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_VISMK[] =
 {
     { L"V-Ism Kick", 0x2cb72, 0x2cb92, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Kick Extra 1", 0x2cb92, 0x2cbb2, indexCPS2Sprites_Akuma, 0x0c },
-    { L"V-Ism Kick Extra 2", 0x2cbb2, 0x2cbd2 },
+    { L"V-Ism Kick Extra 2", 0x2cbb2, 0x2cbd2, indexCPS2Sprites_Akuma, 0x0c },
     { L"V-Ism Kick Teleport 1", 0x4AB72, 0x4AB92, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Kick Teleport 2", 0x4AB92, 0x4ABB2, indexCPS2Sprites_Akuma, 0x00 },
 
@@ -732,7 +732,7 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_XISMP[] =
 {
     { L"X-Ism Punch", 0x2ded2, 0x2def2, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Punch Extra 1", 0x2def2, 0x2df12, indexCPS2Sprites_Birdie, 0x00 },
-    { L"X-Ism Punch Extra 2", 0x2df12, 0x2df32 },
+    { L"X-Ism Punch Extra 2", 0x2df12, 0x2df32, indexCPS2Sprites_Birdie, 0x02 },
 
     { L"X-Ism Punch Extra 3", 0x4abd2, 0x4abf2, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Punch Extra 4", 0x4abf2, 0x4ac12, indexCPS2Sprites_Birdie, 0x00 },
@@ -746,7 +746,7 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_XISMK[] =
 {
     { L"X-Ism Kick", 0x2df72, 0x2df92, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Kick Extra 1", 0x2df92, 0x2dfb2, indexCPS2Sprites_Birdie, 0x00 },
-    { L"X-Ism Kick Extra 2", 0x2dfb2, 0x2dfd2 },
+    { L"X-Ism Kick Extra 2", 0x2dfb2, 0x2dfd2, indexCPS2Sprites_Birdie, 0x02 },
 
     { L"X-Ism Kick Extra 3", 0x4ac32, 0x4ac52, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Kick Extra 4", 0x4ac52, 0x4ac72, indexCPS2Sprites_Birdie, 0x00 },
@@ -760,7 +760,7 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_AISMP[] =
 {
     { L"A-Ism Punch", 0x2e012, 0x2e032, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Punch Extra 1", 0x2e032, 0x2e052, indexCPS2Sprites_Birdie, 0x00 },
-    { L"A-Ism Punch Extra 2", 0x2e052, 0x2e072 },
+    { L"A-Ism Punch Extra 2", 0x2e052, 0x2e072, indexCPS2Sprites_Birdie, 0x02 },
 
     { L"A-Ism Punch Extra 3", 0x4ac92, 0x4acb2, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Punch Extra 4", 0x4acb2, 0x4acd2, indexCPS2Sprites_Birdie, 0x00 },
@@ -774,7 +774,7 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_AISMK[] =
 {
     { L"A-Ism Kick", 0x2e0b2, 0x2e0d2, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Kick Extra 1", 0x2e0d2, 0x2e0f2, indexCPS2Sprites_Birdie, 0x00 },
-    { L"A-Ism Kick Extra 2", 0x2e0f2, 0x2e112 },
+    { L"A-Ism Kick Extra 2", 0x2e0f2, 0x2e112, indexCPS2Sprites_Birdie, 0x02 },
 
     { L"A-Ism Kick Extra 3", 0x4acf2, 0x4ad12, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Kick Extra 4", 0x4ad12, 0x4ad32, indexCPS2Sprites_Birdie, 0x00 },
@@ -788,7 +788,7 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_VISMP[] =
 {
     { L"V-Ism Punch", 0x2e152, 0x2e172, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Punch Extra 1", 0x2e172, 0x2e192, indexCPS2Sprites_Birdie, 0x00 },
-    { L"V-Ism Punch Extra 2", 0x2e192, 0x2e1b2 },
+    { L"V-Ism Punch Extra 2", 0x2e192, 0x2e1b2, indexCPS2Sprites_Birdie, 0x02 },
 
     { L"V-Ism Punch Extra 3", 0x4ad52, 0x4ad72, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Punch Extra 4", 0x4ad72, 0x4ad92, indexCPS2Sprites_Birdie, 0x00 },
@@ -802,7 +802,7 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_VISMK[] =
 {
     { L"V-Ism Kick", 0x2e1f2, 0x2e212, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Kick Extra 1", 0x2e212, 0x2e232, indexCPS2Sprites_Birdie, 0x00 },
-    { L"V-Ism Kick Extra 2", 0x2e232, 0x2e252 },
+    { L"V-Ism Kick Extra 2", 0x2e232, 0x2e252, indexCPS2Sprites_Birdie, 0x02 },
     { L"V-Ism Kick Extra 3", 0x4adb2, 0x4add2, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Kick Extra 4", 0x4add2, 0x4adf2, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Kick Extra 5", 0x4adf2, 0x4ae12, indexCPS2Sprites_Birdie, 0x00 },

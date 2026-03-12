@@ -1315,7 +1315,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_LP_PALETTES[] =
 {
     { L"Birdie LP", 0xb30e, 0xb32e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP Extra 1", 0xb32e, 0xb34e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LP Extra 2", 0xb34e, 0xb36e },
+    { L"Birdie LP Extra 2", 0xb34e, 0xb36e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie LP Super Trail Light", 0xb36e, 0xb38e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP Super Trail Dark", 0xb38e, 0xb3ae, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1324,7 +1324,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_LK_PALETTES[] =
 {
     { L"Birdie LK", 0xb3be, 0xb3de, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LK Extra 1", 0xb3de, 0xb3fe, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LK Extra 2", 0xb3fe, 0xb41e },
+    { L"Birdie LK Extra 2", 0xb3fe, 0xb41e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie LK Super Trail Light", 0xb41e, 0xb43e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LK Super Trail Dark", 0xb43e, 0xb45e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1333,7 +1333,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_MP_PALETTES[] =
 {
     { L"Birdie MP", 0xb46e, 0xb48e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MP Extra 1", 0xb48e, 0xb4ae, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie MP Extra 2", 0xb4ae, 0xb4ce },
+    { L"Birdie MP Extra 2", 0xb4ae, 0xb4ce, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie MP Super Trail Light", 0xb4ce, 0xb4ee, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MP Super Trail Dark", 0xb4ee, 0xb50e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1342,7 +1342,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_MK_PALETTES[] =
 {
     { L"Birdie MK", 0xb51e, 0xb53e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MK Extra 1", 0xb53e, 0xb55e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie MK Extra 2", 0xb55e, 0xb57e },
+    { L"Birdie MK Extra 2", 0xb55e, 0xb57e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie MK Super Trail Light", 0xb57e, 0xb59e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MK Super Trail Dark", 0xb59e, 0xb5be, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1351,7 +1351,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_HP_PALETTES[] =
 {
     { L"Birdie HP", 0xb5ce, 0xb5ee, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie HP Extra 1", 0xb5ee, 0xb60e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie HP Extra 2", 0xb60e, 0xb62e },
+    { L"Birdie HP Extra 2", 0xb60e, 0xb62e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie HP Super Trail Light", 0xb62e, 0xb64e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie HP Super Trail Dark", 0xb64e, 0xb66e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1360,7 +1360,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_HK_PALETTES[] =
 {
     { L"Birdie HK", 0xb67e, 0xb69e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie HK Extra 1", 0xb69e, 0xb6be, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie HK Extra 2", 0xb6be, 0xb6de },
+    { L"Birdie HK Extra 2", 0xb6be, 0xb6de, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie HK Super Trail Light", 0xb6de, 0xb6fe, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie HK Super Trail Dark", 0xb6fe, 0xb71e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1369,7 +1369,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_3PUNCHES_PALETTES[] =
 {
     { L"Birdie 3 punches", 0xb72e, 0xb74e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie 3 punches Extra 1", 0xb74e, 0xb76e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie 3 punches Extra 2", 0xb76e, 0xb78e },
+    { L"Birdie 3 punches Extra 2", 0xb76e, 0xb78e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie 3 punches Super Trail Light", 0xb78e, 0xb7ae, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie 3 punches Super Trail Dark", 0xb7ae, 0xb7ce, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1378,7 +1378,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_3KICKS_PALETTES[] =
 {
     { L"Birdie 3 kicks", 0xb7de, 0xb7fe, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie 3 kicks Extra 1", 0xb7fe, 0xb81e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie 3 kicks Extra 2", 0xb81e, 0xb83e },
+    { L"Birdie 3 kicks Extra 2", 0xb81e, 0xb83e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie 3 kicks Super Trail Light", 0xb83e, 0xb85e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie 3 kicks Super Trail Dark", 0xb85e, 0xb87e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1387,7 +1387,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_LPLK_PALETTES[] =
 {
     { L"Birdie LP+LK", 0xb88e, 0xb8ae, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP+LK Extra 1", 0xb8ae, 0xb8ce, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LP+LK Extra 2", 0xb8ce, 0xb8ee },
+    { L"Birdie LP+LK Extra 2", 0xb8ce, 0xb8ee, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie LP+LK Super Trail Light", 0xb8ee, 0xb90e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP+LK Super Trail Dark", 0xb90e, 0xb92e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1396,7 +1396,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_MPMK_PALETTES[] =
 {
     { L"Birdie MP+MK", 0xb93e, 0xb95e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MP+MK Extra 1", 0xb95e, 0xb97e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie MP+MK Extra 2", 0xb97e, 0xb99e },
+    { L"Birdie MP+MK Extra 2", 0xb97e, 0xb99e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie MP+MK Super Trail Light", 0xb99e, 0xb9be, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MP+MK Super Trail Dark", 0xb9be, 0xb9de, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1405,7 +1405,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_HPHK_PALETTES[] =
 {
     { L"Birdie HP+HK", 0xb9ee, 0xba0e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie HP+HK Extra 1", 0xba0e, 0xba2e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie HP+HK Extra 2", 0xba2e, 0xba4e },
+    { L"Birdie HP+HK Extra 2", 0xba2e, 0xba4e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie HP+HK Super Trail Light", 0xba4e, 0xba6e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie HP+HK Super Trail Dark", 0xba6e, 0xba8e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1414,7 +1414,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_LPMKHK_PALETTES[] =
 {
     { L"Birdie LP+MK+HP", 0xba9e, 0xbabe, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP+MK+HP Extra 1", 0xbabe, 0xbade, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LP+MK+HP Extra 2", 0xbade, 0xbafe },
+    { L"Birdie LP+MK+HP Extra 2", 0xbade, 0xbafe, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie LP+MK+HP Super Trail Light", 0xbafe, 0xbb1e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP+MK+HP Super Trail Dark", 0xbb1e, 0xbb3e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1423,7 +1423,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_LKMPHK_PALETTES[] =
 {
     { L"Birdie LK+MP+HK", 0xbb4e, 0xbb6e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LK+MP+HK Extra 1", 0xbb6e, 0xbb8e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LK+MP+HK Extra 2", 0xbb8e, 0xbbae },
+    { L"Birdie LK+MP+HK Extra 2", 0xbb8e, 0xbbae, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie LK+MP+HK Super Trail Light", 0xbbae, 0xbbce, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LK+MP+HK Super Trail Dark", 0xbbce, 0xbbee, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1432,7 +1432,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_LKMP_PALETTES[] =
 {
     { L"Birdie LK+MP", 0xbbfe, 0xbc1e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LK+MP Extra 1", 0xbc1e, 0xbc3e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LK+MP Extra 2", 0xbc3e, 0xbc5e },
+    { L"Birdie LK+MP Extra 2", 0xbc3e, 0xbc5e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie LK+MP Super Trail Light", 0xbc5e, 0xbc7e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LK+MP Super Trail Dark", 0xbc7e, 0xbc9e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1441,7 +1441,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_MKHP_PALETTES[] =
 {
     { L"Birdie MK+HP", 0xbcae, 0xbcce, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MK+HP Extra 1", 0xbcce, 0xbcee, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie MK+HP Extra 2", 0xbcee, 0xbd0e },
+    { L"Birdie MK+HP Extra 2", 0xbcee, 0xbd0e, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie MK+HP Super Trail Light", 0xbd0e, 0xbd2e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie MK+HP Super Trail Dark", 0xbd2e, 0xbd4e, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -1450,7 +1450,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_LPHK_PALETTES[] =
 {
     { L"Birdie LP+HK", 0xbd5e, 0xbd7e, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP+HK Extra 1", 0xbd7e, 0xbd9e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LP+HK Extra 2", 0xbd9e, 0xbdbe },
+    { L"Birdie LP+HK Extra 2", 0xbd9e, 0xbdbe, indexCPS2Sprites_Birdie, 0x02 },
     { L"Birdie LP+HK Super Trail Light", 0xbdbe, 0xbdde, indexCPS2Sprites_Birdie, 0x00 },
     { L"Birdie LP+HK Super Trail Dark", 0xbdde, 0xbdfe, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -4177,7 +4177,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LP_PALETTES[] =
 {
     { L"Akuma LP", 0x34cee, 0x34d0e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP Hadoken", 0x34d0e, 0x34d2e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LP Shoryuken (Flame)", 0x34d2e, 0x34d4e },
+    { L"Akuma LP Red Hadoken", 0x34d2e, 0x34d4e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma LP Super Trail Light", 0x34d4e, 0x34d6e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP Super Trail Dark", 0x34d6e, 0x34d8e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4186,7 +4186,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LK_PALETTES[] =
 {
     { L"Akuma LK", 0x34d8e, 0x34dae, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LK Hadoken", 0x34dae, 0x34dce, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LK Shoryuken (Flame)", 0x34dce, 0x34dee },
+    { L"Akuma LK Red Hadoken", 0x34dce, 0x34dee, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma LK Super Trail Light", 0x34dee, 0x34e0e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LK Super Trail Dark", 0x34e0e, 0x34e2e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4195,7 +4195,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_MP_PALETTES[] =
 {
     { L"Akuma MP", 0x34e2e, 0x34e4e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MP Hadoken", 0x34e4e, 0x34e6e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma MP Shoryuken (Flame)", 0x34e6e, 0x34e8e },
+    { L"Akuma MP Red Hadoken", 0x34e6e, 0x34e8e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma MP Super Trail Light", 0x34e8e, 0x34eae, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MP Super Trail Dark", 0x34eae, 0x34ece, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4204,7 +4204,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_MK_PALETTES[] =
 {
     { L"Akuma MK", 0x34ece, 0x34eee, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MK Hadoken", 0x34eee, 0x34f0e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma MK Shoryuken (Flame)", 0x34f0e, 0x34f2e },
+    { L"Akuma MK Red Hadoken", 0x34f0e, 0x34f2e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma MK Super Trail Light", 0x34f2e, 0x34f4e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MK Super Trail Dark", 0x34f4e, 0x34f6e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4213,7 +4213,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_HP_PALETTES[] =
 {
     { L"Akuma HP", 0x34f6e, 0x34f8e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma HP Hadoken", 0x34f8e, 0x34fae, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma HP Shoryuken (Flame)", 0x34fae, 0x34fce },
+    { L"Akuma HP Red Hadoken", 0x34fae, 0x34fce, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma HP Super Trail Light", 0x34fce, 0x34fee, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma HP Super Trail Dark", 0x34fee, 0x3500e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4222,7 +4222,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_HK_PALETTES[] =
 {
     { L"Akuma HK", 0x3500e, 0x3502e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma HK Hadoken", 0x3502e, 0x3504e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma HK Shoryuken (Flame)", 0x3504e, 0x3506e },
+    { L"Akuma HK Red Hadoken", 0x3504e, 0x3506e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma HK Super Trail Light", 0x3506e, 0x3508e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma HK Super Trail Dark", 0x3508e, 0x350ae, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4231,7 +4231,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_3PUNCHES_PALETTES[] =
 {
     { L"Akuma 3 punches", 0x350ae, 0x350ce, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma 3 punches Hadoken", 0x350ce, 0x350ee, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma 3 punches Shoryuken (Flame)", 0x350ee, 0x3510e },
+    { L"Akuma 3 punches Red Hadoken", 0x350ee, 0x3510e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma 3 punches Super Trail Light", 0x3510e, 0x3512e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma 3 punches Super Trail Dark", 0x3512e, 0x3514e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4240,7 +4240,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_3KICKS_PALETTES[] =
 {
     { L"Akuma 3 kicks", 0x3514e, 0x3516e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma 3 kicks Hadoken", 0x3516e, 0x3518e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma 3 kicks Shoryuken (Flame)", 0x3518e, 0x351ae },
+    { L"Akuma 3 kicks Red Hadoken", 0x3518e, 0x351ae, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma 3 kicks Super Trail Light", 0x351ae, 0x351ce, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma 3 kicks Super Trail Dark", 0x351ce, 0x351ee, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4249,7 +4249,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LPLK_PALETTES[] =
 {
     { L"Akuma LP+LK", 0x351ee, 0x3520e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP+LK Hadoken", 0x3520e, 0x3522e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LP+LK Shoryuken (Flame)", 0x3522e, 0x3524e },
+    { L"Akuma LP+LK Red Hadoken", 0x3522e, 0x3524e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma LP+LK Super Trail Light", 0x3524e, 0x3526e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP+LK Super Trail Dark", 0x3526e, 0x3528e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4258,7 +4258,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_MPMK_PALETTES[] =
 {
     { L"Akuma MP+MK", 0x3528e, 0x352ae, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MP+MK Hadoken", 0x352ae, 0x352ce, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma MP+MK Shoryuken (Flame)", 0x352ce, 0x352ee },
+    { L"Akuma MP+MK Red Hadoken", 0x352ce, 0x352ee, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma MP+MK Super Trail Light", 0x352ee, 0x3530e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MP+MK Super Trail Dark", 0x3530e, 0x3532e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4267,7 +4267,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_HPHK_PALETTES[] =
 {
     { L"Akuma HP+HK", 0x3532e, 0x3534e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma HP+HK Hadoken", 0x3534e, 0x3536e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma HP+HK Shoryuken (Flame)", 0x3536e, 0x3538e },
+    { L"Akuma HP+HK Red Hadoken", 0x3536e, 0x3538e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma HP+HK Super Trail Light", 0x3538e, 0x353ae, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma HP+HK Super Trail Dark", 0x353ae, 0x353ce, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4276,7 +4276,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LPMKHK_PALETTES[] =
 {
     { L"Akuma LP+MK+HP", 0x353ce, 0x353ee, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP+MK+HP Hadoken", 0x353ee, 0x3540e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LP+MK+HP Shoryuken (Flame)", 0x3540e, 0x3542e },
+    { L"Akuma LP+MK+HP Red Hadoken", 0x3540e, 0x3542e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma LP+MK+HP Super Trail Light", 0x3542e, 0x3544e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP+MK+HP Super Trail Dark", 0x3544e, 0x3546e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4285,7 +4285,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LKMPHK_PALETTES[] =
 {
     { L"Akuma LK+MP+HK", 0x3546e, 0x3548e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LK+MP+HK Hadoken", 0x3548e, 0x354ae, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LK+MP+HK Shoryuken (Flame)", 0x354ae, 0x354ce },
+    { L"Akuma LK+MP+HK Red Hadoken", 0x354ae, 0x354ce, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma LK+MP+HK Super Trail Light", 0x354ce, 0x354ee, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LK+MP+HK Super Trail Dark", 0x354ee, 0x3550e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4294,7 +4294,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LKMP_PALETTES[] =
 {
     { L"Akuma LK+MP", 0x3550e, 0x3552e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LK+MP Hadoken", 0x3552e, 0x3554e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LK+MP Shoryuken (Flame)", 0x3554e, 0x3556e },
+    { L"Akuma LK+MP Red Hadoken", 0x3554e, 0x3556e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma LK+MP Super Trail Light", 0x3556e, 0x3558e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LK+MP Super Trail Dark", 0x3558e, 0x355ae, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4303,7 +4303,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_MKHP_PALETTES[] =
 {
     { L"Akuma MK+HP", 0x355ae, 0x355ce, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MK+HP Hadoken", 0x355ce, 0x355ee, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma MK+HP Shoryuken (Flame)", 0x355ee, 0x3560e },
+    { L"Akuma MK+HP Red Hadoken", 0x355ee, 0x3560e, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma MK+HP Super Trail Light", 0x3560e, 0x3562e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma MK+HP Super Trail Dark", 0x3562e, 0x3564e, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -4312,7 +4312,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LPHK_PALETTES[] =
 {
     { L"Akuma LP+HK", 0x3564e, 0x3566e, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP+HK Hadoken", 0x3566e, 0x3568e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LP+HK Shoryuken (Flame)", 0x3568e, 0x356ae },
+    { L"Akuma LP+HK Red Hadoken", 0x3568e, 0x356ae, indexCPS2Sprites_Akuma, 0x0c },
     { L"Akuma LP+HK Super Trail Light", 0x356ae, 0x356ce, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma LP+HK Super Trail Dark", 0x356ce, 0x356ee, indexCPS2Sprites_Akuma, 0x00 },
 };
