@@ -558,6 +558,8 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
         PopupMenu.CreatePopupMenu();
         PopupMenu.AppendMenu(MF_ENABLED | ((CUSTOM_INVERT == dwDefault) ? MF_CHECKED : 0), CUSTOM_INVERT, L"Invert");
+        PopupMenu.AppendMenu(MF_ENABLED | ((CUSTOM_COLORS_REVERSE == dwDefault) ? MF_CHECKED : 0), CUSTOM_COLORS_REVERSE, L"Reverse");
+        PopupMenu.AppendMenu(MF_ENABLED | ((CUSTOM_COLORS_MAP == dwDefault) ? MF_CHECKED : 0), CUSTOM_COLORS_MAP, L"Map");
 
         GradientMenu.CreatePopupMenu();
 

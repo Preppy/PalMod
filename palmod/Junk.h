@@ -24,6 +24,8 @@ constexpr auto CUSTOM_GRAYSCALE_MAX     = WM_USER + 25;
 constexpr auto CUSTOM_GRAYSCALE_MID     = WM_USER + 26;
 constexpr auto CUSTOM_GRAYSCALE_WGHT    = WM_USER + 27;
 constexpr auto CUSTOM_INVERT            = WM_USER + 28;
+constexpr auto CUSTOM_COLORS_REVERSE    = WM_USER + 29;
+constexpr auto CUSTOM_COLORS_MAP        = WM_USER + 30;
 
 class CJunk :
     public CWnd

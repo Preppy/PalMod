@@ -1436,6 +1436,10 @@ void CPalModDlg::HandleColorTransform(ColorTransform action)
                     return OnBnClickedGradient_LAB();
                 case CUSTOM_GRADIENT_XYZ:
                     return OnBnClickedGradient_XYZ();
+                case CUSTOM_COLORS_REVERSE:
+                    return OnBnClickedReverse();
+                case CUSTOM_COLORS_MAP:
+                    return OnMappingPaletteUse_Current();
             }
         }
 

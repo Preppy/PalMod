@@ -334,7 +334,6 @@ private:
     afx_msg void OnChangeExtendedCopyData();
     afx_msg void OnRemapUnit();
     void OnMappingPaletteUse(bool fMapAllCurrentPalettes);
-    afx_msg void OnMappingPaletteUse_Current() { OnMappingPaletteUse(false); };
     afx_msg void OnMappingPaletteUse_AllPaired() { OnMappingPaletteUse(true); };
 
     enum class ColorTransform
@@ -355,11 +354,12 @@ private:
         Gradient_HSV,
         Gradient_LAB,
         Gradient_XYZ,
+        Reverse,
+        ColorMap,
     };
 
     void HandleColorTransform(ColorTransform action);
 
-    afx_msg void OnBnClickedInvert() { HandleColorTransform(ColorTransform::Invert); };
     afx_msg void OnBnClickedTransform() { HandleColorTransform(ColorTransform::Default); };
     afx_msg void OnBnSwapRG() { HandleColorTransform(ColorTransform::Swap_RG); };
     afx_msg void OnBnSwapGB() { HandleColorTransform(ColorTransform::Swap_GB); };
@@ -488,6 +488,9 @@ public:
     afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(ColorTransform::Grayscale_Weighted); };
 
     afx_msg void OnBnClickedReverse();
+    afx_msg void OnBnClickedInvert() { HandleColorTransform(ColorTransform::Invert); };
+
+    afx_msg void OnMappingPaletteUse_Current() { OnMappingPaletteUse(false); };
 
     afx_msg void OnEditPaste();
 

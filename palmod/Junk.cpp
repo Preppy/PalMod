@@ -1152,7 +1152,9 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_COPY, L"&Copy");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_PASTE, L"&Paste");
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_INVERT, L"&Invert");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_REVERSE, L"&Reverse");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_COLORS_MAP, L"&Map");
 
         CMenu GradientMenu;
         
@@ -1235,6 +1237,12 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
                 break;
             case CUSTOM_REVERSE:
                 GetHost()->GetPalModDlg()->OnBnClickedReverse();
+                break;
+            case CUSTOM_INVERT:
+                GetHost()->GetPalModDlg()->OnBnClickedInvert();
+                break;
+            case CUSTOM_COLORS_MAP:
+                GetHost()->GetPalModDlg()->OnMappingPaletteUse_Current();
                 break;
         }
     }
