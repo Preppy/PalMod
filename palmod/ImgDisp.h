@@ -153,11 +153,13 @@ public:
     BOOL CanForceBGBitmapAvailable();
     BOOL GetPreviewDropIsPalette() { return m_Settings.fPreviewDropIsPalette; };
     void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_Settings.fPreviewDropIsPalette = fPreviewDropIsPalette; };
-    BOOL GetPreviewDropTrim() { return m_Settings.fPreviewDropTrimPreview; };
-    void SetPreviewDropTrim(BOOL fPreviewDropTrim) { m_Settings.fPreviewDropTrimPreview = fPreviewDropTrim; };
-    BOOL GetPreviewDropWinKawaksFirst() { return m_Settings.fPreviewDropWinKawaksFirst; };
-
-    void SetPreviewDropWinKawaksFirst(BOOL fPreviewDropWinKawaksFirst) { m_Settings.fPreviewDropWinKawaksFirst = fPreviewDropWinKawaksFirst; };
+    BOOL GetTrimImportedPreviews() { return m_Settings.fPreviewTrimImportedPreviews; };
+    void SetTrimImportedPreviews(BOOL fPreviewDropTrim) { m_Settings.fPreviewTrimImportedPreviews = fPreviewDropTrim; };
+    BOOL GetPreviewImportWinKawaksFirst() { return m_Settings.fPreviewImportWinKawaksFirst; };
+    void SetPreviewImportWinKawaksFirst(BOOL fPreviewImportWinKawaksFirst) { m_Settings.fPreviewImportWinKawaksFirst = fPreviewImportWinKawaksFirst; };
+    BOOL GetPreviewImportUseFullCPS3() { { return m_Settings.fPreviewImportUseFullCPS3; }; };
+    void SetPreviewImportUseFullCPS3(BOOL fPreviewImportUseFullCPS3) { m_Settings.fPreviewImportUseFullCPS3 = fPreviewImportUseFullCPS3; };
+    
 
     int GetBGXOffs() { return m_Settings.nBGBMPOffsets.x; };
     int GetBGYOffs() { return m_Settings.nBGBMPOffsets.y; };

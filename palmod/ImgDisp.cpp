@@ -929,7 +929,7 @@ void CImgDisp::_ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nN
 // not just trimming each preview down as much as possible.
 void CImgDisp::_TrimLoadedCustomImages(bool fIsFullStackReplacement)
 {
-    if (GetPreviewDropTrim())
+    if (GetTrimImportedPreviews())
     {
         CString strInfo;
         bool fNormalizeForStack = false;
@@ -1254,17 +1254,59 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     // This is loose but currently true for the games we support
     // Kawaks uses skewed CPS1/2 color math.
     // For NeoGeo Kawaks is using a RGB555 sprite layer
-    bool fUseWinKawaksShift = fMightBeKawaksScreenshot && GetPreviewDropWinKawaksFirst();
+    bool fUseWinKawaksShift = fMightBeKawaksScreenshot && GetPreviewImportWinKawaksFirst();
+
+    // This bit is because CPS3 display is rgb777, but some emulators use rgb888 representations.
+    const bool fGameIsCPS3 = (currColMode == ColMode::COLMODE_RGB555_LE_CPS3);
+    bool fUseDifferingCPS3Logic = fGameIsCPS3 && GetPreviewImportUseFullCPS3();
 
     if (fUseWinKawaksShift)
     {
-        OutputDebugString(L"Using WinKawaks math for matching.\r\n");
+        OutputDebugString(L"Using WinKawaks math for matching to start.\r\n");
+    }
+    else if (fUseDifferingCPS3Logic)
+    {
+        OutputDebugString(L"Using FBNeo math for matching to start.\r\n");
     }
 
     const bool fIsARGB = ((static_cast<size_t>(nDataLen) * 4) == nImageSize);
     const bool fIsRGB = ((static_cast<size_t>(nDataLen) * 3) == nImageSize);
     bool fFoundOne = false;
     unsigned nFirstLine = height, nLastLine = 0, nLeftMost = width, nRightMost = 0;
+
+    std::vector<std::vector<COLORREF>> rgrgPalettesToUse;
+    std::vector<std::vector<COLORREF>> rgrgCPS3AltPalettesToUse;
+    rgrgPalettesToUse.resize(m_nImgAmt);
+    rgrgCPS3AltPalettesToUse.resize(m_nImgAmt);
+
+    int nLoadingPalette = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
+    bool fFoundThisColor = false;
+
+    for (; nLoadingPalette < m_nImgAmt; nLoadingPalette++)
+    {
+        std::vector<COLORREF> rgCurrentPalette(&m_pImgBuffer[nLoadingPalette]->pPalette[0], &m_pImgBuffer[nLoadingPalette]->pPalette[m_pImgBuffer[nLoadingPalette]->uPalSz]);
+
+        rgrgPalettesToUse[nLoadingPalette] = rgCurrentPalette;
+
+        // have these ready
+        if (fGameIsCPS3)
+        {
+            // We store CPS3 colors as RGB555 but display as RGB777 (given system hardware).  The incoming colors may be RGB888 representations.  So translate!
+            rgrgCPS3AltPalettesToUse[nLoadingPalette].resize(m_pImgBuffer[nLoadingPalette]->uPalSz);
+
+            for (size_t iCurPos = 0; iCurPos < rgrgCPS3AltPalettesToUse[nLoadingPalette].size(); iCurPos++)
+            {
+                const uint16_t rgb555Val = ColorSystem::CONV_32_xRGB1555LE_CPS3(rgCurrentPalette[iCurPos], 0xffff);
+
+                rgrgCPS3AltPalettesToUse[nLoadingPalette][iCurPos] = ColorSystem::CONV_xRGB1555LE_32_NORMAL(rgb555Val);
+            }
+        }
+    }
+
+    if (fUseDifferingCPS3Logic)
+    {
+        rgrgPalettesToUse = rgrgCPS3AltPalettesToUse;
+    }
 
     for (unsigned iPos = 0; iPos < nDataLen; iPos++)
     {
@@ -1313,7 +1355,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
             for (; nCurrentPalette < m_nImgAmt; nCurrentPalette++)
             {
-                for (uint16_t iPalPos = 1; iPalPos < m_pImgBuffer[nCurrentPalette]->uPalSz; iPalPos++)
+                for (uint16_t iPalPos = 1; iPalPos < static_cast<uint16_t>(rgrgPalettesToUse[nCurrentPalette].size()); iPalPos++)
                 {
                     if ((currTransparencyWriteMode == PALWriteOutputOptions::WRITE_16) &&
                         ((iPalPos % 16) == 0))
@@ -1323,7 +1365,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                     }
 
                     // filter out alpha for now at least: screenshotting would distort that
-                    if ((0xffffff & m_pImgBuffer[nCurrentPalette]->pPalette[iPalPos]) == colThisColor)
+                    if ((0xffffff & rgrgPalettesToUse[nCurrentPalette][iPalPos]) == colThisColor)
                     {
                         const unsigned xPos = (iPos % width);
                         const unsigned yPos = static_cast<unsigned>(floor(static_cast<double>(iPos) / width));
@@ -1348,12 +1390,23 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             }
         }
 
-        if (((iPos + 1) == nDataLen) && !fFoundOne && !fUseWinKawaksShift && fMightBeKawaksScreenshot)
+        if (((iPos + 1) == nDataLen) && !fFoundOne)
         {
-            fUseWinKawaksShift = true;
-            OutputDebugString(L"No color matches found: trying again using WinKawaks math.\r\n");
-            iPos = 0;
-            _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
+            if (!fUseWinKawaksShift && fMightBeKawaksScreenshot)
+            {
+                fUseWinKawaksShift = true;
+                OutputDebugString(L"No color matches found: trying again using WinKawaks math.\r\n");
+                iPos = 0;
+                _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
+            }
+            else if (!fUseDifferingCPS3Logic && fGameIsCPS3)
+            {
+                fUseDifferingCPS3Logic = true;
+                rgrgPalettesToUse = rgrgCPS3AltPalettesToUse;
+                OutputDebugString(L"No color matches found: trying again using FBNeo math.\r\n");
+                iPos = 0;
+                _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
+            }
         }
     }
 
@@ -1384,6 +1437,10 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     if (fFoundOne && fUseWinKawaksShift)
     {
         strMsg += L" Corrected for WinKawaks colors.";
+    }
+    else if (fFoundOne && fUseDifferingCPS3Logic)
+    {
+        strMsg += L" Corrected for FBNeo colors.";
     }
     else if (!fFoundOne)
     {

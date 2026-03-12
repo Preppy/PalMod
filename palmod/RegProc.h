@@ -45,9 +45,10 @@ constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
 constexpr auto c_LoadCustomSpriteOFNValueName = L"pref_LoadCustomSpriteIndex";
 constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
 // Incremented this because we are changing it to ON at this time.
-constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes2";
-constexpr auto c_prevPreviewDropsTrim = L"prev_DropsTrimPreview";
-constexpr auto c_prevPreviewDropsKawaksFirst = L"prev_DropsTryKawaksFirst";
+constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes3";
+constexpr auto c_prevTrimImportedPreviews = L"prev_DropsTrimPreview";
+constexpr auto c_prevPreviewImportsKawaksFirst = L"prev_DropsTryKawaksFirst";
+constexpr auto c_prevPreviewImportsUseFullCPS3 = L"prev_ImportsUseFullCPS3";
 constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback";
 constexpr auto c_mainDefaultRemapFileTypeStr = L"main_RemapFileType";
 constexpr auto c_mainDefaultColorTransformStr = L"main_ColorTransformType";
@@ -65,8 +66,9 @@ struct sPreviewWindowSettings
     BOOL fClickToFindColor = TRUE;
     BOOL fBlinkInverts = FALSE;
     BOOL fPreviewDropIsPalette = FALSE;
-    BOOL fPreviewDropTrimPreview = TRUE;
-    BOOL fPreviewDropWinKawaksFirst = FALSE;
+    BOOL fPreviewTrimImportedPreviews = TRUE;
+    BOOL fPreviewImportWinKawaksFirst = FALSE;
+    BOOL fPreviewImportUseFullCPS3 = FALSE;
     BOOL fAllowAutoPreviewFallback = TRUE;
 
     double dPreviewZoom = 0.0;

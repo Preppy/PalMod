@@ -57,8 +57,9 @@ public:
     afx_msg void OnSetBlinkInverts();
     afx_msg void OnSetBackgroundImage();
     afx_msg void OnSetDropIsPalette();
-    afx_msg void OnSetDropTrim();
-    afx_msg void OnSetDropWinKawaksFirst();
+    afx_msg void OnSetTrimImportedPreviews();
+    afx_msg void OnSetImportWinKawaksFirst();
+    afx_msg void OnSetImportUseFullCPS3();
     afx_msg void OnDestroy();
     afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
     afx_msg void OnClose();

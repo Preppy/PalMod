@@ -57,8 +57,10 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_SETBLINKCOLOR, &CPreviewDlg::OnSetBlinkCol)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBackgroundImage)
     ON_COMMAND(ID_SETTINGS_DROPISPALETTE, &CPreviewDlg::OnSetDropIsPalette)
-    ON_COMMAND(ID_SETTINGS_DROPTRIM, &CPreviewDlg::OnSetDropTrim)
-    ON_COMMAND(ID_SETTINGS_DROPKAWAKS, &CPreviewDlg::OnSetDropWinKawaksFirst)
+    ON_COMMAND(ID_SETTINGS_IMPORT_TRIM, &CPreviewDlg::OnSetTrimImportedPreviews)
+    ON_COMMAND(ID_SETTINGS_IMPORT_KAWAKS, &CPreviewDlg::OnSetImportWinKawaksFirst)
+    ON_COMMAND(ID_SETTINGS_IMPORT_FULLCPS3, &CPreviewDlg::OnSetImportUseFullCPS3)
+
 
     ON_COMMAND(ID_ACC_ADDZOOM, &CPreviewDlg::AddZoom)
     ON_COMMAND(ID_ACC_SUBZOOM, &CPreviewDlg::SubZoom)
@@ -213,14 +215,19 @@ void CPreviewDlg::OnSetDropIsPalette()
     m_ImgDisp.SetDropIsPalette(!m_ImgDisp.GetPreviewDropIsPalette());
 }
 
-void CPreviewDlg::OnSetDropTrim()
+void CPreviewDlg::OnSetTrimImportedPreviews()
 {
-    m_ImgDisp.SetPreviewDropTrim(!m_ImgDisp.GetPreviewDropTrim());
+    m_ImgDisp.SetTrimImportedPreviews(!m_ImgDisp.GetTrimImportedPreviews());
 }
 
-void CPreviewDlg::OnSetDropWinKawaksFirst()
+void CPreviewDlg::OnSetImportWinKawaksFirst()
 {
-    m_ImgDisp.SetPreviewDropWinKawaksFirst(!m_ImgDisp.GetPreviewDropWinKawaksFirst());
+    m_ImgDisp.SetPreviewImportWinKawaksFirst(!m_ImgDisp.GetPreviewImportWinKawaksFirst());
+}
+
+void CPreviewDlg::OnSetImportUseFullCPS3()
+{
+    m_ImgDisp.SetPreviewImportUseFullCPS3(!m_ImgDisp.GetPreviewImportUseFullCPS3());
 }
 
 void CPreviewDlg::LoadSettings()
@@ -465,8 +472,9 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             }
         }
 
-        pPopupMenu->CheckMenuItem(ID_SETTINGS_DROPTRIM, m_ImgDisp.GetPreviewDropTrim() ? MF_CHECKED : MF_UNCHECKED);
-        pPopupMenu->CheckMenuItem(ID_SETTINGS_DROPKAWAKS, m_ImgDisp.GetPreviewDropWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_TRIM, m_ImgDisp.GetTrimImportedPreviews() ? MF_CHECKED : MF_UNCHECKED);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_KAWAKS, m_ImgDisp.GetPreviewImportWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_FULLCPS3, m_ImgDisp.GetPreviewImportUseFullCPS3() ? MF_CHECKED : MF_UNCHECKED);
     }
     else if (pSettMenu == pPopupMenu)
     {

@@ -803,8 +803,9 @@ BEGIN
         MENUITEM "Load Layout Advanced...",    ID_FILE_LOADSPRITECUSTOM
         POPUP "Import Settings"
         BEGIN
-            MENUITEM "Trim imported previews",       ID_SETTINGS_DROPTRIM
-            MENUITEM "Use WinKawaks math first when importing CPS1/CPS2/NeoGeo screenshots", ID_SETTINGS_DROPKAWAKS
+            MENUITEM "Trim imported previews",       ID_SETTINGS_IMPORT_TRIM
+            MENUITEM "Use WinKawaks math first when importing CPS1/CPS2/NeoGeo screenshots", ID_SETTINGS_IMPORT_KAWAKS
+            MENUITEM "Use FBNeo math first when importing CPS3 screenshots", ID_SETTINGS_IMPORT_FULLCPS3
         END
     END
     POPUP "&Settings"
