@@ -515,7 +515,7 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fShowAdvancedOptions, bool fForceNonIndexed /* = false */, bool fReverseColorTable /* = false */)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fShowAdvancedOptions, PNGImportSpecialOptions importOptions /* = {} */)
 {
     wchar_t* pszExt = wcsrchr(pszPath, L'.');
     bool fSuccess = false;
@@ -529,7 +529,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImpor
     }
     else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
     {
-        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fShowAdvancedOptions, fForceNonIndexed, fReverseColorTable);
+        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fShowAdvancedOptions, importOptions);
     }
     else
     {
@@ -553,24 +553,27 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
                                                        L"GIF|*.gif|"
                                                        L"PNG (treat as non-indexed)|*.png|"
                                                        L"PNG (upside-down color table)|*.png|"
+                                                       L"PNG (GIMP wrong-offset color table)|*.png|"
                                                        L"|", this);
 
         OpenDialog.GetOFN().nFilterIndex = CRegProc::GetOFNIndexForLoadCustomSprite();
 
         if (OpenDialog.DoModal() == IDOK)
         {
+            PNGImportSpecialOptions importOptions = { (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6), (OpenDialog.GetOFN().nFilterIndex != 7) };
+
             // eliminate the k_nTextureLoadCommandMask mask for usage...
             UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
 
             if (nCorrectedPosition == MAX_IMAGES_DISPLAYABLE) // This value indicates a full stack replacement
             {
                 // Filter index is 1-based
-                LoadCustomSpriteFromPath(nullptr, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
+                LoadCustomSpriteFromPath(nullptr, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, importOptions);
             }
             else
             {
                 // Filter index is 1-based
-                LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6));
+                LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, importOptions);
             }
 
             CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);

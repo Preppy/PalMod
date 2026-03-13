@@ -793,7 +793,14 @@ void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, std::vect
     }
 }
 
-void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize, bool fReverseColorTable /* = false */)
+void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize,
+                                                        // Fighter Factory often has the color table starting at 255 then backwards, so allow for that
+                                                        bool fReverseColorTable /* = false */,
+                                                        // GIMP offsets the color table off by +1 every editing instance, so here we allow you to walk
+                                                        // the color table back by one.  Note that we don't actually know how far skewed it is, so 
+                                                        // in the worst case scenario the user might need to loop through importing/exporting a few times
+                                                        // to correct for their confusion
+                                                        bool fColorTableStartsAtOne /* = true */)
 {
     // So this is an interesting situation.
     // Incoming we have a palettized image that the user wants to use as a custom preview.
@@ -820,6 +827,17 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
     const UINT nLayerToStartWith = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
 
     const size_t nDataLen = static_cast<size_t>(width) * static_cast<size_t>(height);
+
+    if (!fColorTableStartsAtOne)
+    {
+        for (size_t iDataPos = 0; iDataPos < nDataLen; iDataPos++)
+        {
+            if (pImageData[iDataPos] != 0) // leave the transparency color alone
+            {
+                pImageData[iDataPos] = pImageData[iDataPos] - 1;
+            }
+        }
+    }
 
     if ((nTotalPalSize > 0xff) ||
         ((m_nImgAmt == 1) && (nTotalPalSize >= nImagePalSize)))
@@ -1626,7 +1644,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
     }
 }
 
-bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded /* = true */, bool fForceNonIndexed /* = false */, bool fReversedColorTable /* = false */)
+bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded /* = true */, PNGImportSpecialOptions importOptions /* = {} */)
 {
     bool fSuccess = false;
     bool fUserCanceled = false;
@@ -1659,7 +1677,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
         {
             unsigned width = 0, height = 0;
             
-            if (fForceNonIndexed)
+            if (importOptions.fForceNonIndexed)
             {
                 OutputDebugString(L"Forcing image to be imported as non-indexed!\r\n");
                 state.decoder.color_convert = 1;
@@ -1715,7 +1733,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
                     {
                         if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
                         {
-                            _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize, fReversedColorTable);
+                            _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize, importOptions.fReversedColorTable, importOptions.fColorTableStartsAtOne);
 
                             // We handle RGB status update inside that logic, since it can be slightly different
                             CString strMsg;

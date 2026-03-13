@@ -30,6 +30,13 @@ struct sImgNode
 enum class SpriteImportDirection { TopDown, UpsideDown, FlipHorizontal };
 enum class SpriteImportCompositionStyle { Replace, MergeAbove, MergeBelow };
 
+struct PNGImportSpecialOptions
+{
+    bool fReversedColorTable = false;
+    bool fForceNonIndexed = false;
+    bool fColorTableStartsAtOne = true;
+};
+
 // CImgDisp
 
 class CImgDisp : public CWnd
@@ -99,7 +106,7 @@ private:
 
     void _FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, int nWidth, int nHeight);
 
-    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize, bool fReverseColorTable = false);
+    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true);
     void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
     void _UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions dimensions);
@@ -174,7 +181,7 @@ public:
     bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true);
     // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
     // A null pointer passed in indicates to us to replace the full stack: a pointer of value 0 means just the first layer.
-    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, bool fForceNonIndexed = false, bool fReversedColorTable = false);
+    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importOptions = {});
     bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fMustShowAdvancedOptions = true);
 
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
