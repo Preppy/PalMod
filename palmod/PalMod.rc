@@ -594,6 +594,7 @@ BEGIN
             BEGIN
                 MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
                 MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
+				MENUITEM "ReallyReal's MBTL Expansion Pack (Steam)", ID_LD_RRMBTL_S
             END
             MENUITEM "Mighty Warriors",             ID_LD_MWARR
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB

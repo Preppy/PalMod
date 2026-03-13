@@ -394,6 +394,7 @@ private:
     afx_msg void OnLoadDir_KOF02UM_S_RGB555() { OnLoadGameByDirectory(KOF02UM_S_DIR_RGB555); };
     afx_msg void OnLoadDir_MAAB_S()         { OnLoadGameByDirectory(MAAB_A); };
     afx_msg void OnLoadDir_MBTL_A()         { OnLoadGameByDirectory(MBTL_A); };
+	afx_msg void OnLoadDir_RRMBTL_S()         { OnLoadGameByDirectory(RRMBTL_S); };
     afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };
     afx_msg void OnLoadDir_MCI_S()          { OnLoadGameByDirectory(MCI_S); };
     afx_msg void OnLoadDir_MSHVSF_P()       { OnLoadGameByDirectory(MSHVSF_P); };

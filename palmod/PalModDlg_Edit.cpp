@@ -723,7 +723,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
             }
 
             SupportedGamesList gameFlag = CurrGame->GetGameFlag();
-            const bool fWantArcanaFormattedData = (gameFlag == MBAACC_S) || (gameFlag == MBTL_A) || (gameFlag == UNICLR_A) || (gameFlag == DBFCI_A);
+            const bool fWantArcanaFormattedData = (gameFlag == MBAACC_S) || (gameFlag == MBTL_A) || (gameFlag == UNICLR_A) || (gameFlag == DBFCI_A) || (gameFlag == RRMBTL_S);
 
             if (fIncludeNonBinaryText && fWantArcanaFormattedData)
             {

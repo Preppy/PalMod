@@ -288,6 +288,7 @@ enum SupportedGamesList
     SFEX2P_A,
     MK1_SEGA,
     MK2_SEGA,
+	RRMBTL_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

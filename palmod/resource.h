@@ -445,6 +445,7 @@
 #define ID_TOOLS_GRAYSCALE_MIDDLE       32991
 #define ID_TOOLS_GRAYSCALE_WEIGHTED     32992
 #define ID_SETTINGS_IMPORT_FULLCPS3     32993
+#define ID_LD_RRMBTL_S                  32994
 
 // Next default values for new objects
 // 
