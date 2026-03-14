@@ -90,6 +90,7 @@
 #include "Game_MAAB_A.h"
 #include "Game_MBAACC_S.h"
 #include "Game_MBTL_A.h"
+#include "Game_RRMBTL_S.h"
 #include "Game_MCI_S.h"
 #include "Game_MK1_A.h"
 #include "Game_MK_SEGA.h"
@@ -194,7 +195,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 264, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 265, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -311,6 +312,7 @@ namespace KnownGameInfo
     CGameClass* Make_MATRIMELEE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Matrimelee_A(nConfirmedROMSize); }
     CGameClass* Make_MBAACC_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MBAACC_S(nConfirmedROMSize); }
     CGameClass* Make_MBTL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MBTL_A(nConfirmedROMSize); }
+	CGameClass* Make_RRMBTL_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RRMBTL_S(nConfirmedROMSize); }
     CGameClass* Make_MCI_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MCI_S(nConfirmedROMSize); }
     CGameClass* Make_MK1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_A(nConfirmedROMSize); }
     CGameClass* Make_MK1_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_SEGA(nConfirmedROMSize); }
@@ -1343,6 +1345,16 @@ namespace KnownGameInfo
             CGame_MBTL_A::GetNextRule,
             CGame_MBTL_A::GetRuleCtr,
             CGame_MBTL_A::ResetRuleCtr,
+        },
+		{
+            RRMBTL_S,
+            L"ReallyReal's MBTL Expansion Pack (Steam)",
+            {},
+            Make_RRMBTL_S,
+            CGame_RRMBTL_S::GetRule,
+            CGame_RRMBTL_S::GetNextRule,
+            CGame_RRMBTL_S::GetRuleCtr,
+            CGame_RRMBTL_S::ResetRuleCtr,
         },
         {
             MSH_A,
@@ -2482,7 +2494,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 264, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 265, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 

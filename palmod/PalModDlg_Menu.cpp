@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 264, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 265, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -85,6 +85,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
                 break;
             case MBTL_A:
                 pszExtraInfo = L"For MBTL, please select the \"MELTY BLOOD TYPE LUMINA\" folder.\nThe folder is usually in steamapps\\common. If you didn't come from the guide refer to the Read Me for more details.";
+               break;
+			case RRMBTL_S:
+                pszExtraInfo = L"please select the \"MELTY BLOOD TYPE LUMINA\" folder.\nThe folder is usually in steamapps\\common.";
                break;
             case NBHID_NL:
             case NBHID_P:
