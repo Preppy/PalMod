@@ -50,7 +50,7 @@ private:
             // You can set this to PALWriteOutputOptions::WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for 
             // further insight if you really care.
             PALWriteOutputOptions::WRITE_16
-    },
+        },
         //Set the image out display type: either left to right or top down.
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         // Check out the available options in buttondef.h.  This is for P1/P2, A/B/C/D, LP/LK/MP/MK/HP/HK style nodes.
@@ -71,9 +71,9 @@ private:
         // ... and the sizeof that array
         ARRAYSIZE(NEWGAME_A_UNITS),
         // Extra filename: allows user to load new palettes at runtime
-        L"NewGameE.txt",                
+        L"NewGameE.txt",
         // Count of known palettes listed in the header NEWGAME_A_DEF
-        8,                              
+        8,
         // Lowest known location used for internally listed palettes
         0xbadf00d,                      
     };
