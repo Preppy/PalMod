@@ -83,16 +83,16 @@ const sGame_PaletteDataset Gowcaizer_A_KARIN_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_FUDOMARU_PALETTES_P1[] =
 {
     { L"Fudomaru P1", 0x190ee2, 0x190f02, indexNEOGEOSprites_VFG_Fudomaru, 0x00 },
-    { L"Fudomaru Intro P1", 0x1972a2, 0x1972c2 },
-    { L"Fudomaru Intro Extra P1", 0x1972e2, 0x197302 },
+    { L"Fudomaru Intro P1", 0x1972a2, 0x1972c2, indexNEOGEOSprites_VFG_Fudomaru, 0x01 },
+    { L"Fudomaru Intro Extra P1", 0x1972e2, 0x197302, indexNEOGEOSprites_VFG_Fudomaru, 0x02 },
     { L"Fudomaru Select/Win Portrait P1", 0x1923e2, 0x1924e2, indexNEOGEOSprites_VFG_Fudomaru, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_FUDOMARU_PALETTES_P2[] =
 {
     { L"Fudomaru P2", 0x190f02, 0x190f22, indexNEOGEOSprites_VFG_Fudomaru, 0x00 },
-    { L"Fudomaru Intro P2", 0x1972c2, 0x1972e2 },
-    { L"Fudomaru Intro Extra P2", 0x197302, 0x197322 },
+    { L"Fudomaru Intro P2", 0x1972c2, 0x1972e2, indexNEOGEOSprites_VFG_Fudomaru, 0x01 },
+    { L"Fudomaru Intro Extra P2", 0x197302, 0x197322, indexNEOGEOSprites_VFG_Fudomaru, 0x02 },
     { L"Fudomaru Select/Win Portrait P2", 0x1924E2, 0x1925e2, indexNEOGEOSprites_VFG_Fudomaru, 0x40 },
 };
 
@@ -151,14 +151,14 @@ const sGame_PaletteDataset Gowcaizer_A_SHENLONG_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_KYOSUKE_PALETTES_P1[] =
 {
     { L"Kyosuke Shigure P1", 0x190fe2, 0x191002, indexNEOGEOSprites_VFG_Kyosuke, 0x00 },
-    { L"Kyosuke Shigure Summons P1", 0x191022, 0x191042 },
+    { L"Kyosuke Shigure Summons P1", 0x191022, 0x191042, indexNEOGEOSprites_VFG_Kyosuke, 0x01 },
     { L"Kyosuke Select/Win Portrait P1", 0x19A1E2, 0x19A2c2, indexNEOGEOSprites_VFG_Kyosuke, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_KYOSUKE_PALETTES_P2[] =
 {
     { L"Kyosuke Shigure P2", 0x191002, 0x191022, indexNEOGEOSprites_VFG_Kyosuke, 0x00 },
-    { L"Kyosuke Shigure Summons P2", 0x191042, 0x191062 },
+    { L"Kyosuke Shigure Summons P2", 0x191042, 0x191062, indexNEOGEOSprites_VFG_Kyosuke, 0x01 },
     { L"Kyosuke Select/Win Portrait P2", 0x19A2E2, 0x19A3C2, indexNEOGEOSprites_VFG_Kyosuke, 0x40 },
 };
 
@@ -205,18 +205,18 @@ const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_PLATONIC_PALETTES_P1[] =
 {
     { L"Platonic Twins P1", 0x191222, 0x191242, indexNEOGEOSprites_VFG_PlatonicTwins, 0x00 },
-    { L"Platonic Twins Intro P1", 0x1977e2, 0x197822 },
-    { L"Platonic Twins Intro Extra 1 P1", 0x197822, 0x197842 },
-    { L"Platonic Twins Intro Extra 2 P1", 0x197842, 0x197862 },
+    { L"Platonic Twins Intro P1", 0x1977e2, 0x197822, indexNEOGEOSprites_VFG_PlatonicTwins, 0x01 },
+    { L"Platonic Twins Intro Extra 1 P1", 0x197822, 0x197842, indexNEOGEOSprites_VFG_PlatonicTwins, 0x02, &pairNext },
+    { L"Platonic Twins Intro Extra 2 P1", 0x197842, 0x197862, indexNEOGEOSprites_VFG_PlatonicTwins, 0x03 },
     { L"Platonic Twins Select/Win Portrait P1", 0x199DE2, 0x199Ee2, indexNEOGEOSprites_VFG_PlatonicTwins, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_PLATONIC_PALETTES_P2[] =
 {
     { L"Platonic Twins P2", 0x191242, 0x191262, indexNEOGEOSprites_VFG_PlatonicTwins, 0x00 },
-    { L"Platonic Twins Intro P2", 0x197862, 0x1978a2 },
-    { L"Platonic Twins Intro Extra 1 P2", 0x1978a2, 0x1978c2 },
-    { L"Platonic Twins Intro Extra 2 P2", 0x1978c2, 0x1978e2 },
+    { L"Platonic Twins Intro P2", 0x197862, 0x1978a2, indexNEOGEOSprites_VFG_PlatonicTwins, 0x01 },
+    { L"Platonic Twins Intro Extra 1 P2", 0x1978a2, 0x1978c2, indexNEOGEOSprites_VFG_PlatonicTwins, 0x02, &pairNext },
+    { L"Platonic Twins Intro Extra 2 P2", 0x1978c2, 0x1978e2, indexNEOGEOSprites_VFG_PlatonicTwins, 0x03 },
     { L"Platonic Twins Select/Win Portrait P2", 0x199EE2, 0x199Fe2, indexNEOGEOSprites_VFG_PlatonicTwins, 0x40 },
 };
 
@@ -225,18 +225,18 @@ const sGame_PaletteDataset Gowcaizer_A_PLATONIC_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_OHGA_PALETTES_P1[] =
 {
     { L"Ohga P1", 0x191262, 0x191282, indexNEOGEOSprites_VFG_Ohga, 0x00 },
-    { L"Ohga Intro P1", 0x197962, 0x197982 },
-    { L"Ohga Intro Extra P1", 0x197982, 0x1979a2 },
-    { L"Ohga Winpose P1", 0x1912a2, 0x1912c2 },
+    { L"Ohga Intro P1", 0x197962, 0x197982, indexNEOGEOSprites_VFG_Ohga, 0x01 },
+    { L"Ohga Intro Extra P1", 0x197982, 0x1979a2, indexNEOGEOSprites_VFG_Ohga, 0x02 },
+    { L"Ohga Winpose P1", 0x1912a2, 0x1912c2, indexNEOGEOSprites_VFG_Ohga, 0x03 },
     { L"Ohga Select/Win Portrait P1", 0x19A9E2, 0x19AAe2, indexNEOGEOSprites_VFG_Ohga, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_OHGA_PALETTES_P2[] =
 {
     { L"Ohga P2", 0x191282, 0x1912a2, indexNEOGEOSprites_VFG_Ohga, 0x00 },
-    { L"Ohga Intro P2", 0x1979a2, 0x1979c2 },
-    { L"Ohga Intro Extra P2", 0x1979c2, 0x1979e2 },
-    { L"Ohga Winpose P2", 0x1912c2, 0x1912e2 },
+    { L"Ohga Intro P2", 0x1979a2, 0x1979c2, indexNEOGEOSprites_VFG_Ohga, 0x01 },
+    { L"Ohga Intro Extra P2", 0x1979c2, 0x1979e2, indexNEOGEOSprites_VFG_Ohga, 0x02 },
+    { L"Ohga Winpose P2", 0x1912c2, 0x1912e2, indexNEOGEOSprites_VFG_Ohga, 0x03 },
     { L"Ohga Select/Win Portrait P2", 0x19AAE2, 0x19ABe2, indexNEOGEOSprites_VFG_Ohga, 0x40 },
 };
 
