@@ -762,7 +762,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB[] =
     { L"Suburbs (19/22)", 0x7e8d00, 0x7e8f00, indexJojos50Stages, 0x55 },
     { L"Suburbs (20/22)", 0x7e8f00, 0x7e9100, indexJojos50Stages, 0x56 },
     { L"Suburbs (21/22)", 0x7e9100, 0x7e9300, indexJojos50Stages, 0x57 },
-    { L"Suburbs (22/22)", 0x7e9300, 0x7e9480 },
+    { L"Suburbs (22/22)", 0x7e9300, 0x7e9480, indexJojos50Stages, 0xc1 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_OTBRIDGE[] =
@@ -798,26 +798,26 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTTWILIGHT[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DMORNING[] =
 {
-    { L"Desert Morning (1/8)", 0x7d4000, 0x7d4200, indexJojos50Stages, 0x58, &pairFullyLinkedNode },
-    { L"Desert Morning (2/8)", 0x7d4200, 0x7d4400, indexJojos50Stages, 0x59 },
-    { L"Desert Morning (3/8)", 0x7d4400, 0x7d4600, indexJojos50Stages, 0x5a },
-    { L"Desert Morning (4/8)", 0x7d4600, 0x7d4800, indexJojos50Stages, 0x5b },
-    { L"Desert Morning (5/8)", 0x7d4800, 0x7d4a00, indexJojos50Stages, 0x5c },
-    { L"Desert Morning (6/8)", 0x7d4a00, 0x7d4c00, indexJojos50Stages, 0x5d },
-    { L"Desert Morning (7/8)", 0x7d4c00, 0x7d4e00, indexJojos50Stages, 0x5e },
-    { L"Desert Morning (8/8)", 0x7d4e00, 0x7d4e80 },
+    { L"Desert Morning (1/8)", 0x7d4000, 0x7d4200, indexJojos50Stages, 0xc2, &pairFullyLinkedNode },
+    { L"Desert Morning (2/8)", 0x7d4200, 0x7d4400, indexJojos50Stages, 0xc3 },
+    { L"Desert Morning (3/8)", 0x7d4400, 0x7d4600, indexJojos50Stages, 0xc4 },
+    { L"Desert Morning (4/8)", 0x7d4600, 0x7d4800, indexJojos50Stages, 0xc5 },
+    { L"Desert Morning (5/8)", 0x7d4800, 0x7d4a00, indexJojos50Stages, 0xc6 },
+    { L"Desert Morning (6/8)", 0x7d4a00, 0x7d4c00, indexJojos50Stages, 0xc7 },
+    { L"Desert Morning (7/8)", 0x7d4c00, 0x7d4e00, indexJojos50Stages, 0xc8 },
+    { L"Desert Morning (8/8)", 0x7d4e00, 0x7d4e80, indexJojos50Stages, 0xc9 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DTWILIGHT[] =
 {
-    { L"Desert Twilight (1/8)", 0x7d5e00, 0x7d6000, indexJojos50Stages, 0x58, &pairFullyLinkedNode },
-    { L"Desert Twilight (2/8)", 0x7d6000, 0x7d6200, indexJojos50Stages, 0x59 },
-    { L"Desert Twilight (3/8)", 0x7d6200, 0x7d6400, indexJojos50Stages, 0x5a },
-    { L"Desert Twilight (4/8)", 0x7d6400, 0x7d6600, indexJojos50Stages, 0x5b },
-    { L"Desert Twilight (5/8)", 0x7d6600, 0x7d6800, indexJojos50Stages, 0x5c },
-    { L"Desert Twilight (6/8)", 0x7d6800, 0x7d6a00, indexJojos50Stages, 0x5d },
-    { L"Desert Twilight (7/8)", 0x7d6a00, 0x7d6c00, indexJojos50Stages, 0x5e },
-    { L"Desert Twilight (8/8)", 0x7d6c00, 0x7d6c80 },
+    { L"Desert Twilight (1/8)", 0x7d5e00, 0x7d6000, indexJojos50Stages, 0xca, &pairFullyLinkedNode },
+    { L"Desert Twilight (2/8)", 0x7d6000, 0x7d6200, indexJojos50Stages, 0xcb },
+    { L"Desert Twilight (3/8)", 0x7d6200, 0x7d6400, indexJojos50Stages, 0xcc },
+    { L"Desert Twilight (4/8)", 0x7d6400, 0x7d6600, indexJojos50Stages, 0xcd },
+    { L"Desert Twilight (5/8)", 0x7d6600, 0x7d6800, indexJojos50Stages, 0xce },
+    { L"Desert Twilight (6/8)", 0x7d6800, 0x7d6a00, indexJojos50Stages, 0xcf },
+    { L"Desert Twilight (7/8)", 0x7d6a00, 0x7d6c00, indexJojos50Stages, 0xd0 },
+    { L"Desert Twilight (8/8)", 0x7d6c00, 0x7d6c80, indexJojos50Stages, 0xd1 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DNIGHT[] =
@@ -890,7 +890,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB2[] =
     { L"Suburbs 2 (19/22)", 0x7eb900, 0x7ebb00, indexJojos50Stages, 0x55 },
     { L"Suburbs 2 (20/22)", 0x7ebb00, 0x7ebd00, indexJojos50Stages, 0x56 },
     { L"Suburbs 2 (21/22)", 0x7ebd00, 0x7ebf00, indexJojos50Stages, 0x57 },
-    { L"Suburbs 2 (22/22)", 0x7ebf00, 0x7ec080 },
+    { L"Suburbs 2 (22/22)", 0x7ebf00, 0x7ec080, indexJojos50Stages, 0xc1 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB3[] =
@@ -916,7 +916,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB3[] =
     { L"Suburbs 3 (19/22)", 0x7ee500, 0x7ee700, indexJojos50Stages, 0x55 },
     { L"Suburbs 3 (20/22)", 0x7ee700, 0x7ee900, indexJojos50Stages, 0x56 },
     { L"Suburbs 3 (21/22)", 0x7ee900, 0x7eeb00, indexJojos50Stages, 0x57 },
-    { L"Suburbs 3 (22/22)", 0x7eeb00, 0x7eec80 },
+    { L"Suburbs 3 (22/22)", 0x7eeb00, 0x7eec80, indexJojos50Stages, 0xc1 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW1[] = // aka Remains
@@ -3968,14 +3968,14 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SISLAND[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DMORN[] =
 {
-    { L"Desert Morning / Twilight TS (1/8)", 0x2d9f00, 0x2da100, indexJojos50Stages, 0x58, &pairFullyLinkedNode },
-    { L"Desert Morning / Twilight TS (2/8)", 0x2da100, 0x2da300, indexJojos50Stages, 0x59 },
-    { L"Desert Morning / Twilight TS (3/8)", 0x2da300, 0x2da500, indexJojos50Stages, 0x5a },
-    { L"Desert Morning / Twilight TS (4/8)", 0x2da500, 0x2da700, indexJojos50Stages, 0x5b },
-    { L"Desert Morning / Twilight TS (5/8)", 0x2da700, 0x2da900, indexJojos50Stages, 0x5c },
-    { L"Desert Morning / Twilight TS (6/8)", 0x2da900, 0x2dab00, indexJojos50Stages, 0x5d },
-    { L"Desert Morning / Twilight TS (7/8)", 0x2dab00, 0x2dad00, indexJojos50Stages, 0x5e },
-    { L"Desert Morning / Twilight TS (8/8)", 0x2dad00, 0x2dad80 },
+    { L"Desert Morning / Twilight TS (1/8)", 0x2d9f00, 0x2da100, indexJojos50Stages, 0xc2, &pairFullyLinkedNode },
+    { L"Desert Morning / Twilight TS (2/8)", 0x2da100, 0x2da300, indexJojos50Stages, 0xc3 },
+    { L"Desert Morning / Twilight TS (3/8)", 0x2da300, 0x2da500, indexJojos50Stages, 0xc4 },
+    { L"Desert Morning / Twilight TS (4/8)", 0x2da500, 0x2da700, indexJojos50Stages, 0xc5 },
+    { L"Desert Morning / Twilight TS (5/8)", 0x2da700, 0x2da900, indexJojos50Stages, 0xc6 },
+    { L"Desert Morning / Twilight TS (6/8)", 0x2da900, 0x2dab00, indexJojos50Stages, 0xc7 },
+    { L"Desert Morning / Twilight TS (7/8)", 0x2dab00, 0x2dad00, indexJojos50Stages, 0xc8 },
+    { L"Desert Morning / Twilight TS (8/8)", 0x2dad00, 0x2dad80, indexJojos50Stages, 0xc9 },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNOON[] =
@@ -4097,7 +4097,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SUBURB[] =
     { L"Surburbs 1 / 2 / 3 TS (19/22)", 0x2e4700, 0x2e4900, indexJojos50Stages, 0x55 },
     { L"Surburbs 1 / 2 / 3 TS (20/22)", 0x2e4900, 0x2e4b00, indexJojos50Stages, 0x56 },
     { L"Surburbs 1 / 2 / 3 TS (21/22)", 0x2e4b00, 0x2e4d00, indexJojos50Stages, 0x57 },
-    { L"Surburbs 1 / 2 / 3 TS (22/22)", 0x2e4d00, 0x2e4f00 },
+    { L"Surburbs 1 / 2 / 3 TS (22/22)", 0x2e4d00, 0x2e4f00, indexJojos50Stages, 0xc1 },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_OBRIDGE[] =
