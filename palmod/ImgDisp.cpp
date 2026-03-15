@@ -1470,6 +1470,8 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
         strMsg += " Use a mapping palette!";
     }
 
+    OutputDebugString(strMsg.GetString());
+    OutputDebugString(L"\r\n");
     GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
 
     if (fCurrentPaletteIsNotMappingFriendly)

@@ -155,7 +155,7 @@ enum SupportedGamesList
     CYBERBOTS_A,
     DBZEB_DS,
     MBTL_A,
-    KOF02UM_S_DIR_8888,
+    KOF02UM_S_DIR_8887,
     KOF02UM_S_DIR_BGR555,
     KOF02UM_S_DIR_RGB555,
     MK1_SNES,
@@ -289,6 +289,10 @@ enum SupportedGamesList
     MK1_SEGA,
     MK2_SEGA,
 	RRMBTL_S,
+    KOF02UM_PS2_DIR_8887,
+    KOF02UM_PS2_DIR_8887_TOUGEKI,
+    KOF02UM_PS2_DIR_BGR555,
+    KOF02UM_PS2_DIR_RGB555,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES

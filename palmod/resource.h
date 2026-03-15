@@ -363,7 +363,7 @@
 #define ID_LD_VENTURE50                 32909
 #define ID_LD_VENTURE31                 32910
 #define ID_LD_MBTL_A                    32911
-#define ID_LD_KOF02UM_S_8888            32912
+#define ID_LD_KOF02UM_S_8887            32912
 #define ID_LD_KOF02UM_S_RGB555          32913
 #define ID_LD_KOF02UM_S_BGR555          32914
 #define ID_COLORFORMAT_GRB888           32915
@@ -446,13 +446,17 @@
 #define ID_TOOLS_GRAYSCALE_WEIGHTED     32992
 #define ID_SETTINGS_IMPORT_FULLCPS3     32993
 #define ID_LD_RRMBTL_S                  32994
+#define ID_LD_KOF02UM_PS2_8887          32995
+#define ID_LD_KOF02UM_PS2_8887_TOUGEKI  32996
+#define ID_LD_KOF02UM_PS2_RGB555        32997
+#define ID_LD_KOF02UM_PS2_BGR555        32998
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        150
-#define _APS_NEXT_COMMAND_VALUE         32994
+#define _APS_NEXT_COMMAND_VALUE         32999
 #define _APS_NEXT_CONTROL_VALUE         1118
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

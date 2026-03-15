@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 265, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 269, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -72,10 +72,18 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             case JOJOS_US_A_DIR_51:
                 pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
                 break;
-            case KOF02UM_S_DIR_8888:
+            case KOF02UM_S_DIR_8887:
             case KOF02UM_S_DIR_BGR555:
             case KOF02UM_S_DIR_RGB555:
                 pszExtraInfo = L"Please select the \"Data\" folder under \"The King of Fighters 2002 Ultimate Match\".";
+                break;
+            case KOF02UM_PS2_DIR_8887:
+            case KOF02UM_PS2_DIR_BGR555:
+            case KOF02UM_PS2_DIR_RGB555:
+                pszExtraInfo = L"Please select the  \"King of Fighters 2002 The - Unlimited Match (Japan)\" folder.";
+                break;
+            case KOF02UM_PS2_DIR_8887_TOUGEKI:
+                pszExtraInfo = L"Please select the  \"King of Fighters 2002 The - Unlimited Match - Tougeki Ver. (Japan)\" folder.";
                 break;
             case MAAB_A:
                 pszExtraInfo = L"For MAAB, please select the \"flashrom\" folder.\nThe folder is normally located in steamapps\\common\\Million Arthur Arcana Blood.";

@@ -585,7 +585,11 @@ BEGIN
             END
             POPUP "King of Fighters"
             BEGIN
-                MENUITEM "King of Fighters 02UM (Steam, RGBA8887 parts)", ID_LD_KOF02UM_S_8888
+                MENUITEM "King of Fighters 02UM (PS2, RGBA8887 parts)", ID_LD_KOF02UM_PS2_8887
+                MENUITEM "King of Fighters 02UM (PS2 Tougeki Version, RGBA8887 parts)", ID_LD_KOF02UM_PS2_8887_TOUGEKI
+                MENUITEM "King of Fighters 02UM (PS2, BGR555 parts)", ID_LD_KOF02UM_PS2_BGR555
+                MENUITEM "King of Fighters 02UM (PS2, RGB555 parts, Characters)", ID_LD_KOF02UM_PS2_RGB555
+                MENUITEM "King of Fighters 02UM (Steam, RGBA8887 parts)", ID_LD_KOF02UM_S_8887
                 MENUITEM "King of Fighters 02UM (Steam, BGR555 parts)", ID_LD_KOF02UM_S_BGR555
                 MENUITEM "King of Fighters 02UM (Steam, RGB555 parts, Characters)", ID_LD_KOF02UM_S_RGB555
             END
@@ -594,7 +598,7 @@ BEGIN
             BEGIN
                 MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
                 MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
-				MENUITEM "ReallyReal's MBTL Expansion Pack (Steam)", ID_LD_RRMBTL_S
+                MENUITEM "ReallyReal's MBTL Expansion Pack (Steam)", ID_LD_RRMBTL_S
             END
             MENUITEM "Mighty Warriors",             ID_LD_MWARR
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
