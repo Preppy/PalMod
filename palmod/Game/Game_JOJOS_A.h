@@ -15,8 +15,8 @@ enum class JojosLoadingKey
 class CGame_JOJOS_A : public CGameClassByDir
 {
 private:
-    const uint32_t c_nPaletteCount50 = 476;
-    const uint32_t c_nPaletteCount51 = 2079;
+    const uint32_t c_nPaletteCount50 = 477;
+    const uint32_t c_nPaletteCount51 = 2080;
 
 public:
     static JojosLoadingKey m_eVersionToLoad;
