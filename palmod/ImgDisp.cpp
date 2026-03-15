@@ -1650,6 +1650,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
     bool fUserCanceled = false;
     bool fBadDimensions = false;
     std::wstring strErrorText = L"This PNG could not be loaded.";
+    std::wstring strErrorExtra;
 
     {
         CWaitCursor wait; // Show a wait cursor in this scope since this can be a lot of parsing
@@ -1763,6 +1764,17 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
 
             free(loadedAsFile);
         }
+
+        if (state.error)
+        {
+            LPCSTR pszErrorText = lodepng_error_text(state.error);
+
+            CString strOutput;
+            strOutput.Format(L"  The error report from the PNG decoder is:\r\n  \"%S\"\r\n\r\nTLDR: the PNG is corrupt.\r\n", pszErrorText);
+            OutputDebugString(strOutput.GetString());
+
+            strErrorExtra = strOutput.GetString();
+        }
     }
     
     if (fSuccess)
@@ -1773,12 +1785,14 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
     }
     else
     {
+        GetHost()->GetPalModDlg()->SetStatusText(strErrorText.c_str());
+
         if (!fUserCanceled)
         {
+            strErrorText += strErrorExtra;
+
             MessageBox(strErrorText.c_str(), GetHost()->GetAppName(), MB_ICONERROR);
         }
-
-        GetHost()->GetPalModDlg()->SetStatusText(strErrorText.c_str());
 
         return false;
     }
