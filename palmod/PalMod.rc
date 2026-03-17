@@ -1028,6 +1028,7 @@ BEGIN
     IDS_TOOLTIP_UPDATE      "Saves the current changes to memory.  ROM is only updated on patch."
     IDS_TOOLTIP_REVERT      "Reverts to the last saved colors. Use CTRL+Z for just the last change."
     IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
+    IDS_TOOLTIP_TRANSFORM   "Apply the selected color transform.  Right-click to change selection."
     IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.raw"
     IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
     IDS_ERROR_FILENOTFOUND_FORMAT 

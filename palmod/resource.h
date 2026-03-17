@@ -47,6 +47,7 @@
 #define IDD_PRPL_IMPORT                 147
 #define IDD_PRPL_EXPORT                 148
 #define IDD_GAMECHOICE                  149
+#define IDS_TOOLTIP_TRANSFORM           150
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -455,7 +456,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        150
+#define _APS_NEXT_RESOURCE_VALUE        151
 #define _APS_NEXT_COMMAND_VALUE         32999
 #define _APS_NEXT_CONTROL_VALUE         1118
 #define _APS_NEXT_SYMED_VALUE           104

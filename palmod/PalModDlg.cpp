@@ -469,6 +469,7 @@ BOOL CPalModDlg::OnInitDialog()
         m_ToolTip.AddTool(GetDlgItem(IDC_BUPDATE), IDS_TOOLTIP_UPDATE);
         m_ToolTip.AddTool(GetDlgItem(IDC_BREVERT), IDS_TOOLTIP_REVERT);
         m_ToolTip.AddTool(GetDlgItem(IDC_BNEWCOL), IDS_TOOLTIP_GETCOLOR);
+        m_ToolTip.AddTool(GetDlgItem(IDC_BTRANSFORM), IDS_TOOLTIP_TRANSFORM);
 
         m_ToolTip.Activate(TRUE);
     }
