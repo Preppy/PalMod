@@ -2542,12 +2542,27 @@ namespace KnownGameInfo
 
     std::vector<CoreGameData> GameRegistry;
 
+    void InitPart1()
+    {
+        GameRegistry = GameRegistryAtoM;
+    }
+
+    void InitPart2()
+    {
+        GameRegistry.insert(GameRegistry.end(), GameRegistryNtoZ.begin(), GameRegistryNtoZ.end());
+    }
+
     void InitializeGameRegistry()
     {
         if (GameRegistry.empty())
         {
-            GameRegistry = GameRegistryAtoM;
-            GameRegistry.insert(GameRegistry.end(), GameRegistryNtoZ.begin(), GameRegistryNtoZ.end());
+            // Giant data set, scope for stack cleanup
+            {
+                InitPart1();
+            }
+            {
+                InitPart2();
+            }
         }
     }
 

@@ -1240,7 +1240,9 @@ const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGam
             }
             else
             {
-                OutputDebugString(L"CGameClass::_GetPaletteSet: uChildType is not set as expected.\r\n");
+                CString strInfo;
+                strInfo.Format(L"CGameClass::_GetPaletteSet: UnitId 0x%02x CollectionId 0x%02x Type %u.  Unexpected type.\r\n", nUnitId, nCollectionId, pCurrentSet[nUnitId].uChildType);
+                OutputDebugString(strInfo.GetString());
             }
         }
     }
@@ -1509,20 +1511,33 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-//#if GAMECLASS_DBG  Don't change this.  This logging needs to be active.
-                // This logging is just another preventative measure to avoid the optimizer crash
+#if GAMECLASS_DBG 
                 strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
-//#endif
+#endif
 
                 const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
                     
                 if (!paletteSetToUse)
                 {
-                    // This is an optimizer-induced failure.  But just adding this error validation path alone seems to kick the optimizer back into working correctly.
-                    // We should never hit this, but with this check it doesn't optimize away the paletteSetTouse variable and we don't crash.  Ugh.
+                    // I'm chasing a failure here.  But just adding this error validation path alone seems to kick things back into working correctly.
+                    // We should never hit this, but with this check it seems to behave more reliably...?
+                    // If you have a repro, you can seem to touch this area lightly and keep a reliable crash.  If you touch _GetPaletteSet the crash goes away.
                     strMsg.Format(L"Critical failure!  Unit: %s.  Unit: 0x%02x.  Collection: 0x%02x.  Attempting to recover.\r\n", pGameUnits ? L"exists" : L"doesn't exist", iUnitCtr, iCollectionCtr);
                     OutputDebugString(strMsg.GetString());
+
+                    if (pGameUnits)
+                    {
+                        const sDescTreeNode* pCurrentSet = reinterpret_cast<const sDescTreeNode*>(pGameUnits[iUnitCtr].ChildNodes);
+                        strMsg.Format(L"Critical failure!  Collection: %s.  Attempting to recover.\r\n", pCurrentSet ? L"exists" : L"doesn't exist");
+                        OutputDebugString(strMsg.GetString());
+
+                        if (pCurrentSet)
+                        {
+                            strMsg.Format(L"Critical failure!  Collection type: %u.  Attempting to recover.\r\n", pCurrentSet[iUnitCtr].uChildType);
+                            OutputDebugString(strMsg.GetString());
+                        }
+                    }
 
                     paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
 
