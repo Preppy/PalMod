@@ -5520,6 +5520,23 @@ const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES_MISC_SPN[] =
     { L"Select Portraits EX",           0xb2dc0, 0xb31c0, indexKOF02UMSprites_Bonus, 0x4e },
 };
 
+const sGame_PaletteDataset KOF02UM_PS2_PSEL_PALETTES_MISC_ENU[] =
+{
+    { L"Background 1",                  0x1c0, 0x5c0, indexKOF02UMSprites_Bonus, 0xbc, &pairNext },
+    { L"Background 2",                  0x105c0, 0x109c0, indexKOF02UMSprites_Bonus, 0xbd },
+    { L"Background Border",             0x30fc0, 0x311c0, indexKOF02UMSprites_Bonus, 0x48 },
+    { L"Character Select Center",       0x619c0, 0x61dc0, indexKOF02UMSprites_Bonus, 0x49 },
+    { L"Selected Character Nameplates", 0x5551c0, 0x5555c0, indexKOF02UMSprites_Bonus, 0x4d },
+    { L"Names 1/2",                     0x411c0, 0x415c0, indexKOF02UMSprites_Bonus, 0x4b },
+    { L"Names 2/2",                     0x515c0, 0x519c0, indexKOF02UMSprites_Bonus, 0x4c },
+    { L"Misc. Text",                    0x30e40, 0x30f40, indexKOF02UMSprites_Bonus, 0x4a },
+    { L"Select Portraits 1",            0x71dc0, 0x721c0, indexKOF02UMSprites_Bonus, 0x40, &pairNext3Palettes },
+    { L"Select Portraits 2",            0x821c0, 0x825c0, indexKOF02UMSprites_Bonus, 0x41 },
+    { L"Select Portraits 3",            0x925c0, 0x929c0, indexKOF02UMSprites_Bonus, 0x42 },
+    { L"Select Portraits 4",            0xa29c0, 0xa2dc0, indexKOF02UMSprites_Bonus, 0x43 },
+    { L"Select Portraits EX",           0xb2dc0, 0xb31c0, indexKOF02UMSprites_Bonus, 0x4e },
+};
+
 const sDescTreeNode KOF02UM_S_PSEL_COLLECTION_ENU[] =
 {
     { L"Big Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES_BIG, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES_BIG) },
@@ -5600,6 +5617,23 @@ const sGame_PaletteDataset KOF02UM_S_RANK_PALETTES_SPN[] =
     { L"Rank Portraits EX and Text",    0x92480, 0x92880, indexKOF02UMSprites_Bonus, 0xb7 },
 };
 
+const sGame_PaletteDataset KOF02UM_PS2_RANK_PALETTES_JPN[] =
+{
+    { L"Background 1",                  0x80, 0x480, indexKOF02UMSprites_Bonus, 0xad, &pairNext },
+    { L"Background 2",                  0x10480, 0x10880, indexKOF02UMSprites_Bonus, 0xae },
+// Merged preview like other screens
+    { L"Borders and Text",              0x20880, 0x20c80, indexKOF02UMSprites_Bonus, 0xc6 },
+    // Single palette for PS2
+    { L"Ranking Text Fade",             0x30c80, 0x31080, indexKOF02UMSprites_Bonus, 0xc7 },
+// Merged Preview for Ranking Text Fades
+    { L"Background Extra",              0x41080, 0x41480, indexKOF02UMSprites_Bonus, 0xaf },
+    { L"Rank Portraits 1",              0x51480, 0x51880, indexKOF02UMSprites_Bonus, 0xb3 },
+    { L"Rank Portraits 2",              0x61880, 0x61c80, indexKOF02UMSprites_Bonus, 0xb4 },
+    { L"Rank Portraits 3",              0x71c80, 0x72080, indexKOF02UMSprites_Bonus, 0xb5 },
+    { L"Rank Portraits 4",              0x82080, 0x82480, indexKOF02UMSprites_Bonus, 0xb6 },
+    { L"Rank Portraits EX and Text",    0x92480, 0x92880, indexKOF02UMSprites_Bonus, 0xb7 },
+};
+
 const sDescTreeNode KOF02UM_S_RANK_COLLECTION_ENU[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANK_PALETTES_ENU, ARRAYSIZE(KOF02UM_S_RANK_PALETTES_ENU) },
@@ -5608,6 +5642,11 @@ const sDescTreeNode KOF02UM_S_RANK_COLLECTION_ENU[] =
 const sDescTreeNode KOF02UM_S_RANK_COLLECTION_SPN[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANK_PALETTES_SPN, ARRAYSIZE(KOF02UM_S_RANK_PALETTES_SPN) },
+};
+
+const sDescTreeNode KOF02UM_PS2_RANK_COLLECTION_JPN[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_RANK_PALETTES_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_PALETTES_JPN) },
 };
 
 const sDescTreeNode KOF02UM_S_UNITS_RANK_ENU[] =
@@ -5670,6 +5709,30 @@ const sGame_PaletteDataset KOF02UM_S_CONT_PALETTES_JPN[] =
     { L"TNM/Service BG 2, Service C/D Selected", 0xf3cc0, 0xf40c0, indexKOF02UMSprites_Bonus, 0x76 },
 // TRY NEXT MATCH and Service Background 2, Service C/D Selected; merged preview for all three hexes.
     { L"Selectable Services",                   0x1040c0, 0x1044c0, indexKOF02UMSprites_Bonus, 0x75 },
+};
+
+const sGame_PaletteDataset KOF02UM_PS2_CONT_PALETTES_JPN[] =
+{
+    { L"Continue Screen 1",                     0xc0, 0x4c0, indexKOF02UMSprites_Bonus, 0x63, &pairNext },
+    { L"Continue Screen 2",                     0x104c0, 0x108c0, indexKOF02UMSprites_Bonus, 0x64 },
+// Merged Preview like other screens
+    { L"Continue/Service Text, Countdown 1",    0x208c0, 0x20cc0, indexKOF02UMSprites_Bonus, 0x65 },
+    { L"GOOD LUCK!, Countdown 2",               0x30cc0, 0x310c0, indexKOF02UMSprites_Bonus, 0x6a },
+    { L"Service Border, Countdown 3",           0x410c0, 0x414c0, indexKOF02UMSprites_Bonus, 0x6e },
+    { L"Service Stuff 1, Countdown 4",          0x514c0, 0x518c0, indexKOF02UMSprites_Bonus, 0x6f },
+    { L"Service Stuff 2, Countdown 5",          0x618c0, 0x61cc0, indexKOF02UMSprites_Bonus, 0x70 },
+    { L"Unselected Service Lines, Countdown 6", 0x71cc0, 0x720c0, indexKOF02UMSprites_Bonus, 0x73 },
+    { L"Selected Service Line,  Countdown 7",   0x820c0, 0x824c0, indexKOF02UMSprites_Bonus, 0x6c },
+    { L"Countdown 8",                           0x924c0, 0x928c0, indexKOF02UMSprites_Bonus, 0x66 },
+    { L"Countdown 9",                           0xa28c0, 0xa2cc0, indexKOF02UMSprites_Bonus, 0x67 },
+// Why so many Countdown-based hexes?
+    { L"GAME OVER Border",                      0xb2cc0, 0xb30c0, indexKOF02UMSprites_Bonus, 0x68 },
+    { L"GAME OVER Center, Service A/B Selected", 0xc30c0, 0xc34c0, indexKOF02UMSprites_Bonus, 0xc0 },
+    { L"TRY NEXT MATCH Background 1",           0xd34c0, 0xd38c0, indexKOF02UMSprites_Bonus, 0x72, &pairNextAndNext },
+    { L"Service Background 1",                  0xe38c0, 0xe3cc0, indexKOF02UMSprites_Bonus, 0x6d },
+    { L"TNM/Service BG 2, Service C/D Selected", 0xf3cc0, 0xf40c0, indexKOF02UMSprites_Bonus, 0xc2 },
+// TRY NEXT MATCH and Service Background 2, Service C/D Selected; merged preview for all three hexes.
+    { L"Selectable Services",                   0x1040c0, 0x1044c0, indexKOF02UMSprites_Bonus, 0xc1 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CONT_PALETTES_PBR[] =
@@ -5738,6 +5801,11 @@ const sDescTreeNode KOF02UM_S_CONT_COLLECTION_PBR[] =
 const sDescTreeNode KOF02UM_S_CONT_COLLECTION_SPN[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_CONT_PALETTES_SPN, ARRAYSIZE(KOF02UM_S_CONT_PALETTES_SPN) },
+};
+
+const sDescTreeNode KOF02UM_PS2_CONT_COLLECTION_JPN[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_CONT_PALETTES_JPN, ARRAYSIZE(KOF02UM_PS2_CONT_PALETTES_JPN) },
 };
 
 const sDescTreeNode KOF02UM_S_UNITS_CONT_ENU[] =
@@ -5845,6 +5913,15 @@ const sGame_PaletteDataset KOF02UM_S_ORDERSELECT_MainStuff_SPN[] =
     { L"Intro Flash Overlay",       0x20900, 0x20d00 },
 };
 
+const sGame_PaletteDataset KOF02UM_PS2_ORDERSELECT_MainStuff_JPN[] =
+{
+    { L"Background",                0x100, 0x500, indexKOF02UMSprites_Bonus, 0x87 },
+    { L"Floor (Selecting)",         0x10500, 0x10900, indexKOF02UMSprites_Bonus, 0x89 },
+    { L"Floor (Selected)",          0x41100, 0x41500, indexKOF02UMSprites_Bonus, 0x88 },
+    { L"Text and Selecting Order",  0x30d00, 0x30f00, indexKOF02UMSprites_Bonus, 0xc3 },
+    { L"Intro Flash Overlay",       0x20900, 0x20d00 },
+};
+
 const sGame_PaletteDataset KOF02UM_S_ORDERSELECT_Portraits[] =
 {
     { L"Kyo and Benimaru",                  0x51500, 0x51900, indexKOF02UMSprites_Bonus, 0x9e },
@@ -5891,6 +5968,12 @@ const sDescTreeNode KOF02UM_S_ORDERSELECT_COLLECTION_ENU[] =
 const sDescTreeNode KOF02UM_S_ORDERSELECT_COLLECTION_SPN[] =
 {
     { L"Main Stuff", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORDERSELECT_MainStuff_SPN, ARRAYSIZE(KOF02UM_S_ORDERSELECT_MainStuff_SPN) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORDERSELECT_Portraits, ARRAYSIZE(KOF02UM_S_ORDERSELECT_Portraits) },
+};
+
+const sDescTreeNode KOF02UM_PS2_ORDERSELECT_COLLECTION_JPN[] =
+{
+    { L"Main Stuff", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_ORDERSELECT_MainStuff_JPN, ARRAYSIZE(KOF02UM_PS2_ORDERSELECT_MainStuff_JPN) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORDERSELECT_Portraits, ARRAYSIZE(KOF02UM_S_ORDERSELECT_Portraits) },
 };
 

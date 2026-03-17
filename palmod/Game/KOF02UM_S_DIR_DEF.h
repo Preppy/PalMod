@@ -2595,473 +2595,608 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai_PS2[] =
 {
-    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mai, -1, &pairNext, &secondaryProcCopyToNext },
-    { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Mai, -1, &pairPrevious },
-};
-
-const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2[] =
-{
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai_PS2) },
+    { L"Special Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Mai, 0x45, &pairNext, &secondaryProcCopyToNext },
+    { L"Special Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Mai, 0x46, &pairPrevious },
 };
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes[] =
 {
     // Use some math here so that we can reuse the Steam victory portrait data
-    { L"Assist Names", 0x200 - 0xD35C0, 0x600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x61 },
-    { L"Stage Winner/Stats Blurb", 0x20a00 - 0xD35C0, 0x20e00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6a },
+//    { L"Assist Names", 0x200 - 0xD35C0, 0x600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x61 },
+  //  { L"Stage Winner/Stats Blurb", 0x20a00 - 0xD35C0, 0x20e00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6a },
+//    { L"Assist Background 1 and Winner Textbox", 0x30e00 - 0xD35C0, 0x31200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x60 },
+  //  { L"Textbox Border/EX Names, Loser Textbox", 0x41200 - 0xD35C0, 0x41600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6b },
+//    { L"Player Score Border", 0x51600 - 0xD35C0, 0x51a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x65 },
+
+    { L"Assist Names",                          0x200 - 0xD35C0, 0x600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x61 },
+    { L"Stage Winner/Stats Blurb",              0x20a00 - 0xD35C0, 0x20e00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6a },
     { L"Assist Background 1 and Winner Textbox", 0x30e00 - 0xD35C0, 0x31200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x60 },
     { L"Textbox Border/EX Names, Loser Textbox", 0x41200 - 0xD35C0, 0x41600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6b },
-    { L"Player Score Border", 0x51600 - 0xD35C0, 0x51a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x65 },
+    { L"Player Score Border",                   0x51600 - 0xD35C0, 0x51a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x65 },
+    { L"Scoring Box/Assist Background 2",       0x61a00 - 0xD35C0, 0x61e00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x66 },
+    { L"Stage Completion Screen",               0x71e00 - 0xD35C0, 0x72200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x67 },
+    { L"Background 1/2",                        0x82200 - 0xD35C0, 0x82600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x63, &pairNext },
+    { L"Background 2/2",                        0x92600 - 0xD35C0, 0x92a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x64, &pairPrevious },
+    { L"Stage Winner Bar",                      0xb2e00 - 0xD35C0, 0xb3200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x68, &pairNext },
+    { L"Stage Winner Border",                   0xc3200 - 0xD35C0, 0xc3600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x69, &pairPrevious },
+
+    { L"Textbox Border Names 1/2",              0x3df600 - 0xD35C0, 0x3dfa00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6c },
+    { L"Textbox Border Names 2/2",              0x3efa00 - 0xD35C0, 0x3efe00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6d },
+    { L"Textbox Border Names EX/Personal Info", 0x420600 - 0xD35C0, 0x420a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6e },
+};
+
+const sGame_PaletteDataset KOF02UM_PS2_VictorySequence_VictoryAssistPortraits[] =
+{
+    { L"Kyo and Benimaru 1/2",                  0x124a00 - 0xE39C0, 0x124e00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x83, &pairNext },
+    { L"Benimaru 2/2 and Daimon",               0x134e00 - 0xE39C0, 0x135200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x71, &pairPrevious },
+    { L"Terry and Andy 1/2",                    0x145200 - 0xE39C0, 0x145600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x97, &pairNext },
+    { L"Andy 2/2 and Joe",                      0x155600 - 0xE39C0, 0x155a00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x6f, &pairPrevious },
+    { L"Athena and Kensou 1/2",                 0x165a00 - 0xE39C0, 0x165e00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x70, &pairNext },
+    { L"Kensou 2/2 and Bao",                    0x175e00 - 0xE39C0, 0x176200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x7d, &pairPrevious },
+    { L"Leona and Ralf 1/2",                    0x186200 - 0xE39C0, 0x186600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x85, &pairNext },
+    { L"Ralf 2/2 and Clark",                    0x196600 - 0xE39C0, 0x196a00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x91, &pairPrevious },
+    { L"K' and Maxima 1/2",                     0x1a6a00 - 0xE39C0, 0x1a6e00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x7c, &pairNext },
+    { L"Maxima 2/2 and Whip",                   0x1b6e00 - 0xE39C0, 0x1b7200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x89, &pairPrevious },
+    { L"Kim and Chang 1/2",                     0x1c7200 - 0xE39C0, 0x1c7600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x7e, &pairNext },
+    { L"Chang 2/2 and Choi",                    0x1d7600 - 0xE39C0, 0x1d7a00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x73, &pairPrevious },
+    { L"Yamazaki and Blue Mary 1/2",            0x1e7a00 - 0xE39C0, 0x1e7e00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x99, &pairNext },
+    { L"Blue Mary 2/2 and Billy",               0x1f7e00 - 0xE39C0, 0x1f8200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x72, &pairPrevious },
+    { L"May Lee and Hinako 1/2",                0x208200 - 0xE39C0, 0x208600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x8a, &pairNext },
+    { L"Hinako 2/2 and Xiangfei",               0x218600 - 0xE39C0, 0x218a00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x78, &pairPrevious },
+    { L"Iori and Mature 1/2",                   0x228a00 - 0xE39C0, 0x228e00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x7a, &pairNext },
+    { L"Mature 2/2 and Vice",                   0x238e00 - 0xE39C0, 0x239200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x88, &pairPrevious },
+    { L"Ryo and Robert 1/2",                    0x249200 - 0xE39C0, 0x249600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x93, &pairNext },
+    { L"Robert 2/2 and Yuri",                   0x259600 - 0xE39C0, 0x259a00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x92, &pairPrevious },
+    { L"Vanessa and Seth 1/2",                  0x269a00 - 0xE39C0, 0x269e00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x98, &pairNext },
+    { L"Seth 2/2 and Ramon",                    0x279e00 - 0xE39C0, 0x27a200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x94, &pairPrevious },
+    { L"Yashiro and Shermie 1/2",               0x28a200 - 0xE39C0, 0x28a600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x9a, &pairNext },
+    { L"Shermie 2/2 and Chris",                 0x29a600 - 0xE39C0, 0x29aa00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x95, &pairPrevious },
+    { L"Kula and Foxy 1/2",                     0x2aaa00 - 0xE39C0, 0x2aae00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x81, &pairNext },
+    { L"Foxy 2/2 and Angel",                    0x2bae00 - 0xE39C0, 0x2bb200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x75, &pairPrevious },
+    { L"Jhun Hoon and Lin 1/2",                 0x2cb200 - 0xE39C0, 0x2cb600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x7b, &pairNext },
+    { L"Lin 2/2 and Shingo",                    0x2db600 - 0xE39C0, 0x2dba00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x86, &pairPrevious },
+    { L"Heidern and Takuma 1/2",                0x2eba00 - 0xE39C0, 0x2ebe00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x77, &pairNext },
+    { L"Takuma 2/2 and Chin",                   0x2fbe00 - 0xE39C0, 0x2fc200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x96, &pairPrevious },
+    { L"King and Mai 1/2",                      0x30c200 - 0xE39C0, 0x30c600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x7f, &pairNext },
+    { L"Mai 2/2 and Kasumi",                    0x31c600 - 0xE39C0, 0x31ca00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x87, &pairPrevious },
+    { L"KUSANAGI and Kyo-1 1/2",                0x32ca00 - 0xE39C0, 0x32ce00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x82, &pairNext },
+    { L"Kyo-1 1/2 and Kyo-2",                   0x33ce00 - 0xE39C0, 0x33d200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x84, &pairPrevious },
+    { L"Nameless and Goenitz 1/2",              0x34d200 - 0xE39C0, 0x34d600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x8b, &pairNext },
+    { L"Goenitz 2/2 and Geese",                 0x35d600 - 0xE39C0, 0x35da00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x76, &pairPrevious },
+    { L"Krizalid and Clone Zero 1/2",           0x36da00 - 0xE39C0, 0x36de00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x80, &pairNext },
+    { L"Clone Zero 2/2 and Original Zero",      0x37de00 - 0xE39C0, 0x37e200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x74, &pairPrevious },
+    { L"Igniz and Omega Rugal 1/2",             0x38e200 - 0xE39C0, 0x38e600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x79, &pairNext },
+    { L"Omega Rugal 2/2 and Orochi Yashiro",    0x39e600 - 0xE39C0, 0x39ea00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x8d, &pairPrevious },
+    { L"Orochi Shermie and Orochi Chris 1/2",   0x3aea00 - 0xE39C0, 0x3aee00 - 0xE39C0, indexKOF02UMSprites_Extras, 0x90, &pairNext },
+    { L"Orochi Chris 2/2",                      0x3bee00 - 0xE39C0, 0x3bf200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x8e, &pairPrevious },
+    { L"Nightmare Geese",                       0x3cf200 - 0xE39C0, 0x3cf600 - 0xE39C0, indexKOF02UMSprites_Extras, 0x8c },
+    { L"Orochi Leona (Unused)",                 0x440e00 - 0xE39C0, 0x441200 - 0xE39C0, indexKOF02UMSprites_Extras, 0x8f },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Andy[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Andy, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Andy) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Angel[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Angel, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Angel) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Athena[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Athena, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Athena) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Bao, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Bao) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Benimaru[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Benimaru, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Benimaru) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Billy[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Billy, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Billy) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_BlueMary[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_BlueMary, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_BlueMary) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Chang[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chang, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chang) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Chin[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chin, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chin) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Choi[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Choi, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Choi) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Chris[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chris, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Chris) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ChrisOChi) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Clark[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Clark, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Clark) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_CloneZero[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_CloneZero, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_CloneZero) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Daimon[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Daimon, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Daimon) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Foxy[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Foxy, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Foxy) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Geese[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Geese, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Geese) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_GeeseNM[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_GeeseNM, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_GeeseNM) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Goenitz[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Goenitz, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Goenitz) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Heidern[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Heidern, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Heidern) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Hinako[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Hinako, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Hinako) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Igniz[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Igniz, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Igniz) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Iori[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Iori, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Iori) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Jhun[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Jhun, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Jhun) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Joe[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Joe, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Joe) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_K[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_K, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_K) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_K9999[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_K9999, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_K9999) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Kasumi[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kasumi, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kasumi) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Kensou[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kensou, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kensou) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KensouEX[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_KensouEX, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_KensouEX) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Kim[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kim, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kim) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_King[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_King, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_King) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Krizalid[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Krizalid, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Krizalid) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Kula[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kula, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kula) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Kusanagi[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kusanagi, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kusanagi) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_KyoKusa) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Kyo1[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kyo1, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kyo1) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Kyo2[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kyo2, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kyo2) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Leona[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Leona, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Leona) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Lin[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Lin, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Lin) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Mai[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Mai, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Mai) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Mature[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Mature, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Mature) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Maxima[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Maxima, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Maxima) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_MayLee[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_MayLee, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_MayLee) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Nameless[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Nameless, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Nameless) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_OmegaRugal[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_OmegaRugal, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_OmegaRugal) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Ralf[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ralf, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ralf) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Ramon[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ramon, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ramon) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Robert[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Robert, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Robert) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_RobertEX[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_RobertEX, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_RobertEX) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Ryo[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ryo, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Ryo) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Seth[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Seth, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Seth) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Shermie[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Shermie, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Shermie) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ShermieOChi[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ShermieOChi, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ShermieOChi) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Shingo[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Shingo, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Shingo) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Takuma[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Takuma, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Takuma) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_TakumaEX[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_TakumaEX, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_TakumaEX) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Terry[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Terry, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Terry) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Vanessa[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Vanessa, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Vanessa) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Vice[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Vice, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Vice) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Whip[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Whip, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Whip) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Xiangfei[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Xiangfei, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Xiangfei) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Yamazaki[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yamazaki, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yamazaki) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Yashiro[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yashiro, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yashiro) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_YashiroOChi[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_YashiroOChi, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_YashiroOChi) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Yuri[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yuri, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Yuri) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ZeroOG[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ZeroOG, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_ZeroOG) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Leona) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_MayLee) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Kula) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Nameless) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi[] =
 {
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Kasumi) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
 
 const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai[] =
 {
-    { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai) },
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
-};
-
-const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2[] =
-{
     { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai_PS2) },
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
 };
+
+const sDescTreeNode KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old[] =
+{
+    { L"Victory Portrait", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes, ARRAYSIZE(KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_VictorySequence_VictoryAssistPortraits, ARRAYSIZE(KOF02UM_PS2_VictorySequence_VictoryAssistPortraits) },
+};
+
+
 
 const sGame_PaletteDataset KOF02UM_PS2_COMMAND_PALETTES[] =
 {
-    { L"HUD and Buttons", 0x80, 0x480 },
-    { L"Text", 0x10480, 0x10880 },
+    { L"HUD and Buttons", 0x80, 0x480, indexKOF02UMSprites_Bonus, 0xbe },
+    { L"Text", 0x10480, 0x10880, indexKOF02UMSprites_Bonus, 0xbf },
 };
 
 const sDescTreeNode KOF02UM_PS2_COMMAND_COLLECTION[] =
@@ -3071,13 +3206,20 @@ const sDescTreeNode KOF02UM_PS2_COMMAND_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_PS2_PRACTICE_PALETTES[] =
 {
-    { L"Text", 0x80, 0x480 },
-    { L"Overlay and Buttons", 0x10480, 0x10880 },
+    { L"Text", 0x80, 0x480, indexKOF02UMSprites_Bonus, 0xc5 },
+    { L"Overlay and Buttons", 0x10480, 0x10880, indexKOF02UMSprites_Bonus, 0xc4 },
 };
 
 const sDescTreeNode KOF02UM_PS2_PRACTICE_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_PRACTICE_PALETTES, ARRAYSIZE(KOF02UM_PS2_PRACTICE_PALETTES) },
+};
+
+const sDescTreeNode KOF02UM_PS2_PSEL_COLLECTION_JPN[] =
+{
+    { L"Big Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES_BIG, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES_BIG) },
+    { L"Select Icons", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES_SELICON_ENU, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES_SELICON_ENU) },
+    { L"Misc", DESC_NODETYPE_TREE, (void*)KOF02UM_PS2_PSEL_PALETTES_MISC_ENU, ARRAYSIZE(KOF02UM_PS2_PSEL_PALETTES_MISC_ENU) },
 };
 
 const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_BGR555_UNITS =
@@ -3232,16 +3374,16 @@ const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_8887_UNITS =
 
 const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
 {
-    { L"data\\demo\\psel.bin",  0x56ef34,    L"Character Select", KOF02UM_S_PSEL_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_PSEL_COLLECTION_ENU) },
-    { L"data\\demo\\osel.bin",  0x28cbba,   L"Order Select",    KOF02UM_S_ORDERSELECT_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_ORDERSELECT_COLLECTION_ENU) },
-    { L"data\\demo\\cont.bin",  0x13121e,    L"Continue Screen", KOF02UM_S_CONT_COLLECTION_JPN, ARRAYSIZE(KOF02UM_S_CONT_COLLECTION_JPN) },
+    { L"data\\demo\\psel.bin",  0x56ef34,    L"Character Select", KOF02UM_PS2_PSEL_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_PSEL_COLLECTION_JPN) },
+    { L"data\\demo\\osel.bin",  0x28cbba,   L"Order Select",    KOF02UM_PS2_ORDERSELECT_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_ORDERSELECT_COLLECTION_JPN) },
+    { L"data\\demo\\cont.bin",  0x13121e,    L"Continue Screen", KOF02UM_PS2_CONT_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_CONT_COLLECTION_JPN) },
     { L"data\\demo\\rank.bin",  769318,     L"Rankings (Idle Screen)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
 
-        // Not correct? { L"data\\menu\\rank.bin",    0x15bb6a,    L"Rankings Menu", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_A.bin",  0xa4e7a,     L"Rankings (Arcade, Team)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_C.bin",  0xa55ca,     L"Rankings (Character Usage)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_E.bin",  0xa4bf2,     L"Rankings (Endless Mode)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_S.bin",  0xa4e7a,     L"Rankings (Arcade, Single)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
+        // Not correct? { L"data\\menu\\rank.bin",    0x15bb6a,    L"Rankings Menu", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_A.bin",  0xa4e7a,     L"Rankings (Arcade, Team)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_C.bin",  0xa55ca,     L"Rankings (Character Usage)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_E.bin",  0xa4bf2,     L"Rankings (Endless Mode)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_S.bin",  0xa4e7a,     L"Rankings (Arcade, Single)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
     { L"data\\menu\\clear.bin",     137422, L"Clear",           KOF02UM_S_CLEAR_COLLECTION, ARRAYSIZE(KOF02UM_S_CLEAR_COLLECTION)},
     { L"data\\menu\\command.bin",   0x26a56, L"Command Change",   KOF02UM_PS2_COMMAND_COLLECTION, ARRAYSIZE(KOF02UM_PS2_COMMAND_COLLECTION)},
     { L"data\\menu\\practice.bin",  0x24310, L"Practice Overlay", KOF02UM_PS2_PRACTICE_COLLECTION, ARRAYSIZE(KOF02UM_PS2_PRACTICE_COLLECTION)},
@@ -3249,11 +3391,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
     { L"data\\vic\\mess_r.dat", 167770, L"Win Quotes Text: Japanese Win", KOF02UM_S_WINQUOTES_COLLECTION_JPN, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_JPN) },
     { L"data\\vic\\mess.dat",   167770, L"Win Quotes Text: Japanese Loss", KOF02UM_S_WINQUOTES_COLLECTION_JPN, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_JPN) },
 
+    // unused
     //{ L"data\\vic\\vic0_00.bin-n", 0x479bae, L"Victory Screens: Arcade Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic1_00.bin", 0x4680f6, L"Victory Screens: Arcade Mode (Loss)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic3_00.bin", 0x468c12, L"Victory Screens: Arcade Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic2_00.bin", 0x468d1a, L"Victory Screens: VS Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic4_00.bin", 0x46814a, L"Victory Screens: VS Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic1_00.bin", 0x4680f6, L"Victory Screens: Arcade Mode (Loss)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic3_00.bin", 0x468c12, L"Victory Screens: Arcade Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic2_00.bin", 0x468d1a, L"Victory Screens: VS Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic4_00.bin", 0x46814a, L"Victory Screens: VS Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
 
     { L"data\\vic\\vic0_00.bin", 0x4697de, L"Kyo Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
     { L"data\\vic\\vic0_01.bin", 0x4697de, L"Benimaru Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Benimaru, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Benimaru), 0xD35C0 },
@@ -3324,12 +3467,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
     { L"data\\vic\\vic0_42.bin", 0x4697de, L"Orochi Chris Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic0_43.bin", 0x4697de, L"Leona Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic0_44.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic0_44.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     { L"data\\vic\\vic0_45.bin", 0x4697de, L"May Lee Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic0_46.bin", 0x4697de, L"Kula Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic0_47.bin", 0x4697de, L"Nameless Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic0_48.bin", 0x4697de, L"Kasumi Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic0_49.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic0_49.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     //{ L"data\\vic\\vic0_4A.bin-n", 0x4697de, L"Bao (Unused) Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic1_00.bin", 0x4680f6, L"Kyo Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -3401,12 +3544,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
     { L"data\\vic\\vic1_42.bin", 0x4680f6, L"Orochi Chris Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic1_43.bin", 0x4680f6, L"Leona Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic1_44.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic1_44.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     { L"data\\vic\\vic1_45.bin", 0x4680f6, L"May Lee Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic1_46.bin", 0x4680f6, L"Kula Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic1_47.bin", 0x4680f6, L"Nameless Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic1_48.bin", 0x4680f6, L"Kasumi Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic1_49.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic1_49.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     //{ L"data\\vic\\vic1_4A.bin-n", 0x4680f6, L"Bao (Unused) Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic2_00.bin", 0x468d1a, L"Kyo Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -3478,12 +3621,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
     { L"data\\vic\\vic2_42.bin", 0x468d1a, L"Orochi Chris Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic2_43.bin", 0x468d1a, L"Leona Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic2_44.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic2_44.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     { L"data\\vic\\vic2_45.bin", 0x468d1a, L"May Lee Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic2_46.bin", 0x468d1a, L"Kula Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic2_47.bin", 0x468d1a, L"Nameless Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic2_48.bin", 0x468d1a, L"Kasumi Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic2_49.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic2_49.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     //{ L"data\\vic\\vic2_4A.bin-n", 0x468d1a, L"Bao (Unused) Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic3_00.bin", 0x468c12, L"Kyo Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -3555,12 +3698,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
     { L"data\\vic\\vic3_42.bin", 0x468c12, L"Orochi Chris Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic3_43.bin", 0x468c12, L"Leona Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic3_44.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic3_44.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     { L"data\\vic\\vic3_45.bin", 0x468c12, L"May Lee Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic3_46.bin", 0x468c12, L"Kula Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic3_47.bin", 0x468c12, L"Nameless Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic3_48.bin", 0x468c12, L"Kasumi Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic3_49.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic3_49.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     //{ L"data\\vic\\vic3_4A.bin-n", 0x468c12, L"Bao (Unused) Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic4_00.bin", 0x46814a, L"Kyo Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -3632,12 +3775,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
     { L"data\\vic\\vic4_42.bin", 0x46814a, L"Orochi Chris Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic4_43.bin", 0x46814a, L"Leona Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic4_44.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic4_44.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     { L"data\\vic\\vic4_45.bin", 0x46814a, L"May Lee Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic4_46.bin", 0x46814a, L"Kula Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic4_47.bin", 0x46814a, L"Nameless Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic4_48.bin", 0x46814a, L"Kasumi Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic4_49.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic4_49.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     //{ L"data\\vic\\vic4_4A.bin-n", 0x46814a, L"Bao (Unused) Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\bg_bin\\bga0.bin", 0x2514c0, L"Japan High School Stage", KOF02UM_PS2_STAGES_COLLECTION_JAPAN, ARRAYSIZE(KOF02UM_PS2_STAGES_COLLECTION_JAPAN) },
@@ -3670,16 +3813,16 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS =
 
 const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS_TOUGEKI =
 {
-    { L"data\\demo\\psel.bin",  0x56ef34,    L"Character Select", KOF02UM_S_PSEL_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_PSEL_COLLECTION_ENU) },
-    { L"data\\demo\\osel.bin",  0x28cbba,   L"Order Select",    KOF02UM_S_ORDERSELECT_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_ORDERSELECT_COLLECTION_ENU) },
-    { L"data\\demo\\cont.bin",  0x13121e,    L"Continue Screen", KOF02UM_S_CONT_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_CONT_COLLECTION_ENU) },
+    { L"data\\demo\\psel.bin",  0x56ef34,    L"Character Select", KOF02UM_PS2_PSEL_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_PSEL_COLLECTION_JPN) },
+    { L"data\\demo\\osel.bin",  0x28cbba,   L"Order Select",    KOF02UM_PS2_ORDERSELECT_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_ORDERSELECT_COLLECTION_JPN) },
+    { L"data\\demo\\cont.bin",  0x13121e,    L"Continue Screen", KOF02UM_PS2_CONT_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_CONT_COLLECTION_JPN) },
     { L"data\\demo\\rank.bin",  769318,     L"Rankings (Idle Screen)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
 
-        // Not correct? { L"data\\menu\\rank.bin",    0x15bb6a,    L"Rankings Menu", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_A.bin",  0xa4e7a,     L"Rankings (Arcade, Team)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_C.bin",  0xa55ca,     L"Rankings (Character Usage)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_E.bin",  0xa4bf2,     L"Rankings (Endless Mode)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
-        { L"data\\menu\\rank_S.bin",  0xa4e7a,     L"Rankings (Arcade, Single)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
+        // Not correct? { L"data\\menu\\rank.bin",    0x15bb6a,    L"Rankings Menu", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_A.bin",  0xa4e7a,     L"Rankings (Arcade, Team)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_C.bin",  0xa55ca,     L"Rankings (Character Usage)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_E.bin",  0xa4bf2,     L"Rankings (Endless Mode)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+        { L"data\\menu\\rank_S.bin",  0xa4e7a,     L"Rankings (Arcade, Single)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
     { L"data\\menu\\clear.bin",     137422, L"Clear",           KOF02UM_S_CLEAR_COLLECTION, ARRAYSIZE(KOF02UM_S_CLEAR_COLLECTION)},
     { L"data\\menu\\command.bin",   0x26a56, L"Command Change",   KOF02UM_PS2_COMMAND_COLLECTION, ARRAYSIZE(KOF02UM_PS2_COMMAND_COLLECTION)},
     { L"data\\menu\\practice.bin",  0x24310, L"Practice Overlay", KOF02UM_PS2_PRACTICE_COLLECTION, ARRAYSIZE(KOF02UM_PS2_PRACTICE_COLLECTION)},
@@ -3687,11 +3830,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS_TOUGEKI =
     { L"data\\vic\\mess_r.dat", 0x28f58, L"Win Quotes Text: Japanese Win", KOF02UM_S_WINQUOTES_COLLECTION_JPN, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_JPN) },
     { L"data\\vic\\mess.dat",   0x28f58, L"Win Quotes Text: Japanese Loss", KOF02UM_S_WINQUOTES_COLLECTION_JPN, ARRAYSIZE(KOF02UM_S_WINQUOTES_COLLECTION_JPN) },
 
+    // unused
     //{ L"data\\vic\\vic0_00.bin-n", 0x479bae, L"Victory Screens: Arcade Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic1_00.bin", 0x4680f6, L"Victory Screens: Arcade Mode (Loss)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic3_00.bin", 0x468c12, L"Victory Screens: Arcade Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic2_00.bin", 0x468d1a, L"Victory Screens: VS Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
-    { L"data\\vic\\vic4_00.bin", 0x46814a, L"Victory Screens: VS Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic1_00.bin", 0x4680f6, L"Victory Screens: Arcade Mode (Loss)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic3_00.bin", 0x468c12, L"Victory Screens: Arcade Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic2_00.bin", 0x468d1a, L"Victory Screens: VS Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
+    //{ L"data\\vic\\vic4_00.bin", 0x46814a, L"Victory Screens: VS Mode (Single)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },
 
     { L"data\\vic\\vic0_00.bin", 0x4697de, L"Kyo Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
     { L"data\\vic\\vic0_01.bin", 0x4697de, L"Benimaru Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Benimaru, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Benimaru), 0xD35C0 },
@@ -3762,12 +3906,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS_TOUGEKI =
     { L"data\\vic\\vic0_42.bin", 0x4697de, L"Orochi Chris Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic0_43.bin", 0x4697de, L"Leona Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic0_44.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic0_44.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     { L"data\\vic\\vic0_45.bin", 0x4697de, L"May Lee Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic0_46.bin", 0x4697de, L"Kula Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic0_47.bin", 0x4697de, L"Nameless Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic0_48.bin", 0x4697de, L"Kasumi Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic0_49.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic0_49.bin", 0x4697de, L"Mai Special Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     //{ L"data\\vic\\vic0_4A.bin-n", 0x4697de, L"Bao (Unused) Victory portraits (Arcade Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic1_00.bin", 0x4680f6, L"Kyo Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -3839,12 +3983,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS_TOUGEKI =
     { L"data\\vic\\vic1_42.bin", 0x4680f6, L"Orochi Chris Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic1_43.bin", 0x4680f6, L"Leona Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic1_44.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic1_44.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     { L"data\\vic\\vic1_45.bin", 0x4680f6, L"May Lee Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic1_46.bin", 0x4680f6, L"Kula Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic1_47.bin", 0x4680f6, L"Nameless Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic1_48.bin", 0x4680f6, L"Kasumi Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic1_49.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic1_49.bin", 0x4680f6, L"Mai Special Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     //{ L"data\\vic\\vic1_4A.bin-n", 0x4680f6, L"Bao (Unused) Victory portraits (Arcade Mode, Loss)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic2_00.bin", 0x468d1a, L"Kyo Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -3916,12 +4060,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS_TOUGEKI =
     { L"data\\vic\\vic2_42.bin", 0x468d1a, L"Orochi Chris Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic2_43.bin", 0x468d1a, L"Leona Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic2_44.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic2_44.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     { L"data\\vic\\vic2_45.bin", 0x468d1a, L"May Lee Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic2_46.bin", 0x468d1a, L"Kula Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic2_47.bin", 0x468d1a, L"Nameless Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic2_48.bin", 0x468d1a, L"Kasumi Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic2_49.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic2_49.bin", 0x468d1a, L"Mai Special Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     //{ L"data\\vic\\vic2_4A.bin-n", 0x468d1a, L"Bao (Unused) Victory portraits (VS Mode, Team)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic3_00.bin", 0x468c12, L"Kyo Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -3993,12 +4137,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS_TOUGEKI =
     { L"data\\vic\\vic3_42.bin", 0x468c12, L"Orochi Chris Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic3_43.bin", 0x468c12, L"Leona Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic3_44.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic3_44.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     { L"data\\vic\\vic3_45.bin", 0x468c12, L"May Lee Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic3_46.bin", 0x468c12, L"Kula Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic3_47.bin", 0x468c12, L"Nameless Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic3_48.bin", 0x468c12, L"Kasumi Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic3_49.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic3_49.bin", 0x468c12, L"Mai Special Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai), 0xD35C0 },
     //{ L"data\\vic\\vic3_4A.bin-n", 0x468c12, L"Bao (Unused) Victory portraits (Arcade Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\vic\\vic4_00.bin", 0x46814a, L"Kyo Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_KyoKusa), 0xD35C0 },
@@ -4070,12 +4214,12 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_8887_UNITS_TOUGEKI =
     { L"data\\vic\\vic4_42.bin", 0x46814a, L"Orochi Chris Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_ChrisOChi), 0xD35C0 },
 
     { L"data\\vic\\vic4_43.bin", 0x46814a, L"Leona Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Leona), 0xD35C0 },
-    { L"data\\vic\\vic4_44.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    { L"data\\vic\\vic4_44.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     { L"data\\vic\\vic4_45.bin", 0x46814a, L"May Lee Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_MayLee), 0xD35C0 },
     { L"data\\vic\\vic4_46.bin", 0x46814a, L"Kula Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kula), 0xD35C0 },
     { L"data\\vic\\vic4_47.bin", 0x46814a, L"Nameless Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Nameless), 0xD35C0 },
     { L"data\\vic\\vic4_48.bin", 0x46814a, L"Kasumi Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Kasumi), 0xD35C0 },
-    //{ L"data\\vic\\vic4_49.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_PS2), 0xD35C0 },
+    //{ L"data\\vic\\vic4_49.bin", 0x46814a, L"Mai Special Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_SPECIALVICTORY_Mai_Old), 0xD35C0 },
     //{ L"data\\vic\\vic4_4A.bin-n", 0x46814a, L"Bao (Unused) Victory portraits (VS Mode, Single)", KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao, ARRAYSIZE(KOF02UM_PS2_PORTRAIT_COLLECTION_VICTORY_Bao), 0xD35C0 },
 
     { L"data\\bg_bin\\bga0.bin", 0x2514c0, L"Japan High School Stage", KOF02UM_PS2_STAGES_COLLECTION_JAPAN, ARRAYSIZE(KOF02UM_PS2_STAGES_COLLECTION_JAPAN) },
