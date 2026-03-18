@@ -109,16 +109,23 @@ void CGame_MVC2_D::InitializeStatics()
 
 void CGame_MVC2_D::_Ensure16ColorMoveDescriptions()
 {
-    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman) = MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART1;
-    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman).insert(MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman).end(),
-                                                            MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART2.begin(),
-                                                            MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART2.end());
-
-
-    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll) = MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART1;
-    MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll).insert(MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll).end(),
-                                                                MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART2.begin(),
-                                                                MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART2.end());
+    // Dealing with large data: scope.
+    {
+        MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman) = MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART1;
+    }
+    {
+        MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman).insert(MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2AMegaman).end(),
+                                                                    MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART2.begin(),
+                                                                    MVC2_16COLOR_MOVE_DESCRIPTIONS_MEGAMAN_PART2.end());
+    }
+    {
+        MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll) = MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART1;
+    }
+    {
+        MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll).insert(MVC2_16COLOR_MOVE_DESCRIPTIONS.at(indexMVC2ARoll).end(),
+                                                                    MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART2.begin(),
+                                                                    MVC2_16COLOR_MOVE_DESCRIPTIONS_ROLL_PART2.end());
+    }
 }
 
 void CGame_MVC2_D::SetNumberOfColorOptions(MvC2_NumberOfColors nColorOptions)
