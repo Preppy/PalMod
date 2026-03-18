@@ -276,15 +276,19 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
     return m_currentEffectState;
 }
 
-bool GetDropLayerFromFileName(std::wstring strFileName, UINT& iLayerToDropTo)
+bool GetDropLayerFromFileName(const std::wstring strFileName, UINT& iLayerToDropTo)
 {
     const std::wstring strLayerToken = L"-layer-";
     bool fSuccess = false;
 
-    auto token_offset = strFileName.find(strLayerToken);
+    // compare as lower case
+    std::wstring strFileNameAsLower = strFileName;
+    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::tolower);
+
+    auto token_offset = strFileNameAsLower.find(strLayerToken);
     if (token_offset != std::string::npos)
     {
-        std::wstring strPostToken = strFileName.substr(token_offset + strLayerToken.length());
+        std::wstring strPostToken = strFileNameAsLower.substr(token_offset + strLayerToken.length());
         const int result = _stscanf_s(strPostToken.c_str(), L"%u", &iLayerToDropTo);
 
         if (result == 1)
