@@ -3057,4 +3057,17 @@ enum SupportedOther_SpriteListIndex
     indexUMK3ArcadeSprites_Bonus,       // 0xf5
 
     indexDaemonBrideSprites_Bonus,      // 0xf6
+
+    indexMK1ArcadeSprites_Goro,         // 0xf7
+    indexMK1ArcadeSprites_JohnnyCage,   // 0xf8
+    indexMK1ArcadeSprites_Kano,         // 0xf9
+    indexMK1ArcadeSprites_LiuKang,      // 0xfa
+    indexMK1ArcadeSprites_Raiden,       // 0xfb
+    indexMK1ArcadeSprites_Reptile,      // 0xfc
+    indexMK1ArcadeSprites_Scorpion,     // 0xfd
+    indexMK1ArcadeSprites_ShangTsung,   // 0xfe
+    indexMK1ArcadeSprites_Sonya,        // 0xff
+    indexMK1ArcadeSprites_SubZero,      // 0x100
+    indexMK1ArcadeSprites_Stages,       // 0x101
+    indexMK1ArcadeSprites_Bonus,        // 0x102
 };

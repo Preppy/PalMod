@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_MK1_A.h"
 
-CGame_MK1_A::MK1ALoadingKey CGame_MK1_A::m_eVersionToLoad = MK1ALoadingKey::Base;
+CGame_MK1_A::MK1ALoadingKey CGame_MK1_A::m_eVersionToLoad = MK1ALoadingKey::OldBase;
 
 void CGame_MK1_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
@@ -9,8 +9,8 @@ void CGame_MK1_A::SetSpecialRuleForFileName(std::wstring strFileName)
     {
         // these should be all lower case
         { L"l5_mortal_kombat_t-unit_uj12_game_rom.uj12", MK1ALoadingKey::V50Alt },
-        { L"mkg-u112.rom", MK1ALoadingKey::V30Alt },
-        { L"mkt-uj12.bin", MK1ALoadingKey::Base },
+        { L"mkg-u112.rom", MK1ALoadingKey::OldV30Alt },
+        { L"mkt-uj12.bin", MK1ALoadingKey::OldBase },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();
@@ -24,7 +24,7 @@ void CGame_MK1_A::SetSpecialRuleForFileName(std::wstring strFileName)
     }
     else
     {
-        m_eVersionToLoad = MK1ALoadingKey::V30Alt;
+        m_eVersionToLoad = MK1ALoadingKey::OldV30Alt;
     }
 
     return;
@@ -34,16 +34,16 @@ CGame_MK1_A::CGame_MK1_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eVersionToLoad)
     {
-    case MK1ALoadingKey::Base:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_Base);
-        break;
-    case MK1ALoadingKey::V30Alt:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_V30YAlt);
-        break;
-    case MK1ALoadingKey::V50Alt:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_V50TAlt);
-        break;
+        case MK1ALoadingKey::OldBase:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_OldBase);
+            break;
+        case MK1ALoadingKey::OldV30Alt:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_OldV30YAlt);
+            break;
+        case MK1ALoadingKey::V50Alt:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_V50TAlt);
+            break;
     }
 }
 
@@ -51,12 +51,12 @@ sFileRule CGame_MK1_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eVersionToLoad)
     {
-    case MK1ALoadingKey::Base:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Base);
-    case MK1ALoadingKey::V30Alt:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_V30YAlt);
-    case MK1ALoadingKey::V50Alt:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_V50TAlt);
+        case MK1ALoadingKey::OldBase:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_OldBase);
+        case MK1ALoadingKey::OldV30Alt:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_OldV30YAlt);
+        case MK1ALoadingKey::V50Alt:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_V50TAlt);
     }
 }

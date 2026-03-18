@@ -7,8 +7,8 @@ class CGame_MK1_A : public CGameClassByDir
 private:
     enum class MK1ALoadingKey
     {
-        Base,
-        V30Alt,
+        OldBase,
+        OldV30Alt,
         V50Alt,
     };
 
@@ -59,8 +59,11 @@ private:
     // TurboNinjaTUnit-03-19-93Hack
     //      kombo-rom-ug-12.bin
     //      kombo-rom-uj-12.bin
+    
+    // Note that all the above names are the old first generation ROM rips.  The 
+    // new / current ROM rips all have filenames of form l1_mortal_kombat_game_* or so.
 
-    static inline const sDirectoryLoadingData m_sFileLoadingData_Base =
+    static inline const sDirectoryLoadingData m_sFileLoadingData_OldBase =
     {
         {
             { L"mkt-uj12.bin", 0x80000 },
@@ -69,7 +72,7 @@ private:
         FileReadType::Interleaved_2FileSets,
     };
 
-    static inline const sDirectoryLoadingData m_sFileLoadingData_V30YAlt =
+    static inline const sDirectoryLoadingData m_sFileLoadingData_OldV30YAlt =
     {
         {
             // We do not know where the colors for this version are stored:
@@ -92,14 +95,14 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Mortal Kombat (Midway Arcade)", L"mkt-uj12.bin", 0xf4990bf2, 0 },
-        { L"Mortal Kombat (rev 3.0 Y-Unit 08/31/92)", L"mkg-u111.rom", 0, 0 },
+        { L"Mortal Kombat (Midway Arcade Old Rip)", L"mkt-uj12.bin", 0xf4990bf2, 0 },
+        { L"Mortal Kombat (rev 3.0 Y-Unit 08/31/92 Old Rip)", L"mkg-u111.rom", 0, 0 },
         { L"Mortal Kombat (rev 5.0 T-Unit 03/19/93)", L"l5_mortal_kombat_t-unit_uj12_game_rom.uj12", 0xf4990bf2, 0 },
     };
 
-    const sCoreGameData m_sCoreGameData_Base
+    const sCoreGameData m_sCoreGameData_OldBase
     {
-        L"Mortal Kombat (Midway Arcade)",
+        L"Mortal Kombat (Midway Arcade Old Rip)",
         MK1_A,
         IMGDAT_SECTION_OTHER,
         MK1_A_IMGIDS_USED,
@@ -108,18 +111,18 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
-        m_sFileLoadingData_Base,
+        m_sFileLoadingData_OldBase,
         m_rgCRC32Data,
         MK1_A_UNITS,
         ARRAYSIZE(MK1_A_UNITS),
         L"MK1_A_E.txt",             // Extra filename
-        31,                         // Count of palettes listed in the header
+        66,                         // Count of palettes listed in the header
         0x907ce,                    // Lowest known location used for palettes
     };
 
-    const sCoreGameData m_sCoreGameData_V30YAlt
+    const sCoreGameData m_sCoreGameData_OldV30YAlt
     {
-        L"Mortal Kombat (rev 3.0 Y-Unit 08/31/92)",
+        L"Mortal Kombat (rev 3.0 Y-Unit 08/31/92 Old Rip)",
         MK1_A,
         IMGDAT_SECTION_OTHER,
         MK1_A_IMGIDS_USED,
@@ -128,12 +131,12 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE,
-        m_sFileLoadingData_V30YAlt,
+        m_sFileLoadingData_OldV30YAlt,
         m_rgCRC32Data,
         MK1_A_UNITS,
         ARRAYSIZE(MK1_A_UNITS),
         L"MK1_A_E.txt",             // Extra filename
-        31,                         // Count of palettes listed in the header
+        66,                         // Count of palettes listed in the header
         0x907ce,                    // Lowest known location used for palettes
     }; 
     
@@ -153,7 +156,7 @@ private:
         MK1_A_UNITS,
         ARRAYSIZE(MK1_A_UNITS),
         L"MK1_A_E.txt",             // Extra filename
-        31,                         // Count of palettes listed in the header
+        66,                         // Count of palettes listed in the header
         0x907ce,                    // Lowest known location used for palettes
     };
 
