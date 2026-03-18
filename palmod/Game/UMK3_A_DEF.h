@@ -280,6 +280,25 @@ const sGame_PaletteDataset UMK3_A_RAIN_PALETTES[] =
     { L"Rain", 0x67658, 0x676d8, indexUMK3ArcadeSprites_Rain  },
 };
 
+const sGame_PaletteDataset UMK3_A_BONUS_PALETTES_FROZEN[] =
+{
+    { L"Ninja (Male)",  0x61042, 0x610c2, indexUMK3ArcadeSprites_Scorpion },
+    { L"Ninja (Female)", 0x610c4, 0x61144, indexUMK3ArcadeSprites_Kitana },
+    { L"Liu Kang",      0x61146, 0x611c6, indexUMK3ArcadeSprites_LiuKang },
+    { L"Shang Tsung",   0x611c8, 0x61248, indexUMK3ArcadeSprites_ShangTsung },
+    { L"Sheeva",        0x6124a, 0x612ca, indexUMK3ArcadeSprites_Sheeva },
+    { L"Kabal",         0x612cc, 0x6134c, indexUMK3ArcadeSprites_Kabal },
+    { L"Sonya",         0x6134e, 0x613ce, indexUMK3ArcadeSprites_Sonya },
+    { L"Nightwolf",     0x613d0, 0x61450, indexUMK3ArcadeSprites_Nightwolf },
+    { L"Sindel",        0x61452, 0x614d2, indexUMK3ArcadeSprites_Sindel },
+    { L"Stryker",       0x614d4, 0x61554, indexUMK3ArcadeSprites_Stryker },
+    { L"Jax",           0x61556, 0x615d6, indexUMK3ArcadeSprites_Jax },
+    { L"Ninja (Robot)", 0x615d8, 0x61658, indexUMK3ArcadeSprites_Cyrax },
+    { L"Sub-Zero",      0x6165a, 0x616da, indexUMK3ArcadeSprites_SubZero },
+    { L"Kano",          0x616dc, 0x6175c, indexUMK3ArcadeSprites_Kano },
+    { L"Kung Lao",      0x6175e, 0x617de, indexUMK3ArcadeSprites_KungLao },
+};
+
 const sGame_PaletteDataset UMK3_A_BONUS_PALETTES_HIDDENGAME[] =
 {
     { L"Explosions", 0xbacf4, 0xbad14, indexUMK3ArcadeSprites_Bonus, 0x01, &pairFullyLinkedNode },
@@ -446,6 +465,7 @@ const sDescTreeNode UMK3_A_CLASSUB_COLLECTION[] =
 
 const sDescTreeNode UMK3_A_BONUS_COLLECTION[] =
 {
+    { L"Frozen Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_FROZEN, ARRAYSIZE(UMK3_A_BONUS_PALETTES_FROZEN) },
     { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_HIDDENGAME, ARRAYSIZE(UMK3_A_BONUS_PALETTES_HIDDENGAME) },
 };
 
