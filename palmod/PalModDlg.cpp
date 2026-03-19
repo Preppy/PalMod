@@ -5,6 +5,7 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "RegProc.h"
+#include "Util.h"
 #ifdef ENABLE_MUI_SUPPORT
 #include <muiload.h>
 #endif
@@ -819,6 +820,9 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             const int nMBDefault = CRegProc::GetUserSavePaletteToMemoryPreference();
             // WINE currently muffs their implementation of SHMessageBoxCheck - special-case handling there
             // Filed https://bugs.winehq.org/show_bug.cgi?id=50488 to track this for them
+            // Further note: we'll just bail on using SHMessageBoxCheck on WINE.  It's a garbage non-functional
+            // implementation.  It truncates text, returns the wrong values, shows the wrong buttons, and doesn't
+            // save the Dont Show Again state.
             static bool s_fIsUserOnWINE = CRegProc::UserIsOnWINE();
 
             int nUserAnswer = IDCANCEL;
@@ -828,7 +832,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             {
                 const UINT uiButtonFlag = s_fIsUserOnWINE ? MB_YESNO : MB_YESNOCANCEL;
 
-                nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), uiButtonFlag | MB_ICONEXCLAMATION, nMBDefault, L"{11BFAC2D-42CA-40e2-967C-1017C1B2676A}");
+                nUserAnswer = SafeSHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), uiButtonFlag | MB_ICONEXCLAMATION, nMBDefault, L"{11BFAC2D-42CA-40e2-967C-1017C1B2676A}");
             }
 
             if (s_fIsUserOnWINE && (nUserAnswer == IDCANCEL))

@@ -9,7 +9,8 @@ int SafeSHMessageBoxCheck(
     LPCWSTR pszCaption,
     UINT    uType,
     int     iDefault,
-    LPCWSTR pszRegVal
+    LPCWSTR pszRegVal,
+    bool    fInvertLogicAndNoSpecialMessage /*= true*/
 )
 {
     const bool fRunNormal = !CRegProc::UserIsOnWINE();
@@ -51,15 +52,19 @@ int SafeSHMessageBoxCheck(
             }
             else
             {
-                strWINEHatesUs += L"\r\n\r\nThis MessageBox is supposed to have a checkbox you can check to not show this dialog again,"
-                                    L" but WINE doesn't support that correctly.  SO!  Click YES to keep seeing this dialog box in the future"
-                                    L" or click NO to never see this dialog again.";
+                if (!fInvertLogicAndNoSpecialMessage)
+                {
+                    strWINEHatesUs += L"\r\n\r\nThis MessageBox is supposed to have a checkbox you can check to not show this dialog again,"
+                                        L" but WINE doesn't support that correctly.  SO!  Click YES to keep seeing this dialog box in the future"
+                                        L" or click NO to never see this dialog again.";
+                }
 
                 uType |= MB_YESNO;
 
                 returncode = MessageBox(g_appHWnd, strWINEHatesUs.GetString(), pszCaption, uType);
 
-                if (returncode == IDNO)
+                if ((!fInvertLogicAndNoSpecialMessage && (returncode == IDNO)) ||
+                    (fInvertLogicAndNoSpecialMessage && (returncode == IDYES)))
                 {
                     dwAnswer = static_cast<DWORD>(iDefault);
 

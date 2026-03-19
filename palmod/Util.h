@@ -7,5 +7,6 @@ int SafeSHMessageBoxCheck(
     LPCWSTR pszCaption,
     UINT    uType,
     int     iDefault,
-    LPCWSTR pszRegVal
+    LPCWSTR pszRegVal,
+    bool    fInvertLogicAndNoSpecialMessage = false
 );

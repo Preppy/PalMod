@@ -4,6 +4,7 @@
 #include "GameRegistry.h"
 #include "..\resource.h"
 #include "..\palmod.h"
+#include "..\Util.h"
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -312,12 +313,22 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                     CString strGuid;
                     strGuid.Format(L"GGXXACR-%llu", nGameFileLength);
 
-                    strError.Append(L"\n\nNote that since GGXXACR (Steam) is heavily modded, this dialog is uniquely providing you a 'Don't Ask Again' option so we trust this specific file.  "
-                                    "Please ONLY check that if you really are sure this file will work for you.");
+                    if (!CRegProc::UserIsOnWINE())
+                    {
 
-                    // GGXXACR_S is uniquely doing a lot of unique custom builds that they'll be working with
-                    // As such, allow GGXXACR_S and only that game the ability to trust custom binaries
-                    fActualFileSizeIsSafe = (SHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONWARNING, IDYES, strGuid.GetString()) == IDYES);
+                        strError.Append(L"\n\nNote that since GGXXACR (Steam) is heavily modded, this dialog is uniquely providing you a 'Don't Ask Again' option so we trust this specific file.  "
+                                        "Please ONLY check that if you really are sure this file will work for you.");
+
+                        // GGXXACR_S is uniquely doing a lot of unique custom builds that they'll be working with
+                        // As such, allow GGXXACR_S and only that game the ability to trust custom binaries
+                        fActualFileSizeIsSafe = (SHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONWARNING, IDYES, strGuid.GetString()) == IDYES);
+                    }
+                    else
+                    {
+                        strError.Append(L"\n\nNote that since GGXXACR (Steam) is heavily modded, if you click YES we will always trust this particular changed file.");
+
+                        fActualFileSizeIsSafe = (SafeSHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_OK | MB_ICONWARNING, IDYES, strGuid.GetString(), true) == IDYES);
+                    }
                 }
                 else
                 {
@@ -452,8 +463,8 @@ bool CGameLoad::VerifyLocationIsUsable(LPCWSTR pszLocation)
 
         if (strQuestion.LoadStringW(IDS_ERROR_NOTWRITABLE_DRIVE))
         {
-            int nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING,
-                                                  IDOK, L"{B31487B9-3B3B-441e-BC98-7C83714C0AEB}");
+            int nUserAnswer = SafeSHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING,
+                                                      IDOK, L"{B31487B9-3B3B-441e-BC98-7C83714C0AEB}");
 
             fLocationIsOKToUse = (nUserAnswer != IDCANCEL);
         }
