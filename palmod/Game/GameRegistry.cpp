@@ -195,7 +195,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 269, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 270, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -248,6 +248,7 @@ namespace KnownGameInfo
     CGameClass* Make_FightersHistory_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_FightersHistory3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory3_SNES(nConfirmedROMSize); }
     CGameClass* Make_FotNS_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_P(nConfirmedROMSize); }
+    CGameClass* Make_FotNS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_S(nConfirmedROMSize); }
     CGameClass* Make_GalaxyFight_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GalaxyFight_A(nConfirmedROMSize); }
     CGameClass* Make_GarouP_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GarouP_A(nConfirmedROMSize); }
     CGameClass* Make_Garou_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Garou_A(nConfirmedROMSize); }
@@ -958,6 +959,13 @@ namespace KnownGameInfo
             { FotNS_P,          L"Hokuto no Ken", L"Hokuto no Ken (PS2)|HK_B.bin|", GamePlatform::PS2 },
             Make_FotNS_P,
             CGame_FotNS_P::GetRule,
+        },
+        {
+            FotNS_S,
+            L"Hokuto no Ken (Atomiswave)",
+            { FotNS_S,          L"Hokuto no Ken", L"Hokuto no Ken (Atomiswave)|FOTNS_Naomi2_Fixed.bin|", GamePlatform::SammyAtomiswave },
+            Make_FotNS_S,
+            CGame_FotNS_S::GetRule,
         },
         {
             HSF2_A,
@@ -2538,7 +2546,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 269, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 270, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 
