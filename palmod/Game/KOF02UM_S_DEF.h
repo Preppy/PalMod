@@ -784,7 +784,8 @@ const sGame_PaletteDataset KOF02UM_S_BILLY_PALETTES_MOVES[] =
 {
     { L"Billy Fire Wheel",       0x1b400, 0x1b420, indexKOF02UMSprites_Billy, 0x03 },
     { L"Billy Fire Wheel Hit",   0x1b420, 0x1b440, indexKOF02UMSprites_Billy, 0x04 },
-    { L"Billy Fire Pillar",      0x1b4c0, 0x1b4e0, indexKOF02UMSprites_Billy, 0x02 },
+    { L"Billy ?",                0x1b4c0, 0x1b4e0, indexKOF02UMSprites_Billy, 0x02 },
+    { L"Billy Fire Pillar",      0x1b4e0, 0x1b500, indexKOF02UMSprites_Iori, 0x03 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_MOVES[] =
@@ -5320,6 +5321,8 @@ const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
     { L"Blood Effects",             0x3c0, 0x3e0 },
     { L"Grab Sparks",               0x380, 0x3a0 },
     { L"Hitspark Effects",          0xa00, 0xa20 },
+    { L"Electricity Effects",       0x480, 0x4a0 },
+
     { L"Blocksparks Effects",       0x2a0, 0x2c0, indexKOF02UMSprites_Bonus, 0x05 },
     { L"Special/Super Blocksparks", 0x2c0, 0x2e0 },
     { L"MAX Mode and SDM Flash",    0x4c0, 0x4e0 },

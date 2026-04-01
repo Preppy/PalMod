@@ -4374,6 +4374,7 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
     { L"Blood Effects", 0x86f22, 0x86f42 },
     { L"Grab Sparks", 0x86ee2, 0x86f02 },
     { L"Hitspark Effects", 0x87562, 0x87582 },
+    { L"Electricity Effects", 0x86fe2, 0x87002 },
     { L"Slash and Ground Effects", 0x87582, 0x875a2, indexKOF02Sprites_Bonus, 0x0e },
     { L"Blocksparks Effects", 0x86e02, 0x86e22 },
     { L"Special/Super Blocksparks", 0x86e22, 0x86e42 },
@@ -4384,6 +4385,7 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
     { L"MAX Mode and SDM Flash", 0x87022, 0x87042 },
     { L"MAX Flash", 0x875e2, 0x87602 },
     { L"MAX2 Flash", 0x87602, 0x87622 },
+
     { L"Fire Palette", 0x88162, 0x88362 },
     { L"Orochi Fire Palette", 0x88362, 0x88562 },
     { L"Orochi Burn Palette", 0x88562, 0x88762 },
