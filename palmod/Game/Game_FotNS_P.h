@@ -47,7 +47,7 @@ public:
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
 
-class CGame_FotNS_S : public CGameClassByDir
+class CGame_FotNS_AW : public CGameClassByDir
 {
 private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
@@ -56,6 +56,8 @@ private:
             // This is the old decrypted rip
             { L"FOTNS_Naomi2_Fixed.bin", 0x8000000 },
             // New rip, unsupported
+            // A description of the encryption used by Atomiswave can be found here
+            //   https://github.com/mamedev/mame/blob/master/src/mame/sega/awboard.cpp
             //{ L"ax1901m01.ic11", 0x1000000 },
         },
         FileReadType::Sequential,
@@ -72,7 +74,7 @@ private:
     const sCoreGameData m_sCoreGameData
     {
         L"Hokuto no Ken (Atomiswave)",
-        FotNS_S,
+        FotNS_AW,
         IMGDAT_SECTION_ARCSYS,
         FotNS_P_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
@@ -82,15 +84,15 @@ private:
         ColMode::COLMODE_RGB666_NEOGEO,
         m_sFileLoadingData,
         m_rgCRC32Data,
-        FotNS_S_UNITS,
-        ARRAYSIZE(FotNS_S_UNITS),
-        L"HK_BE_S.txt",         // Extra filename
+        FotNS_AW_UNITS,
+        ARRAYSIZE(FotNS_AW_UNITS),
+        L"HK_BE_AW.txt",         // Extra filename
         90,                     // Count of palettes listed in the header
         0x1003030,              // Lowest known location used for palettes
     };
 
 public:
-    CGame_FotNS_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_FotNS_AW(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

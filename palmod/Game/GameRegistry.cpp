@@ -248,7 +248,7 @@ namespace KnownGameInfo
     CGameClass* Make_FightersHistory_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_FightersHistory3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory3_SNES(nConfirmedROMSize); }
     CGameClass* Make_FotNS_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_P(nConfirmedROMSize); }
-    CGameClass* Make_FotNS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_S(nConfirmedROMSize); }
+    CGameClass* Make_FotNS_AW(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_AW(nConfirmedROMSize); }
     CGameClass* Make_GalaxyFight_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GalaxyFight_A(nConfirmedROMSize); }
     CGameClass* Make_GarouP_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GarouP_A(nConfirmedROMSize); }
     CGameClass* Make_Garou_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Garou_A(nConfirmedROMSize); }
@@ -961,11 +961,11 @@ namespace KnownGameInfo
             CGame_FotNS_P::GetRule,
         },
         {
-            FotNS_S,
+            FotNS_AW,
             L"Hokuto no Ken (Atomiswave)",
-            { FotNS_S,          L"Hokuto no Ken", L"Hokuto no Ken (Atomiswave)|FOTNS_Naomi2_Fixed.bin|", GamePlatform::SammyAtomiswave },
-            Make_FotNS_S,
-            CGame_FotNS_S::GetRule,
+            { FotNS_AW,          L"Hokuto no Ken", L"Hokuto no Ken (Atomiswave)|FOTNS_Naomi2_Fixed.bin|", GamePlatform::SammyAtomiswave },
+            Make_FotNS_AW,
+            CGame_FotNS_AW::GetRule,
         },
         {
             HSF2_A,

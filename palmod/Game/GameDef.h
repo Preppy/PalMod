@@ -293,7 +293,7 @@ enum SupportedGamesList
     KOF02UM_PS2_DIR_8887_TOUGEKI,
     KOF02UM_PS2_DIR_BGR555,
     KOF02UM_PS2_DIR_RGB555,
-    FotNS_S,
+    FotNS_AW,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
