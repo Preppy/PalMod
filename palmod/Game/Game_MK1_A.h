@@ -116,7 +116,7 @@ private:
         MK1_A_UNITS,
         ARRAYSIZE(MK1_A_UNITS),
         L"MK1_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
+        84,                         // Count of palettes listed in the header
         0x907ce,                    // Lowest known location used for palettes
     };
 
@@ -136,7 +136,7 @@ private:
         MK1_A_UNITS,
         ARRAYSIZE(MK1_A_UNITS),
         L"MK1_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
+        84,                         // Count of palettes listed in the header
         0x907ce,                    // Lowest known location used for palettes
     }; 
     
@@ -156,7 +156,7 @@ private:
         MK1_A_UNITS,
         ARRAYSIZE(MK1_A_UNITS),
         L"MK1_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
+        84,                         // Count of palettes listed in the header
         0x907ce,                    // Lowest known location used for palettes
     };
 

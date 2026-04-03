@@ -146,6 +146,34 @@ const sGame_PaletteDataset MK1_A_REPTILE_PALETTES[] =
     { L"Reptile", 0x907ce, 0x9084e, indexMK1ArcadeSprites_Scorpion },
 };
 
+const sGame_PaletteDataset MK1_A_STAGES_COURTYARD_PALETTES[] =
+{
+    { L"Mountain", 0xd0916, 0xd0996, indexMK1ArcadeSprites_Stages, 0x04, &pairFullyLinkedNode },
+    { L"Temple Middle", 0xd01ec, 0xd026c, indexMK1ArcadeSprites_Stages, 0x06 },
+    { L"Temple Sides", 0xd0b1c, 0xd0b9c, indexMK1ArcadeSprites_Stages, 0x11 },
+    { L"Banners", 0xd0638, 0xd068a, indexMK1ArcadeSprites_Stages, 0x08 },
+    { L"Center Platform", 0xd0812, 0xd0892, indexMK1ArcadeSprites_Stages, 0x0c },
+    { L"Shang Tsung", 0xd0894, 0xd0914, indexMK1ArcadeSprites_Stages, 0x0d },
+    { L"Stage Side Columns", 0xd068c, 0xd070c, indexMK1ArcadeSprites_Stages, 0x09 },
+    { L"Dragons", 0xd070e, 0xd078e, indexMK1ArcadeSprites_Stages, 0x0a },
+    { L"Courtyard Wall", 0xd0790, 0xd0810, indexMK1ArcadeSprites_Stages, 0x0b },
+    { L"Background Cultists", 0xd05b8, 0xd0638, indexMK1ArcadeSprites_Stages, 0x07 },
+    { L"Foreground Cultists", 0xd0a1a, 0xd0a9a, indexMK1ArcadeSprites_Stages, 0x0f },
+    { L"Stage Wall", 0xd012c, 0xd01ac, indexMK1ArcadeSprites_Stages, 0x05 },
+    { L"Soldier Masks", 0xd0b9e, 0xd0c1e, indexMK1ArcadeSprites_Stages, 0x12 },
+    { L"Soldiers", 0xd0c20, 0xd0ca0, indexMK1ArcadeSprites_Stages, 0x13 },
+    { L"Arena Foreground", 0xd0a9a, 0xd0b1a, indexMK1ArcadeSprites_Stages, 0x10 },
+    { L"Arena Edges", 0xd0998, 0xd0a18, indexMK1ArcadeSprites_Stages, 0x0e },
+};
+
+const sGame_PaletteDataset MK1_A_STAGES_STAGESPRITE_PALETTES[] =
+{
+    { L"Drifting Cloud",  0xd51a4, 0xd5224, indexMK1ArcadeSprites_Stages, 0x00 },
+    { L"Background Moon", 0xd5226, 0xd52a6, indexMK1ArcadeSprites_Stages, 0x01 },
+    { L"Background Hill", 0xd532a, 0xd53aa, indexMK1ArcadeSprites_Stages, 0x02 },
+    { L"More Clouds",     0xd52a8, 0xd5328, indexMK1ArcadeSprites_Stages, 0x03 },
+};
+
 const sGame_PaletteDataset MK1_A_BONUS_CHARSEL_PALETTES[] =
 {
     { L"Johnny Cage",   0xd411e, 0xd419e, indexMK1ArcadeSprites_JohnnyCage, 0x20 },
@@ -187,12 +215,9 @@ const sGame_PaletteDataset MK1_A_BONUS_TYM_PALETTES[] =
     { L"Diamond",       0xd4c80, 0xd4d00, indexMK1ArcadeSprites_Bonus, 0x0a },
 };
 
-const sGame_PaletteDataset MK1_A_BONUS_STAGESPRITE_PALETTES[] =
+const sGame_PaletteDataset MK1_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Drifting Cloud",  0xd51a4, 0xd5224, indexMK1ArcadeSprites_Stages, 0x00 },
-    { L"Background Moon", 0xd5226, 0xd52a6, indexMK1ArcadeSprites_Stages, 0x01 },
-    { L"Background Hill", 0xd532a, 0xd53aa, indexMK1ArcadeSprites_Stages, 0x02 },
-    { L"More Clouds",     0xd52a8, 0xd5328, indexMK1ArcadeSprites_Stages, 0x03 },
+    { L"HUD", 0xd3f92, 0xd3ff6, indexMK1ArcadeSprites_Bonus, 0x0c },
 };
 
 const sDescTreeNode MK1_A_JOHNNYCAGE_COLLECTION[] =
@@ -259,25 +284,32 @@ const sDescTreeNode MK1_A_REPTILE_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)MK1_A_REPTILE_PALETTES, ARRAYSIZE(MK1_A_REPTILE_PALETTES) },
 };
 
+const sDescTreeNode MK1_A_STAGES_COLLECTION[] =
+{
+    { L"The Courtyard", DESC_NODETYPE_TREE, (void*)MK1_A_STAGES_COURTYARD_PALETTES, ARRAYSIZE(MK1_A_STAGES_COURTYARD_PALETTES) },
+    { L"Stage Sprites", DESC_NODETYPE_TREE, (void*)MK1_A_STAGES_STAGESPRITE_PALETTES, ARRAYSIZE(MK1_A_STAGES_STAGESPRITE_PALETTES) },
+};
+
 const sDescTreeNode MK1_A_BONUS_COLLECTION[] =
 {
     { L"Character Select/Tower (Active)", DESC_NODETYPE_TREE, (void*)MK1_A_BONUS_CHARSEL_PALETTES, ARRAYSIZE(MK1_A_BONUS_CHARSEL_PALETTES) },
     { L"Character Select/Tower (Inactive)", DESC_NODETYPE_TREE, (void*)MK1_A_BONUS_CHARSEL_PALETTES_INACTIVE, ARRAYSIZE(MK1_A_BONUS_CHARSEL_PALETTES_INACTIVE) },
     { L"Test Your Might", DESC_NODETYPE_TREE, (void*)MK1_A_BONUS_TYM_PALETTES, ARRAYSIZE(MK1_A_BONUS_TYM_PALETTES) },
-    { L"Stage Sprites", DESC_NODETYPE_TREE, (void*)MK1_A_BONUS_STAGESPRITE_PALETTES, ARRAYSIZE(MK1_A_BONUS_STAGESPRITE_PALETTES) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)MK1_A_BONUS_BONUS_PALETTES, ARRAYSIZE(MK1_A_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode MK1_A_UNITS[] =
 {
-    { L"Johnny Cage", DESC_NODETYPE_TREE, (void*)MK1_A_JOHNNYCAGE_COLLECTION, ARRAYSIZE(MK1_A_JOHNNYCAGE_COLLECTION) },
-    { L"Kano", DESC_NODETYPE_TREE, (void*)MK1_A_KANO_COLLECTION, ARRAYSIZE(MK1_A_KANO_COLLECTION) },
-    { L"Sub-Zero", DESC_NODETYPE_TREE, (void*)MK1_A_SUBZERO_COLLECTION, ARRAYSIZE(MK1_A_SUBZERO_COLLECTION) },
-    { L"Sonya", DESC_NODETYPE_TREE, (void*)MK1_A_SONYA_COLLECTION, ARRAYSIZE(MK1_A_SONYA_COLLECTION) },
-    { L"Raiden", DESC_NODETYPE_TREE, (void*)MK1_A_RAIDEN_COLLECTION, ARRAYSIZE(MK1_A_RAIDEN_COLLECTION) },
-    { L"Liu Kang", DESC_NODETYPE_TREE, (void*)MK1_A_LIUKANG_COLLECTION, ARRAYSIZE(MK1_A_LIUKANG_COLLECTION) },
-    { L"Scorpion", DESC_NODETYPE_TREE, (void*)MK1_A_SCORPION_COLLECTION, ARRAYSIZE(MK1_A_SCORPION_COLLECTION) },
-    { L"Goro", DESC_NODETYPE_TREE, (void*)MK1_A_GORO_COLLECTION, ARRAYSIZE(MK1_A_GORO_COLLECTION) },
-    { L"Shang Tsung", DESC_NODETYPE_TREE, (void*)MK1_A_SHANGTSUNG_COLLECTION, ARRAYSIZE(MK1_A_SHANGTSUNG_COLLECTION) },
-    { L"Reptile", DESC_NODETYPE_TREE, (void*)MK1_A_REPTILE_COLLECTION, ARRAYSIZE(MK1_A_REPTILE_COLLECTION) },
-    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)MK1_A_BONUS_COLLECTION, ARRAYSIZE(MK1_A_BONUS_COLLECTION) },
+    { L"Johnny Cage",       DESC_NODETYPE_TREE, (void*)MK1_A_JOHNNYCAGE_COLLECTION, ARRAYSIZE(MK1_A_JOHNNYCAGE_COLLECTION) },
+    { L"Kano",              DESC_NODETYPE_TREE, (void*)MK1_A_KANO_COLLECTION, ARRAYSIZE(MK1_A_KANO_COLLECTION) },
+    { L"Sub-Zero",          DESC_NODETYPE_TREE, (void*)MK1_A_SUBZERO_COLLECTION, ARRAYSIZE(MK1_A_SUBZERO_COLLECTION) },
+    { L"Sonya",             DESC_NODETYPE_TREE, (void*)MK1_A_SONYA_COLLECTION, ARRAYSIZE(MK1_A_SONYA_COLLECTION) },
+    { L"Raiden",            DESC_NODETYPE_TREE, (void*)MK1_A_RAIDEN_COLLECTION, ARRAYSIZE(MK1_A_RAIDEN_COLLECTION) },
+    { L"Liu Kang",          DESC_NODETYPE_TREE, (void*)MK1_A_LIUKANG_COLLECTION, ARRAYSIZE(MK1_A_LIUKANG_COLLECTION) },
+    { L"Scorpion",          DESC_NODETYPE_TREE, (void*)MK1_A_SCORPION_COLLECTION, ARRAYSIZE(MK1_A_SCORPION_COLLECTION) },
+    { L"Goro",              DESC_NODETYPE_TREE, (void*)MK1_A_GORO_COLLECTION, ARRAYSIZE(MK1_A_GORO_COLLECTION) },
+    { L"Shang Tsung",       DESC_NODETYPE_TREE, (void*)MK1_A_SHANGTSUNG_COLLECTION, ARRAYSIZE(MK1_A_SHANGTSUNG_COLLECTION) },
+    { L"Reptile",           DESC_NODETYPE_TREE, (void*)MK1_A_REPTILE_COLLECTION, ARRAYSIZE(MK1_A_REPTILE_COLLECTION) },
+    { L"Stages",            DESC_NODETYPE_TREE, (void*)MK1_A_STAGES_COLLECTION, ARRAYSIZE(MK1_A_STAGES_COLLECTION) },
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)MK1_A_BONUS_COLLECTION, ARRAYSIZE(MK1_A_BONUS_COLLECTION) },
 };
