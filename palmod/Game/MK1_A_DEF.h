@@ -170,7 +170,6 @@ const sGame_PaletteDataset MK1_A_BONUS_CHARSEL_PALETTES_INACTIVE[] =
     { L"Sonya",         0xb7536, 0xb75b6, indexMK1ArcadeSprites_Sonya, 0x20 },
 };
 
-
 const sGame_PaletteDataset MK1_A_BONUS_TYM_PALETTES[] =
 {
     { L"Johnny Cage",   0xd45aa, 0xd46aa, indexMK1ArcadeSprites_Bonus, 0x00 },
@@ -179,6 +178,7 @@ const sGame_PaletteDataset MK1_A_BONUS_TYM_PALETTES[] =
     { L"Liu Kang",      0xd48ae, 0xd492e, indexMK1ArcadeSprites_Bonus, 0x03 },
     { L"Scorpion / Sub-Zero shared", 0xd499a, 0xd4b1e, indexMK1ArcadeSprites_Bonus, 0x04 },
     { L"Sonya",         0xd4b20, 0xd4c20, indexMK1ArcadeSprites_Bonus, 0x05 },
+    { L"Sonya P2 Clothes", 0xb94ee, 0xb956e, indexMK1ArcadeSprites_Bonus, 0x0b },
     { L"Meter Frame",   0xd4c6a, 0xd4c80, indexMK1ArcadeSprites_Bonus, 0x06 },
     { L"Wood",          0xd4c2a, 0xd4c6a, indexMK1ArcadeSprites_Bonus, 0x07 },
     { L"Stone",         0xd4d38, 0xd4db8, indexMK1ArcadeSprites_Bonus, 0x08 },
