@@ -80,7 +80,6 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             case KOF02UM_PS2_DIR_8887:
             case KOF02UM_PS2_DIR_BGR555:
             case KOF02UM_PS2_DIR_RGB555:
-            case KOF02_PS2_DIR_RGB555:
                 pszExtraInfo = L"Please select the  \"King of Fighters 2002 The - Unlimited Match (Japan)\" folder.";
                 break;
             case KOF02UM_PS2_DIR_8887_TOUGEKI:

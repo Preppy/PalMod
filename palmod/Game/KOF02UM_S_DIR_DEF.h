@@ -1,7 +1,6 @@
 #pragma once
 
 // We reuse a lot of the core palettes out of here
-#include "KOF02_A_DEF.h" // used for the PS2 KOF02 support 
 #include "KOF02UM_S_DEF.h"
 
 const sGame_PaletteDataset KOF02UM_S_STAGE_PALETTES_JAPAN[] =
@@ -4405,66 +4404,4 @@ const std::vector<sGameUnitsByFile> KOF02UM_PS2_DIR_RGB555_UNITS =
     { L"data\\base\\pal_a.bin", 394976, L"MAX2 Portraits", KOF02UM_S_PORTRAITS_COLLECTION, ARRAYSIZE(KOF02UM_S_PORTRAITS_COLLECTION) },
 
     { L"data\\base\\pal_a.bin", 394976, L"Bonus Palettes", KOF02UM_S_BONUS_COLLECTION, ARRAYSIZE(KOF02UM_S_BONUS_COLLECTION) },
-};
-
-const std::vector<sGameUnitsByFile> KOF02_PS2_DIR_RGB555_UNITS =
-{
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Kyo", KOF02_A_KYO_COLLECTION, ARRAYSIZE(KOF02_A_KYO_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Benimaru", KOF02_A_BENIMARU_COLLECTION, ARRAYSIZE(KOF02_A_BENIMARU_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Daimon", KOF02_A_DAIMON_COLLECTION, ARRAYSIZE(KOF02_A_DAIMON_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Terry", KOF02_A_TERRY_COLLECTION, ARRAYSIZE(KOF02_A_TERRY_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Andy", KOF02_A_ANDY_COLLECTION, ARRAYSIZE(KOF02_A_ANDY_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Joe", KOF02_A_JOE_COLLECTION, ARRAYSIZE(KOF02_A_JOE_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Kim", KOF02_A_KIM_COLLECTION, ARRAYSIZE(KOF02_A_KIM_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Chang", KOF02_A_CHANG_COLLECTION, ARRAYSIZE(KOF02_A_CHANG_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Choi", KOF02_A_CHOI_COLLECTION, ARRAYSIZE(KOF02_A_CHOI_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Athena", KOF02_A_ATHENA_COLLECTION, ARRAYSIZE(KOF02_A_ATHENA_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Kensou", KOF02_A_KENSOU_COLLECTION, ARRAYSIZE(KOF02_A_KENSOU_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Chin", KOF02_A_CHIN_COLLECTION, ARRAYSIZE(KOF02_A_CHIN_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Leona", KOF02_A_LEONA_COLLECTION, ARRAYSIZE(KOF02_A_LEONA_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Ralf", KOF02_A_RALF_COLLECTION, ARRAYSIZE(KOF02_A_RALF_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Clark", KOF02_A_CLARK_COLLECTION, ARRAYSIZE(KOF02_A_CLARK_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Ryo", KOF02_A_RYO_COLLECTION, ARRAYSIZE(KOF02_A_RYO_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Robert", KOF02_A_ROBERT_COLLECTION, ARRAYSIZE(KOF02_A_ROBERT_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Takuma", KOF02_A_TAKUMA_COLLECTION, ARRAYSIZE(KOF02_A_TAKUMA_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Mai", KOF02_A_MAI_COLLECTION, ARRAYSIZE(KOF02_A_MAI_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Yuri", KOF02_A_YURI_COLLECTION, ARRAYSIZE(KOF02_A_YURI_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"May Lee", KOF02_A_MAYLEE_COLLECTION, ARRAYSIZE(KOF02_A_MAYLEE_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Iori", KOF02_A_IORI_COLLECTION, ARRAYSIZE(KOF02_A_IORI_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Mature", KOF02_A_MATURE_COLLECTION, ARRAYSIZE(KOF02_A_MATURE_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Vice", KOF02_A_VICE_COLLECTION, ARRAYSIZE(KOF02_A_VICE_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Yamazaki", KOF02_A_YAMAZAKI_COLLECTION, ARRAYSIZE(KOF02_A_YAMAZAKI_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Blue Mary", KOF02_A_BLUEMARY_COLLECTION, ARRAYSIZE(KOF02_A_BLUEMARY_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Billy", KOF02_A_BILLY_COLLECTION, ARRAYSIZE(KOF02_A_BILLY_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Yashiro", KOF02_A_YASHIRO_COLLECTION, ARRAYSIZE(KOF02_A_YASHIRO_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Shermie", KOF02_A_SHERMIE_COLLECTION, ARRAYSIZE(KOF02_A_SHERMIE_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Chris", KOF02_A_CHRIS_COLLECTION, ARRAYSIZE(KOF02_A_CHRIS_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"K’", KOF02_A_K_COLLECTION, ARRAYSIZE(KOF02_A_K_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Maxima", KOF02_A_MAXIMA_COLLECTION, ARRAYSIZE(KOF02_A_MAXIMA_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Whip", KOF02_A_WHIP_COLLECTION, ARRAYSIZE(KOF02_A_WHIP_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Vanessa", KOF02_A_VANESSA_COLLECTION, ARRAYSIZE(KOF02_A_VANESSA_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Seth", KOF02_A_SETH_COLLECTION, ARRAYSIZE(KOF02_A_SETH_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Ramon", KOF02_A_RAMON_COLLECTION, ARRAYSIZE(KOF02_A_RAMON_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Kula", KOF02_A_KULA_COLLECTION, ARRAYSIZE(KOF02_A_KULA_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"K9999", KOF02_A_K9999_COLLECTION, ARRAYSIZE(KOF02_A_K9999_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Angel", KOF02_A_ANGEL_COLLECTION, ARRAYSIZE(KOF02_A_ANGEL_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Omega Rugal", KOF02_A_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF02_A_OMEGARUGAL_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"KUSANAGI", KOF02_A_KUSANAGI_COLLECTION, ARRAYSIZE(KOF02_A_KUSANAGI_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"O.Chris", KOF02_A_OCHRIS_COLLECTION, ARRAYSIZE(KOF02_A_OCHRIS_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"O.Shermie", KOF02_A_OSHERMIE_COLLECTION, ARRAYSIZE(KOF02_A_OSHERMIE_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"O.Yashiro", KOF02_A_OYASHIRO_COLLECTION, ARRAYSIZE(KOF02_A_OYASHIRO_COLLECTION), -0x86b62 },
-
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Stages", KOF02_A_STAGES_COLLECTION, ARRAYSIZE(KOF02_A_STAGES_COLLECTION), -0x86b62 },
-    { L"data\\base\\pal_n.bin", 0x3b800, L"Bonus Palettes", KOF02_A_BONUS_COLLECTION, ARRAYSIZE(KOF02_A_BONUS_COLLECTION), -0x86b62 },
 };

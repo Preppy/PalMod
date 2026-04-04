@@ -586,8 +586,6 @@ BEGIN
             END
             POPUP "King of Fighters"
             BEGIN
-                MENUITEM "King of Fighters 02 (PS2)", ID_LD_KOF02_PS2_RGB555
-                MENUITEM SEPARATOR
                 MENUITEM "King of Fighters 02UM (PS2, RGBA8887 parts)", ID_LD_KOF02UM_PS2_8887
                 MENUITEM "King of Fighters 02UM (PS2 Tougeki Version, RGBA8887 parts)", ID_LD_KOF02UM_PS2_8887_TOUGEKI
                 MENUITEM "King of Fighters 02UM (PS2, BGR555 parts)", ID_LD_KOF02UM_PS2_BGR555

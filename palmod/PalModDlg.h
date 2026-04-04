@@ -389,7 +389,6 @@ private:
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
     afx_msg void OnLoadDir_Jojos51_USA()    { OnLoadGameByDirectory(JOJOS_US_A_DIR_51); };
     
-    afx_msg void OnLoadDir_KOF02_PS2_RGB555() { OnLoadGameByDirectory(KOF02_PS2_DIR_RGB555); };
     afx_msg void OnLoadDir_KOF02UM_PS2_8887() { OnLoadGameByDirectory(KOF02UM_PS2_DIR_8887); };
     afx_msg void OnLoadDir_KOF02UM_PS2_8887_TOUGEKI() { OnLoadGameByDirectory(KOF02UM_PS2_DIR_8887_TOUGEKI); };
     afx_msg void OnLoadDir_KOF02UM_PS2_BGR555() { OnLoadGameByDirectory(KOF02UM_PS2_DIR_BGR555); };

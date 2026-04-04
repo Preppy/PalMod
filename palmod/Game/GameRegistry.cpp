@@ -289,11 +289,11 @@ namespace KnownGameInfo
     CGameClass* Make_KOF02UM_PS2_DIR_8887_TOUGEKI(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_8887_TOUGEKI); }
     CGameClass* Make_KOF02UM_PS2_DIR_BGR555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_BGR555); }
     CGameClass* Make_KOF02UM_PS2_DIR_RGB555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_RGB555); }
-    CGameClass* Make_KOF02UM_PS2_DIR_RGB555_NG(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02_PS2_DIR_RGB555); }
     CGameClass* Make_KOF02UM_S_DIR_8887(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_8887); }
     CGameClass* Make_KOF02UM_S_DIR_BGR555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_BGR555); }
     CGameClass* Make_KOF02UM_S_DIR_RGB555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_RGB555); }
     CGameClass* Make_KOF02_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF02_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02_PS2(nConfirmedROMSize); }
     CGameClass* Make_KOF03_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF03_A(nConfirmedROMSize); }
     CGameClass* Make_KOF94_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF94_A(nConfirmedROMSize); }
     CGameClass* Make_KOF95_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF95_A(nConfirmedROMSize); }
@@ -1204,9 +1204,16 @@ namespace KnownGameInfo
             KOF02_A,
             L"King of Fighters 2002 (Neo-Geo)",
             // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
-            { KOF02_A,          L"KOF02", L"KOF02|265*p2*;kf2k2ru35-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
+            { KOF02_A,          L"KOF02", L"KOF02 (Neo-Geo)|265*p2*;kf2k2ru35-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
             Make_KOF02_A,
             CGame_KOF02_A::GetRule,
+        },
+        {
+            KOF02_PS2,
+            L"King of Fighters 2002 (PS2)",
+            { KOF02_PS2,          L"KOF02", L"KOF02 (PS2)|pal_n.bin|", GamePlatform::PS2 },
+            Make_KOF02_PS2,
+            CGame_KOF02_PS2::GetRule,
         },
         {
             KOF02PS2_A,
@@ -1252,16 +1259,6 @@ namespace KnownGameInfo
             Make_KOF02UM_PS2_DIR_RGB555,
             CGame_KOF02UM_PS2_DIR::GetRule_RGB555,
             CGame_KOF02UM_PS2_DIR::GetNextRule_RGB555,
-            CGame_KOF02UM_PS2_DIR::GetRuleCtr,
-            CGame_KOF02UM_PS2_DIR::ResetRuleCtr,
-        },
-        {
-            KOF02_PS2_DIR_RGB555,
-            L"King of Fighters 2002 (PS2, RGB555 parts)",
-            {},
-            Make_KOF02UM_PS2_DIR_RGB555_NG,
-            CGame_KOF02UM_PS2_DIR::GetRule_RGB555_NG,
-            CGame_KOF02UM_PS2_DIR::GetNextRule_RGB555_NG,
             CGame_KOF02UM_PS2_DIR::GetRuleCtr,
             CGame_KOF02UM_PS2_DIR::ResetRuleCtr,
         },
