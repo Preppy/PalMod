@@ -544,7 +544,7 @@ namespace KnownGameInfo
         {
             AvgrsGS_A,
             L"Avengers in Galactic Storm (Data East)",
-            { AvgrsGS_A,        L"Avengers in Galactic Storm (Data East)", L"Avengers in Galactic Storm (Data East)|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::OtherPlatform },
+            { AvgrsGS_A,        L"Avengers in Galactic Storm", L"Avengers in Galactic Storm (Data East)|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::DataEast },
             Make_AvgrsGS_A,
             CGame_AvgrsGS_A_DIR::GetRule,
         },
@@ -603,7 +603,7 @@ namespace KnownGameInfo
         {
             BtlKRoad_A,
             L"Battle K-Road (Psikyo)",
-            { BtlKRoad_A,       L"Battle K-Road (Psikyo)", L"Battle K-Road (Psikyo)|4-u46.bin|", GamePlatform::OtherPlatform },
+            { BtlKRoad_A,       L"Battle K-Road", L"Battle K-Road (Psikyo)|4-u46.bin|", GamePlatform::Psikyo },
             Make_BtlKRoad_A,
             CGame_BtlKRoad_A_DIR::GetRule,
         },
@@ -645,7 +645,7 @@ namespace KnownGameInfo
         {
             CVS1_A,
             L"Capcom vs SNK Millenium Fight (NAOMI)",
-            { CVS1_A,           L"CvS1", L"CvS1 (NAOMI)|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::SegaNAOMI },
+            { CVS1_A,           L"CvS1", L"CvS1 (NAOMI)|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::Sega, GameSeries::SegaNAOMI },
             Make_CVS1_A,
             CGame_CVS1_A::GetRule,
         },
@@ -659,7 +659,7 @@ namespace KnownGameInfo
         {
             CVS2_A,
             L"CvS2 (NAOMI Arcade)",
-            { CVS2_A,           L"CvS2", L"CvS2 (NAOMI)|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
+            { CVS2_A,           L"CvS2", L"CvS2 (NAOMI)|SNKGD_SL.bin|", GamePlatform::Sega, GameSeries::SegaNAOMI },
             Make_CVS2_A,
             CGame_CVS2_A::GetRule,
         },
@@ -737,7 +737,7 @@ namespace KnownGameInfo
         {
             Daraku_A,
             L"Daraku Tenshi (Psikyo)",
-            { Daraku_A,         L"Daraku Tenshi (Psikyo)", L"Daraku Tenshi (Psikyo)|prog.u16|", GamePlatform::OtherPlatform },
+            { Daraku_A,         L"Daraku Tenshi", L"Daraku Tenshi (Psikyo)|prog.u16|", GamePlatform::Psikyo },
             Make_Daraku_A,
             CGame_Daraku_A::GetRule,
         },
@@ -824,7 +824,7 @@ namespace KnownGameInfo
         {
             FightersHistory_A,
             L"Fighter's History",
-            { FightersHistory_A,       L"Fighter's History (Data East DECO32)", L"Fighter's History|??00*.1f|", GamePlatform::OtherPlatform }, // DataEast
+            { FightersHistory_A,       L"Fighter's History (DECO32)", L"Fighter's History|??00*.1f|", GamePlatform::DataEast}, // DataEast
             Make_FightersHistory_A,
             CGame_FightersHistory_A_DIR::GetRule,
         },
@@ -1323,7 +1323,7 @@ namespace KnownGameInfo
         {
             LASTBLADE_A,
             L"The Last Blade (Neo-Geo)",
-            { LASTBLADE_A,      L"Last Blade", L"Last Blade (Neo-Geo)|234-p1.*|", GamePlatform::NEOGEO },
+            { LASTBLADE_A,      L"Last Blade", L"Last Blade (Neo-Geo)|234-p1.*|", GamePlatform::NEOGEO, GameSeries::LastBlade },
             Make_LASTBLADE_A,
             CGame_LASTBLADE_A::GetRule_A,
         },
@@ -1337,7 +1337,7 @@ namespace KnownGameInfo
         {
             LASTBLADE2_A,
             L"The Last Blade 2 (Neo-Geo)",
-            { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Neo-Geo)|243-pg1.*;LB2_P1.ROM|", GamePlatform::NEOGEO },
+            { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Neo-Geo)|243-pg1.*;LB2_P1.ROM|", GamePlatform::NEOGEO, GameSeries::LastBlade },
             Make_LASTBLADE2_A,
             CGame_LASTBLADE2_A::GetRule_A,
         },
@@ -1361,14 +1361,14 @@ namespace KnownGameInfo
         {
             MAGICALDROPII_A,
             L"Magical Drop II (Neo-Geo)",
-            { MAGICALDROPII_A,  L"Magical Drop II", L"Magical Drop II|221-p1*.*|", GamePlatform::NEOGEO },
+            { MAGICALDROPII_A,  L"Magical Drop II", L"Magical Drop II|221-p1*.*|", GamePlatform::NEOGEO, GameSeries::MagicalDrop },
             Make_MAGICALDROPII_A,
             CGame_MAGICALDROPII_A::GetRule,
         },
         {
             MAGICALDROPIII_A,
             L"Magical Drop III (Neo-Geo)",
-            { MAGICALDROPIII_A, L"Magical Drop III", L"Magical Drop III|233-p1*.*|", GamePlatform::NEOGEO },
+            { MAGICALDROPIII_A, L"Magical Drop III", L"Magical Drop III|233-p1*.*|", GamePlatform::NEOGEO, GameSeries::MagicalDrop },
             Make_MAGICALDROPIII_A,
             CGame_MAGICALDROPIII_A::GetRule,
         },
@@ -1502,14 +1502,14 @@ namespace KnownGameInfo
         {
             MK1_A,
             L"Mortal Kombat (Midway, Arcade)",
-            { MK1_A,            L"Mortal Kombat (Midway)", L"Mortal Kombat (Arcade)|l5_mortal_kombat_t-unit_uj12_game_rom.uj12;mkt-uj12.bin|", GamePlatform::OtherPlatform },
+            { MK1_A,            L"Mortal Kombat", L"Mortal Kombat (Arcade)|l5_mortal_kombat_t-unit_uj12_game_rom.uj12;mkt-uj12.bin|", GamePlatform::Midway },
             Make_MK1_A,
             CGame_MK2_A::GetRule,
         },
         {
             MK1_SEGA,
             L"Mortal Kombat (Sega Mega Drive)",
-            { MK1_SEGA,         L"Mortal Kombat (Mega Drive)", L"Mortal Kombat (Mega Drive)|mortal kombat (world)*.*;mortal kombat.smd|", GamePlatform::OtherPlatform },
+            { MK1_SEGA,         L"Mortal Kombat", L"Mortal Kombat (Mega Drive)|mortal kombat (world)*.*;mortal kombat.smd|", GamePlatform::Sega, GameSeries::SegaMegaDrive },
             Make_MK1_SEGA,
             CGame_MK1_SEGA::GetRule,
         },
@@ -1523,14 +1523,14 @@ namespace KnownGameInfo
         {
             MK2_A,
             L"Mortal Kombat II (Midway, Arcade)",
-            { MK2_A,            L"Mortal Kombat II (Midway)", L"Mortal Kombat 2 (Arcade)|l3.1_mortal_kombat_ii_game_rom_uj12.uj12;uj12.l31;mk2ute.uj12|", GamePlatform::OtherPlatform },
+            { MK2_A,            L"Mortal Kombat II", L"Mortal Kombat 2 (Arcade)|l3.1_mortal_kombat_ii_game_rom_uj12.uj12;uj12.l31;mk2ute.uj12|", GamePlatform::Midway },
             Make_MK2_A,
             CGame_MK2_A::GetRule,
         },
         {
             MK2_SEGA,
             L"Mortal Kombat (Sega Mega Drive)",
-            { MK2_SEGA,         L"Mortal Kombat II (Mega Drive)", L"Mortal Kombat II (Mega Drive)|s376-u2.1+s382-u1.1.bin;mortal kombat II (world)*.md|", GamePlatform::OtherPlatform },
+            { MK2_SEGA,         L"Mortal Kombat II", L"Mortal Kombat II (Mega Drive)|s376-u2.1+s382-u1.1.bin;mortal kombat II (world)*.md|", GamePlatform::Sega, GameSeries::SegaMegaDrive },
             Make_MK2_SEGA,
             CGame_MK2_SEGA::GetRule,
         },
@@ -1544,7 +1544,7 @@ namespace KnownGameInfo
         {
             MK3_SEGA,
             L"Mortal Kombat 3 (Sega Mega Drive)",
-            { MK3_SEGA,         L"Mortal Kombat 3 (Mega Drive)", L"Mortal Kombat 3 (Mega Drive)|mortal kombat 3 (usa).*|", GamePlatform::OtherPlatform },
+            { MK3_SEGA,         L"Mortal Kombat 3", L"Mortal Kombat 3 (Mega Drive)|mortal kombat 3 (usa).*|", GamePlatform::Sega, GameSeries::SegaMegaDrive },
             Make_MK3_SEGA,
             CGame_MK3_SEGA::GetRule,
         },
@@ -1584,7 +1584,7 @@ namespace KnownGameInfo
             L"MvC2 (NAOMI Arcade)",
             // MarvelVsCapcom2.bin
             // Unlocked\MarvelVsCapcom2_unlocked.bin
-            { MVC2_A,           L"MvC2", L"MvC2 Arcade (MarvelVsCapcom2_unlocked.bin)|marvel vs. capcom 2.dat;marvel*2*.bin|", GamePlatform::SegaNAOMI },
+            { MVC2_A,           L"MvC2", L"MvC2 Arcade (MarvelVsCapcom2_unlocked.bin)|marvel vs. capcom 2.dat;marvel*2*.bin|", GamePlatform::Sega, GameSeries::SegaNAOMI },
             Make_MVC2_A,
             CGame_MVC2_A::GetRule_A,
         },
@@ -2009,7 +2009,7 @@ namespace KnownGameInfo
             SFZ3U_A,
             L"Street Fighter Zero 3 Upper (NAOMI)",
             // Note that zero3rom.bin from the Fightcade/Flycast CHD seems to be encrypted
-            { SFZ3U_A,          L"SFA3/SFZ3 Upper", L"SFA3/SFZ3 Upper (NAOMI)|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
+            { SFZ3U_A,          L"SFA3/SFZ3 Upper", L"SFA3/SFZ3 Upper (NAOMI)|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::Sega, GameSeries::SegaNAOMI },
             Make_SFZ3U_A,
             CGame_SFZ3U_A::GetRule,
         },
@@ -2335,7 +2335,7 @@ namespace KnownGameInfo
         {
             TattooAsns_A,
             L"Tattoo Assassins (Data East DECO32)",
-            { TattooAsns_A,    L"Tattoo Assassins (Data East DECO32)", L"Tattoo Assassins (Data East DECO32)|pp44.cpu|", GamePlatform::OtherPlatform },
+            { TattooAsns_A,    L"Tattoo Assassins (DECO32)", L"Tattoo Assassins (Data East DECO32)|pp44.cpu|", GamePlatform::DataEast },
             Make_TattooAsns_A,
             CGame_TattooAsns_A::GetRule,
         },
@@ -2356,14 +2356,14 @@ namespace KnownGameInfo
         {
             TOPF2005_SEGA,
             L"Top Fighter 2005 (Sega)",
-            { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::OtherPlatform },
+            { TOPF2005_SEGA,    L"Top Fighter 2005", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::Sega, GameSeries::SegaMegaDrive },
             Make_TOPF2005_SEGA,
             CGame_TOPF2005_SEGA::GetRule,
         },
         {
             UMK3_A,
             L"Ultimate Mortal Kombat 3 (Midway, Arcade)",
-            { UMK3_A,           L"Ultimate Mortal Kombat 3 (Midway)", L"Ultimate Mortal Kombat 3 (Arcade)|l1.2_mortal_kombat_3_u54_ultimate.u54;um312u54.bin;u54_umk3plus.u54;umk3plus_beta1.u54;umk3te.u54;umk3uc-u54.bin;umk3uk-u54.bin|", GamePlatform::OtherPlatform },
+            { UMK3_A,           L"Ultimate Mortal Kombat 3", L"Ultimate Mortal Kombat 3 (Arcade)|l1.2_mortal_kombat_3_u54_ultimate.u54;um312u54.bin;u54_umk3plus.u54;umk3plus_beta1.u54;umk3te.u54;umk3uc-u54.bin;umk3uk-u54.bin|", GamePlatform::Midway },
             Make_UMK3_A,
             CGame_UMK3_A::GetRule,
         },
@@ -2377,7 +2377,7 @@ namespace KnownGameInfo
         {
             UMK3_SEGA,
             L"Ultimate Mortal Kombat 3 (USA Sega Mega Drive)",
-            { UMK3_SEGA,         L"Ultimate Mortal Kombat 3 (Mega Drive)", L"Ultimate Mortal Kombat 3 (Mega Drive)|ultimate mortal kombat 3 (usa).*|", GamePlatform::OtherPlatform },
+            { UMK3_SEGA,         L"Ultimate Mortal Kombat 3", L"Ultimate Mortal Kombat 3 (Mega Drive)|ultimate mortal kombat 3 (usa).*|", GamePlatform::Sega, GameSeries::SegaMegaDrive },
             Make_UMK3_SEGA,
             CGame_UMK3_SEGA::GetRule,
         },
@@ -2481,7 +2481,7 @@ namespace KnownGameInfo
         {
             VirtuaFighter2_GEN,
             L"Virtua Fighter 2 (Genesis)",
-            { VirtuaFighter2_GEN,          L"Virtua Fighter 2 (Genesis)", L"Virtua Fighter 2 (Genesis)|mpr-19107+mpr-19108.bin;Virtua Fighter 2 (USA, Europe).md|", GamePlatform::OtherPlatform },
+            { VirtuaFighter2_GEN,          L"Virtua Fighter 2", L"Virtua Fighter 2 (Genesis)|mpr-19107+mpr-19108.bin;Virtua Fighter 2 (USA, Europe).md|", GamePlatform::Sega, GameSeries::SegaMegaDrive },
             Make_VirtuaFighter2_GEN,
             CGame_VirtuaFighter2_GEN::GetRule,
         },

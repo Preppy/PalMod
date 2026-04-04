@@ -282,22 +282,25 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
         std::vector<sSupportedGameToFileMap> rgGameToFileMap = KnownGameInfo::GetGameToFileMap();
 
-        // This code does some work to allow for dynamic submenus for Capcom, NEOGEO, and Nintendo
+        // This code does some work to allow for dynamic submenus for Capcom, NEOGEO, Nintendo, etc
         for (int nPlatform = static_cast<int>(GamePlatform::CapcomCPS12); nPlatform != static_cast<int>(GamePlatform::Last); nPlatform++)
         {
             int nCurrentPosition = 0;
             CMenu platformMenu;
-            CMenu seriesMenu[4];
+            CMenu seriesMenu[6];
 
             platformMenu.CreatePopupMenu();
             seriesMenu[0].CreatePopupMenu();
             seriesMenu[1].CreatePopupMenu();
             seriesMenu[2].CreatePopupMenu();
             seriesMenu[3].CreatePopupMenu();
+            seriesMenu[4].CreatePopupMenu();
+            seriesMenu[5].CreatePopupMenu();
 
             if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) ||
                 (static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) ||
                 (static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) ||
+                (static_cast<GamePlatform>(nPlatform) == GamePlatform::Sega) ||
                 (static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam))
             {
                 // first pass is just the submenus
@@ -320,12 +323,14 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                                 case GameSeries::MvCNormal:
                                 case GameSeries::ArtOfFighting:
                                 case GameSeries::NintendoDS:
+                                case GameSeries::SegaMegaDrive:
                                     seriesMenu[0].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                                 case GameSeries::CapcomFightCollection2:
                                 case GameSeries::SFA:
                                 case GameSeries::FatalFury:
                                 case GameSeries::NintendoGBA:
+                                case GameSeries::SegaNAOMI:
                                     seriesMenu[1].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                                 case GameSeries::MvCSteam:
@@ -335,9 +340,15 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                                     seriesMenu[2].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                                 case GameSeries::SF30th:
-                                case GameSeries::SamuraiShodown:
+                                case GameSeries::LastBlade:
                                 case GameSeries::VampireSavior:
                                     seriesMenu[3].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                                    break;
+                                case GameSeries::MagicalDrop:
+                                    seriesMenu[4].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                                    break;
+                                case GameSeries::SamuraiShodown:
+                                    seriesMenu[5].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                             }
                         }
@@ -347,7 +358,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
             uint8_t nMenuIndex = 0;
             LPCWSTR ppszCapcomSubMenu[] = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
-            LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
+            LPCWSTR ppszSegaSubMenu[] = { L"Genesis / Mega Drive", L"NAOMI" };
+            LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Last Blade", L"Magical Drop", L"Samurai Shodown"};
             LPCWSTR ppszNintendoSubMenu[] = { L"DS/3DS", L"GBA", L"SNES" };
             LPCWSTR ppszSteamSubMenu[] = { L"Capcom Fighting Collection",  L"Capcom Fighting Collection 2", L"Marvel vs Capcom", L"Street Fighter 30th Anniversary" };
 
@@ -393,6 +405,16 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                             nCurrentPosition++;
                         }
                     }
+                    else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Sega) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszSegaSubMenu))))
+                    {
+                        if ((ppszSegaSubMenu[nMenuIndex][0] <= sGametoFileData.strGameFriendlyName[0]) &&
+                            (ppszSegaSubMenu[nMenuIndex][1] <= sGametoFileData.strGameFriendlyName[1]))
+                        {
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, reinterpret_cast<UINT_PTR>(seriesMenu[nMenuIndex].Detach()), ppszSegaSubMenu[nMenuIndex]);
+                            nMenuIndex++;
+                            nCurrentPosition++;
+                        }
+                    }
                     else if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszSteamSubMenu))))
                     {
                         if ((ppszSteamSubMenu[nMenuIndex][0] <= sGametoFileData.strGameFriendlyName[0]) &&
@@ -407,10 +429,12 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     if (((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
                         ((static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
                         ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Sega) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
                         ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
                             ((static_cast<GamePlatform>(nPlatform) != GamePlatform::CapcomCPS12) &&
                              (static_cast<GamePlatform>(nPlatform) != GamePlatform::NEOGEO) &&
                              (static_cast<GamePlatform>(nPlatform) != GamePlatform::Nintendo) &&
+                             (static_cast<GamePlatform>(nPlatform) != GamePlatform::Sega) &&
                              (static_cast<GamePlatform>(nPlatform) != GamePlatform::Steam)))
                     {
                         platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
@@ -428,20 +452,29 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                 case GamePlatform::CapcomCPS3:
                     pszPlatformName = L"Capcom CPS3";
                     break;
+                case GamePlatform::DataEast:
+                    pszPlatformName = L"Data East";
+                    break;
+                case GamePlatform::Midway:
+                    pszPlatformName = L"Midway";
+                    break;
                 case GamePlatform::SammyAtomiswave:
                     pszPlatformName = L"Sammy Atomiswave";
                     break;
                 case GamePlatform::OtherPlatform:
                     pszPlatformName = L"Other";
                     break;
-                case GamePlatform::SegaNAOMI:
-                    pszPlatformName = L"Sega NAOMI";
+                case GamePlatform::Sega:
+                    pszPlatformName = L"Sega";
                     break;
                 case GamePlatform::NEOGEO:
                     pszPlatformName = L"Neo-Geo";
                     break;
                 case GamePlatform::Nintendo:
                     pszPlatformName = L"Nintendo";
+                    break;
+                case GamePlatform::Psikyo:
+                    pszPlatformName = L"Psikyo";
                     break;
                 case GamePlatform::PGM:
                     pszPlatformName = L"PolyGame Master";
