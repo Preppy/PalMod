@@ -7118,6 +7118,41 @@ const sGame_PaletteDataset LASTBLADE2_A_BONUS_StoryMode_PALETTES[] =
     { L"Story Icon Background", 0xea700, 0xea720 },
 };
 
+const sGame_PaletteDataset LASTBLADE2_A_BONUS_HUD_PALETTES[] =
+{
+    //{ L"HUD",         0xa9000 + (0 * 0x20), 0xa9020 + (0 * 0x20), indexLastBlade2_Bonus, -1 },
+    { L"Speed Meter 1", 0xa9000 + (1 * 0x20), 0xa9020 + (1 * 0x20), indexLastBlade2_Bonus, 0x04 },
+    //{ L"HUD",         0xa9000 + (2 * 0x20), 0xa9020 + (2 * 0x20), indexLastBlade2_Bonus, -1 },
+    { L"EX Meter 1",    0xa9000 + (3 * 0x20), 0xa9020 + (3 * 0x20), indexLastBlade2_Bonus, 0x05 },
+    { L"EX Meter 2",    0xa9000 + (4 * 0x20), 0xa9020 + (4 * 0x20), indexLastBlade2_Bonus, 0x05 },
+    //{ L"HUD",         0xa9000 + (5 * 0x20), 0xa9020 + (5 * 0x20), indexLastBlade2_Bonus, -1 },
+    //{ L"HUD",         0xa9000 + (6 * 0x20), 0xa9020 + (6 * 0x20), indexLastBlade2_Bonus, -1 },
+    { L"Speed Meter 2", 0xa9000 + (7 * 0x20), 0xa9020 + (7 * 0x20), indexLastBlade2_Bonus, 0x04 },
+    //{ L"HUD",         0xa9000 + (8 * 0x20), 0xa9020 + (8 * 0x20), indexLastBlade2_Bonus, -1 },
+
+    //{ L"HUD",         0xa9000 + (9 * 0x20), 0xa9020 + (9 * 0x20), indexLastBlade2_Bonus, -1 },
+    { L"Power Meter 1", 0xa9000 + (10 * 0x20), 0xa9020 + (10 * 0x20), indexLastBlade2_Bonus, 0x06 },
+    //{ L"HUD",           0xa9000 + (11 * 0x20), 0xa9020 + (11 * 0x20), indexLastBlade2_Bonus, -1 },
+    { L"Power Meter 2", 0xa9000 + (12 * 0x20), 0xa9020 + (12 * 0x20), indexLastBlade2_Bonus, 0x06 },
+    { L"SNK",           0xa9000 + (13 * 0x20), 0xa9020 + (13 * 0x20), indexLastBlade2_Bonus, 0x07 },
+    { L"Credits",       0xa9000 + (14 * 0x20), 0xa9020 + (14 * 0x20), indexLastBlade2_Bonus, 0x08 },
+    { L"Timer, Lifebar", 0xa9000 + (15 * 0x20), 0xa9020 + (15 * 0x20), indexLastBlade2_Bonus, 0x09 },
+
+    //{ L"HUD",         0xa9000 + (16 * 0x20), 0xa9020 + (16 * 0x20), indexLastBlade2_Bonus, -1 },
+    //{ L"HUD",         0xa9000 + (17 * 0x20), 0xa9020 + (17 * 0x20), indexLastBlade2_Bonus, -1 },
+    //{ L"HUD",         0xa9000 + (18 * 0x20), 0xa9020 + (18 * 0x20), indexLastBlade2_Bonus, -1 },
+    //{ L"HUD",         0xa9000 + (19 * 0x20), 0xa9020 + (19 * 0x20), indexLastBlade2_Bonus, -1 },
+    //{ L"HUD",         0xa9000 + (20 * 0x20), 0xa9020 + (20 * 0x20), indexLastBlade2_Bonus, -1 },
+    { L"Counter Text",  0xa9000 + (21 * 0x20), 0xa9020 + (21 * 0x20), indexLastBlade2_Bonus, 0x0a },
+    { L"Hits Text",     0xa9000 + (22 * 0x20), 0xa9020 + (22 * 0x20), indexLastBlade2_Bonus, 0x0b },
+    { L"Win Symbols",   0xa9000 + (23 * 0x20), 0xa9020 + (23 * 0x20), indexLastBlade2_Bonus, 0x0c },
+    { L"Various Text 1", 0xa9000 + (24 * 0x20), 0xa9020 + (24 * 0x20), indexLastBlade2_Bonus, 0x0d },
+    { L"SNK Copyright", 0xa9000 + (25 * 0x20), 0xa9020 + (25 * 0x20), indexLastBlade2_Bonus, 0x0e },
+    { L"Health Bar 1",  0xa9000 + (26 * 0x20), 0xa9020 + (26 * 0x20), indexLastBlade2_Bonus, 0x0f },
+    { L"Various Text 2", 0xa9000 + (27 * 0x20), 0xa9020 + (27 * 0x20), indexLastBlade2_Bonus, 0x10 },
+    { L"Health Bar 2",  0xa9000 + (28 * 0x20), 0xa9020 + (28 * 0x20), indexLastBlade2_Bonus, 0x11 },    
+};
+
 const sDescTreeNode LASTBLADE2_A_Kaede_COLLECTION[] =
 {
     { L"Power A", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Kaede_PALETTES_PA, ARRAYSIZE(LASTBLADE2_A_Kaede_PALETTES_PA) },
@@ -7328,6 +7363,7 @@ const sDescTreeNode LASTBLADE2_A_BONUS_COLLECTION[] =
 {
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_BONUS_SelectScreen_PALETTES, ARRAYSIZE(LASTBLADE2_A_BONUS_SelectScreen_PALETTES) },
     { L"Story Mode", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_BONUS_StoryMode_PALETTES, ARRAYSIZE(LASTBLADE2_A_BONUS_StoryMode_PALETTES) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_BONUS_HUD_PALETTES, ARRAYSIZE(LASTBLADE2_A_BONUS_HUD_PALETTES) },
 };
 
 const sDescTreeNode LASTBLADE2_A_UNITS[] =

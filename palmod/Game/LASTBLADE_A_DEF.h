@@ -2720,6 +2720,37 @@ const sGame_PaletteDataset LASTBLADE_A_BONUS_PALETTES_STAGES[] =
     { L"Kagami (4/4) 0xd0900", 0xd0900, 0xd0ae0 },
 };
 
+const sGame_PaletteDataset LASTBLADE_A_BONUS_PALETTES_HUD[] =
+{
+    { L"SNK",           0xb0000, 0xb0020, indexLastBladeSprites_Bonus, 0x00 },
+    //{ L"HUD2",           0xb0020, 0xb0040, indexLastBladeSprites_Bonus, -1 },
+    //{ L"HUD3",           0xb0040, 0xb0060, indexLastBladeSprites_Bonus, -1 },
+    { L"Timer / Lifebar", 0xb0060, 0xb0080, indexLastBladeSprites_Bonus, 0x01, &pairNext },
+        { L"Lifebar Victory Tracker", 0xb0100, 0xb0120, indexLastBladeSprites_Bonus, 0x02 },
+
+    //{ L"HUD5",           0xb0080, 0xb00a0, indexLastBladeSprites_Bonus, -1 },
+    //{ L"HUD6",           0xb00a0, 0xb00c0, indexLastBladeSprites_Bonus, -1 },
+    //{ L"HUD7",           0xb00c0, 0xb00e0, indexLastBladeSprites_Bonus, -1 },
+    //{ L"HUD8",           0xb00e0, 0xb0100, indexLastBladeSprites_Bonus, -1 },
+    
+    { L"Start Timer",   0xb0120, 0xb0140, indexLastBladeSprites_Bonus, 0x03 },
+    { L"Continue Text", 0xb0140, 0xb0160, indexLastBladeSprites_Bonus, 0x04 },
+    //{ L"HUDc",           0xb0160, 0xb0180, indexLastBladeSprites_Bonus, -1 },
+    //{ L"HUDd",           0xb0180, 0xb01a0, indexLastBladeSprites_Bonus, -1 },
+    { L"Various Text 1", 0xb01a0, 0xb01c0, indexLastBladeSprites_Bonus, 0x05 },
+    { L"Hits Text",      0xb01c0, 0xb01e0, indexLastBladeSprites_Bonus, 0x06 },
+    { L"Various Text 2", 0xb01e0, 0xb0200, indexLastBladeSprites_Bonus, 0x07 },
+
+    { L"Speed Meter 1", 0xb02c0, 0xb02e0, indexLastBladeSprites_Bonus, 0x08 },
+    { L"Power Meter 1", 0xb02e0, 0xb0300, indexLastBladeSprites_Bonus, 0x09 },
+    { L"Speed Meter 2", 0xb0300, 0xb0320, indexLastBladeSprites_Bonus, 0x08 },
+    { L"Speed Meter 3", 0xb0320, 0xb0340, indexLastBladeSprites_Bonus, 0x08 },
+    { L"Speed Meter 4", 0xb0340, 0xb0360, indexLastBladeSprites_Bonus, 0x08 },
+    { L"Power Meter 2", 0xb0360, 0xb0380, indexLastBladeSprites_Bonus, 0x09 },
+    { L"Power Meter 3", 0xb0380, 0xb03a0, indexLastBladeSprites_Bonus, 0x09 },
+    { L"Power Meter 4", 0xb03a0, 0xb03c0, indexLastBladeSprites_Bonus, 0x09 },
+};
+
 const sDescTreeNode LASTBLADE_A_AKARI_COLLECTION[] =
 {
     { L"Power A", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_AKARI_PALETTES_PA, ARRAYSIZE(LASTBLADE_A_AKARI_PALETTES_PA) },
@@ -2837,6 +2868,11 @@ const sDescTreeNode LASTBLADE_A_STAGE_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_BONUS_PALETTES_STAGES, ARRAYSIZE(LASTBLADE_A_BONUS_PALETTES_STAGES) },
 };
 
+const sDescTreeNode LASTBLADE_A_BONUS_COLLECTION[] =
+{
+    { L"HUD", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_BONUS_PALETTES_HUD, ARRAYSIZE(LASTBLADE_A_BONUS_PALETTES_HUD) },
+};
+
 const sDescTreeNode LASTBLADE_A_UNITS[] =
 {
     { L"Akari", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_AKARI_COLLECTION, ARRAYSIZE(LASTBLADE_A_AKARI_COLLECTION) },
@@ -2854,4 +2890,5 @@ const sDescTreeNode LASTBLADE_A_UNITS[] =
     { L"Yuki", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_YUKI_COLLECTION, ARRAYSIZE(LASTBLADE_A_YUKI_COLLECTION) },
     { L"Zantetsu", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_ZANTETSU_COLLECTION, ARRAYSIZE(LASTBLADE_A_ZANTETSU_COLLECTION) },
     { L"Stages", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_STAGE_COLLECTION, ARRAYSIZE(LASTBLADE_A_STAGE_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_BONUS_COLLECTION, ARRAYSIZE(LASTBLADE_A_BONUS_COLLECTION) },
 };

@@ -45,8 +45,8 @@ private:
         LASTBLADE2_A_UNITS,
         ARRAYSIZE(LASTBLADE2_A_UNITS),
         L"LastBlade2E.txt",             // Extra filename
-        6095,                           // Count of palettes listed in the header
-        0xa9600,                        // Lowest known location used for palettes
+        6112,                           // Count of palettes listed in the header
+        0xa9020,                        // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_Steam
@@ -65,8 +65,8 @@ private:
         LASTBLADE2_A_UNITS,
         ARRAYSIZE(LASTBLADE2_A_UNITS),
         L"LastBlade2E.txt",             // Extra filename
-        6095,                           // Count of palettes listed in the header
-        0xa9600,                        // Lowest known location used for palettes
+        6112,                           // Count of palettes listed in the header
+        0xa9020,                        // Lowest known location used for palettes
     };
 
 public:
