@@ -195,7 +195,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 270, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 271, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -289,6 +289,7 @@ namespace KnownGameInfo
     CGameClass* Make_KOF02UM_PS2_DIR_8887_TOUGEKI(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_8887_TOUGEKI); }
     CGameClass* Make_KOF02UM_PS2_DIR_BGR555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_BGR555); }
     CGameClass* Make_KOF02UM_PS2_DIR_RGB555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_RGB555); }
+    CGameClass* Make_KOF02UM_PS2_DIR_RGB555_NG(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02_PS2_DIR_RGB555); }
     CGameClass* Make_KOF02UM_S_DIR_8887(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_8887); }
     CGameClass* Make_KOF02UM_S_DIR_BGR555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_BGR555); }
     CGameClass* Make_KOF02UM_S_DIR_RGB555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_RGB555); }
@@ -1251,6 +1252,16 @@ namespace KnownGameInfo
             Make_KOF02UM_PS2_DIR_RGB555,
             CGame_KOF02UM_PS2_DIR::GetRule_RGB555,
             CGame_KOF02UM_PS2_DIR::GetNextRule_RGB555,
+            CGame_KOF02UM_PS2_DIR::GetRuleCtr,
+            CGame_KOF02UM_PS2_DIR::ResetRuleCtr,
+        },
+        {
+            KOF02_PS2_DIR_RGB555,
+            L"King of Fighters 2002 (PS2, RGB555 parts)",
+            {},
+            Make_KOF02UM_PS2_DIR_RGB555_NG,
+            CGame_KOF02UM_PS2_DIR::GetRule_RGB555_NG,
+            CGame_KOF02UM_PS2_DIR::GetNextRule_RGB555_NG,
             CGame_KOF02UM_PS2_DIR::GetRuleCtr,
             CGame_KOF02UM_PS2_DIR::ResetRuleCtr,
         },
@@ -2546,7 +2557,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 270, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 271, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 

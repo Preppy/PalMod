@@ -18,6 +18,9 @@ CGame_KOF02UM_PS2_DIR::CGame_KOF02UM_PS2_DIR(uint32_t nConfirmedROMSize, Support
     case KOF02UM_PS2_DIR_RGB555:
         InitializeGame(nConfirmedROMSize, m_sCoreGameData_RGB555);
         return;
+    case KOF02_PS2_DIR_RGB555:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_RGB555_NG);
+        return;
     }
 }
 
@@ -118,6 +121,32 @@ sFileRule CGame_KOF02UM_PS2_DIR::GetNextRule_RGB555()
     m_uRuleCtr++;
 
     if (m_uRuleCtr >= KOF02UM_PS2_DIR_RGB555_UNITS.size())
+    {
+        m_uRuleCtr = INVALID_UNIT_VALUE_16;
+    }
+
+    return NewFileRule;
+}
+
+sFileRule CGame_KOF02UM_PS2_DIR::GetRule_RGB555_NG(uint32_t nUnitId)
+{
+    sFileRule NewFileRule;
+
+    const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", KOF02_PS2_DIR_RGB555_UNITS[nAdjustedUnitId].strFileName.c_str());
+    NewFileRule.uUnitId = nUnitId;
+    NewFileRule.uVerifyVar = KOF02_PS2_DIR_RGB555_UNITS[nAdjustedUnitId].nExpectedFileSize;
+
+    return NewFileRule;
+}
+
+sFileRule CGame_KOF02UM_PS2_DIR::GetNextRule_RGB555_NG()
+{
+    sFileRule NewFileRule = GetRule_RGB555_NG(m_uRuleCtr);
+
+    m_uRuleCtr++;
+
+    if (m_uRuleCtr >= KOF02_PS2_DIR_RGB555_UNITS.size())
     {
         m_uRuleCtr = INVALID_UNIT_VALUE_16;
     }

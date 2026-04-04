@@ -61,6 +61,21 @@ private:
         KOF02UM_PS2_DIR_RGB555_UNITS,
     };
 
+    // this should be moved to its own class perhaps but i am tired
+    const sGCBF_CoreGameData m_sCoreGameData_RGB555_NG
+    {
+        L"King of Fighters 2002 (PS2)",
+        KOF02_PS2_DIR_RGB555,
+        IMGDAT_SECTION_KOF,
+        KOF02_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        DEF_BUTTONLABEL_NEOGEO,
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_BE,
+        KOF02_PS2_DIR_RGB555_UNITS,
+    };
+
 public:
     CGame_KOF02UM_PS2_DIR(uint32_t nConfirmedROMSize, SupportedGamesList nKOF02UMROMSetToLoad);
     ~CGame_KOF02UM_PS2_DIR() { ClearDataBuffer(); FlushChangeTrackingArray(); };
@@ -73,6 +88,8 @@ public:
     static sFileRule GetRule_BGR555(uint32_t nRuleId);
     static sFileRule GetNextRule_RGB555();
     static sFileRule GetRule_RGB555(uint32_t nRuleId);
+    static sFileRule GetNextRule_RGB555_NG();
+    static sFileRule GetRule_RGB555_NG(uint32_t nRuleId);
 };
 
 class CGame_KOF02UM_S_DIR : public CGameClassByFile
