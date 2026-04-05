@@ -595,6 +595,9 @@ void CPalModDlg::PostPalSel()
 
 void CPalModDlg::OnPalSelChange(UINT_PTR nCtrlId)
 {
+    // Ensure we're not trying to blink the old palette now
+    StopBlink();
+
     //Update the base palette if multi-edit
     UpdateMultiEdit();
 
