@@ -34,7 +34,7 @@ private:
         Garou_A_UNITS,
         ARRAYSIZE(Garou_A_UNITS),
         L"GarouSE.txt",         // Extra filename
-        1631,                  // Count of palettes listed in the header
+        1696,                  // Count of palettes listed in the header
         0xe040,                // Lowest known location used for palettes
     };
 
@@ -76,7 +76,7 @@ private:
         Garou_A_UNITS,
         ARRAYSIZE(Garou_A_UNITS),
         L"GarouPE.txt",         // Extra filename
-        1631,                  // Count of palettes listed in the header
+        1696,                  // Count of palettes listed in the header
         0xe040,                // Lowest known location used for palettes
     };
 

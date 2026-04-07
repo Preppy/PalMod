@@ -503,6 +503,7 @@ enum SupportedGarou_A_PaletteListIndex
     indexGarouAKain,        // 0x0d
     indexGarouAPortraits,   // 0x0e
     indexGarouABonus,       // 0x0f
+    indexGarouAStages,      // 0x10
 };
 
 enum KOFSpriteList
