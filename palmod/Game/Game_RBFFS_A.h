@@ -37,8 +37,8 @@ private:
         RBFFS_A_UNITS,
         ARRAYSIZE(RBFFS_A_UNITS),
         L"RBFFSE.txt",             // Extra filename
-        904,                       // Count of palettes listed in the header
-        0xd2000,                   // Lowest known location used for palettes
+        914,                       // Count of palettes listed in the header
+        0xd0000,                   // Lowest known location used for palettes
     };
 
     void DumpPaletteHeaders();

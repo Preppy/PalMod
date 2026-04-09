@@ -1317,6 +1317,29 @@ const sGame_PaletteDataset RBFFS_A_EXTung_BigPortraits[] =
     { L"EX Tung P2 Portrait Extra", 0xfd5e0, 0xfd600, indexRBFFSSprites_Tung, 0x73, &pairPrevious },
 };
 
+const sGame_PaletteDataset RBFFS_A_BONUS_PALETTES_SELECTSCREEN[] =
+{
+    { L"Icons (1/3)",           0xfd600, 0xfd800, indexRBFFSSprites_Bonus, 0x00, &pairNextAndNext },
+    { L"Icons (2/3)",           0xfd800, 0xfda00, indexRBFFSSprites_Bonus, 0x01 },
+    { L"Icons (3/3)",           0xfda00, 0xfdb00, indexRBFFSSprites_Bonus, 0x02 },
+    { L"Background Art",        0xd0900, 0xd0940, indexRBFFSSprites_Bonus, 0x03 },
+    { L"Big Text",              0xd0800, 0xd0820, indexRBFFSSprites_Bonus, 0x04 },
+    { L"P1/P2 Select Indicators", 0xfddc0, 0xfdde0, indexRBFFSSprites_Bonus, 0x05 },
+};
+
+const sGame_PaletteDataset RBFFS_A_BONUS_PALETTES_HUD[] =
+{
+    { L"Text and HUD",       0xd0000, 0xd0180, indexRBFFSSprites_Bonus, 0x06 },
+};
+
+const sGame_PaletteDataset RBFFS_A_BONUS_PALETTES_INTRO[] =
+{
+    { L"Various Intro Art 1/2",         0xfdc00, 0xfddc0, indexRBFFSSprites_Bonus, 0x07, &pairNext },
+    { L"Various Intro Art 2/2",         0xfde20, 0xfdf40, indexRBFFSSprites_Bonus, 0x08 },
+    
+    { L"Title Screen Logo Background",  0xfde00, 0xfde20, indexRBFFSSprites_Bonus, 0x09 },
+};
+
 const sDescTreeNode RBFFS_A_TERRY_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)RBFFS_A_TERRY_PALETTES_P1, ARRAYSIZE(RBFFS_A_TERRY_PALETTES_P1) },
@@ -1505,6 +1528,13 @@ const sDescTreeNode RBFFS_A_EXTUNG_COLLECTION[] =
     { L"Big Portraits", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXTung_BigPortraits, ARRAYSIZE(RBFFS_A_EXTung_BigPortraits) },
 };
 
+const sDescTreeNode RBFFS_A_BONUS_COLLECTION[] =
+{
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)RBFFS_A_BONUS_PALETTES_SELECTSCREEN, ARRAYSIZE(RBFFS_A_BONUS_PALETTES_SELECTSCREEN) },
+    { L"HUD",           DESC_NODETYPE_TREE, (void*)RBFFS_A_BONUS_PALETTES_HUD, ARRAYSIZE(RBFFS_A_BONUS_PALETTES_HUD) },
+    { L"Intro",         DESC_NODETYPE_TREE, (void*)RBFFS_A_BONUS_PALETTES_INTRO, ARRAYSIZE(RBFFS_A_BONUS_PALETTES_INTRO) },
+};
+
 const sDescTreeNode RBFFS_A_UNITS[] =
 {
     { L"Terry", DESC_NODETYPE_TREE, (void*)RBFFS_A_TERRY_COLLECTION, ARRAYSIZE(RBFFS_A_TERRY_COLLECTION) },
@@ -1531,4 +1561,5 @@ const sDescTreeNode RBFFS_A_UNITS[] =
     { L"EX Blue Mary", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBLUEMARY_COLLECTION, ARRAYSIZE(RBFFS_A_EXBLUEMARY_COLLECTION) },
     { L"EX Billy", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXBILLY_COLLECTION, ARRAYSIZE(RBFFS_A_EXBILLY_COLLECTION) },
     { L"EX Tung", DESC_NODETYPE_TREE, (void*)RBFFS_A_EXTUNG_COLLECTION, ARRAYSIZE(RBFFS_A_EXTUNG_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)RBFFS_A_BONUS_COLLECTION, ARRAYSIZE(RBFFS_A_BONUS_COLLECTION) },
 };

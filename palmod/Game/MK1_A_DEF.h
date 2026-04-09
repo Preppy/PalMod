@@ -287,6 +287,12 @@ const sDescTreeNode MK1_A_REPTILE_COLLECTION[] =
 const sDescTreeNode MK1_A_STAGES_COLLECTION[] =
 {
     { L"The Courtyard", DESC_NODETYPE_TREE, (void*)MK1_A_STAGES_COURTYARD_PALETTES, ARRAYSIZE(MK1_A_STAGES_COURTYARD_PALETTES) },
+    // Palace Gates
+    // Warrior Shrine
+    // The Pit
+    // Throne Room
+    // Goro's Lair
+    // Bottom of the Pit
     { L"Stage Sprites", DESC_NODETYPE_TREE, (void*)MK1_A_STAGES_STAGESPRITE_PALETTES, ARRAYSIZE(MK1_A_STAGES_STAGESPRITE_PALETTES) },
 };
 

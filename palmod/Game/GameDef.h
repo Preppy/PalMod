@@ -302,14 +302,15 @@ enum SupportedGamesList
 
 enum class GamePlatform
 {
+    // Note that this is also the visual sort order for the File : Load ROM by game menu
     CapcomCPS12 = 0,
     CapcomCPS3,
     DataEast,
     Midway,
     NEOGEO,
     Nintendo,
-    PGM,
     PS2,
+    PGM,
     Psikyo,
     SammyAtomiswave,
     Sega,
