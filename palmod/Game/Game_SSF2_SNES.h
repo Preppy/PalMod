@@ -16,6 +16,8 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         { L"Super Street Fighter II (USA) (SNES)", L"Super Street Fighter II (USA).sfc", 0xF16D5CE9, 0 },
+        { L"Super Street Fighter II (Japan) (SNES)", L"Super Street Fighter II (Japan).sfc", 0x26CA246B, 0 },
+        { L"Super Street Fighter II (Europe) (SNES)", L"Super Street Fighter II (Europe).sfc", 0x6D86BFB0, 0 },
     };
 
     const sCoreGameData m_sCoreGameData

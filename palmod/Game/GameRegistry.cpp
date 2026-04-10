@@ -2267,7 +2267,7 @@ namespace KnownGameInfo
         {
             SSF2_SNES,
             L"Super Street Fighter 2 (SNES)",
-            { SSF2_SNES,         L"Super Street Fighter 2 (USA)", L"Super Street Fighter 2 (USA SNES)|Super Street Fighter II (USA).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
+            { SSF2_SNES,         L"Super Street Fighter 2", L"Super Street Fighter 2 (SNES)|Super Street Fighter II *).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
             Make_SSF2_SNES,
             CGame_SSF2_SNES::GetRule,
         },
