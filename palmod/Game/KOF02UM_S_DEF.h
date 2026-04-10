@@ -5293,22 +5293,22 @@ const sGame_PaletteDataset KOF02UM_S_MAX2PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
 {
-    { L"Lifebar and Meter",             0x53700, 0x53720 },
+    { L"Lifebar and Meter",             0x53700, 0x53720, indexKOF02UMSprites_Bonus, 0xcf },
     { L"Timer",                         0x53720, 0x53740, indexKOF02UMSprites_Bonus, 0x44 },
-    { L"Names, Win and Meter Count",    0x53740, 0x53760 },
-    { L"GUARD/WIN Text, 5 Meter Bar",   0x53760, 0x53780 },
+    { L"Names, Win and Meter Count",    0x53740, 0x53760, indexKOF02UMSprites_Bonus, 0xd0 },
+    { L"GUARD/WIN Text, 5 Meter Bar",   0x53760, 0x53780, indexKOF02UMSprites_Bonus, 0xce },
     { L"MAX ON Text, Win Count Flash",  0x53780, 0x537a0, indexKOF02UMSprites_Bonus, 0x02 },
-    { L"Round Text Outline",            0x537a0, 0x537c0 },
-    { L"Round/Winner/Hit Text",         0x537c0, 0x537e0 },
+    { L"Round Text Outline",            0x537a0, 0x537c0, indexKOF02UMSprites_Bonus, 0xd1 },
+    { L"Round/Winner/Hit Text",         0x537c0, 0x537e0, indexKOF02UMSprites_Bonus, 0xd2, &pairNextAndNext },
+    { L"Win Text KO",                   0x53880, 0x538a0, indexKOF02UMSprites_Bonus, 0xd4 },
+    { L"Winner Text Outline",           0x538a0, 0x538c0, indexKOF02UMSprites_Bonus, 0xd5 },
     { L"PERFECT",                       0x537e0, 0x53800, indexKOF02UMSprites_Bonus, 0x03 },
     { L"Combo Number",                  0x53800, 0x53820, indexKOF02UMSprites_Bonus, 0x45 },
-    { L"COUNTER, GUARD CRUSH",          0x53820, 0x53840 },
-    { L"FIGHT Text",                    0x53840, 0x53860 },
-    { L"TIME OVER",                     0x53860, 0x53880 },
-    { L"Win Text KO",                   0x53880, 0x538a0, indexKOF02UMSprites_Bonus, 0x04 },
-    { L"Winner Text Outline",           0x538a0, 0x538c0 },
-    { L"DRAW",                          0x538c0, 0x538e0 },
-    { L"FIGHT Text Outline",            0x538e0, 0x53900 },
+    { L"COUNTER, GUARD CRUSH",          0x53820, 0x53840, indexKOF02UMSprites_Bonus, 0xca },
+    { L"TIME OVER",                     0x53860, 0x53880, indexKOF02UMSprites_Bonus, 0xd3 },
+    { L"DRAW",                          0x538c0, 0x538e0, indexKOF02UMSprites_Bonus, 0xcb },
+    { L"FIGHT Text",                    0x53840, 0x53860, indexKOF02UMSprites_Bonus, 0xcd, &pairNext },
+    { L"FIGHT Text Outline",            0x538e0, 0x53900, indexKOF02UMSprites_Bonus, 0xcc },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
@@ -5334,21 +5334,22 @@ const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
     { L"Dust and Orochi Fire Effects", 0x420, 0x440 },
     { L"Explosion Effects",         0x5c0, 0x5e0 },
 
-    { L"MAX2 Glass Shatter", 0x57de0, 0x57e00 },
-    { L"MAX2 Background Effect 1P", 0x57e20, 0x57e40, indexKOF02UMSprites_Bonus, 0x01  },
-    { L"MAX2 Background Effect 2P", 0x57e00, 0x57e20, indexKOF02UMSprites_Bonus, 0x01  },
+    { L"MAX2 Glass Shatter", 0x57de0, 0x57e00, indexKOF02UMSprites_Bonus, 0xc9 },
+    // bugbug: imgid 0x01 may also be this same preview?  clean up
+    { L"MAX2 Background Effect 1P", 0x57e20, 0x57e40, indexKOF02UMSprites_Bonus, 0xc8  },
+    { L"MAX2 Background Effect 2P", 0x57e00, 0x57e20, indexKOF02UMSprites_Bonus, 0xc8  },
 };
 
 const sGame_PaletteDataset KOF02UM_S_NEXTSTAGE_PALETTES[] =
 {
-    { L"Borders 1", 0x57ce0, 0x57d00 },
-    { L"Borders 2", 0x57d00, 0x57d20 },
-    { L"NEXT STAGE Border", 0x57d20, 0x57d40 },
-    { L"PLACE LOCATION", 0x57d40, 0x57d60 },
-    { L"Border Lining", 0x57d80, 0x57da0 },
-    { L"Borders 3", 0x57da0, 0x57dc0 },
-    { L"FIGHT IT OUT!", 0x57dc0, 0x57de0 },
-    { L"NEXT STAGE Text", 0x57e40, 0x57e60 },
+    { L"Borders 1",         0x57ce0, 0x57d00, indexKOF02UMSprites_Bonus, 0xd7 },
+    { L"Borders 2",         0x57d00, 0x57d20, indexKOF02UMSprites_Bonus, 0xd8 },
+    { L"NEXT STAGE Border", 0x57d20, 0x57d40, indexKOF02UMSprites_Bonus, 0xdb },
+    { L"PLACE LOCATION",    0x57d40, 0x57d60, indexKOF02UMSprites_Bonus, 0xdd },
+    { L"Border Lining",     0x57d80, 0x57da0, indexKOF02UMSprites_Bonus, 0xd6 },
+    { L"Borders 3",         0x57da0, 0x57dc0, indexKOF02UMSprites_Bonus, 0xd9 },
+    { L"FIGHT IT OUT!",     0x57dc0, 0x57de0, indexKOF02UMSprites_Bonus, 0xda },
+    { L"NEXT STAGE Text",   0x57e40, 0x57e60, indexKOF02UMSprites_Bonus, 0xdc },
 };
 
 const sDescTreeNode KOF02UM_S_PORTRAITS_COLLECTION[] =
@@ -5365,15 +5366,15 @@ const sDescTreeNode KOF02UM_S_BONUS_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_S_BAR_HUD_PALETTES[] =
 {
-    { L"Healthbar Above 30%", 0x0, 0x20 },
-    { L"Healthbar Under 30%", 0x20, 0x40 },
-    { L"0 Meter Bar", 0x40, 0x60 },
-    { L"1 Meter Bar", 0x60, 0x80 },
-    { L"2 Meter Bar", 0x80, 0xa0 },
-    { L"3 Meter Bar", 0xa0, 0xc0 },
-    { L"4 Meter Bar", 0xc0, 0xe0 },
-    { L"Guard Meter", 0xe0, 0x100 },
-    { L"MAX Time Bar", 0x100, 0x120 },
+    { L"Healthbar Above 30%", 0x0, 0x20, indexKOF02UMSprites_Bonus, 0xe0 },
+    { L"Healthbar Under 30%", 0x20, 0x40, indexKOF02UMSprites_Bonus, 0xe0 },
+    { L"0 Meter Bar", 0x40, 0x60, indexKOF02UMSprites_Bonus, 0xde },
+    { L"1 Meter Bar", 0x60, 0x80, indexKOF02UMSprites_Bonus, 0xde },
+    { L"2 Meter Bar", 0x80, 0xa0, indexKOF02UMSprites_Bonus, 0xde },
+    { L"3 Meter Bar", 0xa0, 0xc0, indexKOF02UMSprites_Bonus, 0xde },
+    { L"4 Meter Bar", 0xc0, 0xe0, indexKOF02UMSprites_Bonus, 0xde },
+    { L"Guard Meter", 0xe0, 0x100, indexKOF02UMSprites_Bonus, 0xdf },
+    { L"MAX Time Bar", 0x100, 0x120, indexKOF02UMSprites_Bonus, 0xe1 },
     { L"Lin Poison Healthbar", 0x140, 0x160 },
 };
 
@@ -5579,8 +5580,9 @@ const sDescTreeNode KOF02UM_S_UNITS_PSEL_SPN[] =
 
 const sGame_PaletteDataset KOF02UM_S_MAX2_BG_PALETTES[] =
 {
-    { L"MAX2 BG Main",  0x00, 0x20, indexKOF02UMSprites_Bonus, 0x00 },
-    { L"MAX2 BG Extra", 0x20, 0x40 },
+    // bugbug: this is also imgid 0x00, should clear up
+    { L"MAX2 BG Main",  0x00, 0x20, indexKOF02UMSprites_Bonus, 0xe2 },
+    { L"MAX2 BG Extra", 0x20, 0x40, indexKOF02UMSprites_Bonus, 0xe2 },
 };
 
 const sDescTreeNode KOF02UM_S_MAX2_BG_COLLECTION[] =
