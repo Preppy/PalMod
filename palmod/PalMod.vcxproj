@@ -602,6 +602,7 @@
     <ClInclude Include="Game\Game_SSF2T_A.h" />
     <ClInclude Include="Game\Game_SSF2T_GBA.h" />
     <ClInclude Include="Game\Game_SSF2_A.h" />
+    <ClInclude Include="Game\Game_SSF2_SNES.h" />
     <ClInclude Include="Game\Game_StreetFighter_A.h" />
     <ClInclude Include="Game\Game_SurvivalArts_A.h" />
     <ClInclude Include="Game\Game_SVCPLUSA_A.h" />
@@ -753,6 +754,7 @@
     <ClInclude Include="Game\SSF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_GBA_DEF.h" />
     <ClInclude Include="Game\SSF2_A_DEF.h" />
+    <ClInclude Include="Game\SSF2_SNES_DEF.h" />
     <ClInclude Include="Game\StreetFighter_A_DEF.h" />
     <ClInclude Include="Game\SuppProc.h" />
     <ClInclude Include="Game\SurvivalArts_A_DEF.h" />

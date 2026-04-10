@@ -4,26 +4,26 @@
 
 const std::vector<uint16_t> SSF2_A_IMGIDS_USED =
 {
-    indexSF2Sprites_Ryu,    // 0x00
-    indexSF2Sprites_EHonda, // 0x01
-    indexSF2Sprites_Blanka, // 0x02
-    indexSF2Sprites_Guile,  // 0x03
-    indexSF2Sprites_Ken,    // 0x04
-    indexSF2Sprites_ChunLi, // 0x05
-    indexSF2Sprites_Zangief, // 0x06
-    indexSF2Sprites_Dhalsim, // 0x07
-    indexSF2Sprites_Bison,  // 0x08
-    indexSF2Sprites_Sagat,  // 0x09
-    indexSF2Sprites_Balrog, // 0x0a
-    indexSF2Sprites_Vega,   // 0x0b
-    indexSF2Sprites_Cammy,  // 0x0c
-    indexSF2Sprites_THawk,  // 0x0d
-    indexSF2Sprites_FeiLong, // 0x0e
-    indexSF2Sprites_DeeJay, // 0x0f
-    indexSF2Sprites_Gouki,  // 0x10
-    indexSF2Sprites_Bonus,  // 0x11
-    indexSF2Sprites_Stages, // 0x12
-    indexSF2HFSprites_Stages, // 0x34 
+    indexSF2Sprites_Ryu,            // 0x00
+    indexSF2Sprites_EHonda,         // 0x01
+    indexSF2Sprites_Blanka,         // 0x02
+    indexSF2Sprites_Guile,          // 0x03
+    indexSF2Sprites_Ken,            // 0x04
+    indexSF2Sprites_ChunLi,         // 0x05
+    indexSF2Sprites_Zangief,        // 0x06
+    indexSF2Sprites_Dhalsim,        // 0x07
+    indexSF2Sprites_Bison,          // 0x08
+    indexSF2Sprites_Sagat,          // 0x09
+    indexSF2Sprites_Balrog,         // 0x0a
+    indexSF2Sprites_Vega,           // 0x0b
+    indexSF2Sprites_Cammy,          // 0x0c
+    indexSF2Sprites_THawk,          // 0x0d
+    indexSF2Sprites_FeiLong,        // 0x0e
+    indexSF2Sprites_DeeJay,         // 0x0f
+    indexSF2Sprites_Gouki,          // 0x10
+    indexSF2Sprites_Bonus,          // 0x11
+    indexSF2Sprites_Stages,         // 0x12
+    indexSF2HFSprites_Stages,       // 0x34 
 };
 
 const sGame_PaletteDataset SSF2_A_RYU_PORTRAITS_JAB[] =
@@ -1450,7 +1450,7 @@ const sGame_PaletteDataset SSF2_A_SAGAT_PALETTES_JAB[] =
 {
     { L"Main Color", 0x1562c, 0x1564c, indexSF2Sprites_Sagat, 0x00 },
     // Unused { L"Extra 00", 0x1564c, 0x1566c },
-    { L"Tiger Shot", 0x1566c, 0x1568c, indexSF2Sprites_Sagat, 0x00 },
+    { L"Tiger Shot", 0x1566c, 0x1568c, indexSF2Sprites_Sagat, 0x01 },
 };
 
 const sGame_PaletteDataset SSF2_A_SAGAT_PALETTES_STRONG[] =

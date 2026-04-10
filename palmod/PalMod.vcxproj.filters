@@ -655,6 +655,9 @@
     <Filter Include="Games\Other Platforms\ReallyReal%27s MBTL Expansion Pack %28Steam%29">
       <UniqueIdentifier>{04df716d-bc5b-4142-9c8e-82d4ed014966}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Super Street Fighter 2 %28SNES%29">
+      <UniqueIdentifier>{086881c3-f94f-4f32-a9c2-d66b3b8ff43e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2377,6 +2380,12 @@
     </ClInclude>
     <ClInclude Include="Game\RRMBTL_S_DEF.h">
       <Filter>Games\Other Platforms\ReallyReal%27s MBTL Expansion Pack %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SSF2_SNES.h">
+      <Filter>Games\Nintendo\Super Street Fighter 2 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SSF2_SNES_DEF.h">
+      <Filter>Games\Nintendo\Super Street Fighter 2 %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -162,6 +162,7 @@
 #include "Game_SHAQFU_SNES.h"
 #include "Game_SPF2T_A.h"
 #include "Game_SSF2_A.h"
+#include "Game_SSF2_SNES.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
 #include "Game_StreetFighter_A.h"
@@ -195,7 +196,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 271, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 272, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -424,6 +425,7 @@ namespace KnownGameInfo
     CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_A(nConfirmedROMSize); }
+    CGameClass* Make_SSF2_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_SNES(nConfirmedROMSize); }
     CGameClass* Make_SSF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_S(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_A(nConfirmedROMSize); }
     CGameClass* Make_SSF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_S(nConfirmedROMSize); }
@@ -2263,6 +2265,13 @@ namespace KnownGameInfo
             CGame_SSF2_A::GetRule,
         },
         {
+            SSF2_SNES,
+            L"Super Street Fighter 2 (SNES)",
+            { SSF2_SNES,         L"Super Street Fighter 2 (USA)", L"Super Street Fighter 2 (USA SNES)|Super Street Fighter II (USA).sfc|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
+            Make_SSF2_SNES,
+            CGame_SSF2_SNES::GetRule,
+        },
+        {
             SSF2_S,
             L"Super Street Fighter II (Steam)",
             { SSF2_S,            L"SSF2", L"SSF2 (Steam)|bundleSuperStreetFighterII.mbundle|", GamePlatform::Steam, GameSeries::SF30th },
@@ -2554,7 +2563,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 271, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 272, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 

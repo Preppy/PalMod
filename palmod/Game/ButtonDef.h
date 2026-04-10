@@ -309,3 +309,8 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_FH3SNES =
 {
     L"Y", L"X", L"B", L"A", L"Start", L"L/R+Y", L"L/R+X", L"L/R+B", L"L/R+A", L"L/R+Start"
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_SNES_SSFT =
+{
+    L"Y", L"X", L"B", L"A", L"L", L"R", L"Start", L"Hold"
+};
