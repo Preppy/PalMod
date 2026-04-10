@@ -5293,22 +5293,22 @@ const sGame_PaletteDataset KOF02UM_S_MAX2PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
 {
-    { L"Main HUD Stuff and Meter",                  0x53700, 0x53720 },
-    { L"Timer",                                     0x53720, 0x53740, indexKOF02UMSprites_Bonus, 0x44 },
-    { L"Names, Win Count, and Meter",               0x53740, 0x53760 },
-    { L"GUARD, Win, Character Text, and 5 Meter Bar", 0x53760, 0x53780 },
-    { L"MAX ON Text, Win Count Flash",              0x53780, 0x537a0, indexKOF02UMSprites_Bonus, 0x02 },
-    { L"Round Text Outline",                        0x537a0, 0x537c0 },
-    { L"General Text on HUD",                       0x537c0, 0x537e0 },
-    { L"PERFECT",                                   0x537e0, 0x53800, indexKOF02UMSprites_Bonus, 0x03 },
-    { L"Combo Number",                              0x53800, 0x53820, indexKOF02UMSprites_Bonus, 0x45 },
-    { L"FIGHT / TIME OVER Text",                    0x53840, 0x53880 },
-    { L"Bottom half of FIGHT text",                 0x538e0, 0x53900 },
-    { L"COUNTER, GUARD CRASH",                      0x53820, 0x53840 },
-    { L"Win Text KO",                               0x53880, 0x538a0, indexKOF02UMSprites_Bonus, 0x04 },
-    { L"Winner Text Outline",                       0x538a0, 0x538c0 },
-    { L"MAX2 Background Effect 1P",                 0x57e20, 0x57e40, indexKOF02UMSprites_Bonus, 0x01 },
-    { L"MAX2 Background Effect 2P",                 0x57e00, 0x57e20, indexKOF02UMSprites_Bonus, 0x01 },
+    { L"Lifebar and Meter",             0x53700, 0x53720 },
+    { L"Timer",                         0x53720, 0x53740, indexKOF02UMSprites_Bonus, 0x44 },
+    { L"Names, Win and Meter Count",    0x53740, 0x53760 },
+    { L"GUARD/WIN Text, 5 Meter Bar",   0x53760, 0x53780 },
+    { L"MAX ON Text, Win Count Flash",  0x53780, 0x537a0, indexKOF02UMSprites_Bonus, 0x02 },
+    { L"Round Text Outline",            0x537a0, 0x537c0 },
+    { L"Round/Winner/Hit Text",         0x537c0, 0x537e0 },
+    { L"PERFECT",                       0x537e0, 0x53800, indexKOF02UMSprites_Bonus, 0x03 },
+    { L"Combo Number",                  0x53800, 0x53820, indexKOF02UMSprites_Bonus, 0x45 },
+    { L"COUNTER, GUARD CRUSH",          0x53820, 0x53840 },
+    { L"FIGHT Text",                    0x53840, 0x53860 },
+    { L"TIME OVER",                     0x53860, 0x53880 },
+    { L"Win Text KO",                   0x53880, 0x538a0, indexKOF02UMSprites_Bonus, 0x04 },
+    { L"Winner Text Outline",           0x538a0, 0x538c0 },
+    { L"DRAW",                          0x538c0, 0x538e0 },
+    { L"FIGHT Text Outline",            0x538e0, 0x53900 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
@@ -5333,11 +5333,22 @@ const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
     { L"Dust and Fire Effects",     0x340, 0x360 },
     { L"Dust and Orochi Fire Effects", 0x420, 0x440 },
     { L"Explosion Effects",         0x5c0, 0x5e0 },
+
+    { L"MAX2 Glass Shatter", 0x57de0, 0x57e00 },
+    { L"MAX2 Background Effect 1P", 0x57e20, 0x57e40, indexKOF02UMSprites_Bonus, 0x01  },
+    { L"MAX2 Background Effect 2P", 0x57e00, 0x57e20, indexKOF02UMSprites_Bonus, 0x01  },
 };
 
 const sGame_PaletteDataset KOF02UM_S_NEXTSTAGE_PALETTES[] =
 {
-    { L"Next Stage", 0x57c00, 0x57e00 },
+    { L"Borders 1", 0x57ce0, 0x57d00 },
+    { L"Borders 2", 0x57d00, 0x57d20 },
+    { L"NEXT STAGE Border", 0x57d20, 0x57d40 },
+    { L"PLACE LOCATION", 0x57d40, 0x57d60 },
+    { L"Border Lining", 0x57d80, 0x57da0 },
+    { L"Borders 3", 0x57da0, 0x57dc0 },
+    { L"FIGHT IT OUT!", 0x57dc0, 0x57de0 },
+    { L"NEXT STAGE Text", 0x57e40, 0x57e60 },
 };
 
 const sDescTreeNode KOF02UM_S_PORTRAITS_COLLECTION[] =
