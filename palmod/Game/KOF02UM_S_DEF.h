@@ -5375,7 +5375,7 @@ const sGame_PaletteDataset KOF02UM_S_BAR_HUD_PALETTES[] =
     { L"4 Meter Bar", 0xc0, 0xe0, indexKOF02UMSprites_Bonus, 0xde },
     { L"Guard Meter", 0xe0, 0x100, indexKOF02UMSprites_Bonus, 0xdf },
     { L"MAX Time Bar", 0x100, 0x120, indexKOF02UMSprites_Bonus, 0xe1 },
-    { L"Lin Poison Healthbar", 0x140, 0x160 },
+    { L"Lin Poison Healthbar", 0x140, 0x160, indexKOF02UMSprites_Bonus, 0xe0 },
 };
 
 const sDescTreeNode KOF02UM_S_BAR_HUD_COLLECTION[] =

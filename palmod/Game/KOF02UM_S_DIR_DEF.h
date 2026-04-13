@@ -3250,6 +3250,15 @@ const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_8887_UNITS =
     { L"game\\demo\\rank.bin", 769318, L"Rankings (ENG, JPN, PT-BR)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
     { L"game\\demo\\ranks.bin", 769318, L"Rankings (Spanish)", KOF02UM_S_RANK_COLLECTION_SPN, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_SPN) },
 
+    { L"game\\menu\\rank_a.bin", 0xa4e78, L"Rankings (Arcade Team, ENG, JPN, PT-BR)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+    { L"game\\menu\\rank_as.bin", 0xa4e78, L"Rankings (Arcade Team, Spanish)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+    { L"game\\menu\\rank_c.bin", 0xa55c8, L"Rankings (Character Usage, ENG, JPN, PT-BR)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+    { L"game\\menu\\rank_cs.bin", 0xa55c8, L"Rankings (Character Usage, Spanish)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+    { L"game\\menu\\rank_e.bin", 0xa4bf0, L"Rankings (Endless, ENG, JPN, PT-BR)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+    { L"game\\menu\\rank_es.bin", 0xa4bf0, L"Rankings (Endless, Spanish)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+    { L"game\\menu\\rank_s.bin", 0xa4e78, L"Rankings (Arcade Single, ENG, JPN, PT-BR)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+    { L"game\\menu\\rank_ss.bin", 0xa4e78, L"Rankings (Arcade Single, Spanish)", KOF02UM_PS2_RANK_COLLECTION_JPN, ARRAYSIZE(KOF02UM_PS2_RANK_COLLECTION_JPN) },
+
     { L"game\\menu\\clear.bin", 137422, L"Clear", KOF02UM_S_CLEAR_COLLECTION, ARRAYSIZE(KOF02UM_S_CLEAR_COLLECTION)},
 
     { L"game\\vic\\vic0_00.bin-n", 0x479bae, L"Victory Screens: Arcade Mode (Team)", KOF02UM_S_VictorySequence_COLLECTION, ARRAYSIZE(KOF02UM_S_VictorySequence_COLLECTION) },

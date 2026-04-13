@@ -16,6 +16,16 @@ void CGame_KOF02UM_S::SetSpecialRuleForFileName(std::wstring strFileName)
         { L"psels.bin-n", KOF02UMLoadingKey::PSelSPN },
         { L"rank.bin", KOF02UMLoadingKey::RankENU },
         { L"ranks.bin", KOF02UMLoadingKey::RankSPN },
+
+        { L"rank_a.bin", KOF02UMLoadingKey::RankMenuArcadeTeamENU },
+        { L"rank_as.bin", KOF02UMLoadingKey::RankMenuArcadeTeamESN },
+        { L"rank_s.bin", KOF02UMLoadingKey::RankMenuArcadeSingleENU },
+        { L"rank_ss.bin", KOF02UMLoadingKey::RankMenuArcadeSingleESN },
+        { L"rank_c.bin", KOF02UMLoadingKey::RankMenuCharacterENU },
+        { L"rank_cs.bin", KOF02UMLoadingKey::RankMenuCharacterESN },
+        { L"rank_e.bin", KOF02UMLoadingKey::RankMenuEndlessENU },
+        { L"rank_es.bin", KOF02UMLoadingKey::RankMenuEndlessESN },
+
         { L"conte.bin", KOF02UMLoadingKey::ContENU },
         { L"cont.bin-n", KOF02UMLoadingKey::ContJPN },
         { L"contb.bin", KOF02UMLoadingKey::ContPBR },
@@ -86,6 +96,30 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(uint32_t nConfirmedROMSize)
             break;
         case KOF02UMLoadingKey::RankSPN:
             InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankSPN);
+            break;
+        case KOF02UMLoadingKey::RankMenuArcadeTeamENU:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuArcadeTeamENU);
+            break;
+        case KOF02UMLoadingKey::RankMenuArcadeTeamESN:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuArcadeTeamESN);
+            break;
+        case KOF02UMLoadingKey::RankMenuArcadeSingleENU:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuArcadeSingleENU);
+            break;
+        case KOF02UMLoadingKey::RankMenuArcadeSingleESN:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuArcadeSingleESN);
+            break;
+        case KOF02UMLoadingKey::RankMenuCharacterENU:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuCharacterENU);
+            break;
+        case KOF02UMLoadingKey::RankMenuCharacterESN:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuCharacterESN);
+            break;
+        case KOF02UMLoadingKey::RankMenuEndlessENU:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuEndlessENU);
+            break;
+        case KOF02UMLoadingKey::RankMenuEndlessESN:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_RankMenuEndlessESN);
             break;
         case KOF02UMLoadingKey::ContENU:
             InitializeGame(nConfirmedROMSize, m_sCoreGameData_ContENU);
@@ -174,6 +208,17 @@ sFileRule CGame_KOF02UM_S::GetRule(uint32_t nRuleId)
             return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_RankENU);
         case KOF02UMLoadingKey::RankSPN:
             return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_RankSPN);
+        case KOF02UMLoadingKey::RankMenuArcadeTeamENU:
+        case KOF02UMLoadingKey::RankMenuArcadeTeamESN:
+        case KOF02UMLoadingKey::RankMenuArcadeSingleENU:
+        case KOF02UMLoadingKey::RankMenuArcadeSingleESN:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_RankMenuArcade);
+        case KOF02UMLoadingKey::RankMenuCharacterENU:
+        case KOF02UMLoadingKey::RankMenuCharacterESN:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_RankMenuCharacter);
+        case KOF02UMLoadingKey::RankMenuEndlessENU:
+        case KOF02UMLoadingKey::RankMenuEndlessESN:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_RankMenuEndless);
         case KOF02UMLoadingKey::ContENU:
             return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ContENU);
         case KOF02UMLoadingKey::ContJPN:

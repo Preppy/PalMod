@@ -15,6 +15,14 @@ private:
         PSelSPN,
         RankENU,
         RankSPN,
+        RankMenuArcadeTeamENU,
+        RankMenuArcadeTeamESN,
+        RankMenuArcadeSingleENU,
+        RankMenuArcadeSingleESN,
+        RankMenuCharacterENU,
+        RankMenuCharacterESN,
+        RankMenuEndlessENU,
+        RankMenuEndlessESN,
         ContENU,
         ContJPN,
         ContPBR,
@@ -103,6 +111,31 @@ private:
         {
             // This is the demo version, vs the 0x15bb6a Menu version
             { L"ranks.bin", 0xbbd26 },
+        },
+        FileReadType::Sequential,
+    };
+
+    // Menu versions
+    static inline const sDirectoryLoadingData m_sFileLoadingData_RankMenuArcade =
+    {
+        {
+            { L"rank.bin", 0xa4e78 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_RankMenuCharacter =
+    {
+        {
+            { L"rank.bin", 0xa55c8 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_RankMenuEndless =
+    {
+        {
+            { L"rank.bin", 0xa4bf0 },
         },
         FileReadType::Sequential,
     };
@@ -435,6 +468,166 @@ private:
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_RankSPN,
+        {},
+        KOF02UM_S_UNITS_RANK_SPN,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuArcadeTeamENU
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Arcade Team, ENG, JPN, PT-BR))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
+        {},
+        KOF02UM_S_UNITS_RANK_ENU,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_ENU),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuArcadeTeamESN
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Arcade Team, Spanish))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
+        {},
+        KOF02UM_S_UNITS_RANK_SPN,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuArcadeSingleENU
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Arcade Single, ENG, JPN, PT-BR))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
+        {},
+        KOF02UM_S_UNITS_RANK_ENU,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_ENU),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuArcadeSingleESN
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Arcade Single, Spanish))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
+        {},
+        KOF02UM_S_UNITS_RANK_SPN,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuCharacterENU
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Character Usage, ENG, JPN, PT-BR))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
+        {},
+        KOF02UM_S_UNITS_RANK_ENU,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_ENU),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuCharacterESN
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Character Usage, Spanish))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
+        {},
+        KOF02UM_S_UNITS_RANK_SPN,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuEndlessENU
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Endless Mode, ENG, JPN, PT-BR))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
+        {},
+        KOF02UM_S_UNITS_RANK_ENU,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK_ENU),
+        L"KOF02UMRankE.txt",      // Extra filename
+        11,                       // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_RankMenuEndlessESN
+    {
+        L"King of Fighters 2002UM (Steam, Rankings (Endless Mode, Spanish))",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_RankMenuArcade,
         {},
         KOF02UM_S_UNITS_RANK_SPN,
         ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
