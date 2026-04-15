@@ -5650,6 +5650,40 @@ const sGame_PaletteDataset KOF02UM_PS2_RANK_PALETTES_JPN[] =
     { L"Rank Portraits EX and Text",    0x92480, 0x92880, indexKOF02UMSprites_Bonus, 0xb7 },
 };
 
+const sGame_PaletteDataset KOF02UM_S_RANKMENU_PALETTES_ENU[] =
+{
+    { L"Background 1",                  0x80, 0x480, indexKOF02UMSprites_Bonus, 0xad, &pairNext },
+    { L"Background 2",                  0x10480, 0x10880, indexKOF02UMSprites_Bonus, 0xae },
+// Merged preview like other screens
+    { L"Borders and Text",              0x20880, 0x20c80, indexKOF02UMSprites_Bonus, 0xe3 },
+    // Single palette for PS2
+    { L"Ranking Text Fade",             0x30c80, 0x31080, indexKOF02UMSprites_Bonus, 0xc7 },
+// Merged Preview for Ranking Text Fades
+    { L"Background Extra",              0x41080, 0x41480, indexKOF02UMSprites_Bonus, 0xaf },
+    { L"Rank Portraits 1",              0x51480, 0x51880, indexKOF02UMSprites_Bonus, 0xb3 },
+    { L"Rank Portraits 2",              0x61880, 0x61c80, indexKOF02UMSprites_Bonus, 0xb4 },
+    { L"Rank Portraits 3",              0x71c80, 0x72080, indexKOF02UMSprites_Bonus, 0xb5 },
+    { L"Rank Portraits 4",              0x82080, 0x82480, indexKOF02UMSprites_Bonus, 0xb6 },
+    { L"Rank Portraits EX and Text",    0x92480, 0x92880, indexKOF02UMSprites_Bonus, 0xb7 },
+};
+
+const sGame_PaletteDataset KOF02UM_S_RANKMENU_PALETTES_ESN[] =
+{
+    { L"Background 1",                  0x80, 0x480, indexKOF02UMSprites_Bonus, 0xad, &pairNext },
+    { L"Background 2",                  0x10480, 0x10880, indexKOF02UMSprites_Bonus, 0xae },
+// Merged preview like other screens
+    { L"Borders and Text",              0x20880, 0x20c80, indexKOF02UMSprites_Bonus, 0xe4 },
+    // Single palette for PS2
+    { L"Ranking Text Fade",             0x30c80, 0x31080, indexKOF02UMSprites_Bonus, 0xc7 },
+// Merged Preview for Ranking Text Fades
+    { L"Background Extra",              0x41080, 0x41480, indexKOF02UMSprites_Bonus, 0xaf },
+    { L"Rank Portraits 1",              0x51480, 0x51880, indexKOF02UMSprites_Bonus, 0xb3 },
+    { L"Rank Portraits 2",              0x61880, 0x61c80, indexKOF02UMSprites_Bonus, 0xb4 },
+    { L"Rank Portraits 3",              0x71c80, 0x72080, indexKOF02UMSprites_Bonus, 0xb5 },
+    { L"Rank Portraits 4",              0x82080, 0x82480, indexKOF02UMSprites_Bonus, 0xb6 },
+    { L"Rank Portraits EX and Text",    0x92480, 0x92880, indexKOF02UMSprites_Bonus, 0xb7 },
+};
+
 const sDescTreeNode KOF02UM_S_RANK_COLLECTION_ENU[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANK_PALETTES_ENU, ARRAYSIZE(KOF02UM_S_RANK_PALETTES_ENU) },
@@ -5658,6 +5692,16 @@ const sDescTreeNode KOF02UM_S_RANK_COLLECTION_ENU[] =
 const sDescTreeNode KOF02UM_S_RANK_COLLECTION_SPN[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANK_PALETTES_SPN, ARRAYSIZE(KOF02UM_S_RANK_PALETTES_SPN) },
+};
+
+const sDescTreeNode KOF02UM_S_RANKMENU_COLLECTION_ENU[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANKMENU_PALETTES_ENU, ARRAYSIZE(KOF02UM_S_RANKMENU_PALETTES_ENU) },
+};
+
+const sDescTreeNode KOF02UM_S_RANKMENU_COLLECTION_ESN[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANKMENU_PALETTES_ESN, ARRAYSIZE(KOF02UM_S_RANKMENU_PALETTES_ESN) },
 };
 
 const sDescTreeNode KOF02UM_PS2_RANK_COLLECTION_JPN[] =
@@ -5673,6 +5717,16 @@ const sDescTreeNode KOF02UM_S_UNITS_RANK_ENU[] =
 const sDescTreeNode KOF02UM_S_UNITS_RANK_SPN[] =
 {
     { L"Rank screens", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANK_COLLECTION_SPN, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_SPN) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_RANKMENU_ENU[] =
+{
+    { L"Rank screens", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANKMENU_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ENU) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_RANKMENU_ESN[] =
+{
+    { L"Rank screens", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANKMENU_COLLECTION_ESN, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ESN) },
 };
 
 #pragma endregion RANK

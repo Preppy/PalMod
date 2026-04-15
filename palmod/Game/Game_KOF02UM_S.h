@@ -529,8 +529,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_RankMenuArcade,
         {},
-        KOF02UM_S_UNITS_RANK_ENU,
-        ARRAYSIZE(KOF02UM_S_UNITS_RANK_ENU),
+        KOF02UM_S_UNITS_RANKMENU_ENU,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ENU),
         L"KOF02UMRankE.txt",      // Extra filename
         11,                       // Count of palettes listed in the header
         0x80,                     // Lowest known location used for palettes
@@ -549,8 +549,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_RankMenuArcade,
         {},
-        KOF02UM_S_UNITS_RANK_SPN,
-        ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
+        KOF02UM_S_UNITS_RANKMENU_ESN,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ESN),
         L"KOF02UMRankE.txt",      // Extra filename
         11,                       // Count of palettes listed in the header
         0x80,                     // Lowest known location used for palettes
@@ -569,8 +569,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_RankMenuArcade,
         {},
-        KOF02UM_S_UNITS_RANK_ENU,
-        ARRAYSIZE(KOF02UM_S_UNITS_RANK_ENU),
+        KOF02UM_S_UNITS_RANKMENU_ENU,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ENU),
         L"KOF02UMRankE.txt",      // Extra filename
         11,                       // Count of palettes listed in the header
         0x80,                     // Lowest known location used for palettes
@@ -589,8 +589,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_RankMenuArcade,
         {},
-        KOF02UM_S_UNITS_RANK_SPN,
-        ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
+        KOF02UM_S_UNITS_RANKMENU_ESN,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ESN),
         L"KOF02UMRankE.txt",      // Extra filename
         11,                       // Count of palettes listed in the header
         0x80,                     // Lowest known location used for palettes
@@ -609,8 +609,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_RankMenuArcade,
         {},
-        KOF02UM_S_UNITS_RANK_ENU,
-        ARRAYSIZE(KOF02UM_S_UNITS_RANK_ENU),
+        KOF02UM_S_UNITS_RANKMENU_ENU,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ENU),
         L"KOF02UMRankE.txt",      // Extra filename
         11,                       // Count of palettes listed in the header
         0x80,                     // Lowest known location used for palettes
@@ -629,8 +629,8 @@ private:
         ColMode::COLMODE_RGBA8887,
         m_sFileLoadingData_RankMenuArcade,
         {},
-        KOF02UM_S_UNITS_RANK_SPN,
-        ARRAYSIZE(KOF02UM_S_UNITS_RANK_SPN),
+        KOF02UM_S_UNITS_RANKMENU_ESN,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ESN),
         L"KOF02UMRankE.txt",      // Extra filename
         11,                       // Count of palettes listed in the header
         0x80,                     // Lowest known location used for palettes

@@ -1582,7 +1582,7 @@ const sDescTreeNode GEMFIGHTER_A_STAGE_COLLECTION[] =
 const sGame_PaletteDataset GEMFIGHTER_A_BONUS_PALETTES[] =
 {
     { L"Insert Coin / Char Names / After Battle Text / Timer Numbers", 0xbde6, 0xbe06 },
-    { L"HUD", 0xbe66, 0xbe86 },
+    { L"HUD", 0xbe66, 0xbe86, indexCPS2Sprites_SPF_Bonus, 0x02 },
     { L"Intro Cascade Gems", 0xbf26, 0xbf66 },
 
     { L"Char Select Back Card", 0xd7a6, 0xd7c6 },
