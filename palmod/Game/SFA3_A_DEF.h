@@ -1904,7 +1904,7 @@ const sGame_PaletteDataset SFA3_A_EHONDA_STATUS[] =
 
 const sGame_PaletteDataset SFA3_A_BLANKA_XISMP[] =
 {
-    { L"X-Ism Punch", 0x30f92, 0x30fb2, indexCPS2Sprites_Blanka, 0x00 },
+    { L"X-Ism Punch", 0x30f92, 0x30fb2, indexCPS2Sprites_Blanka, 0x00, &pairNext },
     { L"X-Ism Punch Extra 1", 0x30fb2, 0x30fd2 },
     { L"X-Ism Punch Extra 2", 0x30fd2, 0x30ff2 },
     { L"X-Ism Punch Extra 3", 0x4b632, 0x4b652, indexCPS2Sprites_Blanka, 0x00 },
@@ -1916,7 +1916,7 @@ const sGame_PaletteDataset SFA3_A_BLANKA_XISMP[] =
 
 const sGame_PaletteDataset SFA3_A_BLANKA_XISMK[] =
 {
-    { L"X-Ism Kick", 0x31032, 0x31052, indexCPS2Sprites_Blanka, 0x00 },
+    { L"X-Ism Kick", 0x31032, 0x31052, indexCPS2Sprites_Blanka, 0x00, &pairNext },
     { L"X-Ism Kick Extra 1", 0x31052, 0x31072 },
     { L"X-Ism Kick Extra 2", 0x31072, 0x31092 },
     { L"X-Ism Kick Extra 3", 0x4b652, 0x4b672, indexCPS2Sprites_Blanka, 0x00 },
@@ -1927,7 +1927,7 @@ const sGame_PaletteDataset SFA3_A_BLANKA_XISMK[] =
 
 const sGame_PaletteDataset SFA3_A_BLANKA_AISMP[] =
 {
-    { L"A-Ism Punch", 0x310d2, 0x310f2, indexCPS2Sprites_Blanka, 0x00 },
+    { L"A-Ism Punch", 0x310d2, 0x310f2, indexCPS2Sprites_Blanka, 0x00, &pairNext },
     { L"A-Ism Punch Extra 1", 0x310f2, 0x31112 },
     { L"A-Ism Punch Extra 2", 0x31112, 0x31132 },
     { L"A-Ism Punch Extra 3", 0x4b672, 0x4b692, indexCPS2Sprites_Blanka, 0x00 },
@@ -1939,7 +1939,7 @@ const sGame_PaletteDataset SFA3_A_BLANKA_AISMP[] =
 
 const sGame_PaletteDataset SFA3_A_BLANKA_AISMK[] =
 {
-    { L"A-Ism Kick", 0x31172, 0x31192, indexCPS2Sprites_Blanka, 0x00 },
+    { L"A-Ism Kick", 0x31172, 0x31192, indexCPS2Sprites_Blanka, 0x00, &pairNext },
     { L"A-Ism Kick Extra 1", 0x31192, 0x311b2 },
     { L"A-Ism Kick Extra 2", 0x311b2, 0x311d2 },
     { L"A-Ism Kick Extra 3", 0x4b692, 0x4b6b2, indexCPS2Sprites_Blanka, 0x00 },
@@ -1950,7 +1950,7 @@ const sGame_PaletteDataset SFA3_A_BLANKA_AISMK[] =
 
 const sGame_PaletteDataset SFA3_A_BLANKA_VISMP[] =
 {
-    { L"V-Ism Punch", 0x31212, 0x31232, indexCPS2Sprites_Blanka, 0x00 },
+    { L"V-Ism Punch", 0x31212, 0x31232, indexCPS2Sprites_Blanka, 0x00, &pairNext },
     { L"V-Ism Punch Extra 1", 0x31232, 0x31252 },
     { L"V-Ism Punch Extra 2", 0x31252, 0x31272 },
     { L"V-Ism Punch Extra 3", 0x4b6b2, 0x4b6d2, indexCPS2Sprites_Blanka, 0x00 },
@@ -1961,7 +1961,7 @@ const sGame_PaletteDataset SFA3_A_BLANKA_VISMP[] =
 
 const sGame_PaletteDataset SFA3_A_BLANKA_VISMK[] =
 {
-    { L"V-Ism Kick", 0x312b2, 0x312d2, indexCPS2Sprites_Blanka, 0x00 },
+    { L"V-Ism Kick", 0x312b2, 0x312d2, indexCPS2Sprites_Blanka, 0x00, &pairNext },
     { L"V-Ism Kick Extra 1", 0x312d2, 0x312f2 },
     { L"V-Ism Kick Extra 2", 0x312f2, 0x31312 },
     { L"V-Ism Kick Extra 3", 0x4b6d2, 0x4b6f2, indexCPS2Sprites_Blanka, 0x00 },
@@ -2658,8 +2658,37 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_TITLES[] =
     { L"Title Screen 16x16 2.2.14 - Animation 14", 0x63952, 0x63972, indexCPS2Sprites_SFA3Assets, 0xcf },
 };
 
+const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_HUD[] =
+{
+    { L"HUD", 0x3bb12, 0x3bc32, indexCPS2Sprites_SFA3Assets, 0xdc },
+
+    { L"X-Ism Bars and Stuff 1/5", 0x5f712, 0x5f732, indexCPS2Sprites_SFA3Assets, 0xdd },
+    { L"X-Ism Bars and Stuff 2/5", 0x5f732, 0x5f752, indexCPS2Sprites_SFA3Assets, 0xdd },
+    { L"X-Ism Bars and Stuff 3/5", 0x5f752, 0x5f772, indexCPS2Sprites_SFA3Assets, 0xdd },
+    { L"X-Ism Bars and Stuff 4/5", 0x5f772, 0x5f792, indexCPS2Sprites_SFA3Assets, 0xdd },
+    { L"X-Ism Bars and Stuff 5/5", 0x5f792, 0x5f7b2, indexCPS2Sprites_SFA3Assets, 0xdd },
+
+    { L"V-Ism Bars and Stuff 1/5", 0x5f7b2, 0x5f7d2, indexCPS2Sprites_SFA3Assets, 0xde },
+    { L"V-Ism Bars and Stuff 2/5", 0x5f7d2, 0x5f7f2, indexCPS2Sprites_SFA3Assets, 0xde },
+    { L"V-Ism Bars and Stuff 3/5", 0x5f7f2, 0x5f812, indexCPS2Sprites_SFA3Assets, 0xde },
+    { L"V-Ism Bars and Stuff 4/5", 0x5f812, 0x5f832, indexCPS2Sprites_SFA3Assets, 0xde },
+    { L"V-Ism Bars and Stuff 5/5", 0x5f832, 0x5f852, indexCPS2Sprites_SFA3Assets, 0xde },
+
+    { L"A-Ism Bars and Stuff 1/5", 0x5f852, 0x5f872, indexCPS2Sprites_SFA3Assets, 0xdf },
+    { L"A-Ism Bars and Stuff 2/5", 0x5f872, 0x5f892, indexCPS2Sprites_SFA3Assets, 0xdf },
+    { L"A-Ism Bars and Stuff 3/5", 0x5f892, 0x5f8b2, indexCPS2Sprites_SFA3Assets, 0xdf },
+    { L"A-Ism Bars and Stuff 4/5", 0x5f8b2, 0x5f8d2, indexCPS2Sprites_SFA3Assets, 0xdf },
+    { L"A-Ism Bars and Stuff 5/5", 0x5f8d2, 0x5f8f2, indexCPS2Sprites_SFA3Assets, 0xdf },
+
+    { L"? A-Ism Bars and Stuff 1/3", 0x5f932, 0x5f952, indexCPS2Sprites_SFA3Assets, 0xdf },
+    { L"? A-Ism Bars and Stuff 2/4", 0x5f952, 0x5f972, indexCPS2Sprites_SFA3Assets, 0xdf },
+    { L"? A-Ism Bars and Stuff 3/4", 0x5f972, 0x5f992, indexCPS2Sprites_SFA3Assets, 0xdf },
+    { L"? A-Ism Bars and Stuff 4/4", 0x5f992, 0x5f9b2, indexCPS2Sprites_SFA3Assets, 0xdf },
+};
+
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_BONUS[] =
 {
+
     { L"Capcom Intro Logo", 0x40172, 0x40192, indexCPS2Sprites_SFA3Assets, 0xd6 },
     { L"Capcom Logo 2", 0x3bc72, 0x3bc92, indexCPS2Sprites_SFA3Assets, 0xd6 },
     { L"QSound", 0x49fb2, 0x4a072, indexCPS2Sprites_SFA3Assets, 0xc1 },
@@ -4623,6 +4652,7 @@ const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
     { L"Character Group 3", DESC_NODETYPE_TREE, (void*)SFA3_A_PALETTES_BONUS_CGROUP3,   ARRAYSIZE(SFA3_A_PALETTES_BONUS_CGROUP3) },
     { L"Character Group 4", DESC_NODETYPE_TREE, (void*)SFA3_A_PALETTES_BONUS_CGROUP4,   ARRAYSIZE(SFA3_A_PALETTES_BONUS_CGROUP4) },
     { L"Character Group 5", DESC_NODETYPE_TREE, (void*)SFA3_A_PALETTES_BONUS_CGROUP5,   ARRAYSIZE(SFA3_A_PALETTES_BONUS_CGROUP5) },
+    { L"HUD",               DESC_NODETYPE_TREE, (void*)SFA3_A_PALETTES_BONUS_HUD,       ARRAYSIZE(SFA3_A_PALETTES_BONUS_HUD) },
     { L"Round Text", DESC_NODETYPE_TREE, (void*)SFA3_A_PALETTES_BONUS_ROUND,            ARRAYSIZE(SFA3_A_PALETTES_BONUS_ROUND) },
     { L"Shadaloo Dolls", DESC_NODETYPE_TREE, (void*)SFA3_A_PALETTES_BONUS_DOLLS,        ARRAYSIZE(SFA3_A_PALETTES_BONUS_DOLLS) },
     { L"Title Screen", DESC_NODETYPE_TREE, (void*)SFA3_A_PALETTES_BONUS_TITLES,         ARRAYSIZE(SFA3_A_PALETTES_BONUS_TITLES) },
