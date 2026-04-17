@@ -1658,8 +1658,8 @@ const sGame_PaletteDataset SFA3_A_GEN_STATUS[] =
 
 const sGame_PaletteDataset SFA3_A_BALROG_XISMP[] =
 {
-    { L"X-Ism Punch", 0x30452, 0x30472, indexCPS2Sprites_Balrog, 0x00 },
-    { L"X-Ism Punch Extra 1", 0x30472, 0x30492 },
+    { L"X-Ism Punch", 0x30452, 0x30472, indexCPS2Sprites_Balrog, 0x00, &pairNext },
+    { L"X-Ism Punch Extra 1", 0x30472, 0x30492, indexCPS2Sprites_Balrog, 0x01 },
     { L"X-Ism Punch Extra 2", 0x30492, 0x304b2 },
     { L"X-Ism Punch Super Trail Light", 0x304b2, 0x304d2, indexCPS2Sprites_Balrog, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x304d2, 0x304f2, indexCPS2Sprites_Balrog, 0x00 },
@@ -1667,8 +1667,8 @@ const sGame_PaletteDataset SFA3_A_BALROG_XISMP[] =
 
 const sGame_PaletteDataset SFA3_A_BALROG_XISMK[] =
 {
-    { L"X-Ism Kick", 0x304f2, 0x30512, indexCPS2Sprites_Balrog, 0x00 },
-    { L"X-Ism Kick Extra 1", 0x30512, 0x30532 },
+    { L"X-Ism Kick", 0x304f2, 0x30512, indexCPS2Sprites_Balrog, 0x00, &pairNext },
+    { L"X-Ism Kick Extra 1", 0x30512, 0x30532, indexCPS2Sprites_Balrog, 0x01 },
     { L"X-Ism Kick Extra 2", 0x30532, 0x30552 },
     { L"X-Ism Kick Super Trail Light", 0x30552, 0x30572, indexCPS2Sprites_Balrog, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x30572, 0x30592, indexCPS2Sprites_Balrog, 0x00 },
@@ -1676,8 +1676,8 @@ const sGame_PaletteDataset SFA3_A_BALROG_XISMK[] =
 
 const sGame_PaletteDataset SFA3_A_BALROG_AISMP[] =
 {
-    { L"A-Ism Punch", 0x30592, 0x305b2, indexCPS2Sprites_Balrog, 0x00 },
-    { L"A-Ism Punch Extra 1", 0x305b2, 0x305d2 },
+    { L"A-Ism Punch", 0x30592, 0x305b2, indexCPS2Sprites_Balrog, 0x00, &pairNext },
+    { L"A-Ism Punch Extra 1", 0x305b2, 0x305d2, indexCPS2Sprites_Balrog, 0x01 },
     { L"A-Ism Punch Extra 2", 0x305d2, 0x305f2 },
     { L"A-Ism Punch Super Trail Light", 0x305f2, 0x30612, indexCPS2Sprites_Balrog, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x30612, 0x30632, indexCPS2Sprites_Balrog, 0x00 },
@@ -1685,8 +1685,8 @@ const sGame_PaletteDataset SFA3_A_BALROG_AISMP[] =
 
 const sGame_PaletteDataset SFA3_A_BALROG_AISMK[] =
 {
-    { L"A-Ism Kick", 0x30632, 0x30652, indexCPS2Sprites_Balrog, 0x00 },
-    { L"A-Ism Kick Extra 1", 0x30652, 0x30672 },
+    { L"A-Ism Kick", 0x30632, 0x30652, indexCPS2Sprites_Balrog, 0x00, &pairNext },
+    { L"A-Ism Kick Extra 1", 0x30652, 0x30672, indexCPS2Sprites_Balrog, 0x01 },
     { L"A-Ism Kick Extra 2", 0x30672, 0x30692 },
     { L"A-Ism Kick Super Trail Light", 0x30692, 0x306b2, indexCPS2Sprites_Balrog, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x306b2, 0x306d2, indexCPS2Sprites_Balrog, 0x00 },
@@ -1694,8 +1694,8 @@ const sGame_PaletteDataset SFA3_A_BALROG_AISMK[] =
 
 const sGame_PaletteDataset SFA3_A_BALROG_VISMP[] =
 {
-    { L"V-Ism Punch", 0x306d2, 0x306f2, indexCPS2Sprites_Balrog, 0x00 },
-    { L"V-Ism Punch Extra 1", 0x306f2, 0x30712 },
+    { L"V-Ism Punch", 0x306d2, 0x306f2, indexCPS2Sprites_Balrog, 0x00, &pairNext },
+    { L"V-Ism Punch Extra 1", 0x306f2, 0x30712, indexCPS2Sprites_Balrog, 0x01 },
     { L"V-Ism Punch Extra 2", 0x30712, 0x30732 },
     { L"V-Ism Punch Super Trail Light", 0x30732, 0x30752, indexCPS2Sprites_Balrog, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x30752, 0x30772, indexCPS2Sprites_Balrog, 0x00 },
@@ -1703,8 +1703,8 @@ const sGame_PaletteDataset SFA3_A_BALROG_VISMP[] =
 
 const sGame_PaletteDataset SFA3_A_BALROG_VISMK[] =
 {
-    { L"V-Ism Kick", 0x30772, 0x30792, indexCPS2Sprites_Balrog, 0x00 },
-    { L"V-Ism Kick Extra 1", 0x30792, 0x307b2 },
+    { L"V-Ism Kick", 0x30772, 0x30792, indexCPS2Sprites_Balrog, 0x00, &pairNext },
+    { L"V-Ism Kick Extra 1", 0x30792, 0x307b2, indexCPS2Sprites_Balrog, 0x01 },
     { L"V-Ism Kick Extra 2", 0x307b2, 0x307d2 },
     { L"V-Ism Kick Super Trail Light", 0x307d2, 0x307f2, indexCPS2Sprites_Balrog, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x307f2, 0x30812, indexCPS2Sprites_Balrog, 0x00 },
@@ -1822,8 +1822,8 @@ const sGame_PaletteDataset SFA3_A_CAMMY_STATUS[] =
 
 const sGame_PaletteDataset SFA3_A_EHONDA_XISMP[] =
 {
-    { L"X-Ism Punch", 0x30bd2, 0x30bf2, indexCPS2Sprites_EHonda, 0x00 },
-    { L"X-Ism Punch Extra 1", 0x30bf2, 0x30c12 },
+    { L"X-Ism Punch", 0x30bd2, 0x30bf2, indexCPS2Sprites_EHonda, 0x00, &pairNext },
+    { L"X-Ism Punch Extra 1", 0x30bf2, 0x30c12, indexCPS2Sprites_EHonda, 0x01 },
     { L"X-Ism Punch Extra 2", 0x30c12, 0x30c32 },
     { L"X-Ism Punch Super Trail Light", 0x30c32, 0x30c52, indexCPS2Sprites_EHonda, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x30c52, 0x30c72, indexCPS2Sprites_EHonda, 0x00 },
@@ -1831,8 +1831,8 @@ const sGame_PaletteDataset SFA3_A_EHONDA_XISMP[] =
 
 const sGame_PaletteDataset SFA3_A_EHONDA_XISMK[] =
 {
-    { L"X-Ism Kick", 0x30c72, 0x30c92, indexCPS2Sprites_EHonda, 0x00 },
-    { L"X-Ism Kick Extra 1", 0x30c92, 0x30cb2 },
+    { L"X-Ism Kick", 0x30c72, 0x30c92, indexCPS2Sprites_EHonda, 0x00, &pairNext },
+    { L"X-Ism Kick Extra 1", 0x30c92, 0x30cb2, indexCPS2Sprites_EHonda, 0x01 },
     { L"X-Ism Kick Extra 2", 0x30cb2, 0x30cd2 },
     { L"X-Ism Kick Super Trail Light", 0x30cd2, 0x30cf2, indexCPS2Sprites_EHonda, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x30cf2, 0x30d12, indexCPS2Sprites_EHonda, 0x00 },
@@ -1840,8 +1840,8 @@ const sGame_PaletteDataset SFA3_A_EHONDA_XISMK[] =
 
 const sGame_PaletteDataset SFA3_A_EHONDA_AISMP[] =
 {
-    { L"A-Ism Punch", 0x30d12, 0x30d32, indexCPS2Sprites_EHonda, 0x00 },
-    { L"A-Ism Punch Extra 1", 0x30d32, 0x30d52 },
+    { L"A-Ism Punch", 0x30d12, 0x30d32, indexCPS2Sprites_EHonda, 0x00, &pairNext },
+    { L"A-Ism Punch Extra 1", 0x30d32, 0x30d52, indexCPS2Sprites_EHonda, 0x01 },
     { L"A-Ism Punch Extra 2", 0x30d52, 0x30d72 },
     { L"A-Ism Punch Super Trail Light", 0x30d72, 0x30d92, indexCPS2Sprites_EHonda, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x30d92, 0x30db2, indexCPS2Sprites_EHonda, 0x00 },
@@ -1849,8 +1849,8 @@ const sGame_PaletteDataset SFA3_A_EHONDA_AISMP[] =
 
 const sGame_PaletteDataset SFA3_A_EHONDA_AISMK[] =
 {
-    { L"A-Ism Kick", 0x30db2, 0x30dd2, indexCPS2Sprites_EHonda, 0x00 },
-    { L"A-Ism Kick Extra 1", 0x30dd2, 0x30df2 },
+    { L"A-Ism Kick", 0x30db2, 0x30dd2, indexCPS2Sprites_EHonda, 0x00, &pairNext },
+    { L"A-Ism Kick Extra 1", 0x30dd2, 0x30df2, indexCPS2Sprites_EHonda, 0x01 },
     { L"A-Ism Kick Extra 2", 0x30df2, 0x30e12 },
     { L"A-Ism Kick Super Trail Light", 0x30e12, 0x30e32, indexCPS2Sprites_EHonda, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x30e32, 0x30e52, indexCPS2Sprites_EHonda, 0x00 },
@@ -1858,8 +1858,8 @@ const sGame_PaletteDataset SFA3_A_EHONDA_AISMK[] =
 
 const sGame_PaletteDataset SFA3_A_EHONDA_VISMP[] =
 {
-    { L"V-Ism Punch", 0x30e52, 0x30e72, indexCPS2Sprites_EHonda, 0x00 },
-    { L"V-Ism Punch Extra 1", 0x30e72, 0x30e92 },
+    { L"V-Ism Punch", 0x30e52, 0x30e72, indexCPS2Sprites_EHonda, 0x00, &pairNext },
+    { L"V-Ism Punch Extra 1", 0x30e72, 0x30e92, indexCPS2Sprites_EHonda, 0x01 },
     { L"V-Ism Punch Extra 2", 0x30e92, 0x30eb2 },
     { L"V-Ism Punch Super Trail Light", 0x30eb2, 0x30ed2, indexCPS2Sprites_EHonda, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x30ed2, 0x30ef2, indexCPS2Sprites_EHonda, 0x00 },
@@ -1867,8 +1867,8 @@ const sGame_PaletteDataset SFA3_A_EHONDA_VISMP[] =
 
 const sGame_PaletteDataset SFA3_A_EHONDA_VISMK[] =
 {
-    { L"V-Ism Kick", 0x30ef2, 0x30f12, indexCPS2Sprites_EHonda, 0x00 },
-    { L"V-Ism Kick Extra 1", 0x30f12, 0x30f32 },
+    { L"V-Ism Kick", 0x30ef2, 0x30f12, indexCPS2Sprites_EHonda, 0x00, &pairNext },
+    { L"V-Ism Kick Extra 1", 0x30f12, 0x30f32, indexCPS2Sprites_EHonda, 0x01 },
     { L"V-Ism Kick Extra 2", 0x30f32, 0x30f52 },
     { L"V-Ism Kick Super Trail Light", 0x30f52, 0x30f72, indexCPS2Sprites_EHonda, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x30f72, 0x30f92, indexCPS2Sprites_EHonda, 0x00 },
@@ -1905,10 +1905,10 @@ const sGame_PaletteDataset SFA3_A_EHONDA_STATUS[] =
 const sGame_PaletteDataset SFA3_A_BLANKA_XISMP[] =
 {
     { L"X-Ism Punch", 0x30f92, 0x30fb2, indexCPS2Sprites_Blanka, 0x00, &pairNext },
-    { L"X-Ism Punch Extra 1", 0x30fb2, 0x30fd2 },
-    { L"X-Ism Punch Extra 2", 0x30fd2, 0x30ff2 },
+    { L"X-Ism Punch Extra 1", 0x30fb2, 0x30fd2, indexCPS2Sprites_Blanka, 0x01 },
+    { L"X-Ism Punch Extra 2", 0x30fd2, 0x30ff2, indexCPS2Sprites_Blanka, 0x00 },
     { L"X-Ism Punch Extra 3", 0x4b632, 0x4b652, indexCPS2Sprites_Blanka, 0x00 },
-    { L"X-Ism Punch Extra 4", 0x4b6f2, 0x4b712 },
+    { L"X-Ism Punch Extra 4", 0x4b6f2, 0x4b712, indexCPS2Sprites_Blanka, 0x00 },
 
     { L"X-Ism Punch Super Trail Light", 0x30ff2, 0x31012, indexCPS2Sprites_Blanka, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x31012, 0x31032, indexCPS2Sprites_Blanka, 0x00 },
@@ -1917,10 +1917,10 @@ const sGame_PaletteDataset SFA3_A_BLANKA_XISMP[] =
 const sGame_PaletteDataset SFA3_A_BLANKA_XISMK[] =
 {
     { L"X-Ism Kick", 0x31032, 0x31052, indexCPS2Sprites_Blanka, 0x00, &pairNext },
-    { L"X-Ism Kick Extra 1", 0x31052, 0x31072 },
-    { L"X-Ism Kick Extra 2", 0x31072, 0x31092 },
+    { L"X-Ism Kick Extra 1", 0x31052, 0x31072, indexCPS2Sprites_Blanka, 0x01 },
+    { L"X-Ism Kick Extra 2", 0x31072, 0x31092, indexCPS2Sprites_Blanka, 0x00 },
     { L"X-Ism Kick Extra 3", 0x4b652, 0x4b672, indexCPS2Sprites_Blanka, 0x00 },
-    { L"X-Ism Kick Extra 4", 0x4b712, 0x4b732 },
+    { L"X-Ism Kick Extra 4", 0x4b712, 0x4b732, indexCPS2Sprites_Blanka, 0x00 },
     { L"X-Ism Kick Super Trail Light", 0x31092, 0x310b2, indexCPS2Sprites_Blanka, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x310b2, 0x310d2, indexCPS2Sprites_Blanka, 0x00 },
 };
@@ -1928,10 +1928,10 @@ const sGame_PaletteDataset SFA3_A_BLANKA_XISMK[] =
 const sGame_PaletteDataset SFA3_A_BLANKA_AISMP[] =
 {
     { L"A-Ism Punch", 0x310d2, 0x310f2, indexCPS2Sprites_Blanka, 0x00, &pairNext },
-    { L"A-Ism Punch Extra 1", 0x310f2, 0x31112 },
-    { L"A-Ism Punch Extra 2", 0x31112, 0x31132 },
+    { L"A-Ism Punch Extra 1", 0x310f2, 0x31112, indexCPS2Sprites_Blanka, 0x01 },
+    { L"A-Ism Punch Extra 2", 0x31112, 0x31132, indexCPS2Sprites_Blanka, 0x00 },
     { L"A-Ism Punch Extra 3", 0x4b672, 0x4b692, indexCPS2Sprites_Blanka, 0x00 },
-    { L"A-Ism Punch Extra 4", 0x4b732, 0x4b752 },
+    { L"A-Ism Punch Extra 4", 0x4b732, 0x4b752, indexCPS2Sprites_Blanka, 0x00 },
 
     { L"A-Ism Punch Super Trail Light", 0x31132, 0x31152, indexCPS2Sprites_Blanka, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x31152, 0x31172, indexCPS2Sprites_Blanka, 0x00 },
@@ -1940,10 +1940,10 @@ const sGame_PaletteDataset SFA3_A_BLANKA_AISMP[] =
 const sGame_PaletteDataset SFA3_A_BLANKA_AISMK[] =
 {
     { L"A-Ism Kick", 0x31172, 0x31192, indexCPS2Sprites_Blanka, 0x00, &pairNext },
-    { L"A-Ism Kick Extra 1", 0x31192, 0x311b2 },
-    { L"A-Ism Kick Extra 2", 0x311b2, 0x311d2 },
+    { L"A-Ism Kick Extra 1", 0x31192, 0x311b2, indexCPS2Sprites_Blanka, 0x01 },
+    { L"A-Ism Kick Extra 2", 0x311b2, 0x311d2, indexCPS2Sprites_Blanka, 0x00 },
     { L"A-Ism Kick Extra 3", 0x4b692, 0x4b6b2, indexCPS2Sprites_Blanka, 0x00 },
-    { L"A-Ism Kick Extra 4", 0x4b752, 0x4b772 },
+    { L"A-Ism Kick Extra 4", 0x4b752, 0x4b772, indexCPS2Sprites_Blanka, 0x00 },
     { L"A-Ism Kick Super Trail Light", 0x311d2, 0x311f2, indexCPS2Sprites_Blanka, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x311f2, 0x31212, indexCPS2Sprites_Blanka, 0x00 },
 };
@@ -1951,10 +1951,10 @@ const sGame_PaletteDataset SFA3_A_BLANKA_AISMK[] =
 const sGame_PaletteDataset SFA3_A_BLANKA_VISMP[] =
 {
     { L"V-Ism Punch", 0x31212, 0x31232, indexCPS2Sprites_Blanka, 0x00, &pairNext },
-    { L"V-Ism Punch Extra 1", 0x31232, 0x31252 },
-    { L"V-Ism Punch Extra 2", 0x31252, 0x31272 },
+    { L"V-Ism Punch Extra 1", 0x31232, 0x31252, indexCPS2Sprites_Blanka, 0x01 },
+    { L"V-Ism Punch Extra 2", 0x31252, 0x31272, indexCPS2Sprites_Blanka, 0x00 },
     { L"V-Ism Punch Extra 3", 0x4b6b2, 0x4b6d2, indexCPS2Sprites_Blanka, 0x00 },
-    { L"V-Ism Punch Extra 4", 0x4b772, 0x4b792 },
+    { L"V-Ism Punch Extra 4", 0x4b772, 0x4b792, indexCPS2Sprites_Blanka, 0x00 },
     { L"V-Ism Punch Super Trail Light", 0x31272, 0x31292, indexCPS2Sprites_Blanka, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x31292, 0x312b2, indexCPS2Sprites_Blanka, 0x00 },
 };
@@ -1962,10 +1962,10 @@ const sGame_PaletteDataset SFA3_A_BLANKA_VISMP[] =
 const sGame_PaletteDataset SFA3_A_BLANKA_VISMK[] =
 {
     { L"V-Ism Kick", 0x312b2, 0x312d2, indexCPS2Sprites_Blanka, 0x00, &pairNext },
-    { L"V-Ism Kick Extra 1", 0x312d2, 0x312f2 },
-    { L"V-Ism Kick Extra 2", 0x312f2, 0x31312 },
+    { L"V-Ism Kick Extra 1", 0x312d2, 0x312f2, indexCPS2Sprites_Blanka, 0x01 },
+    { L"V-Ism Kick Extra 2", 0x312f2, 0x31312, indexCPS2Sprites_Blanka, 0x00 },
     { L"V-Ism Kick Extra 3", 0x4b6d2, 0x4b6f2, indexCPS2Sprites_Blanka, 0x00 },
-    { L"V-Ism Kick Extra 4", 0x4b792, 0x4b7b2 },
+    { L"V-Ism Kick Extra 4", 0x4b792, 0x4b7b2, indexCPS2Sprites_Blanka, 0x00 },
     { L"V-Ism Kick Super Trail Light", 0x31312, 0x31332, indexCPS2Sprites_Blanka, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x31332, 0x31352, indexCPS2Sprites_Blanka, 0x00 },
 };
@@ -2660,7 +2660,7 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_TITLES[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_HUD[] =
 {
-    { L"HUD", 0x3bb12, 0x3bc32, indexCPS2Sprites_SFA3Assets, 0xdc },
+    { L"HUD + Hitsparks", 0x3bb12, 0x3bc32, indexCPS2Sprites_SFA3Assets, 0xdc },
 
     { L"X-Ism Bars and Stuff 1/5", 0x5f712, 0x5f732, indexCPS2Sprites_SFA3Assets, 0xdd },
     { L"X-Ism Bars and Stuff 2/5", 0x5f732, 0x5f752, indexCPS2Sprites_SFA3Assets, 0xdd },
