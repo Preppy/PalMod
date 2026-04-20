@@ -2661,6 +2661,7 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_TITLES[] =
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_HUD[] =
 {
     { L"HUD + Hitsparks", 0x3bb12, 0x3bc32, indexCPS2Sprites_SFA3Assets, 0xdc },
+    { L"HUD (Guard Crushed)", 0x5f8f2, 0x5f912, indexCPS2Sprites_SFA3Assets, 0xe0 },
 
     { L"X-Ism Bars and Stuff 1/5", 0x5f712, 0x5f732, indexCPS2Sprites_SFA3Assets, 0xdd },
     { L"X-Ism Bars and Stuff 2/5", 0x5f732, 0x5f752, indexCPS2Sprites_SFA3Assets, 0xdd },
