@@ -2689,7 +2689,6 @@ const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_HUD[] =
 
 const sGame_PaletteDataset SFA3_A_PALETTES_BONUS_BONUS[] =
 {
-
     { L"Capcom Intro Logo", 0x40172, 0x40192, indexCPS2Sprites_SFA3Assets, 0xd6 },
     { L"Capcom Logo 2", 0x3bc72, 0x3bc92, indexCPS2Sprites_SFA3Assets, 0xd6 },
     { L"QSound", 0x49fb2, 0x4a072, indexCPS2Sprites_SFA3Assets, 0xc1 },

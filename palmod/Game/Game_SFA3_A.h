@@ -115,6 +115,13 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
         { L"SFA3 (Steam)", L"bundleStreetFighterAlpha3.mbundle", 0xfbb39e77, 0x6f24855 - 0x2d392 },
+
+        // This is not exposed in the UI.  Note that we're going through the Steam path because we need 444LE not the typical CPS2 444BE.
+        // Basically this is a quick note to myself on how to support this if we ever wanted to.  It looks like ROM range Ryu<->Cammy is 
+        // functional, but then after that there's an unaccounted for shift.  This means that everybody from Cammy on is busted, and status
+        // effects, portraits, stages, etc etc etc are all misaligned/busted.  Still: somebody who really cared could probably efficiently 
+        // fix all that up.
+        { L"SFZ3 Mix (Preliminary support of that hack version)", L"sz3mx.03", 0x94C8F969, 0x30bf2c - 0x2c0d2 },
     };
 
     const sCoreGameData m_sCoreGameData
