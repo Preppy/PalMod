@@ -1241,8 +1241,10 @@ const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGam
             else
             {
                 CString strInfo;
-                strInfo.Format(L"CGameClass::_GetPaletteSet: UnitId 0x%02x CollectionId 0x%02x Type %u.  Unexpected type.\r\n", nUnitId, nCollectionId, pCurrentSet[nUnitId].uChildType);
+                strInfo.Format(L"CGameClass::_GetPaletteSet: UnitId 0x%02x CollectionId 0x%02x Type %u.  Unexpected type.\r\n",
+                                        nUnitId, nCollectionId, pCurrentSet[nUnitId].uChildType);
                 OutputDebugString(strInfo.GetString());
+                return reinterpret_cast<sGame_PaletteDataset*>(pCurrentSet[nCollectionId].ChildNodes);
             }
         }
     }
