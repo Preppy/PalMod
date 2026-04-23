@@ -10,6 +10,7 @@
 #include "Game_AvgrsGS_A_DIR.h"
 #include "Game_BASARA_P.h"
 #include "Game_BattleFlipShot_A.h"
+#include "Game_BladeStrangers_S.h"
 #include "Game_BlazBlueCF_S.h"
 #include "Game_Bleach_DS.h"
 #include "Game_BMKNS_SNES.h"
@@ -196,7 +197,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 272, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 273, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -210,6 +211,7 @@ namespace KnownGameInfo
     CGameClass* Make_AvgrsGS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AvgrsGS_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_BASARA_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BASARA_P(nConfirmedROMSize); }
     CGameClass* Make_BattleFlipShot_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BattleFlipShot_A(nConfirmedROMSize); }
+    CGameClass* Make_BladeStrangers_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BladeStrangers_S(nConfirmedROMSize); }
     CGameClass* Make_BlazBlueCF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BlazBlueCF_S(nConfirmedROMSize); }
     CGameClass* Make_BLEACH_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BLEACH_DS(nConfirmedROMSize); }
     CGameClass* Make_BMKNS_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BMKNS_SNES(nConfirmedROMSize); }
@@ -563,6 +565,16 @@ namespace KnownGameInfo
             { BMKNS_SNES,       L"Battle Master: KnS", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
             Make_BMKNS_SNES,
             CGame_BMKNS_SNES::GetRule,
+        },
+        {
+            BladeStrangers_S,
+            L"Blade Strangers (Steam)",
+            {},
+            Make_BladeStrangers_S,
+            CGame_BladeStrangers_S::GetRule,
+            CGame_BladeStrangers_S::GetNextRule,
+            CGame_BladeStrangers_S::GetRuleCtr,
+            CGame_BladeStrangers_S::ResetRuleCtr,
         },
         {
             BlazBlueCF_S,
@@ -2563,7 +2575,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 272, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 273, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 

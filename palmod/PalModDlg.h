@@ -370,6 +370,8 @@ private:
     afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };
     afx_msg void OnLoadDir_AquaPlus_S()     { OnLoadGameByDirectory(AquaPlus_S); };
+   
+    afx_msg void OnLoadDir_BladeStrangers() { OnLoadGameByDirectory(BladeStrangers_S); };
     afx_msg void OnLoadDir_BlazBlueCF()     { OnLoadGameByDirectory(BlazBlueCF_S); };
     afx_msg void OnLoadDir_CVS2DCUSA()      { OnLoadGameByDirectory(CVS2_D); };
     afx_msg void OnLoadDir_CVS2PS2USA()     { OnLoadGameByDirectory(CVS2_P); };

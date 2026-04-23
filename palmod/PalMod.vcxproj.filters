@@ -658,6 +658,9 @@
     <Filter Include="Games\Nintendo\Super Street Fighter 2 %28SNES%29">
       <UniqueIdentifier>{086881c3-f94f-4f32-a9c2-d66b3b8ff43e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Blade Strangers %28Steam%29">
+      <UniqueIdentifier>{ee69ade7-7f78-44b7-96f4-c2dff98be1ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2386,6 +2389,12 @@
     </ClInclude>
     <ClInclude Include="Game\SSF2_SNES_DEF.h">
       <Filter>Games\Nintendo\Super Street Fighter 2 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BladeStrangers_S_DEF.h">
+      <Filter>Games\Other Platforms\Blade Strangers %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_BladeStrangers_S.h">
+      <Filter>Games\Other Platforms\Blade Strangers %28Steam%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

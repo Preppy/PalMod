@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 272, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 273, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -36,6 +36,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
                 break;
             case AquaPlus_P:
                 pszExtraInfo = L"Select the main \"Aquapazza: Aquaplus Dream Match\" folder containing the USRDIR folder.";
+                break;
+            case BladeStrangers_S:
+                pszExtraInfo = L"Select the 'chara' folder after following the guide linked in the Read Me.";
                 break;
             case BlazBlueCF_S:
                 pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.\nNote: make sure these are patched files.  See the Read Me.";

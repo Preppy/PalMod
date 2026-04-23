@@ -3088,4 +3088,24 @@ enum SupportedOther_SpriteListIndex
     indexMK1ArcadeSprites_SubZero,      // 0x100
     indexMK1ArcadeSprites_Stages,       // 0x101
     indexMK1ArcadeSprites_Bonus,        // 0x102
+
+    indexBladeStrangersSprites_Aban,            // 0x103
+    indexBladeStrangersSprites_Ali,             // 0x104
+    indexBladeStrangersSprites_Curly,           // 0x105
+    indexBladeStrangersSprites_Emiko,           // 0x106
+    indexBladeStrangersSprites_Gunvolt,         // 0x107
+    indexBladeStrangersSprites_Helen,           // 0x108
+    indexBladeStrangersSprites_Isaac,           // 0x109
+    indexBladeStrangersSprites_Kawase,          // 0x10a
+    indexBladeStrangersSprites_Lina,            // 0x10b
+    indexBladeStrangersSprites_Liongate,        // 0x10c
+    indexBladeStrangersSprites_MasterT,         // 0x10d
+    indexBladeStrangersSprites_Noko,            // 0x10e
+    indexBladeStrangersSprites_Piaa,            // 0x10f
+    indexBladeStrangersSprites_Quote,           // 0x110
+    indexBladeStrangersSprites_ShovelKnight,    // 0x111
+    indexBladeStrangersSprites_Solange,         // 0x112
+    indexBladeStrangersSprites_SummerKawase,    // 0x113
+    indexBladeStrangersSprites_Stages,          // 0x114
+    indexBladeStrangersSprites_Bonus,           // 0x115
 };
