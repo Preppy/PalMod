@@ -2464,11 +2464,11 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kain[] =
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Terry2[] =
 {
-    { L"Terry Bogard 2 Stage (1/6)", 0x2b900, 0x2bb00, indexGarouAStages, -1, &pairFullyLinkedNode },
-    { L"Terry Bogard 2 Stage (2/6)", 0x2bb00, 0x2bd00 },
-    { L"Terry Bogard 2 Stage (3/6)", 0x2bd00, 0x2bf00 },
-    { L"Terry Bogard 2 Stage (4/6)", 0x2bf00, 0x2c100 },
-    { L"Terry Bogard 2 Stage (5/6)", 0x2c100, 0x2c300 },
+    { L"Terry Bogard 2 Stage (1/6)", 0x2b900, 0x2bb00, indexGarouAStages, 0x7e },
+    { L"Terry Bogard 2 Stage (2/6)", 0x2bb00, 0x2bd00, indexGarouAStages, 0x7f },
+    { L"Terry Bogard 2 Stage (3/6)", 0x2bd00, 0x2bf00, indexGarouAStages, 0x80 },
+    { L"Terry Bogard 2 Stage (4/6)", 0x2bf00, 0x2c100, indexGarouAStages, 0x81 },
+    { L"Terry Bogard 2 Stage (5/6)", 0x2c100, 0x2c300, indexGarouAStages, 0x82 },
     { L"Terry Bogard 2 Stage (6/6)", 0x2c300, 0x2c4c0 },
 };
 
