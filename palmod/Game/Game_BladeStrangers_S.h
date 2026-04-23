@@ -22,6 +22,8 @@ public:
     CGame_BladeStrangers_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
     ~CGame_BladeStrangers_S() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
+    int PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
+
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, BladeStrangers_S_CharacterData); };
     static sFileRule GetNextRule() { return CGameClassPerUnitPerFile::GetNextRule(BladeStrangers_S_CharacterData); };
 };

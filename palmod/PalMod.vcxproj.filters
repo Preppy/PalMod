@@ -1110,6 +1110,9 @@
     <ClCompile Include="Game\Game_RRMBTL_S.cpp">
       <Filter>Games\Other Platforms\ReallyReal%27s MBTL Expansion Pack %28Steam%29</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_BladeStrangers_S.cpp">
+      <Filter>Games\Other Platforms\Blade Strangers %28Steam%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

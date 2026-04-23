@@ -43,6 +43,7 @@ const sGCBUPF_BasicNodeData BladeStrangers_S_PaletteNodesNormal =
 
 const std::vector<sGCBUPF_BasicFileData> BladeStrangers_S_CharacterData =
 {
+    // If you update names here you will likely want to update CGame_BladeStrangers_S::PostSetPal as well
     { L"cop_ali.rani",      L"Ali",                             0x2c946ef,      BladeStrangers_S_PaletteNodesNormal,      GCBUPF_UseButtonLabelsAsPaletteSet,        0x3615, indexBladeStrangersSprites_Ali },
     { L"sel_cop_ali.rani",  L"Ali (CharaSelect)",               0x374e56,       BladeStrangers_S_PaletteNodesNormal,      GCBUPF_UseButtonLabelsAsPaletteSet,        0x519,  indexBladeStrangersSprites_Ali },
 
