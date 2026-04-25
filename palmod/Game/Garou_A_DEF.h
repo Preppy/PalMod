@@ -2464,12 +2464,13 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kain[] =
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Terry2[] =
 {
-    { L"Terry Bogard 2 Stage (1/6)", 0x2b900, 0x2bb00, indexGarouAStages, 0x7e },
-    { L"Terry Bogard 2 Stage (2/6)", 0x2bb00, 0x2bd00, indexGarouAStages, 0x7f },
-    { L"Terry Bogard 2 Stage (3/6)", 0x2bd00, 0x2bf00, indexGarouAStages, 0x80 },
-    { L"Terry Bogard 2 Stage (4/6)", 0x2bf00, 0x2c100, indexGarouAStages, 0x81 },
-    { L"Terry Bogard 2 Stage (5/6)", 0x2c100, 0x2c300, indexGarouAStages, 0x82 },
-    { L"Terry Bogard 2 Stage (6/6)", 0x2c300, 0x2c4c0 },
+    { L"Terry Bogard 2 Stage (1/7)", 0x2b900, 0x2bb00, indexGarouAStages, 0x7e },
+    { L"Terry Bogard 2 Stage (2/7)", 0x2bb00, 0x2bd00, indexGarouAStages, 0x7f },
+    { L"Terry Bogard 2 Stage (3/7)", 0x2bd00, 0x2bf00, indexGarouAStages, 0x80 },
+    { L"Terry Bogard 2 Stage (4/7)", 0x2bf00, 0x2c100, indexGarouAStages, 0x81 },
+    { L"Terry Bogard 2 Stage (5/7)", 0x2c100, 0x2c300, indexGarouAStages, 0x82 },
+    { L"Terry Bogard 3 Stage (6/7)", 0x2c300, 0x2c4c0 },
+    { L"Terry Bogard 3 Stage (7/7)", 0x2c4c0, 0x2c4e0 },
 };
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin2[] =
@@ -2540,7 +2541,7 @@ const sDescTreeNode Garou_A_STAGES_COLLECTION[] =
     { L"Kevin 1 Stage: S.S.P. Maneuver Field", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kevin1, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kevin1) },
     { L"Grant Stage: Dark Palace Basement", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Grant, ARRAYSIZE(Garou_A_STAGE_PALETTES_Grant) },
     { L"Kain Stage: Dark Palace Donjon", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kain, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kain) },
-    { L"Terry Bogard 2 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Terry2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Terry2) },
+    { L"Terry Bogard 2/3 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Terry2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Terry2) },
     { L"Kevin 2 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kevin2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kevin2) },
     { L"Hotaru 2 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Hotaru2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Hotaru2) },
     { L"Kevin 3 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kevin3, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kevin3) },
