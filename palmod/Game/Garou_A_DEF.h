@@ -2469,7 +2469,7 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Terry2[] =
     { L"Terry Bogard 2 Stage (3/7)", 0x2bd00, 0x2bf00, indexGarouAStages, 0x80 },
     { L"Terry Bogard 2 Stage (4/7)", 0x2bf00, 0x2c100, indexGarouAStages, 0x81 },
     { L"Terry Bogard 2 Stage (5/7)", 0x2c100, 0x2c300, indexGarouAStages, 0x82 },
-    { L"Terry Bogard 3 Stage (6/7)", 0x2c300, 0x2c4c0 },
+    { L"Terry Bogard 3 Stage (6/7)", 0x2c300, 0x2c4c0, indexGarouAStages, 0x83 },
     { L"Terry Bogard 3 Stage (7/7)", 0x2c4c0, 0x2c4e0 },
 };
 
