@@ -17,7 +17,7 @@ private:
     {
         L"Ultimate Mortal Kombat 3 (USA DS)",
         UMK3_DS,
-        IMGDAT_SECTION_DS,
+        IMGDAT_SECTION_OTHER, // We're pulling in the Arcade sprites for this
         UMK3_DS_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
@@ -29,7 +29,7 @@ private:
         UMK3_DS_UNITS,
         ARRAYSIZE(UMK3_DS_UNITS),
         L"UMK3_DS_E.txt",              // Extra filename
-        45,                            // Count of palettes listed in the header
+        66,                            // Count of palettes listed in the header
         0x1b26a0,                      // Lowest known location used for palettes
     };
 
