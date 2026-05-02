@@ -945,8 +945,11 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_RYU[] =
 {
     { L"Background Temple",         0x153b40, 0x153b60, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"Temple Slanted Roof",       0x153b60, 0x153b80 },
+    { L"Left Upper Temple",         0x153b80, 0x153ba0 },
+    { L"Right Temple Piece",        0x1556d8, 0x1556f8 },
     { L"Background Tower / Wall",   0x153bc0, 0x153be0 },
     { L"Clouds",                    0x153be0, 0x153c00 },
+        //{ L"Sky?",                      0x153ba0, 0x153bc0 },
     { L"Flooring",                  0x153c00, 0x153c20 },
 };
 
@@ -958,6 +961,12 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_EHONDA[] =
     { L"Tub",               0x153c80, 0x153ca0 },
     { L"Wall Painting",     0x153ce0, 0x153d00 },
     { L"Big Lantern",       0x153cc0, 0x153ce0 },
+    { L"Left Wall Stuff",   0x153c20, 0x153c40 },
+    { L"Bucket / water drops", 0x155718, 0x155738 },
+
+    // maybe? { L"Mystery 1", 0x153d00, 0x153d20 },
+    { L"Painting Victory Animation 1/2", 0x153d20, 0x153d40 },
+    { L"Painting Victory Animation 1/2", 0x153d40, 0x153d60 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_BLANKA[] =
@@ -980,6 +989,27 @@ const sGame_PaletteDataset SSF2_SNES_BONUS_PALETTES_SELECT[] =
 const sGame_PaletteDataset SSF2_SNES_BONUS_PALETTES_HUD[] =
 {
     { L"HUD",                       0x1500a0, 0x1500c0, indexSNES_SSF2Sprites_Bonus, 0x01 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_BONUS_PALETTES_INTRO[] =
+{
+    { L"Ryu Standing Dark 1/2",                 0x157418, 0x157458, indexSNES_SSF2Sprites_Bonus, 0x0e, &pairNextAndNext6 },
+    { L"Ryu Standing Dark 2/2",                 0x157618, 0x157658, indexSNES_SSF2Sprites_Bonus, 0x0f },
+    { L"Ryu Standing Dimly Lit 1/2",            0x157458, 0x157498, indexSNES_SSF2Sprites_Bonus, 0x0e, &pairNextAndNext4 },
+    { L"Ryu Standing Dimly Lit 2/2",            0x157678, 0x1576b8, indexSNES_SSF2Sprites_Bonus, 0x0f },
+    { L"Ryu Standing 1/2",                      0x157498, 0x1574d8, indexSNES_SSF2Sprites_Bonus, 0x0e, &pairNextAndNext },
+    { L"Ryu Standing 2/2",                      0x1576b8, 0x1576f8, indexSNES_SSF2Sprites_Bonus, 0x0f },
+
+    { L"Ryu Standing Eyes",                     0x157658, 0x157678, indexSNES_SSF2Sprites_Bonus, 0x10 },
+
+    { L"Ryu Charging Animation Cycle 1/4",      0x157518, 0x157558, indexSNES_SSF2Sprites_Bonus, 0x11, &pairNext4 },
+    { L"Ryu Charging Animation Cycle 2/4",      0x157558, 0x157598, indexSNES_SSF2Sprites_Bonus, 0x11, &pairNext3 },
+    { L"Ryu Charging Animation Cycle 3/4",      0x157598, 0x1575d8, indexSNES_SSF2Sprites_Bonus, 0x11, &pairNext2 },
+    { L"Ryu Charging Animation Cycle 4/4",      0x1575d8, 0x157618, indexSNES_SSF2Sprites_Bonus, 0x11, &pairNext },
+
+    { L"Fireball / Charging",                   0x1576f8, 0x157718, indexSNES_SSF2Sprites_Bonus, 0x12 },
+
+    { L"Ryu Throwing Fireball",                 0x1574d8, 0x1574f8, indexSNES_SSF2Sprites_Bonus, 0x13 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_BONUS_PALETTES_BONUS[] =
@@ -1208,6 +1238,7 @@ const sDescTreeNode SSF2_SNES_BONUS_COLLECTION[] =
 {
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)SSF2_SNES_BONUS_PALETTES_SELECT, ARRAYSIZE(SSF2_SNES_BONUS_PALETTES_SELECT) },
     { L"HUD", DESC_NODETYPE_TREE, (void*)SSF2_SNES_BONUS_PALETTES_HUD, ARRAYSIZE(SSF2_SNES_BONUS_PALETTES_HUD) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)SSF2_SNES_BONUS_PALETTES_INTRO, ARRAYSIZE(SSF2_SNES_BONUS_PALETTES_INTRO) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)SSF2_SNES_BONUS_PALETTES_BONUS, ARRAYSIZE(SSF2_SNES_BONUS_PALETTES_BONUS) },
 };
 

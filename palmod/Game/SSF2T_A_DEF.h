@@ -190,6 +190,86 @@ const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_OLD2P[] =
     { L"Old 2P Super Trail 3", 0x40e26, 0x40e46, indexSF2Sprites_Blanka },
 };
 
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_JAB_NL[] =
+{
+    { L"Jab", 0x40804, 0x40824, indexSF2Sprites_Blanka, 0x30 },
+    { L"Jab Super Trail 1", 0x40844, 0x40862, indexSF2Sprites_Blanka, 0x30 },
+    { L"Jab Super Trail 2", 0x40862, 0x40882, indexSF2Sprites_Blanka, 0x30 },
+    { L"Jab Super Trail 3", 0x40882, 0x408a2, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_STRONG_NL[] =
+{
+    { L"Strong", 0x408a4, 0x408c4, indexSF2Sprites_Blanka, 0x30 },
+    { L"Strong Super Trail 1", 0x408e4, 0x40902, indexSF2Sprites_Blanka, 0x30 },
+    { L"Strong Super Trail 2", 0x40902, 0x40922, indexSF2Sprites_Blanka, 0x30 },
+    { L"Strong Super Trail 3", 0x40922, 0x40942, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_FIERCE_NL[] =
+{
+    { L"Fierce", 0x40944, 0x40964, indexSF2Sprites_Blanka, 0x30 },
+    { L"Fierce Super Trail 1", 0x40984, 0x409a2, indexSF2Sprites_Blanka, 0x30 },
+    { L"Fierce Super Trail 2", 0x409a2, 0x409c2, indexSF2Sprites_Blanka, 0x30 },
+    { L"Fierce Super Trail 3", 0x409c2, 0x409e2, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_SHORT_NL[] =
+{
+    { L"Short", 0x409e4, 0x40a04, indexSF2Sprites_Blanka, 0x30 },
+    { L"Short Super Trail 1", 0x40a24, 0x40a42, indexSF2Sprites_Blanka, 0x30 },
+    { L"Short Super Trail 2", 0x40a42, 0x40a62, indexSF2Sprites_Blanka, 0x30 },
+    { L"Short Super Trail 3", 0x40a62, 0x40a82, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_FORWARD_NL[] =
+{
+    { L"Forward", 0x40a84, 0x40aa4, indexSF2Sprites_Blanka, 0x30 },
+    { L"Forward Super Trail 1", 0x40ac4, 0x40ae2, indexSF2Sprites_Blanka, 0x30 },
+    { L"Forward Super Trail 2", 0x40ae2, 0x40b02, indexSF2Sprites_Blanka, 0x30 },
+    { L"Forward Super Trail 3", 0x40b02, 0x40b22, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_ROUNDHOUSE_NL[] =
+{
+    { L"Roundhouse", 0x40b24, 0x40b44, indexSF2Sprites_Blanka, 0x30 },
+    { L"Roundhouse Super Trail 1", 0x40b64, 0x40b82, indexSF2Sprites_Blanka, 0x30 },
+    { L"Roundhouse Super Trail 2", 0x40b82, 0x40ba2, indexSF2Sprites_Blanka, 0x30 },
+    { L"Roundhouse Super Trail 3", 0x40ba2, 0x40bc2, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_START_NL[] =
+{
+    { L"Start", 0x40bc4, 0x40be4, indexSF2Sprites_Blanka, 0x30 },
+    { L"Start Super Trail 1", 0x40c04, 0x40c22, indexSF2Sprites_Blanka, 0x30 },
+    { L"Start Super Trail 2", 0x40c22, 0x40c42, indexSF2Sprites_Blanka, 0x30 },
+    { L"Start Super Trail 3", 0x40c42, 0x40c62, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_HOLD_NL[] =
+{
+    { L"Hold", 0x40c64, 0x40c84, indexSF2Sprites_Blanka, 0x30 },
+    { L"Hold Super Trail 1", 0x40ca4, 0x40cc2, indexSF2Sprites_Blanka, 0x30 },
+    { L"Hold Super Trail 2", 0x40cc2, 0x40ce2, indexSF2Sprites_Blanka, 0x30 },
+    { L"Hold Super Trail 3", 0x40ce2, 0x40d02, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_OLD1P_NL[] =
+{
+    { L"Old 1P", 0x40d04, 0x40d24, indexSF2Sprites_Blanka, 0x30 },
+    { L"Old 1P Super Trail 1", 0x40d44, 0x40d64, indexSF2Sprites_Blanka, 0x30 },
+    { L"Old 1P Super Trail 2", 0x40d64, 0x40d84, indexSF2Sprites_Blanka, 0x30 },
+    { L"Old 1P Super Trail 3", 0x40d84, 0x40da4, indexSF2Sprites_Blanka, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES_OLD2P_NL[] =
+{
+    { L"Old 2P", 0x40da6, 0x40dc6, indexSF2Sprites_Blanka, 0x30 },
+    { L"Old 2P Super Trail 1", 0x40de6, 0x40e06, indexSF2Sprites_Blanka, 0x30 },
+    { L"Old 2P Super Trail 2", 0x40e06, 0x40e26, indexSF2Sprites_Blanka, 0x30 },
+    { L"Old 2P Super Trail 3", 0x40e26, 0x40e46, indexSF2Sprites_Blanka, 0x30 },
+};
+
 const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_JAB[] =
 {
     { L"Jab", 0x4482c, 0x4484c, indexSF2Sprites_Cammy },
@@ -268,6 +348,86 @@ const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_OLD2P[] =
     { L"Old 2P Super Trail 1", 0x44e20 - 0x02, 0x44e40 - 0x02, indexSF2Sprites_Cammy },
     { L"Old 2P Super Trail 2", 0x44e40 - 0x02, 0x44e60 - 0x02, indexSF2Sprites_Cammy },
     { L"Old 2P Super Trail 3", 0x44e60 - 0x02, 0x44e80 - 0x02, indexSF2Sprites_Cammy },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_JAB_NL[] =
+{
+    { L"Jab", 0x4482c, 0x4484c, indexSF2Sprites_Cammy, 0x30 },
+    { L"Jab Super Trail 1", 0x4486c, 0x4488c, indexSF2Sprites_Cammy, 0x30 },
+    { L"Jab Super Trail 2", 0x4488c, 0x448ac, indexSF2Sprites_Cammy, 0x30 },
+    { L"Jab Super Trail 3", 0x448ac, 0x448cc, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_STRONG_NL[] =
+{
+    { L"Strong", 0x448d0 - 0x02, 0x448f0 - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Strong Super Trail 1", 0x44910 - 0x02, 0x44930 - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Strong Super Trail 2", 0x44930 - 0x02, 0x44950 - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Strong Super Trail 3", 0x44950 - 0x02, 0x44970 - 0x02, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_FIERCE_NL[] =
+{
+    { L"Fierce", 0x44970, 0x44990, indexSF2Sprites_Cammy, 0x30 },
+    { L"Fierce Super Trail 1", 0x449b0, 0x449d0, indexSF2Sprites_Cammy, 0x30 },
+    { L"Fierce Super Trail 2", 0x449d0, 0x449f0, indexSF2Sprites_Cammy, 0x30 },
+    { L"Fierce Super Trail 3", 0x449f0, 0x44a10, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_SHORT_NL[] =
+{
+    { L"Short", 0x44a12, 0x44a32, indexSF2Sprites_Cammy, 0x30 },
+    { L"Short Super Trail 1", 0x44a52, 0x44a72, indexSF2Sprites_Cammy, 0x30 },
+    { L"Short Super Trail 2", 0x44a72, 0x44a92, indexSF2Sprites_Cammy, 0x30 },
+    { L"Short Super Trail 3", 0x44a92, 0x44ab2, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_FORWARD_NL[] =
+{
+    { L"Forward", 0x44ab4, 0x44ad4, indexSF2Sprites_Cammy, 0x30 },
+    { L"Forward Super Trail 1", 0x44af4, 0x44b14, indexSF2Sprites_Cammy, 0x30 },
+    { L"Forward Super Trail 2", 0x44b14, 0x44b34, indexSF2Sprites_Cammy, 0x30 },
+    { L"Forward Super Trail 3", 0x44b34, 0x44b54, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_ROUNDHOUSE_NL[] =
+{
+    { L"Roundhouse", 0x44b56, 0x44b76, indexSF2Sprites_Cammy, 0x30 },
+    { L"Roundhouse Super Trail 1", 0x44b96, 0x44bb6, indexSF2Sprites_Cammy, 0x30 },
+    { L"Roundhouse Super Trail 2", 0x44bb6, 0x44bd6, indexSF2Sprites_Cammy, 0x30 },
+    { L"Roundhouse Super Trail 3", 0x44bd6, 0x44bf6, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_START_NL[] =
+{
+    { L"Start", 0x44bfa - 0x02, 0x44c1a - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Start Super Trail 1", 0x44c3a - 0x02, 0x44c5a - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Start Super Trail 2", 0x44c5a - 0x02, 0x44c7a - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Start Super Trail 3", 0x44c7a - 0x02, 0x44c9a - 0x02, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_HOLD_NL[] =
+{
+    { L"Hold", 0x44c9a, 0x44cba, indexSF2Sprites_Cammy, 0x30 },
+    { L"Hold Super Trail 1", 0x44cda, 0x44cfa, indexSF2Sprites_Cammy, 0x30 },
+    { L"Hold Super Trail 2", 0x44cfa, 0x44d1a, indexSF2Sprites_Cammy, 0x30 },
+    { L"Hold Super Trail 3", 0x44d1a, 0x44d3a, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_OLD1P_NL[] =
+{
+    { L"Old 1P", 0x44d3c, 0x44d5c, indexSF2Sprites_Cammy, 0x30 },
+    { L"Old 1P Super Trail 1", 0x44d7c, 0x44d9c, indexSF2Sprites_Cammy, 0x30 },
+    { L"Old 1P Super Trail 2", 0x44d9c, 0x44dbc, indexSF2Sprites_Cammy, 0x30 },
+    { L"Old 1P Super Trail 3", 0x44dbc, 0x44ddc, indexSF2Sprites_Cammy, 0x30 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES_OLD2P_NL[] =
+{
+    { L"Old 2P", 0x44de0 - 0x02, 0x44e00 - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Old 2P Super Trail 1", 0x44e20 - 0x02, 0x44e40 - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Old 2P Super Trail 2", 0x44e40 - 0x02, 0x44e60 - 0x02, indexSF2Sprites_Cammy, 0x30 },
+    { L"Old 2P Super Trail 3", 0x44e60 - 0x02, 0x44e80 - 0x02, indexSF2Sprites_Cammy, 0x30 },
 };
 
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_JAB[] =
@@ -1458,6 +1618,20 @@ const sDescTreeNode SSF2T_A_BLANKA_COLLECTION[] =
     { L"Old 2P",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_OLD2P,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_OLD2P) },
 };
 
+const sDescTreeNode SSF2T_A_BLANKA_COLLECTION_NL[] =
+{
+    { L"Jab",           DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_JAB_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_JAB_NL) },
+    { L"Strong",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_STRONG_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_STRONG_NL) },
+    { L"Fierce",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_FIERCE_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_FIERCE_NL) },
+    { L"Short",         DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_SHORT_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_SHORT_NL) },
+    { L"Forward",       DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_FORWARD_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_FORWARD_NL) },
+    { L"Roundhouse",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_ROUNDHOUSE_NL, ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_ROUNDHOUSE_NL) },
+    { L"Start",         DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_START_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_START_NL) },
+    { L"Hold",          DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_HOLD_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_HOLD_NL) },
+    { L"Old 1P",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_OLD1P_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_OLD1P_NL) },
+    { L"Old 2P",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES_OLD2P_NL,    ARRAYSIZE(SSF2T_A_BLANKA_PALETTES_OLD2P_NL) },
+};
+
 const sDescTreeNode SSF2T_A_GUILE_COLLECTION[] =
 {
     { L"Jab",           DESC_NODETYPE_TREE,    (void*)SSF2T_A_GUILE_PALETTES_JAB,    ARRAYSIZE(SSF2T_A_GUILE_PALETTES_JAB) },
@@ -1596,6 +1770,20 @@ const sDescTreeNode SSF2T_A_CAMMY_COLLECTION[] =
     { L"Hold",          DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_HOLD,       ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_HOLD) },
     { L"Old 1P",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_OLD1P,      ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_OLD1P) },
     { L"Old 2P",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_OLD2P,      ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_OLD2P) },
+};
+
+const sDescTreeNode SSF2T_A_CAMMY_COLLECTION_NL[] =
+{
+    { L"Jab",           DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_JAB_NL,        ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_JAB_NL) },
+    { L"Strong",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_STRONG_NL,     ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_STRONG_NL) },
+    { L"Fierce",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_FIERCE_NL,     ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_FIERCE_NL) },
+    { L"Short",         DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_SHORT_NL,      ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_SHORT_NL) },
+    { L"Forward",       DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_FORWARD_NL,    ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_FORWARD_NL) },
+    { L"Roundhouse",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_ROUNDHOUSE_NL, ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_ROUNDHOUSE_NL) },
+    { L"Start",         DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_START_NL,      ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_START_NL) },
+    { L"Hold",          DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_HOLD_NL,       ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_HOLD_NL) },
+    { L"Old 1P",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_OLD1P_NL,      ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_OLD1P_NL) },
+    { L"Old 2P",        DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES_OLD2P_NL,      ARRAYSIZE(SSF2T_A_CAMMY_PALETTES_OLD2P_NL) },
 };
 
 const sDescTreeNode SSF2T_A_THAWK_COLLECTION[] =
@@ -8663,6 +8851,29 @@ const sDescTreeNode SSF2T_A_UNITS_4A[] =
     { L"Balrog",      DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_COLLECTION,     ARRAYSIZE(SSF2T_A_BALROG_COLLECTION) },
     { L"Blanka",      DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_COLLECTION,     ARRAYSIZE(SSF2T_A_BLANKA_COLLECTION) },
     { L"Cammy",       DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_COLLECTION,      ARRAYSIZE(SSF2T_A_CAMMY_COLLECTION) },
+    { L"Chun-Li",     DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_COLLECTION,     ARRAYSIZE(SSF2T_A_CHUNLI_COLLECTION) },
+    { L"Dee Jay",     DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_COLLECTION,     ARRAYSIZE(SSF2T_A_DEEJAY_COLLECTION) },
+    { L"Dhalsim",     DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_COLLECTION,    ARRAYSIZE(SSF2T_A_DHALSIM_COLLECTION) },
+    { L"E. Honda",    DESC_NODETYPE_TREE, (void*)SSF2T_A_EHONDA_COLLECTION,     ARRAYSIZE(SSF2T_A_EHONDA_COLLECTION) },
+    { L"Fei Long",    DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_COLLECTION,    ARRAYSIZE(SSF2T_A_FEILONG_COLLECTION) },
+    { L"Gouki",       DESC_NODETYPE_TREE, (void*)SSF2T_A_GOUKI_COLLECTION,      ARRAYSIZE(SSF2T_A_GOUKI_COLLECTION) },
+    { L"Guile",       DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_COLLECTION,      ARRAYSIZE(SSF2T_A_GUILE_COLLECTION) },
+    { L"Ken",         DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_COLLECTION,        ARRAYSIZE(SSF2T_A_KEN_COLLECTION) },
+    { L"M. Bison",    DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_COLLECTION,     ARRAYSIZE(SSF2T_A_MBISON_COLLECTION) },
+    { L"Ryu",         DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_COLLECTION,        ARRAYSIZE(SSF2T_A_RYU_COLLECTION) },
+    { L"Sagat",       DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_COLLECTION,      ARRAYSIZE(SSF2T_A_SAGAT_COLLECTION) },
+    { L"T-Hawk",      DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_COLLECTION,      ARRAYSIZE(SSF2T_A_THAWK_COLLECTION) },
+    { L"Vega",        DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_COLLECTION,       ARRAYSIZE(SSF2T_A_VEGA_COLLECTION) },
+    { L"Zangief",     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_COLLECTION,    ARRAYSIZE(SSF2T_A_ZANGIEF_COLLECTION) },
+    { L"Stages",      DESC_NODETYPE_TREE, (void*)SSF2T_A_4A_STAGES_COLLECTION,    ARRAYSIZE(SSF2T_A_4A_STAGES_COLLECTION) },
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_COLLECTION,     ARRAYSIZE(SSF2T_A_04_BONUS_COLLECTION) },
+};
+
+const sDescTreeNode SSF2T_A_UNITS_4A_NL[] =
+{
+    { L"Balrog",      DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_COLLECTION,     ARRAYSIZE(SSF2T_A_BALROG_COLLECTION) },
+    { L"Blanka",      DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_COLLECTION_NL,     ARRAYSIZE(SSF2T_A_BLANKA_COLLECTION_NL) },
+    { L"Cammy",       DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_COLLECTION_NL,      ARRAYSIZE(SSF2T_A_CAMMY_COLLECTION_NL) },
     { L"Chun-Li",     DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_COLLECTION,     ARRAYSIZE(SSF2T_A_CHUNLI_COLLECTION) },
     { L"Dee Jay",     DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_COLLECTION,     ARRAYSIZE(SSF2T_A_DEEJAY_COLLECTION) },
     { L"Dhalsim",     DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_COLLECTION,    ARRAYSIZE(SSF2T_A_DHALSIM_COLLECTION) },
