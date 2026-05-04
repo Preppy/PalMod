@@ -197,7 +197,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 273, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 274, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -462,6 +462,7 @@ namespace KnownGameInfo
     CGameClass* Make_WakuWaku7_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_A(nConfirmedROMSize); }
     CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Windjammers_A(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroesPerfect_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_A(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroesPerfect_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_S(nConfirmedROMSize); }
     CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_A(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_P(nConfirmedROMSize); }
@@ -2530,9 +2531,16 @@ namespace KnownGameInfo
         {
             WorldHeroesPerfect_A,
             L"World Heroes Perfect (Neo-Geo)",
-            { WorldHeroesPerfect_A, L"World Heroes Perfect", L"World Heroes Perfect|090-p1.*|", GamePlatform::NEOGEO },
+            { WorldHeroesPerfect_A, L"World Heroes Perfect", L"World Heroes Perfect (Neo-Geo)|090-p1.*|", GamePlatform::NEOGEO },
             Make_WorldHeroesPerfect_A,
             CGame_WorldHeroesPerfect_A::GetRule,
+        },
+        {
+            WorldHeroesPerfect_S,
+            L"World Heroes Perfect (Steam)",
+            { WorldHeroesPerfect_S, L"World Heroes Perfect", L"World Heroes Perfect (Steam)|p1.bin|", GamePlatform::Steam },
+            Make_WorldHeroesPerfect_S,
+            CGame_WorldHeroesPerfect_S::GetRule,
         },
         {
             XMMA_SNES,
@@ -2575,7 +2583,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 273, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 274, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 
