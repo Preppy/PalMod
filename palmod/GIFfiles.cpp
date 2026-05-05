@@ -202,8 +202,9 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
     return fSuccess;
 }
 
-void CImgOutDlg::UpdatePaletteInGIF(CString output_str)
+bool CImgOutDlg::UpdatePaletteInGIF(CString output_str)
 {
+    bool fSuccess = false;
     CFile sourceGIF;
 
     // Populate color table from file
@@ -219,6 +220,7 @@ void CImgOutDlg::UpdatePaletteInGIF(CString output_str)
             const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
 
             const size_t minWriteSize = min(nColorTableSize, m_DumpBmp.m_rgSrcImg[0]->uPalSz);
+            fSuccess = true;
 
             // Walk past the transparency color
             sourceGIF.Seek(3, CFile::current);
@@ -240,5 +242,5 @@ void CImgOutDlg::UpdatePaletteInGIF(CString output_str)
         sourceGIF.Close();
     }
 
-    return;
+    return fSuccess;
 }

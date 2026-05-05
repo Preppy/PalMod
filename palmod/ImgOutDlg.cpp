@@ -963,8 +963,10 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
     }
 }
 
-void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags)
+bool CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags)
 {
+    bool fSuccess = false;
+
     if ((img_format == ImageFormatGIF) &&
         (m_iSelectedImageAmount == 1))
     {
@@ -974,8 +976,7 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
                                  "\r\n\r\r\nNote that this will not update any additional local (per-frame) palettes if they exist.";
             if (MessageBox(strMessage, GetHost()->GetAppName(), MB_YESNO) == IDYES)
             {
-                UpdatePaletteInGIF(output_str);
-                return;
+                return UpdatePaletteInGIF(output_str);
             }
         }
     }
@@ -1000,7 +1001,11 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
 
         HRESULT hr = out_img.Save(output_str, img_format);
 
-        if (FAILED(hr))
+        if (SUCCEEDED(hr))
+        {
+            fSuccess = true;
+        }
+        else
         {
             CString strInfo;
             strInfo.Format(L"Image export to file '%s' failed.\n\nThe error code is 0x%x", output_str.GetString(), hr);
@@ -1020,6 +1025,8 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     {
         MessageBox(L"Image export failed: Failed to create the image file.", GetHost()->GetAppName(), MB_ICONERROR);
     }
+
+    return fSuccess;
 }
 
 void CImgOutDlg::QuickExport()
@@ -1067,6 +1074,7 @@ void CImgOutDlg::OnFileSave()
 
     if (sfd.DoModal() == IDOK)
     {
+        bool fSuccess = true;
         CString output_ext = L".png";
         GUID img_format = ImageFormatPNG;
         DWORD dwExportFlags = 0;
@@ -1166,7 +1174,7 @@ void CImgOutDlg::OnFileSave()
         }
         else // specific image type guid available
         {
-            ExportToCImageType(output_str, img_format, dwExportFlags);
+            fSuccess = ExportToCImageType(output_str, img_format, dwExportFlags);
         }
 
         if (m_fShowingUI)
@@ -1174,7 +1182,10 @@ void CImgOutDlg::OnFileSave()
             CRegProc::StoreOFNIndexForImageExport(pOFN.nFilterIndex);
         }
 
-        GetHost()->GetPalModDlg()->SetStatusText(L"Image saved to disk.");
+        if (fSuccess)
+        {
+            GetHost()->GetPalModDlg()->SetStatusText(L"Image saved to disk.");
+        }
     }
 }
 
