@@ -971,13 +971,99 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_EHONDA[] =
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_BLANKA[] =
 {
+    // First line of Blanka is a skewed part of Honda!
+    // It intersects with the victory painting animation palette
     // this seems askew
+
     // cloud inset                  0x153d48, 0x153d68??
-    // blanka sky?                  0x153d68, 0x153d88
+    { L"Sky",                       0x153d68, 0x153d88, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"Big Tree",                  0x153d88, 0x153da8 },
     { L"Left Building",             0x153da8, 0x153dc8 },
     { L"Insets / Right Building",   0x153dc8, 0x153de8 },
     { L"Flooring",                  0x153de8, 0x153e08 },
+
+    { L"Foreground",                0x153e08, 0x153ec8 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_GUILE[] =
+{
+    { L"Palettes",  0x153ec8, 0x153fa8 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_KEN[] =
+{
+    { L"Palettes", 0x153fa8, 0x154088, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Bollards", 0x1557b8, 0x1557d8 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_CHUNLI[] =
+{
+    { L"Palettes",  0x154088, 0x1541a8, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Bikes",     0x1557d8, 0x155818 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_ZANGIEF[] =
+{
+    { L"Palettes",  0x1541a8, 0x154288, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Sprites",   0x155818, 0x155858 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_DHALSIM[] =
+{
+    { L"Palettes",  0x154288, 0x154368, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Sprites",   0x155858, 0x155898 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_SAGAT[] =
+{
+    { L"Palettes", 0x154450, 0x154530 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_BALROG[] =
+{
+    { L"Palettes",                  0x154530, 0x154610, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Animation Palettes 1/2",    0x154610, 0x154810 },
+    { L"Animation Palettes 2/2",    0x154810, 0x154890 },
+    { L"Dancers",                   0x1558d8, 0x155918 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_VEGA[] =
+{
+    { L"Palettes",          0x154910, 0x154a10, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Animation Cycles",  0x154a10, 0x154af0 },
+    { L"Dancers",           0x155918, 0x155938 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_THAWK[] =
+{
+    { L"Palettes",  0x154fb0, 0x1550b0, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Sprites",   0x155978, 0x1559b8 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_FEILONG[] =
+{
+    { L"Palettes",      0x155150, 0x155230, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Postheads",     0x1559b8, 0x1559d8 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_DEEJAY[] =
+{
+    { L"Palettes",  0x155290, 0x155410, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Dancers",   0x1559d8, 0x155a18 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_CAMMY[] =
+{
+    { L"Palettes 1",    0x154af0, 0x154cf0, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes 2",    0x154cf0, 0x154ef0 },
+    { L"Palettes 3",    0x154ef0, 0x154fb0 },
+    { L"Sprites",       0x155938, 0x155978 },
+};
+
+const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_MBISON[] =
+{
+    { L"Palettes",  0x154370, 0x154450, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Sprites",   0x155898, 0x1558d8 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_BONUS_PALETTES_SELECT[] =
@@ -1230,8 +1316,24 @@ const sDescTreeNode SSF2_SNES_DEEJAY_COLLECTION[] =
 
 const sDescTreeNode SSF2_SNES_STAGE_COLLECTION[] =
 {
-    { L"Ryu", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_RYU, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_RYU) },
-    { L"E. Honda", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_EHONDA, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_EHONDA) },
+    { L"Ryu (Japan)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_RYU, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_RYU) },
+    { L"E. Honda (Japan)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_EHONDA, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_EHONDA) },
+    { L"Blanka (Brazil)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_BLANKA, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_BLANKA) },
+    { L"Guile (U.S.A.)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_GUILE, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_GUILE) },
+    { L"Ken (U.S.A.)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_KEN, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_KEN) },
+    { L"Chun-Li (China)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_CHUNLI, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_CHUNLI) },
+    { L"Zangief (U.S.S.R)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_ZANGIEF, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_ZANGIEF) },
+    { L"Dhalsim (India)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_DHALSIM, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_DHALSIM) },
+
+    { L"Balrog (USA)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_BALROG, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_BALROG) },
+
+    { L"Sagat (Thailand)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_SAGAT, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_SAGAT) },
+    { L"Vega (Spain)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_VEGA, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_VEGA) },
+    { L"T-Hawk (Mexico)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_THAWK, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_THAWK) },
+    { L"Fei Long (Hong Kong)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_FEILONG, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_FEILONG) },
+    { L"Dee Jay (Jamaica)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_DEEJAY, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_DEEJAY) },
+    { L"Cammy (England)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_CAMMY, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_CAMMY) },
+    { L"M. Bison (Thailand)", DESC_NODETYPE_TREE, (void*)SSF2_SNES_STAGE_PALETTES_MBISON, ARRAYSIZE(SSF2_SNES_STAGE_PALETTES_MBISON) },
 };
 
 const sDescTreeNode SSF2_SNES_BONUS_COLLECTION[] =

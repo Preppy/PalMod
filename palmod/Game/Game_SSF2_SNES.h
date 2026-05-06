@@ -36,7 +36,7 @@ private:
         SSF2_SNES_UNITS,
         ARRAYSIZE(SSF2_SNES_UNITS),
         L"SSF2_SNESE.txt",          // Extra filename
-        447,                        // Count of palettes listed in the header
+        482,                        // Count of palettes listed in the header
         0x1500a0,                   // Lowest known location used for palettes
     };
 
