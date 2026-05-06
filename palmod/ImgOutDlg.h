@@ -40,6 +40,7 @@ private:
     void ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszSuggestedFileName);
     bool ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags);
 
+    bool _WritePaletteToGIF(CFile& positionedGIFFIle, uint8_t nPackedByte);
     bool UpdatePaletteInGIF(CString output_str);
 
 public:

@@ -508,7 +508,7 @@ public:
     // Generic palette data files
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromBMP(LPCWSTR pszFileName);
-    bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header);
+    bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, bool& fUsesGlobalColorTable);
     bool ReadPaletteFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData);
     bool LoadPaletteFromGIF(LPCWSTR pszFileName);
     bool LoadPaletteFromGPL(LPCWSTR pszFileName);

@@ -2,7 +2,7 @@
 #include "PalMod.h"
 #include "ImgOutDlg.h"
 
-bool CPalModDlg::LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header)
+bool CPalModDlg::LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, bool& fUsesGlobalColorTable)
 {
     bool fIsValidGIF = false;
 
@@ -16,25 +16,17 @@ bool CPalModDlg::LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_heade
             ((gif_header.version[1] == '7') || (gif_header.version[1] == '9')) && // 87a and 89a are identical for our purposes
             (gif_header.version[2] == 'a'))
         {
-            bool UseGlobalColorTable = (gif_header.flags & 0x80);
+            fUsesGlobalColorTable = (gif_header.flags & 0x80);
             // This is the bbp for the source image, useless for our needs
-            uint8_t ColorResolution = ((gif_header.flags & 0x70) >> 4) + 1;
-            bool TableSorted = (gif_header.flags & 0x08);
+            const uint8_t ColorResolution = ((gif_header.flags & 0x70) >> 4) + 1;
+            const bool TableSorted = (gif_header.flags & 0x08);
 
-            if (UseGlobalColorTable)
-            {
-                fIsValidGIF = true;
-            }
-            else
-            {
-                MessageBox(L"Error: GIF using local color data: we don't support those.", GetHost()->GetAppName(), MB_ICONERROR);
-                SetStatusText(L"GIF using local color data: we don't support those.");
-            }
+            fIsValidGIF = true;
         }
         else
         {
             MessageBox(L"Error: this is not a supported GIF file", GetHost()->GetAppName(), MB_ICONERROR);
-            SetStatusText(L"That is not a supported  GIF file.");
+            SetStatusText(L"That is not a supported GIF file.");
         }
     }
     else if ((gif_header.type[0] == 'R') &&
@@ -62,10 +54,11 @@ bool CPalModDlg::ReadPaletteFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLO
     if (sourceGIF.Open(pszGIFFileName, CFile::modeRead | CFile::typeBinary))
     {
         GIFHeader header = {};
+        bool fUsesGlobalColorTable = false;
 
-        if (LoadGIFHeaderAndValidate(sourceGIF, header))
+        if (LoadGIFHeaderAndValidate(sourceGIF, header, fUsesGlobalColorTable) && fUsesGlobalColorTable)
         {
-            uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
+            const uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
             const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
 
             rgclrPaletteData.resize(nColorTableSize);
@@ -198,8 +191,43 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
 
         OutputDebugString(L"gifreader: done!\n");
     }
+    else
+    {
+        SetStatusText(L"GIF palette import failed.");
+    }
 
     return fSuccess;
+}
+
+bool CImgOutDlg::_WritePaletteToGIF(CFile& positionedGIFiIle, uint8_t nPackedByte)
+{
+    const uint8_t packedGlobalColorTableSize = (nPackedByte & 0x07) + 1;
+    const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
+
+    // Walk past the transparency color
+    positionedGIFiIle.Seek(3, CFile::current);
+    size_t iReadPos = 0;
+
+    for (size_t iWritePos = 1; iWritePos < nColorTableSize; iWritePos++)
+    {
+        const COLORREF curColor = m_DumpBmp.m_pppPalettes[0][m_DumpBmp.m_nPalIndex][iReadPos++];
+
+        const uint8_t red = GetRValue(curColor);
+        const uint8_t green = GetGValue(curColor);
+        const uint8_t blue = GetBValue(curColor);
+
+        positionedGIFiIle.Write(&red, sizeof(red));
+        positionedGIFiIle.Write(&green, sizeof(green));
+        positionedGIFiIle.Write(&blue, sizeof(blue));
+
+        if (iReadPos == m_DumpBmp.m_rgSrcImg[0]->uPalSz)
+        {
+            // loop
+            iReadPos = 0;
+        }
+    }
+
+    return true;
 }
 
 bool CImgOutDlg::UpdatePaletteInGIF(CString output_str)
@@ -213,33 +241,103 @@ bool CImgOutDlg::UpdatePaletteInGIF(CString output_str)
         CString strPossibleError;
         GIFHeader header = {};
         std::vector<COLORREF> rgclrPaletteData;
+        bool fUsesGlobalColorTable = false;
 
-        if (GetHost()->GetPalModDlg()->LoadGIFHeaderAndValidate(sourceGIF, header))
+        if (GetHost()->GetPalModDlg()->LoadGIFHeaderAndValidate(sourceGIF, header, fUsesGlobalColorTable))
         {
-            const uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
-            const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
-
-            const size_t minWriteSize = min(nColorTableSize, m_DumpBmp.m_rgSrcImg[0]->uPalSz);
-            fSuccess = true;
-
-            // Walk past the transparency color
-            sourceGIF.Seek(3, CFile::current);
-
-            for (size_t iPos = 1; iPos < minWriteSize; iPos++)
+            if (fUsesGlobalColorTable)
             {
-                const COLORREF curColor = m_DumpBmp.m_pppPalettes[0][m_DumpBmp.m_nPalIndex][iPos];
+                // the simple case
+                _WritePaletteToGIF(sourceGIF, header.flags);
+                fSuccess = true;
+            }
+            else
+            {
+                while (true)
+                {
+                    uint8_t nBlockID = 0;
+                    uint8_t nDummyByte = 0;
+                    uint8_t nBlockSize = 0;
+                    uint8_t nPackedCTByte = 0;
 
-                const uint8_t red   = GetRValue(curColor);
-                const uint8_t green = GetGValue(curColor);
-                const uint8_t blue  = GetBValue(curColor);
+                    sourceGIF.Read(&nBlockID, 1);
 
-                sourceGIF.Write(&red, sizeof(red));
-                sourceGIF.Write(&green, sizeof(green));
-                sourceGIF.Write(&blue, sizeof(blue));
+                    if (nBlockID == 0x21) // Extension chunk
+                    {
+                        sourceGIF.Read(&nDummyByte, 1);
+                        while (true)
+                        {
+                            sourceGIF.Read(&nBlockSize, 1);
+                            if (nBlockSize)
+                            {
+                                sourceGIF.Seek(nBlockSize, CFile::current);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    else if (nBlockID == 0x2C) // Image descriptor chunk
+                    {
+                        // skip layout(x,y) dimensions(x,y)
+                        sourceGIF.Seek(8, CFile::current);
+                        sourceGIF.Read(&nPackedCTByte, 1);
+
+                        OutputDebugString(L"\tUpdated GIF local color table.\r\n");
+
+                        if (nPackedCTByte & 0x80)
+                        {
+                            fSuccess = _WritePaletteToGIF(sourceGIF, nPackedCTByte);
+
+                            if (!fSuccess)
+                            {
+                                break;
+                            }
+
+                            // Skip LZW byte
+                            sourceGIF.Read(&nDummyByte, 1);
+                            while (true)
+                            {
+                                sourceGIF.Read(&nBlockSize, 1);
+                                if (nBlockSize)
+                                {
+                                    sourceGIF.Seek(nBlockSize, CFile::current);
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // We shouldn't be in this path if there's no LCT
+                            break;
+                        }
+                    }
+                    else if (nBlockID == 0x3B) // Trailing chunk leading to EOF
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
         }
 
+        if (!fSuccess)
+        {
+            GetHost()->GetPalModDlg()->SetStatusText(L"Image export failed: failed to update color tables.");
+        }
+
         sourceGIF.Close();
+    }
+    else
+    {
+        GetHost()->GetPalModDlg()->SetStatusText(L"Image export failed: unable to open GIF file.");
     }
 
     return fSuccess;

@@ -972,8 +972,7 @@ bool CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     {
         if (GetFileAttributes(output_str) != INVALID_FILE_ATTRIBUTES)
         {
-            CString strMessage = L"A file with this name already exists: do you wish to update the existing GIF's global palette instead of creating a new GIF preview?"
-                                 "\r\n\r\r\nNote that this will not update any additional local (per-frame) palettes if they exist.";
+            CString strMessage = L"A file with this name already exists: do you wish to update the existing GIF's color palette(s) instead of creating a new GIF preview?";
             if (MessageBox(strMessage, GetHost()->GetAppName(), MB_YESNO) == IDYES)
             {
                 return UpdatePaletteInGIF(output_str);
