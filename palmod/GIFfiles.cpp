@@ -265,7 +265,7 @@ bool CImgOutDlg::_WritePaletteToGIF(CFile& positionedGIFiIle, uint8_t nPackedByt
 
     // Walk past the transparency color
     positionedGIFiIle.Seek(3, CFile::current);
-    size_t iReadPos = 0;
+    size_t iReadPos = 1;
 
     for (size_t iWritePos = 1; iWritePos < nColorTableSize; iWritePos++)
     {
