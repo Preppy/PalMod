@@ -2,6 +2,54 @@
 #include "PalMod.h"
 #include "ImgOutDlg.h"
 
+bool AdvanceGIFFilePointerToNextColorTable(CFile& sourceGIF, uint8_t& nPackedCTByte)
+{
+    while (true)
+    {
+        uint8_t nBlockID = 0;
+        uint8_t nDummyByte = 0;
+        uint8_t nBlockSize = 0;
+
+        sourceGIF.Read(&nBlockID, 1);
+
+        if (nBlockID == 0x21) // Extension chunk
+        {
+            sourceGIF.Read(&nDummyByte, 1);
+
+            while (true)
+            {
+                sourceGIF.Read(&nBlockSize, 1);
+                if (nBlockSize)
+                {
+                    sourceGIF.Seek(nBlockSize, CFile::current);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        else if (nBlockID == 0x2C) // Image descriptor chunk
+        {
+            // skip layout(x,y) dimensions(x,y)
+            sourceGIF.Seek(8, CFile::current);
+            sourceGIF.Read(&nPackedCTByte, 1);
+
+            return (nPackedCTByte & 0x80);
+        }
+        else if (nBlockID == 0x3B) // Trailing chunk leading to EOF
+        {
+            break;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return false;
+}
+
 bool CPalModDlg::LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, bool& fUsesGlobalColorTable)
 {
     bool fIsValidGIF = false;
@@ -56,22 +104,36 @@ bool CPalModDlg::ReadPaletteFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLO
         GIFHeader header = {};
         bool fUsesGlobalColorTable = false;
 
-        if (LoadGIFHeaderAndValidate(sourceGIF, header, fUsesGlobalColorTable) && fUsesGlobalColorTable)
+        if (LoadGIFHeaderAndValidate(sourceGIF, header, fUsesGlobalColorTable))
         {
-            const uint8_t packedGlobalColorTableSize = (header.flags & 0x07) + 1;
-            const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
-
-            rgclrPaletteData.resize(nColorTableSize);
-
-            for (size_t iPos = 0; iPos < rgclrPaletteData.size(); iPos++)
+            uint8_t nPackedCTByte = 0;
+            if (fUsesGlobalColorTable)
             {
-                uint8_t red = 0, green = 0, blue = 0;
+                nPackedCTByte = header.flags;
+            }
+            else
+            {
+                // Use the first local for now
+                AdvanceGIFFilePointerToNextColorTable(sourceGIF, nPackedCTByte);
+            }
 
-                sourceGIF.Read(&red, sizeof(red));
-                sourceGIF.Read(&green, sizeof(green));
-                sourceGIF.Read(&blue, sizeof(blue));
+            if (nPackedCTByte & 0x80)
+            {
+                const uint8_t packedGlobalColorTableSize = (nPackedCTByte & 0x07) + 1;
+                const size_t nColorTableSize = static_cast<size_t>(pow(2, packedGlobalColorTableSize));
 
-                rgclrPaletteData.at(iPos) = RGB(red, green, blue);
+                rgclrPaletteData.resize(nColorTableSize);
+
+                for (size_t iPos = 0; iPos < rgclrPaletteData.size(); iPos++)
+                {
+                    uint8_t red = 0, green = 0, blue = 0;
+
+                    sourceGIF.Read(&red, sizeof(red));
+                    sourceGIF.Read(&green, sizeof(green));
+                    sourceGIF.Read(&blue, sizeof(blue));
+
+                    rgclrPaletteData.at(iPos) = RGB(red, green, blue);
+                }
             }
         }
 
@@ -108,8 +170,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
         uint8_t* pPal = reinterpret_cast<uint8_t *>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
 
         const bool fHaveMultiplePalettes = (nActivePaletteCount != 1);
-        bool* rgfGIFHasColorsForThisPalette = new bool[nActivePaletteCount];
-        memset(rgfGIFHasColorsForThisPalette, false, sizeof(bool) * nActivePaletteCount);
+        uint16_t nLastPaletteWeHaveColorsFor = 0;
 
         if (fHaveMultiplePalettes)
         {
@@ -122,7 +183,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
                 {
                     if ((rgclrPaletteData.at(iGIFIndex) & 0xFFFFFF) != 0)
                     {
-                        rgfGIFHasColorsForThisPalette[iPalette] = true;
+                        nLastPaletteWeHaveColorsFor = iPalette + 1;
                         break;
                     }
                 }
@@ -160,7 +221,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
                     // advance to the next palette
                     nCurrentPalette++;
 
-                    if (rgfGIFHasColorsForThisPalette[nCurrentPalette])
+                    if (nCurrentPalette < nLastPaletteWeHaveColorsFor)
                     {
                         iCurrentIndexInPalette = 0;
                         pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
@@ -173,8 +234,6 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
                 }
             }
         }
-
-        safe_delete_array(rgfGIFHasColorsForThisPalette);
 
         ImgDispCtrl->UpdateCtrl();
         m_PalHost.UpdateAllPalCtrls();
@@ -253,76 +312,35 @@ bool CImgOutDlg::UpdatePaletteInGIF(CString output_str)
             }
             else
             {
-                while (true)
+                uint8_t nPackedCTByte = 0;
+
+                while (AdvanceGIFFilePointerToNextColorTable(sourceGIF, nPackedCTByte))
                 {
-                    uint8_t nBlockID = 0;
                     uint8_t nDummyByte = 0;
                     uint8_t nBlockSize = 0;
-                    uint8_t nPackedCTByte = 0;
 
-                    sourceGIF.Read(&nBlockID, 1);
+                    OutputDebugString(L"\tUpdated GIF local color table.\r\n");
+                    fSuccess = _WritePaletteToGIF(sourceGIF, nPackedCTByte);
 
-                    if (nBlockID == 0x21) // Extension chunk
+                    if (!fSuccess)
                     {
-                        sourceGIF.Read(&nDummyByte, 1);
-                        while (true)
-                        {
-                            sourceGIF.Read(&nBlockSize, 1);
-                            if (nBlockSize)
-                            {
-                                sourceGIF.Seek(nBlockSize, CFile::current);
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
+                        break;
                     }
-                    else if (nBlockID == 0x2C) // Image descriptor chunk
+
+                    // Now skip past the image data
+                    // Skip LZW byte
+                    sourceGIF.Read(&nDummyByte, 1);
+                    while (true)
                     {
-                        // skip layout(x,y) dimensions(x,y)
-                        sourceGIF.Seek(8, CFile::current);
-                        sourceGIF.Read(&nPackedCTByte, 1);
-
-                        OutputDebugString(L"\tUpdated GIF local color table.\r\n");
-
-                        if (nPackedCTByte & 0x80)
+                        sourceGIF.Read(&nBlockSize, 1);
+                        if (nBlockSize)
                         {
-                            fSuccess = _WritePaletteToGIF(sourceGIF, nPackedCTByte);
-
-                            if (!fSuccess)
-                            {
-                                break;
-                            }
-
-                            // Skip LZW byte
-                            sourceGIF.Read(&nDummyByte, 1);
-                            while (true)
-                            {
-                                sourceGIF.Read(&nBlockSize, 1);
-                                if (nBlockSize)
-                                {
-                                    sourceGIF.Seek(nBlockSize, CFile::current);
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
+                            sourceGIF.Seek(nBlockSize, CFile::current);
                         }
                         else
                         {
-                            // We shouldn't be in this path if there's no LCT
                             break;
                         }
-                    }
-                    else if (nBlockID == 0x3B) // Trailing chunk leading to EOF
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        break;
                     }
                 }
             }
