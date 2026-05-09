@@ -1841,7 +1841,7 @@ const sGame_PaletteDataset SSF2T_A_BONUS_NODE_03[] =
 
 const sGame_PaletteDataset SSF2T_A_BONUS_BONUS_NODE_04[] =
 {
-    { L"Insert Coin Ryu Stage",                 0x53e3c, 0x53e5c },
+    { L"Insert Coin Ryu Stage",                 0x53e3c, 0x53e5c, indexSF2Sprites_Bonus, 0x37 },
     { L"Ryu Ending (Ryu walking)",              0x5987a, 0x5989a },
     { L"Ken Portrait 2",                        0x5c8ba, 0x5c9ba },
     { L"Cammy End Portrait 2",                  0x5c63a, 0x5c81a },
@@ -1856,39 +1856,29 @@ const sGame_PaletteDataset SSF2T_A_BONUS_BONUS_NODE_04[] =
     { L"M.Bison Ending 2",                      0x5c3da, 0x5c4ba },
 };
 
-const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
+const sGame_PaletteDataset SSF2T_A_08_BONUS_INTRO_NODE[] =
 {
     { L"Intro Ryu Part 1", 0x6d0be, 0x6d1fe, indexSF2Sprites_Bonus, 0x31 },
     { L"Intro Ryu Part 2", 0x6d2be, 0x6d37e, indexSF2Sprites_Bonus, 0x32 },
     { L"Intro Ryu Part 3", 0x6d3be, 0x6d3de },
     { L"Intro Ryu Part 4", 0x755de, 0x755fe, indexSF2Sprites_Bonus, 0x33 },
 
-    { L"Blue SUPER Text", 0x7561e, 0x7565e },
-    { L"Yellow Flash SUPER Text Part 1", 0x7555e, 0x755de },
-    { L"Yellow Flash SUPER Text Part 2", 0x7565e, 0x757fe },
-    { L"Intro Ryu Hadouken Blast", 0x6d27e, 0x6d29e },
+    { L"Intro Ryu Hadouken Blast", 0x6d27e, 0x6d29e, indexSF2Sprites_Bonus, 0x39 },
+};
 
+const sGame_PaletteDataset SSF2T_A_08_BONUS_CHARSEL_NODE[] =
+{
     { L"Character Select Background (1/2)", 0x743fe, 0x7441e, indexSF2Sprites_Bonus, 0x1c, &pairNext },
     { L"Character Select Background (2/2)", 0x7443e, 0x7445e, indexSF2Sprites_Bonus, 0x1d },
-    { L"Vs Background", 0x74b1e, 0x74b3e, indexSF2Sprites_Bonus, 0x21 },
+    { L"Vs Background",                     0x74b1e, 0x74b3e, indexSF2Sprites_Bonus, 0x21 },
 
-    { L"Super KO 1", 0x77020 - 0x02, 0x77040 - 0x02 },
-    { L"Super KO 2", 0x77040 - 0x02, 0x77060 - 0x02 },
-    { L"Super KO 3", 0x77060 - 0x02, 0x77080 - 0x02 },
-    { L"Super KO 4", 0x77080 - 0x02, 0x770A0 - 0x02 },
-    { L"Super KO 5", 0x770A0 - 0x02, 0x770C0 - 0x02 },
-    { L"Super KO 6", 0x770C0 - 0x02, 0x770E0 - 0x02 },
-    { L"Super KO 7", 0x770E0 - 0x02, 0x77100 - 0x02 },
-    { L"Super KO 8", 0x77100 - 0x02, 0x77120 - 0x02 },
-    { L"Super KO 9", 0x77120 - 0x02, 0x77140 - 0x02 },
-    { L"Super KO 10", 0x77140 - 0x02, 0x77160 - 0x02 },
-    { L"Super KO 11", 0x77160 - 0x02, 0x77180 - 0x02 },
-    { L"Super KO 12", 0x77180 - 0x02, 0x771A0 - 0x02 },
-    { L"Super KO 13", 0x771A0 - 0x02, 0x771C0 - 0x02 },
-    { L"Super KO 14", 0x771C0 - 0x02, 0x771E0 - 0x02 },
-    { L"Super KO 15", 0x771E0 - 0x02, 0x77200 - 0x02 },
+    { L"World Tour Next Fighter Portraits", 0x745fe, 0x747fe, indexSF2Sprites_Bonus, 0x23 },
+    { L"Next Fighter Question Mark",        0x745be, 0x745de, indexSF2Sprites_Bonus, 0x3a },
+    { L"Defeated Fighter Portraits",        0x745de, 0x745fe, indexSF2Sprites_Bonus, 0x36 },
+};
 
-    { L"World Tour Huds", 0x745fe, 0x747fe },
+const sGame_PaletteDataset SSF2T_A_08_BONUS_ENDINGS_NODE[] =
+{
     { L"Ryu Ending Portrait 1 Winners Poster", 0x6d7fe, 0x6d81e },
     { L"Ryu Ending Portrait 2", 0x6d81e, 0x6d83e },
     { L"Ryu Ending Foreground", 0x75c40, 0x75c60 },
@@ -1898,16 +1888,98 @@ const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
     { L"M.Bison Ending Fade In", 0x6e5fe, 0x6e61e },
 };
 
+const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
+{
+    { L"Blue SUPER Text", 0x7561e, 0x7565e, indexSF2Sprites_Bonus, 0x35 },
+    { L"Yellow Flash SUPER Text Part 1", 0x7555e, 0x755de },
+    { L"Yellow Flash SUPER Text Part 2", 0x7565e, 0x757fe },
+
+    { L"Super KO Background Flash 1", 0x77020 - 0x02, 0x77040 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 2", 0x77040 - 0x02, 0x77060 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 3", 0x77060 - 0x02, 0x77080 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 4", 0x77080 - 0x02, 0x770A0 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 5", 0x770A0 - 0x02, 0x770C0 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 6", 0x770C0 - 0x02, 0x770E0 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 7", 0x770E0 - 0x02, 0x77100 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 8", 0x77100 - 0x02, 0x77120 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 9", 0x77120 - 0x02, 0x77140 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 10", 0x77140 - 0x02, 0x77160 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 11", 0x77160 - 0x02, 0x77180 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 12", 0x77180 - 0x02, 0x771A0 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 13", 0x771A0 - 0x02, 0x771C0 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 14", 0x771C0 - 0x02, 0x771E0 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+    { L"Super KO Background Flash 15", 0x771E0 - 0x02, 0x77200 - 0x02, indexSF2Sprites_Bonus, 0x3b },
+};
+
 const sGame_PaletteDataset SSF2T_A_BONUS_NODE_04[] =
 {
     { L"Akuma Intro",                   0x5bf5a, 0x5bf7a, indexSF2Sprites_Bonus, 0x01 },
     { L"Chun-Li Intro",                 0x5bf7a, 0x5c09a, indexSF2Sprites_Bonus, 0x02 },
     { L"Cammy Intro",                   0x5be5a, 0x5bf5a, indexSF2Sprites_Bonus, 0x00 },
 
-    { L"Intro Ryu Part 5",              0x5917a, 0x5919a, indexSF2Sprites_Bonus, 0x34 },
-    { L"Intro Ryu Part 6",              0x5919a, 0x591BA },
+    { L"Ryu Fade In Set 1 1/6",         0x4a536 + (0 * 0xCE), 0x4a556 + (0 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 1 2/6",         0x4a558 + (0 * 0xCE), 0x4a578 + (0 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 1 3/6",         0x4a57a + (0 * 0xCE), 0x4a59a + (0 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 1 4/6",         0x4a59c + (0 * 0xCE), 0x4a5bc + (0 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 1 5/6",         0x4a5be + (0 * 0xCE), 0x4a5de + (0 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 1 6/6",         0x4a5e0 + (0 * 0xCE), 0x4a600 + (0 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
 
-    { L"Intro Ryu Charging Hadouken",   0x591da, 0x591fa },
+    { L"Ryu Fade In Set 2 1/6",         0x4a536 + (1 * 0xCE), 0x4a556 + (1 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 2 2/6",         0x4a558 + (1 * 0xCE), 0x4a578 + (1 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 2 3/6",         0x4a57a + (1 * 0xCE), 0x4a59a + (1 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 2 4/6",         0x4a59c + (1 * 0xCE), 0x4a5bc + (1 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 2 5/6",         0x4a5be + (1 * 0xCE), 0x4a5de + (1 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 2 6/6",         0x4a5e0 + (1 * 0xCE), 0x4a600 + (1 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
+
+    { L"Ryu Fade In Set 3 1/6",         0x4a536 + (2 * 0xCE), 0x4a556 + (2 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 3 2/6",         0x4a558 + (2 * 0xCE), 0x4a578 + (2 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 3 3/6",         0x4a57a + (2 * 0xCE), 0x4a59a + (2 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 3 4/6",         0x4a59c + (2 * 0xCE), 0x4a5bc + (2 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 3 5/6",         0x4a5be + (2 * 0xCE), 0x4a5de + (2 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 3 6/6",         0x4a5e0 + (2 * 0xCE), 0x4a600 + (2 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
+
+    { L"Ryu Fade In Set 4 1/6",         0x4a536 + (3 * 0xCE), 0x4a556 + (3 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 4 2/6",         0x4a558 + (3 * 0xCE), 0x4a578 + (3 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 4 3/6",         0x4a57a + (3 * 0xCE), 0x4a59a + (3 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 4 4/6",         0x4a59c + (3 * 0xCE), 0x4a5bc + (3 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 4 5/6",         0x4a5be + (3 * 0xCE), 0x4a5de + (3 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 4 6/6",         0x4a5e0 + (3 * 0xCE), 0x4a600 + (3 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
+
+    { L"Ryu Fade In Set 5 1/6",         0x4a536 + (4 * 0xCE), 0x4a556 + (4 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 5 2/6",         0x4a558 + (4 * 0xCE), 0x4a578 + (4 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 5 3/6",         0x4a57a + (4 * 0xCE), 0x4a59a + (4 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 5 4/6",         0x4a59c + (4 * 0xCE), 0x4a5bc + (4 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 5 5/6",         0x4a5be + (4 * 0xCE), 0x4a5de + (4 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 5 6/6",         0x4a5e0 + (4 * 0xCE), 0x4a600 + (4 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
+
+    { L"Ryu Fade In Set 6 1/6",         0x4a536 + (5 * 0xCE), 0x4a556 + (5 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 6 2/6",         0x4a558 + (5 * 0xCE), 0x4a578 + (5 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 6 3/6",         0x4a57a + (5 * 0xCE), 0x4a59a + (5 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 6 4/6",         0x4a59c + (5 * 0xCE), 0x4a5bc + (5 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 6 5/6",         0x4a5be + (5 * 0xCE), 0x4a5de + (5 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 6 6/6",         0x4a5e0 + (5 * 0xCE), 0x4a600 + (5 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
+
+    { L"Ryu Fade In Set 7 1/6",         0x4a536 + (6 * 0xCE), 0x4a556 + (6 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 7 2/6",         0x4a558 + (6 * 0xCE), 0x4a578 + (6 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 7 3/6",         0x4a57a + (6 * 0xCE), 0x4a59a + (6 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 7 4/6",         0x4a59c + (6 * 0xCE), 0x4a5bc + (6 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 7 5/6",         0x4a5be + (6 * 0xCE), 0x4a5de + (6 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 7 6/6",         0x4a5e0 + (6 * 0xCE), 0x4a600 + (6 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
+
+    { L"Ryu Fade In Set 8 1/6",         0x4a536 + (7 * 0xCE), 0x4a556 + (7 * 0xCE), indexSF2Sprites_Bonus, 0x3e, &pairNext5Palettes },
+    { L"Ryu Fade In Set 8 2/6",         0x4a558 + (7 * 0xCE), 0x4a578 + (7 * 0xCE), indexSF2Sprites_Bonus, 0x3f },
+    { L"Ryu Fade In Set 8 3/6",         0x4a57a + (7 * 0xCE), 0x4a59a + (7 * 0xCE), indexSF2Sprites_Bonus, 0x40 },
+    { L"Ryu Fade In Set 8 4/6",         0x4a59c + (7 * 0xCE), 0x4a5bc + (7 * 0xCE), indexSF2Sprites_Bonus, 0x41 },
+    { L"Ryu Fade In Set 8 5/6",         0x4a5be + (7 * 0xCE), 0x4a5de + (7 * 0xCE), indexSF2Sprites_Bonus, 0x42 },
+    { L"Ryu Fade In Set 8 6/6",         0x4a5e0 + (7 * 0xCE), 0x4a600 + (7 * 0xCE), indexSF2Sprites_Bonus, 0x43 },
+    // 0x4ab1c
+
+    //{ L"Ryu Fade In Set Last 3/3",      0x4ab82, 0x4aba2 },
+
+    { L"Intro Ryu Part 5",              0x5917a, 0x5919a, indexSF2Sprites_Bonus, 0x34 },
+    { L"Intro Ryu Part 6",              0x5919a, 0x591BA, indexSF2Sprites_Bonus, 0x3d },
+
+    { L"Intro Ryu Charging Hadouken",   0x591da, 0x591fa, indexSF2Sprites_Bonus, 0x38 },
 };
 
 const sGame_PaletteDataset SSF2T_A_BONUS_TITLESCREEN_NODE_04[] =
@@ -1920,22 +1992,22 @@ const sGame_PaletteDataset SSF2T_A_BONUS_TITLESCREEN_NODE_04[] =
 
 const sGame_PaletteDataset SSF2T_A_BONUS_SUPERTRAILS_NODE_04[] =
 {
-    { L"Japan (Ryu's Stage)", 0x540da, 0x5413a },
-    { L"Japan (E.Honda's Stage)", 0x544da, 0x5453a },
-    { L"Brazil (Blanka's Stage)", 0x548da, 0x5493a },
-    { L"USA (Guile's Stage)", 0x54cda, 0x54d3a },
-    { L"USA (Ken's Stage)", 0x550da, 0x5513a },
-    { L"China (Chun-Li's Stage)", 0x554da, 0x5553a },
-    { L"USSR (Zangief's Stage)", 0x558da, 0x5593a },
-    { L"India (Dhalsim's Stage)", 0x55cda, 0x55d3a },
-    { L"Thailand (M.Bison's Stage)", 0x560da, 0x5613a },
-    { L"Thailand (Sagat's Stage)", 0x564da, 0x5653a },
-    { L"USA (Balrog's Stage)", 0x568da, 0x5693a },
-    { L"Spain (Vega's Stage)", 0x56cda, 0x56d3a },
-    { L"England (Cammy's Stage)", 0x570da, 0x5713a },
-    { L"Mexico (T.Hawk's Stage)", 0x574da, 0x5753a },
-    { L"Hong Kong (Fei Long's Stage)", 0x578da, 0x5793a },
-    { L"Jamaica (Dee Jay's Stage)", 0x57cda, 0x57d3a },
+    { L"Japan (Ryu's Stage)",       0x540da, 0x5413a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Japan (E.Honda's Stage)",   0x544da, 0x5453a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Brazil (Blanka's Stage)",   0x548da, 0x5493a, indexSF2Sprites_Bonus, 0x3c },
+    { L"USA (Guile's Stage)",       0x54cda, 0x54d3a, indexSF2Sprites_Bonus, 0x3c },
+    { L"USA (Ken's Stage)",         0x550da, 0x5513a, indexSF2Sprites_Bonus, 0x3c },
+    { L"China (Chun-Li's Stage)",   0x554da, 0x5553a, indexSF2Sprites_Bonus, 0x3c },
+    { L"USSR (Zangief's Stage)",    0x558da, 0x5593a, indexSF2Sprites_Bonus, 0x3c },
+    { L"India (Dhalsim's Stage)",   0x55cda, 0x55d3a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Thailand (M.Bison's Stage)", 0x560da, 0x5613a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Thailand (Sagat's Stage)",  0x564da, 0x5653a, indexSF2Sprites_Bonus, 0x3c },
+    { L"USA (Balrog's Stage)",      0x568da, 0x5693a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Spain (Vega's Stage)",      0x56cda, 0x56d3a, indexSF2Sprites_Bonus, 0x3c },
+    { L"England (Cammy's Stage)",   0x570da, 0x5713a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Mexico (T.Hawk's Stage)",   0x574da, 0x5753a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Hong Kong (Fei Long's Stage)", 0x578da, 0x5793a, indexSF2Sprites_Bonus, 0x3c },
+    { L"Jamaica (Dee Jay's Stage)", 0x57cda, 0x57d3a, indexSF2Sprites_Bonus, 0x3c },
 };
 
 const sGame_PaletteDataset SSF2T_A_STAGEHUD_NODE_04[] =
@@ -8699,7 +8771,10 @@ const sDescTreeNode SSF2T_A_04_BONUS_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =
 {
-    { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_NODE,   ARRAYSIZE(SSF2T_A_08_BONUS_NODE) },
+    { L"Intro",             DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_INTRO_NODE,     ARRAYSIZE(SSF2T_A_08_BONUS_INTRO_NODE) },
+    { L"Character Select",  DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_CHARSEL_NODE,   ARRAYSIZE(SSF2T_A_08_BONUS_CHARSEL_NODE) },
+    { L"Endings",           DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_ENDINGS_NODE,   ARRAYSIZE(SSF2T_A_08_BONUS_ENDINGS_NODE) },
+    { L"Bonus",             DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_NODE,           ARRAYSIZE(SSF2T_A_08_BONUS_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_08_STAGES_COLLECTION[] =

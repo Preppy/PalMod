@@ -3,8 +3,8 @@
 #include "SSF2T_A_DEF.h"
 
 const uint32_t c_nPaletteCount03 = 325;
-const uint32_t c_nPaletteCount04 = 818;
-const uint32_t c_nPaletteCount08 = 211;
+const uint32_t c_nPaletteCount04 = 866;
+const uint32_t c_nPaletteCount08 = 213;
 
 class CGame_SSF2T_A : public CGameClassByDir
 {
