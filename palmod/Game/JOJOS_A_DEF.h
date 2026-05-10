@@ -3440,6 +3440,7 @@ const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_GRAYFLY[] =
 const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
 {
     { L"Mode select - Challenge & Story signs", 0x30d480, 0x30d500, indexJojos51Bonus, 0x50 },
+    { L"Challenge Gauge Select", 0x30da00, 0x30da80, indexJojos51Bonus, 0x5a },
     { L"Character Select Background", 0x310100, 0x310180, indexJojos51Bonus, 0x46 },
     { L"Selector Rings", 0x310080, 0x310100, indexJojos51Bonus, 0x53 },
     { L"Character Select Comic", 0x310000, 0x310080, indexJojos51Bonus, 0x48 },
