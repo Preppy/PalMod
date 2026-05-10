@@ -53,7 +53,9 @@ private:
     const std::vector<sCRC32ValueSet> m_rgCRC32Data_AE =
     {
         { L"KOF '99AE ROM P2 (Neo-Geo)", L"kof99ae_p2.bin", 0xf3f47f41, 0 },
+        { L"KOF '99AE ROM P2 (Neo-Geo)", L"152-p2ae.sp2", 0xf3f47f41, 0 },
         { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0xbc85cf02, 0 },
+        { L"KOF '99AE ROM P3 (Neo-Geo)", L"152-p3ae.p3", 0xbc85cf02, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_Base

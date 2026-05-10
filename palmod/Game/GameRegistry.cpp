@@ -1197,7 +1197,7 @@ namespace KnownGameInfo
         {
             KOF99AE_A,
             L"King of Fighters '99AE (Neo-Geo)",
-            { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
+            { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin;152-p2ae.sp2;152-p3ae.p3|", GamePlatform::NEOGEO, GameSeries::KOF },
             Make_KOF99_A,
             CGame_KOF99_A::GetRule,
         },

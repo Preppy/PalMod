@@ -16,7 +16,9 @@ void CGame_KOF99_A::SetSpecialRuleForFileName(std::wstring strFileName)
         { L"proto_251-p2.p2", KOF99LoadingKey::Base },
         { L"kf99eur.p2", KOF99LoadingKey::Base },
         { L"kof99ae_p2.bin", KOF99LoadingKey::AE02 },
+        { L"152-p2ae.sp2", KOF99LoadingKey::AE02 },
         { L"kof99ae_p3.bin", KOF99LoadingKey::AE03 },
+        { L"152-p3ae.p3", KOF99LoadingKey::AE03 },
     };
 
     CString strFileNameLowerCase = strFileName.c_str();
