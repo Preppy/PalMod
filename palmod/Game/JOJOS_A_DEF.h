@@ -3496,20 +3496,27 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { L"Title Screen Background", 0x30b0a0, 0x30b0b0, indexJojos51Bonus, 0x31 },
     { L"World Map",              0x313780, 0x313800, indexJojos51Bonus, 0x38 },
 
-    { L"SCORE RANKING 1 ( R E K I N G )", 0x314000, 0x314020, indexJojos51Bonus, -1, &pairNext3Palettes },
-    { L"SCORE RANKING 2 ( O N )", 0x314020, 0x314040 },
-    { L"SCORE RANKING 3 ( C A )", 0x314040, 0x314060 },
-    { L"SCORE RANKING 4 ( S R )", 0x314060, 0x314080 },
+    // also Ranking Star (after beating the story)
+    { L"SCORE RANKING and JOJO RANKING text",       0x313ec0, 0x313ee0, indexJojos51Bonus, 0x5b },
+    { L"SCORE RANKING high score / big numbers",    0x313fc0, 0x313fe0 , indexJojos51Bonus, 0x5c },
+    
+    { L"SCORE RANKING 1 (R E K I N G)",             0x314000, 0x314020, indexJojos51Bonus, 0x5d, &pairNext3Palettes },
+    { L"SCORE RANKING 2 (O N)",                     0x314020, 0x314040, indexJojos51Bonus, 0x5e },
+    { L"SCORE RANKING 3 (C A)",                     0x314040, 0x314060, indexJojos51Bonus, 0x5f },
+    { L"SCORE RANKING 4 (S R)",                     0x314060, 0x314080, indexJojos51Bonus, 0x60 },
+    
+    { L"JOJO RANKING 1 (J & O Outlines, O K I N G)", 0x314100, 0x314120, indexJojos51Bonus, 0x61, &pairNext3Palettes },
+    { L"JOJO RANKING 2 (Second J, N)",              0x314120, 0x314140, indexJojos51Bonus, 0x62 },
+    { L"JOJO RANKING 3 (First O, A)",               0x314140, 0x314160, indexJojos51Bonus, 0x63 },
+    { L"JOJO RANKING 4 (First J, R)",               0x314160, 0x314180, indexJojos51Bonus, 0x64 },
 
-    { L"JOJO RANKING 1 (J & O Outlines, O K I N G)", 0x314100, 0x314120, indexJojos51Bonus, -1, &pairNext3Palettes},
-    { L"JOJO RANKING 2 (Second J, N)", 0x314120, 0x314140 },
-    { L"JOJO RANKING 3 (First O, A )", 0x314140, 0x314160 },
-    { L"JOJO RANKING 4 (First J, R)", 0x314160, 0x314180 },
+    { L"JOJO RANKING LEVEL text",                   0x314340, 0x314360, indexJojos51Bonus, 0x65 },
+    { L"JOJO RANKING NUMBER",                       0x3143c0, 0x3143e0, indexJojos51Bonus, 0x66 },
 
     { L"Ranking Mini Logo",      0x313f00, 0x313f80, indexJojos51Bonus, 0x4d },
 
-    { L"Score Ranking Star (after beating the story)", 0x313ea0, 0x313eb0 },
-    { L"Jojo Ranking God (Challenge Mode)", 0x314240, 0x314260 },
+    { L"Score Ranking Star (after beating the story)",  0x313ea0, 0x313ec0 },
+    { L"Jojo Ranking God (Challenge Mode)",             0x314240, 0x314260 },
 };
 
 const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
@@ -3849,7 +3856,7 @@ const sGame_PaletteDataset JOJOS_A_TEMP_GCS_PALETTES[] =
     { L"Death 13 Start Guard Cancel Stance", 0x392180, 0x392200, indexJojos51Death13 },
 };
 
-const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
+const sDescTreeNode JOJOS_A_BONUS_COLLECTION_51[]
 {
     //{ L"Please Verify: Guard Cancel Stance", DESC_NODETYPE_TREE, (void*)JOJOS_A_TEMP_GCS_PALETTES, ARRAYSIZE(JOJOS_A_TEMP_GCS_PALETTES) },
     { L"Intro", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_INTRO_PALETTES, ARRAYSIZE(JOJOS_BONUS_INTRO_PALETTES) },
@@ -4326,5 +4333,5 @@ const sDescTreeNode JOJOS_UNITS_51[] =
     { L"(Unused) Gray Fly",                       DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_GRAYFLY, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_GRAYFLY) },
     { k_pszTimeStopName,                          DESC_NODETYPE_TREE, (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
     { k_pszStoryModeName,                         DESC_NODETYPE_TREE, (void*)JOJOS_A_STORYMODE_COLLECTION, ARRAYSIZE(JOJOS_A_STORYMODE_COLLECTION)},
-    { k_pszBonusPalettesName,                     DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
+    { k_pszBonusPalettesName,                     DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_COLLECTION_51, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION_51) },
 };

@@ -16,7 +16,7 @@ class CGame_JOJOS_A : public CGameClassByDir
 {
 private:
     const uint32_t c_nPaletteCount50 = 477;
-    const uint32_t c_nPaletteCount51 = 2081;
+    const uint32_t c_nPaletteCount51 = 2085;
 
 public:
     static JojosLoadingKey m_eVersionToLoad;
