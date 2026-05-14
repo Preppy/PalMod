@@ -601,6 +601,13 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
         uint16_t nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
 #endif
 
+#ifdef INCOMPLETE_OPTION
+        // This is a stub of the ability to export out indexed images that have invalid indices and 
+        // correct those to 0/transp.  However this isn't done yet: it fails for image pairs.
+        // So if you want this be sure to clean it up.
+        uint32_t nMaxPossiblePaletteOffset = 0;
+#endif
+
         // Indexed PNG: use the lodePNG encoder
         for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
         {
@@ -643,6 +650,17 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     }
                 }
 
+#ifdef INCOMPLETE_OPTION
+                if (m_fExportPNGAsJoined)
+                {
+                    nMaxPossiblePaletteOffset += static_cast<uint32_t>(m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz);
+                }
+                else
+                {
+                    nMaxPossiblePaletteOffset = static_cast<uint32_t>(m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz);
+                }
+#endif
+
                 // This section writes the image to rgSrcImg
                 // For single-png output, we glom together the palette tables and thus adjust the indexes of the 
                 // secondary images
@@ -677,8 +695,22 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                                     // only write used pixels
                                     if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
                                     {
+#ifndef INCOMPLETE_OPTION
                                         image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
-                                        fHaveContentThisLayer = true;
+#else
+                                        // Do we wrap via palette index?
+                                        const unsigned char nPalleteIndex = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
+
+                                        if (nPalleteIndex < nMaxPossiblePaletteOffset)
+                                        {
+                                            image[destIndex] = nPalleteIndex;
+                                            fHaveContentThisLayer = true;
+                                        }
+                                        else
+                                        {
+                                            OutputDebugString(L"CImgOutDlg::ExportToIndexedPNG: Ignoring invalid color reference and setting to background color.\r\n");
+                                        }
+#endif
                                     }
                                 }
                             }
