@@ -425,7 +425,8 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                 }
 
                 // Certain GBA games handle alpha uniquely.
-                const bool fAlphaIsChaotic = ((CurrGame->GetAlphaMode() == AlphaMode::GameUsesChaoticAlpha) && (cbColor == 2));
+                const AlphaMode curAlphaMode = CurrGame->GetAlphaMode();
+                const bool fAlphaIsChaotic = (curAlphaMode == AlphaMode::GameUsesChaoticAlpha) && (cbColor == 2);
 
                 if (fIncludeNonBinaryText)
                 {
@@ -448,8 +449,28 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                             default:
                             case 2:
                             {
-                                // Using the original source alpha here would be better, but let's just stomp to full at this level
-                                uint16_t uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex], 0xffff);
+                                // Here we handle alpha the best we can
+                                uint16_t uCurrData;
+                                
+                                switch (curAlphaMode)
+                                {
+                                    case AlphaMode::GameDoesNotUseAlpha:
+                                        uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex], 0);
+                                        break;
+                                    case AlphaMode::GameUsesFixedAlpha:
+                                        uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex], 0xffff);
+                                        break;
+                                    case AlphaMode::GameUsesChaoticAlpha:
+                                    case AlphaMode::GameUsesSTPNotAlpha:
+                                    case AlphaMode::GameUsesVariableAlpha:
+                                    default:
+                                    {
+                                        const uint32_t nThisColor = CurrPal->GetBasePal()[iPalIndex];
+                                        uCurrData = CurrGame->ConvCol16(nThisColor, static_cast<uint16_t>(nThisColor >> 16));
+                                        break;
+                                    }
+                                }
+
                                 uCurrData = _byteswap_ushort(uCurrData);
 
                                 strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
@@ -458,13 +479,30 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                             case 3:
                             {
                                 const uint32_t uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
-                                // we deliberately drop alpha here
+                                // we deliberately drop alpha here: it's not part of the color format
                                 strFormatU.Format(L"%02X %02X %02X ", (uCurrData & 0xFF0000) >> 16, (uCurrData & 0xFF00) >> 8, (uCurrData & 0xFF));
                                 break;
                             }
                             case 4:
                             {
-                                uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], CurrPal->GetBasePal()[iPalIndex]);
+                                uint32_t uCurrData;
+                                
+                                switch (curAlphaMode)
+                                {
+                                    case AlphaMode::GameDoesNotUseAlpha:
+                                        uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], 0);
+                                        break;
+                                    case AlphaMode::GameUsesFixedAlpha:
+                                        uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], 0xffffffff);
+                                        break;
+                                    case AlphaMode::GameUsesChaoticAlpha:
+                                    case AlphaMode::GameUsesSTPNotAlpha:
+                                    case AlphaMode::GameUsesVariableAlpha:
+                                    default:
+                                        uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex], CurrPal->GetBasePal()[iPalIndex]);
+                                        break;
+                                }
+
                                 uCurrData = _byteswap_ulong(uCurrData);
 
                                 strFormatU.Format(L"%02X %02X %02X %02X ", (uCurrData & 0xFF000000) >> 24, (uCurrData & 0xFF0000) >> 16,
