@@ -695,6 +695,8 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                                     // only write used pixels
                                     if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
                                     {
+                                        fHaveContentThisLayer = true;
+
 #ifndef INCOMPLETE_OPTION
                                         image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
 #else
@@ -704,7 +706,6 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                                         if (nPalleteIndex < nMaxPossiblePaletteOffset)
                                         {
                                             image[destIndex] = nPalleteIndex;
-                                            fHaveContentThisLayer = true;
                                         }
                                         else
                                         {

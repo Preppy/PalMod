@@ -4155,7 +4155,7 @@ const sGame_PaletteDataset JOJOS_A_KAKYOIN_STORY_PALETTES[] =
     { L"Scared Kakyoin", 0x02e9b00, 0x02e9b80, indexJojos51StoryMode, 0x02 },
     { L"Shadow Dio Smirk", 0x02e9b80, 0x02e9c00, indexJojos51StoryMode, 0x06 },
     { L"Fleshbud Scene", 0x02e9e00, 0x02ea000, indexJojos51StoryMode, 0x05 },
-    { L"Fleshbud Scene (Background)", 0x02ea000, 0x2ea020 },
+    { L"Fleshbud Scene (Background)", 0x02ea000, 0x2ea020, indexJojos51StoryMode, 0x37 },
     { L"Kakyoin 20M Emerald Splash", 0x2ea080, 0x2ea100, indexJojos51StoryMode, 0x11 },
 };
 
@@ -4185,23 +4185,23 @@ const sGame_PaletteDataset JOJOS_A_MIDLER_STORY_PALETTES[] =
     // pair these 2 when previews roll out
     { L"Midler With Cup Face", 0x2f7f80, 0x2f8000, indexJojos51StoryMode, 0x0c, &pairNext },
     { L"Midler With Cup Body", 0x2e5680, 0x2e5780, indexJojos51StoryMode, 0x0b, &pairPrevious },
-    { L"Midler With Cup High Priestess", 0x2f8080, 0x2f8100 },
+    { L"Midler With Cup High Priestess", 0x2f8080, 0x2f8100, indexJojos51StoryMode, 0x39 },
     { L"Midler Near DIO's Mansion", 0x2f7e00, 0x2f7e80, indexJojos51StoryMode, 0x0a },
     { L"DIO Point", 0x305a00, 0x305a80, indexJojos51StoryMode, 0x01 },
     { L"Midler Facing DIO", 0x305a80, 0x305b00, indexJojos51StoryMode, 0x09 },
-    { L"Midler Facing DIO BG", 0x305B62, 0x305B80 },
+    { L"Midler Facing DIO BG", 0x305B62, 0x305B80, indexJojos51StoryMode, 0x38 },
     { L"Midler & DIO Ending Portrait", 0x2e6300, 0x2e6500, indexJojos51StoryMode, 0x12 },
 };
 
 // needs bg for alessi running
 const sGame_PaletteDataset JOJOS_A_YOJO_STORY_PALETTES[] =
 {
-    { L"Young Joseph Chasing Alessi", 0x2fc480, 0x2fc500 },
-    { L"Alessi Being Chased By Joseph", 0x2fc380, 0x2fc400 },
-    { L"Young Joseph Chasing Alessi BG", 0x2fc300, 0x2fc380 },
+    { L"Young Joseph Chasing Alessi", 0x2fc480, 0x2fc500, indexJojos51StoryMode, 0x34, &pairNextAndNext },
+    { L"Alessi Being Chased By Joseph", 0x2fc380, 0x2fc400, indexJojos51StoryMode, 0x35 },
+    { L"Young Joseph Chasing Alessi BG", 0x2fc300, 0x2fc380, indexJojos51StoryMode, 0x36 },
     { L"Alessi Running Away", 0x2fc400, 0x2fc480, indexJojos51StoryMode, 0x13 },
-    { L"Joseph Reunited With The Crusaders 1/2", 0x2fc580, 0x2fc780 },
-    { L"Joseph Reunited With The Crusaders 2/2", 0x2fc780, 0x2fc800 },
+    { L"Joseph Reunited With The Crusaders 1/2", 0x2fc580, 0x2fc780, indexJojos51StoryMode, 0x3a, &pairNext },
+    { L"Joseph Reunited With The Crusaders 2/2", 0x2fc780, 0x2fc800, indexJojos51StoryMode, 0x3b },
     { L"Joseph Reunited With The Crusaders BG", 0x2fc800, 0x2fc880, indexJojos51StoryMode, 0x14 },
 };
 
@@ -4212,9 +4212,9 @@ const sGame_PaletteDataset JOJOS_A_HOL_STORY_PALETTES[] =
     { L"Hol Horse Intro Scene BG", 0x2fb880, 0x2fb900, indexJojos51StoryMode, 0x32, &pairPrevious },
     { L"J. Geil (Intro Scene)", 0x2fbb00, 0x2fbb80, indexJojos51StoryMode, 0x33 },
     // ending scene
-    { L"Hol Horse Standing Over DIO", 0x2fb980, 0x2fba00 },
+    { L"Hol Horse Standing Over DIO", 0x2fb980, 0x2fba00, indexJojos51StoryMode, 0x3c, &pairNextAndNext },
     { L"Defeated Shadow DIO", 0x2fba00, 0x2fba80, indexJojos51StoryMode, 0x0e },
-    { L"Defeated Shadow DIO BG", 0x2fba80, 0x2fbb00 },
+    { L"Defeated Shadow DIO BG", 0x2fba80, 0x2fbb00, indexJojos51StoryMode, 0x3d },
     { L"Hol Horse Ending Portrait", 0x2fbb80, 0x2fbc00, indexJojos51StoryMode, 0x0f },
 };
 
