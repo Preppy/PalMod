@@ -36,7 +36,7 @@ const std::vector<uint16_t> MVC_A_IMGIDS_USED =
     indexCPS2Sprites_Cyclops,      // 0x06
     indexCPS2Sprites_Psylocke,     // 0x08
     indexCPS2Sprites_Iceman,       // 0x09
-    indexCPS2Sprites_Rogue,        // 0x0A
+    indexCPS2Sprites_Rogue,        // 0x0A  // using XVSF sprites
     indexCPS2Sprites_Charlie,      // 0x21, // Charlie/Nash/Shadow
     indexCPS2Sprites_Bison,        // 0x26  // used for Chun-Li's ending
     indexCPS2Sprites_Juggy,        // 0x29, // Juggernaut
@@ -1504,8 +1504,8 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { L"Pure & Fur K Fur", 0x50ea2, 0x50ec2, indexCPS2Sprites_MVCAssets, 0x0C },
     { L"Pure & Fur K Dice", 0x50ec2, 0x50ee2, indexCPS2Sprites_MVCAssets, 0x0D },
 
-    { L"Rogue P", 0x50ca2, 0x50cc2, indexCPS2Sprites_Rogue },
-    { L"Rogue K", 0x50d02, 0x50d22, indexCPS2Sprites_Rogue },
+    { L"Rogue P", 0x50ca2, 0x50cc2, indexCPS2Sprites_Rogue, 0x0c },
+    { L"Rogue K", 0x50d02, 0x50d22, indexCPS2Sprites_Rogue, 0x0c },
 
     { L"Saki P", 0x50962, 0x509a2, indexCPS2Sprites_MVCAssets, 0x10 },
     { L"Saki K", 0x509c2, 0x50a02, indexCPS2Sprites_MVCAssets, 0x10 },
