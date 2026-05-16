@@ -303,6 +303,11 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 // Height is always 186, so we can't use "true" image height to adjust positions: ignore Y for now.  But adjust X to avoid overlap.
                 std::vector<sImageDisplayOffsets> rgImageOffsets;
+                const int c_nCharacterHeight = 186;
+                int nMaxWidth = 0, nUsedHeight = 0;
+                const int c_nMaxLineWidth = 900;
+                const int c_nMinLineWidthDefault = 2000;
+                int nMinWidth = c_nMinLineWidthDefault;
 
                 uint16_t nCurrentPosition = 0;
                 sImageDisplayOffsets sTotalOffset;
@@ -320,25 +325,34 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // Get the image dimensions so that we can collate them into one contiguous strip
                     sImgDef* pImgDef = GetHost()->GetImgFile()->GetImageDef(character, k_nSpecialTeamSpriteImageIndex);
                     sTotalOffset.x += pImgDef->uImgWidth;
+                    nMaxWidth = max(sTotalOffset.x, nMaxWidth);
 
                     // You can only currently hit this in Everybody view.
-                    if (sTotalOffset.x > 900)
+                    // Picking 900px as an arbitrary truncation point: that's about 10 characters
+                    if (sTotalOffset.x > c_nMaxLineWidth)
                     {
+                        nMinWidth = min(nMinWidth, sTotalOffset.x);
                         sTotalOffset.x = 0;
                         // We want to walk top down, but this going to lay us out into negative space of course.
                         // We will thus adjust the offsets later for the total calculated offset, centering us on ~0 again.
-                        sTotalOffset.y -= 150;
+                        sTotalOffset.y -= c_nCharacterHeight;
+                        nUsedHeight += c_nCharacterHeight;
                     }
                 }
 
-                if (sTotalOffset.y != 0)
+                int nHeightFromCenter = 0;
+                int nWidthFromCenter = abs(nMaxWidth);
+                if (nMinWidth != c_nMinLineWidthDefault)
                 {
-                    // Center the presentation
-                    int nTotalDistance = abs(sTotalOffset.y);
-                    for (auto& curOffset : rgImageOffsets)
-                    {
-                        curOffset.y += nTotalDistance;
-                    } 
+                    // random padding number based upon current design
+                    nWidthFromCenter += nMaxWidth - nMinWidth + 350;
+                    nHeightFromCenter = abs(nUsedHeight) - c_nCharacterHeight;
+                }
+
+                for (auto& curOffset : rgImageOffsets)
+                {
+                    curOffset.y += (nHeightFromCenter / 2);
+                    curOffset.x -= (nWidthFromCenter / 2);
                 }
 
                 // Load the ticket in full reverse order
