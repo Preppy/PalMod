@@ -194,7 +194,7 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
 
     if (!OutNode)
     {
-        MessageBox(g_appHWnd, L"We just hit an error that will probably crash the app.  Please report this (what game, what palette you were trying to modify) so we can fix it.", GetHost()->GetAppName(), MB_ICONSTOP);
+        OutputDebugString(L"Either we're doing cross-node usage OR we just hit an error that will probably crash the app.  Be careful.\r\n");
     }
 
     return OutNode;
