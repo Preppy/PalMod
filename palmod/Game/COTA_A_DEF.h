@@ -588,7 +588,7 @@ const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P1[] = // boss
 {
-    { L"P1",          0x2703c, 0x2705c, indexCPS2Sprites_Magneto },
+    { L"P1",          0x2703c, 0x2705c, indexCPS2Sprites_Magneto, 0x20 },
     { L"P1 Extras 1", 0x2705c, 0x2707c, indexCPS2Sprites_Magneto, 3 }, // shockwave
     { L"P1 Extras 2", 0x2707c, 0x2709c, indexCPS2Sprites_Magneto, 2 }, // magnetic fx
     { L"P1 Extras 3", 0x2709c, 0x270bc, indexCPS2Sprites_Magneto, 1 }, // em disruptor, etc
@@ -596,7 +596,7 @@ const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P1[] = // boss
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P2[] =
 {
-    { L"P2",          0x270bc, 0x270dc, indexCPS2Sprites_Magneto },
+    { L"P2",          0x270bc, 0x270dc, indexCPS2Sprites_Magneto, 0x20 },
     { L"P2 Extras 1", 0x270dc, 0x270fc, indexCPS2Sprites_Magneto, 3 },
     { L"P2 Extras 2", 0x270fc, 0x2711c, indexCPS2Sprites_Magneto, 2 },
     { L"P2 Extras 3", 0x2711c, 0x2713c, indexCPS2Sprites_Magneto, 1 },
@@ -630,17 +630,17 @@ const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P1[] =
 {
-    { L"Psylocke P1", 0x2673c, 0x2675c, indexCPS2Sprites_Psylocke, 0x00, nullptr, &secondaryCOTAPsylockeEffects },
+    { L"Psylocke P1", 0x2673c, 0x2675c, indexCPS2Sprites_Psylocke, 0x20, nullptr, &secondaryCOTAPsylockeEffects },
     { L"P1 Extras 1", 0x2675c, 0x2677c, indexCPS2Sprites_Psylocke, 1 },
-    { L"P1 Extras 2", 0x2677c, 0x2679c, indexCPS2Sprites_Psylocke, 0 },
+    { L"P1 Extras 2", 0x2677c, 0x2679c, indexCPS2Sprites_Psylocke, 0x20 },
     { L"P1 Extras 3", 0x2679c, 0x267Bc, indexCPS2Sprites_Psylocke, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P2[] =
 {
-    { L"Psylocke P2", 0x267Bc, 0x267Dc, indexCPS2Sprites_Psylocke, 0x00, nullptr, &secondaryCOTAPsylockeEffects },
+    { L"Psylocke P2", 0x267Bc, 0x267Dc, indexCPS2Sprites_Psylocke, 0x20, nullptr, &secondaryCOTAPsylockeEffects },
     { L"P2 Extras 1", 0x267Dc, 0x267Fc, indexCPS2Sprites_Psylocke, 1 },
-    { L"P2 Extras 2", 0x267Fc, 0x2681c, indexCPS2Sprites_Psylocke, 0 },
+    { L"P2 Extras 2", 0x267Fc, 0x2681c, indexCPS2Sprites_Psylocke, 0x20 },
     { L"P2 Extras 3", 0x2681c, 0x2683c, indexCPS2Sprites_Psylocke, 3 },
 };
 
@@ -822,16 +822,16 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 {
-    { L"Wolverine P1",          0x2713c, 0x2715c, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryCOTAWolverineEffects },
-    { L"P1 Claws",              0x2715c, 0x2717c, indexCPS2Sprites_Wolverine, 1 },
+    { L"Wolverine P1",          0x2713c, 0x2715c, indexCPS2Sprites_Wolverine, 0x20, &pairNext, &secondaryCOTAWolverineEffects },
+    { L"P1 Claws",              0x2715c, 0x2717c, indexCPS2Sprites_Wolverine, 0x21 },
     { L"P1 Berserker Barrage",  0x2717c, 0x2719c, indexCPS2Sprites_Wolverine, 2 },
     { L"P1 ?",                  0x2719c, 0x271bc },
 };
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 {
-    { L"Wolverine P2",          0x271bc, 0x271dc, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryCOTAWolverineEffects },
-    { L"P2 Claws",              0x271dc, 0x271fc, indexCPS2Sprites_Wolverine, 1 },
+    { L"Wolverine P2",          0x271bc, 0x271dc, indexCPS2Sprites_Wolverine, 0x20, &pairNext, &secondaryCOTAWolverineEffects },
+    { L"P2 Claws",              0x271dc, 0x271fc, indexCPS2Sprites_Wolverine, 0x21 },
     { L"P2 Berserker Barrage",  0x271fc, 0x2721c, indexCPS2Sprites_Wolverine, 2 },
     { L"P2 ?",                  0x2721c, 0x2723c },
 };
@@ -982,12 +982,12 @@ const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_STATUS[] =
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_STATUS[] =
 {
     //Magneto
-    { L"Frozen 1", 0x3de96, 0x3deb6, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Frozen 2", 0x3deb6, 0x3ded6, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Burned 1", 0x3ded6, 0x3def6, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Burned 2", 0x3def6, 0x3df16, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Zapped 1", 0x3df16, 0x3df36, indexCPS2Sprites_Magneto, 0x00 },
-    { L"Zapped 2", 0x3df36, 0x3df56, indexCPS2Sprites_Magneto, 0x00 },
+    { L"Frozen 1", 0x3de96, 0x3deb6, indexCPS2Sprites_Magneto, 0x20 },
+    { L"Frozen 2", 0x3deb6, 0x3ded6, indexCPS2Sprites_Magneto, 0x20 },
+    { L"Burned 1", 0x3ded6, 0x3def6, indexCPS2Sprites_Magneto, 0x20 },
+    { L"Burned 2", 0x3def6, 0x3df16, indexCPS2Sprites_Magneto, 0x20 },
+    { L"Zapped 1", 0x3df16, 0x3df36, indexCPS2Sprites_Magneto, 0x20 },
+    { L"Zapped 2", 0x3df36, 0x3df56, indexCPS2Sprites_Magneto, 0x20 },
 };
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_STATUS[] =
@@ -1004,12 +1004,12 @@ const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_STATUS[] =
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_STATUS[] =
 {
     //Psylocke
-    { L"Frozen 1", 0x3d716, 0x3d736, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Frozen 2", 0x3d736, 0x3d756, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Burned 1", 0x3d756, 0x3d776, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Burned 2", 0x3d776, 0x3d796, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Zapped 1", 0x3d796, 0x3d7b6, indexCPS2Sprites_Psylocke, 0x00 },
-    { L"Zapped 2", 0x3d7b6, 0x3d7d6, indexCPS2Sprites_Psylocke, 0x00 },
+    { L"Frozen 1", 0x3d716, 0x3d736, indexCPS2Sprites_Psylocke, 0x20 },
+    { L"Frozen 2", 0x3d736, 0x3d756, indexCPS2Sprites_Psylocke, 0x20 },
+    { L"Burned 1", 0x3d756, 0x3d776, indexCPS2Sprites_Psylocke, 0x20 },
+    { L"Burned 2", 0x3d776, 0x3d796, indexCPS2Sprites_Psylocke, 0x20 },
+    { L"Zapped 1", 0x3d796, 0x3d7b6, indexCPS2Sprites_Psylocke, 0x20 },
+    { L"Zapped 2", 0x3d7b6, 0x3d7d6, indexCPS2Sprites_Psylocke, 0x20 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_STATUS[] =
