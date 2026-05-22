@@ -80,7 +80,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCE.txt",             // Extra filename
-        1575,                    // Count of palettes listed in the header
+        1576,                    // Count of palettes listed in the header
         0x30378,                 // Lowest known location used for palettes
     };
 
@@ -126,7 +126,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCdE.txt",           // Extra filename
-        1575,                   // Count of palettes listed in the header
+        1576,                   // Count of palettes listed in the header
         0x30378,                // Lowest known location used for palettes
     };
 
@@ -178,7 +178,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCSE.txt",           // Extra filename
-        1575,                   // Count of palettes listed in the header
+        1576,                   // Count of palettes listed in the header
         0x30378,                // Lowest known location used for palettes
     };
 

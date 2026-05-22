@@ -1327,22 +1327,24 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_K[] =
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 {
-    { L"Eternal Slumber Heart 1", 0x4f122, 0x4f142 },
-    { L"Eternal Slumber Heart 2", 0x4f142, 0x4f162 },
+    { L"Eternal Slumber XXX 1: Morrigan", 0x4f162, 0x4f182, indexCPS2Sprites_Morrigan, 0x14 },
+    { L"Eternal Slumber XXX 2: Unused?", 0x4f182, 0x4f1A2 },
 
-    { L"Eternal Slumber XXX 1", 0x4f162, 0x4f182 },
-    { L"Eternal Slumber XXX 2", 0x4f182, 0x4f1A2 },
-    { L"Eternal Slumber XXX 3", 0x4f1A2, 0x4f1C2 },
-    { L"Eternal Slumber XXX 4", 0x4f1C2, 0x4f1E2 },
-    { L"Eternal Slumber XXX 5", 0x4f1E2, 0x4f202 },
-    { L"Eternal Slumber XXX 6", 0x4f202, 0x4f222 },
-    { L"Eternal Slumber XXX 7", 0x4f222, 0x4f242 },
-    { L"Eternal Slumber XXX 8", 0x4f242, 0x4f262 },
+    { L"Eternal Slumber XXX 3: Curtains/Hearts 1", 0x4f1A2, 0x4f1C2, indexCPS2Sprites_Morrigan, 0x15 },
+    { L"Eternal Slumber XXX 4: Curtains/Hearts 2", 0x4f1C2, 0x4f1E2, indexCPS2Sprites_Morrigan, 0x15 },
+    { L"Eternal Slumber XXX 5: Curtains/Hearts 3", 0x4f1E2, 0x4f202, indexCPS2Sprites_Morrigan, 0x15 },
 
-    { L"Eternal Slumber Background", 0x424A6, 0x424E6 },
+    { L"Eternal Slumber XXX 6: Guest", 0x4f202, 0x4f222, indexCPS2Sprites_Morrigan, 0x16 },
+    { L"Eternal Slumber XXX 7: Unused?", 0x4f222, 0x4f242 },
+    { L"Eternal Slumber XXX 8: Unused?", 0x4f242, 0x4f262 },
+
+    { L"Eternal Slumber Background", 0x424A4, 0x42504, indexCPS2Sprites_Morrigan, 0x17 },
 
     // There isn't a direct K pair for this: ... ?
     { L"Morrigan (Unused)", 0x4ee82, 0x4eeA2, indexCPS2Sprites_Morrigan, 13 },
+
+    { L"Unused 1?", 0x4f122, 0x4f142 },
+    { L"Unused 2?", 0x4f142, 0x4f162 },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P[] =
@@ -2117,10 +2119,11 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"QSound Patent Text",    0x3E578, 0x3E598, indexCPS2Sprites_MVCAssets, 0x55 },
     { L"Hitsparks", 0x590E2, 0x59122 },
 
-    { L"Blue Super BG",                         0x423E4, 0x42424 },
-    { L"Yellow Crossover BG",                   0x42444, 0x42484 },
-    { L"Red Duo BG (Flickering off)",           0x46A04, 0x46A44 },
-    { L"Level 3 Super BG",                      0x42564, 0x425C4 },
+    { L"Blue Super BG",                         0x423E4, 0x42444, indexCPS2Sprites_Morrigan, 0x17 },
+    { L"Yellow Crossover BG",                   0x42444, 0x424a4, indexCPS2Sprites_Morrigan, 0x17 },
+    { L"Green BG (unused?)",                    0x42504, 0x42564, indexCPS2Sprites_Morrigan, 0x17 },
+    { L"Red Duo BG (Flickering off)",           0x46A04, 0x46A64, indexCPS2Sprites_Morrigan, 0x17 },
+    { L"Level 3 Super BG",                      0x42564, 0x425C4, indexCPS2Sprites_Morrigan, 0x17 },
     { L"Character Select Background - Space",   0x3EBF8, 0x3ECB8 },
     { L"Character Select Background - Earth",   0x3E7D8, 0x3E918 },
 
