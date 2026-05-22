@@ -1377,14 +1377,24 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
             {
                 if (sCreationOptions.fShowUnknownRegions)
                 {
-                    strExtraFileText.Format(L"Post: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-                    strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-                    strExtraFileText.Format(L";Pre: %s, %s, %s\r\n", pCurrent->pNext->strUnitName.c_str(), pCurrent->pNext->strCollectionName.c_str(), pCurrent->pNext->strPaletteName.c_str());
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-                    strExtraFileText.Format(L"0x%x\r\n\r\n", pCurrent->pNext->nPaletteOffset);
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    // ignore 1-2 color bits
+                    if (pCurrent->pNext->nPaletteOffset > (pCurrent->nTerminalOffset + 4))
+                    {
+                        strExtraFileText.Format(L"Post: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                        strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                        strExtraFileText.Format(L";Pre: %s, %s, %s\r\n", pCurrent->pNext->strUnitName.c_str(), pCurrent->pNext->strCollectionName.c_str(), pCurrent->pNext->strPaletteName.c_str());
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                        strExtraFileText.Format(L"0x%x\r\n\r\n", pCurrent->pNext->nPaletteOffset);
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    }
+                    else
+                    {
+                        CString strMsg;
+                        strMsg.Format(L"\tExtra file creation: Skipping tiny chunk from 0x%x to 0x%x.\r\n", pCurrent->nTerminalOffset, pCurrent->pNext->nPaletteOffset);
+                        OutputDebugString(strMsg.GetString());
+                    }
                 }
             }
             else if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPostUnknown && m_pszLoadedPathOrFile)
