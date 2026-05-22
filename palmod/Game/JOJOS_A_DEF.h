@@ -457,13 +457,15 @@ const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
 
     { L"Combo Meter", 0x7C01C0, 0x7C01E0, indexJojos51Bonus, 0x44 },
     { L"Combo Messages", 0x7C0220, 0x7C0240, indexJojos51Bonus, 0x72 },
-    { L"Text Above The Lifebars / Insert Coin",  0x7C0280, 0x7C02A0, indexJojos51Bonus, 0x74 }, // Could use 0x2a sprite here
+    { L"Text Above The Lifebars / Mariah Level (Player 2)", 0x7C0280, 0x7C02A0, indexJojos51Bonus, 0x74 }, // Could use 0x2a sprite here
     { L"Stand Crash / First Hit / Etc. Messages", 0x7C0340, 0x7C0360, indexJojos51Bonus, 0x73 },
     { L"Stand Meter / Near Stand Break", 0x7C0B20, 0x7C0B60, indexJojos51Bonus, 0x43 },
     { L"Super Meter Bar", 0x7C03A0, 0x7C0400, indexJojos51Bonus, 0x42 },
-    { L"Mariah Level (Player 1 only)", 0x7C01A0, 0x7C01C0 },
+    { L"Mariah Level (Player 1 only)", 0x7C01A0, 0x7C01C0, indexJojos51Bonus, 0x75 },
     { L"Dev-menu Font Color", 0x7C0000, 0x7C0020, indexJojos51Bonus, 0x71 },
     { L"Player 1 and 2 counter icons", 0x7C02E0, 0x7C0320, indexJojos51Bonus, 0x26 },
+    { L"Stage Bonus and Capcom URL", 0x7c0040, 0x7c0060, indexJojos51Bonus, 0x76, &pairNext },
+    { L"Score Identifiiers", 0x7c0ec0, 0x7c0ee0, indexJojos51Bonus, 0x77, &pairPrevious },
 };
 
 const sDescTreeNode JOJOS_A_50_HUD_COLLECTION[]
