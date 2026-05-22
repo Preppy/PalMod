@@ -2,6 +2,8 @@
 #include "GameClassByDir.h"
 #include "MVC_A_DEF.h"
 
+const int MVC1_A_PALETTE_COUNT = 1593;
+
 class CGame_MVC_A : public CGameClassByDir
 {
 private:
@@ -80,7 +82,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCE.txt",             // Extra filename
-        1576,                    // Count of palettes listed in the header
+        MVC1_A_PALETTE_COUNT,    // Count of palettes listed in the header
         0x30378,                 // Lowest known location used for palettes
     };
 
@@ -126,7 +128,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCdE.txt",           // Extra filename
-        1576,                   // Count of palettes listed in the header
+        MVC1_A_PALETTE_COUNT,   // Count of palettes listed in the header
         0x30378,                // Lowest known location used for palettes
     };
 
@@ -178,7 +180,7 @@ private:
         MVC_A_UNITS,
         ARRAYSIZE(MVC_A_UNITS),
         L"MvCSE.txt",           // Extra filename
-        1576,                   // Count of palettes listed in the header
+        MVC1_A_PALETTE_COUNT,   // Count of palettes listed in the header
         0x30378,                // Lowest known location used for palettes
     };
 

@@ -487,8 +487,8 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P[] =
     { L"P Glimmer 7", 0x50022, 0x50042, indexCPS2Sprites_ChunLi },
     { L"P Glimmer 8", 0x50122, 0x50142, indexCPS2Sprites_ChunLi }, // this range jumping to xx122 is odd.
 
-    { L"P Laser?", 0x50142, 0x50162 },
-    { L"P Missiles", 0x50162, 0x50182 },
+    { L"Unused? P Laser?", 0x50142, 0x50162 },
+    { L"Unused? P Missiles", 0x50162, 0x50182 },
 };
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_K[] =
@@ -506,8 +506,17 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_K[] =
     { L"K Glimmer 7", 0x50102, 0x50122, indexCPS2Sprites_ChunLi },
     { L"K Glimmer 8", 0x50182, 0x501A2, indexCPS2Sprites_ChunLi }, // this range is odd?
 
-    { L"K Laser?", 0x501A2, 0x501C2 },
-    { L"K Missiles", 0x501C2, 0x501E2 },
+    { L"Unused? K Laser?", 0x501A2, 0x501C2 },
+    { L"Unused? K Missiles", 0x501C2, 0x501E2 },
+};
+
+const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_SHARED[] =
+{
+    // Drill palette uses the Megaman Punch "hair" palette at 0x4c042.
+    { L"Missiles", 0x590a2, 0x590c2, indexCPS2Sprites_ChunLi, 0x50, &pairNext },
+    { L"Missile Exhaust", 0x590c2, 0x590e2, indexCPS2Sprites_ChunLi, 0x51 },
+    { L"Big Bang Laser Cycle 1/2", 0x4ff22, 0x4ff42, indexCPS2Sprites_ChunLi, 0x52 },
+    { L"Big Bang Laser Cycle 2/2", 0x4ff42, 0x4ff62, indexCPS2Sprites_ChunLi, 0x52 },
 };
 
 const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P[] =
@@ -1343,6 +1352,7 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
     // There isn't a direct K pair for this: ... ?
     { L"Morrigan (Unused)", 0x4ee82, 0x4eeA2, indexCPS2Sprites_Morrigan, 13 },
 
+    // these are also another set of these palettes at 0x4fde2
     { L"Unused 1?", 0x4f122, 0x4f142 },
     { L"Unused 2?", 0x4f142, 0x4f162 },
 };
@@ -1565,15 +1575,24 @@ const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_STATUSEFFECTS[] =
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_STATUSEFFECTS[] =
 {
-    { L"Burning 1", 0x49d22, 0x49d42, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Burning 2", 0x49d42, 0x49d62, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Shocked 1", 0x49d62, 0x49d82, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Shocked 2", 0x49d82, 0x49da2, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Dark Burning 1", 0x49da2, 0x49dc2, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Dark Burning 2", 0x49dc2, 0x49de2, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Kinetic Charged 1", 0x49de2, 0x49e02, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Kinetic Charged 2", 0x49e02, 0x49e22, indexCPS2Sprites_CapAm, 0x80 },
-    { L"Kinetic Charged 3", 0x49e22, 0x49e42, indexCPS2Sprites_CapAm, 0x80 },
+    { L"Burning 1 (Main)", 0x49d22, 0x49d42, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Burning 1 (Shield)", 0x49e42, 0x49e62, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Burning 2 (Main)", 0x49d42, 0x49d62, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Burning 2 (Shield)", 0x49e62, 0x49e82, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Shocked 1 (Main)", 0x49d62, 0x49d82, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Shocked 1 (Shield)", 0x49e82, 0x49ea2, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Shocked 2 (Main)", 0x49d82, 0x49da2, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Shocked 2 (Shield)", 0x49ea2, 0x49ec2, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Dark Burning 1 (Main)", 0x49da2, 0x49dc2, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Dark Burning 1 (Shield)", 0x49ec2, 0x49ee2, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Dark Burning 2 (Main)", 0x49dc2, 0x49de2, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Dark Burning 2 (Shield)", 0x49ee2, 0x49f02, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Kinetic Charged 1 (Main)", 0x49de2, 0x49e02, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Kinetic Charged 1 (Shield)", 0x49f02, 0x49f22, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Kinetic Charged 2 (Main)", 0x49e02, 0x49e22, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Kinetic Charged 2 (Shield)", 0x49f22, 0x49f42, indexCPS2Sprites_CapAm, 0x01 },
+    { L"Kinetic Charged 3 (Main)", 0x49e22, 0x49e42, indexCPS2Sprites_CapAm, 0x00, &pairNext },
+    { L"Kinetic Charged 3 (Shield)", 0x49f42, 0x49f62, indexCPS2Sprites_CapAm, 0x01 },
     { L"Shadows Light", 0x494e2, 0x49502, indexCPS2Sprites_CapAm, 0x00, &pairNext },
     { L"Shield Shadows Light", 0x49522, 0x49542, indexCPS2Sprites_CapAm, 0x01 },
     { L"Shadows Dark", 0x49502, 0x49522, indexCPS2Sprites_CapAm, 0x00, &pairNext },
@@ -2114,9 +2133,7 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Life Bars & Meter Count", 0x479E2, 0x47A02, indexCPS2Sprites_MVCAssets, 0x50 },
     { L"In-Game Text (Hit Counter, Stage Number, etc)", 0x47442, 0x47462, indexCPS2Sprites_MVCAssets, 0x51 },
     { L"In-Game Text (Score, Play Status, Level, Character Names)", 0x47422, 0x47442, indexCPS2Sprites_MVCAssets, 0x52 },
-    { L"Test Menu Text",        0x3E4F8, 0x3E538, indexCPS2Sprites_MVCAssets, 0x53 },
-    { L"Marvel License Text",   0x3E558, 0x3E578, indexCPS2Sprites_MVCAssets, 0x54 },
-    { L"QSound Patent Text",    0x3E578, 0x3E598, indexCPS2Sprites_MVCAssets, 0x55 },
+
     { L"Hitsparks", 0x590E2, 0x59122 },
 
     { L"Blue Super BG",                         0x423E4, 0x42444, indexCPS2Sprites_Morrigan, 0x17 },
@@ -2124,38 +2141,8 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Green BG (unused?)",                    0x42504, 0x42564, indexCPS2Sprites_Morrigan, 0x17 },
     { L"Red Duo BG (Flickering off)",           0x46A04, 0x46A64, indexCPS2Sprites_Morrigan, 0x17 },
     { L"Level 3 Super BG",                      0x42564, 0x425C4, indexCPS2Sprites_Morrigan, 0x17 },
-    { L"Character Select Background - Space",   0x3EBF8, 0x3ECB8 },
-    { L"Character Select Background - Earth",   0x3E7D8, 0x3E918 },
 
     { L"Portrait Window (VS screen)", 0x55D62, 0x55D82 },
-    { L"Red 'VS' text 1/16", 0x53c22, 0x53c42 },
-    { L"Red 'VS' text 2/16", 0x53c42, 0x53c62 },
-    { L"Red 'VS' text 3/16", 0x53c62, 0x53c82 },
-    { L"Red 'VS' text 4/16", 0x53c82, 0x53ca2 },
-    { L"Red 'VS' text 5/16", 0x53ca2, 0x53cc2 },
-    { L"Red 'VS' text 6/16", 0x53cc2, 0x53ce2 },
-    { L"Red 'VS' text 7/16", 0x53ce2, 0x53d02 },
-    { L"Red 'VS' text 8/16", 0x53d02, 0x53d22 },
-    { L"Red 'VS' text 9/16", 0x53d22, 0x53d42 },
-    { L"Red 'VS' text 10/16", 0x53d42, 0x53d62 },
-    { L"Red 'VS' text 11/16", 0x53d62, 0x53d82 },
-    { L"Red 'VS' text 12/16", 0x53d82, 0x53da2 },
-    { L"Red 'VS' text 13/16", 0x53da2, 0x53dc2 },
-    { L"Red 'VS' text 14/16", 0x53dc2, 0x53de2 },
-    { L"Red 'VS' text 15/16", 0x53de2, 0x53e02 },
-    { L"Red 'VS' text 16/16", 0x53e02, 0x53e22 },
-    { L"Title and Score BG", 0x410a4, 0x410c4 },
-    { L"Clash of Super Heroes Title White Background 1/4", 0x5b7a2, 0x5b7c2 },
-    { L"Clash of Super Heroes Title White Background 2/4", 0x5b7c2, 0x5b7e2 },
-    { L"Clash of Super Heroes Title White Background 3/4", 0x5b7e2, 0x5b802 },
-    { L"Clash of Super Heroes Title White Background 4/4", 0x5b802, 0x5b822 },
-    { L"Marvel VS Capcom Title Flash", 0x5ba02, 0x5bb82 },
-    { L"Marvel VS Capcom Title 1/2", 0x5b022, 0x5b222 },
-    { L"Marvel VS Capcom Title 2/2", 0x5b222, 0x5b262 },
-    { L"War Machine Intro", 0x5a822, 0x5a8a2 },
-    { L"Morrigan Intro", 0x5a8e2, 0x5a9a2 },
-    { L"Gambit Intro", 0x5a9a2, 0x5aa62 },
-    { L"Strider Hiryu Intro", 0x5aa62, 0x5ab22 },
 
     { L"M. Bison (Chun-Li ending)", 0x597A2, 0x597C2, indexCPS2Sprites_Bison, 0x00 },
 
@@ -2185,13 +2172,64 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Timer 24", 0x47D6A, 0x47D76 },
 };
 
-const sGame_PaletteDataset MVC_A_BONUS_TITLES_PALETTES[] =
+const sGame_PaletteDataset MVC_A_BONUS_INTRO_PALETTES[] =
 {
     { L"Intro Captain Commando",    0x40A84, 0x40B84, indexCPS2Sprites_MVCAssets, 0x7b },
     { L"Intro Spiderman",           0x409C4, 0x40A64, indexCPS2Sprites_MVCAssets, 0x7c },
     { L"Intro Cliff Pt1",           0x40004, 0x40204, indexCPS2Sprites_MVCAssets, 0x7d, &pairNextAndNext },
     { L"Intro Cliff Pt2",           0x40204, 0x40404, indexCPS2Sprites_MVCAssets, 0x7e },
     { L"Intro Cliff Pt3",           0x5AC22, 0x5AD62, indexCPS2Sprites_MVCAssets, 0x7f },
+
+    { L"War Machine Intro",     0x5a822, 0x5a8a2, indexCPS2Sprites_MVCAssets, 0xc9, &pairNext3Palettes },
+    { L"Morrigan Intro",        0x5a8e2, 0x5a9a2, indexCPS2Sprites_MVCAssets, 0xca },
+    { L"Gambit Intro",          0x5a9a2, 0x5aa62, indexCPS2Sprites_MVCAssets, 0xcb },
+    { L"Strider Hiryu Intro",   0x5aa62, 0x5ab22, indexCPS2Sprites_MVCAssets, 0xcc },
+
+    { L"Test Menu Text",        0x3E4F8, 0x3E538, indexCPS2Sprites_MVCAssets, 0x53 },
+    { L"Marvel License Text",   0x3E558, 0x3E578, indexCPS2Sprites_MVCAssets, 0x54 },
+    { L"QSound Patent Text",    0x3E578, 0x3E598, indexCPS2Sprites_MVCAssets, 0x55 },
+
+    { L"MARVEL COMICS logo",    0x48102, 0x48122, indexCPS2Sprites_MVCAssets, 0xcd },
+    { L"CAPCOM logo",           0x5a042, 0x5a062, indexCPS2Sprites_MVCAssets, 0xc3, &pairNext },
+    { L"Ryu and world",         0x409a2, 0x409c2, indexCPS2Sprites_MVCAssets, 0xc4 },
+};
+
+const sGame_PaletteDataset MVC_A_BONUS_TITLE_PALETTES[] =
+{
+    { L"Marvel VS Capcom Title 1/2", 0x5b022, 0x5b222, indexCPS2Sprites_MVCAssets, 0xce, &pairNext },
+    { L"Marvel VS Capcom Title 2/2", 0x5b222, 0x5b262, indexCPS2Sprites_MVCAssets, 0xcf },
+    { L"Marvel VS Capcom Title Flash", 0x5ba02, 0x5bb82 },
+    { L"CLASH OF SUPER HEROES text", 0x5b602, 0x5b622, indexCPS2Sprites_MVCAssets, 0xc7 },
+
+    { L"Clash of Super Heroes Title White Background 1/4", 0x5b7a2, 0x5b7c2, indexCPS2Sprites_MVCAssets, 0xc8 },
+    { L"Clash of Super Heroes Title White Background 2/4", 0x5b7c2, 0x5b7e2, indexCPS2Sprites_MVCAssets, 0xc8 },
+    { L"Clash of Super Heroes Title White Background 3/4", 0x5b7e2, 0x5b802, indexCPS2Sprites_MVCAssets, 0xc8 },
+    { L"Clash of Super Heroes Title White Background 4/4", 0x5b802, 0x5b822, indexCPS2Sprites_MVCAssets, 0xc8 },
+
+    { L"Title and Score BG", 0x410a4, 0x410c4, indexCPS2Sprites_MVCAssets, 0xd0 },
+
+    { L"Red 'VS' text 1/16", 0x53c22, 0x53c42 },
+    { L"Red 'VS' text 2/16", 0x53c42, 0x53c62 },
+    { L"Red 'VS' text 3/16", 0x53c62, 0x53c82 },
+    { L"Red 'VS' text 4/16", 0x53c82, 0x53ca2 },
+    { L"Red 'VS' text 5/16", 0x53ca2, 0x53cc2 },
+    { L"Red 'VS' text 6/16", 0x53cc2, 0x53ce2 },
+    { L"Red 'VS' text 7/16", 0x53ce2, 0x53d02 },
+    { L"Red 'VS' text 8/16", 0x53d02, 0x53d22 },
+    { L"Red 'VS' text 9/16", 0x53d22, 0x53d42 },
+    { L"Red 'VS' text 10/16", 0x53d42, 0x53d62 },
+    { L"Red 'VS' text 11/16", 0x53d62, 0x53d82 },
+    { L"Red 'VS' text 12/16", 0x53d82, 0x53da2 },
+    { L"Red 'VS' text 13/16", 0x53da2, 0x53dc2 },
+    { L"Red 'VS' text 14/16", 0x53dc2, 0x53de2 },
+    { L"Red 'VS' text 15/16", 0x53de2, 0x53e02 },
+    { L"Red 'VS' text 16/16", 0x53e02, 0x53e22 },
+};
+
+const sGame_PaletteDataset MVC_A_BONUS_SELECT_PALETTES[] =
+{
+    { L"Character Select Background - Earth",   0x3E7D8, 0x3E918, indexCPS2Sprites_MVCAssets, 0xc5 },
+    { L"Character Select Background - Space",   0x3EBF8, 0x3ECB8, indexCPS2Sprites_MVCAssets, 0xc6 },
 };
 
 const sGame_PaletteDataset MVC_A_BONUS_NAME_PALETTES[] =
@@ -2572,6 +2610,7 @@ const sDescTreeNode MVC_A_SHADOWLADY_COLLECTION[] =
 {
     { L"Punch", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_P, ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_P) },
     { L"Kick", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_K,  ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_K) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_SHARED,  ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_SHARED) },
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_STATUSEFFECTS,    ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_STATUSEFFECTS) },
 };
 
@@ -2743,8 +2782,10 @@ const sDescTreeNode MVC_A_STAGES_COLLECTION[] =
 
 const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
 {
-    { L"Bonus",                          DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
-    { L"Title/Select Screen",            DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_TITLES_PALETTES,     ARRAYSIZE(MVC_A_BONUS_TITLES_PALETTES) },
+    { L"Intro Screens",             DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_INTRO_PALETTES,     ARRAYSIZE(MVC_A_BONUS_INTRO_PALETTES) },
+    { L"Title Screen",              DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_TITLE_PALETTES,     ARRAYSIZE(MVC_A_BONUS_TITLE_PALETTES) },
+    { L"Select Screen",             DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_SELECT_PALETTES,     ARRAYSIZE(MVC_A_BONUS_SELECT_PALETTES) },
+    { L"Bonus",                     DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_UNITS[] =
