@@ -2,7 +2,7 @@
 #include "GameClassByDir.h"
 #include "MVC_A_DEF.h"
 
-const int MVC1_A_PALETTE_COUNT = 1593;
+const int MVC1_A_PALETTE_COUNT = 1596;
 
 class CGame_MVC_A : public CGameClassByDir
 {

@@ -610,7 +610,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P[] =
     { L"P Rush/Eddie", 0x48fa2, 0x48fc2, indexCPS2Sprites_Megaman, 0x01, &pairNext },
     { L"P Beat", 0x48fc2, 0x48fe2, indexCPS2Sprites_Megaman, 0x2, &pairPrevious },
 
-    { L"P Hair", 0x4c042, 0x4c062, indexCPS2Sprites_Megaman, 0x26 }, // 09
+    { L"P Hair (also Shadow Lady Drill)", 0x4c042, 0x4c062, indexCPS2Sprites_Megaman, 0x2a }, // 09
     { L"P Teleport / Death Animation", 0x4c062, 0x4c082, indexCPS2Sprites_Megaman, 0x0B }, // 0A
 
     { L"P Intro 1", 0x4c082, 0x4c0a2, indexCPS2Sprites_Megaman }, // 0B
@@ -2196,9 +2196,14 @@ const sGame_PaletteDataset MVC_A_BONUS_INTRO_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_BONUS_TITLE_PALETTES[] =
 {
-    { L"Marvel VS Capcom Title 1/2", 0x5b022, 0x5b222, indexCPS2Sprites_MVCAssets, 0xce, &pairNext },
-    { L"Marvel VS Capcom Title 2/2", 0x5b222, 0x5b262, indexCPS2Sprites_MVCAssets, 0xcf },
-    { L"Marvel VS Capcom Title Flash", 0x5ba02, 0x5bb82 },
+    { L"MARVEL Title", 0x5b022, 0x5b0e2, indexCPS2Sprites_MVCAssets, 0xd1, &pairNext3Palettes },
+    { L"(R) mark", 0x5b0e2, 0x5b102, indexCPS2Sprites_MVCAssets, 0xd2 },
+    { L"CAPCOM Title", 0x5b102, 0x5b1a2, indexCPS2Sprites_MVCAssets, 0xd3 },
+    { L"Misc Title Pieces", 0x5b1e2, 0x5b262, indexCPS2Sprites_MVCAssets, 0xd4 },
+
+    { L"MARVEL Title Flash", 0x5ba02, 0x5bac2, indexCPS2Sprites_MVCAssets, 0xce, &pairNext },
+    { L"CAPCOM Title Flash", 0x5bac2, 0x5bb82, indexCPS2Sprites_MVCAssets, 0xcf },
+
     { L"CLASH OF SUPER HEROES text", 0x5b602, 0x5b622, indexCPS2Sprites_MVCAssets, 0xc7 },
 
     { L"Clash of Super Heroes Title White Background 1/4", 0x5b7a2, 0x5b7c2, indexCPS2Sprites_MVCAssets, 0xc8 },
@@ -2268,11 +2273,11 @@ const sGame_PaletteDataset MVC_A_BLUEMOON_STAGE_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_COUNCIL_STAGE_PALETTES[] =
 {
-    { L"Scary Big Guy 1",           0x318F8, 0x31AF8, indexCPS2Sprites_MVCAssets, 0x5c, &pairFullyLinkedNode },
-    { L"Scary Big Guy 2",           0x31AF8, 0x31CF8, indexCPS2Sprites_MVCAssets, 0x5d },
+    { L"Temple and Celestial Emperor Bios", 0x318F8, 0x31AF8, indexCPS2Sprites_MVCAssets, 0x5c, &pairFullyLinkedNode },
+    { L"Temple Aspects",            0x31AF8, 0x31CF8, indexCPS2Sprites_MVCAssets, 0x5d },
     { L"Center Light",              0x31CF8, 0x31D58, indexCPS2Sprites_MVCAssets, 0x5e },
-    { L"Big World People 1",        0x3A4F8, 0x3A6F8, indexCPS2Sprites_MVCAssets, 0x5f },
-    { L"Big World People 2",        0x3A6F8, 0x3A8F8, indexCPS2Sprites_MVCAssets, 0x60 },
+    { L"Planets, Whodin, Laidin",   0x3A4F8, 0x3A6F8, indexCPS2Sprites_MVCAssets, 0x5f },
+    { L"Laidin legs, Pillars",      0x3A6F8, 0x3A8F8, indexCPS2Sprites_MVCAssets, 0x60 },
     { L"Images 1",                  0x35118, 0x35318, indexCPS2Sprites_MVCAssets, 0x61 },
     { L"Images 2",                  0x35318, 0x35518, indexCPS2Sprites_MVCAssets, 0x62 },
     { L"Images 3",                  0x35518, 0x35718, indexCPS2Sprites_MVCAssets, 0x63 },

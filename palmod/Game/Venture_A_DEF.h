@@ -36,6 +36,7 @@ const std::vector<uint16_t> VENTURE_A_IMGIDS_USED =
     indexJojos51Death13, // 0x18
 
     indexJojos50HUDPortraits,
+    indexJojos51Bonus,      // for fade background
 
     indexVentureSprites_Kakyo,  // 0x20
     indexVentureSprites_Iggy,   // 0x21
@@ -489,13 +490,34 @@ const sDescTreeNode VENTURE_A_COL_DEATH13[] =
 
 const sGame_PaletteDataset VENTURE_A_BONUS[] =
 {
-    { L"Challenger Background (1/7) 0x3f7580", 0x3f7580, 0x3f7780 }, 
-    { L"Challenger Background (2/7) 0x3f7780", 0x3f7780, 0x3f7980 }, 
-    { L"Challenger Background (3/7) 0x3f7980", 0x3f7980, 0x3f7b80 }, 
-    { L"Challenger Background (4/7) 0x3f7b80", 0x3f7b80, 0x3f7d80 }, 
-    { L"Challenger Background (5/7) 0x3f7d80", 0x3f7d80, 0x3f7f80 }, 
-    { L"Challenger Background (6/7) 0x3f7f80", 0x3f7f80, 0x3f8180 }, 
-    { L"Challenger Background (7/7) 0x3f8180", 0x3f8180, 0x3f8380 }, 
+    { L"Challenger Background (1/28)", 0x3f7580, 0x3f7600, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (2/28)", 0x3f7600, 0x3f7680, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (3/28)", 0x3f7680, 0x3f7700, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (4/28)", 0x3f7700, 0x3f7780, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (5/28)", 0x3f7780, 0x3f7800, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (6/28)", 0x3f7800, 0x3f7880, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (7/28)", 0x3f7880, 0x3f7900, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (8/28)", 0x3f7900, 0x3f7980, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (9/28)", 0x3f7980, 0x3f7a00, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (10/28)", 0x3f7a00, 0x3f7a80, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (11/28)", 0x3f7a80, 0x3f7b00, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (12/28)", 0x3f7b00, 0x3f7b80, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (13/28)", 0x3f7b80, 0x3f7c00, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (14/28)", 0x3f7c00, 0x3f7c80, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (15/28)", 0x3f7c80, 0x3f7d00, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (16/28)", 0x3f7d00, 0x3f7d80, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (17/28)", 0x3f7d80, 0x3f7e00, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (18/28)", 0x3f7e00, 0x3f7e80, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (19/28)", 0x3f7e80, 0x3f7f00, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (20/28)", 0x3f7f00, 0x3f7f80, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (21/28)", 0x3f7f80, 0x3f8000, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (22/28)", 0x3f8000, 0x3f8080, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (23/28)", 0x3f8080, 0x3f8100, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (24/28)", 0x3f8100, 0x3f8180, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (25/28)", 0x3f8180, 0x3f8200, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (26/28)", 0x3f8200, 0x3f8280, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (27/28)", 0x3f8280, 0x3f8300, indexJojos51Bonus, 0x67 },
+    { L"Challenger Background (28/28)", 0x3f8300, 0x3f8380, indexJojos51Bonus, 0x67 },
 
     { L"Cameo (Judgement)", 0x3c7780, 0x3c7800, indexVentureSprites_Bonus, 0x02 },
     { L"Hol Horse (Beta)", 0x3c7700, 0x3c7780, indexVentureSprites_Bonus, 0x01 },
