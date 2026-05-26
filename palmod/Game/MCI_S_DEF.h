@@ -20,6 +20,8 @@ const std::vector<uint16_t> MCI_S_IMGIDS_USED =
     indexMCI_Venom,             // 0xb8
     indexMCI_Wolverine,         // 0xb9
     indexMCI_Bonus,             // 0xba
+    indexMCI_Cyclops,                           // 0x116
+    indexMCI_Thing,                             // 0x117
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerPalettes_S =
@@ -32,12 +34,28 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerPalettes_S =
     { L"Special 2" },
     { L"Special 3" },
     { L"Special 4" },
-    { L"Unused/Single sprite preview", -0x2400, INVALID_UNIT_VALUE_16, 0x01 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
+    { L"Unused/Single sprite preview", -0x2400, INVALID_UNIT_VALUE_16, 0x01 },
+    // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerPalettesCollab_S =
+{
+    { L"Base 1" },
+    { L"Base 2" },
+    { L"Base 3" },
+    { L"Base 4" },
+    { L"Special 1", +0x400 },
+    { L"Special 2", +0x400 },
+    { L"Special 3", +0x400 },
+    { L"Special 4", +0x400 },
+    { L"Collab", -0x1000 },
+    { L"Unused/Single sprite preview", -0x2800, INVALID_UNIT_VALUE_16, 0x01 }
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_BossPlayerPalettes_S =
 {
-    { L"Base 1 / Boss (Cutscene animations only)", 0x0, INVALID_UNIT_VALUE_16, 0x02, }, // we want unique previews for the boss characters, since those other palettes wont ever use these sprites
+    // we want unique previews for the boss characters, since those other palettes wont ever use these sprites
+    { L"Base 1 / Boss (Cutscene animations only)", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
     { L"Base 2" },
     { L"Base 3" },
     { L"Base 4" },
@@ -45,7 +63,21 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_BossPlayerPalettes_S =
     { L"Special 2" },
     { L"Special 3" },
     { L"Special 4" },
-    { L"Unused/Single sprite preview", -0x2400, INVALID_UNIT_VALUE_16, 0x01 }, // palette 00 is used for drawing sprites, we expose this for a built in single sprite preview
+    { L"Unused/Single sprite preview", -0x2400, INVALID_UNIT_VALUE_16, 0x01 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> MCI_BossPlayerPalettesCollab_S =
+{
+    { L"Base 1 / Boss (Cutscene animations only)", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Base 2" },
+    { L"Base 3" },
+    { L"Base 4" },
+    { L"Special 1", +0x400 },
+    { L"Special 2", +0x400 },
+    { L"Special 3", +0x400 },
+    { L"Special 4", +0x400 },
+    { L"Collab", -0x1000 },
+    { L"Unused/Single sprite preview", -0x2800, INVALID_UNIT_VALUE_16, 0x01 },
 };
 
 const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerExtras_S =
@@ -54,10 +86,11 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerExtras_S =
     { L"Base 2", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
     { L"Base 3", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
     { L"Base 4", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
-    { L"Special 1", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
-    { L"Special 2", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
-    { L"Special 3", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
-    { L"Special 4", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 1", +0x400, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 2", +0x400, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 3", +0x400, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Special 4", +0x400, INVALID_UNIT_VALUE_16, 0x02, },
+    { L"Collab", -0x1000, INVALID_UNIT_VALUE_16, 0x02, },
     { L"Unused/Single sprite preview", 0x0, INVALID_UNIT_VALUE_16, 0x02, },
 };
 
@@ -72,7 +105,7 @@ const std::vector<LPCWSTR> MCI_SPaletteNamesShort =
     { L"S2" },
     { L"S3" },
     { L"S4" },
-    { L"Unused" },
+    { L"X1" },
 };
 
 const sGCBUPF_BasicNodeData MCI_S_NormalNode =
@@ -102,22 +135,24 @@ const sGCBUPF_BasicNodeData MCI_S_BossesNode =
 
 std::vector<sGCBUPF_BasicFileData> MCI_S_CharacterData =
 {
-    { L"Content\\Animations\\Players\\BetaRayBill\\BetaRayBillPalette.xnb",             L"Beta Ray Bill",       0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_BetaRayBill },
-    { L"Content\\Animations\\Players\\BlackPanther\\BlackPantherPalette.xnb",           L"Black Panther",       0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_BlackPanther },
-    { L"Content\\Animations\\Players\\CaptainAmerica\\CaptainAmericaPalette.xnb",       L"Captain America",     0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_CaptainAmerica },
-    { L"Content\\Animations\\Players\\CosmicGhostRider\\CosmicGhostRiderPalette.xnb",   L"Cosmic Ghost Rider",  0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_CosmicGhostRider },
-    { L"Content\\Animations\\Players\\IronMan\\IronManPalette.xnb",                     L"Iron Man",            0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_IronMan },
-    { L"Content\\Animations\\Players\\Nova\\NovaPalette.xnb",                           L"Nova",                0x2455,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Nova },
-    { L"Content\\Animations\\Players\\Phoenix\\PhoenixPalette.xnb",                     L"Phoenix",             0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,  0x00455,  indexMCI_Phoenix },
-    { L"Content\\Animations\\Players\\PhylaVell\\PhylaVellPalette.xnb",                 L"Phyla-Vell",          0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,  0x00455,  indexMCI_PhylaVell },
-    { L"Content\\Animations\\Players\\Rocket\\RocketPalette.xnb",                       L"Rocket",              0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Rocket },
-    { L"Content\\Animations\\Players\\Rocket\\RocketExtrasPalette.xnb",                 L"Rocket (Extras)",     0x2855,    MCI_S_NormalNode, MCI_PlayerExtras_S,        0x00455,  indexMCI_Rocket },
-    { L"Content\\Animations\\Players\\SheHulk\\SheHulkPalette.xnb",                     L"She-Hulk",            0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_SheHulk },
-    { L"Content\\Animations\\Players\\SilverSurfer\\SilverSurferPalette.xnb",           L"Silver Surfer",       0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,  0x00455,  indexMCI_SilverSurfer },
-    { L"Content\\Animations\\Players\\Spiderman\\SpidermanPalette.xnb",                 L"Spider-Man",          0x2455,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_SpiderMan },
-    { L"Content\\Animations\\Players\\Storm\\StormPalette.xnb",                         L"Storm",               0x2455,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Storm },
-    { L"Content\\Animations\\Players\\Venom\\VenomPalette.xnb",                         L"Venom",               0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Venom },
-    { L"Content\\Animations\\Players\\Wolverine\\WolverinePalette.xnb",                 L"Wolverine",           0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,      0x00455,  indexMCI_Wolverine },
-    { L"Content\\Animations\\Bosses\\Annihilus\\AnnihilusPalette.xnb",                  L"Annihilus",           0x0455,    MCI_S_BossesNode, MCI_BossesPalettes_S,      0x00055,  indexMCI_Bonus },
-    { L"Content\\Animations\\Players\\PalModExtrasPalette",                             L"Bonus",               0x2855,    MCI_S_ExtrasNode, MCI_ExtrasPalettes_S,      0x0,  indexMCI_Bonus },
+    { L"Content\\Animations\\Players\\BetaRayBill\\BetaRayBillPalette.xnb",             L"Beta Ray Bill",       0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_BetaRayBill },
+    { L"Content\\Animations\\Players\\BlackPanther\\BlackPantherPalette.xnb",           L"Black Panther",       0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_BlackPanther },
+    { L"Content\\Animations\\Players\\CaptainAmerica\\CaptainAmericaPalette.xnb",       L"Captain America",     0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_CaptainAmerica },
+    { L"Content\\Animations\\Players\\CosmicGhostRider\\CosmicGhostRiderPalette.xnb",   L"Cosmic Ghost Rider",  0x2855,    MCI_S_NormalNode, MCI_PlayerPalettes_S,              0x00455,  indexMCI_CosmicGhostRider },
+    { L"Content\\Animations\\Players\\Cyclops\\CyclopsPalette.xnb",                     L"Cyclops",             0x2455,    MCI_S_NormalNode, MCI_PlayerPalettes_S,              0x00455,  indexMCI_Cyclops },
+    { L"Content\\Animations\\Players\\IronMan\\IronManPalette.xnb",                     L"Iron Man",            0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_IronMan },
+    { L"Content\\Animations\\Players\\Nova\\NovaPalette.xnb",                           L"Nova",                0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_Nova },
+    { L"Content\\Animations\\Players\\Phoenix\\PhoenixPalette.xnb",                     L"Phoenix",             0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,          0x00455,  indexMCI_Phoenix },
+    { L"Content\\Animations\\Players\\PhylaVell\\PhylaVellPalette.xnb",                 L"Phyla-Vell",          0x2C55,    MCI_S_NormalNode, MCI_BossPlayerPalettesCollab_S,    0x00455,  indexMCI_PhylaVell },
+    { L"Content\\Animations\\Players\\Rocket\\RocketPalette.xnb",                       L"Rocket",              0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_Rocket },
+    { L"Content\\Animations\\Players\\Rocket\\RocketExtrasPalette.xnb",                 L"Rocket (Extras)",     0x2C55,    MCI_S_NormalNode, MCI_PlayerExtras_S,                0x00455,  indexMCI_Rocket },
+    { L"Content\\Animations\\Players\\SheHulk\\SheHulkPalette.xnb",                     L"She-Hulk",            0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_SheHulk },
+    { L"Content\\Animations\\Players\\SilverSurfer\\SilverSurferPalette.xnb",           L"Silver Surfer",       0x2855,    MCI_S_NormalNode, MCI_BossPlayerPalettes_S,          0x00455,  indexMCI_SilverSurfer },
+    { L"Content\\Animations\\Players\\Spiderman\\SpidermanPalette.xnb",                 L"Spider-Man",          0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_SpiderMan },
+    { L"Content\\Animations\\Players\\Storm\\StormPalette.xnb",                         L"Storm",               0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_Storm },
+    { L"Content\\Animations\\Players\\Thing\\ThingPalette.xnb",                         L"The Thing",           0x2455,    MCI_S_NormalNode, MCI_PlayerPalettes_S,              0x00455,  indexMCI_Thing },
+    { L"Content\\Animations\\Players\\Venom\\VenomPalette.xnb",                         L"Venom",               0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_Venom },
+    { L"Content\\Animations\\Players\\Wolverine\\WolverinePalette.xnb",                 L"Wolverine",           0x2C55,    MCI_S_NormalNode, MCI_PlayerPalettesCollab_S,        0x00455,  indexMCI_Wolverine },
+    { L"Content\\Animations\\Bosses\\Annihilus\\AnnihilusPalette.xnb",                  L"Annihilus",           0x0455,    MCI_S_BossesNode, MCI_BossesPalettes_S,              0x00055,  indexMCI_Bonus },
+    { L"Content\\Animations\\Players\\PalModExtrasPalette",                             L"Bonus",               0x2855,    MCI_S_ExtrasNode, MCI_ExtrasPalettes_S,              0x0,  indexMCI_Bonus },
 };

@@ -3108,4 +3108,7 @@ enum SupportedOther_SpriteListIndex
     indexBladeStrangersSprites_SummerKawase,    // 0x113
     indexBladeStrangersSprites_Stages,          // 0x114
     indexBladeStrangersSprites_Bonus,           // 0x115
+
+    indexMCI_Cyclops,                           // 0x116
+    indexMCI_Thing,                             // 0x117
 };

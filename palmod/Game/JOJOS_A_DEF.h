@@ -450,12 +450,13 @@ const sDescTreeNode JOJOS_A_50_HUD_PORTRAIT_COLLECTION[]
 const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
 {
     { L"Round Markers", 0x7C0160, 0x7C0180, indexJojos51Bonus, 0x28, &pairNext4Palettes },
-    { L"Timer", 0x7C00C0, 0x7C00E0, indexJojos51Bonus, 0x2b },
-    { L"Lifebar", 0x7C01E0, 0x7C0200, indexJojos51Bonus, 0x27 },
-    { L"Stand Meter", 0x7C0200, 0x7C0220, indexJojos51Bonus, 0x29 },
-    { L"Stand Text Under The Stand Gauge", 0x7C0320, 0x7C0340, indexJojos51Bonus, 0x2a },
+        { L"Timer", 0x7C00C0, 0x7C00E0, indexJojos51Bonus, 0x2b },
+        { L"Lifebar", 0x7C01E0, 0x7C0200, indexJojos51Bonus, 0x27 },
+        { L"Stand Meter", 0x7C0200, 0x7C0220, indexJojos51Bonus, 0x29 },
+        { L"Stand Text Under The Stand Gauge", 0x7C0320, 0x7C0340, indexJojos51Bonus, 0x2a },
 
-    { L"Combo Meter", 0x7C01C0, 0x7C01E0, indexJojos51Bonus, 0x44 },
+    { L"N'Doul Timer and Text", 0x7C00e0, 0x7C0100, indexJojos51Bonus, 0x78 },
+    { L"Combo Meter/N'Doul Progress", 0x7C01C0, 0x7C01E0, indexJojos51Bonus, 0x44 },
     { L"Combo Messages", 0x7C0220, 0x7C0240, indexJojos51Bonus, 0x72 },
     { L"Text Above The Lifebars / Mariah Level (Player 2)", 0x7C0280, 0x7C02A0, indexJojos51Bonus, 0x74 }, // Could use 0x2a sprite here
     { L"Stand Crash / First Hit / Etc. Messages", 0x7C0340, 0x7C0360, indexJojos51Bonus, 0x73 },

@@ -332,6 +332,11 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 }
                 else
                 {
+                    if (nGameFlag == MCI_S)
+                    {
+                        strError.Append(L"\n\nThis likely means that either PalMod or your MCI install are out of date.  You may want to check for updates for both and then make sure to follow the updated guide linked in PalMod's Read Me.");
+                    }
+
                     fActualFileSizeIsSafe = (MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONERROR) == IDYES);
                 }
             }
