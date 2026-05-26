@@ -7,7 +7,8 @@ class CPreviewImportDialog : public CDialog
     DECLARE_DYNAMIC(CPreviewImportDialog)
 
 public:
-    CPreviewImportDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, UINT nSuggestedLayer, SpriteImportDirection suggestedDirection, std::vector<sImageDimensions> rgExistingDimensions, bool fAllowComposition, CWnd* pParent = NULL);
+    CPreviewImportDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, UINT nSuggestedLayer, SpriteImportDirection suggestedDirection,
+                            std::vector<sImageDimensions> rgExistingDimensions, bool fAllowComposition, CWnd* pParent = NULL);
     virtual ~CPreviewImportDialog() {};
 
     BOOL OnInitDialog();

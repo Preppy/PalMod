@@ -582,7 +582,7 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
         m_vSpriteOverrideTextures.at(nIndex).pixels.size());
 }
 
-void CImgDisp::_CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedHeight, int nSuggestedWidth, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle)
+void CImgDisp::_CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedWidth, int nSuggestedHeight, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle)
 {
     const int nOldHeight = m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.height;
     const int nOldWidth = m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.width;
@@ -590,6 +590,8 @@ void CImgDisp::_CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT 
     m_vSpriteOverrideTextures.at(nPositionToLoadTo).pixels.clear();
     const int nIncomingFileSize = nSuggestedHeight * nSuggestedWidth;
     int nCompositedFileSize;
+
+    _FlipImageDataIfNeeded(direction, vNewOverrideTexture, nSuggestedWidth, nSuggestedHeight);
 
     if (compositionStyle == SpriteImportCompositionStyle::Replace)
     {
@@ -633,7 +635,7 @@ void CImgDisp::_CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT 
             const int nMergedFileSize = m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.height * m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.width;
             m_vSpriteOverrideTextures.at(nPositionToLoadTo).pixels.resize(nMergedFileSize);
 
-            strInfo.Format(L"\tMerging Above: %u x %u source image with the existing custom %u x %u image, for a %u x %u composited image.\r\n", nSuggestedHeight, nSuggestedWidth, nOldHeight, nOldWidth, m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.height, m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.width);
+            strInfo.Format(L"\tMerging Above: %u x %u source image with the existing custom %u x %u image, for a %u x %u composited image.\r\n", nSuggestedWidth, nSuggestedHeight, nOldWidth, nOldHeight, m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.height);
             OutputDebugString(strInfo.GetString());
 
             for (int iCurrentLine = 0; (iCurrentLine * m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.width) < nMergedFileSize; iCurrentLine++)
@@ -723,7 +725,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
         {
             std::vector<uint8_t> vOverrideTexture(&pNewOverrideTexture[0], &pNewOverrideTexture[suggestedImageSize.height * suggestedImageSize.width]);
 
-            _CompositeTexture(vOverrideTexture, nPositionToLoadTo, suggestedImageSize.height, suggestedImageSize.width, direction, compositionStyle);
+            _CompositeTexture(vOverrideTexture, nPositionToLoadTo, suggestedImageSize.width, suggestedImageSize.height, direction, compositionStyle);
 
             CString strMsg;
             strMsg.Format(L"Loaded %u x %u RAW as a preview.", suggestedImageSize.width, suggestedImageSize.height);
@@ -754,6 +756,7 @@ void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, std::vect
             return;
         case SpriteImportDirection::UpsideDown:
         {
+            OutputDebugString(L"Flipping image vertical.\r\n");
             const int nTotalLength = nWidth * nHeight;
             std::vector<uint8_t> vFlippedBuffer;
             vFlippedBuffer.resize(nTotalLength);
@@ -775,6 +778,7 @@ void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, std::vect
         }
         case SpriteImportDirection::FlipHorizontal:
         {
+            OutputDebugString(L"Flipping image horizontal.\r\n");
             const int nTotalLength = nWidth * nHeight;
             std::vector<uint8_t> vFlippedBuffer;
             vFlippedBuffer.resize(nTotalLength);
@@ -800,7 +804,8 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                                                         // the color table back by one.  Note that we don't actually know how far skewed it is, so 
                                                         // in the worst case scenario the user might need to loop through importing/exporting a few times
                                                         // to correct for their confusion
-                                                        bool fColorTableStartsAtOne /* = true */)
+                                                        bool fColorTableStartsAtOne /* = true */,
+                                                        SpriteImportCompositionStyle compositionStyle /*= SpriteImportCompositionStyle::Replace*/)
 {
     // So this is an interesting situation.
     // Incoming we have a palettized image that the user wants to use as a custom preview.
@@ -846,8 +851,8 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         // * maximum color table size: at this point we know that the incoming image could not encompass 
         //   the entire sprite set for this composition.  as such, the palette here should be left alone
         // * this is a single preview and the palette sizes match or at least don't use overflowing references.  Don't touch.
-        ResetCustomSpriteOverride(nLayerToStartWith);
-        m_vSpriteOverrideTextures.at(nLayerToStartWith).pixels.resize(nDataLen);
+        std::vector<uint8_t> vPixels;
+        vPixels.resize(nDataLen);
 
         for (size_t iPos = 0; iPos < nDataLen; iPos++)
         {
@@ -859,13 +864,10 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                 nThisIndex = 255 - nThisIndex;
             }
 
-            m_vSpriteOverrideTextures.at(nLayerToStartWith).pixels.at(iPos) = nThisIndex;
+            vPixels.at(iPos) = nThisIndex;
         }
 
-        m_vSpriteOverrideTextures.at(nLayerToStartWith).dimensions.width = width;
-        m_vSpriteOverrideTextures.at(nLayerToStartWith).dimensions.height = height;
-
-        _FlipImageDataIfNeeded(direction, m_vSpriteOverrideTextures.at(nLayerToStartWith).pixels, m_vSpriteOverrideTextures.at(nLayerToStartWith).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToStartWith).dimensions.height);
+        _CompositeTexture(vPixels, nLayerToStartWith, width, height, direction, compositionStyle);
     }
     else
     {
@@ -873,17 +875,6 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         //   * single preview with an incoming palette that overflows: cut out overflow references
         //   * multi-preview composition and the palettes match: cut the previews apart
         //   * direct assignment to a particular position: prune extra and only load for that position
-        for (int nPos = nLayerToStartWith; nPos < m_nImgAmt; nPos++)
-        {
-            ResetCustomSpriteOverride(nPos);
-            m_vSpriteOverrideTextures.at(nPos).pixels.resize(nDataLen);
-
-            if (pnPositionToLoadTo)
-            {
-                break;
-            }
-        }
-
         unsigned char nCurrentPalStart = 0;
         for (int nPos = 0; nPos < m_nImgAmt; nPos++)
         {
@@ -894,6 +885,9 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                 // we just wanted the palette math
                 continue;
             }
+
+            std::vector<uint8_t> vPixels;
+            vPixels.resize(nDataLen);
 
             for (size_t iPos = 0; iPos < nDataLen; iPos++)
             {
@@ -909,15 +903,12 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                     nAdjustedIndex -= nCurrentPalStart;
                 }
 
-                m_vSpriteOverrideTextures.at(nPos).pixels.at(iPos) = nAdjustedIndex;
+                vPixels.at(iPos) = nAdjustedIndex;
             }
 
             nCurrentPalStart = nCurrentPalEnd;
 
-            m_vSpriteOverrideTextures.at(nPos).dimensions.width = width;
-            m_vSpriteOverrideTextures.at(nPos).dimensions.height = height;
-
-            _FlipImageDataIfNeeded(direction, m_vSpriteOverrideTextures.at(nPos).pixels, m_vSpriteOverrideTextures.at(nPos).dimensions.width, m_vSpriteOverrideTextures.at(nPos).dimensions.height);
+            _CompositeTexture(vPixels, nLayerToStartWith, width, height, direction, compositionStyle);
 
             if (pnPositionToLoadTo)
             {
@@ -1147,7 +1138,6 @@ void CImgDisp::_ResizeImageStack(bool fIsFullStackReplacement)
         strInfo.Format(L"Warning: mismatched presentation stack.  All images will be resized to %ux%u!\r\n", nMaxWidth, nMaxHeight);
         OutputDebugString(strInfo.GetString());
 
-
         for (int iCurrentPreview = 0; iCurrentPreview < m_nImgAmt; iCurrentPreview++)
         {
             if (m_pImgBuffer[iCurrentPreview] && m_pImgBuffer[iCurrentPreview]->dimensions.width)
@@ -1189,7 +1179,7 @@ void CImgDisp::_ResizeImageStack(bool fIsFullStackReplacement)
     }
 }
 
-void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize)
+void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize)
 {
     // Get the total palette size so we can handle correctly
     size_t nTotalPalSize = 0;
@@ -1263,9 +1253,6 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
     // allocate max size, even though we may be adjusting this for trim
     const unsigned nDataLen = width * height;
-
-    _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
-
     const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
     const bool fMayBeCPSSource = currColMode == ColMode::COLMODE_RGB444_BE;
     const bool fMightBeKawaksScreenshot = (fMayBeCPSSource || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
@@ -1324,6 +1311,14 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     if (fUseDifferingCPS3Logic)
     {
         rgrgPalettesToUse = rgrgCPS3AltPalettesToUse;
+    }
+
+    std::vector<std::vector<uint8_t>> rgvPixels;
+    rgvPixels.resize(m_nImgAmt);
+
+    for (size_t iCurLayer = 0; iCurLayer < static_cast<size_t>(m_nImgAmt); iCurLayer++)
+    {
+        rgvPixels.at(iCurLayer).resize(nDataLen);
     }
 
     for (unsigned iPos = 0; iPos < nDataLen; iPos++)
@@ -1395,7 +1390,7 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
 
                         fFoundThisColor = true;
                         fFoundOne = true;
-                        m_vSpriteOverrideTextures.at(nCurrentPalette).pixels.at(iPos) = static_cast<uint8_t>(iPalPos);
+                        rgvPixels.at(nCurrentPalette).at(iPos) = static_cast<uint8_t>(iPalPos);
 
                         break;
                     }
@@ -1415,7 +1410,6 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                 fUseWinKawaksShift = true;
                 OutputDebugString(L"No color matches found: trying again using WinKawaks math.\r\n");
                 iPos = 0;
-                _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
             }
             else if (!fUseDifferingCPS3Logic && fGameIsCPS3)
             {
@@ -1423,12 +1417,9 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                 rgrgPalettesToUse = rgrgCPS3AltPalettesToUse;
                 OutputDebugString(L"No color matches found: trying again using FBNeo math.\r\n");
                 iPos = 0;
-                _ResizeAndBlankCustomPreviews(pnPositionToLoadTo, nDataLen);
             }
         }
     }
-
-    m_vSpriteOverrideTextures.at(pnPositionToLoadTo ? *pnPositionToLoadTo : 0).dimensions = { static_cast<int>(width), static_cast<int>(height) };
 
     strMsg.Format(L"Loaded %u x %u RGB PNG preview.", width, height);
 
@@ -1436,20 +1427,12 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     {
         for (signed int nCurrentLayer = 0; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
         {
-            m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions = m_vSpriteOverrideTextures.at(0).dimensions;
-
-            _FlipImageDataIfNeeded(direction, m_vSpriteOverrideTextures.at(nCurrentLayer).pixels, m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.width, m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.height);
-
-            AddImageNode(nCurrentLayer, m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.width, m_vSpriteOverrideTextures.at(nCurrentLayer).dimensions.height, m_vSpriteOverrideTextures.at(nCurrentLayer).pixels.data(),
-                m_pImgBuffer[nCurrentLayer]->pPalette, m_pImgBuffer[nCurrentLayer]->uPalSz, 0, 0);
+            _CompositeTexture(rgvPixels.at(nCurrentLayer), nCurrentLayer, width, height, direction, compositionStyle);
         }
     }
     else
     {
-        _FlipImageDataIfNeeded(direction, m_vSpriteOverrideTextures.at(*pnPositionToLoadTo).pixels, m_vSpriteOverrideTextures.at(*pnPositionToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(*pnPositionToLoadTo).dimensions.height);
-
-        AddImageNode(*pnPositionToLoadTo, m_vSpriteOverrideTextures.at(*pnPositionToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(*pnPositionToLoadTo).dimensions.height, m_vSpriteOverrideTextures.at(*pnPositionToLoadTo).pixels.data(),
-            m_pImgBuffer[*pnPositionToLoadTo]->pPalette, m_pImgBuffer[*pnPositionToLoadTo]->uPalSz, 0, 0);
+        _CompositeTexture(rgvPixels.at(*pnPositionToLoadTo), *pnPositionToLoadTo, width, height, direction, compositionStyle);
     }
 
     if (fFoundOne && fUseWinKawaksShift)
@@ -1600,12 +1583,6 @@ std::vector<uint8_t> CImgDisp::_LoadTextureFromCImageSprite(wchar_t* pszTextureL
                 vNewOverrideTexture.clear();
             }
         }
-
-        if (vNewOverrideTexture.size())
-        {
-            // Apply flip options if needed
-            _FlipImageDataIfNeeded(direction, vNewOverrideTexture, suggestedImageSize.width, suggestedImageSize.height);
-        }
     }
 
     return vNewOverrideTexture;
@@ -1622,7 +1599,7 @@ bool CImgDisp::LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDire
 
     if (vNewOverrideTexture.size())
     {
-        _CompositeTexture(vNewOverrideTexture, nPositionToLoadTo, imageSize.height, imageSize.width, direction, compositionStyle);
+        _CompositeTexture(vNewOverrideTexture, nPositionToLoadTo, imageSize.width, imageSize.height, direction, compositionStyle);
 
         _UpdatePreviewForExternalSprite(&nPositionToLoadTo);
 
@@ -1696,12 +1673,13 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
                 // Confusion: why isn't lodepng doing this?
                 // Simple test to show the problem here: convert from Indexed to RGB: state.info_png is Indexed @_@ 
                 state.info_png.color.colortype = state.info_raw.colortype;
+                SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
 
                 // We know the gist of this image: let's confirm user options if appropriate
                 if (fShowAdvancedOptionsIfNeeded && pnPositionToLoadTo)
                 {
                     sImageDimensions imageSize = { static_cast<int>(width), static_cast<int>(height) };
-                    fUserCanceled = !GetUserOptionsForTextureOverride(width * height, imageSize, m_nImgAmt, m_pImgBuffer, m_vSpriteOverrideTextures, *pnPositionToLoadTo, direction, nullptr);
+                    fUserCanceled = !GetUserOptionsForTextureOverride(width * height, imageSize, m_nImgAmt, m_pImgBuffer, m_vSpriteOverrideTextures, *pnPositionToLoadTo, direction, &compositionStyle);
                     width = imageSize.width;
                     height = imageSize.height;
                 }
@@ -1736,7 +1714,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
                     {
                         if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
                         {
-                            _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize, importOptions.fReversedColorTable, importOptions.fColorTableStartsAtOne);
+                            _ImportAndSplitSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, state.info_png.color.palettesize, importOptions.fReversedColorTable, importOptions.fColorTableStartsAtOne, compositionStyle);
 
                             // We handle RGB status update inside that logic, since it can be slightly different
                             CString strMsg;
@@ -1755,7 +1733,7 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
                         else if ((state.info_png.color.colortype == LodePNGColorType::LCT_RGB) ||
                                  (state.info_png.color.colortype == LodePNGColorType::LCT_RGBA))
                         {
-                            _ImportAndSplitRGBSpriteComposition(direction, pnPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
+                            _ImportAndSplitRGBSpriteComposition(direction, compositionStyle, pnPositionToLoadTo, loadedAsPNG, width, height, lodepng_get_raw_size(width, height, &state.info_png.color));
                             fSuccess = true;
                         }
                     }

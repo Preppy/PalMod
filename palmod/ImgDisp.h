@@ -101,13 +101,14 @@ private:
 
     void _ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nNewSize);
 
-    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedHeight, int nSuggestedWidth, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
+    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedWidth, int nSuggestedHeight, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
     void _UpdatePreviewForExternalSprite(UINT* pnPositionToLoadTo);
 
     void _FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, int nWidth, int nHeight);
 
-    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true);
-    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
+    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height,
+                                            size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true, SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace);
+    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
     void _UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions dimensions);
     void _TrimLoadedCustomImages(bool fIsFullStackReplacement);

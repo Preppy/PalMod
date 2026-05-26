@@ -87,21 +87,21 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
                 {
                     switch (nCompType)
                     {
-                    default:
-                        eCompType = RAWCompressionChoice::NoCompression;
-                        break;
-                    case 1:
-                        OutputDebugString(L"RAW is marked as being RLE compressed.\n");
-                        eCompType = RAWCompressionChoice::RLE;
-                        break;
-                    case 2:
-                        OutputDebugString(L"RAW is marked as being BitMask RLE compressed.\n");
-                        eCompType = RAWCompressionChoice::BitMaskRLE;
-                        break;
-                    case 3:
-                        OutputDebugString(L"RAW is marked as being ZLib compressed.\n");
-                        eCompType = RAWCompressionChoice::ZLib;
-                        break;
+                        default:
+                            eCompType = RAWCompressionChoice::NoCompression;
+                            break;
+                        case 1:
+                            OutputDebugString(L"RAW is marked as being RLE compressed.\n");
+                            eCompType = RAWCompressionChoice::RLE;
+                            break;
+                        case 2:
+                            OutputDebugString(L"RAW is marked as being BitMask RLE compressed.\n");
+                            eCompType = RAWCompressionChoice::BitMaskRLE;
+                            break;
+                        case 3:
+                            OutputDebugString(L"RAW is marked as being ZLib compressed.\n");
+                            eCompType = RAWCompressionChoice::ZLib;
+                            break;
                     }
                 }
             }
