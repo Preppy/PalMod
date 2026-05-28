@@ -17,7 +17,7 @@ public:
     afx_msg void OnUpdateCombobox_Read() { m_nCurrentSel_Read = static_cast<SpriteImportDirection>(m_lbReadOptions.GetCurSel()); };
     afx_msg void OnUpdateCombobox_Composition() { m_nCurrentSel_Composition = static_cast<SpriteImportCompositionStyle>(m_lbCompositionOptions.GetCurSel()); };
 
-    enum { IDD = IDD_RAWFIXUP_DIALOG };
+    enum { IDD = IDD_PREVIEWIMPORT_DIALOG };
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);
@@ -133,17 +133,17 @@ void CPreviewImportDialog::DoDataExchange(CDataExchange* pDX)
 {
     CDialog::DoDataExchange(pDX);
 
-    DDX_Control(pDX, IDC_RAWFIXUP_HWOPTIONS, m_lbHWOptions);
-    DDX_Control(pDX, IDC_RAWFIXUP_OPTIONS_LAYER, m_lbLayerOptions);
-    DDX_Control(pDX, IDC_RAWFIXUP_OPTIONS_READ, m_lbReadOptions);
-    DDX_Control(pDX, IDC_RAWFIXUP_OPTIONS_COMPOSITION, m_lbCompositionOptions);
+    DDX_Control(pDX, IDC_PREVIEWIMPORT_HWOPTIONS, m_lbHWOptions);
+    DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_LAYER, m_lbLayerOptions);
+    DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_READ, m_lbReadOptions);
+    DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION, m_lbCompositionOptions);
 }
 
 BEGIN_MESSAGE_MAP(CPreviewImportDialog, CDialog)
-    ON_LBN_SELCHANGE(IDC_RAWFIXUP_HWOPTIONS, &OnUpdateCombobox_HW)
-    ON_LBN_SELCHANGE(IDC_RAWFIXUP_OPTIONS_LAYER, &OnUpdateCombobox_Layer)
-    ON_LBN_SELCHANGE(IDC_RAWFIXUP_OPTIONS_READ, &OnUpdateCombobox_Read)
-    ON_LBN_SELCHANGE(IDC_RAWFIXUP_OPTIONS_COMPOSITION, &OnUpdateCombobox_Composition)
+    ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_HWOPTIONS, &OnUpdateCombobox_HW)
+    ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_LAYER, &OnUpdateCombobox_Layer)
+    ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_READ, &OnUpdateCombobox_Read)
+    ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION, &OnUpdateCombobox_Composition)
 END_MESSAGE_MAP()
 
 bool GetUserOptionsForTextureOverride(int nActualFileSize, sImageDimensions& suggestedImageSize,
