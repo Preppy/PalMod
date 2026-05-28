@@ -340,19 +340,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                 }
 
-                int nHeightFromCenter = 0;
-                int nWidthFromCenter = abs(nMaxWidth);
-                if (nMinWidth != c_nMinLineWidthDefault)
-                {
-                    // random padding number based upon current design
-                    nWidthFromCenter += nMaxWidth - nMinWidth + 350;
-                    nHeightFromCenter = abs(nUsedHeight) - c_nCharacterHeight;
-                }
-
+                // now that we have the full layout, move everything back to 0,0 origin
                 for (auto& curOffset : rgImageOffsets)
                 {
-                    curOffset.y += (nHeightFromCenter / 2);
-                    curOffset.x -= (nWidthFromCenter / 2);
+                    curOffset.y += nUsedHeight;
                 }
 
                 // Load the ticket in full reverse order

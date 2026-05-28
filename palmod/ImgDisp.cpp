@@ -123,6 +123,10 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
 // Called before inserting images to clear layout rect settings
 void CImgDisp::ResetImageCompositionLayout()
 {
+#ifdef DEBUG
+    OutputDebugString(L"CImgDisp::ResetImageCompositionLayout called.\r\n\r\n");
+#endif
+
     memset(m_bUsed, 0, sizeof(uint8_t) * MAX_IMAGES_DISPLAYABLE);
     m_rImgRct.SetRectEmpty();
 
@@ -141,6 +145,10 @@ void CImgDisp::ResetImageCompositionLayout()
 // Called after preview images are set in place so that we know what the layout rects should be
 void CImgDisp::_ResetForNewImage()
 {
+#ifdef DEBUG
+    OutputDebugString(L"CImgDisp::_ResetForNewImage called.\r\n");
+#endif
+
     m_rImgRct.right += abs(m_rImgRct.left);
     m_rImgRct.left = 0;
 
@@ -207,26 +215,36 @@ void CImgDisp::_UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions di
 {
     if (nPosition)
     {
-        if ((m_ptOffs[nPosition].x + dimensions.width) > m_rImgRct.right)
+        if ((abs(m_ptOffs[nPosition].x) + dimensions.width) > m_rImgRct.right)
         {
-            m_rImgRct.right = m_ptOffs[nPosition].x + dimensions.width;
+            m_rImgRct.right = abs(m_ptOffs[nPosition].x) + dimensions.width;
         }
 
-        if ((m_ptOffs[nPosition].y + dimensions.height) > m_rImgRct.bottom)
+        if ((abs(m_ptOffs[nPosition].y) + dimensions.height) > m_rImgRct.bottom)
         {
-            m_rImgRct.bottom = m_ptOffs[nPosition].y + dimensions.height;
+            m_rImgRct.bottom = abs(m_ptOffs[nPosition].y) + dimensions.height;
         }
     }
     else
     {
         // 0th position sets the foundation for display
-        m_rImgRct.right = m_ptOffs[nPosition].x + dimensions.width;
-        m_rImgRct.bottom = m_ptOffs[nPosition].y + dimensions.height;
+        m_rImgRct.right = abs(m_ptOffs[nPosition].x) + dimensions.width;
+        m_rImgRct.bottom = abs(m_ptOffs[nPosition].y) + dimensions.height;
     }
+
+#ifdef DEBUG
+    CString strMsg;
+    strMsg.Format(L"CImgDisp::_UpdateCompositionDisplayRect: Layer %u: total display rect %u x %u for image dimensions %u x %u with offsets %i x %i\r\n", nPosition, m_rImgRct.right, m_rImgRct.bottom, dimensions.width, dimensions.height, m_ptOffs[nPosition].x, m_ptOffs[nPosition].y);
+    OutputDebugString(strMsg.GetString());
+#endif
 }
 
 void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode /* = BlendMode::Alpha */)
 {
+#ifdef DEBUG
+    CString strMsg;
+#endif
+
     sImgNode* pNewNode = new sImgNode;
 
     pNewNode->dimensions.width = uImgW;
@@ -245,6 +263,11 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
         MessageBox(L"ERROR: too many palettes requested.  Please report this issue and what palette you were trying to edit so we can fix this.", GetHost()->GetAppName(), MB_ICONERROR);
         return;
     }
+
+#ifdef DEBUG
+    strMsg.Format(L"CImgDisp::AddImageNode: add %i: requested %u x %u, offset by %i x %i.\r\n", nIndex, uImgW, uImgH, nXOffs, nYOffs);
+    OutputDebugString(strMsg.GetString());
+#endif
 
     if (m_pImgBuffer[nIndex])
     {
@@ -274,10 +297,20 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
             {
                 if (m_pImgBuffer[iLayer])
                 {
+#ifdef DEBUG
+                    strMsg.Format(L"CImgDisp::AddImageNode: custom layer override %u: requested %u x %u.", iLayer, m_pImgBuffer[iLayer]->dimensions.width, m_pImgBuffer[iLayer]->dimensions.height);
+                    OutputDebugString(strMsg.GetString());
+#endif
+
                     nMaxWidth = max(nMaxWidth, m_pImgBuffer[iLayer]->dimensions.width);
                     nMaxHeight = max(nMaxHeight, m_pImgBuffer[iLayer]->dimensions.height);
                 }
             }
+
+#ifdef DEBUG
+            strMsg.Format(L"CImgDisp::AddImageNode: custom layer override: set %u x %u as layout.", nMaxWidth, nMaxHeight);
+            OutputDebugString(strMsg.GetString());
+#endif
         }
 
         if ((nMaxWidth != uImgW) || (nMaxHeight != uImgH))
@@ -300,11 +333,16 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
         }
     }
 
-    _UpdateCompositionDisplayRect(nIndex, { nMaxWidth, nMaxHeight });
-
-    // BUGBUG: This seems incoherent for position 0 where we are duplicating the requested offset.
+    // set this so we can composite correctly
     m_ptOffs[nIndex].x = nXOffs;
     m_ptOffs[nIndex].y = nYOffs;
+
+    _UpdateCompositionDisplayRect(nIndex, { nMaxWidth, nMaxHeight });
+
+#ifdef DEBUG
+    strMsg.Format(L"\tCImgDisp::AddImageNode: add %i: set display offset to %i x %i\r\n", nIndex, m_ptOffs[nIndex].x, m_ptOffs[nIndex].y);
+    OutputDebugString(strMsg.GetString());
+#endif
 
     //Add image amount
     m_nImgAmt++;
@@ -442,6 +480,28 @@ void CImgDisp::ModifySrcRect()
     m_rImgRct.right = (m_ImgDimensions.width / 2) + (m_MainLayout.width / 2);
     m_rImgRct.top = -(m_ImgDimensions.height / 2) + (m_MainLayout.height / 2);
     m_rImgRct.bottom = (m_ImgDimensions.height / 2) + (m_MainLayout.height / 2);
+
+#ifdef DEBUG
+    CString strMsg;
+
+    // start with the ingredients
+    strMsg.Format(L"CImgDisp::ModifySrcRect:\r\n\tCtrlDimensions: %u x %u\r\n", CtrlDimensions.width, CtrlDimensions.height);
+    OutputDebugString(strMsg.GetString());
+    strMsg.Format(L"\tImageOffsets: %i to %i\r\n", m_ImageOffsets.x, m_ImageOffsets.y);
+    OutputDebugString(strMsg.GetString());
+    strMsg.Format(L"\tImgDimensions: %u to %u\r\n", m_ImgDimensions.width, m_ImgDimensions.height);
+    OutputDebugString(strMsg.GetString());
+    strMsg.Format(L"\tZoom: %f\r\n", m_Settings.dPreviewZoom);
+    // then the calculated values
+    OutputDebugString(strMsg.GetString());
+    strMsg.Format(L"\tImgRect: w %u to %u, h %u to %u. Image dimensions %u x %u\r\n", m_rImgRct.left, m_rImgRct.right, m_rImgRct.top, m_rImgRct.bottom, (m_rImgRct.right - m_rImgRct.left), (m_rImgRct.bottom - m_rImgRct.top));
+    OutputDebugString(strMsg.GetString());
+    // viewport is negatively scaled by zoom
+    strMsg.Format(L"\tSrcRect: w %u to %u, h %u to %u. dimensions %u x %u\r\n", m_rSrcRct.left, m_rSrcRct.right, m_rSrcRct.top, m_rSrcRct.bottom, (m_rSrcRct.right - m_rSrcRct.left), (m_rSrcRct.bottom - m_rSrcRct.top));
+    OutputDebugString(strMsg.GetString());
+    strMsg.Format(L"\tMainLayout: %u x %u\r\n", m_MainLayout.width, m_MainLayout.height);
+    OutputDebugString(strMsg.GetString());
+#endif
 }
 
 void CImgDisp::ModifyClRect()
