@@ -187,7 +187,6 @@ private:
     void GetPlaneData();
     void UpdatePalSel(BOOL fSetSingleCol = FALSE);
 
-    void Blink();
     void PerformBlink();
 
     void GetSetSingleCol();
@@ -323,7 +322,7 @@ private:
     afx_msg void OnFileOpen() { OnFileOpenInternal(); };
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();
-    afx_msg void OnBnBlink();
+    afx_msg void OnBlink();
     afx_msg void OnAboutAboutPalMod();
     afx_msg void OnAboutShowReadMe();
     afx_msg void OnAboutShowHistory();
@@ -358,14 +357,26 @@ private:
         ColorMap,
     };
 
-    void HandleColorTransform(ColorTransform action);
+    LPCWSTR _GetStringForColorTransform(DWORD colorAction);
+    void _UpdateTransformTooltips(UINT nCtrlID, DWORD dwTransformIndex);
+    void _SetStringsForTransformButton(int nCtrlID, DWORD dwTransformIndex, DWORD dwTransformDefault);
+    void _UpdateTransformButtonTexts();
 
-    afx_msg void OnBnClickedTransform() { HandleColorTransform(ColorTransform::Default); };
-    afx_msg void OnBnSwapRG() { HandleColorTransform(ColorTransform::Swap_RG); };
-    afx_msg void OnBnSwapGB() { HandleColorTransform(ColorTransform::Swap_GB); };
-    afx_msg void OnBnSwapRB() { HandleColorTransform(ColorTransform::Swap_RB); };
-    afx_msg void OnBnSwapRGB() { HandleColorTransform(ColorTransform::Swap_RGB); };
-    afx_msg void OnBnSwapRBG() { HandleColorTransform(ColorTransform::Swap_RBG); };
+    void HandleColorTransform(DWORD dwTransformIndex, ColorTransform action);
+
+    afx_msg void OnBnClickedTransform1() { HandleColorTransform(1, ColorTransform::Default); };
+    afx_msg void OnBnClickedTransform2() { HandleColorTransform(2, ColorTransform::Default); };
+    afx_msg void OnBnClickedTransform3() { HandleColorTransform(3, ColorTransform::Default); };
+    afx_msg void OnBnClickedTransform4() { HandleColorTransform(4, ColorTransform::Default); };
+    afx_msg void OnBnClickedTransform5() { HandleColorTransform(5, ColorTransform::Default); };
+    afx_msg void OnBnClickedTransform6() { HandleColorTransform(6, ColorTransform::Default); };
+    afx_msg void OnBnClickedTransform7() { HandleColorTransform(7, ColorTransform::Default); };
+    afx_msg void OnBnClickedTransform8() { HandleColorTransform(8, ColorTransform::Default); };
+    afx_msg void OnBnSwapRG() { HandleColorTransform(-1, ColorTransform::Swap_RG); };
+    afx_msg void OnBnSwapGB() { HandleColorTransform(-1, ColorTransform::Swap_GB); };
+    afx_msg void OnBnSwapRB() { HandleColorTransform(-1, ColorTransform::Swap_RB); };
+    afx_msg void OnBnSwapRGB() { HandleColorTransform(-1, ColorTransform::Swap_RGB); };
+    afx_msg void OnBnSwapRBG() { HandleColorTransform(-1, ColorTransform::Swap_RBG); };
 
     afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };
@@ -489,13 +500,13 @@ public:
     afx_msg void OnBnClickedGradient_RGB();
     afx_msg void OnBnClickedGradient_XYZ();
 
-    afx_msg void OnBnClickedGrayscale_Average() { HandleColorTransform(ColorTransform::Grayscale_Average); };
-    afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(ColorTransform::Grayscale_Maximum); };
-    afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(ColorTransform::Grayscale_Middle); };
-    afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(ColorTransform::Grayscale_Weighted); };
+    afx_msg void OnBnClickedGrayscale_Average() { HandleColorTransform(-1, ColorTransform::Grayscale_Average); };
+    afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(-1, ColorTransform::Grayscale_Maximum); };
+    afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(-1, ColorTransform::Grayscale_Middle); };
+    afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(-1, ColorTransform::Grayscale_Weighted); };
 
     afx_msg void OnBnClickedReverse();
-    afx_msg void OnBnClickedInvert() { HandleColorTransform(ColorTransform::Invert); };
+    afx_msg void OnBnClickedInvert() { HandleColorTransform(-1, ColorTransform::Invert); };
 
     afx_msg void OnMappingPaletteUse_Current() { OnMappingPaletteUse(false); };
 

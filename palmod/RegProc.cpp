@@ -772,6 +772,14 @@ DWORD CRegProc::GetDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD dwFallbackValu
     return nPreferredIndex;
 }
 
+DWORD CRegProc::GetDWORDValueForTransform(DWORD dwIndex, DWORD dwFallbackValue /*= 0 */)
+{
+    CString strLookupKey;
+    strLookupKey.Format(L"%s_%u", c_mainDefaultColorTransformStr, dwIndex);
+
+    return GetDWORDValueForKeyName(strLookupKey.GetString(), dwFallbackValue);
+}
+
 void CRegProc::StoreDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex)
 {
     HKEY hKey;
@@ -782,4 +790,12 @@ void CRegProc::StoreDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD nPreferredInd
         RegSetValueEx(hKey, pszKeyName, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&nPreferredIndex), sizeof(DWORD));
         RegCloseKey(hKey);
     }
+}
+
+void CRegProc::StoreDWORDValueForTransform(DWORD dwIndex, DWORD nPreferredIndex)
+{
+    CString strLookupKey;
+    strLookupKey.Format(L"%s_%u", c_mainDefaultColorTransformStr, dwIndex);
+
+    StoreDWORDValueForKeyName(strLookupKey.GetString(), nPreferredIndex);
 }

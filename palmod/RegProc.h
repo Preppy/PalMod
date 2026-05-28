@@ -95,6 +95,9 @@ private:
     static DWORD GetDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD dwFallbackValue = 0);
     static void StoreDWORDValueForKeyName(LPCWSTR pszKeyName, DWORD nPreferredIndex);
 
+    static DWORD GetDWORDValueForTransform(DWORD dwIndex, DWORD dwFallbackValue = 0);
+    static void StoreDWORDValueForTransform(DWORD dwIndex, DWORD nPreferredIndex);
+
 public:
     CRegProc(eRegistryStoreID nSrcType = eRegistryStoreID::REG_UNKNOWN);
     ~CRegProc();
@@ -125,8 +128,8 @@ public:
     static DWORD GetOFNIndexForLoadCustomSprite() { return GetDWORDValueForKeyName(c_LoadCustomSpriteOFNValueName); };
     static void StoreOFNIndexForLoadCustomSprite(DWORD nPreferredIndex) { StoreDWORDValueForKeyName(c_LoadCustomSpriteOFNValueName, nPreferredIndex); };
 
-    static DWORD GetDefaultColorTransform(DWORD dwFallbackValue = 0) { return GetDWORDValueForKeyName(c_mainDefaultColorTransformStr, dwFallbackValue); };
-    static void SetDefaultColorTransform(DWORD dwDefault) { StoreDWORDValueForKeyName(c_mainDefaultColorTransformStr, dwDefault); };
+    static DWORD GetDefaultColorTransform(DWORD dwTransformNumber, DWORD dwFallbackValue = 0) { return GetDWORDValueForTransform(dwTransformNumber, dwFallbackValue); };
+    static void SetDefaultColorTransform(DWORD dwTransformNumber, DWORD dwDefault) { StoreDWORDValueForTransform(dwTransformNumber, dwDefault); };
 
     static DWORD GetDefaultRemapFiletype() { return GetDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr); };
     static void SetDefaultRemapFiletype(DWORD dwDefault) { StoreDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr, dwDefault); };

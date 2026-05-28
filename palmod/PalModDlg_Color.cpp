@@ -1059,7 +1059,7 @@ void CPalModDlg::OnChangeShowAs32BitColor()
     UpdateData(FALSE);
 }
 
-void CPalModDlg::Blink()
+void CPalModDlg::OnBlink()
 {
     if (m_fEnabled && m_fCanBlink)
     {
@@ -1398,20 +1398,102 @@ void CPalModDlg::OnBnClickedReverse()
     }
 }
 
-void CPalModDlg::HandleColorTransform(ColorTransform action)
+LPCWSTR CPalModDlg::_GetStringForColorTransform(DWORD colorAction)
+{
+    switch (colorAction)
+    {
+        case CUSTOM_BLINK:
+            return L"Blink";
+        case CUSTOM_INVERT:
+        default:
+            OutputDebugString(L"CPalModDlg::_GetStringForColorTransform:: Unhandled transform!\r\n");
+            __fallthrough;
+            return L"&Invert";
+        case CUSTOM_REVERT:
+            return L"&Revert";
+        case CUSTOM_COLORS_REVERSE:
+            return L"Reverse";
+        case CUSTOM_GRADIENT_RGB:
+        case CUSTOM_GRADIENT_HSL:
+        case CUSTOM_GRADIENT_HSV:
+        case CUSTOM_GRADIENT_LAB:
+        case CUSTOM_GRADIENT_XYZ:
+            return L"Gradient";
+        case CUSTOM_GRAYSCALE_AVG:
+        case CUSTOM_GRAYSCALE_MAX:
+        case CUSTOM_GRAYSCALE_MID:
+        case CUSTOM_GRAYSCALE_WGHT:
+            return L"&Grayscale";
+        case CUSTOM_COLORS_MAP:
+            return L"&Map";
+        case CUSTOM_COLORS_SWAP_RG:
+            return L"R<->G";
+        case CUSTOM_COLORS_SWAP_GB:
+            return L"G<->B";
+        case CUSTOM_COLORS_SWAP_RB:
+            return L"R<->B";
+        case CUSTOM_COLORS_SWAP_RGB:
+            return L"R<-G<-B";
+        case CUSTOM_COLORS_SWAP_RBG:
+            return L"R<-B-<-G";
+    }
+}
+
+void CPalModDlg::_UpdateTransformTooltips(UINT nCtrlID, DWORD dwTransformIndex)
+{
+    switch (dwTransformIndex)
+    {
+        case CUSTOM_REVERT:
+            m_ToolTip.UpdateTipText(IDS_TOOLTIP_REVERT, GetDlgItem(nCtrlID));
+            break;
+        default:
+            m_ToolTip.UpdateTipText(IDS_TOOLTIP_TRANSFORM, GetDlgItem(nCtrlID));
+            break;
+    }
+}
+
+void CPalModDlg::_SetStringsForTransformButton(int nCtrlID, DWORD dwTransformIndex, DWORD dwTransformDefault)
+{
+    const DWORD dwCurrentTransform = CRegProc::GetDefaultColorTransform(dwTransformIndex, dwTransformDefault);
+
+    GetDlgItem(nCtrlID)->SetWindowText(_GetStringForColorTransform(dwCurrentTransform));
+
+    _UpdateTransformTooltips(nCtrlID, dwCurrentTransform);
+}
+
+void CPalModDlg::_UpdateTransformButtonTexts()
+{
+    _SetStringsForTransformButton(IDC_BTRANSFORM1, 1, CUSTOM_BLINK);
+    _SetStringsForTransformButton(IDC_BTRANSFORM2, 2, CUSTOM_INVERT);
+    _SetStringsForTransformButton(IDC_BTRANSFORM3, 3, CUSTOM_REVERT);
+    _SetStringsForTransformButton(IDC_BTRANSFORM4, 4, CUSTOM_COLORS_SWAP_RG);
+    _SetStringsForTransformButton(IDC_BTRANSFORM5, 5, CUSTOM_COLORS_SWAP_GB);
+    _SetStringsForTransformButton(IDC_BTRANSFORM6, 6, CUSTOM_COLORS_SWAP_RB);
+    _SetStringsForTransformButton(IDC_BTRANSFORM7, 7, CUSTOM_COLORS_SWAP_RGB);
+    _SetStringsForTransformButton(IDC_BTRANSFORM8, 8, CUSTOM_COLORS_SWAP_RBG);
+}
+
+void CPalModDlg::HandleColorTransform(DWORD dwTransformIndex, ColorTransform action)
 {
     if (m_fEnabled)
     {
         if (action == ColorTransform::Default)
         {
-            const DWORD dwCurrentTransform = CRegProc::GetDefaultColorTransform(CUSTOM_INVERT);
+            const DWORD dwCurrentTransform = CRegProc::GetDefaultColorTransform(dwTransformIndex, CUSTOM_INVERT);
             switch (dwCurrentTransform)
             {
                 default:
                     OutputDebugString(L"Unhandled transform!\r\n");
                     __fallthrough;
+                case CUSTOM_BLINK:
+                    return OnBlink();
                 case CUSTOM_INVERT:
                     action = ColorTransform::Invert;
+                    break;
+                case CUSTOM_REVERT:
+                    return OnBnRevert();
+                case CUSTOM_REVERSE:
+                    action = ColorTransform::Reverse;
                     break;
                 case CUSTOM_GRAYSCALE_AVG:
                     action = ColorTransform::Grayscale_Average;
@@ -1440,6 +1522,21 @@ void CPalModDlg::HandleColorTransform(ColorTransform action)
                     return OnBnClickedReverse();
                 case CUSTOM_COLORS_MAP:
                     return OnMappingPaletteUse_Current();
+                case CUSTOM_COLORS_SWAP_RG:
+                    action = ColorTransform::Swap_RG;
+                    break;
+                case CUSTOM_COLORS_SWAP_GB:
+                    action = ColorTransform::Swap_GB;
+                    break;
+                case CUSTOM_COLORS_SWAP_RB:
+                    action = ColorTransform::Swap_RB;
+                    break;
+                case CUSTOM_COLORS_SWAP_RGB:
+                    action = ColorTransform::Swap_RGB;
+                    break;
+                case CUSTOM_COLORS_SWAP_RBG:
+                    action = ColorTransform::Swap_RBG;
+                    break;
             }
         }
 

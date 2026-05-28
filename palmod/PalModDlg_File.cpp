@@ -827,11 +827,6 @@ void CPalModDlg::LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile)
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
 
-void CPalModDlg::OnBnBlink()
-{
-    Blink();
-}
-
 void CPalModDlg::OnImportPalette()
 {
     // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version

@@ -26,6 +26,13 @@ constexpr auto CUSTOM_GRAYSCALE_WGHT    = WM_USER + 27;
 constexpr auto CUSTOM_INVERT            = WM_USER + 28;
 constexpr auto CUSTOM_COLORS_REVERSE    = WM_USER + 29;
 constexpr auto CUSTOM_COLORS_MAP        = WM_USER + 30;
+constexpr auto CUSTOM_COLORS_SWAP_RG    = WM_USER + 31;
+constexpr auto CUSTOM_COLORS_SWAP_GB    = WM_USER + 32;
+constexpr auto CUSTOM_COLORS_SWAP_RB    = WM_USER + 33;
+constexpr auto CUSTOM_COLORS_SWAP_RGB   = WM_USER + 34;
+constexpr auto CUSTOM_COLORS_SWAP_RBG   = WM_USER + 35;
+constexpr auto CUSTOM_BLINK             = WM_USER + 36;
+constexpr auto CUSTOM_REVERT            = WM_USER + 37;
 
 class CJunk :
     public CWnd
