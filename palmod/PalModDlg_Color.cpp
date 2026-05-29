@@ -1404,10 +1404,10 @@ LPCWSTR CPalModDlg::_GetStringForColorTransform(DWORD colorAction)
     {
         case CUSTOM_BLINK:
             return L"Blink";
-        case CUSTOM_INVERT:
         default:
             OutputDebugString(L"CPalModDlg::_GetStringForColorTransform:: Unhandled transform!\r\n");
             __fallthrough;
+        case CUSTOM_INVERT:
             return L"&Invert";
         case CUSTOM_REVERT:
             return L"&Revert";
