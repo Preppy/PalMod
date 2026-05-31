@@ -938,6 +938,11 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         unsigned char nCurrentPalStart = 0;
         for (int nPos = 0; nPos < m_nImgAmt; nPos++)
         {
+            if (!m_pImgBuffer[nPos])
+            {
+                continue;
+            }
+
             unsigned char nCurrentPalEnd = min(0xff, nCurrentPalStart + m_pImgBuffer[nPos]->uPalSz);
 
             if (nPos < static_cast<int>(nLayerToStartWith))
@@ -946,12 +951,49 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                 continue;
             }
 
+            unsigned char nLowestPaletteReference = 0xff;
+            unsigned char nNormalizeToZeroStartValue = 0;
+
+            // If and only if we have 1 preview, check and sure the preview can be used with this palette
+            if ((m_nImgAmt == 1) && (nPos == 0))
+            {
+                for (size_t iPos = 0; iPos < nDataLen; iPos++)
+                {
+                    if (pImageData[iPos])
+                    {
+                        nLowestPaletteReference = min(nLowestPaletteReference, pImageData[iPos]);
+                    }
+                }
+
+                if (nLowestPaletteReference > nCurrentPalEnd)
+                {
+                    // The preview they want to use is offset to a higher palette range.  This is abnormal.
+                    // This so far has only been happening with sprite dump previews where the preview is indexed
+                    // across the full character palette range (0-256 in whatever lengths), but our palette
+                    // is some subset of that.
+                    // Given that we are in a completely failure state where nothing would be visible,
+                    // let's try to make *something* visible by offsetting the preview's used palette downwards.
+                    unsigned char nIntendedPalette = static_cast<unsigned char>(floor(nLowestPaletteReference / 16));
+                    nNormalizeToZeroStartValue = nIntendedPalette * 16;
+
+                    CString strMsg;
+                    strMsg.Format(L"Palette intended for line %u: adjusting to line 0.\r\n", nIntendedPalette);
+
+                    OutputDebugString(strMsg.GetString());
+                }
+            }
+
             std::vector<uint8_t> vPixels;
             vPixels.resize(nDataLen);
 
             for (size_t iPos = 0; iPos < nDataLen; iPos++)
             {
                 unsigned char nAdjustedIndex = pImageData[iPos];
+
+                if (nAdjustedIndex > nNormalizeToZeroStartValue)
+                {
+                    nAdjustedIndex -= nNormalizeToZeroStartValue;
+                }
 
                 if ((nAdjustedIndex <= nCurrentPalStart) ||
                     (nAdjustedIndex >= nCurrentPalEnd))
