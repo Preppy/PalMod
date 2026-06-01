@@ -687,6 +687,75 @@ const sGame_PaletteDataset BREAKERS_A_BONUS_SELECT_PALETTES[] =
     { L"Select Icons 2/2", 0x1c2550, 0x1c25d0, indexBreakersSprites_Bonus, 0x02 },
 };
 
+const sGame_PaletteDataset BREAKERS_A_BONUS_HUD_PALETTES[] =
+{
+    { L"KO text",           0x1243d4, 0x1243f4, indexBreakersSprites_Bonus, 0x06 },
+    { L"TIME UP text",      0x1243f4, 0x124414, indexBreakersSprites_Bonus, 0x07 },
+    { L"PERFECT! text",     0x124414, 0x124434, indexBreakersSprites_Bonus, 0x08 },
+    { L"WIN / LOSE text",   0x124434, 0x124454, indexBreakersSprites_Bonus, 0x09 },
+
+    { L"Lifebar and Names 1/2",     0x124534, 0x124554, indexBreakersSprites_Bonus, 0x0a,& pairNext },
+    { L"Lifebar and Names 2/2",     0x124574, 0x124594, indexBreakersSprites_Bonus, 0x0b },
+    { L"Lifebar: Desperation 1/2",  0x124554, 0x124574, indexBreakersSprites_Bonus, 0x0a, &pairNext },
+    { L"Lifebar: Desperation 2/2",  0x124594, 0x1245b4, indexBreakersSprites_Bonus, 0x0b },
+    { L"Center timer Normal",       0x1245b4, 0x1245d4, indexBreakersSprites_Bonus, 0x0c },
+    { L"Center Timer Low",          0x1245d4, 0x1245f4, indexBreakersSprites_Bonus, 0x0c },
+    { L"Combo text",                0x1245f4, 0x124614, indexBreakersSprites_Bonus, 0x0d },
+
+    { L"Super Meter cycle 1 1/4", 0x124714, 0x124734, indexBreakersSprites_Bonus, 0x15 },
+    { L"Super Meter cycle 1 2/4", 0x124734, 0x124754, indexBreakersSprites_Bonus, 0x15 },
+    { L"Super Meter cycle 1 3/4", 0x124754, 0x124774, indexBreakersSprites_Bonus, 0x15 },
+    { L"Super Meter cycle 1 4/4", 0x124774, 0x124794, indexBreakersSprites_Bonus, 0x15 },
+
+    { L"Super Meter cycle 2 1/4", 0x124794, 0x1247b4, indexBreakersSprites_Bonus, 0x16 },
+    { L"Super Meter cycle 2 2/4", 0x1247b4, 0x1247d4, indexBreakersSprites_Bonus, 0x16 },
+    { L"Super Meter cycle 2 3/4", 0x1247d4, 0x1247f4, indexBreakersSprites_Bonus, 0x16 },
+    { L"Super Meter cycle 2 4/4", 0x1247f4, 0x124814, indexBreakersSprites_Bonus, 0x16 },
+
+    { L"Super Meter cycle 3 1/4", 0x124814, 0x124834, indexBreakersSprites_Bonus, 0x17 },
+    { L"Super Meter cycle 3 2/4", 0x124834, 0x124854, indexBreakersSprites_Bonus, 0x17 },
+    { L"Super Meter cycle 3 3/4", 0x124854, 0x124874, indexBreakersSprites_Bonus, 0x17 },
+    { L"Super Meter cycle 3 4/4", 0x124874, 0x124894, indexBreakersSprites_Bonus, 0x17 },
+
+    { L"Super Meter cycle 4 1/4", 0x124894, 0x1248b4, indexBreakersSprites_Bonus, 0x18 },
+    { L"Super Meter cycle 4 2/4", 0x1248b4, 0x1248d4, indexBreakersSprites_Bonus, 0x18 },
+    { L"Super Meter cycle 4 3/4", 0x1248d4, 0x1248f4, indexBreakersSprites_Bonus, 0x18 },
+    { L"Super Meter cycle 4 4/4", 0x1248f4, 0x124914, indexBreakersSprites_Bonus, 0x18 },
+
+    { L"Various Text",                      0x1eb62a, 0x1eb64a, indexBreakersSprites_Bonus, 0x10 },
+    { L"Above Lifebar WIN text",            0x1eb64a, 0x1eb66a, indexBreakersSprites_Bonus, 0x11 },
+    { L"Score text",                        0x1eb68a, 0x1eb6aa, indexBreakersSprites_Bonus, 0x12 },
+    { L"PRESS START text",                  0x1eb6aa, 0x1eb6ca, indexBreakersSprites_Bonus, 0x13 },
+    { L"Player indicator above lifebar",    0x1eb6ea, 0x1eb70a, indexBreakersSprites_Bonus, 0x14 },
+};
+
+const sGame_PaletteDataset BREAKERS_A_BONUS_BONUS_PALETTES[] =
+{
+    { L"BREAKERS logo cycle 1/6", 0x196cb8, 0x196cd8, indexBreakersSprites_Bonus, 0x19 },
+    { L"BREAKERS logo cycle 2/6", 0x196d4c, 0x196d6c, indexBreakersSprites_Bonus, 0x19 },
+    { L"BREAKERS logo cycle 3/6", 0x196d6c, 0x196d8c, indexBreakersSprites_Bonus, 0x19 },
+    { L"BREAKERS logo cycle 4/6", 0x196d8c, 0x196dac, indexBreakersSprites_Bonus, 0x19 },
+    { L"BREAKERS logo cycle 5/6", 0x196dac, 0x196dcc, indexBreakersSprites_Bonus, 0x19 },
+    { L"BREAKERS logo cycle 6/6", 0x196dcc, 0x196dec, indexBreakersSprites_Bonus, 0x19 },
+    { L"REVENGE logo", 0x10dd32, 0x10dd52, indexBreakersSprites_Bonus, 0x1a },
+
+    { L"VISCO GAMES text", 0x196dec, 0x196e0c, indexBreakersSprites_Bonus, 0x1c },
+    { L"Copyright Visco", 0x196e0c, 0x196e2c, indexBreakersSprites_Bonus, 0x1d },
+    { L"Title Screen red background", 0x196cd8, 0x196cf8, indexBreakersSprites_Bonus, 0x1b },
+    { L"Title Screen background", 0x196cf8, 0x196d18, indexBreakersSprites_Bonus, 0x1e },
+
+    { L"Here Comes a Challenger text cycle 1/8", 0x124614, 0x124634, indexBreakersSprites_Bonus, 0x0e },
+    { L"Here Comes a Challenger text cycle 2/8", 0x124634, 0x124654, indexBreakersSprites_Bonus, 0x0e },
+    { L"Here Comes a Challenger text cycle 3/8", 0x124654, 0x124674, indexBreakersSprites_Bonus, 0x0e },
+    { L"Here Comes a Challenger text cycle 4/8", 0x124674, 0x124694, indexBreakersSprites_Bonus, 0x0e },
+    { L"Here Comes a Challenger text cycle 5/8", 0x124694, 0x1246b4, indexBreakersSprites_Bonus, 0x0e },
+    { L"Here Comes a Challenger text cycle 6/8", 0x1246b4, 0x1246d4, indexBreakersSprites_Bonus, 0x0e },
+    { L"Here Comes a Challenger text cycle 7/8", 0x1246d4, 0x1246f4, indexBreakersSprites_Bonus, 0x0e },
+    { L"Here Comes a Challenger text cycle 8/8", 0x1246f4, 0x124714, indexBreakersSprites_Bonus, 0x0e },
+
+    { L"Breakers Revenge small logo", 0x124a94, 0x124ab4, indexBreakersSprites_Bonus, 0x0f },
+};
+
 const sDescTreeNode BREAKERS_A_SHO_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)BREAKERS_A_SHO_PALETTES_A, ARRAYSIZE(BREAKERS_A_SHO_PALETTES_A) },
@@ -786,6 +855,8 @@ const sDescTreeNode BREAKERS_A_BONUS_COLLECTION[] =
 {
     { L"Intro", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BONUS_INTRO_PALETTES, ARRAYSIZE(BREAKERS_A_BONUS_INTRO_PALETTES) },
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BONUS_SELECT_PALETTES, ARRAYSIZE(BREAKERS_A_BONUS_SELECT_PALETTES) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BONUS_HUD_PALETTES, ARRAYSIZE(BREAKERS_A_BONUS_HUD_PALETTES) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BONUS_BONUS_PALETTES, ARRAYSIZE(BREAKERS_A_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode BREAKERS_A_UNITS[] =

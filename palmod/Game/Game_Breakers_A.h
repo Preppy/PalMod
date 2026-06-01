@@ -35,8 +35,8 @@ private:
         BREAKERS_A_UNITS,
         ARRAYSIZE(BREAKERS_A_UNITS),
         L"BreakersRevE.txt",            // Extra filename
-        415,                            // Count of palettes listed in the header
-        0x135e2a,                       // Lowest known location used for palettes
+        467,                            // Count of palettes listed in the header
+        0x10dd32,                       // Lowest known location used for palettes
     };
 
     static void DumpAllCharacters();
