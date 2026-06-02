@@ -1456,6 +1456,9 @@ void CPalModDlg::_SetStringsForTransformButton(int nCtrlID, DWORD dwTransformInd
 {
     const DWORD dwCurrentTransform = CRegProc::GetDefaultColorTransform(dwTransformIndex, dwTransformDefault);
 
+    // write it out for first usage 
+    CRegProc::SetDefaultColorTransform(dwTransformIndex, dwCurrentTransform);
+
     GetDlgItem(nCtrlID)->SetWindowText(_GetStringForColorTransform(dwCurrentTransform));
 
     _UpdateTransformTooltips(nCtrlID, dwCurrentTransform);
