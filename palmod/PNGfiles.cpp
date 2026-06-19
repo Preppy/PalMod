@@ -2,7 +2,7 @@
 #include "PalMod.h"
 #include "lodepng\lodepng.h"
 
-bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
+bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /* = false */, bool fGIMPOffsetByOne /* = false */)
 {
     bool fSuccess = false;
 
@@ -173,7 +173,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                     if (fShouldProcessTopdown)
                     {
-                        iPNGIndex = 0;
+                        iPNGIndex = fGIMPOffsetByOne ? 1 : 0;
 
                         for (uint32_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {

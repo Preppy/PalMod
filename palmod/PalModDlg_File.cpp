@@ -832,13 +832,16 @@ void CPalModDlg::OnImportPalette()
     // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version
     if (m_fEnabled)
     {
+        // Note: the PNG array locations are used below, so update that code if you tweak the ordering
+
         // This is the core set plus PRPL
-        static LPCWSTR rgszACROpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.prpl|"
-                                                L"ACT Palette|*.act|"
+        static LPCWSTR rgszACROpenFilter[] = { L"Supported palette files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.prpl|"
+                                                L"ACT palette|*.act|"
                                                 L"Indexed PNG|*.png|"
                                                 L"Microsoft PAL|*.pal|"
-                                                L"Upside-down ACT Palette|*.act|"
-                                                L"Upside-down Indexed PNG|*.png|"
+                                                L"ACT palette (upside-down color table)|*.act|"
+                                                L"Indexed PNG (upside-down color table)|*.png|"
+                                                L"Indexed PNG (GIMP wrong-offset color table)|*.png|"
                                                 L"Indexed BMP|*.bmp|"
                                                 L"GIF|*.gif|"
                                                 L"GIMP palette file|*.gpl|"
@@ -847,12 +850,13 @@ void CPalModDlg::OnImportPalette()
                                                 L"|" };
 
         // This is the core set plus CFPL/IMPL
-        static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
-                                                L"ACT Palette|*.act|"
+        static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported palette files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl;*.cfpl|"
+                                                L"ACT palette|*.act|"
                                                 L"Indexed PNG|*.png|"
                                                 L"Microsoft PAL|*.pal|"
-                                                L"Upside-down ACT Palette|*.act|"
-                                                L"Upside-down Indexed PNG|*.png|"
+                                                L"ACT palette (upside-down color table)|*.act|"
+                                                L"Indexed PNG (upside-down color table)|*.png|"
+                                                L"Indexed PNG (GIMP wrong-offset color table)|*.png|"
                                                 L"Indexed BMP|*.bmp|"
                                                 L"GIF|*.gif|"
                                                 L"GIMP palette file|*.gpl|"
@@ -862,12 +866,13 @@ void CPalModDlg::OnImportPalette()
                                                 L"|" };
 
         // This is the core set plus txt.dat
-        static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*txt.dat;*.gpl;*.hpl|"
-                                               L"ACT Palette|*.act|"
+        static LPCWSTR rgszSF3OpenFilter[] = { L"Supported palette files|*.act;*.bmp;*.gif;*.png;*.pal;*txt.dat;*.gpl;*.hpl|"
+                                               L"ACT palette|*.act|"
                                                L"Indexed PNG|*.png|"
                                                L"Microsoft PAL|*.pal|"
-                                               L"Upside-down ACT Palette|*.act|"
-                                               L"Upside-down Indexed PNG|*.png|"
+                                               L"ACT palette (upside-down color table)|*.act|"
+                                               L"Indexed PNG (upside-down color table)|*.png|"
+                                               L"Indexed PNG (GIMP wrong-offset color table)|*.png|"
                                                L"Indexed BMP|*.bmp|"
                                                L"GIF|*.gif|"
                                                L"PS3 SF3::OE color file|*.txt.dat|"
@@ -875,12 +880,13 @@ void CPalModDlg::OnImportPalette()
                                                L"HipPalette|*.hpl|"
                                                L"|" };
 
-        static LPCWSTR rgszOpenFilter[] = { L"Supported Palette Files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl|"
-                                            L"ACT Palette|*.act|"
+        static LPCWSTR rgszOpenFilter[] = { L"Supported palette files|*.act;*.bmp;*.gif;*.png;*.pal;*.gpl;*.hpl|"
+                                            L"ACT palette|*.act|"
                                             L"Indexed PNG|*.png|"
                                             L"Microsoft PAL|*.pal|"
-                                            L"Upside-down ACT Palette|*.act|"
-                                            L"Upside-down Indexed PNG|*.png|"
+                                            L"ACT palette (upside-down color table)|*.act|"
+                                            L"Indexed PNG (upside-down color table)|*.png|"
+                                            L"Indexed PNG (GIMP wrong-offset color table)|*.png|"
                                             L"Indexed BMP|*.bmp|"
                                             L"GIF|*.gif|"
                                             L"GIMP palette file|*.gpl|"
@@ -927,7 +933,7 @@ void CPalModDlg::OnImportPalette()
 
             if (_wcsicmp(szExtension, L".png") == 0)
             {
-                LoadPaletteFromPNG(strFileName, (PaletteLoad.GetOFN().nFilterIndex > 3));
+                LoadPaletteFromPNG(strFileName, (PaletteLoad.GetOFN().nFilterIndex == 6), (PaletteLoad.GetOFN().nFilterIndex == 7));
             }
             else if (_wcsicmp(szExtension, L".pal") == 0)
             {
@@ -982,38 +988,38 @@ void CPalModDlg::OnImportPalette()
 
 void CPalModDlg::OnExportPalette()
 {
-    static LPCWSTR rgszSaveFilter[] = { L"ACT Palette|*.act|"
-                                        L"GIMP Palette File|*.gpl|"
+    static LPCWSTR rgszSaveFilter[] = { L"ACT palette|*.act|"
+                                        L"GIMP palette file|*.gpl|"
                                         L"Microsoft PAL|*.pal|"
-                                        L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                        L"ACT palette (upside-down color table)|*.act|" // This is at position four: that is important below!
                                         L"HipPalette|*.hpl|"
                                         L"TileLayer Pro palette|*.tpl|"
                                         L"|" };
 
     static LPCWSTR rgszACRSaveFilter[] = { L"HipPalette|*.hpl|"
-                                            L"GGXXACR PRPL Palette|*.prpl|"
-                                            L"ACT Palette|*.act|"
-                                            L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
-                                            L"GIMP Palette File|*.gpl|"
+                                            L"GGXXACR PRPL palette|*.prpl|"
+                                            L"ACT palette|*.act|"
+                                            L"ACT palette (upside-down color table)|*.act|" // This is at position four: that is important below!
+                                            L"GIMP palette file|*.gpl|"
                                             L"Microsoft PAL|*.pal|"
                                             L"TileLayer Pro palette|*.tpl|"
                                             L"|" };
 
     static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
-                                                L"BlazBlue Central Fiction Palette Set|*.cfpl|"
-                                                L"ACT Palette|*.act|"
-                                                L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
-                                                L"GIMP Palette File|*.gpl|"
+                                                L"BlazBlue Central Fiction palette set|*.cfpl|"
+                                                L"ACT palette|*.act|"
+                                                L"ACT palette (upside-down color table)|*.act|" // This is at position four: that is important below!
+                                                L"GIMP palette file|*.gpl|"
                                                 L"Microsoft PAL|*.pal|"
                                                 L"TileLayer Pro palette|*.tpl|"
                                                 L"|" };
 
     static LPCWSTR rgszBBCFAndBBTAGSaveFilter[] = { L"HipPalette|*.hpl|"
-                                                    L"BlazBlue Central Fiction Palette Set|*.cfpl|"
-                                                    L"ACT Palette|*.act|"
-                                                    L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
-                                                    L"BlazBlue Cross Tag Battle Palette Set|*.impl|"
-                                                    L"GIMP Palette File|*.gpl|"
+                                                    L"BlazBlue Central Fiction palette set|*.cfpl|"
+                                                    L"ACT palette|*.act|"
+                                                    L"ACT palette (upside-down color table)|*.act|" // This is at position four: that is important below!
+                                                    L"BlazBlue Cross Tag Battle palette set|*.impl|"
+                                                    L"GIMP palette file|*.gpl|"
                                                     L"Microsoft PAL|*.pal|"
                                                     L"TileLayer Pro palette|*.tpl|"
                                                     L"|" };

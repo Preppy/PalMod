@@ -524,7 +524,7 @@ public:
     bool LoadPaletteFromGIF(LPCWSTR pszFileName);
     bool LoadPaletteFromGPL(LPCWSTR pszFileName);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);
-    bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false, bool fGIMPOffsetByOne = false);
     // BlazBlue palette files
     bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
     bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
