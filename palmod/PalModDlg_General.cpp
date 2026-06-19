@@ -272,11 +272,10 @@ bool CPalModDlg::GetPathForUserFallbackImage(CGameClass* CurrGame, UINT nPositio
             else
             {
                 bool fIsButtonNode = false;
+                bool fPalettesAreListOfColors = false;
                 SanitizeString(szUnit);
 
                 std::vector<LPCWSTR> pButtonLabelSet = CurrGame->GetButtonDescSet();
-
-                SanitizeString(szPalette);
 
                 for (LPCWSTR pszButtonLabel : pButtonLabelSet)
                 {
@@ -285,12 +284,23 @@ bool CPalModDlg::GetPathForUserFallbackImage(CGameClass* CurrGame, UINT nPositio
                         fIsButtonNode = true;
                         break;
                     }
+                    else if (_wcsicmp(pszButtonLabel, szPalette) == 0)
+                    {
+                        fPalettesAreListOfColors = true;
+                        break;
+                    }
+
                 }
 
                 // Sanitize after compares so we don't break the string match
                 SanitizeString(szNode);
+                SanitizeString(szPalette);
 
-                if (fIsButtonNode)
+                if (fPalettesAreListOfColors)
+                {
+                    strPath.Format(L"previews\\%s.png", szUnit);
+                }
+                else if (fIsButtonNode)
                 {
                     CleanseButtonNodeString(szUnit, szNode, szPalette);
 
@@ -414,7 +424,7 @@ void CPalModDlg::PostPalSel()
                 bool fHaveOverrideImage = false;
                 m_strOverridePreviewStatus.Empty();
 
-#ifdef ALLOW_BBCF_OVERRIDES
+#ifdef ALLOW_OVERRIDE_OF_BUILTIN_PREVIEWS
                 // This code path was added speculatively.  The concern is that allowing a user override
                 // would permanently override the built-in option even if updated or improved.
                 // Buuuuuut... this logic is here and works if it turns out to be useful.

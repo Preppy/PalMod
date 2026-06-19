@@ -97,15 +97,15 @@ const std::vector<sGCBUPF_RelativePaletteData> MCI_PlayerExtras_S =
 // For the smaller Export listbox
 const std::vector<LPCWSTR> MCI_SPaletteNamesShort =
 {
-    { L"B1" },
-    { L"B2" },
-    { L"B3" },
-    { L"B4" },
-    { L"S1" },
-    { L"S2" },
-    { L"S3" },
-    { L"S4" },
-    { L"X1" },
+    { L"Base 1" },
+    { L"Base 2" },
+    { L"Base 3" },
+    { L"Base 4" },
+    { L"Special 1" },
+    { L"Special 2" },
+    { L"Special 3" },
+    { L"Special 4" },
+    { L"Collab" },
 };
 
 const sGCBUPF_BasicNodeData MCI_S_NormalNode =
