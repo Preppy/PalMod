@@ -223,7 +223,7 @@ const sGame_PaletteDataset KOF02UM_S_STAGE_PALETTES_NEOGEO[] =
     { L"NeoGeo World Asset 17", 0x4040c0, 0x4044c0 },
     { L"NeoGeo World Asset 18", 0x4444c0, 0x4448c0 },
     { L"NeoGeo World Asset 19", 0x4848c0, 0x484cc0 },
-    { L"NeoGeo World Asset 20", 0x4c4cc0, 0x4c50c0},
+    { L"NeoGeo World Asset 20", 0x4c4cc0, 0x4c50c0 },
 };
 
 const sDescTreeNode KOF02UM_S_STAGES_COLLECTION_NEOGEO[] =
@@ -3250,14 +3250,14 @@ const std::vector<sGameUnitsByFile> KOF02UM_S_DIR_8887_UNITS =
     { L"game\\demo\\rank.bin", 769318, L"Rankings (ENG, JPN, PT-BR)", KOF02UM_S_RANK_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_ENU) },
     { L"game\\demo\\ranks.bin", 769318, L"Rankings (Spanish)", KOF02UM_S_RANK_COLLECTION_SPN, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION_SPN) },
 
-    { L"game\\menu\\rank_a.bin", 0xa4e78, L"Rankings (Arcade Team, ENG, JPN, PT-BR)", KOF02UM_S_UNITS_RANKMENU_ENU, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ENU) },
-    { L"game\\menu\\rank_as.bin", 0xa4e78, L"Rankings (Arcade Team, Spanish)", KOF02UM_S_UNITS_RANKMENU_ESN, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ESN) },
-    { L"game\\menu\\rank_c.bin", 0xa55c8, L"Rankings (Character Usage, ENG, JPN, PT-BR)", KOF02UM_S_UNITS_RANKMENU_ENU, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ENU) },
-    { L"game\\menu\\rank_cs.bin", 0xa55c8, L"Rankings (Character Usage, Spanish)", KOF02UM_S_UNITS_RANKMENU_ESN, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ESN) },
-    { L"game\\menu\\rank_e.bin", 0xa4bf0, L"Rankings (Endless, ENG, JPN, PT-BR)", KOF02UM_S_UNITS_RANKMENU_ENU, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ENU) },
-    { L"game\\menu\\rank_es.bin", 0xa4bf0, L"Rankings (Endless, Spanish)", KOF02UM_S_UNITS_RANKMENU_ESN, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ESN) },
-    { L"game\\menu\\rank_s.bin", 0xa4e78, L"Rankings (Arcade Single, ENG, JPN, PT-BR)", KOF02UM_S_UNITS_RANKMENU_ENU, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ENU) },
-    { L"game\\menu\\rank_ss.bin", 0xa4e78, L"Rankings (Arcade Single, Spanish)", KOF02UM_S_UNITS_RANKMENU_ESN, ARRAYSIZE(KOF02UM_S_UNITS_RANKMENU_ESN) },
+    { L"game\\menu\\rank_a.bin", 0xa4e78, L"Rankings (Arcade Team, ENG, JPN, PT-BR)", KOF02UM_S_RANKMENU_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ENU) },
+    { L"game\\menu\\rank_as.bin", 0xa4e78, L"Rankings (Arcade Team, Spanish)", KOF02UM_S_RANKMENU_COLLECTION_ESN, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ESN) },
+    { L"game\\menu\\rank_c.bin", 0xa55c8, L"Rankings (Character Usage, ENG, JPN, PT-BR)", KOF02UM_S_RANKMENU_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ENU) },
+    { L"game\\menu\\rank_cs.bin", 0xa55c8, L"Rankings (Character Usage, Spanish)", KOF02UM_S_RANKMENU_COLLECTION_ESN, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ESN) },
+    { L"game\\menu\\rank_e.bin", 0xa4bf0, L"Rankings (Endless, ENG, JPN, PT-BR)", KOF02UM_S_RANKMENU_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ENU) },
+    { L"game\\menu\\rank_es.bin", 0xa4bf0, L"Rankings (Endless, Spanish)", KOF02UM_S_RANKMENU_COLLECTION_ESN, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ESN) },
+    { L"game\\menu\\rank_s.bin", 0xa4e78, L"Rankings (Arcade Single, ENG, JPN, PT-BR)", KOF02UM_S_RANKMENU_COLLECTION_ENU, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ENU) },
+    { L"game\\menu\\rank_ss.bin", 0xa4e78, L"Rankings (Arcade Single, Spanish)", KOF02UM_S_RANKMENU_COLLECTION_ESN, ARRAYSIZE(KOF02UM_S_RANKMENU_COLLECTION_ESN) },
 
     { L"game\\menu\\clear.bin", 137422, L"Clear", KOF02UM_S_CLEAR_COLLECTION, ARRAYSIZE(KOF02UM_S_CLEAR_COLLECTION)},
 
