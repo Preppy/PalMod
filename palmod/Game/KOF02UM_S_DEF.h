@@ -200,6 +200,7 @@ const std::vector<uint16_t> KOF02UM_S_IMGIDS_USED =
     indexKOF02UMSprites_ZeroOG,    // 0xBb
 
     indexKOF02UMSprites_Bonus,      // 0x1d7
+    indexKOF02UMSprites_Stages,     // 0x1d8
 
     indexKOF02UMSprites_Extras,     // 4e - portraits and such
 
