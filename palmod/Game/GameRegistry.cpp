@@ -197,7 +197,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 274, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 275, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -359,6 +359,7 @@ namespace KnownGameInfo
     CGameClass* Make_DEVMODE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DevMode_A(nConfirmedROMSize, pszFilePath); }
     CGameClass* Make_NGBC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NGBC_A(nConfirmedROMSize); }
     CGameClass* Make_NINJAMASTERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NINJAMASTERS_A(nConfirmedROMSize); }
+    CGameClass* Make_NINJAMASTERS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NINJAMASTERS_S(nConfirmedROMSize); }
     CGameClass* Make_P4AU_FightClub(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_FightClub(nConfirmedROMSize); }
     CGameClass* Make_P4AU_NESICA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_NESICA(nConfirmedROMSize); }
     CGameClass* Make_P4AU_STEAM(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_STEAM(nConfirmedROMSize); }
@@ -549,7 +550,7 @@ namespace KnownGameInfo
         {
             AvgrsGS_A,
             L"Avengers in Galactic Storm (Data East)",
-            { AvgrsGS_A,        L"Avengers in Galactic Storm", L"Avengers in Galactic Storm (Data East)|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::DataEast },
+            { AvgrsGS_A,        L"Avengers in Galactic Storm (MLC)", L"Avengers in Galactic Storm (Data East)|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::DataEast },
             Make_AvgrsGS_A,
             CGame_AvgrsGS_A_DIR::GetRule,
         },
@@ -1728,9 +1729,16 @@ namespace KnownGameInfo
         {
             NINJAMASTERS_A,
             L"Ninja Masters (Neo-Geo)",
-            { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
+            { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's (Neo-Geo)|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
             Make_NINJAMASTERS_A,
             CGame_NINJAMASTERS_A::GetRule,
+        },
+        {
+            NINJAMASTERS_S,
+            L"Ninja Masters (Steam)",
+            { NINJAMASTERS_S,   L"Ninja Master's", L"Ninja Master's (Steam)|p1.bin|", GamePlatform::Steam },
+            Make_NINJAMASTERS_S,
+            CGame_NINJAMASTERS_S::GetRule,
         },
         {
             P4AU_FightClub,
@@ -2583,7 +2591,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 274, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 275, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 

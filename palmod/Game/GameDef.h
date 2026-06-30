@@ -298,6 +298,7 @@ enum SupportedGamesList
     SSF2_SNES,
     BladeStrangers_S,
     WorldHeroesPerfect_S,
+    NINJAMASTERS_S,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
