@@ -1301,8 +1301,8 @@ enum KOFSpriteList
     indexKOF97Sprites_K,                // 0x2e5
     indexKOF97Sprites_Kasumi,           // 0x2e6
 
-    // indexKOF97Sprites_Bonus,         // 0x1F0
-    // indexKOF97Sprites_Stages,        // 0x1F1
+    indexKOF02UMSprites_Stages_2,       // 0x2e7
+    indexKOF02UMPS2Sprites_Stages_2,    // 0x2e8
 };
 
 // This is used for portrait references within the 02UMExtras unit

@@ -208,6 +208,9 @@ const std::vector<uint16_t> KOF02UM_S_IMGIDS_USED =
     indexSVCSprites_OrochiIori,     // 71
 
     indexKOF03Sprites_JhunHoon,     // 0xf2
+
+    indexKOF02UMSprites_Stages_2,       // 0x2e7
+    indexKOF02UMPS2Sprites_Stages_2,    // 0x2e8
 };
 
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_PORTRAITS[] =
