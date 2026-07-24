@@ -158,6 +158,16 @@ public:
 
     std::vector<uint32_t> m_rgUnitRedir;
 
+    enum GAME_SPRITE_STYLE
+    {
+        SPRITES_ARE_FIXED = 0,
+        SPRITES_ARE_USER_MODIFIABLE,
+    };
+
+    GAME_SPRITE_STYLE m_eGameSpriteStyle = GAME_SPRITE_STYLE::SPRITES_ARE_FIXED;
+
+    bool CanSpritesBeUserModified() { return (m_eGameSpriteStyle == GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE); };
+
     // Currently only used by MVC2
     uint16_t*** GetDataBuffer() { return m_pppDataBuffer; };
     uint32_t GetROMLocationForSpecificPalette(uint32_t nUnitId, uint32_t nPalId);

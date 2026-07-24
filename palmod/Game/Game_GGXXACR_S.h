@@ -16,6 +16,10 @@ private:
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_RGBA8887,
         GGXXACR_S_CharacterData,
+        PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
+        0x400,
+        BlendMode::Alpha,
+        GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE,
     };
 
     sGCPUPF_CoreGameData m_sCoreGameData_EXChar
@@ -29,6 +33,10 @@ private:
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_RGBA8887,
         GGXXACR_S_EXCharData,
+        PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
+        0x400,
+        BlendMode::Alpha,
+        GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE,
     };
 
     sGCPUPF_CoreGameData m_sCoreGameData_Extras
@@ -42,6 +50,10 @@ private:
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_RGBA8887,
         GGXXACR_S_ExtrasData,
+        PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
+        0x400,
+        BlendMode::Alpha,
+        GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE,
     };
 
     bool IsGGXXACRFileEncrypted(CFile* LoadedFile);

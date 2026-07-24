@@ -424,11 +424,11 @@ void CPalModDlg::PostPalSel()
                 bool fHaveOverrideImage = false;
                 m_strOverridePreviewStatus.Empty();
 
-#ifdef ALLOW_OVERRIDE_OF_BUILTIN_PREVIEWS
-                // This code path was added speculatively.  The concern is that allowing a user override
-                // would permanently override the built-in option even if updated or improved.
-                // Buuuuuut... this logic is here and works if it turns out to be useful.
-                if (ImgDispCtrl->GetAllowPreviewOverride(CurrGame->GetGameFlag()))
+                // This code path is deliberately limited.  For most games we want the best
+                // most representative previews built into PalMod (imgdat) so that every user
+                // can benefit. BUT there are a few games where people are actively spritehacking,
+                // and for those games we want to allow sprite overrides.
+                if (CurrGame->CanSpritesBeUserModified())
                 {
                     static bool s_fLastOverrideStatus = false;
                     fHaveOverrideImage = GetPathForUserFallbackImage(CurrGame, nCurrentPalette, strOverrideImage);
@@ -440,7 +440,6 @@ void CPalModDlg::PostPalSel()
                         s_fLastOverrideStatus = fHaveOverrideImage;
                     }
                 }
-#endif
 
                 if (!fHaveOverrideImage)
                 {

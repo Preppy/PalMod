@@ -76,6 +76,9 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
     m_nFileAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
     m_nUnitAmt = m_nTotalInternalUnits = GetUniqueUnitCount();
 
+    // allow user sprite overrides if applicable
+    m_eGameSpriteStyle = m_psCurrentGameLoadingData->eGameSpriteStyle;
+
     // Stub in the palette buffer that we will LoadFile into
     InitDataBuffer();
 

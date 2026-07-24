@@ -158,7 +158,6 @@ public:
     // If we wanted to go further we'd want to establish some UI on this.  But per comments, probably a 
     // flawed idea.  It's now updated to work for MCI, but we're pending feedback on implementation 
     // so leave it off for now
-    BOOL GetAllowPreviewOverride(SupportedGamesList gameFlag) { return (gameFlag == MCI_S); };
     BOOL CanForceBGBitmapAvailable();
     BOOL GetPreviewDropIsPalette() { return m_Settings.fPreviewDropIsPalette; };
     void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_Settings.fPreviewDropIsPalette = fPreviewDropIsPalette; };
@@ -168,7 +167,6 @@ public:
     void SetPreviewImportWinKawaksFirst(BOOL fPreviewImportWinKawaksFirst) { m_Settings.fPreviewImportWinKawaksFirst = fPreviewImportWinKawaksFirst; };
     BOOL GetPreviewImportUseFullCPS3() { { return m_Settings.fPreviewImportUseFullCPS3; }; };
     void SetPreviewImportUseFullCPS3(BOOL fPreviewImportUseFullCPS3) { m_Settings.fPreviewImportUseFullCPS3 = fPreviewImportUseFullCPS3; };
-    
 
     int GetBGXOffs() { return m_Settings.nBGBMPOffsets.x; };
     int GetBGYOffs() { return m_Settings.nBGBMPOffsets.y; };

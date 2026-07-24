@@ -16,6 +16,9 @@ private:
         ColMode::COLMODE_BGRA8888_LE,
         BlazBlueCF_S_CharacterData,
         PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
+        0x400,
+        BlendMode::Alpha,
+        GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE,
     };
 
 public:

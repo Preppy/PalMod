@@ -17,6 +17,8 @@ private:
         MCI_S_CharacterData,
         PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet,
         0x400,
+        BlendMode::Alpha,
+        GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE,
     };
 
 public:

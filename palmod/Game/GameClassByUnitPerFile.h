@@ -97,6 +97,7 @@ public:
         const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet;
         const int cbDefaultPaletteSize = 0x400;
         const BlendMode defaultBlendMode = BlendMode::Alpha;
+        const GAME_SPRITE_STYLE eGameSpriteStyle = GAME_SPRITE_STYLE::SPRITES_ARE_FIXED;
     };
 
     static std::wstring m_strGameFriendlyName;
