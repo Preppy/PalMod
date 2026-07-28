@@ -297,18 +297,20 @@ void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t*
             {
                 if (m_pImgBuffer[iLayer])
                 {
+                    sImageDimensions& dimensionsToUse = m_vSpriteOverrideTextures.at(iLayer).pixels.size() ? m_vSpriteOverrideTextures.at(iLayer).dimensions : m_pImgBuffer[iLayer]->dimensions;
+
 #ifdef DEBUG
-                    strMsg.Format(L"CImgDisp::AddImageNode: custom layer override %u: requested %u x %u.", iLayer, m_pImgBuffer[iLayer]->dimensions.width, m_pImgBuffer[iLayer]->dimensions.height);
+                    strMsg.Format(L"CImgDisp::AddImageNode: custom layer override %u: requested %u x %u.\r\n", iLayer, dimensionsToUse.width, dimensionsToUse.height);
                     OutputDebugString(strMsg.GetString());
 #endif
 
-                    nMaxWidth = max(nMaxWidth, m_pImgBuffer[iLayer]->dimensions.width);
-                    nMaxHeight = max(nMaxHeight, m_pImgBuffer[iLayer]->dimensions.height);
+                    nMaxWidth = max(nMaxWidth, dimensionsToUse.width);
+                    nMaxHeight = max(nMaxHeight, dimensionsToUse.height);
                 }
             }
 
 #ifdef DEBUG
-            strMsg.Format(L"CImgDisp::AddImageNode: custom layer override: set %u x %u as layout.", nMaxWidth, nMaxHeight);
+            strMsg.Format(L"CImgDisp::AddImageNode: custom layer override: set %u x %u as layout.\r\n", nMaxWidth, nMaxHeight);
             OutputDebugString(strMsg.GetString());
 #endif
         }
@@ -678,7 +680,7 @@ void CImgDisp::_CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT 
     }
 
     CString strInfo;
-    strInfo.Format(L"CImgDisp::CompositeTexture: texture file is: %u x %u\n", m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.height);
+    strInfo.Format(L"CImgDisp::CompositeTexture: texture file for layer %u is: %u x %u\n", nPositionToLoadTo, m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nPositionToLoadTo).dimensions.height);
     OutputDebugString(strInfo);
 
     // Now composite the data
@@ -1460,7 +1462,6 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
             }
         }
 
-        // filter each color, sadly
         const COLORREF colThisColor = RGB(r, g, b);
 
         if (a != 0) // ignore background color
