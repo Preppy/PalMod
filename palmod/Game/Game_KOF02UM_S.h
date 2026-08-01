@@ -332,8 +332,8 @@ private:
         KOF02UM_S_UNITS_MAIN,
         ARRAYSIZE(KOF02UM_S_UNITS_MAIN),
         L"KOF02UME.txt",        // Extra filename
-        2827,                   // Count of palettes listed in the header
-        0x2a0,                  // Lowest known location used for palettes
+        2835,                   // Count of palettes listed in the header
+        0x0,                    // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_Bar

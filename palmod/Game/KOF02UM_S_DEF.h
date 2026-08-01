@@ -5313,6 +5313,14 @@ const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
     { L"DRAW",                          0x538c0, 0x538e0, indexKOF02UMSprites_Bonus, 0xcb },
     { L"FIGHT Text",                    0x53840, 0x53860, indexKOF02UMSprites_Bonus, 0xcd, &pairNext },
     { L"FIGHT Text Outline",            0x538e0, 0x53900, indexKOF02UMSprites_Bonus, 0xcc },
+    { L"Player 1 Text/Beat By",         0x2ebc0, 0x2ebe0 },
+    { L"Player 2 Text/Beat By",         0x2ed00, 0x2ed20 },
+    { L"High Score Entry Text/Press Start", 0x40, 0x60 },
+    { L"Transition Bars",               0x0, 0x20 },
+    { L"Demonstration 1/4",             0x2ef80, 0x2efa0 },
+    { L"Demonstration 2/4",             0x2efa0, 0x2efc0 },
+    { L"Demonstration 3/4",             0x2efc0, 0x2efe0 },
+    { L"Demonstration 4/4",             0x2efe0, 0x2f000 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
