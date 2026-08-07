@@ -4074,10 +4074,11 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_INHOUSE[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CROOM[] =
 {
-    { L"Coffin Room / New 7 TS (1/4)", 0x2e1300, 0x2e1500, indexJojos50Stages, 0x05 },
+    { L"Coffin Room / New 7 TS (1/4)", 0x2e1300, 0x2e1500, indexJojos50Stages, 0x05, &pairNext },
     { L"Coffin Room / New 7 TS (2/4)", 0x2e1500, 0x2e1700, indexJojos50Stages, 0x06 },
     { L"Coffin Room / New 7 TS (3/4)", 0x2e1700, 0x2e1900, indexJojos50Stages, 0x07 },
     { L"Coffin Room / New 7 TS (4/4)", 0x2e1900, 0x2e1b00, indexJojos50Stages, 0x08 },
+    // The "character" palettes are not present in the Timestop version
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWER[] =
