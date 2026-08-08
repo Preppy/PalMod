@@ -440,6 +440,7 @@ private:
     afx_msg void OnLoadDir_SFIII3Arcade4rd() { OnLoadGameByDirectory(SFIII3_A_DIR_4rd); };
     afx_msg void OnLoadDir_SFIII3Arcade4rd_10() { OnLoadGameByDirectory(SFIII3_A_DIR_4rd_10); };
     afx_msg void OnLoadDir_SFIII3ArcadeEx() { OnLoadGameByDirectory(SFIII3_A_DIR_EX); };
+    afx_msg void OnLoadDir_TKDenshouArcade() { OnLoadGameByDirectory(TKDenshou_A); };
     afx_msg void OnLoadDir_UNICLR()         { OnLoadGameByDirectory(UNICLR_A); };
     afx_msg void OnLoadDir_UNI2()           { OnLoadGameByDirectory(UNI2_S); };
     afx_msg void OnLoadDir_XMVSF_P()         { OnLoadGameByDirectory(XMVSF_P); };

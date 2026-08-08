@@ -108,6 +108,11 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_JOJOS_5 =
     L"A", L"B", L"C", L"S", L"Start"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_TKDENSHOU_5 =
+{
+    L"LP", L"LK", L"HP", L"HK", L"Start"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL6 =
 {
     L"LP", L"MP", L"HP", L"LK", L"MK", L"HK"

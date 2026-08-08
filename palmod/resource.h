@@ -453,13 +453,14 @@
 #define ID_LD_KOF02UM_PS2_RGB555        32997
 #define ID_LD_KOF02UM_PS2_BGR555        32998
 #define ID_LD_BLADESTRANGERS            32999
+#define ID_LD_TKDENSHOUARCADE           33000
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        206
-#define _APS_NEXT_COMMAND_VALUE         33000
+#define _APS_NEXT_COMMAND_VALUE         33001
 #define _APS_NEXT_CONTROL_VALUE         1118
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

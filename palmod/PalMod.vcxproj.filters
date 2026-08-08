@@ -661,6 +661,9 @@
     <Filter Include="Games\Other Platforms\Blade Strangers %28Steam%29">
       <UniqueIdentifier>{ee69ade7-7f78-44b7-96f4-c2dff98be1ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Touki Denshou Angel Eyes %28Tecmo%29">
+      <UniqueIdentifier>{60b5921e-0262-41eb-90d2-36b06c4d495e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2398,6 +2401,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_BladeStrangers_S.h">
       <Filter>Games\Other Platforms\Blade Strangers %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TKDensho_A.h">
+      <Filter>Games\Other Platforms\Touki Denshou Angel Eyes %28Tecmo%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TKDensho_A_DEF.h">
+      <Filter>Games\Other Platforms\Touki Denshou Angel Eyes %28Tecmo%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

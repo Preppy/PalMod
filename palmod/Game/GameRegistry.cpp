@@ -172,6 +172,7 @@
 #include "Game_SVCPLUSA_A.h"
 #include "Game_TattooAsns_A.h"
 #include "Game_TekkenAdvance_GBA.h"
+#include "Game_TKDensho_A.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
 #include "Game_TurfMasters_A.h"
@@ -197,7 +198,7 @@
 #include "Game_XMVSF_P.h"
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 275, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 276, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -438,6 +439,7 @@ namespace KnownGameInfo
     CGameClass* Make_SVG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SVG_SNES(nConfirmedROMSize); }
     CGameClass* Make_TattooAsns_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TattooAsns_A(nConfirmedROMSize); }
     CGameClass* Make_TekkenAdvance_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TekkenAdvance_GBA(nConfirmedROMSize); }
+    CGameClass* Make_TKDenshou_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TKDenshou_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_TMNTTF_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TMNTTF_SNES(nConfirmedROMSize); }
     CGameClass* Make_TOPF2005_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TOPF2005_SEGA(nConfirmedROMSize); }
     CGameClass* Make_UMK3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_A(nConfirmedROMSize); }
@@ -2377,6 +2379,17 @@ namespace KnownGameInfo
             CGame_TekkenAdvance_GBA::GetRule,
         },
         {
+            TKDenshou_A,
+            L"Touki Denshou Angel Eyes (Tecmo Arcade)",
+            {},
+            Make_TKDenshou_A,
+            CGame_TKDenshou_A_DIR::GetRule,
+            CGame_TKDenshou_A_DIR::GetNextRule,
+            CGame_TKDenshou_A_DIR::GetRuleCtr,
+            CGame_TKDenshou_A_DIR::ResetRuleCtr,
+        },
+
+        {
             TMNTTF_SNES,
             L"TMNT: Tournament Fighters (SNES)",
             { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF", L"Teenage Mutant Ninja Turtles: TF (SNES)|sns-ky-0.u1;teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo, GameSeries::NintendoSNES },
@@ -2591,7 +2604,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 275, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 276, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 
