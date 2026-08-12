@@ -30,7 +30,7 @@ private:
         Punisher_A_UNITS,
         ARRAYSIZE(Punisher_A_UNITS),
         L"PunisherE.txt",            // Extra filename
-        1,                           // Count of palettes listed in the header
+        29,                          // Count of palettes listed in the header
         0x3ef88,                     // Lowest known location used for palettes
     };
 
@@ -74,8 +74,8 @@ private:
         Punisher_A_UNITS,
         ARRAYSIZE(Punisher_A_UNITS),
         L"PunisherSE.txt",          // Extra filename
-        1,                          // Count of palettes listed in the header
-        0xfefc8,                    // Lowest known location used for palettes
+        29,                         // Count of palettes listed in the header
+        0x3ef88,                    // Lowest known location used for palettes
     };
 
 public:

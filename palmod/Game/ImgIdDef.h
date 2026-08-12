@@ -344,6 +344,9 @@ enum CHARACTERS_CPS2
     indexSFAZ3U_Bonus,                      // 0x103
     indexCPS2Sprites_Maki,                  // 0x104
     indexCPS2Sprites_Yun,                   // 0x105
+
+    // not much here so far
+    indexCPS2Sprites_ThePunisher,           // 0x106
 };
 
 enum CHARACTERS_3S_CPS3
