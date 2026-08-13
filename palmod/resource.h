@@ -454,13 +454,18 @@
 #define ID_LD_KOF02UM_PS2_BGR555        32998
 #define ID_LD_BLADESTRANGERS            32999
 #define ID_LD_TKDENSHOUARCADE           33000
+#define ID_TOOLS_GRAYSCALE_4COLOR       33001
+#define ID_TOOLS_TRANSFORM_GB_COLOR     33002
+#define ID_TOOLS_TRANSFORM_GB_POCKET    33003
+#define ID_TOOLS_TRANSFORM_GB_LIGHT     33004
+
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        206
-#define _APS_NEXT_COMMAND_VALUE         33001
+#define _APS_NEXT_COMMAND_VALUE         33005
 #define _APS_NEXT_CONTROL_VALUE         1118
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

@@ -701,6 +701,13 @@ BEGIN
             MENUITEM "Maximum",                 ID_TOOLS_GRAYSCALE_MAXIMUM
             MENUITEM "Middle Value",            ID_TOOLS_GRAYSCALE_MIDDLE
             MENUITEM "Weighted",                ID_TOOLS_GRAYSCALE_WEIGHTED
+            MENUITEM "4 Color",                 ID_TOOLS_GRAYSCALE_4COLOR
+        END
+	POPUP "Retro"
+        BEGIN
+            MENUITEM "GB Color",                ID_TOOLS_TRANSFORM_GB_COLOR
+            MENUITEM "GB Pocket",               ID_TOOLS_TRANSFORM_GB_POCKET
+            MENUITEM "GB Light",                ID_TOOLS_TRANSFORM_GB_LIGHT
         END
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
         MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
