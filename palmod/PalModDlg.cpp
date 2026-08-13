@@ -622,6 +622,7 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     if (dwClickSource != 0)
     {
         CMenu PopupMenu;
+        CMenu GBMenu;
         CMenu GradientMenu;
         CMenu GrayscaleMenu;
         CMenu SwapMenu;
@@ -635,8 +636,6 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         PopupMenu.AppendMenu(MF_ENABLED | ((CUSTOM_COLORS_REVERSE == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_COLORS_REVERSE, L"Reverse");
         PopupMenu.AppendMenu(MF_ENABLED | ((CUSTOM_COLORS_MAP == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_COLORS_MAP, L"Map");
 
-        GradientMenu.CreatePopupMenu();
-
         const bool fIsGradientOption =  (CUSTOM_GRADIENT_RGB == dwCurrentSetting) ||
                                         (CUSTOM_GRADIENT_HSL == dwCurrentSetting) ||
                                         (CUSTOM_GRADIENT_HSV == dwCurrentSetting) ||
@@ -645,12 +644,24 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         const bool fIsGrayscaleOption = (CUSTOM_GRAYSCALE_AVG == dwCurrentSetting) ||
                                         (CUSTOM_GRAYSCALE_MAX == dwCurrentSetting) ||
                                         (CUSTOM_GRAYSCALE_MID == dwCurrentSetting) ||
-                                        (CUSTOM_GRAYSCALE_WGHT == dwCurrentSetting);
+                                        (CUSTOM_GRAYSCALE_WGHT == dwCurrentSetting) ||
+                                        (CUSTOM_GRAYSCALE_4COLORS == dwCurrentSetting);
         const bool fIsSwapOption =      (CUSTOM_COLORS_SWAP_RG == dwCurrentSetting) ||
                                         (CUSTOM_COLORS_SWAP_GB == dwCurrentSetting) ||
                                         (CUSTOM_COLORS_SWAP_RB == dwCurrentSetting) ||
                                         (CUSTOM_COLORS_SWAP_RGB == dwCurrentSetting) ||
                                         (CUSTOM_COLORS_SWAP_RBG == dwCurrentSetting);
+        const bool fIsGBOption =        (CUSTOM_COLORS_GB_ORIG == dwCurrentSetting) ||
+                                        (CUSTOM_COLORS_GB_POCKET == dwCurrentSetting) ||
+                                        (CUSTOM_COLORS_GB_LIGHT == dwCurrentSetting);
+
+        GBMenu.CreatePopupMenu();
+
+        GBMenu.AppendMenu(MF_ENABLED | ((CUSTOM_COLORS_GB_ORIG == dwCurrentSetting)   ? MF_CHECKED : 0), CUSTOM_COLORS_GB_ORIG, L"GB Original");
+        GBMenu.AppendMenu(MF_ENABLED | ((CUSTOM_COLORS_GB_POCKET == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_COLORS_GB_POCKET, L"GB Pocket");
+        GBMenu.AppendMenu(MF_ENABLED | ((CUSTOM_COLORS_GB_LIGHT == dwCurrentSetting)  ? MF_CHECKED : 0), CUSTOM_COLORS_GB_LIGHT, L"GB Light");
+
+        GradientMenu.CreatePopupMenu();
 
         GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_RGB == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_GRADIENT_RGB, L"RGB");
         GradientMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRADIENT_HSL == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_GRADIENT_HSL, L"HSL");
@@ -664,6 +675,7 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MAX == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MAX, L"Maximum");
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_MID == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_MID, L"Middle");
         GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_WGHT == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_WGHT, L"Weighted");
+        GrayscaleMenu.AppendMenu(MF_ENABLED | ((CUSTOM_GRAYSCALE_4COLORS == dwCurrentSetting) ? MF_CHECKED : 0), CUSTOM_GRAYSCALE_4COLORS, L"4 Colors");
 
         SwapMenu.CreatePopupMenu();
 
@@ -675,6 +687,7 @@ void CPalModDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
         PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED | (fIsGradientOption ? MF_CHECKED : 0), reinterpret_cast<UINT_PTR>(GradientMenu.m_hMenu), L"Gradient");
         PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED | (fIsGrayscaleOption ? MF_CHECKED : 0), reinterpret_cast<UINT_PTR>(GrayscaleMenu.m_hMenu), L"Grayscale");
+        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED | (fIsGBOption ? MF_CHECKED : 0), reinterpret_cast<UINT_PTR>(GBMenu.m_hMenu), L"Retro");
         PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED | (fIsSwapOption ? MF_CHECKED : 0), reinterpret_cast<UINT_PTR>(SwapMenu.m_hMenu), L"Swap");
 
         dwCurrentSetting = static_cast<DWORD>(PopupMenu.TrackPopupMenu(TPM_LEFTALIGN | TPM_TOPALIGN | TPM_NONOTIFY | TPM_RETURNCMD, point.x, point.y, this));

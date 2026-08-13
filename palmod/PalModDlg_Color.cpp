@@ -1398,6 +1398,8 @@ void CPalModDlg::OnBnClickedReverse()
     }
 }
 
+// These strings are used for the pushbuttons in the middle of our UI
+// You have about 9 characters space to play with.
 LPCWSTR CPalModDlg::_GetStringForColorTransform(DWORD colorAction)
 {
     switch (colorAction)
@@ -1413,17 +1415,28 @@ LPCWSTR CPalModDlg::_GetStringForColorTransform(DWORD colorAction)
             return L"&Revert";
         case CUSTOM_COLORS_REVERSE:
             return L"Reverse";
+
+        case CUSTOM_COLORS_GB_ORIG:
+            return L"GB Color";
+        case CUSTOM_COLORS_GB_POCKET:
+            return L"GB Pocket";
+        case CUSTOM_COLORS_GB_LIGHT:
+            return L"GB Light";
+
         case CUSTOM_GRADIENT_RGB:
         case CUSTOM_GRADIENT_HSL:
         case CUSTOM_GRADIENT_HSV:
         case CUSTOM_GRADIENT_LAB:
         case CUSTOM_GRADIENT_XYZ:
             return L"Gradient";
+
         case CUSTOM_GRAYSCALE_AVG:
         case CUSTOM_GRAYSCALE_MAX:
         case CUSTOM_GRAYSCALE_MID:
         case CUSTOM_GRAYSCALE_WGHT:
+        case CUSTOM_GRAYSCALE_4COLORS:
             return L"&Grayscale";
+
         case CUSTOM_COLORS_MAP:
             return L"&Map";
         case CUSTOM_COLORS_SWAP_RG:
@@ -1498,6 +1511,15 @@ void CPalModDlg::HandleColorTransform(DWORD dwTransformIndex, ColorTransform act
                 case CUSTOM_REVERSE:
                     action = ColorTransform::Reverse;
                     break;
+                case CUSTOM_COLORS_GB_ORIG:
+                    action = ColorTransform::GB_Original;
+                    break;
+                case CUSTOM_COLORS_GB_POCKET:
+                    action = ColorTransform::GB_Pocket;
+                    break;
+                case CUSTOM_COLORS_GB_LIGHT:
+                    action = ColorTransform::GB_Light;
+                    break;
                 case CUSTOM_GRAYSCALE_AVG:
                     action = ColorTransform::Grayscale_Average;
                     break;
@@ -1509,6 +1531,9 @@ void CPalModDlg::HandleColorTransform(DWORD dwTransformIndex, ColorTransform act
                     break;
                 case CUSTOM_GRAYSCALE_WGHT:
                     action = ColorTransform::Grayscale_Weighted;
+                    break;
+                case CUSTOM_GRAYSCALE_4COLORS:
+                    action = ColorTransform::Grayscale_4Colors;
                     break;
                 // Gradients have their own code path since they require color sequences not just solo colors
                 case CUSTOM_GRADIENT_RGB:
@@ -1561,6 +1586,67 @@ void CPalModDlg::HandleColorTransform(DWORD dwTransformIndex, ColorTransform act
 
                 switch (action)
                 {
+                    case ColorTransform::Grayscale_4Colors:
+                    case ColorTransform::GB_Original:
+                    case ColorTransform::GB_Pocket:
+                    case ColorTransform::GB_Light:
+                    {
+                        // Use weighted LUM
+                        const double lumR = 0.299 * pCurrPal[nPaletteIndex + 0];
+                        const double lumG = 0.587 * pCurrPal[nPaletteIndex + 1];
+                        const double lumB = 0.114 * pCurrPal[nPaletteIndex + 2];
+                        const double totalLUM = lumR + lumG + lumB;
+
+                        std::array<uint32_t, 4> rgPalette;
+
+                        switch (action)
+                        {
+                            // Storage is darkest to brightest
+                            // These are approximations: I'm unaware of definitive GBA values since it's part visual distortion
+                            case ColorTransform::Grayscale_4Colors:
+                                rgPalette = { 0x000000, 0x555555, 0xaaaaaa, 0xffffff };
+                                break;
+                            case ColorTransform::GB_Original: // DMG
+                                // Wikipedia values are:
+                                //rgPalette = { 0x294139, 0x39594a, 0x5a7942, 0x7b8210 };
+                                rgPalette = { 0x0f380f, 0x306230, 0x77a112, 0x9bbc0f };
+                                break;
+                            case ColorTransform::GB_Pocket:
+                                // Wikipedia values are:
+                                // rgPalette = { 0x181818, 0x4a5138, 0x8c926b, 0xc5caa4 };
+                                rgPalette = { 0x1f1f1f, 0x4d533c, 0x8b956d, 0xc4cfa1 };
+                                break;
+                            case ColorTransform::GB_Light:
+                                // Wikipedia values are:
+                                //rgPalette = { 0x004f3a, 0x00694a, 0x009a70, 0x00b582 };
+                                rgPalette = { 0x0b7a6d, 0x16a596, 0x19c7b3, 0x1ddece };
+                                break;
+                        }
+                    
+                        uint32_t clrChosen;
+
+                        if (totalLUM >= 192)
+                        {
+                            clrChosen = rgPalette[3];
+                        }
+                        else if (totalLUM >= 128)
+                        {
+                            clrChosen = rgPalette[2];
+                        }
+                        else if (totalLUM >= 64)
+                        {
+                            clrChosen = rgPalette[1];
+                        }
+                        else
+                        {
+                            clrChosen = rgPalette[0];
+                        }
+
+                        pCurrPal[nPaletteIndex + 0] = CurrGame->GetNearestLegal8BitColorValue_RGB((clrChosen & 0xff0000) >> 16);
+                        pCurrPal[nPaletteIndex + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB((clrChosen & 0xff00) >> 8);
+                        pCurrPal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(clrChosen & 0xff);
+                        break;
+                    }
                     case ColorTransform::Grayscale_Average:
                     {
                         const uint8_t grayAverage = static_cast<uint8_t>((static_cast<uint16_t>(pCurrPal[nPaletteIndex + 0]) + static_cast<uint16_t>(pCurrPal[nPaletteIndex + 1]) + static_cast<uint16_t>(pCurrPal[nPaletteIndex + 2])) / 3);

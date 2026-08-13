@@ -1176,8 +1176,20 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_MID, L"Middle");
         GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_MAX, L"Maximum");
         GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_WGHT, L"Weight");
+        GrayscaleMenu.AppendMenu(MF_ENABLED, CUSTOM_GRAYSCALE_4COLORS, L"4 Color");
 
         PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GrayscaleMenu.m_hMenu), L"Grayscale");
+
+        CMenu GBMenu;
+
+        GBMenu.CreatePopupMenu();
+
+        GBMenu.AppendMenu(MF_ENABLED, CUSTOM_COLORS_GB_ORIG, L"GB Original");
+        GBMenu.AppendMenu(MF_ENABLED, CUSTOM_COLORS_GB_POCKET, L"GB Pocket");
+        GBMenu.AppendMenu(MF_ENABLED, CUSTOM_COLORS_GB_LIGHT, L"GB Light");
+
+        PopupMenu.AppendMenu(MF_POPUP | MF_ENABLED, reinterpret_cast<UINT_PTR>(GBMenu.m_hMenu), L"Retro");
+
 
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");
@@ -1223,6 +1235,18 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
                 break;
             case CUSTOM_GRAYSCALE_WGHT:
                 GetHost()->GetPalModDlg()->OnBnClickedGrayscale_Weighted();
+                break;
+            case CUSTOM_GRAYSCALE_4COLORS:
+                GetHost()->GetPalModDlg()->OnBnClickedGrayscale_4Colors();
+                break;
+            case CUSTOM_COLORS_GB_ORIG:
+                GetHost()->GetPalModDlg()->TransformColors_GBOriginal();
+                break;
+            case CUSTOM_COLORS_GB_POCKET:
+                GetHost()->GetPalModDlg()->TransformColors_GBPocket();
+                break;
+            case CUSTOM_COLORS_GB_LIGHT:
+                GetHost()->GetPalModDlg()->TransformColors_GBLight();
                 break;
             case CUSTOM_SALL:
                 SelectAll();

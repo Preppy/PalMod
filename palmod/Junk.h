@@ -33,6 +33,10 @@ constexpr auto CUSTOM_COLORS_SWAP_RGB   = WM_USER + 34;
 constexpr auto CUSTOM_COLORS_SWAP_RBG   = WM_USER + 35;
 constexpr auto CUSTOM_BLINK             = WM_USER + 36;
 constexpr auto CUSTOM_REVERT            = WM_USER + 37;
+constexpr auto CUSTOM_GRAYSCALE_4COLORS = WM_USER + 38;
+constexpr auto CUSTOM_COLORS_GB_ORIG    = WM_USER + 39;
+constexpr auto CUSTOM_COLORS_GB_POCKET  = WM_USER + 40;
+constexpr auto CUSTOM_COLORS_GB_LIGHT   = WM_USER + 41;
 
 class CJunk :
     public CWnd

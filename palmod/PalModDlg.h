@@ -355,6 +355,10 @@ private:
         Gradient_XYZ,
         Reverse,
         ColorMap,
+        Grayscale_4Colors,
+        GB_Original,
+        GB_Pocket,
+        GB_Light,
     };
 
     LPCWSTR _GetStringForColorTransform(DWORD colorAction);
@@ -372,11 +376,6 @@ private:
     afx_msg void OnBnClickedTransform6() { HandleColorTransform(6, ColorTransform::Default); };
     afx_msg void OnBnClickedTransform7() { HandleColorTransform(7, ColorTransform::Default); };
     afx_msg void OnBnClickedTransform8() { HandleColorTransform(8, ColorTransform::Default); };
-    afx_msg void OnBnSwapRG() { HandleColorTransform(-1, ColorTransform::Swap_RG); };
-    afx_msg void OnBnSwapGB() { HandleColorTransform(-1, ColorTransform::Swap_GB); };
-    afx_msg void OnBnSwapRB() { HandleColorTransform(-1, ColorTransform::Swap_RB); };
-    afx_msg void OnBnSwapRGB() { HandleColorTransform(-1, ColorTransform::Swap_RGB); };
-    afx_msg void OnBnSwapRBG() { HandleColorTransform(-1, ColorTransform::Swap_RBG); };
 
     afx_msg void OnLoadDir_AquaPlus_NL()    { OnLoadGameByDirectory(AquaPlus_NL); };
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };
@@ -505,6 +504,11 @@ public:
     afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(-1, ColorTransform::Grayscale_Maximum); };
     afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(-1, ColorTransform::Grayscale_Middle); };
     afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(-1, ColorTransform::Grayscale_Weighted); };
+    afx_msg void OnBnClickedGrayscale_4Colors() { HandleColorTransform(-1, ColorTransform::Grayscale_4Colors); };
+
+    void TransformColors_GBOriginal() { HandleColorTransform(-1, ColorTransform::GB_Original); };
+    void TransformColors_GBPocket() { HandleColorTransform(-1, ColorTransform::GB_Pocket); };
+    void TransformColors_GBLight() { HandleColorTransform(-1, ColorTransform::GB_Light); };
 
     afx_msg void OnBnClickedReverse();
     afx_msg void OnBnClickedInvert() { HandleColorTransform(-1, ColorTransform::Invert); };
