@@ -789,3 +789,5 @@ palmod/PalMod/x64/Release/Game_Punisher_A.h.obj.dt.module.json.command
 palmod/PalMod/x64/Release/Punisher_A_DEF.h.obj.dt.d.json
 palmod/PalMod/x64/Release/Punisher_A_DEF.h.obj.dt.module.json
 palmod/PalMod/x64/Release/Punisher_A_DEF.h.obj.dt.module.json.command
+*.command
+*.json
