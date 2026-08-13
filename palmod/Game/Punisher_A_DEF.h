@@ -10,7 +10,8 @@ const std::vector<uint16_t> Punisher_A_IMGIDS_USED =
 
 const sGame_PaletteDataset Punisher_A_Punisher_Palettes[] =
 {
-    // This preview looks funky on the CPS' version and I don't know why.  Flashing highlights maybe?
+    // This preview looks funky on the CPS' version as the CPS' version stores the flashed
+    // (inverted) palette instead of the non-flashed palette.
     { L"Frank Castle (and Flashing Palette)",   0x3ef88, 0x3efa8, indexCPS2Sprites_ThePunisher, 0x00 },
     { L"Nick Fury (Select Screen)",             0x3efa8, 0x3efc8, indexCPS2Sprites_ThePunisher, 0x01 },
     { L"Max",                                   0x3efc8, 0x3efe8, indexCPS2Sprites_ThePunisher, 0x02 },
