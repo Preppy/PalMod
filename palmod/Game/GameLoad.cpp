@@ -148,7 +148,11 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
                 strQuestion.Format(IDS_ROMMISMATCH_CHECK, CurrRule.uVerifyVar, nGameFileLength);
             }
 
-            switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | uIconChoice | MB_DEFBUTTON2))
+            CString strGUID;
+            // Filter this on a per game basis
+            strGUID.Format(L"{AE67471B-2568-4ad7-80AC-4FD160376%03x}", nGameFlag);
+
+            switch (SafeSHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | uIconChoice | MB_DEFBUTTON2, IDYES, strGUID))
             {
                 case IDYES:
                 {
