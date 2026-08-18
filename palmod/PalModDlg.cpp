@@ -319,8 +319,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 
     ON_COMMAND(ID_TOOLS_TRANSFORM_GB_COLOR, &CPalModDlg::TransformColors_GBOriginal)
     ON_COMMAND(ID_TOOLS_TRANSFORM_GB_POCKET, &CPalModDlg::TransformColors_GBPocket)
-    ON_COMMAND(ID_TOOLS_TRANSFORM_GB_LIGHT, &CPalModDlg::TransformColors_GBLight)
-        
+    ON_COMMAND(ID_TOOLS_TRANSFORM_GB_LIGHT, &CPalModDlg::TransformColors_GBLight)        
 
     ON_COMMAND(ID_LD_AQUAPLUS_NL, &CPalModDlg::OnLoadDir_AquaPlus_NL)
     ON_COMMAND(ID_LD_AQUAPLUS_P, &CPalModDlg::OnLoadDir_AquaPlus_P)

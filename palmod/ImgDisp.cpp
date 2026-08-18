@@ -1,5 +1,8 @@
 // ImgDisp.cpp : implementation file
 //
+#ifdef DUMP_COLOR_FREQUENCY_MAP
+#include <map>
+#endif
 
 #include "stdafx.h"
 #include "ImgDisp.h"
@@ -12,8 +15,65 @@
 #include "RAWfiles.h"
 #include "Util.h"
 
-// CImgDisp
+#ifdef DUMP_COLOR_FREQUENCY_MAP
+// This code is normally inaccessible as it's uninteresting to the end user.
+// However, it can be helpful to examine palette disconnects (such as WinKawaks or FBNeo's
+// implementation versus our own), so I'm leaving it here in case of future
+// investigations.
+void PrintColorFrequencyMapToDebugOut(unsigned char* pImagePixels, const unsigned int nDataLen, bool fIsARGB, std::vector<COLORREF>& rgPalettes)
+{
+    std::map<uint32_t, int> frequencyMap;
 
+    for (unsigned iPos = 0; iPos < nDataLen; iPos++)
+    {
+        unsigned char r = 0, g = 0, b = 0;
+
+        if (fIsARGB)
+        {
+            r = pImagePixels[(iPos * 4) + 0];
+            g = pImagePixels[(iPos * 4) + 1];
+            b = pImagePixels[(iPos * 4) + 2];
+        }
+        else // if (fIsRGB)
+        {
+            r = pImagePixels[iPos * 3];
+            g = pImagePixels[(iPos * 3) + 1];
+            b = pImagePixels[(iPos * 3) + 2];
+        }
+
+        const COLORREF colThisColor = RGB(r, g, b);
+
+        frequencyMap[colThisColor]++;
+    }
+
+    OutputDebugString(L"======Real=====\r\n");
+
+    for (const auto& matches : frequencyMap)
+    {
+        CString strOutput;
+        strOutput.Format(L"Color: 0x%06x : %5u matches\r\n", matches.first, matches.second);
+        OutputDebugString(strOutput.GetString());
+    }
+
+    frequencyMap.clear();
+
+    for (uint16_t iPalPos = 1; iPalPos < static_cast<uint16_t>(rgPalettes.size()); iPalPos++)
+    {
+        frequencyMap[rgPalettes[iPalPos] & 0xffffff]++;
+    }
+
+    OutputDebugString(L"\r\n======Ours=====\r\n");
+
+    for (const auto& matches : frequencyMap)
+    {
+        CString strOutput;
+        strOutput.Format(L"Color: 0x%06x : %5u matches\r\n", matches.first, matches.second);
+        OutputDebugString(strOutput.GetString());
+    }
+}
+#endif
+
+// CImgDisp
 CImgDisp::CImgDisp()
 {
     InitImgBuffer();
@@ -1424,6 +1484,10 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     {
         rgvPixels.at(iCurLayer).resize(nDataLen);
     }
+
+#ifdef DUMP_COLOR_FREQUENCY_MAP
+    PrintColorFrequencyMapToDebugOut(pImageData, nDataLen, fIsARGB, rgrgPalettesToUse[0]);
+#endif
 
     for (unsigned iPos = 0; iPos < nDataLen; iPos++)
     {
