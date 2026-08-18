@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "PalModDlg.h"
-#include "palmod.h"
-
 #include "Game\ColorScale.h"
 
 void CPalModDlg::EnableSlider(int RH, int GS, int BL)
