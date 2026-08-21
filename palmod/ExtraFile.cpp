@@ -840,12 +840,15 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     CString strDupeText;
     bool fCollisionFound = false;
     bool fShownInternalErrorOnce = false;
-    // TMNTTF and MWarr palettes are odd lengths, so for some of them we need to step back one
+    // TMNTTF, MWarr, and SSF2T palettes are odd lengths, so for some of them we need to step back one
     // color in order to assemble a working palette
     uint32_t k_cbUseForcedOffsetForActuallyOverlappingPalettes = 0;
 
     if ((m_nGameFlag == TMNTTF_SNES) ||
-        (m_nGameFlag == MWARR_A))
+        (m_nGameFlag == MWARR_A) ||
+        (m_nGameFlag == SSF2T_A) || 
+        (m_nGameFlag == SSF2T_NL) ||
+        (m_nGameFlag == SSF2T_S))
     {
         k_cbUseForcedOffsetForActuallyOverlappingPalettes = 2;
     }

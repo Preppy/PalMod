@@ -2,8 +2,8 @@
 #include "GameClassByDir.h"
 #include "SSF2T_A_DEF.h"
 
-const uint32_t c_nPaletteCount03 = 325;
-const uint32_t c_nPaletteCount04 = 866;
+const uint32_t c_nPaletteCount03 = 328;
+const uint32_t c_nPaletteCount04 = 867;
 const uint32_t c_nPaletteCount08 = 213;
 
 class CGame_SSF2T_A : public CGameClassByDir
@@ -170,7 +170,7 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
         ARRAYSIZE(SSF2T_A_UNITS_03_NL),
         L"ssf2t-3NLe.txt",      // Extra filename
         // Way fewer palettes in here since they don't use split portraits
-        165,                    // Count of palettes listed in the header
+        168,                    // Count of palettes listed in the header
         0xf1da,                 // Lowest known location used for palettes
     };
 
