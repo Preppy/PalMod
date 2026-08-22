@@ -83,6 +83,11 @@ void showHelp() {
                "-?, --help, -h: show this help" << std::endl;
 }
 
+bool outOfBounds(uint32_t pos, uint32_t len, uint32_t size) {
+  // the equivalent of pos + len >= size, but taking integer overflow into account
+  return pos > size || len > size - pos;
+}
+
 enum RenderMode {
   RM_ASCII,
   RM_HEX, // CSS
@@ -864,17 +869,17 @@ void showSingleLineSummary(Data& data, const Options& options) {
 }
 
 static unsigned getICCUint16(const unsigned char* icc, size_t size, size_t pos) {
-  if (pos + 2 > size) return 0;
+  if(outOfBounds(pos, 2, size)) return 0;
   return (unsigned)((icc[pos] << 8) | (icc[pos + 1]));
 }
 
 static unsigned getICCUint32(const unsigned char* icc, size_t size, size_t pos) {
-  if (pos + 4 > size) return 0;
+  if(outOfBounds(pos, 4, size)) return 0;
   return (unsigned)((icc[pos] << 24) | (icc[pos + 1] << 16) | (icc[pos + 2] << 8) | (icc[pos + 3] << 0));
 }
 
 static int getICCInt32(const unsigned char* icc, size_t size, size_t pos) {
-  if (pos + 4 > size) return 0;
+  if(outOfBounds(pos, 4, size)) return 0;
   return (int)((icc[pos] << 24) | (icc[pos + 1] << 16) | (icc[pos + 2] << 8) | (icc[pos + 3] << 0));
 }
 
@@ -889,7 +894,7 @@ static float getICC16Fixed16(const unsigned char* icc, size_t size, size_t pos) 
 }
 
 static std::string printableICCWord(const unsigned char* icc, size_t size, size_t pos) {
-  if (pos + 4 > size) {
+  if(outOfBounds(pos, 4, size)) {
     return "out of range";
   }
   std::string result;
@@ -964,7 +969,7 @@ void printICCDetails(const unsigned char* icc, size_t size, const std::string& i
     size_t offset = getICCUint32(icc, size, pos + 4);
     size_t tagsize = getICCUint32(icc, size, pos + 8);
     std::cout << ", offset: " << offset << ", size: " << tagsize;
-    if(offset + tagsize > size || tagsize < 4) {
+    if(outOfBounds(offset, tagsize, size) || tagsize < 4) {
       std::cout << std::endl << indent << "Invalid ICC: tag out of range" << std::endl;
       return;
     }
@@ -1246,7 +1251,7 @@ void showErrors(const Data& data, const Options& options) {
 }
 
 uint32_t readExifUint32(const unsigned char* exif, size_t size, size_t pos, bool big_endian) {
-  if(pos + 4 > size) return 0;
+  if(outOfBounds(pos, 4, size)) return 0;
   if(big_endian) {
     return ((uint32_t)exif[pos + 0] << 24u) | ((uint32_t)exif[pos + 1] << 16u) | ((uint32_t)exif[pos + 2] << 8u) | (uint32_t)exif[pos + 3];
   } else {
@@ -1255,7 +1260,7 @@ uint32_t readExifUint32(const unsigned char* exif, size_t size, size_t pos, bool
 }
 
 uint32_t readExifUint16(const unsigned char* exif, size_t size, size_t pos, bool big_endian) {
-  if(pos + 2 > size) return 0;
+  if(outOfBounds(pos, 2, size)) return 0;
   if(big_endian) {
     return ((uint32_t)exif[pos + 0] << 8u) | (uint32_t)exif[pos + 1];
   } else {
@@ -1284,7 +1289,7 @@ void showExifIFD(const unsigned char* exif, size_t size, size_t ifd_pos, bool bi
       }
       size_t pos = stack.back();
       stack.pop_back();
-      if(pos + 2 > size) {
+      if(outOfBounds(pos, 2, size)) {
         std::cout << "Error: EXIF IFD out of range: " << pos << std::endl;
         return;
       }
@@ -1298,7 +1303,7 @@ void showExifIFD(const unsigned char* exif, size_t size, size_t ifd_pos, bool bi
       }
       pos += 2;
       for(size_t i = 0; i < num_entries; i++) {
-        if(pos + 12 > size) {
+        if(outOfBounds(pos, 12, size)) {
           std::cout << "EXIF IFD entry out of range: " << pos << std::endl;
           return;
         }
@@ -1339,7 +1344,7 @@ void showExifIFD(const unsigned char* exif, size_t size, size_t ifd_pos, bool bi
         else std::cout << "#" << tag_number; // tag for which we don't show a name here
         std::cout << ": ";
 
-        if(offset + len > size) {
+        if(outOfBounds(offset, len, size)) {
           std::cout << "Error: EXIF data out of range" << std::endl;
           return;
         }
@@ -1390,7 +1395,7 @@ void showExifIFD(const unsigned char* exif, size_t size, size_t ifd_pos, bool bi
         }
         std::cout << std::endl;
       }
-      if(pos + 4 > size) {
+      if(outOfBounds(pos, 4, size)) {
         std::cout << "Error: EXIF IFD footer out of range" << std::endl;
         return;
       }
@@ -1576,4 +1581,3 @@ int main(int argc, char *argv[]) {
     showInfos(data, options);
   }
 }
-
