@@ -414,6 +414,26 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,107,62,43,14
 END
 
+IDD_FINDINNEWROM DIALOGEX 0, 0, 515, 160
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Find Known Palettes In New ROM"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Scan",IDOK,165,138,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,305,138,50,14
+    LTEXT           "",IDC_FINDINNEW_INTROTEXT_1,7,7,501,26
+    COMBOBOX        IDC_FINDINNEW_FORMATSOURCE,131,115,86,30,CBS_DROPDOWN | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Origin Color Format:",IDC_FINDINNEW_ORIGINCOL_DESC,53,117,66,8,0,WS_EX_RIGHT
+    CONTROL         "",IDC_FINDINNEW_PATH_ROM,"MfcEditBrowse",WS_BORDER | WS_TABSTOP | 0x80,285,89,156,14
+    CONTROL         "",IDC_FINDINNEW_PATH_OUTPUT,"MfcEditBrowse",WS_BORDER | WS_TABSTOP | 0x80,285,115,155,14
+    COMBOBOX        IDC_FINDINNEW_SELUNIT,131,89,86,14,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Unit:",IDC_FINDINNEW_UNIT_DESC,53,91,65,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_FINDINNEW_INTROTEXT_2,7,36,501,26
+    LTEXT           "",IDC_FINDINNEW_INTROTEXT_3,7,66,501,18
+    LTEXT           "Scan File:",IDC_FINDINNEW_SCANFILE_DESC,233,91,45,8,0,WS_EX_RIGHT
+    LTEXT           "Output To:",IDC_FINDINNEW_OUTPUTFILE_DESC,233,118,45,8,0,WS_EX_RIGHT
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -515,6 +535,14 @@ BEGIN
         BOTTOMMARGIN, 165
     END
 
+    IDD_PRPL_IMPORT, DIALOG
+    BEGIN
+    END
+
+    IDD_PRPL_EXPORT, DIALOG
+    BEGIN
+    END
+
     IDD_PREVIEWIMPORT_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -533,6 +561,14 @@ BEGIN
 
     IDD_GAMECHOICE, DIALOG
     BEGIN
+    END
+
+    IDD_FINDINNEWROM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 508
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 153
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -556,7 +592,7 @@ BEGIN
                 MENUITEM "Aquapazza: Aquaplus Dream Match (NESICAxLive)", ID_LD_AQUAPLUS_NL
                 MENUITEM "Aquapazza: Aquaplus Dream Match (PS3)", ID_LD_AQUAPLUS_P
             END
-            MENUITEM "Blade Strangers (Steam)", ID_LD_BLADESTRANGERS
+            MENUITEM "Blade Strangers (Steam)",     ID_LD_BLADESTRANGERS
             MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
             POPUP "CvS2"
             BEGIN
@@ -695,19 +731,19 @@ BEGIN
             MENUITEM "RGB",                         ID_TOOLS_GRADIENT_RGB
             MENUITEM "XYZ",                         ID_TOOLS_GRADIENT_XYZ
         END
-	POPUP "Grayscale"
+        POPUP "Grayscale"
         BEGIN
-            MENUITEM "Average",                 ID_TOOLS_GRAYSCALE_AVERAGE
-            MENUITEM "Maximum",                 ID_TOOLS_GRAYSCALE_MAXIMUM
-            MENUITEM "Middle Value",            ID_TOOLS_GRAYSCALE_MIDDLE
-            MENUITEM "Weighted",                ID_TOOLS_GRAYSCALE_WEIGHTED
-            MENUITEM "4 Color",                 ID_TOOLS_GRAYSCALE_4COLOR
+            MENUITEM "Average",                     ID_TOOLS_GRAYSCALE_AVERAGE
+            MENUITEM "Maximum",                     ID_TOOLS_GRAYSCALE_MAXIMUM
+            MENUITEM "Middle Value",                ID_TOOLS_GRAYSCALE_MIDDLE
+            MENUITEM "Weighted",                    ID_TOOLS_GRAYSCALE_WEIGHTED
+            MENUITEM "4 Color",                     ID_TOOLS_GRAYSCALE_4COLOR
         END
-	POPUP "Retro"
+        POPUP "Retro"
         BEGIN
-            MENUITEM "GB Color",                ID_TOOLS_TRANSFORM_GB_COLOR
-            MENUITEM "GB Pocket",               ID_TOOLS_TRANSFORM_GB_POCKET
-            MENUITEM "GB Light",                ID_TOOLS_TRANSFORM_GB_LIGHT
+            MENUITEM "GB Color",                    ID_TOOLS_TRANSFORM_GB_COLOR
+            MENUITEM "GB Pocket",                   ID_TOOLS_TRANSFORM_GB_POCKET
+            MENUITEM "GB Light",                    ID_TOOLS_TRANSFORM_GB_LIGHT
         END
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
         MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
@@ -718,11 +754,11 @@ BEGIN
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
         POPUP "Mapping Palette"
         BEGIN
-            MENUITEM "Map Selected Palette",              ID_TOOLS_MAPPING_USE_CURRENT
-            MENUITEM "Map All Paired Palettes",           ID_TOOLS_MAPPING_USE_ALLPAIRED
+            MENUITEM "Map Selected Palette",        ID_TOOLS_MAPPING_USE_CURRENT
+            MENUITEM "Map All Paired Palettes",     ID_TOOLS_MAPPING_USE_ALLPAIRED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Remap Unit",                  ID_TOOLS_REMAPUNIT
+        MENUITEM "Find in New ROM",             ID_TOOLS_REMAPUNIT
         MENUITEM SEPARATOR
         MENUITEM "&Generate IPS Patch File",    ID_TOOLS_GENERATEPATCHFILE
     END
@@ -741,9 +777,9 @@ BEGIN
                 MENUITEM "RBG333 (big endian)",         ID_COLORFORMAT_RBG333
                 MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333_BE
                 MENUITEM SEPARATOR
-                MENUITEM "xBGR4444 (big endian)",         ID_COLORFORMAT_BGR444
-                MENUITEM "xBRG4444 (big endian)",         ID_COLORFORMAT_BRG444
-                MENUITEM "xRBG4444 (big endian)",         ID_COLORFORMAT_RBG444
+                MENUITEM "xBGR4444 (big endian)",       ID_COLORFORMAT_BGR444
+                MENUITEM "xBRG4444 (big endian)",       ID_COLORFORMAT_BRG444
+                MENUITEM "xRBG4444 (big endian)",       ID_COLORFORMAT_RBG444
                 MENUITEM "xRGB4444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444_BE
                 MENUITEM "xRGB4444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
                 MENUITEM SEPARATOR
@@ -751,12 +787,12 @@ BEGIN
                 MENUITEM "xBGR1555 (big endian for Sega Saturn, Fuuki)", ID_COLORFORMAT_xBGR1555_BE
                 MENUITEM "xBGR1555 (big endian for Motorola 68000)", ID_COLORFORMAT_BGR555_BE
                 MENUITEM "BGRx5551 (big endian for Nintendo 64 z64)", ID_COLORFORMAT_BGRx5551_BE
-                MENUITEM "xBRG1555 (little endian)",      ID_COLORFORMAT_BRG555_LE
-                MENUITEM "xGRB1555 (little endian)",      ID_COLORFORMAT_GRB555_LE
-                MENUITEM "xGRB1555 (big endian)",         ID_COLORFORMAT_GRB555_BE
+                MENUITEM "xBRG1555 (little endian)",    ID_COLORFORMAT_BRG555_LE
+                MENUITEM "xGRB1555 (little endian)",    ID_COLORFORMAT_GRB555_LE
+                MENUITEM "xGRB1555 (big endian)",       ID_COLORFORMAT_GRB555_BE
                 MENUITEM "xRGB1555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE_CPS3
                 MENUITEM "xRGB1555 (little endian for non-CPS3)", ID_COLORFORMAT_RGB555_LE_NORMAL
-                MENUITEM "xRGB1555 (big endian)",         ID_COLORFORMAT_RGB555_BE
+                MENUITEM "xRGB1555 (big endian)",       ID_COLORFORMAT_RGB555_BE
                 MENUITEM SEPARATOR
                 MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
                 MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
@@ -817,14 +853,14 @@ BEGIN
         MENUITEM "Export Advanced...",          ID_FILE_EXPORTIMAGE
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
-   END
+    END
     POPUP "&Import Layout"
     BEGIN
-        MENUITEM "Load Layout",                ID_FILE_LOADSPRITE
-        MENUITEM "Load Layout Advanced...",    ID_FILE_LOADSPRITECUSTOM
+        MENUITEM "Load Layout",                 ID_FILE_LOADSPRITE
+        MENUITEM "Load Layout Advanced...",     ID_FILE_LOADSPRITECUSTOM
         POPUP "Import Settings"
         BEGIN
-            MENUITEM "Trim imported previews",       ID_SETTINGS_IMPORT_TRIM
+            MENUITEM "Trim imported previews",      ID_SETTINGS_IMPORT_TRIM
             MENUITEM "Use WinKawaks math first when importing CPS1/CPS2/NeoGeo screenshots", ID_SETTINGS_IMPORT_KAWAKS
             MENUITEM "Use FBNeo math first when importing CPS3 screenshots", ID_SETTINGS_IMPORT_FULLCPS3
         END
@@ -979,6 +1015,11 @@ BEGIN
     0
 END
 
+IDD_FINDINNEWROM AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1002,56 +1043,24 @@ BEGIN
     0
 END
 
+IDD_FINDINNEWROM DLGINIT
+BEGIN
+    IDC_FINDINNEW_PATH_ROM, 0x37c, 42, 0
+0x4d3c, 0x4346, 0x6445, 0x7469, 0x7242, 0x776f, 0x6573, 0x4d5f, 0x646f, 
+0x3e65, 0x3c31, 0x4d2f, 0x4346, 0x6445, 0x7469, 0x7242, 0x776f, 0x6573, 
+0x4d5f, 0x646f, 0x3e65, 
+    IDC_FINDINNEW_PATH_OUTPUT, 0x37c, 42, 0
+0x4d3c, 0x4346, 0x6445, 0x7469, 0x7242, 0x776f, 0x6573, 0x4d5f, 0x646f, 
+0x3e65, 0x3c31, 0x4d2f, 0x4346, 0x6445, 0x7469, 0x7242, 0x776f, 0x6573, 
+0x4d5f, 0x646f, 0x3e65, 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
 //
-
-STRINGTABLE
-BEGIN
-    IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.80"
-    IDS_ERROR_LOADING_IMG_DAT_FORMAT 
-                            "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
-    IDS_ERROR_NO_IMAGES     "No images available."
-    IDS_ERROR_LOADING_GAME  "Unable to load game."
-    IDS_ERROR_PARAMETERS    "Invalid parameters."
-    IDS_ERROR_LOADING_PALETTE_FILE "Error loading palette file."
-    IDS_ERROR_SAVING_PALETTE_FILE "Error saving palette file."
-    IDS_SAVE_PALETTE_CHANGES 
-                            "Update PalMod's palette memory with these changes?\n\nThe actual ROM/files will not be changed until you patch from the File menu or on exit."
-    IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
-    IDS_ERROR_NOTWRITABLE_FORMAT 
-                            "Save failed: output file '%s' is not writable."
-END
-
-STRINGTABLE
-BEGIN
-    IDS_ERROR_NOTWRITABLE_CDI 
-                            "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
-    IDS_ERROR_NOTWRITABLE_DRIVE 
-                            "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
-END
-
-STRINGTABLE
-BEGIN
-    IDS_ERROR_LOADING_BITMAP_BG "Error loading background image."
-END
-
-STRINGTABLE
-BEGIN
-    IDS_TOOLTIP_UPDATE      "Saves the current changes to memory.  ROM is only updated on patch."
-    IDS_TOOLTIP_REVERT      "Reverts to the last saved colors. Use CTRL+Z for just the last change."
-    IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
-    IDS_TOOLTIP_TRANSFORM   "Apply the selected color transform.  Right-click to change selection."
-    IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.raw"
-    IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
-    IDS_ERROR_FILENOTFOUND_FORMAT 
-                            "Save failed: output file '%s' does not exist."
-    IDS_ROMMISMATCH_CHECK   "ERROR!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nAre you sure you wish to continue?"
-    IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM. You probably want to click NO now and then use PalMod's Venture support instead.\n\nAre you sure you wish to load this ROM as HFTF instead of Venture?"
-END
 
 STRINGTABLE
 BEGIN
@@ -1065,6 +1074,39 @@ BEGIN
     IDS_BBGTAGBBCF_MISMATCH "This palette is for a character that is not in this version of the game.  Do you want to apply this palette to the current character?  It will probably not look right."
     IDS_MVC2_ROMMISMATCH_CHECK 
                             "WARNING!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nSince this is MvC2 for Steam, we should be able to figure out where things are.  The size change is likely due to game modifications you made.  BUT if things do not look right, please exit and contact the PalMod team.\n\nAre you sure you wish to continue?"
+    IDS_ABOUTBOX            "&About PalMod..."
+    IDS_CURRENTAPPNAME      "PalMod 1.80"
+    IDS_ERROR_LOADING_IMG_DAT_FORMAT 
+                            "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
+    IDS_ERROR_NO_IMAGES     "No images available."
+    IDS_ERROR_LOADING_GAME  "Unable to load game."
+    IDS_ERROR_PARAMETERS    "Invalid parameters."
+    IDS_ERROR_LOADING_PALETTE_FILE "Error loading palette file."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_SAVING_PALETTE_FILE "Error saving palette file."
+    IDS_SAVE_PALETTE_CHANGES 
+                            "Update PalMod's palette memory with these changes?\n\nThe actual ROM/files will not be changed until you patch from the File menu or on exit."
+    IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
+    IDS_ERROR_NOTWRITABLE_FORMAT 
+                            "Save failed: output file '%s' is not writable."
+    IDS_TOOLTIP_UPDATE      "Saves the current changes to memory.  ROM is only updated on patch."
+    IDS_TOOLTIP_REVERT      "Reverts to the last saved colors. Use CTRL+Z for just the last change."
+    IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
+    IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.raw"
+    IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
+    IDS_ERROR_FILENOTFOUND_FORMAT 
+                            "Save failed: output file '%s' does not exist."
+    IDS_ROMMISMATCH_CHECK   "ERROR!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nAre you sure you wish to continue?"
+    IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM. You probably want to click NO now and then use PalMod's Venture support instead.\n\nAre you sure you wish to load this ROM as HFTF instead of Venture?"
+    IDS_ERROR_LOADING_BITMAP_BG "Error loading background image."
+    IDS_TOOLTIP_TRANSFORM   "Apply the selected color transform.  Right-click to change selection."
+    IDS_ERROR_NOTWRITABLE_CDI 
+                            "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
+    IDS_ERROR_NOTWRITABLE_DRIVE 
+                            "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
 END
 
 STRINGTABLE
@@ -1148,16 +1190,8 @@ END
 STRINGTABLE
 BEGIN
     IDS_ERROR_ENCRYPTED     "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
-END
-
-STRINGTABLE
-BEGIN
     IDS_TPLSAVE_SUCCESS     "TPL file saved successfully."
     IDS_TPLSAVE_FAILURE     "Error saving TPL file."
-END
-
-STRINGTABLE
-BEGIN
     IDS_PRPL_LOADFAILURE    "Failed loading PRPL file."
     IDS_PRPLSAVE_SUCCESS    "PRPL file saved successfully."
     IDS_PRPLSAVE_FAILURE    "Error saving PRPL file."

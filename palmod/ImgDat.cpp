@@ -321,7 +321,7 @@ void CImgDat::CloseImgFile()
     }
 }
 
-bool CImgDat::sameGameAlreadyLoaded(uint16_t uGameFlag, uint8_t uImgDatGameSectionFlag)
+bool CImgDat::sameGameAlreadyLoaded(uint16_t uGameFlag, uint8_t uImgDatGameSectionFlag) const
 {
     return (uImgDatGameSectionFlag == nCurImgDatGameSectionFlag) && (uGameFlag == nCurGameFlag);
 }

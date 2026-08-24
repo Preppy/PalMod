@@ -131,7 +131,10 @@ namespace ColorSystem
         { "BGRA8888BE", ColMode::COLMODE_BGRA8888_BE },         // 32bit color (ps3)
         { "BGRA8888",   ColMode::COLMODE_BGRA8888_LE },         // 32bit color (arcana blood)
         { "RGBA8888BE_16", ColMode::COLMODE_RGBA8888_BE16 },    // Psikyo variant: BE on 16bit reads
+        { "RGBx5551BE", ColMode::COLMODE_RGBx5551_BE },         // Nintendo 64 z64
     };
+
+    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "You must update the string table above and the Read Me.");
 
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
     {

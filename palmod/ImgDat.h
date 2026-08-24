@@ -5,7 +5,6 @@
 
 class CImgDat {
 private:
-
     std::map<uint16_t, ImgInfoList*>* nImgMap = nullptr;
 
     uint16_t nCurGameImgAmt = 0x0000;
@@ -20,7 +19,7 @@ private:
     bool imageBufferFlushed = false;
     bool imageBufferPrepped = false;
     bool PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, uint16_t uGameFlag);
-    bool sameGameAlreadyLoaded(uint16_t uGameFlag, uint8_t uImgDatGameSectionFlag);
+    bool sameGameAlreadyLoaded(uint16_t uGameFlag, uint8_t uImgDatGameSectionFlag) const;
 
     void SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDaystamp, uint8_t nNumGameSections);
 

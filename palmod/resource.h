@@ -3,7 +3,6 @@
 // Used by PalMod.rc
 //
 #define IDM_ABOUTBOX                    0x0010
-
 #define IDD_ABOUTBOX                    100
 #define IDD_PALMOD_DIALOG               101
 #define IDD_PREVIEW_DIALOG              102
@@ -25,6 +24,7 @@
 #define IDR_MENUPREV                    203
 #define IDR_PALMOD_ACC                  204
 #define IDR_MENUIMGOUT                  205
+#define IDD_FINDINNEWROM                206
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -60,9 +60,11 @@
 #define IDC_SPEC                        1028
 #define IDC_A_SLIDER                    1028
 #define IDC_INVERT                      1029
+#define IDC_FINDINNEW_PATH_ROM          1029
 #define IDC_BTRANSFORM1                 1030
+#define IDC_FINDINNEW_PATH_OUTPUT       1030
 #define IDC_BTRANSFORM2                 1031
-#define IDC_BTRANSFORM3                  1032
+#define IDC_BTRANSFORM3                 1032
 #define ID_TOOLS_CHECKMVC2MIX           1033
 #define IDC_WEBSITELINK                 1035
 #define IDC_SPIN_RH                     1036
@@ -94,8 +96,8 @@
 #define IDC_CFPL_CREATOR                1080
 #define IDC_CFPL_DESCRIPTION            1081
 #define IDC_CFPL_ENABLEBLOOM            1082
-#define IDC_PREVIEWIMPORT_OPTIONSLIST        1083
-#define IDC_PREVIEWIMPORT_HWOPTIONS          1083
+#define IDC_PREVIEWIMPORT_OPTIONSLIST   1083
+#define IDC_PREVIEWIMPORT_HWOPTIONS     1083
 #define IDC_DEVMODE_READTYPE_SEQ        1084
 #define IDC_DEVMODE_READTYPE_INT2       1085
 #define IDC_DEVMODE_READTYPE_INT4       1086
@@ -119,17 +121,27 @@
 #define IDC_BTRANSFORM6                 1104
 #define IDC_BTRANSFORM7                 1105
 #define IDC_BTRANSFORM8                 1106
-#define IDC_PREVIEWIMPORT_READ_OPTIONS       1107
-#define IDC_PREVIEWIMPORT_OPTIONS_READ       1108
+#define IDC_PREVIEWIMPORT_READ_OPTIONS  1107
+#define IDC_PREVIEWIMPORT_OPTIONS_READ  1108
 #define IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION 1109
-#define IDC_PREVIEWIMPORT_BANNER             1110
-#define IDC_PREVIEWIMPORT_OPTIONS_LAYER      1111
+#define IDC_PREVIEWIMPORT_BANNER        1110
+#define IDC_PREVIEWIMPORT_OPTIONS_LAYER 1111
 #define IDC_PRPL_COLOROPTIONS           1112
 #define IDC_PRPL_CHARACTERNAME          1113
 #define IDC_PRPL_PALNAME                1114
 #define IDC_PRPL_CREATOR                1115
 #define IDC_PRPL_DESCRIPTION            1116
 #define IDC_GAMECHOICE_OPTIONS          1117
+#define IDC_FINDINNEW_INTROTEXT_1       1119
+#define IDC_FINDINNEW_COLORTARGET       1120
+#define IDC_FINDINNEW_FORMATSOURCE      1122
+#define IDC_FINDINNEW_ORIGINCOL_DESC    1123
+#define IDC_FINDINNEW_SELUNIT           1125
+#define IDC_FINDINNEW_UNIT_DESC         1126
+#define IDC_FINDINNEW_INTROTEXT_2       1127
+#define IDC_FINDINNEW_INTROTEXT_3       1128
+#define IDC_FINDINNEW_SCANFILE_DESC     1130
+#define IDC_FINDINNEW_OUTPUTFILE_DESC   1131
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -459,14 +471,13 @@
 #define ID_TOOLS_TRANSFORM_GB_POCKET    33003
 #define ID_TOOLS_TRANSFORM_GB_LIGHT     33004
 
-
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        206
+#define _APS_NEXT_RESOURCE_VALUE        209
 #define _APS_NEXT_COMMAND_VALUE         33005
-#define _APS_NEXT_CONTROL_VALUE         1118
+#define _APS_NEXT_CONTROL_VALUE         1132
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif
