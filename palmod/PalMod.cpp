@@ -44,8 +44,12 @@ CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
     
     get_date_when_compiled(buildDate);
 
-    const int nDisplayMonth = ((buildDate.tm_year - 2026) * 12) + buildDate.tm_mon;
-    const uint32_t nDisplaySubversion = (nDisplayMonth * 31) + buildDate.tm_mday;
+    const int c_nLastVersionRevYear = 2026;
+    const int c_nLastVersionRevMonth = 8;
+    const int c_nLastVersionRevDay = 24;
+
+    const int nDisplayMonth = (((buildDate.tm_year - c_nLastVersionRevYear) * 12) + buildDate.tm_mon - c_nLastVersionRevMonth);
+    const uint32_t nDisplaySubversion = (nDisplayMonth * 31) + buildDate.tm_mday - c_nLastVersionRevDay;
 
     strAppName.Format(L"%s.%04u", strPalModString.GetString(), nDisplaySubversion);
  
