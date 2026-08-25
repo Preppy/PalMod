@@ -25,6 +25,48 @@ static CString SignedHexAsString(int32_t nHexNumber)
     return strDisplayString;
 }
 
+// The base implementation helpful throws out the OFN arguments.  Maintain those.
+class CMFCEditBrowseCtrlFunctional: public CMFCEditBrowseCtrl
+{
+public:
+    virtual void OnBrowse() override;
+    void EnableFileBrowseButtonFunctional(
+        LPCTSTR lpszDefExt = nullptr,
+        LPCTSTR lpszFilter = nullptr,
+        DWORD dwFlags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT);
+
+private:
+    LPCTSTR m_pszDefExt = nullptr;
+    LPCTSTR m_pszFilter = nullptr;
+    DWORD m_dwOFNFlags = 0;
+};
+
+void CMFCEditBrowseCtrlFunctional::EnableFileBrowseButtonFunctional(
+    LPCTSTR lpszDefExt /* = nullptr */,
+    LPCTSTR lpszFilter /* = nullptr */,
+    DWORD dwFlags /* = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT */)
+{
+    m_pszDefExt = lpszDefExt;
+    m_pszFilter = lpszFilter;
+    m_dwOFNFlags = dwFlags;
+
+    // OFN flags get stripped, RIP, so we'll override OnBrowse
+    EnableFileBrowseButton(m_pszDefExt, m_pszFilter, m_dwOFNFlags);
+};
+
+void CMFCEditBrowseCtrlFunctional::OnBrowse()
+{
+    // Kinda loose logic here, but it's functional
+    const BOOL fIsFileOpen = !(m_dwOFNFlags & OFN_OVERWRITEPROMPT);
+
+    CFileDialog dlg(fIsFileOpen, m_pszDefExt, nullptr, m_dwOFNFlags, m_pszFilter);
+
+    if (dlg.DoModal() == IDOK)
+    {
+        SetWindowText(dlg.GetPathName());
+    }
+}
+
 class CFindPalettesInNewROM : public CDialog
 {
     DECLARE_DYNAMIC(CFindPalettesInNewROM)
@@ -47,8 +89,8 @@ protected:
     CComboBox m_CBUnit;
     CComboBox m_CBColor_Origin;
 
-    CMFCEditBrowseCtrl m_FCSelectFileToScan;
-    CMFCEditBrowseCtrl m_FCSelectOutput;
+    CMFCEditBrowseCtrlFunctional m_FCSelectFileToScan;
+    CMFCEditBrowseCtrlFunctional m_FCSelectOutput;
 
     CString m_strFileName;
     CString m_strOutputName;
@@ -135,8 +177,8 @@ BOOL CFindPalettesInNewROM::OnInitDialog()
     const DWORD dwDefaultOutputType = CRegProc::GetDefaultRemapFiletype();
 
     // The OFN flags are cheerfully ignored by the EditBrowseControl.  Neat!
-    m_FCSelectFileToScan.EnableFileBrowseButton(nullptr, nullptr, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST);
-    m_FCSelectOutput.EnableFileBrowseButton(dwDefaultOutputType ? L"txt" : L"h", m_pszOutputFilter, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT);
+    m_FCSelectFileToScan.EnableFileBrowseButtonFunctional(nullptr, nullptr, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST);
+    m_FCSelectOutput.EnableFileBrowseButtonFunctional(dwDefaultOutputType ? L"txt" : L"h", m_pszOutputFilter, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT);
 
     UpdateData();
 
@@ -149,7 +191,7 @@ void CFindPalettesInNewROM::OnOK()
 
     DWORD nSourceFileAttribs = GetFileAttributes(m_strFileName);
 
-    if (nSourceFileAttribs == INVALID_FILE_ATTRIBUTES)
+    if ((nSourceFileAttribs == INVALID_FILE_ATTRIBUTES) || (nSourceFileAttribs & FILE_ATTRIBUTE_DIRECTORY))
     {
         MessageBox(L"Error: ROM to scan does not exist.  This must be set to a valid file to continue.", GetHost()->GetAppName(), MB_ICONERROR);
         return;
