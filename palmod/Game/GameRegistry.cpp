@@ -197,8 +197,10 @@
 #include "Game_XMVSF_A.h"
 #include "Game_XMVSF_P.h"
 
+#include "..\FileHandlers\Handler_PNG.h"
+
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 276, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 277, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -470,6 +472,8 @@ namespace KnownGameInfo
     CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_A(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_P(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_S(nConfirmedROMSize); }
+
+    CGameClass* Make_FileHandlers_PNG(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CImageViewers_PNG(pszFilePath, nConfirmedROMSize); }
 
     struct CoreGameData
     {
@@ -2596,6 +2600,14 @@ namespace KnownGameInfo
         },
 
         {
+            ImageViewer_PNG,
+            L"Image Viewer: PNG",
+            { ImageViewer_PNG,         L"PNG (Load Image)", L"PNG Image View|*.png|" },
+            Make_FileHandlers_PNG,
+            CImageViewers_PNG::GetRule,
+        },
+
+        {
             DEVMODE_A,
             L"Unknown Game",
             { DEVMODE_A,         L"Unknown Game Mode (Single File)", L"Unknown Game ROM|*.*|" },
@@ -2604,7 +2616,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 276, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 277, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 
@@ -2707,6 +2719,22 @@ namespace KnownGameInfo
         return false;
     }
 
+    bool IgnoreGameIDForDragAndDropSupport(const CoreGameData& thisGame)
+    {
+        if ((thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_A) ||
+            (thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_DIR) ||
+            (thisGame.rgFileOpenData.nInternalGameIndex == ImageViewer_PNG) ||
+            (thisGame.nGameId == DEVMODE_A) ||
+            (thisGame.nGameId == DEVMODE_DIR) ||
+            // In theory we might want to allow drag and drop of image types if and only if no game is loaded...?
+            (thisGame.nGameId == ImageViewer_PNG))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     void GetMatchingGamesFromFilePath(LPCWSTR pszPath, std::vector<SupportedGamesList>& vMatchingFileGames, std::vector<SupportedGamesList>& vMatchingDirectoryGames)
     {
         LPCWSTR pszJustFileName = wcsrchr(pszPath, L'\\');
@@ -2717,10 +2745,7 @@ namespace KnownGameInfo
 
             for (const CoreGameData& thisGame : GameRegistry)
             {
-                if ((thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_A) ||
-                    (thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_DIR) ||
-                    (thisGame.nGameId == DEVMODE_A) ||
-                    (thisGame.nGameId == DEVMODE_DIR))
+                if (IgnoreGameIDForDragAndDropSupport(thisGame))
                 {
                     // These are very special and would just match everything
                     continue;

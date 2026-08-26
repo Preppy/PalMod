@@ -119,7 +119,9 @@ void CPalModDlg::OnFilePatch()
     }
 
     // If we actually updated the binary, give them a few tips
-    if (fSuccess && GetHost()->GetLoader()->GetChangedCt())
+    if (fSuccess && GetHost()->GetLoader()->GetChangedCt() &&
+        // Don't show the file changed message for image updates
+        (GetHost()->GetCurrGame()->GetGameFlag() != ImageViewer_PNG))
     {
         static bool s_fHaveShownOnceThisSession = false;
 

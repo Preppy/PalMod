@@ -222,93 +222,103 @@ bool CPalModDlg::GetPathForUserFallbackImage(CGameClass* CurrGame, UINT nPositio
     // Note that used pathing is off CurrentWorkingDirectory\\Previews
     bool fImageExists = false;
 
-    if (ImgDispCtrl && ImgDispCtrl->GetAllowAutoPreviewFallback())
+    if (ImgDispCtrl)
     {
-        wchar_t szUnit[MAX_DESCRIPTION_LENGTH], szNode[MAX_DESCRIPTION_LENGTH], szPalette[MAX_DESCRIPTION_LENGTH];
+        CString strPath;
 
-        if (CurrGame &&
-            (m_CBUnitSel.GetLBText(m_CBUnitSel.GetCurSel(), szUnit) != CB_ERR) &&
-            (m_CBChildSel1.GetLBText(m_CBChildSel1.GetCurSel(), szNode) != CB_ERR) &&
-            (m_CBChildSel2.GetLBText(m_CBChildSel2.GetCurSel(), szPalette) != CB_ERR))
+        if (CurrGame->GetForcedSinglePreviewPath(strPath))
         {
-            CString strPath;
+            fImageExists = GetFileAttributes(strPath.GetBuffer()) != INVALID_FILE_ATTRIBUTES;
 
-            wcsncpy(szPalette, m_PalHost.GetPalName(nPosition), ARRAYSIZE(szPalette));
-            szPalette[ARRAYSIZE(szPalette) - 1] = 0;
+            // Always set for reference so that the user knows what we're looking for
+            strFoundImage = strPath;
+        }
+        else if (ImgDispCtrl->GetAllowAutoPreviewFallback())
+        {
+            wchar_t szUnit[MAX_DESCRIPTION_LENGTH], szNode[MAX_DESCRIPTION_LENGTH], szPalette[MAX_DESCRIPTION_LENGTH];
 
-            if (_wcsicmp(CurrGame->GetExtraUnitDescription(), szUnit) == 0)
+            if (CurrGame &&
+                (m_CBUnitSel.GetLBText(m_CBUnitSel.GetCurSel(), szUnit) != CB_ERR) &&
+                (m_CBChildSel1.GetLBText(m_CBChildSel1.GetCurSel(), szNode) != CB_ERR) &&
+                (m_CBChildSel2.GetLBText(m_CBChildSel2.GetCurSel(), szPalette) != CB_ERR))
             {
-                SanitizeString(szUnit);
-                SanitizeString(szNode);
+                wcsncpy(szPalette, m_PalHost.GetPalName(nPosition), ARRAYSIZE(szPalette));
+                szPalette[ARRAYSIZE(szPalette) - 1] = 0;
 
-                for (size_t iChar = 2; iChar < wcslen(szPalette); iChar++)
+                if (_wcsicmp(CurrGame->GetExtraUnitDescription(), szUnit) == 0)
                 {
-                    // For the purposes of finding palettes, you might have a lengthy multipalette search chunk
-                    // Within PalMod we break that up by appending (x/y) to [search chunk]
-                    // To avoid needing the user to have Y number of [search chunk].png files, we can just
-                    // remove that specific suffix.
-                    if (szPalette[iChar] == L'(')
+                    SanitizeString(szUnit);
+                    SanitizeString(szNode);
+
+                    for (size_t iChar = 2; iChar < wcslen(szPalette); iChar++)
                     {
-                        for (size_t iSlash = iChar + 1; iSlash < wcslen(szPalette); iSlash++)
+                        // For the purposes of finding palettes, you might have a lengthy multipalette search chunk
+                        // Within PalMod we break that up by appending (x/y) to [search chunk]
+                        // To avoid needing the user to have Y number of [search chunk].png files, we can just
+                        // remove that specific suffix.
+                        if (szPalette[iChar] == L'(')
                         {
-                            if (szPalette[iSlash] == L'/')
+                            for (size_t iSlash = iChar + 1; iSlash < wcslen(szPalette); iSlash++)
                             {
-                                if (szPalette[iChar - 1] == L' ')
+                                if (szPalette[iSlash] == L'/')
                                 {
-                                    szPalette[iChar - 1] = 0;
+                                    if (szPalette[iChar - 1] == L' ')
+                                    {
+                                        szPalette[iChar - 1] = 0;
+                                    }
+
+                                    break;
                                 }
-
-                                break;
                             }
+
+                            break;
                         }
-
-                        break;
-                    }
-                }
-
-                SanitizeString(szPalette);
-                strPath.Format(L"previews\\%s.png", szPalette);
-            }
-            else
-            {
-                bool fIsButtonNode = false;
-                bool fPalettesAreListOfColors = false;
-                SanitizeString(szUnit);
-
-                std::vector<LPCWSTR> pButtonLabelSet = CurrGame->GetButtonDescSet();
-
-                for (LPCWSTR pszButtonLabel : pButtonLabelSet)
-                {
-                    if (_wcsicmp(pszButtonLabel, szNode) == 0)
-                    {
-                        fIsButtonNode = true;
-                        break;
-                    }
-                    else if (_wcsicmp(pszButtonLabel, szPalette) == 0)
-                    {
-                        fPalettesAreListOfColors = true;
-                        break;
                     }
 
-                }
-
-                // Sanitize after compares so we don't break the string match
-                SanitizeString(szNode);
-                SanitizeString(szPalette);
-
-                if (fPalettesAreListOfColors)
-                {
-                    strPath.Format(L"previews\\%s.png", szUnit);
-                }
-                else if (fIsButtonNode)
-                {
-                    CleanseButtonNodeString(szUnit, szNode, szPalette);
-
-                    strPath.Format(L"previews\\%s-%s.png", szUnit, szPalette);
+                    SanitizeString(szPalette);
+                    strPath.Format(L"previews\\%s.png", szPalette);
                 }
                 else
                 {
-                    strPath.Format(L"previews\\%s-%s_%s.png", szUnit, szNode, szPalette);
+                    bool fIsButtonNode = false;
+                    bool fPalettesAreListOfColors = false;
+                    SanitizeString(szUnit);
+
+                    std::vector<LPCWSTR> pButtonLabelSet = CurrGame->GetButtonDescSet();
+
+                    for (LPCWSTR pszButtonLabel : pButtonLabelSet)
+                    {
+                        if (_wcsicmp(pszButtonLabel, szNode) == 0)
+                        {
+                            fIsButtonNode = true;
+                            break;
+                        }
+                        else if (_wcsicmp(pszButtonLabel, szPalette) == 0)
+                        {
+                            fPalettesAreListOfColors = true;
+                            break;
+                        }
+
+                    }
+
+                    // Sanitize after compares so we don't break the string match
+                    SanitizeString(szNode);
+                    SanitizeString(szPalette);
+
+                    if (fPalettesAreListOfColors)
+                    {
+                        strPath.Format(L"previews\\%s.png", szUnit);
+                    }
+                    else if (fIsButtonNode)
+                    {
+                        CleanseButtonNodeString(szUnit, szNode, szPalette);
+
+                        strPath.Format(L"previews\\%s-%s.png", szUnit, szPalette);
+                    }
+                    else
+                    {
+                        strPath.Format(L"previews\\%s-%s_%s.png", szUnit, szNode, szPalette);
+                    }
                 }
             }
 

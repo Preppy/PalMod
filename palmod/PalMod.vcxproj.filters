@@ -664,6 +664,12 @@
     <Filter Include="Games\Other Platforms\Touki Denshou Angel Eyes %28Tecmo%29">
       <UniqueIdentifier>{60b5921e-0262-41eb-90d2-36b06c4d495e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Image Viewers">
+      <UniqueIdentifier>{9911e63e-fe79-401e-8fa3-6a802c1f3fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image Viewers\PNG">
+      <UniqueIdentifier>{f4f71ba5-f1cb-484f-b705-ac35c63d98a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1115,6 +1121,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_BladeStrangers_S.cpp">
       <Filter>Games\Other Platforms\Blade Strangers %28Steam%29</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHandlers\Handler_PNG.cpp">
+      <Filter>Image Viewers\PNG</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2407,6 +2416,9 @@
     </ClInclude>
     <ClInclude Include="Game\TKDensho_A_DEF.h">
       <Filter>Games\Other Platforms\Touki Denshou Angel Eyes %28Tecmo%29</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHandlers\Handler_PNG.h">
+      <Filter>Image Viewers\PNG</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

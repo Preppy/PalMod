@@ -232,6 +232,7 @@
     <ClCompile Include="debugutil.cpp" />
     <ClCompile Include="DropTarget.cpp" />
     <ClCompile Include="ExtraFile.cpp" />
+    <ClCompile Include="FileHandlers\Handler_PNG.cpp" />
     <ClCompile Include="GameChoice.cpp" />
     <ClCompile Include="Game\ColorScale.cpp" />
     <ClCompile Include="Game\CrossCopy.cpp" />
@@ -386,6 +387,7 @@
     <ClInclude Include="debugutil.h" />
     <ClInclude Include="DropTarget.h" />
     <ClInclude Include="ExtraFile.h" />
+    <ClInclude Include="FileHandlers\Handler_PNG.h" />
     <ClInclude Include="GameChoice.h" />
     <ClInclude Include="Game\AoDK_A_DEF.h" />
     <ClInclude Include="Game\AOF1_A_DEF.h" />

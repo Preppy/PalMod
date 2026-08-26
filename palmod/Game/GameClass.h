@@ -217,6 +217,9 @@ public:
     virtual bool GameAllowsExtraFile() { return false; };
     static LPCWSTR GetExtraUnitDescription() { return L"Extra Palettes"; };
 
+    // This is solely used by the Image Viewer file handler where we will only ever use one preview
+    virtual bool GetForcedSinglePreviewPath(CString& strPath) { return false; };
+
     virtual void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { m_createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return m_createPalOptions.eWriteOutputOptions; };
     uint16_t GetTransparencyColorPosition() { return m_createPalOptions.nTransparencyColorPosition; };

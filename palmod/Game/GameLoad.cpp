@@ -220,7 +220,14 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         }
     }
 
-    strLoadSaveStr.Format(OutGame ? IDS_LOADSAVE_SUCCESS : IDS_LOADSAVE_FAILURE);
+    if (nGameFlag == ImageViewer_PNG)
+    {
+        strLoadSaveStr.Format(OutGame ? L"Image loaded successfully." : L"Image failed to load.");
+    }
+    else
+    {
+        strLoadSaveStr.Format(OutGame ? IDS_LOADSAVE_SUCCESS : IDS_LOADSAVE_FAILURE);
+    }    
 
     return OutGame;
 }
@@ -653,7 +660,14 @@ bool CGameLoad::SaveGame(CGameClass* CurrGame)
             }
             else
             {
-                strLoadSaveStr = L"Game patched successfully.";
+                if (GetHost()->GetCurrGame()->GetGameFlag() == ImageViewer_PNG)
+                {
+                    strLoadSaveStr = L"Image updated successfully.";
+                }
+                else
+                {
+                    strLoadSaveStr = L"Game patched successfully.";
+                }                
             }
         }
         else
