@@ -64,7 +64,7 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMTo
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCtForUnit(m_nExtraUnit) + 6448;
+    m_nSafeCountForThisRom = GetExtraCtForUnit(m_nExtraUnit) + 6460;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
 
