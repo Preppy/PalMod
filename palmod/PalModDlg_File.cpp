@@ -109,9 +109,14 @@ void CPalModDlg::OnFilePatch()
         OnBnUpdate();
     }
 
-    bool fSuccess = GetHost()->GetLoader()->SaveGame(GetHost()->GetCurrGame());
+    const bool fSuccess = GetHost()->GetLoader()->SaveGame(GetHost()->GetCurrGame());
 
-    SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
+    // For RAW files alone we don't have any direct save: we just use Quick Export
+    // Let Quick Export handle Status Text
+    if (GetHost()->GetCurrGame()->GetGameFlag() != ImageViewer_RAW)
+    {
+        SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
+    }
 
     if (!GetHost()->GetLoader()->GetErrCt())
     {
@@ -121,7 +126,7 @@ void CPalModDlg::OnFilePatch()
     // If we actually updated the binary, give them a few tips
     if (fSuccess && GetHost()->GetLoader()->GetChangedCt() &&
         // Don't show the file changed message for image updates
-        (GetHost()->GetCurrGame()->GetGameFlag() != ImageViewer_PNG))
+        !GameFlagIsForImageViewer(GetHost()->GetCurrGame()->GetGameFlag()))
     {
         static bool s_fHaveShownOnceThisSession = false;
 

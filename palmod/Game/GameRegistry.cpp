@@ -199,8 +199,10 @@
 
 #include "..\FileHandlers\Handler_PNG.h"
 
+bool GameFlagIsForImageViewer(SupportedGamesList nGameFlag) { return (nGameFlag == ImageViewer_PNG) || (nGameFlag == ImageViewer_RAW); };
+
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 277, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 278, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -473,7 +475,8 @@ namespace KnownGameInfo
     CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_P(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_S(nConfirmedROMSize); }
 
-    CGameClass* Make_FileHandlers_PNG(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CImageViewers_PNG(pszFilePath, nConfirmedROMSize); }
+    CGameClass* Make_FileHandlers_PNG(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CImageViewers_PNGorRAW(ImageViewer_PNG, pszFilePath, nConfirmedROMSize); }
+    CGameClass* Make_FileHandlers_RAW(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CImageViewers_PNGorRAW(ImageViewer_RAW, pszFilePath, nConfirmedROMSize); }
 
     struct CoreGameData
     {
@@ -2602,9 +2605,17 @@ namespace KnownGameInfo
         {
             ImageViewer_PNG,
             L"Image Viewer: PNG",
-            { ImageViewer_PNG,         L"PNG (Load Image)", L"PNG Image View|*.png|" },
+            { ImageViewer_PNG,         L"PNG (Load Image)", L"PNG (Image View)|*.png|" },
             Make_FileHandlers_PNG,
-            CImageViewers_PNG::GetRule,
+            CImageViewers_PNGorRAW::GetRule,
+        },
+
+        {
+            ImageViewer_RAW,
+            L"Image Viewer: RAW",
+            { ImageViewer_RAW,         L"RAW (Load Image)", L"RAW (Image View)|*-w-*-h-*.raw|" },
+            Make_FileHandlers_RAW,
+            CImageViewers_PNGorRAW::GetRule,
         },
 
         {
@@ -2616,7 +2627,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 277, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 278, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 
@@ -2723,11 +2734,11 @@ namespace KnownGameInfo
     {
         if ((thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_A) ||
             (thisGame.rgFileOpenData.nInternalGameIndex == DEVMODE_DIR) ||
-            (thisGame.rgFileOpenData.nInternalGameIndex == ImageViewer_PNG) ||
+            GameFlagIsForImageViewer(static_cast<SupportedGamesList>(thisGame.rgFileOpenData.nInternalGameIndex)) ||
             (thisGame.nGameId == DEVMODE_A) ||
             (thisGame.nGameId == DEVMODE_DIR) ||
             // In theory we might want to allow drag and drop of image types if and only if no game is loaded...?
-            (thisGame.nGameId == ImageViewer_PNG))
+            GameFlagIsForImageViewer(static_cast<SupportedGamesList>(thisGame.nGameId)))
         {
             return true;
         }

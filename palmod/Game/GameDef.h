@@ -301,10 +301,13 @@ enum SupportedGamesList
     NINJAMASTERS_S,
     TKDenshou_A,
     ImageViewer_PNG,
+    ImageViewer_RAW,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
 };
+
+bool GameFlagIsForImageViewer(SupportedGamesList nGameFlag);
 
 enum class GamePlatform
 {

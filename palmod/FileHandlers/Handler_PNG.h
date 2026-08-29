@@ -8,7 +8,7 @@
 
 const sGame_PaletteDataset HANDLER_PNG_FAKE_PALETTE[] =
 {
-    { L"PNG (Native Palette)", 0x00, 0x400 },
+    { L"Native Palette", 0x00, 0x400 },
 };
 
 const sDescTreeNode HANDLER_PNG_FAKE_COLLECTION[] =
@@ -21,21 +21,23 @@ const sDescTreeNode HANDLER_PNG_FAKE_UNIT[] =
     { L"Image Viewer", DESC_NODETYPE_TREE, (void*)HANDLER_PNG_FAKE_COLLECTION, ARRAYSIZE(HANDLER_PNG_FAKE_COLLECTION) },
 };
 
-class CImageViewers_PNG : public CGameClass
+class CImageViewers_PNGorRAW : public CGameClass
 {
 private:
     static void InitializeStatics();
+
+    static CDescTree m_MainDescTree;
 
     CString m_strImagePath;
     size_t m_nPaletteLength = 0;
 
 public:
-    CImageViewers_PNG(LPCWSTR pszImagePath, uint32_t nConfirmedROMSize);
-    ~CImageViewers_PNG();
+    CImageViewers_PNGorRAW(SupportedGamesList nGameDef, LPCWSTR pszImagePath, uint32_t nConfirmedROMSize);
+    ~CImageViewers_PNGorRAW();
 
     bool GetForcedSinglePreviewPath(CString& strPath) override;
 
-    CDescTree* GetMainTree();
+    CDescTree* GetMainTree() override { return &CImageViewers_PNGorRAW::m_MainDescTree; };
 
     BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId) override;
@@ -44,8 +46,6 @@ public:
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override { return 1; };
-
-    static CDescTree m_MainDescTree;
 
     static sDescTreeNode* InitDescTree();
 

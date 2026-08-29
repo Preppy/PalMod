@@ -4,16 +4,16 @@
 #include "palmod.h"
 
 //Initialize the selection tree
-CDescTree CImageViewers_PNG::m_MainDescTree = nullptr;
+CDescTree CImageViewers_PNGorRAW::m_MainDescTree = nullptr;
 
 const uint32_t c_nImageViewerUnitAmount = 1;
 
-void CImageViewers_PNG::InitializeStatics()
+void CImageViewers_PNGorRAW::InitializeStatics()
 {
-    m_MainDescTree.SetRootTree(CImageViewers_PNG::InitDescTree());
+    m_MainDescTree.SetRootTree(CImageViewers_PNGorRAW::InitDescTree());
 }
 
-CImageViewers_PNG::CImageViewers_PNG(LPCWSTR pszImagePath, uint32_t nConfirmedROMSize)
+CImageViewers_PNGorRAW::CImageViewers_PNGorRAW(SupportedGamesList nGameDef, LPCWSTR pszImagePath, uint32_t nConfirmedROMSize)
 {
     //Set color mode
     m_createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
@@ -22,7 +22,7 @@ CImageViewers_PNG::CImageViewers_PNG(LPCWSTR pszImagePath, uint32_t nConfirmedRO
     //Set the image out display type
     m_DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
 
-    m_nGameFlag = ImageViewer_PNG;
+    m_nGameFlag = nGameDef;
 
     m_pButtonLabelSet = DEF_NOBUTTONS;
    
@@ -50,23 +50,18 @@ CImageViewers_PNG::CImageViewers_PNG(LPCWSTR pszImagePath, uint32_t nConfirmedRO
     m_strImagePath = pszImagePath;
 }
 
-CImageViewers_PNG::~CImageViewers_PNG()
+CImageViewers_PNGorRAW::~CImageViewers_PNGorRAW()
 {
     FlushChangeTrackingArray();
     ClearDataBuffer();
 }
 
-CDescTree* CImageViewers_PNG::GetMainTree()
-{
-    return &CImageViewers_PNG::m_MainDescTree;
-}
-
-sDescTreeNode* CImageViewers_PNG::InitDescTree()
+sDescTreeNode* CImageViewers_PNGorRAW::InitDescTree()
 {
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    wcsncpy(NewDescTree->szDesc, L"Image Viewer: PNG", ARRAYSIZE(NewDescTree->szDesc));
+    wcsncpy(NewDescTree->szDesc, L"Image Viewer", ARRAYSIZE(NewDescTree->szDesc));
     
     NewDescTree->ChildNodes = new sDescTreeNode[c_nImageViewerUnitAmount];
     NewDescTree->uChildAmt = c_nImageViewerUnitAmount;
@@ -74,7 +69,7 @@ sDescTreeNode* CImageViewers_PNG::InitDescTree()
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format(L"CImageViewers_PNG::InitDescTree: Building desc tree for ImageViewer_PNG...\n");
+    strMsg.Format(L"CImageViewers_PNGorRAW::InitDescTree: Building desc tree for ImageViewer_PNGorRAW...\n");
     OutputDebugString(strMsg);
 
     for (int iUnitCtr = 0; iUnitCtr < c_nImageViewerUnitAmount; iUnitCtr++)
@@ -85,7 +80,7 @@ sDescTreeNode* CImageViewers_PNG::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
-        wcsncpy(UnitNode->szDesc, L"Image Viewer: PNG", ARRAYSIZE(UnitNode->szDesc));
+        wcsncpy(UnitNode->szDesc, L"Image Viewer", ARRAYSIZE(UnitNode->szDesc));
 
         UnitNode->ChildNodes = new sDescTreeNode[c_nImageViewerUnitAmount];
 
@@ -106,7 +101,8 @@ sDescTreeNode* CImageViewers_PNG::InitDescTree()
 
         ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[0];
 
-        wcsncpy(ChildNode->szDesc, L"PNG (Native Palette)", ARRAYSIZE(ChildNode->szDesc));
+        // This is a dummy value that we override later
+        wcsncpy(ChildNode->szDesc, L"Native Palette", ARRAYSIZE(ChildNode->szDesc));
                 
         ChildNode->uUnitId = 0;
         ChildNode->uPalId = 0;
@@ -115,11 +111,11 @@ sDescTreeNode* CImageViewers_PNG::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CImageViewers_PNG::GetRule(uint32_t nRule)
+sFileRule CImageViewers_PNGorRAW::GetRule(uint32_t nRule)
 {
     sFileRule NewFileRule;
 
-    wcsncpy(NewFileRule.szFileName, L"Image Viewer: PNG", ARRAYSIZE(NewFileRule.szFileName));
+    wcsncpy(NewFileRule.szFileName, L"Image Viewer", ARRAYSIZE(NewFileRule.szFileName));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = -1;
@@ -127,24 +123,118 @@ sFileRule CImageViewers_PNG::GetRule(uint32_t nRule)
     return NewFileRule;
 }
 
-BOOL CImageViewers_PNG::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+BOOL CImageViewers_PNGorRAW::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
-    if (m_pppDataBuffer32[nUnitId])
+    CString strFileName = LoadedFile->GetFilePath();
+
+    if ((m_pppDataBuffer32[nUnitId]) ||
+        (strFileName.GetLength() < 5)) // need at least x.foo
     {
         //Palette memory should always be NULL at this point
         return FALSE;
     }
     else
     {
-        BOOL fIsValidIndexedPNG = FALSE;
+        BOOL fHaveValidIndexedImage = FALSE;
 
+        if (m_nGameFlag == ImageViewer_PNG)
+        {
+            LodePNGState state;
+            lodepng_state_init(&state);
+
+            size_t nSize = 0;
+            unsigned char* loadedAsFile = nullptr;
+
+            if (lodepng_load_file(&loadedAsFile, &nSize, LoadedFile->GetFilePath()) == 0)
+            {
+                unsigned width = 0, height = 0;
+                unsigned char* loadedAsPNG = nullptr;
+
+                if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
+                {
+                    if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
+                    {
+                        unsigned char* paletteBits = state.info_png.color.palette;
+                        m_nPaletteLength = state.info_png.color.palettesize;
+
+                        m_pppDataBuffer32[0] = new uint32_t*;
+                        m_pppDataBuffer32[0][0] = new uint32_t[m_nPaletteLength];
+
+                        for (size_t iPos = 0; iPos < m_nPaletteLength; iPos++)
+                        {
+                            uint32_t curColor = ((paletteBits[(iPos * 4) + 3]) << 24) +
+                                ((paletteBits[(iPos * 4) + 2]) << 16) +
+                                ((paletteBits[(iPos * 4) + 1]) << 8) +
+                                ((paletteBits[(iPos * 4) + 0]));
+
+                            m_pppDataBuffer32[0][0][iPos] = curColor;
+                        }
+
+                        fHaveValidIndexedImage = TRUE;
+                    }
+
+                    free(loadedAsPNG);
+                }
+
+                free(loadedAsFile);
+            }
+
+            lodepng_state_cleanup(&state);
+
+            if (!fHaveValidIndexedImage)
+            {
+                MessageBox(g_appHWnd, L"This is not an indexed PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
+            }
+        }
+        else // RAW
+        {
+            // set up a dummy palette
+            m_nPaletteLength = 256;
+            m_pppDataBuffer32[0] = new uint32_t*;
+            m_pppDataBuffer32[0][0] = new uint32_t[m_nPaletteLength];
+            uint32_t curColor = 0xff000000;
+
+            // TODO: make a better default palette?
+            for (size_t iPos = 0; iPos < m_nPaletteLength; iPos++)
+            {
+                m_pppDataBuffer32[0][0][iPos] = curColor;
+                curColor += 0x44ff;
+            }
+
+            fHaveValidIndexedImage = TRUE;
+        }
+
+        if (fHaveValidIndexedImage)
+        {
+            wcsncpy(m_MainDescTree.GetDescNode(0, 0, 0, 0)->szDesc,
+                            (m_nGameFlag == ImageViewer_PNG) ? L"PNG (Native Palette)" : L"RAW (Generated Palette)",
+                            ARRAYSIZE(m_MainDescTree.GetDescNode(0, 0, 0, 0)->szDesc));
+        }
+
+        return fHaveValidIndexedImage;
+    }
+}
+
+BOOL CImageViewers_PNGorRAW::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+{
+    BOOL fSavedOut = FALSE;
+
+    if (m_nGameFlag == ImageViewer_PNG)
+    {
         LodePNGState state;
         lodepng_state_init(&state);
 
         size_t nSize = 0;
         unsigned char* loadedAsFile = nullptr;
 
-        if (lodepng_load_file(&loadedAsFile, &nSize, LoadedFile->GetFilePath()) == 0)
+        // Close the open file handle, we'll be doing this ourselves
+        SaveFile->Abort();
+
+        state.encoder.auto_convert = 0;
+        state.info_raw.colortype = LCT_PALETTE;
+        state.info_raw.bitdepth = 8;
+
+        if (lodepng_load_file(&loadedAsFile, &nSize, m_strImagePath) == 0)
         {
             unsigned width = 0, height = 0;
             unsigned char* loadedAsPNG = nullptr;
@@ -153,109 +243,53 @@ BOOL CImageViewers_PNG::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             {
                 if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
                 {
-                    unsigned char* paletteBits = state.info_png.color.palette;
-                    m_nPaletteLength = state.info_png.color.palettesize;
-
-                    // Set up a dummy palette
-                    m_pppDataBuffer32[0] = new uint32_t*;
-                    m_pppDataBuffer32[0][0] = new uint32_t[m_nPaletteLength];
+                    lodepng_palette_clear(&state.info_png.color);
+                    lodepng_palette_clear(&state.info_raw);
 
                     for (size_t iPos = 0; iPos < m_nPaletteLength; iPos++)
                     {
-                        uint32_t curColor = ((paletteBits[(iPos * 4) + 3]) << 24) +
-                                            ((paletteBits[(iPos * 4) + 2]) << 16) +
-                                            ((paletteBits[(iPos * 4) + 1]) <<  8) +
-                                            ((paletteBits[(iPos * 4) + 0]));
+                        const unsigned char r = (m_pppDataBuffer32[0][0][iPos] & 0xff);
+                        const unsigned char g = (m_pppDataBuffer32[0][0][iPos] & 0xff00) >> 8;
+                        const unsigned char b = (m_pppDataBuffer32[0][0][iPos] & 0xff0000) >> 16;
+                        const unsigned char a = (m_pppDataBuffer32[0][0][iPos] & 0xff000000) >> 24;
 
-                        m_pppDataBuffer32[0][0][iPos] = curColor;
+                        lodepng_palette_add(&state.info_png.color, r, g, b, a);
+                        lodepng_palette_add(&state.info_raw, r, g, b, a);
                     }
 
-                    fIsValidIndexedPNG = TRUE;
+                    unsigned char* encodedBackToPNG = nullptr;
+                    size_t saveSize = 0;
+
+                    if (lodepng_encode(&encodedBackToPNG, &saveSize, loadedAsPNG, width, height, &state) == 0)
+                    {
+                        if (lodepng_save_file(encodedBackToPNG, saveSize, m_strImagePath) == 0)
+                        {
+                            fSavedOut = TRUE;
+                        }
+
+                        free(encodedBackToPNG);
+                    }
                 }
 
                 free(loadedAsPNG);
             }
 
             free(loadedAsFile);
+
+            lodepng_state_cleanup(&state);
         }
-
-        lodepng_state_cleanup(&state);
-
-        if (!fIsValidIndexedPNG)
-        {
-            MessageBox(g_appHWnd, L"This is not an indexed PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
-        }
-
-        return fIsValidIndexedPNG;
     }
-}
-
-BOOL CImageViewers_PNG::SaveFile(CFile* SaveFile, uint32_t nUnitId)
-{
-    BOOL fSavedOut = FALSE;
-
-    LodePNGState state;
-    lodepng_state_init(&state);
-
-    size_t nSize = 0;
-    unsigned char* loadedAsFile = nullptr;
-
-    // Close the open file handle, we'll be doing this ourselves
-    SaveFile->Abort();
-
-    state.encoder.auto_convert = 0;
-    state.info_raw.colortype = LCT_PALETTE;
-    state.info_raw.bitdepth = 8;
-
-    if (lodepng_load_file(&loadedAsFile, &nSize, m_strImagePath) == 0)
+    else // RAW
     {
-        unsigned width = 0, height = 0;
-        unsigned char* loadedAsPNG = nullptr;
-
-        if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
-        {
-            if (state.info_png.color.colortype == LodePNGColorType::LCT_PALETTE)
-            {
-                lodepng_palette_clear(&state.info_png.color);
-                lodepng_palette_clear(&state.info_raw);
-
-                for (size_t iPos = 0; iPos < m_nPaletteLength; iPos++)
-                {
-                    const unsigned char r = (m_pppDataBuffer32[0][0][iPos] & 0xff);
-                    const unsigned char g = (m_pppDataBuffer32[0][0][iPos] & 0xff00) >> 8;
-                    const unsigned char b = (m_pppDataBuffer32[0][0][iPos] & 0xff0000) >> 16;
-                    const unsigned char a = (m_pppDataBuffer32[0][0][iPos] & 0xff000000) >> 24;
-
-                    lodepng_palette_add(&state.info_png.color, r, g, b, a);
-                    lodepng_palette_add(&state.info_raw, r, g, b, a);
-                }
-
-                unsigned char* encodedBackToPNG = nullptr;
-                size_t saveSize = 0;
-                
-                if (lodepng_encode(&encodedBackToPNG, &saveSize, loadedAsPNG, width, height, &state) == 0)
-                {
-                    if (lodepng_save_file(encodedBackToPNG, saveSize, m_strImagePath) == 0)
-                    {
-                        fSavedOut = TRUE;
-                    }
-
-                    free(encodedBackToPNG);
-                }               
-            }
-
-            free(loadedAsPNG);
-        }
-
-        free(loadedAsFile);
-
-        lodepng_state_cleanup(&state);
+        GetHost()->GetPreviewDlg()->OnFileExportImgQuick();
+        // actual status text messaging will be handled via quick export
+        fSavedOut = TRUE;
     }
 
     return fSavedOut;
 }
 
-BOOL CImageViewers_PNG::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CImageViewers_PNGorRAW::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -284,14 +318,14 @@ BOOL CImageViewers_PNG::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     return TRUE;
 }
 
-bool CImageViewers_PNG::GetForcedSinglePreviewPath(CString& strPath)
+bool CImageViewers_PNGorRAW::GetForcedSinglePreviewPath(CString& strPath)
 {
     strPath = m_strImagePath;
 
     return true;
 }
 
-void CImageViewers_PNG::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+void CImageViewers_PNGorRAW::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     m_nCurrentPaletteROMLocation = 0;
     m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(m_nPaletteLength);

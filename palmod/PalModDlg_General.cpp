@@ -369,7 +369,18 @@ bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGa
     OutputDebugString(strFile.GetBuffer());
 #endif
 
-    const bool fSuccess = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false /* use quiet mode since this is automatic */);
+    bool fSuccess;
+
+    // Only the RAW viewer currently has access to this option since preloading a RAW requires we know the
+    // dimensions
+    if (CurrGame->GetGameFlag() == ImageViewer_RAW)
+    {
+        fSuccess = ImgDispCtrl->LoadExternalRAWSprite(nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false  /* try to use quiet mode since this is automatic */));
+    }
+    else
+    {
+        fSuccess = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false /* use quiet mode since this is automatic */);
+    }
 
     m_strOverridePreviewStatus.Format(L"\"%s\" %s", strImagePath.GetBuffer(), fSuccess ? L"loaded" : L"not loaded");
     OutputDebugString(m_strOverridePreviewStatus.GetString());

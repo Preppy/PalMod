@@ -220,7 +220,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         }
     }
 
-    if (nGameFlag == ImageViewer_PNG)
+    if (GameFlagIsForImageViewer(static_cast<SupportedGamesList>(nGameFlag)))
     {
         strLoadSaveStr.Format(OutGame ? L"Image loaded successfully." : L"Image failed to load.");
     }
@@ -660,7 +660,7 @@ bool CGameLoad::SaveGame(CGameClass* CurrGame)
             }
             else
             {
-                if (GetHost()->GetCurrGame()->GetGameFlag() == ImageViewer_PNG)
+                if (GameFlagIsForImageViewer(GetHost()->GetCurrGame()->GetGameFlag()))
                 {
                     strLoadSaveStr = L"Image updated successfully.";
                 }
