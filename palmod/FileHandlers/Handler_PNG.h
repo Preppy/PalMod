@@ -27,6 +27,10 @@ private:
     static void InitializeStatics();
 
     static CDescTree m_MainDescTree;
+    LPCWSTR m_strKeyName = L"FavPalette_RAW";
+
+    void _StorePaletteInRegistry();
+    bool _RestorePaletteFromRegistry();
 
     CString m_strImagePath;
     size_t m_nPaletteLength = 0;

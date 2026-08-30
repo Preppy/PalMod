@@ -2,6 +2,7 @@
 #include "Handler_PNG.h"
 #include "lodepng\lodepng.h"
 #include "palmod.h"
+#include "RegProc.h"
 
 //Initialize the selection tree
 CDescTree CImageViewers_PNGorRAW::m_MainDescTree = nullptr;
@@ -52,6 +53,7 @@ CImageViewers_PNGorRAW::CImageViewers_PNGorRAW(SupportedGamesList nGameDef, LPCW
 
 CImageViewers_PNGorRAW::~CImageViewers_PNGorRAW()
 {
+    _StorePaletteInRegistry();
     FlushChangeTrackingArray();
     ClearDataBuffer();
 }
@@ -123,6 +125,49 @@ sFileRule CImageViewers_PNGorRAW::GetRule(uint32_t nRule)
     return NewFileRule;
 }
 
+void CImageViewers_PNGorRAW::_StorePaletteInRegistry()
+{
+    if (m_nPaletteLength == 256)
+    {
+        HKEY hKey;
+
+        // Store the working palette.  They need to have clicked Update for us to use any changes they made
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, nullptr, REG_OPTION_NON_VOLATILE, KEY_WRITE, nullptr, &hKey, nullptr) == ERROR_SUCCESS)
+        {
+            DWORD cbSize = m_nPaletteLength * sizeof(uint32_t);
+
+            RegSetValueExW(hKey, m_strKeyName, 0, REG_BINARY, reinterpret_cast<const BYTE*>(&m_pppDataBuffer32[0][0][0]), cbSize);
+
+            RegCloseKey(hKey);
+        }
+    }
+}
+
+bool CImageViewers_PNGorRAW::_RestorePaletteFromRegistry()
+{
+    bool fFoundData = false;
+
+    if (m_nPaletteLength == 256)
+    {
+        HKEY hKey;
+
+        if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey) == ERROR_SUCCESS)
+        {
+            DWORD cbSize = m_nPaletteLength * sizeof(uint32_t);
+            DWORD dwType = REG_BINARY;
+
+            if (RegQueryValueExW(hKey, m_strKeyName, 0, &dwType, reinterpret_cast<BYTE*>(&m_pppDataBuffer32[0][0][0]), &cbSize) == ERROR_SUCCESS)
+            {
+                fFoundData = true;
+            }
+
+            RegCloseKey(hKey);
+        }
+    }
+
+    return fFoundData;
+}
+
 BOOL CImageViewers_PNGorRAW::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     CString strFileName = LoadedFile->GetFilePath();
@@ -192,13 +237,17 @@ BOOL CImageViewers_PNGorRAW::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             m_nPaletteLength = 256;
             m_pppDataBuffer32[0] = new uint32_t*;
             m_pppDataBuffer32[0][0] = new uint32_t[m_nPaletteLength];
-            uint32_t curColor = 0xff000000;
 
-            // TODO: make a better default palette?
-            for (size_t iPos = 0; iPos < m_nPaletteLength; iPos++)
+            if (!_RestorePaletteFromRegistry())
             {
-                m_pppDataBuffer32[0][0][iPos] = curColor;
-                curColor += 0x44ff;
+                uint32_t curColor = 0xff000000;
+
+                // TODO: make a better default palette?
+                for (size_t iPos = 0; iPos < m_nPaletteLength; iPos++)
+                {
+                    m_pppDataBuffer32[0][0][iPos] = curColor;
+                    curColor += 0x44ff;
+                }
             }
 
             fHaveValidIndexedImage = TRUE;

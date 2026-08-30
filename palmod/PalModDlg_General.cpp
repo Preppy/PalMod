@@ -375,7 +375,7 @@ bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGa
     // dimensions
     if (CurrGame->GetGameFlag() == ImageViewer_RAW)
     {
-        fSuccess = ImgDispCtrl->LoadExternalRAWSprite(nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false  /* try to use quiet mode since this is automatic */));
+        fSuccess = ImgDispCtrl->LoadExternalRAWSprite(nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false  /* try to use quiet mode since this is automatic */);
     }
     else
     {
