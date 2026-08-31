@@ -5,7 +5,15 @@
 class CGame_DBZEB_DS : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    enum class DBZEBLoadingKey
+    {
+        Europe,
+        USA,
+    };
+
+    static DBZEBLoadingKey m_eROMToLoad;
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_USA =
     {
         {
             { L"Dragon Ball Z - Extreme Butoden (USA) Decrypted.3ds", 0x18F32000 },
@@ -13,14 +21,23 @@ private:
         FileReadType::Sequential,
     };
 
-    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Europe =
     {
-        { L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)", L"Dragon Ball Z - Extreme Butoden (USA) Decrypted.3ds", 0xb614c5c4, 0 },
+        {
+            { L"Dragon Ball Z - Extreme Butoden (Europe) (En,Fr,De,Es,It) Decrypted.3ds", 0x20000000 },
+        },
+        FileReadType::Sequential,
     };
 
-    const sCoreGameData m_sCoreGameData
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)",
+        { L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS USA)", L"Dragon Ball Z - Extreme Butoden (USA) Decrypted.3ds", 0xb614c5c4, 0 },
+        { L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS Europe) ", L"Dragon Ball Z - Extreme Butoden (Europe) (En,Fr,De,Es,It) Decrypted.3ds", 0x5EEBB971, -0x1000 },
+    };
+
+    const sCoreGameData m_sCoreGameData_USA
+    {
+        L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS USA)",
         DBZEB_DS,
         IMGDAT_SECTION_DS,
         DBZEB_3DS_IMGIDS_USED,
@@ -29,7 +46,27 @@ private:
         DEF_NOBUTTONS,
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_RGBA8888_LE,
-        m_sFileLoadingData,
+        m_sFileLoadingData_USA,
+        m_rgCRC32Data,
+        DBZEB_DS_UNITS,
+        ARRAYSIZE(DBZEB_DS_UNITS),
+        L"dbzebE.txt",               // Extra filename
+        696,                         // Count of palettes listed in the header
+        0xc981a0,                    // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Europe
+    {
+        L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS Europe)",
+        DBZEB_DS,
+        IMGDAT_SECTION_DS,
+        DBZEB_3DS_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesVariableAlpha,
+        ColMode::COLMODE_RGBA8888_LE,
+        m_sFileLoadingData_Europe,
         m_rgCRC32Data,
         DBZEB_DS_UNITS,
         ARRAYSIZE(DBZEB_DS_UNITS),
@@ -39,7 +76,9 @@ private:
     };
 
 public:
-    CGame_DBZEB_DS(uint32_t nConfirmedROMSize) { m_fGameUsesAlphaValue = true; InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_DBZEB_DS(uint32_t nConfirmedROMSize);
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
+
+    static sFileRule GetRule(uint32_t nRuleId);
 };

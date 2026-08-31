@@ -255,6 +255,7 @@
     <ClCompile Include="Game\Game_CVS1_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />
+    <ClCompile Include="Game\Game_DBZEB_DS.cpp" />
     <ClCompile Include="Game\Game_DevMode_DIR.cpp" />
     <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
     <ClCompile Include="Game\Game_FightersHistory_A_DIR.cpp" />

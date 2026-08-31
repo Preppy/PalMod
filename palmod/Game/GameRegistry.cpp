@@ -779,7 +779,7 @@ namespace KnownGameInfo
         {
             DBZEB_DS,
             L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)",
-            { DBZEB_DS,         L"Dragon Ball Z: Extreme Butoden (3DS)", L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)|3DS1366*(USA)-decrypted.3ds;Dragon*Butoden*USA*decrypted*.3ds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
+            { DBZEB_DS,         L"Dragon Ball Z: Extreme Butoden (3DS)", L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)|3DS1366*(USA)-decrypted.3ds;Dragon*Butoden*decrypted*.3ds|", GamePlatform::Nintendo, GameSeries::NintendoDS },
             Make_DBZEB_DS,
             CGame_DBZEB_DS::GetRule,
         },
@@ -2830,6 +2830,9 @@ namespace KnownGameInfo
                 break;
             case CVS1_A:
                 CGame_CVS1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+                break;
+            case DBZEB_DS:
+                CGame_DBZEB_DS::SetSpecialRuleForFileName(pszFileNameLowercase);
                 break;
             case FatalFury2_A:
                 CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);

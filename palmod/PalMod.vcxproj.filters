@@ -1125,6 +1125,9 @@
     <ClCompile Include="FileHandlers\Handler_PNG.cpp">
       <Filter>Image Viewers\PNG</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_DBZEB_DS.cpp">
+      <Filter>Games\Nintendo\Dragon Ball Z: Extreme Butoden %283DS%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
