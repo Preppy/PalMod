@@ -299,7 +299,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
             const ULONGLONG nGameFileLength = CurrFile.GetLength();
             size_t nConfirmedVerifyVar = CurrRule.uVerifyVar;
             
-            if ((CurrRule.uVerifyVar == (size_t )-1) ||
+            if ((CurrRule.uVerifyVar == static_cast<size_t>(-1)) ||
                 ((CurrRule.uVerifyVar == nGameFileLength)))
             {
                 fActualFileSizeIsSafe = true;

@@ -110,8 +110,8 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
         if (fHavePathData)
         {
-            const bool fGameIsLoaded = GetHost()->GetCurrGame();
-            const SupportedGamesList gameId = fGameIsLoaded ? GetHost()->GetCurrGame()->GetGameFlag() : NUM_GAMES;
+            const bool c_fGameIsLoaded = GetHost()->GetCurrGame();
+            const SupportedGamesList c_gameId = c_fGameIsLoaded ? GetHost()->GetCurrGame()->GetGameFlag() : NUM_GAMES;
 
             // Handle palettes
 
@@ -124,10 +124,18 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             CString strMessageOut;
 
             // allow hints for these two if they're using the right game or they could be
-            const bool fAllowBBCFDrop = !fGameIsLoaded || (gameId == BlazBlueCF_S);
-            const bool fAllowACRDrop = !fGameIsLoaded || (gameId == GGXXACR_S);
+            const bool c_fAllowBBCFDrop = !c_fGameIsLoaded || (c_gameId == BlazBlueCF_S);
+            const bool c_fAllowACRDrop = !c_fGameIsLoaded || (c_gameId == GGXXACR_S);
 
-            if (pszExtension)
+            const DWORD c_nFileAttrib = GetFileAttributes(szPath);
+            const bool c_fIsDirectory = (c_nFileAttrib & FILE_ATTRIBUTE_DIRECTORY);
+
+            if (c_fIsDirectory)
+            {
+                strMessageOut = L"You dragged a folder: just drag the file you want from that.";
+                m_currentEffectState = DROPEFFECT_NONE;
+            }
+            else if (pszExtension)
             {
                 // There's a smaller list in _IsDataObjectFromFirefox that needs to mirror all image types 
                 // that Firefox might hand us.
@@ -135,8 +143,8 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     (_wcsicmp(pszExtension, L".pal") == 0) ||
                     (_wcsicmp(pszExtension, L".gpl") == 0) ||
                     (_wcsicmp(pszExtension, L".hpl") == 0) ||
-                    (fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".impl") == 0))) ||
-                    (fAllowACRDrop && (_wcsicmp(pszExtension, L".prpl") == 0)))
+                    (c_fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".impl") == 0))) ||
+                    (c_fAllowACRDrop && (_wcsicmp(pszExtension, L".prpl") == 0)))
                 {
                     m_currentEffectState = DROPEFFECT_COPY;
                     strMessageOut = L"This appears to be a usable palette.";
@@ -185,11 +193,20 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     strMessageOut = L"You dragged a URL: save the file to disk first and then use it.";
                     m_currentEffectState = DROPEFFECT_NONE;
                 }
+                else if ((_wcsicmp(pszExtension, L".7z") == 0) ||
+                        (_wcsicmp(pszExtension, L".rar") == 0) ||
+                        (_wcsicmp(pszExtension, L".zip") == 0))
+                {
+                    strMessageOut = L"You dragged a compressed file: extract it first in order to have PalMod use it.";
+                    m_currentEffectState = DROPEFFECT_NONE;
+                }
             }
 
             if (!strMessageOut.IsEmpty())
             {
-                if (!fGameIsLoaded)
+                // If the item is supported but requires a game to be loaded, remind them.
+                if (!c_fGameIsLoaded &&
+                    (m_currentEffectState == DROPEFFECT_COPY))
                 {
                     strMessageOut = L"Load a game first! " + strMessageOut;
                     m_currentEffectState = DROPEFFECT_NONE;

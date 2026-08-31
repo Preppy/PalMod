@@ -5,21 +5,9 @@ CGame_DBZEB_DS::DBZEBLoadingKey CGame_DBZEB_DS::m_eROMToLoad = DBZEBLoadingKey::
 
 void CGame_DBZEB_DS::SetSpecialRuleForFileName(std::wstring strFileName)
 {
-    const std::map<std::wstring, DBZEBLoadingKey> m_rgFileNameToVersion =
+    if (strFileName.find(L"europe") != std::wstring::npos)
     {
-        // these should be all lower case
-        { L"dragon ball z - extreme butoden (europe) (en,fr,de,es,it) decrypted.3ds", DBZEBLoadingKey::Europe },
-        { L"dragon ball z - extreme butoden (usa) decrypted.3ds", DBZEBLoadingKey::USA },
-    };
-
-    CString strFileNameLowerCase = strFileName.c_str();
-    strFileNameLowerCase.MakeLower();
-
-    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
-
-    if (result != m_rgFileNameToVersion.end())
-    {
-        m_eROMToLoad = result->second;
+        m_eROMToLoad = DBZEBLoadingKey::Europe;
     }
     else
     {

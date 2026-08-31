@@ -775,9 +775,10 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         if (ofn.nFileExtension != 0)
         {
             if ((_wcsicmp(ofn.lpstrFile + ofn.nFileExtension, L"rar") == 0) ||
+                (_wcsicmp(ofn.lpstrFile + ofn.nFileExtension, L"7z") == 0) ||
                 (_wcsicmp(ofn.lpstrFile + ofn.nFileExtension, L"zip") == 0))
             {
-                CString strInfo = L"PalMod cannot use RAR or ZIP compressed files.  You must first extract out the files from those archives.  Then point PalMod to the files inside.\n\nAre you sure you wish to continue?";
+                CString strInfo = L"PalMod cannot use RAR, ZIP, 7Z, or other compressed files.  You must first extract out the files from those archives.  Then point PalMod to the files inside.\n\nAre you sure you wish to continue?";
                 if (MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO | MB_DEFBUTTON2) != IDYES)
                 {
                     fSafeToContinue = false;
