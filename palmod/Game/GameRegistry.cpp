@@ -1953,7 +1953,7 @@ namespace KnownGameInfo
         {
             SAMSHO5SP_S,
             L"Samurai Shodown V Special (Steam)",
-            { SAMSHO5SP_S,      L"Samurai Shodown V Special", L"Samurai Shodown V Special (Steam)|p1*h*.bin|", GamePlatform::Steam },
+            { SAMSHO5SP_S,      L"Samurai Shodown V Special", L"Samurai Shodown V Special (Steam) (p1 Normal, p1h Training)|p1.bin;p1*h*.bin|", GamePlatform::Steam },
             Make_SAMSHO5SP_S,
             CGame_SAMSHO5SP_A::GetRule,
         },

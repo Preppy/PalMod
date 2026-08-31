@@ -14,6 +14,9 @@ void CGame_SAMSHO5SP_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
         { L"273-p1.bin" ,SamSho5SpLoadingKey::NeoGeoLarge },
 
+        // Story mode
+        { L"p1.bin", SamSho5SpLoadingKey::Steam },
+        // Training mode
         { L"p1h.bin", SamSho5SpLoadingKey::Steam },
        
     };

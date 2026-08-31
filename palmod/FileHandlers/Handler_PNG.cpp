@@ -134,7 +134,7 @@ void CImageViewers_PNGorRAW::_StorePaletteInRegistry()
         // Store the working palette.  They need to have clicked Update for us to use any changes they made
         if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, nullptr, REG_OPTION_NON_VOLATILE, KEY_WRITE, nullptr, &hKey, nullptr) == ERROR_SUCCESS)
         {
-            DWORD cbSize = m_nPaletteLength * sizeof(uint32_t);
+            DWORD cbSize = static_cast<DWORD>(m_nPaletteLength * sizeof(uint32_t));
 
             RegSetValueExW(hKey, m_strKeyName, 0, REG_BINARY, reinterpret_cast<const BYTE*>(&m_pppDataBuffer32[0][0][0]), cbSize);
 
@@ -153,7 +153,7 @@ bool CImageViewers_PNGorRAW::_RestorePaletteFromRegistry()
 
         if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey) == ERROR_SUCCESS)
         {
-            DWORD cbSize = m_nPaletteLength * sizeof(uint32_t);
+            DWORD cbSize = static_cast<DWORD>(m_nPaletteLength * sizeof(uint32_t));
             DWORD dwType = REG_BINARY;
 
             if (RegQueryValueExW(hKey, m_strKeyName, 0, &dwType, reinterpret_cast<BYTE*>(&m_pppDataBuffer32[0][0][0]), &cbSize) == ERROR_SUCCESS)
