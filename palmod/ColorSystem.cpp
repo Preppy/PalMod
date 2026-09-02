@@ -14,6 +14,9 @@ namespace ColorSystem
     // These are the multipliers that can be used for color formats
     // so long as they don't use color lookup tables (CLUTs)
     const double k_nRGBPlaneMulForRGB111 = 255;
+    // Note that MAME appears to be using 0x00 -> 0x59* (0n89) -> 0xaa* (0n51) -> 0xff (0n55)
+    // for color steps for Sega Master System
+    const double k_nRGBPlaneMulForRGB222 = 85;
     // We're using floor() for math, so use .429 instead of .428
     const double k_nRGBPlaneMulForRGB333 = 36.429;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
@@ -24,6 +27,7 @@ namespace ColorSystem
 
     // These are the number of colors available for each color format
     const int k_nRGBPlaneAmtForRGB111 = 1;
+    const int k_nRGBPlaneAmtForRGB222 = 3;
     const int k_nRGBPlaneAmtForRGB333 = 7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
     const int k_nRGBPlaneAmtForRGB555_CPS3 = 30;
@@ -37,6 +41,9 @@ namespace ColorSystem
     {
         switch (colorMode)
         {
+            case ColMode::COLMODE_RGBx2222:
+                return 1;
+
             default:
                 OutputDebugString(L"ERROR: Unsupported color mode: this will not work correctly.\r\n");
                 __fallthrough;
@@ -132,9 +139,11 @@ namespace ColorSystem
         { "BGRA8888",   ColMode::COLMODE_BGRA8888_LE },         // 32bit color (arcana blood)
         { "RGBA8888BE_16", ColMode::COLMODE_RGBA8888_BE16 },    // Psikyo variant: BE on 16bit reads
         { "RGBx5551BE", ColMode::COLMODE_RGBx5551_BE },         // Nintendo 64 z64
+
+        { "RGBx2222", ColMode::COLMODE_RGBx2222 },              // Sega Master System
     };
 
-    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "You must update the string table above and the Read Me.");
+    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "You must update the string table above and the Read Me.");
 
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
     {
@@ -308,6 +317,9 @@ namespace ColorSystem
     {
         switch (colorMode)
         {
+            case ColMode::COLMODE_RGBx2222:
+                return k_nRGBPlaneAmtForRGB222;
+
             case ColMode::COLMODE_BGR333:
             case ColMode::COLMODE_RBG333:
             case ColMode::COLMODE_RGB333:
@@ -397,6 +409,53 @@ namespace ColorSystem
         }
     }
 
+    inline uint8_t GetAdjustedNativeAlpha(uint16_t inAlpha, uint8_t nOriginalAlpha, uint8_t nFullValueAlpha)
+    {
+        switch (CurrAlphaMode)
+        {
+            case AlphaMode::GameUsesFixedAlpha:
+                return nFullValueAlpha;
+            case AlphaMode::GameDoesNotUseAlpha:
+                return 0;
+            default:
+                return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nOriginalAlpha;
+        }
+    }
+
+    // COLMODE_RGBx2222
+    uint32_t CONV_RGBx2222_32(uint8_t inCol)
+    {
+        const uint8_t r = static_cast<uint8_t>(floor( (inCol       & 0x03) * k_nRGBPlaneMulForRGB222));
+        const uint8_t g = static_cast<uint8_t>(floor(((inCol >> 2) & 0x03) * k_nRGBPlaneMulForRGB222));
+        const uint8_t b = static_cast<uint8_t>(floor(((inCol >> 4) & 0x03) * k_nRGBPlaneMulForRGB222));
+        uint8_t a       = static_cast<uint8_t>(floor(((inCol >> 6) & 0x03) * k_nRGBPlaneMulForRGB222));
+
+        if (!IsAlphaModeMutable(CurrAlphaMode))
+        {
+            a = 0xFF;
+        }
+
+        return (a << 24) | (b << 16) | (g << 8) | r;
+    }
+
+    uint8_t CONV_32_RGBx2222(uint32_t inCol, uint8_t oldCol)
+    {
+        uint16_t auxr = ((inCol & 0x000000FF));
+        uint16_t auxb = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxg = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
+        uint8_t  olda = (oldCol >> 6) & 0x03;
+
+        auxr = static_cast<uint8_t>(floor(auxr / k_nRGBPlaneMulForRGB222));
+        auxb = static_cast<uint8_t>(floor(auxb / k_nRGBPlaneMulForRGB222));
+        auxg = static_cast<uint8_t>(floor(auxg / k_nRGBPlaneMulForRGB222));
+        auxa = static_cast<uint8_t>(floor(auxa / k_nRGBPlaneMulForRGB222));
+
+        auxa = GetAdjustedNativeAlpha(auxa, olda, 0x03);
+
+        return (auxr) | (auxb << 2) | (auxg << 4) | (auxa << 6);
+    }
+
     // COLMODE_BGR333
     uint32_t CONV_BGR333_32(uint16_t inCol)
     {
@@ -474,19 +533,6 @@ namespace ColorSystem
 
         // emit as GRxB
         return (auxb << 1) | (auxr << 9) | (auxg << 13);
-    }
-
-    inline uint8_t GetAdjustedNativeAlpha(uint16_t inAlpha, uint8_t nOriginalAlpha, uint8_t nFullValueAlpha)
-    {
-        switch (CurrAlphaMode)
-        {
-            case AlphaMode::GameUsesFixedAlpha:
-                return nFullValueAlpha;
-            case AlphaMode::GameDoesNotUseAlpha:
-                return 0;
-            default:
-                return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nOriginalAlpha;
-        }
     }
 
     // COLMODE_BGR555_LE
@@ -1690,6 +1736,13 @@ namespace ColorSystem
         return outVal;
     }
 
+    int ROUND_85(int rVal)
+    {
+        const int outVal = static_cast<int>(min(0xff, (round(rVal / k_nRGBPlaneMulForRGB222)) * k_nRGBPlaneMulForRGB222));
+
+        return outVal;
+    }
+
     int GetColorStepFor8BitValue_1Step(int nColorValue)
     {
         return (nColorValue / 255);
@@ -1698,6 +1751,24 @@ namespace ColorSystem
     int Get8BitValueForColorStep_1Step(int nColorStep)
     {
         return (nColorStep * 255);
+    }
+
+    int GetColorStepFor8BitValue_4Steps(int nColorValue)
+    {
+        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB222));
+
+        return nStep;
+    }
+
+    int Get8BitValueForColorStep_4Steps(int nColorStep)
+    {
+        nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB222);
+        nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB222);
+
+        // establish about where we should be
+        const int nColorValue = ROUND_85(static_cast<int>(round(k_nRGBPlaneMulForRGB222 * static_cast<double>(nColorStep))));
+
+        return nColorValue;
     }
 
     int GetColorStepFor8BitValue_8Steps(int nColorValue)
@@ -1875,7 +1946,7 @@ namespace ColorSystem
 
     int Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep)
     {
-        static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "If you've added a new CLUT, make sure you handle the different stepping here.");
+        static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "If you've added a new CLUT, make sure you handle the different stepping here.");
 
         switch (nPlaneLength)
         {
@@ -1884,6 +1955,8 @@ namespace ColorSystem
                 __fallthrough;
             case k_nRGBPlaneAmtForRGB111:
                 return Get8BitValueForColorStep_1Step(nColorStep);
+            case k_nRGBPlaneAmtForRGB222:
+                return Get8BitValueForColorStep_4Steps(nColorStep);
             case k_nRGBPlaneAmtForRGB333:
                 return Get8BitValueForColorStep_8Steps(nColorStep);
             case k_nRGBPlaneAmtForRGB444 :
@@ -1915,6 +1988,11 @@ namespace ColorSystem
     int GetNearestLegalColorValue_RGB111(int nColorValue)
     {
         return (nColorValue ? 255 : 0);
+    }
+
+    int GetNearestLegalColorValue_RGB222(int nColorValue)
+    {
+        return ROUND_85(nColorValue);
     }
 
     int GetNearestLegalColorValue_RGB333(int nColorValue)
@@ -1976,6 +2054,12 @@ namespace ColorSystem
         }
 
         return nColorValue;
+    }
+
+    int ValidateColorStep_RGB222(int nColorStep)
+    {
+        nColorStep = max(0, nColorStep);
+        return min(nColorStep, k_nRGBPlaneAmtForRGB222);
     }
 
     int ValidateColorStep_RGB333(int nColorStep)
@@ -2367,6 +2451,47 @@ namespace ColorSystem
         return colorStep;
     }
 
+    void Test8BitConverters(ColMode cmColorMode, uint32_t(*from8to32)(uint8_t), uint8_t(*from32to8)(uint32_t, uint8_t))
+    {
+        CString strOutput;
+        strOutput.Format(L"Output for %S:\r\n", GetColorFormatStringForColorFormat(cmColorMode));
+        OutputDebugString(strOutput.GetString());
+
+        std::array<AlphaMode, 3> alphaModes = { AlphaMode::GameDoesNotUseAlpha , AlphaMode::GameUsesFixedAlpha, AlphaMode::GameUsesVariableAlpha };
+
+        for (AlphaMode& currAlphaMode : alphaModes)
+        {
+            SetAlphaMode(currAlphaMode);
+
+            std::array<uint32_t, 3> rgSampleNumbers = { 0, 0xff55aaff, 0xffffffff };
+
+            for (uint32_t& nIn32 : rgSampleNumbers)
+            {
+                // We can't know which bit is alpha at this abstraction level, so just set/unset them all \o/
+                std::array<uint8_t, 2> rgSampleAlpha = { 0, 0xff };
+
+                for (uint8_t& nAlphaToTest : rgSampleAlpha)
+                {
+                    const uint8_t nAs8 = from32to8(nIn32, nAlphaToTest);
+                    const uint32_t nOut32 = from8to32(nAs8);
+                    const uint8_t nBack8 = from32to8(nOut32, nAlphaToTest);
+                    const uint32_t n32Again = from8to32(nBack8);
+
+                    strOutput.Format(L"\tAMode: %10S. AValue: %u:\tIn: 0x%02x Display1: 0x%08x Out: 0x%02x Display2: 0x%08x \r\n", GetAlphaModeStringForAlphaMode(currAlphaMode), nAlphaToTest ? 1 : 0, nAs8, nOut32, nBack8, n32Again);
+                    OutputDebugString(strOutput.GetString());
+
+                    if ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) && (nAs8 != nBack8) || (nOut32 != n32Again))
+                    {
+                        OutputDebugString(L"ERROR! Math is wrong.\r\n");
+                        DebugBreak();
+                    }
+                }
+            }
+        }
+
+        OutputDebugString(L"\r\n");
+    }
+
     void Test16BitConverters(ColMode cmColorMode, uint32_t (*from16to32)(uint16_t), uint16_t (*from32to16)(uint32_t, uint16_t))
     {
         CString strOutput;
@@ -2480,7 +2605,9 @@ namespace ColorSystem
 
     void TestColorConversions()
     {
-        static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "Please add the new color format to this table and run this check once to double-check your math.");
+        static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "Please add the new color format to this table and run this check once to double-check your math.");
+
+        Test8BitConverters(ColMode::COLMODE_RGBx2222, &ColorSystem::CONV_RGBx2222_32, &ColorSystem::CONV_32_RGBx2222);
 
         Test16BitConverters(ColMode::COLMODE_BGR333, &ColorSystem::CONV_BGR333_32, &ColorSystem::CONV_32_BGR333);
         Test16BitConverters(ColMode::COLMODE_RBG333, &ColorSystem::CONV_RBG333_32, &ColorSystem::CONV_32_RBG333);

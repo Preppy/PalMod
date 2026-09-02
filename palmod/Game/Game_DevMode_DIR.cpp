@@ -645,14 +645,22 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
     // ID_COLORFORMAT_GRB555_BE
     // ID_COLORFORMAT_RBGA8888_LE
     // ID_COLORFORMAT_NEOTURFMASTERS
+    // ID_COLORFORMAT_RGBA8888_BE16
+    // ID_COLORFORMAT_BGRx5551_BE
+    // ID_COLORFORMAT_RGBx2222
     // I am explicitly and needlessly listing out all of those string IDs because Visual Studio search sometimes misses the color modes below,
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     // Update this check once you've decided whether to expose the new color or not.
-    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
 
     switch (NewMode)
     {
+        case ColMode::COLMODE_RGBx2222:
+            cbRequiredColorSize = 1;
+            suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+            break;
+
         case ColMode::COLMODE_BGR333:
         case ColMode::COLMODE_RBG333:
         case ColMode::COLMODE_RGB333:
@@ -703,6 +711,7 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
         case ColMode::COLMODE_BGRA8888_BE:
         case ColMode::COLMODE_BGRA8888_LE:
         case ColMode::COLMODE_RBGA8888_LE:
+        case ColMode::COLMODE_NEOTURFMASTERS:
             cbRequiredColorSize = 4;
             suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
             m_fGameUsesAlphaValue = true;

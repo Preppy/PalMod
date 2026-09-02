@@ -110,7 +110,9 @@ private:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert(static_cast<ColMode>(34) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+
+    void SetColorFormatToRGBx2222() { SetColorFormatTo(ColMode::COLMODE_RGBx2222); };
 
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
@@ -222,6 +224,7 @@ private:
     void ClearGameVar();
     void StopBlink();
 
+    void CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode TargetMode, COLORREF *pPastedColors, uint16_t nPasteAmount);
     void HandlePasteFromPalMod();
     void HandlePasteFromRGB(bool fAdvanceNext = false, bool fRefreshUI = true);
     void PasteToPaletteFromRGB(COLORREF clrIn, bool fAdvanceNext = false, bool fRefreshUI = true);

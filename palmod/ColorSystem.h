@@ -65,6 +65,8 @@ enum class ColMode
 
     COLMODE_RGBx5551_BE,    // Nintendo 64 z64
 
+    COLMODE_RGBx2222,       // 8bit color: Sega Master System
+
     COLMODE_LAST,
 };
 
@@ -83,6 +85,10 @@ namespace ColorSystem
     // It's only called for Paste operations, where the incoming value is guaranteed to be uint8_t.
     uint8_t GetCbForColorForGameFlag(uint8_t uMostlyObsoleteGameFlag, uint8_t uPossibleColorFlag);
     int GetPlaneAmtForColor(ColMode colorMode, ColFlag colorFlag);
+
+    // 8-bit
+    uint8_t  CONV_32_RGBx2222(uint32_t inCol, uint8_t oldCol);
+    uint32_t CONV_RGBx2222_32(uint8_t inCol);
 
     // 16-bit
     uint16_t CONV_32_BGR333(uint32_t inCol, uint16_t oldCol);
@@ -169,6 +175,8 @@ namespace ColorSystem
 
     int GetColorStepFor8BitValue_1Step(int nColorValue);
     int Get8BitValueForColorStep_1Step(int nColorStep);
+    int GetColorStepFor8BitValue_4Steps(int nColorValue);
+    int Get8BitValueForColorStep_4Steps(int nColorStep);
     int GetColorStepFor8BitValue_8Steps(int nColorValue);
     int Get8BitValueForColorStep_8Steps(int nColorStep);
     int GetColorStepFor8BitValue_16Steps(int nColorValue);
@@ -190,6 +198,7 @@ namespace ColorSystem
     int Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep);
 
     int GetNearestLegalColorValue_RGB111(int nColorValue);
+    int GetNearestLegalColorValue_RGB222(int nColorValue);
     int GetNearestLegalColorValue_RGB333(int nColorValue);
     int GetNearestLegalColorValue_RGB444(int nColorValue);
     int GetNearestLegalColorValue_RGB555_CPS3(int nColorValue);
@@ -200,6 +209,7 @@ namespace ColorSystem
     int GetNearestLegal8bitColorValue_FromACR8Bit(int nColorValue);
     int GetNearestLegalColorValue_RGB888(int nColorValue);
 
+    int ValidateColorStep_RGB222(int nColorStep);
     int ValidateColorStep_RGB333(int nColorStep);
     int ValidateColorStep_RGB444(int nColorStep);
     int ValidateColorStep_RGB555_CPS3(int nColorStep);

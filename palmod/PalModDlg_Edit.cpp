@@ -10,9 +10,6 @@
 
 #include "Game\GameDef.h"
 #include "Game\GameClass.h"
-#include "Game\GameRegistry.h"
-
-#include "debugutil.h"
 
 // PalMod supports the following clipboard data:
 // * The Windows 10 color power toy format:
@@ -345,6 +342,14 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
 
                     switch (cbColor)
                     {
+                        case 1:
+                        {
+                            // Using the original source alpha here would be better, but let's just stomp to full at this level
+                            const uint8_t uCurrData = CurrGame->ConvCol8(CurrPal->GetBasePal()[iPalIndex], 0xff);
+
+                            FormatTxt.Format("%02X", uCurrData);
+                            break;
+                        }
                         default:
                         case 2:
                         {
@@ -446,6 +451,34 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                     {
                         switch (cbColor)
                         {
+                            case 1:
+                            {
+                                // Here we handle alpha the best we can
+                                uint8_t uCurrData;
+
+                                switch (curAlphaMode)
+                                {
+                                    case AlphaMode::GameDoesNotUseAlpha:
+                                        uCurrData = CurrGame->ConvCol8(CurrPal->GetBasePal()[iPalIndex], 0);
+                                        break;
+                                    case AlphaMode::GameUsesFixedAlpha:
+                                        uCurrData = CurrGame->ConvCol8(CurrPal->GetBasePal()[iPalIndex], 0xff);
+                                        break;
+                                    case AlphaMode::GameUsesChaoticAlpha:
+                                    case AlphaMode::GameUsesSTPNotAlpha:
+                                    case AlphaMode::GameUsesVariableAlpha:
+                                    default:
+                                    {
+                                        const uint32_t nThisColor = CurrPal->GetBasePal()[iPalIndex];
+                                        const uint8_t nStoredColor = CurrGame->ConvCol8(nThisColor, 0xff);
+                                        uCurrData = CurrGame->ConvCol8(nThisColor, nStoredColor);
+                                        break;
+                                    }
+                                }
+
+                                strFormatU.Format(L"%02X ", uCurrData);
+                                break;
+                            }
                             default:
                             case 2:
                             {
@@ -567,6 +600,66 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                         {
                             switch (cbColor)
                             {
+                                case 1:
+                                {
+                                    // Using the original source alpha here would be better, but let's just stomp to full at this level
+                                    const uint8_t uCurrData = CurrGame->ConvCol8(CurrPal->GetBasePal()[iPalIndex], 0xff);
+
+                                    switch (eReadType)
+                                    {
+                                        case FileReadType::Interleaved_2FileSets:
+                                        {
+                                            // Jojo's SIMM version, etc
+                                            strFormatU.Format(L"%02X ", uCurrData);
+
+                                            const size_t nWriteIndex = (iPalIndex % 2);
+                                            rgStrByteCollection.at(nWriteIndex).Append(strFormatU);
+                                            break;
+                                        }
+                                        case FileReadType::Interleaved_4FileSets:
+                                        {
+                                            // Asura Buster
+                                            strFormatU.Format(L"%02X ", uCurrData);
+
+                                            const size_t nWriteIndex = (iPalIndex % 4);
+                                            rgStrByteCollection.at(nWriteIndex).Append(strFormatU);
+                                            break;
+                                        }
+                                        case FileReadType::Interleaved_Read2Bytes_LE:
+                                        {
+                                            // Avengers: Galactic Storm
+                                            strFormatU.Format(L"%02X ", uCurrData);
+
+                                            const size_t nWriteIndex = (iPalIndex % 4);
+                                            if ((nWriteIndex == 0) || (nWriteIndex == 1))
+                                            {
+                                                rgStrByteCollection.at(0).Append(strFormatU);
+                                            }
+                                            else
+                                            {
+                                                rgStrByteCollection.at(1).Append(strFormatU);
+                                            }
+                                            break;
+                                        }
+                                        case FileReadType::Interleaved_Read2Bytes_BE:
+                                        {
+                                            // Battle K-Road.
+                                            strFormatU.Format(L"%02X ", uCurrData);
+
+                                            const size_t nWriteIndex = (iPalIndex % 4);
+                                            if ((nWriteIndex == 0) || (nWriteIndex == 1))
+                                            {
+                                                rgStrByteCollection.at(1).Append(strFormatU);
+                                            }
+                                            else
+                                            {
+                                                rgStrByteCollection.at(0).Append(strFormatU);
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
                                 default:
                                 case 2:
                                 {
@@ -1030,6 +1123,48 @@ BOOL CPalModDlg::IsPasteSupported()
     return IsPasteFromPalMod() || IsPasteRGB();
 }
 
+void CPalModDlg::CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode TargetMode, COLORREF* pPastedColors, uint16_t nPasteAmount)
+{
+    //Set the color mode back
+    //Round the values with the switched game flag
+    OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
+    CurrGame->_SetColorMode(TargetMode);
+    const int cbColSize = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
+
+    switch (cbColSize)
+    {
+        case 1:
+            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            {
+                // We don't actually have alpha to work with from a paste, so just max
+                pPastedColors[iPasteIndex] = CurrGame->ConvPal8(CurrGame->ConvCol8(pPastedColors[iPasteIndex], 0xFF));
+            }
+            break;
+        case 2:
+        default:
+            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            {
+                // We don't actually have alpha to work with from a paste, so just max
+                pPastedColors[iPasteIndex] = CurrGame->ConvPal16(CurrGame->ConvCol16(pPastedColors[iPasteIndex], 0xFFFF));
+            }
+            break;
+        case 3:
+            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            {
+                // We don't actually have alpha to work with from a paste, so just max
+                pPastedColors[iPasteIndex] = CurrGame->ConvPal24(CurrGame->ConvCol24(pPastedColors[iPasteIndex]));
+            }
+            break;
+        case 4:
+            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            {
+                // We don't actually have alpha to work with from a paste, so just max
+                pPastedColors[iPasteIndex] = CurrGame->ConvPal32(CurrGame->ConvCol32(pPastedColors[iPasteIndex], pPastedColors[iPasteIndex]));
+            }
+        break;
+    }
+}
+
 void CPalModDlg::HandlePasteFromPalMod()
 {
     char* szPasteBuff = m_strPasteStr.GetBuffer();
@@ -1037,10 +1172,10 @@ void CPalModDlg::HandlePasteFromPalMod()
     // Do something with the data in 'buffer'
     const uint8_t uPasteGFlag1 = szPasteBuff[1] - k_nASCIICharacterOffset;
     const uint8_t uPasteGFlag2 = szPasteBuff[2];
-    const uint8_t cbColor = ColorSystem::GetCbForColorForGameFlag(uPasteGFlag1, uPasteGFlag2);
+    const uint8_t cbPastedColor = ColorSystem::GetCbForColorForGameFlag(uPasteGFlag1, uPasteGFlag2);
 
     // We want the number of colors per paste minus the () and game flag
-    const uint16_t uPasteAmt = static_cast<uint16_t>((strlen(szPasteBuff) - 3) / (static_cast<uint16_t>(cbColor) * 2));
+    const uint16_t uPasteAmt = static_cast<uint16_t>((strlen(szPasteBuff) - 3) / (static_cast<uint16_t>(cbPastedColor) * 2));
 
     if (uPasteAmt)
     {
@@ -1232,8 +1367,39 @@ void CPalModDlg::HandlePasteFromPalMod()
         //Notify the change data
         ProcChange();
 
-        switch (cbColor)
+        switch (cbPastedColor)
         {
+            case 1:
+            {
+                char szFormatStr8[] = "0x00";
+
+                for (uint16_t iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
+                {
+                    memcpy(&szFormatStr8[2], &szPasteBuff[3 + (2 * iPasteIndex)], sizeof(uint8_t) * 2);
+
+                    uint32_t colorAs32Bit = CurrGame->ConvPal8(static_cast<uint8_t>(strtoul(szFormatStr8, nullptr, 16)));
+
+                    // Allow Alpha only if both:
+                    //      the current game accepts it, and
+                    //      the current game is using that channel for Alpha, not PS1 Semi-Transparency, and
+                    //      the incoming data has been proven to know about alpha
+                    if (!CurrGame->AllowTransparency() &&
+                        (CurrGame->GetAlphaMode() != AlphaMode::GameUsesSTPNotAlpha))
+                    {
+                        // this game doesn't use/want alpha, but we need alpha to display properly
+                        colorAs32Bit |= 0xff000000;
+                    }
+
+                    rgPasteCol[iPasteIndex] = colorAs32Bit;
+                }
+
+                if (eCurrColMode != eColModeForPastedColor)
+                {
+                    // Restore old color mode and force color alignment to this color format
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
+                }
+                break;
+            }
             default:
             case 2:
             {
@@ -1246,7 +1412,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 {
                     memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * iPasteIndex)], sizeof(uint8_t) * 4);
 
-                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(static_cast<uint16_t>(strtoul(szFormatStr16, NULL, 16)));
+                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(static_cast<uint16_t>(strtoul(szFormatStr16, nullptr, 16)));
 
                     if (reinterpret_cast<uint8_t*>(rgPasteCol)[(iPasteIndex * 4) + 3] != 0)
                     {
@@ -1259,7 +1425,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 {
                     memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * iPasteIndex)], sizeof(uint8_t) * 4);
 
-                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(static_cast<uint16_t>(strtoul(szFormatStr16, NULL, 16)));
+                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(static_cast<uint16_t>(strtoul(szFormatStr16, nullptr, 16)));
 
                     // Allow Alpha only if both:
                     //      the current game accepts it, and
@@ -1275,16 +1441,8 @@ void CPalModDlg::HandlePasteFromPalMod()
 
                 if (eCurrColMode != eColModeForPastedColor)
                 {
-                    //Set the color mode back
-                    //Round the values with the switched game flag
-                    OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
-                    CurrGame->_SetColorMode(eCurrColMode);
-
-                    for (uint16_t iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
-                    {
-                        // We don't actually have alpha to work with from a paste, so just max
-                        rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPasteCol[iPasteIndex], 0xFFFF));
-                    }
+                    // Restore old color mode and force color alignment to this color format
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
                 }
                 break;
             }
@@ -1296,20 +1454,13 @@ void CPalModDlg::HandlePasteFromPalMod()
                 {
                     memcpy(&szFormatStr24[2], &szPasteBuff[3 + (6 * iPasteIndex)], sizeof(uint8_t) * 6);
 
-                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal24(static_cast<uint32_t>(strtoul(szFormatStr24, NULL, 16)));
+                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal24(static_cast<uint32_t>(strtoul(szFormatStr24, nullptr, 16)));
                 }
 
                 if (eCurrColMode != eColModeForPastedColor)
                 {
-                    //Set the color mode back
-                    //Round the values with the switched game flag
-                    OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
-                    CurrGame->_SetColorMode(eCurrColMode);
-
-                    for (uint16_t iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
-                    {
-                        rgPasteCol[iPasteIndex] = CurrGame->ConvPal24(CurrGame->ConvCol24(rgPasteCol[iPasteIndex]));
-                    }
+                    // Restore old color mode and force color alignment to this color format
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
                 }
                 break;
             }
@@ -1321,20 +1472,13 @@ void CPalModDlg::HandlePasteFromPalMod()
                 {
                     memcpy(&szFormatStr32[2], &szPasteBuff[3 + (8 * iPasteIndex)], sizeof(uint8_t) * 8);
 
-                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(static_cast<uint32_t>(strtoul(szFormatStr32, NULL, 16)));
+                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(static_cast<uint32_t>(strtoul(szFormatStr32, nullptr, 16)));
                 }
 
                 if (eCurrColMode != eColModeForPastedColor)
                 {
-                    //Set the color mode back
-                    //Round the values with the switched game flag
-                    OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
-                    CurrGame->_SetColorMode(eCurrColMode);
-
-                    for (uint16_t iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
-                    {
-                        rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(CurrGame->ConvCol32(rgPasteCol[iPasteIndex], rgPasteCol[iPasteIndex]));
-                    }
+                    // Restore old color mode and force color alignment to this color format
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
                 }
                 break;
             }

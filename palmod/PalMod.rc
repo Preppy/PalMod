@@ -771,6 +771,10 @@ BEGIN
         END
         POPUP "Color Format"
         BEGIN
+            POPUP "8-bit color"
+            BEGIN
+                MENUITEM "RGBx2222 (Sega Mega System)",      ID_COLORFORMAT_RGBx2222
+            END
             POPUP "16-bit color"
             BEGIN
                 MENUITEM "BGR333 (big endian)",         ID_COLORFORMAT_BGR333

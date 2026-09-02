@@ -470,13 +470,14 @@
 #define ID_TOOLS_TRANSFORM_GB_COLOR     33002
 #define ID_TOOLS_TRANSFORM_GB_POCKET    33003
 #define ID_TOOLS_TRANSFORM_GB_LIGHT     33004
+#define ID_COLORFORMAT_RGBx2222         33005
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        209
-#define _APS_NEXT_COMMAND_VALUE         33005
+#define _APS_NEXT_COMMAND_VALUE         33006
 #define _APS_NEXT_CONTROL_VALUE         1132
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

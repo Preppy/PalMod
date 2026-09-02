@@ -120,6 +120,7 @@ protected:
     std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
     
     static uint8_t m_nSizeOfColorsInBytes;
+    uint8_t*** m_pppDataBuffer8 = nullptr;
     uint16_t*** m_pppDataBuffer = nullptr;
     uint32_t*** m_pppDataBuffer24 = nullptr;
     uint32_t*** m_pppDataBuffer32 = nullptr;
@@ -174,6 +175,7 @@ public:
     uint32_t GetLowestExpectedPaletteLocation();
 
     inline uint8_t GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };
+    inline BOOL GameIsUsing8BitColor()  { return m_nSizeOfColorsInBytes == 1; };
     inline BOOL GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
     inline BOOL GameIsUsing24BitColor() { return m_nSizeOfColorsInBytes == 3; };
     inline BOOL GameIsUsing32BitColor() { return m_nSizeOfColorsInBytes == 4; };
@@ -181,9 +183,11 @@ public:
     uint16_t GetCurrentPaletteSizeInColors() { return m_nCurrentPaletteSizeInColors; };
     LPCWSTR GetCurrentPaletteName() { return m_pszCurrentPaletteName; };
 
+    uint8_t(*ConvCol8)(uint32_t inCol, uint8_t oldCol);
     uint16_t(*ConvCol16)(uint32_t inCol, uint16_t oldCol);
     uint32_t(*ConvCol24)(uint32_t inCol);
     uint32_t(*ConvCol32)(uint32_t inCol, uint32_t oldCol);
+    uint32_t(*ConvPal8)(uint8_t inCol);
     uint32_t(*ConvPal16)(uint16_t inCol);
     uint32_t(*ConvPal24)(uint32_t inCol);
     uint32_t(*ConvPal32)(uint32_t inCol);
