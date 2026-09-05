@@ -388,6 +388,11 @@ void CFindPalettesInNewROM::ScanForData()
 
                     if (it_foundcoloroffset != newROMBytes.end())
                     {
+                        // Let's not let the searches get too degenerate
+                        // For repeated palettes (consider all black!) let's cap
+                        const uint32_t c_nMaxMatchesToFind = 40;
+                        uint32_t nMatchesFound = 1;
+
                         nCountPalettesMapped++;
 
                         uint32_t nStartingMappedOffset = static_cast<uint32_t>(std::distance(newROMBytes.begin(), it_foundcoloroffset));
@@ -455,6 +460,16 @@ void CFindPalettesInNewROM::ScanForData()
                                 // reset
                                 it_secondresult++;
                                 it_secondresult = std::search(it_secondresult, newROMBytes.end(), it_secondcolor, searchColors.second.end());
+
+                                nMatchesFound++;
+
+                                if (nMatchesFound >= c_nMaxMatchesToFind)
+                                {
+                                    OutputDebugString(L"CFindPalettesInNewROM::ScanForData: Warning: degenerate palette lookup found.  Stopping search for this palette.\r\n");
+                                    strInfo.Format(L"%s Warning: %u matches found.  This palette occurs too often: stopping search for this specific palette.\r\n", strActiveCommentStyle.c_str(), nMatchesFound);
+                                    strOutput += strInfo;
+                                    break;
+                                }
                             }
                         }
 
