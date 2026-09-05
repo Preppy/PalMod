@@ -1,4 +1,9 @@
 # PalMod
+
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Preppy/PalMod?sort=semver&style=for-the-badge)
+![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/Preppy/PalMod/latest?color=orange&sort=semver&style=for-the-badge)
+![GitHub all releases](https://img.shields.io/github/downloads/Preppy/PalMod/total?color=yellow&style=for-the-badge)
+
 PalMod is a PALette MODification tool for classic fighting games, mostly centered around Capcom games.
 
 <a href="https://github.com/Preppy/PalMod/tree/master/palmod">PalMod</a> is the active branch.  That's where I'm releasing binaries from.  Releases for major version increments will be found <a href="https://github.com/Preppy/PalMod/releases">here</a>.  Regular smaller updates and occasional betas/previews are published to https://zachd.com/palmod/releases .
