@@ -96,3 +96,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_RBFF2_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"240prg.bin", 0x500000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Real Bout Fatal Fury 2 (PS2)", L"240prg.bin", 0xC38ED20C, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Real Bout Fatal Fury 2 (PS2)",
+        RBFF2_PS2,
+        IMGDAT_SECTION_KOF,
+        RBFF2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        RBFF2_A_UNITS,
+        ARRAYSIZE(RBFF2_A_UNITS),
+        L"RBFF2E.txt",             // Extra filename
+        958,                       // Count of palettes listed in the header
+        0xd0000,                   // Lowest known location used for palettes
+    };
+
+public:
+    CGame_RBFF2_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

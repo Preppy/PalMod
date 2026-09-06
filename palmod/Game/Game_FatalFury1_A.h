@@ -45,3 +45,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_FatalFury1_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"033prg.bin", 0xa0000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Fatal Fury: King of Fighters (PS2)", L"033prg.bin", 0x345C2192, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Fatal Fury: King of Fighters (PS2)",
+        FatalFury1_PS2,
+        IMGDAT_SECTION_KOF,
+        FatalFury1_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        FatalFury1_A_UNITS,
+        ARRAYSIZE(FatalFury1_A_UNITS),
+        L"FatalFury1E.txt",             // Extra filename
+        142,                            // Count of palettes listed in the header
+        0x3276c,                        // Lowest known location used for palettes
+    };
+
+public:
+    CGame_FatalFury1_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

@@ -202,7 +202,7 @@
 bool GameFlagIsForImageViewer(SupportedGamesList nGameFlag) { return (nGameFlag == ImageViewer_PNG) || (nGameFlag == ImageViewer_RAW); };
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 278, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 294, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -248,9 +248,13 @@ namespace KnownGameInfo
     CGameClass* Make_DEVMODE_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DevMode_DIR(nConfirmedROMSize); }
     CGameClass* Make_DOUBLEDRAGON_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DOUBLEDRAGON_A(nConfirmedROMSize); }
     CGameClass* Make_FatalFury1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury1_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury1_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury1_PS2(nConfirmedROMSize); }
     CGameClass* Make_FatalFury2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury2_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury2_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury2_PS2(nConfirmedROMSize); }
     CGameClass* Make_FatalFury3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury3_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury3_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury3_PS2(nConfirmedROMSize); }
     CGameClass* Make_FatalFuryS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFuryS_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_PS2(nConfirmedROMSize); }
     CGameClass* Make_FatalFuryS_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_SNES(nConfirmedROMSize); }
     CGameClass* Make_FightFever_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightFever_A(nConfirmedROMSize); }
     CGameClass* Make_FightersHistory_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory_A_DIR(nConfirmedROMSize); }
@@ -287,6 +291,7 @@ namespace KnownGameInfo
     CGameClass* Make_KabukiKlash_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KabukiKlash_A(nConfirmedROMSize); }
     CGameClass* Make_KarnovsR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KarnovsR_A(nConfirmedROMSize); }
     CGameClass* Make_KIZUNA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_A(nConfirmedROMSize); }
+    CGameClass* Make_KIZUNA_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_PS2(nConfirmedROMSize); }
     CGameClass* Make_KIZUNA_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_S(nConfirmedROMSize); }
     CGameClass* Make_KI_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KI_SNES(nConfirmedROMSize); }
     CGameClass* Make_KOF00N_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF00N_A(nConfirmedROMSize); }
@@ -374,9 +379,12 @@ namespace KnownGameInfo
     CGameClass* Make_RANMACRH_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RANMACRH_SNES(nConfirmedROMSize); }
     CGameClass* Make_RANMAHB_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RANMAHB_SNES(nConfirmedROMSize); }
     CGameClass* Make_RBFF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF1_A(nConfirmedROMSize); }
+    CGameClass* Make_RBFF1_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF1_PS2(nConfirmedROMSize); }
     CGameClass* Make_RBFF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_A(nConfirmedROMSize); }
+    CGameClass* Make_RBFF2_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_PS2(nConfirmedROMSize); }
     CGameClass* Make_RBFF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_S(nConfirmedROMSize); }
     CGameClass* Make_RBFFS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFFS_A(nConfirmedROMSize); }
+    CGameClass* Make_RBFFS_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFFS_PS2(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_A(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_S(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_A_DIR_30(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM30); }
@@ -385,14 +393,20 @@ namespace KnownGameInfo
     CGameClass* Make_RODSM2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RODSM2_A(nConfirmedROMSize); }
     CGameClass* Make_ROTD_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_ROTD_A(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO1_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO1_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO1_PS2(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO2_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO2_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO2_PS2(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO3_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO3_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO3_PS2(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO4_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO4_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO4_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO4_PS2(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO5_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO5_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5_PS2(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO5X_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5_A(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO5SP_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5SP_A(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO5SP_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5SP_A(nConfirmedROMSize); }
     CGameClass* Make_SAVAGEREIGN_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAVAGEREIGN_A(nConfirmedROMSize); }
+    CGameClass* Make_SAVAGEREIGN_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAVAGEREIGN_PS2(nConfirmedROMSize); }
     CGameClass* Make_SDODGEBALL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SDODGEBALL_A(nConfirmedROMSize); }
     CGameClass* Make_SF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_A(nConfirmedROMSize); }
     CGameClass* Make_SF1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_S(nConfirmedROMSize); }
@@ -467,8 +481,10 @@ namespace KnownGameInfo
     CGameClass* Make_VSAV2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_S(nConfirmedROMSize); }
     CGameClass* Make_VirtuaFighter2_GEN(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VirtuaFighter2_GEN(nConfirmedROMSize); }
     CGameClass* Make_WakuWaku7_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_A(nConfirmedROMSize); }
+    CGameClass* Make_WakuWaku7_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_PS2(nConfirmedROMSize); }
     CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Windjammers_A(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroesPerfect_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_A(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroesPerfect_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_PS2(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroesPerfect_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_S(nConfirmedROMSize); }
     CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
     CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_A(nConfirmedROMSize); }
@@ -807,16 +823,30 @@ namespace KnownGameInfo
         {
             FatalFury1_A,
             L"Fatal Fury: King of Fighters (Neo-Geo)",
-            { FatalFury1_A,     L"Fatal Fury: King of Fighters", L"Fatal Fury: KoF|033-p1.*;033-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+            { FatalFury1_A,     L"Fatal Fury: King of Fighters", L"Fatal Fury: KoF (Neo-Geo)|033-p1.*;033-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_FatalFury1_A,
             CGame_FatalFury1_A::GetRule,
         },
         {
+            FatalFury1_PS2,
+            L"Fatal Fury: King of Fighters (PS2)",
+            { FatalFury1_PS2,     L"Fatal Fury: King of Fighters", L"Fatal Fury: KoF (PS2)|033prg.bin|", GamePlatform::PS2, GameSeries::PS2FatalFuryVolume1 },
+            Make_FatalFury1_PS2,
+            CGame_FatalFury1_PS2::GetRule,
+        },
+        {
             FatalFury2_A,
             L"Fatal Fury 2 (Neo-Geo)",
-            { FatalFury2_A,     L"Fatal Fury 2", L"Fatal Fury 2|047-p1.*;047-epr.ep1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+            { FatalFury2_A,     L"Fatal Fury 2", L"Fatal Fury 2 (Neo-Geo)|047-p1.*;047-epr.ep1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_FatalFury2_A,
             CGame_FatalFury2_A::GetRule,
+        },
+        {
+            FatalFury2_PS2,
+            L"Fatal Fury 2 (PS2)",
+            { FatalFury2_PS2,     L"Fatal Fury 2", L"Fatal Fury 2 (PS2)|047prg.bin|", GamePlatform::PS2, GameSeries::PS2FatalFuryVolume1 },
+            Make_FatalFury2_PS2,
+            CGame_FatalFury2_PS2::GetRule,
         },
         {
             FatalFuryS_A,
@@ -824,6 +854,13 @@ namespace KnownGameInfo
             { FatalFuryS_A,     L"Fatal Fury Special", L"Fatal Fury Special (Neo-Geo)|058-p1.*;058-p1bs.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_FatalFuryS_A,
             CGame_FatalFuryS_A::GetRule,
+        },
+        {
+            FatalFuryS_PS2,
+            L"Fatal Fury Special (PS2)",
+            { FatalFuryS_PS2,     L"Fatal Fury Special", L"Fatal Fury Special (PS2)|058prg.bin|", GamePlatform::PS2, GameSeries::PS2FatalFuryVolume1 },
+            Make_FatalFuryS_PS2,
+            CGame_FatalFuryS_PS2::GetRule,
         },
         {
             FatalFuryS_SNES,
@@ -838,6 +875,13 @@ namespace KnownGameInfo
             { FatalFury3_A,     L"Fatal Fury 3", L"Fatal Fury 3|069-p1.*;069-p1bh.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_FatalFury3_A,
             CGame_FatalFury3_A::GetRule,
+        },
+        {
+            FatalFury3_PS2,
+            L"Fatal Fury 3 (PS2)",
+            { FatalFury3_PS2,     L"Fatal Fury 3", L"Fatal Fury 3 (PS2)|069prg.bin|", GamePlatform::PS2, GameSeries::PS2FatalFuryVolume1 },
+            Make_FatalFury3_PS2,
+            CGame_FatalFury3_PS2::GetRule,
         },
         {
             FightFever_A,
@@ -1133,6 +1177,13 @@ namespace KnownGameInfo
             { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter (Neo-Geo)|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
             Make_KIZUNA_A,
             CGame_Kizuna_A::GetRule,
+        },
+        {
+            KIZUNA_PS2,
+            L"Kizuna Encounter (PS2)",
+            { KIZUNA_PS2,         L"Kizuna Encounter", L"Kizuna Encounter (PS2)|216prg.bin|", GamePlatform::PS2, GameSeries::PS2FuunSuperCombo },
+            Make_KIZUNA_PS2,
+            CGame_Kizuna_PS2::GetRule,
         },
         {
             KIZUNA_S,
@@ -1824,9 +1875,16 @@ namespace KnownGameInfo
         {
             RBFF1_A,
             L"Real Bout Fatal Fury (Neo-Geo)",
-            { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;095-p1k.p1;rbff1_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+            { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury (Neo-Geo)|095-p1.*;095-p1k.p1;rbff1_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_RBFF1_A,
             CGame_RBFF1_A::GetRule,
+        },
+        {
+            RBFF1_PS2,
+            L"Real Bout Fatal Fury (PS2)",
+            { RBFF1_PS2,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury (PS2)|095prg.bin|", GamePlatform::PS2, GameSeries::PS2FatalFuryVolume2 },
+            Make_RBFF1_PS2,
+            CGame_RBFF1_PS2::GetRule,
         },
         {
             RBFF2_A,
@@ -1834,6 +1892,13 @@ namespace KnownGameInfo
             { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2 (Neo-Geo)|240-p1.*;240-pg1.*;rb2_p1.rom;140-p1k.*;240-p1fc.p1|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_RBFF2_A,
             CGame_RBFF2_A::GetRule,
+        },
+        {
+            RBFF2_PS2,
+            L"Real Bout Fatal Fury 2 (PS2)",
+            { RBFF2_PS2,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2 (PS2)|240prg.bin|", GamePlatform::PS2, GameSeries::PS2FatalFuryVolume2 },
+            Make_RBFF2_PS2,
+            CGame_RBFF2_PS2::GetRule,
         },
         {
             RBFF2_S,
@@ -1846,9 +1911,16 @@ namespace KnownGameInfo
             RBFFS_A,
             L"Real Bout Fatal Fury Special (Neo-Geo)",
             // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
-            { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+            { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special (Neo-Geo)|223*p1*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
             Make_RBFFS_A,
             CGame_RBFFS_A::GetRule,
+        },
+        {
+            RBFFS_PS2,
+            L"Real Bout Fatal Fury Special (PS2)",
+            { RBFFS_PS2,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special (PS2)|223prg.bin|", GamePlatform::PS2, GameSeries::PS2FatalFuryVolume2 },
+            Make_RBFFS_PS2,
+            CGame_RBFFS_PS2::GetRule,
         },
         {
             REDEARTH_A,
@@ -1904,30 +1976,58 @@ namespace KnownGameInfo
         {
             SAMSHO1_A,
             L"Samurai Shodown (Neo-Geo)",
-            { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown|045-p1.p1;045-p1.bin;045-p2.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+            { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown (Neo-Geo)|045-p1.p1;045-p1.bin;045-p2.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
             Make_SAMSHO1_A,
             CGame_SAMSHO1_A::GetRule,
         },
         {
+            SAMSHO1_PS2,
+            L"Samurai Shodown (PS2)",
+            { SAMSHO1_PS2,        L"Samurai Shodown", L"Samurai Shodown (PS2)|samsho.rom;u_sam1.afs|", GamePlatform::PS2, GameSeries::PS2SamuraiShodown },
+            Make_SAMSHO1_PS2,
+            CGame_SAMSHO1_PS2::GetRule,
+        },
+        {
             SAMSHO2_A,
             L"Samurai Shodown II (Neo-Geo)",
-            { SAMSHO2_A,        L"Samurai Shodown II", L"Samurai Shodown II|063-p1.*;063-p1-kan.p1;063-p1new.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+            { SAMSHO2_A,        L"Samurai Shodown II", L"Samurai Shodown II (Neo-Geo)|063-p1.*;063-p1-kan.p1;063-p1new.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
             Make_SAMSHO2_A,
             CGame_SAMSHO2_A::GetRule,
         },
         {
+            SAMSHO2_PS2,
+            L"Samurai Shodown II (PS2)",
+            { SAMSHO2_PS2,        L"Samurai Shodown II", L"Samurai Shodown II (PS2)|samsho2.rom;u_sam2.afs|", GamePlatform::PS2, GameSeries::PS2SamuraiShodown },
+            Make_SAMSHO2_PS2,
+            CGame_SAMSHO2_PS2::GetRule,
+        },
+        {
             SAMSHO3_A,
             L"Samurai Shodown III (Neo-Geo)",
-            { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+            { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III (Neo-Geo)|087-p5.p5|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
             Make_SAMSHO3_A,
             CGame_SAMSHO3_A::GetRule,
         },
         {
+            SAMSHO3_PS2,
+            L"Samurai Shodown III (PS2)",
+            { SAMSHO3_PS2,        L"Samurai Shodown III", L"Samurai Shodown III (PS2)|samsho3.rom;u_sam3.afs|", GamePlatform::PS2, GameSeries::PS2SamuraiShodown },
+            Make_SAMSHO3_PS2,
+            CGame_SAMSHO3_PS2::GetRule,
+        },
+        {
             SAMSHO4_A,
             L"Samurai Shodown IV (Neo-Geo)",
-            { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.*;222_p1.*;222-p1k.p1;222-p1sp.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+            { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV (Neo-Geo)|sams4_p1.rom;222-p1.*;222_p1.*;222-p1k.p1;222-p1sp.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
             Make_SAMSHO4_A,
             CGame_SAMSHO4_A::GetRule,
+        },
+        {
+            SAMSHO4_PS2,
+            L"Samurai Shodown IV (PS2)",
+            { SAMSHO4_PS2,        L"Samurai Shodown IV", L"Samurai Shodown IV (PS2)|samsho4.rom;u_sam4.afs|", GamePlatform::PS2, GameSeries::PS2SamuraiShodown },
+            Make_SAMSHO4_PS2,
+            CGame_SAMSHO4_PS2::GetRule,
         },
         {
             SAMSHO5_A,
@@ -1935,6 +2035,13 @@ namespace KnownGameInfo
             { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V (Neo-Geo)|270-p1.*;p1.bin;270-p1c.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
             Make_SAMSHO5_A,
             CGame_SAMSHO5_A::GetRule,
+        },
+        {
+            SAMSHO5_PS2,
+            L"Samurai Shodown V (PS2)",
+            { SAMSHO5_PS2,        L"Samurai Shodown V", L"Samurai Shodown V (PS2)|samsho5.rom;u_sam5.afs|", GamePlatform::PS2, GameSeries::PS2SamuraiShodown },
+            Make_SAMSHO5_PS2,
+            CGame_SAMSHO5_PS2::GetRule,
         },
         {
             SAMSHO5X_A,
@@ -1960,9 +2067,16 @@ namespace KnownGameInfo
         {
             SAVAGEREIGN_A,
             L"Savage Reign (Neo-Geo)",
-            { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
+            { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign (Neo-Geo)|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
             Make_SAVAGEREIGN_A,
             CGame_SAVAGEREIGN_A::GetRule,
+        },
+        {
+            SAVAGEREIGN_PS2,
+            L"Savage Reign (PS2)",
+            { SAVAGEREIGN_PS2,    L"Savage Reign", L"Savage Reign (PS2)|059prg.bin|", GamePlatform::PS2, GameSeries::PS2FuunSuperCombo },
+            Make_SAVAGEREIGN_PS2,
+            CGame_SAVAGEREIGN_PS2::GetRule,
         },
         {
             BASARA_P,
@@ -2544,10 +2658,17 @@ namespace KnownGameInfo
         },
         {
             WakuWaku7_A,
-            L"Waku Waku 7",
-            { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.*;225-p1bh.p1|", GamePlatform::NEOGEO },
+            L"Waku Waku 7 (Neo-Geo)",
+            { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7 (Neo-Geo)|225-p1.*;225-p1bh.p1|", GamePlatform::NEOGEO },
             Make_WakuWaku7_A,
             CGame_WakuWaku7_A::GetRule,
+        },
+        {
+            WakuWaku7_PS2,
+            L"Waku Waku 7 (PS2)",
+            { WakuWaku7_PS2,      L"Waku Waku 7", L"Waku Waku 7 (PS2)|wakuwak7.rom;wakuwak7.afs|", GamePlatform::PS2 },
+            Make_WakuWaku7_PS2,
+            CGame_WakuWaku7_PS2::GetRule,
         },
         {
             WINDJAMMERS_A,
@@ -2562,6 +2683,13 @@ namespace KnownGameInfo
             { WorldHeroesPerfect_A, L"World Heroes Perfect", L"World Heroes Perfect (Neo-Geo)|090-p1.*|", GamePlatform::NEOGEO },
             Make_WorldHeroesPerfect_A,
             CGame_WorldHeroesPerfect_A::GetRule,
+        },
+        {
+            WorldHeroesPerfect_PS2,
+            L"World Heroes Perfect (PS2)",
+            { WorldHeroesPerfect_A, L"World Heroes Perfect", L"World Heroes Perfect (PS2)|090prg.bin|", GamePlatform::PS2 },
+            Make_WorldHeroesPerfect_PS2,
+            CGame_WorldHeroesPerfect_PS2::GetRule,
         },
         {
             WorldHeroesPerfect_S,
@@ -2605,7 +2733,7 @@ namespace KnownGameInfo
         {
             ImageViewer_PNG,
             L"Image Viewer: PNG",
-            { ImageViewer_PNG,         L"PNG (Load Image)", L"PNG (Image View)|*.png|" },
+            { ImageViewer_PNG,         L"PNG (Load Image)", L"PNG (Image View)|*.png|", GamePlatform::Images },
             Make_FileHandlers_PNG,
             CImageViewers_PNGorRAW::GetRule,
         },
@@ -2613,7 +2741,7 @@ namespace KnownGameInfo
         {
             ImageViewer_RAW,
             L"Image Viewer: RAW",
-            { ImageViewer_RAW,         L"RAW (Load Image)", L"RAW (Image View)|*-w-*-h-*.raw|" },
+            { ImageViewer_RAW,         L"RAW (Load Image)", L"RAW (Image View)|*-w-*-h-*.raw|", GamePlatform::Images },
             Make_FileHandlers_RAW,
             CImageViewers_PNGorRAW::GetRule,
         },
@@ -2627,7 +2755,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 278, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 294, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 
@@ -2753,6 +2881,8 @@ namespace KnownGameInfo
         if (pszJustFileName)
         {
             pszJustFileName = pszJustFileName + 1;
+
+            InitializeGameRegistry();
 
             for (const CoreGameData& thisGame : GameRegistry)
             {

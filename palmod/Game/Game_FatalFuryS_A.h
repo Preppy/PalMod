@@ -45,3 +45,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_FatalFuryS_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"058prg.bin", 0x200000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Fatal Fury Special (PS2)", L"058prg.bin", 0xA5FA8A2B, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Fatal Fury S (PS2)",
+        FatalFuryS_PS2,
+        IMGDAT_SECTION_KOF,
+        FFS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        FatalFuryS_A_UNITS,
+        ARRAYSIZE(FatalFuryS_A_UNITS),
+        L"FatalFurySAE.txt",            // Extra filename
+        147,                            // Count of palettes listed in the header
+        0x40000,                        // Lowest known location used for palettes
+    };
+
+public:
+    CGame_FatalFuryS_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

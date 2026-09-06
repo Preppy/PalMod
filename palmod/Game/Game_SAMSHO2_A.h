@@ -48,3 +48,46 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_SAMSHO2_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"samsho2.rom", 0x200000, INVALID_UNIT_VALUE_16, true, L"u_sam2.afs", 0x13bf000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Samurai Shodown II (PS2)", L"samsho2.rom", 0x13049404, 0x100000 },
+        { L"Samurai Shodown II (PS2 AFS)", L"u_sam2.afs", 0xC7D9AA7F, 0x15e800 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Samurai Shodown II (PS2)",
+        SAMSHO2_PS2,
+        IMGDAT_SECTION_SAMSHO,
+        SAMSHO2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SAMSHO2_A_UNITS,
+        ARRAYSIZE(SAMSHO2_A_UNITS),
+        L"SamSho2E.txt",          // Extra filename
+        390,                      // Count of palettes listed in the header
+        0x14400,                  // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SAMSHO2_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

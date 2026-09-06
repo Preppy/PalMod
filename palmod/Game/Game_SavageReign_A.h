@@ -43,3 +43,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_SAVAGEREIGN_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"059prg.bin", 0x220000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Savage Reign (PS2)", L"059prg.bin", 0x400D3BD0, 0x100000 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Savage Reign (PS2)",
+        SAVAGEREIGN_PS2,
+        IMGDAT_SECTION_NEOGEO,
+        SAVAGEREIGN_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_AB,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SAVAGEREIGN_A_UNITS,
+        ARRAYSIZE(SAVAGEREIGN_A_UNITS),
+        L"SavageReignE.txt",        // Extra filename
+        308,                        // Count of palettes listed in the header
+        0xa3000,                    // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SAVAGEREIGN_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

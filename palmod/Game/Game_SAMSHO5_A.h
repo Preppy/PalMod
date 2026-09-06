@@ -85,3 +85,46 @@ public:
     static void SetSpecialRuleForFileName(std::wstring strFileName);
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_SAMSHO5_PS2 : public CGame_SAMSHO5_A
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"samsho5.rom", 0x800000, INVALID_UNIT_VALUE_16, true, L"u_sam5.afs", 0x642e800 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Samurai Shodown V (PS2)", L"samsho5.rom", 0xD102BD7A, 0 },
+        { L"Samurai Shodown V (PS2 AFS)", L"u_sam5.afs", 0x4C46D4DD, 0x60800 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Samurai Shodown V (PS2)",
+        SAMSHO5_PS2,
+        IMGDAT_SECTION_SAMSHO,
+        SAMSHO5_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_NEOGEO,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        SAMSHO5_A_UNITS,
+        ARRAYSIZE(SAMSHO5_A_UNITS),
+        L"SAMSHO5E.txt",          // Extra filename
+        1669,                      // Count of palettes listed in the header
+        0xd4000,                  // Lowest known location used for palettes
+    };
+
+public:
+    CGame_SAMSHO5_PS2(uint32_t nConfirmedROMSize) : CGame_SAMSHO5_A(nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

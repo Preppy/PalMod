@@ -45,3 +45,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
+
+class CGame_FatalFury3_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"069prg.bin", 0x300000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Fatal Fury 3 (PS2)", L"069prg.bin", 0xD5AC5E5D, 0 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Fatal Fury 3 (PS2)",
+        FatalFury3_PS2,
+        IMGDAT_SECTION_KOF,
+        FatalFury3_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        FatalFury3_A_UNITS,
+        ARRAYSIZE(FatalFury3_A_UNITS),
+        L"FatalFury3E.txt",             // Extra filename
+        373,                            // Count of palettes listed in the header
+        0xd0060,                        // Lowest known location used for palettes
+    };
+
+public:
+    CGame_FatalFury3_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

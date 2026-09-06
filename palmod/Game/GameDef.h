@@ -302,6 +302,22 @@ enum SupportedGamesList
     TKDenshou_A,
     ImageViewer_PNG,
     ImageViewer_RAW,
+    FatalFury1_PS2,
+    FatalFury2_PS2,
+    FatalFuryS_PS2,
+    FatalFury3_PS2,
+    KIZUNA_PS2,
+    RBFF1_PS2,
+    RBFF2_PS2,
+    RBFFS_PS2,
+    SAVAGEREIGN_PS2,
+    SAMSHO1_PS2,
+    SAMSHO2_PS2,
+    SAMSHO3_PS2,
+    SAMSHO4_PS2,
+    SAMSHO5_PS2,
+    WakuWaku7_PS2,
+    WorldHeroesPerfect_PS2,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
@@ -325,6 +341,7 @@ enum class GamePlatform
     Sega,
     Steam,
     OtherPlatform,
+    Images,
     DevMode,
     Last,
 };
@@ -351,6 +368,10 @@ enum class GameSeries
     SF30th,
     MvCSteam,
     CapcomFightCollection2,
+    PS2FatalFuryVolume1,
+    PS2FatalFuryVolume2,
+    PS2FuunSuperCombo,
+    PS2SamuraiShodown,
     Unknown,
     Last,
 };

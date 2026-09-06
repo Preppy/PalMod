@@ -34,11 +34,11 @@ sFileRule CGame_SAMSHO1_A::GetRule(uint32_t nRuleId)
 {
     switch (m_eROMToLoad)
     {
-    case SamSho1LoadingKey::NeoGeo:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_NeoGeo);
-    case SamSho1LoadingKey::NeoStation:
-    default:
-        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_NeoStation);
+        case SamSho1LoadingKey::NeoGeo:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_NeoGeo);
+        case SamSho1LoadingKey::NeoStation:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_NeoStation);
     }
 }
 
@@ -46,12 +46,12 @@ CGame_SAMSHO1_A::CGame_SAMSHO1_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eROMToLoad)
     {
-    case SamSho1LoadingKey::NeoGeo:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_NeoGeo);
-        break;
-    case SamSho1LoadingKey::NeoStation:
-    default:
-        InitializeGame(nConfirmedROMSize, m_sCoreGameData_NeoStation);
-        break;
+        case SamSho1LoadingKey::NeoGeo:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_NeoGeo);
+            break;
+        case SamSho1LoadingKey::NeoStation:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_NeoStation);
+            break;
     }
 }

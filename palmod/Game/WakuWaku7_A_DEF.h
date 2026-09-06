@@ -401,6 +401,7 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_BONUS_PALETTES[] =
     { L"Mauru Extras 2", 0xf7f8, 0xf838 },
 };
 
+// Politank Dark has a truncated palette set, so we don't allow multisprite export here
 const sGame_PaletteDataset WakuWaku7_A_POLITANK_A_PALETTES[] =
 {
     { L"Politank A", 0xF838, 0xF858, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
