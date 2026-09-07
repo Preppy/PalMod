@@ -1489,6 +1489,11 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     PrintColorFrequencyMapToDebugOut(pImageData, nDataLen, fIsARGB, rgrgPalettesToUse[0]);
 #endif
 
+#ifdef FORCE_COLOR_FORMAT_ALIGNMENT
+    // stubbing in this in: semi-useful as a diagnostic aide?
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+#endif
+
     for (unsigned iPos = 0; iPos < nDataLen; iPos++)
     {
         unsigned char r = 0, g = 0, b = 0, a = 0xff;
@@ -1525,6 +1530,12 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
                 b = ColorSystem::GetNEOGEOColorFromWinKawaksRGB555(b);
             }
         }
+
+#ifdef FORCE_COLOR_FORMAT_ALIGNMENT
+        r = CurrGame->GetNearestLegal8BitColorValue_RGB(r);
+        g = CurrGame->GetNearestLegal8BitColorValue_RGB(g);
+        b = CurrGame->GetNearestLegal8BitColorValue_RGB(b);
+#endif
 
         const COLORREF colThisColor = RGB(r, g, b);
 
