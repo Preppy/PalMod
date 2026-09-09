@@ -90,7 +90,6 @@ void CGame_SFZ3U_A::DumpAllCharacters()
             wchar_t szIsmDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szIsmDesc, ARRAYSIZE(szIsmDesc), SFZ3U_ColorOptionNames[nColorIndex]);
 
-            const uint16_t nPortraitsPerCharacter = 6;
             strOutput.Format(L"const sGame_PaletteDataset SFZ3U_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, szIsmDesc);
             OutputDebugString(strOutput);
 

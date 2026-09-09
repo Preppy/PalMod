@@ -74,12 +74,12 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
 
     if (hdc)
     {
-        if (CurrPalCtrl && GetHost()->GetCurrGame())
+        if (m_CurrPalCtrl && GetHost()->GetCurrGame())
         {
-            if (CurrPalCtrl->GetSelAmt() != 1)
+            if (m_CurrPalCtrl->GetSelAmt() != 1)
             {
                 // Ideally they select the injection point, but we can just use contextual knowledge to start at palette index 01
-                CurrPalCtrl->SelectFirstColor();
+                m_CurrPalCtrl->SelectFirstColor();
             }
 
             POINT ptCursor = { -1, -1 };
@@ -184,7 +184,7 @@ void CPalModDlg::OnPaste15ColorsAtPointer()
             if (currTransparencyWriteMode == PALWriteOutputOptions::WRITE_16)
             {
                 // Walk to the next actual color
-                CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
+                m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
             }
         }
     }
@@ -228,7 +228,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
             const int nWorkingAmt = CurrPal->GetWorkingAmt();
             uint8_t* pSelIndex = CurrPal->GetSelIndex();
 
-            const uint16_t nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
+            const uint16_t nPaletteSelectionLength = static_cast<uint16_t>((CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset);
             uint8_t uCopyFlag1;
             // We use a wchar_t as a uint8_t value to store the size.  This is compatible with all versions of palmod.
             // For the new large palette support, this would overflow, so we're just going to set it to 0.
@@ -1180,13 +1180,13 @@ void CPalModDlg::HandlePasteFromPalMod()
     if (uPasteAmt)
     {
         CGameClass* CurrGame = GetHost()->GetCurrGame();
-        const uint16_t uCurrGFlag = CurrGame->GetGameFlag();
+        const uint16_t uCurrGFlag = static_cast<uint16_t>(CurrGame->GetGameFlag());
         const ColMode eCurrColMode = CurrGame->GetColorMode();
         ColMode eColModeForPastedColor = eCurrColMode;
 
         COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
 
-        int nIndexCtr = 0, nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        int nIndexCtr = 0, nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
         bool fWasColorImportedFromDifferentGame = false;
         // validate that newly added code doesn't actually run into ascii table overflow
         bool fWasOverflowHandled = (uPasteGFlag1 < k_nRawColorStringOverflowIndicator);
@@ -1484,17 +1484,17 @@ void CPalModDlg::HandlePasteFromPalMod()
             }
         }
 
-        if (!CurrPalCtrl->GetSelAmt())
+        if (!m_CurrPalCtrl->GetSelAmt())
         {
             const int nCopyAmt = (nWorkingAmt < uPasteAmt) ? nWorkingAmt : uPasteAmt;
 
             // Don't skip the first color: it is used in some cases
-            memcpy(CurrPalCtrl->GetBasePal(), rgPasteCol, (sizeof(COLORREF) * nCopyAmt));
+            memcpy(m_CurrPalCtrl->GetBasePal(), rgPasteCol, (sizeof(COLORREF) * nCopyAmt));
         }
         else
         {
-            const uint8_t* rgSelIndex = CurrPalCtrl->GetSelIndex();
-            COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
+            const uint8_t* rgSelIndex = m_CurrPalCtrl->GetSelIndex();
+            COLORREF* crTargetPal = m_CurrPalCtrl->GetBasePal();
 
             for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
             {
@@ -1503,7 +1503,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                     // We could optimize this to never change the transparency color, but that
                     // can be at a varied position
                     crTargetPal[iPalIndex] = rgPasteCol[nIndexCtr];
-                    CurrPalDef->pBasePal[iPalIndex + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
+                    m_CurrPalDef->pBasePal[iPalIndex + m_CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
 
                     nIndexCtr++;
 
@@ -1515,10 +1515,10 @@ void CPalModDlg::HandlePasteFromPalMod()
             }
         }
 
-        CurrPalCtrl->UpdateIndexAll();
+        m_CurrPalCtrl->UpdateIndexAll();
 
         ImgDispCtrl->UpdateCtrl();
-        CurrPalCtrl->UpdateCtrl();
+        m_CurrPalCtrl->UpdateCtrl();
 
         UpdateSliderSel();
 
@@ -1574,9 +1574,9 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
     char szFormatStrARGB[] = "0x00000000";
 
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    const ColMode eCurrColMode = CurrGame->GetColorMode();
+    //const ColMode eCurrColMode = CurrGame->GetColorMode();
 
-    const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+    const int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
 
     //Notify the change data
     ProcChange();
@@ -1619,28 +1619,28 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
         colPasteCol = CurrGame->ConvPal32(CurrGame->ConvCol32(colPasteCol, colPasteCol));
     }
 
-    if (!CurrPalCtrl->GetSelAmt())
+    if (!m_CurrPalCtrl->GetSelAmt())
     {
         // Stomp the full palette...
-        COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
+        COLORREF* crTargetPal = m_CurrPalCtrl->GetBasePal();
 
         for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
         {
             crTargetPal[iPalIndex] = colPasteCol;
-            CurrPalDef->pBasePal[iPalIndex + CurrPalSep->nStart] = colPasteCol;
+            m_CurrPalDef->pBasePal[iPalIndex + m_CurrPalSep->nStart] = colPasteCol;
         }
     }
     else
     {
-        const uint8_t* rgSelIndex = CurrPalCtrl->GetSelIndex();
-        COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
+        const uint8_t* rgSelIndex = m_CurrPalCtrl->GetSelIndex();
+        COLORREF* crTargetPal = m_CurrPalCtrl->GetBasePal();
 
         for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
         {
             if (rgSelIndex[iPalIndex])
             {
                 crTargetPal[iPalIndex] = colPasteCol;
-                CurrPalDef->pBasePal[iPalIndex + CurrPalSep->nStart] = colPasteCol;
+                m_CurrPalDef->pBasePal[iPalIndex + m_CurrPalSep->nStart] = colPasteCol;
             }
         }
     }
@@ -1648,15 +1648,15 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
     if (fAdvanceNext)
     {
         // Walk palette cursor
-        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
+        m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
     }
 
     if (fRefreshUI)
     {
-        CurrPalCtrl->UpdateIndexAll();
+        m_CurrPalCtrl->UpdateIndexAll();
 
         ImgDispCtrl->UpdateCtrl();
-        CurrPalCtrl->UpdateCtrl();
+        m_CurrPalCtrl->UpdateCtrl();
 
         UpdateSliderSel();
 
@@ -1822,11 +1822,11 @@ void CPalModDlg::OnEditRedo()
 
 void CPalModDlg::OnEditSelectAll()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
         // Update the CJunk controls
-        CurrPalCtrl->SelectAll();
-        CurrPalCtrl->UpdateCtrl();
+        m_CurrPalCtrl->SelectAll();
+        m_CurrPalCtrl->UpdateCtrl();
         // Update the Edit Color options.
         UpdateSliderSel();
     }
@@ -1834,11 +1834,11 @@ void CPalModDlg::OnEditSelectAll()
 
 void CPalModDlg::OnEditSelectNone()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
         // Update the CJunk controls
-        CurrPalCtrl->ClearSelected();
-        CurrPalCtrl->UpdateCtrl();
+        m_CurrPalCtrl->ClearSelected();
+        m_CurrPalCtrl->UpdateCtrl();
         // Update the Edit Color options.
         UpdateSliderSel();
     }
@@ -1893,11 +1893,11 @@ DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition(int ptX /* = -1 */, int p
 bool CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor)
 {
     bool fFoundColor = false;
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
         // Update the CJunk controls to highlight the color desired
-        fFoundColor = CurrPalCtrl->SelectMatchingColorsInPalette(dwColorToMatch, dwBackgroundColor);
-        CurrPalCtrl->UpdateCtrl();
+        fFoundColor = m_CurrPalCtrl->SelectMatchingColorsInPalette(dwColorToMatch, dwBackgroundColor);
+        m_CurrPalCtrl->UpdateCtrl();
         // Update the Edit Color options.
         UpdateSliderSel();
     }
@@ -1905,7 +1905,7 @@ bool CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBac
     return fFoundColor;
 }
 
-void CPalModDlg::CustomEditProc(void* pPalCtrl, UINT_PTR nCtrlId, int nMethod)
+void CPalModDlg::CustomEditProc(void* /* pPalCtrl */, UINT_PTR /* nCtrlId */, int nMethod)
 {
     switch (nMethod)
     {

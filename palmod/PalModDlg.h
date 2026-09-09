@@ -70,9 +70,9 @@ private:
     CMappingPaletteManager PaletteMapper;
     CUndoRedo UndoProc;
 
-    sPalDef* CurrPalDef = nullptr;
-    sPalSep* CurrPalSep = nullptr;
-    CJunk* CurrPalCtrl = nullptr;
+    sPalDef* m_CurrPalDef = nullptr;
+    sPalSep* m_CurrPalSep = nullptr;
+    CJunk* m_CurrPalCtrl = nullptr;
 
     BOOL m_fCanBlink = TRUE;
     COLORREF* m_pTempPalCopy = nullptr;
@@ -212,7 +212,7 @@ private:
     void CustomEditProc(void * pPalCtrl, UINT_PTR nCtrlId, int nMethod);
     //void OnPalMHL(void * pPalCtrl, int nCtrlId);
 
-    void UpdateSliderPos(int nCtrlId);
+    void UpdateSliderPos(int /* nCtrlId */) {};
 
     void Enable(BOOL fEnableFlag = TRUE);
     void UpdateEnableCtrls();
@@ -503,18 +503,18 @@ public:
     afx_msg void OnBnClickedGradient_RGB();
     afx_msg void OnBnClickedGradient_XYZ();
 
-    afx_msg void OnBnClickedGrayscale_Average() { HandleColorTransform(-1, ColorTransform::Grayscale_Average); };
-    afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(-1, ColorTransform::Grayscale_Maximum); };
-    afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(-1, ColorTransform::Grayscale_Middle); };
-    afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(-1, ColorTransform::Grayscale_Weighted); };
-    afx_msg void OnBnClickedGrayscale_4Colors() { HandleColorTransform(-1, ColorTransform::Grayscale_4Colors); };
+    afx_msg void OnBnClickedGrayscale_Average() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::Grayscale_Average); };
+    afx_msg void OnBnClickedGrayscale_Maximum() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::Grayscale_Maximum); };
+    afx_msg void OnBnClickedGrayscale_Middle() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::Grayscale_Middle); };
+    afx_msg void OnBnClickedGrayscale_Weighted() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::Grayscale_Weighted); };
+    afx_msg void OnBnClickedGrayscale_4Colors() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::Grayscale_4Colors); };
 
-    void TransformColors_GBOriginal() { HandleColorTransform(-1, ColorTransform::GB_Original); };
-    void TransformColors_GBPocket() { HandleColorTransform(-1, ColorTransform::GB_Pocket); };
-    void TransformColors_GBLight() { HandleColorTransform(-1, ColorTransform::GB_Light); };
+    void TransformColors_GBOriginal() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::GB_Original); };
+    void TransformColors_GBPocket() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::GB_Pocket); };
+    void TransformColors_GBLight() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::GB_Light); };
 
     afx_msg void OnBnClickedReverse();
-    afx_msg void OnBnClickedInvert() { HandleColorTransform(-1, ColorTransform::Invert); };
+    afx_msg void OnBnClickedInvert() { HandleColorTransform(static_cast<DWORD>(-1), ColorTransform::Invert); };
 
     afx_msg void OnMappingPaletteUse_Current() { OnMappingPaletteUse(false); };
 

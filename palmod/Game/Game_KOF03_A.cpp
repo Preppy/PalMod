@@ -458,10 +458,9 @@ void CGame_KOF03_A::DumpGameHeaders()
 
             LPCWSTR pszVictoryImageToUse = KOF03CharData[nCharIndex].pszVictoryImageSet ? KOF03CharData[nCharIndex].pszVictoryImageSet : KOF03CharData[nCharIndex].pszImageSet;
             
-
             // Victory palette
-            const auto c_nBaseCharacterOffset = 0x1f120;
-            uint32_t nVictoryOffset = c_nBaseCharacterOffset + (0x100 * nCharIndex) + (0x40 * nButtonIndex);
+            const auto c_nBaseCharacterOffsetForVictory = 0x1f120;
+            uint32_t nVictoryOffset = c_nBaseCharacterOffsetForVictory + (0x100 * nCharIndex) + (0x40 * nButtonIndex);
             strInfo.Format(L"    { L\"%s Victory %s\", 0x%x, 0x%x, %s, 0x30 },\r\n",
                 KOF03CharData[nCharIndex].pszName,
                 DEF_BUTTONLABEL_NEOGEO[nButtonIndex],

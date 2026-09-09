@@ -943,7 +943,7 @@ const sGame_PaletteDataset SSF2_SNES_DEEJAY_Hold_PALETTES[] =
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_RYU[] =
 {
-    { L"Background Temple",         0x153b40, 0x153b60, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Background Temple",         0x153b40, 0x153b60, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Temple Slanted Roof",       0x153b60, 0x153b80 },
     { L"Left Upper Temple",         0x153b80, 0x153ba0 },
     { L"Right Temple Piece",        0x1556d8, 0x1556f8 },
@@ -955,7 +955,7 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_RYU[] =
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_EHONDA[] =
 {
-    { L"Floor and Wall",    0x153c40, 0x153c60, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Floor and Wall",    0x153c40, 0x153c60, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Lower Wall",        0x153ca0, 0x153cc0 },
     { L"Ceiling",           0x153c60, 0x153c80 },
     { L"Tub",               0x153c80, 0x153ca0 },
@@ -976,7 +976,7 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_BLANKA[] =
     // this seems askew
 
     // cloud inset                  0x153d48, 0x153d68??
-    { L"Sky",                       0x153d68, 0x153d88, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Sky",                       0x153d68, 0x153d88, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Big Tree",                  0x153d88, 0x153da8 },
     { L"Left Building",             0x153da8, 0x153dc8 },
     { L"Insets / Right Building",   0x153dc8, 0x153de8 },
@@ -992,25 +992,25 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_GUILE[] =
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_KEN[] =
 {
-    { L"Palettes", 0x153fa8, 0x154088, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes", 0x153fa8, 0x154088, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Bollards", 0x1557b8, 0x1557d8 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_CHUNLI[] =
 {
-    { L"Palettes",  0x154088, 0x1541a8, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",  0x154088, 0x1541a8, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Bikes",     0x1557d8, 0x155818 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_ZANGIEF[] =
 {
-    { L"Palettes",  0x1541a8, 0x154288, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",  0x1541a8, 0x154288, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Sprites",   0x155818, 0x155858 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_DHALSIM[] =
 {
-    { L"Palettes",  0x154288, 0x154368, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",  0x154288, 0x154368, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Sprites",   0x155858, 0x155898 },
 };
 
@@ -1021,7 +1021,7 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_SAGAT[] =
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_BALROG[] =
 {
-    { L"Palettes",                  0x154530, 0x154610, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",                  0x154530, 0x154610, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Animation Palettes 1/2",    0x154610, 0x154810 },
     { L"Animation Palettes 2/2",    0x154810, 0x154890 },
     { L"Dancers",                   0x1558d8, 0x155918 },
@@ -1029,32 +1029,32 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_BALROG[] =
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_VEGA[] =
 {
-    { L"Palettes",          0x154910, 0x154a10, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",          0x154910, 0x154a10, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Animation Cycles",  0x154a10, 0x154af0 },
     { L"Dancers",           0x155918, 0x155938 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_THAWK[] =
 {
-    { L"Palettes",  0x154fb0, 0x1550b0, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",  0x154fb0, 0x1550b0, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Sprites",   0x155978, 0x1559b8 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_FEILONG[] =
 {
-    { L"Palettes",      0x155150, 0x155230, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",      0x155150, 0x155230, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Postheads",     0x1559b8, 0x1559d8 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_DEEJAY[] =
 {
-    { L"Palettes",  0x155290, 0x155410, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",  0x155290, 0x155410, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Dancers",   0x1559d8, 0x155a18 },
 };
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_CAMMY[] =
 {
-    { L"Palettes 1",    0x154af0, 0x154cf0, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes 1",    0x154af0, 0x154cf0, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Palettes 2",    0x154cf0, 0x154ef0 },
     { L"Palettes 3",    0x154ef0, 0x154fb0 },
     { L"Sprites",       0x155938, 0x155978 },
@@ -1062,7 +1062,7 @@ const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_CAMMY[] =
 
 const sGame_PaletteDataset SSF2_SNES_STAGE_PALETTES_MBISON[] =
 {
-    { L"Palettes",  0x154370, 0x154450, indexSNES_SSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Palettes",  0x154370, 0x154450, indexSNES_SSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Sprites",   0x155898, 0x1558d8 },
 };
 

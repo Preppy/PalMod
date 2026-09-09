@@ -105,7 +105,7 @@ namespace RLEData
         return output_data;
     }
 
-    uint8_t* BitMaskRLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight)
+    uint8_t* BitMaskRLEDecodeImg(uint8_t* pSrcImgData, uint32_t /* uiDataSz */, uint16_t uiImgWidth, uint16_t uiImgHeight)
     {
         uint8_t* output_data = nullptr;
         const auto nRequiredDataSize = uiImgWidth * uiImgHeight;

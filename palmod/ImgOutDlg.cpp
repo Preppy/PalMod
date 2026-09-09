@@ -243,7 +243,7 @@ BOOL CImgOutDlg::OnInitDialog()
     return TRUE;
 }
 
-BOOL CImgOutDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+BOOL CImgOutDlg::OnMouseWheel(UINT /* nFlags */, short zDelta, CPoint /* pt */)
 {
     if (zDelta > 0)
     {
@@ -668,7 +668,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 {
                     const unsigned srcWidth = rgSrcImg[nImageIndex]->dimensions.width;
                     const unsigned srcHeight = rgSrcImg[nImageIndex]->dimensions.height;
-                    const unsigned srcSize = srcWidth * srcHeight;
+                    //const unsigned srcSize = srcWidth * srcHeight;
 
                     unsigned skewYForImage = nYSkew + rgSrcImg[nImageIndex]->offsets.y;
                     unsigned skewXForImage = nXSkew + rgSrcImg[nImageIndex]->offsets.x;
@@ -698,7 +698,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                                         fHaveContentThisLayer = true;
 
 #ifndef INCOMPLETE_OPTION
-                                        image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
+                                        image[destIndex] = static_cast<unsigned char>(rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset);
 #else
                                         // Do we wrap via palette index?
                                         const unsigned char nPalleteIndex = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
@@ -856,10 +856,11 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
     if (fShouldExport)
     {
-        const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
+        //const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
         sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
-        const uint8_t currentZoom = static_cast<uint8_t>(m_DumpBmp.m_flZoomLevel);
+        // TODO: maybe actually use zoom...?
+        //const uint8_t currentZoom = static_cast<uint8_t>(m_DumpBmp.m_flZoomLevel);
 
         // We want to ensure filename syntax, so strip the extension in order to rebuild it below
         save_str.Replace(output_ext.GetString(), L"");

@@ -12,6 +12,7 @@ void OutputDebugString_ImgDat(LPCWSTR pszString)
 #if IMGDAT_DEBUG
     OutputDebugString(pszString);
 #else
+    UNREFERENCED_PARAMETER(pszString);
 #endif
 }
 
@@ -84,7 +85,7 @@ bool CImgDat::FlushImageBuffer()
     return true;
 }
 
-bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint16_t uGameFlag)
+bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint16_t /* uGameFlag */)
 {
     if (!imageBufferFlushed)
     {
@@ -180,7 +181,7 @@ sImgDef* CImgDat::GetImageDef(uint16_t uImgUnitId, uint8_t uImgId)
     return nullptr;
 }
 
-uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCurrentImgUnitId, uint8_t nCurrentImgId)
+uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag , uint16_t nCurrentImgUnitId, uint8_t nCurrentImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -193,6 +194,9 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCu
 
         strDebugInfo.Format(L"\tImage data: W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
         OutputDebugString(strDebugInfo);
+#else
+        UNREFERENCED_PARAMETER(nCurrentImgUnitId);
+        UNREFERENCED_PARAMETER(nCurrentImgId);
 #endif
         return pCurrImg->pImgData;
     }
@@ -306,6 +310,8 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint16_t uGameFlag, uint16_t nCu
             OutputDebugString(L"Error exporting image file\n");
         }
     }
+#else
+    UNREFERENCED_PARAMETER(uGameFlag);
 #endif
 
     pCurrImg->pImgData = pNewImgData;
@@ -337,7 +343,7 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         const uint16_t nExpectedYear = 2026;
         const uint8_t nExpectedMonth = 8;
         const uint8_t nExpectedDay = 21;
-        const uint8_t nExpectedRevision = 0;
+        //const uint8_t nExpectedRevision = 0;
         const ULONGLONG nExpectedFileSize = 177137979;
 
         const uint32_t nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
@@ -602,7 +608,7 @@ uint8_t* CImgDat::DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t ui
                 }
                 else
                 {
-                    uGetAmt = zero_get_amt - uZeroPos;
+                    uGetAmt = static_cast<uint8_t>(zero_get_amt - uZeroPos);
                 }
 
                 zero_data |= ((static_cast<uint16_t>(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> (8 - uGetAmt))) << (uZeroPos));

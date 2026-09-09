@@ -99,7 +99,7 @@ sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(uint32_t nUnitId, SFIII3LoadingKey
     }
 
     NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = (short int)-1;
+    NewFileRule.uVerifyVar = static_cast<size_t>(-1);
 
     return NewFileRule;
 }

@@ -10,6 +10,8 @@ const std::vector<uint16_t> FightersHistory3_SNES_IMGIDS_USED =
     indexKarnovsRSprites_Ryoko,         // 0x09
     indexKarnovsRSprites_Yungmie,       // 0x0b
     indexKarnovsRSprites_Zazie,         // 0x0c
+
+    indexFightersHistorySprites_Chelnov,    // 0x0f
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Mizoguchi_Y[] =
@@ -606,61 +608,61 @@ const sDescTreeNode FightersHistory3_SNES_Karnov_COLLECTION[] =
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_Y[] =
 {
-    { L"Chelnov Y", 0x85ba0, 0x85bc0, -1, -1, &pairNext },
+    { L"Chelnov Y", 0x85ba0, 0x85bc0, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov Y weakspot", 0x85bc0, 0x85be0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_X[] =
 {
-    { L"Chelnov X", 0x85be0, 0x85c00, -1, -1, &pairNext },
+    { L"Chelnov X", 0x85be0, 0x85c00, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov X weakspot", 0x85c00, 0x85c20 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_B[] =
 {
-    { L"Chelnov B", 0x85c20, 0x85c40, -1, -1, &pairNext },
+    { L"Chelnov B", 0x85c20, 0x85c40, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov B weakspot", 0x85c40, 0x85c60 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_A[] =
 {
-    { L"Chelnov A", 0x85c60, 0x85c80, -1, -1, &pairNext },
+    { L"Chelnov A", 0x85c60, 0x85c80, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov A weakspot", 0x85c80, 0x85ca0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_START[] =
 {
-    { L"Chelnov START", 0x85ca0, 0x85cc0, -1, -1, &pairNext },
+    { L"Chelnov START", 0x85ca0, 0x85cc0, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov START weakspot", 0x85cc0, 0x85ce0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_LRY[] =
 {
-    { L"Chelnov L/R+Y", 0x85ce0, 0x85d00, -1, -1, &pairNext },
+    { L"Chelnov L/R+Y", 0x85ce0, 0x85d00, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov L/R+Y weakspot", 0x85d00, 0x85d20 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_LRX[] =
 {
-    { L"Chelnov L/R+X", 0x85d20, 0x85d40, -1, -1, &pairNext },
+    { L"Chelnov L/R+X", 0x85d20, 0x85d40, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov L/R+X weakspot", 0x85d40, 0x85d60 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_LRB[] =
 {
-    { L"Chelnov L/R+B", 0x85d60, 0x85d80, -1, -1, &pairNext },
+    { L"Chelnov L/R+B", 0x85d60, 0x85d80, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov L/R+B weakspot", 0x85d80, 0x85da0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_LRA[] =
 {
-    { L"Chelnov L/R+A", 0x85da0, 0x85dc0, -1, -1, &pairNext },
+    { L"Chelnov L/R+A", 0x85da0, 0x85dc0, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov L/R+A weakspot", 0x85dc0, 0x85de0 },
 };
 
 const sGame_PaletteDataset FightersHistory3_SNES_Chelnov_LRSTART[] =
 {
-    { L"Chelnov L/R+START", 0x85de0, 0x85e00, -1, -1, &pairNext },
+    { L"Chelnov L/R+START", 0x85de0, 0x85e00, indexFightersHistorySprites_Chelnov, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Chelnov L/R+START weakspot", 0x85e00, 0x85e20 },
 };
 
@@ -699,7 +701,7 @@ const sDescTreeNode FightersHistory3_SNES_CharExtras_COLLECTION[] =
 const sGame_PaletteDataset FightersHistory3_SNES_Bonus[] =
 {
     { L"Hitsparks/Dust/Shadows", 0x80420, 0x80440 },
-    { L"Title logo 1", 0x826c0, 0x826e0, -1, -1, &pairNext },
+    { L"Title logo 1", 0x826c0, 0x826e0, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Title logo 2", 0x860e0, 0x86100 },
 };
 

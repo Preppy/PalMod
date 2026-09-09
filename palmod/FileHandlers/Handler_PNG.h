@@ -49,7 +49,7 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override { return 1; };
+    uint32_t GetPaletteCountForUnit(uint32_t /* nUnitId */) override { return 1; };
 
     static sDescTreeNode* InitDescTree();
 

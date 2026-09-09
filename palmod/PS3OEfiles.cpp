@@ -3,7 +3,6 @@
 
 bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
 {
-    CString strMsg;
     bool fSuccess = false;
     CStdioFile SF3DLCFile;
 
@@ -81,11 +80,11 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
                             const int iEndPosition = strColorList.Find(',');
                             CString strThisColor = (iEndPosition != -1) ? strColorList.Left(iEndPosition) : strColorList;
 
-                            uint32_t nThisColor = _wtol(strThisColor);
-                            uint8_t alpha = (nThisColor & 0xFF000000) >> 24;
-                            uint8_t red = (nThisColor & 0xFF0000) >> 16;
-                            uint8_t green = (nThisColor & 0xFF00) >> 8;
-                            uint8_t blue = (nThisColor & 0xFF);
+                            const uint32_t nThisColor = _wtol(strThisColor);
+                            const uint8_t alpha = static_cast<uint8_t>((nThisColor & 0xFF000000) >> 24);
+                            const uint8_t red =   static_cast<uint8_t>((nThisColor & 0xFF0000) >> 16);
+                            const uint8_t green = static_cast<uint8_t>((nThisColor & 0xFF00) >> 8);
+                            const uint8_t blue =  static_cast<uint8_t>((nThisColor & 0xFF));
 
                             rgDLCColors.at(iPosition) = RGB(red, green, blue) | (alpha << 24);
 

@@ -125,7 +125,7 @@ void CPreviewDlg::OnSize(UINT nType, int cx, int cy)
     }
 }
 
-BOOL CPreviewDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+BOOL CPreviewDlg::OnMouseWheel(UINT /* nFlags */, short zDelta, CPoint /* pt */)
 {
     if (zDelta > 0)
     {

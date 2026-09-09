@@ -36,10 +36,10 @@ void CPalModDlg::ResetSlider(BOOL fSetZero)
 
     if (CurrGame && m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL)
     {
-        m_RHSlider.SetPos(CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_RH));
-        m_GSSlider.SetPos(CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_GS));
-        m_BLSlider.SetPos(CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_BL));
-        m_ASlider.SetPos(CurrGame->GetColorStepFor8BitValue_A(m_Edit_A));
+        m_RHSlider.SetPos(CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_RH)));
+        m_GSSlider.SetPos(CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_GS)));
+        m_BLSlider.SetPos(CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_BL)));
+        m_ASlider.SetPos(CurrGame->GetColorStepFor8BitValue_A(static_cast<uint8_t>(m_Edit_A)));
     }
     else
     {
@@ -81,7 +81,7 @@ void CPalModDlg::OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult)
     if (m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL)
     {
         // Handle the conversion
-        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_RH);
+        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_RH));
         nCurrentStep = nCurrentStep + (-1 * pNMUpDown->iDelta);
         nCurrentStep = BoundStepBySliderRange(nCurrentStep, &m_RHSlider);
         m_Edit_RH = CurrGame->Get8BitValueForColorStep_RGB(nCurrentStep);
@@ -109,7 +109,7 @@ void CPalModDlg::OnDeltaposSpinGS(NMHDR* pNMHDR, LRESULT* pResult)
     if (m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL)
     {
         // Handle the conversion
-        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_GS);
+        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_GS));
         nCurrentStep = nCurrentStep + (-1 * pNMUpDown->iDelta);
         nCurrentStep = BoundStepBySliderRange(nCurrentStep, &m_GSSlider);
         m_Edit_GS = CurrGame->Get8BitValueForColorStep_RGB(nCurrentStep);
@@ -137,7 +137,7 @@ void CPalModDlg::OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult)
     if (m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL)
     {
         // Handle the conversion
-        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_BL);
+        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_BL));
         nCurrentStep = nCurrentStep + (-1 * pNMUpDown->iDelta);
         nCurrentStep = BoundStepBySliderRange(nCurrentStep, &m_BLSlider);
         m_Edit_BL = CurrGame->Get8BitValueForColorStep_RGB(nCurrentStep);
@@ -165,7 +165,7 @@ void CPalModDlg::OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult)
         CGameClass* CurrGame = GetHost()->GetCurrGame();
 
         // Handle the conversion
-        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_A(m_Edit_A);
+        int nCurrentStep = CurrGame->GetColorStepFor8BitValue_A(static_cast<uint8_t>(m_Edit_A));
         nCurrentStep = nCurrentStep + (-1 * pNMUpDown->iDelta);
         nCurrentStep = BoundStepBySliderRange(nCurrentStep, &m_ASlider);
         m_Edit_A = CurrGame->Get8BitValueForColorStep_A(nCurrentStep);
@@ -199,7 +199,7 @@ void CPalModDlg::UpdateSliderSel(BOOL fModeChange, BOOL fResetRF)
     BOOL fEnableSlider = FALSE;
     BOOL fEnableAlpha = FALSE;
 
-    if (m_fEnabled && CurrPalCtrl)
+    if (m_fEnabled && m_CurrPalCtrl)
     {
         CGameClass* CurrGame = GetHost()->GetCurrGame();
         const int nGameFlag = CurrGame->GetGameFlag();
@@ -207,7 +207,7 @@ void CPalModDlg::UpdateSliderSel(BOOL fModeChange, BOOL fResetRF)
         // Games have to opt in to allow editing alpha
         fEnableAlpha = CurrGame->AllowTransparency();
 
-        m_nPalSelAmt = CurrPalCtrl->GetSelAmt();
+        m_nPalSelAmt = m_CurrPalCtrl->GetSelAmt();
 
         if (m_nPalSelAmt == 1)
         {
@@ -317,7 +317,6 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
     //Update the edit control
     int* editControl = &m_Edit_RH;
-    double nMul = 0.0;
     int nSliderId = pScrollBar->GetDlgCtrlID();
     CSliderCtrl* SrcScroll = reinterpret_cast<CSliderCtrl*>(pScrollBar);
 
@@ -425,9 +424,9 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
 
                 if (!m_fForceShowAs32bitColor)
                 {
-                    m_Edit_RH = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_RH);
-                    m_Edit_GS = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_GS);
-                    m_Edit_BL = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_BL);
+                    m_Edit_RH = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_RH));
+                    m_Edit_GS = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_GS));
+                    m_Edit_BL = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_BL));
                 }
             }
             else //RGBtoHLS
@@ -477,10 +476,6 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
 
         SetStatusText(L"Note: conversion between RGB and HSL requires rounding!");
     }
-}
-
-void CPalModDlg::UpdateSliderPos(int nCtrlId)
-{
 }
 
 void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
@@ -613,11 +608,11 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         {
             if (nCtrlId == IDC_EDIT_A)
             {
-                nNewPos = CurrGame->GetColorStepFor8BitValue_A(*editControl);
+                nNewPos = CurrGame->GetColorStepFor8BitValue_A(static_cast<uint8_t>(*editControl));
             }
             else
             {
-                nNewPos = CurrGame->GetColorStepFor8BitValue_RGB(*editControl);
+                nNewPos = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(*editControl));
             }
         }
     }
@@ -667,10 +662,10 @@ void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
         {
             CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-            nRH = CurrGame->GetColorStepFor8BitValue_RGB(nRH);
-            nGS = CurrGame->GetColorStepFor8BitValue_RGB(nGS);
-            nBL = CurrGame->GetColorStepFor8BitValue_RGB(nBL);
-            nA = CurrGame->GetColorStepFor8BitValue_A(nA);
+            nRH = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(nRH));
+            nGS = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(nGS));
+            nBL = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(nBL));
+            nA = CurrGame->GetColorStepFor8BitValue_A(static_cast<uint8_t>(nA));
         }
     }
     else
@@ -685,7 +680,7 @@ void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
 
         if (!m_fForceShowAs32bitColor)
         {
-            nA = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_A(nA);
+            nA = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_A(static_cast<uint8_t>(nA));
         }
     }
 
@@ -701,15 +696,15 @@ void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
 
 void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
         switch (m_nPalSelAmt)
         {
         case 1:
         {
             // Single-select
-            int nSingleSel = CurrPalCtrl->GetSingleSelectIndex();
-            COLORREF* crTarget = &CurrPalCtrl->GetBasePal()[nSingleSel];
+            int nSingleSel = m_CurrPalCtrl->GetSingleSelectIndex();
+            COLORREF* crTarget = &m_CurrPalCtrl->GetBasePal()[nSingleSel];
 
             if (m_fShowAsRGBNotHSL)
             {
@@ -732,13 +727,13 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
                 );
             }
 
-            CurrPalCtrl->UpdateIndex(nSingleSel);
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateIndex(nSingleSel);
+            m_CurrPalCtrl->UpdateCtrl();
 
             ImgDispCtrl->UpdateCtrl();
 
             //Update the change flag on the base palette
-            CurrPalDef->fIsChanged = true;
+            m_CurrPalDef->fIsChanged = true;
         }
         break;
         case 0: // Nothing selected: presume full coverage
@@ -748,10 +743,10 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
             // Since values will "bounce" 0 or max, we need to be operating off of the memory-saved pBasePal
             // as opposed to the "live" pPal values.
             // This is so that rgb(255,255,255) + 5 red - 5 red returns to rgb(255,255,255) instead of rgb(250,255,255)
-            COLORREF* crTarget = CurrPalCtrl->GetBasePal();
-            const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-            const UCHAR* uSelBuffer = CurrPalCtrl->GetSelIndex();
-            COLORREF* crBasePal = &CurrPalDef->pBasePal[CurrPalSep->nStart];
+            COLORREF* crTarget = m_CurrPalCtrl->GetBasePal();
+            const int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
+            const UCHAR* uSelBuffer = m_CurrPalCtrl->GetSelIndex();
+            COLORREF* crBasePal = &m_CurrPalDef->pBasePal[m_CurrPalSep->nStart];
 
             if (m_fShowAsRGBNotHSL)
             {
@@ -766,7 +761,7 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
                             m_ASlider.GetPos()
                         );
 
-                        CurrPalCtrl->UpdateIndex(nICtr);
+                        m_CurrPalCtrl->UpdateIndex(nICtr);
                     }
                 }
             }
@@ -783,23 +778,23 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
                             GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                         );
 
-                        CurrPalCtrl->UpdateIndex(nICtr);
+                        m_CurrPalCtrl->UpdateIndex(nICtr);
                     }
                 }
             }
 
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateCtrl();
             ImgDispCtrl->UpdateCtrl();
 
             m_fCopyFromBase = TRUE;
 
             //Update the change flag on the base palette
-            CurrPalDef->fIsChanged = true;
+            m_CurrPalDef->fIsChanged = true;
         }
         break;
         }
     }
-    else if (fSetSingleCol && CurrPalCtrl)
+    else if (fSetSingleCol && m_CurrPalCtrl)
     {
         if (m_nPalSelAmt)
         {
@@ -807,10 +802,10 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
 
             ProcChange();
 
-            COLORREF* crTarget = CurrPalCtrl->GetBasePal();
+            COLORREF* crTarget = m_CurrPalCtrl->GetBasePal();
 
-            const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-            const UCHAR* uSelBuffer = CurrPalCtrl->GetSelIndex();
+            const int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
+            const UCHAR* uSelBuffer = m_CurrPalCtrl->GetSelIndex();
 
             if (m_fShowAsRGBNotHSL)
             {
@@ -827,7 +822,7 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
                             CurrGame->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                         );
 
-                        CurrPalCtrl->UpdateIndex(nICtr);
+                        m_CurrPalCtrl->UpdateIndex(nICtr);
                     }
                 }
             }
@@ -844,25 +839,25 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
                             GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
                         );
 
-                        CurrPalCtrl->UpdateIndex(nICtr);
+                        m_CurrPalCtrl->UpdateIndex(nICtr);
                     }
                 }
             }
 
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateCtrl();
             ImgDispCtrl->UpdateCtrl();
 
             //Update the change flag on the base palette
-            CurrPalDef->fIsChanged = true;
+            m_CurrPalDef->fIsChanged = true;
         }
     }
 }
 
 void CPalModDlg::GetSetSingleCol()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
-        const COLORREF crSrc = CurrPalCtrl->GetBasePal()[CurrPalCtrl->GetSingleSelectIndex()];
+        const COLORREF crSrc = m_CurrPalCtrl->GetBasePal()[m_CurrPalCtrl->GetSingleSelectIndex()];
 
         SetSliderCol(GetRValue(crSrc), GetGValue(crSrc), GetBValue(crSrc), GetAValue(crSrc));
         ResetSlider(FALSE);
@@ -873,7 +868,7 @@ void CPalModDlg::UpdateMultiEdit(BOOL fForce)
 {
     if (m_fCopyFromBase || fForce)
     {
-        memcpy(CurrPalDef->pBasePal, CurrPalDef->pPal, CurrPalDef->uPalSz * sizeof(COLORREF));
+        memcpy(m_CurrPalDef->pBasePal, m_CurrPalDef->pPal, m_CurrPalDef->uPalSz * sizeof(COLORREF));
 
         m_fCopyFromBase = FALSE;
     }
@@ -919,7 +914,7 @@ void CPalModDlg::SetSliderDescEdit()
 void CPalModDlg::OnBnNewCol()
 {
     CColorDialog* ColorDlg = nullptr;
-    const int nSelAmt = CurrPalCtrl->GetSelAmt();
+    const int nSelAmt = m_CurrPalCtrl->GetSelAmt();
     const DWORD colorFlags = CC_FULLOPEN | CC_RGBINIT;
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
@@ -984,11 +979,11 @@ void CPalModDlg::OnBnNewCol()
 
             ResetSlider(FALSE);
 
-            int nSelIndex = CurrPalCtrl->GetSingleSelectIndex();
-            CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | (static_cast<COLORREF>(nAVal) << 24));
+            int nSelIndex = m_CurrPalCtrl->GetSingleSelectIndex();
+            m_CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | (static_cast<COLORREF>(nAVal) << 24));
 
-            CurrPalCtrl->UpdateIndex(nSelIndex);
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateIndex(nSelIndex);
+            m_CurrPalCtrl->UpdateCtrl();
 
             ImgDispCtrl->UpdateCtrl();
 
@@ -996,9 +991,9 @@ void CPalModDlg::OnBnNewCol()
         }
         else
         {
-            const uint8_t* rgSel = CurrPalCtrl->GetSelIndex();
-            const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-            COLORREF* pPal = CurrPalCtrl->GetBasePal();
+            const uint8_t* rgSel = m_CurrPalCtrl->GetSelIndex();
+            const int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
+            COLORREF* pPal = m_CurrPalCtrl->GetBasePal();
 
             for (int iPos = 0; iPos < nWorkingAmt; iPos++)
             {
@@ -1007,10 +1002,10 @@ void CPalModDlg::OnBnNewCol()
                     pPal[iPos] = (crNewCol | (0x000000FF << 24));
                 }
 
-                CurrPalCtrl->UpdateIndex(iPos);
+                m_CurrPalCtrl->UpdateIndex(iPos);
             }
 
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateCtrl();
             ImgDispCtrl->UpdateCtrl();
 
             UpdateMultiEdit(TRUE);
@@ -1043,10 +1038,10 @@ void CPalModDlg::OnChangeShowAs32BitColor()
         }
         else
         {
-            m_Edit_RH = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_RH);
-            m_Edit_GS = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_GS);
-            m_Edit_BL = CurrGame->GetColorStepFor8BitValue_RGB(m_Edit_BL);
-            m_Edit_A = CurrGame->GetColorStepFor8BitValue_A(m_Edit_A);
+            m_Edit_RH = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_RH));
+            m_Edit_GS = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_GS));
+            m_Edit_BL = CurrGame->GetColorStepFor8BitValue_RGB(static_cast<uint8_t>(m_Edit_BL));
+            m_Edit_A = CurrGame->GetColorStepFor8BitValue_A(static_cast<uint8_t>(m_Edit_A));
         }
     }
 
@@ -1090,9 +1085,9 @@ void CPalModDlg::PerformBlink()
     BOOL fRedraw = FALSE;
     bool fSetTimer = false;
 
-    uint8_t* rgSel = CurrPalCtrl->GetSelIndex();
-    int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-    bool fSelectAll = (CurrPalCtrl->GetSelAmt() == 0);
+    uint8_t* rgSel = m_CurrPalCtrl->GetSelIndex();
+    int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
+    bool fSelectAll = (m_CurrPalCtrl->GetSelAmt() == 0);
     int nOffs = MainPalGroup->GetSep(
                                       MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex,
                                       MainPalGroup->GetRedir()[m_nCurrSelPal].nSepIndex
@@ -1177,8 +1172,8 @@ void CPalModDlg::OnBnRevert()
 
         ImgDispCtrl->UpdateCtrl();
 
-        CurrPalCtrl->UpdateIndexAll();
-        CurrPalCtrl->UpdateCtrl();
+        m_CurrPalCtrl->UpdateIndexAll();
+        m_CurrPalCtrl->UpdateCtrl();
 
         UpdateMultiEdit(TRUE);
         UpdateSliderSel();
@@ -1222,20 +1217,20 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
 {
     if (m_fEnabled)
     {
-        uint16_t nSelectionAmt = CurrPalCtrl->GetSelAmt();
+        uint16_t nSelectionAmt = static_cast<uint16_t>(m_CurrPalCtrl->GetSelAmt());
 
         if ((nSelectionAmt == 0) || (nSelectionAmt > 2)) // we need steps between the two colors
         {
             ProcChange();
 
             const BOOL fSelectAll = (nSelectionAmt == 0);
-            const uint16_t nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
+            const uint16_t nWorkingAmount = static_cast<uint16_t>(m_CurrPalCtrl->GetWorkingAmt());
 
             // if they want to update all, we ignore the first transparent color
             nSelectionAmt = fSelectAll ? (nWorkingAmount - 1) : nSelectionAmt;
 
-            const uint8_t* rgSel = static_cast<uint8_t*>(CurrPalCtrl->GetSelIndex());
-            uint8_t* pBasePal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
+            const uint8_t* rgSel = static_cast<uint8_t*>(m_CurrPalCtrl->GetSelIndex());
+            uint8_t* pBasePal = reinterpret_cast<uint8_t*>(m_CurrPalCtrl->GetBasePal());
 
             int iInitialPos = 1;
 
@@ -1257,12 +1252,12 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
                 }
             }
 
-            const COLORREF colorStart = CurrPalCtrl->GetBasePal()[iInitialPos];
-            const COLORREF colorFinish = CurrPalCtrl->GetBasePal()[iTerminalPos];
+            const COLORREF colorStart = m_CurrPalCtrl->GetBasePal()[iInitialPos];
+            const COLORREF colorFinish = m_CurrPalCtrl->GetBasePal()[iTerminalPos];
 
             CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-            for (uint16_t iPos = 1, nCurrentStep = 0; iPos < CurrPalCtrl->GetWorkingAmt(); iPos++)
+            for (uint16_t iPos = 1, nCurrentStep = 0; iPos < m_CurrPalCtrl->GetWorkingAmt(); iPos++)
             {
                 if (rgSel[iPos] || fSelectAll)
                 {
@@ -1277,13 +1272,13 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
                     pBasePal[nPaletteIndex + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(colorStep));
                     pBasePal[nPaletteIndex + 3] = static_cast<uint8_t>(round(GetAValue(colorStart) + (nCurrentPercent * (GetAValue(colorFinish) - GetAValue(colorStart)))));
 
-                    CurrPalCtrl->UpdateIndex(iPos);
+                    m_CurrPalCtrl->UpdateIndex(iPos);
                 }
             }
 
             ImgDispCtrl->UpdateCtrl();
 
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateCtrl();
 
             UpdateMultiEdit(TRUE);
             UpdateSliderSel();
@@ -1324,20 +1319,20 @@ void CPalModDlg::OnBnClickedReverse()
 {
     if (m_fEnabled)
     {
-        uint16_t nSelectionAmt = CurrPalCtrl->GetSelAmt();
+        uint16_t nSelectionAmt = static_cast<uint16_t>(m_CurrPalCtrl->GetSelAmt());
 
         if (nSelectionAmt != 1) // we can't flip just one color
         {
             ProcChange();
 
             BOOL fSelectAll = (nSelectionAmt == 0);
-            const uint16_t nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
+            const uint16_t nWorkingAmount = static_cast<uint16_t>(m_CurrPalCtrl->GetWorkingAmt());
 
             // if they want to flip all, we ignore the first transparent color
             nSelectionAmt = fSelectAll ? (nWorkingAmount - 1) : nSelectionAmt;
 
-            uint8_t* rgSel = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetSelIndex());
-            uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
+            uint8_t* rgSel = reinterpret_cast<uint8_t*>(m_CurrPalCtrl->GetSelIndex());
+            uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(m_CurrPalCtrl->GetBasePal());
             uint8_t* pFlippedPal = new uint8_t[nSelectionAmt * 4];
 
             // walk backwards to get the flipped ordering
@@ -1346,8 +1341,8 @@ void CPalModDlg::OnBnClickedReverse()
             {
                 if (rgSel[iCurPos] || fSelectAll)
                 {
-                    const uint16_t nPaletteIndex = iCurPos * 4;
-                    const uint16_t nFlippedIndex = iFlippedPos * 4;
+                    const uint16_t nPaletteIndex = static_cast<uint16_t>(iCurPos * 4);
+                    const uint16_t nFlippedIndex = static_cast<uint16_t>(iFlippedPos * 4);
 
                     pFlippedPal[nFlippedIndex]     = pCurrPal[nPaletteIndex];
                     pFlippedPal[nFlippedIndex + 1] = pCurrPal[nPaletteIndex + 1];
@@ -1370,8 +1365,8 @@ void CPalModDlg::OnBnClickedReverse()
             {
                 if (rgSel[iCurPos] || fSelectAll)
                 {
-                    const uint16_t nPaletteIndex = iCurPos * 4;
-                    const uint16_t nFlippedIndex = iFlippedPos * 4;
+                    const uint16_t nPaletteIndex = static_cast<uint16_t>(iCurPos * 4);
+                    const uint16_t nFlippedIndex = static_cast<uint16_t>(iFlippedPos * 4);
 
                     pCurrPal[nPaletteIndex]     = pFlippedPal[nFlippedIndex];
                     pCurrPal[nPaletteIndex + 1] = pFlippedPal[nFlippedIndex + 1];
@@ -1380,7 +1375,7 @@ void CPalModDlg::OnBnClickedReverse()
 
                     iFlippedPos++;
 
-                    CurrPalCtrl->UpdateIndex(iCurPos);
+                    m_CurrPalCtrl->UpdateIndex(iCurPos);
                 }
             }
 
@@ -1388,7 +1383,7 @@ void CPalModDlg::OnBnClickedReverse()
 
             ImgDispCtrl->UpdateCtrl();
 
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateCtrl();
 
             UpdateMultiEdit(TRUE);
             UpdateSliderSel();
@@ -1568,18 +1563,18 @@ void CPalModDlg::HandleColorTransform(DWORD dwTransformIndex, ColorTransform act
 
         ProcChange();
 
-        const uint8_t* rgSel = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetSelIndex());
-        uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
-        const bool fSelectAll = !CurrPalCtrl->GetSelAmt();
+        const uint8_t* rgSel = reinterpret_cast<uint8_t*>(m_CurrPalCtrl->GetSelIndex());
+        uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(m_CurrPalCtrl->GetBasePal());
+        const bool fSelectAll = !m_CurrPalCtrl->GetSelAmt();
         CGameClass* CurrGame = GetHost()->GetCurrGame();
-        const int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        const int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
         bool fHaveUpdatedColor = false;
 
         for (int iPos = 0; iPos < nWorkingAmt; iPos++)
         {
             if (rgSel[iPos] || fSelectAll)
             {
-                const uint16_t nPaletteIndex = iPos * 4;
+                const uint16_t nPaletteIndex = static_cast<uint16_t>(iPos * 4);
                 fHaveUpdatedColor = true;
 
                 switch (action)
@@ -1734,7 +1729,7 @@ void CPalModDlg::HandleColorTransform(DWORD dwTransformIndex, ColorTransform act
                     }
                 }
 
-                CurrPalCtrl->UpdateIndex(iPos);
+                m_CurrPalCtrl->UpdateIndex(iPos);
             }
         }
 
@@ -1742,7 +1737,7 @@ void CPalModDlg::HandleColorTransform(DWORD dwTransformIndex, ColorTransform act
         {
             ImgDispCtrl->UpdateCtrl();
 
-            CurrPalCtrl->UpdateCtrl();
+            m_CurrPalCtrl->UpdateCtrl();
 
             UpdateMultiEdit(TRUE);
             UpdateSliderSel();

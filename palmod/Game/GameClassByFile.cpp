@@ -68,12 +68,11 @@ uint32_t CGameClassByFile::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t n
 {
     uint32_t nNodeSize = 0;
     const uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
     for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        //const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
@@ -97,12 +96,11 @@ const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, ui
 {
     const sDescTreeNode* pCollectionNode = nullptr;
     const uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
     for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        //const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         const sDescTreeNode* pCollectionNodeToCheck = m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgPaletteSets;
 
         uint32_t nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
@@ -203,7 +201,7 @@ void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_Co
     // Load the game's layout for palmod
     sDescTreeNode* NewTree = new sDescTreeNode;
 
-    uint32_t nPaletteCount = InitDescTreeForFileSet(NewTree);
+    InitDescTreeForFileSet(NewTree);
 
     m_MainDescTree.SetRootTree(NewTree);
 
@@ -470,7 +468,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                             break;
                         default:
                             // Anything past this just gets default pairing
-                            vnPeerPaletteDistances.push_back(nPairIndex);
+                            vnPeerPaletteDistances.push_back(static_cast<int8_t>(nPairIndex));
                             break;
                     }
 

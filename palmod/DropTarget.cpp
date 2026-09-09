@@ -6,8 +6,8 @@
 
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
-    static const CLIPFORMAT s_idDesc = RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR);
-    static const CLIPFORMAT s_idContent = RegisterClipboardFormat(CFSTR_FILECONTENTS);
+    static const CLIPFORMAT s_idDesc = static_cast<CLIPFORMAT>(RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR));
+    static const CLIPFORMAT s_idContent = static_cast<CLIPFORMAT>(RegisterClipboardFormat(CFSTR_FILECONTENTS));
 
     bool fIsFromFirefox = false;
 
@@ -70,7 +70,7 @@ bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool&
     return fIsFromFirefox;
 }
 
-DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point)
+DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD /* dwKeyState */, CPoint /* point */)
 {
     m_currentEffectState = DROPEFFECT_NONE;
 
@@ -337,7 +337,7 @@ bool GetDropLayerFromFileName(const std::wstring strFileName, UINT& iLayerToDrop
     return fSuccess;
 }
 
-BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point)
+BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT /* dropEffect */, CPoint /* point */)
 {
     // This handles palette import via drag/drop: PalModDlg::OnImportPalette is the Tools menu version
     bool fHandledDrop = false;
@@ -353,7 +353,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
         if (_IsDataObjectFromFirefox(pDataObject, fIsSupportable, &strFileName) && fIsSupportable && strFileName.GetLength())
         {
-            static const CLIPFORMAT s_idContent = RegisterClipboardFormat(CFSTR_FILECONTENTS);
+            static const CLIPFORMAT s_idContent = static_cast<CLIPFORMAT>(RegisterClipboardFormat(CFSTR_FILECONTENTS));
 
             if (pDataObject->IsDataAvailable(s_idContent))
             {
@@ -579,7 +579,6 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                 if (rgGameTotalMatches.size())
                 {
                     SupportedGamesList nGameChoice = NUM_GAMES;
-                    int nUserSelection = 0;
 
                     if (rgGameTotalMatches.size() > 1)
                     {

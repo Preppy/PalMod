@@ -166,7 +166,7 @@ void CJunk::ClearHighlighted()
     //m_iHLAmt = 0;
 }
 
-void CJunk::SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
+void CJunk::SetJunkState(UCHAR* State, LPCWSTR /* pszFunctionName */, int nIndex, UCHAR nValue)
 {
     bool fSuccess = false;
     if (State)
@@ -314,7 +314,7 @@ void CJunk::NotifyParent(int iCustomMessage)
     GetParent()->PostMessage(WM_NOTIFY, 0, (LPARAM)&myhdr);
 }
 
-void CJunk::SetIndexPen(int nIndex, PenOptions pFlag)
+void CJunk::SetIndexPen(int /* nIndex */, PenOptions pFlag)
 {
     switch (pFlag)
     {
@@ -406,7 +406,7 @@ void CJunk::OnPaint()
     safe_delete(PaintDC);
 }
 
-BOOL CJunk::OnEraseBkgnd(CDC* pDC)
+BOOL CJunk::OnEraseBkgnd(CDC* /* pDC */)
 {
     return FALSE;
 }
@@ -536,11 +536,11 @@ void CJunk::MovePaletteSelection(SelectionMovement nOption)
             {
                 if (m_Selected && m_iWorkingAmt)
                 {
-                    BOOL fNextState = m_Selected[0];
+                    UCHAR fNextState = m_Selected[0];
 
                     for (int iPos = m_iWorkingAmt - 1; iPos > 0 ; iPos--)
                     {
-                        BOOL fPreviousState = m_Selected[iPos];
+                        UCHAR fPreviousState = m_Selected[iPos];
                         m_Selected[iPos] = fNextState;
                         fNextState = fPreviousState;
                     }
@@ -569,14 +569,14 @@ void CJunk::MovePaletteSelection(SelectionMovement nOption)
 
                     for (int iPos = 0; iPos < m_iPalW; iPos++)
                     {
-                        m_Selected[iPos + (m_iWorkingAmt - m_iPalW)] = rgfShiftedLayout.at(iPos);
+                        m_Selected[iPos + (m_iWorkingAmt - m_iPalW)] = static_cast<UCHAR>(rgfShiftedLayout.at(iPos));
                     }
                 }
                 break;
             }
             case SelectionMovement::Down:
             {
-                // We want multiple full rows.  SKip partially rowed palettes
+                // We want multiple full rows.  Skip partially rowed palettes
                 if (m_Selected && m_iWorkingAmt && (m_iPalH > 1) && (m_iWorkingAmt % m_iPalW == 0))
                 {
                     std::vector<BOOL> rgfShiftedLayout;
@@ -594,7 +594,7 @@ void CJunk::MovePaletteSelection(SelectionMovement nOption)
 
                     for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
                     {
-                        m_Selected[iPos] = rgfShiftedLayout.at(iPos);
+                        m_Selected[iPos] = static_cast<UCHAR>(rgfShiftedLayout.at(iPos));
                     }
                 }
                 break;
@@ -603,11 +603,11 @@ void CJunk::MovePaletteSelection(SelectionMovement nOption)
             {
                 if (m_Selected && m_iWorkingAmt)
                 {
-                    BOOL fNextState = m_Selected[m_iWorkingAmt - 1];
+                    UCHAR fNextState = m_Selected[m_iWorkingAmt - 1];
 
                     for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
                     {
-                        BOOL fPreviousState = m_Selected[iPos];
+                        UCHAR fPreviousState = m_Selected[iPos];
                         m_Selected[iPos] = fNextState;
                         fNextState = fPreviousState;
                     }

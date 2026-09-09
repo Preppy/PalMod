@@ -1593,6 +1593,7 @@ enum SupportedKarnovsR_A_PaletteListIndex
     indexKarnovsRSprites_Zazie,         // 0x0c
     indexKarnovsRSprites_Bonus,         // 0x0d
     indexKarnovsRSprites_Stages,        // 0x0e
+    indexFightersHistorySprites_Chelnov,    // 0x0f
 };
 
 enum SupportedRedEarth_A_PaletteListIndex

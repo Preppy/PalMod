@@ -58,7 +58,7 @@ public:
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
-    CGameClassByDir(uint32_t nConfirmedROMSize = -1) {};
+    CGameClassByDir(uint32_t nConfirmedROMSize = -1) { UNREFERENCED_PARAMETER(nConfirmedROMSize); };
     ~CGameClassByDir();
 
     void InitializeGame(uint32_t nConfirmedROMSize, const sCoreGameData& gameLoadingData);
@@ -69,7 +69,7 @@ public:
     CDescTree* GetMainTree() { return &m_MainDescTree; };
 
     inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
-    inline uint32_t GetSIMMUnitFromROMLocation(uint32_t nROMLocation);
+    inline uint8_t GetSIMMUnitFromROMLocation(uint32_t nROMLocation);
 
     static uint32_t m_uRuleCtr;
 

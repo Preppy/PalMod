@@ -52,7 +52,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     return ColorSystem::GetPlaneAmtForColor(m_CurrColMode, Flag);
 }
 
-int CGameClass::GetNearestLegal8BitColorValue_RGB_impl(int nCol)
+uint8_t CGameClass::GetNearestLegal8BitColorValue_RGB_impl(int nCol)
 {
     return GetNearestLegal8BitColorValue_RGB(nCol);
 }
@@ -650,7 +650,7 @@ std::vector<BYTE> CGameClass::GetRawPaletteBytes(uint32_t nUnitId, uint32_t nPal
 
     for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - m_createPalOptions.nStartingPosition); iPos++)
     {
-        const uint16_t nCurrentPos = iPos + m_createPalOptions.nStartingPosition;
+        //const uint16_t nCurrentPos = iPos + m_createPalOptions.nStartingPosition;
 
         switch (GetGameColorByteLength())
         {
@@ -670,18 +670,18 @@ std::vector<BYTE> CGameClass::GetRawPaletteBytes(uint32_t nUnitId, uint32_t nPal
             case 3:
             {
                 const uint32_t nThisColor = m_pppDataBuffer24[nUnitId][nPalId][iPos];
-                vColorBytes.push_back(nThisColor >> 16);
-                vColorBytes.push_back((nThisColor & 0xff00) >> 8);
-                vColorBytes.push_back(nThisColor & 0xff);
+                vColorBytes.push_back(static_cast<BYTE>((nThisColor & 0xff0000) >> 16));
+                vColorBytes.push_back(static_cast<BYTE>((nThisColor & 0xff00) >> 8));
+                vColorBytes.push_back(static_cast<BYTE>(nThisColor & 0xff));
                 break;
             }
             case 4:
             {
                 const uint32_t nThisColor = m_pppDataBuffer32[nUnitId][nPalId][iPos];
-                vColorBytes.push_back(nThisColor & 0xff);
-                vColorBytes.push_back((nThisColor & 0xff00) >> 8);
-                vColorBytes.push_back((nThisColor & 0xff0000) >> 16);
-                vColorBytes.push_back(nThisColor >> 24);
+                vColorBytes.push_back(static_cast<BYTE>(nThisColor & 0xff));
+                vColorBytes.push_back(static_cast<BYTE>((nThisColor & 0xff00) >> 8));
+                vColorBytes.push_back(static_cast<BYTE>((nThisColor & 0xff0000) >> 16));
+                vColorBytes.push_back(static_cast<BYTE>(nThisColor >> 24));
                 break;
             }
         }
@@ -739,7 +739,7 @@ void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors,
 
     for (uint16_t iPos = 0; iPos < (m_nCurrentPaletteSizeInColors - m_createPalOptions.nStartingPosition); iPos++)
     {
-        const uint16_t nCurrentPos = iPos + m_createPalOptions.nStartingPosition;
+        //const uint16_t nCurrentPos = iPos + m_createPalOptions.nStartingPosition;
 
         if (iPos >= nColorCount)
         {
@@ -1136,7 +1136,6 @@ void CGameClass::WarnIfPaletteIsOversized(uint32_t nUnit, uint32_t nPaletteId, u
 #ifdef DEBUG
             // Some auto-slicing code in case I want that again at some point
             const int16_t nPalettesNeeded = static_cast<int16_t>(ceil(static_cast<double>(nPaletteSizeInColors) / static_cast<double>(MAXAMT_ColorsPerPaletteTable)));
-            int32_t nRemainingSize = nPaletteSizeInColors;
             const uint32_t nEndingPosition = nStartPosition + (nPaletteSizeInColors * m_nSizeOfColorsInBytes);
             uint32_t nCurrentPosition = nStartPosition;
 
@@ -1367,12 +1366,10 @@ uint32_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, 
     // Don't use this for Extra palettes.
     uint32_t nNodeSize = 0;
     const uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
     for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sGame_PaletteDataset* paletteSetToCheck = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
         const uint32_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
 
         if (nDistanceFromZero < nNodeCount)
@@ -1392,12 +1389,11 @@ const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGam
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
     const uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
     for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sGame_PaletteDataset* paletteSetToCheck = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
+        //const sGame_PaletteDataset* paletteSetToCheck = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
         uint32_t nNodeCount;
 
         if (nUnitId == nExtraUnitLocation)
@@ -1446,8 +1442,8 @@ void CGameClass::DumpTreeSorted()
 
     struct sPaletteTrackingInformation
     {
-        uint32_t nPaletteOffset = -1;
-        uint32_t nTerminalOffset = -1;
+        uint32_t nPaletteOffset = INVALID_VALUE_32;
+        uint32_t nTerminalOffset = INVALID_VALUE_32;
         std::wstring strUnitName;
         std::wstring strCollectionName;
         std::wstring strPaletteName;
@@ -1968,7 +1964,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, std::vector<uint
                                 break;
                             default:
                                 // Anything past this just gets default pairing
-                                vnPeerPaletteDistances.push_back(nPairIndex);
+                                vnPeerPaletteDistances.push_back(static_cast<int8_t>(nPairIndex));
                                 break;
                         }
 
@@ -2138,7 +2134,7 @@ uint32_t CGameClass::GetLocationWithinSIMM(uint32_t nSIMMSetLocation)
     return nSIMMLocation;
 }
 
-BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
 {
     if (GameIsUsing8BitColor() && m_pppDataBuffer8)
     {
@@ -2256,7 +2252,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     return TRUE;
 }
 
-BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t /* nUnitId */)
 {
     uint32_t nTotalPalettesSaved = 0;
 
@@ -2312,9 +2308,9 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
                         BYTE bVal = (nCurrentColor & 0xFF);
                         SaveFile->Write(&bVal, 1);
-                        bVal = (nCurrentColor & 0xFF00) >> 8;
+                        bVal = static_cast<BYTE>((nCurrentColor & 0xFF00) >> 8);
                         SaveFile->Write(&bVal, 1);
-                        bVal = (nCurrentColor & 0xFF0000) >> 16;
+                        bVal = static_cast<BYTE>((nCurrentColor & 0xFF0000) >> 16);
                         SaveFile->Write(&bVal, 1);
                     }
                 }

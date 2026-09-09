@@ -2174,17 +2174,17 @@ const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_USAELEVATOR[] =
 const sGame_PaletteDataset SFA2_A_STAGES07_REV2_PALETTES_INDIA[] =
 {
     { L"Midground 1/2", 0x7fdbe, 0x7ffbe, indexCPS2Sprites_SFA2_Stages, 0x44, &pairFullyLinkedNode },
-    //{ L"India 2/2",                 0x7ffbe, 0x801be, indexCPS2Sprites_SFA2_Stages, -1 },
-    { L"Midground 2/2", 0x7ffbe, 0x7fffe, indexCPS2Sprites_SFA2_Stages, -1 },
+    //{ L"India 2/2",                 0x7ffbe, 0x801be, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
+    { L"Midground 2/2", 0x7ffbe, 0x7fffe, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     // Rest are in ROM08
-    //{ L"USSR 1/2",                  0x801be, 0x803be, indexCPS2Sprites_SFA2_Stages, -1, &pairNext },
-    //{ L"USSR 2/2",                  0x803be, 0x805be, indexCPS2Sprites_SFA2_Stages, -1 },
-    //{ L"China (Alley) 1/2",         0x805be, 0x807be, indexCPS2Sprites_SFA2_Stages, -1, &pairNext },
-    //{ L"China (Alley) 2/2",         0x807be, 0x809be, indexCPS2Sprites_SFA2_Stages, -1 },
-    //{ L"Australia 1/2",             0x809be, 0x80bbe, indexCPS2Sprites_SFA2_Stages, -1, &pairNext },
-    //{ L"Australia 2/2",             0x80bbe, 0x80dbe, indexCPS2Sprites_SFA2_Stages, -1 },
-    //{ L"Venezuala 1/2",             0x80dbe, 0x80fbe, indexCPS2Sprites_SFA2_Stages, -1, &pairNext },
-    //{ L"Venezuala 2/2",             0x80fbe, 0x811be, indexCPS2Sprites_SFA2_Stages, -1 },
+    //{ L"USSR 1/2",                  0x801be, 0x803be, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8, &pairNext },
+    //{ L"USSR 2/2",                  0x803be, 0x805be, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
+    //{ L"China (Alley) 1/2",         0x805be, 0x807be, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8, &pairNext },
+    //{ L"China (Alley) 2/2",         0x807be, 0x809be, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
+    //{ L"Australia 1/2",             0x809be, 0x80bbe, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8, &pairNext },
+    //{ L"Australia 2/2",             0x80bbe, 0x80dbe, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
+    //{ L"Venezuala 1/2",             0x80dbe, 0x80fbe, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8, &pairNext },
+    //{ L"Venezuala 2/2",             0x80fbe, 0x811be, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     // Note that Sari comes from Dhalsim's extras
     { L"Sprites",       0x7695e, 0x76a3e, indexCPS2Sprites_SFA2_Stages, 0xb0 },
 };
@@ -2429,18 +2429,18 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_CHINAALLEY[] =
 const sGame_PaletteDataset SFA2_A_STAGES08_REV1_PALETTES_AUSTRALIA[] =
 {
     { L"Background 1/2: Hidden and Attract Screen Only?", 0x15b3e, 0x15d3e, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode }, /* Delta: 0x980 */
-    { L"Background 2/2", 0x15d3e, 0x15f1e, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0x980 */
+    { L"Background 2/2", 0x15d3e, 0x15f1e, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 }, /* Delta: 0x980 */
     // Match at 0x15b3e, 0x15bbe (delta -0x16920)
     // Match at 0x2c45e, 0x2c4de (delta 0x0)
     { L"Background Animation Cycle", 0x2c45e, 0x2c4de, indexCPS2Sprites_SFA2_Stages, 0x79 }, /* Delta: 0 */
-    { L"Midground Unused?", 0xd3e, 0xf3e, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0x180 */
+    { L"Midground Unused?", 0xd3e, 0xf3e, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 }, /* Delta: 0x180 */
 
-    { L"Foreground 1/2: Attract Screen Flash only?", 0xb33e, 0xb53e, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0x580 */
+    { L"Foreground 1/2: Attract Screen Flash only?", 0xb33e, 0xb53e, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 }, /* Delta: 0x580 */
     { L"Foreground Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a }, /* Delta: 0 */
     { L"Foreground 2/2: Attract Screen Flash only?", 0xb53e, 0xb73e, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0x580 */
     { L"Foreground 2/2 Animation cycle?", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b }, /* Delta: 0 */
     
-    { L"Animation cycle?", 0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, -1 }, /* Delta: 0 */
+    { L"Animation cycle?", 0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 }, /* Delta: 0 */
 
     { L"Mid sky animation cycle: Attract Screen Flash only?", 0xb5e, 0xbfe, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0x180 */
     { L"Mid sky animation cycle: Attract Screen Flash only?", 0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c }, /* Delta: 0 */
@@ -2724,15 +2724,15 @@ const sGame_PaletteDataset SFA2_A_STAGES08_REV2_PALETTES_AUSTRALIA[] =
     //ROM07 Sprites 0x76bfe, 0x76cde
     // unknown but present -- 0x2bade to 0x2bcde?
     { L"Background 1/2: Hidden and Attract Screen Only?", 0x151be, 0x153be, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode },
-    { L"Background 2/2",             0x153be, 0x1559e, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Background 2/2",             0x153be, 0x1559e, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     { L"Background Animation Cycle", 0x2c45e, 0x2c4de, indexCPS2Sprites_SFA2_Stages, 0x79 },
-    { L"Midground Unused?",          0x0bbe, 0x0dbe, indexCPS2Sprites_SFA2_Stages, -1 },
-    { L"Foreground 1/2: Attract Screen Flash only?", 0xadbe, 0xafbe, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Midground Unused?",          0x0bbe, 0x0dbe, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
+    { L"Foreground 1/2: Attract Screen Flash only?", 0xadbe, 0xafbe, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     { L"Foreground 1/2 Animation Cycle", 0x29b3e, 0x29d1e, indexCPS2Sprites_SFA2_Stages, 0x7a },
     { L"Foreground 2/2: Attract Screen Flash only?", 0xafbe, 0xb1be, indexCPS2Sprites_SFA2_Stages, 0x7b },
     { L"Foreground 2/2 Animation cycle", 0x2981e, 0x298be, indexCPS2Sprites_SFA2_Stages, 0x7b },
 
-    { L"Animation cycle?",          0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Animation cycle?",          0x2bade, 0x2bcde, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     
     { L"Mid sky animation cycle: Attract Screen Flash only?", 0x9de, 0xa7e, indexCPS2Sprites_SFA2_Stages, 0x7c },
     { L"Mid sky animation cycle",   0x2963e, 0x296de, indexCPS2Sprites_SFA2_Stages, 0x7c },
@@ -2997,7 +2997,7 @@ const sGame_PaletteDataset SFA2_A_STAGES_STEAMMONO_PALETTES_INDIA[] =
     { L"Background 1/2",                 0x145be + 0x80000, 0x147be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x41, &pairFullyLinkedNode },
     { L"Background 2/2",                 0x147be + 0x80000, 0x1499e + 0x80000 },
     { L"Midground 1/2", 0x7fdbe, 0x7ffbe, indexCPS2Sprites_SFA2_Stages, 0x44 },
-    { L"Midground 2/2", 0x7ffbe, 0x7fffe, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Midground 2/2", 0x7ffbe, 0x7fffe, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     { L"Foreground 1/2",                 0xa1be + 0x80000, 0xa3be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x42, &pairNext },
     { L"Foreground 2/2",                 0xa3be + 0x80000, 0xa5be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x43 },
     // Note that Sari comes from Dhalsim's extras
@@ -3048,15 +3048,15 @@ const sGame_PaletteDataset SFA2_A_STAGES_STEAMMONO_PALETTES_CHINAALLEY[] =
 const sGame_PaletteDataset SFA2_A_STAGES_STEAMMONO_PALETTES_AUSTRALIA[] =
 {
     { L"Background 1/2: Hidden and Attract Screen Only?", 0x151be + 0x80000, 0x153be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x79, &pairFullyLinkedNode },
-    { L"Background 2/2",             0x153be + 0x80000, 0x1559e + 0x80000, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Background 2/2",             0x153be + 0x80000, 0x1559e + 0x80000, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     { L"Background Animation Cycle", 0x2c45e + 0x80000, 0x2c4de + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x79 },
-    { L"Midground Unused?",          0x0bbe + 0x80000, 0x0dbe + 0x80000, indexCPS2Sprites_SFA2_Stages, -1 },
-    { L"Foreground 1/2: Attract Screen Flash only?", 0xadbe + 0x80000, 0xafbe + 0x80000, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Midground Unused?",          0x0bbe + 0x80000, 0x0dbe + 0x80000, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
+    { L"Foreground 1/2: Attract Screen Flash only?", 0xadbe + 0x80000, 0xafbe + 0x80000, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
     { L"Foreground 1/2 Animation Cycle", 0x29b3e + 0x80000, 0x29d1e + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x7a },
     { L"Foreground 2/2: Attract Screen Flash only?", 0xafbe + 0x80000, 0xb1be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x7b },
     { L"Foreground 2/2 Animation cycle", 0x2981e + 0x80000, 0x298be + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x7b },
 
-    { L"Animation cycle?",          0x2bade + 0x80000, 0x2bcde + 0x80000, indexCPS2Sprites_SFA2_Stages, -1 },
+    { L"Animation cycle?",          0x2bade + 0x80000, 0x2bcde + 0x80000, indexCPS2Sprites_SFA2_Stages, INVALID_UNIT_VALUE_8 },
 
     { L"Mid sky animation cycle: Attract Screen Flash only?", 0x9de + 0x80000, 0xa7e + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x7c },
     { L"Mid sky animation cycle",   0x2963e + 0x80000, 0x296de + 0x80000, indexCPS2Sprites_SFA2_Stages, 0x7c },

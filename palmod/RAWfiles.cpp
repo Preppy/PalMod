@@ -185,8 +185,8 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
                     pNewOverrideTexture = RLEData::RLEDecodeImg(
                         reinterpret_cast<uint8_t*>(&pNewData[0]),
                         nSizeIfThisIsRAW,
-                        suggestedImageSize.width,
-                        suggestedImageSize.height
+                        static_cast<uint16_t>(suggestedImageSize.width),
+                        static_cast<uint16_t>(suggestedImageSize.height)
                     );
                     break;
                 }
@@ -195,8 +195,8 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
                     pNewOverrideTexture = RLEData::BitMaskRLEDecodeImg(
                         reinterpret_cast<uint8_t*>(&pNewData[0]),
                         nSizeIfThisIsRAW,
-                        suggestedImageSize.width,
-                        suggestedImageSize.height
+                        static_cast<uint16_t>(suggestedImageSize.width),
+                        static_cast<uint16_t>(suggestedImageSize.height)
                     );
                     break;
                 }

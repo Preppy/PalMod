@@ -7,7 +7,7 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(uint32_t nConfirmedROMSize, SupportedGame
     InitializeGame(nConfirmedROMSize, (nROMToLoad == LASTBLADE2_A) ? m_sCoreGameData_NeoGeo : m_sCoreGameData_Steam);
 }
 
-sFileRule CGame_LASTBLADE2_A::GetRule(SupportedGamesList nGameId, uint32_t nUnitId)
+sFileRule CGame_LASTBLADE2_A::GetRule(SupportedGamesList nGameId, uint32_t /* nUnitId */)
 {
     sFileRule NewFileRule;
 

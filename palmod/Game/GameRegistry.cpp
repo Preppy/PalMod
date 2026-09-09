@@ -206,293 +206,293 @@ static_assert(NUM_GAMES == 294, "Increment after deciding whether to add the new
 
 namespace KnownGameInfo
 {
-    CGameClass* Make_AODK_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AODK_A(nConfirmedROMSize); }
-    CGameClass* Make_AOF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AOF1_A(nConfirmedROMSize); }
-    CGameClass* Make_AOF3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AOF3_A(nConfirmedROMSize); }
-    CGameClass* Make_AquaPlus_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AquaPlus_NL(nConfirmedROMSize); }
-    CGameClass* Make_AquaPlus_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AquaPlus_P(nConfirmedROMSize); }
-    CGameClass* Make_AquaPlus_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AquaPlus_S(nConfirmedROMSize); }
-    CGameClass* Make_AsuraBuster_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AsuraBuster_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_AvgrsGS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_AvgrsGS_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_BASARA_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BASARA_P(nConfirmedROMSize); }
-    CGameClass* Make_BattleFlipShot_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BattleFlipShot_A(nConfirmedROMSize); }
-    CGameClass* Make_BladeStrangers_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BladeStrangers_S(nConfirmedROMSize); }
-    CGameClass* Make_BlazBlueCF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BlazBlueCF_S(nConfirmedROMSize); }
-    CGameClass* Make_BLEACH_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BLEACH_DS(nConfirmedROMSize); }
-    CGameClass* Make_BMKNS_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BMKNS_SNES(nConfirmedROMSize); }
-    CGameClass* Make_BnK_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BnK_P(nConfirmedROMSize); }
-    CGameClass* Make_BREAKERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BREAKERS_A(nConfirmedROMSize); }
-    CGameClass* Make_BREAKERS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BREAKERS_S(nConfirmedROMSize); }
-    CGameClass* Make_BSSMSJR_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BSSMSJR_SNES(nConfirmedROMSize); }
-    CGameClass* Make_BtlKRoad_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_BtlKRoad_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_CFE_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFE_P(nConfirmedROMSize); }
-    CGameClass* Make_CFJ_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFJ_S(nConfirmedROMSize); }
-    CGameClass* Make_CFTE_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CFTE_SNES(nConfirmedROMSize); }
-    CGameClass* Make_COTA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_A(nConfirmedROMSize); }
-    CGameClass* Make_COTA_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_COTA_S(nConfirmedROMSize); }
-    CGameClass* Make_CVS1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS1_A(nConfirmedROMSize); }
-    CGameClass* Make_CVS1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS1_S(nConfirmedROMSize); }
-    CGameClass* Make_CVS2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_A(nConfirmedROMSize); }
-    CGameClass* Make_CVS2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_D(nConfirmedROMSize); }
-    CGameClass* Make_CVS2_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_P(nConfirmedROMSize); }
-    CGameClass* Make_CVS2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_CVS2_S(nConfirmedROMSize); }
-    CGameClass* Make_CYBERBOTS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Cyberbots_A(nConfirmedROMSize); }
-    CGameClass* Make_CYBERBOTS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Cyberbots_S(nConfirmedROMSize); }
-    CGameClass* Make_DaemonBrideAG_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBrideAG_NL(nConfirmedROMSize); }
-    CGameClass* Make_DaemonBride_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DaemonBride_NL(nConfirmedROMSize); }
-    CGameClass* Make_DANKUGA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DanKuGa_A_DIR(-1); }
-    CGameClass* Make_Daraku_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Daraku_A(nConfirmedROMSize); }
-    CGameClass* Make_DBFCI_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DBFCI_A(nConfirmedROMSize); }
-    CGameClass* Make_DBZEB_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DBZEB_DS(nConfirmedROMSize); }
-    CGameClass* Make_DBZHD_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DBZHD_SNES(nConfirmedROMSize); }
-    CGameClass* Make_DEVMODE_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DevMode_DIR(nConfirmedROMSize); }
-    CGameClass* Make_DOUBLEDRAGON_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DOUBLEDRAGON_A(nConfirmedROMSize); }
-    CGameClass* Make_FatalFury1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury1_A(nConfirmedROMSize); }
-    CGameClass* Make_FatalFury1_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury1_PS2(nConfirmedROMSize); }
-    CGameClass* Make_FatalFury2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury2_A(nConfirmedROMSize); }
-    CGameClass* Make_FatalFury2_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury2_PS2(nConfirmedROMSize); }
-    CGameClass* Make_FatalFury3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury3_A(nConfirmedROMSize); }
-    CGameClass* Make_FatalFury3_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFury3_PS2(nConfirmedROMSize); }
-    CGameClass* Make_FatalFuryS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_A(nConfirmedROMSize); }
-    CGameClass* Make_FatalFuryS_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_PS2(nConfirmedROMSize); }
-    CGameClass* Make_FatalFuryS_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FatalFuryS_SNES(nConfirmedROMSize); }
-    CGameClass* Make_FightFever_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightFever_A(nConfirmedROMSize); }
-    CGameClass* Make_FightersHistory_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_FightersHistory3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FightersHistory3_SNES(nConfirmedROMSize); }
-    CGameClass* Make_FotNS_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_P(nConfirmedROMSize); }
-    CGameClass* Make_FotNS_AW(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_FotNS_AW(nConfirmedROMSize); }
-    CGameClass* Make_GalaxyFight_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GalaxyFight_A(nConfirmedROMSize); }
-    CGameClass* Make_GarouP_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GarouP_A(nConfirmedROMSize); }
-    CGameClass* Make_Garou_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Garou_A(nConfirmedROMSize); }
-    CGameClass* Make_Garou_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Garou_S(nConfirmedROMSize); }
-    CGameClass* Make_GEMFIGHTER_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GEMFIGHTER_A(nConfirmedROMSize); }
-    CGameClass* Make_GEMFIGHTER_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GEMFIGHTER_S(nConfirmedROMSize); }
-    CGameClass* Make_GGDS_NDS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGDS_NDS(nConfirmedROMSize); }
-    CGameClass* Make_GGML_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGML_P(nConfirmedROMSize); }
-    CGameClass* Make_GGXXACP_Wii(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACP_Wii(nConfirmedROMSize); }
-    CGameClass* Make_GGXXACR_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_P(nConfirmedROMSize); }
-    CGameClass* Make_GGXXACR_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S); }
-    CGameClass* Make_GGXXACR_S_EXCHAR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S_EXCHAR); }
-    CGameClass* Make_GGXXACR_S_EXTRAS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S_EXTRAS); }
-    CGameClass* Make_GGXXR_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GGXXR_S(nConfirmedROMSize); }
-    CGameClass* Make_Gowcaizer_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Gowcaizer_A(nConfirmedROMSize); }
-    CGameClass* Make_GUNDAM_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_GUNDAM_SNES(nConfirmedROMSize); }
-    CGameClass* Make_HIppo_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_HIppo_GBA(nConfirmedROMSize); }
-    CGameClass* Make_HSF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_HSF2_A(nConfirmedROMSize); }
-    CGameClass* Make_HSF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_HSF2_S(nConfirmedROMSize); }
-    CGameClass* Make_JCHAN_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JCHAN_A(nConfirmedROMSize); }
-    CGameClass* Make_JOJOSRPG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOSRPG_SNES(nConfirmedROMSize); }
-    CGameClass* Make_JOJOS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOS_A(nConfirmedROMSize, static_cast<JojosLoadingKey>(nExtraGameData)); }
-    CGameClass* Make_JOJOS_US_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOS_A(nConfirmedROMSize, static_cast<JojosLoadingKey>(nExtraGameData)); }
-    CGameClass* Make_JOJOS_A_DIR_50(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP); }
-    CGameClass* Make_JOJOS_A_DIR_51(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP); }
-    CGameClass* Make_JOJOS_US_A_DIR_51(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP); }
-    CGameClass* Make_JusticeLeagueTF_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_JusticeLeagueTF_SNES(nConfirmedROMSize); }
-    CGameClass* Make_KabukiKlash_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KabukiKlash_A(nConfirmedROMSize); }
-    CGameClass* Make_KarnovsR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KarnovsR_A(nConfirmedROMSize); }
-    CGameClass* Make_KIZUNA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_A(nConfirmedROMSize); }
-    CGameClass* Make_KIZUNA_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_PS2(nConfirmedROMSize); }
-    CGameClass* Make_KIZUNA_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Kizuna_S(nConfirmedROMSize); }
-    CGameClass* Make_KI_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KI_SNES(nConfirmedROMSize); }
-    CGameClass* Make_KOF00N_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF00N_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF01_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF01_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF02PS2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02PS2_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF02UM_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S(nConfirmedROMSize); }
-    CGameClass* Make_KOF02UM_PS2_DIR_8887(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_8887); }
-    CGameClass* Make_KOF02UM_PS2_DIR_8887_TOUGEKI(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_8887_TOUGEKI); }
-    CGameClass* Make_KOF02UM_PS2_DIR_BGR555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_BGR555); }
-    CGameClass* Make_KOF02UM_PS2_DIR_RGB555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_RGB555); }
-    CGameClass* Make_KOF02UM_S_DIR_8887(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_8887); }
-    CGameClass* Make_KOF02UM_S_DIR_BGR555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_BGR555); }
-    CGameClass* Make_KOF02UM_S_DIR_RGB555(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_RGB555); }
-    CGameClass* Make_KOF02_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF02_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF02_PS2(nConfirmedROMSize); }
-    CGameClass* Make_KOF03_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF03_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF94_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF94_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF95_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF95_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF96_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF96_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF97AE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF97AE_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF97GM_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF97GM_S(nConfirmedROMSize); }
-    CGameClass* Make_KOF97_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF97_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF98AE2016_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF98AE2016_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF98_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF98_A(nConfirmedROMSize); }
-    CGameClass* Make_KOF99_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOF99_A(nConfirmedROMSize); }
-    CGameClass* Make_KOFEX2_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOFEX2_GBA(nConfirmedROMSize); }
-    CGameClass* Make_KOFXI_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOFXI_A(nConfirmedROMSize); }
-    CGameClass* Make_KOTM_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_KOTM_A(nConfirmedROMSize); }
-    CGameClass* Make_LASTBLADE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_LASTBLADE_A(nConfirmedROMSize, LASTBLADE_A); }
-    CGameClass* Make_LASTBLADE_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_LASTBLADE_A(nConfirmedROMSize, LASTBLADE_S); }
-    CGameClass* Make_LASTBLADE2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_LASTBLADE2_A(nConfirmedROMSize, LASTBLADE2_A); }
-    CGameClass* Make_LASTBLADE2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_LASTBLADE2_A(nConfirmedROMSize, LASTBLADE2_S); }
-    CGameClass* Make_MAAB_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MAAB_A(nConfirmedROMSize); }
-    CGameClass* Make_MAGICALDROPII_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MAGICALDROPII_A(nConfirmedROMSize); }
-    CGameClass* Make_MAGICALDROPIII_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MAGICALDROPIII_A(nConfirmedROMSize); }
-    CGameClass* Make_MartialMasters_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MartialMasters_A(nConfirmedROMSize); }
-    CGameClass* Make_MATRIMELEE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Matrimelee_A(nConfirmedROMSize); }
-    CGameClass* Make_MBAACC_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MBAACC_S(nConfirmedROMSize); }
-    CGameClass* Make_MBTL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MBTL_A(nConfirmedROMSize); }
-	CGameClass* Make_RRMBTL_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RRMBTL_S(nConfirmedROMSize); }
-    CGameClass* Make_MCI_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MCI_S(nConfirmedROMSize); }
-    CGameClass* Make_MK1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_A(nConfirmedROMSize); }
-    CGameClass* Make_MK1_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_SEGA(nConfirmedROMSize); }
-    CGameClass* Make_MK1_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK1_SNES(nConfirmedROMSize); }
-    CGameClass* Make_MK2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_A(nConfirmedROMSize); }
-    CGameClass* Make_MK2_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_SNES(nConfirmedROMSize); }
-    CGameClass* Make_MK2_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK2_SEGA(nConfirmedROMSize); }
-    CGameClass* Make_MK3_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MK3_SEGA(nConfirmedROMSize); }
-    CGameClass* Make_MMPR_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMPR_SNES(nConfirmedROMSize); }
-    CGameClass* Make_MMX2_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMX2_SNES(nConfirmedROMSize); }
-    CGameClass* Make_MMX3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMX3_SNES(nConfirmedROMSize); }
-    CGameClass* Make_MMX_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MMX_SNES(nConfirmedROMSize); }
-    CGameClass* Make_MSHVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHVSF_A(nConfirmedROMSize); }
-    CGameClass* Make_MSHVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHVSF_P(nConfirmedROMSize); }
-    CGameClass* Make_MSHWOTG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSHWOTG_SNES(nConfirmedROMSize); }
-    CGameClass* Make_MSH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSH_A(nConfirmedROMSize); }
-    CGameClass* Make_MSH_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MSH_S(nConfirmedROMSize); }
-    CGameClass* Make_MVC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_A(nConfirmedROMSize); }
-    CGameClass* Make_MVC_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_D(nConfirmedROMSize); }
-    CGameClass* Make_MVC_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_P(nConfirmedROMSize); }
-    CGameClass* Make_MVC_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC_S(nConfirmedROMSize); }
-    CGameClass* Make_MVC2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_A); }
-    CGameClass* Make_MVC2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_S); }
-    CGameClass* Make_MVC2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_MVC2_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_D); }
-    CGameClass* Make_MVC2_D_16(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_D_16); }
-    CGameClass* Make_MVC2_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_P(nConfirmedROMSize); }
-    CGameClass* Make_MVC2_S_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_S_DIR); }
-    CGameClass* Make_MWARR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_MWarr_A_DIR(-1); }
-    CGameClass* Make_NBHID_NL(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_NL(nConfirmedROMSize); }
-    CGameClass* Make_NBHID_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_P(nConfirmedROMSize); }
-    CGameClass* Make_NBHID_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NBHID_S(nConfirmedROMSize); }
-    CGameClass* Make_NeoBomberman_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NeoBomberman_A(nConfirmedROMSize); }
-    CGameClass* Make_TurfMasters_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TurfMasters_A(nConfirmedROMSize, pszFilePath); }
-    CGameClass* Make_DEVMODE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_DevMode_A(nConfirmedROMSize, pszFilePath); }
-    CGameClass* Make_NGBC_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NGBC_A(nConfirmedROMSize); }
-    CGameClass* Make_NINJAMASTERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NINJAMASTERS_A(nConfirmedROMSize); }
-    CGameClass* Make_NINJAMASTERS_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_NINJAMASTERS_S(nConfirmedROMSize); }
-    CGameClass* Make_P4AU_FightClub(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_FightClub(nConfirmedROMSize); }
-    CGameClass* Make_P4AU_NESICA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_NESICA(nConfirmedROMSize); }
-    CGameClass* Make_P4AU_STEAM(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_P4AU_STEAM(nConfirmedROMSize); }
-    CGameClass* Make_PrimalRage_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_PrimalRage_SNES(nConfirmedROMSize); }
-    CGameClass* Make_Punisher_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Punisher_A(nConfirmedROMSize); }
-    CGameClass* Make_Punisher_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Punisher_S(nConfirmedROMSize); }
-    CGameClass* Make_RANMACRH_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RANMACRH_SNES(nConfirmedROMSize); }
-    CGameClass* Make_RANMAHB_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RANMAHB_SNES(nConfirmedROMSize); }
-    CGameClass* Make_RBFF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF1_A(nConfirmedROMSize); }
-    CGameClass* Make_RBFF1_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF1_PS2(nConfirmedROMSize); }
-    CGameClass* Make_RBFF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_A(nConfirmedROMSize); }
-    CGameClass* Make_RBFF2_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_PS2(nConfirmedROMSize); }
-    CGameClass* Make_RBFF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFF2_S(nConfirmedROMSize); }
-    CGameClass* Make_RBFFS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFFS_A(nConfirmedROMSize); }
-    CGameClass* Make_RBFFS_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RBFFS_PS2(nConfirmedROMSize); }
-    CGameClass* Make_REDEARTH_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_A(nConfirmedROMSize); }
-    CGameClass* Make_REDEARTH_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_REDEARTH_S(nConfirmedROMSize); }
-    CGameClass* Make_REDEARTH_A_DIR_30(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM30); }
-    CGameClass* Make_REDEARTH_A_DIR_31(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM31); }
-    CGameClass* Make_REDEARTH_A_DIR_50(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM50); }
-    CGameClass* Make_RODSM2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_RODSM2_A(nConfirmedROMSize); }
-    CGameClass* Make_ROTD_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_ROTD_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO1_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO1_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO1_PS2(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO2_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO2_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO2_PS2(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO3_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO3_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO3_PS2(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO4_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO4_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO4_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO4_PS2(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO5_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO5_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5_PS2(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO5X_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO5SP_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5SP_A(nConfirmedROMSize); }
-    CGameClass* Make_SAMSHO5SP_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAMSHO5SP_A(nConfirmedROMSize); }
-    CGameClass* Make_SAVAGEREIGN_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAVAGEREIGN_A(nConfirmedROMSize); }
-    CGameClass* Make_SAVAGEREIGN_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SAVAGEREIGN_PS2(nConfirmedROMSize); }
-    CGameClass* Make_SDODGEBALL_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SDODGEBALL_A(nConfirmedROMSize); }
-    CGameClass* Make_SF1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_A(nConfirmedROMSize); }
-    CGameClass* Make_SF1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_StreetFighter_S(nConfirmedROMSize); }
-    CGameClass* Make_SF2WW_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2WW_A(nConfirmedROMSize); }
-    CGameClass* Make_SF2WW_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2WW_S(nConfirmedROMSize); }
-    CGameClass* Make_SF2CE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_A(nConfirmedROMSize); }
-    CGameClass* Make_SF2CE_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2CE_S(nConfirmedROMSize); }
-    CGameClass* Make_SF2HF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2HF_A(nConfirmedROMSize); }
-    CGameClass* Make_SF2HF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SF2HF_S(nConfirmedROMSize); }
-    CGameClass* Make_SFA1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA1_A(nConfirmedROMSize); }
-    CGameClass* Make_SFA1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA1_S(nConfirmedROMSize); }
-    CGameClass* Make_SFA2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA2_A(nConfirmedROMSize); }
-    CGameClass* Make_SFA2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA2_S(nConfirmedROMSize); }
-    CGameClass* Make_SFA2_Hack_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA2_A(nConfirmedROMSize); }
-    CGameClass* Make_SFA3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_A(nConfirmedROMSize); }
-    CGameClass* Make_SFA3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3_S(nConfirmedROMSize); }
-    CGameClass* Make_SFA3MAX_PSP_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFA3MAX_PSP_DIR(nConfirmedROMSize); }
-    CGameClass* Make_SFEX2P_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFEX2P_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII1_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII1_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII1_NG); }
-    CGameClass* Make_SFIII1_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII1_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_SFIII2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII2_SI); }
-    CGameClass* Make_SFIII2_A_DIR(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII2_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_SFIII3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A(nConfirmedROMSize); }
-    CGameClass* Make_SFIII3_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S); }
-    CGameClass* Make_SFIII3_A_DIR_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10); }
-    CGameClass* Make_SFIII3_A_DIR_4rd(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51_4rd); }
-    CGameClass* Make_SFIII3_A_DIR_4rd_10(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10_4rd); }
-    CGameClass* Make_SFIII3_A_DIR_51(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51); }
-    CGameClass* Make_SFIII3_A_DIR_EX(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM70_EX); }
-    CGameClass* Make_SFIII3_D(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFIII3_D; }
-    CGameClass* Make_SFTM_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFTM_A(nConfirmedROMSize); }
-    CGameClass* Make_SFZ3U_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3U_A(nConfirmedROMSize); }
-    CGameClass* Make_SFZ3U_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3U_S(nConfirmedROMSize); }
-    CGameClass* Make_SFZ3M_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SFZ3M_S(nConfirmedROMSize); }
-    CGameClass* Make_SHAQFU_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SHAQFU_SNES(nConfirmedROMSize); }
-    CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_A(nConfirmedROMSize); }
-    CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SPF2T_S(nConfirmedROMSize); }
-    CGameClass* Make_SSF2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_A(nConfirmedROMSize); }
-    CGameClass* Make_SSF2_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_SNES(nConfirmedROMSize); }
-    CGameClass* Make_SSF2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2_S(nConfirmedROMSize); }
-    CGameClass* Make_SSF2T_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_A(nConfirmedROMSize); }
-    CGameClass* Make_SSF2T_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_S(nConfirmedROMSize); }
-    CGameClass* Make_SSF2T_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SSF2T_GBA(nConfirmedROMSize); }
-    CGameClass* Make_SurvivalArts_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SurvivalArts_A(nConfirmedROMSize); }
-    CGameClass* Make_SVCPLUSA_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SVCPLUSA_A(nConfirmedROMSize); }
-    CGameClass* Make_SVG_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_SVG_SNES(nConfirmedROMSize); }
-    CGameClass* Make_TattooAsns_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TattooAsns_A(nConfirmedROMSize); }
-    CGameClass* Make_TekkenAdvance_GBA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TekkenAdvance_GBA(nConfirmedROMSize); }
-    CGameClass* Make_TKDenshou_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TKDenshou_A_DIR(nConfirmedROMSize); }
-    CGameClass* Make_TMNTTF_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TMNTTF_SNES(nConfirmedROMSize); }
-    CGameClass* Make_TOPF2005_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_TOPF2005_SEGA(nConfirmedROMSize); }
-    CGameClass* Make_UMK3_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_A(nConfirmedROMSize); }
-    CGameClass* Make_UMK3_DS(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_DS(nConfirmedROMSize); }
-    CGameClass* Make_UMK3_SEGA(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_SEGA(nConfirmedROMSize); }
-    CGameClass* Make_UMK3_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UMK3_SNES(nConfirmedROMSize); }
-    CGameClass* Make_UNICLR_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UNICLR_A(nConfirmedROMSize); }
-	CGameClass* Make_UNI2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_UNI2_S(nConfirmedROMSize); }
-    CGameClass* Make_VampireHunter_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireHunter_A(nConfirmedROMSize); }
-    CGameClass* Make_VampireHunter_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireHunter_S(nConfirmedROMSize); }
-    CGameClass* Make_VampireNightWarriors_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireNightWarriors_A(nConfirmedROMSize); }
-    CGameClass* Make_VampireNightWarriors_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VampireNightWarriors_S(nConfirmedROMSize); }
-    CGameClass* Make_VENTURE_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A(nConfirmedROMSize); }
-    CGameClass* Make_VENTURE_A_DIR_31(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM31); }
-    CGameClass* Make_VENTURE_A_DIR_50(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM50); }
-    CGameClass* Make_VHUNT2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VHUNT2_A(nConfirmedROMSize); }
-    CGameClass* Make_VHUNT2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VHUNT2_S(nConfirmedROMSize); }
-    CGameClass* Make_VSAV_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV_A(nConfirmedROMSize); }
-    CGameClass* Make_VSAV_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV_S(nConfirmedROMSize); }
-    CGameClass* Make_VSAV2_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_A(nConfirmedROMSize); }
-    CGameClass* Make_VSAV2_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VSAV2_S(nConfirmedROMSize); }
-    CGameClass* Make_VirtuaFighter2_GEN(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_VirtuaFighter2_GEN(nConfirmedROMSize); }
-    CGameClass* Make_WakuWaku7_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_A(nConfirmedROMSize); }
-    CGameClass* Make_WakuWaku7_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WakuWaku7_PS2(nConfirmedROMSize); }
-    CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_Windjammers_A(nConfirmedROMSize); }
-    CGameClass* Make_WorldHeroesPerfect_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_A(nConfirmedROMSize); }
-    CGameClass* Make_WorldHeroesPerfect_PS2(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_PS2(nConfirmedROMSize); }
-    CGameClass* Make_WorldHeroesPerfect_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_WorldHeroesPerfect_S(nConfirmedROMSize); }
-    CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
-    CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_A(nConfirmedROMSize); }
-    CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_P(nConfirmedROMSize); }
-    CGameClass* Make_XMVSF_S(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CGame_XMVSF_S(nConfirmedROMSize); }
+    CGameClass* Make_AODK_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AODK_A(nConfirmedROMSize); }
+    CGameClass* Make_AOF1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AOF1_A(nConfirmedROMSize); }
+    CGameClass* Make_AOF3_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AOF3_A(nConfirmedROMSize); }
+    CGameClass* Make_AquaPlus_NL(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AquaPlus_NL(nConfirmedROMSize); }
+    CGameClass* Make_AquaPlus_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AquaPlus_P(nConfirmedROMSize); }
+    CGameClass* Make_AquaPlus_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AquaPlus_S(nConfirmedROMSize); }
+    CGameClass* Make_AsuraBuster_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AsuraBuster_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_AvgrsGS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_AvgrsGS_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_BASARA_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BASARA_P(nConfirmedROMSize); }
+    CGameClass* Make_BattleFlipShot_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BattleFlipShot_A(nConfirmedROMSize); }
+    CGameClass* Make_BladeStrangers_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BladeStrangers_S(nConfirmedROMSize); }
+    CGameClass* Make_BlazBlueCF_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BlazBlueCF_S(nConfirmedROMSize); }
+    CGameClass* Make_BLEACH_DS(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BLEACH_DS(nConfirmedROMSize); }
+    CGameClass* Make_BMKNS_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BMKNS_SNES(nConfirmedROMSize); }
+    CGameClass* Make_BnK_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BnK_P(nConfirmedROMSize); }
+    CGameClass* Make_BREAKERS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BREAKERS_A(nConfirmedROMSize); }
+    CGameClass* Make_BREAKERS_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BREAKERS_S(nConfirmedROMSize); }
+    CGameClass* Make_BSSMSJR_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BSSMSJR_SNES(nConfirmedROMSize); }
+    CGameClass* Make_BtlKRoad_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_BtlKRoad_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_CFE_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CFE_P(nConfirmedROMSize); }
+    CGameClass* Make_CFJ_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CFJ_S(nConfirmedROMSize); }
+    CGameClass* Make_CFTE_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CFTE_SNES(nConfirmedROMSize); }
+    CGameClass* Make_COTA_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_COTA_A(nConfirmedROMSize); }
+    CGameClass* Make_COTA_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_COTA_S(nConfirmedROMSize); }
+    CGameClass* Make_CVS1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CVS1_A(nConfirmedROMSize); }
+    CGameClass* Make_CVS1_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CVS1_S(nConfirmedROMSize); }
+    CGameClass* Make_CVS2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CVS2_A(nConfirmedROMSize); }
+    CGameClass* Make_CVS2_D(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CVS2_D(nConfirmedROMSize); }
+    CGameClass* Make_CVS2_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CVS2_P(nConfirmedROMSize); }
+    CGameClass* Make_CVS2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_CVS2_S(nConfirmedROMSize); }
+    CGameClass* Make_CYBERBOTS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Cyberbots_A(nConfirmedROMSize); }
+    CGameClass* Make_CYBERBOTS_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Cyberbots_S(nConfirmedROMSize); }
+    CGameClass* Make_DaemonBrideAG_NL(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DaemonBrideAG_NL(nConfirmedROMSize); }
+    CGameClass* Make_DaemonBride_NL(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DaemonBride_NL(nConfirmedROMSize); }
+    CGameClass* Make_DANKUGA_A(uint32_t /* nConfirmedROMSize */, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DanKuGa_A_DIR(-1); }
+    CGameClass* Make_Daraku_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Daraku_A(nConfirmedROMSize); }
+    CGameClass* Make_DBFCI_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DBFCI_A(nConfirmedROMSize); }
+    CGameClass* Make_DBZEB_DS(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DBZEB_DS(nConfirmedROMSize); }
+    CGameClass* Make_DBZHD_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DBZHD_SNES(nConfirmedROMSize); }
+    CGameClass* Make_DEVMODE_DIR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DevMode_DIR(nConfirmedROMSize); }
+    CGameClass* Make_DOUBLEDRAGON_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_DOUBLEDRAGON_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury1_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury1_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury1_PS2(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury2_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury2_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury2_PS2(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury3_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury3_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury3_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury3_PS2(nConfirmedROMSize); }
+    CGameClass* Make_FatalFuryS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFuryS_A(nConfirmedROMSize); }
+    CGameClass* Make_FatalFuryS_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFuryS_PS2(nConfirmedROMSize); }
+    CGameClass* Make_FatalFuryS_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFuryS_SNES(nConfirmedROMSize); }
+    CGameClass* Make_FightFever_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FightFever_A(nConfirmedROMSize); }
+    CGameClass* Make_FightersHistory_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FightersHistory_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_FightersHistory3_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FightersHistory3_SNES(nConfirmedROMSize); }
+    CGameClass* Make_FotNS_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FotNS_P(nConfirmedROMSize); }
+    CGameClass* Make_FotNS_AW(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FotNS_AW(nConfirmedROMSize); }
+    CGameClass* Make_GalaxyFight_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GalaxyFight_A(nConfirmedROMSize); }
+    CGameClass* Make_GarouP_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GarouP_A(nConfirmedROMSize); }
+    CGameClass* Make_Garou_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Garou_A(nConfirmedROMSize); }
+    CGameClass* Make_Garou_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Garou_S(nConfirmedROMSize); }
+    CGameClass* Make_GEMFIGHTER_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GEMFIGHTER_A(nConfirmedROMSize); }
+    CGameClass* Make_GEMFIGHTER_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GEMFIGHTER_S(nConfirmedROMSize); }
+    CGameClass* Make_GGDS_NDS(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGDS_NDS(nConfirmedROMSize); }
+    CGameClass* Make_GGML_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGML_P(nConfirmedROMSize); }
+    CGameClass* Make_GGXXACP_Wii(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGXXACP_Wii(nConfirmedROMSize); }
+    CGameClass* Make_GGXXACR_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGXXACR_P(nConfirmedROMSize); }
+    CGameClass* Make_GGXXACR_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S); }
+    CGameClass* Make_GGXXACR_S_EXCHAR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S_EXCHAR); }
+    CGameClass* Make_GGXXACR_S_EXTRAS(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGXXACR_S(nConfirmedROMSize, GGXXACR_S_EXTRAS); }
+    CGameClass* Make_GGXXR_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GGXXR_S(nConfirmedROMSize); }
+    CGameClass* Make_Gowcaizer_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Gowcaizer_A(nConfirmedROMSize); }
+    CGameClass* Make_GUNDAM_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_GUNDAM_SNES(nConfirmedROMSize); }
+    CGameClass* Make_HIppo_GBA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_HIppo_GBA(nConfirmedROMSize); }
+    CGameClass* Make_HSF2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_HSF2_A(nConfirmedROMSize); }
+    CGameClass* Make_HSF2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_HSF2_S(nConfirmedROMSize); }
+    CGameClass* Make_JCHAN_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_JCHAN_A(nConfirmedROMSize); }
+    CGameClass* Make_JOJOSRPG_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_JOJOSRPG_SNES(nConfirmedROMSize); }
+    CGameClass* Make_JOJOS_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR /* pszFilePath */) { return new CGame_JOJOS_A(nConfirmedROMSize, static_cast<JojosLoadingKey>(nExtraGameData)); }
+    CGameClass* Make_JOJOS_US_A(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR /* pszFilePath */) { return new CGame_JOJOS_A(nConfirmedROMSize, static_cast<JojosLoadingKey>(nExtraGameData)); }
+    CGameClass* Make_JOJOS_A_DIR_50(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP); }
+    CGameClass* Make_JOJOS_A_DIR_51(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP); }
+    CGameClass* Make_JOJOS_US_A_DIR_51(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP); }
+    CGameClass* Make_JusticeLeagueTF_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_JusticeLeagueTF_SNES(nConfirmedROMSize); }
+    CGameClass* Make_KabukiKlash_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KabukiKlash_A(nConfirmedROMSize); }
+    CGameClass* Make_KarnovsR_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KarnovsR_A(nConfirmedROMSize); }
+    CGameClass* Make_KIZUNA_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Kizuna_A(nConfirmedROMSize); }
+    CGameClass* Make_KIZUNA_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Kizuna_PS2(nConfirmedROMSize); }
+    CGameClass* Make_KIZUNA_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Kizuna_S(nConfirmedROMSize); }
+    CGameClass* Make_KI_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KI_SNES(nConfirmedROMSize); }
+    CGameClass* Make_KOF00N_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF00N_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF01_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF01_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF02PS2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02PS2_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF02UM_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_S(nConfirmedROMSize); }
+    CGameClass* Make_KOF02UM_PS2_DIR_8887(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_8887); }
+    CGameClass* Make_KOF02UM_PS2_DIR_8887_TOUGEKI(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_8887_TOUGEKI); }
+    CGameClass* Make_KOF02UM_PS2_DIR_BGR555(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_BGR555); }
+    CGameClass* Make_KOF02UM_PS2_DIR_RGB555(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_PS2_DIR(nConfirmedROMSize, KOF02UM_PS2_DIR_RGB555); }
+    CGameClass* Make_KOF02UM_S_DIR_8887(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_8887); }
+    CGameClass* Make_KOF02UM_S_DIR_BGR555(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_BGR555); }
+    CGameClass* Make_KOF02UM_S_DIR_RGB555(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, KOF02UM_S_DIR_RGB555); }
+    CGameClass* Make_KOF02_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF02_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF02_PS2(nConfirmedROMSize); }
+    CGameClass* Make_KOF03_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF03_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF94_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF94_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF95_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF95_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF96_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF96_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF97AE_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF97AE_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF97GM_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF97GM_S(nConfirmedROMSize); }
+    CGameClass* Make_KOF97_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF97_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF98AE2016_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF98AE2016_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF98_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF98_A(nConfirmedROMSize); }
+    CGameClass* Make_KOF99_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOF99_A(nConfirmedROMSize); }
+    CGameClass* Make_KOFEX2_GBA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOFEX2_GBA(nConfirmedROMSize); }
+    CGameClass* Make_KOFXI_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOFXI_A(nConfirmedROMSize); }
+    CGameClass* Make_KOTM_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_KOTM_A(nConfirmedROMSize); }
+    CGameClass* Make_LASTBLADE_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_LASTBLADE_A(nConfirmedROMSize, LASTBLADE_A); }
+    CGameClass* Make_LASTBLADE_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_LASTBLADE_A(nConfirmedROMSize, LASTBLADE_S); }
+    CGameClass* Make_LASTBLADE2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_LASTBLADE2_A(nConfirmedROMSize, LASTBLADE2_A); }
+    CGameClass* Make_LASTBLADE2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_LASTBLADE2_A(nConfirmedROMSize, LASTBLADE2_S); }
+    CGameClass* Make_MAAB_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MAAB_A(nConfirmedROMSize); }
+    CGameClass* Make_MAGICALDROPII_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MAGICALDROPII_A(nConfirmedROMSize); }
+    CGameClass* Make_MAGICALDROPIII_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MAGICALDROPIII_A(nConfirmedROMSize); }
+    CGameClass* Make_MartialMasters_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MartialMasters_A(nConfirmedROMSize); }
+    CGameClass* Make_MATRIMELEE_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Matrimelee_A(nConfirmedROMSize); }
+    CGameClass* Make_MBAACC_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MBAACC_S(nConfirmedROMSize); }
+    CGameClass* Make_MBTL_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MBTL_A(nConfirmedROMSize); }
+	CGameClass* Make_RRMBTL_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RRMBTL_S(nConfirmedROMSize); }
+    CGameClass* Make_MCI_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MCI_S(nConfirmedROMSize); }
+    CGameClass* Make_MK1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MK1_A(nConfirmedROMSize); }
+    CGameClass* Make_MK1_SEGA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MK1_SEGA(nConfirmedROMSize); }
+    CGameClass* Make_MK1_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MK1_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MK2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MK2_A(nConfirmedROMSize); }
+    CGameClass* Make_MK2_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MK2_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MK2_SEGA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MK2_SEGA(nConfirmedROMSize); }
+    CGameClass* Make_MK3_SEGA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MK3_SEGA(nConfirmedROMSize); }
+    CGameClass* Make_MMPR_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MMPR_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MMX2_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MMX2_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MMX3_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MMX3_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MMX_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MMX_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MSHVSF_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MSHVSF_A(nConfirmedROMSize); }
+    CGameClass* Make_MSHVSF_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MSHVSF_P(nConfirmedROMSize); }
+    CGameClass* Make_MSHWOTG_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MSHWOTG_SNES(nConfirmedROMSize); }
+    CGameClass* Make_MSH_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MSH_A(nConfirmedROMSize); }
+    CGameClass* Make_MSH_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MSH_S(nConfirmedROMSize); }
+    CGameClass* Make_MVC_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC_A(nConfirmedROMSize); }
+    CGameClass* Make_MVC_D(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC_D(nConfirmedROMSize); }
+    CGameClass* Make_MVC_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC_P(nConfirmedROMSize); }
+    CGameClass* Make_MVC_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC_S(nConfirmedROMSize); }
+    CGameClass* Make_MVC2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_A); }
+    CGameClass* Make_MVC2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC2_A(nConfirmedROMSize, MVC2_S); }
+    CGameClass* Make_MVC2_A_DIR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC2_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_MVC2_D(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_D); }
+    CGameClass* Make_MVC2_D_16(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_D_16); }
+    CGameClass* Make_MVC2_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC2_P(nConfirmedROMSize); }
+    CGameClass* Make_MVC2_S_DIR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MVC2_D(nConfirmedROMSize, MVC2_S_DIR); }
+    CGameClass* Make_MWARR_A(uint32_t /* nConfirmedROMSize */, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_MWarr_A_DIR(-1); }
+    CGameClass* Make_NBHID_NL(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_NBHID_NL(nConfirmedROMSize); }
+    CGameClass* Make_NBHID_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_NBHID_P(nConfirmedROMSize); }
+    CGameClass* Make_NBHID_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_NBHID_S(nConfirmedROMSize); }
+    CGameClass* Make_NeoBomberman_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_NeoBomberman_A(nConfirmedROMSize); }
+    CGameClass* Make_TurfMasters_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR pszFilePath) { return new CGame_TurfMasters_A(nConfirmedROMSize, pszFilePath); }
+    CGameClass* Make_DEVMODE_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR pszFilePath) { return new CGame_DevMode_A(nConfirmedROMSize, pszFilePath); }
+    CGameClass* Make_NGBC_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_NGBC_A(nConfirmedROMSize); }
+    CGameClass* Make_NINJAMASTERS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_NINJAMASTERS_A(nConfirmedROMSize); }
+    CGameClass* Make_NINJAMASTERS_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_NINJAMASTERS_S(nConfirmedROMSize); }
+    CGameClass* Make_P4AU_FightClub(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_P4AU_FightClub(nConfirmedROMSize); }
+    CGameClass* Make_P4AU_NESICA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_P4AU_NESICA(nConfirmedROMSize); }
+    CGameClass* Make_P4AU_STEAM(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_P4AU_STEAM(nConfirmedROMSize); }
+    CGameClass* Make_PrimalRage_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_PrimalRage_SNES(nConfirmedROMSize); }
+    CGameClass* Make_Punisher_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Punisher_A(nConfirmedROMSize); }
+    CGameClass* Make_Punisher_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Punisher_S(nConfirmedROMSize); }
+    CGameClass* Make_RANMACRH_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RANMACRH_SNES(nConfirmedROMSize); }
+    CGameClass* Make_RANMAHB_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RANMAHB_SNES(nConfirmedROMSize); }
+    CGameClass* Make_RBFF1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFF1_A(nConfirmedROMSize); }
+    CGameClass* Make_RBFF1_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFF1_PS2(nConfirmedROMSize); }
+    CGameClass* Make_RBFF2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFF2_A(nConfirmedROMSize); }
+    CGameClass* Make_RBFF2_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFF2_PS2(nConfirmedROMSize); }
+    CGameClass* Make_RBFF2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFF2_S(nConfirmedROMSize); }
+    CGameClass* Make_RBFFS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFFS_A(nConfirmedROMSize); }
+    CGameClass* Make_RBFFS_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFFS_PS2(nConfirmedROMSize); }
+    CGameClass* Make_REDEARTH_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_REDEARTH_A(nConfirmedROMSize); }
+    CGameClass* Make_REDEARTH_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_REDEARTH_S(nConfirmedROMSize); }
+    CGameClass* Make_REDEARTH_A_DIR_30(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM30); }
+    CGameClass* Make_REDEARTH_A_DIR_31(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM31); }
+    CGameClass* Make_REDEARTH_A_DIR_50(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM50); }
+    CGameClass* Make_RODSM2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RODSM2_A(nConfirmedROMSize); }
+    CGameClass* Make_ROTD_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_ROTD_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO1_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO1_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO1_PS2(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO2_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO2_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO2_PS2(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO3_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO3_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO3_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO3_PS2(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO4_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO4_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO4_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO4_PS2(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO5_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO5_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO5_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO5_PS2(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO5X_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO5_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO5SP_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO5SP_A(nConfirmedROMSize); }
+    CGameClass* Make_SAMSHO5SP_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO5SP_A(nConfirmedROMSize); }
+    CGameClass* Make_SAVAGEREIGN_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAVAGEREIGN_A(nConfirmedROMSize); }
+    CGameClass* Make_SAVAGEREIGN_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAVAGEREIGN_PS2(nConfirmedROMSize); }
+    CGameClass* Make_SDODGEBALL_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SDODGEBALL_A(nConfirmedROMSize); }
+    CGameClass* Make_SF1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_StreetFighter_A(nConfirmedROMSize); }
+    CGameClass* Make_SF1_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_StreetFighter_S(nConfirmedROMSize); }
+    CGameClass* Make_SF2WW_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SF2WW_A(nConfirmedROMSize); }
+    CGameClass* Make_SF2WW_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SF2WW_S(nConfirmedROMSize); }
+    CGameClass* Make_SF2CE_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SF2CE_A(nConfirmedROMSize); }
+    CGameClass* Make_SF2CE_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SF2CE_S(nConfirmedROMSize); }
+    CGameClass* Make_SF2HF_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SF2HF_A(nConfirmedROMSize); }
+    CGameClass* Make_SF2HF_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SF2HF_S(nConfirmedROMSize); }
+    CGameClass* Make_SFA1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA1_A(nConfirmedROMSize); }
+    CGameClass* Make_SFA1_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA1_S(nConfirmedROMSize); }
+    CGameClass* Make_SFA2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA2_A(nConfirmedROMSize); }
+    CGameClass* Make_SFA2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA2_S(nConfirmedROMSize); }
+    CGameClass* Make_SFA2_Hack_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA2_A(nConfirmedROMSize); }
+    CGameClass* Make_SFA3_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA3_A(nConfirmedROMSize); }
+    CGameClass* Make_SFA3_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA3_S(nConfirmedROMSize); }
+    CGameClass* Make_SFA3MAX_PSP_DIR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFA3MAX_PSP_DIR(nConfirmedROMSize); }
+    CGameClass* Make_SFEX2P_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFEX2P_A(nConfirmedROMSize); }
+    CGameClass* Make_SFIII1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII1_A(nConfirmedROMSize); }
+    CGameClass* Make_SFIII1_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII1_NG); }
+    CGameClass* Make_SFIII1_A_DIR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII1_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_SFIII2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII2_A(nConfirmedROMSize); }
+    CGameClass* Make_SFIII2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII2_SI); }
+    CGameClass* Make_SFIII2_A_DIR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII2_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_SFIII3_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII3_A(nConfirmedROMSize); }
+    CGameClass* Make_SFIII3_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII30th_S(nConfirmedROMSize, SFIII30th_LoadingKey::SFIII3_3S); }
+    CGameClass* Make_SFIII3_A_DIR_10(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10); }
+    CGameClass* Make_SFIII3_A_DIR_4rd(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51_4rd); }
+    CGameClass* Make_SFIII3_A_DIR_4rd_10(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10_4rd); }
+    CGameClass* Make_SFIII3_A_DIR_51(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51); }
+    CGameClass* Make_SFIII3_A_DIR_EX(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM70_EX); }
+    CGameClass* Make_SFIII3_D(uint32_t /* nConfirmedROMSize */, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFIII3_D(); }
+    CGameClass* Make_SFTM_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFTM_A(nConfirmedROMSize); }
+    CGameClass* Make_SFZ3U_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFZ3U_A(nConfirmedROMSize); }
+    CGameClass* Make_SFZ3U_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFZ3U_S(nConfirmedROMSize); }
+    CGameClass* Make_SFZ3M_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SFZ3M_S(nConfirmedROMSize); }
+    CGameClass* Make_SHAQFU_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SHAQFU_SNES(nConfirmedROMSize); }
+    CGameClass* Make_SPF2T_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SPF2T_A(nConfirmedROMSize); }
+    CGameClass* Make_SPF2T_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SPF2T_S(nConfirmedROMSize); }
+    CGameClass* Make_SSF2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SSF2_A(nConfirmedROMSize); }
+    CGameClass* Make_SSF2_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SSF2_SNES(nConfirmedROMSize); }
+    CGameClass* Make_SSF2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SSF2_S(nConfirmedROMSize); }
+    CGameClass* Make_SSF2T_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SSF2T_A(nConfirmedROMSize); }
+    CGameClass* Make_SSF2T_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SSF2T_S(nConfirmedROMSize); }
+    CGameClass* Make_SSF2T_GBA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SSF2T_GBA(nConfirmedROMSize); }
+    CGameClass* Make_SurvivalArts_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SurvivalArts_A(nConfirmedROMSize); }
+    CGameClass* Make_SVCPLUSA_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SVCPLUSA_A(nConfirmedROMSize); }
+    CGameClass* Make_SVG_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SVG_SNES(nConfirmedROMSize); }
+    CGameClass* Make_TattooAsns_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_TattooAsns_A(nConfirmedROMSize); }
+    CGameClass* Make_TekkenAdvance_GBA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_TekkenAdvance_GBA(nConfirmedROMSize); }
+    CGameClass* Make_TKDenshou_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_TKDenshou_A_DIR(nConfirmedROMSize); }
+    CGameClass* Make_TMNTTF_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_TMNTTF_SNES(nConfirmedROMSize); }
+    CGameClass* Make_TOPF2005_SEGA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_TOPF2005_SEGA(nConfirmedROMSize); }
+    CGameClass* Make_UMK3_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_UMK3_A(nConfirmedROMSize); }
+    CGameClass* Make_UMK3_DS(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_UMK3_DS(nConfirmedROMSize); }
+    CGameClass* Make_UMK3_SEGA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_UMK3_SEGA(nConfirmedROMSize); }
+    CGameClass* Make_UMK3_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_UMK3_SNES(nConfirmedROMSize); }
+    CGameClass* Make_UNICLR_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_UNICLR_A(nConfirmedROMSize); }
+	CGameClass* Make_UNI2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_UNI2_S(nConfirmedROMSize); }
+    CGameClass* Make_VampireHunter_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VampireHunter_A(nConfirmedROMSize); }
+    CGameClass* Make_VampireHunter_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VampireHunter_S(nConfirmedROMSize); }
+    CGameClass* Make_VampireNightWarriors_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VampireNightWarriors_A(nConfirmedROMSize); }
+    CGameClass* Make_VampireNightWarriors_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VampireNightWarriors_S(nConfirmedROMSize); }
+    CGameClass* Make_VENTURE_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VENTURE_A(nConfirmedROMSize); }
+    CGameClass* Make_VENTURE_A_DIR_31(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM31); }
+    CGameClass* Make_VENTURE_A_DIR_50(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VENTURE_A_DIR(nConfirmedROMSize, VentureDirLoadingKey::ROM50); }
+    CGameClass* Make_VHUNT2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VHUNT2_A(nConfirmedROMSize); }
+    CGameClass* Make_VHUNT2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VHUNT2_S(nConfirmedROMSize); }
+    CGameClass* Make_VSAV_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VSAV_A(nConfirmedROMSize); }
+    CGameClass* Make_VSAV_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VSAV_S(nConfirmedROMSize); }
+    CGameClass* Make_VSAV2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VSAV2_A(nConfirmedROMSize); }
+    CGameClass* Make_VSAV2_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VSAV2_S(nConfirmedROMSize); }
+    CGameClass* Make_VirtuaFighter2_GEN(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_VirtuaFighter2_GEN(nConfirmedROMSize); }
+    CGameClass* Make_WakuWaku7_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WakuWaku7_A(nConfirmedROMSize); }
+    CGameClass* Make_WakuWaku7_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WakuWaku7_PS2(nConfirmedROMSize); }
+    CGameClass* Make_WINDJAMMERS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_Windjammers_A(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroesPerfect_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroesPerfect_A(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroesPerfect_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroesPerfect_PS2(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroesPerfect_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroesPerfect_S(nConfirmedROMSize); }
+    CGameClass* Make_XMMA_SNES(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_XMMA_SNES(nConfirmedROMSize); }
+    CGameClass* Make_XMVSF_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_XMVSF_A(nConfirmedROMSize); }
+    CGameClass* Make_XMVSF_P(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_XMVSF_P(nConfirmedROMSize); }
+    CGameClass* Make_XMVSF_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_XMVSF_S(nConfirmedROMSize); }
 
-    CGameClass* Make_FileHandlers_PNG(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CImageViewers_PNGorRAW(ImageViewer_PNG, pszFilePath, nConfirmedROMSize); }
-    CGameClass* Make_FileHandlers_RAW(uint32_t nConfirmedROMSize, int nExtraGameData, LPCWSTR pszFilePath) { return new CImageViewers_PNGorRAW(ImageViewer_RAW, pszFilePath, nConfirmedROMSize); }
+    CGameClass* Make_FileHandlers_PNG(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR pszFilePath) { return new CImageViewers_PNGorRAW(ImageViewer_PNG, pszFilePath, nConfirmedROMSize); }
+    CGameClass* Make_FileHandlers_RAW(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR pszFilePath) { return new CImageViewers_PNGorRAW(ImageViewer_RAW, pszFilePath, nConfirmedROMSize); }
 
     struct CoreGameData
     {

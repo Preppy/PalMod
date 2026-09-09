@@ -14,7 +14,7 @@ void CImageViewers_PNGorRAW::InitializeStatics()
     m_MainDescTree.SetRootTree(CImageViewers_PNGorRAW::InitDescTree());
 }
 
-CImageViewers_PNGorRAW::CImageViewers_PNGorRAW(SupportedGamesList nGameDef, LPCWSTR pszImagePath, uint32_t nConfirmedROMSize)
+CImageViewers_PNGorRAW::CImageViewers_PNGorRAW(SupportedGamesList nGameDef, LPCWSTR pszImagePath, uint32_t /* /nConfirmedROMSize */)
 {
     //Set color mode
     m_createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
@@ -113,14 +113,14 @@ sDescTreeNode* CImageViewers_PNGorRAW::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CImageViewers_PNGorRAW::GetRule(uint32_t nRule)
+sFileRule CImageViewers_PNGorRAW::GetRule(uint32_t /* nRule */)
 {
     sFileRule NewFileRule;
 
     wcsncpy(NewFileRule.szFileName, L"Image Viewer", ARRAYSIZE(NewFileRule.szFileName));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = -1;
+    NewFileRule.uVerifyVar = static_cast<size_t>(-1);
 
     return NewFileRule;
 }
@@ -264,7 +264,7 @@ BOOL CImageViewers_PNGorRAW::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     }
 }
 
-BOOL CImageViewers_PNGorRAW::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+BOOL CImageViewers_PNGorRAW::SaveFile(CFile* SaveFile, uint32_t /* nUnitId */)
 {
     BOOL fSavedOut = FALSE;
 
@@ -297,10 +297,10 @@ BOOL CImageViewers_PNGorRAW::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
                     for (size_t iPos = 0; iPos < m_nPaletteLength; iPos++)
                     {
-                        const unsigned char r = (m_pppDataBuffer32[0][0][iPos] & 0xff);
-                        const unsigned char g = (m_pppDataBuffer32[0][0][iPos] & 0xff00) >> 8;
-                        const unsigned char b = (m_pppDataBuffer32[0][0][iPos] & 0xff0000) >> 16;
-                        const unsigned char a = (m_pppDataBuffer32[0][0][iPos] & 0xff000000) >> 24;
+                        const unsigned char r = static_cast<unsigned char>((m_pppDataBuffer32[0][0][iPos] & 0xff));
+                        const unsigned char g = static_cast<unsigned char>((m_pppDataBuffer32[0][0][iPos] & 0xff00) >> 8);
+                        const unsigned char b = static_cast<unsigned char>((m_pppDataBuffer32[0][0][iPos] & 0xff0000) >> 16);
+                        const unsigned char a = static_cast<unsigned char>((m_pppDataBuffer32[0][0][iPos] & 0xff000000) >> 24);
 
                         lodepng_palette_add(&state.info_png.color, r, g, b, a);
                         lodepng_palette_add(&state.info_raw, r, g, b, a);
@@ -374,7 +374,7 @@ bool CImageViewers_PNGorRAW::GetForcedSinglePreviewPath(CString& strPath)
     return true;
 }
 
-void CImageViewers_PNGorRAW::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
+void CImageViewers_PNGorRAW::LoadSpecificPaletteData(uint32_t, uint32_t)
 {
     m_nCurrentPaletteROMLocation = 0;
     m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(m_nPaletteLength);

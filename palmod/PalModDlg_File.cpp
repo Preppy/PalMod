@@ -197,7 +197,7 @@ void CPalModDlg::OnSavePatchFile()
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
 
-void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* pNMHDR, LRESULT* pResult)
+void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* /* pNMHDR */, LRESULT* pResult)
 {
     if (m_fCurrentlyBundlingSliderActions)
     {
@@ -510,7 +510,7 @@ void CPalModDlg::LoadLastDir()
     }
 }
 
-int CALLBACK CPalModDlg::OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
+int CALLBACK CPalModDlg::OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM /* lParam */, LPARAM lpData)
 {
     switch (uMsg)
     {
@@ -942,7 +942,6 @@ void CPalModDlg::OnImportPalette()
         if (PaletteLoad.DoModal() == IDOK)
         {
             CString strFileName = PaletteLoad.GetOFN().lpstrFile;
-            bool fSuccess = false;
 
             wchar_t szExtension[_MAX_EXT];
             _wsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);

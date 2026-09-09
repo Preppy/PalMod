@@ -176,7 +176,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 
     if (nUnitId != m_nCurrentExtraUnitId)
     {
-        uint32_t nCurrentPaletteOffset = 0;
+        //uint32_t nCurrentPaletteOffset = 0;
         uint32_t nDistanceFromZero = nPalId;
         const sGame_PaletteDataset* paletteSetToUse = nullptr;
 

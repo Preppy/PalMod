@@ -403,7 +403,7 @@ bool CPalModDlg::LoadPaletteFromIMPL(LPCWSTR pszFileName)
             uint8_t nCharacterToApplyTo = 0;
             IMPLFile.Read(&nCharacterToApplyTo, 1);
 
-            uint32_t nSpriteId = -1;
+            uint32_t nSpriteId = INVALID_VALUE_32;
             
             switch (GetHost()->GetCurrGame()->GetGameFlag())
             {
@@ -439,7 +439,7 @@ bool CPalModDlg::LoadPaletteFromIMPL(LPCWSTR pszFileName)
             {
                 if (MessageBox(strError, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES)
                 {
-                    nCollectionIndex = m_nPrevUnitSel;
+                    nCollectionIndex = static_cast<uint16_t>(m_nPrevUnitSel);
                     fCanUseCharacterAssignment = true;
                 }
                 else
@@ -449,13 +449,13 @@ bool CPalModDlg::LoadPaletteFromIMPL(LPCWSTR pszFileName)
             }
         }
 
-        uint8_t nColorPositionToWriteTo = -1;
+        uint8_t nColorPositionToWriteTo = INVALID_UNIT_VALUE_8;
 
         if (fCanUseCharacterAssignment)
         {
             if (m_nPrevUnitSel == nCollectionIndex) // This character is being displayed
             {
-                nColorPositionToWriteTo = m_nPrevChildSel1;
+                nColorPositionToWriteTo = static_cast<uint8_t>(m_nPrevChildSel1);
             }
             else
             {
@@ -595,7 +595,7 @@ void CPalModDlg::SavePaletteToIMPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
             _WriteToFileAsANSIWithForcedLength(IMPLFile, implFileDialog.m_strCreator, k_nRequiredLength);
             _WriteToFileAsANSIWithForcedLength(IMPLFile, implFileDialog.m_strDescription, k_nDescRequiredLength);
 
-            const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerFile * m_nPrevChildSel1;
+            const uint16_t k_nStartingPaletteAdjustment = static_cast<uint16_t>(k_nPalettesPerFile * m_nPrevChildSel1);
 
             // Now write the actual palettes
             for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerFile; nPaletteId++)

@@ -272,8 +272,8 @@ const sGame_PaletteDataset TekkenAdvance_GBA_BonusPalettes_InGameExtras[] =
     { L"Common FX", 0x765604, 0x765684 },
     { L"Menu Selection Bar", 0x760ebc, 0x760edc },
     { L"NAMCO Logo", 0x76104c, 0x76106c },
-    { L"Round Icons", 0x7656a4, 0x7656c4, -1, -1, &pairNext },
-    { L"Lifebars", 0x7ccee0, 0x7ccf60, -1, -1, &pairPrevious },
+    { L"Round Icons", 0x7656a4, 0x7656c4, indexTekkenAdvanceGBASprites_Bonus, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"Lifebars", 0x7ccee0, 0x7ccf60, indexTekkenAdvanceGBASprites_Bonus, INVALID_UNIT_VALUE_8, &pairPrevious },
 };
 
 const sGame_PaletteDataset TekkenAdvance_GBA_BonusPalettes_RankingDisplay[] =

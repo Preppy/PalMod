@@ -154,17 +154,17 @@ const sGame_PaletteDataset FightersHistory_A_Bonus[] =
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Ray[] =
 {
-    { L"Ray Punch 1", 0xc1940, 0xc1980, -1, -1, &pairNext },
+    { L"Ray Punch 1", 0xc1940, 0xc1980, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Ray Punch 2", 0xc2140, 0xc2180 },
-    { L"Ray Kick 1", 0xc1d40, 0xc1d80, -1, -1, &pairNext },
+    { L"Ray Kick 1", 0xc1d40, 0xc1d80, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Ray Kick 2", 0xc2540, 0xc2580 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Feilin[] =
 {
-    { L"Feilin Punch 1", 0xc1980, 0xc19c0, -1, -1, &pairNext },
+    { L"Feilin Punch 1", 0xc1980, 0xc19c0, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Feilin Punch 2", 0xc2180, 0xc21c0 },
-    { L"Feilin Kick 1", 0xc1d80, 0xc1dc0, -1, -1, &pairNext },
+    { L"Feilin Kick 1", 0xc1d80, 0xc1dc0, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Feilin Kick 2", 0xc2580, 0xc25c0 },
 };
 
@@ -176,17 +176,17 @@ const sGame_PaletteDataset FightersHistory_A_Portraits_Ryoko[] =
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Matlok[] =
 {
-    { L"Matlok Punch 1", 0xc1a00, 0xc1a40, -1, -1, &pairNext },
+    { L"Matlok Punch 1", 0xc1a00, 0xc1a40, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Matlok Punch 2", 0xc2200, 0xc2240 },
-    { L"Matlok Kick 1", 0xc1e00, 0xc1e40, -1, -1, &pairNext },
+    { L"Matlok Kick 1", 0xc1e00, 0xc1e40, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Matlok Kick 2", 0xc2600, 0xc2640 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Samchay[] =
 {
-    { L"Samchay Punch 1", 0xc1a40, 0xc1a80, -1, -1, &pairNext },
+    { L"Samchay Punch 1", 0xc1a40, 0xc1a80, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Samchay Punch 2", 0xc2240, 0xc2280 },
-    { L"Samchay Kick 1", 0xc1e40, 0xc1e80, -1, -1, &pairNext },
+    { L"Samchay Kick 1", 0xc1e40, 0xc1e80, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Samchay Kick 2", 0xc2640, 0xc2680 },
 };
 
@@ -204,25 +204,25 @@ const sGame_PaletteDataset FightersHistory_A_Portraits_Mizoguchi[] =
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Jean[] =
 {
-    { L"Jean Punch 1", 0xc1b00, 0xc1b40, -1, -1, &pairNext },
+    { L"Jean Punch 1", 0xc1b00, 0xc1b40, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Jean Punch 2", 0xc2300, 0xc2340 },
-    { L"Jean Kick 1", 0xc1f00, 0xc1f40, -1, -1, &pairNext },
+    { L"Jean Kick 1", 0xc1f00, 0xc1f40, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Jean Kick 2", 0xc2700, 0xc2740 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Marstorius[] =
 {
-    { L"Marstorius Punch 1", 0xc1b40, 0xc1b80, -1, -1, &pairNext },
+    { L"Marstorius Punch 1", 0xc1b40, 0xc1b80, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Marstorius Punch 2", 0xc2340, 0xc2380 },
-    { L"Marstorius Kick 1", 0xc1f40, 0xc1f80, -1, -1, &pairNext },
+    { L"Marstorius Kick 1", 0xc1f40, 0xc1f80, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Marstorius Kick 2", 0xc2740, 0xc2780 },
 };
 
 const sGame_PaletteDataset FightersHistory_A_Portraits_Clown[] =
 {
-    { L"Clown Punch 1", 0xc1b80, 0xc1bc0, -1, -1, &pairNext },
+    { L"Clown Punch 1", 0xc1b80, 0xc1bc0, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Clown Punch 2", 0xc2380, 0xc23c0 },
-    { L"Clown Kick 1", 0xc1f80, 0xc1fc0, -1, -1, &pairNext },
+    { L"Clown Kick 1", 0xc1f80, 0xc1fc0, INVALID_UNIT_VALUE_16, INVALID_UNIT_VALUE_8, &pairNext },
     { L"Clown Kick 2", 0xc2780, 0xc27c0 },
 };
 

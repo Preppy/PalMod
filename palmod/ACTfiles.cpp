@@ -271,7 +271,7 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
         const int nActSz = k_nMaxColorsAllowed * 3;
         std::array<uint8_t, nActSz> rgAct = {};
 
-        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
+        const uint8_t nPaletteCount = static_cast<uint8_t>(m_PalHost.GetCurrentPaletteCount());
 
         size_t nTotalColorsUsed = 0;
 

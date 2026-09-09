@@ -251,7 +251,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
 
     uint32_t uUnitId = NodeGet->uUnitId;
-    uint32_t uPalId = NodeGet->uPalId;
+    //uint32_t uPalId = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;
     int nSrcStart = Node03;
     uint32_t nSelectedPaletteIndex = 0;

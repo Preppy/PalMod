@@ -66,8 +66,8 @@ bool CPalModDlg::LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_heade
         {
             fUsesGlobalColorTable = (gif_header.flags & 0x80);
             // This is the bbp for the source image, useless for our needs
-            const uint8_t ColorResolution = ((gif_header.flags & 0x70) >> 4) + 1;
-            const bool TableSorted = (gif_header.flags & 0x08);
+            //const uint8_t ColorResolution = ((gif_header.flags & 0x70) >> 4) + 1;
+            //const bool TableSorted = (gif_header.flags & 0x08);
 
             fIsValidGIF = true;
         }

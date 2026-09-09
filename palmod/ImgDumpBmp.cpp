@@ -389,7 +389,7 @@ void CImgDumpBmp::OnPaint()
     CWnd::OnPaint();
 }
 
-BOOL CImgDumpBmp::OnEraseBkgnd(CDC* pDC)
+BOOL CImgDumpBmp::OnEraseBkgnd(CDC* /* pDC */)
 {
     return TRUE;//CWnd::OnEraseBkgnd(pDC);
 }
@@ -447,7 +447,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL fDraw, uint8_t* pDstData)
 
         int row_ctr = 0;
         int nPal = 0;
-        int nTargetX = 0, nTargetY = 0;
+        int nTargetX = 0;
 
         uint8_t* pMainData = nullptr;
 

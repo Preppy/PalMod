@@ -15,7 +15,7 @@ std::vector<uint32_t> CGame_MVC2_A::m_rgExtraCountAll;
 std::vector<uint32_t> CGame_MVC2_A::m_rgExtraLoc;
 
 uint32_t CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
-uint32_t CGame_MVC2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_MVC2_A::m_nConfirmedROMSize = INVALID_VALUE_32;
 size_t CGame_MVC2_A::m_nStartingUsableOffset = 0;
 
 void CGame_MVC2_A::InitializeStatics()
@@ -113,7 +113,7 @@ CDescTree* CGame_MVC2_A::GetMainTree()
     return &CGame_MVC2_A::m_MainDescTree;
 }
 
-uint32_t CGame_MVC2_A::GetExtraCtForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
+uint32_t CGame_MVC2_A::GetExtraCtForUnit(uint32_t nUnitId, BOOL /* fCountVisibleOnly */)
 {
     return _GetExtraCountForUnit(m_rgExtraCountAll, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
 }
@@ -154,7 +154,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_MVC2_A::GetRule_A(uint32_t nUnitId)
+sFileRule CGame_MVC2_A::GetRule_A(uint32_t /* nUnitId */)
 {
     sFileRule NewFileRule;
 
@@ -167,7 +167,7 @@ sFileRule CGame_MVC2_A::GetRule_A(uint32_t nUnitId)
     return NewFileRule;
 }
 
-sFileRule CGame_MVC2_A::GetRule_S(uint32_t nUnitId)
+sFileRule CGame_MVC2_A::GetRule_S(uint32_t /* nUnitId */)
 {
     sFileRule NewFileRule;
 
@@ -217,12 +217,11 @@ uint32_t CGame_MVC2_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPale
     // Don't use this for Extra palettes.
     uint32_t nNodeSize = 0;
     uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
     for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        //const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
@@ -259,7 +258,7 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes);
             m_pszCurrentPaletteName = paletteData->szPaletteName;
 
             if (UseSteamMode())
@@ -362,7 +361,7 @@ int32_t CGame_MVC2_A::GetSteamLoadingOffsetForModifiedFile(CFile* TargetFile, ui
     return (normalPALStarts.at(nUnitId) - nPALFileStart);
 }
 
-BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
@@ -473,7 +472,7 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     return TRUE;
 }
 
-BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, uint32_t /* nUnitId */)
 {
     uint32_t nTotalPalettesSaved = 0;
 
@@ -884,7 +883,7 @@ uint32_t CGame_MVC2_A::GetBasicOffset(uint32_t nPalId)
     if (nPalId >= static_cast<uint32_t>(8 * k_mvc2_character_coloroption_count))
     {
         // This palette is in the Extra group for this character
-        return -1;
+        return INVALID_VALUE_32;
     }
     else
     {

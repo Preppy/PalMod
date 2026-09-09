@@ -12,7 +12,7 @@ std::vector<uint32_t> CGame_DevMode_A::m_rgExtraCountAll;
 std::vector<uint32_t> CGame_DevMode_A::m_rgExtraLoc;
 
 uint32_t CGame_DevMode_A::m_nTotalPaletteCountForDevMode_Mono = 0;
-uint32_t CGame_DevMode_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_DevMode_A::m_nConfirmedROMSize = INVALID_VALUE_32;
 wchar_t CGame_DevMode_A::m_pszExtraNameOverride[MAX_PATH] = L"";
 
 void CGame_DevMode_A::InitializeStatics(LPCWSTR pszFileLoaded)
@@ -69,7 +69,7 @@ CGame_DevMode_A::CGame_DevMode_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoad
     //Set game information
     m_nGameFlag = DEVMODE_A;
     // We *do* always just set this here, but at the same time it's never useful without user guidance
-    m_nImgGameFlag = static_cast<int>(m_ImageSectionOverride);
+    m_nImgGameFlag = m_ImageSectionOverride;
 
     m_prgGameImageSet.clear();
      
@@ -107,7 +107,7 @@ CDescTree* CGame_DevMode_A::GetMainTree()
     return &CGame_DevMode_A::m_MainDescTree;
 }
 
-uint32_t CGame_DevMode_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
+uint32_t CGame_DevMode_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL /* fCountVisibleOnly */)
 {
     return _GetExtraCountForUnit(m_rgExtraCountAll, DEVMODE_A_NUMUNIT, nUnitId, DEVMODE_A_EXTRA_CUSTOM);
 }
@@ -407,7 +407,7 @@ sDescTreeNode* CGame_DevMode_A::InitDescTree(LPCWSTR pszFileLoaded)
     return NewDescTree;
 }
 
-sFileRule CGame_DevMode_A::GetRule(uint32_t nUnitId)
+sFileRule CGame_DevMode_A::GetRule(uint32_t /* nUnitId */)
 {
     sFileRule NewFileRule;
 
@@ -415,7 +415,7 @@ sFileRule CGame_DevMode_A::GetRule(uint32_t nUnitId)
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"stub.stb"); // use a stub value here
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = -1; // this game is a stub only
+    NewFileRule.uVerifyVar = static_cast<size_t>(-1); // this game is a stub only
 
     return NewFileRule;
 }
@@ -487,7 +487,7 @@ void CGame_DevMode_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
-BOOL CGame_DevMode_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_DevMode_A::UpdatePalImg(int Node01, int Node02, int Node03, int /* Node04 */)
 {
     return _UpdatePalImg(DEVMODE_A_UNITS, m_rgExtraCountAll, DEVMODE_A_NUMUNIT, DEVMODE_A_EXTRALOC, DEVMODE_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }

@@ -166,13 +166,10 @@ void CGame_CVS2_A::DumpAllCharacters()
 
     for (uint32_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
     {
-        uint32_t nCurrentCharacterOffset = 0;
-        uint16_t nPaletteCount = 0;
         CString strOutput;
-
         wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"    { \"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_COLLECTION, ARRAYSIZE(CVS2_A_%s_COLLECTION) },\r\n", CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName,
                                         szCodeDesc, szCodeDesc);

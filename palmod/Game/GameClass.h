@@ -60,7 +60,7 @@ protected:
 
     uint32_t m_nUnitAmt = 0;
     SupportedGamesList m_nGameFlag = NUM_GAMES;
-    int m_nImgGameFlag = 0;
+    eIMGDat_Sections m_nImgGameFlag = IMGDAT_SECTION_OTHER;
     std::vector<uint16_t> m_prgGameImageSet;
 
     //Values used for image out
@@ -191,19 +191,22 @@ public:
     uint32_t(*ConvPal16)(uint16_t inCol);
     uint32_t(*ConvPal24)(uint32_t inCol);
     uint32_t(*ConvPal32)(uint32_t inCol);
-    int(*GetColorStepFor8BitValue_RGB)(int inCol);
-    int(*Get8BitValueForColorStep_RGB)(int inCol);
-    int(*GetColorStepFor8BitValue_A)(int inCol);
-    int(*Get8BitValueForColorStep_A)(int inCol);
-    int(*GetNearestLegal8BitColorValue_A)(int inCol);
-    int(*GetNearestLegal8BitColorValue_RGB)(int inCol);
+
+    uint8_t(*Get8BitValueForColorStep_RGB)(int inCol);
+    uint8_t(*Get8BitValueForColorStep_A)(int inCol);
+    uint8_t(*GetNearestLegal8BitColorValue_A)(int inCol);
+    uint8_t(*GetNearestLegal8BitColorValue_RGB)(int inCol);
+    uint8_t GetNearestLegal8BitColorValue_RGB_impl(int inCol) override;
+
+    int(*GetColorStepFor8BitValue_RGB)(uint8_t inCol);
+    int(*GetColorStepFor8BitValue_A)(uint8_t inCol);
     int(*ValidateColorStep)(int nColorStep);
-    int GetNearestLegal8BitColorValue_RGB_impl(int inCol) override;
+
     void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA) override;
 
     LPCWSTR GetROMFileName();
-    LPCWSTR GetLoadedDirOrFile() { return m_pszLoadedPathOrFile; };
-    LPCWSTR GetLoadedDirPathOnly() { return m_pszLoadedPathOnly; };
+    LPCWSTR GetLoadedDirOrFile() const { return m_pszLoadedPathOrFile; };
+    LPCWSTR GetLoadedDirPathOnly() const { return m_pszLoadedPathOnly; };
     BOOL SetLoadedPathOrFile(LPCWSTR pszNewPathOrFile);
 
     AlphaMode GetAlphaMode() { return ColorSystem::GetAlphaMode(); };
@@ -211,7 +214,7 @@ public:
 
     virtual BlendMode GetGameSpecificBlendMode() { return BlendMode::Default; };
 
-    ColMode GetColorMode() { return m_CurrColMode; };
+    ColMode GetColorMode() const { return m_CurrColMode; };
     bool _UpdateColorConverters(ColMode NewMode);
     bool _UpdateColorSteps(ColMode NewMode);
     bool _SetColorMode(ColMode NewMode);
@@ -222,7 +225,7 @@ public:
     static LPCWSTR GetExtraUnitDescription() { return L"Extra Palettes"; };
 
     // This is solely used by the Image Viewer file handler where we will only ever use one preview
-    virtual bool GetForcedSinglePreviewPath(CString& strPath) { return false; };
+    virtual bool GetForcedSinglePreviewPath(CString& /* strPath */) { return false; };
 
     virtual void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { m_createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return m_createPalOptions.eWriteOutputOptions; };
@@ -231,8 +234,8 @@ public:
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 
     SupportedGamesList GetGameFlag() { return m_nGameFlag; };
-    int GetImgGameFlag() { return m_nImgGameFlag; };
-    uint32_t GetUnitCt() { return m_nUnitAmt; };
+    eIMGDat_Sections GetImgGameFlag() const { return m_nImgGameFlag; };
+    uint32_t GetUnitCt() const { return m_nUnitAmt; };
     std::vector<uint16_t> GetImageSetForGame() { return m_prgGameImageSet; };
     sImgTicket* GetImgTicket() { return m_CurrImgTicket; };
 
@@ -245,10 +248,10 @@ public:
     BOOL WasGameFileChangedInSession();
 
     void SetIsDir(BOOL fNewIsDir = TRUE) { m_fIsDirectoryBasedGame = fNewIsDir; };
-    BOOL GetIsDir() { return m_fIsDirectoryBasedGame; };
-    BOOL GetGameMapsUnitsToFiles() { return m_fGameUnitsMapToIndividualFiles; };
+    BOOL GetIsDir() const { return m_fIsDirectoryBasedGame; };
+    BOOL GetGameMapsUnitsToFiles() const { return m_fGameUnitsMapToIndividualFiles; };
     bool AllowIPSPatchGeneration();
-    FileReadType GetFileReadType() { return m_eValidatedFileJoinType; };
+    FileReadType GetFileReadType() const { return m_eValidatedFileJoinType; };
 
     int GetPlaneAmt(ColFlag Flag);
 
@@ -258,10 +261,10 @@ public:
     sImgTicket* CreateImgTicket(uint16_t nImgUnitId, uint8_t nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0, BlendMode nBlendMode = BlendMode::Alpha);
     void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
 
-    uint32_t GetCurrentPaletteIncrement() { return m_nSrcPalInc[0]; };
-    eImageOutputSpriteDisplay GetImgDispType() { return m_DisplayType; };
-    uint32_t GetImgOutPalAmt() { return m_nSrcPalAmt[0]; };
-    uint32_t GetSelectedPaletteIndex() { return m_nSelectedPaletteIndex; };
+    uint32_t GetCurrentPaletteIncrement() const { return m_nSrcPalInc[0]; };
+    eImageOutputSpriteDisplay GetImgDispType() const { return m_DisplayType; };
+    uint32_t GetImgOutPalAmt() const { return m_nSrcPalAmt[0]; };
+    uint32_t GetSelectedPaletteIndex() const { return m_nSelectedPaletteIndex; };
 
     const std::vector<LPCWSTR> GetButtonDescSet() { return m_pButtonLabelSet; };
 
@@ -269,7 +272,7 @@ public:
 
     static void AllowTransparencyEdits(BOOL fAllow) { m_fAllowTransparencyEdits = fAllow; };
     static BOOL AllowTransparencyEdits() { return m_fAllowTransparencyEdits; };
-    BOOL AllowTransparency() { return m_fAllowTransparencyEdits && m_fGameUsesAlphaValue; };
+    BOOL AllowTransparency() const { return m_fAllowTransparencyEdits && m_fGameUsesAlphaValue; };
     static void GameSizeAllowsIPSPatching(bool fAllow) { m_fGameSizeAllowsIPSPatching = fAllow; };
 
     //Public virtual
@@ -295,10 +298,10 @@ public:
     virtual void UpdatePalData();
     void FlushChangeTrackingArray() { m_rgFileChanged.clear(); ClearDirtyPaletteTracker(); };
     virtual void PrepChangeTrackingArray();
-    virtual void ValidateMixExtraColors(BOOL& fChangesWereMade) {};
-    virtual int PostSetPal(uint32_t nUnitId, uint32_t nPalId) { return 0; };
-    virtual void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) {};
-    virtual uint32_t GetPaletteCountForUnit(uint32_t nUnitId) { return INVALID_UNIT_VALUE_16; };
+    virtual void ValidateMixExtraColors(BOOL& /* fChangesWereMade */) {};
+    virtual int PostSetPal(uint32_t /* nUnitId */, uint32_t /* nPalId */) { return 0; };
+    virtual void LoadSpecificPaletteData(uint32_t /* nUnitId */, uint32_t /* nPalId */ ) {};
+    virtual uint32_t GetPaletteCountForUnit(uint32_t /* nUnitId */) { return INVALID_UNIT_VALUE_16; };
 
     virtual void CreateDefPal(sDescNode* srcNode, uint32_t nSepId);
 

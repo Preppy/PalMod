@@ -254,8 +254,6 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
                     if (aszFinalLine[0] != ';')
                     {
                         // This is a real uncommented line: do what we can with it
-                        int nPrevAmt = 0;
-
                         if (nTotalExtensionExtraLinesHandled == 0)
                         {
                             if (m_ColorModeOverride != ColMode::COLMODE_LAST)
@@ -531,7 +529,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
                                         }
 
                                         newExtraDef.uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
-                                        newExtraDef.cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
+                                        newExtraDef.cbPaletteSize = static_cast<uint16_t>(nCurrentPaletteEntries * cbColorSize);
                                         newExtraDef.isInvisible = false;
                                         newExtraDef.indexImgToUse = indexImgToUse;
                                         newExtraDef.indexOffsetToUse = indexOffsetToUse;
@@ -579,7 +577,6 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
                                 const uint32_t nKeyLength = static_cast<uint32_t>(strlen(key));
                                 if (_strnicmp(aszFinalLine, key, nKeyLength) == 0)
                                 {
-                                    uint32_t nNameLength = static_cast<uint32_t>(strlen(aszFinalLine + nKeyLength));
                                     override(aszFinalLine + nKeyLength);
                                     fHandled = true;
                                     break;
@@ -839,7 +836,6 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
     CString strDupeText;
     bool fCollisionFound = false;
-    bool fShownInternalErrorOnce = false;
     // TMNTTF, MWarr, and SSF2T palettes are odd lengths, so for some of them we need to step back one
     // color in order to assemble a working palette
     uint32_t k_cbUseForcedOffsetForActuallyOverlappingPalettes = 0;
@@ -1298,10 +1294,6 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
         OutputDebugString(L"Sorted tree dump not supported for directory-based games using parallel rom handling as the locations will be identical between files.\r\n");
         OutputDebugString(L"If this doesn't work, please turn off extra files for this game.\r\n");
     }
-
-    sDescTreeNode* pRootTree = GetMainTree()->GetDescTree(-1);
-
-    const uint32_t c_nUnitCount = GetUnitCt();
 
     sPaletteTrackingInformation* pListRoot = nullptr;
 

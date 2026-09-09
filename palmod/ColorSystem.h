@@ -173,41 +173,41 @@ namespace ColorSystem
     uint32_t CONV_32_RBGA8888LE(uint32_t inCol, uint32_t oldCol);
     uint32_t CONV_RBGA8888LE_32(uint32_t inCol);
 
-    int GetColorStepFor8BitValue_1Step(int nColorValue);
-    int Get8BitValueForColorStep_1Step(int nColorStep);
-    int GetColorStepFor8BitValue_4Steps(int nColorValue);
-    int Get8BitValueForColorStep_4Steps(int nColorStep);
-    int GetColorStepFor8BitValue_8Steps(int nColorValue);
-    int Get8BitValueForColorStep_8Steps(int nColorStep);
-    int GetColorStepFor8BitValue_16Steps(int nColorValue);
-    int Get8BitValueForColorStep_16Steps(int nColorStep);
-    int GetColorStepFor8BitValue_31Steps(int nColorValue);
-    int Get8BitValueForColorStep_31Steps(int nColorStep);
-    int GetColorStepFor8BitValue_32Steps(int nColorValue);
-    int Get8BitValueForColorStep_32Steps(int nColorStep);
-    int GetColorStepFor8BitValue_32Steps_SharpCLUT(int nColorValue);
-    int Get8BitValueForColorStep_32Steps_SharpCLUT(int nColorStep);
-    int GetColorStepFor8BitValue_NeoGeoCLUT(int nColorValue);
-    int Get8BitValueForColorStep_NeoGeoCLUT(int nColorStep);
-    int GetColorStepFor8BitValue_HalfAlpha(int nColorValue);
-    int Get8BitValueForColorStep_HalfAlpha(int nColorStep);
-    int GetColorStepFor8BitValue_256Steps(int nColorValue);
-    int Get8BitValueForColorStep_256Steps(int nColorStep);
+    int GetColorStepFor8BitValue_1Step(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_1Step(int nColorStep);
+    int GetColorStepFor8BitValue_4Steps(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_4Steps(int nColorStep);
+    int GetColorStepFor8BitValue_8Steps(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_8Steps(int nColorStep);
+    int GetColorStepFor8BitValue_16Steps(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_16Steps(int nColorStep);
+    int GetColorStepFor8BitValue_31Steps(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_31Steps(int nColorStep);
+    int GetColorStepFor8BitValue_32Steps(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_32Steps(int nColorStep);
+    int GetColorStepFor8BitValue_32Steps_SharpCLUT(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_32Steps_SharpCLUT(int nColorStep);
+    int GetColorStepFor8BitValue_NeoGeoCLUT(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_NeoGeoCLUT(int nColorStep);
+    int GetColorStepFor8BitValue_HalfAlpha(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_HalfAlpha(int nColorStep);
+    int GetColorStepFor8BitValue_256Steps(uint8_t nColorValue);
+    uint8_t Get8BitValueForColorStep_256Steps(int nColorStep);
 
     // ColorMode is only needed to check for the NeoGeo CLUT
-    int Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep);
+    uint8_t Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep);
 
-    int GetNearestLegalColorValue_RGB111(int nColorValue);
-    int GetNearestLegalColorValue_RGB222(int nColorValue);
-    int GetNearestLegalColorValue_RGB333(int nColorValue);
-    int GetNearestLegalColorValue_RGB444(int nColorValue);
-    int GetNearestLegalColorValue_RGB555_CPS3(int nColorValue);
-    int GetNearestLegalColorValue_RGB555_Normal(int nColorValue);
-    int GetNearestLegalColorValue_SharpCLUT(int nColorValue);
-    int GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB111(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB222(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB333(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB444(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB555_CPS3(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB555_Normal(int nColorValue);
+    uint8_t GetNearestLegalColorValue_SharpCLUT(int nColorValue);
+    uint8_t GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue);
     // This is a weird 0...0x80 nonsense space.
-    int GetNearestLegal8bitColorValue_FromACR8Bit(int nColorValue);
-    int GetNearestLegalColorValue_RGB888(int nColorValue);
+    uint8_t GetNearestLegal8bitColorValue_FromACR8Bit(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB888(int nColorValue);
 
     int ValidateColorStep_RGB222(int nColorStep);
     int ValidateColorStep_RGB333(int nColorStep);

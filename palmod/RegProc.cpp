@@ -152,10 +152,10 @@ void CRegProc::SetColorsPerLine(DWORD dwColors)
 
 uint16_t CRegProc::GetMaxColorsPerPageOverride()
 {
-    static DWORD s_dwMaxColorsPerPage = -1;
+    static DWORD s_dwMaxColorsPerPage = static_cast<DWORD>(-1);
 
     // Since this affects UI we should only update it once per instance
-    if (s_dwMaxColorsPerPage == -1)
+    if (s_dwMaxColorsPerPage == static_cast<DWORD>(-1))
     {
         HKEY hKey;
 
@@ -181,10 +181,10 @@ uint16_t CRegProc::GetMaxColorsPerPageOverride()
 
 BOOL CRegProc::ShouldForcePeerPreviewWindow()
 {
-    static DWORD shouldForcePeerWindow = -1;
+    static DWORD shouldForcePeerWindow = static_cast<DWORD>(-1);
 
     // Since this affects UI we should only update it once per instance
-    if (shouldForcePeerWindow == -1)
+    if (shouldForcePeerWindow == static_cast<DWORD>(-1))
     {
         HKEY hKey;
 

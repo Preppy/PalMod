@@ -268,7 +268,7 @@ void CPalTool::EndSetPal()
         m_nCurrPage = 1;
         m_nPageAmt = nCurrentPage + 1;
 
-        m_PgSpin.SetRange(1, m_nPageAmt);
+        m_PgSpin.SetRange(1, static_cast<short>(m_nPageAmt));
     }
     else
     {
@@ -453,7 +453,7 @@ void CPalTool::OnPaint()
     // Do not call CWnd::OnPaint() for painting messages
 }
 
-BOOL CPalTool::OnEraseBkgnd(CDC* pDC)
+BOOL CPalTool::OnEraseBkgnd(CDC* /* pDC */)
 {
     // TODO: Add your message handler code here and/or call default
 

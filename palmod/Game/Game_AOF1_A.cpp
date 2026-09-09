@@ -154,7 +154,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             nSelectedPaletteIndex = 0;
                             nSrcStart = NodeGet->uPalId;
                             nNodeDistance = (Node02 == 0) ? 2 : 1;
-                            nPeerNodeDistance = -Node03;
+                            nPeerNodeDistance = static_cast<int8_t>(-Node03);
                         }
                         else if ((wcsstr(charUnit->szDesc, k_aof1NameKey_King)) && (wcsstr(paletteDataSet->szPaletteName, L"Portrait")))
                         {
@@ -163,7 +163,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             nSelectedPaletteIndex = 0;
                             nSrcStart = NodeGet->uPalId;
                             nNodeDistance = (Node02 == 0) ? 2 : 1;
-                            nPeerNodeDistance = -Node03;
+                            nPeerNodeDistance = static_cast<int8_t>(-Node03);
                         }
 
                         //Set each palette

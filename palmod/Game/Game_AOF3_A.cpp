@@ -135,7 +135,7 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                         {
                             // The palettes get added forward, but the image tickets need to be generated in reverse order
-                            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                            paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
                             if (paletteDataSetToJoin)
                             {
                                 pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
@@ -169,7 +169,7 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             nSrcAmt = 1;
                             nSrcStart = NodeGet->uPalId;
                             nNodeDistance = (Node02 == 0) ? 3 : 2;
-                            nPeerNodeDistance = -Node03;
+                            nPeerNodeDistance = static_cast<int8_t>(-Node03);
                         }
 
                         //Set each palette

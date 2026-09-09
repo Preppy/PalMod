@@ -90,7 +90,7 @@ uint32_t cps3_mask(uint32_t address, uint32_t key1, uint32_t key2)
     return val | (val << 16);
 }
 
-BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
@@ -173,7 +173,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     return TRUE;
 }
 
-BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t /* nUnitId */)
 {
     uint32_t nTotalPalettesSaved = 0;
 

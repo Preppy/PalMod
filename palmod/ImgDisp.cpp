@@ -670,7 +670,7 @@ void CImgDisp::OnPaint()
     safe_delete(PaintDC);
 }
 
-BOOL CImgDisp::OnEraseBkgnd(CDC* pDC)
+BOOL CImgDisp::OnEraseBkgnd(CDC* /* pDC */ )
 {
     return FALSE;
 }
@@ -1310,8 +1310,8 @@ void CImgDisp::_ResizeImageStack(bool fIsFullStackReplacement)
                     (m_pImgBuffer[iCurrentPreview]->dimensions.height != nMaxHeight))
                 {
                     // We're just going to brute force shift everything up to upper left.
-                    const int nPadWidth = nMaxWidth - m_pImgBuffer[iCurrentPreview]->dimensions.width;
-                    const int nPadHeight = nMaxHeight - m_pImgBuffer[iCurrentPreview]->dimensions.height;
+                    //const int nPadWidth = nMaxWidth - m_pImgBuffer[iCurrentPreview]->dimensions.width;
+                    //const int nPadHeight = nMaxHeight - m_pImgBuffer[iCurrentPreview]->dimensions.height;
                     const int oldwidth = m_pImgBuffer[iCurrentPreview]->dimensions.width;
                     const int oldheight = m_pImgBuffer[iCurrentPreview]->dimensions.height;
 
@@ -1449,7 +1449,6 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     rgrgCPS3AltPalettesToUse.resize(m_nImgAmt);
 
     int nLoadingPalette = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
-    bool fFoundThisColor = false;
 
     for (; nLoadingPalette < m_nImgAmt; nLoadingPalette++)
     {
@@ -1684,7 +1683,7 @@ std::vector<uint8_t> CImgDisp::_LoadTextureFromCImageSprite(wchar_t* pszTextureL
                   sprite.IsDIBSection() &&
                   sprite.IsIndexed())  // Note that animated GIFs will be DIBSections but not indexed
     {
-        uint8_t* pBits = reinterpret_cast<uint8_t*>(sprite.GetBits());
+        //uint8_t* pBits = reinterpret_cast<uint8_t*>(sprite.GetBits());
 
         // Need to replace the color table so we can figure out what goes where easily
         const int nColorTableSize = sprite.GetMaxColorTableEntries();
@@ -1805,7 +1804,6 @@ bool CImgDisp::LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirec
 {
     bool fSuccess = false;
     bool fUserCanceled = false;
-    bool fBadDimensions = false;
     std::wstring strErrorText = L"This PNG could not be loaded.";
     std::wstring strErrorExtra;
 
@@ -2083,7 +2081,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     int nBltW = rBltRct.right - rBltRct.left;
     int nBltH = rBltRct.bottom - rBltRct.top;
 
-    int nRightBlt = rBltRct.right * 4;
+    //int nRightBlt = rBltRct.right * 4;
 
     uint16_t nTransparencyPosition = 0;
     uint16_t nMaxWritePerTransparency = 16;

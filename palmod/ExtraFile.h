@@ -73,8 +73,8 @@ private:
 
     struct sPaletteTrackingInformation
     {
-        uint32_t nPaletteOffset = -1;
-        uint32_t nTerminalOffset = -1;
+        uint32_t nPaletteOffset = static_cast<uint32_t>(-1);
+        uint32_t nTerminalOffset = static_cast<uint32_t>(-1);
         std::wstring strUnitName;
         std::wstring strCollectionName;
         std::wstring strPaletteName;

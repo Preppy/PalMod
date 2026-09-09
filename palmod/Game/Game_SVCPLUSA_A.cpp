@@ -135,7 +135,7 @@ enum class SVCCryptionChoice
     encryption
 };
 
-void svcplus_px_crypto(uint8_t* cpurom, size_t cpurom_size, SVCCryptionChoice direction)
+void svcplus_px_crypto(uint8_t* cpurom, size_t cpurom_size, SVCCryptionChoice /* direction */)
 {
     static const size_t sec[] = { 0x00, 0x03, 0x02, 0x05, 0x04, 0x01 };
     size_t size = cpurom_size;
@@ -266,7 +266,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     const uint32_t nColorOptionsPerCharacter = 2;
     constexpr uint32_t SVCPLUSA_PALETTE_LENGTH = 0x20;
     constexpr uint16_t c_nEffectsPerCharacter = 7;
-    constexpr uint32_t c_nSVCDistanceBetweenColorss = 0x200;
+    //constexpr uint32_t c_nSVCDistanceBetweenColorss = 0x200;
 
     for (uint32_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
@@ -442,7 +442,7 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize)
     }
 }
 
-sFileRule CGame_SVCPLUSA_A::GetRule_Normal(uint32_t nUnitId)
+sFileRule CGame_SVCPLUSA_A::GetRule_Normal(uint32_t /* nUnitId */)
 {
     sFileRule NewFileRule;
 
@@ -459,7 +459,7 @@ sFileRule CGame_SVCPLUSA_A::GetRule_Normal(uint32_t nUnitId)
     return NewFileRule;
 }
 
-sFileRule CGame_SVCPLUSA_A::GetRule_Steam(uint32_t nUnitId)
+sFileRule CGame_SVCPLUSA_A::GetRule_Steam(uint32_t /* nUnitId */)
 {
     sFileRule NewFileRule;
 
@@ -481,7 +481,7 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
         {
             cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes);
             m_pszCurrentPaletteName = paletteData->szPaletteName;
             // shift for different roms as needed
             m_nCurrentPaletteROMLocation += m_loadedROMRevision.nOffsetForReads;
@@ -548,7 +548,7 @@ void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
     }
 }
 
-BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
 {
     BOOL fSuccess = TRUE;
 
@@ -659,7 +659,6 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                     {
                         if (fSuccess)
                         {
-                            CString strMsg;
                             strMsg.Format(L"This is a not a complete file set.  You are missing:\n%s\nYou will need this file to continue.", romName);
                             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP);
                         }

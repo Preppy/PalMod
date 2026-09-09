@@ -147,7 +147,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 {
                     // We show 2 sprites (Punch/Kick) for export for all normal VS sprites
                     nSrcAmt = static_cast<uint32_t>(m_pButtonLabelSet.size());
-                    nNodeIncrement = pCurrentNode->uChildAmt;
+                    nNodeIncrement = static_cast<int8_t>(pCurrentNode->uChildAmt);
 
                     if (wcscmp(m_rgCurrentGameUnits.at(NodeGet->uUnitId).szDesc, k_pszBlackheartUnit) == 0)
                     {

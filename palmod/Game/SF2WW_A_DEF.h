@@ -209,7 +209,7 @@ const sGame_PaletteDataset SF2WW_A_09_STAGES_BOXER_NODE[] =
 const sGame_PaletteDataset SF2WW_A_09_STAGES_CHUNLI_NODE[] =
 {
     // These were redrawn for CE/HF evidently
-    { L"Blue Biker", 0x2e81e - 0x22DC6, 0x2e83e - 0x22DC6, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Blue Biker", 0x2e81e - 0x22DC6, 0x2e83e - 0x22DC6, indexSF2Sprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Green Biker", 0x2e83e - 0x22DC6, 0x2e85e - 0x22DC6 },
     { L"Red Biker", 0x2e85e - 0x22DC6, 0x2e87e - 0x22DC6 },
 };

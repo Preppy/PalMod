@@ -91,8 +91,6 @@ namespace ColorSystem
             case ColMode::COLMODE_NEOTURFMASTERS:
                 return 4;
         }
-
-        return 2;
     }
 
     std::map<LPCSTR, ColMode> rgColorNameToFormatMap =
@@ -409,7 +407,7 @@ namespace ColorSystem
         }
     }
 
-    inline uint8_t GetAdjustedNativeAlpha(uint16_t inAlpha, uint8_t nOriginalAlpha, uint8_t nFullValueAlpha)
+    inline static uint8_t GetAdjustedNativeAlpha(uint16_t inAlpha, uint8_t nOriginalAlpha, uint8_t nFullValueAlpha)
     {
         switch (CurrAlphaMode)
         {
@@ -418,7 +416,7 @@ namespace ColorSystem
             case AlphaMode::GameDoesNotUseAlpha:
                 return 0;
             default:
-                return IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nOriginalAlpha;
+                return static_cast<uint8_t>(IsAlphaModeMutable(CurrAlphaMode) ? min(inAlpha, nFullValueAlpha) : nOriginalAlpha);
         }
     }
 
@@ -453,7 +451,7 @@ namespace ColorSystem
 
         auxa = GetAdjustedNativeAlpha(auxa, olda, 0x03);
 
-        return (auxr) | (auxb << 2) | (auxg << 4) | (auxa << 6);
+        return static_cast<uint8_t>((auxr) | (auxb << 2) | (auxg << 4) | (auxa << 6));
     }
 
     // COLMODE_BGR333
@@ -469,7 +467,7 @@ namespace ColorSystem
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    uint16_t CONV_32_BGR333(uint32_t inCol, uint16_t oldCol)
+    uint16_t CONV_32_BGR333(uint32_t inCol, uint16_t /* oldCol */)
     {
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -495,7 +493,7 @@ namespace ColorSystem
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    uint16_t CONV_32_RBG333(uint32_t inCol, uint16_t oldCol)
+    uint16_t CONV_32_RBG333(uint32_t inCol, uint16_t /* oldCol */)
     {
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -521,7 +519,7 @@ namespace ColorSystem
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    uint16_t CONV_32_RGB333(uint32_t inCol, uint16_t oldCol)
+    uint16_t CONV_32_RGB333(uint32_t inCol, uint16_t /* oldCol */)
     {
         uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
         uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
@@ -850,7 +848,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_RGBx5551BE(uint32_t inCol, uint16_t oldCol)
+    uint16_t CONV_32_RGBx5551BE(uint32_t inCol, uint16_t /* oldCol */)
     {
         uint16_t auxa = ((inCol & 0xFF000000) >> 24) ? 0x1 : 0x0;
         uint16_t auxb = (inCol & 0x00FF0000) >> 16;
@@ -861,7 +859,7 @@ namespace ColorSystem
         auxg = static_cast<uint16_t>(round(auxg / 8));
         auxb = static_cast<uint16_t>(round(auxb / 8));
 
-        auxa = GetAdjustedNativeAlpha(auxa, _byteswap_ushort(inCol) & 0x1, 0x1);
+        auxa = GetAdjustedNativeAlpha(auxa, _byteswap_ushort(static_cast<unsigned short>(inCol)) & 0x1, 0x1);
         auxb = auxb << 1;
         auxg = auxg << 6;
         auxr = auxr << 11;
@@ -932,7 +930,7 @@ namespace ColorSystem
         auxb = auxb << 10;
         auxa = auxa << 15;
 
-        return _byteswap_ushort(auxa | auxb | auxg | auxr);
+        return _byteswap_ushort(static_cast<unsigned short>(auxa | auxb | auxg | auxr));
     }
 
     // COLMODE_RGB555_LE_CPS3
@@ -1206,15 +1204,16 @@ namespace ColorSystem
 
     uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol, uint16_t /* oldCol */)
     {
-        uint8_t auxb = ((inCol & 0x00FF0000) >> 16);
-        uint8_t auxg = ((inCol & 0x0000FF00) >> 8);
-        uint8_t auxr = ((inCol & 0x000000FF));
+        uint8_t auxb = static_cast<uint8_t>((inCol & 0x00FF0000) >> 16);
+        uint8_t auxg = static_cast<uint8_t>((inCol & 0x0000FF00) >> 8);
+        uint8_t auxr = static_cast<uint8_t>((inCol & 0x000000FF));
 
         uint8_t red = Convert32ToNEOGEO(auxr);
         uint8_t green = Convert32ToNEOGEO(auxg);
         uint8_t blue = Convert32ToNEOGEO(auxb);
 
-        uint16_t darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
+        // NeoGeo doesn't really use the dark bit for our purposes
+        //uint16_t darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
 
         uint16_t red1 = ((red / 2) & 0x1) << 0xe;
         uint16_t redMain = ((red / 4) & 0xf) << 0x8;
@@ -1289,7 +1288,7 @@ namespace ColorSystem
         return CONV_RGB666NeoGeo_32(nRGB666Val_LE);
     }
 
-    uint32_t CONV_32_NeoTurfMasters(uint32_t inCol, uint32_t oldCol)
+    uint32_t CONV_32_NeoTurfMasters(uint32_t inCol, uint32_t /* oldCol */)
     {
         const uint16_t nColorAsNeoGeo = CONV_32_RGB666NeoGeo(inCol, 0x0000);
         const uint16_t nRGB666Val_BE = _byteswap_ushort(nColorAsNeoGeo);
@@ -1361,11 +1360,11 @@ namespace ColorSystem
         return color;
     }
 
-    uint16_t CONV_32_RGB555Sharp(uint32_t inCol, uint16_t oldCol)
+    uint16_t CONV_32_RGB555Sharp(uint32_t inCol, uint16_t /* oldCol */)
     {
-        uint8_t auxr = ((inCol & 0x00FF0000) >> 16);
-        uint8_t auxg = ((inCol & 0x0000FF00) >> 8);
-        uint8_t auxb = ((inCol & 0x000000FF));
+        uint8_t auxr = static_cast<uint8_t>((inCol & 0x00FF0000) >> 16);
+        uint8_t auxg = static_cast<uint8_t>((inCol & 0x0000FF00) >> 8);
+        uint8_t auxb = static_cast<uint8_t>((inCol & 0x000000FF));
 
         uint8_t red = Convert32ToSharpRGB(auxr);
         uint8_t green = Convert32ToSharpRGB(auxg);
@@ -1645,7 +1644,7 @@ namespace ColorSystem
 
     uint32_t CONV_32_RGBA8888BE16(uint32_t inCol, uint32_t oldCol)
     {
-        const uint32_t auxa = GetAdjustedNativeAlpha((inCol & 0xFF000000) >> 24, (oldCol & 0x00FF0000) >> 16, 0xff);
+        const uint32_t auxa = GetAdjustedNativeAlpha(static_cast<uint8_t>((inCol & 0xFF000000) >> 24), static_cast<uint8_t>((oldCol & 0x00FF0000) >> 16), 0xff);
         const uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         const uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         const uint32_t auxr = (inCol & 0x000000FF);
@@ -1699,12 +1698,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    int ROUND_1(int rVal)
+    static int ROUND_1(int rVal)
     {
         return rVal;
     };
 
-    int ROUND_8(int rVal)
+    static int ROUND_8(int rVal)
     {
         int j;
 
@@ -1722,135 +1721,135 @@ namespace ColorSystem
         return rVal + (rVal / 32);
     }
 
-    int ROUND_17(int rVal)
+    static int ROUND_17(int rVal)
     {
         const int outVal = static_cast<int>(min(0xff, (round(rVal / 17.0)) * 17));
 
         return outVal;
     }
 
-    int ROUND_36(int rVal)
+    static int ROUND_36(int rVal)
     {
         const int outVal = static_cast<int>(min(0xff, (round(rVal / k_nRGBPlaneMulForRGB333)) * k_nRGBPlaneMulForRGB333));
 
         return outVal;
     }
 
-    int ROUND_85(int rVal)
+    static int ROUND_85(int rVal)
     {
         const int outVal = static_cast<int>(min(0xff, (round(rVal / k_nRGBPlaneMulForRGB222)) * k_nRGBPlaneMulForRGB222));
 
         return outVal;
     }
 
-    int GetColorStepFor8BitValue_1Step(int nColorValue)
+    int GetColorStepFor8BitValue_1Step(uint8_t nColorValue)
     {
         return (nColorValue / 255);
     }
 
-    int Get8BitValueForColorStep_1Step(int nColorStep)
+    uint8_t Get8BitValueForColorStep_1Step(int nColorStep)
     {
-        return (nColorStep * 255);
+        return static_cast<uint8_t>(nColorStep * 255);
     }
 
-    int GetColorStepFor8BitValue_4Steps(int nColorValue)
+    int GetColorStepFor8BitValue_4Steps(uint8_t nColorValue)
     {
         const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB222));
 
         return nStep;
     }
 
-    int Get8BitValueForColorStep_4Steps(int nColorStep)
+    uint8_t Get8BitValueForColorStep_4Steps(int nColorStep)
     {
         nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB222);
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB222);
 
         // establish about where we should be
-        const int nColorValue = ROUND_85(static_cast<int>(round(k_nRGBPlaneMulForRGB222 * static_cast<double>(nColorStep))));
+        const uint8_t nColorValue = static_cast<uint8_t>(ROUND_85(static_cast<int>(round(k_nRGBPlaneMulForRGB222 * static_cast<double>(nColorStep)))));
 
         return nColorValue;
     }
 
-    int GetColorStepFor8BitValue_8Steps(int nColorValue)
+    int GetColorStepFor8BitValue_8Steps(uint8_t nColorValue)
     {
         const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB333));
 
         return nStep;
     }
 
-    int Get8BitValueForColorStep_8Steps(int nColorStep)
+    uint8_t Get8BitValueForColorStep_8Steps(int nColorStep)
     {
         nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB333);
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB333);
 
         // establish about where we should be
-        const int nColorValue = ROUND_36(static_cast<int>(round(k_nRGBPlaneMulForRGB333 * static_cast<double>(nColorStep))));
+        const uint8_t nColorValue = static_cast<uint8_t>(ROUND_36(static_cast<int>(round(k_nRGBPlaneMulForRGB333 * static_cast<double>(nColorStep)))));
 
         return nColorValue;
     }
 
-    int GetColorStepFor8BitValue_16Steps(int nColorValue)
+    int GetColorStepFor8BitValue_16Steps(uint8_t nColorValue)
     {
         const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB444));
 
         return nStep;
     }
 
-    int Get8BitValueForColorStep_16Steps(int nColorStep)
+    uint8_t Get8BitValueForColorStep_16Steps(int nColorStep)
     {
         nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB444);
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB444);
 
         // establish about where we should be
-        const int nColorValue = ROUND_17(static_cast<int>(round(k_nRGBPlaneMulForRGB444 * static_cast<double>(nColorStep))));
+        const uint8_t nColorValue = static_cast<uint8_t>(ROUND_17(static_cast<int>(round(k_nRGBPlaneMulForRGB444 * static_cast<double>(nColorStep)))));
 
         return nColorValue;
     }
 
-    int GetColorStepFor8BitValue_31Steps(int nColorValue)
+    int GetColorStepFor8BitValue_31Steps(uint8_t nColorValue)
     {
         const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555_CPS3));
 
         return nStep;
     }
 
-    int Get8BitValueForColorStep_31Steps(int nColorStep)
+    uint8_t Get8BitValueForColorStep_31Steps(int nColorStep)
     {
         nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555_CPS3);
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555_CPS3);
 
         // establish about where we should be
-        const int nColorValue = k_nRGBPlaneMulForRGB555_CPS3 * nColorStep;
+        const uint8_t nColorValue = static_cast<uint8_t>(k_nRGBPlaneMulForRGB555_CPS3 * nColorStep);
 
         return nColorValue;
     }
 
-    int GetColorStepFor8BitValue_32Steps(int nColorValue)
+    int GetColorStepFor8BitValue_32Steps(uint8_t nColorValue)
     {
         const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555_Normal));
 
         return nStep;
     }
 
-    int Get8BitValueForColorStep_32Steps(int nColorStep)
+    uint8_t Get8BitValueForColorStep_32Steps(int nColorStep)
     {
         nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555_Normal);
         nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555_Normal);
 
         // establish about where we should be
-        const int nColorValue = ROUND_8(static_cast<int>(round(k_nRGBPlaneMulForRGB555_Normal * static_cast<double>(nColorStep))));
+        const uint8_t nColorValue = static_cast<uint8_t>(abs(ROUND_8(static_cast<int>(round(k_nRGBPlaneMulForRGB555_Normal * static_cast<double>(nColorStep))))));
 
         return nColorValue;
     }
 
-    int GetColorStepFor8BitValue_32Steps_SharpCLUT(int nColorValue)
+    int GetColorStepFor8BitValue_32Steps_SharpCLUT(uint8_t nColorValue)
     {
-        const int nStep = Convert32ToSharpRGB(abs(nColorValue));
+        const int nStep = Convert32ToSharpRGB(nColorValue);
 
         return nStep;
     }
 
-    int Get8BitValueForColorStep_32Steps_SharpCLUT(int nColorStep)
+    uint8_t Get8BitValueForColorStep_32Steps_SharpCLUT(int nColorStep)
     {
         nColorStep = min(abs(nColorStep), ARRAYSIZE(SharpRGBColorVals));
         nColorStep = max(0, nColorStep - 1);
@@ -1858,7 +1857,7 @@ namespace ColorSystem
         return SharpRGBColorVals[nColorStep];
     }
 
-    int GetColorStepFor8BitValue_NeoGeoCLUT(int nColorValue)
+    int GetColorStepFor8BitValue_NeoGeoCLUT(uint8_t nColorValue)
     {
         bool fIsNegative = (nColorValue < 0);
         uint8_t nColorIndex = 1;
@@ -1877,7 +1876,7 @@ namespace ColorSystem
         return nColorIndex * (fIsNegative ? -1 : 1);
     }
 
-    int Get8BitValueForColorStep_NeoGeoCLUT(int nColorStep)
+    uint8_t Get8BitValueForColorStep_NeoGeoCLUT(int nColorStep)
     {
         bool fIsNegative = (nColorStep < 0);
 
@@ -1888,12 +1887,12 @@ namespace ColorSystem
 
         // the neogeo color table is 32 dark 32 bright colors interleaved
         // we only ever use brights, so it's just N*2
-        int nColorValue = NGColorVals[nAdjustedColorStep];
+        uint8_t nColorValue = NGColorVals[nAdjustedColorStep];
 
         return nColorValue * (fIsNegative ? -1 : 1);
     }
 
-    int GetColorStepFor8BitValue_HalfAlpha(int nColorValue)
+    int GetColorStepFor8BitValue_HalfAlpha(uint8_t nColorValue)
     {
         // 0...0x80
         const int nAdjustmentValue = (nColorValue < 0) ? -1 : 1;
@@ -1914,7 +1913,7 @@ namespace ColorSystem
         return nColorStep;
     }
 
-    int Get8BitValueForColorStep_HalfAlpha(int nColorStep)
+    uint8_t Get8BitValueForColorStep_HalfAlpha(int nColorStep)
     {
         // 0...0x80
         const int nAdjustmentValue = (nColorStep < 0) ? 1 : -1;
@@ -1931,20 +1930,20 @@ namespace ColorSystem
             nColorValue = max(nColorValue, -255);
         }
 
-        return nColorValue;
+        return static_cast<uint8_t>(nColorValue);
     }
 
-    int GetColorStepFor8BitValue_256Steps(int nColorValue)
+    int GetColorStepFor8BitValue_256Steps(uint8_t nColorValue)
     {
         return nColorValue; 
     };
 
-    int Get8BitValueForColorStep_256Steps(int nColorStep)
+    uint8_t Get8BitValueForColorStep_256Steps(int nColorStep)
     {
-        return nColorStep;
+        return static_cast<uint8_t>(nColorStep);
     };
 
-    int Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep)
+    uint8_t Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep)
     {
         static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "If you've added a new CLUT, make sure you handle the different stepping here.");
 
@@ -1985,49 +1984,49 @@ namespace ColorSystem
         }
     }
 
-    int GetNearestLegalColorValue_RGB111(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB111(int nColorValue)
     {
         return (nColorValue ? 255 : 0);
     }
 
-    int GetNearestLegalColorValue_RGB222(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB222(int nColorValue)
     {
-        return ROUND_85(nColorValue);
+        return static_cast<uint8_t>(abs(ROUND_85(nColorValue)));
     }
 
-    int GetNearestLegalColorValue_RGB333(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB333(int nColorValue)
     {
-        return ROUND_36(nColorValue);
+        return static_cast<uint8_t>(abs(ROUND_36(nColorValue)));
     }
 
-    int GetNearestLegalColorValue_RGB444(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB444(int nColorValue)
     {
-        return ROUND_17(nColorValue);
+        return static_cast<uint8_t>(abs(ROUND_17(nColorValue)));
     }
 
-    int GetNearestLegalColorValue_RGB555_CPS3(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB555_CPS3(int nColorValue)
     {
-        return (nColorValue / 8) * 8;
+        return static_cast<uint8_t>(abs((nColorValue / 8) * 8));
     }
 
-    int GetNearestLegalColorValue_RGB555_Normal(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB555_Normal(int nColorValue)
     {
-        return ROUND_8(nColorValue);
+        return static_cast<uint8_t>(abs(ROUND_8(nColorValue)));
     }
 
-    int GetNearestLegalColorValue_SharpCLUT(int nColorValue)
+    uint8_t GetNearestLegalColorValue_SharpCLUT(int nColorValue)
     {
         bool fIsNegative = (nColorValue < 0);
-        int nConvertedVal = Convert32ToSharpRGB(abs(nColorValue));
+        int nConvertedVal = Convert32ToSharpRGB(static_cast<uint8_t>(abs(nColorValue)));
 
         nConvertedVal = Get8BitValueForColorStep_32Steps_SharpCLUT(nConvertedVal);
 
-        return nConvertedVal * (fIsNegative ? -1 : 1);
+        return static_cast<uint8_t>(abs(nConvertedVal * (fIsNegative ? -1 : 1)));
     }
 
-    int GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue)
+    uint8_t GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue)
     {
-        bool fIsNegative = (nColorValue < 0);
+        const bool fIsNegative = (nColorValue < 0);
         uint8_t nColorIndex = 1;
 
         for (; nColorIndex < NGColorVals.size(); nColorIndex += 2)
@@ -2039,10 +2038,10 @@ namespace ColorSystem
         }
 
         int nConvertedVal = NGColorVals[nColorIndex];
-        return nConvertedVal * (fIsNegative ? -1 : 1);
+        return static_cast<uint8_t>(abs(nConvertedVal * (fIsNegative ? -1 : 1)));
     }
     
-    int GetNearestLegal8bitColorValue_FromACR8Bit(int nColorValue)
+    uint8_t GetNearestLegal8bitColorValue_FromACR8Bit(int nColorValue)
     {
         // Weird 0...0x80 option
         nColorValue = (nColorValue * 255) / 128;
@@ -2053,7 +2052,7 @@ namespace ColorSystem
             nColorValue = max(nColorValue, -255);
         }
 
-        return nColorValue;
+        return static_cast<uint8_t>(abs(nColorValue));
     }
 
     int ValidateColorStep_RGB222(int nColorStep)
@@ -2092,9 +2091,9 @@ namespace ColorSystem
         return min(nColorStep, k_nRGBPlaneAmtForRGB888);
     }
 
-    int GetNearestLegalColorValue_RGB888(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB888(int nColorValue)
     {
-        return nColorValue;
+        return static_cast<uint8_t>(abs(nColorValue));
     };
 
     AlphaMode GetAlphaMode()

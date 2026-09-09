@@ -169,12 +169,12 @@ void CPalModApp::UpdateForNewImageGameFlag()
     if (CurrGame)
     {
         //Load the game's image set
-        m_fIsImageLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame());
+        m_fIsImageLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), static_cast<uint16_t>(CurrGame->GetGameFlag()), static_cast<uint8_t>(CurrGame->GetImgGameFlag()), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame());
 
         if (!m_fIsImageLoaded)
         {
             CString strMessage;
-            strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, IMGDATFILE, ImgStr, IMGDATFILE);
+            strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, IMGDATFILE, ImgStr.GetString(), IMGDATFILE);
             MessageBox(g_appHWnd, strMessage, GetAppName(), MB_ICONERROR);
         }
     }

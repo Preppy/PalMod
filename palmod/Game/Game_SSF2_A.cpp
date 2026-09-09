@@ -60,9 +60,9 @@ void DumpPortHeaders()
 
     // 0x13d0c ryu 04 start
     const auto c_03CharacterStart = 0x13d0c;
-    const auto port03start = 0x2e370;
+    //const auto port03start = 0x2e370;
     const auto c_dwPalSize = 0x20;
-    const auto c_dwPortraitPalSize = 0x80;
+    //const auto c_dwPortraitPalSize = 0x80;
 
     auto dwCurCharacterPos = c_03CharacterStart;
 

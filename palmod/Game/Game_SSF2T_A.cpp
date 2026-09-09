@@ -160,8 +160,6 @@ void DumpHeaders()
 
         for (auto& colorname : strColorNames)
         {
-            CString strOutput;
-
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SSF2T_A_%s_09NL_%s, ARRAYSIZE(SSF2T_A_%s_09NL_%s) },\r\n", colorname.c_str(), character.CodeName.c_str(), colorname.c_str(), character.CodeName.c_str(), colorname.c_str());
             OutputDebugString(strOutput.GetString());
         }

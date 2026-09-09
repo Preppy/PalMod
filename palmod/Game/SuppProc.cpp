@@ -63,7 +63,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32
             pDestinationPalette[iPos] = 0xFF000000 | RGB(0xff, 0xff, 0xff);
         }
 
-        WritePal(char_id, destination_palette, pDestinationPalette, -1);
+        WritePal(char_id, destination_palette, pDestinationPalette, INVALID_UNIT_VALUE_16);
 
         safe_delete(pDestinationPalette);
     }
@@ -184,7 +184,7 @@ void CSecondaryPaletteProcessing::ProcessBlendEffects(uint32_t char_id, uint32_t
 
         for (uint16_t offset = 0; offset < index_amt; offset++)
         {
-            COLORREF input_col = pSourcePalette[offset + src_index];
+            //COLORREF input_col = pSourcePalette[offset + src_index];
 
             uint8_t alpha =  (pSourcePalette[offset + src_index] & 0xff000000) >> 24;
             uint16_t blue =  (pSourcePalette[offset + src_index] & 0x00ff0000) >> 16;
@@ -201,7 +201,7 @@ void CSecondaryPaletteProcessing::ProcessBlendEffects(uint32_t char_id, uint32_t
 
             red =   GetNearestLegal8BitColorValue_RGB_impl(red);
             green = GetNearestLegal8BitColorValue_RGB_impl(green);
-            blue = GetNearestLegal8BitColorValue_RGB_impl(blue);
+            blue =  GetNearestLegal8BitColorValue_RGB_impl(blue);
 
             COLORREF blended_col = RGB(red, green, blue) | (alpha << 24);
 

@@ -66,7 +66,7 @@ void CGame_CFJ_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
 }
 
-BOOL CGame_CFE_P::LoadFile(CFile* LoadedFile, uint32_t nUnitId /* = 0 */)
+BOOL CGame_CFE_P::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId = 0 */)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)
     {
@@ -133,7 +133,7 @@ BOOL CGame_CFE_P::LoadFile(CFile* LoadedFile, uint32_t nUnitId /* = 0 */)
     return TRUE;
 }
 
-BOOL CGame_CFE_P::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+BOOL CGame_CFE_P::SaveFile(CFile* SaveFile, uint32_t /* nUnitId */)
 {
     uint32_t nTotalPalettesSaved = 0;
 
@@ -200,7 +200,7 @@ BOOL CGame_CFE_P::SaveFile(CFile* SaveFile, uint32_t nUnitId)
     return TRUE;
 }
 
-BOOL CGame_CFJ_S::LoadFile(CFile* LoadedFile, uint32_t nUnitId /* = 0 */)
+BOOL CGame_CFJ_S::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId = 0 */)
 {
     static bool s_fShownSadnessOnce = false;
 
@@ -266,7 +266,7 @@ BOOL CGame_CFJ_S::LoadFile(CFile* LoadedFile, uint32_t nUnitId /* = 0 */)
     return TRUE;
 }
 
-BOOL CGame_CFJ_S::SaveFile(CFile* SaveFile, uint32_t nUnitId)
+BOOL CGame_CFJ_S::SaveFile(CFile* /* SaveFile */, uint32_t /* nUnitId */)
 {
     static bool s_fShownSadnessOnce = false;
 

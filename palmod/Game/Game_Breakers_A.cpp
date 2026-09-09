@@ -157,8 +157,6 @@ void CGame_BREAKERS_A::DumpAllCharacters()
 
     for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
-        uint32_t nCurrentCharacterOffset = 0;
-        uint16_t nPaletteCount = 0;
         CString strOutput;
         wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 

@@ -4595,18 +4595,18 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_PARTS[] =
     { L"32BG.0.0.2", 0x58762, 0x587a2 },
     { L"8BG (Unknown 2)", 0x38672, 0x38692 },
 
-    { L"32BG.1.1.1", 0x5d042, 0x5d062, indexCPS2Sprites_VSAV1_Stages, -1, &pairNextAndNext },
+    { L"32BG.1.1.1", 0x5d042, 0x5d062, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNextAndNext },
     { L"32BG.1.1.2", 0x5d082, 0x5d0a2 },
     { L"32BG.1.1.3", 0x5d0c2, 0x5d0e2 },
 
-    { L"32BG.1.2.1", 0x5d062, 0x5d082, indexCPS2Sprites_VSAV1_Stages, -1, &pairNextAndNext },
+    { L"32BG.1.2.1", 0x5d062, 0x5d082, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNextAndNext },
     { L"32BG.1.2.2", 0x5d0a2, 0x5d0c2 },
     { L"32BG.1.2.3", 0x5d0e2, 0x5d102 },
 
-    { L"8BG.1.1.1", 0x38C92, 0x38d72, indexCPS2Sprites_VSAV1_Stages, -1, &pairNext },
+    { L"8BG.1.1.1", 0x38C92, 0x38d72, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNext },
     { L"8BG.1.1.2", 0x38d72, 0x38e52 },
 
-    { L"SS.1.0.1", 0x2168a, 0x216ca, indexCPS2Sprites_VSAV1_Stages, -1, &pairNext },
+    { L"SS.1.0.1", 0x2168a, 0x216ca, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNext },
     { L"SS.1.0.2", 0x216ca, 0x2170a },
 
     { L"SS.2.0.1", 0x215ca, 0x2168a },
@@ -4633,18 +4633,18 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FETUS_EX_PARTS[] =
     { L"32BG.0.0.2", 0x58762 + 0x6e60, 0x587a2 + 0x6e60 },
     { L"8BG (Unknown 2)", 0x38672 + 0x5520, 0x38692 + 0x5520 },
 
-    { L"32BG.1.1.1", 0x5d042 + 0x6e60, 0x5d062 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, -1, &pairNextAndNext },
+    { L"32BG.1.1.1", 0x5d042 + 0x6e60, 0x5d062 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNextAndNext },
     { L"32BG.1.1.2", 0x5d082 + 0x6e60, 0x5d0a2 + 0x6e60 },
     { L"32BG.1.1.3", 0x5d0c2 + 0x6e60, 0x5d0e2 + 0x6e60 },
 
-    { L"32BG.1.2.1", 0x5d062 + 0x6e60, 0x5d082 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, -1, &pairNextAndNext },
+    { L"32BG.1.2.1", 0x5d062 + 0x6e60, 0x5d082 + 0x6e60, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNextAndNext },
     { L"32BG.1.2.2", 0x5d0a2 + 0x6e60, 0x5d0c2 + 0x6e60 },
     { L"32BG.1.2.3", 0x5d0e2 + 0x6e60, 0x5d102 + 0x6e60 },
 
-    { L"8BG.1.1.1", 0x38C92 + 0x5520, 0x38d72 + 0x5520, indexCPS2Sprites_VSAV1_Stages, -1, &pairNext },
+    { L"8BG.1.1.1", 0x38C92 + 0x5520, 0x38d72 + 0x5520, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNext },
     { L"8BG.1.1.2", 0x38d72 + 0x5520, 0x38e52 + 0x5520 },
 
-    { L"SS.1.0.1", 0x2168a + 0x1b20, 0x216ca + 0x1b20, indexCPS2Sprites_VSAV1_Stages, -1, &pairNext },
+    { L"SS.1.0.1", 0x2168a + 0x1b20, 0x216ca + 0x1b20, indexCPS2Sprites_VSAV1_Stages, INVALID_UNIT_VALUE_8, &pairNext },
     { L"SS.1.0.2", 0x216ca + 0x1b20, 0x2170a + 0x1b20 },
 
     { L"SS.2.0.1", 0x215ca + 0x1b20, 0x2168a + 0x1b20 },

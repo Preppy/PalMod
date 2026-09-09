@@ -73,7 +73,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /*
                     READFROMFILEANDDECREMENT(IHDRBuffer, sizeof(IHDRBuffer));
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
-                    uint32_t bitDepth = IHDRBuffer[0];
+                    //uint32_t bitDepth = IHDRBuffer[0];
                     char colorType = IHDRBuffer[1];
 
                     if ((colorType == 0) || (colorType == 4)) // grayscale options
@@ -155,7 +155,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /*
                         int nOffsetThisPass = 0;
                         for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                         {
-                            for (iPNGIndex = nOffsetThisPass; (iPNGIndex < nTotalNumberOfCurrentPaletteColors) && ((iPNGIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz) && (iPNGIndex < nPNGColorCount); iPNGIndex++)
+                            for (iPNGIndex = static_cast<uint16_t>(nOffsetThisPass); (iPNGIndex < nTotalNumberOfCurrentPaletteColors) && ((iPNGIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz) && (iPNGIndex < nPNGColorCount); iPNGIndex++)
                             {
                                 const int iIndexToUse = fShouldProcessTopdown ? iPNGIndex : (nPNGColorCount - 1 - iPNGIndex);
                                 if ((rgchPaletteData.at(iIndexToUse * 3) != 0) ||
@@ -219,7 +219,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /*
                     else
                     {
                         // TODO: Maybe ask the user before flipping?
-                        iPNGIndex = nPNGColorCount - 1;
+                        iPNGIndex = static_cast<uint16_t>(nPNGColorCount - 1);
                         fHadToFlip = true;
                         iCurrentIndexInPalette = 0;
                         nCurrentPalette = 0;
@@ -239,7 +239,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /*
                             {
                                 // If the palette is larger than our PNG, loop it.
                                 fHaveLooped = true;
-                                iPNGIndex = nTotalNumberOfCurrentPaletteColors;
+                                iPNGIndex = static_cast<uint16_t>(nTotalNumberOfCurrentPaletteColors);
                             }
 
                             iCurrentIndexInPalette++;
@@ -440,7 +440,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /*
                                         if (rgColorCounts.at(iColorIndex).second == rgIndexCounts.at(iIndexIndex).second)
                                         {
                                             fMatchFound = true;
-                                            const uint16_t nSpecifiedIndex = rgIndexCounts.at(iIndexIndex).first;
+                                            const uint16_t nSpecifiedIndex = static_cast<uint16_t>(rgIndexCounts.at(iIndexIndex).first);
 
                                             // Ignore for now if it's using any index outside of the first palette.
                                             if (nSpecifiedIndex < vIndexToColorMap.size())
@@ -504,8 +504,8 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /*
                                                     {
                                                         fMatchFound = true;
 
-                                                        const uint16_t nFirstSpecifiedIndex = rgIndexCounts.at(iFirstIndexIndex).first;
-                                                        const uint16_t nSecondSpecifiedIndex = rgIndexCounts.at(iSecondIndexIndex).first;
+                                                        const uint16_t nFirstSpecifiedIndex = static_cast<uint16_t>(rgIndexCounts.at(iFirstIndexIndex).first);
+                                                        const uint16_t nSecondSpecifiedIndex = static_cast<uint16_t>(rgIndexCounts.at(iSecondIndexIndex).first);
 
                                                         if (nFirstSpecifiedIndex < vIndexToColorMap.size())
                                                         {

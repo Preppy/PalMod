@@ -769,7 +769,9 @@ BOOL CPalModDlg::HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionS
         bi.lpfn = OnBrowseDialog;
         bi.lParam = nDefaultGameFlag;
 
-        if (pidl = ::SHBrowseForFolder(&bi))
+        pidl = ::SHBrowseForFolder(&bi);
+
+        if (pidl)
         {
             if (::SHGetPathFromIDList(pidl, szBuffer))
             {
@@ -790,49 +792,49 @@ BOOL CPalModDlg::HaveUserPickADirectory(CString* strOut, LPCWSTR pszDescriptionS
 
 void CPalModDlg::OnPalSelShiftLeft()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
-        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Left);
+        m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Left);
     }
 }
 
 void CPalModDlg::OnPalSelShiftRight()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
-        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
+        m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
     }
 }
 
 void CPalModDlg::OnPalSelShiftUp()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
-        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Up);
+        m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Up);
     }
 }
 
 void CPalModDlg::OnPalSelShiftDown()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
-        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Down);
+        m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Down);
     }
 }
 
 void CPalModDlg::OnPalSelPlus()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
-        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Plus);
+        m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Plus);
     }
 }
 
 void CPalModDlg::OnPalSelMinus()
 {
-    if (CurrPalCtrl)
+    if (m_CurrPalCtrl)
     {
-        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Minus);
+        m_CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Minus);
     }
 }
 
@@ -1067,9 +1069,9 @@ void CPalModDlg::ClearGameVar()
     m_fLoadUnit = TRUE;
     m_nPrevUnitSel = m_nPrevChildSel1 = m_nPrevChildSel2 = 0xFF;
 
-    CurrPalDef = nullptr;
-    CurrPalSep = nullptr;
-    CurrPalCtrl = nullptr;
+    m_CurrPalDef = nullptr;
+    m_CurrPalSep = nullptr;
+    m_CurrPalCtrl = nullptr;
 
     //Set the edits to 0
     UpdateData();

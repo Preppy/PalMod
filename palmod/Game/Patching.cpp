@@ -10,7 +10,7 @@ bool CGameClass::UserWantsAllPalettesInPatch()
     return (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
 }
 
-uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
+uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t /* nUnitId */)
 {
     const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();
 
@@ -38,9 +38,9 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
                 }
 
                 // Location
-                BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
-                BYTE b2 = (m_nCurrentPaletteROMLocation & 0xFF00) >> 8;
-                BYTE b3 = m_nCurrentPaletteROMLocation & 0xFF;
+                BYTE b1 = static_cast<BYTE>((m_nCurrentPaletteROMLocation & 0xFF0000) >> 16);
+                BYTE b2 = static_cast<BYTE>((m_nCurrentPaletteROMLocation & 0xFF00) >> 8);
+                BYTE b3 = static_cast<BYTE>(m_nCurrentPaletteROMLocation & 0xFF);
                 PatchFile->Write(&b1, 1);
                 PatchFile->Write(&b2, 1);
                 PatchFile->Write(&b3, 1);
@@ -153,7 +153,7 @@ uint32_t CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                //uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
 
                 const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 
@@ -216,9 +216,9 @@ uint32_t CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
                 CFile* pIPS2 = (nSIMMSetToUse == 0) ? &fileIPS2 : &fileIPS4;
 
                 // Location
-                BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
-                BYTE b2 = (m_nCurrentPaletteROMLocation & 0xFF00) >> 8;
-                BYTE b3 = m_nCurrentPaletteROMLocation & 0xFF;
+                BYTE b1 = static_cast<BYTE>((m_nCurrentPaletteROMLocation & 0xFF0000) >> 16);
+                BYTE b2 = static_cast<BYTE>((m_nCurrentPaletteROMLocation & 0xFF00) >> 8);
+                BYTE b3 = static_cast<BYTE>(m_nCurrentPaletteROMLocation & 0xFF);
                 pIPS1->Write(&b1, 1);
                 pIPS1->Write(&b2, 1);
                 pIPS1->Write(&b3, 1);

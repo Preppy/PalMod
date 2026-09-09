@@ -9,7 +9,7 @@
 
 uint32_t CGameClassPerUnitPerFile::m_uRuleCtr = 0;
 CDescTree CGameClassPerUnitPerFile::m_MainDescTree = nullptr;
-uint32_t CGameClassPerUnitPerFile::m_nConfirmedROMSize = -1;
+uint32_t CGameClassPerUnitPerFile::m_nConfirmedROMSize = INVALID_VALUE_32;
 
 std::wstring CGameClassPerUnitPerFile::m_strGameFriendlyName;
 SupportedGamesList CGameClassPerUnitPerFile::m_snCurrentGameFlag = SupportedGamesList::NUM_GAMES;
@@ -45,7 +45,7 @@ sFileRule CGameClassPerUnitPerFile::GetNextRule(const std::vector<sGCBUPF_BasicF
     return NewFileRule;
 }
 
-void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCPUPF_CoreGameData& gameLoadingData)
+void CGameClassPerUnitPerFile::InitializeGame(uint32_t /* nConfirmedROMSize */, const sGCPUPF_CoreGameData& gameLoadingData)
 {
     //Set game-game specific information before loading the game's known palette locations
     m_strGameFriendlyName = gameLoadingData.strGameFriendlyName;
@@ -625,7 +625,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
 
             m_pszCurrentPaletteName = GetBasicPaletteNameForPalette(nCharacterId, nRelativePalId);
             m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nInitialLocation + (m_psCurrentGameLoadingData->cbDefaultPaletteSize * nRelativePalId);
-            m_nCurrentPaletteSizeInColors = m_psCurrentGameLoadingData->cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(m_psCurrentGameLoadingData->cbDefaultPaletteSize / m_nSizeOfColorsInBytes);
 
             if (nPaletteSet)
             {
@@ -646,7 +646,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
 
             m_pszCurrentPaletteName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).szPaletteName;
             m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes);
         }
     }
     else // PaletteArrangementStyle::OneButtonLabelEntryPerEachNode
@@ -666,7 +666,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
             {
                 m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nRelativePalId).nPaletteShiftFromBase;
             }
-            m_nCurrentPaletteSizeInColors = m_psCurrentGameLoadingData->cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(m_psCurrentGameLoadingData->cbDefaultPaletteSize / m_nSizeOfColorsInBytes);
         }
         else // effects palettes
         {
@@ -675,7 +675,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
 
             m_pszCurrentPaletteName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).szPaletteName;
             m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes);
         }
     }
 
@@ -738,7 +738,7 @@ bool CGameClassPerUnitPerFile::CreateImageIfPaired(ImagePairing pairingType, int
                     break;
                 default:
                     // Anything past this just gets default pairing
-                    vnPeerPaletteDistances.push_back(nPairIndex);
+                    vnPeerPaletteDistances.push_back(static_cast<int8_t>(nPairIndex));
                     break;
             }
 
@@ -906,7 +906,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             // The following logic locks us in as having each node contain one full palette set.  Any additional nodes
             // will also contain a full palette set.  If the palette set is instead spread one palette per node, this logic
             // will need to be updated.
-            const int nPaletteSetOfInterest = static_cast<int>(floor(static_cast<double>(nFilePalId) / static_cast<double>(GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId))));
+            //const int nPaletteSetOfInterest = static_cast<int>(floor(static_cast<double>(nFilePalId) / static_cast<double>(GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId))));
             nSrcStart = CharacterNode->uPalId - nFilePalId;
             nSelectedPaletteIndex = CharacterNode->uPalId;
             nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImageUnitIndex;

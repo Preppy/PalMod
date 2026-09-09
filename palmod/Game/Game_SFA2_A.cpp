@@ -244,7 +244,7 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
     if (fShouldDumpPalettesFor7)
     {
-        const uint32_t nStatusEffectBase = 0x72e60;
+        //const uint32_t nStatusEffectBase = 0x72e60;
         const uint16_t nCountStatusEffects = 16; // ... O_o
         const uint16_t nPalettesPerColor = 5;
 
@@ -872,7 +872,7 @@ void DumpSFA2_Hack_Headers(CFile* LoadedFile)
     }
 }
 
-BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
 {
     // DumpSFA2_Hack_Headers(LoadedFile);
 
@@ -1040,7 +1040,7 @@ BOOL CGame_SFA2_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
                     fWasImageLoadHandled = true;
 
-                    const uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
+                    const uint16_t nPeerPaletteIdInNode = static_cast<uint16_t>(Node03 + nDeltaToSecondElement);
                     const uint32_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 
                     const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
@@ -1222,7 +1222,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             }
         }
 
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+        m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // SFA2_A_EXTRALOC

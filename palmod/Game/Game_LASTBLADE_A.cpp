@@ -9,7 +9,7 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(uint32_t nConfirmedROMSize, SupportedGamesL
     InitializeGame(nConfirmedROMSize, (nROMToLoad == LASTBLADE_A) ? m_sCoreGameData_NeoGeo : m_sCoreGameData_Steam);
 }
 
-sFileRule CGame_LASTBLADE_A::GetRule(SupportedGamesList nGameId, uint32_t nUnitId)
+sFileRule CGame_LASTBLADE_A::GetRule(SupportedGamesList nGameId, uint32_t /* nUnitId */)
 {
     sFileRule NewFileRule;
 
@@ -172,8 +172,6 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
 
     for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(LASTBLADE_A_CharacterOffsetArray); iUnitCtr++)
     {
-        uint32_t nCurrentCharacterOffset = 0;
-        uint16_t nPaletteCount = 0;
         CString strOutput;
         wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 

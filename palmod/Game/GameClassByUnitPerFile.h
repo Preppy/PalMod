@@ -126,7 +126,7 @@ public:
     void LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId);
     void LoadSpecificPaletteData(uint32_t nCharacterUnitId, uint32_t nDisplayPalId);
 
-    CGameClassPerUnitPerFile(uint32_t nConfirmedROMSize = -1) {};
+    CGameClassPerUnitPerFile(uint32_t nConfirmedROMSize = -1) { UNREFERENCED_PARAMETER(nConfirmedROMSize); };
     ~CGameClassPerUnitPerFile() {};
 
     CDescTree* GetMainTree() { return &m_MainDescTree; };

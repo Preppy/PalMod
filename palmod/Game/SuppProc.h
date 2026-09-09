@@ -45,7 +45,7 @@ protected:
 public:
     virtual uint16_t GetCurrentPaletteSizeInColors() = 0;
     virtual void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA) = 0;
-    virtual int GetNearestLegal8BitColorValue_RGB_impl(int inCol) = 0;
+    virtual uint8_t GetNearestLegal8BitColorValue_RGB_impl(int inCol) = 0;
     virtual COLORREF* CreatePal(uint32_t nUnitId, uint32_t nPalId) = 0;
     virtual void WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount) = 0;
     virtual void MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId) = 0;

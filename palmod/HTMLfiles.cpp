@@ -6,7 +6,7 @@
 // This code enables conversion of the image layout to a simple HTML layout.
 // It's largely proof of concept: from here you potentially could do fairly interesting things.
 
-void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszSuggestedFileName)
+void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR /* pszSuggestedFileName */)
 {
     CString strOutputFilename;
     const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
@@ -129,7 +129,7 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                     const uint32_t iAdjustedColor = iCurrentColor + iTotalPaletteEntryCount;
 
                     const uint32_t nCurrentPosition = iCurrentColor * 4;
-                    const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
+                    //const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
                     const uint8_t currBVal = pCurrPal[nCurrentPosition + 2];
                     const uint8_t currGVal = pCurrPal[nCurrentPosition + 1];
                     const uint8_t currRVal = pCurrPal[nCurrentPosition];
@@ -180,7 +180,7 @@ void CImgOutDlg::ExportToHTML(CString save_str, CString output_ext, LPCWSTR pszS
                     }
 
                     const uint32_t nCurrentPosition = iCurrentColor * 4;
-                    const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
+                    //const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
                     const uint8_t currBVal = pCurrPal[nCurrentPosition + 2];
                     const uint8_t currGVal = pCurrPal[nCurrentPosition + 1];
                     const uint8_t currRVal = pCurrPal[nCurrentPosition];

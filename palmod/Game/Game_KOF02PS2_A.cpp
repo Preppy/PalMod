@@ -11,7 +11,6 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
     {
         constexpr auto WINPORTRAIT_BASE_OFFSET = 0x3bae00;
         uint32_t nCurrentCharacterOffset = 0;
-        uint16_t nPaletteCount = 0;
         CString strOutput;
         wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
@@ -38,7 +37,6 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
     {
         constexpr auto LIFEBARPORTRAIT_BASE_OFFSET = 0x3b9560;
         uint32_t nCurrentCharacterOffset = 0;
-        uint16_t nPaletteCount = 0;
         CString strOutput;
         wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
@@ -225,8 +223,6 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
 
     for (uint16_t iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
     {
-        uint32_t nCurrentCharacterOffset = 0;
-        uint16_t nPaletteCount = 0;
         CString strOutput;
         wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 

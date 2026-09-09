@@ -207,7 +207,7 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
     bool fSuccess = false;
     bool fUserWantsToApply = true;
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    const SupportedGamesList gameID = CurrGame->GetGameFlag();
+    //const SupportedGamesList gameID = CurrGame->GetGameFlag();
 
     CFile CFPLFile;
     if (CFPLFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
@@ -286,13 +286,13 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             }
         }
 
-        uint8_t nColorPositionToWriteTo = -1;
+        uint8_t nColorPositionToWriteTo = INVALID_UNIT_VALUE_8;
 
         if (fCanUseCharacterAssignment)
         {
             if (m_nPrevUnitSel == nCollectionIndex) // This character is being displayed
             {
-                nColorPositionToWriteTo = m_nPrevChildSel1;
+                nColorPositionToWriteTo = static_cast<uint8_t>(m_nPrevChildSel1);
             }
             else
             {
@@ -421,7 +421,7 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
     fShouldShowGenericError = false;
 
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    const SupportedGamesList gameID = CurrGame->GetGameFlag();
+    //const SupportedGamesList gameID = CurrGame->GetGameFlag();
 
     CCFPLFileExportDialog cfplFileDialog(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).strCharacter.c_str());
 
@@ -477,7 +477,7 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
 
             const uint8_t k_nPalettesPerNodeThisGame = k_nPalettesPerNode_BBCF;
             // Make sure we've stepped by units of 8
-            const uint16_t nStartingPaletteAdjustment = k_nPalettesPerNode_BBCF * m_nPrevChildSel1;
+            const uint16_t nStartingPaletteAdjustment = static_cast<uint16_t>(k_nPalettesPerNode_BBCF * m_nPrevChildSel1);
 
             // Now write the actual palettes
             for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerNodeThisGame; nPaletteId++)

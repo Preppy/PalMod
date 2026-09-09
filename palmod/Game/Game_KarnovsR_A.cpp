@@ -112,7 +112,6 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairHandledInCode))
                     {
                         sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
-                        const sGame_PaletteDataset* paletteDataSetToJoin = nullptr;
 
                         const int iPorKIndex = (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2_PK[0]) == 0) ? 0 : 1;
                         int iCollectionIndex = 0;
@@ -135,7 +134,6 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                         if (wcscmp(unitWeakpoint->szDesc, k_krNameKey_WeakpointUnit) == 0)
                         {
                             fWasImageLoadHandled = true;
-                            const int8_t nPeerPaletteDistance = 1;
 
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,

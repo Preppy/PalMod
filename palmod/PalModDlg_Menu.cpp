@@ -248,14 +248,14 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                             pszMvC2CrossPlatform_DCPS2 = L"Copy colors to DC";
                         }
 
-                        MENUITEMINFO mii = { 0 };
+                        MENUITEMINFO miiCopyCross = { 0 };
 
-                        mii.cbSize = sizeof(MENUITEMINFO);
-                        mii.fMask = MIIM_ID | MIIM_STRING;
-                        mii.wID = ID_FILE_CROSSPATCH_DCPS2;
-                        mii.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform_DCPS2);
+                        miiCopyCross.cbSize = sizeof(MENUITEMINFO);
+                        miiCopyCross.fMask = MIIM_ID | MIIM_STRING;
+                        miiCopyCross.wID = ID_FILE_CROSSPATCH_DCPS2;
+                        miiCopyCross.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform_DCPS2);
 
-                        pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
+                        pPopupMenu->InsertMenuItem(iMenuPos, &miiCopyCross, TRUE);
 
                         if ((eCurGame == MVC2_D) ||
                             (eCurGame == MVC2_S))
@@ -264,14 +264,14 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
                             LPCWSTR pszMvC2CrossPlatform_Steam = L"Copy colors to Steam";
 
-                            MENUITEMINFO mii = { 0 };
+                            MENUITEMINFO miiCopySteam = { 0 };
 
-                            mii.cbSize = sizeof(MENUITEMINFO);
-                            mii.fMask = MIIM_ID | MIIM_STRING;
-                            mii.wID = ID_FILE_CROSSPATCH_STEAM;
-                            mii.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform_Steam);
+                            miiCopySteam.cbSize = sizeof(MENUITEMINFO);
+                            miiCopySteam.fMask = MIIM_ID | MIIM_STRING;
+                            miiCopySteam.wID = ID_FILE_CROSSPATCH_STEAM;
+                            miiCopySteam.dwTypeData = const_cast<LPWSTR>(pszMvC2CrossPlatform_Steam);
 
-                            pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
+                            pPopupMenu->InsertMenuItem(iMenuPos, &miiCopySteam, TRUE);
                         }
 
                         break;

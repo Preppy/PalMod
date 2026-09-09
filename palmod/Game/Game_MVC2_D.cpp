@@ -614,8 +614,6 @@ uint32_t CGame_MVC2_D::CountExtraRg(uint32_t nUnitId, BOOL fCountIsOfSharedExtra
             return 7;
         }
     }
-
-    return 0;
 }
 
 sFileRule CGame_MVC2_D::GetRuleDC(uint32_t nMaskedUnsortedRuleId)
@@ -642,7 +640,7 @@ sFileRule CGame_MVC2_D::GetRuleDC(uint32_t nMaskedUnsortedRuleId)
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"TeamViewIsNotReal-%02X", nMaskedUnsortedRuleId);
 
         NewFileRule.uUnitId = nMaskedUnsortedRuleId;
-        NewFileRule.uVerifyVar = -1;
+        NewFileRule.uVerifyVar = static_cast<size_t>(-1);
     }
 
     return NewFileRule;
@@ -675,7 +673,7 @@ sFileRule CGame_MVC2_D::GetRuleSteam(uint32_t nMaskedUnsortedRuleId)
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"TeamViewIsNotReal-%02X", nMaskedUnsortedRuleId);
 
         NewFileRule.uUnitId = nMaskedUnsortedRuleId;
-        NewFileRule.uVerifyVar = -1;
+        NewFileRule.uVerifyVar = static_cast<size_t>(-1);
     }
 
     return NewFileRule;
@@ -734,7 +732,7 @@ uint32_t CGame_MVC2_D::GetBasicOffset(uint32_t nPalId)
     if (nPalId >= static_cast<uint32_t>(8 * k_mvc2_character_coloroption_count))
     {
         // This palette is in the Extra group for this character
-        return -1;
+        return INVALID_VALUE_32;
     }
     else
     {

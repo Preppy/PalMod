@@ -464,7 +464,7 @@ const sGame_PaletteDataset KOF02UM_S_STAGE_PALETTES_CLONEZERO[] =
     { L"Clone Zero Stage Asset 8", 0x1c1c80, 0x1c2080, indexKOF02UMSprites_Stages, 0x38 },
     { L"Clone Zero Stage Asset 9", 0x202080, 0x202480, indexKOF02UMSprites_Stages, 0x39 },
     { L"Clone Zero Stage Asset 10", 0x242480, 0x242880, indexKOF02UMSprites_Stages, 0x3a },
-    { L"Clone Zero Stage Asset 11", 0x282880, 0x282c80, indexKOF02UMSprites_Stages, -1 },
+    { L"Clone Zero Stage Asset 11", 0x282880, 0x282c80, indexKOF02UMSprites_Stages, INVALID_UNIT_VALUE_8 },
     { L"Clone Zero Stage Asset 12", 0x2c2c80, 0x2c3080, indexKOF02UMSprites_Stages, 0x3b, &pairNext },
     { L"Clone Zero Stage Asset 13", 0x303080, 0x303480, indexKOF02UMSprites_Stages, 0x3c },
     { L"Clone Zero Stage Asset 14", 0x343480, 0x343880, indexKOF02UMSprites_Stages, 0x3d },

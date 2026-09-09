@@ -627,7 +627,7 @@ bool CGameLoad::SaveGame(CGameClass* CurrGame)
         if ((GetFileAttributes(strErrorFile)) == INVALID_FILE_ATTRIBUTES)
         {
             uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
-            strError.Format(uErrorString, strErrorFile);
+            strError.Format(uErrorString, strErrorFile.GetString());
         }
         else
         {
@@ -742,7 +742,7 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
                         uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
                     }
 
-                    strError.Format(uErrorString, strFileName);
+                    strError.Format(uErrorString, strFileName.GetString());
                     MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
                 }
             }

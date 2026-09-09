@@ -872,18 +872,18 @@ const sGame_PaletteDataset COTA_A_PORTRAIT_PALETTES_LOST[] =
 {
     // These are speculative and not verified.
     // They use unique art we do not have ripped.
-    { L"Sentinel",      0x37932, 0x37952, indexCPS2Sprites_Sentinel, -1 },
-    { L"Wolverine",     0x37952, 0x37972, indexCPS2Sprites_Wolverine, -1 },
-    { L"Juggernaut",    0x37972, 0x37992, indexCPS2Sprites_Juggy, -1 },
-    { L"Silver Samurai", 0x37992, 0x379b2, indexCPS2Sprites_SilverSamurai, -1 },
-    { L"Cyclops",       0x379b2, 0x379d2, indexCPS2Sprites_Cyclops, -1 },
-    { L"Iceman",        0x379d2, 0x379f2, indexCPS2Sprites_Iceman, -1 },
-    { L"Omega Red",     0x379f2, 0x37a12, indexCPS2Sprites_OmegaRed, -1 },
-    { L"Magneto",       0x37a12, 0x37a32, indexCPS2Sprites_Magneto, -1 },
-    { L"Storm",         0x37a32, 0x37a52, indexCPS2Sprites_Storm, -1 },
-    { L"Psylocke",      0x37a52, 0x37a72, indexCPS2Sprites_Psylocke, -1 },
-    { L"Spiral",        0x37a72, 0x37a92, indexCPS2Sprites_Spiral, -1 },
-    { L"Colossus",      0x37a92, 0x37ab2, indexCPS2Sprites_Colossus, -1 },
+    { L"Sentinel",      0x37932, 0x37952, indexCPS2Sprites_Sentinel, INVALID_UNIT_VALUE_8 },
+    { L"Wolverine",     0x37952, 0x37972, indexCPS2Sprites_Wolverine, INVALID_UNIT_VALUE_8 },
+    { L"Juggernaut",    0x37972, 0x37992, indexCPS2Sprites_Juggy, INVALID_UNIT_VALUE_8 },
+    { L"Silver Samurai", 0x37992, 0x379b2, indexCPS2Sprites_SilverSamurai, INVALID_UNIT_VALUE_8 },
+    { L"Cyclops",       0x379b2, 0x379d2, indexCPS2Sprites_Cyclops, INVALID_UNIT_VALUE_8 },
+    { L"Iceman",        0x379d2, 0x379f2, indexCPS2Sprites_Iceman, INVALID_UNIT_VALUE_8 },
+    { L"Omega Red",     0x379f2, 0x37a12, indexCPS2Sprites_OmegaRed, INVALID_UNIT_VALUE_8 },
+    { L"Magneto",       0x37a12, 0x37a32, indexCPS2Sprites_Magneto, INVALID_UNIT_VALUE_8 },
+    { L"Storm",         0x37a32, 0x37a52, indexCPS2Sprites_Storm, INVALID_UNIT_VALUE_8 },
+    { L"Psylocke",      0x37a52, 0x37a72, indexCPS2Sprites_Psylocke, INVALID_UNIT_VALUE_8 },
+    { L"Spiral",        0x37a72, 0x37a92, indexCPS2Sprites_Spiral, INVALID_UNIT_VALUE_8 },
+    { L"Colossus",      0x37a92, 0x37ab2, indexCPS2Sprites_Colossus, INVALID_UNIT_VALUE_8 },
 };
 
 const sGame_PaletteDataset COTA_A_CSI_PALETTES[] =
@@ -2035,9 +2035,10 @@ const sDescTreeNode COTA_A_STAGE_COLLECTION[] =
 const sDescTreeNode COTA_A_BONUS_COLLECTION[] =
 {
     { L"HUD", DESC_NODETYPE_TREE, (void*)COTA_A_HUD_PALETTES, ARRAYSIZE(COTA_A_HUD_PALETTES) },
+    // These are used for both win and lose for both P1 and P2
     { L"Portraits", DESC_NODETYPE_TREE, (void*)COTA_A_PORTRAIT_PALETTES,                ARRAYSIZE(COTA_A_PORTRAIT_PALETTES) },
     // These are from 0x37932 to 0x37ab2 but have unique art
-    // These are not verified yet.
+    // These are not verified yet.  They don't appear to be used...?
     //{ L"Portraits (Defeated)", DESC_NODETYPE_TREE, (void*)COTA_A_PORTRAIT_PALETTES_LOST,                ARRAYSIZE(COTA_A_PORTRAIT_PALETTES_LOST) },
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)COTA_A_CSI_PALETTES,        ARRAYSIZE(COTA_A_CSI_PALETTES) },
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_SELECT_PALETTES,        ARRAYSIZE(COTA_A_BONUS_SELECT_PALETTES) },

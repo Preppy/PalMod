@@ -3955,14 +3955,14 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"VS Text Flash 1", 0x70c780, 0x70c800, index3SSprites_Bonus, 0x1e },
     { L"VS Text Flash 2", 0x70cc00, 0x70cc80, index3SSprites_Bonus, 0x1e },
 
-    { L"Opening ring animation + SA Text",  0x709D00, 0x709D80, index3SSprites_Bonus, -1, nullptr, &secondaryGreyTintEffects },
+    { L"Opening ring animation + SA Text",  0x709D00, 0x709D80, index3SSprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects },
         { L"Opening ring animation + SA Text (Faded)",  0x70eb00, 0x70eb80 },
 
     { L"SA Animation",                      0x77A280, 0x77A2A0, index3SSprites_Bonus, 0x1f },
     { L"P1 Impacts",                        0x76AC00, 0x76AC80, index3SSprites_Bonus, 0x1d },
     { L"P2 Impacts",                        0x76AC80, 0x76AD00, index3SSprites_Bonus, 0x1d },
 
-    { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80, index3SSprites_Bonus, -1, nullptr, &secondaryGreyTintEffects },
+    { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80, index3SSprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects },
         { L"Numerals, Inputs, Buttons: Super Art Selector (Faded)", 0x70ec00, 0x70ec80 },
     { L"Super Art Panels",                  0x709B00, 0x709B80, index3SSprites_Bonus, 0x13, nullptr, &secondaryGreyTintEffects },
         { L"Super Art Panels (Faded)",          0x70e900, 0x70e980, index3SSprites_Bonus, 0x13 },
@@ -4626,13 +4626,13 @@ const sGame_PaletteDataset SFIII3_A_STAGES_REMY_FADED_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_STAGES_BASKETBALL_PALETTES[] =
 {
-    { L"Basketball Bonus Stage (1/7)", 0x75f480 + (0 * 0x200), 0x75f480 + (1 * 0x200), index3SSprites_Stages, -1, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip6 },
-    { L"Basketball Bonus Stage (2/7)", 0x75f480 + (1 * 0x200), 0x75f480 + (2 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Basketball Bonus Stage (3/7)", 0x75f480 + (2 * 0x200), 0x75f480 + (3 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Basketball Bonus Stage (4/7)", 0x75f480 + (3 * 0x200), 0x75f480 + (4 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Basketball Bonus Stage (5/7)", 0x75f480 + (4 * 0x200), 0x75f480 + (5 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Basketball Bonus Stage (6/7)", 0x75f480 + (5 * 0x200), 0x75f480 + (6 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Basketball Bonus Stage (7/7)", 0x75f480 + (6 * 0x200), 0x760100, index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Basketball Bonus Stage (1/7)", 0x75f480 + (0 * 0x200), 0x75f480 + (1 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip6 },
+    { L"Basketball Bonus Stage (2/7)", 0x75f480 + (1 * 0x200), 0x75f480 + (2 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Basketball Bonus Stage (3/7)", 0x75f480 + (2 * 0x200), 0x75f480 + (3 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Basketball Bonus Stage (4/7)", 0x75f480 + (3 * 0x200), 0x75f480 + (4 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Basketball Bonus Stage (5/7)", 0x75f480 + (4 * 0x200), 0x75f480 + (5 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Basketball Bonus Stage (6/7)", 0x75f480 + (5 * 0x200), 0x75f480 + (6 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Basketball Bonus Stage (7/7)", 0x75f480 + (6 * 0x200), 0x760100, index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_BASKETBALL_FADED_PALETTES[] =
@@ -4648,15 +4648,15 @@ const sGame_PaletteDataset SFIII3_A_STAGES_BASKETBALL_FADED_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_STAGES_SUV_PALETTES[] =
 {
-    { L"SUV Bonus Stage (1/9)", 0x75d080 + (0 * 0x200), 0x75d080 + (1 * 0x200), index3SSprites_Stages, -1, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (2/9)", 0x75d080 + (1 * 0x200), 0x75d080 + (2 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (3/9)", 0x75d080 + (2 * 0x200), 0x75d080 + (3 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (4/9)", 0x75d080 + (3 * 0x200), 0x75d080 + (4 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (5/9)", 0x75d080 + (4 * 0x200), 0x75d080 + (5 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (6/9)", 0x75d080 + (5 * 0x200), 0x75d080 + (6 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (7/9)", 0x75d080 + (6 * 0x200), 0x75d080 + (7 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (8/9)", 0x75d080 + (7 * 0x200), 0x75d080 + (8 * 0x200), index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
-    { L"SUV Bonus Stage (9/9)", 0x75d080 + (8 * 0x200), 0x75e280, index3SSprites_Stages, -1, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (1/9)", 0x75d080 + (0 * 0x200), 0x75d080 + (1 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (2/9)", 0x75d080 + (1 * 0x200), 0x75d080 + (2 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (3/9)", 0x75d080 + (2 * 0x200), 0x75d080 + (3 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (4/9)", 0x75d080 + (3 * 0x200), 0x75d080 + (4 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (5/9)", 0x75d080 + (4 * 0x200), 0x75d080 + (5 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (6/9)", 0x75d080 + (5 * 0x200), 0x75d080 + (6 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (7/9)", 0x75d080 + (6 * 0x200), 0x75d080 + (7 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (8/9)", 0x75d080 + (7 * 0x200), 0x75d080 + (8 * 0x200), index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
+    { L"SUV Bonus Stage (9/9)", 0x75d080 + (8 * 0x200), 0x75e280, index3SSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip8 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_SUV_FADED_PALETTES[] =

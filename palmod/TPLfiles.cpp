@@ -32,7 +32,7 @@ void CPalModDlg::SavePaletteToTPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
         // The actual TPL 'standard' indicates that valid file length is 2^4, 2^5, 2^6, 2^6, or 2^8.
         // We will simplify to just use 2^8 / 256 for now.
         const uint16_t k_nColorsPerPalette = 256;
-        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
+        const uint8_t nPaletteCount = static_cast<uint8_t>(m_PalHost.GetCurrentPaletteCount());
 
         int nTotalColorsUsed = 0;
 

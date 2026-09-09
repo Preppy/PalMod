@@ -84,7 +84,6 @@ void CGame_SFA3_A::DumpHeaderPalettes()
 
     for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
     {
-        const uint16_t nPortraitsPerCharacter = 6;
         strOutput.Format(L"    { \"Select Portraits\", DESC_NODETYPE_TREE, (void*)SFA3_A_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_%s_PORTRAIT_PALETTES) },\r\n", SFA3_A_PortraitDataArray[nIndex].pszCodeName, SFA3_A_PortraitDataArray[nIndex].pszCodeName);
         OutputDebugString(strOutput);
     }

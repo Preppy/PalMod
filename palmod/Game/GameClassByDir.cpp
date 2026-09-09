@@ -7,7 +7,7 @@
 
 uint32_t CGameClassByDir::m_uRuleCtr = 0;
 CDescTree CGameClassByDir::m_MainDescTree = nullptr;
-size_t CGameClassByDir::m_nConfirmedROMSize = -1;
+size_t CGameClassByDir::m_nConfirmedROMSize = static_cast<size_t>(-1);
 
 std::vector<sDescTreeNode> CGameClassByDir::m_rgCurrentGameUnits;
 
@@ -87,7 +87,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     else
     {
         OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size.  Can't load extras here.\r\n");
-        m_nConfirmedROMSize = -1;
+        m_nConfirmedROMSize = static_cast<size_t>(-1);
     }
 
     // Load the game's layout for palmod
@@ -127,7 +127,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     PrepChangeTrackingArray();
 }
 
-uint32_t CGameClassByDir::GetExtraCtForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
+uint32_t CGameClassByDir::GetExtraCtForUnit(uint32_t nUnitId, BOOL /* fCountVisibleOnly */)
 {
     return _GetExtraCountForUnit(m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), nUnitId, m_prgCurrentExtrasLoaded);
 }
@@ -232,7 +232,7 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
     }
 }
 
-inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocation)
+inline uint8_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocation)
 {
     if (m_eValidatedFileJoinType == FileReadType::Sequential)
     {
@@ -240,7 +240,7 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
         {
             if (nROMLocation < m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar)
             {
-                return nSIMMUnit;
+                return static_cast<uint8_t>(nSIMMUnit);
             }
 
             nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar);
@@ -253,7 +253,7 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
         {
             if (nROMLocation < (m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar + m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar))
             {
-                return nSIMMUnit;
+                return static_cast<uint8_t>(nSIMMUnit);
             }
 
             nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar + m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 1).uVerifyVar);
@@ -269,7 +269,7 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
                 m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 2).uVerifyVar +
                 m_psCurrentFileLoadingData->rgRuleList.at(static_cast<size_t>(nSIMMUnit) + 3).uVerifyVar))
             {
-                return nSIMMUnit;
+                return static_cast<uint8_t>(nSIMMUnit);
             }
 
             nROMLocation -= static_cast<uint32_t>(m_psCurrentFileLoadingData->rgRuleList.at(nSIMMUnit).uVerifyVar);
@@ -349,7 +349,7 @@ void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+        m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = paletteData->szPaletteName;
 
         // Adjust for ROM-specific variant locations
@@ -373,7 +373,7 @@ void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
-BOOL CGameClassByDir::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGameClassByDir::UpdatePalImg(int Node01, int Node02, int Node03, int /* Node04 */)
 {
     return _UpdatePalImg(m_rgCurrentGameUnits.size() ? &m_rgCurrentGameUnits[0] : nullptr, m_rgCurrentExtraCounts, static_cast<uint32_t>(m_rgCurrentGameUnits.size()), m_nCurrentExtraUnitId, m_prgCurrentExtrasLoaded, Node01, Node02, Node03, Node03);
 }
@@ -634,7 +634,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                             for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
                             {
-                                uint8_t nColor;
+                                uint8_t nColor = 0;
 
                                 switch (nColorsRead % 4)
                                 {
@@ -661,14 +661,12 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 8bit color read
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
-
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                             // This has to be checked against the unmodified location
-                            const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 2);
+                            //const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 2);
                             const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
 
                             m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
@@ -684,7 +682,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                             for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
                             {
-                                uint8_t nColorValue;
+                                uint8_t nColorValue = 0;
 
                                 switch (nColorsRead % 4)
                                 {
@@ -847,7 +845,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                             // This has to be checked against the unmodified location
-                            const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 2);
+                            //const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 2);
                             const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
 
                             m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
@@ -869,7 +867,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                             for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead += 2)
                             {
-                                uint16_t nColorValue1, nColorValue2;
+                                uint16_t nColorValue1, nColorValue2 = 0;
                                 const bool fColorPairRemaining = (m_nCurrentPaletteSizeInColors - nColorsRead) > 1;
 
                                 rgFileHandles.at(nHandle1)->Read(&nColorValue1, sizeof(nColorValue1));
@@ -1034,7 +1032,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                             for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
                             {
-                                BYTE bVal1, bVal2, bVal3;
+                                BYTE bVal1 = 0, bVal2 = 0, bVal3 = 0;
 
                                 switch (nColorsRead % 4)
                                 {
@@ -1152,7 +1150,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                             for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
                             {
-                                BYTE bVal1, bVal2, bVal3;
+                                BYTE bVal1 = 0, bVal2 = 0, bVal3 = 0;
 
                                 switch (nColorsRead % 4)
                                 {
@@ -1287,7 +1285,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                             // This has to be checked against the unmodified location
-                            const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                            const uint8_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
 
                             m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
@@ -1598,8 +1596,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 file sets this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
 
-                        const bool fIsLittleEndian = (m_eValidatedFileJoinType == FileReadType::Interleaved_Read2Bytes_LE);
-
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             if (IsPaletteDirty(nUnitCtr, nPalCtr))
@@ -1894,9 +1890,9 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    const BYTE bVal3 = (nCurrentColor & 0xFF);
-                                    const BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
-                                    const BYTE bVal1 = (nCurrentColor & 0xFF0000) >> 16;
+                                    const BYTE bVal3 = static_cast<BYTE>((nCurrentColor & 0xFF));
+                                    const BYTE bVal2 = static_cast<BYTE>((nCurrentColor & 0xFF00) >> 8);
+                                    const BYTE bVal1 = static_cast<BYTE>((nCurrentColor & 0xFF0000) >> 16);
 
                                     if ((nColorsWritten % 2) == 0)
                                     {
@@ -1956,9 +1952,9 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                         nCurrentColor = _byteswap_ulong(nCurrentColor);
                                     }
 
-                                    const BYTE bVal3 = (nCurrentColor & 0xFF);
-                                    const BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
-                                    const BYTE bVal1 = (nCurrentColor & 0xFF0000) >> 16;
+                                    const BYTE bVal3 = static_cast<BYTE>((nCurrentColor & 0xFF));
+                                    const BYTE bVal2 = static_cast<BYTE>((nCurrentColor & 0xFF00) >> 8);
+                                    const BYTE bVal1 = static_cast<BYTE>((nCurrentColor & 0xFF0000) >> 16);
 
                                     switch (nColorsWritten % 4)
                                     {
@@ -2062,9 +2058,9 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
                                 {
                                     const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
-                                    const BYTE bVal3 = (nCurrentColor & 0xFF);
-                                    const BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
-                                    const BYTE bVal1 = (nCurrentColor & 0xFF0000) >> 16;
+                                    const BYTE bVal3 = static_cast<BYTE>((nCurrentColor & 0xFF));
+                                    const BYTE bVal2 = static_cast<BYTE>((nCurrentColor & 0xFF00) >> 8);
+                                    const BYTE bVal1 = static_cast<BYTE>((nCurrentColor & 0xFF0000) >> 16);
 
                                     switch (nColorsWritten % 4)
                                     {
@@ -2122,9 +2118,9 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    const BYTE bVal3 = (nCurrentColor & 0xFF);
-                                    const BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
-                                    const BYTE bVal1 = (nCurrentColor & 0xFF0000) >> 16;
+                                    const BYTE bVal3 = static_cast<BYTE>((nCurrentColor & 0xFF));
+                                    const BYTE bVal2 = static_cast<BYTE>((nCurrentColor & 0xFF00) >> 8);
+                                    const BYTE bVal1 = static_cast<BYTE>((nCurrentColor & 0xFF0000) >> 16);
 
                                     rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal1, 1);
                                     rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal2, 1);
@@ -2165,10 +2161,10 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     const uint32_t nColorValue = m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    const BYTE high2 = (nColorValue & 0xFF000000) >> 24;
-                                    const BYTE low2 =  (nColorValue & 0xFF0000) >> 16;
-                                    const BYTE high =  (nColorValue & 0xFF00) >> 8;
-                                    const BYTE low =   (nColorValue & 0xFF);
+                                    const BYTE high2 = static_cast<BYTE>((nColorValue & 0xFF000000) >> 24);
+                                    const BYTE low2 =  static_cast<BYTE>((nColorValue & 0xFF0000) >> 16);
+                                    const BYTE high =  static_cast<BYTE>((nColorValue & 0xFF00) >> 8);
+                                    const BYTE low =   static_cast<BYTE>((nColorValue & 0xFF));
 
                                     rgFileHandles.at(iHandle1)->Write(&low, sizeof(low));
                                     rgFileHandles.at(iHandle2)->Write(&high, sizeof(high));
@@ -2212,10 +2208,10 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
                                 {
                                     const uint32_t nColorValue = m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsWritten];
-                                    const uint8_t high2 = (nColorValue & 0xff000000) >> 24;
-                                    const uint8_t low2 =  (nColorValue & 0x00ff0000) >> 16;
-                                    const uint8_t high1 = (nColorValue & 0x0000ff00) >> 8;
-                                    const uint8_t low1 =  (nColorValue & 0x000000ff);
+                                    const uint8_t high2 = static_cast<uint8_t>((nColorValue & 0xff000000) >> 24);
+                                    const uint8_t low2 =  static_cast<uint8_t>((nColorValue & 0x00ff0000) >> 16);
+                                    const uint8_t high1 = static_cast<uint8_t>((nColorValue & 0x0000ff00) >> 8);
+                                    const uint8_t low1 =  static_cast<uint8_t>((nColorValue & 0x000000ff));
 
                                     rgFileHandles.at(iHandle1)->Write(&low1, sizeof(low1));
                                     rgFileHandles.at(iHandle2)->Write(&high1, sizeof(high1));
@@ -2271,7 +2267,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
                                 {
                                     uint32_t nColorValue = m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsWritten];
-                                    const bool fColorPairRemaining = (m_nCurrentPaletteSizeInColors - nColorsWritten) > 1;
+                                    //const bool fColorPairRemaining = (m_nCurrentPaletteSizeInColors - nColorsWritten) > 1;
 
                                     if (!fIsLittleEndian)
                                     {

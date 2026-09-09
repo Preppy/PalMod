@@ -35,8 +35,6 @@ namespace MVC2_SupplementProcessing
     // Create the array of supplemental processing information needed for mvc2 sprites
     void prep_supp(bool forDreamcast /*= true */)
     {
-        int nIndexCtr = 0;
-
         if (k_mvc2_character_coloroption_count == 6)
         {
             mvc2_supp_const = mvc2_6color_supp_const;

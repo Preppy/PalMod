@@ -161,7 +161,7 @@ void CGameLoad::CrosscopyGame_DCPS2(CGameClass* CurrGame)
                 uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
             }
 
-            strError.Format(uErrorString, strErrorFile);
+            strError.Format(uErrorString, strErrorFile.GetString());
             MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
 
@@ -219,8 +219,6 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
         OFN_FILEMUSTEXIST | OFN_HIDEREADONLY,
         L"MvC2 For Steam|mvsc2.21D3D8A7|"
     );
-
-    OPENFILENAME& pOFN = OpenDialog.GetOFN();
 
     if (OpenDialog.DoModal() == IDOK)
     {
@@ -357,7 +355,7 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
                 uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
             }
 
-            strError.Format(uErrorString, strErrorFile);
+            strError.Format(uErrorString, strErrorFile.GetString());
             MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
 
@@ -392,8 +390,6 @@ void CGameLoad::CrosscopyGame_ToSteam(CGameClass* CurrGame)
 
 void CGameLoad::CrosscopyGame_SteamToDC(CGameClass* CurrGame)
 {
-    const SupportedGamesList eCurGame = GetHost()->GetCurrGame()->GetGameFlag();
-
     CString strQuestion = L"This will copy the *saved* data from your Steam file to your Dreamcast files.\n\n";
     strQuestion += L"If you have not already saved/patched your data so that it can be copied, please Cancel now and Patch.\n\n"
         L"Press OK if you are ready.  You will then select the folder containing your Dreamcast files to copy to "
@@ -518,7 +514,7 @@ void CGameLoad::CrosscopyGame_SteamToDC(CGameClass* CurrGame)
                 uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
             }
 
-            strError.Format(uErrorString, strErrorFile);
+            strError.Format(uErrorString, strErrorFile.GetString());
             MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
 

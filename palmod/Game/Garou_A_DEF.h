@@ -2217,9 +2217,9 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Terry1[] =
     { L"Terry Bogard Stage (1/9)", 0x18100, 0x18300, indexGarouAStages, 0x00 },
     { L"Terry Bogard Stage (2/9)", 0x18300, 0x18500, indexGarouAStages, 0x01 },
     { L"Terry Bogard Stage (3/9)", 0x18500, 0x18700, indexGarouAStages, 0x02 },
-    { L"Terry Bogard Stage (4/9)", 0x18700, 0x18900, indexGarouAStages, -1 },
+    { L"Terry Bogard Stage (4/9)", 0x18700, 0x18900, indexGarouAStages, INVALID_UNIT_VALUE_8 },
     { L"Terry Bogard Stage (5/9)", 0x18900, 0x18b00, indexGarouAStages, 0x04 },
-    { L"Terry Bogard Stage (6/9)", 0x18b00, 0x18d00, indexGarouAStages, -1 },
+    { L"Terry Bogard Stage (6/9)", 0x18b00, 0x18d00, indexGarouAStages, INVALID_UNIT_VALUE_8 },
     { L"Terry Bogard Stage (7/9)", 0x18d00, 0x18f00, indexGarouAStages, 0x06 },
     { L"Terry Bogard Stage (8/9)", 0x18f00, 0x18fc0, indexGarouAStages, 0x07, &pairNext },
     { L"Terry Bogard Stage (9/9)", 0x18fc0, 0x18fe0, indexGarouAStages, 0x18 },
@@ -2361,7 +2361,7 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Hokutomaru[] =
     { L"Hokutomaru Stage (6/9)", 0x22b00, 0x22c40, indexGarouAStages, 0x3b },
     { L"Hokutomaru Stage (7/9)", 0x22c40, 0x22d00, indexGarouAStages, 0x3c },
     { L"Hokutomaru Stage (8/9)", 0x22d00, 0x22f00, indexGarouAStages, 0x3d },
-    { L"Hokutomaru Stage (9/9)", 0x22f00, 0x230c0, indexGarouAStages, -1 },
+    { L"Hokutomaru Stage (9/9)", 0x22f00, 0x230c0, indexGarouAStages, INVALID_UNIT_VALUE_8 },
 };
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Freeman[] =
@@ -2374,7 +2374,7 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Freeman[] =
     { L"Freeman Stage (6/11)", 0x23a80, 0x23b00, indexGarouAStages, 0x2d },
     { L"Freeman Stage (7/11)", 0x23b00, 0x23d00, indexGarouAStages, 0x2e },
     { L"Freeman Stage (8/11)", 0x23d00, 0x23f00, indexGarouAStages, 0x2f },
-    { L"Freeman Stage (9/11)", 0x23f00, 0x23f40, indexGarouAStages, -1 },
+    { L"Freeman Stage (9/11)", 0x23f00, 0x23f40, indexGarouAStages, INVALID_UNIT_VALUE_8 },
     { L"Freeman Stage (10/11)", 0x23100, 0x23260, indexGarouAStages, 0x27 },
     { L"Freeman Stage (11/11)", 0x232e0, 0x23300, indexGarouAStages, 0x31 },
 };
@@ -2415,7 +2415,7 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin1[] =
     { L"Kevin 1 Stage (3/9)", 0x260e0, 0x262e0, indexGarouAStages, 0x5b },
     { L"Kevin 1 Stage (4/9)", 0x264e0, 0x26500, indexGarouAStages, 0x5d },
     { L"Kevin 1 Stage (5/9)", 0x26500, 0x266e0, indexGarouAStages, 0x5e },
-    { L"Kevin 1 Stage (6/9)", 0x266e0, 0x268e0, indexGarouAStages, -1 },
+    { L"Kevin 1 Stage (6/9)", 0x266e0, 0x268e0, indexGarouAStages, INVALID_UNIT_VALUE_8 },
     { L"Kevin 1 Stage (7/9)", 0x269c0, 0x26ae0, indexGarouAStages, 0x61 },
     { L"Kevin 1 Stage (8/9)", 0x26980, 0x269c0, indexGarouAStages, 0x60 },
     { L"Kevin 1 Stage (9/9)", 0x26ae0, 0x26b00 },
@@ -2475,7 +2475,7 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Terry2[] =
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin2[] =
 {
-    { L"Kevin 2 Stage (1/5)", 0x30000, 0x30200, indexGarouAStages, -1, &pairFullyLinkedNode },
+    { L"Kevin 2 Stage (1/5)", 0x30000, 0x30200, indexGarouAStages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Kevin 2 Stage (2/5)", 0x30200, 0x30400 },
     { L"Kevin 2 Stage (3/5)", 0x30400, 0x30600 },
     { L"Kevin 2 Stage (4/5)", 0x30600, 0x30800 },
@@ -2484,7 +2484,7 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin2[] =
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Hotaru2[] =
 {
-    { L"Hotaru 2 Stage (1/8)", 0x31000, 0x31200, indexGarouAStages, -1, &pairFullyLinkedNode },
+    { L"Hotaru 2 Stage (1/8)", 0x31000, 0x31200, indexGarouAStages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Hotaru 2 Stage (2/8)", 0x31200, 0x31400 },
     { L"Hotaru 2 Stage (3/8)", 0x31400, 0x31600 },
     { L"Hotaru 2 Stage (4/8)", 0x31600, 0x31800 },
@@ -2496,7 +2496,7 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Hotaru2[] =
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin3[] =
 {
-    { L"Kevin 3 Stage (1/4)", 0x32800, 0x32a00, indexGarouAStages, -1, &pairFullyLinkedNode },
+    { L"Kevin 3 Stage (1/4)", 0x32800, 0x32a00, indexGarouAStages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Kevin 3 Stage (2/4)", 0x32a00, 0x32c00 },
     { L"Kevin 3 Stage (3/4)", 0x32c00, 0x32e00 },
     { L"Kevin 3 Stage (4/4)", 0x32e00, 0x33000 },

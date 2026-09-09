@@ -490,7 +490,7 @@ void CPalModDlg::PostPalSel()
                             nImgIndexCtr,
                             CurrImgDef->uImgWidth,
                             CurrImgDef->uImgHeight,
-                            ImgFile->GetImgData(CurrImgDef, CurrGame->GetGameFlag(), CurrTicket->nImgUnitId, CurrTicket->nImgId),
+                            ImgFile->GetImgData(CurrImgDef, static_cast<uint16_t>(CurrGame->GetGameFlag()), CurrTicket->nImgUnitId, CurrTicket->nImgId),
                             MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
                             MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz,
                             CurrTicket->nXOffs,
@@ -633,9 +633,9 @@ void CPalModDlg::OnPalSelChange(UINT_PTR nCtrlId)
 
     //Fill the current palette info
     m_nCurrSelPal = nCtrlId;
-    CurrPalCtrl = m_PalHost.GetPalCtrl(m_nCurrSelPal);
-    CurrPalDef = MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex);
-    CurrPalSep = CurrPalDef->SepList[MainPalGroup->GetRedir()[m_nCurrSelPal].nSepIndex];
+    m_CurrPalCtrl = m_PalHost.GetPalCtrl(m_nCurrSelPal);
+    m_CurrPalDef = MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex);
+    m_CurrPalSep = m_CurrPalDef->SepList[MainPalGroup->GetRedir()[m_nCurrSelPal].nSepIndex];
     m_nPalImgIndex = MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex;
 
     UpdateSliderSel();

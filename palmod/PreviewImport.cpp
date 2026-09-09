@@ -95,7 +95,7 @@ BOOL CPreviewImportDialog::OnInitDialog()
     }
 
     int nLayer = 0;
-    for (auto& strColorOption : m_rgExistingDimensions)
+    for (size_t iEntry = 0; iEntry < m_rgExistingDimensions.size(); iEntry++)
     {
         CString strLayer;
         strLayer.Format(L"%u", nLayer);

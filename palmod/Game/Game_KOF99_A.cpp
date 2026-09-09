@@ -236,7 +236,7 @@ void CGame_KOF99_A::DumpPaletteHeaders(int nHeaderSetToDump)
     CString strOutput;
     uint16_t nColorOptionsPerCharacter = 2;
     constexpr uint32_t KOF99AE_PALETTE_LENGTH = 0x20;
-    const uint16_t nCountStatusEffects = 16;
+    //const uint16_t nCountStatusEffects = 16;
     std::vector<LPCWSTR> ppszButtonLabels;
 
     if (nHeaderSetToDump == 2)

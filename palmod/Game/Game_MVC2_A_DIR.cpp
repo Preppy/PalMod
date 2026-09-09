@@ -10,7 +10,7 @@ const uint32_t MVC2_Rerip_SIMM_Length = 0x800000;
 
 #define MVC2_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
-CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize) :
+CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(uint32_t /* nConfirmedROMSize */) :
         CGame_MVC2_A(MVC2_ROMReripOffsetDelta + (MVC2_Rerip_SIMM_Length * MVC2_Arcade_NumberOfSIMMs), MVC2_A_DIR)                                     
 {
     OutputDebugString(L"CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n");
@@ -34,7 +34,7 @@ sFileRule CGame_MVC2_A_DIR::GetRule(uint32_t nUnitId)
 
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.ic%u", MVC2_Arcade_ROM_Base, (nUnitId & RULE_COUNTER_DEMASK) + 51, (nUnitId & RULE_COUNTER_DEMASK) + 20);
     NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = (short int)-1;
+    NewFileRule.uVerifyVar = static_cast<size_t>(-1);
 
     // There was an update to the ROM set used by Flycast: this handles the variant filenames.
     NewFileRule.fHasAltName = TRUE;
@@ -217,8 +217,10 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
                     const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 
+#if MVC2_RERIP_DEBUG
                     uint32_t nOriginalOffset = m_nCurrentPaletteROMLocation;
                     uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+#endif
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if MVC2_RERIP_DEBUG
