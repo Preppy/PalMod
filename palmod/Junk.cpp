@@ -55,7 +55,7 @@ int CJunk::GetPaletteSquareSize()
 
 UCHAR CJunk::Toggle(UCHAR& tVar)
 {
-    tVar = !tVar;
+    tVar = ~tVar;
 
     return tVar;
 }
@@ -112,12 +112,12 @@ bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgrou
 
                     if (fFoundColor)
                     {
-                        strMessage.Format(L"Color #%02x%02x%02x found in multiple locations.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor));
+                        strMessage.Format(L"Color #%02X%02X%02X found in multiple locations.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor));
                     }
                     else
                     {
                         fFoundColor = true;
-                        strMessage.Format(L"Color #%02x%02x%02x found at position %u.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor), iIndex);
+                        strMessage.Format(L"Color #%02X%02X%02X found at position %u.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor), iIndex);
                     }
 
                     GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
@@ -127,13 +127,13 @@ bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgrou
             if (!fFoundColor)
             {
                 CString strMessage;
-                strMessage.Format(L"Color #%02x%02x%02x not present.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor));
+                strMessage.Format(L"Color #%02X%02X%02X not present.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor));
                 GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
             }
         }
     }
 
-    UpdateSelAmt();
+    UpdateSelAmt(false);
 
     return fFoundColor;
 }
@@ -166,9 +166,8 @@ void CJunk::ClearHighlighted()
     //m_iHLAmt = 0;
 }
 
-void CJunk::SetJunkState(UCHAR* State, LPCWSTR /* pszFunctionName */, int nIndex, UCHAR nValue)
+void CJunk::SetJunkState(UCHAR* State, LPCWSTR /* pszFunctionName */, int nIndex, UCHAR nValue) const
 {
-    bool fSuccess = false;
     if (State)
     {
         // The user can be mousing over the palette boxes while they are also updating the palettes being
@@ -176,7 +175,6 @@ void CJunk::SetJunkState(UCHAR* State, LPCWSTR /* pszFunctionName */, int nIndex
         if ((nIndex >= 0) && (nIndex < m_nAllocationLength))
         {
             State[nIndex] = nValue;
-            fSuccess = true;
         }
     }
 }
@@ -318,18 +316,18 @@ void CJunk::SetIndexPen(int /* nIndex */, PenOptions pFlag)
 {
     switch (pFlag)
     {
-    case PenOptions::FLAG_HIGHLIGHT:
-        m_dcBaseDC.SelectObject(&m_PIndexHL);
-        break;
-    case PenOptions::FLAG_SELECTED:
-        m_dcBaseDC.SelectObject(&m_PIndexSL);
-        break;
-    case PenOptions::FLAG_MULTIHIGHLIGHT:
-        m_dcBaseDC.SelectObject(&m_PIndexMHL);
-        break;
-    case PenOptions::FLAG_DEFAULT:
-        m_dcBaseDC.SelectObject(&m_PIndexBG);
-        break;
+        case PenOptions::FLAG_HIGHLIGHT:
+            m_dcBaseDC.SelectObject(&m_PIndexHL);
+            break;
+        case PenOptions::FLAG_SELECTED:
+            m_dcBaseDC.SelectObject(&m_PIndexSL);
+            break;
+        case PenOptions::FLAG_MULTIHIGHLIGHT:
+            m_dcBaseDC.SelectObject(&m_PIndexMHL);
+            break;
+        case PenOptions::FLAG_DEFAULT:
+            m_dcBaseDC.SelectObject(&m_PIndexBG);
+            break;
     }
 }
 
@@ -504,10 +502,10 @@ void CJunk::SelectMatching(CPoint ptOrigin)
 
             CString strMessage;
             const uint32_t nRGB = ((clrOfInterest & 0xFF) << 16) | (clrOfInterest & 0xff00) | ((clrOfInterest & 0xff0000) >> 16);
-            strMessage.Format(L"Color 0x%06x appears %u times.", nRGB, nMatchesFound);
+            strMessage.Format(L"Color #%06x appears %u times.", nRGB, nMatchesFound);
             GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
 
-            UpdateSelAmt();
+            UpdateSelAmt(false);
             UpdateCtrl();
         }
     }
@@ -971,7 +969,7 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
     CWnd::OnLButtonDown(nFlags, point);
 }
 
-void CJunk::UpdateSelAmt()
+void CJunk::UpdateSelAmt(bool fTellSelectedColor /* = true*/)
 {
     m_iSelAmt = 0;
 
@@ -992,6 +990,60 @@ void CJunk::UpdateSelAmt()
     if (m_iSelAmt != 1)
     {
         m_iCurrentIndexIfSingleSelection = -1;
+        if (fTellSelectedColor)
+        {
+            GetHost()->GetPalModDlg()->SetStatusText(L"(Multiple items selected.)");
+        }
+    }
+    else if (m_iSelAmt && fTellSelectedColor)
+    {
+        CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+        if (CurrGame)
+        {
+            CString strMessage;
+
+            uint32_t clrSelected = GetColorAtIndex(static_cast<uint8_t>(m_iCurrentIndexIfSingleSelection));
+            // RGBA storage to "RGB" string
+            clrSelected = ((0xff0000 & clrSelected) >> 16) |
+                            (0x00ff00 & clrSelected) |
+                            ((0x0000ff & clrSelected) << 16);
+
+            CString strNativeBytes;
+
+            switch (CurrGame->GetGameColorByteLength())
+            {
+                case 1:
+                {
+                    const uint8_t clrNative = CurrGame->ConvCol8(clrSelected, 0xff);
+                    strNativeBytes.Format(L"%02X", clrNative);
+                    break;
+                }
+                case 2:
+                {
+                    const uint16_t clrNative = CurrGame->ConvCol16(clrSelected, 0xffff);
+                    strNativeBytes.Format(L"%04X", _byteswap_ushort(clrNative));
+                    break;
+                }
+                case 3:
+                {
+                    const uint32_t clrNative = CurrGame->ConvCol24(clrSelected);
+                    strNativeBytes.Format(L"%02X%02X%02X", (clrNative & 0xFF0000) >> 16, (clrNative & 0xFF00) >> 8, (clrNative & 0xFF));
+                    break;
+                }
+                case 4:
+                {
+                    const uint32_t clrNative = CurrGame->ConvCol32(clrSelected, 0xffffffff);
+                    strNativeBytes.Format(L"%02X%02X%02X%02X", (clrNative & 0xFF000000) >> 24, (clrNative & 0xFF0000) >> 16,
+                                                               (clrNative & 0xFF00) >> 8, clrNative & 0xFF);
+                    break;
+                }
+            }
+
+            strMessage.Format(L"Native color #%s or RGB #%06X.", strNativeBytes.GetString(), clrSelected);
+
+            GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
+        }
     }
 }
 

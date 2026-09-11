@@ -170,7 +170,7 @@ private:
     UCHAR* m_Selected = nullptr;
     UCHAR* m_SelView = nullptr;
 
-    inline void SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHAR nValue) const;
     inline void SetHighlighted(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelected(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelViewItem(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
@@ -210,8 +210,8 @@ public:
     BOOL InitNewSize(int nNewAmt, COLORREF* rgNewPal);
     static BOOL InitPen();
 
-    int GetBaseWidth() { return m_iBaseW; };
-    int GetBaseHeight() { return m_iBaseH; };
+    int GetBaseWidth() const { return m_iBaseW; };
+    int GetBaseHeight() const { return m_iBaseH; };
     BOOL UpdateCtrl(BOOL fUpdFace = TRUE);
 
     void ClearSelected();
@@ -223,18 +223,19 @@ public:
     void SelectMatching(CPoint ptOrigin);
     void SelectAll();
 
-    int GetWorkingAmt() { return m_iWorkingAmt; };
+    int GetWorkingAmt() const { return m_iWorkingAmt; };
     UCHAR* GetSelIndex() { return m_Selected; };
 
-    int GetSingleSelectIndex() { return m_iCurrentIndexIfSingleSelection; };
+    int GetSingleSelectIndex() const { return m_iCurrentIndexIfSingleSelection; };
     COLORREF* GetBasePal() { return m_BasePal; };
+    COLORREF GetColorAtIndex(uint8_t nIndex) { return m_BasePal[nIndex]; };
 
-    int GetHighlightIndex() { return m_iHighlightIndex; };
+    int GetHighlightIndex() const { return m_iHighlightIndex; };
 
-    void UpdateSelAmt();
+    void UpdateSelAmt(bool fTellSelectedColor = true);
 
-    int GetSelAmt() { return m_iSelAmt; };
-    int GetHLAmt() { return m_iHLAmt; };
+    int GetSelAmt() const { return m_iSelAmt; };
+    int GetHLAmt() const { return m_iHLAmt; };
     void SetArrayIndex(int nIndex) { m_nArrayIndex = nIndex; };
     void UpdateIndex(int nIndex);
     void UpdateIndexAll();

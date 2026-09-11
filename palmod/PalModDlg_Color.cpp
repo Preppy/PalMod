@@ -700,98 +700,98 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
     {
         switch (m_nPalSelAmt)
         {
-        case 1:
-        {
-            // Single-select
-            int nSingleSel = m_CurrPalCtrl->GetSingleSelectIndex();
-            COLORREF* crTarget = &m_CurrPalCtrl->GetBasePal()[nSingleSel];
-
-            if (m_fShowAsRGBNotHSL)
+            case 1:
             {
-                CGameClass* CurrGame = GetHost()->GetCurrGame();
+                // Single-select
+                int nSingleSel = m_CurrPalCtrl->GetSingleSelectIndex();
+                COLORREF* crTarget = &m_CurrPalCtrl->GetBasePal()[nSingleSel];
 
-                MainPalGroup->SetRGBA(crTarget,
-                    CurrGame->Get8BitValueForColorStep_RGB(m_RHSlider.GetPos()),
-                    CurrGame->Get8BitValueForColorStep_RGB(m_GSSlider.GetPos()),
-                    CurrGame->Get8BitValueForColorStep_RGB(m_BLSlider.GetPos()),
-                    CurrGame->Get8BitValueForColorStep_A(m_ASlider.GetPos())
-                );
-            }
-            else
-            {
-                MainPalGroup->SetHLSA(crTarget,
-                    static_cast<double>(m_RHSlider.GetPos()) / 360.0f,
-                    static_cast<double>(m_BLSlider.GetPos()) / 100.0f,
-                    static_cast<double>(m_GSSlider.GetPos()) / 255.0f,
-                    GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
-                );
-            }
-
-            m_CurrPalCtrl->UpdateIndex(nSingleSel);
-            m_CurrPalCtrl->UpdateCtrl();
-
-            ImgDispCtrl->UpdateCtrl();
-
-            //Update the change flag on the base palette
-            m_CurrPalDef->fIsChanged = true;
-        }
-        break;
-        case 0: // Nothing selected: presume full coverage
-        default:
-        {
-            // Multi-select!
-            // Since values will "bounce" 0 or max, we need to be operating off of the memory-saved pBasePal
-            // as opposed to the "live" pPal values.
-            // This is so that rgb(255,255,255) + 5 red - 5 red returns to rgb(255,255,255) instead of rgb(250,255,255)
-            COLORREF* crTarget = m_CurrPalCtrl->GetBasePal();
-            const int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
-            const UCHAR* uSelBuffer = m_CurrPalCtrl->GetSelIndex();
-            COLORREF* crBasePal = &m_CurrPalDef->pBasePal[m_CurrPalSep->nStart];
-
-            if (m_fShowAsRGBNotHSL)
-            {
-                for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
+                if (m_fShowAsRGBNotHSL)
                 {
-                    if (uSelBuffer[nICtr] || (m_nPalSelAmt == 0))
-                    {
-                        MainPalGroup->AddColorStepsToColorValue(crBasePal[nICtr], &crTarget[nICtr],
-                            m_RHSlider.GetPos(),
-                            m_GSSlider.GetPos(),
-                            m_BLSlider.GetPos(),
-                            m_ASlider.GetPos()
-                        );
+                    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-                        m_CurrPalCtrl->UpdateIndex(nICtr);
+                    MainPalGroup->SetRGBA(crTarget,
+                        CurrGame->Get8BitValueForColorStep_RGB(m_RHSlider.GetPos()),
+                        CurrGame->Get8BitValueForColorStep_RGB(m_GSSlider.GetPos()),
+                        CurrGame->Get8BitValueForColorStep_RGB(m_BLSlider.GetPos()),
+                        CurrGame->Get8BitValueForColorStep_A(m_ASlider.GetPos())
+                    );
+                }
+                else
+                {
+                    MainPalGroup->SetHLSA(crTarget,
+                        static_cast<double>(m_RHSlider.GetPos()) / 360.0f,
+                        static_cast<double>(m_BLSlider.GetPos()) / 100.0f,
+                        static_cast<double>(m_GSSlider.GetPos()) / 255.0f,
+                        GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
+                    );
+                }
+
+                m_CurrPalCtrl->UpdateIndex(nSingleSel);
+                m_CurrPalCtrl->UpdateCtrl();
+
+                ImgDispCtrl->UpdateCtrl();
+
+                //Update the change flag on the base palette
+                m_CurrPalDef->fIsChanged = true;
+            }
+            break;
+            case 0: // Nothing selected: presume full coverage
+            default:
+            {
+                // Multi-select!
+                // Since values will "bounce" 0 or max, we need to be operating off of the memory-saved pBasePal
+                // as opposed to the "live" pPal values.
+                // This is so that rgb(255,255,255) + 5 red - 5 red returns to rgb(255,255,255) instead of rgb(250,255,255)
+                COLORREF* crTarget = m_CurrPalCtrl->GetBasePal();
+                const int nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
+                const UCHAR* uSelBuffer = m_CurrPalCtrl->GetSelIndex();
+                COLORREF* crBasePal = &m_CurrPalDef->pBasePal[m_CurrPalSep->nStart];
+
+                if (m_fShowAsRGBNotHSL)
+                {
+                    for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
+                    {
+                        if (uSelBuffer[nICtr] || (m_nPalSelAmt == 0))
+                        {
+                            MainPalGroup->AddColorStepsToColorValue(crBasePal[nICtr], &crTarget[nICtr],
+                                m_RHSlider.GetPos(),
+                                m_GSSlider.GetPos(),
+                                m_BLSlider.GetPos(),
+                                m_ASlider.GetPos()
+                            );
+
+                            m_CurrPalCtrl->UpdateIndex(nICtr);
+                        }
                     }
                 }
-            }
-            else
-            {
-                for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
+                else
                 {
-                    if (uSelBuffer[nICtr] || (m_nPalSelAmt == 0))
+                    for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
                     {
-                        MainPalGroup->SetAddHLSA(crBasePal[nICtr], &crTarget[nICtr],
-                            static_cast<double>(m_RHSlider.GetPos()) / 360.0f,
-                            static_cast<double>(m_BLSlider.GetPos()) / 100.0f,
-                            static_cast<double>(m_GSSlider.GetPos()) / 255.0f,
-                            GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
-                        );
+                        if (uSelBuffer[nICtr] || (m_nPalSelAmt == 0))
+                        {
+                            MainPalGroup->SetAddHLSA(crBasePal[nICtr], &crTarget[nICtr],
+                                static_cast<double>(m_RHSlider.GetPos()) / 360.0f,
+                                static_cast<double>(m_BLSlider.GetPos()) / 100.0f,
+                                static_cast<double>(m_GSSlider.GetPos()) / 255.0f,
+                                GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_ASlider.GetPos())
+                            );
 
-                        m_CurrPalCtrl->UpdateIndex(nICtr);
+                            m_CurrPalCtrl->UpdateIndex(nICtr);
+                        }
                     }
                 }
+
+                m_CurrPalCtrl->UpdateCtrl();
+                ImgDispCtrl->UpdateCtrl();
+
+                m_fCopyFromBase = TRUE;
+
+                //Update the change flag on the base palette
+                m_CurrPalDef->fIsChanged = true;
             }
-
-            m_CurrPalCtrl->UpdateCtrl();
-            ImgDispCtrl->UpdateCtrl();
-
-            m_fCopyFromBase = TRUE;
-
-            //Update the change flag on the base palette
-            m_CurrPalDef->fIsChanged = true;
-        }
-        break;
+            break;
         }
     }
     else if (fSetSingleCol && m_CurrPalCtrl)
@@ -1252,8 +1252,8 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
                 }
             }
 
-            const COLORREF colorStart = m_CurrPalCtrl->GetBasePal()[iInitialPos];
-            const COLORREF colorFinish = m_CurrPalCtrl->GetBasePal()[iTerminalPos];
+            const COLORREF colorStart = m_CurrPalCtrl->GetColorAtIndex(iInitialPos);
+            const COLORREF colorFinish = m_CurrPalCtrl->GetColorAtIndex(iTerminalPos);
 
             CGameClass* CurrGame = GetHost()->GetCurrGame();
 
