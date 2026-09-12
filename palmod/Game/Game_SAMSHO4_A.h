@@ -38,8 +38,8 @@ private:
         SAMSHO4_A_UNITS,
         ARRAYSIZE(SAMSHO4_A_UNITS),
         L"SAMSHO4E.txt",            // Extra filename
-        596,                        // Count of palettes listed in the header
-        0xc09e0,                    // Lowest known location used for palettes
+        760,                        // Count of palettes listed in the header
+        0xc0000,                    // Lowest known location used for palettes
     };
 
     static void DumpAllPalettes();
@@ -86,8 +86,8 @@ private:
         SAMSHO4_A_UNITS,
         ARRAYSIZE(SAMSHO4_A_UNITS),
         L"SAMSHO4E.txt",            // Extra filename
-        596,                        // Count of palettes listed in the header
-        0xc09e0,                    // Lowest known location used for palettes
+        760,                        // Count of palettes listed in the header
+        0xc0000,                    // Lowest known location used for palettes
     };
 
 public:

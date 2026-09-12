@@ -176,7 +176,7 @@ void CGameClassByFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
     }
 }
 
-void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_CoreGameData& gameLoadingData)
+void CGameClassByFile::InitializeGame(uint32_t /* nConfirmedROMSize */, const sGCBF_CoreGameData& gameLoadingData)
 {
     //Set game-game specific information before loading the game's known palette locations
     m_strGameFriendlyName = gameLoadingData.strGameFriendlyName;

@@ -978,23 +978,315 @@ const sGame_PaletteDataset SAMSHO4_A_AMAKUSABOSS_PALETTES[] =
 
 const sGame_PaletteDataset SAMSHO4_A_PORTRAIT_PALETTES[] =
 {
-    { L"Haohmaru Character Select Portrait", 0x0c09e0, 0x0c0a00 },
-    { L"Nakoruru Character Select Portrait", 0x0c0a00, 0x0c0a20 },
-    { L"Rimururu Character Select Portrait", 0x0c0a20, 0x0c0a40 },
-    { L"Hanzo Character Select Portrait", 0x0c0a40, 0x0c0a60 },
-    { L"Galford Character Select Portrait", 0x0c0a60, 0x0c0a80 },
-    { L"Kyoshiro Character Select Portrait", 0x0c0a80, 0x0c0aa0 },
-    { L"Ukyo Character Select Portrait", 0x0c0aa0, 0x0c0ac0 },
-    { L"Genjuro Character Select Portrait", 0x0c0ac0, 0x0c0ae0 },
-    { L"Basara Character Select Portrait", 0x0c0ae0, 0x0c0b00 },
-    { L"Shizumaru Character Select Portrait", 0x0c0b00, 0x0c0b20 },
-    { L"Gaira Character Select Portrait", 0x0c0b20, 0x0c0b40 },
-    { L"Amakusa Character Select Portrait", 0x0c0b40, 0x0c0b60 },
-    { L"Jubei Character Select Portrait", 0x0c0b60, 0x0c0b80 },
-    { L"Charlotte Character Select Portrait", 0x0c0b80, 0x0c0ba0 },
-    { L"Tam Tam Character Select Portrait", 0x0c0ba0, 0x0c0bc0 },
-    { L"Sogetsu Character Select Portrait", 0x0c0bc0, 0x0c0be0 },
-    { L"Kazuki Character Select Portrait", 0x0c0be0, 0x0c0c00 },
+    { L"Haohmaru Character Select Portrait", 0x0c09e0, 0x0c0a00, indexSamSho4Sprites_Haohmaru, 0x50 },
+    { L"Nakoruru Character Select Portrait", 0x0c0a00, 0x0c0a20, indexSamSho4Sprites_Nakoruru, 0x50 },
+    { L"Rimururu Character Select Portrait", 0x0c0a20, 0x0c0a40, indexSamSho4Sprites_Rimururu, 0x50 },
+    { L"Hanzo Character Select Portrait",   0x0c0a40, 0x0c0a60, indexSamSho4Sprites_Hanzo, 0x50 },
+    { L"Galford Character Select Portrait", 0x0c0a60, 0x0c0a80, indexSamSho4Sprites_Galford, 0x50 },
+    { L"Kyoshiro Character Select Portrait", 0x0c0a80, 0x0c0aa0, indexSamSho4Sprites_Kyoshiro, 0x50 },
+    { L"Ukyo Character Select Portrait",    0x0c0aa0, 0x0c0ac0, indexSamSho4Sprites_Ukyo, 0x50 },
+    { L"Genjuro Character Select Portrait", 0x0c0ac0, 0x0c0ae0, indexSamSho4Sprites_Genjuro, 0x50 },
+    { L"Basara Character Select Portrait",  0x0c0ae0, 0x0c0b00, indexSamSho4Sprites_Basara, 0x50 },
+    { L"Shizumaru Character Select Portrait", 0x0c0b00, 0x0c0b20, indexSamSho4Sprites_Shizumaru, 0x50 },
+    { L"Gaira Character Select Portrait",   0x0c0b20, 0x0c0b40, indexSamSho4Sprites_Gaira, 0x50 },
+    { L"Amakusa Character Select Portrait", 0x0c0b40, 0x0c0b60, indexSamSho4Sprites_Amakusa, 0x50 },
+    { L"Jubei Character Select Portrait",   0x0c0b60, 0x0c0b80, indexSamSho4Sprites_Jubei, 0x50 },
+    { L"Charlotte Character Select Portrait", 0x0c0b80, 0x0c0ba0, indexSamSho4Sprites_Charlotte, 0x50 },
+    { L"Tam Tam Character Select Portrait", 0x0c0ba0, 0x0c0bc0, indexSamSho4Sprites_TamTam, 0x50 },
+    { L"Sogetsu Character Select Portrait", 0x0c0bc0, 0x0c0be0, indexSamSho4Sprites_Sogetsu, 0x50 },
+    { L"Kazuki Character Select Portrait",  0x0c0be0, 0x0c0c00, indexSamSho4Sprites_Kazuki, 0x50 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_ARIE[] =
+{
+    { L"Arie Sky 1/2", 0xd3320, 0xd3380, indexSamSho4Sprites_Stages, 0x00, &pairFullyLinkedNode },
+    { L"Arie Sky 2/2", 0xd3380, 0xd33e0, indexSamSho4Sprites_Stages, 0x00 },
+    { L"Arie 1", 0xd3000, 0xd3200, indexSamSho4Sprites_Stages, 0x01 },
+    { L"Arie 2", 0xd3200, 0xd3320, indexSamSho4Sprites_Stages, 0x02 },
+
+    { L"Arie Amakasu Effect Anim Cycle 1/5", 0xd33e0, 0xd3400, indexSamSho4Sprites_Stages, 0x07 },
+    { L"Arie Amakasu Effect Anim Cycle 2/5", 0xd3400, 0xd3420, indexSamSho4Sprites_Stages, 0x07 },
+    { L"Arie Amakasu Effect Anim Cycle 3/5", 0xd3420, 0xd3440, indexSamSho4Sprites_Stages, 0x07 },
+    { L"Arie Amakasu Effect Anim Cycle 4/5", 0xd3440, 0xd3460, indexSamSho4Sprites_Stages, 0x07 },
+    { L"Arie Amakasu Effect Anim Cycle 5/5", 0xd3460, 0xd3480, indexSamSho4Sprites_Stages, 0x07 },
+
+    { L"Arie Leaves Anim Cycle 1/2", 0xd3480, 0xd34a0, indexSamSho4Sprites_Stages, 0x06 },
+    { L"Arie Leaves Anim Cycle 2/2", 0xd34a0, 0xd34c0, indexSamSho4Sprites_Stages, 0x06 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_OBAMA[] =
+{
+    { L"Obama Sky Anim 1/4", 0xd3920, 0xd39c0, indexSamSho4Sprites_Stages, 0x05, &pairFullyLinkedNode },
+    { L"Obama Sky Anim 2/4", 0xd3a80, 0xd3b20, indexSamSho4Sprites_Stages, 0x05 },
+    { L"Obama Sky Anim 3/4", 0xd3b20, 0xd3bc0, indexSamSho4Sprites_Stages, 0x05 },
+    { L"Obama Sky Anim 4/4", 0xd3bc0, 0xd3c60, indexSamSho4Sprites_Stages, 0x05 },
+
+    { L"Obama 1",        0xd3800, 0xd3920, indexSamSho4Sprites_Stages, 0x03 },
+    { L"Obama 2",        0xd39c0, 0xd3a80, indexSamSho4Sprites_Stages, 0x04 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_KUCHINOTSU[] =
+{
+    { L"Kuchinotsu Sky Anim 1/4", 0xd4260, 0xd42c0, indexSamSho4Sprites_Stages, 0x08, &pairFullyLinkedNode },
+    { L"Kuchinotsu Sky Anim 2/4", 0xd42c0, 0xd4320, indexSamSho4Sprites_Stages, 0x08 },
+    { L"Kuchinotsu Sky Anim 3/4", 0xd4320, 0xd4380, indexSamSho4Sprites_Stages, 0x08 },
+    { L"Kuchinotsu Sky Anim 4/4", 0xd4380, 0xd43e0, indexSamSho4Sprites_Stages, 0x08 },
+    { L"Kuchinotsu Foreground 1/2", 0xd4000, 0xd4200, indexSamSho4Sprites_Stages, 0x09 },
+    { L"Kuchinotsu Foreground 2/2", 0xd4200, 0xd4260, indexSamSho4Sprites_Stages, 0x0a },
+
+    { L"Amakusa Effect Anim 1/6", 0xd43e0, 0xd4400 },
+    { L"Amakusa Effect Anim 2/6", 0xd4400, 0xd4420 },
+    { L"Amakusa Effect Anim 3/6", 0xd4420, 0xd4440 },
+    { L"Amakusa Effect Anim 4/6", 0xd4440, 0xd4460 },
+    { L"Amakusa Effect Anim 5/6", 0xd4460, 0xd4480 },
+    { L"Amakusa Effect Anim 6/6", 0xd4480, 0xd44a0 },
+
+    { L"Kuchinotsu Lightning", 0xd44a0, 0xd44c0, indexSamSho4Sprites_Stages, 0x0b },
+    { L"Kuchinotsu Dust", 0xd44c0, 0xd4500, indexSamSho4Sprites_Stages, 0x0c },
+
+    ////0xd4500-0xd4660 kuchinotsu panic foreground?
+    /// 0xd8360-0xd83c0 kuchinotsu panic background?
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_KOGA[] =
+{
+    { L"Koga 1 1/2", 0xd4800, 0xd4900, indexSamSho4Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Koga 1 2/2", 0xd4900, 0xd4a00 },
+
+    { L"Koga 2 1/4", 0xd4a00, 0xd4aa0 },
+    { L"Koga 2 2/4", 0xd4aa0, 0xd4b40 },
+    { L"Koga 2 3/4", 0xd4b40, 0xd4be0 },
+    { L"Koga 2 4/4", 0xd4be0, 0xd4c80 },
+
+    { L"Koga 3", 0xd4c80, 0xd4cc0 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_KUSHIYAMA[] =
+{
+    { L"Kushiyama 1 1/2", 0xd5000, 0xd5100, indexSamSho4Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Kushiyama 2 1/3", 0xd5100, 0xd51a0 },
+    { L"Kushiyama 2 2/3", 0xd51a0, 0xd5240 },
+    { L"Kushiyama 2 3/3", 0xd5240, 0xd52e0 },
+    { L"Kushiyama 1 2/2", 0xd52e0, 0xd53e0 },
+    { L"Kushiyama 3", 0xd53e0, 0xd54c0 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_DOHSAKI[] =
+{
+    { L"Dohsaki 1", 0xd5800, 0xd5a00, indexSamSho4Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Dohsaki 2", 0xd5a00, 0xd5c00 },
+    { L"Dohsaki 3", 0xd5c00, 0xd5d00 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_FUNATSU[] =
+{
+    { L"Funatsu 1 1/3", 0xd6000, 0xd6120, indexSamSho4Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Funatsu 1 2/3", 0xd6120, 0xd6240 },
+    { L"Funatsu 1 3/3", 0xd6240, 0xd6360 },
+    { L"Funatsu 2 1/3", 0xd6360, 0xd63c0 },
+    { L"Funatsu 2 2/3", 0xd63c0, 0xd6420 },
+    { L"Funatsu 2 3/3", 0xd6420, 0xd6480 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_FUKAE[] =
+{
+    { L"Fukae 1", 0xd6800, 0xd6a00, indexSamSho4Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Fukae 2", 0xd6a00, 0xd6c00 },
+    { L"Fukae 3", 0xd6c00, 0xd6e00 },
+    { L"Fukae 4", 0xd6e00, 0xd6f60 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_KUSENBUTAKE[] =
+{
+    { L"Kusenbutake 1 1/2", 0xd7000, 0xd7200, indexSamSho4Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Kusenbutake 1 2/2", 0xd7200, 0xd7400 },
+    { L"Kusenbutake 2", 0xd7400, 0xd7500 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_AMAKUSA[] =
+{
+    { L"Amakusa 1", 0xd7800, 0xd7a00, indexSamSho4Sprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Amakusa 2", 0xd7a00, 0xd7c00 },
+    { L"Amakusa 3", 0xd7c00, 0xd7d80 },
+    { L"Amakusa 4", 0xd7e80, 0xd7ec0 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_PANIC_SYMBOL[] =
+{
+    { L"Panic Background: Enemy 1/6", 0xd9000, 0xd9020, indexSamSho4Sprites_Stages, 0x0e },
+    { L"Panic Background: Enemy 2/6", 0xd9020, 0xd9040, indexSamSho4Sprites_Stages, 0x0e },
+    { L"Panic Background: Enemy 3/6", 0xd9040, 0xd9060, indexSamSho4Sprites_Stages, 0x0e },
+    { L"Panic Background: Enemy 4/6", 0xd9060, 0xd9080, indexSamSho4Sprites_Stages, 0x0e },
+    { L"Panic Background: Enemy 5/6", 0xd9080, 0xd90a0, indexSamSho4Sprites_Stages, 0x0e },
+    { L"Panic Background: Enemy 6/6", 0xd90a0, 0xd90c0, indexSamSho4Sprites_Stages, 0x0e },
+
+    { L"Panic Background: Symbol 1/12", 0xd9340, 0xd9360, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 2/12", 0xd9360, 0xd9380, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 3/12", 0xd9380, 0xd93a0, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 4/12", 0xd93a0, 0xd93c0, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 5/12", 0xd93c0, 0xd93e0, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 6/12", 0xd93e0, 0xd9400, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 7/12", 0xd9400, 0xd9420, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 8/12", 0xd9420, 0xd9440, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 9/12", 0xd9440, 0xd9460, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 10/12", 0xd9460, 0xd9480, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 11/12", 0xd9480, 0xd94a0, indexSamSho4Sprites_Stages, 0x0d },
+    { L"Panic Background: Symbol 12/12", 0xd94a0, 0xd94c0, indexSamSho4Sprites_Stages, 0x0d },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_CHARGINGMETER[] =
+{
+    { L"Charging Animation Cycle 1/7", 0xd8e40, 0xd8e60, indexSamSho4Sprites_Bonus, 0x00 },
+    { L"Charging Animation Cycle 2/7", 0xd8e60, 0xd8e80, indexSamSho4Sprites_Bonus, 0x00 },
+    { L"Charging Animation Cycle 3/7", 0xd8e80, 0xd8ea0, indexSamSho4Sprites_Bonus, 0x00 },
+    { L"Charging Animation Cycle 4/7", 0xd8ea0, 0xd8ec0, indexSamSho4Sprites_Bonus, 0x00 },
+    { L"Charging Animation Cycle 5/7", 0xd8ec0, 0xd8ee0, indexSamSho4Sprites_Bonus, 0x00 },
+    { L"Charging Animation Cycle 6/7", 0xd8ee0, 0xd8f00, indexSamSho4Sprites_Bonus, 0x00 },
+    { L"Charging Animation Cycle 7/7", 0xd8f00, 0xd8f20, indexSamSho4Sprites_Bonus, 0x00 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_FULLMETER[] =
+{
+    { L"Full Animation Cycle 1/7", 0xd8f20, 0xd8f40, indexSamSho4Sprites_Bonus, 0x01 },
+    { L"Full Animation Cycle 2/7", 0xd8f40, 0xd8f60, indexSamSho4Sprites_Bonus, 0x01 },
+    { L"Full Animation Cycle 3/7", 0xd8f60, 0xd8f80, indexSamSho4Sprites_Bonus, 0x01 },
+    { L"Full Animation Cycle 4/7", 0xd8f80, 0xd8fa0, indexSamSho4Sprites_Bonus, 0x01 },
+    { L"Full Animation Cycle 5/7", 0xd8fa0, 0xd8fc0, indexSamSho4Sprites_Bonus, 0x01 },
+    { L"Full Animation Cycle 6/7", 0xd8fc0, 0xd8fe0, indexSamSho4Sprites_Bonus, 0x01 },
+    { L"Full Animation Cycle 7/7", 0xd8fe0, 0xd9000, indexSamSho4Sprites_Bonus, 0x01 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_ATTRACT[] =
+{
+    { L"Castle Sky", 0xd36c0, 0xd36e0, indexSamSho4Sprites_Bonus, 0x32, &pairNext3Palettes },
+    { L"Castle Castle", 0xd36e0, 0xd3700, indexSamSho4Sprites_Bonus, 0x33 },
+    { L"Castle Foundation", 0xd3700, 0xd3720, indexSamSho4Sprites_Bonus, 0x34 },
+    { L"Castle Turrets", 0xd37c0, 0xd37e0, indexSamSho4Sprites_Bonus, 0x35 },
+
+    { L"Amakusa 1", 0xc09a0, 0xc09c0, indexSamSho4Sprites_Bonus, 0x27 },
+    { L"Amakusa 2", 0xc09c0, 0xc09e0, indexSamSho4Sprites_Bonus, 0x27 },
+    { L"Amakusa 3", 0xc0fc0, 0xc0fe0, indexSamSho4Sprites_Bonus, 0x27 },
+    { L"Amakusa 4", 0xc0fe0, 0xc1000, indexSamSho4Sprites_Bonus, 0x27 },
+
+    { L"Inset Shots", 0xc0d40, 0xc0d60, indexSamSho4Sprites_Bonus, 0x29 },
+
+    { L"Kazuki Flames", 0xc0760, 0xc0780, indexSamSho4Sprites_Bonus, 0x24 },
+
+    { L"Charlotte Rose Effect", 0xc0900, 0xc0920, indexSamSho4Sprites_Bonus, 0x2c },
+    { L"Charlotte Rose", 0xc0920, 0xc0940, indexSamSho4Sprites_Bonus, 0x2b },
+
+    //Tam Tam statues?
+    { L"Tam Tam Statues Body", 0xd3720, 0xd3740, indexSamSho4Sprites_Bonus, 0x36, &pairNext4Palettes },
+    { L"Tam Tam Statues Heads", 0xd3740, 0xd3760, indexSamSho4Sprites_Bonus, 0x37 },
+    { L"Tam Tam Statues Feet", 0xd3760, 0xd3780, indexSamSho4Sprites_Bonus, 0x38 },
+    { L"Tam Tam Statues Ground", 0xd3780, 0xd37a0, indexSamSho4Sprites_Bonus, 0x39 },
+    { L"Tam Tam Statues Background", 0xd37a0, 0xd37c0, indexSamSho4Sprites_Bonus, 0x3a },
+
+    { L"Jubei Wood Screen", 0xc0940, 0xc0960, indexSamSho4Sprites_Bonus, 0x26 },
+    
+    { L"Amakusa Moon", 0xc0960, 0xc0980, indexSamSho4Sprites_Bonus, 0x3e, &pairNext },
+    { L"Amakusa Clouds", 0xc0980, 0xc09a0, indexSamSho4Sprites_Bonus, 0x2a },
+
+    { L"Demo Match Logo Overlay", 0xc01a0, 0xc01c0, indexSamSho4Sprites_Bonus, 0x3c },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_CHALLENGE[] =
+{
+    { L"Post-Match Foilage and Sky", 0xc0f00, 0xc0f20, indexSamSho4Sprites_Bonus, 0x2d, &pairNext3Palettes },
+    { L"Post-Match Castle Edge", 0xc0f20, 0xc0f40, indexSamSho4Sprites_Bonus, 0x2e },
+    { L"Post-Match Castle", 0xc0f40, 0xc0f60, indexSamSho4Sprites_Bonus, 0x2f },
+    { L"Post-Match Rocks", 0xc0c80, 0xc0ca0, indexSamSho4Sprites_Bonus, 0x30 },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_LEARN[] =
+{
+    { L"Learn To Play Joystick/Active Buttons", 0xc05c0, 0xc05e0, indexSamSho4Sprites_Bonus, 0x0e },
+    { L"Learn To Play Inactive Buttons", 0xc05e0, 0xc0600, indexSamSho4Sprites_Bonus, 0x0f },
+    { L"Learn to Play Circle", 0xc0720, 0xc0740, indexSamSho4Sprites_Bonus, 0x20 },
+    { L"Learn to Play POW", 0xc0e40, 0xc0e60, indexSamSho4Sprites_Bonus, 0x28 },
+    { L"Learn To Play Background", 0xc0f60, 0xc0f80, indexSamSho4Sprites_Bonus, 0x1f },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_LOGO[] =
+{
+    { L"Background", 0xc0d80, 0xc0da0, indexSamSho4Sprites_Bonus, 0x3b, &pairFullyLinkedNode },
+    { L"Level/Credits Text", 0xc0000, 0xc0020, indexSamSho4Sprites_Bonus, 0x02 },
+    { L"SNK Logo", 0xc0080, 0xc00a0, indexSamSho4Sprites_Bonus, 0x06 },
+    { L"P1/P2 + Other Text", 0xc00a0, 0xc00c0, indexSamSho4Sprites_Bonus, 0x07 },
+    { L"Logo", 0xc0f80, 0xc0fa0, indexSamSho4Sprites_Bonus, 0x22 },
+    { L"Amakusa's Revenge", 0xc0fa0, 0xc0fc0, indexSamSho4Sprites_Bonus, 0x1a },
+};
+
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES[] =
+{
+    { L"VS/POW and Meter Text", 0xc0020, 0xc0040, indexSamSho4Sprites_Bonus, 0x03 },
+    { L"P1/P2 Life Bar Fill", 0xc0040, 0xc0060, indexSamSho4Sprites_Bonus, 0x04 },
+    { L"Various Text", 0xc0060, 0xc0080, indexSamSho4Sprites_Bonus, 0x05 },
+    { L"Slash/Burnt Type Text", 0xc00c0, 0xc00e0, indexSamSho4Sprites_Bonus, 0x08 },
+    { L"P1/P2 Life Bar Fill Flash", 0xc00e0, 0xc0100, indexSamSho4Sprites_Bonus, 0x04 },
+
+    { L"Victory Marks", 0xc0100, 0xc0120, indexSamSho4Sprites_Bonus, 0x09 },
+    { L"Charging Super Meter Default Color", 0xc0120, 0xc0140, indexSamSho4Sprites_Bonus, 0x00 },
+    { L"Full Super Meter Default Color", 0xc0140, 0xc0160, indexSamSho4Sprites_Bonus, 0x01 },
+    { L"Character Name Symbol", 0xc0180, 0xc01a0, indexSamSho4Sprites_Bonus, 0x0b },
+    { L"TIME LIMIT Text", 0xc01c0, 0xc01e0, indexSamSho4Sprites_Bonus, 0x0c },
+    //{ L"???", 0xc01e0, 0xc0200 },
+
+    // this line is solid white
+    //{ L"Unknown", 0xc0200, 0xc0220 },
+    // this line is solid red
+    //{ L"Unknown", 0xc0240, 0xc0260 },
+    // This is mismapped: have the preview tho { L"Ground Shadow", 0xc0400, 0xc0420, indexSamSho4Sprites_Bonus, 0x3d },
+    { L"Hitspark?", 0xc0540, 0xc0560, indexSamSho4Sprites_Bonus, 0x0d },
+    //{ L"Unknown", 0xc0560, 0xc0580 },
+    //{ L"Unknown", 0xc0580, 0xc05a0 },
+    //{ L"Unknown", 0xc05a0, 0xc05c0 },
+
+    { L"Blood", 0xc0600, 0xc0620, indexSamSho4Sprites_Bonus, 0x10 },
+    //{ L"Unknown", 0xc0620, 0xc0640 },
+    //{ L"Unknown", 0xc0640, 0xc0660 },
+    //{ L"Unknown", 0xc0660, 0xc0680 },
+    //{ L"Unknown", 0xc0680, 0xc06a0 },
+    //{ L"Unknown", 0xc06a0, 0xc06c0 },
+    //{ L"Unknown", 0xc06c0, 0xc06e0 },
+    //{ L"Unknown", 0xc06e0, 0xc0700 },
+
+    //{ L"Unknown", 0xc0700, 0xc0720 },
+    //{ L"Unknown", 0xc0740, 0xc0760 },
+    //{ L"Unknown", 0xc0780, 0xc07a0 },
+    { L"Select Screen P1 Selector", 0xc07a0, 0xc07c0, indexSamSho4Sprites_Bonus, 0x11 },
+    { L"Select Screen P2 Selector", 0xc07c0, 0xc07e0, indexSamSho4Sprites_Bonus, 0x12 },
+    { L"Learn To Play / Quotes Text", 0xc07e0, 0xc0800, indexSamSho4Sprites_Bonus, 0x13 },
+
+    { L"Various Text", 0xc0800, 0xc0820, indexSamSho4Sprites_Bonus, 0x14 },
+    { L"CONTINUE? Text", 0xc0860, 0xc0880, indexSamSho4Sprites_Bonus, 0x31 },
+    { L"Select Screen Background", 0xc0880, 0xc08a0, indexSamSho4Sprites_Bonus, 0x23 },
+    { L"VS Screen Background", 0xc08c0, 0xc08e0, indexSamSho4Sprites_Bonus, 0x25 },
+    { L"Learn / VS Name Background", 0xc08e0, 0xc0900, indexSamSho4Sprites_Bonus, 0x21 },
+
+    //{ L"Unknown", 0xc0c00, 0xc0c20 },
+    //{ L"Unknown", 0xc0c20, 0xc0c40 },
+    { L"Select Screen Rotating Arrows", 0xc0c40, 0xc0c60, indexSamSho4Sprites_Bonus, 0x17 },
+    //{ L"Unknown", 0xc0c60, 0xc0c80 },
+    { L"Story Mode Map", 0xc0ca0, 0xc0cc0, indexSamSho4Sprites_Bonus, 0x40 },
+    { L"Match Announcement Text", 0xc0cc0, 0xc0ce0, indexSamSho4Sprites_Bonus, 0x18 },
+    //{ L"Unknown", 0xc0ce0, 0xc0d00 },
+
+    //{ L"Unknown", 0xc0d00, 0xc0d20 },
+    //{ L"Unknown", 0xc0d20, 0xc0d40 },
+    //{ L"Unknown", 0xc0d60, 0xc0d80 },
+    { L"Sword Master Ranking Background", 0xc0da0, 0xc0dc0, indexSamSho4Sprites_Bonus, 0x3f },
+
+    { L"Choice Technique Background", 0xc08a0, 0xc08c0, indexSamSho4Sprites_Bonus, 0x1c },
+    { L"Choice Level Text Flash", 0xc0160, 0xc0180, indexSamSho4Sprites_Bonus, 0x0a },
+    { L"SLASH Choice Technique Text", 0xc0820, 0xc0840, indexSamSho4Sprites_Bonus, 0x15 },
+    { L"BUST Choice Technique Text", 0xc0840, 0xc0860, indexSamSho4Sprites_Bonus, 0x16 },
+    { L"Choice Level Inactive Text", 0xc0dc0, 0xc0de0, indexSamSho4Sprites_Bonus, 0x1b },
+    { L"Choice Technique Inactive Text P1", 0xc0de0, 0xc0e00, indexSamSho4Sprites_Bonus, 0x1d },
+
+    { L"Choice Technique Inactive Text P2", 0xc0e00, 0xc0e20, indexSamSho4Sprites_Bonus, 0x1e },
+    //{ L"Unknown", 0xc0e20, 0xc0e40 },
+    { L"Big Match Text", 0xc0e60, 0xc0e80, indexSamSho4Sprites_Bonus, 0x19 },
 };
 
 const sDescTreeNode SAMSHO4_A_HAOHMARU_COLLECTION[] =
@@ -1148,6 +1440,34 @@ const sDescTreeNode SAMSHO4_A_PORTRAITS_COLLECTION[] =
     { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_PORTRAIT_PALETTES, ARRAYSIZE(SAMSHO4_A_PORTRAIT_PALETTES) },
 };
 
+const sDescTreeNode SAMSHO4_A_STAGES_COLLECTION[] =
+{
+    { L"Arie", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_ARIE, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_ARIE) },
+    { L"Obama", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_OBAMA, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_OBAMA) },
+    { L"Kuchinotsu", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_KUCHINOTSU, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_KUCHINOTSU) },
+    { L"Koga", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_KOGA, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_KOGA) },
+    { L"Kushiyama", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_KUSHIYAMA, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_KUSHIYAMA) },
+    { L"Dohsaki", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_DOHSAKI, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_DOHSAKI) },
+    { L"Funatsu", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_FUNATSU, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_FUNATSU) },
+    { L"Fukae", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_FUKAE, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_FUKAE) },
+    { L"Kusenbutake", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_KUSENBUTAKE, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_KUSENBUTAKE) },
+    { L"Amakusa Castle", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_AMAKUSA, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_AMAKUSA) },
+
+    { L"Panic Backgrounds", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGE_PALETTES_PANIC_SYMBOL, ARRAYSIZE(SAMSHO4_A_STAGE_PALETTES_PANIC_SYMBOL) },
+};
+
+const sDescTreeNode SAMSHO4_A_BONUS_COLLECTION[] =
+{
+    { L"Attract Screen", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_ATTRACT, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_ATTRACT) },
+    { L"Challenge Stage", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_CHALLENGE, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_CHALLENGE) },
+    { L"Learn To Play", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_LEARN, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_LEARN) },
+    { L"Logo Screen", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_LOGO, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_LOGO) },
+    { L"Super Meter: Charging", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_CHARGINGMETER, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_CHARGINGMETER) },
+    { L"Super Meter: Full", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_FULLMETER, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_FULLMETER) },
+    
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES) },
+};
+
 const sDescTreeNode SAMSHO4_A_UNITS[] =
 {
     { L"Haohmaru", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_HAOHMARU_COLLECTION, ARRAYSIZE(SAMSHO4_A_HAOHMARU_COLLECTION) },
@@ -1170,4 +1490,7 @@ const sDescTreeNode SAMSHO4_A_UNITS[] =
     { L"Kazuki", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_KAZUKI_COLLECTION, ARRAYSIZE(SAMSHO4_A_KAZUKI_COLLECTION) },
     { L"Sogetsu", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_SOGETSU_COLLECTION, ARRAYSIZE(SAMSHO4_A_SOGETSU_COLLECTION) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_PORTRAITS_COLLECTION, ARRAYSIZE(SAMSHO4_A_PORTRAITS_COLLECTION) },
+
+    { L"Stages", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_STAGES_COLLECTION, ARRAYSIZE(SAMSHO4_A_STAGES_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_COLLECTION, ARRAYSIZE(SAMSHO4_A_BONUS_COLLECTION) },
 };

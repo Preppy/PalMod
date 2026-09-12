@@ -485,7 +485,7 @@ public:
     void LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir);
     void LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile);
 
-    BOOL IsActivePaletteChanged() { return m_fPalChanged; };
+    BOOL IsActivePaletteChanged() const { return m_fPalChanged; };
 
     static BOOL IsPasteSupported();
 
