@@ -2687,7 +2687,7 @@ namespace KnownGameInfo
         {
             WorldHeroesPerfect_PS2,
             L"World Heroes Perfect (PS2)",
-            { WorldHeroesPerfect_A, L"World Heroes Perfect", L"World Heroes Perfect (PS2)|090prg.bin|", GamePlatform::PS2 },
+            { WorldHeroesPerfect_PS2, L"World Heroes Perfect", L"World Heroes Perfect (PS2)|090prg.bin|", GamePlatform::PS2 },
             Make_WorldHeroesPerfect_PS2,
             CGame_WorldHeroesPerfect_PS2::GetRule,
         },
