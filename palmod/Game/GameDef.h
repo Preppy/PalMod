@@ -544,6 +544,7 @@ const stPairedPaletteInfo pairNext4AndNextAndNext =                 { 4, {}, 4, 
 const stPairedPaletteInfo pairNext4AndNext8AndNext9 =               { 4, {}, 4, 8, 9 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNext7AndNext8 =               { 4, {}, 4, 7, 8 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNext6AndNext7 =               { 4, {}, 4, 6, 7 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext5AndNext10AndNext11 =             { 5, {}, 4, 10, 11 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext8And9And10 =                      { 8, {}, 4, 9, 10 };    // quad display... requires special handling in code
 
 const stPairedPaletteInfo pairNext4Palettes =                       { 1, {}, 5 };               // quint-display -- specially handled
