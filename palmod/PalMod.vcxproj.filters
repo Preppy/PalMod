@@ -670,6 +670,9 @@
     <Filter Include="Image Viewers\PNG">
       <UniqueIdentifier>{f4f71ba5-f1cb-484f-b705-ac35c63d98a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\World Heroes">
+      <UniqueIdentifier>{c9f239bd-0b37-496a-9f08-fa3c1886f569}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2422,6 +2425,12 @@
     </ClInclude>
     <ClInclude Include="FileHandlers\Handler_PNG.h">
       <Filter>Image Viewers\PNG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_WorldHeroes_A.h">
+      <Filter>Games\SNK Games\World Heroes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\WorldHeroes_A_DEF.h">
+      <Filter>Games\SNK Games\World Heroes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -104,12 +104,13 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -636,6 +637,7 @@
     <ClInclude Include="Game\Game_WakuWaku7_A.h" />
     <ClInclude Include="Game\Game_Windjammers_A.h" />
     <ClInclude Include="Game\Game_WorldHeroesPerfect_A.h" />
+    <ClInclude Include="Game\Game_WorldHeroes_A.h" />
     <ClInclude Include="Game\Game_XMMA_SNES.h" />
     <ClInclude Include="Game\Game_XMVSF_A.h" />
     <ClInclude Include="Game\Game_XMVSF_P.h" />
@@ -789,6 +791,7 @@
     <ClInclude Include="Game\WakuWaku7_A_DEF.h" />
     <ClInclude Include="Game\Windjammers_A_DEF.h" />
     <ClInclude Include="Game\WorldHeroesPerfect_A_DEF.h" />
+    <ClInclude Include="Game\WorldHeroes_A_DEF.h" />
     <ClInclude Include="Game\XMMA_SNES_DEF.h" />
     <ClInclude Include="Game\XMVSF_A_DEF.h" />
     <ClInclude Include="Game\XMVSF_P_DEF.h" />
