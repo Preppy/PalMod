@@ -22,6 +22,8 @@ const std::vector<uint16_t> SAMSHO4_A_IMGIDS_USED =
 
     indexSamSho5Sprites_Portrait,   // 1c
 
+    indexSS5_Haohmaru,      // 0x39
+
     indexSamSho4Sprites_Amakusa,    // 0x70
     indexSamSho4Sprites_Basara,     // 0x71
     indexSamSho4Sprites_Charlotte,  // 0x72
@@ -54,7 +56,15 @@ const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_S1[] =
     { L"Haohmaru Slash A (Shocked)", 0xc1100, 0xc1140, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Slash A (Frozen/Wet)", 0xc1140, 0xc1180, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Slash A (Ki)", 0xc1180, 0xc11c0, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Slash A (Senpuuretsuzan)", 0xc11c0, 0xc11e0, indexSS5_Haohmaru, 0x0a },
+    { L"Haohmaru Slash A (Kogetsuzan/Resshinzan)", 0xc11e0, 0xc1200, indexSS5_Haohmaru, 0x08 },
+
     { L"Haohmaru Slash A (Issen Trail)", 0xc1200, 0xc1240, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Slash A (Kogetsuzan Trail)", 0xc12c0, 0xc1300, indexSamSho5Sprites_Haohmaru, 0x00 },
+
+    { L"Haohmaru Slash A (Slash Effects) 1/3", 0xc1340, 0xc1360, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Slash A (Slash Effects) 2/3", 0xc1360, 0xc1380, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Slash A (Slash Effects) 3/3", 0xc1380, 0xc13a0, indexSS5_Haohmaru, 0x0b },
 };
 
 const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_S2[] =
@@ -67,7 +77,15 @@ const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_S2[] =
     { L"Haohmaru Slash B (Shocked)", 0xc1500, 0xc1540, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Slash B (Frozen/Wet)", 0xc1540, 0xc1580, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Slash B (Ki)", 0xc1580, 0xc15c0, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Slash B (Senpuuretsuzan)", 0xc15c0, 0xc15e0, indexSS5_Haohmaru, 0x0a },
+    { L"Haohmaru Slash B (Kogetsuzan/Resshinzan)", 0xc15e0, 0xc1600, indexSS5_Haohmaru, 0x08 },
+
     { L"Haohmaru Slash B (Issen Trail)", 0xc1600, 0xc1640, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Slash B (Kogetsuzan Trail)", 0xc16c0, 0xc1700, indexSamSho5Sprites_Haohmaru, 0x00 },
+
+    { L"Haohmaru Slash B (Slash Effects) 1/3", 0xc1740, 0xc1760, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Slash B (Slash Effects) 2/3", 0xc1760, 0xc1780, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Slash B (Slash Effects) 3/3", 0xc1780, 0xc17a0, indexSS5_Haohmaru, 0x0b },
 };
 
 const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_B1[] =
@@ -80,7 +98,15 @@ const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_B1[] =
     { L"Haohmaru Bust A (Shocked)", 0xc1900, 0xc1940, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Bust A (Frozen/Wet)", 0xc1940, 0xc1980, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Bust A (Ki)", 0xc1980, 0xc19c0, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Bust A (Senpuuretsuzan)", 0xc19c0, 0xc19e0, indexSS5_Haohmaru, 0x0a },
+    { L"Haohmaru Bust A (Kogetsuzan/Resshinzan)", 0xc19e0, 0xc1a00, indexSS5_Haohmaru, 0x08 },
+
     { L"Haohmaru Bust A (Issen Trail)", 0xc1a00, 0xc1a40, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Bust A (Kogetsuzan Trail)", 0xc1ac0, 0xc1b00, indexSamSho5Sprites_Haohmaru, 0x00 },
+
+    { L"Haohmaru Bust A (Slash Effects) 1/3", 0xc1b40, 0xc1b60, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Bust A (Slash Effects) 2/3", 0xc1b60, 0xc1b80, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Bust A (Slash Effects) 3/3", 0xc1b80, 0xc1ba0, indexSS5_Haohmaru, 0x0b },
 };
 
 const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_B2[] =
@@ -93,7 +119,15 @@ const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_B2[] =
     { L"Haohmaru Bust B (Shocked)", 0xc1d00, 0xc1d40, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Bust B (Frozen/Wet)", 0xc1d40, 0xc1d80, indexSamSho5Sprites_Haohmaru, 0x00 },
     { L"Haohmaru Bust B (Ki)", 0xc1d80, 0xc1dc0, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Bust B (Senpuuretsuzan)", 0xc1dc0, 0xc1de0, indexSS5_Haohmaru, 0x0a },
+    { L"Haohmaru Bust B (Kogetsuzan/Resshinzan)", 0xc1de0, 0xc1e00, indexSS5_Haohmaru, 0x08 },
+
     { L"Haohmaru Bust B (Issen Trail)", 0xc1e00, 0xc1e40, indexSamSho5Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru Bust B (Kogetsuzan Trail)", 0xc1ec0, 0xc1f00, indexSamSho5Sprites_Haohmaru, 0x00 },
+
+    { L"Haohmaru Bust B (Slash Effects) 1/3", 0xc1f40, 0xc1f60, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Bust B (Slash Effects) 2/3", 0xc1f60, 0xc1f80, indexSS5_Haohmaru, 0x0b },
+    { L"Haohmaru Bust B (Slash Effects) 3/3", 0xc1f80, 0xc1fa0, indexSS5_Haohmaru, 0x0b },
 };
 
 const sGame_PaletteDataset SAMSHO4_A_NAKORURU_PALETTES_S1[] =
@@ -328,7 +362,7 @@ const sGame_PaletteDataset SAMSHO4_A_KYOSHIRO_PALETTES_S1[] =
     { L"Kyoshiro Slash A", 0x0c6000, 0x0c6040, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro Slash A Rage", 0x0c6040, 0x0c6080, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Toad A", 0x0c6280, 0x0c62a0, indexSamSho5Sprites_Kyoshiro, 1 },
-    { L"Kyoshiro Slash A Victory", 0x0c63a0, 0x0c6400, indexSamSho4Sprites_Kyoshiro, 0 },
+    { L"Kyoshiro Slash A Victory", 0x0c63a0, 0x0c6400, indexSS5_Kyoshiro, 0x40 },
 
     { L"Kyoshiro Slash A (Burning)", 0xc60c0, 0xc6100, indexSamSho5Sprites_Kyoshiro, 0x00 },
     { L"Kyoshiro Slash A (Shocked)", 0xc6100, 0xc6140, indexSamSho5Sprites_Kyoshiro, 0x00 },
@@ -342,7 +376,7 @@ const sGame_PaletteDataset SAMSHO4_A_KYOSHIRO_PALETTES_S2[] =
     { L"Kyoshiro Slash B", 0x0c6400, 0x0c6440, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro Slash B Rage", 0x0c6440, 0x0c6480, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Toad B", 0x0c6680, 0x0c66a0, indexSamSho5Sprites_Kyoshiro, 1 },
-    { L"Kyoshiro Slash B Victory", 0x0c67a0, 0x0c6800, indexSamSho4Sprites_Kyoshiro, 0 },
+    { L"Kyoshiro Slash B Victory", 0x0c67a0, 0x0c6800, indexSS5_Kyoshiro, 0x40 },
 
     { L"Kyoshiro Slash B (Burning)", 0xc64c0, 0xc6500, indexSamSho5Sprites_Kyoshiro, 0x00 },
     { L"Kyoshiro Slash B (Shocked)", 0xc6500, 0xc6540, indexSamSho5Sprites_Kyoshiro, 0x00 },
@@ -355,7 +389,7 @@ const sGame_PaletteDataset SAMSHO4_A_KYOSHIRO_PALETTES_B1[] =
 {
     { L"Kyoshiro Bust A", 0x0c6800, 0x0c6840, indexSamSho5Sprites_Kyoshiro, 0 },
     { L"Kyoshiro Bust A Rage", 0x0c6840, 0x0c6880, indexSamSho5Sprites_Kyoshiro, 0 },
-    { L"Kyoshiro Bust A Victory", 0x0c6ba0, 0x0c6c00, indexSamSho4Sprites_Kyoshiro, 0 },
+    { L"Kyoshiro Bust A Victory", 0x0c6ba0, 0x0c6c00, indexSS5_Kyoshiro, 0x40 },
 
     { L"Kyoshiro Bust A (Burning)", 0xc68c0, 0xc6900, indexSamSho5Sprites_Kyoshiro, 0x00 },
     { L"Kyoshiro Bust A (Shocked)", 0xc6900, 0xc6940, indexSamSho5Sprites_Kyoshiro, 0x00 },
@@ -368,7 +402,7 @@ const sGame_PaletteDataset SAMSHO4_A_KYOSHIRO_PALETTES_B2[] =
 {
     { L"Kyoshiro Bust B", 0x0c6c00, 0x0c6c40, indexSamSho5Sprites_Kyoshiro, 0 },
     { L"Kyoshiro Bust B Rage", 0x0c6c40, 0x0c6c80, indexSamSho5Sprites_Kyoshiro, 0 },
-    { L"Kyoshiro Bust B Victory", 0x0c6fa0, 0x0c7000, indexSamSho4Sprites_Kyoshiro, 0 },
+    { L"Kyoshiro Bust B Victory", 0x0c6fa0, 0x0c7000, indexSS5_Kyoshiro, 0x40 },
 
     { L"Kyoshiro Bust B (Burning)", 0xc6cc0, 0xc6d00, indexSamSho5Sprites_Kyoshiro, 0x00 },
     { L"Kyoshiro Bust B (Shocked)", 0xc6d00, 0xc6d40, indexSamSho5Sprites_Kyoshiro, 0x00 },
@@ -694,7 +728,7 @@ const sGame_PaletteDataset SAMSHO4_A_ZANKURO_PALETTES[] =
 {
     { L"Zankuro", 0x0ce000, 0x0ce040, indexSamSho5Sprites_Zankuro },
     { L"Zankuro Rage", 0x0ce040, 0x0ce080, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro Victory", 0x0ce3a0, 0x0ce400 },
+    { L"Zankuro Victory (Unused)", 0x0ce3a0, 0x0ce400 },
 
     { L"Zankuro (Burning)", 0xce0c0, 0xce100, indexSamSho5Sprites_Zankuro, 0x00 },
     { L"Zankuro (Shocked)", 0xce100, 0xce140, indexSamSho5Sprites_Zankuro, 0x00 },
@@ -974,6 +1008,7 @@ const sGame_PaletteDataset SAMSHO4_A_AMAKUSABOSS_PALETTES[] =
     { L"Amakusa Boss (Frozen/Wet)", 0xce940, 0xce980, indexSamSho5Sprites_Amakusa, 0x00 },
     { L"Amakusa Boss (Ki)", 0xce980, 0xce9c0, indexSamSho5Sprites_Amakusa, 0x00 },
     { L"Amakusa Boss (Issen Trail)", 0xcea00, 0xcea40, indexSamSho5Sprites_Amakusa, 0x00 },
+    { L"Amakusa Boss (Misc Poses/Effects)",0xceae0, 0xceb00, indexSamSho5Sprites_Amakusa, 0x08 },
 };
 
 const sGame_PaletteDataset SAMSHO4_A_PORTRAIT_PALETTES[] =
@@ -999,6 +1034,8 @@ const sGame_PaletteDataset SAMSHO4_A_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_ARIE[] =
 {
+    // The previews are zoomed out VS Mode rips.  It might be nice to rerip them
+    // using Story Mode rips where you get additional artwork as you drop down.
     { L"Sky 1/2", 0xd3320, 0xd3380, indexSamSho4Sprites_Stages, 0x00, &pairFullyLinkedNode },
     { L"Sky 2/2", 0xd3380, 0xd33e0, indexSamSho4Sprites_Stages, 0x00 },
     { L"Foreground 1", 0xd3000, 0xd3200, indexSamSho4Sprites_Stages, 0x01 },
@@ -1016,6 +1053,8 @@ const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_ARIE[] =
 
 const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_OBAMA[] =
 {
+    // The previews are zoomed out VS Mode rips.  It might be nice to rerip them
+    // using Story Mode rips where you get additional artwork as you drop down.
     { L"Sky Anim 1/4", 0xd3920, 0xd39c0, indexSamSho4Sprites_Stages, 0x05, &pairFullyLinkedNode },
     { L"Sky Anim 2/4", 0xd3a80, 0xd3b20, indexSamSho4Sprites_Stages, 0x05 },
     { L"Sky Anim 3/4", 0xd3b20, 0xd3bc0, indexSamSho4Sprites_Stages, 0x05 },
@@ -1023,10 +1062,15 @@ const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_OBAMA[] =
 
     { L"Foreground 1",        0xd3800, 0xd3920, indexSamSho4Sprites_Stages, 0x03 },
     { L"Foreground 2",        0xd39c0, 0xd3a80, indexSamSho4Sprites_Stages, 0x04 },
+
+    // No preview yet
+    { L"Ground Venting", 0xd3c60, 0xd3c80 },
 };
 
 const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_KUCHINOTSU[] =
 {
+    // The previews are zoomed out VS Mode rips.  It might be nice to rerip them
+    // using Story Mode rips where you get additional artwork as you drop down.
     { L"Sky Anim 1/4", 0xd4260, 0xd42c0, indexSamSho4Sprites_Stages, 0x08, &pairFullyLinkedNode },
     { L"Sky Anim 2/4", 0xd42c0, 0xd4320, indexSamSho4Sprites_Stages, 0x08 },
     { L"Sky Anim 3/4", 0xd4320, 0xd4380, indexSamSho4Sprites_Stages, 0x08 },
@@ -1073,7 +1117,10 @@ const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_KUSHIYAMA[] =
     { L"Foreground Bamboo", 0xd5400, 0xd54a0, indexSamSho4Sprites_Stages, 0x18 },
     { L"Light Beams", 0xd54a0, 0xd54c0, indexSamSho4Sprites_Stages, 0x19 },
 
-    { L"Forest Insets (Bewitched)", 0xd5380, 0xd53e0, indexSamSho4Sprites_Stages, 0x16, &pairNext },
+    // This preview is a little janked because the purple sprite changes for these, specifically the light shafts
+    { L"Forest Insets (Bewitched) Anim 1/3", 0xd5380, 0xd53e0, indexSamSho4Sprites_Stages, 0x16, &pairNext3 },
+    { L"Forest Insets (Bewitched) Anim 2/3", 0xd8100, 0xd81a0, indexSamSho4Sprites_Stages, 0x16, &pairNext2 },
+    { L"Forest Insets (Bewitched) Anim 3/3", 0xd81a0, 0xd8240, indexSamSho4Sprites_Stages, 0x16, &pairNext },
     { L"Forest (Bewitched)", 0xd52e0, 0xd5380, indexSamSho4Sprites_Stages, 0x17 },
 
     { L"Unknown", 0xd53e0, 0xd5400 },
@@ -1109,9 +1156,13 @@ const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_DOHSAKI[] =
 
 const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_FUNATSU[] =
 {
-    { L"Sky Anim 1/3", 0xd6360, 0xd63c0, indexSamSho4Sprites_Stages, 0x26, &pairNext3 },
-    { L"Sky Anim 2/3", 0xd63c0, 0xd6420, indexSamSho4Sprites_Stages, 0x26, &pairNext3 },
-    { L"Sky Anim 3/3", 0xd6420, 0xd6480, indexSamSho4Sprites_Stages, 0x26, &pairNext3 },
+    { L"Sky Anim 1/6", 0xd6360, 0xd63c0, indexSamSho4Sprites_Stages, 0x26, &pairNext6 },
+    { L"Sky Anim 2/6", 0xd63c0, 0xd6420, indexSamSho4Sprites_Stages, 0x26, &pairNext6 },
+    { L"Sky Anim 3/6", 0xd6420, 0xd6480, indexSamSho4Sprites_Stages, 0x26, &pairNext6 },
+
+    { L"Sky Anim 4/6", 0xd8240, 0xd82a0, indexSamSho4Sprites_Stages, 0x26, &pairNext5 },
+    { L"Sky Anim 5/6", 0xd82a0, 0xd8300, indexSamSho4Sprites_Stages, 0x26, &pairNext4 },
+    { L"Sky Anim 6/6", 0xd8300, 0xd8360, indexSamSho4Sprites_Stages, 0x26, &pairNext3 },
 
     { L"Foreground Anim 1/3", 0xd6000, 0xd6120, indexSamSho4Sprites_Stages, 0x27 },
     { L"Foreground Anim 2/3", 0xd6120, 0xd6240, indexSamSho4Sprites_Stages, 0x27 },
@@ -1130,6 +1181,9 @@ const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_FUKAE[] =
     { L"Flaming Debris", 0xd6c00, 0xd6c40, indexSamSho4Sprites_Stages, 0x2d },
     { L"Building Insets", 0xd6c40, 0xd6cc0, indexSamSho4Sprites_Stages, 0x2e },
     { L"Fire Spout", 0xd6cc0, 0xd6ce0, indexSamSho4Sprites_Stages, 0x2f },
+
+    // No preview yet
+    { L"Ashes", 0xd6ea0, 0xd6ec0 },
 };
 
 const sGame_PaletteDataset SAMSHO4_A_STAGE_PALETTES_KUSENBUTAKE[] =
@@ -1233,10 +1287,16 @@ const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_FULLMETER[] =
 
 const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_ATTRACT[] =
 {
+    // Shows up in Attract and pre-Boss fight
     { L"Castle Sky", 0xd36c0, 0xd36e0, indexSamSho4Sprites_Bonus, 0x32, &pairNext3Palettes },
     { L"Castle Castle", 0xd36e0, 0xd3700, indexSamSho4Sprites_Bonus, 0x33 },
     { L"Castle Foundation", 0xd3700, 0xd3720, indexSamSho4Sprites_Bonus, 0x34 },
     { L"Castle Turrets", 0xd37c0, 0xd37e0, indexSamSho4Sprites_Bonus, 0x35 },
+
+    // Shows up pre-Boss fight
+    { L"Castle Sky + Turrets (All Black)", 0xd8b00, 0xd8b20, indexSamSho4Sprites_Bonus, 0x32, &pairNextAndNext },
+    { L"Castle Castle (All Black)", 0xd8b20, 0xd8b40, indexSamSho4Sprites_Bonus, 0x33 },
+    { L"Castle Foundation (All Black)", 0xd8b40, 0xd8b60, indexSamSho4Sprites_Bonus, 0x34 },
 
     { L"Amakusa 1", 0xc09a0, 0xc09c0, indexSamSho4Sprites_Bonus, 0x27 },
     { L"Amakusa 2", 0xc09c0, 0xc09e0, indexSamSho4Sprites_Bonus, 0x27 },
@@ -1292,6 +1352,22 @@ const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_LOGO[] =
     { L"Amakusa's Revenge", 0xc0fa0, 0xc0fc0, indexSamSho4Sprites_Bonus, 0x1a },
 };
 
+const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES_ENDINGS[] =
+{
+    { L"Castle Destruction Debris", 0xd7740, 0xd7760, indexSamSho4Sprites_Bonus, 0x43 },
+
+    { L"Sky", 0xd77a0, 0xd77c0, indexSamSho4Sprites_Bonus, 0x45, &pairNextAndNext },
+    { L"Grass Field", 0xd7780, 0xd77a0, indexSamSho4Sprites_Bonus, 0x44 },
+    { L"Smoke", 0xc06e0, 0xc0700, indexSamSho4Sprites_Bonus, 0x46 },
+
+    { L"Kuchinotsu (Brown)", 0xd4500, 0xd4600, indexSamSho4Sprites_Bonus, 0x47 },
+
+    { L"Karnov", 0xd46e0, 0xd4700, indexSamSho4Sprites_Bonus, 0x48 },
+
+    // Amakusa Castle destruction, post Castle sunbreak.  Just white with a flashing palette.
+    { L"Explosions/Light Shafts", 0xc0200, 0xc0220, indexSamSho4Sprites_Bonus, 0x42 },
+};
+
 const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES[] =
 {
     { L"VS/POW and Meter Text", 0xc0020, 0xc0040, indexSamSho4Sprites_Bonus, 0x03 },
@@ -1323,7 +1399,8 @@ const sGame_PaletteDataset SAMSHO4_A_BONUS_PALETTES[] =
     //{ L"Unknown", 0xc0660, 0xc0680 },
     //{ L"Unknown", 0xc0680, 0xc06a0 },
     //{ L"Unknown", 0xc06a0, 0xc06c0 },
-    //{ L"Unknown", 0xc06c0, 0xc06e0 },
+    // Plays pre Amakusa fight over Amakusa portrait
+    { L"Amakusa Lightning Effect", 0xc06c0, 0xc06e0, indexSamSho4Sprites_Bonus, 0x41 },
     //{ L"Unknown", 0xc06e0, 0xc0700 },
 
     //{ L"Unknown", 0xc0700, 0xc0720 },
@@ -1532,13 +1609,15 @@ const sDescTreeNode SAMSHO4_A_STAGES_COLLECTION[] =
 
 const sDescTreeNode SAMSHO4_A_BONUS_COLLECTION[] =
 {
+    { L"Logo Screen", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_LOGO, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_LOGO) },
     { L"Attract Screen", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_ATTRACT, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_ATTRACT) },
     { L"Challenge Screen", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_CHALLENGE, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_CHALLENGE) },
+    { L"Ending Stuff", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_ENDINGS, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_ENDINGS) },
     { L"Learn To Play", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_LEARN, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_LEARN) },
-    { L"Logo Screen", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_LOGO, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_LOGO) },
+    
     { L"Super Meter: Charging", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_CHARGINGMETER, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_CHARGINGMETER) },
     { L"Super Meter: Full", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES_FULLMETER, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES_FULLMETER) },
-    
+
     { L"Bonus", DESC_NODETYPE_TREE, (void*)SAMSHO4_A_BONUS_PALETTES, ARRAYSIZE(SAMSHO4_A_BONUS_PALETTES) },
 };
 
