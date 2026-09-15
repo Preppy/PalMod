@@ -243,8 +243,8 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
 
     //Change the image id if we need to
-    int nTargetImgId = 0;
-    uint32_t nImgUnitId = NodeGet->uUnitId;
+    uint16_t nImgUnitId = NodeGet->uUnitId;
+    uint8_t nTargetImgId = 0;
 
     uint32_t nSrcStart = NodeGet->uPalId;
     uint32_t nSrcAmt = 1;

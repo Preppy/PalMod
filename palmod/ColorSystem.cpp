@@ -1895,20 +1895,19 @@ namespace ColorSystem
     int GetColorStepFor8BitValue_HalfAlpha(uint8_t nColorValue)
     {
         // 0...0x80
-        const int nAdjustmentValue = (nColorValue < 0) ? -1 : 1;
-    
         if ((nColorValue % 2) == 1)
         {
-            nColorValue += nAdjustmentValue;
+            if (nColorValue > 0)
+            {
+                nColorValue--;
+            }
+            else
+            {
+                nColorValue++;
+            }
         }
 
-        int nColorStep = nColorValue  / 2;
-
-        if (abs(nColorStep) > 255)
-        {
-            nColorValue = min(nColorStep, 255);
-            nColorValue = max(nColorStep, -255);
-        }
+        const int nColorStep = nColorValue  / 2;
 
         return nColorStep;
     }

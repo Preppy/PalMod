@@ -155,7 +155,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             break;
                         default:
                             // Anything past this just gets default pairing
-                            vnPeerPaletteDistances.push_back(nPairIndex);
+                            vnPeerPaletteDistances.push_back(static_cast<int8_t>(nPairIndex));
                             break;
                         }
 

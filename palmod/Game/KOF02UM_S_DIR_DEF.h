@@ -2754,23 +2754,24 @@ const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_SPECIALVICTORY_Mai_PS2[] 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_PS2_MorePalettes[] =
 {
     // Use some math here so that we can reuse the Steam victory portrait data
+    // Note that our positions are stored here negative offset at runtime to positive
 //    { L"Assist Names", 0x200 - 0xD35C0, 0x600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x61 },
   //  { L"Stage Winner/Stats Blurb", 0x20a00 - 0xD35C0, 0x20e00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6a },
 //    { L"Assist Background 1 and Winner Textbox", 0x30e00 - 0xD35C0, 0x31200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x60 },
   //  { L"Textbox Border/EX Names, Loser Textbox", 0x41200 - 0xD35C0, 0x41600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6b },
 //    { L"Player Score Border", 0x51600 - 0xD35C0, 0x51a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x65 },
 
-    { L"Assist Names",                          0x200 - 0xD35C0, 0x600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x61 },
-    { L"Stage Winner/Stats Blurb",              0x20a00 - 0xD35C0, 0x20e00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6a },
-    { L"Assist Background 1 and Winner Textbox", 0x30e00 - 0xD35C0, 0x31200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x60 },
-    { L"Textbox Border/EX Names, Loser Textbox", 0x41200 - 0xD35C0, 0x41600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6b },
-    { L"Player Score Border",                   0x51600 - 0xD35C0, 0x51a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x65 },
-    { L"Scoring Box/Assist Background 2",       0x61a00 - 0xD35C0, 0x61e00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x66 },
-    { L"Stage Completion Screen",               0x71e00 - 0xD35C0, 0x72200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x67 },
-    { L"Background 1/2",                        0x82200 - 0xD35C0, 0x82600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x63, &pairNext },
-    { L"Background 2/2",                        0x92600 - 0xD35C0, 0x92a00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x64, &pairPrevious },
-    { L"Stage Winner Bar",                      0xb2e00 - 0xD35C0, 0xb3200 - 0xD35C0, indexKOF02UMSprites_Extras, 0x68, &pairNext },
-    { L"Stage Winner Border",                   0xc3200 - 0xD35C0, 0xc3600 - 0xD35C0, indexKOF02UMSprites_Extras, 0x69, &pairPrevious },
+    { L"Assist Names",                          static_cast<uint32_t>(0x200 - 0xD35C0), static_cast<uint32_t>(0x600 - 0xD35C0), indexKOF02UMSprites_Extras, 0x61 },
+    { L"Stage Winner/Stats Blurb",              static_cast<uint32_t>(0x20a00 - 0xD35C0), static_cast<uint32_t>(0x20e00 - 0xD35C0), indexKOF02UMSprites_Extras, 0x6a },
+    { L"Assist Background 1 and Winner Textbox", static_cast<uint32_t>(0x30e00 - 0xD35C0), static_cast<uint32_t>(0x31200 - 0xD35C0), indexKOF02UMSprites_Extras, 0x60 },
+    { L"Textbox Border/EX Names, Loser Textbox", static_cast<uint32_t>(0x41200 - 0xD35C0), static_cast<uint32_t>(0x41600 - 0xD35C0), indexKOF02UMSprites_Extras, 0x6b },
+    { L"Player Score Border",                   static_cast<uint32_t>(0x51600 - 0xD35C0), static_cast<uint32_t>(0x51a00 - 0xD35C0), indexKOF02UMSprites_Extras, 0x65 },
+    { L"Scoring Box/Assist Background 2",       static_cast<uint32_t>(0x61a00 - 0xD35C0), static_cast<uint32_t>(0x61e00 - 0xD35C0), indexKOF02UMSprites_Extras, 0x66 },
+    { L"Stage Completion Screen",               static_cast<uint32_t>(0x71e00 - 0xD35C0), static_cast<uint32_t>(0x72200 - 0xD35C0), indexKOF02UMSprites_Extras, 0x67 },
+    { L"Background 1/2",                        static_cast<uint32_t>(0x82200 - 0xD35C0), static_cast<uint32_t>(0x82600 - 0xD35C0), indexKOF02UMSprites_Extras, 0x63, &pairNext },
+    { L"Background 2/2",                        static_cast<uint32_t>(0x92600 - 0xD35C0), static_cast<uint32_t>(0x92a00 - 0xD35C0), indexKOF02UMSprites_Extras, 0x64, &pairPrevious},
+    { L"Stage Winner Bar",                      static_cast<uint32_t>(0xb2e00 - 0xD35C0), static_cast<uint32_t>(0xb3200 - 0xD35C0), indexKOF02UMSprites_Extras, 0x68, &pairNext },
+    { L"Stage Winner Border",                   static_cast<uint32_t>(0xc3200 - 0xD35C0), static_cast<uint32_t>(0xc3600 - 0xD35C0), indexKOF02UMSprites_Extras, 0x69, &pairPrevious },
 
     { L"Textbox Border Names 1/2",              0x3df600 - 0xD35C0, 0x3dfa00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6c },
     { L"Textbox Border Names 2/2",              0x3efa00 - 0xD35C0, 0x3efe00 - 0xD35C0, indexKOF02UMSprites_Extras, 0x6d },

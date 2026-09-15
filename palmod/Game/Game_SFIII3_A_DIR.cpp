@@ -936,9 +936,9 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                     CFile* pIPS2 = (nSIMMSetToUse == 0) ? &fileIPS2 : &fileIPS4;
 
                     // Location
-                    BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
-                    BYTE b2 = (m_nCurrentPaletteROMLocation & 0xFF00) >> 8;
-                    BYTE b3 = m_nCurrentPaletteROMLocation & 0xFF;
+                    BYTE b1 = static_cast<BYTE>((m_nCurrentPaletteROMLocation & 0xFF0000) >> 16);
+                    BYTE b2 = static_cast<BYTE>((m_nCurrentPaletteROMLocation & 0xFF00) >> 8);
+                    BYTE b3 = static_cast<BYTE>(m_nCurrentPaletteROMLocation & 0xFF);
                     pIPS1->Write(&b1, 1);
                     pIPS1->Write(&b2, 1);
                     pIPS1->Write(&b3, 1);

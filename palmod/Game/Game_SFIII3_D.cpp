@@ -166,17 +166,17 @@ if (m_uRuleCtr >= SFIII3_D_NUMUNIT)
 return NewFileRule;
 }
 
-uint32_t CGame_SFIII3_D::GetBasicAmt(uint32_t nUnitId)
+uint32_t CGame_SFIII3_D::GetBasicAmt(uint32_t /* nUnitId */)
 {
     return static_cast<uint32_t>(DEF_BUTTONLABEL7_SF3.size());
 }
 
-uint32_t CGame_SFIII3_D::GetPaletteCountForUnit(uint32_t nUnitId)
+uint32_t CGame_SFIII3_D::GetPaletteCountForUnit(uint32_t /* nUnitId */)
 {
     return 32;
 }
 
-void CGame_SFIII3_D::GetPalOffsSz(uint32_t nUnitId, uint32_t nPalId)
+void CGame_SFIII3_D::GetPalOffsSz(uint32_t /* nUnitId */, uint32_t nPalId)
 {
     m_nCurrentPaletteROMLocation = 0x80 * nPalId;
     m_nCurrPalSz = 0x80 / 2;

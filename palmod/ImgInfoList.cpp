@@ -8,6 +8,7 @@ void OutputDebugString_DebugOnly(LPCWSTR pszString)
 #if IMGINFOLIST_DEBUG
     OutputDebugString(pszString);
 #else
+    UNREFERENCED_PARAMETER(pszString);
 #endif
 }
 

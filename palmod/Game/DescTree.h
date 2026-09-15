@@ -8,16 +8,15 @@ enum DescNodeType
     DESC_NODETYPE_NODE_REF,     // Loaded sGame_PaletteDatasets are stored as sDescNode for quick reference
 };
 
-//Description tree definition
-
 struct sDescNode
 {
     wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
 
-    uint32_t uUnitId = INVALID_UNIT_VALUE_16;
-    uint32_t uPalId = 0;
+    uint16_t uUnitId = INVALID_UNIT_VALUE_16;
+    uint16_t uPalId = 0;
 };
 
+//Description tree definition
 struct sDescTreeNode
 {
     wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";

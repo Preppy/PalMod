@@ -915,104 +915,104 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 {
     switch (eType)
     {
-    case eVerifyType::VM_PALCHANGE:
-    {
-        if (m_fPalChanged)
+        case eVerifyType::VM_PALCHANGE:
         {
-            const int nMBDefault = CRegProc::GetUserSavePaletteToMemoryPreference();
-            // WINE currently muffs their implementation of SHMessageBoxCheck - special-case handling there
-            // Filed https://bugs.winehq.org/show_bug.cgi?id=50488 to track this for them
-            // Further note: we'll just bail on using SHMessageBoxCheck on WINE.  It's a garbage non-functional
-            // implementation.  It truncates text, returns the wrong values, shows the wrong buttons, and doesn't
-            // save the Dont Show Again state.
-            static bool s_fIsUserOnWINE = CRegProc::UserIsOnWINE();
+            if (m_fPalChanged)
+            {
+                const int nMBDefault = CRegProc::GetUserSavePaletteToMemoryPreference();
+                // WINE currently muffs their implementation of SHMessageBoxCheck - special-case handling there
+                // Filed https://bugs.winehq.org/show_bug.cgi?id=50488 to track this for them
+                // Further note: we'll just bail on using SHMessageBoxCheck on WINE.  It's a garbage non-functional
+                // implementation.  It truncates text, returns the wrong values, shows the wrong buttons, and doesn't
+                // save the Dont Show Again state.
+                static bool s_fIsUserOnWINE = CRegProc::UserIsOnWINE();
 
-            int nUserAnswer = IDCANCEL;
+                int nUserAnswer = IDCANCEL;
             
-            CString strQuestion;
-            if (strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES))
-            {
-                const UINT uiButtonFlag = s_fIsUserOnWINE ? MB_YESNO : MB_YESNOCANCEL;
+                CString strQuestion;
+                if (strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES))
+                {
+                    const UINT uiButtonFlag = s_fIsUserOnWINE ? MB_YESNO : MB_YESNOCANCEL;
 
-                nUserAnswer = SafeSHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), uiButtonFlag | MB_ICONEXCLAMATION, nMBDefault, L"{11BFAC2D-42CA-40e2-967C-1017C1B2676A}");
+                    nUserAnswer = SafeSHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), uiButtonFlag | MB_ICONEXCLAMATION, nMBDefault, L"{11BFAC2D-42CA-40e2-967C-1017C1B2676A}");
+                }
+
+                if (s_fIsUserOnWINE && (nUserAnswer == IDCANCEL))
+                {
+                    // You'll note that the user never got an option for CANCEL: WINE treated their NO as CANCEL for no good reason
+                    nUserAnswer = IDNO;
+                }
+
+                CRegProc::SetUserSavePaletteToMemoryPreference(nUserAnswer);
+
+                switch (nUserAnswer)
+                {
+                    case IDYES:
+                    // If you're playing along at home, you'll note that IDOK isn't a legal value.  But WINE
+                    // is currently returning IDOK when users press YES, so we'll work with that
+                    case IDOK:
+                    {
+                        OnBnUpdate();
+                        return TRUE;
+                    }
+                    case IDNO:
+                    {
+                        m_fPalChanged = FALSE;
+                        return TRUE;
+                    }
+                    case IDCANCEL:
+                    {
+                        m_nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(m_nPrevUnitSel) : NULL;
+                        m_nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(m_nPrevChildSel1) : NULL;
+                        m_nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(m_nPrevChildSel2) : NULL;
+
+                        return FALSE;
+                    }
+                }
+            }
+            else
+            {
+                return TRUE;
             }
 
-            if (s_fIsUserOnWINE && (nUserAnswer == IDCANCEL))
-            {
-                // You'll note that the user never got an option for CANCEL: WINE treated their NO as CANCEL for no good reason
-                nUserAnswer = IDNO;
-            }
-
-            CRegProc::SetUserSavePaletteToMemoryPreference(nUserAnswer);
-
-            switch (nUserAnswer)
-            {
-                case IDYES:
-                // If you're playing along at home, you'll note that IDOK isn't a legal value.  But WINE
-                // is currently returning IDOK when users press YES, so we'll work with that
-                case IDOK:
-                {
-                    OnBnUpdate();
-                    return TRUE;
-                }
-                case IDNO:
-                {
-                    m_fPalChanged = FALSE;
-                    return TRUE;
-                }
-                case IDCANCEL:
-                {
-                    m_nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(m_nPrevUnitSel) : NULL;
-                    m_nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(m_nPrevChildSel1) : NULL;
-                    m_nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(m_nPrevChildSel2) : NULL;
-
-                    return FALSE;
-                }
-            }
         }
-        else
-        {
-            return TRUE;
-        }
-
-    }
-    break;
-    case eVerifyType::VM_FILECHANGE:
-    {
-        if (m_fFileChanged)
-        {
-            CString strQuestion;
-            if (strQuestion.LoadString(IDS_SAVE_FILE_CHANGES))
-            {
-                switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
-                {
-                case IDYES:
-                {
-                    OnFilePatch();
-                    return TRUE;
-                }
-                case IDNO:
-                {
-                    m_fFileChanged = FALSE;
-                    m_fPalChanged = FALSE;
-                    return TRUE;
-                }
-                case IDCANCEL:
-                {
-                    return FALSE;
-                }
-                }
-            break;
-            }
-        }
-        else
-        {
-            return TRUE;
-        }
-    }
-    break;
-    default:
         break;
+        case eVerifyType::VM_FILECHANGE:
+        {
+            if (m_fFileChanged)
+            {
+                CString strQuestion;
+                if (strQuestion.LoadString(IDS_SAVE_FILE_CHANGES))
+                {
+                    switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
+                    {
+                    case IDYES:
+                    {
+                        OnFilePatch();
+                        return TRUE;
+                    }
+                    case IDNO:
+                    {
+                        m_fFileChanged = FALSE;
+                        m_fPalChanged = FALSE;
+                        return TRUE;
+                    }
+                    case IDCANCEL:
+                    {
+                        return FALSE;
+                    }
+                    }
+                break;
+                }
+            }
+            else
+            {
+                return TRUE;
+            }
+        }
+        break;
+        default:
+            break;
     }
 
     return FALSE;

@@ -173,9 +173,9 @@ namespace MVC2_SupplementProcessing
         {
             COLORREF input_col = CurrMVC2->ConvPal16(src_16[offset + src_index]);
 
-            BYTE newR = min(255, max(0, static_cast<int>(GetRValue(input_col)) + (17 * tint_factor_r)));
-            BYTE newG = min(255, max(0, static_cast<int>(GetGValue(input_col)) + (17 * tint_factor_g)));
-            BYTE newB = min(255, max(0, static_cast<int>(GetBValue(input_col)) + (17 * tint_factor_b)));
+            BYTE newR = static_cast<BYTE>(min(255, max(0, static_cast<int>(GetRValue(input_col)) + (17 * tint_factor_r))));
+            BYTE newG = static_cast<BYTE>(min(255, max(0, static_cast<int>(GetGValue(input_col)) + (17 * tint_factor_g))));
+            BYTE newB = static_cast<BYTE>(min(255, max(0, static_cast<int>(GetBValue(input_col)) + (17 * tint_factor_b))));
 
             newR /= 17;
             newG /= 17;
