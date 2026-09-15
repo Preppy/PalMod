@@ -622,7 +622,7 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
                         }
 
                         // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
-                        wcscpy(pszPath, szPath);
+                        wcsncpy(pszPath, szPath, cbSize / sizeof(WCHAR));
                         fFound = TRUE;
                     }
 
@@ -662,10 +662,10 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 {
     CString szGameFileDef = L"";
 
-    nDefaultGameFilter = nDefaultGameFilter & 0xffff; // eliminate the applied mask (k_nGameLoadROMListMask, 0xf0000) that we use to avoid existing menu items
+    nDefaultGameFilter = nDefaultGameFilter & ~k_nGameLoadROMListMask; // eliminate the applied mask that we use to avoid existing menu items
 
     // The following logic ensures that their last used selection is the default filter view.
-    SupportedGamesList nLastUsedGFlag = (SupportedGamesList)nDefaultGameFilter;
+    SupportedGamesList nLastUsedGFlag = static_cast<SupportedGamesList>(nDefaultGameFilter);
 
     // Special allowance so that the user can see both file loading modes in the Load by ROM menu
     if (nDefaultGameFilter == DEVMODE_DIR)

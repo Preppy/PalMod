@@ -320,6 +320,8 @@ enum SupportedGamesList
     WorldHeroesPerfect_PS2,
     WorldHeroes_A,
     WorldHeroes_PS2,
+    WorldHeroes2_A,
+    WorldHeroes2_PS2,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
@@ -374,7 +376,9 @@ enum class GameSeries
     PS2FatalFuryVolume2,
     PS2FuunSuperCombo,
     PS2SamuraiShodown,
-    Unknown,
+    WorldHeroes,
+    PS2WorldHeroes,
+    None, // Part of no series
     Last,
 };
 
@@ -390,12 +394,12 @@ struct sSupportedGameToFileMap
     std::wstring strGameFriendlyName;
     std::wstring strGameFilterString;
     GamePlatform publisherKey = GamePlatform::DevMode;
-    GameSeries seriesKey = GameSeries::Unknown;
+    GameSeries seriesKey = GameSeries::None;
     int nListedGameIndex = INVALID_UNIT_VALUE_16;
 };
 
 const int k_nTextureLoadCommandMask = 0xff00;
-const int k_nGameLoadROMListMask = 0xf0000;
+const int k_nGameLoadROMListMask = 0xf000;
 
 //Image output display options
 enum class eImageOutputSpriteDisplay

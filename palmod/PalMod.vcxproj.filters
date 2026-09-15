@@ -673,6 +673,9 @@
     <Filter Include="Games\SNK Games\World Heroes">
       <UniqueIdentifier>{c9f239bd-0b37-496a-9f08-fa3c1886f569}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\World Heroes 2">
+      <UniqueIdentifier>{d7b56707-9570-4021-8806-e07bcd353f5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2431,6 +2434,12 @@
     </ClInclude>
     <ClInclude Include="Game\WorldHeroes_A_DEF.h">
       <Filter>Games\SNK Games\World Heroes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_WorldHeroes2_A.h">
+      <Filter>Games\SNK Games\World Heroes 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\WorldHeroes2_A_DEF.h">
+      <Filter>Games\SNK Games\World Heroes 2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

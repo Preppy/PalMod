@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 296, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 298, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -290,7 +290,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         {
             int nCurrentPosition = 0;
             CMenu platformMenu;
-            CMenu seriesMenu[6];
+            CMenu seriesMenu[7];
 
             platformMenu.CreatePopupMenu();
             seriesMenu[0].CreatePopupMenu();
@@ -299,7 +299,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             seriesMenu[3].CreatePopupMenu();
             seriesMenu[4].CreatePopupMenu();
             seriesMenu[5].CreatePopupMenu();
+            seriesMenu[6].CreatePopupMenu();
 
+            // handle all the GamePlatforms that should have submenus
             if ((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) ||
                 (static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) ||
                 (static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) ||
@@ -319,7 +321,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
                         mii.dwTypeData = const_cast<LPWSTR>(sGametoFileData.strGameFriendlyName.data());
 
-                        if (sGametoFileData.seriesKey != GameSeries::Unknown)
+                        if (sGametoFileData.seriesKey != GameSeries::None)
                         {
                             switch (sGametoFileData.seriesKey)
                             {
@@ -353,10 +355,14 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                                     seriesMenu[3].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                                 case GameSeries::MagicalDrop:
+                                case GameSeries::PS2WorldHeroes:
                                     seriesMenu[4].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                                 case GameSeries::SamuraiShodown:
                                     seriesMenu[5].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                                    break;
+                                case GameSeries::WorldHeroes:
+                                    seriesMenu[6].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                             }
                         }
@@ -367,9 +373,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             uint8_t nMenuIndex = 0;
             std::vector<std::wstring> rgCapcomSubMenu = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
             std::vector<std::wstring> rgSegaSubMenu = { L"Genesis / Mega Drive", L"NAOMI" };
-            std::vector<std::wstring> rgSNKSubMenu = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Last Blade", L"Magical Drop", L"Samurai Shodown" };
+            std::vector<std::wstring> rgSNKSubMenu = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Last Blade", L"Magical Drop", L"Samurai Shodown", L"World Heroes" };
             std::vector<std::wstring> rgNintendoSubMenu = { L"DS/3DS", L"GBA", L"SNES" };
-            std::vector<std::wstring> rgPS2SubMenu = { L"Fatal Fury Battle Archives Volume 1", L"Fatal Fury Battle Archives Volume 2", L"Fu'un Super Combo", L"Samurai Shodown Anthology" };
+            std::vector<std::wstring> rgPS2SubMenu = { L"Fatal Fury Battle Archives Volume 1", L"Fatal Fury Battle Archives Volume 2", L"Fu'un Super Combo", L"Samurai Shodown Anthology", L"World Heroes Anthology" };
             std::vector<std::wstring> rgSteamSubMenu = { L"Capcom Fighting Collection",  L"Capcom Fighting Collection 2", L"Marvel vs Capcom", L"Street Fighter 30th Anniversary" };
 
             for (const auto& sGametoFileData : rgGameToFileMap)
@@ -439,12 +445,12 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         }
                     }
 
-                    if (((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
-                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
-                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
-                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::PS2) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
-                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Sega) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
-                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam) && (sGametoFileData.seriesKey == GameSeries::Unknown)) ||
+                    if (((static_cast<GamePlatform>(nPlatform) == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == GameSeries::None)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == GameSeries::None)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == GameSeries::None)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::PS2) && (sGametoFileData.seriesKey == GameSeries::None)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Sega) && (sGametoFileData.seriesKey == GameSeries::None)) ||
+                        ((static_cast<GamePlatform>(nPlatform) == GamePlatform::Steam) && (sGametoFileData.seriesKey == GameSeries::None)) ||
                             ((static_cast<GamePlatform>(nPlatform) != GamePlatform::CapcomCPS12) &&
                              (static_cast<GamePlatform>(nPlatform) != GamePlatform::NEOGEO) &&
                              (static_cast<GamePlatform>(nPlatform) != GamePlatform::Nintendo) &&

@@ -2269,6 +2269,19 @@ enum SupportedNEOGEO_PaletteListIndex
     indexWHPSprites_Zeus,                   // 0xec
     indexWHPSprites_Stages,                 // 0xed
     indexWHPSprites_Bonus,                  // 0xee
+
+    indexWH1Sprites_Brocken,                // 0xef
+    indexWH1Sprites_Dragon,                 // 0xf0
+    indexWH1Sprites_Fuuma,                  // 0xf0
+    indexWH1Sprites_Geegus,                 // 0xf1
+    indexWH1Sprites_Hanzou,                 // 0xf2
+    indexWH1Sprites_JCarn,                  // 0xf3
+    indexWH1Sprites_Jeanne,                 // 0xf4
+    indexWH1Sprites_MusclePower,            // 0xf5
+    indexWH1Sprites_Rasputin,               // 0xf6
+    indexWH1Sprites_Portraits,              // 0xf7
+    indexWH1Sprites_Stages,                 // 0xf8
+    indexWH1Sprites_Bonus,                  // 0xf9
 };
 
 enum SupportedGGXX_PaletteListIndex

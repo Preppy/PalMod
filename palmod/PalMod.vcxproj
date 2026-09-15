@@ -636,6 +636,7 @@
     <ClInclude Include="Game\Game_VSAV_A.h" />
     <ClInclude Include="Game\Game_WakuWaku7_A.h" />
     <ClInclude Include="Game\Game_Windjammers_A.h" />
+    <ClInclude Include="Game\Game_WorldHeroes2_A.h" />
     <ClInclude Include="Game\Game_WorldHeroesPerfect_A.h" />
     <ClInclude Include="Game\Game_WorldHeroes_A.h" />
     <ClInclude Include="Game\Game_XMMA_SNES.h" />
@@ -790,6 +791,7 @@
     <ClInclude Include="Game\VSAV_A_DEF.h" />
     <ClInclude Include="Game\WakuWaku7_A_DEF.h" />
     <ClInclude Include="Game\Windjammers_A_DEF.h" />
+    <ClInclude Include="Game\WorldHeroes2_A_DEF.h" />
     <ClInclude Include="Game\WorldHeroesPerfect_A_DEF.h" />
     <ClInclude Include="Game\WorldHeroes_A_DEF.h" />
     <ClInclude Include="Game\XMMA_SNES_DEF.h" />
