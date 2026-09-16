@@ -242,6 +242,11 @@ const sGame_PaletteDataset WorldHeroes2_A_BonusPalettes_CharacterSelect[] =
     { L"Mode Select Coin", 0x103e40, 0x103e60 },
 };
 
+const sGame_PaletteDataset WorldHeroes2_A_BonusPalettes_VSScreen[] =
+{
+    { L"VS Background", 0x101f40, 0x101f80 },
+};
+
 const sDescTreeNode WorldHeroes2_A_HanzouHattori_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)WorldHeroes2_A_HanzouHattori_A, ARRAYSIZE(WorldHeroes2_A_HanzouHattori_A) },
@@ -345,6 +350,7 @@ const sDescTreeNode WorldHeroes2_A_BonusPalettes_COLLECTION[] =
 {
     { L"HUD", DESC_NODETYPE_TREE, (void*)WorldHeroes2_A_BonusPalettes_HUD, ARRAYSIZE(WorldHeroes2_A_BonusPalettes_HUD) },
     { L"Character Select", DESC_NODETYPE_TREE, (void*)WorldHeroes2_A_BonusPalettes_CharacterSelect, ARRAYSIZE(WorldHeroes2_A_BonusPalettes_CharacterSelect) },
+    { L"VS Screen", DESC_NODETYPE_TREE, (void*)WorldHeroes2_A_BonusPalettes_VSScreen, ARRAYSIZE(WorldHeroes2_A_BonusPalettes_VSScreen) },
 };
 
 const sDescTreeNode WorldHeroes2_A_UNITS[] =
