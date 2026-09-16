@@ -676,6 +676,9 @@
     <Filter Include="Games\SNK Games\World Heroes 2">
       <UniqueIdentifier>{d7b56707-9570-4021-8806-e07bcd353f5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\PS2\Mortal Kombat">
+      <UniqueIdentifier>{11479e75-9fb8-4a7c-bcec-69e7c5a0f6d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2440,6 +2443,12 @@
     </ClInclude>
     <ClInclude Include="Game\WorldHeroes2_A_DEF.h">
       <Filter>Games\SNK Games\World Heroes 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MK1_PS2.h">
+      <Filter>Games\PS2\Mortal Kombat</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MK1_PS2_DEF.h">
+      <Filter>Games\PS2\Mortal Kombat</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

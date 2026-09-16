@@ -322,6 +322,9 @@ enum SupportedGamesList
     WorldHeroes_PS2,
     WorldHeroes2_A,
     WorldHeroes2_PS2,
+    MK1_PS2,
+    MK2_PS2,
+    UMK3_PS2,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
@@ -350,35 +353,47 @@ enum class GamePlatform
     Last,
 };
 
+// Sort this by platform (or rewrite)
 enum class GameSeries
 {
-    ArtOfFighting = 0,
-    FatalFury,
-    KOF,
-    LastBlade,
-    MagicalDrop,
-    MvCNormal,
-    SamuraiShodown,
-    SegaMegaDrive,
-    SegaNAOMI,
-    SFA,
-    SF2,
-    SF3,
-    VampireSavior,
-    NintendoDS,
-    NintendoGBA,
-    NintendoSNES,
-    CapcomFightCollection,
-    SF30th,
-    MvCSteam,
-    CapcomFightCollection2,
-    PS2FatalFuryVolume1,
-    PS2FatalFuryVolume2,
-    PS2FuunSuperCombo,
-    PS2SamuraiShodown,
-    WorldHeroes,
-    PS2WorldHeroes,
+    CPS_MvC = 0,
+    CPS_SFA,
+    CPS_SF2,
+    CPS_VampireSavior,
+
+    Sega_MegaDrive,
+    Sega_NAOMI,
+
+    NeoGeo_ArtOfFighting,
+    NeoGeo_FatalFury,
+    NeoGeo_KOF,
+    NeoGeo_LastBlade,
+    NeoGeo_MagicalDrop,
+    NeoGeo_SamuraiShodown,
+    NeoGeo_WorldHeroes,
+
+    // These aren't used as submenu indicators at this time.
+    CPS3_Jojos,
+    CPS3_SF3,
+
+    Nintendo_DS,
+    Nintendo_GBA,
+    Nintendo_SNES,
+
+    Steam_CapcomFightCollection,
+    Steam_CapcomFightCollection2,
+    Steam_MvCC,
+    Steam_SF30th,
+
+    PS2_FatalFuryVolume1,
+    PS2_FatalFuryVolume2,
+    PS2_FuunSuperCombo,
+    PS2_MortalKombat,
+    PS2_SamuraiShodown,
+    PS2_WorldHeroes,
+
     None, // Part of no series
+
     Last,
 };
 

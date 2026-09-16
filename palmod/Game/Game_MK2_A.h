@@ -115,3 +115,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_MK2_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"mk2.sr", 0x813f000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Mortal Kombat II (PS2)", L"mk2.sr", 0x4BF6372C, 0xC800 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Mortal Kombat II (PS2)",
+        MK2_PS2,
+        IMGDAT_SECTION_OTHER,
+        MK2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB555_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        MK2_A_UNITS,
+        ARRAYSIZE(MK2_A_UNITS),
+        L"MK2_PS2_E.txt",           // Extra filename
+        31,                         // Count of palettes listed in the header
+        0x210e2,                    // Lowest known location used for palettes
+    };
+
+public:
+    CGame_MK2_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};

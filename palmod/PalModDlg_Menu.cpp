@@ -24,7 +24,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         CString strGet;
         LPCWSTR pszExtraInfo = nullptr;
 
-        static_assert(NUM_GAMES == 298, "Increment after deciding whether to add game directory loading hints.");
+        static_assert(NUM_GAMES == 301, "Increment after deciding whether to add game directory loading hints.");
 
         switch (nGameFlag)
         {
@@ -325,43 +325,44 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         {
                             switch (sGametoFileData.seriesKey)
                             {
-                                case GameSeries::CapcomFightCollection:
-                                case GameSeries::MvCNormal:
-                                case GameSeries::ArtOfFighting:
-                                case GameSeries::NintendoDS:
-                                case GameSeries::PS2FatalFuryVolume1:
-                                case GameSeries::SegaMegaDrive:
+                                case GameSeries::Steam_CapcomFightCollection:
+                                case GameSeries::CPS_MvC:
+                                case GameSeries::NeoGeo_ArtOfFighting:
+                                case GameSeries::Nintendo_DS:
+                                case GameSeries::PS2_FatalFuryVolume1:
+                                case GameSeries::Sega_MegaDrive:
                                     seriesMenu[0].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
-                                case GameSeries::CapcomFightCollection2:
-                                case GameSeries::SFA:
-                                case GameSeries::FatalFury:
-                                case GameSeries::NintendoGBA:
-                                case GameSeries::PS2FatalFuryVolume2:
-                                case GameSeries::SegaNAOMI:
+                                case GameSeries::Steam_CapcomFightCollection2:
+                                case GameSeries::CPS_SFA:
+                                case GameSeries::NeoGeo_FatalFury:
+                                case GameSeries::Nintendo_GBA:
+                                case GameSeries::PS2_FatalFuryVolume2:
+                                case GameSeries::Sega_NAOMI:
                                     seriesMenu[1].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
-                                case GameSeries::MvCSteam:
-                                case GameSeries::SF2:
-                                case GameSeries::KOF:
-                                case GameSeries::PS2FuunSuperCombo:
-                                case GameSeries::NintendoSNES:
+                                case GameSeries::Steam_MvCC:
+                                case GameSeries::CPS_SF2:
+                                case GameSeries::NeoGeo_KOF:
+                                case GameSeries::PS2_FuunSuperCombo:
+                                case GameSeries::Nintendo_SNES:
                                     seriesMenu[2].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
-                                case GameSeries::SF30th:
-                                case GameSeries::LastBlade:
-                                case GameSeries::PS2SamuraiShodown:
-                                case GameSeries::VampireSavior:
+                                case GameSeries::Steam_SF30th:
+                                case GameSeries::NeoGeo_LastBlade:
+                                case GameSeries::PS2_MortalKombat:
+                                case GameSeries::CPS_VampireSavior:
                                     seriesMenu[3].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
-                                case GameSeries::MagicalDrop:
-                                case GameSeries::PS2WorldHeroes:
+                                case GameSeries::NeoGeo_MagicalDrop:
+                                case GameSeries::PS2_SamuraiShodown:
                                     seriesMenu[4].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
-                                case GameSeries::SamuraiShodown:
+                                case GameSeries::NeoGeo_SamuraiShodown:
+                                case GameSeries::PS2_WorldHeroes:
                                     seriesMenu[5].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
-                                case GameSeries::WorldHeroes:
+                                case GameSeries::NeoGeo_WorldHeroes:
                                     seriesMenu[6].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                     break;
                             }
@@ -375,7 +376,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             std::vector<std::wstring> rgSegaSubMenu = { L"Genesis / Mega Drive", L"NAOMI" };
             std::vector<std::wstring> rgSNKSubMenu = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Last Blade", L"Magical Drop", L"Samurai Shodown", L"World Heroes" };
             std::vector<std::wstring> rgNintendoSubMenu = { L"DS/3DS", L"GBA", L"SNES" };
-            std::vector<std::wstring> rgPS2SubMenu = { L"Fatal Fury Battle Archives Volume 1", L"Fatal Fury Battle Archives Volume 2", L"Fu'un Super Combo", L"Samurai Shodown Anthology", L"World Heroes Anthology" };
+            std::vector<std::wstring> rgPS2SubMenu = { L"Fatal Fury Battle Archives Volume 1", L"Fatal Fury Battle Archives Volume 2", L"Fu'un Super Combo", L"Mortal Kombat", L"Samurai Shodown Anthology", L"World Heroes Anthology"};
             std::vector<std::wstring> rgSteamSubMenu = { L"Capcom Fighting Collection",  L"Capcom Fighting Collection 2", L"Marvel vs Capcom", L"Street Fighter 30th Anniversary" };
 
             for (const auto& sGametoFileData : rgGameToFileMap)

@@ -304,3 +304,45 @@ public:
 
     static sFileRule GetRule(uint32_t nRuleId);
 };
+
+class CGame_UMK3_PS2 : public CGameClassByDir
+{
+private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"umk3.sr", 0x67ff800 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const std::vector<sCRC32ValueSet> m_rgCRC32Data =
+    {
+        { L"Ultimate Mortal Kombat 3 (PS2)", L"umk3.sr", 0xFB6611A4, 0xB800 },
+    };
+
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Ultimate Mortal Kombat 3 (PS2)",
+        UMK3_PS2,
+        IMGDAT_SECTION_OTHER,
+        UMK3_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB555_BE,
+        m_sFileLoadingData,
+        m_rgCRC32Data,
+        UMK3_A_UNITS,
+        ARRAYSIZE(UMK3_A_UNITS),
+        L"UMK3_PS2_E.txt",          // Extra filename
+        67,                         // Count of palettes listed in the header
+        0x60b3c,                    // Lowest known location used for palettes
+    };
+
+public:
+    CGame_UMK3_PS2(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+};
