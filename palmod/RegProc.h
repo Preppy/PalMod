@@ -131,6 +131,8 @@ public:
     static DWORD GetDefaultColorTransform(DWORD dwTransformNumber, DWORD dwFallbackValue = 0) { return GetDWORDValueForTransform(dwTransformNumber, dwFallbackValue); };
     static void SetDefaultColorTransform(DWORD dwTransformNumber, DWORD dwDefault) { StoreDWORDValueForTransform(dwTransformNumber, dwDefault); };
 
+    // 0: extras/txt
+    // 1: code/h
     static DWORD GetDefaultRemapFiletype() { return GetDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr); };
     static void SetDefaultRemapFiletype(DWORD dwDefault) { StoreDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr, dwDefault); };
 

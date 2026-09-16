@@ -2,7 +2,6 @@
 #include "PalModDlg.h"
 #include "PalMod.h"
 #include "ExtraFile.h"
-#include "Util.h"
 #include <afxeditbrowsectrl.h> // for the edit browse control
 
 static CString SignedHexAsString(int32_t nHexNumber)
@@ -32,26 +31,31 @@ public:
     virtual void OnBrowse() override;
     void EnableFileBrowseButtonFunctional(
         LPCTSTR lpszDefExt = nullptr,
+        LPCTSTR lpszDefFileName = nullptr,
         LPCTSTR lpszFilter = nullptr,
         DWORD dwFlags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT);
+    void UpdateDefaultFileName(LPCTSTR lpszDefFileName);
 
 private:
-    LPCTSTR m_pszDefExt = nullptr;
-    LPCTSTR m_pszFilter = nullptr;
+    CString m_strDefExt;
+    CString m_strDefFileName;
+    CString m_strFilter;
     DWORD m_dwOFNFlags = 0;
 };
 
 void CMFCEditBrowseCtrlFunctional::EnableFileBrowseButtonFunctional(
     LPCTSTR lpszDefExt /* = nullptr */,
+    LPCTSTR lpszDefFileName /* = nullptr */,
     LPCTSTR lpszFilter /* = nullptr */,
     DWORD dwFlags /* = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT */)
 {
-    m_pszDefExt = lpszDefExt;
-    m_pszFilter = lpszFilter;
+    m_strDefExt = lpszDefExt;
+    m_strDefFileName = lpszDefFileName;
+    m_strFilter = lpszFilter;
     m_dwOFNFlags = dwFlags;
 
     // OFN flags get stripped, RIP, so we'll override OnBrowse
-    EnableFileBrowseButton(m_pszDefExt, m_pszFilter, m_dwOFNFlags);
+    EnableFileBrowseButton(m_strDefExt, m_strFilter, m_dwOFNFlags);
 };
 
 void CMFCEditBrowseCtrlFunctional::OnBrowse()
@@ -59,12 +63,22 @@ void CMFCEditBrowseCtrlFunctional::OnBrowse()
     // Kinda loose logic here, but it's functional
     const BOOL fIsFileOpen = !(m_dwOFNFlags & OFN_OVERWRITEPROMPT);
 
-    CFileDialog dlg(fIsFileOpen, m_pszDefExt, nullptr, m_dwOFNFlags, m_pszFilter);
+    CFileDialog dlg(fIsFileOpen, m_strDefExt.GetString(), m_strDefFileName.GetString(), m_dwOFNFlags, m_strFilter);
+
+    OPENFILENAME& pOFN = dlg.GetOFN();
+
+    pOFN.nFilterIndex = (m_strDefExt.Compare(L"txt") == 0) ? 1 : 2;
 
     if (dlg.DoModal() == IDOK)
     {
         SetWindowText(dlg.GetPathName());
     }
+};
+
+void CMFCEditBrowseCtrlFunctional::UpdateDefaultFileName(LPCTSTR lpszDefFileName)
+{
+    m_strDefFileName = lpszDefFileName;
+    SetWindowText(m_strDefFileName.GetString());
 }
 
 class CFindPalettesInNewROM : public CDialog
@@ -84,7 +98,13 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);
 
+    DECLARE_MESSAGE_MAP()
+
     virtual void OnOK() override;
+
+    afx_msg void OnUpdateUnitCombobox();
+
+    bool _StringWantsToUseExtrasMode(CString strPath);
 
     CComboBox m_CBUnit;
     CComboBox m_CBColor_Origin;
@@ -98,11 +118,20 @@ protected:
     int m_nCurrentUnitSelection = 0;
     int m_nSearchColorFormat = 0;
 
+    bool m_fUseExtrasMode = true;
+
+    static SupportedGamesList m_eLastCalledGame;
+    static CString m_strLastUsedPath;
+
     CGameClass* m_pCurrGame = nullptr;
 
     LPCWSTR m_pszOutputFilter = L"Save as Extras file|*.txt|"
-                                L"Save as C++ header|*.h||";
+                                L"Save as C++ header|*.h|"
+                                L"|";
 };
+
+SupportedGamesList CFindPalettesInNewROM::m_eLastCalledGame = NUM_GAMES;
+CString CFindPalettesInNewROM::m_strLastUsedPath;
 
 IMPLEMENT_DYNAMIC(CFindPalettesInNewROM, CDialog)
 
@@ -115,6 +144,17 @@ void CFindPalettesInNewROM::DoDataExchange(CDataExchange* pDX)
 
     DDX_Control(pDX, IDC_FINDINNEW_PATH_ROM, m_FCSelectFileToScan);
     DDX_Control(pDX, IDC_FINDINNEW_PATH_OUTPUT, m_FCSelectOutput);
+}
+
+BEGIN_MESSAGE_MAP(CFindPalettesInNewROM, CDialog)
+    ON_CBN_SELCHANGE(IDC_FINDINNEW_SELUNIT, &OnUpdateUnitCombobox)
+END_MESSAGE_MAP()
+
+void CFindPalettesInNewROM::OnUpdateUnitCombobox()
+{
+    CString strCurUnit;
+    m_CBUnit.GetLBText(m_CBUnit.GetCurSel(), strCurUnit);
+    m_FCSelectOutput.UpdateDefaultFileName(strCurUnit + (m_fUseExtrasMode ? L".txt" : L".h"));
 }
 
 CFindPalettesInNewROM::CFindPalettesInNewROM(CGameClass* CurrGame, int nCurrentUnitSelection, CWnd* pParent /*= nullptr*/)
@@ -147,6 +187,21 @@ BOOL CFindPalettesInNewROM::OnInitDialog()
   //  const int nSelectedCollection = m_pCurrGame->m_rgUnitRedir.at(m_CBChildSel1.GetCurSel());
 #endif
 
+    if (m_eLastCalledGame == m_pCurrGame->GetGameFlag())
+    {
+        // keep the last scanned file until they switch games
+        m_FCSelectFileToScan.SetWindowText(m_strLastUsedPath);
+    }
+    else
+    {
+        // Reset
+        m_strLastUsedPath.Empty();
+    }
+
+    m_eLastCalledGame = m_pCurrGame->GetGameFlag();
+    m_fUseExtrasMode = CRegProc::GetDefaultRemapFiletype() ? 0 : 1;
+    CString strDefaultExt = m_fUseExtrasMode ? L"txt" : L"h";
+
     // Set up the unit selections
     for (int nCurrentUnit = 0; nCurrentUnit < static_cast<int>(m_pCurrGame->m_rgUnitRedir.size()); nCurrentUnit++)
     {
@@ -157,6 +212,12 @@ BOOL CFindPalettesInNewROM::OnInitDialog()
         if (pSelectedUnit && (_wcsicmp(pSelectedUnit->szDesc, m_pCurrGame->GetExtraUnitDescription()) != 0))
         {
             m_CBUnit.AddString(pSelectedUnit->szDesc);
+
+            if (m_nCurrentUnitSelection == nCurrentUnit)
+            {
+                m_strOutputName.Format(L"%s.%s", pSelectedUnit->szDesc, strDefaultExt.GetString());
+                m_FCSelectOutput.SetWindowText(m_strOutputName.GetString());
+            }
         }
     }
 
@@ -174,11 +235,9 @@ BOOL CFindPalettesInNewROM::OnInitDialog()
 
     m_CBColor_Origin.SetCurSel(m_nSearchColorFormat);
     
-    const DWORD dwDefaultOutputType = CRegProc::GetDefaultRemapFiletype();
-
     // The OFN flags are cheerfully ignored by the EditBrowseControl.  Neat!
-    m_FCSelectFileToScan.EnableFileBrowseButtonFunctional(nullptr, nullptr, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST);
-    m_FCSelectOutput.EnableFileBrowseButtonFunctional(dwDefaultOutputType ? L"txt" : L"h", m_pszOutputFilter, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT);
+    m_FCSelectFileToScan.EnableFileBrowseButtonFunctional(nullptr, nullptr, nullptr, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST);
+    m_FCSelectOutput.EnableFileBrowseButtonFunctional(strDefaultExt, m_strOutputName.GetString(), m_pszOutputFilter, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT);
 
     UpdateData();
 
@@ -207,12 +266,29 @@ void CFindPalettesInNewROM::OnOK()
 
     if (!wcschr(m_strOutputName.GetString(), L'.'))
     {
-        m_strOutputName += L".txt";
+        m_strOutputName += m_fUseExtrasMode ? L".txt" : L".h";
     }
+
+    m_strLastUsedPath = m_strFileName;
 
     m_nCurrentUnitSelection = m_CBUnit.GetCurSel();
     CDialog::OnOK();
     return;
+}
+
+bool CFindPalettesInNewROM::_StringWantsToUseExtrasMode(CString strPath)
+{
+    const int dotPos = strPath.ReverseFind(L'.');
+
+    if (dotPos != -1)
+    {
+        CString strOutputExt = strPath.Mid(dotPos + 1);
+        return (strOutputExt.CompareNoCase(L"txt") == 0);
+    }
+    else
+    {
+        return true;
+    }
 }
 
 void CFindPalettesInNewROM::ScanForData()
@@ -226,11 +302,9 @@ void CFindPalettesInNewROM::ScanForData()
         m_strOutputName += L".txt";
     }
 
-    const int dotPos = m_strOutputName.ReverseFind(L'.');
-    CString strOutputExt = m_strOutputName.Mid(dotPos + 1);
-    const bool fUseExtrasMode = (strOutputExt.CompareNoCase(L"txt") == 0);
+    m_fUseExtrasMode = _StringWantsToUseExtrasMode(m_strOutputName);
 
-    CRegProc::SetDefaultRemapFiletype(fUseExtrasMode ? 0 : 1);
+    CRegProc::SetDefaultRemapFiletype(m_fUseExtrasMode ? 0 : 1);
 
     const int nUnitAsShown = m_pCurrGame->m_rgUnitRedir[m_nCurrentUnitSelection];
 
@@ -262,7 +336,7 @@ void CFindPalettesInNewROM::ScanForData()
         const uint8_t cbColorSize = ColorSystem::GetCbForColMode(currColMode);
         const std::wstring strExtrasComment = L";";
         const std::wstring strCodeComment = L"//";
-        const std::wstring strActiveCommentStyle = fUseExtrasMode ? strExtrasComment : strCodeComment;
+        const std::wstring strActiveCommentStyle = m_fUseExtrasMode ? strExtrasComment : strCodeComment;
         uint32_t nCountPalettesMapped = 0, nCountPalettesExisting = 0;
 
         // Unicode marker
@@ -273,7 +347,7 @@ void CFindPalettesInNewROM::ScanForData()
         // Those tend to vary wildly!
         std::vector<std::pair<const sGame_PaletteDataset*, std::vector<BYTE>>> rgSearchBytes;
 
-        if (fUseExtrasMode)
+        if (m_fUseExtrasMode)
         {
             // Write header so that the produced file is easier to work with
             if (m_pCurrGame->GetGameName())
@@ -307,7 +381,7 @@ void CFindPalettesInNewROM::ScanForData()
         strInfo.Format(L"%s Remapping unit \"%s\" to file \"%s\".  %u child nodes found.\r\n", strActiveCommentStyle.c_str(), pSelectedUnit->szDesc, m_strFileName.GetString(), pSelectedUnit->uChildAmt);
         strOutput += strInfo;
 
-        if (fUseExtrasMode)
+        if (m_fUseExtrasMode)
         {
             // take advantage of parser rules
             strInfo.Format(L"%s---%s\r\n", strActiveCommentStyle.c_str(), pSelectedUnit->szDesc);
@@ -346,7 +420,7 @@ void CFindPalettesInNewROM::ScanForData()
             strInfo.Format(L"Remapping collection \"%s\" (%u/%u).  %u palettes in this collection.", pCurrentCollection->szDesc, iCollectionIndex, pSelectedUnit->uChildAmt, pCurrentCollection->uChildAmt);
             GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
 
-            if (fUseExtrasMode)
+            if (m_fUseExtrasMode)
             {
                 // take advantage of parser rules
                 strInfo.Format(L"%s--%s\r\n", strActiveCommentStyle.c_str(), pCurrentCollection->szDesc);
@@ -480,7 +554,7 @@ void CFindPalettesInNewROM::ScanForData()
                         strDisplayHex = SignedHexAsString(nThisLocationRemapDelta);
 
                         auto it = std::find_if(rgDeltaVotes.begin(), rgDeltaVotes.end(),
-                            [&nThisLocationRemapDelta](const std::pair<uint32_t, uint32_t>& elem) {
+                            [&nThisLocationRemapDelta](const std::pair<int32_t, int32_t>& elem) {
                                 return elem.first == nThisLocationRemapDelta;
                             });
 
@@ -493,7 +567,7 @@ void CFindPalettesInNewROM::ScanForData()
                             it->second++;
                         }
 
-                        if (fUseExtrasMode)
+                        if (m_fUseExtrasMode)
                         {
                             strInfo.Format(L"%s\r\n0x%x\r\n0x%x", searchColors.first->szPaletteName, nStartingMappedOffset, nTerminalOffset);
 
@@ -576,7 +650,7 @@ void CFindPalettesInNewROM::ScanForData()
             OutputFile.Close();
         }
 
-        if (fUseExtrasMode)
+        if (m_fUseExtrasMode)
         {
             strInfo.Format(L"\r\n%s Remapping complete: %u of %u palettes found.  You'll want to double-check the remap.\r\n", strActiveCommentStyle.c_str(), nCountPalettesMapped, nCountPalettesExisting);
         }
