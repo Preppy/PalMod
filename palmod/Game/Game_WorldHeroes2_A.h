@@ -35,7 +35,7 @@ private:
         WorldHeroes2_A_UNITS,
         ARRAYSIZE(WorldHeroes2_A_UNITS),
         L"WorldHeroes2E.txt",   // Extra filename
-        90,                     // Count of palettes listed in the header
+        91,                     // Count of palettes listed in the header
         0x101000,               // Lowest known location used for palettes
     };
 
@@ -77,7 +77,7 @@ private:
         WorldHeroes2_A_UNITS,
         ARRAYSIZE(WorldHeroes2_A_UNITS),
         L"WorldHeroes2E.txt",   // Extra filename
-        90,                     // Count of palettes listed in the header
+        91,                     // Count of palettes listed in the header
         0x101000,               // Lowest known location used for palettes
     };
 
