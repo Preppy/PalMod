@@ -40,141 +40,6 @@
     <Filter Include="Games">
       <UniqueIdentifier>{4aa59c2b-fa46-4634-8464-096e8cf028f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games">
-      <UniqueIdentifier>{8641f995-3c94-44ec-be0f-8f6a5b01ef82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF98_A">
-      <UniqueIdentifier>{d9c8c45e-3ad2-4bb8-a6e6-08a9665543d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF02UM_S">
-      <UniqueIdentifier>{8b9ef95f-05ae-44ef-8320-826a370b75b2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF02_A">
-      <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\SVCPLUSA_A">
-      <UniqueIdentifier>{b5984ab2-a10f-400e-b1ff-4766bfb767c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Garou_S">
-      <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Garou_A">
-      <UniqueIdentifier>{a8830097-3e47-45f5-bdd5-b2d4fc746943}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KarnovsR_A">
-      <UniqueIdentifier>{59438445-c5d4-4215-81c1-5154cf395d8f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Waku Waku 7">
-      <UniqueIdentifier>{a1662e6d-6a59-40de-989d-9c354bd32e5a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Real Bout Fatal Fury Special">
-      <UniqueIdentifier>{8443d0ef-6c99-4658-b287-180c5fa4e7e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Matrimelee_A">
-      <UniqueIdentifier>{8e6a1bf6-b031-4945-926a-51fdbcd84b07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Windjammers_A">
-      <UniqueIdentifier>{c8028836-64ab-4644-b186-e41111f5dd09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\NeoGeo Battle Colliseum">
-      <UniqueIdentifier>{194b886e-8492-41d0-a398-00cbb161e244}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Breakers Revenge">
-      <UniqueIdentifier>{5145a37d-8a16-4461-834b-518532cc6a53}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF03_A">
-      <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF01_A">
-      <UniqueIdentifier>{3d941f32-066d-4805-bf2c-c68239ba6d21}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\NeoBomberman_A">
-      <UniqueIdentifier>{5b3ee8d1-5bef-46b3-b139-fc30deec57e3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF94_A">
-      <UniqueIdentifier>{d81962ef-76db-489b-9043-ffcab6bc9adc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOFXI_A">
-      <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Art of Fighting 3">
-      <UniqueIdentifier>{0fb8dfe4-7c4f-44ba-a82b-b15d13c2b3f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Last Blade 2">
-      <UniqueIdentifier>{882354da-0a66-45a8-a19f-7582fcd08abc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Real Bout Fatal Fury 1">
-      <UniqueIdentifier>{1bde8d50-ba03-407d-a49b-fe58c356b932}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Real Bout Fatal Fury 2">
-      <UniqueIdentifier>{82710d2e-de00-4ee9-a2bc-77447da7e830}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Kizuna Encounter">
-      <UniqueIdentifier>{1e4fa757-134f-414d-8da1-fba2711f6999}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Art of Fighting 1">
-      <UniqueIdentifier>{3dafae03-f15a-41f5-b52d-86343bdd6fff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Double Dragon">
-      <UniqueIdentifier>{b9dc1b67-7f5d-4f9d-9b8a-b6b01f7e3aa7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Super Dodge Ball">
-      <UniqueIdentifier>{00b75d83-e2f3-4eb3-b2f5-2e8cbd8c9088}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Ninja Masters">
-      <UniqueIdentifier>{8067a5a7-2ac2-4837-982c-af052c429125}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF97_A">
-      <UniqueIdentifier>{588800f1-13d9-4ed4-b8d1-1b8fbf9ed784}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Savage Reign">
-      <UniqueIdentifier>{85ad4673-3216-48e6-8843-d42c26132625}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Rage of the Dragons">
-      <UniqueIdentifier>{deaf145c-fe5f-4801-b2be-a8c8b9d7eb01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\King of the Monsters">
-      <UniqueIdentifier>{fabb0587-0a5a-4f3a-847b-a3145a625cfb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF02N_A">
-      <UniqueIdentifier>{6c820e94-dd0d-4006-b5ae-340da094c0fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Last Blade">
-      <UniqueIdentifier>{632ea97e-c50d-4066-901e-222d3c1799bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF96_A">
-      <UniqueIdentifier>{e0a1c9b3-bbfc-4de4-9d93-2b26a8b42442}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF95_A">
-      <UniqueIdentifier>{60e388d3-c582-459a-af73-107faa18b5d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Samurai Shodown">
-      <UniqueIdentifier>{c835cd9f-12f1-412c-9544-f34f43015967}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Samurai Shodown II">
-      <UniqueIdentifier>{445ddcfa-8e9f-4caa-bf08-71e0c219c2a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Samurai Shodown III">
-      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Samurai Shodown IV">
-      <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Samurai Shodown V">
-      <UniqueIdentifier>{41152932-6857-4875-a1a1-40ed18d6bd80}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Samurai Shodown V Special">
-      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Fatal Fury Special">
-      <UniqueIdentifier>{03a8779c-00c7-41f8-8c89-0431e3e52880}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Fatal Fury 1">
-      <UniqueIdentifier>{bd825340-a735-4c79-8a29-97133f4a6fd4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\KOF98AE2016">
-      <UniqueIdentifier>{eac807da-e805-4c7a-abee-b390a28f9021}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Nintendo">
       <UniqueIdentifier>{b03bb639-d714-4d8f-b664-84b1bc5fc6d6}</UniqueIdentifier>
     </Filter>
@@ -385,17 +250,8 @@
     <Filter Include="Games\Nintendo\Bishoujo Senshi Sailor Moon S: JR %28SNES%29">
       <UniqueIdentifier>{55bca72e-2dd2-4bf2-af00-62e26d2721b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\Magical Drop III">
-      <UniqueIdentifier>{486e8b70-c7f6-4d17-889e-90e3edde6c26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\King of Fighters 2002 PS2 hack">
-      <UniqueIdentifier>{89eb4408-ba40-4637-9f06-b06b6d6f12fa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Other Platforms\Martial Masters %28PGM%29">
       <UniqueIdentifier>{ed9004e4-2654-4d5b-be58-e2e47c5d96e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Gowcaizer">
-      <UniqueIdentifier>{5419c58a-9053-4fe1-a361-fad90e78c41b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29">
       <UniqueIdentifier>{79496fa5-500a-4265-aac3-90fe829b3c8e}</UniqueIdentifier>
@@ -451,9 +307,6 @@
     <Filter Include="Games\Capcom Games\HSF2_A">
       <UniqueIdentifier>{2e6869cb-602e-4222-a4a2-065868d749c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\Fatal Fury 2">
-      <UniqueIdentifier>{beb3d933-be7a-4973-b797-22d5962721ec}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Other Platforms\Persona 4 Arena">
       <UniqueIdentifier>{4e88659a-4bad-47c6-a28a-427ba926dcc0}</UniqueIdentifier>
     </Filter>
@@ -462,9 +315,6 @@
     </Filter>
     <Filter Include="Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax 2.0 %28NESICA%29">
       <UniqueIdentifier>{7fd4a326-69f3-49f7-884e-98b93bfc1d70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Galaxy Fight: Universal Warriors">
-      <UniqueIdentifier>{6d425197-42ff-41a2-8fbc-6c72aaf63574}</UniqueIdentifier>
     </Filter>
     <Filter Include="Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29">
       <UniqueIdentifier>{477db182-4f4b-4f1c-988a-5f43884236d1}</UniqueIdentifier>
@@ -487,12 +337,6 @@
     <Filter Include="Games\Other Platforms\Asura Buster">
       <UniqueIdentifier>{fd629fac-ea3d-4ed6-b901-cec89fa3cb60}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\Fatal Fury 3">
-      <UniqueIdentifier>{6d85e323-99fa-40a0-a56c-a731d68919ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Kabuki Klash">
-      <UniqueIdentifier>{a8a9bd8a-3435-4923-bfb8-fd590d305e4b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Other Platforms\Aquapazza Aquaplus %28PS3%29">
       <UniqueIdentifier>{fdaa89bd-da83-4493-9a9c-05b42caea4dd}</UniqueIdentifier>
     </Filter>
@@ -504,12 +348,6 @@
     </Filter>
     <Filter Include="Games\Other Platforms\Deamon Bride %28NESICAxLive%29">
       <UniqueIdentifier>{750c03d5-522e-4096-b1b0-8a8bc2b7ee63}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Aggressors of Dark Kombat">
-      <UniqueIdentifier>{c52f4862-5a4d-405b-9649-13dc49e95a38}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Magical Drop II">
-      <UniqueIdentifier>{27e41e42-9e38-45cf-ba30-ad79cb22aa0b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Games\Capcom Games\Street Fighter I">
       <UniqueIdentifier>{233ff76e-15e1-42c0-878e-469f4f9d7807}</UniqueIdentifier>
@@ -532,9 +370,6 @@
     <Filter Include="Games\Other Platforms\Jackie Chan in Fists of Fury">
       <UniqueIdentifier>{f7568ecb-d057-4878-bba8-ec3fa40830b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\Battle Flip Shot">
-      <UniqueIdentifier>{d3df860a-d3c7-4ca6-a743-33436f57a085}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Other Platforms\Survival Arts %28Scarab%29">
       <UniqueIdentifier>{2da53dac-0d06-425f-af72-cc00ffeb2bec}</UniqueIdentifier>
     </Filter>
@@ -549,9 +384,6 @@
     </Filter>
     <Filter Include="Games\Other Platforms\Guilty Gear\GGXX ACP %28Wii%29">
       <UniqueIdentifier>{7e2cc17a-99b5-42ec-9ff7-3849ec4693c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Fight Fever">
-      <UniqueIdentifier>{d3f7463f-16c2-48e8-843a-4dd2acf9f587}</UniqueIdentifier>
     </Filter>
     <Filter Include="Palette file storage">
       <UniqueIdentifier>{15ccba13-200c-4fe3-8c89-497c84fde2c9}</UniqueIdentifier>
@@ -589,9 +421,6 @@
     <Filter Include="Games\Capcom Games\Capcom Fighting Evolution %28PS2%29">
       <UniqueIdentifier>{cd1663e9-9cf7-4746-b2d2-295ea95d6c5e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\KOF %2799">
-      <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Capcom Games\Street Fighter 30th Anniversary Collection">
       <UniqueIdentifier>{363c49fc-8995-46f4-8e0a-8cb23ca69d69}</UniqueIdentifier>
     </Filter>
@@ -604,9 +433,6 @@
     <Filter Include="Games\Capcom Games\Punisher %28Arcade%29">
       <UniqueIdentifier>{9fdd6cfb-62d8-4219-86a9-62b61a43aa9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\World Heroes Perfect">
-      <UniqueIdentifier>{955195cd-aefa-4b5a-a6f3-98eb4b106fe5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\PS2\Bonnou no Kaihou">
       <UniqueIdentifier>{bea9cff4-3876-4e2f-a281-91772ad65b0b}</UniqueIdentifier>
     </Filter>
@@ -615,9 +441,6 @@
     </Filter>
     <Filter Include="Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29">
       <UniqueIdentifier>{347653ad-b96a-4a0f-88cf-93e996a4015d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\Neo Turf Masters">
-      <UniqueIdentifier>{515e6fb9-6f8c-445c-b9e7-274d02d67072}</UniqueIdentifier>
     </Filter>
     <Filter Include="Games\Other Platforms\Daraku %28Psikyo%29">
       <UniqueIdentifier>{91444729-2d74-49b1-bc85-321d2b7148cb}</UniqueIdentifier>
@@ -670,14 +493,194 @@
     <Filter Include="Image Viewers\PNG">
       <UniqueIdentifier>{f4f71ba5-f1cb-484f-b705-ac35c63d98a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\World Heroes">
-      <UniqueIdentifier>{c9f239bd-0b37-496a-9f08-fa3c1886f569}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\SNK Games\World Heroes 2">
-      <UniqueIdentifier>{d7b56707-9570-4021-8806-e07bcd353f5b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\PS2\Mortal Kombat">
       <UniqueIdentifier>{11479e75-9fb8-4a7c-bcec-69e7c5a0f6d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo">
+      <UniqueIdentifier>{8641f995-3c94-44ec-be0f-8f6a5b01ef82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF98_A">
+      <UniqueIdentifier>{d9c8c45e-3ad2-4bb8-a6e6-08a9665543d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF02UM_S">
+      <UniqueIdentifier>{8b9ef95f-05ae-44ef-8320-826a370b75b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF02_A">
+      <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\SVCPLUSA_A">
+      <UniqueIdentifier>{b5984ab2-a10f-400e-b1ff-4766bfb767c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Garou_S">
+      <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Garou_A">
+      <UniqueIdentifier>{a8830097-3e47-45f5-bdd5-b2d4fc746943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KarnovsR_A">
+      <UniqueIdentifier>{59438445-c5d4-4215-81c1-5154cf395d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Waku Waku 7">
+      <UniqueIdentifier>{a1662e6d-6a59-40de-989d-9c354bd32e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Real Bout Fatal Fury Special">
+      <UniqueIdentifier>{8443d0ef-6c99-4658-b287-180c5fa4e7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Matrimelee_A">
+      <UniqueIdentifier>{8e6a1bf6-b031-4945-926a-51fdbcd84b07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Windjammers_A">
+      <UniqueIdentifier>{c8028836-64ab-4644-b186-e41111f5dd09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\NeoGeo Battle Colliseum">
+      <UniqueIdentifier>{194b886e-8492-41d0-a398-00cbb161e244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Breakers Revenge">
+      <UniqueIdentifier>{5145a37d-8a16-4461-834b-518532cc6a53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF03_A">
+      <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF01_A">
+      <UniqueIdentifier>{3d941f32-066d-4805-bf2c-c68239ba6d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\NeoBomberman_A">
+      <UniqueIdentifier>{5b3ee8d1-5bef-46b3-b139-fc30deec57e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF94_A">
+      <UniqueIdentifier>{d81962ef-76db-489b-9043-ffcab6bc9adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOFXI_A">
+      <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Art of Fighting 3">
+      <UniqueIdentifier>{0fb8dfe4-7c4f-44ba-a82b-b15d13c2b3f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Last Blade 2">
+      <UniqueIdentifier>{882354da-0a66-45a8-a19f-7582fcd08abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Real Bout Fatal Fury 1">
+      <UniqueIdentifier>{1bde8d50-ba03-407d-a49b-fe58c356b932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Real Bout Fatal Fury 2">
+      <UniqueIdentifier>{82710d2e-de00-4ee9-a2bc-77447da7e830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Kizuna Encounter">
+      <UniqueIdentifier>{1e4fa757-134f-414d-8da1-fba2711f6999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Art of Fighting 1">
+      <UniqueIdentifier>{3dafae03-f15a-41f5-b52d-86343bdd6fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Double Dragon">
+      <UniqueIdentifier>{b9dc1b67-7f5d-4f9d-9b8a-b6b01f7e3aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Super Dodge Ball">
+      <UniqueIdentifier>{00b75d83-e2f3-4eb3-b2f5-2e8cbd8c9088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Ninja Masters">
+      <UniqueIdentifier>{8067a5a7-2ac2-4837-982c-af052c429125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF97_A">
+      <UniqueIdentifier>{588800f1-13d9-4ed4-b8d1-1b8fbf9ed784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Savage Reign">
+      <UniqueIdentifier>{85ad4673-3216-48e6-8843-d42c26132625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Rage of the Dragons">
+      <UniqueIdentifier>{deaf145c-fe5f-4801-b2be-a8c8b9d7eb01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\King of the Monsters">
+      <UniqueIdentifier>{fabb0587-0a5a-4f3a-847b-a3145a625cfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF02N_A">
+      <UniqueIdentifier>{6c820e94-dd0d-4006-b5ae-340da094c0fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Last Blade">
+      <UniqueIdentifier>{632ea97e-c50d-4066-901e-222d3c1799bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF96_A">
+      <UniqueIdentifier>{e0a1c9b3-bbfc-4de4-9d93-2b26a8b42442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF95_A">
+      <UniqueIdentifier>{60e388d3-c582-459a-af73-107faa18b5d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Samurai Shodown">
+      <UniqueIdentifier>{c835cd9f-12f1-412c-9544-f34f43015967}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Samurai Shodown II">
+      <UniqueIdentifier>{445ddcfa-8e9f-4caa-bf08-71e0c219c2a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Samurai Shodown III">
+      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Samurai Shodown IV">
+      <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Samurai Shodown V">
+      <UniqueIdentifier>{41152932-6857-4875-a1a1-40ed18d6bd80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Samurai Shodown V Special">
+      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Fatal Fury Special">
+      <UniqueIdentifier>{03a8779c-00c7-41f8-8c89-0431e3e52880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Fatal Fury 1">
+      <UniqueIdentifier>{bd825340-a735-4c79-8a29-97133f4a6fd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF98AE2016">
+      <UniqueIdentifier>{eac807da-e805-4c7a-abee-b390a28f9021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Magical Drop III">
+      <UniqueIdentifier>{486e8b70-c7f6-4d17-889e-90e3edde6c26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\King of Fighters 2002 PS2 hack">
+      <UniqueIdentifier>{89eb4408-ba40-4637-9f06-b06b6d6f12fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Gowcaizer">
+      <UniqueIdentifier>{5419c58a-9053-4fe1-a361-fad90e78c41b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Fatal Fury 2">
+      <UniqueIdentifier>{beb3d933-be7a-4973-b797-22d5962721ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Galaxy Fight: Universal Warriors">
+      <UniqueIdentifier>{6d425197-42ff-41a2-8fbc-6c72aaf63574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Fatal Fury 3">
+      <UniqueIdentifier>{6d85e323-99fa-40a0-a56c-a731d68919ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Kabuki Klash">
+      <UniqueIdentifier>{a8a9bd8a-3435-4923-bfb8-fd590d305e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Aggressors of Dark Kombat">
+      <UniqueIdentifier>{c52f4862-5a4d-405b-9649-13dc49e95a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Magical Drop II">
+      <UniqueIdentifier>{27e41e42-9e38-45cf-ba30-ad79cb22aa0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Battle Flip Shot">
+      <UniqueIdentifier>{d3df860a-d3c7-4ca6-a743-33436f57a085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Fight Fever">
+      <UniqueIdentifier>{d3f7463f-16c2-48e8-843a-4dd2acf9f587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\KOF %2799">
+      <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\World Heroes Perfect">
+      <UniqueIdentifier>{955195cd-aefa-4b5a-a6f3-98eb4b106fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\Neo Turf Masters">
+      <UniqueIdentifier>{515e6fb9-6f8c-445c-b9e7-274d02d67072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\World Heroes">
+      <UniqueIdentifier>{c9f239bd-0b37-496a-9f08-fa3c1886f569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\World Heroes 2">
+      <UniqueIdentifier>{d7b56707-9570-4021-8806-e07bcd353f5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Neo-Geo\World Heroes 2 Jet">
+      <UniqueIdentifier>{4432a46d-4760-45ce-9954-04606fed44db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -775,22 +778,22 @@
       <Filter>Games\Capcom Games\MVC2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Garou_A.cpp">
-      <Filter>Games\SNK Games\Garou_A</Filter>
+      <Filter>Games\Neo-Geo\Garou_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_DevMode_A.cpp">
       <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF98_A.cpp">
-      <Filter>Games\SNK Games\KOF98_A</Filter>
+      <Filter>Games\Neo-Geo\KOF98_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_CVS2_A.cpp">
       <Filter>Games\Capcom Games\CVS2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02_A.cpp">
-      <Filter>Games\SNK Games\KOF02_A</Filter>
+      <Filter>Games\Neo-Geo\KOF02_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02UM_S.cpp">
-      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+      <Filter>Games\Neo-Geo\KOF02UM_S</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFA2_A.cpp">
       <Filter>Games\Capcom Games\SFA2_A</Filter>
@@ -802,10 +805,10 @@
       <Filter>Games\Capcom Games\JOJOS_A_DIR</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp">
-      <Filter>Games\SNK Games\SVCPLUSA_A</Filter>
+      <Filter>Games\Neo-Geo\SVCPLUSA_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp">
-      <Filter>Games\SNK Games\Samurai Shodown V Special</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown V Special</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_A_DIR.cpp">
       <Filter>Games\Capcom Games\MVC2_A_DIR</Filter>
@@ -817,22 +820,22 @@
       <Filter>Games\Capcom Games\RedEarth_A_DIR</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KarnovsR_A.cpp">
-      <Filter>Games\SNK Games\KarnovsR_A</Filter>
+      <Filter>Games\Neo-Geo\KarnovsR_A</Filter>
     </ClCompile>
     <ClCompile Include="CRC32.cpp">
       <Filter>CRC32</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_WakuWaku7_A.cpp">
-      <Filter>Games\SNK Games\Waku Waku 7</Filter>
+      <Filter>Games\Neo-Geo\Waku Waku 7</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFA1_A.cpp">
       <Filter>Games\Capcom Games\SFA1_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_RBFFS_A.cpp">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury Special</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury Special</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO3_A.cpp">
-      <Filter>Games\SNK Games\Samurai Shodown III</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown III</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII2_A.cpp">
       <Filter>Games\Capcom Games\SFIII2_A</Filter>
@@ -847,52 +850,52 @@
       <Filter>Games\Capcom Games\SSF2T_GBA</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOFXI_A.cpp">
-      <Filter>Games\SNK Games\KOFXI_A</Filter>
+      <Filter>Games\Neo-Geo\KOFXI_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_NGBC_A.cpp">
-      <Filter>Games\SNK Games\NeoGeo Battle Colliseum</Filter>
+      <Filter>Games\Neo-Geo\NeoGeo Battle Colliseum</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Breakers_A.cpp">
-      <Filter>Games\SNK Games\Breakers Revenge</Filter>
+      <Filter>Games\Neo-Geo\Breakers Revenge</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF03_A.cpp">
-      <Filter>Games\SNK Games\KOF03_A</Filter>
+      <Filter>Games\Neo-Geo\KOF03_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF01_A.cpp">
-      <Filter>Games\SNK Games\KOF01_A</Filter>
+      <Filter>Games\Neo-Geo\KOF01_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF94_A.cpp">
-      <Filter>Games\SNK Games\KOF94_A</Filter>
+      <Filter>Games\Neo-Geo\KOF94_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF99_A.cpp">
-      <Filter>Games\SNK Games\KOF %2799</Filter>
+      <Filter>Games\Neo-Geo\KOF %2799</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_AOF3_A.cpp">
-      <Filter>Games\SNK Games\Art of Fighting 3</Filter>
+      <Filter>Games\Neo-Geo\Art of Fighting 3</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
-      <Filter>Games\SNK Games\Samurai Shodown IV</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown IV</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp">
-      <Filter>Games\SNK Games\Last Blade 2</Filter>
+      <Filter>Games\Neo-Geo\Last Blade 2</Filter>
     </ClCompile>
     <ClCompile Include="debugutil.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO5_A.cpp">
-      <Filter>Games\SNK Games\Samurai Shodown V</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown V</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_RBFF2_A.cpp">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury 2</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury 2</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFZ3U_A.cpp">
       <Filter>Games\Capcom Games\SFZ3U_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_AOF1_A.cpp">
-      <Filter>Games\SNK Games\Art of Fighting 1</Filter>
+      <Filter>Games\Neo-Geo\Art of Fighting 1</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF97_A.cpp">
-      <Filter>Games\SNK Games\KOF97_A</Filter>
+      <Filter>Games\Neo-Geo\KOF97_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_DBFCI_A.cpp">
       <Filter>Games\Other Platforms\Dengeki Bunko FCI</Filter>
@@ -901,19 +904,19 @@
       <Filter>Games\Other Platforms\UNICLR - Under Night In-Birth</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp">
-      <Filter>Games\SNK Games\Last Blade</Filter>
+      <Filter>Games\Neo-Geo\Last Blade</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF95_A.cpp">
-      <Filter>Games\SNK Games\KOF95_A</Filter>
+      <Filter>Games\Neo-Geo\KOF95_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF96_A.cpp">
-      <Filter>Games\SNK Games\KOF96_A</Filter>
+      <Filter>Games\Neo-Geo\KOF96_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO1_A.cpp">
-      <Filter>Games\SNK Games\Samurai Shodown</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO2_A.cpp">
-      <Filter>Games\SNK Games\Samurai Shodown II</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown II</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_GGXXACR_S.cpp">
       <Filter>Games\Other Platforms\Guilty Gear\GGXX ACR %28Steam%29</Filter>
@@ -952,7 +955,7 @@
       <Filter>Palettes\Palette View</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02PS2_A.cpp">
-      <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
+      <Filter>Games\Neo-Geo\King of Fighters 2002 PS2 hack</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Venture_A.cpp">
       <Filter>Games\Capcom Games\Jojos Venture</Filter>
@@ -967,7 +970,7 @@
       <Filter>Games\Other Platforms\Melty Blood Type Lumina %28Steam%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02UM_S_DIR.cpp">
-      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+      <Filter>Games\Neo-Geo\KOF02UM_S</Filter>
     </ClCompile>
     <ClCompile Include="Game\GameClassByFile.cpp">
       <Filter>Games\Base</Filter>
@@ -988,7 +991,7 @@
       <Filter>Games\Capcom Games\HSF2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_FatalFury2_A.cpp">
-      <Filter>Games\SNK Games\Fatal Fury 2</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury 2</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_CVS1_A.cpp">
       <Filter>Games\Capcom Games\Capcom vs SNK 1 %28Arcade%29</Filter>
@@ -1021,7 +1024,7 @@
       <Filter>Games\Other Platforms\Street Fighter the Movie %28Arcade%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_FightFever_A.cpp">
-      <Filter>Games\SNK Games\Fight Fever</Filter>
+      <Filter>Games\Neo-Geo\Fight Fever</Filter>
     </ClCompile>
     <ClCompile Include="CFPLfiles.cpp">
       <Filter>Palette file storage</Filter>
@@ -1096,7 +1099,7 @@
       <Filter>Palette file storage</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_TurfMasters_A.cpp">
-      <Filter>Games\SNK Games\Neo Turf Masters</Filter>
+      <Filter>Games\Neo-Geo\Neo Turf Masters</Filter>
     </ClCompile>
     <ClCompile Include="MappingPalettes.cpp">
       <Filter>Palette file storage</Filter>
@@ -1266,10 +1269,10 @@
       <Filter>Games\Capcom Games\MVC2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Garou_A.h">
-      <Filter>Games\SNK Games\Garou_A</Filter>
+      <Filter>Games\Neo-Geo\Garou_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Garou_A_DEF.h">
-      <Filter>Games\SNK Games\Garou_A</Filter>
+      <Filter>Games\Neo-Geo\Garou_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_DevMode_A.h">
       <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
@@ -1278,10 +1281,10 @@
       <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF98_A.h">
-      <Filter>Games\SNK Games\KOF98_A</Filter>
+      <Filter>Games\Neo-Geo\KOF98_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF98_A_DEF.h">
-      <Filter>Games\SNK Games\KOF98_A</Filter>
+      <Filter>Games\Neo-Geo\KOF98_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\CVS2_A_DEF.h">
       <Filter>Games\Capcom Games\CVS2_A</Filter>
@@ -1290,22 +1293,22 @@
       <Filter>Games\Capcom Games\CVS2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Garou_S.h">
-      <Filter>Games\SNK Games\Garou_S</Filter>
+      <Filter>Games\Neo-Geo\Garou_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\Garou_S_DEF.h">
-      <Filter>Games\SNK Games\Garou_S</Filter>
+      <Filter>Games\Neo-Geo\Garou_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF02_A.h">
-      <Filter>Games\SNK Games\KOF02_A</Filter>
+      <Filter>Games\Neo-Geo\KOF02_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF02_A_DEF.h">
-      <Filter>Games\SNK Games\KOF02_A</Filter>
+      <Filter>Games\Neo-Geo\KOF02_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF02UM_S.h">
-      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+      <Filter>Games\Neo-Geo\KOF02UM_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF02UM_S_DEF.h">
-      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+      <Filter>Games\Neo-Geo\KOF02UM_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFA2_A.h">
       <Filter>Games\Capcom Games\SFA2_A</Filter>
@@ -1320,16 +1323,16 @@
       <Filter>Games\Capcom Games\JOJOS_A_DIR</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SVCPLUSA_A.h">
-      <Filter>Games\SNK Games\SVCPLUSA_A</Filter>
+      <Filter>Games\Neo-Geo\SVCPLUSA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h">
-      <Filter>Games\SNK Games\SVCPLUSA_A</Filter>
+      <Filter>Games\Neo-Geo\SVCPLUSA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h">
-      <Filter>Games\SNK Games\Samurai Shodown V Special</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown V Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h">
-      <Filter>Games\SNK Games\Samurai Shodown V Special</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown V Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_A_DIR.h">
       <Filter>Games\Capcom Games\MVC2_A_DIR</Filter>
@@ -1350,19 +1353,19 @@
       <Filter>Games\Capcom Games\RedEarth_A_DIR</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KarnovsR_A.h">
-      <Filter>Games\SNK Games\KarnovsR_A</Filter>
+      <Filter>Games\Neo-Geo\KarnovsR_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KarnovsR_A_DEF.h">
-      <Filter>Games\SNK Games\KarnovsR_A</Filter>
+      <Filter>Games\Neo-Geo\KarnovsR_A</Filter>
     </ClInclude>
     <ClInclude Include="CRC32.h">
       <Filter>CRC32</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_WakuWaku7_A.h">
-      <Filter>Games\SNK Games\Waku Waku 7</Filter>
+      <Filter>Games\Neo-Geo\Waku Waku 7</Filter>
     </ClInclude>
     <ClInclude Include="Game\WakuWaku7_A_DEF.h">
-      <Filter>Games\SNK Games\Waku Waku 7</Filter>
+      <Filter>Games\Neo-Geo\Waku Waku 7</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFA1_A.h">
       <Filter>Games\Capcom Games\SFA1_A</Filter>
@@ -1383,16 +1386,16 @@
       <Filter>Games\Capcom Games\VSAV2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_RBFFS_A.h">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury Special</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\RBFFS_A_DEF.h">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury Special</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO3_A.h">
-      <Filter>Games\SNK Games\Samurai Shodown III</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown III</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO3_A_DEF.h">
-      <Filter>Games\SNK Games\Samurai Shodown III</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown III</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_VHUNT2_A.h">
       <Filter>Games\Capcom Games\Vampire Hunter 2_A</Filter>
@@ -1431,34 +1434,34 @@
       <Filter>Games\Capcom Games\SFIII1_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Windjammers_A.h">
-      <Filter>Games\SNK Games\Windjammers_A</Filter>
+      <Filter>Games\Neo-Geo\Windjammers_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Windjammers_A_DEF.h">
-      <Filter>Games\SNK Games\Windjammers_A</Filter>
+      <Filter>Games\Neo-Geo\Windjammers_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Matrimelee_A.h">
-      <Filter>Games\SNK Games\Matrimelee_A</Filter>
+      <Filter>Games\Neo-Geo\Matrimelee_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Matrimelee_A_DEF.h">
-      <Filter>Games\SNK Games\Matrimelee_A</Filter>
+      <Filter>Games\Neo-Geo\Matrimelee_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOFXI_A.h">
-      <Filter>Games\SNK Games\KOFXI_A</Filter>
+      <Filter>Games\Neo-Geo\KOFXI_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOFXI_A_DEF.h">
-      <Filter>Games\SNK Games\KOFXI_A</Filter>
+      <Filter>Games\Neo-Geo\KOFXI_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NGBC_A.h">
-      <Filter>Games\SNK Games\NeoGeo Battle Colliseum</Filter>
+      <Filter>Games\Neo-Geo\NeoGeo Battle Colliseum</Filter>
     </ClInclude>
     <ClInclude Include="Game\NGBC_A_DEF.h">
-      <Filter>Games\SNK Games\NeoGeo Battle Colliseum</Filter>
+      <Filter>Games\Neo-Geo\NeoGeo Battle Colliseum</Filter>
     </ClInclude>
     <ClInclude Include="Game\Breakers_A_DEF.h">
-      <Filter>Games\SNK Games\Breakers Revenge</Filter>
+      <Filter>Games\Neo-Geo\Breakers Revenge</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Breakers_A.h">
-      <Filter>Games\SNK Games\Breakers Revenge</Filter>
+      <Filter>Games\Neo-Geo\Breakers Revenge</Filter>
     </ClInclude>
     <ClInclude Include="Game\Bleach_DS_DEF.h">
       <Filter>Games\Nintendo\Bleach DS %28NDS%29</Filter>
@@ -1467,10 +1470,10 @@
       <Filter>Games\Nintendo\Bleach DS %28NDS%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF03_A.h">
-      <Filter>Games\SNK Games\KOF03_A</Filter>
+      <Filter>Games\Neo-Geo\KOF03_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF03_A_DEF.h">
-      <Filter>Games\SNK Games\KOF03_A</Filter>
+      <Filter>Games\Neo-Geo\KOF03_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MMPR_SNES.h">
       <Filter>Games\Nintendo\MMPR: TFE %28SNES%29</Filter>
@@ -1479,16 +1482,16 @@
       <Filter>Games\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF01_A.h">
-      <Filter>Games\SNK Games\KOF01_A</Filter>
+      <Filter>Games\Neo-Geo\KOF01_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF01_A_DEF.h">
-      <Filter>Games\SNK Games\KOF01_A</Filter>
+      <Filter>Games\Neo-Geo\KOF01_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NeoBomberman_A.h">
-      <Filter>Games\SNK Games\NeoBomberman_A</Filter>
+      <Filter>Games\Neo-Geo\NeoBomberman_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\NeoBomberman_A_DEF.h">
-      <Filter>Games\SNK Games\NeoBomberman_A</Filter>
+      <Filter>Games\Neo-Geo\NeoBomberman_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_GUNDAM_SNES.h">
       <Filter>Games\Nintendo\Gundam Endless Duel %28SNES%29</Filter>
@@ -1497,10 +1500,10 @@
       <Filter>Games\Nintendo\Gundam Endless Duel %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF94_A.h">
-      <Filter>Games\SNK Games\KOF94_A</Filter>
+      <Filter>Games\Neo-Geo\KOF94_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF94_A_DEF.h">
-      <Filter>Games\SNK Games\KOF94_A</Filter>
+      <Filter>Games\Neo-Geo\KOF94_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\CFTE_SNES_DEF.h">
       <Filter>Games\Nintendo\Clay Fighter: TE %28SNES%29</Filter>
@@ -1509,10 +1512,10 @@
       <Filter>Games\Nintendo\Clay Fighter: TE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF99_A.h">
-      <Filter>Games\SNK Games\KOF %2799</Filter>
+      <Filter>Games\Neo-Geo\KOF %2799</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF99_A_DEF.h">
-      <Filter>Games\SNK Games\KOF %2799</Filter>
+      <Filter>Games\Neo-Geo\KOF %2799</Filter>
     </ClInclude>
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h">
       <Filter>Games\Nintendo\Fatal Fury Special %28SNES%29</Filter>
@@ -1521,16 +1524,16 @@
       <Filter>Games\Nintendo\Fatal Fury Special %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\AOF3_A_DEF.h">
-      <Filter>Games\SNK Games\Art of Fighting 3</Filter>
+      <Filter>Games\Neo-Geo\Art of Fighting 3</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_AOF3_A.h">
-      <Filter>Games\SNK Games\Art of Fighting 3</Filter>
+      <Filter>Games\Neo-Geo\Art of Fighting 3</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO4_A.h">
-      <Filter>Games\SNK Games\Samurai Shodown IV</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown IV</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO4_A_DEF.h">
-      <Filter>Games\SNK Games\Samurai Shodown IV</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown IV</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_RODSM2_A.h">
       <Filter>Games\Capcom Games\Slam Masters 2</Filter>
@@ -1539,34 +1542,34 @@
       <Filter>Games\Capcom Games\Slam Masters 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_LASTBLADE2_A.h">
-      <Filter>Games\SNK Games\Last Blade 2</Filter>
+      <Filter>Games\Neo-Geo\Last Blade 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h">
-      <Filter>Games\SNK Games\Last Blade 2</Filter>
+      <Filter>Games\Neo-Geo\Last Blade 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO5_A.h">
-      <Filter>Games\SNK Games\Samurai Shodown V</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown V</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO5_A_DEF.h">
-      <Filter>Games\SNK Games\Samurai Shodown V</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown V</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_RBFF1_A.h">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury 1</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury 1</Filter>
     </ClInclude>
     <ClInclude Include="Game\RBFF1_A_DEF.h">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury 1</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury 1</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_RBFF2_A.h">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury 2</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\RBFF2_A_DEF.h">
-      <Filter>Games\SNK Games\Real Bout Fatal Fury 2</Filter>
+      <Filter>Games\Neo-Geo\Real Bout Fatal Fury 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Kizuna_A.h">
-      <Filter>Games\SNK Games\Kizuna Encounter</Filter>
+      <Filter>Games\Neo-Geo\Kizuna Encounter</Filter>
     </ClInclude>
     <ClInclude Include="Game\KIZUNA_A_DEF.h">
-      <Filter>Games\SNK Games\Kizuna Encounter</Filter>
+      <Filter>Games\Neo-Geo\Kizuna Encounter</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFZ3U_A.h">
       <Filter>Games\Capcom Games\SFZ3U_A</Filter>
@@ -1575,34 +1578,34 @@
       <Filter>Games\Capcom Games\SFZ3U_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\AOF1_A_DEF.h">
-      <Filter>Games\SNK Games\Art of Fighting 1</Filter>
+      <Filter>Games\Neo-Geo\Art of Fighting 1</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_AOF1_A.h">
-      <Filter>Games\SNK Games\Art of Fighting 1</Filter>
+      <Filter>Games\Neo-Geo\Art of Fighting 1</Filter>
     </ClInclude>
     <ClInclude Include="Game\DoubleDragon_A_DEF.h">
-      <Filter>Games\SNK Games\Double Dragon</Filter>
+      <Filter>Games\Neo-Geo\Double Dragon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_DoubleDragon_A.h">
-      <Filter>Games\SNK Games\Double Dragon</Filter>
+      <Filter>Games\Neo-Geo\Double Dragon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NinjaMasters_A.h">
-      <Filter>Games\SNK Games\Ninja Masters</Filter>
+      <Filter>Games\Neo-Geo\Ninja Masters</Filter>
     </ClInclude>
     <ClInclude Include="Game\NinjaMasters_A_DEF.h">
-      <Filter>Games\SNK Games\Ninja Masters</Filter>
+      <Filter>Games\Neo-Geo\Ninja Masters</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SDodgeBall_A.h">
-      <Filter>Games\SNK Games\Super Dodge Ball</Filter>
+      <Filter>Games\Neo-Geo\Super Dodge Ball</Filter>
     </ClInclude>
     <ClInclude Include="Game\SDodgeBall_A_DEF.h">
-      <Filter>Games\SNK Games\Super Dodge Ball</Filter>
+      <Filter>Games\Neo-Geo\Super Dodge Ball</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF97_A.h">
-      <Filter>Games\SNK Games\KOF97_A</Filter>
+      <Filter>Games\Neo-Geo\KOF97_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF97_A_DEF.h">
-      <Filter>Games\SNK Games\KOF97_A</Filter>
+      <Filter>Games\Neo-Geo\KOF97_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFIII1_A_DIR.h">
       <Filter>Games\Capcom Games\SFIII1_A_DIR</Filter>
@@ -1617,16 +1620,16 @@
       <Filter>Games\Other Platforms\Dan-Ku-Ga</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SavageReign_A.h">
-      <Filter>Games\SNK Games\Savage Reign</Filter>
+      <Filter>Games\Neo-Geo\Savage Reign</Filter>
     </ClInclude>
     <ClInclude Include="Game\SavageReign_A_DEF.h">
-      <Filter>Games\SNK Games\Savage Reign</Filter>
+      <Filter>Games\Neo-Geo\Savage Reign</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_ROTD_A.h">
-      <Filter>Games\SNK Games\Rage of the Dragons</Filter>
+      <Filter>Games\Neo-Geo\Rage of the Dragons</Filter>
     </ClInclude>
     <ClInclude Include="Game\ROTD_A_DEF.h">
-      <Filter>Games\SNK Games\Rage of the Dragons</Filter>
+      <Filter>Games\Neo-Geo\Rage of the Dragons</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_DBFCI_A.h">
       <Filter>Games\Other Platforms\Dengeki Bunko FCI</Filter>
@@ -1647,10 +1650,10 @@
       <Filter>Games\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOTM_A.h">
-      <Filter>Games\SNK Games\King of the Monsters</Filter>
+      <Filter>Games\Neo-Geo\King of the Monsters</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOTM_A_DEF.h">
-      <Filter>Games\SNK Games\King of the Monsters</Filter>
+      <Filter>Games\Neo-Geo\King of the Monsters</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_TopF2005_Sega.h">
       <Filter>Games\Sega\Top Fighter 2005</Filter>
@@ -1683,52 +1686,52 @@
       <Filter>Games\Nintendo\Mega Man X2 %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_LASTBLADE_A.h">
-      <Filter>Games\SNK Games\Last Blade</Filter>
+      <Filter>Games\Neo-Geo\Last Blade</Filter>
     </ClInclude>
     <ClInclude Include="Game\LASTBLADE_A_DEF.h">
-      <Filter>Games\SNK Games\Last Blade</Filter>
+      <Filter>Games\Neo-Geo\Last Blade</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF00N_A.h">
-      <Filter>Games\SNK Games\KOF02N_A</Filter>
+      <Filter>Games\Neo-Geo\KOF02N_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF00N_A_DEF.h">
-      <Filter>Games\SNK Games\KOF02N_A</Filter>
+      <Filter>Games\Neo-Geo\KOF02N_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF95_A.h">
-      <Filter>Games\SNK Games\KOF95_A</Filter>
+      <Filter>Games\Neo-Geo\KOF95_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF95_A_DEF.h">
-      <Filter>Games\SNK Games\KOF95_A</Filter>
+      <Filter>Games\Neo-Geo\KOF95_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF96_A.h">
-      <Filter>Games\SNK Games\KOF96_A</Filter>
+      <Filter>Games\Neo-Geo\KOF96_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF96_A_DEF.h">
-      <Filter>Games\SNK Games\KOF96_A</Filter>
+      <Filter>Games\Neo-Geo\KOF96_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO1_A.h">
-      <Filter>Games\SNK Games\Samurai Shodown</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO1_A_DEF.h">
-      <Filter>Games\SNK Games\Samurai Shodown</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO2_A.h">
-      <Filter>Games\SNK Games\Samurai Shodown II</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown II</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO2_A_DEF.h">
-      <Filter>Games\SNK Games\Samurai Shodown II</Filter>
+      <Filter>Games\Neo-Geo\Samurai Shodown II</Filter>
     </ClInclude>
     <ClInclude Include="Game\FatalFuryS_A_DEF.h">
-      <Filter>Games\SNK Games\Fatal Fury Special</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFuryS_A.h">
-      <Filter>Games\SNK Games\Fatal Fury Special</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\FatalFury1_A_DEF.h">
-      <Filter>Games\SNK Games\Fatal Fury 1</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury 1</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFury1_A.h">
-      <Filter>Games\SNK Games\Fatal Fury 1</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury 1</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_GGXXACR_S.h">
       <Filter>Games\Other Platforms\Guilty Gear\GGXX ACR %28Steam%29</Filter>
@@ -1746,10 +1749,10 @@
       <Filter>Games\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF98AE2016_A.h">
-      <Filter>Games\SNK Games\KOF98AE2016</Filter>
+      <Filter>Games\Neo-Geo\KOF98AE2016</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF98AE2016_A_DEF.h">
-      <Filter>Games\SNK Games\KOF98AE2016</Filter>
+      <Filter>Games\Neo-Geo\KOF98AE2016</Filter>
     </ClInclude>
     <ClInclude Include="Game\MBAACC_S_DEF.h">
       <Filter>Games\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29</Filter>
@@ -1845,16 +1848,16 @@
       <Filter>Games\Nintendo\Bishoujo Senshi Sailor Moon S: JR %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MagicalDropIII_A.h">
-      <Filter>Games\SNK Games\Magical Drop III</Filter>
+      <Filter>Games\Neo-Geo\Magical Drop III</Filter>
     </ClInclude>
     <ClInclude Include="Game\MagicalDropIII_A_DEF.h">
-      <Filter>Games\SNK Games\Magical Drop III</Filter>
+      <Filter>Games\Neo-Geo\Magical Drop III</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF02PS2_A.h">
-      <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
+      <Filter>Games\Neo-Geo\King of Fighters 2002 PS2 hack</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF02PS2_A_DEF.h">
-      <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
+      <Filter>Games\Neo-Geo\King of Fighters 2002 PS2 hack</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MartialMasters_A.h">
       <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
@@ -1863,10 +1866,10 @@
       <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Gowcaizer_A.h">
-      <Filter>Games\SNK Games\Gowcaizer</Filter>
+      <Filter>Games\Neo-Geo\Gowcaizer</Filter>
     </ClInclude>
     <ClInclude Include="Game\Gowcaizer_A_DEF.h">
-      <Filter>Games\SNK Games\Gowcaizer</Filter>
+      <Filter>Games\Neo-Geo\Gowcaizer</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MAAB_A.h">
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
@@ -1920,10 +1923,10 @@
       <Filter>Games\Other Platforms\Melty Blood Type Lumina %28Steam%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF02UM_S_DIR.h">
-      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+      <Filter>Games\Neo-Geo\KOF02UM_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF02UM_S_DIR_DEF.h">
-      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+      <Filter>Games\Neo-Geo\KOF02UM_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\GameClassByFile.h">
       <Filter>Games\Base</Filter>
@@ -1998,10 +2001,10 @@
       <Filter>Games\Capcom Games\HSF2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\FatalFury2_A_DEF.h">
-      <Filter>Games\SNK Games\Fatal Fury 2</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFury2_A.h">
-      <Filter>Games\SNK Games\Fatal Fury 2</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\FotNS_P_DEF.h">
       <Filter>Games\PS2\Fist of the North Star</Filter>
@@ -2019,10 +2022,10 @@
       <Filter>Games\Other Platforms\Persona 4 Arena</Filter>
     </ClInclude>
     <ClInclude Include="Game\GalaxyFight_A_DEF.h">
-      <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
+      <Filter>Games\Neo-Geo\Galaxy Fight: Universal Warriors</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_GalaxyFight_A.h">
-      <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
+      <Filter>Games\Neo-Geo\Galaxy Fight: Universal Warriors</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_GGDS_NDS.h">
       <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
@@ -2088,16 +2091,16 @@
       <Filter>Games\Base</Filter>
     </ClInclude>
     <ClInclude Include="Game\FatalFury3_A_DEF.h">
-      <Filter>Games\SNK Games\Fatal Fury 3</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury 3</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFury3_A.h">
-      <Filter>Games\SNK Games\Fatal Fury 3</Filter>
+      <Filter>Games\Neo-Geo\Fatal Fury 3</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KabukiKlash_A.h">
-      <Filter>Games\SNK Games\Kabuki Klash</Filter>
+      <Filter>Games\Neo-Geo\Kabuki Klash</Filter>
     </ClInclude>
     <ClInclude Include="Game\KabukiKlash_A_DEF.h">
-      <Filter>Games\SNK Games\Kabuki Klash</Filter>
+      <Filter>Games\Neo-Geo\Kabuki Klash</Filter>
     </ClInclude>
     <ClInclude Include="Game\AquaPlus_P_DEF.h">
       <Filter>Games\Other Platforms\Aquapazza Aquaplus %28PS3%29</Filter>
@@ -2118,16 +2121,16 @@
       <Filter>Games\Other Platforms\Deamon Bride %28NESICAxLive%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\AoDK_A_DEF.h">
-      <Filter>Games\SNK Games\Aggressors of Dark Kombat</Filter>
+      <Filter>Games\Neo-Geo\Aggressors of Dark Kombat</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_AoDK_A.h">
-      <Filter>Games\SNK Games\Aggressors of Dark Kombat</Filter>
+      <Filter>Games\Neo-Geo\Aggressors of Dark Kombat</Filter>
     </ClInclude>
     <ClInclude Include="Game\MagicalDropII_A_DEF.h">
-      <Filter>Games\SNK Games\Magical Drop II</Filter>
+      <Filter>Games\Neo-Geo\Magical Drop II</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MagicalDropII_A.h">
-      <Filter>Games\SNK Games\Magical Drop II</Filter>
+      <Filter>Games\Neo-Geo\Magical Drop II</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_StreetFighter_A.h">
       <Filter>Games\Capcom Games\Street Fighter I</Filter>
@@ -2160,10 +2163,10 @@
       <Filter>Games\Other Platforms\Jackie Chan in Fists of Fury</Filter>
     </ClInclude>
     <ClInclude Include="Game\BattleFlipshot_A_DEF.h">
-      <Filter>Games\SNK Games\Battle Flip Shot</Filter>
+      <Filter>Games\Neo-Geo\Battle Flip Shot</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_BattleFlipshot_A.h">
-      <Filter>Games\SNK Games\Battle Flip Shot</Filter>
+      <Filter>Games\Neo-Geo\Battle Flip Shot</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SurvivalArts_A.h">
       <Filter>Games\Other Platforms\Survival Arts %28Scarab%29</Filter>
@@ -2196,10 +2199,10 @@
       <Filter>Games\Other Platforms\Guilty Gear\GGXX ACP %28Wii%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\FightFever_A_DEF.h">
-      <Filter>Games\SNK Games\Fight Fever</Filter>
+      <Filter>Games\Neo-Geo\Fight Fever</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_FightFever_A.h">
-      <Filter>Games\SNK Games\Fight Fever</Filter>
+      <Filter>Games\Neo-Geo\Fight Fever</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_TekkenAdvance_GBA.h">
       <Filter>Games\Nintendo\Tekken Advance %28GBA%29</Filter>
@@ -2277,10 +2280,10 @@
       <Filter>Games\Capcom Games\Punisher %28Arcade%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\WorldHeroesPerfect_A_DEF.h">
-      <Filter>Games\SNK Games\World Heroes Perfect</Filter>
+      <Filter>Games\Neo-Geo\World Heroes Perfect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_WorldHeroesPerfect_A.h">
-      <Filter>Games\SNK Games\World Heroes Perfect</Filter>
+      <Filter>Games\Neo-Geo\World Heroes Perfect</Filter>
     </ClInclude>
     <ClInclude Include="Game\BnK_P_DEF.h">
       <Filter>Games\PS2\Bonnou no Kaihou</Filter>
@@ -2301,10 +2304,10 @@
       <Filter>Games\Other Platforms\AQUAPAZZA: Aquaplus Dream Match %28Steam%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_TurfMasters_A.h">
-      <Filter>Games\SNK Games\Neo Turf Masters</Filter>
+      <Filter>Games\Neo-Geo\Neo Turf Masters</Filter>
     </ClInclude>
     <ClInclude Include="Game\TurfMasters_A_DEF.h">
-      <Filter>Games\SNK Games\Neo Turf Masters</Filter>
+      <Filter>Games\Neo-Geo\Neo Turf Masters</Filter>
     </ClInclude>
     <ClInclude Include="MappingPalettes.h">
       <Filter>Palette file storage</Filter>
@@ -2433,22 +2436,28 @@
       <Filter>Image Viewers\PNG</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_WorldHeroes_A.h">
-      <Filter>Games\SNK Games\World Heroes</Filter>
+      <Filter>Games\Neo-Geo\World Heroes</Filter>
     </ClInclude>
     <ClInclude Include="Game\WorldHeroes_A_DEF.h">
-      <Filter>Games\SNK Games\World Heroes</Filter>
+      <Filter>Games\Neo-Geo\World Heroes</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_WorldHeroes2_A.h">
-      <Filter>Games\SNK Games\World Heroes 2</Filter>
+      <Filter>Games\Neo-Geo\World Heroes 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\WorldHeroes2_A_DEF.h">
-      <Filter>Games\SNK Games\World Heroes 2</Filter>
+      <Filter>Games\Neo-Geo\World Heroes 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MK1_PS2.h">
       <Filter>Games\PS2\Mortal Kombat</Filter>
     </ClInclude>
     <ClInclude Include="Game\MK1_PS2_DEF.h">
       <Filter>Games\PS2\Mortal Kombat</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_WorldHeroes2Jet_A.h">
+      <Filter>Games\Neo-Geo\World Heroes 2 Jet</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\WorldHeroes2Jet_A_DEF.h">
+      <Filter>Games\Neo-Geo\World Heroes 2 Jet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -195,6 +195,7 @@
 #include "Game_Windjammers_A.h"
 #include "Game_WorldHeroes_A.h"
 #include "Game_WorldHeroes2_A.h"
+#include "Game_WorldHeroes2Jet_A.h"
 #include "Game_WorldHeroesPerfect_A.h"
 #include "Game_XMMA_SNES.h"
 #include "Game_XMVSF_A.h"
@@ -205,7 +206,7 @@
 bool GameFlagIsForImageViewer(SupportedGamesList nGameFlag) { return (nGameFlag == ImageViewer_PNG) || (nGameFlag == ImageViewer_RAW); };
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 301, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 303, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -493,6 +494,8 @@ namespace KnownGameInfo
     CGameClass* Make_WorldHeroes_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroes_PS2(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroes2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroes2_A(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroes2_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroes2_PS2(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroes2Jet_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroes2Jet_A(nConfirmedROMSize); }
+    CGameClass* Make_WorldHeroes2Jet_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroes2Jet_PS2(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroesPerfect_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroesPerfect_A(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroesPerfect_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroesPerfect_PS2(nConfirmedROMSize); }
     CGameClass* Make_WorldHeroesPerfect_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_WorldHeroesPerfect_S(nConfirmedROMSize); }
@@ -2737,6 +2740,20 @@ namespace KnownGameInfo
             CGame_WorldHeroes2_PS2::GetRule,
         },
         {
+            WorldHeroes2Jet_A,
+            L"World Heroes 2 Jet (Neo-Geo)",
+            { WorldHeroes2Jet_A, L"World Heroes 2 Jet", L"World Heroes 2 Jet (Neo-Geo)|064-*.p1|", GamePlatform::NEOGEO, GameSeries::NeoGeo_WorldHeroes },
+            Make_WorldHeroes2Jet_A,
+            CGame_WorldHeroes2Jet_A::GetRule,
+        },
+        {
+            WorldHeroes2Jet_PS2,
+            L"World Heroes 2 Jet (PS2)",
+            { WorldHeroes2Jet_PS2, L"World Heroes 2 Jet", L"World Heroes 2 Jet (PS2)|064prg.bin|", GamePlatform::PS2, GameSeries::PS2_WorldHeroes },
+            Make_WorldHeroes2Jet_PS2,
+            CGame_WorldHeroes2Jet_PS2::GetRule,
+        },
+        {
             WorldHeroesPerfect_A,
             L"World Heroes Perfect (Neo-Geo)",
             { WorldHeroesPerfect_A, L"World Heroes Perfect", L"World Heroes Perfect (Neo-Geo)|090-p1.*|", GamePlatform::NEOGEO, GameSeries::NeoGeo_WorldHeroes },
@@ -2814,7 +2831,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 301, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 303, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 
