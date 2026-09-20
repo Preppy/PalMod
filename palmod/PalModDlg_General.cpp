@@ -335,32 +335,36 @@ bool CPalModDlg::GetPathForUserFallbackImage(CGameClass* CurrGame, UINT nPositio
 bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGame, UINT nPosition)
 {
     CString strImagePath;
+    bool fDoesImageExist;
 
     if (strImageToLoad.GetLength())
     {
         strImagePath = strImageToLoad;
+        fDoesImageExist = GetFileAttributes(strImagePath.GetBuffer()) != INVALID_FILE_ATTRIBUTES;
     }
     else
     {
-        if (!GetPathForUserFallbackImage(CurrGame, nPosition, strImagePath))
+        fDoesImageExist = GetPathForUserFallbackImage(CurrGame, nPosition, strImagePath);
+    }
+
+    if (!fDoesImageExist)
+    {
+        if (strImagePath.IsEmpty())
         {
-            if (strImagePath.IsEmpty())
-            {
-                m_strOverridePreviewStatus.Empty();
-            }
-            else
-            {
-                m_strOverridePreviewStatus.Format(L"\"%s\" not found", strImagePath.GetString());
-            }
+            m_strOverridePreviewStatus.Empty();
+        }
+        else
+        {
+            m_strOverridePreviewStatus.Format(L"\"%s\" not found", strImagePath.GetString());
+        }
 
 #ifdef DEBUG
-            CString strInfo;
-            strInfo.Format(L"CPalModDlg::TryFallbackImageLoad: Fallback image \"%s\" not found for position %u\r\n\t", strImagePath.GetString(), nPosition);
-            OutputDebugString(strInfo.GetBuffer());
+        CString strInfo;
+        strInfo.Format(L"CPalModDlg::TryFallbackImageLoad: Fallback image \"%s\" not found for position %u\r\n\t", strImagePath.GetString(), nPosition);
+        OutputDebugString(strInfo.GetBuffer());
 #endif
 
-            return false;
-        }
+        return false;
     }
 
 #ifdef DEBUG

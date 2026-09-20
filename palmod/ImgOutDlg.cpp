@@ -1093,10 +1093,26 @@ void CImgOutDlg::OnFileSave()
         L"|"
     };
 
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+    CString strSuggestedImageName;
+
+    if (CurrGame)
+    {
+        UINT nPosition = 0;
+        CString strImagePath;
+        GetHost()->GetPalModDlg()->GetPathForUserFallbackImage(CurrGame, nPosition, strImagePath);
+
+        int slashPos = strImagePath.ReverseFind(L'\\');
+        if (slashPos != -1)
+        {
+            strSuggestedImageName = strImagePath.Mid(slashPos + 1);
+        }
+    }
+
     CFileDialog sfd(
         FALSE,
-        NULL,
-        NULL,
+        nullptr,
+        strSuggestedImageName.GetString(),
         OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
         m_fShowingUI ? *szFullSaveFilter : *szQuickSaveFilter
     );
