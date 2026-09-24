@@ -101,14 +101,14 @@ private:
 
     void _ResizeAndBlankCustomPreviews(UINT* pnLayerToLoadTo, size_t nNewSize);
 
-    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nLayerToLoadTo, int nSuggestedWidth, int nSuggestedHeight, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
+    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nLayerToLoadTo, sImageDimensions suggestedDimensions, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
     void _UpdatePreviewForExternalSprite(UINT* pnLayerToLoadTo);
 
-    void _FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, int nWidth, int nHeight);
+    void _FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, sImageDimensions dimensions);
 
-    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnLayerToLoadTo, unsigned char* pImageData, unsigned width, unsigned height,
+    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions,
                                             size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true, SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace);
-    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle, UINT* pnLayerToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
+    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions, size_t nImageSize);
 
     void _UpdateCompositionDisplayRect(UINT nLayer, sImageDimensions dimensions, bool fForceThisAsBackmostLayer = false);
     void _TrimLoadedCustomImages(bool fIsFullStackReplacement);

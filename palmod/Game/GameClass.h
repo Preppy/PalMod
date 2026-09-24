@@ -167,7 +167,7 @@ public:
 
     GAME_SPRITE_STYLE m_eGameSpriteStyle = GAME_SPRITE_STYLE::SPRITES_ARE_FIXED;
 
-    bool CanSpritesBeUserModified() { return (m_eGameSpriteStyle == GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE); };
+    bool CanSpritesBeUserModified() const { return (m_eGameSpriteStyle == GAME_SPRITE_STYLE::SPRITES_ARE_USER_MODIFIABLE); };
 
     // Currently only used by MVC2
     uint16_t*** GetDataBuffer() { return m_pppDataBuffer; };
@@ -233,7 +233,7 @@ public:
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 
-    SupportedGamesList GetGameFlag() { return m_nGameFlag; };
+    SupportedGamesList GetGameFlag() const { return m_nGameFlag; };
     eIMGDat_Sections GetImgGameFlag() const { return m_nImgGameFlag; };
     uint32_t GetUnitCt() const { return m_nUnitAmt; };
     std::vector<uint16_t> GetImageSetForGame() { return m_prgGameImageSet; };
@@ -241,7 +241,7 @@ public:
 
     CPalGroup* GetPalGroup() { return &m_BasePalGroup; };
 
-    uint32_t GetFileAmt() { return m_nFileAmt; };
+    uint32_t GetFileAmt() const { return m_nFileAmt; };
 
     void ResetFileChangeTrackingArray();
     std::vector<bool>& GetFileChangeTrackingArray() { return m_rgFileChanged; };

@@ -387,8 +387,8 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown /*
                     {
                         sImgNode** ppImgNodes = ImgDispCtrl->GetImgBuffer();
 
-                        const bool fDimensionsMatch = (ppImgNodes[0]->dimensions.width == width) &&
-                                                      (ppImgNodes[0]->dimensions.height == height);
+                        const bool fDimensionsMatch = (ppImgNodes[0]->dimensions.width == static_cast<int>(width)) &&
+                                                      (ppImgNodes[0]->dimensions.height == static_cast<int>(height));
 
                         if (fDimensionsMatch)
                         {
