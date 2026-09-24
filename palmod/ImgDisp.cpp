@@ -14,6 +14,7 @@
 #include "PreviewImport.h"
 #include "RAWfiles.h"
 #include "Util.h"
+#include <cwctype>
 
 #ifdef DUMP_COLOR_FREQUENCY_MAP
 // This code is normally inaccessible as it's uninteresting to the end user.
@@ -1766,7 +1767,7 @@ bool CImgDisp::_GetDropLayerFromFileName(const std::wstring& strFileName, UINT& 
 
     // compare as lower case
     std::wstring strFileNameAsLower = strFileName;
-    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::tolower);
+    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
 
     auto token_offset = strFileNameAsLower.find(strLayerToken);
     if (token_offset != std::string::npos)

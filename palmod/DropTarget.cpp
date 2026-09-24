@@ -3,6 +3,7 @@
 #include "PalMod.h"
 #include "GameChoice.h"
 #include "Game\GameRegistry.h"
+#include <cwctype>
 
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
@@ -268,7 +269,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                 for (auto& strDropPath : rgMultiDropPaths)
                 {
                     std::wstring strFileNameAsLower = strDropPath;
-                    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::tolower);
+                    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
 
                     size_t dotPos = strFileNameAsLower.find_last_of(L'.');
 
@@ -460,7 +461,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             for (auto& strDropPath : rgDropPaths)
             {
                 std::wstring strFileNameAsLower = strDropPath;
-                transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::tolower);
+                transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
 
                 size_t dotPos = strFileNameAsLower.find_last_of(L'.');
 
