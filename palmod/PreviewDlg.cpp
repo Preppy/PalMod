@@ -440,7 +440,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     // Start with "all"
                     mii.cbSize = sizeof(MENUITEMINFO);
                     mii.fMask = MIIM_ID | MIIM_STRING;
-                    mii.wID = (MAX_IMAGES_DISPLAYABLE | k_nTextureLoadCommandMask); // use special indicator, uniquely handled in OnLoadCustomSpriteNormal
+                    mii.wID = (MAX_IMAGES_DISPLAYABLE | k_nTextureLoadCommandMask); // use special indicator, uniquely handled in CImgDisp::_SanitizeRequestedImageLayer
                     strMenuName = L"Load Layout for All Layers";
 
                     mii.dwTypeData = const_cast<LPWSTR>(strMenuName.GetString());
@@ -515,35 +515,37 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath, bool fShowAdvancedOptions, PNGImportSpecialOptions importOptions /* = {} */)
+bool CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, LPCWSTR pszPath, bool fShowAdvancedOptions, PNGImportSpecialOptions importOptions /* = {} */)
 {
-    wchar_t* pszExt = wcsrchr(pszPath, L'.');
-    bool fSuccess = false;
+    LPCWSTR pszExt = wcsrchr(pszPath, L'.');
+    CImgDisp::ImageLoadType imageType;
 
     if (pszExt &&
-        ((_wcsicmp(pszExt, L".gif") == 0) ||
-         (_wcsicmp(pszExt, L".bmp") == 0)))
+            ((_wcsicmp(pszExt, L".gif") == 0) ||
+             (_wcsicmp(pszExt, L".bmp") == 0)))
     {
-        const UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
-        fSuccess = m_ImgDisp.LoadExternalCImageSprite(nPositionToLoadTo, direction, pszPath, fShowAdvancedOptions);
+        imageType = CImgDisp::ImageLoadType::CImage;
     }
     else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
     {
-        fSuccess = m_ImgDisp.LoadExternalPNGSprite(pnPositionToLoadTo, direction, pszPath, fShowAdvancedOptions, importOptions);
+        imageType = CImgDisp::ImageLoadType::PNG;
     }
     else
     {
-        const UINT nPositionToLoadTo = pnPositionToLoadTo ? *pnPositionToLoadTo : 0;
-        fSuccess = m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath, fShowAdvancedOptions);
+        imageType = CImgDisp::ImageLoadType::RAW;
     }
+
+    const bool fSuccess = m_ImgDisp.LoadExternalPreview(imageType, pnPositionToLoadTo, direction, pszPath, fShowAdvancedOptions, importOptions);
 
     if (fSuccess)
     {
         m_ImgDisp.UpdateCtrl();
     }
+
+    return fSuccess;
 }
 
-void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */, bool fShowAdvancedOptions /* = false */)
+void CPreviewDlg::OnLoadCustomSprite(UINT* pnSuggestedLayerToLoadTo /*= nullptr */, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */, bool fShowAdvancedOptions /* = false */)
 {
     if (GetHost()->GetCurrGame())
     {
@@ -562,19 +564,7 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImpor
         {
             PNGImportSpecialOptions importOptions = { (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6), (OpenDialog.GetOFN().nFilterIndex != 7) };
 
-            // eliminate the k_nTextureLoadCommandMask mask for usage...
-            UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
-
-            if (nCorrectedPosition == MAX_IMAGES_DISPLAYABLE) // This value indicates a full stack replacement
-            {
-                // Filter index is 1-based
-                LoadCustomSpriteFromPath(nullptr, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, importOptions);
-            }
-            else
-            {
-                // Filter index is 1-based
-                LoadCustomSpriteFromPath(&nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, importOptions);
-            }
+            LoadCustomSpriteFromPath(pnSuggestedLayerToLoadTo, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, importOptions);
 
             CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);
         }

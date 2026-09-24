@@ -58,7 +58,7 @@ private:
 
     uint32_t* m_pBmpData = nullptr;
 
-    sImageDimensions m_ImgDimensions;
+    sImageDimensions m_PreviewDimensions;
     sImageDimensions m_MainLayout;
     sImageDisplayOffsets m_ImageOffsets;
 
@@ -77,7 +77,7 @@ private:
 
     sPoint m_fpDiffs;
 
-    CRect m_rCtrlRct;
+    CRect m_rViewportRct;
     CRect m_rCtrlSrcRct;
     CRect m_rSrcRct;
     CRect m_rImgRct;
@@ -99,25 +99,32 @@ private:
 
     BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseBlinkPal = false);
 
-    void _ResizeAndBlankCustomPreviews(UINT* pnPositionToLoadTo, size_t nNewSize);
+    void _ResizeAndBlankCustomPreviews(UINT* pnLayerToLoadTo, size_t nNewSize);
 
-    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nPositionToLoadTo, int nSuggestedWidth, int nSuggestedHeight, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
-    void _UpdatePreviewForExternalSprite(UINT* pnPositionToLoadTo);
+    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nLayerToLoadTo, int nSuggestedWidth, int nSuggestedHeight, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
+    void _UpdatePreviewForExternalSprite(UINT* pnLayerToLoadTo);
 
     void _FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, int nWidth, int nHeight);
 
-    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height,
+    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnLayerToLoadTo, unsigned char* pImageData, unsigned width, unsigned height,
                                             size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true, SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace);
-    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle, UINT* pnPositionToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
+    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle, UINT* pnLayerToLoadTo, unsigned char* pImageData, unsigned width, unsigned height, size_t nImageSize);
 
-    void _UpdateCompositionDisplayRect(UINT nPosition, sImageDimensions dimensions);
+    void _UpdateCompositionDisplayRect(UINT nLayer, sImageDimensions dimensions, bool fForceThisAsBackmostLayer = false);
     void _TrimLoadedCustomImages(bool fIsFullStackReplacement);
     void _ResizeImageStack(bool fIsFullStackReplacement);
-    void _ResetForNewImage();
+    void _AdjustLayoutForNewlyLoadedImage();
 
-    std::vector<uint8_t> _LoadTextureFromCImageSprite(wchar_t* pszTextureLocation, UINT& nPositionToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fShowAdvancedOptions = false);
+    std::vector<uint8_t> _LoadTextureFromCImageSprite(LPCWSTR pszTextureLocation, UINT& nLayerToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fShowAdvancedOptions = false);
 
-    UINT _SanitizeRequestedImageLayer(UINT nLayerToLoadTo);
+    bool _GetDropLayerFromFileName(const std::wstring& strFileName, UINT& iLayerToDropTo);
+    bool _SanitizeRequestedImageLayer(UINT* pnLayerToLoadTo, UINT& nConfirmedLayerToLoadTo);
+
+    bool _LoadExternalCImageSprite(UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true);
+    // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
+    // A null pointer passed in indicates to us to replace the full stack: a pointer of value 0 means just the first layer.
+    bool _LoadExternalPNGSprite(UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importOptions = {});
+    bool _LoadExternalRAWSprite(UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fMustShowAdvancedOptions = true);
 
 public:
     CImgDisp();
@@ -125,7 +132,7 @@ public:
     
     sPreviewWindowSettings m_Settings;
 
-    void AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode = BlendMode::Alpha);
+    void AddImageNode(int nIndex, int uImgW, int uImgH, uint8_t* pImgData, COLORREF* pPalette, uint16_t uPalSz, int nXOffs, int nYOffs, BlendMode eBlendMode = BlendMode::Alpha);
     void FlushImageNode(int nIndex);
     void ClearAllImages();
     void UpdateCtrl(BOOL fRedraw = TRUE, int nUseBlinkPal = 0);
@@ -133,63 +140,67 @@ public:
     void SetBGCol(COLORREF crNewCol) { m_Settings.prev_bgcol = crNewCol; };
     void SetBlinkCol(COLORREF crNewCol) { m_Settings.prev_blinkcol = crNewCol; };
     void SetBlinkInverts(BOOL fBlinkInverts) { m_Settings.fBlinkInverts = fBlinkInverts; };
-    COLORREF GetBGCol() { return m_Settings.prev_bgcol; };
-    COLORREF GetBlinkCol() { return m_Settings.prev_blinkcol; };
-    BOOL GetBlinkInverts() { return m_Settings.fBlinkInverts; };
+    COLORREF GetBGCol() const { return m_Settings.prev_bgcol; };
+    COLORREF GetBlinkCol() const { return m_Settings.prev_blinkcol; };
+    BOOL GetBlinkInverts() const { return m_Settings.fBlinkInverts; };
     void CenterImg() { ModifySrcRect(); };
 
     void SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette);
 
-    BlendMode GetForcedBlendMode() { return m_Settings.eBlendMode; };
+    BlendMode GetForcedBlendMode() const { return m_Settings.eBlendMode; };
     void SetForcedBlendMode(BlendMode newMode) { m_Settings.eBlendMode = newMode; };
 
-    BOOL IsBGTiled() { return m_Settings.fTileBG; };
-    BOOL IsUsingBGCol() { return m_Settings.fUseBGCol; };
+    BOOL IsBGTiled() const { return m_Settings.fTileBG; };
+    BOOL IsUsingBGCol() const { return m_Settings.fUseBGCol; };
     BOOL IsUsingBlinkInverts() { return m_Settings.fBlinkInverts; };
     void SetBGXOffs(int nOffs) { m_Settings.nBGBMPOffsets.x = nOffs; };
     void SetBGYOffs(int nOffs) { m_Settings.nBGBMPOffsets.y = nOffs; };
     void SetBGTiled(BOOL fTiled) { m_Settings.fTileBG = fTiled; };
     void SetUseBGCol(BOOL fUse) { m_Settings.fUseBGCol = fUse; };
     void SetClickToFindColorSetting(BOOL fClickToFindColor) { m_Settings.fClickToFindColor = fClickToFindColor; };
-    BOOL GetClickToFindColorSetting() { return m_Settings.fClickToFindColor; };
+    BOOL GetClickToFindColorSetting() const { return m_Settings.fClickToFindColor; };
     void SetAllowAutoPreviewFallback(BOOL fAllowAutoPreviewFallback) { m_Settings.fAllowAutoPreviewFallback = fAllowAutoPreviewFallback; };
-    BOOL GetAllowAutoPreviewFallback() { return m_Settings.fAllowAutoPreviewFallback; };
+    BOOL GetAllowAutoPreviewFallback() const { return m_Settings.fAllowAutoPreviewFallback; };
     // This is turned off at the caller level (see comments there).  The initial thought was "just for BBCF".
     // If we wanted to go further we'd want to establish some UI on this.  But per comments, probably a 
     // flawed idea.  It's now updated to work for MCI, but we're pending feedback on implementation 
     // so leave it off for now
     BOOL CanForceBGBitmapAvailable();
-    BOOL GetPreviewDropIsPalette() { return m_Settings.fPreviewDropIsPalette; };
+    BOOL GetPreviewDropIsPalette() const { return m_Settings.fPreviewDropIsPalette; };
     void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_Settings.fPreviewDropIsPalette = fPreviewDropIsPalette; };
-    BOOL GetTrimImportedPreviews() { return m_Settings.fPreviewTrimImportedPreviews; };
+    BOOL GetTrimImportedPreviews() const { return m_Settings.fPreviewTrimImportedPreviews; };
     void SetTrimImportedPreviews(BOOL fPreviewDropTrim) { m_Settings.fPreviewTrimImportedPreviews = fPreviewDropTrim; };
-    BOOL GetPreviewImportWinKawaksFirst() { return m_Settings.fPreviewImportWinKawaksFirst; };
+    BOOL GetPreviewImportWinKawaksFirst() const { return m_Settings.fPreviewImportWinKawaksFirst; };
     void SetPreviewImportWinKawaksFirst(BOOL fPreviewImportWinKawaksFirst) { m_Settings.fPreviewImportWinKawaksFirst = fPreviewImportWinKawaksFirst; };
-    BOOL GetPreviewImportUseFullCPS3() { { return m_Settings.fPreviewImportUseFullCPS3; }; };
+    BOOL GetPreviewImportUseFullCPS3() const { { return m_Settings.fPreviewImportUseFullCPS3; }; };
     void SetPreviewImportUseFullCPS3(BOOL fPreviewImportUseFullCPS3) { m_Settings.fPreviewImportUseFullCPS3 = fPreviewImportUseFullCPS3; };
 
-    int GetBGXOffs() { return m_Settings.nBGBMPOffsets.x; };
-    int GetBGYOffs() { return m_Settings.nBGBMPOffsets.y; };
+    int GetBGXOffs() const { return m_Settings.nBGBMPOffsets.x; };
+    int GetBGYOffs() const { return m_Settings.nBGBMPOffsets.y; };
 
     sImgNode** GetImgBuffer() { return m_pImgBuffer; };
     // Note that we only check for the 0 sprite: export keys off of that.
-    bool HaveImageData() { return m_pImgBuffer[0] && m_pImgBuffer[0]->pImgData; };
-    CRect GetImgRct() { return m_rImgRct; }; // currently unused: commented out in imgdumpbmp.cpp
+    bool HaveImageData() const { return m_pImgBuffer[0] && m_pImgBuffer[0]->pImgData; };
+    CRect GetImgRct() const { return m_rImgRct; }; // currently unused: commented out in imgdumpbmp.cpp
 
-    void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
+    void UpdateImgPalette(int nIndex, COLORREF* pPalette, uint16_t nPalSz);
 
-    bool LoadExternalCImageSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true);
-    // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
-    // A null pointer passed in indicates to us to replace the full stack: a pointer of value 0 means just the first layer.
-    bool LoadExternalPNGSprite(UINT* pnPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importOptions = {});
-    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation, bool fMustShowAdvancedOptions = true);
+    enum class ImageLoadType
+    {
+        PNG,
+        RAW,
+        CImage,
+    };
+
+    bool LoadExternalPreview(ImageLoadType iType, UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importOptions = {});
 
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     
     void SetZoom(double fpNewZoom)
     {
-        if (fpNewZoom != 0)
+        if ((fpNewZoom != 0) &&
+            (m_Settings.dPreviewZoom != fpNewZoom))
         {
             m_Settings.dPreviewZoom = fpNewZoom;
             ModifySrcRect();
@@ -197,7 +208,7 @@ public:
         }
     };
 
-    double GetZoom() { return m_Settings.dPreviewZoom; };
+    double GetZoom() const { return m_Settings.dPreviewZoom; };
 
     BOOL LoadBGBmp(LPCWSTR pszBmpLoc);
     void SetBGBmpPath(LPCWSTR pszBmpLoc) { m_Settings.strPreviewBGBMPPath = pszBmpLoc; };
@@ -208,9 +219,11 @@ public:
     void ResetImageCompositionLayout();
     // Eliminates all unused buffers and resets for new display
     void FlushUnusedAndResize(bool fKeepImageCache);
-    // Just reset custom loaded sprites
+    void FlushInternalSprites();
+    // Just reset custom loaded sprites for this layer
+    void ResetCustomSpriteOverride(size_t nLayer);
+    // Nuke all layers
     void FlushCustomSpriteOverrides();
-    void ResetCustomSpriteOverride(size_t nPosition);
 
 protected:
     BOOL RegisterWindowClass();

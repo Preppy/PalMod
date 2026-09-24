@@ -86,8 +86,12 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
         }
 
         const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
-        bool fHavePathData = false;
         wchar_t szPath[MAX_PATH] = {};
+        std::vector<std::wstring> rgMultiDropPaths;
+        const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
+        const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
+        bool fHaveSinglePathData = false;
+
 
         if (hDrop)
         {
@@ -97,18 +101,30 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             {
                 if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
                 {
-                    fHavePathData = true;
+                    fHaveSinglePathData = true;
                 }
             }
             else
             {
-                GetHost()->GetPalModDlg()->SetStatusText(L"We only support single-file drops, not multi-file drops.");
+                // We support multiple drag and drop for preview replacements (PNG, RAW) only
+                for (UINT iIndex = 0; iIndex < nFilesAvailable; iIndex++)
+                {
+                    if (DragQueryFile(hDrop, iIndex, szPath, ARRAYSIZE(szPath)))
+                    {
+                        rgMultiDropPaths.push_back(szPath);
+                    }
+                    else
+                    {
+                        rgMultiDropPaths.clear();
+                        break;
+                    }
+                }
             }
         }
 
         GlobalUnlock(hg);
 
-        if (fHavePathData)
+        if (fHaveSinglePathData)
         {
             const bool c_fGameIsLoaded = GetHost()->GetCurrGame();
             const SupportedGamesList c_gameId = c_fGameIsLoaded ? GetHost()->GetCurrGame()->GetGameFlag() : NUM_GAMES;
@@ -158,7 +174,6 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                          (_wcsicmp(pszExtension, L".png") == 0))
                 {
                     m_currentEffectState = DROPEFFECT_COPY;
-                    bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
 
                     if (fPreviewDropIsPalette)
                     {
@@ -166,7 +181,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     }
                     else
                     {
-                        if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()))
+                        if (fDropTargetsPreviewWindow)
                         {
                             strMessageOut = L"This appears to be a usable preview. (Drop on main window to use as a palette.)";
                         }
@@ -243,6 +258,50 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                 }
             }
         }
+        else if (rgMultiDropPaths.size())
+        {
+            // We allow multiple drag/drop if and only if they are potential preview replacements
+            bool fCanWorkWithThis = !fPreviewDropIsPalette && fDropTargetsPreviewWindow;
+
+            if (fCanWorkWithThis)
+            {
+                for (auto& strDropPath : rgMultiDropPaths)
+                {
+                    std::wstring strFileNameAsLower = strDropPath;
+                    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::tolower);
+
+                    size_t dotPos = strFileNameAsLower.find_last_of(L'.');
+
+                    if (dotPos != std::wstring::npos)
+                    {
+                        std::wstring strExtension = strFileNameAsLower.substr(dotPos);
+
+                        if ((strExtension != L".raw") &&
+                            (strExtension != L".gif") &&
+                            (strExtension != L".png"))
+                        {
+                            fCanWorkWithThis = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        fCanWorkWithThis = false;
+                    }
+                }
+            }
+
+            if (fCanWorkWithThis)
+            {
+                m_currentEffectState = DROPEFFECT_COPY;
+                GetHost()->GetPalModDlg()->SetStatusText(L"We should be able to support these as replacement previews.");
+            }
+            else
+            {
+                m_currentEffectState = DROPEFFECT_NONE;
+                GetHost()->GetPalModDlg()->SetStatusText(L"We only support multi-file drops for replacement previews (PNG, RAW).");
+            }
+        }
 
         if (fMightBeFirefox)
         {
@@ -293,49 +352,12 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
     return m_currentEffectState;
 }
 
-bool GetDropLayerFromFileName(const std::wstring strFileName, UINT& iLayerToDropTo)
+DROPEFFECT CPalDropTarget::OnDragOver(CWnd*, COleDataObject*, DWORD dwKeyState, CPoint)
 {
-    const std::wstring strLayerToken = L"-layer-";
-    bool fSuccess = false;
+    m_dwLastKeyState = dwKeyState;
 
-    // compare as lower case
-    std::wstring strFileNameAsLower = strFileName;
-    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::tolower);
-
-    auto token_offset = strFileNameAsLower.find(strLayerToken);
-    if (token_offset != std::string::npos)
-    {
-        std::wstring strPostToken = strFileNameAsLower.substr(token_offset + strLayerToken.length());
-        const int result = _stscanf_s(strPostToken.c_str(), L"%u", &iLayerToDropTo);
-
-        if (result == 1)
-        {
-            fSuccess = true;
-            iLayerToDropTo = min(iLayerToDropTo, MAX_PALETTES_DISPLAYABLE - 1);
-        }
-        else
-        {
-            OutputDebugString(L"ERROR: Bad layer specification in filename!\r\n");
-        }
-    }
-
-    CString strOutput = L"Scanned filename for target layer: ";
-
-    if (fSuccess)
-    {
-        CString strBonusInfo;
-        strBonusInfo.Format(L"found.  Using layer %u.\r\n", iLayerToDropTo);
-        strOutput += strBonusInfo;
-    }
-    else
-    {
-        strOutput += "not found.  Replacing full stack.\r\n";
-    }
-
-    OutputDebugString(strOutput.GetString());
-
-    return fSuccess;
-}
+    return m_currentEffectState;
+};
 
 BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT /* dropEffect */, CPoint /* point */)
 {
@@ -347,8 +369,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
         bool fHaveData = false;
         bool fUsingFirefoxTempFile = false;
         bool fIsSupportable = false;
-        LPCWSTR pszExtension = nullptr;
-        wchar_t szPath[MAX_PATH];
+        std::vector<std::wstring> rgDropPaths;
         CString strFileName;
 
         if (_IsDataObjectFromFirefox(pDataObject, fIsSupportable, &strFileName) && fIsSupportable && strFileName.GetLength())
@@ -379,7 +400,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
                                 fHaveData = true;
                                 fUsingFirefoxTempFile = true;
-                                wcsncpy(szPath, strFileName.GetString(), ARRAYSIZE(szPath));
+                                rgDropPaths.push_back(strFileName.GetString());
 
                                 safe_delete_array(pRawData);
                             }
@@ -407,15 +428,23 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     if (hDrop)
                     {
                         const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+                        wchar_t szPath[MAX_PATH] = {};
 
-                        if (nFilesAvailable == 1)
+                        for (UINT iIndex = 0; iIndex < nFilesAvailable; iIndex++)
                         {
-                            if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
+                            if (DragQueryFile(hDrop, iIndex, szPath, ARRAYSIZE(szPath)))
                             {
-                                // we just need the filename right now: test later
-                                fHaveData = true;
+                                rgDropPaths.push_back(szPath);
+                            }
+                            else
+                            {
+                                rgDropPaths.clear();
+                                break;
                             }
                         }
+
+                        // we just need the filename right now: test later
+                        fHaveData = rgDropPaths.size();;
                     }
 
                     GlobalUnlock(hg);
@@ -425,114 +454,113 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
         if (fHaveData)
         {
-            pszExtension = wcsrchr(szPath, L'.');
-        }
+            const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
+            const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
 
-        if (pszExtension)
-        {
-            // The handling code here needs to match the "acceptable drop file types" list
-            // in OnDragEnter above
+            for (auto& strDropPath : rgDropPaths)
+            {
+                std::wstring strFileNameAsLower = strDropPath;
+                transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::tolower);
 
-            UINT uiTargetLayer = 0;
-            bool fHaveLayerTarget = GetDropLayerFromFileName(szPath, uiTargetLayer);
+                size_t dotPos = strFileNameAsLower.find_last_of(L'.');
 
-            if (_wcsicmp(pszExtension, L".act") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromACT(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".bmp") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromBMP(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".cfpl") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".gif") == 0)
-            {
-                if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
+                if (dotPos != std::wstring::npos)
                 {
-                    if (fHaveLayerTarget)
-                    {
-                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&uiTargetLayer, SpriteImportDirection::TopDown, szPath, false);
-                    }
-                    else
-                    {
-                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
-                    }
-                    fHandledDrop = true;
-                }
-                else
-                {
-                    GetHost()->GetPalModDlg()->LoadPaletteFromGIF(szPath);
-                    fHandledDrop = true;
-                }
-            }
-            else if (_wcsicmp(pszExtension, L".gpl") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromGPL(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".hpl") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromHPAL(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".impl") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromIMPL(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".pal") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromPAL(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".png") == 0)
-            {
-                if ((pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd()) && !GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette())
-                {
-                    if (fHaveLayerTarget)
-                    {
-                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&uiTargetLayer, SpriteImportDirection::TopDown, szPath, false);
-                    }
-                    else
-                    {
-                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
-                    }
-                    fHandledDrop = true;
-                }
-                else
-                {
-                    GetHost()->GetPalModDlg()->LoadPaletteFromPNG(szPath);
-                    fHandledDrop = true;
-                }
-            }
-            else if (_wcsicmp(pszExtension, L".prpl") == 0)
-            {
-                GetHost()->GetPalModDlg()->LoadPaletteFromPRPL(szPath);
-                fHandledDrop = true;
-            }
-            else if (_wcsicmp(pszExtension, L".raw") == 0)
-            {
-                if (fHaveLayerTarget)
-                {
-                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(&uiTargetLayer, SpriteImportDirection::TopDown, szPath, false);
-                }
-                else
-                {
-                    GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, szPath, false);
-                }
-                fHandledDrop = true;
-            }
-        }
+                    std::wstring strExtension = strFileNameAsLower.substr(dotPos);
 
-        if (fUsingFirefoxTempFile)
-        {
-            DeleteFile(szPath);
+                    // The handling code here needs to match the "acceptable drop file types" list
+                    // in OnDragEnter above
+
+                    const bool fIsShiftDown = m_dwLastKeyState & MK_SHIFT;
+
+                    if (strExtension == L".act")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromACT(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".bmp")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromBMP(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".cfpl")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".gif")
+                    {
+                        if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
+                        {
+                            GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                            fHandledDrop = true;
+                        }
+                        else
+                        {
+                            GetHost()->GetPalModDlg()->LoadPaletteFromGIF(strFileNameAsLower.c_str());
+                            fHandledDrop = true;
+                            break;
+                        }
+                    }
+                    else if (strExtension == L".gpl")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromGPL(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".hpl")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromHPAL(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".impl")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromIMPL(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".pal")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromPAL(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".png")
+                    {
+                        if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
+                        {
+                            GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                            fHandledDrop = true;
+                        }
+                        else
+                        {
+                            GetHost()->GetPalModDlg()->LoadPaletteFromPNG(strFileNameAsLower.c_str());
+                            fHandledDrop = true;
+                            break;
+                        }
+                    }
+                    else if (strExtension == L".prpl")
+                    {
+                        GetHost()->GetPalModDlg()->LoadPaletteFromPRPL(strFileNameAsLower.c_str());
+                        fHandledDrop = true;
+                        break;
+                    }
+                    else if (strExtension == L".raw")
+                    {
+                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                        fHandledDrop = true;
+                    }
+                }
+            }
+
+            if (fUsingFirefoxTempFile)
+            {
+                DeleteFile(rgDropPaths.at(0).c_str());
+            }
         }
     }
     

@@ -415,7 +415,8 @@ struct sSupportedGameToFileMap
     int nListedGameIndex = INVALID_UNIT_VALUE_16;
 };
 
-const int k_nTextureLoadCommandMask = 0xff00;
+const UINT k_nTextureLoadCommandMask = 0xff00;
+const UINT k_nReplaceFullImageStack = k_nTextureLoadCommandMask | MAX_IMAGES_DISPLAYABLE;
 const int k_nGameLoadROMListMask = 0xf000;
 
 //Image output display options

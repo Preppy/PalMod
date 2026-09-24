@@ -6,7 +6,7 @@
 #include "lodepng\lodepng.h"
 #include "Util.h"
 
-uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions& suggestedImageSize,
+uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& suggestedImageSize,
                                   int nImgAmt, sImgNode** ppImgBuffer, std::array<sTextureData, MAX_IMAGES_DISPLAYABLE> vSpriteOverrideTextures,
                                   UINT& nPositionToLoadTo, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, sImgNode** pImgBuffer, bool fMustShowAdvancedOptions /* = false */)
 {
@@ -23,11 +23,14 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
         suggestedImageSize.height = 0;
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
-        _wcslwr(pszTextureLocation);
-        wchar_t* pszDataW = wcsstr(pszTextureLocation, L"-w-");
-        wchar_t* pszDataH = wcsstr(pszTextureLocation, L"-h-");
-        wchar_t* pszCompType = wcsstr(pszTextureLocation, L"-compf-");
-        wchar_t* pszTermination = wcsstr(pszTextureLocation, L".data");
+        wchar_t szTextureLocationLower[MAX_PATH];
+        wcsncpy(szTextureLocationLower, pszTextureLocation, MAX_PATH);
+
+        _wcslwr(szTextureLocationLower);
+        wchar_t* pszDataW = wcsstr(szTextureLocationLower, L"-w-");
+        wchar_t* pszDataH = wcsstr(szTextureLocationLower, L"-h-");
+        wchar_t* pszCompType = wcsstr(szTextureLocationLower, L"-compf-");
+        wchar_t* pszTermination = wcsstr(szTextureLocationLower, L".data");
 
         enum class RAWCompressionChoice
         {
@@ -41,7 +44,7 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
 
         if (pszTermination == nullptr)
         {
-            pszTermination = wcsstr(pszTextureLocation, L".raw");
+            pszTermination = wcsstr(szTextureLocationLower, L".raw");
         }
 
         bool fIsDoubleSizeGIMPRAW = false;
@@ -218,7 +221,7 @@ uint8_t* LoadTextureFromRAWSprite(wchar_t* pszTextureLocation, sImageDimensions&
         else if (fHaveViableDimensions)
         {
             CString strInfo;
-            strInfo.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", suggestedImageSize.width, suggestedImageSize.height);
+            strInfo.Format(L"LoadTextureFromRAWSprite: texture file is: %u x %u\n", suggestedImageSize.width, suggestedImageSize.height);
             OutputDebugString(strInfo);
 
             TextureFile.SeekToBegin();

@@ -373,18 +373,11 @@ bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGa
     OutputDebugString(strFile.GetBuffer());
 #endif
 
-    bool fSuccess;
-
-    // Only the RAW viewer currently has access to this option since preloading a RAW requires we know the
-    // dimensions
-    if (CurrGame->GetGameFlag() == ImageViewer_RAW)
-    {
-        fSuccess = ImgDispCtrl->LoadExternalRAWSprite(nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false  /* try to use quiet mode since this is automatic */);
-    }
-    else
-    {
-        fSuccess = ImgDispCtrl->LoadExternalPNGSprite(&nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false /* use quiet mode since this is automatic */);
-    }
+    // Only the RAW viewer currently has access to the RAW option here since preloading a RAW requires we know the
+    // dimensions and I'm not interested in auto-deducing that. (Could get via FindNextFile for matching autoname
+    // string portion and then parsing for W/H -- but that seems way too non-performant.)
+    bool fSuccess = ImgDispCtrl->LoadExternalPreview((CurrGame->GetGameFlag() == ImageViewer_RAW) ? CImgDisp::ImageLoadType::RAW : CImgDisp::ImageLoadType::PNG,
+                                            &nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false  /* try to use quiet mode since this is automatic */);
 
     m_strOverridePreviewStatus.Format(L"\"%s\" %s", strImagePath.GetBuffer(), fSuccess ? L"loaded" : L"not loaded");
     OutputDebugString(m_strOverridePreviewStatus.GetString());
@@ -444,7 +437,7 @@ void CPalModDlg::PostPalSel()
                 // nImgId is the extra offset for that character.
                 const int nImgKey = (static_cast<uint16_t>(CurrTicket->nImgUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
                 static int s_nLastPalAmt = 1;
-                bool fChangingVisualLayout = (nPrevImgIndex[nImgIndexCtr] != nImgKey) || (s_nLastPalAmt != nPalAmt);
+                bool fChangingVisualLayout = (nPrevImgIndex[nImgIndexCtr] != nImgKey) || (s_nLastPalAmt != static_cast<int>(nPalAmt));
                 CString strOverrideImage;
                 bool fHaveOverrideImage = false;
                 m_strOverridePreviewStatus.Empty();
