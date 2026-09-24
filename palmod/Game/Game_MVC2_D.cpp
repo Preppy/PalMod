@@ -251,10 +251,10 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (int iUnitCtr = 0; iUnitCtr < MVC2_D_NUMUNIT; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < MVC2_D_NUMUNIT; iUnitCtr++)
     {
         //Omni extra count
-        int nNumSharedExtras = CountExtraRg(iUnitCtr, TRUE);
+        uint32_t nNumSharedExtras = CountExtraRg(iUnitCtr, TRUE);
 
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* ButtonNode = nullptr;
@@ -279,9 +279,9 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        for (uint32_t iButtonCtr = 0; iButtonCtr < m_pCurrentButtonLabelSet.size(); iButtonCtr++)
+        for (uint16_t iButtonCtr = 0; iButtonCtr < m_pCurrentButtonLabelSet.size(); iButtonCtr++)
         {
-            int nExtraPos = 0;
+            uint16_t nExtraPos = 0;
 
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
@@ -392,7 +392,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             {
                 // This path is used for Akuma/Gouki and War Machine only.
                 // We don't have extended descriptions for these: instead of using MVC2_MOVE_DESCRIPTIONS just use the old defaults
-                for (int nExtraCtr = 0; nExtraCtr < nNumSharedExtras; nExtraCtr++)
+                for (uint16_t nExtraCtr = 0; nExtraCtr < nNumSharedExtras; nExtraCtr++)
                 {
                     ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
@@ -411,7 +411,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             {
                 int nExtraIndex = m_rgExtraChrLoc[iUnitCtr] + 1 + 7;
                 int nExtraCtr = 0;
-                int nRangeAmt = 0;
+                uint16_t nRangeAmt = 0;
 
                 uint16_t* pCurrVal = const_cast<uint16_t*>(&m_pCurrentExtrasLayout[nExtraIndex]);
                 std::vector<sMoveDescription> CurrentMoveDescriptionSet = m_pCurrentMoveDescriptions[iUnitCtr];
@@ -420,7 +420,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 {
                     nRangeAmt = (pCurrVal[1] + 1) - pCurrVal[0];
 
-                    for (int nRangeCtr = 0; nRangeCtr < nRangeAmt; nRangeCtr++)
+                    for (uint16_t nRangeCtr = 0; nRangeCtr < nRangeAmt; nRangeCtr++)
                     {
                         bool fSetInfo = false;
                         const uint16_t nCurrentExtraValue = pCurrVal[0] + nRangeCtr;
@@ -475,8 +475,8 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         //Set each description
         _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", MVC2_D_UNITDESC[iUnitCtr]);
 
-        const uint32_t nTeamCount = ARRAYSIZE(mvc2TeamList);
-        const uint32_t nColorOptionCount = static_cast<uint32_t>(m_pCurrentButtonLabelSet.size());
+        const uint16_t nTeamCount = ARRAYSIZE(mvc2TeamList);
+        const uint16_t nColorOptionCount = static_cast<uint16_t>(m_pCurrentButtonLabelSet.size());
         UnitNode->ChildNodes = new sDescTreeNode[nTeamCount];
         UnitNode->uChildType = DESC_NODETYPE_TREE;
         UnitNode->uChildAmt = nTeamCount;
@@ -486,7 +486,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        for (uint32_t iTeamIndex = 0; iTeamIndex < nTeamCount; iTeamIndex++)
+        for (uint16_t iTeamIndex = 0; iTeamIndex < nTeamCount; iTeamIndex++)
         {
             TeamNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iTeamIndex];
 
@@ -502,7 +502,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 #endif
 
             //Set each team's button options
-            for (uint32_t iColorOption = 0; iColorOption < nColorOptionCount; iColorOption++)
+            for (uint16_t iColorOption = 0; iColorOption < nColorOptionCount; iColorOption++)
             {
                 ChildNode = &((sDescNode*)TeamNode->ChildNodes)[iColorOption];
                 ChildNode->uUnitId = iUnitCtr;

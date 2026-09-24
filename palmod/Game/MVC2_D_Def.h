@@ -16,10 +16,11 @@ constexpr auto MVC2_D_NUMUNIT_WITH_TEAMVIEW = MVC2_D_NUMUNIT + 1;
 extern uint32_t EXTRA_OMNI; // = default of 47:  (8 * 6) - 1;
 constexpr auto MVC2_D_TEAMVIEW_LOCATION = MVC2_D_NUMUNIT;
 
-constexpr uint16_t USE_DEFAULT_PREVIEW = 0xFF;
+constexpr uint8_t USE_DEFAULT_PREVIEW = 0xFF;
 
 struct sMoveDescription
 {
+    // This has to be uint16 because of Marvel amongst other games
     uint16_t nCharacterIndex = 0;
     LPCWSTR szMoveName = L"uninit";
     uint8_t nImageIndex = USE_DEFAULT_PREVIEW;

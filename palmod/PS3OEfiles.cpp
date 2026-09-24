@@ -95,7 +95,7 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
                         }
 
                         // Now consume those colors...
-                        if (spdPalInfo->uPalId == (iPaletteId * nPaletteDistance))
+                        if (spdPalInfo->uPalId == static_cast<uint32_t>((iPaletteId * nPaletteDistance)))
                         {
                             // This is the active palette: use the palgroup logic so we get easy live updates
                             uint8_t* pVisiblePalette = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(0)->pPal);

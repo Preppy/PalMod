@@ -66,15 +66,15 @@ void CPalTool::SendPalMsg(UINT_PTR nCtrlId, int nType)
 void CPalTool::OnPalSelChange(UINT_PTR nCtrlId, BOOL fCurrPage)
 {
     //Deselect each palette that is not selected
-    int nPalStart = m_rgPalRedir[m_nCurrPage - 1];
-    int nPalEnd = m_rgPalRedir[m_nCurrPage];
+    UINT_PTR nPalStart = m_rgPalRedir[m_nCurrPage - 1];
+    UINT_PTR nPalEnd = m_rgPalRedir[m_nCurrPage];
 
     if (nPalEnd == 0xFF)
     {
         nPalEnd = m_nCurrPalAmt;
     }
 
-    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
+    for (UINT_PTR iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
         if (m_sPalEntry[iPalette].fPalAvailable)
         {

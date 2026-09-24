@@ -96,9 +96,9 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     }
 
     //Change the image id if we need to
-    int nTargetImgId = 0;
-    uint32_t nImgUnitId = -1;
-    uint32_t nSrcStart = -1;
+    uint16_t nImgUnitId = INVALID_UNIT_VALUE_16;
+    uint8_t nTargetImgId = 0;
+    uint32_t nSrcStart = INVALID_VALUE_32;
     uint32_t nSrcAmt = 1;
     uint32_t nNodeIncrement = 1;
     uint32_t nSelectedPaletteIndex = 0;

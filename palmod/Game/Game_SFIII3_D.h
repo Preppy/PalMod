@@ -6,7 +6,7 @@ class CGame_SFIII3_D : public CGameClass
 private:
     //Used for GetPalOffset
     int m_nCurrentPaletteROMLocation = 0;
-    int m_nCurrPalSz = 0;
+    uint16_t m_nCurrPalSz = 0;
 
     void GetPalOffsSz(uint32_t nUnitId, uint32_t nPalId);
 

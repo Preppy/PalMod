@@ -18,7 +18,7 @@ sFileRule CGame_MVC2_P::GetRule(uint32_t nRuleId)
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02XPAK.BIN", nRuleId);
 
     NewFileRule.uUnitId = nRuleId;
-    NewFileRule.uVerifyVar = (short int)-1;
+    NewFileRule.uVerifyVar = static_cast<size_t>(-1);
 
     return NewFileRule;
 }

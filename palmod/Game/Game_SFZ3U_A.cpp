@@ -7,7 +7,7 @@ struct sSFZ3U_A_CharacterData
     LPCWSTR pszCharacterImageName = nullptr;
     uint32_t nROMOffset = 0;
     uint32_t nImagePortraitSetIndex = 0;
-    uint32_t nImageMainSpriteIndex = 0;
+    uint16_t nImageMainSpriteIndex = 0;
     bool fSpriteIsPaired = false;
 };
 

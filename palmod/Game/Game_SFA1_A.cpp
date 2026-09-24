@@ -202,7 +202,7 @@ BOOL CGame_SFA1_Core::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 else
                 {
                     int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                    uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
+                    uint16_t nPeerPaletteIdInNode = static_cast<uint16_t>(Node03 + nDeltaToSecondElement);
 
                     fWasImageLoadHandled = true;
 

@@ -40,7 +40,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                         std::vector<uint8_t> rgPALFileData;
                         rgPALFileData.resize(dwDataSize);
 
-                        if (mmioRead(hRIFFFile, reinterpret_cast<HPSTR>(&rgPALFileData[0]), dwDataSize) == dwDataSize)
+                        if (mmioRead(hRIFFFile, reinterpret_cast<HPSTR>(&rgPALFileData[0]), dwDataSize) == static_cast<LONG>(dwDataSize))
                         {
                             // party.
                             ProcChange();

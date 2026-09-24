@@ -147,7 +147,7 @@ sFileRule CGame_SFIII3_D::GetRule(uint32_t nUnitId)
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02dPL.BIN", nRuleId);
 
     NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = -1;
+    NewFileRule.uVerifyVar = static_cast<size_t>(-1);
 
     return NewFileRule;
 }
@@ -265,7 +265,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         nSelectedPaletteIndex = Node03;
     }
 
-    uint32_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
+    uint16_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
     uint8_t nTargetImgId = 0;
 
     //Get rid of any palettes if there are any

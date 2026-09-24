@@ -538,7 +538,7 @@ namespace MVC2_SupplementProcessing
                                     copy_dst = supplementalEffectsData[indexCounterForOptionalModifiers + 2];
                                 }
 
-                                if (VerifyWriteIsSafe(char_no, copy_dst + copy_amt))
+                                if (VerifyWriteIsSafe(char_no, static_cast<uint16_t>(copy_dst + copy_amt)))
                                 {
                                     OutputDebugString(L"\t\t\tproc_supp: SUPP_NODE_NOCOPY not specified: copying over entire palette first\n");
                                     nLinkedPalettesUpdated += supp_copy_index(char_no, source_palette, destination_palette, copy_dst, copy_start, copy_amt);
