@@ -520,11 +520,11 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, std::ve
                                         if (nTotalPagesNeeded > 1)
                                         {
                                             //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                            _snwprintf(newExtraDef.szDesc, sizeof(newExtraDef.szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
+                                            _snwprintf(newExtraDef.szDesc, ARRAYSIZE(newExtraDef.szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
                                         }
                                         else
                                         {
-                                            _snwprintf(newExtraDef.szDesc, sizeof(newExtraDef.szDesc), L"%S", aszCurrDesc);
+                                            _snwprintf(newExtraDef.szDesc, ARRAYSIZE(newExtraDef.szDesc), L"%S", aszCurrDesc);
                                             //pCurrDef->isInvisible = false;
                                         }
 
