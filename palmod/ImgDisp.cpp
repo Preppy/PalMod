@@ -735,88 +735,78 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
         m_vSpriteOverrideTextures.at(nIndex).pixels.size());
 }
 
-void CImgDisp::_CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nLayerToLoadTo, sImageDimensions suggestedDimensions, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle)
+void CImgDisp::_CompositeTexture(sTextureData incomingTexture, UINT nLayerToLoadTo, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle)
 {
-    const int nOldHeight = m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height;
-    const int nOldWidth = m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width;
-    std::vector<uint8_t> vOldOverrideTexture = m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels;
-    m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.clear();
-    const int nIncomingFileSize = suggestedDimensions.height * suggestedDimensions.width;
-    int nCompositedFileSize;
+    CString strInfo;
 
-    _FlipImageDataIfNeeded(direction, vNewOverrideTexture, suggestedDimensions);
+    _FlipImageDataIfNeeded(direction, incomingTexture);
 
-    if (compositionStyle == SpriteImportCompositionStyle::Replace)
+    // If it's Replace OR there's nothing to merge with
+    if ((compositionStyle == SpriteImportCompositionStyle::Replace) ||
+        (m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.empty() && !m_pImgBuffer[nLayerToLoadTo]))
     {
         ResetCustomSpriteOverride(nLayerToLoadTo);
 
-        m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions = suggestedDimensions;
-        nCompositedFileSize = nIncomingFileSize;
-    }
-    else // Merge options
-    {
-        if (vOldOverrideTexture.size())
-        {
-            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width = max(suggestedDimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width);
-            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height = max(suggestedDimensions.height, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
-        }
-        else
-        {
-            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width = max(suggestedDimensions.width, m_pImgBuffer[nLayerToLoadTo]->dimensions.width);
-            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height = max(suggestedDimensions.height, m_pImgBuffer[nLayerToLoadTo]->dimensions.height);
-        }
+        m_vSpriteOverrideTextures.at(nLayerToLoadTo) = incomingTexture;
 
-        nCompositedFileSize = m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height;
-    }
-
-    CString strInfo;
-    strInfo.Format(L"CImgDisp::_CompositeTexture: texture file for layer %u is: %u x %u\n", nLayerToLoadTo, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
-    OutputDebugString(strInfo);
-
-    // Now composite the data
-    if (compositionStyle == SpriteImportCompositionStyle::Replace)
-    {
-        vOldOverrideTexture.resize(nIncomingFileSize);
-
-        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels = vNewOverrideTexture;
-
+        strInfo.Format(L"CImgDisp::_CompositeTexture: texture file for layer %u is: %u x %u\n", nLayerToLoadTo, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
+        OutputDebugString(strInfo.GetString());
         strInfo.Format(L"\tReplaced layer.\r\n");
         OutputDebugString(strInfo.GetString());
     }
-    else // if ((compositionStyle == SpriteImportCompositionStyle::MergeAbove) || (compositionStyle == SpriteImportCompositionStyle::MergeBelow))
+    else // Merge options
     {
-        if (vOldOverrideTexture.size())
+        // Cache old
+        sTextureData previousOverrideTexture = m_vSpriteOverrideTextures.at(nLayerToLoadTo);
+
+        if (previousOverrideTexture.pixels.size())
         {
-            const int nMergedFileSize = m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width;
+            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width = max(incomingTexture.dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width);
+            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height = max(incomingTexture.dimensions.height, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
+        }
+        else
+        {
+            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width = max(incomingTexture.dimensions.width, m_pImgBuffer[nLayerToLoadTo]->dimensions.width);
+            m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height = max(incomingTexture.dimensions.height, m_pImgBuffer[nLayerToLoadTo]->dimensions.height);
+        }
+
+        if (previousOverrideTexture.pixels.size())
+        {
+            const int nMergedFileSize = m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.GetPixelCount();
             m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.resize(nMergedFileSize);
 
-            strInfo.Format(L"\tMerging Above: %u x %u source image with the existing custom %u x %u image, for a %u x %u composited image.\r\n", suggestedDimensions.width, suggestedDimensions.height, nOldWidth, nOldHeight, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
+            strInfo.Format(L"\tMerging: %u x %u source image with the existing custom %u x %u image, for a %u x %u composited image.\r\n", incomingTexture.dimensions.width, incomingTexture.dimensions.height,
+                previousOverrideTexture.dimensions.width, previousOverrideTexture.dimensions.height, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
             OutputDebugString(strInfo.GetString());
 
             for (int iCurrentLine = 0; (iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) < nMergedFileSize; iCurrentLine++)
             {
                 for (int iCurrentLinePos = 0; iCurrentLinePos < m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width; iCurrentLinePos++)
                 {
-                    if ((iCurrentLine >= nOldHeight) || (iCurrentLinePos >= nOldWidth))
+                    const int nTargetPixel = (iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos;
+
+                    if ((iCurrentLine >= previousOverrideTexture.dimensions.height) || (iCurrentLinePos >= previousOverrideTexture.dimensions.width))
                     {
                         // We only have the incoming sprite for this pixel
-                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos);
+                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos);
                     }
-                    else if ((iCurrentLine >= suggestedDimensions.height) || (iCurrentLinePos >= suggestedDimensions.width))
+                    else if ((iCurrentLine >= incomingTexture.dimensions.height) || (iCurrentLinePos >= incomingTexture.dimensions.width))
                     {
                         // We only have the old sprite for this pixel
-                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = vOldOverrideTexture.at((iCurrentLine * nOldWidth) + iCurrentLinePos);
+                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = previousOverrideTexture.pixels.at((iCurrentLine * previousOverrideTexture.dimensions.width) + iCurrentLinePos);
                     }
                     else
                     {
                         // We have both!
                         if (compositionStyle == SpriteImportCompositionStyle::MergeAbove)
                         {
-                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos) ? vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos) : vOldOverrideTexture.at((iCurrentLine * nOldWidth) + iCurrentLinePos);
+                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos) ?
+                                incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos) : previousOverrideTexture.pixels.at((iCurrentLine * previousOverrideTexture.dimensions.width) + iCurrentLinePos);
                         }
                         else
                         {
-                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = vOldOverrideTexture.at((iCurrentLine * nOldWidth) + iCurrentLinePos) ? vOldOverrideTexture.at((iCurrentLine * nOldWidth) + iCurrentLinePos) : vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos);
+                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = previousOverrideTexture.pixels.at((iCurrentLine * previousOverrideTexture.dimensions.width) + iCurrentLinePos) ?
+                                previousOverrideTexture.pixels.at((iCurrentLine * previousOverrideTexture.dimensions.width) + iCurrentLinePos) : incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos);
                         }
                     }
                 }
@@ -827,34 +817,38 @@ void CImgDisp::_CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT 
             const int nMergedFileSize = m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width;
             m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.resize(nMergedFileSize);
 
-            strInfo.Format(L"\tMerging Above: %u x %u source image with the existing internal %u x %u image, for a %u %u composited image.\r\n", suggestedDimensions.height, suggestedDimensions.width, m_pImgBuffer[nLayerToLoadTo]->dimensions.height, m_pImgBuffer[nLayerToLoadTo]->dimensions.width,
-                m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width);
+            strInfo.Format(L"\tMerging: %u x %u source image with the existing internal %u x %u image, for a %u x %u composited image.\r\n", incomingTexture.dimensions.width, incomingTexture.dimensions.height, m_pImgBuffer[nLayerToLoadTo]->dimensions.width, m_pImgBuffer[nLayerToLoadTo]->dimensions.height,
+                m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
             OutputDebugString(strInfo.GetString());
 
             for (int iCurrentLine = 0; (iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) < nMergedFileSize; iCurrentLine++)
             {
                 for (int iCurrentLinePos = 0; iCurrentLinePos < m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width; iCurrentLinePos++)
                 {
+                    const int nTargetPixel = (iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos;
+
                     if ((iCurrentLine >= m_pImgBuffer[nLayerToLoadTo]->dimensions.height) || (iCurrentLinePos >= m_pImgBuffer[nLayerToLoadTo]->dimensions.width))
                     {
                         // We only have the incoming sprite for this pixel
-                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos);
+                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos);
                     }
-                    else if ((iCurrentLine >= suggestedDimensions.height) || (iCurrentLinePos >= suggestedDimensions.width))
+                    else if ((iCurrentLine >= incomingTexture.dimensions.height) || (iCurrentLinePos >= incomingTexture.dimensions.width))
                     {
                         // We only have the old sprite for this pixel
-                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos];
+                        m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos];
                     }
                     else
                     {
                         // We have both!
                         if (compositionStyle == SpriteImportCompositionStyle::MergeAbove)
                         {
-                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos) ? vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos) : m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos];
+                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos) ?
+                                incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos) : m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos];
                         }
                         else
                         {
-                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at((iCurrentLine * m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width) + iCurrentLinePos) = m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos] ? m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos] : vNewOverrideTexture.at((iCurrentLine * suggestedDimensions.width) + iCurrentLinePos);
+                            m_vSpriteOverrideTextures.at(nLayerToLoadTo).pixels.at(nTargetPixel) = m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos] ?
+                                m_pImgBuffer[nLayerToLoadTo]->pImgData[(iCurrentLine * m_pImgBuffer[nLayerToLoadTo]->dimensions.width) + iCurrentLinePos] : incomingTexture.pixels.at((iCurrentLine * incomingTexture.dimensions.width) + iCurrentLinePos);
                         }
                     }
                 }
@@ -877,20 +871,21 @@ bool CImgDisp::_LoadExternalRAWSprite(UINT *pnLayerToLoadTo, SpriteImportDirecti
         UINT nLayerToLoadTo = pnLayerToLoadTo ? *pnLayerToLoadTo : 0;
 
         SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
-        sImageDimensions suggestedImageSize;
+        sTextureData overrideTexture = {};
 
-        uint8_t* pNewOverrideTexture = LoadTextureFromRAWSprite(pszTextureLocation, suggestedImageSize,
+        uint8_t* pNewOverrideTexture = LoadTextureFromRAWSprite(pszTextureLocation, overrideTexture.dimensions,
                                                                 m_nImgAmt, m_pImgBuffer, m_vSpriteOverrideTextures,
                                                                 nLayerToLoadTo, direction, compositionStyle, m_pImgBuffer, fMustShowAdvancedOptions);
 
         if (pNewOverrideTexture)
         {
-            std::vector<uint8_t> vOverrideTexture(&pNewOverrideTexture[0], &pNewOverrideTexture[suggestedImageSize.height * suggestedImageSize.width]);
+            std::vector<uint8_t> rgPreviewPixels(&pNewOverrideTexture[0], &pNewOverrideTexture[overrideTexture.dimensions.GetPixelCount()]);
+            overrideTexture.pixels = rgPreviewPixels;
 
-            _CompositeTexture(vOverrideTexture, nLayerToLoadTo, suggestedImageSize, direction, compositionStyle);
+            _CompositeTexture(overrideTexture, nLayerToLoadTo, direction, compositionStyle);
 
             CString strMsg;
-            strMsg.Format(L"Loaded %u x %u RAW as a preview.", suggestedImageSize.width, suggestedImageSize.height);
+            strMsg.Format(L"Loaded %u x %u RAW as a preview.", overrideTexture.dimensions.width, overrideTexture.dimensions.height);
             GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
 
             _UpdatePreviewForExternalSprite(fMustShowAdvancedOptions ? &nLayerToLoadTo : pnLayerToLoadTo);
@@ -953,7 +948,7 @@ bool CImgDisp::LoadExternalPreview(ImageLoadType iType, UINT* pnLayerToLoadTo, S
     }
 }
 
-void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, sImageDimensions dimensions)
+void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, sTextureData& textureData)
 {
     switch (direction)
     {
@@ -963,41 +958,39 @@ void CImgDisp::_FlipImageDataIfNeeded(SpriteImportDirection direction, std::vect
         case SpriteImportDirection::UpsideDown:
         {
             OutputDebugString(L"Flipping image vertical.\r\n");
-            const int nTotalLength = dimensions.width * dimensions.height;
-            std::vector<uint8_t> vFlippedBuffer;
-            vFlippedBuffer.resize(nTotalLength);
+            const int nTotalLength = textureData.dimensions.GetPixelCount();
+            std::vector<uint8_t> vFlippedBuffer(nTotalLength);
 
             // We need to flip this line by line
             int iPos = 0;
-            for (int nLinePosition = 0; nLinePosition < dimensions.height; nLinePosition++)
+            for (int nLinePosition = 0; nLinePosition < textureData.dimensions.height; nLinePosition++)
             {
-                int nLineStart = (nTotalLength - ((nLinePosition + 1) * dimensions.width));
+                int nLineStart = (nTotalLength - ((nLinePosition + 1) * textureData.dimensions.width));
 
-                for (int nColumnPosition = 0; nColumnPosition < dimensions.width; nColumnPosition++)
+                for (int nColumnPosition = 0; nColumnPosition < textureData.dimensions.width; nColumnPosition++)
                 {
-                    vFlippedBuffer.at(iPos++) = vImageData.at(nLineStart++);
+                    vFlippedBuffer.at(iPos++) = textureData.pixels.at(nLineStart++);
                 }
             }
 
-            vImageData = vFlippedBuffer;
+            textureData.pixels = vFlippedBuffer;
             return;
         }
         case SpriteImportDirection::FlipHorizontal:
         {
             OutputDebugString(L"Flipping image horizontal.\r\n");
-            const int nTotalLength = dimensions.width * dimensions.height;
-            std::vector<uint8_t> vFlippedBuffer;
-            vFlippedBuffer.resize(nTotalLength);
+            const int nTotalLength = textureData.dimensions.GetPixelCount();
+            std::vector<uint8_t> vFlippedBuffer(nTotalLength);
 
-            for (int iLine = 0; iLine < dimensions.height; iLine++)
+            for (int iLine = 0; iLine < textureData.dimensions.height; iLine++)
             {
-                for (int iLinePos = dimensions.width; iLinePos > 0; iLinePos--)
+                for (int iLinePos = textureData.dimensions.width; iLinePos > 0; iLinePos--)
                 {
-                    vFlippedBuffer.at((iLine * dimensions.width) + (iLinePos - 1)) = vImageData.at((iLine * dimensions.width) + (dimensions.width - iLinePos));
+                    vFlippedBuffer.at((iLine * textureData.dimensions.width) + (iLinePos - 1)) = textureData.pixels.at((iLine * textureData.dimensions.width) + (textureData.dimensions.width - iLinePos));
                 }
             }
 
-            vImageData = vFlippedBuffer;
+            textureData.pixels = vFlippedBuffer;
             return;
         }
     }
@@ -1057,8 +1050,8 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
         // * maximum color table size: at this point we know that the incoming image could not encompass 
         //   the entire sprite set for this composition.  as such, the palette here should be left alone
         // * this is a single preview and the palette sizes match or at least don't use overflowing references.  Don't touch.
-        std::vector<uint8_t> vPixels;
-        vPixels.resize(nDataLen);
+        sTextureData newTexture{ dimensions, {} };
+        newTexture.pixels.resize(nDataLen);
 
         for (size_t iPos = 0; iPos < nDataLen; iPos++)
         {
@@ -1070,10 +1063,10 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                 nThisIndex = 255 - nThisIndex;
             }
 
-            vPixels.at(iPos) = nThisIndex;
+            newTexture.pixels.at(iPos) = nThisIndex;
         }
 
-        _CompositeTexture(vPixels, nLayerToStartWith, dimensions, direction, compositionStyle);
+        _CompositeTexture(newTexture, nLayerToStartWith, direction, compositionStyle);
     }
     else
     {
@@ -1131,8 +1124,8 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                 }
             }
 
-            std::vector<uint8_t> vPixels;
-            vPixels.resize(nDataLen);
+            sTextureData newTexture{ dimensions, {} };
+            newTexture.pixels.resize(nDataLen);
 
             for (size_t iPos = 0; iPos < nDataLen; iPos++)
             {
@@ -1153,12 +1146,12 @@ void CImgDisp::_ImportAndSplitSpriteComposition(SpriteImportDirection direction,
                     nAdjustedIndex -= nCurrentPalStart;
                 }
 
-                vPixels.at(iPos) = nAdjustedIndex;
+                newTexture.pixels.at(iPos) = nAdjustedIndex;
             }
 
             nCurrentPalStart = nCurrentPalEnd;
 
-            _CompositeTexture(vPixels, nLayerToWriteTo++, dimensions, direction, compositionStyle);
+            _CompositeTexture(newTexture, nLayerToWriteTo++, direction, compositionStyle);
 
             if (pnLayerToLoadTo)
             {
@@ -1709,12 +1702,14 @@ void CImgDisp::_ImportAndSplitRGBSpriteComposition(SpriteImportDirection directi
     {
         for (signed int nCurrentLayer = 0; nCurrentLayer < m_nImgAmt; nCurrentLayer++)
         {
-            _CompositeTexture(rgvPixels.at(nCurrentLayer), nCurrentLayer, dimensions, direction, compositionStyle);
+            sTextureData overrideTexture{ dimensions, rgvPixels.at(nCurrentLayer) };
+            _CompositeTexture(overrideTexture, nCurrentLayer, direction, compositionStyle);
         }
     }
     else
     {
-        _CompositeTexture(rgvPixels.at(*pnLayerToLoadTo), *pnLayerToLoadTo, dimensions, direction, compositionStyle);
+        sTextureData overrideTexture{ dimensions, rgvPixels.at(*pnLayerToLoadTo) };
+        _CompositeTexture(overrideTexture, *pnLayerToLoadTo, direction, compositionStyle);
     }
 
     if (fFoundOne && fUseWinKawaksShift)
@@ -1930,19 +1925,19 @@ std::vector<uint8_t> CImgDisp::_LoadTextureFromCImageSprite(LPCWSTR pszTextureLo
 bool CImgDisp::_LoadExternalCImageSprite(UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded /* = true */)
 {
     SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
-    sImageDimensions dimensions;
     UINT nLayerToTarget = pnLayerToLoadTo ? *pnLayerToLoadTo : 0;
 
-    std::vector<uint8_t> vNewOverrideTexture = _LoadTextureFromCImageSprite(pszTextureLocation, nLayerToTarget, dimensions, direction, compositionStyle, fShowAdvancedOptionsIfNeeded);
+    sTextureData newTexture;
+    newTexture.pixels = _LoadTextureFromCImageSprite(pszTextureLocation, nLayerToTarget, newTexture.dimensions, direction, compositionStyle, fShowAdvancedOptionsIfNeeded);
 
-    if (vNewOverrideTexture.size())
+    if (newTexture.pixels.size())
     {
-        _CompositeTexture(vNewOverrideTexture, nLayerToTarget, dimensions, direction, compositionStyle);
+        _CompositeTexture(newTexture, nLayerToTarget, direction, compositionStyle);
 
         _UpdatePreviewForExternalSprite(fShowAdvancedOptionsIfNeeded ? &nLayerToTarget : pnLayerToLoadTo);
 
         CString strInfo;
-        strInfo.Format(L"Loaded %u x %u image as a preview.", dimensions.width, dimensions.height);
+        strInfo.Format(L"Loaded %u x %u image as a preview.", newTexture.dimensions.width, newTexture.dimensions.height);
         GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
         strInfo += "\r\n";
         OutputDebugString(strInfo.GetString());

@@ -243,6 +243,7 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
             }
             else if (direction == SpriteImportDirection::UpsideDown)
             {
+                OutputDebugString(L"\tImported RAW while flipping vertically.\r\n");
                 int nCurrentFilePosition = nIncomingFileSize;
 
                 if (fIsDoubleSizeGIMPRAW)
@@ -262,6 +263,7 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
             }
             else // if (direction == SpriteImportDirection::FlipHorizontal)
             {
+                OutputDebugString(L"\tImported RAW while flipping horizontally.\r\n");
                 for (int iLine = 0; iLine < suggestedImageSize.height; iLine++)
                 {
                     for (int iLinePos = suggestedImageSize.width; iLinePos > 0; iLinePos--)
@@ -270,6 +272,9 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
                     }
                 }
             }
+
+            // Reset since handle it here directly so it doesn't get redone
+            direction = SpriteImportDirection::TopDown;
         }
     }
 

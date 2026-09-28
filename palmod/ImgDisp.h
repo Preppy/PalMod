@@ -101,10 +101,10 @@ private:
 
     void _ResizeAndBlankCustomPreviews(UINT* pnLayerToLoadTo, size_t nNewSize);
 
-    void _CompositeTexture(std::vector<uint8_t> vNewOverrideTexture, UINT nLayerToLoadTo, sImageDimensions suggestedDimensions, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
+    void _CompositeTexture(sTextureData incomingTexture, UINT nLayerToLoadTo, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
     void _UpdatePreviewForExternalSprite(UINT* pnLayerToLoadTo);
 
-    void _FlipImageDataIfNeeded(SpriteImportDirection direction, std::vector<uint8_t>& vImageData, sImageDimensions dimensions);
+    void _FlipImageDataIfNeeded(SpriteImportDirection direction, sTextureData& textureData);
 
     void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions,
                                             size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true, SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace);

@@ -64,10 +64,10 @@ public:
     void BeginSetPal();
     void EndSetPal();
     void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, LPCWSTR pszNewPalStr);
-    UINT_PTR GetActivePaletteIndex() { return m_nActivePaletteCtrlIndex; };
-    CJunk* GetNotifyPal() { return m_sPalEntry[m_nActivePaletteCtrlIndex].PaletteCtrl; };
-    CJunk* GetPalCtrl(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].PaletteCtrl : nullptr; };
-    LPCWSTR GetPalName(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].pszPalStr : L"Untitled Palette"; };
+    UINT_PTR GetActivePaletteIndex() const { return m_nActivePaletteCtrlIndex; };
+    CJunk* GetNotifyPal() const { return m_sPalEntry[m_nActivePaletteCtrlIndex].PaletteCtrl; };
+    CJunk* GetPalCtrl(UINT_PTR nIndex) const { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].PaletteCtrl : nullptr; };
+    LPCWSTR GetPalName(UINT_PTR nIndex) const { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].pszPalStr : L"Untitled Palette"; };
 
     void ResetNotifyIndex() { m_nActivePaletteCtrlIndex = 0; };
 
@@ -76,7 +76,7 @@ public:
     void UpdateAllPalCtrls();
     void UpdateCtrl();
 
-    int GetCurrentPaletteCount() { return m_nCurrPalAmt; };
+    int GetCurrentPaletteCount() const { return m_nCurrPalAmt; };
 
     //void ResetNotifyPal(int nIndex){OnPalSelChange(0);SendPalMsg(m_nActivePaletteCtrlIndex);};
 
