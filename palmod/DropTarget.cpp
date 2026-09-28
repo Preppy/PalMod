@@ -457,6 +457,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
         {
             const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
             const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
+            bool fShouldContinue = true;
 
             for (auto& strDropPath : rgDropPaths)
             {
@@ -496,7 +497,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     {
                         if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
                         {
-                            GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                            fShouldContinue = GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
                             fHandledDrop = true;
                         }
                         else
@@ -534,7 +535,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     {
                         if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
                         {
-                            GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                            fShouldContinue = GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
                             fHandledDrop = true;
                         }
                         else
@@ -552,9 +553,14 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else if (strExtension == L".raw")
                     {
-                        GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                        fShouldContinue = GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
                         fHandledDrop = true;
                     }
+                }
+
+                if (!fShouldContinue)
+                {
+                    break;
                 }
             }
 

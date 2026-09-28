@@ -224,6 +224,10 @@ bool GetUserOptionsForTextureOverride(int nActualFileSize, sImageDimensions& sug
             }
             fHaveViableDimensions = true;
         }
+        else
+        {
+            GetHost()->GetPalModDlg()->SetStatusText(L"(Load cancelled.)");
+        }
     }
 
     return fHaveViableDimensions;
