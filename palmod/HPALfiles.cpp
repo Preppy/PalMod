@@ -200,11 +200,11 @@ void CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGeneric
         HPALFile.Write(&k_rgHPALHeader, static_cast<UINT>(k_rgHPALHeader.size()));
 
         const uint16_t k_nColorsPerPalette = 256; // An HPAL has 256 colors.  Fill with black as needed.
-        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
+        const uint16_t nPaletteCount = static_cast<uint16_t>(m_PalHost.GetCurrentPaletteCount());
 
         int nTotalColorsUsed = 0;
 
-        for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
+        for (uint16_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
         {
             CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 

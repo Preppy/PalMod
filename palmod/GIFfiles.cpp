@@ -175,7 +175,7 @@ bool CPalModDlg::LoadPaletteFromGIF(LPCWSTR pszFileName)
         if (fHaveMultiplePalettes)
         {
             int nOffsetThisPass = 0;
-            for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+            for (uint16_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
             {
                 for (iGIFIndex = nOffsetThisPass; (iGIFIndex < nTotalNumberOfCurrentPaletteColors) &&
                                                   ((iGIFIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz) &&

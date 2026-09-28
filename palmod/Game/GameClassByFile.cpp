@@ -5,7 +5,7 @@
 
 uint32_t CGameClassByFile::m_uRuleCtr = 0;
 CDescTree CGameClassByFile::m_MainDescTree = nullptr;
-uint32_t CGameClassByFile::m_nConfirmedROMSize = -1;
+uint32_t CGameClassByFile::m_nConfirmedROMSize = INVALID_VALUE_32;
 
 std::wstring CGameClassByFile::m_strGameFriendlyName;
 const CGameClassByFile::sGCBF_CoreGameData* CGameClassByFile::m_psCurrentGameLoadingData;

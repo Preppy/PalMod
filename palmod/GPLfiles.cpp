@@ -252,9 +252,9 @@ void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericE
         int nTotalColorsToWrite = 0;
         char szBuffer[MAX_PATH];
 
-        const uint8_t nPaletteCount = m_PalHost.GetCurrentPaletteCount();
+        const uint16_t nPaletteCount = static_cast<uint16_t>(m_PalHost.GetCurrentPaletteCount());
 
-        for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
+        for (uint16_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
         {
             CJunk* pPalette = m_PalHost.GetPalCtrl(nCurrentPalette);
 
