@@ -588,18 +588,25 @@ const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P1[] = // boss
 {
-    { L"P1",          0x2703c, 0x2705c, indexCPS2Sprites_Magneto, 0x20 },
-    { L"P1 Extras 1", 0x2705c, 0x2707c, indexCPS2Sprites_Magneto, 3 }, // shockwave
-    { L"P1 Extras 2", 0x2707c, 0x2709c, indexCPS2Sprites_Magneto, 2 }, // magnetic fx
-    { L"P1 Extras 3", 0x2709c, 0x270bc, indexCPS2Sprites_Magneto, 1 }, // em disruptor, etc
+    { L"P1",          0x2703c, 0x2705c, indexCPS2Sprites_Magneto, 0x20 }, // (different than mvc2)
+    { L"P1 Extras 1", 0x2705c, 0x2707c, indexCPS2Sprites_Magneto, 0x03 }, // shockwave
+    { L"P1 Extras 2", 0x2707c, 0x2709c, indexCPS2Sprites_Magneto, 0x22 }, // magnetic fx + EM Disruptor (different than mvc2)
+    { L"P1 Extras 3", 0x2709c, 0x270bc, indexCPS2Sprites_Magneto, 0x23 }, // cHK slide effects (different than mvc2)
 };
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P2[] =
 {
     { L"P2",          0x270bc, 0x270dc, indexCPS2Sprites_Magneto, 0x20 },
-    { L"P2 Extras 1", 0x270dc, 0x270fc, indexCPS2Sprites_Magneto, 3 },
-    { L"P2 Extras 2", 0x270fc, 0x2711c, indexCPS2Sprites_Magneto, 2 },
-    { L"P2 Extras 3", 0x2711c, 0x2713c, indexCPS2Sprites_Magneto, 1 },
+    { L"P2 Extras 1", 0x270dc, 0x270fc, indexCPS2Sprites_Magneto, 0x03 },
+    { L"P2 Extras 2", 0x270fc, 0x2711c, indexCPS2Sprites_Magneto, 0x22 },
+    { L"P2 Extras 3", 0x2711c, 0x2713c, indexCPS2Sprites_Magneto, 0x23 },
+};
+
+const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_SHARED[] = // boss
+{
+    { L"Electromagnetic Shock: Effect",     0x2dce8, 0x2dd08, indexCPS2Sprites_Magneto, 0x29 },
+    { L"Electromagnetic Shock: Electricity", 0x2dd68, 0x2dd88, indexCPS2Sprites_Magneto, 0x2a },
+    { L"Magnetic Trap",                     0x2de28, 0x2de48, indexCPS2Sprites_Magneto, 0x2b },
 };
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P1[] =
@@ -1947,6 +1954,7 @@ const sDescTreeNode COTA_A_MAGNETO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_MAGNETO_PALETTES_P1,         ARRAYSIZE(COTA_A_MAGNETO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_MAGNETO_PALETTES_P2,         ARRAYSIZE(COTA_A_MAGNETO_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)COTA_A_MAGNETO_PALETTES_SHARED, ARRAYSIZE(COTA_A_MAGNETO_PALETTES_SHARED) },
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)COTA_A_MAGNETO_PALETTES_STATUS,           ARRAYSIZE(COTA_A_MAGNETO_PALETTES_STATUS) },
 };
 

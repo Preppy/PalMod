@@ -74,7 +74,7 @@ private:
         COTA_A_UNITS,
         ARRAYSIZE(COTA_A_UNITS),
         L"CotAe.txt",           // Extra filename
-        921,                    // Count of palettes listed in the header
+        924,                    // Count of palettes listed in the header
         0x2600e,                // Lowest known location used for palettes
     };
 
@@ -122,9 +122,9 @@ private:
         m_rgCRC32Data,
         COTA_A_UNITS,
         ARRAYSIZE(COTA_A_UNITS),
-        L"CotASe.txt",                  // Extra filename
-        921,                            // Count of palettes listed in the header
-        0x12635c,                       // Lowest known location used for palettes
+        L"CotASe.txt",          // Extra filename
+        924,                    // Count of palettes listed in the header
+        0x12635c,               // Lowest known location used for palettes
     };
 
 public:
