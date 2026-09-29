@@ -13,8 +13,7 @@ const std::vector<uint16_t> WORLDHEROES_A_IMGIDS_USED =
     indexWH1Sprites_Rasputin,               // 0xf7
     indexWH1Sprites_Portraits,              // 0xf8
     indexWH1Sprites_Stages,                 // 0xf9
-
-    indexWH1Sprites_Bonus,                  // 0xff
+    indexWH1Sprites_Bonus,                  // 0xfa
 };
 
 const sGame_PaletteDataset WorldHeroes_A_HanzouHattori_Palettes[] =

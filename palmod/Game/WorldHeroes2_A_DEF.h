@@ -2,6 +2,9 @@
 
 const std::vector<uint16_t> WORLDHEROES2_A_IMGIDS_USED =
 {
+    // the Main previews used here are actually for WH2, not WHP
+    // so if we do change the sprites for WHP, leave these
+    // previews used for WH2
     indexWHPSprites_Brocken,                // 0xda
     indexWHPSprites_CaptainKidd,            // 0xdb
     indexWHPSprites_Dragon,                 // 0xdc
@@ -30,11 +33,11 @@ const std::vector<uint16_t> WORLDHEROES2_A_IMGIDS_USED =
     indexWH1Sprites_MusclePower,            // 0xf6
     indexWH1Sprites_Rasputin,               // 0xf7
 
-    indexWH2Sprites_Dio,                    // 0xfa
-    indexWH2Sprites_NeoGeegus,              // 0xfb
-    indexWH2Sprites_Portraits,              // 0xfc
-    indexWH2Sprites_Stages,                 // 0xfd
-    indexWH2Sprites_Bonus,                  // 0xfe
+    indexWH2Sprites_Dio,                    // 0xfd
+    indexWH2Sprites_NeoGeegus,              // 0x108
+    indexWH2Sprites_Portraits,              // 0x10e
+    indexWH2Sprites_Stages,                 // 0x10f
+    indexWH2Sprites_Bonus,                  // 0x110
 };
 
 const sGame_PaletteDataset WorldHeroes2_A_HanzouHattori_A[] =

@@ -2281,14 +2281,31 @@ enum SupportedNEOGEO_PaletteListIndex
     indexWH1Sprites_Rasputin,               // 0xf7
     indexWH1Sprites_Portraits,              // 0xf8
     indexWH1Sprites_Stages,                 // 0xf9
+    indexWH1Sprites_Bonus,                  // 0xfa
 
-    indexWH2Sprites_Dio,                    // 0xfa
-    indexWH2Sprites_NeoGeegus,              // 0xfb
-    indexWH2Sprites_Portraits,              // 0xfc
-    indexWH2Sprites_Stages,                 // 0xfd
-    indexWH2Sprites_Bonus,                  // 0xfe
-
-    indexWH1Sprites_Bonus,                  // 0xff
+    indexWH2Sprites_Brocken,                // 0xfb
+    indexWH2Sprites_CaptainKidd,            // 0xfc
+    indexWH2Sprites_Dio,                    // 0xfd
+    indexWH2Sprites_Dragon,                 // 0xfe
+    indexWH2Sprites_Erick,                  // 0xff
+    indexWH2Sprites_Fuuma,                  // 0x100
+    indexWH2Sprites_Hanzou,                 // 0x101
+    indexWH2Sprites_Jack,                   // 0x102
+    indexWH2Sprites_JCarn,                  // 0x103
+    indexWH2Sprites_Jeanne,                 // 0x104
+    indexWH2Sprites_JMax,                   // 0x105
+    indexWH2Sprites_Mudman,                 // 0x106
+    indexWH2Sprites_MusclePower,            // 0x107
+    indexWH2Sprites_NeoGeegus,              // 0x108
+    indexWH2Sprites_Rasputin,               // 0x109
+    indexWH2Sprites_Ryofu,                  // 0x10a
+    indexWH2Sprites_Ryoko,                  // 0x10b
+    indexWH2Sprites_Shura,                  // 0x10c
+    indexWH2Sprites_Zeus,                   // 0x10d
+    
+    indexWH2Sprites_Portraits,              // 0x10e
+    indexWH2Sprites_Stages,                 // 0x10f
+    indexWH2Sprites_Bonus,                  // 0x110
 };
 
 enum SupportedGGXX_PaletteListIndex
