@@ -44,6 +44,8 @@ struct sImageDimensions
     int height = 0;
 
     int GetPixelCount() const { return width * height; };
+    bool IsEmpty() const { return (width == 0) || (height == 0); };
+    bool operator==(const sImageDimensions& other) const { return (width == other.width) && (height == other.height); };
 };
 
 struct sImageDisplayOffsets
@@ -62,4 +64,7 @@ struct sTextureData
 {
     sImageDimensions dimensions;
     std::vector<uint8_t> pixels;
+
+    void Resize(sImageDimensions newSize);
+    void Merge(sTextureData mergeAbove);
 };
