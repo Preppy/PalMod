@@ -28,7 +28,24 @@ struct sImgNode
 };
 
 enum class SpriteImportDirection { TopDown, UpsideDown, FlipHorizontal };
-enum class SpriteImportCompositionStyle { Replace, MergeAbove, MergeBelow };
+enum class SpriteImportCompositionStyle
+{
+    Replace, 
+    MergeAbove, 
+    MergeBelow,
+    FlushLeft,
+    FlushRight,
+    FlushTop,
+    FlushBottom,
+    // If you add new styles here update CPreviewImportDialog::OnInitDialog() so that we expose any new options
+};
+
+struct sSpriteImportOptions
+{
+    SpriteImportDirection direction = SpriteImportDirection::TopDown;
+    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
+    sImageDimensions offsets = {};
+};
 
 struct PNGImportSpecialOptions
 {
@@ -101,30 +118,30 @@ private:
 
     void _ResizeAndBlankCustomPreviews(UINT* pnLayerToLoadTo, size_t nNewSize);
 
-    void _CompositeTexture(sTextureData incomingTexture, UINT nLayerToLoadTo, SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle);
+    void _CompositeTexture(sTextureData incomingTexture, UINT nLayerToLoadTo, sSpriteImportOptions importPreviewOptions);
     void _UpdatePreviewForExternalSprite(UINT* pnLayerToLoadTo);
 
     void _FlipImageDataIfNeeded(SpriteImportDirection direction, sTextureData& textureData);
 
-    void _ImportAndSplitSpriteComposition(SpriteImportDirection direction, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions,
-                                            size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true, SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace);
-    void _ImportAndSplitRGBSpriteComposition(SpriteImportDirection direction, SpriteImportCompositionStyle compositionStyle, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions, size_t nImageSize);
+    void _ImportAndSplitSpriteComposition(sSpriteImportOptions importPreviewOptions, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions,
+                                            size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true);
+    void _ImportAndSplitRGBSpriteComposition(sSpriteImportOptions importPreviewOptions, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions, size_t nImageSize);
 
     void _UpdateCompositionDisplayRect(UINT nLayer, sImageDimensions dimensions, bool fForceThisAsBackmostLayer = false);
     void _TrimLoadedCustomImages(bool fIsFullStackReplacement);
     void _ResizeImageStack(bool fIsFullStackReplacement);
     void _AdjustLayoutForNewlyLoadedImage();
 
-    std::vector<uint8_t> _LoadTextureFromCImageSprite(LPCWSTR pszTextureLocation, UINT& nLayerToLoadTo, sImageDimensions& suggestedImageSize, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, bool fShowAdvancedOptions = false);
+    std::vector<uint8_t> _LoadTextureFromCImageSprite(LPCWSTR pszTextureLocation, UINT& nLayerToLoadTo, sImageDimensions& suggestedImageSize, sSpriteImportOptions& importPreviewOptions, bool fShowAdvancedOptions, bool& fUserCancelled);
 
     bool _GetDropLayerFromFileName(const std::wstring& strFileName, UINT& iLayerToDropTo);
     bool _SanitizeRequestedImageLayer(UINT* pnLayerToLoadTo, UINT& nConfirmedLayerToLoadTo);
 
-    bool _LoadExternalCImageSprite(UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true);
+    bool _LoadExternalCImageSprite(UINT* pnLayerToLoadTo, sSpriteImportOptions importPreviewOptions, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true);
     // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
     // A null pointer passed in indicates to us to replace the full stack: a pointer of value 0 means just the first layer.
-    bool _LoadExternalPNGSprite(UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importOptions = {});
-    bool _LoadExternalRAWSprite(UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fMustShowAdvancedOptions = true);
+    bool _LoadExternalPNGSprite(UINT* pnLayerToLoadTo, sSpriteImportOptions importPreviewOptions, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importPNGOptions = {});
+    bool _LoadExternalRAWSprite(UINT* pnLayerToLoadTo, sSpriteImportOptions importPreviewOptions, LPCWSTR pszTextureLocation, bool fMustShowAdvancedOptions = true);
 
 public:
     CImgDisp();

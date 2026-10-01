@@ -8,7 +8,7 @@
 
 uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& suggestedImageSize,
                                   int nImgAmt, sImgNode** ppImgBuffer, std::array<sTextureData, MAX_IMAGES_DISPLAYABLE> vSpriteOverrideTextures,
-                                  UINT& nPositionToLoadTo, SpriteImportDirection& direction, SpriteImportCompositionStyle& compositionStyle, sImgNode** pImgBuffer, bool fMustShowAdvancedOptions /* = false */)
+                                  UINT& nPositionToLoadTo, sSpriteImportOptions& importPreviewOptions, sImgNode** pImgBuffer, bool fMustShowAdvancedOptions, bool& fUserCanceled)
 {
     // We get to have a lot of bonus logic here since RAW files don't contain height/width information...
     CFile TextureFile;
@@ -149,14 +149,13 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
                     {
                         suggestedImageSize.height = pImgBuffer[0]->dimensions.height;
                     }
-
                 }
 
                 if (fMustShowAdvancedOptions || !fHaveViableDimensions)
                 {
                     fHaveViableDimensions = GetUserOptionsForTextureOverride(nIncomingFileSize, suggestedImageSize,
-                                                                             nImgAmt, ppImgBuffer, vSpriteOverrideTextures,
-                                                                             nPositionToLoadTo, direction, &compositionStyle);
+                                                                              nImgAmt, ppImgBuffer, vSpriteOverrideTextures,
+                                                                              nPositionToLoadTo, importPreviewOptions, fUserCanceled);
                 }
             }
             else
@@ -172,7 +171,11 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
 
         }
 
-        if (eCompType != RAWCompressionChoice::NoCompression)
+        if (fUserCanceled)
+        {
+            // abort
+        }
+        else if (eCompType != RAWCompressionChoice::NoCompression)
         {
             std::vector<uint8_t> pNewData;
             pNewData.resize(nIncomingFileSize);
@@ -237,11 +240,7 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
             // Read the data first
             pNewOverrideTexture = new uint8_t[nIncomingFileSize];
 
-            if (direction == SpriteImportDirection::TopDown)
-            {
-                TextureFile.Read(pNewOverrideTexture, nIncomingFileSize);
-            }
-            else if (direction == SpriteImportDirection::UpsideDown)
+            if (importPreviewOptions.direction == SpriteImportDirection::UpsideDown)
             {
                 OutputDebugString(L"\tImported RAW while flipping vertically.\r\n");
                 int nCurrentFilePosition = nIncomingFileSize;
@@ -260,8 +259,11 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
                     TextureFile.Read(&pNewOverrideTexture[nCurrentFilePosition], suggestedImageSize.width);
                     nCurrentFilePosition -= suggestedImageSize.width;
                 }
+
+                // Reset since we're handling it here directly so it doesn't get redone
+                importPreviewOptions.direction = SpriteImportDirection::TopDown;
             }
-            else // if (direction == SpriteImportDirection::FlipHorizontal)
+            else if (importPreviewOptions.direction == SpriteImportDirection::FlipHorizontal)
             {
                 OutputDebugString(L"\tImported RAW while flipping horizontally.\r\n");
                 for (int iLine = 0; iLine < suggestedImageSize.height; iLine++)
@@ -271,10 +273,14 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
                         TextureFile.Read(&pNewOverrideTexture[(iLine * suggestedImageSize.width) + (iLinePos - 1)], 1);
                     }
                 }
-            }
 
-            // Reset since handle it here directly so it doesn't get redone
-            direction = SpriteImportDirection::TopDown;
+                // Reset since we're handling it here directly so it doesn't get redone
+                importPreviewOptions.direction = SpriteImportDirection::TopDown;
+            }
+            else // all other flavors, including TopDown
+            {
+                TextureFile.Read(pNewOverrideTexture, nIncomingFileSize);
+            }
         }
     }
 

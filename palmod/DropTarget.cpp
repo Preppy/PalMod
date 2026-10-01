@@ -673,7 +673,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else
                     {
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Load cancelled.");
+                        GetHost()->GetPalModDlg()->SetStatusText(L"Load canceled.");
                     }
                 }
             }
