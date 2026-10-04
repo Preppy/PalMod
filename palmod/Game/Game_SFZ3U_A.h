@@ -56,7 +56,7 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Street Fighter Zero 3 Upper (Steam)", L"z3u.21D3D8A7", 0x867c6e9d, 0 },
+        { L"Street Fighter Zero 3 Upper (Steam: z3u)", L"z3u.21D3D8A7", 0x867c6e9d, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
@@ -98,7 +98,7 @@ private:
 
     const std::vector<sCRC32ValueSet> m_rgCRC32Data =
     {
-        { L"Street Fighter Zero 3 Max (Steam)", L"z3u.21D3D8A7", 0x805b1f4d, 0 },
+        { L"Street Fighter Zero 3 Max (Steam: z3uu)", L"z3uu.21D3D8A7", 0x805b1f4d, 0 },
     };
 
     const sCoreGameData m_sCoreGameData
