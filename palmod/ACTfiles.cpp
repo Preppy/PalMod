@@ -1,258 +1,76 @@
 #include "stdafx.h"
 #include "PalMod.h"
+#include "PaletteImport.h"
 
-bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
+bool CPaletteImport::GetPaletteFromACT(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
-    bool fSuccess = false;
-    CGameClass* CurrGame = GetHost()->GetCurrGame();
+    bool fSuccess = true;
     CFile ActFile;
 
     if (ActFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
-        int nFileSz = static_cast<int>(ActFile.GetLength());
-        size_t nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
+        const ULONGLONG nFileSz = ActFile.GetLength();
+        size_t nACTColorCount = MAXAMT_ColorsPerPaletteTable; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
+        bool fAcceptableFileSize = false;
 
-        // Read data from the ACT...
-        if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
+        // validate file size
+        switch (nFileSz)
         {
-            WORD wColorCount;
-            ActFile.Seek(768, CFile::begin);
-            ActFile.Read(&wColorCount, 2);
-            // 772b ACT files store their color count big endian: fix.
-            nACTColorCount = _byteswap_ushort(wColorCount);
-            ActFile.Seek(0, CFile::begin);
+            case 768:
+                fAcceptableFileSize = true;
+                break;
+            case 772: // The documentation states that 768b ACT files do not include color count, but 772b files do.
+            {
+                WORD wColorCount;
+                ActFile.Seek(768, CFile::begin);
+                ActFile.Read(&wColorCount, 2);
+                // 772b ACT files store their color count big endian: fix.
+                nACTColorCount = _byteswap_ushort(wColorCount);
+                ActFile.Seek(0, CFile::begin);
 
-            // The last four bytes are reserved: don't use them for color copies.
-            nFileSz = 768;
+                // The last four bytes are reserved: don't use them for color copies.
+                fAcceptableFileSize = true;
+                break;
+            }
+            default:
+                fAcceptableFileSize = false;
+                break;
         }
 
-        if (nFileSz == 768) // We only support 768/772 byte ACT files
+        // Read data from the ACT...
+        if (fAcceptableFileSize) // We only support 768/772 byte ACT files
         {
-            ProcChange();
-
-            bool fHadToFlip = false;
-
             if (nACTColorCount == 0)
             {
                 // Default to everything
-                nACTColorCount = 256;
+                nACTColorCount = MAXAMT_ColorsPerPaletteTable;
             }
 
-            std::vector<uint8_t> rgAct;
-            rgAct.resize(nACTColorCount * 3);
+            std::vector<uint8_t> rgACT_RGBPalette(nACTColorCount * 3);
+            rgbaPalette.resize(nACTColorCount * 4);
 
-            ActFile.Read(&rgAct[0], static_cast<UINT>(nACTColorCount) * 3);
-            ActFile.Close();
+            ActFile.Read(&rgACT_RGBPalette[0], static_cast<UINT>(rgACT_RGBPalette.size()));
 
-            // Now consume those colors...
-            const uint32_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
-            int nTotalNumberOfCurrentColors = 0;
-
-            for (uint32_t iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
+            for (size_t iWalkPos = 0; iWalkPos < nACTColorCount; iWalkPos++)
             {
-                nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                rgbaPalette.at(iWalkPos * 4) = rgACT_RGBPalette.at(iWalkPos * 3);
+                rgbaPalette.at((iWalkPos * 4) + 1) = rgACT_RGBPalette.at((iWalkPos * 3) + 1);
+                rgbaPalette.at((iWalkPos * 4) + 2) = rgACT_RGBPalette.at((iWalkPos * 3) + 2);
+                rgbaPalette.at((iWalkPos * 4) + 3) = 0xff;
             }
-
-            size_t iACTIndex = 0;
-            uint32_t nCurrentPalette = 0;
-            uint16_t nTotalColorsUsed = 0;
-            bool fHaveLooped = false;
-            int iCurrentIndexInPalette = 0;
-            uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-
-            uint16_t nBlackColorCount = 0;
-
-            // This code exists because Fighter Factory writes upside-down color tables.
-            for (iACTIndex = 0; iACTIndex < nACTColorCount; iACTIndex++)
-            {
-                if ((rgAct.at(iACTIndex * 3) == 0) &&
-                    (rgAct.at((iACTIndex * 3) + 1) == 0) &&
-                    (rgAct.at((iACTIndex * 3) + 2) == 0))
-                {
-                    nBlackColorCount++;
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            const bool fShouldProcessTopdown = !fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors);
-
-            bool fHaveMultiplePalettes = (nTotalPaletteCount != 1);
-            bool* rgfACTHasColorsForThisPalette = new bool[nTotalPaletteCount];
-            memset(rgfACTHasColorsForThisPalette, false, sizeof(bool) * nTotalPaletteCount);
-
-            if (fHaveMultiplePalettes)
-            {
-                // we have multiple palettes: ensure that we only use useful data from the ACT
-                int nOffsetThisPass = 0;
-                for (uint32_t iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
-                {
-                    const uint16_t nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
-                    for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)
-                    {
-                        const size_t iIndexToUse = fShouldProcessTopdown ? iACTIndex : (nACTColorCount - 1 - iACTIndex);
-                        if ((rgAct.at(iIndexToUse * 3) != 0) ||
-                            (rgAct.at((iIndexToUse * 3) + 1) != 0) ||
-                            (rgAct.at((iIndexToUse * 3) + 2) != 0))
-                        {
-                            if (nColorsNeededForThisPalette <= (nACTColorCount - nOffsetThisPass))
-                            {
-                                // Only allow usage if we fully cover the secondary palette: ignore incomplete palette coverage
-                                rgfACTHasColorsForThisPalette[iPalette] = true;
-                            }
-                            break;
-                        }
-                    }
-
-                    nOffsetThisPass += nColorsNeededForThisPalette;
-                }
-            }
-
-            if (fShouldProcessTopdown)
-            {
-                iACTIndex = 0;
-
-                for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
-                {
-                    pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
-                    pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
-                    pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
-
-                    if (++iACTIndex >= nACTColorCount)
-                    {
-                        // If the palette is larger than our ACT, loop it.
-                        iACTIndex = 0;
-                        fHaveLooped = true;
-                    }
-
-                    iCurrentIndexInPalette++;
-                    if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
-                    {
-                        if (fHaveLooped)
-                        {
-                            // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                            nTotalColorsUsed++;
-                            break;
-                        }
-                        else
-                        {
-                            // advance to the next palette
-                            nCurrentPalette++;
-
-                            if (rgfACTHasColorsForThisPalette[nCurrentPalette])
-                            {
-                                iCurrentIndexInPalette = 0;
-                                pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-                            }
-                            else
-                            {
-                                nTotalColorsUsed++;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                // TODO: Maybe ask the user before flipping?
-                iACTIndex = nACTColorCount - 1;
-                fHadToFlip = true;
-                iCurrentIndexInPalette = 0;
-                nCurrentPalette = 0;
-                fHaveLooped = false;
-                pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-
-                OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
-
-                for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
-                {
-                    pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at(iACTIndex * 3));
-                    pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 1));
-                    pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgAct.at((iACTIndex * 3) + 2));
-
-                    // This code exists because Fighter Factory writes upside-down color tables.
-                    if (--iACTIndex >= nACTColorCount)
-                    {
-                        // If the palette is larger than our ACT, loop it.
-                        iACTIndex = nTotalNumberOfCurrentColors;
-                        fHaveLooped = true;
-                    }
-
-                    iCurrentIndexInPalette++;
-                    if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
-                    {
-                        if (fHaveLooped)
-                        {
-                            // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                            nTotalColorsUsed++;
-                            break;
-                        }
-                        else
-                        {
-                            if (iACTIndex >= nBlackColorCount)
-                            {
-                                // advance to the next palette
-                                nCurrentPalette++;
-
-                                if (rgfACTHasColorsForThisPalette[nCurrentPalette])
-                                {
-                                    iCurrentIndexInPalette = 0;
-                                    pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-                                }
-                                else
-                                {
-                                    nTotalColorsUsed++;
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                // The next palette chunk is all black: don't stomp on a further palette with reversed black/empty colors
-                                nTotalColorsUsed++;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            safe_delete_array(rgfACTHasColorsForThisPalette);
-
-            ImgDispCtrl->UpdateCtrl();
-            m_PalHost.UpdateAllPalCtrls();
-
-            UpdateMultiEdit(TRUE);
-            UpdateSliderSel();
 
             fSuccess = true;
-            CString strStatus;
-            if (fHadToFlip)
-            {
-                strStatus.Format(IDS_ACT_REVERSEDLOAD, nTotalColorsUsed);
-            }
-            else
-            {
-                strStatus.Format(IDS_ACT_LOADED, nTotalColorsUsed, nACTColorCount);
-            }
-
-            SetStatusText(strStatus);
         }
+
+        ActFile.Close();
+
+        CString strMsg;
+
+        strMsg.Format(L"Loaded %u colors from %u byte ACT file.\r\n", nACTColorCount, static_cast<uint32_t>(nFileSz));
+        OutputDebugString(strMsg.GetString());
     }
 
-    if (!fSuccess)
-    {
-        CString strError;
-        if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
-        {
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-        }
-        SetStatusText(IDS_ACT_LOADFAILURE);
-    }
-
-    return fSuccess;
+    return fSuccess && !rgbaPalette.empty();
 }
 
 void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& fShouldShowGenericError)
@@ -266,9 +84,7 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
         //   https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577411_pgfId-1070626
         // In theory we should be able to just write a 768 byte file, but there appears to be a bug in PhotoShop's
         // ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
-
-        const int k_nMaxColorsAllowed = 256;
-        const int nActSz = k_nMaxColorsAllowed * 3;
+        const int nActSz = MAXAMT_ColorsPerPaletteTable * 3;
         std::array<uint8_t, nActSz> rgAct = {};
 
         const uint8_t nPaletteCount = static_cast<uint8_t>(m_PalHost.GetCurrentPaletteCount());
@@ -285,14 +101,14 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
                 {
                     const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
 
-                    if ((nTotalColorsUsed + nPaletteWorkingAmt) > k_nMaxColorsAllowed)
+                    if ((nTotalColorsUsed + nPaletteWorkingAmt) > MAXAMT_ColorsPerPaletteTable)
                     {
                         break;
                     }
 
                     const uint8_t* pPal = reinterpret_cast<uint8_t*>(pPalette->GetBasePal());
 
-                    for (int nActivePaletteIndex = 0; (nActivePaletteIndex < nPaletteWorkingAmt) && (nTotalColorsUsed < k_nMaxColorsAllowed); nActivePaletteIndex++, nTotalColorsUsed++)
+                    for (int nActivePaletteIndex = 0; (nActivePaletteIndex < nPaletteWorkingAmt) && (nTotalColorsUsed < MAXAMT_ColorsPerPaletteTable); nActivePaletteIndex++, nTotalColorsUsed++)
                     {
                         rgAct.at(nTotalColorsUsed * 3)       = pPal[(nActivePaletteIndex * 4)];
                         rgAct.at((nTotalColorsUsed * 3) + 1) = pPal[(nActivePaletteIndex * 4) + 1];
@@ -303,7 +119,7 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
         }
         else //upside-down for fighter factory 3
         {
-            int nWriteLocation = k_nMaxColorsAllowed - 1;
+            int nWriteLocation = MAXAMT_ColorsPerPaletteTable - 1;
 
             for (uint8_t nCurrentPalette = 0; nCurrentPalette < nPaletteCount; nCurrentPalette++)
             {
@@ -313,14 +129,14 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
                 {
                     const int nPaletteWorkingAmt = pPalette->GetWorkingAmt();
 
-                    if ((nTotalColorsUsed + nPaletteWorkingAmt) > k_nMaxColorsAllowed)
+                    if ((nTotalColorsUsed + nPaletteWorkingAmt) > MAXAMT_ColorsPerPaletteTable)
                     {
                         break;
                     }
 
                     const uint8_t* pPal = reinterpret_cast<uint8_t*>(pPalette->GetBasePal());
 
-                    for (int nActivePaletteIndex = 0; (nActivePaletteIndex < nPaletteWorkingAmt) && (nTotalColorsUsed < k_nMaxColorsAllowed); nActivePaletteIndex++, nTotalColorsUsed++)
+                    for (int nActivePaletteIndex = 0; (nActivePaletteIndex < nPaletteWorkingAmt) && (nTotalColorsUsed < MAXAMT_ColorsPerPaletteTable); nActivePaletteIndex++, nTotalColorsUsed++)
                     {
                         rgAct.at((nWriteLocation - nTotalColorsUsed) * 3)       = pPal[(nActivePaletteIndex * 4)];
                         rgAct.at(((nWriteLocation - nTotalColorsUsed) * 3) + 1) = pPal[(nActivePaletteIndex * 4) + 1];
@@ -330,7 +146,7 @@ void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& 
             }
 
             // max this since we started the write at the end
-            nTotalColorsUsed = k_nMaxColorsAllowed;
+            nTotalColorsUsed = MAXAMT_ColorsPerPaletteTable;
         }
 
         ActFile.Write(&rgAct[0], nActSz);

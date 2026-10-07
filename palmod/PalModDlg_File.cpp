@@ -4,6 +4,7 @@
 #include "RegProc.h"
 #include "Game\GameRegistry.h"
 #include "Util.h"
+#include "PaletteImport.h"
 
 constexpr auto c_strLastUsedPath = L"LastUsedPath";
 
@@ -948,11 +949,19 @@ void CPalModDlg::OnImportPalette()
 
             if (_wcsicmp(szExtension, L".png") == 0)
             {
-                LoadPaletteFromPNG(strFileName, (PaletteLoad.GetOFN().nFilterIndex == 6), (PaletteLoad.GetOFN().nFilterIndex == 7));
+                const bool fFlipUpsideDown = (PaletteLoad.GetOFN().nFilterIndex == 6);
+                const bool fShiftOneColorForward = (PaletteLoad.GetOFN().nFilterIndex == 7);
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileName, fFlipUpsideDown, fShiftOneColorForward))
+                {
+                    UpdateUIForAppliedPalette();
+                }
             }
             else if (_wcsicmp(szExtension, L".pal") == 0)
             {
-                LoadPaletteFromPAL(strFileName);
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PAL_RIFF, strFileName))
+                {
+                    UpdateUIForAppliedPalette();
+                }
             }
             else if (_wcsicmp(szExtension, L".dat") == 0)
             {
@@ -960,7 +969,10 @@ void CPalModDlg::OnImportPalette()
             }
             else if (_wcsicmp(szExtension, L".bmp") == 0)
             {
-                LoadPaletteFromBMP(strFileName);
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::BMP, strFileName))
+                {
+                    UpdateUIForAppliedPalette();
+                }
             }
             else if (_wcsicmp(szExtension, L".cfpl") == 0)
             {
@@ -968,11 +980,18 @@ void CPalModDlg::OnImportPalette()
             }
             else if (_wcsicmp(szExtension, L".gif") == 0)
             {
-                LoadPaletteFromGIF(strFileName);
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GIF, strFileName))
+                {
+                    UpdateUIForAppliedPalette();
+                }
             }
             else if (_wcsicmp(szExtension, L".gpl") == 0)
             {
-                LoadPaletteFromGPL(strFileName);
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GPL, strFileName))
+                {
+                    UpdateUIForAppliedPalette();
+                }
+
             }
             else if (_wcsicmp(szExtension, L".hpl") == 0)
             {
@@ -995,7 +1014,11 @@ void CPalModDlg::OnImportPalette()
             }
             else
             {
-                LoadPaletteFromACT(strFileName, (PaletteLoad.GetOFN().nFilterIndex > 3));
+                const bool fFlipUpsideDown = (PaletteLoad.GetOFN().nFilterIndex > 3);
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileName, fFlipUpsideDown))
+                {
+                    UpdateUIForAppliedPalette();
+                }
             }
         }
     }

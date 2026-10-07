@@ -638,6 +638,15 @@ void CPalModDlg::OnPalSelChange(UINT_PTR nCtrlId)
     UpdateSliderSel();
 }
 
+void CPalModDlg::UpdateUIForAppliedPalette()
+{
+    ImgDispCtrl->UpdateCtrl();
+    m_PalHost.UpdateAllPalCtrls();
+
+    UpdateMultiEdit(TRUE);
+    UpdateSliderSel();
+}
+
 void CPalModDlg::_UpdateStatusBarWidthIfNeeded(uint32_t nPaneTwoWidth)
 {
     static uint32_t s_nLastKnownWidth = 0;

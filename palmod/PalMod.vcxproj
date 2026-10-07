@@ -353,6 +353,7 @@
     <ClCompile Include="Junk.cpp" />
     <ClCompile Include="lodepng\lodepng.cpp" />
     <ClCompile Include="MappingPalettes.cpp" />
+    <ClCompile Include="PaletteImport.cpp" />
     <ClCompile Include="PALfiles.cpp" />
     <ClCompile Include="PalMod.cpp" />
     <ClCompile Include="PalModDlg.cpp" />
@@ -809,6 +810,7 @@
     <ClInclude Include="Junk.h" />
     <ClInclude Include="lodepng\lodepng.h" />
     <ClInclude Include="MappingPalettes.h" />
+    <ClInclude Include="PaletteImport.h" />
     <ClInclude Include="PalMod.h" />
     <ClInclude Include="PalModDlg.h" />
     <ClInclude Include="PalTool.h" />

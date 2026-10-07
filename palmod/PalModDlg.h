@@ -199,7 +199,6 @@ private:
 
     void NewUndoData(BOOL fUndo = TRUE);
     void DoUndoRedo(BOOL fUndo);
-    void ProcChange(BOOL fReset = FALSE);
 
     void _UpdateStatusBarWidthIfNeeded(uint32_t nPaneTwoWidth);
 
@@ -486,6 +485,7 @@ public:
     void LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile);
 
     BOOL IsActivePaletteChanged() const { return m_fPalChanged; };
+    void ProcChange(BOOL fReset = FALSE);
 
     static BOOL IsPasteSupported();
 
@@ -521,18 +521,13 @@ public:
     afx_msg void OnEditPaste();
 
     void OnPalSelChange(UINT_PTR nCtrlId);
+    void UpdateUIForAppliedPalette();
 
     void SetSliderDescForAlpha(bool fUseAlphaNotSTB);
 
-    // Generic palette data files
-    bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
-    bool LoadPaletteFromBMP(LPCWSTR pszFileName);
-    bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, bool& fUsesGlobalColorTable);
-    bool ReadPaletteFromGIFFile(LPCWSTR pszGIFFileName, std::vector<COLORREF>& rgclrPaletteData);
-    bool LoadPaletteFromGIF(LPCWSTR pszFileName);
-    bool LoadPaletteFromGPL(LPCWSTR pszFileName);
-    bool LoadPaletteFromPAL(LPCWSTR pszFileName);
-    bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false, bool fGIMPOffsetByOne = false);
+    // if you add a new palette type here, please update the CPalDropTarget support in DropTarget.cpp
+    
+    // The following are unique game-specific palette file formats that have special import options and rules.
     // BlazBlue palette files
     bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
     bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
@@ -541,6 +536,7 @@ public:
     bool LoadPaletteFromPRPL(LPCWSTR pszFileName);
     // PS3 palette files
     bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
+
     // if you add a new palette type here, please update the CPalDropTarget support in DropTarget.cpp
 
     DECLARE_MESSAGE_MAP()

@@ -4,6 +4,7 @@
 #include "GameChoice.h"
 #include "Game\GameRegistry.h"
 #include <cwctype>
+#include "PaletteImport.h"
 
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
@@ -477,13 +478,19 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
                     if (strExtension == L".act")
                     {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromACT(strFileNameAsLower.c_str());
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileNameAsLower.c_str()))
+                        {
+                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
+                        }
                         fHandledDrop = true;
                         break;
                     }
                     else if (strExtension == L".bmp")
                     {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromBMP(strFileNameAsLower.c_str());
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::BMP, strFileNameAsLower.c_str()))
+                        {
+                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
+                        }
                         fHandledDrop = true;
                         break;
                     }
@@ -502,14 +509,20 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                         }
                         else
                         {
-                            GetHost()->GetPalModDlg()->LoadPaletteFromGIF(strFileNameAsLower.c_str());
+                            if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GIF, strFileNameAsLower.c_str()))
+                            {
+                                GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
+                            }
                             fHandledDrop = true;
                             break;
                         }
                     }
                     else if (strExtension == L".gpl")
                     {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromGPL(strFileNameAsLower.c_str());
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GPL, strFileNameAsLower.c_str()))
+                        {
+                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
+                        }
                         fHandledDrop = true;
                         break;
                     }
@@ -527,7 +540,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else if (strExtension == L".pal")
                     {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromPAL(strFileNameAsLower.c_str());
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PAL_RIFF, strFileNameAsLower.c_str()))
+                        {
+                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
+                        }
                         fHandledDrop = true;
                         break;
                     }
@@ -540,7 +556,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                         }
                         else
                         {
-                            GetHost()->GetPalModDlg()->LoadPaletteFromPNG(strFileNameAsLower.c_str());
+                            if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileNameAsLower.c_str()))
+                            {
+                                GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
+                            }
                             fHandledDrop = true;
                             break;
                         }

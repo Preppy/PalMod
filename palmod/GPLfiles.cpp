@@ -3,6 +3,7 @@
 #include <charconv>
 #include "PalMod.h"
 #include "PalModDlg.h"
+#include "PaletteImport.h"
 
 // GPL files are GIMP palette files.  They look like:
 //     GIMP Palette
@@ -16,10 +17,9 @@ constexpr auto k_GPLMagicKey = "GIMP Palette";
 constexpr auto k_GPLName = "Name: ";
 constexpr auto k_GPLColumns = "Columns: ";
 
-bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
+bool CPaletteImport::GetPaletteFromGPL(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     bool fSuccess = false;
-    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     std::ifstream gplFile = {};
 
@@ -32,8 +32,6 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
         constexpr auto k_maxGPLColorCount = 256;
         uint32_t nColumnCount = k_maxGPLColorCount + 1; // invalid length
         uint32_t nColorsFound = 0;
-
-        ProcChange();
 
         // check for magic key
         std::getline(gplFile, strCurrLine);
@@ -63,7 +61,13 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                 nColumnCount = k_maxGPLColorCount;
             }
 
-            std::vector<uint8_t> rgRGBVals = {};
+            rgbaPalette.clear();
+
+            // GPL doesn't have a lead transparency bit so just add our own
+            rgbaPalette.push_back(0x00);
+            rgbaPalette.push_back(0x00);
+            rgbaPalette.push_back(0x00);
+            rgbaPalette.push_back(0x00);
 
             // obtain colors.  delimiters are ' ' or '\t'
             while (std::getline(gplFile, strCurrLine))
@@ -108,133 +112,22 @@ bool CPalModDlg::LoadPaletteFromGPL(LPCWSTR pszFileName)
                         iLast = iFound + 1;
                     }
 
-                    rgRGBVals.push_back(static_cast<uint8_t>(atoi(strColor.c_str())));
+                    rgbaPalette.push_back(static_cast<uint8_t>(atoi(strColor.c_str())));
                 }
+                
+                // insert a dummy alpha value since GPL doesn't hae this byte
+                rgbaPalette.push_back(0xff);
 
                 nColorsFound++;
             }
 
-            if (nColorsFound && ((rgRGBVals.size() / static_cast<float>(nColorsFound)) == 3.0))
-            {
-                // Now consume those colors...
-                const uint32_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
-                uint32_t nTotalNumberOfCurrentColors = 0;
-
-                for (uint32_t nPalette = 0; nPalette < nTotalPaletteCount; nPalette++)
-                {
-                    nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(nPalette)->uPalSz;
-                }
-
-                uint16_t iGPLIndex = 0;
-                uint32_t nCurrentPalette = 0;
-                uint16_t nTotalColorsUsed = 0;
-                bool fHaveLooped = false;
-                uint16_t iCurrentIndexInPalette = 1; // skip transparency color
-                uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-
-                bool fHaveMultiplePalettes = (nTotalPaletteCount != 1);
-                bool* rgfGPLHasColorsForThisPalette = new bool[nTotalPaletteCount];
-                memset(rgfGPLHasColorsForThisPalette, false, sizeof(bool) * nTotalPaletteCount);
-                rgfGPLHasColorsForThisPalette[0] = true;
-
-                if (fHaveMultiplePalettes)
-                {
-                    // we have multiple palettes: ensure that we only use useful data from the GPL
-                    uint32_t nTotalColorsNeeded = 0;
-                    for (uint32_t iPalette = 1; iPalette < nTotalPaletteCount; iPalette++)
-                    {
-                        nTotalColorsNeeded += MainPalGroup->GetPalDef(iPalette)->uPalSz;
-                        if (nTotalColorsNeeded <= nColorsFound)
-                        {
-                            rgfGPLHasColorsForThisPalette[iPalette] = true;
-                        }
-                    }
-                }
-
-                iGPLIndex = 0;
-
-                for (size_t iAbsolutePaletteIndex = 1; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
-                {
-                    pPal[(iCurrentIndexInPalette * 4)    ] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
-                    pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
-                    pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgRGBVals.at(iGPLIndex++));
-                    pPal[(iCurrentIndexInPalette * 4) + 3] = CurrGame->GetNearestLegal8BitColorValue_A(0xFF);
-
-                    if (iGPLIndex >= (nColorsFound * 3))
-                    {
-                        // If the palette is larger than our GPL, loop it.
-                        iGPLIndex = 0;
-                        fHaveLooped = true;
-                    }
-
-                    iCurrentIndexInPalette++;
-                    if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
-                    {
-                        if (fHaveLooped)
-                        {
-                            // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                            nTotalColorsUsed++;
-                            break;
-                        }
-                        else
-                        {
-                            // advance to the next palette
-                            nCurrentPalette++;
-
-                            if (rgfGPLHasColorsForThisPalette[nCurrentPalette])
-                            {
-                                iCurrentIndexInPalette = 0;
-                                pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                    }
-
-                    if ((iGPLIndex == 0) && (iAbsolutePaletteIndex < nTotalNumberOfCurrentColors))
-                    {
-                        // GPLs have no lead transparency bit, so when we loop an application, inject a dummy color
-                        pPal[(iCurrentIndexInPalette * 4)]     = CurrGame->GetNearestLegal8BitColorValue_RGB(0);
-                        pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(0);
-                        pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(0);
-                        pPal[(iCurrentIndexInPalette * 4) + 3] = CurrGame->GetNearestLegal8BitColorValue_A(0xFF);
-                        iAbsolutePaletteIndex++;
-                        iCurrentIndexInPalette++;
-                        nTotalColorsUsed++;
-                    }
-                }
-
-                safe_delete_array(rgfGPLHasColorsForThisPalette);
-
-                ImgDispCtrl->UpdateCtrl();
-                m_PalHost.UpdateAllPalCtrls();
-
-                UpdateMultiEdit(TRUE);
-                UpdateSliderSel();
-
-                fSuccess = true;
-                CString strStatus;
-                strStatus.Format(IDS_GPL_LOADED, nTotalColorsUsed, nColorsFound);
-                SetStatusText(strStatus);
-            }
+            fSuccess = (nColorsFound > 1);
         }
 
         gplFile.close();
     }
 
-    if (!fSuccess)
-    {
-        CString strError;
-        if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
-        {
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-        }
-        SetStatusText(IDS_GPL_LOADFAILURE);
-    }
-
-    return fSuccess;
+    return fSuccess && !rgbaPalette.empty();
 }
 
 void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericError)

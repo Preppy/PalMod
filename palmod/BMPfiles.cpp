@@ -1,11 +1,10 @@
 #include "stdafx.h"
-#include "PalMod.h"
+#include "PaletteImport.h"
 
-bool LoadDataFromBMPFile(LPCWSTR pszBMPFileName, std::vector<COLORREF>& rgclrPaletteData, CString& strPossibleError)
+bool CPaletteImport::GetPaletteFromBMP(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
-    HBITMAP hBMP = static_cast<HBITMAP>(LoadImage(nullptr, pszBMPFileName, IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_DEFAULTSIZE | LR_LOADFROMFILE));
-
-    strPossibleError = L"This is not a supported BMP file.";
+    CString strPossibleError;
+    HBITMAP hBMP = static_cast<HBITMAP>(LoadImage(nullptr, pszFileName, IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_DEFAULTSIZE | LR_LOADFROMFILE));
 
     // Populate color table from file
     if (hBMP)
@@ -27,17 +26,19 @@ bool LoadDataFromBMPFile(LPCWSTR pszBMPFileName, std::vector<COLORREF>& rgclrPal
 
                 if (nTotalColors)
                 {
-                    rgclrPaletteData.resize(nTotalColors);
+                    rgbaPalette.resize(nTotalColors * 4);
 
-                    for (size_t iPos = 0; iPos < rgclrPaletteData.size(); iPos++)
+                    for (size_t iPos = 0; iPos < nTotalColors; iPos++)
                     {
-                        const COLORREF clrThisColor = RGB(rgbPalTable[iPos].rgbRed, rgbPalTable[iPos].rgbGreen, rgbPalTable[iPos].rgbBlue);
-                        rgclrPaletteData.at(iPos) = clrThisColor;
+                        rgbaPalette.at(iPos * 4) = rgbPalTable[iPos].rgbRed;
+                        rgbaPalette.at((iPos * 4) + 1) = rgbPalTable[iPos].rgbGreen;
+                        rgbaPalette.at((iPos * 4) + 2) = rgbPalTable[iPos].rgbBlue;
+                        rgbaPalette.at((iPos * 4) + 3) = 0xff;
                     }
                 }
                 else
                 {
-                    strPossibleError = L"The palette table in this BMP is empty.";
+                    strPossibleError = L"The palette table in this BMP is empty.\r\n";
                 }
 
                 // Delete the temporary bitmap DC
@@ -46,56 +47,19 @@ bool LoadDataFromBMPFile(LPCWSTR pszBMPFileName, std::vector<COLORREF>& rgclrPal
             }
             else
             {
-                strPossibleError = L"This is not an indexed BMP file.";
+                strPossibleError = L"This is not an indexed BMP file.\r\n";
             }
         }
     }
-
-    return (rgclrPaletteData.size() != 0);
-}
-
-bool CPalModDlg::LoadPaletteFromBMP(LPCWSTR pszFileName)
-{
-    bool fSuccess = false;
-    CString strError = L"This is not a supported BMP file.";
-    std::vector<COLORREF> rgclrPaletteData;
-    size_t nHowManyColorsToImport = 0;
-
-    if (LoadDataFromBMPFile(pszFileName, rgclrPaletteData, strError))
-    {
-        ProcChange();
-
-        CGameClass* CurrGame = GetHost()->GetCurrGame();
-        nHowManyColorsToImport = min(rgclrPaletteData.size(), MainPalGroup->GetPalDef(0)->uPalSz);
-
-        uint8_t* pVisiblePalette = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(0)->pPal);
-
-        for (size_t iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nHowManyColorsToImport; iCurrentIndexInPalette++)
-        {
-            pVisiblePalette[(iCurrentIndexInPalette * 4)] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetRValue(rgclrPaletteData.at(iCurrentIndexInPalette)));
-            pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetGValue(rgclrPaletteData.at(iCurrentIndexInPalette)));
-            pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(GetBValue(rgclrPaletteData.at(iCurrentIndexInPalette)));
-        }
-
-        ImgDispCtrl->UpdateCtrl();
-        m_PalHost.UpdateAllPalCtrls();
-
-        UpdateMultiEdit(TRUE);
-        UpdateSliderSel();
-
-        fSuccess = true;
-    }
-
-    if (!fSuccess)
-    {
-        MessageBox(L"Error: This is not a valid indexed BMP file.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(strError);
-    }
     else
     {
-        strError.Format(L"Loaded %u colors from the %u color BMP file.", static_cast<int>(nHowManyColorsToImport), static_cast<int>(rgclrPaletteData.size()));
-        SetStatusText(strError);
+        strPossibleError = L"This is not a supported BMP file.\r\n";
     }
 
-    return fSuccess;
+    if (strPossibleError.GetLength())
+    {
+        OutputDebugString(strPossibleError.GetString());
+    }
+
+    return !rgbaPalette.empty();
 }

@@ -1,14 +1,13 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include <mmiscapi.h> // RIFF .PAL support
+#include "PaletteImport.h"
 
-bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
+bool CPaletteImport::GetPaletteFromPAL_RIFF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
-    bool fSuccess = false;
+    bool fSuccess = true;
     bool fFoundPALChunk = false;
-    CGameClass* CurrGame = GetHost()->GetCurrGame();
-
-    HMMIO hRIFFFile = mmioOpen((LPTSTR)pszFileName, nullptr, MMIO_READ);
+    HMMIO hRIFFFile = mmioOpen(const_cast<LPTSTR>(pszFileName), nullptr, MMIO_READ);
 
     if (hRIFFFile)
     {
@@ -37,75 +36,27 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 
                     if ((dwDataSize > 0))
                     {
-                        std::vector<uint8_t> rgPALFileData;
-                        rgPALFileData.resize(dwDataSize);
+                        std::vector<uint8_t> rgPALFileData(dwDataSize);
 
                         if (mmioRead(hRIFFFile, reinterpret_cast<HPSTR>(&rgPALFileData[0]), dwDataSize) == static_cast<LONG>(dwDataSize))
                         {
-                            // party.
-                            ProcChange();
+                            rgbaPalette.resize(dwDataSize);
 
-                            const uint32_t nActivePaletteCount = MainPalGroup->GetPalAmt();
-                            const int nPALColorCount = (dwDataSize / 4);
-
-                            uint16_t iPALDataIndex = 0;
-                            uint32_t nCurrentPalette = 0;
-                            uint16_t nTotalColorsUsed = 0;
-                            bool fHaveLooped = false;
-                            int iCurrentIndexInPalette = 0;
-                            int nTotalNumberOfCurrentPaletteColors = 0;
-
-                            for (uint32_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                            for (DWORD iReadPos = 0, iWritePos = 0; iReadPos < dwDataSize; iReadPos++)
                             {
-                                nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                                // Stomp alpha
+                                rgbaPalette.at(iWritePos++) = rgPALFileData.at(iReadPos++);
+                                rgbaPalette.at(iWritePos++) = rgPALFileData.at(iReadPos++);
+                                rgbaPalette.at(iWritePos++) = rgPALFileData.at(iReadPos++);
+                                rgbaPalette.at(iWritePos++) = 0xff;
                             }
-
-                            uint8_t* pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-
-                            for (int iAbsoluteColorIndex = 0; iAbsoluteColorIndex < nTotalNumberOfCurrentPaletteColors; iAbsoluteColorIndex++, nTotalColorsUsed++)
-                            {
-                                // copy over the RGB data, skipping the A value
-                                pPal[iCurrentIndexInPalette * 4]       = CurrGame->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at(iPALDataIndex * 4));
-                                pPal[(iCurrentIndexInPalette * 4) + 1] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at((iPALDataIndex * 4) + 1));
-                                pPal[(iCurrentIndexInPalette * 4) + 2] = CurrGame->GetNearestLegal8BitColorValue_RGB(rgPALFileData.at((iPALDataIndex * 4) + 2));
-
-                                if (++iPALDataIndex >= nPALColorCount)
-                                {
-                                    // If the palette is larger than our PAL, loop it.
-                                    iPALDataIndex = 0;
-                                    fHaveLooped = true;
-                                }
-
-                                iCurrentIndexInPalette++;
-                                if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
-                                {
-                                    if (fHaveLooped)
-                                    {
-                                        // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                                        nTotalColorsUsed++;
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        // advance to the next palette
-                                        nCurrentPalette++;
-                                        iCurrentIndexInPalette = 0;
-
-                                        pPal = reinterpret_cast<uint8_t*>(MainPalGroup->GetPalDef(nCurrentPalette)->pPal);
-                                    }
-                                }
-                            }
-
-                            ImgDispCtrl->UpdateCtrl();
-                            m_PalHost.UpdateAllPalCtrls();
-
-                            UpdateMultiEdit(TRUE);
-                            UpdateSliderSel();
 
                             fSuccess = true;
-                            CString strStatus;
-                            strStatus.Format(IDS_PAL_LOADED, nTotalColorsUsed, nPALColorCount);
-                            SetStatusText(strStatus);
+
+                            CString strMsg;
+
+                            strMsg.Format(L"Loaded %u colors MSFT PAL file.\r\n", static_cast<uint16_t>(dwDataSize / 4));
+                            OutputDebugString(strMsg.GetString());
                         }
                     }
                 }
@@ -117,20 +68,10 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 
     if (!fFoundPALChunk)
     {
-        MessageBox(L"Error: This is not a Microsoft PAL RIFF file.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(IDS_PAL_LOADFAILURE);
-    }
-    else if (!fSuccess)
-    {
-        CString strError;
-        if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
-        {
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-        }
-        SetStatusText(IDS_PAL_LOADFAILURE);
+        OutputDebugString(L"Error: This is not a Microsoft PAL RIFF file.\r\n");
     }
 
-    return fSuccess;
+    return fSuccess && !rgbaPalette.empty();
 }
 
 void CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError)

@@ -682,6 +682,9 @@
     <Filter Include="Games\Neo-Geo\World Heroes 2 Jet">
       <UniqueIdentifier>{4432a46d-4760-45ce-9954-04606fed44db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Palettes\Palette Import">
+      <UniqueIdentifier>{45d1da90-cf09-4b9b-818c-76c3f7d8dfa2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1139,6 +1142,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_DBZEB_DS.cpp">
       <Filter>Games\Nintendo\Dragon Ball Z: Extreme Butoden %283DS%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PaletteImport.cpp">
+      <Filter>Palettes\Palette Import</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2458,6 +2464,9 @@
     </ClInclude>
     <ClInclude Include="Game\WorldHeroes2Jet_A_DEF.h">
       <Filter>Games\Neo-Geo\World Heroes 2 Jet</Filter>
+    </ClInclude>
+    <ClInclude Include="PaletteImport.h">
+      <Filter>Palettes\Palette Import</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
