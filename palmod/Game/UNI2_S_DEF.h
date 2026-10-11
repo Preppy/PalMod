@@ -24,6 +24,14 @@ const std::vector<uint16_t> UNI2_S_IMGIDS_USED =
     indexFrenchBreadSprites_UNICLR_Wald,   // 0x47
     indexFrenchBreadSprites_UNICLR_Yuzu,   // 0x48
     indexFrenchBreadSprites_UNICLR_Bonus,  // 0x49
+
+    indexFrenchBreadSprites_UNI2_Izumi,             // 0x84
+    indexFrenchBreadSprites_UNI2_Kaguya,            // 0x85
+    indexFrenchBreadSprites_UNI2_Kuon,              // 0x86
+    indexFrenchBreadSprites_UNI2_Ogre,              // 0x87
+    indexFrenchBreadSprites_UNI2_Tsurugi,           // 0x88
+    indexFrenchBreadSprites_UNI2_Uzuki,             // 0x89
+    indexFrenchBreadSprites_UNI2_Zohar,             // 0x8a
 };
 
 const std::vector<LPCWSTR> UNI2ButtonLabelsNormal =
@@ -96,12 +104,12 @@ const std::vector<sGCBUPF_BasicFileData> UNI2CharacterData =
     { L"data\\chr010\\chr010.pal",               L"Hilda",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Hild },
 	{ L"___English\\data\\_csel\\chr000.pal",    L"Hyde (CharaSelect)",              133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Hyde },
 	{ L"data\\chr000\\chr000.pal",               L"Hyde",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Hyde },
-	{ L"___English\\data\\_csel\\chr026.pal",    L"Izumi (CharaSelect)",             133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-    { L"data\\chr026\\chr026.pal",               L"Izumi",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-	{ L"___English\\data\\_csel\\chr022.pal",    L"Kaguya (CharaSelect)",            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-    { L"data\\chr022\\chr022.pal",               L"Kaguya",                          133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-	{ L"___English\\data\\_csel\\chr023.pal",    L"Kuon (CharaSelect)",              133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-    { L"data\\chr023\\chr023.pal",               L"Kuon",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
+	{ L"___English\\data\\_csel\\chr026.pal",    L"Izumi (CharaSelect)",             133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Izumi },
+    { L"data\\chr026\\chr026.pal",               L"Izumi",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Izumi },
+	{ L"___English\\data\\_csel\\chr022.pal",    L"Kaguya (CharaSelect)",            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Kaguya },
+    { L"data\\chr022\\chr022.pal",               L"Kaguya",                          133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Kaguya },
+	{ L"___English\\data\\_csel\\chr023.pal",    L"Kuon (CharaSelect)",              133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Kuon },
+    { L"data\\chr023\\chr023.pal",               L"Kuon",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Kuon },
     { L"___English\\data\\_csel\\chr001.pal",    L"Linne (CharaSelect)",             133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Linn },
     { L"data\\chr001\\chr001.pal",               L"Linne",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Linn },
     { L"___English\\data\\_csel\\chr018.pal",    L"Londrekia (CharaSelect)",         133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Lond },
@@ -112,18 +120,18 @@ const std::vector<sGCBUPF_BasicFileData> UNI2CharacterData =
     { L"data\\chr021\\chr021.pal",               L"Mika",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Mika },
 	{ L"___English\\data\\_csel\\chr012.pal",    L"Nanase (CharaSelect)",            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Nana },
 	{ L"data\\chr012\\chr012.pal",               L"Nanase",                          133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Nana },
-	{ L"___English\\data\\_csel\\chr025.pal",    L"Ogre (CharaSelect)",              133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-    { L"data\\chr025\\chr025.pal",               L"Ogre",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
+	{ L"___English\\data\\_csel\\chr025.pal",    L"Ogre (CharaSelect)",              133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Ogre },
+    { L"data\\chr025\\chr025.pal",               L"Ogre",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Ogre },
 	{ L"___English\\data\\_csel\\chr004.pal",    L"Orie (CharaSelect)",              133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Orie },
     { L"data\\chr004\\chr004.pal",               L"Orie",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Orie },
 	{ L"___English\\data\\_csel\\chr024.pal",    L"Phonon (CharaSelect)",            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Phon },
     { L"data\\chr024\\chr024.pal",               L"Phonon",                          133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Phon },
 	{ L"___English\\data\\_csel\\chr008.pal",    L"Seth (CharaSelect)",              133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Seth },
 	{ L"data\\chr008\\chr008.pal",               L"Seth",                            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Seth },
-	{ L"___English\\data\\_csel\\chr019.pal",    L"Tsurugi (CharaSelect)",           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-	{ L"data\\chr019\\chr019.pal",               L"Tsurugi",                         133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-	{ L"___English\\data\\_csel\\chr020.pal",    L"Uzuki (CharaSelect)",             133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
-    { L"data\\chr020\\chr020.pal",               L"Uzuki",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10, },
+	{ L"___English\\data\\_csel\\chr019.pal",    L"Tsurugi (CharaSelect)",           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Tsurugi },
+	{ L"data\\chr019\\chr019.pal",               L"Tsurugi",                         133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Tsurugi },
+	{ L"___English\\data\\_csel\\chr020.pal",    L"Uzuki (CharaSelect)",             133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Uzuki },
+    { L"data\\chr020\\chr020.pal",               L"Uzuki",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Uzuki },
 	{ L"___English\\data\\_csel\\chr007.pal",    L"Vatista (CharaSelect)",           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Vati },
     { L"data\\chr007\\chr007.pal",               L"Vatista",                         133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Vati },
 	{ L"___English\\data\\_csel\\chr016.pal",    L"Wagner (CharaSelect)",            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Wagn },
@@ -132,4 +140,8 @@ const std::vector<sGCBUPF_BasicFileData> UNI2CharacterData =
     { L"data\\chr002\\chr002.pal",               L"Waldstein",                       133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Wald },
 	{ L"___English\\data\\_csel\\chr009.pal",    L"Yuzuriha (CharaSelect)",          133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
 	{ L"data\\chr009\\chr009.pal",               L"Yuzuriha",                        133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
+
+    { L"___English\\data\\_csel\\chr027.pal",    L"Zohar (CharaSelect)",             133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Zohar },
+    { L"data\\chr027\\chr027.pal",               L"Zohar",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Zohar },
+    { L"data\\chr027\\chr027_p1.pal",            L"Zohar (Doppelganger)",            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Zohar, 0x80 },
 };

@@ -2524,6 +2524,14 @@ enum SupportedFrenchBread_PaletteListIndex
 
     indexMBAACCSprites_BossArcueid,         // 0x82
     indexMBAACCSprites_ArchetypeEarthHime,  // 0x83
+
+    indexFrenchBreadSprites_UNI2_Izumi,             // 0x84
+    indexFrenchBreadSprites_UNI2_Kaguya,            // 0x85
+    indexFrenchBreadSprites_UNI2_Kuon,              // 0x86
+    indexFrenchBreadSprites_UNI2_Ogre,              // 0x87
+    indexFrenchBreadSprites_UNI2_Tsurugi,           // 0x88
+    indexFrenchBreadSprites_UNI2_Uzuki,             // 0x89
+    indexFrenchBreadSprites_UNI2_Zohar,             // 0x8a
 };
 
 enum SupportedTaito_PaletteListIndex
