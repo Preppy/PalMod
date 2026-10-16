@@ -97,6 +97,7 @@ protected:
     BOOL m_fWrapToNext;
     BOOL m_fRepeatToFill;
     BOOL m_fScrollByColumn;
+    BOOL m_fKeepChangesOnLayerSwap;
 
     // This can change based upon linewrap handling
     int16_t m_nCurrentHorizontalBounds = 16;

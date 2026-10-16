@@ -390,6 +390,7 @@ CPaletteImportDialog::CPaletteImportDialog(std::vector<uint8_t> rgPalette, CWnd*
     m_fRepeatToFill = CRegProc::GetPalImport_RepeatToFill(TRUE);
     m_fScrollByColumn = CRegProc::GetPalImport_ScrollByColumn(TRUE);
     m_fWrapToNext = CRegProc::GetPalImport_WrapToNext(TRUE);
+    m_fKeepChangesOnLayerSwap = CRegProc::GetPalImport_KeepOnLayerSwap(FALSE);
 }
 
 CPaletteImportDialog::~CPaletteImportDialog()
@@ -398,14 +399,13 @@ CPaletteImportDialog::~CPaletteImportDialog()
     CRegProc::SetPalImport_RepeatToFill(m_fRepeatToFill);
     CRegProc::SetPalImport_ScrollByColumn(m_fScrollByColumn);
     CRegProc::SetPalImport_WrapToNext(m_fWrapToNext);
+    CRegProc::SetPalImport_KeepOnLayerSwap(m_fKeepChangesOnLayerSwap);
 }
 
 IMPLEMENT_DYNAMIC(CPaletteImportDialog, CDialog)
 
 BOOL CPaletteImportDialog::OnInitDialog()
 {
-    OutputDebugString(L"Init dialog.\r\n");
-
     CDialog::OnInitDialog();
 
     UpdateData();
@@ -770,7 +770,8 @@ void CPaletteImportDialog::OnPreviewPalette()
 
 void CPaletteImportDialog::OnUpdateLayerTarget()
 {
-    if (_MadeAnyChanges())
+    if (_MadeAnyChanges() &&
+        !m_fKeepChangesOnLayerSwap)
     {
         _ResetPreview();
     }
@@ -838,6 +839,7 @@ void CPaletteImportDialog::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PALETTEIMPORT_WRAPTONEXT, m_fWrapToNext);
     DDX_Check(pDX, IDC_PALETTEIMPORT_REPEATTOFILL, m_fRepeatToFill);
     DDX_Check(pDX, IDC_PALETTEIMPORT_SCROLLBYCOLUMN, m_fScrollByColumn);
+    DDX_Check(pDX, IDC_PALETTEIMPORT_KEEPONSWAP, m_fKeepChangesOnLayerSwap);
 
     DDX_Control(pDX, IDC_PALHOST, m_PalHost);
 }

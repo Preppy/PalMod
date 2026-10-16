@@ -54,6 +54,7 @@ constexpr auto c_mainDefaultRemapFileTypeStr = L"main_RemapFileType";
 constexpr auto c_mainDefaultColorTransformStr = L"main_ColorTransformType";
 
 constexpr auto c_palimportAutoPreview = L"palimport_AutoPreview";
+constexpr auto c_palimportKeepOnSwap = L"palimport_KeepOnSwap";
 constexpr auto c_palimportRepeatToFill = L"palimport_RepeatToFill";
 constexpr auto c_palimportScrollByColumn = L"palimport_ScrollByColumn";
 constexpr auto c_palimportWrapToNext = L"palimport_WrapToNext";
@@ -145,6 +146,8 @@ public:
     // Palette import dialog
     static DWORD GetPalImport_UseAutoPreview(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportAutoPreview, dwFallbackValue); };
     static void SetPalImport_UseAutoPreview(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportAutoPreview, dwNewValue); };
+    static DWORD GetPalImport_KeepOnLayerSwap(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportKeepOnSwap, dwFallbackValue); };
+    static void SetPalImport_KeepOnLayerSwap(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportKeepOnSwap, dwNewValue); };
     static DWORD GetPalImport_RepeatToFill(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportRepeatToFill, dwFallbackValue); };
     static void SetPalImport_RepeatToFill(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportRepeatToFill, dwNewValue); };
     static DWORD GetPalImport_ScrollByColumn(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportScrollByColumn, dwFallbackValue); };
