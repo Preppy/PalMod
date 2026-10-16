@@ -105,64 +105,64 @@ const sDescTreeNode SF2WW_A_DHALSIM_09_COLLECTION[] =
 
 const sGame_PaletteDataset SF2WW_A_RYU_PORTRAITS_NODE[] =
 {
-    { L"Ryu", 0x9400 - 0x02, 0x9420 - 0x02 },
+    { L"Ryu", 0x9400 - 0x02, 0x9420 - 0x02, indexSF2Sprites_Ryu, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_EHONDA_PORTRAITS_NODE[] =
 {
-    { L"E.Honda", 0x9420 - 0x02, 0x9440 - 0x02 },
+    { L"E.Honda", 0x9420 - 0x02, 0x9440 - 0x02, indexSF2Sprites_EHonda, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_BLANKA_PORTRAITS_NODE[] =
 {
-    { L"Blanka", 0x9440 - 0x02, 0x9460 - 0x02 },
+    { L"Blanka", 0x9440 - 0x02, 0x9460 - 0x02, indexSF2Sprites_Blanka, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_GUILE_PORTRAITS_NODE[] =
 {
-    { L"Guile", 0x9460 - 0x02, 0x9480 - 0x02 },
+    { L"Guile", 0x9460 - 0x02, 0x9480 - 0x02, indexSF2Sprites_Guile, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_KEN_PORTRAITS_NODE[] =
 {
-    { L"Ken", 0x9480 - 0x02, 0x94a0 - 0x02 },
+    { L"Ken", 0x9480 - 0x02, 0x94a0 - 0x02, indexSF2Sprites_Ken, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_CHUNLI_PORTRAITS_NODE[] =
 {
-    { L"Chun-Li", 0x94a0 - 0x02, 0x94c0 - 0x02 },
+    { L"Chun-Li", 0x94a0 - 0x02, 0x94c0 - 0x02, indexSF2Sprites_ChunLi, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_ZANGIEF_PORTRAITS_NODE[] =
 {
-    { L"Zangief", 0x94c0 - 0x02, 0x94e0 - 0x02 },
+    { L"Zangief", 0x94c0 - 0x02, 0x94e0 - 0x02, indexSF2Sprites_Zangief, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_DHALSIM_PORTRAITS_NODE[] =
 {
-    { L"Dhalsim 1/2", 0x94e0 - 0x02, 0x9500 - 0x02 },
-    { L"Dhalsim 2/2", 0x9580 - 0x02, 0x95a0 - 0x02 },
+    { L"Dhalsim 1/2", 0x94e0 - 0x02, 0x9500 - 0x02, indexSF2Sprites_Dhalsim, 0x40, &pairNext },
+    { L"Dhalsim 2/2", 0x9580 - 0x02, 0x95a0 - 0x02, indexSF2Sprites_Dhalsim, 0x41 },
 };
 
 const sGame_PaletteDataset SF2WW_A_DICTATOR_PORTRAITS_NODE[] =
 {
-    { L"Dictator 1/2", 0x9500 - 0x02, 0x9520 - 0x02 },
-    { L"Dictator 2/2", 0x95c0 - 0x02, 0x95e0 - 0x02 },
+    { L"Dictator 1/2", 0x9500 - 0x02, 0x9520 - 0x02, indexSF2Sprites_Bison, 0x40, &pairNext },
+    { L"Dictator 2/2", 0x95c0 - 0x02, 0x95e0 - 0x02, indexSF2Sprites_Bison, 0x41 },
 };
 
 const sGame_PaletteDataset SF2WW_A_BOXER_PORTRAITS_NODE[] =
 {
-    { L"Boxer", 0x9540 - 0x02, 0x9560 - 0x02 },
+    { L"Boxer", 0x9540 - 0x02, 0x9560 - 0x02, indexSF2Sprites_Balrog, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_SAGAT_PORTRAITS_NODE[] =
 {
-    { L"Sagat", 0x9520 - 0x02, 0x9540 - 0x02 },
+    { L"Sagat", 0x9520 - 0x02, 0x9540 - 0x02, indexSF2Sprites_Sagat, 0x40 },
 };
 
 const sGame_PaletteDataset SF2WW_A_CLAW_PORTRAITS_NODE[] =
 {
-    { L"Claw", 0x9560 - 0x02, 0x9580 - 0x02 },
+    { L"Claw", 0x9560 - 0x02, 0x9580 - 0x02, indexSF2Sprites_Vega, 0x40 },
 };
 
 const sDescTreeNode SF2WW_A_10_PORTRAITS_COLLECTION[] =

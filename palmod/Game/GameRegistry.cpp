@@ -2347,7 +2347,7 @@ namespace KnownGameInfo
         {
             SF2WW_A,
             L"Street Fighter 2 World Warrior (CPS1)",
-            { SF2WW_A,            L"SF2:WW", L"SF2:WW (CPS1)|sf2e_28g.9e;sf2_29b.10e|", GamePlatform::CapcomCPS12, GameSeries::CPS_SF2 },
+            { SF2WW_A,            L"SF2:WW", L"SF2:WW (CPS1)|sf2*28*.9e;sf2*29*.10e|", GamePlatform::CapcomCPS12, GameSeries::CPS_SF2 },
             Make_SF2WW_A,
             CGame_SF2WW_A::GetRule,
         },
