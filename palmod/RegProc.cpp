@@ -570,31 +570,6 @@ void CRegProc::LoadReg(eRegistryStoreID src)
         break;
         case eRegistryStoreID::REG_IMGOUT:
         {
-            RegType = REG_DWORD;
-            GetSz = sizeof(DWORD);
-
-            if (RegQueryValueEx(hKey, L"imgout_bgcol", 0, &RegType, reinterpret_cast<LPBYTE>(&imgout_bgcol), &GetSz) != ERROR_SUCCESS)
-                imgout_bgcol = RGB(0, 0, 0);
-
-            if (RegQueryValueEx(hKey, L"imgout_border", 0, &RegType, reinterpret_cast<LPBYTE>(&imgout_border), &GetSz) != ERROR_SUCCESS)
-                imgout_border = 0;
-
-            // Changed our index, so don't try to mismap settings.
-            if (RegQueryValueEx(hKey, L"imgout_zoomindex_2", 0, &RegType, reinterpret_cast<LPBYTE>(&imgout_zoomindex), &GetSz) != ERROR_SUCCESS)
-                imgout_zoomindex = 0;
-
-            GetSz = sizeof(BOOL);
-            if (RegQueryValueEx(hKey, L"TransparentPNG", 0, &RegType, reinterpret_cast<LPBYTE>(&fTransPNG), &GetSz) != ERROR_SUCCESS)
-            {
-                fTransPNG = TRUE;
-            }
-
-            GetSz = sizeof(BOOL);
-            if (RegQueryValueEx(hKey, L"imgout_ExportPNGAsJoined", 0, &RegType, reinterpret_cast<LPBYTE>(&fExportPNGAsJoined), &GetSz) != ERROR_SUCCESS)
-            {
-                fExportPNGAsJoined = TRUE;
-            }
-
             RegType = REG_SZ;
             GetSz = MAX_PATH;
 
@@ -676,12 +651,6 @@ void CRegProc::SaveReg(eRegistryStoreID src)
 
             case eRegistryStoreID::REG_IMGOUT:
             {
-                RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_bgcol), sizeof(imgout_bgcol));
-                RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_border), sizeof(imgout_border));
-                RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&imgout_zoomindex), sizeof(imgout_zoomindex));
-                RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fTransPNG), sizeof(fTransPNG));
-                RegSetValueEx(hKey, L"imgout_ExportPNGAsJoined", 0, REG_DWORD, reinterpret_cast<LPBYTE>(&fExportPNGAsJoined), sizeof(fExportPNGAsJoined));
-
                 conv_str = RectToStr(imgout_szpos);
 
                 RegSetValueEx(hKey, L"imgout_szpos", 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));

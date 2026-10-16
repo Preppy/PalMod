@@ -53,6 +53,17 @@ constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback"
 constexpr auto c_mainDefaultRemapFileTypeStr = L"main_RemapFileType";
 constexpr auto c_mainDefaultColorTransformStr = L"main_ColorTransformType";
 
+constexpr auto c_palimportAutoPreview = L"palimport_AutoPreview";
+constexpr auto c_palimportRepeatToFill = L"palimport_RepeatToFill";
+constexpr auto c_palimportScrollByColumn = L"palimport_ScrollByColumn";
+constexpr auto c_palimportWrapToNext = L"palimport_WrapToNext";
+
+constexpr auto c_imageExport_BGColor = L"imgout_bgcol";
+constexpr auto c_imageExport_BorderSize = L"imgout_border";
+constexpr auto c_imageExport_ZoomIndex = L"imgout_zoomindex_2";
+constexpr auto c_imageExport_TransparentPNG = L"TransparentPNG";
+constexpr auto c_imageExport_JoinPNGs = L"imgout_ExportPNGAsJoined";
+
 struct sPreviewWindowSettings
 {
     COLORREF prev_bgcol = 0x00D0D0D0;
@@ -131,6 +142,28 @@ public:
     static DWORD GetDefaultColorTransform(DWORD dwTransformNumber, DWORD dwFallbackValue = 0) { return GetDWORDValueForTransform(dwTransformNumber, dwFallbackValue); };
     static void SetDefaultColorTransform(DWORD dwTransformNumber, DWORD dwDefault) { StoreDWORDValueForTransform(dwTransformNumber, dwDefault); };
 
+    // Palette import dialog
+    static DWORD GetPalImport_UseAutoPreview(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportAutoPreview, dwFallbackValue); };
+    static void SetPalImport_UseAutoPreview(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportAutoPreview, dwNewValue); };
+    static DWORD GetPalImport_RepeatToFill(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportRepeatToFill, dwFallbackValue); };
+    static void SetPalImport_RepeatToFill(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportRepeatToFill, dwNewValue); };
+    static DWORD GetPalImport_ScrollByColumn(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportScrollByColumn, dwFallbackValue); };
+    static void SetPalImport_ScrollByColumn(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportScrollByColumn, dwNewValue); };
+    static DWORD GetPalImport_WrapToNext(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportWrapToNext, dwFallbackValue); };
+    static void SetPalImport_WrapToNext(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportWrapToNext, dwNewValue); };
+
+    // Image export: all shared so can't be preloaded
+    static DWORD GetImageExport_BackgroundColor(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_BGColor, dwFallbackValue); };
+    static void SetImageExport_BackgroundColor(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_BGColor, dwNewValue); };
+    static DWORD GetImageExport_BorderSize(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_BorderSize, dwFallbackValue); };
+    static void SetImageExport_BorderSize(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_BorderSize, dwNewValue); };
+    static DWORD GetImageExport_ExportPNGAsJoined(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_JoinPNGs, dwFallbackValue); };
+    static void SetImageExport_ExportPNGAsJoined(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_JoinPNGs, dwNewValue); };
+    static DWORD GetImageExport_TransparentPNG(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_TransparentPNG, dwFallbackValue); };
+    static void SetImageExport_TransparentPNG(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_TransparentPNG, dwNewValue); };
+    static DWORD GetImageExport_ZoomIndex(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_ZoomIndex, dwFallbackValue); };
+    static void SetImageExport_ZoomIndex(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_ZoomIndex, dwNewValue); };
+       
     // 0: extras/txt
     // 1: code/h
     static DWORD GetDefaultRemapFiletype() { return GetDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr); };
@@ -166,11 +199,6 @@ public:
     //New Image
     RECT imgout_szpos = { c_badWindowPosValue };
     // these values are all ignored and set during lookup
-    COLORREF imgout_bgcol = 0;
-    DWORD imgout_border = 0;
-    DWORD imgout_zoomindex = 0;
-    BOOL fTransPNG = TRUE;
-    BOOL fExportPNGAsJoined = TRUE;
 };
 
 CString RectToStr(RECT in_rect);

@@ -305,8 +305,9 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_ABOUT_PALMODSITE, &CPalModDlg::OnAboutLaunchPalModSite)
     ON_COMMAND(ID_ABOUT_VHISTORY, &CPalModDlg::OnAboutShowHistory)
 
-    ON_COMMAND(ID_TOOLS_LOADACTPALETTE, &CPalModDlg::OnImportPalette)
-    ON_COMMAND(ID_TOOLS_SAVEACTPALETTE, &CPalModDlg::OnExportPalette)
+    ON_COMMAND(ID_TOOLS_LOADPALETTE, &CPalModDlg::OnImportPalette)
+    ON_COMMAND(ID_TOOLS_LOADPALETTE_ADVANCED, &CPalModDlg::OnImportPaletteAdvanced)
+    ON_COMMAND(ID_TOOLS_SAVEPALETTE, &CPalModDlg::OnExportPalette)
     ON_COMMAND(ID_TOOLS_GRADIENT_HSL, &CPalModDlg::OnBnClickedGradient_HSL)
     ON_COMMAND(ID_TOOLS_GRADIENT_HSV, &CPalModDlg::OnBnClickedGradient_HSV)
     ON_COMMAND(ID_TOOLS_GRADIENT_LAB, &CPalModDlg::OnBnClickedGradient_LAB)
@@ -728,23 +729,23 @@ BOOL CALLBACK CPalModDlg::EnumChildProc(HWND hwnd, LPARAM lParam)
 
     switch (nId)
     {
-    // These are all toggled within CPalModDlg::EnableSlider based upon the game constraints
-    case IDC_RH_SLIDER:
-    case IDC_GS_SLIDER:
-    case IDC_BL_SLIDER:
-    case IDC_A_SLIDER:
-    case IDC_EDIT_RH:
-    case IDC_EDIT_GS:
-    case IDC_EDIT_BL:
-    case IDC_EDIT_A:
-    case IDC_SPIN_RH:
-    case IDC_SPIN_GS:
-    case IDC_SPIN_BL:
-    case IDC_SPIN_A:
-        break;
-    default:
-        ::EnableWindow(hwnd, ((CPalModDlg*)lParam)->m_fEnabled);
-        break;
+        // These are all toggled within CPalModDlg::EnableSlider based upon the game constraints
+        case IDC_RH_SLIDER:
+        case IDC_GS_SLIDER:
+        case IDC_BL_SLIDER:
+        case IDC_A_SLIDER:
+        case IDC_EDIT_RH:
+        case IDC_EDIT_GS:
+        case IDC_EDIT_BL:
+        case IDC_EDIT_A:
+        case IDC_SPIN_RH:
+        case IDC_SPIN_GS:
+        case IDC_SPIN_BL:
+        case IDC_SPIN_A:
+            break;
+        default:
+            ::EnableWindow(hwnd, ((CPalModDlg*)lParam)->m_fEnabled);
+            break;
     }
 
     return TRUE;

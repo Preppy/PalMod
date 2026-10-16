@@ -134,6 +134,7 @@ private:
     BOOL m_bEnabled = TRUE;
     BOOL m_bOverControl = FALSE;
     BOOL m_bInCtrl = FALSE;
+    bool m_fInteractive = true;
 
     //Draw variables
     RECT m_rIndexRect;
@@ -206,6 +207,7 @@ public:
     ~CJunk();
 
     void Enable(BOOL fEnableFlag = TRUE) { m_bEnabled = fEnableFlag; UpdateCtrl(); }
+    void SetNonInteractive() { m_fInteractive = false; };
 
     BOOL InitNewSize(int nNewAmt, COLORREF* rgNewPal);
     static BOOL InitPen();

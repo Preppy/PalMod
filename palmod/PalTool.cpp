@@ -1,7 +1,8 @@
 #include "StdAfx.h"
 #include "PalTool.h"
 
-CPalTool::CPalTool()
+CPalTool::CPalTool(bool fAllowUserInteraction /* = true */) :
+    m_fAllowUserInteraction( fAllowUserInteraction)
 {
     Init();
 
@@ -29,7 +30,9 @@ BOOL CPalTool::RegisterWindowClass()
     WNDCLASS wndcls;
     HINSTANCE hInst = AfxGetInstanceHandle();
 
-    if (!(::GetClassInfo(hInst, PALTOOL_CLASSNAME, &wndcls)))
+    LPCWSTR pszClassNameToUse = m_fAllowUserInteraction ? PALTOOL_CLASSNAME : PALTOOL_CLASSNAME_PREVIEWONLY;
+
+    if (!(::GetClassInfo(hInst, pszClassNameToUse, &wndcls)))
     {
         // otherwise we need to register a new class
         wndcls.style = CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW;
@@ -40,7 +43,7 @@ BOOL CPalTool::RegisterWindowClass()
         wndcls.hCursor = AfxGetApp()->LoadStandardCursor(IDC_ARROW);
         wndcls.hbrBackground = (HBRUSH)(COLOR_3DFACE + 1);
         wndcls.lpszMenuName = NULL;
-        wndcls.lpszClassName = PALTOOL_CLASSNAME;
+        wndcls.lpszClassName = pszClassNameToUse;
 
         if (!AfxRegisterClass(&wndcls))
         {
@@ -106,6 +109,11 @@ void CPalTool::Init()
     {
         m_sPalEntry[iPalette].PaletteCtrl = new CJunk;
         m_sPalEntry[iPalette].PaletteCtrl->SetArrayIndex(iPalette);
+
+        if (!m_fAllowUserInteraction)
+        {
+            m_sPalEntry[iPalette].PaletteCtrl->SetNonInteractive();
+        }
         m_sPalEntry[iPalette].fPalAvailable = false;
     }
 
@@ -268,7 +276,11 @@ void CPalTool::EndSetPal()
         m_nCurrPage = 1;
         m_nPageAmt = nCurrentPage + 1;
 
-        m_PgSpin.SetRange(1, static_cast<short>(m_nPageAmt));
+        if (m_fAllowUserInteraction)
+        {
+            // page spinners are only available in normal mode
+            m_PgSpin.SetRange(1, static_cast<short>(m_nPageAmt));
+        }
     }
     else
     {
@@ -278,15 +290,18 @@ void CPalTool::EndSetPal()
         m_nPageAmt = 0;
     }
 
-    if (m_nPageAmt > 1)
+    if (m_fAllowUserInteraction)
     {
-        m_PgSpin.ShowWindow(SW_SHOW);
-        m_PgSpin.EnableWindow(TRUE);
-    }
-    else
-    {
-        m_PgSpin.ShowWindow(SW_HIDE);
-        //m_PgSpin.EnableWindow(FALSE);
+        if (m_nPageAmt > 1)
+        {
+            m_PgSpin.ShowWindow(SW_SHOW);
+            m_PgSpin.EnableWindow(TRUE);
+        }
+        else
+        {
+            m_PgSpin.ShowWindow(SW_HIDE);
+            //m_PgSpin.EnableWindow(FALSE);
+        }
     }
 
     m_nPrevPalAmt = m_nCurrPalAmt;
@@ -475,48 +490,51 @@ void CPalTool::PreSubclassWindow()
 
 BOOL CPalTool::PreTranslateMessage(MSG* pMsg)
 {
-    switch (pMsg->message)
+    if (m_fAllowUserInteraction)
     {
-        case WM_NOTIFY:
+        switch (pMsg->message)
         {
-            switch (((LPNMHDR)pMsg->lParam)->code)
+            case WM_NOTIFY:
             {
-                case CUSTOM_SS:
-                case CUSTOM_MS:
+                switch (((LPNMHDR)pMsg->lParam)->code)
                 {
-                    OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
+                    case CUSTOM_SS:
+                    case CUSTOM_MS:
+                    {
+                        OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
 
-                    SendPalMsg(m_nActivePaletteCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
-                    return TRUE;
+                        SendPalMsg(m_nActivePaletteCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
+                        return TRUE;
+                    }
+
+                    case CUSTOM_HLCHANGE:
+                    case CUSTOM_SELHLCHANGE:
+                    {
+                        SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
+                        return TRUE;
+                    }
+
+                    case CUSTOM_COPY:
+                    case CUSTOM_PASTE:
+                    case CUSTOM_SALL:
+                    case CUSTOM_SMATCHING:
+                    case CUSTOM_SNONE:
+                    case CUSTOM_COPYOFFSET:
+                    case CUSTOM_COPYBINARY:
+                    {
+                        SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
+                        return TRUE;
+                    }
+
+                    default:
+                        break;
                 }
-
-                case CUSTOM_HLCHANGE:
-                case CUSTOM_SELHLCHANGE:
-                {
-                    SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
-                    return TRUE;
-                }
-
-                case CUSTOM_COPY:
-                case CUSTOM_PASTE:
-                case CUSTOM_SALL:
-                case CUSTOM_SMATCHING:
-                case CUSTOM_SNONE:
-                case CUSTOM_COPYOFFSET:
-                case CUSTOM_COPYBINARY:
-                {
-                    SendPalMsg(((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
-                    return TRUE;
-                }
-
-                default:
-                    break;
             }
-        }
-        break;
-
-        default:
             break;
+
+            default:
+                break;
+        }
     }
 
     return CWnd::PreTranslateMessage(pMsg);

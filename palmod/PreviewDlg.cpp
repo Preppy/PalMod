@@ -49,8 +49,13 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_FILE_CLOSE, &CPreviewDlg::OnFileClose)
     ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImgFull)
     ON_COMMAND(ID_FILE_QUICKEXPORTIMAGE, &CPreviewDlg::OnFileExportImgQuick)
+
     ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSpriteForZero)
     ON_COMMAND(ID_FILE_LOADSPRITECUSTOM, &CPreviewDlg::OnLoadCustomSpriteWithOptions)
+
+    ON_COMMAND(ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetOutputBackgroundColor)
+    ON_COMMAND(ID_SETTINGS_IMGOUT_EXPORTSINGLE, &CPreviewDlg::OnSetOutputPNGAsJoined)
+    ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, &CPreviewDlg::OnSetOutputUseTransparentPNG)
 
     ON_COMMAND(ID_SETTINGS_BLINKINVERTS, &CPreviewDlg::OnSetBlinkInverts)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBackgroundCol)
@@ -393,6 +398,15 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         const bool fGameLoaded = GetHost()->GetCurrGame();
         pPopupMenu->EnableMenuItem(ID_FILE_EXPORTIMAGE, !fGameLoaded);
         pPopupMenu->EnableMenuItem(ID_FILE_QUICKEXPORTIMAGE, !fGameLoaded);
+
+        // the Export Zoom and Export Border options also affect quick shared, but I don't 
+        // have a good quick way of exposing those.  "export as joined" is the one I really
+        // care about.
+        const DWORD fExportPNGAsTransparent = CRegProc::GetImageExport_TransparentPNG(1);
+        const DWORD fExportPNGAsJoined = CRegProc::GetImageExport_ExportPNGAsJoined(0);
+
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * fExportPNGAsTransparent);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMGOUT_EXPORTSINGLE, MF_CHECKED * fExportPNGAsJoined);
     }
     else if (pImportMenu == pPopupMenu)
     {
@@ -665,4 +679,26 @@ void CPreviewDlg::OnSettingsUseBackgroundColor()
     {
         m_ImgDisp.UpdateCtrl();
     }
+}
+
+void CPreviewDlg::OnSetOutputBackgroundColor()
+{
+    COLORREF bgCol = CRegProc::GetImageExport_BackgroundColor(0);
+
+    CColorDialog c_dlg(bgCol);
+
+    if (c_dlg.DoModal() == IDOK)
+    {
+        CRegProc::SetImageExport_BackgroundColor(c_dlg.GetColor());
+    }    
+}
+
+void CPreviewDlg::OnSetOutputPNGAsJoined()
+{
+    CRegProc::SetImageExport_ExportPNGAsJoined(CRegProc::GetImageExport_ExportPNGAsJoined(0) ? 0 : 1);
+}
+
+void CPreviewDlg::OnSetOutputUseTransparentPNG()
+{
+    CRegProc::SetImageExport_TransparentPNG(CRegProc::GetImageExport_TransparentPNG(1) ? 0 : 1);
 }

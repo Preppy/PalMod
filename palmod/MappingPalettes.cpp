@@ -156,7 +156,7 @@ void CPalModDlg::OnMappingPaletteUse(bool fMapAllCurrentPalettes)
         const uint32_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
         const int nAlphaLocation = static_cast<int>(CurrGame->GetMaximumWritePerEachTransparency());
 
-        PaletteMapper.InitializeForUse();
+        m_PaletteMapper.InitializeForUse();
         const UINT_PTR nStartingPalette = fMapAllCurrentPalettes ? 0 : m_nCurrSelPal;
         // Theoretically we could (should?) allow for maximized mapping to handle emulator color display logic
         const uint8_t nStepLength = 1;
@@ -170,7 +170,7 @@ void CPalModDlg::OnMappingPaletteUse(bool fMapAllCurrentPalettes)
 
             CurrGame->MarkPaletteDirty(PalDef->uUnitId, PalDef->uPalId);
 
-            std::vector<uint32_t> colorMap = PaletteMapper.GetMappingPaletteSequence(CurrGame->GetColorMode(), CurrGame->GetMaximumWritePerEachTransparency(), nPalLength, nStepLength);
+            std::vector<uint32_t> colorMap = m_PaletteMapper.GetMappingPaletteSequence(CurrGame->GetColorMode(), CurrGame->GetMaximumWritePerEachTransparency(), nPalLength, nStepLength);
 
             for (uint32_t iCurrentIndexInPalette = 0; iCurrentIndexInPalette < colorMap.size(); iCurrentIndexInPalette++)
             {
@@ -196,7 +196,7 @@ void CPalModDlg::OnMappingPaletteUse(bool fMapAllCurrentPalettes)
 
         CString strInfo = L"Updated to use a mapping palette.";
 
-        if (PaletteMapper.UnsafeLooped())
+        if (m_PaletteMapper.UnsafeLooped())
         {
             // actually, we should outright show an error here.
             strInfo += L"  ERROR: Too many colors to map.";
@@ -204,7 +204,7 @@ void CPalModDlg::OnMappingPaletteUse(bool fMapAllCurrentPalettes)
             CString strMsg = L"ERROR!  This palette set has too many color indexes to uniquely map.\r\n\r\nYou will need to map targeted palettes instead.";
             MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        else if (PaletteMapper.Looped())
+        else if (m_PaletteMapper.Looped())
         {
             strInfo += L"  Reached end of map: restarted map.";
         }

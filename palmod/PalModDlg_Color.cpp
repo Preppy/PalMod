@@ -322,35 +322,35 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
     switch (nSliderId)
     {
-    case IDC_RH_SLIDER:
-    {
-        editControl = &m_Edit_RH;
-        break;
-    }
-    case IDC_GS_SLIDER:
-    {
-        editControl = &m_Edit_GS;
-        break;
-    }
-    case IDC_BL_SLIDER:
-    {
-        editControl = &m_Edit_BL;
-        break;
-    }
-    case IDC_A_SLIDER:
-    {
-        editControl = &m_Edit_A;
-        break;
-    }
-    case IDC_SPIN_RH:
-    case IDC_SPIN_GS:
-    case IDC_SPIN_BL:
-    case IDC_SPIN_A:
-        // These are handled over in OnDeltaposSpin*
-        return;
-    default:
-        OutputDebugString(L"Bogus slider ID: bad things will happen\n");
-        return;
+        case IDC_RH_SLIDER:
+        {
+            editControl = &m_Edit_RH;
+            break;
+        }
+        case IDC_GS_SLIDER:
+        {
+            editControl = &m_Edit_GS;
+            break;
+        }
+        case IDC_BL_SLIDER:
+        {
+            editControl = &m_Edit_BL;
+            break;
+        }
+        case IDC_A_SLIDER:
+        {
+            editControl = &m_Edit_A;
+            break;
+        }
+        case IDC_SPIN_RH:
+        case IDC_SPIN_GS:
+        case IDC_SPIN_BL:
+        case IDC_SPIN_A:
+            // These are handled over in OnDeltaposSpin*
+            return;
+        default:
+            OutputDebugString(L"Bogus slider ID: bad things will happen\n");
+            return;
     }
 
     //Update the slider undo data before changing
@@ -495,107 +495,107 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
 
     switch (nCtrlId)
     {
-    case IDC_EDIT_RH:
-    {
-        editControl = &m_Edit_RH;
-        TargetSlider = &m_RHSlider;
+        case IDC_EDIT_RH:
+        {
+            editControl = &m_Edit_RH;
+            TargetSlider = &m_RHSlider;
 
-        nColMax = m_nRGBAmt;
-        nHLSHI = 360;
-        break;
-    }
-    case IDC_EDIT_GS:
-    {
-        editControl = &m_Edit_GS;
-        TargetSlider = &m_GSSlider;
+            nColMax = m_nRGBAmt;
+            nHLSHI = 360;
+            break;
+        }
+        case IDC_EDIT_GS:
+        {
+            editControl = &m_Edit_GS;
+            TargetSlider = &m_GSSlider;
 
-        nColMax = m_nRGBAmt;
-        nHLSHI = 255;
-        break;
-    }
-    case IDC_EDIT_BL:
-    {
-        editControl = &m_Edit_BL;
-        TargetSlider = &m_BLSlider;
+            nColMax = m_nRGBAmt;
+            nHLSHI = 255;
+            break;
+        }
+        case IDC_EDIT_BL:
+        {
+            editControl = &m_Edit_BL;
+            TargetSlider = &m_BLSlider;
 
-        nColMax = m_nRGBAmt;
-        nHLSHI = 100;
-        break;
-    }
-    case IDC_EDIT_A:
-    {
-        editControl = &m_Edit_A;
-        TargetSlider = &m_ASlider;
+            nColMax = m_nRGBAmt;
+            nHLSHI = 100;
+            break;
+        }
+        case IDC_EDIT_A:
+        {
+            editControl = &m_Edit_A;
+            TargetSlider = &m_ASlider;
 
-        nColMax = m_nAAmt;
-        nHLSHI = nColMax;
-        break;
-    }
-    default:
-        OutputDebugString(L"bogus edit control specified");
-        return;
+            nColMax = m_nAAmt;
+            nHLSHI = nColMax;
+            break;
+        }
+        default:
+            OutputDebugString(L"bogus edit control specified");
+            return;
     }
 
     switch (nSetFlag)
     {
-    case 0:
+        case 0:
+            break;
+        case 1:
+        {
+            if (m_fShowAsRGBNotHSL)
+            {
+                if (m_fForceShowAs32bitColor && fGameIsLoaded)
+                {
+                    if (nCtrlId == IDC_EDIT_A)
+                    {
+                        *editControl = CurrGame->GetNearestLegal8BitColorValue_A(LimitRGB(*editControl));
+                    }
+                    else
+                    {
+                        *editControl = CurrGame->GetNearestLegal8BitColorValue_RGB(LimitRGB(*editControl));
+                    }
+                }
+                else
+                {
+                    *editControl = LimitVal(*editControl, nColMax, 0);
+                }
+            }
+            else
+            {
+                *editControl = LimitVal(*editControl, nHLSHI, 0);
+            }
+        }
         break;
-    case 1:
-    {
-        if (m_fShowAsRGBNotHSL)
+        default:
         {
-            if (m_fForceShowAs32bitColor && fGameIsLoaded)
+            if (m_fShowAsRGBNotHSL)
             {
-                if (nCtrlId == IDC_EDIT_A)
+                if (m_fForceShowAs32bitColor && fGameIsLoaded)
                 {
-                    *editControl = CurrGame->GetNearestLegal8BitColorValue_A(LimitRGB(*editControl));
+                    BOOL fNeg = (*editControl < 0);
+
+                    if (nCtrlId == IDC_EDIT_A)
+                    {
+                        *editControl = CurrGame->GetNearestLegal8BitColorValue_A(LimitRGB(abs(*editControl)));
+                    }
+                    else
+                    {
+                        *editControl = CurrGame->GetNearestLegal8BitColorValue_RGB(LimitRGB(abs(*editControl)));
+                    }
+
+                    *editControl = fNeg ? *editControl - *editControl - *editControl : *editControl;
                 }
                 else
                 {
-                    *editControl = CurrGame->GetNearestLegal8BitColorValue_RGB(LimitRGB(*editControl));
+                    *editControl = LimitVal(*editControl, nColMax, -nColMax);
                 }
             }
             else
             {
-                *editControl = LimitVal(*editControl, nColMax, 0);
+                *editControl = LimitVal(*editControl, nHLSHI, -nHLSHI);
             }
         }
-        else
-        {
-            *editControl = LimitVal(*editControl, nHLSHI, 0);
-        }
-    }
-    break;
-    default:
-    {
-        if (m_fShowAsRGBNotHSL)
-        {
-            if (m_fForceShowAs32bitColor && fGameIsLoaded)
-            {
-                BOOL fNeg = (*editControl < 0);
-
-                if (nCtrlId == IDC_EDIT_A)
-                {
-                    *editControl = CurrGame->GetNearestLegal8BitColorValue_A(LimitRGB(abs(*editControl)));
-                }
-                else
-                {
-                    *editControl = CurrGame->GetNearestLegal8BitColorValue_RGB(LimitRGB(abs(*editControl)));
-                }
-
-                *editControl = fNeg ? *editControl - *editControl - *editControl : *editControl;
-            }
-            else
-            {
-                *editControl = LimitVal(*editControl, nColMax, -nColMax);
-            }
-        }
-        else
-        {
-            *editControl = LimitVal(*editControl, nHLSHI, -nHLSHI);
-        }
-    }
-    break;
+        break;
     }
 
     int nOldPos = TargetSlider->GetPos();
@@ -1252,8 +1252,8 @@ void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunctio
                 }
             }
 
-            const COLORREF colorStart = m_CurrPalCtrl->GetColorAtIndex(iInitialPos);
-            const COLORREF colorFinish = m_CurrPalCtrl->GetColorAtIndex(iTerminalPos);
+            const COLORREF colorStart = m_CurrPalCtrl->GetColorAtIndex(static_cast<uint8_t>(iInitialPos));
+            const COLORREF colorFinish = m_CurrPalCtrl->GetColorAtIndex(static_cast<uint8_t>(iTerminalPos));
 
             CGameClass* CurrGame = GetHost()->GetCurrGame();
 

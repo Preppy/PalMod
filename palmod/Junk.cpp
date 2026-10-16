@@ -354,7 +354,8 @@ CJunk::~CJunk()
     //delete (dcPaintDC);
     CleanUp();
 
-    if (m_bCreatedPens)
+    // in theory we could update this to be ref counted but this works for now
+    if (m_bCreatedPens && m_fInteractive)
     {
         m_bCreatedPens = FALSE;
         DeleteObject(m_PIndexHL);
@@ -526,7 +527,7 @@ void CJunk::SelectAll()
 
 void CJunk::MovePaletteSelection(SelectionMovement nOption)
 {
-    if (m_bEnabled)
+    if (m_bEnabled && m_fInteractive)
     {
         switch (nOption)
         {
@@ -822,7 +823,7 @@ BOOL CJunk::UpdateCtrl(BOOL fUpdFace)
 
 void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 {
-    if (!m_bEnabled)
+    if (!m_bEnabled || !m_fInteractive)
     {
         return;
     }
@@ -922,7 +923,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
 void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
 {
-    if (!m_bEnabled)
+    if (!m_bEnabled || !m_fInteractive)
     {
         return;
     }
@@ -1055,7 +1056,7 @@ void CJunk::SelectFirstColor()
 
 void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 {
-    if (!m_bEnabled)
+    if (!m_bEnabled || !m_fInteractive)
     {
         return;
     }
@@ -1182,6 +1183,11 @@ void CJunk::OnTimer(UINT_PTR nIDEvent)
 
 void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 {
+    if (!m_bEnabled || !m_fInteractive)
+    {
+        return;
+    }
+
     CMenu PopupMenu;
 
     if (PopupMenu.CreatePopupMenu())

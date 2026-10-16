@@ -52,6 +52,11 @@ public:
     afx_msg void OnZoom6x() { UpdateZoomSetting(6.0); };
     afx_msg void OnZoom7x() { UpdateZoomSetting(7.0); };
     afx_msg void OnZoom8x() { UpdateZoomSetting(8.0); };
+
+    afx_msg void OnSetOutputBackgroundColor();
+    afx_msg void OnSetOutputPNGAsJoined();
+    afx_msg void OnSetOutputUseTransparentPNG();
+
     afx_msg void OnSetBackgroundCol();
     afx_msg void OnSetBlinkCol();
     afx_msg void OnSetBlinkInverts();

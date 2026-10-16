@@ -4,8 +4,6 @@
 #include "game\Default.h"
 #include "Junk.h"
 
-constexpr auto PALTOOL_CLASSNAME = L"CPalTool";  // Window class name
-
 constexpr auto PAL_TXT_SPACE = 5;
 
 constexpr auto ID_PALTOOLSPIN = 0xFF00;
@@ -21,11 +19,15 @@ struct sPalEntry
 class CPalTool : public CWnd
 {
 private:
+    LPCWSTR PALTOOL_CLASSNAME = L"CPalTool";  // Window class name
+    LPCWSTR PALTOOL_CLASSNAME_PREVIEWONLY = L"CPalTool_PreviewOnly";  // Window class name
+
     sPalEntry m_sPalEntry[MAX_PALETTES_DISPLAYABLE];
     CSize m_PalSize[MAX_PALETTES_DISPLAYABLE];
 
     bool m_fIsFirstPaint = true;
     bool m_fSpinInit = true;
+    bool m_fAllowUserInteraction = true;
 
     CFont m_BaseFont;
     bool m_fFontIsBold = true;
@@ -56,7 +58,7 @@ private:
     void SetFontToBold(bool beBold);
 
 public:
-    CPalTool();
+    CPalTool(bool fAllowUserInteraction = true);
     ~CPalTool();
 
     void CleanUp();

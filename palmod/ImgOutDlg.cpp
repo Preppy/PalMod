@@ -467,18 +467,18 @@ void CImgOutDlg::LoadSettings()
 
     sett.LoadReg(eRegistryStoreID::REG_IMGOUT);
 
-    m_DumpBmp.m_crBGCol = sett.imgout_bgcol;
+    m_DumpBmp.m_crBGCol = sett.GetImageExport_BackgroundColor(0);
 
     if (m_fShowingUI)
     {
-        m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
+        m_CB_Zoom.SetCurSel(sett.GetImageExport_ZoomIndex(0));
 
         UpdateData();
     }
 
-    m_fTransPNG = sett.fTransPNG;
-    m_fExportPNGAsJoined = sett.fExportPNGAsJoined;
-    m_border_sz = sett.imgout_border;
+    m_fTransPNG = sett.GetImageExport_TransparentPNG(1);
+    m_fExportPNGAsJoined = sett.GetImageExport_ExportPNGAsJoined(0);
+    m_border_sz = sett.GetImageExport_BorderSize(0);
 
     if (m_fShowingUI)
     {
@@ -499,12 +499,11 @@ void CImgOutDlg::SaveSettings()
 {
     CRegProc sett;
 
-    sett.imgout_bgcol = m_DumpBmp.m_crBGCol;
-
-    sett.imgout_border = m_border_sz;
-    sett.imgout_zoomindex = m_CB_Zoom.GetCurSel();
-    sett.fTransPNG = m_fTransPNG;
-    sett.fExportPNGAsJoined = m_fExportPNGAsJoined;
+    sett.SetImageExport_BackgroundColor(m_DumpBmp.m_crBGCol);
+    sett.SetImageExport_BorderSize(m_border_sz);
+    sett.SetImageExport_ZoomIndex(m_CB_Zoom.GetCurSel());
+    sett.SetImageExport_TransparentPNG(m_fTransPNG);
+    sett.SetImageExport_ExportPNGAsJoined(m_fExportPNGAsJoined);
 
     RECT window_rect;
 

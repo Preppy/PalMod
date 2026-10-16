@@ -951,7 +951,7 @@ void CPalModDlg::OnImportPalette()
             {
                 const bool fFlipUpsideDown = (PaletteLoad.GetOFN().nFilterIndex == 6);
                 const bool fShiftOneColorForward = (PaletteLoad.GetOFN().nFilterIndex == 7);
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileName, fFlipUpsideDown, fShiftOneColorForward))
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileName, false, fFlipUpsideDown, fShiftOneColorForward))
                 {
                     UpdateUIForAppliedPalette();
                 }
@@ -1015,12 +1015,22 @@ void CPalModDlg::OnImportPalette()
             else
             {
                 const bool fFlipUpsideDown = (PaletteLoad.GetOFN().nFilterIndex > 3);
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileName, fFlipUpsideDown))
+                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileName, false, fFlipUpsideDown))
                 {
                     UpdateUIForAppliedPalette();
                 }
             }
         }
+    }
+}
+
+void CPalModDlg::OnImportPaletteAdvanced()
+{
+    if (m_fEnabled)
+    {
+        CPaletteImportDialog importPaletteDialog({});
+
+        importPaletteDialog.DoModal();
     }
 }
 

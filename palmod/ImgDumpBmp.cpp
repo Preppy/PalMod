@@ -201,32 +201,32 @@ void CImgDumpBmp::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
     switch (nSBCode)
     {
-    case SB_LEFT:
-        curr_pos = 0;
-        break;
-    case SB_ENDSCROLL:
-        break;
-    case SB_LINELEFT:
-        curr_pos -= 1;
-        break;
-    case SB_LINERIGHT:
-        curr_pos += 1;
-        break;
-    case SB_PAGELEFT:
-        curr_pos -= SCROLL_PAGE_AMT;
-        break;
-    case SB_PAGERIGHT:
-        curr_pos += SCROLL_PAGE_AMT;
-        break;
-    case SB_RIGHT:
-        curr_pos = m_mainWindowDimensions.width;
-        break;
-    case SB_THUMBPOSITION:
-        m_HScroll.SetScrollPos(nPos);
-        break;
-    case SB_THUMBTRACK:
-        m_HScroll.SetScrollPos(nPos);
-        break;
+        case SB_LEFT:
+            curr_pos = 0;
+            break;
+        case SB_ENDSCROLL:
+            break;
+        case SB_LINELEFT:
+            curr_pos -= 1;
+            break;
+        case SB_LINERIGHT:
+            curr_pos += 1;
+            break;
+        case SB_PAGELEFT:
+            curr_pos -= SCROLL_PAGE_AMT;
+            break;
+        case SB_PAGERIGHT:
+            curr_pos += SCROLL_PAGE_AMT;
+            break;
+        case SB_RIGHT:
+            curr_pos = m_mainWindowDimensions.width;
+            break;
+        case SB_THUMBPOSITION:
+            m_HScroll.SetScrollPos(nPos);
+            break;
+        case SB_THUMBTRACK:
+            m_HScroll.SetScrollPos(nPos);
+            break;
     }
 
     curr_pos = ScrollBounds(curr_pos, TRUE);

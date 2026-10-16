@@ -478,7 +478,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
                     if (strExtension == L".act")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileNameAsLower.c_str()))
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileNameAsLower.c_str(), fIsShiftDown))
                         {
                             GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
                         }
@@ -487,7 +487,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else if (strExtension == L".bmp")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::BMP, strFileNameAsLower.c_str()))
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::BMP, strFileNameAsLower.c_str(), fIsShiftDown))
                         {
                             GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
                         }
@@ -519,7 +519,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else if (strExtension == L".gpl")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GPL, strFileNameAsLower.c_str()))
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GPL, strFileNameAsLower.c_str(), fIsShiftDown))
                         {
                             GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
                         }
@@ -540,7 +540,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else if (strExtension == L".pal")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PAL_RIFF, strFileNameAsLower.c_str()))
+                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PAL_RIFF, strFileNameAsLower.c_str(), fIsShiftDown))
                         {
                             GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
                         }
@@ -556,7 +556,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                         }
                         else
                         {
-                            if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileNameAsLower.c_str()))
+                            if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileNameAsLower.c_str(), fIsShiftDown))
                             {
                                 GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
                             }

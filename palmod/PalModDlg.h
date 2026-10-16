@@ -67,7 +67,7 @@ private:
     CImgDisp* ImgDispCtrl = nullptr;
     CImgDat* ImgFile = nullptr;
     CPalDropTarget m_dropTarget;
-    CMappingPaletteManager PaletteMapper;
+    CMappingPaletteManager m_PaletteMapper;
     CUndoRedo UndoProc;
 
     sPalDef* m_CurrPalDef = nullptr;
@@ -330,6 +330,7 @@ private:
     afx_msg void OnAboutShowHistory();
     afx_msg void OnAboutLaunchPalModSite();
     afx_msg void OnImportPalette();
+    afx_msg void OnImportPaletteAdvanced();
     afx_msg void OnExportPalette();
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnChangeExtendedCopyData();
@@ -472,6 +473,8 @@ public:
 #endif
 
     CPalGroup* MainPalGroup = nullptr;
+
+    CMappingPaletteManager* GetPaletteMapper() { return &m_PaletteMapper; };
 
     // This should be called after a game's PostSelProc call changes a shown secondary palette
     void RefreshSecondaryPalettesForPaletteChange();
