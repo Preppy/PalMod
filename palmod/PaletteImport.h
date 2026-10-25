@@ -93,6 +93,7 @@ protected:
     void Favorites();
 
     // initialized in constructor
+    HICON m_hIcon;
     BOOL m_fAutoPreview;
     BOOL m_fWrapToNext;
     BOOL m_fRepeatToFill;

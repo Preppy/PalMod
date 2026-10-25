@@ -384,6 +384,8 @@ CPaletteImportDialog::CPaletteImportDialog(std::vector<uint8_t> rgPalette, CWnd*
     CDialog(CPaletteImportDialog::IDD, pParent),
     m_PalHost(false)
 {
+    m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
     m_rgLoadedPalette = rgPalette;
     
     m_fAutoPreview = CRegProc::GetPalImport_UseAutoPreview(TRUE);
@@ -407,6 +409,9 @@ IMPLEMENT_DYNAMIC(CPaletteImportDialog, CDialog)
 BOOL CPaletteImportDialog::OnInitDialog()
 {
     CDialog::OnInitDialog();
+
+    SetIcon(m_hIcon, TRUE);     // Set big icon
+    SetIcon(m_hIcon, FALSE);    // Set small icon
 
     UpdateData();
 
