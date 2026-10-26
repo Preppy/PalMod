@@ -247,6 +247,7 @@ const sGame_PaletteDataset VampireNightWarriors_A_SPORT_PALETTES[] =
     { L"Sasquatch P1 Portraits", 0x47f48, 0x47f68, indexCPS2Sprites_Vamp_Sasquatch, 0x31 },
     { L"Huitzl P1 Portraits", 0x47f68, 0x47f88, indexCPS2Sprites_Vamp_Phobos, 0x31 },
     { L"Pyron P1 Portraits", 0x47f88, 0x47fa8, indexCPS2Sprites_Vamp_Pyron, 0x31 },
+
     { L"Demitri ??? Portraits", 0x47fa8, 0x47fc8, indexCPS2Sprites_Vamp_Demitri, 0x31 },
     { L"Jon ??? Portraits", 0x47fc8, 0x47fe8, indexCPS2Sprites_Vamp_Gallon, 0x31 },
     { L"Victor ??? Portraits", 0x47fe8, 0x48008, indexCPS2Sprites_Vamp_Victor, 0x32 },
@@ -258,8 +259,9 @@ const sGame_PaletteDataset VampireNightWarriors_A_SPORT_PALETTES[] =
     { L"Rikuo ??? Portraits", 0x480c8, 0x480e8, indexCPS2Sprites_Vamp_Aulbath, 0x31 },
     { L"Sasquatch ??? Portraits", 0x480e8, 0x48108, indexCPS2Sprites_Vamp_Sasquatch, 0x31 },
     { L"Huitzl ??? Portraits", 0x48108, 0x48128, indexCPS2Sprites_Vamp_Phobos, 0x31 },
+
     { L"Demitri P2 Portraits", 0x48128, 0x48148, indexCPS2Sprites_Vamp_Demitri, 0x31 },
-    { L"Jon P2 Portraits", 0x48148, 0x48168, indexCPS2Sprites_Vamp_Zabel, 0x31 },
+    { L"Jon P2 Portraits", 0x48148, 0x48168, indexCPS2Sprites_Vamp_Gallon, 0x31 },
     { L"Victor P2 Portraits", 0x48168, 0x48188, indexCPS2Sprites_Vamp_Victor, 0x32 },
     { L"L.Raptor P2 Portraits", 0x48188, 0x481a8, indexCPS2Sprites_Vamp_Zabel, 0x31 },
     { L"Morrigan P2 Portraits", 0x481a8, 0x481c8, indexCPS2Sprites_Morrigan, 0x31 },
