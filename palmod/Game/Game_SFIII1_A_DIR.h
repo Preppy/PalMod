@@ -10,6 +10,8 @@ private:
         {
             { L"sfiii-simm5.0", 0x200000 },
             { L"sfiii-simm5.1", 0x200000 },
+            { L"sfiii-simm4.0", 0x200000 },
+            { L"sfiii-simm4.1", 0x200000 },
         },
         FileReadType::Interleaved_2FileSets,
     };
@@ -27,10 +29,10 @@ private:
         ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData,
         {},
-        SFIII1_A_50_UNITS,
-        ARRAYSIZE(SFIII1_A_50_UNITS),
+        SFIII1_A_DIR_UNITS,
+        ARRAYSIZE(SFIII1_A_DIR_UNITS),
         L"SFIII1e.txt",             // Extra filename
-        631,                        // Count of palettes listed in the header
+        1012,                        // Count of palettes listed in the header
         0x3b0000,                   // Lowest known location used for palettes
     };
 

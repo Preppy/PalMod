@@ -376,6 +376,21 @@ enum CHARACTERS_3S_CPS3
     index3SSprites_Gill,        // 0x16
     indexSF2ISprites_Bonus,     // 0x17
     indexSF3NGSprites_Bonus,    // 0x18
+    indexSF3NGSprites_Alex,     // 0x19
+    indexSF3NGSprites_Ryu,      // 0x1a
+    indexSF3NGSprites_Yun,      // 0x1b
+    indexSF3NGSprites_Dudley,   // 0x1c
+    indexSF3NGSprites_Necro,    // 0x1d
+    indexSF3NGSprites_Hugo,     // 0x1e
+    indexSF3NGSprites_Ibuki,    // 0x1f
+    indexSF3NGSprites_Elena,    // 0x20
+    indexSF3NGSprites_Oro,      // 0x21
+    indexSF3NGSprites_Yang,     // 0x22
+    indexSF3NGSprites_Ken,      // 0x23
+    indexSF3NGSprites_Sean,     // 0x24
+    indexSF3NGSprites_Gill,     // 0x25
+    indexSF3NGSprites_Stages,   // 0x26
+    indexSF3NGSprites_Endings,  // 0x27
 };
 
 enum SF2Sprites

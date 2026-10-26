@@ -158,7 +158,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
                 pszExtraInfo = L"We need the PLxxPL.bin files from the game image.\nFor the PS3 version, select the \"Colors\" folder under \"NPUB30301-RTM\\USRDIR\".";
                 break;
             case SFIII1_A_DIR:
-                pszExtraInfo = L"We need the sfiii-simm5.x files from sfiii.zip (US) or sfiiin.zip (JPN).";
+                pszExtraInfo = L"We need the sfiii-simm4.x and sfiii-simm5.x files from sfiii.zip (US) or sfiiin.zip (JPN).";
                 break;
             case SFIII2_A_DIR:
                 pszExtraInfo = L"We need the sfiii2-simm5.x files from sfiii2.zip (US) or sfiii2n.zip (JPN).";
