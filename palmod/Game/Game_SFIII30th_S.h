@@ -54,7 +54,7 @@ private:
         SFIII1_A_50_UNITS,
         ARRAYSIZE(SFIII1_A_50_UNITS),
         {},
-        631,                    // Count of palettes listed in the header
+        908,                    // Count of palettes listed in the header
         0x1d854a,               // Lowest known location used for palettes
     };
 
