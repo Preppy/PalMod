@@ -1051,7 +1051,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_IBUKI_ROUND1_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_IBUKI_ROUND1_FADED_PALETTES[] =
 {
-    { L"Ibuki Stage Round 1 (Faded) 1/5", 0x3c6c80, 0x3c6e80, indexSF3NGSprites_Stages, 0xa7 },
+    { L"Ibuki Stage Round 1 (Faded) 1/5", 0x3c6c80, 0x3c6e80, indexSF3NGSprites_Stages, 0xa7, &pairFullyLinkedNode },
     { L"Ibuki Stage Round 1 (Faded) 2/5", 0x3c6e80, 0x3c7080, indexSF3NGSprites_Stages, 0xa9 },
     { L"Ibuki Stage Round 1 (Faded) 3/5", 0x3c7080, 0x3c7280, indexSF3NGSprites_Stages, 0xab },
     { L"Ibuki Stage Round 1 (Faded) 4/5", 0x3c7280, 0x3c7480, indexSF3NGSprites_Stages, 0xad },
@@ -1074,7 +1074,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_IBUKI_ROUND2_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_IBUKI_ROUND2_FADED_PALETTES[] =
 {
-    { L"Ibuki Stage Round 2 (Faded) 1/5", 0x3c4a80, 0x3c4c80, indexSF3NGSprites_Stages, 0xb4 },
+    { L"Ibuki Stage Round 2 (Faded) 1/5", 0x3c4a80, 0x3c4c80, indexSF3NGSprites_Stages, 0xb4, &pairFullyLinkedNode },
     { L"Ibuki Stage Round 2 (Faded) 2/5", 0x3c4c80, 0x3c4e80, indexSF3NGSprites_Stages, 0xb6 },
     { L"Ibuki Stage Round 2 (Faded) 3/5", 0x3c4e80, 0x3c5080, indexSF3NGSprites_Stages, 0xb8 },
     { L"Ibuki Stage Round 2 (Faded) 4/5", 0x3c5080, 0x3c5280, indexSF3NGSprites_Stages, 0xba },
@@ -1097,7 +1097,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_IBUKI_ROUND3_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_IBUKI_ROUND3_FADED_PALETTES[] =
 {
-    { L"Ibuki Stage Round 3 (Faded) 1/5", 0x3c5b80, 0x3c5d80, indexSF3NGSprites_Stages, 0xc1 },
+    { L"Ibuki Stage Round 3 (Faded) 1/5", 0x3c5b80, 0x3c5d80, indexSF3NGSprites_Stages, 0xc1, &pairFullyLinkedNode },
     { L"Ibuki Stage Round 3 (Faded) 2/5", 0x3c5d80, 0x3c5f80, indexSF3NGSprites_Stages, 0xc3 },
     { L"Ibuki Stage Round 3 (Faded) 3/5", 0x3c5f80, 0x3c6180, indexSF3NGSprites_Stages, 0xc5 },
     { L"Ibuki Stage Round 3 (Faded) 4/5", 0x3c6180, 0x3c6380, indexSF3NGSprites_Stages, 0xc7 },
@@ -1117,7 +1117,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_GILL_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_GILL_FADED_PALETTES[] =
 {
-    { L"Gill Stage (Faded) 1/7", 0x3b0c80, 0x3b0e80, indexSF3NGSprites_Stages, 0x01 },
+    { L"Gill Stage (Faded) 1/7", 0x3b0c80, 0x3b0e80, indexSF3NGSprites_Stages, 0x01, &pairFullyLinkedNode },
     { L"Gill Stage (Faded) 2/7", 0x3b0e80, 0x3b1080, indexSF3NGSprites_Stages, 0x03 },
     { L"Gill Stage (Faded) 3/7", 0x3b1080, 0x3b1280, indexSF3NGSprites_Stages, 0x05 },
     { L"Gill Stage (Faded) 4/7", 0x3b1280, 0x3b1480, indexSF3NGSprites_Stages, 0x07 },
