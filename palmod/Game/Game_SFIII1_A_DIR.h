@@ -32,7 +32,7 @@ private:
         SFIII1_A_DIR_UNITS,
         ARRAYSIZE(SFIII1_A_DIR_UNITS),
         L"SFIII1e.txt",             // Extra filename
-        1012,                        // Count of palettes listed in the header
+        1006,                        // Count of palettes listed in the header
         0x3b0000,                   // Lowest known location used for palettes
     };
 
