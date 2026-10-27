@@ -920,16 +920,6 @@ const sGame_PaletteDataset SFIII1_A_NECRO_MAGNETIC_STORM_SILHOUETTE_PALETTES[] =
     { L"Necro HK Magnetic Storm Silhouette", 0x3d6180, 0x3d6200, indexSF3NGSprites_Necro, 0x42 },
 };
 
-const sGame_PaletteDataset SFIII1_A_NECRO_LIGHTNING_PALETTES[] =
-{
-    { L"Necro LP Lightning (Electric Shock / Magnetic Storm)", 0x3d1262, 0x3d1280, indexSF3NGSprites_Necro, 0x43 },
-    { L"Necro MP Lightning (Electric Shock / Magnetic Storm)", 0x3d12e2, 0x3d1300, indexSF3NGSprites_Necro, 0x43 },
-    { L"Necro HP Lightning (Electric Shock / Magnetic Storm)", 0x3d1362, 0x3d1380, indexSF3NGSprites_Necro, 0x43 },
-    { L"Necro LK Lightning (Electric Shock / Magnetic Storm)", 0x3d13e2, 0x3d1400, indexSF3NGSprites_Necro, 0x43 },
-    { L"Necro MK Lightning (Electric Shock / Magnetic Storm)", 0x3d1462, 0x3d1480, indexSF3NGSprites_Necro, 0x43 },
-    { L"Necro HK Lightning (Electric Shock / Magnetic Storm)", 0x3d14e2, 0x3d1500, indexSF3NGSprites_Necro, 0x43 },
-};
-
 const sDescTreeNode SFIII1_A_NECRO_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SFIII1_A_NECRO_LP_PALETTES, ARRAYSIZE(SFIII1_A_NECRO_LP_PALETTES) },
@@ -943,7 +933,6 @@ const sDescTreeNode SFIII1_A_NECRO_COLLECTION[] =
     { L"Electric Snake", DESC_NODETYPE_TREE, (void*)SFIII1_A_NECRO_ELECTRIC_SNAKE_PALETTES, ARRAYSIZE(SFIII1_A_NECRO_ELECTRIC_SNAKE_PALETTES) },
     { L"Magnetic Storm Flash", DESC_NODETYPE_TREE, (void*)SFIII1_A_NECRO_MAGNETIC_STORM_FLASH_PALETTES, ARRAYSIZE(SFIII1_A_NECRO_MAGNETIC_STORM_FLASH_PALETTES) },
     { L"Magnetic Storm Silhouette", DESC_NODETYPE_TREE, (void*)SFIII1_A_NECRO_MAGNETIC_STORM_SILHOUETTE_PALETTES, ARRAYSIZE(SFIII1_A_NECRO_MAGNETIC_STORM_SILHOUETTE_PALETTES) },
-    { L"Lightning", DESC_NODETYPE_TREE, (void*)SFIII1_A_NECRO_LIGHTNING_PALETTES, ARRAYSIZE(SFIII1_A_NECRO_LIGHTNING_PALETTES) },
 };
 
 const sDescTreeNode SFIII1_A_HUGO_COLLECTION[] =
@@ -1651,14 +1640,14 @@ const sGame_PaletteDataset SFIII1_A_BONUS_SELECT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_BONUS_SUPER_ART_PALETTES[] =
 {
-    { L"Super Art KO Flash 1/4", 0x3ff400, 0x3ff480, indexSF3NGSprites_Bonus, 0x58 },
+    { L"Super Art KO Flash 1/4", 0x3ff400, 0x3ff47a, indexSF3NGSprites_Bonus, 0x58 },
     { L"Super Art KO Flash 2/4", 0x3ff480, 0x3ff500, indexSF3NGSprites_Bonus, 0x59 },
     { L"Super Art KO Flash 3/4", 0x3ff500, 0x3ff580, indexSF3NGSprites_Bonus, 0x5a },
     { L"Super Art KO Flash 4/4", 0x3ff580, 0x3ff600, indexSF3NGSprites_Bonus, 0x5b },
     { L"Super Art Screens (unused) 1/2", 0x3ff600, 0x3ff680, indexSF3NGSprites_Bonus, INVALID_UNIT_VALUE_8 },
     { L"Super Art Backdrop", 0x3ff680, 0x3ff700, indexSF3NGSprites_Bonus, 0x5c },
     { L"Super Art Screens (unused) 2/2", 0x3ff700, 0x3ff780, indexSF3NGSprites_Bonus, INVALID_UNIT_VALUE_8 },
-    { L"Super Art KO Flash 1/4 (Player Shadow)", 0x3ff780, 0x3ff800, indexSF3NGSprites_Bonus, 0x58 },
+    { L"Super Art KO Flash 1/4 (Player Shadow)", 0x3ff780, 0x3ff7fa, indexSF3NGSprites_Bonus, 0x58 },
     { L"Super Art KO Flash 2/4 (Player Shadow)", 0x3ff800, 0x3ff880, indexSF3NGSprites_Bonus, 0x59 },
     { L"Super Art KO Flash 3/4 (Player Shadow)", 0x3ff880, 0x3ff900, indexSF3NGSprites_Bonus, 0x5a },
     { L"Super Art KO Flash 4/4 (Player Shadow)", 0x3ff900, 0x3ff980, indexSF3NGSprites_Bonus, 0x5b },
