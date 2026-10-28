@@ -3936,13 +3936,13 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 
     { L"Win Screen BG", 0x70a400, 0x70a480, index3SSprites_Bonus, 0x23, nullptr, &secondaryGreyTintEffects },
         { L"Win Screen BG (Faded)", 0x70f200, 0x70f280, index3SSprites_Bonus, 0x23 },
-    { L"Loss Screen BG", 0x70b680, 0x70b700, index3SSprites_Bonus, 0x24, nullptr, &secondaryGreyTintEffects },
-        { L"Loss Screen BG (Faded)", 0x710480, 0x710500, index3SSprites_Bonus, 0x24 },
-    { L"Loss Screen BG 2", 0x70b580, 0x70b600, index3SSprites_Bonus, 0x25, nullptr, &secondaryGreyTintEffects },
-        { L"Loss Screen BG 2 (Faded)", 0x710380, 0x710400, index3SSprites_Bonus, 0x25 },
+    { L"Loss Screen BG", 0x70b680, 0x70b700, index3SSprites_Bonus, 0x23, nullptr, &secondaryGreyTintEffects },
+        { L"Loss Screen BG (Faded)", 0x710480, 0x710500, index3SSprites_Bonus, 0x23 },
+    { L"Loss Screen BG 2", 0x70b580, 0x70b600, index3SSprites_Bonus, 0x23, nullptr, &secondaryGreyTintEffects },
+        { L"Loss Screen BG 2 (Faded)", 0x710380, 0x710400, index3SSprites_Bonus, 0x23 },
 
-    { L"Necro Win/Loss Screen BG", 0x70B480, 0x70B500, index3SSprites_Bonus, 0x25, nullptr, &secondaryGreyTintEffects },
-        { L"Necro Win/Loss Screen BG (Faded)", 0x710280, 0x710300, index3SSprites_Bonus, 0x25 },
+    { L"Necro Win/Loss Screen BG", 0x70B480, 0x70B500, index3SSprites_Bonus, 0x23, nullptr, &secondaryGreyTintEffects },
+        { L"Necro Win/Loss Screen BG (Faded)", 0x710280, 0x710300, index3SSprites_Bonus, 0x23 },
 
     { L"VS Text 1", 0x70c800, 0x70c880, index3SSprites_Bonus, 0x1e },
     { L"VS Text 2", 0x70c880, 0x70c900, index3SSprites_Bonus, 0x1e },
