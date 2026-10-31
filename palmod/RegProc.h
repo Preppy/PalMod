@@ -44,12 +44,17 @@ constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
 constexpr auto c_LoadCustomSpriteOFNValueName = L"pref_LoadCustomSpriteIndex";
 constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
+
 // Incremented this because we are changing it to ON at this time.
 constexpr auto c_prevPreviewDropsArePalettes = L"prev_DropsArePalettes3";
 constexpr auto c_prevTrimImportedPreviews = L"prev_DropsTrimPreview";
 constexpr auto c_prevPreviewImportsKawaksFirst = L"prev_DropsTryKawaksFirst";
 constexpr auto c_prevPreviewImportsUseFullCPS3 = L"prev_ImportsUseFullCPS3";
 constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback";
+constexpr auto c_prevPreviewImport_AutoPreview = L"previewImport_AutoPreview";
+constexpr auto c_prevPreviewImport_KeepChangesOnFileLoad = L"previewImport_KeepOnFileLoad";
+constexpr auto c_prevPreviewImport_KeepChangesOnLayerSwap = L"previewImport_KeepOnLayerSwap";
+
 constexpr auto c_mainDefaultRemapFileTypeStr = L"main_RemapFileType";
 constexpr auto c_mainDefaultColorTransformStr = L"main_ColorTransformType";
 
@@ -78,9 +83,6 @@ struct sPreviewWindowSettings
     BOOL fClickToFindColor = TRUE;
     BOOL fBlinkInverts = FALSE;
     BOOL fPreviewDropIsPalette = FALSE;
-    BOOL fPreviewTrimImportedPreviews = TRUE;
-    BOOL fPreviewImportWinKawaksFirst = FALSE;
-    BOOL fPreviewImportUseFullCPS3 = FALSE;
     BOOL fAllowAutoPreviewFallback = TRUE;
 
     double dPreviewZoom = 0.0;
@@ -166,7 +168,22 @@ public:
     static void SetImageExport_TransparentPNG(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_TransparentPNG, dwNewValue); };
     static DWORD GetImageExport_ZoomIndex(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_ZoomIndex, dwFallbackValue); };
     static void SetImageExport_ZoomIndex(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_ZoomIndex, dwNewValue); };
-       
+
+    // Preview import
+    static DWORD GetPreviewImport_AutoPreview(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_AutoPreview, dwFallbackValue); };
+    static void SetPreviewImport_AutoPreview(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_AutoPreview, dwNewValue); };
+    static DWORD GetPreviewImport_KeepChangesOnFileLoad(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_KeepChangesOnFileLoad, dwFallbackValue); };
+    static void SetPreviewImport_KeepChangesOnFileLoad(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_KeepChangesOnFileLoad, dwNewValue); };
+    static DWORD GetPreviewImport_KeepChangesOnLayerSwap(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_KeepChangesOnLayerSwap, dwFallbackValue); };
+    static void SetPreviewImport_KeepChangesOnLayerSwap(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_KeepChangesOnLayerSwap, dwNewValue); };
+    static DWORD GetPreviewImport_Trim(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevTrimImportedPreviews, dwFallbackValue); };
+    static void SetPreviewImport_Trim(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevTrimImportedPreviews, dwNewValue); };
+
+    static BOOL GetPreviewImport_WinKawaksFirst(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImportsKawaksFirst, dwFallbackValue); };
+    static void SetPreviewImport_WinKawaksFirst(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImportsKawaksFirst, dwNewValue); };
+    static BOOL GetPreviewImport_UseFullCPS3(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImportsUseFullCPS3, dwFallbackValue); };
+    static void SetPreviewImport_UseFullCPS3(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImportsUseFullCPS3, dwNewValue); };
+
     // 0: extras/txt
     // 1: code/h
     static DWORD GetDefaultRemapFiletype() { return GetDWORDValueForKeyName(c_mainDefaultRemapFileTypeStr); };

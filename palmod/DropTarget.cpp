@@ -5,6 +5,7 @@
 #include "Game\GameRegistry.h"
 #include <cwctype>
 #include "PaletteImport.h"
+#include "PreviewImport.h"
 
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
@@ -504,7 +505,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     {
                         if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
                         {
-                            fShouldContinue = GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                            fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), fIsShiftDown);
                             fHandledDrop = true;
                         }
                         else
@@ -551,7 +552,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     {
                         if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
                         {
-                            fShouldContinue = GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                            fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), fIsShiftDown);
                             fHandledDrop = true;
                         }
                         else
@@ -572,7 +573,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     }
                     else if (strExtension == L".raw")
                     {
-                        fShouldContinue = GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(nullptr, SpriteImportDirection::TopDown, strFileNameAsLower.c_str(), fIsShiftDown);
+                        fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), fIsShiftDown);
                         fHandledDrop = true;
                     }
                 }

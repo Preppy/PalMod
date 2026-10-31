@@ -509,7 +509,7 @@ void CPaletteImportDialog::OnOK()
 {
     OnApplyPalette();
 
-    CDialog::OnCancel();
+    CDialog::OnOK();
 }
 
 void CPaletteImportDialog::OnReversePalette()

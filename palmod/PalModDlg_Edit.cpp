@@ -1729,7 +1729,7 @@ void CPalModDlg::DoUndoRedo(BOOL fUndo)
         memcpy(&srcDef->pBasePal[srcSep->nStart], PopNode->rgBasePalData, srcSep->nAmt * sizeof(COLORREF));
 
         //Refresh slider selection
-        if (PopNode->nPalIndex == m_nCurrSelPal)
+        if (PopNode->nPalIndex == static_cast<int>(m_nCurrSelPal))
         {
             UpdateSliderSel();
         }

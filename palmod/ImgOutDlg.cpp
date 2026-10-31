@@ -1074,7 +1074,7 @@ void CImgOutDlg::OnFileSave()
     static LPCWSTR szFullSaveFilter[] =
     {
         L"Indexed PNG|*.png|"
-        L"PNG Image|*.png|"
+        L"Truecolor PNG (Non-Indexed)|*.png|"
         L"GIF Image|*.gif|"
         L"BMP Image|*.bmp|"
         L"JPEG Image|*.jpg|"

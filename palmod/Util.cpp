@@ -2,6 +2,7 @@
 #include "RegProc.h"
 #include "Util.h"
 #include "PalMod.h"
+#include <cwctype> // for towlayer
 
 int SafeSHMessageBoxCheck(
     HWND   hwnd,
@@ -81,4 +82,129 @@ int SafeSHMessageBoxCheck(
 
         return returncode;
     }
+}
+
+std::optional<int> GetDropLayerFromFileName(const std::wstring& strFileName)
+{
+    const std::wstring strLayerToken = L"-layer-";
+    std::optional<int> optLayerToLoadTo;
+    int iLayerToDropTo = 0;
+    bool fSuccess = false;
+
+    // compare as lower case
+    std::wstring strFileNameAsLower = strFileName;
+    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
+
+    auto token_offset = strFileNameAsLower.find(strLayerToken);
+    if (token_offset != std::string::npos)
+    {
+        std::wstring strPostToken = strFileNameAsLower.substr(token_offset + strLayerToken.length());
+        const int result = _stscanf_s(strPostToken.c_str(), L"%u", &iLayerToDropTo);
+
+        if (result == 1)
+        {
+            fSuccess = true;
+            iLayerToDropTo = min(iLayerToDropTo, MAX_PALETTES_DISPLAYABLE - 1);
+        }
+        else
+        {
+            OutputDebugString(L"ERROR: Bad layer specification in filename!\r\n");
+        }
+    }
+
+    CString strOutput = L"Scanned filename for target layer: ";
+
+    if (fSuccess)
+    {
+        CString strBonusInfo;
+        strBonusInfo.Format(L"found.  Requesting layer %u.\r\n", iLayerToDropTo);
+        optLayerToLoadTo = iLayerToDropTo;
+        strOutput += strBonusInfo;
+    }
+    else
+    {
+        strOutput += "not found.  Replacing full stack.\r\n";
+    }
+
+    OutputDebugString(strOutput.GetString());
+
+    return optLayerToLoadTo;
+}
+
+bool PaletteSetIsMappingSafe(PALWriteOutputOptions systemPaletteLength, std::vector<std::vector<COLORREF>> rgrgPaletteSet, std::optional<UINT> optTargetPalette)
+{
+    bool fIsMappingSafe = true;
+    size_t nCheckColor = 1, nCheckAgainstColor = 2;
+    size_t nStartCheckPalette = 0, nCheckAgainstPalette = 0;
+    CString strMsg;
+
+    for (nStartCheckPalette = 0; nStartCheckPalette < rgrgPaletteSet.size(); nStartCheckPalette++)
+    {
+        if (optTargetPalette.has_value() &&
+            (optTargetPalette.value() != nStartCheckPalette))
+        {
+            continue;
+        }
+
+        for (nCheckColor = 1; nCheckColor < rgrgPaletteSet[nStartCheckPalette].size(); nCheckColor++)
+        {
+            if ((systemPaletteLength == PALWriteOutputOptions::WRITE_16) &&
+                ((nCheckColor % 16) == 0))
+            {
+                // ignore transparency bytes
+                continue;
+            }
+
+            const COLORREF clrChecking = rgrgPaletteSet[nStartCheckPalette].at(nCheckColor);
+            nCheckAgainstColor = nCheckColor + 1;
+
+            for (nCheckAgainstPalette = nStartCheckPalette; nCheckAgainstPalette < rgrgPaletteSet.size(); nCheckAgainstPalette++)
+            {
+                if (optTargetPalette.has_value() &&
+                    (optTargetPalette.value() != nCheckAgainstPalette))
+                {
+                    continue;
+                }
+
+                for (; nCheckAgainstColor < rgrgPaletteSet[nCheckAgainstPalette].size(); nCheckAgainstColor++)
+                {
+                    if ((systemPaletteLength == PALWriteOutputOptions::WRITE_16) &&
+                        ((nCheckAgainstColor % 16) == 0))
+                    {
+                        // ignore transparency bytes
+                        continue;
+                    }
+
+                    if (clrChecking == rgrgPaletteSet[nCheckAgainstPalette].at(nCheckAgainstColor))
+                    {
+                        fIsMappingSafe = false;
+
+                        strMsg.Format(L"This is not a mapping-safe palette set.  The colors at palette %u color %u and palette %u color %u (0x%x) are the same.\r\n", nStartCheckPalette, nCheckColor, nCheckAgainstPalette, nCheckAgainstColor, clrChecking);
+                        OutputDebugString(strMsg.GetString());
+
+                        break;
+                    }
+                }
+
+                if (!fIsMappingSafe)
+                {
+                    break;
+                }
+
+                nCheckAgainstColor = 1;
+            }
+
+            if (!fIsMappingSafe)
+            {
+                break;
+            }
+        }
+
+        if (!fIsMappingSafe)
+        {
+            break;
+        }
+    }
+
+    return fIsMappingSafe;
 }

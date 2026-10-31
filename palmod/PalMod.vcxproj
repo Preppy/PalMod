@@ -228,6 +228,7 @@
     <ClCompile Include="ACTfiles.cpp" />
     <ClCompile Include="BMPfiles.cpp" />
     <ClCompile Include="CFPLfiles.cpp" />
+    <ClCompile Include="CImageFiles.cpp" />
     <ClCompile Include="ColorSystem.cpp" />
     <ClCompile Include="CRC32.cpp" />
     <ClCompile Include="debugutil.cpp" />
@@ -380,11 +381,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TextureData.cpp" />
     <ClCompile Include="TPLfiles.cpp" />
     <ClCompile Include="UndoRedo.cpp" />
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CImageFiles.h" />
     <ClInclude Include="ColorSystem.h" />
     <ClInclude Include="CRC32.h" />
     <ClInclude Include="debugutil.h" />
@@ -814,6 +817,7 @@
     <ClInclude Include="PalMod.h" />
     <ClInclude Include="PalModDlg.h" />
     <ClInclude Include="PalTool.h" />
+    <ClInclude Include="PNGfiles.h" />
     <ClInclude Include="PreviewDlg.h" />
     <ClInclude Include="PreviewImport.h" />
     <ClInclude Include="RAWfiles.h" />
@@ -823,6 +827,7 @@
     <ClInclude Include="SettDlg.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextureData.h" />
     <ClInclude Include="UndoRedo.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>

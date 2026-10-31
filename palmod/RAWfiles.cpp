@@ -6,21 +6,22 @@
 #include "lodepng\lodepng.h"
 #include "Util.h"
 
-uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& suggestedImageSize,
-                                  int nImgAmt, sImgNode** ppImgBuffer, std::array<sTextureData, MAX_IMAGES_DISPLAYABLE> vSpriteOverrideTextures,
-                                  UINT& nPositionToLoadTo, sSpriteImportOptions& importPreviewOptions, sImgNode** pImgBuffer, bool fMustShowAdvancedOptions, bool& fUserCanceled)
+bool LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sTextureData& textureData, bool& fHaveConfirmedDimensions)
 {
     // We get to have a lot of bonus logic here since RAW files don't contain height/width information...
     CFile TextureFile;
-    bool fHaveViableDimensions = false;
     uint8_t* pNewOverrideTexture = nullptr;
+    bool fReadData = false;
+
+    fHaveConfirmedDimensions = false;
 
     if (TextureFile.Open(pszTextureLocation, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone))
     {
         const int nIncomingFileSize = static_cast<int>(TextureFile.GetLength());
+        int nInflatedFileSize = 0;
         const int cbMinimumReasonableFileSize = 250;
-        suggestedImageSize.width = 0;
-        suggestedImageSize.height = 0;
+        textureData.dimensions.width = 0;
+        textureData.dimensions.height = 0;
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
         wchar_t szTextureLocationLower[MAX_PATH];
@@ -70,15 +71,15 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
 
             if (pszDataH && _stscanf_s(pszDataH, L"%u", &nScannedH))
             {
-                suggestedImageSize.height = static_cast<uint16_t>(nScannedH);
+                textureData.dimensions.height = static_cast<uint16_t>(nScannedH);
             }
 
             if (pszDataW && _stscanf_s(pszDataW, L"%u", &nScannedW))
             {
-                suggestedImageSize.width = static_cast<uint16_t>(nScannedW);
+                textureData.dimensions.width = static_cast<uint16_t>(nScannedW);
             }
 
-            nSizeIfThisIsRAW = suggestedImageSize.width * suggestedImageSize.height;
+            nSizeIfThisIsRAW = textureData.dimensions.width * textureData.dimensions.height;
 
             if (pszCompType)
             {
@@ -110,26 +111,26 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
             }
 
             if ((eCompType == RAWCompressionChoice::NoCompression) &&
-                (suggestedImageSize.width < 10000) &&
-                (suggestedImageSize.height < 10000))
+                (textureData.dimensions.width < 10000) &&
+                (textureData.dimensions.height < 10000))
             {
                 // Validate that the RAW dimensions are viable
                 if (nSizeIfThisIsRAW == nIncomingFileSize)
                 {
                     // Perfection!
-                    fHaveViableDimensions = true;
+                    fHaveConfirmedDimensions = true;
                 }
                 else if ((3 * nSizeIfThisIsRAW) == nIncomingFileSize)
                 {
                     // This is an RGB RAW...
-                    fHaveViableDimensions = true;
+                    fHaveConfirmedDimensions = true;
                     MessageBox(g_appHWnd, L"This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
                 }
                 else if ((2 * nSizeIfThisIsRAW) == nIncomingFileSize)
                 {
                     // I think it's GIMP that doubles the RAW for no apparent reason
                     fIsDoubleSizeGIMPRAW = true;
-                    fHaveViableDimensions = true;
+                    fHaveConfirmedDimensions = true;
                     GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                 }
                 else if ((nSizeIfThisIsRAW != nIncomingFileSize) && (nIncomingFileSize > cbMinimumReasonableFileSize))
@@ -138,44 +139,11 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
                     strHelpText.Append(L"\r\n\r\nWe'll present you some H/W combos that might work if this is a normal RAW file, but please update your filename.");
 
                     SafeSHMessageBoxCheck(g_appHWnd, strHelpText, GetHost()->GetAppName(), MB_OK | MB_ICONERROR, IDOK, L"{468EB2CC-58A2-48a1-B4D0-7FAFE1FDD9B7}");
-
-                    // Try to use the override H/W if available, but if not see if we can reuse the current displays dimensions.
-                    if ((suggestedImageSize.width == 0) && pImgBuffer[0])
-                    {
-                        suggestedImageSize.width = pImgBuffer[0]->dimensions.width;
-                    }
-
-                    if ((suggestedImageSize.height == 0) && pImgBuffer[0])
-                    {
-                        suggestedImageSize.height = pImgBuffer[0]->dimensions.height;
-                    }
-                }
-
-                if (fMustShowAdvancedOptions || !fHaveViableDimensions)
-                {
-                    fHaveViableDimensions = GetUserOptionsForTextureOverride(nIncomingFileSize, suggestedImageSize,
-                                                                              nImgAmt, ppImgBuffer, vSpriteOverrideTextures,
-                                                                              nPositionToLoadTo, importPreviewOptions, fUserCanceled);
                 }
             }
-            else
-            {
-                if (fMustShowAdvancedOptions)
-                {
-                    // You should only be get to this error message for compressed previews.  Compressed previews are not (currently) externally available
-                    // outside of the imgdat team, so this should not be possible to get to by any normal user.
-                    MessageBox(g_appHWnd, L"Advanced options are not available for compressed previews.  The default settings will be used.\r\n\r\n"
-                                           L"If you need to set options, export the preview as uncompressed and then use that version.", GetHost()->GetAppName(), MB_ICONSTOP);
-                }
-            }
-
         }
 
-        if (fUserCanceled)
-        {
-            // abort
-        }
-        else if (eCompType != RAWCompressionChoice::NoCompression)
+        if (eCompType != RAWCompressionChoice::NoCompression)
         {
             std::vector<uint8_t> pNewData;
             pNewData.resize(nIncomingFileSize);
@@ -191,9 +159,14 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
                     pNewOverrideTexture = RLEData::RLEDecodeImg(
                         reinterpret_cast<uint8_t*>(&pNewData[0]),
                         nSizeIfThisIsRAW,
-                        static_cast<uint16_t>(suggestedImageSize.width),
-                        static_cast<uint16_t>(suggestedImageSize.height)
+                        static_cast<uint16_t>(textureData.dimensions.width),
+                        static_cast<uint16_t>(textureData.dimensions.height)
                     );
+
+                    if (pNewOverrideTexture)
+                    {
+                        nInflatedFileSize = textureData.dimensions.GetPixelCount();
+                    }
                     break;
                 }
                 case RAWCompressionChoice::BitMaskRLE:
@@ -201,15 +174,22 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
                     pNewOverrideTexture = RLEData::BitMaskRLEDecodeImg(
                         reinterpret_cast<uint8_t*>(&pNewData[0]),
                         nSizeIfThisIsRAW,
-                        static_cast<uint16_t>(suggestedImageSize.width),
-                        static_cast<uint16_t>(suggestedImageSize.height)
+                        static_cast<uint16_t>(textureData.dimensions.width),
+                        static_cast<uint16_t>(textureData.dimensions.height)
                     );
+
+                    if (pNewOverrideTexture)
+                    {
+                        nInflatedFileSize = textureData.dimensions.GetPixelCount();
+                    }
                     break;
                 }
                 case RAWCompressionChoice::ZLib:
                 {
                     size_t nZLibExtractedSize = 0;
                     lodepng_inflate(&pNewOverrideTexture, &nZLibExtractedSize, &pNewData[0], pNewData.size(), &lodepng_default_decompress_settings);
+
+                    nInflatedFileSize = static_cast<int>(nZLibExtractedSize);
                     break;
                 }
             }
@@ -218,13 +198,22 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
             {
                 // in theory we should let the user know that this was a compressed RAW in the status bar,
                 // but the caller is updating the status bar shortly so we won't
-                OutputDebugString(L"Loaded RLE-compressed RAW as a custom preview.\r\n");
+                OutputDebugString(L"Loaded compressed RAW as a custom preview.\r\n");
+                fHaveConfirmedDimensions = true;
             }
         }
-        else if (fHaveViableDimensions)
+        else
         {
             CString strInfo;
-            strInfo.Format(L"LoadTextureFromRAWSprite: texture file is: %u x %u\n", suggestedImageSize.width, suggestedImageSize.height);
+            if (fHaveConfirmedDimensions)
+            {
+                strInfo.Format(L"LoadTextureFromRAWSprite: texture file is: %u x %u\r\n", textureData.dimensions.width, textureData.dimensions.height);
+            }
+            else
+            {
+                strInfo = L"LoadTextureFromRAWSprite: no valid dimensions found.  User will have to select in our UI.\r\n";
+            }
+
             OutputDebugString(strInfo);
 
             TextureFile.SeekToBegin();
@@ -239,50 +228,18 @@ uint8_t* LoadTextureFromRAWSprite(LPCWSTR pszTextureLocation, sImageDimensions& 
 
             // Read the data first
             pNewOverrideTexture = new uint8_t[nIncomingFileSize];
+            TextureFile.Read(pNewOverrideTexture, nIncomingFileSize);
+            nInflatedFileSize = nIncomingFileSize;
+        }
 
-            if (importPreviewOptions.direction == SpriteImportDirection::UpsideDown)
-            {
-                OutputDebugString(L"\tImported RAW while flipping vertically.\r\n");
-                int nCurrentFilePosition = nIncomingFileSize;
+        if (pNewOverrideTexture)
+        {
+            fReadData = true;
+            textureData.indexedPixels.assign(pNewOverrideTexture, pNewOverrideTexture + nInflatedFileSize);
 
-                if (fIsDoubleSizeGIMPRAW)
-                {
-                    nCurrentFilePosition /= 2;
-                }
-
-                // Skip one line back since we're upside-down and walking backwards
-                nCurrentFilePosition -= suggestedImageSize.width;
-
-                // We need to flip this line by line
-                for (int nLinePosition = 0; nLinePosition < suggestedImageSize.height; nLinePosition++)
-                {
-                    TextureFile.Read(&pNewOverrideTexture[nCurrentFilePosition], suggestedImageSize.width);
-                    nCurrentFilePosition -= suggestedImageSize.width;
-                }
-
-                // Reset since we're handling it here directly so it doesn't get redone
-                importPreviewOptions.direction = SpriteImportDirection::TopDown;
-            }
-            else if (importPreviewOptions.direction == SpriteImportDirection::FlipHorizontal)
-            {
-                OutputDebugString(L"\tImported RAW while flipping horizontally.\r\n");
-                for (int iLine = 0; iLine < suggestedImageSize.height; iLine++)
-                {
-                    for (int iLinePos = suggestedImageSize.width; iLinePos > 0; iLinePos--)
-                    {
-                        TextureFile.Read(&pNewOverrideTexture[(iLine * suggestedImageSize.width) + (iLinePos - 1)], 1);
-                    }
-                }
-
-                // Reset since we're handling it here directly so it doesn't get redone
-                importPreviewOptions.direction = SpriteImportDirection::TopDown;
-            }
-            else // all other flavors, including TopDown
-            {
-                TextureFile.Read(pNewOverrideTexture, nIncomingFileSize);
-            }
+            safe_delete_array(pNewOverrideTexture);
         }
     }
 
-    return pNewOverrideTexture;
+    return fReadData;
 }

@@ -376,8 +376,8 @@ bool CPalModDlg::TryFallbackImageLoad(CString strImageToLoad, CGameClass* CurrGa
     // Only the RAW viewer currently has access to the RAW option here since preloading a RAW requires we know the
     // dimensions and I'm not interested in auto-deducing that. (Could get via FindNextFile for matching autoname
     // string portion and then parsing for W/H -- but that seems way too non-performant.)
-    bool fSuccess = ImgDispCtrl->LoadExternalPreview((CurrGame->GetGameFlag() == ImageViewer_RAW) ? CImgDisp::ImageLoadType::RAW : CImgDisp::ImageLoadType::PNG,
-                                            &nPosition, SpriteImportDirection::TopDown, strImagePath.GetBuffer(), false  /* try to use quiet mode since this is automatic */);
+    bool fSuccess = PreviewImport::LoadExternalPreviewQuietly((CurrGame->GetGameFlag() == ImageViewer_RAW) ? TextureSourceFileType::RAW : TextureSourceFileType::PNG,
+                                                                nPosition, strImagePath.GetBuffer());
 
     m_strOverridePreviewStatus.Format(L"\"%s\" %s", strImagePath.GetBuffer(), fSuccess ? L"loaded" : L"not loaded");
     OutputDebugString(m_strOverridePreviewStatus.GetString());

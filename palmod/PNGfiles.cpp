@@ -2,6 +2,7 @@
 #include "PalMod.h"
 #include "lodepng\lodepng.h"
 #include "PaletteImport.h"
+#include "PNGfiles.h"
 
 bool CPaletteImport::GetPaletteFromIndexedPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
@@ -427,4 +428,129 @@ bool CPaletteImport::GetPaletteFromPNG(LPCWSTR pszFileName, std::vector<uint8_t>
     }
 
     return fSuccess && !rgbaPalette.empty();
+}
+
+bool LoadTextureFromPNG(LPCWSTR pszTextureLocation, sTextureData& textureData, PNGImportSpecialOptions importOptions /* = {} */)
+{
+    bool fSuccess = false;
+    std::wstring strErrorText = L"This PNG could not be loaded.";
+    std::wstring strErrorExtra;
+
+    CWaitCursor wait; // Show a wait cursor in this scope since this can be a lot of parsing
+    GetHost()->GetPalModDlg()->SetStatusText(L"Analyzing this preview...");
+
+    lodepng::State state;
+
+    lodepng_state_init(&state);
+
+    size_t nSize = 0;
+    unsigned char* loadedAsFile = nullptr;
+    unsigned char* loadedAsPNG = nullptr;
+
+    if (lodepng_load_file(&loadedAsFile, &nSize, pszTextureLocation) == 0)
+    {
+        unsigned width = 0, height = 0;
+
+        if (importOptions.fForceNonIndexed)
+        {
+            OutputDebugString(L"Forcing image to be imported as non-indexed!\r\n");
+            state.decoder.color_convert = 1;
+            state.info_raw.colortype = LodePNGColorType::LCT_RGBA;
+        }
+        else
+        {
+            state.decoder.color_convert = 0;
+        }
+
+        if (lodepng_decode(&loadedAsPNG, &width, &height, &state, loadedAsFile, nSize) == 0)
+        {
+            // Confusion: why isn't lodepng doing this?
+            // Simple test to show the problem here: convert from Indexed to RGB: state.info_png is Indexed @_@ 
+            state.info_png.color.colortype = state.info_raw.colortype;
+            sImageDimensions dimensions = { static_cast<int>(width), static_cast<int>(height) };
+            const size_t nPNGByteCount = lodepng_get_raw_size(width, height, &state.info_png.color);
+
+            switch (state.info_png.color.colortype)
+            {
+                case LodePNGColorType::LCT_PALETTE:
+                {
+                    // 1 bytes per pixel
+                    textureData.indexedPixels.assign(reinterpret_cast<uint8_t *>(loadedAsPNG), reinterpret_cast<uint8_t*>(loadedAsPNG + nPNGByteCount));
+                    textureData.dimensions = dimensions;
+                    textureData.dataType = TextureDataType::Indexed;
+                    fSuccess = true;
+
+                    if (!importOptions.fColorTableStartsAtOne)
+                    {
+                        for (size_t iDataPos = 0; iDataPos < textureData.indexedPixels.size(); iDataPos++)
+                        {
+                            if (textureData.indexedPixels[iDataPos] != 0) // leave the transparency color alone
+                            {
+                                textureData.indexedPixels[iDataPos] = textureData.indexedPixels[iDataPos] - 1;
+                            }
+                        }
+                    }
+                    else if (importOptions.fReversedColorTable)
+                    {
+                        // Note that we only do this on-demand.  We don't do it automatically
+                        // here since we don't know what the end usage scenario for this pixels 
+                        // will be.
+                        for (size_t iPos = 0; iPos < textureData.indexedPixels.size(); iPos++)
+                        {
+                            // Dammit Fighter Factory
+                            uint8_t nThisIndex = textureData.indexedPixels[iPos];
+
+                            nThisIndex = 255 - nThisIndex;
+
+                            textureData.indexedPixels.at(iPos) = nThisIndex;
+                        }
+                    }
+
+                    break;
+                }
+                case LodePNGColorType::LCT_RGB:
+                {
+                    // 3 bytes per pixel: convert to RGBA for our usage
+                    for (size_t iPixel = 0; iPixel < nPNGByteCount;)
+                    {
+                        textureData.rgbaPixels.push_back(static_cast<uint8_t>(loadedAsPNG[iPixel++]));
+                        textureData.rgbaPixels.push_back(static_cast<uint8_t>(loadedAsPNG[iPixel++]));
+                        textureData.rgbaPixels.push_back(static_cast<uint8_t>(loadedAsPNG[iPixel++]));
+                        textureData.rgbaPixels.push_back(0xff); // stub alpha
+                    }
+
+                    textureData.dimensions = dimensions;
+                    textureData.dataType = TextureDataType::RGBA;
+                    fSuccess = true;
+                    break;
+                }
+                case LodePNGColorType::LCT_RGBA:
+                {
+                    // 4 bytes per pixel
+                    textureData.rgbaPixels.assign(reinterpret_cast<uint8_t*>(loadedAsPNG), reinterpret_cast<uint8_t*>(loadedAsPNG + nPNGByteCount));
+                    textureData.dimensions = dimensions;
+                    textureData.dataType = TextureDataType::RGBA;
+                    fSuccess = true;
+                    break;
+                }
+             }
+
+            free(loadedAsPNG);
+        }
+
+        free(loadedAsFile);
+    }
+
+    if (state.error)
+    {
+        LPCSTR pszErrorText = lodepng_error_text(state.error);
+
+        CString strOutput;
+        strOutput.Format(L"  The error report from the PNG decoder is:\r\n  \"%S\"\r\n\r\nTLDR: the PNG is corrupt.\r\n", pszErrorText);
+        OutputDebugString(strOutput.GetString());
+
+        strErrorExtra = strOutput.GetString();
+    }
+
+    return fSuccess;
 }

@@ -2,6 +2,7 @@
 
 #include "ImgDisp.h"
 #include "PalModDlg.h"
+#include "PreviewImport.h"
 
 // CPreviewDlg dialog
 
@@ -80,13 +81,13 @@ public:
     afx_msg void OnSettingsUseBackgroundColor();
     afx_msg void OnSettingsClickToFindColor() { m_ImgDisp.SetClickToFindColorSetting(!m_ImgDisp.GetClickToFindColorSetting()); };
     afx_msg void OnSettingsAllowAutoPreviewFallback() { m_ImgDisp.SetAllowAutoPreviewFallback(!m_ImgDisp.GetAllowAutoPreviewFallback()); };;
-    afx_msg void OnLoadCustomSprite(UINT * pnSuggestedLayerToLoadTo = nullptr, SpriteImportDirection direction = SpriteImportDirection::TopDown, bool fShowAdvancedOptions = false);
+
     // File : Load Layout Advanced
-    afx_msg void OnLoadCustomSpriteWithOptions() { OnLoadCustomSprite(nullptr, SpriteImportDirection::TopDown, true); };
+    afx_msg void OnLoadCustomSpriteWithOptions() { PreviewImport::OnLoadCustomSprite(std::nullopt, true); };
     // File : Load Layout with submenu listing the possible layers
-    afx_msg void OnLoadCustomSpriteNormal(UINT nSuggestedLayerToLoadTo = 0) { OnLoadCustomSprite(&nSuggestedLayerToLoadTo, SpriteImportDirection::TopDown); };
+    afx_msg void OnLoadCustomSpriteNormal(UINT nSuggestedLayerToLoadTo = 0) { PreviewImport::OnLoadCustomSprite(static_cast<int>(nSuggestedLayerToLoadTo)); };
     // File : Load Layout with no submenus
-    afx_msg void OnLoadCustomSpriteForZero() { UINT nSuggestedLayerToLoadTo = 0; OnLoadCustomSprite(&nSuggestedLayerToLoadTo, SpriteImportDirection::TopDown); };
+    afx_msg void OnLoadCustomSpriteForZero() { UINT nSuggestedLayerToLoadTo = 0; PreviewImport::OnLoadCustomSprite(static_cast<int>(nSuggestedLayerToLoadTo)); };
 
     afx_msg void SetBlendToDefault()  { m_ImgDisp.SetForcedBlendMode(BlendMode::Default); m_ImgDisp.UpdateCtrl(); };
     afx_msg void SetBlendToAlpha()    { m_ImgDisp.SetForcedBlendMode(BlendMode::Alpha); m_ImgDisp.UpdateCtrl(); };
@@ -94,6 +95,5 @@ public:
     afx_msg void SetBlendToPS1STOn()  { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOn); m_ImgDisp.UpdateCtrl(); };
     afx_msg void SetBlendToPS1STOff() { m_ImgDisp.SetForcedBlendMode(BlendMode::PS1SemiTransparencyOff); m_ImgDisp.UpdateCtrl(); };
 
-    bool LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, LPCWSTR pszPath, bool fShowAdvancedOptionsIfNeeded, PNGImportSpecialOptions importOptions = {} );
     BOOL GetPreviewDropIsPalette() { return m_ImgDisp.GetPreviewDropIsPalette(); };
 };

@@ -62,11 +62,30 @@ struct sPoint
     double y = 0.0;
 };
 
-struct sTextureData
-{
-    sImageDimensions dimensions;
-    std::vector<uint8_t> pixels;
+enum class SpriteImportDirection { TopDown, UpsideDown, FlipHorizontal };
 
-    void Resize(sImageDimensions newSize, sImageDimensions offset = {});
-    void Merge(sTextureData mergeAbove, sImageDimensions offset = {});
+enum class SpriteImportCompositionStyle
+{
+    Replace,
+    MergeAbove,
+    MergeBelow,
+    FlushLeft,
+    FlushRight,
+    FlushTop,
+    FlushBottom,
+    // If you add new styles here update CPreviewImportDialog::OnInitDialog() so that we expose any new options
+};
+
+struct sSpriteImportOptions
+{
+    SpriteImportDirection direction = SpriteImportDirection::TopDown;
+    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
+    sImageDimensions offsets = {};
+};
+
+struct PNGImportSpecialOptions
+{
+    bool fForceNonIndexed = false;
+    bool fReversedColorTable = false;
+    bool fColorTableStartsAtOne = true;
 };

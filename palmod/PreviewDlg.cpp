@@ -3,10 +3,9 @@
 
 #include "stdafx.h"
 #include "PalMod.h"
-
 #include "PreviewDlg.h"
 #include "ImgOutDlg.h"
-
+#include "PreviewImport.h"
 #include "RegProc.h"
 
 // CPreviewDlg dialog
@@ -227,12 +226,12 @@ void CPreviewDlg::OnSetTrimImportedPreviews()
 
 void CPreviewDlg::OnSetImportWinKawaksFirst()
 {
-    m_ImgDisp.SetPreviewImportWinKawaksFirst(!m_ImgDisp.GetPreviewImportWinKawaksFirst());
+    CRegProc::SetPreviewImport_WinKawaksFirst(!CRegProc::GetPreviewImport_WinKawaksFirst(FALSE));
 }
 
 void CPreviewDlg::OnSetImportUseFullCPS3()
 {
-    m_ImgDisp.SetPreviewImportUseFullCPS3(!m_ImgDisp.GetPreviewImportUseFullCPS3());
+    CRegProc::SetPreviewImport_UseFullCPS3(!CRegProc::GetPreviewImport_UseFullCPS3(FALSE));
 }
 
 void CPreviewDlg::LoadSettings()
@@ -371,7 +370,7 @@ BOOL CPreviewDlg::OnInitDialog()
 
     // Set the icon for this dialog.  The framework does this automatically
     //  when the application's main window is not a dialog
-    SetIcon(m_hIcon, TRUE);          // Set big icon
+    SetIcon(m_hIcon, TRUE);         // Set big icon
     SetIcon(m_hIcon, FALSE);        // Set small icon
 
     return TRUE;  // return TRUE unless you set the focus to a control
@@ -487,8 +486,8 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         }
 
         pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_TRIM, m_ImgDisp.GetTrimImportedPreviews() ? MF_CHECKED : MF_UNCHECKED);
-        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_KAWAKS, m_ImgDisp.GetPreviewImportWinKawaksFirst() ? MF_CHECKED : MF_UNCHECKED);
-        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_FULLCPS3, m_ImgDisp.GetPreviewImportUseFullCPS3() ? MF_CHECKED : MF_UNCHECKED);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_KAWAKS, CRegProc::GetPreviewImport_WinKawaksFirst(FALSE) ? MF_CHECKED : MF_UNCHECKED);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_IMPORT_FULLCPS3, CRegProc::GetPreviewImport_UseFullCPS3(FALSE) ? MF_CHECKED : MF_UNCHECKED);
     }
     else if (pSettMenu == pPopupMenu)
     {
@@ -527,70 +526,6 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.SetBGYOffs(0);
 
     m_ImgDisp.UpdateCtrl();
-}
-
-bool CPreviewDlg::LoadCustomSpriteFromPath(UINT* pnPositionToLoadTo, SpriteImportDirection direction, LPCWSTR pszPath, bool fShowAdvancedOptions, PNGImportSpecialOptions importOptions /* = {} */)
-{
-    LPCWSTR pszExt = wcsrchr(pszPath, L'.');
-    CImgDisp::ImageLoadType imageType;
-
-    if (pszExt &&
-            ((_wcsicmp(pszExt, L".gif") == 0) ||
-             (_wcsicmp(pszExt, L".bmp") == 0)))
-    {
-        imageType = CImgDisp::ImageLoadType::CImage;
-    }
-    else if (pszExt && (_wcsicmp(pszExt, L".png") == 0))
-    {
-        imageType = CImgDisp::ImageLoadType::PNG;
-    }
-    else
-    {
-        imageType = CImgDisp::ImageLoadType::RAW;
-    }
-
-    const bool fSuccess = m_ImgDisp.LoadExternalPreview(imageType, pnPositionToLoadTo, direction, pszPath, fShowAdvancedOptions, importOptions);
-
-    if (fSuccess)
-    {
-        m_ImgDisp.UpdateCtrl();
-    }
-
-    return fSuccess;
-}
-
-void CPreviewDlg::OnLoadCustomSprite(UINT* pnSuggestedLayerToLoadTo /*= nullptr */, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */, bool fShowAdvancedOptions /* = false */)
-{
-    if (GetHost()->GetCurrGame())
-    {
-        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Supported texture files|*-W-*-H-*.*;*.png;*.gif|"
-                                                       L"RAW Texture file|*-W-*-H-*.*|"
-                                                       L"PNG|*.png|"
-                                                       L"GIF|*.gif|"
-                                                       L"PNG (treat as non-indexed)|*.png|"
-                                                       L"PNG (upside-down color table)|*.png|"
-                                                       L"PNG (GIMP wrong-offset color table)|*.png|"
-                                                       L"|", this);
-
-        OpenDialog.GetOFN().nFilterIndex = CRegProc::GetOFNIndexForLoadCustomSprite();
-
-        if (OpenDialog.DoModal() == IDOK)
-        {
-            PNGImportSpecialOptions importOptions = { (OpenDialog.GetOFN().nFilterIndex == 5), (OpenDialog.GetOFN().nFilterIndex == 6), (OpenDialog.GetOFN().nFilterIndex != 7) };
-
-            LoadCustomSpriteFromPath(pnSuggestedLayerToLoadTo, direction, OpenDialog.GetPathName().GetBuffer(), fShowAdvancedOptions, importOptions);
-
-            CRegProc::StoreOFNIndexForLoadCustomSprite(OpenDialog.GetOFN().nFilterIndex);
-        }
-    }
-    else
-    {
-        CString strError;
-        if (strError.LoadString(IDS_ERROR_TEXTURE_NOGAME))
-        {
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONEXCLAMATION);
-        }
-    }
 }
 
 void CPreviewDlg::OnFileExportImg(bool fShowFullOptions)

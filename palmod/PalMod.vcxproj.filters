@@ -685,6 +685,12 @@
     <Filter Include="Palettes\Palette Import">
       <UniqueIdentifier>{45d1da90-cf09-4b9b-818c-76c3f7d8dfa2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Images\Preview Import">
+      <UniqueIdentifier>{39146423-b756-4bce-b9c0-8433d1351748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images\Texture Data">
+      <UniqueIdentifier>{5bcb317c-b922-4e03-abd3-7decd744c98b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1113,9 +1119,6 @@
     <ClCompile Include="RAWfiles.cpp">
       <Filter>Palette file storage</Filter>
     </ClCompile>
-    <ClCompile Include="PreviewImport.cpp">
-      <Filter>Palette file storage</Filter>
-    </ClCompile>
     <ClCompile Include="DropTarget.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
@@ -1145,6 +1148,15 @@
     </ClCompile>
     <ClCompile Include="PaletteImport.cpp">
       <Filter>Palettes\Palette Import</Filter>
+    </ClCompile>
+    <ClCompile Include="CImageFiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewImport.cpp">
+      <Filter>Images\Preview Import</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureData.cpp">
+      <Filter>Images\Texture Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2318,9 +2330,6 @@
     <ClInclude Include="MappingPalettes.h">
       <Filter>Palette file storage</Filter>
     </ClInclude>
-    <ClInclude Include="PreviewImport.h">
-      <Filter>Palette file storage</Filter>
-    </ClInclude>
     <ClInclude Include="RAWfiles.h">
       <Filter>Palette file storage</Filter>
     </ClInclude>
@@ -2467,6 +2476,18 @@
     </ClInclude>
     <ClInclude Include="PaletteImport.h">
       <Filter>Palettes\Palette Import</Filter>
+    </ClInclude>
+    <ClInclude Include="CImageFiles.h">
+      <Filter>Palette file storage</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewImport.h">
+      <Filter>Images\Preview Import</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureData.h">
+      <Filter>Images\Texture Data</Filter>
+    </ClInclude>
+    <ClInclude Include="PNGfiles.h">
+      <Filter>Palette file storage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

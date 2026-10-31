@@ -739,7 +739,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         szGameFileDef.Append(rgGameToFileMap.at(nArrayPosition).strGameFilterString.data());
         rgGameToFileMap.at(nArrayPosition).nListedGameIndex = nArrayPosition;
 
-        if (rgGameToFileMap.at(nArrayPosition).nInternalGameIndex == nDefaultGameFilter)
+        if (rgGameToFileMap.at(nArrayPosition).nInternalGameIndex == static_cast<int>(nDefaultGameFilter))
         {
             // user nFilterIndex starts at 1
             dwLastUsedGameIndex = rgGameToFileMap.at(nArrayPosition).nListedGameIndex + 1;
@@ -800,7 +800,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
             for (const sSupportedGameToFileMap& currentGame : rgGameToFileMap)
             {
                 // user nFilterIndex starts at 1
-                if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)
+                if ((currentGame.nListedGameIndex + 1) == static_cast<int>(ofn.nFilterIndex))
                 {
                     LoadGameFile(static_cast<SupportedGamesList>(currentGame.nInternalGameIndex), static_cast<wchar_t*>(ofn.lpstrFile));
                     break;

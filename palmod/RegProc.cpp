@@ -506,18 +506,6 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             if (RegQueryValueEx(hKey, c_prevPreviewDropsArePalettes, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropIsPalette), &GetSz) != ERROR_SUCCESS)
                 m_PreviewSettings.fPreviewDropIsPalette = FALSE;
 
-            GetSz = sizeof(m_PreviewSettings.fPreviewTrimImportedPreviews);
-            if (RegQueryValueEx(hKey, c_prevTrimImportedPreviews, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewTrimImportedPreviews), &GetSz) != ERROR_SUCCESS)
-                m_PreviewSettings.fPreviewTrimImportedPreviews = TRUE;
-
-            GetSz = sizeof(m_PreviewSettings.fPreviewImportWinKawaksFirst);
-            if (RegQueryValueEx(hKey, c_prevPreviewImportsKawaksFirst, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewImportWinKawaksFirst), &GetSz) != ERROR_SUCCESS)
-                m_PreviewSettings.fPreviewImportWinKawaksFirst = FALSE;
-
-            GetSz = sizeof(m_PreviewSettings.fPreviewImportUseFullCPS3);
-            if (RegQueryValueEx(hKey, c_prevPreviewImportsUseFullCPS3, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewImportUseFullCPS3), &GetSz) != ERROR_SUCCESS)
-                m_PreviewSettings.fPreviewImportUseFullCPS3 = FALSE;
-
             GetSz = sizeof(m_PreviewSettings.fAllowAutoPreviewFallback);
             if (RegQueryValueEx(hKey, c_prevAllowAutoPreviewFallback, 0, &RegType, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fAllowAutoPreviewFallback), &GetSz) != ERROR_SUCCESS)
                 m_PreviewSettings.fAllowAutoPreviewFallback = TRUE;
@@ -639,9 +627,6 @@ void CRegProc::SaveReg(eRegistryStoreID src)
                 RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fClickToFindColor), sizeof(m_PreviewSettings.fClickToFindColor));
                 RegSetValueEx(hKey, c_prevBlendMode, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.eBlendMode), sizeof(m_PreviewSettings.eBlendMode));
                 RegSetValueEx(hKey, c_prevPreviewDropsArePalettes, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewDropIsPalette), sizeof(m_PreviewSettings.fPreviewDropIsPalette));
-                RegSetValueEx(hKey, c_prevTrimImportedPreviews, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewTrimImportedPreviews), sizeof(m_PreviewSettings.fPreviewTrimImportedPreviews));
-                RegSetValueEx(hKey, c_prevPreviewImportsKawaksFirst, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewImportWinKawaksFirst), sizeof(m_PreviewSettings.fPreviewImportWinKawaksFirst));
-                RegSetValueEx(hKey, c_prevPreviewImportsUseFullCPS3, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fPreviewImportUseFullCPS3), sizeof(m_PreviewSettings.fPreviewImportUseFullCPS3));
 
                 RegSetValueEx(hKey, c_prevAllowAutoPreviewFallback, 0, REG_DWORD, reinterpret_cast<LPBYTE>(&m_PreviewSettings.fAllowAutoPreviewFallback), sizeof(m_PreviewSettings.fAllowAutoPreviewFallback));
                 DWORD nTranslation = static_cast<DWORD>(m_PreviewSettings.dPreviewZoom);

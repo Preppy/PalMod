@@ -2,6 +2,7 @@
 #include "game\Default.h"
 #include "game\palgroup.h"
 #include "regproc.h"
+#include "TextureData.h"
 
 #define aadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 #define fabs(x) (x < 0.0f ? -x : x)
@@ -25,33 +26,6 @@ struct sImgNode
     COLORREF* pBlinkPalette = nullptr;
 
     BlendMode eBlendMode = BlendMode::Alpha;
-};
-
-enum class SpriteImportDirection { TopDown, UpsideDown, FlipHorizontal };
-enum class SpriteImportCompositionStyle
-{
-    Replace, 
-    MergeAbove, 
-    MergeBelow,
-    FlushLeft,
-    FlushRight,
-    FlushTop,
-    FlushBottom,
-    // If you add new styles here update CPreviewImportDialog::OnInitDialog() so that we expose any new options
-};
-
-struct sSpriteImportOptions
-{
-    SpriteImportDirection direction = SpriteImportDirection::TopDown;
-    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
-    sImageDimensions offsets = {};
-};
-
-struct PNGImportSpecialOptions
-{
-    bool fReversedColorTable = false;
-    bool fForceNonIndexed = false;
-    bool fColorTableStartsAtOne = true;
 };
 
 // CImgDisp
@@ -116,32 +90,12 @@ private:
 
     BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseBlinkPal = false);
 
-    void _ResizeAndBlankCustomPreviews(UINT* pnLayerToLoadTo, size_t nNewSize);
+    void _ResizeAndBlankCustomPreviews(std::optional<int> optLayerToLoadTo, size_t nNewSize);
 
-    void _CompositeTexture(sTextureData incomingTexture, UINT nLayerToLoadTo, sSpriteImportOptions importPreviewOptions);
-    void _UpdatePreviewForExternalSprite(UINT* pnLayerToLoadTo);
-
-    void _FlipImageDataIfNeeded(SpriteImportDirection direction, sTextureData& textureData);
-
-    void _ImportAndSplitSpriteComposition(sSpriteImportOptions importPreviewOptions, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions,
-                                            size_t nImagePalSize, bool fReverseColorTable = false, bool fColorTableStartsAtOne = true);
-    void _ImportAndSplitRGBSpriteComposition(sSpriteImportOptions importPreviewOptions, UINT* pnLayerToLoadTo, unsigned char* pImageData, sImageDimensions dimensions, size_t nImageSize);
-
-    void _UpdateCompositionDisplayRect(UINT nLayer, sImageDimensions dimensions, bool fForceThisAsBackmostLayer = false);
+    void _UpdateCompositionDisplayRect(int nLayer, sImageDimensions dimensions, bool fForceThisAsBackmostLayer = false);
     void _TrimLoadedCustomImages(bool fIsFullStackReplacement);
     void _ResizeImageStack(bool fIsFullStackReplacement);
     void _AdjustLayoutForNewlyLoadedImage();
-
-    std::vector<uint8_t> _LoadTextureFromCImageSprite(LPCWSTR pszTextureLocation, UINT& nLayerToLoadTo, sImageDimensions& suggestedImageSize, sSpriteImportOptions& importPreviewOptions, bool fShowAdvancedOptions, bool& fUserCancelled);
-
-    bool _GetDropLayerFromFileName(const std::wstring& strFileName, UINT& iLayerToDropTo);
-    bool _SanitizeRequestedImageLayer(UINT* pnLayerToLoadTo, UINT& nConfirmedLayerToLoadTo);
-
-    bool _LoadExternalCImageSprite(UINT* pnLayerToLoadTo, sSpriteImportOptions importPreviewOptions, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true);
-    // PNG Sprite import uniquely uses a pointer for layer placement since it can replace the full layer stack
-    // A null pointer passed in indicates to us to replace the full stack: a pointer of value 0 means just the first layer.
-    bool _LoadExternalPNGSprite(UINT* pnLayerToLoadTo, sSpriteImportOptions importPreviewOptions, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importPNGOptions = {});
-    bool _LoadExternalRAWSprite(UINT* pnLayerToLoadTo, sSpriteImportOptions importPreviewOptions, LPCWSTR pszTextureLocation, bool fMustShowAdvancedOptions = true);
 
 public:
     CImgDisp();
@@ -185,12 +139,8 @@ public:
     BOOL CanForceBGBitmapAvailable();
     BOOL GetPreviewDropIsPalette() const { return m_Settings.fPreviewDropIsPalette; };
     void SetDropIsPalette(BOOL fPreviewDropIsPalette) { m_Settings.fPreviewDropIsPalette = fPreviewDropIsPalette; };
-    BOOL GetTrimImportedPreviews() const { return m_Settings.fPreviewTrimImportedPreviews; };
-    void SetTrimImportedPreviews(BOOL fPreviewDropTrim) { m_Settings.fPreviewTrimImportedPreviews = fPreviewDropTrim; };
-    BOOL GetPreviewImportWinKawaksFirst() const { return m_Settings.fPreviewImportWinKawaksFirst; };
-    void SetPreviewImportWinKawaksFirst(BOOL fPreviewImportWinKawaksFirst) { m_Settings.fPreviewImportWinKawaksFirst = fPreviewImportWinKawaksFirst; };
-    BOOL GetPreviewImportUseFullCPS3() const { { return m_Settings.fPreviewImportUseFullCPS3; }; };
-    void SetPreviewImportUseFullCPS3(BOOL fPreviewImportUseFullCPS3) { m_Settings.fPreviewImportUseFullCPS3 = fPreviewImportUseFullCPS3; };
+    BOOL GetTrimImportedPreviews() const { return CRegProc::GetPreviewImport_Trim(TRUE); };
+    void SetTrimImportedPreviews(BOOL fPreviewDropTrim) { CRegProc::SetPreviewImport_Trim(fPreviewDropTrim); };
 
     int GetBGXOffs() const { return m_Settings.nBGBMPOffsets.x; };
     int GetBGYOffs() const { return m_Settings.nBGBMPOffsets.y; };
@@ -202,17 +152,10 @@ public:
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, uint16_t nPalSz);
 
-    enum class ImageLoadType
-    {
-        PNG,
-        RAW,
-        CImage,
-    };
-
-    bool LoadExternalPreview(ImageLoadType iType, UINT* pnLayerToLoadTo, SpriteImportDirection direction, LPCWSTR pszTextureLocation, bool fShowAdvancedOptionsIfNeeded = true, PNGImportSpecialOptions importOptions = {});
-
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
+
+    bool GetDisplayedTextureForLayer(size_t nLayer, sTextureData& texture);
     
     void SetZoom(double fpNewZoom)
     {
@@ -241,6 +184,11 @@ public:
     void ResetCustomSpriteOverride(size_t nLayer);
     // Nuke all layers
     void FlushCustomSpriteOverrides();
+
+    // TODO: these need to be public?
+    void CompositeTexture(sTextureData incomingTexture, int nLayerToLoadTo, sSpriteImportOptions importPreviewOptions);
+    void UpdatePreviewForExternalSprite(std::optional<int> optLayerToLoadTo);
+    std::optional<int> SanitizeRequestedImageLayer(std::optional<int> optLayerToLoadTo);
 
 protected:
     BOOL RegisterWindowClass();
