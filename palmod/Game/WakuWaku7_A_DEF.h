@@ -34,8 +34,9 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_A_PALETTES[] =
     { L"Rai A Poisoned 2", 0xccf8, 0xcd18, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai A White Flash", 0xce78, 0xce98, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai A SEL Portrait", 0x11558, 0x115B8, indexWakuWaku7Sprites_Rai, 0x10 },
-    { L"Rai A HUD Portrait", 0x176D8, 0x176F8, indexWakuWaku7Sprites_Rai, 0x11 },
+    { L"Rai A SEL", 0x11558, 0x11598, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai A SEL Flashing", 0x11598, 0x115b8, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
+    { L"Rai A HUD Portrait", 0x176D8, 0x176F8, indexWakuWaku7Sprites_Rai, 0x12 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_RAI_B_PALETTES[] =
@@ -48,8 +49,9 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_B_PALETTES[] =
     { L"Rai B Poisoned 2", 0xcd18, 0xcd38, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai B White Flash", 0xce98, 0xceb8, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai B SEL Portrait", 0x115B8, 0x11618, indexWakuWaku7Sprites_Rai, 0x10 },
-    { L"Rai B HUD Portrait", 0x176F8, 0x17718, indexWakuWaku7Sprites_Rai, 0x11 },
+    { L"Rai B SEL", 0x115b8, 0x115f8, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai B SEL Flashing", 0x115f8, 0x11618, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
+    { L"Rai B HUD Portrait", 0x176F8, 0x17718, indexWakuWaku7Sprites_Rai, 0x12 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_RAI_C_PALETTES[] =
@@ -62,8 +64,9 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_C_PALETTES[] =
     { L"Rai C Poisoned 2", 0xcd38, 0xcd58, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai C White Flash", 0xceb8, 0xced8, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai C SEL Portrait", 0x11618, 0x11678, indexWakuWaku7Sprites_Rai, 0x10 },
-    { L"Rai C HUD Portrait", 0x17718, 0x17738, indexWakuWaku7Sprites_Rai, 0x11 },
+    { L"Rai C SEL", 0x11618, 0x11658, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai C SEL Flashing", 0x11658, 0x11678, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
+    { L"Rai C HUD Portrait", 0x17718, 0x17738, indexWakuWaku7Sprites_Rai, 0x12 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_RAI_D_PALETTES[] =
@@ -76,8 +79,9 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_D_PALETTES[] =
     { L"Rai D Poisoned 2", 0xcd58, 0xcd78, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai D White Flash", 0xced8, 0xcef8, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai D SEL Portrait", 0x11678, 0x116D8, indexWakuWaku7Sprites_Rai, 0x10 },
-    { L"Rai D HUD Portrait", 0x17738, 0x17758, indexWakuWaku7Sprites_Rai, 0x11 },
+    { L"Rai D SEL", 0x11678, 0x116b8, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai D SEL Flashing", 0x116b8, 0x116d8, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
+    { L"Rai D HUD Portrait", 0x17738, 0x17758, indexWakuWaku7Sprites_Rai, 0x12 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_RAI_DARK_PALETTES[] =
@@ -90,8 +94,9 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_DARK_PALETTES[] =
     { L"Rai Dark Poisoned 2", 0xcd78, 0xcd98, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai Dark White Flash", 0xcef8, 0xcf18, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai Dark SEL Portrait", 0x116D8, 0x11738, indexWakuWaku7Sprites_Rai, 0x10 },
-    { L"Rai Dark HUD Portrait", 0x17758, 0x17778, indexWakuWaku7Sprites_Rai, 0x11 },
+    { L"Rai Dark SEL", 0x116d8, 0x11718, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai Dark SEL Flashing", 0x11718, 0x11738, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
+    { L"Rai Dark HUD Portrait", 0x17758, 0x17778, indexWakuWaku7Sprites_Rai, 0x12 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_RAI_BONUS_PALETTES[] =
@@ -293,13 +298,13 @@ const sGame_PaletteDataset WakuWaku7_A_DANDYJ_BONUS_PALETTES[] =
 const sGame_PaletteDataset WakuWaku7_A_MAURU_A_PALETTES[] =
 {
     { L"Mauru A", 0xee18, 0xee38, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi A", 0xf298, 0xf2b8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi A", 0xf298, 0xf2b8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru A Burned", 0xf058, 0xf078, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi A Burned", 0xf4d8, 0xf4f8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi A Burned", 0xf4d8, 0xf4f8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru A Poisoned", 0xf118, 0xf138, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi A Poisoned", 0xf598, 0xf5b8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi A Poisoned", 0xf598, 0xf5b8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru A White Flash", 0xf198, 0xf1b8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi A White Flash", 0xf618, 0xf638, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi A White Flash", 0xf618, 0xf638, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru A Special Flash", 0xf758, 0xf778, indexWakuWaku7Sprites_Mauru, 0x00 },
     { L"Mauru A SEL Portrait", 0x11d58, 0x11db8, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru A HUD Portrait", 0x178d8, 0x178f8, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -308,13 +313,13 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_A_PALETTES[] =
 const sGame_PaletteDataset WakuWaku7_A_MAURU_B_PALETTES[] =
 {
     { L"Mauru B", 0xee38, 0xee58, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi B", 0xf2b8, 0xf2d8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi B", 0xf2b8, 0xf2d8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru B Burned", 0xf078, 0xf098, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi B Burned", 0xf4f8, 0xf518, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi B Burned", 0xf4f8, 0xf518, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru B Poisoned", 0xf138, 0xf158, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi B Poisoned", 0xf5b8, 0xf5d8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi B Poisoned", 0xf5b8, 0xf5d8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru B White Flash", 0xf1b8, 0xf1d8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi B White Flash", 0xf638, 0xf658, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi B White Flash", 0xf638, 0xf658, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru B Special Flash", 0xf778, 0xf798, indexWakuWaku7Sprites_Mauru, 0x00 },
     { L"Mauru B SEL Portrait", 0x11db8, 0x11e18, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru B HUD Portrait", 0x178f8, 0x17918, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -323,13 +328,13 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_B_PALETTES[] =
 const sGame_PaletteDataset WakuWaku7_A_MAURU_C_PALETTES[] =
 {
     { L"Mauru C", 0xee58, 0xee78, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi C", 0xf2d8, 0xf2f8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi C", 0xf2d8, 0xf2f8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru C Burned", 0xf098, 0xf0b8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi C Burned", 0xf518, 0xf538, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi C Burned", 0xf518, 0xf538, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru C Poisoned", 0xf158, 0xf178, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi C Poisoned", 0xf5d8, 0xf5f8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi C Poisoned", 0xf5d8, 0xf5f8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru C White Flash", 0xf1d8, 0xf1f8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi C White Flash", 0xf658, 0xf678, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi C White Flash", 0xf658, 0xf678, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru C Special Flash", 0xf798, 0xf7b8, indexWakuWaku7Sprites_Mauru, 0x00 },
     { L"Mauru C SEL Portrait", 0x11e18, 0x11e78, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru C HUD Portrait", 0x17918, 0x17938, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -338,13 +343,13 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_C_PALETTES[] =
 const sGame_PaletteDataset WakuWaku7_A_MAURU_D_PALETTES[] =
 {
     { L"Mauru D", 0xee78, 0xee98, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi D", 0xf2f8, 0xf318, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi D", 0xf2f8, 0xf318, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru D Burned", 0xf0b8, 0xf0d8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi D Burned", 0xf538, 0xf558, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi D Burned", 0xf538, 0xf558, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru D Poisoned", 0xf178, 0xf198, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi D Poisoned", 0xf5f8, 0xf618, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi D Poisoned", 0xf5f8, 0xf618, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru D White Flash", 0xf1f8, 0xf218, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi D White Flash", 0xf678, 0xf698, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi D White Flash", 0xf678, 0xf698, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru D Special Flash", 0xf7b8, 0xf7d8, indexWakuWaku7Sprites_Mauru, 0x00 },
     { L"Mauru D SEL Portrait", 0x11e78, 0x11ed8, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru D HUD Portrait", 0x17938, 0x17958, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -353,13 +358,13 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_D_PALETTES[] =
 const sGame_PaletteDataset WakuWaku7_A_MAURU_DARK_PALETTES[] =
 {
     { L"Mauru Dark", 0xf218, 0xf238, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Dark", 0xf698, 0xf6b8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Dark", 0xf698, 0xf6b8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Dark Burned", 0xf238, 0xf258, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Dark Burned", 0xf6b8, 0xf6d8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Dark Burned", 0xf6b8, 0xf6d8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Dark Poisoned", 0xf258, 0xf278, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Dark Poisoned", 0xf6d8, 0xf6f8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Dark Poisoned", 0xf6d8, 0xf6f8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Dark White Flash", 0xf278, 0xf298, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Dark White Flash", 0xf6f8, 0xf718, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Dark White Flash", 0xf6f8, 0xf718, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Dark Special Flash", 0xf7d8, 0xf7f8, indexWakuWaku7Sprites_Mauru, 0x00 },
     { L"Mauru Dark SEL Portrait", 0x11ED8, 0x11F38, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru Dark HUD Portrait", 0x17958, 0x17978, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -368,35 +373,35 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_DARK_PALETTES[] =
 const sGame_PaletteDataset WakuWaku7_A_MAURU_BONUS_PALETTES[] =
 {
     { L"Mauru Fire Effects 1", 0xf018, 0xf038, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Fire Effects 1", 0xf498, 0xf4b8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Fire Effects 1", 0xf498, 0xf4b8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Fire Effects 2", 0xf038, 0xf058, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Fire Effects 2", 0xf4b8, 0xf4d8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Fire Effects 2", 0xf4b8, 0xf4d8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Electric 1", 0xf0d8, 0xf0f8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Electric 1", 0xf558, 0xf578, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Electric 1", 0xf558, 0xf578, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Electric 2", 0xf0f8, 0xf118, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Electric 2", 0xf578, 0xf598, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Electric 2", 0xf578, 0xf598, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Super Charge 1", 0xef98, 0xefb8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Super Charge 1", 0xf418, 0xf438, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Super Charge 1", 0xf418, 0xf438, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Super Charge 2", 0xefb8, 0xefd8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Super Charge 2", 0xf438, 0xf458, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Super Charge 2", 0xf438, 0xf458, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Super Charge 3", 0xefd8, 0xeff8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Super Charge 3", 0xf458, 0xf478, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Super Charge 3", 0xf458, 0xf478, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Super Charge 4", 0xeff8, 0xf018, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Super Charge 4", 0xf478, 0xf498, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Super Charge 4", 0xf478, 0xf498, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Doki Doki 1", 0xeeb8, 0xeed8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Doki Doki 1", 0xf338, 0xf358, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Doki Doki 1", 0xf338, 0xf358, indexWakuWaku7Sprites_Mauru, 0x1, &pairPreviousFlipped2 },
     { L"Mauru Doki Doki 2", 0xeed8, 0xeef8, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Doki Doki 2", 0xf358, 0xf378, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Doki Doki 2", 0xf358, 0xf378, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Doki Doki 3", 0xeef8, 0xef18, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Doki Doki 3", 0xf378, 0xf398, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Doki Doki 3", 0xf378, 0xf398, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Doki Doki 4", 0xef18, 0xef38, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Doki Doki 4", 0xf398, 0xf3b8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Doki Doki 4", 0xf398, 0xf3b8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Doki Doki 5", 0xef38, 0xef58, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Doki Doki 5", 0xf3b8, 0xf3d8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Doki Doki 5", 0xf3b8, 0xf3d8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Doki Doki 6", 0xef58, 0xef78, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Doki Doki 6", 0xf3d8, 0xf3f8, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Doki Doki 6", 0xf3d8, 0xf3f8, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Doki Doki 7", 0xef78, 0xef98, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
-    { L"Mugi Doki Doki 7", 0xf3f8, 0xf418, indexWakuWaku7Sprites_Mauru, 0x12 },
+    { L"Mugi Doki Doki 7", 0xf3f8, 0xf418, indexWakuWaku7Sprites_Mauru, 0x12, &pairPreviousFlipped },
     { L"Mauru Extras 1", 0xf718, 0xf758 },
     { L"Mauru Extras 2", 0xf7f8, 0xf838 },
 };
@@ -405,117 +410,201 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_BONUS_PALETTES[] =
 const sGame_PaletteDataset WakuWaku7_A_POLITANK_A_PALETTES[] =
 {
     { L"Politank A", 0xF838, 0xF858, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke A", 0xFE38, 0xFE58, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
-    { L"Politank A Flashing", 0x10238, 0x102b8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke A Flashing", 0x10438, 0x104B8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke A", 0xFE38, 0xFE58, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
+    { L"Politank A Flashing 1/4", 0x10238, 0x10258, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke A Flashing 1/4", 0x10438, 0x10458, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank A Flashing 2/4", 0x10258, 0x10278, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke A Flashing 2/4", 0x10458, 0x10478, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank A Flashing 3/4", 0x10278, 0x10298, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke A Flashing 3/4", 0x10478, 0x10498, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank A Flashing 4/4", 0x10298, 0x102b8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke A Flashing 4/4", 0x10498, 0x104b8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
     { L"Politank A Burned", 0xfa78, 0xfa98, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke A Burned", 0x10078, 0x10098, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke A Burned", 0x10078, 0x10098, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank A Poisoned", 0xfb38, 0xfb58, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke A Poisoned", 0x10138, 0x10158, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke A Poisoned", 0x10138, 0x10158, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank A White Flash", 0xfbb8, 0xfbd8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke A White Flash", 0x101b8, 0x101d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke A White Flash", 0x101b8, 0x101d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank A SEL Portrait", 0x11958, 0x119d8, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
-    { L"Chojuro and Hamusuke A SEL Portrait", 0x12358, 0x12458, indexWakuWaku7Sprites_Politank, 0x12, &pairPrevious },
+
+    { L"Chojuro and Hamusuke A SEL Portrait 1/8", 0x12358, 0x12378, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
+    { L"Chojuro and Hamusuke A SEL Portrait 2/8", 0x12378, 0x12398, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
+    { L"Chojuro and Hamusuke A SEL Portrait 3/8", 0x12398, 0x123b8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped3 },
+    { L"Chojuro and Hamusuke A SEL Portrait 4/8", 0x123b8, 0x123d8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped4 },
+    { L"Chojuro and Hamusuke A SEL Portrait 5/8", 0x123d8, 0x123f8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped5 },
+    { L"Chojuro and Hamusuke A SEL Portrait 6/8", 0x123f8, 0x12418, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped6 },
+    { L"Chojuro and Hamusuke A SEL Portrait 7/8", 0x12418, 0x12438, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped7 },
+    { L"Chojuro and Hamusuke A SEL Portrait 8/8", 0x12438, 0x12458, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped8 },
+
     { L"Politank A HUD Portrait", 0x17A18, 0x17A38, indexWakuWaku7Sprites_Politank, 0x11 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_POLITANK_B_PALETTES[] =
 {
     { L"Politank B", 0xF858, 0xF878, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke B", 0xFE58, 0xFE78, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
-    { L"Politank B Flashing", 0x102B8, 0x10338, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke B Flashing", 0x104B8, 0x10538, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke B", 0xFE58, 0xFE78, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
+    { L"Politank B Flashing 1/4", 0x102b8, 0x102d8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke B Flashing 1/4", 0x104b8, 0x104d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank B Flashing 2/4", 0x102d8, 0x102f8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke B Flashing 2/4", 0x104d8, 0x104f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank B Flashing 3/4", 0x102f8, 0x10318, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke B Flashing 3/4", 0x104f8, 0x10518, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank B Flashing 4/4", 0x10318, 0x10338, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke B Flashing 4/4", 0x10518, 0x10538, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
     { L"Politank B Burned", 0xfa98, 0xfab8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke B Burned", 0x10098, 0x100b8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke B Burned", 0x10098, 0x100b8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank B Poisoned", 0xfb58, 0xfb78, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke B Poisoned", 0x10158, 0x10178, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke B Poisoned", 0x10158, 0x10178, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank B White Flash", 0xfbd8, 0xfbf8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke B White Flash", 0x101d8, 0x101f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke B White Flash", 0x101d8, 0x101f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank B SEL Portrait", 0x119d8, 0x11A58, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
-    { L"Chojuro and Hamusuke B SEL Portrait", 0x12458, 0x12558, indexWakuWaku7Sprites_Politank, 0x12, &pairPrevious },
+
+    { L"Chojuro and Hamusuke B SEL Portrait 1/8", 0x12458, 0x12478, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
+    { L"Chojuro and Hamusuke B SEL Portrait 2/8", 0x12478, 0x12498, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
+    { L"Chojuro and Hamusuke B SEL Portrait 3/8", 0x12498, 0x124b8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped3 },
+    { L"Chojuro and Hamusuke B SEL Portrait 4/8", 0x124b8, 0x124d8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped4 },
+    { L"Chojuro and Hamusuke B SEL Portrait 5/8", 0x124d8, 0x124f8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped5 },
+    { L"Chojuro and Hamusuke B SEL Portrait 6/8", 0x124f8, 0x12518, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped6 },
+    { L"Chojuro and Hamusuke B SEL Portrait 7/8", 0x12518, 0x12538, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped7 },
+    { L"Chojuro and Hamusuke B SEL Portrait 8/8", 0x12538, 0x12558, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped8 },
+
     { L"Politank B HUD Portrait", 0x17A38, 0x17A58, indexWakuWaku7Sprites_Politank, 0x11 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_POLITANK_C_PALETTES[] =
 {
     { L"Politank C", 0xF878, 0xF898, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke C", 0xFE78, 0xFE98, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
-    { L"Politank C Flashing", 0x10338, 0x103B8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke C Flashing", 0x10538, 0x105B8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke C", 0xFE78, 0xFE98, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
+    { L"Politank C Flashing 1/4", 0x10338, 0x10358, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke C Flashing 1/4", 0x10538, 0x10558, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank C Flashing 2/4", 0x10358, 0x10378, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke C Flashing 2/4", 0x10558, 0x10578, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank C Flashing 3/4", 0x10378, 0x10398, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke C Flashing 3/4", 0x10578, 0x10598, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank C Flashing 4/4", 0x10398, 0x103b8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke C Flashing 4/4", 0x10598, 0x105b8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
     { L"Politank C Burned", 0xfab8, 0xfad8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke C Burned", 0x100b8, 0x100d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke C Burned", 0x100b8, 0x100d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank C Poisoned", 0xfb78, 0xfb98, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke C Poisoned", 0x10178, 0x10198, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke C Poisoned", 0x10178, 0x10198, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank C White Flash", 0xfbf8, 0xfc18, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke C White Flash", 0x101f8, 0x10218, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke C White Flash", 0x101f8, 0x10218, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank C SEL Portrait", 0x11a58, 0x11Ad8, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
-    { L"Chojuro and Hamusuke C SEL Portrait", 0x12558, 0x12658, indexWakuWaku7Sprites_Politank, 0x12, &pairPrevious },
+
+    { L"Chojuro and Hamusuke C SEL Portrait 1/8", 0x12558, 0x12578, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
+    { L"Chojuro and Hamusuke C SEL Portrait 2/8", 0x12578, 0x12598, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
+    { L"Chojuro and Hamusuke C SEL Portrait 3/8", 0x12598, 0x125b8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped3 },
+    { L"Chojuro and Hamusuke C SEL Portrait 4/8", 0x125b8, 0x125d8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped4 },
+    { L"Chojuro and Hamusuke C SEL Portrait 5/8", 0x125d8, 0x125f8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped5 },
+    { L"Chojuro and Hamusuke C SEL Portrait 6/8", 0x125f8, 0x12618, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped6 },
+    { L"Chojuro and Hamusuke C SEL Portrait 7/8", 0x12618, 0x12638, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped7 },
+    { L"Chojuro and Hamusuke C SEL Portrait 8/8", 0x12638, 0x12658, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped8 },
+
     { L"Politank C HUD Portrait", 0x17A58, 0x17A78, indexWakuWaku7Sprites_Politank, 0x11 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_POLITANK_D_PALETTES[] =
 {
     { L"Politank D", 0xF898, 0xF8B8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke D", 0xFE98, 0xFEB8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
-    { L"Politank D Flashing", 0x103B8, 0x10438, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke D Flashing", 0x105B8, 0x10638, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke D", 0xFE98, 0xFEB8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
+    { L"Politank D Flashing 1/4", 0x103b8, 0x103d8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke D Flashing 1/4", 0x105b8, 0x105d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank D Flashing 2/4", 0x103d8, 0x103f8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke D Flashing 2/4", 0x105d8, 0x105f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank D Flashing 3/4", 0x103f8, 0x10418, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke D Flashing 3/4", 0x105f8, 0x10618, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank D Flashing 4/4", 0x10418, 0x10438, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke D Flashing 4/4", 0x10618, 0x10638, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
     { L"Politank D Burned", 0xfad8, 0xfaf8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke D Burned", 0x100d8, 0x100f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke D Burned", 0x100d8, 0x100f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank D Poisoned", 0xfb98, 0xfbb8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke D Poisoned", 0x10198, 0x101b8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke D Poisoned", 0x10198, 0x101b8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank D White Flash", 0xfc18, 0xfc38, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke D White Flash", 0x10218, 0x10238, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke D White Flash", 0x10218, 0x10238, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank D SEL Portrait", 0x11ad8, 0x11b58, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
-    { L"Chojuro and Hamusuke D SEL Portrait", 0x12658, 0x12758, indexWakuWaku7Sprites_Politank, 0x12, &pairPrevious },
+
+    { L"Chojuro and Hamusuke D SEL Portrait 1/8", 0x12658, 0x12678, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
+    { L"Chojuro and Hamusuke D SEL Portrait 2/8", 0x12678, 0x12698, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
+    { L"Chojuro and Hamusuke D SEL Portrait 3/8", 0x12698, 0x126b8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped3 },
+    { L"Chojuro and Hamusuke D SEL Portrait 4/8", 0x126b8, 0x126d8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped4 },
+    { L"Chojuro and Hamusuke D SEL Portrait 5/8", 0x126d8, 0x126f8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped5 },
+    { L"Chojuro and Hamusuke D SEL Portrait 6/8", 0x126f8, 0x12718, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped6 },
+    { L"Chojuro and Hamusuke D SEL Portrait 7/8", 0x12718, 0x12738, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped7 },
+    { L"Chojuro and Hamusuke D SEL Portrait 8/8", 0x12738, 0x12758, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped8 },
+
     { L"Politank D HUD Portrait", 0x17A78, 0x17A98, indexWakuWaku7Sprites_Politank, 0x11 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_POLITANK_DARK_PALETTES[] =
 {
     { L"Politank Dark", 0xFC38, 0XFC58, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Dark", 0xFCD8, 0xFCF8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
-    { L"Politank Dark Flashing", 0x10638, 0x106B8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Dark Flashing", 0x106B8, 0x10738, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Dark", 0xFCD8, 0xFCF8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+
+    { L"Politank Dark Flashing 1/4", 0x10638, 0x10658, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke Dark Flashing 1/4", 0x106b8, 0x106d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank Dark Flashing 2/4", 0x10658, 0x10678, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke Dark Flashing 2/4", 0x106d8, 0x106f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank Dark Flashing 3/4", 0x10678, 0x10698, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke Dark Flashing 3/4", 0x106f8, 0x10718, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
+    { L"Politank Dark Flashing 4/4", 0x10698, 0x106b8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
+    { L"Chojuro and Hamusuke Dark Flashing 4/4", 0x10718, 0x10738, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
 
     // No Dark effects
 
     { L"Politank Dark SEL Portrait", 0x11b58, 0x11bd8, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
-    { L"Chojuro and Hamusuke Dark SEL Portrait", 0x12758, 0x12858, indexWakuWaku7Sprites_Politank, 0x12, &pairPrevious },
+
+    { L"Chojuro and Hamusuke Dark SEL Portrait 1/8", 0x12758, 0x12778, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
+    { L"Chojuro and Hamusuke Dark SEL Portrait 2/8", 0x12778, 0x12798, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
+    { L"Chojuro and Hamusuke Dark SEL Portrait 3/8", 0x12798, 0x127b8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped3 },
+    { L"Chojuro and Hamusuke Dark SEL Portrait 4/8", 0x127b8, 0x127d8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped4 },
+    { L"Chojuro and Hamusuke Dark SEL Portrait 5/8", 0x127d8, 0x127f8, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped5 },
+    { L"Chojuro and Hamusuke Dark SEL Portrait 6/8", 0x127f8, 0x12818, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped6 },
+    { L"Chojuro and Hamusuke Dark SEL Portrait 7/8", 0x12818, 0x12838, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped7 },
+    { L"Chojuro and Hamusuke Dark SEL Portrait 8/8", 0x12838, 0x12858, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped8 },
+
     { L"Politank Dark HUD Portrait", 0x17A98, 0x17AB8, indexWakuWaku7Sprites_Politank, 0x11 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_POLITANK_BONUS_PALETTES[] =
 {
     { L"Politank Fire Effects 1", 0xfa38, 0xfa58, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Fire Effects 1", 0x10038, 0x10058, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Fire Effects 1", 0x10038, 0x10058, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Fire Effects 2", 0xfa58, 0xfa78, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Fire Effects 2", 0x10058, 0x10078, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Fire Effects 2", 0x10058, 0x10078, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Electric 1", 0xfaf8, 0xfb18, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Electric 1", 0x100f8, 0x10118, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Electric 1", 0x100f8, 0x10118, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Electric 2", 0xfb18, 0xfb38, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Electric 2", 0x10118, 0x10138, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Electric 2", 0x10118, 0x10138, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Super Charge 1", 0xf9b8, 0xf9d8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Super Charge 1", 0xffb8, 0xffd8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Super Charge 1", 0xffb8, 0xffd8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Super Charge 2", 0xf9d8, 0xf9f8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Super Charge 2", 0xffd8, 0xfff8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Super Charge 2", 0xffd8, 0xfff8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Super Charge 3", 0xf9f8, 0xfa18, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Super Charge 3", 0xfff8, 0x10018, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Super Charge 3", 0xfff8, 0x10018, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Super Charge 4", 0xfa18, 0xfa38, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Super Charge 4", 0x10018, 0x10038, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Super Charge 4", 0x10018, 0x10038, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Doki Doki 1", 0xf8d8, 0xf8f8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Doki Doki 1", 0xfed8, 0xfef8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Doki Doki 1", 0xfed8, 0xfef8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Doki Doki 2", 0xf8f8, 0xf918, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Doki Doki 2", 0xfef8, 0xff18, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Doki Doki 2", 0xfef8, 0xff18, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Doki Doki 3", 0xf918, 0xf938, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Doki Doki 3", 0xff18, 0xff38, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Doki Doki 3", 0xff18, 0xff38, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Doki Doki 4", 0xf938, 0xf958, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Doki Doki 4", 0xff38, 0xff58, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Doki Doki 4", 0xff38, 0xff58, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Doki Doki 5", 0xf958, 0xf978, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Doki Doki 5", 0xff58, 0xff78, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Doki Doki 5", 0xff58, 0xff78, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Doki Doki 6", 0xf978, 0xf998, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Doki Doki 6", 0xff78, 0xff98, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Doki Doki 6", 0xff78, 0xff98, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Doki Doki 7", 0xf998, 0xf9b8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
-    { L"Chojuro and Hamusuke Doki Doki 7", 0xff98, 0xffb8, indexWakuWaku7Sprites_Politank, 0x13, &pairPrevious },
+    { L"Chojuro and Hamusuke Doki Doki 7", 0xff98, 0xffb8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank Extras 1", 0xfc58, 0xfcb8 },
     { L"Politank Extras 2", 0xfcf8, 0xfd58 },
     { L"Politank Extras 3", 0x10738, 0x10798 },
@@ -677,7 +766,14 @@ const sGame_PaletteDataset WakuWaku7_A_FERNANDEATH_A_PALETTES[] =
     { L"Fernandeath A Burned", 0x10a78, 0x10a98, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath A Poisoned", 0x10b38, 0x10b58, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath A White Flash", 0x10bb8, 0x10bd8, indexWakuWaku7Sprites_Fernandeath, 0x00 },
-    { L"Fernandeath A SEL Portrait", 0x11FD8, 0x12098 },
+
+    { L"Fernandeath A SEL Portrait 1/6", 0x11fd8, 0x11ff8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath A SEL Portrait 2/6", 0x11ff8, 0x12018, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath A SEL Portrait 3/6", 0x12018, 0x12038, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath A SEL Portrait 4/6", 0x12038, 0x12058, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath A SEL Portrait 5/6", 0x12058, 0x12078, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath A SEL Portrait 6/6", 0x12078, 0x12098, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+
     { L"Fernandeath A HUD Portrait", 0x17bf8, 0x17c18, indexWakuWaku7Sprites_Fernandeath, 0x11 },
 };
 
@@ -687,7 +783,14 @@ const sGame_PaletteDataset WakuWaku7_A_FERNANDEATH_B_PALETTES[] =
     { L"Fernandeath B Burned", 0x10a98, 0x10ab8, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath B Poisoned", 0x10b58, 0x10b78, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath B White Flash", 0x10bd8, 0x10bf8, indexWakuWaku7Sprites_Fernandeath, 0x00 },
-    { L"Fernandeath B SEL Portrait", 0x12098, 0x12158 },
+
+    { L"Fernandeath B SEL Portrait 1/6", 0x12098, 0x120b8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath B SEL Portrait 2/6", 0x120b8, 0x120d8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath B SEL Portrait 3/6", 0x120d8, 0x120f8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath B SEL Portrait 4/6", 0x120f8, 0x12118, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath B SEL Portrait 5/6", 0x12118, 0x12138, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath B SEL Portrait 6/6", 0x12138, 0x12158, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+
     { L"Fernandeath B HUD Portrait", 0x17c18, 0x17c38, indexWakuWaku7Sprites_Fernandeath, 0x11 },
 };
 
@@ -697,7 +800,14 @@ const sGame_PaletteDataset WakuWaku7_A_FERNANDEATH_C_PALETTES[] =
     { L"Fernandeath C Burned", 0x10ab8, 0x10ad8, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath C Poisoned", 0x10b78, 0x10b98, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath C White Flash", 0x10bf8, 0x10c18, indexWakuWaku7Sprites_Fernandeath, 0x00 },
-    { L"Fernandeath C SEL Portrait", 0x12158, 0x12218 },
+
+    { L"Fernandeath C SEL Portrait 1/6", 0x12158, 0x12178, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath C SEL Portrait 2/6", 0x12178, 0x12198, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath C SEL Portrait 3/6", 0x12198, 0x121b8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath C SEL Portrait 4/6", 0x121b8, 0x121d8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath C SEL Portrait 5/6", 0x121d8, 0x121f8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath C SEL Portrait 6/6", 0x121f8, 0x12218, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+
     { L"Fernandeath C HUD Portrait", 0x17c38, 0x17c58, indexWakuWaku7Sprites_Fernandeath, 0x11 },
 };
 
@@ -707,7 +817,14 @@ const sGame_PaletteDataset WakuWaku7_A_FERNANDEATH_D_PALETTES[] =
     { L"Fernandeath D Burned", 0x10ad8, 0x10af8, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath D Poisoned", 0x10b98, 0x10bb8, indexWakuWaku7Sprites_Fernandeath, 0x00 },
     { L"Fernandeath D White Flash", 0x10c18, 0x10c38, indexWakuWaku7Sprites_Fernandeath, 0x00 },
-    { L"Fernandeath D SEL Portrait", 0x12218, 0x122d8 },
+
+    { L"Fernandeath D SEL Portrait 1/6", 0x12218, 0x12238, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath D SEL Portrait 2/6", 0x12238, 0x12258, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath D SEL Portrait 3/6", 0x12258, 0x12278, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath D SEL Portrait 4/6", 0x12278, 0x12298, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath D SEL Portrait 5/6", 0x12298, 0x122b8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+    { L"Fernandeath D SEL Portrait 6/6", 0x122b8, 0x122d8, indexWakuWaku7Sprites_Fernandeath, 0x10 },
+
     { L"Fernandeath D HUD Portrait", 0x17c58, 0x17c78, indexWakuWaku7Sprites_Fernandeath, 0x11 },
 };
 
@@ -748,7 +865,7 @@ const sGame_PaletteDataset WakuWaku7_A_BONUSKUN_B_PALETTES[] =
     { L"Bonus-Ken B Burned", 0x10ed8, 0x10ef8, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken B Poisoned", 0x10f98, 0x10fb8, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken B White Flash", 0x11018, 0x11038, indexWakuWaku7Sprites_BonusKun, 0x00 },
-    { L"Bonus-Kun B SEL Portrait", 0x11F78, 0x11F98 },
+    { L"Bonus-Kun B SEL Portrait", 0x11F78, 0x11F98, indexWakuWaku7Sprites_BonusKun, 0x10 },
     { L"Bonus-Kun B HUD Portrait", 0x17b98, 0x17bb8, indexWakuWaku7Sprites_BonusKun, 0x11 },
 };
 
@@ -758,7 +875,7 @@ const sGame_PaletteDataset WakuWaku7_A_BONUSKUN_C_PALETTES[] =
     { L"Bonus-Ken C Burned", 0x10ef8, 0x10f18, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken C Poisoned", 0x10fb8, 0x10fd8, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken C White Flash", 0x11038, 0x11058, indexWakuWaku7Sprites_BonusKun, 0x00 },
-    { L"Bonus-Kun C SEL Portrait", 0x11F98, 0x11FB8 },
+    { L"Bonus-Kun C SEL Portrait", 0x11F98, 0x11FB8, indexWakuWaku7Sprites_BonusKun, 0x10 },
     { L"Bonus-Kun C HUD Portrait", 0x17bb8, 0x17bd8, indexWakuWaku7Sprites_BonusKun, 0x11 },
 };
 
@@ -768,7 +885,7 @@ const sGame_PaletteDataset WakuWaku7_A_BONUSKUN_D_PALETTES[] =
     { L"Bonus-Ken D Burned", 0x10f18, 0x10f38, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken D Poisoned", 0x10fd8, 0x10ff8, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken D White Flash", 0x11058, 0x11078, indexWakuWaku7Sprites_BonusKun, 0x00 },
-    { L"Bonus-Kun D SEL Portrait", 0x11FB8, 0x11FD8 },
+    { L"Bonus-Kun D SEL Portrait", 0x11FB8, 0x11FD8, indexWakuWaku7Sprites_BonusKun, 0x10 },
     { L"Bonus-Kun D HUD Portrait", 0x17bd8, 0x17bf8, indexWakuWaku7Sprites_BonusKun, 0x11 },
 };
 
@@ -790,6 +907,75 @@ const sGame_PaletteDataset WakuWaku7_A_BONUSKUN_BONUS_PALETTES[] =
     { L"Doki Doki 6", 0x10db8, 0x10dd8, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Doki Doki 7", 0x10dd8, 0x10df8, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Kun Extras", 0x11078, 0x11098 },
+};
+
+const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_CharacterSelect[] =
+{
+    { L"Portraits", 0x172d8, 0x173f8 },
+    { L"Waku Waku Ball 1", 0x13458, 0x13478 },
+    { L"Waku Waku Ball 2", 0x13478, 0x13498 },
+    { L"Waku Waku Ball 3", 0x13498, 0x134b8 },
+    { L"Waku Waku Ball 4", 0x134b8, 0x134d8 },
+    { L"Waku Waku Ball 5", 0x134d8, 0x134f8 },
+    { L"Waku Waku Ball 6", 0x134f8, 0x13518 },
+    { L"Waku Waku Ball 7", 0x13518, 0x13538 },
+    { L"1P Cursor 1/2", 0x173f8, 0x17418 },
+    { L"1P Cursor 2/2", 0x17418, 0x17438 },
+    { L"2P Cursor 1/2", 0x17438, 0x17458 },
+    { L"2P Cursor 2/2", 0x17458, 0x17478 },
+};
+
+const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_CharacterNamesInGameText[] =
+{
+    { L"1/8, Round Text", 0x15218, 0x15238 },
+    { L"2/8", 0x15238, 0x15258 },
+    { L"3/8, Time Over/Draw Game", 0x15258, 0x15278 },
+    { L"4/8, \"Character Select\"", 0x15278, 0x15298 },
+    { L"5/8", 0x15298, 0x152b8 },
+    { L"6/8, VS", 0x152b8, 0x152d8 },
+    { L"7/8", 0x152d8, 0x152f8 },
+    { L"8/8, Character Win Text", 0x152f8, 0x15318 },
+};
+
+const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_InGameText[] =
+{
+    { L"FIGHT! 1/8", 0x15978, 0x15998 },
+    { L"FIGHT! 2/8", 0x15998, 0x159b8 },
+    { L"FIGHT! 3/8", 0x159b8, 0x159d8 },
+    { L"FIGHT! 4/8", 0x159d8, 0x159f8 },
+    { L"FIGHT! 5/8", 0x159f8, 0x15a18 },
+    { L"FIGHT! 6/8", 0x15a18, 0x15a38 },
+    { L"FIGHT! 7/8", 0x15a38, 0x15a58 },
+    { L"FIGHT! 8/8", 0x15a58, 0x15a78 },
+    { L"Round Text 1/8", 0x15a78, 0x15a98 },
+    { L"Round Text 2/8", 0x15a98, 0x15ab8 },
+    { L"Round Text 3/8", 0x15ab8, 0x15ad8 },
+    { L"Round Text 4/8", 0x15ad8, 0x15af8 },
+    { L"Round Text 5/8", 0x15af8, 0x15b18 },
+    { L"Round Text 6/8", 0x15b18, 0x15b38 },
+    { L"Round Text 7/8", 0x15b38, 0x15b58 },
+    { L"Round Text 8/8", 0x15b58, 0x15b78 },
+    { L"K.O. 1/15", 0x15b98, 0x15bb8 },
+    { L"K.O. 2/15", 0x15bb8, 0x15bd8 },
+    { L"K.O. 3/15", 0x15bd8, 0x15bf8 },
+    { L"K.O. 4/15", 0x15bf8, 0x15c18 },
+    { L"K.O. 5/15", 0x15c18, 0x15c38 },
+    { L"K.O. 6/15", 0x15c38, 0x15c58 },
+    { L"K.O. 7/15", 0x15c58, 0x15c78 },
+    { L"K.O. 8/15", 0x15c78, 0x15c98 },
+    { L"K.O. 9/15", 0x15c98, 0x15cb8 },
+    { L"K.O. 10/15", 0x15cb8, 0x15cd8 },
+    { L"K.O. 11/15", 0x15cd8, 0x15cf8 },
+    { L"K.O. 12/15", 0x15cf8, 0x15d18 },
+    { L"K.O. 13/15", 0x15d18, 0x15d38 },
+    { L"K.O. 14/15", 0x15d38, 0x15d58 },
+    { L"K.O. 15/15", 0x15d58, 0x15d78 },
+};
+
+const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_VSTransition[] =
+{
+    { L"Characters", 0x11098, 0x11238 },
+    { L"Text/Title", 0x11278, 0x11298 },
 };
 
 const sDescTreeNode WakuWaku7_A_RAI_COLLECTION[] =
@@ -880,6 +1066,14 @@ const sDescTreeNode WakuWaku7_A_BONUSKUN_COLLECTION[] =
     { L"Bonus", DESC_NODETYPE_TREE,  (void*)WakuWaku7_A_BONUSKUN_BONUS_PALETTES, ARRAYSIZE(WakuWaku7_A_BONUSKUN_BONUS_PALETTES) },
 };
 
+const sDescTreeNode WakuWaku7_A_BonusPalettes_COLLECTION[] =
+{
+    { L"Character Select", DESC_NODETYPE_TREE, (void*)WakuWaku7_A_BonusPalettes_CharacterSelect, ARRAYSIZE(WakuWaku7_A_BonusPalettes_CharacterSelect) },
+    { L"Character Names/In-Game Text", DESC_NODETYPE_TREE, (void*)WakuWaku7_A_BonusPalettes_CharacterNamesInGameText, ARRAYSIZE(WakuWaku7_A_BonusPalettes_CharacterNamesInGameText) },
+    { L"In-Game Text", DESC_NODETYPE_TREE, (void*)WakuWaku7_A_BonusPalettes_InGameText, ARRAYSIZE(WakuWaku7_A_BonusPalettes_InGameText) },
+    { L"VS Transition", DESC_NODETYPE_TREE, (void*)WakuWaku7_A_BonusPalettes_VSTransition, ARRAYSIZE(WakuWaku7_A_BonusPalettes_VSTransition) },
+};
+
 const sDescTreeNode WakuWaku7_A_UNITS[] =
 {
     { L"Rai Bakuoh",     DESC_NODETYPE_TREE, (void*)WakuWaku7_A_RAI_COLLECTION,      ARRAYSIZE(WakuWaku7_A_RAI_COLLECTION) },
@@ -891,4 +1085,5 @@ const sDescTreeNode WakuWaku7_A_UNITS[] =
     { L"Tesse",          DESC_NODETYPE_TREE, (void*)WakuWaku7_A_TESSE_COLLECTION,    ARRAYSIZE(WakuWaku7_A_TESSE_COLLECTION) },
     { L"Fernandeath",    DESC_NODETYPE_TREE, (void*)WakuWaku7_A_FERNANDEATH_COLLECTION, ARRAYSIZE(WakuWaku7_A_FERNANDEATH_COLLECTION) },
     { L"Bonus-Kun",      DESC_NODETYPE_TREE, (void*)WakuWaku7_A_BONUSKUN_COLLECTION,  ARRAYSIZE(WakuWaku7_A_BONUSKUN_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)WakuWaku7_A_BonusPalettes_COLLECTION, ARRAYSIZE(WakuWaku7_A_BonusPalettes_COLLECTION) },
 };

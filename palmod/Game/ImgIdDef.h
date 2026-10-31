@@ -2026,6 +2026,8 @@ enum SupportedSNES_PaletteListIndex
     indexSNES_SSF2Sprites_DeeJay,       // 0x108
     indexSNES_SSF2Sprites_Stages,       // 0x109
     indexSNES_SSF2Sprites_Bonus,        // 0x10a
+
+    indexSNES_MM3XSprites,              // 0x10b
 };
 
 enum SupportedNEOGEO_PaletteListIndex
