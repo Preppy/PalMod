@@ -131,55 +131,53 @@ std::optional<int> GetDropLayerFromFileName(const std::wstring& strFileName)
     return optLayerToLoadTo;
 }
 
-bool PaletteSetIsMappingSafe(PALWriteOutputOptions systemPaletteLength, std::vector<std::vector<COLORREF>> rgrgPaletteSet, std::optional<UINT> optTargetPalette)
+bool PaletteSetIsMappingSafe(PALWriteOutputOptions systemPaletteLength, std::vector<std::vector<COLORREF>> rgrgPaletteSet, std::optional<UINT> optTargetPalette, PaletteMapErrorDetails& mappingDetails)
 {
     bool fIsMappingSafe = true;
-    size_t nCheckColor = 1, nCheckAgainstColor = 2;
-    size_t nStartCheckPalette = 0, nCheckAgainstPalette = 0;
     CString strMsg;
 
-    for (nStartCheckPalette = 0; nStartCheckPalette < rgrgPaletteSet.size(); nStartCheckPalette++)
+    for (mappingDetails.nStartCheckPalette = 0; mappingDetails.nStartCheckPalette < rgrgPaletteSet.size(); mappingDetails.nStartCheckPalette++)
     {
         if (optTargetPalette.has_value() &&
-            (optTargetPalette.value() != nStartCheckPalette))
+            (optTargetPalette.value() != mappingDetails.nStartCheckPalette))
         {
             continue;
         }
 
-        for (nCheckColor = 1; nCheckColor < rgrgPaletteSet[nStartCheckPalette].size(); nCheckColor++)
+        for (mappingDetails.nCheckColor = 1; mappingDetails.nCheckColor < rgrgPaletteSet[mappingDetails.nStartCheckPalette].size(); mappingDetails.nCheckColor++)
         {
             if ((systemPaletteLength == PALWriteOutputOptions::WRITE_16) &&
-                ((nCheckColor % 16) == 0))
+                ((mappingDetails.nCheckColor % 16) == 0))
             {
                 // ignore transparency bytes
                 continue;
             }
 
-            const COLORREF clrChecking = rgrgPaletteSet[nStartCheckPalette].at(nCheckColor);
-            nCheckAgainstColor = nCheckColor + 1;
+            const COLORREF clrChecking = rgrgPaletteSet[mappingDetails.nStartCheckPalette].at(mappingDetails.nCheckColor);
+            mappingDetails.nCheckAgainstColor = mappingDetails.nCheckColor + 1;
 
-            for (nCheckAgainstPalette = nStartCheckPalette; nCheckAgainstPalette < rgrgPaletteSet.size(); nCheckAgainstPalette++)
+            for (mappingDetails.nCheckAgainstPalette = mappingDetails.nStartCheckPalette; mappingDetails.nCheckAgainstPalette < rgrgPaletteSet.size(); mappingDetails.nCheckAgainstPalette++)
             {
                 if (optTargetPalette.has_value() &&
-                    (optTargetPalette.value() != nCheckAgainstPalette))
+                    (optTargetPalette.value() != mappingDetails.nCheckAgainstPalette))
                 {
                     continue;
                 }
 
-                for (; nCheckAgainstColor < rgrgPaletteSet[nCheckAgainstPalette].size(); nCheckAgainstColor++)
+                for (; mappingDetails.nCheckAgainstColor < rgrgPaletteSet[mappingDetails.nCheckAgainstPalette].size(); mappingDetails.nCheckAgainstColor++)
                 {
                     if ((systemPaletteLength == PALWriteOutputOptions::WRITE_16) &&
-                        ((nCheckAgainstColor % 16) == 0))
+                        ((mappingDetails.nCheckAgainstColor % 16) == 0))
                     {
                         // ignore transparency bytes
                         continue;
                     }
 
-                    if (clrChecking == rgrgPaletteSet[nCheckAgainstPalette].at(nCheckAgainstColor))
+                    if (clrChecking == rgrgPaletteSet[mappingDetails.nCheckAgainstPalette].at(mappingDetails.nCheckAgainstColor))
                     {
                         fIsMappingSafe = false;
 
-                        strMsg.Format(L"This is not a mapping-safe palette set.  The colors at palette %u color %u and palette %u color %u (0x%x) are the same.\r\n", nStartCheckPalette, nCheckColor, nCheckAgainstPalette, nCheckAgainstColor, clrChecking);
+                        strMsg.Format(L"This is not a mapping-safe palette set.  The colors at palette %u color %u and palette %u color %u (0x%x) are the same.\r\n", mappingDetails.nStartCheckPalette, mappingDetails.nCheckColor, mappingDetails.nCheckAgainstPalette, mappingDetails.nCheckAgainstColor, clrChecking);
                         OutputDebugString(strMsg.GetString());
 
                         break;
@@ -191,7 +189,7 @@ bool PaletteSetIsMappingSafe(PALWriteOutputOptions systemPaletteLength, std::vec
                     break;
                 }
 
-                nCheckAgainstColor = 1;
+                mappingDetails.nCheckAgainstColor = 1;
             }
 
             if (!fIsMappingSafe)

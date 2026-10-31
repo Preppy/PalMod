@@ -1,9 +1,5 @@
 // ImgDisp.cpp : implementation file
 //
-#ifdef DUMP_COLOR_FREQUENCY_MAP
-#include <map>
-#endif
-
 #include "stdafx.h"
 #include <atlimage.h>
 #include "ImgDisp.h"

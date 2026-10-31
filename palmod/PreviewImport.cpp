@@ -870,41 +870,47 @@ void CPreviewImportManager::UpdateDisplayedPreview()
 
         if (m_rgTextureLoadedFromFile.dataType == TextureDataType::RGBA)
         {
+            PaletteMapErrorDetails mappingErrorDetails;
+
+            bool fHaveNewMappingFailure = false;
+
             if (!m_optPaletteTargetsAreMappingSafe.has_value())
             {
                 m_optPaletteTargetsAreMappingSafe = PaletteSetIsMappingSafe(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency(),
                                                                             m_rgrgPaletteSet,
-                                                                            m_optCurrentSel_Layer);
+                                                                            m_optCurrentSel_Layer,
+                                                                            mappingErrorDetails);
+
+                if (!m_optPaletteTargetsAreMappingSafe.value())
+                {
+                    fHaveNewMappingFailure = true;
+                }
             }
 
             if (!m_optPaletteTargetsAreMappingSafe.value())
             {
                 strInfo += "  Use a mapping palette!";
-            }
 
-#ifdef OLD_WARNING_STUFF
-            // This deprecated code is clearly non-functional at this point.  It was shown from ImgDisp on palette import.
-            // It might be worthwhile to resurrect it to help with user confusion
-            if (fCurrentPaletteIsNotMappingFriendly)
-            {
-                CString strMistake;
-
-                if (nCheckAgainstPalette == 0)
+                if (fHaveNewMappingFailure)
                 {
-                    strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
-                        L"That color may originally have intended to be index %u or index %u, but since we lose all that context we can only ever map it as index %u.\n\n"
-                        L"To avoid this problem, please use mapping palettes.", nCheckColor, nCheckAgainstColor, nCheckColor);
-                }
-                else
-                {
-                    strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
-                        L"That color may originally have intended to be palette %u index %u or palette %u index %u, but since we lose all that context we can only ever map it as palette %u index %u.\n\n"
-                        L"To avoid this problem, please use mapping palettes.", nStartCheckPalette, nCheckColor, nCheckAgainstPalette, nCheckAgainstColor, nStartCheckPalette, nCheckColor);
-                }
+                    CString strMistake;
 
-                SafeSHMessageBoxCheck(g_appHWnd, strMistake, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_OK, IDOK, L"{11BFAD2C-42CA-40e2-967C-1017C1B2676A}");
+                    if (mappingErrorDetails.nCheckAgainstPalette == 0)
+                    {
+                        strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
+                            L"That color may originally have intended to be index %u or index %u, but since we lose all that context we can only ever map it as index %u.\n\n"
+                            L"To avoid this problem, please use mapping palettes or use indexed image types.", mappingErrorDetails.nCheckColor, mappingErrorDetails.nCheckAgainstColor, mappingErrorDetails.nCheckColor);
+                    }
+                    else
+                    {
+                        strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
+                            L"That color may originally have intended to be palette %u index %u or palette %u index %u, but since we lose all that context we can only ever map it as palette %u index %u.\n\n"
+                            L"To avoid this problem, please use mapping palettes or use indexed image types.", mappingErrorDetails.nStartCheckPalette, mappingErrorDetails.nCheckColor, mappingErrorDetails.nCheckAgainstPalette, mappingErrorDetails.nCheckAgainstColor, mappingErrorDetails.nStartCheckPalette, mappingErrorDetails.nCheckColor);
+                    }
+
+                    SafeSHMessageBoxCheck(g_appHWnd, strMistake, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_OK, IDOK, L"{11BFAD2C-42CA-40e2-967C-1017C1B2676A}");
+                }
             }
-#endif
         }
 
         if (fHadToTrim)

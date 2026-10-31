@@ -280,7 +280,7 @@ void sTextureData::ConvertFromRGBAIfNeeded(PALWriteOutputOptions writeLength, st
 {
 #ifdef DUMP_COLOR_FREQUENCY_MAP
     // left as an exercise to the reader...
-    PrintColorFrequencyMapToDebugOut(textureData, rgrgPaletteSet);
+    PrintColorFrequencyMapToDebugOut(*this, rgrgPaletteSet);
 #endif
 
     if (dataType == TextureDataType::RGBA)
