@@ -9,21 +9,22 @@
 
 const std::vector<uint16_t> MMX3_SNES_IMGIDS_USED =
 {
+    indexSNES_MM3XSprites,              // 0x10b
 };
 
 const sGame_PaletteDataset MMX3_SNES_MAIN_PALETTES[] =
 {
-    { L"X", 0x62400, 0x62420 },
-    { L"X Charging 1", 0x62F60, 0x62F80 },
-    { L"X Charge shots", 0x62460, 0x62480 },
-    { L"Zero", 0x63580, 0x635A0 },
-    { L"Zero Charge shots / Saber", 0x635A0, 0x635C0 },
-    { L"Zero Final charge", 0x625E0, 0x62600 },
+    { L"X", 0x62400, 0x62420, indexSNES_MM3XSprites, 0x00 },
+    { L"X Charging 1", 0x62F60, 0x62F80, indexSNES_MM3XSprites, 0x00 },
+    { L"X Charge shots", 0x62460, 0x62480, indexSNES_MM3XSprites, 0x02 },
+    { L"Zero", 0x63580, 0x635A0, indexSNES_MM3XSprites, 0x03 },
+    { L"Zero Charge shots / Saber", 0x635A0, 0x635C0, indexSNES_MM3XSprites, 0x05 },
+    { L"Zero Final charge", 0x625E0, 0x62600, indexSNES_MM3XSprites, 0x03 },
 };
 
 const sGame_PaletteDataset MMX3_SNES_BOSSES_PALETTES[] =
 {
-    { L"Mac", 0x66E88, 0x66EA8 },
+    { L"Mac", 0x66E88, 0x66EA8, indexSNES_MM3XSprites, 0x10 },
     { L"Intro Boss Pt.1", 0x63D20, 0x63D40 },
     { L"Intro Boss Pt.2", 0x66908, 0x66928 },
     { L"Blast Hornet", 0x669A8, 0x669C8 },
