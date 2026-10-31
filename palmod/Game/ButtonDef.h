@@ -28,6 +28,11 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_2_NEOGEO =
     L"Main", L"Alt"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_2_FF2_SEGA =
+{
+    L"A", L"C"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_2_AOF3 =
 {
     L"A", L"D"

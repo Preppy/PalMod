@@ -36,6 +36,7 @@
 #include "Game_DoubleDragon_A.h"
 #include "Game_FatalFury1_A.h"
 #include "Game_FatalFury2_A.h"
+#include "Game_FatalFury2_SEGA.h"
 #include "Game_FatalFuryS_A.h"
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_FatalFury3_A.h"
@@ -206,7 +207,7 @@
 bool GameFlagIsForImageViewer(SupportedGamesList nGameFlag) { return (nGameFlag == ImageViewer_PNG) || (nGameFlag == ImageViewer_RAW); };
 
 // When you add or change the data here, please also update the Read Me with that data.
-static_assert(NUM_GAMES == 303, "Increment after deciding whether to add the new game to the Read Me.");
+static_assert(NUM_GAMES == 304, "Increment after deciding whether to add the new game to the Read Me.");
 
 namespace KnownGameInfo
 {
@@ -255,6 +256,7 @@ namespace KnownGameInfo
     CGameClass* Make_FatalFury1_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury1_PS2(nConfirmedROMSize); }
     CGameClass* Make_FatalFury2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury2_A(nConfirmedROMSize); }
     CGameClass* Make_FatalFury2_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury2_PS2(nConfirmedROMSize); }
+    CGameClass* Make_FatalFury2_SEGA(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury2_SEGA(nConfirmedROMSize); }
     CGameClass* Make_FatalFury3_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury3_A(nConfirmedROMSize); }
     CGameClass* Make_FatalFury3_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFury3_PS2(nConfirmedROMSize); }
     CGameClass* Make_FatalFuryS_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_FatalFuryS_A(nConfirmedROMSize); }
@@ -860,6 +862,13 @@ namespace KnownGameInfo
             { FatalFury2_PS2,     L"Fatal Fury 2", L"Fatal Fury 2 (PS2)|047prg.bin|", GamePlatform::PS2, GameSeries::PS2_FatalFuryVolume1 },
             Make_FatalFury2_PS2,
             CGame_FatalFury2_PS2::GetRule,
+        },
+        {
+            FatalFury2_SEGA,
+            L"Fatal Fury 2 (Mega Drive)",
+            { FatalFury2_SEGA,     L"Fatal Fury 2", L"Fatal Fury 2 (Mega Drive)|fatal?fury?2*usa*kor*.*|", GamePlatform::Sega, GameSeries::Sega_MegaDrive },
+            Make_FatalFury2_SEGA,
+            CGame_FatalFury2_SEGA::GetRule,
         },
         {
             FatalFuryS_A,
@@ -2831,7 +2840,7 @@ namespace KnownGameInfo
         },
     };
 
-    static_assert(NUM_GAMES == 303, "New GameID defined: please update GameRegistry with the associated data.");
+    static_assert(NUM_GAMES == 304, "New GameID defined: please update GameRegistry with the associated data.");
 
     std::vector<CoreGameData> GameRegistry;
 

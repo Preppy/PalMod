@@ -691,6 +691,9 @@
     <Filter Include="Images\Texture Data">
       <UniqueIdentifier>{5bcb317c-b922-4e03-abd3-7decd744c98b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Sega\Fatal Fury 2">
+      <UniqueIdentifier>{18e9450b-2a32-423d-9a60-2fc7fe053800}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2488,6 +2491,12 @@
     </ClInclude>
     <ClInclude Include="PNGfiles.h">
       <Filter>Palette file storage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFury2_SEGA.h">
+      <Filter>Games\Sega\Fatal Fury 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFury2_SEGA_DEF.h">
+      <Filter>Games\Sega\Fatal Fury 2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

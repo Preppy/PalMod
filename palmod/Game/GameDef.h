@@ -327,6 +327,7 @@ enum SupportedGamesList
     UMK3_PS2,
     WorldHeroes2Jet_A,
     WorldHeroes2Jet_PS2,
+    FatalFury2_SEGA,
 
     // This needs to be last and is used as a static_assert canary so you remember to update needed areas.
     NUM_GAMES
