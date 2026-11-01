@@ -2,421 +2,434 @@
 
 const std::vector<uint16_t> FatalFury2_SEGA_IMGIDS_USED =
 {
-    
+    indexSegaFF2Sprites_Andy,           // 0x46
+    indexSegaFF2Sprites_Axel,           // 0x47
+    indexSegaFF2Sprites_BigBear,        // 0x48
+    indexSegaFF2Sprites_Billy,          // 0x49
+    indexSegaFF2Sprites_Cheng,          // 0x4a
+    indexSegaFF2Sprites_Joe,            // 0x4b
+    indexSegaFF2Sprites_Jubei,          // 0x4c
+    indexSegaFF2Sprites_Kim,            // 0x4d
+    indexSegaFF2Sprites_Krauser,        // 0x4e
+    indexSegaFF2Sprites_Laurence,       // 0x4f
+    indexSegaFF2Sprites_Mai,            // 0x50
+    indexSegaFF2Sprites_Terry,          // 0x51
+    indexSegaFF2Sprites_Stages,         // 0x52
+    indexSegaFF2Sprites_Bonus,          // 0x53    
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_TerryBogard_A[] =
 {
-    { L"Terry A", 0xbe82, 0xbea2 },
+    { L"Terry A", 0xbe82, 0xbea2, indexSegaFF2Sprites_Terry, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_TerryBogard_C[] =
 {
-    { L"Terry C", 0xbea2, 0xbec2 },
+    { L"Terry C", 0xbea2, 0xbec2, indexSegaFF2Sprites_Terry, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_AndyBogard_A[] =
 {
-    { L"Andy A", 0xbf02, 0xbf22 },
+    { L"Andy A", 0xbf02, 0xbf22, indexSegaFF2Sprites_Andy, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_AndyBogard_C[] =
 {
-    { L"Andy C", 0xbf22, 0xbf42 },
+    { L"Andy C", 0xbf22, 0xbf42, indexSegaFF2Sprites_Andy, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_JoeHigashi_A[] =
 {
-    { L"Joe A", 0xbf82, 0xbfa2 },
+    { L"Joe A", 0xbf82, 0xbfa2, indexSegaFF2Sprites_Joe, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_JoeHigashi_C[] =
 {
-    { L"Joe C", 0xbfa2, 0xbfc2 },
+    { L"Joe C", 0xbfa2, 0xbfc2, indexSegaFF2Sprites_Joe, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_KimKaphwan_A[] =
 {
-    { L"Kim A", 0xc002, 0xc022 },
+    { L"Kim A", 0xc002, 0xc022, indexSegaFF2Sprites_Kim, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_KimKaphwan_C[] =
 {
-    { L"Kim C", 0xc022, 0xc042 },
+    { L"Kim C", 0xc022, 0xc042, indexSegaFF2Sprites_Kim, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_MaiShiranui_A[] =
 {
-    { L"Mai A", 0xc082, 0xc0a2 },
+    { L"Mai A", 0xc082, 0xc0a2, indexSegaFF2Sprites_Mai, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_MaiShiranui_C[] =
 {
-    { L"Mai C", 0xc0a2, 0xc0c2 },
+    { L"Mai C", 0xc0a2, 0xc0c2, indexSegaFF2Sprites_Mai, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_BigBear_A[] =
 {
-    { L"Big Bear A", 0xc102, 0xc122 },
+    { L"Big Bear A", 0xc102, 0xc122, indexSegaFF2Sprites_BigBear, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_BigBear_C[] =
 {
-    { L"Big Bear C", 0xc122, 0xc142 },
+    { L"Big Bear C", 0xc122, 0xc142, indexSegaFF2Sprites_BigBear, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_JubeiYamada_A[] =
 {
-    { L"Jubei A", 0xc182, 0xc1a2 },
+    { L"Jubei A", 0xc182, 0xc1a2, indexSegaFF2Sprites_Jubei, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_JubeiYamada_C[] =
 {
-    { L"Jubei C", 0xc1a2, 0xc1c2 },
+    { L"Jubei C", 0xc1a2, 0xc1c2, indexSegaFF2Sprites_Jubei, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_ChengSinzan_A[] =
 {
-    { L"Cheng A", 0xc202, 0xc222 },
+    { L"Cheng A", 0xc202, 0xc222, indexSegaFF2Sprites_Cheng, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_ChengSinzan_C[] =
 {
-    { L"Cheng C", 0xc222, 0xc242 },
+    { L"Cheng C", 0xc222, 0xc242, indexSegaFF2Sprites_Cheng, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_BillyKane_A[] =
 {
-    { L"Billy A", 0xc282, 0xc2a2 },
+    { L"Billy A", 0xc282, 0xc2a2, indexSegaFF2Sprites_Billy, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_BillyKane_C[] =
 {
-    { L"Billy C", 0xc2a2, 0xc2c2 },
+    { L"Billy C", 0xc2a2, 0xc2c2, indexSegaFF2Sprites_Billy, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_AxelHawk_A[] =
 {
-    { L"Axel A", 0xc302, 0xc322 },
+    { L"Axel A", 0xc302, 0xc322, indexSegaFF2Sprites_Axel, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_AxelHawk_C[] =
 {
-    { L"Axel C", 0xc322, 0xc342 },
+    { L"Axel C", 0xc322, 0xc342, indexSegaFF2Sprites_Axel, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_LaurenceBlood_A[] =
 {
-    { L"Laurence A", 0xc382, 0xc3a2 },
+    { L"Laurence A", 0xc382, 0xc3a2, indexSegaFF2Sprites_Laurence, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_LaurenceBlood_C[] =
 {
-    { L"Laurence C", 0xc3a2, 0xc3c2 },
+    { L"Laurence C", 0xc3a2, 0xc3c2, indexSegaFF2Sprites_Laurence, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_WolfgangKrauser_A[] =
 {
-    { L"Krauser A", 0xc402, 0xc422 },
+    { L"Krauser A", 0xc402, 0xc422, indexSegaFF2Sprites_Krauser, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_WolfgangKrauser_C[] =
 {
-    { L"Krauser C", 0xc422, 0xc442 },
+    { L"Krauser C", 0xc422, 0xc442, indexSegaFF2Sprites_Krauser, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_ExtraColorsShared_Electricity[] =
 {
-    { L"Flash 1/2", 0x187f0, 0x18810 },
-    { L"Flash 2/2", 0x18810, 0x18830 },
+    { L"Flash 1/2", 0x187f0, 0x18810, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Flash 2/2", 0x18810, 0x18830, indexSegaFF2Sprites_Bonus, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_ExtraColorsShared_DebugColors[] =
 {
-    { L"Color 1", 0xbec2, 0xbee2 },
-    { L"Color 2", 0xbee2, 0xbf02 },
-    { L"Color 3", 0xbf42, 0xbf62 },
-    { L"Color 4", 0xbf62, 0xbf82 },
-    { L"Color 5", 0xbfc2, 0xbfe2 },
-    { L"Color 6", 0xbfe2, 0xc002 },
-    { L"Color 7", 0xc042, 0xc062 },
-    { L"Color 8", 0xc062, 0xc082 },
-    { L"Color 9", 0xc0c2, 0xc0e2 },
-    { L"Color 10", 0xc0e2, 0xc102 },
-    { L"Color 11", 0xc142, 0xc162 },
-    { L"Color 12", 0xc162, 0xc182 },
-    { L"Color 13", 0xc1c2, 0xc1e2 },
-    { L"Color 14", 0xc1e2, 0xc202 },
-    { L"Color 15", 0xc242, 0xc262 },
-    { L"Color 16", 0xc262, 0xc282 },
-    { L"Color 17", 0xc2c2, 0xc2e2 },
-    { L"Color 18", 0xc2e2, 0xc302 },
-    { L"Color 19", 0xc342, 0xc362 },
-    { L"Color 20", 0xc362, 0xc382 },
-    { L"Color 21", 0xc3c2, 0xc3e2 },
-    { L"Color 22", 0xc3e2, 0xc402 },
-    { L"Color 23", 0xc442, 0xc462 },
-    { L"Color 24", 0xc462, 0xc482 },
+    { L"Color 1", 0xbec2, 0xbee2, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 2", 0xbee2, 0xbf02, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 3", 0xbf42, 0xbf62, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 4", 0xbf62, 0xbf82, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 5", 0xbfc2, 0xbfe2, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 6", 0xbfe2, 0xc002, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 7", 0xc042, 0xc062, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 8", 0xc062, 0xc082, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 9", 0xc0c2, 0xc0e2, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 10", 0xc0e2, 0xc102, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 11", 0xc142, 0xc162, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 12", 0xc162, 0xc182, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 13", 0xc1c2, 0xc1e2, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 14", 0xc1e2, 0xc202, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 15", 0xc242, 0xc262, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 16", 0xc262, 0xc282, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 17", 0xc2c2, 0xc2e2, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 18", 0xc2e2, 0xc302, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 19", 0xc342, 0xc362, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 20", 0xc362, 0xc382, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 21", 0xc3c2, 0xc3e2, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 22", 0xc3e2, 0xc402, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 23", 0xc442, 0xc462, indexSegaFF2Sprites_Bonus, 0x00 },
+    { L"Color 24", 0xc462, 0xc482, indexSegaFF2Sprites_Bonus, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_USA1Round1[] =
 {
-    { L"Main Layer", 0x2991ee, 0x29920e },
-    { L"HUD Layer", 0x29920e, 0x29922e },
+    { L"Main Layer", 0x2991ee, 0x29920e, indexSegaFF2Sprites_Stages, 0x15, &pairNext },
+    { L"HUD Layer", 0x29920e, 0x29922e, indexSegaFF2Sprites_Stages, 0x14, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_USA1Round2[] =
 {
-    { L"Main Layer", 0x29922e, 0x29924e },
-    { L"HUD Layer", 0x29924e, 0x29926e },
+    { L"Main Layer", 0x29922e, 0x29924e, indexSegaFF2Sprites_Stages, 0x15, &pairNext },
+    { L"HUD Layer", 0x29924e, 0x29926e, indexSegaFF2Sprites_Stages, 0x14, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_USA1Round3[] =
 {
-    { L"Main Layer", 0x29926e, 0x29928e },
-    { L"HUD Layer", 0x29928e, 0x2992ae },
+    { L"Main Layer", 0x29926e, 0x29928e, indexSegaFF2Sprites_Stages, 0x15, &pairNext },
+    { L"HUD Layer", 0x29928e, 0x2992ae, indexSegaFF2Sprites_Stages, 0x14, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_ItalyRound1[] =
 {
-    { L"Main Layer", 0x2992ae, 0x2992ce },
-    { L"HUD Layer", 0x2992ce, 0x2992ee },
+    { L"Main Layer", 0x2992ae, 0x2992ce, indexSegaFF2Sprites_Stages, 0x09, &pairNext },
+    { L"HUD Layer", 0x2992ce, 0x2992ee, indexSegaFF2Sprites_Stages, 0x08, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_ItalyRound2[] =
 {
-    { L"Main Layer", 0x2992ee, 0x29930e },
-    { L"HUD Layer", 0x29930e, 0x29932e },
+    { L"Main Layer", 0x2992ee, 0x29930e, indexSegaFF2Sprites_Stages, 0x09, &pairNext },
+    { L"HUD Layer", 0x29930e, 0x29932e, indexSegaFF2Sprites_Stages, 0x08, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_ItalyRound3[] =
 {
-    { L"Main Layer", 0x29932e, 0x29934e },
-    { L"HUD Layer", 0x29934e, 0x29936e },
+    { L"Main Layer", 0x29932e, 0x29934e, indexSegaFF2Sprites_Stages, 0x09, &pairNext },
+    { L"HUD Layer", 0x29934e, 0x29936e, indexSegaFF2Sprites_Stages, 0x08, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_ThailandRound1[] =
 {
-    { L"Main Layer", 0x29936e, 0x29938e },
-    { L"HUD Layer", 0x29938e, 0x2993ae },
+    { L"Main Layer", 0x29936e, 0x29938e, indexSegaFF2Sprites_Stages, 0x13, &pairNext },
+    { L"HUD Layer", 0x29938e, 0x2993ae, indexSegaFF2Sprites_Stages, 0x12, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_ThailandRound2[] =
 {
-    { L"Main Layer", 0x2993ae, 0x2993ce },
-    { L"HUD Layer", 0x2993ce, 0x2993ee },
+    { L"Main Layer", 0x2993ae, 0x2993ce, indexSegaFF2Sprites_Stages, 0x13, &pairNext },
+    { L"HUD Layer", 0x2993ce, 0x2993ee, indexSegaFF2Sprites_Stages, 0x12, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_ThailandRound3[] =
 {
-    { L"Main Layer", 0x2993ee, 0x29940e },
-    { L"HUD Layer", 0x29940e, 0x29942e },
+    { L"Main Layer", 0x2993ee, 0x29940e, indexSegaFF2Sprites_Stages, 0x13, &pairNext },
+    { L"HUD Layer", 0x29940e, 0x29942e, indexSegaFF2Sprites_Stages, 0x12, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_KoreaRound1[] =
 {
-    { L"Main Layer", 0x29942e, 0x29944e },
-    { L"HUD Layer", 0x29944e, 0x29946e },
+    { L"Main Layer", 0x29942e, 0x29944e, indexSegaFF2Sprites_Stages, 0x0f, &pairNext },
+    { L"HUD Layer", 0x29944e, 0x29946e, indexSegaFF2Sprites_Stages, 0x0e, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_KoreaRound2[] =
 {
-    { L"Main Layer", 0x29946e, 0x29948e },
-    { L"HUD Layer", 0x29948e, 0x2994ae },
+    { L"Main Layer", 0x29946e, 0x29948e, indexSegaFF2Sprites_Stages, 0x0f, &pairNext },
+    { L"HUD Layer", 0x29948e, 0x2994ae, indexSegaFF2Sprites_Stages, 0x0e, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_KoreaRound3[] =
 {
-    { L"Main Layer", 0x2994ae, 0x2994ce },
-    { L"HUD Layer", 0x2994ce, 0x2994ee },
+    { L"Main Layer", 0x2994ae, 0x2994ce, indexSegaFF2Sprites_Stages, 0x0f, &pairNext },
+    { L"HUD Layer", 0x2994ce, 0x2994ee, indexSegaFF2Sprites_Stages, 0x0e, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_Japan1Round1[] =
 {
-    { L"Main Layer", 0x2994ee, 0x29950e },
-    { L"HUD Layer", 0x29950e, 0x29952e },
+    { L"Main Layer", 0x2994ee, 0x29950e, indexSegaFF2Sprites_Stages, 0x0b, &pairNext },
+    { L"HUD Layer", 0x29950e, 0x29952e, indexSegaFF2Sprites_Stages, 0x0a, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_Japan1Round2[] =
 {
-    { L"Main Layer", 0x29952e, 0x29954e },
-    { L"HUD Layer", 0x29954e, 0x29956e },
+    { L"Main Layer", 0x29952e, 0x29954e, indexSegaFF2Sprites_Stages, 0x0b, &pairNext },
+    { L"HUD Layer", 0x29954e, 0x29956e, indexSegaFF2Sprites_Stages, 0x0a, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_Japan1Round3[] =
 {
-    { L"Main Layer", 0x29956e, 0x29958e },
-    { L"HUD Layer", 0x29958e, 0x2995ae },
+    { L"Main Layer", 0x29956e, 0x29958e, indexSegaFF2Sprites_Stages, 0x0b, &pairNext },
+    { L"HUD Layer", 0x29958e, 0x2995ae, indexSegaFF2Sprites_Stages, 0x0a, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_AustraliaRound1[] =
 {
-    { L"Main Layer", 0x2995ae, 0x2995ce },
-    { L"HUD Layer", 0x2995ce, 0x2995ee },
+    { L"Main Layer", 0x2995ae, 0x2995ce, indexSegaFF2Sprites_Stages, 0x01, &pairNext },
+    { L"HUD Layer", 0x2995ce, 0x2995ee, indexSegaFF2Sprites_Stages, 0x00, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_AustraliaRound2[] =
 {
-    { L"Main Layer", 0x2995ee, 0x29960e },
-    { L"HUD Layer", 0x29960e, 0x29962e },
+    { L"Main Layer", 0x2995ee, 0x29960e, indexSegaFF2Sprites_Stages, 0x01, &pairNext },
+    { L"HUD Layer", 0x29960e, 0x29962e, indexSegaFF2Sprites_Stages, 0x00, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_AustraliaRound3[] =
 {
-    { L"Main Layer", 0x29962e, 0x29964e },
-    { L"HUD Layer", 0x29964e, 0x29966e },
+    { L"Main Layer", 0x29962e, 0x29964e, indexSegaFF2Sprites_Stages, 0x01, &pairNext },
+    { L"HUD Layer", 0x29964e, 0x29966e, indexSegaFF2Sprites_Stages, 0x00, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_Japan2Round1[] =
 {
-    { L"Main Layer", 0x29966e, 0x29968e },
-    { L"HUD Layer", 0x29968e, 0x2996ae },
+    { L"Main Layer", 0x29966e, 0x29968e, indexSegaFF2Sprites_Stages, 0x0d, &pairNext },
+    { L"HUD Layer", 0x29968e, 0x2996ae, indexSegaFF2Sprites_Stages, 0x0c, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_Japan2Round2[] =
 {
-    { L"Main Layer", 0x2996ae, 0x2996ce },
-    { L"HUD Layer", 0x2996ce, 0x2996ee },
+    { L"Main Layer", 0x2996ae, 0x2996ce, indexSegaFF2Sprites_Stages, 0x0d, &pairNext },
+    { L"HUD Layer", 0x2996ce, 0x2996ee, indexSegaFF2Sprites_Stages, 0x0c, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_Japan2Round3[] =
 {
-    { L"Main Layer", 0x2996ee, 0x29970e },
-    { L"HUD Layer", 0x29970e, 0x29972e },
+    { L"Main Layer", 0x2996ee, 0x29970e, indexSegaFF2Sprites_Stages, 0x0d, &pairNext },
+    { L"HUD Layer", 0x29970e, 0x29972e, indexSegaFF2Sprites_Stages, 0x0c, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_HongKongRound1[] =
 {
-    { L"Main Layer", 0x29972e, 0x29974e },
-    { L"HUD Layer", 0x29974e, 0x29976e },
+    { L"Main Layer", 0x29972e, 0x29974e, indexSegaFF2Sprites_Stages, 0x07, &pairNext },
+    { L"HUD Layer", 0x29974e, 0x29976e, indexSegaFF2Sprites_Stages, 0x06, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_HongKongRound2[] =
 {
-    { L"Main Layer", 0x29976e, 0x29978e },
-    { L"HUD Layer", 0x29978e, 0x2997ae },
+    { L"Main Layer", 0x29976e, 0x29978e, indexSegaFF2Sprites_Stages, 0x07, &pairNext },
+    { L"HUD Layer", 0x29978e, 0x2997ae, indexSegaFF2Sprites_Stages, 0x06, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_HongKongRound3[] =
 {
-    { L"Main Layer", 0x2997ae, 0x2997ce },
-    { L"HUD Layer", 0x2997ce, 0x2997ee },
+    { L"Main Layer", 0x2997ae, 0x2997ce, indexSegaFF2Sprites_Stages, 0x07, &pairNext },
+    { L"HUD Layer", 0x2997ce, 0x2997ee, indexSegaFF2Sprites_Stages, 0x06, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_GreatBritianRound1[] =
 {
-    { L"Main Layer", 0x2997ee, 0x29980e },
-    { L"HUD Layer", 0x29980e, 0x29982e },
+    { L"Main Layer", 0x2997ee, 0x29980e, indexSegaFF2Sprites_Stages, 0x05, &pairNext },
+    { L"HUD Layer", 0x29980e, 0x29982e, indexSegaFF2Sprites_Stages, 0x04, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_GreatBritianRound2[] =
 {
-    { L"Main Layer", 0x29982e, 0x29984e },
-    { L"HUD Layer", 0x29984e, 0x29986e },
+    { L"Main Layer", 0x29982e, 0x29984e, indexSegaFF2Sprites_Stages, 0x05, &pairNext },
+    { L"HUD Layer", 0x29984e, 0x29986e, indexSegaFF2Sprites_Stages, 0x04, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_GreatBritianRound3[] =
 {
-    { L"Main Layer", 0x29986e, 0x29988e },
-    { L"HUD Layer", 0x29988e, 0x2998ae },
+    { L"Main Layer", 0x29986e, 0x29988e, indexSegaFF2Sprites_Stages, 0x05, &pairNext },
+    { L"HUD Layer", 0x29988e, 0x2998ae, indexSegaFF2Sprites_Stages, 0x04, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_USA2Round1[] =
 {
-    { L"Main Layer", 0x2998ae, 0x2998ce },
-    { L"HUD Layer", 0x2998ce, 0x2998ee },
+    { L"Main Layer", 0x2998ae, 0x2998ce, indexSegaFF2Sprites_Stages, 0x17, &pairNext },
+    { L"HUD Layer", 0x2998ce, 0x2998ee, indexSegaFF2Sprites_Stages, 0x16, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_USA2Round2[] =
 {
-    { L"Main Layer", 0x2998ee, 0x29990e },
-    { L"HUD Layer", 0x29990e, 0x29992e },
+    { L"Main Layer", 0x2998ee, 0x29990e, indexSegaFF2Sprites_Stages, 0x17, &pairNext },
+    { L"HUD Layer", 0x29990e, 0x29992e, indexSegaFF2Sprites_Stages, 0x16, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_USA2Round3[] =
 {
-    { L"Main Layer", 0x29992e, 0x29994e },
-    { L"HUD Layer", 0x29994e, 0x29996e },
+    { L"Main Layer", 0x29992e, 0x29994e, indexSegaFF2Sprites_Stages, 0x17, &pairNext },
+    { L"HUD Layer", 0x29994e, 0x29996e, indexSegaFF2Sprites_Stages, 0x16, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_SpainRound1[] =
 {
-    { L"Main Layer", 0x29996e, 0x29998e },
-    { L"HUD Layer", 0x29998e, 0x2999ae },
+    { L"Main Layer", 0x29996e, 0x29998e, indexSegaFF2Sprites_Stages, 0x11, &pairNext },
+    { L"HUD Layer", 0x29998e, 0x2999ae, indexSegaFF2Sprites_Stages, 0x10, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_SpainRound2[] =
 {
-    { L"Main Layer", 0x2999ae, 0x2999ce },
-    { L"HUD Layer", 0x2999ce, 0x2999ee },
+    { L"Main Layer", 0x2999ae, 0x2999ce, indexSegaFF2Sprites_Stages, 0x11, &pairNext },
+    { L"HUD Layer", 0x2999ce, 0x2999ee, indexSegaFF2Sprites_Stages, 0x10, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_SpainRound3[] =
 {
-    { L"Main Layer", 0x2999ee, 0x299a0e },
-    { L"HUD Layer", 0x299a0e, 0x299a2e },
+    { L"Main Layer", 0x2999ee, 0x299a0e, indexSegaFF2Sprites_Stages, 0x11, &pairNext },
+    { L"HUD Layer", 0x299a0e, 0x299a2e, indexSegaFF2Sprites_Stages, 0x10, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_GermanyRound1[] =
 {
-    { L"Main Layer", 0x299a2e, 0x299a4e },
-    { L"HUD Layer", 0x299a4e, 0x299a6e },
+    { L"Main Layer", 0x299a2e, 0x299a4e, indexSegaFF2Sprites_Stages, 0x03, &pairNext },
+    { L"HUD Layer", 0x299a4e, 0x299a6e, indexSegaFF2Sprites_Stages, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_GermanyRound2[] =
 {
-    { L"Main Layer", 0x299a6e, 0x299a8e },
-    { L"HUD Layer", 0x299a8e, 0x299aae },
+    { L"Main Layer", 0x299a6e, 0x299a8e, indexSegaFF2Sprites_Stages, 0x03, &pairNext },
+    { L"HUD Layer", 0x299a8e, 0x299aae, indexSegaFF2Sprites_Stages, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_Stages_GermanyRound3[] =
 {
-    { L"Main Layer", 0x299aae, 0x299ace },
-    { L"HUD Layer", 0x299ace, 0x299aee },
+    { L"Main Layer", 0x299aae, 0x299ace, indexSegaFF2Sprites_Stages, 0x03, &pairNext },
+    { L"HUD Layer", 0x299ace, 0x299aee, indexSegaFF2Sprites_Stages, 0x02, &pairPrevious },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_MiscStuff_Intro[] =
 {
-    { L"TAKARA Logo", 0x31a0, 0x31c0 },
-    { L"Text", 0x4270, 0x4290 },
-    { L"Protagonists 1/2", 0x4290, 0x42b0 },
-    { L"Protagonists 2/2", 0x42b0, 0x42d0 },
+    { L"TAKARA Logo", 0x31a0, 0x31c0, indexSegaFF2Sprites_Bonus, 0x01 },
+    { L"Text", 0x4270, 0x4290, indexSegaFF2Sprites_Bonus, 0x02 },
+    { L"Protagonists 1/2", 0x4290, 0x42b0, indexSegaFF2Sprites_Bonus, 0x03 },
+    { L"Protagonists 2/2", 0x42b0, 0x42d0, indexSegaFF2Sprites_Bonus, 0x03 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_MiscStuff_TitleScreen[] =
 {
-    { L"Fatal Fury 1/13", 0x42f0, 0x4310 },
-    { L"Fatal Fury 2/13", 0x4310, 0x4330 },
-    { L"Fatal Fury 3/13", 0x4330, 0x4350 },
-    { L"Fatal Fury 4/13", 0x4350, 0x4370 },
-    { L"Fatal Fury 5/13", 0x4370, 0x4390 },
-    { L"Fatal Fury 6/13", 0x4390, 0x43b0 },
-    { L"Fatal Fury 7/13", 0x43b0, 0x43d0 },
-    { L"Fatal Fury 8/13", 0x43d0, 0x43f0 },
-    { L"Fatal Fury 9/13", 0x43f0, 0x4410 },
-    { L"Fatal Fury 10/13", 0x4410, 0x4430 },
-    { L"Fatal Fury 11/13", 0x4430, 0x4450 },
-    { L"Fatal Fury 12/13", 0x4450, 0x4470 },
-    { L"Fatal Fury 13/13", 0x4490, 0x44b0 },
-    { L"Fatal Fury Flash", 0x4470, 0x4490 },
-    { L"Fatal Fury (Title Screen)", 0x768e, 0x76ae },
-    { L"Fatal Fury (Faded)", 0x5cd2, 0x5cf2 },
-    { L"2", 0x42d0, 0x42f0 },
-    { L"2 (Title Screen)", 0x76ae, 0x76ce },
-    { L"2 (Faded)", 0x5cf2, 0x5d12 },
+    { L"Fatal Fury 1/13", 0x42f0, 0x4310, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 2/13", 0x4310, 0x4330, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 3/13", 0x4330, 0x4350, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 4/13", 0x4350, 0x4370, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 5/13", 0x4370, 0x4390, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 6/13", 0x4390, 0x43b0, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 7/13", 0x43b0, 0x43d0, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 8/13", 0x43d0, 0x43f0, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 9/13", 0x43f0, 0x4410, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 10/13", 0x4410, 0x4430, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 11/13", 0x4430, 0x4450, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 12/13", 0x4450, 0x4470, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury 13/13", 0x4490, 0x44b0, indexSegaFF2Sprites_Bonus, 0x04, &pairNext4 },
+    { L"Fatal Fury Flash", 0x4470, 0x4490, indexSegaFF2Sprites_Bonus, 0x04 },
+    { L"Fatal Fury (Title Screen)", 0x768e, 0x76ae, indexSegaFF2Sprites_Bonus, 0x04, &pairNext3 },
+    { L"Fatal Fury (Faded)", 0x5cd2, 0x5cf2, indexSegaFF2Sprites_Bonus, 0x04, &pairNext3 },
+    { L"2", 0x42d0, 0x42f0, indexSegaFF2Sprites_Bonus, 0x05, &pairPrevious4 },
+    { L"2 (Title Screen)", 0x76ae, 0x76ce, indexSegaFF2Sprites_Bonus, 0x05, &pairPrevious3 },
+    { L"2 (Faded)", 0x5cf2, 0x5d12, indexSegaFF2Sprites_Bonus, 0x05, &pairPrevious3 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_MiscStuff_CharacterSelect[] =
 {
-    { L"Main Stuff", 0x9b90, 0x9bb0 },
-    { L"Grayed Portraits", 0x9bb0, 0x9bd0 },
-    { L"World Map", 0x9c10, 0x9c30 },
+    { L"Main Stuff", 0x9b90, 0x9bb0, indexSegaFF2Sprites_Bonus, 0x06 },
+    { L"Grayed Portraits", 0x9bb0, 0x9bd0, indexSegaFF2Sprites_Bonus, 0x07 },
+    { L"World Map", 0x9c10, 0x9c30, indexSegaFF2Sprites_Bonus, 0x08 },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_MiscStuff_VictoryScreen[] =
 {
-    { L"Background", 0x12f0c, 0x12f2c },
-    { L"Text", 0x12f2c, 0x12f4c },
+    { L"Background", 0x12f0c, 0x12f2c, indexSegaFF2Sprites_Bonus, 0x09 },
+    { L"Text", 0x12f2c, 0x12f4c, indexSegaFF2Sprites_Bonus, 0x0a },
 };
 
 const sGame_PaletteDataset FatalFury2_SEGA_MiscStuff_StoryMode[] =

@@ -13,15 +13,17 @@
 
 const std::vector<uint16_t> WAKUWAKU7_A_IMGIDS_USED =
 {
-    indexWakuWaku7Sprites_Arina,
-    indexWakuWaku7Sprites_DandyJ,
-    indexWakuWaku7Sprites_BonusKun,
-    indexWakuWaku7Sprites_Fernandeath,
-    indexWakuWaku7Sprites_Mauru,
-    indexWakuWaku7Sprites_Politank,
-    indexWakuWaku7Sprites_Rai,
-    indexWakuWaku7Sprites_Slash,
-    indexWakuWaku7Sprites_Tesse,
+    indexWakuWaku7Sprites_Arina,        // 0x00
+    indexWakuWaku7Sprites_DandyJ,       // 0x01
+    indexWakuWaku7Sprites_BonusKun,     // 0x02
+    indexWakuWaku7Sprites_Fernandeath,  // 0x03
+    indexWakuWaku7Sprites_Mauru,        // 0x04
+    indexWakuWaku7Sprites_Politank,     // 0x05
+    indexWakuWaku7Sprites_Rai,          // 0x06
+    indexWakuWaku7Sprites_Slash,        // 0x07
+    indexWakuWaku7Sprites_Tesse,        // 0x08
+    indexWakuWaku7Sprites_Stages,       // 0x09
+    indexWakuWaku7Sprites_Bonus,        // 0x0a
 };
 
 const sGame_PaletteDataset WakuWaku7_A_RAI_A_PALETTES[] =
@@ -34,7 +36,7 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_A_PALETTES[] =
     { L"Rai A Poisoned 2", 0xccf8, 0xcd18, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai A White Flash", 0xce78, 0xce98, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai A SEL", 0x11558, 0x11598, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai A SEL", 0x11558, 0x11598, indexWakuWaku7Sprites_Rai, 0x10 },
     { L"Rai A SEL Flashing", 0x11598, 0x115b8, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
     { L"Rai A HUD Portrait", 0x176D8, 0x176F8, indexWakuWaku7Sprites_Rai, 0x12 },
 };
@@ -49,7 +51,7 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_B_PALETTES[] =
     { L"Rai B Poisoned 2", 0xcd18, 0xcd38, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai B White Flash", 0xce98, 0xceb8, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai B SEL", 0x115b8, 0x115f8, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai B SEL", 0x115b8, 0x115f8, indexWakuWaku7Sprites_Rai, 0x10 },
     { L"Rai B SEL Flashing", 0x115f8, 0x11618, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
     { L"Rai B HUD Portrait", 0x176F8, 0x17718, indexWakuWaku7Sprites_Rai, 0x12 },
 };
@@ -64,7 +66,7 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_C_PALETTES[] =
     { L"Rai C Poisoned 2", 0xcd38, 0xcd58, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai C White Flash", 0xceb8, 0xced8, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai C SEL", 0x11618, 0x11658, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai C SEL", 0x11618, 0x11658, indexWakuWaku7Sprites_Rai, 0x10 },
     { L"Rai C SEL Flashing", 0x11658, 0x11678, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
     { L"Rai C HUD Portrait", 0x17718, 0x17738, indexWakuWaku7Sprites_Rai, 0x12 },
 };
@@ -79,7 +81,7 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_D_PALETTES[] =
     { L"Rai D Poisoned 2", 0xcd58, 0xcd78, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai D White Flash", 0xced8, 0xcef8, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai D SEL", 0x11678, 0x116b8, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai D SEL", 0x11678, 0x116b8, indexWakuWaku7Sprites_Rai, 0x10 },
     { L"Rai D SEL Flashing", 0x116b8, 0x116d8, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
     { L"Rai D HUD Portrait", 0x17738, 0x17758, indexWakuWaku7Sprites_Rai, 0x12 },
 };
@@ -94,7 +96,7 @@ const sGame_PaletteDataset WakuWaku7_A_RAI_DARK_PALETTES[] =
     { L"Rai Dark Poisoned 2", 0xcd78, 0xcd98, indexWakuWaku7Sprites_Rai, 0x00 },
     { L"Rai Dark White Flash", 0xcef8, 0xcf18, indexWakuWaku7Sprites_Rai, 0x00 },
 
-    { L"Rai Dark SEL", 0x116d8, 0x11718, indexWakuWaku7Sprites_Rai, 0x10, &pairNext },
+    { L"Rai Dark SEL", 0x116d8, 0x11718, indexWakuWaku7Sprites_Rai, 0x10 },
     { L"Rai Dark SEL Flashing", 0x11718, 0x11738, indexWakuWaku7Sprites_Rai, 0x11, &pairPreviousFlipped },
     { L"Rai Dark HUD Portrait", 0x17758, 0x17778, indexWakuWaku7Sprites_Rai, 0x12 },
 };
@@ -427,7 +429,7 @@ const sGame_PaletteDataset WakuWaku7_A_POLITANK_A_PALETTES[] =
     { L"Chojuro and Hamusuke A Poisoned", 0x10138, 0x10158, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank A White Flash", 0xfbb8, 0xfbd8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
     { L"Chojuro and Hamusuke A White Flash", 0x101b8, 0x101d8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
-    { L"Politank A SEL Portrait", 0x11958, 0x119d8, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
+    { L"Politank A SEL Portrait", 0x11958, 0x119d8, indexWakuWaku7Sprites_Politank, 0x10 },
 
     { L"Chojuro and Hamusuke A SEL Portrait 1/8", 0x12358, 0x12378, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
     { L"Chojuro and Hamusuke A SEL Portrait 2/8", 0x12378, 0x12398, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
@@ -461,7 +463,7 @@ const sGame_PaletteDataset WakuWaku7_A_POLITANK_B_PALETTES[] =
     { L"Chojuro and Hamusuke B Poisoned", 0x10158, 0x10178, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank B White Flash", 0xfbd8, 0xfbf8, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
     { L"Chojuro and Hamusuke B White Flash", 0x101d8, 0x101f8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
-    { L"Politank B SEL Portrait", 0x119d8, 0x11A58, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
+    { L"Politank B SEL Portrait", 0x119d8, 0x11A58, indexWakuWaku7Sprites_Politank, 0x10 },
 
     { L"Chojuro and Hamusuke B SEL Portrait 1/8", 0x12458, 0x12478, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
     { L"Chojuro and Hamusuke B SEL Portrait 2/8", 0x12478, 0x12498, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
@@ -495,7 +497,7 @@ const sGame_PaletteDataset WakuWaku7_A_POLITANK_C_PALETTES[] =
     { L"Chojuro and Hamusuke C Poisoned", 0x10178, 0x10198, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank C White Flash", 0xfbf8, 0xfc18, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
     { L"Chojuro and Hamusuke C White Flash", 0x101f8, 0x10218, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
-    { L"Politank C SEL Portrait", 0x11a58, 0x11Ad8, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
+    { L"Politank C SEL Portrait", 0x11a58, 0x11Ad8, indexWakuWaku7Sprites_Politank, 0x10 },
 
     { L"Chojuro and Hamusuke C SEL Portrait 1/8", 0x12558, 0x12578, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
     { L"Chojuro and Hamusuke C SEL Portrait 2/8", 0x12578, 0x12598, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
@@ -529,7 +531,7 @@ const sGame_PaletteDataset WakuWaku7_A_POLITANK_D_PALETTES[] =
     { L"Chojuro and Hamusuke D Poisoned", 0x10198, 0x101b8, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
     { L"Politank D White Flash", 0xfc18, 0xfc38, indexWakuWaku7Sprites_Politank, 0x00, &pairNext },
     { L"Chojuro and Hamusuke D White Flash", 0x10218, 0x10238, indexWakuWaku7Sprites_Politank, 0x13, &pairPreviousFlipped },
-    { L"Politank D SEL Portrait", 0x11ad8, 0x11b58, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
+    { L"Politank D SEL Portrait", 0x11ad8, 0x11b58, indexWakuWaku7Sprites_Politank, 0x10 },
 
     { L"Chojuro and Hamusuke D SEL Portrait 1/8", 0x12658, 0x12678, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
     { L"Chojuro and Hamusuke D SEL Portrait 2/8", 0x12678, 0x12698, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
@@ -559,7 +561,7 @@ const sGame_PaletteDataset WakuWaku7_A_POLITANK_DARK_PALETTES[] =
 
     // No Dark effects
 
-    { L"Politank Dark SEL Portrait", 0x11b58, 0x11bd8, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
+    { L"Politank Dark SEL Portrait", 0x11b58, 0x11bd8, indexWakuWaku7Sprites_Politank, 0x10 },
 
     { L"Chojuro and Hamusuke Dark SEL Portrait 1/8", 0x12758, 0x12778, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped },
     { L"Chojuro and Hamusuke Dark SEL Portrait 2/8", 0x12778, 0x12798, indexWakuWaku7Sprites_Politank, 0x12, &pairPreviousFlipped2 },
@@ -911,18 +913,18 @@ const sGame_PaletteDataset WakuWaku7_A_BONUSKUN_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_CharacterSelect[] =
 {
-    { L"Portraits", 0x172d8, 0x173f8 },
-    { L"Waku Waku Ball 1", 0x13458, 0x13478 },
-    { L"Waku Waku Ball 2", 0x13478, 0x13498 },
-    { L"Waku Waku Ball 3", 0x13498, 0x134b8 },
-    { L"Waku Waku Ball 4", 0x134b8, 0x134d8 },
-    { L"Waku Waku Ball 5", 0x134d8, 0x134f8 },
-    { L"Waku Waku Ball 6", 0x134f8, 0x13518 },
-    { L"Waku Waku Ball 7", 0x13518, 0x13538 },
-    { L"1P Cursor 1/2", 0x173f8, 0x17418 },
-    { L"1P Cursor 2/2", 0x17418, 0x17438 },
-    { L"2P Cursor 1/2", 0x17438, 0x17458 },
-    { L"2P Cursor 2/2", 0x17458, 0x17478 },
+    { L"Portraits", 0x172d8, 0x173f8, indexWakuWaku7Sprites_Bonus, 0x00 },
+    { L"Waku Waku Ball 1", 0x13458, 0x13478, indexWakuWaku7Sprites_Bonus, 0x01 },
+    { L"Waku Waku Ball 2", 0x13478, 0x13498, indexWakuWaku7Sprites_Bonus, 0x01 },
+    { L"Waku Waku Ball 3", 0x13498, 0x134b8, indexWakuWaku7Sprites_Bonus, 0x01 },
+    { L"Waku Waku Ball 4", 0x134b8, 0x134d8, indexWakuWaku7Sprites_Bonus, 0x01 },
+    { L"Waku Waku Ball 5", 0x134d8, 0x134f8, indexWakuWaku7Sprites_Bonus, 0x01 },
+    { L"Waku Waku Ball 6", 0x134f8, 0x13518, indexWakuWaku7Sprites_Bonus, 0x01 },
+    { L"Waku Waku Ball 7", 0x13518, 0x13538, indexWakuWaku7Sprites_Bonus, 0x01 },
+    { L"1P Cursor 1/2", 0x173f8, 0x17418, indexWakuWaku7Sprites_Bonus, 0x02 },
+    { L"1P Cursor 2/2", 0x17418, 0x17438, indexWakuWaku7Sprites_Bonus, 0x02 },
+    { L"2P Cursor 1/2", 0x17438, 0x17458, indexWakuWaku7Sprites_Bonus, 0x03 },
+    { L"2P Cursor 2/2", 0x17458, 0x17478, indexWakuWaku7Sprites_Bonus, 0x03 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_CharacterNamesInGameText[] =
@@ -974,8 +976,8 @@ const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_InGameText[] =
 
 const sGame_PaletteDataset WakuWaku7_A_BonusPalettes_VSTransition[] =
 {
-    { L"Characters", 0x11098, 0x11238 },
-    { L"Text/Title", 0x11278, 0x11298 },
+    { L"Characters", 0x11098, 0x11238, indexWakuWaku7Sprites_Bonus, 0x04, &pairNext },
+    { L"Text/Title", 0x11278, 0x11298, indexWakuWaku7Sprites_Bonus, 0x05, &pairPrevious },
 };
 
 const sDescTreeNode WakuWaku7_A_RAI_COLLECTION[] =

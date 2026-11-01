@@ -1641,6 +1641,8 @@ enum SupportedWakuWaku7_PaletteList
     indexWakuWaku7Sprites_Rai,          // 0x06
     indexWakuWaku7Sprites_Slash,        // 0x07
     indexWakuWaku7Sprites_Tesse,        // 0x08
+    indexWakuWaku7Sprites_Stages,       // 0x09
+    indexWakuWaku7Sprites_Bonus,        // 0x0a
 };
 
 enum SupportedWindjammers_A_PaletteListIndex
@@ -1654,7 +1656,7 @@ enum SupportedWindjammers_A_PaletteListIndex
     indexWindjammersSprites_Bonus,
 };
 
-enum SupportedSega_PaletteListIndex
+enum SupportedSega_PaletteListIndex // IMGDAT_SECTION_SEGA
 {
     indexTopF2k5Sprites_Ali,            // 0x00
     indexTopF2k5Sprites_Cycl,           // 0x01
@@ -1732,6 +1734,21 @@ enum SupportedSega_PaletteListIndex
     indexSegaMK2Sprites_Smoke,          // 0x43
     indexSegaMK2Sprites_SubZero,        // 0x44
     indexSegaMK2Sprites_Bonus,          // 0x45
+
+    indexSegaFF2Sprites_Andy,           // 0x46
+    indexSegaFF2Sprites_Axel,           // 0x47
+    indexSegaFF2Sprites_BigBear,        // 0x48
+    indexSegaFF2Sprites_Billy,          // 0x49
+    indexSegaFF2Sprites_Cheng,          // 0x4a
+    indexSegaFF2Sprites_Joe,            // 0x4b
+    indexSegaFF2Sprites_Jubei,          // 0x4c
+    indexSegaFF2Sprites_Kim,            // 0x4d
+    indexSegaFF2Sprites_Krauser,        // 0x4e
+    indexSegaFF2Sprites_Laurence,       // 0x4f
+    indexSegaFF2Sprites_Mai,            // 0x50
+    indexSegaFF2Sprites_Terry,          // 0x51
+    indexSegaFF2Sprites_Stages,         // 0x52
+    indexSegaFF2Sprites_Bonus,          // 0x53
 };
 
 enum SupportedSNES_PaletteListIndex
