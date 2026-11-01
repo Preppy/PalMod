@@ -159,7 +159,7 @@ bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cu
     // ID_COLORFORMAT_RGB666
     // ID_COLORFORMAT_RGB557
     // ID_COLORFORMAT_BGR555_LE
-    // ID_COLORFORMAT_RGB555_BE
+    // ID_COLORFORMAT_RGB555_BE_NORMAL
     // ID_COLORFORMAT_RGB333_BE
     // ID_COLORFORMAT_ARGB7888
     // ID_COLORFORMAT_SHARPRGB
@@ -180,11 +180,12 @@ bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cu
     // ID_COLORFORMAT_RGBA8888_BE16
     // ID_COLORFORMAT_BGRx5551_BE
     // ID_COLORFORMAT_RGBx2222
+    // ID_COLORFORMAT_RGB555_BE_CPS3
     // I am explicitly and needlessly listing out all of those string IDs because Visual Studio search sometimes misses the color modes below,
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     // Update this check once you've decided whether to expose the new color or not.
-    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+    static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
 
     switch (NewMode)
     {
@@ -196,7 +197,7 @@ bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cu
         case ColMode::COLMODE_BGR333:
         case ColMode::COLMODE_RBG333:
         case ColMode::COLMODE_RGB333:
-        case ColMode::COLMODE_RGB555_SHARP:
+        case ColMode::COLMODE_RGB555_SHARP_CLUT:
         case ColMode::COLMODE_BGR444:
         case ColMode::COLMODE_BRG444:
         case ColMode::COLMODE_RBG444:
@@ -216,7 +217,8 @@ bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cu
         case ColMode::COLMODE_RGB555_LE_NORMAL:
         case ColMode::COLMODE_xRGB1555_BE:
         case ColMode::COLMODE_RGBx5551_BE:
-        case ColMode::COLMODE_RGB555_BE:
+        case ColMode::COLMODE_RGB555_BE_CPS3:
+        case ColMode::COLMODE_RGB555_BE_NORMAL:
             cbRequiredColorSize = 2;
             suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
             break;
@@ -247,7 +249,7 @@ bool CGame_DevMode_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cu
         default: // Something is wrong: reset
             MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
             __fallthrough;
-        case ColMode::COLMODE_RGB666_NEOGEO:
+        case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
             cbRequiredColorSize = 2;
             fMustOverrideAlphaSetting = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
             suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;

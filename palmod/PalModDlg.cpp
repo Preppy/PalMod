@@ -101,7 +101,7 @@ CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
 
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
-    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "Please make sure to test new color format via TestColorConversions.");
+    static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "Please make sure to test new color format via TestColorConversions.");
 #ifdef DEBUG
     ColorSystem::TestColorConversions();
 #endif
@@ -132,7 +132,7 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
 #pragma warning( push )
 #pragma warning( disable : 26454 ) // bug in Microsoft headers
 
-static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
+static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
 
 // CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
@@ -228,7 +228,6 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_RBG444, &CPalModDlg::SetColorFormatToRBG444)
     ON_COMMAND(ID_COLORFORMAT_RGB444_BE, &CPalModDlg::SetColorFormatToRGB444_BE)
     ON_COMMAND(ID_COLORFORMAT_RGB444_LE, &CPalModDlg::SetColorFormatToRGB444_LE)
-
     ON_COMMAND(ID_COLORFORMAT_BGR555_LE, &CPalModDlg::SetColorFormatToBGR555_LE)
     ON_COMMAND(ID_COLORFORMAT_BGR555_BE, &CPalModDlg::SetColorFormatToBGR555_BE)
     ON_COMMAND(ID_COLORFORMAT_BRG555_LE, &CPalModDlg::SetColorFormatToBRG555_LE)
@@ -236,7 +235,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_GRB555_BE, &CPalModDlg::SetColorFormatToGRB555_BE)
     ON_COMMAND(ID_COLORFORMAT_RGB555_LE_CPS3, &CPalModDlg::SetColorFormatToRGB555_LE_CPS3)
     ON_COMMAND(ID_COLORFORMAT_RGB555_LE_NORMAL, &CPalModDlg::SetColorFormatToRGB555_LE_Normal)
-    ON_COMMAND(ID_COLORFORMAT_RGB555_BE, &CPalModDlg::SetColorFormatToRGB555_BE)
+    ON_COMMAND(ID_COLORFORMAT_RGB555_BE_CPS3, &CPalModDlg::SetColorFormatToRGB555_BE_CPS3)
+    ON_COMMAND(ID_COLORFORMAT_RGB555_BE_NORMAL, &CPalModDlg::SetColorFormatToRGB555_BE_Normal)
     ON_COMMAND(ID_COLORFORMAT_xBGR1555_BE, &CPalModDlg::SetColorFormatToxBGR1555_BE)
     ON_COMMAND(ID_COLORFORMAT_BGRx5551_BE, &CPalModDlg::SetColorFormatToBGRx5551_BE)
     

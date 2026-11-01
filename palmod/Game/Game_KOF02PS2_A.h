@@ -23,7 +23,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_NEOGEO,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB666_NEOGEO,
+        ColMode::COLMODE_RGB666_NEOGEO_CLUT,
         m_sFileLoadingData,
         {},
         KOF02PS2_A_UNITS,

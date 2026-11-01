@@ -26,7 +26,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_DANKUGA,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB555_SHARP,
+        ColMode::COLMODE_RGB555_SHARP_CLUT,
         m_sFileLoadingData,
         {},
         DANKUGA_A_UNITS,

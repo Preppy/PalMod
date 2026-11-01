@@ -110,7 +110,7 @@ private:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
 
     void SetColorFormatToRGBx2222() { SetColorFormatTo(ColMode::COLMODE_RGBx2222); };
 
@@ -129,15 +129,16 @@ private:
     void SetColorFormatToBRG555_LE() { SetColorFormatTo(ColMode::COLMODE_BRG555_LE); };
     void SetColorFormatToGRB555_BE() { SetColorFormatTo(ColMode::COLMODE_GRB555_BE); };
     void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };
-    void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
+    void SetColorFormatToRGB555_BE_CPS3() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE_CPS3); };
+    void SetColorFormatToRGB555_BE_Normal() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE_NORMAL); };
     void SetColorFormatToRGB555_LE_CPS3() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE_CPS3); };
     void SetColorFormatToRGB555_LE_Normal() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE_NORMAL); };
     void SetColorFormatToxBGR1555_BE() { SetColorFormatTo(ColMode::COLMODE_xRGB1555_BE); };
     void SetColorFormatToBGRx5551_BE() { SetColorFormatTo(ColMode::COLMODE_RGBx5551_BE); };
 
-    void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
+    void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO_CLUT); };
     // Deliberately not exposing the Neo Turf Masters CLUT: that requires knowledge of where to get the CLUT from
-    void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
+    void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP_CLUT); };
 
     void SetColorFormatToBGR888() { SetColorFormatTo(ColMode::COLMODE_BGR888); };
     void SetColorFormatToBRG888() { SetColorFormatTo(ColMode::COLMODE_BRG888); };

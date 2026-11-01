@@ -24,7 +24,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_NOBUTTONS,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         m_sFileLoadingData,
         {},
         BtlKRoad_A_UNITS,

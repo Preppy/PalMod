@@ -23,7 +23,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         m_sFileLoadingData,
         {},
         UMK3_DS_UNITS,

@@ -26,12 +26,12 @@ enum class ColMode
     COLMODE_BGR555_LE,      // BGR555 little endian (GBA, PSX, SNES)
     COLMODE_RGB444_BE,      // RGB444 big endian (CPS1/2)
     COLMODE_RGB444_LE,      // RGB444 little endian (SF 30th steam)
-    COLMODE_RGB555_LE_CPS3, // RGB555 little endian (CPS3)
-    COLMODE_RGB555_BE,      // RGB555 big endian 
-    COLMODE_RGB666_NEOGEO,  // RGB666 using the NeoGeo color table
+    COLMODE_RGB555_LE_CPS3, // RGB555 little endian (CPS3 RGB777 display)
+    COLMODE_RGB555_BE_NORMAL, // RGB555 big endian 
+    COLMODE_RGB666_NEOGEO_CLUT,  // RGB666 using the NeoGeo color table
     COLMODE_RGB333,         // RGB333 for Sega Genesis/MegaDrive
     COLMODE_RGBA8887,       // 32bit color half alpha (guilty gear)
-    COLMODE_RGB555_SHARP,   // RGB555 using the sharp x68000 color table
+    COLMODE_RGB555_SHARP_CLUT,   // RGB555 using the sharp x68000 color table
     COLMODE_RGBA8881,       // 32bit color 1 bit alpha
     COLMODE_RGBA8888_LE,    // 32bit color (uniclr. and modern computing)
     COLMODE_RGB888,         // 24bit
@@ -66,6 +66,8 @@ enum class ColMode
     COLMODE_RGBx5551_BE,    // Nintendo 64 z64
 
     COLMODE_RGBx2222,       // 8bit color: Sega Master System
+
+    COLMODE_RGB555_BE_CPS3, // RGB555 big endian, displayed for CPS3 RGB777 display
 
     COLMODE_LAST,
 };
@@ -125,8 +127,10 @@ namespace ColorSystem
     uint32_t CONV_xRGB1555LE_32_CPS3(uint16_t inCol);
     uint16_t CONV_32_xRGB1555LE_NORMAL(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xRGB1555LE_32_NORMAL(uint16_t inCol);
-    uint16_t CONV_32_xRGB1555BE(uint32_t inCol, uint16_t oldCol);
-    uint32_t CONV_xRGB1555BE_32(uint16_t inCol);
+    uint16_t CONV_32_xRGB1555BE_CPS3(uint32_t inCol, uint16_t oldCol);
+    uint32_t CONV_xRGB1555BE_32_CPS3(uint16_t inCol);
+    uint16_t CONV_32_xRGB1555BE_NORMAL(uint32_t inCol, uint16_t oldCol);
+    uint32_t CONV_xRGB1555BE_32_NORMAL(uint16_t inCol);
     uint16_t CONV_32_xGRB1555LE(uint32_t inCol, uint16_t oldCol);
     uint32_t CONV_xGRB1555LE_32(uint16_t inCol);
     uint16_t CONV_32_xGRB1555BE(uint32_t inCol, uint16_t oldCol);

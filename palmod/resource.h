@@ -360,7 +360,7 @@
 #define ID_COLORFORMAT_RGB666           32856
 #define ID_COLORFORMAT_RGB557           32857
 #define ID_COLORFORMAT_BGR555_LE        32858
-#define ID_COLORFORMAT_RGB555_BE        32859
+#define ID_COLORFORMAT_RGB555_BE_NORMAL        32859
 #define ID_LD_SFIII3ARCADE10            32860
 #define ID_ACC_SNIFFCOLOR               32861
 #define ID_ACC_SNIFFPASTE               32862
@@ -381,6 +381,7 @@
 #define ID_LOADDIRECTORY_DANKUGA        32877
 #define ID_COLORFORMAT_SHARPRGB         32878
 #define ID_COLORFORMAT_RGB444_LE        32879
+#define ID_COLORFORMAT_RGB555_BE_CPS3   32880
 #define ID_LD_SFIII3ARCADE4rd10         32882
 #define ID_LD_SFIII1                    32883
 #define ID_LD_SFIII2                    32884

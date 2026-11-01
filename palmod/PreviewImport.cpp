@@ -488,21 +488,21 @@ void CPreviewImportManager::SetTextureToUse(sTextureData newTexture)
     {
         const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
         const bool fMayBeCPSSource = currColMode == ColMode::COLMODE_RGB444_BE;
-        const bool fMightBeKawaksScreenshot = (fMayBeCPSSource || (currColMode == ColMode::COLMODE_RGB666_NEOGEO));
+        const bool fMightBeKawaksScreenshot = (fMayBeCPSSource || (currColMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT));
         // This is loose but currently true for the games we support
         // Kawaks uses skewed CPS1/2 color math.
         // For NeoGeo Kawaks is using a RGB555 sprite layer
         const bool fUseWinKawaksShiftFirst = fMightBeKawaksScreenshot && CRegProc::GetPreviewImport_WinKawaksFirst(FALSE);
 
         // This bit is because CPS3 display is rgb777, but some emulators use rgb888 representations.
-        const bool fGameIsCPS3 = (currColMode == ColMode::COLMODE_RGB555_LE_CPS3);
+        const bool fGameIsCPS3 = (currColMode == ColMode::COLMODE_RGB555_LE_CPS3) || (currColMode == ColMode::COLMODE_RGB555_BE_CPS3);
         const bool fUseDifferingCPS3LogicFirst = fGameIsCPS3 && CRegProc::GetPreviewImport_UseFullCPS3(FALSE);
         m_rgbaMathQuirkInUse = RGBAImportMathQuirk::None;
 
         if (fUseWinKawaksShiftFirst)
         {
             OutputDebugString(L"CPreviewImportManager::SetTextureToUse: RGBA import: Using WinKawaks math for matching to start.\r\n");
-            if (currColMode == ColMode::COLMODE_RGB666_NEOGEO)
+            if (currColMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT)
             {
                 m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_WinKawaks_NeoGeo;
             }
@@ -550,7 +550,7 @@ void CPreviewImportManager::SetTextureToUse(sTextureData newTexture)
                 {
                     if (!fUseWinKawaksShiftFirst)
                     {
-                        if (currColMode == ColMode::COLMODE_RGB666_NEOGEO)
+                        if (currColMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT)
                         {
                             m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_WinKawaks_NeoGeo;
                         }

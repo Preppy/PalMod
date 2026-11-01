@@ -843,7 +843,9 @@ BEGIN
                 MENUITEM "xGRB1555 (big endian)",       ID_COLORFORMAT_GRB555_BE
                 MENUITEM "xRGB1555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE_CPS3
                 MENUITEM "xRGB1555 (little endian for non-CPS3)", ID_COLORFORMAT_RGB555_LE_NORMAL
-                MENUITEM "xRGB1555 (big endian)",       ID_COLORFORMAT_RGB555_BE
+                MENUITEM "xRGB1555 (big endian for CPS3)", ID_COLORFORMAT_RGB555_BE_CPS3
+                MENUITEM "xRGB1555 (big endian for non-CPS3)", ID_COLORFORMAT_RGB555_BE_NORMAL
+
                 MENUITEM SEPARATOR
                 MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
                 MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666

@@ -138,7 +138,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+    static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
 
     switch (NewMode)
     {
@@ -191,7 +191,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         case ColMode::COLMODE_xRGB1555_BE:
         case ColMode::COLMODE_RGBx5551_BE:
         case ColMode::COLMODE_RGB555_LE_NORMAL:
-        case ColMode::COLMODE_RGB555_BE:
+        case ColMode::COLMODE_RGB555_BE_NORMAL:
         case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_GRB555_BE:
@@ -206,6 +206,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
             break;
 
         case ColMode::COLMODE_RGB555_LE_CPS3:
+        case ColMode::COLMODE_RGB555_BE_CPS3:
             m_nSizeOfColorsInBytes = 2;
             GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_31Steps;
             Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_31Steps;
@@ -216,7 +217,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
             ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_CPS3;
             break;
 
-        case ColMode::COLMODE_RGB555_SHARP:
+        case ColMode::COLMODE_RGB555_SHARP_CLUT:
             m_nSizeOfColorsInBytes = 2;
             GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
             Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_32Steps_SharpCLUT;
@@ -227,7 +228,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
             ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
             break;
 
-        case ColMode::COLMODE_RGB666_NEOGEO:
+        case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
             m_nSizeOfColorsInBytes = 2;
             GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
             Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
@@ -320,7 +321,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+    static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
 
     switch (NewMode)
     {
@@ -382,9 +383,13 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
             ConvPal16 = &ColorSystem::CONV_xRGB1555LE_32_NORMAL;
             ConvCol16 = &ColorSystem::CONV_32_xRGB1555LE_NORMAL;
             break;
-        case ColMode::COLMODE_RGB555_BE:
-            ConvPal16 = &ColorSystem::CONV_xRGB1555BE_32;
-            ConvCol16 = &ColorSystem::CONV_32_xRGB1555BE;
+        case ColMode::COLMODE_RGB555_BE_CPS3:
+            ConvPal16 = &ColorSystem::CONV_xRGB1555BE_32_CPS3;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB1555BE_CPS3;
+            break;
+        case ColMode::COLMODE_RGB555_BE_NORMAL:
+            ConvPal16 = &ColorSystem::CONV_xRGB1555BE_32_NORMAL;
+            ConvCol16 = &ColorSystem::CONV_32_xRGB1555BE_NORMAL;
             break;
         case ColMode::COLMODE_xRGB1555_BE:
             ConvPal16 = &ColorSystem::CONV_xRGB1555BE_32_Sega;
@@ -403,7 +408,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
             ConvCol16 = &ColorSystem::CONV_32_xGRB1555BE;
             break;
 
-        case ColMode::COLMODE_RGB555_SHARP:
+        case ColMode::COLMODE_RGB555_SHARP_CLUT:
             ConvPal16 = &ColorSystem::CONV_RGB555Sharp_32;
             ConvCol16 = &ColorSystem::CONV_32_RGB555Sharp;
             break;
@@ -413,7 +418,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
             ConvPal32 = &ColorSystem::CONV_NeoTurfMasters_32;
             ConvCol32 = &ColorSystem::CONV_32_NeoTurfMasters;
             break;
-        case ColMode::COLMODE_RGB666_NEOGEO:
+        case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
             ConvPal16 = &ColorSystem::CONV_RGB666NeoGeo_32;
             ConvCol16 = &ColorSystem::CONV_32_RGB666NeoGeo;
             break;

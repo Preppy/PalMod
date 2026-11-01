@@ -30,7 +30,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_NEOGEO,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         m_sFileLoadingData,
         m_rgCRC32Data,
         ROTD_A_UNITS,

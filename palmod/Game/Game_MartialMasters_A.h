@@ -28,7 +28,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_NOBUTTONS,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         m_sFileLoadingData,
         m_rgCRC32Data,
         MartialMasters_A_UNITS,

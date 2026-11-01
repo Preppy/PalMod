@@ -63,13 +63,14 @@ namespace ColorSystem
             case ColMode::COLMODE_RGBx5551_BE:
             case ColMode::COLMODE_RGB555_LE_CPS3:
             case ColMode::COLMODE_RGB555_LE_NORMAL:
-            case ColMode::COLMODE_RGB555_BE:
-            case ColMode::COLMODE_RGB555_SHARP:
+            case ColMode::COLMODE_RGB555_BE_CPS3:
+            case ColMode::COLMODE_RGB555_BE_NORMAL:
+            case ColMode::COLMODE_RGB555_SHARP_CLUT:
 
             case ColMode::COLMODE_GRB555_LE:
             case ColMode::COLMODE_GRB555_BE:
             case ColMode::COLMODE_BRG555_LE:
-            case ColMode::COLMODE_RGB666_NEOGEO:
+            case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
                 return 2;
 
             case ColMode::COLMODE_BGR888:
@@ -115,12 +116,12 @@ namespace ColorSystem
         { "GRB555BE", ColMode::COLMODE_GRB555_BE },             // aGRB555 big endian
         { "RGB555LE", ColMode::COLMODE_RGB555_LE_CPS3 },        // aRGB555 little endian (CPS3: 555 on a 29bit display)
         { "RGB555LE_Normal", ColMode::COLMODE_RGB555_LE_NORMAL }, // aRGB555 little endian (non-true-CPS3, or 555 on a 32bit display)
-        { "RGB555BE", ColMode::COLMODE_RGB555_BE },             // aRGB555 big endian 
+        { "RGB555BE", ColMode::COLMODE_RGB555_BE_NORMAL },             // aRGB555 big endian 
 
-        { "RGB555Sharp", ColMode::COLMODE_RGB555_SHARP },       // RGB555 using the sharp x68000 color table
+        { "RGB555Sharp", ColMode::COLMODE_RGB555_SHARP_CLUT },       // RGB555 using the sharp x68000 color table
         { "NeoTurfMasters", ColMode::COLMODE_NEOTURFMASTERS },  // Very weird.  32bit value converted to RGB555 filtered into a CLUT
 
-        { "RGB666", ColMode::COLMODE_RGB666_NEOGEO },           // RGB666 using the NeoGeo color table
+        { "RGB666", ColMode::COLMODE_RGB666_NEOGEO_CLUT },           // RGB666 using the NeoGeo color table
 
         { "RGB888", ColMode::COLMODE_RGB888 },                  // 24bit
         { "BGR888", ColMode::COLMODE_BGR888 },                  // 24bit
@@ -139,9 +140,11 @@ namespace ColorSystem
         { "RGBx5551BE", ColMode::COLMODE_RGBx5551_BE },         // Nintendo 64 z64
 
         { "RGBx2222", ColMode::COLMODE_RGBx2222 },              // Sega Master System
+
+        { "RGB555BE_CPS3", ColMode::COLMODE_RGB555_BE_CPS3 },   // aRGB555 big endian displayed via RGB777 logic
     };
 
-    static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "You must update the string table above and the Read Me.");
+    static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "You must update the string table above and the Read Me.");
 
     uint8_t GetAlphaValueForBlendType(BlendMode bm, uint8_t nPreBlendAlpha, uint8_t rVal, uint8_t gVal, uint8_t bVal)
     {
@@ -196,7 +199,7 @@ namespace ColorSystem
     {
         // no for 24bit color and color tables that can't have alpha
         return ((GetCbForColMode(cmColorMode) != 3) &&
-                (cmColorMode != ColMode::COLMODE_RGB666_NEOGEO) &&
+                (cmColorMode != ColMode::COLMODE_RGB666_NEOGEO_CLUT) &&
                 (cmColorMode != ColMode::COLMODE_NEOTURFMASTERS));
     }
 
@@ -335,11 +338,11 @@ namespace ColorSystem
             case ColMode::COLMODE_xRGB1555_BE:
             case ColMode::COLMODE_RGBx5551_BE:
             case ColMode::COLMODE_RGB555_LE_NORMAL:
-            case ColMode::COLMODE_RGB555_BE:
+            case ColMode::COLMODE_RGB555_BE_NORMAL:
             case ColMode::COLMODE_GRB555_LE:
             case ColMode::COLMODE_GRB555_BE:
             case ColMode::COLMODE_BRG555_LE:
-            case ColMode::COLMODE_RGB555_SHARP:
+            case ColMode::COLMODE_RGB555_SHARP_CLUT:
                 if (Flag == ColFlag::COL_A)
                 {
                     return k_nRGBPlaneAmtForRGB111;
@@ -358,7 +361,7 @@ namespace ColorSystem
                     return k_nRGBPlaneAmtForRGB555_CPS3;
                 }
 
-            case ColMode::COLMODE_RGB666_NEOGEO:
+            case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
             case ColMode::COLMODE_NEOTURFMASTERS:
                 return k_nRGBPlaneAmtForNeoGeo;
 
@@ -1053,8 +1056,8 @@ namespace ColorSystem
         return _byteswap_ushort(auxa | auxb | auxg | auxr);
     }
 
-    // COLMODE_RGB555_BE
-    uint32_t CONV_xRGB1555BE_32(uint16_t inCol)
+    // COLMODE_RGB555_BE_NORMAL
+    uint32_t CONV_xRGB1555BE_32_NORMAL(uint16_t inCol)
     {
         // TODO: cleanup
         uint32_t auxa = (inCol & 0x8000) >> 15;
@@ -1087,7 +1090,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint16_t CONV_32_xRGB1555BE(uint32_t inCol, uint16_t oldCol)
+    uint16_t CONV_32_xRGB1555BE_NORMAL(uint32_t inCol, uint16_t oldCol)
     {
         // TODO: cleanup
         uint16_t auxa = (inCol & 0xFF000000) >> 24;
@@ -1099,13 +1102,23 @@ namespace ColorSystem
         auxg = static_cast<uint16_t>(round(auxg / 8));
         auxr = static_cast<uint16_t>(round(auxr / 8));
 
+        auxa = GetAdjustedNativeAlpha(auxa, ((oldCol & 0x8000) >> 15), 0x1) << 15;
         auxr = auxr << 10;
         auxg = auxg << 5;
         //auxb = auxb; no-op
 
-        auxa = GetAdjustedNativeAlpha(auxa, ((oldCol & 0x8000) >> 15), 0x1) << 15;
-
         return auxb | auxg | auxr | auxa;
+    }
+
+    // COLMODE_RGB555_BE_CPS3
+    uint32_t CONV_xRGB1555BE_32_CPS3(uint16_t inCol)
+    {
+        return CONV_xRGB1555LE_32_CPS3(_byteswap_ushort(inCol));
+    }
+
+    uint16_t CONV_32_xRGB1555BE_CPS3(uint32_t inCol, uint16_t oldCol)
+    {
+        return _byteswap_ushort(CONV_32_xRGB1555LE_CPS3(inCol, _byteswap_ushort(oldCol)));
     }
 
     const std::vector<uint8_t> NGColorVals = {
@@ -1181,7 +1194,7 @@ namespace ColorSystem
         return nColorIndex;
     }
 
-    // COLMODE_RGB666_NEOGEO
+    // COLMODE_RGB666_NEOGEO_CLUT
     uint32_t CONV_RGB666NeoGeo_32(uint16_t nColorData)
     {
         uint8_t darkbit = (nColorData >> 0xf) & 0x01;
@@ -1334,7 +1347,7 @@ namespace ColorSystem
         return nColorIndex;
     }
 
-    // COLMODE_RGB555_SHARP
+    // COLMODE_RGB555_SHARP_CLUT
     uint32_t CONV_RGB555Sharp_32(uint16_t nColorData)
     {
         // raw view
@@ -1944,7 +1957,7 @@ namespace ColorSystem
 
     uint8_t Get8BitValueForColorStep_ByPlaneLength(ColMode colorMode, int nPlaneLength, int nColorStep)
     {
-        static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "If you've added a new CLUT, make sure you handle the different stepping here.");
+        static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "If you've added a new CLUT, make sure you handle the different stepping here.");
 
         switch (nPlaneLength)
         {
@@ -1963,12 +1976,12 @@ namespace ColorSystem
                 return Get8BitValueForColorStep_31Steps(nColorStep);
             case k_nRGBPlaneAmtForRGB555_Normal: //31
                 // case k_nRGBPlaneAmtForNeoGeo: // also 31
-                if ((colorMode == ColMode::COLMODE_RGB666_NEOGEO) ||
+                if ((colorMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT) ||
                     (colorMode == ColMode::COLMODE_NEOTURFMASTERS))
                 {
                     return Get8BitValueForColorStep_NeoGeoCLUT(nColorStep);
                 }
-                else if (colorMode == ColMode::COLMODE_RGB555_SHARP)
+                else if (colorMode == ColMode::COLMODE_RGB555_SHARP_CLUT)
                 {
                     return Get8BitValueForColorStep_32Steps_SharpCLUT(nColorStep);
                 }
@@ -2603,7 +2616,7 @@ namespace ColorSystem
 
     void TestColorConversions()
     {
-        static_assert(static_cast<ColMode>(35) == ColMode::COLMODE_LAST, "Please add the new color format to this table and run this check once to double-check your math.");
+        static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "Please add the new color format to this table and run this check once to double-check your math.");
 
         Test8BitConverters(ColMode::COLMODE_RGBx2222, &ColorSystem::CONV_RGBx2222_32, &ColorSystem::CONV_32_RGBx2222);
 
@@ -2628,10 +2641,11 @@ namespace ColorSystem
         Test16BitConverters(ColMode::COLMODE_RGBx5551_BE, &ColorSystem::CONV_RGBx5551BE_32, &ColorSystem::CONV_32_RGBx5551BE);
         Test16BitConverters(ColMode::COLMODE_RGB555_LE_CPS3, &ColorSystem::CONV_xRGB1555LE_32_CPS3, &ColorSystem::CONV_32_xRGB1555LE_CPS3);
         Test16BitConverters(ColMode::COLMODE_RGB555_LE_NORMAL, &ColorSystem::CONV_xRGB1555LE_32_NORMAL, &ColorSystem::CONV_32_xRGB1555LE_NORMAL);
-        Test16BitConverters(ColMode::COLMODE_RGB555_BE, &ColorSystem::CONV_xRGB1555BE_32, &ColorSystem::CONV_32_xRGB1555BE);
+        Test16BitConverters(ColMode::COLMODE_RGB555_BE_CPS3, &ColorSystem::CONV_xRGB1555BE_32_CPS3, &ColorSystem::CONV_32_xRGB1555BE_CPS3);
+        Test16BitConverters(ColMode::COLMODE_RGB555_BE_NORMAL, &ColorSystem::CONV_xRGB1555BE_32_NORMAL, &ColorSystem::CONV_32_xRGB1555BE_NORMAL);
         Test16BitConverters(ColMode::COLMODE_xRGB1555_BE, &ColorSystem::CONV_xRGB1555BE_32_Sega, &ColorSystem::CONV_32_xRGB1555BE_Sega);
 
-        Test16BitConverters(ColMode::COLMODE_RGB555_SHARP, &ColorSystem::CONV_RGB555Sharp_32, &ColorSystem::CONV_32_RGB555Sharp);
+        Test16BitConverters(ColMode::COLMODE_RGB555_SHARP_CLUT, &ColorSystem::CONV_RGB555Sharp_32, &ColorSystem::CONV_32_RGB555Sharp);
 
         // Skip NeoTurf Masters
         // Skip NeoGeo

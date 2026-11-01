@@ -266,15 +266,15 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                     // RGB555
                     uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
                     break;
-                case ColMode::COLMODE_RGB555_BE:
+                case ColMode::COLMODE_RGB555_BE_NORMAL:
                     // RGB555
                     uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
                     break;
-                case ColMode::COLMODE_RGB666_NEOGEO:
+                case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
                     // RGB666
                     uCopyFlag1 = DEVMODE_A + k_nASCIICharacterOffset;
                     break;
-                case ColMode::COLMODE_RGB555_SHARP:
+                case ColMode::COLMODE_RGB555_SHARP_CLUT:
                     uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
                     break;
                 case ColMode::COLMODE_RGBA8881:
@@ -1278,7 +1278,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 case SFIII3_D:
                     // Don't change this code.  It automatically handles new games and color modes.
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_RGB555_BE;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_BE_NORMAL;
                     break;
                 }
                 case AOF1_A:
@@ -1319,7 +1319,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 case WINDJAMMERS_A:
                     // Don't change this code.  It automatically handles new games and color modes.
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_RGB666_NEOGEO;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB666_NEOGEO_CLUT;
                     break;
                 }
                 case BLEACH_DS:
@@ -1339,7 +1339,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 case DANKUGA_A:
                     // Don't change this code.  It automatically handles new games and color modes.
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_RGB555_SHARP;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_SHARP_CLUT;
                     break;
                 }
                 case k_nRawColorStringOverflowIndicator:

@@ -248,7 +248,7 @@ AlphaMode CRegProc::GetAlphaModeForUnknownGame()
 ColMode CRegProc::GetColorModeForUnknownGame()
 {
     HKEY hKey;
-    DWORD dwColMode = static_cast<DWORD>(ColMode::COLMODE_RGB666_NEOGEO);
+    DWORD dwColMode = static_cast<DWORD>(ColMode::COLMODE_RGB666_NEOGEO_CLUT);
 
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
@@ -258,7 +258,7 @@ ColMode CRegProc::GetColorModeForUnknownGame()
 
         if (RegQueryValueEx(hKey, c_mainUnknownGameColMode, 0, &RegType, reinterpret_cast<LPBYTE>(&dwColMode), &GetSz) != ERROR_SUCCESS)
         {
-            dwColMode = static_cast<DWORD>(ColMode::COLMODE_RGB666_NEOGEO);
+            dwColMode = static_cast<DWORD>(ColMode::COLMODE_RGB666_NEOGEO_CLUT);
         }
 
         RegCloseKey(hKey);

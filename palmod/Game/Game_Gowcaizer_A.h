@@ -28,7 +28,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_2,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB666_NEOGEO,
+        ColMode::COLMODE_RGB666_NEOGEO_CLUT,
         m_sFileLoadingData,
         m_rgCRC32Data,
         Gowcaizer_A_UNITS,

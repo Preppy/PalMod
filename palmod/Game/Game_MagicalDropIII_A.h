@@ -30,7 +30,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_2_AB,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB666_NEOGEO,
+        ColMode::COLMODE_RGB666_NEOGEO_CLUT,
         m_sFileLoadingData,
         m_rgCRC32Data,
         MAGICALDROPIII_A_UNITS,

@@ -1959,7 +1959,7 @@ namespace KnownGameInfo
         {
             REDEARTH_A,
             L"Red Earth (CPS3 Arcade, 31)",
-            { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31, Next: 50)|30;31;50|", GamePlatform::CapcomCPS3 },
+            { REDEARTH_A,       L"Red Earth / Warzard", L"Red Earth (Stages: 30, Characters: 31, Next: 50)|30;31;50|", GamePlatform::CapcomCPS3 },
             Make_REDEARTH_A,
             CGame_REDEARTH_A::GetRule,
         },
@@ -1996,7 +1996,7 @@ namespace KnownGameInfo
         {
             REDEARTH_S,
             L"Red Earth (Steam)",
-            { REDEARTH_S,       L"Red Earth", L"Red Earth (Steam)|redearth.21D3D8A7;warzard.21D3D8A7|", GamePlatform::Steam, GameSeries::Steam_CapcomFightCollection },
+            { REDEARTH_S,       L"Red Earth / Warzard", L"Red Earth (Steam)|redearth.21D3D8A7;warzard.21D3D8A7|", GamePlatform::Steam, GameSeries::Steam_CapcomFightCollection },
             Make_REDEARTH_S,
             CGame_REDEARTH_S::GetRule,
         },

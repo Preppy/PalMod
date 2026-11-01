@@ -14,7 +14,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         CVS2_D_CharacterData,
         PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
         0x20
@@ -40,7 +40,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         CVS2_P_CharacterData,
         PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
         0x20

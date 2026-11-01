@@ -15,7 +15,7 @@ private:
         DEF_BUTTONLABEL_NEOGEO,
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesVariableAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         DAEMONBRIDE_NL_UNITS,
     };
 

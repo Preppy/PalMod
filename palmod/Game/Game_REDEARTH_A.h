@@ -148,7 +148,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_2_PK,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_LE_CPS3,
+        ColMode::COLMODE_RGB555_BE_CPS3,
         m_sFileLoadingData,
         m_rgCRC32Data,
         REDEARTH_S_UNITS_MONO,
@@ -162,7 +162,4 @@ public:
     CGame_REDEARTH_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
-
-    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId) override;
-    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId) override;
 };

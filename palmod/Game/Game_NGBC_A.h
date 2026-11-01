@@ -23,7 +23,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_KOFXI,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         m_sFileLoadingData,
         {},
         NGBC_A_UNITS,

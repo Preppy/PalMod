@@ -57,7 +57,7 @@ private:
         DEF_BUTTONLABEL_NEOGEO,
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         KOF02UM_PS2_DIR_RGB555_UNITS,
     };
 
@@ -116,7 +116,7 @@ private:
         DEF_BUTTONLABEL_NEOGEO,
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGB555_BE,
+        ColMode::COLMODE_RGB555_BE_NORMAL,
         KOF02UM_S_DIR_RGB555_UNITS,
     };
 

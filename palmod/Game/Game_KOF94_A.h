@@ -57,7 +57,7 @@ private:
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_2_NEOGEO,
         AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_RGB666_NEOGEO,
+        ColMode::COLMODE_RGB666_NEOGEO_CLUT,
         m_sFileLoadingData,
         m_rgCRC32Data,
         KOF94_A_UNITS,
