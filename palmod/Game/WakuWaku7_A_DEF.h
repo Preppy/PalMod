@@ -857,7 +857,7 @@ const sGame_PaletteDataset WakuWaku7_A_BONUSKUN_A_PALETTES[] =
     { L"Bonus-Ken A Burned", 0x10eb8, 0x10ed8, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken A Poisoned", 0x10f78, 0x10f98, indexWakuWaku7Sprites_BonusKun, 0x00 },
     { L"Bonus-Ken A White Flash", 0x10ff8, 0x11018, indexWakuWaku7Sprites_BonusKun, 0x00 },
-    { L"Bonus-Kun SEL Portrait", 0x11F58, 0x11F78 },
+    { L"Bonus-Kun SEL Portrait", 0x11F58, 0x11F78, indexWakuWaku7Sprites_BonusKun, 0x10 },
     { L"Bonus-Kun A HUD Portrait", 0x17b78, 0x17b98, indexWakuWaku7Sprites_BonusKun, 0x11 },
 };
 
