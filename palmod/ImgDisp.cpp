@@ -681,84 +681,18 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
              m_vSpriteOverrideTextures.at(nIndex).indexedPixels.size());
 }
 
-// TODO: since PreviewImport is the sole consumer, it might make a lot of sense to move this logic there
-void CImgDisp::CompositeTexture(sTextureData incomingTexture, int nLayerToLoadTo, sSpriteImportOptions importPreviewOptions)
+void CImgDisp::SetOverrideTextureForLayer(sTextureData incomingTexture, int nLayerToLoadTo)
 {
     CString strInfo;
 
-    incomingTexture.FlipIfNeeded(importPreviewOptions.direction);
+    ResetCustomSpriteOverride(nLayerToLoadTo);
 
-    // If it's Replace OR there's nothing to merge with
-    if ((importPreviewOptions.compositionStyle == SpriteImportCompositionStyle::Replace) ||
-        (m_vSpriteOverrideTextures.at(nLayerToLoadTo).indexedPixels.empty() && !m_pImgBuffer[nLayerToLoadTo]))
-    {
-        ResetCustomSpriteOverride(nLayerToLoadTo);
+    m_vSpriteOverrideTextures.at(nLayerToLoadTo) = incomingTexture;
 
-        m_vSpriteOverrideTextures.at(nLayerToLoadTo) = incomingTexture;
-
-        strInfo.Format(L"CImgDisp::CompositeTexture: texture file for layer %u is: %u x %u\n", nLayerToLoadTo, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
-        OutputDebugString(strInfo.GetString());
-        strInfo.Format(L"\tReplaced layer.\r\n");
-        OutputDebugString(strInfo.GetString());
-    }
-    else // Merge options
-    {
-        // Cache old
-        sTextureData previousOverrideTexture = m_vSpriteOverrideTextures.at(nLayerToLoadTo);
-        const bool fHavePreviousOverride = previousOverrideTexture.indexedPixels.size();
-
-        if (!fHavePreviousOverride)
-        {
-            previousOverrideTexture.indexedPixels = { &m_pImgBuffer[nLayerToLoadTo]->pImgData[0], &m_pImgBuffer[nLayerToLoadTo]->pImgData[m_pImgBuffer[nLayerToLoadTo]->dimensions.GetPixelCount()] };
-            previousOverrideTexture.dimensions = m_pImgBuffer[nLayerToLoadTo]->dimensions;
-        }
-
-        m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width = max(incomingTexture.dimensions.width, previousOverrideTexture.dimensions.width);
-        m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height = max(incomingTexture.dimensions.height, previousOverrideTexture.dimensions.height);
-
-        if (previousOverrideTexture.indexedPixels.size())
-        {
-            strInfo.Format(L"CImgDisp::CompositeTexture:\r\n\tMerging: %u x %u source image with the %s %u x %u image.\r\n", incomingTexture.dimensions.width, incomingTexture.dimensions.height, fHavePreviousOverride ? L"custom" : L"in-box",
-                                                    previousOverrideTexture.dimensions.width, previousOverrideTexture.dimensions.height);
-            OutputDebugString(strInfo.GetString());
-
-            switch (importPreviewOptions.compositionStyle)
-            {
-                case SpriteImportCompositionStyle::MergeAbove:
-                    previousOverrideTexture.Merge(incomingTexture, importPreviewOptions.offsets);
-                    m_vSpriteOverrideTextures.at(nLayerToLoadTo) = previousOverrideTexture;
-                    break;
-                case SpriteImportCompositionStyle::MergeBelow:
-                    incomingTexture.Merge(previousOverrideTexture, { -importPreviewOptions.offsets.width, -importPreviewOptions.offsets.height });
-                    m_vSpriteOverrideTextures.at(nLayerToLoadTo) = incomingTexture;
-                    break;
-                case SpriteImportCompositionStyle::FlushLeft:
-                    previousOverrideTexture.Merge(incomingTexture, { -incomingTexture.dimensions.width - importPreviewOptions.offsets.width, -importPreviewOptions.offsets.height });
-                    m_vSpriteOverrideTextures.at(nLayerToLoadTo) = previousOverrideTexture;
-                    break;
-                case SpriteImportCompositionStyle::FlushRight:
-                    previousOverrideTexture.Merge(incomingTexture, { previousOverrideTexture.dimensions.width + importPreviewOptions.offsets.width, importPreviewOptions.offsets.height });
-                    m_vSpriteOverrideTextures.at(nLayerToLoadTo) = previousOverrideTexture;
-                    break;
-                case SpriteImportCompositionStyle::FlushTop:
-                    previousOverrideTexture.Merge(incomingTexture, { -importPreviewOptions.offsets.width, -incomingTexture.dimensions.height - importPreviewOptions.offsets.height });
-                    m_vSpriteOverrideTextures.at(nLayerToLoadTo) = previousOverrideTexture;
-                    break;
-                case SpriteImportCompositionStyle::FlushBottom:
-                    previousOverrideTexture.Merge(incomingTexture, { importPreviewOptions.offsets.width, previousOverrideTexture.dimensions.height + importPreviewOptions.offsets.height });
-                    m_vSpriteOverrideTextures.at(nLayerToLoadTo) = previousOverrideTexture;
-                    break;
-            }
-
-            strInfo.Format(L"\tMerged: accounting for offsets leads to a %u x %u composited image.\r\n", m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
-            OutputDebugString(strInfo.GetString());
-        }
-        else
-        {
-            strInfo.Format(L"\tNothing to merge with: skipping.\r\n");
-            OutputDebugString(strInfo.GetString());
-        }
-    }
+    strInfo.Format(L"CImgDisp::SetOverrideTextureForLayer: texture file for layer %u is: %u x %u\n", nLayerToLoadTo, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.width, m_vSpriteOverrideTextures.at(nLayerToLoadTo).dimensions.height);
+    OutputDebugString(strInfo.GetString());
+    strInfo.Format(L"\tReplaced layer.\r\n");
+    OutputDebugString(strInfo.GetString());
 }
 
 void CImgDisp::_ResizeAndBlankCustomPreviews(std::optional<int> optLayerToLoadTo, size_t nNewSize)

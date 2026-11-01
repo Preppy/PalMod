@@ -31,14 +31,8 @@ public:
 
     afx_msg void OnCancel();
 
-    void _ResetToOriginalTextures();
-    void _ResetToWorkingTextures();
-
     afx_msg void ShowOriginal();
     bool LoadFromFile();
-
-    void _UpdateInfoText();
-    void _UpdateDimensionsOptions();
 
     afx_msg void OnLoadFromFile();
     afx_msg void UpdateDisplayedPreview();
@@ -66,6 +60,8 @@ public:
     TextureSourceFileType m_textureSourceType = TextureSourceFileType::RAW;
 
 protected:
+    DECLARE_MESSAGE_MAP()
+
     virtual void DoDataExchange(CDataExchange* pDX);
     virtual void OnOK();
 
@@ -74,7 +70,13 @@ protected:
     std::optional<int> _GetCurrentLayerSelectionFromUI();
     int _GetCurrentLayerSelectionForCListBox();
 
-    DECLARE_MESSAGE_MAP()
+    void _ResetToOriginalTextures();
+    void _ResetToWorkingTextures();
+
+    bool _CompositeToDisplay(bool& fHaveAnyPaletteMatches, std::optional<sImageDimensions>& optTrimmedDimensions);
+
+    void _UpdateInfoText();
+    void _UpdateDimensionsOptions();
 
     CImgDisp* m_pImgDisp = nullptr;
 

@@ -617,46 +617,9 @@ bool CPreviewImportManager::ImportNow()
     return fShowingNewPreview;
 }
 
-void CPreviewImportManager::_ResetToOriginalTextures()
+bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, std::optional<sImageDimensions>& optTrimmedDimensions)
 {
-    // This might be naive
-    if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty())
-    {
-        // reset all
-        for (size_t iLayer = 0; iLayer < m_rgOriginalTextures.size(); iLayer++)
-        {
-            m_pImgDisp->CompositeTexture(m_rgOriginalTextures[iLayer], static_cast<int>(iLayer), {});
-        }
-
-        // update full stack
-        m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
-    }
-}
-
-void CPreviewImportManager::_ResetToWorkingTextures()
-{
-    OutputDebugString(L"CPreviewImportManager::_ResetToWorkingTextures: Reverting to last known good textures.\r\n");
-
-    for (size_t iLayer = 0; iLayer < m_rgWorkingTextures.size(); iLayer++)
-    {
-        m_pImgDisp->CompositeTexture(m_rgWorkingTextures[iLayer], static_cast<int>(iLayer), {});
-    }
-
-    // update full stack
-    m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
-}
-
-// This is a full revert / delete all changes
-void CPreviewImportManager::ShowOriginal()
-{
-    _ResetToOriginalTextures();
-    // redraw
-    m_pImgDisp->UpdateCtrl();
-}
-
-void CPreviewImportManager::UpdateDisplayedPreview()
-{
-    OutputDebugString(L"CPreviewImportManager::UpdateDisplayedPreview: updating display now.\r\n");    
+    bool fChangesMade = false;
 
     if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty())
     {
@@ -691,28 +654,96 @@ void CPreviewImportManager::UpdateDisplayedPreview()
             _CacheCurrentlyDisplayedLayout();
         }
 
-        bool fHaveAnyPaletteMatches = false;
-        bool fHadToTrim = false;
-
         sTextureData rgEditableWorkingTexture = m_rgTextureLoadedFromFile;
 
         // trim by image
         if (m_fTrim)
         {
-            strInfo.Format(L"CPreviewImportManager::UpdateDisplayedPreview: trimming: source is %u to %u.\r\n", rgEditableWorkingTexture.dimensions.width, 
-                                                                                                               rgEditableWorkingTexture.dimensions.height);
-            OutputDebugString(strInfo);
+            sImageDimensions oldDimensions = rgEditableWorkingTexture.dimensions;
+
             rgEditableWorkingTexture.ClipUnused();
 
-            strInfo.Format(L"CPreviewImportManager::UpdateDisplayedPreview: trimmed to %u to %u.\r\n", rgEditableWorkingTexture.dimensions.width,
-                                                                                                      rgEditableWorkingTexture.dimensions.height);
-            OutputDebugString(strInfo.GetString());
+            if (oldDimensions != rgEditableWorkingTexture.dimensions)
+            {
+                strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimming: source is %u to %u.\r\n", oldDimensions.width,
+                    oldDimensions.height);
+                OutputDebugString(strInfo);
+                strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimmed to %u to %u.\r\n", rgEditableWorkingTexture.dimensions.width,
+                    rgEditableWorkingTexture.dimensions.height);
+                OutputDebugString(strInfo.GetString());
+
+                optTrimmedDimensions = rgEditableWorkingTexture.dimensions;
+            }
+            else
+            {
+                OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: no trimming needed.\r\n");
+            }
         }
 
+        // handle flipping before slicing
+        rgEditableWorkingTexture.FlipIfNeeded(m_importOptions.direction);
+
         // get our slices
-        strInfo.Format(L"CPreviewImportManager::UpdateDisplayedPreview: slicing that to %u layers...\r\n", m_rgrgPaletteSet.size());
+        strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %u layers...\r\n", m_rgrgPaletteSet.size());
         OutputDebugString(strInfo.GetString());
         std::vector<sTextureData> rgTextureSlices = rgEditableWorkingTexture.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
+
+        // merge slices
+        if (m_importOptions.compositionStyle != SpriteImportCompositionStyle::Replace)
+        {
+            sTextureData emptyMatchingTexture = rgTextureSlices[0];
+            emptyMatchingTexture.indexedPixels.clear();
+            emptyMatchingTexture.indexedPixels.resize(rgTextureSlices[0].indexedPixels.size());
+
+            for (size_t iLayer = 0; (iLayer < rgTextureSlices.size()) && (iLayer < m_rgWorkingTextures.size()); iLayer++)
+            {
+                sTextureData* pTextureToUse = &emptyMatchingTexture;
+
+                if (m_optCurrentSel_Layer.value_or(static_cast<int>(iLayer)) == static_cast<int>(iLayer))
+                {
+                    pTextureToUse = &rgTextureSlices.at(iLayer);
+                }
+
+                if (pTextureToUse->indexedPixels.size())
+                {
+                    sTextureData previousTextureForThisLayer = m_rgWorkingTextures[iLayer];
+                    sTextureData* pIncomingTextureForThisLayer = pTextureToUse;
+
+                    switch (m_importOptions.compositionStyle)
+                    {
+                        // we default to always merge Above for anything other than merge below.  it might be useful
+                        // to split merge above/below and join logic
+                        case SpriteImportCompositionStyle::MergeAbove:
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, m_importOptions.offsets);
+                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            break;
+                        case SpriteImportCompositionStyle::MergeBelow:
+                            pIncomingTextureForThisLayer->Merge(previousTextureForThisLayer, { -m_importOptions.offsets.width, -m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = *pIncomingTextureForThisLayer;
+                            break;
+                        case SpriteImportCompositionStyle::FlushLeft:
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { -pIncomingTextureForThisLayer->dimensions.width - m_importOptions.offsets.width, -m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            break;
+                        case SpriteImportCompositionStyle::FlushRight:
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { previousTextureForThisLayer.dimensions.width + m_importOptions.offsets.width, m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            break;
+                        case SpriteImportCompositionStyle::FlushTop:
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { -m_importOptions.offsets.width, -pIncomingTextureForThisLayer->dimensions.height - m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            break;
+                        case SpriteImportCompositionStyle::FlushBottom:
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { m_importOptions.offsets.width, previousTextureForThisLayer.dimensions.height + m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            break;
+                        }
+
+                    strInfo.Format(L"\tMerged: accounting for offsets leads to a %u x %u composited image.\r\n", rgTextureSlices.at(iLayer).dimensions.width, rgTextureSlices.at(iLayer).dimensions.height);
+                    OutputDebugString(strInfo.GetString());
+                }
+            }
+        }
 
         std::vector<sTextureData> rgAssembledTextures(m_rgrgPaletteSet.size());
 
@@ -722,7 +753,10 @@ void CPreviewImportManager::UpdateDisplayedPreview()
         // assign slots, get max dimensions
         for (size_t iLayer = 0; iLayer < rgAssembledTextures.size(); iLayer++)
         {
-            if (m_optCurrentSel_Layer.value_or(static_cast<int>(iLayer)) == static_cast<int>(iLayer))
+            // if we are merging in any capacity we have to replace the full stack.
+            // otherwise we can just use the old image
+            if ((m_importOptions.compositionStyle != SpriteImportCompositionStyle::Replace) ||
+                 (m_optCurrentSel_Layer.value_or(static_cast<int>(iLayer)) == static_cast<int>(iLayer)))
             {
                 rgAssembledTextures.at(iLayer) = rgTextureSlices.at(iLayer);
 
@@ -740,8 +774,8 @@ void CPreviewImportManager::UpdateDisplayedPreview()
             aggregateDimensions.width = max(aggregateDimensions.width, rgAssembledTextures.at(iLayer).dimensions.width);
             aggregateDimensions.height = max(aggregateDimensions.height, rgAssembledTextures.at(iLayer).dimensions.height);
         }
-        
-        strInfo.Format(L"CPreviewImportManager::UpdateDisplayedPreview: aligning dimensions to %u x %u\r\n", aggregateDimensions.width, aggregateDimensions.height);
+
+        strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: aligning dimensions to %u x %u\r\n", aggregateDimensions.width, aggregateDimensions.height);
         OutputDebugString(strInfo.GetString());
 
         // ensure size alignment
@@ -753,7 +787,7 @@ void CPreviewImportManager::UpdateDisplayedPreview()
             rgAssembledTextures.at(iLayer).Resize(aggregateDimensions);
         }
 
-        OutputDebugString(L"CPreviewImportManager::UpdateDisplayedPreview: updating display...\r\n");
+        OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: updating display...\r\n");
 
         // apply / composite
         sSpriteImportOptions tweakedInputOptions = m_importOptions;
@@ -761,19 +795,7 @@ void CPreviewImportManager::UpdateDisplayedPreview()
         for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
         {
             // We might want to optimize to only touch size-changed or texture-changed options
-            
-            // if we're not touching this layer, just replace with previous, don't remerge with itself
-            if (m_optCurrentSel_Layer.has_value() && 
-                (m_optCurrentSel_Layer != static_cast<int>(iLayer)))
-            {
-                tweakedInputOptions.compositionStyle = SpriteImportCompositionStyle::Replace;
-            }
-            else
-            {
-                tweakedInputOptions.compositionStyle = m_importOptions.compositionStyle;
-            }
-
-            m_pImgDisp->CompositeTexture(rgAssembledTextures.at(iLayer), static_cast<int>(iLayer), tweakedInputOptions);
+            m_pImgDisp->SetOverrideTextureForLayer(rgAssembledTextures.at(iLayer), static_cast<int>(iLayer));
             fHaveAnyPaletteMatches = fHaveAnyPaletteMatches || rgAssembledTextures.at(iLayer).DoesTextureHaveColorData();
             m_fHaveChangedPreview = true;
             strInfo.Format(L"\tUpdated layer %u (%u x %u).\r\n", iLayer, rgAssembledTextures.at(iLayer).dimensions.width, rgAssembledTextures.at(iLayer).dimensions.height);
@@ -781,13 +803,64 @@ void CPreviewImportManager::UpdateDisplayedPreview()
         }
 
         // tell imgdisp to update its knowledge
-        // // We could optimize to only do this for actually changed layers
-        //m_pImgDisp->UpdatePreviewForExternalSprite(m_optCurrentSel_Layer);
         m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
 
         // redraw
         m_pImgDisp->UpdateCtrl();
 
+        fChangesMade = true;
+    }
+
+    return fChangesMade;
+}
+
+void CPreviewImportManager::_ResetToOriginalTextures()
+{
+    // This might be naive
+    if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty())
+    {
+        // reset all
+        for (size_t iLayer = 0; iLayer < m_rgOriginalTextures.size(); iLayer++)
+        {
+            m_pImgDisp->SetOverrideTextureForLayer(m_rgOriginalTextures[iLayer], static_cast<int>(iLayer));
+        }
+
+        // update full stack
+        m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
+    }
+}
+
+void CPreviewImportManager::_ResetToWorkingTextures()
+{
+    OutputDebugString(L"CPreviewImportManager::_ResetToWorkingTextures: Reverting to last known good textures.\r\n");
+
+    for (size_t iLayer = 0; iLayer < m_rgWorkingTextures.size(); iLayer++)
+    {
+        m_pImgDisp->SetOverrideTextureForLayer(m_rgWorkingTextures[iLayer], static_cast<int>(iLayer));
+    }
+
+    // update full stack
+    m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
+}
+
+// This is a full revert / delete all changes
+void CPreviewImportManager::ShowOriginal()
+{
+    _ResetToOriginalTextures();
+    // redraw
+    m_pImgDisp->UpdateCtrl();
+}
+
+void CPreviewImportManager::UpdateDisplayedPreview()
+{
+    OutputDebugString(L"CPreviewImportManager::UpdateDisplayedPreview: updating display now.\r\n"); 
+
+    CString strInfo;
+    bool fHaveAnyPaletteMatches = false;
+    std::optional<sImageDimensions> optTrimmedDimensions;
+   
+    if (_CompositeToDisplay(fHaveAnyPaletteMatches, optTrimmedDimensions))
+    {
         // let the user / debugout know
         CString strAddendum;
         CString strDataType;
@@ -913,9 +986,9 @@ void CPreviewImportManager::UpdateDisplayedPreview()
             }
         }
 
-        if (fHadToTrim)
+        if (optTrimmedDimensions.has_value())
         {
-            strAddendum.Format(L"  Trimmed to %u x %u.", aggregateDimensions.width, aggregateDimensions.height);
+            strAddendum.Format(L"  Trimmed to %u x %u.", optTrimmedDimensions.value().width, optTrimmedDimensions.value().height);
             strInfo += strAddendum;
         }
 

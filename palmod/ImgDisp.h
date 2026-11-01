@@ -185,8 +185,7 @@ public:
     // Nuke all layers
     void FlushCustomSpriteOverrides();
 
-    // TODO: these need to be public?
-    void CompositeTexture(sTextureData incomingTexture, int nLayerToLoadTo, sSpriteImportOptions importPreviewOptions);
+    void SetOverrideTextureForLayer(sTextureData incomingTexture, int nLayerToLoadTo);
     void UpdatePreviewForExternalSprite(std::optional<int> optLayerToLoadTo);
     std::optional<int> SanitizeRequestedImageLayer(std::optional<int> optLayerToLoadTo);
 
