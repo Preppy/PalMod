@@ -61,35 +61,6 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize)
     }
 }
 
-void CGame_REDEARTH_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-    CGameClassByDir::LoadSpecificPaletteData(nUnitId, nPalId);
-
-    if (nUnitId != m_nExtraUnit)
-    {
-        if (nUnitId < ARRAYSIZE(REDEARTH_A_UNITS_31))
-        {
-            // ROM31: starts at 0x2880040 in steam
-            // naomi LP Leo is at 0x2c88040
-            m_nCurrentPaletteROMLocation = m_nCurrentPaletteROMLocation + 0x2880040;
-        }
-        else if (nUnitId < (ARRAYSIZE(REDEARTH_A_UNITS_31) + ARRAYSIZE(REDEARTH_A_UNITS_30)))
-        {
-            // ROM30: start 0x2080040
-            // Leo Vs Text starts in naomi at 0x7eb000
-            // Leo Vs Text starts in steam at 0x286b040
-            m_nCurrentPaletteROMLocation = m_nCurrentPaletteROMLocation + 0x2080040;
-        }
-        else // REDEARTH_A_UNITS_50
-        {
-            // ROM50: starts at 0x4080040
-            // Coming Next? starts at 0x358000 for naomi
-            // Coming Next? starts at 0x43d8040 for steam
-            m_nCurrentPaletteROMLocation = m_nCurrentPaletteROMLocation + 0x4080040;
-        }
-    }
-}
-
 BOOL CGame_REDEARTH_S::LoadFile(CFile* LoadedFile, uint32_t /* nUnitId */)
 {
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nUnitAmt; nUnitCtr++)

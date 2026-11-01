@@ -718,12 +718,7 @@ BEGIN
                 MENUITEM "Persona 4 Arena Ultimax 2.0 (NESICA Community Port)", ID_LD_P4AU_NESICA
                 MENUITEM "Persona Fight Club Modpack",  ID_LD_P4AU_FIGHTCLUB
             END
-            POPUP "Red Earth / Warzard"
-            BEGIN
-                MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
-                MENUITEM "Red Earth / Warzard (Arcade, Characters)", ID_LOADDIRECTORY_REDEARTH_31
-                MENUITEM "Red Earth / Warzard (Arcade, Coming Next)", ID_LOADDIRECTORY_REDEARTH_50
-            END
+            MENUITEM "Red Earth / Warzard (CPS3)", ID_LOADDIRECTORY_REDEARTH
             MENUITEM "Street Fighter Alpha 3 MAX (PSP)", ID_LOADDIRECTORY_SFA3MAX
             POPUP "Street Fighter III"
             BEGIN

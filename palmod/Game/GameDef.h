@@ -53,7 +53,7 @@ enum SupportedGamesList
     MVC2_A_DIR,
     GEMFIGHTER_A,
     REDEARTH_A,
-    REDEARTH_A_DIR_31,
+    REDEARTH_A_DIR_31, // UNUSED NOW
     KarnovsR_A,
     WakuWaku7_A,
     SFA1_A,
@@ -113,7 +113,7 @@ enum SupportedGamesList
     UNICLR_A,
     SPF2T_A,
     MSHWOTG_SNES,
-    REDEARTH_A_DIR_30,
+    REDEARTH_A_DIR,
     KOTM_A,
     XMMA_SNES,
     TMNTTF_SNES,
@@ -138,7 +138,7 @@ enum SupportedGamesList
     RANMAHB_SNES,
     RANMACRH_SNES,
     SVG_SNES,
-    REDEARTH_A_DIR_50,
+    REDEARTH_A_DIR_50, // UNUSED NOW
     BMKNS_SNES,
     BSSMSJR_SNES,
     MAGICALDROPIII_A,

@@ -299,7 +299,6 @@
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
     <ClCompile Include="Game\Game_REDEARTH_A.cpp" />
-    <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp" />
     <ClCompile Include="Game\Game_RRMBTL_S.cpp" />
     <ClCompile Include="Game\Game_SAMSHO1_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO2_A.cpp" />

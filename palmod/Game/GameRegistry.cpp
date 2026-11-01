@@ -395,9 +395,7 @@ namespace KnownGameInfo
     CGameClass* Make_RBFFS_PS2(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RBFFS_PS2(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_REDEARTH_A(nConfirmedROMSize); }
     CGameClass* Make_REDEARTH_S(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_REDEARTH_S(nConfirmedROMSize); }
-    CGameClass* Make_REDEARTH_A_DIR_30(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM30); }
-    CGameClass* Make_REDEARTH_A_DIR_31(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM31); }
-    CGameClass* Make_REDEARTH_A_DIR_50(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM50); }
+    CGameClass* Make_REDEARTH_A_DIR(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RedEarth_A_DIR(nConfirmedROMSize); }
     CGameClass* Make_RODSM2_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_RODSM2_A(nConfirmedROMSize); }
     CGameClass* Make_ROTD_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_ROTD_A(nConfirmedROMSize); }
     CGameClass* Make_SAMSHO1_A(uint32_t nConfirmedROMSize, int /* nExtraGameData */, LPCWSTR /* pszFilePath */) { return new CGame_SAMSHO1_A(nConfirmedROMSize); }
@@ -1966,32 +1964,32 @@ namespace KnownGameInfo
             CGame_REDEARTH_A::GetRule,
         },
         {
-            REDEARTH_A_DIR_30,
-            L"Red Earth (CPS3 Arcade Rerip, 3.x set 1)",
+            REDEARTH_A_DIR,
+            L"Red Earth (CPS3 Arcade Rerip)",
             {},
-            Make_REDEARTH_A_DIR_30,
-            CGame_RedEarth_A_DIR::GetRule_30,
-            CGame_RedEarth_A_DIR::GetNextRule_30,
+            Make_REDEARTH_A_DIR,
+            CGame_RedEarth_A_DIR::GetRule,
+            CGame_RedEarth_A_DIR::GetNextRule,
             CGame_RedEarth_A_DIR::GetRuleCtr,
             CGame_RedEarth_A_DIR::ResetRuleCtr,
         },
-        {
+        {   // yes this is a dupe entry.  I consolidated all 3 to a mono load.  keeping this for a redirect
             REDEARTH_A_DIR_31,
-            L"Red Earth (CPS3 Arcade Rerip, 3.x set 2)",
+            L"Red Earth (CPS3 Arcade Rerip)",
             {},
-            Make_REDEARTH_A_DIR_31,
-            CGame_RedEarth_A_DIR::GetRule_31,
-            CGame_RedEarth_A_DIR::GetNextRule_31,
+            Make_REDEARTH_A_DIR,
+            CGame_RedEarth_A_DIR::GetRule,
+            CGame_RedEarth_A_DIR::GetNextRule,
             CGame_RedEarth_A_DIR::GetRuleCtr,
             CGame_RedEarth_A_DIR::ResetRuleCtr,
         },
-        {
+        {   // yes this is a dupe entry.  I consolidated all 3 to a mono load.  keeping this for a redirect
             REDEARTH_A_DIR_50,
-            L"Red Earth (CPS3 Arcade Rerip, 5.x)",
+            L"Red Earth (CPS3 Arcade Rerip)",
             {},
-            Make_REDEARTH_A_DIR_50,
-            CGame_RedEarth_A_DIR::GetRule_50,
-            CGame_RedEarth_A_DIR::GetNextRule_50,
+            Make_REDEARTH_A_DIR,
+            CGame_RedEarth_A_DIR::GetRule,
+            CGame_RedEarth_A_DIR::GetNextRule,
             CGame_RedEarth_A_DIR::GetRuleCtr,
             CGame_RedEarth_A_DIR::ResetRuleCtr,
         },

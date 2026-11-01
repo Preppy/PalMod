@@ -430,9 +430,7 @@ private:
     afx_msg void OnLoadDir_P4AU_FightClub() { OnLoadGameByDirectory(P4AU_FightClub); };
     afx_msg void OnLoadDir_P4AU_NESICA()    { OnLoadGameByDirectory(P4AU_NESICA); };
     afx_msg void OnLoadDir_P4AU_STEAM()     { OnLoadGameByDirectory(P4AU_STEAM); };
-    afx_msg void OnLoadDir_RedEarth30()     { OnLoadGameByDirectory(REDEARTH_A_DIR_30); };
-    afx_msg void OnLoadDir_RedEarth31()     { OnLoadGameByDirectory(REDEARTH_A_DIR_31); };
-    afx_msg void OnLoadDir_RedEarth50()     { OnLoadGameByDirectory(REDEARTH_A_DIR_50); };
+    afx_msg void OnLoadDir_RedEarth()       { OnLoadGameByDirectory(REDEARTH_A_DIR); };
     afx_msg void OnLoadDir_SFA3MAX()        { OnLoadGameByDirectory(SFA3MAX_PSP_D); };
     afx_msg void OnLoadDir_SFIII3DCAll()    { OnLoadGameByDirectory(SFIII3_D); };
     afx_msg void OnLoadDir_SFIII1Arcade()   { OnLoadGameByDirectory(SFIII1_A_DIR); };

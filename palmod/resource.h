@@ -347,7 +347,7 @@
 #define ID_LD_JOJOS50                   32843
 #define ID_LD_JOJOS51                   32844
 #define ID_LD_MVC2ARCADE                32845
-#define ID_LOADDIRECTORY_REDEARTH_30    32846
+#define ID_LOADDIRECTORY_REDEARTH       32846
 #define ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR 32847
 #define ID_TOOLS_GENERATEPATCHFILE      32848
 #define ID_IMGOUT_SAVE                  32849
@@ -387,7 +387,6 @@
 #define ID_LD_GGXXACR_S                 32885
 #define ID_LD_DBFCI                     32886
 #define ID_LD_UNICLR                    32887
-#define ID_LOADDIRECTORY_REDEARTH_31    32888
 #define ID_COLORFORMAT_RGBA8888_LE      32889
 #define ID_COLORFORMAT_RGBA8881         32890
 #define ID_TRANSPSETTING_16             32891
@@ -399,7 +398,6 @@
 #define ID_LD_GGXXACR_P                 32897
 #define ID_LD_MBAACC_S                  32898
 #define ID_COLORFORMAT_GRB555_LE        32899
-#define ID_LOADDIRECTORY_REDEARTH_50    32900
 #define ID_COLORFORMAT_BGRA8888_LE      32901
 #define ID_LD_MAAB                      32902
 #define ID_COLORFORMAT_BGR555_BE        32903

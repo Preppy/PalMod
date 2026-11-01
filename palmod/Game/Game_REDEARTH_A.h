@@ -151,8 +151,8 @@ private:
         ColMode::COLMODE_RGB555_LE_CPS3,
         m_sFileLoadingData,
         m_rgCRC32Data,
-        REDEARTH_A_UNITS_MONO,
-        ARRAYSIZE(REDEARTH_A_UNITS_MONO),
+        REDEARTH_S_UNITS_MONO,
+        ARRAYSIZE(REDEARTH_S_UNITS_MONO),
         {},
         5728,                   // Count of palettes listed in the header
         0x27b4040,              // Lowest known location used for palettes
@@ -160,8 +160,6 @@ private:
 
 public:
     CGame_REDEARTH_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 

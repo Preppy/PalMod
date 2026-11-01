@@ -145,11 +145,10 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             case P4AU_STEAM:
                 pszExtraInfo = L"Select the \"asset\" folder.\nNote: Make sure the files are decrypted.  See the Read Me.";
                 break;
-            case REDEARTH_A_DIR_30:
-                pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
-                break;
-            case REDEARTH_A_DIR_31:
-                pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
+            case REDEARTH_A_DIR:
+            case REDEARTH_A_DIR_31: // obsolete, just a redirect at this point
+            case REDEARTH_A_DIR_50: // obsolete, just a redirect at this point
+                pszExtraInfo = L"We need the redearth-simm files from redearth.zip.";
                 break;
             case SFA3MAX_PSP_D:
                 pszExtraInfo = L"We need the PL*.PAC files from USRDIR\\usa\\data.";

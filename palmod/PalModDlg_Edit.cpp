@@ -1264,7 +1264,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 case JOJOS_A_DIR_50:
                 case JOJOS_A_DIR_51:
                 case REDEARTH_A:
-                case REDEARTH_A_DIR_30:
+                case REDEARTH_A_DIR:
                 case REDEARTH_A_DIR_31:
                     // Don't change this code.  It automatically handles new games and color modes.
                 {
