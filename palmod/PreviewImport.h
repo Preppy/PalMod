@@ -21,8 +21,9 @@ public:
     afx_msg void OnUpdateCombobox_Read();
     afx_msg void OnUpdateCombobox_Composition();
 
-    afx_msg void OnTrimCheckChange();
+    afx_msg void OnAlignToBottomCheckChange();
     afx_msg void OnAutoPreviewCheckChange();
+    afx_msg void OnTrimCheckChange();
 
     afx_msg void OnUpdatePaddingValues();
 
@@ -104,6 +105,7 @@ protected:
     RGBAImportMathQuirk m_rgbaMathQuirkInUse = RGBAImportMathQuirk::None;
 
     HICON m_hIcon;
+    BOOL m_fAlignToBottom = TRUE;
     BOOL m_fAutoPreview = TRUE;
     BOOL m_fKeepChangesOnLayerSwap = FALSE;
     BOOL m_fKeepChangesOnFileLoad = FALSE;

@@ -18,6 +18,7 @@ void CPreviewImportManager::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_READ, m_lbReadOptions);
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION, m_lbCompositionOptions);
 
+    DDX_Check(pDX, IDC_PREVIEWIMPORT_ALIGNTOBOTTOM, m_fAlignToBottom);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_AUTOPREVIEW, m_fAutoPreview);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_KEEPONSWAP, m_fKeepChangesOnLayerSwap);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_KEEPONFILESWAP, m_fKeepChangesOnFileLoad);
@@ -37,6 +38,7 @@ BEGIN_MESSAGE_MAP(CPreviewImportManager, CDialog)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_FROMFILE, &OnLoadFromFile)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_PREVIEW, &UpdateDisplayedPreview)
 
+    ON_BN_CLICKED(IDC_PREVIEWIMPORT_ALIGNTOBOTTOM, &OnAlignToBottomCheckChange)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_AUTOPREVIEW, &OnAutoPreviewCheckChange)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_TRIM, &OnTrimCheckChange)
 
@@ -52,6 +54,7 @@ CPreviewImportManager::CPreviewImportManager(CWnd* pParent /* = NULL*/)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
+    m_fAlignToBottom = CRegProc::GetPreviewImport_AlignToBottom(FALSE);
     m_fAutoPreview = CRegProc::GetPreviewImport_AutoPreview(TRUE);
     m_fKeepChangesOnLayerSwap = CRegProc::GetPreviewImport_KeepChangesOnLayerSwap(FALSE);
     m_fKeepChangesOnFileLoad = CRegProc::GetPreviewImport_KeepChangesOnFileLoad(FALSE);
@@ -80,10 +83,11 @@ CPreviewImportManager::CPreviewImportManager(CWnd* pParent /* = NULL*/)
 
 CPreviewImportManager::~CPreviewImportManager()
 {
-     CRegProc::SetPreviewImport_AutoPreview(m_fAutoPreview);
-     CRegProc::SetPreviewImport_KeepChangesOnLayerSwap(m_fKeepChangesOnLayerSwap);
-     CRegProc::SetPreviewImport_KeepChangesOnFileLoad(m_fKeepChangesOnFileLoad);
-     CRegProc::SetPreviewImport_Trim(m_fTrim);
+    CRegProc::SetPreviewImport_AlignToBottom(m_fAlignToBottom);
+    CRegProc::SetPreviewImport_AutoPreview(m_fAutoPreview);
+    CRegProc::SetPreviewImport_KeepChangesOnLayerSwap(m_fKeepChangesOnLayerSwap);
+    CRegProc::SetPreviewImport_KeepChangesOnFileLoad(m_fKeepChangesOnFileLoad);
+    CRegProc::SetPreviewImport_Trim(m_fTrim);
 }
 
 void CPreviewImportManager::OnCancel()
@@ -687,6 +691,19 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             }
         }
 
+        sImageDisplayOffsets groundingoffset;
+
+        if (m_fAlignToBottom)
+        {
+            // align to bottom
+            RECT usedRect = rgEditableWorkingTexture.GetUsedRect();
+
+            if (usedRect.bottom && m_rgWorkingTextures.size())
+            {
+                groundingoffset.y = m_rgWorkingTextures[0].dimensions.height - (usedRect.bottom + 1);
+            }
+        }
+
         // handle flipping before slicing
         rgEditableWorkingTexture.FlipIfNeeded(m_importOptions.direction);
 
@@ -721,19 +738,21 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                         // we default to always merge Above for anything other than merge below.  it might be useful
                         // to split merge above/below and join logic
                         case SpriteImportCompositionStyle::MergeAbove:
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, m_importOptions.offsets);
+                        {
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { m_importOptions.offsets.width, m_importOptions.offsets.height + groundingoffset.y });
                             rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
                             break;
+                        }
                         case SpriteImportCompositionStyle::MergeBelow:
                             pIncomingTextureForThisLayer->Merge(previousTextureForThisLayer, { -m_importOptions.offsets.width, -m_importOptions.offsets.height });
                             rgTextureSlices.at(iLayer) = *pIncomingTextureForThisLayer;
                             break;
                         case SpriteImportCompositionStyle::FlushLeft:
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { -pIncomingTextureForThisLayer->dimensions.width - m_importOptions.offsets.width, -m_importOptions.offsets.height });
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { -pIncomingTextureForThisLayer->dimensions.width - m_importOptions.offsets.width, -m_importOptions.offsets.height + groundingoffset.y });
                             rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
                             break;
                         case SpriteImportCompositionStyle::FlushRight:
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { previousTextureForThisLayer.dimensions.width + m_importOptions.offsets.width, m_importOptions.offsets.height });
+                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { previousTextureForThisLayer.dimensions.width + m_importOptions.offsets.width, m_importOptions.offsets.height + groundingoffset.y });
                             rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
                             break;
                         case SpriteImportCompositionStyle::FlushTop:
@@ -1110,6 +1129,18 @@ void CPreviewImportManager::OnTrimCheckChange()
     }
 }
 
+void CPreviewImportManager::OnAlignToBottomCheckChange()
+{
+    UpdateData();
+
+    CRegProc::SetPreviewImport_AlignToBottom(m_fAlignToBottom);
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
 void CPreviewImportManager::OnAutoPreviewCheckChange()
 {
     UpdateData();
@@ -1275,7 +1306,7 @@ bool PreviewImport::LoadExternalPreviewQuietly(TextureSourceFileType allowedType
 void PreviewImport::OnLoadCustomSprite(std::optional<int> optSuggestedLayerToLoadTo,
                                         bool fMustShowAdvancedOptions /* = false */)
 {
-    CPreviewImportManager importManager;
+    CPreviewImportManager importManager(GetHost()->GetPreviewDlg());
 
     importManager.SetTargetLayer(optSuggestedLayerToLoadTo);
     importManager.SetShouldShowUI(fMustShowAdvancedOptions);

@@ -51,6 +51,7 @@ constexpr auto c_prevTrimImportedPreviews = L"prev_DropsTrimPreview";
 constexpr auto c_prevPreviewImportsKawaksFirst = L"prev_DropsTryKawaksFirst";
 constexpr auto c_prevPreviewImportsUseFullCPS3 = L"prev_ImportsUseFullCPS3";
 constexpr auto c_prevAllowAutoPreviewFallback = L"prev_AllowAutoPreviewFallback";
+constexpr auto c_prevPreviewImport_AlignToBottom = L"previewImport_AlignToBottom";
 constexpr auto c_prevPreviewImport_AutoPreview = L"previewImport_AutoPreview";
 constexpr auto c_prevPreviewImport_KeepChangesOnFileLoad = L"previewImport_KeepOnFileLoad";
 constexpr auto c_prevPreviewImport_KeepChangesOnLayerSwap = L"previewImport_KeepOnLayerSwap";
@@ -170,6 +171,8 @@ public:
     static void SetImageExport_ZoomIndex(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_ZoomIndex, dwNewValue); };
 
     // Preview import
+    static DWORD GetPreviewImport_AlignToBottom(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_AlignToBottom, dwFallbackValue); };
+    static void SetPreviewImport_AlignToBottom(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_AlignToBottom, dwNewValue); };
     static DWORD GetPreviewImport_AutoPreview(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_AutoPreview, dwFallbackValue); };
     static void SetPreviewImport_AutoPreview(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_AutoPreview, dwNewValue); };
     static DWORD GetPreviewImport_KeepChangesOnFileLoad(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_KeepChangesOnFileLoad, dwFallbackValue); };
