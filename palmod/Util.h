@@ -14,7 +14,7 @@ int SafeSHMessageBoxCheck(
     bool    fInvertLogicAndNoSpecialMessage = false
 );
 
-std::optional<int> GetDropLayerFromFileName(const std::wstring& strFileName);
+std::optional<int> GetTargetLayerFromFileName(const std::wstring strFileName);
 
 struct PaletteMapErrorDetails
 {

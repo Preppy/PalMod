@@ -4,7 +4,7 @@
 #include "PaletteImport.h"
 #include "PNGfiles.h"
 
-bool CPaletteImport::GetPaletteFromIndexedPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromIndexedPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     bool fSuccess = false;
 
@@ -141,7 +141,7 @@ bool CPaletteImport::GetPaletteFromIndexedPNG(LPCWSTR pszFileName, std::vector<u
     return fSuccess;
 }
 
-bool CPaletteImport::GetPaletteFromTrueColorPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromTrueColorPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     bool fSuccess = false;
 
@@ -413,7 +413,7 @@ bool CPaletteImport::GetPaletteFromTrueColorPNG(LPCWSTR pszFileName, std::vector
     return fSuccess && !rgbaPalette.empty();
 }
 
-bool CPaletteImport::GetPaletteFromPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     const bool fSuccess = GetPaletteFromIndexedPNG(pszFileName, rgbaPalette) || GetPaletteFromTrueColorPNG(pszFileName, rgbaPalette);
 

@@ -3,7 +3,7 @@
 #include <mmiscapi.h> // RIFF .PAL support
 #include "PaletteImport.h"
 
-bool CPaletteImport::GetPaletteFromPAL_RIFF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromPAL_RIFF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     bool fSuccess = true;
     bool fFoundPALChunk = false;

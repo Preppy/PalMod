@@ -84,7 +84,7 @@ int SafeSHMessageBoxCheck(
     }
 }
 
-std::optional<int> GetDropLayerFromFileName(const std::wstring& strFileName)
+std::optional<int> GetTargetLayerFromFileName(const std::wstring strFileName)
 {
     const std::wstring strLayerToken = L"-layer-";
     std::optional<int> optLayerToLoadTo;
@@ -177,7 +177,7 @@ bool PaletteSetIsMappingSafe(PALWriteOutputOptions systemPaletteLength, std::vec
                     {
                         fIsMappingSafe = false;
 
-                        strMsg.Format(L"This is not a mapping-safe palette set.  The colors at palette %u color %u and palette %u color %u (0x%x) are the same.\r\n", mappingDetails.nStartCheckPalette, mappingDetails.nCheckColor, mappingDetails.nCheckAgainstPalette, mappingDetails.nCheckAgainstColor, clrChecking);
+                        strMsg.Format(L"This is not a mapping-safe palette set.  The colors at palette %zu color %zu and palette %zu color %zu (0x%x) are the same.\r\n", mappingDetails.nStartCheckPalette, mappingDetails.nCheckColor, mappingDetails.nCheckAgainstPalette, mappingDetails.nCheckAgainstColor, clrChecking);
                         OutputDebugString(strMsg.GetString());
 
                         break;

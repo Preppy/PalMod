@@ -310,7 +310,7 @@ BOOL CPreviewImportManager::OnInitDialog()
 
         for (size_t iEntry = 0; iEntry < m_rgWorkingTextures.size(); iEntry++)
         {
-            strInfo.Format(L"%u", iEntry);
+            strInfo.Format(L"%zu", iEntry);
             m_lbLayerOptions.InsertString(nLayer++, strInfo.GetString());
         }
     }
@@ -377,7 +377,7 @@ bool CPreviewImportManager::LoadCustomSpriteFromPath(LPCWSTR pszPath, PNGImportS
 
     // If we have been given a layer value use if valid.
     // If we have not been given a layer value try from filename.
-    std::optional<int> optDubiousLayerToUse = GetDropLayerFromFileName(pszPath);
+    std::optional<int> optDubiousLayerToUse = GetTargetLayerFromFileName(pszPath);
     std::optional<int> optConfirmedLayerToUse = m_pImgDisp->SanitizeRequestedImageLayer(optDubiousLayerToUse);
 
     sTextureData newTexture;
@@ -425,6 +425,14 @@ bool CPreviewImportManager::LoadCustomSpriteFromPath(LPCWSTR pszPath, PNGImportS
             {
                 MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
             }
+        }
+        else if (m_textureSourceType == TextureSourceFileType::CImage)
+        {
+            CString strInfo = L"Failed to load this image.  Animated GIFs are not supported as replacement previews.";
+            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+            GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
+            strInfo += "\r\n";
+            OutputDebugString(strInfo.GetString());
         }
         else
         {
@@ -684,7 +692,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
         rgEditableWorkingTexture.FlipIfNeeded(m_importOptions.direction);
 
         // get our slices
-        strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %u layers...\r\n", m_rgrgPaletteSet.size());
+        strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %zu layers...\r\n", m_rgrgPaletteSet.size());
         OutputDebugString(strInfo.GetString());
         std::vector<sTextureData> rgTextureSlices = rgEditableWorkingTexture.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
 
@@ -760,14 +768,14 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             {
                 rgAssembledTextures.at(iLayer) = rgTextureSlices.at(iLayer);
 
-                strInfo.Format(L"\tLayer %u: Using NEW.\r\n", iLayer);
+                strInfo.Format(L"\tLayer %zu: Using NEW.\r\n", iLayer);
                 OutputDebugString(strInfo.GetString());
             }
             else
             {
                 rgAssembledTextures.at(iLayer) = m_rgWorkingTextures.at(iLayer);
 
-                strInfo.Format(L"\tLayer %u: Using PREVIOUS.\r\n", iLayer);
+                strInfo.Format(L"\tLayer %zu: Using PREVIOUS.\r\n", iLayer);
                 OutputDebugString(strInfo.GetString());
             }
 
@@ -798,7 +806,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             m_pImgDisp->SetOverrideTextureForLayer(rgAssembledTextures.at(iLayer), static_cast<int>(iLayer));
             fHaveAnyPaletteMatches = fHaveAnyPaletteMatches || rgAssembledTextures.at(iLayer).DoesTextureHaveColorData();
             m_fHaveChangedPreview = true;
-            strInfo.Format(L"\tUpdated layer %u (%u x %u).\r\n", iLayer, rgAssembledTextures.at(iLayer).dimensions.width, rgAssembledTextures.at(iLayer).dimensions.height);
+            strInfo.Format(L"\tUpdated layer %zu (%u x %u).\r\n", iLayer, rgAssembledTextures.at(iLayer).dimensions.width, rgAssembledTextures.at(iLayer).dimensions.height);
             OutputDebugString(strInfo.GetString());
         }
 
@@ -903,7 +911,7 @@ void CPreviewImportManager::UpdateDisplayedPreview()
                 break;
         }
 
-        if (m_optCurrentSel_Layer.has_value())
+        if (m_optCurrentSel_Layer.has_value() && (m_rgrgPaletteSet.size() > 1))
         {
             strLayerTarget.Format(L" to layer %u", m_optCurrentSel_Layer.value());
         }
@@ -1275,4 +1283,3 @@ void PreviewImport::OnLoadCustomSprite(std::optional<int> optSuggestedLayerToLoa
 
     importManager.ImportNow();
 }
-

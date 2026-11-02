@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PaletteImport.h"
 
-bool CPaletteImport::GetPaletteFromBMP(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromBMP(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     CString strPossibleError;
     HBITMAP hBMP = static_cast<HBITMAP>(LoadImage(nullptr, pszFileName, IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_DEFAULTSIZE | LR_LOADFROMFILE));

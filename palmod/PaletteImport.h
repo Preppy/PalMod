@@ -1,10 +1,9 @@
 #include "PalTool.h"
 
-class CPaletteImport
+namespace PaletteImport
 {
-public:
-    static bool PaletteIsLikelyUpsideDown(std::vector<uint8_t> rgbaPalette);
-    static void ReversePalette(std::vector<uint8_t>& rgbaPalette);
+    bool PaletteIsLikelyUpsideDown(std::vector<uint8_t> rgbaPalette);
+    void ReversePalette(std::vector<uint8_t>& rgbaPalette);
 
     enum class PalWrapType
     {
@@ -13,21 +12,21 @@ public:
         ShiftByRow,
     };
 
-    static void ShiftPalette(std::vector<uint8_t>& rgbaPalette, int16_t nShiftLength, PalWrapType wrapType = PalWrapType::Normal);
+    void ShiftPalette(std::vector<uint8_t>& rgbaPalette, int16_t nShiftLength, PalWrapType wrapType = PalWrapType::Normal);
 
-    static bool GetPaletteFromIndexedPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
-    static bool GetPaletteFromTrueColorPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromIndexedPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromTrueColorPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
 
     // Generic palette types: game-specific types have their own import code over in PalModDlg.h
-    static bool GetPaletteFromACT(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
-    static bool GetPaletteFromBMP(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
-    static bool GetPaletteFromGIF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
-    static bool GetPaletteFromGPL(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
-    static bool GetPaletteFromPAL_RIFF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
-    static bool GetPaletteFromPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromACT(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromBMP(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromGIF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromGPL(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromPAL_RIFF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
+    bool GetPaletteFromPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette);
 
-    static uint16_t ApplyPaletteToTarget(std::vector<uint8_t> rgbaPalette, uint32_t nTargetPalette, BOOL fLoopToFill);
-    static uint16_t ApplyPalette(std::vector<uint8_t> rgbaPalette, BOOL fLoopToFill);
+    uint16_t ApplyPaletteToTarget(std::vector<uint8_t> rgbaPalette, uint32_t nTargetPalette, BOOL fLoopToFill);
+    uint16_t ApplyPalette(std::vector<uint8_t> rgbaPalette, BOOL fLoopToFill);
 
     enum class PalFileType
     {
@@ -48,7 +47,7 @@ public:
         // if you add a new palette type here, please update the CPalDropTarget support in DropTarget.cpp
     };
 
-    static bool LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bool fShowAdvancedOptions = false, bool fForceReadUpsideDown = false, bool fGIMPOffsetByOne = false);
+    bool LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bool fShowAdvancedOptions = false, bool fForceReadUpsideDown = false, bool fGIMPOffsetByOne = false);
 };
 
 class CPaletteImportDialog : public CDialog

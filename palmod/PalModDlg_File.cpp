@@ -953,14 +953,14 @@ void CPalModDlg::OnImportPalette()
             {
                 const bool fFlipUpsideDown = (PaletteLoad.GetOFN().nFilterIndex == 6);
                 const bool fShiftOneColorForward = (PaletteLoad.GetOFN().nFilterIndex == 7);
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileName, false, fFlipUpsideDown, fShiftOneColorForward))
+                if (PaletteImport::LoadPalette(PaletteImport::PalFileType::PNG, strFileName, false, fFlipUpsideDown, fShiftOneColorForward))
                 {
                     UpdateUIForAppliedPalette();
                 }
             }
             else if (_wcsicmp(szExtension, L".pal") == 0)
             {
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PAL_RIFF, strFileName))
+                if (PaletteImport::LoadPalette(PaletteImport::PalFileType::PAL_RIFF, strFileName))
                 {
                     UpdateUIForAppliedPalette();
                 }
@@ -971,7 +971,7 @@ void CPalModDlg::OnImportPalette()
             }
             else if (_wcsicmp(szExtension, L".bmp") == 0)
             {
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::BMP, strFileName))
+                if (PaletteImport::LoadPalette(PaletteImport::PalFileType::BMP, strFileName))
                 {
                     UpdateUIForAppliedPalette();
                 }
@@ -982,14 +982,14 @@ void CPalModDlg::OnImportPalette()
             }
             else if (_wcsicmp(szExtension, L".gif") == 0)
             {
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GIF, strFileName))
+                if (PaletteImport::LoadPalette(PaletteImport::PalFileType::GIF, strFileName))
                 {
                     UpdateUIForAppliedPalette();
                 }
             }
             else if (_wcsicmp(szExtension, L".gpl") == 0)
             {
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GPL, strFileName))
+                if (PaletteImport::LoadPalette(PaletteImport::PalFileType::GPL, strFileName))
                 {
                     UpdateUIForAppliedPalette();
                 }
@@ -1017,7 +1017,7 @@ void CPalModDlg::OnImportPalette()
             else
             {
                 const bool fFlipUpsideDown = (PaletteLoad.GetOFN().nFilterIndex > 3);
-                if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileName, false, fFlipUpsideDown))
+                if (PaletteImport::LoadPalette(PaletteImport::PalFileType::ACT, strFileName, false, fFlipUpsideDown))
                 {
                     UpdateUIForAppliedPalette();
                 }

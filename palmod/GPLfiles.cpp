@@ -17,7 +17,7 @@ constexpr auto k_GPLMagicKey = "GIMP Palette";
 constexpr auto k_GPLName = "Name: ";
 constexpr auto k_GPLColumns = "Columns: ";
 
-bool CPaletteImport::GetPaletteFromGPL(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromGPL(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     bool fSuccess = false;
 

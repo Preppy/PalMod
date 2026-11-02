@@ -1325,19 +1325,21 @@ void CPalModDlg::OnBnClickedReverse()
         {
             ProcChange();
 
-            BOOL fSelectAll = (nSelectionAmt == 0);
+            const BOOL fSelectAll = (nSelectionAmt == 0);
             const uint16_t nWorkingAmount = static_cast<uint16_t>(m_CurrPalCtrl->GetWorkingAmt());
-
-            // if they want to flip all, we ignore the first transparent color
-            nSelectionAmt = fSelectAll ? (nWorkingAmount - 1) : nSelectionAmt;
 
             uint8_t* rgSel = reinterpret_cast<uint8_t*>(m_CurrPalCtrl->GetSelIndex());
             uint8_t* pCurrPal = reinterpret_cast<uint8_t*>(m_CurrPalCtrl->GetBasePal());
+
+            if (nSelectionAmt == 0) // select all
+            {
+                nSelectionAmt = nWorkingAmount;
+            }
+
             uint8_t* pFlippedPal = new uint8_t[nSelectionAmt * 4];
 
             // walk backwards to get the flipped ordering
-            int iFlippedPos = nSelectionAmt - 1;
-            for (int iCurPos = 1; iCurPos < nWorkingAmount; iCurPos++)
+            for (int iCurPos =  0, iFlippedPos = nSelectionAmt - 1; iCurPos < nWorkingAmount; iCurPos++)
             {
                 if (rgSel[iCurPos] || fSelectAll)
                 {
@@ -1361,19 +1363,19 @@ void CPalModDlg::OnBnClickedReverse()
                 }
             }
 
-            for (int iCurPos = 1; iCurPos < nWorkingAmount; iCurPos++)
+            const bool fSkipFirstPixel = (fSelectAll || rgSel[0]);
+
+            for (int iCurPos = fSkipFirstPixel ? 1 : 0, iWriteIndex = 0; iCurPos < nWorkingAmount; iCurPos++)
             {
                 if (rgSel[iCurPos] || fSelectAll)
                 {
-                    const uint16_t nPaletteIndex = static_cast<uint16_t>(iCurPos * 4);
-                    const uint16_t nFlippedIndex = static_cast<uint16_t>(iFlippedPos * 4);
+                    const uint16_t nTargetPaletteIndex = static_cast<uint16_t>(iCurPos * 4);
+                    const uint16_t nSourcePaletteIndex = static_cast<uint16_t>(iWriteIndex++ * 4);
 
-                    pCurrPal[nPaletteIndex]     = pFlippedPal[nFlippedIndex];
-                    pCurrPal[nPaletteIndex + 1] = pFlippedPal[nFlippedIndex + 1];
-                    pCurrPal[nPaletteIndex + 2] = pFlippedPal[nFlippedIndex + 2];
-                    pCurrPal[nPaletteIndex + 3] = pFlippedPal[nFlippedIndex + 3];
-
-                    iFlippedPos++;
+                    pCurrPal[nTargetPaletteIndex]     = pFlippedPal[nSourcePaletteIndex];
+                    pCurrPal[nTargetPaletteIndex + 1] = pFlippedPal[nSourcePaletteIndex + 1];
+                    pCurrPal[nTargetPaletteIndex + 2] = pFlippedPal[nSourcePaletteIndex + 2];
+                    pCurrPal[nTargetPaletteIndex + 3] = pFlippedPal[nSourcePaletteIndex + 3];
 
                     m_CurrPalCtrl->UpdateIndex(iCurPos);
                 }

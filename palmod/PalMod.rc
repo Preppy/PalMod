@@ -798,7 +798,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADPALETTE
         MENUITEM "Load &Palette Advanced...",   ID_TOOLS_LOADPALETTE_ADVANCED
-        MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEPALETTE
+        MENUITEM "&Export Palette\tCtrl+P",       ID_TOOLS_SAVEPALETTE
         POPUP "Mapping Palette"
         BEGIN
             MENUITEM "Map Selected Palette",        ID_TOOLS_MAPPING_USE_CURRENT

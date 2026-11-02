@@ -95,7 +95,7 @@ bool LoadGIFHeaderAndValidate(CFile& sourceGIF, GIFHeader& gif_header, bool& fUs
     return fIsValidGIF;
 }
 
-bool CPaletteImport::GetPaletteFromGIF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromGIF(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     CFile sourceGIF;
 

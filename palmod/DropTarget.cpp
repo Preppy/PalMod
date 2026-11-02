@@ -73,6 +73,33 @@ bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool&
     return fIsFromFirefox;
 }
 
+bool HaveMultiDropSupportForThisFileType(std::wstring strDropPath)
+{
+    bool fHaveMultiDropSupport = false;
+
+    std::wstring strFileNameAsLower = strDropPath;
+    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
+
+    size_t dotPos = strFileNameAsLower.find_last_of(L'.');
+
+    if (dotPos != std::wstring::npos)
+    {
+        std::wstring strExtension = strFileNameAsLower.substr(dotPos);
+
+        if ((strExtension == L".act") || // always preview
+            (strExtension == L".bmp") || // palette only at this time
+            (strExtension == L".gif") || // either
+            (strExtension == L".gpl") || // palette only
+            (strExtension == L".pal") || // PAL RIFF: palette only
+            (strExtension == L".png")) // either
+        {
+            fHaveMultiDropSupport = true;
+        }
+    }
+
+    return fHaveMultiDropSupport;
+}
+
 DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD /* dwKeyState */, CPoint /* point */)
 {
     m_currentEffectState = DROPEFFECT_NONE;
@@ -95,7 +122,6 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
         const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
         bool fHaveSinglePathData = false;
 
-
         if (hDrop)
         {
             const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
@@ -109,7 +135,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             }
             else
             {
-                // We support multiple drag and drop for preview replacements (PNG, RAW) only
+                // We support multiple drag and drop for certain palettes (ACT, BMP, GPL, GIF, RIFF, PNG) and preview replacements (PNG, RAW) only
                 for (UINT iIndex = 0; iIndex < nFilesAvailable; iIndex++)
                 {
                     if (DragQueryFile(hDrop, iIndex, szPath, ARRAYSIZE(szPath)))
@@ -264,32 +290,16 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
         else if (rgMultiDropPaths.size())
         {
             // We allow multiple drag/drop if and only if they are potential preview replacements
-            bool fCanWorkWithThis = !fPreviewDropIsPalette && fDropTargetsPreviewWindow;
+            bool fCanWorkWithThis = true;
 
             if (fCanWorkWithThis)
             {
                 for (auto& strDropPath : rgMultiDropPaths)
                 {
-                    std::wstring strFileNameAsLower = strDropPath;
-                    transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
-
-                    size_t dotPos = strFileNameAsLower.find_last_of(L'.');
-
-                    if (dotPos != std::wstring::npos)
-                    {
-                        std::wstring strExtension = strFileNameAsLower.substr(dotPos);
-
-                        if ((strExtension != L".raw") &&
-                            (strExtension != L".gif") &&
-                            (strExtension != L".png"))
-                        {
-                            fCanWorkWithThis = false;
-                            break;
-                        }
-                    }
-                    else
+                    if (!HaveMultiDropSupportForThisFileType(strDropPath))
                     {
                         fCanWorkWithThis = false;
+                        break;
                     }
                 }
             }
@@ -297,12 +307,12 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             if (fCanWorkWithThis)
             {
                 m_currentEffectState = DROPEFFECT_COPY;
-                GetHost()->GetPalModDlg()->SetStatusText(L"We should be able to support these as replacement previews.");
+                GetHost()->GetPalModDlg()->SetStatusText(L"We should be able to support these as replacement options.");
             }
             else
             {
                 m_currentEffectState = DROPEFFECT_NONE;
-                GetHost()->GetPalModDlg()->SetStatusText(L"We only support multi-file drops for replacement previews (PNG, RAW).");
+                GetHost()->GetPalModDlg()->SetStatusText(L"We only support multi-file drops for certain types (ACT, BMP, GIF, GPL, PAL, PNG, RAW).");
             }
         }
 
@@ -460,6 +470,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
             const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
             bool fShouldContinue = true;
+            bool fHavePaletteUpdates = false;
 
             for (auto& strDropPath : rgDropPaths)
             {
@@ -479,27 +490,21 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
                     if (strExtension == L".act")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::ACT, strFileNameAsLower.c_str(), fIsShiftDown))
-                        {
-                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
-                        }
+                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::ACT, strFileNameAsLower.c_str(), fIsShiftDown);
+                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
                         fHandledDrop = true;
-                        break;
                     }
                     else if (strExtension == L".bmp")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::BMP, strFileNameAsLower.c_str(), fIsShiftDown))
-                        {
-                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
-                        }
+                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::BMP, strFileNameAsLower.c_str(), fIsShiftDown);
+                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
                         fHandledDrop = true;
-                        break;
                     }
                     else if (strExtension == L".cfpl")
                     {
                         GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(strFileNameAsLower.c_str());
                         fHandledDrop = true;
-                        break;
+                        fShouldContinue = false;
                     }
                     else if (strExtension == L".gif")
                     {
@@ -510,43 +515,34 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                         }
                         else
                         {
-                            if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GIF, strFileNameAsLower.c_str()))
-                            {
-                                GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
-                            }
+                            fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::GIF, strFileNameAsLower.c_str());
+                            fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
                             fHandledDrop = true;
-                            break;
                         }
                     }
                     else if (strExtension == L".gpl")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::GPL, strFileNameAsLower.c_str(), fIsShiftDown))
-                        {
-                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
-                        }
+                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::GPL, strFileNameAsLower.c_str(), fIsShiftDown);
+                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
                         fHandledDrop = true;
-                        break;
                     }
                     else if (strExtension == L".hpl")
                     {
                         GetHost()->GetPalModDlg()->LoadPaletteFromHPAL(strFileNameAsLower.c_str());
                         fHandledDrop = true;
-                        break;
+                        fShouldContinue = false;
                     }
                     else if (strExtension == L".impl")
                     {
                         GetHost()->GetPalModDlg()->LoadPaletteFromIMPL(strFileNameAsLower.c_str());
                         fHandledDrop = true;
-                        break;
+                        fShouldContinue = false;
                     }
                     else if (strExtension == L".pal")
                     {
-                        if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PAL_RIFF, strFileNameAsLower.c_str(), fIsShiftDown))
-                        {
-                            GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
-                        }
+                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::PAL_RIFF, strFileNameAsLower.c_str(), fIsShiftDown);
+                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
                         fHandledDrop = true;
-                        break;
                     }
                     else if (strExtension == L".png")
                     {
@@ -557,19 +553,16 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                         }
                         else
                         {
-                            if (CPaletteImport::LoadPalette(CPaletteImport::PalFileType::PNG, strFileNameAsLower.c_str(), fIsShiftDown))
-                            {
-                                GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
-                            }
+                            fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::PNG, strFileNameAsLower.c_str(), fIsShiftDown);
+                            fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
                             fHandledDrop = true;
-                            break;
                         }
                     }
                     else if (strExtension == L".prpl")
                     {
                         GetHost()->GetPalModDlg()->LoadPaletteFromPRPL(strFileNameAsLower.c_str());
                         fHandledDrop = true;
-                        break;
+                        fShouldContinue = false;
                     }
                     else if (strExtension == L".raw")
                     {
@@ -587,6 +580,11 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             if (fUsingFirefoxTempFile)
             {
                 DeleteFile(rgDropPaths.at(0).c_str());
+            }
+
+            if (fHavePaletteUpdates)
+            {
+                GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
             }
         }
     }

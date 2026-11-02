@@ -1,17 +1,25 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "PaletteImport.h"
+#include "Util.h"
 
 // This simple check just validates that we have some actual colors in the first two lines
 // Fight Factory often stores palettes upside down, so this will catch a lot of theirs
 // and thus let us fix it
-bool CPaletteImport::PaletteIsLikelyUpsideDown(std::vector<uint8_t> rgbaPalette)
+bool PaletteImport::PaletteIsLikelyUpsideDown(std::vector<uint8_t> rgbaPalette)
 {
+    PALWriteOutputOptions currTransparencyWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+
     bool fIsLikelyUpsideDown = true;
     const size_t nPalColorCount = min(32, static_cast<size_t>(rgbaPalette.size() / 4));
 
     for (size_t iPalIndex = 0; iPalIndex < nPalColorCount; iPalIndex++)
     {
+        if ((iPalIndex % static_cast<size_t>(currTransparencyWriteMode)) == 0)
+        {
+            continue;
+        }
+
         if ((rgbaPalette.at(iPalIndex * 4) != 0) ||
             (rgbaPalette.at((iPalIndex * 4) + 1) != 0) ||
             (rgbaPalette.at((iPalIndex * 4) + 2) != 0))
@@ -23,10 +31,11 @@ bool CPaletteImport::PaletteIsLikelyUpsideDown(std::vector<uint8_t> rgbaPalette)
     return fIsLikelyUpsideDown;
 }
 
-void CPaletteImport::ReversePalette(std::vector<uint8_t>& rgbaPalette)
+void PaletteImport::ReversePalette(std::vector<uint8_t>& rgbaPalette)
 {
     const int16_t nPalColorCount = static_cast<int16_t>(rgbaPalette.size() / 4);
     std::vector<uint8_t> working_pal(rgbaPalette.size());
+    // skip the transparency bit
     size_t iWritePos = 0;
 
     for (int16_t iPalIndex = nPalColorCount - 1; iPalIndex >= 0; iPalIndex--)
@@ -40,10 +49,10 @@ void CPaletteImport::ReversePalette(std::vector<uint8_t>& rgbaPalette)
     rgbaPalette = working_pal;
 }
 
-void CPaletteImport::ShiftPalette(std::vector<uint8_t>& rgbaPalette, int16_t nShiftLengthInColors, PalWrapType wrapType /* = PalWrapType::Normal*/)
+void PaletteImport::ShiftPalette(std::vector<uint8_t>& rgbaPalette, int16_t nShiftLengthInColors, PalWrapType wrapType /* = PalWrapType::Normal*/)
 {
     CString strMsg;
-    strMsg.Format(L"CPaletteImport::ShiftPalette: request to shift by %i colors\r\n", nShiftLengthInColors);
+    strMsg.Format(L"PaletteImport::ShiftPalette: request to shift by %i colors\r\n", nShiftLengthInColors);
     OutputDebugString(strMsg.GetString());
 
     const size_t nPalColorCount = static_cast<size_t>(rgbaPalette.size() / 4);
@@ -168,7 +177,7 @@ void CPaletteImport::ShiftPalette(std::vector<uint8_t>& rgbaPalette, int16_t nSh
     }
 }
 
-uint16_t CPaletteImport::ApplyPaletteToTarget(std::vector<uint8_t> rgbaPalette, uint32_t nTargetPalette, BOOL fLoopToFill)
+uint16_t PaletteImport::ApplyPaletteToTarget(std::vector<uint8_t> rgbaPalette, uint32_t nTargetPalette, BOOL fLoopToFill)
 {
     uint16_t iColorsWritten = 0;
     uint16_t iReadIndex = 0;
@@ -221,7 +230,7 @@ uint16_t CPaletteImport::ApplyPaletteToTarget(std::vector<uint8_t> rgbaPalette, 
     return iColorsWritten;
 }
 
-uint16_t CPaletteImport::ApplyPalette(std::vector<uint8_t> rgbaPalette, BOOL fLoopToFill)
+uint16_t PaletteImport::ApplyPalette(std::vector<uint8_t> rgbaPalette, BOOL fLoopToFill)
 {
     const uint16_t nPossibleColorsToWrite = static_cast<uint16_t>(rgbaPalette.size() / 4);
     uint16_t nTotalColorsWritten = 0;
@@ -260,7 +269,7 @@ uint16_t CPaletteImport::ApplyPalette(std::vector<uint8_t> rgbaPalette, BOOL fLo
     return nTotalColorsWritten;
 }
 
-bool CPaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bool fShowAdvancedOptions /* = false */, bool fForceReadUpsideDown /* = false */, bool fGIMPOffsetByOne /*= false */)
+bool PaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bool fShowAdvancedOptions /* = false */, bool fForceReadUpsideDown /* = false */, bool fGIMPOffsetByOne /*= false */)
 {
     CString strMsg;
     bool fSuccess = false;
@@ -332,7 +341,26 @@ bool CPaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, b
                 ShiftPalette(rgbaPalette, 1);
             }
 
-            const uint16_t nColorsWritten = ApplyPalette(rgbaPalette, true);
+            std::optional<int> optTargetLayer = GetTargetLayerFromFileName(pszFileName);
+            const int nLayerCount = static_cast<int>(GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt());
+
+            if ((optTargetLayer.has_value() && (optTargetLayer.value() >= nLayerCount)) || // invalid selection
+                (nLayerCount == 1)) // only one layer anyways
+            {
+                // should we mention this to the user?
+                optTargetLayer.reset();
+            }
+
+            uint16_t nColorsWritten = 0;
+            
+            if (optTargetLayer.has_value())
+            {
+                nColorsWritten = ApplyPaletteToTarget(rgbaPalette, static_cast<uint32_t>(optTargetLayer.value()), true);
+            }
+            else
+            {
+                nColorsWritten = ApplyPalette(rgbaPalette, true);
+            }
 
             if (nColorsWritten)
             {
@@ -344,10 +372,26 @@ bool CPaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, b
                 else if (uiSuccess)
                 {
                     strMsg.Format(uiSuccess, nColorsWritten, static_cast<uint16_t>(rgbaPalette.size() / 4));
+
+                    CString strLayerInfo;
+
+                    if (optTargetLayer.has_value())
+                    {
+                        strLayerInfo.Format(L"  Applied to layer %u.", optTargetLayer.value());
+                    }
+
+                    strMsg += strLayerInfo;
                 }
                 else
                 {
-                    strMsg.Format(L"Applied %u colors from %u color file.", nColorsWritten, static_cast<uint16_t>(rgbaPalette.size() / 4));
+                    if (optTargetLayer.has_value())
+                    {
+                        strMsg.Format(L"Applied %u colors from %u color file for layer %u.", nColorsWritten, static_cast<uint16_t>(rgbaPalette.size() / 4), optTargetLayer.value());
+                    }
+                    else
+                    {
+                        strMsg.Format(L"Applied %u colors from %u color file.", nColorsWritten, static_cast<uint16_t>(rgbaPalette.size() / 4));
+                    }
                 }
             }
             else
@@ -473,7 +517,7 @@ void CPaletteImportDialog::_ResetPreview()
 {
     for (size_t iPal = 0; iPal < m_rgrgOriginalPalettes.size(); iPal++)
     {
-        CPaletteImport::ApplyPaletteToTarget(m_rgrgOriginalPalettes[iPal], static_cast<uint32_t>(iPal), FALSE);
+        PaletteImport::ApplyPaletteToTarget(m_rgrgOriginalPalettes[iPal], static_cast<uint32_t>(iPal), FALSE);
 
         m_rgfMadeChanges[iPal] = false;
     }
@@ -516,7 +560,7 @@ void CPaletteImportDialog::OnReversePalette()
 {
     OutputDebugString(L"CPaletteImportDialog: Reversing palette.\r\n");
 
-    CPaletteImport::ReversePalette(m_rgWorkingPalette);
+    PaletteImport::ReversePalette(m_rgWorkingPalette);
 
     OnPreviewPalette();
 }
@@ -577,33 +621,33 @@ void CPaletteImportDialog::LoadFromFile()
             
             if (strExt == L".act")
             {
-                fSuccess = CPaletteImport::GetPaletteFromACT(strFileName, rgbaPalette);
+                fSuccess = PaletteImport::GetPaletteFromACT(strFileName, rgbaPalette);
             }
             else if (strExt == L".bmp")
             {
-                fSuccess = CPaletteImport::GetPaletteFromBMP(strFileName, rgbaPalette);
+                fSuccess = PaletteImport::GetPaletteFromBMP(strFileName, rgbaPalette);
             }
             else if (strExt == L".gif")
             {
-                fSuccess = CPaletteImport::GetPaletteFromGIF(strFileName, rgbaPalette);
+                fSuccess = PaletteImport::GetPaletteFromGIF(strFileName, rgbaPalette);
             }
             else if (strExt == L".gpl")
             {
-                fSuccess = CPaletteImport::GetPaletteFromGPL(strFileName, rgbaPalette);
+                fSuccess = PaletteImport::GetPaletteFromGPL(strFileName, rgbaPalette);
             }
 #ifdef SUPPORT_ADDED
             else if (strExt == L".hpl")
             {
-                fSuccess = CPaletteImport::GetPaletteFromHPL(strFileName, rgbaPalette);
+                fSuccess = PaletteImport::GetPaletteFromHPL(strFileName, rgbaPalette);
             }
 #endif
             else if (strExt == L".pal")
             {
-                fSuccess = CPaletteImport::GetPaletteFromPAL_RIFF(strFileName, rgbaPalette);
+                fSuccess = PaletteImport::GetPaletteFromPAL_RIFF(strFileName, rgbaPalette);
             }
             else if (strExt == L".png")
             {
-                fSuccess = CPaletteImport::GetPaletteFromPNG(strFileName, rgbaPalette);
+                fSuccess = PaletteImport::GetPaletteFromPNG(strFileName, rgbaPalette);
             }
 
             if (fSuccess && rgbaPalette.size())
@@ -697,7 +741,7 @@ void CPaletteImportDialog::OnApplyPalette()
             while (nColorsWritten < nColorsAvailable)
             {
                 m_rgfMadeChanges[nTargetLayer] = true;
-                nColorsWritten += CPaletteImport::ApplyPaletteToTarget(m_rgWorkingPalette, nTargetLayer++, m_fRepeatToFill);
+                nColorsWritten += PaletteImport::ApplyPaletteToTarget(m_rgWorkingPalette, nTargetLayer++, m_fRepeatToFill);
 
                 if (!m_fWrapToNext ||
                     (nTargetLayer >= static_cast<int>(m_rgrgOriginalPalettes.size())))
@@ -819,7 +863,7 @@ BOOL CPaletteImportDialog::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
             pScrollBar->SetScrollPos(curr_pos, TRUE);
 
-            CPaletteImport::ShiftPalette(m_rgWorkingPalette, delta_pos * 16, CPaletteImport::PalWrapType::ShiftByRow);
+            PaletteImport::ShiftPalette(m_rgWorkingPalette, delta_pos * 16, PaletteImport::PalWrapType::ShiftByRow);
 
             OnPreviewPalette();
         }
@@ -895,8 +939,8 @@ void CPaletteImportDialog::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrol
 
             pScrollBar->SetScrollPos(curr_pos, TRUE);
 
-            CPaletteImport::ShiftPalette(m_rgWorkingPalette, delta_pos, m_fScrollByColumn ? CPaletteImport::PalWrapType::ShiftHorizontal :
-                                                                                            CPaletteImport::PalWrapType::Normal);
+            PaletteImport::ShiftPalette(m_rgWorkingPalette, delta_pos, m_fScrollByColumn ? PaletteImport::PalWrapType::ShiftHorizontal :
+                                                                                            PaletteImport::PalWrapType::Normal);
 
             OnPreviewPalette();
         }
@@ -952,7 +996,7 @@ void CPaletteImportDialog::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrol
 
             pScrollBar->SetScrollPos(curr_pos, TRUE);
 
-            CPaletteImport::ShiftPalette(m_rgWorkingPalette, delta_pos * 16, CPaletteImport::PalWrapType::ShiftByRow);
+            PaletteImport::ShiftPalette(m_rgWorkingPalette, delta_pos * 16, PaletteImport::PalWrapType::ShiftByRow);
 
             OnPreviewPalette();
         }

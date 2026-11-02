@@ -2,7 +2,7 @@
 #include "PalMod.h"
 #include "PaletteImport.h"
 
-bool CPaletteImport::GetPaletteFromACT(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
+bool PaletteImport::GetPaletteFromACT(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
     bool fSuccess = true;
     CFile ActFile;
