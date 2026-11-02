@@ -2,7 +2,7 @@
 #include "stdafx.h"
 
 /*
-LodePNG version 20260119
+LodePNG version 20261101
 
 Copyright (c) 2005-2026 Lode Vandevenne
 
@@ -47,7 +47,7 @@ Rename this file to lodepng.cpp to use it for C++, or to lodepng.c to use it for
 #pragma warning( disable : 4996 ) /*VS does not like fopen, but fopen_s is not standard C so unusable here*/
 #endif /*_MSC_VER */
 
-const char* LODEPNG_VERSION_STRING = "20260119";
+const char* LODEPNG_VERSION_STRING = "20261101";
 
 /*
 This source file is divided into the following large parts. The code sections
@@ -144,32 +144,41 @@ static size_t lodepng_strlen(const char* a) {
 #define LODEPNG_MAX(a, b) (((a) > (b)) ? (a) : (b))
 #define LODEPNG_MIN(a, b) (((a) < (b)) ? (a) : (b))
 
-#if defined(LODEPNG_COMPILE_PNG) || defined(LODEPNG_COMPILE_DECODER)
+
 /* Safely check if adding two integers will overflow (no undefined
-behavior, compiler removing the code, etc...) and output result. */
+behavior, compiler removing the code, etc...) and output result.
+Returns 1 if it overflows, 0 if ok */
 static int lodepng_addofl(size_t a, size_t b, size_t* result) {
   *result = a + b; /* Unsigned addition is well defined and safe in C90 */
   return *result < a;
 }
-#endif /*defined(LODEPNG_COMPILE_PNG) || defined(LODEPNG_COMPILE_DECODER)*/
 
-#ifdef LODEPNG_COMPILE_DECODER
+#if defined(LODEPNG_COMPILE_ENCODER) || defined(LODEPNG_COMPILE_ZLIB)
+/* Safely check if adding two integers overflows (without returning result).
+Returns 1 if it overflows, 0 if ok */
+static int lodepng_addofls(size_t a, size_t b) {
+    size_t result = a + b;
+    return result < a;
+}
+#endif /*defined(LODEPNG_COMPILE_ENCODER) || defined(LODEPNG_COMPILE_ZLIB)*/
+
+#if defined(LODEPNG_COMPILE_DECODER) || defined(LODEPNG_COMPILE_ZLIB)
 /* Safely check if multiplying two integers will overflow (no undefined
 behavior, compiler removing the code, etc...) and output result. */
 static int lodepng_mulofl(size_t a, size_t b, size_t* result) {
   *result = a * b; /* Unsigned multiplication is well defined and safe in C90 */
   return (a != 0 && *result / a != b);
 }
+#endif /*defined(LODEPNG_COMPILE_DECODER) || defined(LODEPNG_COMPILE_ZLIB)*/
 
-#ifdef LODEPNG_COMPILE_ZLIB
+#if defined(LODEPNG_COMPILE_DECODER) && defined(LODEPNG_COMPILE_ZLIB)
 /* Safely check if a + b > c, even if overflow could happen. */
 static int lodepng_gtofl(size_t a, size_t b, size_t c) {
   size_t d;
   if(lodepng_addofl(a, b, &d)) return 1;
   return d > c;
 }
-#endif /*LODEPNG_COMPILE_ZLIB*/
-#endif /*LODEPNG_COMPILE_DECODER*/
+#endif /*defined(LODEPNG_COMPILE_DECODER) && defined(LODEPNG_COMPILE_ZLIB)*/
 
 
 /*
@@ -231,10 +240,13 @@ static void uivector_cleanup(void* p) {
 
 /*returns 1 if success, 0 if failure ==> nothing done*/
 static unsigned uivector_resize(uivector* p, size_t size) {
-  size_t allocsize = size * sizeof(unsigned);
-  if(allocsize > p->allocsize) {
-    size_t newsize = allocsize + (p->allocsize >> 1u);
-    void* data = lodepng_realloc(p->data, newsize);
+    size_t allocsize;
+    if (lodepng_mulofl(size, sizeof(unsigned), &allocsize)) return 0;
+    if(allocsize > p->allocsize) {
+    size_t newsize;
+    void* data;
+    if (lodepng_addofl(allocsize, p->allocsize >> 1u, &newsize)) return 0;
+    data = lodepng_realloc(p->data, newsize);
     if(data) {
       p->allocsize = newsize;
       p->data = (unsigned*)data;
@@ -252,7 +264,7 @@ static void uivector_init(uivector* p) {
 
 /*returns 1 if success, 0 if failure ==> nothing done*/
 static unsigned uivector_push_back(uivector* p, unsigned c) {
-  if(!uivector_resize(p, p->size + 1)) return 0;
+  if (lodepng_addofls(p->size, 1u) || !uivector_resize(p, p->size + 1u)) return 0;
   p->data[p->size - 1] = c;
   return 1;
 }
@@ -271,8 +283,10 @@ typedef struct ucvector {
 /*returns 1 if success, 0 if failure ==> nothing done*/
 static unsigned ucvector_reserve(ucvector* p, size_t size) {
   if(size > p->allocsize) {
-    size_t newsize = size + (p->allocsize >> 1u);
-    void* data = lodepng_realloc(p->data, newsize);
+    size_t newsize;
+    void* data;
+    if(lodepng_addofl(size, p->allocsize >> 1u, &newsize)) return 0;
+    data = lodepng_realloc(p->data, newsize);
     if(data) {
       p->allocsize = newsize;
       p->data = (unsigned char*)data;
@@ -407,7 +421,7 @@ static void LodePNGBitWriter_init(LodePNGBitWriter* writer, ucvector* data) {
 #define WRITEBIT(writer, bit){\
   /* append new byte */\
   if(((writer->bp) & 7u) == 0) {\
-    if(!ucvector_resize(writer->data, writer->data->size + 1)) return;\
+    if(lodepng_addofls(writer->data->size, 1) || !ucvector_resize(writer->data, writer->data->size + 1)) return;\
     writer->data->data[writer->data->size - 1] = 0;\
   }\
   (writer->data->data[writer->data->size - 1]) |= (bit << ((writer->bp) & 7u));\
@@ -1225,7 +1239,7 @@ static unsigned inflateHuffmanBlock(ucvector* out, LodePNGBitReader* reader,
   const size_t reserved_size = 260; /* must be at least 258 for max length, and a few extra for adding a few extra literals */
   int done = 0;
 
-  if(!ucvector_reserve(out, out->size + reserved_size)) return 83; /*alloc fail*/
+  if (lodepng_addofls(out->size, reserved_size) || !ucvector_reserve(out, out->size + reserved_size)) return 83; /*alloc fail*/
 
   HuffmanTree_init(&tree_ll);
   HuffmanTree_init(&tree_d);
@@ -1305,7 +1319,7 @@ static unsigned inflateHuffmanBlock(ucvector* out, LodePNGBitReader* reader,
       ERROR_BREAK(16); /*error: tried to read disallowed huffman symbol*/
     }
     if(out->allocsize - out->size < reserved_size) {
-      if(!ucvector_reserve(out, out->size + reserved_size)) ERROR_BREAK(83); /*alloc fail*/
+        if (lodepng_addofls(out->size, reserved_size) || !ucvector_reserve(out, out->size + reserved_size)) ERROR_BREAK(83); /*alloc fail*/
     }
     /*check if any of the ensureBits above went out of bounds*/
     if(reader->bp > reader->bitsize) {
@@ -1344,7 +1358,7 @@ static unsigned inflateNoCompression(ucvector* out, LodePNGBitReader* reader,
     return 21; /*error: NLEN is not one's complement of LEN*/
   }
 
-  if(!ucvector_resize(out, out->size + LEN)) return 83; /*alloc fail*/
+  if (lodepng_addofls(out->size, LEN) || !ucvector_resize(out, out->size + LEN)) return 83; /*alloc fail*/
 
   /*read the literal data: LEN bytes are now stored in the out buffer*/
   if(bytepos + LEN > size) return 23; /*error: reading outside of in buffer*/
@@ -1453,7 +1467,7 @@ static void addLengthDistance(uivector* values, size_t length, size_t distance) 
 
   size_t pos = values->size;
   /*TODO: return error when this fails (out of memory)*/
-  unsigned ok = uivector_resize(values, values->size + 4);
+  unsigned ok = !lodepng_addofls(values->size, 4) && uivector_resize(values, values->size + 4);
   if(ok) {
     values->data[pos + 0] = length_code + FIRST_LENGTH_CODE_INDEX;
     values->data[pos + 1] = extra_length;
@@ -1735,7 +1749,7 @@ static unsigned deflateNoCompression(ucvector* out, const unsigned char* data, s
     if(datasize - datapos < 65535u) LEN = (unsigned)datasize - (unsigned)datapos;
     NLEN = 65535 - LEN;
 
-    if(!ucvector_resize(out, out->size + LEN + 5)) return 83; /*alloc fail*/
+    if (lodepng_addofls(out->size, LEN + 5) || !ucvector_resize(out, out->size + LEN + 5)) return 83; /*alloc fail*/
 
     firstbyte = (unsigned char)(BFINAL + ((BTYPE & 1u) << 1u) + ((BTYPE & 2u) << 1u));
     out->data[pos + 0] = firstbyte;
@@ -2116,14 +2130,14 @@ static unsigned deflate(unsigned char** out, size_t* outsize,
 /* / Adler32                                                                / */
 /* ////////////////////////////////////////////////////////////////////////// */
 
-static unsigned update_adler32(unsigned adler, const unsigned char* data, unsigned len) {
+static unsigned update_adler32(unsigned adler, const unsigned char* data, size_t len) {
   unsigned s1 = adler & 0xffffu;
   unsigned s2 = (adler >> 16u) & 0xffffu;
 
   while(len != 0u) {
-    unsigned i;
+    size_t  i;
     /*at least 5552 sums can be done before the sums overflow, saving a lot of module divisions*/
-    unsigned amount = len > 5552u ? 5552u : len;
+    size_t amount = len > 5552u ? 5552u : len;
     len -= amount;
     for(i = 0; i != amount; ++i) {
       s1 += (*data++);
@@ -2137,7 +2151,7 @@ static unsigned update_adler32(unsigned adler, const unsigned char* data, unsign
 }
 
 /*Return the adler32 of the bytes data[0..len-1]*/
-static unsigned adler32(const unsigned char* data, unsigned len) {
+static unsigned adler32(const unsigned char* data, size_t len) {
   return update_adler32(1u, data, len);
 }
 
@@ -2181,7 +2195,7 @@ static unsigned lodepng_zlib_decompressv(ucvector* out,
 
   if(!settings->ignore_adler32) {
     unsigned ADLER32 = lodepng_read32bitInt(&in[insize - 4]);
-    unsigned checksum = adler32(out->data, (unsigned)(out->size));
+    unsigned checksum = adler32(out->data, out->size);
     if(checksum != ADLER32) return 58; /*error, adler checksum not correct, data must be corrupted*/
   }
 
@@ -2214,7 +2228,7 @@ static unsigned zlib_decompress(unsigned char** out, size_t* outsize, size_t exp
     ucvector v = ucvector_init(*out, *outsize);
     if(expected_size) {
       /*reserve the memory to avoid intermediate reallocations*/
-      ucvector_resize(&v, *outsize + expected_size);
+      if(lodepng_addofls(*outsize, expected_size) || !ucvector_resize(&v, *outsize + expected_size)) return 83; /*alloc faile*/
       v.size = *outsize;
     }
     error = lodepng_zlib_decompressv(&v, in, insize, settings);
@@ -2246,7 +2260,7 @@ unsigned lodepng_zlib_compress(unsigned char** out, size_t* outsize, const unsig
   }
 
   if(!error) {
-    unsigned ADLER32 = adler32(in, (unsigned)insize);
+    unsigned ADLER32 = adler32(in, insize);
     /*zlib data: 1 byte CMF (CM+CINFO), 1 byte FLG, deflate data, 4 byte ADLER32 checksum of the Decompressed data*/
     unsigned CMF = 120; /*0b01111000: CM 8, CINFO 7. With CINFO 7, any window size up to 32768 can be used.*/
     unsigned FLEVEL = 0;
@@ -5516,14 +5530,14 @@ unsigned lodepng_decode(unsigned char** out, unsigned* w, unsigned* h,
                         const unsigned char* in, size_t insize) {
   *out = 0;
   decodeGeneric(out, w, h, state, in, insize);
-  if(state->error) return state->error;
+  if (state->error) goto cleanup;
   if(!state->decoder.color_convert || lodepng_color_mode_equal(&state->info_raw, &state->info_png.color)) {
     /*same color type, no copying or converting of data needed*/
     /*store the info_png color settings on the info_raw so that the info_raw still reflects what colortype
     the raw image has to the end user*/
     if(!state->decoder.color_convert) {
       state->error = lodepng_color_mode_copy(&state->info_raw, &state->info_png.color);
-      if(state->error) return state->error;
+      if (state->error) goto cleanup;
     }
   } else { /*color conversion needed*/
     unsigned char* data = *out;
@@ -5533,18 +5547,26 @@ unsigned lodepng_decode(unsigned char** out, unsigned* w, unsigned* h,
     from grayscale input color type, to 8-bit grayscale or grayscale with alpha"*/
     if(!(state->info_raw.colortype == LCT_RGB || state->info_raw.colortype == LCT_RGBA)
        && !(state->info_raw.bitdepth == 8)) {
-      return 56; /*unsupported color mode conversion*/
+        state->error = 56; /*unsupported color mode conversion*/
+        goto cleanup;
     }
 
     outsize = lodepng_get_raw_size(*w, *h, &state->info_raw);
     *out = (unsigned char*)lodepng_malloc(outsize);
     if(!(*out)) {
       state->error = 83; /*alloc fail*/
-    }
-    else state->error = lodepng_convert(*out, data, &state->info_raw,
-                                        &state->info_png.color, *w, *h);
-    lodepng_free(data);
+  } else {
+      state->error = lodepng_convert(*out, data, &state->info_raw,
+          &state->info_png.color, *w, *h);
   }
+  lodepng_free(data);
+}
+
+cleanup:
+if (state->error) {
+    lodepng_free(*out);
+    *out = 0;
+}
   return state->error;
 }
 
@@ -5656,7 +5678,7 @@ static unsigned writeSignature(ucvector* out) {
   size_t pos = out->size;
   const unsigned char signature[] = {137, 80, 78, 71, 13, 10, 26, 10};
   /*8 bytes PNG signature, aka the magic bytes*/
-  if(!ucvector_resize(out, out->size + 8)) return 83; /*alloc fail*/
+  if (lodepng_addofls(out->size, 8) || !ucvector_resize(out, out->size + 8)) return 83; /*alloc fail*/
   lodepng_memcpy(out->data + pos, signature, 8);
   return 0;
 }
