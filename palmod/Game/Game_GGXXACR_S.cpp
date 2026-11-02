@@ -438,8 +438,11 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     return fSuccess;
 }
 
+#pragma warning(push)
+#pragma warning(disable : 4244)
+
 // Currently unused
-std::map<uint32_t, uint8_t> mapACRSpriteIdToACRGameId =
+std::map<SupportedGGXX_PaletteListIndex, uint8_t> mapACRSpriteIdToACRGameId =
 {
     // "None",         //00
     { indexGGXXSprites_ACR_Sol,       1 },
@@ -469,11 +472,13 @@ std::map<uint32_t, uint8_t> mapACRSpriteIdToACRGameId =
     { indexGGXXSprites_ACR_Justice,   25 },
 };
 
+#pragma warning(pop)
+
 uint8_t TranslatePalModSpriteIdToACRGameId(uint32_t nSpriteId)
 {
-    std::map<uint32_t, uint8_t>::iterator it;
+    std::map<SupportedGGXX_PaletteListIndex, uint8_t>::iterator it;
 
-    it = mapACRSpriteIdToACRGameId.find(nSpriteId);
+    it = mapACRSpriteIdToACRGameId.find(static_cast<SupportedGGXX_PaletteListIndex>(nSpriteId));
 
     if (it != mapACRSpriteIdToACRGameId.end())
     {
@@ -492,7 +497,7 @@ uint32_t TranslateACRGameIdToPalModSpriteId(uint8_t nGameId)
     {
         if (it->second == nGameId)
         {
-            return it->first;
+            return static_cast<uint32_t>(it->first);
         }
     }
 

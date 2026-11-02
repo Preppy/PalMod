@@ -420,15 +420,14 @@ bool CPreviewImportManager::LoadCustomSpriteFromPath(LPCWSTR pszPath, PNGImportS
         if (m_textureSourceType == TextureSourceFileType::RAW)
         {
             // RAW has unique restrictions so show them just in case it helps
-            CString strError;
-            if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
+            if (strInfo.LoadString(IDS_ERROR_TEXTURE_LOAD))
             {
-                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
         else if (m_textureSourceType == TextureSourceFileType::CImage)
         {
-            CString strInfo = L"Failed to load this image.  Animated GIFs are not supported as replacement previews.";
+            strInfo = L"Failed to load this image.  Animated GIFs are not supported as replacement previews.";
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
             GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
             strInfo += "\r\n";

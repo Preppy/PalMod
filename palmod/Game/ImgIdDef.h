@@ -65,7 +65,7 @@ bool GetImageSectionIDForImageSectionString(LPCSTR paszImageSectionString, eIMGD
 
 // These numbers refer to the indexes within the appropriate IMGDAT sections
 
-enum CHARACTERS_CPS2
+enum CHARACTERS_CPS2 : uint16_t
 {
     indexCPS2Sprites_Ryu,                   // 0x00
     indexCPS2Sprites_Zangief,               // 0x01
@@ -349,7 +349,7 @@ enum CHARACTERS_CPS2
     indexCPS2Sprites_ThePunisher,           // 0x106
 };
 
-enum CHARACTERS_3S_CPS3
+enum CHARACTERS_3S_CPS3 : uint16_t
 {
     index3SSprites_Alex,        // 0x00
     index3SSprites_Ryu,         // 0x01
@@ -393,7 +393,7 @@ enum CHARACTERS_3S_CPS3
     indexSF3NGSprites_Endings,  // 0x27
 };
 
-enum SF2Sprites
+enum SF2Sprites : uint16_t
 {
     indexSF2Sprites_Ryu             = 0,
     indexSF2Sprites_EHonda,         // 0x01
@@ -449,7 +449,7 @@ enum SPECIFIC_GAME_SPRITESETS
     indexCSP2Images_MSH_VSPs = 0x90,
 };
 
-enum JOJOS_51_CHARACTERS
+enum JOJOS_51_CHARACTERS : uint16_t
 {
     indexJojos51Jotaro = 0,
     indexJojos51Kakyo,
@@ -503,7 +503,7 @@ enum JOJOS_51_CHARACTER_PALETTES
     indexJojos51Character_BurnZap,      // 0x07
 };
 
-enum SupportedGarou_A_PaletteListIndex
+enum SupportedGarou_A_PaletteListIndex : uint16_t
 {
     indexGarouARockHoward,  // 0x00
     indexGarouATerryBogard, // 0x01
@@ -524,7 +524,7 @@ enum SupportedGarou_A_PaletteListIndex
     indexGarouAStages,      // 0x10
 };
 
-enum KOFSpriteList
+enum KOFSpriteList : uint16_t
 {
     indexKOF98Sprites_Kyo,      // 0x00
     indexKOF98Sprites_Benimaru, // 0x01
@@ -1324,7 +1324,7 @@ enum KOFSpriteList
 };
 
 // This is used for portrait references within the 02UMExtras unit
-enum SupportedKOF02UM_S_PaletteListIndex
+enum SupportedKOF02UM_S_PaletteListIndex : uint16_t
 {
     indexKOF02UM_S_Andy,        // 0
     indexKOF02UM_S_Angel,       // 1
@@ -1399,7 +1399,7 @@ enum SupportedKOF02UM_S_PaletteListIndex
     // EVERYTHING ABOVE 0x42 IS RESERVED FOR OTHER USAGE
 };
 
-enum SupportedBreakersSprites
+enum SupportedBreakersSprites : uint16_t
 {
     indexBreakersSprites_AlsionIII, // 0x00
     indexBreakersSprites_BaiHu,     // 0x01
@@ -1414,7 +1414,7 @@ enum SupportedBreakersSprites
     indexBreakersSprites_Bonus,     // 0x0A
 };
 
-enum SupportedMatriM_A_PaletteListIndex
+enum SupportedMatriM_A_PaletteListIndex : uint16_t
 {
     indexMatriMSprites_Anny,        // 0x00
     indexMatriMSprites_Buntaro,     // 0x01
@@ -1448,7 +1448,7 @@ enum SupportedMatriM_A_PaletteListIndex
     indexBnKSprites_SuperKurara,    // 0x1c
 };
 
-enum SamuraiShodownSpriteList
+enum SamuraiShodownSpriteList : uint16_t
 {
     indexSamSho5Sprites_Amakusa,    // 0x0
     indexSamSho5Sprites_Basara,     // 1
@@ -1591,7 +1591,7 @@ enum SamuraiShodownSpriteList
     indexSamSho4Sprites_Stages,     // 0x83
 };
 
-enum SupportedKarnovsR_A_PaletteListIndex
+enum SupportedKarnovsR_A_PaletteListIndex : uint16_t
 {
     indexKarnovsRSprites_Clown,         // 0x00
     indexKarnovsRSprites_Feilin,        // 0x01
@@ -1611,7 +1611,7 @@ enum SupportedKarnovsR_A_PaletteListIndex
     indexFightersHistorySprites_Chelnov,    // 0x0f
 };
 
-enum SupportedRedEarth_A_PaletteListIndex
+enum SupportedRedEarth_A_PaletteListIndex : uint16_t
 {
     indexRedEarthSprites_Blade,     // 0x00
     indexRedEarthSprites_GiGi,      // 0x01
@@ -1630,7 +1630,7 @@ enum SupportedRedEarth_A_PaletteListIndex
     indexRedEarthSprites_Endings,   // 0x0e
 };
 
-enum SupportedWakuWaku7_PaletteList
+enum SupportedWakuWaku7_PaletteList : uint16_t
 {
     indexWakuWaku7Sprites_Arina,        // 0x00
     indexWakuWaku7Sprites_DandyJ,       // 0x01
@@ -1645,7 +1645,7 @@ enum SupportedWakuWaku7_PaletteList
     indexWakuWaku7Sprites_Bonus,        // 0x0a
 };
 
-enum SupportedWindjammers_A_PaletteListIndex
+enum SupportedWindjammers_A_PaletteListIndex : uint16_t
 {
     indexWindjammersSprites_Germany,
     indexWindjammersSprites_Italy,
@@ -1656,7 +1656,7 @@ enum SupportedWindjammers_A_PaletteListIndex
     indexWindjammersSprites_Bonus,
 };
 
-enum SupportedSega_PaletteListIndex // IMGDAT_SECTION_SEGA
+enum SupportedSega_PaletteListIndex : uint16_t // IMGDAT_SECTION_SEGA
 {
     indexTopF2k5Sprites_Ali,            // 0x00
     indexTopF2k5Sprites_Cycl,           // 0x01
@@ -1751,7 +1751,7 @@ enum SupportedSega_PaletteListIndex // IMGDAT_SECTION_SEGA
     indexSegaFF2Sprites_Bonus,          // 0x53
 };
 
-enum SupportedSNES_PaletteListIndex
+enum SupportedSNES_PaletteListIndex : uint16_t
 {
     indexMMPRSprites_Goldar,        // 0x00
     indexMMPRSprites_IvanOoze,      // 0x01
@@ -2047,7 +2047,7 @@ enum SupportedSNES_PaletteListIndex
     indexSNES_MM3XSprites,              // 0x10b
 };
 
-enum SupportedNEOGEO_PaletteListIndex
+enum SupportedNEOGEO_PaletteListIndex : uint16_t
 {
     indexNeoBombermanSprites_AtomicBomber,  // 0x00
     indexNeoBombermanSprites_Baketama,      // 0x01
@@ -2178,7 +2178,7 @@ enum SupportedNEOGEO_PaletteListIndex
     indexNEOGEOSprites_SDB_Sabu,            // 0x77
     indexNEOGEOSprites_SDB_Shinji,          // 0x78
     indexNEOGEOSprites_SDB_Bonus,           // 0x79
-        indexNEOGEOSprites_SDB_Stages,           // 0x7A
+    indexNEOGEOSprites_SDB_Stages,           // 0x7A
 
     indexNEOGEOSprites_VFG_Brider,          // 0x7B
     indexNEOGEOSprites_VFG_Captain,         // 0x7C
@@ -2342,7 +2342,7 @@ enum SupportedNEOGEO_PaletteListIndex
     indexWH2Sprites_Bonus,                  // 0x110
 };
 
-enum SupportedGGXX_PaletteListIndex
+enum SupportedGGXX_PaletteListIndex : uint16_t
 {
     indexGGXXSprites_ACR_ABA,               // 0x00
     indexGGXXSprites_ACR_Anji,              // 0x01
@@ -2418,7 +2418,7 @@ enum SupportedGGXX_PaletteListIndex
     indexGGDSSprites_Gig,                   // 0x42, GGDS boss
 };
 
-enum SupportedFrenchBread_PaletteListIndex
+enum SupportedFrenchBread_PaletteListIndex : uint16_t
 {
     indexFrenchBreadSprites_DBFCI_Akira,        // 0x00
     indexFrenchBreadSprites_DBFCI_Ako,          // 0x01
@@ -2568,7 +2568,7 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_UNI2_Zohar,             // 0x8a
 };
 
-enum SupportedTaito_PaletteListIndex
+enum SupportedTaito_PaletteListIndex : uint16_t
 {
     indexDanKuGa_Azteca,            // 0x00
     indexDanKuGa_Barts,             // 0x01
@@ -2585,7 +2585,7 @@ enum SupportedTaito_PaletteListIndex
     indexDanKuGa_General,           // 0x0C
 };
 
-enum SupportedNintendoDS_PaletteListIndex
+enum SupportedNintendoDS_PaletteListIndex : uint16_t
 {
     indexBleachDSSprites_Bonnie,            // 0x00
     indexBleachDSSprites_ByakuyaKuchiki,    // 0x01
@@ -2708,7 +2708,7 @@ enum SupportedNintendoDS_PaletteListIndex
     indexTekkenAdvanceGBASprites_Bonus,         // 0x72
 };
 
-enum SupportedPGM_SpriteListIndex
+enum SupportedPGM_SpriteListIndex : uint16_t
 {
     indexMartialMastersSprites_Crane,           // 0x00
     indexMartialMastersSprites_DrunkMaster,     // 0x01
@@ -2726,7 +2726,7 @@ enum SupportedPGM_SpriteListIndex
     indexMartialMastersSprites_Bonus,           // 0x0D
 };
 
-enum SupportedArcana_SpriteListIndex
+enum SupportedArcana_SpriteListIndex : uint16_t
 {
     indexArcanaSprites_Bisclavret,      // 0x00
     indexArcanaSprites_BladeProtector,  // 0x01
@@ -2745,7 +2745,7 @@ enum SupportedArcana_SpriteListIndex
     indexArcanaSprites_Support,         // 0x0e
 };
 
-enum SupportedArcsys_SpriteListIndex
+enum SupportedArcsys_SpriteListIndex : uint16_t
 {
     indexP4AUSprites_Aigis,         // 0x00
     indexP4AUSprites_Akihiko,       // 0x01
@@ -2893,7 +2893,7 @@ enum SupportedArcsys_SpriteListIndex
     indexBBTAGSprites_Yuzuriha,             // 0x8b
 };
 
-enum SupportedOther_SpriteListIndex
+enum SupportedOther_SpriteListIndex : uint16_t
 {
     indexMWarrSprites_Cypher,       // 0x00
     indexMWarrSprites_Eknaton,      // 0x01

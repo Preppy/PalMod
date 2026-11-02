@@ -330,7 +330,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
             int nInitialOffsetDelta = 0;
             bool fHaveSetDelta = false;
 
-            for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+            for (uint8_t iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
             {
                 if (pSelIndex[iPalIndex] || fCopyAll)
                 {
@@ -447,10 +447,10 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                 }
 
                 const uint8_t defaultAlpha8 = (curAlphaMode == AlphaMode::GameUsesFixedAlpha) ? 0xff : 0;
-                const uint8_t defaultAlpha16 = (curAlphaMode == AlphaMode::GameUsesFixedAlpha) ? 0xffff : 0;
-                const uint8_t defaultAlpha32 = (curAlphaMode == AlphaMode::GameUsesFixedAlpha) ? 0xffffffff : 0;
+                const uint16_t defaultAlpha16 = (curAlphaMode == AlphaMode::GameUsesFixedAlpha) ? 0xffff : 0;
+                const uint32_t defaultAlpha32 = (curAlphaMode == AlphaMode::GameUsesFixedAlpha) ? 0xffffffff : 0;
 
-                for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                for (uint8_t iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
                 {
                     if (pSelIndex[iPalIndex] || fCopyAll)
                     {
@@ -551,7 +551,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                 {
                     strUnicodeData.Append(L"\r\n\r\nSince this game's use of the alpha value is chaotic, the data might instead be stored as:\r\n\t");
 
-                    for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                    for (uint8_t iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
                     {
                         if (pSelIndex[iPalIndex] || fCopyAll)
                         {
@@ -593,7 +593,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
                     CString strFormatByte2, strFormatByte3, strFormatByte4;
                     size_t iWritePos = 0;
 
-                    for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                    for (uint8_t iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
                     {
                         if (pSelIndex[iPalIndex] || fCopyAll)
                         {
@@ -868,7 +868,7 @@ void CPalModDlg::HandleCopyToClipboard(bool fIncludeNonBinaryText /* = true */)
 
                     strUnicodeData.Append(L"\r\nThe French Bread RGB version of this data is:\r\n\trgb = [ ");
 
-                    for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                    for (uint8_t iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
                     {
                         if (pSelIndex[iPalIndex] || fCopyAll)
                         {

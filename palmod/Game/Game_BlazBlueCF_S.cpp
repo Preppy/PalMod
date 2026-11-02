@@ -1,7 +1,10 @@
 #include "StdAfx.h"
 #include "Game_BlazBlueCF_S.h"
 
-std::map<uint32_t, uint8_t> mapBBCFSpriteIdToBBCFGameId =
+#pragma warning(push)
+#pragma warning(disable : 4244)
+
+std::map<SupportedArcsys_SpriteListIndex, uint8_t> mapBBCFSpriteIdToBBCFGameId =
 {
     { indexBBCFSprites_AmaneNishiki,         20 },
     { indexBBCFSprites_Arakune,               7 },
@@ -41,11 +44,13 @@ std::map<uint32_t, uint8_t> mapBBCFSpriteIdToBBCFGameId =
     { indexBBCFSprites_YuukiTerumi,          25 },
 };
 
+#pragma warning(pop)
+
 uint8_t TranslatePalModSpriteIdToBBCFGameId(uint32_t nSpriteId)
 {
-    std::map<uint32_t, uint8_t>::iterator it;
+    std::map<SupportedArcsys_SpriteListIndex, uint8_t>::iterator it;
     
-    it = mapBBCFSpriteIdToBBCFGameId.find(nSpriteId);
+    it = mapBBCFSpriteIdToBBCFGameId.find(static_cast<SupportedArcsys_SpriteListIndex>(nSpriteId));
 
     if (it != mapBBCFSpriteIdToBBCFGameId.end())
     {
@@ -64,7 +69,7 @@ uint32_t TranslateBBCFGameIdToPalModSpriteId(uint8_t nGameId)
     {
         if (it->second == nGameId)
         {
-            return it->first;
+            return static_cast<uint32_t>(it->first);
         }
     }
 

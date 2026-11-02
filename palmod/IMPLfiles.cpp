@@ -20,7 +20,9 @@ const std::array<uint8_t, k_nIMPLSignatureLength> k_rgIMPLSignature =
     0x14, 0x00, 0x00, 0x00, 0x80, 0x20, 0x00, 0x00, // header size, data size: we're going to lock to 0x2094 files for now.
 };
 
-std::map<uint32_t, uint8_t> mapBBCFSpriteIdToBBTAGGameId =
+#pragma warning(push)
+#pragma warning(disable : 4244)
+std::map<SupportedArcsys_SpriteListIndex, uint8_t> mapBBCFSpriteIdToBBTAGGameId =
 {
     // { indexBBCFSprites_AmaneNishiki,         20 },
     // { indexBBCFSprites_Arakune,               7 },
@@ -60,7 +62,7 @@ std::map<uint32_t, uint8_t> mapBBCFSpriteIdToBBTAGGameId =
     // { indexBBCFSprites_YuukiTerumi,          25 },
 };
 
-std::map<uint32_t, uint8_t> mapBBTAGSpriteIdToBBTAGGameId =
+std::map<SupportedArcsys_SpriteListIndex, uint8_t> mapBBTAGSpriteIdToBBTAGGameId =
 {
     { indexBBTAGSprites_Adachi,               46 },
     { indexBBTAGSprites_Aegis,                24 },
@@ -117,8 +119,9 @@ std::map<uint32_t, uint8_t> mapBBTAGSpriteIdToBBTAGGameId =
     { indexBBTAGSprites_Yumi,                 51 },
     { indexBBTAGSprites_Yuzuriha,             34 },
 };
+#pragma warning(pop)
 
-uint32_t TranslateBBTAGGameIdToPalModBBCFSpriteId(uint8_t nGameId)
+SupportedArcsys_SpriteListIndex TranslateBBTAGGameIdToPalModBBCFSpriteId(uint8_t nGameId)
 {
     for (auto it = mapBBCFSpriteIdToBBTAGGameId.begin(); it != mapBBCFSpriteIdToBBTAGGameId.end(); it++)
     {
@@ -129,10 +132,10 @@ uint32_t TranslateBBTAGGameIdToPalModBBCFSpriteId(uint8_t nGameId)
     }
 
     OutputDebugString(L"BBTAG character specified not available in BBCF.\r\n");
-    return 0;
+    return static_cast<SupportedArcsys_SpriteListIndex>(0);
 }
 
-uint32_t TranslateBBTAGGameIdToPalModBBTAGSpriteId(uint8_t nGameId)
+SupportedArcsys_SpriteListIndex TranslateBBTAGGameIdToPalModBBTAGSpriteId(uint8_t nGameId)
 {
     for (auto it = mapBBCFSpriteIdToBBTAGGameId.begin(); it != mapBBCFSpriteIdToBBTAGGameId.end(); it++)
     {
@@ -143,12 +146,12 @@ uint32_t TranslateBBTAGGameIdToPalModBBTAGSpriteId(uint8_t nGameId)
     }
 
     OutputDebugString(L"Error: invalid BBTAG ID.\r\n");
-    return 0;
+    return static_cast<SupportedArcsys_SpriteListIndex>(0);
 }
 
-uint8_t TranslateBBCFSpriteIdToBBTAGGameId(uint32_t nSpriteId)
+uint8_t TranslateBBCFSpriteIdToBBTAGGameId(SupportedArcsys_SpriteListIndex nSpriteId)
 {
-    std::map<uint32_t, uint8_t>::iterator it;
+    std::map<SupportedArcsys_SpriteListIndex, uint8_t>::iterator it;
 
     it = mapBBCFSpriteIdToBBTAGGameId.find(nSpriteId);
 
@@ -544,7 +547,7 @@ bool CPalModDlg::LoadPaletteFromIMPL(LPCWSTR pszFileName)
 
 bool CPalModDlg::CurrentBBCFCharacterIsInBBTAG()
 {
-    return (TranslateBBCFSpriteIdToBBTAGGameId(BlazBlueCF_S_CharacterData[m_nPrevUnitSel].nImageUnitIndex) != k_nInvalidGameID);
+    return (TranslateBBCFSpriteIdToBBTAGGameId(static_cast<SupportedArcsys_SpriteListIndex>(BlazBlueCF_S_CharacterData[m_nPrevUnitSel].nImageUnitIndex)) != k_nInvalidGameID);
 }
 
 void CPalModDlg::SavePaletteToIMPL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
@@ -584,7 +587,7 @@ void CPalModDlg::SavePaletteToIMPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
             const UINT k_nRequiredLength = 0x20;
             const UINT k_nDescRequiredLength = 0x40;
             const std::array<BYTE, k_nDescRequiredLength> k_rgFillBytes = { };
-            const uint8_t nBBFCIMId = TranslateBBCFSpriteIdToBBTAGGameId(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex);
+            const uint8_t nBBFCIMId = TranslateBBCFSpriteIdToBBTAGGameId(static_cast<SupportedArcsys_SpriteListIndex>(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex));
 
             IMPLFile.Write(&k_rgIMPLSignature, static_cast<UINT>(k_rgIMPLSignature.size()));
 
