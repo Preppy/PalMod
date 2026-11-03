@@ -17,6 +17,7 @@ void CPreviewImportManager::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_LAYER, m_lbLayerOptions);
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_READ, m_lbReadOptions);
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION, m_lbCompositionOptions);
+    DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_MERGE, m_lbMergeOptions);
 
     DDX_Check(pDX, IDC_PREVIEWIMPORT_ALIGNTOBOTTOM, m_fAlignToBottom);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_AUTOPREVIEW, m_fAutoPreview);
@@ -33,6 +34,7 @@ BEGIN_MESSAGE_MAP(CPreviewImportManager, CDialog)
     ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_LAYER, &OnUpdateCombobox_Layer)
     ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_READ, &OnUpdateCombobox_Read)
     ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION, &OnUpdateCombobox_Composition)
+    ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_MERGE, &OnUpdateCombobox_Merge)
 
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_ORIGINAL, &ShowOriginal)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_FROMFILE, &OnLoadFromFile)
@@ -90,6 +92,18 @@ CPreviewImportManager::~CPreviewImportManager()
     CRegProc::SetPreviewImport_Trim(m_fTrim);
 }
 
+void CPreviewImportManager::_CacheCurrentWindowPos()
+{
+    if (m_fUIIsUp)
+    {
+        RECT window_rect;
+
+        GetWindowRect(&window_rect);
+
+        CRegProc::SetPreviewImport_WndPos(window_rect);
+    }
+}
+
 void CPreviewImportManager::OnCancel()
 {
     // ensure our destructor has updated variables to read
@@ -99,6 +113,8 @@ void CPreviewImportManager::OnCancel()
     {
         ShowOriginal();
     }
+
+    _CacheCurrentWindowPos();
 
     CDialog::OnCancel();
 }
@@ -280,14 +296,18 @@ BOOL CPreviewImportManager::OnInitDialog()
     m_lbReadOptions.InsertString(2, L"Flip Horizontal");
     m_lbReadOptions.SetCurSel(static_cast<int>(m_importOptions.direction));
 
+    // Merge options
+    m_lbMergeOptions.InsertString(0, L"Replace");
+    m_lbMergeOptions.InsertString(1, L"Foreground");
+    m_lbMergeOptions.InsertString(2, L"Background");
+    m_lbMergeOptions.SetCurSel(static_cast<int>(m_importOptions.mergeStyle));
+
     // Composition options
-    m_lbCompositionOptions.InsertString(0, L"Replace");
-    m_lbCompositionOptions.InsertString(1, L"Blend (Foreground)");
-    m_lbCompositionOptions.InsertString(2, L"Blend (Background)");
-    m_lbCompositionOptions.InsertString(3, L"Side: Left");
-    m_lbCompositionOptions.InsertString(4, L"Side: Right");
-    m_lbCompositionOptions.InsertString(5, L"Side: Above");
-    m_lbCompositionOptions.InsertString(6, L"Side: Below");
+    m_lbCompositionOptions.InsertString(0, L"Center");
+    m_lbCompositionOptions.InsertString(1, L"Side: Left");
+    m_lbCompositionOptions.InsertString(2, L"Side: Right");
+    m_lbCompositionOptions.InsertString(3, L"Side: Above");
+    m_lbCompositionOptions.InsertString(4, L"Side: Below");
     m_lbCompositionOptions.SetCurSel(static_cast<int>(m_importOptions.compositionStyle));
 
     const std::optional<int> optCurrentLayerSel = _GetCurrentLayerSelectionFromUI();
@@ -298,6 +318,7 @@ BOOL CPreviewImportManager::OnInitDialog()
          m_rgWorkingTextures.at(nLayerToCheckForDimensions).dimensions.IsEmpty())
     {
         // we need to update this as the user changes layers
+        m_lbMergeOptions.EnableWindow(FALSE);
         m_lbCompositionOptions.EnableWindow(FALSE);
     }
 
@@ -335,6 +356,12 @@ BOOL CPreviewImportManager::OnInitDialog()
     GetDlgItem(IDC_PREVIEWIMPORT_KEEPONSWAP)->EnableWindow(m_rgWorkingTextures.size() > 1);
 
     _UpdatePaddingEnableState();
+
+    RECT window_rect;
+    if (CRegProc::GetPreviewImport_WndPos(window_rect))
+    {
+        MoveWindow(&window_rect);
+    }
 
     UpdateData(FALSE);
 
@@ -712,8 +739,8 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
         OutputDebugString(strInfo.GetString());
         std::vector<sTextureData> rgTextureSlices = rgEditableWorkingTexture.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
 
-        // merge slices
-        if (m_importOptions.compositionStyle != SpriteImportCompositionStyle::Replace)
+        // merge slices if needed
+        if (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace)
         {
             sTextureData emptyMatchingTexture = rgTextureSlices[0];
             emptyMatchingTexture.indexedPixels.clear();
@@ -730,38 +757,47 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 
                 if (pTextureToUse->indexedPixels.size())
                 {
-                    sTextureData previousTextureForThisLayer = m_rgWorkingTextures[iLayer];
-                    sTextureData* pIncomingTextureForThisLayer = pTextureToUse;
+                    sTextureData* pBackgroundTexture = nullptr;
+                    // we want to be careful since foreground will get modified
+                    sTextureData* pForegroundTexture = nullptr;
+                    sTextureData tempForegroundIfNeeded;
+
+                    switch (m_importOptions.mergeStyle)
+                    {
+                        case SpriteImportMergeStyle::MergeBelow:
+                        default:
+                            pBackgroundTexture = &m_rgWorkingTextures[iLayer];
+                            pForegroundTexture = pTextureToUse;
+                            break;
+                        case SpriteImportMergeStyle::MergeAbove:
+                            pBackgroundTexture = pTextureToUse;
+                            tempForegroundIfNeeded = m_rgWorkingTextures[iLayer];
+                            pForegroundTexture = &tempForegroundIfNeeded;
+                            break;
+                    }
 
                     switch (m_importOptions.compositionStyle)
                     {
                         // we default to always merge Above for anything other than merge below.  it might be useful
-                        // to split merge above/below and join logic
-                        case SpriteImportCompositionStyle::MergeAbove:
-                        {
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { m_importOptions.offsets.width, m_importOptions.offsets.height + groundingoffset.y });
-                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
-                            break;
-                        }
-                        case SpriteImportCompositionStyle::MergeBelow:
-                            pIncomingTextureForThisLayer->Merge(previousTextureForThisLayer, { -m_importOptions.offsets.width, -m_importOptions.offsets.height });
-                            rgTextureSlices.at(iLayer) = *pIncomingTextureForThisLayer;
+                        case SpriteImportCompositionStyle::Center:
+                            pForegroundTexture->Merge(*pBackgroundTexture, { -m_importOptions.offsets.width, -m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushLeft:
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { -pIncomingTextureForThisLayer->dimensions.width - m_importOptions.offsets.width, -m_importOptions.offsets.height + groundingoffset.y });
-                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            pForegroundTexture->Merge(*pBackgroundTexture, { -pForegroundTexture->dimensions.width - m_importOptions.offsets.width, -m_importOptions.offsets.height + groundingoffset.y });
+                            rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushRight:
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { previousTextureForThisLayer.dimensions.width + m_importOptions.offsets.width, m_importOptions.offsets.height + groundingoffset.y });
-                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            pForegroundTexture->Merge(*pBackgroundTexture, { pBackgroundTexture->dimensions.width + m_importOptions.offsets.width, m_importOptions.offsets.height + groundingoffset.y });
+                            rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushTop:
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { -m_importOptions.offsets.width, -pIncomingTextureForThisLayer->dimensions.height - m_importOptions.offsets.height });
-                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            pForegroundTexture->Merge(*pBackgroundTexture, { -m_importOptions.offsets.width, -pForegroundTexture->dimensions.height - m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushBottom:
-                            previousTextureForThisLayer.Merge(*pIncomingTextureForThisLayer, { m_importOptions.offsets.width, previousTextureForThisLayer.dimensions.height + m_importOptions.offsets.height });
-                            rgTextureSlices.at(iLayer) = previousTextureForThisLayer;
+                            pForegroundTexture->Merge(*pBackgroundTexture, { m_importOptions.offsets.width, pBackgroundTexture->dimensions.height + m_importOptions.offsets.height });
+                            rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         }
 
@@ -781,7 +817,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
         {
             // if we are merging in any capacity we have to replace the full stack.
             // otherwise we can just use the old image
-            if ((m_importOptions.compositionStyle != SpriteImportCompositionStyle::Replace) ||
+            if ((m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace) ||
                  (m_optCurrentSel_Layer.value_or(static_cast<int>(iLayer)) == static_cast<int>(iLayer)))
             {
                 rgAssembledTextures.at(iLayer) = rgTextureSlices.at(iLayer);
@@ -893,21 +929,15 @@ void CPreviewImportManager::UpdateDisplayedPreview()
         CString strFileType;
         CString strLayerTarget;
 
-        switch (m_importOptions.compositionStyle)
+        switch (m_importOptions.mergeStyle)
         {
-            case SpriteImportCompositionStyle::Replace:
+            case SpriteImportMergeStyle::Replace:
             default:
                 strInfo = L"Loaded ";
                 break;
-            case SpriteImportCompositionStyle::MergeAbove:
-            case SpriteImportCompositionStyle::MergeBelow:
+            case SpriteImportMergeStyle::MergeAbove:
+            case SpriteImportMergeStyle::MergeBelow:
                 strInfo = L"Merged ";
-                break;
-            case SpriteImportCompositionStyle::FlushLeft:
-            case SpriteImportCompositionStyle::FlushRight:
-            case SpriteImportCompositionStyle::FlushTop:
-            case SpriteImportCompositionStyle::FlushBottom:
-                strInfo = L"Joined ";
                 break;
         }
 
@@ -1029,7 +1059,7 @@ void CPreviewImportManager::_UpdatePaddingEnableState()
 {
     UpdateData();
 
-    const BOOL fShouldAllowPadding = (m_importOptions.compositionStyle != SpriteImportCompositionStyle::Replace);
+    const BOOL fShouldAllowPadding = (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
 
     GetDlgItem(IDC_PREVIEWIMPORT_PADDING_WIDTH)->EnableWindow(fShouldAllowPadding);
     GetDlgItem(IDC_PREVIEWIMPORT_PADDING_HEIGHT)->EnableWindow(fShouldAllowPadding);
@@ -1075,10 +1105,12 @@ void CPreviewImportManager::OnUpdateCombobox_Layer()
     if (!m_rgWorkingTextures.at(nCurSel).dimensions.IsEmpty())
     {
         m_lbCompositionOptions.EnableWindow(TRUE);
+        m_lbMergeOptions.EnableWindow(TRUE);
     }
     else
     {
         m_lbCompositionOptions.EnableWindow(FALSE);
+        m_lbMergeOptions.EnableWindow(FALSE);
         m_lbCompositionOptions.SetCurSel(0);
     }
 
@@ -1108,6 +1140,18 @@ void CPreviewImportManager::OnUpdateCombobox_Composition()
     UpdateData();
 
     m_importOptions.compositionStyle = static_cast<SpriteImportCompositionStyle>(m_lbCompositionOptions.GetCurSel());
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnUpdateCombobox_Merge()
+{
+    UpdateData();
+
+    m_importOptions.mergeStyle = static_cast<SpriteImportMergeStyle>(m_lbMergeOptions.GetCurSel());
 
     _UpdatePaddingEnableState();
 
@@ -1213,7 +1257,7 @@ void CPreviewImportManager::OnSpinPaddingHeight(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CPreviewImportManager::OnOK()
 {
-    if (m_importOptions.compositionStyle != SpriteImportCompositionStyle::Replace)
+    if (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace)
     {
         CString strInfo;
 
@@ -1237,6 +1281,8 @@ void CPreviewImportManager::OnOK()
     }
 
     UpdateDisplayedPreview();
+
+    _CacheCurrentWindowPos();
 
     CDialog::OnOK();
 }

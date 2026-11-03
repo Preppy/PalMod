@@ -2,6 +2,33 @@
 #include "game\Default.h"
 #include <optional>
 
+enum class SpriteImportDirection { TopDown, UpsideDown, FlipHorizontal };
+
+enum class SpriteImportMergeStyle
+{
+    Replace,
+    MergeAbove,
+    MergeBelow,
+};
+
+enum class SpriteImportCompositionStyle
+{
+    Center,
+    FlushLeft,
+    FlushRight,
+    FlushTop,
+    FlushBottom,
+    // If you add new styles here update CPreviewImportDialog::OnInitDialog() so that we expose any new options
+};
+
+struct sSpriteImportOptions
+{
+    SpriteImportDirection direction = SpriteImportDirection::TopDown;
+    SpriteImportMergeStyle mergeStyle = SpriteImportMergeStyle::Replace;
+    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Center;
+    sImageDimensions offsets = {};
+};
+
 enum class TextureDataType
 {
     Indexed,

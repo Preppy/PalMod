@@ -753,3 +753,53 @@ void CRegProc::StoreDWORDValueForTransform(DWORD dwIndex, DWORD nPreferredIndex)
 
     StoreDWORDValueForKeyName(strLookupKey.GetString(), nPreferredIndex);
 }
+
+bool CRegProc::GetPreviewImport_WndPos(RECT& rcPos)
+{
+    HKEY hKey;
+    bool fHaveValidData = false;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        CString conv_str;
+        DWORD RegType = REG_SZ;
+        DWORD GetSz = MAX_PATH;
+
+        if (RegQueryValueEx(hKey, c_prevPreviewImport_WndPos, 0, &RegType, reinterpret_cast<LPBYTE>(conv_str.GetBufferSetLength(MAX_PATH)), &GetSz) == ERROR_SUCCESS)
+        {
+            rcPos = StrToRect(conv_str);
+            // This is a good faith check to make sure we didn't get positioned off-screen
+            if ((MonitorFromRect(&rcPos, MONITOR_DEFAULTTONULL) == nullptr) ||
+                ((rcPos.bottom - rcPos.top) < 60)) // make sure we actually have a window to work with
+            {
+                rcPos.top = c_badWindowPosValue;
+            }
+            else
+            {
+                fHaveValidData = true;
+            }
+        }
+        else
+        {
+            rcPos.top = c_badWindowPosValue;
+        }
+    }
+
+    return fHaveValidData;
+}
+
+void CRegProc::SetPreviewImport_WndPos(RECT rcPos)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        CString conv_str = RectToStr(rcPos);
+
+        RegSetValueEx(hKey, c_prevPreviewImport_WndPos, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+
+        RegCloseKey(hKey);
+    }
+}

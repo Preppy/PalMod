@@ -55,6 +55,7 @@ constexpr auto c_prevPreviewImport_AlignToBottom = L"previewImport_AlignToBottom
 constexpr auto c_prevPreviewImport_AutoPreview = L"previewImport_AutoPreview";
 constexpr auto c_prevPreviewImport_KeepChangesOnFileLoad = L"previewImport_KeepOnFileLoad";
 constexpr auto c_prevPreviewImport_KeepChangesOnLayerSwap = L"previewImport_KeepOnLayerSwap";
+constexpr auto c_prevPreviewImport_WndPos = L"previewImport_WndPos";
 
 constexpr auto c_mainDefaultRemapFileTypeStr = L"main_RemapFileType";
 constexpr auto c_mainDefaultColorTransformStr = L"main_ColorTransformType";
@@ -181,6 +182,8 @@ public:
     static void SetPreviewImport_KeepChangesOnLayerSwap(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_KeepChangesOnLayerSwap, dwNewValue); };
     static DWORD GetPreviewImport_Trim(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevTrimImportedPreviews, dwFallbackValue); };
     static void SetPreviewImport_Trim(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevTrimImportedPreviews, dwNewValue); };
+    static bool GetPreviewImport_WndPos(RECT &rcPos);
+    static void SetPreviewImport_WndPos(RECT rcPos);
 
     static BOOL GetPreviewImport_WinKawaksFirst(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImportsKawaksFirst, dwFallbackValue); };
     static void SetPreviewImport_WinKawaksFirst(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImportsKawaksFirst, dwNewValue); };

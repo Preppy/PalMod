@@ -2,6 +2,7 @@
 
 #include <shlwapi.h>
 #include <optional>
+#include "TextureData.h"
 
 // WINE does SHMessageBoxCheck incorrectly, so wrap calls
 int SafeSHMessageBoxCheck(
@@ -14,6 +15,7 @@ int SafeSHMessageBoxCheck(
     bool    fInvertLogicAndNoSpecialMessage = false
 );
 
+// we support "-layer-XX-"
 std::optional<int> GetTargetLayerFromFileName(const std::wstring strFileName);
 
 struct PaletteMapErrorDetails

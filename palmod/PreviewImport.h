@@ -1,5 +1,7 @@
 #pragma once
 
+#include "PNGfiles.h"
+
 enum class TextureSourceFileType
 {
     PNG,
@@ -20,6 +22,7 @@ public:
     afx_msg void OnUpdateCombobox_Layer();
     afx_msg void OnUpdateCombobox_Read();
     afx_msg void OnUpdateCombobox_Composition();
+    afx_msg void OnUpdateCombobox_Merge();
 
     afx_msg void OnAlignToBottomCheckChange();
     afx_msg void OnAutoPreviewCheckChange();
@@ -29,8 +32,6 @@ public:
 
     afx_msg void OnSpinPaddingWidth(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnSpinPaddingHeight(NMHDR* pNMHDR, LRESULT* pResult);
-
-    afx_msg void OnCancel();
 
     afx_msg void ShowOriginal();
     bool LoadFromFile();
@@ -65,6 +66,9 @@ protected:
 
     virtual void DoDataExchange(CDataExchange* pDX);
     virtual void OnOK();
+    afx_msg void OnCancel();
+
+    void _CacheCurrentWindowPos();
 
     void _UpdatePaddingEnableState();
     void _CacheCurrentlyDisplayedLayout();
@@ -90,6 +94,7 @@ protected:
 
     CListBox m_lbReadOptions;
     CListBox m_lbCompositionOptions;
+    CListBox m_lbMergeOptions;
 
     // Original is on load.  This gets restored on cancel
     std::vector<sTextureData> m_rgOriginalTextures;

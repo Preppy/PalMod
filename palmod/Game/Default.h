@@ -61,31 +61,3 @@ struct sPoint
     double x = 0.0;
     double y = 0.0;
 };
-
-enum class SpriteImportDirection { TopDown, UpsideDown, FlipHorizontal };
-
-enum class SpriteImportCompositionStyle
-{
-    Replace,
-    MergeAbove,
-    MergeBelow,
-    FlushLeft,
-    FlushRight,
-    FlushTop,
-    FlushBottom,
-    // If you add new styles here update CPreviewImportDialog::OnInitDialog() so that we expose any new options
-};
-
-struct sSpriteImportOptions
-{
-    SpriteImportDirection direction = SpriteImportDirection::TopDown;
-    SpriteImportCompositionStyle compositionStyle = SpriteImportCompositionStyle::Replace;
-    sImageDimensions offsets = {};
-};
-
-struct PNGImportSpecialOptions
-{
-    bool fForceNonIndexed = false;
-    bool fReversedColorTable = false;
-    bool fColorTableStartsAtOne = true;
-};
