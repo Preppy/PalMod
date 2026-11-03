@@ -303,7 +303,7 @@ BOOL CPreviewImportManager::OnInitDialog()
     m_lbMergeOptions.SetCurSel(static_cast<int>(m_importOptions.mergeStyle));
 
     // Composition options
-    m_lbCompositionOptions.InsertString(0, L"Center");
+    m_lbCompositionOptions.InsertString(0, L"Normal");
     m_lbCompositionOptions.InsertString(1, L"Side: Left");
     m_lbCompositionOptions.InsertString(2, L"Side: Right");
     m_lbCompositionOptions.InsertString(3, L"Side: Above");
@@ -320,6 +320,10 @@ BOOL CPreviewImportManager::OnInitDialog()
         // we need to update this as the user changes layers
         m_lbMergeOptions.EnableWindow(FALSE);
         m_lbCompositionOptions.EnableWindow(FALSE);
+    }
+    else
+    {
+        m_lbCompositionOptions.EnableWindow(m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
     }
 
     CString strInfo;
@@ -356,6 +360,7 @@ BOOL CPreviewImportManager::OnInitDialog()
     GetDlgItem(IDC_PREVIEWIMPORT_KEEPONSWAP)->EnableWindow(m_rgWorkingTextures.size() > 1);
 
     _UpdatePaddingEnableState();
+    _UpdateAlignToGroundEnable();
 
     RECT window_rect;
     if (CRegProc::GetPreviewImport_WndPos(window_rect))
@@ -761,6 +766,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                     // we want to be careful since foreground will get modified
                     sTextureData* pForegroundTexture = nullptr;
                     sTextureData tempForegroundIfNeeded;
+                    int nLeftShiftNeeded = 0, nRightShiftNeeded = 0, nTopShiftNeeded = 0, nBottomShiftNeeded = 0;
 
                     switch (m_importOptions.mergeStyle)
                     {
@@ -768,11 +774,25 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                         default:
                             pBackgroundTexture = &m_rgWorkingTextures[iLayer];
                             pForegroundTexture = pTextureToUse;
+
+                            nLeftShiftNeeded = pTextureToUse->dimensions.width;
+                            nRightShiftNeeded = -m_rgWorkingTextures[iLayer].dimensions.width;
+                            nTopShiftNeeded = pTextureToUse->dimensions.height;
+                            nBottomShiftNeeded = -m_rgWorkingTextures[iLayer].dimensions.height; // background below trim / align is wrong
+
+                            // reverse the logic since we're reversing layering
+                            groundingoffset.y = (groundingoffset.y * -1);
+
                             break;
                         case SpriteImportMergeStyle::MergeAbove:
                             pBackgroundTexture = pTextureToUse;
                             tempForegroundIfNeeded = m_rgWorkingTextures[iLayer];
                             pForegroundTexture = &tempForegroundIfNeeded;
+
+                            nLeftShiftNeeded = -pTextureToUse->dimensions.width;
+                            nRightShiftNeeded = m_rgWorkingTextures[iLayer].dimensions.width;
+                            nTopShiftNeeded = -pTextureToUse->dimensions.height; /// this is wrong due to trim?
+                            nBottomShiftNeeded = m_rgWorkingTextures[iLayer].dimensions.height;
                             break;
                     }
 
@@ -780,23 +800,23 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                     {
                         // we default to always merge Above for anything other than merge below.  it might be useful
                         case SpriteImportCompositionStyle::Center:
-                            pForegroundTexture->Merge(*pBackgroundTexture, { -m_importOptions.offsets.width, -m_importOptions.offsets.height });
+                            pForegroundTexture->Merge(*pBackgroundTexture, { -m_importOptions.offsets.width, -m_importOptions.offsets.height + groundingoffset.y });
                             rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushLeft:
-                            pForegroundTexture->Merge(*pBackgroundTexture, { -pForegroundTexture->dimensions.width - m_importOptions.offsets.width, -m_importOptions.offsets.height + groundingoffset.y });
+                            pForegroundTexture->Merge(*pBackgroundTexture, { nLeftShiftNeeded - m_importOptions.offsets.width, -m_importOptions.offsets.height + groundingoffset.y });
                             rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushRight:
-                            pForegroundTexture->Merge(*pBackgroundTexture, { pBackgroundTexture->dimensions.width + m_importOptions.offsets.width, m_importOptions.offsets.height + groundingoffset.y });
+                            pForegroundTexture->Merge(*pBackgroundTexture, { nRightShiftNeeded + m_importOptions.offsets.width, m_importOptions.offsets.height + groundingoffset.y });
                             rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushTop:
-                            pForegroundTexture->Merge(*pBackgroundTexture, { -m_importOptions.offsets.width, -pForegroundTexture->dimensions.height - m_importOptions.offsets.height });
+                            pForegroundTexture->Merge(*pBackgroundTexture, { -m_importOptions.offsets.width, nTopShiftNeeded - m_importOptions.offsets.height });
                             rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         case SpriteImportCompositionStyle::FlushBottom:
-                            pForegroundTexture->Merge(*pBackgroundTexture, { m_importOptions.offsets.width, pBackgroundTexture->dimensions.height + m_importOptions.offsets.height });
+                            pForegroundTexture->Merge(*pBackgroundTexture, { m_importOptions.offsets.width, nBottomShiftNeeded + m_importOptions.offsets.height });
                             rgTextureSlices.at(iLayer) = *pForegroundTexture;
                             break;
                         }
@@ -1104,13 +1124,13 @@ void CPreviewImportManager::OnUpdateCombobox_Layer()
 
     if (!m_rgWorkingTextures.at(nCurSel).dimensions.IsEmpty())
     {
-        m_lbCompositionOptions.EnableWindow(TRUE);
         m_lbMergeOptions.EnableWindow(TRUE);
+        m_lbCompositionOptions.EnableWindow(m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
     }
     else
     {
-        m_lbCompositionOptions.EnableWindow(FALSE);
         m_lbMergeOptions.EnableWindow(FALSE);
+        m_lbCompositionOptions.EnableWindow(FALSE);
         m_lbCompositionOptions.SetCurSel(0);
     }
 
@@ -1135,11 +1155,22 @@ void CPreviewImportManager::OnUpdateCombobox_Read()
     }
 }
 
+void CPreviewImportManager::_UpdateAlignToGroundEnable()
+{
+    const BOOL fCanGroundImage = (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace) &&
+                                 (m_importOptions.compositionStyle != SpriteImportCompositionStyle::FlushTop) &&
+                                 (m_importOptions.compositionStyle != SpriteImportCompositionStyle::FlushBottom);
+
+    GetDlgItem(IDC_PREVIEWIMPORT_ALIGNTOBOTTOM)->EnableWindow(fCanGroundImage);
+}
+
 void CPreviewImportManager::OnUpdateCombobox_Composition()
 {
     UpdateData();
 
     m_importOptions.compositionStyle = static_cast<SpriteImportCompositionStyle>(m_lbCompositionOptions.GetCurSel());
+
+    _UpdateAlignToGroundEnable();
 
     if (m_fAutoPreview)
     {
@@ -1153,7 +1184,10 @@ void CPreviewImportManager::OnUpdateCombobox_Merge()
 
     m_importOptions.mergeStyle = static_cast<SpriteImportMergeStyle>(m_lbMergeOptions.GetCurSel());
 
+    m_lbCompositionOptions.EnableWindow(m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
+
     _UpdatePaddingEnableState();
+    _UpdateAlignToGroundEnable();
 
     if (m_fAutoPreview)
     {

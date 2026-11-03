@@ -70,7 +70,6 @@ protected:
 
     void _CacheCurrentWindowPos();
 
-    void _UpdatePaddingEnableState();
     void _CacheCurrentlyDisplayedLayout();
     std::optional<int> _GetCurrentLayerSelectionFromUI();
     int _GetCurrentLayerSelectionForCListBox();
@@ -82,6 +81,8 @@ protected:
 
     void _UpdateInfoText();
     void _UpdateDimensionsOptions();
+    void _UpdatePaddingEnableState();
+    void _UpdateAlignToGroundEnable();
 
     CImgDisp* m_pImgDisp = nullptr;
 
