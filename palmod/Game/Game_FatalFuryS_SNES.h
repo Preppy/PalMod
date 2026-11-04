@@ -20,7 +20,7 @@ private:
 
     const sCoreGameData m_sCoreGameData
     {
-        L"Fatal Fury Special(SNES)",
+        L"Fatal Fury Special (SNES)",
         FatalFuryS_SNES,
         IMGDAT_SECTION_KOF,
         FFS_SNES_IMGIDS_USED,
@@ -34,7 +34,7 @@ private:
         FatalFuryS_SNES_UNITS,
         ARRAYSIZE(FatalFuryS_SNES_UNITS),
         L"FatalFurySE.txt",            // Extra filename
-        30,                            // Count of palettes listed in the header
+        32,                            // Count of palettes listed in the header
         0x13f1a0,                      // Lowest known location used for palettes
     };
 
