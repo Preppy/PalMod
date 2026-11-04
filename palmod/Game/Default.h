@@ -38,6 +38,20 @@ enum class BlendMode
     PS1SemiTransparencyOn,
 };
 
+struct sImageDisplayOffsets
+{
+    int x = 0;
+    int y = 0;
+
+    bool IsUnused() const { return (x == 0) && (y == 0); };
+};
+
+struct sPoint
+{
+    double x = 0.0;
+    double y = 0.0;
+};
+
 struct sImageDimensions
 {
     int width = 0;
@@ -48,16 +62,5 @@ struct sImageDimensions
     bool IsVisible() const { return (width != 0) && (height != 0); };
     bool operator==(const sImageDimensions& other) const { return (width == other.width) && (height == other.height); };
     void operator+=(const sImageDimensions& other) { width += abs(other.width); height += abs(other.height); };
-};
-
-struct sImageDisplayOffsets
-{
-    int x = 0;
-    int y = 0;
-};
-
-struct sPoint
-{
-    double x = 0.0;
-    double y = 0.0;
+    void operator+=(const sImageDisplayOffsets& other) { width += abs(other.x); height += abs(other.y); };
 };

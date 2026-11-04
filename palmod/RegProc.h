@@ -57,6 +57,10 @@ constexpr auto c_prevPreviewImport_KeepChangesOnFileLoad = L"previewImport_KeepO
 constexpr auto c_prevPreviewImport_KeepChangesOnLayerSwap = L"previewImport_KeepOnLayerSwap";
 constexpr auto c_prevPreviewImport_WndPos = L"previewImport_WndPos";
 
+constexpr auto c_prevPreviewImport_PalBoxes_Draw = L"palBoxes_Draw";
+constexpr auto c_prevPreviewImport_PalBoxes_PerLine = L"palBoxes_PerLine";
+constexpr auto c_prevPreviewImport_PalBoxes_Rect = L"palBoxes_Rect";
+
 constexpr auto c_mainDefaultRemapFileTypeStr = L"main_RemapFileType";
 constexpr auto c_mainDefaultColorTransformStr = L"main_ColorTransformType";
 
@@ -184,6 +188,13 @@ public:
     static void SetPreviewImport_Trim(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevTrimImportedPreviews, dwNewValue); };
     static bool GetPreviewImport_WndPos(RECT &rcPos);
     static void SetPreviewImport_WndPos(RECT rcPos);
+
+    static DWORD GetPreviewImport_PalBoxes_Draw(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_Draw, dwFallbackValue); };
+    static void SetPreviewImport_PalBoxes_Draw(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_Draw, dwNewValue); };
+    static DWORD GetPreviewImport_PalBoxes_PerLine(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_PerLine, dwFallbackValue); };
+    static void SetPreviewImport_PalBoxes_PerLine(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_PerLine, dwNewValue); };
+    static DWORD GetPreviewImport_PalBoxes_Rect(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_Rect, dwFallbackValue); };
+    static void SetPreviewImport_PalBoxes_Rect(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_Rect, dwNewValue); };
 
     static BOOL GetPreviewImport_WinKawaksFirst(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImportsKawaksFirst, dwFallbackValue); };
     static void SetPreviewImport_WinKawaksFirst(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImportsKawaksFirst, dwNewValue); };

@@ -7,13 +7,23 @@
 #include "TextureData.h"
 #include "Util.h"
 
+uint8_t BoundPaletteBoxRectSizeValue(uint8_t nVal)
+{
+    return max(PaletteBox_MinimumRect, min(PaletteBox_MaxmiumRect, nVal));
+}
+
+uint16_t BoundPaletteBoxPerLineValue(uint16_t nVal)
+{
+    return max(PaletteBox_MinimumPerLine, min(PaletteBox_MaxmiumPerLine, nVal));
+}
+
 IMPLEMENT_DYNAMIC(CPreviewImportManager, CDialog)
 
 void CPreviewImportManager::DoDataExchange(CDataExchange* pDX)
 {
     CDialog::DoDataExchange(pDX);
 
-    DDX_Control(pDX, IDC_PREVIEWIMPORT_HWOPTIONS, m_lbHWOptions);
+    DDX_Control(pDX, IDC_PREVIEWIMPORT_HWOPTIONS, m_lbDimensionOptions);
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_LAYER, m_lbLayerOptions);
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_READ, m_lbReadOptions);
     DDX_Control(pDX, IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION, m_lbCompositionOptions);
@@ -21,12 +31,18 @@ void CPreviewImportManager::DoDataExchange(CDataExchange* pDX)
 
     DDX_Check(pDX, IDC_PREVIEWIMPORT_ALIGNTOBOTTOM, m_fAlignToBottom);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_AUTOPREVIEW, m_fAutoPreview);
+    DDX_Check(pDX, IDC_PREVIEWIMPORT_PALETTEBOXES_DRAW, m_fDrawPaletteBoxes);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_KEEPONSWAP, m_fKeepChangesOnLayerSwap);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_KEEPONFILESWAP, m_fKeepChangesOnFileLoad);
     DDX_Check(pDX, IDC_PREVIEWIMPORT_TRIM, m_fTrim);
 
-    DDX_Text(pDX, IDC_PREVIEWIMPORT_PADDING_WIDTH, m_strTrimWidth);
-    DDX_Text(pDX, IDC_PREVIEWIMPORT_PADDING_HEIGHT, m_strTrimHeight);
+    DDX_Text(pDX, IDC_PREVIEWIMPORT_PADDING_WIDTH, m_strPaddingOffsets_Width);
+    DDX_Text(pDX, IDC_PREVIEWIMPORT_PADDING_HEIGHT, m_strPaddingOffsets_Height);
+
+    DDX_Text(pDX, IDC_PREVIEWIMPORT_PALETTEBOXES_RECT, m_strPalBoxes_Rect);
+    DDX_Text(pDX, IDC_PREVIEWIMPORT_PALETTEBOXES_PERLINE, m_strPalBoxes_PerLine);
+    DDX_Text(pDX, IDC_PREVIEWIMPORT_PALETTEBOXES_OFFSET_WIDTH, m_strPalBoxesOffset_Width);
+    DDX_Text(pDX, IDC_PREVIEWIMPORT_PALETTEBOXES_OFFSET_HEIGHT, m_strPalBoxesOffset_Height);
 }
 
 BEGIN_MESSAGE_MAP(CPreviewImportManager, CDialog)
@@ -43,12 +59,24 @@ BEGIN_MESSAGE_MAP(CPreviewImportManager, CDialog)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_ALIGNTOBOTTOM, &OnAlignToBottomCheckChange)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_AUTOPREVIEW, &OnAutoPreviewCheckChange)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_TRIM, &OnTrimCheckChange)
+    ON_BN_CLICKED(IDC_PREVIEWIMPORT_PALETTEBOXES_DRAW, &OnDrawPalBoxesCheckChange)
 
     ON_EN_CHANGE(IDC_PREVIEWIMPORT_PADDING_WIDTH, &OnUpdatePaddingValues)
     ON_EN_CHANGE(IDC_PREVIEWIMPORT_PADDING_HEIGHT, &OnUpdatePaddingValues)
+        
+    ON_EN_CHANGE(IDC_PREVIEWIMPORT_PALETTEBOXES_RECT, &OnUpdatePalBoxesRect)
+    ON_EN_CHANGE(IDC_PREVIEWIMPORT_PALETTEBOXES_PERLINE, &OnUpdatePalBoxesPerLine)
+    ON_EN_CHANGE(IDC_PREVIEWIMPORT_PALETTEBOXES_OFFSET_WIDTH, &OnUpdatePalBoxesOffsets)
+    ON_EN_CHANGE(IDC_PREVIEWIMPORT_PALETTEBOXES_OFFSET_HEIGHT, &OnUpdatePalBoxesOffsets)
+    ON_EN_CHANGE(IDC_PREVIEWIMPORT_PALETTEBOXES_RECT, &OnUpdatePalBoxesRect)
 
     ON_NOTIFY(UDN_DELTAPOS, IDC_PREVIEWIMPORT_PADWIDTH_SPIN, &OnSpinPaddingWidth)
     ON_NOTIFY(UDN_DELTAPOS, IDC_PREVIEWIMPORT_PADHEIGHT_SPIN, &OnSpinPaddingHeight)
+
+    ON_NOTIFY(UDN_DELTAPOS, IDC_PREVIEWIMPORT_PALETTEBOXES_RECT_SPIN, &OnSpinPalBoxesRect)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_PREVIEWIMPORT_PALETTEBOXES_PERLINE_SPIN, &OnSpinPalBoxesPerLine)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_PREVIEWIMPORT_PALBOXES_WIDTH_SPIN, &OnSpinPalBoxesWidth)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_PREVIEWIMPORT_PALBOXES_HEIGHT_SPIN, &OnSpinPalBoxesHeight)
 END_MESSAGE_MAP()
 
 CPreviewImportManager::CPreviewImportManager(CWnd* pParent /* = NULL*/)
@@ -61,6 +89,10 @@ CPreviewImportManager::CPreviewImportManager(CWnd* pParent /* = NULL*/)
     m_fKeepChangesOnLayerSwap = CRegProc::GetPreviewImport_KeepChangesOnLayerSwap(FALSE);
     m_fKeepChangesOnFileLoad = CRegProc::GetPreviewImport_KeepChangesOnFileLoad(FALSE);
     m_fTrim = CRegProc::GetPreviewImport_Trim(TRUE);
+
+    m_fDrawPaletteBoxes = CRegProc::GetPreviewImport_PalBoxes_Draw(FALSE);
+    m_paletteBoxSettings.nRectSize = BoundPaletteBoxRectSizeValue(static_cast<uint8_t>(CRegProc::GetPreviewImport_PalBoxes_Rect(5)));
+    m_paletteBoxSettings.nWidthInBoxes = BoundPaletteBoxPerLineValue(static_cast<uint16_t>(CRegProc::GetPreviewImport_PalBoxes_PerLine(16)));
 
     m_pImgDisp = GetHost()->GetImgDispCtrl();
 
@@ -90,6 +122,10 @@ CPreviewImportManager::~CPreviewImportManager()
     CRegProc::SetPreviewImport_KeepChangesOnLayerSwap(m_fKeepChangesOnLayerSwap);
     CRegProc::SetPreviewImport_KeepChangesOnFileLoad(m_fKeepChangesOnFileLoad);
     CRegProc::SetPreviewImport_Trim(m_fTrim);
+
+     CRegProc::SetPreviewImport_PalBoxes_Draw(m_fDrawPaletteBoxes);
+     CRegProc::SetPreviewImport_PalBoxes_PerLine(m_paletteBoxSettings.nWidthInBoxes);
+     CRegProc::SetPreviewImport_PalBoxes_Rect(m_paletteBoxSettings.nRectSize);
 }
 
 void CPreviewImportManager::_CacheCurrentWindowPos()
@@ -121,8 +157,8 @@ void CPreviewImportManager::OnCancel()
 
 void CPreviewImportManager::_UpdateDimensionsOptions()
 {
-    m_lbHWOptions.ResetContent();
-    m_rgHWOptionsList.clear();
+    m_lbDimensionOptions.ResetContent();
+    m_rgDimensionOptionsList.clear();
     int nSelectionOption = 0;
 
     if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty())
@@ -131,7 +167,7 @@ void CPreviewImportManager::_UpdateDimensionsOptions()
 
         if (m_rgTextureLoadedFromFile.dimensions.GetPixelCount() == static_cast<int>(m_rgTextureLoadedFromFile.indexedPixels.size()))
         {
-            m_rgHWOptionsList.push_back(m_rgTextureLoadedFromFile.dimensions);
+            m_rgDimensionOptionsList.push_back(m_rgTextureLoadedFromFile.dimensions);
         }
         else // this should only be accessible from RAWs without correct H/W information
         {
@@ -153,13 +189,13 @@ void CPreviewImportManager::_UpdateDimensionsOptions()
                 if (nActualFileSize % nPossibleWidth == 0)
                 {
                     const int nFoundHeight = static_cast<int>(nActualFileSize / nPossibleWidth);
-                    m_rgHWOptionsList.push_back({ nPossibleWidth, nFoundHeight });
+                    m_rgDimensionOptionsList.push_back({ nPossibleWidth, nFoundHeight });
 
                     if ((nSelectionOption == 0) &&
                         ((m_rgTextureLoadedFromFile.dimensions.width == nPossibleWidth) ||
                          (m_rgTextureLoadedFromFile.dimensions.height== nFoundHeight)))
                     {
-                        nSelectionOption = static_cast<int>(m_rgHWOptionsList.size() - 1);
+                        nSelectionOption = static_cast<int>(m_rgDimensionOptionsList.size() - 1);
                     }
 
                     nFoundMatches++;
@@ -167,13 +203,13 @@ void CPreviewImportManager::_UpdateDimensionsOptions()
             }
         }
 
-        for (size_t iLayoutOptions = 0; iLayoutOptions < m_rgHWOptionsList.size(); iLayoutOptions++)
+        for (size_t iLayoutOptions = 0; iLayoutOptions < m_rgDimensionOptionsList.size(); iLayoutOptions++)
         {
-            strDimensionsText.Format(L"%u x %u", m_rgHWOptionsList[iLayoutOptions].width, m_rgHWOptionsList[iLayoutOptions].height);
-            m_lbHWOptions.AddString(strDimensionsText);
+            strDimensionsText.Format(L"%u x %u", m_rgDimensionOptionsList[iLayoutOptions].width, m_rgDimensionOptionsList[iLayoutOptions].height);
+            m_lbDimensionOptions.AddString(strDimensionsText);
         }
 
-        m_lbHWOptions.SetCurSel(nSelectionOption);
+        m_lbDimensionOptions.SetCurSel(nSelectionOption);
     }
 }
 
@@ -357,10 +393,14 @@ BOOL CPreviewImportManager::OnInitDialog()
     strInfo.Format(L"%i", m_importOptions.offsets.height);
     GetDlgItem(IDC_PREVIEWIMPORT_PADDING_HEIGHT)->SetWindowText(strInfo.GetString());
 
+    strInfo.Format(L"%i", m_paletteBoxSettings.nRectSize);
+    GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_RECT)->SetWindowText(strInfo.GetString());
+    strInfo.Format(L"%i", m_paletteBoxSettings.nWidthInBoxes);
+    GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_PERLINE)->SetWindowText(strInfo.GetString());
+
     GetDlgItem(IDC_PREVIEWIMPORT_KEEPONSWAP)->EnableWindow(m_rgWorkingTextures.size() > 1);
 
-    _UpdatePaddingEnableState();
-    _UpdateAlignToGroundEnable();
+    _SyncEnabledControls();
 
     RECT window_rect;
     if (CRegProc::GetPreviewImport_WndPos(window_rect))
@@ -674,12 +714,12 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 
             UpdateData();
 
-            const int nDimensionSelect = m_lbHWOptions.GetCurSel();
+            const int nDimensionSelect = m_lbDimensionOptions.GetCurSel();
 
             if ((nDimensionSelect != -1) &&
-                (nDimensionSelect < static_cast<int>(m_rgHWOptionsList.size())))
+                (nDimensionSelect < static_cast<int>(m_rgDimensionOptionsList.size())))
             {
-                m_rgTextureLoadedFromFile.dimensions = m_rgHWOptionsList[nDimensionSelect];
+                m_rgTextureLoadedFromFile.dimensions = m_rgDimensionOptionsList[nDimensionSelect];
             }
         }
 
@@ -867,6 +907,17 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             // shifts where we might want to pad the non-target layer.  But if you use
             // the All layer option it does that for you.
             rgAssembledTextures.at(iLayer).Resize(aggregateDimensions);
+        }
+
+        if (m_fDrawPaletteBoxes)
+        {
+            OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: adding palette boxes...\r\n");
+            std::vector<sTextureData> boxTextures = GetPaletteBoxesForPaletteSet(m_rgrgPaletteSet, m_paletteBoxSettings.nWidthInBoxes, m_paletteBoxSettings.nRectSize);
+
+            for (size_t iLayer = 0; iLayer < boxTextures.size(); iLayer++)
+            {
+                rgAssembledTextures.at(iLayer).Merge(boxTextures.at(iLayer), m_paletteBoxSettings.offsets);
+            }
         }
 
         OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: updating display...\r\n");
@@ -1075,21 +1126,11 @@ void CPreviewImportManager::UpdateDisplayedPreview()
     }
 }
 
-void CPreviewImportManager::_UpdatePaddingEnableState()
-{
-    UpdateData();
-
-    const BOOL fShouldAllowPadding = (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
-
-    GetDlgItem(IDC_PREVIEWIMPORT_PADDING_WIDTH)->EnableWindow(fShouldAllowPadding);
-    GetDlgItem(IDC_PREVIEWIMPORT_PADDING_HEIGHT)->EnableWindow(fShouldAllowPadding);
-}
-
 void CPreviewImportManager::OnUpdateCombobox_HW()
 {
     UpdateData();
 
-    m_nCurrentSel_HW = m_lbHWOptions.GetCurSel();
+    m_nCurrentSel_Dimensions = m_lbDimensionOptions.GetCurSel();
 
     if (m_fAutoPreview)
     {
@@ -1155,22 +1196,13 @@ void CPreviewImportManager::OnUpdateCombobox_Read()
     }
 }
 
-void CPreviewImportManager::_UpdateAlignToGroundEnable()
-{
-    const BOOL fCanGroundImage = (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace) &&
-                                 (m_importOptions.compositionStyle != SpriteImportCompositionStyle::FlushTop) &&
-                                 (m_importOptions.compositionStyle != SpriteImportCompositionStyle::FlushBottom);
-
-    GetDlgItem(IDC_PREVIEWIMPORT_ALIGNTOBOTTOM)->EnableWindow(fCanGroundImage);
-}
-
 void CPreviewImportManager::OnUpdateCombobox_Composition()
 {
     UpdateData();
 
     m_importOptions.compositionStyle = static_cast<SpriteImportCompositionStyle>(m_lbCompositionOptions.GetCurSel());
 
-    _UpdateAlignToGroundEnable();
+    _SyncEnabledControls();
 
     if (m_fAutoPreview)
     {
@@ -1186,8 +1218,7 @@ void CPreviewImportManager::OnUpdateCombobox_Merge()
 
     m_lbCompositionOptions.EnableWindow(m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
 
-    _UpdatePaddingEnableState();
-    _UpdateAlignToGroundEnable();
+    _SyncEnabledControls();
 
     if (m_fAutoPreview)
     {
@@ -1200,6 +1231,41 @@ void CPreviewImportManager::OnTrimCheckChange()
     UpdateData();
 
     CRegProc::SetPreviewImport_Trim(m_fTrim);
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::_SyncEnabledControls()
+{
+    const BOOL fCanGroundImage = (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace) &&
+        (m_importOptions.compositionStyle != SpriteImportCompositionStyle::FlushTop) &&
+        (m_importOptions.compositionStyle != SpriteImportCompositionStyle::FlushBottom);
+
+    GetDlgItem(IDC_PREVIEWIMPORT_ALIGNTOBOTTOM)->EnableWindow(fCanGroundImage);
+
+    const BOOL fShouldAllowPadding = (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
+
+    GetDlgItem(IDC_PREVIEWIMPORT_PADDING_WIDTH)->EnableWindow(fShouldAllowPadding);
+    GetDlgItem(IDC_PREVIEWIMPORT_PADDING_HEIGHT)->EnableWindow(fShouldAllowPadding);
+
+    GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_RECT)->EnableWindow(m_fDrawPaletteBoxes);
+    GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_PERLINE)->EnableWindow(m_fDrawPaletteBoxes);
+    GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_OFFSET_WIDTH)->EnableWindow(m_fDrawPaletteBoxes);
+    GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_OFFSET_HEIGHT)->EnableWindow(m_fDrawPaletteBoxes);
+    GetDlgItem(IDC_PREVIEWIMPORT_PALBOXES_WIDTH_SPIN)->EnableWindow(m_fDrawPaletteBoxes);
+    GetDlgItem(IDC_PREVIEWIMPORT_PALBOXES_HEIGHT_SPIN)->EnableWindow(m_fDrawPaletteBoxes);
+}
+
+void CPreviewImportManager::OnDrawPalBoxesCheckChange()
+{
+    UpdateData();
+
+    CRegProc::SetPreviewImport_PalBoxes_Draw(m_fDrawPaletteBoxes);
+
+    _SyncEnabledControls();
 
     if (m_fAutoPreview)
     {
@@ -1236,8 +1302,8 @@ void CPreviewImportManager::OnUpdatePaddingValues()
 {
     UpdateData();
 
-    m_importOptions.offsets.width = max(-1000, min(1000, _wtoi(m_strTrimWidth.GetString())));
-    m_importOptions.offsets.height = max(-1000, min(1000, _wtoi(m_strTrimHeight.GetString())));
+    m_importOptions.offsets.width = max(-1000, min(1000, _wtoi(m_strPaddingOffsets_Width.GetString())));
+    m_importOptions.offsets.height = max(-1000, min(1000, _wtoi(m_strPaddingOffsets_Height.GetString())));
 
     if (m_fAutoPreview)
     {
@@ -1257,7 +1323,7 @@ void CPreviewImportManager::OnSpinPaddingWidth(NMHDR* pNMHDR, LRESULT* pResult)
     const int nCurrentStep = (-1 * pNMUpDown->iDelta);
     m_importOptions.offsets.width = max(-1000, min(1000, m_importOptions.offsets.width + nCurrentStep));
 
-    m_strTrimWidth.Format(L"%i", m_importOptions.offsets.width);
+    m_strPaddingOffsets_Width.Format(L"%i", m_importOptions.offsets.width);
 
     UpdateData(FALSE);
 
@@ -1279,7 +1345,132 @@ void CPreviewImportManager::OnSpinPaddingHeight(NMHDR* pNMHDR, LRESULT* pResult)
     const int nCurrentStep = (-1 * pNMUpDown->iDelta);
     m_importOptions.offsets.height = max(-1000, min(1000, m_importOptions.offsets.height + nCurrentStep));
 
-    m_strTrimHeight.Format(L"%i", m_importOptions.offsets.height);
+    m_strPaddingOffsets_Height.Format(L"%i", m_importOptions.offsets.height);
+
+    UpdateData(FALSE);
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnUpdatePalBoxesOffsets()
+{
+    UpdateData();
+
+    m_paletteBoxSettings.offsets.x = max(-1000, min(1000, _wtoi(m_strPalBoxesOffset_Width.GetString())));
+    m_paletteBoxSettings.offsets.y = max(-1000, min(1000, _wtoi(m_strPalBoxesOffset_Height.GetString())));
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnSpinPalBoxesWidth(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    UpdateData();
+
+    // Adjust by amount, but correct the orientation
+    // Handle the conversion
+    const int nCurrentStep = (-1 * pNMUpDown->iDelta);
+    m_paletteBoxSettings.offsets.x = max(-1000, min(1000, m_paletteBoxSettings.offsets.x + nCurrentStep));
+
+    m_strPalBoxesOffset_Width.Format(L"%i", m_paletteBoxSettings.offsets.x);
+
+    UpdateData(FALSE);
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnSpinPalBoxesHeight(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    UpdateData();
+
+    // Adjust by amount, but correct the orientation
+    // Handle the conversion
+    const int nCurrentStep = (-1 * pNMUpDown->iDelta);
+    m_paletteBoxSettings.offsets.y = max(-1000, min(1000, m_paletteBoxSettings.offsets.y + nCurrentStep));
+
+    m_strPalBoxesOffset_Height.Format(L"%i", m_paletteBoxSettings.offsets.y);
+
+    UpdateData(FALSE);
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnUpdatePalBoxesRect()
+{
+    UpdateData();
+
+    m_paletteBoxSettings.nRectSize = BoundPaletteBoxRectSizeValue(static_cast<uint8_t>(_wtoi(m_strPalBoxes_Rect.GetString())));
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnSpinPalBoxesRect(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    UpdateData();
+
+    // Adjust by amount, but correct the orientation
+    // Handle the conversion
+    const int nCurrentStep = (-1 * pNMUpDown->iDelta);
+    m_paletteBoxSettings.nRectSize = BoundPaletteBoxRectSizeValue(static_cast<uint8_t>(m_paletteBoxSettings.nRectSize + nCurrentStep));
+
+    m_strPalBoxes_Rect.Format(L"%i", m_paletteBoxSettings.nRectSize);
+
+    UpdateData(FALSE);
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnUpdatePalBoxesPerLine()
+{
+    UpdateData();
+
+    m_paletteBoxSettings.nWidthInBoxes = BoundPaletteBoxPerLineValue(static_cast<uint16_t>(_wtoi(m_strPalBoxes_PerLine.GetString())));
+
+    if (m_fAutoPreview)
+    {
+        UpdateDisplayedPreview();
+    }
+}
+
+void CPreviewImportManager::OnSpinPalBoxesPerLine(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    UpdateData();
+
+    // Adjust by amount, but correct the orientation
+    // Handle the conversion
+    const int nCurrentStep = (-1 * pNMUpDown->iDelta);
+    m_paletteBoxSettings.nWidthInBoxes = BoundPaletteBoxPerLineValue(static_cast<uint16_t>(m_paletteBoxSettings.nWidthInBoxes + nCurrentStep));
+
+    m_strPalBoxes_PerLine.Format(L"%i", m_paletteBoxSettings.nWidthInBoxes);
 
     UpdateData(FALSE);
 

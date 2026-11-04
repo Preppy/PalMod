@@ -27,3 +27,5 @@ struct PaletteMapErrorDetails
 };
 
 bool PaletteSetIsMappingSafe(PALWriteOutputOptions systemPaletteLength, std::vector<std::vector<COLORREF>> rgrgPaletteSet, std::optional<UINT> optTargetPalette, PaletteMapErrorDetails& mappingDetails);
+
+std::vector<sTextureData> GetPaletteBoxesForPaletteSet(std::vector<std::vector<COLORREF>> rgrgPaletteSet, uint16_t nWidthInBoxes, uint8_t nRectSizeInPixels);

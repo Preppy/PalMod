@@ -206,3 +206,70 @@ bool PaletteSetIsMappingSafe(PALWriteOutputOptions systemPaletteLength, std::vec
 
     return fIsMappingSafe;
 }
+
+std::vector<sTextureData> GetPaletteBoxesForPaletteSet(std::vector<std::vector<COLORREF>> rgrgPaletteSet, uint16_t nWidthInBoxes, uint8_t nRectSizeInPixels)
+{
+    std::vector<sTextureData> boxTextures;
+    uint16_t nDesignHeightInBoxes = 0;
+
+    uint16_t nLongestPaletteSet = 0;
+
+    for (size_t iPaletteSet = 0; iPaletteSet < rgrgPaletteSet.size(); iPaletteSet++)
+    {
+        nLongestPaletteSet = max(nLongestPaletteSet, static_cast<uint16_t>(rgrgPaletteSet.at(iPaletteSet).size()));
+    }
+
+    nWidthInBoxes = max(1, min(nLongestPaletteSet, nWidthInBoxes));
+
+    const uint16_t nDesignWidthInPixels = nWidthInBoxes * nRectSizeInPixels;
+
+    for (size_t iPaletteSet = 0; iPaletteSet < rgrgPaletteSet.size(); iPaletteSet++)
+    {
+        const uint16_t nHeightThisSetInBoxes = static_cast<uint16_t>(ceil(static_cast<double>(rgrgPaletteSet.at(iPaletteSet).size()) / nWidthInBoxes));
+
+        nDesignHeightInBoxes += nHeightThisSetInBoxes;
+    }
+
+    boxTextures.resize(rgrgPaletteSet.size());
+
+    for (auto& layer : boxTextures)
+    {
+        layer.dimensions = { nDesignWidthInPixels, nDesignHeightInBoxes * nRectSizeInPixels };
+        layer.indexedPixels.resize(layer.dimensions.GetPixelCount());
+    }
+
+    size_t nTotalRowsDrawn = 0;
+
+    for (size_t iPaletteSet = 0; iPaletteSet < rgrgPaletteSet.size(); iPaletteSet++)
+    {
+        // maybe expose whether we skip 0 or not?  doing this way seems reasonable
+        size_t iColorsDrawnThisPalette = (rgrgPaletteSet.at(iPaletteSet).size() <= nWidthInBoxes) ? 1 : 0;
+
+        while (iColorsDrawnThisPalette < rgrgPaletteSet.at(iPaletteSet).size())
+        {
+            const size_t nStartingColorThisRow = iColorsDrawnThisPalette;
+            const size_t nRemainingColors = rgrgPaletteSet.at(iPaletteSet).size() - iColorsDrawnThisPalette;
+            const size_t nMaxColorsThisRow = min(nRemainingColors, nWidthInBoxes);
+
+            for (size_t iCurrentRow = 0; iCurrentRow < nRectSizeInPixels; iCurrentRow++)
+            {
+                for (size_t iCurrentColor = 0; iCurrentColor < nMaxColorsThisRow; iCurrentColor++)
+                {
+                    // draw for width
+                    for (size_t iCurrentPixelThisRect = 0; iCurrentPixelThisRect < nRectSizeInPixels; iCurrentPixelThisRect++)
+                    {
+                        // can just use our indexes since this is ... indexed
+                        const size_t nCurrentPixel = (nDesignWidthInPixels * nTotalRowsDrawn) + (iCurrentColor * nRectSizeInPixels) + iCurrentPixelThisRect;
+                        boxTextures.at(iPaletteSet).indexedPixels.at(nCurrentPixel) = static_cast<uint8_t>(iCurrentColor + nStartingColorThisRow);
+                    }
+                }
+
+                nTotalRowsDrawn++;
+            }
+
+            iColorsDrawnThisPalette += nMaxColorsThisRow;
+        }
+    }
+
+    return boxTextures;
+}

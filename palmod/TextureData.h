@@ -59,8 +59,8 @@ struct sTextureData
 
     void ConvertFromRGBAIfNeeded(PALWriteOutputOptions writeOptions, std::vector<std::vector<COLORREF>> rgrgPaletteSet, RGBAImportMathQuirk importQuirk);
 
-    void Resize(sImageDimensions newSize, sImageDimensions offset = {});
-    void Merge(sTextureData mergeAbove, sImageDimensions offset = {});
+    void Resize(sImageDimensions newSize, sImageDisplayOffsets offset = {});
+    void Merge(sTextureData mergeAbove, sImageDisplayOffsets offset = {});
     bool Clip(RECT clipRect);
     bool ClipUnused() { return Clip(GetUsedRect()); };
     void FlipIfNeeded(SpriteImportDirection direction);

@@ -52,14 +52,14 @@ void PrintColorFrequencyMapToDebugOut(sTextureData rgTexture, std::vector<std::v
 }
 #endif
 
-void sTextureData::Resize(sImageDimensions newSize, sImageDimensions offset /* = {} */)
+void sTextureData::Resize(sImageDimensions newSize, sImageDisplayOffsets offset /* = {} */)
 {
     if (!newSize.IsVisible())
     {
         indexedPixels.clear();
         dimensions = { 0, 0 };
     }
-    else if ((newSize == dimensions) && offset.IsEmpty())
+    else if ((newSize == dimensions) && offset.IsUnused())
     {
         // no-op
         return;
@@ -70,11 +70,11 @@ void sTextureData::Resize(sImageDimensions newSize, sImageDimensions offset /* =
         sImageDimensions dimensionsWithOffset = dimensions;
         dimensionsWithOffset += offset;
 
-        for (int iWriteCurrentLine = offset.height; (iWriteCurrentLine < newSize.height) && ((iWriteCurrentLine - offset.height) < dimensions.height); iWriteCurrentLine++)
+        for (int iWriteCurrentLine = offset.y; (iWriteCurrentLine < newSize.height) && ((iWriteCurrentLine - offset.y) < dimensions.height); iWriteCurrentLine++)
         {
-            for (int iWriteCurrentRow = offset.width; (iWriteCurrentRow < newSize.width) && ((iWriteCurrentRow - offset.width) < dimensions.width); iWriteCurrentRow++)
+            for (int iWriteCurrentRow = offset.x; (iWriteCurrentRow < newSize.width) && ((iWriteCurrentRow - offset.x) < dimensions.width); iWriteCurrentRow++)
             {
-                rgNewData[(iWriteCurrentLine * newSize.width) + iWriteCurrentRow] = indexedPixels[((iWriteCurrentLine - offset.height) * dimensions.width) + (iWriteCurrentRow - offset.width)];
+                rgNewData[(iWriteCurrentLine * newSize.width) + iWriteCurrentRow] = indexedPixels[((iWriteCurrentLine - offset.y) * dimensions.width) + (iWriteCurrentRow - offset.x)];
             }
         }
 
@@ -83,35 +83,35 @@ void sTextureData::Resize(sImageDimensions newSize, sImageDimensions offset /* =
     }
 }
 
-void sTextureData::Merge(sTextureData mergeAbove, sImageDimensions offset /*= {} */)
+void sTextureData::Merge(sTextureData mergeAbove, sImageDisplayOffsets offset /*= {} */)
 {
     sImageDimensions mergedDimensions = mergeAbove.dimensions;
-    sImageDimensions offsetMerged = {};
-    sImageDimensions offsetSource = {};
+    sImageDisplayOffsets offsetMerged = {};
+    sImageDisplayOffsets offsetSource = {};
 
     sImageDimensions newSource = dimensions;
     sImageDimensions newMerged = mergeAbove.dimensions;
 
-    if (offset.width >= 0)
+    if (offset.x >= 0)
     {
-        newMerged.width += offset.width;
-        offsetMerged.width = offset.width;
+        newMerged.width += offset.x;
+        offsetMerged.x = offset.x;
     }
     else
     {
-        newSource.width += abs(offset.width);
-        offsetSource.width = abs(offset.width);
+        newSource.width += abs(offset.x);
+        offsetSource.x = abs(offset.x);
     }
 
-    if (offset.height >= 0)
+    if (offset.y >= 0)
     {
-        newMerged.height += offset.height;
-        offsetMerged.height = offset.height;
+        newMerged.height += offset.y;
+        offsetMerged.y = offset.y;
     }
     else
     {
-        newSource.height += abs(offset.height);
-        offsetSource.height = abs(offset.height);
+        newSource.height += abs(offset.y);
+        offsetSource.y = abs(offset.y);
     }
 
     mergedDimensions.width = max(newMerged.width, newSource.width);

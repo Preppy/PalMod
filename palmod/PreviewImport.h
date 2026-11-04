@@ -9,6 +9,22 @@ enum class TextureSourceFileType
     CImage,
 };
 
+constexpr auto PaletteBox_MinimumRect = 1;
+constexpr auto PaletteBox_MaxmiumRect = 48;
+
+constexpr auto PaletteBox_MinimumPerLine = 1;
+constexpr auto PaletteBox_MaxmiumPerLine = 256;
+
+struct PaletteBoxSettings
+{
+    uint8_t nRectSize = 5;
+    uint16_t nWidthInBoxes = 16;
+    sImageDisplayOffsets offsets;
+};
+
+uint8_t BoundPaletteBoxRectSizeValue(uint8_t nVal);
+uint16_t BoundPaletteBoxPerLineValue(uint16_t nVal);
+
 class CPreviewImportManager : public CDialog
 {
 public:
@@ -27,11 +43,21 @@ public:
     afx_msg void OnAlignToBottomCheckChange();
     afx_msg void OnAutoPreviewCheckChange();
     afx_msg void OnTrimCheckChange();
+    afx_msg void OnDrawPalBoxesCheckChange();
 
     afx_msg void OnUpdatePaddingValues();
-
     afx_msg void OnSpinPaddingWidth(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnSpinPaddingHeight(NMHDR* pNMHDR, LRESULT* pResult);
+
+    afx_msg void OnUpdatePalBoxesRect();
+    afx_msg void OnSpinPalBoxesRect(NMHDR* pNMHDR, LRESULT* pResult);
+
+    afx_msg void OnUpdatePalBoxesPerLine();
+    afx_msg void OnSpinPalBoxesPerLine(NMHDR* pNMHDR, LRESULT* pResult);
+
+    afx_msg void OnUpdatePalBoxesOffsets();
+    afx_msg void OnSpinPalBoxesWidth(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnSpinPalBoxesHeight(NMHDR* pNMHDR, LRESULT* pResult);
 
     afx_msg void ShowOriginal();
     bool LoadFromFile();
@@ -49,19 +75,11 @@ public:
 
     void SetTextureToUse(sTextureData newTexture);
 
-    enum { IDD = IDD_PREVIEWIMPORT_DIALOG };
-
-    int m_nCurrentSel_HW = 0;
-
-    CString m_strTrimWidth = L"0";
-    CString m_strTrimHeight = L"0";
-
     void SetTextureSourceType(TextureSourceFileType textureType) { m_textureSourceType = textureType; };
 
-    sSpriteImportOptions m_importOptions;
-    TextureSourceFileType m_textureSourceType = TextureSourceFileType::RAW;
-
 protected:
+    enum { IDD = IDD_PREVIEWIMPORT_DIALOG };
+
     DECLARE_MESSAGE_MAP()
 
     virtual void DoDataExchange(CDataExchange* pDX);
@@ -79,15 +97,15 @@ protected:
 
     bool _CompositeToDisplay(bool& fHaveAnyPaletteMatches, std::optional<sImageDimensions>& optTrimmedDimensions);
 
+    void _SyncEnabledControls();
+
     void _UpdateInfoText();
     void _UpdateDimensionsOptions();
-    void _UpdatePaddingEnableState();
-    void _UpdateAlignToGroundEnable();
 
     CImgDisp* m_pImgDisp = nullptr;
 
-    CListBox m_lbHWOptions;
-    std::vector<sImageDimensions> m_rgHWOptionsList;
+    CListBox m_lbDimensionOptions;
+    std::vector<sImageDimensions> m_rgDimensionOptionsList;
 
     CListBox m_lbLayerOptions;
     std::optional<int> m_optCurrentSel_Layer;
@@ -110,9 +128,26 @@ protected:
     sTextureData m_rgTextureLoadedFromFile;
     RGBAImportMathQuirk m_rgbaMathQuirkInUse = RGBAImportMathQuirk::None;
 
+    int m_nCurrentSel_Dimensions = 0;
+
+    CString m_strPaddingOffsets_Width = L"0";
+    CString m_strPaddingOffsets_Height = L"0";
+
+    CString m_strPalBoxes_Rect = L"5";
+    CString m_strPalBoxes_PerLine = L"16";
+    CString m_strPalBoxesOffset_Width = L"0";
+    CString m_strPalBoxesOffset_Height = L"0";
+
+    sSpriteImportOptions m_importOptions;
+    TextureSourceFileType m_textureSourceType = TextureSourceFileType::RAW;
+
+    PaletteBoxSettings m_paletteBoxSettings;
+
     HICON m_hIcon;
+
     BOOL m_fAlignToBottom = TRUE;
     BOOL m_fAutoPreview = TRUE;
+    BOOL m_fDrawPaletteBoxes = TRUE;
     BOOL m_fKeepChangesOnLayerSwap = FALSE;
     BOOL m_fKeepChangesOnFileLoad = FALSE;
     BOOL m_fTrim = TRUE;
