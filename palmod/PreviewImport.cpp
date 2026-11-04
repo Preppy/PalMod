@@ -403,7 +403,11 @@ BOOL CPreviewImportManager::OnInitDialog()
     _SyncEnabledControls();
 
     RECT window_rect;
-    if (CRegProc::GetPreviewImport_WndPos(window_rect))
+    RECT old_window_rect;
+
+    GetWindowRect(&old_window_rect);
+
+    if (CRegProc::GetPreviewImport_WndPos(window_rect, old_window_rect))
     {
         MoveWindow(&window_rect);
     }
@@ -909,7 +913,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             rgAssembledTextures.at(iLayer).Resize(aggregateDimensions);
         }
 
-        if (m_fDrawPaletteBoxes)
+        if (m_fUIIsUp && m_fDrawPaletteBoxes)
         {
             OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: adding palette boxes...\r\n");
             std::vector<sTextureData> boxTextures = GetPaletteBoxesForPaletteSet(m_rgrgPaletteSet, m_paletteBoxSettings.nWidthInBoxes, m_paletteBoxSettings.nRectSize);

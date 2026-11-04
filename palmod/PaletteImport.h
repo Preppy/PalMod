@@ -91,6 +91,8 @@ protected:
     void UseMapping();
     void Favorites();
 
+    void _CacheCurrentWindowPos();
+
     // initialized in constructor
     HICON m_hIcon;
     BOOL m_fAutoPreview;

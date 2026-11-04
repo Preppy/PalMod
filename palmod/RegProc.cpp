@@ -754,7 +754,7 @@ void CRegProc::StoreDWORDValueForTransform(DWORD dwIndex, DWORD nPreferredIndex)
     StoreDWORDValueForKeyName(strLookupKey.GetString(), nPreferredIndex);
 }
 
-bool CRegProc::GetPreviewImport_WndPos(RECT& rcPos)
+bool CRegProc::GetWindowPosValueForKeyName(LPCWSTR pszKeyName, RECT& rcPos, RECT rcInitialRect)
 {
     HKEY hKey;
     bool fHaveValidData = false;
@@ -766,7 +766,7 @@ bool CRegProc::GetPreviewImport_WndPos(RECT& rcPos)
         DWORD RegType = REG_SZ;
         DWORD GetSz = MAX_PATH;
 
-        if (RegQueryValueEx(hKey, c_prevPreviewImport_WndPos, 0, &RegType, reinterpret_cast<LPBYTE>(conv_str.GetBufferSetLength(MAX_PATH)), &GetSz) == ERROR_SUCCESS)
+        if (RegQueryValueEx(hKey, pszKeyName, 0, &RegType, reinterpret_cast<LPBYTE>(conv_str.GetBufferSetLength(MAX_PATH)), &GetSz) == ERROR_SUCCESS)
         {
             rcPos = StrToRect(conv_str);
             // This is a good faith check to make sure we didn't get positioned off-screen
@@ -777,7 +777,15 @@ bool CRegProc::GetPreviewImport_WndPos(RECT& rcPos)
             }
             else
             {
-                fHaveValidData = true;
+                LONG nWidth = rcInitialRect.right - rcInitialRect.left;
+                LONG nHeight = rcInitialRect.bottom - rcInitialRect.top;
+
+                if ((nWidth > 0) && (nHeight > 0))
+                {
+                    fHaveValidData = true;
+                    rcPos.right = rcPos.left + nWidth;
+                    rcPos.bottom = rcPos.top + nHeight;
+                }
             }
         }
         else
@@ -789,7 +797,7 @@ bool CRegProc::GetPreviewImport_WndPos(RECT& rcPos)
     return fHaveValidData;
 }
 
-void CRegProc::SetPreviewImport_WndPos(RECT rcPos)
+void CRegProc::StoreWindowPosForKeyName(LPCWSTR pszKeyName, RECT rcPos)
 {
     HKEY hKey;
 
@@ -798,7 +806,7 @@ void CRegProc::SetPreviewImport_WndPos(RECT rcPos)
     {
         CString conv_str = RectToStr(rcPos);
 
-        RegSetValueEx(hKey, c_prevPreviewImport_WndPos, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+        RegSetValueEx(hKey, pszKeyName, 0, REG_SZ, reinterpret_cast<LPBYTE>(conv_str.GetBuffer()), sizeof(wchar_t) * (conv_str.GetLength() + 1));
 
         RegCloseKey(hKey);
     }

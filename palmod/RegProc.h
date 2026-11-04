@@ -69,6 +69,7 @@ constexpr auto c_palimportKeepOnSwap = L"palimport_KeepOnSwap";
 constexpr auto c_palimportRepeatToFill = L"palimport_RepeatToFill";
 constexpr auto c_palimportScrollByColumn = L"palimport_ScrollByColumn";
 constexpr auto c_palimportWrapToNext = L"palimport_WrapToNext";
+constexpr auto c_palimport_WndPos = L"palimport_WndPos";
 
 constexpr auto c_imageExport_BGColor = L"imgout_bgcol";
 constexpr auto c_imageExport_BorderSize = L"imgout_border";
@@ -118,6 +119,10 @@ private:
     static DWORD GetDWORDValueForTransform(DWORD dwIndex, DWORD dwFallbackValue = 0);
     static void StoreDWORDValueForTransform(DWORD dwIndex, DWORD nPreferredIndex);
 
+    static bool GetWindowPosValueForKeyName(LPCWSTR pszKeyName, RECT& rcPos, RECT rcInitialRect);
+    static void StoreWindowPosForKeyName(LPCWSTR pszKeyName, RECT rcPos);
+
+
 public:
     CRegProc(eRegistryStoreID nSrcType = eRegistryStoreID::REG_UNKNOWN);
     ~CRegProc();
@@ -162,6 +167,8 @@ public:
     static void SetPalImport_ScrollByColumn(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportScrollByColumn, dwNewValue); };
     static DWORD GetPalImport_WrapToNext(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_palimportWrapToNext, dwFallbackValue); };
     static void SetPalImport_WrapToNext(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_palimportWrapToNext, dwNewValue); };
+    static bool GetPaletteImport_WndPos(RECT& rcPos, RECT rcInitialRect) { return GetWindowPosValueForKeyName(c_palimport_WndPos, rcPos, rcInitialRect); };
+    static void SetPaletteImport_WndPos(RECT rcPos) { StoreWindowPosForKeyName(c_palimport_WndPos, rcPos); };
 
     // Image export: all shared so can't be preloaded
     static DWORD GetImageExport_BackgroundColor(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_BGColor, dwFallbackValue); };
@@ -186,8 +193,9 @@ public:
     static void SetPreviewImport_KeepChangesOnLayerSwap(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_KeepChangesOnLayerSwap, dwNewValue); };
     static DWORD GetPreviewImport_Trim(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevTrimImportedPreviews, dwFallbackValue); };
     static void SetPreviewImport_Trim(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevTrimImportedPreviews, dwNewValue); };
-    static bool GetPreviewImport_WndPos(RECT &rcPos);
-    static void SetPreviewImport_WndPos(RECT rcPos);
+
+    static bool GetPreviewImport_WndPos(RECT& rcPos, RECT rcInitialRect) { return GetWindowPosValueForKeyName(c_prevPreviewImport_WndPos, rcPos, rcInitialRect); };
+    static void SetPreviewImport_WndPos(RECT rcPos) { StoreWindowPosForKeyName(c_prevPreviewImport_WndPos, rcPos); };
 
     static DWORD GetPreviewImport_PalBoxes_Draw(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_Draw, dwFallbackValue); };
     static void SetPreviewImport_PalBoxes_Draw(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_prevPreviewImport_PalBoxes_Draw, dwNewValue); };

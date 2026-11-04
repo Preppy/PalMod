@@ -506,6 +506,16 @@ BOOL CPaletteImportDialog::OnInitDialog()
 
     GetDlgItem(IDC_PALETTEIMPORT_FAVORITES)->ShowWindow(SW_HIDE);
 
+    RECT window_rect;
+    RECT old_window_rect;
+
+    GetWindowRect(&old_window_rect);
+
+    if (CRegProc::GetPaletteImport_WndPos(window_rect, old_window_rect))
+    {
+        MoveWindow(&window_rect);
+    }
+
     OnPreviewPalette();
 
     UpdateData(FALSE);
@@ -538,6 +548,15 @@ bool CPaletteImportDialog::_MadeAnyChanges()
     return false;
 }
 
+void CPaletteImportDialog::_CacheCurrentWindowPos()
+{
+    RECT window_rect;
+
+    GetWindowRect(&window_rect);
+
+    CRegProc::SetPaletteImport_WndPos(window_rect);
+}
+
 void CPaletteImportDialog::OnCancel()
 {
     if (_MadeAnyChanges())
@@ -545,6 +564,8 @@ void CPaletteImportDialog::OnCancel()
         // get everything back to normal
         _ResetPreview();
     }
+
+    _CacheCurrentWindowPos();
 
     CDialog::OnCancel();
 }
@@ -561,6 +582,8 @@ void CPaletteImportDialog::OnReversePalette()
     OutputDebugString(L"CPaletteImportDialog: Reversing palette.\r\n");
 
     PaletteImport::ReversePalette(m_rgWorkingPalette);
+
+    _CacheCurrentWindowPos();
 
     OnPreviewPalette();
 }
