@@ -88,7 +88,7 @@ protected:
 
     void _CacheCurrentWindowPos();
 
-    void _CacheCurrentlyDisplayedLayout();
+    void _CacheOriginalLayout();
     std::optional<int> _GetCurrentLayerSelectionFromUI();
     int _GetCurrentLayerSelectionForCListBox();
 
@@ -117,15 +117,20 @@ protected:
 
     // Original is on load.  This gets restored on cancel
     std::vector<sTextureData> m_rgOriginalTextures;
+    // Working is as we move along.  Source from original and then
+    // updated as we load new previews and/or swap layer targets
+    std::vector<sTextureData> m_rgUserConfirmedTextures;
+    // Last drawn to screen pre-boxes
+    std::vector<sTextureData> m_rgWorkingTexturesNoBoxes;
+
+    // This is our composed data pre slicing
+    sTextureData m_rgTextureLoadedFromFile;
+
     bool m_fHaveChangedPreview = false;
 
     std::vector<std::vector<COLORREF>> m_rgrgPaletteSet;
     PALWriteOutputOptions m_currTransparencyWriteMode = PALWriteOutputOptions::WRITE_MAX;
 
-    // Working is as we move along
-    std::vector<sTextureData> m_rgWorkingTextures;
-
-    sTextureData m_rgTextureLoadedFromFile;
     RGBAImportMathQuirk m_rgbaMathQuirkInUse = RGBAImportMathQuirk::None;
 
     int m_nCurrentSel_Dimensions = 0;
@@ -154,6 +159,7 @@ protected:
 
     bool m_fShouldShowUI = false;
     bool m_fUIIsUp = false;
+    bool m_fBusyComposing = false;
 };
 
 namespace PreviewImport

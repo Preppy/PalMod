@@ -112,7 +112,7 @@ CPreviewImportManager::CPreviewImportManager(CWnd* pParent /* = NULL*/)
     }
 
     // ensure we have these for slicing
-    _CacheCurrentlyDisplayedLayout();
+    _CacheOriginalLayout();
 }
 
 CPreviewImportManager::~CPreviewImportManager()
@@ -123,9 +123,9 @@ CPreviewImportManager::~CPreviewImportManager()
     CRegProc::SetPreviewImport_KeepChangesOnFileLoad(m_fKeepChangesOnFileLoad);
     CRegProc::SetPreviewImport_Trim(m_fTrim);
 
-     CRegProc::SetPreviewImport_PalBoxes_Draw(m_fDrawPaletteBoxes);
-     CRegProc::SetPreviewImport_PalBoxes_PerLine(m_paletteBoxSettings.nWidthInBoxes);
-     CRegProc::SetPreviewImport_PalBoxes_Rect(m_paletteBoxSettings.nRectSize);
+    CRegProc::SetPreviewImport_PalBoxes_Draw(m_fDrawPaletteBoxes);
+    CRegProc::SetPreviewImport_PalBoxes_PerLine(m_paletteBoxSettings.nWidthInBoxes);
+    CRegProc::SetPreviewImport_PalBoxes_Rect(m_paletteBoxSettings.nRectSize);
 }
 
 void CPreviewImportManager::_CacheCurrentWindowPos()
@@ -268,9 +268,9 @@ void CPreviewImportManager::_UpdateInfoText()
 
         const int nCurrentLayerSelection = optCurrentLayerSelection.value_or(0);
 
-        if (nCurrentLayerSelection < static_cast<int>(m_rgWorkingTextures.size()))
+        if (nCurrentLayerSelection < static_cast<int>(m_rgWorkingTexturesNoBoxes.size()))
         {
-            dimensionsOfSelectedLayer = m_rgWorkingTextures.at(nCurrentLayerSelection).dimensions;
+            dimensionsOfSelectedLayer = m_rgWorkingTexturesNoBoxes.at(nCurrentLayerSelection).dimensions;
         }
 
         CString strInfo;
@@ -295,26 +295,23 @@ void CPreviewImportManager::_UpdateInfoText()
     }
 }
 
-void CPreviewImportManager::_CacheCurrentlyDisplayedLayout()
+void CPreviewImportManager::_CacheOriginalLayout()
 {
-    OutputDebugString(L"CPreviewImportManager::_CacheCurrentlyDisplayedLayout: caching current display now.\r\n");
+    OutputDebugString(L"CPreviewImportManager::_CacheOriginalLayout: caching original display now.\r\n");
 
-    m_rgWorkingTextures.resize(m_pImgDisp->GetImgAmt());
+    m_rgOriginalTextures.resize(m_pImgDisp->GetImgAmt());
 
-    for (size_t iTexture = 0; iTexture < m_rgWorkingTextures.size(); iTexture++)
+    for (size_t iTexture = 0; iTexture < m_rgOriginalTextures.size(); iTexture++)
     {
-        if (!m_pImgDisp->GetDisplayedTextureForLayer(iTexture, m_rgWorkingTextures[iTexture]))
+        if (!m_pImgDisp->GetDisplayedTextureForLayer(iTexture, m_rgOriginalTextures[iTexture]))
         {
             // empty layer
-            m_rgWorkingTextures.at(iTexture).indexedPixels.clear();
-            m_rgWorkingTextures.at(iTexture).dimensions = { 0, 0 };
+            m_rgOriginalTextures.at(iTexture).indexedPixels.clear();
+            m_rgOriginalTextures.at(iTexture).dimensions = { 0, 0 };
         }
     }
 
-    if (m_rgOriginalTextures.empty())
-    {
-        m_rgOriginalTextures = m_rgWorkingTextures;
-    }
+    m_rgWorkingTexturesNoBoxes = m_rgUserConfirmedTextures = m_rgOriginalTextures;
 }
 
 BOOL CPreviewImportManager::OnInitDialog()
@@ -322,6 +319,7 @@ BOOL CPreviewImportManager::OnInitDialog()
     CDialog::OnInitDialog();
 
     m_fUIIsUp = true;
+    m_fBusyComposing = true;
 
     SetIcon(m_hIcon, TRUE);     // Set big icon
     SetIcon(m_hIcon, FALSE);    // Set small icon
@@ -350,8 +348,8 @@ BOOL CPreviewImportManager::OnInitDialog()
     const int nLayerToCheckForDimensions = optCurrentLayerSel.value_or(0);
 
     // disable composition options if there's no layout there to work with
-    if ((nLayerToCheckForDimensions >= static_cast<int>(m_rgWorkingTextures.size())) ||
-         m_rgWorkingTextures.at(nLayerToCheckForDimensions).dimensions.IsEmpty())
+    if ((nLayerToCheckForDimensions >= static_cast<int>(m_rgUserConfirmedTextures.size())) ||
+         m_rgUserConfirmedTextures.at(nLayerToCheckForDimensions).dimensions.IsEmpty())
     {
         // we need to update this as the user changes layers
         m_lbMergeOptions.EnableWindow(FALSE);
@@ -364,16 +362,16 @@ BOOL CPreviewImportManager::OnInitDialog()
 
     CString strInfo;
 
-    if (!m_rgWorkingTextures.empty())
+    if (!m_rgUserConfirmedTextures.empty())
     {
         int nLayer = 0;
 
-        if (m_rgWorkingTextures.size() > 1)
+        if (m_rgUserConfirmedTextures.size() > 1)
         {
             m_lbLayerOptions.InsertString(nLayer++, L"All");
         }
 
-        for (size_t iEntry = 0; iEntry < m_rgWorkingTextures.size(); iEntry++)
+        for (size_t iEntry = 0; iEntry < m_rgUserConfirmedTextures.size(); iEntry++)
         {
             strInfo.Format(L"%zu", iEntry);
             m_lbLayerOptions.InsertString(nLayer++, strInfo.GetString());
@@ -395,10 +393,16 @@ BOOL CPreviewImportManager::OnInitDialog()
 
     strInfo.Format(L"%i", m_paletteBoxSettings.nRectSize);
     GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_RECT)->SetWindowText(strInfo.GetString());
+
+    // turn back on now: next message will have us update the preview window
+    // this should in theory get us compositing just once.  not that multiple times is 
+    // bad, just a little wasteful
+    m_fBusyComposing = false;
+
     strInfo.Format(L"%i", m_paletteBoxSettings.nWidthInBoxes);
     GetDlgItem(IDC_PREVIEWIMPORT_PALETTEBOXES_PERLINE)->SetWindowText(strInfo.GetString());
 
-    GetDlgItem(IDC_PREVIEWIMPORT_KEEPONSWAP)->EnableWindow(m_rgWorkingTextures.size() > 1);
+    GetDlgItem(IDC_PREVIEWIMPORT_KEEPONSWAP)->EnableWindow(m_rgUserConfirmedTextures.size() > 1);
 
     _SyncEnabledControls();
 
@@ -419,6 +423,11 @@ BOOL CPreviewImportManager::OnInitDialog()
 
 void CPreviewImportManager::SetTargetLayer(std::optional<int> optTargetLayer)
 {
+    if (m_fUIIsUp)
+    {
+        UpdateData();
+    }
+
     m_optCurrentSel_Layer = m_pImgDisp->SanitizeRequestedImageLayer(optTargetLayer);
     m_optPaletteTargetsAreMappingSafe.reset();
 
@@ -524,6 +533,11 @@ bool CPreviewImportManager::LoadCustomSpriteFromPath(LPCWSTR pszPath, PNGImportS
 
 bool CPreviewImportManager::LoadFromFile()
 {
+    if (m_fUIIsUp)
+    {
+        UpdateData();
+    }
+
     bool fLoaded = false;
 
     CFileDialog OpenDialog(TRUE, NULL, NULL, NULL,
@@ -546,7 +560,7 @@ bool CPreviewImportManager::LoadFromFile()
 
         if (m_fKeepChangesOnFileLoad && !m_rgTextureLoadedFromFile.indexedPixels.empty())
         {
-            _CacheCurrentlyDisplayedLayout();
+            m_rgUserConfirmedTextures = m_rgWorkingTexturesNoBoxes;
         }
 
         fLoaded = LoadCustomSpriteFromPath(OpenDialog.GetPathName().GetBuffer(), importOptions);
@@ -708,7 +722,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 {
     bool fChangesMade = false;
 
-    if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty())
+    if (!m_fBusyComposing && !m_rgTextureLoadedFromFile.dimensions.IsEmpty())
     {
         CString strInfo;
 
@@ -729,16 +743,10 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 
         // if we have a texture list and it's not valid, reset
         if (m_optCurrentSel_Layer.has_value() &&
-            (static_cast<int>(m_rgWorkingTextures.size()) <= m_optCurrentSel_Layer.value()))
+            (static_cast<int>(m_rgUserConfirmedTextures.size()) <= m_optCurrentSel_Layer.value()))
         {
             // full stack replacement
             m_optCurrentSel_Layer.reset();
-        }
-
-        // if we're assigning to a layer, we need the other layers to display together
-        if (m_optCurrentSel_Layer.has_value() && (m_rgrgPaletteSet.size() > 1))
-        {
-            _CacheCurrentlyDisplayedLayout();
         }
 
         sTextureData rgEditableWorkingTexture = m_rgTextureLoadedFromFile;
@@ -774,9 +782,9 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             // align to bottom
             RECT usedRect = rgEditableWorkingTexture.GetUsedRect();
 
-            if (usedRect.bottom && m_rgWorkingTextures.size())
+            if (usedRect.bottom && m_rgUserConfirmedTextures.size())
             {
-                groundingoffset.y = m_rgWorkingTextures[0].dimensions.height - (usedRect.bottom + 1);
+                groundingoffset.y = m_rgUserConfirmedTextures[0].dimensions.height - (usedRect.bottom + 1);
             }
         }
 
@@ -795,7 +803,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             emptyMatchingTexture.indexedPixels.clear();
             emptyMatchingTexture.indexedPixels.resize(rgTextureSlices[0].indexedPixels.size());
 
-            for (size_t iLayer = 0; (iLayer < rgTextureSlices.size()) && (iLayer < m_rgWorkingTextures.size()); iLayer++)
+            for (size_t iLayer = 0; (iLayer < rgTextureSlices.size()) && (iLayer < m_rgUserConfirmedTextures.size()); iLayer++)
             {
                 sTextureData* pTextureToUse = &emptyMatchingTexture;
 
@@ -816,13 +824,13 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                     {
                         case SpriteImportMergeStyle::MergeBelow:
                         default:
-                            pBackgroundTexture = &m_rgWorkingTextures[iLayer];
+                            pBackgroundTexture = &m_rgUserConfirmedTextures[iLayer];
                             pForegroundTexture = pTextureToUse;
 
                             nLeftShiftNeeded = pTextureToUse->dimensions.width;
-                            nRightShiftNeeded = -m_rgWorkingTextures[iLayer].dimensions.width;
+                            nRightShiftNeeded = -m_rgUserConfirmedTextures[iLayer].dimensions.width;
                             nTopShiftNeeded = pTextureToUse->dimensions.height;
-                            nBottomShiftNeeded = -m_rgWorkingTextures[iLayer].dimensions.height; // background below trim / align is wrong
+                            nBottomShiftNeeded = -m_rgUserConfirmedTextures[iLayer].dimensions.height; // background below trim / align is wrong
 
                             // reverse the logic since we're reversing layering
                             groundingoffset.y = (groundingoffset.y * -1);
@@ -830,13 +838,13 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                             break;
                         case SpriteImportMergeStyle::MergeAbove:
                             pBackgroundTexture = pTextureToUse;
-                            tempForegroundIfNeeded = m_rgWorkingTextures[iLayer];
+                            tempForegroundIfNeeded = m_rgUserConfirmedTextures[iLayer];
                             pForegroundTexture = &tempForegroundIfNeeded;
 
                             nLeftShiftNeeded = -pTextureToUse->dimensions.width;
-                            nRightShiftNeeded = m_rgWorkingTextures[iLayer].dimensions.width;
+                            nRightShiftNeeded = m_rgUserConfirmedTextures[iLayer].dimensions.width;
                             nTopShiftNeeded = -pTextureToUse->dimensions.height; /// this is wrong due to trim?
-                            nBottomShiftNeeded = m_rgWorkingTextures[iLayer].dimensions.height;
+                            nBottomShiftNeeded = m_rgUserConfirmedTextures[iLayer].dimensions.height;
                             break;
                     }
 
@@ -891,7 +899,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             }
             else
             {
-                rgAssembledTextures.at(iLayer) = m_rgWorkingTextures.at(iLayer);
+                rgAssembledTextures.at(iLayer) = m_rgUserConfirmedTextures.at(iLayer);
 
                 strInfo.Format(L"\tLayer %zu: Using PREVIOUS.\r\n", iLayer);
                 OutputDebugString(strInfo.GetString());
@@ -911,6 +919,11 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             // shifts where we might want to pad the non-target layer.  But if you use
             // the All layer option it does that for you.
             rgAssembledTextures.at(iLayer).Resize(aggregateDimensions);
+
+            if (m_fUIIsUp)
+            {
+                m_rgWorkingTexturesNoBoxes.at(iLayer) = rgAssembledTextures.at(iLayer);
+            }
         }
 
         if (m_fUIIsUp && m_fDrawPaletteBoxes)
@@ -971,9 +984,9 @@ void CPreviewImportManager::_ResetToWorkingTextures()
 {
     OutputDebugString(L"CPreviewImportManager::_ResetToWorkingTextures: Reverting to last known good textures.\r\n");
 
-    for (size_t iLayer = 0; iLayer < m_rgWorkingTextures.size(); iLayer++)
+    for (size_t iLayer = 0; iLayer < m_rgUserConfirmedTextures.size(); iLayer++)
     {
-        m_pImgDisp->SetOverrideTextureForLayer(m_rgWorkingTextures[iLayer], static_cast<int>(iLayer));
+        m_pImgDisp->SetOverrideTextureForLayer(m_rgUserConfirmedTextures[iLayer], static_cast<int>(iLayer));
     }
 
     // update full stack
@@ -1148,7 +1161,14 @@ void CPreviewImportManager::OnUpdateCombobox_Layer()
 
     if (m_fKeepChangesOnLayerSwap && !m_rgTextureLoadedFromFile.indexedPixels.empty())
     {
-        _CacheCurrentlyDisplayedLayout();
+        // save the previous layer writes
+        for (size_t iLayer = 0; iLayer < m_rgWorkingTexturesNoBoxes.size(); iLayer++)
+        {
+            if (m_optCurrentSel_Layer.value_or(static_cast<int>(iLayer)) == static_cast<int>(iLayer))
+            {
+                m_rgUserConfirmedTextures.at(iLayer) = m_rgWorkingTexturesNoBoxes.at(iLayer);
+            }
+        }
     }
 
     int nCurSel = m_lbLayerOptions.GetCurSel();
@@ -1167,7 +1187,7 @@ void CPreviewImportManager::OnUpdateCombobox_Layer()
             break;
     }
 
-    if (!m_rgWorkingTextures.at(nCurSel).dimensions.IsEmpty())
+    if (!m_rgUserConfirmedTextures.at(nCurSel).dimensions.IsEmpty())
     {
         m_lbMergeOptions.EnableWindow(TRUE);
         m_lbCompositionOptions.EnableWindow(m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace);
