@@ -405,6 +405,19 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 {
                     strError.Append(L"\n\nPlease note that PalMod can not read game CD ISOs.  You need to mount those and extract the files out before PalMod can use them.");
                 }
+                else if (nGameFlag == UNI2_S)
+                {
+                    if (nCurrRuleCtr == 0x36)
+                    {
+                        // This is the first DLC character
+                        strError.Append(L"\n\nYou appear to be missing the updated patch files for the DLC character Zohar: please follow the updated Color Modding Guide referenced in the PalMod Read Me to get those new files.");
+                    }
+                    else
+                    {
+                        // They might not have followed the guide, so mention that too
+                        strError.Append(L"\n\nPlease note that in order for PalMod to read the UNI2 files you must first install the patch files linked in the Color Modding Guide referenced in the PalMod Read Me.");
+                    }
+                }
 
                 OutputDebugString(strError);
                 OutputDebugString(L"\n");

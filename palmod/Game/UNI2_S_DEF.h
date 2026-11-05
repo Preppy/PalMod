@@ -86,6 +86,10 @@ const sGCBUPF_BasicNodeData UNI2PaletteNodes =
 
 const std::vector<sGCBUPF_BasicFileData> UNI2CharacterData =
 {
+    // ***************************************************
+    // If you change or reorder this list you may also want to update the UNI2_S gameload failure check in GameLoad.cpp to alert users to any DLC changes
+    // ***************************************************
+
     { L"___English\\data\\_csel\\chr014.pal",    L"Akatsuki (CharaSelect)",          133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Akat },
 	{ L"data\\chr014\\chr014.pal",               L"Akatsuki",                        133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Akat },
     { L"___English\\data\\_csel\\chr013.pal",    L"Byakuya (CharaSelect)",           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNICLR_Byak },
@@ -144,4 +148,8 @@ const std::vector<sGCBUPF_BasicFileData> UNI2CharacterData =
     { L"___English\\data\\_csel\\chr027.pal",    L"Zohar (CharaSelect)",             133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Zohar },
     { L"data\\chr027\\chr027.pal",               L"Zohar",                           133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Zohar },
     { L"data\\chr027\\chr027_p1.pal",            L"Zohar (Doppelganger)",            133136,    UNI2PaletteNodes,    GCBUPF_UseButtonLabelsAsPaletteSet,  0x10,  indexFrenchBreadSprites_UNI2_Zohar, 0x80 },
+
+    // ***************************************************
+    // If you change or reorder this list you may also want to update the UNI2_S gameload failure check in GameLoad.cpp to alert users to any DLC changes
+    // ***************************************************
 };
