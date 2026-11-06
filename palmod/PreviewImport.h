@@ -59,7 +59,7 @@ public:
     afx_msg void OnSpinPalBoxesWidth(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnSpinPalBoxesHeight(NMHDR* pNMHDR, LRESULT* pResult);
 
-    afx_msg void ShowOriginal();
+    afx_msg void LoadAndWorkWithOriginalTextures();
     bool LoadFromFile();
 
     afx_msg void OnLoadFromFile();
@@ -92,9 +92,9 @@ protected:
     std::optional<int> _GetCurrentLayerSelectionFromUI();
     int _GetCurrentLayerSelectionForCListBox();
 
-    void _ResetToOriginalTextures();
+    void _ResetDisplayToOriginalTextures();
     void _ResetToWorkingTextures();
-
+    
     bool _CompositeToDisplay(bool& fHaveAnyPaletteMatches, std::optional<sImageDimensions>& optTrimmedDimensions);
 
     void _SyncEnabledControls();

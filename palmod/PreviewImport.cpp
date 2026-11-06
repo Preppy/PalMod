@@ -52,7 +52,7 @@ BEGIN_MESSAGE_MAP(CPreviewImportManager, CDialog)
     ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_COMPOSITION, &OnUpdateCombobox_Composition)
     ON_LBN_SELCHANGE(IDC_PREVIEWIMPORT_OPTIONS_MERGE, &OnUpdateCombobox_Merge)
 
-    ON_BN_CLICKED(IDC_PREVIEWIMPORT_ORIGINAL, &ShowOriginal)
+    ON_BN_CLICKED(IDC_PREVIEWIMPORT_ORIGINAL, &LoadAndWorkWithOriginalTextures)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_FROMFILE, &OnLoadFromFile)
     ON_BN_CLICKED(IDC_PREVIEWIMPORT_PREVIEW, &UpdateDisplayedPreview)
 
@@ -147,7 +147,7 @@ void CPreviewImportManager::OnCancel()
 
     if (m_fHaveChangedPreview)
     {
-        ShowOriginal();
+        _ResetDisplayToOriginalTextures();
     }
 
     _CacheCurrentWindowPos();
@@ -722,79 +722,98 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 {
     bool fChangesMade = false;
 
-    if (!m_fBusyComposing && !m_rgTextureLoadedFromFile.dimensions.IsEmpty())
+    if (!m_fBusyComposing)
     {
         CString strInfo;
-
-        if (m_fUIIsUp)
-        {
-            _ResetToWorkingTextures();
-
-            UpdateData();
-
-            const int nDimensionSelect = m_lbDimensionOptions.GetCurSel();
-
-            if ((nDimensionSelect != -1) &&
-                (nDimensionSelect < static_cast<int>(m_rgDimensionOptionsList.size())))
-            {
-                m_rgTextureLoadedFromFile.dimensions = m_rgDimensionOptionsList[nDimensionSelect];
-            }
-        }
-
-        // if we have a texture list and it's not valid, reset
-        if (m_optCurrentSel_Layer.has_value() &&
-            (static_cast<int>(m_rgUserConfirmedTextures.size()) <= m_optCurrentSel_Layer.value()))
-        {
-            // full stack replacement
-            m_optCurrentSel_Layer.reset();
-        }
-
-        sTextureData rgEditableWorkingTexture = m_rgTextureLoadedFromFile;
-
-        // trim by image
-        if (m_fTrim)
-        {
-            sImageDimensions oldDimensions = rgEditableWorkingTexture.dimensions;
-
-            rgEditableWorkingTexture.ClipUnused();
-
-            if (oldDimensions != rgEditableWorkingTexture.dimensions)
-            {
-                strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimming: source is %u to %u.\r\n", oldDimensions.width,
-                    oldDimensions.height);
-                OutputDebugString(strInfo);
-                strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimmed to %u to %u.\r\n", rgEditableWorkingTexture.dimensions.width,
-                    rgEditableWorkingTexture.dimensions.height);
-                OutputDebugString(strInfo.GetString());
-
-                optTrimmedDimensions = rgEditableWorkingTexture.dimensions;
-            }
-            else
-            {
-                OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: no trimming needed.\r\n");
-            }
-        }
-
+        std::vector<sTextureData> rgTextureSlices;
         sImageDisplayOffsets groundingoffset;
 
-        if (m_fAlignToBottom)
+        if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty())
         {
-            // align to bottom
-            RECT usedRect = rgEditableWorkingTexture.GetUsedRect();
-
-            if (usedRect.bottom && m_rgUserConfirmedTextures.size())
+            // If we're loading a custom user image
+            if (m_fUIIsUp)
             {
-                groundingoffset.y = m_rgUserConfirmedTextures[0].dimensions.height - (usedRect.bottom + 1);
+                _ResetToWorkingTextures();
+
+                UpdateData();
+
+                const int nDimensionSelect = m_lbDimensionOptions.GetCurSel();
+
+                if ((nDimensionSelect != -1) &&
+                    (nDimensionSelect < static_cast<int>(m_rgDimensionOptionsList.size())))
+                {
+                    m_rgTextureLoadedFromFile.dimensions = m_rgDimensionOptionsList[nDimensionSelect];
+                }
+            }
+
+            // if we have a texture list and it's not valid, reset
+            if (m_optCurrentSel_Layer.has_value() &&
+                (static_cast<int>(m_rgUserConfirmedTextures.size()) <= m_optCurrentSel_Layer.value()))
+            {
+                // full stack replacement
+                m_optCurrentSel_Layer.reset();
+            }
+
+            sTextureData rgEditableWorkingTexture = m_rgTextureLoadedFromFile;
+
+            // trim by image
+            if (m_fTrim)
+            {
+                sImageDimensions oldDimensions = rgEditableWorkingTexture.dimensions;
+
+                rgEditableWorkingTexture.ClipUnused();
+
+                if (oldDimensions != rgEditableWorkingTexture.dimensions)
+                {
+                    strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimming: source is %u to %u.\r\n", oldDimensions.width,
+                        oldDimensions.height);
+                    OutputDebugString(strInfo);
+                    strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimmed to %u to %u.\r\n", rgEditableWorkingTexture.dimensions.width,
+                        rgEditableWorkingTexture.dimensions.height);
+                    OutputDebugString(strInfo.GetString());
+
+                    optTrimmedDimensions = rgEditableWorkingTexture.dimensions;
+                }
+                else
+                {
+                    OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: no trimming needed.\r\n");
+                }
+            }
+
+            if (m_fAlignToBottom)
+            {
+                // align to bottom
+                RECT usedRect = rgEditableWorkingTexture.GetUsedRect();
+
+                if (usedRect.bottom && m_rgUserConfirmedTextures.size())
+                {
+                    groundingoffset.y = m_rgUserConfirmedTextures[0].dimensions.height - (usedRect.bottom + 1);
+                }
+            }
+
+            // handle flipping before slicing
+            rgEditableWorkingTexture.FlipIfNeeded(m_importOptions.direction);
+
+            // get our slices
+            strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %zu layers...\r\n", m_rgrgPaletteSet.size());
+            OutputDebugString(strInfo.GetString());
+            rgTextureSlices = rgEditableWorkingTexture.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
+        }
+        else
+        {
+            // use original slices
+            strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %zu layers...\r\n", m_rgrgPaletteSet.size());
+            OutputDebugString(strInfo.GetString());
+            rgTextureSlices = m_rgOriginalTextures;
+
+            // if we want to trim here we need to trim against stack not individual layers
+            // align to ground also needs work
+
+            for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
+            {
+                rgTextureSlices.at(iLayer).FlipIfNeeded(m_importOptions.direction);
             }
         }
-
-        // handle flipping before slicing
-        rgEditableWorkingTexture.FlipIfNeeded(m_importOptions.direction);
-
-        // get our slices
-        strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %zu layers...\r\n", m_rgrgPaletteSet.size());
-        OutputDebugString(strInfo.GetString());
-        std::vector<sTextureData> rgTextureSlices = rgEditableWorkingTexture.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
 
         // merge slices if needed
         if (m_importOptions.mergeStyle != SpriteImportMergeStyle::Replace)
@@ -964,10 +983,14 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
     return fChangesMade;
 }
 
-void CPreviewImportManager::_ResetToOriginalTextures()
+// This is a full revert / delete all changes
+void CPreviewImportManager::_ResetDisplayToOriginalTextures()
 {
-    // This might be naive
-    if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty())
+    // If we've loaded a custom file
+    if (!m_rgTextureLoadedFromFile.dimensions.IsEmpty() ||
+        // or we're making changes to something else such as the original source
+        (!m_rgUserConfirmedTextures.empty() &&
+         !m_rgUserConfirmedTextures.at(0).dimensions.IsEmpty()))
     {
         // reset all
         for (size_t iLayer = 0; iLayer < m_rgOriginalTextures.size(); iLayer++)
@@ -977,7 +1000,22 @@ void CPreviewImportManager::_ResetToOriginalTextures()
 
         // update full stack
         m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
+
+        // redraw
+        m_pImgDisp->UpdateCtrl();
+
     }
+}
+
+void CPreviewImportManager::LoadAndWorkWithOriginalTextures()
+{
+    // update working cache
+    m_rgWorkingTexturesNoBoxes = m_rgUserConfirmedTextures = m_rgOriginalTextures;
+    m_rgTextureLoadedFromFile.rgbaPixels.clear();
+    m_rgTextureLoadedFromFile.indexedPixels.clear();
+    m_rgTextureLoadedFromFile.dimensions = {};
+
+    UpdateDisplayedPreview();
 }
 
 void CPreviewImportManager::_ResetToWorkingTextures()
@@ -991,14 +1029,6 @@ void CPreviewImportManager::_ResetToWorkingTextures()
 
     // update full stack
     m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
-}
-
-// This is a full revert / delete all changes
-void CPreviewImportManager::ShowOriginal()
-{
-    _ResetToOriginalTextures();
-    // redraw
-    m_pImgDisp->UpdateCtrl();
 }
 
 void CPreviewImportManager::UpdateDisplayedPreview()
