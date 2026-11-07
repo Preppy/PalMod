@@ -20,6 +20,8 @@ const std::vector<uint16_t> SFIII2_A_IMGIDS_USED =
     index3SSprites_Gill,
     indexSF2ISprites_Bonus,
     index3SSprites_Bonus, // for judgement girls
+
+    indexSF3NGSprites_Stages,   // 0x26
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_LP_PALETTES[] =
@@ -1864,7 +1866,7 @@ const sGame_PaletteDataset SFIII2_A_STAGES_GILL_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_GILL_FADED_PALETTES[] =
 {
-    { L"Gill Stage (Faded) (1/12)", 0x3b3580 + (0 * 0x200), 0x3b3580 + (1 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
+    { L"Gill Stage (Faded) (1/12)", 0x3b3580 + (0 * 0x200), 0x3b3580 + (1 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Gill Stage (Faded) (2/12)", 0x3b3580 + (1 * 0x200), 0x3b3580 + (2 * 0x200) },
     { L"Gill Stage (Faded) (3/12)", 0x3b3580 + (2 * 0x200), 0x3b3580 + (3 * 0x200) },
     { L"Gill Stage (Faded) (4/12)", 0x3b3580 + (3 * 0x200), 0x3b3580 + (4 * 0x200) },
@@ -1880,18 +1882,18 @@ const sGame_PaletteDataset SFIII2_A_STAGES_GILL_FADED_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_RYU_PALETTES[] =
 {
-    { L"Ryu Stage (1/7)", 0x3b6e80 + (0 * 0x200), 0x3b6e80 + (1 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip6 },
-    { L"Ryu Stage (2/7)", 0x3b6e80 + (1 * 0x200), 0x3b6e80 + (2 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Ryu Stage (3/7)", 0x3b6e80 + (2 * 0x200), 0x3b6e80 + (3 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Ryu Stage (4/7)", 0x3b6e80 + (3 * 0x200), 0x3b6e80 + (4 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Ryu Stage (5/7)", 0x3b6e80 + (4 * 0x200), 0x3b6e80 + (5 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Ryu Stage (6/7)", 0x3b6e80 + (5 * 0x200), 0x3b6e80 + (6 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
-    { L"Ryu Stage (7/7)", 0x3b6e80 + (6 * 0x200), 0x3b7c00, indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (1/7)", 0x3b6e80 + (0 * 0x200), 0x3b6e80 + (1 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (2/7)", 0x3b6e80 + (1 * 0x200), 0x3b6e80 + (2 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (3/7)", 0x3b6e80 + (2 * 0x200), 0x3b6e80 + (3 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (4/7)", 0x3b6e80 + (3 * 0x200), 0x3b6e80 + (4 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (5/7)", 0x3b6e80 + (4 * 0x200), 0x3b6e80 + (5 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (6/7)", 0x3b6e80 + (5 * 0x200), 0x3b6e80 + (6 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (7/7)", 0x3b6e80 + (6 * 0x200), 0x3b7c00, indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip6 },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_RYU_FADED_PALETTES[] =
 {
-    { L"Ryu Stage (Faded) (1/7)", 0x3b7c00 + (0 * 0x200), 0x3b7c00 + (1 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
+    { L"Ryu Stage (Faded) (1/7)", 0x3b7c00 + (0 * 0x200), 0x3b7c00 + (1 * 0x200), indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
     { L"Ryu Stage (Faded) (2/7)", 0x3b7c00 + (1 * 0x200), 0x3b7c00 + (2 * 0x200) },
     { L"Ryu Stage (Faded) (3/7)", 0x3b7c00 + (2 * 0x200), 0x3b7c00 + (3 * 0x200) },
     { L"Ryu Stage (Faded) (4/7)", 0x3b7c00 + (3 * 0x200), 0x3b7c00 + (4 * 0x200) },
@@ -1902,22 +1904,42 @@ const sGame_PaletteDataset SFIII2_A_STAGES_RYU_FADED_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_YUN_PALETTES[] =
 {
-    { L"Yun Stage (1/6)", 0x3b8980 + (0 * 0x200), 0x3b8980 + (1 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip5 },
-    { L"Yun Stage (2/6)", 0x3b8980 + (1 * 0x200), 0x3b8980 + (2 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip5 },
-    { L"Yun Stage (3/6)", 0x3b8980 + (2 * 0x200), 0x3b8980 + (3 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip5 },
-    { L"Yun Stage (4/6)", 0x3b8980 + (3 * 0x200), 0x3b8980 + (4 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip5 },
-    { L"Yun Stage (5/6)", 0x3b8980 + (4 * 0x200), 0x3b8980 + (5 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip5 },
-    { L"Yun Stage (6/6)", 0x3b8980 + (5 * 0x200), 0x3b9400, indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Yun Stage (1/6)", 0x3b8980 + (0 * 0x200), 0x3b8980 + (1 * 0x200), indexSF3NGSprites_Stages, 0x4e, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip7 },
+    { L"Yun Stage (2/6)", 0x3b8980 + (1 * 0x200), 0x3b8980 + (2 * 0x200), indexSF3NGSprites_Stages, 0x50, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Yun Stage (3/6)", 0x3b8980 + (2 * 0x200), 0x3b8980 + (3 * 0x200), indexSF3NGSprites_Stages, 0x52, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Yun Stage (4/6)", 0x3b8980 + (3 * 0x200), 0x3b8980 + (4 * 0x200), indexSF3NGSprites_Stages, 0x54, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Yun Stage (5/6)", 0x3b8980 + (4 * 0x200), 0x3b8980 + (5 * 0x200), indexSF3NGSprites_Stages, 0x56, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Yun Stage (6/6)", 0x3b8980 + (5 * 0x200), 0x3b9400, indexSF3NGSprites_Stages, 0x58, nullptr, &secondaryGreyTintEffects_Skip7 },
+
+    { L"Yun Stage Extras 1/2", 0x3caf80, 0x3cb180, indexSF3NGSprites_Stages, 0x5a },
+    { L"Yun Stage Extras 2/2", 0x3cb180, 0x3cb300, indexSF3NGSprites_Stages, 0x5b },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_YUN_FADED_PALETTES[] =
 {
-    { L"Yun Stage (Faded) (1/6)", 0x3b9400 + (0 * 0x200), 0x3b9400 + (1 * 0x200), indexSF2ISprites_Bonus, INVALID_UNIT_VALUE_8, &pairFullyLinkedNode },
-    { L"Yun Stage (Faded) (2/6)", 0x3b9400 + (1 * 0x200), 0x3b9400 + (2 * 0x200) },
-    { L"Yun Stage (Faded) (3/6)", 0x3b9400 + (2 * 0x200), 0x3b9400 + (3 * 0x200) },
-    { L"Yun Stage (Faded) (4/6)", 0x3b9400 + (3 * 0x200), 0x3b9400 + (4 * 0x200) },
-    { L"Yun Stage (Faded) (5/6)", 0x3b9400 + (4 * 0x200), 0x3b9400 + (5 * 0x200) },
-    { L"Yun Stage (Faded) (6/6)", 0x3b9400 + (5 * 0x200), 0x3b9e80 },
+    { L"Yun Stage (Faded) (1/6)", 0x3b9400 + (0 * 0x200), 0x3b9400 + (1 * 0x200), indexSF3NGSprites_Stages, 0x4e, &pairFullyLinkedNode },
+    { L"Yun Stage (Faded) (2/6)", 0x3b9400 + (1 * 0x200), 0x3b9400 + (2 * 0x200), indexSF3NGSprites_Stages, 0x50 },
+    { L"Yun Stage (Faded) (3/6)", 0x3b9400 + (2 * 0x200), 0x3b9400 + (3 * 0x200), indexSF3NGSprites_Stages, 0x52 },
+    { L"Yun Stage (Faded) (4/6)", 0x3b9400 + (3 * 0x200), 0x3b9400 + (4 * 0x200), indexSF3NGSprites_Stages, 0x54 },
+    { L"Yun Stage (Faded) (5/6)", 0x3b9400 + (4 * 0x200), 0x3b9400 + (5 * 0x200), indexSF3NGSprites_Stages, 0x56 },
+    { L"Yun Stage (Faded) (6/6)", 0x3b9400 + (5 * 0x200), 0x3b9e80, indexSF3NGSprites_Stages, 0x58 },
+};
+
+const sGame_PaletteDataset SFIII2_A_STAGES_YANG_PALETTES[] =
+{
+    { L"Yang Stage 1/4", 0x3b9e80, 0x3ba080, indexSF3NGSprites_Stages, 0x5c, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip4 },
+    { L"Yang Stage 2/4", 0x3ba080, 0x3ba280, indexSF3NGSprites_Stages, 0x5e, nullptr, &secondaryGreyTintEffects_Skip4 },
+    { L"Yang Stage 3/4", 0x3ba280, 0x3ba480, indexSF3NGSprites_Stages, 0x60, nullptr, &secondaryGreyTintEffects_Skip4 },
+    { L"Yang Stage 4/4", 0x3ba480, 0x3ba680, indexSF3NGSprites_Stages, 0x62, nullptr, &secondaryGreyTintEffects_Skip4 },
+    { L"Yang Stage Extras", 0x3cb300, 0x3cb480, indexSF3NGSprites_Stages, 0x64 },
+};
+
+const sGame_PaletteDataset SFIII2_A_STAGES_YANG_FADED_PALETTES[] =
+{
+    { L"Yang Stage (Faded) 1/4", 0x3ba680, 0x3ba880, indexSF3NGSprites_Stages, 0x5d, &pairFullyLinkedNode },
+    { L"Yang Stage (Faded) 2/4", 0x3ba880, 0x3baa80, indexSF3NGSprites_Stages, 0x5e },
+    { L"Yang Stage (Faded) 3/4", 0x3baa80, 0x3bac80, indexSF3NGSprites_Stages, 0x60 },
+    { L"Yang Stage (Faded) 4/4", 0x3bac80, 0x3bae80, indexSF3NGSprites_Stages, 0x62 },
 };
 
 const sDescTreeNode SFIII2_A_STAGES_COLLECTION[] =
@@ -1930,6 +1952,9 @@ const sDescTreeNode SFIII2_A_STAGES_COLLECTION[] =
     { L"Ryu Stage (Faded)",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_RYU_FADED_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_RYU_FADED_PALETTES) },
     { L"Yun Stage",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_YUN_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_YUN_PALETTES) },
     { L"Yun Stage (Faded)",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_YUN_FADED_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_YUN_FADED_PALETTES) },
+    { L"Yang Stage",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_YANG_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_YANG_PALETTES) },
+    { L"Yang Stage (Faded)",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_YANG_FADED_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_YANG_FADED_PALETTES) },
+    // dudley is changed from NG
 };
 
 const sDescTreeNode SFIII2_A_50_UNITS[] =
@@ -1939,15 +1964,20 @@ const sDescTreeNode SFIII2_A_50_UNITS[] =
     { L"Yun",    DESC_NODETYPE_TREE, (void*)SFIII2_A_YUN_COLLECTION, ARRAYSIZE(SFIII2_A_YUN_COLLECTION) },
     { L"Dudley", DESC_NODETYPE_TREE, (void*)SFIII2_A_DUDLEY_COLLECTION, ARRAYSIZE(SFIII2_A_DUDLEY_COLLECTION) },
     { L"Necro",  DESC_NODETYPE_TREE, (void*)SFIII2_A_NECRO_COLLECTION, ARRAYSIZE(SFIII2_A_NECRO_COLLECTION) },
+    // fixed for 2i
     { L"Hugo",   DESC_NODETYPE_TREE, (void*)SFIII2_A_HUGO_COLLECTION, ARRAYSIZE(SFIII2_A_HUGO_COLLECTION) },
     { L"Ibuki",  DESC_NODETYPE_TREE, (void*)SFIII2_A_IBUKI_COLLECTION, ARRAYSIZE(SFIII2_A_IBUKI_COLLECTION) },
     { L"Elena",  DESC_NODETYPE_TREE, (void*)SFIII2_A_ELENA_COLLECTION, ARRAYSIZE(SFIII2_A_ELENA_COLLECTION) },
     { L"Oro",    DESC_NODETYPE_TREE, (void*)SFIII2_A_ORO_COLLECTION, ARRAYSIZE(SFIII2_A_ORO_COLLECTION) },
+    // separated for 2i
     { L"Yang",   DESC_NODETYPE_TREE, (void*)SFIII2_A_YANG_COLLECTION, ARRAYSIZE(SFIII2_A_YANG_COLLECTION) },
     { L"Ken",    DESC_NODETYPE_TREE, (void*)SFIII2_A_KEN_COLLECTION, ARRAYSIZE(SFIII2_A_KEN_COLLECTION) },
     { L"Sean",   DESC_NODETYPE_TREE, (void*)SFIII2_A_SEAN_COLLECTION, ARRAYSIZE(SFIII2_A_SEAN_COLLECTION) },
+    // new to 2i
     { L"Urien",  DESC_NODETYPE_TREE, (void*)SFIII2_A_URIEN_COLLECTION, ARRAYSIZE(SFIII2_A_URIEN_COLLECTION) },
+    // new to 2i
     { L"Gouki",  DESC_NODETYPE_TREE, (void*)SFIII2_A_GOUKI_COLLECTION, ARRAYSIZE(SFIII2_A_GOUKI_COLLECTION) },
+    // new to 2i
     { L"Shin Gouki", DESC_NODETYPE_TREE, (void*)SFIII2_A_SHINGOUKI_COLLECTION, ARRAYSIZE(SFIII2_A_SHINGOUKI_COLLECTION) },
     { L"Gill",   DESC_NODETYPE_TREE, (void*)SFIII2_A_GILL_COLLECTION, ARRAYSIZE(SFIII2_A_GILL_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFIII2_A_BONUS_COLLECTION, ARRAYSIZE(SFIII2_A_BONUS_COLLECTION) },
