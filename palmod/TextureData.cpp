@@ -393,7 +393,8 @@ std::vector<sTextureData> sTextureData::SliceToLayers(std::vector<std::vector<CO
             if ((!optTargetLayer.has_value()) || // all layers
                 (optTargetLayer.value() == static_cast<int>(iPalette))) // or they specifically want this layer
             {
-                if (indexedPixels.at(iPixel) < nTotalPaletteSize)
+                if ((indexedPixels.at(iPixel)) &&
+                    (indexedPixels.at(iPixel) < nTotalPaletteSize))
                 {
                     // assign color to slice but make sure it's relative
                     rgrgPreviewSlices.at(iPalette).indexedPixels.at(iPixel) = static_cast<uint8_t>(indexedPixels.at(iPixel) - nUsedPaletteColors);
