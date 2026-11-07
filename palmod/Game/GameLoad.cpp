@@ -319,27 +319,67 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
 
                 strError.Format(L"The file \"%s\" was found but is not the expected size.  We expect the file to be %u bytes, but this file is %u bytes.\n\nShould we try to load this file anyways?", strCurrFile.GetString(), static_cast<int>(CurrRule.uVerifyVar), static_cast<int>(nGameFileLength));
 
+                CString strPersistenceGuid;
+
+                // BlazBlueCF_S and GGXXACR_S have a lot of unique custom builds that they'll be working with
+                // As such, allow those two games the ability to trust custom binaries
                 if (nGameFlag == GGXXACR_S)
                 {
-                    CString strGuid;
-                    strGuid.Format(L"GGXXACR-%llu", nGameFileLength);
+                    strPersistenceGuid.Format(L"GGXXACR-%llu", nGameFileLength);
 
                     if (!CRegProc::UserIsOnWINE())
                     {
-
                         strError.Append(L"\n\nNote that since GGXXACR (Steam) is heavily modded, this dialog is uniquely providing you a 'Don't Ask Again' option so we trust this specific file.  "
-                                        "Please ONLY check that if you really are sure this file will work for you.");
-
-                        // GGXXACR_S is uniquely doing a lot of unique custom builds that they'll be working with
-                        // As such, allow GGXXACR_S and only that game the ability to trust custom binaries
-                        fActualFileSizeIsSafe = (SHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONWARNING, IDYES, strGuid.GetString()) == IDYES);
+                                            L"Please ONLY check that if you really are sure this file will work for you.");
                     }
                     else
                     {
                         strError.Append(L"\n\nNote that since GGXXACR (Steam) is heavily modded, if you click YES we will always trust this particular changed file.");
-
-                        fActualFileSizeIsSafe = (SafeSHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_OK | MB_ICONWARNING, IDYES, strGuid.GetString(), true) == IDYES);
                     }
+                }
+                else if (nGameFlag == BlazBlueCF_S)
+                {
+                    byte magicBytes[4];
+
+                    CurrFile.Seek(0, CFile::begin);
+                    CurrFile.Read(&magicBytes, sizeof(magicBytes));
+
+                    if ((magicBytes[0] == 'D') &&
+                        (magicBytes[1] == 'F') &&
+                        (magicBytes[2] == 'A') &&
+                        (magicBytes[3] == 'S'))
+                    {
+                        // inflation about triples the size, so the indication here is that the files weren't patched.
+                        strError.Append(L"\n\nThis file is still stored as a DFAS archive and will not work!  You must use the patched (extracted) files as covered in the PalMod Read Me!  If your game is not patched our previews will not show correctly.");
+                    }
+                    else
+                    {
+                        strPersistenceGuid.Format(L"BBCFS-%llu", nGameFileLength);
+
+                        if (!CRegProc::UserIsOnWINE())
+                        {
+                            strError.Append(L"\n\nNote that since BBCF (Steam) is heavily modded, this dialog is uniquely providing you a 'Don't Ask Again' option so we trust this specific file.  "
+                                L"Please ONLY check that if you really are sure this file will work for you.  Be sure you're using patched files as covered in the PalMod Read Me!");
+                        }
+                        else
+                        {
+                            strError.Append(L"\n\nNote that since BBCF (Steam) is heavily modded, if you click YES we will always trust this particular changed file."
+                                L"  Be sure you're using patched files as covered in the PalMod Read Me!");
+                        }
+                    }
+                }
+
+                if (strPersistenceGuid.GetLength())
+                {
+                    if (!CRegProc::UserIsOnWINE())
+                    {
+                        fActualFileSizeIsSafe = (SHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONWARNING, IDYES, strPersistenceGuid.GetString()) == IDYES);
+                    }
+                    else
+                    {
+                        fActualFileSizeIsSafe = (SafeSHMessageBoxCheck(g_appHWnd, strError, GetHost()->GetAppName(), MB_OK | MB_ICONWARNING, IDYES, strPersistenceGuid.GetString(), true) == IDYES);
+                    }
+
                 }
                 else
                 {

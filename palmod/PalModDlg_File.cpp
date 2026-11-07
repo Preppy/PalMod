@@ -1056,7 +1056,7 @@ void CPalModDlg::OnExportPalette()
                                             L"|" };
 
     static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
-                                                L"BlazBlue Central Fiction palette set|*.cfpl|"
+                                                L"BlazBlue Centralfiction palette set|*.cfpl|"
                                                 L"ACT palette|*.act|"
                                                 L"ACT palette (upside-down color table)|*.act|" // This is at position four: that is important below!
                                                 L"GIMP palette file|*.gpl|"
@@ -1065,7 +1065,7 @@ void CPalModDlg::OnExportPalette()
                                                 L"|" };
 
     static LPCWSTR rgszBBCFAndBBTAGSaveFilter[] = { L"HipPalette|*.hpl|"
-                                                    L"BlazBlue Central Fiction palette set|*.cfpl|"
+                                                    L"BlazBlue Centralfiction palette set|*.cfpl|"
                                                     L"ACT palette|*.act|"
                                                     L"ACT palette (upside-down color table)|*.act|" // This is at position four: that is important below!
                                                     L"BlazBlue Cross Tag Battle palette set|*.impl|"

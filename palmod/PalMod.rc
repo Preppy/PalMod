@@ -665,7 +665,7 @@ BEGIN
                 MENUITEM "Aquapazza: Aquaplus Dream Match (PS3)", ID_LD_AQUAPLUS_P
             END
             MENUITEM "Blade Strangers (Steam)",     ID_LD_BLADESTRANGERS
-            MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
+            MENUITEM "BlazBlue Centralfiction (Steam)", ID_LD_BLAZBLUECF
             POPUP "CvS2"
             BEGIN
                 MENUITEM "DC",                          ID_LD_CVS2DCUSA

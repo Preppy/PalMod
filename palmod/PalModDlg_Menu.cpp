@@ -41,7 +41,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
                 pszExtraInfo = L"Select the 'chara' folder after following the guide linked in the Read Me.";
                 break;
             case BlazBlueCF_S:
-                pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.\nNote: make sure these are patched files.  See the Read Me.";
+                pszExtraInfo = L"Please select the 'BlazBlue Centralfiction' folder: we use the files under 'data' there.\nNote: make sure these are patched files.  See the Read Me.";
                 break;
             case DaemonBride_NL:
             case DaemonBrideAG_NL:

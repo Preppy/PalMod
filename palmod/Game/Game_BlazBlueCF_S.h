@@ -6,7 +6,7 @@ class CGame_BlazBlueCF_S : public CGameClassPerUnitPerFile
 private:
     const sGCPUPF_CoreGameData m_sCoreGameData
     {
-        L"BlazBlue Central Fiction (Steam)",
+        L"BlazBlue Centralfiction (Steam)",
         BlazBlueCF_S,
         IMGDAT_SECTION_ARCSYS,
         BlazBlueCF_S_IMGIDS_USED,

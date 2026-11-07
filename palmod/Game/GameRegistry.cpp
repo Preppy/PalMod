@@ -618,7 +618,7 @@ namespace KnownGameInfo
         },
         {
             BlazBlueCF_S,
-            L"BlazBlue: Central Fiction (Steam)",
+            L"BlazBlue Centralfiction (Steam)",
             {},
             Make_BlazBlueCF_S,
             CGame_BlazBlueCF_S::GetRule,
