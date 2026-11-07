@@ -1089,6 +1089,11 @@ const sGame_PaletteDataset MSH_A_BONUS_05_VSNAME_PALETTES[] =
     { L"Character VS Names", 0x60f4c, 0x610cc, indexCPS2Sprites_MSHAssets, 0x20 },
 };
 
+const sGame_PaletteDataset MSH_A_BONUS_05_BONUS_PALETTES[] =
+{
+    { L"HUD Names / Results", 0x60dec, 0x60e0c, indexCPS2Sprites_MSHAssets, 0x21 },
+};
+
 const sGame_PaletteDataset MSH_A_BONUS_TITLE_06_PALETTES[] =
 {
     { L"Title Screen Space BG",         0x7340 - 0x02, 0x7380 - 0x02, indexCPS2Sprites_MSHAssets, 0x00, &pairNext },
@@ -1096,16 +1101,24 @@ const sGame_PaletteDataset MSH_A_BONUS_TITLE_06_PALETTES[] =
     { L"QSound Text",                   0x10B00 - 0x02, 0x10B20 - 0x02, indexCPS2Sprites_MSHAssets, 0x0b },
     { L"Intro Ironman BG",              0x7220 - 0x02, 0x7240 - 0x02, indexCPS2Sprites_MSHAssets, 0x08 },
     { L"Intro Magnus BG",               0x7300 - 0x02, 0x7320 - 0x02, indexCPS2Sprites_MSHAssets, 0x09 },
+    { L"Intro Magnus Pt1 Frame 1",      0x1e7e, 0x1e9e, indexCPS2Sprites_MSHAssets, 0x22, &pairNext4 },
+    { L"Intro Magnus Pt1 Frame 2",      0x1ebe, 0x1ede, indexCPS2Sprites_MSHAssets, 0x22, &pairNext4 },
+    { L"Intro Magnus Pt1 Frame 3",      0x1ede, 0x1efe, indexCPS2Sprites_MSHAssets, 0x22, &pairNext4 },
+    { L"Intro Magnus Pt1 Frame 4",      0x1efe, 0x1f1e, indexCPS2Sprites_MSHAssets, 0x22, &pairNext4 },
+    { L"Intro Magnus Pt2 Frame 1",      0x1e9e, 0x1ebe, indexCPS2Sprites_MSHAssets, 0x23 },
+    { L"Intro Magnus Pt2 Frame 2",      0x1f1e, 0x1f3e, indexCPS2Sprites_MSHAssets, 0x23 },
+    { L"Intro Magnus Pt2 Frame 3",      0x1f3e, 0x1f5e, indexCPS2Sprites_MSHAssets, 0x23 },
+    { L"Intro Magnus Pt2 Frame 4",      0x1f5e, 0x1f7e, indexCPS2Sprites_MSHAssets, 0x23 },
     { L"Intro Blackheart",              0x1280 - 0x02, 0x12C0 - 0x02, indexCPS2Sprites_MSHAssets, 0x14 },
     { L"Intro: BH vs Wolv BG",          0x71E0 - 0x02, 0x7200 - 0x02, indexCPS2Sprites_MSHAssets, 0x15 },
     { L"Intro Psylocke Pt1",            0x0E80 - 0x02, 0x1080 - 0x02, indexCPS2Sprites_MSHAssets, 0x1b, &pairNext },
     { L"Intro Psylocke Pt2",            0x1080 - 0x02, 0x1280 - 0x02, indexCPS2Sprites_MSHAssets, 0x1c },
     { L"Intro: Psylocke BG",            0x7200 - 0x02, 0x7220 - 0x02, indexCPS2Sprites_MSHAssets, 0x1d },
     { L"Intro Ironman Pt1 Frame 1",     0xA80 - 0x02, 0xAA0 - 0x02, indexCPS2Sprites_MSHAssets, 0x19, &pairNext4 },
-    { L"Intro Ironman Pt2 Frame 1",     0xAA0 - 0x02, 0xAC0 - 0x02, indexCPS2Sprites_MSHAssets, 0x19, &pairNext4 },
     { L"Intro Ironman Pt1 Frame 2",     0xAE0 - 0x02, 0xB00 - 0x02, indexCPS2Sprites_MSHAssets, 0x19, &pairNext4 },
     { L"Intro Ironman Pt1 Frame 3",     0xB00 - 0x02, 0xB20 - 0x02, indexCPS2Sprites_MSHAssets, 0x19, &pairNext4 },
-    { L"Intro Ironman Pt1 Frame 4",     0xB20 - 0x02, 0xB40 - 0x02, indexCPS2Sprites_MSHAssets, 0x1a },
+    { L"Intro Ironman Pt1 Frame 4",     0xB20 - 0x02, 0xB40 - 0x02, indexCPS2Sprites_MSHAssets, 0x19, &pairNext4 },
+    { L"Intro Ironman Pt2 Frame 1",     0xAA0 - 0x02, 0xAC0 - 0x02, indexCPS2Sprites_MSHAssets, 0x1a },
     { L"Intro Ironman Pt2 Frame 2",     0xB60 - 0x02, 0xB80 - 0x02, indexCPS2Sprites_MSHAssets, 0x1a },
     { L"Intro Ironman Pt2 Frame 3",     0xB80 - 0x02, 0xBA0 - 0x02, indexCPS2Sprites_MSHAssets, 0x1a },
     { L"Intro Ironman Pt2 Frame 4",     0xBA0 - 0x02, 0xBC0 - 0x02, indexCPS2Sprites_MSHAssets, 0x1a },
@@ -1236,6 +1249,7 @@ const sDescTreeNode MSH_A_BONUS_05_COLLECTION[] =
     { L"Mind Gem Effects", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_MINDGEM_PALETTES, ARRAYSIZE(MSH_A_BONUS_MINDGEM_PALETTES) },
     { L"Title Screen (05 elements)", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_TITLE_05_PALETTES, ARRAYSIZE(MSH_A_BONUS_TITLE_05_PALETTES) },
     { L"VS Names", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_05_VSNAME_PALETTES, ARRAYSIZE(MSH_A_BONUS_05_VSNAME_PALETTES) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_05_BONUS_PALETTES, ARRAYSIZE(MSH_A_BONUS_05_BONUS_PALETTES) },
 };
 
 const sDescTreeNode MSH_A_BONUS_06_COLLECTION[] =

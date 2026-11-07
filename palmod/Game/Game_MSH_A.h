@@ -61,16 +61,16 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
     ROM_LOAD16_WORD_SWAP("msh.05",   0x100000, 0x80000, CRC(6a091b9e) SHA1(7fa54e69e1a1ca348cb08d892d55023e9a3ff4cb))
     ROM_LOAD16_WORD_SWAP("msh.06b",  0x180000, 0x80000, CRC(803e3fa4) SHA1(0acdeda65002521bf24130cbf06f9faa1dcef9e5))
 #endif
-        { L"MSH (CPS2 951024)", L"msh.05", 0x6a091b9e, 0 },
-        { L"MSH (CPS2 951117)", L"msh.05a", 0xf37539e6, 0 },
-        { L"MSH (CPS2 US 951024)", L"mshud.05", 0x3b493e84, 0 },
+        { L"MSH (CPS2 951024 ROM05)", L"msh.05", 0x6a091b9e, 0 },
+        { L"MSH (CPS2 951117 ROM05)", L"msh.05a", 0xf37539e6, 0 },
+        { L"MSH (CPS2 US 951024 ROM05)", L"mshud.05", 0x3b493e84, 0 },
 
-        { L"MSH (CPS2)", L"msh.06b",  0x803e3fa4, 0 },
+        { L"MSH (CPS2 ROM06)", L"msh.06b",  0x803e3fa4, 0 },
     };
 
     const sCoreGameData m_sCoreGameData_ROM05
     {
-        L"MSH (CPS2)",
+        L"MSH (CPS2 ROM05)",
         MSH_A,
         IMGDAT_SECTION_CPS2,
         MSH_A_IMGIDS_USED,
@@ -84,13 +84,13 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
         MSH_UNITS_05,
         ARRAYSIZE(MSH_UNITS_05),
         L"MSHe.txt",        // Extra filename
-        501,                // Count of palettes listed in the header
-        0x60f4c,            // Lowest known location used for palettes
+        502,                // Count of palettes listed in the header
+        0x60dcc,            // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM06
     {
-        L"MSH (CPS2)",
+        L"MSH (CPS2 ROM06)",
         MSH_A,
         IMGDAT_SECTION_CPS2,
         MSH_A_IMGIDS_USED,
@@ -104,7 +104,7 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
         MSH_UNITS_06,
         ARRAYSIZE(MSH_UNITS_06),
         L"MSH06e.txt",      // Extra filename
-        72,                 // Count of palettes listed in the header
+        80,                 // Count of palettes listed in the header
         0xa78,              // Lowest known location used for palettes
     };
 
@@ -154,8 +154,8 @@ private:
         MSH_UNITS_STEAM,
         ARRAYSIZE(MSH_UNITS_STEAM),
         L"MSHSe.txt",           // Extra filename
-        573,                    // Count of palettes listed in the header
-        0x160f8c - 0x100040,    // Lowest known location used for palettes
+        582,                    // Count of palettes listed in the header
+        0x160e2c - 0x100040,    // Lowest known location used for palettes
     };
 
 public:
