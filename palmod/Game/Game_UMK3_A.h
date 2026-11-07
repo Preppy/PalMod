@@ -2,6 +2,9 @@
 #include "GameClassByDir.h"
 #include "UMK3_A_DEF.h"
 
+constexpr auto UMK3_A_KNOWN_PALETTE_COUNT = 147;
+constexpr auto UMK3_A_LOWEST_LOCATION = 0x35cf4;
+
 class CGame_UMK3_A : public CGameClassByDir
 {
 private:
@@ -132,9 +135,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V11
@@ -152,9 +155,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12Normal
@@ -172,9 +175,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12Alt
@@ -192,9 +195,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12Plus
@@ -212,9 +215,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12PlusBeta
@@ -232,9 +235,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12TE
@@ -252,9 +255,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12UC
@@ -272,9 +275,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12UK
@@ -292,9 +295,9 @@ private:
         m_rgCRC32Data,
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",             // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        L"UMK3_A_E.txt",            // Extra filename
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
 public:
@@ -337,8 +340,8 @@ private:
         UMK3_A_UNITS,
         ARRAYSIZE(UMK3_A_UNITS),
         L"UMK3_PS2_E.txt",          // Extra filename
-        67,                         // Count of palettes listed in the header
-        0x60b3c,                    // Lowest known location used for palettes
+        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
     };
 
 public:
