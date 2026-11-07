@@ -1917,11 +1917,11 @@ const sGame_PaletteDataset SFIII2_A_STAGES_YUN_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_YUN_FADED_PALETTES[] =
 {
-    { L"Yun Stage (Faded) (1/6)", 0x3b9400 + (0 * 0x200), 0x3b9400 + (1 * 0x200), indexSF3NGSprites_Stages, 0x4e, &pairFullyLinkedNode },
+    { L"Yun Stage (Faded) (1/6)", 0x3b9400 + (0 * 0x200), 0x3b9400 + (1 * 0x200), indexSF3NGSprites_Stages, 0x4f, &pairFullyLinkedNode },
     { L"Yun Stage (Faded) (2/6)", 0x3b9400 + (1 * 0x200), 0x3b9400 + (2 * 0x200), indexSF3NGSprites_Stages, 0x50 },
-    { L"Yun Stage (Faded) (3/6)", 0x3b9400 + (2 * 0x200), 0x3b9400 + (3 * 0x200), indexSF3NGSprites_Stages, 0x52 },
-    { L"Yun Stage (Faded) (4/6)", 0x3b9400 + (3 * 0x200), 0x3b9400 + (4 * 0x200), indexSF3NGSprites_Stages, 0x54 },
-    { L"Yun Stage (Faded) (5/6)", 0x3b9400 + (4 * 0x200), 0x3b9400 + (5 * 0x200), indexSF3NGSprites_Stages, 0x56 },
+    { L"Yun Stage (Faded) (3/6)", 0x3b9400 + (2 * 0x200), 0x3b9400 + (3 * 0x200), indexSF3NGSprites_Stages, 0x53 },
+    { L"Yun Stage (Faded) (4/6)", 0x3b9400 + (3 * 0x200), 0x3b9400 + (4 * 0x200), indexSF3NGSprites_Stages, 0x55 },
+    { L"Yun Stage (Faded) (5/6)", 0x3b9400 + (4 * 0x200), 0x3b9400 + (5 * 0x200), indexSF3NGSprites_Stages, 0x57 },
     { L"Yun Stage (Faded) (6/6)", 0x3b9400 + (5 * 0x200), 0x3b9e80, indexSF3NGSprites_Stages, 0x58 },
 };
 
@@ -1942,10 +1942,36 @@ const sGame_PaletteDataset SFIII2_A_STAGES_YANG_FADED_PALETTES[] =
     { L"Yang Stage (Faded) 4/4", 0x3bac80, 0x3bae80, indexSF3NGSprites_Stages, 0x62 },
 };
 
+const sGame_PaletteDataset SFIII2_A_STAGES_DUDLEY_DAY_PALETTES[] =
+{
+    { L"Dudley Stage Day 1/6", 0x3bae80, 0x3bb080, indexSF3NGSprites_Stages, 0x75, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip5 },
+    { L"Dudley Stage Day 2/6", 0x3bb080, 0x3bb280, indexSF3NGSprites_Stages, 0x77, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Dudley Stage Day 3/6", 0x3bb280, 0x3bb480, indexSF3NGSprites_Stages, 0x79, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Dudley Stage Day 4/6", 0x3bb480, 0x3bb680, indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Dudley Stage Day 5/6", 0x3bb680, 0x3bb880, indexSF3NGSprites_Stages, 0x7c, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Dudley Stage Day 6/6", 0x3bb880, 0x3bba80, indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8, nullptr, &secondaryGreyTintEffects_Skip5 },
+};
+
+const sGame_PaletteDataset SFIII2_A_STAGES_DUDLEY_DAY_FADED_PALETTES[] =
+{
+    { L"Dudley Stage Day (Faded) 1/6", 0x3bbb80, 0x3bbd80, indexSF3NGSprites_Stages, 0x75, &pairFullyLinkedNode },
+    { L"Dudley Stage Day (Faded) 2/6", 0x3bbd80, 0x3bbf80, indexSF3NGSprites_Stages, 0x77 },
+    { L"Dudley Stage Day (Faded) 3/6", 0x3bbf80, 0x3bc180, indexSF3NGSprites_Stages, 0x79 },
+    { L"Dudley Stage Day (Faded) 4/6", 0x3bc180, 0x3bc380, indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8 },
+    { L"Dudley Stage Day (Faded) 5/6", 0x3bc380, 0x3bc580, indexSF3NGSprites_Stages, 0x7c },
+    { L"Dudley Stage Day (Faded) 6/6", 0x3bc580, 0x3bc780, indexSF3NGSprites_Stages, INVALID_UNIT_VALUE_8 },
+};
+
+// ibuki stage 0x3c0480
+
+// ibuki stage faded 0x3c0c00
+
 const sDescTreeNode SFIII2_A_STAGES_COLLECTION[] =
 {
     { L"Alex Stage",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_ALEX_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_ALEX_PALETTES) },
     { L"Alex Stage (Faded)",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_ALEX_FADED_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_ALEX_FADED_PALETTES) },
+    { L"Dudley Stage",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_DUDLEY_DAY_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_DUDLEY_DAY_PALETTES) },
+    { L"Dudley Stage (Faded)",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_DUDLEY_DAY_FADED_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_DUDLEY_DAY_FADED_PALETTES) },
     { L"Gill Stage",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_GILL_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_GILL_PALETTES) },
     { L"Gill Stage (Faded)",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_GILL_FADED_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_GILL_FADED_PALETTES) },
     { L"Ryu Stage",   DESC_NODETYPE_TREE, (void*)SFIII2_A_STAGES_RYU_PALETTES, ARRAYSIZE(SFIII2_A_STAGES_RYU_PALETTES) },

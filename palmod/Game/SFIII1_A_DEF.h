@@ -31,7 +31,6 @@ const std::vector<uint16_t> SFIII1_A_IMGIDS_USED =
     indexSF3NGSprites_Gill,     // 0x25
     indexSF3NGSprites_Stages,   // 0x26
     indexSF3NGSprites_Endings,  // 0x27
-
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_LP_PALETTES[] =
