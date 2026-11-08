@@ -159,6 +159,7 @@ const sGame_PaletteDataset UMK3_A_JADE_PALETTES_P2[] =
 
 const sGame_PaletteDataset UMK3_A_Jade_Extras[] =
 {
+    { L"Gibs", 0x425fc, 0x4267c },
     { L"Shadow Kick", 0x4a21e, 0x4a29e, indexUMK3ArcadeSprites_Jade, 0x00 },
 };
 
@@ -204,22 +205,22 @@ const sGame_PaletteDataset UMK3_A_SEKTOR_PALETTES_P2[] =
 
 const sGame_PaletteDataset UMK3_A_SINDEL_PALETTES_P1[] =
 {
-    { L"Sindel P1", 0xb061e, 0xb069e, indexUMK3ArcadeSprites_Sindel, 0x00 },
+    { L"Sindel P1", 0xb061e, 0xb069c, indexUMK3ArcadeSprites_Sindel, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_A_SINDEL_PALETTES_P2[] =
 {
-    { L"Sindel P2", 0x60ec8, 0x60f48, indexUMK3ArcadeSprites_Sindel, 0x00 },
+    { L"Sindel P2", 0x60ec8, 0x60f46, indexUMK3ArcadeSprites_Sindel, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_A_STRYKER_PALETTES_P1[] =
 {
-    { L"Stryker P1", 0xb04f2, 0xb0572, indexUMK3ArcadeSprites_Stryker, 0x00 },
+    { L"Stryker P1", 0xb04f2, 0xb0570, indexUMK3ArcadeSprites_Stryker, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_A_STRYKER_PALETTES_P2[] =
 {
-    { L"Stryker P2", 0x60e48, 0x60ec8, indexUMK3ArcadeSprites_Stryker, 0x00 },
+    { L"Stryker P2", 0x60e48, 0x60ec6, indexUMK3ArcadeSprites_Stryker, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_A_CYRAX_PALETTES_P1[] =
@@ -274,7 +275,9 @@ const sGame_PaletteDataset UMK3_A_HUMANSMOKE_PALETTES[] =
 
 const sGame_PaletteDataset UMK3_A_MOTARO_PALETTES[] =
 {
-    { L"Motaro", 0xb1a10, 0xb1a90, indexUMK3ArcadeSprites_Motaro, 0x00 },
+    { L"Motaro", 0xb1a10, 0xb1a8e, indexUMK3ArcadeSprites_Motaro, 0x00 },
+    { L"Projectile", 0xb1a90, 0xb1b08 },
+    { L"Teleport", 0xb1b0a, 0xb1b84 },
 };
 
 const sGame_PaletteDataset UMK3_A_NOOB_PALETTES[] =
@@ -285,6 +288,118 @@ const sGame_PaletteDataset UMK3_A_NOOB_PALETTES[] =
 const sGame_PaletteDataset UMK3_A_RAIN_PALETTES[] =
 {
     { L"Rain", 0x67658, 0x676d8, indexUMK3ArcadeSprites_Rain, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3_A_Kitana_Extras[] =
+{
+    { L"Gibs", 0xba6e6, 0xba766 },
+};
+
+const sGame_PaletteDataset UMK3_A_Reptile_Extras[] =
+{
+    { L"Gibs", 0x42700, 0x42780 },
+};
+
+const sGame_PaletteDataset UMK3_A_Sonya_Extras[] =
+{
+    { L"Gibs", 0xba45e, 0xba4de },
+};
+
+const sGame_PaletteDataset UMK3_A_Jax_Extras[] =
+{
+    { L"Gibs P1", 0xba154, 0xba1d2 },
+    { L"Gibs P2", 0x42804, 0x42882 },
+};
+
+const sGame_PaletteDataset UMK3_A_Nightwolf_Extras[] =
+{
+    { L"Gibs", 0xba0d2, 0xba152 },
+};
+
+const sGame_PaletteDataset UMK3_A_Scorpion_Extras[] =
+{
+    { L"Gibs", 0x4257a, 0x425fa },
+};
+
+const sGame_PaletteDataset UMK3_A_Kano_Extras[] =
+{
+    { L"Gibs", 0xba258, 0xba2d8 },
+};
+
+const sGame_PaletteDataset UMK3_A_SubZero_Extras[] =
+{
+    { L"Gibs", 0xba562, 0xba5e2 },
+};
+
+const sGame_PaletteDataset UMK3_A_Sektor_Extras[] =
+{
+    { L"Gibs", 0x424f8, 0x42578 },
+};
+
+const sGame_PaletteDataset UMK3_A_Sindel_Extras[] =
+{
+    { L"Gibs", 0xba2da, 0xba358 },
+};
+
+const sGame_PaletteDataset UMK3_A_Stryker_Extras[] =
+{
+    { L"Gibs", 0xba3dc, 0xba45c },
+};
+
+const sGame_PaletteDataset UMK3_A_Cyrax_Extras[] =
+{
+    { L"Gibs", 0x42904, 0x42982 },
+};
+
+const sGame_PaletteDataset UMK3_A_KungLao_Extras[] =
+{
+    { L"Gibs P1", 0xba1d6, 0xba254 },
+    { L"Gibs P2", 0x42984, 0x42a02 },
+};
+
+const sGame_PaletteDataset UMK3_A_Kabal_Extras[] =
+{
+    { L"Gibs", 0xba5e4, 0xba664 },
+};
+
+const sGame_PaletteDataset UMK3_A_Sheeva_Extras[] =
+{
+    { L"Gibs", 0xba4e0, 0xba560 },
+};
+
+const sGame_PaletteDataset UMK3_A_ShangTsung_Extras[] =
+{
+    { L"Gibs", 0xba666, 0xba6e4 },
+};
+
+const sGame_PaletteDataset UMK3_A_LiuKang_Extras[] =
+{
+    { L"Gibs", 0xba35a, 0xba3da },
+};
+
+const sGame_PaletteDataset UMK3_A_Smoke_Extras[] =
+{
+    { L"Gibs", 0x42884, 0x42902 },
+};
+
+const sGame_PaletteDataset UMK3_A_HumanSmoke_Extras[] =
+{
+    { L"Gibs", 0x42476, 0x424f6 },
+};
+
+const sGame_PaletteDataset UMK3_A_ClassicSubZero_Extras[] =
+{
+    { L"Gibs", 0x42782, 0x42802 },
+};
+
+const sGame_PaletteDataset UMK3_A_Ermac_Extras[] =
+{
+    { L"Gibs", 0xba768, 0xba7e8 },
+};
+
+const sGame_PaletteDataset UMK3_A_Mileena_Extras[] =
+{
+    { L"Gibs", 0x4267e, 0x426fe },
 };
 
 const sGame_PaletteDataset UMK3_A_Portraits_Normal[] =
@@ -387,6 +502,13 @@ const sGame_PaletteDataset UMK3_A_Backgrounds_CharacterBiography[] =
     { L"Character Biography 4/4", 0xa73da, 0xa745a },
 };
 
+const sGame_PaletteDataset UMK3_A_Backgrounds_Messages[] =
+{
+    { L"Ultimate Kombat Kode/Error", 0x31da8, 0x31de8 },
+    { L"Bootup Warning Message", 0x382ae, 0x382ee },
+    { L"Entering Hidden Game", 0x5aa92, 0x5aad2 },
+};
+
 const sGame_PaletteDataset UMK3_A_BonusPalettes_FrozenPalettes[] =
 {
     { L"Ninja (Male)",  0x61042, 0x610c2, indexUMK3ArcadeSprites_Scorpion },
@@ -420,7 +542,7 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_SharedEffects[] =
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_TitleScreen[] =
 {
-    { L"Title Screen", 0xcf008, 0xcf208 },
+    { L"Title Screen", 0xcf008, 0xcf206 },
 };
 
 const sGame_PaletteDataset UMK3_A_BONUS_PALETTES_HIDDENGAME[] =
@@ -434,54 +556,63 @@ const sDescTreeNode UMK3_A_LIUKANG_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_LIUKANG_PALETTES_P1, ARRAYSIZE(UMK3_A_LIUKANG_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_LIUKANG_PALETTES_P2, ARRAYSIZE(UMK3_A_LIUKANG_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_LiuKang_Extras, ARRAYSIZE(UMK3_A_LiuKang_Extras) },
 };
 
 const sDescTreeNode UMK3_A_KUNGLAO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KUNGLAO_PALETTES_P1, ARRAYSIZE(UMK3_A_KUNGLAO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KUNGLAO_PALETTES_P2, ARRAYSIZE(UMK3_A_KUNGLAO_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_KungLao_Extras, ARRAYSIZE(UMK3_A_KungLao_Extras) },
 };
 
 const sDescTreeNode UMK3_A_REPTILE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_REPTILE_PALETTES_P1, ARRAYSIZE(UMK3_A_REPTILE_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_REPTILE_PALETTES_P2, ARRAYSIZE(UMK3_A_REPTILE_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Reptile_Extras, ARRAYSIZE(UMK3_A_Reptile_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SUBZERO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SUBZERO_PALETTES_P1, ARRAYSIZE(UMK3_A_SUBZERO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SUBZERO_PALETTES_P2, ARRAYSIZE(UMK3_A_SUBZERO_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_SubZero_Extras, ARRAYSIZE(UMK3_A_SubZero_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SHANGTSUNG_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SHANGTSUNG_PALETTES_P1, ARRAYSIZE(UMK3_A_SHANGTSUNG_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SHANGTSUNG_PALETTES_P2, ARRAYSIZE(UMK3_A_SHANGTSUNG_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_ShangTsung_Extras, ARRAYSIZE(UMK3_A_ShangTsung_Extras) },
 };
 
 const sDescTreeNode UMK3_A_KITANA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_PALETTES_P1, ARRAYSIZE(UMK3_A_KITANA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_PALETTES_P2, ARRAYSIZE(UMK3_A_KITANA_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Kitana_Extras, ARRAYSIZE(UMK3_A_Kitana_Extras) },
 };
 
 const sDescTreeNode UMK3_A_JAX_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_JAX_PALETTES_P1, ARRAYSIZE(UMK3_A_JAX_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_JAX_PALETTES_P2, ARRAYSIZE(UMK3_A_JAX_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Jax_Extras, ARRAYSIZE(UMK3_A_Jax_Extras) },
 };
 
 const sDescTreeNode UMK3_A_MILEENA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_MILEENA_PALETTES_P1, ARRAYSIZE(UMK3_A_MILEENA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_MILEENA_PALETTES_P2, ARRAYSIZE(UMK3_A_MILEENA_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Mileena_Extras, ARRAYSIZE(UMK3_A_Mileena_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SCORPION_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SCORPION_PALETTES_P1, ARRAYSIZE(UMK3_A_SCORPION_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SCORPION_PALETTES_P2, ARRAYSIZE(UMK3_A_SCORPION_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Scorpion_Extras, ARRAYSIZE(UMK3_A_Scorpion_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SHAOKHAN_COLLECTION[] =
@@ -493,6 +624,7 @@ const sDescTreeNode UMK3_A_SMOKE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SMOKE_PALETTES_P1, ARRAYSIZE(UMK3_A_SMOKE_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SMOKE_PALETTES_P2, ARRAYSIZE(UMK3_A_SMOKE_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Smoke_Extras, ARRAYSIZE(UMK3_A_Smoke_Extras) },
 };
 
 const sDescTreeNode UMK3_A_NOOB_COLLECTION[] =
@@ -516,12 +648,14 @@ const sDescTreeNode UMK3_A_SONYA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SONYA_PALETTES_P1, ARRAYSIZE(UMK3_A_SONYA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SONYA_PALETTES_P2, ARRAYSIZE(UMK3_A_SONYA_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sonya_Extras, ARRAYSIZE(UMK3_A_Sonya_Extras) },
 };
 
 const sDescTreeNode UMK3_A_NIGHTWOLF_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_NIGHTWOLF_PALETTES_P1, ARRAYSIZE(UMK3_A_NIGHTWOLF_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_NIGHTWOLF_PALETTES_P2, ARRAYSIZE(UMK3_A_NIGHTWOLF_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Nightwolf_Extras, ARRAYSIZE(UMK3_A_Nightwolf_Extras) },
 };
 
 const sDescTreeNode UMK3_A_RAIN_COLLECTION[] =
@@ -533,59 +667,69 @@ const sDescTreeNode UMK3_A_KANO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KANO_PALETTES_P1, ARRAYSIZE(UMK3_A_KANO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KANO_PALETTES_P2, ARRAYSIZE(UMK3_A_KANO_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Kano_Extras, ARRAYSIZE(UMK3_A_Kano_Extras) },
 };
 
 const sDescTreeNode UMK3_A_ERMAC_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_ERMAC_PALETTES_P1, ARRAYSIZE(UMK3_A_ERMAC_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_ERMAC_PALETTES_P2, ARRAYSIZE(UMK3_A_ERMAC_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Ermac_Extras, ARRAYSIZE(UMK3_A_Ermac_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SEKTOR_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SEKTOR_PALETTES_P1, ARRAYSIZE(UMK3_A_SEKTOR_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SEKTOR_PALETTES_P2, ARRAYSIZE(UMK3_A_SEKTOR_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sektor_Extras, ARRAYSIZE(UMK3_A_Sektor_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SINDEL_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SINDEL_PALETTES_P1, ARRAYSIZE(UMK3_A_SINDEL_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SINDEL_PALETTES_P2, ARRAYSIZE(UMK3_A_SINDEL_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sindel_Extras, ARRAYSIZE(UMK3_A_Sindel_Extras) },
 };
 
 const sDescTreeNode UMK3_A_STRYKER_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_STRYKER_PALETTES_P1, ARRAYSIZE(UMK3_A_STRYKER_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_STRYKER_PALETTES_P2, ARRAYSIZE(UMK3_A_STRYKER_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Stryker_Extras, ARRAYSIZE(UMK3_A_Stryker_Extras) },
 };
 
 const sDescTreeNode UMK3_A_CYRAX_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_CYRAX_PALETTES_P1, ARRAYSIZE(UMK3_A_CYRAX_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_CYRAX_PALETTES_P2, ARRAYSIZE(UMK3_A_CYRAX_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Cyrax_Extras, ARRAYSIZE(UMK3_A_Cyrax_Extras) },
 };
 
 const sDescTreeNode UMK3_A_KABAL_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KABAL_PALETTES_P1, ARRAYSIZE(UMK3_A_KABAL_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KABAL_PALETTES_P2, ARRAYSIZE(UMK3_A_KABAL_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Kabal_Extras, ARRAYSIZE(UMK3_A_Kabal_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SHEEVA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SHEEVA_PALETTES_P1, ARRAYSIZE(UMK3_A_SHEEVA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SHEEVA_PALETTES_P2, ARRAYSIZE(UMK3_A_SHEEVA_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sheeva_Extras, ARRAYSIZE(UMK3_A_Sheeva_Extras) },
 };
 
 const sDescTreeNode UMK3_A_HUMSMOKE_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_HUMANSMOKE_PALETTES, ARRAYSIZE(UMK3_A_HUMANSMOKE_PALETTES) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_HumanSmoke_Extras, ARRAYSIZE(UMK3_A_HumanSmoke_Extras) },
 };
 
 const sDescTreeNode UMK3_A_CLASSUB_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_CLASSUB_PALETTES_P1, ARRAYSIZE(UMK3_A_CLASSUB_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_CLASSUB_PALETTES_P2, ARRAYSIZE(UMK3_A_CLASSUB_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_ClassicSubZero_Extras, ARRAYSIZE(UMK3_A_ClassicSubZero_Extras) },
 };
 
 const sDescTreeNode UMK3_A_Portraits_COLLECTION[] =
@@ -601,6 +745,7 @@ const sDescTreeNode UMK3_A_Backgrounds_COLLECTION[] =
     { L"Tower Select/The Bridge", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_TowerSelectTheBridge, ARRAYSIZE(UMK3_A_Backgrounds_TowerSelectTheBridge) },
     { L"Continue Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_ContinueScreen, ARRAYSIZE(UMK3_A_Backgrounds_ContinueScreen) },
     { L"Character Biography", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_CharacterBiography, ARRAYSIZE(UMK3_A_Backgrounds_CharacterBiography) },
+    { L"Messages", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_Messages, ARRAYSIZE(UMK3_A_Backgrounds_Messages) },
 };
 
 const sDescTreeNode UMK3_A_BONUS_COLLECTION[] =
