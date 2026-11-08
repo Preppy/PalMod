@@ -1242,6 +1242,282 @@ const sDescTreeNode MSH_A_VSP_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)MSH_A_VSP_PALETTES,           ARRAYSIZE(MSH_A_VSP_PALETTES) },
 };
 
+const sGame_PaletteDataset MSH_A_STAGES_05_BUGLE[] =
+{
+    { L"512 Building Wall 1/2", 0x6f15e, 0x6f35e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"Building Wall 2/2", 0x6f35e, 0x6f3de },
+    { L"1024 Scaffold 1/2", 0x7603e, 0x7623e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"Scaffold 2/2", 0x7623e, 0x7629e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_BUGLE[] =
+{
+    { L"2048 Skyline 1/2", 0x27fe, 0x29fe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"Skyline 2/2", 0x29fe, 0x2bfe },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_RUINS[] =
+{
+    { L"512 statue of liberty", 0x6f61e, 0x6f7fe },
+
+    { L"1024 foreground 1/2", 0x767fe, 0x769fe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 foreground 2/2", 0x769fe, 0x76bbe },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_RUINS[] =
+{
+    { L"2048 skyline", 0x3a5e, 0x3ade },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_PARK[] =
+{
+    { L"512 skyline 1/2", 0x6fa1e, 0x6fc1e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"512 skyline 2/2", 0x6fc1e, 0x6fd7e },
+
+    { L"512 skyline animation palettes 1", 0x6fe1e, 0x6fffe },
+    { L"512 skyline animation palettes 2", 0x6fffe, 0x700be },
+    { L"512 skyline animation palettes 3", 0x700be, 0x7017e },
+
+    { L"1024 Merry Go Round 1/2", 0x76bfe, 0x76dfe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 Merry Go Round 2/2", 0x76dfe, 0x76fde },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_PARK[] =
+{
+    { L"2048 skyline", 0x3e5e, 0x3e9e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_STARK[] =
+{
+    { L"512 starfield", 0x7017e, 0x7031e },
+
+    { L"512 starfield animations 1", 0x7057e, 0x7077e },
+    { L"512 starfield animations 2", 0x7077e, 0x708fe },
+
+    { L"1024 1/2", 0x7731e, 0x7751e },
+    { L"1024 2/2", 0x7751e, 0x7757e },
+    { L"1024 animations 1", 0x7771e, 0x778de },
+    { L"1024 animations 2", 0x778de, 0x77a5e },
+    { L"1024 animations 3", 0x77a5e, 0x77c3e },
+    { L"1024 animations 4", 0x77c3e, 0x77e1e },
+    { L"1024 animations 5", 0x77e1e, 0x77f9e },
+    { L"1024 animations 6", 0x77f9e, 0x7809e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_STARK[] =
+{
+    { L"2048 skyline 1/2", 0x429e, 0x449e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"2048 skyline 2/2", 0x449e, 0x467e },
+
+    { L"2048 skyline animations 1", 0x469e, 0x489e },
+    { L"2048 skyline animations 2", 0x489e, 0x4a3e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_ROCKY[] =
+{
+    { L"512 scrap", 0x708fe, 0x7091e },
+    { L"512 bridge 1", 0x7091e, 0x70a3e },
+    { L"512 bridge 2", 0x70a7e, 0x70b1e },
+    { L"512 bridge 3", 0x70cfe, 0x70d9e },
+
+    { L"1024 background 1/2", 0x7809e, 0x7829e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 background 2/2", 0x7829e, 0x782be },
+
+    { L"1024 animations 1", 0x7837e, 0x783de },
+    { L"1024 animations 2", 0x78420, 0x7847e },
+    { L"1024 animations 3", 0x7849e, 0x7855e },
+    { L"1024 animations 4", 0x7855e, 0x7861e },
+    { L"1024 animations 5", 0x7861e, 0x786de },
+    { L"1024 animations 6", 0x786de, 0x7877e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_ROCKY[] =
+{
+    { L"2048 river/mountains 1/2", 0x4a5e, 0x4bde, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"2048 river/mountains 2/2", 0x4c3e, 0x4dfe },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_TRAIN[] =
+{
+    { L"512 skyline", 0x710fe, 0x7123e },
+
+    { L"512 skyline animations 1", 0x714fe, 0x716fe },
+    { L"512 skyline animations 2", 0x716fe, 0x718fe },
+    { L"512 skyline animations 3", 0x718fe, 0x71afe },
+    { L"512 skyline animations 4", 0x71afe, 0x71b9e },
+    { L"512 skyline animations 5", 0x71b9e, 0x71c9e },
+    { L"512 skyline animations 6", 0x71c9e, 0x71e9e },
+    { L"512 skyline animations 7", 0x71e9e, 0x7209e },
+    { L"512 skyline animations 8", 0x7209e, 0x7229e },
+    { L"512 skyline animations 9", 0x7229e, 0x7231e },
+
+    { L"1024 train top", 0x7877e, 0x7887e },
+    { L"1024 train top animations 1", 0x78b7e, 0x78d7e },
+    { L"1024 train top animations 2", 0x78d7e, 0x78f7e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_TRAIN[] =
+{
+    { L"2048 skyline 1/2", 0x4e5e, 0x505e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"2048 skyline 2/2", 0x505e, 0x525e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_HELL[] =
+{
+    { L"512 hell", 0x7231e, 0x7245e },
+
+    { L"512 hell animation palettes strip 1", 0x7271e, 0x7289e },
+    { L"512 hell animation palettes strip 2",0x7289e, 0x7297e },
+
+    { L"1024 hell", 0x78f7e, 0x790be },
+
+    { L"1024 hell animation palettes 1/2", 0x7937e, 0x7957e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 hell animation palettes 2/2", 0x7957e, 0x796de },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_HELL[] =
+{
+    { L"2048 hell flames", 0x57de, 0x57fe },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_CHAOS[] =
+{
+    { L"512 skyline 1/2", 0x7297e, 0x72b7e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"512 skyline 2/2", 0x72b7e, 0x72bde },
+
+    { L"512 skyline animations 1", 0x72d7e, 0x72f7e },
+    { L"512 skyline animations 2", 0x72f7e, 0x72ffe },
+
+    { L"1024 foreground / bones 1/2", 0x796de, 0x798de, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 foreground / bones 2/2", 0x798de, 0x79abe },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_CHAOS[] =
+{
+    { L"2048 mesas", 0x5bde, 0x5bfe },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_DOCKS[] =
+{
+    { L"512 water animation", 0x7307e, 0x7321e },
+
+    { L"1024 foreground 1", 0x79ade, 0x79cde, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 foreground 2", 0x79cde, 0x79ede },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_DOCKS[] =
+{
+    { L"2048 boat 1/2", 0x5fde, 0x61de, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"2048 boat 2/2", 0x61de, 0x63be },    
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_ASTEROID[] =
+{
+    { L"512 spacefield", 0x733fe, 0x735de },
+
+    { L"512 spacefield animations", 0x737fe, 0x7397e },
+
+    { L"1024 structure 1/2", 0x79ede, 0x7a0de, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 structure 2/2", 0x7a0de, 0x7a2de },
+
+    { L"1024 structure animations", 0x7a2de, 0x7a45e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_ASTEROID[] =
+{
+    { L"2048 flaming ground", 0x63de, 0x641e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_SUB[] =
+{
+    { L"512 device", 0x739fe, 0x73bfe },
+
+    { L"512 device animations 1", 0x73d7e, 0x73f7e },
+    { L"512 device animations 2", 0x73f7e, 0x7417e },
+    { L"512 device animations 3", 0x7417e, 0x7437e },
+    { L"512 device animations 4", 0x7437e, 0x7457e },
+    { L"512 device animations 5", 0x7457e, 0x7477e },
+    { L"512 device animations 6", 0x7477e, 0x7497e },
+    { L"512 device animations 7", 0x7497e, 0x74b7e },
+    { L"512 device animations 8", 0x74b7e, 0x74c7e },
+    { L"512 device animations 9", 0x74c7e, 0x74e7e },
+    { L"512 device animations 10", 0x74e7e, 0x7507e },
+    { L"512 device animations 11", 0x7507e, 0x750fe },
+
+    { L"1024 sub 1/2", 0x7c55e, 0x7c75e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 sub 2/2", 0x7c75e, 0x7c87e },
+
+    { L"1024 sub animations 1", 0x7c95e, 0x7ca5e },
+    { L"1024 sub animations 2", 0x7ca5e, 0x7cabe },
+    { L"1024 sub animations 3", 0x7cabe, 0x7ccbe },
+    { L"1024 sub animations 4", 0x7ccbe, 0x7cebe },
+    { L"1024 sub animations 5", 0x7cebe, 0x7d0be },
+    { L"1024 sub animations 6", 0x7d0be, 0x7d2be },
+    { L"1024 sub animations 7", 0x7d2be, 0x7d4be },
+    { L"1024 sub animations 8", 0x7d4be, 0x7d6be },
+    { L"1024 sub animations 9", 0x7d6be, 0x7d8be },
+    { L"1024 sub animations 10", 0x7d8be, 0x7dabe },
+    { L"1024 sub animations 11", 0x7dabe, 0x7dcbe },
+    { L"1024 sub animations 12", 0x7dcbe, 0x7debe },
+    { L"1024 sub animations 13", 0x7debe, 0x7e0be },
+    { L"1024 sub animations 14", 0x7e0be, 0x7e2be },
+    { L"1024 sub animations 15", 0x7e2be, 0x7e4be },
+    { L"1024 sub animations 16", 0x7e4be, 0x7e6be },
+    { L"1024 sub animations 17", 0x7e6be, 0x7e8be },
+    { L"1024 sub animations 18", 0x7e8be, 0x7e93e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_SUB[] =
+{
+    { L"2048 sub palettes? 1/2", 0x685e, 0x6a5e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"2048 sub palettes? 2/2", 0x6a5e, 0x6c3e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_05_THANOS[] =
+{
+    { L"512 mid starfield", 0x750fe, 0x7525e },
+    
+    { L"1024 foreground 1/2", 0x7e93e, 0x7eb3e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"1024 foreground 2/2", 0x7eb3e, 0x7ec5e },
+};
+
+const sGame_PaletteDataset MSH_A_STAGES_06_THANOS[] =
+{
+    { L"2048 sky", 0x6c5e, 0x6cbe },
+};
+
+const sDescTreeNode MSH_A_STAGES_05_COLLECTION[] =
+{
+    { L"Amusement Park Carnival",                   DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_PARK,    ARRAYSIZE(MSH_A_STAGES_05_PARK) },
+    { L"Asteroid M",                                DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_ASTEROID, ARRAYSIZE(MSH_A_STAGES_05_ASTEROID) },
+    { L"Atop a Bullet Train",                       DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_TRAIN,   ARRAYSIZE(MSH_A_STAGES_05_TRAIN) },
+    { L"Chaos Dimension",                           DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_CHAOS,   ARRAYSIZE(MSH_A_STAGES_05_CHAOS) },
+    { L"Dockyard",                                  DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_DOCKS,   ARRAYSIZE(MSH_A_STAGES_05_DOCKS) },
+    { L"Hell",                                      DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_HELL,    ARRAYSIZE(MSH_A_STAGES_05_HELL) },
+    { L"Latverian Submarine",                       DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_SUB,     ARRAYSIZE(MSH_A_STAGES_05_SUB) },
+    { L"Rocky Mountains",                           DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_ROCKY,   ARRAYSIZE(MSH_A_STAGES_05_ROCKY) },
+    { L"Ruins in the Statue of Liberty",            DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_RUINS,   ARRAYSIZE(MSH_A_STAGES_05_RUINS) },
+    { L"Scaffold Across the Daily Bugle Building",  DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_BUGLE,   ARRAYSIZE(MSH_A_STAGES_05_BUGLE) },
+    { L"STARK Enterprises Space Station",           DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_STARK,   ARRAYSIZE(MSH_A_STAGES_05_STARK) },
+    { L"Thanos' Palace",                            DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_THANOS,  ARRAYSIZE(MSH_A_STAGES_05_THANOS) },
+};
+
+const sDescTreeNode MSH_A_STAGES_06_COLLECTION[] =
+{
+    { L"Amusement Park Carnival",                   DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_PARK,    ARRAYSIZE(MSH_A_STAGES_06_PARK) },
+    { L"Asteroid M",                                DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_ASTEROID, ARRAYSIZE(MSH_A_STAGES_06_ASTEROID) },
+    { L"Atop a Bullet Train",                       DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_TRAIN,   ARRAYSIZE(MSH_A_STAGES_06_TRAIN) },
+    { L"Chaos Dimension",                           DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_CHAOS,   ARRAYSIZE(MSH_A_STAGES_06_CHAOS) },
+    { L"Dockyard",                                  DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_DOCKS,   ARRAYSIZE(MSH_A_STAGES_06_DOCKS) },
+    { L"Hell",                                      DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_HELL,    ARRAYSIZE(MSH_A_STAGES_06_HELL) },
+    { L"Latverian Submarine",                       DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_SUB,     ARRAYSIZE(MSH_A_STAGES_06_SUB) },
+    { L"Rocky Mountains",                           DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_ROCKY,   ARRAYSIZE(MSH_A_STAGES_06_ROCKY) },
+    { L"Ruins in the Statue of Liberty",            DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_RUINS,   ARRAYSIZE(MSH_A_STAGES_06_RUINS) },
+    { L"Scaffold Across the Daily Bugle Building",  DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_BUGLE,   ARRAYSIZE(MSH_A_STAGES_06_BUGLE) },
+    { L"STARK Enterprises Space Station",           DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_STARK,   ARRAYSIZE(MSH_A_STAGES_06_STARK) },
+    { L"Thanos' Palace",                            DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_THANOS,  ARRAYSIZE(MSH_A_STAGES_06_THANOS) },
+};
+
 const sDescTreeNode MSH_A_BONUS_05_COLLECTION[] =
 {
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_CSI_PALETTES, ARRAYSIZE(MSH_A_BONUS_CSI_PALETTES) },
@@ -1272,6 +1548,7 @@ const sDescTreeNode MSH_UNITS_05[] =
     { L"Thanos",                        DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
     { L"Wolverine",                     DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
     { L"Anita (Japan-only)",            DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
+    { L"Stages",                        DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_COLLECTION,        ARRAYSIZE(MSH_A_STAGES_05_COLLECTION) },
     { L"Bonus Palettes",                DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_05_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_05_COLLECTION) },
 };
 
@@ -1279,6 +1556,7 @@ const sDescTreeNode MSH_UNITS_06[] =
 {
     { L"Character Select Portraits",    DESC_NODETYPE_TREE, (void*)MSH_A_CSP_COLLECTION,              ARRAYSIZE(MSH_A_CSP_COLLECTION) },
     { L"Victory Screen Portraits",      DESC_NODETYPE_TREE, (void*)MSH_A_VSP_COLLECTION,              ARRAYSIZE(MSH_A_VSP_COLLECTION) },
+    { L"Stages",                        DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_COLLECTION,        ARRAYSIZE(MSH_A_STAGES_06_COLLECTION) },
     { L"Bonus Palettes",                DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_06_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_06_COLLECTION) },
 };
 
@@ -1299,6 +1577,8 @@ const sDescTreeNode MSH_UNITS_STEAM[] =
     { L"Anita (Japan-only)",            DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
     { L"Character Select Portraits",    DESC_NODETYPE_TREE, (void*)MSH_A_CSP_COLLECTION,              ARRAYSIZE(MSH_A_CSP_COLLECTION) },
     { L"Victory Screen Portraits",      DESC_NODETYPE_TREE, (void*)MSH_A_VSP_COLLECTION,              ARRAYSIZE(MSH_A_VSP_COLLECTION) },
+    { L"ROM05 Stages Palettes",         DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_05_COLLECTION,        ARRAYSIZE(MSH_A_STAGES_05_COLLECTION) },
+    { L"ROM06 Stages Palettes",         DESC_NODETYPE_TREE, (void*)MSH_A_STAGES_06_COLLECTION,        ARRAYSIZE(MSH_A_STAGES_06_COLLECTION) },
     { L"ROM05 Bonus Palettes",          DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_05_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_05_COLLECTION) },
     { L"ROM06 Bonus Palettes",          DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_06_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_06_COLLECTION) },
 };

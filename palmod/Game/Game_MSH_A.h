@@ -2,6 +2,9 @@
 #include "GameClassByDir.h"
 #include "MSH_A_DEF.h"
 
+constexpr auto MSH_ROM05_PALETTE_COUNT = 607;
+constexpr auto MSH_ROM06_PALETTE_COUNT = 100;
+
 class CGame_MSH_A : public CGameClassByDir
 {
 private:
@@ -83,9 +86,9 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
         m_rgCRC32Data,
         MSH_UNITS_05,
         ARRAYSIZE(MSH_UNITS_05),
-        L"MSHe.txt",        // Extra filename
-        502,                // Count of palettes listed in the header
-        0x60dcc,            // Lowest known location used for palettes
+        L"MSHe.txt",                // Extra filename
+        MSH_ROM05_PALETTE_COUNT,    // Count of palettes listed in the header
+        0x60dcc,                // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM06
@@ -103,9 +106,9 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
         m_rgCRC32Data,
         MSH_UNITS_06,
         ARRAYSIZE(MSH_UNITS_06),
-        L"MSH06e.txt",      // Extra filename
-        80,                 // Count of palettes listed in the header
-        0xa78,              // Lowest known location used for palettes
+        L"MSH06e.txt",              // Extra filename
+        MSH_ROM06_PALETTE_COUNT,    // Count of palettes listed in the header
+        0xa78,                      // Lowest known location used for palettes
     };
 
 public:
@@ -153,9 +156,9 @@ private:
         m_rgCRC32Data,
         MSH_UNITS_STEAM,
         ARRAYSIZE(MSH_UNITS_STEAM),
-        L"MSHSe.txt",           // Extra filename
-        582,                    // Count of palettes listed in the header
-        0x160e2c - 0x100040,    // Lowest known location used for palettes
+        L"MSHSe.txt",                                       // Extra filename
+        MSH_ROM05_PALETTE_COUNT + MSH_ROM06_PALETTE_COUNT,  // Count of palettes listed in the header
+        0x160e2c - 0x100040,                                // Lowest known location used for palettes
     };
 
 public:
