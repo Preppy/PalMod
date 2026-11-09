@@ -165,7 +165,7 @@ void CPreviewImportManager::_UpdateDimensionsOptions()
     {
         CString strDimensionsText;
 
-        if (m_rgTextureLoadedFromFile.dimensions.GetPixelCount() == static_cast<int>(m_rgTextureLoadedFromFile.indexedPixels.size()))
+        if (m_rgTextureLoadedFromFile.DimensionsAreValid())
         {
             m_rgDimensionOptionsList.push_back(m_rgTextureLoadedFromFile.dimensions);
         }
@@ -580,13 +580,15 @@ void CPreviewImportManager::OnLoadFromFile()
     }
 }
 
-// this should handle all assignment as it handles math quirks
-void CPreviewImportManager::SetTextureToUse(sTextureData newTexture)
+std::vector<sTextureData> CPreviewImportManager::_GetSlicesFromLoadedTexture()
 {
-    m_rgTextureLoadedFromFile = newTexture;
+    std::vector<sTextureData> rgLayerSlices;
 
-    if (newTexture.dataType == TextureDataType::RGBA)
+    if (m_rgTextureLoadedFromFile.dataType == TextureDataType::RGBA)
     {
+        GetHost()->GetPalModDlg()->SetStatusText(L"Calculating RGBA->Indexed math based upon loaded palettes...");
+
+        // hard mode.  slice the RGBA preview up based upon palettes
         const ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
         const bool fMayBeCPSSource = currColMode == ColMode::COLMODE_RGB444_BE;
         const bool fMightBeKawaksScreenshot = (fMayBeCPSSource || (currColMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT));
@@ -600,9 +602,24 @@ void CPreviewImportManager::SetTextureToUse(sTextureData newTexture)
         const bool fUseDifferingCPS3LogicFirst = fGameIsCPS3 && CRegProc::GetPreviewImport_UseFullCPS3(FALSE);
         m_rgbaMathQuirkInUse = RGBAImportMathQuirk::None;
 
+        std::vector<std::vector<COLORREF>> rgrgPaletteSetToUse = m_rgrgPaletteSet;
+
+        if (m_optCurrentSel_Layer.has_value() &&
+            (static_cast<size_t>(m_optCurrentSel_Layer.value()) < m_rgrgPaletteSet.size()))
+        {
+            for (size_t iLayer = 0; iLayer < m_rgrgPaletteSet.size(); iLayer++)
+            {
+                if (static_cast<size_t>(m_optCurrentSel_Layer.value()) != iLayer)
+                {
+                    // blank this line
+                    rgrgPaletteSetToUse[iLayer].clear();
+                }
+            }
+        }
+
         if (fUseWinKawaksShiftFirst)
         {
-            OutputDebugString(L"CPreviewImportManager::SetTextureToUse: RGBA import: Using WinKawaks math for matching to start.\r\n");
+            OutputDebugString(L"CPreviewImportManager::_GetSlicesFromLoadedTexture: RGBA import: Using WinKawaks math for matching to start.\r\n");
             if (currColMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT)
             {
                 m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_WinKawaks_NeoGeo;
@@ -612,18 +629,18 @@ void CPreviewImportManager::SetTextureToUse(sTextureData newTexture)
                 m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_WinKawaks_CPS;
             }
         }
-        
-        std::vector<std::vector<COLORREF>> rgrgAltCPS3Palettes(m_rgrgPaletteSet.size());
-        
+
+        std::vector<std::vector<COLORREF>> rgrgAltCPS3Palettes(rgrgPaletteSetToUse.size());
+
         if (fGameIsCPS3)
         {
-            for (size_t iPalette = 0; iPalette < m_rgrgPaletteSet.size(); iPalette++)
+            for (size_t iPalette = 0; iPalette < rgrgPaletteSetToUse.size(); iPalette++)
             {
-                rgrgAltCPS3Palettes[iPalette].resize(m_rgrgPaletteSet[iPalette].size());
+                rgrgAltCPS3Palettes[iPalette].resize(rgrgPaletteSetToUse[iPalette].size());
 
                 for (size_t iCurColor = 0; iCurColor < rgrgAltCPS3Palettes[iPalette].size(); iCurColor++)
                 {
-                    const uint16_t rgb555Val = ColorSystem::CONV_32_xRGB1555LE_CPS3(m_rgrgPaletteSet[iPalette][iCurColor], 0xffff);
+                    const uint16_t rgb555Val = ColorSystem::CONV_32_xRGB1555LE_CPS3(rgrgPaletteSetToUse[iPalette][iCurColor], 0xffff);
 
                     rgrgAltCPS3Palettes[iPalette][iCurColor] = ColorSystem::CONV_xRGB1555LE_32_NORMAL(rgb555Val);
                 }
@@ -631,20 +648,27 @@ void CPreviewImportManager::SetTextureToUse(sTextureData newTexture)
 
             if (fUseDifferingCPS3LogicFirst)
             {
-                OutputDebugString(L"CPreviewImportManager::SetTextureToUse: RGBA import: Using FBNeo quirked math for matching to start.\r\n");
+                OutputDebugString(L"CPreviewImportManager::_GetSlicesFromLoadedTexture: RGBA import: Using FBNeo quirked math for matching to start.\r\n");
                 m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_FBNeo_CPS3;
             }
         }
 
-        m_rgTextureLoadedFromFile.ConvertFromRGBAIfNeeded(m_currTransparencyWriteMode, fUseDifferingCPS3LogicFirst ? rgrgAltCPS3Palettes : m_rgrgPaletteSet, m_rgbaMathQuirkInUse);
+        rgLayerSlices = m_rgTextureLoadedFromFile.GetSlicesFromRGBA(m_currTransparencyWriteMode, fUseDifferingCPS3LogicFirst ? rgrgAltCPS3Palettes : rgrgPaletteSetToUse, m_rgbaMathQuirkInUse);
 
-        if (!m_rgTextureLoadedFromFile.textureHasColorData)
+        bool fFoundAnyTextureData = false;
+
+        for (size_t iLayer = 0; iLayer < rgLayerSlices.size(); iLayer++)
+        {
+            fFoundAnyTextureData = fFoundAnyTextureData || rgLayerSlices[iLayer].textureHasColorData;
+        }
+
+        if (!fFoundAnyTextureData)
         {
             bool fHaveFurtherOptions = fMayBeCPSSource || fGameIsCPS3;
 
             if (fHaveFurtherOptions)
             {
-                OutputDebugString(L"CPreviewImportManager::SetTextureToUse: No color matches found: trying alt logic.\r\n");
+                OutputDebugString(L"CPreviewImportManager::_GetSlicesFromLoadedTexture: No color matches found: trying alt logic.\r\n");
 
                 // invert prior quirks
                 if (fMayBeCPSSource)
@@ -653,38 +677,48 @@ void CPreviewImportManager::SetTextureToUse(sTextureData newTexture)
                     {
                         if (currColMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT)
                         {
+                            GetHost()->GetPalModDlg()->SetStatusText(L"No palette matches, trying quirked WinKawaks NeoGeo math...");
                             m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_WinKawaks_NeoGeo;
                         }
                         else
                         {
+                            GetHost()->GetPalModDlg()->SetStatusText(L"No palette matches, trying quirked WinKawaks CPS math...");
                             m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_WinKawaks_CPS;
                         }
                     }
                     else if (fMightBeKawaksScreenshot)
                     {
+                        GetHost()->GetPalModDlg()->SetStatusText(L"No palette matches, trying normal math...");
                         m_rgbaMathQuirkInUse = RGBAImportMathQuirk::None;
                     }
 
-                    m_rgTextureLoadedFromFile.ConvertFromRGBAIfNeeded(m_currTransparencyWriteMode, m_rgrgPaletteSet, m_rgbaMathQuirkInUse);
-
+                    rgLayerSlices = m_rgTextureLoadedFromFile.GetSlicesFromRGBA(m_currTransparencyWriteMode, rgrgPaletteSetToUse, m_rgbaMathQuirkInUse);
                 }
                 else // if fGameIsCPS3
                 {
                     if (!fUseDifferingCPS3LogicFirst)
                     {
+                        GetHost()->GetPalModDlg()->SetStatusText(L"No palette matches, trying quirked FBNeo math...");
                         m_rgbaMathQuirkInUse = RGBAImportMathQuirk::Quirked_FBNeo_CPS3;
                     }
                     else
                     {
+                        GetHost()->GetPalModDlg()->SetStatusText(L"No palette matches, trying normal math...");
                         m_rgbaMathQuirkInUse = RGBAImportMathQuirk::None;
                     }
 
-                    m_rgTextureLoadedFromFile.ConvertFromRGBAIfNeeded(m_currTransparencyWriteMode, !fUseDifferingCPS3LogicFirst ? rgrgAltCPS3Palettes : m_rgrgPaletteSet, m_rgbaMathQuirkInUse);
+                    rgLayerSlices = m_rgTextureLoadedFromFile.GetSlicesFromRGBA(m_currTransparencyWriteMode, !fUseDifferingCPS3LogicFirst ? rgrgAltCPS3Palettes : rgrgPaletteSetToUse, m_rgbaMathQuirkInUse);
                 }
             }
         }
     }
-}
+    else
+    {
+        rgLayerSlices = m_rgTextureLoadedFromFile.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
+    }
+
+    return rgLayerSlices;
+ }
 
 bool CPreviewImportManager::ImportNow()
 {
@@ -720,6 +754,7 @@ bool CPreviewImportManager::ImportNow()
 
 bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, std::optional<sImageDimensions>& optTrimmedDimensions)
 {
+    CWaitCursor wait;
     bool fChangesMade = false;
 
     if (!m_fBusyComposing)
@@ -754,25 +789,64 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                 m_optCurrentSel_Layer.reset();
             }
 
-            sTextureData rgEditableWorkingTexture = m_rgTextureLoadedFromFile;
+            // get our slices
+            strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %zu layers...\r\n", m_rgrgPaletteSet.size());
+            OutputDebugString(strInfo.GetString());
+            // We only need to re-slice on new file load or changing to different layer target
+            if (m_rgLoadedIndexedTextureSlices.empty())
+            {
+                m_rgLoadedIndexedTextureSlices = _GetSlicesFromLoadedTexture();
+            }
 
+            rgTextureSlices = m_rgLoadedIndexedTextureSlices;
+        }
+        else
+        {
+            // use original slices
+            OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: using original composition.\r\n");
+            rgTextureSlices = m_rgOriginalTextures;
+        }
+
+        // handle all the config options if any
+        if (rgTextureSlices.size())
+        {
             // trim by image
             if (m_fTrim)
             {
-                sImageDimensions oldDimensions = rgEditableWorkingTexture.dimensions;
+                const RECT nOriginalRect = { 0, 0, rgTextureSlices.at(0).dimensions.width, rgTextureSlices.at(0).dimensions.height };
+                RECT nUsedRect = { rgTextureSlices.at(0).dimensions.width, rgTextureSlices.at(0).dimensions.height, 0, 0 };
+                sImageDimensions oldDimensions = rgTextureSlices.at(0).dimensions;
 
-                rgEditableWorkingTexture.ClipUnused();
-
-                if (oldDimensions != rgEditableWorkingTexture.dimensions)
+                for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
                 {
-                    strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimming: source is %u to %u.\r\n", oldDimensions.width,
-                        oldDimensions.height);
+                    RECT nUsedRectThisLayer = rgTextureSlices.at(0).GetUsedRect();
+
+                    nUsedRect.left = min(nUsedRect.left, nUsedRectThisLayer.left);
+                    nUsedRect.top = min(nUsedRect.top, nUsedRectThisLayer.top);
+                    nUsedRect.right = max(nUsedRect.right, nUsedRectThisLayer.right);
+                    nUsedRect.bottom = max(nUsedRect.bottom, nUsedRectThisLayer.bottom);
+                }
+
+                if (nUsedRect.right && nUsedRect.bottom &&
+                    ((nOriginalRect.left != nUsedRect.left) ||
+                     (nOriginalRect.top != nUsedRect.top) ||
+                     (nOriginalRect.right != nUsedRect.right) ||
+                     (nOriginalRect.bottom != nUsedRect.bottom)))
+                {
+                    strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimming: source is %u to %u.\r\n", rgTextureSlices.at(0).dimensions.width,
+                        rgTextureSlices.at(0).dimensions.height);
                     OutputDebugString(strInfo);
-                    strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimmed to %u to %u.\r\n", rgEditableWorkingTexture.dimensions.width,
-                        rgEditableWorkingTexture.dimensions.height);
+
+                    for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
+                    {
+                        rgTextureSlices.at(iLayer).Clip(nUsedRect);
+                    }
+
+                    strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: trimmed to %u to %u.\r\n", rgTextureSlices.at(0).dimensions.width,
+                        rgTextureSlices.at(0).dimensions.height);
                     OutputDebugString(strInfo.GetString());
 
-                    optTrimmedDimensions = rgEditableWorkingTexture.dimensions;
+                    optTrimmedDimensions = rgTextureSlices.at(0).dimensions;
                 }
                 else
                 {
@@ -780,38 +854,27 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
                 }
             }
 
-            if (m_fAlignToBottom)
-            {
-                // align to bottom
-                RECT usedRect = rgEditableWorkingTexture.GetUsedRect();
-
-                if (usedRect.bottom && m_rgUserConfirmedTextures.size())
-                {
-                    groundingoffset.y = m_rgUserConfirmedTextures[0].dimensions.height - (usedRect.bottom + 1);
-                }
-            }
-
-            // handle flipping before slicing
-            rgEditableWorkingTexture.FlipIfNeeded(m_importOptions.direction);
-
-            // get our slices
-            strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %zu layers...\r\n", m_rgrgPaletteSet.size());
-            OutputDebugString(strInfo.GetString());
-            rgTextureSlices = rgEditableWorkingTexture.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
-        }
-        else
-        {
-            // use original slices
-            strInfo.Format(L"CPreviewImportManager::_CompositeToDisplay: slicing that to %zu layers...\r\n", m_rgrgPaletteSet.size());
-            OutputDebugString(strInfo.GetString());
-            rgTextureSlices = m_rgOriginalTextures;
-
-            // if we want to trim here we need to trim against stack not individual layers
-            // align to ground also needs work
-
             for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
             {
                 rgTextureSlices.at(iLayer).FlipIfNeeded(m_importOptions.direction);
+            }
+
+            if (m_fAlignToBottom)
+            {
+                // Figure out what the baseline for this new image set is
+                RECT nMaxRect = { 0, 0, 0, 0 };
+
+                for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
+                {
+                    RECT usedRect = rgTextureSlices.at(iLayer).GetUsedRect();
+
+                    nMaxRect.bottom = max(nMaxRect.bottom, usedRect.bottom);
+                }
+
+                if (nMaxRect.bottom && m_rgUserConfirmedTextures.size())
+                {
+                    groundingoffset.y = m_rgUserConfirmedTextures[0].dimensions.height - (nMaxRect.bottom + 1);
+                }
             }
         }
 
@@ -1003,7 +1066,6 @@ void CPreviewImportManager::_ResetDisplayToOriginalTextures()
 
         // redraw
         m_pImgDisp->UpdateCtrl();
-
     }
 }
 
@@ -1014,6 +1076,7 @@ void CPreviewImportManager::LoadAndWorkWithOriginalTextures()
     m_rgTextureLoadedFromFile.rgbaPixels.clear();
     m_rgTextureLoadedFromFile.indexedPixels.clear();
     m_rgTextureLoadedFromFile.dimensions = {};
+    m_rgLoadedIndexedTextureSlices.clear();
 
     UpdateDisplayedPreview();
 }
@@ -1188,6 +1251,9 @@ void CPreviewImportManager::OnUpdateCombobox_HW()
 void CPreviewImportManager::OnUpdateCombobox_Layer()
 {
     UpdateData();
+    // we can skip redoing RGBA->Indexed math if our starting point remains 0.
+    // if not, we need to redo the math because we let layers occlude later layers
+    const bool fWasTargetingZeroBased = !m_optCurrentSel_Layer.has_value() || m_optCurrentSel_Layer.value() == 0;
 
     if (m_fKeepChangesOnLayerSwap && !m_rgTextureLoadedFromFile.indexedPixels.empty())
     {
@@ -1217,6 +1283,8 @@ void CPreviewImportManager::OnUpdateCombobox_Layer()
             break;
     }
 
+    const bool fCanKeepRGBAMath = fWasTargetingZeroBased && (nCurSel == 0);
+
     if (!m_rgUserConfirmedTextures.at(nCurSel).dimensions.IsEmpty())
     {
         m_lbMergeOptions.EnableWindow(TRUE);
@@ -1231,6 +1299,12 @@ void CPreviewImportManager::OnUpdateCombobox_Layer()
 
     // reset our 'is palette mapping safe check' if useful
     m_optPaletteTargetsAreMappingSafe.reset();
+
+    if (!fCanKeepRGBAMath)
+    {
+        // reset our rgba->indexed translations if any
+        m_rgLoadedIndexedTextureSlices.clear();
+    }
 
     if (m_fAutoPreview)
     {

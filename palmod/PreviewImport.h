@@ -73,7 +73,7 @@ public:
 
     bool ImportNow();
 
-    void SetTextureToUse(sTextureData newTexture);
+    void SetTextureToUse(sTextureData newTexture) { m_rgTextureLoadedFromFile = newTexture; m_rgLoadedIndexedTextureSlices.clear(); };
 
     void SetTextureSourceType(TextureSourceFileType textureType) { m_textureSourceType = textureType; };
 
@@ -102,6 +102,8 @@ protected:
     void _UpdateInfoText();
     void _UpdateDimensionsOptions();
 
+    std::vector<sTextureData> _GetSlicesFromLoadedTexture();
+
     CImgDisp* m_pImgDisp = nullptr;
 
     CListBox m_lbDimensionOptions;
@@ -120,10 +122,12 @@ protected:
     // Working is as we move along.  Source from original and then
     // updated as we load new previews and/or swap layer targets
     std::vector<sTextureData> m_rgUserConfirmedTextures;
+    // rgba->indexed is expensive, so avoid if we can.
+    std::vector<sTextureData> m_rgLoadedIndexedTextureSlices;
     // Last drawn to screen pre-boxes
     std::vector<sTextureData> m_rgWorkingTexturesNoBoxes;
 
-    // This is our composed data pre slicing
+    // This is our composed data pre slicing.  can be indexed or rgba
     sTextureData m_rgTextureLoadedFromFile;
 
     bool m_fHaveChangedPreview = false;

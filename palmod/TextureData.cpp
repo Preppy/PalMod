@@ -244,6 +244,7 @@ void sTextureData::FlipIfNeeded(SpriteImportDirection direction)
 RECT sTextureData::GetUsedRect()
 {
     RECT usedRect = { dimensions.width, dimensions.height, 0, 0 };
+    bool fAnyLinesUsed = false;
 
     for (int iCurrentLine = 0; iCurrentLine < dimensions.height; iCurrentLine++)
     {
@@ -261,8 +262,14 @@ RECT sTextureData::GetUsedRect()
 
         if (fThisLineUsed)
         {
+            fAnyLinesUsed = true;
             usedRect.top = min(usedRect.top, iCurrentLine);
             usedRect.bottom = max(usedRect.bottom, iCurrentLine);
+        }
+
+        if (!fAnyLinesUsed)
+        {
+            usedRect = { 0, 0, 0, 0 };
         }
     }
 
@@ -276,24 +283,30 @@ RECT sTextureData::GetUsedRect()
     return usedRect;
 }
 
-void sTextureData::ConvertFromRGBAIfNeeded(PALWriteOutputOptions writeLength, std::vector<std::vector<COLORREF>> rgrgPaletteSet, RGBAImportMathQuirk importQuirk)
+std::vector<sTextureData> sTextureData::GetSlicesFromRGBA(PALWriteOutputOptions writeLength, std::vector<std::vector<COLORREF>> rgrgPaletteSet, RGBAImportMathQuirk importQuirk)
 {
 #ifdef DUMP_COLOR_FREQUENCY_MAP
     // left as an exercise to the reader...
     PrintColorFrequencyMapToDebugOut(*this, rgrgPaletteSet);
 #endif
 
+    std::vector<sTextureData> rgSlicedData(rgrgPaletteSet.size());
+
     if (dataType == TextureDataType::RGBA)
     {
-        OutputDebugString(L"sTextureData::ConvertFromRGBIfNeeded: converting RGB source to indexed against palette.\r\n");
+        OutputDebugString(L"sTextureData::GetSlicesFromRGBA: converting RGB source to indexed against palette.\r\n");
 
 #ifdef FORCE_COLOR_FORMAT_ALIGNMENT
         // stubbing in this in: semi-useful as a diagnostic aide?
         CGameClass* CurrGame = GetHost()->GetCurrGame();
 #endif
 
-        indexedPixels.clear();
-        indexedPixels.resize(dimensions.GetPixelCount());
+        for (size_t iLayer = 0; iLayer < rgrgPaletteSet.size(); iLayer++)
+        {
+            rgSlicedData.at(iLayer).dimensions = dimensions;
+            rgSlicedData.at(iLayer).indexedPixels.resize(dimensions.GetPixelCount());
+        }
+        
         const size_t nSizeInPixels = static_cast<size_t>(rgbaPixels.size() / 4);
 
         for (size_t iCurrentPixel = 0; iCurrentPixel < nSizeInPixels; iCurrentPixel++)
@@ -301,6 +314,7 @@ void sTextureData::ConvertFromRGBAIfNeeded(PALWriteOutputOptions writeLength, st
             uint8_t r = rgbaPixels[(iCurrentPixel * 4)];
             uint8_t g = rgbaPixels[(iCurrentPixel * 4) + 1];
             uint8_t b = rgbaPixels[(iCurrentPixel * 4) + 2];
+            uint8_t a = rgbaPixels[(iCurrentPixel * 4) + 3];
 
             switch (importQuirk)
             {
@@ -331,37 +345,31 @@ void sTextureData::ConvertFromRGBAIfNeeded(PALWriteOutputOptions writeLength, st
 
             const COLORREF imageColor = RGB(r, g, b);
             
-            if (rgbaPixels[(iCurrentPixel * 4) + 3]) // not transparent
+            if (a) // not transparent
             {
-                size_t nTotalColorsUsed = 0;
-
                 for (size_t iPalette = 0; iPalette < rgrgPaletteSet.size(); iPalette++)
                 {
-                    // For non-sliced ingestion, stop if we're going to cross max palette boundaries
-                    if ((nTotalColorsUsed + rgrgPaletteSet.at(iPalette).size()) <= MAXAMT_ColorsPerPaletteTable)
+                    for (size_t iPaletteColor = 0; iPaletteColor < rgrgPaletteSet[iPalette].size(); iPaletteColor++)
                     {
-                        for (size_t iPaletteColor = 0; iPaletteColor < rgrgPaletteSet.at(iPalette).size(); iPaletteColor++)
+                        if ((iPaletteColor % static_cast<size_t>(writeLength)) == 0) // skip transparency bit
                         {
-                            if ((iPaletteColor % static_cast<size_t>(writeLength)) == 0) // skip transparency bit
-                            {
-                                continue;
-                            }
+                            continue;
+                        }
 
-                            if (imageColor == (rgrgPaletteSet.at(iPalette).at(iPaletteColor) & 0xffffff)) // ignore alpha
-                            {
-                                textureHasColorData = true;
-                                // previous to slicing, establish each pixel in its own band
-                                indexedPixels[iCurrentPixel] = static_cast<uint8_t>(iPaletteColor + nTotalColorsUsed);
-                                break;
-                            }
+                        if (imageColor == (rgrgPaletteSet[iPalette][iPaletteColor] & 0xffffff)) // ignore alpha
+                        {
+                            // previous to slicing, establish each pixel in its own band
+                            rgSlicedData[iPalette].indexedPixels[iCurrentPixel] = static_cast<uint8_t>(iPaletteColor);
+                            rgSlicedData[iPalette].textureHasColorData = true;
+                            break;
                         }
                     }
-
-                    nTotalColorsUsed += rgrgPaletteSet.at(iPalette).size();
                 }
             }
         }
     }
+
+    return rgSlicedData;
 }
 
 // Slice everything according to palette length if needed
@@ -437,4 +445,16 @@ bool sTextureData::DoesTextureHaveColorData()
     }
 
     return textureHasColorData.value_or(false);
+}
+
+bool sTextureData::DimensionsAreValid()
+{
+    if (dataType == TextureDataType::Indexed)
+    {
+        return dimensions.GetPixelCount() == static_cast<int>(indexedPixels.size());
+    }
+    else
+    {
+        return (dimensions.GetPixelCount() * 4) == static_cast<int>(rgbaPixels.size());
+    }
 }

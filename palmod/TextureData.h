@@ -56,8 +56,9 @@ struct sTextureData
 
     // simple check to see if anything has been loaded
     bool HaveAnyData() { return !indexedPixels.empty() || !rgbaPixels.empty(); };
+    bool DimensionsAreValid();
 
-    void ConvertFromRGBAIfNeeded(PALWriteOutputOptions writeOptions, std::vector<std::vector<COLORREF>> rgrgPaletteSet, RGBAImportMathQuirk importQuirk);
+    std::vector<sTextureData> GetSlicesFromRGBA(PALWriteOutputOptions writeOptions, std::vector<std::vector<COLORREF>> rgrgPaletteSet, RGBAImportMathQuirk importQuirk);
 
     void Resize(sImageDimensions newSize, sImageDisplayOffsets offset = {});
     void Merge(sTextureData mergeAbove, sImageDisplayOffsets offset = {});
