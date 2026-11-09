@@ -288,7 +288,7 @@ const sGame_PaletteDataset UMK3_SNES_MOTARO_PALETTES[] =
 
 const sGame_PaletteDataset UMK3_SNES_SHAOKAHN_PALETTES[] =
 {
-    { L"Shao Khan", 0x3FC279, 0x3FC299, indexUMK3Sprites_ShaoKahn, 0x00 },
+    { L"Shao Kahn", 0x3FC279, 0x3FC299, indexUMK3Sprites_ShaoKahn, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_STAGE_PALETTES_DESERT[] =

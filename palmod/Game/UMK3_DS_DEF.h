@@ -35,7 +35,7 @@ const std::vector<uint16_t> UMK3_DS_IMGIDS_USED =
     indexUMK3ArcadeSprites_Ermac,       // 0xee
     indexUMK3ArcadeSprites_Mileena,     // 0xef
     indexUMK3ArcadeSprites_Motaro,      // 0xf0
-    indexUMK3ArcadeSprites_ShaoKhan,    // 0xf1
+    indexUMK3ArcadeSprites_ShaoKahn,    // 0xf1
     indexUMK3ArcadeSprites_NoobSaibot,  // 0xf2
     indexUMK3ArcadeSprites_Rain,        // 0xf3
     indexUMK3ArcadeSprites_Stages,      // 0xf4
@@ -295,7 +295,7 @@ const sGame_PaletteDataset UMK3_DS_MOTARO_PALETTES[] =
 
 const sGame_PaletteDataset UMK3_DS_SHAOKAHN_PALETTES[] =
 {
-    { L"Shao Khan", 0x211a46, 0x211ac6, indexMK2ASprites_ShaoKahn, 0x00 },
+    { L"Shao Kahn", 0x211a46, 0x211ac6, indexMK2ASprites_ShaoKahn, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_DS_BONUS_PALETTES_FROZEN[] =

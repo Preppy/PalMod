@@ -1681,7 +1681,7 @@ enum SupportedSega_PaletteListIndex : uint16_t // IMGDAT_SECTION_SEGA
     indexSegaMK3Sprites_RSmoke,         // 0x13
     indexSegaMK3Sprites_Sektor,         // 0x14
     indexSegaMK3Sprites_ShangTsung,     // 0x15
-    indexSegaMK3Sprites_ShaoKhan,       // 0x16
+    indexSegaMK3Sprites_ShaoKahn,       // 0x16
     indexSegaMK3Sprites_Sheeva,         // 0x17
     indexSegaMK3Sprites_Sonya,          // 0x18
     indexSegaMK3Sprites_Stryker,        // 0x19
@@ -3151,7 +3151,7 @@ enum SupportedOther_SpriteListIndex : uint16_t
     indexUMK3ArcadeSprites_Ermac,       // 0xee
     indexUMK3ArcadeSprites_Mileena,     // 0xef
     indexUMK3ArcadeSprites_Motaro,      // 0xf0
-    indexUMK3ArcadeSprites_ShaoKhan,    // 0xf1
+    indexUMK3ArcadeSprites_ShaoKahn,    // 0xf1
     indexUMK3ArcadeSprites_NoobSaibot,  // 0xf2
     indexUMK3ArcadeSprites_Rain,        // 0xf3
     indexUMK3ArcadeSprites_Stages,      // 0xf4

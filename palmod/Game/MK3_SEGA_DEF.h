@@ -14,7 +14,7 @@ const std::vector<uint16_t> MK3_SEGA_IMGIDS_USED =
     indexSegaMK3Sprites_RSmoke,         // 0x13
     indexSegaMK3Sprites_Sektor,         // 0x14
     indexSegaMK3Sprites_ShangTsung,     // 0x15
-    indexSegaMK3Sprites_ShaoKhan,       // 0x16
+    indexSegaMK3Sprites_ShaoKahn,       // 0x16
     indexSegaMK3Sprites_Sheeva,         // 0x17
     indexSegaMK3Sprites_Sonya,          // 0x18
     indexSegaMK3Sprites_Stryker,        // 0x19
@@ -379,19 +379,19 @@ const sGame_PaletteDataset MK3_SEGA_Motaro_Palettes[] =
 
 const sGame_PaletteDataset MK3_SEGA_ShaoKahn_P1[] =
 {
-    { L"Shao Kahn P1", 0x33674c, 0x33676c, indexSegaMK3Sprites_ShaoKhan, 0x00 },
+    { L"Shao Kahn P1", 0x33674c, 0x33676c, indexSegaMK3Sprites_ShaoKahn, 0x00 },
 };
 
 const sGame_PaletteDataset MK3_SEGA_ShaoKahn_P2[] =
 {
-    { L"Shao Kahn P2 (Unused)", 0x33676c, 0x33678c, indexSegaMK3Sprites_ShaoKhan, 0x00 },
+    { L"Shao Kahn P2 (Unused)", 0x33676c, 0x33678c, indexSegaMK3Sprites_ShaoKahn, 0x00 },
 };
 
 const sGame_PaletteDataset MK3_SEGA_ShaoKahn_Extras[] =
 {
-    { L"Frozen", 0x33678c, 0x3367ac, indexSegaMK3Sprites_ShaoKhan, 0x00 },
-    { L"Arcade Loss", 0x3367ac, 0x3367cc, indexSegaMK3Sprites_ShaoKhan, 0x01 },
-    { L"Arcade Loss Stage Extra", 0x9dd42, 0x9dd52, indexSegaMK3Sprites_ShaoKhan, 0x02 },
+    { L"Frozen", 0x33678c, 0x3367ac, indexSegaMK3Sprites_ShaoKahn, 0x00 },
+    { L"Arcade Loss", 0x3367ac, 0x3367cc, indexSegaMK3Sprites_ShaoKahn, 0x01 },
+    { L"Arcade Loss Stage Extra", 0x9dd42, 0x9dd52, indexSegaMK3Sprites_ShaoKahn, 0x02 },
 };
 
 const sGame_PaletteDataset MK3_SEGA_NoobSaibot_Palettes[] =

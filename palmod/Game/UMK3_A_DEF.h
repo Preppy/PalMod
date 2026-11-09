@@ -28,7 +28,7 @@ const std::vector<uint16_t> UMK3_A_IMGIDS_USED =
     indexUMK3ArcadeSprites_Ermac,       // 0xee
     indexUMK3ArcadeSprites_Mileena,     // 0xef
     indexUMK3ArcadeSprites_Motaro,      // 0xf0
-    indexUMK3ArcadeSprites_ShaoKhan,    // 0xf1
+    indexUMK3ArcadeSprites_ShaoKahn,    // 0xf1
     indexUMK3ArcadeSprites_NoobSaibot,  // 0xf2
     indexUMK3ArcadeSprites_Rain,        // 0xf3
     indexUMK3ArcadeSprites_Stages,      // 0xf4
@@ -263,7 +263,7 @@ const sGame_PaletteDataset UMK3_A_SMOKE_PALETTES_P2[] =
     { L"Smoke P2", 0x60d44, 0x60dc4, indexUMK3ArcadeSprites_Smoke, 0x00 },
 };
 
-const sGame_PaletteDataset UMK3_A_SHAOKHAN_PALETTES[] =
+const sGame_PaletteDataset UMK3_A_SHAOKAHN_PALETTES[] =
 {
     { L"Shao Kahn", 0xb1b86, 0xb1c06, indexMK2ASprites_ShaoKahn, 0x00 },
 };
@@ -615,9 +615,9 @@ const sDescTreeNode UMK3_A_SCORPION_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Scorpion_Extras, ARRAYSIZE(UMK3_A_Scorpion_Extras) },
 };
 
-const sDescTreeNode UMK3_A_SHAOKHAN_COLLECTION[] =
+const sDescTreeNode UMK3_A_SHAOKAHN_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_SHAOKHAN_PALETTES, ARRAYSIZE(UMK3_A_SHAOKHAN_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_SHAOKAHN_PALETTES, ARRAYSIZE(UMK3_A_SHAOKAHN_PALETTES) },
 };
 
 const sDescTreeNode UMK3_A_SMOKE_COLLECTION[] =
@@ -785,7 +785,7 @@ const sDescTreeNode UMK3_A_UNITS[] =
     { L"Mileena", DESC_NODETYPE_TREE, (void*)UMK3_A_MILEENA_COLLECTION, ARRAYSIZE(UMK3_A_MILEENA_COLLECTION) },
     
     { L"Motaro", DESC_NODETYPE_TREE, (void*)UMK3_A_MOTARO_COLLECTION, ARRAYSIZE(UMK3_A_MOTARO_COLLECTION) },
-    { L"Shao Khan", DESC_NODETYPE_TREE, (void*)UMK3_A_SHAOKHAN_COLLECTION, ARRAYSIZE(UMK3_A_SHAOKHAN_COLLECTION) },
+    { L"Shao Kahn", DESC_NODETYPE_TREE, (void*)UMK3_A_SHAOKAHN_COLLECTION, ARRAYSIZE(UMK3_A_SHAOKAHN_COLLECTION) },
 
     { L"Noob Saibot", DESC_NODETYPE_TREE, (void*)UMK3_A_NOOB_COLLECTION, ARRAYSIZE(UMK3_A_NOOB_COLLECTION) },
     { L"Rain", DESC_NODETYPE_TREE, (void*)UMK3_A_RAIN_COLLECTION, ARRAYSIZE(UMK3_A_RAIN_COLLECTION) },

@@ -1245,15 +1245,15 @@ const sDescTreeNode MSH_A_VSP_COLLECTION[] =
 const sGame_PaletteDataset MSH_A_STAGES_05_BUGLE[] =
 {
     { L"512 Building Wall 1/2", 0x6f15e, 0x6f35e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"Building Wall 2/2", 0x6f35e, 0x6f3de },
+    { L"512 Building Wall 2/2", 0x6f35e, 0x6f3de },
     { L"1024 Scaffold 1/2", 0x7603e, 0x7623e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"Scaffold 2/2", 0x7623e, 0x7629e },
+    { L"1024 Scaffold 2/2", 0x7623e, 0x7629e },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_BUGLE[] =
 {
     { L"2048 Skyline 1/2", 0x27fe, 0x29fe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"Skyline 2/2", 0x29fe, 0x2bfe },
+    { L"2048 Skyline 2/2", 0x29fe, 0x2bfe },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_RUINS[] =
@@ -1271,12 +1271,26 @@ const sGame_PaletteDataset MSH_A_STAGES_06_RUINS[] =
 
 const sGame_PaletteDataset MSH_A_STAGES_05_PARK[] =
 {
-    { L"512 skyline 1/2", 0x6fa1e, 0x6fc1e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"512 skyline 2/2", 0x6fc1e, 0x6fd7e },
+    { L"512 skyline 1/6", 0x6fa1e, 0x6fabe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext5Palettes },
+    { L"512 skyline 2/6", 0x6fabe, 0x6fc9e },
+    { L"512 skyline 3/6", 0x6fc9e, 0x6fd1e },
+    { L"512 skyline 4/6", 0x6fd1e, 0x6fd3e },
+    { L"512 skyline 5/6", 0x6fd3e, 0x6fd5e },
+    { L"512 skyline 6/6", 0x6fd5e, 0x6fd7e },
 
-    { L"512 skyline animation palettes 1", 0x6fe1e, 0x6fffe },
-    { L"512 skyline animation palettes 2", 0x6fffe, 0x700be },
-    { L"512 skyline animation palettes 3", 0x700be, 0x7017e },
+    { L"512 skyline 2/6 animation", 0x6fe1e, 0x6fffe },
+    { L"512 skyline 3/6 animation", 0x6fffe, 0x7007e },
+
+    { L"512 skyline ?", 0x7007e, 0x700be },
+
+    { L"512 skyline 4/6 animation 1/2", 0x700be, 0x700de },
+    { L"512 skyline 4/6 animation 2/2", 0x700de, 0x700fe },
+
+    { L"512 skyline 5/6 animation 1/2", 0x700fe, 0x7011e },
+    { L"512 skyline 5/6 animation 2/2", 0x7011e, 0x7013e },
+
+    { L"512 skyline 6/6 animation 1/2", 0x7013e, 0x7015e },
+    { L"512 skyline 6/6 animation 2/2", 0x7015e, 0x7017e },
 
     { L"1024 Merry Go Round 1/2", 0x76bfe, 0x76dfe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
     { L"1024 Merry Go Round 2/2", 0x76dfe, 0x76fde },
@@ -1294,7 +1308,7 @@ const sGame_PaletteDataset MSH_A_STAGES_05_STARK[] =
     { L"512 starfield animations 1", 0x7057e, 0x7077e },
     { L"512 starfield animations 2", 0x7077e, 0x708fe },
 
-    { L"1024 1/2", 0x7731e, 0x7751e },
+    { L"1024 1/2", 0x7731e, 0x7751e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
     { L"1024 2/2", 0x7751e, 0x7757e },
     { L"1024 animations 1", 0x7771e, 0x778de },
     { L"1024 animations 2", 0x778de, 0x77a5e },
@@ -1302,6 +1316,12 @@ const sGame_PaletteDataset MSH_A_STAGES_05_STARK[] =
     { L"1024 animations 4", 0x77c3e, 0x77e1e },
     { L"1024 animations 5", 0x77e1e, 0x77f9e },
     { L"1024 animations 6", 0x77f9e, 0x7809e },
+
+    { L"Sprites 1", 0x670ac, 0x6722c },
+    { L"Sprites 2", 0x6722c, 0x6740c },
+    { L"Sprites 3", 0x6740c, 0x6752c },
+    { L"Sprites 4", 0x6752c, 0x676ec },
+    { L"Sprites 5", 0x676ec, 0x677ec },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_STARK[] =
@@ -1352,6 +1372,7 @@ const sGame_PaletteDataset MSH_A_STAGES_05_TRAIN[] =
     { L"512 skyline animations 9", 0x7229e, 0x7231e },
 
     { L"1024 train top", 0x7877e, 0x7887e },
+
     { L"1024 train top animations 1", 0x78b7e, 0x78d7e },
     { L"1024 train top animations 2", 0x78d7e, 0x78f7e },
 };
@@ -1367,7 +1388,7 @@ const sGame_PaletteDataset MSH_A_STAGES_05_HELL[] =
     { L"512 hell", 0x7231e, 0x7245e },
 
     { L"512 hell animation palettes strip 1", 0x7271e, 0x7289e },
-    { L"512 hell animation palettes strip 2",0x7289e, 0x7297e },
+    { L"512 hell animation palettes strip 2", 0x7289e, 0x7297e },
 
     { L"1024 hell", 0x78f7e, 0x790be },
 

@@ -2,7 +2,7 @@
 #include "GameClassByDir.h"
 #include "MSH_A_DEF.h"
 
-constexpr auto MSH_ROM05_PALETTE_COUNT = 607;
+constexpr auto MSH_ROM05_PALETTE_COUNT = 622;
 constexpr auto MSH_ROM06_PALETTE_COUNT = 100;
 
 class CGame_MSH_A : public CGameClassByDir

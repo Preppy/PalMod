@@ -13,7 +13,7 @@ const std::vector<uint16_t> UMK3_SEGA_IMGIDS_USED =
     indexSegaMK3Sprites_RSmoke,         // 0x13
     indexSegaMK3Sprites_Sektor,         // 0x14
     indexSegaMK3Sprites_ShangTsung,     // 0x15
-    indexSegaMK3Sprites_ShaoKhan,       // 0x16
+    indexSegaMK3Sprites_ShaoKahn,       // 0x16
     indexSegaMK3Sprites_Sheeva,         // 0x17
     indexSegaMK3Sprites_Sindel,         // 0x29
     indexSegaMK3Sprites_Sonya,          // 0x18
@@ -566,19 +566,19 @@ const sGame_PaletteDataset UMK3_SEGA_Motaro_Palettes[] =
 
 const sGame_PaletteDataset UMK3_SEGA_ShaoKahn_P1[] =
 {
-    { L"Shao Kahn P1", 0x37e8bc, 0x37e8dc, indexSegaMK3Sprites_ShaoKhan, 0x00 },
+    { L"Shao Kahn P1", 0x37e8bc, 0x37e8dc, indexSegaMK3Sprites_ShaoKahn, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SEGA_ShaoKahn_P2Unused[] =
 {
-    { L"Shao Kahn P2 (Unused)", 0x37e8dc, 0x37e8fc, indexSegaMK3Sprites_ShaoKhan, 0x00 },
+    { L"Shao Kahn P2 (Unused)", 0x37e8dc, 0x37e8fc, indexSegaMK3Sprites_ShaoKahn, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SEGA_ShaoKahn_Extras[] =
 {
-    { L"Frozen", 0x37e8fc, 0x37e91c, indexSegaMK3Sprites_ShaoKhan, 0x00 },
-    { L"Arcade Loss", 0x37e91c, 0x37e93c, indexSegaMK3Sprites_ShaoKhan, 0x01 },
-    { L"Arcade Loss Stage Extra", 0x9b13c, 0x9b14c, indexSegaMK3Sprites_ShaoKhan, 0x02 },
+    { L"Frozen", 0x37e8fc, 0x37e91c, indexSegaMK3Sprites_ShaoKahn, 0x00 },
+    { L"Arcade Loss", 0x37e91c, 0x37e93c, indexSegaMK3Sprites_ShaoKahn, 0x01 },
+    { L"Arcade Loss Stage Extra", 0x9b13c, 0x9b14c, indexSegaMK3Sprites_ShaoKahn, 0x02 },
 };
 
 const sGame_PaletteDataset UMK3_SEGA_SharedExtras_Robots[] =
