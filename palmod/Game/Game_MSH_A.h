@@ -2,8 +2,8 @@
 #include "GameClassByDir.h"
 #include "MSH_A_DEF.h"
 
-constexpr auto MSH_ROM05_PALETTE_COUNT = 622;
-constexpr auto MSH_ROM06_PALETTE_COUNT = 100;
+constexpr auto MSH_ROM05_PALETTE_COUNT = 651;
+constexpr auto MSH_ROM06_PALETTE_COUNT = 104;
 
 class CGame_MSH_A : public CGameClassByDir
 {
@@ -108,7 +108,7 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
         ARRAYSIZE(MSH_UNITS_06),
         L"MSH06e.txt",              // Extra filename
         MSH_ROM06_PALETTE_COUNT,    // Count of palettes listed in the header
-        0xa78,                      // Lowest known location used for palettes
+        0xa7e,                      // Lowest known location used for palettes
     };
 
 public:

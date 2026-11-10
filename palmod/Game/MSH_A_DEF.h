@@ -1244,72 +1244,78 @@ const sDescTreeNode MSH_A_VSP_COLLECTION[] =
 
 const sGame_PaletteDataset MSH_A_STAGES_05_BUGLE[] =
 {
-    { L"512 Building Wall 1/2", 0x6f15e, 0x6f35e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"512 Building Wall 1/2", 0x6f15e, 0x6f35e, indexCPS2Sprites_MSHAssets, 0x4e, &pairNext },
     { L"512 Building Wall 2/2", 0x6f35e, 0x6f3de },
-    { L"1024 Scaffold 1/2", 0x7603e, 0x7623e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+
+    { L"1024 Scaffold 1/2", 0x7603e, 0x7623e, indexCPS2Sprites_MSHAssets, 0x4f, &pairNext },
     { L"1024 Scaffold 2/2", 0x7623e, 0x7629e },
+
+    { L"Sprite layer stuff", 0x6686c, 0x66a2c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_BUGLE[] =
 {
-    { L"2048 Skyline 1/2", 0x27fe, 0x29fe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"2048 Skyline 2/2", 0x29fe, 0x2bfe },
+    { L"2048 Skyline 1/2", 0x27fe, 0x29fe, indexCPS2Sprites_MSHAssets, 0x50, &pairNext },
+    { L"2048 Skyline 2/2", 0x29fe, 0x2bfe, indexCPS2Sprites_MSHAssets, 0x51 },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_RUINS[] =
 {
-    { L"512 statue of liberty", 0x6f61e, 0x6f7fe },
+    { L"512 statue of liberty", 0x6f61e, 0x6f7fe, indexCPS2Sprites_MSHAssets, 0x4a },
 
-    { L"1024 foreground 1/2", 0x767fe, 0x769fe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 foreground 2/2", 0x769fe, 0x76bbe },
+    { L"1024 foreground 1/2", 0x767fe, 0x769fe, indexCPS2Sprites_MSHAssets, 0x4b, &pairNext },
+    { L"1024 foreground 2/2", 0x769fe, 0x76bbe, indexCPS2Sprites_MSHAssets, 0x4c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_RUINS[] =
 {
-    { L"2048 skyline", 0x3a5e, 0x3ade },
+    { L"2048 skyline", 0x3a5e, 0x3ade, indexCPS2Sprites_MSHAssets, 0x4d },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_PARK[] =
 {
-    { L"512 skyline 1/6", 0x6fa1e, 0x6fabe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext5Palettes },
-    { L"512 skyline 2/6", 0x6fabe, 0x6fc9e },
-    { L"512 skyline 3/6", 0x6fc9e, 0x6fd1e },
-    { L"512 skyline 4/6", 0x6fd1e, 0x6fd3e },
-    { L"512 skyline 5/6", 0x6fd3e, 0x6fd5e },
-    { L"512 skyline 6/6", 0x6fd5e, 0x6fd7e },
+    { L"512 skyline 1/6", 0x6fa1e, 0x6fabe, indexCPS2Sprites_MSHAssets, 0x24, &pairNext5Palettes },
+    { L"512 skyline 2/6", 0x6fabe, 0x6fc9e, indexCPS2Sprites_MSHAssets, 0x25 },
+    { L"512 skyline 3/6", 0x6fc9e, 0x6fd1e, indexCPS2Sprites_MSHAssets, 0x26 },
+    { L"512 skyline 4/6", 0x6fd1e, 0x6fd3e, indexCPS2Sprites_MSHAssets, 0x27 },
+    { L"512 skyline 5/6", 0x6fd3e, 0x6fd5e, indexCPS2Sprites_MSHAssets, 0x28 },
+    { L"512 skyline 6/6", 0x6fd5e, 0x6fd7e, indexCPS2Sprites_MSHAssets, 0x29 },
 
-    { L"512 skyline 2/6 animation", 0x6fe1e, 0x6fffe },
-    { L"512 skyline 3/6 animation", 0x6fffe, 0x7007e },
+    { L"512 skyline 2/6 animation", 0x6fe1e, 0x6fffe, indexCPS2Sprites_MSHAssets, 0x25 },
+    { L"512 skyline 3/6 animation", 0x6fffe, 0x7007e, indexCPS2Sprites_MSHAssets, 0x26 },
 
     { L"512 skyline ?", 0x7007e, 0x700be },
 
-    { L"512 skyline 4/6 animation 1/2", 0x700be, 0x700de },
-    { L"512 skyline 4/6 animation 2/2", 0x700de, 0x700fe },
+    { L"512 skyline 4/6 animation 1/2", 0x700be, 0x700de, indexCPS2Sprites_MSHAssets, 0x27 },
+    { L"512 skyline 4/6 animation 2/2", 0x700de, 0x700fe, indexCPS2Sprites_MSHAssets, 0x27 },
 
-    { L"512 skyline 5/6 animation 1/2", 0x700fe, 0x7011e },
-    { L"512 skyline 5/6 animation 2/2", 0x7011e, 0x7013e },
+    { L"512 skyline 5/6 animation 1/2", 0x700fe, 0x7011e, indexCPS2Sprites_MSHAssets, 0x28 },
+    { L"512 skyline 5/6 animation 2/2", 0x7011e, 0x7013e, indexCPS2Sprites_MSHAssets, 0x28 },
 
-    { L"512 skyline 6/6 animation 1/2", 0x7013e, 0x7015e },
-    { L"512 skyline 6/6 animation 2/2", 0x7015e, 0x7017e },
+    { L"512 skyline 6/6 animation 1/2", 0x7013e, 0x7015e, indexCPS2Sprites_MSHAssets, 0x29 },
+    { L"512 skyline 6/6 animation 2/2", 0x7015e, 0x7017e, indexCPS2Sprites_MSHAssets, 0x29 },
 
-    { L"1024 Merry Go Round 1/2", 0x76bfe, 0x76dfe, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 Merry Go Round 2/2", 0x76dfe, 0x76fde },
+    { L"1024 Merry Go Round 1/2", 0x76bfe, 0x76dfe, indexCPS2Sprites_MSHAssets, 0x2a, &pairNext },
+    { L"1024 Merry Go Round 2/2", 0x76dfe, 0x76fde, indexCPS2Sprites_MSHAssets, 0x2b },
+
+    { L"Sprite layer stuff 1", 0x66e6c, 0x66f8c },
+    { L"Sprite layer stuff 2", 0x66f8c, 0x670ac },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_PARK[] =
 {
-    { L"2048 skyline", 0x3e5e, 0x3e9e },
+    { L"2048 skyline", 0x3e5e, 0x3e9e, indexCPS2Sprites_MSHAssets, 0x2c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_STARK[] =
 {
-    { L"512 starfield", 0x7017e, 0x7031e },
+    { L"512 background", 0x7017e, 0x7031e, indexCPS2Sprites_MSHAssets, 0x52 },
 
-    { L"512 starfield animations 1", 0x7057e, 0x7077e },
-    { L"512 starfield animations 2", 0x7077e, 0x708fe },
+    { L"512 background animations 1", 0x7057e, 0x7077e },
+    { L"512 background animations 2", 0x7077e, 0x708fe },
 
-    { L"1024 1/2", 0x7731e, 0x7751e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 2/2", 0x7751e, 0x7757e },
+    { L"1024 1/2", 0x7731e, 0x7751e, indexCPS2Sprites_MSHAssets, 0x53, &pairNext },
+    { L"1024 2/2", 0x7751e, 0x7757e, indexCPS2Sprites_MSHAssets, 0x54 },
     { L"1024 animations 1", 0x7771e, 0x778de },
     { L"1024 animations 2", 0x778de, 0x77a5e },
     { L"1024 animations 3", 0x77a5e, 0x77c3e },
@@ -1326,7 +1332,7 @@ const sGame_PaletteDataset MSH_A_STAGES_05_STARK[] =
 
 const sGame_PaletteDataset MSH_A_STAGES_06_STARK[] =
 {
-    { L"2048 skyline 1/2", 0x429e, 0x449e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"2048 skyline 1/2", 0x429e, 0x449e, indexCPS2Sprites_MSHAssets, 0x56, &pairNext },
     { L"2048 skyline 2/2", 0x449e, 0x467e },
 
     { L"2048 skyline animations 1", 0x469e, 0x489e },
@@ -1335,31 +1341,35 @@ const sGame_PaletteDataset MSH_A_STAGES_06_STARK[] =
 
 const sGame_PaletteDataset MSH_A_STAGES_05_ROCKY[] =
 {
-    { L"512 scrap", 0x708fe, 0x7091e },
-    { L"512 bridge 1", 0x7091e, 0x70a3e },
-    { L"512 bridge 2", 0x70a7e, 0x70b1e },
-    { L"512 bridge 3", 0x70cfe, 0x70d9e },
+    { L"512 bridge 1", 0x7099e, 0x70a3e, indexCPS2Sprites_MSHAssets, 0x45 },
+    { L"512 bridge 2", 0x70a7e, 0x70b1e, indexCPS2Sprites_MSHAssets, 0x45 },
+    { L"512 bridge 3", 0x70cfe, 0x70d9e, indexCPS2Sprites_MSHAssets, 0x45 },
 
-    { L"1024 background 1/2", 0x7809e, 0x7829e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
+    { L"512 scrap 1", 0x7091e, 0x7099e },
+    { L"512 scrap 2", 0x708fe, 0x7091e },
+
+    { L"1024 background 1/2", 0x7809e, 0x7829e, indexCPS2Sprites_MSHAssets, 0x47, &pairNextAndNext },
     { L"1024 background 2/2", 0x7829e, 0x782be },
+    { L"1024 animations 1", 0x7837e, 0x783de, indexCPS2Sprites_MSHAssets, 0x46 },
 
-    { L"1024 animations 1", 0x7837e, 0x783de },
-    { L"1024 animations 2", 0x78420, 0x7847e },
+    { L"1024 animations 2", 0x7841e, 0x7847e },
     { L"1024 animations 3", 0x7849e, 0x7855e },
     { L"1024 animations 4", 0x7855e, 0x7861e },
     { L"1024 animations 5", 0x7861e, 0x786de },
     { L"1024 animations 6", 0x786de, 0x7877e },
+
+    { L"Sprite layer stuff", 0x6786c, 0x6796c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_ROCKY[] =
 {
-    { L"2048 river/mountains 1/2", 0x4a5e, 0x4bde, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"2048 river/mountains 2/2", 0x4c3e, 0x4dfe },
+    { L"2048 river/mountains 1/2", 0x4a5e, 0x4bde, indexCPS2Sprites_MSHAssets, 0x48, &pairNext },
+    { L"2048 river/mountains 2/2", 0x4c3e, 0x4dfe, indexCPS2Sprites_MSHAssets, 0x49 },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_TRAIN[] =
 {
-    { L"512 skyline", 0x710fe, 0x7123e },
+    { L"512 skyline", 0x710fe, 0x7123e, indexCPS2Sprites_MSHAssets, 0x31 },
 
     { L"512 skyline animations 1", 0x714fe, 0x716fe },
     { L"512 skyline animations 2", 0x716fe, 0x718fe },
@@ -1371,87 +1381,110 @@ const sGame_PaletteDataset MSH_A_STAGES_05_TRAIN[] =
     { L"512 skyline animations 8", 0x7209e, 0x7229e },
     { L"512 skyline animations 9", 0x7229e, 0x7231e },
 
-    { L"1024 train top", 0x7877e, 0x7887e },
+    { L"1024 train top", 0x7877e, 0x7887e, indexCPS2Sprites_MSHAssets, 0x32 },
 
     { L"1024 train top animations 1", 0x78b7e, 0x78d7e },
     { L"1024 train top animations 2", 0x78d7e, 0x78f7e },
+
+    { L"Sprite layer stuff", 0x6798c, 0x67aac },
+    { L"Sprite layer animations", 0x67aac, 0x67c0c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_TRAIN[] =
 {
     { L"2048 skyline 1/2", 0x4e5e, 0x505e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
     { L"2048 skyline 2/2", 0x505e, 0x525e },
+
+    { L"2048 skyline animations 1", 0x525e, 0x545e },
+    { L"2048 skyline animations 2", 0x545e, 0x565e },
+    { L"2048 skyline animations 3", 0x565e, 0x57de },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_HELL[] =
 {
-    { L"512 hell", 0x7231e, 0x7245e },
+    { L"512 hell", 0x7231e, 0x7245e, indexCPS2Sprites_MSHAssets, 0x3d },
 
     { L"512 hell animation palettes strip 1", 0x7271e, 0x7289e },
     { L"512 hell animation palettes strip 2", 0x7289e, 0x7297e },
 
-    { L"1024 hell", 0x78f7e, 0x790be },
+    { L"1024 hell", 0x78f7e, 0x790be, indexCPS2Sprites_MSHAssets, 0x3e },
 
     { L"1024 hell animation palettes 1/2", 0x7937e, 0x7957e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
     { L"1024 hell animation palettes 2/2", 0x7957e, 0x796de },
+
+    { L"Sprite layer stuff", 0x67c0c, 0x67dac },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_HELL[] =
 {
-    { L"2048 hell flames", 0x57de, 0x57fe },
+    { L"2048 hell flames", 0x57de, 0x57fe, indexCPS2Sprites_MSHAssets, 0x3f },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_CHAOS[] =
 {
-    { L"512 skyline 1/2", 0x7297e, 0x72b7e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"512 skyline 2/2", 0x72b7e, 0x72bde },
+    { L"512 skyline 1/2", 0x7297e, 0x72b7e, indexCPS2Sprites_MSHAssets, 0x33, &pairNext },
+    { L"512 skyline 2/2", 0x72b7e, 0x72bde, indexCPS2Sprites_MSHAssets, 0x34 },
 
     { L"512 skyline animations 1", 0x72d7e, 0x72f7e },
     { L"512 skyline animations 2", 0x72f7e, 0x72ffe },
 
-    { L"1024 foreground / bones 1/2", 0x796de, 0x798de, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 foreground / bones 2/2", 0x798de, 0x79abe },
+    { L"1024 foreground / bones 1/2", 0x796de, 0x798de, indexCPS2Sprites_MSHAssets, 0x35, &pairNext },
+    { L"1024 foreground / bones 2/2", 0x798de, 0x79abe, indexCPS2Sprites_MSHAssets, 0x36 },
+
+    { L"Sprite layer stuff (dust, bones)", 0x67dac, 0x67ecc },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_CHAOS[] =
 {
-    { L"2048 mesas", 0x5bde, 0x5bfe },
+    { L"2048 mesas", 0x5bde, 0x5bfe, indexCPS2Sprites_MSHAssets, 0x37 },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_DOCKS[] =
 {
-    { L"512 water animation", 0x7307e, 0x7321e },
+    { L"512 water animation", 0x7307e, 0x7321e, indexCPS2Sprites_MSHAssets, 0x38 },
 
-    { L"1024 foreground 1", 0x79ade, 0x79cde, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 foreground 2", 0x79cde, 0x79ede },
+    { L"1024 foreground 1", 0x79ade, 0x79cde, indexCPS2Sprites_MSHAssets, 0x39, &pairNext },
+    { L"1024 foreground 2", 0x79cde, 0x79ede, indexCPS2Sprites_MSHAssets, 0x3a },
+
+    { L"Sprite layer stuff", 0x67ecc, 0x67fec},
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_DOCKS[] =
 {
-    { L"2048 boat 1/2", 0x5fde, 0x61de, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"2048 boat 2/2", 0x61de, 0x63be },    
+    { L"2048 boat 1/2", 0x5fde, 0x61de, indexCPS2Sprites_MSHAssets, 0x3b, &pairNext },
+    { L"2048 boat 2/2", 0x61de, 0x63be, indexCPS2Sprites_MSHAssets, 0x3c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_ASTEROID[] =
 {
-    { L"512 spacefield", 0x733fe, 0x735de },
+    { L"512 spacefield", 0x733fe, 0x735de, indexCPS2Sprites_MSHAssets, 0x2d },
 
     { L"512 spacefield animations", 0x737fe, 0x7397e },
 
-    { L"1024 structure 1/2", 0x79ede, 0x7a0de, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 structure 2/2", 0x7a0de, 0x7a2de },
+    { L"1024 structure 1/2", 0x79ede, 0x7a0de, indexCPS2Sprites_MSHAssets, 0x2e, &pairNext },
+    { L"1024 structure 2/2", 0x7a0de, 0x7a2de, indexCPS2Sprites_MSHAssets, 0x2f },
 
     { L"1024 structure animations", 0x7a2de, 0x7a45e },
+
+    { L"Sprite layer stuff 1", 0x6802c, 0x681cc },
+    { L"Sprite layer stuff 2", 0x681cc, 0x6824c },
+    { L"Sprite layer stuff 3", 0x6824c, 0x6842c },
+    { L"Sprite layer stuff 4", 0x6842c, 0x6860c },
+    { L"Sprite layer stuff 5", 0x6860c, 0x6866c },
+    { L"Sprite layer stuff 6", 0x6866c, 0x6884c },
+    { L"Sprite layer stuff 7", 0x6884c, 0x68a2c },
+    { L"Sprite layer stuff 8", 0x68a2c, 0x68a8c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_ASTEROID[] =
 {
-    { L"2048 flaming ground", 0x63de, 0x641e },
+    { L"2048 flaming ground", 0x63de, 0x641e, indexCPS2Sprites_MSHAssets, 0x30 },
+    { L"2048 flaming ground animations", 0x67de, 0x685e }
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_SUB[] =
 {
-    { L"512 device", 0x739fe, 0x73bfe },
+    { L"512 device", 0x739fe, 0x73bfe, indexCPS2Sprites_MSHAssets, 0x40 },
 
     { L"512 device animations 1", 0x73d7e, 0x73f7e },
     { L"512 device animations 2", 0x73f7e, 0x7417e },
@@ -1465,8 +1498,8 @@ const sGame_PaletteDataset MSH_A_STAGES_05_SUB[] =
     { L"512 device animations 10", 0x74e7e, 0x7507e },
     { L"512 device animations 11", 0x7507e, 0x750fe },
 
-    { L"1024 sub 1/2", 0x7c55e, 0x7c75e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 sub 2/2", 0x7c75e, 0x7c87e },
+    { L"1024 sub 1/2", 0x7c55e, 0x7c75e, indexCPS2Sprites_MSHAssets, 0x41, &pairNext },
+    { L"1024 sub 2/2", 0x7c75e, 0x7c87e, indexCPS2Sprites_MSHAssets, 0x42 },
 
     { L"1024 sub animations 1", 0x7c95e, 0x7ca5e },
     { L"1024 sub animations 2", 0x7ca5e, 0x7cabe },
@@ -1486,25 +1519,38 @@ const sGame_PaletteDataset MSH_A_STAGES_05_SUB[] =
     { L"1024 sub animations 16", 0x7e4be, 0x7e6be },
     { L"1024 sub animations 17", 0x7e6be, 0x7e8be },
     { L"1024 sub animations 18", 0x7e8be, 0x7e93e },
+
+    { L"Sprite layer stuff", 0x6932c, 0x6952c },
+    { L"Sprite layer animations 1", 0x6952c, 0x695ec },
+    { L"Sprite layer animations 2", 0x695ec, 0x697ec },
+    { L"Sprite layer animations 3", 0x697ec, 0x699ec },
+    { L"Sprite layer animations 4", 0x699ec, 0x69b6c },
+    { L"Sprite layer animations 5", 0x69b6c, 0x69c2c },
+    { L"Sprite layer animations 6", 0x69c2c, 0x69e2c },
+    { L"Sprite layer animations 7", 0x69e2c, 0x6a02c },
+    { L"Sprite layer animations 8", 0x6a02c, 0x6a22c },
+    { L"Sprite layer animations 9", 0x6a22c, 0x6a2ec },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_SUB[] =
 {
-    { L"2048 sub palettes? 1/2", 0x685e, 0x6a5e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"2048 sub palettes? 2/2", 0x6a5e, 0x6c3e },
+    { L"2048 sub palettes? 1/2", 0x685e, 0x6a5e, indexCPS2Sprites_MSHAssets, 0x43, &pairNext },
+    { L"2048 sub palettes? 2/2", 0x6a5e, 0x6c3e, indexCPS2Sprites_MSHAssets, 0x44 },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_05_THANOS[] =
 {
-    { L"512 mid starfield", 0x750fe, 0x7525e },
+    { L"512 mid starfield", 0x750fe, 0x7525e, indexCPS2Sprites_MSHAssets, 0x57 },
     
-    { L"1024 foreground 1/2", 0x7e93e, 0x7eb3e, indexCPS2Sprites_MSHAssets, INVALID_UNIT_VALUE_8, &pairNext },
-    { L"1024 foreground 2/2", 0x7eb3e, 0x7ec5e },
+    { L"1024 foreground 1/2", 0x7e93e, 0x7eb3e, indexCPS2Sprites_MSHAssets, 0x58, &pairNext },
+    { L"1024 foreground 2/2", 0x7eb3e, 0x7ec5e, indexCPS2Sprites_MSHAssets, 0x59 },
+
+    { L"Sprite layer stuff", 0x6a2ec, 0x6a40c },
 };
 
 const sGame_PaletteDataset MSH_A_STAGES_06_THANOS[] =
 {
-    { L"2048 sky", 0x6c5e, 0x6cbe },
+    { L"2048 sky", 0x6c5e, 0x6cbe, indexCPS2Sprites_MSHAssets, 0x5a },
 };
 
 const sDescTreeNode MSH_A_STAGES_05_COLLECTION[] =
