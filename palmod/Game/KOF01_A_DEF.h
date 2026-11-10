@@ -16,7 +16,6 @@ const std::vector<uint16_t> KOF01_A_IMGIDS_USED =
     indexKOF99Sprites_Joe,          // 0x18c
     indexKOF99Sprites_K,            // 0x18d
     indexKOF99Sprites_Kim,          // 0x190
-    indexKOF99Sprites_Kyo,          // 0x194
     indexKOF99Sprites_Leona,        // 0x195
     indexKOF99Sprites_Mai,          // 0x196
     indexKOF99Sprites_Maxima,       // 0x197
@@ -250,13 +249,13 @@ const sGame_PaletteDataset KOF01_A_LIN_KICK_PALETTES[] =
 
 const sGame_PaletteDataset KOF01_A_KYO_PUNCH_PALETTES[] =
 {
-    { L"Kyo Punch", 0x388122, 0x388142, indexKOF99Sprites_Kyo },
-    { L"Character Extra 1", 0x388142, 0x388162, indexKOF99Sprites_Kyo },
-    { L"Character Extra 2", 0x388162, 0x388182, indexKOF99Sprites_Kyo },
-    { L"Electric Palette", 0x388182, 0x3881a2, indexKOF99Sprites_Kyo },
-    { L"Lin Poison Palette (Unused)", 0x3881a2, 0x3881c2, indexKOF99Sprites_Kyo },
-    { L"Freeze Palette (Unused)", 0x3881c2, 0x3881e2, indexKOF99Sprites_Kyo },
-    { L"Super Trail", 0x3881e2, 0x388202, indexKOF99Sprites_Kyo },
+    { L"Kyo Punch", 0x388122, 0x388142, indexKOF01Sprites_Kyo },
+    { L"Character Extra 1", 0x388142, 0x388162, indexKOF01Sprites_Kyo },
+    { L"Character Extra 2", 0x388162, 0x388182, indexKOF01Sprites_Kyo },
+    { L"Electric Palette", 0x388182, 0x3881a2, indexKOF01Sprites_Kyo },
+    { L"Lin Poison Palette (Unused)", 0x3881a2, 0x3881c2, indexKOF01Sprites_Kyo },
+    { L"Freeze Palette (Unused)", 0x3881c2, 0x3881e2, indexKOF01Sprites_Kyo },
+    { L"Super Trail", 0x3881e2, 0x388202, indexKOF01Sprites_Kyo },
     { L"Striker Portrait", 0x3984a2, 0x3984c2, indexKOF01Sprites_Kyo, 0x60 },
     { L"Order Select Portrait", 0x399422, 0x399442, indexKOF01Sprites_Kyo, 0x44 },
     { L"Select/VS Portrait", 0x39a422, 0x39a462, indexKOF01Sprites_Kyo, 0x42 },
@@ -267,13 +266,13 @@ const sGame_PaletteDataset KOF01_A_KYO_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset KOF01_A_KYO_KICK_PALETTES[] =
 {
-    { L"Kyo Kick", 0x388322, 0x388342, indexKOF99Sprites_Kyo },
-    { L"Character Extra 1", 0x388342, 0x388362, indexKOF99Sprites_Kyo },
-    { L"Character Extra 2", 0x388362, 0x388382, indexKOF99Sprites_Kyo },
-    { L"Electric Palette", 0x388382, 0x3883a2, indexKOF99Sprites_Kyo },
-    { L"Lin Poison Palette (Unused)", 0x3883a2, 0x3883c2, indexKOF99Sprites_Kyo },
-    { L"Freeze Palette (Unused)", 0x3883c2, 0x3883e2, indexKOF99Sprites_Kyo },
-    { L"Super Trail", 0x3883e2, 0x388402, indexKOF99Sprites_Kyo },
+    { L"Kyo Kick", 0x388322, 0x388342, indexKOF01Sprites_Kyo },
+    { L"Character Extra 1", 0x388342, 0x388362, indexKOF01Sprites_Kyo },
+    { L"Character Extra 2", 0x388362, 0x388382, indexKOF01Sprites_Kyo },
+    { L"Electric Palette", 0x388382, 0x3883a2, indexKOF01Sprites_Kyo },
+    { L"Lin Poison Palette (Unused)", 0x3883a2, 0x3883c2, indexKOF01Sprites_Kyo },
+    { L"Freeze Palette (Unused)", 0x3883c2, 0x3883e2, indexKOF01Sprites_Kyo },
+    { L"Super Trail", 0x3883e2, 0x388402, indexKOF01Sprites_Kyo },
     { L"Striker Portrait", 0x3984c2, 0x3984e2, indexKOF01Sprites_Kyo, 0x60 },
     { L"Order Select Portrait", 0x399442, 0x399462, indexKOF01Sprites_Kyo, 0x44 },
     { L"Select/VS Portrait", 0x39a462, 0x39a4a2, indexKOF01Sprites_Kyo, 0x42 },

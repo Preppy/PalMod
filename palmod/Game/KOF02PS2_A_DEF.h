@@ -97,7 +97,6 @@ const std::vector<uint16_t> KOF02PS2_A_IMGIDS_USED =
     indexKOF99Sprites_Clark,        // 0x188
     indexKOF99Sprites_Joe,          // 0x18c
     indexKOF99Sprites_K,            // 0x18d
-    indexKOF99Sprites_Kyo,          // 0x194
     indexKOF99Sprites_Leona,        // 0x195
     indexKOF99Sprites_Mai,          // 0x196
     indexKOF99Sprites_Maxima,       // 0x197
@@ -113,6 +112,7 @@ const std::vector<uint16_t> KOF02PS2_A_IMGIDS_USED =
     indexKOF01Sprites_Kensou,       // 0x1bf
     indexKOF01Sprites_King,         // 0x1c1
     indexKOF01Sprites_Kula,         // 0x1c2
+    indexKOF01Sprites_Kyo,          // 0x1c3
     indexKOF01Sprites_MayLee,       // 0x1c8
     indexKOF01Sprites_Ralf,         // 0x1c9
     indexKOF01Sprites_Ramon,        // 0x1ca
@@ -1227,50 +1227,50 @@ const sGame_PaletteDataset KOF02PS2_A_GOENITZ_PALETTES_PORTRAITS_LIFEBAR[] =
 
 const sGame_PaletteDataset KOF02PS2_A_KYO_PALETTES_A[] =
 {
-    { L"Kyo A", 0x0388c00, 0x0388c20, indexKOF99Sprites_Kyo },
+    { L"Kyo A", 0x0388c00, 0x0388c20, indexKOF01Sprites_Kyo },
     { L"A - MAX2 Fire Palette", 0x0388c20, 0x0388c40, indexKOF02UMSprites_KyoKusa, 0x02 },
     { L"A - MAX Orochinagi Fire", 0x0388c40, 0x0388c60, indexKOF02UMSprites_KyoKusa, 0x03 },
-    { L"A - Electric Shock Effect", 0x0388c60, 0x0388c80, indexKOF99Sprites_Kyo, 0x00 },
-    { L"A - MAX Flash", 0x0388c80, 0x0388ca0, indexKOF99Sprites_Kyo, 0x00 },
+    { L"A - Electric Shock Effect", 0x0388c60, 0x0388c80, indexKOF01Sprites_Kyo, 0x00 },
+    { L"A - MAX Flash", 0x0388c80, 0x0388ca0, indexKOF01Sprites_Kyo, 0x00 },
     { L"A - Shingo Intro Stuff", 0x0388ca0, 0x0388cc0, indexKOF02UMSprites_KyoKusa, 0x19 },
-    { L"A - Soul Palette", 0x0388cc0, 0x0388ce0, indexKOF99Sprites_Kyo, 0x00 },
-    { L"A - Hidden Super Desperation Move 3", 0x0388ce0, 0x0388d00, indexKOF99Sprites_Kyo, 0x00 },
+    { L"A - Soul Palette", 0x0388cc0, 0x0388ce0, indexKOF01Sprites_Kyo, 0x00 },
+    { L"A - Hidden Super Desperation Move 3", 0x0388ce0, 0x0388d00, indexKOF01Sprites_Kyo, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_KYO_PALETTES_B[] =
 {
-    { L"Kyo B", 0x0388e00, 0x0388e20, indexKOF99Sprites_Kyo },
+    { L"Kyo B", 0x0388e00, 0x0388e20, indexKOF01Sprites_Kyo },
     { L"B - MAX2 Fire Palette", 0x0388e20, 0x0388e40, indexKOF02UMSprites_KyoKusa, 0x02 },
     { L"B - MAX Orochinagi Fire", 0x0388e40, 0x0388e60, indexKOF02UMSprites_KyoKusa, 0x03 },
-    { L"B - Electric Shock Effect", 0x0388e60, 0x0388e80, indexKOF99Sprites_Kyo, 0x00 },
-    { L"B - MAX Flash", 0x0388e80, 0x0388ea0, indexKOF99Sprites_Kyo, 0x00 },
+    { L"B - Electric Shock Effect", 0x0388e60, 0x0388e80, indexKOF01Sprites_Kyo, 0x00 },
+    { L"B - MAX Flash", 0x0388e80, 0x0388ea0, indexKOF01Sprites_Kyo, 0x00 },
     { L"B - Shingo Intro Stuff", 0x0388ea0, 0x0388ec0, indexKOF02UMSprites_KyoKusa, 0x19 },
-    { L"B - Soul Palette", 0x0388ec0, 0x0388ee0, indexKOF99Sprites_Kyo, 0x00 },
-    //{ L"B - Hidden Super Desperation Move 3", 0x0388ee0, 0x0388f00, indexKOF99Sprites_Kyo, 0x00 },
+    { L"B - Soul Palette", 0x0388ec0, 0x0388ee0, indexKOF01Sprites_Kyo, 0x00 },
+    //{ L"B - Hidden Super Desperation Move 3", 0x0388ee0, 0x0388f00, indexKOF01Sprites_Kyo, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_KYO_PALETTES_C[] =
 {
-    { L"Kyo C", 0x0389000, 0x0389020, indexKOF99Sprites_Kyo },
+    { L"Kyo C", 0x0389000, 0x0389020, indexKOF01Sprites_Kyo },
     { L"C - MAX2 Fire Palette", 0x0389020, 0x0389040, indexKOF02UMSprites_KyoKusa, 0x02 },
     { L"C - MAX Orochinagi Fire", 0x0389040, 0x0389060, indexKOF02UMSprites_KyoKusa, 0x03 },
-    { L"C - Electric Shock Effect", 0x0389060, 0x0389080, indexKOF99Sprites_Kyo, 0x00 },
-    { L"C - MAX Flash", 0x0389080, 0x03890a0, indexKOF99Sprites_Kyo, 0x00 },
+    { L"C - Electric Shock Effect", 0x0389060, 0x0389080, indexKOF01Sprites_Kyo, 0x00 },
+    { L"C - MAX Flash", 0x0389080, 0x03890a0, indexKOF01Sprites_Kyo, 0x00 },
     { L"C - Shingo Intro Stuff", 0x03890a0, 0x03890c0, indexKOF02UMSprites_KyoKusa, 0x19 },
-    { L"C - Soul Palette", 0x03890c0, 0x03890e0, indexKOF99Sprites_Kyo, 0x00 },
-    //{ L"C - Hidden Super Desperation Move 3", 0x03890e0, 0x0389100, indexKOF99Sprites_Kyo, 0x00 },
+    { L"C - Soul Palette", 0x03890c0, 0x03890e0, indexKOF01Sprites_Kyo, 0x00 },
+    //{ L"C - Hidden Super Desperation Move 3", 0x03890e0, 0x0389100, indexKOF01Sprites_Kyo, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_KYO_PALETTES_D[] =
 {
-    { L"Kyo D", 0x0389200, 0x0389220, indexKOF99Sprites_Kyo },
+    { L"Kyo D", 0x0389200, 0x0389220, indexKOF01Sprites_Kyo },
     { L"D - MAX2 Fire Palette", 0x0389220, 0x0389240, indexKOF02UMSprites_KyoKusa, 0x02 },
     { L"D - MAX Orochinagi Fire", 0x0389240, 0x0389260, indexKOF02UMSprites_KyoKusa, 0x03 },
-    { L"D - Electric Shock Effect", 0x0389260, 0x0389280, indexKOF99Sprites_Kyo, 0x00 },
-    { L"D - MAX Flash", 0x0389280, 0x03892a0, indexKOF99Sprites_Kyo, 0x00 },
+    { L"D - Electric Shock Effect", 0x0389260, 0x0389280, indexKOF01Sprites_Kyo, 0x00 },
+    { L"D - MAX Flash", 0x0389280, 0x03892a0, indexKOF01Sprites_Kyo, 0x00 },
     { L"D - Shingo Intro Stuff", 0x03892a0, 0x03892c0, indexKOF02UMSprites_KyoKusa, 0x19 },
-    { L"D - Soul Palette", 0x03892c0, 0x03892e0, indexKOF99Sprites_Kyo, 0x00 },
-    //{ L"D - Hidden Super Desperation Move 3", 0x03892e0, 0x0389300, indexKOF99Sprites_Kyo, 0x00 },
+    { L"D - Soul Palette", 0x03892c0, 0x03892e0, indexKOF01Sprites_Kyo, 0x00 },
+    //{ L"D - Hidden Super Desperation Move 3", 0x03892e0, 0x0389300, indexKOF01Sprites_Kyo, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_BENIMARU_PALETTES_A[] =
