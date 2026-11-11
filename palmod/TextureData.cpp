@@ -254,6 +254,17 @@ RECT sTextureData::GetUsedRect()
             const int currentPixel = (iCurrentLine * dimensions.width) + iCurrentRow;
             if (indexedPixels[currentPixel])
             {
+                if (!fAnyLinesUsed && !fThisLineUsed)
+                {
+                    // BUGBUG TODO: this doesn't make any sense per initializer above.
+                    // in testing, left/top were being reset to 0,0 before the next min check
+                    // there's nothing here doing anything with them, so something external is askew
+                    // the scenario was merged an inbound preview: it was being padded needlessly since 
+                    // first active pixel was being pegged to 0,0 instead of actual offset
+                    usedRect.left = dimensions.width;
+                    usedRect.top = dimensions.height;
+                }
+
                 usedRect.left = min(usedRect.left, iCurrentRow);
                 usedRect.right = max(usedRect.right, iCurrentRow);
                 fThisLineUsed = true;

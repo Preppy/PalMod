@@ -821,12 +821,15 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 
                 for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
                 {
-                    RECT nUsedRectThisLayer = rgTextureSlices.at(0).GetUsedRect();
+                    RECT nUsedRectThisLayer = rgTextureSlices.at(iLayer).GetUsedRect();
 
-                    nUsedRect.left = min(nUsedRect.left, nUsedRectThisLayer.left);
-                    nUsedRect.top = min(nUsedRect.top, nUsedRectThisLayer.top);
-                    nUsedRect.right = max(nUsedRect.right, nUsedRectThisLayer.right);
-                    nUsedRect.bottom = max(nUsedRect.bottom, nUsedRectThisLayer.bottom);
+                    if (nUsedRectThisLayer.right && nUsedRectThisLayer.bottom)
+                    {
+                        nUsedRect.left = min(nUsedRect.left, nUsedRectThisLayer.left);
+                        nUsedRect.top = min(nUsedRect.top, nUsedRectThisLayer.top);
+                        nUsedRect.right = max(nUsedRect.right, nUsedRectThisLayer.right);
+                        nUsedRect.bottom = max(nUsedRect.bottom, nUsedRectThisLayer.bottom);
+                    }
                 }
 
                 if (nUsedRect.right && nUsedRect.bottom &&
