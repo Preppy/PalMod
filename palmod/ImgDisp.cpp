@@ -132,6 +132,8 @@ void CImgDisp::ResetImageCompositionLayout()
     {
         m_ptOffs[iPos].x = m_ptOffs[iPos].y = 0;
     }
+
+    m_fHaveCorrectDimensions = false;
 }
 
 // Called after preview images are set in place so that we know what the layout rects should be
@@ -141,18 +143,23 @@ void CImgDisp::_AdjustLayoutForNewlyLoadedImage()
     OutputDebugString(L"CImgDisp::_AdjustLayoutForNewlyLoadedImage called.\r\n");
 #endif
 
-    m_rImgRct.right += abs(m_rImgRct.left);
-    m_rImgRct.left = 0;
+    if (!m_fHaveCorrectDimensions)
+    {
+        m_fHaveCorrectDimensions = true;
 
-    m_rImgRct.bottom += abs(m_rImgRct.top);
-    m_rImgRct.top = 0;
+        m_rImgRct.right += abs(m_rImgRct.left);
+        m_rImgRct.left = 0;
 
-    m_PreviewDimensions.width = m_rImgRct.Width();
-    m_PreviewDimensions.height = m_rImgRct.Height();
+        m_rImgRct.bottom += abs(m_rImgRct.top);
+        m_rImgRct.top = 0;
 
-    ModifySrcRect();
+        m_PreviewDimensions.width = m_rImgRct.Width();
+        m_PreviewDimensions.height = m_rImgRct.Height();
 
-    _ResizeMainBitmap();
+        ModifySrcRect();
+
+        _ResizeMainBitmap();
+    }
 }
 
 void CImgDisp::ResetCustomSpriteOverride(size_t nLayer)

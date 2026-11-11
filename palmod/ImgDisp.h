@@ -52,6 +52,7 @@ private:
     sImageDimensions m_PreviewDimensions;
     sImageDimensions m_MainLayout;
     sImageDisplayOffsets m_ImageOffsets;
+    bool m_fHaveCorrectDimensions = false;
 
     uint8_t m_bUsed[MAX_IMAGES_DISPLAYABLE] = {};
     POINT m_ptOffs[MAX_IMAGES_DISPLAYABLE] = {};

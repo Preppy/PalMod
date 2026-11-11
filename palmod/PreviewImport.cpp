@@ -586,6 +586,7 @@ std::vector<sTextureData> CPreviewImportManager::_GetSlicesFromLoadedTexture()
 
     if (m_rgTextureLoadedFromFile.dataType == TextureDataType::RGBA)
     {
+        OutputDebugString(L"\tslicing as RGB...\r\n");
         GetHost()->GetPalModDlg()->SetStatusText(L"Calculating RGBA->Indexed math based upon loaded palettes...");
 
         // hard mode.  slice the RGBA preview up based upon palettes
@@ -714,6 +715,7 @@ std::vector<sTextureData> CPreviewImportManager::_GetSlicesFromLoadedTexture()
     }
     else
     {
+        OutputDebugString(L"\tslicing as Indexed...\r\n");
         rgLayerSlices = m_rgTextureLoadedFromFile.SliceToLayers(m_rgrgPaletteSet, m_optCurrentSel_Layer);
     }
 
@@ -976,14 +978,14 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             {
                 rgAssembledTextures.at(iLayer) = rgTextureSlices.at(iLayer);
 
-                strInfo.Format(L"\tLayer %zu: Using NEW.\r\n", iLayer);
+                strInfo.Format(L"\tLayer %zu: Using the incoming/custom preview.\r\n", iLayer);
                 OutputDebugString(strInfo.GetString());
             }
             else
             {
                 rgAssembledTextures.at(iLayer) = m_rgUserConfirmedTextures.at(iLayer);
 
-                strInfo.Format(L"\tLayer %zu: Using PREVIOUS.\r\n", iLayer);
+                strInfo.Format(L"\tLayer %zu: Using the previously loaded preview.\r\n", iLayer);
                 OutputDebugString(strInfo.GetString());
             }
 
@@ -1010,6 +1012,9 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 
         if (m_fUIIsUp && m_fDrawPaletteBoxes)
         {
+            // note that in this design the palette boxes potentially occlude the desired preview.
+            // while we could push it to someplace safe/unused, that potentially changes their target design.
+            // so let the user use the Offset options to move it where they want.
             OutputDebugString(L"CPreviewImportManager::_CompositeToDisplay: adding palette boxes...\r\n");
             std::vector<sTextureData> boxTextures = GetPaletteBoxesForPaletteSet(m_rgrgPaletteSet, m_paletteBoxSettings.nWidthInBoxes, m_paletteBoxSettings.nRectSize);
 
@@ -1026,7 +1031,6 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
 
         for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)
         {
-            // We might want to optimize to only touch size-changed or texture-changed options
             m_pImgDisp->SetOverrideTextureForLayer(rgAssembledTextures.at(iLayer), static_cast<int>(iLayer));
             fHaveAnyPaletteMatches = fHaveAnyPaletteMatches || rgAssembledTextures.at(iLayer).DoesTextureHaveColorData();
             m_fHaveChangedPreview = true;
@@ -1034,7 +1038,7 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             OutputDebugString(strInfo.GetString());
         }
 
-        // tell imgdisp to update its knowledge
+        // Note we are telling imgdisp to update *everything* since we're touching all layers as part of resizing stack and etc
         m_pImgDisp->UpdatePreviewForExternalSprite(std::nullopt);
 
         // redraw
