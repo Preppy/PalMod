@@ -224,8 +224,8 @@ const sGame_PaletteDataset FatalFury3_A_PORTRAITS_PALETTES_PVP[] =
 const sGame_PaletteDataset FatalFury3_A_PORTRAITS_PALETTES_SELECT[] =
 {
     { L"Terry Bogard", 0xe57e0, 0xe5800 },
-    { L"Portrait win Terry Bogard P1", 0xe6000, 0xe6020 },
-    { L"Portrait win Terry Bogard P2", 0xe6020, 0xe6040 },
+    { L"Portrait win Terry Bogard P1", 0xe6000, 0xe6020, indexRBFF1Sprites_Terry, 0x50 },
+    { L"Portrait win Terry Bogard P2", 0xe6020, 0xe6040, indexRBFF1Sprites_Terry, 0x50 },
     { L"Andy Bogard ", 0xe6040, 0xe6060 },
     { L"Joe Higashi", 0xe6060, 0xe6080 },
     { L"Portrait win Andy Bogard P1", 0xe6080, 0xe60a0 },
