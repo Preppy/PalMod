@@ -318,6 +318,8 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
     ON_COMMAND(ID_ACC_SUBZOOM, SubZoom)
     ON_COMMAND(ID_ACC_ESCAPE, OnClose)
     ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, OnSettingsUseTransparentPNG)
+    ON_COMMAND(ID_SETTINGS_PNG_FORCE256, OnSettingsForce256ColorPNG)
+    
     ON_WM_INITMENUPOPUP()
 END_MESSAGE_MAP()
 
@@ -478,6 +480,7 @@ void CImgOutDlg::LoadSettings()
 
     m_fTransPNG = sett.GetImageExport_TransparentPNG(1);
     m_fExportPNGAsJoined = sett.GetImageExport_ExportPNGAsJoined(0);
+    m_fForce256ColorPNG = sett.GetImageExport_Force256ColorPNGs(0);
     m_border_sz = sett.GetImageExport_BorderSize(0);
 
     if (m_fShowingUI)
@@ -504,6 +507,7 @@ void CImgOutDlg::SaveSettings()
     sett.SetImageExport_ZoomIndex(m_CB_Zoom.GetCurSel());
     sett.SetImageExport_TransparentPNG(m_fTransPNG);
     sett.SetImageExport_ExportPNGAsJoined(m_fExportPNGAsJoined);
+    sett.SetImageExport_Force256ColorPNGs(m_fForce256ColorPNG);
 
     RECT window_rect;
 
@@ -798,7 +802,14 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 // lodepng options: going from RAW to indexed PNG
                 state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
                 state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;
-                if (fTooManyColorsForSingleIndexedPNG || !m_fExportPNGAsJoined)
+                
+                if (m_fForce256ColorPNG)
+                {
+                    // GIMP can't handle non-256 color indexed PNGs correctly, so this lets us pad for that if wanted.
+                    // We don't do that by default since it's inaccurate
+                    state.info_png.color.palettesize = state.info_raw.palettesize = 256;
+                }
+                else if (fTooManyColorsForSingleIndexedPNG || !m_fExportPNGAsJoined)
                 {
                     state.info_png.color.palettesize = state.info_raw.palettesize = m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
                     nImageIndex++;
@@ -1311,6 +1322,11 @@ void CImgOutDlg::OnSettingsSetPNGExportJoined()
     m_fExportPNGAsJoined = !m_fExportPNGAsJoined;
 }
 
+void CImgOutDlg::OnSettingsForce256ColorPNG()
+{
+    m_fForce256ColorPNG = !m_fForce256ColorPNG;
+}
+
 void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 {
     CDialog::OnInitMenuPopup(pPopupMenu, nIndex, fSysMenu);
@@ -1320,6 +1336,7 @@ void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
     if (pPopupMenu == SettMenu)
     {
         pPopupMenu->CheckMenuItem(ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * m_fTransPNG);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_PNG_FORCE256, MF_CHECKED * m_fForce256ColorPNG);        
         pPopupMenu->CheckMenuItem(ID_SETTINGS_IMGOUT_EXPORTSINGLE, MF_CHECKED * m_fExportPNGAsJoined);
     }
 }

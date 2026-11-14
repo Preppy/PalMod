@@ -815,8 +815,19 @@ bool CPreviewImportManager::_CompositeToDisplay(bool& fHaveAnyPaletteMatches, st
             // trim by image
             if (m_fTrim)
             {
-                const RECT nOriginalRect = { 0, 0, rgTextureSlices.at(0).dimensions.width, rgTextureSlices.at(0).dimensions.height };
-                RECT nUsedRect = { rgTextureSlices.at(0).dimensions.width, rgTextureSlices.at(0).dimensions.height, 0, 0 };
+                RECT nOriginalRect;
+                RECT nUsedRect;
+                
+                if (rgTextureSlices.at(0).dimensions.IsEmpty())
+                {
+                    nUsedRect = nOriginalRect = { 0, 0, 0, 0 };
+                }
+                else
+                {
+                    nOriginalRect = { 0, 0, rgTextureSlices.at(0).dimensions.width - 1, rgTextureSlices.at(0).dimensions.height - 1 };
+                    nUsedRect = { rgTextureSlices.at(0).dimensions.width - 1, rgTextureSlices.at(0).dimensions.height - 1, 0, 0 };
+                }
+                
                 sImageDimensions oldDimensions = rgTextureSlices.at(0).dimensions;
 
                 for (size_t iLayer = 0; iLayer < rgTextureSlices.size(); iLayer++)

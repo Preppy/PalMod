@@ -162,7 +162,7 @@ void SanitizeString(wchar_t* pszString)
 {
     for (size_t iPos = 0; iPos < wcslen(pszString); iPos++)
     {
-        if (!isalnum(pszString[iPos]) && (pszString[iPos] != L'-') && (pszString[iPos] != L'_'))
+        if (!iswalnum(pszString[iPos]) && (pszString[iPos] != L'-') && (pszString[iPos] != L'_'))
         {
             pszString[iPos] = L'_';
         }
@@ -194,7 +194,7 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
                             (pszNodeNamePos - 1)[0] = L'\0';
                         }
                     }
-                    else if (!isalnum(pszCandidate[0]))
+                    else if (!iswalnum(pszCandidate[0]))
                     {
                         // Truncate "Zangief A: foo" to "foo"
                         // Truncate "Zangief A foo" to "foo"
@@ -202,7 +202,7 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
 
                         pszCandidate++;
 
-                        if ((pszCandidate[0] != L'\0') && (!isalnum(pszCandidate[0])))
+                        if ((pszCandidate[0] != L'\0') && (!iswalnum(pszCandidate[0])))
                         {
                             pszCandidate++;
                         }

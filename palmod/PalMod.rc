@@ -931,6 +931,7 @@ BEGIN
             MENUITEM "Export paired palettes to a single PNG if possible", ID_SETTINGS_IMGOUT_EXPORTSINGLE
             MENUITEM SEPARATOR
             MENUITEM "&Transparent PNG",            ID_SETTINGS_USETRANSPARENTPNG
+            MENUITEM "Force 256-color Indexed PNGs (works around bug in GIMP)", ID_SETTINGS_PNG_FORCE256
         END
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
@@ -996,6 +997,7 @@ BEGIN
         MENUITEM "Export paired palettes to a single PNG if possible", ID_SETTINGS_IMGOUT_EXPORTSINGLE
         MENUITEM SEPARATOR
         MENUITEM "&Transparent PNG",            ID_SETTINGS_USETRANSPARENTPNG
+        MENUITEM "Force 256-color Indexed PNGs (works around bug in GIMP)", ID_SETTINGS_PNG_FORCE256
     END
 END
 

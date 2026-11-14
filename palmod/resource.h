@@ -509,13 +509,14 @@
 #define ID_TOOLS_TRANSFORM_GB_LIGHT     33004
 #define ID_COLORFORMAT_RGBx2222         33005
 #define ID_TOOLS_LOADPALETTE_ADVANCED   33006
+#define ID_SETTINGS_PNG_FORCE256        33007
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        211
-#define _APS_NEXT_COMMAND_VALUE         33007
+#define _APS_NEXT_COMMAND_VALUE         33008
 #define _APS_NEXT_CONTROL_VALUE         1156
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

@@ -54,6 +54,7 @@ public:
 
     BOOL m_fTransPNG = FALSE;
     BOOL m_fExportPNGAsJoined = TRUE;
+    BOOL m_fForce256ColorPNG = FALSE;
 
     std::vector<LPCWSTR> m_pButtonLabelSet;
 
@@ -79,6 +80,7 @@ public:
     CSpinButtonCtrl m_BdrSpn;
     afx_msg void OnSettingsSetBackgroundColor();
     afx_msg void OnSettingsSetPNGExportJoined();
+    afx_msg void OnSettingsForce256ColorPNG();
     afx_msg void OnFileSave();
     afx_msg void OnClose();
 

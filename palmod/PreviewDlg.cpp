@@ -55,6 +55,7 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetOutputBackgroundColor)
     ON_COMMAND(ID_SETTINGS_IMGOUT_EXPORTSINGLE, &CPreviewDlg::OnSetOutputPNGAsJoined)
     ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, &CPreviewDlg::OnSetOutputUseTransparentPNG)
+    ON_COMMAND(ID_SETTINGS_PNG_FORCE256, &CPreviewDlg::OnSetOutputForce256ColorPNG)
 
     ON_COMMAND(ID_SETTINGS_BLINKINVERTS, &CPreviewDlg::OnSetBlinkInverts)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBackgroundCol)
@@ -402,9 +403,11 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
         // have a good quick way of exposing those.  "export as joined" is the one I really
         // care about.
         const DWORD fExportPNGAsTransparent = CRegProc::GetImageExport_TransparentPNG(1);
+        const DWORD fForce256ColorPNGs = CRegProc::GetImageExport_Force256ColorPNGs(0);
         const DWORD fExportPNGAsJoined = CRegProc::GetImageExport_ExportPNGAsJoined(0);
 
         pPopupMenu->CheckMenuItem(ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * fExportPNGAsTransparent);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_PNG_FORCE256, MF_CHECKED * fForce256ColorPNGs);        
         pPopupMenu->CheckMenuItem(ID_SETTINGS_IMGOUT_EXPORTSINGLE, MF_CHECKED * fExportPNGAsJoined);
     }
     else if (pImportMenu == pPopupMenu)
@@ -636,4 +639,9 @@ void CPreviewDlg::OnSetOutputPNGAsJoined()
 void CPreviewDlg::OnSetOutputUseTransparentPNG()
 {
     CRegProc::SetImageExport_TransparentPNG(CRegProc::GetImageExport_TransparentPNG(1) ? 0 : 1);
+}
+
+void CPreviewDlg::OnSetOutputForce256ColorPNG()
+{
+    CRegProc::SetImageExport_Force256ColorPNGs(CRegProc::GetImageExport_Force256ColorPNGs(0) ? 0 : 1);
 }

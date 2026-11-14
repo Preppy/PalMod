@@ -76,6 +76,7 @@ constexpr auto c_imageExport_BorderSize = L"imgout_border";
 constexpr auto c_imageExport_ZoomIndex = L"imgout_zoomindex_2";
 constexpr auto c_imageExport_TransparentPNG = L"TransparentPNG";
 constexpr auto c_imageExport_JoinPNGs = L"imgout_ExportPNGAsJoined";
+constexpr auto c_imageExport_Force256ColorPNGs = L"imgout_Force256cPNGs";
 
 struct sPreviewWindowSettings
 {
@@ -177,6 +178,8 @@ public:
     static void SetImageExport_BorderSize(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_BorderSize, dwNewValue); };
     static DWORD GetImageExport_ExportPNGAsJoined(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_JoinPNGs, dwFallbackValue); };
     static void SetImageExport_ExportPNGAsJoined(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_JoinPNGs, dwNewValue); };
+    static DWORD GetImageExport_Force256ColorPNGs(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_Force256ColorPNGs, dwFallbackValue); };
+    static void SetImageExport_Force256ColorPNGs(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_Force256ColorPNGs, dwNewValue); };
     static DWORD GetImageExport_TransparentPNG(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_TransparentPNG, dwFallbackValue); };
     static void SetImageExport_TransparentPNG(DWORD dwNewValue) { StoreDWORDValueForKeyName(c_imageExport_TransparentPNG, dwNewValue); };
     static DWORD GetImageExport_ZoomIndex(DWORD dwFallbackValue) { return GetDWORDValueForKeyName(c_imageExport_ZoomIndex, dwFallbackValue); };

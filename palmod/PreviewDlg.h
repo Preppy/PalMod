@@ -55,6 +55,7 @@ public:
     afx_msg void OnZoom8x() { UpdateZoomSetting(8.0); };
 
     afx_msg void OnSetOutputBackgroundColor();
+    afx_msg void OnSetOutputForce256ColorPNG();
     afx_msg void OnSetOutputPNGAsJoined();
     afx_msg void OnSetOutputUseTransparentPNG();
 
