@@ -128,13 +128,13 @@ const sGame_PaletteDataset UMK3_A_SCORPION_PALETTES_P2[] =
 const sGame_PaletteDataset UMK3_A_SONYA_PALETTES_P1[] =
 {
     { L"Sonya P1", 0xaff38, 0xaffb8, indexUMK3ArcadeSprites_Sonya, 0x00 },
-    { L"Ring Toss P1", 0xb003c, 0xb00bc, indexUMK3ArcadeSprites_Sonya, 0x02 },
+    { L"Ring Toss P1", 0xb003c, 0xb00bc, indexUMK3ArcadeSprites_Sonya, 0x04 },
 };
 
 const sGame_PaletteDataset UMK3_A_SONYA_PALETTES_P2[] =
 {
     { L"Sonya P2", 0xaffba, 0xb003a, indexUMK3ArcadeSprites_Sonya, 0x00 },
-    { L"Ring Toss P2", 0x35cf4, 0x35d74, indexUMK3ArcadeSprites_Sonya, 0x02 },
+    { L"Ring Toss P2", 0x35cf4, 0x35d74, indexUMK3ArcadeSprites_Sonya, 0x04 },
 };
 
 const sGame_PaletteDataset UMK3_A_NIGHTWOLF_PALETTES_P1[] =
@@ -159,10 +159,10 @@ const sGame_PaletteDataset UMK3_A_JADE_PALETTES_P2[] =
 
 const sGame_PaletteDataset UMK3_A_Jade_Extras[] =
 {
-    { L"Gibs", 0x425fc, 0x4267c, indexUMK3ArcadeSprites_Kitana, 0x01 },
-    { L"Babality", 0x58552, 0x58592 },
-    { L"Animality", 0xbb46c, 0xbb48c },
-    { L"Shadow Kick", 0x4a21e, 0x4a29e, indexUMK3ArcadeSprites_Jade, 0x00 },
+    { L"Gibs",          0x425fc, 0x4267c, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Babality",      0x58552, 0x58592, indexUMK3ArcadeSprites_Kitana, 0x02 },
+    { L"Animality",     0xbb46c, 0xbb48c, indexUMK3ArcadeSprites_Jade, 0x03 },
+    { L"Shadow Kick",   0x4a21e, 0x4a29e, indexUMK3ArcadeSprites_Jade, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_A_KANO_PALETTES_P1[] =
@@ -294,180 +294,180 @@ const sGame_PaletteDataset UMK3_A_RAIN_PALETTES[] =
 
 const sGame_PaletteDataset UMK3_A_Kitana_Extras[] =
 {
-    { L"Gibs", 0xba6e6, 0xba766, indexUMK3ArcadeSprites_Kitana, 0x01 },
-    { L"Babality", 0xb7e76, 0xb7eb6 },
-    { L"Animality", 0xbb458, 0xbb46a },
+    { L"Gibs",      0xba6e6, 0xba766, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Babality",  0xb7e76, 0xb7eb6, indexUMK3ArcadeSprites_Kitana, 0x02 },
+    { L"Animality", 0xbb458, 0xbb46a, indexUMK3ArcadeSprites_Kitana, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Reptile_Extras[] =
 {
-    { L"Gibs", 0x42700, 0x42780, indexUMK3ArcadeSprites_Reptile, 0x01 },
-    { L"Babality", 0x58510, 0x58550 },
-    { L"Animality", 0xbb4d2, 0xbb4ea },
+    { L"Gibs",      0x42700, 0x42780, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x58510, 0x58550, indexUMK3ArcadeSprites_Reptile, 0x02 },
+    { L"Animality", 0xbb4d2, 0xbb4ea, indexUMK3ArcadeSprites_Reptile, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Sonya_Extras[] =
 {
-    { L"Gibs", 0xba45e, 0xba4de, indexUMK3ArcadeSprites_Sonya, 0x01 },
-    { L"Babality", 0xb7b22, 0xb7b62 },
-    { L"Animality", 0xb8d3c, 0xb8d4a },
+    { L"Gibs",      0xba45e, 0xba4de, indexUMK3ArcadeSprites_Sonya, 0x01 },
+    { L"Babality",  0xb7b22, 0xb7b62, indexUMK3ArcadeSprites_Sonya, 0x02 },
+    { L"Animality", 0xb8d3c, 0xb8d4a, indexUMK3ArcadeSprites_Sonya, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Jax_Extras[] =
 {
-    { L"Gibs P1", 0xba154, 0xba1d2, indexUMK3ArcadeSprites_Jax, 0x01 },
-    { L"Gibs P2", 0x42804, 0x42882, indexUMK3ArcadeSprites_Jax, 0x01 },
-    { L"Babality", 0xb7ba6, 0xb7be2 },
-    { L"Animality", 0xb8d4c, 0xb8d5c },
+    { L"Gibs P1",   0xba154, 0xba1d2, indexUMK3ArcadeSprites_Jax, 0x01 },
+    { L"Gibs P2",   0x42804, 0x42882, indexUMK3ArcadeSprites_Jax, 0x01 },
+    { L"Babality",  0xb7ba6, 0xb7be2, indexUMK3ArcadeSprites_Jax, 0x02 },
+    { L"Animality", 0xb8d4c, 0xb8d5c, indexUMK3ArcadeSprites_Jax, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Nightwolf_Extras[] =
 {
-    { L"Gibs", 0xba0d2, 0xba152, indexUMK3ArcadeSprites_Nightwolf, 0x01 },
-    { L"Babality", 0xb7d6e, 0xb7dae },
-    { L"Animality", 0xb8d70, 0xb8d80 },
-    { L"Shoulder Charge", 0x6a4b2, 0x6a532, indexUMK3ArcadeSprites_Nightwolf, 0x00 },
+    { L"Gibs",                  0xba0d2, 0xba152, indexUMK3ArcadeSprites_Nightwolf, 0x01 },
+    { L"Babality",              0xb7d6e, 0xb7dae, indexUMK3ArcadeSprites_Nightwolf, 0x02 },
+    { L"Animality",             0xb8d70, 0xb8d80, indexUMK3ArcadeSprites_Nightwolf, 0x03 },
+    { L"Shoulder Charge",       0x6a4b2, 0x6a532, indexUMK3ArcadeSprites_Nightwolf, 0x00 },
     { L"Raiden Transformation", 0xb8e48, 0xb8ec8 },
-    { L"Arcade Cabinet", 0xbabf0, 0xbac70 },
+    { L"Arcade Cabinet",        0xbabf0, 0xbac70 },
 };
 
 const sGame_PaletteDataset UMK3_A_Scorpion_Extras[] =
 {
-    { L"Gibs", 0x4257a, 0x425fa, indexUMK3ArcadeSprites_Reptile, 0x01 },
-    { L"Babality", 0x5848c, 0x584cc },
-    { L"Animality", 0xbb52a, 0xbb552 },
+    { L"Gibs",      0x4257a, 0x425fa, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x5848c, 0x584cc, indexUMK3ArcadeSprites_Reptile, 0x02 },
+    { L"Animality", 0xbb52a, 0xbb552, indexUMK3ArcadeSprites_Scorpion, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Kano_Extras[] =
 {
-    { L"Gibs", 0xba258, 0xba2d8, indexUMK3ArcadeSprites_Kano, 0x01 },
-    { L"Babality", 0xb7a60, 0xb7a9c },
-    { L"Animality", 0xb8db8, 0xb8dc8 },
+    { L"Gibs",      0xba258, 0xba2d8, indexUMK3ArcadeSprites_Kano, 0x01 },
+    { L"Babality",  0xb7a60, 0xb7a9c, indexUMK3ArcadeSprites_Kano, 0x02 },
+    { L"Animality", 0xb8db8, 0xb8dc8, indexUMK3ArcadeSprites_Kano, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_SubZero_Extras[] =
 {
-    { L"Gibs", 0xba562, 0xba5e2, indexUMK3ArcadeSprites_SubZero, 0x01 },
-    { L"Babality", 0xb7c26, 0xb7c66 },
-    { L"Animality", 0xb8d5e, 0xb8d6e },
+    { L"Gibs",      0xba562, 0xba5e2, indexUMK3ArcadeSprites_SubZero, 0x01 },
+    { L"Babality",  0xb7c26, 0xb7c66, indexUMK3ArcadeSprites_SubZero, 0x02 },
+    { L"Animality", 0xb8d5e, 0xb8d6e, indexUMK3ArcadeSprites_SubZero, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Sektor_Extras[] =
 {
-    { L"Gibs", 0x424f8, 0x42578, indexUMK3ArcadeSprites_Sektor, 0x01 },
-    { L"Babality", 0xb7c68, 0xb7ca8 },
-    { L"Animality", 0xb8d94, 0xb8da4 },
+    { L"Gibs",      0x424f8, 0x42578, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Babality",  0xb7c68, 0xb7ca8, indexUMK3ArcadeSprites_Sektor, 0x02 },
+    { L"Animality", 0xb8d94, 0xb8da4, indexUMK3ArcadeSprites_Sektor, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Sindel_Extras[] =
 {
-    { L"Gibs", 0xba2da, 0xba358, indexUMK3ArcadeSprites_Sindel, 0x01 },
-    { L"Babality", 0xb7a9e, 0xb7ade },
-    { L"Animality", 0xb8dca, 0xb8dda },
+    { L"Gibs",      0xba2da, 0xba358, indexUMK3ArcadeSprites_Sindel, 0x01 },
+    { L"Babality",  0xb7a9e, 0xb7ade, indexUMK3ArcadeSprites_Sindel, 0x02 },
+    { L"Animality", 0xb8dca, 0xb8dda, indexUMK3ArcadeSprites_Sindel, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Stryker_Extras[] =
 {
-    { L"Gibs", 0xba3dc, 0xba45c, indexUMK3ArcadeSprites_Stryker, 0x01 },
-    { L"Babality", 0xb7d2c, 0xb7d6c },
-    { L"Animality", 0xb8e12, 0xb8e22 },
+    { L"Gibs",      0xba3dc, 0xba45c, indexUMK3ArcadeSprites_Stryker, 0x01 },
+    { L"Babality",  0xb7d2c, 0xb7d6c, indexUMK3ArcadeSprites_Stryker, 0x02 },
+    { L"Animality", 0xb8e12, 0xb8e22, indexUMK3ArcadeSprites_Stryker, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_Cyrax_Extras[] =
 {
-    { L"Gibs", 0x42904, 0x42982, indexUMK3ArcadeSprites_Sektor, 0x01 },
-    { L"Babality", 0xb7db0, 0xb7df0 },
-    { L"Animality", 0xb8ddc, 0xb8dec },
+    { L"Gibs",      0x42904, 0x42982, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Babality",  0xb7db0, 0xb7df0, indexUMK3ArcadeSprites_Sektor, 0x02 },
+    { L"Animality", 0xb8ddc, 0xb8dec, indexUMK3ArcadeSprites_Cyrax, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_KungLao_Extras[] =
 {
-    { L"Gibs P1", 0xba1d6, 0xba254, indexUMK3ArcadeSprites_KungLao, 0x01 },
-    { L"Gibs P2", 0x42984, 0x42a02, indexUMK3ArcadeSprites_KungLao, 0x01 },
-    { L"Babality", 0xb7b64, 0xb7ba4 },
-    { L"Animality", 0xb8d82, 0xb8d92 },
-    { L"Deadly Whirlwind", 0xb9fce, 0xba04e },
+    { L"Gibs P1",           0xba1d6, 0xba254, indexUMK3ArcadeSprites_KungLao, 0x01 },
+    { L"Gibs P2",           0x42984, 0x42a02, indexUMK3ArcadeSprites_KungLao, 0x01 },
+    { L"Babality",          0xb7b64, 0xb7ba4, indexUMK3ArcadeSprites_KungLao, 0x02 },
+    { L"Animality",         0xb8d82, 0xb8d92, indexUMK3ArcadeSprites_KungLao, 0x03 },
+    { L"Deadly Whirlwind",  0xb9fce, 0xba04e },
 };
 
 const sGame_PaletteDataset UMK3_A_Kabal_Extras[] =
 {
-    { L"Gibs", 0xba5e4, 0xba664, indexUMK3ArcadeSprites_Kabal, 0x01 },
-    { L"Babality", 0xb7ae0, 0xb7b20 },
-    { L"Animality", 0xb8e36, 0xb8e46 },
-    { L"Soul Scream", 0xb7efa, 0xb7f7a, indexUMK3ArcadeSprites_Kabal, 0x00 },
+    { L"Gibs",          0xba5e4, 0xba664, indexUMK3ArcadeSprites_Kabal, 0x01 },
+    { L"Babality",      0xb7ae0, 0xb7b20, indexUMK3ArcadeSprites_Kabal, 0x02 },
+    { L"Animality",     0xb8e36, 0xb8e46, indexUMK3ArcadeSprites_Kabal, 0x03 },
+    { L"Soul Scream",   0xb7efa, 0xb7f7a },
 };
 
 const sGame_PaletteDataset UMK3_A_Sheeva_Extras[] =
 {
-    { L"Gibs", 0xba4e0, 0xba560, indexUMK3ArcadeSprites_Sheeva, 0x01 },
-    { L"Babality", 0xb7cec, 0xb7d2a },
-    { L"Animality", 0xb8e00, 0xb8e10 },
+    { L"Gibs",      0xba4e0, 0xba560, indexUMK3ArcadeSprites_Sheeva, 0x01 },
+    { L"Babality",  0xb7cec, 0xb7d2a, indexUMK3ArcadeSprites_Sheeva, 0x02 },
+    { L"Animality", 0xb8e00, 0xb8e10, indexUMK3ArcadeSprites_Sheeva, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_ShangTsung_Extras[] =
 {
-    { L"Gibs", 0xba666, 0xba6e4, indexUMK3ArcadeSprites_ShangTsung, 0x01 },
-    { L"Babality", 0xb7caa, 0xb7cea },
-    { L"Animality", 0xb8da6, 0xb8db6 },
+    { L"Gibs",      0xba666, 0xba6e4, indexUMK3ArcadeSprites_ShangTsung, 0x01 },
+    { L"Babality",  0xb7caa, 0xb7cea, indexUMK3ArcadeSprites_ShangTsung, 0x02 },
+    { L"Animality", 0xb8da6, 0xb8db6, indexUMK3ArcadeSprites_ShangTsung, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_ShangTsung_Morphs[] =
 {
-    { L"Sub-Zero", 0xb1286, 0xb1306 },
-    { L"Sindel", 0xb1308, 0xb1384 },
-    { L"Robots", 0xb1386, 0xb1406 },
-    { L"Stryker", 0xb1408, 0xb1488 },
-    { L"Kung Lao", 0xb148a, 0xb1504 },
-    { L"Kano", 0xb1506, 0xb1586 },
-    { L"Jax", 0xb1588, 0xb1608 },
-    { L"Nightwolf", 0xb160a, 0xb1686 },
-    { L"Sonya", 0xb1688, 0xb1706 },
-    { L"Kabal", 0xb1708, 0xb1788 },
-    { L"Sheeva", 0xb178a, 0xb1808 },
-    { L"Liu Kang", 0xb180a, 0xb188a },
-    { L"Female Ninja", 0xbb554, 0xbb5d4 },
-    { L"Male Ninja", 0xbb5d6, 0xbb654 },
+    { L"Sub-Zero",      0xb1286, 0xb1306, indexUMK3ArcadeSprites_ShangTsung, 0x10 },
+    { L"Sindel",        0xb1308, 0xb1384, indexUMK3ArcadeSprites_ShangTsung, 0x11 },
+    { L"Robots",        0xb1386, 0xb1406, indexUMK3ArcadeSprites_ShangTsung, 0x12 },
+    { L"Stryker",       0xb1408, 0xb1488, indexUMK3ArcadeSprites_ShangTsung, 0x13 },
+    { L"Kung Lao",      0xb148a, 0xb1504, indexUMK3ArcadeSprites_ShangTsung, 0x14 },
+    { L"Kano",          0xb1506, 0xb1586, indexUMK3ArcadeSprites_ShangTsung, 0x15 },
+    { L"Jax",           0xb1588, 0xb1608, indexUMK3ArcadeSprites_ShangTsung, 0x16 },
+    { L"Nightwolf",     0xb160a, 0xb1686, indexUMK3ArcadeSprites_ShangTsung, 0x17 },
+    { L"Sonya",         0xb1688, 0xb1706, indexUMK3ArcadeSprites_ShangTsung, 0x18 },
+    { L"Kabal",         0xb1708, 0xb1788, indexUMK3ArcadeSprites_ShangTsung, 0x19 },
+    { L"Sheeva",        0xb178a, 0xb1808, indexUMK3ArcadeSprites_ShangTsung, 0x1a },
+    { L"Liu Kang",      0xb180a, 0xb188a, indexUMK3ArcadeSprites_ShangTsung, 0x1b },
+    { L"Female Ninja",  0xbb554, 0xbb5d4, indexUMK3ArcadeSprites_ShangTsung, 0x1c },
+    { L"Male Ninja",    0xbb5d6, 0xbb654, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
 };
 
 const sGame_PaletteDataset UMK3_A_LiuKang_Extras[] =
 {
-    { L"Gibs", 0xba35a, 0xba3da, indexUMK3ArcadeSprites_LiuKang, 0x01 },
-    { L"Babality", 0xb7be4, 0xb7c24 },
-    { L"Animality", 0xb8dee, 0xb8dfe },
-    { L"Arcade Cabinet", 0xbab70, 0xbabee },
+    { L"Gibs",              0xba35a, 0xba3da, indexUMK3ArcadeSprites_LiuKang, 0x01 },
+    { L"Babality",          0xb7be4, 0xb7c24, indexUMK3ArcadeSprites_LiuKang, 0x02 },
+    { L"Animality",         0xb8dee, 0xb8dfe, indexUMK3ArcadeSprites_LiuKang, 0x03 },
+    { L"Arcade Cabinet",    0xbab70, 0xbabee },
 };
 
 const sGame_PaletteDataset UMK3_A_Smoke_Extras[] =
 {
-    { L"Gibs", 0x42884, 0x42902, indexUMK3ArcadeSprites_Sektor, 0x01 },
-    { L"Babality", 0xb7df2, 0xb7e32 },
-    { L"Animality", 0xb8e24, 0xb8e34 },
+    { L"Gibs",      0x42884, 0x42902, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Babality",  0xb7df2, 0xb7e32, indexUMK3ArcadeSprites_Sektor, 0x02 },
+    { L"Animality", 0xb8e24, 0xb8e34, indexUMK3ArcadeSprites_Smoke, 0x03 },
 };
 
 const sGame_PaletteDataset UMK3_A_HumanSmoke_Extras[] =
 {
-    { L"Gibs", 0x42476, 0x424f6, indexUMK3ArcadeSprites_Reptile, 0x01 },
-    { L"Babality", 0x5844a, 0x5848a },
+    { L"Gibs",      0x42476, 0x424f6, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x5844a, 0x5848a, indexUMK3ArcadeSprites_Reptile, 0x02 },
 };
 
 const sGame_PaletteDataset UMK3_A_ClassicSubZero_Extras[] =
 {
-    { L"Gibs", 0x42782, 0x42802, indexUMK3ArcadeSprites_Reptile, 0x01 },
-    { L"Babality", 0x584ce, 0x5850e },
+    { L"Gibs",      0x42782, 0x42802, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x584ce, 0x5850e, indexUMK3ArcadeSprites_Reptile, 0x02 },
 };
 
 const sGame_PaletteDataset UMK3_A_Ermac_Extras[] =
 {
-    { L"Gibs", 0xba768, 0xba7e8, indexUMK3ArcadeSprites_Reptile, 0x01 },
-    { L"Babality", 0xb7e34, 0xb7e74 },
+    { L"Gibs",      0xba768, 0xba7e8, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0xb7e34, 0xb7e74, indexUMK3ArcadeSprites_Reptile, 0x02 },
 };
 
 const sGame_PaletteDataset UMK3_A_Mileena_Extras[] =
 {
-    { L"Gibs", 0x4267e, 0x426fe, indexUMK3ArcadeSprites_Kitana, 0x01 },
-    { L"Babality", 0x58594, 0x585d4 },
-    { L"Animality", 0xbb48e, 0xbb4ae },
-    { L"Animality Extra", 0xbb4b0, 0xbb4d0 },
+    { L"Gibs",              0x4267e, 0x426fe, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Babality",          0x58594, 0x585d4, indexUMK3ArcadeSprites_Kitana, 0x02 },
+    { L"Animality",         0xbb48e, 0xbb4ae, indexUMK3ArcadeSprites_Mileena, 0x03 },
+    { L"Animality Extra",   0xbb4b0, 0xbb4d0, indexUMK3ArcadeSprites_Mileena, 0x04 },
 };
 
 const sGame_PaletteDataset UMK3_A_Portraits_Normal[] =
@@ -579,8 +579,8 @@ const sGame_PaletteDataset UMK3_A_Backgrounds_Messages[] =
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_FrozenPalettes[] =
 {
-    { L"Ninja (Male)",  0x61042, 0x610c2, indexUMK3ArcadeSprites_Bonus, 0x06 },
-    { L"Ninja (Female)", 0x610c4, 0x61144, indexUMK3ArcadeSprites_Bonus, 0x05 },
+    { L"Male Ninja",    0x61042, 0x610c2, indexUMK3ArcadeSprites_Bonus, 0x06 },
+    { L"Female Ninja",  0x610c4, 0x61144, indexUMK3ArcadeSprites_Bonus, 0x05 },
     { L"Liu Kang",      0x61146, 0x611c6, indexUMK3ArcadeSprites_LiuKang },
     { L"Shang Tsung",   0x611c8, 0x61248, indexUMK3ArcadeSprites_ShangTsung },
     { L"Sheeva",        0x6124a, 0x612ca, indexUMK3ArcadeSprites_Sheeva },
@@ -590,7 +590,7 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_FrozenPalettes[] =
     { L"Sindel",        0x61452, 0x614d2, indexUMK3ArcadeSprites_Sindel },
     { L"Stryker",       0x614d4, 0x61554, indexUMK3ArcadeSprites_Stryker },
     { L"Jax",           0x61556, 0x615d6, indexUMK3ArcadeSprites_Jax },
-    { L"Ninja (Robot)", 0x615d8, 0x61658, indexUMK3ArcadeSprites_Bonus, 0x07 },
+    { L"Robots",        0x615d8, 0x61658, indexUMK3ArcadeSprites_Bonus, 0x07 },
     { L"Sub-Zero",      0x6165a, 0x616da, indexUMK3ArcadeSprites_SubZero },
     { L"Kano",          0x616dc, 0x6175c, indexUMK3ArcadeSprites_Kano },
     { L"Kung Lao",      0x6175e, 0x617de, indexUMK3ArcadeSprites_KungLao },
@@ -610,8 +610,8 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_TitleScreen[] =
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_SoulScream[] =
 {
-    { L"Ninja (Male)",              0x4517e, 0x451fe, indexUMK3ArcadeSprites_Bonus, 0x06 },
-    { L"Ninja (Female)",            0x45200, 0x45280, indexUMK3ArcadeSprites_Bonus, 0x05 },
+    { L"Male Ninja",                0x4517e, 0x451fe, indexUMK3ArcadeSprites_Bonus, 0x06 },
+    { L"Female Ninja",              0x45200, 0x45280, indexUMK3ArcadeSprites_Bonus, 0x05 },
     { L"Kano",                      0x45282, 0x45302, indexUMK3ArcadeSprites_Kano, 0x00 },
     { L"Sonya",                     0x45304, 0x45384, indexUMK3ArcadeSprites_Sonya, 0x00 },
     { L"Jax",                       0x45386, 0x45406, indexUMK3ArcadeSprites_Jax, 0x00 },
@@ -660,28 +660,29 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_InGameEffects[] =
     { L"Explosion Gibs (Arms, Legs)",   0xbb250, 0xbb2d0 },
     { L"Explosion Gibs (Skull, Bones)", 0xbb2d2, 0xbb352 },
     { L"Explosion Gibs (Ribcages)",     0xbb354, 0xbb3d4 },
+    { L"Sindel Sheeva Bloody Skeleton", 0xb9b40, 0xb9bc0 },
 };
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_FatalScream[] =
 {
-    { L"Cyrax",         0x13bce, 0x13c0e },
-    { L"Smoke",         0x13c32, 0x13c72 },
-    { L"Kung Lao",      0xb9bc2, 0xb9c02 },
-    { L"Stryker",       0xb9c04, 0xb9c44 },
-    { L"Sindel P1",     0xb9c46, 0xb9c86 },
-    { L"Sindel P2",     0x13c96, 0x13cd6 },
-    { L"Sonya",         0xb9c88, 0xb9cc4 },
-    { L"Kano",          0xb9cc6, 0xb9d04 },
-    { L"Sheeva",        0xb9d06, 0xb9d44 },
-    { L"Jax",           0xb9d46, 0xb9d84 },
-    { L"Liu Kang",      0xb9da8, 0xb9de8 },
-    { L"Shang Tsung",   0xb9dea, 0xb9e2a },
-    { L"Kabal",         0xb9e2c, 0xb9e6c },
-    { L"Nightwolf",     0xb9e6e, 0xb9eae },
-    { L"Sub-Zero",      0xb9eb0, 0xb9ef0 },
-    { L"Sektor",        0xb9ef2, 0xb9f32 },
-    { L"Female Ninja",  0xb9f34, 0xb9f74 },
-    { L"Male Ninja",    0xb9f76, 0xb9fb6 },
+    { L"Cyrax",         0x13bce, 0x13c0e, indexUMK3ArcadeSprites_Bonus, 0x23 },
+    { L"Smoke",         0x13c32, 0x13c72, indexUMK3ArcadeSprites_Bonus, 0x23 },
+    { L"Kung Lao",      0xb9bc2, 0xb9c02, indexUMK3ArcadeSprites_Bonus, 0x28 },
+    { L"Stryker",       0xb9c04, 0xb9c44, indexUMK3ArcadeSprites_Bonus, 0x31 },
+    { L"Sindel P1",     0xb9c46, 0xb9c86, indexUMK3ArcadeSprites_Bonus, 0x2e },
+    { L"Sindel P2",     0x13c96, 0x13cd6, indexUMK3ArcadeSprites_Bonus, 0x2f },
+    { L"Sonya",         0xb9c88, 0xb9cc4, indexUMK3ArcadeSprites_Bonus, 0x30 },
+    { L"Kano",          0xb9cc6, 0xb9d04, indexUMK3ArcadeSprites_Bonus, 0x27 },
+    { L"Sheeva",        0xb9d06, 0xb9d44, indexUMK3ArcadeSprites_Bonus, 0x2d },
+    { L"Jax",           0xb9d46, 0xb9d84, indexUMK3ArcadeSprites_Bonus, 0x25 },
+    { L"Liu Kang",      0xb9da8, 0xb9de8, indexUMK3ArcadeSprites_Bonus, 0x29 },
+    { L"Shang Tsung",   0xb9dea, 0xb9e2a, indexUMK3ArcadeSprites_Bonus, 0x2c },
+    { L"Kabal",         0xb9e2c, 0xb9e6c, indexUMK3ArcadeSprites_Bonus, 0x26 },
+    { L"Nightwolf",     0xb9e6e, 0xb9eae, indexUMK3ArcadeSprites_Bonus, 0x2b },
+    { L"Sub-Zero",      0xb9eb0, 0xb9ef0, indexUMK3ArcadeSprites_Bonus, 0x32 },
+    { L"Sektor",        0xb9ef2, 0xb9f32, indexUMK3ArcadeSprites_Bonus, 0x23 },
+    { L"Female Ninja",  0xb9f34, 0xb9f74, indexUMK3ArcadeSprites_Bonus, 0x24 },
+    { L"Male Ninja",    0xb9f76, 0xb9fb6, indexUMK3ArcadeSprites_Bonus, 0x2a },
 };
 
 const sGame_PaletteDataset UMK3_A_BONUS_PALETTES_HIDDENGAME[] =

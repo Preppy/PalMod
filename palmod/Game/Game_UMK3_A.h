@@ -2,7 +2,7 @@
 #include "GameClassByDir.h"
 #include "UMK3_A_DEF.h"
 
-constexpr auto UMK3_A_KNOWN_PALETTE_COUNT = 296;
+constexpr auto UMK3_A_KNOWN_PALETTE_COUNT = 297;
 constexpr auto UMK3_A_LOWEST_LOCATION = 0x13bce;
 
 class CGame_UMK3_A : public CGameClassByDir
