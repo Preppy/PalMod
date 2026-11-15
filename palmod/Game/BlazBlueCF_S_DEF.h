@@ -152,30 +152,6 @@ const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListGeneric =
     { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
 };
 
-const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListLitchi =
-{
-    { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
-    { L"Extra 1", 0x420, INVALID_UNIT_VALUE_16, 0x01 },
-    { L"Extra 2", 0x840, INVALID_UNIT_VALUE_16, 0x01 },
-    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x01 },
-    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
-    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
-    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE_16, 0x06 },
-    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
-};
-
-const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListNu13 =
-{
-    { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
-    { L"Extra 1", 0x420, indexBBCFSprites_Nu13, 0x01 },
-    { L"Extra 2: 236236D Super", 0x840, indexBBCFSprites_Nu13, 0x01 },
-    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x03 },
-    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
-    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
-    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE_16, 0x06 },
-    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
-};
-
 const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListArakune =
 {
     { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
@@ -188,6 +164,210 @@ const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListArakune =
     { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
 };
 
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListBangShishigami =
+{
+    { L"Main", 0x0, indexBBCFSprites_BangShishigami, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_BangShishigami, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_BangShishigami, 0x02 },
+    { L"Extra 3: Litch Faye Ling", 0xc60, indexBBCFSprites_LitchiFayeLing, 0x00 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_BangShishigami, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_BangShishigami, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_BangShishigami, 0x06 },
+    { L"Extra 7", 0x1ce0, indexBBCFSprites_BangShishigami, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListEs =
+{
+    { L"Main", 0x0, indexBBCFSprites_Es, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Es, 0x01 },
+    { L"Extra 2: Nu-13", 0x840, indexBBCFSprites_Nu13, 0x00 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Es, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Es, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_Es, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_Es, 0x06 },
+    { L"Extra 7", 0x1ce0, indexBBCFSprites_Es, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListHakumen =
+{
+    { L"Main", 0x0, indexBBCFSprites_Hakumen, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Hakumen, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_Hakumen, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Hakumen, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Hakumen, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_PlatinumtheTrinity, 0x03 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_Hakumen, 0x06 },
+    { L"Extra 7: Rachel Alucard", 0x1ce0, indexBBCFSprites_RachelAlucard, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListHazama =
+{
+    { L"Main", 0x0, indexBBCFSprites_Hazama, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Hazama, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_Hazama, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Hazama, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Hazama, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_Hazama, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_Hazama, 0x06 },
+    { L"Extra 7: Noel Vermillion", 0x1ce0, indexBBCFSprites_NoelVermillion, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListIzayoi =
+{
+    { L"Main", 0x0, indexBBCFSprites_Izayoi, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Izayoi, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_Izayoi, 0x02 },
+    { L"Extra 3: Tsubaki Yayoi", 0xc60, indexBBCFSprites_TsubakiYayoi, 0x00 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Izayoi, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_Izayoi, 0x04 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_Izayoi, 0x06 },
+    { L"Extra 7: Jin Kisaragi", 0x1ce0, indexBBCFSprites_JinKisaragi, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListJinKisaragi =
+{
+    { L"Main", 0x0, indexBBCFSprites_JinKisaragi, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_JinKisaragi, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_JinKisaragi, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_JinKisaragi, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_JinKisaragi, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_JinKisaragi, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_PlatinumtheTrinity, 0x03 },
+    { L"Extra 7", 0x1ce0, indexBBCFSprites_JinKisaragi, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListJubei =
+{
+    { L"Main", 0x0, INVALID_UNIT_VALUE_16, 0x00 },
+    { L"Extra 1", 0x420, INVALID_UNIT_VALUE_16, 0x01 },
+    { L"Extra 2", 0x840, INVALID_UNIT_VALUE_16, 0x02 },
+    { L"Extra 3", 0xc60, INVALID_UNIT_VALUE_16, 0x02 },
+    { L"Extra 4", 0x1080, INVALID_UNIT_VALUE_16, 0x04 },
+    { L"Extra 5", 0x14a0, INVALID_UNIT_VALUE_16, 0x05 },
+    { L"Extra 6", 0x18c0, INVALID_UNIT_VALUE_16, 0x06 },
+    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListLambda11 =
+{
+    { L"Main", 0x0, indexBBCFSprites_Nu13, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Nu13, 0x01 },
+    { L"Extra 2: 236236D Super", 0x840, indexBBCFSprites_Nu13, 0x01 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Nu13, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Nu13, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_Nu13, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_Nu13, 0x06 },
+    { L"Extra 7", 0x1ce0, INVALID_UNIT_VALUE_16, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListMu12 =
+{
+    { L"Main", 0x0, indexBBCFSprites_Mu12, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Mu12, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_Mu12, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Mu12, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Mu12, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_Mu12, 0x05 },
+    { L"Extra 6: Noel Vermillion", 0x18c0, indexBBCFSprites_NoelVermillion, 0x00 },
+    { L"Extra 7: Rachel Alucard", 0x1ce0, indexBBCFSprites_RachelAlucard, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListNu13 =
+{
+    { L"Main", 0x0, indexBBCFSprites_Nu13, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Nu13, 0x01 },
+    { L"Extra 2: 236236D Super", 0x840, indexBBCFSprites_Nu13, 0x01 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Nu13, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Nu13, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_Nu13, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_Nu13, 0x06 },
+    { L"Extra 7: Relius Clover", 0x1ce0, indexBBCFSprites_ReliusClover, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListPlatinumTheTrinity =
+{
+    { L"Main", 0x0, indexBBCFSprites_PlatinumtheTrinity, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_PlatinumtheTrinity, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_PlatinumtheTrinity, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_PlatinumtheTrinity, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_PlatinumtheTrinity, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_PlatinumtheTrinity, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_PlatinumtheTrinity, 0x06 },
+    { L"Extra 7: Bang Shishimai", 0x1ce0, indexBBCFSprites_BangShishigami, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListRagnaTheBloodedge =
+{
+    { L"Main", 0x0, indexBBCFSprites_RagnaTheBloodedge, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_RagnaTheBloodedge, 0x01 },
+    { L"Extra 2: Nu-13", 0x840, indexBBCFSprites_Nu13, 0x00 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_RagnaTheBloodedge, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_RagnaTheBloodedge, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_RagnaTheBloodedge, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_RagnaTheBloodedge, 0x06 },
+    { L"Extra 7", 0x1ce0, indexBBCFSprites_RagnaTheBloodedge, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListSusanoo =
+{
+    { L"Main", 0x0, indexBBCFSprites_Susanoo, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Susanoo, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_Susanoo, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Susanoo, 0x03 },
+    { L"Extra 4: Hakumen", 0x1080, indexBBCFSprites_Hakumen, 0x00 },
+    { L"Extra 5: Yuuki Terumi", 0x14a0, indexBBCFSprites_YuukiTerumi, 0x00 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_Susanoo, 0x06 },
+    { L"Extra 7", 0x1ce0, indexBBCFSprites_Susanoo, 0x07 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListTaokaka =
+{
+    { L"Main", 0x0, indexBBCFSprites_Taokaka, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_Taokaka, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_Taokaka, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_Taokaka, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_Taokaka, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_Taokaka, 0x05 },
+    { L"Extra 6: Arakune", 0x18c0, indexBBCFSprites_Arakune, 0x00 },
+    { L"Extra 7: Bang Shishigami", 0x1ce0, indexBBCFSprites_BangShishigami, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListTsubakiYayoi =
+{
+    { L"Main", 0x0, indexBBCFSprites_TsubakiYayoi, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_TsubakiYayoi, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_TsubakiYayoi, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_TsubakiYayoi, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_TsubakiYayoi, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_TsubakiYayoi, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_TsubakiYayoi, 0x06 },
+    { L"Extra 7: Hazama", 0x1ce0, indexBBCFSprites_Hazama, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListValkenhaynRHellsing =
+{
+    { L"Main", 0x0, indexBBCFSprites_ValkenhaynRHellsing, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_ValkenhaynRHellsing, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_ValkenhaynRHellsing, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_ValkenhaynRHellsing, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_ValkenhaynRHellsing, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_ValkenhaynRHellsing, 0x05 },
+    { L"Extra 6", 0x18c0, indexBBCFSprites_ValkenhaynRHellsing, 0x06 },
+    { L"Extra 7: Rachel Alucard", 0x1ce0, indexBBCFSprites_RachelAlucard, 0x00 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListYuukiTerumi =
+{
+    { L"Main", 0x0, indexBBCFSprites_YuukiTerumi, 0x00 },
+    { L"Extra 1", 0x420, indexBBCFSprites_YuukiTerumi, 0x01 },
+    { L"Extra 2", 0x840, indexBBCFSprites_YuukiTerumi, 0x02 },
+    { L"Extra 3", 0xc60, indexBBCFSprites_YuukiTerumi, 0x03 },
+    { L"Extra 4", 0x1080, indexBBCFSprites_YuukiTerumi, 0x04 },
+    { L"Extra 5", 0x14a0, indexBBCFSprites_YuukiTerumi, 0x05 },
+    { L"Extra 6: Hazama", 0x18c0, indexBBCFSprites_Hazama, 0x00 },
+    { L"Extra 7", 0x1ce0, indexBBCFSprites_YuukiTerumi, 0x07 },
+};
+
 uint8_t TranslatePalModSpriteIdToBBCFGameId(uint32_t nSpriteId);
 uint32_t TranslateBBCFGameIdToPalModSpriteId(uint8_t nGameId);
 
@@ -197,39 +377,39 @@ const std::vector<sGCBUPF_BasicFileData> BlazBlueCF_S_CharacterData =
     { L"data\\char\\char_am_pal.pac", L"Amane Nishiki",           226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_AmaneNishiki },
     { L"data\\char\\char_ar_pal.pac", L"Arakune",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListArakune,  0x1A40, indexBBCFSprites_Arakune },
     { L"data\\char\\char_az_pal.pac", L"Azrael",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Azrael },
-    { L"data\\char\\char_bn_pal.pac", L"Bang Shishigami",         226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_BangShishigami },
+    { L"data\\char\\char_bn_pal.pac", L"Bang Shishigami",         226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListBangShishigami,  0x1A40, indexBBCFSprites_BangShishigami },
     { L"data\\char\\char_bl_pal.pac", L"Bullet",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Bullet },
     { L"data\\char\\char_ca_pal.pac", L"Carl Clover",             226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_CarlClover },
     { L"data\\char\\char_ce_pal.pac", L"Celica A. Mercury",       226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_CelicaAMercury },
-    { L"data\\char\\char_es_pal.pac", L"Es",                      226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Es },
-    { L"data\\char\\char_ha_pal.pac", L"Hakumen",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Hakumen },
-    { L"data\\char\\char_hz_pal.pac", L"Hazama",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Hazama },
+    { L"data\\char\\char_es_pal.pac", L"Es",                      226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListEs,  0x1A40, indexBBCFSprites_Es },
+    { L"data\\char\\char_ha_pal.pac", L"Hakumen",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListHakumen,  0x1A40, indexBBCFSprites_Hakumen },
+    { L"data\\char\\char_hz_pal.pac", L"Hazama",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListHazama,  0x1A40, indexBBCFSprites_Hazama },
     { L"data\\char\\char_hb_pal.pac", L"Hibiki Kohaku",           208928, BlazBlueCFCollection24,   BlazBlueCFPaletteListGeneric,  0x1840, indexBBCFSprites_HibikiKohaku },   //-2 Colors
     { L"data\\char\\char_tg_pal.pac", L"Iron Tager",              226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_IronTager },
     { L"data\\char\\char_mi_pal.pac", L"Izanami",                 217632, BlazBlueCFCollection25,   BlazBlueCFPaletteListGeneric,  0x1940, indexBBCFSprites_Izanami },   //-1 Colors
-    { L"data\\char\\char_iz_pal.pac", L"Izayoi",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Izayoi },
-    { L"data\\char\\char_jn_pal.pac", L"Jin Kisaragi",            226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_JinKisaragi },
-    { L"data\\char\\char_jb_pal.pac", L"Jubei",                   226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Jubei },
+    { L"data\\char\\char_iz_pal.pac", L"Izayoi",                  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListIzayoi,  0x1A40, indexBBCFSprites_Izayoi },
+    { L"data\\char\\char_jn_pal.pac", L"Jin Kisaragi",            226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListJinKisaragi,  0x1A40, indexBBCFSprites_JinKisaragi },
+    { L"data\\char\\char_jb_pal.pac", L"Jubei",                   226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListJubei,  0x1A40, indexBBCFSprites_Jubei },
     { L"data\\char\\char_kg_pal.pac", L"Kagura Mutsuki",          226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_KaguraMutsuki },
     { L"data\\char\\char_kk_pal.pac", L"Kokonoe",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Kokonoe },
-    { L"data\\char\\char_rm_pal.pac", L"Lambda-11 (Λ-No.11-)",    226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListNu13,  0x1A40, indexBBCFSprites_Lambda11 },
-    { L"data\\char\\char_lc_pal.pac", L"Litchi Faye Ling",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListLitchi,  0x1A40, indexBBCFSprites_LitchiFayeLing },
+    { L"data\\char\\char_rm_pal.pac", L"Lambda-11 (Λ-No.11-)",    226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListLambda11,  0x1A40, indexBBCFSprites_Lambda11 },
+    { L"data\\char\\char_lc_pal.pac", L"Litchi Faye Ling",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_LitchiFayeLing },
     { L"data\\char\\char_ma_pal.pac", L"Mai Natsume",             217632, BlazBlueCFCollection25,   BlazBlueCFPaletteListGeneric,  0x1940, indexBBCFSprites_MaiNatsume },   //-1 Colors
     { L"data\\char\\char_mk_pal.pac", L"Makoto Nanaya",           226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_MakotoNanaya },
-    { L"data\\char\\char_mu_pal.pac", L"Mu-12 (μ-No.12-)",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Mu12 },
+    { L"data\\char\\char_mu_pal.pac", L"Mu-12 (μ-No.12-)",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListMu12,  0x1A40, indexBBCFSprites_Mu12 },
     { L"data\\char\\char_nt_pal.pac", L"Naoto Kurogane",          217632, BlazBlueCFCollection25,   BlazBlueCFPaletteListGeneric,  0x1940, indexBBCFSprites_NaotoKurogane },   //-1 Colors
     { L"data\\char\\char_ph_pal.pac", L"Nine The Phantom",        208928, BlazBlueCFCollection24,   BlazBlueCFPaletteListGeneric,  0x1840, indexBBCFSprites_NineThePhantom },   //-2 Colors
     { L"data\\char\\char_no_pal.pac", L"Noel Vermillion",         226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_NoelVermillion },
     { L"data\\char\\char_ny_pal.pac", L"Nu-13 (ν-No.13-)",        226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListNu13,  0x1A40, indexBBCFSprites_Nu13 },
-    { L"data\\char\\char_pt_pal.pac", L"Platinum the Trinity",    226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_PlatinumtheTrinity },
+    { L"data\\char\\char_pt_pal.pac", L"Platinum the Trinity",    226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListPlatinumTheTrinity,  0x1A40, indexBBCFSprites_PlatinumtheTrinity },
     { L"data\\char\\char_rc_pal.pac", L"Rachel Alucard",          226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_RachelAlucard },
-    { L"data\\char\\char_rg_pal.pac", L"Ragna The Bloodedge",     226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_RagnaTheBloodedge },
+    { L"data\\char\\char_rg_pal.pac", L"Ragna The Bloodedge",     226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListRagnaTheBloodedge,  0x1A40, indexBBCFSprites_RagnaTheBloodedge },
     { L"data\\char\\char_rl_pal.pac", L"Relius Clover",           226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_ReliusClover },
-    { L"data\\char\\char_su_pal.pac", L"Susano'o",                226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Susanoo },
-    { L"data\\char\\char_tk_pal.pac", L"Taokaka",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_Taokaka },
-    { L"data\\char\\char_tb_pal.pac", L"Tsubaki Yayoi",           226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_TsubakiYayoi },
-    { L"data\\char\\char_vh_pal.pac", L"Valkenhayn R. Hellsing",  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_ValkenhaynRHellsing },
-    { L"data\\char\\char_tm_pal.pac", L"Yuuki Terumi",            226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_YuukiTerumi },
+    { L"data\\char\\char_su_pal.pac", L"Susano'o",                226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListSusanoo,  0x1A40, indexBBCFSprites_Susanoo },
+    { L"data\\char\\char_tk_pal.pac", L"Taokaka",                 226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListTaokaka,  0x1A40, indexBBCFSprites_Taokaka },
+    { L"data\\char\\char_tb_pal.pac", L"Tsubaki Yayoi",           226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListTsubakiYayoi,  0x1A40, indexBBCFSprites_TsubakiYayoi },
+    { L"data\\char\\char_vh_pal.pac", L"Valkenhayn R. Hellsing",  226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListValkenhaynRHellsing,  0x1A40, indexBBCFSprites_ValkenhaynRHellsing },
+    { L"data\\char\\char_tm_pal.pac", L"Yuuki Terumi",            226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListYuukiTerumi,  0x1A40, indexBBCFSprites_YuukiTerumi },
     //Unknown/Unused, figure out later
     //{ L"data\\char\\char_old_ny_pal.pac",   L"Old NY",      104480, 
     //{ L"data\\char\\char_E0_pal.pac",         L"Unknown E0",  4384, 

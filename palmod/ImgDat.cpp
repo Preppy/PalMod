@@ -342,9 +342,9 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
         // not super critical for daily updates, but still useful
         const uint16_t nExpectedYear = 2026;
         const uint8_t nExpectedMonth = 11;
-        const uint8_t nExpectedDay = 11;
+        const uint8_t nExpectedDay = 14;
         //const uint8_t nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 189635391;
+        const ULONGLONG nExpectedFileSize = 204378224;
 
         const uint32_t nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -369,7 +369,11 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp,
                 OutputDebugString(strMsg);
             }
         }
+#ifdef DEBUG
+        else if (nFileSize != nExpectedFileSize) // always pop warning for development usage
+#else
         else if (nFileSize < nExpectedFileSize) // it's only a significant problem if the file is smaller, which should happen very rarely as a result of partial downloads
+#endif
         {
             strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", static_cast<uint32_t>(nExpectedFileSize), static_cast<uint32_t>(nFileSize));
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
