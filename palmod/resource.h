@@ -192,11 +192,6 @@
 #define IDS_PNG_REVERSEDLOAD            2009
 #define IDS_LOADING_DUPECHECK           2010
 #define IDS_RAW_EXTRADATA               2011
-#define IDS_PASTE_FROMBUTTON            2012
-#define IDS_PASTE_CROSSGAME             2013
-#define IDS_PASTED_COLOR                2014
-#define IDS_PASTE_RGB                   2015
-#define IDS_PASTE_UNSUPPORTED           2016
 #define IDS_LOADSAVE_SUCCESS            2017
 #define IDS_LOADSAVE_FAILURE            2018
 #define IDS_LOADERROR_SINGLE            2019
@@ -279,6 +274,15 @@
 #define IDS_PRPL_LOADFAILURE            2099
 #define IDS_PRPLSAVE_SUCCESS            2100
 #define IDS_PRPLSAVE_FAILURE            2101
+#define IDS_PASTE_FROMBUTTON_FORMAT     2102
+#define IDS_PASTE_FROMBUTTON_ROUNDED_FORMAT 2103
+#define IDS_PASTE_PALMOD_1_FORMAT       2104
+#define IDS_PASTE_PALMOD_1_ROUNDED_FORMAT 2105
+#define IDS_PASTE_PALMOD_N              2106
+#define IDS_PASTE_PALMOD_N_ROUNDED      2107
+#define IDS_PASTE_RGB_FORMAT            2108
+#define IDS_PASTE_RGB_ROUNDED_FORMAT    2109
+#define IDS_PASTE_UNSUPPORTED           2110
 #define ID_INDICATOR_MAIN               32760
 #define ID_INDICATOR_EXTRA              32761
 #define ID_INDICATOR_ALT                32762
@@ -515,9 +519,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        211
+#define _APS_NEXT_RESOURCE_VALUE        210
 #define _APS_NEXT_COMMAND_VALUE         33008
 #define _APS_NEXT_CONTROL_VALUE         1156
-#define _APS_NEXT_SYMED_VALUE           104
+#define _APS_NEXT_SYMED_VALUE           116
 #endif
 #endif

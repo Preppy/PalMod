@@ -2614,6 +2614,15 @@ namespace ColorSystem
         OutputDebugString(L"\r\n");
     }
 
+    uint32_t GetRGBValueFromCOLORREF(COLORREF clr)
+    {
+        const uint32_t nRGB = (GetRValue(clr) << 16) |
+                              (GetGValue(clr) << 8) |
+                               GetBValue(clr);
+
+        return nRGB;
+    }
+
     void TestColorConversions()
     {
         static_assert(static_cast<ColMode>(36) == ColMode::COLMODE_LAST, "Please add the new color format to this table and run this check once to double-check your math.");

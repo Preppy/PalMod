@@ -224,7 +224,7 @@ private:
     void ClearGameVar();
     void StopBlink();
 
-    void CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode TargetMode, COLORREF *pPastedColors, uint16_t nPasteAmount);
+    void CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode TargetMode, std::vector<COLORREF>& rgPastedColors);
     void HandlePasteFromPalMod();
     void HandlePasteFromRGB(bool fAdvanceNext = false, bool fRefreshUI = true);
     void PasteToPaletteFromRGB(COLORREF clrIn, bool fAdvanceNext = false, bool fRefreshUI = true);

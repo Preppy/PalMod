@@ -251,5 +251,7 @@ namespace ColorSystem
     COLORREF GetGradient_LAB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
     COLORREF GetGradient_XYZ(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
 
+    uint32_t GetRGBValueFromCOLORREF(COLORREF clr);
+
     void TestColorConversions();
 };

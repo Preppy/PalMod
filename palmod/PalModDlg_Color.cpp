@@ -1013,7 +1013,17 @@ void CPalModDlg::OnBnNewCol()
             ResetSlider(TRUE);
         }
 
-        SetStatusText(IDS_PASTE_FROMBUTTON);
+        CString strInfo;
+        if (crRawColor != crNewCol)
+        {
+            strInfo.FormatMessage(IDS_PASTE_FROMBUTTON_ROUNDED_FORMAT, crRawColor, crNewCol);
+        }
+        else
+        {
+            strInfo.FormatMessage(IDS_PASTE_FROMBUTTON_FORMAT, crRawColor);
+        }
+
+        SetStatusText(strInfo);
     }
 
     safe_delete(ColorDlg);

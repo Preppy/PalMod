@@ -1124,7 +1124,7 @@ BOOL CPalModDlg::IsPasteSupported()
     return IsPasteFromPalMod() || IsPasteRGB();
 }
 
-void CPalModDlg::CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode TargetMode, COLORREF* pPastedColors, uint16_t nPasteAmount)
+void CPalModDlg::CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode TargetMode, std::vector<COLORREF>& rgPastedColors)
 {
     //Set the color mode back
     //Round the values with the switched game flag
@@ -1135,32 +1135,32 @@ void CPalModDlg::CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode Tar
     switch (cbColSize)
     {
         case 1:
-            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            for (uint16_t iPasteIndex = 0; iPasteIndex < rgPastedColors.size(); iPasteIndex++)
             {
                 // We don't actually have alpha to work with from a paste, so just max
-                pPastedColors[iPasteIndex] = CurrGame->ConvPal8(CurrGame->ConvCol8(pPastedColors[iPasteIndex], 0xFF));
+                rgPastedColors[iPasteIndex] = CurrGame->ConvPal8(CurrGame->ConvCol8(rgPastedColors[iPasteIndex], 0xFF));
             }
             break;
         case 2:
         default:
-            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            for (uint16_t iPasteIndex = 0; iPasteIndex < rgPastedColors.size(); iPasteIndex++)
             {
                 // We don't actually have alpha to work with from a paste, so just max
-                pPastedColors[iPasteIndex] = CurrGame->ConvPal16(CurrGame->ConvCol16(pPastedColors[iPasteIndex], 0xFFFF));
+                rgPastedColors[iPasteIndex] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPastedColors[iPasteIndex], 0xFFFF));
             }
             break;
         case 3:
-            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            for (uint16_t iPasteIndex = 0; iPasteIndex < rgPastedColors.size(); iPasteIndex++)
             {
                 // We don't actually have alpha to work with from a paste, so just max
-                pPastedColors[iPasteIndex] = CurrGame->ConvPal24(CurrGame->ConvCol24(pPastedColors[iPasteIndex]));
+                rgPastedColors[iPasteIndex] = CurrGame->ConvPal24(CurrGame->ConvCol24(rgPastedColors[iPasteIndex]));
             }
             break;
         case 4:
-            for (uint16_t iPasteIndex = 0; iPasteIndex < nPasteAmount; iPasteIndex++)
+            for (uint16_t iPasteIndex = 0; iPasteIndex < rgPastedColors.size(); iPasteIndex++)
             {
                 // We don't actually have alpha to work with from a paste, so just max
-                pPastedColors[iPasteIndex] = CurrGame->ConvPal32(CurrGame->ConvCol32(pPastedColors[iPasteIndex], pPastedColors[iPasteIndex]));
+                rgPastedColors[iPasteIndex] = CurrGame->ConvPal32(CurrGame->ConvCol32(rgPastedColors[iPasteIndex], rgPastedColors[iPasteIndex]));
             }
         break;
     }
@@ -1184,8 +1184,9 @@ void CPalModDlg::HandlePasteFromPalMod()
         const uint16_t uCurrGFlag = static_cast<uint16_t>(CurrGame->GetGameFlag());
         const ColMode eCurrColMode = CurrGame->GetColorMode();
         ColMode eColModeForPastedColor = eCurrColMode;
+        COLORREF clrOriginalFirstColor = 0;
 
-        COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
+        std::vector<COLORREF> rgPasteCol(uPasteAmt);
 
         int nIndexCtr = 0, nWorkingAmt = m_CurrPalCtrl->GetWorkingAmt();
         bool fWasColorImportedFromDifferentGame = false;
@@ -1394,10 +1395,12 @@ void CPalModDlg::HandlePasteFromPalMod()
                     rgPasteCol[iPasteIndex] = colorAs32Bit;
                 }
 
+                clrOriginalFirstColor = rgPasteCol[0];
+
                 if (eCurrColMode != eColModeForPastedColor)
                 {
                     // Restore old color mode and force color alignment to this color format
-                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol);
                 }
                 break;
             }
@@ -1415,7 +1418,7 @@ void CPalModDlg::HandlePasteFromPalMod()
 
                     rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(static_cast<uint16_t>(strtoul(szFormatStr16, nullptr, 16)));
 
-                    if (reinterpret_cast<uint8_t*>(rgPasteCol)[(iPasteIndex * 4) + 3] != 0)
+                    if (rgPasteCol[iPasteIndex] & 0xFF000000)
                     {
                         fAnyValueHasAlpha = true;
                         break;
@@ -1436,14 +1439,16 @@ void CPalModDlg::HandlePasteFromPalMod()
                         (CurrGame->GetAlphaMode() != AlphaMode::GameUsesSTPNotAlpha))
                     {
                         // this game doesn't use/want alpha, but we need alpha to display properly
-                        reinterpret_cast<uint8_t*>(rgPasteCol)[(iPasteIndex * 4) + 3] |= 0xFF;
+                        rgPasteCol[iPasteIndex] |= 0xFF000000;
                     }
                 }
+
+                clrOriginalFirstColor = rgPasteCol[0];
 
                 if (eCurrColMode != eColModeForPastedColor)
                 {
                     // Restore old color mode and force color alignment to this color format
-                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol);
                 }
                 break;
             }
@@ -1458,10 +1463,12 @@ void CPalModDlg::HandlePasteFromPalMod()
                     rgPasteCol[iPasteIndex] = CurrGame->ConvPal24(static_cast<uint32_t>(strtoul(szFormatStr24, nullptr, 16)));
                 }
 
+                clrOriginalFirstColor = rgPasteCol[0];
+
                 if (eCurrColMode != eColModeForPastedColor)
                 {
                     // Restore old color mode and force color alignment to this color format
-                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol);
                 }
                 break;
             }
@@ -1476,21 +1483,25 @@ void CPalModDlg::HandlePasteFromPalMod()
                     rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(static_cast<uint32_t>(strtoul(szFormatStr32, nullptr, 16)));
                 }
 
+                clrOriginalFirstColor = rgPasteCol[0];
+
                 if (eCurrColMode != eColModeForPastedColor)
                 {
                     // Restore old color mode and force color alignment to this color format
-                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol, uPasteAmt);
+                    CleanColorsForCrossColorPaste(CurrGame, eCurrColMode, rgPasteCol);
                 }
                 break;
             }
         }
 
+        uint32_t nColorsWritten = 0;
+
         if (!m_CurrPalCtrl->GetSelAmt())
         {
-            const int nCopyAmt = (nWorkingAmt < uPasteAmt) ? nWorkingAmt : uPasteAmt;
+            nColorsWritten = (nWorkingAmt < uPasteAmt) ? nWorkingAmt : uPasteAmt;
 
             // Don't skip the first color: it is used in some cases
-            memcpy(m_CurrPalCtrl->GetBasePal(), rgPasteCol, (sizeof(COLORREF) * nCopyAmt));
+            memcpy(m_CurrPalCtrl->GetBasePal(), rgPasteCol.data(), (sizeof(COLORREF) * nColorsWritten));
         }
         else
         {
@@ -1507,9 +1518,11 @@ void CPalModDlg::HandlePasteFromPalMod()
                     m_CurrPalDef->pBasePal[iPalIndex + m_CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
 
                     nIndexCtr++;
+                    nColorsWritten++;
 
                     if (nIndexCtr >= uPasteAmt)
                     {
+                        // handle looping if needed
                         nIndexCtr = 0;
                     }
                 }
@@ -1523,16 +1536,33 @@ void CPalModDlg::HandlePasteFromPalMod()
 
         UpdateSliderSel();
 
-        safe_delete_array(rgPasteCol);
+        CString strInfo;
 
-        if (fWasColorImportedFromDifferentGame)
+        if (nColorsWritten != 1)
         {
-            SetStatusText(IDS_PASTE_CROSSGAME);
+            if (fWasColorImportedFromDifferentGame)
+            {
+                (void)strInfo.LoadString(IDS_PASTE_PALMOD_N_ROUNDED);
+            }
+            else
+            {
+                (void)strInfo.LoadString(IDS_PASTE_PALMOD_N);
+            }
         }
         else
         {
-            SetStatusText(IDS_PASTED_COLOR);
+            if (clrOriginalFirstColor != rgPasteCol[0])
+            {
+                strInfo.FormatMessage(IDS_PASTE_PALMOD_1_ROUNDED_FORMAT, ColorSystem::GetRGBValueFromCOLORREF(clrOriginalFirstColor),
+                                                                      ColorSystem::GetRGBValueFromCOLORREF(rgPasteCol[0]));
+            }
+            else
+            {
+                strInfo.FormatMessage(IDS_PASTE_PALMOD_1_FORMAT, ColorSystem::GetRGBValueFromCOLORREF(rgPasteCol[0]));
+            }
         }
+
+        SetStatusText(strInfo);
     }
 }
 
@@ -1601,23 +1631,29 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
         argbColor |= (0xFF << 24);
     }
 
-    COLORREF colPasteCol = (GetAValue(argbColor) << 24) +
-        (GetRValue(argbColor) << 16) +
-        (GetGValue(argbColor) << 8) +
-        (GetBValue(argbColor));
+    COLORREF colSourceCol = (GetAValue(argbColor) << 24) +
+                           (GetRValue(argbColor) << 16) +
+                           (GetGValue(argbColor) << 8) +
+                           (GetBValue(argbColor));
+    
+    COLORREF colPasteCol = 0;
 
-    if (CurrGame->GameIsUsing16BitColor())
+    if (CurrGame->GameIsUsing8BitColor())
+    {
+        colPasteCol = CurrGame->ConvPal8(CurrGame->ConvCol8(colSourceCol, 0xff));
+    }
+    else if (CurrGame->GameIsUsing16BitColor())
     {
         // ideally we would use rom-source alpha, but for paste purposes let's just stomp to Set
-        colPasteCol = CurrGame->ConvPal16(CurrGame->ConvCol16(colPasteCol, 0xffff));
+        colPasteCol = CurrGame->ConvPal16(CurrGame->ConvCol16(colSourceCol, 0xffff));
     }
     else if (CurrGame->GameIsUsing24BitColor())
     {
-        colPasteCol = CurrGame->ConvPal24(CurrGame->ConvCol24(colPasteCol));
+        colPasteCol = CurrGame->ConvPal24(CurrGame->ConvCol24(colSourceCol));
     }
     else if (CurrGame->GameIsUsing32BitColor())
     {
-        colPasteCol = CurrGame->ConvPal32(CurrGame->ConvCol32(colPasteCol, colPasteCol));
+        colPasteCol = CurrGame->ConvPal32(CurrGame->ConvCol32(colSourceCol, colSourceCol));
     }
 
     if (!m_CurrPalCtrl->GetSelAmt())
@@ -1661,7 +1697,18 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
 
         UpdateSliderSel();
 
-        SetStatusText(IDS_PASTE_RGB);
+        CString strInfo;
+
+        if (colSourceCol != colPasteCol)
+        {
+            strInfo.FormatMessage(IDS_PASTE_RGB_ROUNDED_FORMAT, ColorSystem::GetRGBValueFromCOLORREF(colSourceCol), ColorSystem::GetRGBValueFromCOLORREF(colPasteCol));
+        }
+        else
+        {
+            strInfo.FormatMessage(IDS_PASTE_RGB_FORMAT, ColorSystem::GetRGBValueFromCOLORREF(colPasteCol));
+        }
+        
+        SetStatusText(strInfo.GetString());
     }
 }
 
