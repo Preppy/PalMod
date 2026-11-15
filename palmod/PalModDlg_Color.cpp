@@ -2,6 +2,7 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "Game\ColorScale.h"
+#include <colordlg.h> // for ccolordialog hook
 
 void CPalModDlg::EnableSlider(int RH, int GS, int BL)
 {
@@ -910,6 +911,55 @@ void CPalModDlg::SetSliderDescEdit()
     UpdateData(FALSE);
 }
 
+UINT_PTR CALLBACK ColorDialogHookProc(HWND hdlg, UINT uiMsg, WPARAM wParam, LPARAM)
+{
+    static uint32_t s_nTrackedColor = 0;
+
+    switch (uiMsg)
+    {
+        case WM_INITDIALOG:
+        {
+            // dummy unused value, just gets us rolling
+            s_nTrackedColor = 1;
+            SetWindowLongPtr(hdlg, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(&s_nTrackedColor));
+            break;
+        }
+        case WM_COMMAND:
+        {
+            WORD ctrlID = LOWORD(wParam);
+            WORD notifyID = HIWORD(wParam);
+
+            if ((notifyID == EN_CHANGE) &&
+                ((ctrlID == COLOR_RED) ||
+                 (ctrlID == COLOR_GREEN) ||
+                 (ctrlID == COLOR_BLUE)))
+            {
+                uint32_t *pLastColor = reinterpret_cast<uint32_t *>(GetWindowLongPtr(hdlg, GWLP_USERDATA));
+
+                if (pLastColor && *pLastColor)
+                {
+                    BOOL bTranslated = FALSE;
+                    const UINT r = GetDlgItemInt(hdlg, COLOR_RED, &bTranslated, FALSE);
+                    const UINT g = GetDlgItemInt(hdlg, COLOR_GREEN, &bTranslated, FALSE);
+                    const UINT b = GetDlgItemInt(hdlg, COLOR_BLUE, &bTranslated, FALSE);
+
+                    const uint32_t clrChosen = (0xFF << 24 ) |(r << 16) | (g << 8) | b;
+
+                    if (clrChosen != *pLastColor)
+                    {
+                        GetHost()->GetPalModDlg()->PasteToPaletteFromRGB(clrChosen);
+                        s_nTrackedColor = clrChosen;
+                    }
+                }
+            }
+            break;
+        }
+    }
+
+    return 0;
+}
+
+
 // color picker
 void CPalModDlg::OnBnNewCol()
 {
@@ -956,6 +1006,11 @@ void CPalModDlg::OnBnNewCol()
     }
 
     UpdateData(FALSE);
+
+    ColorDlg->m_cc.Flags |= CC_ENABLEHOOK;
+    ColorDlg->m_cc.lpfnHook = ColorDialogHookProc;
+
+    const int nStartingUndoStack = UndoProc.GetUndoCount();
 
     if (ColorDlg->DoModal() == IDOK)
     {
@@ -1024,6 +1079,17 @@ void CPalModDlg::OnBnNewCol()
         }
 
         SetStatusText(strInfo);
+    }
+    else
+    {
+        const int nTotalSteps = UndoProc.GetUndoCount() - nStartingUndoStack;
+
+        for (int iSteps = 0; iSteps < nTotalSteps; iSteps++)
+        {
+            GetHost()->GetPalModDlg()->OnEditUndo();
+        }
+
+        SetStatusText(L"(Canceled.)");
     }
 
     safe_delete(ColorDlg);

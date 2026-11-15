@@ -1709,6 +1709,11 @@ void CPalModDlg::HandlePasteFromRGB(bool fAdvanceNext /* = false*/, bool fRefres
         }
         
         SetStatusText(strInfo.GetString());
+        OutputDebugString(strInfo + L"\r\n");
+    }
+    else
+    {
+        OutputDebugString(L"Handled color paste from RGB source.\r\n");
     }
 }
 

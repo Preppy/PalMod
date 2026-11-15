@@ -227,7 +227,6 @@ private:
     void CleanColorsForCrossColorPaste(CGameClass* CurrGame, ColMode TargetMode, std::vector<COLORREF>& rgPastedColors);
     void HandlePasteFromPalMod();
     void HandlePasteFromRGB(bool fAdvanceNext = false, bool fRefreshUI = true);
-    void PasteToPaletteFromRGB(COLORREF clrIn, bool fAdvanceNext = false, bool fRefreshUI = true);
 
     bool CurrentBBCFCharacterIsInBBTAG();
 
@@ -494,6 +493,7 @@ public:
     DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
     void CopyColorToClipboard(COLORREF crColor);
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
+    void PasteToPaletteFromRGB(COLORREF clrIn, bool fAdvanceNext = false, bool fRefreshUI = true);
 
     void SetStatusText(CString strText);
     void SetStatusText(UINT uStrId);
