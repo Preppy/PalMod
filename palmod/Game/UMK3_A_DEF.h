@@ -470,6 +470,182 @@ const sGame_PaletteDataset UMK3_A_Mileena_Extras[] =
     { L"Animality Extra",   0xbb4b0, 0xbb4d0, indexUMK3ArcadeSprites_Mileena, 0x04 },
 };
 
+const sGame_PaletteDataset UMK3_A_Backgrounds_VSScreen[] =
+{
+    { L"Background", 0xa6a56, 0xa6a76 },
+    { L"VS", 0xb5bd0, 0xb5c4e },
+    { L"Kombat Kode Box", 0xb563e, 0xb5674 },
+    { L"Battle Text", 0xb5676, 0xb56b6 },
+    { L"Top Corner Dragons", 0xb56b8, 0xb56f8 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kitana[] =
+{
+    { L"Accent Color", 0xb936a, 0xb93ea },
+    { L"Skin", 0xb9268, 0xb9368 },
+    { L"Darks", 0xb9226, 0xb9266 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_JadeandMileena[] =
+{
+    { L"Jade Accent Color", 0xb9530, 0xb95b0 },
+    { L"Jade Skin", 0xb942e, 0xb952e },
+    { L"Mileena Accent Color P1", 0x53828, 0x538a8 },
+    { L"Mileena Accent Color P2", 0x51ef8, 0x51f78 },
+    { L"Mileena Skin", 0x51f7a, 0x5207a },
+    { L"Shared Darks", 0xb93ec, 0xb942c },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_MaleNinja1[] =
+{
+    // Noob Saibot Accent Color P2 is somewhere in the ROM.  I have yet to find it.
+    // Smoke and Noob portraits appear during the demo or hacks/cheats.
+        { L"Scorpion Accent Color", 0xb96f6, 0xb9776 },
+        { L"Human Smoke Accent Color", 0x5238a, 0x5240a },
+        { L"Scoprion and Human Smoke Skin", 0xb95f4, 0xb96f4 },
+        { L"Noob Saibot Skin/Accent Color P1", 0x52488, 0x52588 },
+        { L"Shared Darks", 0xb95b2, 0xb95f2 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_MaleNinja2[] =
+{
+    { L"Ermac Accent Color P1", 0x5349a, 0x5351a },
+    { L"Ermac Accent Color P2", 0x53418, 0x53498 },
+    { L"Classic Sub-Zero Accent Color P1", 0x5359e, 0x5361e },
+    { L"Classic Sub-Zero Accent Color P2", 0x5351c, 0x5359c },
+    { L"Reptile Accent Color P1", 0xb91a4, 0xb9224 },
+    { L"Reptile Accent Color P2", 0x537a6, 0x53826 },
+    { L"Shared Skin", 0xb90a2, 0xb91a2 },
+    { L"Shared Darks", 0xb9060, 0xb90a0 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_CyraxandSmoke[] =
+{
+    { L"Cyrax Accent Color P1", 0xb3252, 0xb3352 },
+    { L"Cyrax Accent Color P2", 0x52fd4, 0x530d4 },
+    { L"Smoke Accent Color P1", 0x51abe, 0x51bbe },
+    { L"Smoke Accent Color P2", 0x53316, 0x53416 },
+    { L"Shared Darks", 0xb3354, 0xb3394 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sektor[] =
+{
+    { L"Accent Color P1", 0xb33d8, 0xb34d4 },
+    { L"Accent Color P2", 0x52ed2, 0x52fce },
+    { L"Darks", 0xb3396, 0xb33d6 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sonya[] =
+{
+    { L"Accent Color P1", 0xb1e68, 0xb1f64 },
+    { L"Accent Color P2", 0x529cc, 0x52ac8 },
+    { L"Skin and Hair", 0xb1c68, 0xb1e66 },
+    { L"Darks", 0xb1f66, 0xb1fa4 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kano[] =
+{
+    { L"Accent Color P1", 0xb21a4, 0xb22a2 },
+    { L"Accent Color P2", 0x528cc, 0x529ca },
+    { L"Skin", 0xb1fa6, 0xb21a2 },
+    { L"Darks and Eyeplate", 0xb22a4, 0xb22e2 },
+    { L"Core and Eye", 0xb22e4, 0xb234e },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Stryker[] =
+{
+    { L"Accent Color P1", 0xb2350, 0xb2450 },
+    { L"Accent Color P2", 0x52cce, 0x52dce },
+    { L"Skin", 0xb2452, 0xb264c },
+    { L"Darks", 0xb264e, 0xb268e },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kabal[] =
+{
+    { L"Accent Color P1", 0xb2992, 0xb29ce },
+    { L"Accent Color P2", 0x53114, 0x53150 },
+    { L"Skin", 0xb2690, 0xb288e },
+    { L"Darks and Vest", 0xb2890, 0xb2990 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_KungLao[] =
+{
+    { L"Accent Color P1", 0xb2c0c, 0xb2c48 },
+    { L"Accent Color P2", 0x530d6, 0x53112 },
+    { L"Skin and Harness", 0xb29d0, 0xb2bc8 },
+    { L"Darks", 0xb2bca, 0xb2c0a },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sindel[] =
+{
+    { L"Accent Color P1", 0xb2e8c, 0xb2f8c },
+    { L"Accent Color P2", 0x52dd0, 0x52ed0 },
+    { L"Skin", 0xb2c4a, 0xb2e48 },
+    { L"Darks", 0xb2e4a, 0xb2e8a },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_LiuKang[] =
+{
+    { L"Accent Color P1", 0xb31d0, 0xb3250 },
+    { L"Accent Color P2", 0x53294, 0x53314 },
+    { L"Skin", 0xb2f8e, 0xb318c },
+    { L"Darks", 0xb318e, 0xb31ce },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_SubZero[] =
+{
+    { L"Accent Color P1", 0xb34d6, 0xb35d6 },
+    { L"Accent Color P2", 0x52bcc, 0x52ccc },
+    { L"Skin", 0xb35d8, 0xb37d6 },
+    { L"Darks", 0xb37d8, 0xb3818 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_ShangTsung[] =
+{
+    { L"Accent Color P1", 0xb3a56, 0xb3a96 },
+    { L"Accent Color P2", 0x53252, 0x53292 },
+    { L"Skin", 0xb381a, 0xb3a12 },
+    { L"Darks", 0xb3a14, 0xb3a54 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Nightwolf[] =
+{
+    { L"Accent Color P1", 0xb3ada, 0xb3b58 },
+    { L"Accent Color P2", 0x52b4c, 0x52bca },
+    { L"Skin", 0xb3b5a, 0xb3d58 },
+    { L"Darks", 0xb3a98, 0xb3ad8 },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sheeva[] =
+{
+    { L"Accent Color P1", 0xb3f9c, 0xb409a },
+    { L"Accent Color P2", 0x53152, 0x53250 },
+    { L"Skin", 0xb3d5a, 0xb3f58 },
+    { L"Darks", 0xb3f5a, 0xb3f9a },
+};
+
+const sGame_PaletteDataset UMK3_A_VSBioPortraits_Jax[] =
+{
+    { L"Accent Color P1", 0xb429c, 0xb4318 },
+    { L"Accent Color P2", 0x52aca, 0x52b46 },
+    { L"Skin", 0xb409c, 0xb429a },
+    { L"Darks and Arms", 0xb431a, 0xb439a },
+};
+
+const sGame_PaletteDataset UMK3_A_BonusPalettes_KombatKode[] =
+{
+    { L"0 (Dragon)", 0xb56fa, 0xb5770 },
+    { L"1 (MK)", 0xb5868, 0xb58e8 },
+    { L"2 (Yin Yang)", 0xb5b52, 0xb5bce },
+    { L"3 (3)", 0xb5ada, 0xb5b50 },
+    { L"4 (Question Mark)", 0xb58ea, 0xb5968 },
+    { L"5 (Lightning)", 0xb57e6, 0xb5866 },
+    { L"6 (Scorpion)", 0xb5772, 0xb57e4 },
+    { L"7 (Raiden)", 0xb596a, 0xb59ea },
+    { L"8 (Shao Kahn)", 0xb59ec, 0xb5a64 },
+    { L"9 (Skull)", 0xb5a66, 0xb5ad8 },
+};
+
 const sGame_PaletteDataset UMK3_A_Portraits_Normal[] =
 {
     { L"Shang Tsung",       0xb439c, 0xb449c, indexUMK3ArcadeSprites_Bonus, 0x1b },
@@ -882,11 +1058,34 @@ const sDescTreeNode UMK3_A_Portraits_COLLECTION[] =
 const sDescTreeNode UMK3_A_Backgrounds_COLLECTION[] =
 {
     { L"Character Select", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_CharacterSelect, ARRAYSIZE(UMK3_A_Backgrounds_CharacterSelect) },
+    { L"VS Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_VSScreen, ARRAYSIZE(UMK3_A_Backgrounds_VSScreen) },
     { L"Option Select", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_OptionSelect, ARRAYSIZE(UMK3_A_Backgrounds_OptionSelect) },
     { L"Tower Select/The Bridge", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_TowerSelectTheBridge, ARRAYSIZE(UMK3_A_Backgrounds_TowerSelectTheBridge) },
     { L"Continue Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_ContinueScreen, ARRAYSIZE(UMK3_A_Backgrounds_ContinueScreen) },
     { L"Character Biography", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_CharacterBiography, ARRAYSIZE(UMK3_A_Backgrounds_CharacterBiography) },
     { L"Messages", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_Messages, ARRAYSIZE(UMK3_A_Backgrounds_Messages) },
+};
+
+const sDescTreeNode UMK3_A_VSBioPortraits_COLLECTION[] =
+{
+    { L"Kitana", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Kitana, ARRAYSIZE(UMK3_A_VSBioPortraits_Kitana) },
+    { L"Jade and Mileena", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_JadeandMileena, ARRAYSIZE(UMK3_A_VSBioPortraits_JadeandMileena) },
+    { L"Male Ninja 1", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_MaleNinja1, ARRAYSIZE(UMK3_A_VSBioPortraits_MaleNinja1) },
+    { L"Male Ninja 2", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_MaleNinja2, ARRAYSIZE(UMK3_A_VSBioPortraits_MaleNinja2) },
+    { L"Cyrax and Smoke", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_CyraxandSmoke, ARRAYSIZE(UMK3_A_VSBioPortraits_CyraxandSmoke) },
+    { L"Sektor", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Sektor, ARRAYSIZE(UMK3_A_VSBioPortraits_Sektor) },
+    { L"Sonya", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Sonya, ARRAYSIZE(UMK3_A_VSBioPortraits_Sonya) },
+    { L"Kano", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Kano, ARRAYSIZE(UMK3_A_VSBioPortraits_Kano) },
+    { L"Stryker", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Stryker, ARRAYSIZE(UMK3_A_VSBioPortraits_Stryker) },
+    { L"Kabal", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Kabal, ARRAYSIZE(UMK3_A_VSBioPortraits_Kabal) },
+    { L"Kung Lao", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_KungLao, ARRAYSIZE(UMK3_A_VSBioPortraits_KungLao) },
+    { L"Sindel", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Sindel, ARRAYSIZE(UMK3_A_VSBioPortraits_Sindel) },
+    { L"Liu Kang", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_LiuKang, ARRAYSIZE(UMK3_A_VSBioPortraits_LiuKang) },
+    { L"Sub-Zero", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_SubZero, ARRAYSIZE(UMK3_A_VSBioPortraits_SubZero) },
+    { L"Shang Tsung", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_ShangTsung, ARRAYSIZE(UMK3_A_VSBioPortraits_ShangTsung) },
+    { L"Nightwolf", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Nightwolf, ARRAYSIZE(UMK3_A_VSBioPortraits_Nightwolf) },
+    { L"Sheeva", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Sheeva, ARRAYSIZE(UMK3_A_VSBioPortraits_Sheeva) },
+    { L"Jax", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Jax, ARRAYSIZE(UMK3_A_VSBioPortraits_Jax) },
 };
 
 const sDescTreeNode UMK3_A_BONUS_COLLECTION[] =
@@ -899,6 +1098,7 @@ const sDescTreeNode UMK3_A_BONUS_COLLECTION[] =
     { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_InGameEffects, ARRAYSIZE(UMK3_A_BonusPalettes_InGameEffects) },
     { L"Shared Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_SharedEffects, ARRAYSIZE(UMK3_A_BonusPalettes_SharedEffects) },
     { L"Title Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_TitleScreen, ARRAYSIZE(UMK3_A_BonusPalettes_TitleScreen) },
+    { L"Kombat Kode", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_KombatKode, ARRAYSIZE(UMK3_A_BonusPalettes_KombatKode) },
     { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_HIDDENGAME, ARRAYSIZE(UMK3_A_BONUS_PALETTES_HIDDENGAME) },
 };
 
@@ -937,5 +1137,6 @@ const sDescTreeNode UMK3_A_UNITS[] =
 
     { L"Portraits", DESC_NODETYPE_TREE, (void*)UMK3_A_Portraits_COLLECTION, ARRAYSIZE(UMK3_A_Portraits_COLLECTION) },
     { L"Backgrounds", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_COLLECTION, ARRAYSIZE(UMK3_A_Backgrounds_COLLECTION) },
+    { L"VS/Bio Portraits", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_COLLECTION, ARRAYSIZE(UMK3_A_VSBioPortraits_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_COLLECTION, ARRAYSIZE(UMK3_A_BONUS_COLLECTION) },
 };
