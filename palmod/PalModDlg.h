@@ -23,6 +23,8 @@ constexpr auto TIMER_BLINK = 2;
 constexpr auto TIMER_ELAPSE = 10 * 1000;
 constexpr auto TIMER_BLINK_ELAPSE = 1 * 200;
 
+constexpr auto WM_HANDLE_DROP = WM_APP + 10;
+
 enum class eVerifyType
 {
     VM_PALCHANGE,
@@ -448,6 +450,8 @@ private:
     afx_msg void OnLoadDir_Venture50()      { OnLoadGameByDirectory(VENTURE_A_DIR_50); };
     afx_msg void OnLoadDir_DevMode()        { OnLoadGameByUnknownFileSet(); };
 
+    afx_msg LRESULT _ProcessDrop(WPARAM, LPARAM);
+
     CToolTipCtrl m_ToolTip;
     HICON m_hIcon;
 
@@ -473,6 +477,19 @@ public:
     CPalGroup* MainPalGroup = nullptr;
 
     CMappingPaletteManager* GetPaletteMapper() { return &m_PaletteMapper; };
+
+    struct PalModDropInformation
+    {
+        std::vector<std::wstring> rgFilePaths;
+        bool fTargetingPreviewWindow = false;
+        bool fShiftWasDown = false;
+        bool fUsingFirefoxTempFile = false;
+    };
+
+    PalModDropInformation m_pendingDropInformation;
+
+    void SetDropInformation(PalModDropInformation dropInfo);
+    bool AcceptingDropsCurrently() { return m_pendingDropInformation.rgFilePaths.empty(); };
 
     // This should be called after a game's PostSelProc call changes a shown secondary palette
     void RefreshSecondaryPalettesForPaletteChange();

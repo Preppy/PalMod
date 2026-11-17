@@ -143,6 +143,7 @@ bool PaletteImport::GetPaletteFromIndexedPNG(LPCWSTR pszFileName, std::vector<ui
 
 bool PaletteImport::GetPaletteFromTrueColorPNG(LPCWSTR pszFileName, std::vector<uint8_t>& rgbaPalette)
 {
+    GetHost()->GetPalModDlg()->SetStatusText(L"PNG is not indexed.  Checking to see if we can load via comparative math...");
     bool fSuccess = false;
 
     // For previews produced by us (using our previews), we *probably* can do it the hard way
@@ -408,6 +409,11 @@ bool PaletteImport::GetPaletteFromTrueColorPNG(LPCWSTR pszFileName, std::vector<
         }
 
         free(loadedAsFile);
+    }
+
+    if (!fSuccess)
+    {
+        GetHost()->GetPalModDlg()->SetStatusText(L"Could not determine exact color matches.");
     }
 
     return fSuccess && !rgbaPalette.empty();

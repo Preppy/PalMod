@@ -276,6 +276,8 @@ bool PaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bo
     std::vector<uint8_t> rgbaPalette;
     UINT uiSuccess = 0, uiReversedSuccess = 0, uiFailure = IDS_ERROR_LOADING_PALETTE_FILE;
 
+    GetHost()->GetPalModDlg()->SetStatusText(L"Loading palette...");
+
     switch (palFileType)
     {
         case PalFileType::ACT:

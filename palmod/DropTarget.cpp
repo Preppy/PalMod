@@ -1,11 +1,8 @@
 #include "stdafx.h"
 #include "DropTarget.h"
 #include "PalMod.h"
-#include "GameChoice.h"
 #include "Game\GameRegistry.h"
 #include <cwctype>
-#include "PaletteImport.h"
-#include "PreviewImport.h"
 
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
@@ -104,7 +101,11 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 {
     m_currentEffectState = DROPEFFECT_NONE;
 
-    if (pDataObject->IsDataAvailable(CF_HDROP))
+    if (!GetHost()->GetPalModDlg()->AcceptingDropsCurrently())
+    {
+        GetHost()->GetPalModDlg()->SetStatusText(L"(Already in a drop operation.)");
+    }
+    else if (pDataObject->IsDataAvailable(CF_HDROP))
     {
         // Get the HDROP data from the data object.
         const HGLOBAL hg = pDataObject->GetGlobalData(CF_HDROP);
@@ -370,13 +371,12 @@ DROPEFFECT CPalDropTarget::OnDragOver(CWnd*, COleDataObject*, DWORD dwKeyState, 
     m_dwLastKeyState = dwKeyState;
 
     return m_currentEffectState;
-};
+}
 
 BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT /* dropEffect */, CPoint /* point */)
 {
-    // This handles palette import via drag/drop: PalModDlg::OnImportPalette is the Tools menu version
-    bool fHandledDrop = false;
-
+    // This handles palette/preview import via drag/drop: PalModDlg::OnImportPalette is the Tools menu version
+    // It also accepts drops of supported/known game files as verified against the gameregistry information
     if (GetHost()->GetCurrGame())
     {
         bool fHaveData = false;
@@ -457,7 +457,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                         }
 
                         // we just need the filename right now: test later
-                        fHaveData = rgDropPaths.size();;
+                        fHaveData = rgDropPaths.size();
                     }
 
                     GlobalUnlock(hg);
@@ -467,234 +467,15 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
         if (fHaveData)
         {
-            const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
-            const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
-            bool fShouldContinue = true;
-            bool fHavePaletteUpdates = false;
+            CPalModDlg::PalModDropInformation dropInfo;
 
-            for (auto& strDropPath : rgDropPaths)
-            {
-                std::wstring strFileNameAsLower = strDropPath;
-                transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
+            dropInfo.rgFilePaths = rgDropPaths;
+            dropInfo.fTargetingPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
+            dropInfo.fShiftWasDown = m_dwLastKeyState & MK_SHIFT;
+            dropInfo.fUsingFirefoxTempFile = fUsingFirefoxTempFile;
 
-                size_t dotPos = strFileNameAsLower.find_last_of(L'.');
-
-                if (dotPos != std::wstring::npos)
-                {
-                    std::wstring strExtension = strFileNameAsLower.substr(dotPos);
-
-                    // The handling code here needs to match the "acceptable drop file types" list
-                    // in OnDragEnter above
-
-                    const bool fIsShiftDown = m_dwLastKeyState & MK_SHIFT;
-
-                    if (strExtension == L".act")
-                    {
-                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::ACT, strFileNameAsLower.c_str(), fIsShiftDown);
-                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
-                        fHandledDrop = true;
-                    }
-                    else if (strExtension == L".bmp")
-                    {
-                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::BMP, strFileNameAsLower.c_str(), fIsShiftDown);
-                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
-                        fHandledDrop = true;
-                    }
-                    else if (strExtension == L".cfpl")
-                    {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(strFileNameAsLower.c_str());
-                        fHandledDrop = true;
-                        fShouldContinue = false;
-                    }
-                    else if (strExtension == L".gif")
-                    {
-                        if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
-                        {
-                            fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), fIsShiftDown);
-                            fHandledDrop = true;
-                        }
-                        else
-                        {
-                            fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::GIF, strFileNameAsLower.c_str());
-                            fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
-                            fHandledDrop = true;
-                        }
-                    }
-                    else if (strExtension == L".gpl")
-                    {
-                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::GPL, strFileNameAsLower.c_str(), fIsShiftDown);
-                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
-                        fHandledDrop = true;
-                    }
-                    else if (strExtension == L".hpl")
-                    {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromHPAL(strFileNameAsLower.c_str());
-                        fHandledDrop = true;
-                        fShouldContinue = false;
-                    }
-                    else if (strExtension == L".impl")
-                    {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromIMPL(strFileNameAsLower.c_str());
-                        fHandledDrop = true;
-                        fShouldContinue = false;
-                    }
-                    else if (strExtension == L".pal")
-                    {
-                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::PAL_RIFF, strFileNameAsLower.c_str(), fIsShiftDown);
-                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
-                        fHandledDrop = true;
-                    }
-                    else if (strExtension == L".png")
-                    {
-                        if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
-                        {
-                            fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), fIsShiftDown);
-                            fHandledDrop = true;
-                        }
-                        else
-                        {
-                            fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::PNG, strFileNameAsLower.c_str(), fIsShiftDown);
-                            fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
-                            fHandledDrop = true;
-                        }
-                    }
-                    else if (strExtension == L".prpl")
-                    {
-                        GetHost()->GetPalModDlg()->LoadPaletteFromPRPL(strFileNameAsLower.c_str());
-                        fHandledDrop = true;
-                        fShouldContinue = false;
-                    }
-                    else if (strExtension == L".raw")
-                    {
-                        fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), fIsShiftDown);
-                        fHandledDrop = true;
-                    }
-                }
-
-                if (!fShouldContinue)
-                {
-                    break;
-                }
-            }
-
-            if (fUsingFirefoxTempFile)
-            {
-                DeleteFile(rgDropPaths.at(0).c_str());
-            }
-
-            if (fHavePaletteUpdates)
-            {
-                GetHost()->GetPalModDlg()->UpdateUIForAppliedPalette();
-            }
-        }
-    }
-    
-    if (!fHandledDrop)
-    {
-        if (pDataObject->IsDataAvailable(CF_HDROP))
-        {
-            // Get the HDROP data from the data object.
-            const HGLOBAL hg = pDataObject->GetGlobalData(CF_HDROP);
-            wchar_t szPath[MAX_PATH];
-            bool fHaveData = false;
-
-            if (hg)
-            {
-                const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
-
-                if (hDrop)
-                {
-                    const UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
-
-                    if (nFilesAvailable == 1)
-                    {
-                        if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
-                        {
-                            // we just need the filename right now: test later
-                            fHaveData = true;
-                        }
-                    }
-                }
-
-                GlobalUnlock(hg);
-            }
-
-            if (fHaveData)
-            {
-                std::vector<SupportedGamesList> rgGameFileMatches;
-                std::vector<SupportedGamesList> rgGameDirectoryMatches;
-
-                KnownGameInfo::GetMatchingGamesFromFilePath(szPath, rgGameFileMatches, rgGameDirectoryMatches);
-
-                std::vector<SupportedGamesList> rgGameTotalMatches = rgGameFileMatches;
-                rgGameTotalMatches.insert(std::end(rgGameTotalMatches), std::begin(rgGameDirectoryMatches), std::end(rgGameDirectoryMatches));
-
-                if (rgGameTotalMatches.size())
-                {
-                    SupportedGamesList nGameChoice = NUM_GAMES;
-
-                    if (rgGameTotalMatches.size() > 1)
-                    {
-                        // for normal usage, prompt the user to make a choice...
-                        // UNLESS it's LastLoaded, in which case just presume.
-                        SupportedGamesList nLastUsedGame = NUM_GAMES;
-
-                        CRegProc::GetLastUsedGameFlag(nLastUsedGame);
-
-                        for (auto& nPossibleGame : rgGameTotalMatches)
-                        {
-                            if (nLastUsedGame == nPossibleGame)
-                            {
-                                nGameChoice = nLastUsedGame;
-                                break;
-                            }
-                        }
-
-                        if (nGameChoice == NUM_GAMES)
-                        {
-                            CGameChoiceDialog choiceDialog(rgGameTotalMatches);
-
-                            if (choiceDialog.DoModal() == IDOK)
-                            {
-                                nGameChoice = rgGameTotalMatches.at(choiceDialog.m_nCurrentSel);
-                            }
-                            else
-                            {
-                                nGameChoice = NUM_GAMES;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        nGameChoice = rgGameTotalMatches.at(0);
-                    }
-
-                    if (nGameChoice != NUM_GAMES)
-                    {
-                        auto it = std::find(rgGameFileMatches.begin(), rgGameFileMatches.end(), nGameChoice);
-                        if (it != rgGameFileMatches.end())
-                        {
-                            GetHost()->GetPalModDlg()->LoadGameFile(nGameChoice, szPath);
-                        }
-                        else
-                        {
-                            // need just the path
-                            wchar_t* pszSlash = wcsrchr(szPath, L'\\');
-
-                            if (pszSlash)
-                            {
-                                pszSlash[0] = 0;
-                            }
-
-                            GetHost()->GetPalModDlg()->LoadGameDir(nGameChoice, szPath);
-                        }
-                    }
-                    else
-                    {
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Load canceled.");
-                    }
-                }
-            }
+            GetHost()->GetPalModDlg()->SetDropInformation(dropInfo);
+            GetHost()->GetPalModDlg()->SetStatusText(L"(Processing drop...)");
         }
     }
 

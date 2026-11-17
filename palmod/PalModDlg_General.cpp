@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "PalModDlg.h"
+#include "Game\GameRegistry.h"
+#include "GameChoice.h"
+#include <cwctype> // for towlower
+#include "PaletteImport.h"
+#include "PreviewImport.h"
 
 void CPalModDlg::GetPlaneData()
 {
@@ -215,6 +220,227 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
             }
         }
     }
+}
+
+afx_msg LRESULT CPalModDlg::_ProcessDrop(WPARAM, LPARAM)
+{
+    if (m_pendingDropInformation.rgFilePaths.size())
+    {
+        const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
+        const bool fDropTargetsPreviewWindow = m_pendingDropInformation.fTargetingPreviewWindow;
+        bool fShouldContinue = true;
+        bool fHavePaletteUpdates = false;
+
+        bool fHandledDrop = false;
+
+        for (auto& strDropPath : m_pendingDropInformation.rgFilePaths)
+        {
+            std::wstring strFileNameAsLower = strDropPath;
+            transform(strFileNameAsLower.begin(), strFileNameAsLower.end(), strFileNameAsLower.begin(), std::towlower);
+
+            size_t dotPos = strFileNameAsLower.find_last_of(L'.');
+
+            if (dotPos != std::wstring::npos)
+            {
+                std::wstring strExtension = strFileNameAsLower.substr(dotPos);
+
+                // The handling code here needs to match the "acceptable drop file types" list
+                // in OnDragEnter above
+
+                if (strExtension == L".act")
+                {
+                    fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::ACT, strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                    fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
+                    fHandledDrop = true;
+                }
+                else if (strExtension == L".bmp")
+                {
+                    fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::BMP, strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                    fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
+                    fHandledDrop = true;
+                }
+                else if (strExtension == L".cfpl")
+                {
+                    LoadPaletteFromCFPL(strFileNameAsLower.c_str());
+                    fHandledDrop = true;
+                    fShouldContinue = false;
+                }
+                else if (strExtension == L".gif")
+                {
+                    if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
+                    {
+                        fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                        fHandledDrop = true;
+                    }
+                    else
+                    {
+                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::GIF, strFileNameAsLower.c_str());
+                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
+                        fHandledDrop = true;
+                    }
+                }
+                else if (strExtension == L".gpl")
+                {
+                    fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::GPL, strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                    fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
+                    fHandledDrop = true;
+                }
+                else if (strExtension == L".hpl")
+                {
+                    LoadPaletteFromHPAL(strFileNameAsLower.c_str());
+                    fHandledDrop = true;
+                    fShouldContinue = false;
+                }
+                else if (strExtension == L".impl")
+                {
+                    LoadPaletteFromIMPL(strFileNameAsLower.c_str());
+                    fHandledDrop = true;
+                    fShouldContinue = false;
+                }
+                else if (strExtension == L".pal")
+                {
+                    fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::PAL_RIFF, strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                    fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
+                    fHandledDrop = true;
+                }
+                else if (strExtension == L".png")
+                {
+                    if (fDropTargetsPreviewWindow && !fPreviewDropIsPalette)
+                    {
+                        fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                        fHandledDrop = true;
+                    }
+                    else
+                    {
+                        fShouldContinue = PaletteImport::LoadPalette(PaletteImport::PalFileType::PNG, strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                        fHavePaletteUpdates = fHavePaletteUpdates || fShouldContinue;
+                        fHandledDrop = true;
+                    }
+                }
+                else if (strExtension == L".prpl")
+                {
+                    LoadPaletteFromPRPL(strFileNameAsLower.c_str());
+                    fHandledDrop = true;
+                    fShouldContinue = false;
+                }
+                else if (strExtension == L".raw")
+                {
+                    fShouldContinue = PreviewImport::LoadCustomSpriteFromPath(strFileNameAsLower.c_str(), m_pendingDropInformation.fShiftWasDown);
+                    fHandledDrop = true;
+                }
+            }
+
+            if (!fShouldContinue)
+            {
+                break;
+            }
+        }
+
+        if (fHandledDrop)
+        {
+            if (m_pendingDropInformation.fUsingFirefoxTempFile)
+            {
+                DeleteFile(m_pendingDropInformation.rgFilePaths.at(0).c_str());
+            }
+
+            if (fHavePaletteUpdates)
+            {
+                UpdateUIForAppliedPalette();
+            }
+        }
+        else
+        {
+            // second chance handling: is this a supported game?
+            std::vector<SupportedGamesList> rgGameFileMatches;
+            std::vector<SupportedGamesList> rgGameDirectoryMatches;
+
+            KnownGameInfo::GetMatchingGamesFromFilePath(m_pendingDropInformation.rgFilePaths.at(0).c_str(), rgGameFileMatches, rgGameDirectoryMatches);
+
+            std::vector<SupportedGamesList> rgGameTotalMatches = rgGameFileMatches;
+            rgGameTotalMatches.insert(std::end(rgGameTotalMatches), std::begin(rgGameDirectoryMatches), std::end(rgGameDirectoryMatches));
+
+            if (rgGameTotalMatches.size())
+            {
+                SupportedGamesList nGameChoice = NUM_GAMES;
+
+                if (rgGameTotalMatches.size() > 1)
+                {
+                    // for normal usage, prompt the user to make a choice...
+                    // UNLESS it's LastLoaded, in which case just presume.
+                    SupportedGamesList nLastUsedGame = NUM_GAMES;
+
+                    CRegProc::GetLastUsedGameFlag(nLastUsedGame);
+
+                    for (auto& nPossibleGame : rgGameTotalMatches)
+                    {
+                        if (nLastUsedGame == nPossibleGame)
+                        {
+                            nGameChoice = nLastUsedGame;
+                            break;
+                        }
+                    }
+
+                    if (nGameChoice == NUM_GAMES)
+                    {
+                        CGameChoiceDialog choiceDialog(rgGameTotalMatches);
+
+                        if (choiceDialog.DoModal() == IDOK)
+                        {
+                            nGameChoice = rgGameTotalMatches.at(choiceDialog.m_nCurrentSel);
+                        }
+                        else
+                        {
+                            nGameChoice = NUM_GAMES;
+                        }
+                    }
+                }
+                else
+                {
+                    nGameChoice = rgGameTotalMatches.at(0);
+                }
+
+                if (nGameChoice != NUM_GAMES)
+                {
+                    wchar_t szPath[MAX_PATH];
+
+                    wcsncpy(szPath, m_pendingDropInformation.rgFilePaths.at(0).c_str(), MAX_PATH - 1);
+                    szPath[MAX_PATH - 1] = 0;
+
+                    auto it = std::find(rgGameFileMatches.begin(), rgGameFileMatches.end(), nGameChoice);
+                    if (it != rgGameFileMatches.end())
+                    {
+                        LoadGameFile(nGameChoice, szPath);
+                    }
+                    else
+                    {
+                        // need just the path
+                        wchar_t* pszSlash = wcsrchr(szPath, L'\\');
+
+                        if (pszSlash)
+                        {
+                            pszSlash[0] = 0;
+                        }
+
+                        LoadGameDir(nGameChoice, szPath);
+                    }
+                }
+                else
+                {
+                    SetStatusText(L"Load canceled.");
+                }
+            }
+        }
+
+        m_pendingDropInformation.rgFilePaths.clear();
+    }
+
+    return 0;
+}
+
+void CPalModDlg::SetDropInformation(PalModDropInformation dropInfo)
+{
+    m_pendingDropInformation = dropInfo;
+    PostMessage(WM_HANDLE_DROP, 0, 0);
 }
 
 bool CPalModDlg::GetPathForUserFallbackImage(CGameClass* CurrGame, UINT nPosition, CString& strFoundImage)

@@ -392,6 +392,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_DEVMODE, &CPalModDlg::OnLoadDir_DevMode)
 
     ON_COMMAND_RANGE(k_nGameLoadROMListMask, k_nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
+
+    ON_MESSAGE(WM_HANDLE_DROP, &_ProcessDrop)
 END_MESSAGE_MAP()
 
 #pragma warning( pop )
