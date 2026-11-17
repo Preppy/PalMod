@@ -268,7 +268,7 @@ private:
     CString m_EditBLDesc = L"";
     CString m_EditADesc = L"A";
 
-    afx_msg void OnBnNewCol();
+    afx_msg void OnBnColorPicker();
     afx_msg void OnChangeShowAs32BitColor();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();

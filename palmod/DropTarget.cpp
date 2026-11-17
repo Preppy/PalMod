@@ -2,7 +2,7 @@
 #include "DropTarget.h"
 #include "PalMod.h"
 #include "Game\GameRegistry.h"
-#include <cwctype>
+#include <cwctype> // for towlower
 
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {

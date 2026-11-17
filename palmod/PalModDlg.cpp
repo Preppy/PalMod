@@ -281,7 +281,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_FILE_CLOSEFILEDIR, &CPalModDlg::OnFileCloseFileDir)
 
     ON_BN_CLICKED(IDC_SHOWPREVIEW, &CPalModDlg::OnBnShowPrev)
-    ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
+    ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnColorPicker)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
 
     ON_COMMAND(IDC_BTRANSFORM2, &CPalModDlg::OnBnClickedTransform2)

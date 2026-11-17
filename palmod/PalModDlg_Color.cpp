@@ -961,7 +961,7 @@ UINT_PTR CALLBACK ColorDialogHookProc(HWND hdlg, UINT uiMsg, WPARAM wParam, LPAR
 
 
 // color picker
-void CPalModDlg::OnBnNewCol()
+void CPalModDlg::OnBnColorPicker()
 {
     CColorDialog* ColorDlg = nullptr;
     const int nSelAmt = m_CurrPalCtrl->GetSelAmt();
