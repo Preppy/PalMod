@@ -3,6 +3,7 @@
 #include "UMK3_A_DEF.h"
 
 constexpr auto UMK3_A_KNOWN_PALETTE_COUNT = 391;
+constexpr auto UMK3PLUS_A_KNOWN_PALETTE_COUNT = 510;
 constexpr auto UMK3_A_LOWEST_LOCATION = 0x13bce;
 
 class CGame_UMK3_A : public CGameClassByDir
@@ -208,16 +209,16 @@ private:
         UMK3_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2,
+        DEF_BUTTONLABEL_3P,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE_NORMAL,
         m_sFileLoadingData_V12Plus,
         m_rgCRC32Data,
-        UMK3_A_UNITS,
-        ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",            // Extra filename
-        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
-        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
+        UMK3Plus_A_UNITS,
+        ARRAYSIZE(UMK3Plus_A_UNITS),
+        L"UMK3_A_E.txt",                // Extra filename
+        UMK3PLUS_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,         // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12PlusBeta
@@ -228,16 +229,16 @@ private:
         UMK3_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2,
+        DEF_BUTTONLABEL_3P,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB555_BE_NORMAL,
         m_sFileLoadingData_V12PlusBeta,
         m_rgCRC32Data,
-        UMK3_A_UNITS,
-        ARRAYSIZE(UMK3_A_UNITS),
-        L"UMK3_A_E.txt",            // Extra filename
-        UMK3_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
-        UMK3_A_LOWEST_LOCATION,     // Lowest known location used for palettes
+        UMK3Plus_A_UNITS,
+        ARRAYSIZE(UMK3Plus_A_UNITS),
+        L"UMK3_A_E.txt",                // Extra filename
+        UMK3PLUS_A_KNOWN_PALETTE_COUNT, // Count of palettes listed in the header
+        UMK3_A_LOWEST_LOCATION,         // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V12TE

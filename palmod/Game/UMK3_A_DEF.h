@@ -157,14 +157,6 @@ const sGame_PaletteDataset UMK3_A_JADE_PALETTES_P2[] =
     { L"Jade P2", 0x618e4, 0x61964, indexUMK3ArcadeSprites_Jade, 0x00 },
 };
 
-const sGame_PaletteDataset UMK3_A_Jade_Extras[] =
-{
-    { L"Gibs",          0x425fc, 0x4267c, indexUMK3ArcadeSprites_Kitana, 0x01 },
-    { L"Babality",      0x58552, 0x58592, indexUMK3ArcadeSprites_Kitana, 0x02 },
-    { L"Animality",     0xbb46c, 0xbb48c, indexUMK3ArcadeSprites_Jade, 0x03 },
-    { L"Shadow Kick",   0x4a21e, 0x4a29e, indexUMK3ArcadeSprites_Jade, 0x00 },
-};
-
 const sGame_PaletteDataset UMK3_A_KANO_PALETTES_P1[] =
 {
     { L"Kano P1", 0xafe02, 0xafe82, indexUMK3ArcadeSprites_Kano, 0x00 },
@@ -299,9 +291,37 @@ const sGame_PaletteDataset UMK3_A_Kitana_Extras[] =
     { L"Animality", 0xbb458, 0xbb46a, indexUMK3ArcadeSprites_Kitana, 0x03 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_Kitana_P3[] =
+{
+    { L"Kitana P3", 0xd4414, 0xd4494, indexUMK3ArcadeSprites_Kitana, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Kitana_Extras[] =
+{
+    { L"Gibs P1",   0xba6e6, 0xba766, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Gibs P2",   0xc1788, 0xc1808, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Gibs P3",   0xd7ec2, 0xd7f42, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Babality",  0xb7e76, 0xb7eb6, indexUMK3ArcadeSprites_Kitana, 0x02 },
+    { L"Animality", 0xbb458, 0xbb46a, indexUMK3ArcadeSprites_Kitana, 0x03 },
+};
+
 const sGame_PaletteDataset UMK3_A_Reptile_Extras[] =
 {
     { L"Gibs",      0x42700, 0x42780, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x58510, 0x58550, indexUMK3ArcadeSprites_Reptile, 0x02 },
+    { L"Animality", 0xbb4d2, 0xbb4ea, indexUMK3ArcadeSprites_Reptile, 0x03 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Reptile_P3[] =
+{
+    { L"Reptile P3", 0xd461c, 0xd469c, indexUMK3ArcadeSprites_Reptile, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Reptile_Extras[] =
+{
+    { L"Gibs P1",   0x42700, 0x42780, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P2",   0xc1706, 0xc1786, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P3",   0xd80ca, 0xd814a, indexUMK3ArcadeSprites_Reptile, 0x01 },
     { L"Babality",  0x58510, 0x58550, indexUMK3ArcadeSprites_Reptile, 0x02 },
     { L"Animality", 0xbb4d2, 0xbb4ea, indexUMK3ArcadeSprites_Reptile, 0x03 },
 };
@@ -313,10 +333,50 @@ const sGame_PaletteDataset UMK3_A_Sonya_Extras[] =
     { L"Animality", 0xb8d3c, 0xb8d4a, indexUMK3ArcadeSprites_Sonya, 0x03 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_SONYA_PALETTES_P1[] =
+{
+    { L"Sonya P1", 0xaff38, 0xaffb8, indexUMK3ArcadeSprites_Sonya, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_SONYA_PALETTES_P2[] =
+{
+    { L"Sonya P2", 0xaffba, 0xb003a, indexUMK3ArcadeSprites_Sonya, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Sonya_P3[] =
+{
+    { L"Sonya P3", 0xd3cfc, 0xd3d7c, indexUMK3ArcadeSprites_Sonya, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Sonya_Extras[] =
+{
+    { L"Gibs P1",   0xba45e, 0xba4de, indexUMK3ArcadeSprites_Sonya, 0x01 },
+    { L"Gibs P2",   0xd6fa2, 0xd7022, indexUMK3ArcadeSprites_Sonya, 0x01 },
+    { L"Gibs P3",   0xd77c4, 0xd7844, indexUMK3ArcadeSprites_Sonya, 0x01 },
+    { L"Babality",  0xb7b22, 0xb7b62, indexUMK3ArcadeSprites_Sonya, 0x02 },
+    { L"Animality", 0xb8d3c, 0xb8d4a, indexUMK3ArcadeSprites_Sonya, 0x03 },
+    { L"Ring Toss P1/P3", 0xb003c, 0xb00bc, indexUMK3ArcadeSprites_Sonya, 0x04 },
+    { L"Ring Toss P2", 0x35cf4, 0x35d74, indexUMK3ArcadeSprites_Sonya, 0x04 },
+};
+
 const sGame_PaletteDataset UMK3_A_Jax_Extras[] =
 {
     { L"Gibs P1",   0xba154, 0xba1d2, indexUMK3ArcadeSprites_Jax, 0x01 },
     { L"Gibs P2",   0x42804, 0x42882, indexUMK3ArcadeSprites_Jax, 0x01 },
+    { L"Babality",  0xb7ba6, 0xb7be2, indexUMK3ArcadeSprites_Jax, 0x02 },
+    { L"Animality", 0xb8d4c, 0xb8d5c, indexUMK3ArcadeSprites_Jax, 0x03 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Jax_P3[] =
+{
+    { L"Jax P3", 0xd3d7e, 0xd3dfe, indexUMK3ArcadeSprites_Jax, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Jax_Extras[] =
+{
+    { L"Gibs P1",   0xba154, 0xba1d2, indexUMK3ArcadeSprites_Jax, 0x01 },
+    { L"Gibs P2",   0x42804, 0x42882, indexUMK3ArcadeSprites_Jax, 0x01 },
+    { L"Gibs P3",   0xd7846, 0xd78c2, indexUMK3ArcadeSprites_Jax, 0x01 },
     { L"Babality",  0xb7ba6, 0xb7be2, indexUMK3ArcadeSprites_Jax, 0x02 },
     { L"Animality", 0xb8d4c, 0xb8d5c, indexUMK3ArcadeSprites_Jax, 0x03 },
 };
@@ -331,9 +391,63 @@ const sGame_PaletteDataset UMK3_A_Nightwolf_Extras[] =
     { L"Arcade Cabinet",        0xbabf0, 0xbac70 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_Nightwolf_P3[] =
+{
+    { L"Nightwolf P3", 0xd3e00, 0xd3e80, indexUMK3ArcadeSprites_Nightwolf, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Nightwolf_Extras[] =
+{
+    { L"Gibs P1",               0xba0d2, 0xba152, indexUMK3ArcadeSprites_Nightwolf, 0x01 },
+    { L"Gibs P2",               0xd7024, 0xd70a4, indexUMK3ArcadeSprites_Nightwolf, 0x01 },
+    { L"Gibs P3",               0xd78c4, 0xd7944, indexUMK3ArcadeSprites_Nightwolf, 0x01 },
+    { L"Babality",              0xb7d6e, 0xb7dae, indexUMK3ArcadeSprites_Nightwolf, 0x02 },
+    { L"Animality",             0xb8d70, 0xb8d80, indexUMK3ArcadeSprites_Nightwolf, 0x03 },
+    { L"Shoulder Charge",       0x6a4b2, 0x6a532, indexUMK3ArcadeSprites_Nightwolf, 0x00 },
+    { L"Raiden Transformation", 0xb8e48, 0xb8ec8 },
+    { L"Arcade Cabinet",        0xbabf0, 0xbac70 },
+};
+
+const sGame_PaletteDataset UMK3_A_Jade_Extras[] =
+{
+    { L"Gibs",          0x425fc, 0x4267c, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Babality",      0x58552, 0x58592, indexUMK3ArcadeSprites_Kitana, 0x02 },
+    { L"Animality",     0xbb46c, 0xbb48c, indexUMK3ArcadeSprites_Jade, 0x03 },
+    { L"Shadow Kick",   0x4a21e, 0x4a29e, indexUMK3ArcadeSprites_Jade, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Jade_P3[] =
+{
+    { L"Jade P3", 0xd4496, 0xd4516, indexUMK3ArcadeSprites_Jade, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Jade_Extras[] =
+{
+    { L"Gibs P1",       0x425fc, 0x4267c, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Gibs P2",       0xd7428, 0xd74a8, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Gibs P3",       0xd7f44, 0xd7fc4, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Babality",      0x58552, 0x58592, indexUMK3ArcadeSprites_Kitana, 0x02 },
+    { L"Animality",     0xbb46c, 0xbb48c, indexUMK3ArcadeSprites_Jade, 0x03 },
+    { L"Shadow Kick",   0x4a21e, 0x4a29e, indexUMK3ArcadeSprites_Jade, 0x00 },
+};
+
 const sGame_PaletteDataset UMK3_A_Scorpion_Extras[] =
 {
     { L"Gibs",      0x4257a, 0x425fa, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x5848c, 0x584cc, indexUMK3ArcadeSprites_Reptile, 0x02 },
+    { L"Animality", 0xbb52a, 0xbb552, indexUMK3ArcadeSprites_Scorpion, 0x03 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Scorpion_P3[] =
+{
+    { L"Scorpion P3", 0xd459a, 0xd461a, indexUMK3ArcadeSprites_Scorpion, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Scorpion_Extras[] =
+{
+    { L"Gibs P1",   0x4257a, 0x425fa, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P2",   0xd752c, 0xd75ac, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P3",   0xd8048, 0xd80c8, indexUMK3ArcadeSprites_Reptile, 0x01 },
     { L"Babality",  0x5848c, 0x584cc, indexUMK3ArcadeSprites_Reptile, 0x02 },
     { L"Animality", 0xbb52a, 0xbb552, indexUMK3ArcadeSprites_Scorpion, 0x03 },
 };
@@ -345,9 +459,37 @@ const sGame_PaletteDataset UMK3_A_Kano_Extras[] =
     { L"Animality", 0xb8db8, 0xb8dc8, indexUMK3ArcadeSprites_Kano, 0x03 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_Kano_P3[] =
+{
+    { L"Kano P3", 0xd3c7a, 0xd3cfa, indexUMK3ArcadeSprites_Kano, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Kano_Extras[] =
+{
+    { L"Gibs P1",   0xba258, 0xba2d8, indexUMK3ArcadeSprites_Kano, 0x01 },
+    { L"Gibs P2",   0xd6f24, 0xd6fa0, indexUMK3ArcadeSprites_Kano, 0x01 },
+    { L"Gibs P3",   0xd7746, 0xd77c2, indexUMK3ArcadeSprites_Kano, 0x01 },
+    { L"Babality",  0xb7a60, 0xb7a9c, indexUMK3ArcadeSprites_Kano, 0x02 },
+    { L"Animality", 0xb8db8, 0xb8dc8, indexUMK3ArcadeSprites_Kano, 0x03 },
+};
+
 const sGame_PaletteDataset UMK3_A_SubZero_Extras[] =
 {
     { L"Gibs",      0xba562, 0xba5e2, indexUMK3ArcadeSprites_SubZero, 0x01 },
+    { L"Babality",  0xb7c26, 0xb7c66, indexUMK3ArcadeSprites_SubZero, 0x02 },
+    { L"Animality", 0xb8d5e, 0xb8d6e, indexUMK3ArcadeSprites_SubZero, 0x03 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_SubZero_P3[] =
+{
+    { L"Sub-Zero P3", 0xd3e82, 0xd3f02, indexUMK3ArcadeSprites_SubZero, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_SubZero_Extras[] =
+{
+    { L"Gibs P1",   0xba562, 0xba5e2, indexUMK3ArcadeSprites_SubZero, 0x01 },
+    { L"Gibs P2",   0xd70a6, 0xd7126, indexUMK3ArcadeSprites_SubZero, 0x01 },
+    { L"Gibs P3",   0xd7946, 0xd79c0, indexUMK3ArcadeSprites_SubZero, 0x01 },
     { L"Babality",  0xb7c26, 0xb7c66, indexUMK3ArcadeSprites_SubZero, 0x02 },
     { L"Animality", 0xb8d5e, 0xb8d6e, indexUMK3ArcadeSprites_SubZero, 0x03 },
 };
@@ -359,9 +501,37 @@ const sGame_PaletteDataset UMK3_A_Sektor_Extras[] =
     { L"Animality", 0xb8d94, 0xb8da4, indexUMK3ArcadeSprites_Sektor, 0x03 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_Sektor_P3[] =
+{
+    { L"Sektor P3", 0xd4004, 0xd4084, indexUMK3ArcadeSprites_Sektor, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Sektor_Extras[] =
+{
+    { L"Gibs P1",   0x424f8, 0x42578, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P2",   0xc19ac, 0xc1a2c, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P3",   0xd7ac4, 0xd7b40, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Babality",  0xb7c68, 0xb7ca8, indexUMK3ArcadeSprites_Sektor, 0x02 },
+    { L"Animality", 0xb8d94, 0xb8da4, indexUMK3ArcadeSprites_Sektor, 0x03 },
+};
+
 const sGame_PaletteDataset UMK3_A_Sindel_Extras[] =
 {
     { L"Gibs",      0xba2da, 0xba358, indexUMK3ArcadeSprites_Sindel, 0x01 },
+    { L"Babality",  0xb7a9e, 0xb7ade, indexUMK3ArcadeSprites_Sindel, 0x02 },
+    { L"Animality", 0xb8dca, 0xb8dda, indexUMK3ArcadeSprites_Sindel, 0x03 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Sindel_P3[] =
+{
+    { L"Sindel P3", 0xd3f84, 0xd4002, indexUMK3ArcadeSprites_Sindel, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Sindel_Extras[] =
+{
+    { L"Gibs P1",   0xba2da, 0xba358, indexUMK3ArcadeSprites_Sindel, 0x01 },
+    { L"Gibs P2",   0xd7128, 0xd71a6, indexUMK3ArcadeSprites_Sindel, 0x01 },
+    { L"Gibs P3",   0xd7a44, 0xd7ac2, indexUMK3ArcadeSprites_Sindel, 0x01 },
     { L"Babality",  0xb7a9e, 0xb7ade, indexUMK3ArcadeSprites_Sindel, 0x02 },
     { L"Animality", 0xb8dca, 0xb8dda, indexUMK3ArcadeSprites_Sindel, 0x03 },
 };
@@ -373,9 +543,37 @@ const sGame_PaletteDataset UMK3_A_Stryker_Extras[] =
     { L"Animality", 0xb8e12, 0xb8e22, indexUMK3ArcadeSprites_Stryker, 0x03 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_Stryker_P3[] =
+{
+    { L"Stryker P3", 0xd3f04, 0xd3f82, indexUMK3ArcadeSprites_Stryker, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Stryker_Extras[] =
+{
+    { L"Gibs P1",   0xba3dc, 0xba45c, indexUMK3ArcadeSprites_Stryker, 0x01 },
+    { L"Gibs P2",   0xc188c, 0xc190c, indexUMK3ArcadeSprites_Stryker, 0x01 },
+    { L"Gibs P3",   0xd79c2, 0xd7a42, indexUMK3ArcadeSprites_Stryker, 0x01 },
+    { L"Babality",  0xb7d2c, 0xb7d6c, indexUMK3ArcadeSprites_Stryker, 0x02 },
+    { L"Animality", 0xb8e12, 0xb8e22, indexUMK3ArcadeSprites_Stryker, 0x03 },
+};
+
 const sGame_PaletteDataset UMK3_A_Cyrax_Extras[] =
 {
     { L"Gibs",      0x42904, 0x42982, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Babality",  0xb7db0, 0xb7df0, indexUMK3ArcadeSprites_Sektor, 0x02 },
+    { L"Animality", 0xb8ddc, 0xb8dec, indexUMK3ArcadeSprites_Cyrax, 0x03 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Cyrax_P3[] =
+{
+    { L"Cyrax P3", 0xd4086, 0xd4106, indexUMK3ArcadeSprites_Cyrax, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Cyrax_Extras[] =
+{
+    { L"Gibs P1",   0x42904, 0x42982, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P2",   0xd71a8, 0xd7224, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P3",   0xd7b42, 0xd7bbe, indexUMK3ArcadeSprites_Sektor, 0x01 },
     { L"Babality",  0xb7db0, 0xb7df0, indexUMK3ArcadeSprites_Sektor, 0x02 },
     { L"Animality", 0xb8ddc, 0xb8dec, indexUMK3ArcadeSprites_Cyrax, 0x03 },
 };
@@ -389,6 +587,21 @@ const sGame_PaletteDataset UMK3_A_KungLao_Extras[] =
     { L"Deadly Whirlwind",  0xb9fce, 0xba04e },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_KungLao_P3[] =
+{
+    { L"Kung Lao P3", 0xd4108, 0xd4188, indexUMK3ArcadeSprites_KungLao, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_KungLao_Extras[] =
+{
+    { L"Gibs P1",           0xba1d6, 0xba254, indexUMK3ArcadeSprites_KungLao, 0x01 },
+    { L"Gibs P2",           0x42984, 0x42a02, indexUMK3ArcadeSprites_KungLao, 0x01 },
+    { L"Gibs P3",           0xd7bc0, 0xd7c3c, indexUMK3ArcadeSprites_KungLao, 0x01 },
+    { L"Babality",          0xb7b64, 0xb7ba4, indexUMK3ArcadeSprites_KungLao, 0x02 },
+    { L"Animality",         0xb8d82, 0xb8d92, indexUMK3ArcadeSprites_KungLao, 0x03 },
+    { L"Deadly Whirlwind",  0xb9fce, 0xba04e },
+};
+
 const sGame_PaletteDataset UMK3_A_Kabal_Extras[] =
 {
     { L"Gibs",          0xba5e4, 0xba664, indexUMK3ArcadeSprites_Kabal, 0x01 },
@@ -397,9 +610,38 @@ const sGame_PaletteDataset UMK3_A_Kabal_Extras[] =
     { L"Soul Scream",   0xb7efa, 0xb7f7a },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_Kabal_P3[] =
+{
+    { L"Kabal P3", 0xd418a, 0xd420a, indexUMK3ArcadeSprites_Kabal, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Kabal_Extras[] =
+{
+    { L"Gibs P1",       0xba5e4, 0xba664, indexUMK3ArcadeSprites_Kabal, 0x01 },
+    { L"Gibs P2",       0xd7226, 0xd72a6, indexUMK3ArcadeSprites_Kabal, 0x01 },
+    { L"Gibs P3",       0xd7c3e, 0xd7cbe, indexUMK3ArcadeSprites_Kabal, 0x01 },
+    { L"Babality",      0xb7ae0, 0xb7b20, indexUMK3ArcadeSprites_Kabal, 0x02 },
+    { L"Animality",     0xb8e36, 0xb8e46, indexUMK3ArcadeSprites_Kabal, 0x03 },
+    { L"Soul Scream",   0xb7efa, 0xb7f7a },
+};
+
 const sGame_PaletteDataset UMK3_A_Sheeva_Extras[] =
 {
     { L"Gibs",      0xba4e0, 0xba560, indexUMK3ArcadeSprites_Sheeva, 0x01 },
+    { L"Babality",  0xb7cec, 0xb7d2a, indexUMK3ArcadeSprites_Sheeva, 0x02 },
+    { L"Animality", 0xb8e00, 0xb8e10, indexUMK3ArcadeSprites_Sheeva, 0x03 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Sheeva_P3[] =
+{
+    { L"Sheeva P3", 0xd420c, 0xd428c, indexUMK3ArcadeSprites_Sheeva, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Sheeva_Extras[] =
+{
+    { L"Gibs P1",   0xba4e0, 0xba560, indexUMK3ArcadeSprites_Sheeva, 0x01 },
+    { L"Gibs P2",   0xd72a8, 0xd7328, indexUMK3ArcadeSprites_Sheeva, 0x01 },
+    { L"Gibs P3",   0xd7cc0, 0xd7d40, indexUMK3ArcadeSprites_Sheeva, 0x01 },
     { L"Babality",  0xb7cec, 0xb7d2a, indexUMK3ArcadeSprites_Sheeva, 0x02 },
     { L"Animality", 0xb8e00, 0xb8e10, indexUMK3ArcadeSprites_Sheeva, 0x03 },
 };
@@ -429,9 +671,69 @@ const sGame_PaletteDataset UMK3_A_ShangTsung_Morphs[] =
     { L"Male Ninja",    0xbb5d6, 0xbb654, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_ShangTsung_P3[] =
+{
+    { L"Shang Tsung P3", 0xd428e, 0xd430e, indexUMK3ArcadeSprites_ShangTsung, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_ShangTsung_Morphs[] =
+{
+    { L"Sub-Zero",      0xb1286, 0xb1306, indexUMK3ArcadeSprites_ShangTsung, 0x10 },
+    { L"Sindel",        0xb1308, 0xb1384, indexUMK3ArcadeSprites_ShangTsung, 0x11 },
+    // this is now just for sektor
+    { L"Sektor",        0xb1386, 0xb1406, indexUMK3ArcadeSprites_ShangTsung, 0x12 },
+    { L"Stryker",       0xb1408, 0xb1488, indexUMK3ArcadeSprites_ShangTsung, 0x13 },
+    { L"Kung Lao",      0xb148a, 0xb1504, indexUMK3ArcadeSprites_ShangTsung, 0x14 },
+    { L"Kano",          0xb1506, 0xb1586, indexUMK3ArcadeSprites_ShangTsung, 0x15 },
+    { L"Jax",           0xb1588, 0xb1608, indexUMK3ArcadeSprites_ShangTsung, 0x16 },
+    { L"Nightwolf",     0xb160a, 0xb1686, indexUMK3ArcadeSprites_ShangTsung, 0x17 },
+    { L"Sonya",         0xb1688, 0xb1706, indexUMK3ArcadeSprites_ShangTsung, 0x18 },
+    { L"Kabal",         0xb1708, 0xb1788, indexUMK3ArcadeSprites_ShangTsung, 0x19 },
+    { L"Sheeva",        0xb178a, 0xb1808, indexUMK3ArcadeSprites_ShangTsung, 0x1a },
+    { L"Liu Kang",      0xb180a, 0xb188a, indexUMK3ArcadeSprites_ShangTsung, 0x1b },
+
+    { L"Kitana",        0xbb554, 0xbb5d4, indexUMK3ArcadeSprites_ShangTsung, 0x1c },
+    { L"Scorpion",      0xbb5d6, 0xbb654, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
+
+    { L"Ermac",             0xc1ac2, 0xc1b40, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
+    { L"Reptile",           0xc1bd2, 0xc1c50, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
+    { L"Classic Sub-Zero",  0xc1ce2, 0xc1d60, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
+    { L"Human Smoke",       0xc1df2, 0xc1e70, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
+    { L"Mileena",           0xc1eb2, 0xc1f32, indexUMK3ArcadeSprites_ShangTsung, 0x1c },
+    { L"Jade",              0xc1fa2, 0xc2022, indexUMK3ArcadeSprites_ShangTsung, 0x1c },
+    { L"Cyrax",             0xc6d6c, 0xc6dec, indexUMK3ArcadeSprites_ShangTsung, 0x12 },
+    { L"Smoke",             0xc6e2c, 0xc6eac, indexUMK3ArcadeSprites_ShangTsung, 0x12 },
+    { L"Noob Saibot",       0xc8392, 0xc8410, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
+    { L"Rain",              0xc84a2, 0xc8520, indexUMK3ArcadeSprites_ShangTsung, 0x1d },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_ShangTsung_Extras[] =
+{
+    { L"Gibs P1",   0xba666, 0xba6e4, indexUMK3ArcadeSprites_ShangTsung, 0x01 },
+    { L"Gibs P2",   0xd732a, 0xd73a8, indexUMK3ArcadeSprites_ShangTsung, 0x01 },
+    { L"Gibs P3",   0xd7d42, 0xd7dc0, indexUMK3ArcadeSprites_ShangTsung, 0x01 },
+    { L"Babality",  0xb7caa, 0xb7cea, indexUMK3ArcadeSprites_ShangTsung, 0x02 },
+    { L"Animality", 0xb8da6, 0xb8db6, indexUMK3ArcadeSprites_ShangTsung, 0x03 },
+};
+
 const sGame_PaletteDataset UMK3_A_LiuKang_Extras[] =
 {
     { L"Gibs",              0xba35a, 0xba3da, indexUMK3ArcadeSprites_LiuKang, 0x01 },
+    { L"Babality",          0xb7be4, 0xb7c24, indexUMK3ArcadeSprites_LiuKang, 0x02 },
+    { L"Animality",         0xb8dee, 0xb8dfe, indexUMK3ArcadeSprites_LiuKang, 0x03 },
+    { L"Arcade Cabinet",    0xbab70, 0xbabee },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_LiuKang_P3[] =
+{
+    { L"Liu Kang P3", 0xd4310, 0xd4390, indexUMK3ArcadeSprites_LiuKang, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_LiuKang_Extras[] =
+{
+    { L"Gibs P1",           0xba35a, 0xba3da, indexUMK3ArcadeSprites_LiuKang, 0x01 },
+    { L"Gibs P2",           0xc180a, 0xc188a, indexUMK3ArcadeSprites_LiuKang, 0x01 },
+    { L"Gibs P3",           0xd7dc2, 0xd7e42, indexUMK3ArcadeSprites_LiuKang, 0x01 },
     { L"Babality",          0xb7be4, 0xb7c24, indexUMK3ArcadeSprites_LiuKang, 0x02 },
     { L"Animality",         0xb8dee, 0xb8dfe, indexUMK3ArcadeSprites_LiuKang, 0x03 },
     { L"Arcade Cabinet",    0xbab70, 0xbabee },
@@ -444,9 +746,41 @@ const sGame_PaletteDataset UMK3_A_Smoke_Extras[] =
     { L"Animality", 0xb8e24, 0xb8e34, indexUMK3ArcadeSprites_Smoke, 0x03 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_Smoke_P3[] =
+{
+    { L"Smoke P3", 0xd4392, 0xd4412, indexUMK3ArcadeSprites_Smoke, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Smoke_Extras[] =
+{
+    { L"Gibs P1",   0x42884, 0x42902, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P2",   0xd73aa, 0xd7426, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P3",   0xd7e44, 0xd7ec0, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Babality",  0xb7df2, 0xb7e32, indexUMK3ArcadeSprites_Sektor, 0x02 },
+    { L"Animality", 0xb8e24, 0xb8e34, indexUMK3ArcadeSprites_Smoke, 0x03 },
+};
+
 const sGame_PaletteDataset UMK3_A_HumanSmoke_Extras[] =
 {
     { L"Gibs",      0x42476, 0x424f6, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x5844a, 0x5848a, indexUMK3ArcadeSprites_Reptile, 0x02 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_HumanSmoke_P2[] =
+{
+    { L"Human Smoke P2", 0xbf482, 0xbf502, indexUMK3ArcadeSprites_HumanSmoke, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_HumanSmoke_P3[] =
+{
+    { L"Human Smoke P3", 0xd47a2, 0xd4822, indexUMK3ArcadeSprites_HumanSmoke, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_HumanSmoke_Extras[] =
+{
+    { L"Gibs P1",   0x42476, 0x424f6, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P2",   0xc1602, 0xc1682, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P3",   0xd8250, 0xd82d0, indexUMK3ArcadeSprites_Reptile, 0x01 },
     { L"Babality",  0x5844a, 0x5848a, indexUMK3ArcadeSprites_Reptile, 0x02 },
 };
 
@@ -456,9 +790,35 @@ const sGame_PaletteDataset UMK3_A_ClassicSubZero_Extras[] =
     { L"Babality",  0x584ce, 0x5850e, indexUMK3ArcadeSprites_Reptile, 0x02 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_ClasicSubZero_P3[] =
+{
+    { L"Classic Sub-Zero P3", 0xd4720, 0xd47a0, indexUMK3ArcadeSprites_ClassicSubZero, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_ClasicSubZero_Extras[] =
+{
+    { L"Gibs P1",   0x42782, 0x42802, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P2",   0xd75ae, 0xd762e, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P3",   0xd81ce, 0xd824e, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0x584ce, 0x5850e, indexUMK3ArcadeSprites_Reptile, 0x02 },
+};
+
 const sGame_PaletteDataset UMK3_A_Ermac_Extras[] =
 {
     { L"Gibs",      0xba768, 0xba7e8, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0xb7e34, 0xb7e74, indexUMK3ArcadeSprites_Reptile, 0x02 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Ermac_P3[] =
+{
+    { L"Ermac P3", 0xd469e, 0xd471e, indexUMK3ArcadeSprites_Ermac, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Ermac_Extras[] =
+{
+    { L"Gibs P1",   0xba768, 0xba7e8, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P2",   0xc1684, 0xc1704, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P3",   0xd814c, 0xd81cc, indexUMK3ArcadeSprites_Reptile, 0x01 },
     { L"Babality",  0xb7e34, 0xb7e74, indexUMK3ArcadeSprites_Reptile, 0x02 },
 };
 
@@ -468,6 +828,71 @@ const sGame_PaletteDataset UMK3_A_Mileena_Extras[] =
     { L"Babality",          0x58594, 0x585d4, indexUMK3ArcadeSprites_Kitana, 0x02 },
     { L"Animality",         0xbb48e, 0xbb4ae, indexUMK3ArcadeSprites_Mileena, 0x03 },
     { L"Animality Extra",   0xbb4b0, 0xbb4d0, indexUMK3ArcadeSprites_Mileena, 0x04 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Mileena_P3[] =
+{
+    { L"Mileena P3", 0xd4518, 0xd4598, indexUMK3ArcadeSprites_Mileena, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Mileena_Extras[] =
+{
+    { L"Gibs P1",           0x4267e, 0x426fe, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Gibs P2",           0xd74aa, 0xd752a, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Gibs P3",           0xd7fc6, 0xd8046, indexUMK3ArcadeSprites_Kitana, 0x01 },
+    { L"Babality",          0x58594, 0x585d4, indexUMK3ArcadeSprites_Kitana, 0x02 },
+    { L"Animality",         0xbb48e, 0xbb4ae, indexUMK3ArcadeSprites_Mileena, 0x03 },
+    { L"Animality Extra",   0xbb4b0, 0xbb4d0, indexUMK3ArcadeSprites_Mileena, 0x04 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_NoobSaibot_P2[] =
+{
+    { L"Noob Saibot P2", 0xbf504, 0xbf584, indexUMK3ArcadeSprites_NoobSaibot, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_NoobSaibot_P3[] =
+{
+    { L"Noob Saibot P3", 0xd4824, 0xd48a4, indexUMK3ArcadeSprites_NoobSaibot, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Rain_P2[] =
+{
+    { L"Rain P2", 0xc36d2, 0xc3752, indexUMK3ArcadeSprites_Rain, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Rain_P3[] =
+{
+    { L"Rain P3", 0xd48a6, 0xd4926, indexUMK3ArcadeSprites_Rain, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Rain_Extras[] =
+{
+    { L"Gibs P1",   0xc3134, 0xc31b4, indexUMK3ArcadeSprites_Rain, 0x01 },
+    { L"Gibs P2",   0xc192a, 0xc19aa, indexUMK3ArcadeSprites_Rain, 0x01 },
+    { L"Gibs P3",   0xd82d2, 0xd8352, indexUMK3ArcadeSprites_Rain, 0x01 },
+    { L"Babality",  0xc4072, 0xc40b2, indexUMK3ArcadeSprites_Rain, 0x02 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Triborg_P1[] =
+{
+    { L"Triborg P1", 0xf40c0, 0xf4140, indexUMK3ArcadeSprites_Sektor, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Triborg_P2[] =
+{
+    { L"Triborg P2", 0xf4142, 0xf41c2, indexUMK3ArcadeSprites_Sektor, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Triborg_P3[] =
+{
+    { L"Triborg P3", 0xd849a, 0xd851a, indexUMK3ArcadeSprites_Sektor, 0x00 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Triborg_Extras[] =
+{
+    { L"Gibs P1", 0xf44ce, 0xf454e, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P2", 0xd7630, 0xd76b0, indexUMK3ArcadeSprites_Sektor, 0x01 },
+    { L"Gibs P3", 0xd8354, 0xd83d4, indexUMK3ArcadeSprites_Sektor, 0x01 },
 };
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_VSScreen[] =
@@ -486,6 +911,15 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kitana[] =
     { L"Darks",         0xb9226, 0xb9266, indexUMK3ArcadeSprites_Bonus, 0x5f },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Kitana[] =
+{
+    { L"Accent Color P1",   0xb936a, 0xb93ea, indexUMK3ArcadeSprites_Bonus, 0x5e, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0xb9a02, 0xb9a82, indexUMK3ArcadeSprites_Bonus, 0x5e, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd6362, 0xd63e2, indexUMK3ArcadeSprites_Bonus, 0x5e, &pairNextAndNext },
+    { L"Skin",              0xb9268, 0xb9368, indexUMK3ArcadeSprites_Bonus, 0x60 },
+    { L"Darks",             0xb9226, 0xb9266, indexUMK3ArcadeSprites_Bonus, 0x5f },
+};
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_JadeandMileena[] =
 {
     { L"Jade Accent Color",         0xb9530, 0xb95b0, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNextAndNext5 },
@@ -493,6 +927,19 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_JadeandMileena[] =
     { L"Mileena Accent Color P1",   0x53828, 0x538a8, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNext2AndNext3 },
     { L"Mileena Accent Color P2",   0x51ef8, 0x51f78, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNextAndNext },
     { L"Mileena Skin",              0x51f7a, 0x5207a, indexUMK3ArcadeSprites_Bonus, 0x52 },
+    { L"Shared Darks",              0xb93ec, 0xb942c, indexUMK3ArcadeSprites_Bonus, 0x53 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_JadeandMileena[] =
+{
+    { L"Jade Accent Color P2",      0xb9530, 0xb95b0, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNext2AndNext8 },
+    { L"Jade Accent Color P3",      0xd63e4, 0xd6464, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNextAndNext7 },
+    { L"Jade Skin",                 0xb942e, 0xb952e, indexUMK3ArcadeSprites_Bonus, 0x52 },
+    { L"Mileena Accent Color P1",   0x53828, 0x538a8, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNext3AndNext5 },
+    { L"Mileena/Rain Accent Color P2", 0x51ef8, 0x51f78, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNext2AndNext4 },
+    { L"Mileena Accent Color P3",   0xd6466, 0xd64e6, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNext2AndNext3 },
+    { L"Mileena Skin P1/P2",        0x51f7a, 0x5207a, indexUMK3ArcadeSprites_Bonus, 0x52 },
+    { L"Mileena Skin P3",           0xd64e6, 0xd65e6, indexUMK3ArcadeSprites_Bonus, 0x52 },
     { L"Shared Darks",              0xb93ec, 0xb942c, indexUMK3ArcadeSprites_Bonus, 0x53 },
 };
 
@@ -504,6 +951,29 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_MaleNinja1[] =
     { L"Human Smoke Accent Color",          0x5238a, 0x5240a, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNextAndNext3 },
     { L"Scorpion and Human Smoke Skin",     0xb95f4, 0xb96f4, indexUMK3ArcadeSprites_Bonus, 0x68 },
     { L"Noob Saibot Skin/Accent Color P1",  0x52488, 0x52588, indexUMK3ArcadeSprites_Bonus, 0x67, &pairNext },
+    { L"Shared Darks",                      0xb95b2, 0xb95f2, indexUMK3ArcadeSprites_Bonus, 0x6a },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_MaleNinja1[] =
+{
+    { L"Scorpion Accent Color P1",          0xb96f6, 0xb9776, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNext8And9And12 },
+    { L"Scorpion Accent Color P2",          0x53620, 0x536a0, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNext7And9And11 },
+    { L"Scorpion Accent Color P3",          0xd65e8, 0xd6668, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNext6And9And10 },
+
+    { L"Human Smoke Accent Color P1",       0x5238a, 0x5240a, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNext5AndNext9 },
+    { L"Human Smoke Accent Color P2",       0xc47a2, 0xc4822, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNext4AndNext8 },
+    { L"Human Smoke Accent Color P3",       0xd6872, 0xd68f2, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNext3AndNext7 },
+
+    { L"Noob Saibot Accent Color P1",       0xc4824, 0xc48a4, indexUMK3ArcadeSprites_Bonus, 0x67, &pairNext2AndNext6 },
+    { L"Noob Saibot Skin/Accent Color P2",  0x52488, 0x52588, indexUMK3ArcadeSprites_Bonus, 0x67, &pairNext5 },
+
+    { L"Scorpion and Human Smoke Skin",     0xb95f4, 0xb96f4, indexUMK3ArcadeSprites_Bonus, 0x68 },
+
+    // this needs to be drawn over accent color and skin.  rip
+    { L"Scorpion Face P1",                  0xb9778, 0xb97f8, indexUMK3ArcadeSprites_Bonus, 0x85 },
+    { L"Scorpion Face P2",                  0xffdee, 0xffe6e, indexUMK3ArcadeSprites_Bonus, 0x85 },
+    { L"Scorpion Face P3",                  0xd666a, 0xd66ea, indexUMK3ArcadeSprites_Bonus, 0x85 },
+
     { L"Shared Darks",                      0xb95b2, 0xb95f2, indexUMK3ArcadeSprites_Bonus, 0x6a },
 };
 
@@ -519,12 +989,47 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_MaleNinja2[] =
     { L"Shared Darks",                      0xb9060, 0xb90a0, indexUMK3ArcadeSprites_Bonus, 0x6c },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_MaleNinja2[] =
+{
+    { L"Ermac Accent Color P1",             0x5349a, 0x5351a, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext11AndNext12 },
+    { L"Ermac Accent Color P2",             0x53418, 0x53498, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext10AndNext11 },
+    { L"Ermac Accent Color P3",             0xd676e, 0xd67ee, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext9AndNext10 },
+
+    { L"Classic Sub-Zero Accent Color P1",  0x5359e, 0x5361e, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext8AndNext9 },
+    { L"Classic Sub-Zero Accent Color P2",  0x5351c, 0x5359c, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext7AndNext8 },
+    { L"Classic Sub-Zero Accent Color P3",  0xd67f0, 0xd6870, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext6AndNext7 },
+
+    { L"Reptile/Jade Accent Color P1",      0xb91a4, 0xb9224, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext5AndNext6 },
+    { L"Reptile Accent Color P2",           0x537a6, 0x53826, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext4AndNext5 },
+    { L"Reptile Accent Color P3",           0xd66ec, 0xd676c, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext3AndNext4 },
+
+    { L"Rain Accent Color P1",              0xc448c, 0xc450c, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext2AndNext3 },
+    // Rain Accent Color P2
+    { L"Rain Accent Color P3",              0xd68f4, 0xd6974, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNextAndNext },
+
+    { L"Shared Skin",                       0xb90a2, 0xb91a2, indexUMK3ArcadeSprites_Bonus, 0x6d },
+    { L"Shared Darks",                      0xb9060, 0xb90a0, indexUMK3ArcadeSprites_Bonus, 0x6c },
+};
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_CyraxandSmoke[] =
 {
     { L"Cyrax Accent Color P1", 0xb3252, 0xb3352, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext4 },
     { L"Cyrax Accent Color P2", 0x52fd4, 0x530d4, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext3 },
     { L"Smoke Accent Color P1", 0x51abe, 0x51bbe, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext2 },
     { L"Smoke Accent Color P2", 0x53316, 0x53416, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext },
+    { L"Shared Darks",          0xb3354, 0xb3394, indexUMK3ArcadeSprites_Bonus, 0x50 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_CyraxandSmoke[] =
+{
+    { L"Cyrax Accent Color P1", 0xb3252, 0xb3352, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext6 },
+    { L"Cyrax Accent Color P2", 0x52fd4, 0x530d4, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext5 },
+    { L"Cyrax Accent Color P3", 0xd5ae6, 0xd5be6, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext4 },
+
+    { L"Smoke Accent Color P1", 0x51abe, 0x51bbe, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext3 },
+    { L"Smoke Accent Color P2", 0x53316, 0x53416, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext2 },
+    { L"Smoke Accent Color P3", 0xd6260, 0xd6360, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext },
+
     { L"Shared Darks",          0xb3354, 0xb3394, indexUMK3ArcadeSprites_Bonus, 0x50 },
 };
 
@@ -535,10 +1040,30 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sektor[] =
     { L"Darks",             0xb3396, 0xb33d6, indexUMK3ArcadeSprites_Bonus, 0x72 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Sektor[] =
+{
+    { L"Sektor Accent Color P1",    0xb33d8, 0xb34d4, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext6 },
+    { L"Sektor Accent Color P2",    0x52ed2, 0x52fce, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext5 },
+    { L"Sektor Accent Color P3",    0xd59a2, 0xd5a9e, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext5 },
+    { L"Triborg Accent Color P1",   0xf41c4, 0xf42c4, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext3 },
+    { L"Triborg Accent Color P2",   0xf42c6, 0xf43c6, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext2 },
+    { L"Triborg Accent Color P3",   0xd851c, 0xd861c, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext },
+    { L"Darks",                     0xb3396, 0xb33d6, indexUMK3ArcadeSprites_Bonus, 0x72 },
+    { L"Sektor Darks P3",           0xd5aa4, 0xd5ae4, indexUMK3ArcadeSprites_Bonus, 0x72 },
+};
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sonya[] =
 {
     { L"Accent Color P1",   0xb1e68, 0xb1f64, indexUMK3ArcadeSprites_Bonus, 0x7c, &pairNext2AndNext3 },
     { L"Accent Color P2",   0x529cc, 0x52ac8, indexUMK3ArcadeSprites_Bonus, 0x7c, &pairNextAndNext },
+    { L"Skin and Hair",     0xb1c68, 0xb1e66, indexUMK3ArcadeSprites_Bonus, 0x7e },
+    { L"Darks",             0xb1f66, 0xb1fa4, indexUMK3ArcadeSprites_Bonus, 0x7d },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Sonya[] =
+{
+    { L"Accent Color P1",   0xb1e68, 0xb1f64, indexUMK3ArcadeSprites_Bonus, 0x7c, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x529cc, 0x52ac8, indexUMK3ArcadeSprites_Bonus, 0x7c, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd539a, 0xd5496, indexUMK3ArcadeSprites_Bonus, 0x7c, &pairNextAndNext },
     { L"Skin and Hair",     0xb1c68, 0xb1e66, indexUMK3ArcadeSprites_Bonus, 0x7e },
     { L"Darks",             0xb1f66, 0xb1fa4, indexUMK3ArcadeSprites_Bonus, 0x7d },
 };
@@ -552,12 +1077,32 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kano[] =
     { L"Core and Eye",          0xb22e4, 0xb234e, indexUMK3ArcadeSprites_Bonus, 0x5b },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Kano[] =
+{
+    { L"Accent Color P1",       0xb21a4, 0xb22a2, indexUMK3ArcadeSprites_Bonus, 0x5a, &pairNext3And4And5 },
+    { L"Accent Color P2",       0x528cc, 0x529ca, indexUMK3ArcadeSprites_Bonus, 0x5a, &pairNextSkippedAndNextPair },
+    { L"Accent Color P3",       0xd529a, 0xd5398, indexUMK3ArcadeSprites_Bonus, 0x5a, &pairNext3Palettes },
+    { L"Skin",                  0xb1fa6, 0xb21a2, indexUMK3ArcadeSprites_Bonus, 0x5d },
+    { L"Darks and Eyeplate",    0xb22a4, 0xb22e2, indexUMK3ArcadeSprites_Bonus, 0x5c },
+    { L"Core and Eye",          0xb22e4, 0xb234e, indexUMK3ArcadeSprites_Bonus, 0x5b },
+};
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Stryker[] =
 {
     { L"Accent Color P1",   0xb2350, 0xb2450, indexUMK3ArcadeSprites_Bonus, 0x7f, &pairNext2AndNext3 },
     { L"Accent Color P2",   0x52cce, 0x52dce, indexUMK3ArcadeSprites_Bonus, 0x7f, &pairNextAndNext },
     { L"Skin",              0xb2452, 0xb264c, indexUMK3ArcadeSprites_Bonus, 0x81 },
     { L"Darks",             0xb264e, 0xb268e, indexUMK3ArcadeSprites_Bonus, 0x80 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Stryker[] =
+{
+    { L"Accent Color P1",   0xb2350, 0xb2450, indexUMK3ArcadeSprites_Bonus, 0x7f, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x52cce, 0x52dce, indexUMK3ArcadeSprites_Bonus, 0x7f, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd579e, 0xd589e, indexUMK3ArcadeSprites_Bonus, 0x7f, &pairNextAndNext3 },
+    { L"Skin",              0xb2452, 0xb264c, indexUMK3ArcadeSprites_Bonus, 0x81 },
+    { L"Darks P1/P2",       0xb264e, 0xb268e, indexUMK3ArcadeSprites_Bonus, 0x80 },
+    { L"Darks P3",          0xd575c, 0xd579c, indexUMK3ArcadeSprites_Bonus, 0x80 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kabal[] =
@@ -568,10 +1113,29 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kabal[] =
     { L"Darks and Vest",    0xb2890, 0xb2990, indexUMK3ArcadeSprites_Bonus, 0x58 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Kabal[] =
+{
+    { L"Accent Color P1",       0xb2992, 0xb29ce, indexUMK3ArcadeSprites_Bonus, 0x57, &pairNext3AndNext4 },
+    { L"Accent Color P2",       0x53114, 0x53150, indexUMK3ArcadeSprites_Bonus, 0x57, &pairNext2AndNext3 },
+    { L"Accent Color P3",       0xd5e2e, 0xd5e6a, indexUMK3ArcadeSprites_Bonus, 0x57, &pairNextAndNext3 },
+    { L"Skin",                  0xb2690, 0xb288e, indexUMK3ArcadeSprites_Bonus, 0x59 },
+    { L"Darks and Vest P1/P2",  0xb2890, 0xb2990, indexUMK3ArcadeSprites_Bonus, 0x58 },
+    { L"Darks and Vest P3",     0xd5d2c, 0xd5e2c, indexUMK3ArcadeSprites_Bonus, 0x58 },
+};
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_KungLao[] =
 {
     { L"Accent Color P1",   0xb2c0c, 0xb2c48, indexUMK3ArcadeSprites_Bonus, 0x61, &pairNext2AndNext3 },
     { L"Accent Color P2",   0x530d6, 0x53112, indexUMK3ArcadeSprites_Bonus, 0x61, &pairNextAndNext },
+    { L"Skin and Harness",  0xb29d0, 0xb2bc8, indexUMK3ArcadeSprites_Bonus, 0x63 },
+    { L"Darks",             0xb2bca, 0xb2c0a, indexUMK3ArcadeSprites_Bonus, 0x62 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_KungLao[] =
+{
+    { L"Accent Color P1",   0xb2c0c, 0xb2c48, indexUMK3ArcadeSprites_Bonus, 0x61, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x530d6, 0x53112, indexUMK3ArcadeSprites_Bonus, 0x61, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd5cea, 0xd5d26, indexUMK3ArcadeSprites_Bonus, 0x61, &pairNextAndNext },
     { L"Skin and Harness",  0xb29d0, 0xb2bc8, indexUMK3ArcadeSprites_Bonus, 0x63 },
     { L"Darks",             0xb2bca, 0xb2c0a, indexUMK3ArcadeSprites_Bonus, 0x62 },
 };
@@ -584,10 +1148,29 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sindel[] =
     { L"Darks",             0xb2e4a, 0xb2e8a, indexUMK3ArcadeSprites_Bonus, 0x7a },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Sindel[] =
+{
+    { L"Accent Color P1",   0xb2e8c, 0xb2f8c, indexUMK3ArcadeSprites_Bonus, 0x79, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x52dd0, 0x52ed0, indexUMK3ArcadeSprites_Bonus, 0x79, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd58a0, 0xd59a0, indexUMK3ArcadeSprites_Bonus, 0x79, &pairNextAndNext },
+    { L"Skin",              0xb2c4a, 0xb2e48, indexUMK3ArcadeSprites_Bonus, 0x7b },
+    { L"Darks",             0xb2e4a, 0xb2e8a, indexUMK3ArcadeSprites_Bonus, 0x7a },
+};
+
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_LiuKang[] =
 {
     { L"Accent Color P1",   0xb31d0, 0xb3250, indexUMK3ArcadeSprites_Bonus, 0x64, &pairNext2AndNext3 },
     { L"Accent Color P2",   0x53294, 0x53314, indexUMK3ArcadeSprites_Bonus, 0x64, &pairNextAndNext },
+    { L"Skin",              0xb2f8e, 0xb318c, indexUMK3ArcadeSprites_Bonus, 0x66 },
+    { L"Darks",             0xb318e, 0xb31ce, indexUMK3ArcadeSprites_Bonus, 0x65 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_LiuKang[] =
+{
+    { L"Accent Color P1",   0xb31d0, 0xb3250, indexUMK3ArcadeSprites_Bonus, 0x64, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x53294, 0x53314, indexUMK3ArcadeSprites_Bonus, 0x64, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd619e, 0xd621c, indexUMK3ArcadeSprites_Bonus, 0x64, &pairNextAndNext },
     { L"Skin",              0xb2f8e, 0xb318c, indexUMK3ArcadeSprites_Bonus, 0x66 },
     { L"Darks",             0xb318e, 0xb31ce, indexUMK3ArcadeSprites_Bonus, 0x65 },
 };
@@ -600,6 +1183,15 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_SubZero[] =
     { L"Darks",             0xb37d8, 0xb3818, indexUMK3ArcadeSprites_Bonus, 0x83 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_SubZero[] =
+{
+    { L"Accent Color P1",   0xb34d6, 0xb35d6, indexUMK3ArcadeSprites_Bonus, 0x82, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x52bcc, 0x52ccc, indexUMK3ArcadeSprites_Bonus, 0x82, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd565a, 0xd575a, indexUMK3ArcadeSprites_Bonus, 0x82, &pairNextAndNext },
+    { L"Skin",              0xb35d8, 0xb37d6, indexUMK3ArcadeSprites_Bonus, 0x84 },
+    { L"Darks",             0xb37d8, 0xb3818, indexUMK3ArcadeSprites_Bonus, 0x83 },
+};
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_ShangTsung[] =
 {
     { L"Accent Color P1",   0xb3a56, 0xb3a96, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext2AndNext3 },
@@ -608,10 +1200,29 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_ShangTsung[] =
     { L"Darks",             0xb3a14, 0xb3a54, indexUMK3ArcadeSprites_Bonus, 0x74 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_ShangTsung[] =
+{
+    { L"Accent Color P1",   0xb3a56, 0xb3a96, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext3AndNext5 },
+    { L"Accent Color P2",   0x53252, 0x53292, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext2AndNext4 },
+    { L"Accent Color P3",   0xd6164, 0xd619e, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext2AndNext3 },
+    { L"Skin P1/P2",        0xb381a, 0xb3a12, indexUMK3ArcadeSprites_Bonus, 0x75 },
+    { L"Skin P3",           0xd5f6c, 0xd6164, indexUMK3ArcadeSprites_Bonus, 0x75 },
+    { L"Darks",             0xb3a14, 0xb3a54, indexUMK3ArcadeSprites_Bonus, 0x74 },
+};
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Nightwolf[] =
 {
     { L"Accent Color P1",   0xb3ada, 0xb3b58, indexUMK3ArcadeSprites_Bonus, 0x6e, &pairNext2AndNext3 },
     { L"Accent Color P2",   0x52b4c, 0x52bca, indexUMK3ArcadeSprites_Bonus, 0x6e, &pairNextAndNext },
+    { L"Skin",              0xb3b5a, 0xb3d58, indexUMK3ArcadeSprites_Bonus, 0x70 },
+    { L"Darks",             0xb3a98, 0xb3ad8, indexUMK3ArcadeSprites_Bonus, 0x6f },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Nightwolf[] =
+{
+    { L"Accent Color P1",   0xb3ada, 0xb3b58, indexUMK3ArcadeSprites_Bonus, 0x6e, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x52b4c, 0x52bca, indexUMK3ArcadeSprites_Bonus, 0x6e, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd55da, 0xd5658, indexUMK3ArcadeSprites_Bonus, 0x6e, &pairNextAndNext },
     { L"Skin",              0xb3b5a, 0xb3d58, indexUMK3ArcadeSprites_Bonus, 0x70 },
     { L"Darks",             0xb3a98, 0xb3ad8, indexUMK3ArcadeSprites_Bonus, 0x6f },
 };
@@ -624,12 +1235,31 @@ const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sheeva[] =
     { L"Darks",             0xb3f5a, 0xb3f9a, indexUMK3ArcadeSprites_Bonus, 0x77 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Sheeva[] =
+{
+    { L"Accent Color P1",   0xb3f9c, 0xb409a, indexUMK3ArcadeSprites_Bonus, 0x76, &pairNext3AndNext4 },
+    { L"Accent Color P2",   0x53152, 0x53250, indexUMK3ArcadeSprites_Bonus, 0x76, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd5e6c, 0xd5f6a, indexUMK3ArcadeSprites_Bonus, 0x76, &pairNextAndNext },
+    { L"Skin",              0xb3d5a, 0xb3f58, indexUMK3ArcadeSprites_Bonus, 0x78 },
+    { L"Darks",             0xb3f5a, 0xb3f9a, indexUMK3ArcadeSprites_Bonus, 0x77 },
+};
+
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Jax[] =
 {
     { L"Accent Color P1",   0xb429c, 0xb4318, indexUMK3ArcadeSprites_Bonus, 0x54, &pairNext2AndNext3 },
     { L"Accent Color P2",   0x52aca, 0x52b46, indexUMK3ArcadeSprites_Bonus, 0x54, &pairNextAndNext },
     { L"Skin",              0xb409c, 0xb429a, indexUMK3ArcadeSprites_Bonus, 0x56 },
     { L"Darks and Arms",    0xb431a, 0xb439a, indexUMK3ArcadeSprites_Bonus, 0x55 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_Jax[] =
+{
+    { L"Accent Color P1",       0xb429c, 0xb4318, indexUMK3ArcadeSprites_Bonus, 0x54, &pairNext3AndNext4 },
+    { L"Accent Color P2",       0x52aca, 0x52b46, indexUMK3ArcadeSprites_Bonus, 0x54, &pairNext2AndNext3 },
+    { L"Accent Color P3",       0xd5498, 0xd5514, indexUMK3ArcadeSprites_Bonus, 0x54, &pairNextAndNext3 },
+    { L"Skin",                  0xb409c, 0xb429a, indexUMK3ArcadeSprites_Bonus, 0x56 },
+    { L"Darks and Arms P1/P2",  0xb431a, 0xb439a, indexUMK3ArcadeSprites_Bonus, 0x55 },
+    { L"Darks and Arms P3",     0xd5516, 0xd5596, indexUMK3ArcadeSprites_Bonus, 0x55 },
 };
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_KombatKode[] =
@@ -703,6 +1333,15 @@ const sGame_PaletteDataset UMK3_A_Portraits_Faded[] =
     { L"Sheeva",            0x5008a, 0x5018a, indexUMK3ArcadeSprites_Bonus, 0x1d },
     { L"Shang Tsung",       0x5018c, 0x5028c, indexUMK3ArcadeSprites_Bonus, 0x1b },
     { L"Liu Kang",          0x5028e, 0x5038e, indexUMK3ArcadeSprites_Bonus, 0x14 },
+};
+
+const sGame_PaletteDataset UMK3Plus_A_Portraits_PlusCharacters[] =
+{
+    { L"Rain",                  0xc4c30, 0xc4d30 },
+    { L"Human Smoke",           0xbf020, 0xbf120 },
+    { L"Human Smoke (Faded)",   0xbef16, 0xbf016 },
+    { L"Noob Saibot",           0xbf152, 0xbf252 },
+    { L"Noob Saibot (Faded)",   0xbf372, 0xbf472 },
 };
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_CharacterSelect[] =
@@ -803,6 +1442,33 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_SoulScream[] =
     { L"Sektor and Smoke",          0x4589a, 0x4591a, indexUMK3ArcadeSprites_Bonus, 0x07 },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_BonusPalettes_SoulScream[] =
+{
+    { L"Male Ninja",                0x4517e, 0x451fe, indexUMK3ArcadeSprites_Bonus, 0x06 },
+    { L"Female Ninja",              0x45200, 0x45280, indexUMK3ArcadeSprites_Bonus, 0x05 },
+    { L"Kano",                      0x45282, 0x45302, indexUMK3ArcadeSprites_Kano, 0x00 },
+    { L"Sonya",                     0x45304, 0x45384, indexUMK3ArcadeSprites_Sonya, 0x00 },
+    { L"Jax",                       0x45386, 0x45406, indexUMK3ArcadeSprites_Jax, 0x00 },
+    { L"Nightwolf",                 0x45408, 0x45488, indexUMK3ArcadeSprites_Nightwolf, 0x00 },
+    { L"Sub-Zero",                  0x4548a, 0x4550a, indexUMK3ArcadeSprites_SubZero, 0x00 },
+    { L"Stryker",                   0x4550c, 0x4558c, indexUMK3ArcadeSprites_Stryker, 0x00 },
+    { L"Sindel",                    0x4558e, 0x4560e, indexUMK3ArcadeSprites_Sindel, 0x00 },
+    { L"Cyrax",                     0x45610, 0x45690, indexUMK3ArcadeSprites_Bonus, 0x07 },
+    { L"Kung Lao",                  0x45692, 0x45712, indexUMK3ArcadeSprites_KungLao, 0x00 },
+    { L"Kabal",                     0x45714, 0x45794, indexUMK3ArcadeSprites_Kabal, 0x00 },
+    { L"Sheeva",                    0x45796, 0x45816, indexUMK3ArcadeSprites_Sheeva, 0x00 },
+    { L"Shang Tsung and Liu Kang",  0x45818, 0x45898, indexUMK3ArcadeSprites_Bonus, 0x08 },
+    
+    { L"Smoke",                     0x4589a, 0x4591a, indexUMK3ArcadeSprites_Bonus, 0x07 },
+    { L"Ermac",                         0xbe928, 0xbe9a8, indexUMK3ArcadeSprites_Ermac, 0x00 },
+    { L"Reptile",                       0xbe9aa, 0xbea2a, indexUMK3ArcadeSprites_Reptile, 0x00 },
+    { L"Classic Sub-Zero/Noob Saibot",  0xbea2c, 0xbeaac, indexUMK3ArcadeSprites_ClassicSubZero, 0x00 },
+    { L"Human Smoke",                   0xbeaae, 0xbeb2e, indexUMK3ArcadeSprites_HumanSmoke, 0x00 },
+    { L"Mileena",                       0xbeb30, 0xbebb0, indexUMK3ArcadeSprites_Mileena, 0x00 },
+    { L"Jade",                          0xbebb2, 0xbec32, indexUMK3ArcadeSprites_Jade, 0x00 },
+    { L"Sektor",                        0xbec34, 0xbecb4, indexUMK3ArcadeSprites_Sektor, 0x00 },
+};
+
 const sGame_PaletteDataset UMK3_A_BonusPalettes_HUD[] =
 {
     { L"Lifebars",          0xbade8, 0xbae68, indexUMK3ArcadeSprites_Bonus, 0x3e, &pairNext },
@@ -861,6 +1527,39 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_FatalScream[] =
     { L"Male Ninja",    0xb9f76, 0xb9fb6, indexUMK3ArcadeSprites_Bonus, 0x2a },
 };
 
+const sGame_PaletteDataset UMK3Plus_A_BonusPalettes_FatalScream[] =
+{
+    { L"Cyrax",         0x13bce, 0x13c0e, indexUMK3ArcadeSprites_Bonus, 0x23 },
+    { L"Smoke",         0x13c32, 0x13c72, indexUMK3ArcadeSprites_Bonus, 0x23 },
+    { L"Kung Lao",      0xb9bc2, 0xb9c02, indexUMK3ArcadeSprites_Bonus, 0x28 },
+    { L"Stryker",       0xb9c04, 0xb9c44, indexUMK3ArcadeSprites_Bonus, 0x31 },
+    { L"Sindel P1",     0xb9c46, 0xb9c86, indexUMK3ArcadeSprites_Bonus, 0x2e },
+    { L"Sindel P2",     0x13c96, 0x13cd6, indexUMK3ArcadeSprites_Bonus, 0x2f },
+    { L"Sonya",         0xb9c88, 0xb9cc4, indexUMK3ArcadeSprites_Bonus, 0x30 },
+    { L"Kano",          0xb9cc6, 0xb9d04, indexUMK3ArcadeSprites_Bonus, 0x27 },
+    { L"Sheeva",        0xb9d06, 0xb9d44, indexUMK3ArcadeSprites_Bonus, 0x2d },
+    { L"Jax",           0xb9d46, 0xb9d84, indexUMK3ArcadeSprites_Bonus, 0x25 },
+    { L"Liu Kang",      0xb9da8, 0xb9de8, indexUMK3ArcadeSprites_Bonus, 0x29 },
+    { L"Shang Tsung",   0xb9dea, 0xb9e2a, indexUMK3ArcadeSprites_Bonus, 0x2c },
+    { L"Kabal",         0xb9e2c, 0xb9e6c, indexUMK3ArcadeSprites_Bonus, 0x26 },
+    { L"Nightwolf",     0xb9e6e, 0xb9eae, indexUMK3ArcadeSprites_Bonus, 0x2b },
+    { L"Sub-Zero",      0xb9eb0, 0xb9ef0, indexUMK3ArcadeSprites_Bonus, 0x32 },
+    { L"Sektor",        0xb9ef2, 0xb9f32, indexUMK3ArcadeSprites_Bonus, 0x23 },
+
+    { L"Kitana",            0xb9f34, 0xb9f74, indexUMK3ArcadeSprites_Bonus, 0x24 },
+    { L"Scorpion",          0xb9f76, 0xb9fb6, indexUMK3ArcadeSprites_Bonus, 0x2a },
+
+    { L"Reptile",           0xc6978, 0xc69b8, indexUMK3ArcadeSprites_Bonus, 0x2a },
+    { L"Ermac",             0xc69f8, 0xc6a38, indexUMK3ArcadeSprites_Bonus, 0x2a },
+    { L"Classic Sub-Zero",  0xc6a78, 0xc6ab8, indexUMK3ArcadeSprites_Bonus, 0x2a },
+    { L"Smoke",             0xc6af8, 0xc6b38, indexUMK3ArcadeSprites_Bonus, 0x2a },
+    { L"Noob Saibot",       0xc6b78, 0xc6bb8, indexUMK3ArcadeSprites_Bonus, 0x2a },
+    { L"Rain",              0xc6bf8, 0xc6c38, indexUMK3ArcadeSprites_Bonus, 0x2a },
+    { L"Jade",              0xc6c78, 0xc6cb8, indexUMK3ArcadeSprites_Bonus, 0x24 },
+    { L"Mileena",           0xc6ce8, 0xc6d28, indexUMK3ArcadeSprites_Bonus, 0x24 },
+
+};
+
 const sGame_PaletteDataset UMK3_A_BONUS_PALETTES_HIDDENGAME[] =
 {
     { L"Explosions",    0xbacf4, 0xbad14, indexUMK3ArcadeSprites_Bonus, 0x01, &pairFullyLinkedNode },
@@ -875,11 +1574,27 @@ const sDescTreeNode UMK3_A_LIUKANG_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_LiuKang_Extras, ARRAYSIZE(UMK3_A_LiuKang_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_LiuKang_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_LIUKANG_PALETTES_P1, ARRAYSIZE(UMK3_A_LIUKANG_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_LIUKANG_PALETTES_P2, ARRAYSIZE(UMK3_A_LIUKANG_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_LiuKang_P3, ARRAYSIZE(UMK3Plus_A_LiuKang_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_LiuKang_Extras, ARRAYSIZE(UMK3Plus_A_LiuKang_Extras) },
+};
+
 const sDescTreeNode UMK3_A_KUNGLAO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KUNGLAO_PALETTES_P1, ARRAYSIZE(UMK3_A_KUNGLAO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KUNGLAO_PALETTES_P2, ARRAYSIZE(UMK3_A_KUNGLAO_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_KungLao_Extras, ARRAYSIZE(UMK3_A_KungLao_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_KungLao_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KUNGLAO_PALETTES_P1, ARRAYSIZE(UMK3_A_KUNGLAO_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KUNGLAO_PALETTES_P2, ARRAYSIZE(UMK3_A_KUNGLAO_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_KungLao_P3, ARRAYSIZE(UMK3Plus_A_KungLao_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_KungLao_Extras, ARRAYSIZE(UMK3Plus_A_KungLao_Extras) },
 };
 
 const sDescTreeNode UMK3_A_REPTILE_COLLECTION[] =
@@ -889,11 +1604,27 @@ const sDescTreeNode UMK3_A_REPTILE_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Reptile_Extras, ARRAYSIZE(UMK3_A_Reptile_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Reptile_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_REPTILE_PALETTES_P1, ARRAYSIZE(UMK3_A_REPTILE_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_REPTILE_PALETTES_P2, ARRAYSIZE(UMK3_A_REPTILE_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Reptile_P3, ARRAYSIZE(UMK3Plus_A_Reptile_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Reptile_Extras, ARRAYSIZE(UMK3Plus_A_Reptile_Extras) },
+};
+
 const sDescTreeNode UMK3_A_SUBZERO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SUBZERO_PALETTES_P1, ARRAYSIZE(UMK3_A_SUBZERO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SUBZERO_PALETTES_P2, ARRAYSIZE(UMK3_A_SUBZERO_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_SubZero_Extras, ARRAYSIZE(UMK3_A_SubZero_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_SubZero_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SUBZERO_PALETTES_P1, ARRAYSIZE(UMK3_A_SUBZERO_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SUBZERO_PALETTES_P2, ARRAYSIZE(UMK3_A_SUBZERO_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_SubZero_P3, ARRAYSIZE(UMK3Plus_A_SubZero_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_SubZero_Extras, ARRAYSIZE(UMK3Plus_A_SubZero_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SHANGTSUNG_COLLECTION[] =
@@ -904,11 +1635,28 @@ const sDescTreeNode UMK3_A_SHANGTSUNG_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_ShangTsung_Extras, ARRAYSIZE(UMK3_A_ShangTsung_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_ShangTsung_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SHANGTSUNG_PALETTES_P1, ARRAYSIZE(UMK3_A_SHANGTSUNG_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SHANGTSUNG_PALETTES_P2, ARRAYSIZE(UMK3_A_SHANGTSUNG_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_ShangTsung_P3, ARRAYSIZE(UMK3Plus_A_ShangTsung_P3) },
+    { L"Morphs", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_ShangTsung_Morphs, ARRAYSIZE(UMK3Plus_A_ShangTsung_Morphs) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_ShangTsung_Extras, ARRAYSIZE(UMK3Plus_A_ShangTsung_Extras) },
+};
+
 const sDescTreeNode UMK3_A_KITANA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_PALETTES_P1, ARRAYSIZE(UMK3_A_KITANA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_PALETTES_P2, ARRAYSIZE(UMK3_A_KITANA_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Kitana_Extras, ARRAYSIZE(UMK3_A_Kitana_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_Kitana_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_PALETTES_P1, ARRAYSIZE(UMK3_A_KITANA_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_PALETTES_P2, ARRAYSIZE(UMK3_A_KITANA_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kitana_P3, ARRAYSIZE(UMK3Plus_A_Kitana_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kitana_Extras, ARRAYSIZE(UMK3Plus_A_Kitana_Extras) },
 };
 
 const sDescTreeNode UMK3_A_JAX_COLLECTION[] =
@@ -918,6 +1666,14 @@ const sDescTreeNode UMK3_A_JAX_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Jax_Extras, ARRAYSIZE(UMK3_A_Jax_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Jax_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_JAX_PALETTES_P1, ARRAYSIZE(UMK3_A_JAX_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_JAX_PALETTES_P2, ARRAYSIZE(UMK3_A_JAX_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Jax_P3, ARRAYSIZE(UMK3Plus_A_Jax_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Jax_Extras, ARRAYSIZE(UMK3Plus_A_Jax_Extras) },
+};
+
 const sDescTreeNode UMK3_A_MILEENA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_MILEENA_PALETTES_P1, ARRAYSIZE(UMK3_A_MILEENA_PALETTES_P1) },
@@ -925,11 +1681,27 @@ const sDescTreeNode UMK3_A_MILEENA_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Mileena_Extras, ARRAYSIZE(UMK3_A_Mileena_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Mileena_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_MILEENA_PALETTES_P1, ARRAYSIZE(UMK3_A_MILEENA_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_MILEENA_PALETTES_P2, ARRAYSIZE(UMK3_A_MILEENA_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Mileena_P3, ARRAYSIZE(UMK3Plus_A_Mileena_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Mileena_Extras, ARRAYSIZE(UMK3Plus_A_Mileena_Extras) },
+};
+
 const sDescTreeNode UMK3_A_SCORPION_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SCORPION_PALETTES_P1, ARRAYSIZE(UMK3_A_SCORPION_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SCORPION_PALETTES_P2, ARRAYSIZE(UMK3_A_SCORPION_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Scorpion_Extras, ARRAYSIZE(UMK3_A_Scorpion_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_Scorpion_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SCORPION_PALETTES_P1, ARRAYSIZE(UMK3_A_SCORPION_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SCORPION_PALETTES_P2, ARRAYSIZE(UMK3_A_SCORPION_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Scorpion_P3, ARRAYSIZE(UMK3Plus_A_Scorpion_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Scorpion_Extras, ARRAYSIZE(UMK3Plus_A_Scorpion_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SHAOKAHN_COLLECTION[] =
@@ -944,9 +1716,24 @@ const sDescTreeNode UMK3_A_SMOKE_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Smoke_Extras, ARRAYSIZE(UMK3_A_Smoke_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Smoke_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SMOKE_PALETTES_P1, ARRAYSIZE(UMK3_A_SMOKE_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SMOKE_PALETTES_P2, ARRAYSIZE(UMK3_A_SMOKE_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Smoke_P3, ARRAYSIZE(UMK3Plus_A_Smoke_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Smoke_Extras, ARRAYSIZE(UMK3Plus_A_Smoke_Extras) },
+};
+
 const sDescTreeNode UMK3_A_NOOB_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_NOOB_PALETTES, ARRAYSIZE(UMK3_A_NOOB_PALETTES) },
+};
+
+const sDescTreeNode UMK3Plus_A_NoobSaibot_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_NOOB_PALETTES, ARRAYSIZE(UMK3_A_NOOB_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_NoobSaibot_P2, ARRAYSIZE(UMK3Plus_A_NoobSaibot_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_NoobSaibot_P3, ARRAYSIZE(UMK3Plus_A_NoobSaibot_P3) },
 };
 
 const sDescTreeNode UMK3_A_MOTARO_COLLECTION[] =
@@ -961,11 +1748,28 @@ const sDescTreeNode UMK3_A_JADE_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Jade_Extras, ARRAYSIZE(UMK3_A_Jade_Extras) },    
 };
 
+const sDescTreeNode UMK3Plus_A_Jade_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_JADE_PALETTES_P1, ARRAYSIZE(UMK3_A_JADE_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_JADE_PALETTES_P2, ARRAYSIZE(UMK3_A_JADE_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Jade_P3, ARRAYSIZE(UMK3Plus_A_Jade_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Jade_Extras, ARRAYSIZE(UMK3Plus_A_Jade_Extras) },
+};
+
 const sDescTreeNode UMK3_A_SONYA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SONYA_PALETTES_P1, ARRAYSIZE(UMK3_A_SONYA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SONYA_PALETTES_P2, ARRAYSIZE(UMK3_A_SONYA_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sonya_Extras, ARRAYSIZE(UMK3_A_Sonya_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_Sonya_COLLECTION[] =
+{
+    // fork the p1/p2s as well since the ring toss extras are shared between p1/p3
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_SONYA_PALETTES_P1, ARRAYSIZE(UMK3Plus_A_SONYA_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_SONYA_PALETTES_P2, ARRAYSIZE(UMK3Plus_A_SONYA_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sonya_P3, ARRAYSIZE(UMK3Plus_A_Sonya_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sonya_Extras, ARRAYSIZE(UMK3Plus_A_Sonya_Extras) },
 };
 
 const sDescTreeNode UMK3_A_NIGHTWOLF_COLLECTION[] =
@@ -975,9 +1779,25 @@ const sDescTreeNode UMK3_A_NIGHTWOLF_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Nightwolf_Extras, ARRAYSIZE(UMK3_A_Nightwolf_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Nightwolf_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_NIGHTWOLF_PALETTES_P1, ARRAYSIZE(UMK3_A_NIGHTWOLF_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_NIGHTWOLF_PALETTES_P2, ARRAYSIZE(UMK3_A_NIGHTWOLF_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Nightwolf_P3, ARRAYSIZE(UMK3Plus_A_Nightwolf_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Nightwolf_Extras, ARRAYSIZE(UMK3Plus_A_Nightwolf_Extras) },
+};
+
 const sDescTreeNode UMK3_A_RAIN_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_RAIN_PALETTES, ARRAYSIZE(UMK3_A_RAIN_PALETTES) },
+};
+
+const sDescTreeNode UMK3Plus_A_Rain_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_RAIN_PALETTES, ARRAYSIZE(UMK3_A_RAIN_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Rain_P2, ARRAYSIZE(UMK3Plus_A_Rain_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Rain_P3, ARRAYSIZE(UMK3Plus_A_Rain_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Rain_Extras, ARRAYSIZE(UMK3Plus_A_Rain_Extras) },
 };
 
 const sDescTreeNode UMK3_A_KANO_COLLECTION[] =
@@ -987,11 +1807,27 @@ const sDescTreeNode UMK3_A_KANO_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Kano_Extras, ARRAYSIZE(UMK3_A_Kano_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Kano_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KANO_PALETTES_P1, ARRAYSIZE(UMK3_A_KANO_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KANO_PALETTES_P2, ARRAYSIZE(UMK3_A_KANO_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kano_P3, ARRAYSIZE(UMK3Plus_A_Kano_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kano_Extras, ARRAYSIZE(UMK3Plus_A_Kano_Extras) },
+};
+
 const sDescTreeNode UMK3_A_ERMAC_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_ERMAC_PALETTES_P1, ARRAYSIZE(UMK3_A_ERMAC_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_ERMAC_PALETTES_P2, ARRAYSIZE(UMK3_A_ERMAC_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Ermac_Extras, ARRAYSIZE(UMK3_A_Ermac_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_Ermac_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_ERMAC_PALETTES_P1, ARRAYSIZE(UMK3_A_ERMAC_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_ERMAC_PALETTES_P2, ARRAYSIZE(UMK3_A_ERMAC_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Ermac_P3, ARRAYSIZE(UMK3Plus_A_Ermac_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Ermac_Extras, ARRAYSIZE(UMK3Plus_A_Ermac_Extras) },
 };
 
 const sDescTreeNode UMK3_A_SEKTOR_COLLECTION[] =
@@ -1001,11 +1837,27 @@ const sDescTreeNode UMK3_A_SEKTOR_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sektor_Extras, ARRAYSIZE(UMK3_A_Sektor_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Sektor_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SEKTOR_PALETTES_P1, ARRAYSIZE(UMK3_A_SEKTOR_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SEKTOR_PALETTES_P2, ARRAYSIZE(UMK3_A_SEKTOR_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sektor_P3, ARRAYSIZE(UMK3Plus_A_Sektor_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sektor_Extras, ARRAYSIZE(UMK3Plus_A_Sektor_Extras) },
+};
+
 const sDescTreeNode UMK3_A_SINDEL_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SINDEL_PALETTES_P1, ARRAYSIZE(UMK3_A_SINDEL_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SINDEL_PALETTES_P2, ARRAYSIZE(UMK3_A_SINDEL_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sindel_Extras, ARRAYSIZE(UMK3_A_Sindel_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_Sindel_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SINDEL_PALETTES_P1, ARRAYSIZE(UMK3_A_SINDEL_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SINDEL_PALETTES_P2, ARRAYSIZE(UMK3_A_SINDEL_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sindel_P3, ARRAYSIZE(UMK3Plus_A_Sindel_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sindel_Extras, ARRAYSIZE(UMK3Plus_A_Sindel_Extras) },
 };
 
 const sDescTreeNode UMK3_A_STRYKER_COLLECTION[] =
@@ -1015,11 +1867,27 @@ const sDescTreeNode UMK3_A_STRYKER_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Stryker_Extras, ARRAYSIZE(UMK3_A_Stryker_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Stryker_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_STRYKER_PALETTES_P1, ARRAYSIZE(UMK3_A_STRYKER_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_STRYKER_PALETTES_P2, ARRAYSIZE(UMK3_A_STRYKER_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Stryker_P3, ARRAYSIZE(UMK3Plus_A_Stryker_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Stryker_Extras, ARRAYSIZE(UMK3Plus_A_Stryker_Extras) },
+};
+
 const sDescTreeNode UMK3_A_CYRAX_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_CYRAX_PALETTES_P1, ARRAYSIZE(UMK3_A_CYRAX_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_CYRAX_PALETTES_P2, ARRAYSIZE(UMK3_A_CYRAX_PALETTES_P2) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Cyrax_Extras, ARRAYSIZE(UMK3_A_Cyrax_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_Cyrax_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_CYRAX_PALETTES_P1, ARRAYSIZE(UMK3_A_CYRAX_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_CYRAX_PALETTES_P2, ARRAYSIZE(UMK3_A_CYRAX_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Cyrax_P3, ARRAYSIZE(UMK3Plus_A_Cyrax_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Cyrax_Extras, ARRAYSIZE(UMK3Plus_A_Cyrax_Extras) },
 };
 
 const sDescTreeNode UMK3_A_KABAL_COLLECTION[] =
@@ -1029,6 +1897,14 @@ const sDescTreeNode UMK3_A_KABAL_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Kabal_Extras, ARRAYSIZE(UMK3_A_Kabal_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Kabal_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_KABAL_PALETTES_P1, ARRAYSIZE(UMK3_A_KABAL_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_KABAL_PALETTES_P2, ARRAYSIZE(UMK3_A_KABAL_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kabal_P3, ARRAYSIZE(UMK3Plus_A_Kabal_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kabal_Extras, ARRAYSIZE(UMK3Plus_A_Kabal_Extras) },
+};
+
 const sDescTreeNode UMK3_A_SHEEVA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SHEEVA_PALETTES_P1, ARRAYSIZE(UMK3_A_SHEEVA_PALETTES_P1) },
@@ -1036,10 +1912,26 @@ const sDescTreeNode UMK3_A_SHEEVA_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_Sheeva_Extras, ARRAYSIZE(UMK3_A_Sheeva_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_Sheeva_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_SHEEVA_PALETTES_P1, ARRAYSIZE(UMK3_A_SHEEVA_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_SHEEVA_PALETTES_P2, ARRAYSIZE(UMK3_A_SHEEVA_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sheeva_P3, ARRAYSIZE(UMK3Plus_A_Sheeva_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sheeva_Extras, ARRAYSIZE(UMK3Plus_A_Sheeva_Extras) },
+};
+
 const sDescTreeNode UMK3_A_HUMSMOKE_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_HUMANSMOKE_PALETTES, ARRAYSIZE(UMK3_A_HUMANSMOKE_PALETTES) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_HumanSmoke_Extras, ARRAYSIZE(UMK3_A_HumanSmoke_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_HumanSmoke_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_HUMANSMOKE_PALETTES, ARRAYSIZE(UMK3_A_HUMANSMOKE_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_HumanSmoke_P2, ARRAYSIZE(UMK3Plus_A_HumanSmoke_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_HumanSmoke_P3, ARRAYSIZE(UMK3Plus_A_HumanSmoke_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_HumanSmoke_Extras, ARRAYSIZE(UMK3Plus_A_HumanSmoke_Extras) },
 };
 
 const sDescTreeNode UMK3_A_CLASSUB_COLLECTION[] =
@@ -1049,10 +1941,33 @@ const sDescTreeNode UMK3_A_CLASSUB_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3_A_ClassicSubZero_Extras, ARRAYSIZE(UMK3_A_ClassicSubZero_Extras) },
 };
 
+const sDescTreeNode UMK3Plus_A_ClasicSubZero_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_A_CLASSUB_PALETTES_P1, ARRAYSIZE(UMK3_A_CLASSUB_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_A_CLASSUB_PALETTES_P2, ARRAYSIZE(UMK3_A_CLASSUB_PALETTES_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_ClasicSubZero_P3, ARRAYSIZE(UMK3Plus_A_ClasicSubZero_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_ClasicSubZero_Extras, ARRAYSIZE(UMK3Plus_A_ClasicSubZero_Extras) },
+};
+
+const sDescTreeNode UMK3Plus_A_Triborg_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Triborg_P1, ARRAYSIZE(UMK3Plus_A_Triborg_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Triborg_P2, ARRAYSIZE(UMK3Plus_A_Triborg_P2) },
+    { L"P3", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Triborg_P3, ARRAYSIZE(UMK3Plus_A_Triborg_P3) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Triborg_Extras, ARRAYSIZE(UMK3Plus_A_Triborg_Extras) },
+};
+
 const sDescTreeNode UMK3_A_Portraits_COLLECTION[] =
 {
     { L"Normal", DESC_NODETYPE_TREE, (void*)UMK3_A_Portraits_Normal, ARRAYSIZE(UMK3_A_Portraits_Normal) },
     { L"Faded", DESC_NODETYPE_TREE, (void*)UMK3_A_Portraits_Faded, ARRAYSIZE(UMK3_A_Portraits_Faded) },
+};
+
+const sDescTreeNode UMK3Plus_A_Portraits_COLLECTION[] =
+{
+    { L"Normal", DESC_NODETYPE_TREE, (void*)UMK3_A_Portraits_Normal, ARRAYSIZE(UMK3_A_Portraits_Normal) },
+    { L"Faded", DESC_NODETYPE_TREE, (void*)UMK3_A_Portraits_Faded, ARRAYSIZE(UMK3_A_Portraits_Faded) },
+    { L"Plus Characters", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Portraits_PlusCharacters, ARRAYSIZE(UMK3Plus_A_Portraits_PlusCharacters) },
 };
 
 const sDescTreeNode UMK3_A_Backgrounds_COLLECTION[] =
@@ -1088,6 +2003,28 @@ const sDescTreeNode UMK3_A_VSBioPortraits_COLLECTION[] =
     { L"Jax", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Jax, ARRAYSIZE(UMK3_A_VSBioPortraits_Jax) },
 };
 
+const sDescTreeNode UMK3Plus_A_VSBioPortraits_COLLECTION[] =
+{
+    { L"Kitana", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Kitana, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Kitana) },
+    { L"Jade and Mileena", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_JadeandMileena, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_JadeandMileena) },
+    { L"Male Ninja 1", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_MaleNinja1, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_MaleNinja1) },
+    { L"Male Ninja 2", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_MaleNinja2, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_MaleNinja2) },
+    { L"Cyrax and Smoke", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_CyraxandSmoke, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_CyraxandSmoke) },
+    { L"Sektor and Triborg", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Sektor, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Sektor) },
+    { L"Sonya", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Sonya, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Sonya) },
+    { L"Kano", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Kano, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Kano) },
+    { L"Stryker", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Stryker, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Stryker) },
+    { L"Kabal", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Kabal, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Kabal) },
+    { L"Kung Lao", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_KungLao, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_KungLao) },
+    { L"Sindel", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Sindel, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Sindel) },
+    { L"Liu Kang", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_LiuKang, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_LiuKang) },
+    { L"Sub-Zero", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_SubZero, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_SubZero) },
+    { L"Shang Tsung", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_ShangTsung, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_ShangTsung) },
+    { L"Nightwolf", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Nightwolf, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Nightwolf) },
+    { L"Sheeva", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Sheeva, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Sheeva) },
+    { L"Jax", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_Jax, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_Jax) },
+};
+
 const sDescTreeNode UMK3_A_BONUS_COLLECTION[] =
 {
     { L"Frozen Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_FrozenPalettes, ARRAYSIZE(UMK3_A_BonusPalettes_FrozenPalettes) },
@@ -1098,6 +2035,21 @@ const sDescTreeNode UMK3_A_BONUS_COLLECTION[] =
     { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_InGameEffects, ARRAYSIZE(UMK3_A_BonusPalettes_InGameEffects) },
     { L"Shared Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_SharedEffects, ARRAYSIZE(UMK3_A_BonusPalettes_SharedEffects) },
     { L"Title Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_TitleScreen, ARRAYSIZE(UMK3_A_BonusPalettes_TitleScreen) },
+    { L"Kombat Kode", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_KombatKode, ARRAYSIZE(UMK3_A_BonusPalettes_KombatKode) },
+    { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_HIDDENGAME, ARRAYSIZE(UMK3_A_BONUS_PALETTES_HIDDENGAME) },
+};
+
+const sDescTreeNode UMK3Plus_A_BonusPalettes_COLLECTION[] =
+{
+    { L"Frozen Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_FrozenPalettes, ARRAYSIZE(UMK3_A_BonusPalettes_FrozenPalettes) },
+    { L"Soul Scream", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_BonusPalettes_SoulScream, ARRAYSIZE(UMK3Plus_A_BonusPalettes_SoulScream) },
+    { L"Fatal Scream", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_BonusPalettes_FatalScream, ARRAYSIZE(UMK3Plus_A_BonusPalettes_FatalScream) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_HUD, ARRAYSIZE(UMK3_A_BonusPalettes_HUD) },
+    { L"Tower Select", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_TowerSelect, ARRAYSIZE(UMK3_A_BonusPalettes_TowerSelect) },
+    { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_InGameEffects, ARRAYSIZE(UMK3_A_BonusPalettes_InGameEffects) },
+    { L"Shared Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_SharedEffects, ARRAYSIZE(UMK3_A_BonusPalettes_SharedEffects) },
+    // Not at this location for Plus
+    //{ L"Title Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_TitleScreen, ARRAYSIZE(UMK3_A_BonusPalettes_TitleScreen) },
     { L"Kombat Kode", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_KombatKode, ARRAYSIZE(UMK3_A_BonusPalettes_KombatKode) },
     { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_HIDDENGAME, ARRAYSIZE(UMK3_A_BONUS_PALETTES_HIDDENGAME) },
 };
@@ -1139,4 +2091,37 @@ const sDescTreeNode UMK3_A_UNITS[] =
     { L"Backgrounds", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_COLLECTION, ARRAYSIZE(UMK3_A_Backgrounds_COLLECTION) },
     { L"VS/Bio Portraits", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_COLLECTION, ARRAYSIZE(UMK3_A_VSBioPortraits_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_COLLECTION, ARRAYSIZE(UMK3_A_BONUS_COLLECTION) },
+};
+
+const sDescTreeNode UMK3Plus_A_UNITS[] =
+{
+    { L"Kitana", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kitana_COLLECTION, ARRAYSIZE(UMK3Plus_A_Kitana_COLLECTION) },
+    { L"Reptile", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Reptile_COLLECTION, ARRAYSIZE(UMK3Plus_A_Reptile_COLLECTION) },
+    { L"Sonya", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sonya_COLLECTION, ARRAYSIZE(UMK3Plus_A_Sonya_COLLECTION) },
+    { L"Jax", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Jax_COLLECTION, ARRAYSIZE(UMK3Plus_A_Jax_COLLECTION) },
+    { L"Nightwolf", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Nightwolf_COLLECTION, ARRAYSIZE(UMK3Plus_A_Nightwolf_COLLECTION) },
+    { L"Jade", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Jade_COLLECTION, ARRAYSIZE(UMK3Plus_A_Jade_COLLECTION) },
+    { L"Scorpion", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Scorpion_COLLECTION, ARRAYSIZE(UMK3Plus_A_Scorpion_COLLECTION) },
+    { L"Kano", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kano_COLLECTION, ARRAYSIZE(UMK3Plus_A_Kano_COLLECTION) },
+    { L"Sub-Zero", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_SubZero_COLLECTION, ARRAYSIZE(UMK3Plus_A_SubZero_COLLECTION) },
+    { L"Sektor", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sektor_COLLECTION, ARRAYSIZE(UMK3Plus_A_Sektor_COLLECTION) },
+    { L"Sindel", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sindel_COLLECTION, ARRAYSIZE(UMK3Plus_A_Sindel_COLLECTION) },
+    { L"Stryker", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Stryker_COLLECTION, ARRAYSIZE(UMK3Plus_A_Stryker_COLLECTION) },
+    { L"Cyrax", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Cyrax_COLLECTION, ARRAYSIZE(UMK3Plus_A_Cyrax_COLLECTION) },
+    { L"Kung Lao", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_KungLao_COLLECTION, ARRAYSIZE(UMK3Plus_A_KungLao_COLLECTION) },
+    { L"Kabal", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Kabal_COLLECTION, ARRAYSIZE(UMK3Plus_A_Kabal_COLLECTION) },
+    { L"Sheeva", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Sheeva_COLLECTION, ARRAYSIZE(UMK3Plus_A_Sheeva_COLLECTION) },
+    { L"Shang Tsung", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_ShangTsung_COLLECTION, ARRAYSIZE(UMK3Plus_A_ShangTsung_COLLECTION) },
+    { L"Liu Kang", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_LiuKang_COLLECTION, ARRAYSIZE(UMK3Plus_A_LiuKang_COLLECTION) },
+    { L"Smoke", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Smoke_COLLECTION, ARRAYSIZE(UMK3Plus_A_Smoke_COLLECTION) },
+    { L"Human Smoke", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_HumanSmoke_COLLECTION, ARRAYSIZE(UMK3Plus_A_HumanSmoke_COLLECTION) },
+    { L"Clasic Sub-Zero", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_ClasicSubZero_COLLECTION, ARRAYSIZE(UMK3Plus_A_ClasicSubZero_COLLECTION) },
+    { L"Ermac", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Ermac_COLLECTION, ARRAYSIZE(UMK3Plus_A_Ermac_COLLECTION) },
+    { L"Mileena", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Mileena_COLLECTION, ARRAYSIZE(UMK3Plus_A_Mileena_COLLECTION) },
+    { L"Noob Saibot", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_NoobSaibot_COLLECTION, ARRAYSIZE(UMK3Plus_A_NoobSaibot_COLLECTION) },
+    { L"Rain", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Rain_COLLECTION, ARRAYSIZE(UMK3Plus_A_Rain_COLLECTION) },
+    { L"Triborg", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Triborg_COLLECTION, ARRAYSIZE(UMK3Plus_A_Triborg_COLLECTION) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Portraits_COLLECTION, ARRAYSIZE(UMK3Plus_A_Portraits_COLLECTION) },
+    { L"VS/Bio Portraits", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_COLLECTION, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_BonusPalettes_COLLECTION, ARRAYSIZE(UMK3Plus_A_BonusPalettes_COLLECTION) },
 };

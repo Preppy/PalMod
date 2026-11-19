@@ -562,20 +562,35 @@ const stPairedPaletteInfo pairNext4AndNext =                        { 4, {}, 3, 
 const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, {}, 3, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext2AndNext4 =                       { 2, {}, 3, 4 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext2AndNext6 =                       { 2, {}, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext2AndNext8 =                       { 2, {}, 3, 8 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNext3AndNext4 =                       { 3, {}, 3, 4 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext3AndNext5 =                       { 3, {}, 3, 5 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext3AndNext7 =                       { 3, {}, 3, 7 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext3AndNext8 =                       { 3, {}, 3, 8 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNext4AndNext5 =                       { 4, {}, 3, 5 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext8 =                       { 4, {}, 3, 8 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNext5AndNext6 =                       { 5, {}, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext5AndNext9 =                       { 5, {}, 3, 9 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNext6AndNext7 =                       { 6, {}, 3, 7 }; // triple display... requires special handling in code
+
+const stPairedPaletteInfo pairNext7AndNext8 =                       { 7, {}, 3, 8 }; // triple display... requires special handling in code
+
+const stPairedPaletteInfo pairNext8AndNext9 =                       { 8, {}, 3, 9 }; // triple display... requires special handling in code
+
+const stPairedPaletteInfo pairNext9AndNext10 =                      { 9, {}, 3, 10 }; // triple display... requires special handling in code
+
+const stPairedPaletteInfo pairNext10AndNext11 =                     { 10, {}, 3, 11 }; // triple display... requires special handling in code
+
+const stPairedPaletteInfo pairNext11AndNext12 =                     { 11, {}, 3, 12 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNext3Palettes =                       { 1, {}, 4 };          // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextSkippedPair =              { 1, {}, 4, 3, 4 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextSkippedAndNextPair =              { 2, {}, 4, 3, 4 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext3And4And5 =                       { 3, {}, 4, 4, 5 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, {}, 4, 32, 34 };  // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, {}, 4, 41, 42 };  // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNextAndNext =                 { 4, {}, 4, 5, 6 };    // quad display... requires special handling in code
@@ -584,7 +599,10 @@ const stPairedPaletteInfo pairNext4AndNext8AndNext9 =               { 4, {}, 4, 
 const stPairedPaletteInfo pairNext4AndNext7AndNext8 =               { 4, {}, 4, 7, 8 };     // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNext6AndNext7 =               { 4, {}, 4, 6, 7 };     // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext5AndNext10AndNext11 =             { 5, {}, 4, 10, 11 };   // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext6And9And10 =                      { 6, {}, 4, 9, 10 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext7And9And11 =                      { 7, {}, 4, 9, 11 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext8And9And10 =                      { 8, {}, 4, 9, 10 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext8And9And12 =                      { 8, {}, 4, 9, 12 };    // quad display... requires special handling in code
 
 const stPairedPaletteInfo pairNext4Palettes =                       { 1, {}, 5 };               // quint-display -- specially handled
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, {}, 5, 2, 3, 8 };      // quint display... requires special handling in code
