@@ -21,6 +21,25 @@ std::wstring GetFileNameFromURL(const std::wstring& strURL)
     }
 }
 
+std::wstring GetFileExtensionFromURL(const std::wstring& strURL)
+{
+    std::wstring strFileName = GetFileNameFromURL(strURL);
+
+    if (!strFileName.empty())
+    {
+        size_t extDot = strFileName.find_last_of(L'.');
+
+        if (extDot &&
+            (extDot != std::wstring::npos) &&
+            (extDot != strFileName.length()))
+        {
+            return strFileName.substr(extDot);
+        }
+    }
+    
+    return {};
+}
+
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
     static const CLIPFORMAT s_idDesc = static_cast<CLIPFORMAT>(RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR));
@@ -388,12 +407,16 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
             if (fConfirmedURL)
             {
-                LPCWSTR pszExtension = wcsrchr(str, L'.');
-                CString strUnused;
-                bool fUnused = false;
+                std::wstring strExtension = GetFileExtensionFromURL(str);
 
-                // See if this appears to be something we can work with
-                _SetDropInfoFromExtension(pWnd, pszExtension, strUnused, fUnused);
+                if (!strExtension.empty())
+                {
+                    CString strUnused;
+                    bool fUnused = false;
+
+                    // See if this appears to be something we can work with
+                    _SetDropInfoFromExtension(pWnd, strExtension.c_str(), strUnused, fUnused);
+                }
             }
         }
 

@@ -174,6 +174,34 @@ void SanitizeString(wchar_t* pszString)
     }
 }
 
+std::wstring SanitizeFileName(const std::wstring& strString)
+{
+    std::wstring strFixed;
+
+    for (size_t iPos = 0; iPos < strString.size(); iPos++)
+    {
+        if (!iswalnum(strString[iPos]) && (strString[iPos] != L'-') && (strString[iPos] != L'_') && (strString[iPos] != L'.'))
+        {
+            strFixed.push_back('_');
+        }
+        else
+        {
+            strFixed.push_back(strString[iPos]);
+        }
+    }
+
+    if (!strFixed.empty())
+    {
+        if ((strFixed.back() == L'.') ||
+            (strFixed.back() == L'_'))
+        {
+            strFixed.pop_back();
+        }
+    }
+
+    return strFixed;
+}
+
 void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wchar_t* pszPalette)
 {
     wchar_t* pszUnitNamePos = wcsstr(pszPalette, pszUnit);
@@ -231,19 +259,33 @@ afx_msg LRESULT CPalModDlg::_ProcessDrop(WPARAM, LPARAM)
 
         if (GetTempPath(ARRAYSIZE(szTempPath), szTempPath))
         {
-            std::wstring strFileName = GetFileNameFromURL(m_pendingDropInformation.strURL);
+            std::wstring strUntrustedFileName = GetFileNameFromURL(m_pendingDropInformation.strURL);
 
-            if (!strFileName.empty())
+            if (!strUntrustedFileName.empty())
             {
-                CString strTempFile;
-                strTempFile.Format(L"%sPMU-%s", szTempPath, strFileName.c_str());
+                std::wstring strCleanFileName = SanitizeFileName(strUntrustedFileName);
 
-                HRESULT hr = URLDownloadToFile(nullptr, m_pendingDropInformation.strURL.c_str(), strTempFile, 0, nullptr);
-
-                if (SUCCEEDED(hr))
+                if (!strCleanFileName.empty())
                 {
-                    m_pendingDropInformation.rgFilePaths.push_back(strTempFile.GetString());
-                    m_pendingDropInformation.fUsingTempFile = true;
+                    CString strTempFile;
+                    strTempFile.Format(L"%sPMU-%s", szTempPath, strCleanFileName.c_str());
+
+                    SetStatusText(L"Starting download...");
+
+                    HRESULT hr = URLDownloadToFile(nullptr, m_pendingDropInformation.strURL.c_str(), strTempFile, 0, nullptr);
+
+                    if (SUCCEEDED(hr))
+                    {
+                        m_pendingDropInformation.rgFilePaths.push_back(strTempFile.GetString());
+                        m_pendingDropInformation.fUsingTempFile = true;
+                        SetStatusText(L"Download complete.");
+                    }
+                    else
+                    {
+                        CString strInfo;
+                        strInfo.Format(L"Download failed (error 0x%08X).", hr);
+                        SetStatusText(strInfo.GetString());
+                    }
                 }
             }
         }
