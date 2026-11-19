@@ -733,7 +733,7 @@ const sGame_PaletteDataset Cyberbots_A_WARLOCK_P1_UNDERWATER_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_WARLOCK_P2_UNDERWATER_PALETTES[] =
 {
-    { L"P2 Warlock Underwater", 0x50266, 0x50286, indexCyberbots_Warlock, 0x0, &pairNextAndNextSkipped },
+    { L"P2 Warlock Underwater", 0x50266, 0x50286, indexCyberbots_Warlock, 0x0, &pairNextAndNext3 },
     { L"P2 Warlock Effects Underwater", 0x50b26, 0x50b46, indexCyberbots_Warlock, 0x1 },
     { L"P2 Warlock Soul Blade Underwater", 0x52266, 0x52286 },
 };

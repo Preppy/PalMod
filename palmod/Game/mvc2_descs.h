@@ -10814,7 +10814,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_IRONMAN =
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SENTINEL =
 { //34: Sentinel" },
-    { 0x00, L"Main Color", 0x00, indexCPS2Sprites_Sentinel, &pairNextAndNextSkipped },
+    { 0x00, L"Main Color", 0x00, indexCPS2Sprites_Sentinel, &pairNextAndNext3 },
     { 0x01, L"(02) Drones (bombs) / Guts" },
     { 0x02, L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)" },
     { 0x03, L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames" },

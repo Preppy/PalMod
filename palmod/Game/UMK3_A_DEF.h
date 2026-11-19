@@ -472,178 +472,178 @@ const sGame_PaletteDataset UMK3_A_Mileena_Extras[] =
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_VSScreen[] =
 {
-    { L"Background", 0xa6a56, 0xa6a76 },
-    { L"VS", 0xb5bd0, 0xb5c4e },
-    { L"Kombat Kode Box", 0xb563e, 0xb5674 },
-    { L"Battle Text", 0xb5676, 0xb56b6 },
-    { L"Top Corner Dragons", 0xb56b8, 0xb56f8 },
+    { L"Background",            0xa6a56, 0xa6a76, indexUMK3ArcadeSprites_Stages, 0x09, &pairNext2AndNext4 },
+    { L"VS",                    0xb5bd0, 0xb5c4e, indexUMK3ArcadeSprites_Stages, 0x0d },
+    { L"Kombat Kode Box",       0xb563e, 0xb5674, indexUMK3ArcadeSprites_Stages, 0x0b },
+    { L"Battle Text",           0xb5676, 0xb56b6, indexUMK3ArcadeSprites_Stages, 0x0a },
+    { L"Top Corner Dragons",    0xb56b8, 0xb56f8, indexUMK3ArcadeSprites_Stages, 0x0c },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kitana[] =
 {
-    { L"Accent Color", 0xb936a, 0xb93ea },
-    { L"Skin", 0xb9268, 0xb9368 },
-    { L"Darks", 0xb9226, 0xb9266 },
+    { L"Accent Color",  0xb936a, 0xb93ea, indexUMK3ArcadeSprites_Bonus, 0x5e, &pairNextAndNext },
+    { L"Skin",          0xb9268, 0xb9368, indexUMK3ArcadeSprites_Bonus, 0x60 },
+    { L"Darks",         0xb9226, 0xb9266, indexUMK3ArcadeSprites_Bonus, 0x5f },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_JadeandMileena[] =
 {
-    { L"Jade Accent Color", 0xb9530, 0xb95b0 },
-    { L"Jade Skin", 0xb942e, 0xb952e },
-    { L"Mileena Accent Color P1", 0x53828, 0x538a8 },
-    { L"Mileena Accent Color P2", 0x51ef8, 0x51f78 },
-    { L"Mileena Skin", 0x51f7a, 0x5207a },
-    { L"Shared Darks", 0xb93ec, 0xb942c },
+    { L"Jade Accent Color",         0xb9530, 0xb95b0, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNextAndNext5 },
+    { L"Jade Skin",                 0xb942e, 0xb952e, indexUMK3ArcadeSprites_Bonus, 0x52 },
+    { L"Mileena Accent Color P1",   0x53828, 0x538a8, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNext2AndNext3 },
+    { L"Mileena Accent Color P2",   0x51ef8, 0x51f78, indexUMK3ArcadeSprites_Bonus, 0x51, &pairNextAndNext },
+    { L"Mileena Skin",              0x51f7a, 0x5207a, indexUMK3ArcadeSprites_Bonus, 0x52 },
+    { L"Shared Darks",              0xb93ec, 0xb942c, indexUMK3ArcadeSprites_Bonus, 0x53 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_MaleNinja1[] =
 {
     // Noob Saibot Accent Color P2 is somewhere in the ROM.  I have yet to find it.
     // Smoke and Noob portraits appear during the demo or hacks/cheats.
-        { L"Scorpion Accent Color", 0xb96f6, 0xb9776 },
-        { L"Human Smoke Accent Color", 0x5238a, 0x5240a },
-        { L"Scoprion and Human Smoke Skin", 0xb95f4, 0xb96f4 },
-        { L"Noob Saibot Skin/Accent Color P1", 0x52488, 0x52588 },
-        { L"Shared Darks", 0xb95b2, 0xb95f2 },
+    { L"Scorpion Accent Color",             0xb96f6, 0xb9776, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNext2AndNext4 },
+    { L"Human Smoke Accent Color",          0x5238a, 0x5240a, indexUMK3ArcadeSprites_Bonus, 0x69, &pairNextAndNext3 },
+    { L"Scorpion and Human Smoke Skin",     0xb95f4, 0xb96f4, indexUMK3ArcadeSprites_Bonus, 0x68 },
+    { L"Noob Saibot Skin/Accent Color P1",  0x52488, 0x52588, indexUMK3ArcadeSprites_Bonus, 0x67, &pairNext },
+    { L"Shared Darks",                      0xb95b2, 0xb95f2, indexUMK3ArcadeSprites_Bonus, 0x6a },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_MaleNinja2[] =
 {
-    { L"Ermac Accent Color P1", 0x5349a, 0x5351a },
-    { L"Ermac Accent Color P2", 0x53418, 0x53498 },
-    { L"Classic Sub-Zero Accent Color P1", 0x5359e, 0x5361e },
-    { L"Classic Sub-Zero Accent Color P2", 0x5351c, 0x5359c },
-    { L"Reptile Accent Color P1", 0xb91a4, 0xb9224 },
-    { L"Reptile Accent Color P2", 0x537a6, 0x53826 },
-    { L"Shared Skin", 0xb90a2, 0xb91a2 },
-    { L"Shared Darks", 0xb9060, 0xb90a0 },
+    { L"Ermac Accent Color P1",             0x5349a, 0x5351a, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext6AndNext7 },
+    { L"Ermac Accent Color P2",             0x53418, 0x53498, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext5AndNext6 },
+    { L"Classic Sub-Zero Accent Color P1",  0x5359e, 0x5361e, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext4AndNext5 },
+    { L"Classic Sub-Zero Accent Color P2",  0x5351c, 0x5359c, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext3AndNext4 },
+    { L"Reptile Accent Color P1",           0xb91a4, 0xb9224, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNext2AndNext3 },
+    { L"Reptile Accent Color P2",           0x537a6, 0x53826, indexUMK3ArcadeSprites_Bonus, 0x6b, &pairNextAndNext },
+    { L"Shared Skin",                       0xb90a2, 0xb91a2, indexUMK3ArcadeSprites_Bonus, 0x6d },
+    { L"Shared Darks",                      0xb9060, 0xb90a0, indexUMK3ArcadeSprites_Bonus, 0x6c },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_CyraxandSmoke[] =
 {
-    { L"Cyrax Accent Color P1", 0xb3252, 0xb3352 },
-    { L"Cyrax Accent Color P2", 0x52fd4, 0x530d4 },
-    { L"Smoke Accent Color P1", 0x51abe, 0x51bbe },
-    { L"Smoke Accent Color P2", 0x53316, 0x53416 },
-    { L"Shared Darks", 0xb3354, 0xb3394 },
+    { L"Cyrax Accent Color P1", 0xb3252, 0xb3352, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext4 },
+    { L"Cyrax Accent Color P2", 0x52fd4, 0x530d4, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext3 },
+    { L"Smoke Accent Color P1", 0x51abe, 0x51bbe, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext2 },
+    { L"Smoke Accent Color P2", 0x53316, 0x53416, indexUMK3ArcadeSprites_Bonus, 0x4f, &pairNext },
+    { L"Shared Darks",          0xb3354, 0xb3394, indexUMK3ArcadeSprites_Bonus, 0x50 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sektor[] =
 {
-    { L"Accent Color P1", 0xb33d8, 0xb34d4 },
-    { L"Accent Color P2", 0x52ed2, 0x52fce },
-    { L"Darks", 0xb3396, 0xb33d6 },
+    { L"Accent Color P1",   0xb33d8, 0xb34d4, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext2 },
+    { L"Accent Color P2",   0x52ed2, 0x52fce, indexUMK3ArcadeSprites_Bonus, 0x71, &pairNext },
+    { L"Darks",             0xb3396, 0xb33d6, indexUMK3ArcadeSprites_Bonus, 0x72 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sonya[] =
 {
-    { L"Accent Color P1", 0xb1e68, 0xb1f64 },
-    { L"Accent Color P2", 0x529cc, 0x52ac8 },
-    { L"Skin and Hair", 0xb1c68, 0xb1e66 },
-    { L"Darks", 0xb1f66, 0xb1fa4 },
+    { L"Accent Color P1",   0xb1e68, 0xb1f64, indexUMK3ArcadeSprites_Bonus, 0x7c, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x529cc, 0x52ac8, indexUMK3ArcadeSprites_Bonus, 0x7c, &pairNextAndNext },
+    { L"Skin and Hair",     0xb1c68, 0xb1e66, indexUMK3ArcadeSprites_Bonus, 0x7e },
+    { L"Darks",             0xb1f66, 0xb1fa4, indexUMK3ArcadeSprites_Bonus, 0x7d },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kano[] =
 {
-    { L"Accent Color P1", 0xb21a4, 0xb22a2 },
-    { L"Accent Color P2", 0x528cc, 0x529ca },
-    { L"Skin", 0xb1fa6, 0xb21a2 },
-    { L"Darks and Eyeplate", 0xb22a4, 0xb22e2 },
-    { L"Core and Eye", 0xb22e4, 0xb234e },
+    { L"Accent Color P1",       0xb21a4, 0xb22a2, indexUMK3ArcadeSprites_Bonus, 0x5a, &pairNextSkippedAndNextPair },
+    { L"Accent Color P2",       0x528cc, 0x529ca, indexUMK3ArcadeSprites_Bonus, 0x5a, &pairNext3Palettes },
+    { L"Skin",                  0xb1fa6, 0xb21a2, indexUMK3ArcadeSprites_Bonus, 0x5d },
+    { L"Darks and Eyeplate",    0xb22a4, 0xb22e2, indexUMK3ArcadeSprites_Bonus, 0x5c },
+    { L"Core and Eye",          0xb22e4, 0xb234e, indexUMK3ArcadeSprites_Bonus, 0x5b },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Stryker[] =
 {
-    { L"Accent Color P1", 0xb2350, 0xb2450 },
-    { L"Accent Color P2", 0x52cce, 0x52dce },
-    { L"Skin", 0xb2452, 0xb264c },
-    { L"Darks", 0xb264e, 0xb268e },
+    { L"Accent Color P1",   0xb2350, 0xb2450, indexUMK3ArcadeSprites_Bonus, 0x7f, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x52cce, 0x52dce, indexUMK3ArcadeSprites_Bonus, 0x7f, &pairNextAndNext },
+    { L"Skin",              0xb2452, 0xb264c, indexUMK3ArcadeSprites_Bonus, 0x81 },
+    { L"Darks",             0xb264e, 0xb268e, indexUMK3ArcadeSprites_Bonus, 0x80 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Kabal[] =
 {
-    { L"Accent Color P1", 0xb2992, 0xb29ce },
-    { L"Accent Color P2", 0x53114, 0x53150 },
-    { L"Skin", 0xb2690, 0xb288e },
-    { L"Darks and Vest", 0xb2890, 0xb2990 },
+    { L"Accent Color P1",   0xb2992, 0xb29ce, indexUMK3ArcadeSprites_Bonus, 0x57, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x53114, 0x53150, indexUMK3ArcadeSprites_Bonus, 0x57, &pairNextAndNext },
+    { L"Skin",              0xb2690, 0xb288e, indexUMK3ArcadeSprites_Bonus, 0x59 },
+    { L"Darks and Vest",    0xb2890, 0xb2990, indexUMK3ArcadeSprites_Bonus, 0x58 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_KungLao[] =
 {
-    { L"Accent Color P1", 0xb2c0c, 0xb2c48 },
-    { L"Accent Color P2", 0x530d6, 0x53112 },
-    { L"Skin and Harness", 0xb29d0, 0xb2bc8 },
-    { L"Darks", 0xb2bca, 0xb2c0a },
+    { L"Accent Color P1",   0xb2c0c, 0xb2c48, indexUMK3ArcadeSprites_Bonus, 0x61, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x530d6, 0x53112, indexUMK3ArcadeSprites_Bonus, 0x61, &pairNextAndNext },
+    { L"Skin and Harness",  0xb29d0, 0xb2bc8, indexUMK3ArcadeSprites_Bonus, 0x63 },
+    { L"Darks",             0xb2bca, 0xb2c0a, indexUMK3ArcadeSprites_Bonus, 0x62 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sindel[] =
 {
-    { L"Accent Color P1", 0xb2e8c, 0xb2f8c },
-    { L"Accent Color P2", 0x52dd0, 0x52ed0 },
-    { L"Skin", 0xb2c4a, 0xb2e48 },
-    { L"Darks", 0xb2e4a, 0xb2e8a },
+    { L"Accent Color P1",   0xb2e8c, 0xb2f8c, indexUMK3ArcadeSprites_Bonus, 0x79, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x52dd0, 0x52ed0, indexUMK3ArcadeSprites_Bonus, 0x79, &pairNextAndNext },
+    { L"Skin",              0xb2c4a, 0xb2e48, indexUMK3ArcadeSprites_Bonus, 0x7b },
+    { L"Darks",             0xb2e4a, 0xb2e8a, indexUMK3ArcadeSprites_Bonus, 0x7a },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_LiuKang[] =
 {
-    { L"Accent Color P1", 0xb31d0, 0xb3250 },
-    { L"Accent Color P2", 0x53294, 0x53314 },
-    { L"Skin", 0xb2f8e, 0xb318c },
-    { L"Darks", 0xb318e, 0xb31ce },
+    { L"Accent Color P1",   0xb31d0, 0xb3250, indexUMK3ArcadeSprites_Bonus, 0x64, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x53294, 0x53314, indexUMK3ArcadeSprites_Bonus, 0x64, &pairNextAndNext },
+    { L"Skin",              0xb2f8e, 0xb318c, indexUMK3ArcadeSprites_Bonus, 0x66 },
+    { L"Darks",             0xb318e, 0xb31ce, indexUMK3ArcadeSprites_Bonus, 0x65 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_SubZero[] =
 {
-    { L"Accent Color P1", 0xb34d6, 0xb35d6 },
-    { L"Accent Color P2", 0x52bcc, 0x52ccc },
-    { L"Skin", 0xb35d8, 0xb37d6 },
-    { L"Darks", 0xb37d8, 0xb3818 },
+    { L"Accent Color P1",   0xb34d6, 0xb35d6, indexUMK3ArcadeSprites_Bonus, 0x82, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x52bcc, 0x52ccc, indexUMK3ArcadeSprites_Bonus, 0x82, &pairNextAndNext },
+    { L"Skin",              0xb35d8, 0xb37d6, indexUMK3ArcadeSprites_Bonus, 0x84 },
+    { L"Darks",             0xb37d8, 0xb3818, indexUMK3ArcadeSprites_Bonus, 0x83 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_ShangTsung[] =
 {
-    { L"Accent Color P1", 0xb3a56, 0xb3a96 },
-    { L"Accent Color P2", 0x53252, 0x53292 },
-    { L"Skin", 0xb381a, 0xb3a12 },
-    { L"Darks", 0xb3a14, 0xb3a54 },
+    { L"Accent Color P1",   0xb3a56, 0xb3a96, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x53252, 0x53292, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNextAndNext },
+    { L"Skin",              0xb381a, 0xb3a12, indexUMK3ArcadeSprites_Bonus, 0x75 },
+    { L"Darks",             0xb3a14, 0xb3a54, indexUMK3ArcadeSprites_Bonus, 0x74 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Nightwolf[] =
 {
-    { L"Accent Color P1", 0xb3ada, 0xb3b58 },
-    { L"Accent Color P2", 0x52b4c, 0x52bca },
-    { L"Skin", 0xb3b5a, 0xb3d58 },
-    { L"Darks", 0xb3a98, 0xb3ad8 },
+    { L"Accent Color P1",   0xb3ada, 0xb3b58, indexUMK3ArcadeSprites_Bonus, 0x6e, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x52b4c, 0x52bca, indexUMK3ArcadeSprites_Bonus, 0x6e, &pairNextAndNext },
+    { L"Skin",              0xb3b5a, 0xb3d58, indexUMK3ArcadeSprites_Bonus, 0x70 },
+    { L"Darks",             0xb3a98, 0xb3ad8, indexUMK3ArcadeSprites_Bonus, 0x6f },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Sheeva[] =
 {
-    { L"Accent Color P1", 0xb3f9c, 0xb409a },
-    { L"Accent Color P2", 0x53152, 0x53250 },
-    { L"Skin", 0xb3d5a, 0xb3f58 },
-    { L"Darks", 0xb3f5a, 0xb3f9a },
+    { L"Accent Color P1",   0xb3f9c, 0xb409a, indexUMK3ArcadeSprites_Bonus, 0x76, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x53152, 0x53250, indexUMK3ArcadeSprites_Bonus, 0x76, &pairNextAndNext },
+    { L"Skin",              0xb3d5a, 0xb3f58, indexUMK3ArcadeSprites_Bonus, 0x78 },
+    { L"Darks",             0xb3f5a, 0xb3f9a, indexUMK3ArcadeSprites_Bonus, 0x77 },
 };
 
 const sGame_PaletteDataset UMK3_A_VSBioPortraits_Jax[] =
 {
-    { L"Accent Color P1", 0xb429c, 0xb4318 },
-    { L"Accent Color P2", 0x52aca, 0x52b46 },
-    { L"Skin", 0xb409c, 0xb429a },
-    { L"Darks and Arms", 0xb431a, 0xb439a },
+    { L"Accent Color P1",   0xb429c, 0xb4318, indexUMK3ArcadeSprites_Bonus, 0x54, &pairNext2AndNext3 },
+    { L"Accent Color P2",   0x52aca, 0x52b46, indexUMK3ArcadeSprites_Bonus, 0x54, &pairNextAndNext },
+    { L"Skin",              0xb409c, 0xb429a, indexUMK3ArcadeSprites_Bonus, 0x56 },
+    { L"Darks and Arms",    0xb431a, 0xb439a, indexUMK3ArcadeSprites_Bonus, 0x55 },
 };
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_KombatKode[] =
 {
-    { L"0 (Dragon)", 0xb56fa, 0xb5770 },
-    { L"1 (MK)", 0xb5868, 0xb58e8 },
-    { L"2 (Yin Yang)", 0xb5b52, 0xb5bce },
-    { L"3 (3)", 0xb5ada, 0xb5b50 },
-    { L"4 (Question Mark)", 0xb58ea, 0xb5968 },
-    { L"5 (Lightning)", 0xb57e6, 0xb5866 },
-    { L"6 (Scorpion)", 0xb5772, 0xb57e4 },
-    { L"7 (Raiden)", 0xb596a, 0xb59ea },
-    { L"8 (Shao Kahn)", 0xb59ec, 0xb5a64 },
-    { L"9 (Skull)", 0xb5a66, 0xb5ad8 },
+    { L"0 (Dragon)",        0xb56fa, 0xb5770, indexUMK3ArcadeSprites_Bonus, 0x45 },
+    { L"1 (MK)",            0xb5868, 0xb58e8, indexUMK3ArcadeSprites_Bonus, 0x46 },
+    { L"2 (Yin Yang)",      0xb5b52, 0xb5bce, indexUMK3ArcadeSprites_Bonus, 0x47 },
+    { L"3 (3)",             0xb5ada, 0xb5b50, indexUMK3ArcadeSprites_Bonus, 0x48 },
+    { L"4 (Question Mark)", 0xb58ea, 0xb5968, indexUMK3ArcadeSprites_Bonus, 0x49 },
+    { L"5 (Lightning)",     0xb57e6, 0xb5866, indexUMK3ArcadeSprites_Bonus, 0x4a },
+    { L"6 (Scorpion)",      0xb5772, 0xb57e4, indexUMK3ArcadeSprites_Bonus, 0x4b },
+    { L"7 (Raiden)",        0xb596a, 0xb59ea, indexUMK3ArcadeSprites_Bonus, 0x4c },
+    { L"8 (Shao Kahn)",     0xb59ec, 0xb5a64, indexUMK3ArcadeSprites_Bonus, 0x4d },
+    { L"9 (Skull)",         0xb5a66, 0xb5ad8, indexUMK3ArcadeSprites_Bonus, 0x4e },
 };
 
 const sGame_PaletteDataset UMK3_A_Portraits_Normal[] =
@@ -707,30 +707,30 @@ const sGame_PaletteDataset UMK3_A_Portraits_Faded[] =
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_CharacterSelect[] =
 {
-    { L"Character Select 1/5", 0xa6c94, 0xa6d14 },
-    { L"Character Select 2/5", 0xa6d16, 0xa6d96 },
-    { L"Character Select 3/5", 0xa6d98, 0xa6e0e },
-    { L"Character Select 4/5", 0xa6e10, 0xa6e90 },
-    { L"Character Select 5/5", 0xa6e92, 0xa6f12 },
+    { L"Character Select 1/5", 0xa6c94, 0xa6d14, indexUMK3ArcadeSprites_Stages, 0x00, &pairNext4Palettes },
+    { L"Character Select 2/5", 0xa6d16, 0xa6d96, indexUMK3ArcadeSprites_Stages, 0x01 },
+    { L"Character Select 3/5", 0xa6d98, 0xa6e0e, indexUMK3ArcadeSprites_Stages, 0x02 },
+    { L"Character Select 4/5", 0xa6e10, 0xa6e90, indexUMK3ArcadeSprites_Stages, 0x03 },
+    { L"Character Select 5/5", 0xa6e92, 0xa6f12, indexUMK3ArcadeSprites_Stages, 0x04 },
 };
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_OptionSelect[] =
 {
-    { L"Option Select 1/4", 0xa6a7c, 0xa6afc },
-    { L"Option Select 2/4", 0xa6afe, 0xa6b7e },
-    { L"Option Select 3/4", 0xa6b80, 0xa6c00 },
-    { L"Option Select 4/4", 0xa6c02, 0xa6c82 },
+    { L"Option Select 1/4", 0xa6a7c, 0xa6afc, indexUMK3ArcadeSprites_Stages, 0x05, &pairNext3Palettes },
+    { L"Option Select 2/4", 0xa6afe, 0xa6b7e, indexUMK3ArcadeSprites_Stages, 0x06 },
+    { L"Option Select 3/4", 0xa6b80, 0xa6c00, indexUMK3ArcadeSprites_Stages, 0x07 },
+    { L"Option Select 4/4", 0xa6c02, 0xa6c82, indexUMK3ArcadeSprites_Stages, 0x08 },
 };
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_TowerSelectTheBridge[] =
 {
-    { L"Palette 1/4", 0xa6f28, 0xa6fa8 },
-    { L"Palette 2/4", 0xa6faa, 0xa702a },
-    { L"Palette 3/4", 0xa7140, 0xa71c0 },
-    { L"Palette 4/4", 0xa71c2, 0xa7242 },
-    { L"Tower Select Pillars", 0xb60e6, 0xb6164 },
-    { L"Tower Select Pillars Flash", 0x51210, 0x5128e },
-    { L"Tower Select Pillar Flooring", 0xb626a, 0xb62ea },
+    { L"Palette 1/4",                   0xa6f28, 0xa6fa8 },
+    { L"Palette 2/4",                   0xa6faa, 0xa702a },
+    { L"Palette 3/4",                   0xa7140, 0xa71c0 },
+    { L"Palette 4/4",                   0xa71c2, 0xa7242 },
+    { L"Tower Select Pillars",          0xb60e6, 0xb6164 },
+    { L"Tower Select Pillars Flash",    0x51210, 0x5128e },
+    { L"Tower Select Pillar Flooring",  0xb626a, 0xb62ea },
 };
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_ContinueScreen[] =
@@ -748,9 +748,9 @@ const sGame_PaletteDataset UMK3_A_Backgrounds_CharacterBiography[] =
 
 const sGame_PaletteDataset UMK3_A_Backgrounds_Messages[] =
 {
-    { L"Ultimate Kombat Kode/Error", 0x31da8, 0x31de8, indexUMK3ArcadeSprites_Bonus, 0x04 },
-    { L"Bootup Warning Message",    0x382ae, 0x382ee, indexUMK3ArcadeSprites_Bonus, 0x04 },
-    { L"Entering Hidden Game",      0x5aa92, 0x5aad2, indexUMK3ArcadeSprites_Bonus, 0x04 },
+    { L"Ultimate Kombat Kode/Error",    0x31da8, 0x31de8, indexUMK3ArcadeSprites_Bonus, 0x04 },
+    { L"Bootup Warning Message",        0x382ae, 0x382ee, indexUMK3ArcadeSprites_Bonus, 0x04 },
+    { L"Entering Hidden Game",          0x5aa92, 0x5aad2, indexUMK3ArcadeSprites_Bonus, 0x04 },
 };
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_FrozenPalettes[] =
@@ -805,34 +805,34 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_SoulScream[] =
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_HUD[] =
 {
-    { L"Lifebars",          0xbade8, 0xbae68 },
-    { L"Shadows and Meters", 0xbad54, 0xbad74 },
-    { L"Main Font (Red)",   0x4ca7a, 0x4ca9a },
-    { L"Main Font (White)", 0xbae8c, 0xbaeac },
-    { L"FIGHT!",            0xb8fdc, 0xb901c },
-    { L"FIGHT! Flash",      0xb901e, 0xb905e },
-    { L"Fatality",          0xbb004, 0xbb044 },
-    { L"Friendship 1/2",    0xba80c, 0xba87a },
-    { L"Friendship 2/2",    0xba87c, 0xba8fc },
-    { L"Babality 1/6",      0xba8fe, 0xba93e },
-    { L"Babality 2/6",      0xba940, 0xba980 },
-    { L"Babality 3/6",      0xba982, 0xba9be },
-    { L"Babality 4/6",      0xba9c0, 0xba9fa },
-    { L"Babality 5/6",      0xba9fc, 0xbaa30 },
-    { L"Babality 6/6",      0xbaa32, 0xbaa6c },
-    { L"Animality",         0xbaa6e, 0xbaaec },
-    { L"Mercy",             0xbb064, 0xbb0e4 },
-    { L"Mercy Flash",       0xbb0e6, 0xbb166 },
+    { L"Lifebars",          0xbade8, 0xbae68, indexUMK3ArcadeSprites_Bonus, 0x3e, &pairNext },
+    { L"Shadows and Meters", 0xbad54, 0xbad74, indexUMK3ArcadeSprites_Bonus, 0x42 },
+    { L"Main Font (Red)",   0x4ca7a, 0x4ca9a, indexUMK3ArcadeSprites_Bonus, 0x3f },
+    { L"Main Font (White)", 0xbae8c, 0xbaeac, indexUMK3ArcadeSprites_Bonus, 0x3f },
+    { L"FIGHT!",            0xb8fdc, 0xb901c, indexUMK3ArcadeSprites_Bonus, 0x3b },
+    { L"FIGHT! Flash",      0xb901e, 0xb905e, indexUMK3ArcadeSprites_Bonus, 0x3b },
+    { L"Fatality",          0xbb004, 0xbb044, indexUMK3ArcadeSprites_Bonus, 0x3a },
+    { L"Friendship 1/2",    0xba80c, 0xba87a, indexUMK3ArcadeSprites_Bonus, 0x3c, &pairNext },
+    { L"Friendship 2/2",    0xba87c, 0xba8fc, indexUMK3ArcadeSprites_Bonus, 0x3d },
+    { L"Babality 1/6",      0xba8fe, 0xba93e, indexUMK3ArcadeSprites_Bonus, 0x34, &pairNext5Palettes },
+    { L"Babality 2/6",      0xba940, 0xba980, indexUMK3ArcadeSprites_Bonus, 0x35 },
+    { L"Babality 3/6",      0xba982, 0xba9be, indexUMK3ArcadeSprites_Bonus, 0x36 },
+    { L"Babality 4/6",      0xba9c0, 0xba9fa, indexUMK3ArcadeSprites_Bonus, 0x37 },
+    { L"Babality 5/6",      0xba9fc, 0xbaa30, indexUMK3ArcadeSprites_Bonus, 0x38 },
+    { L"Babality 6/6",      0xbaa32, 0xbaa6c, indexUMK3ArcadeSprites_Bonus, 0x39 },
+    { L"Animality",         0xbaa6e, 0xbaaec, indexUMK3ArcadeSprites_Bonus, 0x33 },
+    { L"Mercy",             0xbb064, 0xbb0e4, indexUMK3ArcadeSprites_Bonus, 0x41 },
+    { L"Mercy Flash",       0xbb0e6, 0xbb166, indexUMK3ArcadeSprites_Bonus, 0x40 },
 };
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_TowerSelect[] =
 {
-    { L"Dragon Coin", 0xbaeae, 0xbaf2c },
+    { L"Dragon Coin", 0xbaeae, 0xbaf2c, indexUMK3ArcadeSprites_Bonus, 0x43 },
 };
 
 const sGame_PaletteDataset UMK3_A_BonusPalettes_InGameEffects[] =
 {
-    { L"Dan \"Toasty\" Forden",         0xb62ea, 0xb636a },
+    { L"Dan \"Toasty\" Forden",         0xb62ea, 0xb636a, indexUMK3ArcadeSprites_Bonus, 0x44 },
     { L"Explosion Gibs (Arms, Legs)",   0xbb250, 0xbb2d0 },
     { L"Explosion Gibs (Skull, Bones)", 0xbb2d2, 0xbb352 },
     { L"Explosion Gibs (Ribcages)",     0xbb354, 0xbb3d4 },

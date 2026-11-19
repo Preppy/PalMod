@@ -744,7 +744,7 @@ const sGame_PaletteDataset Matrimelee_A_POOCHY_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_A_PALETTES[] =
 {
-    { L"Princess Sissy A", 0x29fc02, 0x29fc22, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Princess Sissy A", 0x29fc02, 0x29fc22, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons A", 0x29fc22, 0x29fc42, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection A", 0x29fc42, 0x29fc62, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box A", 0x29fc62, 0x29fc82, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -760,7 +760,7 @@ const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_A_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_B_PALETTES[] =
 {
-    { L"Princess Sissy B", 0x29fd82, 0x29fda2, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Princess Sissy B", 0x29fd82, 0x29fda2, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons B", 0x29fda2, 0x29fdc2, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection B", 0x29fdc2, 0x29fde2, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box B", 0x29fde2, 0x29fe02, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -776,7 +776,7 @@ const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_B_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_C_PALETTES[] =
 {
-    { L"Princess Sissy C", 0x29ff02, 0x29ff22, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Princess Sissy C", 0x29ff02, 0x29ff22, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons C", 0x29ff22, 0x29ff42, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection C", 0x29ff42, 0x29ff62, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box C", 0x29ff62, 0x29ff82, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -792,7 +792,7 @@ const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_C_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_D_PALETTES[] =
 {
-    { L"Princess Sissy D", 0x2A0082, 0x2A00a2, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Princess Sissy D", 0x2A0082, 0x2A00a2, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons D", 0x2A00a2, 0x2A00c2, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection D", 0x2A00c2, 0x2A00e2, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box D", 0x2A00e2, 0x2A0102, indexMatriMSprites_PrincessSissy, 0x0e },

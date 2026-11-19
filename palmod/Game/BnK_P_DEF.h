@@ -1616,7 +1616,7 @@ const sGame_PaletteDataset BnK_P_POOCHY_TRANSFORM_WHITE_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_A_PALETTES[] =
 {
-    { L"Sissy A", 0x2656ae, 0x2656ce, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy A", 0x2656ae, 0x2656ce, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons A", 0x2656ce, 0x2656ee, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection A", 0x2656ee, 0x26570e, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box A", 0x26570e, 0x26572e, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -1632,7 +1632,7 @@ const sGame_PaletteDataset BnK_P_PRINCESSSISSY_A_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_B_PALETTES[] =
 {
-    { L"Sissy B", 0x26582e, 0x26584e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy B", 0x26582e, 0x26584e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons B", 0x26584e, 0x26586e, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection B", 0x26586e, 0x26588e, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box B", 0x26588e, 0x2658ae, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -1648,7 +1648,7 @@ const sGame_PaletteDataset BnK_P_PRINCESSSISSY_B_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_C_PALETTES[] =
 {
-    { L"Sissy C", 0x2659ae, 0x2659ce, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy C", 0x2659ae, 0x2659ce, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons C", 0x2659ce, 0x2659ee, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection C", 0x2659ee, 0x265a0e, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box C", 0x265a0e, 0x265a2e, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -1664,7 +1664,7 @@ const sGame_PaletteDataset BnK_P_PRINCESSSISSY_C_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_D_PALETTES[] =
 {
-    { L"Sissy D", 0x265b2e, 0x265b4e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy D", 0x265b2e, 0x265b4e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons D", 0x265b4e, 0x265b6e, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection D", 0x265b6e, 0x265b8e, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box D", 0x265b8e, 0x265bae, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -1680,7 +1680,7 @@ const sGame_PaletteDataset BnK_P_PRINCESSSISSY_D_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_SUMMER_PALETTES[] =
 {
-    { L"Sissy Summer", 0x265cae, 0x265cce, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy Summer", 0x265cae, 0x265cce, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons Summer", 0x265cce, 0x265cee, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection Summer", 0x265cee, 0x265d0e, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box Summer", 0x265d0e, 0x265d2e, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -1695,7 +1695,7 @@ const sGame_PaletteDataset BnK_P_PRINCESSSISSY_SUMMER_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_ZOMBIE_PALETTES[] =
 {
-    { L"Sissy Zombie", 0x265e0e, 0x265e2e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy Zombie", 0x265e0e, 0x265e2e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons Zombie", 0x265e2e, 0x265e4e, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection Zombie", 0x265e4e, 0x265e6e, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box Zombie", 0x265e6e, 0x265e8e, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -1710,7 +1710,7 @@ const sGame_PaletteDataset BnK_P_PRINCESSSISSY_ZOMBIE_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_EXTREME_PALETTES[] =
 {
-    { L"Sissy Extreme", 0x265f6e, 0x265f8e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy Extreme", 0x265f6e, 0x265f8e, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons Extreme", 0x265f8e, 0x265fae, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection Extreme", 0x265fae, 0x265fce, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box Extreme", 0x265fce, 0x265fee, indexMatriMSprites_PrincessSissy, 0x0e },
@@ -1725,7 +1725,7 @@ const sGame_PaletteDataset BnK_P_PRINCESSSISSY_EXTREME_PALETTES[] =
 
 const sGame_PaletteDataset BnK_P_PRINCESSSISSY_WHITE_PALETTES[] =
 {
-    { L"Sissy White", 0x2660ce, 0x2660ee, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNextSkipped },
+    { L"Sissy White", 0x2660ce, 0x2660ee, indexMatriMSprites_PrincessSissy, 0x00, &pairNextAndNext3 },
     { L"Cape Weapons White", 0x2660ee, 0x26610e, indexMatriMSprites_PrincessSissy, 0x0c, &pairPrevious },
     { L"Misdirection White", 0x26610e, 0x26612e, indexMatriMSprites_PrincessSissy, 0x0a },
     { L"Sissy's Box White", 0x26612e, 0x26614e, indexMatriMSprites_PrincessSissy, 0x0e },
