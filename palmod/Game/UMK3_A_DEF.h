@@ -867,10 +867,10 @@ const sGame_PaletteDataset UMK3Plus_A_Rain_P3[] =
 
 const sGame_PaletteDataset UMK3Plus_A_Rain_Extras[] =
 {
-    { L"Gibs P1",   0xc3134, 0xc31b4, indexUMK3ArcadeSprites_Rain, 0x01 },
-    { L"Gibs P2",   0xc192a, 0xc19aa, indexUMK3ArcadeSprites_Rain, 0x01 },
-    { L"Gibs P3",   0xd82d2, 0xd8352, indexUMK3ArcadeSprites_Rain, 0x01 },
-    { L"Babality",  0xc4072, 0xc40b2, indexUMK3ArcadeSprites_Rain, 0x02 },
+    { L"Gibs P1",   0xc3134, 0xc31b4, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P2",   0xc192a, 0xc19aa, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Gibs P3",   0xd82d2, 0xd8352, indexUMK3ArcadeSprites_Reptile, 0x01 },
+    { L"Babality",  0xc4072, 0xc40b2, indexUMK3ArcadeSprites_Reptile, 0x02 },
 };
 
 const sGame_PaletteDataset UMK3Plus_A_Triborg_P1[] =
@@ -1204,7 +1204,7 @@ const sGame_PaletteDataset UMK3Plus_A_VSBioPortraits_ShangTsung[] =
 {
     { L"Accent Color P1",   0xb3a56, 0xb3a96, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext3AndNext5 },
     { L"Accent Color P2",   0x53252, 0x53292, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext2AndNext4 },
-    { L"Accent Color P3",   0xd6164, 0xd619e, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext2AndNext3 },
+    { L"Accent Color P3",   0xd6166, 0xd619c, indexUMK3ArcadeSprites_Bonus, 0x73, &pairNext2AndNext3 },
     { L"Skin P1/P2",        0xb381a, 0xb3a12, indexUMK3ArcadeSprites_Bonus, 0x75 },
     { L"Skin P3",           0xd5f6c, 0xd6164, indexUMK3ArcadeSprites_Bonus, 0x75 },
     { L"Darks",             0xb3a14, 0xb3a54, indexUMK3ArcadeSprites_Bonus, 0x74 },
@@ -1444,8 +1444,9 @@ const sGame_PaletteDataset UMK3_A_BonusPalettes_SoulScream[] =
 
 const sGame_PaletteDataset UMK3Plus_A_BonusPalettes_SoulScream[] =
 {
-    { L"Male Ninja",                0x4517e, 0x451fe, indexUMK3ArcadeSprites_Bonus, 0x06 },
-    { L"Female Ninja",              0x45200, 0x45280, indexUMK3ArcadeSprites_Bonus, 0x05 },
+    { L"Scorpion",                  0x4517e, 0x451fe, indexUMK3ArcadeSprites_Bonus, 0x06 },
+    { L"Kitana",                    0x45200, 0x45280, indexUMK3ArcadeSprites_Bonus, 0x05 },
+
     { L"Kano",                      0x45282, 0x45302, indexUMK3ArcadeSprites_Kano, 0x00 },
     { L"Sonya",                     0x45304, 0x45384, indexUMK3ArcadeSprites_Sonya, 0x00 },
     { L"Jax",                       0x45386, 0x45406, indexUMK3ArcadeSprites_Jax, 0x00 },
@@ -1557,7 +1558,6 @@ const sGame_PaletteDataset UMK3Plus_A_BonusPalettes_FatalScream[] =
     { L"Rain",              0xc6bf8, 0xc6c38, indexUMK3ArcadeSprites_Bonus, 0x2a },
     { L"Jade",              0xc6c78, 0xc6cb8, indexUMK3ArcadeSprites_Bonus, 0x24 },
     { L"Mileena",           0xc6ce8, 0xc6d28, indexUMK3ArcadeSprites_Bonus, 0x24 },
-
 };
 
 const sGame_PaletteDataset UMK3_A_BONUS_PALETTES_HIDDENGAME[] =
