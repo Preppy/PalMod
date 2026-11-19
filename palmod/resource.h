@@ -283,6 +283,7 @@
 #define IDS_PASTE_RGB_FORMAT            2108
 #define IDS_PASTE_RGB_ROUNDED_FORMAT    2109
 #define IDS_PASTE_UNSUPPORTED           2110
+#define IDS_WEBP_UNSUPPORTED            2111
 #define ID_INDICATOR_MAIN               32760
 #define ID_INDICATOR_EXTRA              32761
 #define ID_INDICATOR_ALT                32762

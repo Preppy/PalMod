@@ -43,6 +43,7 @@ namespace PaletteImport
         PNG,
         //PRPL,
         //SF3OETXT_PS3,
+        WEBP,
         
         // if you add a new palette type here, please update the CPalDropTarget support in DropTarget.cpp
     };

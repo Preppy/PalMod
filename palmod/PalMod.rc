@@ -1208,6 +1208,7 @@ BEGIN
     IDS_ACT_REVERSEDLOAD    "ACT appears to have a reversed color table: loaded %u colors backwards."
     IDS_PAL_LOADED          "Loaded %u colors from %u color PAL file."
     IDS_PNG_LOADED          "Loaded %u colors from %u color indexed PNG file."
+    IDS_WEBP_UNSUPPORTED    "This file extension is wrong!\r\n\r\nThis file is a WEBP file which we do not currently support.  Your browser may have incorrectly downloaded this file."
     IDS_PNG_REVERSEDLOAD    "PNG appears reversed: loaded %u colors backwards from this indexed PNG file."
     IDS_LOADING_DUPECHECK   "Validating game data tables: please wait..."
     IDS_RAW_EXTRADATA       "This RAW contains extra data and may not look right."

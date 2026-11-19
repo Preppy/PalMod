@@ -2,6 +2,7 @@
 #include "PalMod.h"
 #include "PaletteImport.h"
 #include "Util.h"
+#include "WEBPfiles.h"
 
 // This simple check just validates that we have some actual colors in the first two lines
 // Fight Factory often stores palettes upside down, so this will catch a lot of theirs
@@ -275,8 +276,15 @@ bool PaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bo
     bool fSuccess = false;
     std::vector<uint8_t> rgbaPalette;
     UINT uiSuccess = 0, uiReversedSuccess = 0, uiFailure = IDS_ERROR_LOADING_PALETTE_FILE;
+    bool fIsWEBPFile = IsFileAWEBPFile(pszFileName);
 
     GetHost()->GetPalModDlg()->SetStatusText(L"Loading palette...");
+
+    // This is a little ugly to do up front, but this avoids us showing bogus messages as we try to mis-process the file.
+    if (fIsWEBPFile)
+    {
+        palFileType = PalFileType::WEBP;
+    }
 
     switch (palFileType)
     {
@@ -307,6 +315,10 @@ bool PaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bo
             uiSuccess = IDS_PNG_LOADED;
             uiReversedSuccess = IDS_PNG_REVERSEDLOAD;
             uiFailure = IDS_PNG_LOADFAILURE;
+            break;
+        case PalFileType::WEBP:
+            fSuccess = false;
+            uiFailure = IDS_WEBP_UNSUPPORTED;
             break;
     }
 
@@ -411,13 +423,20 @@ bool PaletteImport::LoadPalette(PalFileType palFileType, LPCWSTR pszFileName, bo
             GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
         }
     }
-    else
+    else // failure to get the palette at all
     {
-        if (strMsg.LoadString(uiFailure))
+        (void)strMsg.LoadString(uiFailure);
+
+        if (fIsWEBPFile)
         {
-            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+            // webp files have more text because the file extension is wrong
+            GetHost()->GetPalModDlg()->SetStatusText(L"WEBP files are not supported.");
+        }
+        else
+        {
             GetHost()->GetPalModDlg()->SetStatusText(strMsg.GetString());
         }
+        MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
     }
 
     strMsg += L"\r\n";

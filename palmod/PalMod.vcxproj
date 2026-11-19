@@ -384,6 +384,7 @@
     <ClCompile Include="TPLfiles.cpp" />
     <ClCompile Include="UndoRedo.cpp" />
     <ClCompile Include="Util.cpp" />
+    <ClCompile Include="WEBPfiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CImageFiles.h" />
@@ -831,6 +832,7 @@
     <ClInclude Include="TextureData.h" />
     <ClInclude Include="UndoRedo.h" />
     <ClInclude Include="Util.h" />
+    <ClInclude Include="WEBPfiles.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bgbmp.bmp" />

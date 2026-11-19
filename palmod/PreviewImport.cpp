@@ -4,6 +4,7 @@
 #include "CImageFiles.h"
 #include "RAWfiles.h"
 #include "PNGfiles.h"
+#include "WEBPfiles.h"
 #include "TextureData.h"
 #include "Util.h"
 
@@ -449,9 +450,13 @@ bool CPreviewImportManager::LoadCustomSpriteFromPath(LPCWSTR pszPath, PNGImportS
 
     LPCWSTR pszExt = wcsrchr(pszPath, L'.');
 
-    if (pszExt &&
-        ((_wcsicmp(pszExt, L".gif") == 0) ||
-         (_wcsicmp(pszExt, L".bmp") == 0)))
+    if (IsFileAWEBPFile(pszPath))
+    {
+        m_textureSourceType = TextureSourceFileType::WEBP;
+    }
+    else  if (pszExt &&
+              ((_wcsicmp(pszExt, L".gif") == 0) ||
+               (_wcsicmp(pszExt, L".bmp") == 0)))
     {
         m_textureSourceType = TextureSourceFileType::CImage;
     }
@@ -495,6 +500,9 @@ bool CPreviewImportManager::LoadCustomSpriteFromPath(LPCWSTR pszPath, PNGImportS
         case TextureSourceFileType::CImage:
             fCouldLoadData = LoadTextureFromCImageSprite(pszPath, newTexture);
             break;
+        case TextureSourceFileType::WEBP:
+            // unsupported: can only get here with bad download logic
+            break;
     }
 
     if (fCouldLoadData)
@@ -509,23 +517,28 @@ bool CPreviewImportManager::LoadCustomSpriteFromPath(LPCWSTR pszPath, PNGImportS
         if (m_textureSourceType == TextureSourceFileType::RAW)
         {
             // RAW has unique restrictions so show them just in case it helps
-            if (strInfo.LoadString(IDS_ERROR_TEXTURE_LOAD))
-            {
-                MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
-            }
+            (void)strInfo.LoadString(IDS_ERROR_TEXTURE_LOAD);
+            GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
         }
         else if (m_textureSourceType == TextureSourceFileType::CImage)
         {
             strInfo = L"Failed to load this image.  Animated GIFs are not supported as replacement previews.";
-            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
             GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
-            strInfo += "\r\n";
-            OutputDebugString(strInfo.GetString());
+        }
+        else if (m_textureSourceType == TextureSourceFileType::WEBP)
+        {
+            (void)strInfo.LoadString(IDS_WEBP_UNSUPPORTED);
+            GetHost()->GetPalModDlg()->SetStatusText(L"WEBP files are not supported.");
         }
         else
         {
-            MessageBox(L"Error loading preview file.", GetHost()->GetAppName(), MB_ICONERROR);
+            strInfo = L"Error loading preview file.";
+            GetHost()->GetPalModDlg()->SetStatusText(strInfo.GetString());
         }
+
+        MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+        strInfo += "\r\n";
+        OutputDebugString(strInfo.GetString());
     }
 
     return fCouldLoadData;
@@ -1226,13 +1239,13 @@ void CPreviewImportManager::UpdateDisplayedPreview()
                     if (mappingErrorDetails.nCheckAgainstPalette == 0)
                     {
                         strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
-                            L"That color may originally have intended to be index %u or index %u, but since we lose all that context we can only ever map it as index %u.\n\n"
+                            L"That color may originally have intended to be index %zu or index %zu, but since we lose all that context we can only ever map it as index %zu.\n\n"
                             L"To avoid this problem, please use mapping palettes or use indexed image types.", mappingErrorDetails.nCheckColor, mappingErrorDetails.nCheckAgainstColor, mappingErrorDetails.nCheckColor);
                     }
                     else
                     {
                         strMistake.Format(L"Please note that the active palette set is not ideal for use as a mapping palette.  This is because it has multiple instances of the same color. "
-                            L"That color may originally have intended to be palette %u index %u or palette %u index %u, but since we lose all that context we can only ever map it as palette %u index %u.\n\n"
+                            L"That color may originally have intended to be palette %zu index %zu or palette %zu index %zu, but since we lose all that context we can only ever map it as palette %zu index %zu.\n\n"
                             L"To avoid this problem, please use mapping palettes or use indexed image types.", mappingErrorDetails.nStartCheckPalette, mappingErrorDetails.nCheckColor, mappingErrorDetails.nCheckAgainstPalette, mappingErrorDetails.nCheckAgainstColor, mappingErrorDetails.nStartCheckPalette, mappingErrorDetails.nCheckColor);
                     }
 

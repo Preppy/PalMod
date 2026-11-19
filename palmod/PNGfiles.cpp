@@ -556,6 +556,8 @@ bool LoadTextureFromPNG(LPCWSTR pszTextureLocation, sTextureData& textureData, P
         OutputDebugString(strOutput.GetString());
 
         strErrorExtra = strOutput.GetString();
+
+        GetHost()->GetPalModDlg()->SetStatusText(L"Preview load failed.\r\n");
     }
 
     return fSuccess;

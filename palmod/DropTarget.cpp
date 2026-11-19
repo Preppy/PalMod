@@ -40,6 +40,31 @@ std::wstring GetFileExtensionFromURL(const std::wstring& strURL)
     return {};
 }
 
+// this is very naive but works currently at least
+// notably we cull all query values after Format, so we potentially
+// will make a lossy and failing request. but without this the request
+// is going to be useless, so it is what it is.
+std::wstring CullWEBPRequestFromURLIfPresent(const std::wstring& strURL)
+{
+    std::wstring strFixedURL;
+
+    if (!strURL.empty())
+    {
+        size_t webpRequest = strURL.rfind(L"&format=webp");
+
+        if (webpRequest)
+        {
+            strFixedURL = strURL.substr(0, webpRequest);
+        }
+        else
+        {
+            strFixedURL = strURL;
+        }
+    }
+
+    return strFixedURL;
+}
+
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
     static const CLIPFORMAT s_idDesc = static_cast<CLIPFORMAT>(RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR));
@@ -291,6 +316,10 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             const DWORD c_nFileAttrib = GetFileAttributes(szPath);
             const bool c_fIsDirectory = (c_nFileAttrib & FILE_ATTRIBUTE_DIRECTORY);
 
+            CString strInfo;
+            strInfo.Format(L"Testing file '%s'...\r\n", szPath);
+            OutputDebugString(strInfo.GetString());
+
             if (c_fIsDirectory)
             {
                 strMessageOut = L"You dragged a folder: just drag the file you want from that.";
@@ -405,6 +434,8 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
             fConfirmedURL = (_wcsnicmp(str, L"http", 4) == 0);
 
+            OutputDebugString(L"Checking to see if we can support this URL...\r\n");
+
             if (fConfirmedURL)
             {
                 std::wstring strExtension = GetFileExtensionFromURL(str);
@@ -423,15 +454,18 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
         if (m_currentEffectState == DROPEFFECT_COPY)
         {
             // we're good
+            OutputDebugString(L"\tWe should be able to work with this.\r\n");
         }
         else if (fConfirmedURL)
         {
             GetHost()->GetPalModDlg()->SetStatusText(L"You dragged a URL: save the file to disk first and then use it.");
+            OutputDebugString(L"\tNo support is available currently.\r\n");
         }
         else
         {
             // https://issues.chromium.org/issues/40083002
             GetHost()->GetPalModDlg()->SetStatusText(L"Chromium's drag and drop is broken: if you use Firefox that would have worked.");
+            OutputDebugString(L"\tDrop is from Chrome: unsupported.\r\n");
         }
     }
 
@@ -548,7 +582,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     sf.Read(str, static_cast<UINT>(::GlobalSize(hg)));
                     ::GlobalUnlock(hg);
 
-                    strURL = buffer.GetString();
+                    strURL = CullWEBPRequestFromURLIfPresent(buffer.GetString());
 
                     fHaveData = true;
                 }

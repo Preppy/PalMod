@@ -7,6 +7,7 @@ enum class TextureSourceFileType
     PNG,
     RAW,
     CImage,
+    WEBP, // unsupported
 };
 
 constexpr auto PaletteBox_MinimumRect = 1;
