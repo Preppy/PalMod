@@ -4,6 +4,23 @@
 #include "Game\GameRegistry.h"
 #include <cwctype> // for towlower
 
+std::wstring GetFileNameFromURL(const std::wstring& strURL)
+{
+    size_t terminalChunk = strURL.find_first_of(L"?#");
+    std::wstring strURLOnly = (terminalChunk == std::wstring::npos) ? strURL : strURL.substr(0, terminalChunk);
+
+    size_t strFinalSlash = strURLOnly.find_last_of(L'/');
+
+    if (strFinalSlash != std::wstring::npos)
+    {
+        return strURLOnly.substr(strFinalSlash + 1);
+    }
+    else
+    {
+        return {};
+    }
+}
+
 bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename /*= nullptr*/)
 {
     static const CLIPFORMAT s_idDesc = static_cast<CLIPFORMAT>(RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR));
@@ -70,6 +87,92 @@ bool CPalDropTarget::_IsDataObjectFromFirefox(COleDataObject* pDataObject, bool&
     return fIsFromFirefox;
 }
 
+void CPalDropTarget::_SetDropInfoFromExtension(CWnd* pWnd, LPCWSTR pszExtension, CString& strMessage, bool& fMightBeFirefox)
+{
+    const bool c_fGameIsLoaded = GetHost()->GetCurrGame();
+    const SupportedGamesList c_gameId = c_fGameIsLoaded ? GetHost()->GetCurrGame()->GetGameFlag() : NUM_GAMES;
+
+    const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
+    const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
+
+    // allow hints for these two if they're using the right game or they could be
+    const bool c_fAllowBBCFDrop = !c_fGameIsLoaded || (c_gameId == BlazBlueCF_S);
+    const bool c_fAllowACRDrop = !c_fGameIsLoaded || (c_gameId == GGXXACR_S);
+
+    // There's a smaller list in _IsDataObjectFromFirefox that needs to mirror all image types 
+    // that Firefox might hand us.
+    if ((_wcsicmp(pszExtension, L".act") == 0) ||
+        (_wcsicmp(pszExtension, L".pal") == 0) ||
+        (_wcsicmp(pszExtension, L".gpl") == 0) ||
+        (_wcsicmp(pszExtension, L".hpl") == 0) ||
+        (c_fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".impl") == 0))) ||
+        (c_fAllowACRDrop && (_wcsicmp(pszExtension, L".prpl") == 0)))
+    {
+        m_currentEffectState = DROPEFFECT_COPY;
+        strMessage = L"This appears to be a usable palette.";
+    }
+    else if (_wcsicmp(pszExtension, L".raw") == 0)
+    {
+        m_currentEffectState = DROPEFFECT_COPY;
+        strMessage = L"This appears to be a usable preview.";
+    }
+    else if ((_wcsicmp(pszExtension, L".gif") == 0) ||
+                (_wcsicmp(pszExtension, L".png") == 0))
+    {
+        m_currentEffectState = DROPEFFECT_COPY;
+
+        if (fPreviewDropIsPalette)
+        {
+            strMessage = L"This appears to be a usable palette. (Update Drop Settings if you want it as a Preview.)";
+        }
+        else
+        {
+            if (fDropTargetsPreviewWindow)
+            {
+                strMessage = L"This appears to be a usable preview. (Drop on main window to use as a palette.)";
+            }
+            else
+            {
+                strMessage = L"This appears to be a usable palette. (Drop on Preview window to use as a preview.)";
+            }
+        }
+    }
+    else if (_wcsicmp(pszExtension, L".bmp") == 0)
+    {
+        // Firefox does bad things as regards image drag and drop, so flag them
+        fMightBeFirefox = true;
+        m_currentEffectState = DROPEFFECT_COPY;
+        strMessage = L"This appears to be a usable palette.";
+    }
+    else if (_wcsicmp(pszExtension, L".lnk") == 0)
+    {
+        strMessage = L"You dragged a shortcut: go to the actual file and then use that directly.";
+        m_currentEffectState = DROPEFFECT_NONE;
+    }
+    else if (_wcsicmp(pszExtension, L".url") == 0)
+    {
+        strMessage = L"You dragged a URL: save the file to disk first and then use it.";
+        m_currentEffectState = DROPEFFECT_NONE;
+    }
+    else if ((_wcsicmp(pszExtension, L".7z") == 0) ||
+            (_wcsicmp(pszExtension, L".rar") == 0) ||
+            (_wcsicmp(pszExtension, L".zip") == 0))
+    {
+        strMessage = L"You dragged a compressed file: extract it first in order to have PalMod use it.";
+        m_currentEffectState = DROPEFFECT_NONE;
+    }
+
+    // If the item is supported but requires a game to be loaded, remind them.
+    if (!c_fGameIsLoaded &&
+        (m_currentEffectState == DROPEFFECT_COPY))
+    {
+        strMessage = L"Load a game first! " + strMessage;
+        m_currentEffectState = DROPEFFECT_NONE;
+    }
+
+    GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
+}
+
 bool HaveMultiDropSupportForThisFileType(std::wstring strDropPath)
 {
     bool fHaveMultiDropSupport = false;
@@ -119,8 +222,6 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
         const HDROP hDrop = static_cast<HDROP>(GlobalLock(hg));
         wchar_t szPath[MAX_PATH] = {};
         std::vector<std::wstring> rgMultiDropPaths;
-        const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
-        const bool fDropTargetsPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
         bool fHaveSinglePathData = false;
 
         if (hDrop)
@@ -154,11 +255,10 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
         GlobalUnlock(hg);
 
+        const bool c_fGameIsLoaded = GetHost()->GetCurrGame();
+
         if (fHaveSinglePathData)
         {
-            const bool c_fGameIsLoaded = GetHost()->GetCurrGame();
-            const SupportedGamesList c_gameId = c_fGameIsLoaded ? GetHost()->GetCurrGame()->GetGameFlag() : NUM_GAMES;
-
             // Handle palettes
 
             // It's a file: is it a file type we know about?
@@ -168,10 +268,6 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             // ACR: prpl
             LPCWSTR pszExtension = wcsrchr(szPath, L'.');
             CString strMessageOut;
-
-            // allow hints for these two if they're using the right game or they could be
-            const bool c_fAllowBBCFDrop = !c_fGameIsLoaded || (c_gameId == BlazBlueCF_S);
-            const bool c_fAllowACRDrop = !c_fGameIsLoaded || (c_gameId == GGXXACR_S);
 
             const DWORD c_nFileAttrib = GetFileAttributes(szPath);
             const bool c_fIsDirectory = (c_nFileAttrib & FILE_ATTRIBUTE_DIRECTORY);
@@ -183,83 +279,11 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             }
             else if (pszExtension)
             {
-                // There's a smaller list in _IsDataObjectFromFirefox that needs to mirror all image types 
-                // that Firefox might hand us.
-                if ((_wcsicmp(pszExtension, L".act") == 0) ||
-                    (_wcsicmp(pszExtension, L".pal") == 0) ||
-                    (_wcsicmp(pszExtension, L".gpl") == 0) ||
-                    (_wcsicmp(pszExtension, L".hpl") == 0) ||
-                    (c_fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".impl") == 0))) ||
-                    (c_fAllowACRDrop && (_wcsicmp(pszExtension, L".prpl") == 0)))
-                {
-                    m_currentEffectState = DROPEFFECT_COPY;
-                    strMessageOut = L"This appears to be a usable palette.";
-                }
-                else if (_wcsicmp(pszExtension, L".raw") == 0)
-                {
-                    m_currentEffectState = DROPEFFECT_COPY;
-                    strMessageOut = L"This appears to be a usable preview.";
-                }
-                else if ((_wcsicmp(pszExtension, L".gif") == 0) ||
-                         (_wcsicmp(pszExtension, L".png") == 0))
-                {
-                    m_currentEffectState = DROPEFFECT_COPY;
-
-                    if (fPreviewDropIsPalette)
-                    {
-                        strMessageOut = L"This appears to be a usable palette. (Update Drop Settings if you want it as a Preview.)";
-                    }
-                    else
-                    {
-                        if (fDropTargetsPreviewWindow)
-                        {
-                            strMessageOut = L"This appears to be a usable preview. (Drop on main window to use as a palette.)";
-                        }
-                        else
-                        {
-                            strMessageOut = L"This appears to be a usable palette. (Drop on Preview window to use as a preview.)";
-                        }
-                    }
-                }
-                else if (_wcsicmp(pszExtension, L".bmp") == 0)
-                {
-                    // Firefox does bad things as regards image drag and drop, so flag them
-                    fMightBeFirefox = true;
-                    m_currentEffectState = DROPEFFECT_COPY;
-                    strMessageOut = L"This appears to be a usable palette.";
-                }
-                else if (_wcsicmp(pszExtension, L".lnk") == 0)
-                {
-                    strMessageOut = L"You dragged a shortcut: go to the actual file and then use that directly.";
-                    m_currentEffectState = DROPEFFECT_NONE;
-                }
-                else if (_wcsicmp(pszExtension, L".url") == 0)
-                {
-                    strMessageOut = L"You dragged a URL: save the file to disk first and then use it.";
-                    m_currentEffectState = DROPEFFECT_NONE;
-                }
-                else if ((_wcsicmp(pszExtension, L".7z") == 0) ||
-                        (_wcsicmp(pszExtension, L".rar") == 0) ||
-                        (_wcsicmp(pszExtension, L".zip") == 0))
-                {
-                    strMessageOut = L"You dragged a compressed file: extract it first in order to have PalMod use it.";
-                    m_currentEffectState = DROPEFFECT_NONE;
-                }
+                _SetDropInfoFromExtension(pWnd, pszExtension, strMessageOut, fMightBeFirefox);
             }
 
-            if (!strMessageOut.IsEmpty())
-            {
-                // If the item is supported but requires a game to be loaded, remind them.
-                if (!c_fGameIsLoaded &&
-                    (m_currentEffectState == DROPEFFECT_COPY))
-                {
-                    strMessageOut = L"Load a game first! " + strMessageOut;
-                    m_currentEffectState = DROPEFFECT_NONE;
-                }
-
-                GetHost()->GetPalModDlg()->SetStatusText(strMessageOut.GetString());
-            }
-            else if (m_currentEffectState != DROPEFFECT_COPY)
+            if (strMessageOut.IsEmpty() &&
+                (m_currentEffectState != DROPEFFECT_COPY))
             {
                 std::vector<SupportedGamesList> rgGameMatches;
                 std::vector<SupportedGamesList> rgGameDirectoryMatches;
@@ -307,8 +331,19 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
             if (fCanWorkWithThis)
             {
-                m_currentEffectState = DROPEFFECT_COPY;
-                GetHost()->GetPalModDlg()->SetStatusText(L"We should be able to support these as replacement options.");
+                CString strMessageOut = L"We should be able to support these as replacement options.";
+
+                if (c_fGameIsLoaded)
+                {
+                    m_currentEffectState = DROPEFFECT_COPY;
+                }
+                else
+                {
+                    strMessageOut = L"Load a game first! " + strMessageOut;
+                    m_currentEffectState = DROPEFFECT_NONE;
+                }
+
+                GetHost()->GetPalModDlg()->SetStatusText(strMessageOut.GetString());
             }
             else
             {
@@ -350,9 +385,23 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
             ::GlobalUnlock(hg);
 
             fConfirmedURL = (_wcsnicmp(str, L"http", 4) == 0);
+
+            if (fConfirmedURL)
+            {
+                LPCWSTR pszExtension = wcsrchr(str, L'.');
+                CString strUnused;
+                bool fUnused = false;
+
+                // See if this appears to be something we can work with
+                _SetDropInfoFromExtension(pWnd, pszExtension, strUnused, fUnused);
+            }
         }
 
-        if (fConfirmedURL)
+        if (m_currentEffectState == DROPEFFECT_COPY)
+        {
+            // we're good
+        }
+        else if (fConfirmedURL)
         {
             GetHost()->GetPalModDlg()->SetStatusText(L"You dragged a URL: save the file to disk first and then use it.");
         }
@@ -380,9 +429,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
     if (GetHost()->GetCurrGame())
     {
         bool fHaveData = false;
-        bool fUsingFirefoxTempFile = false;
+        bool fUsingTempFile = false;
         bool fIsSupportable = false;
         std::vector<std::wstring> rgDropPaths;
+        std::wstring strURL;
         CString strFileName;
 
         if (_IsDataObjectFromFirefox(pDataObject, fIsSupportable, &strFileName) && fIsSupportable && strFileName.GetLength())
@@ -412,7 +462,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                                 fileTemp.Write(pRawData, nFileSize);
 
                                 fHaveData = true;
-                                fUsingFirefoxTempFile = true;
+                                fUsingTempFile = true;
                                 rgDropPaths.push_back(strFileName.GetString());
 
                                 safe_delete_array(pRawData);
@@ -463,6 +513,23 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
                     GlobalUnlock(hg);
                 }
             }
+            else // we validate supported URLs on Enter
+            {
+                if (pDataObject->IsDataAvailable(CF_UNICODETEXT))
+                {
+                    const HGLOBAL hg = pDataObject->GetGlobalData(CF_UNICODETEXT);
+                    CMemFile sf(static_cast<BYTE*>(::GlobalLock(hg)), static_cast<UINT>(::GlobalSize(hg)));
+
+                    CString buffer;
+                    LPWSTR str = buffer.GetBufferSetLength(static_cast<int>(::GlobalSize(hg)));
+                    sf.Read(str, static_cast<UINT>(::GlobalSize(hg)));
+                    ::GlobalUnlock(hg);
+
+                    strURL = buffer.GetString();
+
+                    fHaveData = true;
+                }
+            }
         }
 
         if (fHaveData)
@@ -470,9 +537,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             CPalModDlg::PalModDropInformation dropInfo;
 
             dropInfo.rgFilePaths = rgDropPaths;
+            dropInfo.strURL = strURL;
             dropInfo.fTargetingPreviewWindow = (pWnd->GetSafeHwnd() == GetHost()->GetPreviewDlg()->GetSafeHwnd());
             dropInfo.fShiftWasDown = m_dwLastKeyState & MK_SHIFT;
-            dropInfo.fUsingFirefoxTempFile = fUsingFirefoxTempFile;
+            dropInfo.fUsingTempFile = fUsingTempFile;
 
             GetHost()->GetPalModDlg()->SetDropInformation(dropInfo);
             GetHost()->GetPalModDlg()->SetStatusText(L"(Processing drop...)");

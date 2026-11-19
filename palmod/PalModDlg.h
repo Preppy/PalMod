@@ -31,6 +31,8 @@ enum class eVerifyType
     VM_FILECHANGE
 };
 
+std::wstring GetFileNameFromURL(const std::wstring& strURL);
+
 // GIF headers use an odd number of bytes, so avoid having our struct padded
 #pragma pack(push, 1)
 struct GIFHeader
@@ -481,9 +483,10 @@ public:
     struct PalModDropInformation
     {
         std::vector<std::wstring> rgFilePaths;
+        std::wstring strURL;
         bool fTargetingPreviewWindow = false;
         bool fShiftWasDown = false;
-        bool fUsingFirefoxTempFile = false;
+        bool fUsingTempFile = false;
     };
 
     PalModDropInformation m_pendingDropInformation;

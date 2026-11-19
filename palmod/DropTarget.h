@@ -15,4 +15,5 @@ private:
     DWORD m_dwLastKeyState = 0;
 
     bool _IsDataObjectFromFirefox(COleDataObject* pDataObject, bool& fIsSupportable, _In_opt_ CString* pstrFilename = nullptr);
+    void _SetDropInfoFromExtension(CWnd* pWnd, LPCWSTR pszExtension, CString& strMessage, bool &fMightBeFirefox);
 };

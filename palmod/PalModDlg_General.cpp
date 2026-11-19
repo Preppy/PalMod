@@ -224,6 +224,31 @@ void CleanseButtonNodeString(const wchar_t* pszUnit, const wchar_t* pszNode, wch
 
 afx_msg LRESULT CPalModDlg::_ProcessDrop(WPARAM, LPARAM)
 {
+    if (m_pendingDropInformation.rgFilePaths.empty() &&
+        !m_pendingDropInformation.strURL.empty())
+    {
+        wchar_t szTempPath[MAX_PATH];
+
+        if (GetTempPath(ARRAYSIZE(szTempPath), szTempPath))
+        {
+            std::wstring strFileName = GetFileNameFromURL(m_pendingDropInformation.strURL);
+
+            if (!strFileName.empty())
+            {
+                CString strTempFile;
+                strTempFile.Format(L"%sPMU-%s", szTempPath, strFileName.c_str());
+
+                HRESULT hr = URLDownloadToFile(nullptr, m_pendingDropInformation.strURL.c_str(), strTempFile, 0, nullptr);
+
+                if (SUCCEEDED(hr))
+                {
+                    m_pendingDropInformation.rgFilePaths.push_back(strTempFile.GetString());
+                    m_pendingDropInformation.fUsingTempFile = true;
+                }
+            }
+        }
+    }
+
     if (m_pendingDropInformation.rgFilePaths.size())
     {
         const bool fPreviewDropIsPalette = GetHost()->GetPreviewDlg()->GetPreviewDropIsPalette();
@@ -338,7 +363,7 @@ afx_msg LRESULT CPalModDlg::_ProcessDrop(WPARAM, LPARAM)
 
         if (fHandledDrop)
         {
-            if (m_pendingDropInformation.fUsingFirefoxTempFile)
+            if (m_pendingDropInformation.fUsingTempFile)
             {
                 DeleteFile(m_pendingDropInformation.rgFilePaths.at(0).c_str());
             }
