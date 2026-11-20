@@ -787,7 +787,6 @@
     <ClInclude Include="Game\TopF2005_Sega_DEF.h" />
     <ClInclude Include="Game\TurfMasters_A_DEF.h" />
     <ClInclude Include="Game\UMK3_A_DEF.h" />
-    <ClInclude Include="Game\UMK3_DS_DEF.h" />
     <ClInclude Include="Game\UMK3_SEGA_DEF.h" />
     <ClInclude Include="Game\UMK3_SNES_DEF.h" />
     <ClInclude Include="Game\UNI2_S_DEF.h" />

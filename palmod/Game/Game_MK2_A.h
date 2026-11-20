@@ -2,6 +2,9 @@
 #include "GameClassByDir.h"
 #include "MK2_A_DEF.h"
 
+constexpr auto MK2_A_KNOWN_PALETTE_COUNT = 179;
+constexpr auto MK2_A_LOWEST_LOCATION = 0x14d10;
+
 class CGame_MK2_A : public CGameClassByDir
 {
 private:
@@ -64,8 +67,8 @@ private:
         MK2_A_UNITS,
         ARRAYSIZE(MK2_A_UNITS),
         L"MK2_A_E.txt",             // Extra filename
-        31,                         // Count of palettes listed in the header
-        0x210e2,                    // Lowest known location used for palettes
+        MK2_A_KNOWN_PALETTE_COUNT,  // Count of palettes listed in the header
+        MK2_A_LOWEST_LOCATION,      // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V31Alt
@@ -84,8 +87,8 @@ private:
         MK2_A_UNITS,
         ARRAYSIZE(MK2_A_UNITS),
         L"MK2_A_E.txt",             // Extra filename
-        31,                         // Count of palettes listed in the header
-        0x210e2,                    // Lowest known location used for palettes
+        MK2_A_KNOWN_PALETTE_COUNT,  // Count of palettes listed in the header
+        MK2_A_LOWEST_LOCATION,      // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_V31Ult
@@ -104,8 +107,8 @@ private:
         MK2_A_UNITS,
         ARRAYSIZE(MK2_A_UNITS),
         L"MK2_A_E.txt",             // Extra filename
-        31,                         // Count of palettes listed in the header
-        0x210e2,                    // Lowest known location used for palettes
+        MK2_A_KNOWN_PALETTE_COUNT,  // Count of palettes listed in the header
+        MK2_A_LOWEST_LOCATION,      // Lowest known location used for palettes
     };
 
 public:
@@ -148,8 +151,8 @@ private:
         MK2_A_UNITS,
         ARRAYSIZE(MK2_A_UNITS),
         L"MK2_PS2_E.txt",           // Extra filename
-        31,                         // Count of palettes listed in the header
-        0x210e2,                    // Lowest known location used for palettes
+        MK2_A_KNOWN_PALETTE_COUNT,  // Count of palettes listed in the header
+        MK2_A_LOWEST_LOCATION,      // Lowest known location used for palettes
     };
 
 public:

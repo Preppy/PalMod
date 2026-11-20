@@ -334,6 +334,8 @@ void CFindPalettesInNewROM::ScanForData()
         m_strOutputName += L".txt";
     }
 
+    m_strOutputName = SanitizeFileName(m_strOutputName);
+
     m_fUseExtrasMode = _StringWantsToUseExtrasMode(m_strOutputName);
 
     CRegProc::SetDefaultRemapFiletype(m_fUseExtrasMode ? 0 : 1);
