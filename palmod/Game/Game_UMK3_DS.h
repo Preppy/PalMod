@@ -1,6 +1,6 @@
 #pragma once
 #include "GameClassByDir.h"
-#include "UMK3_DS_DEF.h"
+#include "UMK3_A_DEF.h"
 
 class CGame_UMK3_DS : public CGameClassByDir
 {
@@ -23,7 +23,7 @@ private:
         L"Ultimate Mortal Kombat 3 (USA DS)",
         UMK3_DS,
         IMGDAT_SECTION_OTHER, // We're pulling in the Arcade sprites for this
-        UMK3_DS_IMGIDS_USED,
+        UMK3_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         DEF_BUTTONLABEL_2,
@@ -34,12 +34,14 @@ private:
         UMK3_DS_UNITS,
         ARRAYSIZE(UMK3_DS_UNITS),
         L"UMK3_DS_E.txt",              // Extra filename
-        66,                            // Count of palettes listed in the header
-        0x1b26a0,                      // Lowest known location used for palettes
+        386,                           // Count of palettes listed in the header
+        0x11d5da,                      // Lowest known location used for palettes
     };
 
 public:
     CGame_UMK3_DS(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

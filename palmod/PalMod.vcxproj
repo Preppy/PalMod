@@ -327,6 +327,7 @@
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
     <ClCompile Include="Game\Game_TurfMasters_A.cpp" />
     <ClCompile Include="Game\Game_UMK3_A.cpp" />
+    <ClCompile Include="Game\Game_UMK3_DS.cpp" />
     <ClCompile Include="Game\Game_UNI2_2.cpp" />
     <ClCompile Include="Game\Game_UNICLR_A.cpp" />
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp" />

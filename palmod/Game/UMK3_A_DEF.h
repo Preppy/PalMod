@@ -1981,6 +1981,18 @@ const sDescTreeNode UMK3_A_Backgrounds_COLLECTION[] =
     { L"Messages", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_Messages, ARRAYSIZE(UMK3_A_Backgrounds_Messages) },
 };
 
+const sDescTreeNode UMK3_DS_Backgrounds_COLLECTION[] =
+{
+    { L"Character Select", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_CharacterSelect, ARRAYSIZE(UMK3_A_Backgrounds_CharacterSelect) },
+    { L"VS Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_VSScreen, ARRAYSIZE(UMK3_A_Backgrounds_VSScreen) },
+    { L"Option Select", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_OptionSelect, ARRAYSIZE(UMK3_A_Backgrounds_OptionSelect) },
+    { L"Tower Select/The Bridge", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_TowerSelectTheBridge, ARRAYSIZE(UMK3_A_Backgrounds_TowerSelectTheBridge) },
+    { L"Continue Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_ContinueScreen, ARRAYSIZE(UMK3_A_Backgrounds_ContinueScreen) },
+    { L"Character Biography", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_CharacterBiography, ARRAYSIZE(UMK3_A_Backgrounds_CharacterBiography) },
+    // Only the first Messages is correct for DS
+    //{ L"Messages", DESC_NODETYPE_TREE, (void*)UMK3_A_Backgrounds_Messages, ARRAYSIZE(UMK3_A_Backgrounds_Messages) },
+};
+
 const sDescTreeNode UMK3_A_VSBioPortraits_COLLECTION[] =
 {
     { L"Kitana", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_Kitana, ARRAYSIZE(UMK3_A_VSBioPortraits_Kitana) },
@@ -2049,6 +2061,21 @@ const sDescTreeNode UMK3Plus_A_BonusPalettes_COLLECTION[] =
     { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_InGameEffects, ARRAYSIZE(UMK3_A_BonusPalettes_InGameEffects) },
     { L"Shared Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_SharedEffects, ARRAYSIZE(UMK3_A_BonusPalettes_SharedEffects) },
     // Not at this location for Plus
+    //{ L"Title Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_TitleScreen, ARRAYSIZE(UMK3_A_BonusPalettes_TitleScreen) },
+    { L"Kombat Kode", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_KombatKode, ARRAYSIZE(UMK3_A_BonusPalettes_KombatKode) },
+    { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_HIDDENGAME, ARRAYSIZE(UMK3_A_BONUS_PALETTES_HIDDENGAME) },
+};
+
+const sDescTreeNode UMK3_DS_BONUS_COLLECTION[] =
+{
+    { L"Frozen Palettes", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_FrozenPalettes, ARRAYSIZE(UMK3_A_BonusPalettes_FrozenPalettes) },
+    { L"Soul Scream", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_SoulScream, ARRAYSIZE(UMK3_A_BonusPalettes_SoulScream) },
+    { L"Fatal Scream", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_FatalScream, ARRAYSIZE(UMK3_A_BonusPalettes_FatalScream) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_HUD, ARRAYSIZE(UMK3_A_BonusPalettes_HUD) },
+    { L"Tower Select", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_TowerSelect, ARRAYSIZE(UMK3_A_BonusPalettes_TowerSelect) },
+    { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_InGameEffects, ARRAYSIZE(UMK3_A_BonusPalettes_InGameEffects) },
+    { L"Shared Effects", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_SharedEffects, ARRAYSIZE(UMK3_A_BonusPalettes_SharedEffects) },
+    // Unclear where this is on DS
     //{ L"Title Screen", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_TitleScreen, ARRAYSIZE(UMK3_A_BonusPalettes_TitleScreen) },
     { L"Kombat Kode", DESC_NODETYPE_TREE, (void*)UMK3_A_BonusPalettes_KombatKode, ARRAYSIZE(UMK3_A_BonusPalettes_KombatKode) },
     { L"Hidden Game", DESC_NODETYPE_TREE, (void*)UMK3_A_BONUS_PALETTES_HIDDENGAME, ARRAYSIZE(UMK3_A_BONUS_PALETTES_HIDDENGAME) },
@@ -2124,4 +2151,44 @@ const sDescTreeNode UMK3Plus_A_UNITS[] =
     { L"Portraits", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_Portraits_COLLECTION, ARRAYSIZE(UMK3Plus_A_Portraits_COLLECTION) },
     { L"VS/Bio Portraits", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_VSBioPortraits_COLLECTION, ARRAYSIZE(UMK3Plus_A_VSBioPortraits_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)UMK3Plus_A_BonusPalettes_COLLECTION, ARRAYSIZE(UMK3Plus_A_BonusPalettes_COLLECTION) },
+};
+
+const sDescTreeNode UMK3_DS_UNITS[] =
+{
+    { L"Kitana", DESC_NODETYPE_TREE, (void*)UMK3_A_KITANA_COLLECTION, ARRAYSIZE(UMK3_A_KITANA_COLLECTION) },
+    { L"Reptile", DESC_NODETYPE_TREE, (void*)UMK3_A_REPTILE_COLLECTION, ARRAYSIZE(UMK3_A_REPTILE_COLLECTION) },
+    { L"Sonya", DESC_NODETYPE_TREE, (void*)UMK3_A_SONYA_COLLECTION, ARRAYSIZE(UMK3_A_SONYA_COLLECTION) },
+    { L"Jax", DESC_NODETYPE_TREE, (void*)UMK3_A_JAX_COLLECTION, ARRAYSIZE(UMK3_A_JAX_COLLECTION) },
+    { L"Nightwolf", DESC_NODETYPE_TREE, (void*)UMK3_A_NIGHTWOLF_COLLECTION, ARRAYSIZE(UMK3_A_NIGHTWOLF_COLLECTION) },
+    { L"Jade", DESC_NODETYPE_TREE, (void*)UMK3_A_JADE_COLLECTION, ARRAYSIZE(UMK3_A_JADE_COLLECTION) },
+    { L"Scorpion", DESC_NODETYPE_TREE, (void*)UMK3_A_SCORPION_COLLECTION, ARRAYSIZE(UMK3_A_SCORPION_COLLECTION) },
+    { L"Kano", DESC_NODETYPE_TREE, (void*)UMK3_A_KANO_COLLECTION, ARRAYSIZE(UMK3_A_KANO_COLLECTION) },
+    { L"Sub-Zero", DESC_NODETYPE_TREE, (void*)UMK3_A_SUBZERO_COLLECTION, ARRAYSIZE(UMK3_A_SUBZERO_COLLECTION) },
+    { L"Sektor", DESC_NODETYPE_TREE, (void*)UMK3_A_SEKTOR_COLLECTION, ARRAYSIZE(UMK3_A_SEKTOR_COLLECTION) },
+    { L"Sindel", DESC_NODETYPE_TREE, (void*)UMK3_A_SINDEL_COLLECTION, ARRAYSIZE(UMK3_A_SINDEL_COLLECTION) },
+    { L"Stryker", DESC_NODETYPE_TREE, (void*)UMK3_A_STRYKER_COLLECTION, ARRAYSIZE(UMK3_A_STRYKER_COLLECTION) },
+    { L"Cyrax", DESC_NODETYPE_TREE, (void*)UMK3_A_CYRAX_COLLECTION, ARRAYSIZE(UMK3_A_CYRAX_COLLECTION) },
+    { L"Kung Lao", DESC_NODETYPE_TREE, (void*)UMK3_A_KUNGLAO_COLLECTION, ARRAYSIZE(UMK3_A_KUNGLAO_COLLECTION) },
+    { L"Kabal", DESC_NODETYPE_TREE, (void*)UMK3_A_KABAL_COLLECTION, ARRAYSIZE(UMK3_A_KABAL_COLLECTION) },
+    { L"Sheeva", DESC_NODETYPE_TREE, (void*)UMK3_A_SHEEVA_COLLECTION, ARRAYSIZE(UMK3_A_SHEEVA_COLLECTION) },
+    { L"Shang Tsung", DESC_NODETYPE_TREE, (void*)UMK3_A_SHANGTSUNG_COLLECTION, ARRAYSIZE(UMK3_A_SHANGTSUNG_COLLECTION) },
+    { L"Liu Kang", DESC_NODETYPE_TREE, (void*)UMK3_A_LIUKANG_COLLECTION, ARRAYSIZE(UMK3_A_LIUKANG_COLLECTION) },
+    { L"Smoke", DESC_NODETYPE_TREE, (void*)UMK3_A_SMOKE_COLLECTION, ARRAYSIZE(UMK3_A_SMOKE_COLLECTION) },
+    { L"Human Smoke", DESC_NODETYPE_TREE, (void*)UMK3_A_HUMSMOKE_COLLECTION, ARRAYSIZE(UMK3_A_HUMSMOKE_COLLECTION) },
+
+    { L"Classic Sub-Zero", DESC_NODETYPE_TREE, (void*)UMK3_A_CLASSUB_COLLECTION, ARRAYSIZE(UMK3_A_CLASSUB_COLLECTION) },
+    { L"Ermac", DESC_NODETYPE_TREE, (void*)UMK3_A_ERMAC_COLLECTION, ARRAYSIZE(UMK3_A_ERMAC_COLLECTION) },
+    { L"Mileena", DESC_NODETYPE_TREE, (void*)UMK3_A_MILEENA_COLLECTION, ARRAYSIZE(UMK3_A_MILEENA_COLLECTION) },
+
+    { L"Motaro", DESC_NODETYPE_TREE, (void*)UMK3_A_MOTARO_COLLECTION, ARRAYSIZE(UMK3_A_MOTARO_COLLECTION) },
+    { L"Shao Kahn", DESC_NODETYPE_TREE, (void*)UMK3_A_SHAOKAHN_COLLECTION, ARRAYSIZE(UMK3_A_SHAOKAHN_COLLECTION) },
+
+    // No idea where he is on DS
+    //{ L"Noob Saibot", DESC_NODETYPE_TREE, (void*)UMK3_A_NOOB_COLLECTION, ARRAYSIZE(UMK3_A_NOOB_COLLECTION) },
+    { L"Rain", DESC_NODETYPE_TREE, (void*)UMK3_A_RAIN_COLLECTION, ARRAYSIZE(UMK3_A_RAIN_COLLECTION) },
+
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)UMK3_A_Portraits_COLLECTION, ARRAYSIZE(UMK3_A_Portraits_COLLECTION) },
+    { L"Backgrounds", DESC_NODETYPE_TREE, (void*)UMK3_DS_Backgrounds_COLLECTION, ARRAYSIZE(UMK3_DS_Backgrounds_COLLECTION) },
+    { L"VS/Bio Portraits", DESC_NODETYPE_TREE, (void*)UMK3_A_VSBioPortraits_COLLECTION, ARRAYSIZE(UMK3_A_VSBioPortraits_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)UMK3_DS_BONUS_COLLECTION, ARRAYSIZE(UMK3_DS_BONUS_COLLECTION) },
 };
