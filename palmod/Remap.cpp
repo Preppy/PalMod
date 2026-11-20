@@ -24,6 +24,34 @@ static CString SignedHexAsString(int32_t nHexNumber)
     return strDisplayString;
 }
 
+CString SanitizeFileName(const CString& strString)
+{
+    CString strFixed;
+
+    for (int iPos = 0; iPos < strString.GetLength(); iPos++)
+    {
+        if (!iswalnum(strString[iPos]) &&
+            (strString[iPos] != L'-') &&
+            (strString[iPos] != L' ') &&
+            (strString[iPos] != L'_') &&
+            (strString[iPos] != L'.'))
+        {
+            strFixed += L'_';
+        }
+        else
+        {
+            strFixed += strString[iPos];
+        }
+    }
+
+    if (strFixed.GetLength())
+    {
+        strFixed.TrimRight(L" .");
+    }
+
+    return strFixed;
+}
+
 // The base implementation helpful throws out the OFN arguments.  Maintain those.
 class CMFCEditBrowseCtrlFunctional: public CMFCEditBrowseCtrl
 {
@@ -77,7 +105,7 @@ void CMFCEditBrowseCtrlFunctional::OnBrowse()
 
 void CMFCEditBrowseCtrlFunctional::UpdateDefaultFileName(LPCTSTR lpszDefFileName)
 {
-    m_strDefFileName = lpszDefFileName;
+    m_strDefFileName = SanitizeFileName(lpszDefFileName);
     SetWindowText(m_strDefFileName.GetString());
 }
 
@@ -215,7 +243,8 @@ BOOL CFindPalettesInNewROM::OnInitDialog()
 
             if (m_nCurrentUnitSelection == nCurrentUnit)
             {
-                m_strOutputName.Format(L"%s.%s", pSelectedUnit->szDesc, strDefaultExt.GetString());
+                CString strCleanedDesc = SanitizeFileName(pSelectedUnit->szDesc);
+                m_strOutputName.Format(L"%s.%s", strCleanedDesc.GetString(), strDefaultExt.GetString());
                 m_FCSelectOutput.SetWindowText(m_strOutputName.GetString());
             }
         }
@@ -244,6 +273,7 @@ BOOL CFindPalettesInNewROM::OnInitDialog()
     return TRUE;
 }
 
+// Repurposing OK as a Scan button
 void CFindPalettesInNewROM::OnOK()
 {
     m_FCSelectFileToScan.GetWindowText(m_strFileName);
@@ -272,7 +302,9 @@ void CFindPalettesInNewROM::OnOK()
     m_strLastUsedPath = m_strFileName;
 
     m_nCurrentUnitSelection = m_CBUnit.GetCurSel();
-    CDialog::OnOK();
+    
+    ScanForData();
+
     return;
 }
 
@@ -572,6 +604,7 @@ void CFindPalettesInNewROM::ScanForData()
                             strInfo.Format(L"%s\r\n0x%x\r\n0x%x", searchColors.first->szPaletteName, nStartingMappedOffset, nTerminalOffset);
 
                             CString strExtraData;
+                            CString strOldLocation = SignedHexAsString(searchColors.first->nPaletteOffset);
 
                             if (searchColors.first->indexImgToUse != INVALID_UNIT_VALUE_16)
                             {
@@ -586,7 +619,7 @@ void CFindPalettesInNewROM::ScanForData()
                                 strInfo += strExtraData;
                             }
 
-                            strExtraData.Format(L"\r\n;Remap Delta: %s\r\n", strDisplayHex.GetString());
+                            strExtraData.Format(L"\r\n;Remap Delta: %s (from %s)\r\n", strDisplayHex.GetString(), strOldLocation.GetString());
 
                             strInfo += strExtraData;
                         }
@@ -695,12 +728,5 @@ void CPalModDlg::OnRemapUnit()
 {
     CFindPalettesInNewROM dlgFindInNew(GetHost()->GetCurrGame(), m_CBUnitSel.GetCurSel());
 
-    if (dlgFindInNew.DoModal() == IDOK)
-    {
-        dlgFindInNew.ScanForData();
-    }
-    else
-    {
-        OutputDebugString(L"CPalModDlg::OnRemapUnit: User canceled.\r\n");
-    }
+    dlgFindInNew.DoModal();
 }

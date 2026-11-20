@@ -457,7 +457,7 @@ CAPTION "Find Known Palettes In New ROM"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Scan",IDOK,165,138,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,305,138,50,14
+    PUSHBUTTON      "Done",IDCANCEL,305,138,50,14
     LTEXT           "",IDC_FINDINNEW_INTROTEXT_1,7,7,501,26
     COMBOBOX        IDC_FINDINNEW_FORMATSOURCE,131,115,86,30,CBS_DROPDOWN | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Origin Color Format:",IDC_FINDINNEW_ORIGINCOL_DESC,53,117,66,8,0,WS_EX_RIGHT
@@ -1208,24 +1208,33 @@ BEGIN
     IDS_ACT_REVERSEDLOAD    "ACT appears to have a reversed color table: loaded %u colors backwards."
     IDS_PAL_LOADED          "Loaded %u colors from %u color PAL file."
     IDS_PNG_LOADED          "Loaded %u colors from %u color indexed PNG file."
-    IDS_WEBP_UNSUPPORTED    "This file extension is wrong!\r\n\r\nThis file is a WEBP file which we do not currently support.  Your browser may have incorrectly downloaded this file."
     IDS_PNG_REVERSEDLOAD    "PNG appears reversed: loaded %u colors backwards from this indexed PNG file."
     IDS_LOADING_DUPECHECK   "Validating game data tables: please wait..."
     IDS_RAW_EXTRADATA       "This RAW contains extra data and may not look right."
-    IDS_PASTE_FROMBUTTON_FORMAT
-                            "Color #%1!06X! applied."
-    IDS_PASTE_FROMBUTTON_ROUNDED_FORMAT
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_ENCRYPTED     "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
+    IDS_TPLSAVE_SUCCESS     "TPL file saved successfully."
+    IDS_TPLSAVE_FAILURE     "Error saving TPL file."
+    IDS_PRPL_LOADFAILURE    "Failed loading PRPL file."
+    IDS_PRPLSAVE_SUCCESS    "PRPL file saved successfully."
+    IDS_PRPLSAVE_FAILURE    "Error saving PRPL file."
+    IDS_PASTE_FROMBUTTON_FORMAT "Color #%1!06X! applied."
+    IDS_PASTE_FROMBUTTON_ROUNDED_FORMAT 
                             "Color #%1!06X! requested: rounded to #%2!06X! for color format."
-    IDS_PASTE_PALMOD_1_FORMAT
-                            "Pasted #%1!06X! via PalMod string."
-    IDS_PASTE_PALMOD_1_ROUNDED_FORMAT
+    IDS_PASTE_PALMOD_1_FORMAT "Pasted #%1!06X! via PalMod string."
+    IDS_PASTE_PALMOD_1_ROUNDED_FORMAT 
                             "Pasted #%1!06X! via PalMod string.  Rounded to #%2!06X! for color format."
     IDS_PASTE_PALMOD_N      "Pasted a PalMod color string."
-    IDS_PASTE_PALMOD_N_ROUNDED
+    IDS_PASTE_PALMOD_N_ROUNDED 
                             "Pasted a PalMod color string.  Colors may be rounded as required by this game."
     IDS_PASTE_RGB_FORMAT    "Pasted RGB color #%1!06X!."
-    IDS_PASTE_RGB_ROUNDED_FORMAT
+    IDS_PASTE_RGB_ROUNDED_FORMAT 
                             "Pasted RGB color #%1!06X!.  Rounded to #%2!06X! for color format."
+    IDS_PASTE_UNSUPPORTED   "Unsupported paste option."
+    IDS_WEBP_UNSUPPORTED    "This file extension is wrong!\r\n\r\nThis file is a WEBP file which we do not currently support.  Your browser may have incorrectly downloaded this file."
 END
 
 STRINGTABLE
@@ -1249,7 +1258,6 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_PASTE_UNSUPPORTED   "Unsupported paste option."
     IDS_LOADSAVE_SUCCESS    "Game loaded successfully."
     IDS_LOADSAVE_FAILURE    "Game did not load successfully."
     IDS_LOADERROR_SINGLE    " (1 error)"
@@ -1284,16 +1292,6 @@ BEGIN
     IDS_ERROR_UNKNOWNROM    "This doesn't look like a supported ROM.  We'll try, but if it doesn't look right please don't use this ROM."
     IDS_EXTRAS_SIMMBOUNDARY "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
     IDS_COLOR_WRONGSIZE     "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
-END
-
-STRINGTABLE
-BEGIN
-    IDS_ERROR_ENCRYPTED     "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
-    IDS_TPLSAVE_SUCCESS     "TPL file saved successfully."
-    IDS_TPLSAVE_FAILURE     "Error saving TPL file."
-    IDS_PRPL_LOADFAILURE    "Failed loading PRPL file."
-    IDS_PRPLSAVE_SUCCESS    "PRPL file saved successfully."
-    IDS_PRPLSAVE_FAILURE    "Error saving PRPL file."
 END
 
 #endif    // English (United States) resources
