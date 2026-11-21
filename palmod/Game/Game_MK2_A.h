@@ -2,7 +2,7 @@
 #include "GameClassByDir.h"
 #include "MK2_A_DEF.h"
 
-constexpr auto MK2_A_KNOWN_PALETTE_COUNT = 179;
+constexpr auto MK2_A_KNOWN_PALETTE_COUNT = 180;
 constexpr auto MK2_A_LOWEST_LOCATION = 0x14d10;
 
 class CGame_MK2_A : public CGameClassByDir

@@ -374,6 +374,11 @@ const sGame_PaletteDataset MK2_A_ShaoKahn_Effects[] =
     { L"Rock Debris", 0x34ab6, 0x34b0c },
 };
 
+const sGame_PaletteDataset MK2_A_ShaoKahn_StatusEffects[] =
+{
+    { L"Frozen/Electrocuted", 0x22182, 0x22202, indexMK2ASprites_ShaoKahn },
+};
+
 const sGame_PaletteDataset MK2_A_SMOKE_PALETTES[] =
 {
     { L"Smoke", 0x2177c, 0x217fc, indexMK2ASprites_Smoke },
@@ -545,6 +550,7 @@ const sDescTreeNode MK2_A_SHAOKAHN_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)MK2_A_SHAOKAHN_PALETTES, ARRAYSIZE(MK2_A_SHAOKAHN_PALETTES) },
     { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_A_ShaoKahn_Effects, ARRAYSIZE(MK2_A_ShaoKahn_Effects) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MK2_A_ShaoKahn_StatusEffects, ARRAYSIZE(MK2_A_ShaoKahn_StatusEffects) },
 };
 
 const sDescTreeNode MK2_A_SMOKE_COLLECTION[] =
