@@ -1405,7 +1405,7 @@ namespace KnownGameInfo
         {
             KOFEX2_GBA,
             L"King of Fighters EX2: Howling Blood (GBA)",
-            { KOFEX2_GBA,          L"KOFEX2", L"KOFEX2|*King of Fighters EX 2*(USA).gba|", GamePlatform::Nintendo, GameSeries::Nintendo_GBA },
+            { KOFEX2_GBA,          L"KOFEX2", L"KOFEX2|*King of Fighters E*2*(USA).gba|", GamePlatform::Nintendo, GameSeries::Nintendo_GBA },
             Make_KOFEX2_GBA,
             CGame_KOFEX2_GBA::GetRule,
         }, 

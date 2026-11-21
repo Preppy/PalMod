@@ -12,7 +12,7 @@ const std::vector<uint16_t> KOFEX2_GBA_IMG_UNITS =
     indexKOF00Sprites_Andy,         // 0x206
     indexKOF00Sprites_Athena,       // 0x207
     indexKOF00Sprites_Bao,          // 0x208
-    indexKOF00Sprites_Chang,        // 0x20b
+    indexKOF00Sprites_Choi,         // 0x20d
     indexKOF00Sprites_Clark,        // 0x20e
     indexKOF00Sprites_Iori,         // 0x211
     indexKOF00Sprites_Kensou,       // 0x216
@@ -25,6 +25,17 @@ const std::vector<uint16_t> KOFEX2_GBA_IMG_UNITS =
     indexKOF00Sprites_Takuma,       // 0x225
     indexKOF00Sprites_Terry,        // 0x226
     indexKOF00Sprites_Yuri,         // 0x229
+
+    indexKOFEX2GBASprites_Athena,       // 0x2e9
+    indexKOFEX2GBASprites_Chang,        // 0x2ea
+    indexKOFEX2GBASprites_Miu,          // 0x2eb
+    indexKOFEX2GBASprites_Moe,          // 0x2ec
+    indexKOFEX2GBASprites_Reiji,        // 0x2ed
+    indexKOFEX2GBASprites_Portraits,    // 0x2ee
+    indexKOFEX2GBASprites_Bonus,        // 0x2ef
+
+    indexKOFEX2GBASprites_Jun,          // 0x2f0
+    indexKOFEX2GBASprites_Sinobu,       // 0x2f1
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_KYO_MAIN[] =
@@ -45,7 +56,7 @@ const sGame_PaletteDataset KOFEX2_GBA_KYO_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_KYO_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd6bc, 0x7bd6dc },
+    { L"Portrait", 0x7bd6bc, 0x7bd6dc, indexKOFEX2GBASprites_Portraits, 0x09 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_KYO_UNUSED[] =
@@ -77,41 +88,41 @@ const sDescTreeNode KOFEX2_GBA_KYO_COLLECTION[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_MOE_MAIN[] =
 {
-    { L"Main", 0x5a43f4, 0x5a4414 },
+    { L"Main", 0x5a43f4, 0x5a4414, indexKOFEX2GBASprites_Moe, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MOE_ALT[] =
 {
-    { L"Alt", 0x5a4414, 0x5a4434 },
+    { L"Alt", 0x5a4414, 0x5a4434, indexKOFEX2GBASprites_Moe, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MOE_FLASH[] =
 {
-    { L"MASTER Mode", 0x5a4494, 0x5a44b4 },
-    { L"Shocked", 0x5a4474, 0x5a4494 },
+    { L"MASTER Mode", 0x5a4494, 0x5a44b4, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Shocked", 0x5a4474, 0x5a4494, indexKOFEX2GBASprites_Moe, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MOE_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd6dc, 0x7bd6fc },
+    { L"Portrait", 0x7bd6dc, 0x7bd6fc, indexKOFEX2GBASprites_Portraits, 0x0d },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MOE_UNUSED[] =
 {
-    { L"Unused? 1", 0x5a4434, 0x5a4454 },
-    { L"Unused? 2", 0x5a4454, 0x5a4474 },
-    { L"Unused? 3", 0x5a44d4, 0x5a44f4 },
-    { L"Unused? 4", 0x5a44f4, 0x5a4514 },
-    { L"Unused? 5", 0x5a4514, 0x5a4534 },
-    { L"Unused? 6", 0x5a4534, 0x5a4554 },
-    { L"Unused? 7", 0x5a4554, 0x5a4574 },
-    { L"Unused? 8", 0x5a4574, 0x5a4594 },
-    { L"Unused? 9", 0x5a45f4, 0x5a4614 },
-    { L"Unused? 10", 0x5a4614, 0x5a4634 },
-    { L"Unused? Shocked", 0x5a4594, 0x5a45b4 },
-    { L"Unused? MASTER Mode", 0x5a45b4, 0x5a45d4 },
-    { L"Unused? Purple Trail", 0x5a44b4, 0x5a44d4 },
-    { L"Unused? Purple Trail", 0x5a45d4, 0x5a45f4 },
+    { L"Unused? 1", 0x5a4434, 0x5a4454, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 2", 0x5a4454, 0x5a4474, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 3", 0x5a44d4, 0x5a44f4, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 4", 0x5a44f4, 0x5a4514, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 5", 0x5a4514, 0x5a4534, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 6", 0x5a4534, 0x5a4554, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 7", 0x5a4554, 0x5a4574, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 8", 0x5a4574, 0x5a4594, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 9", 0x5a45f4, 0x5a4614, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? 10", 0x5a4614, 0x5a4634, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? Shocked", 0x5a4594, 0x5a45b4, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? MASTER Mode", 0x5a45b4, 0x5a45d4, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? Purple Trail", 0x5a44b4, 0x5a44d4, indexKOFEX2GBASprites_Moe, 0x00 },
+    { L"Unused? Purple Trail", 0x5a45d4, 0x5a45f4, indexKOFEX2GBASprites_Moe, 0x00 },
 };
 
 const sDescTreeNode KOFEX2_GBA_MOE_COLLECTION[] =
@@ -125,41 +136,41 @@ const sDescTreeNode KOFEX2_GBA_MOE_COLLECTION[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_REIJI_MAIN[] =
 {
-    { L"Main", 0x5872c4, 0x5872e4 },
+    { L"Main", 0x5872c4, 0x5872e4, indexKOFEX2GBASprites_Reiji, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_REIJI_ALT[] =
 {
-    { L"Alt", 0x5872e4, 0x587304 },
+    { L"Alt", 0x5872e4, 0x587304, indexKOFEX2GBASprites_Reiji, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_REIJI_FLASH[] =
 {
-    { L"MASTER Mode", 0x587364, 0x587384 },
-    { L"Shocked", 0x587344, 0x587364 },
+    { L"MASTER Mode", 0x587364, 0x587384, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Shocked", 0x587344, 0x587364, indexKOFEX2GBASprites_Reiji, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_REIJI_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd6fc, 0x7bd71c },
+    { L"Portrait", 0x7bd6fc, 0x7bd71c, indexKOFEX2GBASprites_Portraits, 0x0f },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_REIJI_UNUSED[] =
 {
-    { L"Unused? 1", 0x587304, 0x587324 },
-    { L"Unused? 2", 0x587324, 0x587344 },
-    { L"Unused? 3", 0x5873a4, 0x5873c4 },
-    { L"Unused? 4", 0x5873c4, 0x5873e4 },
-    { L"Unused? 5", 0x5873e4, 0x587404 },
-    { L"Unused? 6", 0x587404, 0x587424 },
-    { L"Unused? 7", 0x587424, 0x587444 },
-    { L"Unused? 8", 0x587444, 0x587464 },
-    { L"Unused? 9", 0x5874c4, 0x5874e4 },
-    { L"Unused? 10", 0x5874e4, 0x587504 },
-    { L"Unused? Shocked", 0x587464, 0x587484 },
-    { L"Unused? MASTER Mode", 0x587484, 0x5874a4 },
-    { L"Unused? Purple Trail", 0x587384, 0x5873a4 },
-    { L"Unused? Purple Trail", 0x5874a4, 0x5874c4 },
+    { L"Unused? 1", 0x587304, 0x587324, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 2", 0x587324, 0x587344, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 3", 0x5873a4, 0x5873c4, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 4", 0x5873c4, 0x5873e4, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 5", 0x5873e4, 0x587404, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 6", 0x587404, 0x587424, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 7", 0x587424, 0x587444, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 8", 0x587444, 0x587464, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 9", 0x5874c4, 0x5874e4, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? 10", 0x5874e4, 0x587504, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? Shocked", 0x587464, 0x587484, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? MASTER Mode", 0x587484, 0x5874a4, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? Purple Trail", 0x587384, 0x5873a4, indexKOFEX2GBASprites_Reiji, 0x00 },
+    { L"Unused? Purple Trail", 0x5874a4, 0x5874c4, indexKOFEX2GBASprites_Reiji, 0x00 },
 };
 
 const sDescTreeNode KOFEX2_GBA_REIJI_COLLECTION[] =
@@ -189,7 +200,7 @@ const sGame_PaletteDataset KOFEX2_GBA_TERRY_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_TERRY_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd71c, 0x7bd73c },
+    { L"Portrait", 0x7bd71c, 0x7bd73c, indexKOFEX2GBASprites_Portraits, 0x13 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_TERRY_UNUSED[] =
@@ -237,7 +248,7 @@ const sGame_PaletteDataset KOFEX2_GBA_ANDY_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_ANDY_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd73c, 0x7bd75c },
+    { L"Portrait", 0x7bd73c, 0x7bd75c, indexKOFEX2GBASprites_Portraits, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_ANDY_UNUSED[] =
@@ -285,7 +296,7 @@ const sGame_PaletteDataset KOFEX2_GBA_MAI_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_MAI_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd75c, 0x7bd77c },
+    { L"Portrait", 0x7bd75c, 0x7bd77c, indexKOFEX2GBASprites_Portraits, 0x0b },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MAI_UNUSED[] =
@@ -333,7 +344,7 @@ const sGame_PaletteDataset KOFEX2_GBA_LEONA_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_LEONA_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd77c, 0x7bd79c },
+    { L"Portrait", 0x7bd77c, 0x7bd79c, indexKOFEX2GBASprites_Portraits, 0x0a },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_LEONA_UNUSED[] =
@@ -381,7 +392,7 @@ const sGame_PaletteDataset KOFEX2_GBA_RALF_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_RALF_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd79c, 0x7bd7bc },
+    { L"Portrait", 0x7bd79c, 0x7bd7bc, indexKOFEX2GBASprites_Portraits, 0x0e },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_RALF_UNUSED[] =
@@ -429,7 +440,7 @@ const sGame_PaletteDataset KOFEX2_GBA_CLARK_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_CLARK_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd7bc, 0x7bd7dc },
+    { L"Portrait", 0x7bd7bc, 0x7bd7dc, indexKOFEX2GBASprites_Portraits, 0x05 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_CLARK_UNUSED[] =
@@ -477,7 +488,7 @@ const sGame_PaletteDataset KOFEX2_GBA_KIM_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_KIM_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd7dc, 0x7bd7fc },
+    { L"Portrait", 0x7bd7dc, 0x7bd7fc, indexKOFEX2GBASprites_Portraits, 0x08 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_KIM_UNUSED[] =
@@ -507,91 +518,43 @@ const sDescTreeNode KOFEX2_GBA_KIM_COLLECTION[] =
     { L"Unused?", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_KIM_UNUSED, ARRAYSIZE(KOFEX2_GBA_KIM_UNUSED) },
 };
 
-const sGame_PaletteDataset KOFEX2_GBA_CHANG_MAIN[] =
-{
-    { L"Main", 0x56e19c, 0x56e1bc, indexKOF00Sprites_Chang },
-};
-
-const sGame_PaletteDataset KOFEX2_GBA_CHANG_ALT[] =
-{
-    { L"Alt", 0x56e1bc, 0x56e1dc, indexKOF00Sprites_Chang },
-};
-
-const sGame_PaletteDataset KOFEX2_GBA_CHANG_FLASH[] =
-{
-    { L"MASTER Mode", 0x56e23c, 0x56e25c, indexKOF00Sprites_Chang },
-    { L"Shocked", 0x56e21c, 0x56e23c, indexKOF00Sprites_Chang },
-};
-
-const sGame_PaletteDataset KOFEX2_GBA_CHANG_PORTRAIT[] =
-{
-    { L"Portrait", 0x7bd81c, 0x7bd83c },
-};
-
-const sGame_PaletteDataset KOFEX2_GBA_CHANG_UNUSED[] =
-{
-    { L"Unused? 1", 0x56e1dc, 0x56e1fc, indexKOF00Sprites_Chang },
-    { L"Unused? 2", 0x56e1fc, 0x56e21c, indexKOF00Sprites_Chang },
-    { L"Unused? 3", 0x56e27c, 0x56e29c, indexKOF00Sprites_Chang },
-    { L"Unused? 4", 0x56e29c, 0x56e2bc, indexKOF00Sprites_Chang },
-    { L"Unused? 5", 0x56e2bc, 0x56e2dc, indexKOF00Sprites_Chang },
-    { L"Unused? 6", 0x56e2dc, 0x56e2fc, indexKOF00Sprites_Chang },
-    { L"Unused? 7", 0x56e2fc, 0x56e31c, indexKOF00Sprites_Chang },
-    { L"Unused? 8", 0x56e31c, 0x56e33c, indexKOF00Sprites_Chang },
-    { L"Unused? 9", 0x56e39c, 0x56e3bc, indexKOF00Sprites_Chang },
-    { L"Unused? 10", 0x56e3bc, 0x56e3dc, indexKOF00Sprites_Chang },
-    { L"Unused? Shocked", 0x56e33c, 0x56e35c, indexKOF00Sprites_Chang },
-    { L"Unused? MASTER Mode", 0x56e35c, 0x56e37c, indexKOF00Sprites_Chang },
-    { L"Unused? Purple Trail", 0x56e25c, 0x56e27c, indexKOF00Sprites_Chang },
-    { L"Unused? Purple Trail", 0x56e37c, 0x56e39c, indexKOF00Sprites_Chang },
-};
-
-const sDescTreeNode KOFEX2_GBA_CHANG_COLLECTION[] =
-{
-    { L"Main", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_MAIN, ARRAYSIZE(KOFEX2_GBA_CHANG_MAIN) },
-    { L"Alt", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_ALT, ARRAYSIZE(KOFEX2_GBA_CHANG_ALT) },
-    { L"Flashing palettes", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_FLASH, ARRAYSIZE(KOFEX2_GBA_CHANG_FLASH) },
-    { L"Portrait", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_PORTRAIT, ARRAYSIZE(KOFEX2_GBA_CHANG_PORTRAIT) },
-    { L"Unused?", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_UNUSED, ARRAYSIZE(KOFEX2_GBA_CHANG_UNUSED) },
-};
-
 const sGame_PaletteDataset KOFEX2_GBA_CHOI_MAIN[] =
 {
-    { L"Main", 0x567abc, 0x567adc },
+    { L"Main", 0x56e19c, 0x56e1bc, indexKOF00Sprites_Choi },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_CHOI_ALT[] =
 {
-    { L"Alt", 0x567adc, 0x567afc },
+    { L"Alt", 0x56e1bc, 0x56e1dc, indexKOF00Sprites_Choi },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_CHOI_FLASH[] =
 {
-    { L"MASTER Mode", 0x567b5c, 0x567b7c },
-    { L"Shocked", 0x567b3c, 0x567b5c },
+    { L"MASTER Mode", 0x56e23c, 0x56e25c, indexKOF00Sprites_Choi },
+    { L"Shocked", 0x56e21c, 0x56e23c, indexKOF00Sprites_Choi },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_CHOI_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd7fc, 0x7bd81c },
+    { L"Portrait", 0x7bd81c, 0x7bd83c, indexKOFEX2GBASprites_Portraits, 0x03 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_CHOI_UNUSED[] =
 {
-    { L"Unused? 1", 0x567afc, 0x567b1c },
-    { L"Unused? 2", 0x567b1c, 0x567b3c },
-    { L"Unused? 3", 0x567b9c, 0x567bbc },
-    { L"Unused? 4", 0x567bbc, 0x567bdc },
-    { L"Unused? 5", 0x567bdc, 0x567bfc },
-    { L"Unused? 6", 0x567bfc, 0x567c1c },
-    { L"Unused? 7", 0x567c1c, 0x567c3c },
-    { L"Unused? 8", 0x567c3c, 0x567c5c },
-    { L"Unused? 9", 0x567cbc, 0x567cdc },
-    { L"Unused? 10", 0x567cdc, 0x567cfc },
-    { L"Unused? Shocked", 0x567c5c, 0x567c7c },
-    { L"Unused? MASTER Mode", 0x567c7c, 0x567c9c },
-    { L"Unused? Purple Trail", 0x567b7c, 0x567b9c },
-    { L"Unused? Purple Trail", 0x567c9c, 0x567cbc },
+    { L"Unused? 1", 0x56e1dc, 0x56e1fc, indexKOF00Sprites_Choi },
+    { L"Unused? 2", 0x56e1fc, 0x56e21c, indexKOF00Sprites_Choi },
+    { L"Unused? 3", 0x56e27c, 0x56e29c, indexKOF00Sprites_Choi },
+    { L"Unused? 4", 0x56e29c, 0x56e2bc, indexKOF00Sprites_Choi },
+    { L"Unused? 5", 0x56e2bc, 0x56e2dc, indexKOF00Sprites_Choi },
+    { L"Unused? 6", 0x56e2dc, 0x56e2fc, indexKOF00Sprites_Choi },
+    { L"Unused? 7", 0x56e2fc, 0x56e31c, indexKOF00Sprites_Choi },
+    { L"Unused? 8", 0x56e31c, 0x56e33c, indexKOF00Sprites_Choi },
+    { L"Unused? 9", 0x56e39c, 0x56e3bc, indexKOF00Sprites_Choi },
+    { L"Unused? 10", 0x56e3bc, 0x56e3dc, indexKOF00Sprites_Choi },
+    { L"Unused? Shocked", 0x56e33c, 0x56e35c, indexKOF00Sprites_Choi },
+    { L"Unused? MASTER Mode", 0x56e35c, 0x56e37c, indexKOF00Sprites_Choi },
+    { L"Unused? Purple Trail", 0x56e25c, 0x56e27c, indexKOF00Sprites_Choi },
+    { L"Unused? Purple Trail", 0x56e37c, 0x56e39c, indexKOF00Sprites_Choi },
 };
 
 const sDescTreeNode KOFEX2_GBA_CHOI_COLLECTION[] =
@@ -603,43 +566,91 @@ const sDescTreeNode KOFEX2_GBA_CHOI_COLLECTION[] =
     { L"Unused?", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHOI_UNUSED, ARRAYSIZE(KOFEX2_GBA_CHOI_UNUSED) },
 };
 
+const sGame_PaletteDataset KOFEX2_GBA_CHANG_MAIN[] =
+{
+    { L"Main", 0x567abc, 0x567adc, indexKOFEX2GBASprites_Chang, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_CHANG_ALT[] =
+{
+    { L"Alt", 0x567adc, 0x567afc, indexKOFEX2GBASprites_Chang, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_CHANG_FLASH[] =
+{
+    { L"MASTER Mode", 0x567b5c, 0x567b7c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Shocked", 0x567b3c, 0x567b5c, indexKOFEX2GBASprites_Chang, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_CHANG_PORTRAIT[] =
+{
+    { L"Portrait", 0x7bd7fc, 0x7bd81c, indexKOFEX2GBASprites_Portraits, 0x04 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_CHANG_UNUSED[] =
+{
+    { L"Unused? 1", 0x567afc, 0x567b1c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 2", 0x567b1c, 0x567b3c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 3", 0x567b9c, 0x567bbc, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 4", 0x567bbc, 0x567bdc, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 5", 0x567bdc, 0x567bfc, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 6", 0x567bfc, 0x567c1c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 7", 0x567c1c, 0x567c3c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 8", 0x567c3c, 0x567c5c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 9", 0x567cbc, 0x567cdc, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? 10", 0x567cdc, 0x567cfc, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? Shocked", 0x567c5c, 0x567c7c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? MASTER Mode", 0x567c7c, 0x567c9c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? Purple Trail", 0x567b7c, 0x567b9c, indexKOFEX2GBASprites_Chang, 0x00 },
+    { L"Unused? Purple Trail", 0x567c9c, 0x567cbc, indexKOFEX2GBASprites_Chang, 0x00 },
+};
+
+const sDescTreeNode KOFEX2_GBA_CHANG_COLLECTION[] =
+{
+    { L"Main", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_MAIN, ARRAYSIZE(KOFEX2_GBA_CHANG_MAIN) },
+    { L"Alt", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_ALT, ARRAYSIZE(KOFEX2_GBA_CHANG_ALT) },
+    { L"Flashing palettes", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_FLASH, ARRAYSIZE(KOFEX2_GBA_CHANG_FLASH) },
+    { L"Portrait", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_PORTRAIT, ARRAYSIZE(KOFEX2_GBA_CHANG_PORTRAIT) },
+    { L"Unused?", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_UNUSED, ARRAYSIZE(KOFEX2_GBA_CHANG_UNUSED) },
+};
+
 const sGame_PaletteDataset KOFEX2_GBA_ATHENA_MAIN[] =
 {
-    { L"Main", 0x54dc74, 0x54dc94, indexKOF00Sprites_Athena, 0x03 },
+    { L"Main", 0x54dc74, 0x54dc94, indexKOF00Sprites_Athena, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_ATHENA_ALT[] =
 {
-    { L"Alt", 0x54dc94, 0x54dcb4, indexKOF00Sprites_Athena, 0x03 },
+    { L"Alt", 0x54dc94, 0x54dcb4, indexKOF00Sprites_Athena, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_ATHENA_FLASH[] =
 {
-    { L"MASTER Mode", 0x54dd14, 0x54dd34, indexKOF00Sprites_Athena, 0x03 },
-    { L"Shocked", 0x54dcf4, 0x54dd14, indexKOF00Sprites_Athena, 0x03 },
+    { L"MASTER Mode", 0x54dd14, 0x54dd34, indexKOF00Sprites_Athena, 0x00 },
+    { L"Shocked", 0x54dcf4, 0x54dd14, indexKOF00Sprites_Athena, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_ATHENA_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd83c, 0x7bd85c },
+    { L"Portrait", 0x7bd83c, 0x7bd85c, indexKOFEX2GBASprites_Portraits, 0x01 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_ATHENA_UNUSED[] =
 {
-    { L"Unused? 1", 0x54dcb4, 0x54dcd4, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 2", 0x54dcd4, 0x54dcf4, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 3", 0x54dd54, 0x54dd74, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 4", 0x54dd74, 0x54dd94, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 5", 0x54dd94, 0x54ddb4, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 6", 0x54ddb4, 0x54ddd4, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 7", 0x54ddd4, 0x54ddf4, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 8", 0x54ddf4, 0x54de14, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 9", 0x54de74, 0x54de94, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? 10", 0x54de94, 0x54deb4, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? Shocked", 0x54de14, 0x54de34, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? MASTER Mode", 0x54de34, 0x54de54, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? Purple Trail", 0x54dd34, 0x54dd54, indexKOF00Sprites_Athena, 0x03 },
-    { L"Unused? Purple Trail", 0x54de54, 0x54de74 , indexKOF00Sprites_Athena, 0x03},
+    { L"Unused? 1", 0x54dcb4, 0x54dcd4, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 2", 0x54dcd4, 0x54dcf4, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 3", 0x54dd54, 0x54dd74, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 4", 0x54dd74, 0x54dd94, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 5", 0x54dd94, 0x54ddb4, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 6", 0x54ddb4, 0x54ddd4, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 7", 0x54ddd4, 0x54ddf4, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 8", 0x54ddf4, 0x54de14, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 9", 0x54de74, 0x54de94, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? 10", 0x54de94, 0x54deb4, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? Shocked", 0x54de14, 0x54de34, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? MASTER Mode", 0x54de34, 0x54de54, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? Purple Trail", 0x54dd34, 0x54dd54, indexKOF00Sprites_Athena, 0x00 },
+    { L"Unused? Purple Trail", 0x54de54, 0x54de74 , indexKOF00Sprites_Athena, 0x00 },
 };
 
 const sDescTreeNode KOFEX2_GBA_ATHENA_COLLECTION[] =
@@ -669,7 +680,7 @@ const sGame_PaletteDataset KOFEX2_GBA_KENSOU_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_KENSOU_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd85c, 0x7bd87c },
+    { L"Portrait", 0x7bd85c, 0x7bd87c, indexKOFEX2GBASprites_Portraits, 0x11 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_KENSOU_UNUSED[] =
@@ -717,7 +728,7 @@ const sGame_PaletteDataset KOFEX2_GBA_BAO_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_BAO_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd87c, 0x7bd89c },
+    { L"Portrait", 0x7bd87c, 0x7bd89c, indexKOFEX2GBASprites_Portraits, 0x02 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_BAO_UNUSED[] =
@@ -765,7 +776,7 @@ const sGame_PaletteDataset KOFEX2_GBA_RYO_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_RYO_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd89c, 0x7bd8bc },
+    { L"Portrait", 0x7bd89c, 0x7bd8bc, indexKOFEX2GBASprites_Portraits, 0x10 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_RYO_UNUSED[] =
@@ -813,7 +824,7 @@ const sGame_PaletteDataset KOFEX2_GBA_YURI_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_YURI_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd8bc, 0x7bd8dc },
+    { L"Portrait", 0x7bd8bc, 0x7bd8dc, indexKOFEX2GBASprites_Portraits, 0x14 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_YURI_UNUSED[] =
@@ -861,7 +872,7 @@ const sGame_PaletteDataset KOFEX2_GBA_TAKUMA_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_TAKUMA_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd8dc, 0x7bd8fc },
+    { L"Portrait", 0x7bd8dc, 0x7bd8fc, indexKOFEX2GBASprites_Portraits, 0x12 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_TAKUMA_UNUSED[] =
@@ -909,7 +920,7 @@ const sGame_PaletteDataset KOFEX2_GBA_IORI_FLASH[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_IORI_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd8fc, 0x7bd91c },
+    { L"Portrait", 0x7bd8fc, 0x7bd91c, indexKOFEX2GBASprites_Portraits, 0x06 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_IORI_UNUSED[] =
@@ -941,41 +952,41 @@ const sDescTreeNode KOFEX2_GBA_IORI_COLLECTION[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_JUN_MAIN[] =
 {
-    { L"Main", 0x5929c8, 0x5929e8 },
+    { L"Main", 0x5929c8, 0x5929e8, indexKOFEX2GBASprites_Jun, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_JUN_ALT[] =
 {
-    { L"Alt", 0x5929e8, 0x592a08 },
+    { L"Alt", 0x5929e8, 0x592a08, indexKOFEX2GBASprites_Jun, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_JUN_FLASH[] =
 {
-    { L"MASTER Mode", 0x592a68, 0x592a88 },
-    { L"Shocked", 0x592a48, 0x592a68 },
+    { L"MASTER Mode", 0x592a68, 0x592a88, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Shocked", 0x592a48, 0x592a68, indexKOFEX2GBASprites_Jun, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_JUN_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd91c, 0x7bd93c },
+    { L"Portrait", 0x7bd91c, 0x7bd93c, indexKOFEX2GBASprites_Portraits, 0x07 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_JUN_UNUSED[] =
 {
-    { L"Unused? 1", 0x592a08, 0x592a28 },
-    { L"Unused? 2", 0x592a28, 0x592a48 },
-    { L"Unused? 3", 0x592aa8, 0x592ac8 },
-    { L"Unused? 4", 0x592ac8, 0x592ae8 },
-    { L"Unused? 5", 0x592ae8, 0x592b08 },
-    { L"Unused? 6", 0x592b08, 0x592b28 },
-    { L"Unused? 7", 0x592b28, 0x592b48 },
-    { L"Unused? 8", 0x592b48, 0x592b68 },
-    { L"Unused? 9", 0x592bc8, 0x592be8 },
-    { L"Unused? 10", 0x592be8, 0x592c08 },
-    { L"Unused? Shocked", 0x592b68, 0x592b88 },
-    { L"Unused? MASTER Mode", 0x592b88, 0x592ba8 },
-    { L"Unused? Purple Trail", 0x592a88, 0x592aa8 },
-    { L"Unused? Purple Trail", 0x592ba8, 0x592bc8 },
+    { L"Unused? 1", 0x592a08, 0x592a28, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 2", 0x592a28, 0x592a48, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 3", 0x592aa8, 0x592ac8, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 4", 0x592ac8, 0x592ae8, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 5", 0x592ae8, 0x592b08, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 6", 0x592b08, 0x592b28, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 7", 0x592b28, 0x592b48, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 8", 0x592b48, 0x592b68, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 9", 0x592bc8, 0x592be8, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? 10", 0x592be8, 0x592c08, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? Shocked", 0x592b68, 0x592b88, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? MASTER Mode", 0x592b88, 0x592ba8, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? Purple Trail", 0x592a88, 0x592aa8, indexKOFEX2GBASprites_Jun, 0x00 },
+    { L"Unused? Purple Trail", 0x592ba8, 0x592bc8, indexKOFEX2GBASprites_Jun, 0x00 },
 };
 
 const sDescTreeNode KOFEX2_GBA_JUN_COLLECTION[] =
@@ -989,42 +1000,42 @@ const sDescTreeNode KOFEX2_GBA_JUN_COLLECTION[] =
 
 const sGame_PaletteDataset KOFEX2_GBA_MIU_MAIN[] =
 {
-    { L"Main", 0x58cb7c, 0x58cb9c },
+    { L"Main", 0x58cb7c, 0x58cb9c, indexKOFEX2GBASprites_Miu, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MIU_ALT[] =
 {
-    { L"Alt", 0x58cb9c, 0x58cbbc },
+    { L"Alt", 0x58cb9c, 0x58cbbc, indexKOFEX2GBASprites_Miu, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MIU_FLASH[] =
 {
-    { L"MASTER Mode", 0x58cc1c, 0x58cc3c },
-    { L"Shocked", 0x58cbfc, 0x58cc1c },
+    { L"MASTER Mode", 0x58cc1c, 0x58cc3c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Shocked", 0x58cbfc, 0x58cc1c, indexKOFEX2GBASprites_Miu, 0x00 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MIU_PORTRAIT[] =
 {
-    { L"Portrait", 0x7bd93c, 0x7bd95c },
+    { L"Portrait", 0x7bd93c, 0x7bd95c, indexKOFEX2GBASprites_Portraits, 0x0c },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_MIU_UNUSED[] =
 {
-    { L"Unused? 1", 0x58cbbc, 0x58cbdc },
-    { L"Unused? 2", 0x58cbdc, 0x58cbfc },
-    { L"Unused? 3", 0x58cc5c, 0x58cc7c },
-    { L"Unused? 4", 0x58cc7c, 0x58cc9c },
-    { L"Unused? 5", 0x58cc9c, 0x58ccbc },
-    { L"Unused? 6", 0x58ccbc, 0x58ccdc },
-    { L"Unused? 7", 0x58ccdc, 0x58ccfc },
-    { L"Unused? 8", 0x58ccfc, 0x58cd1c },
-    { L"Unused? 9", 0x58cd7c, 0x58cd9c },
-    { L"Unused? 10", 0x58cd9c, 0x58cdbc },
-    { L"Unused? Shocked", 0x58cd1c, 0x58cd3c },
-    { L"Unused? MASTER Mode", 0x58cd3c, 0x58cd5c },
-    { L"Unused? Purple Trail", 0x58cc3c, 0x58cc5c },
-    { L"Unused? Purple Trail", 0x58cd5c, 0x58cd7c },
-};
+    { L"Unused? 1", 0x58cbbc, 0x58cbdc, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 2", 0x58cbdc, 0x58cbfc, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 3", 0x58cc5c, 0x58cc7c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 4", 0x58cc7c, 0x58cc9c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 5", 0x58cc9c, 0x58ccbc, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 6", 0x58ccbc, 0x58ccdc, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 7", 0x58ccdc, 0x58ccfc, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 8", 0x58ccfc, 0x58cd1c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 9", 0x58cd7c, 0x58cd9c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? 10", 0x58cd9c, 0x58cdbc, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? Shocked", 0x58cd1c, 0x58cd3c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? MASTER Mode", 0x58cd3c, 0x58cd5c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? Purple Trail", 0x58cc3c, 0x58cc5c, indexKOFEX2GBASprites_Miu, 0x00 },
+    { L"Unused? Purple Trail", 0x58cd5c, 0x58cd7c, indexKOFEX2GBASprites_Miu, 0x00 },
+};  
 
 const sDescTreeNode KOFEX2_GBA_MIU_COLLECTION[] =
 {
@@ -1035,68 +1046,166 @@ const sDescTreeNode KOFEX2_GBA_MIU_COLLECTION[] =
     { L"Unused?", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_MIU_UNUSED, ARRAYSIZE(KOFEX2_GBA_MIU_UNUSED) },
 };
 
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_MAIN[] =
+{
+    { L"Main", 0x598648, 0x598668, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_ALT[] =
+{
+    { L"Alt", 0x598668, 0x598688, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_FLASH[] =
+{
+    { L"MASTER Mode", 0x5986e8, 0x598708, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Shocked", 0x5986c8, 0x5986e8, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_PORTRAIT[] =
+{
+    { L"Portrait", 0x7bd95c, 0x7bd97c, indexKOFEX2GBASprites_Portraits, 0x15 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_UNUSED[] =
+{
+    { L"Unused? 1", 0x598688, 0x5986a8, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 2", 0x5986a8, 0x5986c8, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 3", 0x598728, 0x598748, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 4", 0x598748, 0x598768, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 5", 0x598768, 0x598788, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 6", 0x598788, 0x5987a8, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 7", 0x5987a8, 0x5987c8, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 8", 0x5987c8, 0x5987e8, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 9", 0x598848, 0x598868, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 10", 0x598868, 0x598888, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? Shocked", 0x5987e8, 0x598808, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? MASTER Mode", 0x598808, 0x598828, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? Purple Trail", 0x598708, 0x598728, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? Purple Trail", 0x598828, 0x598848, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sDescTreeNode KOFEX2_GBA_SINOBU_COLLECTION[] =
+{
+    { L"Main", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_MAIN, ARRAYSIZE(KOFEX2_GBA_SINOBU_MAIN) },
+    { L"Alt", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_ALT, ARRAYSIZE(KOFEX2_GBA_SINOBU_ALT) },
+    { L"Flashing palettes", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_FLASH, ARRAYSIZE(KOFEX2_GBA_SINOBU_FLASH) },
+    { L"Portrait", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_PORTRAIT, ARRAYSIZE(KOFEX2_GBA_SINOBU_PORTRAIT) },
+    { L"Unused?", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_UNUSED, ARRAYSIZE(KOFEX2_GBA_SINOBU_UNUSED) },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_RIOT_MAIN[] =
+{
+    { L"Main", 0x598648 + 0x5E54, 0x598668 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_RIOT_ALT[] =
+{
+    { L"Alt", 0x598668 + 0x5E54, 0x598688 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_RIOT_FLASH[] =
+{
+    { L"MASTER Mode", 0x5986e8 + 0x5E54, 0x598708 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Shocked", 0x5986c8 + 0x5E54, 0x5986e8 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_RIOT_PORTRAIT[] =
+{
+    { L"Portrait", 0x7bd99c, 0x7bd9bc, indexKOFEX2GBASprites_Portraits, 0x15 },
+};
+
+const sGame_PaletteDataset KOFEX2_GBA_SINOBU_RIOT_UNUSED[] =
+{
+    { L"Unused? 1", 0x598688 + 0x5E54, 0x5986a8 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 2", 0x5986a8 + 0x5E54, 0x5986c8 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 3", 0x598728 + 0x5E54, 0x598748 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 4", 0x598748 + 0x5E54, 0x598768 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 5", 0x598768 + 0x5E54, 0x598788 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 6", 0x598788 + 0x5E54, 0x5987a8 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 7", 0x5987a8 + 0x5E54, 0x5987c8 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 8", 0x5987c8 + 0x5E54, 0x5987e8 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 9", 0x598848 + 0x5E54, 0x598868 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? 10", 0x598868 + 0x5E54, 0x598888 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? Shocked", 0x5987e8 + 0x5E54, 0x598808 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? MASTER Mode", 0x598808 + 0x5E54, 0x598828 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? Purple Trail", 0x598708 + 0x5E54, 0x598728 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+    { L"Unused? Purple Trail", 0x598828 + 0x5E54, 0x598848 + 0x5E54, indexKOFEX2GBASprites_Sinobu, 0x00 },
+};
+
+const sDescTreeNode KOFEX2_GBA_SINOBU_RIOT_COLLECTION[] =
+{
+    { L"Main", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_RIOT_MAIN, ARRAYSIZE(KOFEX2_GBA_SINOBU_RIOT_MAIN) },
+    { L"Alt", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_RIOT_ALT, ARRAYSIZE(KOFEX2_GBA_SINOBU_RIOT_ALT) },
+    { L"Flashing palettes", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_RIOT_FLASH, ARRAYSIZE(KOFEX2_GBA_SINOBU_RIOT_FLASH) },
+    { L"Portrait", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_RIOT_PORTRAIT, ARRAYSIZE(KOFEX2_GBA_SINOBU_RIOT_PORTRAIT) },
+    { L"Unused?", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_RIOT_UNUSED, ARRAYSIZE(KOFEX2_GBA_SINOBU_RIOT_UNUSED) },
+};
+
 const sGame_PaletteDataset KOFEX2_GBA_BONUS_HUD[] =
 {
-    { L"HUD Icons & Text (1/3)", 0x6031e4, 0x603204 },
-    { L"HUD Icons & Text (2/3)", 0x603204, 0x603224 },
-    { L"HUD Icons & Text (3/3)", 0x603224, 0x603244 },
-    { L"MASTER Meter Flash 1", 0x603264, 0x603284 },
-    { L"MASTER Meter Flash 2", 0x6032a4, 0x6032c4 },
-    { L"Meter Flash 1", 0x603244, 0x603264 },
-    { L"Meter Flash 2", 0x603284, 0x6032a4 },
+    { L"HUD Icons & Text (1/3)",    0x6031e4, 0x603204, indexKOFEX2GBASprites_Bonus, 0x00, &pairNextAndNext },
+    { L"HUD Icons & Text (2/3)",    0x603204, 0x603224, indexKOFEX2GBASprites_Bonus, 0x01 },
+    { L"HUD Icons & Text (3/3)",    0x603224, 0x603244, indexKOFEX2GBASprites_Bonus, 0x02 },
+    { L"MASTER Meter Flash 1",      0x603264, 0x603284, indexKOFEX2GBASprites_Bonus, 0x03 },
+    { L"MASTER Meter Flash 2",      0x6032a4, 0x6032c4, indexKOFEX2GBASprites_Bonus, 0x03 },
+    { L"Meter Flash 1",             0x603244, 0x603264, indexKOFEX2GBASprites_Bonus, 0x03 },
+    { L"Meter Flash 2",             0x603284, 0x6032a4, indexKOFEX2GBASprites_Bonus, 0x03 },
 };
 
 const sGame_PaletteDataset KOFEX2_GBA_BONUS_CSEL[] =
 {
-    { L"Selector (1/6)", 0x7bd3bc, 0x7bd3dc },
-    { L"Selector (2/6)", 0x7bd3dc, 0x7bd3fc },
-    { L"Selector (3/6)", 0x7bd3fc, 0x7bd41c },
-    { L"Selector (4/6)", 0x7bd41c, 0x7bd43c },
-    { L"Selector (5/6)", 0x7bd43c, 0x7bd45c },
-    { L"Selector (6/6)", 0x7bd45c, 0x7bd47c },
-    { L"Background", 0x7bd4dc, 0x7bd4fc },
-    { L"Panels", 0x7bd4fc, 0x7bd51c },
-    { L"Character Name", 0x7bd51c, 0x7bd53c },
-    { L"Entry Text", 0x7bd4bc, 0x7bd4dc },
-    { L"Text", 0x7bd150, 0x7bd170 },
-    { L"Character Icons (Red/Purple)", 0x7bd59c, 0x7bd5bc },
-    { L"Character Icons (Brown/Yellow)", 0x7bd5bc, 0x7bd5dc },
-    { L"Character Icons (Black/Blue)", 0x7bd5dc, 0x7bd5fc },
-    { L"Character Icons (Faded)", 0x7bd65c, 0x7bd67c },
-    { L"Selected Character Icons (Red/Purple)", 0x7bd210, 0x7bd230 },
-    { L"Selected Character Icons (Brown/Yellow)", 0x7bd230, 0x7bd250 },
-    { L"Selected Character Icons (Black/Blue)", 0x7bd250, 0x7bd270 },
-    { L"Character Icons Flashing", 0x7bd57c, 0x7bd59c },
+    { L"Selector (1/6)",                            0x7bd3bc, 0x7bd3dc, indexKOFEX2GBASprites_Bonus, 0x08 },
+    { L"Selector (2/6)",                            0x7bd3dc, 0x7bd3fc, indexKOFEX2GBASprites_Bonus, 0x08 },
+    { L"Selector (3/6)",                            0x7bd3fc, 0x7bd41c, indexKOFEX2GBASprites_Bonus, 0x08 },
+    { L"Selector (4/6)",                            0x7bd41c, 0x7bd43c, indexKOFEX2GBASprites_Bonus, 0x08 },
+    { L"Selector (5/6)",                            0x7bd43c, 0x7bd45c, indexKOFEX2GBASprites_Bonus, 0x08 },
+    { L"Selector (6/6)",                            0x7bd45c, 0x7bd47c, indexKOFEX2GBASprites_Bonus, 0x08 },
+    { L"Background",                                0x7bd4dc, 0x7bd4fc, indexKOFEX2GBASprites_Bonus, 0x04 },
+    { L"Panels",                                    0x7bd4fc, 0x7bd51c },
+    { L"Character Name",                            0x7bd51c, 0x7bd53c, indexKOFEX2GBASprites_Bonus, 0x07 },
+    { L"Entry Text",                                0x7bd4bc, 0x7bd4dc },
+    { L"Text",                                      0x7bd150, 0x7bd170 },
+    { L"Character Icons (Red/Purple)?",             0x7bd59c, 0x7bd5bc, indexKOFEX2GBASprites_Bonus, 0x06 },
+    { L"Character Icons (Brown/Yellow)",            0x7bd5bc, 0x7bd5dc, indexKOFEX2GBASprites_Bonus, 0x05 },
+    { L"Character Icons (Black/Blue)",              0x7bd5dc, 0x7bd5fc, indexKOFEX2GBASprites_Bonus, 0x05 },
+    { L"Character Icons (Faded)",                   0x7bd65c, 0x7bd67c, indexKOFEX2GBASprites_Bonus, 0x05 },
+    { L"Selected Character Icons (Red/Purple)",     0x7bd210, 0x7bd230, indexKOFEX2GBASprites_Bonus, 0x05 },
+    { L"Selected Character Icons (Brown/Yellow)",   0x7bd230, 0x7bd250, indexKOFEX2GBASprites_Bonus, 0x05 },
+    { L"Selected Character Icons (Black/Blue)",     0x7bd250, 0x7bd270, indexKOFEX2GBASprites_Bonus, 0x05 },
+    { L"Character Icons Flashing",                  0x7bd57c, 0x7bd59c, indexKOFEX2GBASprites_Bonus, 0x05 },
 };
 
 const sDescTreeNode KOFEX2_GBA_BONUS_COLLECTION[] =
 {
-    { L"HUD", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BONUS_HUD, ARRAYSIZE(KOFEX2_GBA_BONUS_HUD) },
-    { L"Character/Order Select", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BONUS_CSEL, ARRAYSIZE(KOFEX2_GBA_BONUS_CSEL) },
+    { L"HUD",                       DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BONUS_HUD, ARRAYSIZE(KOFEX2_GBA_BONUS_HUD) },
+    { L"Character/Order Select",    DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BONUS_CSEL, ARRAYSIZE(KOFEX2_GBA_BONUS_CSEL) },
 };
 
 const sDescTreeNode KOFEX2_GBA_UNITS[] =
 {
-    { L"Kyo Kusanagi",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_KYO_COLLECTION, ARRAYSIZE(KOFEX2_GBA_KYO_COLLECTION) },
-    { L"Moe Habana",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_MOE_COLLECTION, ARRAYSIZE(KOFEX2_GBA_MOE_COLLECTION) },
-    { L"Reiji Oogami",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_REIJI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_REIJI_COLLECTION) },
-    { L"Terry Bogard",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_TERRY_COLLECTION, ARRAYSIZE(KOFEX2_GBA_TERRY_COLLECTION) },
-    { L"Andy Bogard",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_ANDY_COLLECTION, ARRAYSIZE(KOFEX2_GBA_ANDY_COLLECTION) },
-    { L"Mai Shiranui",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_MAI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_MAI_COLLECTION) },
+    { L"Kyo Kusanagi",      DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_KYO_COLLECTION, ARRAYSIZE(KOFEX2_GBA_KYO_COLLECTION) },
+    { L"Moe Habana",        DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_MOE_COLLECTION, ARRAYSIZE(KOFEX2_GBA_MOE_COLLECTION) },
+    { L"Reiji Oogami",      DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_REIJI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_REIJI_COLLECTION) },
+    { L"Terry Bogard",      DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_TERRY_COLLECTION, ARRAYSIZE(KOFEX2_GBA_TERRY_COLLECTION) },
+    { L"Andy Bogard",       DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_ANDY_COLLECTION, ARRAYSIZE(KOFEX2_GBA_ANDY_COLLECTION) },
+    { L"Mai Shiranui",      DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_MAI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_MAI_COLLECTION) },
     { L"Leona Heidern",     DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_LEONA_COLLECTION, ARRAYSIZE(KOFEX2_GBA_LEONA_COLLECTION) },
-    { L"Ralf Jones",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_RALF_COLLECTION, ARRAYSIZE(KOFEX2_GBA_RALF_COLLECTION) },
-    { L"Clark Still",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CLARK_COLLECTION, ARRAYSIZE(KOFEX2_GBA_CLARK_COLLECTION) },
-    { L"Kim Kaphwan",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_KIM_COLLECTION, ARRAYSIZE(KOFEX2_GBA_KIM_COLLECTION) },
-    { L"Chang Koehan",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_COLLECTION, ARRAYSIZE(KOFEX2_GBA_CHANG_COLLECTION) },
-    { L"Choi Bounge",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHOI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_CHOI_COLLECTION) },
-    { L"Athena Asamiya",     DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_ATHENA_COLLECTION, ARRAYSIZE(KOFEX2_GBA_ATHENA_COLLECTION) },
-    { L"Sie Kensou",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_KENSOU_COLLECTION, ARRAYSIZE(KOFEX2_GBA_KENSOU_COLLECTION) },
-    { L"Bao",                 DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BAO_COLLECTION, ARRAYSIZE(KOFEX2_GBA_BAO_COLLECTION) },
-    { L"Ryo Sakazaki",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_RYO_COLLECTION, ARRAYSIZE(KOFEX2_GBA_RYO_COLLECTION) },
+    { L"Ralf Jones",        DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_RALF_COLLECTION, ARRAYSIZE(KOFEX2_GBA_RALF_COLLECTION) },
+    { L"Clark Still",       DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CLARK_COLLECTION, ARRAYSIZE(KOFEX2_GBA_CLARK_COLLECTION) },
+    { L"Kim Kaphwan",       DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_KIM_COLLECTION, ARRAYSIZE(KOFEX2_GBA_KIM_COLLECTION) },
+    { L"Chang Koehan",      DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHANG_COLLECTION, ARRAYSIZE(KOFEX2_GBA_CHANG_COLLECTION) },
+    { L"Choi Bounge",       DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_CHOI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_CHOI_COLLECTION) },
+    { L"Athena Asamiya",    DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_ATHENA_COLLECTION, ARRAYSIZE(KOFEX2_GBA_ATHENA_COLLECTION) },
+    { L"Sie Kensou",        DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_KENSOU_COLLECTION, ARRAYSIZE(KOFEX2_GBA_KENSOU_COLLECTION) },
+    { L"Bao",               DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BAO_COLLECTION, ARRAYSIZE(KOFEX2_GBA_BAO_COLLECTION) },
+    { L"Ryo Sakazaki",      DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_RYO_COLLECTION, ARRAYSIZE(KOFEX2_GBA_RYO_COLLECTION) },
     { L"Yuri Sakazaki",     DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_YURI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_YURI_COLLECTION) },
-    { L"Takuma Sakazaki",     DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_TAKUMA_COLLECTION, ARRAYSIZE(KOFEX2_GBA_TAKUMA_COLLECTION) },
-    { L"Iori Yagami",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_IORI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_IORI_COLLECTION) },
-    { L"Jun Kagami",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_JUN_COLLECTION, ARRAYSIZE(KOFEX2_GBA_JUN_COLLECTION) },
-    { L"Miu Kurosaki",         DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_MIU_COLLECTION, ARRAYSIZE(KOFEX2_GBA_MIU_COLLECTION) },
-    { L"Bonus",                DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BONUS_COLLECTION, ARRAYSIZE(KOFEX2_GBA_BONUS_COLLECTION) },
+    { L"Takuma Sakazaki",   DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_TAKUMA_COLLECTION, ARRAYSIZE(KOFEX2_GBA_TAKUMA_COLLECTION) },
+    { L"Iori Yagami",       DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_IORI_COLLECTION, ARRAYSIZE(KOFEX2_GBA_IORI_COLLECTION) },
+    { L"Jun Kagami",        DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_JUN_COLLECTION, ARRAYSIZE(KOFEX2_GBA_JUN_COLLECTION) },
+    { L"Miu Kurosaki",      DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_MIU_COLLECTION, ARRAYSIZE(KOFEX2_GBA_MIU_COLLECTION) },
+    { L"Sinobu Amou",       DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_COLLECTION, ARRAYSIZE(KOFEX2_GBA_SINOBU_COLLECTION) },
+    { L"Sinobu Amou (Riot State)", DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_SINOBU_RIOT_COLLECTION, ARRAYSIZE(KOFEX2_GBA_SINOBU_RIOT_COLLECTION) },
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)KOFEX2_GBA_BONUS_COLLECTION, ARRAYSIZE(KOFEX2_GBA_BONUS_COLLECTION) },
 };

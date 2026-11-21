@@ -1321,6 +1321,16 @@ enum KOFSpriteList : uint16_t
 
     indexKOF02UMSprites_Stages_2,       // 0x2e7
     indexKOF02UMPS2Sprites_Stages_2,    // 0x2e8
+
+    indexKOFEX2GBASprites_Athena,       // 0x2e9
+    indexKOFEX2GBASprites_Chang,        // 0x2ea
+    indexKOFEX2GBASprites_Miu,          // 0x2eb
+    indexKOFEX2GBASprites_Moe,          // 0x2ec
+    indexKOFEX2GBASprites_Reiji,        // 0x2ed
+    indexKOFEX2GBASprites_Portraits,    // 0x2ee
+    indexKOFEX2GBASprites_Bonus,        // 0x2ef
+    indexKOFEX2GBASprites_Jun,          // 0x2f0
+    indexKOFEX2GBASprites_Sinobu,       // 0x2f1
 };
 
 // This is used for portrait references within the 02UMExtras unit

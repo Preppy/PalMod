@@ -73,7 +73,7 @@ private:
         // Extra filename: allows user to load new palettes at runtime
         L"KofEx2E.txt",                
         // Count of known palettes listed in the header KOFEX2_GBA_DEF
-        425,
+        463,
         // Lowest known location used for internally listed palettes
         0x514ce0,
     };
