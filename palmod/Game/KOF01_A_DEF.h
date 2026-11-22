@@ -4,6 +4,9 @@
 
 const std::vector<uint16_t> KOF01_A_IMGIDS_USED =
 {
+    indexKOF02UMSprites_Kula,       // 0x9a
+    indexKOF02UMSprites_Mai,        // 0xA1
+    
     indexKOF96Sprites_Choi,         // 0x24D
     indexKOF96Sprites_Daimon,       // 0x24F
     indexKOF96Sprites_Ryo,          // 0x260
@@ -970,6 +973,7 @@ const sGame_PaletteDataset KOF01_A_MAI_PUNCH_PALETTES[] =
     { L"Lin Poison Palette (Unused)", 0x38d5a2, 0x38d5c2, indexKOF99Sprites_Mai },
     { L"Freeze Palette (Unused)", 0x38d5c2, 0x38d5e2, indexKOF99Sprites_Mai },
     { L"Super Trail", 0x38d5e2, 0x38d602, indexKOF99Sprites_Mai },
+    { L"Andy Intro Stuff", 0x38d602, 0x38d622, indexKOF02UMSprites_Mai, 0x19 },
     { L"Striker Portrait", 0x398c82, 0x398ca2, indexKOF01Sprites_Mai, 0x60 },
     { L"Order Select Portrait", 0x399962, 0x399982, indexKOF01Sprites_Mai, 0x44 },
     { L"Select/VS Portrait", 0x39be62, 0x39bea2, indexKOF01Sprites_Mai, 0x42 },
@@ -987,6 +991,7 @@ const sGame_PaletteDataset KOF01_A_MAI_KICK_PALETTES[] =
     { L"Lin Poison Palette (Unused)", 0x38d7a2, 0x38d7c2, indexKOF99Sprites_Mai },
     { L"Freeze Palette (Unused)", 0x38d7c2, 0x38d7e2, indexKOF99Sprites_Mai },
     { L"Super Trail", 0x38d7e2, 0x38d802, indexKOF99Sprites_Mai },
+    { L"Andy Intro Stuff", 0x38d802, 0x38d822, indexKOF02UMSprites_Mai, 0x19 },
     { L"Striker Portrait", 0x398ca2, 0x398cc2, indexKOF01Sprites_Mai, 0x60 },
     { L"Order Select Portrait", 0x399982, 0x3999a2, indexKOF01Sprites_Mai, 0x44 },
     { L"Select/VS Portrait", 0x39bea2, 0x39bee2, indexKOF01Sprites_Mai, 0x42 },
@@ -1072,6 +1077,7 @@ const sGame_PaletteDataset KOF01_A_KULA_PUNCH_PALETTES[] =
     { L"Lin Poison Palette (Unused)", 0x38e1a2, 0x38e1c2, indexKOF01Sprites_Kula },
     { L"Freeze Palette (Unused)", 0x38e1c2, 0x38e1e2, indexKOF01Sprites_Kula },
     { L"Super Trail", 0x38e1e2, 0x38e202, indexKOF01Sprites_Kula },
+    { L"Critical Ice", 0x38e202, 0x38e222, indexKOF02UMSprites_Kula, 0x02 },
     { L"Striker Portrait", 0x398da2, 0x398dc2, indexKOF01Sprites_Kula, 0x60 },
     { L"Order Select Portrait", 0x399a22, 0x399a42, indexKOF01Sprites_Kula, 0x44 },
     { L"Select/VS Portrait", 0x39c222, 0x39c262, indexKOF01Sprites_Kula, 0x42 },
@@ -1092,6 +1098,7 @@ const sGame_PaletteDataset KOF01_A_KULA_KICK_PALETTES[] =
     { L"Lin Poison Palette (Unused)", 0x38e3a2, 0x38e3c2, indexKOF01Sprites_Kula },
     { L"Freeze Palette (Unused)", 0x38e3c2, 0x38e3e2, indexKOF01Sprites_Kula },
     { L"Super Trail", 0x38e3e2, 0x38e402, indexKOF01Sprites_Kula },
+    { L"Critical Ice", 0x38e402, 0x38e422, indexKOF02UMSprites_Kula, 0x02 },
     { L"Striker Portrait", 0x398dc2, 0x398de2, indexKOF01Sprites_Kula, 0x60 },
     { L"Order Select Portrait", 0x399a42, 0x399a62, indexKOF01Sprites_Kula, 0x44 },
     { L"Select/VS Portrait", 0x39c262, 0x39c2a2, indexKOF01Sprites_Kula, 0x42 },

@@ -165,7 +165,7 @@ const std::vector<uint16_t> KOF02UM_S_IMGIDS_USED =
     indexKOF02UMSprites_King,      // 0x98
     indexKOF02UMSprites_Krizalid,  // 0x99
     indexKOF02UMSprites_Kula,      // 0x9a
-    indexKOF02UMSprites_Kusanagi,  // 0x9b
+    indexKOF02UMSprites_KUSANAGI,  // 0x9b
     indexKOF02UMSprites_KyoKusa,   // 0x9c
     indexKOF02UMSprites_Kyo1,      // 0x9d
     indexKOF02UMSprites_Kyo2,      // 0x9e
@@ -978,22 +978,22 @@ const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_MAX2[] =
 {
-    { L"Kensou MAX2 Flash 1/16",    0x39600, 0x39620, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 2/16",    0x39620, 0x39640, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 3/16",    0x39640, 0x39660, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 4/16",    0x39660, 0x39680, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 5/16",    0x39680, 0x396a0, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 6/16",    0x396a0, 0x396c0, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 7/16",    0x396c0, 0x396e0, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 8/16",    0x396e0, 0x39700, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 9/16",    0x39700, 0x39720, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 10/16",    0x39720, 0x39740, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 11/16",    0x39740, 0x39760, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 12/16",    0x39760, 0x39780, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 13/16",    0x39780, 0x397a0, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 14/16",    0x397a0, 0x397c0, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 15/16",    0x397c0, 0x397e0, indexKOF02UMSprites_Kensou, 0x0a },
-    { L"Kensou MAX2 Flash 16/16",    0x397e0, 0x39800, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"Kensou MAX2 Flash 1/16",    0x39600, 0x39620, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 2/16",    0x39620, 0x39640, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 3/16",    0x39640, 0x39660, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 4/16",    0x39660, 0x39680, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 5/16",    0x39680, 0x396a0, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 6/16",    0x396a0, 0x396c0, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 7/16",    0x396c0, 0x396e0, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 8/16",    0x396e0, 0x39700, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 9/16",    0x39700, 0x39720, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 10/16",    0x39720, 0x39740, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 11/16",    0x39740, 0x39760, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 12/16",    0x39760, 0x39780, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 13/16",    0x39780, 0x397a0, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 14/16",    0x397a0, 0x397c0, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 15/16",    0x397c0, 0x397e0, indexKOF01Sprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Flash 16/16",    0x397e0, 0x39800, indexKOF01Sprites_Kensou, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_MOVES[] =
@@ -1037,12 +1037,12 @@ const sGame_PaletteDataset KOF02UM_S_KULA_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_MOVES[] =
 {
-    { L"KUSANAGI Orochinagi Extra Fire",            0x1d000, 0x1d020, indexKOF02UMSprites_Kusanagi, 0x19 },
-    { L"KUSANAGI Orochinagi Main Fire Attack",      0x1d020, 0x1d040, indexKOF02UMSprites_Kusanagi, 0x05 },
-    { L"KUSANAGI Dark Thrust and Fire Ball Fire",   0x1d040, 0x1d060, indexKOF02UMSprites_Kusanagi, 0x05 },
-    { L"KUSANAGI Dark Thrust Maint",                0x1d0a0, 0x1d0c0, indexKOF02UMSprites_Kusanagi, 0x02 },
-    { L"KUSANAGI Orochinagi Extra Fire Attack",     0x1d0c0, 0x1d0e0, indexKOF02UMSprites_Kusanagi, 0x06 },
-    { L"KUSANAGI MAX2 Final Showdown Fire Pillar",  0x1d0e0, 0x1d100, indexKOF02UMSprites_Kusanagi, 0x09 },
+    { L"KUSANAGI Orochinagi Extra Fire",            0x1d000, 0x1d020, indexKOF02UMSprites_KUSANAGI, 0x19 },
+    { L"KUSANAGI Orochinagi Main Fire Attack",      0x1d020, 0x1d040, indexKOF02UMSprites_KUSANAGI, 0x05 },
+    { L"KUSANAGI Dark Thrust and Fire Ball Fire",   0x1d040, 0x1d060, indexKOF02UMSprites_KUSANAGI, 0x05 },
+    { L"KUSANAGI Dark Thrust Maint",                0x1d0a0, 0x1d0c0, indexKOF02UMSprites_KUSANAGI, 0x02 },
+    { L"KUSANAGI Orochinagi Extra Fire Attack",     0x1d0c0, 0x1d0e0, indexKOF02UMSprites_KUSANAGI, 0x06 },
+    { L"KUSANAGI MAX2 Final Showdown Fire Pillar",  0x1d0e0, 0x1d100, indexKOF02UMSprites_KUSANAGI, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_MOVES[] =
@@ -1327,7 +1327,7 @@ const sGame_PaletteDataset KOF02UM_S_CLONEZERO_PALETTES_MOVES[] =
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_A[] =
 {
     { L"Kyo A", 0x0002000, 0x0002020, indexKOF01Sprites_Kyo },
-    { L"A - MAX2 Fire Palette", 0x0002020, 0x0002040, indexKOF02UMSprites_KyoKusa, 0x02 },
+    { L"A - MAX2 Fire Palette", 0x0002020, 0x0002040, indexKOF01Sprites_Kyo, 0x00 },
     { L"A - MAX Orochinagi Fire", 0x0002040, 0x0002060, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"A - Electric Shock Effect", 0x0002060, 0x0002080, indexKOF01Sprites_Kyo, 0x00 },
     { L"A - MAX Flash", 0x0002080, 0x00020a0, indexKOF01Sprites_Kyo, 0x00 },
@@ -1339,7 +1339,7 @@ const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_A[] =
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_B[] =
 {
     { L"Kyo B", 0x0002200, 0x0002220, indexKOF01Sprites_Kyo },
-    { L"B - MAX2 Fire Palette", 0x0002220, 0x0002240, indexKOF02UMSprites_KyoKusa, 0x02 },
+    { L"B - MAX2 Fire Palette", 0x0002220, 0x0002240, indexKOF01Sprites_Kyo, 0x00 },
     { L"B - MAX Orochinagi Fire", 0x0002240, 0x0002260, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"B - Electric Shock Effect", 0x0002260, 0x0002280, indexKOF01Sprites_Kyo, 0x00 },
     { L"B - MAX Flash", 0x0002280, 0x00022a0, indexKOF01Sprites_Kyo, 0x00 },
@@ -1351,7 +1351,7 @@ const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_B[] =
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_C[] =
 {
     { L"Kyo C", 0x0002400, 0x0002420, indexKOF01Sprites_Kyo },
-    { L"C - MAX2 Fire Palette", 0x0002420, 0x0002440, indexKOF02UMSprites_KyoKusa, 0x02 },
+    { L"C - MAX2 Fire Palette", 0x0002420, 0x0002440, indexKOF01Sprites_Kyo, 0x00 },
     { L"C - MAX Orochinagi Fire", 0x0002440, 0x0002460, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"C - Electric Shock Effect", 0x0002460, 0x0002480, indexKOF01Sprites_Kyo, 0x00 },
     { L"C - MAX Flash", 0x0002480, 0x00024a0, indexKOF01Sprites_Kyo, 0x00 },
@@ -1363,7 +1363,7 @@ const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_C[] =
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_D[] =
 {
     { L"Kyo D", 0x0002600, 0x0002620, indexKOF01Sprites_Kyo },
-    { L"D - MAX2 Fire Palette", 0x0002620, 0x0002640, indexKOF02UMSprites_KyoKusa, 0x02 },
+    { L"D - MAX2 Fire Palette", 0x0002620, 0x0002640, indexKOF01Sprites_Kyo, 0x00 },
     { L"D - MAX Orochinagi Fire", 0x0002640, 0x0002660, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"D - Electric Shock Effect", 0x0002660, 0x0002680, indexKOF01Sprites_Kyo, 0x00 },
     { L"D - MAX Flash", 0x0002680, 0x00026a0, indexKOF01Sprites_Kyo, 0x00 },
@@ -1385,8 +1385,8 @@ const sDescTreeNode KOF02UM_S_KYO_COLLECTION[] =
 const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_A[] =
 {
     { L"Benimaru A", 0x0002800, 0x0002820, indexKOF01Sprites_Benimaru },
-    { L"A - Raijiken Flash", 0x0002820, 0x0002840, indexKOF02UMSprites_Benimaru, 0x04 },
-    { L"A - Phantom Hurricane Effects", 0x0002840, 0x0002860, indexKOF02UMSprites_Benimaru, 0x10 },
+    { L"A - Raijiken Flash", 0x0002820, 0x0002840, indexKOF01Sprites_Benimaru, 0x00 },
+    { L"A - Phantom Hurricane Effects", 0x0002840, 0x0002860, indexKOF01Sprites_Benimaru, 0x00 },
     { L"A - Electric Shock Effect", 0x0002860, 0x0002880, indexKOF01Sprites_Benimaru, 0x00 },
     { L"A - MAX Flash", 0x0002880, 0x00028a0, indexKOF01Sprites_Benimaru, 0x00 },
     { L"A - Hidden Super Desperation Move 2", 0x00028a0, 0x00028c0, indexKOF01Sprites_Benimaru, 0x00 },
@@ -1397,8 +1397,8 @@ const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_A[] =
 const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_B[] =
 {
     { L"Benimaru B", 0x0002a00, 0x0002a20, indexKOF01Sprites_Benimaru },
-    { L"B - Raijiken Flash", 0x0002a20, 0x0002a40, indexKOF02UMSprites_Benimaru, 0x04 },
-    { L"B - Phantom Hurricane Effects", 0x0002a40, 0x0002a60, indexKOF02UMSprites_Benimaru, 0x10 },
+    { L"B - Raijiken Flash", 0x0002a20, 0x0002a40, indexKOF01Sprites_Benimaru, 0x00 },
+    { L"B - Phantom Hurricane Effects", 0x0002a40, 0x0002a60, indexKOF01Sprites_Benimaru, 0x00 },
     { L"B - Electric Shock Effect", 0x0002a60, 0x0002a80, indexKOF01Sprites_Benimaru, 0x00 },
     { L"B - MAX Flash", 0x0002a80, 0x0002aa0, indexKOF01Sprites_Benimaru, 0x00 },
     { L"B - Hidden Super Desperation Move 2", 0x0002aa0, 0x0002ac0, indexKOF01Sprites_Benimaru, 0x00 },
@@ -1409,8 +1409,8 @@ const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_B[] =
 const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_C[] =
 {
     { L"Benimaru C", 0x0002c00, 0x0002c20, indexKOF01Sprites_Benimaru },
-    { L"C - Raijiken Flash", 0x0002c20, 0x0002c40, indexKOF02UMSprites_Benimaru, 0x04 },
-    { L"C - Phantom Hurricane Effects", 0x0002c40, 0x0002c60, indexKOF02UMSprites_Benimaru, 0x10 },
+    { L"C - Raijiken Flash", 0x0002c20, 0x0002c40, indexKOF01Sprites_Benimaru, 0x00 },
+    { L"C - Phantom Hurricane Effects", 0x0002c40, 0x0002c60, indexKOF01Sprites_Benimaru, 0x00 },
     { L"C - Electric Shock Effect", 0x0002c60, 0x0002c80, indexKOF01Sprites_Benimaru, 0x00 },
     { L"C - MAX Flash", 0x0002c80, 0x0002ca0, indexKOF01Sprites_Benimaru, 0x00 },
     { L"C - Hidden Super Desperation Move 2", 0x0002ca0, 0x0002cc0, indexKOF01Sprites_Benimaru, 0x00 },
@@ -1421,8 +1421,8 @@ const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_C[] =
 const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_D[] =
 {
     { L"Benimaru D", 0x0002e00, 0x0002e20, indexKOF01Sprites_Benimaru },
-    { L"D - Raijiken Flash", 0x0002e20, 0x0002e40, indexKOF02UMSprites_Benimaru, 0x04 },
-    { L"D - Phantom Hurricane Effects", 0x0002e40, 0x0002e60, indexKOF02UMSprites_Benimaru, 0x10 },
+    { L"D - Raijiken Flash", 0x0002e20, 0x0002e40, indexKOF01Sprites_Benimaru, 0x00 },
+    { L"D - Phantom Hurricane Effects", 0x0002e40, 0x0002e60, indexKOF01Sprites_Benimaru, 0x00 },
     { L"D - Electric Shock Effect", 0x0002e60, 0x0002e80, indexKOF01Sprites_Benimaru, 0x00 },
     { L"D - MAX Flash", 0x0002e80, 0x0002ea0, indexKOF01Sprites_Benimaru, 0x00 },
     { L"D - Hidden Super Desperation Move 2", 0x0002ea0, 0x0002ec0, indexKOF01Sprites_Benimaru, 0x00 },
@@ -1907,10 +1907,10 @@ const sDescTreeNode KOF02UM_S_ATHENA_COLLECTION[] =
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_A[] =
 {
     { L"Kensou A", 0x0007000, 0x0007020, indexKOF01Sprites_Kensou },
-    { L"A - MAX2 Power Up State", 0x0007020, 0x0007040, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"A - MAX2 Power Up State", 0x0007020, 0x0007040, indexKOF01Sprites_Kensou, 0x00 },
     { L"A - Desperation Move / Super Desperation Move", 0x0007040, 0x0007060, indexKOF01Sprites_Kensou, 0x00 },
     { L"A - Electric Shock Effect", 0x0007060, 0x0007080, indexKOF01Sprites_Kensou, 0x00 },
-    { L"A - MAX Flash", 0x0007080, 0x00070a0, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"A - MAX Flash", 0x0007080, 0x00070a0, indexKOF01Sprites_Kensou, 0x00 },
     { L"A - Hidden Super Desperation Move 2", 0x00070a0, 0x00070c0, indexKOF01Sprites_Kensou, 0x00 },
     { L"A - Soul Palette", 0x00070c0, 0x00070e0, indexKOF01Sprites_Kensou, 0x00 },
     { L"A - Hidden Super Desperation Move 3", 0x00070e0, 0x0007100, indexKOF01Sprites_Kensou, 0x00 },
@@ -1919,10 +1919,10 @@ const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_A[] =
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_B[] =
 {
     { L"Kensou B", 0x0007200, 0x0007220, indexKOF01Sprites_Kensou },
-    { L"B - MAX2 Power Up State", 0x0007220, 0x0007240, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"B - MAX2 Power Up State", 0x0007220, 0x0007240, indexKOF01Sprites_Kensou, 0x00 },
     { L"B - Desperation Move / Super Desperation Move", 0x0007240, 0x0007260, indexKOF01Sprites_Kensou, 0x00 },
     { L"B - Electric Shock Effect", 0x0007260, 0x0007280, indexKOF01Sprites_Kensou, 0x00 },
-    { L"B - MAX Flash", 0x0007280, 0x00072a0, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"B - MAX Flash", 0x0007280, 0x00072a0, indexKOF01Sprites_Kensou, 0x00 },
     { L"B - Hidden Super Desperation Move 2", 0x00072a0, 0x00072c0, indexKOF01Sprites_Kensou, 0x00 },
     { L"B - Soul Palette", 0x00072c0, 0x00072e0, indexKOF01Sprites_Kensou, 0x00 },
     { L"B - Hidden Super Desperation Move 3", 0x00072e0, 0x0007300, indexKOF01Sprites_Kensou, 0x00 },
@@ -1931,10 +1931,10 @@ const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_B[] =
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_C[] =
 {
     { L"Kensou C", 0x0007400, 0x0007420, indexKOF01Sprites_Kensou },
-    { L"C - MAX2 Power Up State", 0x0007420, 0x0007440, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"C - MAX2 Power Up State", 0x0007420, 0x0007440, indexKOF01Sprites_Kensou, 0x00 },
     { L"C - Desperation Move / Super Desperation Move", 0x0007440, 0x0007460, indexKOF01Sprites_Kensou, 0x00 },
     { L"C - Electric Shock Effect", 0x0007460, 0x0007480, indexKOF01Sprites_Kensou, 0x00 },
-    { L"C - MAX Flash", 0x0007480, 0x00074a0, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"C - MAX Flash", 0x0007480, 0x00074a0, indexKOF01Sprites_Kensou, 0x00 },
     { L"C - Hidden Super Desperation Move 2", 0x00074a0, 0x00074c0, indexKOF01Sprites_Kensou, 0x00 },
     { L"C - Soul Palette", 0x00074c0, 0x00074e0, indexKOF01Sprites_Kensou, 0x00 },
     { L"C - Hidden Super Desperation Move 3", 0x00074e0, 0x0007500, indexKOF01Sprites_Kensou, 0x00 },
@@ -1943,10 +1943,10 @@ const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_C[] =
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_D[] =
 {
     { L"Kensou D", 0x0007600, 0x0007620, indexKOF01Sprites_Kensou },
-    { L"D - MAX2 Power Up State", 0x0007620, 0x0007640, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"D - MAX2 Power Up State", 0x0007620, 0x0007640, indexKOF01Sprites_Kensou, 0x00 },
     { L"D - Desperation Move / Super Desperation Move", 0x0007640, 0x0007660, indexKOF01Sprites_Kensou, 0x00 },
     { L"D - Electric Shock Effect", 0x0007660, 0x0007680, indexKOF01Sprites_Kensou, 0x00 },
-    { L"D - MAX Flash", 0x0007680, 0x00076a0, indexKOF02UMSprites_Kensou, 0x0a },
+    { L"D - MAX Flash", 0x0007680, 0x00076a0, indexKOF01Sprites_Kensou, 0x00 },
     { L"D - Hidden Super Desperation Move 2", 0x00076a0, 0x00076c0, indexKOF01Sprites_Kensou, 0x00 },
     { L"D - Soul Palette", 0x00076c0, 0x00076e0, indexKOF01Sprites_Kensou, 0x00 },
     { L"D - Hidden Super Desperation Move 3", 0x00076e0, 0x0007700, indexKOF01Sprites_Kensou, 0x00 },
@@ -1966,10 +1966,10 @@ const sDescTreeNode KOF02UM_S_KENSOU_COLLECTION[] =
 const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_A[] =
 {
     { L"Chin A", 0x0007800, 0x0007820, indexKOF99Sprites_Chin },
-    { L"A - Fire Palette", 0x0007820, 0x0007840, indexKOF02UMSprites_Chin, 0x09 },
+    { L"A - Fire Palette", 0x0007820, 0x0007840, indexKOF99Sprites_Chin, 0x00 },
     { L"A - Desperation Move / Super Desperation Move", 0x0007840, 0x0007860, indexKOF99Sprites_Chin, 0x00 },
     { L"A - Electric Shock Effect", 0x0007860, 0x0007880, indexKOF99Sprites_Chin, 0x00 },
-    { L"A - MAX Flash", 0x0007880, 0x00078a0, indexKOF02UMSprites_Chin, 0x09 },
+    { L"A - MAX Flash", 0x0007880, 0x00078a0, indexKOF99Sprites_Chin, 0x00 },
     { L"A - Hidden Super Desperation Move 2", 0x00078a0, 0x00078c0, indexKOF99Sprites_Chin, 0x00 },
     { L"A - Soul Palette", 0x00078c0, 0x00078e0, indexKOF99Sprites_Chin, 0x00 },
     { L"A - Hidden Super Desperation Move 3", 0x00078e0, 0x0007900, indexKOF99Sprites_Chin, 0x00 },
@@ -1978,10 +1978,10 @@ const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_A[] =
 const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_B[] =
 {
     { L"Chin B", 0x0007a00, 0x0007a20, indexKOF99Sprites_Chin },
-    { L"B - Fire Palette", 0x0007a20, 0x0007a40, indexKOF02UMSprites_Chin, 0x09 },
+    { L"B - Fire Palette", 0x0007a20, 0x0007a40, indexKOF99Sprites_Chin, 0x00 },
     { L"B - Desperation Move / Super Desperation Move", 0x0007a40, 0x0007a60, indexKOF99Sprites_Chin, 0x00 },
     { L"B - Electric Shock Effect", 0x0007a60, 0x0007a80, indexKOF99Sprites_Chin, 0x00 },
-    { L"B - MAX Flash", 0x0007a80, 0x0007aa0, indexKOF02UMSprites_Chin, 0x09 },
+    { L"B - MAX Flash", 0x0007a80, 0x0007aa0, indexKOF99Sprites_Chin, 0x00 },
     { L"B - Hidden Super Desperation Move 2", 0x0007aa0, 0x0007ac0, indexKOF99Sprites_Chin, 0x00 },
     { L"B - Soul Palette", 0x0007ac0, 0x0007ae0, indexKOF99Sprites_Chin, 0x00 },
     { L"B - Hidden Super Desperation Move 3", 0x0007ae0, 0x0007b00, indexKOF99Sprites_Chin, 0x00 },
@@ -1990,10 +1990,10 @@ const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_B[] =
 const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_C[] =
 {
     { L"Chin C", 0x0007c00, 0x0007c20, indexKOF99Sprites_Chin },
-    { L"C - Fire Palette", 0x0007c20, 0x0007c40, indexKOF02UMSprites_Chin, 0x09 },
+    { L"C - Fire Palette", 0x0007c20, 0x0007c40, indexKOF99Sprites_Chin, 0x00 },
     { L"C - Desperation Move / Super Desperation Move", 0x0007c40, 0x0007c60, indexKOF99Sprites_Chin, 0x00 },
     { L"C - Electric Shock Effect", 0x0007c60, 0x0007c80, indexKOF99Sprites_Chin, 0x00 },
-    { L"C - MAX Flash", 0x0007c80, 0x0007ca0, indexKOF02UMSprites_Chin, 0x09 },
+    { L"C - MAX Flash", 0x0007c80, 0x0007ca0, indexKOF99Sprites_Chin, 0x00 },
     { L"C - Hidden Super Desperation Move 2", 0x0007ca0, 0x0007cc0, indexKOF99Sprites_Chin, 0x00 },
     { L"C - Soul Palette", 0x0007cc0, 0x0007ce0, indexKOF99Sprites_Chin, 0x00 },
     { L"C - Hidden Super Desperation Move 3", 0x0007ce0, 0x0007d00, indexKOF99Sprites_Chin, 0x00 },
@@ -2002,10 +2002,10 @@ const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_C[] =
 const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_D[] =
 {
     { L"Chin D", 0x0007e00, 0x0007e20, indexKOF99Sprites_Chin },
-    { L"D - Fire Palette", 0x0007e20, 0x0007e40, indexKOF02UMSprites_Chin, 0x09 },
+    { L"D - Fire Palette", 0x0007e20, 0x0007e40, indexKOF99Sprites_Chin, 0x00 },
     { L"D - Desperation Move / Super Desperation Move", 0x0007e40, 0x0007e60, indexKOF99Sprites_Chin, 0x00 },
     { L"D - Electric Shock Effect", 0x0007e60, 0x0007e80, indexKOF99Sprites_Chin, 0x00 },
-    { L"D - MAX Flash", 0x0007e80, 0x0007ea0, indexKOF02UMSprites_Chin, 0x09 },
+    { L"D - MAX Flash", 0x0007e80, 0x0007ea0, indexKOF99Sprites_Chin, 0x00 },
     { L"D - Hidden Super Desperation Move 2", 0x0007ea0, 0x0007ec0, indexKOF99Sprites_Chin, 0x00 },
     { L"D - Soul Palette", 0x0007ec0, 0x0007ee0, indexKOF99Sprites_Chin, 0x00 },
     { L"D - Hidden Super Desperation Move 3", 0x0007ee0, 0x0007f00, indexKOF99Sprites_Chin, 0x00 },
@@ -3646,8 +3646,8 @@ const sDescTreeNode KOF02UM_S_OMEGARUGAL_COLLECTION[] =
 const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_A[] =
 {
     { L"KUSANAGI A", 0x0016000, 0x0016020, indexKOF02Sprites_KUSANAGI },
-    { L"A - Super Move Palette", 0x0016020, 0x0016040, indexKOF02UMSprites_Kusanagi, 0x03 },
-    { L"A - MAX Orochinagi Fire", 0x0016040, 0x0016060, indexKOF02UMSprites_Kusanagi, 0x04 },
+    { L"A - Super Move Palette", 0x0016020, 0x0016040, indexKOF02Sprites_KUSANAGI, 0x00 },
+    { L"A - MAX Orochinagi Fire", 0x0016040, 0x0016060, indexKOF02UMSprites_KUSANAGI, 0x04 },
     { L"A - Electric Shock Effect", 0x0016060, 0x0016080, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"A - MAX Flash", 0x0016080, 0x00160a0, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"A - Hidden Super Desperation Move 2", 0x00160a0, 0x00160c0, indexKOF02Sprites_KUSANAGI, 0x00 },
@@ -3658,8 +3658,8 @@ const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_A[] =
 const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_B[] =
 {
     { L"KUSANAGI B", 0x0016200, 0x0016220, indexKOF02Sprites_KUSANAGI },
-    { L"B - Super Move Palette", 0x0016220, 0x0016240, indexKOF02UMSprites_Kusanagi, 0x03 },
-    { L"B - MAX Orochinagi Fire", 0x0016240, 0x0016260, indexKOF02UMSprites_Kusanagi, 0x04 },
+    { L"B - Super Move Palette", 0x0016220, 0x0016240, indexKOF02Sprites_KUSANAGI, 0x00 },
+    { L"B - MAX Orochinagi Fire", 0x0016240, 0x0016260, indexKOF02UMSprites_KUSANAGI, 0x04 },
     { L"B - Electric Shock Effect", 0x0016260, 0x0016280, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"B - MAX Flash", 0x0016280, 0x00162a0, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"B - Hidden Super Desperation Move 2", 0x00162a0, 0x00162c0, indexKOF02Sprites_KUSANAGI, 0x00 },
@@ -3670,8 +3670,8 @@ const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_B[] =
 const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_C[] =
 {
     { L"KUSANAGI C", 0x0016400, 0x0016420, indexKOF02Sprites_KUSANAGI },
-    { L"C - Super Move Palette", 0x0016420, 0x0016440, indexKOF02UMSprites_Kusanagi, 0x03 },
-    { L"C - MAX Orochinagi Fire", 0x0016440, 0x0016460, indexKOF02UMSprites_Kusanagi, 0x04 },
+    { L"C - Super Move Palette", 0x0016420, 0x0016440, indexKOF02Sprites_KUSANAGI, 0x00 },
+    { L"C - MAX Orochinagi Fire", 0x0016440, 0x0016460, indexKOF02UMSprites_KUSANAGI, 0x04 },
     { L"C - Electric Shock Effect", 0x0016460, 0x0016480, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"C - MAX Flash", 0x0016480, 0x00164a0, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"C - Hidden Super Desperation Move 2", 0x00164a0, 0x00164c0, indexKOF02Sprites_KUSANAGI, 0x00 },
@@ -3682,8 +3682,8 @@ const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_C[] =
 const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_D[] =
 {
     { L"KUSANAGI D", 0x0016600, 0x0016620, indexKOF02Sprites_KUSANAGI },
-    { L"D - Super Move Palette", 0x0016620, 0x0016640, indexKOF02UMSprites_Kusanagi, 0x03 },
-    { L"D - MAX Orochinagi Fire", 0x0016640, 0x0016660, indexKOF02UMSprites_Kusanagi, 0x04 },
+    { L"D - Super Move Palette", 0x0016620, 0x0016640, indexKOF02Sprites_KUSANAGI, 0x00 },
+    { L"D - MAX Orochinagi Fire", 0x0016640, 0x0016660, indexKOF02UMSprites_KUSANAGI, 0x04 },
     { L"D - Electric Shock Effect", 0x0016660, 0x0016680, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"D - MAX Flash", 0x0016680, 0x00166a0, indexKOF02Sprites_KUSANAGI, 0x00 },
     { L"D - Hidden Super Desperation Move 2", 0x00166a0, 0x00166c0, indexKOF02Sprites_KUSANAGI, 0x00 },
@@ -5267,7 +5267,7 @@ const sGame_PaletteDataset KOF02UM_S_MAX2PORTRAIT_PALETTES[] =
     { L"Nameless MAX2 portrait",        0x5c8e0, 0x5cae0, indexKOF02UMSprites_Nameless, 0x50 },
     { L"Angel MAX2 portrait",           0x5cae0, 0x5cce0, indexKOF02UMSprites_Angel, 0x50 },
     { L"Omega Rugal MAX2 portrait",     0x5cce0, 0x5cee0, indexKOF02UMSprites_OmegaRugal, 0x50 },
-    { L"KUSANAGI MAX2 portrait",        0x5cee0, 0x5d0e0, indexKOF02UMSprites_Kusanagi, 0x50 },
+    { L"KUSANAGI MAX2 portrait",        0x5cee0, 0x5d0e0, indexKOF02UMSprites_KUSANAGI, 0x50 },
     { L"Shingo MAX2 portrait",          0x5d0e0, 0x5d2e0, indexKOF02UMSprites_Shingo, 0x50 },
     { L"King MAX2 portrait",            0x5d2e0, 0x5d4e0, indexKOF02UMSprites_King, 0x50 },
     { L"Xiangfei MAX2 portrait",        0x5d4e0, 0x5d6e0, indexKOF02UMSprites_Xiangfei, 0x50 },
@@ -5434,7 +5434,7 @@ const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES_BIG[] =
     { L"Clark Select Portrait",             0x1659c0, 0x165dc0, indexKOF02UMSprites_Clark, 0x30 },
     { L"Krizalid Select Portrait",          0x175dc0, 0x1761c0, indexKOF02UMSprites_Krizalid, 0x30 },
     { L"Chris Select Portrait",             0x1861c0, 0x1865c0, indexKOF02UMSprites_Chris, 0x30 },
-    { L"KUSANAGI Select Portrait",          0x1965c0, 0x1969c0, indexKOF02UMSprites_Kusanagi, 0x30 },
+    { L"KUSANAGI Select Portrait",          0x1965c0, 0x1969c0, indexKOF02UMSprites_KUSANAGI, 0x30 },
     { L"K' Select Portrait",                0x1a69c0, 0x1a6dc0, indexKOF02UMSprites_K, 0x30 },
     { L"Goenitz Select Portrait",           0x1b6dc0, 0x1b71c0, indexKOF02UMSprites_Goenitz, 0x30 },
     { L"Shermie Select Portrait",           0x1c71c0, 0x1c75c0, indexKOF02UMSprites_Shermie, 0x30 },

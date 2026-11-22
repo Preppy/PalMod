@@ -2308,8 +2308,8 @@ const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kula[] =
 
 const sGame_PaletteDataset KOF02UM_S_PORTRAIT_PALETTES_VICTORY_Kusanagi[] =
 {
-    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_Kusanagi, 0x40, &pairNext, &secondaryProcCopyToNext },
-    { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_Kusanagi, 0x41, &pairPrevious },
+    { L"Victory Portrait Palette 1", 0x40, 0x440, indexKOF02UMSprites_KUSANAGI, 0x40, &pairNext, &secondaryProcCopyToNext },
+    { L"Victory Portrait Palette 2", 0x10440, 0x10840, indexKOF02UMSprites_KUSANAGI, 0x41, &pairPrevious },
 };
 
 const sDescTreeNode KOF02UM_S_PORTRAIT_COLLECTION_VICTORY_Kusanagi[] =

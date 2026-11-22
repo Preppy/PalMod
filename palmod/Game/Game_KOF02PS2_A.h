@@ -29,8 +29,8 @@ private:
         KOF02PS2_A_UNITS,
         ARRAYSIZE(KOF02PS2_A_UNITS),
         L"KOF02PS2_AE.txt",     // Extra filename
-        2195,                   // Count of palettes listed in the header
-        0x388c00,               // Lowest known location used for palettes
+        2396,                   // Count of palettes listed in the header
+        0x386c20,               // Lowest known location used for palettes
     };
 
     static void DumpAllCharacters();
