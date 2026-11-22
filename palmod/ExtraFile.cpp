@@ -1399,13 +1399,6 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
                 if (GameROM.Open(m_pszLoadedPathOrFile, CFile::modeRead | CFile::typeBinary))
                 {
-                    strExtraFileText.Format(L"Post: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-                    strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-                    strExtraFileText = L";To: end of ROM\r\n";
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-
                     // If we have a view of files, the extra file can be used across them: double-check that by checking confirmed size vs (single) file size
                     int nFileViewSize = static_cast<int>(GameROM.GetLength());
 
@@ -1415,9 +1408,18 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
                         nFileViewSize = static_cast<int>(m_nLoadedFileViewSize);
                     }
 
-                    m_nLoadedFileViewSize;
-                    strExtraFileText.Format(L"0x%x\r\n\r\n", nFileViewSize);
-                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    if (pCurrent->nTerminalOffset != nFileViewSize)
+                    {
+                        strExtraFileText.Format(L"Post: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                        strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                        strExtraFileText = L";To: end of ROM\r\n";
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+
+                        strExtraFileText.Format(L"0x%x\r\n\r\n", nFileViewSize);
+                        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    }
 
                     GameROM.Abort();
                 }
