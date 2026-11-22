@@ -38,7 +38,7 @@ private:
         ARRAYSIZE(KOF02_A_UNITS),
         L"KOF02E.txt",              // Extra filename
         2196,                       // Count of palettes listed in the header
-        0x1b4e0,                    // Lowest known location used for palettes
+        0x86b82,                    // Lowest known location used for palettes
     };
 
 public:
@@ -80,7 +80,7 @@ private:
         ARRAYSIZE(KOF02_A_UNITS),
         L"KOF02_PS2E.txt",          // Extra filename
         2196,                       // Count of palettes listed in the header
-        0x1b4e0,                    // Lowest known location used for palettes
+        0x20 + 0x86b62,             // Lowest known location used for palettes
     };
 
 public:
