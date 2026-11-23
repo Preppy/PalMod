@@ -1408,7 +1408,7 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
                         nFileViewSize = static_cast<int>(m_nLoadedFileViewSize);
                     }
 
-                    if (pCurrent->nTerminalOffset != nFileViewSize)
+                    if (static_cast<int>(pCurrent->nTerminalOffset) != nFileViewSize)
                     {
                         strExtraFileText.Format(L"Post: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
                         _WriteToFileAsANSI(ExtraFile, strExtraFileText);
