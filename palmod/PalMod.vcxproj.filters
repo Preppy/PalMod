@@ -1158,6 +1158,12 @@
     <ClCompile Include="TextureData.cpp">
       <Filter>Images\Texture Data</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_UMK3_DS.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WEBPfiles.cpp">
+      <Filter>Palette file storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -1994,9 +2000,6 @@
     <ClInclude Include="Game\Game_UMK3_DS.h">
       <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29</Filter>
     </ClInclude>
-    <ClInclude Include="Game\UMK3_DS_DEF.h">
-      <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29</Filter>
-    </ClInclude>
     <ClInclude Include="Game\SFA2_Hack_DEF.h">
       <Filter>Games\Capcom Games\SFA2_A</Filter>
     </ClInclude>
@@ -2494,6 +2497,9 @@
     </ClInclude>
     <ClInclude Include="Game\FatalFury2_SEGA_DEF.h">
       <Filter>Games\Sega\Fatal Fury 2</Filter>
+    </ClInclude>
+    <ClInclude Include="WEBPfiles.h">
+      <Filter>Palette file storage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
