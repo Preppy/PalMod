@@ -189,7 +189,9 @@ uint16_t PaletteImport::ApplyPaletteToTarget(std::vector<uint8_t> rgbaPalette, u
 
     bool fHaveColorsForThisTarget = false;
 
-    for (uint16_t iColorCheck = 1; iColorCheck < pCurPalDef->uPalSz; iColorCheck++)
+    const uint16_t nCheckLength = static_cast<uint16_t>(min(pCurPalDef->uPalSz, (rgbaPalette.size() / 4)));
+
+    for (uint16_t iColorCheck = 1; iColorCheck < nCheckLength; iColorCheck++)
     {
         if ((rgbaPalette.at(iColorCheck * 4) != 0) ||
             (rgbaPalette.at((iColorCheck * 4) + 1) != 0) ||
