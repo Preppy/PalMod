@@ -517,32 +517,52 @@ void CImgDisp::ModifySrcRect()
         m_MainLayout.height = m_PreviewDimensions.height;
     }
 
-    m_rSrcRct.top = (m_MainLayout.height / 2) - static_cast<int>(static_cast<double>(ViewportDimensions.height / 2) / m_Settings.dPreviewZoom);
-    m_rSrcRct.left = (m_MainLayout.width / 2) - static_cast<int>(static_cast<double>(ViewportDimensions.width / 2) / m_Settings.dPreviewZoom);
-    m_rSrcRct.bottom = m_rSrcRct.top + static_cast<int>(static_cast<double>(ViewportDimensions.height) / m_Settings.dPreviewZoom);
-    m_rSrcRct.right = m_rSrcRct.left + static_cast<int>(static_cast<double>(ViewportDimensions.width) / m_Settings.dPreviewZoom);
+    // Center the draw rect
+    m_rImgRct.left = static_cast<LONG>((-m_PreviewDimensions.width + m_MainLayout.width) / 2);
+    m_rImgRct.right = static_cast<LONG>((m_PreviewDimensions.width + m_MainLayout.width) / 2);
+    m_rImgRct.top = static_cast<LONG>((-m_PreviewDimensions.height + m_MainLayout.height) / 2);
+    m_rImgRct.bottom = static_cast<LONG>((m_PreviewDimensions.height + m_MainLayout.height) / 2);
 
-    m_rImgRct.left = -(m_PreviewDimensions.width / 2) + (m_MainLayout.width / 2);
-    m_rImgRct.right = (m_PreviewDimensions.width / 2) + (m_MainLayout.width / 2);
-    m_rImgRct.top = -(m_PreviewDimensions.height / 2) + (m_MainLayout.height / 2);
-    m_rImgRct.bottom = (m_PreviewDimensions.height / 2) + (m_MainLayout.height / 2);
+    const double dDownscaledViewportHeight = (static_cast<double>(ViewportDimensions.height) / m_Settings.dPreviewZoom);
+    const double dDownscaledViewportWidth = (static_cast<double>(ViewportDimensions.width) / m_Settings.dPreviewZoom);
+
+    // srcrect is our image, potentially zoomed in
+    // center it
+    m_rSrcRct.top = static_cast<LONG>((m_MainLayout.height - dDownscaledViewportHeight) / 2);
+    m_rSrcRct.left = static_cast<LONG>((m_MainLayout.width - dDownscaledViewportWidth) / 2);
+    m_rSrcRct.bottom = m_rSrcRct.top + static_cast<LONG>(ceil(dDownscaledViewportHeight));
+    m_rSrcRct.right = m_rSrcRct.left + static_cast<LONG>(ceil(dDownscaledViewportWidth));
 
 #ifdef DEBUG
     CString strMsg;
 
     // start with the ingredients
+    // preview window size
     strMsg.Format(L"CImgDisp::ModifySrcRect:\r\n\tViewportDimensions: %u x %u\r\n", ViewportDimensions.width, ViewportDimensions.height);
     OutputDebugString(strMsg.GetString());
     strMsg.Format(L"\tImageOffsets: %i x %i\r\n", m_ImageOffsets.x, m_ImageOffsets.y);
     OutputDebugString(strMsg.GetString());
+    // preview being displayed
     strMsg.Format(L"\tPreviewDimensions: %u x %u\r\n", m_PreviewDimensions.width, m_PreviewDimensions.height);
     OutputDebugString(strMsg.GetString());
     strMsg.Format(L"\tZoom: %f\r\n", m_Settings.dPreviewZoom);
     OutputDebugString(strMsg.GetString());
+
+    if (m_Settings.dPreviewZoom != 1.0)
+    {
+        strMsg.Format(L"\t\tIdeal zoomed output: %u x %u\r\n", static_cast<int>(m_Settings.dPreviewZoom * m_PreviewDimensions.width), static_cast<int>(m_Settings.dPreviewZoom * m_PreviewDimensions.height));
+        OutputDebugString(strMsg.GetString());
+    }
+
     // then the calculated values
     // viewport is negatively scaled by zoom
-    strMsg.Format(L"\tSrcRect: w %u to %u, h %u to %u. Scaled viewport dimensions %u x %u\r\n", m_rSrcRct.left, m_rSrcRct.right, m_rSrcRct.top, m_rSrcRct.bottom, (m_rSrcRct.right - m_rSrcRct.left), (m_rSrcRct.bottom - m_rSrcRct.top));
+    strMsg.Format(L"\tSrcRect: w %u to %u, h %u to %u. Downscaled viewport dimensions %u x %u\r\n", m_rSrcRct.left, m_rSrcRct.right, m_rSrcRct.top, m_rSrcRct.bottom, (m_rSrcRct.right - m_rSrcRct.left) + 1, (m_rSrcRct.bottom - m_rSrcRct.top) + 1);
     OutputDebugString(strMsg.GetString());
+
+    // actual viewport / scaled viewport values not matching indicates we'll be getting pixel skew
+    strMsg.Format(L"\t\tViewport dimensions scaled back up for Zoom: %u x %u\r\n", static_cast<uint32_t>((m_rSrcRct.right - m_rSrcRct.left) * m_Settings.dPreviewZoom), static_cast<uint32_t>((m_rSrcRct.bottom - m_rSrcRct.top) * m_Settings.dPreviewZoom));
+    OutputDebugString(strMsg.GetString());
+
     strMsg.Format(L"\tImgRect: w %u to %u, h %u to %u. Preview dimensions %u x %u\r\n", m_rImgRct.left, m_rImgRct.right, m_rImgRct.top, m_rImgRct.bottom, (m_rImgRct.right - m_rImgRct.left), (m_rImgRct.bottom - m_rImgRct.top));
     OutputDebugString(strMsg.GetString());
     strMsg.Format(L"\tMainLayout: %u x %u\r\n", m_MainLayout.width, m_MainLayout.height);

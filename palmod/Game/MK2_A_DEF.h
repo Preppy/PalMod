@@ -368,7 +368,7 @@ const sGame_PaletteDataset MK2_A_SHAOKAHN_PALETTES[] =
 
 const sGame_PaletteDataset MK2_A_ShaoKahn_Effects[] =
 {
-    { L"Shoulder Tackle", 0x3cea2, 0x3cf22 },
+    { L"Shoulder Tackle", 0x3cea2, 0x3cf22, indexMK2ASprites_ShaoKahn },
     { L"Javelin", 0x5ced4, 0x5cf14 },
     { L"Defeated", 0x5cf58, 0x5cfb8 },
     { L"Rock Debris", 0x34ab6, 0x34b0c },
