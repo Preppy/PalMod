@@ -180,11 +180,11 @@ const sGame_PaletteDataset FatalFury3_A_CHONSHU_PALETTES_P2[] =
 
 const sGame_PaletteDataset FatalFury3_A_PORTRAITS_PALETTES_PERS[] =
 {
-    { L"Servant at Bob stage", 0xd1080, 0xd10a0 },
-    { L"Billy with Guesse", 0xd10a0, 0xd10c0 },
-    { L"Franco utility worker", 0xd10c0, 0xd10e0 },
-    { L"Hwa Jai whith Joe", 0xd10e0, 0xd1100 },
-    { L"Marie' companion dog and Terry companion monkey", 0xd1100, 0xd1120 },
+    { L"Richard Meyer with Bob",    0xd1080, 0xd10a0, indexRBFF1Sprites_Bonus, 0x00 },
+    { L"Billy with Guesse",         0xd10a0, 0xd10c0, indexRBFF1Sprites_Bonus, 0x01 },
+    { L"Franco utility worker",     0xd10c0, 0xd10e0, indexRBFF1Sprites_Bonus, 0x02 },
+    { L"Hwa Jai whith Joe",         0xd10e0, 0xd1100, indexRBFF1Sprites_Bonus, 0x03 },
+    { L"Mary's pet dog Anton",      0xd1100, 0xd1120, indexRBFF1Sprites_Bonus, 0x04 },
 };
 
 const sGame_PaletteDataset FatalFury3_A_PORTRAITS_PALETTES_PVP[] =
@@ -316,22 +316,22 @@ const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_ENEMY[] =
 
 const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG[] =
 {
-    { L"Fatal Fury 3 Next Stage", 0xd1d00, 0xd1d20 },
-    { L"Jin Chonshu dialog", 0xe63c0, 0xe63e0 },
-    { L"Defeat Jin Chonshu", 0xe6440, 0xe6460 },
-    { L"Anger Jin Chonrei dialog", 0xe6460, 0xe6480 },
-    { L"Franco dialog", 0xe64c0, 0xe64e0 },
-    { L"Hon-Fu dialog", 0xe64e0, 0xe6500 },
-    { L"Bob dialog", 0xe6540, 0xe6560 },
-    { L"Blue Mary dialog", 0xe6560, 0xe6580 },
-    { L"Sokaku Mochizuki dialog", 0xe65c0, 0xe65e0 },
-    { L"Guess dialog", 0xe65e0, 0xe6600 },
-    { L"Ryuji Yamazaki dialog", 0xe6640, 0xe6660 },
-    { L"Terry dialog", 0xe6780, 0xe67a0 },
-    { L"Andy dialog", 0xe67a0, 0xe67c0 },
-    { L"Joe dialog", 0xe67c0, 0xe67e0 },
-    { L"Mai dialog", 0xe67e0, 0xe6800 },
-    { L"Next Stage dialog enemy", 0xe68a0, 0xe68c0 },
+    { L"Fatal Fury 3 Next Stage",   0xd1d00, 0xd1d20 },
+    { L"Jin Chonshu dialog",        0xe63c0, 0xe63e0 },
+    { L"Defeat Jin Chonshu",        0xe6440, 0xe6460 },
+    { L"Anger Jin Chonrei dialog",  0xe6460, 0xe6480 },
+    { L"Franco dialog",             0xe64c0, 0xe64e0 },
+    { L"Hon-Fu dialog",             0xe64e0, 0xe6500 },
+    { L"Bob dialog",                0xe6540, 0xe6560 },
+    { L"Blue Mary dialog",          0xe6560, 0xe6580 },
+    { L"Sokaku Mochizuki dialog",   0xe65c0, 0xe65e0 },
+    { L"Guess dialog",              0xe65e0, 0xe6600 },
+    { L"Ryuji Yamazaki dialog",     0xe6640, 0xe6660 },
+    { L"Terry dialog",              0xe6780, 0xe67a0 },
+    { L"Andy dialog",               0xe67a0, 0xe67c0 },
+    { L"Joe dialog",                0xe67c0, 0xe67e0 },
+    { L"Mai dialog",                0xe67e0, 0xe6800 },
+    { L"Next Stage dialog enemy",   0xe68a0, 0xe68c0 },
 };
 
 const sGame_PaletteDataset FatalFury3_A_STAGES_TerryBogard_Palettes[] =
