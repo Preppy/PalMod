@@ -2,6 +2,8 @@
 #include "GameClassByDir.h"
 #include "SFIII2_A_DEF.h"
 
+constexpr auto SFIII2_COUNT_PALETTES = 869;
+
 class CGame_SFIII2_A : public CGameClassByDir
 {
 private:
@@ -29,7 +31,7 @@ private:
         SFIII2_A_50_UNITS,
         ARRAYSIZE(SFIII2_A_50_UNITS),
         L"SFIII2e.txt",             // Extra filename
-        869,                        // Count of palettes listed in the header
+        SFIII2_COUNT_PALETTES,      // Count of palettes listed in the header
         0x398000,                   // Lowest known location used for palettes
     };
 
