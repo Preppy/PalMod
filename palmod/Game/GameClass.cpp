@@ -191,7 +191,9 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
         case ColMode::COLMODE_xRGB1555_BE:
         case ColMode::COLMODE_RGBx5551_BE:
         case ColMode::COLMODE_RGB555_LE_NORMAL:
+        case ColMode::COLMODE_RGB555_LE_CPS3:
         case ColMode::COLMODE_RGB555_BE_NORMAL:
+        case ColMode::COLMODE_RGB555_BE_CPS3:
         case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_GRB555_BE:
@@ -200,23 +202,10 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
             Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_32Steps;
             GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_1Step;
             Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_1Step;
-            GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB555_Normal;
+            GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB555;
             GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
-            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
+            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
             break;
-
-        case ColMode::COLMODE_RGB555_LE_CPS3:
-        case ColMode::COLMODE_RGB555_BE_CPS3:
-            m_nSizeOfColorsInBytes = 2;
-            GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_31Steps;
-            Get8BitValueForColorStep_RGB = &ColorSystem::Get8BitValueForColorStep_31Steps;
-            GetColorStepFor8BitValue_A = &ColorSystem::GetColorStepFor8BitValue_1Step;
-            Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_1Step;
-            GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_RGB555_CPS3;
-            GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
-            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_CPS3;
-            break;
-
         case ColMode::COLMODE_RGB555_SHARP_CLUT:
             m_nSizeOfColorsInBytes = 2;
             GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
@@ -225,7 +214,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
             Get8BitValueForColorStep_A = &ColorSystem::GetNearestLegalColorValue_RGB111;
             GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_SharpCLUT;
             GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_SharpCLUT;
-            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
+            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
             break;
 
         case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
@@ -236,7 +225,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
             Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
             GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
             GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
-            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
+            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
             break;
 
         case ColMode::COLMODE_NEOTURFMASTERS:
@@ -247,7 +236,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
             Get8BitValueForColorStep_A = &ColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
             GetNearestLegal8BitColorValue_RGB = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
             GetNearestLegal8BitColorValue_A = &ColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
-            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555_Normal;
+            ValidateColorStep = &ColorSystem::ValidateColorStep_RGB555;
             break;
 
         case ColMode::COLMODE_RGBA8881:

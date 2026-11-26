@@ -30,8 +30,7 @@ namespace ColorSystem
     const int k_nRGBPlaneAmtForRGB222 = 3;
     const int k_nRGBPlaneAmtForRGB333 = 7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
-    const int k_nRGBPlaneAmtForRGB555_CPS3 = 30;
-    const int k_nRGBPlaneAmtForRGB555_Normal = 31;
+    const int k_nRGBPlaneAmtForRGB555 = 31;
     // The 64 color NeoGeo color table is split bright/dark, but we only use bright
     const int k_nRGBPlaneAmtForNeoGeo = 31;
     const int k_nRGBPlaneAmtForHalfAlpha = 0x80;
@@ -338,7 +337,9 @@ namespace ColorSystem
             case ColMode::COLMODE_xRGB1555_BE:
             case ColMode::COLMODE_RGBx5551_BE:
             case ColMode::COLMODE_RGB555_LE_NORMAL:
+            case ColMode::COLMODE_RGB555_LE_CPS3:
             case ColMode::COLMODE_RGB555_BE_NORMAL:
+            case ColMode::COLMODE_RGB555_BE_CPS3:
             case ColMode::COLMODE_GRB555_LE:
             case ColMode::COLMODE_GRB555_BE:
             case ColMode::COLMODE_BRG555_LE:
@@ -349,18 +350,8 @@ namespace ColorSystem
                 }
                 else
                 {
-                    return k_nRGBPlaneAmtForRGB555_Normal;
+                    return k_nRGBPlaneAmtForRGB555;
                 }
-            case ColMode::COLMODE_RGB555_LE_CPS3:
-                if (Flag == ColFlag::COL_A)
-                {
-                    return k_nRGBPlaneAmtForRGB111;
-                }
-                else
-                {
-                    return k_nRGBPlaneAmtForRGB555_CPS3;
-                }
-
             case ColMode::COLMODE_RGB666_NEOGEO_CLUT:
             case ColMode::COLMODE_NEOTURFMASTERS:
                 return k_nRGBPlaneAmtForNeoGeo;
@@ -381,7 +372,7 @@ namespace ColorSystem
                 }
                 else
                 {
-                    return k_nRGBPlaneAmtForRGB555_Normal;
+                    return k_nRGBPlaneAmtForRGB555;
                 }
             case ColMode::COLMODE_RGBA8887:
                 if (Flag == ColFlag::COL_A)
@@ -1819,24 +1810,6 @@ namespace ColorSystem
         return nColorValue;
     }
 
-    int GetColorStepFor8BitValue_31Steps(uint8_t nColorValue)
-    {
-        const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555_CPS3));
-
-        return nStep;
-    }
-
-    uint8_t Get8BitValueForColorStep_31Steps(int nColorStep)
-    {
-        nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555_CPS3);
-        nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555_CPS3);
-
-        // establish about where we should be
-        const uint8_t nColorValue = static_cast<uint8_t>(k_nRGBPlaneMulForRGB555_CPS3 * nColorStep);
-
-        return nColorValue;
-    }
-
     int GetColorStepFor8BitValue_32Steps(uint8_t nColorValue)
     {
         const int nStep = static_cast<int>(round(nColorValue / k_nRGBPlaneMulForRGB555_Normal));
@@ -1846,8 +1819,8 @@ namespace ColorSystem
 
     uint8_t Get8BitValueForColorStep_32Steps(int nColorStep)
     {
-        nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555_Normal);
-        nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555_Normal);
+        nColorStep = min(nColorStep, k_nRGBPlaneAmtForRGB555);
+        nColorStep = max(nColorStep, -k_nRGBPlaneAmtForRGB555);
 
         // establish about where we should be
         const uint8_t nColorValue = static_cast<uint8_t>(abs(ROUND_8(static_cast<int>(round(k_nRGBPlaneMulForRGB555_Normal * static_cast<double>(nColorStep))))));
@@ -1972,9 +1945,7 @@ namespace ColorSystem
                 return Get8BitValueForColorStep_8Steps(nColorStep);
             case k_nRGBPlaneAmtForRGB444 :
                 return Get8BitValueForColorStep_16Steps(nColorStep);
-            case k_nRGBPlaneAmtForRGB555_CPS3: // 30
-                return Get8BitValueForColorStep_31Steps(nColorStep);
-            case k_nRGBPlaneAmtForRGB555_Normal: //31
+            case k_nRGBPlaneAmtForRGB555: //31
                 // case k_nRGBPlaneAmtForNeoGeo: // also 31
                 if ((colorMode == ColMode::COLMODE_RGB666_NEOGEO_CLUT) ||
                     (colorMode == ColMode::COLMODE_NEOTURFMASTERS))
@@ -2021,7 +1992,7 @@ namespace ColorSystem
         return static_cast<uint8_t>(abs((nColorValue / 8) * 8));
     }
 
-    uint8_t GetNearestLegalColorValue_RGB555_Normal(int nColorValue)
+    uint8_t GetNearestLegalColorValue_RGB555(int nColorValue)
     {
         return static_cast<uint8_t>(abs(ROUND_8(nColorValue)));
     }
@@ -2085,16 +2056,10 @@ namespace ColorSystem
         return min(nColorStep, k_nRGBPlaneAmtForRGB444);
     }
 
-    int ValidateColorStep_RGB555_CPS3(int nColorStep)
+    int ValidateColorStep_RGB555(int nColorStep)
     {
         nColorStep = max(0, nColorStep);
-        return min(nColorStep, k_nRGBPlaneAmtForRGB555_CPS3);
-    }
-
-    int ValidateColorStep_RGB555_Normal(int nColorStep)
-    {
-        nColorStep = max(0, nColorStep);
-        return min(nColorStep, k_nRGBPlaneAmtForRGB555_Normal);
+        return min(nColorStep, k_nRGBPlaneAmtForRGB555);
     }
 
     int ValidateColorStep_RGB888(int nColorStep)

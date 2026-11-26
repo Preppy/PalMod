@@ -185,8 +185,6 @@ namespace ColorSystem
     uint8_t Get8BitValueForColorStep_8Steps(int nColorStep);
     int GetColorStepFor8BitValue_16Steps(uint8_t nColorValue);
     uint8_t Get8BitValueForColorStep_16Steps(int nColorStep);
-    int GetColorStepFor8BitValue_31Steps(uint8_t nColorValue);
-    uint8_t Get8BitValueForColorStep_31Steps(int nColorStep);
     int GetColorStepFor8BitValue_32Steps(uint8_t nColorValue);
     uint8_t Get8BitValueForColorStep_32Steps(int nColorStep);
     int GetColorStepFor8BitValue_32Steps_SharpCLUT(uint8_t nColorValue);
@@ -205,8 +203,7 @@ namespace ColorSystem
     uint8_t GetNearestLegalColorValue_RGB222(int nColorValue);
     uint8_t GetNearestLegalColorValue_RGB333(int nColorValue);
     uint8_t GetNearestLegalColorValue_RGB444(int nColorValue);
-    uint8_t GetNearestLegalColorValue_RGB555_CPS3(int nColorValue);
-    uint8_t GetNearestLegalColorValue_RGB555_Normal(int nColorValue);
+    uint8_t GetNearestLegalColorValue_RGB555(int nColorValue);
     uint8_t GetNearestLegalColorValue_SharpCLUT(int nColorValue);
     uint8_t GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue);
     // This is a weird 0...0x80 nonsense space.
@@ -216,8 +213,7 @@ namespace ColorSystem
     int ValidateColorStep_RGB222(int nColorStep);
     int ValidateColorStep_RGB333(int nColorStep);
     int ValidateColorStep_RGB444(int nColorStep);
-    int ValidateColorStep_RGB555_CPS3(int nColorStep);
-    int ValidateColorStep_RGB555_Normal(int nColorStep);
+    int ValidateColorStep_RGB555(int nColorStep);
     int ValidateColorStep_RGB888(int nColorStep);
 
     AlphaMode GetAlphaMode();

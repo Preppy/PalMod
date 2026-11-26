@@ -86,7 +86,14 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     }
     else
     {
-        OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size.  Can't load extras here.\r\n");
+        if (nConfirmedROMSize == INVALID_VALUE_32)
+        {
+            OutputDebugString(L"CGameClassByDir::InitializeGame:: Extra loading turned off by caller.  Won't load extras here.\r\n");
+        }
+        else
+        {
+            OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size.  Can't load extras here.\r\n");
+        }
         m_nConfirmedROMSize = static_cast<size_t>(-1);
     }
 
